@@ -2,6 +2,8 @@
 ================================================================
 https://www.st.com/en/microcontrollers-microprocessors/stm32f411.html
 
+https://www.st.com/resource/zh/reference_manual/rm0383-stm32f411xce-advanced-armbased-32bit-mcus-stmicroelectronics.pdf
+
                                             November 2018 RM0383 Rev 3
 
                                                                 RM0383
@@ -65,7 +67,10 @@ Series, STM32L4 Series and STM32L4+ Series Cortex®-M4 programming manual (PM021
 *   3.5.3 Erase . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P49]
 *   3.5.4 Programming . . . . . . . . . . . . . . . . . . . . . . . . . . [P50]
 
-                            <!-- RM0383 Rev 3 *P3*/844 RM0383 Contents 23 -->
+<!-- *P3*/844 -->
+[P3]: #P3
+<a id="P3"></a>
+
 
 *   3.5.5 Interrupts . . . . . . . . . . . . . . . . . . . . . . . . . . .[P51]
 *   3.6 Option bytes . . . . . . . . . . . . . . . . . . . . . . . . . . .[P51]
@@ -102,7 +107,10 @@ Series, STM32L4 Series and STM32L4+ Series Cortex®-M4 programming manual (PM021
 *   5.2.2 Brownout reset (BOR) . . . . . . . . . . . . . . . . . . . . . .[P74]
 *   5.2.3 Programmable voltage detector (PVD) . . . . . . . . . . . . . . [P75]
 
-                            <!-- Contents RM0383 *P4*/844 RM0383 Rev 3 -->
+<!-- *P4*/844 -->
+[P4]: #P4
+<a id="P4"></a>
+
 
 *   5.3 Low-power modes . . . . . . . . . . . . . . . . . . . . . . . . . [P75]
 *   5.3.1 Slowing down system clocks . . . . . . . . . . . . . . . . . . .[P77]
@@ -140,7 +148,10 @@ Series, STM32L4 Series and STM32L4+ Series Cortex®-M4 programming manual (PM021
 *   6.3.5 RCC AHB1 peripheral reset register (RCC_AHB1RSTR) . . . . . . . [P111]
 *   6.3.6 RCC AHB2 peripheral reset register (RCC_AHB2RSTR) . . . . . . . [P113]
 
-                            <!-- RM0383 Rev 3 *P5*/844 RM0383 Contents 23 -->
+<!-- *P5*/844 -->
+[P5]: #P5
+<a id="P5"></a>
+
 
 *   6.3.7 RCC APB1 peripheral reset register for (RCC_APB1RSTR) . . . . . [P113]
 *   6.3.8 RCC APB2 peripheral reset register (RCC_APB2RSTR) . . . . . . . [P115]
@@ -172,7 +183,10 @@ Series, STM32L4 Series and STM32L4+ Series Cortex®-M4 programming manual (PM021
 * 8 General-purpose I/Os (GPIO) . . . . . . . . . . . . . . . . . . . . [P145]
 *   8.1 GPIO introduction . . . . . . . . . . . . . . . . . . . . . . . . [P145]
 
-                            <!-- Contents RM0383 *P6*/844 RM0383 Rev 3 -->
+<!-- *P6*/844 -->
+[P6]: #P6
+<a id="P6"></a>
+
 
 *   8.2 GPIO main features . . . . . . . . . . . . . . . . . . . . . . . .[P145]
 *   8.3 GPIO functional description . . . . . . . . . . . . . . . . . . . [P145]
@@ -206,7 +220,10 @@ Series, STM32L4 Series and STM32L4+ Series Cortex®-M4 programming manual (PM021
 * 9 DMA controller (DMA) . . . . . . . . . . . . . . . . . . . . . . . .[P165]
 *   9.1 DMA introduction . . . . . . . . . . . . . . . . . . . . . . . . .[P165]
 
-                            <!-- RM0383 Rev 3 *P7*/844 RM0383 Contents 23 -->
+<!-- *P7*/844 -->
+[P7]: #P7
+<a id="P7"></a>
+
 
 *   9.2 DMA main features . . . . . . . . . . . . . . . . . . . . . . . . [P165]
 *   9.3 DMA functional description . . . . . . . . . . . . . . . . . . . .[P167]
@@ -245,7 +262,10 @@ Series, STM32L4 Series and STM32L4+ Series Cortex®-M4 programming manual (PM021
 *   10.1 Nested vectored interrupt controller (NVIC) . . . . . . . . . . .[P201]
 *   10.1.1 NVIC features . . . . . . . . . . . . . . . . . . . . . . . . .[P201]
 
-                            <!-- Contents RM0383 *P8*/844 RM0383 Rev 3 -->
+<!-- *P8*/844 -->
+[P8]: #P8
+<a id="P8"></a>
+
 
 *   10.1.2 SysTick calibration value register . . . . . . . . . . . . . . [P201]
 *   10.1.3 Interrupt and exception vectors . . . . . . . . . . . . . . . .[P201]
@@ -283,7 +303,10 @@ Series, STM32L4 Series and STM32L4+ Series Cortex®-M4 programming manual (PM021
 *   11.7 Fast conversion mode . . . . . . . . . . . . . . . . . . . . . . [P223]
 *   11.8 Data management . . . . . . . . . . . . . . . . . . . . . . . . .[P224]
 
-                            <!-- RM0383 Rev 3 *P9*/844 RM0383 Contents 23 -->
+<!-- *P9*/844 -->
+[P9]: #P9
+<a id="P9"></a>
+
 
 *   11.8.1 Using the DMA . . . . . . . . . . . . . . . . . . . . . . . . .[P224]
 *   11.8.2 Managing a sequence of conversions without using the DMA . . . [P224]
@@ -321,7 +344,10 @@ Series, STM32L4 Series and STM32L4+ Series Cortex®-M4 programming manual (PM021
 *   12.3.7 PWM input mode . . . . . . . . . . . . . . . . . . . . . . . . [P265]
 *   12.3.8 Forced output mode . . . . . . . . . . . . . . . . . . . . . . [P265]
 
-                            <!-- Contents RM0383 *P10*/844 RM0383 Rev 3 -->
+<!-- *P10*/844 -->
+[P10]: #P10
+<a id="P10"></a>
+
 
 *   12.3.9 Output compare mode . . . . . . . . . . . . . . . . . . . . . .[P266]
 *   12.3.10 PWM mode . . . . . . . . . . . . . . . . . . . . . . . . . . .[P267]
@@ -360,7 +386,10 @@ Series, STM32L4 Series and STM32L4+ Series Cortex®-M4 programming manual (PM021
 *   12.4.21 TIM1 register map . . . . . . . . . . . . . . . . . . . . . . [P313]
 *   13 General-purpose timers (TIM2 to TIM5) . . . . . . . . . . . . . . .[P315]
 
-                            <!-- RM0383 Rev 3 *P11*/844 RM0383 Contents 23 -->
+<!-- *P11*/844 -->
+[P11]: #P11
+<a id="P11"></a>
+
 
 *   13.1 TIM2 to TIM5 introduction . . . . . . . . . . . . . . . . . . . .[P315]
 *   13.2 TIM2 to TIM5 main features . . . . . . . . . . . . . . . . . . . [P315]
@@ -400,7 +429,10 @@ Series, STM32L4 Series and STM32L4+ Series Cortex®-M4 programming manual (PM021
 *   13.4.16 TIMx capture/compare register 4 (TIMx_CCR4) . . . . . . . . . [P369]
 *   13.4.17 TIMx DMA control register (TIMx_DCR) . . . . . . . . . . . . .[P370]
 
-                            <!-- Contents RM0383 *P12*/844 RM0383 Rev 3 -->
+<!-- *P12*/844 -->
+[P12]: #P12
+<a id="P12"></a>
+
 
 *   13.4.18 TIMx DMA address for full transfer (TIMx_DMAR) . . . . . . . .[P371]
 *   13.4.19 TIM2 option register (TIM2_OR) . . . . . . . . . . . . . . . .[P372]
@@ -439,7 +471,10 @@ Series, STM32L4 Series and STM32L4+ Series Cortex®-M4 programming manual (PM021
 *   14.4.11 TIM9 capture/compare register 1 (TIMx_CCR1) . . . . . . . . . [P408]
 *   14.4.12 TIM9 capture/compare register 2 (TIMx_CCR2) . . . . . . . . . [P408]
 
-                            <!-- RM0383 Rev 3 *P13*/844 RM0383 Contents 23 -->
+<!-- *P13*/844 -->
+[P13]: #P13
+<a id="P13"></a>
+
 
 *   14.4.13 TIM9 register map . . . . . . . . . . . . . . . . . . . . . . [P409]
 *   14.5 TIM10/11 registers . . . . . . . . . . . . . . . . . . . . . . . [P411]
@@ -476,7 +511,10 @@ Series, STM32L4 Series and STM32L4+ Series Cortex®-M4 programming manual (PM021
 *   16.5 Debug mode . . . . . . . . . . . . . . . . . . . . . . . . . . . [P429]
 *   16.6 WWDG registers . . . . . . . . . . . . . . . . . . . . . . . . . [P430]
 
-                            <!-- Contents RM0383 *P14*/844 RM0383 Rev 3 -->
+<!-- *P14*/844 -->
+[P14]: #P14
+<a id="P14"></a>
+
 
 *   16.6.1 Control register (WWDG_CR) . . . . . . . . . . . . . . . . . . [P430]
 *   16.6.2 Configuration register (WWDG_CFR) . . . . . . . . . . . . . . .[P431]
@@ -514,7 +552,10 @@ Series, STM32L4 Series and STM32L4+ Series Cortex®-M4 programming manual (PM021
 *   17.6.8 RTC alarm A register (RTC_ALRMAR) . . . . . . . . . . . . . . .[P459]
 *   17.6.9 RTC alarm B register (RTC_ALRMBR) . . . . . . . . . . . . . . .[P460]
 
-                            <!-- RM0383 Rev 3 *P15*/844 RM0383 Contents 23 -->
+<!-- *P15*/844 -->
+[P15]: #P15
+<a id="P15"></a>
+
 
 *   17.6.10 RTC write protection register (RTC_WPR) . . . . . . . . . . . [P461]
 *   17.6.11 RTC sub second register (RTC_SSR) . . . . . . . . . . . . . . [P461]
@@ -552,7 +593,10 @@ Series, STM32L4 Series and STM32L4+ Series Cortex®-M4 programming manual (PM021
 *   18.6.6 I2C Status register 1 (I2C_SR1) . . . . . . . . . . . . . . .[P497]
 *   18.6.7 I2C Status register 2 (I2C_SR2) . . . . . . . . . . . . . . .[P500]
 
-                            <!-- Contents RM0383 *P16*/844 RM0383 Rev 3 -->
+<!-- *P16*/844 -->
+[P16]: #P16
+<a id="P16"></a>
+
 
 *   18.6.8 I2C Clock control register (I2C_CCR) . . . . . . . . . . . . [P502]
 *   18.6.9 I2C TRISE register (I2C_TRISE) . . . . . . . . . . . . . . . [P503]
@@ -589,7 +633,10 @@ Series, STM32L4 Series and STM32L4+ Series Cortex®-M4 programming manual (PM021
 *   19.6.8 USART register map . . . . . . . . . . . . . . . . . . . . . . [P557]
 *   20 Serial peripheral interface (SPI) . . . . . . . . . . . . . . . . .[P558]
 
-                            <!-- RM0383 Rev 3 *P17*/844 RM0383 Contents 23 -->
+<!-- *P17*/844 -->
+[P17]: #P17
+<a id="P17"></a>
+
 
 *   20.1 SPI introduction . . . . . . . . . . . . . . . . . . . . . . . . [P558]
 *   20.2 SPI and I2S main features . . . . . . . . . . . . . . . . . . . .[P559]
@@ -628,7 +675,10 @@ Series, STM32L4 Series and STM32L4+ Series Cortex®-M4 programming manual (PM021
 *   20.5.7 SPI TX CRC register (SPI_TXCRCR)(not used in I2S mode) . . . . [P607]
 *   20.5.8 SPI_I2S configuration register (SPI_I2SCFGR) . . . . . . . . . [P607]
 
-                            <!-- Contents RM0383 *P18*/844 RM0383 Rev 3 -->
+<!-- *P18*/844 -->
+[P18]: #P18
+<a id="P18"></a>
+
 
 *   20.5.9 SPI_I2S prescaler register (SPI_I2SPR) . . . . . . . . . . . . [P608]
 *   20.5.10 SPI register map . . . . . . . . . . . . . . . . . . . . . . .[P610]
@@ -666,7 +716,10 @@ Series, STM32L4 Series and STM32L4+ Series Cortex®-M4 programming manual (PM021
 *   21.6.1 SDIO I/O read wait operation by SDIO_D2 signaling . . . . . . .[P650]
 *   21.6.2 SDIO read wait operation by stopping SDIO_CK . . . . . . . . . [P650]
 
-                            <!-- RM0383 Rev 3 *P19*/844 RM0383 Contents 23 -->
+<!-- *P19*/844 -->
+[P19]: #P19
+<a id="P19"></a>
+
 
 *   21.6.3 SDIO suspend/resume operation . . . . . . . . . . . . . . . . .[P650]
 *   21.6.4 SDIO interrupts . . . . . . . . . . . . . . . . . . . . . . . .[P650]
@@ -704,7 +757,10 @@ Series, STM32L4 Series and STM32L4+ Series Cortex®-M4 programming manual (PM021
 *   22.3.2 OTG full-speed core . . . . . . . . . . . . . . . . . . . . . .[P671]
 *   22.3.3 Full-speed OTG PHY . . . . . . . . . . . . . . . . . . . . . . [P672]
 
-                            <!-- Contents RM0383 *P20*/844 RM0383 Rev 3 -->
+<!-- *P20*/844 -->
+[P20]: #P20
+<a id="P20"></a>
+
 
 *   22.4 OTG dual role device (DRD) . . . . . . . . . . . . . . . . . . . [P673]
 *   22.4.1 ID line detection . . . . . . . . . . . . . . . . . . . . . . .[P673]
@@ -742,7 +798,10 @@ Series, STM32L4 Series and STM32L4+ Series Cortex®-M4 programming manual (PM021
 *   22.16.3 Host-mode registers . . . . . . . . . . . . . . . . . . . . . [P720]
 *   22.16.4 Device-mode registers . . . . . . . . . . . . . . . . . . . . [P730]
 
-                            <!-- RM0383 Rev 3 *P21*/844 RM0383 Contents 23 -->
+<!-- *P21*/844 -->
+[P21]: #P21
+<a id="P21"></a>
+
 
 *   22.16.5 OTG_FS power and clock gating control register (OTG_FS_PCGCCTL) [P753]
 *   22.16.6 OTG_FS register map . . . . . . . . . . . . . . . . . . . . . [P754]
@@ -779,7 +838,10 @@ Series, STM32L4 Series and STM32L4+ Series Cortex®-M4 programming manual (PM021
 *   23.8.4 DP and AP read/write accesses . . . . . . . . . . . . . . . . .[P818]
 *   23.8.5 SW-DP registers . . . . . . . . . . . . . . . . . . . . . . . .[P819]
 
-                            <!-- Contents RM0383 *P22*/844 RM0383 Rev 3 -->
+<!-- *P22*/844 -->
+[P22]: #P22
+<a id="P22"></a>
+
 
 *   23.8.6 SW-AP registers . . . . . . . . . . . . . . . . . . . . . . . .[P820]
 *   23.9 AHB-AP (AHB access port) - valid for both JTAG-DP and SW-DP . . .[P820]
@@ -816,12 +878,19 @@ Series, STM32L4 Series and STM32L4+ Series Cortex®-M4 programming manual (PM021
 *   24 Device electronic signature . . . . . . . . . . . . . . . . . . . .[P838]
 *   24.1 Unique device ID register (96 bits) . . . . . . . . . . . . . . .[P838]
 
-                            <!-- RM0383 Rev 3 *P23*/844 RM0383 Contents 23 -->
+<!-- *P23*/844 -->
+[P23]: #P23
+<a id="P23"></a>
+
 
 *   24.2 Flash size . . . . . . . . . . . . . . . . . . . . . . . . . . . [P839]
 *   25 Revision history . . . . . . . . . . . . . . . . . . . . . . . . . [P840]
+*   Index . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P841]
 
-                        <!-- List of tables RM0383 **P24**/844 RM0383 Rev 3 -->
+<!-- *P24*/844 -->
+[P24]: #P24
+<a id="P24"></a>
+
 
 //List of tables
 -----------------------------------------------------------------------
@@ -1285,7 +1354,10 @@ toggle (t) Software can only toggle this bit by writing ‘1’. Writing ‘0’
 Reserved (Res.) Reserved bit, must be kept at reset value.
 
 
-                                                <!-- *P35*/844 -->
+<!-- *P35*/844 -->
+[P35]: #P35
+<a id="P35"></a>
+
 
 
 //1.2 Glossary
@@ -1324,7 +1396,10 @@ For information on the availability and the number of instances of each peripher
 the STM32F411xC/E datasheet.
 
 
-                                                <!-- *P36*/844 -->
+<!-- *P36*/844 -->
+[P36]: #P36
+<a id="P36"></a>
+
 
 /2 Memory and bus architecture
 ==============================
@@ -1348,7 +1423,13 @@ interconnects:
 – AHB2 peripherals
 The bus matrix provides access from a master to a slave, enabling concurrent access and
 efficient operation even when several high-speed peripherals work simultaneously. This
-architecture is shown in Figure 1.
+architecture is shown in [Figure 1].
+
+[Figure 1]: "#Figure%201"
+<a id="Figure 1"></a>
+
+[Figure 1]: "Figure%201"
+<a id="Figure 1"></a>
 
 **Figure 1**. System architecture
 
@@ -1387,7 +1468,10 @@ architecture is shown in Figure 1.
 ????
 
 
-                                                <!-- *P37*/844 -->
+<!-- *P37*/844 -->
+[P37]: #P37
+<a id="P37"></a>
+
 
 
 //2.1.1 I-bus
@@ -1440,15 +1524,20 @@ round-robin algorithm.
 The two AHB/APB bridges, APB1 and APB2, provide full synchronous connections between
 the AHB and the two APB buses, allowing flexible selection of the peripheral frequency.
 Refer to the device datasheets for more details on APB1 and APB2 maximum frequencies,
-and to Table 1 for the address mapping of AHB and APB peripherals.
+and to [Table 1] for the address mapping of AHB and APB peripherals.
 After each device reset, all peripheral clocks are disabled (except for the SRAM and Flash
 memory interface). Before using a peripheral you have to enable its clock in the
 RCC_AHBxENR or RCC_APBxENR register.
-Note: When a 16- or an 8-bit access is performed on an APB register, the access is transformed
+
+> [!NOTE]
+> When a 16- or an 8-bit access is performed on an APB register, the access is transformed
 into a 32-bit access: the bridge duplicates the 16- or 8-bit data to feed the 32-bit vector.
 
 
-                                                <!-- *P38*/844 -->
+<!-- *P38*/844 -->
+[P38]: #P38
+<a id="P38"></a>
+
 
 //2.2 Memory organization
 -------------------------
@@ -1467,10 +1556,13 @@ considered “Reserved”). Refer to the memory map figure in the product datash
 ----------------
 
 See the datasheet corresponding to your device for a comprehensive diagram of the
-memory map. Table 1 gives the boundary addresses of the peripherals available in
+memory map. [Table 1] gives the boundary addresses of the peripherals available in
 STM32F411xC/E device.
 
 
+
+[Table 1]: "Table%201"
+<a id="Table 1"></a>
 
 **Table 1**. STM32F411xC/E register boundary addresses
 
@@ -1497,7 +1589,10 @@ Section 8.4.11: GPIO register map on page 163
 0x4002 0000 - 0x4002 03FF GPIOA
 
 
-                                                <!-- *P39*/844 -->
+<!-- *P39*/844 -->
+[P39]: #P39
+<a id="P39"></a>
+
 
 0x4001 5000 - 0x4001 53FFF SPI5/I2S5
 APB2
@@ -1538,11 +1633,14 @@ Section 13.4.21: TIMx register map on page 373
 0x4000 0800 - 0x4000 0BFF TIM4
 0x4000 0400 - 0x4000 07FF TIM3
 0x4000 0000 - 0x4000 03FF TIM2
-Table 1. STM32F411xC/E register boundary addresses (continued)
+[Table 1]. STM32F411xC/E register boundary addresses (continued)
 Boundary address Peripheral Bus Register map
 
 
-                                                <!-- *P40*/844 -->
+<!-- *P40*/844 -->
+[P40]: #P40
+<a id="P40"></a>
+
 
 //2.3.1 Embedded SRAM
 ---------------------
@@ -1594,7 +1692,10 @@ targeted bit
 – bit_number is the bit position (0-7) of the targeted bit
 
 
-                                                <!-- *P41*/844 -->
+<!-- *P41*/844 -->
+[P41]: #P41
+<a id="P41"></a>
+
 
 Example
 The following example shows how to map bit 2 of the byte located at SRAM address
@@ -1617,7 +1718,7 @@ fetches the reset vector on the ICode bus, which implies to have the boot space 
 only in the code area (typically, Flash memory). STM32F4xx microcontrollers implement a
 special mechanism to be able to boot from other memories (like the internal SRAM).
 In the STM32F4xx, three different boot modes can be selected through the BOOT[1:0] pins
-as shown in Table 2.
+as shown in [Table 2].
 
 The values on the BOOT pins are latched on the 4th rising edge of SYSCLK after a reset. It
 is up to the user to set the BOOT1 and BOOT0 pins after reset to select the required boot
@@ -1628,8 +1729,13 @@ The BOOT pins are also resampled when the device exits the Standby mode. Consequ
 they must be kept in the required Boot mode configuration when the device is in the Standby
 mode. After this startup delay is over, the CPU fetches the top-of-stack value from address
 0x0000 0000, then starts code execution from the boot memory starting from 0x0000 0004.
-Note: When the device boots from SRAM, in the application initialization code, you have to
+
+> [!NOTE]
+> When the device boots from SRAM, in the application initialization code, you have to
 relocate the vector table in SRAM using the NVIC exception table and the offset register.
+
+[Table 2]: "Table%202"
+<a id="Table 2"></a>
 
 **Table 2**. Boot modes
 
@@ -1641,7 +1747,10 @@ x 0 Main Flash memory Main Flash memory is selected as the boot space
 1 1 Embedded SRAM Embedded SRAM is selected as the boot space
 
 
-                                                <!-- *P42*/844 -->
+<!-- *P42*/844 -->
+[P42]: #P42
+<a id="P42"></a>
+
 Embedded bootloader
 The embedded bootloader mode is used to reprogram the Flash memory using one of the
 following serial interfaces:
@@ -1669,6 +1778,9 @@ The following memories can thus be remapped:
 • Embedded SRAM1
 
 
+[Table 3]: "Table%203"
+<a id="Table 3"></a>
+
 **Table 3**. Memory mapping vs. Boot mode/physical remap in STM32F411xC/E
 
 Addresses
@@ -1693,7 +1805,10 @@ System memory
 (30 KB) Aliased
 
 
-                                                <!-- *P43*/844 -->
+<!-- *P43*/844 -->
+[P43]: #P43
+<a id="P43"></a>
+
 
 
 /3 Embedded Flash memory interface
@@ -1718,7 +1833,13 @@ prefetch and cache lines.
 • Prefetch on I-Code
 • 64 cache lines of 128 bits on I-Code
 • 8 cache lines of 128 bits on D-Code
-Figure 2 shows the Flash memory interface connection inside the system architecture.
+[Figure 2] shows the Flash memory interface connection inside the system architecture.
+
+[Figure 2]: "#Figure%202"
+<a id="Figure 2"></a>
+
+[Figure 2]: "Figure%202"
+<a id="Figure 2"></a>
 
 **Figure 2**. Flash memory interface connection inside system architecture
 
@@ -1764,7 +1885,10 @@ Figure 2 shows the Flash memory interface connection inside the system architect
 ????????
 
 
-                                                <!-- *P44*/844 -->
+<!-- *P44*/844 -->
+[P44]: #P44
+<a id="P44"></a>
+
 
 //3.3 Embedded Flash memory in STM32F411xC/E
 --------------------------------------------
@@ -1788,6 +1912,9 @@ software/hardware and reset when the device is in Standby or Stop mode.
 manual)
 
 
+[Table 4]: "Table%204"
+<a id="Table 4"></a>
+
 **Table 4**. Flash module organization (STM32F411xC/E)
 
 Block Name Block base addresses Size
@@ -1805,7 +1932,10 @@ OTP area 0x1FFF 7800 - 0x1FFF 7A0F 528 bytes
 Option bytes 0x1FFF C000 - 0x1FFF C00F 16 bytes
 
 
-                                                <!-- *P45*/844 -->
+<!-- *P45*/844 -->
+[P45]: #P45
+<a id="P45"></a>
+
 
 
 //3.4 Read interface
@@ -1819,7 +1949,7 @@ To correctly read data from Flash memory, the number of wait states (LATENCY) mu
 correctly programmed in the Flash access control register (FLASH_ACR) according to the
 frequency of the CPU clock (HCLK) and the supply voltage of the device.
 The prefetch buffer must be disabled when the supply voltage is below 2.1 V. The
-correspondence between wait states and CPU clock frequency is given in Table 5.
+correspondence between wait states and CPU clock frequency is given in [Table 5].
 - when VOS[1:0] = 0x01, the maximum value of f HCLK = 64 MHz.
 - when VOS[1:0] = 0x10, the maximum value of f HCLK = 84 MHz.
 - when VOS[1:0] = 0x11, the maximum value of f HCLK = 100 MHz.
@@ -1837,6 +1967,9 @@ memory by reading the FLASH_ACR register
 5. Check that the new CPU clock source or/and the new CPU clock prescaler value is/are
 taken into account by reading the clock source status (SWS bits) or/and the AHB
 prescaler value (HPRE bits), respectively, in the RCC_CFGR register.
+
+[Table 5]: "Table%205"
+<a id="Table 5"></a>
 
 **Table 5**. Number of wait states according to CPU clock (HCLK) frequency
 
@@ -1860,7 +1993,10 @@ Voltage range
 6 WS (7 CPU cycles) - - - 96 < HCLK ≤ 100
 
 
-                                                <!-- *P46*/844 -->
+<!-- *P46*/844 -->
+[P46]: #P46
+<a id="P46"></a>
+
 Decreasing the CPU frequency
 1. Modify the CPU clock source by writing the SW bits in the RCC_CFGR register
 2. If needed, modify the CPU clock prescaler by writing the HPRE bits in RCC_CFGR
@@ -1870,7 +2006,9 @@ prescaler value (HPRE bits), respectively, in the RCC_CFGR register
 4. Program the new number of wait states to the LATENCY bits in FLASH_ACR
 5. Check that the new number of wait states is used to access the Flash memory by
 reading the FLASH_ACR register
-Note: A change in CPU clock configuration or wait state (WS) configuration may not be effective
+
+> [!NOTE]
+> A change in CPU clock configuration or wait state (WS) configuration may not be effective
 straight away. To make sure that the current CPU clock frequency is the one you have
 configured, you can check the AHB prescaler factor and clock source status values. To
 make sure that the number of WS you have programmed is effective, you can read the
@@ -1897,12 +2035,21 @@ Prefetch on the I-Code bus can be used to read the next sequential instruction l
 Flash memory while the current instruction line is being requested by the CPU. Prefetch is
 enabled by setting the PRFTEN bit in the FLASH_ACR register. This feature is useful if at
 least one wait state is needed to access the Flash memory.
-Figure 3 shows the execution of sequential 32-bit instructions with and without prefetch
+[Figure 3] shows the execution of sequential 32-bit instructions with and without prefetch
 when 3 WSs are needed to access the Flash memory.
 
 
-                                                <!-- *P47*/844 -->
+<!-- *P47*/844 -->
+[P47]: #P47
+<a id="P47"></a>
 
+
+
+[Figure 3]: "#Figure%203"
+<a id="Figure 3"></a>
+
+[Figure 3]: "Figure%203"
+<a id="Figure 3"></a>
 
 **Figure 3**. Sequential 32-bit instruction execution
 
@@ -2030,7 +2177,10 @@ terms of number of cycles is at least equal to the number of wait states.
 ?????????
 
 
-                                                <!-- *P48*/844 -->
+<!-- *P48*/844 -->
+[P48]: #P48
+<a id="P48"></a>
+
 Instruction cache memory
 To limit the time lost due to jumps, it is possible to retain 64 lines of 128 bits in an instruction
 cache memory. This feature can be enabled by setting the instruction cache enable (ICEN)
@@ -2049,7 +2199,9 @@ databus D-Code have priority over accesses through the AHB instruction bus I-Cod
 If some literal pools are frequently used, the data cache memory can be enabled by setting
 the data cache enable (DCEN) bit in the FLASH_ACR register. This feature works like the
 instruction cache memory, but the retained data size is limited to 8 rows of 128 bits.
-Note: Data in user configuration sector are not cacheable.
+
+> [!NOTE]
+> Data in user configuration sector are not cacheable.
 
 //3.5 Erase and program operations
 ----------------------------------
@@ -2074,12 +2226,17 @@ Any wrong sequence will return a bus error and lock up the FLASH_CR register unt
 next reset.
 The FLASH_CR register can be locked again by software by setting the LOCK bit in the
 FLASH_CR register.
-Note: The FLASH_CR register is not accessible in write mode when the BSY bit in the FLASH_SR
+
+> [!NOTE]
+> The FLASH_CR register is not accessible in write mode when the BSY bit in the FLASH_SR
 register is set. Any attempt to write to it with the BSY bit set will cause the AHB bus to stall
 until the BSY bit is cleared.
 
 
-                                                <!-- *P49*/844 -->
+<!-- *P49*/844 -->
+[P49]: #P49
+<a id="P49"></a>
+
 
 
 //3.5.2 Program/erase parallelism
@@ -2094,9 +2251,11 @@ A Flash memory erase operation can only be performed by sector, or for the whole
 memory (mass erase). The erase time depends on PSIZE programmed value. For more
 details on the erase time, refer to the electrical characteristics section of the device
 datasheet.
-Table 6 provides the correct PSIZE values.
+[Table 6] provides the correct PSIZE values.
 
-Note: Any program or erase operation started with inconsistent program parallelism/voltage range
+
+> [!NOTE]
+> Any program or erase operation started with inconsistent program parallelism/voltage range
 settings may lead to unpredicted results. Even if a subsequent read operation indicates that
 the logical value was effectively written to the memory, this value may not be retained.
 To use V PP , an external high-voltage supply (between 8 and 9 V) must be applied to the V PP
@@ -2120,6 +2279,9 @@ main memory block you wish to erase (SNB) in the FLASH_CR register
 3. Set the STRT bit in the FLASH_CR register
 4. Wait for the BSY bit to be cleared
 
+[Table 6]: "Table%206"
+<a id="Table 6"></a>
+
 **Table 6**. Program/erase parallelism
 
 Voltage range 2.7 - 3.6 V
@@ -2136,7 +2298,10 @@ Parallelism size x64 x32 x16 x8
 PSIZE(1:0) 11 10 01 00
 
 
-                                                <!-- *P50*/844 -->
+<!-- *P50*/844 -->
+[P50]: #P50
+<a id="P50"></a>
+
 Mass Erase
 To perform Mass Erase, the following sequence is recommended:
 1. Check that no Flash memory operation is ongoing by checking the BSY bit in the
@@ -2144,7 +2309,9 @@ FLASH_SR register
 2. Set the MER bit in the FLASH_CR register
 3. Set the STRT bit in the FLASH_CR register
 4. Wait for the BSY bit to be cleared
-Note: If MERx and SER bits are both set in the FLASH_CR register, mass erase is performed.
+
+> [!NOTE]
+> If MERx and SER bits are both set in the FLASH_CR register, mass erase is performed.
 If both MERx and SER bits are reset and the STRT bit is set, an unpredictable behavior may
 occur without generating any error flag. This condition should be forbidden.
 
@@ -2163,7 +2330,9 @@ memory block or OTP area):
 – Word access in case of x32 parallelism
 – Double word access in case of x64 parallelism
 4. Wait for the BSY bit to be cleared.
-Note: Successive write operations are possible without the need of an erase operation when
+
+> [!NOTE]
+> Successive write operations are possible without the need of an erase operation when
 changing bits from ‘1’ to ‘0’. Writing ‘1’ requires a Flash memory erase operation.
 If an erase and a program operation are requested simultaneously, the erase operation is
 performed first.
@@ -2179,7 +2348,10 @@ to write to a Flash memory address when the PG bit is not set), the operation is
 a program sequence error flag (PGSERR) is set in the FLASH_SR register.
 
 
-                                                <!-- *P51*/844 -->
+<!-- *P51*/844 -->
+[P51]: #P51
+<a id="P51"></a>
+
 
 Programming and caches
 If a Flash memory write access concerns some data in the data cache, the Flash write
@@ -2188,7 +2360,9 @@ If an erase operation in Flash memory also concerns data in the data or instruct
 you have to make sure that these data are rewritten before they are accessed during code
 execution. If this cannot be done safely, it is recommended to flush the caches by setting the
 DCRST and ICRST bits in the FLASH_CR register.
-Note: The I/D cache should be flushed only when it is disabled (I/DCEN = 0).
+
+> [!NOTE]
+> The I/D cache should be flushed only when it is disabled (I/DCEN = 0).
 
 //3.5.5 Interrupts
 ------------------
@@ -2203,7 +2377,9 @@ following error flags is set in the FLASH_SR register:
 • WRPERR (Protection error flag)
 In this case, if the error interrupt enable bit (ERRIE) is set in the FLASH_CR register, an
 interrupt is generated and the operation error bit (OPERR) is set in the FLASH_SR register.
-Note: If several successive errors are detected (for example, in case of DMA transfer to the Flash
+
+> [!NOTE]
+> If several successive errors are detected (for example, in case of DMA transfer to the Flash
 memory), the error flags cannot be cleared until the end of the successive write requests.
 
 
@@ -2215,8 +2391,11 @@ memory), the error flags cannot be cleared until the end of the successive write
 ----------------------------------------
 
 The option bytes are configured by the end user depending on the application requirements.
-Table 8 shows the organization of these bytes inside the user configuration sector.
+[Table 8] shows the organization of these bytes inside the user configuration sector.
 
+
+[Table 7]: "Table%207"
+<a id="Table 7"></a>
 
 **Table 7**. Flash interrupt request
 
@@ -2224,6 +2403,9 @@ Interrupt event Event flag Enable control bit
 End of operation EOP EOPIE
 Write protection error WRPERR ERRIE
 Programming error PGAERR, PGPERR, PGSERR ERRIE
+
+[Table 8]: "Table%208"
+<a id="Table 8"></a>
 
 **Table 8**. Option byte organization
 
@@ -2234,8 +2416,14 @@ Write protection nWRP bits for sectors 0 to 7
 (STM32F411xC/E)
 
 
-                                                <!-- *P52*/844 -->
+<!-- *P52*/844 -->
+[P52]: #P52
+<a id="P52"></a>
 
+
+
+[Table 9]: "Table%209"
+<a id="Table 9"></a>
 
 **Table 9**. Description of the option bytes
 
@@ -2284,7 +2472,10 @@ SPRMOD: Selection of Protection Mode of nWPRi bits
 Bits 14:8 Reserved
 
 
-                                                <!-- *P53*/844 -->
+<!-- *P53*/844 -->
+[P53]: #P53
+<a id="P53"></a>
+
 
 
 //3.6.2 Programming user option bytes
@@ -2304,7 +2495,9 @@ FLASH_SR register
 2. Write the desired option value in the FLASH_OPTCR register.
 3. Set the option start bit (OPTSTRT) in the FLASH_OPTCR register
 4. Wait for the BSY bit to be cleared.
-Note: The value of an option is automatically modified by first erasing the user configuration sector
+
+> [!NOTE]
+> The value of an option is automatically modified by first erasing the user configuration sector
 and then programming all the option bytes with the values contained in the FLASH_OPTCR
 register.
 
@@ -2326,10 +2519,13 @@ If SPRMOD is reset (default value) :
 If SPRMOD is set (active):
 0: PCROP protection not active on sector i.
 1: PCROP protection active on sector i.
-Table 9. Description of the option bytes (continued)
+[Table 9]. Description of the option bytes (continued)
 
 
-                                                <!-- *P54*/844 -->
+<!-- *P54*/844 -->
+[P54]: #P54
+<a id="P54"></a>
+
 Flash memory are possible in all boot configurations (Flash user boot, debug or boot
 from RAM).
 
@@ -2374,10 +2570,19 @@ from RAM).
 > perform analysis on defective parts on which the Level 2 protection has been set.
 
 
-                                                <!-- *P55*/844 -->
+<!-- *P55*/844 -->
+[P55]: #P55
+<a id="P55"></a>
 
---
-Figure 4 shows how to go from one RDP level to another.
+
+
+[Figure 4] shows how to go from one RDP level to another.
+
+[Figure 4]: "#Figure%204"
+<a id="Figure 4"></a>
+
+[Figure 4]: "Figure%204"
+<a id="Figure 4"></a>
 
 **Figure 4**. RDP levels
 
@@ -2390,6 +2595,9 @@ unwanted write operations due to loss of program counter contexts. When the non-
 protection nWRPi bit (0 ≤i ≤7) in the FLASH_OPTCR registers is low, the corresponding
 sector cannot be erased or programmed. Consequently, a mass erase cannot be performed
 if one of the sectors is write-protected.
+
+[Table 10]: "Table%2010"
+<a id="Table 10"></a>
 
 **Table 10**. Access versus read protection level
 
@@ -2410,48 +2618,20 @@ OTP
 Level 1 NO NA YES NA
 Level 2 NO NA YES NA
 1. The main Flash memory only erased when the RDP changes from level 1 to 0. The OTP area remains unchanged.
-???????
-??????????
-??????????
-???????
-???????????????????????????????????????????
-???????????????
-?????????????????????
-???????????????????????????????????????????
-????????????
-???????????????
-?????????????????????
-????????????????????????????????????????????
-???????????????
-?????????????????????
-?????????
-?????????????????????????
-???????????????????
-???????????????????????
-?????????????
-?????????
-?????????
-?????????????
-?????????
-?????????
-?????????????
-?????????
-?????????
-???????????????????????
-???????????????????
-???????
-?????????
-????????
-?????????
-?????????
 
 
-                                                <!-- *P56*/844 -->
+
+<!-- *P56*/844 -->
+[P56]: #P56
+<a id="P56"></a>
+
 If an erase/program operation to a write-protected part of the Flash memory is attempted
 (sector protected by write protection bit, OTP part locked or part of the Flash memory that
 can never be written like the ICP), the write protection error flag (WRPERR) is set in the
 FLASH_SR register.
-Note: When the memory read protection level is selected (RDP level = 1), it is not possible to
+
+> [!NOTE]
+> When the memory read protection level is selected (RDP level = 1), it is not possible to
 program or erase Flash memory sector i if the CPU debug features are connected (JTAG or
 single wire) or boot code is being executed from RAM, even if nWRPi = 1.
 Write protection error flag
@@ -2488,8 +2668,17 @@ code fetch through ICODE Bus on Flash interface:
 • Any read access performed through the D-bus triggers a RDERR flag error.
 • Any program/erase operation on a PCROPed sector triggers a WRPERR flag error.
 
-                                                <!-- *P57*/844 -->
+<!-- *P57*/844 -->
+[P57]: #P57
+<a id="P57"></a>
 
+
+
+[Figure 5]: "#Figure%205"
+<a id="Figure 5"></a>
+
+[Figure 5]: "Figure%205"
+<a id="Figure 5"></a>
 
 **Figure 5**. PCROP levels
 
@@ -2498,7 +2687,9 @@ only occur when, at the same time, the RDP level changes from 1 to 0. If this co
 respected, the user option byte modification is cancelled and the write error WRPERR flag
 is set. The modification of the users option bytes (BOR_LEV, RST_STDBY, ..) is allowed
 since none of the active nWRPi bits is reset and SPRMOD is kept active.
-Note: The active value of nWRPi bits is inverted when PCROP mode is active (SPRMOD =1).
+
+> [!NOTE]
+> The active value of nWRPi bits is inverted when PCROP mode is active (SPRMOD =1).
 If SPRMOD = 1 and nWRPi =1, then user sector i of bank 1, respectively bank 2 is
 read/write protected (PCROP).
 ???????
@@ -2535,12 +2726,15 @@ read/write protected (PCROP).
 ?????????
 
 
-                                                <!-- *P58*/844 -->
+<!-- *P58*/844 -->
+[P58]: #P58
+<a id="P58"></a>
+
 
 //3.7 One-time programmable bytes
 ---------------------------------
 
-Table 11 shows the organization of the one-time programmable (OTP) part of the OTP area.
+[Table 11] shows the organization of the one-time programmable (OTP) part of the OTP area.
 
 The OTP area is divided into 16 OTP data blocks of 32 bytes and one lock OTP block of 16
 bytes. The OTP data and lock blocks cannot be erased. The lock block contains 16 bytes
@@ -2548,6 +2742,9 @@ LOCKBi (0 ≤ i ≤ 15) to lock the corresponding OTP data block (blocks 0 to 15
 data block can be programmed until the value 0x00 is programmed in the corresponding
 OTP lock byte. The lock bytes must only contain 0x00 and 0xFF values, otherwise the OTP
 bytes might not be taken into account correctly.
+
+[Table 11]: "Table%2011"
+<a id="Table 11"></a>
 
 **Table 11**. OTP area organization
 
@@ -2582,7 +2779,10 @@ LOCKB0
 0x1FFF 7A00
 
 
-                                                <!-- *P59*/844 -->
+<!-- *P59*/844 -->
+[P59]: #P59
+<a id="P59"></a>
+
 
 
 //3.8 Flash interface registers
@@ -2638,7 +2838,10 @@ These bits represent the ratio of the CPU clock period to the Flash memory acces
 1111: Fifteen wait states
 
 
-                                                <!-- *P60*/844 -->
+<!-- *P60*/844 -->
+[P60]: #P60
+<a id="P60"></a>
+
 
 //3.8.2 Flash key register (FLASH_KEYR)
 ---------------------------------------
@@ -2685,7 +2888,10 @@ a) OPTKEY1 = 0x08192A3B
 b) OPTKEY2 = 0x4C5D6E7F
 
 
-                                                <!-- *P61*/844 -->
+<!-- *P61*/844 -->
+[P61]: #P61
+<a id="P61"></a>
+
 
 
 //3.8.4 Flash status register (FLASH_SR)
@@ -2736,7 +2942,10 @@ of the Flash memory.
 Cleared by writing 1.
 
 
-                                                <!-- *P62*/844 -->
+<!-- *P62*/844 -->
+[P62]: #P62
+<a id="P62"></a>
+
 
 
 //3.8.5 Flash control register (FLASH_CR)
@@ -2793,7 +3002,10 @@ BSY bit is cleared.
 Bits 15:10 Reserved, must be kept cleared.
 
 
-                                                <!-- *P63*/844 -->
+<!-- *P63*/844 -->
+[P63]: #P63
+<a id="P63"></a>
+
 
 
 //3.8.6 Flash option control register (FLASH_OPTCR)
@@ -2859,7 +3071,10 @@ CK
 rw rw rw rw rw rw rw rw rw rw rw rw rw rs rs
 
 
-                                                <!-- *P64*/844 -->
+<!-- *P64*/844 -->
+[P64]: #P64
+<a id="P64"></a>
+
 Bit 31 SPRMOD: Selection of Protection Mode of nWPRi bits
 0: PCROP disabled, nWPRi bits used for Write Protection on sector i
 1: PCROP enabled, nWPRi bits used for PCROP Protection on sector i
@@ -2890,12 +3105,17 @@ a new user option byte value into Flash memory.
 Bit 7: nRST_STDBY
 Bit 6: nRST_STOP
 Bit 5: WDG_SW
-Note: When changing the WDG mode from hardware to software or from software to
+
+> [!NOTE]
+> When changing the WDG mode from hardware to software or from software to
 hardware, a system reset is required to make the change effective.
 Bit 4 Reserved, must be kept cleared. Always read as “0”.
 
 
-                                                <!-- *P65*/844 -->
+<!-- *P65*/844 -->
+[P65]: #P65
+<a id="P65"></a>
+
 
 Bits 3:2 BOR_LEV[1:0]: BOR reset Level
 These bits contain the supply level threshold that activates/releases the reset. They can be
@@ -2905,7 +3125,9 @@ drops below the selected BOR level, a device reset is generated.
 01: BOR Level 2 (VBOR2), brownout threshold level 2
 10: BOR Level 1 (VBOR1), brownout threshold level 1
 11: BOR off, POR/PDR reset threshold level is applied
-Note: For full details about BOR characteristics, refer to the “Electrical characteristics” section
+
+> [!NOTE]
+> For full details about BOR characteristics, refer to the “Electrical characteristics” section
 in the device datasheet.
 Bit 1 OPTSTRT: Option start
 This bit triggers a user option operation when set. It is set only by software and cleared when
@@ -2916,12 +3138,18 @@ bit is cleared by hardware after detecting the unlock sequence.
 In the event of an unsuccessful unlock operation, this bit remains set until the next reset.
 
 
-                                                <!-- *P66*/844 -->
+<!-- *P66*/844 -->
+[P66]: #P66
+<a id="P66"></a>
+
 
 //3.8.7 Flash interface register map
 ------------------------------------
 
 
+
+[Table 12]: "Table%2012"
+<a id="Table 12"></a>
 
 **Table 12**. Flash register map and reset values
 
@@ -3022,8 +3250,10 @@ OPTLOCK
 Reset value 0 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 0 1 1 1 1 1 0 1
 
 
-                                                <!-- *P67*/844 -->
-69
+<!-- *P67*/844 -->
+[P67]: #P67
+<a id="P67"></a>
+
 
 /4 CRC calculation unit
 =======================
@@ -3048,7 +3278,13 @@ time and stored at a given memory location.
 • Single input/output 32-bit data register
 • CRC computation done in 4 AHB clock cycles (HCLK)
 • General-purpose 8-bit register (can be used for temporary storage)
-The block diagram is shown in Figure 6.
+The block diagram is shown in [Figure 6].
+
+[Figure 6]: "#Figure%206"
+<a id="Figure 6"></a>
+
+[Figure 6]: "Figure%206"
+<a id="Figure 6"></a>
 
 **Figure 6**. CRC calculation unit block diagram
 
@@ -3069,7 +3305,10 @@ the register)
 ???????
 
 
-                                                <!-- *P68*/844 -->
+<!-- *P68*/844 -->
+[P68]: #P68
+<a id="P68"></a>
+
 Each write operation into the data register creates a combination of the previous CRC value
 and the new one (CRC computation is done on the whole 32-bit data word, and not byte per
 byte).
@@ -3119,8 +3358,10 @@ This register is not affected by CRC resets generated by the RESET bit in the CR
 register.
 
 
-                                                <!-- *P69*/844 -->
-69
+<!-- *P69*/844 -->
+[P69]: #P69
+<a id="P69"></a>
+
 
 //4.4.3 Control register (CRC_CR)
 ---------------------------------
@@ -3144,6 +3385,9 @@ Bits 31:1 Reserved, must be kept at reset value.
 Bit 0 RESET bit
 Resets the CRC calculation unit and sets the data register to 0xFFFF FFFF.
 This bit can only be set, it is automatically cleared by hardware.
+
+[Table 13]: "Table%2013"
+<a id="Table 13"></a>
 
 **Table 13**. CRC calculation unit register map and reset values
 
@@ -3169,7 +3413,10 @@ value
 0
 
 
-                                                <!-- *P70*/844 -->
+<!-- *P70*/844 -->
+[P70]: #P70
+<a id="P70"></a>
+
 
 /5 Power controller (PWR)
 =========================
@@ -3186,9 +3433,17 @@ supervisor connected to the VDD and PDR_ON pins.
 enabled), provided externally through VDD pins.
 The real-time clock (RTC) and the RTC backup registers can be powered from the V BAT
 voltage when the main V DD supply is powered off.
-Note: Depending on the operating power supply range, some peripheral may be used with limited
+
+> [!NOTE]
+> Depending on the operating power supply range, some peripheral may be used with limited
 functionality and performance. For more details refer to section “General operating
 conditions” in STM32F4xx datasheets.
+
+[Figure 7]: "#Figure%207"
+<a id="Figure 7"></a>
+
+[Figure 7]: "Figure%207"
+<a id="Figure 7"></a>
 
 **Figure 7**. Power supply overview
 
@@ -3246,8 +3501,10 @@ conditions” in STM32F4xx datasheets.
 ???????
 
 
-                                                <!-- *P71*/844 -->
-89
+<!-- *P71*/844 -->
+[P71]: #P71
+<a id="P71"></a>
+
 
 //5.1.1 Independent A/D converter supply and reference voltage
 --------------------------------------------------------------
@@ -3291,18 +3548,23 @@ When the backup domain is supplied by V DD (analog switch connected to V DD ), t
 following functions are available:
 • PC14 and PC15 can be used as either GPIO or LSE pins
 • PC13 can be used as a GPIO or additional functions can be configured (refer to
-Table 25: RTC additional functions for more details about this pin configuration)
-Note: Due to the fact that the switch only sinks a limited amount of current (3 mA), the use of
+[Table 25]: RTC additional functions for more details about this pin configuration)
+
+> [!NOTE]
+> Due to the fact that the switch only sinks a limited amount of current (3 mA), the use of
 PC13 to PC15 GPIOs in output mode is restricted: the speed has to be limited to 2 MHz with
 
 
-                                                <!-- *P72*/844 -->
+<!-- *P72*/844 -->
+[P72]: #P72
+<a id="P72"></a>
+
 a maximum load of 30 pF and these I/Os must not be used as a current source (e.g. to drive
 an LED).
 When the backup domain is supplied by V BAT (analog switch connected to V BAT because
 V DD is not present), the following functions are available:
 • PC14 and PC15 can be used as LSE pins only
-• PC13 can be used as the RTC additional function pin (refer to Table 25: RTC additional
+• PC13 can be used as the RTC additional function pin (refer to [Table 25]: RTC additional
 functions for more details about this pin configuration)
 Backup domain access
 After reset, the backup domain (RTC registers and RTC backup register) is protected
@@ -3342,8 +3604,10 @@ PWR_CR register. After reset the VOS register is set to scale 2. When the PLL is
 OFF, the voltage regulator is set to scale 3 independently of the VOS register
 
 
-                                                <!-- *P73*/844 -->
-89
+<!-- *P73*/844 -->
+[P73]: #P73
+<a id="P73"></a>
+
 content. The VOS register content is only taken into account once the PLL is
 activated and the HSI or HSE is selected as clock source.
 The voltage scaling allows optimizing the power consumption when the device is
@@ -3359,7 +3623,9 @@ Voltage scale 3 is automatically selected when the microcontroller enters Stop
 mode (see Section 5.4.1: PWR power control register (PWR_CR)).
 • In Standby mode, the regulator is powered down. The content of the registers and
 SRAM are lost except for the Standby circuitry and the backup domain.
-Note: For more details, refer to the voltage regulator section in the STM32F411xC/E datasheet.
+
+> [!NOTE]
+> For more details, refer to the voltage regulator section in the STM32F411xC/E datasheet.
 
 //5.2 Power supply supervisor
 -----------------------------
@@ -3377,6 +3643,12 @@ specified threshold, V POR/PDR , without the need for an external reset circuit.
 details concerning the power on/power-down reset threshold, refer to the electrical
 characteristics of the datasheet.
 
+[Figure 8]: "#Figure%208"
+<a id="Figure 8"></a>
+
+[Figure 8]: "Figure%208"
+<a id="Figure 8"></a>
+
 **Figure 8**. Power-on reset/power-down reset waveform
 
 ????????
@@ -3390,7 +3662,10 @@ characteristics of the datasheet.
 ?????????
 
 
-                                                <!-- *P74*/844 -->
+<!-- *P74*/844 -->
+[P74]: #P74
+<a id="P74"></a>
+
 
 //5.2.2 Brownout reset (BOR)
 ----------------------------
@@ -3402,7 +3677,9 @@ V BOR threshold levels can be selected:
 • BOR Level 3 (VBOR3). Brownout threshold level 3.
 • BOR Level 2 (VBOR2). Brownout threshold level 2.
 • BOR Level 1 (VBOR1). Brownout threshold level 1.
-Note: For full details about BOR characteristics, refer to the "Electrical characteristics" section in
+
+> [!NOTE]
+> For full details about BOR characteristics, refer to the "Electrical characteristics" section in
 the device datasheet.
 When the supply voltage (V DD ) drops below the selected V BOR threshold, a device reset is
 generated.
@@ -3412,6 +3689,12 @@ supervisor if the PDR is switched off through the PDR_ON pin (see Section 5.2.1:
 reset (POR)/power-down reset (PDR)).
 The BOR threshold hysteresis is ~100 mV (between the rising and the falling edge of the
 supply voltage).
+
+[Figure 9]: "#Figure%209"
+<a id="Figure 9"></a>
+
+[Figure 9]: "Figure%209"
+<a id="Figure 9"></a>
 
 **Figure 9**. BOR thresholds
 
@@ -3423,8 +3706,10 @@ supply voltage).
 ?????
 
 
-                                                <!-- *P75*/844 -->
-89
+<!-- *P75*/844 -->
+[P75]: #P75
+<a id="P75"></a>
+
 
 //5.2.3 Programmable voltage detector (PVD)
 -------------------------------------------
@@ -3438,6 +3723,12 @@ EXTI line16 and can generate an interrupt if enabled through the EXTI registers.
 output interrupt can be generated when V DD drops below the PVD threshold and/or when
 V DD rises above the PVD threshold depending on EXTI line16 rising/falling edge
 configuration. As an example the service routine could perform emergency shutdown tasks.
+
+[Figure 10]: "#Figure%2010"
+<a id="Figure 10"></a>
+
+[Figure 10]: "Figure%2010"
+<a id="Figure 10"></a>
 
 **Figure 10**. PVD thresholds
 
@@ -3463,7 +3754,10 @@ The devices feature three low-power modes:
 ??????????
 
 
-                                                <!-- *P76*/844 -->
+<!-- *P76*/844 -->
+[P76]: #P76
+<a id="P76"></a>
+
 In addition, the power consumption in Run mode can be reduce by one of the following
 means:
 • Slowing down the system clocks
@@ -3503,13 +3797,15 @@ the NVIC IRQ channel pending bit as the pending bits corresponding to the event
 line is not set. It may be necessary to clear the interrupt flag in the peripheral.
 The MCU exits from Standby low-power mode through an external reset (NRST pin), an
 IWDG reset, a rising edge on one of the enabled WKUPx pins or a RTC event occurs (see
-Figure 159: RTC block diagram).
+[Figure 159]: RTC block diagram).
 After waking up from Standby mode, program execution restarts in the same way as after a
 Reset (boot pin sampling, option bytes loading, reset vector is fetched, etc.).
 
 
-                                                <!-- *P77*/844 -->
-89
+<!-- *P77*/844 -->
+[P77]: #P77
+<a id="P77"></a>
+
 Only enabled NVIC interrupts with sufficient priority will wakeup and interrupt the MCU.
 
 //5.3.1 Slowing down system clocks
@@ -3533,6 +3829,9 @@ Section 7.3.10: RCC AHB1 peripheral clock enable register (RCC_AHB1ENR),
 Section 7.3.11: RCC AHB2 peripheral clock enable register (RCC_AHB2ENR)).
 Disabling the peripherals clocks in Sleep mode can be performed automatically by resetting
 the corresponding bit in RCC_AHBxLPENR and RCC_APBxLPENR registers.
+
+[Table 14]: "Table%2014"
+<a id="Table 14"></a>
 
 **Table 14**. Low-power mode summary
 
@@ -3591,7 +3890,10 @@ NRST pin, IWDG reset
 OFF
 
 
-                                                <!-- *P78*/844 -->
+<!-- *P78*/844 -->
+[P78]: #P78
+<a id="P78"></a>
+
 
 //5.3.3 Sleep mode
 ------------------
@@ -3599,13 +3901,18 @@ OFF
 Entering Sleep mode
 The Sleep mode is entered according to Section : Entering low-power mode, when the
 SLEEPDEEP bit in the Cortex®-M4 with FPU System Control register is cleared.
-Refer to Table 15 and Table 16 for details on how to enter Sleep mode.
-Note: All interrupt pending bits must be cleared before the sleep mode entry.
+Refer to [Table 15] and [Table 16] for details on how to enter Sleep mode.
+
+> [!NOTE]
+> All interrupt pending bits must be cleared before the sleep mode entry.
 Exiting Sleep mode
 The Sleep mode is exited according to Section : Exiting low-power mode.
-Refer to Table 15 and Table 16 for more details on how to exit Sleep mode.
+Refer to [Table 15] and [Table 16] for more details on how to exit Sleep mode.
 
 
+
+[Table 15]: "Table%2015"
+<a id="Table 15"></a>
 
 **Table 15**. Sleep-now entry and exit
 
@@ -3622,14 +3929,17 @@ On Return from ISR while:
 Refer to the Cortex®-M4 with FPU System Control register.
 Mode exit
 If WFI or Return from ISR was used for entry:
-Interrupt: Refer to Table 37: Vector table for STM32F411xC/E
+Interrupt: Refer to [Table 37]: Vector table for STM32F411xC/E
 If WFE was used for entry and SEVONPEND = 0
 Wakeup event: Refer to Section 10.2.3: Wakeup event management
 f WFE was used for entry and SEVONPEND = 1
-Interrupt even when disabled in NVIC: refer to Table 37: Vector table for
+Interrupt even when disabled in NVIC: refer to [Table 37]: Vector table for
 STM32F411xC/E or Wakeup event (see Section 10.2.3: Wakeup event
 management).
 Wakeup latency None
+
+[Table 16]: "Table%2016"
+<a id="Table 16"></a>
 
 **Table 16**. Sleep-on-exit entry and exit
 
@@ -3646,8 +3956,10 @@ On Return from ISR while:
 Refer to the Cortex®-M4 with FPU System Control register.
 
 
-                                                <!-- *P79*/844 -->
-89
+<!-- *P79*/844 -->
+[P79]: #P79
+<a id="P79"></a>
+
 
 //5.3.4 Stop mode
 -----------------
@@ -3659,17 +3971,20 @@ and the HSE RC oscillators are disabled. Internal SRAM and register contents are
 preserved.
 Some settings in the PWR_CR register allow to further reduce the power consumption.
 When the Flash memory is in power-down mode, an additional startup delay is incurred
-when waking up from Stop mode (see Table 17: Stop operating modes and Section 5.4.1:
+when waking up from Stop mode (see [Table 17]: Stop operating modes and Section 5.4.1:
 PWR power control register (PWR_CR)).
 
 Entering Stop mode
 The Stop mode is entered according to Section : Entering low-power mode, when the
 SLEEPDEEP bit in the Cortex®-M4 with FPU System Control register is set.
-Refer to Table 18 for details on how to enter the Stop mode.
-Mode exit Interrupt: refer to Table 37: Vector table for STM32F411xC/E
+Refer to [Table 18] for details on how to enter the Stop mode.
+Mode exit Interrupt: refer to [Table 37]: Vector table for STM32F411xC/E
 Wakeup latency None
-Table 16. Sleep-on-exit entry and exit (continued)
+[Table 16]. Sleep-on-exit entry and exit (continued)
 Sleep-on-exit Description
+
+[Table 17]: "Table%2017"
+<a id="Table 17"></a>
 
 **Table 17**. Stop operating modes
 
@@ -3704,7 +4019,10 @@ regulator wakeup time from Low
 Voltage LP mode
 
 
-                                                <!-- *P80*/844 -->
+<!-- *P80*/844 -->
+[P80]: #P80
+<a id="P80"></a>
+
 To further reduce power consumption in Stop mode, the internal voltage regulator can be put
 in low-power mode. This is configured by the LPDS bit of the PWR power control register
 (PWR_CR).
@@ -3724,7 +4042,9 @@ Section 7.3.21: RCC clock control & status register (RCC_CSR).
 Section 7.3.20: RCC Backup domain control register (RCC_BDCR).
 The ADC can also consume power during the Stop mode, unless it is disabled before
 entering it. To disable it, the ADON bit in the ADC_CR2 register must be written to 0.
-Note: If the application needs to disable the external clock before entering Stop mode, the HSEON
+
+> [!NOTE]
+> If the application needs to disable the external clock before entering Stop mode, the HSEON
 bit must first be disabled and the system clock switched to HSI.
 Otherwise, if the HSEON bit is kept enabled while the external clock (external oscillator) can
 be removed before entering stop mode, the clock security system (CSS) feature must be
@@ -3732,7 +4052,7 @@ enabled to detect any external oscillator failure and avoid a malfunction behavi
 entering stop mode.
 Exiting Stop mode
 The Stop mode is exited according to Section : Exiting low-power mode.
-Refer to Table 18 for more details on how to exit Stop mode.
+Refer to [Table 18] for more details on how to exit Stop mode.
 When exiting Stop mode by issuing an interrupt or a wakeup event, the HSI RC oscillator is
 selected as system clock.
 When the voltage regulator operates in low-power mode, an additional startup delay is
@@ -3740,8 +4060,10 @@ incurred when waking up from Stop mode. By keeping the internal regulator ON dur
 mode, the consumption is higher although the startup time is reduced.
 
 
-                                                <!-- *P81*/844 -->
-89
+<!-- *P81*/844 -->
+[P81]: #P81
+<a id="P81"></a>
+
 
 
 //5.3.5 Standby mode
@@ -3751,11 +4073,14 @@ The Standby mode allows to achieve the lowest power consumption. It is based on 
 Cortex®-M4 with FPU deepsleep mode, with the voltage regulator disabled. The 1.2 V
 domain is consequently powered off. The PLLs, the HSI oscillator and the HSE oscillator are
 also switched off. SRAM and register contents are lost except for registers in the backup
-domain (RTC registers and RTC backup register), and Standby circuitry (see Figure 7).
+domain (RTC registers and RTC backup register), and Standby circuitry (see [Figure 7]).
 Entering Standby mode
 The Standby mode is entered according to Section : Entering low-power mode, when the
 SLEEPDEEP bit in the Cortex®-M4 with FPU System Control register is set.
-Refer to Table 19 for more details on how to enter Standby mode.
+Refer to [Table 19] for more details on how to enter Standby mode.
+
+[Table 18]: "Table%2018"
+<a id="Table 18"></a>
 
 **Table 18**. Stop mode entry and exit
 
@@ -3771,7 +4096,9 @@ On Return from ISR:
 – SLEEPDEEP bit is set in Cortex®-M4 with FPU System Control register,
 – SLEEPONEXIT = 1,
 – PDDS bit is cleared in Power Control register (PWR_CR).
-Note: To enter Stop mode, all EXTI Line pending bits (in Pending register
+
+> [!NOTE]
+> To enter Stop mode, all EXTI Line pending bits (in Pending register
 (EXTI_PR)), all peripheral interrupts pending bits, the RTC Alarm
 (Alarm A and Alarm B), RTC wakeup, RTC tamper, and RTC time
 stamp flags, must be reset. Otherwise, the Stop mode entry
@@ -3781,7 +4108,7 @@ If WFI or Return from ISR was used for entry:
 Any EXTI lines configured in Interrupt mode (the corresponding EXTI
 Interrupt vector must be enabled in the NVIC). The interrupt source can
 be external interrupts or peripherals with wakeup capability. Refer to
-Table 37: Vector table for STM32F411xC/E.
+[Table 37]: Vector table for STM32F411xC/E.
 If WFE was used for entry and SEVONPEND = 0
 Any EXTI lines configured in event mode. Refer to Section 10.2.3:
 Wakeup event management on page 205.
@@ -3789,13 +4116,16 @@ If WFE was used for entry and SEVONPEND = 1:
 – Any EXTI lines configured in Interrupt mode (even if the corresponding
 EXTI Interrupt vector is disabled in the NVIC). The interrupt source can
 be an external interrupt or a peripheral with wakeup capability. Refer to
-Table 37: Vector table for STM32F411xC/E.
+[Table 37]: Vector table for STM32F411xC/E.
 – Wakeup event: refer to Section 10.2.3: Wakeup event management on
 page 205.
-Wakeup latency Table 17: Stop operating modes
+Wakeup latency [Table 17]: Stop operating modes
 
 
-                                                <!-- *P82*/844 -->
+<!-- *P82*/844 -->
+[P82]: #P82
+<a id="P82"></a>
+
 In Standby mode, the following features can be selected by programming individual control
 bits:
 • Independent watchdog (IWDG): the IWDG is started by writing to its Key register or by
@@ -3812,9 +4142,12 @@ The Standby mode is exited according to Section : Exiting low-power mode. The SB
 flag in PWR_CR (see Section 5.4.2: PWR power control/status register (PWR_CSR))
 indicates that the MCU was in Standby mode. All registers are reset after wakeup from
 Standby except for PWR_CR.
-Refer to Table 19 for more details on how to exit Standby mode.
+Refer to [Table 19] for more details on how to exit Standby mode.
 
 
+
+[Table 19]: "Table%2019"
+<a id="Table 19"></a>
 
 **Table 19**. Standby mode entry and exit
 
@@ -3842,8 +4175,10 @@ tamper event, time stamp event, external reset in NRST pin, IWDG reset.
 Wakeup latency Reset phase.
 
 
-                                                <!-- *P83*/844 -->
-89
+<!-- *P83*/844 -->
+[P83]: #P83
+<a id="P83"></a>
+
 I/O states in Standby mode
 In Standby mode, all I/O pins are high impedance except for:
 • Reset pad (still available)
@@ -3882,7 +4217,10 @@ This clock source has the advantage of saving the cost of the 32.768 kHz crystal
 internal RC oscillator is designed to use minimum power.
 
 
-                                                <!-- *P84*/844 -->
+<!-- *P84*/844 -->
+[P84]: #P84
+<a id="P84"></a>
+
 RTC alternate functions to wake up the device from the Stop mode
 • To wake up the device from the Stop mode with an RTC alarm event, it is necessary to:
 a) Configure the EXTI Line 17 to be sensitive to rising edges (Interrupt or Event
@@ -3927,8 +4265,10 @@ a) Disable the RTC alarm interrupt (ALRAIE or ALRBIE bits in the RTC_CR register
 b) Clear the RTC alarm (ALRAF/ALRBF) flag
 
 
-                                                <!-- *P85*/844 -->
-89
+<!-- *P85*/844 -->
+[P85]: #P85
+<a id="P85"></a>
+
 c) Clear the PWR Wakeup (WUF) flag
 d) Enable the RTC alarm interrupt
 e) Re-enter the low-power mode
@@ -3952,7 +4292,10 @@ d) Enable the RTC TimeStamp interrupt
 e) Re-enter the low-power mode
 
 
-                                                <!-- *P86*/844 -->
+<!-- *P86*/844 -->
+[P86]: #P86
+<a id="P86"></a>
+
 
 //5.4 Power control registers
 -----------------------------
@@ -3983,13 +4326,17 @@ Bits 31:22 Reserved, must be kept at reset value.
 Bit 21 FISSR: Flash Interface Stop while System Run
 0: Flash Interface clock run (Default value).
 1: Flash Interface clock off.
-Note: This bit could not be set while executing with the Flash itself. It should be done with
+
+> [!NOTE]
+> This bit could not be set while executing with the Flash itself. It should be done with
 specific routine executed from RAM.
 Bit 20 FMSSR: Flash Memory Sleep System Run.
 0: Flash standard mode (Default value)
 1: Flash forced to be in STOP or DeepPower Down mode (depending of FPDS value bit) by
 hardware.
-Note: This bit could not be set while executing with the Flash itself. It should be done with
+
+> [!NOTE]
+> This bit could not be set while executing with the Flash itself. It should be done with
 specific routine executed from RAM.
 Bits 19:16 Reserved, must be kept at reset value.
 Bits 15:14 VOS[1:0]: Regulator voltage scaling output selection
@@ -4006,12 +4353,16 @@ independently of the VOS register content.
 Bit 13 ADCDC1:
 0: No effect.
 1: Refer to AN4073 for details on how to use this bit.
-Note: This bit can only be set when operating at supply voltage range 2.7 to 3.6V and when
+
+> [!NOTE]
+> This bit can only be set when operating at supply voltage range 2.7 to 3.6V and when
 the Prefetch is OFF.
 
 
-                                                <!-- *P87*/844 -->
-89
+<!-- *P87*/844 -->
+[P87]: #P87
+<a id="P87"></a>
+
 Bit 12 Reserved, must be kept at reset value.
 Bit 11 MRLVDS: Main regulator Low Voltage in Deep Sleep
 0: Main regulator in Voltage scale 3 when the device is in Stop mode.
@@ -4045,7 +4396,9 @@ Voltage Detector
 101: 2.7 V
 110: 2.8 V
 111: 2.9 V
-Note: Refer to the electrical characteristics of the datasheet for more details.
+
+> [!NOTE]
+> Refer to the electrical characteristics of the datasheet for more details.
 Bit 4 PVDE: Power voltage detector enable
 This bit is set and cleared by software.
 0: PVD disabled
@@ -4060,7 +4413,10 @@ This bit is always read as 0.
 1: Clear the WUF Wakeup Flag after 2 System clock cycles.
 
 
-                                                <!-- *P88*/844 -->
+<!-- *P88*/844 -->
+[P88]: #P88
+<a id="P88"></a>
+
 
 //5.4.2 PWR power control/status register (PWR_CSR)
 ---------------------------------------------------
@@ -4102,7 +4458,9 @@ the Backup Regulator Ready flag (BRR) is set to indicate that the data written i
 backup registers will be maintained in the Standby and V BAT modes.
 0: Backup regulator disabled
 1: Backup regulator enabled
-Note: This bit is not reset when the device wakes up from Standby mode, by a system reset,
+
+> [!NOTE]
+> This bit is not reset when the device wakes up from Standby mode, by a system reset,
 or by a power reset.
 Bit 8 EWUP: Enable WKUP pin
 This bit is set and cleared by software.
@@ -4110,30 +4468,38 @@ This bit is set and cleared by software.
 the device from Standby mode.
 1: WKUP pin is used for wakeup from Standby mode and forced in input pull down
 configuration (rising edge on WKUP pin wakes-up the system from Standby mode).
-Note: This bit is reset by a system reset.
+
+> [!NOTE]
+> This bit is reset by a system reset.
 Bits 7:4 Reserved, must be kept at reset value.
 
 
-                                                <!-- *P89*/844 -->
-89
+<!-- *P89*/844 -->
+[P89]: #P89
+<a id="P89"></a>
+
 
 //5.5 PWR register map
 ----------------------
 
 The following table summarizes the PWR registers.
 
-Refer to Table 3 on page 42 for the register boundary addresses.
+Refer to [Table 3] on page 42 for the register boundary addresses.
 Bit 3 BRR: Backup regulator ready
 Set by hardware to indicate that the Backup Regulator is ready.
 0: Backup Regulator not ready
 1: Backup Regulator ready
-Note: This bit is not reset when the device wakes up from Standby mode or by a system reset
+
+> [!NOTE]
+> This bit is not reset when the device wakes up from Standby mode or by a system reset
 or power reset.
 Bit 2 PVDO: PVD output
 This bit is set and cleared by hardware. It is valid only if PVD is enabled by the PVDE bit.
 0: V DD is higher than the PVD threshold selected with the PLS[2:0] bits.
 1: V DD is lower than the PVD threshold selected with the PLS[2:0] bits.
-Note: The PVD is stopped by Standby mode. For this reason, this bit is equal to 0 after
+
+> [!NOTE]
+> The PVD is stopped by Standby mode. For this reason, this bit is equal to 0 after
 Standby or reset until the PVDE bit is set.
 Bit 1 SBF: Standby flag
 This bit is set by hardware and cleared only by a POR/PDR (power-on reset/power-down
@@ -4146,8 +4512,13 @@ the PWR_CR register.
 0: No wakeup event occurred
 1: A wakeup event was received from the WKUP pin or from the RTC alarm (Alarm A or
 Alarm B), RTC Tamper event, RTC TimeStamp event or RTC Wakeup).
-Note: An additional wakeup event is detected if the WKUP pin is enabled (by setting the
+
+> [!NOTE]
+> An additional wakeup event is detected if the WKUP pin is enabled (by setting the
 EWUP bit) when the WKUP pin level is already high.
+
+[Table 20]: "Table%2020"
+<a id="Table 20"></a>
 
 **Table 20**. PWR - register map and reset values
 
@@ -4219,7 +4590,10 @@ WUF
 Reset value 0 0 0 0 0 0 0
 
 
-                                                <!-- *P90*/844 -->
+<!-- *P90*/844 -->
+[P90]: #P90
+<a id="P90"></a>
+
 
 /6 Reset and clock control (RCC) for STM32F411xC/E
 ==================================================
@@ -4250,8 +4624,10 @@ Register must be set to force a software reset on the device. Refer to the Corte
 FPU technical reference manual for more details.
 
 
-                                                <!-- *P91*/844 -->
-138
+<!-- *P91*/844 -->
+[P91]: #P91
+<a id="P91"></a>
+
 Low-power management reset
 There are two ways of generating a low-power management reset:
 1. Reset generated when entering the Standby mode:
@@ -4279,6 +4655,12 @@ generator guarantees a minimum reset pulse duration of 20 µs for each internal 
 source. In case of an external reset, the reset pulse is generated while the NRST pin is
 asserted low.
 
+[Figure 11]: "#Figure%2011"
+<a id="Figure 11"></a>
+
+[Figure 11]: "Figure%2011"
+<a id="Figure 11"></a>
+
 **Figure 11**. Simplified diagram of the reset circuit
 
 ????
@@ -4299,7 +4681,10 @@ asserted low.
 ????????
 
 
-                                                <!-- *P92*/844 -->
+<!-- *P92*/844 -->
+[P92]: #P92
+<a id="P92"></a>
+
 
 //6.1.3 Backup domain reset
 ---------------------------
@@ -4327,8 +4712,16 @@ Each clock source can be switched on or off independently when it is not used, t
 power consumption.
 
 
-                                                <!-- *P93*/844 -->
-138
+<!-- *P93*/844 -->
+[P93]: #P93
+<a id="P93"></a>
+
+
+[Figure 12]: "#Figure%2012"
+<a id="Figure 12"></a>
+
+[Figure 12]: "Figure%2012"
+<a id="Figure 12"></a>
 
 **Figure 12**. Clock tree
 
@@ -4430,7 +4823,10 @@ the device datasheet.
 ????????
 
 
-                                                <!-- *P94*/844 -->
+<!-- *P94*/844 -->
+[P94]: #P94
+<a id="P94"></a>
+
 The clock controller provides a high degree of flexibility to the application in the choice of the
 external crystal or the oscillator to run the core and peripherals at the highest frequency
 and, guarantee the appropriate frequency for peripherals that need a specific clock like USB
@@ -4471,8 +4867,10 @@ FCLK acts as Cortex®-M4 with FPU free-running clock. For more details, refer to
 Cortex®-M4 with FPU technical reference manual.
 
 
-                                                <!-- *P95*/844 -->
-138
+<!-- *P95*/844 -->
+[P95]: #P95
+<a id="P95"></a>
+
 
 //6.2.1 HSE clock
 -----------------
@@ -4489,10 +4887,10 @@ External source (HSE bypass)
 In this mode, an external clock source must be provided. You select this mode by setting the
 HSEBYP and HSEON bits in the RCC clock control register (RCC_CR). The external clock
 signal (square, sinus or triangle) with ~50% duty cycle has to drive the OSC_IN pin while the
-OSC_OUT pin should be left HI-Z. See Figure 13.
+OSC_OUT pin should be left HI-Z. See [Figure 13].
 External crystal/ceramic resonator (HSE crystal)
 The HSE has the advantage of producing a very accurate rate on the main clock.
-The associated hardware configuration is shown in Figure 13. Refer to the electrical
+The associated hardware configuration is shown in [Figure 13]. Refer to the electrical
 characteristics section of the datasheet for more details.
 The HSERDY flag in the RCC clock control register (RCC_CR) indicates if the high-speed
 external oscillator is stable or not. At startup, the clock is not released until this bit is set by
@@ -4500,6 +4898,12 @@ hardware. An interrupt can be generated if enabled in the RCC clock interrupt re
 (RCC_CIR).
 The HSE Crystal can be switched on and off using the HSEON bit in the RCC clock control
 register (RCC_CR).
+
+[Figure 13]: "#Figure%2013"
+<a id="Figure 13"></a>
+
+[Figure 13]: "Figure%2013"
+<a id="Figure 13"></a>
 
 **Figure 13**. HSE/ LSE clock sources
 
@@ -4517,7 +4921,10 @@ capacitors
 C L2 C L1
 
 
-                                                <!-- *P96*/844 -->
+<!-- *P96*/844 -->
+[P96]: #P96
+<a id="P96"></a>
+
 
 //6.2.2 HSI clock
 -----------------
@@ -4569,8 +4976,10 @@ an HSE failure occurs when HSE or PLL (clocked by HSE) are used as system clock.
 PLL configuration register (RCC_PLLCFGR) and RCC clock configuration register
 
 
-                                                <!-- *P97*/844 -->
-138
+<!-- *P97*/844 -->
+[P97]: #P97
+<a id="P97"></a>
+
 (RCC_CFGR) can be used to configure PLL and PLLI2S, respectively.
 
 //6.2.4 LSE clock
@@ -4590,7 +4999,7 @@ In this mode, an external clock source must be provided. It must have a frequenc
 1 MHz. You select this mode by setting the LSEBYP and LSEON bits in the RCC Backup
 domain control register (RCC_BDCR). The external clock signal (square, sinus or triangle)
 with ~50% duty cycle has to drive the OSC32_IN pin while the OSC32_OUT pin should be
-left HI-Z. See Figure 13.
+left HI-Z. See [Figure 13].
 
 //6.2.5 LSI clock
 -----------------
@@ -4618,7 +5027,10 @@ control register (RCC_CR) indicate which clock(s) is (are) ready and which clock
 used as the system clock.
 
 
-                                                <!-- *P98*/844 -->
+<!-- *P98*/844 -->
+[P98]: #P98
+<a id="P98"></a>
+
 
 //6.2.7 Clock security system (CSS)
 -----------------------------------
@@ -4630,7 +5042,9 @@ failure event is sent to the break inputs of advanced-control timer TIM1, and an
 generated to inform the software about the failure (clock security system interrupt CSSI),
 allowing the MCU to perform rescue operations. The CSSI is linked to the Cortex®-M4 with
 FPU NMI (non-maskable interrupt) exception vector.
-Note: When the CSS is enabled, if the HSE clock happens to fail, the CSS generates an interrupt,
+
+> [!NOTE]
+> When the CSS is enabled, if the HSE clock happens to fail, the CSS generates an interrupt,
 which causes the automatic generation of an NMI. The NMI is executed indefinitely unless
 the CSS interrupt pending bit is cleared. As a consequence, the application has to clear the
 CSS interrupt in the NMI ISR by setting the CSSC bit in the Clock interrupt register
@@ -4671,9 +5085,13 @@ Section 6.2.5: LSI clock on page 97 for more details on LSI calibration.
 voltage regulator is powered off (removing power from the 1.2 V domain).
 
 
-                                                <!-- *P99*/844 -->
-138
-Note: To read the RTC calendar register when the APB1 clock frequency is less than seven times
+<!-- *P99*/844 -->
+[P99]: #P99
+<a id="P99"></a>
+
+
+> [!NOTE]
+> To read the RTC calendar register when the APB1 clock frequency is less than seven times
 the RTC clock frequency (f APB1 < 7xf RTCLCK ), the software must read the calendar time and
 date registers twice. The data are correct if the second read access to RTC_TR gives the
 same result than the first one. Otherwise a third read access must be performed.
@@ -4716,15 +5134,18 @@ speed).
 -------------------------------------------------------------
 
 It is possible to indirectly measure the frequencies of all on-board clock source generators
-by means of the input capture of TIM5 channel4 and TIM11 channel1 as shown in Figure 14
-and Figure 15.
+by means of the input capture of TIM5 channel4 and TIM11 channel1 as shown in [Figure 14]
+and [Figure 15].
 Internal/external clock measurement using TIM5 channel4
 TIM5 has an input multiplexer which allows choosing whether the input capture is triggered
 by the I/O or by an internal clock. This selection is performed through the TI4_RMP [1:0] bits
 in the TIM5_OR register.
 
 
-                                                <!-- *P100*/844 -->
+<!-- *P100*/844 -->
+[P100]: #P100
+<a id="P100"></a>
+
 The primary purpose of having the LSE connected to the channel4 input capture is to be
 able to precisely measure the HSI (this requires to have the HSI used as the system clock
 source). The number of HSI clock counts between consecutive edges of the LSE signal
@@ -4750,6 +5171,12 @@ internally to TIM5 channel4 input capture for calibration purposes.
 4. Use the measured LSI frequency to update the prescaler of the RTC depending on the
 desired time base and/or to compute the IWDG timeout.
 
+[Figure 14]: "#Figure%2014"
+<a id="Figure 14"></a>
+
+[Figure 14]: "Figure%2014"
+<a id="Figure 14"></a>
+
 **Figure 14**. Frequency measurement with TIM5 in Input capture mode
 
 ????
@@ -4762,8 +5189,10 @@ desired time base and/or to compute the IWDG timeout.
 ?????????
 
 
-                                                <!-- *P101*/844 -->
-138
+<!-- *P101*/844 -->
+[P101]: #P101
+<a id="P101"></a>
+
 Internal/external clock measurement using TIM11 channel1
 TIM11 has an input multiplexer which allows choosing whether the input capture is triggered
 by the I/O or by an internal clock. This selection is performed through TI1_RMP [1:0] bits in
@@ -4772,6 +5201,12 @@ connected to channel 1 input capture to have a rough indication of the external 
 frequency. This requires that the HSI is the system clock source. This can be useful for
 instance to ensure compliance with the IEC 60730/IEC 61335 standards which require to be
 able to determine harmonic or subharmonic frequencies (–50/+100% deviations).
+
+[Figure 15]: "#Figure%2015"
+<a id="Figure 15"></a>
+
+[Figure 15]: "Figure%2015"
+<a id="Figure 15"></a>
 
 **Figure 15**. Frequency measurement with TIM11 in Input capture mode
 
@@ -4783,7 +5218,10 @@ able to determine harmonic or subharmonic frequencies (–50/+100% deviations).
 ???????
 
 
-                                                <!-- *P102*/844 -->
+<!-- *P102*/844 -->
+[P102]: #P102
+<a id="P102"></a>
+
 
 //6.3 RCC registers
 -------------------
@@ -4851,8 +5289,10 @@ hardware if an oscillator failure is detected.
 1: Clock security system ON (Clock detector ON if HSE oscillator is stable, OFF if not)
 
 
-                                                <!-- *P103*/844 -->
-138
+<!-- *P103*/844 -->
+[P103]: #P103
+<a id="P103"></a>
+
 Bit 18 HSEBYP: HSE clock bypass
 Set and cleared by software to bypass the oscillator with an external clock. The external
 clock must be enabled with the HSEON bit, to be used by the device.
@@ -4891,7 +5331,10 @@ cannot be cleared if the HSI is used directly or indirectly as the system clock.
 1: HSI oscillator ON
 
 
-                                                <!-- *P104*/844 -->
+<!-- *P104*/844 -->
+[P104]: #P104
+<a id="P104"></a>
+
 
 //6.3.2 RCC PLL configuration register (RCC_PLLCFGR)
 ----------------------------------------------------
@@ -4942,8 +5385,10 @@ only when PLL and PLLI2S are disabled.
 Bits 21:18 Reserved, must be kept at reset value.
 
 
-                                                <!-- *P105*/844 -->
-138
+<!-- *P105*/844 -->
+[P105]: #P105
+<a id="P105"></a>
+
 Bits 17:16 PLLP: Main PLL (PLL) division factor for main system clock
 Set and cleared by software to control the frequency of the general PLL output clock. These
 bits can be written only if PLL is disabled.
@@ -4973,7 +5418,9 @@ VCO output frequency = VCO input frequency × PLLN with 50 ≤ PLLN ≤ 432
 110110001: PLLN = 433, wrong configuration
 ...
 111111111: PLLN = 511, wrong configuration
-Note: Multiplication factors possible for VCO input frequency higher than 1 MHz but care
+
+> [!NOTE]
+> Multiplication factors possible for VCO input frequency higher than 1 MHz but care
 must be taken to fulfill the minimum VCO output frequency as specified above.
 Bits 5:0 PLLM: Division factor for the main PLL (PLL) input clock
 Set and cleared by software to divide the PLL input clock before the VCO. These bits can be
@@ -4992,7 +5439,10 @@ VCO input frequency = PLL input clock frequency / PLLM with 2 ≤ PLLM ≤ 63
 111111: PLLM = 63
 
 
-                                                <!-- *P106*/844 -->
+<!-- *P106*/844 -->
+[P106]: #P106
+<a id="P106"></a>
+
 
 //6.3.3 RCC clock configuration register (RCC_CFGR)
 ---------------------------------------------------
@@ -5048,8 +5498,10 @@ reset and before enabling the I2S module.
 1: External clock mapped on the I2S_CKIN pin used as I2S clock source
 
 
-                                                <!-- *P107*/844 -->
-138
+<!-- *P107*/844 -->
+[P107]: #P107
+<a id="P107"></a>
+
 Bits 22:21 MCO1: Microcontroller clock output 1
 Set and cleared by software. Clock source selection may generate glitches on MCO1. It is
 highly recommended to configure these bits only after reset before enabling the external
@@ -5095,7 +5547,10 @@ PPRE1 write.
 Bits 9:8 Reserved, must be kept at reset value.
 
 
-                                                <!-- *P108*/844 -->
+<!-- *P108*/844 -->
+[P108]: #P108
+<a id="P108"></a>
+
 Bits 7:4 HPRE: AHB prescaler
 Set and cleared by software to control AHB clock division factor.
 Caution: The clocks are divided with the new prescaler factor from 1 to 16 AHB cycles after
@@ -5125,8 +5580,10 @@ case of failure of the HSE oscillator used directly or indirectly as the system 
 11: not allowed
 
 
-                                                <!-- *P109*/844 -->
-138
+<!-- *P109*/844 -->
+[P109]: #P109
+<a id="P109"></a>
+
 
 //6.3.4 RCC clock interrupt register (RCC_CIR)
 ----------------------------------------------
@@ -5214,7 +5671,10 @@ This bit is set by software to clear the LSIRDYF flag.
 1: LSIRDYF cleared
 
 
-                                                <!-- *P110*/844 -->
+<!-- *P110*/844 -->
+[P110]: #P110
+<a id="P110"></a>
+
 Bits 15:14 Reserved, must be kept at reset value.
 Bit 13 PLLI2SRDYIE: PLLI2S ready interrupt enable
 Set and cleared by software to enable/disable interrupt caused by PLLI2S lock.
@@ -5262,8 +5722,10 @@ Cleared by software setting the PLLRDYC bit.
 1: Clock ready interrupt caused by PLL lock
 
 
-                                                <!-- *P111*/844 -->
-138
+<!-- *P111*/844 -->
+[P111]: #P111
+<a id="P111"></a>
+
 
 //6.3.5 RCC AHB1 peripheral reset register (RCC_AHB1RSTR)
 ---------------------------------------------------------
@@ -5333,7 +5795,10 @@ Set and cleared by software.
 Bits 20:13 Reserved, must be kept at reset value.
 
 
-                                                <!-- *P112*/844 -->
+<!-- *P112*/844 -->
+[P112]: #P112
+<a id="P112"></a>
+
 Bit 12 CRCRST: CRC reset
 Set and cleared by software.
 0: does not reset CRC
@@ -5366,8 +5831,10 @@ Set and cleared by software.
 1: resets IO port A
 
 
-                                                <!-- *P113*/844 -->
-138
+<!-- *P113*/844 -->
+[P113]: #P113
+<a id="P113"></a>
+
 
 //6.3.6 RCC AHB2 peripheral reset register (RCC_AHB2RSTR)
 ---------------------------------------------------------
@@ -5446,7 +5913,10 @@ Set and cleared by software.
 1: resets I2C2
 
 
-                                                <!-- *P114*/844 -->
+<!-- *P114*/844 -->
+[P114]: #P114
+<a id="P114"></a>
+
 Bit 21 I2C1RST: I2C1 reset
 Set and cleared by software.
 0: does not reset I2C1
@@ -5489,8 +5959,10 @@ Set and cleared by software.
 1: resets TIM2
 
 
-                                                <!-- *P115*/844 -->
-138
+<!-- *P115*/844 -->
+[P115]: #P115
+<a id="P115"></a>
+
 
 //6.3.8 RCC APB2 peripheral reset register (RCC_APB2RSTR)
 ---------------------------------------------------------
@@ -5569,7 +6041,10 @@ Set and cleared by software.
 1: resets SPI1
 
 
-                                                <!-- *P116*/844 -->
+<!-- *P116*/844 -->
+[P116]: #P116
+<a id="P116"></a>
+
 Bit 11 SDIORST: SDIO reset
 Set and cleared by software.
 0: does not reset the SDIO module
@@ -5595,8 +6070,10 @@ Set and cleared by software.
 1: resets TIM1
 
 
-                                                <!-- *P117*/844 -->
-138
+<!-- *P117*/844 -->
+[P117]: #P117
+<a id="P117"></a>
+
 
 //6.3.9 RCC AHB1 peripheral clock enable register (RCC_AHB1ENR)
 ---------------------------------------------------------------
@@ -5662,7 +6139,10 @@ Set and cleared by software.
 1: IO port C clock enabled
 
 
-                                                <!-- *P118*/844 -->
+<!-- *P118*/844 -->
+[P118]: #P118
+<a id="P118"></a>
+
 
 //6.3.10 RCC AHB2 peripheral clock enable register (RCC_AHB2ENR)
 ----------------------------------------------------------------
@@ -5740,8 +6220,10 @@ EN
 rw rw rw rw rw rw rw
 
 
-                                                <!-- *P119*/844 -->
-138
+<!-- *P119*/844 -->
+[P119]: #P119
+<a id="P119"></a>
+
 Bits 31:29 Reserved, must be kept at reset value.
 Bit 28 PWREN: Power interface clock enable
 Set and cleared by software.
@@ -5786,7 +6268,10 @@ Set and cleared by software.
 1: TIM5 clock enabled
 
 
-                                                <!-- *P120*/844 -->
+<!-- *P120*/844 -->
+[P120]: #P120
+<a id="P120"></a>
+
 Bit 2 TIM4EN: TIM4 clock enable
 Set and cleared by software.
 0: TIM4 clock disabled
@@ -5801,8 +6286,10 @@ Set and cleared by software.
 1: TIM2 clock enabled
 
 
-                                                <!-- *P121*/844 -->
-138
+<!-- *P121*/844 -->
+[P121]: #P121
+<a id="P121"></a>
+
 
 //6.3.12 RCC APB2 peripheral clock enable register
 --------------------------------------------------
@@ -5880,7 +6367,10 @@ Set and cleared by software.
 1: SPI1 clock enabled
 
 
-                                                <!-- *P122*/844 -->
+<!-- *P122*/844 -->
+[P122]: #P122
+<a id="P122"></a>
+
 Bit 11 SDIOEN: SDIO clock enable
 Set and cleared by software.
 0: SDIO module clock disabled
@@ -5905,8 +6395,10 @@ Set and cleared by software.
 1: TIM1 clock enabled
 
 
-                                                <!-- *P123*/844 -->
-138
+<!-- *P123*/844 -->
+[P123]: #P123
+<a id="P123"></a>
+
 
 //6.3.13 RCC AHB1 peripheral clock enable in low power mode register
 --------------------------------------------------------------------
@@ -5979,7 +6471,10 @@ Set and reset by software.
 Bits 6:5 Reserved, must be kept at reset value.
 
 
-                                                <!-- *P124*/844 -->
+<!-- *P124*/844 -->
+[P124]: #P124
+<a id="P124"></a>
+
 
 //6.3.14 RCC AHB2 peripheral clock enable in low power mode register
 --------------------------------------------------------------------
@@ -6026,8 +6521,10 @@ Set and cleared by software.
 Bits 6:0 Reserved, must be kept at reset value.
 
 
-                                                <!-- *P125*/844 -->
-138
+<!-- *P125*/844 -->
+[P125]: #P125
+<a id="P125"></a>
+
 
 //6.3.15 RCC APB1 peripheral clock enable in low power mode register
 --------------------------------------------------------------------
@@ -6103,7 +6600,10 @@ Set and cleared by software.
 1: SPI3 clock enabled during Sleep mode
 
 
-                                                <!-- *P126*/844 -->
+<!-- *P126*/844 -->
+[P126]: #P126
+<a id="P126"></a>
+
 Bit 14 SPI2LPEN: SPI2 clock enable during Sleep mode
 Set and cleared by software.
 0: SPI2 clock disabled during Sleep mode
@@ -6132,8 +6632,10 @@ Set and cleared by software.
 1: TIM2 clock enabled during Sleep mode
 
 
-                                                <!-- *P127*/844 -->
-138
+<!-- *P127*/844 -->
+[P127]: #P127
+<a id="P127"></a>
+
 
 //6.3.16 RCC APB2 peripheral clock enabled in low power mode register
 ---------------------------------------------------------------------
@@ -6210,7 +6712,10 @@ Set and reset by software.
 1: SPI4 clock enabled during sleep mode
 
 
-                                                <!-- *P128*/844 -->
+<!-- *P128*/844 -->
+[P128]: #P128
+<a id="P128"></a>
+
 Bit 12 SPI1LPEN: SPI1 clock enable during Sleep mode
 Set and cleared by software.
 0: SPI1 clock disabled during Sleep mode
@@ -6240,8 +6745,10 @@ Set and cleared by software.
 1: TIM1 clock enabled during Sleep mode
 
 
-                                                <!-- *P129*/844 -->
-138
+<!-- *P129*/844 -->
+[P129]: #P129
+<a id="P129"></a>
+
 
 //6.3.17 RCC Backup domain control register (RCC_BDCR)
 ------------------------------------------------------
@@ -6299,7 +6806,10 @@ are available.
 1: LSE oscillator “high drive” mode selection
 
 
-                                                <!-- *P130*/844 -->
+<!-- *P130*/844 -->
+[P130]: #P130
+<a id="P130"></a>
+
 
 //6.3.18 RCC clock control & status register (RCC_CSR)
 ------------------------------------------------------
@@ -6366,8 +6876,10 @@ Cleared by writing to the RMVF bit.
 1: Watchdog reset occurred
 
 
-                                                <!-- *P131*/844 -->
-138
+<!-- *P131*/844 -->
+[P131]: #P131
+<a id="P131"></a>
+
 Bit 28 SFTRSTF: Software reset flag
 Set by hardware when a software reset occurs.
 Cleared by writing to the RMVF bit.
@@ -6404,7 +6916,10 @@ Set and cleared by software.
 1: LSI RC oscillator ON
 
 
-                                                <!-- *P132*/844 -->
+<!-- *P132*/844 -->
+[P132]: #P132
+<a id="P132"></a>
+
 
 //6.3.19 RCC spread spectrum clock generation register (RCC_SSCGR)
 ------------------------------------------------------------------
@@ -6415,7 +6930,9 @@ Access: no wait state, word, half-word and byte access.
 The spread spectrum clock generation is available only for the main PLL.
 The RCC_SSCGR register must be written either before the main PLL is enabled or after
 the main PLL disabled.
-Note: For full details about PLL spread spectrum clock generation (SSCG) characteristics, refer to
+
+> [!NOTE]
+> For full details about PLL spread spectrum clock generation (SSCG) characteristics, refer to
 the “Electrical characteristics” section in your device datasheet.
 
 
@@ -6449,8 +6966,10 @@ Set and cleared by software. To write before setting CR[24]=PLLON bit.
 Configuration input for modulation profile period.
 
 
-                                                <!-- *P133*/844 -->
-138
+<!-- *P133*/844 -->
+[P133]: #P133
+<a id="P133"></a>
+
 
 //6.3.20 RCC PLLI2S configuration register (RCC_PLLI2SCFGR)
 -----------------------------------------------------------
@@ -6493,7 +7012,10 @@ I2S clock frequency = VCO frequency / PLLR with 2 ≤ PLLR ≤ 7
 111: PLLR = 7
 
 
-                                                <!-- *P134*/844 -->
+<!-- *P134*/844 -->
+[P134]: #P134
+<a id="P134"></a>
+
 Bits 27:15 Reserved, must be kept at reset value.
 Bits 14:6 PLLI2SN: PLLI2S multiplication factor for VCO
 Set and cleared by software to control the multiplication factor of the VCO. These bits can
@@ -6501,7 +7023,7 @@ be written only when the PLLI2S is disabled. Only half-word and word accesses ar
 to write these bits.
 Caution: The software has to set these bits correctly to ensure that the VCO output
 frequency is between 100 and 432 MHz. With VCO input frequency ranges from 1
-to 2 MHz (refer to Figure 13 and divider factor M of the RCC PLL configuration
+to 2 MHz (refer to [Figure 13] and divider factor M of the RCC PLL configuration
 register (RCC_PLLCFGR))
 VCO output frequency = VCO input frequency × PLLI2SN with 50 ≤ PLLI2SN ≤ 432
 000000000: PLLI2SN = 0, wrong configuration
@@ -6518,7 +7040,9 @@ VCO output frequency = VCO input frequency × PLLI2SN with 50 ≤ PLLI2SN ≤ 43
 110110000: PLLI2SN = 433, wrong configuration
 ...
 111111111: PLLI2SN = 511, wrong configuration
-Note: Between 50 and 99 multiplication factors are possible for VCO input frequency higher
+
+> [!NOTE]
+> Between 50 and 99 multiplication factors are possible for VCO input frequency higher
 than 1 MHz. However care must be taken to fulfill the minimum VCO output frequency
 as specified above.
 Bits 5:0 PLLI2SM: Division factor for the audio PLL (PLLI2S) input clock
@@ -6538,8 +7062,10 @@ VCO input frequency = PLL input clock frequency / PLLI2SM with 2≤ PLLI2SM ≤ 
 111111: PLLI2SM = 63
 
 
-                                                <!-- *P135*/844 -->
-138
+<!-- *P135*/844 -->
+[P135]: #P135
+<a id="P135"></a>
+
 
 //6.3.21 RCC Dedicated Clocks Configuration Register (RCC_DCKCFGR)
 ------------------------------------------------------------------
@@ -6571,13 +7097,19 @@ TIMxCLK = 4xPCLKx.
 Bits 23: 0 Reserved, must be kept at reset value.
 
 
-                                                <!-- *P136*/844 -->
+<!-- *P136*/844 -->
+[P136]: #P136
+<a id="P136"></a>
+
 
 //6.3.22 RCC register map
 -------------------------
 
-Table 21 gives the register map and reset values
+[Table 21] gives the register map and reset values
 
+
+[Table 21]: "Table%2021"
+<a id="Table 21"></a>
 
 **Table 21**. RCC register map and reset values for STM32F411xC/E
 
@@ -6823,8 +7355,10 @@ Reserved
 0x3C Reserved Reserved
 
 
-                                                <!-- *P137*/844 -->
-138
+<!-- *P137*/844 -->
+[P137]: #P137
+<a id="P137"></a>
+
 0x40
 RCC_APB1E
 NR
@@ -6975,7 +7509,7 @@ RCC_PLLI2S
 CFGR
 Reserved
 PLLI2SRx Reserved PLLI2SNx PLLI2SMx
-Table 21. RCC register map and reset values for STM32F411xC/E (continued)
+[Table 21]. RCC register map and reset values for STM32F411xC/E (continued)
 Addr.
 offset
 Register
@@ -7014,8 +7548,11 @@ name
 0
 
 
-                                                <!-- *P138*/844 -->
-Refer to Table 1 for the register boundary addresses.
+<!-- *P138*/844 -->
+[P138]: #P138
+<a id="P138"></a>
+
+Refer to [Table 1] for the register boundary addresses.
 0x88 Reserved
 0x8C
 RCC_DCKCF
@@ -7023,7 +7560,7 @@ GR
 Reserved
 TIMPRE
 Reserved
-Table 21. RCC register map and reset values for STM32F411xC/E (continued)
+[Table 21]. RCC register map and reset values for STM32F411xC/E (continued)
 Addr.
 offset
 Register
@@ -7062,8 +7599,10 @@ name
 0
 
 
-                                                <!-- *P139*/844 -->
-144
+<!-- *P139*/844 -->
+[P139]: #P139
+<a id="P139"></a>
+
 
 /7 System configuration controller (SYSCFG)
 ===========================================
@@ -7108,7 +7647,10 @@ MEM_MODE
 rw rw
 
 
-                                                <!-- *P140*/844 -->
+<!-- *P140*/844 -->
+[P140]: #P140
+<a id="P140"></a>
+
 
 
 //7.2.2 SYSCFG peripheral mode configuration register (SYSCFG_PMC)
@@ -7126,7 +7668,9 @@ pins .
 00: Main Flash memory mapped at 0x0000 0000
 01: System Flash memory mapped at 0x0000 0000
 11: Embedded SRAM mapped at 0x0000 0000
-Note: Refer to Section 2.3: Memory map for details about the memory mapping at
+
+> [!NOTE]
+> Refer to Section 2.3: Memory map for details about the memory mapping at
 address 0x0000 0000.
 31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16
 Reserved
@@ -7139,7 +7683,9 @@ Bits 31:17 Reserved, must be kept at reset value.
 Bit 16 ADCxDC2:
 0: No effect.
 1: Refer to AN4073 on how to use this bit .
-Note: These bits can be set only if the following conditions are met:
+
+> [!NOTE]
+> These bits can be set only if the following conditions are met:
 - ADC clock higher or equal to 30 MHz.
 - Only one ADCxDC2 bit must be selected if ADC conversions do not start
 at the same time and the sampling times differ.
@@ -7148,8 +7694,10 @@ register.
 Bits 15:0 Reserved, must be kept at reset value.
 
 
-                                                <!-- *P141*/844 -->
-144
+<!-- *P141*/844 -->
+[P141]: #P141
+<a id="P141"></a>
+
 
 //7.2.3 SYSCFG external interrupt configuration register 1
 ----------------------------------------------------------
@@ -7204,7 +7752,10 @@ external interrupt.
 0111: PH[x] pin
 
 
-                                                <!-- *P142*/844 -->
+<!-- *P142*/844 -->
+[P142]: #P142
+<a id="P142"></a>
+
 
 //7.2.5 SYSCFG external interrupt configuration register 3
 ----------------------------------------------------------
@@ -7258,8 +7809,10 @@ interrupt.
 0111: PH[x] pin
 
 
-                                                <!-- *P143*/844 -->
-144
+<!-- *P143*/844 -->
+[P143]: #P143
+<a id="P143"></a>
+
 
 //7.2.7 Compensation cell control register (SYSCFG_CMPCR)
 ---------------------------------------------------------
@@ -7286,14 +7839,20 @@ Bit 0 CMP_PD: Compensation cell power-down
 1: I/O compensation cell enabled
 
 
-                                                <!-- *P144*/844 -->
+<!-- *P144*/844 -->
+[P144]: #P144
+<a id="P144"></a>
+
 
 //7.2.8 SYSCFG register map
 ---------------------------
 
 The following table gives the SYSCFG register map and the reset values.
 
-Refer to Table 1 for the register boundary addresses.
+Refer to [Table 1] for the register boundary addresses.
+
+[Table 22]: "Table%2022"
+<a id="Table 22"></a>
 
 **Table 22**. SYSCFG register map and reset values
 
@@ -7370,8 +7929,10 @@ CMP_PD
 Reset value 0 0
 
 
-                                                <!-- *P145*/844 -->
-164
+<!-- *P145*/844 -->
+[P145]: #P145
+<a id="P145"></a>
+
 
 /8 General-purpose I/Os (GPIO)
 ==============================
@@ -7421,18 +7982,30 @@ several modes:
 • Alternate function open-drain with pull-up or pull-down capability
 
 
-                                                <!-- *P146*/844 -->
+<!-- *P146*/844 -->
+[P146]: #P146
+<a id="P146"></a>
+
 Each I/O port bit is freely programmable, however the I/O port registers have to be
 accessed as 32-bit words, half-words or bytes. The purpose of the GPIOx_BSRR register is
 to allow atomic read/modify accesses to any of the GPIO registers. In this way, there is no
 risk of an IRQ occurring between the read and the modify access.
-show the basic structure of a 5 V tolerant I/O port bit. Table 26 gives the possible port bit
+show the basic structure of a 5 V tolerant I/O port bit. [Table 26] gives the possible port bit
 configurations.
+
+[Figure 16]: "#Figure%2016"
+<a id="Figure 16"></a>
+
+[Figure 16]: "Figure%2016"
+<a id="Figure 16"></a>
 
 **Figure 16**. Basic structure of a five-volt tolerant I/O port bit
 
 1. V DD_FT is a potential specific to five-volt tolerant I/Os and different from V DD .
 
+
+[Table 23]: "Table%2023"
+<a id="Table 23"></a>
 
 **Table 23**. Port bit configuration table (1)
 
@@ -7502,8 +8075,10 @@ SPEED
 ????????
 
 
-                                                <!-- *P147*/844 -->
-164
+<!-- *P147*/844 -->
+[P147]: #P147
+<a id="P147"></a>
+
 
 //8.3.1 General-purpose I/O (GPIO)
 ----------------------------------
@@ -7547,7 +8122,7 @@ Reserved x x x 1 0
 x x x 1 1
 1. GP = general-purpose, PP = push-pull, PU = pull-up, PD = pull-down, OD = open-drain, AF = alternate
 function.
-Table 23. Port bit configuration table (1) (continued)
+[Table 23]. Port bit configuration table (1) (continued)
 MODER(i)
 [1:0]
 OTYPER(i)
@@ -7558,7 +8133,10 @@ PUPDR(i)
 I/O configuration
 
 
-                                                <!-- *P148*/844 -->
+<!-- *P148*/844 -->
+[P148]: #P148
+<a id="P148"></a>
+
 
 //8.3.2 I/O pin multiplexer and mapping
 ---------------------------------------
@@ -7572,7 +8150,7 @@ registers:
 • After reset all I/Os are connected to the system’s alternate function 0 (AF0)
 • The peripherals’ alternate functions are mapped from AF1 to AF13
 • Cortex®-M4 with FPU EVENTOUT is mapped on AF15
-This structure is shown in Figure 17 below.
+This structure is shown in [Figure 17] below.
 In addition to this flexible I/O multiplexing architecture, each peripheral has alternate
 functions mapped onto different I/O pins to optimize the number of peripherals available in
 smaller packages.
@@ -7583,13 +8161,17 @@ Connect the I/O to AF0 and configure it depending on the function used:
 immediately usable by the debugger host (not controlled by the GPIO controller)
 – RTC_REFIN: this pin should be configured in Input floating mode
 – MCO1 and MCO2: these pins have to be configured in alternate function mode.
-Note: The user can disable some or all of the JTAG/SWD pins and so release the associated pins
+
+> [!NOTE]
+> The user can disable some or all of the JTAG/SWD pins and so release the associated pins
 for GPIO usage (released pins highlighted in gray in the table).
 For more details please refer to Section 6.2.10: Clock-out capability.
 
 
-                                                <!-- *P149*/844 -->
-164
+<!-- *P149*/844 -->
+[P149]: #P149
+<a id="P149"></a>
+
 
 • GPIO
 Configure the desired I/O as output or input in the GPIOx_MODER register.
@@ -7605,6 +8187,9 @@ Configure the I/O pin used to output the Cortex®-M4 with FPU EVENTOUT signal by
 connecting it to AF15
 Please refer to the “Alternate function mapping” table in the datasheets for the detailed
 mapping of the system and peripherals’ alternate function I/O pins.
+
+[Table 24]: "Table%2024"
+<a id="Table 24"></a>
 
 **Table 24**. Flexible SWJ-DP pin assignment
 
@@ -7630,7 +8215,16 @@ JTAG-DP Disabled and SW-DP Enabled X X
 JTAG-DP Disabled and SW-DP Disabled Released
 
 
-                                                <!-- *P150*/844 -->
+<!-- *P150*/844 -->
+[P150]: #P150
+<a id="P150"></a>
+
+
+[Figure 17]: "#Figure%2017"
+<a id="Figure 17"></a>
+
+[Figure 17]: "Figure%2017"
+<a id="Figure 17"></a>
 
 **Figure 17**. Selecting an alternate function onSTM32F411xC/E
 
@@ -7678,8 +8272,10 @@ JTAG-DP Disabled and SW-DP Disabled Released
 ?
 
 
-                                                <!-- *P151*/844 -->
-164
+<!-- *P151*/844 -->
+[P151]: #P151
+<a id="P151"></a>
+
 
 //8.3.3 I/O port control registers
 ----------------------------------
@@ -7735,7 +8331,10 @@ be the same). When the LOCK sequence has been applied to a port bit, the value o
 bit can no longer be modified until the next MCU or peripheral reset. Each GPIOx_LCKR bit
 
 
-                                                <!-- *P152*/844 -->
+<!-- *P152*/844 -->
+[P152]: #P152
+<a id="P152"></a>
+
 freezes the corresponding bit in the control registers (GPIOx_MODER, GPIOx_OTYPER,
 GPIOx_OSPEEDR, GPIOx_PUPDR, GPIOx_AFRL and GPIOx_AFRH).
 The LOCK sequence (refer to Section 8.4.8: GPIO port configuration lock register
@@ -7757,7 +8356,9 @@ thus select any one of the possible functions for each I/O. The AF selection sig
 common to the alternate function input and alternate function output, a single channel is
 selected for the alternate function input/output of one I/O.
 To know which functions are multiplexed on each GPIO pin, refer to the datasheets.
-Note: The application is allowed to select one of the possible peripheral functions for each I/O at a
+
+> [!NOTE]
+> The application is allowed to select one of the possible peripheral functions for each I/O at a
 time.
 
 //8.3.8 External interrupt/wakeup lines
@@ -7778,11 +8379,19 @@ GPIOx_PUPDR register
 • The data present on the I/O pin are sampled into the input data register every AHB
 clock cycle
 • A read access to the input data register provides the I/O State
-Figure 18 shows the input configuration of the I/O port bit.
+[Figure 18] shows the input configuration of the I/O port bit.
 
 
-                                                <!-- *P153*/844 -->
-164
+<!-- *P153*/844 -->
+[P153]: #P153
+<a id="P153"></a>
+
+
+[Figure 18]: "#Figure%2018"
+<a id="Figure 18"></a>
+
+[Figure 18]: "Figure%2018"
+<a id="Figure 18"></a>
 
 **Figure 18**. Input floating/pull up/pull down configurations
 
@@ -7803,7 +8412,7 @@ in the GPIOx_PUPDR register
 clock cycle
 • A read access to the input data register gets the I/O state
 • A read access to the output data register gets the last written value
-Figure 19 shows the output configuration of the I/O port bit.
+[Figure 19] shows the output configuration of the I/O port bit.
 ??????
 ????
 ????
@@ -7833,7 +8442,16 @@ Figure 19 shows the output configuration of the I/O port bit.
 ????????
 
 
-                                                <!-- *P154*/844 -->
+<!-- *P154*/844 -->
+[P154]: #P154
+<a id="P154"></a>
+
+
+[Figure 19]: "#Figure%2019"
+<a id="Figure 19"></a>
+
+[Figure 19]: "Figure%2019"
+<a id="Figure 19"></a>
 
 **Figure 19**. Output configuration
 
@@ -7851,7 +8469,13 @@ in the GPIOx_PUPDR register
 • The data present on the I/O pin are sampled into the input data register every AHB
 clock cycle
 • A read access to the input data register gets the I/O state
-Figure 20 shows the Alternate function configuration of the I/O port bit.
+[Figure 20] shows the Alternate function configuration of the I/O port bit.
+
+[Figure 20]: "#Figure%2020"
+<a id="Figure 20"></a>
+
+[Figure 20]: "Figure%2020"
+<a id="Figure 20"></a>
 
 **Figure 20**. Alternate function configuration
 
@@ -7932,8 +8556,10 @@ Figure 20 shows the Alternate function configuration of the I/O port bit.
 ????????
 
 
-                                                <!-- *P155*/844 -->
-164
+<!-- *P155*/844 -->
+[P155]: #P155
+<a id="P155"></a>
+
 
 //8.3.12 Analog configuration
 -----------------------------
@@ -7944,8 +8570,16 @@ When the I/O port is programmed as analog configuration:
 value of the I/O pin. The output of the Schmitt trigger is forced to a constant value (0).
 • The weak pull-up and pull-down resistors are disabled
 • Read access to the input data register gets the value “0”
-Note: In the analog configuration, the I/O pins cannot be 5 Volt tolerant.
-Figure 21 shows the high-impedance, analog-input configuration of the I/O port bit.
+
+> [!NOTE]
+> In the analog configuration, the I/O pins cannot be 5 Volt tolerant.
+[Figure 21] shows the high-impedance, analog-input configuration of the I/O port bit.
+
+[Figure 21]: "#Figure%2021"
+<a id="Figure 21"></a>
+
+[Figure 21]: "Figure%2021"
+<a id="Figure 21"></a>
 
 **Figure 21**. High impedance-analog configuration
 
@@ -7959,7 +8593,9 @@ PC14 and PC15 I/Os, respectively, when the LSE oscillator is off. The PC14 and P
 are only configured as LSE oscillator pins OSC32_IN and OSC32_OUT when the LSE
 oscillator is ON. This is done by setting the LSEON bit in the RCC_BDCR register. The LSE
 has priority over the GPIO function.
-Note: The PC14/PC15 GPIO functionality is lost when the 1.2 V domain is powered off (by the
+
+> [!NOTE]
+> The PC14/PC15 GPIO functionality is lost when the 1.2 V domain is powered off (by the
 device entering the standby mode) or when the backup domain is supplied by V BAT (V DD no
 more supplied). In this case the I/Os are set in analog input mode.
 
@@ -7998,7 +8634,10 @@ HSE has priority over the GPIO function.
 ????????????
 
 
-                                                <!-- *P156*/844 -->
+<!-- *P156*/844 -->
+[P156]: #P156
+<a id="P156"></a>
+
 
 //8.3.15 Selection of RTC functions
 -----------------------------------
@@ -8018,8 +8657,11 @@ follows:
 • TSINSEL is used to select which pin is used as the RTC_TS time stamp input
 • ALARMOUTTYPE is used to select whether the RTC_ALARM is output in push-pull or
 open-drain mode
-The output mechanism follows the priority order listed in Table 25
+The output mechanism follows the priority order listed in [Table 25]
 
+
+[Table 25]: "Table%2025"
+<a id="Table 25"></a>
 
 **Table 25**. RTC additional functions (1)
 
@@ -8082,14 +8724,16 @@ GPIO
 1. OD: open drain; PP: push-pull.
 
 
-                                                <!-- *P157*/844 -->
-164
+<!-- *P157*/844 -->
+[P157]: #P157
+<a id="P157"></a>
+
 
 //8.4 GPIO registers
 --------------------
 
 This section gives a detailed description of the GPIO registers.
-For a summary of register bits, register address offsets and reset values, refer to Table 26.
+For a summary of register bits, register address offsets and reset values, refer to [Table 26].
 The GPIO registers can be accessed by byte (8 bits), half-words (16 bits) or words (32 bits).
 
 //8.4.1 GPIO port mode register (GPIOx_MODER) (x = A..E and H)
@@ -8135,7 +8779,10 @@ These bits are written by software to configure the output type of the I/O port.
 1: Output open-drain
 
 
-                                                <!-- *P158*/844 -->
+<!-- *P158*/844 -->
+[P158]: #P158
+<a id="P158"></a>
+
 
 //8.4.3 GPIO port output speed register (GPIOx_OSPEEDR)
 -------------------------------------------------------
@@ -8190,7 +8837,9 @@ These bits are written by software to configure the I/O output speed.
 01: Medium speed
 10: Fast speed
 11: High speed
-Note: Refer to the product datasheets for the values of OSPEEDRy bits versus V DD
+
+> [!NOTE]
+> Refer to the product datasheets for the values of OSPEEDRy bits versus V DD
 range and external load.
 31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16
 PUPDR15[1:0] PUPDR14[1:0] PUPDR13[1:0] PUPDR12[1:0] PUPDR11[1:0] PUPDR10[1:0] PUPDR9[1:0] PUPDR8[1:0]
@@ -8200,8 +8849,10 @@ PUPDR7[1:0] PUPDR6[1:0] PUPDR5[1:0] PUPDR4[1:0] PUPDR3[1:0] PUPDR2[1:0] PUPDR1[1
 rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw
 
 
-                                                <!-- *P159*/844 -->
-164
+<!-- *P159*/844 -->
+[P159]: #P159
+<a id="P159"></a>
+
 
 
 //8.4.5 GPIO port input data register (GPIOx_IDR) (x = A..E and H)
@@ -8242,11 +8893,16 @@ rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw
 Bits 31:16 Reserved, must be kept at reset value.
 Bits 15:0 ODRy: Port output data (y = 0..15)
 These bits can be read and written by software.
-Note: For atomic bit set/reset, the ODR bits can be individually set and reset by writing to the
+
+> [!NOTE]
+> For atomic bit set/reset, the ODR bits can be individually set and reset by writing to the
 GPIOx_BSRR register (x = A..E and H).
 
 
-                                                <!-- *P160*/844 -->
+<!-- *P160*/844 -->
+[P160]: #P160
+<a id="P160"></a>
+
 
 //8.4.7 GPIO port bit set/reset register (GPIOx_BSRR) (x = A..E and H)
 ----------------------------------------------------------------------
@@ -8265,7 +8921,9 @@ is applied to bit 16 (LCKK). The value of bits [15:0] is used to lock the config
 GPIO. During the write sequence, the value of LCKR[15:0] must not change. When the
 LOCK sequence has been applied on a port bit, the value of this port bit can no longer be
 modified until the next MCU or peripheral reset.
-Note: A specific write sequence is used to write to the GPIOx_LCKR register. Only word access
+
+> [!NOTE]
+> A specific write sequence is used to write to the GPIOx_LCKR register. Only word access
 (32-bit long) is allowed during this write sequence.
 Each lock bit freezes a specific configuration register (control and alternate function
 registers).
@@ -8284,7 +8942,9 @@ These bits are write-only and can be accessed in word, half-word or byte mode. A
 these bits returns the value 0x0000.
 0: No action on the corresponding ODRx bit
 1: Resets the corresponding ODRx bit
-Note: If both BSx and BRx are set, BSx has priority.
+
+> [!NOTE]
+> If both BSx and BRx are set, BSx has priority.
 Bits 15:0 BSy: Port x set bit y (y= 0..15)
 These bits are write-only and can be accessed in word, half-word or byte mode. A read to
 these bits returns the value 0x0000.
@@ -8299,8 +8959,10 @@ LCK15 LCK14 LCK13 LCK12 LCK11 LCK10 LCK9 LCK8 LCK7 LCK6 LCK5 LCK4 LCK3 LCK2 LCK1
 rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw
 
 
-                                                <!-- *P161*/844 -->
-164
+<!-- *P161*/844 -->
+[P161]: #P161
+<a id="P161"></a>
+
 
 
 //8.4.9 GPIO alternate function low register (GPIOx_AFRL) (x = A..E and H)
@@ -8322,7 +8984,9 @@ WR LCKR[16] = ‘0’ + LCKR[15:0]
 WR LCKR[16] = ‘1’ + LCKR[15:0]
 RD LCKR
 RD LCKR[16] = ‘1’ (this read operation is optional but it confirms that the lock is active)
-Note: During the LOCK key write sequence, the value of LCK[15:0] must not change.
+
+> [!NOTE]
+> During the LOCK key write sequence, the value of LCK[15:0] must not change.
 Any error in the lock sequence aborts the lock.
 After the first lock sequence on any bit of the port, any read access on the LCKK bit will
 return ‘1’ until the next CPU reset.
@@ -8357,7 +9021,10 @@ AFRLy selection:
 1111: AF15
 
 
-                                                <!-- *P162*/844 -->
+<!-- *P162*/844 -->
+[P162]: #P162
+<a id="P162"></a>
+
 
 //8.4.10 GPIO alternate function high register (GPIOx_AFRH)
 -----------------------------------------------------------
@@ -8394,14 +9061,19 @@ AFRHy selection:
 1111: AF15
 
 
-                                                <!-- *P163*/844 -->
-164
+<!-- *P163*/844 -->
+[P163]: #P163
+<a id="P163"></a>
+
 
 //8.4.11 GPIO register map
 --------------------------
 
 The following table gives the GPIO register map and the reset values.
 
+
+[Table 26]: "Table%2026"
+<a id="Table 26"></a>
 
 **Table 26**. GPIO register map and reset values
 
@@ -8605,7 +9277,10 @@ PUPDR0[1:0]
 Reset value 0 1 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 
 
-                                                <!-- *P164*/844 -->
+<!-- *P164*/844 -->
+[P164]: #P164
+<a id="P164"></a>
+
 Refer to Section 2.3: Memory map for the register boundary addresses.
 0x0C
 GPIOB_PUPDR
@@ -8763,7 +9438,7 @@ GPIOx_AFRH
 and H)
 AFRH15[3:0] AFRH14[3:0] AFRH13[3:0] AFRH12[3:0] AFRH11[3:0] AFRH10[3:0] AFRH9[3:0] AFRH8[3:0]
 Reset value 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-Table 26. GPIO register map and reset values (continued)
+[Table 26]. GPIO register map and reset values (continued)
 Offset Register
 31
 30
@@ -8799,8 +9474,10 @@ Offset Register
 0
 
 
-                                                <!-- *P165*/844 -->
-200
+<!-- *P165*/844 -->
+[P165]: #P165
+<a id="P165"></a>
+
 
 /9 DMA controller (DMA)
 =======================
@@ -8838,7 +9515,10 @@ configured in direct mode (FIFO disabled), to transfer data in memory-to-
 peripheral mode, the DMA preloads only one data from the memory to the internal
 
 
-                                                <!-- *P166*/844 -->
+<!-- *P166*/844 -->
+[P166]: #P166
+<a id="P166"></a>
+
 FIFO to ensure an immediate data transfer as soon as a DMA request is triggered
 by a peripheral.
 • Each stream can be configured by hardware to be:
@@ -8874,8 +9554,10 @@ FIFO Error, Direct Mode Error) logically ORed together in a single interrupt req
 each stream
 
 
-                                                <!-- *P167*/844 -->
-200
+<!-- *P167*/844 -->
+[P167]: #P167
+<a id="P167"></a>
+
 
 //9.3 DMA functional description
 --------------------------------
@@ -8884,7 +9566,13 @@ each stream
 //9.3.1 General description
 ---------------------------
 
-Figure 22 shows the block diagram of a DMA.
+[Figure 22] shows the block diagram of a DMA.
+
+[Figure 22]: "#Figure%2022"
+<a id="Figure 22"></a>
+
+[Figure 22]: "Figure%2022"
+<a id="Figure 22"></a>
 
 **Figure 22**. DMA block diagram
 
@@ -8951,8 +9639,17 @@ accesses).
 ???????
 
 
-                                                <!-- *P168*/844 -->
-See Figure 23 for the implementation of the system of two DMA controllers.
+<!-- *P168*/844 -->
+[P168]: #P168
+<a id="P168"></a>
+
+See [Figure 23] for the implementation of the system of two DMA controllers.
+
+[Figure 23]: "#Figure%2023"
+<a id="Figure 23"></a>
+
+[Figure 23]: "Figure%2023"
+<a id="Figure 23"></a>
 
 **Figure 23**. System implementation of the two DMA controllers
 
@@ -9018,8 +9715,10 @@ transactions that still have to be performed
 ???????????
 
 
-                                                <!-- *P169*/844 -->
-200
+<!-- *P169*/844 -->
+[P169]: #P169
+<a id="P169"></a>
+
 After an event, the peripheral sends a request signal to the DMA controller. The DMA
 controller serves the request depending on the channel priorities. As soon as the DMA
 controller accesses the peripheral, an Acknowledge signal is sent to the peripheral by the
@@ -9034,6 +9733,12 @@ peripheral can initiate the next transaction.
 Each stream is associated with a DMA request that can be selected out of 8 possible
 channel requests. The selection is controlled by the CHSEL[2:0] bits in the DMA_SxCR
 register.
+
+[Figure 24]: "#Figure%2024"
+<a id="Figure 24"></a>
+
+[Figure 24]: "Figure%2024"
+<a id="Figure 24"></a>
 
 **Figure 24**. Channel selection
 
@@ -9055,7 +9760,10 @@ See the following table(s) for examples of DMA request mappings.
 ????????????
 
 
-                                                <!-- *P170*/844 -->
+<!-- *P170*/844 -->
+[P170]: #P170
+<a id="P170"></a>
+
 
 
 
@@ -9067,6 +9775,9 @@ See the following table(s) for examples of DMA request mappings.
 An arbiter manages the 8 DMA stream requests based on their priority for each of the two
 AHB master ports (memory and peripheral ports) and launches the peripheral/memory
 access sequences.
+
+[Table 27]: "Table%2027"
+<a id="Table 27"></a>
 
 **Table 27**. DMA1 request mapping (STM32F411xC/E)
 
@@ -9103,6 +9814,9 @@ TIM5_TRIG
 TIM5_CH2 I2C3_TX TIM5_UP USART2_RX
 Channel 7 - - I2C2_RX I2C2_RX - - - I2C2_TX
 
+[Table 28]: "Table%2028"
+<a id="Table 28"></a>
+
 **Table 28**. DMA2 request mapping (STM32F411xC/E)
 
 Peripheral
@@ -9126,8 +9840,10 @@ TIM1_UP TIM1_CH3 -
 Channel 7 - - - - - SPI5_RX SPI5_TX -
 
 
-                                                <!-- *P171*/844 -->
-200
+<!-- *P171*/844 -->
+[P171]: #P171
+<a id="P171"></a>
+
 Priorities are managed in two stages:
 • Software: each stream priority can be configured in the DMA_SxCR register. There are
 four levels:
@@ -9162,12 +9878,15 @@ Both source and destination transfers can address peripherals and memories in th
 4 GB area, at addresses comprised between 0x0000 0000 and 0xFFFF FFFF.
 The direction is configured using the DIR[1:0] bits in the DMA_SxCR register and offers
 three possibilities: memory-to-peripheral, peripheral-to-memory or memory-to-memory
-transfers. Table 29 describes the corresponding source and destination addresses.
+transfers. [Table 29] describes the corresponding source and destination addresses.
 
 When the data width (programmed in the PSIZE or MSIZE bits in the DMA_SxCR register)
 is a half-word or a word, respectively, the peripheral or memory address written into the
 DMA_SxPAR or DMA_SxM0AR/M1AR registers has to be aligned on a word or half-word
 address boundary, respectively.
+
+[Table 29]: "Table%2029"
+<a id="Table 29"></a>
 
 **Table 29**. Source and destination address
 
@@ -9180,9 +9899,12 @@ Direction Source address Destination address
 11 reserved - -
 
 
-                                                <!-- *P172*/844 -->
+<!-- *P172*/844 -->
+[P172]: #P172
+<a id="P172"></a>
+
 Peripheral-to-memory mode
-Figure 25 describes this mode.
+[Figure 25] describes this mode.
 When this mode is enabled (by setting the bit EN in the DMA_SxCR register), each time a
 peripheral request occurs, the stream initiates a transfer from the source to fill the FIFO.
 When the threshold level of the FIFO is reached, the contents of the FIFO are drained and
@@ -9197,11 +9919,17 @@ The stream has access to the AHB source or destination port only if the arbitrat
 corresponding stream is won. This arbitration is performed using the priority defined for
 each stream using the PL[1:0] bits in the DMA_SxCR register.
 
+[Figure 25]: "#Figure%2025"
+<a id="Figure 25"></a>
+
+[Figure 25]: "Figure%2025"
+<a id="Figure 25"></a>
+
 **Figure 25**. Peripheral-to-memory mode
 
 1. For double-buffer mode.
 Memory-to-peripheral mode
-Figure 26 describes this mode.
+[Figure 26] describes this mode.
 When this mode is enabled (by setting the EN bit in the DMA_SxCR register), the stream
 immediately initiates transfers from the source to entirely fill the FIFO.
 ??????????????
@@ -9227,8 +9955,10 @@ immediately initiates transfers from the source to entirely fill the FIFO.
 ?????????
 
 
-                                                <!-- *P173*/844 -->
-200
+<!-- *P173*/844 -->
+[P173]: #P173
+<a id="P173"></a>
+
 Each time a peripheral request occurs, the contents of the FIFO are drained and stored into
 the destination. When the level of the FIFO is lower than or equal to the predefined
 threshold level, the FIFO is fully reloaded with data from the memory.
@@ -9245,12 +9975,18 @@ The stream has access to the AHB source or destination port only if the arbitrat
 corresponding stream is won. This arbitration is performed using the priority defined for
 each stream using the PL[1:0] bits in the DMA_SxCR register.
 
+[Figure 26]: "#Figure%2026"
+<a id="Figure 26"></a>
+
+[Figure 26]: "Figure%2026"
+<a id="Figure 26"></a>
+
 **Figure 26**. Memory-to-peripheral mode
 
 1. For double-buffer mode.
 Memory-to-memory mode
 The DMA channels can also work without being triggered by a request from a peripheral.
-This is the memory-to-memory mode, described in Figure 27.
+This is the memory-to-memory mode, described in [Figure 27].
 When the stream is enabled by setting the Enable bit (EN) in the DMA_SxCR register, the
 stream immediately starts to fill the FIFO up to the threshold level. When the threshold level
 is reached, the FIFO contents are drained and stored into the destination.
@@ -9277,14 +10013,25 @@ is reached, the FIFO contents are drained and stored into the destination.
 ???????
 
 
-                                                <!-- *P174*/844 -->
+<!-- *P174*/844 -->
+[P174]: #P174
+<a id="P174"></a>
+
 The transfer stops once the DMA_SxNDTR register reaches zero or when the EN bit in the
 DMA_SxCR register is cleared by software.
 The stream has access to the AHB source or destination port only if the arbitration of the
 corresponding stream is won. This arbitration is performed using the priority defined for
 each stream using the PL[1:0] bits in the DMA_SxCR register.
-Note: When memory-to-memory mode is used, the Circular and direct modes are not allowed.
+
+> [!NOTE]
+> When memory-to-memory mode is used, the Circular and direct modes are not allowed.
 Only the DMA2 controller is able to perform memory-to-memory transfers.
+
+[Figure 27]: "#Figure%2027"
+<a id="Figure 27"></a>
+
+[Figure 27]: "Figure%2027"
+<a id="Figure 27"></a>
 
 **Figure 27**. Memory-to-memory mode
 
@@ -9329,8 +10076,10 @@ incremented by 4). The PINCOS bit has an impact on the AHB peripheral port only.
 ???????
 
 
-                                                <!-- *P175*/844 -->
-200
+<!-- *P175*/844 -->
+[P175]: #P175
+<a id="P175"></a>
+
 If PINCOS bit is set, the address of the next transfer is the address of the previous one
 incremented by 4 (automatically aligned on a 32-bit address) whatever the PSIZE value.
 The AHB memory port, however, is not impacted by this operation.
@@ -9344,7 +10093,9 @@ register.
 When the circular mode is activated, the number of data items to be transferred is
 automatically reloaded with the initial value programmed during the stream configuration
 phase, and the DMA requests continue to be served.
-Note: In the circular mode, it is mandatory to respect the following rule in case of a burst mode
+
+> [!NOTE]
+> In the circular mode, it is mandatory to respect the following rule in case of a burst mode
 configured for memory:
 DMA_SxNDTR = Multiple of ((Mburst beat) × (Msize)/(Psize)), where:
 – (Mburst beat) = 4, 8 or 16 (depending on the MBURST bits in the DMA_SxCR
@@ -9371,11 +10122,16 @@ In this mode, the DMA controller swaps from one memory target to another at each
 transaction. This allows the software to process one memory area while the second memory
 area is being filled/used by the DMA transfer. The double-buffer stream can work in both
 directions (the memory can be either the source or the destination) as described in
-Table 30: Source and destination address registers in Double buffer mode (DBM=1).
+[Table 30]: Source and destination address registers in Double buffer mode (DBM=1).
 
 
-                                                <!-- *P176*/844 -->
-Note: In Double buffer mode, it is possible to update the base address for the AHB memory port
+<!-- *P176*/844 -->
+[P176]: #P176
+<a id="P176"></a>
+
+
+> [!NOTE]
+> In Double buffer mode, it is possible to update the base address for the AHB memory port
 on-the-fly (DMA_SxM0AR or DMA_SxM1AR) when the stream is enabled, by respecting the
 following conditions:
 • When the CT bit is ‘0’ in the DMA_SxCR register, the DMA_SxM1AR register can be
@@ -9408,8 +10164,11 @@ DMA_SxCR register). For instance, in case of peripheral-to-memory, memory-to-
 peripheral or memory-to-memory transfers and if the PSIZE[1:0] bits are configured for
 half-word, the number of bytes to be transferred is equal to 2 × NDT.
 • The DMA controller only copes with little-endian addressing for both source and
-destination. This is described in Table 31: Packing/unpacking & endian behavior (bit
+destination. This is described in [Table 31]: Packing/unpacking & endian behavior (bit
 PINC = MINC = 1).
+
+[Table 30]: "Table%2030"
+<a id="Table 30"></a>
 
 **Table 30**. Source and destination address registers in Double buffer mode (DBM=1)
 
@@ -9430,8 +10189,10 @@ not allowed to configure the memory-to-memory mode.
 11 Reserved - -
 
 
-                                                <!-- *P177*/844 -->
-200
+<!-- *P177*/844 -->
+[P177]: #P177
+<a id="P177"></a>
+
 This packing/unpacking procedure may present a risk of data corruption when the operation
 is interrupted before the data are completely packed/unpacked. So, to ensure data
 coherence, the stream may be configured to generate burst transfers: in this case, each
@@ -9442,6 +10203,9 @@ not possible. In this case, it is not allowed to have different source and desti
 data widths: both are equal and defined by the PSIZE bits in the DMA_SxCR MSIZE bits are
 don’t care).
 
+
+[Table 31]: "Table%2031"
+<a id="Table 31"></a>
 
 **Table 31**. Packing/unpacking & endian behavior (bit PINC = MINC = 1)
 
@@ -9579,13 +10343,18 @@ Peripheral port address / byte lane
 32 32 1 - 1 0x0 /B3|B2|B1|B0 [31:0] 1 0x0 /B3|B2|B1|B0 [31:0] 0x0 / B3|B2|B1|B0[31:0]
 
 
-                                                <!-- *P178*/844 -->
-Note: Peripheral port may be the source or the destination (it could also be the memory source in
+<!-- *P178*/844 -->
+[P178]: #P178
+<a id="P178"></a>
+
+
+> [!NOTE]
+> Peripheral port may be the source or the destination (it could also be the memory source in
 the case of memory-to-memory transfer).
 PSIZE, MSIZE and NDT[15:0] have to be configured so as to ensure that the last transfer
 will not be incomplete. This can occur when the data width of the peripheral port (PSIZE
 bits) is lower than the data width of the memory port (MSIZE bits). This constraint is
-summarized in Table 32.
+summarized in [Table 32].
 
 
 //9.3.11 Single and burst transfers
@@ -9621,6 +10390,9 @@ can be allocated to a single slave is 1 KB. This means that the 1 KB address bou
 should not be crossed by a burst block transfer, otherwise an AHB error would be
 generated, that is not reported by the DMA registers.
 
+[Table 32]: "Table%2032"
+<a id="Table 32"></a>
+
 **Table 32**. Restriction on NDT versus PSIZE and MSIZE
 
 PSIZE[1:0] of DMA_SxCR MSIZE[1:0] of DMA_SxCR NDT[15:0] of DMA_SxNDTR
@@ -9629,8 +10401,10 @@ PSIZE[1:0] of DMA_SxCR MSIZE[1:0] of DMA_SxCR NDT[15:0] of DMA_SxNDTR
 01 (16-bit) 10 (32-bit) must be a multiple of 2
 
 
-                                                <!-- *P179*/844 -->
-200
+<!-- *P179*/844 -->
+[P179]: #P179
+<a id="P179"></a>
+
 
 //9.3.12 FIFO
 -------------
@@ -9643,7 +10417,13 @@ configurable between 1/4, 1/2, 3/4 or full.
 To enable the use of the FIFO threshold level, the direct mode must be disabled by setting
 the DMDIS bit in the DMA_SxFCR register.
 The structure of the FIFO differs depending on the source and destination data widths, and
-is described in Figure 28: FIFO structure.
+is described in [Figure 28]: FIFO structure.
+
+[Figure 28]: "#Figure%2028"
+<a id="Figure 28"></a>
+
+[Figure 28]: "Figure%2028"
+<a id="Figure 28"></a>
 
 **Figure 28**. FIFO structure
 
@@ -9764,7 +10544,10 @@ is described in Figure 28: FIFO structure.
 ???????
 
 
-                                                <!-- *P180*/844 -->
+<!-- *P180*/844 -->
+[P180]: #P180
+<a id="P180"></a>
+
 FIFO threshold and burst configuration
 Caution is required when choosing the FIFO threshold (bits FTH[1:0] of the DMA_SxFCR
 register) and the size of the memory burst (MBURST[1:0] of the DMA_SxCR register): The
@@ -9772,7 +10555,7 @@ content pointed by the FIFO threshold must exactly match to an integer number of
 burst transfers. If this is not in the case, a FIFO error (flag FEIFx of the DMA_HISR or
 DMA_LISR register) will be generated when the stream is enabled, then the stream will be
 automatically disabled. The allowed and forbidden configurations are described in the
-Table 33: FIFO threshold configurations.
+[Table 33]: FIFO threshold configurations.
 
 In all cases, the burst size multiplied by the data size must not exceed the FIFO size (data
 size can be: 1 (byte), 2 (half-word) or 4 (word)).
@@ -9785,13 +10568,18 @@ FIFO to be transferred to the memory is not a multiple of the burst size multipl
 data size
 In such cases, the remaining data to be transferred will be managed in single mode by the
 DMA, even if a burst transaction was requested during the DMA stream configuration.
-Note: When burst transfers are requested on the peripheral AHB port and the FIFO is used
+
+> [!NOTE]
+> When burst transfers are requested on the peripheral AHB port and the FIFO is used
 (DMDIS = 1 in the DMA_SxCR register), it is mandatory to respect the following rule to
 avoid permanent underrun or overrun conditions, depending on the DMA stream direction:
 If (PBURST × PSIZE) = FIFO_SIZE (4 words), FIFO_Threshold = 3/4 is forbidden with
 PSIZE = 1, 2 or 4 and PBURST = 4, 8 or 16.
 This rule ensures that enough FIFO space at a time will be free to serve the request from
 the peripheral.
+
+[Table 33]: "Table%2033"
+<a id="Table 33"></a>
 
 **Table 33**. FIFO threshold configurations
 
@@ -9817,8 +10605,10 @@ forbidden
 Full 1 burst of 4 beats
 
 
-                                                <!-- *P181*/844 -->
-200
+<!-- *P181*/844 -->
+[P181]: #P181
+<a id="P181"></a>
+
 FIFO flush
 The FIFO can be flushed when the stream is disabled by resetting the EN bit in the
 DMA_SxCR register and when the stream is configured to manage peripheral-to-memory or
@@ -9864,7 +10654,10 @@ or DMA_HISR status register:
 DMA_SxCR register) and (when transfers are peripheral-to-memory or memory-
 
 
-                                                <!-- *P182*/844 -->
+<!-- *P182*/844 -->
+[P182]: #P182
+<a id="P182"></a>
+
 to-memory) all the remaining data have been flushed from the FIFO into the
 memory
 • In Peripheral flow controller mode:
@@ -9874,7 +10667,9 @@ data have been transferred from the FIFO into the memory
 – The stream is disabled by software, and (when the DMA is operating in peripheral-
 to-memory mode) the remaining data have been transferred from the FIFO into
 the memory
-Note: The transfer completion is dependent on the remaining data in FIFO to be transferred into
+
+> [!NOTE]
+> The transfer completion is dependent on the remaining data in FIFO to be transferred into
 memory only in the case of peripheral-to-memory mode. This condition is not applicable in
 memory-to-peripheral mode.
 If the stream is configured in noncircular mode, after the end of the transfer (that is when the
@@ -9909,12 +10704,16 @@ the address pointers
 to be transferred (the value read when the stream was disabled)
 – The stream may then be re-enabled to restart the transfer from the point it was
 stopped
-Note: Note that a Transfer complete interrupt flag (TCIF in DMA_LISR or DMA_HISR) is set to
+
+> [!NOTE]
+> Note that a Transfer complete interrupt flag (TCIF in DMA_LISR or DMA_HISR) is set to
 indicate the end of transfer due to the stream interruption.
 
 
-                                                <!-- *P183*/844 -->
-200
+<!-- *P183*/844 -->
+[P183]: #P183
+<a id="P183"></a>
+
 
 //9.3.15 Flow controller
 ------------------------
@@ -9955,17 +10754,22 @@ automatically switched off even though the last data hardware signal (single or 
 has not been yet asserted. The already transferred data will not be lost. This means
 that a maximum of 65535 data items can be managed by the DMA in a single
 transaction, even in peripheral flow control mode.
-Note: When configured in memory-to-memory mode, the DMA is always the flow controller and
+
+> [!NOTE]
+> When configured in memory-to-memory mode, the DMA is always the flow controller and
 the PFCTRL bit is forced to 0 by hardware.
 The Circular mode is forbidden in the peripheral flow controller mode.
 
 
-                                                <!-- *P184*/844 -->
+<!-- *P184*/844 -->
+[P184]: #P184
+<a id="P184"></a>
+
 
 //9.3.16 Summary of the possible DMA configurations
 ---------------------------------------------------
 
-Table 34 summarizes the different possible DMA configurations.
+[Table 34] summarizes the different possible DMA configurations.
 
 
 //9.3.17 Stream configuration procedure
@@ -9996,6 +10800,9 @@ the PFCTRL bit in the DMA_SxCR register.
 8. Configure the FIFO usage (enable or disable, threshold in transmission and reception)
 9. Configure the data transfer direction, peripheral and memory incremented/fixed mode,
 single or burst transactions, peripheral and memory data widths, Circular mode,
+
+[Table 34]: "Table%2034"
+<a id="Table 34"></a>
 
 **Table 34**. Possible DMA configurations
 
@@ -10052,8 +10859,10 @@ forbidden forbidden
 burst
 
 
-                                                <!-- *P185*/844 -->
-200
+<!-- *P185*/844 -->
+[P185]: #P185
+<a id="P185"></a>
+
 Double buffer mode and interrupts after half and/or full transfer, and/or errors in the
 DMA_SxCR register.
 10. Activate the stream by setting the EN bit in the DMA_SxCR register.
@@ -10083,7 +10892,7 @@ Double buffer mode)
 – A FIFO overrun condition is detected (no detection in memory-to-memory mode
 because requests and transfers are internally managed by the DMA)
 – The stream is enabled while the FIFO threshold level is not compatible with the
-size of the memory burst (refer to Table 33: FIFO threshold configurations)
+size of the memory burst (refer to [Table 33]: FIFO threshold configurations)
 • Direct mode error: the direct mode error interrupt flag (DMEIFx) can only be set in the
 peripheral-to-memory mode while operating in direct mode and when the MINC bit in
 the DMA_SxCR register is cleared. This flag is set when a DMA request occurs while
@@ -10101,7 +10910,10 @@ threshold level, the faulty stream is automatically disabled through a hardware 
 EN bit in the corresponding stream configuration register (DMA_SxCR).
 
 
-                                                <!-- *P186*/844 -->
+<!-- *P186*/844 -->
+[P186]: #P186
+<a id="P186"></a>
+
 If the DMEIFx or the FEIFx flag is set due to an overrun or underrun condition, the faulty
 stream is not automatically disabled and it is up to the software to disable or not the stream
 by resetting the EN bit in the DMA_SxCR register. This is because there is no data loss
@@ -10109,7 +10921,9 @@ when this kind of errors occur.
 When the stream's error interrupt flag (TEIF, FEIF, DMEIF) in the DMA_LISR or DMA_HISR
 register is set, an interrupt is generated if the corresponding interrupt enable bit (TEIE,
 FEIE, DMIE) in the DMA_SxCR or DMA_SxFCR register is set.
-Note: When a FIFO overrun or underrun condition occurs, the data are not lost because the
+
+> [!NOTE]
+> When a FIFO overrun or underrun condition occurs, the data are not lost because the
 peripheral request is not acknowledged by the stream until the overrun or underrun
 condition is cleared. If this acknowledge takes too much time, the peripheral itself may
 detect an overrun or underrun condition of its internal buffer and data might be lost.
@@ -10123,10 +10937,15 @@ For each DMA stream, an interrupt can be produced on the following events:
 • Transfer error
 • Fifo error (overrun, underrun or FIFO level error)
 • Direct mode error
-Separate interrupt enable control bits are available for flexibility as shown in Table 35.
+Separate interrupt enable control bits are available for flexibility as shown in [Table 35].
 
-Note: Before setting an Enable control bit to ‘1’, the corresponding event flag should be cleared,
+
+> [!NOTE]
+> Before setting an Enable control bit to ‘1’, the corresponding event flag should be cleared,
 otherwise an interrupt is immediately generated.
+
+[Table 35]: "Table%2035"
+<a id="Table 35"></a>
 
 **Table 35**. DMA interrupt requests
 
@@ -10138,8 +10957,10 @@ FIFO overrun/underrun FEIF FEIE
 Direct mode error DMEIF DMEIE
 
 
-                                                <!-- *P187*/844 -->
-200
+<!-- *P187*/844 -->
+[P187]: #P187
+<a id="P187"></a>
+
 
 //9.5 DMA registers
 -------------------
@@ -10198,7 +11019,10 @@ DMA_LIFCR register.
 1: A FIFO Error event occurred on stream x
 
 
-                                                <!-- *P188*/844 -->
+<!-- *P188*/844 -->
+[P188]: #P188
+<a id="P188"></a>
+
 
 //9.5.2 DMA high interrupt status register (DMA_HISR)
 -----------------------------------------------------
@@ -10255,8 +11079,10 @@ DMA_HIFCR register.
 1: A FIFO error event occurred on stream x
 
 
-                                                <!-- *P189*/844 -->
-200
+<!-- *P189*/844 -->
+[P189]: #P189
+<a id="P189"></a>
+
 
 //9.5.3 DMA low interrupt flag clear register (DMA_LIFCR)
 ---------------------------------------------------------
@@ -10325,7 +11151,10 @@ Bits 25, 19, 9, 3 CTEIFx: Stream x clear transfer error interrupt flag (x = 7..4
 Writing 1 to this bit clears the corresponding TEIFx flag in the DMA_HISR register
 
 
-                                                <!-- *P190*/844 -->
+<!-- *P190*/844 -->
+[P190]: #P190
+<a id="P190"></a>
+
 
 //9.5.5 DMA stream x configuration register (DMA_SxCR) (x = 0..7)
 -----------------------------------------------------------------
@@ -10380,8 +11209,10 @@ In direct mode, these bits are forced to 0x0 by hardware.
 Bit 20 Reserved, must be kept at reset value.
 
 
-                                                <!-- *P191*/844 -->
-200
+<!-- *P191*/844 -->
+[P191]: #P191
+<a id="P191"></a>
+
 Bit 19 CT: Current target (only in double buffer mode)
 This bits is set and cleared by hardware. It can also be written by software.
 0: The current target memory is Memory 0 (addressed by the DMA_SxM0AR pointer)
@@ -10433,7 +11264,10 @@ according to MSIZE)
 This bit is protected and can be written only if EN is ‘0’.
 
 
-                                                <!-- *P192*/844 -->
+<!-- *P192*/844 -->
+[P192]: #P192
+<a id="P192"></a>
+
 Bit 9 PINC: Peripheral increment mode
 This bit is set and cleared by software.
 0: Peripheral address pointer is fixed
@@ -10480,8 +11314,10 @@ This bit is set and cleared by software.
 1: DME interrupt enabled
 
 
-                                                <!-- *P193*/844 -->
-200
+<!-- *P193*/844 -->
+[P193]: #P193
+<a id="P193"></a>
+
 
 //9.5.6 DMA stream x number of data register (DMA_SxNDTR) (x = 0..7)
 --------------------------------------------------------------------
@@ -10501,7 +11337,9 @@ This bit may be cleared by hardware:
 burst
 When this bit is read as 0, the software is allowed to program the Configuration and FIFO
 bits registers. It is forbidden to write these registers when the EN bit is read as 1.
-Note: Before setting EN bit to '1' to start a new transfer, the event flags corresponding to the
+
+> [!NOTE]
+> Before setting EN bit to '1' to start a new transfer, the event flags corresponding to the
 stream in DMA_LISR or DMA_HISR register must be cleared.
 31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16
 Reserved
@@ -10523,7 +11361,10 @@ If the value of this register is zero, no transaction can be served even if the 
 enabled.
 
 
-                                                <!-- *P194*/844 -->
+<!-- *P194*/844 -->
+[P194]: #P194
+<a id="P194"></a>
+
 
 //9.5.7 DMA stream x peripheral address register (DMA_SxPAR) (x = 0..7)
 -----------------------------------------------------------------------
@@ -10576,8 +11417,10 @@ M1A[15:0]
 rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw
 
 
-                                                <!-- *P195*/844 -->
-200
+<!-- *P195*/844 -->
+[P195]: #P195
+<a id="P195"></a>
+
 
 
 //9.5.10 DMA stream x FIFO control register (DMA_SxFCR) (x = 0..7)
@@ -10609,7 +11452,10 @@ This bit is set and cleared by software.
 Bit 6 Reserved, must be kept at reset value.
 
 
-                                                <!-- *P196*/844 -->
+<!-- *P196*/844 -->
+[P196]: #P196
+<a id="P196"></a>
+
 Bits 5:3 FS[2:0]: FIFO status
 These bits are read-only.
 000: 0 < fifo_level < 1/4
@@ -10638,13 +11484,18 @@ These bits are not used in the direct mode when the DMIS value is zero.
 These bits are protected and can be written only if EN is ‘0’.
 
 
-                                                <!-- *P197*/844 -->
-200
+<!-- *P197*/844 -->
+[P197]: #P197
+<a id="P197"></a>
+
 
 //9.5.11 DMA register map
 -------------------------
 
-Table 36 summarizes the DMA registers.
+[Table 36] summarizes the DMA registers.
+
+[Table 36]: "Table%2036"
+<a id="Table 36"></a>
 
 **Table 36**. DMA register map and reset values
 
@@ -10883,7 +11734,10 @@ NDT[15:.]
 Reset value 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 
 
-                                                <!-- *P198*/844 -->
+<!-- *P198*/844 -->
+[P198]: #P198
+<a id="P198"></a>
+
 0x0030
 DMA_S1PAR PA[31:0]
 Reset value 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -10988,7 +11842,7 @@ Reset value 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0x0064
 DMA_S3M0AR M0A[31:0]
 Reset value 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-Table 36. DMA register map and reset values (continued)
+[Table 36]. DMA register map and reset values (continued)
 Offset Register
 31
 30
@@ -11024,8 +11878,10 @@ Offset Register
 0
 
 
-                                                <!-- *P199*/844 -->
-200
+<!-- *P199*/844 -->
+[P199]: #P199
+<a id="P199"></a>
+
 0x0068
 DMA_S3M1AR M1A[31:0]
 Reset value 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -11168,7 +12024,7 @@ Reset value 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0x00A8
 DMA_S6PAR PA[31:0]
 Reset value 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-Table 36. DMA register map and reset values (continued)
+[Table 36]. DMA register map and reset values (continued)
 Offset Register
 31
 30
@@ -11204,7 +12060,10 @@ Offset Register
 0
 
 
-                                                <!-- *P200*/844 -->
+<!-- *P200*/844 -->
+[P200]: #P200
+<a id="P200"></a>
+
 Refer to Section 2.3: Memory map for the register boundary addresses.
 0x00AC
 DMA_S6M0AR M0A[31:0]
@@ -11270,7 +12129,7 @@ DMDIS
 FTH
 [1:0]
 Reset value 0 1 0 0 0 0 1
-Table 36. DMA register map and reset values (continued)
+[Table 36]. DMA register map and reset values (continued)
 Offset Register
 31
 30
@@ -11306,8 +12165,10 @@ Offset Register
 0
 
 
-                                                <!-- *P201*/844 -->
-211
+<!-- *P201*/844 -->
+[P201]: #P201
+<a id="P201"></a>
+
 
 /10 Interrupts and events
 =========================
@@ -11341,7 +12202,7 @@ with the SysTick clock set to 10.5 MHz (HCLK/8, with HCLK set to 84 MHz).
 //10.1.3 Interrupt and exception vectors
 ----------------------------------------
 
-See Table 37, for the vector table for the STM32F411xC/E devices.
+See [Table 37], for the vector table for the STM32F411xC/E devices.
 
 //10.2 External interrupt/event controller (EXTI)
 -------------------------------------------------
@@ -11352,6 +12213,9 @@ event/interrupt requests. Each input line can be independently configured to sel
 can also masked independently. A pending register maintains the status line of the interrupt
 requests.
 
+
+[Table 37]: "Table%2037"
+<a id="Table 37"></a>
 
 **Table 37**. Vector table for STM32F411xC/E
 
@@ -11364,7 +12228,10 @@ Acronym Description Address
 -3 fixed Reset Reset 0x0000 0004
 
 
-                                                <!-- *P202*/844 -->
+<!-- *P202*/844 -->
+[P202]: #P202
+<a id="P202"></a>
+
 -2 fixed NMI
 Non maskable interrupt, Clock Security
 System
@@ -11407,7 +12274,7 @@ line
 12 19 settable DMA1_Stream1 DMA1 Stream1 global interrupt 0x0000 0070
 13 20 settable DMA1_Stream2 DMA1 Stream2 global interrupt 0x0000 0074
 14 21 settable DMA1_Stream3 DMA1 Stream3 global interrupt 0x0000 0078
-Table 37. Vector table for STM32F411xC/E (continued)
+[Table 37]. Vector table for STM32F411xC/E (continued)
 Position
 Priority
 Type of
@@ -11415,8 +12282,10 @@ priority
 Acronym Description Address
 
 
-                                                <!-- *P203*/844 -->
-211
+<!-- *P203*/844 -->
+[P203]: #P203
+<a id="P203"></a>
+
 15 22 settable DMA1_Stream4 DMA1 Stream4 global interrupt 0x0000 007C
 16 23 settable DMA1_Stream5 DMA1 Stream5 global interrupt 0x0000 0080
 17 24 settable DMA1_Stream6 DMA1 Stream6 global interrupt 0x0000 0084
@@ -11461,7 +12330,7 @@ FS Wakeup through EXTI line interrupt
 49 56 settable SDIO SDIO global interrupt 0x0000 0104
 50 57 settable TIM5 TIM5 global interrupt 0x0000 0108
 51 58 settable SPI3 SPI3 global interrupt 0x0000 010C
-Table 37. Vector table for STM32F411xC/E (continued)
+[Table 37]. Vector table for STM32F411xC/E (continued)
 Position
 Priority
 Type of
@@ -11469,7 +12338,10 @@ priority
 Acronym Description Address
 
 
-                                                <!-- *P204*/844 -->
+<!-- *P204*/844 -->
+[P204]: #P204
+<a id="P204"></a>
+
 
 //10.2.1 EXTI main features
 ---------------------------
@@ -11496,7 +12368,7 @@ parameter.
 81 88 Settable FPU FPU global interrupt 0x0000 0184
 84 91 settable SPI4 SPI 4 global interrupt 0x0000 0190
 85 92 settable SPI5 SPI 5 global interrupt 0x0000 0194
-Table 37. Vector table for STM32F411xC/E (continued)
+[Table 37]. Vector table for STM32F411xC/E (continued)
 Position
 Priority
 Type of
@@ -11504,13 +12376,21 @@ priority
 Acronym Description Address
 
 
-                                                <!-- *P205*/844 -->
-211
+<!-- *P205*/844 -->
+[P205]: #P205
+<a id="P205"></a>
+
 
 //10.2.2 EXTI block diagram
 ---------------------------
 
-Figure 29 shows the block diagram.
+[Figure 29] shows the block diagram.
+
+[Figure 29]: "#Figure%2029"
+<a id="Figure 29"></a>
+
+[Figure 29]: "Figure%2029"
+<a id="Figure 29"></a>
 
 **Figure 29**. External interrupt/event controller block diagram
 
@@ -11581,7 +12461,10 @@ When the selected edge occurs on the external interrupt line, an interrupt reque
 ????????
 
 
-                                                <!-- *P206*/844 -->
+<!-- *P206*/844 -->
+[P206]: #P206
+<a id="P206"></a>
+
 generated. The pending bit corresponding to the interrupt line is also set. This request is
 reset by writing a ‘1’ in the pending register.
 To generate the event, the event line should be configured and enabled. This is done by
@@ -11609,14 +12492,22 @@ procedure to generate a software interrupt.
 • Set the required bit in the software interrupt register (EXTI_SWIER)
 
 
-                                                <!-- *P207*/844 -->
-211
+<!-- *P207*/844 -->
+[P207]: #P207
+<a id="P207"></a>
+
 
 //10.2.5 External interrupt/event line mapping
 ----------------------------------------------
 
 Up to 81 GPIOs (STM32F411xC/E) are connected to the 16 external interrupt/event lines in
 the following manner:
+
+[Figure 30]: "#Figure%2030"
+<a id="Figure 30"></a>
+
+[Figure 30]: "Figure%2030"
+<a id="Figure 30"></a>
 
 **Figure 30**. External interrupt/event GPIO mapping
 
@@ -11652,7 +12543,10 @@ The five other EXTI lines are connected as follows:
 ???
 
 
-                                                <!-- *P208*/844 -->
+<!-- *P208*/844 -->
+[P208]: #P208
+<a id="P208"></a>
+
 
 //10.3 EXTI registers
 ---------------------
@@ -11703,8 +12597,10 @@ Bits 22:0 MRx: Event mask on line x
 1: Event request from line x is not masked
 
 
-                                                <!-- *P209*/844 -->
-211
+<!-- *P209*/844 -->
+[P209]: #P209
+<a id="P209"></a>
+
 
 //10.3.3 Rising trigger selection register (EXTI_RTSR)
 ------------------------------------------------------
@@ -11713,7 +12609,9 @@ Address offset: 0x08
 Reset value: 0x0000 0000
 
 
-Note: The external wakeup lines are edge triggered, no glitch must be generated on these lines.
+
+> [!NOTE]
+> The external wakeup lines are edge triggered, no glitch must be generated on these lines.
 If a rising edge occurs on the external interrupt line while writing to the EXTI_RTSR register,
 the pending bit is be set.
 Rising and falling edge triggers can be set for the same interrupt line. In this configuration,
@@ -11726,7 +12624,9 @@ Address offset: 0x0C
 Reset value: 0x0000 0000
 
 
-Note: The external wakeup lines are edge triggered, no glitch must be generated on these lines.
+
+> [!NOTE]
+> The external wakeup lines are edge triggered, no glitch must be generated on these lines.
 If a falling edge occurs on the external interrupt line while writing to the EXTI_FTSR register,
 the pending bit is not set.
 Rising and falling edge triggers can be set for the same interrupt line. In this configuration,
@@ -11759,7 +12659,10 @@ Bits 22:0 TRx: Falling trigger event configuration bit of line x
 1: Falling trigger enabled (for Event and Interrupt) for input line.
 
 
-                                                <!-- *P210*/844 -->
+<!-- *P210*/844 -->
+[P210]: #P210
+<a id="P210"></a>
+
 
 //10.3.5 Software interrupt event register (EXTI_SWIER)
 -------------------------------------------------------
@@ -11847,16 +12750,21 @@ This bit is set when the selected edge event arrives on the external interrupt l
 This bit is cleared by programming it to ‘1’.
 
 
-                                                <!-- *P211*/844 -->
-211
+<!-- *P211*/844 -->
+[P211]: #P211
+<a id="P211"></a>
+
 
 //10.3.7 EXTI register map
 --------------------------
 
-Table 38 gives the EXTI register map and the reset values.
+[Table 38] gives the EXTI register map and the reset values.
 
 
 Refer to Section 2.3: Memory map for the register boundary addresses.
+
+[Table 38]: "Table%2038"
+<a id="Table 38"></a>
 
 **Table 38**. External interrupt/event controller register map and reset values
 
@@ -11949,7 +12857,10 @@ PR[18:0]
 Reset value 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 
 
-                                                <!-- *P212*/844 -->
+<!-- *P212*/844 -->
+[P212]: #P212
+<a id="P212"></a>
+
 
 /11 Analog-to-digital converter (ADC)
 =====================================
@@ -11984,17 +12895,27 @@ conversions
 speed
 • ADC input range: V REF– ≤ V IN ≤ V REF+
 • DMA request generation during regular channel conversion
-Figure 31 shows the block diagram of the ADC.
-Note: V REF– , if available (depending on package), must be tied to V SSA .
+[Figure 31] shows the block diagram of the ADC.
+
+> [!NOTE]
+> V REF– , if available (depending on package), must be tied to V SSA .
 
 
-                                                <!-- *P213*/844 -->
-241
+<!-- *P213*/844 -->
+[P213]: #P213
+<a id="P213"></a>
+
 
 //11.3 ADC functional description
 ---------------------------------
 
-Figure 31 shows a single ADC block diagram and Table 39 gives the ADC pin description.
+[Figure 31] shows a single ADC block diagram and [Table 39] gives the ADC pin description.
+
+[Figure 31]: "#Figure%2031"
+<a id="Figure 31"></a>
+
+[Figure 31]: "Figure%2031"
+<a id="Figure 31"></a>
 
 **Figure 31**. Single ADC block diagram
 
@@ -12086,7 +13007,10 @@ Figure 31 shows a single ADC block diagram and Table 39 gives the ADC pin descri
 ?????????
 
 
-                                                <!-- *P214*/844 -->
+<!-- *P214*/844 -->
+[P214]: #P214
+<a id="P214"></a>
+
 
 
 //11.3.1 ADC on-off control
@@ -12126,6 +13050,9 @@ ADC_SQR1 register.
 • An injected group is composed of up to 4 conversions. The injected channels and
 their order in the conversion sequence must be selected in the ADC_JSQR register.
 
+[Table 39]: "Table%2039"
+<a id="Table 39"></a>
+
 **Table 39**. ADC pins
 
 Name Signal type Remarks
@@ -12150,8 +13077,10 @@ Ground for analog power supply equal to V SS
 ADCx_IN[15:0] Analog input signals 16 analog input channels
 
 
-                                                <!-- *P215*/844 -->
-241
+<!-- *P215*/844 -->
+[P215]: #P215
+<a id="P215"></a>
+
 The total number of conversions in the injected group must be written in the L[1:0] bits
 in the ADC_JSQR register.
 If the ADC_SQRx or ADC_JSQR registers are modified during a conversion, the current
@@ -12165,7 +13094,9 @@ the VBAT conversion is performed.
 The internal reference voltage VREFINT is connected to ADC1_IN17.
 The V BAT channel (connected to channel ADC1_IN18) can also be converted as an injected
 or regular channel.
-Note: The temperature sensor, V REFINT and the V BAT channel are available only on the master
+
+> [!NOTE]
+> The temperature sensor, V REFINT and the V BAT channel are available only on the master
 ADC1 peripheral.
 
 //11.3.4 Single conversion mode
@@ -12200,17 +13131,28 @@ After each conversion:
 – An interrupt is generated if the EOCIE bit is set
 
 
-                                                <!-- *P216*/844 -->
-Note: Injected channels cannot be converted continuously. The only exception is when an injected
+<!-- *P216*/844 -->
+[P216]: #P216
+<a id="P216"></a>
+
+
+> [!NOTE]
+> Injected channels cannot be converted continuously. The only exception is when an injected
 channel is configured to be converted automatically after regular channels in continuous
 mode (using JAUTO bit), refer to Auto-injection section) .
 
 //11.3.6 Timing diagram
 -----------------------
 
-As shown in Figure 32, the ADC needs a stabilization time of t STAB before it starts
+As shown in [Figure 32], the ADC needs a stabilization time of t STAB before it starts
 converting accurately. After the start of the ADC conversion and after 15 clock cycles, the
 EOC flag is set and the 16-bit ADC data register contains the result of the conversion.
+
+[Figure 32]: "#Figure%2032"
+<a id="Figure 32"></a>
+
+[Figure 32]: "Figure%2032"
+<a id="Figure 32"></a>
 
 **Figure 32**. Timing diagram
 
@@ -12225,8 +13167,14 @@ be enabled by using the AWDIE bit in the ADC_CR1 register.
 The threshold value is independent of the alignment selected by the ALIGN bit in the
 ADC_CR2 register. The analog voltage is compared to the lower and higher thresholds
 before alignment.
-Table 40 shows how the ADC_CR1 register should be configured to enable the analog
+[Table 40] shows how the ADC_CR1 register should be configured to enable the analog
 watchdog on one or more channels.
+
+[Figure 33]: "#Figure%2033"
+<a id="Figure 33"></a>
+
+[Figure 33]: "Figure%2033"
+<a id="Figure 33"></a>
 
 **Figure 33**. Analog watchdog’s guarded area
 
@@ -12253,8 +13201,10 @@ watchdog on one or more channels.
 ???????
 
 
-                                                <!-- *P217*/844 -->
-241
+<!-- *P217*/844 -->
+[P217]: #P217
+<a id="P217"></a>
+
 
 
 //11.3.8 Scan mode
@@ -12291,6 +13241,9 @@ injected channel sequence switches to Scan-once mode.
 interrupted regular conversion.
 If a regular event occurs during an injected conversion, the injected conversion is not
 
+[Table 40]: "Table%2040"
+<a id="Table 40"></a>
+
 **Table 40**. Analog watchdog channel selection
 
 Channels guarded by the analog
@@ -12308,10 +13261,15 @@ Single (1) regular channel 1 1 0
 Single (1) regular or injected channel 1 1 1
 
 
-                                                <!-- *P218*/844 -->
+<!-- *P218*/844 -->
+[P218]: #P218
+<a id="P218"></a>
+
 interrupted but the regular sequence is executed at the end of the injected sequence.
-Figure 34 shows the corresponding timing diagram.
-Note: When using triggered injection, one must ensure that the interval between trigger events is
+[Figure 34] shows the corresponding timing diagram.
+
+> [!NOTE]
+> When using triggered injection, one must ensure that the interval between trigger events is
 longer than the injection sequence. For instance, if the sequence length is 30 ADC clock
 cycles (that is two conversions with a sampling time of 3 clock periods), the minimum
 interval between triggers must be 31 ADC clock cycles.
@@ -12322,7 +13280,15 @@ conversions programmed in the ADC_SQRx and ADC_JSQR registers.
 In this mode, external trigger on injected channels must be disabled.
 If the CONT bit is also set in addition to the JAUTO bit, regular channels followed by injected
 channels are continuously converted.
-Note: It is not possible to use both the auto-injected and discontinuous modes simultaneously.
+
+> [!NOTE]
+> It is not possible to use both the auto-injected and discontinuous modes simultaneously.
+
+[Figure 34]: "#Figure%2034"
+<a id="Figure 34"></a>
+
+[Figure 34]: "Figure%2034"
+<a id="Figure 34"></a>
 
 **Figure 34**. Injected conversion latency
 
@@ -12348,8 +13314,10 @@ defined by the L[3:0] bits in the ADC_SQR1 register.
 ???????
 
 
-                                                <!-- *P219*/844 -->
-241
+<!-- *P219*/844 -->
+[P219]: #P219
+<a id="P219"></a>
+
 Example:
 • n = 3, channels to be converted = 0, 1, 2, 3, 6, 7, 9, 10
 • 1st trigger: sequence converted 0, 1, 2. An EOC event is generated at each
@@ -12358,7 +13326,9 @@ conversion.
 conversion
 • 3rd trigger: sequence converted 9, 10.An EOC event is generated at each conversion
 • 4th trigger: sequence converted 0, 1, 2. An EOC event is generated at each conversion
-Note: When a regular group is converted in discontinuous mode, no rollover occurs.
+
+> [!NOTE]
+> When a regular group is converted in discontinuous mode, no rollover occurs.
 When all subgroups are converted, the next trigger starts the conversion of the first
 subgroup. In the example above, the 4th trigger reconverts the channels 0, 1 and 2 in the
 1st subgroup.
@@ -12375,7 +13345,9 @@ n = 1, channels to be converted = 1, 2, 3
 2nd trigger: channel 2 converted
 3rd trigger: channel 3 converted and JEOC event generated
 4th trigger: channel 1
-Note: When all injected channels are converted, the next trigger starts the conversion of the first
+
+> [!NOTE]
+> When all injected channels are converted, the next trigger starts the conversion of the first
 injected channel. In the example above, the 4th trigger reconverts the 1st injected channel
 1.
 It is not possible to use both the auto-injected and discontinuous modes simultaneously.
@@ -12383,26 +13355,47 @@ Discontinuous mode must not be set for regular and injected groups at the same t
 Discontinuous mode must be enabled only for the conversion of one group.
 
 
-                                                <!-- *P220*/844 -->
+<!-- *P220*/844 -->
+[P220]: #P220
+<a id="P220"></a>
+
 
 //11.4 Data alignment
 ---------------------
 
 The ALIGN bit in the ADC_CR2 register selects the alignment of the data stored after
-conversion. Data can be right- or left-aligned as shown in Figure 35 and Figure 36.
+conversion. Data can be right- or left-aligned as shown in [Figure 35] and [Figure 36].
 The converted data value from the injected group of channels is decreased by the user-
 defined offset written in the ADC_JOFRx registers so the result can be a negative value.
 The SEXT bit represents the extended sign value.
 For channels in a regular group, no offset is subtracted so only twelve bits are significant.
 
+[Figure 35]: "#Figure%2035"
+<a id="Figure 35"></a>
+
+[Figure 35]: "Figure%2035"
+<a id="Figure 35"></a>
+
 **Figure 35**. Right alignment of 12-bit data
 
+
+[Figure 36]: "#Figure%2036"
+<a id="Figure 36"></a>
+
+[Figure 36]: "Figure%2036"
+<a id="Figure 36"></a>
 
 **Figure 36**. Left alignment of 12-bit data
 
 Special case: when left-aligned, the data are aligned on a half-word basis except when the
 resolution is set to 6-bit. in that case, the data are aligned on a byte basis as shown in
-Figure 37.
+[Figure 37].
+
+[Figure 37]: "#Figure%2037"
+<a id="Figure 37"></a>
+
+[Figure 37]: "Figure%2037"
+<a id="Figure 37"></a>
 
 **Figure 37**. Left alignment of 6-bit data
 
@@ -12425,8 +13418,10 @@ Figure 37.
 ????? ????? ?? ?? ?? ?? ? ?????
 
 
-                                                <!-- *P221*/844 -->
-241
+<!-- *P221*/844 -->
+[P221]: #P221
+<a id="P221"></a>
+
 
 //11.5 Channel-wise programmable sampling time
 ----------------------------------------------
@@ -12446,13 +13441,18 @@ T conv = 3 + 12 = 15 cycles = 0.5 µs with APB2 at 60 MHz
 Conversion can be triggered by an external event (e.g. timer capture, EXTI line). If the
 EXTEN[1:0] control bits (for a regular conversion) or JEXTEN[1:0] bits (for an injected
 conversion) are different from “0b00”, then external events are able to trigger a conversion
-with the selected polarity. Table 41 provides the correspondence between the EXTEN[1:0]
+with the selected polarity. [Table 41] provides the correspondence between the EXTEN[1:0]
 and JEXTEN[1:0] values and the trigger polarity.
 
-Note: The polarity of the external trigger can be changed on the fly.
+
+> [!NOTE]
+> The polarity of the external trigger can be changed on the fly.
 The EXTSEL[3:0] and JEXTSEL[3:0] control bits are used to select which out of 16 possible
 events can trigger conversion for the regular and injected groups.
-Table 42 gives the possible external trigger for regular conversion.
+[Table 42] gives the possible external trigger for regular conversion.
+
+[Table 41]: "Table%2041"
+<a id="Table 41"></a>
 
 **Table 41**. Configuring the trigger polarity
 
@@ -12463,9 +13463,15 @@ Detection on the falling edge 10
 Detection on both the rising and falling edges 11
 
 
-                                                <!-- *P222*/844 -->
+<!-- *P222*/844 -->
+[P222]: #P222
+<a id="P222"></a>
 
-Table 43 gives the possible external trigger for injected conversion.
+
+[Table 43] gives the possible external trigger for injected conversion.
+
+[Table 42]: "Table%2042"
+<a id="Table 42"></a>
 
 **Table 42**. External trigger for regular channels
 
@@ -12491,13 +13497,17 @@ Reserved 1110
 EXTI line11 External pin 1111
 
 
-                                                <!-- *P223*/844 -->
-241
+<!-- *P223*/844 -->
+[P223]: #P223
+<a id="P223"></a>
+
 
 Software source trigger events can be generated by setting SWSTART (for regular
 conversion) or JSWSTART (for injected conversion) in ADC_CR2.
 A regular group conversion can be interrupted by an injected trigger.
-Note: The trigger selection can be changed on the fly. However, when the selection changes,
+
+> [!NOTE]
+> The trigger selection can be changed on the fly. However, when the selection changes,
 there is a time frame of 1 APB clock cycle during which the trigger detection is disabled.
 This is to avoid spurious detection during transitions.
 
@@ -12511,6 +13521,9 @@ time for each resolution is then as follows:
 • 10 bits: 3 + 10 = 13 ADCCLK cycles
 • 8 bits: 3 + 8 = 11 ADCCLK cycles
 • 6 bits: 3 + 6 = 9 ADCCLK cycles
+
+[Table 43]: "Table%2043"
+<a id="Table 43"></a>
 
 **Table 43**. External trigger for injected channels
 
@@ -12536,7 +13549,10 @@ Reserved 1110
 EXTI line15 External pin 1111
 
 
-                                                <!-- *P224*/844 -->
+<!-- *P224*/844 -->
+[P224]: #P224
+<a id="P224"></a>
+
 
 //11.8 Data management
 ----------------------
@@ -12589,8 +13605,10 @@ To recover the ADC from OVR state when the EOCS is set, follow the steps below:
 2. Trigger the ADC to start the conversion.
 
 
-                                                <!-- *P225*/844 -->
-241
+<!-- *P225*/844 -->
+[P225]: #P225
+<a id="P225"></a>
+
 
 //11.8.3 Conversions without DMA and without overrun detection
 --------------------------------------------------------------
@@ -12605,13 +13623,21 @@ configuration, overrun detection is disabled.
 
 The temperature sensor can be used to measure the ambient temperature (T A ) of the
 device.
-Figure 38 shows the block diagram of the temperature sensor.
+[Figure 38] shows the block diagram of the temperature sensor.
 When not in use, the sensor can be put in power down mode.
-Note: The TSVREFE bit must be set to enable the conversion of both internal channels: the
+
+> [!NOTE]
+> The TSVREFE bit must be set to enable the conversion of both internal channels: the
 ADC1_IN16 or ADC1_IN18 (temperature sensor) and the ADC1_IN17 (VREFINT).
 Main features
 • Supported temperature range: –40 to 125 °C
 • Precision: ±1.5 °C
+
+[Figure 38]: "#Figure%2038"
+<a id="Figure 38"></a>
+
+[Figure 38]: "Figure%2038"
+<a id="Figure 38"></a>
 
 **Figure 38**. Temperature sensor and V REFINT channel block diagram
 
@@ -12633,7 +13659,10 @@ Main features
 ??????????????
 
 
-                                                <!-- *P226*/844 -->
+<!-- *P226*/844 -->
+[P226]: #P226
+<a id="P226"></a>
+
 Reading the temperature
 To use the sensor:
 3. Select ADC1_IN16 or ADC1_IN18 input channel.
@@ -12651,7 +13680,9 @@ Where:
 or µV/°C)
 Refer to the datasheet’s electrical characteristics section for the actual values of V 25
 and Avg_Slope.
-Note: The sensor has a startup time after waking from power down mode before it can output
+
+> [!NOTE]
+> The sensor has a startup time after waking from power down mode before it can output
 V SENSE at the correct level. The ADC also has a startup time after power-on, so to minimize
 the delay, the ADON and TSVREFE bits should be set at the same time.
 The temperature sensor output voltage changes linearly with temperature. The offset of this
@@ -12669,14 +13700,18 @@ V BAT voltage could be higher than V DDA , to ensure the correct operation of th
 V BAT pin is internally connected to a bridge divider.
 When the VBATE is set, the bridge is automatically enabled to connect:
 • VBAT/4 to the ADC1_IN18 input channel
-Note: The VBAT and temperature sensor are connected to the same ADC internal channel
+
+> [!NOTE]
+> The VBAT and temperature sensor are connected to the same ADC internal channel
 (ADC1_IN18). Only one conversion, either temperature sensor or VBAT, must be selected
 at a time. When both conversion are enabled simultaneously, only the VBAT conversion is
 performed.
 
 
-                                                <!-- *P227*/844 -->
-241
+<!-- *P227*/844 -->
+[P227]: #P227
+<a id="P227"></a>
+
 
 //11.11 ADC interrupts
 ----------------------
@@ -12690,6 +13725,9 @@ them:
 • STRT (Start of conversion for channels of a regular group)
 
 
+[Table 44]: "Table%2044"
+<a id="Table 44"></a>
+
 **Table 44**. ADC interrupts
 
 Interrupt event Event flag Enable control bit
@@ -12699,7 +13737,10 @@ Analog watchdog status bit is set AWD AWDIE
 Overrun OVR OVRIE
 
 
-                                                <!-- *P228*/844 -->
+<!-- *P228*/844 -->
+[P228]: #P228
+<a id="P228"></a>
+
 
 //11.12 ADC registers
 ---------------------
@@ -12753,8 +13794,10 @@ the ADC_LTR and ADC_HTR registers. It is cleared by software.
 1: Analog watchdog event occurred
 
 
-                                                <!-- *P229*/844 -->
-241
+<!-- *P229*/844 -->
+[P229]: #P229
+<a id="P229"></a>
+
 
 //11.12.2 ADC control register 1 (ADC_CR1)
 ------------------------------------------
@@ -12813,7 +13856,10 @@ channels of a group.
 1: Discontinuous mode on injected channels enabled
 
 
-                                                <!-- *P230*/844 -->
+<!-- *P230*/844 -->
+[P230]: #P230
+<a id="P230"></a>
+
 Bit 11 DISCEN: Discontinuous mode on regular channels
 This bit is set and cleared by software to enable/disable Discontinuous mode on regular
 channels.
@@ -12834,10 +13880,14 @@ This bit is set and cleared by software to enable/disable the Scan mode. In Scan
 inputs selected through the ADC_SQRx or ADC_JSQRx registers are converted.
 0: Scan mode disabled
 1: Scan mode enabled
-Note: An EOC interrupt is generated if the EOCIE bit is set:
+
+> [!NOTE]
+> An EOC interrupt is generated if the EOCIE bit is set:
 – At the end of each regular group sequence if the EOCS bit is cleared to 0
 – At the end of each regular channel conversion if the EOCS bit is set to 1
-Note: A JEOC interrupt is generated only on the end of conversion of the last channel if the
+
+> [!NOTE]
+> A JEOC interrupt is generated only on the end of conversion of the last channel if the
 JEOCIE bit is set.
 Bit 7 JEOCIE: Interrupt enable for injected channels
 This bit is set and cleared by software to enable/disable the end of conversion interrupt for
@@ -12855,7 +13905,9 @@ This bit is set and cleared by software to enable/disable the end of conversion 
 Bits 4:0 AWDCH[4:0]: Analog watchdog channel select bits
 These bits are set and cleared by software. They select the input channel to be guarded by
 the analog watchdog.
-Note: 00000: ADC analog input Channel0
+
+> [!NOTE]
+> 00000: ADC analog input Channel0
 00001: ADC analog input Channel1
 ...
 01111: ADC analog input Channel15
@@ -12863,8 +13915,10 @@ Note: 00000: ADC analog input Channel0
 Other values reserved
 
 
-                                                <!-- *P231*/844 -->
-241
+<!-- *P231*/844 -->
+[P231]: #P231
+<a id="P231"></a>
+
 
 //11.12.3 ADC control register 2 (ADC_CR2)
 ------------------------------------------
@@ -12895,7 +13949,9 @@ This bit is set by software to start conversion and cleared by hardware as soon 
 conversion starts.
 0: Reset state
 1: Starts conversion of regular channels
-Note: This bit can be set only when ADON = 1 otherwise no conversion is launched.
+
+> [!NOTE]
+> This bit can be set only when ADON = 1 otherwise no conversion is launched.
 Bits 29:28 EXTEN: External trigger enable for regular channels
 These bits are set and cleared by software to select the external trigger polarity and enable
 the trigger of a regular group.
@@ -12924,12 +13980,17 @@ These bits select the external event used to trigger the start of conversion of 
 Bit 23 Reserved, must be kept at reset value.
 
 
-                                                <!-- *P232*/844 -->
+<!-- *P232*/844 -->
+[P232]: #P232
+<a id="P232"></a>
+
 Bit 22 JSWSTART: Start conversion of injected channels
 This bit is set by software and cleared by hardware as soon as the conversion starts.
 0: Reset state
 1: Starts conversion of injected channels
-Note: This bit can be set only when ADON = 1 otherwise no conversion is launched.
+
+> [!NOTE]
+> This bit can be set only when ADON = 1 otherwise no conversion is launched.
 Bits 21:20 JEXTEN: External trigger enable for injected channels
 These bits are set and cleared by software to select the external trigger polarity and enable
 the trigger of an injected group.
@@ -12958,7 +14019,7 @@ group.
 1111: EXTI line15
 Bits 15:12 Reserved, must be kept at reset value.
 Bit 11 ALIGN: Data alignment
-This bit is set and cleared by software. Refer to Figure 35 and Figure 36.
+This bit is set and cleared by software. Refer to [Figure 35] and [Figure 36].
 0: Right alignment
 1: Left alignment
 Bit 10 EOCS: End of conversion selection
@@ -12976,8 +14037,10 @@ This bit is set and cleared by software. Refer to the DMA controller chapter for
 1: DMA mode enabled
 
 
-                                                <!-- *P233*/844 -->
-241
+<!-- *P233*/844 -->
+[P233]: #P233
+<a id="P233"></a>
+
 
 //11.12.4 ADC sample time register 1 (ADC_SMPR1)
 ------------------------------------------------
@@ -13001,7 +14064,9 @@ is cleared.
 1: Continuous conversion mode
 Bit 0 ADON: A/D Converter ON / OFF
 This bit is set and cleared by software.
-Note: 0: Disable ADC conversion and go to power down mode
+
+> [!NOTE]
+> 0: Disable ADC conversion and go to power down mode
 1: Enable ADC
 31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16
 Reserved
@@ -13014,7 +14079,9 @@ Bits 31: 27 Reserved, must be kept at reset value.
 Bits 26:0 SMPx[2:0]: Channel x sampling time selection
 These bits are written by software to select the sampling time individually for each channel.
 During sampling cycles, the channel selection bits must remain unchanged.
-Note: 000: 3 cycles
+
+> [!NOTE]
+> 000: 3 cycles
 001: 15 cycles
 010: 28 cycles
 011: 56 cycles
@@ -13033,7 +14100,10 @@ SMP4[2:0] SMP3[2:0] SMP2[2:0] SMP1[2:0] SMP0[2:0]
 rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw
 
 
-                                                <!-- *P234*/844 -->
+<!-- *P234*/844 -->
+[P234]: #P234
+<a id="P234"></a>
+
 
 
 //11.12.6 ADC injected channel data offset register x (ADC_JOFRx) (x=1..4)
@@ -13055,7 +14125,9 @@ Bits 31:30 Reserved, must be kept at reset value.
 Bits 29:0 SMPx[2:0]: Channel x sampling time selection
 These bits are written by software to select the sampling time individually for each channel.
 During sample cycles, the channel selection bits must remain unchanged.
-Note: 000: 3 cycles
+
+> [!NOTE]
+> 000: 3 cycles
 001: 15 cycles
 010: 28 cycles
 011: 56 cycles
@@ -13085,9 +14157,13 @@ Bits 11:0 HT[11:0]: Analog watchdog higher threshold
 These bits are written by software to define the higher threshold for the analog watchdog.
 
 
-                                                <!-- *P235*/844 -->
-241
-Note: The software can write to these registers when an ADC conversion is ongoing. The
+<!-- *P235*/844 -->
+[P235]: #P235
+<a id="P235"></a>
+
+
+> [!NOTE]
+> The software can write to these registers when an ADC conversion is ongoing. The
 programmed value will be effective when the next conversion is complete. Writing to this
 register is performed with a write delay that can create uncertainty on the effective time at
 which the new value is programmed.
@@ -13099,7 +14175,9 @@ Address offset: 0x28
 Reset value: 0x0000 0000
 
 
-Note: The software can write to these registers when an ADC conversion is ongoing. The
+
+> [!NOTE]
+> The software can write to these registers when an ADC conversion is ongoing. The
 programmed value will be effective when the next conversion is complete. Writing to this
 register is performed with a write delay that can create uncertainty on the effective time at
 which the new value is programmed.
@@ -13140,7 +14218,10 @@ These bits are written by software with the channel number (0..18) assigned as t
 the conversion sequence.
 
 
-                                                <!-- *P236*/844 -->
+<!-- *P236*/844 -->
+[P236]: #P236
+<a id="P236"></a>
+
 
 //11.12.10 ADC regular sequence register 2 (ADC_SQR2)
 -----------------------------------------------------
@@ -13190,8 +14271,10 @@ sequence to be converted.
 Bits 24:20 SQ5[4:0]: 5th conversion in regular sequence
 
 
-                                                <!-- *P237*/844 -->
-241
+<!-- *P237*/844 -->
+[P237]: #P237
+<a id="P237"></a>
+
 
 //11.12.12 ADC injected sequence register (ADC_JSQR)
 ----------------------------------------------------
@@ -13200,7 +14283,9 @@ Address offset: 0x38
 Reset value: 0x0000 0000
 
 
-Note: When JL[1:0]=3 (4 injected conversions in the sequencer), the ADC converts the channels
+
+> [!NOTE]
+> When JL[1:0]=3 (4 injected conversions in the sequencer), the ADC converts the channels
 in the following order: JSQ1[4:0], JSQ2[4:0], JSQ3[4:0], and JSQ4[4:0].
 When JL=2 (3 injected conversions in the sequencer), the ADC converts the channels in the
 following order: JSQ2[4:0], JSQ3[4:0], and JSQ4[4:0].
@@ -13235,7 +14320,10 @@ Bits 9:5 JSQ2[4:0]: 2nd conversion in injected sequence (when JL[1:0]=3, see not
 Bits 4:0 JSQ1[4:0]: 1st conversion in injected sequence (when JL[1:0]=3, see note below)
 
 
-                                                <!-- *P238*/844 -->
+<!-- *P238*/844 -->
+[P238]: #P238
+<a id="P238"></a>
+
 
 //11.12.13 ADC injected data register x (ADC_JDRx) (x= 1..4)
 ------------------------------------------------------------
@@ -13268,7 +14356,7 @@ r r r r r r r r r r r r r r r r
 Bits 31:16 Reserved, must be kept at reset value.
 Bits 15:0 JDATA[15:0]: Injected data
 These bits are read-only. They contain the conversion result from injected channel x. The
-data are left -or right-aligned as shown in Figure 35 and Figure 36.
+data are left -or right-aligned as shown in [Figure 35] and [Figure 36].
 31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16
 Reserved
 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
@@ -13277,8 +14365,8 @@ r r r r r r r r r r r r r r r r
 Bits 31:16 Reserved, must be kept at reset value.
 Bits 15:0 DATA[15:0]: Regular data
 These bits are read-only. They contain the conversion result from the regular
-channels. The data are left- or right-aligned as shown in Figure 35 and
-Figure 36.
+channels. The data are left- or right-aligned as shown in [Figure 35] and
+[Figure 36].
 31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16
 Reserved
 TSVREFE VBATE
@@ -13289,8 +14377,10 @@ rw rw rw rw
 Reserved
 
 
-                                                <!-- *P239*/844 -->
-241
+<!-- *P239*/844 -->
+[P239]: #P239
+<a id="P239"></a>
+
 
 
 //11.12.16 ADC register map
@@ -13304,7 +14394,9 @@ This bit is set and cleared by software to enable/disable the temperature sensor
 V REFINT channel.
 0: Temperature sensor and V REFINT channel disabled
 1: Temperature sensor and V REFINT channel enabled
-Note: VBATE must be disabled when TSVREFE is set. If both bits are set, only the VBAT
+
+> [!NOTE]
+> VBATE must be disabled when TSVREFE is set. If both bits are set, only the VBAT
 conversion is performed.
 Bit 22 VBATE: V BAT enable
 This bit is set and cleared by software to enable/disable the V BAT channel.
@@ -13313,11 +14405,16 @@ This bit is set and cleared by software to enable/disable the V BAT channel.
 Bits 21:18 Reserved, must be kept at reset value.
 Bits 17:16 ADCPRE: ADC prescaler
 Set and cleared by software to select the frequency of the clock to the ADC. .
-Note: 00: PCLK2 divided by 2
+
+> [!NOTE]
+> 00: PCLK2 divided by 2
 01: PCLK2 divided by 4
 10: PCLK2 divided by 6
 11: PCLK2 divided by 8
 Bits 15:0 Reserved, must be kept at reset value.
+
+[Table 45]: "Table%2045"
+<a id="Table 45"></a>
 
 **Table 45**. ADC global register map
 
@@ -13331,8 +14428,14 @@ Offset Register
 0x300 - 0x308 Common registers
 
 
-                                                <!-- *P240*/844 -->
+<!-- *P240*/844 -->
+[P240]: #P240
+<a id="P240"></a>
 
+
+
+[Table 46]: "Table%2046"
+<a id="Table 46"></a>
 
 **Table 46**. ADC register map and reset values for each ADC
 
@@ -13508,10 +14611,15 @@ Regular DATA[15:0]
 Reset value 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 
 
-                                                <!-- *P241*/844 -->
-241
+<!-- *P241*/844 -->
+[P241]: #P241
+<a id="P241"></a>
+
 
 Refer to Section 2.3: Memory map for the register boundary addresses.
+
+[Table 47]: "Table%2047"
+<a id="Table 47"></a>
 
 **Table 47**. ADC register map and reset values (common ADC registers)
 
@@ -13559,7 +14667,10 @@ Reserved
 Reset value 0 0 0 0
 
 
-                                                <!-- *P242*/844 -->
+<!-- *P242*/844 -->
+[P242]: #P242
+<a id="P242"></a>
+
 
 /12 Advanced-control timer (TIM1)
 =================================
@@ -13581,8 +14692,10 @@ independent, and do not share any resources. They can be synchronized together a
 described in Section 12.3.20.
 
 
-                                                <!-- *P243*/844 -->
-314
+<!-- *P243*/844 -->
+[P243]: #P243
+<a id="P243"></a>
+
 
 //12.2 TIM1 main features
 -------------------------
@@ -13614,7 +14727,16 @@ purposes
 • Trigger input for external clock or cycle-by-cycle current management
 
 
-                                                <!-- *P244*/844 -->
+<!-- *P244*/844 -->
+[P244]: #P244
+<a id="P244"></a>
+
+
+[Figure 39]: "#Figure%2039"
+<a id="Figure 39"></a>
+
+[Figure 39]: "Figure%2039"
+<a id="Figure 39"></a>
 
 **Figure 39**. Advanced-control timer block diagram
 
@@ -13767,8 +14889,10 @@ purposes
 ?????????
 
 
-                                                <!-- *P245*/844 -->
-314
+<!-- *P245*/844 -->
+[P245]: #P245
+<a id="P245"></a>
+
 
 //12.3 TIM1 functional description
 ----------------------------------
@@ -13804,14 +14928,29 @@ The prescaler can divide the counter clock frequency by any factor between 1 and
 is based on a 16-bit counter controlled through a 16-bit register (in the TIMx_PSC register).
 It can be changed on the fly as this control register is buffered. The new prescaler ratio is
 taken into account at the next update event.
-Figure 40 and Figure 41 give some examples of the counter behavior when the prescaler
+[Figure 40] and [Figure 41] give some examples of the counter behavior when the prescaler
 ratio is changed on the fly:
 
 
-                                                <!-- *P246*/844 -->
+<!-- *P246*/844 -->
+[P246]: #P246
+<a id="P246"></a>
+
+
+[Figure 40]: "#Figure%2040"
+<a id="Figure 40"></a>
+
+[Figure 40]: "Figure%2040"
+<a id="Figure 40"></a>
 
 **Figure 40**. Counter timing diagram with prescaler division change from 1 to 2
 
+
+[Figure 41]: "#Figure%2041"
+<a id="Figure 41"></a>
+
+[Figure 41]: "Figure%2041"
+<a id="Figure 41"></a>
 
 **Figure 41**. Counter timing diagram with prescaler division change from 1 to 4
 
@@ -13849,8 +14988,10 @@ ratio is changed on the fly:
 ? ?
 
 
-                                                <!-- *P247*/844 -->
-314
+<!-- *P247*/844 -->
+[P247]: #P247
+<a id="P247"></a>
+
 
 //12.3.2 Counter modes
 ----------------------
@@ -13880,6 +15021,12 @@ register).
 The following figures show some examples of the counter behavior for different clock
 frequencies when TIMx_ARR=0x36.
 
+[Figure 42]: "#Figure%2042"
+<a id="Figure 42"></a>
+
+[Figure 42]: "Figure%2042"
+<a id="Figure 42"></a>
+
 **Figure 42**. Counter timing diagram, internal clock divided by 1
 
 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ??
@@ -13894,13 +15041,34 @@ frequencies when TIMx_ARR=0x36.
 ?? ??
 
 
-                                                <!-- *P248*/844 -->
+<!-- *P248*/844 -->
+[P248]: #P248
+<a id="P248"></a>
+
+
+[Figure 43]: "#Figure%2043"
+<a id="Figure 43"></a>
+
+[Figure 43]: "Figure%2043"
+<a id="Figure 43"></a>
 
 **Figure 43**. Counter timing diagram, internal clock divided by 2
 
 
+[Figure 44]: "#Figure%2044"
+<a id="Figure 44"></a>
+
+[Figure 44]: "Figure%2044"
+<a id="Figure 44"></a>
+
 **Figure 44**. Counter timing diagram, internal clock divided by 4
 
+
+[Figure 45]: "#Figure%2045"
+<a id="Figure 45"></a>
+
+[Figure 45]: "Figure%2045"
+<a id="Figure 45"></a>
 
 **Figure 45**. Counter timing diagram, internal clock divided by N
 
@@ -13932,12 +15100,26 @@ frequencies when TIMx_ARR=0x36.
 ?? ?? ??
 
 
-                                                <!-- *P249*/844 -->
-314
+<!-- *P249*/844 -->
+[P249]: #P249
+<a id="P249"></a>
+
+
+[Figure 46]: "#Figure%2046"
+<a id="Figure 46"></a>
+
+[Figure 46]: "Figure%2046"
+<a id="Figure 46"></a>
 
 **Figure 46**. Counter timing diagram, update event when ARPE=0 (TIMx_ARR not
 
 preloaded)
+
+[Figure 47]: "#Figure%2047"
+<a id="Figure 47"></a>
+
+[Figure 47]: "Figure%2047"
+<a id="Figure 47"></a>
 
 **Figure 47**. Counter timing diagram, update event when ARPE=1 (TIMx_ARR
 
@@ -13973,7 +15155,10 @@ preloaded)
 ?? ??
 
 
-                                                <!-- *P250*/844 -->
+<!-- *P250*/844 -->
+[P250]: #P250
+<a id="P250"></a>
+
 Downcounting mode
 In downcounting mode, the counter counts from the auto-reload value (content of the
 TIMx_ARR register) down to 0, then restarts from the auto-reload value and generates a
@@ -14004,11 +15189,25 @@ The following figures show some examples of the counter behavior for different c
 frequencies when TIMx_ARR=0x36.
 
 
-                                                <!-- *P251*/844 -->
-314
+<!-- *P251*/844 -->
+[P251]: #P251
+<a id="P251"></a>
+
+
+[Figure 48]: "#Figure%2048"
+<a id="Figure 48"></a>
+
+[Figure 48]: "Figure%2048"
+<a id="Figure 48"></a>
 
 **Figure 48**. Counter timing diagram, internal clock divided by 1
 
+
+[Figure 49]: "#Figure%2049"
+<a id="Figure 49"></a>
+
+[Figure 49]: "Figure%2049"
+<a id="Figure 49"></a>
 
 **Figure 49**. Counter timing diagram, internal clock divided by 2
 
@@ -14036,10 +15235,25 @@ frequencies when TIMx_ARR=0x36.
 ???? ???? ???? ???? ???? ???? ????
 
 
-                                                <!-- *P252*/844 -->
+<!-- *P252*/844 -->
+[P252]: #P252
+<a id="P252"></a>
+
+
+[Figure 50]: "#Figure%2050"
+<a id="Figure 50"></a>
+
+[Figure 50]: "Figure%2050"
+<a id="Figure 50"></a>
 
 **Figure 50**. Counter timing diagram, internal clock divided by 4
 
+
+[Figure 51]: "#Figure%2051"
+<a id="Figure 51"></a>
+
+[Figure 51]: "Figure%2051"
+<a id="Figure 51"></a>
 
 **Figure 51**. Counter timing diagram, internal clock divided by N
 
@@ -14064,8 +15278,16 @@ frequencies when TIMx_ARR=0x36.
 ??
 
 
-                                                <!-- *P253*/844 -->
-314
+<!-- *P253*/844 -->
+[P253]: #P253
+<a id="P253"></a>
+
+
+[Figure 52]: "#Figure%2052"
+<a id="Figure 52"></a>
+
+[Figure 52]: "Figure%2052"
+<a id="Figure 52"></a>
 
 **Figure 52**. Counter timing diagram, update event when repetition counter is not used
 
@@ -14110,7 +15332,10 @@ clearing the counter on the capture event.
 ?????????????????????????????
 
 
-                                                <!-- *P254*/844 -->
+<!-- *P254*/844 -->
+[P254]: #P254
+<a id="P254"></a>
+
 When an update event occurs, all the registers are updated and the update flag (UIF bit in
 TIMx_SR register) is set (depending on the URS bit):
 • The repetition counter is reloaded with the content of TIMx_RCR register
@@ -14123,9 +15348,21 @@ one (the counter is loaded with the new value).
 The following figures show some examples of the counter behavior for different clock
 frequencies.
 
+[Figure 53]: "#Figure%2053"
+<a id="Figure 53"></a>
+
+[Figure 53]: "Figure%2053"
+<a id="Figure 53"></a>
+
 **Figure 53**. Counter timing diagram, internal clock divided by 1, TIMx_ARR = 0x6
 
 1. Here, center-aligned mode 1 is used (for more details refer to Section 12.4: TIM1 registers).
+
+[Figure 54]: "#Figure%2054"
+<a id="Figure 54"></a>
+
+[Figure 54]: "Figure%2054"
+<a id="Figure 54"></a>
 
 **Figure 54**. Counter timing diagram, internal clock divided by 2
 
@@ -14151,12 +15388,26 @@ frequencies.
 ???? ???? ???? ???? ???? ???? ????
 
 
-                                                <!-- *P255*/844 -->
-314
+<!-- *P255*/844 -->
+[P255]: #P255
+<a id="P255"></a>
+
+
+[Figure 55]: "#Figure%2055"
+<a id="Figure 55"></a>
+
+[Figure 55]: "Figure%2055"
+<a id="Figure 55"></a>
 
 **Figure 55**. Counter timing diagram, internal clock divided by 4, TIMx_ARR=0x36
 
 1. Center-aligned mode 2 or 3 is used with an UIF on overflow.
+
+[Figure 56]: "#Figure%2056"
+<a id="Figure 56"></a>
+
+[Figure 56]: "Figure%2056"
+<a id="Figure 56"></a>
 
 **Figure 56**. Counter timing diagram, internal clock divided by N
 
@@ -14180,10 +15431,25 @@ frequencies.
 ?? ?? ?? ??
 
 
-                                                <!-- *P256*/844 -->
+<!-- *P256*/844 -->
+[P256]: #P256
+<a id="P256"></a>
+
+
+[Figure 57]: "#Figure%2057"
+<a id="Figure 57"></a>
+
+[Figure 57]: "Figure%2057"
+<a id="Figure 57"></a>
 
 **Figure 57**. Counter timing diagram, update event with ARPE=1 (counter underflow)
 
+
+[Figure 58]: "#Figure%2058"
+<a id="Figure 58"></a>
+
+[Figure 58]: "Figure%2058"
+<a id="Figure 58"></a>
 
 **Figure 58**. Counter timing diagram, Update event with ARPE=1 (counter overflow)
 
@@ -14227,8 +15493,10 @@ where N is the value in the TIMx_RCR repetition counter register.
 ??????????????????????????? ?? ??
 
 
-                                                <!-- *P257*/844 -->
-314
+<!-- *P257*/844 -->
+[P257]: #P257
+<a id="P257"></a>
+
 The repetition counter is decremented:
 • At each counter overflow in upcounting mode,
 • At each counter underflow in downcounting mode,
@@ -14238,7 +15506,7 @@ possible to update the duty cycle twice per PWM period. When refreshing compare
 registers only once per PWM period in center-aligned mode, maximum resolution is
 2xT ck , due to the symmetry of the pattern.
 The repetition counter is an auto-reload type; the repetition rate is maintained as defined by
-the TIMx_RCR register value (refer to Figure 59). When the update event is generated by
+the TIMx_RCR register value (refer to [Figure 59]). When the update event is generated by
 software (by setting the UG bit in TIMx_EGR register) or by hardware through the slave
 mode controller, it occurs immediately whatever the value of the repetition counter is and the
 repetition counter is reloaded with the content of the TIMx_RCR register.
@@ -14248,6 +15516,12 @@ the counter was started. If the RCR was written before starting the counter, the
 on the overflow. If the RCR was written after starting the counter, the UEV occurs on the
 underflow. For example for RCR = 3, the UEV is generated on each 4th overflow or
 underflow event depending on when RCR was written.
+
+[Figure 59]: "#Figure%2059"
+<a id="Figure 59"></a>
+
+[Figure 59]: "Figure%2059"
+<a id="Figure 59"></a>
 
 **Figure 59**. Update rate examples depending on mode and TIMx_RCR register settings
 
@@ -14274,7 +15548,10 @@ underflow event depending on when RCR was written.
 ???????????????????????????????????????????????????????????????????????????????????????????????????????????
 
 
-                                                <!-- *P258*/844 -->
+<!-- *P258*/844 -->
+[P258]: #P258
+<a id="P258"></a>
+
 
 //12.3.4 Clock selection
 ------------------------
@@ -14291,8 +15568,14 @@ If the slave mode controller is disabled (SMS=000), then the CEN, DIR (in the TI
 register) and UG bits (in the TIMx_EGR register) are actual control bits and can be changed
 only by software (except UG which remains cleared automatically). As soon as the CEN bit
 is written to 1, the prescaler is clocked by the internal clock CK_INT.
-Figure 60 shows the behavior of the control circuit and the upcounter in normal mode,
+[Figure 60] shows the behavior of the control circuit and the upcounter in normal mode,
 without prescaler.
+
+[Figure 60]: "#Figure%2060"
+<a id="Figure 60"></a>
+
+[Figure 60]: "Figure%2060"
+<a id="Figure 60"></a>
 
 **Figure 60**. Control circuit in normal mode, internal clock divided by 1
 
@@ -14309,8 +15592,16 @@ each rising or falling edge on a selected input.
 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ??
 
 
-                                                <!-- *P259*/844 -->
-314
+<!-- *P259*/844 -->
+[P259]: #P259
+<a id="P259"></a>
+
+
+[Figure 61]: "#Figure%2061"
+<a id="Figure 61"></a>
+
+[Figure 61]: "Figure%2061"
+<a id="Figure 61"></a>
 
 **Figure 61**. TI2 external clock connection example
 
@@ -14326,7 +15617,9 @@ register.
 register.
 5. Select TI2 as the trigger input source by writing TS=110 in the TIMx_SMCR register.
 6. Enable the counter by writing CEN=1 in the TIMx_CR1 register.
-Note: The capture prescaler is not used for triggering, so the user does not need to configure it.
+
+> [!NOTE]
+> The capture prescaler is not used for triggering, so the user does not need to configure it.
 When a rising edge occurs on TI2, the counter counts once and the TIF flag is set.
 The delay between the rising edge on TI2 and the actual clock of the counter is due to the
 resynchronization circuit on TI2 input.
@@ -14378,14 +15671,29 @@ resynchronization circuit on TI2 input.
 ???
 
 
-                                                <!-- *P260*/844 -->
+<!-- *P260*/844 -->
+[P260]: #P260
+<a id="P260"></a>
+
+
+[Figure 62]: "#Figure%2062"
+<a id="Figure 62"></a>
+
+[Figure 62]: "Figure%2062"
+<a id="Figure 62"></a>
 
 **Figure 62**. Control circuit in external clock mode 1
 
 External clock source mode 2
 This mode is selected by writing ECE=1 in the TIMx_SMCR register.
 The counter can count at each rising or falling edge on the external trigger input ETR.
-Figure 63 gives an overview of the external trigger input block.
+[Figure 63] gives an overview of the external trigger input block.
+
+[Figure 63]: "#Figure%2063"
+<a id="Figure 63"></a>
+
+[Figure 63]: "Figure%2063"
+<a id="Figure 63"></a>
 
 **Figure 63**. External trigger input block
 
@@ -14438,8 +15746,10 @@ Figure 63 gives an overview of the external trigger input block.
 ???
 
 
-                                                <!-- *P261*/844 -->
-314
+<!-- *P261*/844 -->
+[P261]: #P261
+<a id="P261"></a>
+
 For example, to configure the upcounter to count each 2 rising edges on ETR, use the
 following procedure:
 1. As no filter is needed in this example, write ETF[3:0]=0000 in the TIMx_SMCR register.
@@ -14452,6 +15762,12 @@ The counter counts once each 2 ETR rising edges.
 The delay between the rising edge on ETR and the actual clock of the counter is due to the
 resynchronization circuit on the ETRP signal.
 
+[Figure 64]: "#Figure%2064"
+<a id="Figure 64"></a>
+
+[Figure 64]: "Figure%2064"
+<a id="Figure 64"></a>
+
 **Figure 64**. Control circuit in external clock mode 2
 
 
@@ -14461,7 +15777,7 @@ resynchronization circuit on the ETRP signal.
 Each Capture/Compare channel is built around a capture/compare register (including a
 shadow register), a input stage for capture (with digital filter, multiplexing and prescaler) and
 an output stage (with comparator and output control).
-Figure 65 to Figure 68 give an overview of one Capture/Compare channel.
+[Figure 65] to [Figure 68] give an overview of one Capture/Compare channel.
 The input stage samples the corresponding TIx input to generate a filtered signal TIxF.
 Then, an edge detector with polarity selection generates a signal (TIxFPx) which can be
 used as trigger input by the slave mode controller or as the capture command. It is
@@ -14478,12 +15794,27 @@ prescaled before the capture register (ICxPS).
 ????????????????
 
 
-                                                <!-- *P262*/844 -->
+<!-- *P262*/844 -->
+[P262]: #P262
+<a id="P262"></a>
+
+
+[Figure 65]: "#Figure%2065"
+<a id="Figure 65"></a>
+
+[Figure 65]: "Figure%2065"
+<a id="Figure 65"></a>
 
 **Figure 65**. Capture/compare channel (example: channel 1 input stage)
 
 The output stage generates an intermediate waveform that is then used for reference:
 OCxRef (active high). The polarity acts at the end of the chain.
+
+[Figure 66]: "#Figure%2066"
+<a id="Figure 66"></a>
+
+[Figure 66]: "Figure%2066"
+<a id="Figure 66"></a>
 
 **Figure 66**. Capture/compare channel 1 main circuit
 
@@ -14574,11 +15905,25 @@ OCxRef (active high). The polarity acts at the end of the chain.
 ????
 
 
-                                                <!-- *P263*/844 -->
-314
+<!-- *P263*/844 -->
+[P263]: #P263
+<a id="P263"></a>
+
+
+[Figure 67]: "#Figure%2067"
+<a id="Figure 67"></a>
+
+[Figure 67]: "Figure%2067"
+<a id="Figure 67"></a>
 
 **Figure 67**. Output stage of capture/compare channel (channel 1 to 3)
 
+
+[Figure 68]: "#Figure%2068"
+<a id="Figure 68"></a>
+
+[Figure 68]: "Figure%2068"
+<a id="Figure 68"></a>
 
 **Figure 68**. Output stage of capture/compare channel (channel 4)
 
@@ -14672,7 +16017,10 @@ which is compared to the counter.
 ????
 
 
-                                                <!-- *P264*/844 -->
+<!-- *P264*/844 -->
+[P264]: #P264
+<a id="P264"></a>
+
 
 //12.3.6 Input capture mode
 ---------------------------
@@ -14715,12 +16063,16 @@ occurred whereas the flag was not cleared.
 In order to handle the overcapture, it is recommended to read the data before the
 overcapture flag. This is to avoid missing an overcapture which could happen after reading
 the flag and before reading the data.
-Note: IC interrupt and/or DMA requests can be generated by software by setting the
+
+> [!NOTE]
+> IC interrupt and/or DMA requests can be generated by software by setting the
 corresponding CCxG bit in the TIMx_EGR register.
 
 
-                                                <!-- *P265*/844 -->
-314
+<!-- *P265*/844 -->
+[P265]: #P265
+<a id="P265"></a>
+
 
 //12.3.7 PWM input mode
 -----------------------
@@ -14747,6 +16099,12 @@ and CC2NP bits to ‘1’ (active on falling edge).
 TIMx_SMCR register.
 • Enable the captures: write the CC1E and CC2E bits to ‘1’ in the TIMx_CCER register.
 
+[Figure 69]: "#Figure%2069"
+<a id="Figure 69"></a>
+
+[Figure 69]: "Figure%2069"
+<a id="Figure 69"></a>
+
 **Figure 69**. PWM input mode timing
 
 
@@ -14760,7 +16118,10 @@ To force an output compare signal (OCXREF/OCx) to its active level, the user jus
 write 101 in the OCxM bits in the corresponding TIMx_CCMRx register. Thus OCXREF is
 
 
-                                                <!-- *P266*/844 -->
+<!-- *P266*/844 -->
+[P266]: #P266
+<a id="P266"></a>
+
 forced high (OCxREF is always active high) and OCx get opposite value to CCxP polarity
 bit.
 For example: CCxP=0 (OCx active high) => OCx is forced to high level.
@@ -14805,11 +16166,19 @@ Procedure:
 The TIMx_CCRx register can be updated at any time by software to control the output
 waveform, provided that the preload register is not enabled (OCxPE=’0’, else TIMx_CCRx
 shadow register is updated only at the next update event UEV). An example is given in
-Figure 70.
+[Figure 70].
 
 
-                                                <!-- *P267*/844 -->
-314
+<!-- *P267*/844 -->
+[P267]: #P267
+<a id="P267"></a>
+
+
+[Figure 70]: "#Figure%2070"
+<a id="Figure 70"></a>
+
+[Figure 70]: "Figure%2070"
+<a id="Figure 70"></a>
 
 **Figure 70**. Output compare mode, toggle on OC1.
 
@@ -14855,11 +16224,20 @@ OCxREF is high as long as TIMx_CNT < TIMx_CCRx else it becomes low. If the
 ????
 
 
-                                                <!-- *P268*/844 -->
+<!-- *P268*/844 -->
+[P268]: #P268
+<a id="P268"></a>
+
 compare value in TIMx_CCRx is greater than the auto-reload value (in TIMx_ARR)
 then OCxREF is held at ‘1’. If the compare value is 0 then OCxRef is held at ‘0’.
-Figure 71 shows some edge-aligned PWM waveforms in an example where
+[Figure 71] shows some edge-aligned PWM waveforms in an example where
 TIMx_ARR=8.
+
+[Figure 71]: "#Figure%2071"
+<a id="Figure 71"></a>
+
+[Figure 71]: "Figure%2071"
+<a id="Figure 71"></a>
 
 **Figure 71**. Edge-aligned PWM waveforms (ARR=8)
 
@@ -14895,14 +16273,22 @@ TIMx_CR1 register is updated by hardware and must not be changed by software. Re
 ???
 
 
-                                                <!-- *P269*/844 -->
-314
+<!-- *P269*/844 -->
+[P269]: #P269
+<a id="P269"></a>
+
 Center-aligned mode (up/down counting).
-Figure 72 shows some center-aligned PWM waveforms in an example where:
+[Figure 72] shows some center-aligned PWM waveforms in an example where:
 • TIMx_ARR=8,
 • PWM mode is the PWM mode 1,
 • The flag is set when the counter counts down corresponding to the center-aligned
 mode 1 selected for CMS=01 in TIMx_CR1 register.
+
+[Figure 72]: "#Figure%2072"
+<a id="Figure 72"></a>
+
+[Figure 72]: "Figure%2072"
+<a id="Figure 72"></a>
 
 **Figure 72**. Center-aligned PWM waveforms (ARR=8)
 
@@ -14944,7 +16330,10 @@ means that the counter counts up or down depending on the value written in the D
 ????????
 
 
-                                                <!-- *P270*/844 -->
+<!-- *P270*/844 -->
+[P270]: #P270
+<a id="P270"></a>
+
 in the TIMx_CR1 register. Moreover, the DIR and CMS bits must not be changed at the
 same time by the software.
 • Writing to the counter while running in center-aligned mode is not recommended as it
@@ -14971,7 +16360,7 @@ independently for each output. This is done by writing to the CCxP and CCxNP bit
 TIMx_CCER register.
 The complementary signals OCx and OCxN are activated by a combination of several
 control bits: the CCxE and CCxNE bits in the TIMx_CCER register and the MOE, OISx,
-OISxN, OSSI and OSSR bits in the TIMx_BDTR and TIMx_CR2 registers. Refer to Table 50
+OISxN, OSSI and OSSR bits in the TIMx_BDTR and TIMx_CR2 registers. Refer to [Table 50]
 for more details. In particular, the dead-time is activated when switching to the IDLE state
 (MOE falling down to 0).
 Dead-time insertion is enabled by setting both CCxE and CCxNE bits, and the MOE bit if the
@@ -14989,14 +16378,34 @@ generator and the reference signal OCxREF. (we suppose CCxP=0, CCxNP=0, MOE=1,
 CCxE=1 and CCxNE=1 in these examples)
 
 
-                                                <!-- *P271*/844 -->
-314
+<!-- *P271*/844 -->
+[P271]: #P271
+<a id="P271"></a>
+
+
+[Figure 73]: "#Figure%2073"
+<a id="Figure 73"></a>
+
+[Figure 73]: "Figure%2073"
+<a id="Figure 73"></a>
 
 **Figure 73**. Complementary output with dead-time insertion.
 
 
+[Figure 74]: "#Figure%2074"
+<a id="Figure 74"></a>
+
+[Figure 74]: "Figure%2074"
+<a id="Figure 74"></a>
+
 **Figure 74**. Dead-time waveforms with delay greater than the negative pulse.
 
+
+[Figure 75]: "#Figure%2075"
+<a id="Figure 75"></a>
+
+[Figure 75]: "Figure%2075"
+<a id="Figure 75"></a>
 
 **Figure 75**. Dead-time waveforms with delay greater than the positive pulse.
 
@@ -15027,10 +16436,15 @@ one output while the complementary remains at its inactive level. Other possibil
 ????
 
 
-                                                <!-- *P272*/844 -->
+<!-- *P272*/844 -->
+[P272]: #P272
+<a id="P272"></a>
+
 have both outputs at inactive level or both outputs active and complementary with
 dead-time.
-Note: When only OCxN is enabled (CCxE=0, CCxNE=1), it is not complemented and becomes
+
+> [!NOTE]
+> When only OCxN is enabled (CCxE=0, CCxNE=1), it is not complemented and becomes
 active as soon as OCxREF is high. For example, if CCxNP=0 then OCxN=OCxRef. On the
 other hand, when both OCx and OCxN are enabled (CCxE=CCxNE=1) OCx becomes
 active when OCxREF is high whereas OCxN is complemented and becomes active when
@@ -15042,7 +16456,7 @@ OCxREF is low.
 When using the break function, the output enable signals and inactive levels are modified
 according to additional control bits (MOE, OSSI and OSSR bits in the TIMx_BDTR register,
 OISx and OISxN bits in the TIMx_CR2 register). In any case, the OCx and OCxN outputs
-cannot be set both to active level at a given time. Refer to Table 50 for more details.
+cannot be set both to active level at a given time. Refer to [Table 50] for more details.
 The break source can be either the break input pin or a clock failure event, generated by the
 Clock Security System (CSS), from the Reset Clock Controller. For further information on
 the Clock Security System, refer to Section 6.2.7: Clock security system (CSS).
@@ -15074,8 +16488,10 @@ order to drive the outputs with the level programmed in the OISx and OISxN bits
 after a dead-time. Even in this case, OCx and OCxN cannot be driven to their
 
 
-                                                <!-- *P273*/844 -->
-314
+<!-- *P273*/844 -->
+[P273]: #P273
+<a id="P273"></a>
+
 active level together. Note that because of the resynchronization on MOE, the
 dead-time duration is a bit longer than usual (around 2 ck_tim clock cycles).
 – If OSSI=0 then the timer releases the enable outputs else the enable outputs
@@ -15088,7 +16504,9 @@ at the next update event UEV. This can be used to perform a regulation, for inst
 Else, MOE remains low until it is written to ‘1’ again. In this case, it can be used for
 security and the break input can be connected to an alarm from power drivers, thermal
 sensors or any security components.
-Note: The break inputs is acting on level. Thus, the MOE cannot be set while the break input is
+
+> [!NOTE]
+> The break inputs is acting on level. Thus, the MOE cannot be set while the break input is
 active (neither automatically nor by software). In the meantime, the status flag BIF cannot
 be cleared.
 The break can be generated by the BRK input which has a programmable polarity and an
@@ -15106,8 +16524,17 @@ Section 12.4.18: TIM1 break and dead-time register (TIMx_BDTR). The LOCK bits ca
 written only once after an MCU reset.
 
 
-                                                <!-- *P274*/844 -->
-Figure 76 shows an example of behavior of the outputs in response to a break.
+<!-- *P274*/844 -->
+[P274]: #P274
+<a id="P274"></a>
+
+[Figure 76] shows an example of behavior of the outputs in response to a break.
+
+[Figure 76]: "#Figure%2076"
+<a id="Figure 76"></a>
+
+[Figure 76]: "Figure%2076"
+<a id="Figure 76"></a>
 
 **Figure 76**. Output behavior in response to a break.
 
@@ -15143,8 +16570,10 @@ Figure 76 shows an example of behavior of the outputs in response to a break.
 ?????????????????
 
 
-                                                <!-- *P275*/844 -->
-314
+<!-- *P275*/844 -->
+[P275]: #P275
+<a id="P275"></a>
+
 
 //12.3.13 Clearing the OCxREF signal on an external event
 ---------------------------------------------------------
@@ -15162,13 +16591,21 @@ register set to ‘00’.
 ‘0’.
 3. The External Trigger Polarity (ETP) and the External Trigger Filter (ETF) can be
 configured according to the user needs.
-Figure 77 shows the behavior of the OCxREF signal when the ETRF Input becomes High,
+[Figure 77] shows the behavior of the OCxREF signal when the ETRF Input becomes High,
 for both values of the enable bit OCxCE. In this example, the timer TIMx is programmed in
 PWM mode.
 
+[Figure 77]: "#Figure%2077"
+<a id="Figure 77"></a>
+
+[Figure 77]: "Figure%2077"
+<a id="Figure 77"></a>
+
 **Figure 77**. Clearing TIMx OCxREF
 
-Note: In case of a PWM with a 100% duty cycle (if CCRx>ARR), then OCxREF is enabled again at
+
+> [!NOTE]
+> In case of a PWM with a 100% duty cycle (if CCRx>ARR), then OCxREF is enabled again at
 the next counter overflow.
 ??????????
 ??????
@@ -15179,7 +16616,10 @@ the next counter overflow.
 ????????????????? ???????????????
 
 
-                                                <!-- *P276*/844 -->
+<!-- *P276*/844 -->
+[P276]: #P276
+<a id="P276"></a>
+
 
 //12.3.14 6-step PWM generation
 -------------------------------
@@ -15193,15 +16633,23 @@ TRGI rising edge).
 A flag is set when the COM event occurs (COMIF bit in the TIMx_SR register), which can
 generate an interrupt (if the COMIE bit is set in the TIMx_DIER register) or a DMA request
 (if the COMDE bit is set in the TIMx_DIER register).
-Figure 78 describes the behavior of the OCx and OCxN outputs when a COM event occurs,
+[Figure 78] describes the behavior of the OCx and OCxN outputs when a COM event occurs,
 in 3 different examples of programmed configurations.
+
+[Figure 78]: "#Figure%2078"
+<a id="Figure 78"></a>
+
+[Figure 78]: "Figure%2078"
+<a id="Figure 78"></a>
 
 **Figure 78**. 6-step generation, COM example (OSSR=1)
 
 
 
-                                                <!-- *P277*/844 -->
-314
+<!-- *P277*/844 -->
+[P277]: #P277
+<a id="P277"></a>
+
 
 //12.3.15 One-pulse mode
 ------------------------
@@ -15218,6 +16666,12 @@ initial value. Before starting (when the timer is waiting for the trigger), the 
 be:
 • In upcounting: CNT < CCRx ≤ ARR (in particular, 0 < CCRx)
 • In downcounting: CNT > CCRx
+
+[Figure 79]: "#Figure%2079"
+<a id="Figure 79"></a>
+
+[Figure 79]: "Figure%2079"
+<a id="Figure 79"></a>
 
 **Figure 79**. Example of one pulse mode.
 
@@ -15243,7 +16697,10 @@ the TIMx_SMCR register.
 ? ????? ? ?????
 
 
-                                                <!-- *P278*/844 -->
+<!-- *P278*/844 -->
+[P278]: #P278
+<a id="P278"></a>
+
 The OPM waveform is defined by writing the compare registers (taking into account the
 clock frequency and the counter prescaler).
 • The t DELAY is defined by the value written in the TIMx_CCR1 register.
@@ -15283,7 +16740,7 @@ Select the TI1 and TI2 polarity by programming the CC1P and CC2P bits in the TIM
 register. When needed, the user can program the input filter as well. CC1NP and CC2NP
 must be kept low.
 The two inputs TI1 and TI2 are used to interface to an incremental encoder. Refer to
-Table 48. The counter is clocked by each valid transition on TI1FP1 or TI2FP2 (TI1 and TI2
+[Table 48]. The counter is clocked by each valid transition on TI1FP1 or TI2FP2 (TI1 and TI2
 after input filter and polarity selection, TI1FP1=TI1 if not filtered and not inverted,
 TI2FP2=TI2 if not filtered and not inverted) assuming that it is enabled (CEN bit in
 TIMx_CR1 register written to ‘1’). The sequence of transitions of the two inputs is evaluated
@@ -15295,8 +16752,10 @@ Encoder interface mode acts simply as an external clock with direction selection
 means that the counter just counts continuously between 0 and the auto-reload value in the
 
 
-                                                <!-- *P279*/844 -->
-314
+<!-- *P279*/844 -->
+[P279]: #P279
+<a id="P279"></a>
+
 TIMx_ARR register (0 to ARR or ARR down to 0 depending on the direction). So user must
 configure TIMx_ARR before starting. in the same way, the capture, compare, prescaler,
 repetition counter, trigger output features continue to work as normal. Encoder mode and
@@ -15304,7 +16763,7 @@ External clock mode 2 are not compatible and must not be selected together.
 In this mode, the counter is modified automatically following the speed and the direction of
 the incremental encoder and its content, therefore, always represents the encoder’s
 position. The count direction correspond to the rotation direction of the connected sensor.
-Table 48 summarizes the possible combinations, assuming TI1 and TI2 do not switch at the
+[Table 48] summarizes the possible combinations, assuming TI1 and TI2 do not switch at the
 same time.
 
 An external incremental encoder can be connected directly to the MCU without external
@@ -15312,7 +16771,7 @@ interface logic. However, comparators are normally be used to convert the encode
 differential outputs to digital signals. This greatly increases noise immunity. The third
 encoder output which indicate the mechanical zero position, may be connected to an
 external interrupt input and trigger a counter reset.
-Figure 80 gives an example of counter operation, showing count signal generation and
+[Figure 80] gives an example of counter operation, showing count signal generation and
 direction control. It also shows how input jitter is compensated where both edges are
 selected. This might occur if the sensor is positioned near to one of the switching points. For
 this example we assume that the configuration is the following:
@@ -15325,6 +16784,9 @@ TI1FP2= TI2).
 • SMS=’011’ (TIMx_SMCR register, both inputs are active on both rising and falling
 edges).
 • CEN=’1’ (TIMx_CR1 register, Counter enabled).
+
+[Table 48]: "Table%2048"
+<a id="Table 48"></a>
 
 **Table 48**. Counting direction versus encoder signals
 
@@ -15348,12 +16810,27 @@ High Down Up Up Down
 Low Up Down Down Up
 
 
-                                                <!-- *P280*/844 -->
+<!-- *P280*/844 -->
+[P280]: #P280
+<a id="P280"></a>
+
+
+[Figure 80]: "#Figure%2080"
+<a id="Figure 80"></a>
+
+[Figure 80]: "Figure%2080"
+<a id="Figure 80"></a>
 
 **Figure 80**. Example of counter operation in encoder interface mode.
 
-Figure 81 gives an example of counter behavior when TI1FP1 polarity is inverted (same
+[Figure 81] gives an example of counter behavior when TI1FP1 polarity is inverted (same
 configuration as above except CC1P=’1’).
+
+[Figure 81]: "#Figure%2081"
+<a id="Figure 81"></a>
+
+[Figure 81]: "Figure%2081"
+<a id="Figure 81"></a>
 
 **Figure 81**. Example of encoder interface mode with TI1FP1 polarity inverted.
 
@@ -15383,8 +16860,10 @@ DMA request generated by a real-time clock.
 ????
 
 
-                                                <!-- *P281*/844 -->
-314
+<!-- *P281*/844 -->
+[P281]: #P281
+<a id="P281"></a>
+
 
 //12.3.17 Timer input XOR function
 ----------------------------------
@@ -15401,14 +16880,14 @@ Section 12.3.18.
 
 This is done using the advanced-control timers (TIM1) to generate PWM signals to drive the
 motor and another timer TIMx (TIM2, TIM3, TIM4 or TIM5) referred to as “interfacing timer”
-in Figure 82. The “interfacing timer” captures the 3 timer input pins (TIMx_CH1, TIMx_CH2,
+in [Figure 82]. The “interfacing timer” captures the 3 timer input pins (TIMx_CH1, TIMx_CH2,
 and TIMx_CH3) connected through a XOR to the TI1 input channel (selected by setting the
 TI1S bit in the TIMx_CR2 register).
 The slave mode controller is configured in reset mode; the slave input is TI1F_ED. Thus,
 each time one of the 3 inputs toggles, the counter restarts counting from 0. This creates a
 time base triggered by any change on the Hall inputs.
 On the “interfacing timer”, capture/compare channel 1 is configured in capture mode,
-capture signal is TRC (see Figure 65). The captured value, which corresponds to the time
+capture signal is TRC (see [Figure 65]). The captured value, which corresponds to the time
 elapsed between 2 changes on the inputs, gives information about motor speed.
 The “interfacing timer” can be used in output mode to generate a pulse which changes the
 configuration of the channels of the advanced-control timer (TIM1) (by triggering a COM
@@ -15438,8 +16917,17 @@ written after a COM event for the next step (this can be done in an interrupt su
 generated by the rising edge of OC2REF).
 
 
-                                                <!-- *P282*/844 -->
-Figure 82 describes this example.
+<!-- *P282*/844 -->
+[P282]: #P282
+<a id="P282"></a>
+
+[Figure 82] describes this example.
+
+[Figure 82]: "#Figure%2082"
+<a id="Figure 82"></a>
+
+[Figure 82]: "Figure%2082"
+<a id="Figure 82"></a>
 
 **Figure 82**. Example of Hall sensor interface
 
@@ -15465,8 +16953,10 @@ Figure 82 describes this example.
 ???? ???? ???? ???? ????
 
 
-                                                <!-- *P283*/844 -->
-314
+<!-- *P283*/844 -->
+[P283]: #P283
+<a id="P283"></a>
+
 
 //12.3.19 TIMx and external trigger synchronization
 ---------------------------------------------------
@@ -15495,6 +16985,12 @@ The following figure shows this behavior when the auto-reload register TIMx_ARR=
 The delay between the rising edge on TI1 and the actual reset of the counter is due to the
 resynchronization circuit on TI1 input.
 
+[Figure 83]: "#Figure%2083"
+<a id="Figure 83"></a>
+
+[Figure 83]: "Figure%2083"
+<a id="Figure 83"></a>
+
 **Figure 83**. Control circuit in reset mode
 
 ?????????
@@ -15506,7 +17002,10 @@ resynchronization circuit on TI1 input.
 ???
 
 
-                                                <!-- *P284*/844 -->
+<!-- *P284*/844 -->
+[P284]: #P284
+<a id="P284"></a>
+
 Slave mode: Gated mode
 The counter can be enabled depending on the level of a selected input.
 In the following example, the upcounter counts only when TI1 input is low:
@@ -15526,6 +17025,12 @@ or stops.
 The delay between the rising edge on TI1 and the actual stop of the counter is due to the
 resynchronization circuit on TI1 input.
 
+[Figure 84]: "#Figure%2084"
+<a id="Figure 84"></a>
+
+[Figure 84]: "Figure%2084"
+<a id="Figure 84"></a>
+
 **Figure 84**. Control circuit in gated mode
 
 ?????????
@@ -15538,8 +17043,10 @@ resynchronization circuit on TI1 input.
 ?? ?? ?? ?? ?? ?? ?? ?? ??
 
 
-                                                <!-- *P285*/844 -->
-314
+<!-- *P285*/844 -->
+[P285]: #P285
+<a id="P285"></a>
+
 Slave mode: Trigger mode
 The counter can start in response to an event on a selected input.
 In the following example, the upcounter starts in response to a rising edge on TI2 input:
@@ -15555,6 +17062,12 @@ When a rising edge occurs on TI2, the counter starts counting on the internal cl
 TIF flag is set.
 The delay between the rising edge on TI2 and the actual start of the counter is due to the
 resynchronization circuit on TI2 input.
+
+[Figure 85]: "#Figure%2085"
+<a id="Figure 85"></a>
+
+[Figure 85]: "Figure%2085"
+<a id="Figure 85"></a>
 
 **Figure 85**. Control circuit in trigger mode
 
@@ -15586,7 +17099,10 @@ configured.
 ?? ?? ?? ?? ??
 
 
-                                                <!-- *P286*/844 -->
+<!-- *P286*/844 -->
+[P286]: #P286
+<a id="P286"></a>
+
 – CC1P=0 and CC1NP=’0’ in TIMx_CCER register to validate the polarity (and
 detect rising edge only).
 3. Configure the timer in trigger mode by writing SMS=110 in TIMx_SMCR register. Select
@@ -15596,6 +17112,12 @@ ETR rising edges.
 The delay between the rising edge of the ETR signal and the actual reset of the counter is
 due to the resynchronization circuit on ETRP input.
 
+[Figure 86]: "#Figure%2086"
+<a id="Figure 86"></a>
+
+[Figure 86]: "Figure%2086"
+<a id="Figure 86"></a>
+
 **Figure 86**. Control circuit in external clock mode 2 + trigger mode
 
 
@@ -15604,7 +17126,9 @@ due to the resynchronization circuit on ETRP input.
 
 The TIM timers are linked together internally for timer synchronization or chaining. Refer to
 Section 13.3.15: Timer synchronization for details.
-Note: The clock of the slave timer must be enabled prior to receive events from the master timer,
+
+> [!NOTE]
+> The clock of the slave timer must be enabled prior to receive events from the master timer,
 and must not be changed on-the-fly while triggers are received from the master timer.
 
 //12.3.21 Debug mode
@@ -15628,8 +17152,10 @@ over by the GPIO controller (OSSI bit = 0) to force them to Hi-Z.
 ???
 
 
-                                                <!-- *P287*/844 -->
-314
+<!-- *P287*/844 -->
+[P287]: #P287
+<a id="P287"></a>
+
 
 //12.4 TIM1 registers
 ---------------------
@@ -15673,19 +17199,26 @@ only when the counter is counting up.
 11: Center-aligned mode 3. The counter counts up and down alternatively. Output compare
 interrupt flags of channels configured in output (CCxS=00 in TIMx_CCMRx register) are set
 both when the counter is counting up or down.
-Note: It is not allowed to switch from edge-aligned mode to center-aligned mode as long as
+
+> [!NOTE]
+> It is not allowed to switch from edge-aligned mode to center-aligned mode as long as
 the counter is enabled (CEN=1)
 Bit 4 DIR: Direction
 0: Counter used as upcounter
 1: Counter used as downcounter
-Note: This bit is read only when the timer is configured in Center-aligned mode or Encoder
+
+> [!NOTE]
+> This bit is read only when the timer is configured in Center-aligned mode or Encoder
 mode.
 Bit 3 OPM: One pulse mode
 0: Counter is not stopped at update event
 1: Counter stops counting at the next update event (clearing the bit CEN)
 
 
-                                                <!-- *P288*/844 -->
+<!-- *P288*/844 -->
+[P288]: #P288
+<a id="P288"></a>
+
 
 //12.4.2 TIM1 control register 2 (TIMx_CR2)
 -------------------------------------------
@@ -15716,7 +17249,9 @@ set or if a hardware reset is received from the slave mode controller.
 Bit 0 CEN: Counter enable
 0: Counter disabled
 1: Counter enabled
-Note: External clock, gated mode and encoder mode can work only if the CEN bit has been
+
+> [!NOTE]
+> External clock, gated mode and encoder mode can work only if the CEN bit has been
 previously set by software. However trigger mode can set the CEN bit automatically by
 hardware.
 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
@@ -15738,17 +17273,23 @@ Bit 10 OIS2: Output Idle state 2 (OC2 output)
 refer to OIS1 bit
 
 
-                                                <!-- *P289*/844 -->
-314
+<!-- *P289*/844 -->
+[P289]: #P289
+<a id="P289"></a>
+
 Bit 9 OIS1N: Output Idle state 1 (OC1N output)
 0: OC1N=0 after a dead-time when MOE=0
 1: OC1N=1 after a dead-time when MOE=0
-Note: This bit can not be modified as long as LOCK level 1, 2 or 3 has been programmed
+
+> [!NOTE]
+> This bit can not be modified as long as LOCK level 1, 2 or 3 has been programmed
 (LOCK bits in TIMx_BDTR register).
 Bit 8 OIS1: Output Idle state 1 (OC1 output)
 0: OC1=0 (after a dead-time if OC1N is implemented) when MOE=0
 1: OC1=1 (after a dead-time if OC1N is implemented) when MOE=0
-Note: This bit can not be modified as long as LOCK level 1, 2 or 3 has been programmed
+
+> [!NOTE]
+> This bit can not be modified as long as LOCK level 1, 2 or 3 has been programmed
 (LOCK bits in TIMx_BDTR register).
 Bit 7 TI1S: TI1 selection
 0: The TIMx_CH1 pin is connected to TI1 input
@@ -15774,7 +17315,9 @@ set (even if it was already high), as soon as a capture or a compare match occur
 101: Compare - OC2REF signal is used as trigger output (TRGO)
 110: Compare - OC3REF signal is used as trigger output (TRGO)
 111: Compare - OC4REF signal is used as trigger output (TRGO)
-Note: The clock of the slave timer and ADC must be enabled prior to receiving events from
+
+> [!NOTE]
+> The clock of the slave timer and ADC must be enabled prior to receiving events from
 the master timer, and must not be changed on-the-fly while triggers are received from
 the master timer.
 Bit 3 CCDS: Capture/compare DMA selection
@@ -15782,24 +17325,33 @@ Bit 3 CCDS: Capture/compare DMA selection
 1: CCx DMA requests sent when update event occurs
 
 
-                                                <!-- *P290*/844 -->
+<!-- *P290*/844 -->
+[P290]: #P290
+<a id="P290"></a>
+
 Bit 2 CCUS: Capture/compare control update selection
 0: When capture/compare control bits are preloaded (CCPC=1), they are updated by setting
 the COMG bit only
 1: When capture/compare control bits are preloaded (CCPC=1), they are updated by setting
 the COMG bit or when an rising edge occurs on TRGI
-Note: This bit acts only on channels that have a complementary output.
+
+> [!NOTE]
+> This bit acts only on channels that have a complementary output.
 Bit 1 Reserved, must be kept at reset value.
 Bit 0 CCPC: Capture/compare preloaded control
 0: CCxE, CCxNE and OCxM bits are not preloaded
 1: CCxE, CCxNE and OCxM bits are preloaded, after having been written, they are updated
 only when a commutation event (COM) occurs (COMG bit set or rising edge detected on
 TRGI, depending on the CCUS bit).
-Note: This bit acts only on channels that have a complementary output.
+
+> [!NOTE]
+> This bit acts only on channels that have a complementary output.
 
 
-                                                <!-- *P291*/844 -->
-314
+<!-- *P291*/844 -->
+[P291]: #P291
+<a id="P291"></a>
+
 
 //12.4.3 TIM1 slave mode control register (TIMx_SMCR)
 -----------------------------------------------------
@@ -15819,7 +17371,9 @@ This bit enables External clock mode 2.
 0: External clock mode 2 disabled
 1: External clock mode 2 enabled. The counter is clocked by any active edge on the ETRF
 signal.
-Note: 1: Setting the ECE bit has the same effect as selecting external clock mode 1 with
+
+> [!NOTE]
+> 1: Setting the ECE bit has the same effect as selecting external clock mode 1 with
 TRGI connected to ETRF (SMS=111 and TS=111).
 2: It is possible to simultaneously use external clock mode 2 with the following slave
 modes: reset mode, gated mode and trigger mode. Nevertheless, TRGI must not be
@@ -15836,7 +17390,10 @@ clocks.
 11: ETRP frequency divided by 8
 
 
-                                                <!-- *P292*/844 -->
+<!-- *P292*/844 -->
+[P292]: #P292
+<a id="P292"></a>
+
 Bits 11:8 ETF[3:0]: External trigger filter
 This bit-field then defines the frequency used to sample ETRP signal and the length of the
 digital filter applied to ETRP. The digital filter is made of an event counter in which N
@@ -15872,14 +17429,18 @@ This bit-field selects the trigger input to be used to synchronize the counter.
 101: Filtered Timer Input 1 (TI1FP1)
 110: Filtered Timer Input 2 (TI2FP2)
 111: External Trigger input (ETRF)
-See Table 49 for more details on ITRx meaning for each Timer.
-Note: These bits must be changed only when they are not used (e.g. when SMS=000) to
+See [Table 49] for more details on ITRx meaning for each Timer.
+
+> [!NOTE]
+> These bits must be changed only when they are not used (e.g. when SMS=000) to
 avoid wrong edge detections at the transition.
 Bit 3 Reserved, must be kept at reset value.
 
 
-                                                <!-- *P293*/844 -->
-314
+<!-- *P293*/844 -->
+[P293]: #P293
+<a id="P293"></a>
+
 
 
 //12.4.4 TIM1 DMA/interrupt enable register (TIMx_DIER)
@@ -15908,12 +17469,17 @@ the counter are controlled.
 110: Trigger Mode - The counter starts at a rising edge of the trigger TRGI (but it is not
 reset). Only the start of the counter is controlled.
 111: External Clock Mode 1 - Rising edges of the selected trigger (TRGI) clock the counter.
-Note: The gated mode must not be used if TI1F_ED is selected as the trigger input
+
+> [!NOTE]
+> The gated mode must not be used if TI1F_ED is selected as the trigger input
 (TS=’100’). Indeed, TI1F_ED outputs 1 pulse for each transition on TI1F, whereas the
 gated mode checks the level of the trigger signal.
 The clock of the slave timer must be enabled prior to receiving events from the master
 timer, and must not be changed on-the-fly while triggers are received from the master
 timer.
+
+[Table 49]: "Table%2049"
+<a id="Table 49"></a>
 
 **Table 49**. TIMx Internal trigger connection
 
@@ -15932,7 +17498,10 @@ Bit 13 COMDE: COM DMA request enable
 1: COM DMA request enabled
 
 
-                                                <!-- *P294*/844 -->
+<!-- *P294*/844 -->
+[P294]: #P294
+<a id="P294"></a>
+
 Bit 12 CC4DE: Capture/Compare 4 DMA request enable
 0: CC4 DMA request disabled
 1: CC4 DMA request enabled
@@ -15974,8 +17543,10 @@ Bit 0 UIE: Update interrupt enable
 1: Update interrupt enabled
 
 
-                                                <!-- *P295*/844 -->
-314
+<!-- *P295*/844 -->
+[P295]: #P295
+<a id="P295"></a>
+
 
 //12.4.5 TIM1 status register (TIMx_SR)
 ---------------------------------------
@@ -16023,7 +17594,10 @@ Bit 3 CC3IF: Capture/Compare 3 interrupt flag
 refer to CC1IF description
 
 
-                                                <!-- *P296*/844 -->
+<!-- *P296*/844 -->
+[P296]: #P296
+<a id="P296"></a>
+
 
 //12.4.6 TIM1 event generation register (TIMx_EGR)
 --------------------------------------------------
@@ -16078,13 +17652,17 @@ hardware.
 enabled.
 
 
-                                                <!-- *P297*/844 -->
-314
+<!-- *P297*/844 -->
+[P297]: #P297
+<a id="P297"></a>
+
 Bit 5 COMG: Capture/Compare control update generation
 This bit can be set by software, it is automatically cleared by hardware
 0: No action
 1: When CCPC bit is set, it allows to update CCxE, CCxNE and OCxM bits
-Note: This bit acts only on channels having a complementary output.
+
+> [!NOTE]
+> This bit acts only on channels having a complementary output.
 Bit 4 CC4G: Capture/Compare 4 generation
 refer to CC1G description
 Bit 3 CC3G: Capture/Compare 3 generation
@@ -16111,7 +17689,10 @@ the center-aligned mode is selected or if DIR=0 (upcounting), else it takes the 
 value (TIMx_ARR) if DIR=1 (downcounting).
 
 
-                                                <!-- *P298*/844 -->
+<!-- *P298*/844 -->
+[P298]: #P298
+<a id="P298"></a>
+
 
 //12.4.7 TIM1 capture/compare mode register 1 (TIMx_CCMR1)
 ----------------------------------------------------------
@@ -16156,15 +17737,19 @@ This bit-field defines the direction of the channel (input/output) as well as th
 10: CC2 channel is configured as input, IC2 is mapped on TI1
 11: CC2 channel is configured as input, IC2 is mapped on TRC. This mode is working only if
 an internal trigger input is selected through the TS bit (TIMx_SMCR register)
-Note: CC2S bits are writable only when the channel is OFF (CC2E = ‘0’ in TIMx_CCER).
+
+> [!NOTE]
+> CC2S bits are writable only when the channel is OFF (CC2E = ‘0’ in TIMx_CCER).
 Bit 7 OC1CE: Output Compare 1 clear enable
 OC1CE: Output Compare 1 Clear Enable
 0: OC1Ref is not affected by the ETRF Input
 1: OC1Ref is cleared as soon as a High level is detected on ETRF input
 
 
-                                                <!-- *P299*/844 -->
-314
+<!-- *P299*/844 -->
+[P299]: #P299
+<a id="P299"></a>
+
 Bits 6:4 OC1M: Output Compare 1 mode
 These bits define the behavior of the output reference signal OC1REF from which OC1 and
 OC1N are derived. OC1REF is active high whereas OC1 and OC1N active level depends
@@ -16185,7 +17770,9 @@ TIMx_CNT>TIMx_CCR1 else active (OC1REF=’1’).
 111: PWM mode 2 - In upcounting, channel 1 is inactive as long as TIMx_CNT<TIMx_CCR1
 else active. In downcounting, channel 1 is active as long as TIMx_CNT>TIMx_CCR1 else
 inactive.
-Note: 1: These bits can not be modified as long as LOCK level 3 has been programmed
+
+> [!NOTE]
+> 1: These bits can not be modified as long as LOCK level 3 has been programmed
 (LOCK bits in TIMx_BDTR register) and CC1S=’00’ (the channel is configured in
 output).
 2: In PWM mode 1 or 2, the OCREF level changes only when the result of the
@@ -16199,7 +17786,9 @@ Bit 3 OC1PE: Output Compare 1 preload enable
 new value is taken in account immediately.
 1: Preload register on TIMx_CCR1 enabled. Read/Write operations access the preload
 register. TIMx_CCR1 preload value is loaded in the active register at each update event.
-Note: 1: These bits can not be modified as long as LOCK level 3 has been programmed
+
+> [!NOTE]
+> 1: These bits can not be modified as long as LOCK level 3 has been programmed
 (LOCK bits in TIMx_BDTR register) and CC1S=’00’ (the channel is configured in
 output).
 2: The PWM mode can be used without validating the preload register only in one
@@ -16215,7 +17804,10 @@ the trigger input and to activate CC1 output is reduced to 3 clock cycles. OCFE 
 the channel is configured in PWM1 or PWM2 mode.
 
 
-                                                <!-- *P300*/844 -->
+<!-- *P300*/844 -->
+[P300]: #P300
+<a id="P300"></a>
+
 Input capture mode
 
 Bits 1:0 CC1S: Capture/Compare 1 selection
@@ -16225,7 +17817,9 @@ This bit-field defines the direction of the channel (input/output) as well as th
 10: CC1 channel is configured as input, IC1 is mapped on TI2
 11: CC1 channel is configured as input, IC1 is mapped on TRC. This mode is working only if
 an internal trigger input is selected through TS bit (TIMx_SMCR register)
-Note: CC1S bits are writable only when the channel is OFF (CC1E = ‘0’ in TIMx_CCER).
+
+> [!NOTE]
+> CC1S bits are writable only when the channel is OFF (CC1E = ‘0’ in TIMx_CCER).
 Bits 15:12 IC2F: Input capture 2 filter
 Bits 11:10 IC2PSC[1:0]: Input capture 2 prescaler
 Bits 9:8 CC2S: Capture/Compare 2 selection
@@ -16235,7 +17829,9 @@ This bit-field defines the direction of the channel (input/output) as well as th
 10: CC2 channel is configured as input, IC2 is mapped on TI1
 11: CC2 channel is configured as input, IC2 is mapped on TRC. This mode is working only if an
 internal trigger input is selected through TS bit (TIMx_SMCR register)
-Note: CC2S bits are writable only when the channel is OFF (CC2E = ‘0’ in TIMx_CCER).
+
+> [!NOTE]
+> CC2S bits are writable only when the channel is OFF (CC2E = ‘0’ in TIMx_CCER).
 Bits 7:4 IC1F[3:0]: Input capture 1 filter
 This bit-field defines the frequency used to sample TI1 input and the length of the digital filter applied
 to TI1. The digital filter is made of an event counter in which N consecutive events are needed to
@@ -16265,8 +17861,10 @@ The prescaler is reset as soon as CC1E=’0’ (TIMx_CCER register).
 11: capture is done once every 8 events
 
 
-                                                <!-- *P301*/844 -->
-314
+<!-- *P301*/844 -->
+[P301]: #P301
+<a id="P301"></a>
+
 
 //12.4.8 TIM1 capture/compare mode register 2 (TIMx_CCMR2)
 ----------------------------------------------------------
@@ -16283,7 +17881,9 @@ This bit-field defines the direction of the channel (input/output) as well as th
 10: CC1 channel is configured as input, IC1 is mapped on TI2
 11: CC1 channel is configured as input, IC1 is mapped on TRC. This mode is working only if an
 internal trigger input is selected through TS bit (TIMx_SMCR register)
-Note: CC1S bits are writable only when the channel is OFF (CC1E = ‘0’ in TIMx_CCER).
+
+> [!NOTE]
+> CC1S bits are writable only when the channel is OFF (CC1E = ‘0’ in TIMx_CCER).
 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
 OC4
 CE
@@ -16314,7 +17914,9 @@ This bit-field defines the direction of the channel (input/output) as well as th
 10: CC4 channel is configured as input, IC4 is mapped on TI3
 11: CC4 channel is configured as input, IC4 is mapped on TRC. This mode is working only if
 an internal trigger input is selected through TS bit (TIMx_SMCR register)
-Note: CC4S bits are writable only when the channel is OFF (CC4E = ‘0’ in TIMx_CCER).
+
+> [!NOTE]
+> CC4S bits are writable only when the channel is OFF (CC4E = ‘0’ in TIMx_CCER).
 Bit 7 OC3CE: Output compare 3 clear enable
 Bits 6:4 OC3M: Output compare 3 mode
 Bit 3 OC3PE: Output compare 3 preload enable
@@ -16326,10 +17928,15 @@ This bit-field defines the direction of the channel (input/output) as well as th
 10: CC3 channel is configured as input, IC3 is mapped on TI4
 11: CC3 channel is configured as input, IC3 is mapped on TRC. This mode is working only if
 an internal trigger input is selected through TS bit (TIMx_SMCR register)
-Note: CC3S bits are writable only when the channel is OFF (CC3E = ‘0’ in TIMx_CCER).
+
+> [!NOTE]
+> CC3S bits are writable only when the channel is OFF (CC3E = ‘0’ in TIMx_CCER).
 
 
-                                                <!-- *P302*/844 -->
+<!-- *P302*/844 -->
+[P302]: #P302
+<a id="P302"></a>
+
 Input capture mode
 
 
@@ -16348,7 +17955,9 @@ This bit-field defines the direction of the channel (input/output) as well as th
 10: CC4 channel is configured as input, IC4 is mapped on TI3
 11: CC4 channel is configured as input, IC4 is mapped on TRC. This mode is working only if
 an internal trigger input is selected through TS bit (TIMx_SMCR register)
-Note: CC4S bits are writable only when the channel is OFF (CC4E = ‘0’ in TIMx_CCER).
+
+> [!NOTE]
+> CC4S bits are writable only when the channel is OFF (CC4E = ‘0’ in TIMx_CCER).
 Bits 7:4 IC3F: Input capture 3 filter
 Bits 3:2 IC3PSC: Input capture 3 prescaler
 Bits 1:0 CC3S: Capture/compare 3 selection
@@ -16358,7 +17967,9 @@ This bit-field defines the direction of the channel (input/output) as well as th
 10: CC3 channel is configured as input, IC3 is mapped on TI4
 11: CC3 channel is configured as input, IC3 is mapped on TRC. This mode is working only if
 an internal trigger input is selected through TS bit (TIMx_SMCR register)
-Note: CC3S bits are writable only when the channel is OFF (CC3E = ‘0’ in TIMx_CCER).
+
+> [!NOTE]
+> CC3S bits are writable only when the channel is OFF (CC3E = ‘0’ in TIMx_CCER).
 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
 Reserved
 CC4P CC4E CC3NP CC3NE CC3P CC3E CC2NP CC2NE CC2P CC2E CC1NP CC1NE CC1P CC1E
@@ -16378,8 +17989,10 @@ Bit 8 CC3E: Capture/Compare 3 output enable
 refer to CC1E description
 
 
-                                                <!-- *P303*/844 -->
-314
+<!-- *P303*/844 -->
+[P303]: #P303
+<a id="P303"></a>
+
 Bit 7 CC2NP: Capture/Compare 2 complementary output polarity
 refer to CC1NP description
 Bit 6 CC2NE: Capture/Compare 2 complementary output enable
@@ -16395,22 +18008,31 @@ CC1 channel configured as output:
 CC1 channel configured as input:
 This bit is used in conjunction with CC1P to define the polarity of TI1FP1 and TI2FP1. Refer
 to CC1P description.
-Note: On channels having a complementary output, this bit is preloaded. If the CCPC bit is
+
+> [!NOTE]
+> On channels having a complementary output, this bit is preloaded. If the CCPC bit is
 set in the TIMx_CR2 register then the CC1NP active bit takes the new value from the
 preloaded bit only when a Commutation event is generated.
-Note: This bit is not writable as soon as LOCK level 2 or 3 has been programmed (LOCK bits
+
+> [!NOTE]
+> This bit is not writable as soon as LOCK level 2 or 3 has been programmed (LOCK bits
 in TIMx_BDTR register) and CC1S=”00” (the channel is configured in output).
 Bit 2 CC1NE: Capture/Compare 1 complementary output enable
 0: Off - OC1N is not active. OC1N level is then function of MOE, OSSI, OSSR, OIS1, OIS1N
 and CC1E bits.
 1: On - OC1N signal is output on the corresponding output pin depending on MOE, OSSI,
 OSSR, OIS1, OIS1N and CC1E bits.
-Note: On channels having a complementary output, this bit is preloaded. If the CCPC bit is
+
+> [!NOTE]
+> On channels having a complementary output, this bit is preloaded. If the CCPC bit is
 set in the TIMx_CR2 register then the CC1NE active bit takes the new value from the
 preloaded bit only when a Commutation event is generated.
 
 
-                                                <!-- *P304*/844 -->
+<!-- *P304*/844 -->
+[P304]: #P304
+<a id="P304"></a>
+
 Bit 1 CC1P: Capture/Compare 1 output polarity
 CC1 channel configured as output:
 0: OC1 active high
@@ -16431,10 +18053,14 @@ mode).
 The circuit is sensitive to both TIxFP1 rising and falling edges (capture or trigger operations
 in reset, external clock or trigger mode), TIxFP1 is not inverted (trigger operation in gated
 mode). This configuration must not be used in encoder mode.
-Note: On channels having a complementary output, this bit is preloaded. If the CCPC bit is
+
+> [!NOTE]
+> On channels having a complementary output, this bit is preloaded. If the CCPC bit is
 set in the TIMx_CR2 register then the CC1P active bit takes the new value from the
 preloaded bit only when a Commutation event is generated.
-Note: This bit is not writable as soon as LOCK level 2 or 3 has been programmed (LOCK bits
+
+> [!NOTE]
+> This bit is not writable as soon as LOCK level 2 or 3 has been programmed (LOCK bits
 in TIMx_BDTR register).
 Bit 0 CC1E: Capture/Compare 1 output enable
 CC1 channel configured as output:
@@ -16447,16 +18073,25 @@ This bit determines if a capture of the counter value can actually be done into 
 capture/compare register 1 (TIMx_CCR1) or not.
 0: Capture disabled.
 1: Capture enabled.
-Note: On channels having a complementary output, this bit is preloaded. If the CCPC bit is
+
+> [!NOTE]
+> On channels having a complementary output, this bit is preloaded. If the CCPC bit is
 set in the TIMx_CR2 register then the CC1E active bit takes the new value from the
 preloaded bit only when a Commutation event is generated.
 
 
-                                                <!-- *P305*/844 -->
-314
+<!-- *P305*/844 -->
+[P305]: #P305
+<a id="P305"></a>
 
-Note: The state of the external I/O pins connected to the complementary OCx and OCxN channels
+
+
+> [!NOTE]
+> The state of the external I/O pins connected to the complementary OCx and OCxN channels
 depends on the OCx and OCxN channel state and the GPIO registers.
+
+[Table 50]: "Table%2050"
+<a id="Table 50"></a>
 
 **Table 50**. Output control bits for complementary OCx and OCxN channels with
 
@@ -16544,7 +18179,10 @@ and OCxN both in active state
 cleared.
 
 
-                                                <!-- *P306*/844 -->
+<!-- *P306*/844 -->
+[P306]: #P306
+<a id="P306"></a>
+
 
 //12.4.10 TIM1 counter (TIMx_CNT)
 ---------------------------------
@@ -16587,8 +18225,10 @@ Refer to Section 12.3.1: Time-base unit for more details about ARR update and be
 The counter is blocked while the auto-reload value is null.
 
 
-                                                <!-- *P307*/844 -->
-314
+<!-- *P307*/844 -->
+[P307]: #P307
+<a id="P307"></a>
+
 
 //12.4.13 TIM1 repetition counter register (TIMx_RCR)
 -----------------------------------------------------
@@ -16635,7 +18275,10 @@ CCR1 is the counter value transferred by the last input capture 1 event (IC1). T
 TIMx_CCR1 register is read-only and cannot be programmed.
 
 
-                                                <!-- *P308*/844 -->
+<!-- *P308*/844 -->
+[P308]: #P308
+<a id="P308"></a>
+
 
 //12.4.15 TIM1 capture/compare register 2 (TIMx_CCR2)
 -----------------------------------------------------
@@ -16680,8 +18323,10 @@ CCR3 is the counter value transferred by the last input capture 3 event (IC3). T
 TIMx_CCR3 register is read-only and cannot be programmed.
 
 
-                                                <!-- *P309*/844 -->
-314
+<!-- *P309*/844 -->
+[P309]: #P309
+<a id="P309"></a>
+
 
 //12.4.17 TIM1 capture/compare register 4 (TIMx_CCR4)
 -----------------------------------------------------
@@ -16695,7 +18340,9 @@ Reset value: 0x0000
 
 Address offset: 0x44
 Reset value: 0x0000
-Note: As the bits AOE, BKP, BKE, OSSI, OSSR and DTG[7:0] can be write-locked depending on
+
+> [!NOTE]
+> As the bits AOE, BKP, BKE, OSSI, OSSR and DTG[7:0] can be write-locked depending on
 the LOCK configuration, it can be necessary to configure all of them during the first write
 access to the TIMx_BDTR register.
 
@@ -16729,23 +18376,36 @@ Bit 14 AOE: Automatic output enable
 0: MOE can be set only by software
 1: MOE can be set by software or automatically at the next update event (if the break input is
 not be active)
-Note: This bit can not be modified as long as LOCK level 1 has been programmed (LOCK bits
+
+> [!NOTE]
+> This bit can not be modified as long as LOCK level 1 has been programmed (LOCK bits
 in TIMx_BDTR register).
 
 
-                                                <!-- *P310*/844 -->
+<!-- *P310*/844 -->
+[P310]: #P310
+<a id="P310"></a>
+
 Bit 13 BKP: Break polarity
 0: Break input BRK is active low
 1: Break input BRK is active high
-Note: This bit can not be modified as long as LOCK level 1 has been programmed (LOCK bits
+
+> [!NOTE]
+> This bit can not be modified as long as LOCK level 1 has been programmed (LOCK bits
 in TIMx_BDTR register).
-Note: Any write operation to this bit takes a delay of 1 APB clock cycle to become effective.
+
+> [!NOTE]
+> Any write operation to this bit takes a delay of 1 APB clock cycle to become effective.
 Bit 12 BKE: Break enable
 0: Break inputs (BRK and CSS clock failure event) disabled
 1; Break inputs (BRK and CSS clock failure event) enabled
-Note: This bit cannot be modified when LOCK level 1 has been programmed (LOCK bits in
+
+> [!NOTE]
+> This bit cannot be modified when LOCK level 1 has been programmed (LOCK bits in
 TIMx_BDTR register).
-Note: Any write operation to this bit takes a delay of 1 APB clock cycle to become effective.
+
+> [!NOTE]
+> Any write operation to this bit takes a delay of 1 APB clock cycle to become effective.
 Bit 11 OSSR: Off-state selection for Run mode
 This bit is used when MOE=1 on channels having a complementary output which are
 configured as outputs. OSSR is not implemented if no complementary output is implemented
@@ -16755,7 +18415,9 @@ enable register (TIMx_CCER)).
 0: When inactive, OC/OCN outputs are disabled (OC/OCN enable output signal=0).
 1: When inactive, OC/OCN outputs are enabled with their inactive level as soon as CCxE=1
 or CCxNE=1. Then, OC/OCN enable output signal=1
-Note: This bit can not be modified as soon as the LOCK level 2 has been programmed (LOCK
+
+> [!NOTE]
+> This bit can not be modified as soon as the LOCK level 2 has been programmed (LOCK
 bits in TIMx_BDTR register).
 Bit 10 OSSI: Off-state selection for Idle mode
 This bit is used when MOE=0 on channels configured as outputs.
@@ -16764,7 +18426,9 @@ enable register (TIMx_CCER)).
 0: When inactive, OC/OCN outputs are disabled (OC/OCN enable output signal=0).
 1: When inactive, OC/OCN outputs are forced first with their idle level as soon as CCxE=1 or
 CCxNE=1. OC/OCN enable output signal=1)
-Note: This bit can not be modified as soon as the LOCK level 2 has been programmed (LOCK
+
+> [!NOTE]
+> This bit can not be modified as soon as the LOCK level 2 has been programmed (LOCK
 bits in TIMx_BDTR register).
 Bits 9:8 LOCK[1:0]: Lock configuration
 These bits offer a write protection against software errors.
@@ -16777,12 +18441,16 @@ as OSSR and OSSI bits can no longer be written.
 11: LOCK Level 3 = LOCK Level 2 + CC Control bits (OCxM and OCxPE bits in
 TIMx_CCMRx registers, as long as the related channel is configured in output through the
 CCxS bits) can no longer be written.
-Note: The LOCK bits can be written only once after the reset. Once the TIMx_BDTR register
+
+> [!NOTE]
+> The LOCK bits can be written only once after the reset. Once the TIMx_BDTR register
 has been written, their content is frozen until the next reset.
 
 
-                                                <!-- *P311*/844 -->
-314
+<!-- *P311*/844 -->
+[P311]: #P311
+<a id="P311"></a>
+
 
 //12.4.19 TIM1 DMA control register (TIMx_DCR)
 ----------------------------------------------
@@ -16802,7 +18470,9 @@ Example if T DTS =125ns (8MHz), dead-time possible values are:
 16 us to 31750 ns by 250 ns steps,
 32 us to 63us by 1 us steps,
 64 us to 126 us by 2 us steps
-Note: This bit-field can not be modified as long as LOCK level 1, 2 or 3 has been programmed
+
+> [!NOTE]
+> This bit-field can not be modified as long as LOCK level 1, 2 or 3 has been programmed
 (LOCK bits in TIMx_BDTR register).
 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
 Reserved
@@ -16834,7 +18504,10 @@ Example: Let us consider the following transfer: DBL = 7 transfers and DBA = TIM
 this case the transfer is done to/from 7 registers starting from the TIMx_CR1 address.
 
 
-                                                <!-- *P312*/844 -->
+<!-- *P312*/844 -->
+[P312]: #P312
+<a id="P312"></a>
+
 
 //12.4.20 TIM1 DMA address for full transfer (TIMx_DMAR)
 --------------------------------------------------------
@@ -16857,7 +18530,9 @@ DBL = 3 transfers, DBA = 0xE.
 3. Enable the TIMx update DMA request (set the UDE bit in the DIER register).
 4. Enable TIMx
 5. Enable the DMA channel
-Note: This example is for the case where every CCRx register to be updated once. If every CCRx
+
+> [!NOTE]
+> This example is for the case where every CCRx register to be updated once. If every CCRx
 register is to be updated twice for example, the number of data to transfer should be 6. Let's
 take the example of a buffer in the RAM containing data1, data2, data3, data4, data5 and
 data6. The data is transferred to the CCRx registers as follows: on the first update DMA
@@ -16878,14 +18553,19 @@ address configured in TIMx_DCR register, DMA index is automatically controlled b
 DMA transfer, and ranges from 0 to DBL (DBL configured in TIMx_DCR).
 
 
-                                                <!-- *P313*/844 -->
-314
+<!-- *P313*/844 -->
+[P313]: #P313
+<a id="P313"></a>
+
 
 //12.4.21 TIM1 register map
 ---------------------------
 
 TIM1 registers are mapped as 16-bit addressable registers as described in the table below:
 
+
+[Table 51]: "Table%2051"
+<a id="Table 51"></a>
 
 **Table 51**. TIM1 register map and reset values
 
@@ -17123,7 +18803,10 @@ PSC[15:0]
 Reset value 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 
 
-                                                <!-- *P314*/844 -->
+<!-- *P314*/844 -->
+[P314]: #P314
+<a id="P314"></a>
+
 Refer to Section 3.3: Memory map for the register boundary addresses.
 0x2C
 TIMx_ARR
@@ -17178,7 +18861,7 @@ Reset value 0 0 0 0 0 0 0 0 0 0
 0x4C
 TIMx_DMAR DMAB[31:0]
 Reset value 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-Table 51. TIM1 register map and reset values (continued)
+[Table 51]. TIM1 register map and reset values (continued)
 Offset Register
 31
 30
@@ -17214,8 +18897,10 @@ Offset Register
 0
 
 
-                                                <!-- *P315*/844 -->
-374
+<!-- *P315*/844 -->
+[P315]: #P315
+<a id="P315"></a>
+
 
 /13 General-purpose timers (TIM2 to TIM5)
 =========================================
@@ -17259,7 +18944,16 @@ purposes
 • Trigger input for external clock or cycle-by-cycle current management
 
 
-                                                <!-- *P316*/844 -->
+<!-- *P316*/844 -->
+[P316]: #P316
+<a id="P316"></a>
+
+
+[Figure 87]: "#Figure%2087"
+<a id="Figure 87"></a>
+
+[Figure 87]: "Figure%2087"
+<a id="Figure 87"></a>
 
 **Figure 87**. General-purpose timer block diagram
 
@@ -17408,8 +19102,10 @@ The time-base unit includes:
 ??????????????????????
 
 
-                                                <!-- *P317*/844 -->
-374
+<!-- *P317*/844 -->
+[P317]: #P317
+<a id="P317"></a>
+
 The auto-reload register is preloaded. Writing to or reading from the auto-reload register
 accesses the preload register. The content of the preload register are transferred into the
 shadow register permanently or at each update event (UEV), depending on the auto-reload
@@ -17426,8 +19122,14 @@ The prescaler can divide the counter clock frequency by any factor between 1 and
 is based on a 16-bit counter controlled through a 16-bit/32-bit register (in the TIMx_PSC
 register). It can be changed on the fly as this control register is buffered. The new prescaler
 ratio is taken into account at the next update event.
-Figure 88 and Figure 89 give some examples of the counter behavior when the prescaler
+[Figure 88] and [Figure 89] give some examples of the counter behavior when the prescaler
 ratio is changed on the fly:
+
+[Figure 88]: "#Figure%2088"
+<a id="Figure 88"></a>
+
+[Figure 88]: "Figure%2088"
+<a id="Figure 88"></a>
 
 **Figure 88**. Counter timing diagram with prescaler division change from 1 to 2
 
@@ -17449,7 +19151,16 @@ ratio is changed on the fly:
 ?? ?? ?? ?? ?? ?? ?? ?? ??
 
 
-                                                <!-- *P318*/844 -->
+<!-- *P318*/844 -->
+[P318]: #P318
+<a id="P318"></a>
+
+
+[Figure 89]: "#Figure%2089"
+<a id="Figure 89"></a>
+
+[Figure 89]: "Figure%2089"
+<a id="Figure 89"></a>
 
 **Figure 89**. Counter timing diagram with prescaler division change from 1 to 4
 
@@ -17494,14 +19205,34 @@ frequencies when TIMx_ARR=0x36.
 ? ?
 
 
-                                                <!-- *P319*/844 -->
-374
+<!-- *P319*/844 -->
+[P319]: #P319
+<a id="P319"></a>
+
+
+[Figure 90]: "#Figure%2090"
+<a id="Figure 90"></a>
+
+[Figure 90]: "Figure%2090"
+<a id="Figure 90"></a>
 
 **Figure 90**. Counter timing diagram, internal clock divided by 1
 
 
+[Figure 91]: "#Figure%2091"
+<a id="Figure 91"></a>
+
+[Figure 91]: "Figure%2091"
+<a id="Figure 91"></a>
+
 **Figure 91**. Counter timing diagram, internal clock divided by 2
 
+
+[Figure 92]: "#Figure%2092"
+<a id="Figure 92"></a>
+
+[Figure 92]: "Figure%2092"
+<a id="Figure 92"></a>
 
 **Figure 92**. Counter timing diagram, internal clock divided by 4
 
@@ -17535,10 +19266,25 @@ frequencies when TIMx_ARR=0x36.
 ??????
 
 
-                                                <!-- *P320*/844 -->
+<!-- *P320*/844 -->
+[P320]: #P320
+<a id="P320"></a>
+
+
+[Figure 93]: "#Figure%2093"
+<a id="Figure 93"></a>
+
+[Figure 93]: "Figure%2093"
+<a id="Figure 93"></a>
 
 **Figure 93**. Counter timing diagram, internal clock divided by N
 
+
+[Figure 94]: "#Figure%2094"
+<a id="Figure 94"></a>
+
+[Figure 94]: "Figure%2094"
+<a id="Figure 94"></a>
 
 **Figure 94**. Counter timing diagram, Update event when ARPE=0 (TIMx_ARR not
 
@@ -17565,8 +19311,16 @@ preloaded)
 ?????????????????????????????
 
 
-                                                <!-- *P321*/844 -->
-374
+<!-- *P321*/844 -->
+[P321]: #P321
+<a id="P321"></a>
+
+
+[Figure 95]: "#Figure%2095"
+<a id="Figure 95"></a>
+
+[Figure 95]: "Figure%2095"
+<a id="Figure 95"></a>
 
 **Figure 95**. Counter timing diagram, Update event when ARPE=1 (TIMx_ARR
 
@@ -17610,13 +19364,34 @@ frequencies when TIMx_ARR=0x36.
 ??????????????????????????? ?? ??
 
 
-                                                <!-- *P322*/844 -->
+<!-- *P322*/844 -->
+[P322]: #P322
+<a id="P322"></a>
+
+
+[Figure 96]: "#Figure%2096"
+<a id="Figure 96"></a>
+
+[Figure 96]: "Figure%2096"
+<a id="Figure 96"></a>
 
 **Figure 96**. Counter timing diagram, internal clock divided by 1
 
 
+[Figure 97]: "#Figure%2097"
+<a id="Figure 97"></a>
+
+[Figure 97]: "Figure%2097"
+<a id="Figure 97"></a>
+
 **Figure 97**. Counter timing diagram, internal clock divided by 2
 
+
+[Figure 98]: "#Figure%2098"
+<a id="Figure 98"></a>
+
+[Figure 98]: "Figure%2098"
+<a id="Figure 98"></a>
 
 **Figure 98**. Counter timing diagram, internal clock divided by 4
 
@@ -17650,11 +19425,25 @@ frequencies when TIMx_ARR=0x36.
 ??????
 
 
-                                                <!-- *P323*/844 -->
-374
+<!-- *P323*/844 -->
+[P323]: #P323
+<a id="P323"></a>
+
+
+[Figure 99]: "#Figure%2099"
+<a id="Figure 99"></a>
+
+[Figure 99]: "Figure%2099"
+<a id="Figure 99"></a>
 
 **Figure 99**. Counter timing diagram, internal clock divided by N
 
+
+[Figure 100]: "#Figure%20100"
+<a id="Figure 100"></a>
+
+[Figure 100]: "Figure%20100"
+<a id="Figure 100"></a>
 
 **Figure 100**. Counter timing diagram, Update event
 
@@ -17692,7 +19481,10 @@ CMS = "11").
 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ??
 
 
-                                                <!-- *P324*/844 -->
+<!-- *P324*/844 -->
+[P324]: #P324
+<a id="P324"></a>
+
 In this mode, the direction bit (DIR from TIMx_CR1 register) cannot be written. It is updated
 by hardware and gives the current direction of the counter.
 The update event can be generated at each counter overflow and at each counter underflow
@@ -17719,6 +19511,12 @@ one (the counter is loaded with the new value).
 The following figures show some examples of the counter behavior for different clock
 frequencies.
 
+[Figure 101]: "#Figure%20101"
+<a id="Figure 101"></a>
+
+[Figure 101]: "Figure%20101"
+<a id="Figure 101"></a>
+
 **Figure 101**. Counter timing diagram, internal clock divided by 1, TIMx_ARR=0x6
 
 1. Here, center-aligned mode 1 is used, for more details refer to Section 13.4.1: TIMx control register 1 (TIMx_CR1) .
@@ -17734,15 +19532,35 @@ frequencies.
 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ??
 
 
-                                                <!-- *P325*/844 -->
-374
+<!-- *P325*/844 -->
+[P325]: #P325
+<a id="P325"></a>
+
+
+[Figure 102]: "#Figure%20102"
+<a id="Figure 102"></a>
+
+[Figure 102]: "Figure%20102"
+<a id="Figure 102"></a>
 
 **Figure 102**. Counter timing diagram, internal clock divided by 2
 
 
+[Figure 103]: "#Figure%20103"
+<a id="Figure 103"></a>
+
+[Figure 103]: "Figure%20103"
+<a id="Figure 103"></a>
+
 **Figure 103**. Counter timing diagram, internal clock divided by 4, TIMx_ARR=0x36
 
 1. Center-aligned mode 2 or 3 is used with an UIF on overflow.
+
+[Figure 104]: "#Figure%20104"
+<a id="Figure 104"></a>
+
+[Figure 104]: "Figure%20104"
+<a id="Figure 104"></a>
 
 **Figure 104**. Counter timing diagram, internal clock divided by N
 
@@ -17775,10 +19593,25 @@ frequencies.
 ?? ?? ?? ??
 
 
-                                                <!-- *P326*/844 -->
+<!-- *P326*/844 -->
+[P326]: #P326
+<a id="P326"></a>
+
+
+[Figure 105]: "#Figure%20105"
+<a id="Figure 105"></a>
+
+[Figure 105]: "Figure%20105"
+<a id="Figure 105"></a>
 
 **Figure 105**. Counter timing diagram, Update event with ARPE=1 (counter underflow)
 
+
+[Figure 106]: "#Figure%20106"
+<a id="Figure 106"></a>
+
+[Figure 106]: "Figure%20106"
+<a id="Figure 106"></a>
 
 **Figure 106**. Counter timing diagram, Update event with ARPE=1 (counter overflow)
 
@@ -17811,8 +19644,10 @@ frequencies.
 ??????????????????????????? ?? ??
 
 
-                                                <!-- *P327*/844 -->
-374
+<!-- *P327*/844 -->
+[P327]: #P327
+<a id="P327"></a>
+
 
 //13.3.3 Clock selection
 ------------------------
@@ -17831,8 +19666,14 @@ CEN, DIR (in the TIMx_CR1 register) and UG bits (in the TIMx_EGR register) are a
 control bits and can be changed only by software (except UG which remains cleared
 automatically). As soon as the CEN bit is written to 1, the prescaler is clocked by the internal
 clock CK_INT.
-Figure 107 shows the behavior of the control circuit and the upcounter in normal mode,
+[Figure 107] shows the behavior of the control circuit and the upcounter in normal mode,
 without prescaler.
+
+[Figure 107]: "#Figure%20107"
+<a id="Figure 107"></a>
+
+[Figure 107]: "Figure%20107"
+<a id="Figure 107"></a>
 
 **Figure 107**. Control circuit in normal mode, internal clock divided by 1
 
@@ -17849,7 +19690,16 @@ each rising or falling edge on a selected input.
 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ??
 
 
-                                                <!-- *P328*/844 -->
+<!-- *P328*/844 -->
+[P328]: #P328
+<a id="P328"></a>
+
+
+[Figure 108]: "#Figure%20108"
+<a id="Figure 108"></a>
+
+[Figure 108]: "Figure%20108"
+<a id="Figure 108"></a>
 
 **Figure 108**. TI2 external clock connection example
 
@@ -17859,7 +19709,9 @@ input, use the following procedure:
 TIMx_CCMR1 register.
 2. Configure the input filter duration by writing the IC2F[3:0] bits in the TIMx_CCMR1
 register (if no filter is needed, keep IC2F=0000).
-Note: The capture prescaler is not used for triggering, so there’s no need to configure it.
+
+> [!NOTE]
+> The capture prescaler is not used for triggering, so there’s no need to configure it.
 3. Select rising edge polarity by writing CC2P=0 and CC2NP=0 in the TIMx_CCER
 register.
 4. Configure the timer in external clock mode 1 by writing SMS=111 in the TIMx_SMCR
@@ -17917,15 +19769,29 @@ resynchronization circuit on TI2 input.
 ???
 
 
-                                                <!-- *P329*/844 -->
-374
+<!-- *P329*/844 -->
+[P329]: #P329
+<a id="P329"></a>
+
+
+[Figure 109]: "#Figure%20109"
+<a id="Figure 109"></a>
+
+[Figure 109]: "Figure%20109"
+<a id="Figure 109"></a>
 
 **Figure 109**. Control circuit in external clock mode 1
 
 External clock source mode 2
 This mode is selected by writing ECE=1 in the TIMx_SMCR register.
 The counter can count at each rising or falling edge on the external trigger input ETR.
-Figure 110 gives an overview of the external trigger input block.
+[Figure 110] gives an overview of the external trigger input block.
+
+[Figure 110]: "#Figure%20110"
+<a id="Figure 110"></a>
+
+[Figure 110]: "Figure%20110"
+<a id="Figure 110"></a>
 
 **Figure 110**. External trigger input block
 
@@ -17984,9 +19850,18 @@ The counter counts once each 2 ETR rising edges.
 ??????
 
 
-                                                <!-- *P330*/844 -->
+<!-- *P330*/844 -->
+[P330]: #P330
+<a id="P330"></a>
+
 The delay between the rising edge on ETR and the actual clock of the counter is due to the
 resynchronization circuit on the ETRP signal.
+
+[Figure 111]: "#Figure%20111"
+<a id="Figure 111"></a>
+
+[Figure 111]: "Figure%20111"
+<a id="Figure 111"></a>
 
 **Figure 111**. Control circuit in external clock mode 2
 
@@ -17994,13 +19869,19 @@ resynchronization circuit on the ETRP signal.
 //13.3.4 Capture/compare channels
 ---------------------------------
 
-Each Capture/Compare channel (see Figure 112) is built around a capture/compare register
+Each Capture/Compare channel (see [Figure 112]) is built around a capture/compare register
 (including a shadow register), an input stage for capture (with digital filter, multiplexing and
 prescaler) and an output stage (with comparator and output control).
 The input stage samples the corresponding TIx input to generate a filtered signal TIxF.
 Then, an edge detector with polarity selection generates a signal (TIxFPx) which can be
 used as trigger input by the slave mode controller or as the capture command. It is
 prescaled before the capture register (ICxPS).
+
+[Figure 112]: "#Figure%20112"
+<a id="Figure 112"></a>
+
+[Figure 112]: "Figure%20112"
+<a id="Figure 112"></a>
 
 **Figure 112**. Capture/compare channel (example: channel 1 input stage)
 
@@ -18053,11 +19934,25 @@ TI2F_falling
 (from channel 2)
 
 
-                                                <!-- *P331*/844 -->
-374
+<!-- *P331*/844 -->
+[P331]: #P331
+<a id="P331"></a>
+
+
+[Figure 113]: "#Figure%20113"
+<a id="Figure 113"></a>
+
+[Figure 113]: "Figure%20113"
+<a id="Figure 113"></a>
 
 **Figure 113**. Capture/compare channel 1 main circuit
 
+
+[Figure 114]: "#Figure%20114"
+<a id="Figure 114"></a>
+
+[Figure 114]: "Figure%20114"
+<a id="Figure 114"></a>
 
 **Figure 114**. Output stage of capture/compare channel (channel 1)
 
@@ -18134,7 +20029,10 @@ which is compared to the counter.
 ????????????????????
 
 
-                                                <!-- *P332*/844 -->
+<!-- *P332*/844 -->
+[P332]: #P332
+<a id="P332"></a>
+
 
 //13.3.5 Input capture mode
 ---------------------------
@@ -18177,12 +20075,16 @@ occurred whereas the flag was not cleared.
 In order to handle the overcapture, it is recommended to read the data before the
 overcapture flag. This is to avoid missing an overcapture which could happen after reading
 the flag and before reading the data.
-Note: IC interrupt and/or DMA requests can be generated by software by setting the
+
+> [!NOTE]
+> IC interrupt and/or DMA requests can be generated by software by setting the
 corresponding CCxG bit in the TIMx_EGR register.
 
 
-                                                <!-- *P333*/844 -->
-374
+<!-- *P333*/844 -->
+[P333]: #P333
+<a id="P333"></a>
+
 
 //13.3.6 PWM input mode
 -----------------------
@@ -18209,6 +20111,12 @@ bit to ‘1’ and the CC2NP bit to ’0’(active on falling edge).
 TIMx_SMCR register.
 • Enable the captures: write the CC1E and CC2E bits to ‘1 in the TIMx_CCER register.
 
+[Figure 115]: "#Figure%20115"
+<a id="Figure 115"></a>
+
+[Figure 115]: "Figure%20115"
+<a id="Figure 115"></a>
+
 **Figure 115**. PWM input mode timing
 
 ???
@@ -18228,7 +20136,10 @@ TIMx_SMCR register.
 ???????
 
 
-                                                <!-- *P334*/844 -->
+<!-- *P334*/844 -->
+[P334]: #P334
+<a id="P334"></a>
+
 
 //13.3.7 Forced output mode
 ---------------------------
@@ -18280,12 +20191,20 @@ preload is not used, OCx is enabled and active high.
 5. Enable the counter by setting the CEN bit in the TIMx_CR1 register.
 
 
-                                                <!-- *P335*/844 -->
-374
+<!-- *P335*/844 -->
+[P335]: #P335
+<a id="P335"></a>
+
 The TIMx_CCRx register can be updated at any time by software to control the output
 waveform, provided that the preload register is not enabled (OCxPE=0, else TIMx_CCRx
 shadow register is updated only at the next update event UEV). An example is given in
-Figure 116.
+[Figure 116].
+
+[Figure 116]: "#Figure%20116"
+<a id="Figure 116"></a>
+
+[Figure 116]: "Figure%20116"
+<a id="Figure 116"></a>
 
 **Figure 116**. Output compare mode, toggle on OC1
 
@@ -18329,7 +20248,10 @@ This forces the PWM by software while the timer is running.
 ????
 
 
-                                                <!-- *P336*/844 -->
+<!-- *P336*/844 -->
+[P336]: #P336
+<a id="P336"></a>
+
 The timer is able to generate PWM in edge-aligned mode or center-aligned mode
 depending on the CMS bits in the TIMx_CR1 register.
 PWM edge-aligned mode
@@ -18339,8 +20261,14 @@ mode.
 In the following example, we consider PWM mode 1. The reference PWM signal OCxREF is
 high as long as TIMx_CNT <TIMx_CCRx else it becomes low. If the compare value in
 TIMx_CCRx is greater than the auto-reload value (in TIMx_ARR) then OCxREF is held at ‘1.
-If the compare value is 0 then OCxREF is held at ‘0. Figure 117 shows some edge-aligned
+If the compare value is 0 then OCxREF is held at ‘0. [Figure 117] shows some edge-aligned
 PWM waveforms in an example where TIMx_ARR=8.
+
+[Figure 117]: "#Figure%20117"
+<a id="Figure 117"></TIMx_CCRx>
+
+[Figure 117]: "Figure%20117"
+<a id="Figure 117"></a>
 
 **Figure 117**. Edge-aligned PWM waveforms (ARR=8)
 
@@ -18373,16 +20301,24 @@ compare flag is set when the counter counts up, when it counts down or both when
 ???
 
 
-                                                <!-- *P337*/844 -->
-374
+<!-- *P337*/844 -->
+[P337]: #P337
+<a id="P337"></a>
+
 up and down depending on the CMS bits configuration. The direction bit (DIR) in the
 TIMx_CR1 register is updated by hardware and must not be changed by software. Refer to
 Center-aligned mode (up/down counting).
-Figure 118 shows some center-aligned PWM waveforms in an example where:
+[Figure 118] shows some center-aligned PWM waveforms in an example where:
 • TIMx_ARR=8,
 • PWM mode is the PWM mode 1,
 • The flag is set when the counter counts down corresponding to the center-aligned
 mode 1 selected for CMS=01 in TIMx_CR1 register.
+
+[Figure 118]: "#Figure%20118"
+<a id="Figure 118"></a>
+
+[Figure 118]: "Figure%20118"
+<a id="Figure 118"></a>
 
 **Figure 118**. Center-aligned PWM waveforms (ARR=8)
 
@@ -18424,7 +20360,10 @@ means that the counter counts up or down depending on the value written in the D
 ????????
 
 
-                                                <!-- *P338*/844 -->
+<!-- *P338*/844 -->
+[P338]: #P338
+<a id="P338"></a>
+
 in the TIMx_CR1 register. Moreover, the DIR and CMS bits must not be changed at the
 same time by the software.
 • Writing to the counter while running in center-aligned mode is not recommended as it
@@ -18454,6 +20393,12 @@ be:
 • In upcounting: CNT<CCRx≤ARR (in particular, 0<CCRx),
 • In downcounting: CNT>CCRx.
 
+[Figure 119]: "#Figure%20119"
+<a id="Figure 119"></a>
+
+[Figure 119]: "Figure%20119"
+<a id="Figure 119"></a>
+
 **Figure 119**. Example of one-pulse mode
 
 For example the user may want to generate a positive pulse on OC1 with a length of t PULSE
@@ -18470,8 +20415,10 @@ and after a delay of t DELAY as soon as a positive edge is detected on the TI2 i
 ? ????? ? ?????
 
 
-                                                <!-- *P339*/844 -->
-374
+<!-- *P339*/844 -->
+[P339]: #P339
+<a id="P339"></a>
+
 Let’s use TI2FP2 as trigger 1:
 • Map TI2FP2 on TI2 by writing CC2S=01 in the TIMx_CCMR1 register.
 • TI2FP2 must detect a rising edge, write CC2P=0 and CC2NP=’0’ in the TIMx_CCER
@@ -18520,16 +20467,25 @@ For example, the ETR signal can be connected to the output of a comparator to be
 current handling. In this case, ETR must be configured as follows:
 
 
-                                                <!-- *P340*/844 -->
+<!-- *P340*/844 -->
+[P340]: #P340
+<a id="P340"></a>
+
 1. The external trigger prescaler should be kept off: bits ETPS[1:0] in the TIMx_SMCR
 register are cleared to 00.
 2. The external clock mode 2 must be disabled: bit ECE in the TIM1_SMCR register is
 cleared to 0.
 3. The external trigger polarity (ETP) and the external trigger filter (ETF) can be
 configured according to the application’s needs.
-Figure 120 shows the behavior of the OCxREF signal when the ETRF input becomes high,
+[Figure 120] shows the behavior of the OCxREF signal when the ETRF input becomes high,
 for both values of the OCxCE enable bit. In this example, the timer TIMx is programmed in
 PWM mode.
+
+[Figure 120]: "#Figure%20120"
+<a id="Figure 120"></a>
+
+[Figure 120]: "Figure%20120"
+<a id="Figure 120"></a>
 
 **Figure 120**. Clearing TIMx OCxREF
 
@@ -18545,7 +20501,7 @@ it is counting on both TI1 and TI2 edges.
 Select the TI1 and TI2 polarity by programming the CC1P and CC2P bits in the TIMx_CCER
 register. When needed, program the input filter as well.
 The two inputs TI1 and TI2 are used to interface to an incremental encoder. Refer to
-Table 52. The counter is clocked by each valid transition on TI1FP1 or TI2FP2 (TI1 and TI2
+[Table 52]. The counter is clocked by each valid transition on TI1FP1 or TI2FP2 (TI1 and TI2
 after input filter and polarity selection, TI1FP1=TI1 if not filtered and not inverted,
 TI2FP2=TI2 if not filtered and not inverted) assuming that it is enabled (CEN bit in
 TIMx_CR1 register written to ‘1). The sequence of transitions of the two inputs is evaluated
@@ -18568,8 +20524,10 @@ prescaler, trigger output features continue to work as normal.
 ???????????????
 
 
-                                                <!-- *P341*/844 -->
-374
+<!-- *P341*/844 -->
+[P341]: #P341
+<a id="P341"></a>
+
 In this mode, the counter is modified automatically following the speed and the direction of
 the incremental encoder and its content, therefore, always represents the encoder’s
 position. The count direction correspond to the rotation direction of the connected sensor.
@@ -18581,7 +20539,7 @@ interface logic. However, comparators are normally be used to convert the encode
 differential outputs to digital signals. This greatly increases noise immunity. The third
 encoder output which indicate the mechanical zero position, may be connected to an
 external interrupt input and trigger a counter reset.
-Figure 121 gives an example of counter operation, showing count signal generation and
+[Figure 121] gives an example of counter operation, showing count signal generation and
 direction control. It also shows how input jitter is compensated where both edges are
 selected. This might occur if the sensor is positioned near to one of the switching points. For
 this example we assume that the configuration is the following:
@@ -18594,6 +20552,9 @@ TI2FP2=TI2)
 • SMS= ‘011’ (TIMx_SMCR register, both inputs are active on both rising and falling
 edges)
 • CEN = 1 (TIMx_CR1 register, Counter is enabled)
+
+[Table 52]: "Table%2052"
+<a id="Table 52"></a>
 
 **Table 52**. Counting direction versus encoder signals
 
@@ -18617,12 +20578,27 @@ High Down Up Up Down
 Low Up Down Down Up
 
 
-                                                <!-- *P342*/844 -->
+<!-- *P342*/844 -->
+[P342]: #P342
+<a id="P342"></a>
+
+
+[Figure 121]: "#Figure%20121"
+<a id="Figure 121"></a>
+
+[Figure 121]: "Figure%20121"
+<a id="Figure 121"></a>
 
 **Figure 121**. Example of counter operation in encoder interface mode
 
-Figure 122 gives an example of counter behavior when TI1FP1 polarity is inverted (same
+[Figure 122] gives an example of counter behavior when TI1FP1 polarity is inverted (same
 configuration as above except CC1P=1).
+
+[Figure 122]: "#Figure%20122"
+<a id="Figure 122"></a>
+
+[Figure 122]: "Figure%20122"
+<a id="Figure 122"></a>
 
 **Figure 122**. Example of encoder interface mode with TI1FP1 polarity inverted
 
@@ -18652,8 +20628,10 @@ DMA request generated by a Real-Time clock.
 ????
 
 
-                                                <!-- *P343*/844 -->
-374
+<!-- *P343*/844 -->
+[P343]: #P343
+<a id="P343"></a>
+
 
 //13.3.13 Timer input XOR function
 ----------------------------------
@@ -18686,9 +20664,15 @@ The counter starts counting on the internal clock, then behaves normally until T
 edge. When TI1 rises, the counter is cleared and restarts from 0. In the meantime, the
 trigger flag is set (TIF bit in the TIMx_SR register) and an interrupt request, or a DMA
 request can be sent if enabled (depending on the TIE and TDE bits in TIMx_DIER register).
-Figure 123 shows this behavior when the auto-reload register TIMx_ARR=0x36. The delay
+[Figure 123] shows this behavior when the auto-reload register TIMx_ARR=0x36. The delay
 between the rising edge on TI1 and the actual reset of the counter is due to the
 resynchronization circuit on TI1 input.
+
+[Figure 123]: "#Figure%20123"
+<a id="Figure 123"></a>
+
+[Figure 123]: "Figure%20123"
+<a id="Figure 123"></a>
 
 **Figure 123**. Control circuit in reset mode
 
@@ -18702,7 +20686,10 @@ resynchronization circuit on TI1 input.
 ???
 
 
-                                                <!-- *P344*/844 -->
+<!-- *P344*/844 -->
+[P344]: #P344
+<a id="P344"></a>
+
 Slave mode: Gated mode
 The counter can be enabled depending on the level of a selected input.
 In the following example, the upcounter counts only when TI1 input is low:
@@ -18721,6 +20708,12 @@ TI1 becomes high. The TIF flag in the TIMx_SR register is set both when the coun
 or stops.
 The delay between the rising edge on TI1 and the actual stop of the counter is due to the
 resynchronization circuit on TI1 input.
+
+[Figure 124]: "#Figure%20124"
+<a id="Figure 124"></a>
+
+[Figure 124]: "Figure%20124"
+<a id="Figure 124"></a>
 
 **Figure 124**. Control circuit in gated mode
 
@@ -18747,12 +20740,20 @@ TI2 as the input source by writing TS=110 in TIMx_SMCR register.
 ???
 
 
-                                                <!-- *P345*/844 -->
-374
+<!-- *P345*/844 -->
+[P345]: #P345
+<a id="P345"></a>
+
 When a rising edge occurs on TI2, the counter starts counting on the internal clock and the
 TIF flag is set.
 The delay between the rising edge on TI2 and the actual start of the counter is due to the
 resynchronization circuit on TI2 input.
+
+[Figure 125]: "#Figure%20125"
+<a id="Figure 125"></a>
+
+[Figure 125]: "Figure%20125"
+<a id="Figure 125"></a>
 
 **Figure 125**. Control circuit in trigger mode
 
@@ -18792,7 +20793,16 @@ due to the resynchronization circuit on ETRP input.
 ???????????????????????????????
 
 
-                                                <!-- *P346*/844 -->
+<!-- *P346*/844 -->
+[P346]: #P346
+<a id="P346"></a>
+
+
+[Figure 126]: "#Figure%20126"
+<a id="Figure 126"></a>
+
+[Figure 126]: "Figure%20126"
+<a id="Figure 126"></a>
 
 **Figure 126**. Control circuit in external clock mode 2 + trigger mode
 
@@ -18803,11 +20813,19 @@ due to the resynchronization circuit on ETRP input.
 The TIMx timers are linked together internally for timer synchronization or chaining. When
 one Timer is configured in Master Mode, it can reset, start, stop or clock the counter of
 another Timer configured in Slave Mode.
-Figure 127 presents an overview of the trigger selection and the master mode selection
+[Figure 127] presents an overview of the trigger selection and the master mode selection
 blocks.
-Note: The clock of the slave timer must be enabled prior to receiving events from the master timer,
+
+> [!NOTE]
+> The clock of the slave timer must be enabled prior to receiving events from the master timer,
 and must not be changed on-the-fly while triggers are received from the master timer.
 Using one timer as prescaler for another timer
+
+[Figure 127]: "#Figure%20127"
+<a id="Figure 127"></a>
+
+[Figure 127]: "Figure%20127"
+<a id="Figure 127"></a>
 
 **Figure 127**. Master/Slave timer example
 
@@ -18840,10 +20858,12 @@ Using one timer as prescaler for another timer
 ????
 
 
-                                                <!-- *P347*/844 -->
-374
+<!-- *P347*/844 -->
+[P347]: #P347
+<a id="P347"></a>
+
 For example, the user can configure Timer 1 to act as a prescaler for Timer 2 (see
-Figure 127). To do this:
+[Figure 127]). To do this:
 • Configure Timer 1 in master mode so that it outputs a periodic trigger signal on each
 update event UEV. If you write MMS=010 in the TIM1_CR2 register, a rising edge is
 output on TRGO1 each time an update event is generated.
@@ -18855,11 +20875,13 @@ TIM2_SMCR register). This causes Timer 2 to be clocked by the rising edge of the
 periodic Timer 1 trigger signal (which correspond to the timer 1 counter overflow).
 • Finally both timers must be enabled by setting their respective CEN bits (TIMx_CR1
 register).
-Note: If OCx is selected on Timer 1 as trigger output (MMS=1xx), its rising edge is used to clock
+
+> [!NOTE]
+> If OCx is selected on Timer 1 as trigger output (MMS=1xx), its rising edge is used to clock
 the counter of timer 2.
 Using one timer to enable another timer
 In this example, we control the enable of Timer 2 with the output compare 1 of Timer 1.
-Refer to Figure 127 for connections. Timer 2 counts on the divided internal clock only when
+Refer to [Figure 127] for connections. Timer 2 counts on the divided internal clock only when
 OC1REF of Timer 1 is high. Both counter clock frequencies are divided by 3 by the
 prescaler compared to CK_INT (f CK_CNT = f CK_INT /3).
 • Configure Timer 1 master mode to send its Output Compare 1 Reference (OC1REF)
@@ -18870,12 +20892,20 @@ register).
 • Configure Timer 2 in gated mode (SMS=101 in TIM2_SMCR register).
 • Enable Timer 2 by writing ‘1 in the CEN bit (TIM2_CR1 register).
 • Start Timer 1 by writing ‘1 in the CEN bit (TIM1_CR1 register).
-Note: The counter 2 clock is not synchronized with counter 1, this mode only affects the Timer 2
+
+> [!NOTE]
+> The counter 2 clock is not synchronized with counter 1, this mode only affects the Timer 2
 counter enable signal.
+
+[Figure 128]: "#Figure%20128"
+<a id="Figure 128"></a>
+
+[Figure 128]: "Figure%20128"
+<a id="Figure 128"></a>
 
 **Figure 128**. Gating timer 2 with OC1REF of timer 1
 
-In the example in Figure 128, the Timer 2 counter and prescaler are not initialized before
+In the example in [Figure 128], the Timer 2 counter and prescaler are not initialized before
 being started. So they start counting from their current value. It is possible to start from a
 given value by resetting both timers before starting Timer 1. You can then write any value
 ?????????
@@ -18888,7 +20918,10 @@ given value by resetting both timers before starting Timer 1. You can then write
 ???????????????
 
 
-                                                <!-- *P348*/844 -->
+<!-- *P348*/844 -->
+[P348]: #P348
+<a id="P348"></a>
+
 you want in the timer counters. The timers can easily be reset by software using the UG bit
 in the TIMx_EGR registers.
 In the next example, we synchronize Timer 1 and Timer 2. Timer 1 is the master and starts
@@ -18908,6 +20941,12 @@ register).
 • Start Timer 1 by writing ‘1 in the CEN bit (TIM1_CR1 register).
 • Stop Timer 1 by writing ‘0 in the CEN bit (TIM1_CR1 register).
 
+[Figure 129]: "#Figure%20129"
+<a id="Figure 129"></a>
+
+[Figure 129]: "Figure%20129"
+<a id="Figure 129"></a>
+
 **Figure 129**. Gating timer 2 with Enable of timer 1
 
 ?????????
@@ -18926,11 +20965,13 @@ register).
 ??????????
 
 
-                                                <!-- *P349*/844 -->
-374
+<!-- *P349*/844 -->
+[P349]: #P349
+<a id="P349"></a>
+
 Using one timer to start another timer
 In this example, we set the enable of Timer 2 with the update event of Timer 1. Refer to
-Figure 127 for connections. Timer 2 starts counting from its current value (which can be
+[Figure 127] for connections. Timer 2 starts counting from its current value (which can be
 nonzero) on the divided internal clock as soon as the update event is generated by Timer 1.
 When Timer 2 receives the trigger signal its CEN bit is automatically set and the counter
 counts until we write ‘0 to the CEN bit in the TIM2_CR1 register. Both counter clock
@@ -18943,10 +20984,16 @@ register).
 • Configure Timer 2 in trigger mode (SMS=110 in TIM2_SMCR register).
 • Start Timer 1 by writing ‘1 in the CEN bit (TIM1_CR1 register).
 
+[Figure 130]: "#Figure%20130"
+<a id="Figure 130"></a>
+
+[Figure 130]: "Figure%20130"
+<a id="Figure 130"></a>
+
 **Figure 130**. Triggering timer 2 with update of timer 1
 
 As in the previous example, the user can initialize both counters before starting counting.
-Figure 131 shows the behavior with the same configuration as in Figure 130 but in trigger
+[Figure 131] shows the behavior with the same configuration as in [Figure 130] but in trigger
 mode instead of gated mode (SMS=110 in the TIM2_SMCR register).
 ?????????
 ???????????????
@@ -18960,13 +21007,22 @@ mode instead of gated mode (SMS=110 in the TIM2_SMCR register).
 ??????????
 
 
-                                                <!-- *P350*/844 -->
+<!-- *P350*/844 -->
+[P350]: #P350
+<a id="P350"></a>
+
+
+[Figure 131]: "#Figure%20131"
+<a id="Figure 131"></a>
+
+[Figure 131]: "Figure%20131"
+<a id="Figure 131"></a>
 
 **Figure 131**. Triggering timer 2 with Enable of timer 1
 
 Starting 2 timers synchronously in response to an external trigger
 In this example, we set the enable of timer 1 when its TI1 input rises, and the enable of
-Timer 2 with the enable of Timer 1. Refer to Figure 127 for connections. To ensure the
+Timer 2 with the enable of Timer 1. Refer to [Figure 127] for connections. To ensure the
 counters are aligned, Timer 1 must be configured in Master/Slave mode (slave with respect
 to TI1, master with respect to Timer 2):
 • Configure Timer 1 master mode to send its Enable as trigger output (MMS=001 in the
@@ -18980,7 +21036,9 @@ register).
 • Configure Timer 2 in trigger mode (SMS=110 in the TIM2_SMCR register).
 When a rising edge occurs on TI1 (Timer 1), both counters starts counting synchronously on
 the internal clock and both TIF flags are set.
-Note: In this example both timers are initialized before starting (by setting their respective UG
+
+> [!NOTE]
+> In this example both timers are initialized before starting (by setting their respective UG
 bits). Both counters starts from 0, but you can easily insert an offset between them by
 writing any of the counter registers (TIMx_CNT). You can see that the master/slave mode
 insert a delay between CNT_EN and CK_PSC on timer 1.
@@ -19001,8 +21059,16 @@ insert a delay between CNT_EN and CK_PSC on timer 1.
 ????????????????
 
 
-                                                <!-- *P351*/844 -->
-374
+<!-- *P351*/844 -->
+[P351]: #P351
+<a id="P351"></a>
+
+
+[Figure 132]: "#Figure%20132"
+<a id="Figure 132"></a>
+
+[Figure 132]: "Figure%20132"
+<a id="Figure 132"></a>
 
 **Figure 132**. Triggering timer 1 and 2 with timer 1 TI1 input
 
@@ -19028,7 +21094,10 @@ support for timers, watchdog and I2C.
 ?? ?? ?? ?? ?? ?? ?? ?? ?? ??
 
 
-                                                <!-- *P352*/844 -->
+<!-- *P352*/844 -->
+[P352]: #P352
+<a id="P352"></a>
+
 
 //13.4 TIM2 to TIM5 registers
 -----------------------------
@@ -19071,20 +21140,26 @@ only when the counter is counting up.
 11: Center-aligned mode 3. The counter counts up and down alternatively. Output compare
 interrupt flags of channels configured in output (CCxS=00 in TIMx_CCMRx register) are set
 both when the counter is counting up or down.
-Note: It is not allowed to switch from edge-aligned mode to center-aligned mode as long as
+
+> [!NOTE]
+> It is not allowed to switch from edge-aligned mode to center-aligned mode as long as
 the counter is enabled (CEN=1)
 Bit 4 DIR: Direction
 0: Counter used as upcounter
 1: Counter used as downcounter
-Note: This bit is read only when the timer is configured in Center-aligned mode or Encoder
+
+> [!NOTE]
+> This bit is read only when the timer is configured in Center-aligned mode or Encoder
 mode.
 Bit 3 OPM: One-pulse mode
 0: Counter is not stopped at update event
 1: Counter stops counting at the next update event (clearing the bit CEN)
 
 
-                                                <!-- *P353*/844 -->
-374
+<!-- *P353*/844 -->
+[P353]: #P353
+<a id="P353"></a>
+
 Bit 2 URS: Update request source
 This bit is set and cleared by software to select the UEV event sources.
 0: Any of the following events generate an update interrupt or DMA request if enabled.
@@ -19107,13 +21182,18 @@ set or if a hardware reset is received from the slave mode controller.
 Bit 0 CEN: Counter enable
 0: Counter disabled
 1: Counter enabled
-Note: External clock, gated mode and encoder mode can work only if the CEN bit has been
+
+> [!NOTE]
+> External clock, gated mode and encoder mode can work only if the CEN bit has been
 previously set by software. However trigger mode can set the CEN bit automatically by
 hardware.
 CEN is cleared automatically in one-pulse mode, when an update event occurs.
 
 
-                                                <!-- *P354*/844 -->
+<!-- *P354*/844 -->
+[P354]: #P354
+<a id="P354"></a>
+
 
 //13.4.2 TIMx control register 2 (TIMx_CR2)
 -------------------------------------------
@@ -19152,7 +21232,9 @@ set (even if it was already high), as soon as a capture or a compare match occur
 101: Compare - OC2REF signal is used as trigger output (TRGO)
 110: Compare - OC3REF signal is used as trigger output (TRGO)
 111: Compare - OC4REF signal is used as trigger output (TRGO)
-Note: The clock of the slave timer and ADC must be enabled prior to receiving events from
+
+> [!NOTE]
+> The clock of the slave timer and ADC must be enabled prior to receiving events from
 the master timer, and must not be changed on-the-fly while triggers are received from
 the master timer.
 Bit 3 CCDS: Capture/compare DMA selection
@@ -19161,8 +21243,10 @@ Bit 3 CCDS: Capture/compare DMA selection
 Bits 2:0 Reserved, must be kept at reset value.
 
 
-                                                <!-- *P355*/844 -->
-374
+<!-- *P355*/844 -->
+[P355]: #P355
+<a id="P355"></a>
+
 
 //13.4.3 TIMx slave mode control register (TIMx_SMCR)
 -----------------------------------------------------
@@ -19221,7 +21305,10 @@ consecutive events are needed to validate a transition on the output:
 1111: f SAMPLING =f DTS /32, N=8
 
 
-                                                <!-- *P356*/844 -->
+<!-- *P356*/844 -->
+[P356]: #P356
+<a id="P356"></a>
+
 Bit 7 MSM: Master/Slave mode
 0: No action
 1: The effect of an event on the trigger input (TRGI) is delayed to allow a perfect
@@ -19237,9 +21324,11 @@ This bit-field selects the trigger input to be used to synchronize the counter.
 101: Filtered Timer Input 1 (TI1FP1)
 110: Filtered Timer Input 2 (TI2FP2)
 111: External Trigger input (ETRF)
-See Table 53: TIMx internal trigger connection on page 357 for more details on ITRx
+See [Table 53]: TIMx internal trigger connection on page 357 for more details on ITRx
 meaning for each Timer.
-Note: These bits must be changed only when they are not used (e.g. when SMS=000) to
+
+> [!NOTE]
+> These bits must be changed only when they are not used (e.g. when SMS=000) to
 avoid wrong edge detections at the transition.
 Bit 3 Reserved, must be kept at reset value.
 Bits 2:0 SMS: Slave mode selection
@@ -19262,7 +21351,9 @@ the counter are controlled.
 110: Trigger Mode - The counter starts at a rising edge of the trigger TRGI (but it is not
 reset). Only the start of the counter is controlled.
 111: External Clock Mode 1 - Rising edges of the selected trigger (TRGI) clock the counter.
-Note: The gated mode must not be used if TI1F_ED is selected as the trigger input (TS=100).
+
+> [!NOTE]
+> The gated mode must not be used if TI1F_ED is selected as the trigger input (TS=100).
 Indeed, TI1F_ED outputs 1 pulse for each transition on TI1F, whereas the gated mode
 checks the level of the trigger signal.
 The clock of the slave timer must be enabled prior to receiving events from the master
@@ -19270,8 +21361,10 @@ timer, and must not be changed on-the-fly while triggers are received from the m
 timer.
 
 
-                                                <!-- *P357*/844 -->
-374
+<!-- *P357*/844 -->
+[P357]: #P357
+<a id="P357"></a>
+
 
 
 //13.4.4 TIMx DMA/Interrupt enable register (TIMx_DIER)
@@ -19280,6 +21373,9 @@ timer.
 Address offset: 0x0C
 Reset value: 0x0000
 
+
+[Table 53]: "Table%2053"
+<a id="Table 53"></a>
 
 **Table 53**. TIMx internal trigger connection
 
@@ -19328,7 +21424,10 @@ Bit 4 CC4IE: Capture/Compare 4 interrupt enable
 1: CC4 interrupt enabled.
 
 
-                                                <!-- *P358*/844 -->
+<!-- *P358*/844 -->
+[P358]: #P358
+<a id="P358"></a>
+
 
 //13.4.5 TIMx status register (TIMx_SR)
 ---------------------------------------
@@ -19380,8 +21479,10 @@ Bit 3 CC3IF: Capture/Compare 3 interrupt flag
 refer to CC1IF description
 
 
-                                                <!-- *P359*/844 -->
-374
+<!-- *P359*/844 -->
+[P359]: #P359
+<a id="P359"></a>
+
 Bit 2 CC2IF: Capture/Compare 2 interrupt flag
 refer to CC1IF description
 Bit 1 CC1IF: Capture/compare 1 interrupt flag
@@ -19411,7 +21512,10 @@ When CNT is reinitialized by a trigger event (refer to the synchro control regis
 if URS=0 and UDIS=0 in the TIMx_CR1 register.
 
 
-                                                <!-- *P360*/844 -->
+<!-- *P360*/844 -->
+[P360]: #P360
+<a id="P360"></a>
+
 
 //13.4.6 TIMx event generation register (TIMx_EGR)
 --------------------------------------------------
@@ -19459,8 +21563,10 @@ the center-aligned mode is selected or if DIR=0 (upcounting), else it takes the 
 value (TIMx_ARR) if DIR=1 (downcounting).
 
 
-                                                <!-- *P361*/844 -->
-374
+<!-- *P361*/844 -->
+[P361]: #P361
+<a id="P361"></a>
+
 
 //13.4.7 TIMx capture/compare mode register 1 (TIMx_CCMR1)
 ----------------------------------------------------------
@@ -19493,14 +21599,19 @@ This bit-field defines the direction of the channel (input/output) as well as th
 10: CC2 channel is configured as input, IC2 is mapped on TI1
 11: CC2 channel is configured as input, IC2 is mapped on TRC. This mode is working only if
 an internal trigger input is selected through the TS bit (TIMx_SMCR register)
-Note: CC2S bits are writable only when the channel is OFF (CC2E = 0 in TIMx_CCER).
+
+> [!NOTE]
+> CC2S bits are writable only when the channel is OFF (CC2E = 0 in TIMx_CCER).
 Bit 7 OC1CE: Output compare 1 clear enable
 OC1CE: Output Compare 1 Clear Enable
 0: OC1Ref is not affected by the ETRF input
 1: OC1Ref is cleared as soon as a High level is detected on ETRF input
 
 
-                                                <!-- *P362*/844 -->
+<!-- *P362*/844 -->
+[P362]: #P362
+<a id="P362"></a>
+
 Bits 6:4 OC1M: Output compare 1 mode
 These bits define the behavior of the output reference signal OC1REF from which OC1 and
 OC1N are derived. OC1REF is active high whereas OC1 and OC1N active level depends
@@ -19521,7 +21632,9 @@ TIMx_CNT>TIMx_CCR1 else active (OC1REF=1).
 111: PWM mode 2 - In upcounting, channel 1 is inactive as long as TIMx_CNT<TIMx_CCR1
 else active. In downcounting, channel 1 is active as long as TIMx_CNT>TIMx_CCR1 else
 inactive.
-Note: In PWM mode 1 or 2, the OCREF level changes only when the result of the
+
+> [!NOTE]
+> In PWM mode 1 or 2, the OCREF level changes only when the result of the
 comparison changes or when the output compare mode switches from “frozen” mode
 to “PWM” mode.
 Bit 3 OC1PE: Output compare 1 preload enable
@@ -19529,7 +21642,9 @@ Bit 3 OC1PE: Output compare 1 preload enable
 new value is taken in account immediately.
 1: Preload register on TIMx_CCR1 enabled. Read/Write operations access the preload
 register. TIMx_CCR1 preload value is loaded in the active register at each update event.
-Note: 1: These bits can not be modified as long as LOCK level 3 has been programmed
+
+> [!NOTE]
+> 1: These bits can not be modified as long as LOCK level 3 has been programmed
 (LOCK bits in TIMx_BDTR register) and CC1S=00 (the channel is configured in
 output).
 2: The PWM mode can be used without validating the preload register only in one-
@@ -19550,11 +21665,15 @@ This bit-field defines the direction of the channel (input/output) as well as th
 10: CC1 channel is configured as input, IC1 is mapped on TI2.
 11: CC1 channel is configured as input, IC1 is mapped on TRC. This mode is working only if
 an internal trigger input is selected through TS bit (TIMx_SMCR register)
-Note: CC1S bits are writable only when the channel is OFF (CC1E = 0 in TIMx_CCER).
+
+> [!NOTE]
+> CC1S bits are writable only when the channel is OFF (CC1E = 0 in TIMx_CCER).
 
 
-                                                <!-- *P363*/844 -->
-374
+<!-- *P363*/844 -->
+[P363]: #P363
+<a id="P363"></a>
+
 Input capture mode
 Bits 15:12 IC2F: Input capture 2 filter
 Bits 11:10 IC2PSC[1:0]: Input capture 2 prescaler
@@ -19565,7 +21684,9 @@ This bit-field defines the direction of the channel (input/output) as well as th
 10: CC2 channel is configured as input, IC2 is mapped on TI1.
 11: CC2 channel is configured as input, IC2 is mapped on TRC. This mode is working only if
 an internal trigger input is selected through TS bit (TIMx_SMCR register)
-Note: CC2S bits are writable only when the channel is OFF (CC2E = 0 in TIMx_CCER).
+
+> [!NOTE]
+> CC2S bits are writable only when the channel is OFF (CC2E = 0 in TIMx_CCER).
 Bits 7:4 IC1F: Input capture 1 filter
 This bit-field defines the frequency used to sample TI1 input and the length of the digital filter
 applied to TI1. The digital filter is made of an event counter in which N consecutive events
@@ -19600,10 +21721,15 @@ This bit-field defines the direction of the channel (input/output) as well as th
 10: CC1 channel is configured as input, IC1 is mapped on TI2
 11: CC1 channel is configured as input, IC1 is mapped on TRC. This mode is working only if
 an internal trigger input is selected through TS bit (TIMx_SMCR register)
-Note: CC1S bits are writable only when the channel is OFF (CC1E = 0 in TIMx_CCER).
+
+> [!NOTE]
+> CC1S bits are writable only when the channel is OFF (CC1E = 0 in TIMx_CCER).
 
 
-                                                <!-- *P364*/844 -->
+<!-- *P364*/844 -->
+[P364]: #P364
+<a id="P364"></a>
+
 
 //13.4.8 TIMx capture/compare mode register 2 (TIMx_CCMR2)
 ----------------------------------------------------------
@@ -19630,7 +21756,9 @@ This bit-field defines the direction of the channel (input/output) as well as th
 10: CC4 channel is configured as input, IC4 is mapped on TI3
 11: CC4 channel is configured as input, IC4 is mapped on TRC. This mode is working only if
 an internal trigger input is selected through TS bit (TIMx_SMCR register)
-Note: CC4S bits are writable only when the channel is OFF (CC4E = 0 in TIMx_CCER).
+
+> [!NOTE]
+> CC4S bits are writable only when the channel is OFF (CC4E = 0 in TIMx_CCER).
 Bit 7 OC3CE: Output compare 3 clear enable
 Bits 6:4 OC3M: Output compare 3 mode
 Bit 3 OC3PE: Output compare 3 preload enable
@@ -19642,11 +21770,15 @@ This bit-field defines the direction of the channel (input/output) as well as th
 10: CC3 channel is configured as input, IC3 is mapped on TI4
 11: CC3 channel is configured as input, IC3 is mapped on TRC. This mode is working only if
 an internal trigger input is selected through TS bit (TIMx_SMCR register)
-Note: CC3S bits are writable only when the channel is OFF (CC3E = 0 in TIMx_CCER).
+
+> [!NOTE]
+> CC3S bits are writable only when the channel is OFF (CC3E = 0 in TIMx_CCER).
 
 
-                                                <!-- *P365*/844 -->
-374
+<!-- *P365*/844 -->
+[P365]: #P365
+<a id="P365"></a>
+
 Input capture mode
 
 //13.4.9 TIMx capture/compare enable register (TIMx_CCER)
@@ -19665,7 +21797,9 @@ This bit-field defines the direction of the channel (input/output) as well as th
 10: CC4 channel is configured as input, IC4 is mapped on TI3
 11: CC4 channel is configured as input, IC4 is mapped on TRC. This mode is working only if
 an internal trigger input is selected through TS bit (TIMx_SMCR register)
-Note: CC4S bits are writable only when the channel is OFF (CC4E = 0 in TIMx_CCER).
+
+> [!NOTE]
+> CC4S bits are writable only when the channel is OFF (CC4E = 0 in TIMx_CCER).
 Bits 7:4 IC3F: Input capture 3 filter
 Bits 3:2 IC3PSC: Input capture 3 prescaler
 Bits 1:0 CC3S: Capture/Compare 3 selection
@@ -19675,7 +21809,9 @@ This bit-field defines the direction of the channel (input/output) as well as th
 10: CC3 channel is configured as input, IC3 is mapped on TI4
 11: CC3 channel is configured as input, IC3 is mapped on TRC. This mode is working only if
 an internal trigger input is selected through TS bit (TIMx_SMCR register)
-Note: CC3S bits are writable only when the channel is OFF (CC3E = 0 in TIMx_CCER).
+
+> [!NOTE]
+> CC3S bits are writable only when the channel is OFF (CC3E = 0 in TIMx_CCER).
 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
 CC4NP
 Res.
@@ -19701,7 +21837,10 @@ Bit 9 CC3P: Capture/Compare 3 output Polarity.
 refer to CC1P description
 
 
-                                                <!-- *P366*/844 -->
+<!-- *P366*/844 -->
+[P366]: #P366
+<a id="P366"></a>
+
 
 Bit 8 CC3E: Capture/Compare 3 output enable.
 refer to CC1E description
@@ -19746,6 +21885,9 @@ capture/compare register 1 (TIMx_CCR1) or not.
 0: Capture disabled
 1: Capture enabled
 
+[Table 54]: "Table%2054"
+<a id="Table 54"></a>
+
 **Table 54**. Output control bit for standard OCx channels
 
 CCxE bit OCx output state
@@ -19753,9 +21895,13 @@ CCxE bit OCx output state
 1 OCx=OCxREF + Polarity, OCx_EN=1
 
 
-                                                <!-- *P367*/844 -->
-374
-Note: The state of the external IO pins connected to the standard OCx channels depends on the
+<!-- *P367*/844 -->
+[P367]: #P367
+<a id="P367"></a>
+
+
+> [!NOTE]
+> The state of the external IO pins connected to the standard OCx channels depends on the
 OCx channel state and the GPIO registers.
 
 //13.4.10 TIMx counter (TIMx_CNT)
@@ -19803,7 +21949,10 @@ ARR[15:0]
 rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw
 
 
-                                                <!-- *P368*/844 -->
+<!-- *P368*/844 -->
+[P368]: #P368
+<a id="P368"></a>
+
 
 
 //13.4.13 TIMx capture/compare register 1 (TIMx_CCR1)
@@ -19849,8 +21998,10 @@ CCR2[15:0]
 rw/ro rw/ro rw/ro rw/ro rw/ro rw/ro rw/ro rw/ro rw/ro rw/ro rw/ro rw/ro rw/ro rw/ro rw/ro rw/ro
 
 
-                                                <!-- *P369*/844 -->
-374
+<!-- *P369*/844 -->
+[P369]: #P369
+<a id="P369"></a>
+
 
 
 //13.4.15 TIMx capture/compare register 3 (TIMx_CCR3)
@@ -19903,7 +22054,10 @@ CCR4[15:0]
 rw/ro rw/ro rw/ro rw/ro rw/ro rw/ro rw/ro rw/ro rw/ro rw/ro rw/ro rw/ro rw/ro rw/ro rw/ro rw/ro
 
 
-                                                <!-- *P370*/844 -->
+<!-- *P370*/844 -->
+[P370]: #P370
+<a id="P370"></a>
+
 
 
 //13.4.17 TIMx DMA control register (TIMx_DCR)
@@ -19953,8 +22107,10 @@ Example: Let us consider the following transfer: DBL = 7 transfers & DBA = TIMx_
 case the transfer is done to/from 7 registers starting from the TIMx_CR1 address.
 
 
-                                                <!-- *P371*/844 -->
-374
+<!-- *P371*/844 -->
+[P371]: #P371
+<a id="P371"></a>
+
 
 //13.4.18 TIMx DMA address for full transfer (TIMx_DMAR)
 --------------------------------------------------------
@@ -19977,7 +22133,9 @@ DBL = 3 transfers, DBA = 0xE.
 3. Enable the TIMx update DMA request (set the UDE bit in the DIER register).
 4. Enable TIMx
 5. Enable the DMA channel
-Note: This example is for the case where every CCRx register to be updated once. If every CCRx
+
+> [!NOTE]
+> This example is for the case where every CCRx register to be updated once. If every CCRx
 register is to be updated twice for example, the number of data to transfer should be 6. Let's
 take the example of a buffer in the RAM containing data1, data2, data3, data4, data5 and
 data6. The data is transferred to the CCRx registers as follows: on the first update DMA
@@ -19995,7 +22153,10 @@ address configured in TIMx_DCR register, DMA index is automatically controlled b
 DMA transfer, and ranges from 0 to DBL (DBL configured in TIMx_DCR).
 
 
-                                                <!-- *P372*/844 -->
+<!-- *P372*/844 -->
+[P372]: #P372
+<a id="P372"></a>
+
 
 //13.4.19 TIM2 option register (TIM2_OR)
 ----------------------------------------
@@ -20041,14 +22202,19 @@ Wakeup interrupt should be enabled.
 Bits 5:0 Reserved, must be kept at reset value.
 
 
-                                                <!-- *P373*/844 -->
-374
+<!-- *P373*/844 -->
+[P373]: #P373
+<a id="P373"></a>
+
 
 //13.4.21 TIMx register map
 ---------------------------
 
 TIMx registers are mapped as described in the table below:
 
+
+[Table 55]: "Table%2055"
+<a id="Table 55"></a>
 
 **Table 55**. TIM2 to TIM5 register map and reset values
 
@@ -20273,7 +22439,10 @@ PSC[15:0]
 Reset value 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 
 
-                                                <!-- *P374*/844 -->
+<!-- *P374*/844 -->
+[P374]: #P374
+<a id="P374"></a>
+
 Refer to Section 3.3: Memory map for the register boundary addresses.
 0x2C
 TIMx_ARR
@@ -20333,7 +22502,7 @@ IT4_
 RMP
 Reserved
 Reset value 0 0
-Table 55. TIM2 to TIM5 register map and reset values (continued)
+[Table 55]. TIM2 to TIM5 register map and reset values (continued)
 Offset Register
 31
 30
@@ -20369,8 +22538,10 @@ Offset Register
 0
 
 
-                                                <!-- *P375*/844 -->
-420
+<!-- *P375*/844 -->
+[P375]: #P375
+<a id="P375"></a>
+
 
 /14 General-purpose timers (TIM9 to TIM11)
 ==========================================
@@ -20414,7 +22585,16 @@ several timers together
 – Output compare
 
 
-                                                <!-- *P376*/844 -->
+<!-- *P376*/844 -->
+[P376]: #P376
+<a id="P376"></a>
+
+
+[Figure 133]: "#Figure%20133"
+<a id="Figure 133"></a>
+
+[Figure 133]: "Figure%20133"
+<a id="Figure 133"></a>
 
 **Figure 133**. General-purpose timer block diagram (TIM9)
 
@@ -20512,8 +22692,16 @@ between 1 and 65536 (can be changed “on the fly”)
 ???????
 
 
-                                                <!-- *P377*/844 -->
-420
+<!-- *P377*/844 -->
+[P377]: #P377
+<a id="P377"></a>
+
+
+[Figure 134]: "#Figure%20134"
+<a id="Figure 134"></a>
+
+[Figure 134]: "Figure%20134"
+<a id="Figure 134"></a>
 
 **Figure 134**. General-purpose timer block diagram (TIM10/11)
 
@@ -20558,7 +22746,10 @@ between 1 and 65536 (can be changed “on the fly”)
 ????????
 
 
-                                                <!-- *P378*/844 -->
+<!-- *P378*/844 -->
+[P378]: #P378
+<a id="P378"></a>
+
 
 //14.3 TIM9 to TIM11 functional description
 -------------------------------------------
@@ -20592,15 +22783,29 @@ The prescaler can divide the counter clock frequency by any factor between 1 and
 is based on a 16-bit counter controlled through a 16-bit register (in the TIMx_PSC register).
 It can be changed on the fly as this control register is buffered. The new prescaler ratio is
 taken into account at the next update event.
-Figure 135 and Figure 136 give some examples of the counter behavior when the prescaler
+[Figure 135] and [Figure 136] give some examples of the counter behavior when the prescaler
 ratio is changed on the fly.
 
 
-                                                <!-- *P379*/844 -->
-420
+<!-- *P379*/844 -->
+[P379]: #P379
+<a id="P379"></a>
+
+
+[Figure 135]: "#Figure%20135"
+<a id="Figure 135"></a>
+
+[Figure 135]: "Figure%20135"
+<a id="Figure 135"></a>
 
 **Figure 135**. Counter timing diagram with prescaler division change from 1 to 2
 
+
+[Figure 136]: "#Figure%20136"
+<a id="Figure 136"></a>
+
+[Figure 136]: "Figure%20136"
+<a id="Figure 136"></a>
 
 **Figure 136**. Counter timing diagram with prescaler division change from 1 to 4
 
@@ -20638,7 +22843,10 @@ ratio is changed on the fly.
 ? ?
 
 
-                                                <!-- *P380*/844 -->
+<!-- *P380*/844 -->
+[P380]: #P380
+<a id="P380"></a>
+
 
 //14.3.2 Counter modes
 ----------------------
@@ -20663,6 +22871,12 @@ register).
 The following figures show some examples of the counter behavior for different clock
 frequencies when TIMx_ARR=0x36.
 
+[Figure 137]: "#Figure%20137"
+<a id="Figure 137"></a>
+
+[Figure 137]: "Figure%20137"
+<a id="Figure 137"></a>
+
 **Figure 137**. Counter timing diagram, internal clock divided by 1
 
 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ??
@@ -20677,14 +22891,34 @@ frequencies when TIMx_ARR=0x36.
 ?? ??
 
 
-                                                <!-- *P381*/844 -->
-420
+<!-- *P381*/844 -->
+[P381]: #P381
+<a id="P381"></a>
+
+
+[Figure 138]: "#Figure%20138"
+<a id="Figure 138"></a>
+
+[Figure 138]: "Figure%20138"
+<a id="Figure 138"></a>
 
 **Figure 138**. Counter timing diagram, internal clock divided by 2
 
 
+[Figure 139]: "#Figure%20139"
+<a id="Figure 139"></a>
+
+[Figure 139]: "Figure%20139"
+<a id="Figure 139"></a>
+
 **Figure 139**. Counter timing diagram, internal clock divided by 4
 
+
+[Figure 140]: "#Figure%20140"
+<a id="Figure 140"></a>
+
+[Figure 140]: "Figure%20140"
+<a id="Figure 140"></a>
 
 **Figure 140**. Counter timing diagram, internal clock divided by N
 
@@ -20716,11 +22950,26 @@ frequencies when TIMx_ARR=0x36.
 ?? ?? ??
 
 
-                                                <!-- *P382*/844 -->
+<!-- *P382*/844 -->
+[P382]: #P382
+<a id="P382"></a>
+
+
+[Figure 141]: "#Figure%20141"
+<a id="Figure 141"></a>
+
+[Figure 141]: "Figure%20141"
+<a id="Figure 141"></a>
 
 **Figure 141**. Counter timing diagram, update event when ARPE=0 (TIMx_ARR not
 
 preloaded)
+
+[Figure 142]: "#Figure%20142"
+<a id="Figure 142"></a>
+
+[Figure 142]: "Figure%20142"
+<a id="Figure 142"></a>
 
 **Figure 142**. Counter timing diagram, update event when ARPE=1 (TIMx_ARR
 
@@ -20756,8 +23005,10 @@ preloaded)
 ?? ??
 
 
-                                                <!-- *P383*/844 -->
-420
+<!-- *P383*/844 -->
+[P383]: #P383
+<a id="P383"></a>
+
 
 //14.3.3 Clock selection
 ------------------------
@@ -20774,8 +23025,14 @@ For TIM9, the internal clock source is selected when the slave mode controller i
 register are then used as control bits and can be changed only by software (except for UG
 which remains cleared). As soon as the CEN bit is programmed to 1, the prescaler is
 clocked by the internal clock CK_INT.
-Figure 143 shows the behavior of the control circuit and of the upcounter in normal mode,
+[Figure 143] shows the behavior of the control circuit and of the upcounter in normal mode,
 without prescaler.
+
+[Figure 143]: "#Figure%20143"
+<a id="Figure 143"></a>
+
+[Figure 143]: "Figure%20143"
+<a id="Figure 143"></a>
 
 **Figure 143**. Control circuit in normal mode, internal clock divided by 1
 
@@ -20792,7 +23049,16 @@ at each rising or falling edge on a selected input.
 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ??
 
 
-                                                <!-- *P384*/844 -->
+<!-- *P384*/844 -->
+[P384]: #P384
+<a id="P384"></a>
+
+
+[Figure 144]: "#Figure%20144"
+<a id="Figure 144"></a>
+
+[Figure 144]: "Figure%20144"
+<a id="Figure 144"></a>
 
 **Figure 144**. TI2 external clock connection example
 
@@ -20808,10 +23074,18 @@ register.
 register.
 5. Select TI2 as the trigger input source by writing TS=’110’ in the TIMx_SMCR register.
 6. Enable the counter by writing CEN=’1’ in the TIMx_CR1 register.
-Note: The capture prescaler is not used for triggering, so no need to configure it.
+
+> [!NOTE]
+> The capture prescaler is not used for triggering, so no need to configure it.
 When a rising edge occurs on TI2, the counter counts once and the TIF flag is set.
 The delay between the rising edge on TI2 and the actual clock of the counter is due to the
 resynchronization circuit on TI2 input.
+
+[Figure 145]: "#Figure%20145"
+<a id="Figure 145"></a>
+
+[Figure 145]: "Figure%20145"
+<a id="Figure 145"></a>
 
 **Figure 145**. Control circuit in external clock mode 1
 
@@ -20860,8 +23134,10 @@ resynchronization circuit on TI2 input.
 ?????????
 
 
-                                                <!-- *P385*/844 -->
-420
+<!-- *P385*/844 -->
+[P385]: #P385
+<a id="P385"></a>
+
 
 //14.3.4 Capture/compare channels
 ---------------------------------
@@ -20869,11 +23145,17 @@ resynchronization circuit on TI2 input.
 Each Capture/Compare channel is built around a capture/compare register (including a
 shadow register), a input stage for capture (with digital filter, multiplexing and prescaler) and
 an output stage (with comparator and output control).
-Figure 146 to Figure 148 give an overview of a capture/compare channel.
+[Figure 146] to [Figure 148] give an overview of a capture/compare channel.
 The input stage samples the corresponding TIx input to generate a filtered signal TIxF.
 Then, an edge detector with polarity selection generates a signal (TIxFPx) which can be
 used as trigger input by the slave mode controller or as the capture command. It is
 prescaled before the capture register (ICxPS).
+
+[Figure 146]: "#Figure%20146"
+<a id="Figure 146"></a>
+
+[Figure 146]: "Figure%20146"
+<a id="Figure 146"></a>
 
 **Figure 146**. Capture/compare channel (example: channel 1 input stage)
 
@@ -20922,10 +23204,25 @@ OCxRef (active high). The polarity acts at the end of the chain.
 ???
 
 
-                                                <!-- *P386*/844 -->
+<!-- *P386*/844 -->
+[P386]: #P386
+<a id="P386"></a>
+
+
+[Figure 147]: "#Figure%20147"
+<a id="Figure 147"></a>
+
+[Figure 147]: "Figure%20147"
+<a id="Figure 147"></a>
 
 **Figure 147**. Capture/compare channel 1 main circuit
 
+
+[Figure 148]: "#Figure%20148"
+<a id="Figure 148"></a>
+
+[Figure 148]: "Figure%20148"
+<a id="Figure 148"></a>
 
 **Figure 148**. Output stage of capture/compare channel (channel 1)
 
@@ -21010,8 +23307,10 @@ already high, then the over-capture flag CCxOF (TIMx_SR register) is set. CCxIF 
 ???????
 
 
-                                                <!-- *P387*/844 -->
-420
+<!-- *P387*/844 -->
+[P387]: #P387
+<a id="P387"></a>
+
 cleared by software by writing it to ‘0’ or by reading the captured data stored in the
 TIMx_CCRx register. CCxOF is cleared when the user writes it to ‘0’.
 The following example shows how to capture the counter value in TIMx_CCR1 when TI1
@@ -21044,11 +23343,16 @@ occurred whereas the flag was not cleared.
 In order to handle the overcapture, it is recommended to read the data before the
 overcapture flag. This is to avoid missing an overcapture which could happen after reading
 the flag and before reading the data.
-Note: IC interrupt requests can be generated by software by setting the corresponding CCxG bit in
+
+> [!NOTE]
+> IC interrupt requests can be generated by software by setting the corresponding CCxG bit in
 the TIMx_EGR register.
 
 
-                                                <!-- *P388*/844 -->
+<!-- *P388*/844 -->
+[P388]: #P388
+<a id="P388"></a>
+
 
 //14.3.6 PWM input mode (only for TIM9)
 ---------------------------------------
@@ -21075,6 +23379,12 @@ CC2P and CC2NP bits to ‘11’ (active on falling edge).
 TIMx_SMCR register.
 7. Enable the captures: write the CC1E and CC2E bits to ‘1’ in the TIMx_CCER register.
 
+[Figure 149]: "#Figure%20149"
+<a id="Figure 149"></a>
+
+[Figure 149]: "Figure%20149"
+<a id="Figure 149"></a>
+
 **Figure 149**. PWM input mode timing
 
 1. The PWM input mode can be used only with the TIMx_CH1/TIMx_CH2 signals due to the fact that only
@@ -21096,8 +23406,10 @@ TI1FP1 and TI2FP2 are connected to the slave mode controller.
 ???????
 
 
-                                                <!-- *P389*/844 -->
-420
+<!-- *P389*/844 -->
+[P389]: #P389
+<a id="P389"></a>
+
 
 //14.3.7 Forced output mode
 ---------------------------
@@ -21148,11 +23460,20 @@ Procedure:
 5. Enable the counter by setting the CEN bit in the TIMx_CR1 register.
 
 
-                                                <!-- *P390*/844 -->
+<!-- *P390*/844 -->
+[P390]: #P390
+<a id="P390"></a>
+
 The TIMx_CCRx register can be updated at any time by software to control the output
 waveform, provided that the preload register is not enabled (OCxPE=’0’, else TIMx_CCRx
 shadow register is updated only at the next update event UEV). An example is given in
-Figure 150.
+[Figure 150].
+
+[Figure 150]: "#Figure%20150"
+<a id="Figure 150"></a>
+
+[Figure 150]: "Figure%20150"
+<a id="Figure 150"></a>
 
 **Figure 150**. Output compare mode, toggle on OC1.
 
@@ -21194,11 +23515,19 @@ high as long as TIMx_CNT < TIMx_CCRx else it becomes low. If the compare value i
 ????
 
 
-                                                <!-- *P391*/844 -->
-420
+<!-- *P391*/844 -->
+[P391]: #P391
+<a id="P391"></a>
+
 TIMx_CCRx is greater than the auto-reload value (in TIMx_ARR) then OCxREF is held at
-‘1’. If the compare value is 0 then OCxRef is held at ‘0’. Figure 151 shows some edge-
+‘1’. If the compare value is 0 then OCxRef is held at ‘0’. [Figure 151] shows some edge-
 aligned PWM waveforms in an example where TIMx_ARR=8.
+
+[Figure 151]: "#Figure%20151"
+<a id="Figure 151"></a>
+
+[Figure 151]: "Figure%20151"
+<a id="Figure 151"></a>
 
 **Figure 151**. Edge-aligned PWM waveforms (ARR=8)
 
@@ -21236,7 +23565,16 @@ CNT < CCRx≤ ARR (in particular, 0 < CCRx)
 ???
 
 
-                                                <!-- *P392*/844 -->
+<!-- *P392*/844 -->
+[P392]: #P392
+<a id="P392"></a>
+
+
+[Figure 152]: "#Figure%20152"
+<a id="Figure 152"></a>
+
+[Figure 152]: "Figure%20152"
+<a id="Figure 152"></a>
 
 **Figure 152**. Example of one pulse mode.
 
@@ -21279,8 +23617,10 @@ Repetitive Mode is selected.
 ? ????? ? ?????
 
 
-                                                <!-- *P393*/844 -->
-420
+<!-- *P393*/844 -->
+[P393]: #P393
+<a id="P393"></a>
+
 Particular case: OCx fast enable
 In One-pulse mode, the edge detection on TIx input set the CEN bit which enables the
 counter. Then the comparison between the counter and the compare value makes the
@@ -21319,7 +23659,16 @@ The delay between the rising edge on TI1 and the actual reset of the counter is 
 resynchronization circuit on TI1 input.
 
 
-                                                <!-- *P394*/844 -->
+<!-- *P394*/844 -->
+[P394]: #P394
+<a id="P394"></a>
+
+
+[Figure 153]: "#Figure%20153"
+<a id="Figure 153"></a>
+
+[Figure 153]: "Figure%20153"
+<a id="Figure 153"></a>
 
 **Figure 153**. Control circuit in reset mode
 
@@ -21351,8 +23700,16 @@ resynchronization circuit on TI1 input.
 ???
 
 
-                                                <!-- *P395*/844 -->
-420
+<!-- *P395*/844 -->
+[P395]: #P395
+<a id="P395"></a>
+
+
+[Figure 154]: "#Figure%20154"
+<a id="Figure 154"></a>
+
+[Figure 154]: "Figure%20154"
+<a id="Figure 154"></a>
 
 **Figure 154**. Control circuit in gated mode
 
@@ -21371,6 +23728,12 @@ When a rising edge occurs on TI2, the counter starts counting on the internal cl
 TIF flag is set.
 The delay between the rising edge on TI2 and the actual start of the counter is due to the
 resynchronization circuit on TI2 input.
+
+[Figure 155]: "#Figure%20155"
+<a id="Figure 155"></a>
+
+[Figure 155]: "Figure%20155"
+<a id="Figure 155"></a>
 
 **Figure 155**. Control circuit in trigger mode
 
@@ -21393,14 +23756,19 @@ resynchronization circuit on TI2 input.
 ???
 
 
-                                                <!-- *P396*/844 -->
+<!-- *P396*/844 -->
+[P396]: #P396
+<a id="P396"></a>
+
 
 //14.3.12 Timer synchronization (TIM9)
 --------------------------------------
 
 The TIM timers are linked together internally for timer synchronization or chaining. Refer to
 Section 13.3.15: Timer synchronization for details.
-Note: The clock of the slave timer must be enabled prior to receive events from the master timer,
+
+> [!NOTE]
+> The clock of the slave timer must be enabled prior to receive events from the master timer,
 and must not be changed on-the-fly while triggers are received from the master timer.
 
 //14.3.13 Debug mode
@@ -21412,8 +23780,10 @@ configuration bit in DBG module. For more details, refer to Section 23.16.2: Deb
 for timers, watchdog and I2C.
 
 
-                                                <!-- *P397*/844 -->
-420
+<!-- *P397*/844 -->
+[P397]: #P397
+<a id="P397"></a>
+
 
 //14.4 TIM9 registers
 ---------------------
@@ -21469,7 +23839,10 @@ Bit 0 CEN: Counter enable
 CEN is cleared automatically in one-pulse mode, when an update event occurs.
 
 
-                                                <!-- *P398*/844 -->
+<!-- *P398*/844 -->
+[P398]: #P398
+<a id="P398"></a>
+
 
 //14.4.2 TIM9 slave mode control register (TIMx_SMCR)
 -----------------------------------------------------
@@ -21500,13 +23873,17 @@ This bit field selects the trigger input to be used to synchronize the counter.
 101: Filtered Timer Input 1 (TI1FP1)
 110: Filtered Timer Input 2 (TI2FP2)
 111: Reserved.
-See Table 56 for more details on the meaning of ITRx for each timer.
-Note: These bits must be changed only when they are not used (e.g. when SMS=’000’) to
+See [Table 56] for more details on the meaning of ITRx for each timer.
+
+> [!NOTE]
+> These bits must be changed only when they are not used (e.g. when SMS=’000’) to
 avoid wrong edge detections at the transition.
 
 
-                                                <!-- *P399*/844 -->
-420
+<!-- *P399*/844 -->
+[P399]: #P399
+<a id="P399"></a>
+
 
 
 //14.4.3 TIM9 Interrupt enable register (TIMx_DIER)
@@ -21533,12 +23910,19 @@ are both controlled
 110: Trigger mode - The counter starts on a rising edge of the trigger TRGI (but it is not
 reset). Only the start of the counter is controlled
 111: External clock mode 1 - Rising edges of the selected trigger (TRGI) clock the counter
-Note: The Gated mode must not be used if TI1F_ED is selected as the trigger input
+
+> [!NOTE]
+> The Gated mode must not be used if TI1F_ED is selected as the trigger input
 (TS=’100’). Indeed, TI1F_ED outputs 1 pulse for each transition on TI1F, whereas the
 Gated mode checks the level of the trigger signal.
-Note: The clock of the slave timer must be enabled prior to receive events from the master
+
+> [!NOTE]
+> The clock of the slave timer must be enabled prior to receive events from the master
 timer, and must not be changed on-the-fly while triggers are received from the master
 timer.
+
+[Table 56]: "Table%2056"
+<a id="Table 56"></a>
 
 **Table 56**. TIMx internal trigger connection
 
@@ -21557,7 +23941,10 @@ Bit 6 TIE: Trigger interrupt enable
 Bit 5:3 Reserved, must be kept at reset value.
 
 
-                                                <!-- *P400*/844 -->
+<!-- *P400*/844 -->
+[P400]: #P400
+<a id="P400"></a>
+
 Bit 2 CC2IE: Capture/Compare 2 interrupt enable
 0: CC2 interrupt disabled.
 1: CC2 interrupt enabled.
@@ -21569,8 +23956,10 @@ Bit 0 UIE: Update interrupt enable
 1: Update interrupt enabled.
 
 
-                                                <!-- *P401*/844 -->
-420
+<!-- *P401*/844 -->
+[P401]: #P401
+<a id="P401"></a>
+
 
 //14.4.4 TIM9 status register (TIMx_SR)
 ---------------------------------------
@@ -21621,7 +24010,10 @@ TIMx_CCR1 register.
 on IC1 which matches the selected polarity).
 
 
-                                                <!-- *P402*/844 -->
+<!-- *P402*/844 -->
+[P402]: #P402
+<a id="P402"></a>
+
 
 //14.4.5 TIM9 event generation register (TIMx_EGR)
 --------------------------------------------------
@@ -21670,8 +24062,10 @@ This bit can be set by software, it is automatically cleared by hardware.
 is also cleared and the prescaler ratio is not affected. The counter is cleared.
 
 
-                                                <!-- *P403*/844 -->
-420
+<!-- *P403*/844 -->
+[P403]: #P403
+<a id="P403"></a>
+
 
 //14.4.6 TIM9 capture/compare mode register 1 (TIMx_CCMR1)
 ----------------------------------------------------------
@@ -21702,7 +24096,9 @@ This bitfield defines the direction of the channel (input/output) as well as the
 10: CC2 channel is configured as input, IC2 is mapped on TI1
 11: CC2 channel is configured as input, IC2 is mapped on TRC. This mode works only if an
 internal trigger input is selected through the TS bit (TIMx_SMCR register
-Note: The CC2S bits are writable only when the channel is OFF (CC2E = 0 in TIMx_CCER).
+
+> [!NOTE]
+> The CC2S bits are writable only when the channel is OFF (CC2E = 0 in TIMx_CCER).
 Bits 6:4 OC1M: Output compare 1 mode
 These bits define the behavior of the output reference signal OC1REF from which OC1 and
 OC1N are derived. OC1REF is active high whereas the active levels of OC1 and OC1N
@@ -21723,18 +24119,25 @@ TIMx_CNT>TIMx_CCR1, else it is active (OC1REF=’1’)
 111: PWM mode 2 - In upcounting, channel 1 is inactive as long as TIMx_CNT<TIMx_CCR1
 else it is active. In downcounting, channel 1 is active as long as TIMx_CNT>TIMx_CCR1
 else it is inactive.
-Note: In PWM mode 1 or 2, the OCREF level changes only when the result of the
+
+> [!NOTE]
+> In PWM mode 1 or 2, the OCREF level changes only when the result of the
 comparison changes or when the output compare mode switches from “frozen” mode
 to “PWM” mode.
 
 
-                                                <!-- *P404*/844 -->
+<!-- *P404*/844 -->
+[P404]: #P404
+<a id="P404"></a>
+
 Bit 3 OC1PE: Output compare 1 preload enable
 0: Preload register on TIMx_CCR1 disabled. TIMx_CCR1 can be written at anytime, the
 new value is taken into account immediately
 1: Preload register on TIMx_CCR1 enabled. Read/Write operations access the preload
 register. TIMx_CCR1 preload value is loaded into the active register at each update event
-Note: The PWM mode can be used without validating the preload register only in one-pulse
+
+> [!NOTE]
+> The PWM mode can be used without validating the preload register only in one-pulse
 mode (OPM bit set in the TIMx_CR1 register). Else the behavior is not guaranteed.
 Bit 2 OC1FE: Output compare 1 fast enable
 This bit is used to accelerate the effect of an event on the trigger in input on the CC output.
@@ -21752,11 +24155,15 @@ This bitfield defines the direction of the channel (input/output) as well as the
 10: CC1 channel is configured as input, IC1 is mapped on TI2
 11: CC1 channel is configured as input, IC1 is mapped on TRC. This mode works only if an
 internal trigger input is selected through the TS bit (TIMx_SMCR register)
-Note: The CC1S bits are writable only when the channel is OFF (CC1E = 0 in TIMx_CCER).
+
+> [!NOTE]
+> The CC1S bits are writable only when the channel is OFF (CC1E = 0 in TIMx_CCER).
 
 
-                                                <!-- *P405*/844 -->
-420
+<!-- *P405*/844 -->
+[P405]: #P405
+<a id="P405"></a>
+
 Input capture mode
 Bits 15:12 IC2F: Input capture 2 filter
 Bits 11:10 IC2PSC[1:0]: Input capture 2 prescaler
@@ -21767,7 +24174,9 @@ This bitfield defines the direction of the channel (input/output) as well as the
 10: CC2 channel is configured as input, IC2 is mapped on TI1
 11: CC2 channel is configured as input, IC2 is mapped on TRC. This mode works only if an
 internal trigger input is selected through the TS bit (TIMx_SMCR register)
-Note: The CC2S bits are writable only when the channel is OFF (CC2E = 0 in TIMx_CCER).
+
+> [!NOTE]
+> The CC2S bits are writable only when the channel is OFF (CC2E = 0 in TIMx_CCER).
 Bits 7:4 IC1F: Input capture 1 filter
 This bitfield defines the frequency used to sample the TI1 input and the length of the digital
 filter applied to TI1. The digital filter is made of an event counter in which N consecutive
@@ -21802,10 +24211,15 @@ This bitfield defines the direction of the channel (input/output) as well as the
 10: CC1 channel is configured as input, IC1 is mapped on TI2
 11: CC1 channel is configured as input, IC1 is mapped on TRC. This mode is working only if
 an internal trigger input is selected through TS bit (TIMx_SMCR register)
-Note: The CC1S bits are writable only when the channel is OFF (CC1E = 0 in TIMx_CCER).
+
+> [!NOTE]
+> The CC1S bits are writable only when the channel is OFF (CC1E = 0 in TIMx_CCER).
 
 
-                                                <!-- *P406*/844 -->
+<!-- *P406*/844 -->
+[P406]: #P406
+<a id="P406"></a>
+
 
 //14.4.7 TIM9 capture/compare enable register (TIMx_CCER)
 ---------------------------------------------------------
@@ -21847,7 +24261,9 @@ mode), TIxFP1 is not inverted (trigger in gated mode, encoder mode).
 Circuit is sensitive to TIxFP1 falling edge (capture, trigger in reset, external clock or trigger
 mode), TIxFP1 is inverted (trigger in gated mode, encoder mode).
 10: reserved, do not use this configuration.
-Note: 11: noninverted/both edges
+
+> [!NOTE]
+> 11: noninverted/both edges
 Circuit is sensitive to both TIxFP1 rising and falling edges (capture, trigger in reset,
 external clock or trigger mode), TIxFP1 is not inverted (trigger in gated mode). This
 configuration must not be used for encoder mode.
@@ -21862,10 +24278,14 @@ capture/compare register 1 (TIMx_CCR1) or not.
 1: Capture enabled.
 
 
-                                                <!-- *P407*/844 -->
-420
+<!-- *P407*/844 -->
+[P407]: #P407
+<a id="P407"></a>
 
-Note: The states of the external I/O pins connected to the standard OCx channels depend on the
+
+
+> [!NOTE]
+> The states of the external I/O pins connected to the standard OCx channels depend on the
 state of the OCx channel and on the GPIO registers.
 
 //14.4.8 TIM9 counter (TIMx_CNT)
@@ -21888,6 +24308,9 @@ Reset value: 0x0000
 Address offset: 0x2C
 Reset value: 0xFFFF
 
+
+[Table 57]: "Table%2057"
+<a id="Table 57"></a>
 
 **Table 57**. Output control bit for standard OCx channels
 
@@ -21916,7 +24339,10 @@ behavior.
 The counter is blocked while the auto-reload value is null.
 
 
-                                                <!-- *P408*/844 -->
+<!-- *P408*/844 -->
+[P408]: #P408
+<a id="P408"></a>
+
 
 //14.4.11 TIM9 capture/compare register 1 (TIMx_CCR1)
 -----------------------------------------------------
@@ -21961,8 +24387,10 @@ CCR2 is the counter value transferred by the last input capture 2 event (IC2). T
 TIMx_CCR2 register is read-only and cannot be programmed.
 
 
-                                                <!-- *P409*/844 -->
-420
+<!-- *P409*/844 -->
+[P409]: #P409
+<a id="P409"></a>
+
 
 //14.4.13 TIM9 register map
 ---------------------------
@@ -21970,6 +24398,9 @@ TIMx_CCR2 register is read-only and cannot be programmed.
 TIM9 registers are mapped as 16-bit addressable registers as described below. The
 reserved memory areas are highlighted in gray in the table.
 
+
+[Table 58]: "Table%2058"
+<a id="Table 58"></a>
 
 **Table 58**. TIM9 register map and reset values
 
@@ -22130,7 +24561,10 @@ CCR1[15:0]
 Reset value 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 
 
-                                                <!-- *P410*/844 -->
+<!-- *P410*/844 -->
+[P410]: #P410
+<a id="P410"></a>
+
 Refer to Section 3.3: Memory map for the register boundary addresses.
 0x38
 TIMx_CCR2
@@ -22140,7 +24574,7 @@ Reset value 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0x3C to
 0x4C
 Reserved
-Table 58. TIM9 register map and reset values (continued)
+[Table 58]. TIM9 register map and reset values (continued)
 Offset Register
 31
 30
@@ -22176,8 +24610,10 @@ Offset Register
 0
 
 
-                                                <!-- *P411*/844 -->
-420
+<!-- *P411*/844 -->
+[P411]: #P411
+<a id="P411"></a>
+
 
 //14.5 TIM10/11 registers
 -------------------------
@@ -22232,7 +24668,10 @@ Bit 0 CEN: Counter enable
 1: Counter enabled
 
 
-                                                <!-- *P412*/844 -->
+<!-- *P412*/844 -->
+[P412]: #P412
+<a id="P412"></a>
+
 
 //14.5.2 TIM10/11 Interrupt enable register (TIMx_DIER)
 -------------------------------------------------------
@@ -22288,8 +24727,10 @@ TIMx_CCR1 register.
 on IC1 which matches the selected polarity).
 
 
-                                                <!-- *P413*/844 -->
-420
+<!-- *P413*/844 -->
+[P413]: #P413
+<a id="P413"></a>
+
 
 //14.5.4 TIM event generation register (TIMx_EGR)
 -------------------------------------------------
@@ -22345,7 +24786,10 @@ IC1F[3:0] IC1PSC[1:0]
 rw rw rw rw rw rw rw rw
 
 
-                                                <!-- *P414*/844 -->
+<!-- *P414*/844 -->
+[P414]: #P414
+<a id="P414"></a>
+
 Output compare mode
 Bits 15:7 Reserved, must be kept at reset value.
 Bits 6:4 OC1M: Output compare 1 mode
@@ -22362,14 +24806,18 @@ counter TIMx_CNT matches the capture/compare register 1 (TIMx_CCR1).
 101: Force active level - OC1REF is forced high.
 110: PWM mode 1 - Channel 1 is active as long as TIMx_CNT < TIMx_CCR1 else inactive.
 111: PWM mode 2 - Channel 1 is inactive as long as TIMx_CNT < TIMx_CCR1 else active.
-Note: In PWM mode 1 or 2, the OCREF level changes when the result of the comparison
+
+> [!NOTE]
+> In PWM mode 1 or 2, the OCREF level changes when the result of the comparison
 changes or when the output compare mode switches from frozen to PWM mode.
 Bit 3 OC1PE: Output compare 1 preload enable
 0: Preload register on TIMx_CCR1 disabled. TIMx_CCR1 can be written at anytime, the
 new value is taken in account immediately.
 1: Preload register on TIMx_CCR1 enabled. Read/Write operations access the preload
 register. TIMx_CCR1 preload value is loaded in the active register at each update event.
-Note: The PWM mode can be used without validating the preload register only in one pulse
+
+> [!NOTE]
+> The PWM mode can be used without validating the preload register only in one pulse
 mode (OPM bit set in TIMx_CR1 register). Else the behavior is not guaranteed.
 Bit 2 OC1FE: Output compare 1 fast enable
 This bit is used to accelerate the effect of an event on the trigger in input on the CC output.
@@ -22386,11 +24834,15 @@ This bit-field defines the direction of the channel (input/output) as well as th
 01: CC1 channel is configured as input, IC1 is mapped on TI1.
 10:
 11:
-Note: CC1S bits are writable only when the channel is OFF (CC1E = 0 in TIMx_CCER).
+
+> [!NOTE]
+> CC1S bits are writable only when the channel is OFF (CC1E = 0 in TIMx_CCER).
 
 
-                                                <!-- *P415*/844 -->
-420
+<!-- *P415*/844 -->
+[P415]: #P415
+<a id="P415"></a>
+
 Input capture mode
 
 Bits 15:8 Reserved, must be kept at reset value.
@@ -22427,10 +24879,15 @@ This bit-field defines the direction of the channel (input/output) as well as th
 01: CC1 channel is configured as input, IC1 is mapped on TI1
 10: Reserved
 11: Reserved
-Note: CC1S bits are writable only when the channel is OFF (CC1E = 0 in TIMx_CCER).
+
+> [!NOTE]
+> CC1S bits are writable only when the channel is OFF (CC1E = 0 in TIMx_CCER).
 
 
-                                                <!-- *P416*/844 -->
+<!-- *P416*/844 -->
+[P416]: #P416
+<a id="P416"></a>
+
 
 //14.5.6 TIM10/11 capture/compare enable register (TIMx_CCER)
 -------------------------------------------------------------
@@ -22439,7 +24896,9 @@ Address offset: 0x20
 Reset value: 0x0000
 
 
-Note: The state of the external I/O pins connected to the standard OCx channels depends on the
+
+> [!NOTE]
+> The state of the external I/O pins connected to the standard OCx channels depends on the
 OCx channel state and the GPIO registers.
 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
 Reserved
@@ -22477,6 +24936,9 @@ capture/compare register 1 (TIMx_CCR1) or not.
 0: Capture disabled
 1: Capture enabled
 
+[Table 59]: "Table%2059"
+<a id="Table 59"></a>
+
 **Table 59**. Output control bit for standard OCx channels
 
 CCxE bit OCx output state
@@ -22484,8 +24946,10 @@ CCxE bit OCx output state
 1 OCx=OCxREF + Polarity, OCx_EN=’1’
 
 
-                                                <!-- *P417*/844 -->
-420
+<!-- *P417*/844 -->
+[P417]: #P417
+<a id="P417"></a>
+
 
 //14.5.7 TIM10/11 counter (TIMx_CNT)
 ------------------------------------
@@ -22528,7 +24992,10 @@ Refer to Section 14.3.1: Time-base unit for more details about ARR update and be
 The counter is blocked while the auto-reload value is null.
 
 
-                                                <!-- *P418*/844 -->
+<!-- *P418*/844 -->
+[P418]: #P418
+<a id="P418"></a>
+
 
 //14.5.10 TIM10/11 capture/compare register 1 (TIMx_CCR1)
 ---------------------------------------------------------
@@ -22570,13 +25037,18 @@ table in the datasheets).
 TIM11_CH1 input for measurement purposes.
 
 
-                                                <!-- *P419*/844 -->
-420
+<!-- *P419*/844 -->
+[P419]: #P419
+<a id="P419"></a>
+
 
 //14.5.12 TIM10/11 register map
 -------------------------------
 
 TIMx registers are mapped as 16-bit addressable registers as described in the table below.
+
+[Table 60]: "Table%2060"
+<a id="Table 60"></a>
 
 **Table 60**. TIM10/11 register map and reset values
 
@@ -22709,12 +25181,17 @@ TI1_RMP
 Reset value 0 0
 
 
-                                                <!-- *P420*/844 -->
+<!-- *P420*/844 -->
+[P420]: #P420
+<a id="P420"></a>
+
 Refer to Section 3.3: Memory map for the register boundary addresses.
 
 
-                                                <!-- *P421*/844 -->
-425
+<!-- *P421*/844 -->
+[P421]: #P421
+<a id="P421"></a>
+
 
 /15 Independent watchdog (IWDG)
 ===============================
@@ -22748,7 +25225,7 @@ Section 16 on page 426.
 //15.3 IWDG functional description
 ----------------------------------
 
-Figure 156 shows the functional blocks of the independent watchdog module.
+[Figure 156] shows the functional blocks of the independent watchdog module.
 When the independent watchdog is started by writing the value 0xCCCC in the Key register
 (IWDG_KR), the counter starts counting down from the reset value of 0xFFF. When it
 reaches the end of count value (0x000) a reset signal is generated (IWDG reset).
@@ -22771,7 +25248,10 @@ different value will break the sequence and register access will be protected ag
 implies that it is the case of the reload operation (writing 0xAAAA).
 
 
-                                                <!-- *P422*/844 -->
+<!-- *P422*/844 -->
+[P422]: #P422
+<a id="P422"></a>
+
 A status register is available to indicate that an update of the prescaler or the down-counter
 reload value is on going.
 
@@ -22783,9 +25263,17 @@ counter either continues to work normally or stops, depending on DBG_IWDG_STOP
 configuration bit in DBG module. For more details, refer to Section 23.16.2: Debug support
 for timers, watchdog and I2C.
 
+[Figure 156]: "#Figure%20156"
+<a id="Figure 156"></a>
+
+[Figure 156]: "Figure%20156"
+<a id="Figure 156"></a>
+
 **Figure 156**. Independent watchdog block diagram
 
-Note: The watchdog function is implemented in the V DD voltage domain, still functional in Stop and
+
+> [!NOTE]
+> The watchdog function is implemented in the V DD voltage domain, still functional in Stop and
 Standby modes.
 
 ??????????
@@ -22809,6 +25297,9 @@ Standby modes.
 ??????????????????
 ?
 
+[Table 61]: "Table%2061"
+<a id="Table 61"></a>
+
 **Table 61**. Min/max IWDG timeout period (in ms) at 32 kHz (LSI) (1)
 
 1. These timings are given for a 32 kHz clock but the microcontroller internal RC frequency can vary. Refer to
@@ -22823,8 +25314,10 @@ Prescaler divider PR[2:0] bits Min timeout RL[11:0]= 0x000 Max timeout RL[11:0]=
 /256 6 32768
 
 
-                                                <!-- *P423*/844 -->
-425
+<!-- *P423*/844 -->
+[P423]: #P423
+<a id="P423"></a>
+
 
 //15.4 IWDG registers
 ---------------------
@@ -22874,13 +25367,18 @@ order to be able to change the prescaler divider.
 101: divider /128
 110: divider /256
 111: divider /256
-Note: Reading this register returns the prescaler value from the VDD voltage domain. This
+
+> [!NOTE]
+> Reading this register returns the prescaler value from the VDD voltage domain. This
 value may not be up to date/valid if a write operation to this register is ongoing. For this
 reason the value read from this register is valid only when the PVU bit in the IWDG_SR
 register is reset.
 
 
-                                                <!-- *P424*/844 -->
+<!-- *P424*/844 -->
+[P424]: #P424
+<a id="P424"></a>
+
 
 //15.4.3 Reload register (IWDG_RLR)
 -----------------------------------
@@ -22896,7 +25394,9 @@ Address offset: 0x0C
 Reset value: 0x0000 0000 (not reset by Standby mode)
 
 
-Note: If several reload values or prescaler values are used by application, it is mandatory to wait
+
+> [!NOTE]
+> If several reload values or prescaler values are used by application, it is mandatory to wait
 until RVU bit is reset before changing the reload value and to wait until PVU bit is reset
 before changing the prescaler value. However, after updating the prescaler and/or the
 reload value it is not necessary to wait until RVU or PVU is reset before continuing code
@@ -22911,10 +25411,12 @@ Bits11:0 RL[11:0]: Watchdog counter reload value
 These bits are write access protected see Section 15.3.2. They are written by software to
 define the value to be loaded in the watchdog counter each time the value AAAAh is written
 in the IWDG_KR register. The watchdog counter counts down from this value. The timeout
-period is a function of this value and the clock prescaler. Refer to Table 61.
+period is a function of this value and the clock prescaler. Refer to [Table 61].
 The RVU bit in the IWDG_SR register must be reset in order to be able to change the reload
 value.
-Note: Reading this register returns the reload value from the VDD voltage domain. This value
+
+> [!NOTE]
+> Reading this register returns the reload value from the VDD voltage domain. This value
 may not be up to date/valid if a write operation to this register is ongoing on this
 register. For this reason the value read from this register is valid only when the RVU bit
 in the IWDG_SR register is reset.
@@ -22935,8 +25437,10 @@ domain (takes up to 5 RC 40 kHz cycles).
 Prescaler value can be updated only when PVU bit is reset.
 
 
-                                                <!-- *P425*/844 -->
-425
+<!-- *P425*/844 -->
+[P425]: #P425
+<a id="P425"></a>
+
 
 //15.4.5 IWDG register map
 --------------------------
@@ -22944,6 +25448,9 @@ Prescaler value can be updated only when PVU bit is reset.
 The following table gives the IWDG register map and reset values.
 
 Refer to Section 3.3: Memory map for the register boundary addresses.
+
+[Table 62]: "Table%2062"
+<a id="Table 62"></a>
 
 **Table 62**. IWDG register map and reset values
 
@@ -23003,7 +25510,10 @@ PVU
 Reset value 0 0
 
 
-                                                <!-- *P426*/844 -->
+<!-- *P426*/844 -->
+[P426]: #P426
+<a id="P426"></a>
+
 
 /16 Window watchdog (WWDG)
 ==========================
@@ -23029,7 +25539,7 @@ refreshed in a limited window.
 – Reset (if watchdog activated) when the downcounter value becomes less than
 0x40
 – Reset (if watchdog activated) if the downcounter is reloaded outside the window
-(see Figure 158)
+(see [Figure 158])
 • Early wakeup interrupt (EWI): triggered (if enabled and the watchdog activated) when
 the downcounter is equal to 0x40.
 
@@ -23042,8 +25552,16 @@ a reset. If the software reloads the counter while the counter is greater than t
 in the window register, then a reset is generated.
 
 
-                                                <!-- *P427*/844 -->
-432
+<!-- *P427*/844 -->
+[P427]: #P427
+<a id="P427"></a>
+
+
+[Figure 157]: "#Figure%20157"
+<a id="Figure 157"></a>
+
+[Figure 157]: "Figure%20157"
+<a id="Figure 157"></a>
 
 **Figure 157**. Watchdog block diagram
 
@@ -23060,11 +25578,13 @@ the watchdog is enabled, the T6 bit must be set to prevent generating an immedia
 The T[5:0] bits contain the number of increments which represents the time delay before the
 watchdog produces a reset. The timing varies between a minimum and a maximum value
 due to the unknown status of the prescaler when writing to the WWDG_CR register (see
-Figure 158). The Configuration register (WWDG_CFR) contains the high limit of the window:
+[Figure 158]). The Configuration register (WWDG_CFR) contains the high limit of the window:
 To prevent a reset, the downcounter must be reloaded when its value is lower than the
-window register value and greater than 0x3F. Figure 158 describes the window watchdog
+window register value and greater than 0x3F. [Figure 158] describes the window watchdog
 process.
-Note: The T6 bit can be used to generate a software reset (the WDGA bit is set and the T6 bit is
+
+> [!NOTE]
+> The T6 bit can be used to generate a software reset (the WDGA bit is set and the T6 bit is
 cleared).
 Advanced watchdog interrupt feature
 The Early Wakeup Interrupt (EWI) can be used if specific safety operations or data logging
@@ -23092,13 +25612,18 @@ resetting the device.
 ?? ?? ?? ?? ?? ??
 
 
-                                                <!-- *P428*/844 -->
+<!-- *P428*/844 -->
+[P428]: #P428
+<a id="P428"></a>
+
 In some applications, the EWI interrupt can be used to manage a software system check
 and/or system recovery/graceful degradation, without generating a WWDG reset. In this
 case, the corresponding interrupt service routine (ISR) should reload the WWDG counter to
 avoid the WWDG reset, then trigger the required actions.
 The EWI interrupt is cleared by writing '0' to the EWIF bit in the WWDG_SR register.
-Note: When the EWI interrupt cannot be served, e.g. due to a system lock in a higher priority task,
+
+> [!NOTE]
+> When the EWI interrupt cannot be served, e.g. due to a system lock in a higher priority task,
 the WWDG reset will eventually be generated.
 
 //16.4 How to program the watchdog timeout
@@ -23106,6 +25631,12 @@ the WWDG reset will eventually be generated.
 
 Warning: When writing to the WWDG_CR register, always write 1 in the
 T6 bit to avoid generating an immediate reset.
+
+[Figure 158]: "#Figure%20158"
+<a id="Figure 158"></a>
+
+[Figure 158]: "Figure%20158"
+<a id="Figure 158"></a>
 
 **Figure 158**. Window watchdog timing diagram
 
@@ -23126,11 +25657,13 @@ t PCLK1 : APB1 clock period measured in ms
 t WWDG t PCLK1 4096 × 2 WDGTB[1:0] × T[5:0] 1 + ( ) × = ms ( )
 
 
-                                                <!-- *P429*/844 -->
-432
+<!-- *P429*/844 -->
+[P429]: #P429
+<a id="P429"></a>
+
 As an example, let us assume APB1 frequency is equal to 24 MHz, WDGTB[1:0] is set to 3
 and T[5:0] is set to 63:
-Refer to Table 63 for the minimum and maximum values of the t WWDG .
+Refer to [Table 63] for the minimum and maximum values of the t WWDG .
 
 
 //16.5 Debug mode
@@ -23140,6 +25673,9 @@ When the microcontroller enters debug mode (Cortex®-M4 with FPU core halted), t
 WWDG counter either continues to work normally or stops, depending on
 DBG_WWDG_STOP configuration bit in DBG module. For more details, refer to
 Section 23.16.2: Debug support for timers, watchdog and I2C.
+
+[Table 63]: "Table%2063"
+<a id="Table 63"></a>
 
 **Table 63**. Minimum and maximum timeout values at 30 MHz (f PCLK1 )
 
@@ -23155,7 +25691,10 @@ T[5:0] = 0x3F
 t WWDG 1 24000 ⁄ 4096 × 2 3 × 63 1 + ( ) × 21.85ms = =
 
 
-                                                <!-- *P430*/844 -->
+<!-- *P430*/844 -->
+[P430]: #P430
+<a id="P430"></a>
+
 
 //16.6 WWDG registers
 ---------------------
@@ -23188,8 +25727,10 @@ These bits contain the value of the watchdog counter. It is decremented every (4
 becomes cleared).
 
 
-                                                <!-- *P431*/844 -->
-432
+<!-- *P431*/844 -->
+[P431]: #P431
+<a id="P431"></a>
+
 
 //16.6.2 Configuration register (WWDG_CFR)
 ------------------------------------------
@@ -23237,7 +25778,10 @@ by software by writing ‘0’. A write of ‘1’ has no effect. This bit is al
 enabled.
 
 
-                                                <!-- *P432*/844 -->
+<!-- *P432*/844 -->
+[P432]: #P432
+<a id="P432"></a>
+
 
 //16.6.4 WWDG register map
 --------------------------
@@ -23245,6 +25789,9 @@ enabled.
 The following table gives the WWDG register map and reset values.
 
 Refer to Section 3.3: Memory map for the register boundary addresses.
+
+[Table 64]: "Table%2064"
+<a id="Table 64"></a>
 
 **Table 64**. WWDG register map and reset values
 
@@ -23302,8 +25849,10 @@ EWIF
 Reset value 0
 
 
-                                                <!-- *P433*/844 -->
-471
+<!-- *P433*/844 -->
+[P433]: #P433
+<a id="P433"></a>
+
 
 /17 Real-time clock (RTC)
 =========================
@@ -23331,12 +25880,15 @@ As long as the supply voltage remains in the operating range, the RTC never stop
 regardless of the device status (Run mode, low-power mode or under reset).
 
 
-                                                <!-- *P434*/844 -->
+<!-- *P434*/844 -->
+[P434]: #P434
+<a id="P434"></a>
+
 
 //17.2 RTC main features
 ------------------------
 
-The RTC unit main features are the following (see Figure 159: RTC block diagram):
+The RTC unit main features are the following (see [Figure 159]: RTC block diagram):
 • Calendar with subseconds, seconds, minutes, hours (12 or 24 format), day (day of
 week), date (day of month), month, and year.
 • Daylight saving compensation programmable by software.
@@ -23377,8 +25929,16 @@ Refer to Section 8.3.15: Selection of RTC functions and the STM32F411xx datashee
 definition table.
 
 
-                                                <!-- *P435*/844 -->
-471
+<!-- *P435*/844 -->
+[P435]: #P435
+<a id="P435"></a>
+
+
+[Figure 159]: "#Figure%20159"
+<a id="Figure 159"></a>
+
+[Figure 159]: "Figure%20159"
+<a id="Figure 159"></a>
 
 **Figure 159**. RTC block diagram
 
@@ -23397,12 +25957,14 @@ source configuration, refer to Section 6: Reset and clock control (RCC) for
 STM32F411xC/ESTM32F411xC/E.
 A programmable prescaler stage generates a 1 Hz clock which is used to update the
 calendar. To minimize power consumption, the prescaler is split into 2 programmable
-prescalers (see Figure 159: RTC block diagram):
+prescalers (see [Figure 159]: RTC block diagram):
 • A 7-bit asynchronous prescaler configured through the PREDIV_A bits of the
 RTC_PRER register.
 • A 15-bit synchronous prescaler configured through the PREDIV_S bits of the
 RTC_PRER register.
-Note: When both prescalers are used, it is recommended to configure the asynchronous prescaler
+
+> [!NOTE]
+> When both prescalers are used, it is recommended to configure the asynchronous prescaler
 to a high value to minimize consumption.
 The asynchronous prescaler division factor is set to 128, and the synchronous division
 factor to 256, to obtain an internal clock frequency of 1 Hz (ck_spre) with an LSE frequency
@@ -23476,7 +26038,10 @@ The minimum division factor is 1 and the maximum division factor is 2 22 .
 ?????????
 
 
-                                                <!-- *P436*/844 -->
+<!-- *P436*/844 -->
+[P436]: #P436
+<a id="P436"></a>
+
 This corresponds to a maximum input frequency of around 4 MHz.
 f ck_apre is given by the following formula:
 The ck_apre clock is used to clock the binary RTC_SSR subseconds downcounter. When it
@@ -23528,8 +26093,10 @@ PREDIV_S 1 + ( ) PREDIV_A 1 + ( ) ×
 ----------------------------------------------------------------------------------------------- =
 
 
-                                                <!-- *P437*/844 -->
-471
+<!-- *P437*/844 -->
+[P437]: #P437
+<a id="P437"></a>
+
 RTC_ALRMASSR and RTC_ALRMBSSR registers. The alarm interrupts are enabled
 through the ALRAIE and ALRBIE bits in the RTC_CR register.
 Alarm A and Alarm B (if enabled by bits OSEL[1:0] in RTC_CR register) can be routed to the
@@ -23571,7 +26138,10 @@ System reset, as well as low-power modes (Sleep, Stop and Standby) have no influ
 the wakeup timer.
 
 
-                                                <!-- *P438*/844 -->
+<!-- *P438*/844 -->
+[P438]: #P438
+<a id="P438"></a>
+
 
 //17.3.5 RTC initialization and configuration
 ---------------------------------------------
@@ -23610,15 +26180,19 @@ register.
 5. Exit the initialization mode by clearing the INIT bit. The actual calendar counter value is
 then automatically loaded and the counting restarts after 4 RTCCLK clock cycles.
 When the initialization sequence is complete, the calendar starts counting.
-Note: After a system reset, the application can read the INITS flag in the RTC_ISR register to
+
+> [!NOTE]
+> After a system reset, the application can read the INITS flag in the RTC_ISR register to
 check if the calendar has been initialized or not. If this flag equals 0, the calendar has not
 been initialized since the year field is set at its backup domain reset default value (0x00).
 To read the calendar after initialization, the software must first check that the RSF flag is set
 in the RTC_ISR register.
 
 
-                                                <!-- *P439*/844 -->
-471
+<!-- *P439*/844 -->
+[P439]: #P439
+<a id="P439"></a>
+
 Daylight saving time
 The daylight saving time management is performed through bits SUB1H, ADD1H, and BKP
 of the RTC_CR register.
@@ -23635,7 +26209,9 @@ synchronization).
 3. Program the Alarm A or Alarm B registers (RTC_ALRMASSR/RTC_ALRMAR or
 RTC_ALRMBSSR/RTC_ALRMBR).
 4. Set ALRAE or ALRBIE in the RTC_CR register to enable Alarm A or Alarm B again.
-Note: Each change of the RTC_CR register is taken into account after 1 to 2 RTCCLK clock cycles
+
+> [!NOTE]
+> Each change of the RTC_CR register is taken into account after 1 to 2 RTCCLK clock cycles
 due to clock synchronization.
 Programming the wakeup timer
 The following sequence is required to configure or change the wakeup timer auto-reload
@@ -23666,7 +26242,10 @@ RTCCLK cycles. To ensure consistency between the 3 values, reading either RTC_SS
 RTC_TR locks the values in the higher-order calendar shadow registers until RTC_DR is
 
 
-                                                <!-- *P440*/844 -->
+<!-- *P440*/844 -->
+[P440]: #P440
+<a id="P440"></a>
+
 read. In case the software makes read accesses to the calendar in a time interval smaller
 than 2 RTCCLK periods: RSF must be cleared by software after the first calendar read, and
 then the software must wait until RSF is set before reading again the RTC_SSR, RTC_TR
@@ -23675,7 +26254,9 @@ After waking up from low-power mode (Stop or Standby), RSF must be cleared by so
 The software must then wait until it is set again before reading the RTC_SSR, RTC_TR and
 RTC_DR registers.
 The RSF bit must be cleared after wakeup and not before entering low-power mode.
-Note: After a system reset, the software must wait until RSF is set before reading the RTC_SSR,
+
+> [!NOTE]
+> After a system reset, the software must wait until RSF is set before reading the RTC_SSR,
 RTC_TR and RTC_DR registers. Indeed, a system reset resets the shadow registers to
 their default values.
 After an initialization (refer to Calendar initialization and configuration on page 438): the
@@ -23695,7 +26276,9 @@ registers. Additionally, the value of one of the registers may be incorrect if a
 occurs during the read operation. The software must read all the registers twice, and then
 compare the results to confirm that the data is coherent and correct. Alternatively, the
 software can just compare the two results of the least-significant calendar register.
-Note: While BYPSHAD=1, instructions which read the calendar registers require one extra APB
+
+> [!NOTE]
+> While BYPSHAD=1, instructions which read the calendar registers require one extra APB
 cycle to complete.
 
 //17.3.7 Resetting the RTC
@@ -23716,8 +26299,10 @@ In addition, when the RTC is clocked by the LSE, it goes on running under system
 the reset source is different from a backup domain reset one. Refer to section RTC clock of
 
 
-                                                <!-- *P441*/844 -->
-471
+<!-- *P441*/844 -->
+[P441]: #P441
+<a id="P441"></a>
+
 the Reset and clock controller for details about the list of the RTC clock sources that are not
 affected by system reset.
 When a backup domain reset occurs, the RTC is stopped and all the RTC registers are set
@@ -23769,7 +26354,10 @@ the 1 Hz clock a bit so that future 1 Hz clock edges are aligned. Thanks to this
 the calendar becomes as precise as the reference clock.
 
 
-                                                <!-- *P442*/844 -->
+<!-- *P442*/844 -->
+[P442]: #P442
+<a id="P442"></a>
+
 The RTC detects if the reference clock source is present by using the 256 Hz clock
 (ck_apre) generated from the 32.768 kHz quartz. The detection is performed during a time
 window around each of the calendar updates (every 1 s). The window equals 7 ck_apre
@@ -23788,7 +26376,9 @@ When the reference clock detection is enabled, PREDIV_A and PREDIV_S must be set
 their default values:
 • PREDIV_A = 0x007F
 • PREDIV_S = 0x00FF
-Note: The reference clock detection is not available in Standby mode.
+
+> [!NOTE]
+> The reference clock detection is not available in Standby mode.
 Caution: The reference clock detection feature cannot be used in conjunction with the coarse digital
 calibration: RTC_CALIBR must be kept at 0x0000 0000 when REFCKON=1.
 
@@ -23819,8 +26409,10 @@ the INIT bit is cleared. The full calibration cycle lasts 64 minutes. The first 
 the 64 -minute cycle are modified as just described.
 
 
-                                                <!-- *P443*/844 -->
-471
+<!-- *P443*/844 -->
+[P443]: #P443
+<a id="P443"></a>
+
 Negative calibration can be performed with a resolution of about 2 ppm while positive
 calibration can be performed with a resolution of about 4 ppm. The maximum calibration
 ranges from −63 ppm to 126 ppm.
@@ -23860,7 +26452,9 @@ second cycle.
 • Setting CALM[1] to 1 causes two additional cycles to be masked
 • Setting CALM[2] to 1 causes four additional cycles to be masked
 • and so on up to CALM[8] set to 1 which causes 256 clocks to be masked.
-Note: CALM[8:0] (RTC_CALRx) specifies the number of RTCCLK pulses to be masked during the
+
+> [!NOTE]
+> CALM[8:0] (RTC_CALRx) specifies the number of RTCCLK pulses to be masked during the
 32-second cycle. Setting the bit CALM[0] to ‘1’ causes exactly one pulse to be masked
 during the 32-second cycle at the moment when cal_cnt[19:0] is 0x80000; CALM[1]=1
 causes two other cycles to be masked (when cal_cnt is 0x40000 and 0xC0000); CALM[2]=1
@@ -23868,7 +26462,10 @@ causes four other cycles to be masked (cal_cnt = 0x20000/0x60000/0xA0000/ 0xE000
 and so on up to CALM[8]=1 which causes 256 clocks to be masked (cal_cnt = 0xXX800).
 
 
-                                                <!-- *P444*/844 -->
+<!-- *P444*/844 -->
+[P444]: #P444
+<a id="P444"></a>
+
 While CALM allows the RTC frequency to be reduced by up to 487.1 ppm with fine
 resolution, the bit CALP can be used to increase the frequency by 488.5 ppm. Setting CALP
 to ‘1’ effectively inserts an extra RTCCLK pulse every 2 11 RTCCLK cycles, which means
@@ -23907,8 +26504,10 @@ cycles over the measurement period, depending on how the digital calibration cyc
 aligned with the measurement period.
 
 
-                                                <!-- *P445*/844 -->
-471
+<!-- *P445*/844 -->
+[P445]: #P445
+<a id="P445"></a>
+
 However, this measurement error can be eliminated if the measurement period is the same
 length as the calibration cycle period. In this case, the only error observed is the error due to
 the resolution of the digital calibration.
@@ -23949,7 +26548,9 @@ event occurs.
 If a new timestamp event is detected while the timestamp flag (TSF) is already set, the
 timestamp overflow flag (TSOVF) flag is set and the timestamp registers (RTC_TSTR and
 RTC_TSDR) maintain the results of the previous event.
-Note: TSF is set 2 ck_apre cycles after the timestamp event occurs due to synchronization
+
+> [!NOTE]
+> TSF is set 2 ck_apre cycles after the timestamp event occurs due to synchronization
 process.
 There is no delay in the setting of TSOVF. This means that if two timestamp events are
 close together, TSOVF can be seen as '1' while TSF is still '0'. As a consequence, it is
@@ -23958,7 +26559,10 @@ Caution: If a timestamp event occurs immediately after the TSF bit is supposed t
 both TSF and TSOVF bits are set. To avoid masking a timestamp event occurring at the
 
 
-                                                <!-- *P446*/844 -->
+<!-- *P446*/844 -->
+[P446]: #P446
+<a id="P446"></a>
+
 same moment, the application must not write ‘0’ into TSF bit unless it has already read it to
 ‘1’.
 Optionally, a tamper event can cause a timestamp to be recorded. See the description of the
@@ -24004,8 +26608,10 @@ TAMPERx pin is enabled.
 tamper detection is enabled (TAMPxE bit set to 1), a tamper event is detected as soon
 
 
-                                                <!-- *P447*/844 -->
-471
+<!-- *P447*/844 -->
+[P447]: #P447
+<a id="P447"></a>
+
 as TAMPERx is enabled, even if there was no rising edge on TAMPERx after TAMPxE
 was set.
 • When TAMPxTRG = 1: if the TAMPERx additional function is already low before
@@ -24016,7 +26622,9 @@ should be disabled and then re-enabled (TAMPxE set to 1) before re-programming t
 backup registers (RTC_BKPxR). This prevents the application from writing to the backup
 registers while the TAMPERx value still indicates a tamper detection. This is equivalent to a
 level detection on the TAMPERx additional function.
-Note: Tamper detection is still active when V DD power is switched off. To avoid unwanted resetting
+
+> [!NOTE]
+> Tamper detection is still active when V DD power is switched off. To avoid unwanted resetting
 of the backup registers, the pin to which the TAMPER additional function is mapped should
 be externally tied to the correct level.
 Level detection with filtering on tamper input
@@ -24029,7 +26637,9 @@ determined by the TAMPPRCH bits, allowing for larger capacitances on the tamper 
 The trade-off between tamper detection latency and power consumption through the pull-up
 can be optimized by using TAMPFREQ to determine the frequency of the sampling for level
 detection.
-Note: Refer to the datasheets for the electrical characteristics of the pull-up resistors.
+
+> [!NOTE]
+> Refer to the datasheets for the electrical characteristics of the pull-up resistors.
 TAMPER additional function detection
 The TAMPER1 addtional function is mapped to the RTC_AF1 pin.
 
@@ -24053,8 +26663,13 @@ When the COE bit in the RTC_CR register is set to 1, the calibration alternate f
 (RTC_CALIB) is enabled on RTC_OUT.
 
 
-                                                <!-- *P448*/844 -->
-Note: When RTC_CALIB or RTC_ALARM is selected, RTC_OUT is automatically configured in
+<!-- *P448*/844 -->
+[P448]: #P448
+<a id="P448"></a>
+
+
+> [!NOTE]
+> When RTC_CALIB or RTC_ALARM is selected, RTC_OUT is automatically configured in
 output alternate function.
 
 //17.3.15 Alarm output
@@ -24070,7 +26685,9 @@ opposite of the selected flag bit is output when POL is set to 1.
 Alarm alternate function output
 RTC_ALARM can be configured in output open drain or output push-pull using the control
 bit ALARMOUTTYPE in the RTC_TAFCR register.
-Note: Once RTC_ALARM is enabled, it has priority over RTC_CALIB (COE bit is don't care on
+
+> [!NOTE]
+> Once RTC_ALARM is enabled, it has priority over RTC_CALIB (COE bit is don't care on
 RTC_AF1).
 When RTC_CALIB or RTC_ALARM is selected, RTC_OUT is automatically configured in
 output alternate function.
@@ -24091,6 +26708,9 @@ sensitivity.
 3. Configure the RTC to generate RTC alarms (Alarm A or Alarm B).
 To enable the RTC Wakeup interrupt, the following sequence is required:
 
+[Table 65]: "Table%2065"
+<a id="Table 65"></a>
+
 **Table 65**. Effect of low-power modes on RTC
 
 Mode Description
@@ -24107,8 +26727,10 @@ tamper event, RTC time stamp event, and RTC Wakeup cause the device to exit the
 Standby mode.
 
 
-                                                <!-- *P449*/844 -->
-471
+<!-- *P449*/844 -->
+[P449]: #P449
+<a id="P449"></a>
+
 1. Configure and enable the EXTI Line 22 in interrupt mode and select the rising edge
 sensitivity.
 2. Configure and enable the RTC_WKUP IRQ channel in the NVIC.
@@ -24124,6 +26746,9 @@ sensitivity.
 2. Configure and Enable the TAMP_STAMP IRQ channel in the NVIC.
 3. Configure the RTC to detect the RTC timestamp event.
 
+
+[Table 66]: "Table%2066"
+<a id="Table 66"></a>
 
 **Table 66**. Interrupt control bits
 
@@ -24149,7 +26774,10 @@ TimeStamp TSF TSIE yes yes (1) yes (1)
 Tamper1 detection TAMP1F TAMPIE yes yes (1) yes (1)
 
 
-                                                <!-- *P450*/844 -->
+<!-- *P450*/844 -->
+[P450]: #P450
+<a id="P450"></a>
+
 
 //17.6 RTC registers
 --------------------
@@ -24169,7 +26797,9 @@ Backup domain reset value: 0x0000 0000
 System reset: 0x0000 0000 when BYPSHAD = 0. Not affected when BYPSHAD = 1.
 
 
-Note: This register is write protected. The write access procedure is described in RTC register
+
+> [!NOTE]
+> This register is write protected. The write access procedure is described in RTC register
 write protection on page 438.
 31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16
 Reserved
@@ -24196,8 +26826,10 @@ Bits 6:4 ST[2:0]: Second tens in BCD format
 Bits 3:0 SU[3:0]: Second units in BCD format
 
 
-                                                <!-- *P451*/844 -->
-471
+<!-- *P451*/844 -->
+[P451]: #P451
+<a id="P451"></a>
+
 
 //17.6.2 RTC date register (RTC_DR)
 -----------------------------------
@@ -24210,7 +26842,9 @@ Backup domain reset value: 0x0000 2101
 System reset: 0x0000 2101 when BYPSHAD = 0. Not affected when BYPSHAD = 1.
 
 
-Note: This register is write protected. The write access procedure is described in RTC register
+
+> [!NOTE]
+> This register is write protected. The write access procedure is described in RTC register
 write protection on page 438.
 31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16
 Reserved
@@ -24236,7 +26870,10 @@ Bits 5:4 DT[1:0]: Date tens in BCD format
 Bits 3:0 DU[3:0]: Date units in BCD format
 
 
-                                                <!-- *P452*/844 -->
+<!-- *P452*/844 -->
+[P452]: #P452
+<a id="P452"></a>
+
 
 //17.6.3 RTC control register (RTC_CR)
 --------------------------------------
@@ -24288,8 +26925,10 @@ Setting this bit has no effect when current hour is 0.
 1: Subtracts 1 hour to the current time. This can be used for winter time change.
 
 
-                                                <!-- *P453*/844 -->
-471
+<!-- *P453*/844 -->
+[P453]: #P453
+<a id="P453"></a>
+
 Bit 16 ADD1H: Add 1 hour (summer time change)
 When this bit is set, 1 hour is added to the calendar time. This bit is always read as 0.
 0: No effect
@@ -24313,7 +26952,9 @@ Bit 11 TSE: Time stamp enable
 Bit 10 WUTE: Wakeup timer enable
 0: Wakeup timer disabled
 1: Wakeup timer enabled
-Note: When the wakeup timer is disabled, wait for WUTWF=1 before enabling it again.
+
+> [!NOTE]
+> When the wakeup timer is disabled, wait for WUTWF=1 before enabling it again.
 Bit 9 ALRBE: Alarm B enable
 0: Alarm B disabled
 1: Alarm B enabled
@@ -24332,12 +26973,19 @@ Bit 5 BYPSHAD: Bypass the shadow registers
 the shadow registers, which are updated once every two RTCCLK cycles.
 1: Calendar values (when reading from RTC_SSR, RTC_TR, and RTC_DR) are taken
 directly from the calendar counters.
-Note: If the frequency of the APB1 clock is less than seven times the frequency of RTCCLK,
+
+> [!NOTE]
+> If the frequency of the APB1 clock is less than seven times the frequency of RTCCLK,
 BYPSHAD must be set to ‘1’.
 
 
-                                                <!-- *P454*/844 -->
-Note: WUT = Wakeup unit counter value. WUT = (0x0000 to 0xFFFF) + 0x10000 added when
+<!-- *P454*/844 -->
+[P454]: #P454
+<a id="P454"></a>
+
+
+> [!NOTE]
+> WUT = Wakeup unit counter value. WUT = (0x0000 to 0xFFFF) + 0x10000 added when
 WUCKSEL[2:1 = 11].
 Bits 7, 6 and 4 of this register can be written in initialization mode only (RTC_ISR/INITF = 1).
 Bits 2 to 0 of this register can be written only when RTC_CR WUTE bit = 0 and RTC_ISR
@@ -24359,7 +27007,9 @@ System reset value: Not affected except INIT, INITF and RSF which are cleared to
 Bit 4 REFCKON: Reference clock detection enable (50 or 60 Hz)
 0: Reference clock detection disabled
 1: Reference clock detection enabled
-Note: PREDIV_S must be 0x00FF.
+
+> [!NOTE]
+> PREDIV_S must be 0x00FF.
 Bit 3 TSEDGE: Timestamp event active edge
 0: TIMESTAMP rising edge generates a timestamp event
 1: TIMESTAMP falling edge generates a timestamp event
@@ -24391,8 +27041,10 @@ WF
 rc_w0 rc_w0 rc_w0 rc_w0 rc_w0 rc_w0 rw r rc_w0 r r r r r
 
 
-                                                <!-- *P455*/844 -->
-471
+<!-- *P455*/844 -->
+[P455]: #P455
+<a id="P455"></a>
+
 Bits 31:17 Reserved
 Bit 16 RECALPF: Recalibration pending Flag
 The RECALPF status flag is automatically set to ‘1’ when software writes to the RTC_CALR
@@ -24443,8 +27095,13 @@ register mode (BYPSHAD=1). This bit can also be cleared by software.
 1: Calendar shadow registers synchronized
 
 
-                                                <!-- *P456*/844 -->
-Note: The ALRAF, ALRBF, WUTF and TSF bits are cleared 2 APB clock cycles after programming
+<!-- *P456*/844 -->
+[P456]: #P456
+<a id="P456"></a>
+
+
+> [!NOTE]
+> The ALRAF, ALRBF, WUTF and TSF bits are cleared 2 APB clock cycles after programming
 them to 0.
 This register is write protected (except for RTC_ISR[13:8] bits). The write access procedure
 is described in RTC register write protection on page 438.
@@ -24495,10 +27152,14 @@ PREDIV_S[14:0]
 rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw
 
 
-                                                <!-- *P457*/844 -->
-471
+<!-- *P457*/844 -->
+[P457]: #P457
+<a id="P457"></a>
 
-Note: This register must be written in initialization mode only. The initialization must be performed
+
+
+> [!NOTE]
+> This register must be written in initialization mode only. The initialization must be performed
 in two separate write accesses. Refer to Calendar initialization and configuration on
 page 438
 This register is write protected. The write access procedure is described in RTC register
@@ -24511,7 +27172,9 @@ Address offset: 0x14
 Backup domain reset value: 0x0000 FFFF
 System reset: not affected
 
-Note: This register can be written only when WUTWF is set to 1 in RTC_ISR.
+
+> [!NOTE]
+> This register can be written only when WUTWF is set to 1 in RTC_ISR.
 This register is write protected. The write access procedure is described in RTC register
 write protection on page 438.
 Bits 31:24 Reserved
@@ -24535,11 +27198,16 @@ When the wakeup timer is enabled (WUTE set to 1), the WUTF flag is set every (WU
 RTC_CR register
 When WUCKSEL[2] = 1, the wakeup timer becomes 17-bits and WUCKSEL[1] effectively
 becomes WUT[16] the most-significant bit to be reloaded into the timer.
-Note: The first assertion of WUTF occurs (WUT+1) ck_wut cycles after WUTE is set. Setting
+
+> [!NOTE]
+> The first assertion of WUTF occurs (WUT+1) ck_wut cycles after WUTE is set. Setting
 WUT[15:0] to 0x0000 with WUCKSEL[2:0] =011 (RTCCLK/2) is forbidden.
 
 
-                                                <!-- *P458*/844 -->
+<!-- *P458*/844 -->
+[P458]: #P458
+<a id="P458"></a>
+
 
 //17.6.7 RTC calibration register (RTC_CALIBR)
 ----------------------------------------------
@@ -24548,7 +27216,9 @@ Address offset: 0x18
 Backup domain reset value: 0x0000 0000
 System reset: not affected
 
-Note: This register can be written in initialization mode only (RTC_ISR/INITF = ‘1’).
+
+> [!NOTE]
+> This register can be written in initialization mode only (RTC_ISR/INITF = ‘1’).
 This register is write protected. The write access procedure is described in RTC register
 write protection on page 438.
 31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16
@@ -24581,8 +27251,10 @@ Refer to Case of RTCCLK=32.768 kHz and PREDIV_A+1=128 on page 443 for the exact
 step value.
 
 
-                                                <!-- *P459*/844 -->
-471
+<!-- *P459*/844 -->
+[P459]: #P459
+<a id="P459"></a>
+
 
 //17.6.8 RTC alarm A register (RTC_ALRMAR)
 ------------------------------------------
@@ -24592,7 +27264,9 @@ Backup domain reset value: 0x0000 0000
 System reset: not affected
 
 
-Note: This register can be written only when ALRAWF is set to 1 in RTC_ISR, or in initialization
+
+> [!NOTE]
+> This register can be written only when ALRAWF is set to 1 in RTC_ISR, or in initialization
 mode.
 This register is write protected. The write access procedure is described in RTC register
 write protection on page 438.
@@ -24630,7 +27304,10 @@ Bits 6:4 ST[2:0]: Second tens in BCD format.
 Bits 3:0 SU[3:0]: Second units in BCD format.
 
 
-                                                <!-- *P460*/844 -->
+<!-- *P460*/844 -->
+[P460]: #P460
+<a id="P460"></a>
+
 
 //17.6.9 RTC alarm B register (RTC_ALRMBR)
 ------------------------------------------
@@ -24674,9 +27351,13 @@ Bits 6:4 ST[2:0]: Second tens in BCD format
 Bits 3:0 SU[3:0]: Second units in BCD format
 
 
-                                                <!-- *P461*/844 -->
-471
-Note: This register can be written only when ALRBWF is set to 1 in RTC_ISR, or in initialization
+<!-- *P461*/844 -->
+[P461]: #P461
+<a id="P461"></a>
+
+
+> [!NOTE]
+> This register can be written only when ALRBWF is set to 1 in RTC_ISR, or in initialization
 mode.
 This register is write protected. The write access procedure is described in RTC register
 write protection on page 438.
@@ -24720,11 +27401,16 @@ Bits 15:0 SS: Sub second value
 SS[15:0] is the value in the synchronous prescaler’s counter. The fraction of a second is
 given by the formula below:
 Second fraction = ( PREDIV_S - SS ) / ( PREDIV_S + 1 )
-Note: SS can be larger than PREDIV_S only after a shift operation. In that case, the correct
+
+> [!NOTE]
+> SS can be larger than PREDIV_S only after a shift operation. In that case, the correct
 time/date is one second less than as indicated by RTC_TR/RTC_DR.
 
 
-                                                <!-- *P462*/844 -->
+<!-- *P462*/844 -->
+[P462]: #P462
+<a id="P462"></a>
+
 
 //17.6.12 RTC shift control register (RTC_SHIFTR)
 -------------------------------------------------
@@ -24734,7 +27420,9 @@ Backup domain reset value: 0x0000 0000
 System reset: not affected
 
 
-Note: This register is write protected. The write access procedure is described in RTC register
+
+> [!NOTE]
+> This register is write protected. The write access procedure is described in RTC register
 write protection on page 438
 
 //17.6.13 RTC time stamp time register (RTC_TSTR)
@@ -24767,7 +27455,9 @@ Delay (seconds) = SUBFS / ( PREDIV_S + 1 )
 A fraction of a second can effectively be added to the clock (advancing the clock) when the
 ADD1S function is used in conjunction with SUBFS, effectively advancing the clock by:
 Advance (seconds) = ( 1 - ( SUBFS / ( PREDIV_S + 1 ) ) ) .
-Note: Writing to SUBFS causes RSF to be cleared. Software can then wait until RSF=1 to be
+
+> [!NOTE]
+> Writing to SUBFS causes RSF to be cleared. Software can then wait until RSF=1 to be
 sure that the shadow registers have been updated with the shifted time.
 Refer to Section 17.3.8: RTC synchronization.
 31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16
@@ -24776,10 +27466,14 @@ PM HT[1:0] HU[3:0]
 r r r r r r r
 
 
-                                                <!-- *P463*/844 -->
-471
+<!-- *P463*/844 -->
+[P463]: #P463
+<a id="P463"></a>
 
-Note: The content of this register is valid only when TSF is set to 1 in RTC_ISR. It is cleared when
+
+
+> [!NOTE]
+> The content of this register is valid only when TSF is set to 1 in RTC_ISR. It is cleared when
 TSF bit is reset.
 
 //17.6.14 RTC time stamp date register (RTC_TSDR)
@@ -24790,7 +27484,9 @@ Backup domain reset value: 0x0000 0000
 System reset: not affected
 
 
-Note: The content of this register is valid only when TSF is set to 1 in RTC_ISR. It is cleared when
+
+> [!NOTE]
+> The content of this register is valid only when TSF is set to 1 in RTC_ISR. It is cleared when
 TSF bit is reset.
 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
 Res.
@@ -24826,7 +27522,10 @@ Bits 5:4 DT[1:0]: Date tens in BCD format
 Bit 3:0 DU[3:0]: Date units in BCD format
 
 
-                                                <!-- *P464*/844 -->
+<!-- *P464*/844 -->
+[P464]: #P464
+<a id="P464"></a>
+
 
 //17.6.15 RTC timestamp sub second register (RTC_TSSSR)
 -------------------------------------------------------
@@ -24836,7 +27535,9 @@ Backup domain reset value: 0x0000 0000
 System reset: not affected
 
 
-Note: The content of this register is valid only when RTC_ISR/TSF is set. It is cleared when the
+
+> [!NOTE]
+> The content of this register is valid only when RTC_ISR/TSF is set. It is cleared when the
 RTC_ISR/TSF bit is reset.
 
 //17.6.16 RTC calibration register (RTC_CALR)
@@ -24864,10 +27565,14 @@ CALP CALW8 CALW16 Reserved CALM[8:0]
 rw rw rw r r r r rw rw rw rw rw rw rw rw rw
 
 
-                                                <!-- *P465*/844 -->
-471
+<!-- *P465*/844 -->
+[P465]: #P465
+<a id="P465"></a>
 
-Note: This register is write protected. The write access procedure is described in RTC register
+
+
+> [!NOTE]
+> This register is write protected. The write access procedure is described in RTC register
 write protection on page 438
 Bits 31:16 Reserved
 Bit 15 CALP: Increase frequency of RTC by 488.5 ppm
@@ -24886,7 +27591,9 @@ Refer to Section 17.3.11: RTC smooth digital calibration.
 Bit 13 CALW16: Use a 16-second calibration cycle period
 When CALW16 is set to ‘1’, the 16-second calibration cycle period is selected. This bit must
 not be set to ‘1’ if CALW8=1.
-Note: CALM[0] is stuck at ‘0’ when CALW16=’1’.
+
+> [!NOTE]
+> CALM[0] is stuck at ‘0’ when CALW16=’1’.
 Refer to Section 17.3.11: RTC smooth digital calibration.
 Bits 12:9 Reserved
 Bits 8:0 CALM[8:0]: Calibration minus
@@ -24898,7 +27605,10 @@ CALP.
 See Section 17.3.11: RTC smooth digital calibration on page 443.
 
 
-                                                <!-- *P466*/844 -->
+<!-- *P466*/844 -->
+[P466]: #P466
+<a id="P466"></a>
+
 
 //17.6.17 RTC tamper and alternate function configuration register
 ------------------------------------------------------------------
@@ -24966,8 +27676,10 @@ pull-up on tamper input).
 0x3: Tamper is activated after 8 consecutive samples at the active level.
 
 
-                                                <!-- *P467*/844 -->
-471
+<!-- *P467*/844 -->
+[P467]: #P467
+<a id="P467"></a>
+
 
 //17.6.18 RTC alarm A sub second register (RTC_ALRMASSR)
 --------------------------------------------------------
@@ -25014,8 +27726,13 @@ Reserved SS[14:0]
 r rw rw rw rw rw rw rw rw rw rw rw rw w rw rw
 
 
-                                                <!-- *P468*/844 -->
-Note: This register can be written only when ALRAE is reset in RTC_CR register, or in initialization
+<!-- *P468*/844 -->
+[P468]: #P468
+<a id="P468"></a>
+
+
+> [!NOTE]
+> This register can be written only when ALRAE is reset in RTC_CR register, or in initialization
 mode.
 This register is write protected. The write access procedure is described in RTC register
 write protection on page 438
@@ -25053,10 +27770,14 @@ Reserved SS[14:0]
 r rw rw rw rw rw rw rw rw rw rw rw rw w rw rw
 
 
-                                                <!-- *P469*/844 -->
-471
+<!-- *P469*/844 -->
+[P469]: #P469
+<a id="P469"></a>
 
-Note: This register can be written only when ALRBIE is reset in RTC_CR register, or in
+
+
+> [!NOTE]
+> This register can be written only when ALRBIE is reset in RTC_CR register, or in
 initialization mode.
 This register is write protected.The write access procedure is described in Section : RTC
 register write protection
@@ -25080,7 +27801,10 @@ This value is compared with the contents of the synchronous prescaler’s counte
 determine if Alarm B is to be activated. Only bits 0 up to MASKSS-1 are compared.
 
 
-                                                <!-- *P470*/844 -->
+<!-- *P470*/844 -->
+[P470]: #P470
+<a id="P470"></a>
+
 
 //17.6.20 RTC backup registers (RTC_BKPxR)
 ------------------------------------------
@@ -25106,6 +27830,9 @@ The application can write or read data to and from these registers.
 They are powered-on by V BAT when V DD is switched off, so that they are not reset by
 System reset, and their contents remain valid when the device operates in low-power mode.
 This register is reset on a tamper detection event, as long as TAMPxF=1
+
+[Table 67]: "Table%2067"
+<a id="Table 67"></a>
 
 **Table 67**. RTC register map and reset values
 
@@ -25231,10 +27958,12 @@ DC[4:0]
 Reset value 0 0 0 0 0 0
 
 
-                                                <!-- *P471*/844 -->
-471
+<!-- *P471*/844 -->
+[P471]: #P471
+<a id="P471"></a>
+
 Refer to Section 2.3: Memory map for the register boundary addresses.
-Caution: In Table 67, the reset value is the value after a backup domain reset. The majority of the
+Caution: In [Table 67], the reset value is the value after a backup domain reset. The majority of the
 registers are not affected by a system reset. For more information, please refer to
 Section 17.3.7: Resetting the RTC.
 0x1C
@@ -25347,7 +28076,7 @@ to
 RTC_BKP19R
 BKP[31:0]
 Reset value 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-Table 67. RTC register map and reset values (continued)
+[Table 67]. RTC register map and reset values (continued)
 Offset Register
 31
 30
@@ -25383,7 +28112,10 @@ Offset Register
 0
 
 
-                                                <!-- *P472*/844 -->
+<!-- *P472*/844 -->
+[P472]: #P472
+<a id="P472"></a>
+
 
 /18 Inter-integrated circuit (I2C) interface
 ============================================
@@ -25434,8 +28166,10 @@ complete solution, please contact your local ST sales representative
 – 1 Interrupt for successful address/ data communication
 
 
-                                                <!-- *P473*/844 -->
-504
+<!-- *P473*/844 -->
+[P473]: #P473
+<a id="P473"></a>
+
 – 1 Interrupt for error condition
 • Optional clock stretching
 • 1-byte buffer with DMA capability
@@ -25449,7 +28183,9 @@ complete solution, please contact your local ST sales representative
 – Hardware PEC generation/verification with ACK control
 – Address Resolution Protocol (ARP) supported
 • PMBus Compatibility
-Note: Some of the above features may not be available in certain products. The user should refer
+
+> [!NOTE]
+> Some of the above features may not be available in certain products. The user should refer
 to the product data sheet, to identify the specific features supported by the I2C interface
 implementation.
 
@@ -25484,15 +28220,24 @@ start condition contain the address (one in 7-bit mode, two in 10-bit mode). The
 always transmitted in Master mode.
 
 
-                                                <!-- *P474*/844 -->
+<!-- *P474*/844 -->
+[P474]: #P474
+<a id="P474"></a>
+
 A 9th clock pulse follows the 8 clock cycles of a byte transfer, during which the receiver must
-send an acknowledge bit to the transmitter. Refer to Figure 160.
+send an acknowledge bit to the transmitter. Refer to [Figure 160].
+
+[Figure 160]: "#Figure%20160"
+<a id="Figure 160"></a>
+
+[Figure 160]: "Figure%20160"
+<a id="Figure 160"></a>
 
 **Figure 160**. I2C bus protocol
 
 Acknowledge may be enabled or disabled by software. The I2C interface addresses (dual
 addressing 7-bit/ 10-bit and/or general call address) can be selected by software.
-The block diagram of the I2C interface is shown in Figure 161.
+The block diagram of the I2C interface is shown in [Figure 161].
 ?????????
 ???
 ???
@@ -25504,8 +28249,16 @@ The block diagram of the I2C interface is shown in Figure 161.
 ? ? ? ?
 
 
-                                                <!-- *P475*/844 -->
-504
+<!-- *P475*/844 -->
+[P475]: #P475
+<a id="P475"></a>
+
+
+[Figure 161]: "#Figure%20161"
+<a id="Figure 161"></a>
+
+[Figure 161]: "Figure%20161"
+<a id="Figure 161"></a>
 
 **Figure 161**. I2C block diagram
 
@@ -25523,7 +28276,9 @@ generate correct timings. The peripheral input clock frequency must be at least:
 As soon as a start condition is detected, the address is received from the SDA line and sent
 to the shift register. Then it is compared with the address of the interface (OAR1) and with
 OAR2 (if ENDUAL=1) or the General Call address (if ENGC = 1).
-Note: In 10-bit addressing mode, the comparison includes the header sequence (11110xx0),
+
+> [!NOTE]
+> In 10-bit addressing mode, the comparison includes the header sequence (11110xx0),
 where xx denotes the two most significant bits of the address.
 ???????????????????
 ??????????
@@ -25556,7 +28311,10 @@ where xx denotes the two most significant bits of the address.
 ??????
 
 
-                                                <!-- *P476*/844 -->
+<!-- *P476*/844 -->
+[P476]: #P476
+<a id="P476"></a>
+
 Header or address not matched: the interface ignores it and waits for another Start
 condition.
 Header matched (10-bit mode only): the interface generates an acknowledge pulse if the
@@ -25575,7 +28333,7 @@ Slave transmitter
 Following the address reception and after clearing ADDR, the slave sends bytes from the
 DR register to the SDA line via the internal shift register.
 The slave stretches SCL low until ADDR is cleared and DR filled with the data to be sent
-(see Figure 162 Transfer sequencing EV1 EV3).
+(see [Figure 162] Transfer sequencing EV1 EV3).
 When the acknowledge pulse is received:
 • The TxE bit is set by hardware with an interrupt if the ITEVFEN and the ITBUFEN bits
 are set.
@@ -25584,8 +28342,16 @@ next data transmission, the BTF bit is set and the interface waits until BTF is 
 read to I2C_SR1 followed by a write to the I2C_DR register, stretching SCL low.
 
 
-                                                <!-- *P477*/844 -->
-504
+<!-- *P477*/844 -->
+[P477]: #P477
+<a id="P477"></a>
+
+
+[Figure 162]: "#Figure%20162"
+<a id="Figure 162"></a>
+
+[Figure 162]: "Figure%20162"
+<a id="Figure 162"></a>
 
 **Figure 162**. Transfer sequence diagram for slave transmitter
 
@@ -25601,7 +28367,7 @@ generates in sequence:
 ITBUFEN bit is set.
 If RxNE is set and the data in the DR register is not read before the end of the next data
 reception, the BTF bit is set and the interface waits until BTF is cleared by a read from the
-I2C_DR register, stretching SCL low (see Figure 163 Transfer sequencing).
+I2C_DR register, stretching SCL low (see [Figure 163] Transfer sequencing).
 ???????????????????????
 ????????????????????????
 ??????????????????? ?? ???????????????????????????????????????????????????????????????
@@ -25623,7 +28389,16 @@ I2C_DR register, stretching SCL low (see Figure 163 Transfer sequencing).
 ???????
 
 
-                                                <!-- *P478*/844 -->
+<!-- *P478*/844 -->
+[P478]: #P478
+<a id="P478"></a>
+
+
+[Figure 163]: "#Figure%20163"
+<a id="Figure 163"></a>
+
+[Figure 163]: "Figure%20163"
+<a id="Figure 163"></a>
 
 **Figure 163**. Transfer sequence diagram for slave receiver
 
@@ -25642,7 +28417,7 @@ After the last data byte is transferred a Stop Condition is generated by the mas
 interface detects this condition and sets:
 • The STOPF bit and generates an interrupt if the ITEVFEN bit is set.
 The STOPF bit is cleared by a read of the SR1 register followed by a write to the CR1
-register (see EV4 in Figure 163).
+register (see EV4 in [Figure 163]).
 
 //18.3.3 I2C master mode
 --------------------------
@@ -25679,8 +28454,10 @@ The peripheral input clock frequency must be at least:
 ???????
 
 
-                                                <!-- *P479*/844 -->
-504
+<!-- *P479*/844 -->
+[P479]: #P479
+<a id="P479"></a>
+
 SCL master clock generation
 The CCR bits are used to generate the high and low level of the SCL clock, starting from the
 generation of the rising and falling edge (respectively). As a slave may stretch the SCL line,
@@ -25700,33 +28477,38 @@ rising time.
 Start condition
 Setting the START bit causes the interface to generate a Start condition and to switch to
 Master mode (MSL bit set) when the BUSY bit is cleared.
-Note: In master mode, setting the START bit causes the interface to generate a ReStart condition
+
+> [!NOTE]
+> In master mode, setting the START bit causes the interface to generate a ReStart condition
 at the end of the current byte transfer.
 Once the Start condition is sent:
 • The SB bit is set by hardware and an interrupt is generated if the ITEVFEN bit is set.
 Then the master waits for a read of the SR1 register followed by a write in the DR register
-with the Slave address (see Figure 164 and Figure 165 Transfer sequencing EV5).
+with the Slave address (see [Figure 164] and [Figure 165] Transfer sequencing EV5).
 Slave address transmission
 Then the slave address is sent to the SDA line via the internal shift register.
 • In 10-bit addressing mode, sending the header sequence causes the following event:
 – The ADD10 bit is set by hardware and an interrupt is generated if the ITEVFEN bit
 is set.
 Then the master waits for a read of the SR1 register followed by a write in the DR
-register with the second address byte (see Figure 164 and Figure 165 Transfer
+register with the second address byte (see [Figure 164] and [Figure 165] Transfer
 sequencing).
 – The ADDR bit is set by hardware and an interrupt is generated if the ITEVFEN bit
 is set.
 Then the master waits for a read of the SR1 register followed by a read of the SR2
-register (see Figure 164 and Figure 165 Transfer sequencing).
+register (see [Figure 164] and [Figure 165] Transfer sequencing).
 • In 7-bit addressing mode, one address byte is sent.
 As soon as the address byte is sent,
 – The ADDR bit is set by hardware and an interrupt is generated if the ITEVFEN bit
 is set.
 Then the master waits for a read of the SR1 register followed by a read of the SR2
-register (see Figure 164 and Figure 165 Transfer sequencing).
+register (see [Figure 164] and [Figure 165] Transfer sequencing).
 
 
-                                                <!-- *P480*/844 -->
+<!-- *P480*/844 -->
+[P480]: #P480
+<a id="P480"></a>
+
 The master can decide to enter Transmitter or Receiver mode depending on the LSB of the
 slave address sent.
 • In 7-bit addressing mode,
@@ -25743,7 +28525,7 @@ The TRA bit indicates whether the master is in Receiver or Transmitter mode.
 Master transmitter
 Following the address transmission and after clearing ADDR, the master sends bytes from
 the DR register to the SDA line via the internal shift register.
-The master waits until the first data byte is written into I2C_DR (see Figure 164 Transfer
+The master waits until the first data byte is written into I2C_DR (see [Figure 164] Transfer
 sequencing EV8_1).
 When the acknowledge pulse is received, the TxE bit is set by hardware and an interrupt is
 generated if the ITEVFEN and ITBUFEN bits are set.
@@ -25752,13 +28534,23 @@ transmission, BTF is set and the interface waits until BTF is cleared by a write
 stretching SCL low.
 Closing the communication
 After the last byte is written to the DR register, the STOP bit is set by software to generate a
-Stop condition (see Figure 164 Transfer sequencing EV8_2). The interface automatically
+Stop condition (see [Figure 164] Transfer sequencing EV8_2). The interface automatically
 goes back to slave mode (MSL bit cleared).
-Note: Stop condition should be programmed during EV8_2 event, when either TxE or BTF is set.
+
+> [!NOTE]
+> Stop condition should be programmed during EV8_2 event, when either TxE or BTF is set.
 
 
-                                                <!-- *P481*/844 -->
-504
+<!-- *P481*/844 -->
+[P481]: #P481
+<a id="P481"></a>
+
+
+[Figure 164]: "#Figure%20164"
+<a id="Figure 164"></a>
+
+[Figure 164]: "Figure%20164"
+<a id="Figure 164"></a>
 
 **Figure 164**. Transfer sequence diagram for master transmitter
 
@@ -25771,7 +28563,7 @@ DR register via the internal shift register. After each byte the interface gener
 sequence:
 1. An acknowledge pulse if the ACK bit is set
 2. The RxNE bit is set and an interrupt is generated if the ITEVFEN and ITBUFEN bits are
-set (see Figure 165 Transfer sequencing EV7).
+set (see [Figure 165] Transfer sequencing EV7).
 If the RxNE bit is set and the data in the DR register is not read before the end of the last
 data reception, the BTF bit is set by hardware and the interface waits until BTF is cleared by
 a read in the DR register, stretching SCL low.
@@ -25809,7 +28601,16 @@ After the Stop condition generation, the interface goes automatically back to sl
 ???????
 
 
-                                                <!-- *P482*/844 -->
+<!-- *P482*/844 -->
+[P482]: #P482
+<a id="P482"></a>
+
+
+[Figure 165]: "#Figure%20165"
+<a id="Figure 165"></a>
+
+[Figure 165]: "Figure%20165"
+<a id="Figure 165"></a>
 
 **Figure 165**. Transfer sequence diagram for master receiver
 
@@ -25859,8 +28660,10 @@ For 2-byte reception:
 ???????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
 
 
-                                                <!-- *P483*/844 -->
-504
+<!-- *P483*/844 -->
+[P483]: #P483
+<a id="P483"></a>
+
 For N >2 -byte reception, from N-2 data reception
 • Wait until BTF = 1 (data N-2 in DR, data N-1 in shift register, SCL stretched low until
 data N-2 is read)
@@ -25902,7 +28705,10 @@ transfer, but it can acknowledge it after a repeated Start from the winning mast
 • lines are released by hardware
 
 
-                                                <!-- *P484*/844 -->
+<!-- *P484*/844 -->
+[P484]: #P484
+<a id="P484"></a>
+
 Overrun/underrun error (OVR)
 An overrun error can occur in slave mode when clock stretching is disabled and the I2C
 interface is receiving data. The interface has received a byte (RxNE=1) and the data in DR
@@ -25932,11 +28738,16 @@ This suppresses the spikes on SDA and SCL inputs with a length of up to DNF[3:0]
 T PCLK1 .
 Enabling the digital noise filter increases the SDA hold time by (DNF[3:0] +1)* T PCLK .
 To be compliant with the maximum hold time of the I2C-bus specification version 2.1
-(Thd:dat), the DNF bits must be programmed using the constraints shown in Table 68, and
+(Thd:dat), the DNF bits must be programmed using the constraints shown in [Table 68], and
 assuming that the analog filter is disabled.
-Note: DNF[3:0] must only be configured when the I2C is disabled (PE = 0). If the analog filter is
+
+> [!NOTE]
+> DNF[3:0] must only be configured when the I2C is disabled (PE = 0). If the analog filter is
 also enabled, the digital filter is added to the analog filter.
 
+
+[Table 68]: "Table%2068"
+<a id="Table 68"></a>
 
 **Table 68**. Maximum DNF[3:0] value to be compliant with Thd:dat(max)
 
@@ -25951,9 +28762,13 @@ Sm mode Fm mode
 40 < F PCLK1 <= 50 15 15
 
 
-                                                <!-- *P485*/844 -->
-504
-Note: For each frequency range, the constraint is given based on the worst case which is the
+<!-- *P485*/844 -->
+[P485]: #P485
+<a id="P485"></a>
+
+
+> [!NOTE]
+> For each frequency range, the constraint is given based on the worst case which is the
 minimum frequency of the range. Greater DNF values can be used if the system can
 support maximum hold time violation.
 
@@ -25997,7 +28812,10 @@ Differences between SMBus and I2C
 The following table describes the differences between SMBus and I2C.
 
 
-                                                <!-- *P486*/844 -->
+<!-- *P486*/844 -->
+[P486]: #P486
+<a id="P486"></a>
+
 
 SMBus application usage
 With System Management Bus, a device can provide manufacturer information, tell the
@@ -26029,6 +28847,9 @@ assignment, each device must implement a unique device identifier (UDID).
 For the details on 128-bit UDID and more information on ARP, refer to SMBus specification
 version 2.0.
 
+[Table 69]: "Table%2069"
+<a id="Table 69"></a>
+
 **Table 69**. SMBus vs. I2C
 
 SMBus I2C
@@ -26042,8 +28863,10 @@ call etc.)
 No bus protocols
 
 
-                                                <!-- *P487*/844 -->
-504
+<!-- *P487*/844 -->
+[P487]: #P487
+<a id="P487"></a>
+
 SMBus alert mode
 SMBus Alert is an optional signal with an interrupt line for devices that want to trade their
 ability to master for a pin. SMBA is a wired-AND signal just as the SCL and SDA signals are.
@@ -26084,7 +28907,10 @@ The application has to control the various SMBus protocols by software.
 • SMB Alert Response Address acknowledged if SMBALERT=1
 
 
-                                                <!-- *P488*/844 -->
+<!-- *P488*/844 -->
+[P488]: #P488
+<a id="P488"></a>
+
 
 //18.3.8 DMA requests
 ---------------------
@@ -26133,11 +28959,15 @@ When the number of data transfers which has been programmed in the DMA Controlle
 registers is reached, the DMA controller sends an End of Transfer EOT/ EOT_1 signal to the
 I2C interface and the DMA generates an interrupt, if enabled, on the DMA stream interrupt
 vector.
-Note: Do not enable the ITBUFEN bit in the I2C_CR2 register if DMA is used for transmission.
+
+> [!NOTE]
+> Do not enable the ITBUFEN bit in the I2C_CR2 register if DMA is used for transmission.
 
 
-                                                <!-- *P489*/844 -->
-504
+<!-- *P489*/844 -->
+[P489]: #P489
+<a id="P489"></a>
+
 Reception using DMA
 DMA mode can be enabled for reception by setting the DMAEN bit in the I2C_CR2 register.
 Data will be loaded from the I2C_DR register to a Memory area configured using the DMA
@@ -26158,7 +28988,9 @@ When the number of data transfers which has been programmed in the DMA Controlle
 registers is reached, the DMA controller sends an End of Transfer EOT/ EOT_1 signal to the
 I2C interface and DMA generates an interrupt, if enabled, on the DMA stream interrupt
 vector.
-Note: Do not enable the ITBUFEN bit in the I2C_CR2 register if DMA is used for reception.
+
+> [!NOTE]
+> Do not enable the ITBUFEN bit in the I2C_CR2 register if DMA is used for reception.
 
 //18.3.9 Packet error checking
 ------------------------------
@@ -26176,7 +29008,10 @@ received byte is not equal to the internally calculated PEC. In case of Master-
 Receiver, a NACK must follow the PEC whatever the check result. The PEC must
 
 
-                                                <!-- *P490*/844 -->
+<!-- *P490*/844 -->
+[P490]: #P490
+<a id="P490"></a>
+
 be set before the ACK of the CRC reception in slave mode. It must be set when
 the ACK is set low in master mode.
 • A PECERR error flag/interrupt is also available in the I2C_SR1 register.
@@ -26196,10 +29031,15 @@ request for a master receiver, a NACK is automatically sent after the last recei
 
 The table below gives the list of I2C interrupt requests.
 
-Note: SB, ADDR, ADD10, STOPF, BTF, RxNE and TxE are logically OR-ed on the same interrupt
+
+> [!NOTE]
+> SB, ADDR, ADD10, STOPF, BTF, RxNE and TxE are logically OR-ed on the same interrupt
 channel.
 BERR, ARLO, AF, OVR, PECERR, TIMEOUT and SMBALERT are logically OR-ed on the
 same interrupt channel.
+
+[Table 70]: "Table%2070"
+<a id="Table 70"></a>
 
 **Table 70**. I2C Interrupt requests
 
@@ -26223,8 +29063,16 @@ Timeout/Tlow error TIMEOUT
 SMBus Alert SMBALERT
 
 
-                                                <!-- *P491*/844 -->
-504
+<!-- *P491*/844 -->
+[P491]: #P491
+<a id="P491"></a>
+
+
+[Figure 166]: "#Figure%20166"
+<a id="Figure 166"></a>
+
+[Figure 166]: "Figure%20166"
+<a id="Figure 166"></a>
 
 **Figure 166**. I2C interrupt mapping diagram
 
@@ -26250,7 +29098,10 @@ STOPF
 MS42082V1
 
 
-                                                <!-- *P492*/844 -->
+<!-- *P492*/844 -->
+[P492]: #P492
+<a id="P492"></a>
+
 
 //18.5 I2C debug mode
 -----------------------
@@ -26291,7 +29142,9 @@ When set, the I2C is under reset state. Before resetting this bit, make sure the
 released and the bus is free.
 0: I2C Peripheral not under reset
 1: I2C Peripheral under reset state
-Note: This bit can be used to reinitialize the peripheral after an error or a locked state. As an
+
+> [!NOTE]
+> This bit can be used to reinitialize the peripheral after an error or a locked state. As an
 example, if the BUSY bit is set and remains locked due to a glitch on the bus, the
 SWRST bit can be used to exit from this state.
 Bit 14 Reserved, must be kept at reset value
@@ -26304,20 +29157,26 @@ This bit is set and cleared by software, and cleared by hardware when PEC is tra
 by a START or Stop condition or when PE=0.
 0: No PEC transfer
 1: PEC transfer (in Tx or Rx mode)
-Note: PEC calculation is corrupted by an arbitration loss.
+
+> [!NOTE]
+> PEC calculation is corrupted by an arbitration loss.
 Bit 11 POS: Acknowledge/PEC Position (for data reception)
 This bit is set and cleared by software and cleared by hardware when PE=0.
 0: ACK bit controls the (N)ACK of the current byte being received in the shift register. The
 PEC bit indicates that current byte in shift register is a PEC.
 1: ACK bit controls the (N)ACK of the next byte which will be received in the shift register.
 The PEC bit indicates that the next byte in the shift register is a PEC
-Note: The POS bit must be used only in 2-byte reception configuration in master mode. It
+
+> [!NOTE]
+> The POS bit must be used only in 2-byte reception configuration in master mode. It
 must be configured before data reception starts, as described in the 2-byte reception
 procedure recommended in Section : Master receiver on page 481.
 
 
-                                                <!-- *P493*/844 -->
-504
+<!-- *P493*/844 -->
+[P493]: #P493
+<a id="P493"></a>
+
 Bit 10 ACK: Acknowledge enable
 This bit is set and cleared by software and cleared by hardware when PE=0.
 0: No acknowledge returned
@@ -26360,8 +29219,13 @@ Bit 3 SMBTYPE: SMBus type
 1: SMBus Host
 
 
-                                                <!-- *P494*/844 -->
-Note: When the STOP, START or PEC bit is set, the software must not perform any write access
+<!-- *P494*/844 -->
+[P494]: #P494
+<a id="P494"></a>
+
+
+> [!NOTE]
+> When the STOP, START or PEC bit is set, the software must not perform any write access
 to I2C_CR1 before this bit is cleared by hardware. Otherwise there is a risk of setting a
 second STOP, START or PEC request.
 
@@ -26378,7 +29242,9 @@ Bit 1 SMBUS: SMBus mode
 Bit 0 PE: Peripheral enable
 0: Peripheral disable
 1: Peripheral enable
-Note: If this bit is reset while a communication is on going, the peripheral is disabled at the
+
+> [!NOTE]
+> If this bit is reset while a communication is on going, the peripheral is disabled at the
 end of the current communication, when back to IDLE state.
 All bit resets due to PE=0 occur at the end of the communication.
 In master mode, this bit must not be reset before the end of the communication.
@@ -26392,7 +29258,9 @@ Bits 15:13 Reserved, must be kept at reset value
 Bit 12 LAST: DMA last transfer
 0: Next DMA EOT is not the last transfer
 1: Next DMA EOT is the last transfer
-Note: This bit is used in master receiver mode to permit the generation of a NACK on the last
+
+> [!NOTE]
+> This bit is used in master receiver mode to permit the generation of a NACK on the last
 received data.
 Bit 11 DMAEN: DMA requests enable
 0: DMA requests disabled
@@ -26402,8 +29270,10 @@ Bit 10 ITBUFEN: Buffer interrupt enable
 1: TxE = 1 or RxNE = 1 generates Event Interrupt (whatever the state of DMAEN)
 
 
-                                                <!-- *P495*/844 -->
-504
+<!-- *P495*/844 -->
+[P495]: #P495
+<a id="P495"></a>
+
 Bit 9 ITEVTEN: Event interrupt enable
 0: Event interrupt disabled
 1: Event interrupt enabled
@@ -26441,7 +29311,10 @@ the maximum frequency is limited by the maximum APB1 frequency and cannot exceed
 Higher than 0b100100: Not allowed
 
 
-                                                <!-- *P496*/844 -->
+<!-- *P496*/844 -->
+[P496]: #P496
+<a id="P496"></a>
+
 
 //18.6.3 I2C Own address register 1 (I2C_OAR1)
 ------------------------------------------------
@@ -26487,8 +29360,10 @@ Bit 0 ENDUAL: Dual addressing mode enable
 1: Both OAR1 and OAR2 are recognized in 7-bit addressing mode
 
 
-                                                <!-- *P497*/844 -->
-504
+<!-- *P497*/844 -->
+[P497]: #P497
+<a id="P497"></a>
+
 
 //18.6.5 I2C Data register (I2C_DR)
 -------------------------------------
@@ -26515,7 +29390,9 @@ register. A continuous transmit stream can be maintained if the next data to be 
 put in DR once the transmission is started (TxE=1)
 – Receiver mode: Received byte is copied into DR (RxNE=1). A continuous transmit stream
 can be maintained if DR is read before the next data byte is received (RxNE=1).
-Note: In slave mode, the address is not copied into DR.
+
+> [!NOTE]
+> In slave mode, the address is not copied into DR.
 Write collision is not managed (DR can be written if TxE=0).
 If an ARLO event occurs on ACK pulse, the received byte is not copied into DR and so
 cannot be read.
@@ -26541,7 +29418,10 @@ In SMBus slave mode:
 – Cleared by software writing 0, or by hardware when PE=0.
 
 
-                                                <!-- *P498*/844 -->
+<!-- *P498*/844 -->
+[P498]: #P498
+<a id="P498"></a>
+
 Bit 14 TIMEOUT: Timeout or Tlow error
 0: No timeout error
 1: SCL remained LOW for 25 ms (Timeout)
@@ -26553,13 +29433,17 @@ Slave cumulative clock low extend time more than 25 ms (Tlow:sext)
 hardware
 – When set in master mode: Stop condition sent by hardware
 – Cleared by software writing 0, or by hardware when PE=0.
-Note: This functionality is available only in SMBus mode.
+
+> [!NOTE]
+> This functionality is available only in SMBus mode.
 Bit 13 Reserved, must be kept at reset value
 Bit 12 PECERR: PEC Error in reception
 0: no PEC error: receiver returns ACK after PEC reception (if ACK=1)
 1: PEC error: receiver returns NACK after PEC reception (whatever ACK)
 – Cleared by software writing 0, or by hardware when PE=0.
-Note: When the received CRC is wrong, PECERR is not set in slave mode if the PEC control
+
+> [!NOTE]
+> When the received CRC is wrong, PECERR is not set in slave mode if the PEC control
 bit is not set before the end of the CRC reception. Nevertheless, reading the PEC value
 determines whether the received CRC is right or wrong.
 Bit 11 OVR: Overrun/Underrun
@@ -26571,7 +29455,9 @@ been read yet. New received byte is lost.
 – In transmission when a new byte should be sent and the DR register has not been written
 yet. The same byte is sent twice.
 – Cleared by software writing 0, or by hardware when PE=0.
-Note: If the DR write occurs very close to SCL rising edge, the sent data is unspecified and a
+
+> [!NOTE]
+> If the DR write occurs very close to SCL rising edge, the sent data is unspecified and a
 hold timing error occurs
 Bit 10 AF: Acknowledge failure
 0: No acknowledge failure
@@ -26584,12 +29470,16 @@ Bit 9 ARLO: Arbitration lost (master mode)
 Set by hardware when the interface loses the arbitration of the bus to another master
 – Cleared by software writing 0, or by hardware when PE=0.
 After an ARLO event the interface switches back automatically to Slave mode (MSL=0).
-Note: In SMBUS, the arbitration on the data in slave mode occurs only during the data phase,
+
+> [!NOTE]
+> In SMBUS, the arbitration on the data in slave mode occurs only during the data phase,
 or the acknowledge transmission (not on the address acknowledge).
 
 
-                                                <!-- *P499*/844 -->
-504
+<!-- *P499*/844 -->
+[P499]: #P499
+<a id="P499"></a>
+
 Bit 8 BERR: Bus error
 0: No misplaced Start or Stop condition
 1: Misplaced Start or Stop condition
@@ -26603,7 +29493,9 @@ Bit 7 TxE: Data register empty (transmitters)
 – Cleared by software writing to the DR register or by hardware after a start or a stop condition
 or when PE=0.
 TxE is not set if either a NACK is received, or if next byte to be transmitted is PEC (PEC=1)
-Note: TxE is not cleared by writing the first data being transmitted, or by writing data when
+
+> [!NOTE]
+> TxE is not cleared by writing the first data being transmitted, or by writing data when
 BTF is set, as in both cases the data register is still empty.
 Bit 6 RxNE: Data register not empty (receivers)
 0: Data register empty
@@ -26611,7 +29503,9 @@ Bit 6 RxNE: Data register not empty (receivers)
 – Set when data register is not empty in receiver mode. RxNE is not set during address phase.
 – Cleared by software reading or writing the DR register or by hardware when PE=0.
 RxNE is not set in case of ARLO event.
-Note: RxNE is not cleared by reading data when BTF is set, as the data register is still full.
+
+> [!NOTE]
+> RxNE is not cleared by reading data when BTF is set, as the data register is still full.
 Bit 5 Reserved, must be kept at reset value
 Bit 4 STOPF: Stop detection (slave mode)
 0: No Stop condition detected
@@ -26620,26 +29514,35 @@ Bit 4 STOPF: Stop detection (slave mode)
 acknowledge (if ACK=1).
 – Cleared by software reading the SR1 register followed by a write in the CR1 register, or by
 hardware when PE=0
-Note: The STOPF bit is not set after a NACK reception.
+
+> [!NOTE]
+> The STOPF bit is not set after a NACK reception.
 It is recommended to perform the complete clearing sequence (READ SR1 then
-WRITE CR1) after the STOPF is set. Refer to Figure 163.
+WRITE CR1) after the STOPF is set. Refer to [Figure 163].
 Bit 3 ADD10: 10-bit header sent (Master mode)
 0: No ADD10 event occurred.
 1: Master has sent first address byte (header).
 – Set by hardware when the master has sent the first byte in 10-bit address mode.
 – Cleared by software reading the SR1 register followed by a write in the DR register of the
 second address byte, or by hardware when PE=0.
-Note: ADD10 bit is not set after a NACK reception
+
+> [!NOTE]
+> ADD10 bit is not set after a NACK reception
 
 
-                                                <!-- *P500*/844 -->
+<!-- *P500*/844 -->
+[P500]: #P500
+<a id="P500"></a>
+
 
 //18.6.7 I2C Status register 2 (I2C_SR2)
 ------------------------------------------
 
 Address offset: 0x18
 Reset value: 0x0000
-Note: Reading I2C_SR2 after reading I2C_SR1 clears the ADDR flag, even if the ADDR flag was
+
+> [!NOTE]
+> Reading I2C_SR2 after reading I2C_SR1 clears the ADDR flag, even if the ADDR flag was
 set after reading I2C_SR1. Consequently, I2C_SR2 must be read only when ADDR is found
 set in I2C_SR1 or when the STOPF bit is cleared.
 
@@ -26652,7 +29555,9 @@ yet (RxNE=1).
 – In transmission when a new byte should be sent and DR has not been written yet (TxE=1).
 – Cleared by software by either a read or write in the DR register or by hardware after a start or
 a stop condition in transmission or when PE=0.
-Note: The BTF bit is not set after a NACK reception
+
+> [!NOTE]
+> The BTF bit is not set after a NACK reception
 The BTF bit is not set if next byte to be transmitted is the PEC (TRA=1 in I2C_SR2
 register and PEC=1 in I2C_CR1 register)
 Bit 1 ADDR: Address sent (master mode)/matched (slave mode)
@@ -26664,14 +29569,18 @@ Address matched (Slave)
 – Set by hardware as soon as the received slave address matched with the OAR registers
 content or a general call or a SMBus Device Default Address or SMBus Host or SMBus Alert
 is recognized. (when enabled depending on configuration).
-Note: In slave mode, it is recommended to perform the complete clearing sequence (READ
-SR1 then READ SR2) after ADDR is set. Refer to Figure 163.
+
+> [!NOTE]
+> In slave mode, it is recommended to perform the complete clearing sequence (READ
+SR1 then READ SR2) after ADDR is set. Refer to [Figure 163].
 Address sent (Master)
 0: No end of address transmission
 1: End of address transmission
 – For 10-bit addressing, the bit is set after the ACK of the 2nd byte.
 – For 7-bit addressing, the bit is set after the ACK of the byte.
-Note: ADDR is not set after a NACK reception
+
+> [!NOTE]
+> ADDR is not set after a NACK reception
 Bit 0 SB: Start bit (Master mode)
 0: No Start condition
 1: Start condition generated.
@@ -26691,10 +29600,14 @@ TRA BUSY MSL
 r r r r r r r r r r r r r r r
 
 
-                                                <!-- *P501*/844 -->
-504
+<!-- *P501*/844 -->
+[P501]: #P501
+<a id="P501"></a>
 
-Note: Reading I2C_SR2 after reading I2C_SR1 clears the ADDR flag, even if the ADDR flag was
+
+
+> [!NOTE]
+> Reading I2C_SR2 after reading I2C_SR1 clears the ADDR flag, even if the ADDR flag was
 set after reading I2C_SR1. Consequently, I2C_SR2 must be read only when ADDR is found
 set in I2C_SR1 or when the STOPF bit is cleared.
 Bits 15:8 PEC[7:0] Packet error checking register
@@ -26738,14 +29651,19 @@ Bit 0 MSL: Master/slave
 (ARLO=1), or by hardware when PE=0.
 
 
-                                                <!-- *P502*/844 -->
+<!-- *P502*/844 -->
+[P502]: #P502
+<a id="P502"></a>
+
 
 //18.6.8 I2C Clock control register (I2C_CCR)
 -----------------------------------------------
 
 Address offset: 0x1C
 Reset value: 0x0000
-Note: f PCLK1 must be at least 2 MHz to achieve Sm mode I²C frequencies. It must be at least 4
+
+> [!NOTE]
+> f PCLK1 must be at least 2 MHz to achieve Sm mode I²C frequencies. It must be at least 4
 MHz to achieve Fm mode I²C frequencies. It must be a multiple of 10MHz to reach the
 400 kHz maximum I²C Fm mode clock.
 The CCR register must be configured only when the I2C is disabled (PE = 0).
@@ -26778,7 +29696,9 @@ T low = 16 * CCR * T PCLK1
 For instance: in Sm mode, to generate a 100 kHz SCL frequency:
 If FREQR = 08, T PCLK1 = 125 ns so CCR must be programmed with 0x28
 (0x28 <=> 40d x 125 ns = 5000 ns.)
-Note: The minimum allowed value is 0x04, except in FAST DUTY mode where the minimum
+
+> [!NOTE]
+> The minimum allowed value is 0x04, except in FAST DUTY mode where the minimum
 allowed value is 0x01
 t high = t r(SCL) + t w(SCLH) . See device datasheet for the definitions of parameters.
 t low = t f(SCL) + t w(SCLL) . See device datasheet for the definitions of parameters.
@@ -26787,8 +29707,10 @@ the analog noise filter input delay.
 The CCR register must be configured only when the I2C is disabled (PE = 0).
 
 
-                                                <!-- *P503*/844 -->
-504
+<!-- *P503*/844 -->
+[P503]: #P503
+<a id="P503"></a>
+
 
 //18.6.9 I2C TRISE register (I2C_TRISE)
 -----------------------------------------
@@ -26821,7 +29743,9 @@ therefore the TRISE[5:0] bits must be programmed with 09h.
 The filter value can also be added to TRISE[5:0].
 If the result is not an integer, TRISE[5:0] must be programmed with the integer part, in order
 to respect the t HIGH parameter.
-Note: TRISE[5:0] must be configured only when the I2C is disabled (PE = 0).
+
+> [!NOTE]
+> TRISE[5:0] must be configured only when the I2C is disabled (PE = 0).
 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
 Reserved
 ANOFF DNF[3:0]
@@ -26830,7 +29754,9 @@ Bits 15:5 Reserved, must be kept at reset value
 Bit 4 ANOFF: Analog noise filter OFF
 0: Analog noise filter enable
 1: Analog noise filter disable
-Note: ANOFF must be configured only when the I2C is disabled (PE = 0).
+
+> [!NOTE]
+> ANOFF must be configured only when the I2C is disabled (PE = 0).
 Bits 3:0 DNF[3:0]: Digital noise filter
 These bits are used to configure the digital noise filter on SDA and SCL inputs. The digital filter
 will suppress the spikes with a length of up to DNF[3:0] * TPCLK1.
@@ -26838,11 +29764,16 @@ will suppress the spikes with a length of up to DNF[3:0] * TPCLK1.
 0001: Digital noise filter enabled and filtering capability up to 1* TPCLK1.
 ...
 1111: Digital noise filter enabled and filtering capability up to 15* TPCLK1.
-Note: DNF[3:0] must be configured only when the I2C is disabled (PE = 0). If the analog filter
+
+> [!NOTE]
+> DNF[3:0] must be configured only when the I2C is disabled (PE = 0). If the analog filter
 is also enabled, the digital filter is added to the analog filter.
 
 
-                                                <!-- *P504*/844 -->
+<!-- *P504*/844 -->
+[P504]: #P504
+<a id="P504"></a>
+
 
 //18.6.11 I2C register map
 ----------------------------
@@ -26850,6 +29781,9 @@ is also enabled, the digital filter is added to the analog filter.
 The table below provides the I2C register map and reset values.
 
 Refer to Section 3.3: Memory map for the register boundary addresses table.
+
+[Table 71]: "Table%2071"
+<a id="Table 71"></a>
 
 **Table 71**. I2C register map and reset values
 
@@ -26990,8 +29924,10 @@ DNF[3:0]
 Reset value 0 0 0 0 0
 
 
-                                                <!-- *P505*/844 -->
-557
+<!-- *P505*/844 -->
+[P505]: #P505
+<a id="P505"></a>
+
 
 /19 Universal synchronous asynchronous receiver transmitter (USART)
 ===================================================================
@@ -27041,7 +29977,10 @@ defined in the ISO 7816-3 standards
 – Receive buffer full
 
 
-                                                <!-- *P506*/844 -->
+<!-- *P506*/844 -->
+[P506]: #P506
+<a id="P506"></a>
+
 – Transmit buffer empty
 – End of transmission flags
 • Parity control:
@@ -27070,7 +30009,7 @@ defined in the ISO 7816-3 standards
 //19.3 USART functional description
 -----------------------------------
 
-The interface is externally connected to another device by three pins (see Figure 167). Any
+The interface is externally connected to another device by three pins (see [Figure 167]). Any
 USART bidirectional communication requires a minimum of two pins: Receive Data In (RX)
 and Transmit Data Out (TX):
 RX: Receive Data Input is the serial data input. Oversampling techniques are used for data
@@ -27081,8 +30020,10 @@ pin is at high level. In single-wire and smartcard modes, this I/O is used to tr
 receive the data (at USART level, data are then received on SW_RX).
 
 
-                                                <!-- *P507*/844 -->
-557
+<!-- *P507*/844 -->
+[P507]: #P507
+<a id="P507"></a>
+
 Through these pins, serial data is transmitted and received in normal USART mode as
 frames comprising:
 • An Idle Line prior to transmission or reception
@@ -27110,7 +30051,16 @@ when high
 • RTS: Request to send indicates that the USART is ready to receive a data (when low).
 
 
-                                                <!-- *P508*/844 -->
+<!-- *P508*/844 -->
+[P508]: #P508
+<a id="P508"></a>
+
+
+[Figure 167]: "#Figure%20167"
+<a id="Figure 167"></a>
+
+[Figure 167]: "Figure%20167"
+<a id="Figure 167"></a>
 
 **Figure 167**. USART block diagram
 
@@ -27204,14 +30154,16 @@ when high
 ????????
 
 
-                                                <!-- *P509*/844 -->
-557
+<!-- *P509*/844 -->
+[P509]: #P509
+<a id="P509"></a>
+
 
 //19.3.1 USART character description
 ------------------------------------
 
 Word length may be selected as being either 8 or 9 bits by programming the M bit in the
-USART_CR1 register (see Figure 168).
+USART_CR1 register (see [Figure 168]).
 The TX pin is in low state during the start bit. It is in high state during the stop bit.
 An Idle character is interpreted as an entire frame of “1”s followed by the start bit of the
 next frame which contains data (The number of “1” ‘s will include the number of stop bits).
@@ -27221,6 +30173,12 @@ start bit.
 Transmission and reception are driven by a common baud rate generator, the clock for each
 is generated when the enable bit is set respectively for the transmitter and receiver.
 The details of each block is given below.
+
+[Figure 168]: "#Figure%20168"
+<a id="Figure 168"></a>
+
+[Figure 168]: "Figure%20168"
+<a id="Figure 168"></a>
 
 **Figure 168**. Word length programming
 
@@ -27276,7 +30234,10 @@ The details of each block is given below.
 ???
 
 
-                                                <!-- *P510*/844 -->
+<!-- *P510*/844 -->
+[P510]: #P510
+<a id="P510"></a>
+
 
 //19.3.2 Transmitter
 --------------------
@@ -27287,11 +30248,13 @@ the TX pin and the corresponding clock pulses are output on the CK pin.
 Character transmission
 During an USART transmission, data shifts out least significant bit first on the TX pin. In this
 mode, the USART_DR register consists of a buffer (TDR) between the internal bus and the
-transmit shift register (see Figure 167).
+transmit shift register (see [Figure 167]).
 Every character is preceded by a start bit which is a logic level low for one bit period. The
 character is terminated by a configurable number of stop bits.
 The following stop bits are supported by USART: 0.5, 1, 1.5 and 2 stop bits.
-Note: The TE bit should not be reset during transmission of data. Resetting the TE bit during the
+
+> [!NOTE]
+> The TE bit should not be reset during transmission of data. Resetting the TE bit during the
 transmission will corrupt the data on the TX pin as the baud rate counters will get frozen.
 The current data being transmitted will be lost.
 An idle frame will be sent after the TE bit is enabled.
@@ -27308,8 +30271,16 @@ A break transmission will be 10 low bits followed by the configured number of st
 is not possible to transmit long breaks (break of length greater than 10/11 low bits).
 
 
-                                                <!-- *P511*/844 -->
-557
+<!-- *P511*/844 -->
+[P511]: #P511
+<a id="P511"></a>
+
+
+[Figure 169]: "#Figure%20169"
+<a id="Figure 169"></a>
+
+[Figure 169]: "Figure%20169"
+<a id="Figure 169"></a>
 
 **Figure 169**. Configurable stop bits
 
@@ -27396,7 +30367,10 @@ This flag generates an interrupt if the TXEIE bit is set.
 ???????????????
 
 
-                                                <!-- *P512*/844 -->
+<!-- *P512*/844 -->
+[P512]: #P512
+<a id="P512"></a>
+
 When a transmission is taking place, a write instruction to the USART_DR register stores
 the data in the TDR register and which is copied in the shift register at the end of the current
 transmission.
@@ -27407,23 +30381,33 @@ If a frame is transmitted (after the stop bit) and the TXE bit is set, the TC bi
 interrupt is generated if the TCIE bit is set in the USART_CR1 register.
 After writing the last data into the USART_DR register, it is mandatory to wait for TC=1
 before disabling the USART or causing the microcontroller to enter the low-power mode
-(see Figure 170: TC/TXE behavior when transmitting).
+(see [Figure 170]: TC/TXE behavior when transmitting).
 The TC bit is cleared by the following software sequence:
 1. A read from the USART_SR register
 2. A write to the USART_DR register
-Note: The TC bit can also be cleared by writing a ‘0 to it. This clearing sequence is recommended
+
+> [!NOTE]
+> The TC bit can also be cleared by writing a ‘0 to it. This clearing sequence is recommended
 only for Multibuffer communication.
+
+[Figure 170]: "#Figure%20170"
+<a id="Figure 170"></a>
+
+[Figure 170]: "Figure%20170"
+<a id="Figure 170"></a>
 
 **Figure 170**. TC/TXE behavior when transmitting
 
 Break characters
 Setting the SBK bit transmits a break character. The break frame length depends on the M
-bit (see Figure 168).
+bit (see [Figure 168]).
 If the SBK bit is set to ‘1 a break character is sent on the TX line after completing the current
 character transmission. This bit is reset by hardware when the break character is completed
 (during the stop bit of the break character). The USART inserts a logic 1 bit at the end of the
 last break frame to guarantee the recognition of the start bit of the next frame.
-Note: If the software resets the SBK bit before the commencement of break transmission, the
+
+> [!NOTE]
+> If the software resets the SBK bit before the commencement of break transmission, the
 break character will not be transmitted. For two consecutive breaks, the SBK bit should be
 set after the stop bit of the previous break.
 ????????????????????????
@@ -27458,8 +30442,10 @@ set after the stop bit of the previous break.
 ?????????
 
 
-                                                <!-- *P513*/844 -->
-557
+<!-- *P513*/844 -->
+[P513]: #P513
+<a id="P513"></a>
+
 Idle characters
 Setting the TE bit drives the USART to send an idle frame before the first data frame.
 
@@ -27473,9 +30459,17 @@ The start bit detection sequence is the same when oversampling by 16 or by 8.
 In the USART, the start bit is detected when a specific sequence of samples is recognized.
 This sequence is: 1 1 1 0 X 0 X 0 X 0 0 0 0.
 
+[Figure 171]: "#Figure%20171"
+<a id="Figure 171"></a>
+
+[Figure 171]: "Figure%20171"
+<a id="Figure 171"></a>
+
 **Figure 171**. Start bit detection when oversampling by 16 or 8
 
-Note: If the sequence is not complete, the start bit detection aborts and the receiver returns to the
+
+> [!NOTE]
+> If the sequence is not complete, the start bit detection aborts and the receiver returns to the
 idle state (no flag is set) where it waits for a falling edge.
 The start bit is confirmed (RXNE flag set, interrupt generated if RXNEIE=1) if the 3 sampled
 bits are at 0 (first sampling on the 3rd, 5th and 7th bits finds the 3 bits at 0 and second
@@ -27484,7 +30478,10 @@ The start bit is validated (RXNE flag set, interrupt generated if RXNEIE=1) but 
 flag is set if, for both samplings, at least 2 out of the 3 sampled bits are at 0 (sampling on the
 
 
-                                                <!-- *P514*/844 -->
+<!-- *P514*/844 -->
+[P514]: #P514
+<a id="P514"></a>
+
 3rd, 5th and 7th bits and sampling on the 8th, 9th and 10th bits). If this condition is not met,
 the start detection aborts and the receiver returns to the idle state (no flag is set).
 If, for one of the samplings (sampling on the 3rd, 5th and 7th bits or sampling on the 8th, 9th
@@ -27516,7 +30513,9 @@ the Data Register.
 USART_DR register. The RXNE flag can also be cleared by writing a zero to it. The
 RXNE bit must be cleared before the end of the reception of the next character to avoid
 an overrun error.
-Note: The RE bit should not be reset while receiving data. If the RE bit is disabled during
+
+> [!NOTE]
+> The RE bit should not be reset while receiving data. If the RE bit is disabled during
 reception, the reception of the current byte will be aborted.
 Break character
 When a break character is received, the USART handles it as a framing error.
@@ -27525,8 +30524,10 @@ When an idle frame is detected, there is the same procedure as a data received c
 plus an interrupt if the IDLEIE bit is set.
 
 
-                                                <!-- *P515*/844 -->
-557
+<!-- *P515*/844 -->
+[P515]: #P515
+<a id="P515"></a>
+
 Overrun error
 An overrun error occurs when a character is received when RXNE has not been reset. Data
 can not be transferred from the shift register to the RDR register until the RXNE bit is
@@ -27543,7 +30544,9 @@ is lost.
 are set.
 • The ORE bit is reset by a read to the USART_SR register followed by a USART_DR
 register read operation.
-Note: The ORE bit, when set, indicates that at least 1 data has been lost. There are two
+
+> [!NOTE]
+> The ORE bit, when set, indicates that at least 1 data has been lost. There are two
 possibilities:
 • if RXNE=1, then the last valid data is stored in the receive register RDR and can be
 read,
@@ -27558,7 +30561,7 @@ synchronous mode) for data recovery by discriminating between valid incoming dat
 noise.
 The oversampling method can be selected by programming the OVER8 bit in the
 USART_CR1 register and can be either 16 or 8 times the baud rate clock (Figure 172 and
-Figure 173).
+[Figure 173]).
 Depending on the application:
 • select oversampling by 8 (OVER8=1) to achieve higher speed (up to f PCLK /8). In this
 case the maximum receiver tolerance to clock deviation is reduced (refer to
@@ -27567,7 +30570,10 @@ Section 19.3.5: USART receiver tolerance to clock deviation on page 528)
 deviations. In this case, the maximum speed is limited to maximum f PCLK /16
 
 
-                                                <!-- *P516*/844 -->
+<!-- *P516*/844 -->
+[P516]: #P516
+<a id="P516"></a>
+
 Programming the ONEBIT bit in the USART_CR3 register selects the method used to
 evaluate the logic level. There are two options:
 • the majority vote of the three samples in the center of the received bit. In this case,
@@ -27576,7 +30582,7 @@ when the 3 samples used for the majority vote are not equal, the NF bit is set
 Depending on the application:
 – select the three samples’ majority vote method (ONEBIT=0) when operating in a
 noisy environment and reject the data when a noise is detected (refer to
-Figure 72) because this indicates that a glitch occurred during the sampling.
+[Figure 72]) because this indicates that a glitch occurred during the sampling.
 – select the single sample method (ONEBIT=1) when the line is noise-free to
 increase the receiver’s tolerance to clock deviations (see Section 19.3.5: USART
 receiver tolerance to clock deviation on page 528). In this case the NF bit will
@@ -27590,8 +30596,16 @@ multibuffer communication an interrupt will be issued if the EIE bit is set in t
 USART_CR3 register.
 The NF bit is reset by a USART_SR register read operation followed by a USART_DR
 register read operation.
-Note: Oversampling by 8 is not available in the Smartcard, IrDA and LIN modes. In those modes,
+
+> [!NOTE]
+> Oversampling by 8 is not available in the Smartcard, IrDA and LIN modes. In those modes,
 the OVER8 bit is forced to ‘0 by hardware.
+
+[Figure 172]: "#Figure%20172"
+<a id="Figure 172"></a>
+
+[Figure 172]: "Figure%20172"
+<a id="Figure 172"></a>
 
 **Figure 172**. Data sampling when oversampling by 16
 
@@ -27605,8 +30619,16 @@ the OVER8 bit is forced to ‘0 by hardware.
 ???????
 
 
-                                                <!-- *P517*/844 -->
-557
+<!-- *P517*/844 -->
+[P517]: #P517
+<a id="P517"></a>
+
+
+[Figure 173]: "#Figure%20173"
+<a id="Figure 173"></a>
+
+[Figure 173]: "Figure%20173"
+<a id="Figure 173"></a>
 
 **Figure 173**. Data sampling when oversampling by 8
 
@@ -27624,6 +30646,9 @@ multibuffer communication an interrupt will be issued if the EIE bit is set in t
 USART_CR3 register.
 The FE bit is reset by a USART_SR register read operation followed by a USART_DR
 register read operation.
+
+[Table 72]: "Table%2072"
+<a id="Table 72"></a>
 
 **Table 72**. Noise detection from sampled data
 
@@ -27648,7 +30673,10 @@ Sampled value NE status Received bit value
 ?
 
 
-                                                <!-- *P518*/844 -->
+<!-- *P518*/844 -->
+[P518]: #P518
+<a id="P518"></a>
+
 Configurable stop bits during reception
 The number of stop bits to be received can be configured through the control bits of Control
 Register 2 - it can be either 1 or 2 in normal mode and 0.5 or 1.5 in Smartcard mode.
@@ -27685,7 +30713,9 @@ DIV_fraction[3:0] bits in the USART_BRR register
 • When OVER8=1, the fractional part is coded on 3 bits and programmed by the
 DIV_fraction[2:0] bits in the USART_BRR register, and bit DIV_fraction[3] must be kept
 cleared.
-Note: The baud counters are updated to the new value in the baud registers after a write operation
+
+> [!NOTE]
+> The baud counters are updated to the new value in the baud registers after a write operation
 to USART_BRR. Hence the baud rate register value should not be changed during
 communication.
 Tx/Rx baud
@@ -27698,8 +30728,10 @@ f CK
 ---------------------------------------------- =
 
 
-                                                <!-- *P519*/844 -->
-557
+<!-- *P519*/844 -->
+[P519]: #P519
+<a id="P519"></a>
+
 How to derive USARTDIV from USART_BRR register values when OVER8=0
 Example 1:
 If DIV_Mantissa = 0d27 and DIV_Fraction = 0d12 (USART_BRR = 0x1BC), then
@@ -27735,7 +30767,10 @@ The nearest real number is 0d5 = 0x5
 DIV_Mantissa = mantissa (0d25.620) = 0d25 = 0x19
 
 
-                                                <!-- *P520*/844 -->
+<!-- *P520*/844 -->
+[P520]: #P520
+<a id="P520"></a>
+
 Then, USART_BRR = 0x195 => USARTDIV = 0d25.625
 Example 3:
 To program USARTDIV = 0d50.99
@@ -27746,6 +30781,9 @@ added up to the mantissa
 DIV_Mantissa = mantissa (0d50.990 + carry) = 0d51 = 0x33
 Then, USART_BRR = 0x0330 => USARTDIV = 0d51.000
 
+
+[Table 73]: "Table%2073"
+<a id="Table 73"></a>
 
 **Table 73**. Error calculation for programmed baud rates at f PCLK = 8 MHz or f PCLK = 
 12 MHz,
@@ -27783,10 +30821,15 @@ rate register
 be fixed with these data.
 
 
-                                                <!-- *P521*/844 -->
-557
+<!-- *P521*/844 -->
+[P521]: #P521
+<a id="P521"></a>
 
 
+
+
+[Table 74]: "Table%2074"
+<a id="Table 74"></a>
 
 **Table 74**. Error calculation for programmed baud rates at f PCLK = 8 MHz or f PCLK 
 =12 MHz,
@@ -27825,6 +30868,9 @@ rate register
 1. The lower the CPU clock the lower the accuracy for a particular baud rate. The upper limit of the achievable baud rate can
 be fixed with these data.
 
+[Table 75]: "Table%2075"
+<a id="Table 75"></a>
+
 **Table 75**. Error calculation for programmed baud rates at f PCLK = 16 MHz or f PCLK = 
 24 MHz,
 oversampling by 16 (1)
@@ -27853,7 +30899,10 @@ rate register
 6 57.6 KBps 57.554 KBps 17.375 0.08 57.554 26.0625 0.08
 
 
-                                                <!-- *P522*/844 -->
+<!-- *P522*/844 -->
+[P522]: #P522
+<a id="P522"></a>
+
 
 7 115.2 KBps 115.108 KBps 8.6875 0.08 115.385 13 0.16
 8 230.4 KBps 231.884 KBps 4.3125 0.64 230.769 6.5 0.16
@@ -27863,7 +30912,7 @@ rate register
 12 3 MBps NA NA NA NA NA NA
 1. The lower the CPU clock the lower the accuracy for a particular baud rate. The upper limit of the achievable baud rate can
 be fixed with these data.
-Table 75. Error calculation for programmed baud rates at f PCLK = 16 MHz or f PCLK = 24 MHz,
+[Table 75]. Error calculation for programmed baud rates at f PCLK = 16 MHz or f PCLK = 24 MHz,
 oversampling by 16 (1) (continued)
 Oversampling by 16 (OVER8 = 0)
 Baud rate f PCLK = 16 MHz f PCLK = 24 MHz
@@ -27882,6 +30931,9 @@ programmed
 in the baud
 rate register
 % Error
+
+[Table 76]: "Table%2076"
+<a id="Table 76"></a>
 
 **Table 76**. Error calculation for programmed baud rates at f PCLK = 16 MHz or f PCLK = 
 24 MHz,
@@ -27919,9 +30971,14 @@ rate register
 be fixed with these data.
 
 
-                                                <!-- *P523*/844 -->
-557
+<!-- *P523*/844 -->
+[P523]: #P523
+<a id="P523"></a>
 
+
+
+[Table 77]: "Table%2077"
+<a id="Table 77"></a>
 
 **Table 77**. Error calculation for programmed baud rates at f PCLK = 8 MHz or f PCLK = 
 16 MHz,
@@ -27968,6 +31025,9 @@ KBps
 1. The lower the CPU clock the lower the accuracy for a particular baud rate. The upper limit of the achievable baud rate can
 be fixed with these data.
 
+[Table 78]: "Table%2078"
+<a id="Table 78"></a>
+
 **Table 78**. Error calculation for programmed baud rates at f PCLK = 8 MHz or f PCLK = 
 16 MHz,
 oversampling by 8 (1)
@@ -27994,7 +31054,10 @@ Error
 3. 19.2 KBps 19.185 KBps 52.125 0.08% 19.208 KBps 104.125 0.04%
 
 
-                                                <!-- *P524*/844 -->
+<!-- *P524*/844 -->
+[P524]: #P524
+<a id="P524"></a>
+
 
 4. 57.6 KBps 57.557 KBps 17.375 0.08% 57.554 KBps 34.750 0.08%
 5. 115.2 KBps 115.942 KBps 8.625 0.64% 115.108 KBps 17.375 0.08%
@@ -28010,7 +31073,7 @@ Error
 15. 7.3728 MBps NA NA NA NA NA NA
 1. The lower the CPU clock the lower the accuracy for a particular baud rate. The upper limit of the achievable baud rate can
 be fixed with these data.
-Table 78. Error calculation for programmed baud rates at f PCLK = 8 MHz or f PCLK = 16 MHz,
+[Table 78]. Error calculation for programmed baud rates at f PCLK = 8 MHz or f PCLK = 16 MHz,
 oversampling by 8 (1) (continued)
 Oversampling by 8 (OVER8=1)
 Baud rate f PCLK = 8 MHz f PCLK = 16 MHz
@@ -28030,6 +31093,9 @@ in the baud
 rate register
 %
 Error
+
+[Table 79]: "Table%2079"
+<a id="Table 79"></a>
 
 **Table 79**. Error calculation for programmed baud rates at f PCLK = 30 MHz or f PCLK = 
 60 MHz,
@@ -28062,8 +31128,10 @@ Error
 8. 896 KBps 909.091 KBps 2.0625 1.46% 895.522 KBps 4.1875 0.05%
 
 
-                                                <!-- *P525*/844 -->
-557
+<!-- *P525*/844 -->
+[P525]: #P525
+<a id="P525"></a>
+
 
 9. 921.6 KBps 909.091 KBps 2.0625 1.36% 923.077 KBps 4.0625 0.16%
 10. 1.792 MBps 1.1764 MBps 1.0625 1.52% 1.8182 MBps 2.0625 1.36%
@@ -28085,7 +31153,7 @@ NA NA NA NA NA NA
 be fixed with these data.
 2. Only USART1 and USART6 are clocked with PCLK2. Other USARTs are clocked with PCLK1. Refer to the device
 datasheets for the maximum values for PCLK1 and PCLK2.
-Table 79. Error calculation for programmed baud rates at f PCLK = 30 MHz or f PCLK = 60 MHz,
+[Table 79]. Error calculation for programmed baud rates at f PCLK = 30 MHz or f PCLK = 60 MHz,
 oversampling by 16 (1)(2) (continued)
 Oversampling by 16 (OVER8=0)
 Baud rate f PCLK = 30 MHz f PCLK = 60 MHz
@@ -28105,6 +31173,9 @@ in the baud
 rate register
 %
 Error
+
+[Table 80]: "Table%2080"
+<a id="Table 80"></a>
 
 **Table 80**. Error calculation for programmed baud rates at f PCLK = 30 MHz or f PCLK = 
 60 MHz,
@@ -28139,7 +31210,10 @@ Error
 10. 1.792 MBps 1.7647 MBps 2.1250 1.52% 1.8182 MBps 4.1250 1.46%
 
 
-                                                <!-- *P526*/844 -->
+<!-- *P526*/844 -->
+[P526]: #P526
+<a id="P526"></a>
+
 
 11. 1.8432 MBps 1.8750 MBps 2.0000 1.73% 1.8182 MBps 4.1250 1.36%
 12. 3.584 MBps 3.7500 MBps 1.0000 4.63% 3.5294 MBps 2.1250 1.52%
@@ -28150,7 +31224,7 @@ Error
 be fixed with these data.
 2. Only USART1 and USART6 are clocked with PCLK2. Other USARTs are clocked with PCLK1. Refer to the device
 datasheets for the maximum values for PCLK1 and PCLK2.
-Table 80. Error calculation for programmed baud rates at f PCLK = 30 MHz or f PCLK = 60 MHz,
+[Table 80]. Error calculation for programmed baud rates at f PCLK = 30 MHz or f PCLK = 60 MHz,
 oversampling by 8 (1) (2) (continued)
 Oversampling by 8 (OVER8=1)
 Baud rate f PCLK = 30 MHz f PCLK =60 MHz
@@ -28170,6 +31244,9 @@ in the baud
 rate register
 %
 Error
+
+[Table 81]: "Table%2081"
+<a id="Table 81"></a>
 
 **Table 81**. Error calculation for programmed baud rates at f PCLK = 42 MHz or f PCLK = 
 84 Hz,
@@ -28208,8 +31285,10 @@ Error
 14. 3.6864 MBps N.A N.A N.A 3.652 MBps 1.4375 0.93
 
 
-                                                <!-- *P527*/844 -->
-557
+<!-- *P527*/844 -->
+[P527]: #P527
+<a id="P527"></a>
+
 
 15. 7.168 MBps N.A N.A N.A N.A N.A N.A
 16. 7.3728 MBps N.A N.A N.A N.A N.A N.A
@@ -28219,7 +31298,7 @@ Error
 fixed with these data.
 2. Only USART1 and USART6 are clocked with PCLK2. Other USARTs are clocked with PCLK1. Refer to the device
 datasheets for the maximum values for PCLK1 and PCLK2.
-Table 81. Error calculation for programmed baud rates at f PCLK = 42 MHz or f PCLK = 84 Hz,
+[Table 81]. Error calculation for programmed baud rates at f PCLK = 42 MHz or f PCLK = 84 Hz,
 oversampling by 16 (1)(2) (continued)
 Oversampling by 16 (OVER8=0)
 Baud rate f PCLK = 42 MHz f PCLK = 84 MHz
@@ -28239,6 +31318,9 @@ in the baud
 rate register
 %
 Error
+
+[Table 82]: "Table%2082"
+<a id="Table 82"></a>
 
 **Table 82**. Error calculation for programmed baud rates at f PCLK = 42 MHz or f PCLK = 
 84 MHz,
@@ -28278,7 +31360,10 @@ Error
 15. 7.3728 MBps N.A N.A N.A 7.636 MBps 1.375 3.57
 
 
-                                                <!-- *P528*/844 -->
+<!-- *P528*/844 -->
+[P528]: #P528
+<a id="P528"></a>
+
 
 //19.3.5 USART receiver tolerance to clock deviation
 ----------------------------------------------------
@@ -28308,7 +31393,7 @@ the USART_CR3 register
 be fixed with these data.
 2. Only USART1 and USART6 are clocked with PCLK2. Other USARTs are clocked with PCLK1. Refer to the device
 datasheets for the maximum values for PCLK1 and PCLK2.
-Table 82. Error calculation for programmed baud rates at f PCLK = 42 MHz or f PCLK = 84 MHz,
+[Table 82]. Error calculation for programmed baud rates at f PCLK = 42 MHz or f PCLK = 84 MHz,
 oversampling by 8 (1)(2) (continued)
 Oversampling by 8 (OVER8=1)
 Baud rate f PCLK = 42 MHz f PCLK = 84 MHz
@@ -28329,6 +31414,9 @@ rate register
 %
 Error
 
+[Table 83]: "Table%2083"
+<a id="Table 83"></a>
+
 **Table 83**. USART receiver’s tolerance when DIV fraction is 0
 
 M bit
@@ -28338,10 +31426,14 @@ ONEBIT=0 ONEBIT=1 ONEBIT=0 ONEBIT=1
 1 3.41% 3.97% 2.27% 3.41%
 
 
-                                                <!-- *P529*/844 -->
-557
+<!-- *P529*/844 -->
+[P529]: #P529
+<a id="P529"></a>
 
-Note: The figures specified in Table 83 and Table 84 may slightly differ in the special case when
+
+
+> [!NOTE]
+> The figures specified in [Table 83] and [Table 84] may slightly differ in the special case when
 the received frames contain some Idle frames of exactly 10-bit times when M=0 (11-bit times
 when M=1).
 
@@ -28370,7 +31462,10 @@ Idle line detection (WAKE=0)
 The USART enters mute mode when the RWU bit is written to 1.
 It wakes up when an Idle frame is detected. Then the RWU bit is cleared by hardware but
 the IDLE bit is not set in the USART_SR register. RWU can also be written to 0 by software.
-An example of mute mode behavior using Idle line detection is given in Figure 174.
+An example of mute mode behavior using Idle line detection is given in [Figure 174].
+
+[Table 84]: "Table%2084"
+<a id="Table 84"></a>
 
 **Table 84**. USART receiver tolerance when DIV_Fraction is different from 0
 
@@ -28381,7 +31476,16 @@ ONEBIT=0 ONEBIT=1 ONEBIT=0 ONEBIT=1
 1 3.03% 3.53% 1.82% 2.73%
 
 
-                                                <!-- *P530*/844 -->
+<!-- *P530*/844 -->
+[P530]: #P530
+<a id="P530"></a>
+
+
+[Figure 174]: "#Figure%20174"
+<a id="Figure 174"></a>
+
+[Figure 174]: "Figure%20174"
+<a id="Figure 174"></a>
 
 **Figure 174**. Mute mode using Idle line detection
 
@@ -28400,7 +31504,13 @@ normally. The RXNE bit is set for the address character since the RWU bit has be
 cleared.
 The RWU bit can be written to as 0 or 1 when the receiver buffer contains no data (RXNE=0
 in the USART_SR register). Otherwise the write attempt is ignored.
-An example of mute mode behavior using address mark detection is given in Figure 175.
+An example of mute mode behavior using address mark detection is given in [Figure 175].
+
+[Figure 175]: "#Figure%20175"
+<a id="Figure 175"></a>
+
+[Figure 175]: "Figure%20175"
+<a id="Figure 175"></a>
 
 **Figure 175**. Mute mode using address mark detection
 
@@ -28428,15 +31538,17 @@ An example of mute mode behavior using address mark detection is given in Figure
 ???? ????
 
 
-                                                <!-- *P531*/844 -->
-557
+<!-- *P531*/844 -->
+[P531]: #P531
+<a id="P531"></a>
+
 
 //19.3.7 Parity control
 -----------------------
 
 Parity control (generation of parity bit in transmission and parity checking in reception) can
 be enabled by setting the PCE bit in the USART_CR1 register. Depending on the frame
-length defined by the M bit, the possible USART frame formats are as listed in Table 85.
+length defined by the M bit, the possible USART frame formats are as listed in [Table 85].
 
 Even parity
 The parity bit is calculated to obtain an even number of “1s” inside the frame made of the 7
@@ -28453,17 +31565,24 @@ If the parity check fails, the PE flag is set in the USART_SR register and an in
 generated if PEIE is set in the USART_CR1 register. The PE flag is cleared by a software
 sequence (a read from the status register followed by a read or write access to the
 USART_DR data register).
-Note: In case of wakeup by an address mark: the MSB bit of the data is taken into account to
+
+> [!NOTE]
+> In case of wakeup by an address mark: the MSB bit of the data is taken into account to
 identify an address but not the parity bit. And the receiver does not check the parity of the
 address data (PE is not set in case of a parity error).
 Parity generation in transmission
 If the PCE bit is set in USART_CR1, then the MSB bit of the data written in the data register
 is transmitted but is changed by the parity bit (even number of “1s” if even parity is selected
 (PS=0) or an odd number of “1s” if odd parity is selected (PS=1)).
-Note: The software routine that manages the transmission can activate the software sequence
+
+> [!NOTE]
+> The software routine that manages the transmission can activate the software sequence
 which clears the PE flag (a read from the status register followed by a read or write access
 to the data register). When operating in half-duplex mode, depending on the software, this
 can cause the PE flag to be unexpectedly cleared.
+
+[Table 85]: "Table%2085"
+<a id="Table 85"></a>
 
 **Table 85**. Frame formats
 
@@ -28475,7 +31594,10 @@ M bit PCE bit USART frame (1)
 1 1 | SB | 8-bit data PB | STB |
 
 
-                                                <!-- *P532*/844 -->
+<!-- *P532*/844 -->
+[P532]: #P532
+<a id="P532"></a>
+
 
 //19.3.8 LIN (local interconnection network) mode
 -------------------------------------------------
@@ -28511,13 +31633,21 @@ detected at ‘0, which will be the case for any break frame), the receiver stop
 detection circuit receives either a ‘1, if the break word was not complete, or a delimiter
 character if a break has been detected.
 The behavior of the break detector state machine and the break flag is shown on the
-Figure 176: Break detection in LIN mode (11-bit break length - LBDL bit is set) on page 533.
-Examples of break frames are given on Figure 177: Break detection in LIN mode vs.
+[Figure 176]: Break detection in LIN mode (11-bit break length - LBDL bit is set) on page 533.
+Examples of break frames are given on [Figure 177]: Break detection in LIN mode vs.
 Framing error detection on page 534.
 
 
-                                                <!-- *P533*/844 -->
-557
+<!-- *P533*/844 -->
+[P533]: #P533
+<a id="P533"></a>
+
+
+[Figure 176]: "#Figure%20176"
+<a id="Figure 176"></a>
+
+[Figure 176]: "Figure%20176"
+<a id="Figure 176"></a>
 
 **Figure 176**. Break detection in LIN mode (11-bit break length - LBDL bit is set)
 
@@ -28555,7 +31685,16 @@ Framing error detection on page 534.
 ??????????????
 
 
-                                                <!-- *P534*/844 -->
+<!-- *P534*/844 -->
+[P534]: #P534
+<a id="P534"></a>
+
+
+[Figure 177]: "#Figure%20177"
+<a id="Figure 177"></a>
+
+[Figure 177]: "Figure%20177"
+<a id="Figure 177"></a>
 
 **Figure 177**. Break detection in LIN mode vs. Framing error detection
 
@@ -28573,7 +31712,7 @@ sent to the CK pin during start bit and stop bit. Depending on the state of the 
 USART_CR2 register clock pulses will or will not be generated during the last valid data bit
 (address mark). The CPOL bit in the USART_CR2 register allows the user to select the
 clock polarity, and the CPHA bit in the USART_CR2 register allows the user to select the
-phase of the external clock (see Figure 178, Figure 179 & Figure 180).
+phase of the external clock (see [Figure 178], [Figure 179] & [Figure 180]).
 During the Idle state, preamble and send break, the external CK clock is not activated.
 In synchronous mode the USART transmitter works exactly like in asynchronous mode. But
 as CK is synchronized with TX (according to CPOL and CPHA), the data on TX is
@@ -28582,7 +31721,9 @@ In this mode the USART receiver works in a different manner compared to the
 asynchronous mode. If RE=1, the data is sampled on CK (rising or falling edge, depending
 on CPOL and CPHA), without any oversampling. A setup and a hold time must be
 respected (which depends on the baud rate: 1/16 bit time).
-Note: The CK pin works in conjunction with the TX pin. Thus, the clock is provided only if the
+
+> [!NOTE]
+> The CK pin works in conjunction with the TX pin. Thus, the clock is provided only if the
 transmitter is enabled (TE=1) and a data is being transmitted (the data register USART_DR
 ??????????
 ?????? ???? ????? ????????????? ???????????????
@@ -28599,8 +31740,10 @@ transmitter is enabled (TE=1) and a data is being transmitted (the data register
 ????????????????????????????????????????????????????
 
 
-                                                <!-- *P535*/844 -->
-557
+<!-- *P535*/844 -->
+[P535]: #P535
+<a id="P535"></a>
+
 has been written). This means that it is not possible to receive a synchronous data without
 transmitting data.
 The LBCL, CPOL and CPHA bits have to be selected when both the transmitter and the
@@ -28611,8 +31754,20 @@ and the hold time of the receiver.
 The USART supports master mode only: it cannot receive or send data related to an input
 clock (CK is always an output).
 
+[Figure 178]: "#Figure%20178"
+<a id="Figure 178"></a>
+
+[Figure 178]: "Figure%20178"
+<a id="Figure 178"></a>
+
 **Figure 178**. USART example of synchronous transmission
 
+
+[Figure 179]: "#Figure%20179"
+<a id="Figure 179"></a>
+
+[Figure 179]: "Figure%20179"
+<a id="Figure 179"></a>
 
 **Figure 179**. USART data clock timing diagram (M=0)
 
@@ -28655,14 +31810,31 @@ clock (CK is always an output).
 ?????????????????
 
 
-                                                <!-- *P536*/844 -->
+<!-- *P536*/844 -->
+[P536]: #P536
+<a id="P536"></a>
+
+
+[Figure 180]: "#Figure%20180"
+<a id="Figure 180"></a>
+
+[Figure 180]: "Figure%20180"
+<a id="Figure 180"></a>
 
 **Figure 180**. USART data clock timing diagram (M=1)
 
 
+[Figure 181]: "#Figure%20181"
+<a id="Figure 181"></a>
+
+[Figure 181]: "Figure%20181"
+<a id="Figure 181"></a>
+
 **Figure 181**. RX data setup/hold time
 
-Note: The function of CK is different in Smartcard mode. Refer to the Smartcard mode chapter for
+
+> [!NOTE]
+> The function of CK is different in Smartcard mode. Refer to the Smartcard mode chapter for
 more details.
 
 //19.3.10 Single-wire half-duplex communication
@@ -28721,8 +31893,10 @@ communication is made with a control bit ‘HALF DUPLEX SEL’ (HDSEL in USART_C
 ? ?????? ? ????? ?????????????
 
 
-                                                <!-- *P537*/844 -->
-557
+<!-- *P537*/844 -->
+[P537]: #P537
+<a id="P537"></a>
+
 As soon as HDSEL is written to 1:
 • the TX and RX lines are internally connected
 • the RX pin is no longer used
@@ -28747,10 +31921,18 @@ defined in the ISO 7816-3 standard. The USART should be configured as:
 • 8 bits plus parity: where M=1 and PCE=1 in the USART_CR1 register
 • 1.5 stop bits when transmitting and receiving: where STOP=11 in the USART_CR2
 register.
-Note: It is also possible to choose 0.5 stop bit for receiving but it is recommended to use 1.5 stop
+
+> [!NOTE]
+> It is also possible to choose 0.5 stop bit for receiving but it is recommended to use 1.5 stop
 bits for both transmitting and receiving to avoid switching between the two configurations.
-Figure 182 shows examples of what can be seen on the data line with and without parity
+[Figure 182] shows examples of what can be seen on the data line with and without parity
 error.
+
+[Figure 182]: "#Figure%20182"
+<a id="Figure 182"></a>
+
+[Figure 182]: "Figure%20182"
+<a id="Figure 182"></a>
 
 **Figure 182**. ISO 7816-3 asynchronous protocol
 
@@ -28774,7 +31956,10 @@ minimum of 1/2 baud clock. In normal operation a full transmit shift register wi
 ???????????????????????????????????
 
 
-                                                <!-- *P538*/844 -->
+<!-- *P538*/844 -->
+[P538]: #P538
+<a id="P538"></a>
+
 shifting on the next baud clock edge. In Smartcard mode this transmission is further
 delayed by a guaranteed 1/2 baud clock.
 • If a parity error is detected during reception of a frame programmed with a 0.5 or 1.5
@@ -28798,13 +31983,21 @@ According to the ISO protocol, the duration of the received NACK can be 1 or 2 b
 clock periods.
 • On the receiver side, if a parity error is detected and a NACK is transmitted the receiver
 will not detect the NACK as a start bit.
-Note: A break character is not significant in Smartcard mode. A 0x00 data with a framing error will
+
+> [!NOTE]
+> A break character is not significant in Smartcard mode. A 0x00 data with a framing error will
 be treated as data and not as a break.
 No Idle frame is transmitted when toggling the TE bit. The Idle frame (as defined for the
 other configurations) is not defined by the ISO protocol.
-Figure 183 details how the NACK signal is sampled by the USART. In this example the
+[Figure 183] details how the NACK signal is sampled by the USART. In this example the
 USART is transmitting a data and is configured with 1.5 stop bits. The receiver part of the
 USART is enabled in order to check the integrity of the data and the NACK signal.
+
+[Figure 183]: "#Figure%20183"
+<a id="Figure 183"></a>
+
+[Figure 183]: "Figure%20183"
+<a id="Figure 183"></a>
 
 **Figure 183**. Parity error detection using the 1.5 stop bits
 
@@ -28825,8 +32018,10 @@ peripheral input clock through a 5-bit prescaler. The division ratio is configur
 ??????????????
 
 
-                                                <!-- *P539*/844 -->
-557
+<!-- *P539*/844 -->
+[P539]: #P539
+<a id="P539"></a>
+
 prescaler register USART_GTPR. CK frequency can be programmed from f CK /2 to f CK /62,
 where f CK is the peripheral input clock.
 
@@ -28838,7 +32033,7 @@ mode, the following bits must be kept cleared:
 • LINEN, STOP and CLKEN bits in the USART_CR2 register,
 • SCEN and HDSEL bits in the USART_CR3 register.
 The IrDA SIR physical layer specifies use of a Return to Zero, Inverted (RZI) modulation
-scheme that represents logic 0 as an infrared light pulse (see Figure 184).
+scheme that represents logic 0 as an infrared light pulse (see [Figure 184]).
 The SIR Transmit encoder modulates the Non Return to Zero (NRZ) transmit bit stream
 output from USART. The output pulse stream is transmitted to an external output driver and
 infrared LED. USART supports only bit rates up to 115.2Kbps for the SIR ENDEC. In normal
@@ -28854,7 +32049,7 @@ from the USART), data on the TX from the USART to IrDA will not be encoded by Ir
 While receiving data, transmission should be avoided as the data to be transmitted
 could be corrupted.
 • A ‘0 is transmitted as a high pulse and a ‘1 is transmitted as a ‘0. The width of the pulse
-is specified as 3/16th of the selected bit period in normal mode (see Figure 185).
+is specified as 3/16th of the selected bit period in normal mode (see [Figure 185]).
 • The SIR decoder converts the IrDA compliant receive signal into a bit stream for
 USART.
 • The SIR receive logic interprets a high state as a logic one and low pulses as logic
@@ -28873,7 +32068,10 @@ accepted as a pulse. The IrDA encoder/decoder doesn’t work when PSC=0.
 bit”.
 
 
-                                                <!-- *P540*/844 -->
+<!-- *P540*/844 -->
+[P540]: #P540
+<a id="P540"></a>
+
 IrDA low-power mode
 Transmitter:
 In low-power mode the pulse width is not maintained at 3/16 of the bit period. Instead, the
@@ -28885,14 +32083,28 @@ Receiving in low-power mode is similar to receiving in normal mode. For glitch d
 USART should discard pulses of duration shorter than 1/PSC. A valid low is accepted only if
 its duration is greater than 2 periods of the IrDA low-power Baud clock (PSC value in
 USART_GTPR).
-Note: A pulse of width less than two and greater than one PSC period(s) may or may not be
+
+> [!NOTE]
+> A pulse of width less than two and greater than one PSC period(s) may or may not be
 rejected.
 The receiver set up time should be managed by software. The IrDA physical layer
 specification specifies a minimum of 10 ms delay between transmission and reception (IrDA
 is a half duplex protocol).
 
+[Figure 184]: "#Figure%20184"
+<a id="Figure 184"></a>
+
+[Figure 184]: "Figure%20184"
+<a id="Figure 184"></a>
+
 **Figure 184**. IrDA SIR ENDEC- block diagram
 
+
+[Figure 185]: "#Figure%20185"
+<a id="Figure 185"></a>
+
+[Figure 185]: "Figure%20185"
+<a id="Figure 185"></a>
 
 **Figure 185**. IrDA data modulation (3/16) -Normal mode
 
@@ -28927,8 +32139,10 @@ is a half duplex protocol).
 ? ? ? ? ? ? ? ? ? ?
 
 
-                                                <!-- *P541*/844 -->
-557
+<!-- *P541*/844 -->
+[P541]: #P541
+<a id="P541"></a>
+
 
 //19.3.13 Continuous communication using DMA
 --------------------------------------------
@@ -28963,7 +32177,16 @@ flag remains cleared during all data transfers and it is set by hardware at the 
 end of transmission.
 
 
-                                                <!-- *P542*/844 -->
+<!-- *P542*/844 -->
+[P542]: #P542
+<a id="P542"></a>
+
+
+[Figure 186]: "#Figure%20186"
+<a id="Figure 186"></a>
+
+[Figure 186]: "Figure%20186"
+<a id="Figure 186"></a>
 
 **Figure 186**. Transmission using DMA
 
@@ -29032,8 +32255,16 @@ be cleared by software in the USART_CR3 register during the interrupt subroutine
 ????????
 
 
-                                                <!-- *P543*/844 -->
-557
+<!-- *P543*/844 -->
+[P543]: #P543
+<a id="P543"></a>
+
+
+[Figure 187]: "#Figure%20187"
+<a id="Figure 187"></a>
+
+[Figure 187]: "Figure%20187"
+<a id="Figure 187"></a>
 
 **Figure 187**. Reception using DMA
 
@@ -29049,7 +32280,13 @@ either of these errors.
 -------------------------------
 
 It is possible to control the serial data flow between 2 devices by using the CTS input and
-the RTS output. The Figure 188 shows how to connect 2 devices in this mode:
+the RTS output. The [Figure 188] shows how to connect 2 devices in this mode:
+
+[Figure 188]: "#Figure%20188"
+<a id="Figure 188"></a>
+
+[Figure 188]: "Figure%20188"
+<a id="Figure 188"></a>
 
 **Figure 188**. Hardware flow control between 2 USARTs
 
@@ -29104,12 +32341,21 @@ CTSE bits to 1 (in the USART_CR3 register).
 ????
 
 
-                                                <!-- *P544*/844 -->
+<!-- *P544*/844 -->
+[P544]: #P544
+<a id="P544"></a>
+
 RTS flow control
 If the RTS flow control is enabled (RTSE=1), then RTS is asserted (tied low) as long as the
 USART receiver is ready to receive a new data. When the receive register is full, RTS is
 deasserted, indicating that the transmission is expected to stop at the end of the current
-frame. Figure 189 shows an example of communication with RTS flow control enabled.
+frame. [Figure 189] shows an example of communication with RTS flow control enabled.
+
+[Figure 189]: "#Figure%20189"
+<a id="Figure 189"></a>
+
+[Figure 189]: "Figure%20189"
+<a id="Figure 189"></a>
 
 **Figure 189**. RTS flow control
 
@@ -29142,12 +32388,22 @@ below shows an example of communication with CTS flow control enabled.
 ?????? ??????
 
 
-                                                <!-- *P545*/844 -->
-557
+<!-- *P545*/844 -->
+[P545]: #P545
+<a id="P545"></a>
+
+
+[Figure 190]: "#Figure%20190"
+<a id="Figure 190"></a>
+
+[Figure 190]: "Figure%20190"
+<a id="Figure 190"></a>
 
 **Figure 190**. CTS flow control
 
-Note: Special behavior of break frames: when the CTS flow is enabled, the transmitter does not
+
+> [!NOTE]
+> Special behavior of break frames: when the CTS flow is enabled, the transmitter does not
 check the CTS input state to send a break.
 ??????????
 ?????
@@ -29174,13 +32430,16 @@ check the CTS input state to send a break.
 ???????????????????????
 
 
-                                                <!-- *P546*/844 -->
+<!-- *P546*/844 -->
+[P546]: #P546
+<a id="P546"></a>
+
 
 //19.4 USART interrupts
 -----------------------
 
 
-The USART interrupt events are connected to the same interrupt vector (see Figure 191).
+The USART interrupt events are connected to the same interrupt vector (see [Figure 191]).
 • During transmission: Transmission Complete, Clear to Send or Transmit Data Register
 empty interrupt.
 • While receiving: Idle Line detection, Overrun error, Receive Data register not empty,
@@ -29188,8 +32447,17 @@ Parity error, LIN break detection, Noise Flag (only in multi buffer communicatio
 Framing Error (only in multi buffer communication).
 These events generate an interrupt if the corresponding Enable Control Bit is set.
 
+[Figure 191]: "#Figure%20191"
+<a id="Figure 191"></a>
+
+[Figure 191]: "Figure%20191"
+<a id="Figure 191"></a>
+
 **Figure 191**. USART interrupt mapping diagram
 
+
+[Table 86]: "Table%2086"
+<a id="Table 86"></a>
 
 **Table 86**. USART interrupt requests
 
@@ -29234,8 +32502,10 @@ NF or ORE or FE EIE
 ????
 
 
-                                                <!-- *P547*/844 -->
-557
+<!-- *P547*/844 -->
+[P547]: #P547
+<a id="P547"></a>
+
 
 //19.5 USART mode configuration
 -------------------------------
@@ -29255,6 +32525,9 @@ The peripheral registers have to be accessed by half-words (16 bits) or words (3
 Address offset: 0x00
 Reset value: 0x00C0 0000
 
+
+[Table 87]: "Table%2087"
+<a id="Table 87"></a>
 
 **Table 87**. USART mode configuration (1)
 
@@ -29280,24 +32553,33 @@ Bit 9 CTS: CTS flag
 This bit is set by hardware when the CTS input toggles, if the CTSE bit is set. It is cleared by
 software (by writing it to 0). An interrupt is generated if CTSIE=1 in the USART_CR3
 register.
-Note: 0: No change occurred on the CTS status line
+
+> [!NOTE]
+> 0: No change occurred on the CTS status line
 1: A change occurred on the CTS status line
 Bit 8 LBD: LIN break detection flag
 This bit is set by hardware when the LIN break is detected. It is cleared by software (by
 writing it to 0). An interrupt is generated if LBDIE = 1 in the USART_CR2 register.
 0: LIN Break not detected
 1: LIN break detected
-Note: An interrupt is generated when LBD=1 if LBDIE=1
+
+> [!NOTE]
+> An interrupt is generated when LBD=1 if LBDIE=1
 
 
-                                                <!-- *P548*/844 -->
+<!-- *P548*/844 -->
+[P548]: #P548
+<a id="P548"></a>
+
 Bit 7 TXE: Transmit data register empty
 This bit is set by hardware when the content of the TDR register has been transferred into
 the shift register. An interrupt is generated if the TXEIE bit =1 in the USART_CR1 register. It
 is cleared by a write to the USART_DR register.
 0: Data is not transferred to the shift register
 1: Data is transferred to the shift register)
-Note: This bit is used during single buffer transmission.
+
+> [!NOTE]
+> This bit is used during single buffer transmission.
 Bit 6 TC: Transmission complete
 This bit is set by hardware if the transmission of a frame containing data is complete and if
 TXE is set. An interrupt is generated if TCIE=1 in the USART_CR1 register. It is cleared by
@@ -29320,7 +32602,9 @@ IDLEIE=1 in the USART_CR1 register. It is cleared by a software sequence (an rea
 USART_SR register followed by a read to the USART_DR register).
 0: No Idle Line is detected
 1: Idle Line is detected
-Note: The IDLE bit will not be set again until the RXNE bit has been set itself (i.e. a new idle
+
+> [!NOTE]
+> The IDLE bit will not be set again until the RXNE bit has been set itself (i.e. a new idle
 line occurs).
 Bit 3 ORE: Overrun error
 This bit is set by hardware when the word currently being received in the shift register is
@@ -29329,23 +32613,31 @@ RXNEIE=1 in the USART_CR1 register. It is cleared by a software sequence (an rea
 USART_SR register followed by a read to the USART_DR register).
 0: No Overrun error
 1: Overrun error is detected
-Note: When this bit is set, the RDR register content will not be lost but the shift register will be
+
+> [!NOTE]
+> When this bit is set, the RDR register content will not be lost but the shift register will be
 overwritten. An interrupt is generated on ORE flag in case of Multi Buffer
 communication if the EIE bit is set.
 
 
-                                                <!-- *P549*/844 -->
-557
+<!-- *P549*/844 -->
+[P549]: #P549
+<a id="P549"></a>
+
 Bit 2 NF: Noise detected flag
 This bit is set by hardware when noise is detected on a received frame. It is cleared by a
 software sequence (an read to the USART_SR register followed by a read to the
 USART_DR register).
 0: No noise is detected
 1: Noise is detected
-Note: This bit does not generate interrupt as it appears at the same time as the RXNE bit
+
+> [!NOTE]
+> This bit does not generate interrupt as it appears at the same time as the RXNE bit
 which itself generates an interrupting interrupt is generated on NF flag in case of Multi
 Buffer communication if the EIE bit is set.
-Note: When the line is noise-free, the NF flag can be disabled by programming the ONEBIT
+
+> [!NOTE]
+> When the line is noise-free, the NF flag can be disabled by programming the ONEBIT
 bit to 1 to increase the USART tolerance to deviations (Refer to Section 19.3.5: USART
 receiver tolerance to clock deviation on page 528).
 Bit 1 FE: Framing error
@@ -29354,7 +32646,9 @@ is detected. It is cleared by a software sequence (an read to the USART_SR regis
 followed by a read to the USART_DR register).
 0: No Framing error is detected
 1: Framing error or break character is detected
-Note: This bit does not generate interrupt as it appears at the same time as the RXNE bit
+
+> [!NOTE]
+> This bit does not generate interrupt as it appears at the same time as the RXNE bit
 which itself generates an interrupt. If the word currently being transferred causes both
 frame error and overrun error, it will be transferred and only the ORE bit will be set.
 An interrupt is generated on FE flag in case of Multi Buffer communication if the EIE bit
@@ -29369,7 +32663,10 @@ An interrupt is generated if PEIE = 1 in the USART_CR1 register.
 1: Parity error
 
 
-                                                <!-- *P550*/844 -->
+<!-- *P550*/844 -->
+[P550]: #P550
+<a id="P550"></a>
+
 
 //19.6.2 Data register (USART_DR)
 ---------------------------------
@@ -29380,7 +32677,9 @@ Reset value: 0xXXXX XXXX
 //19.6.3 Baud rate register (USART_BRR)
 ---------------------------------------
 
-Note: The baud counters stop counting if the TE or RE bits are disabled respectively.
+
+> [!NOTE]
+> The baud counters stop counting if the TE or RE bits are disabled respectively.
 Address offset: 0x08
 Reset value: 0x0000 0000
 
@@ -29397,7 +32696,7 @@ or written to.
 The Data register performs a double function (read and write) since it is composed of two
 registers, one for transmission (TDR) and one for reception (RDR)
 The TDR register provides the parallel interface between the internal bus and the output shift
-register (see Figure 1).
+register (see [Figure 1]).
 The RDR register provides the parallel interface between the input shift register and the
 internal bus.
 When transmitting with the parity enabled (PCE bit set to 1 in the USART_CR1 register), the
@@ -29423,14 +32722,18 @@ OVER8 Reserved UE M WAKE PCE PS PEIE TXEIE TCIE RXNEIE IDLEIE TE RE RWU SBK
 rw Res. rw rw rw rw rw rw rw rw rw rw rw rw rw rw
 
 
-                                                <!-- *P551*/844 -->
-557
+<!-- *P551*/844 -->
+[P551]: #P551
+<a id="P551"></a>
+
 
 Bits 31:16 Reserved, must be kept at reset value
 Bit 15 OVER8: Oversampling mode
 0: oversampling by 16
 1: oversampling by 8
-Note: Oversampling by 8 is not available in the Smartcard, IrDA and LIN modes: when
+
+> [!NOTE]
+> Oversampling by 8 is not available in the Smartcard, IrDA and LIN modes: when
 SCEN=1,IREN=1 or LINEN=1 then OVER8 is forced to ‘0 by hardware.
 Bit 14 Reserved, must be kept at reset value
 Bit 13 UE: USART enable
@@ -29443,7 +32746,9 @@ Bit 12 M: Word length
 This bit determines the word length. It is set or cleared by software.
 0: 1 Start bit, 8 Data bits, n Stop bit
 1: 1 Start bit, 9 Data bits, n Stop bit
-Note: The M bit must not be modified during a data transfer (both transmission and reception)
+
+> [!NOTE]
+> The M bit must not be modified during a data transfer (both transmission and reception)
 Bit 11 WAKE: Wakeup method
 This bit determines the USART wakeup method, it is set or cleared by software.
 0: Idle Line
@@ -29474,7 +32779,10 @@ This bit is set and cleared by software.
 1: An USART interrupt is generated whenever TC=1 in the USART_SR register
 
 
-                                                <!-- *P552*/844 -->
+<!-- *P552*/844 -->
+[P552]: #P552
+<a id="P552"></a>
+
 Bit 5 RXNEIE: RXNE interrupt enable
 This bit is set and cleared by software.
 0: Interrupt is inhibited
@@ -29488,7 +32796,9 @@ Bit 3 TE: Transmitter enable
 This bit enables the transmitter. It is set and cleared by software.
 0: Transmitter is disabled
 1: Transmitter is enabled
-Note: During transmission, a “0” pulse on the TE bit (“0” followed by “1”) sends a preamble
+
+> [!NOTE]
+> During transmission, a “0” pulse on the TE bit (“0” followed by “1”) sends a preamble
 (idle line) after the current word, except in smartcard mode.
 When TE is set, there is a 1 bit-time delay before the transmission starts.
 Bit 2 RE: Receiver enable
@@ -29500,7 +32810,9 @@ This bit determines if the USART is in mute mode or not. It is set and cleared b
 and can be cleared by hardware when a wakeup sequence is recognized.
 0: Receiver in active mode
 1: Receiver in mute mode
-Note: Before selecting Mute mode (by setting the RWU bit) the USART must first receive a
+
+> [!NOTE]
+> Before selecting Mute mode (by setting the RWU bit) the USART must first receive a
 data byte, otherwise it cannot function in Mute mode with wakeup by Idle line detection.
 In Address Mark Detection wakeup configuration (WAKE bit=1) the RWU bit cannot be
 modified by software while the RXNE bit is set.
@@ -29511,8 +32823,10 @@ be set by software, and will be reset by hardware during the stop bit of break.
 1: Break character will be transmitted
 
 
-                                                <!-- *P553*/844 -->
-557
+<!-- *P553*/844 -->
+[P553]: #P553
+<a id="P553"></a>
+
 
 //19.6.5 Control register 2 (USART_CR2)
 ---------------------------------------
@@ -29538,7 +32852,9 @@ These bits are used for programming the stop bits.
 00: 1 Stop bit
 01: 0.5 Stop bit
 10: 2 Stop bits
-Note: 11: 1.5 Stop bit
+
+> [!NOTE]
+> 11: 1.5 Stop bit
 Bit 11 CLKEN: Clock enable
 This bit allows the user to enable the CK pin.
 0: CK pin disabled
@@ -29552,7 +32868,9 @@ Bit 9 CPHA: Clock phase
 This bit allows the user to select the phase of the clock output on the CK pin in synchronous mode.
 It works in conjunction with the CPOL bit to produce the desired clock/data relationship (see figures
 179 to 180)
-Note: 0: The first clock transition is the first data capture edge
+
+> [!NOTE]
+> 0: The first clock transition is the first data capture edge
 1: The second clock transition is the first data capture edge
 Bit 8 LBCL: Last bit clock pulse
 This bit allows the user to select whether the clock pulse associated with the last data bit
@@ -29564,8 +32882,13 @@ by the M bit in the USART_CR1 register.
 Bit 7 Reserved, must be kept at reset value
 
 
-                                                <!-- *P554*/844 -->
-Note: These 3 bits (CPOL, CPHA, LBCL) should not be written while the transmitter is enabled.
+<!-- *P554*/844 -->
+[P554]: #P554
+<a id="P554"></a>
+
+
+> [!NOTE]
+> These 3 bits (CPOL, CPHA, LBCL) should not be written while the transmitter is enabled.
 
 //19.6.6 Control register 3 (USART_CR3)
 ---------------------------------------
@@ -29598,25 +32921,35 @@ This bit allows the user to select the sample method. When the one sample bit me
 selected the noise detection flag (NF) is disabled.
 0: Three sample bit method
 1: One sample bit method
-Note: The ONEBIT feature applies only to data bits. It does not apply to START bit.
+
+> [!NOTE]
+> The ONEBIT feature applies only to data bits. It does not apply to START bit.
 Bit 10 CTSIE: CTS interrupt enable
-Note: 0: Interrupt is inhibited
+
+> [!NOTE]
+> 0: Interrupt is inhibited
 1: An interrupt is generated whenever CTS=1 in the USART_SR register
 Bit 9 CTSE: CTS enable
 0: CTS hardware flow control disabled
-Note: 1: CTS mode enabled, data is only transmitted when the CTS input is asserted (tied to
+
+> [!NOTE]
+> 1: CTS mode enabled, data is only transmitted when the CTS input is asserted (tied to
 0). If the CTS input is deasserted while a data is being transmitted, then the
 transmission is completed before stopping. If a data is written into the data register
 while CTS is deasserted, the transmission is postponed until CTS is asserted.
 Bit 8 RTSE: RTS enable
 0: RTS hardware flow control disabled
-Note: 1: RTS interrupt enabled, data is only requested when there is space in the receive
+
+> [!NOTE]
+> 1: RTS interrupt enabled, data is only requested when there is space in the receive
 buffer. The transmission of data is expected to cease after the current character has
 been transmitted. The RTS output is asserted (tied to 0) when a data can be received.
 
 
-                                                <!-- *P555*/844 -->
-557
+<!-- *P555*/844 -->
+[P555]: #P555
+<a id="P555"></a>
+
 Bit 7 DMAT: DMA enable transmitter
 This bit is set/reset by software
 1: DMA mode is enabled for transmission.
@@ -29627,10 +32960,14 @@ This bit is set/reset by software
 0: DMA mode is disabled for reception
 Bit 5 SCEN: Smartcard mode enable
 This bit is used for enabling Smartcard mode.
-Note: 0: Smartcard Mode disabled
+
+> [!NOTE]
+> 0: Smartcard Mode disabled
 1: Smartcard Mode enabled
 Bit 4 NACK: Smartcard NACK enable
-Note: 0: NACK transmission in case of parity error is disabled
+
+> [!NOTE]
+> 0: NACK transmission in case of parity error is disabled
 1: NACK transmission during parity error is enabled
 Bit 3 HDSEL: Half-duplex selection
 Selection of Single-wire Half-duplex mode
@@ -29653,7 +32990,10 @@ case of Multi Buffer Communication (DMAR=1 in the USART_CR3 register).
 ORE=1 or NF=1 in the USART_SR register.
 
 
-                                                <!-- *P556*/844 -->
+<!-- *P556*/844 -->
+[P556]: #P556
+<a id="P556"></a>
+
 
 //19.6.7 Guard time and prescaler register (USART_GTPR)
 -------------------------------------------------------
@@ -29669,7 +33009,9 @@ rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw
 Bits 31:16 Reserved, must be kept at reset value
 Bits 15:8 GT[7:0]: Guard time value
 This bit-field gives the Guard time value in terms of number of baud clocks.
-Note: This is used in Smartcard mode. The Transmission Complete flag is set after this guard
+
+> [!NOTE]
+> This is used in Smartcard mode. The Transmission Complete flag is set after this guard
 time value.
 Bits 7:0 PSC[7:0]: Prescaler value
 – In IrDA Low-power mode:
@@ -29693,11 +33035,15 @@ of the source clock frequency:
 00010: divides the source clock by 4
 00011: divides the source clock by 6
 ...
-Note: 1: Bits [7:5] have no effect if Smartcard mode is used.
+
+> [!NOTE]
+> 1: Bits [7:5] have no effect if Smartcard mode is used.
 
 
-                                                <!-- *P557*/844 -->
-557
+<!-- *P557*/844 -->
+[P557]: #P557
+<a id="P557"></a>
+
 
 //19.6.8 USART register map
 ---------------------------
@@ -29705,6 +33051,9 @@ Note: 1: Bits [7:5] have no effect if Smartcard mode is used.
 The table below gives the USART register map and reset values.
 
 Refer to Section 2.3: Memory map for the register boundary addresses.
+
+[Table 88]: "Table%2088"
+<a id="Table 88"></a>
 
 **Table 88**. USART register map and reset values
 
@@ -29826,7 +33175,10 @@ GT[7:0] PSC[7:0]
 Reset value 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 
 
-                                                <!-- *P558*/844 -->
+<!-- *P558*/844 -->
+[P558]: #P558
+<a id="P558"></a>
+
 
 /20 Serial peripheral interface (SPI)
 =====================================
@@ -29865,8 +33217,10 @@ interface pins, please refer to Section 8.3.2: I/O pin
 multiplexer and mapping.
 
 
-                                                <!-- *P559*/844 -->
-610
+<!-- *P559*/844 -->
+[P559]: #P559
+<a id="P559"></a>
+
 
 //20.2 SPI and I2S main features
 ----------------------------------
@@ -29897,7 +33251,10 @@ of master/slave operations
 • 1-byte transmission and reception buffer with DMA capability: Tx and Rx requests
 
 
-                                                <!-- *P560*/844 -->
+<!-- *P560*/844 -->
+[P560]: #P560
+<a id="P560"></a>
+
 
 //20.2.2 I2S features
 -----------------------
@@ -29931,8 +33288,10 @@ accurate clock.
 I2S_CKIN pin.
 
 
-                                                <!-- *P561*/844 -->
-610
+<!-- *P561*/844 -->
+[P561]: #P561
+<a id="P561"></a>
+
 
 //20.3 SPI functional description
 ---------------------------------
@@ -29941,7 +33300,13 @@ I2S_CKIN pin.
 //20.3.1 General description
 ----------------------------
 
-The block diagram of the SPI is shown in Figure 192.
+The block diagram of the SPI is shown in [Figure 192].
+
+[Figure 192]: "#Figure%20192"
+<a id="Figure 192"></a>
+
+[Figure 192]: "Figure%20192"
+<a id="Figure 192"></a>
 
 **Figure 192**. SPI block diagram
 
@@ -29962,7 +33327,7 @@ NSS configured as an input (MSTR=1 and SSOE=0) and if NSS is pulled low, the SPI
 enters the master mode fault state: the MSTR bit is automatically cleared and the
 device is configured in slave mode (refer to Section 20.3.10).
 A basic example of interconnections between a single master and a single slave is
-illustrated in Figure 193.
+illustrated in [Figure 193].
 ?????????
 ????
 ????
@@ -30019,7 +33384,16 @@ illustrated in Figure 193.
 ??? ???
 
 
-                                                <!-- *P562*/844 -->
+<!-- *P562*/844 -->
+[P562]: #P562
+<a id="P562"></a>
+
+
+[Figure 193]: "#Figure%20193"
+<a id="Figure 193"></a>
+
+[Figure 193]: "Figure%20193"
+<a id="Figure 193"></a>
 
 **Figure 193**. Single master/ single slave application
 
@@ -30072,18 +33446,22 @@ CPOL bit is reset, rising edge if the CPOL bit is set) is the MSBit capture stro
 ???????
 
 
-                                                <!-- *P563*/844 -->
-610
+<!-- *P563*/844 -->
+[P563]: #P563
+<a id="P563"></a>
+
 latched on the occurrence of the second clock transition. If the CPHA bit is reset, the first
 edge on the SCK pin (falling edge if CPOL bit is set, rising edge if CPOL bit is reset) is the
 MSBit capture strobe. Data are latched on the occurrence of the first clock transition.
 The combination of the CPOL (clock polarity) and CPHA (clock phase) bits selects the data
 capture clock edge.
-Figure 194, shows an SPI transfer with the four combinations of the CPHA and CPOL bits.
+[Figure 194], shows an SPI transfer with the four combinations of the CPHA and CPOL bits.
 The diagram may be interpreted as a master or slave timing diagram where the SCK pin,
 the MISO pin, the MOSI pin are directly connected between the master and the slave
 device.
-Note: Prior to changing the CPOL/CPHA bits the SPI must be disabled by resetting the SPE bit.
+
+> [!NOTE]
+> Prior to changing the CPOL/CPHA bits the SPI must be disabled by resetting the SPE bit.
 Master and slave must be programmed with the same timing mode.
 The idle state of SCK must correspond to the polarity selected in the SPI_CR1 register (by
 pulling up SCK if CPOL=1 or pulling down SCK if CPOL=0).
@@ -30091,7 +33469,16 @@ The Data Frame Format (8- or 16-bit) is selected through the DFF bit in SPI_CR1 
 and determines the data length during transmission/reception.
 
 
-                                                <!-- *P564*/844 -->
+<!-- *P564*/844 -->
+[P564]: #P564
+<a id="P564"></a>
+
+
+[Figure 194]: "#Figure%20194"
+<a id="Figure 194"></a>
+
+[Figure 194]: "Figure%20194"
+<a id="Figure 194"></a>
 
 **Figure 194**. Data clock timing diagram
 
@@ -30136,9 +33523,13 @@ transfer rate.
 ????????
 
 
-                                                <!-- *P565*/844 -->
-610
-Note: It is recommended to enable the SPI slave before the master sends the clock. If not,
+<!-- *P565*/844 -->
+[P565]: #P565
+<a id="P565"></a>
+
+
+> [!NOTE]
+> It is recommended to enable the SPI slave before the master sends the clock. If not,
 undesired data transmission might occur. The data register of the slave needs to be ready
 before the first edge of the communication clock or before the end of the ongoing
 communication. It is mandatory to have the polarity of the communication clock set to the
@@ -30147,7 +33538,7 @@ Follow the procedure below to configure the SPI in slave mode:
 Procedure
 1. Set the DFF bit to define 8- or 16-bit data frame format
 2. Select the CPOL and CPHA bits to define one of the four relationships between the
-data transfer and the serial clock (see Figure 194). For correct data transfer, the CPOL
+data transfer and the serial clock (see [Figure 194]). For correct data transfer, the CPOL
 and CPHA bits must be configured in the same way in the slave device and the master
 device. This step is not required when the TI mode is selected through the FRF bit in
 the SPI_CR2 register.
@@ -30181,7 +33572,10 @@ peripheral returns this buffered value.
 Clearing of the RXNE bit is performed by reading the SPI_DR register.
 
 
-                                                <!-- *P566*/844 -->
+<!-- *P566*/844 -->
+[P566]: #P566
+<a id="P566"></a>
+
 SPI TI protocol in slave mode
 In slave mode, the SPI interface is compatible with the TI protocol. The FRF bit of the
 SPI_CR2 register can be used to configure the slave SPI serial communications to be
@@ -30190,19 +33584,27 @@ The clock polarity and phase are forced to conform to the TI protocol requiremen
 the values set in the SPI_CR1 register. NSS management is also specific to the TI protocol
 which makes the configuration of NSS management through the SPI_CR1 and SPI_CR2
 registers (such as SSM, SSI, SSOE) transparent for the user.
-In Slave mode (Figure 195: TI mode - Slave mode, single transfer and Figure 196: TI mode
+In Slave mode (Figure 195: TI mode - Slave mode, single transfer and [Figure 196]: TI mode
 - Slave mode, continuous transfer), the SPI baud rate prescaler is used to control the
 moment when the MISO pin state changes to HI-Z. Any baud rate can be used thus allowing
 to determine this moment with optimal flexibility. However, the baud rate is generally set to
 the external master clock baud rate. The time for the MISO signal to become HI-Z (t release )
 depends on internal resynchronizations and on the baud rate value set in through BR[2:0] of
 SPI_CR1 register. It is given by the formula:
-Note: This feature is not available for Motorola SPI communications (FRF bit set to 0).
+
+> [!NOTE]
+> This feature is not available for Motorola SPI communications (FRF bit set to 0).
 To detect TI frame errors in Slave transmitter only mode by using the Error interrupt (ERRIE
 = 1), the SPI must be configured in 2-line unidirectional mode by setting BIDIMODE and
 BIDIOE to 1 in the SPI_CR1 register. When BIDIMODE is set to 0, OVR is set to 1 because
 the data register is never read and error interrupt are always generated, while when
 BIDIMODE is set to 1, data are not received and OVR is never set.
+
+[Figure 195]: "#Figure%20195"
+<a id="Figure 195"></a>
+
+[Figure 195]: "Figure%20195"
+<a id="Figure 195"></a>
 
 **Figure 195**. TI mode - Slave mode, single transfer
 
@@ -30239,8 +33641,16 @@ t baud_rate
 ? ???????
 
 
-                                                <!-- *P567*/844 -->
-610
+<!-- *P567*/844 -->
+[P567]: #P567
+<a id="P567"></a>
+
+
+[Figure 196]: "#Figure%20196"
+<a id="Figure 196"></a>
+
+[Figure 196]: "Figure%20196"
+<a id="Figure 196"></a>
 
 **Figure 196**. TI mode - Slave mode, continuous transfer
 
@@ -30252,7 +33662,7 @@ In the master configuration, the serial clock is generated on the SCK pin.
 Procedure
 1. Select the BR[2:0] bits to define the serial clock baud rate (see SPI_CR1 register).
 2. Select the CPOL and CPHA bits to define one of the four relationships between the
-data transfer and the serial clock (see Figure 194). This step is not required when the
+data transfer and the serial clock (see [Figure 194]). This step is not required when the
 TI mode is selected.
 3. Set the DFF bit to define 8- or 16-bit data frame format
 4. Configure the LSBFIRST bit in the SPI_CR1 register to define the frame format. This
@@ -30291,7 +33701,10 @@ the SPI_CR2 register is set.
 ??????? ???????
 
 
-                                                <!-- *P568*/844 -->
+<!-- *P568*/844 -->
+[P568]: #P568
+<a id="P568"></a>
+
 Receive sequence
 For the receiver, when data transfer is complete:
 • The data in the shift register is transferred to the RX Buffer and the RXNE flag is set
@@ -30303,7 +33716,9 @@ Clearing the RXNE bit is performed by reading the SPI_DR register.
 A continuous transmit stream can be maintained if the next data to be transmitted is put in
 the Tx buffer once the transmission is started. Note that TXE flag should be ‘1 before any
 attempt to write the Tx buffer is made.
-Note: When a master is communicating with SPI slaves which need to be de-selected between
+
+> [!NOTE]
+> When a master is communicating with SPI slaves which need to be de-selected between
 transmissions, the NSS pin must be configured as GPIO or another GPIO must be used and
 toggled by software.
 SPI TI protocol in master mode
@@ -30314,9 +33729,15 @@ The clock polarity and phase are forced to conform to the TI protocol requiremen
 the values set in the SPI_CR1 register. NSS management is also specific to the TI protocol
 which makes the configuration of NSS management through the SPI_CR1 and SPI_CR2
 registers (SSM, SSI, SSOE) transparent for the user.
-Figure 197: TI mode - master mode, single transfer and Figure 198: TI mode - master mode,
+[Figure 197]: TI mode - master mode, single transfer and [Figure 198]: TI mode - master mode,
 continuous transfer) show the SPI master communication waveforms when the TI mode is
 selected in master mode.
+
+[Figure 197]: "#Figure%20197"
+<a id="Figure 197"></a>
+
+[Figure 197]: "Figure%20197"
+<a id="Figure 197"></a>
 
 **Figure 197**. TI mode - master mode, single transfer
 
@@ -30346,8 +33767,16 @@ selected in master mode.
 ?????? ?????? ??????
 
 
-                                                <!-- *P569*/844 -->
-610
+<!-- *P569*/844 -->
+[P569]: #P569
+<a id="P569"></a>
+
+
+[Figure 198]: "#Figure%20198"
+<a id="Figure 198"></a>
+
+[Figure 198]: "Figure%20198"
+<a id="Figure 198"></a>
 
 **Figure 198**. TI mode - master mode, continuous transfer
 
@@ -30400,7 +33829,10 @@ SSI bit is cleared in NSS software mode) and the SCK is running.
 ??????? ???????
 
 
-                                                <!-- *P570*/844 -->
+<!-- *P570*/844 -->
+[P570]: #P570
+<a id="P570"></a>
+
 
 //20.3.5 Data transmission and reception procedures
 ---------------------------------------------------
@@ -30442,8 +33874,10 @@ register.
 register during the first bit transmission, and then shifted out serially to the MISO
 
 
-                                                <!-- *P571*/844 -->
-610
+<!-- *P571*/844 -->
+[P571]: #P571
+<a id="P571"></a>
+
 pin. The software must have written the data to be sent before the SPI master
 device initiates the transfer.
 • In unidirectional receive-only mode (BIDIMODE=0 and RXONLY=1)
@@ -30472,7 +33906,9 @@ The TXE flag (Tx buffer empty) is set when the data are transferred from the Tx 
 shift register. It indicates that the internal Tx buffer is ready to be loaded with the next data.
 An interrupt can be generated if the TXEIE bit in the SPI_CR2 register is set. Clearing the
 TXE bit is performed by writing to the SPI_DR register.
-Note: The software must ensure that the TXE flag is set to 1 before attempting to write to the Tx
+
+> [!NOTE]
+> The software must ensure that the TXE flag is set to 1 before attempting to write to the Tx
 buffer. Otherwise, it overwrites the data previously written to the Tx buffer.
 The RXNE flag (Rx buffer not empty) is set on the last sampling clock edge, when the data
 are transferred from the shift register to the Rx buffer. It indicates that data are ready to be
@@ -30483,11 +33919,14 @@ For some configurations, the BSY flag can be used during the last data transfer 
 the completion of the transfer.
 Full-duplex transmit and receive procedure in master or slave mode (BIDIMODE=0 and
 RXONLY=0)
-The software has to follow this procedure to transmit and receive data (see Figure 199 and
-Figure 200):
+The software has to follow this procedure to transmit and receive data (see [Figure 199] and
+[Figure 200]):
 
 
-                                                <!-- *P572*/844 -->
+<!-- *P572*/844 -->
+[P572]: #P572
+<a id="P572"></a>
+
 1. Enable the SPI by setting the SPE bit to 1.
 2. Write the first data item to be transmitted into the SPI_DR register (this clears the TXE
 flag).
@@ -30499,6 +33938,12 @@ received data.
 5. Wait until TXE=1 and then wait until BSY=0 before disabling the SPI.
 This procedure can also be implemented using dedicated interrupt subroutines launched at
 each rising edges of the RXNE or TXE flag.
+
+[Figure 199]: "#Figure%20199"
+<a id="Figure 199"></a>
+
+[Figure 199]: "Figure%20199"
+<a id="Figure 199"></a>
 
 **Figure 199**. TXE/RXNE/BSY behavior in Master / full-duplex mode (BIDIMODE=0 and
 
@@ -30557,15 +34002,23 @@ RXONLY=0) in case of continuous transfers
 ???????
 
 
-                                                <!-- *P573*/844 -->
-610
+<!-- *P573*/844 -->
+[P573]: #P573
+<a id="P573"></a>
+
+
+[Figure 200]: "#Figure%20200"
+<a id="Figure 200"></a>
+
+[Figure 200]: "Figure%20200"
+<a id="Figure 200"></a>
 
 **Figure 200**. TXE/RXNE/BSY behavior in Slave / full-duplex mode (BIDIMODE=0,
 
 RXONLY=0) in case of continuous transfers
 Transmit-only procedure (BIDIMODE=0 RXONLY=0)
 In this mode, the procedure can be reduced as described below and the BSY bit can be
-used to wait until the completion of the transmission (see Figure 201 and Figure 202).
+used to wait until the completion of the transmission (see [Figure 201] and [Figure 202]).
 1. Enable the SPI by setting the SPE bit to 1.
 2. Write the first data item to send into the SPI_DR register (this clears the TXE bit).
 3. Wait until TXE=1 and write the next data item to be transmitted. Repeat this step for
@@ -30574,7 +34027,9 @@ each data item to be transmitted.
 BSY=0, this indicates that the transmission of the last data is complete.
 This procedure can be also implemented using dedicated interrupt subroutines launched at
 each rising edge of the TXE flag.
-Note: During discontinuous communications, there is a 2 APB clock period delay between the
+
+> [!NOTE]
+> During discontinuous communications, there is a 2 APB clock period delay between the
 write operation to SPI_DR and the BSY bit setting. As a consequence, in transmit-only
 mode, it is mandatory to wait first until TXE is set and then until BSY is cleared after writing
 the last data.
@@ -30634,11 +34089,26 @@ register since the received data are never read.
 ???????
 
 
-                                                <!-- *P574*/844 -->
+<!-- *P574*/844 -->
+[P574]: #P574
+<a id="P574"></a>
+
+
+[Figure 201]: "#Figure%20201"
+<a id="Figure 201"></a>
+
+[Figure 201]: "Figure%20201"
+<a id="Figure 201"></a>
 
 **Figure 201**. TXE/BSY behavior in Master transmit-only mode (BIDIMODE=0 and RXONLY=0)
 
 in case of continuous transfers
+
+[Figure 202]: "#Figure%20202"
+<a id="Figure 202"></a>
+
+[Figure 202]: "Figure%20202"
+<a id="Figure 202"></a>
 
 **Figure 202**. TXE/BSY in Slave transmit-only mode (BIDIMODE=0 and RXONLY=0) in case of
 
@@ -30648,7 +34118,7 @@ In this mode, the procedure is similar to the procedure in Transmit-only mode ex
 the BIDIMODE and BIDIOE bits both have to be set in the SPI_CR2 register before enabling
 the SPI.
 Unidirectional receive-only procedure (BIDIMODE=0 and RXONLY=1)
-In this mode, the procedure can be reduced as described below (see Figure 203):
+In this mode, the procedure can be reduced as described below (see [Figure 203]):
 ????
 ?????????
 ????????
@@ -30713,8 +34183,10 @@ In this mode, the procedure can be reduced as described below (see Figure 203):
 ???????
 
 
-                                                <!-- *P575*/844 -->
-610
+<!-- *P575*/844 -->
+[P575]: #P575
+<a id="P575"></a>
+
 1. Set the RXONLY bit in the SPI_CR1 register.
 2. Enable the SPI by setting the SPE bit to 1:
 a) In master mode, this immediately activates the generation of the SCK clock, and
@@ -30725,8 +34197,16 @@ generates the SCK clock.
 the RXNE bit). Repeat this operation for each data item to be received.
 This procedure can also be implemented using dedicated interrupt subroutines launched at
 each rising edge of the RXNE flag.
-Note: If it is required to disable the SPI after the last transfer, follow the recommendation
+
+> [!NOTE]
+> If it is required to disable the SPI after the last transfer, follow the recommendation
 described in Section 20.3.8: Disabling the SPI.
+
+[Figure 203]: "#Figure%20203"
+<a id="Figure 203"></a>
+
+[Figure 203]: "Figure%20203"
+<a id="Figure 203"></a>
 
 **Figure 203**. RXNE behavior in receive-only mode (BIDIRMODE=0 and RXONLY=1)
 
@@ -30743,7 +34223,7 @@ there is no discontinuity in the generation of the SPI clock between each data i
 BSY bit is never cleared between each data transfer.
 On the contrary, if the software is not fast enough, this can lead to some discontinuities in
 the communication. In this case, the BSY bit is cleared between each data transmission
-(see Figure 204).
+(see [Figure 204]).
 In Master receive-only mode (RXONLY=1), the communication is always continuous and
 the BSY flag is always read at 1.
 ??????????????
@@ -30767,10 +34247,19 @@ the BSY flag is always read at 1.
 ???????
 
 
-                                                <!-- *P576*/844 -->
+<!-- *P576*/844 -->
+[P576]: #P576
+<a id="P576"></a>
+
 In slave mode, the continuity of the communication is decided by the SPI master device. In
 any case, even if the communication is continuous, the BSY flag goes low between each
-transfer for a minimum duration of one SPI clock cycle (see Figure 202).
+transfer for a minimum duration of one SPI clock cycle (see [Figure 202]).
+
+[Figure 204]: "#Figure%20204"
+<a id="Figure 204"></a>
+
+[Figure 204]: "Figure%20204"
+<a id="Figure 204"></a>
 
 **Figure 204**. TXE/BSY behavior when transmitting (BIDIRMODE=0 and RXONLY=0)
 
@@ -30783,7 +34272,9 @@ A CRC calculator has been implemented for communication reliability. Separate CR
 calculators are implemented for transmitted data and received data. The CRC is calculated
 using a programmable polynomial serially on each bit. It is calculated on the sampling clock
 edge defined by the CPHA and CPOL bits in the SPI_CR1 register.
-Note: This SPI offers two kinds of CRC calculation standard which depend directly on the data
+
+> [!NOTE]
+> This SPI offers two kinds of CRC calculation standard which depend directly on the data
 frame format selected for the transmission and/or reception: 8-bit data (CR8) and 16-bit data
 (CRC16).
 CRC calculation is enabled by setting the CRCEN bit in the SPI_CR1 register. This action
@@ -30826,8 +34317,10 @@ SPI communication using the CRC is possible through the following procedure:
 ???????
 
 
-                                                <!-- *P577*/844 -->
-610
+<!-- *P577*/844 -->
+[P577]: #P577
+<a id="P577"></a>
+
 1. Program the CPOL, CPHA, LSBFirst, BR, SSM, SSI and MSTR values.
 2. Program the polynomial in the SPI_CRCPR register.
 3. Enable the CRC calculation by setting the CRCEN bit in the SPI_CR1 register. This
@@ -30847,7 +34340,9 @@ check phase. In full duplex mode or receiver-only mode, the received CRC is
 compared to the SPI_RXCRCR value. If the value does not match, the CRCERR flag in
 SPI_SR is set and an interrupt can be generated when the ERRIE bit in the SPI_CR2
 register is set.
-Note: When the SPI is in slave mode, be careful to enable CRC calculation only when the clock is
+
+> [!NOTE]
+> When the SPI is in slave mode, be careful to enable CRC calculation only when the clock is
 stable, that is, when the clock is in the steady state. If not, a wrong CRC calculation may be
 done. In fact, the CRC is sensitive to the SCK slave input clock as soon as CRCEN is set,
 and this, whatever the value of the SPE bit.
@@ -30874,7 +34369,10 @@ To clear the CRC, follow the procedure below:
 4. Enable the SPI (SPE = 1)
 
 
-                                                <!-- *P578*/844 -->
+<!-- *P578*/844 -->
+[P578]: #P578
+<a id="P578"></a>
+
 
 //20.3.7 Status flags
 ---------------------
@@ -30908,12 +34406,16 @@ When communication is not continuous, the BSY flag is low between each communica
 When communication is continuous:
 • in master mode, the BSY flag is kept high during all the transfers
 • in slave mode, the BSY flag goes low for one SPI clock cycle between each transfer
-Note: Do not use the BSY flag to handle each data transmission or reception. It is better to use the
+
+> [!NOTE]
+> Do not use the BSY flag to handle each data transmission or reception. It is better to use the
 TXE and RXNE flags instead.
 
 
-                                                <!-- *P579*/844 -->
-610
+<!-- *P579*/844 -->
+[P579]: #P579
+<a id="P579"></a>
+
 
 //20.3.8 Disabling the SPI
 --------------------------
@@ -30954,11 +34456,16 @@ respected to avoid generating an undesired pulse on NSS when the SPI is disabled
 2. Disable the SPI (SPE = 0) in the following window frame using a software loop:
 – After at least one SPI clock cycle,
 – Before the beginning of the LSB data transfer.
-Note: In master bidirectional receive mode (MSTR=1 and BDM=1 and BDOE=0), the BSY flag is
+
+> [!NOTE]
+> In master bidirectional receive mode (MSTR=1 and BDM=1 and BDOE=0), the BSY flag is
 kept low during transfers.
 
 
-                                                <!-- *P580*/844 -->
+<!-- *P580*/844 -->
+[P580]: #P580
+<a id="P580"></a>
+
 In slave receive-only mode (MSTR=0, BIDIMODE=0, RXONLY=1) or
 bidirectional receive mode (MSTR=0, BIDIMODE=1, BIDOE=0)
 1. You can disable the SPI (write SPE=1) at any time: the current transfer will complete
@@ -30974,8 +34481,8 @@ and the data received on the Rx buffer should be read to avoid overrun. To facil
 transfers, the SPI features a DMA capability implementing a simple request/acknowledge
 protocol.
 A DMA access is requested when the enable bit in the SPI_CR2 register is enabled.
-Separate requests must be issued to the Tx and Rx buffers (see Figure 205 and
-Figure 206):
+Separate requests must be issued to the Tx and Rx buffers (see [Figure 205] and
+[Figure 206]):
 • In transmission, a DMA request is issued each time TXE is set to 1. The DMA then
 writes to the SPI_DR register (this clears the TXE flag).
 • In reception, a DMA request is issued each time RXNE is set to 1. The DMA then reads
@@ -30989,16 +34496,32 @@ set in the DMA_ISR register), the BSY flag can be monitored to ensure that the S
 communication is complete. This is required to avoid corrupting the last transmission before
 disabling the SPI or entering the Stop mode. The software must first wait until TXE=1 and
 then until BSY=0.
-Note: During discontinuous communications, there is a 2 APB clock period delay between the
+
+> [!NOTE]
+> During discontinuous communications, there is a 2 APB clock period delay between the
 write operation to SPI_DR and the BSY bit setting. As a consequence, it is mandatory to
 wait first until TXE=1 and then until BSY=0 after writing the last data.
 
 
-                                                <!-- *P581*/844 -->
-610
+<!-- *P581*/844 -->
+[P581]: #P581
+<a id="P581"></a>
+
+
+[Figure 205]: "#Figure%20205"
+<a id="Figure 205"></a>
+
+[Figure 205]: "Figure%20205"
+<a id="Figure 205"></a>
 
 **Figure 205**. Transmission using DMA
 
+
+[Figure 206]: "#Figure%20206"
+<a id="Figure 206"></a>
+
+[Figure 206]: "Figure%20206"
+<a id="Figure 206"></a>
 
 **Figure 206**. Reception using DMA
 
@@ -31086,7 +34609,10 @@ wait first until TXE=1 and then until BSY=0 after writing the last data.
 ???????
 
 
-                                                <!-- *P582*/844 -->
+<!-- *P582*/844 -->
+[P582]: #P582
+<a id="P582"></a>
+
 DMA capability with CRC
 When SPI communication is enabled with CRC communication and DMA mode, the
 transmission and reception of the CRC at the end of communication are automatic that is
@@ -31131,8 +34657,10 @@ Clearing the OVR bit is done by a read from the SPI_DR register followed by a re
 to the SPI_SR register.
 
 
-                                                <!-- *P583*/844 -->
-610
+<!-- *P583*/844 -->
+[P583]: #P583
+<a id="P583"></a>
+
 CRC error
 This flag is used to verify the validity of the value received when the CRCEN bit in the
 SPI_CR1 register is set. The CRCERR flag in the SPI_SR register is set if the value
@@ -31148,6 +34676,12 @@ The FRE flag is cleared when SPI_SR register is read. If the bit ERRIE is set, a
 generated on the NSS error detection. In this case, the SPI should be disabled because
 data consistency is no more guaranteed and communications should be reinitiated by the
 master when the slave SPI is re-enabled.
+
+[Figure 207]: "#Figure%20207"
+<a id="Figure 207"></a>
+
+[Figure 207]: "Figure%20207"
+<a id="Figure 207"></a>
 
 **Figure 207**. TI mode frame format error detection
 
@@ -31176,6 +34710,9 @@ master when the slave SPI is re-enabled.
 ????? ????????
 ??????
 
+[Table 89]: "Table%2089"
+<a id="Table 89"></a>
+
 **Table 89**. SPI interrupt requests
 
 Interrupt event Event flag Enable Control bit
@@ -31187,7 +34724,10 @@ CRC error flag CRCERR
 TI frame format error FRE ERRIE
 
 
-                                                <!-- *P584*/844 -->
+<!-- *P584*/844 -->
+[P584]: #P584
+<a id="P584"></a>
+
 
 //20.4 I2S functional description
 -----------------------------------
@@ -31196,7 +34736,13 @@ TI frame format error FRE ERRIE
 //20.4.1 I2S general description
 ----------------------------------
 
-The block diagram of the I2S is shown in Figure 208.
+The block diagram of the I2S is shown in [Figure 208].
+
+[Figure 208]: "#Figure%20208"
+<a id="Figure 208"></a>
+
+[Figure 208]: "Figure%20208"
+<a id="Figure 208"></a>
 
 **Figure 208**. I2S block diagram
 
@@ -31263,8 +34809,10 @@ pins, flags and interrupts as the SPI.
 ???
 
 
-                                                <!-- *P585*/844 -->
-610
+<!-- *P585*/844 -->
+[P585]: #P585
+<a id="P585"></a>
+
 The I2S shares three common pins with the SPI:
 • SD: Serial Data (mapped on the MOSI pin) to transmit or receive the two time-
 multiplexed data channels (in half-duplex mode only).
@@ -31295,10 +34843,18 @@ The I2S uses the same SPI register for data transfer (SPI_DR) in 16-bit wide mod
 ------------------------
 
 To support I2S full duplex mode, two extra I2S instances called extended I2Ss (I2S2_ext,
-I2S3_ext) are available in addition to I2S2 and I2S3 (see Figure 209). The first I2S full-
+I2S3_ext) are available in addition to I2S2 and I2S3 (see [Figure 209]). The first I2S full-
 duplex interface is consequently based on I2S2 and I2S2_ext, and the second one on I2S3
 and I2S3_ext.
-Note: I2S2_ext an I2S3_ext are used only in full-duplex mode.
+
+> [!NOTE]
+> I2S2_ext an I2S3_ext are used only in full-duplex mode.
+
+[Figure 209]: "#Figure%20209"
+<a id="Figure 209"></a>
+
+[Figure 209]: "Figure%20209"
+<a id="Figure 209"></a>
 
 **Figure 209**. I2S full duplex block diagram
 
@@ -31312,7 +34868,10 @@ Note: I2S2_ext an I2S3_ext are used only in full-duplex mode.
 ??????????????????
 
 
-                                                <!-- *P586*/844 -->
+<!-- *P586*/844 -->
+[P586]: #P586
+<a id="P586"></a>
+
 I2Sx can operate in master mode. As a result:
 • Only I2Sx can output SCK and WS in half duplex mode
 • Only I2Sx can deliver SCK and WS to I2S2_ext and I2S3_ext in full duplex mode.
@@ -31350,19 +34909,39 @@ For this standard, the WS signal is used to indicate which channel is being tran
 activated one CK clock cycle before the first bit (MSB) is available.
 
 
-                                                <!-- *P587*/844 -->
-610
+<!-- *P587*/844 -->
+[P587]: #P587
+<a id="P587"></a>
+
+
+[Figure 210]: "#Figure%20210"
+<a id="Figure 210"></a>
+
+[Figure 210]: "Figure%20210"
+<a id="Figure 210"></a>
 
 **Figure 210**. I2S Philips protocol waveforms (16/32-bit full accuracy, CPOL = 0)
 
 Data are latched on the falling edge of CK (for the transmitter) and are read on the rising
 edge (for the receiver). The WS signal is also latched on the falling edge of CK.
 
+[Figure 211]: "#Figure%20211"
+<a id="Figure 211"></a>
+
+[Figure 211]: "Figure%20211"
+<a id="Figure 211"></a>
+
 **Figure 211**. I2S Philips standard waveforms (24-bit frame with CPOL = 0)
 
 This mode needs two write or read operations to/from the SPI_DR.
 • In transmission mode:
 if 0x8EAA33 has to be sent (24-bit):
+
+[Figure 212]: "#Figure%20212"
+<a id="Figure 212"></a>
+
+[Figure 212]: "Figure%20212"
+<a id="Figure 212"></a>
 
 **Figure 212**. Transmitting 0x8EAA33
 
@@ -31398,17 +34977,32 @@ if data 0x8EAA33 is received:
 ???????????????????
 
 
-                                                <!-- *P588*/844 -->
+<!-- *P588*/844 -->
+[P588]: #P588
+<a id="P588"></a>
+
+
+[Figure 213]: "#Figure%20213"
+<a id="Figure 213"></a>
+
+[Figure 213]: "Figure%20213"
+<a id="Figure 213"></a>
 
 **Figure 213**. Receiving 0x8EAA33
 
-Figure 214. I2S Philips standard (16-bit extended to 32-bit packet frame with
+[Figure 214]. I2S Philips standard (16-bit extended to 32-bit packet frame with
 CPOL = 0)
 When 16-bit data frame extended to 32-bit channel frame is selected during the I2S
 configuration phase, only one access to SPI_DR is required. The 16 remaining bits are
 forced by hardware to 0x0000 to extend the data to 32-bit format.
 If the data to transmit or the received data are 0x76A3 (0x76A30000 extended to 32-bit), the
-operation shown in Figure 215 is required.
+operation shown in [Figure 215] is required.
+
+[Figure 215]: "#Figure%20215"
+<a id="Figure 215"></a>
+
+[Figure 215]: "Figure%20215"
+<a id="Figure 215"></a>
 
 **Figure 215**. Example
 
@@ -31444,16 +35038,36 @@ the MSBit.
 ??????????????????????????
 
 
-                                                <!-- *P589*/844 -->
-610
+<!-- *P589*/844 -->
+[P589]: #P589
+<a id="P589"></a>
+
+
+[Figure 216]: "#Figure%20216"
+<a id="Figure 216"></a>
+
+[Figure 216]: "Figure%20216"
+<a id="Figure 216"></a>
 
 **Figure 216**. MSB justified 16-bit or 32-bit full-accuracy length with CPOL = 0
 
 Data are latched on the falling edge of CK (for transmitter) and are read on the rising edge
 (for the receiver).
 
+[Figure 217]: "#Figure%20217"
+<a id="Figure 217"></a>
+
+[Figure 217]: "Figure%20217"
+<a id="Figure 217"></a>
+
 **Figure 217**. MSB justified 24-bit frame length with CPOL = 0
 
+
+[Figure 218]: "#Figure%20218"
+<a id="Figure 218"></a>
+
+[Figure 218]: "Figure%20218"
+<a id="Figure 218"></a>
 
 **Figure 218**. MSB justified 16-bit extended to 32-bit packet frame with CPOL = 0
 
@@ -31496,16 +35110,37 @@ full-accuracy frame formats).
 ????????
 
 
-                                                <!-- *P590*/844 -->
+<!-- *P590*/844 -->
+[P590]: #P590
+<a id="P590"></a>
+
+
+[Figure 219]: "#Figure%20219"
+<a id="Figure 219"></a>
+
+[Figure 219]: "Figure%20219"
+<a id="Figure 219"></a>
 
 **Figure 219**. LSB justified 16-bit or 32-bit full-accuracy with CPOL = 0
 
+
+[Figure 220]: "#Figure%20220"
+<a id="Figure 220"></a>
+
+[Figure 220]: "Figure%20220"
+<a id="Figure 220"></a>
 
 **Figure 220**. LSB justified 24-bit frame length with CPOL = 0
 
 • In transmission mode:
 If data 0x3478AE have to be transmitted, two write operations to the SPI_DR register
 are required from software or by DMA. The operations are shown below.
+
+[Figure 221]: "#Figure%20221"
+<a id="Figure 221"></a>
+
+[Figure 221]: "Figure%20221"
+<a id="Figure 221"></a>
 
 **Figure 221**. Operations required to transmit 0x3478AE
 
@@ -31546,11 +35181,25 @@ required on each RXNE event.
 ?????????
 
 
-                                                <!-- *P591*/844 -->
-610
+<!-- *P591*/844 -->
+[P591]: #P591
+<a id="P591"></a>
+
+
+[Figure 222]: "#Figure%20222"
+<a id="Figure 222"></a>
+
+[Figure 222]: "Figure%20222"
+<a id="Figure 222"></a>
 
 **Figure 222**. Operations required to receive 0x3478AE
 
+
+[Figure 223]: "#Figure%20223"
+<a id="Figure 223"></a>
+
+[Figure 223]: "Figure%20223"
+<a id="Figure 223"></a>
 
 **Figure 223**. LSB justified 16-bit extended to 32-bit packet frame with CPOL = 0
 
@@ -31559,7 +35208,13 @@ configuration phase, Only one access to SPI_DR is required. The 16 remaining bit
 forced by hardware to 0x0000 to extend the data to 32-bit format. In this case it corresponds
 to the half-word MSB.
 If the data to transmit or the received data are 0x76A3 (0x0000 76A3 extended to 32-bit),
-the operation shown in Figure 224 is required.
+the operation shown in [Figure 224] is required.
+
+[Figure 224]: "#Figure%20224"
+<a id="Figure 224"></a>
+
+[Figure 224]: "Figure%20224"
+<a id="Figure 224"></a>
 
 **Figure 224**. Example of LSB justified 16-bit extended to 32-bit packet frame
 
@@ -31597,11 +35252,20 @@ or overrun conditions.
 ?????????
 
 
-                                                <!-- *P592*/844 -->
+<!-- *P592*/844 -->
+[P592]: #P592
+<a id="P592"></a>
+
 PCM standard
 For the PCM standard, there is no need to use channel-side information. The two PCM
 modes (short and long frame) are available and configurable using the PCMSYNC bit in
 SPI_I2SCFGR.
+
+[Figure 225]: "#Figure%20225"
+<a id="Figure 225"></a>
+
+[Figure 225]: "Figure%20225"
+<a id="Figure 225"></a>
 
 **Figure 225**. PCM standard waveforms (16-bit)
 
@@ -31609,9 +35273,17 @@ For long frame synchronization, the WS signal assertion time is fixed 13 bits in
 mode.
 For short frame synchronization, the WS synchronization signal is only one cycle long.
 
+[Figure 226]: "#Figure%20226"
+<a id="Figure 226"></a>
+
+[Figure 226]: "Figure%20226"
+<a id="Figure 226"></a>
+
 **Figure 226**. PCM standard waveforms (16-bit extended to 32-bit packet frame)
 
-Note: For both modes (master and slave) and for both synchronizations (short and long), the
+
+> [!NOTE]
+> For both modes (master and slave) and for both synchronizations (short and long), the
 number of bits between two consecutive pieces of data (and so two synchronization signals)
 needs to be specified (DATLEN and CHLEN bits in the SPI_I2SCFGR register) even in
 slave mode.
@@ -31647,18 +35319,32 @@ It will be: I2S bitrate = 32 x 2 x F S if the packet length is 32-bit wide.
 ???????
 
 
-                                                <!-- *P593*/844 -->
-610
+<!-- *P593*/844 -->
+[P593]: #P593
+<a id="P593"></a>
+
+
+[Figure 227]: "#Figure%20227"
+<a id="Figure 227"></a>
+
+[Figure 227]: "Figure%20227"
+<a id="Figure 227"></a>
 
 **Figure 227**. Audio sampling frequency definition
 
 When the master mode is configured, a specific action needs to be taken to properly
 program the linear divider in order to communicate with the desired audio frequency.
 
+[Figure 228]: "#Figure%20228"
+<a id="Figure 228"></a>
+
+[Figure 228]: "Figure%20228"
+<a id="Figure 228"></a>
+
 **Figure 228**. I2S clock generator architecture
 
 1. Where x could be 2 or 3.
-Figure 227 presents the communication clock architecture. To achieve high-quality audio
+[Figure 227] presents the communication clock architecture. To achieve high-quality audio
 performance, the I2SxCLK clock source can be either the PLLI2S output (through R division
 factor) or an external clock (mapped to I2S_CKIN pin).
 The audio sampling frequency can be 192 kHz, 96 kHz, or 48 kHz. In order to reach the
@@ -31670,8 +35356,10 @@ F S = I2SxCLK / [(32*2)*((2*I2SDIV)+ODD)*4)] when the channel frame is 32-bit wi
 When the master clock is disabled (MCKOE bit cleared):
 F S = I2SxCLK / [(16*2)*((2*I2SDIV)+ODD))] when the channel frame is 16-bit wide
 F S = I2SxCLK / [(32*2)*((2*I2SDIV)+ODD))] when the channel frame is 32-bit wide
-Table 90 provides example precision values for different clock configurations.
-Note: Other configurations are possible that allow optimum clock precision.
+[Table 90] provides example precision values for different clock configurations.
+
+> [!NOTE]
+> Other configurations are possible that allow optimum clock precision.
 ?????????
 ??????????????????
 ???????
@@ -31700,7 +35388,10 @@ Note: Other configurations are possible that allow optimum clock precision.
 ???????
 
 
-                                                <!-- *P594*/844 -->
+<!-- *P594*/844 -->
+[P594]: #P594
+<a id="P594"></a>
+
 
 
 
@@ -31714,6 +35405,9 @@ I2Sx_ext).
 This means that the serial clock is generated on the CK pin as well as the Word Select
 signal WS. Master clock (MCK) may be output or not, thanks to the MCKOE bit in the
 SPI_I2SPR register.
+
+[Table 90]: "Table%2090"
+<a id="Table 90"></a>
 
 **Table 90**. Audio frequency precision (for PLLM VCO = 1 MHz or 2 MHz) (1)
 
@@ -31761,8 +35455,10 @@ Enabled
 precision are possible.
 
 
-                                                <!-- *P595*/844 -->
-610
+<!-- *P595*/844 -->
+[P595]: #P595
+<a id="P595"></a>
+
 Procedure
 1. Select the I2SDIV[7:0] bits in the SPI_I2SPR register to define the serial clock baud
 rate to reach the proper audio sample frequency. The ODD bit in the SPI_I2SPR
@@ -31809,7 +35505,10 @@ Whatever the data or channel length, the audio data are received by 16-bit packe
 means that each time the Rx buffer is full, the RXNE flag is set and an interrupt is generated
 
 
-                                                <!-- *P596*/844 -->
+<!-- *P596*/844 -->
+[P596]: #P596
+<a id="P596"></a>
+
 if the RXNEIE bit is set in SPI_CR2 register. Depending on the data and channel length
 configuration, the audio value received for a right or left channel may result from one or two
 receptions into the Rx buffer.
@@ -31841,7 +35540,9 @@ through the I2SSTD bits, carry out the following sequence to switch off the I2S:
 a) Wait for the second to last RXNE = 1 (n – 1)
 b) Then wait one I2S clock cycle (using a software loop)
 c) Disable the I2S (I2SE = 0)
-Note: The BSY flag is kept low during transfers.
+
+> [!NOTE]
+> The BSY flag is kept low during transfers.
 
 //20.4.6 I2S slave mode
 -------------------------
@@ -31856,8 +35557,10 @@ There is then no need, for the user, to configure the clock.
 The configuration steps to follow are listed below:
 
 
-                                                <!-- *P597*/844 -->
-610
+<!-- *P597*/844 -->
+[P597]: #P597
+<a id="P597"></a>
+
 1. Set the I2SMOD bit in the SPI_I2SCFGR register to reach the I2S functionalities and
 choose the I2S standard through the I2SSTD[1:0] bits, the data length through the
 DATLEN[1:0] bits and the number of bits per channel for the frame configuring the
@@ -31880,7 +35583,9 @@ transmission mode, in slave mode, CHSIDE is sensitive to the WS signal coming fr
 external master. This means that the slave needs to be ready to transmit the first data
 before the clock is generated by the master. WS assertion corresponds to left channel
 transmitted first.
-Note: The I2SE has to be written at least two PCLK cycles before the first clock of the master
+
+> [!NOTE]
+> The I2SE has to be written at least two PCLK cycles before the first clock of the master
 comes on the CK line.
 The data half-word is parallel-loaded into the 16-bit shift register (from the internal bus)
 during the first bit transmission, and then shifted out serially to the MOSI/SD pin MSB first.
@@ -31905,7 +35610,10 @@ the procedure described in Section 20.4.6: I2S slave mode), where the configurat
 set the master reception mode using the I2SCFG[1:0] bits in the SPI_I2SCFGR register.
 
 
-                                                <!-- *P598*/844 -->
+<!-- *P598*/844 -->
+[P598]: #P598
+<a id="P598"></a>
+
 Whatever the data length or the channel length, the audio data are received by 16-bit
 packets. This means that each time the RX buffer is full, the RXNE flag in the SPI_SR
 register is set and an interrupt is generated if the RXNEIE bit is set in the SPI_CR2 register.
@@ -31921,7 +35629,9 @@ generated and the OVR flag is set. If the bit ERRIE is set in the SPI_CR2 regist
 interrupt is generated to indicate the error.
 To switch off the I2S in reception mode, I2SE has to be cleared immediately after receiving
 the last RXNE = 1.
-Note: The external master components should have the capability of sending/receiving data in 16-
+
+> [!NOTE]
+> The external master components should have the capability of sending/receiving data in 16-
 bit or 32-bit packets via an audio channel.
 
 //20.4.7 Status flags
@@ -31944,12 +35654,16 @@ communication is supposed to be continuous)
 When communication is continuous:
 • In master transmit mode, the BSY flag is kept high during all the transfers
 • In slave mode, the BSY flag goes low for one I2S clock cycle between each transfer
-Note: Do not use the BSY flag to handle each data transmission or reception. It is better to use the
+
+> [!NOTE]
+> Do not use the BSY flag to handle each data transmission or reception. It is better to use the
 TXE and RXNE flags instead.
 
 
-                                                <!-- *P599*/844 -->
-610
+<!-- *P599*/844 -->
+[P599]: #P599
+<a id="P599"></a>
+
 Tx buffer empty flag (TXE)
 When set, this flag indicates that the Tx buffer is empty and the next data to be transmitted
 can then be loaded into it. The TXE flag is reset when the Tx buffer already contains data to
@@ -31995,7 +35709,10 @@ This flag can be set by hardware only if the I2S is configured in Slave mode. It
 external master is changing the WS line at a moment when the slave is not expected this
 
 
-                                                <!-- *P600*/844 -->
+<!-- *P600*/844 -->
+[P600]: #P600
+<a id="P600"></a>
+
 change. If the synchronization is lost, to recover from this state and resynchronize the
 external master device with the I2S slave device, follow the steps below:
 1. Disable the I2S
@@ -32009,7 +35726,7 @@ software when the status register is read.
 //20.4.9 I2S interrupts
 -------------------------
 
-Table 91 provides the list of I2S interrupts.
+[Table 91] provides the list of I2S interrupts.
 
 
 //20.4.10 DMA features
@@ -32018,6 +35735,9 @@ Table 91 provides the list of I2S interrupts.
 DMA is working in exactly the same way as for the SPI mode. There is no difference on the
 I2S. Only the CRC feature is not available in I2S mode since there is no data transfer
 protection system.
+
+[Table 91]: "Table%2091"
+<a id="Table 91"></a>
 
 **Table 91**. I2S interrupt requests
 
@@ -32030,8 +35750,10 @@ Underrun error UDR
 Frame error flag FRE ERRIE
 
 
-                                                <!-- *P601*/844 -->
-610
+<!-- *P601*/844 -->
+[P601]: #P601
+<a id="P601"></a>
+
 
 //20.5 SPI and I2S registers
 ------------------------------
@@ -32064,22 +35786,30 @@ rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw
 Bit 15 BIDIMODE: Bidirectional data mode enable
 0: 2-line unidirectional data mode selected
 1: 1-line bidirectional data mode selected
-Note: This bit is not used in I2S mode
+
+> [!NOTE]
+> This bit is not used in I2S mode
 Bit 14 BIDIOE: Output enable in bidirectional mode
 This bit combined with the BIDImode bit selects the direction of transfer in bidirectional mode
 0: Output disabled (receive-only mode)
 1: Output enabled (transmit-only mode)
-Note: This bit is not used in I2S mode.
+
+> [!NOTE]
+> This bit is not used in I2S mode.
 In master mode, the MOSI pin is used while the MISO pin is used in slave mode.
 Bit 13 CRCEN: Hardware CRC calculation enable
 0: CRC calculation disabled
 1: CRC calculation enabled
-Note: This bit should be written only when SPI is disabled (SPE = ‘0’) for correct operation.
+
+> [!NOTE]
+> This bit should be written only when SPI is disabled (SPE = ‘0’) for correct operation.
 It is not used in I2S mode.
 Bit 12 CRCNEXT: CRC transfer next
 0: Data phase (no CRC phase)
 1: Next transfer is CRC (CRC phase)
-Note: When the SPI is configured in full duplex or transmitter only modes, CRCNEXT must be
+
+> [!NOTE]
+> When the SPI is configured in full duplex or transmitter only modes, CRCNEXT must be
 written as soon as the last data is written to the SPI_DR register.
 When the SPI is configured in receiver only mode, CRCNEXT must be set after the
 second last data reception.
@@ -32088,36 +35818,51 @@ It is not used in I2S mode.
 Bit 11 DFF: Data frame format
 0: 8-bit data frame format is selected for transmission/reception
 1: 16-bit data frame format is selected for transmission/reception
-Note: This bit should be written only when SPI is disabled (SPE = ‘0’) for correct operation.
+
+> [!NOTE]
+> This bit should be written only when SPI is disabled (SPE = ‘0’) for correct operation.
 It is not used in I2S mode.
 
 
-                                                <!-- *P602*/844 -->
+<!-- *P602*/844 -->
+[P602]: #P602
+<a id="P602"></a>
+
 Bit 10 RXONLY: Receive only
 This bit combined with the BIDImode bit selects the direction of transfer in 2-line
 unidirectional mode. This bit is also useful in a multislave system in which this particular
 slave is not accessed, the output from the accessed slave is not corrupted.
 0: Full duplex (Transmit and receive)
 1: Output disabled (Receive-only mode)
-Note: This bit is not used in I2S mode
+
+> [!NOTE]
+> This bit is not used in I2S mode
 Bit 9 SSM: Software slave management
 When the SSM bit is set, the NSS pin input is replaced with the value from the SSI bit.
 0: Software slave management disabled
 1: Software slave management enabled
-Note: This bit is not used in I2S mode and SPI TI mode
+
+> [!NOTE]
+> This bit is not used in I2S mode and SPI TI mode
 Bit 8 SSI: Internal slave select
 This bit has an effect only when the SSM bit is set. The value of this bit is forced onto the
 NSS pin and the IO value of the NSS pin is ignored.
-Note: This bit is not used in I2S mode and SPI TI mode
+
+> [!NOTE]
+> This bit is not used in I2S mode and SPI TI mode
 Bit 7 LSBFIRST: Frame format
 0: MSB transmitted first
 1: LSB transmitted first
-Note: This bit should not be changed when communication is ongoing.
+
+> [!NOTE]
+> This bit should not be changed when communication is ongoing.
 It is not used in I2S mode and SPI TI mode
 Bit 6 SPE: SPI enable
 0: Peripheral disabled
 1: Peripheral enabled
-Note: This bit is not used in I2S mode.
+
+> [!NOTE]
+> This bit is not used in I2S mode.
 When disabling the SPI, follow the procedure described in Section 20.3.8: Disabling the
 SPI .
 Bits 5:3 BR[2:0]: Baud rate control
@@ -32129,17 +35874,23 @@ Bits 5:3 BR[2:0]: Baud rate control
 101: f PCLK /64
 110: f PCLK /128
 111: f PCLK /256
-Note: These bits should not be changed when communication is ongoing.
+
+> [!NOTE]
+> These bits should not be changed when communication is ongoing.
 They are not used in I2S mode.
 Bit 2 MSTR: Master selection
 0: Slave configuration
 1: Master configuration
-Note: This bit should not be changed when communication is ongoing.
+
+> [!NOTE]
+> This bit should not be changed when communication is ongoing.
 It is not used in I2S mode.
 
 
-                                                <!-- *P603*/844 -->
-610
+<!-- *P603*/844 -->
+[P603]: #P603
+<a id="P603"></a>
+
 
 //20.5.2 SPI control register 2 (SPI_CR2)
 -----------------------------------------
@@ -32150,12 +35901,16 @@ Reset value: 0x0000
 Bit1 CPOL: Clock polarity
 0: CK to 0 when idle
 1: CK to 1 when idle
-Note: This bit should not be changed when communication is ongoing.
+
+> [!NOTE]
+> This bit should not be changed when communication is ongoing.
 It is not used in I2S mode and SPI TI mode.
 Bit 0 CPHA: Clock phase
 0: The first clock transition is the first data capture edge
 1: The second clock transition is the first data capture edge
-Note: This bit should not be changed when communication is ongoing.
+
+> [!NOTE]
+> This bit should not be changed when communication is ongoing.
 It is not used in I2S mode and SPI TI mode.
 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
 Reserved
@@ -32179,16 +35934,23 @@ OVR, MODF in SPI mode, FRE in TI mode and UDR, OVR, and FRE in I2S mode).
 Bit 4 FRF: Frame format
 0: SPI Motorola mode
 1 SPI TI mode
-Note: This bit is not used in I2S mode.
+
+> [!NOTE]
+> This bit is not used in I2S mode.
 Bit 3 Reserved. Forced to 0 by hardware.
 Bit 2 SSOE: SS output enable
 0: SS output is disabled in master mode and the cell can work in multimaster configuration
 1: SS output is enabled in master mode and when the cell is enabled. The cell cannot work
 in a multimaster environment.
-Note: This bit is not used in I2S mode and SPI TI mode.
+
+> [!NOTE]
+> This bit is not used in I2S mode and SPI TI mode.
 
 
-                                                <!-- *P604*/844 -->
+<!-- *P604*/844 -->
+[P604]: #P604
+<a id="P604"></a>
+
 
 //20.5.3 SPI status register (SPI_SR)
 -------------------------------------
@@ -32216,13 +35978,17 @@ Bit 8 FRE: Frame format error
 0: No frame format error
 1: A frame format error occurred
 This flag is set by hardware and cleared by software when the SPIx_SR register is read.
-Note: This flag is used when the SPI operates in TI slave mode or I2S slave mode (refer to
+
+> [!NOTE]
+> This flag is used when the SPI operates in TI slave mode or I2S slave mode (refer to
 Section 20.3.10).
 Bit 7 BSY: Busy flag
 0: SPI(or I2S) not busy
 1: SPI(or I2S)is busy in communication or Tx buffer is not empty
 This flag is set and cleared by hardware.
-Note: BSY flag must be used with caution: refer to Section 20.3.7: Status flags and
+
+> [!NOTE]
+> BSY flag must be used with caution: refer to Section 20.3.7: Status flags and
 Section 20.3.8: Disabling the SPI.
 Bit 6 OVR: Overrun flag
 0: No overrun occurred
@@ -32234,16 +36000,22 @@ Bit 5 MODF: Mode fault
 1: Mode fault occurred
 This flag is set by hardware and reset by a software sequence. Refer to Section 20.3.10:
 Error flags for the software sequence.
-Note: This bit is not used in I2S mode
+
+> [!NOTE]
+> This bit is not used in I2S mode
 Bit 4 CRCERR: CRC error flag
 0: CRC value received matches the SPI_RXCRCR value
 1: CRC value received does not match the SPI_RXCRCR value
 This flag is set by hardware and cleared by software writing 0.
-Note: This bit is not used in I2S mode.
+
+> [!NOTE]
+> This bit is not used in I2S mode.
 
 
-                                                <!-- *P605*/844 -->
-610
+<!-- *P605*/844 -->
+[P605]: #P605
+<a id="P605"></a>
+
 
 //20.5.4 SPI data register (SPI_DR)
 -----------------------------------
@@ -32263,11 +36035,15 @@ Bit 3 UDR: Underrun flag
 1: Underrun occurred
 This flag is set by hardware and reset by a software sequence. Refer to Section 20.4.8: Error
 flags for the software sequence.
-Note: This bit is not used in SPI mode.
+
+> [!NOTE]
+> This bit is not used in SPI mode.
 Bit 2 CHSIDE: Channel side
 0: Channel Left has to be transmitted or has been received
 1: Channel Right has to be transmitted or has been received
-Note: This bit is not used for SPI mode and is meaningless in PCM mode.
+
+> [!NOTE]
+> This bit is not used for SPI mode and is meaningless in PCM mode.
 Bit 1 TXE: Transmit buffer empty
 0: Tx buffer not empty
 1: Tx buffer empty
@@ -32282,7 +36058,9 @@ Data received or to be transmitted.
 The data register is split into 2 buffers - one for writing (Transmit Buffer) and another one for
 reading (Receive buffer). A write to the data register will write into the Tx buffer and a read
 from the data register will return the value held in the Rx buffer.
-Note: These notes apply to SPI mode:
+
+> [!NOTE]
+> These notes apply to SPI mode:
 Depending on the data frame format selection bit (DFF in SPI_CR1 register), the data
 sent or received is either 8-bit or 16-bit. This selection has to be made before enabling
 the SPI to ensure correct operation.
@@ -32293,7 +36071,10 @@ For a 16-bit data frame, the buffers are 16-bit and the entire register, SPI_DR[
 used for transmission/reception.
 
 
-                                                <!-- *P606*/844 -->
+<!-- *P606*/844 -->
+[P606]: #P606
+<a id="P606"></a>
+
 Reset value: 0x0007
 
 
@@ -32310,7 +36091,9 @@ Bits 15:0 CRCPOLY[15:0]: CRC polynomial register
 This register contains the polynomial for the CRC calculation.
 The CRC polynomial (0007h) is the reset value of this register. Another polynomial can be
 configured as required.
-Note: These bits are not used for the I2S mode.
+
+> [!NOTE]
+> These bits are not used for the I2S mode.
 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
 RXCRC[15:0]
 r r r r r r r r r r r r r r r r
@@ -32324,12 +36107,16 @@ bit of SPI_CR1 is cleared). CRC calculation is done based on any CRC8 standard.
 The entire 16-bits of this register are considered when a 16-bit data frame format is selected
 (DFF bit of the SPI_CR1 register is set). CRC calculation is done based on any CRC16
 standard.
-Note: A read to this register when the BSY Flag is set could return an incorrect value.
+
+> [!NOTE]
+> A read to this register when the BSY Flag is set could return an incorrect value.
 These bits are not used for I2S mode
 
 
-                                                <!-- *P607*/844 -->
-610
+<!-- *P607*/844 -->
+[P607]: #P607
+<a id="P607"></a>
+
 
 //20.5.7 SPI TX CRC register (SPI_TXCRCR)(not used in I2S mode)
 -----------------------------------------------------------------
@@ -32357,7 +36144,9 @@ bit of SPI_CR1 is cleared). CRC calculation is done based on any CRC8 standard.
 The entire 16-bits of this register are considered when a 16-bit data frame format is selected
 (DFF bit of the SPI_CR1 register is set). CRC calculation is done based on any CRC16
 standard.
-Note: A read to this register when the BSY flag is set could return an incorrect value.
+
+> [!NOTE]
+> A read to this register when the BSY flag is set could return an incorrect value.
 These bits are not used for I2S mode.
 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
 Reserved
@@ -32371,21 +36160,30 @@ Bits 15:12 Reserved, must be kept at reset value.
 Bit 11 I2SMOD: I2S mode selection
 0: SPI mode is selected
 1: I2S mode is selected
-Note: This bit should be configured when the SPI or I2S is disabled
+
+> [!NOTE]
+> This bit should be configured when the SPI or I2S is disabled
 Bit 10 I2SE: I2S Enable
 0: I2S peripheral is disabled
 1: I2S peripheral is enabled
-Note: This bit is not used in SPI mode.
+
+> [!NOTE]
+> This bit is not used in SPI mode.
 Bits 9:8 I2SCFG: I2S configuration mode
 00: Slave - transmit
 01: Slave - receive
 10: Master - transmit
 11: Master - receive
-Note: This bit should be configured when the I2S is disabled.
+
+> [!NOTE]
+> This bit should be configured when the I2S is disabled.
 It is not used in SPI mode.
 
 
-                                                <!-- *P608*/844 -->
+<!-- *P608*/844 -->
+[P608]: #P608
+<a id="P608"></a>
+
 
 //20.5.9 SPI_I2S prescaler register (SPI_I2SPR)
 -------------------------------------------------
@@ -32396,7 +36194,9 @@ Reset value: 0000 0010 (0x0002)
 Bit 7 PCMSYNC: PCM frame synchronization
 0: Short frame synchronization
 1: Long frame synchronization
-Note: This bit has a meaning only if I2SSTD = 11 (PCM standard is used)
+
+> [!NOTE]
+> This bit has a meaning only if I2SSTD = 11 (PCM standard is used)
 It is not used in SPI mode.
 Bit 6 Reserved: forced at 0 by hardware
 Bits 5:4 I2SSTD: I2S standard selection
@@ -32406,54 +36206,73 @@ Bits 5:4 I2SSTD: I2S standard selection
 11: PCM standard
 For more details on I2S standards, refer to Section 20.4.3: Supported audio protocols. Not used in
 SPI mode.
-Note: For correct operation, these bits should be configured when the I2S is disabled.
+
+> [!NOTE]
+> For correct operation, these bits should be configured when the I2S is disabled.
 Bit 3 CKPOL: Steady state clock polarity
 0: I2S clock steady state is low level
 1: I2S clock steady state is high level
-Note: For correct operation, this bit should be configured when the I2S is disabled.
+
+> [!NOTE]
+> For correct operation, this bit should be configured when the I2S is disabled.
 This bit is not used in SPI mode
 Bits 2:1 DATLEN: Data length to be transferred
 00: 16-bit data length
 01: 24-bit data length
 10: 32-bit data length
 11: Not allowed
-Note: For correct operation, these bits should be configured when the I2S is disabled.
+
+> [!NOTE]
+> For correct operation, these bits should be configured when the I2S is disabled.
 This bit is not used in SPI mode.
 Bit 0 CHLEN: Channel length (number of bits per audio channel)
 0: 16-bit wide
 1: 32-bit wide
 The bit write operation has a meaning only if DATLEN = 00 otherwise the channel length is fixed to
 32-bit by hardware whatever the value filled in. Not used in SPI mode.
-Note: For correct operation, this bit should be configured when the I2S is disabled.
+
+> [!NOTE]
+> For correct operation, this bit should be configured when the I2S is disabled.
 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
 Reserved
 MCKOE ODD I2SDIV
 rw rw rw
 
 
-                                                <!-- *P609*/844 -->
-610
+<!-- *P609*/844 -->
+[P609]: #P609
+<a id="P609"></a>
+
 Bits 15:10 Reserved, must be kept at reset value.
 Bit 9 MCKOE: Master clock output enable
 0: Master clock output is disabled
 1: Master clock output is enabled
-Note: This bit should be configured when the I2S is disabled. It is used only when the I2S is in master
+
+> [!NOTE]
+> This bit should be configured when the I2S is disabled. It is used only when the I2S is in master
 mode.
 This bit is not used in SPI mode.
 Bit 8 ODD: Odd factor for the prescaler
 0: real divider value is = I2SDIV *2
 1: real divider value is = (I2SDIV * 2)+1
 Refer to Section 20.4.4: Clock generator. Not used in SPI mode.
-Note: This bit should be configured when the I2S is disabled. It is used only when the I2S is in master
+
+> [!NOTE]
+> This bit should be configured when the I2S is disabled. It is used only when the I2S is in master
 mode.
 Bits 7:0 I2SDIV: I2S Linear prescaler
 I2SDIV [7:0] = 0 or I2SDIV [7:0] = 1 are forbidden values.
 Refer to Section 20.4.4: Clock generator. Not used in SPI mode.
-Note: These bits should be configured when the I2S is disabled. It is used only when the I2S is in
+
+> [!NOTE]
+> These bits should be configured when the I2S is disabled. It is used only when the I2S is in
 master mode.
 
 
-                                                <!-- *P610*/844 -->
+<!-- *P610*/844 -->
+[P610]: #P610
+<a id="P610"></a>
+
 
 //20.5.10 SPI register map
 --------------------------
@@ -32461,6 +36280,9 @@ master mode.
 The table provides shows the SPI register map and reset values.
 
 Refer to Section 3.3: Memory map for the register boundary addresses.
+
+[Table 92]: "Table%2092"
+<a id="Table 92"></a>
 
 **Table 92**. SPI register map and reset values
 
@@ -32570,8 +36392,10 @@ I2SDIV
 Reset value 0 0 0 0 0 0 0 0 1 0
 
 
-                                                <!-- *P611*/844 -->
-7
+<!-- *P611*/844 -->
+[P611]: #P611
+<a id="P611"></a>
+
 
 /21 Secure digital input/output interface (SDIO)
 ================================================
@@ -32599,7 +36423,9 @@ different databus modes: 1-bit (default) and 4-bit
 Rev1.1)
 • Data transfer up to 50 MHz for the 8 bit mode
 • Data and command output enable signals to control external bidirectional drivers.
-Note: The SDIO does not have an SPI-compatible communication mode.
+
+> [!NOTE]
+> The SDIO does not have an SPI-compatible communication mode.
 The SD memory card protocol is a superset of the MultiMediaCard protocol as defined in the
 MultiMediaCard system specification V2.11. Several commands required for SD memory
 devices are not supported by either SD I/O-only cards or the I/O portion of combo cards.
@@ -32622,20 +36448,43 @@ transaction. These types of bus transaction transfer their information directly 
 command or response structure. In addition, some operations have a data token.
 
 
-                                                <!-- *P612*/844 -->
+<!-- *P612*/844 -->
+[P612]: #P612
+<a id="P612"></a>
+
 Data transfers to/from SD/SDIO memory cards are done in data blocks. Data transfers
 to/from MMC are done data blocks or streams. Data transfers to/from the CE-ATA Devices
 are done in data blocks.
 
+[Figure 229]: "#Figure%20229"
+<a id="Figure 229"></a>
+
+[Figure 229]: "Figure%20229"
+<a id="Figure 229"></a>
+
 **Figure 229**. SDIO “no response” and “no data” operations
 
+
+[Figure 230]: "#Figure%20230"
+<a id="Figure 230"></a>
+
+[Figure 230]: "Figure%20230"
+<a id="Figure 230"></a>
 
 **Figure 230**. SDIO (multiple) block read operation
 
 
+[Figure 231]: "#Figure%20231"
+<a id="Figure 231"></a>
+
+[Figure 231]: "Figure%20231"
+<a id="Figure 231"></a>
+
 **Figure 231**. SDIO (multiple) block write operation
 
-Note: The SDIO will not send any data as long as the Busy signal is asserted (SDIO_D0 pulled
+
+> [!NOTE]
+> The SDIO will not send any data as long as the Busy signal is asserted (SDIO_D0 pulled
 low).
 ????????
 ??????????????????????? ???????????????????
@@ -32668,11 +36517,25 @@ low).
 ??????????????????????????????
 
 
-                                                <!-- *P613*/844 -->
-7
+<!-- *P613*/844 -->
+[P613]: #P613
+<a id="P613"></a>
+
+
+[Figure 232]: "#Figure%20232"
+<a id="Figure 232"></a>
+
+[Figure 232]: "Figure%20232"
+<a id="Figure 232"></a>
 
 **Figure 232**. SDIO sequential read operation
 
+
+[Figure 233]: "#Figure%20233"
+<a id="Figure 233"></a>
+
+[Figure 233]: "Figure%20233"
+<a id="Figure 233"></a>
 
 **Figure 233**. SDIO sequential write operation
 
@@ -32685,6 +36548,12 @@ The SDIO consists of two parts:
 such as the clock generation unit, command and data transfer.
 • The APB2 interface accesses the SDIO adapter registers, and generates interrupt and
 DMA request signals.
+
+[Figure 234]: "#Figure%20234"
+<a id="Figure 234"></a>
+
+[Figure 234]: "Figure%20234"
+<a id="Figure 234"></a>
 
 **Figure 234**. SDIO block diagram
 
@@ -32730,7 +36599,10 @@ DMA request signals.
 ???????
 
 
-                                                <!-- *P614*/844 -->
+<!-- *P614*/844 -->
+[P614]: #P614
+<a id="P614"></a>
+
 By default SDIO_D0 is used for data transfer. After initialization, the host can change the
 databus width.
 If a MultiMediaCard is connected to the bus, SDIO_D0, SDIO_D[3:0] or SDIO_D[7:0] can be
@@ -32748,8 +36620,11 @@ The SDIO uses two clock signals:
 • SDIO adapter clock SDIOCLK up to 50 MHz (48 MHz when in use with USB)
 • APB2 bus clock (PCLK2)
 PCLK2 and SDIO_CK clock frequencies must respect the following condition:
-The signals shown in Table 93 are used on the MultiMediaCard/SD/SD I/O card bus.
+The signals shown in [Table 93] are used on the MultiMediaCard/SD/SD I/O card bus.
 
+
+[Table 93]: "Table%2093"
+<a id="Table 93"></a>
 
 **Table 93**. SDIO I/O definitions
 
@@ -32766,13 +36641,21 @@ bidirectional databus.
 Frequenc PCLK2 ( ) 3 8 ⁄ Frequency SDIO_CK ( ) × ≥
 
 
-                                                <!-- *P615*/844 -->
-7
+<!-- *P615*/844 -->
+[P615]: #P615
+<a id="P615"></a>
+
 
 //21.3.1 SDIO adapter
 ---------------------
 
-Figure 235 shows a simplified block diagram of an SDIO adapter.
+[Figure 235] shows a simplified block diagram of an SDIO adapter.
+
+[Figure 235]: "#Figure%20235"
+<a id="Figure 235"></a>
+
+[Figure 235]: "Figure%20235"
+<a id="Figure 235"></a>
 
 **Figure 235**. SDIO adapter
 
@@ -32784,7 +36667,9 @@ subunits:
 • Command path
 • Data path
 • Data FIFO
-Note: The adapter registers and FIFO use the APB2 bus clock domain (PCLK2). The control unit,
+
+> [!NOTE]
+> The adapter registers and FIFO use the APB2 bus clock domain (PCLK2). The control unit,
 command path and data path use the SDIO adapter clock domain (SDIOCLK).
 Adapter register block
 The adapter register block contains all system registers. This block also generates the
@@ -32815,11 +36700,20 @@ There are three power phases:
 ????????
 
 
-                                                <!-- *P616*/844 -->
+<!-- *P616*/844 -->
+[P616]: #P616
+<a id="P616"></a>
+
+
+[Figure 236]: "#Figure%20236"
+<a id="Figure 236"></a>
+
+[Figure 236]: "Figure%20236"
+<a id="Figure 236"></a>
 
 **Figure 236**. Control unit
 
-The control unit is illustrated in Figure 236. It consists of a power management subunit and
+The control unit is illustrated in [Figure 236]. It consists of a power management subunit and
 a clock management subunit.
 The power management subunit disables the card bus output signals during the power-off
 and power-up phases.
@@ -32839,10 +36733,18 @@ periods after both the command and data path subunits enter the Idle phase)
 ????????????????????????
 
 
-                                                <!-- *P617*/844 -->
-7
+<!-- *P617*/844 -->
+[P617]: #P617
+<a id="P617"></a>
+
 Command path
 The command path unit sends commands to and receives responses from the cards.
+
+[Figure 237]: "#Figure%20237"
+<a id="Figure 237"></a>
+
+[Figure 237]: "Figure%20237"
+<a id="Figure 237"></a>
 
 **Figure 237**. SDIO adapter command path
 
@@ -32850,7 +36752,7 @@ The command path unit sends commands to and receives responses from the cards.
 – When the command register is written to and the enable bit is set, command
 transfer starts. When the command has been sent, the command path state
 machine (CPSM) sets the status flags and enters the Idle state if a response is not
-required. If a response is required, it waits for the response (see Figure 238 on
+required. If a response is required, it waits for the response (see [Figure 238] on
 page 618). When the response is received, the received CRC code and the
 internally generated code are compared, and the appropriate status flags are set.
 ????????
@@ -32875,20 +36777,33 @@ internally generated code are compared, and the appropriate status flags are set
 ?????????
 
 
-                                                <!-- *P618*/844 -->
+<!-- *P618*/844 -->
+[P618]: #P618
+<a id="P618"></a>
+
+
+[Figure 238]: "#Figure%20238"
+<a id="Figure 238"></a>
+
+[Figure 238]: "Figure%20238"
+<a id="Figure 238"></a>
 
 **Figure 238**. Command path state machine (CPSM)
 
 When the Wait state is entered, the command timer starts running. If the timeout is reached
 before the CPSM moves to the Receive state, the timeout flag is set and the Idle state is
 entered.
-Note: The command timeout has a fixed value of 64 SDIO_CK clock periods.
+
+> [!NOTE]
+> The command timeout has a fixed value of 64 SDIO_CK clock periods.
 If the interrupt bit is set in the command register, the timer is disabled and the CPSM waits
 for an interrupt request from one of the cards. If a pending bit is set in the command register,
 the CPSM enters the Pend state, and waits for a CmdPend signal from the data path
 subunit. When CmdPend is detected, the CPSM moves to the Send state. This enables the
 data counter to trigger the stop command transmission.
-Note: The CPSM remains in the Idle state for at least eight SDIO_CK periods to meet the N CC and
+
+> [!NOTE]
+> The CPSM remains in the Idle state for at least eight SDIO_CK periods to meet the N CC and
 N RC timing constraints. N CC is the minimum delay between two host commands, and N RC is
 the minimum delay between the host command and the card response.
 ????
@@ -32930,8 +36845,16 @@ the minimum delay between the host command and the card response.
 ????????
 
 
-                                                <!-- *P619*/844 -->
-7
+<!-- *P619*/844 -->
+[P619]: #P619
+<a id="P619"></a>
+
+
+[Figure 239]: "#Figure%20239"
+<a id="Figure 239"></a>
+
+[Figure 239]: "Figure%20239"
+<a id="Figure 239"></a>
 
 **Figure 239**. SDIO command transfer
 
@@ -32941,11 +36864,11 @@ from the host either to a single card (addressed command) or to all connected
 cards (broadcast command are available for MMC V3.31 or previous). Commands
 are transferred serially on the CMD line. All commands have a fixed length of 48
 bits. The general format for a command token for MultiMediaCards, SD-Memory
-cards and SDIO-Cards is shown in Table 94. CE-ATA commands are an extension
+cards and SDIO-Cards is shown in [Table 94]. CE-ATA commands are an extension
 of MMC commands V4.2, and so have the same format.
 The command path operates in a half-duplex mode, so that commands and
 responses can either be sent or received. If the CPSM is not in the Send state, the
-SDIO_CMD output is in the Hi-Z state, as shown in Figure 239 on page 619. Data
+SDIO_CMD output is in the Hi-Z state, as shown in [Figure 239] on page 619. Data
 on SDIO_CMD are synchronous with the rising edge of SDIO_CK. Table shows
 the command format.
 
@@ -32956,8 +36879,13 @@ serially on the CMD line.
 The SDIO supports two response types. Both use CRC error checking:
 • 48 bit short response
 • 136 bit long response
-Note: If the response does not contain a CRC (CMD1 response), the device driver must ignore the
+
+> [!NOTE]
+> If the response does not contain a CRC (CMD1 response), the device driver must ignore the
 CRC failed status.
+
+[Table 94]: "Table%2094"
+<a id="Table 94"></a>
 
 **Table 94**. Command format
 
@@ -32978,13 +36906,16 @@ Bit position Width Value Description
 ??????
 
 
-                                                <!-- *P620*/844 -->
+<!-- *P620*/844 -->
+[P620]: #P620
+<a id="P620"></a>
+
 
 
 The command register contains the command index (six bits sent to a card) and the
 command type. These determine whether the command requires a response, and whether
 the response is 48 or 136 bits long (see Section 21.9.4 on page 654). The command path
-implements the status flags shown in Table 97:
+implements the status flags shown in [Table 97]:
 
 The CRC generator calculates the CRC checksum for all bits before the CRC code. This
 includes the start bit, transmitter bit, command index, and command argument (or card
@@ -32997,6 +36928,9 @@ G(x) = x 7 + x 3 + 1
 M(x) = (start bit) * x 39 + ... + (last bit before CRC) * x 0 , or
 M(x) = (start bit) * x 119 + ... + (last bit before CRC) * x 0
 
+[Table 95]: "Table%2095"
+<a id="Table 95"></a>
+
 **Table 95**. Short response format
 
 Bit position Width Value Description
@@ -33007,6 +36941,9 @@ Bit position Width Value Description
 [7:1] 7 - CRC7(or 1111111)
 0 1 1 End bit
 
+[Table 96]: "Table%2096"
+<a id="Table 96"></a>
+
 **Table 96**. Long response format
 
 Bit position Width Value Description
@@ -33015,6 +36952,9 @@ Bit position Width Value Description
 [133:128] 6 111111 Reserved
 [127:1] 127 - CID or CSD (including internal CRC7)
 0 1 1 End bit
+
+[Table 97]: "Table%2097"
+<a id="Table 97"></a>
 
 **Table 97**. Command path status flags
 
@@ -33026,11 +36966,19 @@ CTIMEOUT Response timeout.
 CMDACT Command transfer in progress.
 
 
-                                                <!-- *P621*/844 -->
-7
+<!-- *P621*/844 -->
+[P621]: #P621
+<a id="P621"></a>
+
 Data path
-The data path subunit transfers data to and from cards. Figure 240 shows a block diagram
+The data path subunit transfers data to and from cards. [Figure 240] shows a block diagram
 of the data path.
+
+[Figure 240]: "#Figure%20240"
+<a id="Figure 240"></a>
+
+[Figure 240]: "Figure%20240"
+<a id="Figure 240"></a>
 
 **Figure 240**. Data path
 
@@ -33049,7 +36997,7 @@ receives a start bit, the DPSM moves to the Receive state, and the data path sub
 starts receiving data from a card.
 Data path state machine (DPSM)
 The DPSM operates at SDIO_CK frequency. Data on the card bus signals is synchronous to
-the rising edge of SDIO_CK. The DPSM has six states, as shown in Figure 241: Data path
+the rising edge of SDIO_CK. The DPSM has six states, as shown in [Figure 241]: Data path
 state machine (DPSM).
 ????????
 ?????????
@@ -33070,7 +37018,16 @@ state machine (DPSM).
 ?????
 
 
-                                                <!-- *P622*/844 -->
+<!-- *P622*/844 -->
+[P622]: #P622
+<a id="P622"></a>
+
+
+[Figure 241]: "#Figure%20241"
+<a id="Figure 241"></a>
+
+[Figure 241]: "Figure%20241"
+<a id="Figure 241"></a>
 
 **Figure 241**. Data path state machine (DPSM)
 
@@ -33127,8 +37084,10 @@ receives the CRC code. If the received code matches the internally generated
 ???????????????????
 
 
-                                                <!-- *P623*/844 -->
-7
+<!-- *P623*/844 -->
+[P623]: #P623
+<a id="P623"></a>
+
 CRC code, the DPSM moves to the Wait_R state. If not, the CRC fail status flag is
 set and the DPSM moves to the Idle state.
 – In stream mode, the DPSM receives data while the data counter is not zero. When
@@ -33138,7 +37097,9 @@ If a FIFO overrun error occurs, the DPSM sets the FIFO error flag and moves to t
 Idle state:
 • Wait_S: the DPSM moves to the Idle state if the data counter is zero. If not, it waits until
 the data FIFO empty flag is deasserted, and moves to the Send state.
-Note: The DPSM remains in the Wait_S state for at least two clock periods to meet the N WR timing
+
+> [!NOTE]
+> The DPSM remains in the Wait_S state for at least two clock periods to meet the N WR timing
 requirements, where N WR is the number of clock cycles between the reception of the card
 response and the start of the data transfer from the host.
 • Send: the DPSM starts sending data to a card. Depending on the transfer mode bit in
@@ -33167,6 +37128,9 @@ transferred via the data lines . They are stored in a FIFO of 32 words , each wo
 bits wide.
 
 
+[Table 98]: "Table%2098"
+<a id="Table 98"></a>
+
 **Table 98**. Data token format
 
 Description Start bit Data CRC16 End bit
@@ -33174,7 +37138,10 @@ Block Data 0 - yes 1
 Stream Data 0 - no 1
 
 
-                                                <!-- *P624*/844 -->
+<!-- *P624*/844 -->
+[P624]: #P624
+<a id="P624"></a>
+
 Data FIFO
 The data FIFO (first-in-first-out) subunit is a data buffer with a transmit and receive unit.
 The FIFO contains a 32-bit wide, 32-word deep data buffer, and transmit and receive logic.
@@ -33203,8 +37170,11 @@ databus. The write pointer is incremented after the write operation completes. O
 read side, the contents of the FIFO word pointed to by the current value of the read
 pointer is driven onto the read databus. If the receive FIFO is disabled, all status flags
 are deasserted, and the read and write pointers are reset. The data path subunit
-asserts RXACT when it receives data. Table 100 lists the receive FIFO status flags.
+asserts RXACT when it receives data. [Table 100] lists the receive FIFO status flags.
 The receive FIFO is accessible via 32 sequential addresses.
+
+[Table 99]: "Table%2099"
+<a id="Table 99"></a>
 
 **Table 99**. Transmit FIFO status flags
 
@@ -33222,8 +37192,10 @@ Set to high when an underrun error occurs. This flag is cleared by writing to th
 SDIO Clear register.
 
 
-                                                <!-- *P625*/844 -->
-7
+<!-- *P625*/844 -->
+[P625]: #P625
+<a id="P625"></a>
+
 
 
 //21.3.2 SDIO APB2 interface
@@ -33250,6 +37222,9 @@ a) Enable DMA2 controller and clear any pending interrupts.
 b) Program the DMA2_Stream3 or DMA2_Stream6 Channel4 source address
 register with the memory location’s base address and DMA2_Stream3 or
 
+[Table 100]: "Table%20100"
+<a id="Table 100"></a>
+
 **Table 100**. Receive FIFO status flags
 
 Flag Description
@@ -33266,7 +37241,10 @@ Set to high when an overrun error occurs. This flag is cleared by writing to the
 Clear register.
 
 
-                                                <!-- *P626*/844 -->
+<!-- *P626*/844 -->
+[P626]: #P626
+<a id="P626"></a>
+
 DMA2_Stream6 Channel4 destination address register with the SDIO_FIFO
 register address.
 c) Program DMA2_Stream3 or DMA2_Stream6 Channel4 control register (memory
@@ -33322,8 +37300,10 @@ specification range. The supported minimum and maximum V DD values are defined i
 operation conditions register (OCR) on the card.
 
 
-                                                <!-- *P627*/844 -->
-7
+<!-- *P627*/844 -->
+[P627]: #P627
+<a id="P627"></a>
+
 Cards that store the card identification number (CID) and card specific data (CSD) in the
 payload memory are able to communicate this information only under data-transfer V DD
 conditions. When the SDIO card host module and the card have incompatible V DD ranges,
@@ -33368,7 +37348,10 @@ output drives are push-pull drivers instead of open-drain. The registration proc
 accomplished as follows:
 
 
-                                                <!-- *P628*/844 -->
+<!-- *P628*/844 -->
+[P628]: #P628
+<a id="P628"></a>
+
 1. The bus is activated.
 2. The SDIO card host broadcasts SD_APP_OP_COND (ACMD41).
 3. The cards respond with the contents of their operation condition registers.
@@ -33420,8 +37403,10 @@ READY_FOR_DATA status bit indicates whether the card can accept new data or whet
 the write process is still in progress. The host may deselect the card by issuing CMD7 (to
 
 
-                                                <!-- *P629*/844 -->
-7
+<!-- *P629*/844 -->
+[P629]: #P629
+<a id="P629"></a>
+
 select a different card), which will place the card in the Disconnect state and release the
 SDIO_D line(s) without interrupting the write operation. When selecting the card again, it will
 reactivate busy indication by pulling SDIO_D to low if programming is still in progress and
@@ -33468,7 +37453,10 @@ memory range is reached while sending data and no stop command is sent by the SD
 host, any additional transferred data are discarded.
 
 
-                                                <!-- *P630*/844 -->
+<!-- *P630*/844 -->
+[P630]: #P630
+<a id="P630"></a>
+
 The maximum clock frequency for a stream write operation is given by the following
 equation fields of the card-specific data register:
 • Maximumspeed = maximum write frequency
@@ -33512,8 +37500,10 @@ TAAC R2WFACTOR ×
 ------------------------------------------------------------------------ ( , ) =
 
 
-                                                <!-- *P631*/844 -->
-7
+<!-- *P631*/844 -->
+[P631]: #P631
+<a id="P631"></a>
+
 
 //21.4.8 Erase: group erase and sector erase
 --------------------------------------------
@@ -33567,7 +37557,10 @@ SEND_WRITE_PROT command is similar to a single block read command. The card send
 a data block containing 32 write protection bits (representing 32 write protect groups starting
 
 
-                                                <!-- *P632*/844 -->
+<!-- *P632*/844 -->
+[P632]: #P632
+<a id="P632"></a>
+
 at the specified address) followed by 16 CRC bits. The address field in the write protect
 commands is a group address in byte units.
 The card ignores all LSBs below the group size.
@@ -33593,7 +37586,7 @@ structure and bus transaction types of a regular single-block write command. The
 transferred data block includes all of the required information for the command (the
 password setting mode, the PWD itself, and card lock/unlock). The command data block
 size is defined by the SDIO card host module before it sends the card lock/unlock
-command, and has the structure shown in Table 114.
+command, and has the structure shown in [Table 114].
 The bit settings are as follows:
 • ERASE: setting it forces an erase operation. All other bits must be zero, and only the
 command byte is sent
@@ -33611,8 +37604,10 @@ Setting the password
 lock/unlock mode, the 8-bit PWD_LEN, and the number of bytes of the new password.
 
 
-                                                <!-- *P633*/844 -->
-7
+<!-- *P633*/844 -->
+[P633]: #P633
+<a id="P633"></a>
+
 When a password replacement is done, the block size must take into account that both
 the old and the new passwords are sent with the command.
 3. Send LOCK/UNLOCK (CMD42) with the appropriate data block size on the data line
@@ -33645,7 +37640,7 @@ the password is not changed.
 Locking a card
 1. Select a card (SELECT/DESELECT_CARD, CMD7), if none is already selected.
 2. Define the block length (SET_BLOCKLEN, CMD16) to send, given by the 8-bit card
-lock/unlock mode (byte 0 in Table 114), the 8-bit PWD_LEN, and the number of bytes
+lock/unlock mode (byte 0 in [Table 114]), the 8-bit PWD_LEN, and the number of bytes
 of the current password.
 3. Send LOCK/UNLOCK (CMD42) with the appropriate data block size on the data line
 including the 16-bit CRC. The data block indicates the mode (LOCK_UNLOCK = 1), the
@@ -33660,14 +37655,17 @@ Setting the password on page 632), however it is necessary to set the LOCK_UNLOC
 in Step 3 when the new password command is sent.
 
 
-                                                <!-- *P634*/844 -->
+<!-- *P634*/844 -->
+[P634]: #P634
+<a id="P634"></a>
+
 When the password is previously set (PWD_LEN is not 0), the card is locked automatically
 after power-on reset. An attempt to lock a locked card or to lock a card that does not have a
 password fails and the LOCK_UNLOCK_FAILED error bit is set in the card status register.
 Unlocking the card
 1. Select a card (SELECT/DESELECT_CARD, CMD7), if none is already selected.
 2. Define the block length (SET_BLOCKLEN, CMD16) to send, given by the 8-bit
-cardlock/unlock mode (byte 0 in Table 114), the 8-bit PWD_LEN, and the number of
+cardlock/unlock mode (byte 0 in [Table 114]), the 8-bit PWD_LEN, and the number of
 bytes of the current password.
 3. Send LOCK/UNLOCK (CMD42) with the appropriate data block size on the data line
 including the 16-bit CRC. The data block indicates the mode (LOCK_UNLOCK = 0), the
@@ -33687,7 +37685,7 @@ clearing all the data on the card. This forced erase operation erases all card d
 password data.
 1. Select a card (SELECT/DESELECT_CARD, CMD7), if none is already selected.
 2. Set the block length (SET_BLOCKLEN, CMD16) to 1 byte. Only the 8-bit card
-lock/unlock byte (byte 0 in Table 114) is sent.
+lock/unlock byte (byte 0 in [Table 114]) is sent.
 3. Send LOCK/UNLOCK (CMD42) with the appropriate data byte on the data line including
 the 16-bit CRC. The data block indicates the mode (ERASE = 1). All other bits must be
 zero.
@@ -33705,12 +37703,14 @@ The response format R1 contains a 32-bit field named card status. This field is 
 transmit the card status information (which may be stored in a local status register) to the
 host. If not specified otherwise, the status entries are always related to the previously issued
 command.
-Table 101 defines the different entries of the status. The type and clear condition fields in
+[Table 101] defines the different entries of the status. The type and clear condition fields in
 the table are abbreviated as follows:
 
 
-                                                <!-- *P635*/844 -->
-7
+<!-- *P635*/844 -->
+[P635]: #P635
+<a id="P635"></a>
+
 Type:
 • E: error bit
 • S: status bit
@@ -33723,6 +37723,9 @@ Clear condition:
 (with a delay of one command)
 • C: clear by read
 
+
+[Table 101]: "Table%20101"
+<a id="Table 101"></a>
 
 **Table 101**. Card status
 
@@ -33789,7 +37792,10 @@ block.
 C
 
 
-                                                <!-- *P636*/844 -->
+<!-- *P636*/844 -->
+[P636]: #P636
+<a id="P636"></a>
+
 25 CARD_IS_LOCKED S R
 ‘0’ = card
 unlocked
@@ -33873,14 +37879,16 @@ sequence command was received
 (commands other than CMD35, CMD36,
 CMD38 or CMD13)
 C
-Table 101. Card status (continued)
+[Table 101]. Card status (continued)
 Bits Identifier Type Value Description
 Clear
 condition
 
 
-                                                <!-- *P637*/844 -->
-7
+<!-- *P637*/844 -->
+[P637]: #P637
+<a id="P637"></a>
+
 
 //21.4.12 SD status register
 ----------------------------
@@ -33890,7 +37898,7 @@ features and may be used for future application-specific usage. The size of the 
 one data block of 512 bits. The contents of this register are transmitted to the SDIO card
 host if ACMD13 is sent (CMD55 followed with CMD13). ACMD13 can be sent to a card in
 transfer state only (card is selected).
-Table 102 defines the different entries of the SD status register. The type and clear condition
+[Table 102] defines the different entries of the SD status register. The type and clear condition
 fields in the table are abbreviated as follows:
 Type:
 • E: error bit
@@ -33949,19 +37957,25 @@ C
 1
 Reserved for manufacturer test mode
 0
-Table 101. Card status (continued)
+[Table 101]. Card status (continued)
 Bits Identifier Type Value Description
 Clear
 condition
 
 
-                                                <!-- *P638*/844 -->
+<!-- *P638*/844 -->
+[P638]: #P638
+<a id="P638"></a>
+
 Clear condition:
 • A: according to the card current state
 • B: always related to the previous command. Reception of a valid command clears it
 (with a delay of one command)
 • C: clear by read
 
+
+[Table 102]: "Table%20102"
+<a id="Table 102"></a>
 
 **Table 102**. SD status
 
@@ -34046,8 +38060,10 @@ time.
 311:0 Reserved for Manufacturer
 
 
-                                                <!-- *P639*/844 -->
-7
+<!-- *P639*/844 -->
+[P639]: #P639
+<a id="P639"></a>
+
 SIZE_OF_PROTECTED_AREA
 Setting this field differs between standard- and high-capacity cards. In the case of a
 standard-capacity card, the capacity of protected area is calculated as follows:
@@ -34066,6 +38082,9 @@ steps. If the card does not move used RUs (recording units), Pm should be consid
 infinity. Setting the field to FFh means infinity.
 
 
+[Table 103]: "Table%20103"
+<a id="Table 103"></a>
+
 **Table 103**. Speed class code field
 
 SPEED_CLASS Value definition
@@ -34074,6 +38093,9 @@ SPEED_CLASS Value definition
 02h Class 4
 03h Class 6
 04h – FFh Reserved
+
+[Table 104]: "Table%20104"
+<a id="Table 104"></a>
 
 **Table 104**. Performance move field
 
@@ -34086,12 +38108,15 @@ FEh 254 [MB/sec]
 FFh Infinity
 
 
-                                                <!-- *P640*/844 -->
+<!-- *P640*/844 -->
+[P640]: #P640
+<a id="P640"></a>
+
 AU_SIZE
 This 4-bit field indicates the AU size and the value can be selected in the power of 2 base
 from 16 KB.
 
-The maximum AU size, which depends on the card capacity, is defined in Table 106. The
+The maximum AU size, which depends on the card capacity, is defined in [Table 106]. The
 card can be set to any AU size between RU size and maximum AU size.
 
 ERASE_SIZE
@@ -34101,6 +38126,9 @@ should determine the proper number of AUs to be erased in one operation so that 
 can show the progress of the erase operation. If this field is set to 0, the erase timeout
 calculation is not supported.
 
+
+[Table 105]: "Table%20105"
+<a id="Table 105"></a>
 
 **Table 105**. AU_SIZE field
 
@@ -34117,10 +38145,16 @@ AU_SIZE Value definition
 09h 4 MB
 Ah – Fh Reserved
 
+[Table 106]: "Table%20106"
+<a id="Table 106"></a>
+
 **Table 106**. Maximum AU size
 
 Capacity 16 MB-64 MB 128 MB-256 MB 512 MB 1 GB-32 GB
 Maximum AU Size 512 KB 1 MB 2 MB 4 MB
+
+[Table 107]: "Table%20107"
+<a id="Table 107"></a>
 
 **Table 107**. Erase size field
 
@@ -34133,8 +38167,10 @@ ERASE_SIZE Value definition
 FFFFh 65535 AU
 
 
-                                                <!-- *P641*/844 -->
-7
+<!-- *P641*/844 -->
+[P641]: #P641
+<a id="P641"></a>
+
 ERASE_TIMEOUT
 This 6-bit field indicates TERASE and the value indicates the erase timeout from offset
 when multiple AUs are being erased as specified by ERASE_SIZE. The range of
@@ -34165,6 +38201,9 @@ MultiMediaCard/SD module samples the level of pin 8 (SDIO_D/IRQ) into the interr
 detector only during the interrupt period. At all other times, the MultiMediaCard/SD module
 ignores this value.
 
+[Table 108]: "Table%20108"
+<a id="Table 108"></a>
+
 **Table 108**. Erase timeout field
 
 ERASE_TIMEOUT Value definition
@@ -34175,6 +38214,9 @@ ERASE_TIMEOUT Value definition
 --------- ---------
 63 63 [sec]
 
+[Table 109]: "Table%20109"
+<a id="Table 109"></a>
+
 **Table 109**. Erase offset field
 
 ERASE_OFFSET Value definition
@@ -34184,7 +38226,10 @@ ERASE_OFFSET Value definition
 3h 3 [sec]
 
 
-                                                <!-- *P642*/844 -->
+<!-- *P642*/844 -->
+[P642]: #P642
+<a id="P642"></a>
+
 The interrupt period is applicable for both memory and I/O operations. The definition of the
 interrupt period for operations with single blocks is different from the definition for multiple-
 block data transfers.
@@ -34234,8 +38279,10 @@ immediately following APP_CMD (CMD55) and the card does not have a definition fo
 ACMD7, this is interpreted as the standard (SELECT/DESELECT_CARD) CMD7.
 
 
-                                                <!-- *P643*/844 -->
-7
+<!-- *P643*/844 -->
+[P643]: #P643
+<a id="P643"></a>
+
 To use one of the manufacturer-specific ACMDs the SD card Host must perform the
 following steps:
 1. Send APP_CMD (CMD55)
@@ -34265,9 +38312,12 @@ not include a data transfer on the SDIO_D line(s).
 • addressed (point-to-point) data transfer command (ADTC): sent to the card that is
 selected; includes a data transfer on the SDIO_D line(s).
 Command formats
-See Table 94 on page 619 for command formats.
+See [Table 94] on page 619 for command formats.
 Commands for the MultiMediaCard/SD module
 
+
+[Table 110]: "Table%20110"
+<a id="Table 110"></a>
 
 **Table 110**. Block-oriented write commands
 
@@ -34294,7 +38344,10 @@ Writes a block of the size selected by
 the SET_BLOCKLEN command.
 
 
-                                                <!-- *P644*/844 -->
+<!-- *P644*/844 -->
+[P644]: #P644
+<a id="P644"></a>
+
 
 
 CMD25 adtc
@@ -34316,13 +38369,16 @@ for manufacturer.
 CMD27 adtc [31:0] stuff bits R1 PROGRAM_CSD
 Programming of the programmable
 bits of the CSD.
-Table 110. Block-oriented write commands (continued)
+[Table 110]. Block-oriented write commands (continued)
 CMD
 index
 Type Argument
 Response
 format
 Abbreviation Description
+
+[Table 111]: "Table%20111"
+<a id="Table 111"></a>
 
 **Table 111**. Block-oriented write protection commands
 
@@ -34359,6 +38415,9 @@ send the status of the write protection
 bits.
 CMD31 Reserved
 
+[Table 112]: "Table%20112"
+<a id="Table 112"></a>
+
 **Table 112**. Erase commands
 
 CMD
@@ -34382,8 +38441,10 @@ group within a continuous range to be
 selected for erase.
 
 
-                                                <!-- *P645*/844 -->
-7
+<!-- *P645*/844 -->
+[P645]: #P645
+<a id="P645"></a>
+
 
 
 
@@ -34393,13 +38454,16 @@ versions of the MultiMediaCards
 CMD38 ac [31:0] stuff bits R1 ERASE
 Erases all previously selected write
 blocks.
-Table 112. Erase commands (continued)
+[Table 112]. Erase commands (continued)
 CMD
 index
 Type Argument
 Response
 format
 Abbreviation Description
+
+[Table 113]: "Table%20113"
+<a id="Table 113"></a>
 
 **Table 113**. I/O mode commands
 
@@ -34428,6 +38492,9 @@ defined in the MultiMediaCard standard.
 CMD40 bcr [31:0] stuff bits R5 GO_IRQ_STATE Places the system in the interrupt mode.
 CMD41 Reserved
 
+[Table 114]: "Table%20114"
+<a id="Table 114"></a>
+
 **Table 114**. Lock card
 
 CMD
@@ -34444,6 +38511,9 @@ CMD43
 ...
 CMD54
 Reserved
+
+[Table 115]: "Table%20115"
+<a id="Table 115"></a>
 
 **Table 115**. Application-specific commands
 
@@ -34470,7 +38540,10 @@ size of the data block shall be set by the
 SET_BLOCK_LEN command.
 
 
-                                                <!-- *P646*/844 -->
+<!-- *P646*/844 -->
+[P646]: #P646
+<a id="P646"></a>
+
 
 //21.5 Response formats
 -----------------------
@@ -34512,13 +38585,16 @@ CMD60
 ...
 CMD63
 Reserved for manufacturer.
-Table 115. Application-specific commands (continued)
+[Table 115]. Application-specific commands (continued)
 CMD
 index
 Type Argument
 Response
 format
 Abbreviation Description
+
+[Table 116]: "Table%20116"
+<a id="Table 116"></a>
 
 **Table 116**. R1 response
 
@@ -34531,8 +38607,10 @@ Bit position Width (bits Value Description
 0 1 1 End bit
 
 
-                                                <!-- *P647*/844 -->
-7
+<!-- *P647*/844 -->
+[P647]: #P647
+<a id="P647"></a>
+
 CMD9. Only the bits [127...1] of the CID and CSD are transferred, the reserved bit [0] of
 these registers is replaced by the end bit of the response. The card indicates that an erase
 is in progress by holding MCDAT low. The actual erase time may be quite long, and the host
@@ -34553,6 +38631,9 @@ Code length: 48 bits. The argument field contains the RCA of the addressed card,
 register address to be read from or written to, and its content.
 
 
+[Table 117]: "Table%20117"
+<a id="Table 117"></a>
+
 **Table 117**. R2 response
 
 Bit position Width (bits Value Description
@@ -34561,6 +38642,9 @@ Bit position Width (bits Value Description
 [133:128] 6 ‘111111’ Command index
 [127:1] 127 X Card status
 0 1 1 End bit
+
+[Table 118]: "Table%20118"
+<a id="Table 118"></a>
 
 **Table 118**. R3 response
 
@@ -34571,6 +38655,9 @@ Bit position Width (bits Value Description
 [39:8] 32 X OCR register
 [7:1] 7 ‘1111111’ Reserved
 0 1 1 End bit
+
+[Table 119]: "Table%20119"
+<a id="Table 119"></a>
 
 **Table 119**. R4 response
 
@@ -34584,7 +38671,10 @@ Bit position Width (bits Value Description
 [7:0] 8 X read register contents
 
 
-                                                <!-- *P648*/844 -->
+<!-- *P648*/844 -->
+[P648]: #P648
+<a id="P648"></a>
+
 
 //21.5.6 R4b
 ------------
@@ -34610,8 +38700,11 @@ RCA field in the argument will be 0x0.
 
 [7:1] 7 X CRC7
 0 1 1 End bit
-Table 119. R4 response (continued)
+[Table 119]. R4 response (continued)
 Bit position Width (bits Value Description
+
+[Table 120]: "Table%20120"
+<a id="Table 120"></a>
 
 **Table 120**. R4b response
 
@@ -34628,6 +38721,9 @@ Bit position Width (bits Value Description
 [7:1] 7 X Reserved
 0 1 1 End bit
 
+[Table 121]: "Table%20121"
+<a id="Table 121"></a>
+
 **Table 121**. R5 response
 
 Bit position Width (bits Value Description
@@ -34636,14 +38732,16 @@ Bit position Width (bits Value Description
 [45:40] 6 ‘101000’ CMD40
 
 
-                                                <!-- *P649*/844 -->
-7
+<!-- *P649*/844 -->
+[P649]: #P649
+<a id="P649"></a>
+
 
 //21.5.8 R6
 -----------
 
 Only for SD I/O. The normal response to CMD3 by a memory device. It is shown in
-Table 122.
+[Table 122].
 
 The card [23:8] status bits are changed when CMD3 is sent to an I/O-only card. In this case,
 the 16 bits of response are the SD I/O-only values:
@@ -34671,8 +38769,11 @@ Not defined. May be used
 for IRQ data
 [7:1] 7 X CRC7
 0 1 1 End bit
-Table 121. R5 response (continued)
+[Table 121]. R5 response (continued)
 Bit position Width (bits Value Description
+
+[Table 122]: "Table%20122"
+<a id="Table 122"></a>
 
 **Table 122**. R6 response
 
@@ -34688,7 +38789,10 @@ field
 0 1 1 End bit
 
 
-                                                <!-- *P650*/844 -->
+<!-- *P650*/844 -->
+[P650]: #P650
+<a id="P650"></a>
+
 
 //21.6.1 SDIO I/O read wait operation by SDIO_D2 signaling
 ----------------------------------------------------------
@@ -34740,8 +38844,10 @@ continues reading RxFIFO until the FIF0 is empty, and the DPSM goes Idle automat
 SDIO interrupts are detected on the SDIO_D1 line once the SDIO_DCTRL[11] bit is set.
 
 
-                                                <!-- *P651*/844 -->
-7
+<!-- *P651*/844 -->
+[P651]: #P651
+<a id="P651"></a>
+
 
 //21.7 CE-ATA specific operations
 ---------------------------------
@@ -34792,7 +38898,10 @@ CMD12 command can be sent. No command completion disable signal is sent during t
 operation.
 
 
-                                                <!-- *P652*/844 -->
+<!-- *P652*/844 -->
+[P652]: #P652
+<a id="P652"></a>
+
 
 //21.8 HW flow control
 ----------------------
@@ -34819,7 +38928,9 @@ The peripheral registers have to be accessed by words (32 bits).
 Address offset: 0x00
 Reset value: 0x0000 0000
 
-Note: At least seven HCLK clock periods are needed between two write accesses to this register.
+
+> [!NOTE]
+> At least seven HCLK clock periods are needed between two write accesses to this register.
 After a data write, data cannot be written to this register for three SDIOCLK clock periods
 plus two PCLK2 clock periods.
 31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
@@ -34836,8 +38947,10 @@ These bits are used to define the current functional state of the card clock:
 11: Power-on: the card is clocked.
 
 
-                                                <!-- *P653*/844 -->
-7
+<!-- *P653*/844 -->
+[P653]: #P653
+<a id="P653"></a>
+
 
 //21.9.2 SDI clock control register (SDIO_CLKCR)
 ------------------------------------------------
@@ -34888,8 +39001,13 @@ This field defines the divide factor between the input clock (SDIOCLK) and the o
 (SDIO_CK): SDIO_CK frequency = SDIOCLK / [CLKDIV + 2].
 
 
-                                                <!-- *P654*/844 -->
-Note: While the SD/SDIO card or MultiMediaCard is in identification mode, the SDIO_CK
+<!-- *P654*/844 -->
+[P654]: #P654
+<a id="P654"></a>
+
+
+> [!NOTE]
+> While the SD/SDIO card or MultiMediaCard is in identification mode, the SDIO_CK
 frequency must be less than 400 kHz.
 The clock frequency can be changed to the maximum card bus frequency when relative
 card addresses are assigned to all cards.
@@ -34945,9 +39063,13 @@ Bit 12 ENCMDcompl: Enable CMD completion
 If this bit is set, the command completion signal is enabled.
 
 
-                                                <!-- *P655*/844 -->
-7
-Note: After a data write, data cannot be written to this register for three SDIOCLK clock periods
+<!-- *P655*/844 -->
+[P655]: #P655
+<a id="P655"></a>
+
+
+> [!NOTE]
+> After a data write, data cannot be written to this register for three SDIOCLK clock periods
 plus two PCLK2 clock periods.
 MultiMediaCards can send two kinds of response: short responses, 48 bits long, or long
 responses,136 bits long. SD card and SD I/O card can send only short responses, the
@@ -34993,7 +39115,10 @@ Bits 5:0 RESPCMD: Response command index
 Read-only bit field. Contains the command index of the last command response received.
 
 
-                                                <!-- *P656*/844 -->
+<!-- *P656*/844 -->
+[P656]: #P656
+<a id="P656"></a>
+
 
 //21.9.6 SDIO response 1..4 register (SDIO_RESPx)
 -------------------------------------------------
@@ -35020,12 +39145,17 @@ the data path state machine (DPSM) enters the Wait_R or Busy state. If the timer
 while the DPSM is in either of these states, the timeout status flag is set.
 
 
-Note: A data transfer must be written to the data timer register and the data length register before
+
+> [!NOTE]
+> A data transfer must be written to the data timer register and the data length register before
 being written to the data control register.
 31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
 CARDSTATUSx
 r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r
-Bits 31:0 CARDSTATUSx: see Table 123.
+Bits 31:0 CARDSTATUSx: see [Table 123].
+
+[Table 123]: "Table%20123"
+<a id="Table 123"></a>
 
 **Table 123**. Response type and SDIO_RESPx registers
 
@@ -35041,8 +39171,10 @@ Bits 31:0 DATATIME: Data timeout period
 Data timeout period expressed in card bus clock periods.
 
 
-                                                <!-- *P657*/844 -->
-7
+<!-- *P657*/844 -->
+[P657]: #P657
+<a id="P657"></a>
+
 
 //21.9.8 SDIO data length register (SDIO_DLEN)
 ----------------------------------------------
@@ -35053,7 +39185,9 @@ The SDIO_DLEN register contains the number of data bytes to be transferred. The 
 loaded into the data counter when data transfer starts.
 
 
-Note: For a block data transfer, the value in the data length register must be a multiple of the block
+
+> [!NOTE]
+> For a block data transfer, the value in the data length register must be a multiple of the block
 size (see SDIO_DCTRL). A data transfer must be written to the data timer register and the
 data length register before being written to the data control register.
 For an SDIO multibyte transfer the value in the data length register must be between 1 and
@@ -35067,7 +39201,10 @@ Bits 24:0 DATALENGTH: Data length value
 Number of data bytes to be transferred.
 
 
-                                                <!-- *P658*/844 -->
+<!-- *P658*/844 -->
+[P658]: #P658
+<a id="P658"></a>
+
 
 //21.9.9 SDIO data control register (SDIO_DCTRL)
 ------------------------------------------------
@@ -35123,9 +39260,13 @@ Bit 3 DMAEN: DMA enable bit
 1: DMA enabled.
 
 
-                                                <!-- *P659*/844 -->
-7
-Note: After a data write, data cannot be written to this register for three SDIOCLK clock periods
+<!-- *P659*/844 -->
+[P659]: #P659
+<a id="P659"></a>
+
+
+> [!NOTE]
+> After a data write, data cannot be written to this register for three SDIOCLK clock periods
 plus two PCLK2 clock periods.
 The meaning of the DTMODE bit changes according to the value of the SDIOEN bit. When
 SDIOEN=0 and DTMODE=1, the MultiMediaCard stream mode is enabled, and when
@@ -35142,7 +39283,9 @@ data is transferred, the counter decrements the value until it reaches 0. The DP
 moves to the Idle state and the data status end flag, DATAEND, is set.
 
 
-Note: This register should be read only when the data transfer is complete.
+
+> [!NOTE]
+> This register should be read only when the data transfer is complete.
 Bit 2 DTMODE: Data transfer mode selection 1: Stream or SDIO multibyte data transfer.
 0: Block data transfer
 1: Stream or SDIO multibyte data transfer
@@ -35164,7 +39307,10 @@ When this bit is read, the number of remaining data bytes to be transferred is r
 has no effect.
 
 
-                                                <!-- *P660*/844 -->
+<!-- *P660*/844 -->
+[P660]: #P660
+<a id="P660"></a>
+
 
 //21.9.11 SDIO status register (SDIO_STA)
 -----------------------------------------
@@ -35232,8 +39378,10 @@ Bit 6 CMDREND: Command response received (CRC check passed)
 Bit 5 RXOVERR: Received FIFO overrun error
 
 
-                                                <!-- *P661*/844 -->
-7
+<!-- *P661*/844 -->
+[P661]: #P661
+<a id="P661"></a>
+
 
 //21.9.12 SDIO interrupt clear register (SDIO_ICR)
 --------------------------------------------------
@@ -35291,7 +39439,10 @@ Set by software to clear the DATAEND flag.
 1: DATAEND cleared
 
 
-                                                <!-- *P662*/844 -->
+<!-- *P662*/844 -->
+[P662]: #P662
+<a id="P662"></a>
+
 Bit 7 CMDSENTC: CMDSENT flag clear bit
 Set by software to clear the CMDSENT flag.
 0: CMDSENT not cleared
@@ -35326,8 +39477,10 @@ Set by software to clear the CCRCFAIL flag.
 1: CCRCFAIL cleared
 
 
-                                                <!-- *P663*/844 -->
-7
+<!-- *P663*/844 -->
+[P663]: #P663
+<a id="P663"></a>
+
 
 //21.9.13 SDIO mask register (SDIO_MASK)
 ----------------------------------------
@@ -35400,7 +39553,10 @@ Set and cleared by software to enable/disable interrupt caused by Rx FIFO full.
 1: Rx FIFO full interrupt enabled
 
 
-                                                <!-- *P664*/844 -->
+<!-- *P664*/844 -->
+[P664]: #P664
+<a id="P664"></a>
+
 Bit 16 TXFIFOFIE: Tx FIFO full interrupt enable
 Set and cleared by software to enable/disable interrupt caused by Tx FIFO full.
 0: Tx FIFO full interrupt disabled
@@ -35446,8 +39602,10 @@ Set and cleared by software to enable/disable interrupt caused by sending comman
 1: Command sent interrupt enabled
 
 
-                                                <!-- *P665*/844 -->
-7
+<!-- *P665*/844 -->
+[P665]: #P665
+<a id="P665"></a>
+
 
 //21.9.14 SDIO FIFO counter register (SDIO_FIFOCNT)
 ---------------------------------------------------
@@ -35498,7 +39656,10 @@ Bits 31:24 Reserved, must be kept at reset value
 Bits 23:0 FIFOCOUNT: Remaining number of words to be written to or read from the FIFO.
 
 
-                                                <!-- *P666*/844 -->
+<!-- *P666*/844 -->
+[P666]: #P666
+<a id="P666"></a>
+
 
 //21.9.15 SDIO data FIFO register (SDIO_FIFO)
 ---------------------------------------------
@@ -35522,6 +39683,9 @@ rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw
 bits 31:0 FIFOData: Receive and transmit FIFO data
 The FIFO data occupies 32 entries of 32-bit words, from address:
 SDIO base + 0x080 to SDIO base + 0xFC.
+
+[Table 124]: "Table%20124"
+<a id="Table 124"></a>
 
 **Table 124**. SDIO register map
 
@@ -35603,8 +39767,10 @@ DTEN
 0x30 SDIO_DCOUNT Reserved DATACOUNT
 
 
-                                                <!-- *P667*/844 -->
-7
+<!-- *P667*/844 -->
+[P667]: #P667
+<a id="P667"></a>
+
 0x34 SDIO_STA
 Reserved
 CEATAEND
@@ -35675,7 +39841,7 @@ DCRCFAILIE
 CCRCFAILIE
 0x48 SDIO_FIFOCNT Reserved FIFOCOUNT
 0x80 SDIO_FIFO FIF0Data
-Table 124. SDIO register map (continued)
+[Table 124]. SDIO register map (continued)
 Offset Register
 31
 30
@@ -35711,7 +39877,10 @@ Offset Register
 0
 
 
-                                                <!-- *P668*/844 -->
+<!-- *P668*/844 -->
+[P668]: #P668
+<a id="P668"></a>
+
 
 /22 USB on-the-go full-speed (OTG_FS)
 =====================================
@@ -35744,8 +39913,10 @@ USB Universal serial bus
 UTMI USB 2.0 transceiver macrocell interface (UTMI)
 
 
-                                                <!-- *P669*/844 -->
-806
+<!-- *P669*/844 -->
+[P669]: #P669
+<a id="P669"></a>
+
 
 //22.2 OTG_FS main features
 ---------------------------
@@ -35788,7 +39959,10 @@ memory locations
 intervention
 
 
-                                                <!-- *P670*/844 -->
+<!-- *P670*/844 -->
+[P670]: #P670
+<a id="P670"></a>
+
 
 //22.2.2 Host-mode features
 ---------------------------
@@ -35818,12 +39992,20 @@ load on the application
 • Support for the soft disconnect feature.
 
 
-                                                <!-- *P671*/844 -->
-806
+<!-- *P671*/844 -->
+[P671]: #P671
+<a id="P671"></a>
+
 
 //22.3 OTG_FS functional description
 ------------------------------------
 
+
+[Figure 242]: "#Figure%20242"
+<a id="Figure 242"></a>
+
+[Figure 242]: "Figure%20242"
+<a id="Figure 242"></a>
 
 **Figure 242**. OTG full-speed block diagram
 
@@ -35871,6 +40053,9 @@ Section 22.15: OTG_FS interrupts.
 ???????????
 ??????????
 
+[Table 125]: "Table%20125"
+<a id="Table 125"></a>
+
 **Table 125**. OTG_FS input/output pins
 
 Signal name Signal type Description
@@ -35881,7 +40066,10 @@ OTG_FS_VBUS Analog input USB OTG VBUS
 OTG_FS_SOF Digital output USB OTG Start Of Frame (visibility)
 
 
-                                                <!-- *P672*/844 -->
+<!-- *P672*/844 -->
+[P672]: #P672
+<a id="P672"></a>
+
 The CPU submits data over the USB by writing 32-bit words to dedicated OTG_FS locations
 (push registers). The data are then automatically stored into Tx-data FIFOs configured
 within the USB data RAM. There is one Tx-FIFO push register for each in-endpoint
@@ -35923,12 +40111,20 @@ Caution: To guarantee a correct operation for the USB OTG FS peripheral, the AHB
 be higher than 14.2 MHz.
 
 
-                                                <!-- *P673*/844 -->
-806
+<!-- *P673*/844 -->
+[P673]: #P673
+<a id="P673"></a>
+
 
 //22.4 OTG dual role device (DRD)
 ---------------------------------
 
+
+[Figure 243]: "#Figure%20243"
+<a id="Figure 243"></a>
+
+[Figure 243]: "Figure%20243"
+<a id="Figure 243"></a>
 
 **Figure 243**. OTG A-B device connection
 
@@ -35993,7 +40189,10 @@ The HNP program model is described in detail in Section 22.17.
 ?????????
 
 
-                                                <!-- *P674*/844 -->
+<!-- *P674*/844 -->
+[P674]: #P674
+<a id="P674"></a>
+
 
 //22.4.3 SRP dual role device
 -----------------------------
@@ -36017,12 +40216,14 @@ The OTG_FS works as an USB peripheral in the following circumstances:
 – If the ID line is present, functional and connected to the B-side of the USB cable,
 and the HNP-capable bit in the Global USB Configuration register (HNPCAP bit in
 OTG_FS_GUSBCFG) is cleared (see On-The-Go Rev1.3 par. 6.8.3).
-• Peripheral only (see Figure 244)
+• Peripheral only (see [Figure 244])
 – The force device mode bit in the Global USB configuration register (FDMOD in
 OTG_FS_GUSBCFG) is set to 1, forcing the OTG_FS core to work as a USB
 peripheral-only (see On-The-Go Rev1.3 par. 6.8.3). In this case, the ID line is
 ignored even if present on the USB connector.
-Note: To build a bus-powered device implementation in case of the B-device or peripheral-only
+
+> [!NOTE]
+> To build a bus-powered device implementation in case of the B-device or peripheral-only
 configuration, an external regulator has to be added that generates the V DD chip-supply
 from V BUS .
 The V BUS pin can be freed by disabling the V BUS sensing option. This is done by setting the
@@ -36030,8 +40231,16 @@ NOVBUSSENS bit in the OTG_FS_GCCFG register. In this case the V BUS is considere
 internally to be always at V BUS valid level (5 V).
 
 
-                                                <!-- *P675*/844 -->
-806
+<!-- *P675*/844 -->
+[P675]: #P675
+<a id="P675"></a>
+
+
+[Figure 244]: "#Figure%20244"
+<a id="Figure 244"></a>
+
+[Figure 244]: "Figure%20244"
+<a id="Figure 244"></a>
 
 **Figure 244**. USB peripheral-only connection
 
@@ -36083,7 +40292,10 @@ generated and the OTG_FS enters the Default state.
 ?????????
 
 
-                                                <!-- *P676*/844 -->
+<!-- *P676*/844 -->
+[P676]: #P676
+<a id="P676"></a>
+
 Soft disconnect
 The powered state can be exited by software with the soft disconnect feature. The DP pull-
 up resistor is removed by setting the soft disconnect bit in the device control register (SDIS
@@ -36132,8 +40344,10 @@ IN endpoints (EP0 included)
 OTG_FS_GINTSTS), asserted when there is at least one isochronous IN endpoint
 
 
-                                                <!-- *P677*/844 -->
-806
+<!-- *P677*/844 -->
+[P677]: #P677
+<a id="P677"></a>
+
 on which the transfer is not completed in the current frame. This interrupt is
 asserted along with the end of periodic frame interrupt
 (OTG_FS_GINTSTS/EOPF).
@@ -36177,7 +40391,10 @@ The following transfer parameters can be programmed:
 • Number of packets that constitute the overall transfer size
 
 
-                                                <!-- *P678*/844 -->
+<!-- *P678*/844 -->
+[P678]: #P678
+<a id="P678"></a>
+
 Endpoint status/interrupt
 The device endpoint-x interrupt registers (DIEPINTx/DOPEPINTx) indicate the status of an
 endpoint with respect to USB- and AHB-related events. The application must read these
@@ -36216,23 +40433,33 @@ OTG_FS works as a USB host in the following circumstances:
 and the HNP-capable bit is cleared in the Global USB Configuration register
 (HNPCAP bit in OTG_FS_GUSBCFG). Integrated pull-down resistors are
 automatically set on the DP/DM lines.
-• Host only (see figure Figure 245).
+• Host only (see figure [Figure 245]).
 – The force host mode bit in the global USB configuration register (FHMOD bit in
 OTG_FS_GUSBCFG) forces the OTG_FS core to work as a USB host-only. In this
 case, the ID line is ignored even if present on the USB connector. Integrated pull-
 down resistors are automatically set on the DP/DM lines.
-Note: On-chip 5 V V BUS generation is not supported. For this reason, a charge pump or, if 5 V are
+
+> [!NOTE]
+> On-chip 5 V V BUS generation is not supported. For this reason, a charge pump or, if 5 V are
 available on the application board, a basic power switch must be added externally to drive
 
 
-                                                <!-- *P679*/844 -->
-806
+<!-- *P679*/844 -->
+[P679]: #P679
+<a id="P679"></a>
+
 the 5 V V BUS line. The external charge pump can be driven by any GPIO output. This is
 required for the OTG A-host, A-device and host-only configurations.
 The V BUS input ensures that valid V BUS levels are supplied by the charge pump during USB
 operations while the charge pump overcurrent output can be input to any GPIO pin
 configured to generate port interrupts. The overcurrent ISR must promptly disable the V BUS
 generation.
+
+[Figure 245]: "#Figure%20245"
+<a id="Figure 245"></a>
+
+[Figure 245]: "Figure%20245"
+<a id="Figure 245"></a>
 
 **Figure 245**. USB host-only connection
 
@@ -36284,7 +40511,10 @@ during USB operations. Any unforeseen V BUS voltage drop below the V BUS valid t
 ? ??
 
 
-                                                <!-- *P680*/844 -->
+<!-- *P680*/844 -->
+[P680]: #P680
+<a id="P680"></a>
+
 OTG_FS_GOTGINT). The application is then required to remove the V BUS power and clear
 the port power bit.
 When HNP and SRP are both disabled, the VBUS sensing pin (PA9) should not be
@@ -36330,8 +40560,10 @@ The suspended state can be optionally exited on the remote device’s initiative
 wakeup). In this case the remote wakeup interrupt (WKUPINT bit in OTG_FS_GINTSTS) is
 
 
-                                                <!-- *P681*/844 -->
-806
+<!-- *P681*/844 -->
+[P681]: #P681
+<a id="P681"></a>
+
 generated upon detection of a remote wakeup signaling, the port resume bit in the host port
 control and status register (PRES bit in OTG_FS_HPRT) self-sets, and resume signaling is
 automatically driven over the USB. The application must time the resume window and then
@@ -36379,7 +40611,10 @@ respect to USB- and AHB-related events. The application must read these register
 host channels interrupt bit in the core interrupt register (HCINT bit in OTG_FS_GINTSTS) is
 
 
-                                                <!-- *P682*/844 -->
+<!-- *P682*/844 -->
+[P682]: #P682
+<a id="P682"></a>
+
 set. Before the application can read these registers, it must first read the host all channels
 interrupt (HCAINT) register to get the exact channel number for the host channel-x interrupt
 register. The application must clear the appropriate bit in this register to clear the
@@ -36429,8 +40664,10 @@ As request queues can hold a maximum of 8 entries each, the application can push
 schedule host transactions in advance with respect to the moment they physically reach the
 
 
-                                                <!-- *P683*/844 -->
-806
+<!-- *P683*/844 -->
+[P683]: #P683
+<a id="P683"></a>
+
 SB for a maximum of 8 pending periodic transactions plus 8 pending nonperiodic
 transactions.
 To post a transaction request to the host scheduler (queue) the application must check that
@@ -36441,6 +40678,12 @@ OTG_FS_HNPTXSTS register.
 //22.7 SOF trigger
 ------------------
 
+
+[Figure 246]: "#Figure%20246"
+<a id="Figure 246"></a>
+
+[Figure 246]: "Figure%20246"
+<a id="Figure 246"></a>
 
 **Figure 246**. SOF connectivity
 
@@ -36485,7 +40728,10 @@ enabled register.
 ?????????
 
 
-                                                <!-- *P684*/844 -->
+<!-- *P684*/844 -->
+[P684]: #P684
+<a id="P684"></a>
+
 
 //22.7.2 Peripheral SOFs
 ------------------------
@@ -36506,7 +40752,7 @@ can be used to determine if all of the isochronous traffic for that frame is com
 //22.8 OTG low-power modes
 --------------------------
 
-Table 126 below defines the STM32 low power modes and their compatibility with the OTG.
+[Table 126] below defines the STM32 low power modes and their compatibility with the OTG.
 
 The power consumption of the OTG PHY is controlled by three bits in the general core
 configuration register:
@@ -36519,6 +40765,9 @@ be set when in A-device (USB host) mode and during HNP.
 • B-V BUS sensing enable (GCCFG/VBUSASEN)
 It switches on/off the V BUS comparators associated with B-device operations. It must
 be set when in B-device (USB peripheral) mode and during HNP.
+
+[Table 126]: "Table%20126"
+<a id="Table 126"></a>
 
 **Table 126**. Compatibility of STM32 low power modes with the OTG
 
@@ -36545,8 +40794,10 @@ Not compatible with USB
 applications.
 
 
-                                                <!-- *P685*/844 -->
-806
+<!-- *P685*/844 -->
+[P685]: #P685
+<a id="P685"></a>
+
 Power reduction techniques are available while in the USB suspended state, when the USB
 session is not yet valid or the device is disconnected.
 • Stop PHY clock (STPPCLK bit in OTG_FS_PCGCCTL)
@@ -36580,10 +40831,19 @@ core.
 The USB core embeds a dynamic trimming capability of SOF framing period in host mode
 allowing to synchronize an external device with the SOF frames.
 When the OTG_FS_HFIR register is changed within a current SOF frame, the SOF period
-correction is applied in the next frame as described in Figure 247.
+correction is applied in the next frame as described in [Figure 247].
 
 
-                                                <!-- *P686*/844 -->
+<!-- *P686*/844 -->
+[P686]: #P686
+<a id="P686"></a>
+
+
+[Figure 247]: "#Figure%20247"
+<a id="Figure 247"></a>
+
+[Figure 247]: "Figure%20247"
+<a id="Figure 247"></a>
 
 **Figure 247**. Updating OTG_FS_HFIR dynamically
 
@@ -36638,12 +40898,20 @@ size is software configured to better meet the application requirements.
 ?????
 
 
-                                                <!-- *P687*/844 -->
-806
+<!-- *P687*/844 -->
+[P687]: #P687
+<a id="P687"></a>
+
 
 //22.11 Peripheral FIFO architecture
 ------------------------------------
 
+
+[Figure 248]: "#Figure%20248"
+<a id="Figure 248"></a>
+
+[Figure 248]: "Figure%20248"
+<a id="Figure 248"></a>
 
 **Figure 248**. Device-mode FIFO address mapping and AHB FIFO access mapping
 
@@ -36723,7 +40991,10 @@ GRXFSIZ[31:16]
 A1 = 0
 
 
-                                                <!-- *P688*/844 -->
+<!-- *P688*/844 -->
+[P688]: #P688
+<a id="P688"></a>
+
 
 //22.11.2 Peripheral Tx FIFOs
 -----------------------------
@@ -36735,6 +41006,12 @@ and the device IN endpoint transmit FIFOx registers (DIEPTXFx) for IN endpoint-x
 //22.12 Host FIFO architecture
 ------------------------------
 
+
+[Figure 249]: "#Figure%20249"
+<a id="Figure 249"></a>
+
+[Figure 249]: "Figure%20249"
+<a id="Figure 249"></a>
 
 **Figure 249**. Host-mode FIFO address mapping and AHB FIFO access mapping
 
@@ -36790,8 +41067,10 @@ A1 = 0
 ai15610
 
 
-                                                <!-- *P689*/844 -->
-806
+<!-- *P689*/844 -->
+[P689]: #P689
+<a id="P689"></a>
+
 
 //22.12.2 Host Tx FIFOs
 -----------------------
@@ -36846,10 +41125,15 @@ Along with the last packet for each endpoint, transfer complete status informati
 pushed to the FIFO. Typically, one location for each OUT endpoint is recommended.
 
 
-                                                <!-- *P690*/844 -->
+<!-- *P690*/844 -->
+[P690]: #P690
+<a id="P690"></a>
+
 Transmit FIFO RAM allocation: the minimum RAM space required for each IN Endpoint
 Transmit FIFO is the maximum packet size for that particular IN endpoint.
-Note: More space allocated in the transmit IN Endpoint FIFO results in better performance on the
+
+> [!NOTE]
+> More space allocated in the transmit IN Endpoint FIFO results in better performance on the
 USB.
 
 //22.13.2 Host mode
@@ -36873,7 +41157,9 @@ The minimum amount of RAM required for host periodic Transmit FIFO is the larges
 maximum packet size out of all the supported periodic OUT channels. If there is at least one
 Isochronous OUT endpoint, then the space must be at least two times the maximum packet
 size of that channel.
-Note: More space allocated in the Transmit Non-periodic FIFO results in better performance on
+
+> [!NOTE]
+> More space allocated in the Transmit Non-periodic FIFO results in better performance on
 the USB.
 
 //22.14 USB system performance
@@ -36895,8 +41181,10 @@ speed bandwidth with a great margin of autonomy versus application intervention:
 the sending of data over the USB
 
 
-                                                <!-- *P691*/844 -->
-806
+<!-- *P691*/844 -->
+[P691]: #P691
+<a id="P691"></a>
+
 – It has a lot of empty space available in the receive buffer to autonomously fill it in
 with the data coming from the USB
 As the OTG_FS core is able to fill in the 1.25 Kbyte RAM buffer very efficiently, and as
@@ -36913,10 +41201,19 @@ mismatch interrupt is generated and reflected in the Core interrupt register (MM
 OTG_FS_GINTSTS register). When the core switches from one mode to the other, the
 registers in the new mode of operation must be reprogrammed as they would be after a
 power-on reset.
-Figure 250 shows the interrupt hierarchy.
+[Figure 250] shows the interrupt hierarchy.
 
 
-                                                <!-- *P692*/844 -->
+<!-- *P692*/844 -->
+[P692]: #P692
+<a id="P692"></a>
+
+
+[Figure 250]: "#Figure%20250"
+<a id="Figure 250"></a>
+
+[Figure 250]: "Figure%20250"
+<a id="Figure 250"></a>
 
 **Figure 250**. Interrupt hierarchy
 
@@ -36980,8 +41277,10 @@ Figure 250 shows the interrupt hierarchy.
 ???
 
 
-                                                <!-- *P693*/844 -->
-806
+<!-- *P693*/844 -->
+[P693]: #P693
+<a id="P693"></a>
+
 
 //22.16 OTG_FS control and status registers
 -------------------------------------------
@@ -37010,13 +41309,22 @@ register). When the core switches from one mode to the other, the registers in t
 of operation must be reprogrammed as they would be after a power-on reset.
 
 
-                                                <!-- *P694*/844 -->
+<!-- *P694*/844 -->
+[P694]: #P694
+<a id="P694"></a>
+
 
 //22.16.1 CSR memory map
 ------------------------
 
 The host and device mode registers occupy different addresses. All registers are
 implemented in the AHB clock domain.
+
+[Figure 251]: "#Figure%20251"
+<a id="Figure 251"></a>
+
+[Figure 251]: "Figure%20251"
+<a id="Figure 251"></a>
 
 **Figure 251**. CSR memory map
 
@@ -37053,6 +41361,9 @@ write to this
 region
 ai15615b
 
+[Table 127]: "Table%20127"
+<a id="Table 127"></a>
+
 **Table 127**. Core global control and status registers (CSRs)
 
 Acronym
@@ -37066,8 +41377,10 @@ OTG_FS_GUSBCFG 0x00C OTG_FS USB configuration register (OTG_FS_GUSBCFG) on page 
 OTG_FS_GRSTCTL 0x010 OTG_FS reset register (OTG_FS_GRSTCTL) on page 705
 
 
-                                                <!-- *P695*/844 -->
-806
+<!-- *P695*/844 -->
+[P695]: #P695
+<a id="P695"></a>
+
 Host-mode CSR map
 These registers must be programmed every time the core changes to host mode.
 
@@ -37101,11 +41414,14 @@ OTG_FS_DIEPTXFx
 OTG_FS device IN endpoint transmit FIFO size register
 (OTG_FS_DIEPTXFx) (x = 1..3, where x is the FIFO_number) on page 719
 1. The general rule is to use OTG_FS_HNPTXFSIZ for host mode and OTG_FS_DIEPTXF0 for device mode.
-Table 127. Core global control and status registers (CSRs) (continued)
+[Table 127]. Core global control and status registers (CSRs) (continued)
 Acronym
 Address
 offset
 Register name
+
+[Table 128]: "Table%20128"
+<a id="Table 128"></a>
 
 **Table 128**. Host-mode control and status registers (CSRs)
 
@@ -37129,7 +41445,10 @@ OTG_FS Host all channels interrupt mask register (OTG_FS_HAINTMSK)
 on page 723
 
 
-                                                <!-- *P696*/844 -->
+<!-- *P696*/844 -->
+[P696]: #P696
+<a id="P696"></a>
+
 Device-mode CSR map
 These registers must be programmed every time the core changes to device mode.
 
@@ -37152,11 +41471,14 @@ OTG_FS Host channel-x interrupt mask register (OTG_FS_HCINTMSKx)
 OTG_FS_HCTSIZx 0x510
 OTG_FS Host channel-x transfer size register (OTG_FS_HCTSIZx)
 (x = 0..7, where x = Channel_number) on page 729
-Table 128. Host-mode control and status registers (CSRs) (continued)
+[Table 128]. Host-mode control and status registers (CSRs) (continued)
 Acronym
 Offset
 address
 Register name
+
+[Table 129]: "Table%20129"
+<a id="Table 129"></a>
 
 **Table 129**. Device-mode control and status registers
 
@@ -37193,8 +41515,10 @@ OTG_FS device control IN endpoint 0 control register
 (OTG_FS_DIEPCTL0) on page 737
 
 
-                                                <!-- *P697*/844 -->
-806
+<!-- *P697*/844 -->
+[P697]: #P697
+<a id="P697"></a>
+
 
 Data FIFO (DFIFO) access register map
 These registers, available in both host and device modes, are used to read or write the FIFO
@@ -37247,11 +41571,14 @@ OTG_FS_DOEPTSIZx
 OTG_FS device OUT endpoint-x transfer size register
 (OTG_FS_DOEPTSIZx) (x = 1..3, where x = Endpoint_number) on
 page 752
-Table 129. Device-mode control and status registers (continued)
+[Table 129]. Device-mode control and status registers (continued)
 Acronym
 Offset
 address
 Register name
+
+[Table 130]: "Table%20130"
+<a id="Table 130"></a>
 
 **Table 130**. Data FIFO (DFIFO) access register map
 
@@ -37268,7 +41595,10 @@ w
 r
 
 
-                                                <!-- *P698*/844 -->
+<!-- *P698*/844 -->
+[P698]: #P698
+<a id="P698"></a>
+
 Power and clock gating CSR map
 There is a single register for power and clock gating. It is available in both host and device
 modes.
@@ -37281,17 +41611,22 @@ w
 r
 1. Where x is 3 in device mode and 7 in host mode.
 
+[Table 131]: "Table%20131"
+<a id="Table 131"></a>
+
 **Table 131**. Power and clock gating control and status registers
 
 Register name Acronym Offset address: 0xE00–0xFFF
 Power and clock gating control register OTG_FS_PCGCCTL 0xE00-0xE04
 Reserved - 0xE05–0xFFF
-Table 130. Data FIFO (DFIFO) access register map (continued)
+[Table 130]. Data FIFO (DFIFO) access register map (continued)
 FIFO access register section Address range Access
 
 
-                                                <!-- *P699*/844 -->
-806
+<!-- *P699*/844 -->
+[P699]: #P699
+<a id="P699"></a>
+
 
 //22.16.2 OTG_FS global registers
 ---------------------------------
@@ -37327,26 +41662,37 @@ Indicates the device mode transceiver status.
 0: B-session is not valid.
 1: B-session is valid.
 In OTG mode, you can use this bit to determine if the device is connected or disconnected.
-Note: Only accessible in device mode.
+
+> [!NOTE]
+> Only accessible in device mode.
 Bit 18 ASVLD: A-session valid
 Indicates the host mode transceiver status.
 0: A-session is not valid
 1: A-session is valid
-Note: Only accessible in host mode.
+
+> [!NOTE]
+> Only accessible in host mode.
 Bit 17 DBCT: Long/short debounce time
 Indicates the debounce time of a detected connection.
 0: Long debounce time, used for physical connections (100 ms + 2.5 µs)
 1: Short debounce time, used for soft connections (2.5 µs)
-Note: Only accessible in host mode.
+
+> [!NOTE]
+> Only accessible in host mode.
 Bit 16 CIDSTS: Connector ID status
 Indicates the connector ID status on a connect event.
 0: The OTG_FS controller is in A-device mode
 1: The OTG_FS controller is in B-device mode
-Note: Accessible in both device and host modes.
+
+> [!NOTE]
+> Accessible in both device and host modes.
 Bits 15:12 Reserved, must be kept at reset value.
 
 
-                                                <!-- *P700*/844 -->
+<!-- *P700*/844 -->
+[P700]: #P700
+<a id="P700"></a>
+
 OTG_FS interrupt register (OTG_FS_GOTGINT)
 Address offset: 0x04
 Reset value: 0x0000 0000
@@ -37355,13 +41701,17 @@ The application sets this bit when it successfully receives a SetFeature.SetHNPE
 command from the connected USB host.
 0: HNP is not enabled in the application
 1: HNP is enabled in the application
-Note: Only accessible in device mode.
+
+> [!NOTE]
+> Only accessible in device mode.
 Bit 10 HSHNPEN: host set HNP enable
 The application sets this bit when it has successfully enabled HNP (using the
 SetFeature.SetHNPEnable command) on the connected device.
 0: Host Set HNP is not enabled
 1: Host Set HNP is enabled
-Note: Only accessible in host mode.
+
+> [!NOTE]
+> Only accessible in host mode.
 Bit 9 HNPRQ: HNP request
 The application sets this bit to initiate an HNP request to the connected USB host. The
 application can clear this bit by writing a 0 when the host negotiation success status change
@@ -37369,13 +41719,17 @@ bit in the OTG_FS_GOTGINT register (HNSSCHG bit in OTG_FS_GOTGINT) is set. The
 core clears this bit when the HNSSCHG bit is cleared.
 0: No HNP request
 1: HNP request
-Note: Only accessible in device mode.
+
+> [!NOTE]
+> Only accessible in device mode.
 Bit 8 HNGSCS: Host negotiation success
 The core sets this bit when host negotiation is successful. The core clears this bit when the
 HNP Request (HNPRQ) bit in this register is set.
 0: Host negotiation failure
 1: Host negotiation success
-Note: Only accessible in device mode.
+
+> [!NOTE]
+> Only accessible in device mode.
 Bits 7:2 Reserved, must be kept at reset value.
 Bit 1 SRQ: Session request
 The application sets this bit to initiate a session request on the USB. The application can
@@ -37387,16 +41741,22 @@ the application must wait until V BUS discharges to 0.2 V, after the B-Session V
 register (BSVLD bit in OTG_FS_GOTGCTL) is cleared.
 0: No session request
 1: Session request
-Note: Only accessible in device mode.
+
+> [!NOTE]
+> Only accessible in device mode.
 Bit 0 SRQSCS: Session request success
 The core sets this bit when a session request initiation is successful.
 0: Session request failure
 1: Session request success
-Note: Only accessible in device mode.
+
+> [!NOTE]
+> Only accessible in device mode.
 
 
-                                                <!-- *P701*/844 -->
-806
+<!-- *P701*/844 -->
+[P701]: #P701
+<a id="P701"></a>
+
 The application reads this register whenever there is an OTG interrupt and clears the bits in
 this register to clear the OTG interrupt.
 
@@ -37430,33 +41790,46 @@ The core sets this bit when the debounce is completed after the device connect. 
 application can start driving USB reset after seeing this interrupt. This bit is only valid when
 the HNP Capable or SRP Capable bit is set in the OTG_FS_GUSBCFG register (HNPCAP
 bit or SRPCAP bit in OTG_FS_GUSBCFG, respectively).
-Note: Only accessible in host mode.
+
+> [!NOTE]
+> Only accessible in host mode.
 Bit 18 ADTOCHG: A-device timeout change
 The core sets this bit to indicate that the A-device has timed out while waiting for the B-device
 to connect.
-Note: Accessible in both device and host modes.
+
+> [!NOTE]
+> Accessible in both device and host modes.
 Bit 17 HNGDET: Host negotiation detected
 The core sets this bit when it detects a host negotiation request on the USB.
-Note: Accessible in both device and host modes.
+
+> [!NOTE]
+> Accessible in both device and host modes.
 Bits 16:10 Reserved, must be kept at reset value.
 Bit 9 HNSSCHG: Host negotiation success status change
 The core sets this bit on the success or failure of a USB host negotiation request. The
 application must read the host negotiation success bit of the OTG_FS_GOTGCTL register
 (HNGSCS in OTG_FS_GOTGCTL) to check for success or failure.
-Note: Accessible in both device and host modes.
+
+> [!NOTE]
+> Accessible in both device and host modes.
 Bits 7:3 Reserved, must be kept at reset value.
 Bit 8 SRSSCHG: Session request success status change
 The core sets this bit on the success or failure of a session request. The application must
 read the session request success bit in the OTG_FS_GOTGCTL register (SRQSCS bit in
 OTG_FS_GOTGCTL) to check for success or failure.
-Note: Accessible in both device and host modes.
+
+> [!NOTE]
+> Accessible in both device and host modes.
 Bit 2 SEDET: Session end detected
 The core sets this bit to indicate that the level of the voltage on V BUS is no longer valid for a
 B-Peripheral session when V BUS < 0.8 V.
 Bits 1:0 Reserved, must be kept at reset value.
 
 
-                                                <!-- *P702*/844 -->
+<!-- *P702*/844 -->
+[P702]: #P702
+<a id="P702"></a>
+
 OTG_FS AHB configuration register (OTG_FS_GAHBCFG)
 Address offset: 0x008
 Reset value: 0x0000 0000
@@ -37480,7 +41853,9 @@ Indicates when the periodic TxFIFO empty interrupt bit in the OTG_FS_GINTSTS reg
 0: PTXFE (in OTG_FS_GINTSTS) interrupt indicates that the Periodic TxFIFO is half empty
 1: PTXFE (in OTG_FS_GINTSTS) interrupt indicates that the Periodic TxFIFO is completely
 empty
-Note: Only accessible in host mode.
+
+> [!NOTE]
+> Only accessible in host mode.
 Bit 7 TXFELVL: TxFIFO empty level
 In device mode, this bit indicates when IN endpoint Transmit FIFO empty interrupt (TXFE in
 OTG_FS_DIEPINTx.) is triggered.
@@ -37500,11 +41875,15 @@ The application uses this bit to mask or unmask the interrupt line assertion to 
 Irrespective of this bit’s setting, the interrupt status registers are updated by the core.
 0: Mask the interrupt assertion to the application.
 1: Unmask the interrupt assertion to the application.
-Note: Accessible in both device and host modes.
+
+> [!NOTE]
+> Accessible in both device and host modes.
 
 
-                                                <!-- *P703*/844 -->
-806
+<!-- *P703*/844 -->
+[P703]: #P703
+<a id="P703"></a>
+
 OTG_FS USB configuration register (OTG_FS_GUSBCFG)
 Address offset: 0x00C
 Reset value: 0x0000 1440
@@ -37529,7 +41908,9 @@ TOCAL
 rw rw rw rw rw rw r rw
 Bit 31 CTXPKT: Corrupt Tx packet
 This bit is for debug purposes only. Never set this bit to 1.
-Note: Accessible in both device and host modes.
+
+> [!NOTE]
+> Accessible in both device and host modes.
 Bit 30 FDMOD: Force device mode
 Writing a 1 to this bit forces the core to device mode irrespective of the OTG_FS_ID input
 pin.
@@ -37537,29 +41918,40 @@ pin.
 1: Force device mode
 After setting the force bit, the application must wait at least 25 ms before the change takes
 effect.
-Note: Accessible in both device and host modes.
+
+> [!NOTE]
+> Accessible in both device and host modes.
 Bit 29 FHMOD: Force host mode
 Writing a 1 to this bit forces the core to host mode irrespective of the OTG_FS_ID input pin.
 0: Normal mode
 1: Force host mode
 After setting the force bit, the application must wait at least 25 ms before the change takes
 effect.
-Note: Accessible in both device and host modes.
+
+> [!NOTE]
+> Accessible in both device and host modes.
 Bits 28:14 Reserved, must be kept at reset value.
 Bits 13:10 TRDT: USB turnaround time
 These bits allow setting the turnaround time in PHY clocks. They must be configured
-according to Table 132: TRDT values, depending on the application AHB frequency. Higher
+according to [Table 132]: TRDT values, depending on the application AHB frequency. Higher
 TRDT values allow stretching the USB response time to IN tokens in order to compensate for
 longer AHB read access latency to the Data FIFO.
-Note: Only accessible in device mode.
+
+> [!NOTE]
+> Only accessible in device mode.
 Bit 9 HNPCAP: HNP-capable
 The application uses this bit to control the OTG_FS controller’s HNP capabilities.
 0: HNP capability is not enabled.
 1: HNP capability is enabled.
-Note: Accessible in both device and host modes.
+
+> [!NOTE]
+> Accessible in both device and host modes.
 
 
-                                                <!-- *P704*/844 -->
+<!-- *P704*/844 -->
+[P704]: #P704
+<a id="P704"></a>
+
 
 Bit 8 SRPCAP: SRP-capable
 The application uses this bit to control the OTG_FS controller’s SRP capabilities. If the core
@@ -37568,7 +41960,9 @@ B-device, it cannot request the connected A-device (host) to activate V BUS and 
 session.
 0: SRP capability is not enabled.
 1: SRP capability is enabled.
-Note: Accessible in both device and host modes.
+
+> [!NOTE]
+> Accessible in both device and host modes.
 Bit 7 Reserved, must be kept at reset value.
 Bit 6 PHYSEL: Full speed serial transceiver select
 This bit is always 1 with read-only access.
@@ -37581,6 +41975,9 @@ generating the line state condition can vary from one PHY to another.
 The USB standard timeout value for full-speed operation is 16 to 18 (inclusive) bit times. The
 application must program this field based on the speed of enumeration. The number of bit
 times added per PHY clock is 0.25 bit times.
+
+[Table 132]: "Table%20132"
+<a id="Table 132"></a>
 
 **Table 132**. TRDT values
 
@@ -37614,8 +42011,10 @@ Min. Max
 32 - 0x6
 
 
-                                                <!-- *P705*/844 -->
-806
+<!-- *P705*/844 -->
+[P705]: #P705
+<a id="P705"></a>
+
 OTG_FS reset register (OTG_FS_GRSTCTL)
 Address offset: 0x010
 Reset value: 0x8000 0000
@@ -37635,7 +42034,9 @@ CSRST
 r rw rs rs rs rs rs
 Bit 31 AHBIDL: AHB master idle
 Indicates that the AHB master state machine is in the Idle condition.
-Note: Accessible in both device and host modes.
+
+> [!NOTE]
+> Accessible in both device and host modes.
 Bits 30:11 Reserved, must be kept at reset value.
 Bits 10:6 TXFNUM: TxFIFO number
 This is the FIFO number that must be flushed using the TxFIFO Flush bit. This field must not
@@ -37650,7 +42051,9 @@ be changed until the core clears the TxFIFO Flush bit.
 ...
 00101: TXFIFO 15 flush in device mode
 10000: Flush all the transmit FIFOs in device or host mode.
-Note: Accessible in both device and host modes.
+
+> [!NOTE]
+> Accessible in both device and host modes.
 Bit 5 TXFFLSH: TxFIFO flush
 This bit selectively flushes a single or all transmit FIFOs, but cannot do so if the core is in the
 midst of a transaction.
@@ -37659,7 +42062,9 @@ TxFIFO nor reading from the TxFIFO. Verify using these registers:
 Read—NAK Effective Interrupt ensures the core is not reading from the FIFO
 Write—AHBIDL bit in OTG_FS_GRSTCTL ensures the core is not writing anything to the
 FIFO.
-Note: Accessible in both device and host modes.
+
+> [!NOTE]
+> Accessible in both device and host modes.
 Bit 4 RXFFLSH: RxFIFO flush
 The application can flush the entire RxFIFO using this bit, but must first ensure that the core
 is not in the middle of a transaction.
@@ -37667,15 +42072,22 @@ The application must only write to this bit after checking that the core is neit
 the RxFIFO nor writing to the RxFIFO.
 The application must wait until the bit is cleared before performing any other operations. This
 bit requires 8 clocks (slowest of PHY or AHB clock) to clear.
-Note: Accessible in both device and host modes.
+
+> [!NOTE]
+> Accessible in both device and host modes.
 Bit 3 Reserved, must be kept at reset value.
 
 
-                                                <!-- *P706*/844 -->
+<!-- *P706*/844 -->
+[P706]: #P706
+<a id="P706"></a>
+
 Bit 2 FCRST: Host frame counter reset
 The application writes this bit to reset the frame number counter inside the core. When the
 frame counter is reset, the subsequent SOF sent out by the core has a frame number of 0.
-Note: Only accessible in host mode.
+
+> [!NOTE]
+> Only accessible in host mode.
 Bit 1 HSRST: HCLK soft reset
 The application uses this bit to flush the control logic in the AHB Clock domain. Only AHB
 Clock Domain pipelines are reset.
@@ -37689,7 +42101,9 @@ Because interrupt status bits are not cleared, the application can get the statu
 events that occurred after it set this bit.
 This is a self-clearing bit that the core clears after all necessary logic is reset in the core. This
 can take several clocks, depending on the core’s current state.
-Note: Accessible in both device and host modes.
+
+> [!NOTE]
+> Accessible in both device and host modes.
 Bit 0 CSRST: Core soft reset
 Resets the HCLK and PCLK domains as follows:
 Clears the interrupts and all the CSR register bits except for the following bits:
@@ -37714,11 +42128,15 @@ dynamically change the PHY selection bits in the above listed USB configuration 
 When you change the PHY, the corresponding clock for the PHY is selected and used in the
 PHY domain. Once a new clock is selected, the PHY domain has to be reset for proper
 operation.
-Note: Accessible in both device and host modes.
+
+> [!NOTE]
+> Accessible in both device and host modes.
 
 
-                                                <!-- *P707*/844 -->
-806
+<!-- *P707*/844 -->
+[P707]: #P707
+<a id="P707"></a>
+
 OTG_FS core interrupt register (OTG_FS_GINTSTS)
 Address offset: 0x014
 Reset value: 0x0400 0020
@@ -37771,27 +42189,38 @@ r
 Bit 31 WKUPINT: Resume/remote wakeup detected interrupt
 In device mode, this interrupt is asserted when a resume is detected on the USB. In host
 mode, this interrupt is asserted when a remote wakeup is detected on the USB.
-Note: Accessible in both device and host modes.
+
+> [!NOTE]
+> Accessible in both device and host modes.
 Bit 30 SRQINT: Session request/new session detected interrupt
 In host mode, this interrupt is asserted when a session request is detected from the device.
 In device mode, this interrupt is asserted when V BUS is in the valid range for a B-peripheral
 device. Accessible in both device and host modes.
 Bit 29 DISCINT: Disconnect detected interrupt
 Asserted when a device disconnect is detected.
-Note: Only accessible in host mode.
+
+> [!NOTE]
+> Only accessible in host mode.
 Bit 28 CIDSCHG: Connector ID status change
 The core sets this bit when there is a change in connector ID status.
-Note: Accessible in both device and host modes.
+
+> [!NOTE]
+> Accessible in both device and host modes.
 Bit 27 Reserved, must be kept at reset value.
 Bit 26 PTXFE: Periodic TxFIFO empty
 Asserted when the periodic transmit FIFO is either half or completely empty and there is
 space for at least one entry to be written in the periodic request queue. The half or
 completely empty status is determined by the periodic TxFIFO empty level bit in the
 OTG_FS_GAHBCFG register (PTXFELVL bit in OTG_FS_GAHBCFG).
-Note: Only accessible in host mode.
+
+> [!NOTE]
+> Only accessible in host mode.
 
 
-                                                <!-- *P708*/844 -->
+<!-- *P708*/844 -->
+[P708]: #P708
+<a id="P708"></a>
+
 Bit 25 HCINT: Host channels interrupt
 The core sets this bit to indicate that an interrupt is pending on one of the channels of the
 core (in host mode). The application must read the OTG_FS_HAINT register to determine
@@ -37799,13 +42228,17 @@ the exact number of the channel on which the interrupt occurred, and then read t
 corresponding OTG_FS_HCINTx register to determine the exact cause of the interrupt. The
 application must clear the appropriate status bit in the OTG_FS_HCINTx register to clear
 this bit.
-Note: Only accessible in host mode.
+
+> [!NOTE]
+> Only accessible in host mode.
 Bit 24 HPRTINT: Host port interrupt
 The core sets this bit to indicate a change in port status of one of the OTG_FS controller
 ports in host mode. The application must read the OTG_FS_HPRT register to determine the
 exact event that caused this interrupt. The application must clear the appropriate status bit in
 the OTG_FS_HPRT register to clear this bit.
-Note: Only accessible in host mode.
+
+> [!NOTE]
+> Only accessible in host mode.
 Bits 23:22 Reserved, must be kept at reset value.
 Bit 21 IPXFR: Incomplete periodic transfer
 In host mode, the core sets this interrupt bit when there are incomplete periodic transactions
@@ -37818,7 +42251,9 @@ Bit 20 IISOIXFR: Incomplete isochronous IN transfer
 The core sets this interrupt to indicate that there is at least one isochronous IN endpoint on
 which the transfer is not completed in the current frame. This interrupt is asserted along with
 the End of periodic frame interrupt (EOPF) bit in this register.
-Note: Only accessible in device mode.
+
+> [!NOTE]
+> Only accessible in device mode.
 Bit 19 OEPINT: OUT endpoint interrupt
 The core sets this bit to indicate that an interrupt is pending on one of the OUT endpoints of
 the core (in device mode). The application must read the OTG_FS_DAINT register to
@@ -37826,7 +42261,9 @@ determine the exact number of the OUT endpoint on which the interrupt occurred, 
 read the corresponding OTG_FS_DOEPINTx register to determine the exact cause of the
 interrupt. The application must clear the appropriate status bit in the corresponding
 OTG_FS_DOEPINTx register to clear this bit.
-Note: Only accessible in device mode.
+
+> [!NOTE]
+> Only accessible in device mode.
 Bit 18 IEPINT: IN endpoint interrupt
 The core sets this bit to indicate that an interrupt is pending on one of the IN endpoints of the
 core (in device mode). The application must read the OTG_FS_DAINT register to determine
@@ -37834,42 +42271,60 @@ the exact number of the IN endpoint on which the interrupt occurred, and then re
 corresponding OTG_FS_DIEPINTx register to determine the exact cause of the interrupt.
 The application must clear the appropriate status bit in the corresponding
 OTG_FS_DIEPINTx register to clear this bit.
-Note: Only accessible in device mode.
+
+> [!NOTE]
+> Only accessible in device mode.
 Bits 17:16 Reserved, must be kept at reset value.
 Bit 15 EOPF: End of periodic frame interrupt
 Indicates that the period specified in the periodic frame interval field of the OTG_FS_DCFG
 register (PFIVL bit in OTG_FS_DCFG) has been reached in the current frame.
-Note: Only accessible in device mode.
+
+> [!NOTE]
+> Only accessible in device mode.
 
 
-                                                <!-- *P709*/844 -->
-806
+<!-- *P709*/844 -->
+[P709]: #P709
+<a id="P709"></a>
+
 Bit 14 ISOODRP: Isochronous OUT packet dropped interrupt
 The core sets this bit when it fails to write an isochronous OUT packet into the RxFIFO
 because the RxFIFO does not have enough space to accommodate a maximum size packet
 for the isochronous OUT endpoint.
-Note: Only accessible in device mode.
+
+> [!NOTE]
+> Only accessible in device mode.
 Bit 13 ENUMDNE: Enumeration done
 The core sets this bit to indicate that speed enumeration is complete. The application must
 read the OTG_FS_DSTS register to obtain the enumerated speed.
-Note: Only accessible in device mode.
+
+> [!NOTE]
+> Only accessible in device mode.
 Bit 12 USBRST: USB reset
 The core sets this bit to indicate that a reset is detected on the USB.
-Note: Only accessible in device mode.
+
+> [!NOTE]
+> Only accessible in device mode.
 Bit 11 USBSUSP: USB suspend
 The core sets this bit to indicate that a suspend was detected on the USB. The core enters
 the Suspended state when there is no activity on the data lines for a period of 3 ms.
-Note: Only accessible in device mode.
+
+> [!NOTE]
+> Only accessible in device mode.
 Bit 10 ESUSP: Early suspend
 The core sets this bit to indicate that an Idle state has been detected on the USB for 3 ms.
-Note: Only accessible in device mode.
+
+> [!NOTE]
+> Only accessible in device mode.
 Bits 9:8 Reserved, must be kept at reset value.
 Bit 7 GONAKEFF: Global OUT NAK effective
 Indicates that the Set global OUT NAK bit in the OTG_FS_DCTL register (SGONAK bit in
 OTG_FS_DCTL), set by the application, has taken effect in the core. This bit can be cleared
 by writing the Clear global OUT NAK bit in the OTG_FS_DCTL register (CGONAK bit in
 OTG_FS_DCTL).
-Note: Only accessible in device mode.
+
+> [!NOTE]
+> Only accessible in device mode.
 Bit 6 GINAKEFF: Global IN non-periodic NAK effective
 Indicates that the Set global non-periodic IN NAK bit in the OTG_FS_DCTL register
 (SGINAK bit in OTG_FS_DCTL), set by the application, has taken effect in the core. That is,
@@ -37878,48 +42333,67 @@ clearing the Clear global non-periodic IN NAK bit in the OTG_FS_DCTL register (C
 bit in OTG_FS_DCTL).
 This interrupt does not necessarily mean that a NAK handshake is sent out on the USB. The
 STALL bit takes precedence over the NAK bit.
-Note: Only accessible in device mode.
+
+> [!NOTE]
+> Only accessible in device mode.
 Bit 5 NPTXFE: Non-periodic TxFIFO empty
 This interrupt is asserted when the non-periodic TxFIFO is either half or completely empty,
 and there is space for at least one entry to be written to the non-periodic transmit request
 queue. The half or completely empty status is determined by the non-periodic TxFIFO empty
 level bit in the OTG_FS_GAHBCFG register (TXFELVL bit in OTG_FS_GAHBCFG).
-Note: Accessible in host mode only.
+
+> [!NOTE]
+> Accessible in host mode only.
 Bit 4 RXFLVL: RxFIFO non-empty
 Indicates that there is at least one packet pending to be read from the RxFIFO.
-Note: Accessible in both host and device modes.
+
+> [!NOTE]
+> Accessible in both host and device modes.
 
 
-                                                <!-- *P710*/844 -->
+<!-- *P710*/844 -->
+[P710]: #P710
+<a id="P710"></a>
+
 Bit 3 SOF: Start of frame
 In host mode, the core sets this bit to indicate that an SOF (FS), or Keep-Alive (LS) is
 transmitted on the USB. The application must write a 1 to this bit to clear the interrupt.
 In device mode, in the core sets this bit to indicate that an SOF token has been received on
 the USB. The application can read the Device Status register to get the current frame
 number. This interrupt is seen only when the core is operating in FS.
-Note: Accessible in both host and device modes.
+
+> [!NOTE]
+> Accessible in both host and device modes.
 Bit 2 OTGINT: OTG interrupt
 The core sets this bit to indicate an OTG protocol event. The application must read the OTG
 Interrupt Status (OTG_FS_GOTGINT) register to determine the exact event that caused this
 interrupt. The application must clear the appropriate status bit in the OTG_FS_GOTGINT
 register to clear this bit.
-Note: Accessible in both host and device modes.
+
+> [!NOTE]
+> Accessible in both host and device modes.
 Bit 1 MMIS: Mode mismatch interrupt
 The core sets this bit when the application is trying to access:
 – A host mode register, when the core is operating in device mode
 – A device mode register, when the core is operating in host mode
 The register access is completed on the AHB with an OKAY response, but is ignored by the
 core internally and does not affect the operation of the core.
-Note: Accessible in both host and device modes.
+
+> [!NOTE]
+> Accessible in both host and device modes.
 Bit 0 CMOD: Current mode of operation
 Indicates the current mode.
 0: Device mode
 1: Host mode
-Note: Accessible in both host and device modes.
+
+> [!NOTE]
+> Accessible in both host and device modes.
 
 
-                                                <!-- *P711*/844 -->
-806
+<!-- *P711*/844 -->
+[P711]: #P711
+<a id="P711"></a>
+
 OTG_FS interrupt mask register (OTG_FS_GINTMSK)
 Address offset: 0x018
 Reset value: 0x0000 0000
@@ -37962,118 +42436,176 @@ rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw
 Bit 31 WUIM: Resume/remote wakeup detected interrupt mask
 0: Masked interrupt
 1: Unmasked interrupt
-Note: Accessible in both host and device modes.
+
+> [!NOTE]
+> Accessible in both host and device modes.
 Bit 30 SRQIM: Session request/new session detected interrupt mask
 0: Masked interrupt
 1: Unmasked interrupt
-Note: Accessible in both host and device modes.
+
+> [!NOTE]
+> Accessible in both host and device modes.
 Bit 29 DISCINT: Disconnect detected interrupt mask
 0: Masked interrupt
 1: Unmasked interrupt
-Note: Only accessible in device mode.
+
+> [!NOTE]
+> Only accessible in device mode.
 Bit 28 CIDSCHGM: Connector ID status change mask
 0: Masked interrupt
 1: Unmasked interrupt
-Note: Accessible in both host and device modes.
+
+> [!NOTE]
+> Accessible in both host and device modes.
 Bit 27 Reserved, must be kept at reset value.
 Bit 26 PTXFEM: Periodic TxFIFO empty mask
 0: Masked interrupt
 1: Unmasked interrupt
-Note: Only accessible in host mode.
+
+> [!NOTE]
+> Only accessible in host mode.
 Bit 25 HCIM: Host channels interrupt mask
 0: Masked interrupt
 1: Unmasked interrupt
-Note: Only accessible in host mode.
+
+> [!NOTE]
+> Only accessible in host mode.
 Bit 24 PRTIM: Host port interrupt mask
 0: Masked interrupt
 1: Unmasked interrupt
-Note: Only accessible in host mode.
+
+> [!NOTE]
+> Only accessible in host mode.
 
 
-                                                <!-- *P712*/844 -->
+<!-- *P712*/844 -->
+[P712]: #P712
+<a id="P712"></a>
+
 Bits 23:22 Reserved, must be kept at reset value.
 Bit 21 IPXFRM: Incomplete periodic transfer mask
 0: Masked interrupt
 1: Unmasked interrupt
-Note: Only accessible in host mode.
+
+> [!NOTE]
+> Only accessible in host mode.
 IISOOXFRM: Incomplete isochronous OUT transfer mask
 0: Masked interrupt
 1: Unmasked interrupt
-Note: Only accessible in device mode.
+
+> [!NOTE]
+> Only accessible in device mode.
 Bit 20 IISOIXFRM: Incomplete isochronous IN transfer mask
 0: Masked interrupt
 1: Unmasked interrupt
-Note: Only accessible in device mode.
+
+> [!NOTE]
+> Only accessible in device mode.
 Bit 19 OEPINT: OUT endpoints interrupt mask
 0: Masked interrupt
 1: Unmasked interrupt
-Note: Only accessible in device mode.
+
+> [!NOTE]
+> Only accessible in device mode.
 Bit 18 IEPINT: IN endpoints interrupt mask
 0: Masked interrupt
 1: Unmasked interrupt
-Note: Only accessible in device mode.
+
+> [!NOTE]
+> Only accessible in device mode.
 Bits 17:16 Reserved, must be kept at reset value.
 Bit 15 EOPFM: End of periodic frame interrupt mask
 0: Masked interrupt
 1: Unmasked interrupt
-Note: Only accessible in device mode.
+
+> [!NOTE]
+> Only accessible in device mode.
 Bit 14 ISOODRPM: Isochronous OUT packet dropped interrupt mask
 0: Masked interrupt
 1: Unmasked interrupt
-Note: Only accessible in device mode.
+
+> [!NOTE]
+> Only accessible in device mode.
 Bit 13 ENUMDNEM: Enumeration done mask
 0: Masked interrupt
 1: Unmasked interrupt
-Note: Only accessible in device mode.
+
+> [!NOTE]
+> Only accessible in device mode.
 Bit 12 USBRST: USB reset mask
 0: Masked interrupt
 1: Unmasked interrupt
-Note: Only accessible in device mode.
+
+> [!NOTE]
+> Only accessible in device mode.
 Bit 11 USBSUSPM: USB suspend mask
 0: Masked interrupt
 1: Unmasked interrupt
-Note: Only accessible in device mode.
+
+> [!NOTE]
+> Only accessible in device mode.
 
 
-                                                <!-- *P713*/844 -->
-806
+<!-- *P713*/844 -->
+[P713]: #P713
+<a id="P713"></a>
+
 Bit 10 ESUSPM: Early suspend mask
 0: Masked interrupt
 1: Unmasked interrupt
-Note: Only accessible in device mode.
+
+> [!NOTE]
+> Only accessible in device mode.
 Bits 9:8 Reserved, must be kept at reset value.
 Bit 7 GONAKEFFM: Global OUT NAK effective mask
 0: Masked interrupt
 1: Unmasked interrupt
-Note: Only accessible in device mode.
+
+> [!NOTE]
+> Only accessible in device mode.
 Bit 6 GINAKEFFM: Global non-periodic IN NAK effective mask
 0: Masked interrupt
 1: Unmasked interrupt
-Note: Only accessible in device mode.
+
+> [!NOTE]
+> Only accessible in device mode.
 Bit 5 NPTXFEM: Non-periodic TxFIFO empty mask
 0: Masked interrupt
 1: Unmasked interrupt
-Note: Only accessible in Host mode.
+
+> [!NOTE]
+> Only accessible in Host mode.
 Bit 4 RXFLVLM: Receive FIFO non-empty mask
 0: Masked interrupt
 1: Unmasked interrupt
-Note: Accessible in both device and host modes.
+
+> [!NOTE]
+> Accessible in both device and host modes.
 Bit 3 SOFM: Start of frame mask
 0: Masked interrupt
 1: Unmasked interrupt
-Note: Accessible in both device and host modes.
+
+> [!NOTE]
+> Accessible in both device and host modes.
 Bit 2 OTGINT: OTG interrupt mask
 0: Masked interrupt
 1: Unmasked interrupt
-Note: Accessible in both device and host modes.
+
+> [!NOTE]
+> Accessible in both device and host modes.
 Bit 1 MMISM: Mode mismatch interrupt mask
 0: Masked interrupt
 1: Unmasked interrupt
-Note: Accessible in both device and host modes.
+
+> [!NOTE]
+> Accessible in both device and host modes.
 Bit 0 Reserved, must be kept at reset value.
 
 
-                                                <!-- *P714*/844 -->
+<!-- *P714*/844 -->
+[P714]: #P714
+<a id="P714"></a>
+
 OTG_FS Receive status debug read/OTG status read and pop registers
 (OTG_FS_GRXSTSR/OTG_FS_GRXSTSP)
 Address offset for Read: 0x01C
@@ -38114,8 +42646,10 @@ Bits 3:0 CHNUM: Channel number
 Indicates the channel number to which the current received packet belongs.
 
 
-                                                <!-- *P715*/844 -->
-806
+<!-- *P715*/844 -->
+[P715]: #P715
+<a id="P715"></a>
+
 Device mode
 
 
@@ -38163,7 +42697,10 @@ Maximum value is 256
 The power-on reset value of this register is specified as the largest Rx data FIFO depth.
 
 
-                                                <!-- *P716*/844 -->
+<!-- *P716*/844 -->
+[P716]: #P716
+<a id="P716"></a>
+
 OTG_FS Host non-periodic transmit FIFO size register
 (OTG_FS_HNPTXFSIZ)/Endpoint 0 Transmit FIFO size (OTG_FS_DIEPTXF0)
 Address offset: 0x028
@@ -38177,7 +42714,9 @@ OTG_FS non-periodic transmit FIFO/queue status register
 (OTG_FS_HNPTXSTS)
 Address offset: 0x02C
 Reset value: 0x0008 0200
-Note: In Device mode, this register is not valid.
+
+> [!NOTE]
+> In Device mode, this register is not valid.
 This read-only register contains the free space information for the non-periodic TxFIFO and
 the non-periodic transmit request queue.
 
@@ -38202,8 +42741,10 @@ NPTXQTOP NPTQXSAV NPTXFSAV
 r r r
 
 
-                                                <!-- *P717*/844 -->
-806
+<!-- *P717*/844 -->
+[P717]: #P717
+<a id="P717"></a>
+
 
 OTG_FS general core configuration register (OTG_FS_GCCFG)
 Address offset: 0x038
@@ -38247,7 +42788,10 @@ Reserved
 rw rw rw rw rw
 
 
-                                                <!-- *P718*/844 -->
+<!-- *P718*/844 -->
+[P718]: #P718
+<a id="P718"></a>
+
 
 OTG_FS core ID register (OTG_FS_CID)
 Address offset: 0x03C
@@ -38286,8 +42830,10 @@ Bits 31:0 PRODUCT_ID: Product ID field
 Application-programmable ID field.
 
 
-                                                <!-- *P719*/844 -->
-806
+<!-- *P719*/844 -->
+[P719]: #P719
+<a id="P719"></a>
+
 OTG_FS Host periodic transmit FIFO size register (OTG_FS_HPTXFSIZ)
 Address offset: 0x100
 Reset value: 0x0200 0400
@@ -38321,7 +42867,10 @@ This field contains the memory start address for IN endpoint transmit FIFOx. The
 must be aligned with a 32-bit memory location.
 
 
-                                                <!-- *P720*/844 -->
+<!-- *P720*/844 -->
+[P720]: #P720
+<a id="P720"></a>
+
 
 //22.16.3 Host-mode registers
 -----------------------------
@@ -38363,7 +42912,9 @@ When the core is in LS host mode
 01: Select 48 MHz PHY clock frequency
 10: Select 6 MHz PHY clock frequency
 11: Reserved
-Note: The FSLSPCS must be set on a connection event according to the speed of the
+
+> [!NOTE]
+> The FSLSPCS must be set on a connection event according to the speed of the
 connected device (after changing this bit, a software reset must be performed).
 31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
 Reserved
@@ -38371,8 +42922,10 @@ FRIVL
 rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw rw
 
 
-                                                <!-- *P721*/844 -->
-806
+<!-- *P721*/844 -->
+[P721]: #P721
+<a id="P721"></a>
+
 
 OTG_FS Host frame number/frame time remaining register (OTG_FS_HFNUM)
 Address offset: 0x408
@@ -38414,14 +42967,17 @@ PTXQTOP PTXQSAV PTXFSAVL
 r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r
 
 
-                                                <!-- *P722*/844 -->
+<!-- *P722*/844 -->
+[P722]: #P722
+<a id="P722"></a>
+
 
 OTG_FS Host all channels interrupt register (OTG_FS_HAINT)
 Address offset: 0x414
 Reset value: 0x0000 000
 When a significant event occurs on a channel, the host all channels interrupt register
 interrupts the application using the host channels interrupt bit of the Core interrupt register
-(HCINT bit in OTG_FS_GINTSTS). This is shown in Figure 250. There is one interrupt bit
+(HCINT bit in OTG_FS_GINTSTS). This is shown in [Figure 250]. There is one interrupt bit
 per channel, up to a maximum of 16 bits. Bits in this register are set and cleared when the
 application sets and clears bits in the corresponding host channel-x interrupt register.
 
@@ -38464,8 +43020,10 @@ Bits 15:0 HAINT: Channel interrupts
 One bit per channel: Bit 0 for Channel 0, bit 15 for Channel 15
 
 
-                                                <!-- *P723*/844 -->
-806
+<!-- *P723*/844 -->
+[P723]: #P723
+<a id="P723"></a>
+
 OTG_FS Host all channels interrupt mask register (OTG_FS_HAINTMSK)
 Address offset: 0x418
 Reset value: 0x0000 0000
@@ -38479,7 +43037,7 @@ Address offset: 0x440
 Reset value: 0x0000 0000
 This register is available only in host mode. Currently, the OTG host supports only one port.
 A single register holds USB port-related information such as USB reset, enable, suspend,
-resume, connect status, and test mode for each port. It is shown in Figure 250. The rc_w1
+resume, connect status, and test mode for each port. It is shown in [Figure 250]. The rc_w1
 bits in this register can trigger an interrupt to the application through the host port interrupt
 bit of the core interrupt register (HPRTINT bit in OTG_FS_GINTSTS). On a Port Interrupt,
 the application must read this register and clear the bit that caused the interrupt. For the
@@ -38529,7 +43087,10 @@ Indicates the speed of the device attached to this port.
 11: Reserved
 
 
-                                                <!-- *P724*/844 -->
+<!-- *P724*/844 -->
+[P724]: #P724
+<a id="P724"></a>
+
 Bits 16:13 PTCTL: Port test control
 The application writes a nonzero value to this field to put the port into a Test mode, and the
 corresponding pattern is signaled on the port.
@@ -38582,8 +43143,10 @@ bit indicates whether the core is currently driving resume signaling.
 1: Resume driven
 
 
-                                                <!-- *P725*/844 -->
-806
+<!-- *P725*/844 -->
+[P725]: #P725
+<a id="P725"></a>
+
 Bit 5 POCCHNG: Port overcurrent change
 The core sets this bit when the status of the Port overcurrent active bit (bit 4) in this register
 changes.
@@ -38609,7 +43172,10 @@ Bit 0 PCSTS: Port connect status
 1: A device is attached to the port
 
 
-                                                <!-- *P726*/844 -->
+<!-- *P726*/844 -->
+[P726]: #P726
+<a id="P726"></a>
+
 OTG_FS Host channel-x characteristics register (OTG_FS_HCCHARx)
 (x = 0..7, where x = Channel_number)
 Address offset: 0x500 + 0x20 * x
@@ -38650,7 +43216,9 @@ for this periodic endpoint. For non-periodic transfers, this field is not used
 01: 1 transaction
 10: 2 transactions per frame to be issued for this endpoint
 11: 3 transactions per frame to be issued for this endpoint
-Note: This field must be set to at least 01.
+
+> [!NOTE]
+> This field must be set to at least 01.
 Bits 19:18 EPTYP: Endpoint type
 Indicates the transfer type selected.
 00: Control
@@ -38663,14 +43231,16 @@ speed device.
 Bit 16 Reserved, must be kept at reset value.
 
 
-                                                <!-- *P727*/844 -->
-806
+<!-- *P727*/844 -->
+[P727]: #P727
+<a id="P727"></a>
+
 OTG_FS Host channel-x interrupt register (OTG_FS_HCINTx) (x = 0..7, where
 x = Channel_number)
 Address offset: 0x508 + 0x20 * x
 Reset value: 0x0000 0000
 This register indicates the status of a channel with respect to USB- and AHB-related events.
-It is shown in Figure 250. The application must read this register when the host channels
+It is shown in [Figure 250]. The application must read this register when the host channels
 interrupt bit in the Core interrupt register (HCINT bit in OTG_FS_GINTSTS) is set. Before
 the application can read this register, it must first read the host all channels interrupt
 (OTG_FS_HAINT) register to get the exact channel number for the host channel-x interrupt
@@ -38733,7 +43303,10 @@ Bit 4 NAK: NAK response received interrupt
 Bit 3 STALL: STALL response received interrupt
 
 
-                                                <!-- *P728*/844 -->
+<!-- *P728*/844 -->
+[P728]: #P728
+<a id="P728"></a>
+
 OTG_FS Host channel-x interrupt mask register (OTG_FS_HCINTMSKx)
 (x = 0..7, where x = Channel_number)
 Address offset: 0x50C + 0x20 * x
@@ -38786,8 +43359,10 @@ Bit 3 STALLM: STALL response received interrupt mask
 1: Unmasked interrupt
 
 
-                                                <!-- *P729*/844 -->
-806
+<!-- *P729*/844 -->
+[P729]: #P729
+<a id="P729"></a>
+
 OTG_FS Host channel-x transfer size register (OTG_FS_HCTSIZx) (x = 0..7,
 where x = Channel_number)
 Address offset: 0x510 + 0x20 * x
@@ -38826,7 +43401,10 @@ application is expected to program this field as an integer multiple of the maxi
 size for IN transactions (periodic and non-periodic).
 
 
-                                                <!-- *P730*/844 -->
+<!-- *P730*/844 -->
+[P730]: #P730
+<a id="P730"></a>
+
 
 //22.16.4 Device-mode registers
 -------------------------------
@@ -38877,8 +43455,10 @@ which the core is connected.
 11: Full speed (USB 1.1 transceiver clock is 48 MHz)
 
 
-                                                <!-- *P731*/844 -->
-806
+<!-- *P731*/844 -->
+[P731]: #P731
+<a id="P731"></a>
+
 OTG_FS device control register (OTG_FS_DCTL)
 Address offset: 0x804
 Reset value: 0x0000 0000
@@ -38930,8 +43510,11 @@ handshake on all packets, except on SETUP transactions. All isochronous OUT pack
 dropped.
 
 
-                                                <!-- *P732*/844 -->
-Table 133 contains the minimum duration (according to device state) for which the Soft
+<!-- *P732*/844 -->
+[P732]: #P732
+<a id="P732"></a>
+
+[Table 133] contains the minimum duration (according to device state) for which the Soft
 disconnect (SDIS) bit must be set for the USB host to detect a device disconnect. To
 accommodate clock jitter, it is recommended that the application add some extra delay to
 the specified minimum duration.
@@ -38962,6 +43545,9 @@ host. The application must set this bit to instruct the core to exit the Suspend
 specified in the USB 2.0 specification, the application must clear this bit 1 ms to 15 ms after
 setting it.
 
+[Table 133]: "Table%20133"
+<a id="Table 133"></a>
+
 **Table 133**. Minimum duration for soft disconnect
 
 Operating speed Device state Minimum duration
@@ -38981,8 +43567,10 @@ Bits 21:8 FNSOF: Frame number of the received SOF
 Bits 7:4 Reserved, must be kept at reset value.
 
 
-                                                <!-- *P733*/844 -->
-806
+<!-- *P733*/844 -->
+[P733]: #P733
+<a id="P733"></a>
+
 OTG_FS device IN endpoint common interrupt mask register
 (OTG_FS_DIEPMSK)
 Address offset: 0x810
@@ -39035,7 +43623,10 @@ Bit 6 INEPNEM: IN endpoint NAK effective mask
 1: Unmasked interrupt
 
 
-                                                <!-- *P734*/844 -->
+<!-- *P734*/844 -->
+[P734]: #P734
+<a id="P734"></a>
+
 OTG_FS device OUT endpoint common interrupt mask register
 (OTG_FS_DOEPMSK)
 Address offset: 0x814
@@ -39088,8 +43679,10 @@ Bit 8 OUTPKTERRM: Out packet error mask
 1: Unmasked interrupt
 
 
-                                                <!-- *P735*/844 -->
-806
+<!-- *P735*/844 -->
+[P735]: #P735
+<a id="P735"></a>
+
 OTG_FS device all endpoints interrupt register (OTG_FS_DAINT)
 Address offset: 0x818
 Reset value: 0x0000 0000
@@ -39133,7 +43726,10 @@ One bit per IN endpoint:
 Bit 0 for IN endpoint 0, bit 3 for endpoint 3.
 
 
-                                                <!-- *P736*/844 -->
+<!-- *P736*/844 -->
+[P736]: #P736
+<a id="P736"></a>
+
 OTG_FS all endpoints interrupt mask register (OTG_FS_DAINTMSK)
 Address offset: 0x81C
 Reset value: 0x0000 0000
@@ -39176,8 +43772,10 @@ V BUS discharge time in PHY clocks / 1 024
 Depending on your V BUS load, this value may need adjusting.
 
 
-                                                <!-- *P737*/844 -->
-806
+<!-- *P737*/844 -->
+[P737]: #P737
+<a id="P737"></a>
+
 
 
 OTG_FS device IN endpoint FIFO empty interrupt mask register:
@@ -39231,7 +43829,10 @@ MPSIZ
 r r w w rw rw rw rw rs r r r r rw rw
 
 
-                                                <!-- *P738*/844 -->
+<!-- *P738*/844 -->
+[P738]: #P738
+<a id="P738"></a>
+
 
 Bit 31 EPENA: Endpoint enable
 The application sets this bit to start transmitting data on the endpoint 0.
@@ -39271,8 +43872,10 @@ responds to SETUP data packets with an ACK handshake.
 Bit 16 Reserved, must be kept at reset value.
 
 
-                                                <!-- *P739*/844 -->
-806
+<!-- *P739*/844 -->
+[P739]: #P739
+<a id="P739"></a>
+
 OTG device endpoint x control register (OTG_FS_DIEPCTLx) (x = 1..3, where
 x = Endpoint_number)
 Address offset: 0x900 + 0x20 * x
@@ -39326,7 +43929,10 @@ Applies to isochronous IN and OUT endpoints only.
 Writing to this field sets the Even/Odd frame (EONUM) field to odd frame.
 
 
-                                                <!-- *P740*/844 -->
+<!-- *P740*/844 -->
+[P740]: #P740
+<a id="P740"></a>
+
 Bit 28 SD0PID: Set DATA0 PID
 Applies to interrupt/bulk IN endpoints only.
 Writing to this field sets the endpoint data PID (DPID) field in this register to DATA0.
@@ -39369,8 +43975,10 @@ Irrespective of this bit’s setting, the core always responds to SETUP data pac
 ACK handshake.
 
 
-                                                <!-- *P741*/844 -->
-806
+<!-- *P741*/844 -->
+[P741]: #P741
+<a id="P741"></a>
+
 Bit 16 EONUM: Even/odd frame
 Applies to isochronous IN endpoints only.
 Indicates the frame number in which the core transmits/receives isochronous data for this
@@ -39398,7 +44006,10 @@ The application must program this field with the maximum packet size for the cur
 endpoint. This value is in bytes.
 
 
-                                                <!-- *P742*/844 -->
+<!-- *P742*/844 -->
+[P742]: #P742
+<a id="P742"></a>
+
 OTG_FS device control OUT endpoint 0 control register
 (OTG_FS_DOEPCTL0)
 Address offset: 0xB00
@@ -39452,8 +44063,10 @@ Bits 19:18 EPTYP: Endpoint type
 Hardcoded to 2’b00 for control.
 
 
-                                                <!-- *P743*/844 -->
-806
+<!-- *P743*/844 -->
+[P743]: #P743
+<a id="P743"></a>
+
 OTG_FS device endpoint-x control register (OTG_FS_DOEPCTLx) (x = 1..3,
 where x = Endpoint_number)
 Address offset for OUT endpoints: 0xB00 + 0x20 * x
@@ -39507,7 +44120,10 @@ The core clears this bit before setting any of the following interrupts on this 
 – Transfer completed
 
 
-                                                <!-- *P744*/844 -->
+<!-- *P744*/844 -->
+[P744]: #P744
+<a id="P744"></a>
+
 Bit 30 EPDIS: Endpoint disable
 The application sets this bit to stop transmitting/receiving data on an endpoint, even before
 the transfer for that endpoint is complete. The application must wait for the Endpoint
@@ -39550,8 +44166,10 @@ This is the transfer type supported by this logical endpoint.
 11: Interrupt
 
 
-                                                <!-- *P745*/844 -->
-806
+<!-- *P745*/844 -->
+[P745]: #P745
+<a id="P745"></a>
+
 Bit 17 NAKSTS: NAK status
 Indicates the following:
 0: The core is transmitting non-NAK handshakes based on the FIFO status.
@@ -39588,13 +44206,16 @@ The application must program this field with the maximum packet size for the cur
 endpoint. This value is in bytes.
 
 
-                                                <!-- *P746*/844 -->
+<!-- *P746*/844 -->
+[P746]: #P746
+<a id="P746"></a>
+
 OTG_FS device endpoint-x interrupt register (OTG_FS_DIEPINTx) (x = 0..3,
 where x = Endpoint_number)
 Address offset: 0x908 + 0x20 * x
 Reset value: 0x0000 0080
 This register indicates the status of an endpoint with respect to USB- and AHB-related
-events. It is shown in Figure 250. The application must read this register when the IN
+events. It is shown in [Figure 250]. The application must read this register when the IN
 endpoints interrupt bit of the Core interrupt register (IEPINT in OTG_FS_GINTSTS) is set.
 Before the application can read this register, it must first read the device all endpoints
 interrupt (OTG_FS_DAINT) register to get the exact endpoint number for the Device
@@ -39661,14 +44282,16 @@ than the one for which the IN token was received. This interrupt is asserted on 
 for which the IN token was received.
 
 
-                                                <!-- *P747*/844 -->
-806
+<!-- *P747*/844 -->
+[P747]: #P747
+<a id="P747"></a>
+
 OTG_FS device endpoint-x interrupt register (OTG_FS_DOEPINTx) (x = 0..3,
 where x = Endpoint_number)
 Address offset: 0xB08 + 0x20 * x
 Reset value: 0x0000 0080
 This register indicates the status of an endpoint with respect to USB- and AHB-related
-events. It is shown in Figure 250. The application must read this register when the OUT
+events. It is shown in [Figure 250]. The application must read this register when the OUT
 Endpoints Interrupt bit of the OTG_FS_GINTSTS register (OEPINT bit in
 OTG_FS_GINTSTS) is set. Before the application can read this register, it must first read
 the OTG_FS_DAINT register to get the exact endpoint number for the OTG_FS_DOEPINTx
@@ -39721,7 +44344,10 @@ The core generates this interrupt when babble is received for the endpoint.
 Bits 11:9 Reserved, must be kept at reset value.
 
 
-                                                <!-- *P748*/844 -->
+<!-- *P748*/844 -->
+[P748]: #P748
+<a id="P748"></a>
+
 OTG_FS device IN endpoint 0 transfer size register (OTG_FS_DIEPTSIZ0)
 Address offset: 0x910
 Reset value: 0x0000 0000
@@ -39765,8 +44391,10 @@ XFRSIZ
 rw rw rw rw rw rw rw rw rw
 
 
-                                                <!-- *P749*/844 -->
-806
+<!-- *P749*/844 -->
+[P749]: #P749
+<a id="P749"></a>
+
 Bits 31:21 Reserved, must be kept at reset value.
 Bits 20:19 PKTCNT: Packet count
 Indicates the total number of USB packets that constitute the Transfer Size amount of data
@@ -39782,7 +44410,10 @@ The core decrements this field every time a packet from the external memory is w
 the TxFIFO.
 
 
-                                                <!-- *P750*/844 -->
+<!-- *P750*/844 -->
+[P750]: #P750
+<a id="P750"></a>
+
 OTG_FS device OUT endpoint 0 transfer size register (OTG_FS_DOEPTSIZ0)
 Address offset: 0xB10
 Reset value: 0x0000 0000
@@ -39820,8 +44451,10 @@ The core decrements this field every time a packet is read from the RxFIFO and w
 the external memory.
 
 
-                                                <!-- *P751*/844 -->
-806
+<!-- *P751*/844 -->
+[P751]: #P751
+<a id="P751"></a>
+
 OTG_FS device endpoint-x transfer size register (OTG_FS_DIEPTSIZx)
 (x = 1..3, where x = Endpoint_number)
 Address offset: 0x910 + 0x20 * x
@@ -39851,7 +44484,10 @@ The core decrements this field every time a packet from the external memory is w
 the TxFIFO.
 
 
-                                                <!-- *P752*/844 -->
+<!-- *P752*/844 -->
+[P752]: #P752
+<a id="P752"></a>
+
 OTG_FS device IN endpoint transmit FIFO status register
 (OTG_FS_DTXFSTSx) (x = 0..3, where x = Endpoint_number)
 Address offset for IN endpoints: 0x918 + 0x20 * x
@@ -39898,8 +44534,10 @@ This is the data PID received in the last packet for this endpoint.
 11: MDATA
 
 
-                                                <!-- *P753*/844 -->
-806
+<!-- *P753*/844 -->
+[P753]: #P753
+<a id="P753"></a>
+
 
 //22.16.5 OTG_FS power and clock gating control register
 --------------------------------------------------------
@@ -39951,13 +44589,19 @@ is not valid, or the device is disconnected. The application clears this bit whe
 resumed or a new session starts.
 
 
-                                                <!-- *P754*/844 -->
+<!-- *P754*/844 -->
+[P754]: #P754
+<a id="P754"></a>
+
 
 //22.16.6 OTG_FS register map
 -----------------------------
 
 The table below gives the USB OTG register map and reset values.
 
+
+[Table 134]: "Table%20134"
+<a id="Table 134"></a>
 
 **Table 134**. OTG_FS register map and reset values
 
@@ -40141,8 +44785,10 @@ FRMNUM PKTSTS DPID BCNT EPNUM
 Reset value 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 
 
-                                                <!-- *P755*/844 -->
-806
+<!-- *P755*/844 -->
+[P755]: #P755
+<a id="P755"></a>
+
 0x020
 OTG_FS_GRXS
 TSR (host
@@ -40224,7 +44870,7 @@ OTG_FS_HFNU
 M
 FTREM FRNUM
 Reset value 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-Table 134. OTG_FS register map and reset values (continued)
+[Table 134]. OTG_FS register map and reset values (continued)
 Offset Register
 31
 30
@@ -40260,7 +44906,10 @@ Offset Register
 0
 
 
-                                                <!-- *P756*/844 -->
+<!-- *P756*/844 -->
+[P756]: #P756
+<a id="P756"></a>
+
 0x410
 OTG_FS_HPTX
 STS
@@ -40414,7 +45063,7 @@ Reserved
 CHH
 XFRC
 Reset value 0 0 0 0 0 0 0 0 0
-Table 134. OTG_FS register map and reset values (continued)
+[Table 134]. OTG_FS register map and reset values (continued)
 Offset Register
 31
 30
@@ -40450,8 +45099,10 @@ Offset Register
 0
 
 
-                                                <!-- *P757*/844 -->
-806
+<!-- *P757*/844 -->
+[P757]: #P757
+<a id="P757"></a>
+
 0x528
 OTG_FS_HCINT
 1
@@ -40644,7 +45295,7 @@ Reserved
 CHHM
 XFRCM
 Reset value 0 0 0 0 0 0 0 0 0
-Table 134. OTG_FS register map and reset values (continued)
+[Table 134]. OTG_FS register map and reset values (continued)
 Offset Register
 31
 30
@@ -40680,7 +45331,10 @@ Offset Register
 0
 
 
-                                                <!-- *P758*/844 -->
+<!-- *P758*/844 -->
+[P758]: #P758
+<a id="P758"></a>
+
 0x5AC
 OTG_FS_HCINT
 MSK5
@@ -40800,7 +45454,7 @@ GINSTS
 SDIS
 RWUSIG
 Reset value 0 0 0 0 0 0 0 0 0 0 0 0
-Table 134. OTG_FS register map and reset values (continued)
+[Table 134]. OTG_FS register map and reset values (continued)
 Offset Register
 31
 30
@@ -40836,8 +45490,10 @@ Offset Register
 0
 
 
-                                                <!-- *P759*/844 -->
-806
+<!-- *P759*/844 -->
+[P759]: #P759
+<a id="P759"></a>
+
 0x808
 OTG_FS_DSTS
 Reserved
@@ -40954,7 +45610,7 @@ S1
 Reserved
 INEPTFSAV
 Reset value 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0
-Table 134. OTG_FS register map and reset values (continued)
+[Table 134]. OTG_FS register map and reset values (continued)
 Offset Register
 31
 30
@@ -40990,7 +45646,10 @@ Offset Register
 0
 
 
-                                                <!-- *P760*/844 -->
+<!-- *P760*/844 -->
+[P760]: #P760
+<a id="P760"></a>
+
 0x940
 OTG_FS_DIEPC
 TL2
@@ -41135,7 +45794,7 @@ Reserved
 EPDISD
 XFRC
 Reset value 0 0 1 0 0 0 0 0 0
-Table 134. OTG_FS register map and reset values (continued)
+[Table 134]. OTG_FS register map and reset values (continued)
 Offset Register
 31
 30
@@ -41171,8 +45830,10 @@ Offset Register
 0
 
 
-                                                <!-- *P761*/844 -->
-806
+<!-- *P761*/844 -->
+[P761]: #P761
+<a id="P761"></a>
+
 0x928
 OTG_FS_DIEPI
 NT1
@@ -41315,7 +45976,7 @@ SIZ3
 Reserved
 PKTCNT XFRSIZ
 Reset value 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-Table 134. OTG_FS register map and reset values (continued)
+[Table 134]. OTG_FS register map and reset values (continued)
 Offset Register
 31
 30
@@ -41351,7 +46012,10 @@ Offset Register
 0
 
 
-                                                <!-- *P762*/844 -->
+<!-- *P762*/844 -->
+[P762]: #P762
+<a id="P762"></a>
+
 Refer to Section 3.3: Memory map for the register boundary addresses.
 0xB10
 OTG_FS_DOEP
@@ -41397,7 +46061,7 @@ Reserved
 GATEHCLK
 STPPCLK
 Reset value
-Table 134. OTG_FS register map and reset values (continued)
+[Table 134]. OTG_FS register map and reset values (continued)
 Offset Register
 31
 30
@@ -41433,8 +46097,10 @@ Offset Register
 0
 
 
-                                                <!-- *P763*/844 -->
-806
+<!-- *P763*/844 -->
+[P763]: #P763
+<a id="P763"></a>
+
 
 //22.17 OTG_FS programming model
 --------------------------------
@@ -41466,7 +46132,10 @@ Mode mismatch interrupt mask
 OTG_FS controller is operating in host or device mode.
 
 
-                                                <!-- *P764*/844 -->
+<!-- *P764*/844 -->
+[P764]: #P764
+<a id="P764"></a>
+
 
 //22.17.2 Host initialization
 -----------------------------
@@ -41517,8 +46186,10 @@ reset on the USB. On receiving this interrupt, the application must read the OTG
 register to determine the enumeration speed and perform the steps listed in Endpoint
 
 
-                                                <!-- *P765*/844 -->
-806
+<!-- *P765*/844 -->
+[P765]: #P765
+<a id="P765"></a>
+
 initialization on enumeration completion on page 781.
 At this point, the device is ready to accept SOF packets and perform control transfers on
 control endpoint 0.
@@ -41566,7 +46237,10 @@ bit cleared to 0.
 The application is expected to disable a channel on any of the following conditions:
 
 
-                                                <!-- *P766*/844 -->
+<!-- *P766*/844 -->
+[P766]: #P766
+<a id="P766"></a>
+
 1. When an STALL, TXERR, BBERR or DTERR interrupt in OTG_FS_HCINTx is received
 for an IN or OUT channel. The application must be able to receive other interrupts
 (DTERR, Nak, Data, TXERR) for the same channel before receiving the halt.
@@ -41585,6 +46259,12 @@ queue before starting to write to the transmit FIFO. The application must always
 to the transmit FIFO in words. If the packet size is non-word aligned, the application
 must use padding. The OTG_FS host determines the actual packet size based on the
 programmed maximum packet size and transfer size.
+
+[Figure 252]: "#Figure%20252"
+<a id="Figure 252"></a>
+
+[Figure 252]: "Figure%20252"
+<a id="Figure 252"></a>
 
 **Figure 252**. Transmit FIFO write task
 
@@ -41615,14 +46295,28 @@ Yes
 LPS: Last packet size
 
 
-                                                <!-- *P767*/844 -->
-806
+<!-- *P767*/844 -->
+[P767]: #P767
+<a id="P767"></a>
+
 The application must ignore all packet statuses other than IN data packet (bx0010).
+
+[Figure 253]: "#Figure%20253"
+<a id="Figure 253"></a>
+
+[Figure 253]: "Figure%20253"
+<a id="Figure 253"></a>
 
 **Figure 253**. Receive FIFO read task
 
 • Bulk and control OUT/SETUP transactions
 A typical bulk or control OUT/SETUP pipelined transaction-level operation is shown in
+
+[Figure 254]: "#Figure%20254"
+<a id="Figure 254"></a>
+
+[Figure 254]: "Figure%20254"
+<a id="Figure 254"></a>
 
 **Figure 254**. See channel 1 (ch_1). Two bulk OUT packets are transmitted. A control
 
@@ -41670,9 +46364,18 @@ Start
 ai15674
 
 
-                                                <!-- *P768*/844 -->
+<!-- *P768*/844 -->
+[P768]: #P768
+<a id="P768"></a>
+
 g) In response to the XFRC interrupt, de-allocate the channel for other transfers
 h) Handling non-ACK responses
+
+[Figure 254]: "#Figure%20254"
+<a id="Figure 254"></a>
+
+[Figure 254]: "Figure%20254"
+<a id="Figure 254"></a>
 
 **Figure 254**. Normal bulk/control OUT/SETUP and bulk/control IN transactions
 
@@ -41776,8 +46479,10 @@ RXFLVL interrupt
 XFRC interrupt
 
 
-                                                <!-- *P769*/844 -->
-806
+<!-- *P769*/844 -->
+[P769]: #P769
+<a id="P769"></a>
+
 Reset Error Count
 Mask ACK
 De-allocate Channel
@@ -41831,7 +46536,10 @@ if (XFRC)
 Reset Error Count
 
 
-                                                <!-- *P770*/844 -->
+<!-- *P770*/844 -->
+[P770]: #P770
+<a id="P770"></a>
+
 Unmask CHH
 Disable Channel
 Reset Error Count
@@ -41871,7 +46579,7 @@ Reset Error Count
 The application is expected to write the requests as and when the Request queue space is
 available and until the XFRC interrupt is received.
 • Bulk and control IN transactions
-A typical bulk or control IN pipelined transaction-level operation is shown in Figure 255.
+A typical bulk or control IN pipelined transaction-level operation is shown in [Figure 255].
 See channel 2 (ch_2). The assumptions are:
 – The application is attempting to receive two maximum-packet-size packets
 (transfer size = 1 024 bytes).
@@ -41880,8 +46588,16 @@ status words per packet (72 bytes for FS).
 – The non-periodic request queue depth = 4.
 
 
-                                                <!-- *P771*/844 -->
-806
+<!-- *P771*/844 -->
+[P771]: #P771
+<a id="P771"></a>
+
+
+[Figure 255]: "#Figure%20255"
+<a id="Figure 255"></a>
+
+[Figure 255]: "Figure%20255"
+<a id="Figure 255"></a>
 
 **Figure 255**. Bulk/control IN transactions
 
@@ -41988,7 +46704,10 @@ RXFLVL interrupt
 XFRC interrupt
 
 
-                                                <!-- *P772*/844 -->
+<!-- *P772*/844 -->
+[P772]: #P772
+<a id="P772"></a>
+
 f) The core generates the RXFLVL interrupt for the transfer completion status entry
 in the receive FIFO.
 g) The application must read and ignore the receive packet status when the receive
@@ -42015,7 +46734,7 @@ For all three stages, the application is expected to set the EPTYP field in
 OTG_FS_HCCHAR1 to Control. During the Setup stage, the application is expected to
 set the PID field in OTG_FS_HCTSIZ1 to SETUP.
 • Interrupt OUT transactions
-A typical interrupt OUT operation is shown in Figure 256. The assumptions are:
+A typical interrupt OUT operation is shown in [Figure 256]. The assumptions are:
 – The application is attempting to send one packet in every frame (up to 1 maximum
 packet size), starting with the odd frame (transfer size = 1 024 bytes)
 – The periodic transmit FIFO can hold one packet (1 KB)
@@ -42032,8 +46751,16 @@ transmitted successfully.
 f) In response to the XFRC interrupt, reinitialize the channel for the next transfer.
 
 
-                                                <!-- *P773*/844 -->
-806
+<!-- *P773*/844 -->
+[P773]: #P773
+<a id="P773"></a>
+
+
+[Figure 256]: "#Figure%20256"
+<a id="Figure 256"></a>
+
+[Figure 256]: "Figure%20256"
+<a id="Figure 256"></a>
 
 **Figure 256**. Normal interrupt OUT/IN transactions
 
@@ -42126,7 +46853,10 @@ XFRC interrupt
 XFRC interrupt
 
 
-                                                <!-- *P774*/844 -->
+<!-- *P774*/844 -->
+[P774]: #P774
+<a id="P774"></a>
+
 Disable Channel
 if (STALL)
 {
@@ -42180,8 +46910,10 @@ Unmask CHH
 Disable Channel
 
 
-                                                <!-- *P775*/844 -->
-806
+<!-- *P775*/844 -->
+[P775]: #P775
+<a id="P775"></a>
+
 }
 }
 else
@@ -42228,7 +46960,10 @@ Reset Error Count
 Mask ACK
 
 
-                                                <!-- *P776*/844 -->
+<!-- *P776*/844 -->
+[P776]: #P776
+<a id="P776"></a>
+
 }
 • Interrupt IN transactions
 The assumptions are:
@@ -42263,12 +46998,14 @@ If the PKTCNT bit in OTG_FS_HCTSIZ2 is not equal to 0, disable the channel
 before re-initializing the channel for the next transfer, if any). If PKTCNT bit in
 
 
-                                                <!-- *P777*/844 -->
-806
+<!-- *P777*/844 -->
+[P777]: #P777
+<a id="P777"></a>
+
 OTG_FS_HCTSIZ2 = 0, reinitialize the channel for the next transfer. This time, the
 application must reset the ODDFRM bit in OTG_FS_HCCHAR2.
 • Isochronous OUT transactions
-A typical isochronous OUT operation is shown in Figure 257. The assumptions are:
+A typical isochronous OUT operation is shown in [Figure 257]. The assumptions are:
 – The application is attempting to send one packet every frame (up to 1 maximum
 packet size), starting with an odd frame. (transfer size = 1 024 bytes).
 – The periodic transmit FIFO can hold one packet (1 KB).
@@ -42286,7 +47023,16 @@ f) In response to the XFRC interrupt, reinitialize the channel for the next tran
 g) Handling non-ACK responses
 
 
-                                                <!-- *P778*/844 -->
+<!-- *P778*/844 -->
+[P778]: #P778
+<a id="P778"></a>
+
+
+[Figure 257]: "#Figure%20257"
+<a id="Figure 257"></a>
+
+[Figure 257]: "Figure%20257"
+<a id="Figure 257"></a>
 
 **Figure 257**. Normal isochronous OUT/IN transactions
 
@@ -42378,8 +47124,10 @@ XFRC interrupt
 XFRC interrupt
 
 
-                                                <!-- *P779*/844 -->
-806
+<!-- *P779*/844 -->
+[P779]: #P779
+<a id="P779"></a>
+
 else
 if (CHH)
 {
@@ -42423,7 +47171,10 @@ Re-initialize Channel
 }
 
 
-                                                <!-- *P780*/844 -->
+<!-- *P780*/844 -->
+[P780]: #P780
+<a id="P780"></a>
+
 
 • Isochronous IN transactions
 The assumptions are:
@@ -42473,8 +47224,10 @@ OTG_FS controller handles two cases of babble: packet babble and port babble.
 Packet babble occurs if the device sends more data than the maximum packet size for
 
 
-                                                <!-- *P781*/844 -->
-806
+<!-- *P781*/844 -->
+[P781]: #P781
+<a id="P781"></a>
+
 the channel. Port babble occurs if the core continues to receive data from the device at
 EOF2 (the end of frame 2, which is very close to SOF).
 When OTG_FS controller detects a packet babble, it stops writing data into the Rx
@@ -42522,7 +47275,10 @@ step configures control endpoint 0. The maximum packet size for a control endpoi
 depends on the enumeration speed.
 
 
-                                                <!-- *P782*/844 -->
+<!-- *P782*/844 -->
+[P782]: #P782
+<a id="P782"></a>
+
 At this point, the device is ready to receive SOF packets and is configured to perform control
 transfers on control endpoint 0.
 Endpoint initialization on SetAddress command
@@ -42564,8 +47320,10 @@ endpoint and sends out a valid handshake for each valid token received for the
 endpoint.
 
 
-                                                <!-- *P783*/844 -->
-806
+<!-- *P783*/844 -->
+[P783]: #P783
+<a id="P783"></a>
+
 Endpoint deactivation
 This section describes the steps required to deactivate an existing endpoint.
 1. In the endpoint to be deactivated, clear the USB active endpoint bit in the
@@ -42573,7 +47331,9 @@ OTG_FS_DIEPCTLx register (for IN or bidirectional endpoints) or the
 OTG_FS_DOEPCTLx register (for OUT or bidirectional endpoints).
 2. Once the endpoint is deactivated, the core ignores tokens addressed to that endpoint,
 which results in a timeout on the USB.
-Note: The application must meet the following conditions to set up the device core to handle
+
+> [!NOTE]
+> The application must meet the following conditions to set up the device core to handle
 traffic:
 NPTXFEM and RXFLVLM in the OTG_FS_GINTMSK register must be cleared.
 
@@ -42615,7 +47375,10 @@ PKTSTS = DataOUT, BCNT = size of the received data OUT packet (0 ≤ BCNT
 Data PID.
 
 
-                                                <!-- *P784*/844 -->
+<!-- *P784*/844 -->
+[P784]: #P784
+<a id="P784"></a>
+
 e) Data transfer completed pattern:
 PKTSTS = Data OUT Transfer Done, BCNT = 0x0, EPNUM = OUT EP Num
 on which the data transfer is complete, DPID = Don’t Care (0b00).
@@ -42627,7 +47390,13 @@ Transfer Completed interrupt on the specified OUT endpoint.
 6. Steps 1–5 are repeated every time the application detects assertion of the interrupt line
 due to RXFLVL in OTG_FS_GINTSTS. Reading an empty receive FIFO can result in
 undefined core behavior.
-Figure 258 provides a flowchart of the above procedure.
+[Figure 258] provides a flowchart of the above procedure.
+
+[Figure 258]: "#Figure%20258"
+<a id="Figure 258"></a>
+
+[Figure 258]: "Figure%20258"
+<a id="Figure 258"></a>
 
 **Figure 258**. Receive FIFO packet read
 
@@ -42661,8 +47430,10 @@ Y
 ai15677b
 
 
-                                                <!-- *P785*/844 -->
-806
+<!-- *P785*/844 -->
+[P785]: #P785
+<a id="P785"></a>
+
 determine the correct number of SETUP packets received in the Setup stage of a
 control transfer.
 – STUPCNT = 3 in OTG_FS_DOEPTSIZx
@@ -42709,7 +47480,16 @@ determine the number of SETUP packets received and process the last received
 SETUP packet.
 
 
-                                                <!-- *P786*/844 -->
+<!-- *P786*/844 -->
+[P786]: #P786
+<a id="P786"></a>
+
+
+[Figure 259]: "#Figure%20259"
+<a id="Figure 259"></a>
+
+[Figure 259]: "Figure%20259"
+<a id="Figure 259"></a>
 
 **Figure 259**. Processing a SETUP packet
 
@@ -42751,8 +47531,10 @@ Data IN phase
 ai15678
 
 
-                                                <!-- *P787*/844 -->
-806
+<!-- *P787*/844 -->
+[P787]: #P787
+<a id="P787"></a>
+
 Application programming sequence
 1. To stop receiving any kind of data in the receive FIFO, the application must set the
 Global OUT NAK bit by programming the following field:
@@ -42798,7 +47580,10 @@ Application requirements
 to accommodate all data to be received as part of the OUT transfer.
 
 
-                                                <!-- *P788*/844 -->
+<!-- *P788*/844 -->
+[P788]: #P788
+<a id="P788"></a>
+
 2. For OUT transfers, the transfer size field in the endpoint’s transfer size register must be
 a multiple of the maximum packet size of the endpoint, adjusted to the word boundary.
 – transfer size[EPNUM] = n × (MPSIZ[EPNUM] + 4 – (MPSIZ[EPNUM] mod 4))
@@ -42848,8 +47633,10 @@ FIFO on one of the following conditions:
 completed interrupt is generated for the endpoint and the endpoint enable is cleared.
 
 
-                                                <!-- *P789*/844 -->
-806
+<!-- *P789*/844 -->
+[P789]: #P789
+<a id="P789"></a>
+
 Application programming sequence
 1. Program the OTG_FS_DOEPTSIZx register for the transfer size and the corresponding
 packet count.
@@ -42892,7 +47679,10 @@ OTG_FS_DOEPTSIZx with the data PID of the last isochronous OUT data packet read
 from the receive FIFO.
 
 
-                                                <!-- *P790*/844 -->
+<!-- *P790*/844 -->
+[P790]: #P790
+<a id="P790"></a>
+
 Application programming sequence
 1. Program the OTG_FS_DOEPTSIZx register for the transfer size and the corresponding
 packet count
@@ -42940,8 +47730,10 @@ isochronous OUT endpoints, it asserts the incomplete Isochronous OUT data interr
 OTG_FS_DOEPINTx) is not asserted on at least one of the isochronous OUT
 
 
-                                                <!-- *P791*/844 -->
-806
+<!-- *P791*/844 -->
+[P791]: #P791
+<a id="P791"></a>
+
 endpoints. At this point, the endpoint with the incomplete transfer remains enabled, but
 no active transfers remain in progress on this endpoint on the USB.
 Application programming sequence
@@ -42988,9 +47780,18 @@ This section describes and depicts some fundamental transfer types and scenarios
 • Bulk OUT transaction
 
 
-                                                <!-- *P792*/844 -->
-Figure 260 depicts the reception of a single Bulk OUT Data packet from the USB to the AHB
+<!-- *P792*/844 -->
+[P792]: #P792
+<a id="P792"></a>
+
+[Figure 260] depicts the reception of a single Bulk OUT Data packet from the USB to the AHB
 and describes the events involved in the process.
+
+[Figure 260]: "#Figure%20260"
+<a id="Figure 260"></a>
+
+[Figure 260]: "Figure%20260"
+<a id="Figure 260"></a>
 
 **Figure 260**. Bulk OUT transaction
 
@@ -43052,8 +47853,10 @@ CNAK = 1
 ai15679b
 
 
-                                                <!-- *P793*/844 -->
-806
+<!-- *P793*/844 -->
+[P793]: #P793
+<a id="P793"></a>
+
 – In polling mode, the application monitors the status of the endpoint transmit data
 FIFO by reading the OT G_FS_DTXFSTSx register, to determine if there is enough
 space in the data FIFO.
@@ -43101,7 +47904,10 @@ OTG_FS_DIEPCTLx. This also clears the INEPNE interrupt (in OTG_FS_DIEPINTx).
 6. If the application masked this interrupt earlier, it must be unmasked as follows:
 
 
-                                                <!-- *P794*/844 -->
+<!-- *P794*/844 -->
+[P794]: #P794
+<a id="P794"></a>
+
 – INEPNEM = 1 in DIEPMSK
 • IN endpoint disable
 Use the following sequence to disable a specific IN endpoint that has been previously
@@ -43148,8 +47954,10 @@ Packet count[EPNUM] = 1
 the end of the transfer, the application must split the transfer into two parts. The
 
 
-                                                <!-- *P795*/844 -->
-806
+<!-- *P795*/844 -->
+[P795]: #P795
+<a id="P795"></a>
+
 first sends maximum-packet-size data packets and the second sends the zero-
 length data packet alone.
 First transfer: transfer size[EPNUM] = x × MPSIZ[epnum]; packet count = n;
@@ -43198,7 +48006,10 @@ CNAK and EPENA (Endpoint Enable) bits.
 O TG_FS_DTXFSTSx register (where x is the FIFO number associated with that
 
 
-                                                <!-- *P796*/844 -->
+<!-- *P796*/844 -->
+[P796]: #P796
+<a id="P796"></a>
+
 endpoint) to determine whether there is enough space in the data FIFO. The
 application can optionally use TXFE (in OTG_FS_DIEPINTx) before writing the data.
 • Generic periodic IN data transfers
@@ -43239,8 +48050,10 @@ endpoints
 Internal data flow
 
 
-                                                <!-- *P797*/844 -->
-806
+<!-- *P797*/844 -->
+[P797]: #P797
+<a id="P797"></a>
+
 1. The application must set the transfer size and packet count fields in the endpoint-
 specific registers and enable the endpoint to transmit the data.
 2. The application must also write the required data to the associated transmit FIFO for
@@ -43289,7 +48102,10 @@ This section describes what the application must do on an incomplete isochronous
 transfer.
 
 
-                                                <!-- *P798*/844 -->
+<!-- *P798*/844 -->
+[P798]: #P798
+<a id="P798"></a>
+
 Internal data flow
 1. An isochronous IN transfer is treated as incomplete in one of the following conditions:
 a) The core receives a corrupted isochronous IN token on at least one isochronous
@@ -43334,8 +48150,10 @@ This section describes how the application can stall a non-isochronous endpoint.
 Application programming sequence
 
 
-                                                <!-- *P799*/844 -->
-806
+<!-- *P799*/844 -->
+[P799]: #P799
+<a id="P799"></a>
+
 1. Disable the IN endpoint to be stalled. Set the STALL bit as well.
 2. EPDIS = 1 in OTG_FS_DIEPCTLx, when the endpoint is already enabled
 – STALL = 1 in OTG_FS_DIEPCTLx
@@ -43385,14 +48203,17 @@ clocks. The worst case delay for this is when the AHB clock is the same as the P
 In this case, the delay is 5 clocks.
 
 
-                                                <!-- *P800*/844 -->
+<!-- *P800*/844 -->
+[P800]: #P800
+<a id="P800"></a>
+
 Once the MAC receives an IN token, this information (token received) is synchronized to the
 AHB clock by the PFC (the PFC runs on the AHB clock). The PFC then reads the data from
 the SPRAM and writes them into the dual clock source buffer. The MAC then reads the data
 out of the source buffer (4 deep).
 If the AHB is running at a higher frequency than the PHY, the application can use a smaller
 value for TRDT (in OTG_FS_GUSBCFG).
-Figure 261 has the following signals:
+[Figure 261] has the following signals:
 • tkn_rcvd: Token received information from MAC to PFC
 • dynced_tkn_rcvd: Doubled sync tkn_rcvd, from PCLK to HCLK domain
 • spr_read: Read to SPRAM
@@ -43400,7 +48221,13 @@ Figure 261 has the following signals:
 • spr_rdata: Read data from SPRAM
 • srcbuf_push: Push to the source buffer
 • srcbuf_rdata: Read data from the source buffer. Data seen by MAC
-Refer to Table 132: TRDT values for the values of TRDT versus AHB clock frequency.
+Refer to [Table 132]: TRDT values for the values of TRDT versus AHB clock frequency.
+
+[Figure 261]: "#Figure%20261"
+<a id="Figure 261"></a>
+
+[Figure 261]: "Figure%20261"
+<a id="Figure 261"></a>
 
 **Figure 261**. TRDT max timing case
 
@@ -43422,8 +48249,10 @@ D1
 ai15680
 
 
-                                                <!-- *P801*/844 -->
-806
+<!-- *P801*/844 -->
+[P801]: #P801
+<a id="P801"></a>
+
 
 //22.17.8 OTG programming model
 -------------------------------
@@ -43439,6 +48268,12 @@ suspends the bus and reverts to the device role.
 A-device session request protocol
 The application must set the SRP-capable bit in the Core USB configuration register. This
 enables the OTG_FS controller to detect SRP as an A-device.
+
+[Figure 262]: "#Figure%20262"
+<a id="Figure 262"></a>
+
+[Figure 262]: "Figure%20262"
+<a id="Figure 262"></a>
 
 **Figure 262**. A-device SRP
 
@@ -43466,7 +48301,10 @@ Connect
 Low
 
 
-                                                <!-- *P802*/844 -->
+<!-- *P802*/844 -->
+[P802]: #P802
+<a id="P802"></a>
+
 1. To save power, the application suspends and turns off port power when the bus is idle
 by writing the port suspend and port power bits in the host port control and status
 register.
@@ -43487,6 +48325,12 @@ B-device session request protocol
 The application must set the SRP-capable bit in the Core USB configuration register. This
 enables the OTG_FS controller to initiate SRP as a B-device. SRP is a means by which the
 OTG_FS controller can request a new session from the host.
+
+[Figure 263]: "#Figure%20263"
+<a id="Figure 263"></a>
+
+[Figure 263]: "Figure%20263"
+<a id="Figure 263"></a>
 
 **Figure 263**. B-device SRP
 
@@ -43518,8 +48362,10 @@ V BUS pulsing
 Low
 
 
-                                                <!-- *P803*/844 -->
-806
+<!-- *P803*/844 -->
+[P803]: #P803
+<a id="P803"></a>
+
 1. To save power, the host suspends and turns off port power when the bus is idle.
 The OTG_FS controller sets the early suspend bit in the Core interrupt register after 3
 ms of bus idleness. Following this, the OTG_FS controller sets the USB suspend bit in
@@ -43549,6 +48395,12 @@ HNP switches the USB host role from the A-device to the B-device. The applicatio
 the HNP-capable bit in the Core USB configuration register to enable the OTG_FS
 controller to perform HNP as an A-device.
 
+[Figure 264]: "#Figure%20264"
+<a id="Figure 264"></a>
+
+[Figure 264]: "Figure%20264"
+<a id="Figure 264"></a>
+
 **Figure 264**. A-device HNP
 
 1. DPPULLDOWN = signal from core to PHY to enable/disable the pull-down on the DP line inside the PHY.
@@ -43572,7 +48424,10 @@ Connect
 Traffic
 
 
-                                                <!-- *P804*/844 -->
+<!-- *P804*/844 -->
+[P804]: #P804
+<a id="P804"></a>
+
 1. The OTG_FS controller sends the B-device a SetFeature b_hnp_enable descriptor to
 enable HNP support. The B-device’s ACK response indicates that the B-device
 supports HNP. The application must set host Set HNP Enable bit in the OTG Control
@@ -43609,12 +48464,20 @@ mode operation.
 8. The B-device connects, completing the HNP process.
 
 
-                                                <!-- *P805*/844 -->
-806
+<!-- *P805*/844 -->
+[P805]: #P805
+<a id="P805"></a>
+
 B-device host negotiation protocol
 HNP switches the USB host role from B-device to A-device. The application must set the
 HNP-capable bit in the Core USB configuration register to enable the OTG_FS controller to
 perform HNP as a B-device.
+
+[Figure 265]: "#Figure%20265"
+<a id="Figure 265"></a>
+
+[Figure 265]: "Figure%20265"
+<a id="Figure 265"></a>
 
 **Figure 265**. B-device HNP
 
@@ -43662,7 +48525,10 @@ Connect
 Traffic
 
 
-                                                <!-- *P806*/844 -->
+<!-- *P806*/844 -->
+[P806]: #P806
+<a id="P806"></a>
+
 4. The OTG_FS controller continues the host role of initiating traffic, and when done,
 suspends the bus by writing the Port suspend bit in the host port control and status
 register.
@@ -43674,8 +48540,10 @@ down in the PHY to indicate the assumption of the device role.
 7. The OTG_FS controller connects, completing the HNP process.
 
 
-                                                <!-- *P807*/844 -->
-837
+<!-- *P807*/844 -->
+[P807]: #P807
+<a id="P807"></a>
+
 
 /23 Debug support (DBG)
 =======================
@@ -43696,10 +48564,18 @@ Two interfaces for debug are available:
 • Serial wire
 • JTAG debug port
 
+[Figure 266]: "#Figure%20266"
+<a id="Figure 266"></a>
+
+[Figure 266]: "Figure%20266"
+<a id="Figure 266"></a>
+
 **Figure 266**. Block diagram of STM32 MCU and Cortex®-M4 with FPU-level debug
 
 support
-Note: The debug features embedded in the Cortex®-M4 with FPU core are a subset of the Arm®
+
+> [!NOTE]
+> The debug features embedded in the Cortex®-M4 with FPU core are a subset of the Arm®
 CoreSight Design Kit.
 ????????????
 ?????????
@@ -43740,7 +48616,10 @@ CoreSight Design Kit.
 ?????????
 
 
-                                                <!-- *P808*/844 -->
+<!-- *P808*/844 -->
+[P808]: #P808
+<a id="P808"></a>
+
 The Arm® Cortex®-M4 with FPU core provides integrated on-chip debug support. It is
 comprised of:
 • SWJ-DP: Serial wire / JTAG debug port
@@ -43755,7 +48634,9 @@ corresponding pins are mapped)
 It also includes debug features dedicated to the STM32F411xC/E:
 • Flexible debug pinout assignment
 • MCU debug box (support for low-power modes, control over peripheral clocks, etc.)
-Note: For further information on debug functionality supported by the Arm® Cortex®-M4 with FPU
+
+> [!NOTE]
+> For further information on debug functionality supported by the Arm® Cortex®-M4 with FPU
 core, refer to the Cortex®-M4 with FPU -r0p1 Technical Reference Manual and to the
 CoreSight Design Kit-r0p1 TRM (see Section 23.2: Reference Arm® documentation).
 
@@ -43781,12 +48662,20 @@ In the SWJ-DP, the two JTAG pins of the SW-DP are multiplexed with some of the f
 pins of the JTAG-DP.
 
 
-                                                <!-- *P809*/844 -->
-837
+<!-- *P809*/844 -->
+[P809]: #P809
+<a id="P809"></a>
+
+
+[Figure 267]: "#Figure%20267"
+<a id="Figure 267"></a>
+
+[Figure 267]: "Figure%20267"
+<a id="Figure 267"></a>
 
 **Figure 267**. SWJ debug port
 
-Figure 267 shows that the asynchronous TRACE output (TRACESWO) is multiplexed with
+[Figure 267] shows that the asynchronous TRACE output (TRACESWO) is multiplexed with
 TDO. This means that the asynchronous trace can only be used with SW-DP, not JTAG-DP.
 
 //23.3.1 Mechanism to select the JTAG-DP or the SW-DP
@@ -43811,7 +48700,10 @@ available pins. As a result, some functionality (ETM) related to pin availabilit
 between packages.
 
 
-                                                <!-- *P810*/844 -->
+<!-- *P810*/844 -->
+[P810]: #P810
+<a id="P810"></a>
+
 
 //23.4.1 SWJ debug port pins
 ----------------------------
@@ -43831,13 +48723,18 @@ SWJ-DP ports and so, of releasing the associated pins for general-purpose IO (GP
 usage. For more details on how to disable SWJ-DP port pins, please refer to Section 8.3.2:
 I/O pin multiplexer and mapping.
 
-Note: When the APB bridge write buffer is full, it takes one extra APB cycle when writing the
+
+> [!NOTE]
+> When the APB bridge write buffer is full, it takes one extra APB cycle when writing the
 GPIO_AFR register. This is because the deactivation of the JTAGSW pins is done in two
 cycles to guarantee a clean level on the nTRST and TCK input signals of the core.
 • Cycle 1: the JTAGSW input signals to the core are tied to 1 or 0 (to 1 for nTRST, TDI
 and TMS, to 0 for TCK)
 • Cycle 2: the GPIO controller takes the control signals of the SWJTAG IO pins (like
 controls of direction, pull-up/down, Schmitt trigger activation, etc.).
+
+[Table 135]: "Table%20135"
+<a id="Table 135"></a>
 
 **Table 135**. SWJ debug port pins
 
@@ -43854,6 +48751,9 @@ TRACESWO if async trace is
 enabled
 PB3
 NJTRST I JTAG Test nReset - - PB4
+
+[Table 136]: "Table%20136"
+<a id="Table 136"></a>
 
 **Table 136**. Flexible SWJ-DP pin assignment
 
@@ -43879,8 +48779,10 @@ JTAG-DP Disabled and SW-DP Enabled X X
 JTAG-DP Disabled and SW-DP Disabled Released
 
 
-                                                <!-- *P811*/844 -->
-837
+<!-- *P811*/844 -->
+[P811]: #P811
+<a id="P811"></a>
+
 
 //23.4.3 Internal pull-up and pull-down on JTAG pins
 ----------------------------------------------------
@@ -43900,13 +48802,18 @@ equivalent state:
 • JTCK/SWCLK: AF input pull-down
 • JTDO: AF output floating
 The software can then use these I/Os as standard GPIOs.
-Note: The JTAG IEEE standard recommends to add pull-ups on TDI, TMS and nTRST but there is
+
+> [!NOTE]
+> The JTAG IEEE standard recommends to add pull-ups on TDI, TMS and nTRST but there is
 no special recommendation for TCK. However, for JTCK, the device needs an integrated
 pull-down.
 Having embedded pull-ups and pull-downs removes the need to add external resistors.
 
 
-                                                <!-- *P812*/844 -->
+<!-- *P812*/844 -->
+[P812]: #P812
+<a id="P812"></a>
+
 
 //23.4.4 Using serial wire and releasing the unused debug pins as GPIOs
 -----------------------------------------------------------------------
@@ -43922,7 +48829,9 @@ JTAG-DP to the SW-DP.
 • The system reset is released and the Core halts.
 • All the debug communications from this point are done using the SW-DP. The other
 JTAG pins can then be reassigned as GPIOs by the user software.
-Note: For user software designs, note that:
+
+> [!NOTE]
+> For user software designs, note that:
 To release the debug pins, remember that they will be first configured either in input-pull-up
 (nTRST, TMS, TDI) or pull-down (TCK) or output tristate (TDO) for a certain duration after
 reset until the instant when the user software releases the pins.
@@ -43940,12 +48849,22 @@ To access the TAP of the Cortex®-M4 with FPU for debug purposes:
 instruction must be shifted in using the BYPASS instruction.
 3. For each data shift, the unused TAP, which is in BYPASS mode, adds 1 extra data bit in
 the data scan chain.
-Note: Important: Once Serial-Wire is selected using the dedicated Arm® JTAG sequence, the
+
+> [!NOTE]
+> Important: Once Serial-Wire is selected using the dedicated Arm® JTAG sequence, the
 boundary scan TAP is automatically disabled (JTMS forced high).
 
 
-                                                <!-- *P813*/844 -->
-837
+<!-- *P813*/844 -->
+[P813]: #P813
+<a id="P813"></a>
+
+
+[Figure 268]: "#Figure%20268"
+<a id="Figure 268"></a>
+
+[Figure 268]: "Figure%20268"
+<a id="Figure 268"></a>
 
 **Figure 268**. JTAG TAP connections
 
@@ -43965,7 +48884,10 @@ boundary scan TAP is automatically disabled (JTMS forced high).
 ?????????
 
 
-                                                <!-- *P814*/844 -->
+<!-- *P814*/844 -->
+[P814]: #P814
+<a id="P814"></a>
+
 
 //23.6 ID codes and locking mechanism
 -------------------------------------
@@ -44011,8 +48933,10 @@ Bits 11:0 DEV_ID[11:0]: Device identifier
 The device ID is 0x431 for the STM32F411xC/E
 
 
-                                                <!-- *P815*/844 -->
-837
+<!-- *P815*/844 -->
+[P815]: #P815
+<a id="P815"></a>
+
 
 //23.6.3 Cortex®-M4 with FPU TAP
 --------------------------------
@@ -44036,6 +48960,9 @@ A standard JTAG state machine is implemented with a 4-bit instruction register (
 data registers (for full details, refer to the Cortex®-M4 with FPU r0p1 Technical Reference
 Manual (TRM), for references, see Section 23.2).
 
+
+[Table 137]: "Table%20137"
+<a id="Table 137"></a>
 
 **Table 137**. JTAG debug port data registers
 
@@ -44065,10 +48992,13 @@ Bits 2:0 = ACK[2:0] = 3-bit Acknowledge:
 010 = OK/FAULT
 001 = WAIT
 OTHER = reserved
-Refer to Table 138 for a description of the A[3:2] bits
+Refer to [Table 138] for a description of the A[3:2] bits
 
 
-                                                <!-- *P816*/844 -->
+<!-- *P816*/844 -->
+[P816]: #P816
+<a id="P816"></a>
+
 
 1011
 APACC
@@ -44097,6 +49027,9 @@ Abort register
 – Bits 31:1 = Reserved
 – Bit 0 = DAPABORT: write 1 to generate a DAP abort.
 
+[Table 138]: "Table%20138"
+<a id="Table 138"></a>
+
 **Table 138**. 32-bit debug port registers addressed through the shifted value A[3:2]
 
 Address A[3:2] value Description
@@ -44119,12 +49052,14 @@ current AP
 DP RDBUFF register: Used to allow the debugger to get the final result
 after a sequence of operations (without requesting new JTAG-DP
 operation)
-Table 137. JTAG debug port data registers (continued)
+[Table 137]. JTAG debug port data registers (continued)
 IR(3:0) Data register Details
 
 
-                                                <!-- *P817*/844 -->
-837
+<!-- *P817*/844 -->
+[P817]: #P817
+<a id="P817"></a>
+
 
 //23.8 SW debug port
 --------------------
@@ -44158,6 +49093,9 @@ APACC registers.
 The packet request is always followed by the turnaround time (default 1 bit) where neither
 the host nor target drive the line.
 
+[Table 139]: "Table%20139"
+<a id="Table 139"></a>
+
 **Table 139**. Packet request (8-bits)
 
 Bit Name Description
@@ -44168,7 +49106,7 @@ Bit Name Description
 2 RnW
 0: Write Request
 1: Read Request
-4:3 A[3:2] Address field of the DP or AP registers (refer to Table 138)
+4:3 A[3:2] Address field of the DP or AP registers (refer to [Table 138])
 5 Parity Single bit parity of preceding bits
 6 Stop 0
 7 Park
@@ -44176,7 +49114,10 @@ Not driven by the host. Must be read as “1” by the target because of
 the pull-up
 
 
-                                                <!-- *P818*/844 -->
+<!-- *P818*/844 -->
+[P818]: #P818
+<a id="P818"></a>
+
 
 The ACK Response must be followed by a turnaround time only if it is a READ transaction
 or if a WAIT or FAULT acknowledge has been received.
@@ -44189,7 +49130,9 @@ The DATA transfer must be followed by a turnaround time only if it is a READ tra
 The State Machine of the SW-DP has an internal ID code which identifies the SW-DP. It
 follows the JEP-106 standard. This ID code is the default Arm® one and is set to
 0x2BA01477 (corresponding to Cortex®-M4 with FPU r0p1).
-Note: Note that the SW-DP state machine is inactive until the target reads this ID code.
+
+> [!NOTE]
+> Note that the SW-DP state machine is inactive until the target reads this ID code.
 • The SW-DP state machine is in RESET STATE either after power-on reset, or after the
 DP has switched from JTAG to SWD or after the line is high for more than 50 cycles
 • The SW-DP state machine is in IDLE STATE if the line is low for at least two cycles
@@ -44214,6 +49157,9 @@ or RDBUFF read request to know if the AP read access was successful.
 accept a write operation even when other transactions are still outstanding. If the write
 buffer is full, the target acknowledge response is “WAIT”. With the exception of
 
+[Table 140]: "Table%20140"
+<a id="Table 140"></a>
+
 **Table 140**. ACK response (3 bits)
 
 Bit Name Description
@@ -44222,6 +49168,9 @@ Bit Name Description
 010: WAIT
 100: OK
 
+[Table 141]: "Table%20141"
+<a id="Table 141"></a>
+
 **Table 141**. DATA transfer (33 bits)
 
 Bit Name Description
@@ -44229,8 +49178,10 @@ Bit Name Description
 32 Parity Single parity of the 32 data bits
 
 
-                                                <!-- *P819*/844 -->
-837
+<!-- *P819*/844 -->
+[P819]: #P819
+<a id="P819"></a>
+
 IDCODE read or CTRL/STAT read or ABORT write which are accepted even if the write
 buffer is full.
 • Because of the asynchronous clock domains SWCLK and HCLK, two extra SWCLK
@@ -44245,6 +49196,9 @@ next transaction (requiring a power-up) occurs immediately, it will fail.
 
 Access to these registers are initiated when APnDP=0
 
+
+[Table 142]: "Table%20142"
+<a id="Table 142"></a>
 
 **Table 142**. SW-DP registers
 
@@ -44295,7 +49249,10 @@ presented as the result of a previous read,
 without initiating a new transaction
 
 
-                                                <!-- *P820*/844 -->
+<!-- *P820*/844 -->
+[P820]: #P820
+<a id="P820"></a>
+
 
 //23.8.6 SW-AP registers
 ------------------------
@@ -44325,6 +49282,9 @@ The AHB-AP of the Cortex®-M4 with FPU includes 9 x 32-bits registers:
 
 Refer to the Cortex®-M4 with FPU r0p1 TRM for further details.
 
+[Table 143]: "Table%20143"
+<a id="Table 143"></a>
+
 **Table 143**. Cortex®-M4 with FPU AHB-AP registers
 
 Address
@@ -44348,8 +49308,10 @@ the Transfer Address Register.
 0xFC AHB-AP ID Register -
 
 
-                                                <!-- *P821*/844 -->
-837
+<!-- *P821*/844 -->
+[P821]: #P821
+<a id="P821"></a>
+
 
 //23.10 Core debug
 ------------------
@@ -44359,13 +49321,18 @@ is by means of the Advanced High-performance Bus (AHB-AP) port. The processor ca
 access these registers directly over the internal Private Peripheral Bus (PPB).
 It consists of 4 registers:
 
-Note: Important: these registers are not reset by a system reset. They are only reset by a power-
+
+> [!NOTE]
+> Important: these registers are not reset by a system reset. They are only reset by a power-
 on reset.
 Refer to the Cortex®-M4 with FPU r0p1 TRM for further details.
 To Halt on reset, it is necessary to:
 • enable the bit0 (VC_CORRESET) of the Debug and Exception Monitor Control
 Register
 • enable the bit0 (C_DEBUGEN) of the Debug Halting Control and Status Register.
+
+[Table 144]: "Table%20144"
+<a id="Table 144"></a>
 
 **Table 144**. Core debug registers
 
@@ -44387,7 +49354,10 @@ This provides Vector Catching and Debug Monitor Control. This register contains 
 bit named TRCENA which enable the use of a TRACE.
 
 
-                                                <!-- *P822*/844 -->
+<!-- *P822*/844 -->
+[P822]: #P822
+<a id="P822"></a>
+
 
 //23.11 Capability of the debugger host to connect under system
 ---------------------------------------------------------------
@@ -44404,7 +49374,9 @@ This way, it is possible for the debugger to connect under System Reset, program
 Core Debug Registers to halt the core when fetching the reset vector. Then the host can
 release the system reset and the core will immediately halt without having executed any
 instructions. In addition, it is possible to program any debug features under System Reset.
-Note: It is highly recommended for the debugger host to connect (set a breakpoint in the reset
+
+> [!NOTE]
+> It is highly recommended for the debugger host to connect (set a breakpoint in the reset
 vector) under system reset.
 
 //23.12 FPB (Flash patch breakpoint)
@@ -44423,8 +49395,10 @@ They can be used either to remap to a corresponding area in the System Space or 
 generate a Breakpoint Instruction to the core.
 
 
-                                                <!-- *P823*/844 -->
-837
+<!-- *P823*/844 -->
+[P823]: #P823
+<a id="P823"></a>
+
 
 //23.13 DWT (data watchpoint trigger)
 -------------------------------------
@@ -44477,15 +49451,23 @@ emitted to the TPIU as 00 00 00 00 00 80 (LSB emitted first).
 A synchronization packet is a timestamp packet control. It is emitted at each DWT trigger.
 
 
-                                                <!-- *P824*/844 -->
+<!-- *P824*/844 -->
+[P824]: #P824
+<a id="P824"></a>
+
 For this, the DWT must be configured to trigger the ITM: the bit CYCCNTENA (bit0) of the
 DWT Control Register must be set. In addition, the bit2 (SYNCENA) of the ITM Trace
 Control Register must be set.
-Note: If the SYNENA bit is not set, the DWT generates Synchronization triggers to the TPIU which
+
+> [!NOTE]
+> If the SYNENA bit is not set, the DWT generates Synchronization triggers to the TPIU which
 will send only TPIU synchronization packets and not ITM synchronization packets.
 An overflow packet consists is a special timestamp packets which indicates that data has
 been written but the FIFO was full.
 
+
+[Table 145]: "Table%20145"
+<a id="Table 145"></a>
 
 **Table 145**. Main ITM registers
 
@@ -44525,8 +49507,10 @@ Write the 32-bits data on the selected Stimulus Port (32
 available) to be traced out.
 
 
-                                                <!-- *P825*/844 -->
-837
+<!-- *P825*/844 -->
+[P825]: #P825
+<a id="P825"></a>
+
 Example of configuration
 To output a simple value to the TPIU:
 • Configure the TPIU and assign TRACE I/Os by configuring the DBGMCU_CR (refer to
@@ -44571,7 +49555,10 @@ This part is described in the chapter 7 ETMv3 Signal Protocol of the Arm® IHI 0
 document.
 
 
-                                                <!-- *P826*/844 -->
+<!-- *P826*/844 -->
+[P826]: #P826
+<a id="P826"></a>
+
 
 //23.15.3 Main ETM registers
 ----------------------------
@@ -44609,6 +49596,9 @@ To enter low-power mode, the instruction WFI or WFE must be executed.
 The MCU implements several low-power modes which can either deactivate the CPU clock
 or reduce the power of the CPU.
 
+[Table 146]: "Table%20146"
+<a id="Table 146"></a>
+
 **Table 146**. Main ETM registers
 
 Address Register Details
@@ -44632,8 +49622,10 @@ This register defines the traces used by the trigger source
 to start and stop the trace, respectively.
 
 
-                                                <!-- *P827*/844 -->
-837
+<!-- *P827*/844 -->
+[P827]: #P827
+<a id="P827"></a>
+
 The core does not allow FCLK or HCLK to be turned off during a debug session. As these
 are required for the debugger connection, during a debug, they must remain active. The
 MCU integrates special means to allow the user to debug software in low-power modes.
@@ -44676,7 +49668,10 @@ Only 32-bit access supported
 POR Reset: 0x0000 0000 (not reset by system reset)
 
 
-                                                <!-- *P828*/844 -->
+<!-- *P828*/844 -->
+[P828]: #P828
+<a id="P828"></a>
+
 
 
 31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16
@@ -44737,8 +49732,10 @@ need to reconfigure the clock controller.
 clock that is provided to FCLK (system clock as previously configured by the software).
 
 
-                                                <!-- *P829*/844 -->
-837
+<!-- *P829*/844 -->
+[P829]: #P829
+<a id="P829"></a>
+
 
 //23.16.4 Debug MCU APB1 freeze register (DBGMCU_APB1_FZ)
 ---------------------------------------------------------
@@ -44787,7 +49784,10 @@ Bit 11 DBG_WWDG_STOP: Debug Window Watchdog stopped when Core is halted
 1: The window watchdog counter clock is stopped when the core is halted
 
 
-                                                <!-- *P830*/844 -->
+<!-- *P830*/844 -->
+[P830]: #P830
+<a id="P830"></a>
+
 
 //23.16.5 Debug MCU APB2 Freeze register (DBGMCU_APB2_FZ)
 ---------------------------------------------------------
@@ -44836,8 +49836,10 @@ Bit 0 DBG_TIM1_STOP: TIM1 counter stopped when core is halted
 core is halted
 
 
-                                                <!-- *P831*/844 -->
-837
+<!-- *P831*/844 -->
+[P831]: #P831
+<a id="P831"></a>
+
 
 //23.17 TPIU (trace port interface unit)
 ----------------------------------------
@@ -44852,11 +49854,20 @@ port analyzer (TPA).
 The core embeds a simple TPIU, especially designed for low-cost debug (consisting of a
 special version of the CoreSight TPIU).
 
+[Figure 269]: "#Figure%20269"
+<a id="Figure 269"></a>
+
+[Figure 269]: "Figure%20269"
+<a id="Figure 269"></a>
+
 **Figure 269**. TPIU block diagram
 
 
 
-                                                <!-- *P832*/844 -->
+<!-- *P832*/844 -->
+[P832]: #P832
+<a id="P832"></a>
+
 
 //23.17.2 TRACE pin assignment
 ------------------------------
@@ -44891,6 +49902,9 @@ the TRACE pins are not assigned.
 This register is mapped on the external PPB and is reset by the PORESET (and not by the
 SYSTEM reset). It can be written by the debugger under SYSTEM reset.
 
+[Table 147]: "Table%20147"
+<a id="Table 147"></a>
+
 **Table 147**. Asynchronous TRACE pin assignment
 
 TPUI pin name
@@ -44898,6 +49912,9 @@ Trace synchronous mode
 pin assignment
 Type Description
 TRACESWO O TRACE Async Data Output PB3
+
+[Table 148]: "Table%20148"
+<a id="Table 148"></a>
 
 **Table 148**. Synchronous TRACE pin assignment
 
@@ -44913,10 +49930,14 @@ Can be 1, 2 or 4.
 PE[6:3]
 
 
-                                                <!-- *P833*/844 -->
-837
+<!-- *P833*/844 -->
+[P833]: #P833
+<a id="P833"></a>
 
-Note: By default, the TRACECLKIN input clock of the TPIU is tied to GND. It is assigned to HCLK
+
+
+> [!NOTE]
+> By default, the TRACECLKIN input clock of the TPIU is tied to GND. It is assigned to HCLK
 two clock cycles after the bit TRACE_IOEN has been set.
 The debugger must then program the Trace Mode by writing the PROTOCOL[1:0] bits in the
 SPP_R (Selected Pin Protocol) register of the TPIU.
@@ -44942,6 +49963,9 @@ bytes:
 – if the corresponding byte was a data, this bit gives bit0 of the data.
 – if the corresponding byte was an ID change, this bit indicates when that ID change
 takes effect.
+
+[Table 149]: "Table%20149"
+<a id="Table 149"></a>
 
 **Table 149**. Flexible TRACE pin assignment
 
@@ -44993,8 +50017,13 @@ TRACECK TRACED[0] TRACED[1] TRACED[2] TRACED[3]
 1. When Serial Wire mode is used, it is released. But when JTAG is used, it is assigned to JTDO.
 
 
-                                                <!-- *P834*/844 -->
-Note: Refer to the Arm® CoreSight Architecture Specification v1.0 (Arm® IHI 0029B) for further
+<!-- *P834*/844 -->
+[P834]: #P834
+<a id="P834"></a>
+
+
+> [!NOTE]
+> Refer to the Arm® CoreSight Architecture Specification v1.0 (Arm® IHI 0029B) for further
 information
 
 //23.17.4 TPUI frame synchronization packets
@@ -45040,13 +50069,17 @@ The trace data output size can be configured to 4, 2 or 1 pin: TRACED(3:0)
 The output clock is output to the debugger (TRACECK)
 Here, TRACECLKIN is driven internally and is connected to HCLK only when TRACE is
 used.
-Note: In this synchronous mode, it is not required to provide a stable clock frequency.
+
+> [!NOTE]
+> In this synchronous mode, it is not required to provide a stable clock frequency.
 The TRACE I/Os (including TRACECK) are driven by the rising edge of TRACLKIN (equal
 to HCLK). Consequently, the output frequency of TRACECK is equal to HCLK/2.
 
 
-                                                <!-- *P835*/844 -->
-837
+<!-- *P835*/844 -->
+[P835]: #P835
+<a id="P835"></a>
+
 
 //23.17.7 Asynchronous mode
 ---------------------------
@@ -45065,7 +50098,9 @@ version is tolerant up to 10%.
 In the STM32F411xC/E, this TRACECLKIN input is internally connected to HCLK. This
 means that when in asynchronous trace mode, the application is restricted to use to time
 frames where the CPU frequency is stable.
-Note: Important: when using asynchronous trace: it is important to be aware that:
+
+> [!NOTE]
+> Important: when using asynchronous trace: it is important to be aware that:
 The default clock of the STM32F411xC/E MCUs is the internal RC oscillator. Its frequency
 under reset is different from the one after reset release. This is because the RC calibration
 is the default one under system reset and is updated at each system reset release.
@@ -45081,6 +50116,9 @@ The TPIU APB registers can be read and written only if the bit TRCENA of the Deb
 Exception and Monitor Control Register (DEMCR) is set. Otherwise, the registers are read
 as zero (the output of this bit enables the PCLK of the TPIU).
 
+
+[Table 150]: "Table%20150"
+<a id="Table 150"></a>
 
 **Table 150**. Important TPIU registers
 
@@ -45101,7 +50139,10 @@ Bit1:0=
 11: reserved
 
 
-                                                <!-- *P836*/844 -->
+<!-- *P836*/844 -->
+[P836]: #P836
+<a id="P836"></a>
+
 
 //23.17.10 Example of configuration
 -----------------------------------
@@ -45128,7 +50169,9 @@ continuous mode. In asynchronous mode (Select_Pin_Protocol register
 bit1:0 <> 00), this bit can be written to activate or not the formatter.
 Bit 0 = always 0
 The resulting default value is 0x102
-Note: In synchronous mode, because the TRACECTL pin is not mapped
+
+> [!NOTE]
+> In synchronous mode, because the TRACECTL pin is not mapped
 outside the chip, the formatter is always enabled in continuous mode -this
 way the formatter inserts some control packets to identify the source of the
 trace packets).
@@ -45136,12 +50179,14 @@ trace packets).
 Formatter and flush
 status
 Not used in Cortex®-M4 with FPU, always read as 0x00000008
-Table 150. Important TPIU registers (continued)
+[Table 150]. Important TPIU registers (continued)
 Address Register Description
 
 
-                                                <!-- *P837*/844 -->
-837
+<!-- *P837*/844 -->
+[P837]: #P837
+<a id="P837"></a>
+
 
 //23.18 DBG register map
 ------------------------
@@ -45149,6 +50194,9 @@ Address Register Description
 The following table summarizes the Debug registers.
 
 
+
+[Table 151]: "Table%20151"
+<a id="Table 151"></a>
 
 **Table 151**. DBG register map and reset values
 
@@ -45241,7 +50289,10 @@ Reset value 0 0 0 0
 1. The reset value is product dependent. For more information, refer to Section 23.6.1: MCU device ID code.
 
 
-                                                <!-- *P838*/844 -->
+<!-- *P838*/844 -->
+[P838]: #P838
+<a id="P838"></a>
+
 
 /24 Device electronic signature
 ===============================
@@ -45285,8 +50336,10 @@ UID(47:32)
 r r r r r r r r r r r r r r r r
 
 
-                                                <!-- *P839*/844 -->
-839
+<!-- *P839*/844 -->
+[P839]: #P839
+<a id="P839"></a>
+
 
 Address offset: 0x08
 Read only = 0xXXXX XXXX where X is factory-programmed
@@ -45321,303 +50374,360 @@ This bitfield indicates the size of the device Flash memory expressed in Kbytes.
 As an example, 0x0400 corresponds to 1024 Kbytes.
 
 
-                                                <!-- *P840*/844 -->
+<!-- *P840*/844 -->
+[P840]: #P840
+<a id="P840"></a>
+
 
 /25 Revision history
 ====================
 
 
 
+[Table 152]: "Table%20152"
+<a id="Table 152"></a>
+
 **Table 152**. Document revision history
 
-Date Version Changes
-24-July-2014 1 Initial version
-15-Sep-2017 2
-Added:
-– Section 5.3: Low-power modes
-– Exiting low-power mode
-– Table 63: Minimum and maximum timeout values at 30 MHz (f PCLK1 )
-– Table 132: TRDT values
-Updated:
-– Table 8: Option byte organization
-– Table 14: Low-power mode summary
-– Section 4.2: CRC main features
-– Section 5.4.1: PWR power control register (PWR_CR)
-– Entering Sleep mode, Exiting Sleep mode
-– Table 15: Sleep-now entry and exit
-– Table 16: Sleep-on-exit entry and exit
-– Entering Stop mode
-– Exiting Stop mode
-– Entering Standby mode, Exiting Standby mode
-– Section 8.3.6: GPIO locking mechanism
-– Section 8.4.1: GPIO port mode register (GPIOx_MODER) (x = A..E and H)
-– Section 11.12.7: ADC watchdog higher threshold register (ADC_HTR)
-– Section 11.12.8: ADC watchdog lower threshold register (ADC_LTR)
-– Section 12.4.12: TIM1 auto-reload register (TIMx_ARR)
-– Section 13.4.10: TIMx counter (TIMx_CNT)
-– Section 13.4.10: TIMx counter (TIMx_CNT)
-– Section 13.4.11: TIMx prescaler (TIMx_PSC)
-– Section 13.4.12: TIMx auto-reload register (TIMx_ARR)
-– Section 13.4.15: TIMx capture/compare register 3 (TIMx_CCR3)
-– Section 14.4.5: TIM9 event generation register (TIMx_EGR)
-– Section 16.4: How to program the watchdog timeout
-– Section 23.15.4: ETM configuration example
-– Section 23.16.2: Debug support for timers, watchdog and I2C
-– Table 18: Stop mode entry and exit
-– Table 19: Standby mode entry and exit
-– Table 53: TIMx internal trigger connection
-– Table 53: TIMx internal trigger connection
-– Figure 157: Watchdog block diagram
-30-Nov-2018 3
-Updated:
-– Section 9.3.4: Arbiter
-– Section 22: USB on-the-go full-speed (OTG_FS)
-RM0383 Index
-RM0383 Rev 3 841/844
-Index
-A
-ADC_CCR . . . . . . . . . . . . . . . . . . . . . . . . . . .238
-ADC_CR1 . . . . . . . . . . . . . . . . . . . . . . . . . . .229
-ADC_CR2 . . . . . . . . . . . . . . . . . . . . . . . . . . .231
-ADC_DR . . . . . . . . . . . . . . . . . . . . . . . . . . . .238
-ADC_HTR . . . . . . . . . . . . . . . . . . . . . . . . . . .234
-ADC_JDRx . . . . . . . . . . . . . . . . . . . . . . . . . . .238
-ADC_JOFRx . . . . . . . . . . . . . . . . . . . . . . . . .234
-ADC_JSQR . . . . . . . . . . . . . . . . . . . . . . . . . .237
-ADC_LTR . . . . . . . . . . . . . . . . . . . . . . . . . . . .235
-ADC_SMPR1 . . . . . . . . . . . . . . . . . . . . . . . . .233
-ADC_SMPR2 . . . . . . . . . . . . . . . . . . . . . . . . .233
-ADC_SQR1 . . . . . . . . . . . . . . . . . . . . . . . . . .235
-ADC_SQR2 . . . . . . . . . . . . . . . . . . . . . . . . . .236
-ADC_SQR3 . . . . . . . . . . . . . . . . . . . . . . . . . .236
-ADC_SR . . . . . . . . . . . . . . . . . . . . . . . . . . . . .228
-C
-CRC_DR . . . . . . . . . . . . . . . . . . . . . . . . . . . . .68
-CRC_IDR . . . . . . . . . . . . . . . . . . . . . . . . . . . . .68
-D
-DBGMCU_APB1_FZ . . . . . . . . . . . . . . . . . . .829
-DBGMCU_APB2_FZ . . . . . . . . . . . . . . . . . . .830
-DBGMCU_CR . . . . . . . . . . . . . . . . . . . . . . . .827
-DBGMCU_IDCODE . . . . . . . . . . . . . . . . . . . .814
-DMA_HIFCR . . . . . . . . . . . . . . . . . . . . . . . . .189
-DMA_HISR . . . . . . . . . . . . . . . . . . . . . . . . . . .188
-DMA_LIFCR . . . . . . . . . . . . . . . . . . . . . . . . . .189
-DMA_LISR . . . . . . . . . . . . . . . . . . . . . . . . . . .187
-DMA_SxCR . . . . . . . . . . . . . . . . . . . . . . . . . .190
-DMA_SxFCR . . . . . . . . . . . . . . . . . . . . . . . . .195
-DMA_SxM0AR . . . . . . . . . . . . . . . . . . . . . . . .194
-DMA_SxM1AR . . . . . . . . . . . . . . . . . . . . . . . .194
-DMA_SxNDTR . . . . . . . . . . . . . . . . . . . . . . . .193
-DMA_SxPAR . . . . . . . . . . . . . . . . . . . . . . . . .194
-E
-EXTI_EMR . . . . . . . . . . . . . . . . . . . . . . . . . . .208
-EXTI_FTSR . . . . . . . . . . . . . . . . . . . . . . . . . .209
-EXTI_IMR . . . . . . . . . . . . . . . . . . . . . . . . . . . .208
-EXTI_PR . . . . . . . . . . . . . . . . . . . . . . . . . . . .210
-EXTI_RTSR . . . . . . . . . . . . . . . . . . . . . . . . . .209
-EXTI_SWIER . . . . . . . . . . . . . . . . . . . . . . . . .210
-F
-FLITF_FCR . . . . . . . . . . . . . . . . . . . . . . . . . . . 62
-FLITF_FKEYR . . . . . . . . . . . . . . . . . . . . . . . . . 60
-FLITF_FOPTCR . . . . . . . . . . . . . . . . . . . . . . . 63
-FLITF_FOPTKEYR . . . . . . . . . . . . . . . . . . . . . 60
-FLITF_FSR . . . . . . . . . . . . . . . . . . . . . . . . . . . 61
-G
-GPIOx_AFRH . . . . . . . . . . . . . . . . . . . . . . . . 162
-GPIOx_AFRL . . . . . . . . . . . . . . . . . . . . . . . . 161
-GPIOx_BSRR . . . . . . . . . . . . . . . . . . . . . . . . 160
-GPIOx_IDR . . . . . . . . . . . . . . . . . . . . . . . . . . 159
-GPIOx_LCKR . . . . . . . . . . . . . . . . . . . . . . . . 160
-GPIOx_MODER . . . . . . . . . . . . . . . . . . . . . . 157
-GPIOx_ODR . . . . . . . . . . . . . . . . . . . . . . . . . 159
-GPIOx_OSPEEDR . . . . . . . . . . . . . . . . . . . . 158
-GPIOx_OTYPER . . . . . . . . . . . . . . . . . . . . . . 157
-GPIOx_PUPDR . . . . . . . . . . . . . . . . . . . . . . . 158
-I
-I2C_CCR . . . . . . . . . . . . . . . . . . . . . . . . . . . . 502
-I2C_CR1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . 492
-I2C_CR2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . 494
-I2C_DR . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 497
-I2C_OAR1 . . . . . . . . . . . . . . . . . . . . . . . . . . . 496
-I2C_OAR2 . . . . . . . . . . . . . . . . . . . . . . . . . . . 496
-I2C_SR1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . 497
-I2C_SR2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . 500
-I2C_TRISE . . . . . . . . . . . . . . . . . . . . . . . . . . 503
-IWDG_KR . . . . . . . . . . . . . . . . . . . . . . . . . . . 423
-IWDG_PR . . . . . . . . . . . . . . . . . . . . . . . . . . . 423
-IWDG_RLR . . . . . . . . . . . . . . . . . . . . . . . . . . 424
-IWDG_SR . . . . . . . . . . . . . . . . . . . . . . . . . . . 424
-O
-OTG_FS_CID . . . . . . . . . . . . . . . . . . . . . . . . 718
-OTG_FS_DAINT . . . . . . . . . . . . . . . . . . . . . . 735
-OTG_FS_DAINTMSK . . . . . . . . . . . . . . . . . . 736
-OTG_FS_DCFG . . . . . . . . . . . . . . . . . . . . . . 730
-OTG_FS_DCTL . . . . . . . . . . . . . . . . . . . . . . . 731
-OTG_FS_DIEPCTL0 . . . . . . . . . . . . . . . . . . . 737
-OTG_FS_DIEPCTLx . . . . . . . . . . . . . . . . . . . 739
-OTG_FS_DIEPEMPMSK . . . . . . . . . . . . . . . 737
-OTG_FS_DIEPINTx . . . . . . . . . . . . . . . . . . . 746
-OTG_FS_DIEPMSK . . . . . . . . . . . . . . . . . . . 733
+|     Date     | Version |                                 Changes                                 |
+|--------------|---------|-------------------------------------------------------------------------|
+| 24-July-2014 |       1 | Initial version                                                         |
+|--------------|---------|-------------------------------------------------------------------------|
+| 15-Sep-2017  |       2 | Added:                                                                  |
+|              |         | – Section 5.3: Low-power modes                                          |
+|              |         | – Exiting low-power mode                                                |
+|              |         | – [Table 63]: Minimum and maximum timeout values at 30 MHz (f PCLK1 )     |
+|              |         | – [Table 132]: TRDT values                                                |
+|              |         | Updated:                                                                |
+|              |         | – [Table 8]: Option byte organization                                     |
+|              |         | – [Table 14]: Low-power mode summary                                      |
+|              |         | – Section 4.2: CRC main features                                        |
+|              |         | – Section 5.4.1: PWR power control register (PWR_CR)                    |
+|              |         | – Entering Sleep mode, Exiting Sleep mode                               |
+|              |         | – [Table 15]: Sleep-now entry and exit                                    |
+|              |         | – [Table 16]: Sleep-on-exit entry and exit                                |
+|              |         | – Entering Stop mode                                                    |
+|              |         | – Exiting Stop mode                                                     |
+|              |         | – Entering Standby mode, Exiting Standby mode                           |
+|              |         | – Section 8.3.6: GPIO locking mechanism                                 |
+|              |         | – Section 8.4.1: GPIO port mode register (GPIOx_MODER) (x = A..E and H) |
+|              |         | – Section 11.12.7: ADC watchdog higher threshold register (ADC_HTR)     |
+|              |         | – Section 11.12.8: ADC watchdog lower threshold register (ADC_LTR)      |
+|              |         | – Section 12.4.12: TIM1 auto-reload register (TIMx_ARR)                 |
+|              |         | – Section 13.4.10: TIMx counter (TIMx_CNT)                              |
+|              |         | – Section 13.4.10: TIMx counter (TIMx_CNT)                              |
+|              |         | – Section 13.4.11: TIMx prescaler (TIMx_PSC)                            |
+|              |         | – Section 13.4.12: TIMx auto-reload register (TIMx_ARR)                 |
+|              |         | – Section 13.4.15: TIMx capture/compare register 3 (TIMx_CCR3)          |
+|              |         | – Section 14.4.5: TIM9 event generation register (TIMx_EGR)             |
+|              |         | – Section 16.4: How to program the watchdog timeout                     |
+|              |         | – Section 23.15.4: ETM configuration example                            |
+|              |         | – Section 23.16.2: Debug support for timers, watchdog and I2C           |
+|              |         | – [Table 18]: Stop mode entry and exit                                    |
+|              |         | – [Table 19]: Standby mode entry and exit                                 |
+|              |         | – [Table 53]: TIMx internal trigger connection                            |
+|              |         | – [Table 53]: TIMx internal trigger connection                            |
+|              |         | – [Figure 157]: Watchdog block diagram                                    |
+|--------------|---------|-------------------------------------------------------------------------|
+| 30-Nov-2018  |       3 | Updated:                                                                |
+|              |         | – Section 9.3.4: Arbiter                                                |
+|              |         | – Section 22: USB on-the-go full-speed (OTG_FS)                         |
+
+<!-- *P841*/844 -->
+[P841]: #P841
+<a id="P841"></a>
+
+/Index
+=========
+
+//Index A
+---------
+*  ADC_CCR . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P238]
+*  ADC_CR1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P229]
+*  ADC_CR2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P231]
+*  ADC_DR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P238]
+*  ADC_HTR . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P234]
+*  ADC_JDRx  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P238]
+*  ADC_JOFRx . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P234]
+*  ADC_JSQR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P237]
+*  ADC_LTR . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P235]
+*  ADC_SMPR1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P233]
+*  ADC_SMPR2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P233]
+*  ADC_SQR1  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P235]
+*  ADC_SQR2  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P236]
+*  ADC_SQR3  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P236]
+*  ADC_SR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P228]
+
+//Index C
+---------
+*  CRC_DR . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P68]
+*  CRC_IDR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P68]
+
+//Index D
+---------
+*  DBGMCU_APB1_FZ  . . . . . . . . . . . . . . . . . . . . . . . . . [P829]
+*  DBGMCU_APB2_FZ  . . . . . . . . . . . . . . . . . . . . . . . . . [P830]
+*  DBGMCU_CR . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P827]
+*  DBGMCU_IDCODE . . . . . . . . . . . . . . . . . . . . . . . . . . [P814]
+*  DMA_HIFCR . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P189]
+*  DMA_HISR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P188]
+*  DMA_LIFCR . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P189]
+*  DMA_LISR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P187]
+*  DMA_SxCR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P190]
+*  DMA_SxFCR . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P195]
+*  DMA_SxM0AR  . . . . . . . . . . . . . . . . . . . . . . . . . . . [P194]
+*  DMA_SxM1AR  . . . . . . . . . . . . . . . . . . . . . . . . . . . [P194]
+*  DMA_SxNDTR  . . . . . . . . . . . . . . . . . . . . . . . . . . . [P193]
+*  DMA_SxPAR . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P194]
+
+//Index E
+---------
+*  EXTI_EMR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P208]
+*  EXTI_FTSR . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P209]
+*  EXTI_IMR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P208]
+*  EXTI_PR . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P210]
+*  EXTI_RTSR . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P209]
+*  EXTI_SWIER  . . . . . . . . . . . . . . . . . . . . . . . . . . . [P210]
+
+//Index F
+---------
+*  FLITF_FCR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P62]
+*  FLITF_FKEYR  . . . . . . . . . . . . . . . . . . . . . . . . . . . [P60]
+*  FLITF_FOPTCR . . . . . . . . . . . . . . . . . . . . . . . . . . . [P63]
+*  FLITF_FOPTKEYR . . . . . . . . . . . . . . . . . . . . . . . . . . [P60]
+*  FLITF_FSR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P61]
+
+//Index G
+---------
+*  GPIOx_AFRH  . . . . . . . . . . . . . . . . . . . . . . . . . . . [P162]
+*  GPIOx_AFRL  . . . . . . . . . . . . . . . . . . . . . . . . . . . [P161]
+*  GPIOx_BSRR  . . . . . . . . . . . . . . . . . . . . . . . . . . . [P160]
+*  GPIOx_IDR . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P159]
+*  GPIOx_LCKR  . . . . . . . . . . . . . . . . . . . . . . . . . . . [P160]
+*  GPIOx_MODER . . . . . . . . . . . . . . . . . . . . . . . . . . . [P157]
+*  GPIOx_ODR . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P159]
+*  GPIOx_OSPEEDR . . . . . . . . . . . . . . . . . . . . . . . . . . [P158]
+*  GPIOx_OTYPER  . . . . . . . . . . . . . . . . . . . . . . . . . . [P157]
+*  GPIOx_PUPDR . . . . . . . . . . . . . . . . . . . . . . . . . . . [P158]
+
+//Index I
+---------
+*  I2C_CCR . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P502]
+*  I2C_CR1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P492]
+*  I2C_CR2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P494]
+*  I2C_DR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P497]
+*  I2C_OAR1  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P496]
+*  I2C_OAR2  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P496]
+*  I2C_SR1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P497]
+*  I2C_SR2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P500]
+*  I2C_TRISE . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P503]
+*  IWDG_KR . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P423]
+*  IWDG_PR . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P423]
+*  IWDG_RLR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P424]
+*  IWDG_SR . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P424]
+
+//Index O
+---------
+*  OTG_FS_CID  . . . . . . . . . . . . . . . . . . . . . . . . . . . [P718]
+*  OTG_FS_DAINT  . . . . . . . . . . . . . . . . . . . . . . . . . . [P735]
+*  OTG_FS_DAINTMSK . . . . . . . . . . . . . . . . . . . . . . . . . [P736]
+*  OTG_FS_DCFG . . . . . . . . . . . . . . . . . . . . . . . . . . . [P730]
+*  OTG_FS_DCTL . . . . . . . . . . . . . . . . . . . . . . . . . . . [P731]
+*  OTG_FS_DIEPCTL0 . . . . . . . . . . . . . . . . . . . . . . . . . [P737]
+*  OTG_FS_DIEPCTLx . . . . . . . . . . . . . . . . . . . . . . . . . [P739]
+*  OTG_FS_DIEPEMPMSK . . . . . . . . . . . . . . . . . . . . . . . . [P737]
+*  OTG_FS_DIEPINTx . . . . . . . . . . . . . . . . . . . . . . . . . [P746]
+*  OTG_FS_DIEPMSK  . . . . . . . . . . . . . . . . . . . . . . . . . [P733]
 
 
-                                                <!-- *P842*/844 -->
-OTG_FS_DIEPTSIZ0 . . . . . . . . . . . . . . . . . . .748
-OTG_FS_DIEPTSIZx . . . . . . . . . . . . . . . . . . .751
-OTG_FS_DIEPTXF0 . . . . . . . . . . . . . . . . . . .716
-OTG_FS_DIEPTXFx . . . . . . . . . . . . . . . . . . .719
-OTG_FS_DOEPCTL0 . . . . . . . . . . . . . . . . . .742
-OTG_FS_DOEPCTLx . . . . . . . . . . . . . . . . . .743
-OTG_FS_DOEPINTx . . . . . . . . . . . . . . . . . . .747
-OTG_FS_DOEPMSK . . . . . . . . . . . . . . . . . . .734
-OTG_FS_DOEPTSIZ0 . . . . . . . . . . . . . . . . . .750
-OTG_FS_DOEPTSIZx . . . . . . . . . . . . . . . . . .752
-OTG_FS_DSTS . . . . . . . . . . . . . . . . . . . . . . .732
-OTG_FS_DTXFSTSx . . . . . . . . . . . . . . . . . . .752
-OTG_FS_DVBUSDIS . . . . . . . . . . . . . . . . . .736
-OTG_FS_DVBUSPULSE . . . . . . . . . . . . . . . .736
-OTG_FS_GAHBCFG . . . . . . . . . . . . . . . . . . .702
-OTG_FS_GCCFG . . . . . . . . . . . . . . . . . . . . .717
-OTG_FS_GINTMSK . . . . . . . . . . . . . . . . . . .711
-OTG_FS_GINTSTS . . . . . . . . . . . . . . . . . . . .707
-OTG_FS_GOTGCTL . . . . . . . . . . . . . . . . . . .699
-OTG_FS_GOTGINT . . . . . . . . . . . . . . . . . . .700
-OTG_FS_GRSTCTL . . . . . . . . . . . . . . . . . . .705
-OTG_FS_GRXFSIZ . . . . . . . . . . . . . . . . . . . .715
-OTG_FS_GRXSTSP . . . . . . . . . . . . . . . . . . .714
-OTG_FS_GRXSTSR . . . . . . . . . . . . . . . . . . .714
-OTG_FS_GUSBCFG . . . . . . . . . . . . . . . . . . .703
-OTG_FS_HAINT . . . . . . . . . . . . . . . . . . . . . .722
-OTG_FS_HAINTMSK . . . . . . . . . . . . . . . . . .723
-OTG_FS_HCCHARx . . . . . . . . . . . . . . . . . . .726
-OTG_FS_HCFG . . . . . . . . . . . . . . . . . . . . . . .720
-OTG_FS_HCINTMSKx . . . . . . . . . . . . . . . . .728
-OTG_FS_HCINTx . . . . . . . . . . . . . . . . . . . . .727
-OTG_FS_HCTSIZx . . . . . . . . . . . . . . . . . . . .729
-OTG_FS_HFIR . . . . . . . . . . . . . . . . . . . . . . .720
-OTG_FS_HFNUM . . . . . . . . . . . . . . . . . . . . .721
-OTG_FS_HNPTXFSIZ . . . . . . . . . . . . . . . . . .716
-OTG_FS_HNPTXSTS . . . . . . . . . . . . . . . . . .716
-OTG_FS_HPRT . . . . . . . . . . . . . . . . . . . . . . .723
-OTG_FS_HPTXFSIZ . . . . . . . . . . . . . . . . . . .719
-OTG_FS_HPTXSTS . . . . . . . . . . . . . . . . . . .721
-OTG_FS_PCGCCTL . . . . . . . . . . . . . . . . . . .753
-P
-PWR_CR . . . . . . . . . . . . . . . . . . . . . . . . . . . . .86
-PWR_CSR . . . . . . . . . . . . . . . . . . . . . . . . . . . .88
-R
-RCC_AHB1ENR . . . . . . . . . . . . . . . . . . . . . .117
-RCC_AHB1LPENR . . . . . . . . . . . . . . . . . . . .123
-RCC_AHB1RSTR . . . . . . . . . . . . . . . . . . . . .111
-RCC_AHB2ENR . . . . . . . . . . . . . . . . . . . . . .118
-RCC_AHB2LPENR . . . . . . . . . . . . . . . . . . . .124
-RCC_AHB2RSTR . . . . . . . . . . . . . . . . . . . . . 113
-RCC_APB1ENR . . . . . . . . . . . . . . . . . . . . . . 118
-RCC_APB1LPENR . . . . . . . . . . . . . . . . . . . . 125
-RCC_APB2ENR . . . . . . . . . . . . . . . . . . . . . . 121
-RCC_APB2LPENR . . . . . . . . . . . . . . . . . . . . 127
-RCC_BDCR . . . . . . . . . . . . . . . . . . . . . . . . . 129
-RCC_CFGR . . . . . . . . . . . . . . . . . . . . . . . . . 106
-RCC_CIR . . . . . . . . . . . . . . . . . . . . . . . . . . . 109
-RCC_CR . . . . . . . . . . . . . . . . . . . . . . . . . . . . 102
-RCC_CSR . . . . . . . . . . . . . . . . . . . . . . . . . . . 130
-RCC_PLLCFGR . . . . . . . . . . . . . . . . . . 104 , 133
-RCC_SSCGR . . . . . . . . . . . . . . . . . . . . . . . . 132
-RTC_ALRMAR . . . . . . . . . . . . . . . . . . . . . . . 459
-RTC_ALRMBR . . . . . . . . . . . . . . . . . . . . . . . 460
-RTC_ALRMBSSR . . . . . . . . . . . . . . . . . . . . . 468
-RTC_BKxR . . . . . . . . . . . . . . . . . . . . . . . . . . 470
-RTC_CALIBR . . . . . . . . . . . . . . . . . . . . . . . . 458
-RTC_CALR . . . . . . . . . . . . . . . . . . . . . . . . . . 464
-RTC_CR . . . . . . . . . . . . . . . . . . . . . . . . . . . . 452
-RTC_DR . . . . . . . . . . . . . . . . . . . . . . . . . . . . 451
-RTC_ISR . . . . . . . . . . . . . . . . . . . . . . . . . . . . 454
-RTC_PRER . . . . . . . . . . . . . . . . . . . . . . . . . . 456
-RTC_SHIFTR . . . . . . . . . . . . . . . . . . . . . . . . 462
-RTC_SSR . . . . . . . . . . . . . . . . . . . . . . . . . . . 461
-RTC_TR . . . . . . . . . . . . . . . . . . . . . . . . . . . . 450
-RTC_TSDR . . . . . . . . . . . . . . . . . . . . . . . . . . 463
-RTC_TSSSR . . . . . . . . . . . . . . . . . . . . . . . . . 464
-RTC_TSTR . . . . . . . . . . . . . . . . . . . . . . . . . . 462
-RTC_WPR . . . . . . . . . . . . . . . . . . . . . . . . . . . 461
-RTC_WUTR . . . . . . . . . . . . . . . . . . . . . . . . . 457
-S
-SDIO_CLKCR . . . . . . . . . . . . . . . . . . . . . . . . 653
-SDIO_DCOUNT . . . . . . . . . . . . . . . . . . . . . . 659
-SDIO_DCTRL . . . . . . . . . . . . . . . . . . . . . . . . 658
-SDIO_DLEN . . . . . . . . . . . . . . . . . . . . . . . . . 657
-SDIO_DTIMER . . . . . . . . . . . . . . . . . . . . . . . 656
-SDIO_FIFO . . . . . . . . . . . . . . . . . . . . . . . . . . 666
-SDIO_FIFOCNT . . . . . . . . . . . . . . . . . . . . . . 665
-SDIO_ICR . . . . . . . . . . . . . . . . . . . . . . . . . . . 661
-SDIO_MASK . . . . . . . . . . . . . . . . . . . . . . . . . 663
-SDIO_POWER . . . . . . . . . . . . . . . . . . . . . . . 652
-SDIO_RESPCMD . . . . . . . . . . . . . . . . . . . . . 655
-SDIO_RESPx . . . . . . . . . . . . . . . . . . . . . . . . 656
-SDIO_STA . . . . . . . . . . . . . . . . . . . . . . . . . . . 660
-SPI_CR1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . 601
-SPI_CR2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . 603
-SPI_CRCPR . . . . . . . . . . . . . . . . . . . . . . . . . 605
-SPI_DR . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 605
-SPI_I2SCFGR . . . . . . . . . . . . . . . . . . . . . . . . 607
-SPI_I2SPR . . . . . . . . . . . . . . . . . . . . . . . . . . 608
-RM0383 Index
-RM0383 Rev 3 843/844
-SPI_RXCRCR . . . . . . . . . . . . . . . . . . . . . . . .606
-SPI_SR . . . . . . . . . . . . . . . . . . . . . . . . . . . . .604
-SPI_TXCRCR . . . . . . . . . . . . . . . . . . . . . . . .607
-SYSCFG_EXTICR1 . . . . . . . . . . . . . . . . . . . .141
-SYSCFG_EXTICR2 . . . . . . . . . . . . . . . . . . . .141
-SYSCFG_EXTICR3 . . . . . . . . . . . . . . . . . . . .142
-SYSCFG_EXTICR4 . . . . . . . . . . . . . . . . . . . .142
-SYSCFG_MEMRMP . . . . . . . . . . . . . . . . . . .139
-T
-TIM2_OR . . . . . . . . . . . . . . . . . . . . . . . . . . . .372
-TIM5_OR . . . . . . . . . . . . . . . . . . . . . . . . . . . .372
-TIMx_ARR . . . . . . . . . . . . . . . . . . 367 , 407 , 417
-TIMx_BDTR . . . . . . . . . . . . . . . . . . . . . . . . . .309
-TIMx_CCER . . . . . . . . . . . . . 302 , 365 , 406 , 416
-TIMx_CCMR1 . . . . . . . . . . . 298 , 361 , 403 , 413
-TIMx_CCMR2 . . . . . . . . . . . . . . . . . . . .301 , 364
-TIMx_CCR1 . . . . . . . . . . . . . 307 , 368 , 408 , 418
-TIMx_CCR2 . . . . . . . . . . . . . . . . . 308 , 368 , 408
-TIMx_CCR3 . . . . . . . . . . . . . . . . . . . . . .308 , 369
-TIMx_CCR4 . . . . . . . . . . . . . . . . . . . . . .309 , 369
-TIMx_CNT . . . . . . . . . . . . . . 306 , 367 , 407 , 417
-TIMx_CR1 . . . . . . . . . . . . . . 287 , 352 , 397 , 411
-TIMx_CR2 . . . . . . . . . . . . . . . . . . . . . . .288 , 354
-TIMx_DCR . . . . . . . . . . . . . . . . . . . . . . .311 , 370
-TIMx_DIER . . . . . . . . . . . . . . 293 , 357 , 399 , 412
-TIMx_DMAR . . . . . . . . . . . . . . . . . . . . . .312 , 371
-TIMx_EGR . . . . . . . . . . . . . . 296 , 360 , 402 , 413
-TIMx_PSC . . . . . . . . . . . . . . 306 , 367 , 407 , 417
-TIMx_RCR . . . . . . . . . . . . . . . . . . . . . . . . . . .307
-TIMx_SMCR . . . . . . . . . . . . . . . . . 291 , 355 , 398
-TIMx_SR . . . . . . . . . . . . . . . 295 , 358 , 401 , 412
-U
-USART_BRR . . . . . . . . . . . . . . . . . . . . . . . . .550
-USART_CR1 . . . . . . . . . . . . . . . . . . . . . . . . .550
-USART_CR2 . . . . . . . . . . . . . . . . . . . . . . . . .553
-USART_CR3 . . . . . . . . . . . . . . . . . . . . . . . . .554
-USART_DR . . . . . . . . . . . . . . . . . . . . . . . . . .550
-USART_GTPR . . . . . . . . . . . . . . . . . . . . . . . .556
-USART_SR . . . . . . . . . . . . . . . . . . . . . . . . . .547
-W
-WWDG_CFR . . . . . . . . . . . . . . . . . . . . . . . . .431
-WWDG_CR . . . . . . . . . . . . . . . . . . . . . . . . . .430
-WWDG_SR . . . . . . . . . . . . . . . . . . . . . . . . . .431
+<!-- *P842*/844 -->
+[P842]: #P842
+<a id="P842"></a>
+
+*  OTG_FS_DIEPTSIZ0  . . . . . . . . . . . . . . . . . . . . . . . . [P748]
+*  OTG_FS_DIEPTSIZx  . . . . . . . . . . . . . . . . . . . . . . . . [P751]
+*  OTG_FS_DIEPTXF0 . . . . . . . . . . . . . . . . . . . . . . . . . [P716]
+*  OTG_FS_DIEPTXFx . . . . . . . . . . . . . . . . . . . . . . . . . [P719]
+*  OTG_FS_DOEPCTL0 . . . . . . . . . . . . . . . . . . . . . . . . . [P742]
+*  OTG_FS_DOEPCTLx . . . . . . . . . . . . . . . . . . . . . . . . . [P743]
+*  OTG_FS_DOEPINTx . . . . . . . . . . . . . . . . . . . . . . . . . [P747]
+*  OTG_FS_DOEPMSK  . . . . . . . . . . . . . . . . . . . . . . . . . [P734]
+*  OTG_FS_DOEPTSIZ0  . . . . . . . . . . . . . . . . . . . . . . . . [P750]
+*  OTG_FS_DOEPTSIZx  . . . . . . . . . . . . . . . . . . . . . . . . [P752]
+*  OTG_FS_DSTS . . . . . . . . . . . . . . . . . . . . . . . . . . . [P732]
+*  OTG_FS_DTXFSTSx . . . . . . . . . . . . . . . . . . . . . . . . . [P752]
+*  OTG_FS_DVBUSDIS . . . . . . . . . . . . . . . . . . . . . . . . . [P736]
+*  OTG_FS_DVBUSPULSE . . . . . . . . . . . . . . . . . . . . . . . . [P736]
+*  OTG_FS_GAHBCFG  . . . . . . . . . . . . . . . . . . . . . . . . . [P702]
+*  OTG_FS_GCCFG  . . . . . . . . . . . . . . . . . . . . . . . . . . [P717]
+*  OTG_FS_GINTMSK  . . . . . . . . . . . . . . . . . . . . . . . . . [P711]
+*  OTG_FS_GINTSTS  . . . . . . . . . . . . . . . . . . . . . . . . . [P707]
+*  OTG_FS_GOTGCTL  . . . . . . . . . . . . . . . . . . . . . . . . . [P699]
+*  OTG_FS_GOTGINT  . . . . . . . . . . . . . . . . . . . . . . . . . [P700]
+*  OTG_FS_GRSTCTL  . . . . . . . . . . . . . . . . . . . . . . . . . [P705]
+*  OTG_FS_GRXFSIZ  . . . . . . . . . . . . . . . . . . . . . . . . . [P715]
+*  OTG_FS_GRXSTSP  . . . . . . . . . . . . . . . . . . . . . . . . . [P714]
+*  OTG_FS_GRXSTSR  . . . . . . . . . . . . . . . . . . . . . . . . . [P714]
+*  OTG_FS_GUSBCFG  . . . . . . . . . . . . . . . . . . . . . . . . . [P703]
+*  OTG_FS_HAINT  . . . . . . . . . . . . . . . . . . . . . . . . . . [P722]
+*  OTG_FS_HAINTMSK . . . . . . . . . . . . . . . . . . . . . . . . . [P723]
+*  OTG_FS_HCCHARx  . . . . . . . . . . . . . . . . . . . . . . . . . [P726]
+*  OTG_FS_HCFG . . . . . . . . . . . . . . . . . . . . . . . . . . . [P720]
+*  OTG_FS_HCINTMSKx  . . . . . . . . . . . . . . . . . . . . . . . . [P728]
+*  OTG_FS_HCINTx . . . . . . . . . . . . . . . . . . . . . . . . . . [P727]
+*  OTG_FS_HCTSIZx  . . . . . . . . . . . . . . . . . . . . . . . . . [P729]
+*  OTG_FS_HFIR . . . . . . . . . . . . . . . . . . . . . . . . . . . [P720]
+*  OTG_FS_HFNUM  . . . . . . . . . . . . . . . . . . . . . . . . . . [P721]
+*  OTG_FS_HNPTXFSIZ  . . . . . . . . . . . . . . . . . . . . . . . . [P716]
+*  OTG_FS_HNPTXSTS . . . . . . . . . . . . . . . . . . . . . . . . . [P716]
+*  OTG_FS_HPRT . . . . . . . . . . . . . . . . . . . . . . . . . . . [P723]
+*  OTG_FS_HPTXFSIZ . . . . . . . . . . . . . . . . . . . . . . . . . [P719]
+*  OTG_FS_HPTXSTS  . . . . . . . . . . . . . . . . . . . . . . . . . [P721]
+*  OTG_FS_PCGCCTL  . . . . . . . . . . . . . . . . . . . . . . . . . [P753]
+
+//Index P
+---------
+*  PWR_CR . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P86]
+*  PWR_CSR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P88]
+
+//Index R
+---------
+*  RCC_AHB1ENR . . . . . . . . . . . . . . . . . . . . . . . . . . . [P117]
+*  RCC_AHB1LPENR . . . . . . . . . . . . . . . . . . . . . . . . . . [P123]
+*  RCC_AHB1RSTR  . . . . . . . . . . . . . . . . . . . . . . . . . . [P111]
+*  RCC_AHB2ENR . . . . . . . . . . . . . . . . . . . . . . . . . . . [P118]
+*  RCC_AHB2LPENR . . . . . . . . . . . . . . . . . . . . . . . . . . [P124]
+*  RCC_AHB2RSTR  . . . . . . . . . . . . . . . . . . . . . . . . . . [P113]
+*  RCC_APB1ENR . . . . . . . . . . . . . . . . . . . . . . . . . . . [P118]
+*  RCC_APB1LPENR . . . . . . . . . . . . . . . . . . . . . . . . . . [P125]
+*  RCC_APB2ENR . . . . . . . . . . . . . . . . . . . . . . . . . . . [P121]
+*  RCC_APB2LPENR . . . . . . . . . . . . . . . . . . . . . . . . . . [P127]
+*  RCC_BDCR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P129]
+*  RCC_CFGR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P106]
+*  RCC_CIR . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P109]
+*  RCC_CR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P102]
+*  RCC_CSR . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P130]
+*  RCC_PLLCFGR . . . . . . . . . . . . . . . . . . . . . .  [P104] , [P133]
+*  RCC_SSCGR . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P132]
+*  RTC_ALRMAR  . . . . . . . . . . . . . . . . . . . . . . . . . . . [P459]
+*  RTC_ALRMBR  . . . . . . . . . . . . . . . . . . . . . . . . . . . [P460]
+*  RTC_ALRMBSSR  . . . . . . . . . . . . . . . . . . . . . . . . . . [P468]
+*  RTC_BKxR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P470]
+*  RTC_CALIBR  . . . . . . . . . . . . . . . . . . . . . . . . . . . [P458]
+*  RTC_CALR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P464]
+*  RTC_CR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P452]
+*  RTC_DR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P451]
+*  RTC_ISR . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P454]
+*  RTC_PRER  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P456]
+*  RTC_SHIFTR  . . . . . . . . . . . . . . . . . . . . . . . . . . . [P462]
+*  RTC_SSR . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P461]
+*  RTC_TR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P450]
+*  RTC_TSDR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P463]
+*  RTC_TSSSR . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P464]
+*  RTC_TSTR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P462]
+*  RTC_WPR . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P461]
+*  RTC_WUTR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P457]
+
+//Index S
+---------
+*  SDIO_CLKCR  . . . . . . . . . . . . . . . . . . . . . . . . . . . [P653]
+*  SDIO_DCOUNT . . . . . . . . . . . . . . . . . . . . . . . . . . . [P659]
+*  SDIO_DCTRL  . . . . . . . . . . . . . . . . . . . . . . . . . . . [P658]
+*  SDIO_DLEN . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P657]
+*  SDIO_DTIMER . . . . . . . . . . . . . . . . . . . . . . . . . . . [P656]
+*  SDIO_FIFO . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P666]
+*  SDIO_FIFOCNT  . . . . . . . . . . . . . . . . . . . . . . . . . . [P665]
+*  SDIO_ICR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P661]
+*  SDIO_MASK . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P663]
+*  SDIO_POWER  . . . . . . . . . . . . . . . . . . . . . . . . . . . [P652]
+*  SDIO_RESPCMD  . . . . . . . . . . . . . . . . . . . . . . . . . . [P655]
+*  SDIO_RESPx  . . . . . . . . . . . . . . . . . . . . . . . . . . . [P656]
+*  SDIO_STA  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P660]
+*  SPI_CR1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P601]
+*  SPI_CR2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P603]
+*  SPI_CRCPR . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P605]
+*  SPI_DR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P605]
+*  SPI_I2SCFGR . . . . . . . . . . . . . . . . . . . . . . . . . . . [P607]
+*  SPI_I2SPR . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P608]
+*  SPI_RXCRCR  . . . . . . . . . . . . . . . . . . . . . . . . . . . [P606]
+*  SPI_SR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P604]
+*  SPI_TXCRCR  . . . . . . . . . . . . . . . . . . . . . . . . . . . [P607]
+*  SYSCFG_EXTICR1  . . . . . . . . . . . . . . . . . . . . . . . . . [P141]
+*  SYSCFG_EXTICR2  . . . . . . . . . . . . . . . . . . . . . . . . . [P141]
+*  SYSCFG_EXTICR3  . . . . . . . . . . . . . . . . . . . . . . . . . [P142]
+*  SYSCFG_EXTICR4  . . . . . . . . . . . . . . . . . . . . . . . . . [P142]
+*  SYSCFG_MEMRMP . . . . . . . . . . . . . . . . . . . . . . . . . . [P139]
+
+//Index T
+---------
+*  TIM2_OR . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P372]
+*  TIM5_OR . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P372]
+*  TIMx_ARR  . . . . . . . . . . . . . . . . . . . [P367] , [P407] , [P417]
+*  TIMx_BDTR . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P309]
+*  TIMx_CCER . . . . . . . . . . . . . .  [P302] , [P365] , [P406] , [P416]
+*  TIMx_CCMR1  . . . . . . . . . . . . .  [P298] , [P361] , [P403] , [P413]
+*  TIMx_CCMR2  . . . . . . . . . . . . . . . . . . . . . .  [P301] , [P364]
+*  TIMx_CCR1 . . . . . . . . . . . . . .  [P307] , [P368] , [P408] , [P418]
+*  TIMx_CCR2 . . . . . . . . . . . . . . . . . . . [P308] , [P368] , [P408]
+*  TIMx_CCR3 . . . . . . . . . . . . . . . . . . . . . . .  [P308] , [P369]
+*  TIMx_CCR4 . . . . . . . . . . . . . . . . . . . . . . .  [P309] , [P369]
+*  TIMx_CNT  . . . . . . . . . . . . . .  [P306] , [P367] , [P407] , [P417]
+*  TIMx_CR1  . . . . . . . . . . . . . .  [P287] , [P352] , [P397] , [P411]
+*  TIMx_CR2  . . . . . . . . . . . . . . . . . . . . . . .  [P288] , [P354]
+*  TIMx_DCR  . . . . . . . . . . . . . . . . . . . . . . .  [P311] , [P370]
+*  TIMx_DIER . . . . . . . . . . . . . .  [P293] , [P357] , [P399] , [P412]
+*  TIMx_DMAR . . . . . . . . . . . . . . . . . . . . . . .  [P312] , [P371]
+*  TIMx_EGR  . . . . . . . . . . . . . .  [P296] , [P360] , [P402] , [P413]
+*  TIMx_PSC  . . . . . . . . . . . . . .  [P306] , [P367] , [P407] , [P417]
+*  TIMx_RCR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P307]
+*  TIMx_SMCR . . . . . . . . . . . . . . . . . . . [P291] , [P355] , [P398]
+*  TIMx_SR . . . . . . . . . . . . . . .  [P295] , [P358] , [P401] , [P412]
+
+//Index U
+---------
+*  USART_BRR . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P550]
+*  USART_CR1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P550]
+*  USART_CR2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P553]
+*  USART_CR3 . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P554]
+*  USART_DR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P550]
+*  USART_GTPR  . . . . . . . . . . . . . . . . . . . . . . . . . . . [P556]
+*  USART_SR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P547]
+
+//Index W
+---------
+*  WWDG_CFR  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P431]
+*  WWDG_CR . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P430]
+*  WWDG_SR . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P431]
 
 
-                                                <!-- *P844*/844 -->
+<!-- *P844*/844 -->
+[P844]: #P844
+<a id="P844"></a>
+
 
 IMPORTANT NOTICE – PLEASE READ CAREFULLY
-STMicroelectronics NV and its subsidiaries (“ST”) reserve the right to make changes, corrections, enhancements, modifications, and
-improvements to ST products and/or to this document at any time without notice. Purchasers should obtain the latest relevant information on
-ST products before placing orders. ST products are sold pursuant to ST’s terms and conditions of sale in place at the time of order
-acknowledgement.
-Purchasers are solely responsible for the choice, selection, and use of ST products and ST assumes no liability for application assistance or
-the design of Purchasers’ products.
-No license, express or implied, to any intellectual property right is granted by ST herein.
-Resale of ST products with provisions different from the information set forth herein shall void any warranty granted by ST for such product.
-ST and the ST logo are trademarks of ST. All other product or service names are the property of their respective owners.
-Information in this document supersedes and replaces information previously supplied in any prior versions of this document.
+
+STMicroelectronics NV and its subsidiaries (“ST”) reserve the right to make changes, 
+corrections, enhancements, modifications, and improvements to ST products 
+and/or to this document at any time without notice. Purchasers should 
+obtain the latest relevant information on ST products before placing orders. 
+ST products are sold pursuant to ST’s terms and conditions of sale in place 
+at the time of order acknowledgement.
+
+Purchasers are solely responsible for the choice, selection, and use of ST products 
+and ST assumes no liability for application assistance or the design 
+of Purchasers’ products.
+
+No license, express or implied, to any intellectual property right is granted 
+by ST herein.
+
+Resale of ST products with provisions different from the information set forth 
+herein shall void any warranty granted by ST for such product.
+
+ST and the ST logo are trademarks of ST. All other product or service names are 
+the property of their respective owners.
+
+Information in this document supersedes and replaces information previously supplied 
+in any prior versions of this document.
+
 © 2018 STMicroelectronics – All rights reserved
