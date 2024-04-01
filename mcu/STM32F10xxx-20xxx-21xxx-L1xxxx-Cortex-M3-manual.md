@@ -264,8 +264,9 @@ developers, including:
 *   [Figure 20]. CFSR subregisters . . . . . . . . . . . . . . . . . [P142]
 
 
-                            <!-- *P10*/156 -->
-
+<!-- *P10*/156 --> [P10]: #P10
+[P11]: #P11 
+<a name="P11"></a>
 
 /1 About this document
 ======================
