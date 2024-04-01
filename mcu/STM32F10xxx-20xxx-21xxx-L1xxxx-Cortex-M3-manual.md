@@ -23,11 +23,11 @@ The STM32F10xxx/20xxx/21xxx/L1xxxx Cortex®-M3 processor is a high performance 3
 processor designed for the microcontroller market. It offers significant benefits to
 
 developers, including:
-• Outstanding processing performance combined with a fast interrupt handling
-• Enhanced system debug with extensive breakpoint and trace capabilities
-• Efficient processor core, system and memories
-• Ultra-low-power consumption with integrated sleep modes
-• Platform security
+*  • Outstanding processing performance combined with a fast interrupt handling
+*  • Enhanced system debug with extensive breakpoint and trace capabilities
+*  • Efficient processor core, system and memories
+*  • Ultra-low-power consumption with integrated sleep modes
+*  • Platform security
 
 
 /Table of Contents
@@ -2034,11 +2034,11 @@ supported instructions.
 
 In Table 20:
 
-• Angle brackets, <>, enclose alternative forms of the operand
-• Braces, {}, enclose optional operands
-• The operands column is not exhaustive
-• Op2 is a flexible second operand that can be either a register or a constant
-• Most instructions can use an optional condition code suffix
+*  • Angle brackets, <>, enclose alternative forms of the operand
+*  • Braces, {}, enclose optional operands
+*  • The operands column is not exhaustive
+*  • Op2 is a flexible second operand that can be either a register or a constant
+*  • Most instructions can use an optional condition code suffix
 
 For more information on the instructions and operands, see the instruction descriptions.
 
