@@ -264,9 +264,9 @@ developers, including:
 *   [Figure 20]. CFSR subregisters . . . . . . . . . . . . . . . . . [P142]
 
 
-<!-- *P10*/156 --> [P10]: #P10
-[P11]: #P11 
-<a name="P11"></a>
+<!-- *P10*/156 -->
+[P10]: #P10
+<a id="P10"></a>
 
 /1 About this document
 ======================
@@ -312,7 +312,9 @@ no effect on the bit value.
 toggle (t) Software can only toggle this bit by writing ‘1’. Writing ‘0’ has no effect.
 Reserved (Res.) Reserved bit, must be kept at reset value.
 
-                            <!-- *P11*/156 -->
+<!-- *P11*/156 -->
+[P11]: #P11
+<a id="P11"></a>
 
 
 **Figure 1**. STM32 Cortex-M3 implementation
@@ -367,7 +369,9 @@ Bus matrix
 Code
 interface
 
-                            <!-- *P12*/156 -->
+<!-- *P12*/156 -->
+[P12]: #P12
+<a id="P12"></a>
 
 
 //1.3.2 Integrated configurable debug
@@ -414,7 +418,9 @@ System timer
 The system timer, SysTick, is a 24-bit count-down timer. Use this as a Real Time
 Operating System (RTOS) tick timer or as a simple counter.
 
-                            <!-- *P13*/156 -->
+<!-- *P13*/156 -->
+[P13]: #P13
+<a id="P13"></a>
 
 
 /2 The Cortex®-M3 processor
@@ -463,7 +469,9 @@ Privileged The software can use all the instructions and has access to all
 resources.
 Privileged software executes at the privileged level.
 
-                            <!-- *P14*/156 -->
+<!-- *P14*/156 -->
+[P14]: #P14
+<a id="P14"></a>
 
 In Thread mode, the CONTROL register controls whether the processor uses the main
 stack or the process stack, see CONTROL register on page 21. In Handler mode, the
@@ -527,7 +535,9 @@ LR (R14)
 SP (R13)
 General-purpose registers
 
-                            <!-- *P15*/156 -->
+<!-- *P15*/156 -->
+[P15]: #P15
+<a id="P15"></a>
 
 
 General-purpose registers
@@ -577,7 +587,9 @@ FAULTMASK read-write Privileged 0x00000000 Fault mask register on page 20
 BASEPRI read-write Privileged 0x00000000 Base priority mask register on page 21
 CONTROL read-write Privileged 0x00000000 CONTROL register on page 21
 
-                            <!-- *P16*/156 -->
+<!-- *P16*/156 -->
+[P16]: #P16
+<a id="P16"></a>
 
 Program status register
 The Program Status Register (PSR) combines:
@@ -630,7 +642,9 @@ Z C V Q ICI/IT T Reserved ICI/IT ISR_NUMBER
 Reserved
 MS48366V1
 
-                            <!-- *P17*/156 -->
+<!-- *P17*/156 -->
+[P17]: #P17
+<a id="P17"></a>
 
 Application program status register
 The APSR contains the current state of the condition flags from previous instruction
@@ -662,7 +676,9 @@ cleared to zero
 This bit is cleared to zero by software using an MRS instruction.
 Bits 26:0 Reserved.
 
-                            <!-- *P18*/156 -->
+<!-- *P18*/156 -->
+[P18]: #P18
+<a id="P18"></a>
 
 Interrupt program status register
 The IPSR contains the exception type number of the current Interrupt Service Routine
@@ -698,7 +714,9 @@ This is the number of the current exception:
 see Exception types on page 32 for more information.
 1. See STM32 product reference manual/datasheet for more information on interrupt mapping
 
-                            <!-- *P19*/156 -->
+<!-- *P19*/156 -->
+[P19]: #P19
+<a id="P19"></a>
 
 Execution program status register
 The EPSR contains the Thumb state bit, and the execution state bits for either the:
@@ -740,7 +758,9 @@ Bit 24 Always set to 1.
 Bits 23:16 Reserved.
 Bits 9:0] Reserved.
 
-                            <!-- *P20*/156 -->
+<!-- *P20*/156 -->
+[P20]: #P20
+<a id="P20"></a>
 
 To access the exception mask registers use the MSR and MRS instructions, or the CPS
 instruction to change the value of PRIMASK or FAULTMASK. See MRS on page 100, MSR
@@ -788,7 +808,9 @@ Reserved
 0 1 31
 FAULTMASK
 
-                            <!-- *P21*/156 -->
+<!-- *P21*/156 -->
+[P21]: #P21
+<a id="P21"></a>
 
 The processor clears the FAULTMASK bit to 0 on exit from any exception handler except
 the NMI handler.
@@ -831,7 +853,9 @@ Active stack pointer
 Thread mode privilege level
 MS48367V1
 
-                            <!-- *P22*/156 -->
+<!-- *P22*/156 -->
+[P22]: #P22
+<a id="P22"></a>
 
 
 The Handler mode always uses the MSP, so the processor ignores explicit writes to the
@@ -884,7 +908,9 @@ Defines the Thread mode privilege level.
 0: Privileged
 1: Unprivileged.
 
-                            <!-- *P23*/156 -->
+<!-- *P23*/156 -->
+[P23]: #P23
+<a id="P23"></a>
 
 
 //2.1.6 The Cortex® microcontroller software interface standard (CMSIS)
@@ -919,7 +945,9 @@ The following sections give more information about the CMSIS:
 • The CMSIS mapping of the Cortex®-M3 NVIC registers on page 119
 • NVIC programming hints on page 127
 
-                            <!-- *P24*/156 -->
+<!-- *P24*/156 -->
+[P24]: #P24
+<a id="P24"></a>
 
 
 //2.2 Memory model
@@ -981,7 +1009,9 @@ Bit band alias 32MB
 511MB
 MS48368V1
 
-                            <!-- *P25*/156 -->
+<!-- *P25*/156 -->
+[P25]: #P25
+<a id="P25"></a>
 
 
 //2.2.1 Memory regions, types and attributes
@@ -1039,7 +1069,9 @@ non-shareable
 Device access, shareable - - < <
 Strongly ordered access - < < <
 
-                            <!-- *P26*/156 -->
+<!-- *P26*/156 -->
+[P26]: #P26
+<a id="P26"></a>
 
 
 //2.2.3 Behavior of memory accesses
@@ -1117,7 +1149,9 @@ Device (1) XN (1)
 This region includes all the STM32
 standard peripherals.
 
-                            <!-- *P27*/156 -->
+<!-- *P27*/156 -->
+[P27]: #P27
+<a id="P27"></a>
 
 
 Use memory barrier instructions in, for example:
@@ -1162,7 +1196,9 @@ ISB The Instruction Synchronization Barrier (ISB) ensures that the effect of all
 completed memory transactions is recognizable by subsequent
 instructions. See ISB on page 100.
 
-                            <!-- *P28*/156 -->
+<!-- *P28*/156 -->
+[P28]: #P28
+<a id="P28"></a>
 
 
 
@@ -1231,7 +1267,9 @@ Data accesses to this region are remapped to bit-band region. A write
 operation is performed as read-modify-write. Instruction accesses are
 not permitted.
 
-                            <!-- *P29*/156 -->
+<!-- *P29*/156 -->
+[P29]: #P29
+<a id="P29"></a>
 
 
 **Figure 10**. Bit-band mapping
@@ -1275,7 +1313,9 @@ for an example.
 1MB SRAM bit-band region
 MS48369V1
 
-                            <!-- *P30*/156 -->
+<!-- *P30*/156 -->
+[P30]: #P30
+<a id="P30"></a>
 
 
 **Figure 11**. Little-endian example
@@ -1330,7 +1370,9 @@ succeeds
 exclusive access to the memory, and no write is
 performed
 
-                            <!-- *P31*/156 -->
+<!-- *P31*/156 -->
+[P31]: #P31
+<a id="P31"></a>
 
 Software can use the synchronization primitives to implement a semaphores as follows:
 1. Use a Load-Exclusive instruction to read from the semaphore address to check
@@ -1373,7 +1415,9 @@ LDREXB operation:
     __ldrex((volatile char *) 0xFF);
 
 
-                            <!-- *P32*/156 -->
+<!-- *P32*/156 -->
+[P32]: #P32
+<a id="P32"></a>
 
 
 //2.3 Exception model
@@ -1428,7 +1472,9 @@ constraints determines this fault, for both instruction and data
 memory transactions. This fault is used to abort instruction accesses
 to Execute Never (XN) memory regions.
 
-                            <!-- *P33*/156 -->
+<!-- *P33*/156 -->
+[P33]: #P33
+<a id="P33"></a>
 
 
 Bus fault A bus fault is an exception that occurs because of a memory related
@@ -1487,7 +1533,9 @@ asynchronous when imprecise
 11 -5 SVCall Configurable (3) 0x0000002C Synchronous
 12-13 - - - Reserved -
 
-                            <!-- *P34*/156 -->
+<!-- *P34*/156 -->
+[P34]: #P34
+<a id="P34"></a>
 
 For an asynchronous exception, other than reset, the processor can execute another
 instruction between when the exception is triggered and when the processor enters the
@@ -1538,7 +1586,9 @@ exceptions handled by the fault handlers.
 System handlers NMI, PendSV, SVCall SysTick, and the fault exceptions are all
 system exceptions that are handled by system handlers.
 
-                            <!-- *P35*/156 -->
+<!-- *P35*/156 -->
+[P35]: #P35
+<a id="P35"></a>
 
 
 //2.3.4 Vector table
@@ -1639,7 +1689,9 @@ IRQ number
 1
 67
 
-                            <!-- *P36*/156 -->
+<!-- *P36*/156 -->
+[P36]: #P36
+<a id="P36"></a>
 
 If software does not configure any priorities, then all exceptions with a configurable priority
 have a priority of 0. For information about configuring exception priorities see
@@ -1676,7 +1728,9 @@ priority and subpriority, the interrupt with the lowest IRQ number is processed 
 For information about splitting the interrupt priority fields into group priority and subpriority,
 see Application interrupt and reset control register (SCB_AIRCR) on page 134.
 
-                            <!-- *P37*/156 -->
+<!-- *P37*/156 -->
+[P37]: #P37
+<a id="P37"></a>
 
 
 //2.3.7 Exception entry and return
@@ -1725,7 +1779,9 @@ exception handler of the original exception enters the execute stage
 of the processor. On return from the exception handler of the late-
 arriving exception, the normal tail-chaining rules apply.
 
-                            <!-- *P38*/156 -->
+<!-- *P38*/156 -->
+[P38]: #P38
+<a id="P38"></a>
 
 is referred as stacking and the structure of eight data words is referred as stack frame. The
 stack frame contains the following information:
@@ -1766,7 +1822,9 @@ The processor sets EXC_RETURN bits[31:4] to 0xFFFFFFF. When this value is loaded
 the PC it indicates to the processor that the exception is complete, and the processor
 initiates the exception return sequence.
 
-                            <!-- *P39*/156 -->
+<!-- *P39*/156 -->
+[P39]: #P39
+<a id="P39"></a>
 
 
 
@@ -1811,7 +1869,9 @@ Exception return gets state from PSP.
 Execution uses PSP after return.
 0b1x11 Reserved.
 
-                            <!-- *P40*/156 -->
+<!-- *P40*/156 -->
+[P40]: #P40
+<a id="P40"></a>
 
 
 
@@ -1876,7 +1936,9 @@ Illegal unaligned load or store UNALIGNED
 Divide By 0 DIVBYZERO
 1. Attempting to use an instruction set other than the Thumb instruction set.
 
-                            <!-- *P41*/156 -->
+<!-- *P41*/156 -->
+[P41]: #P41
+<a id="P41"></a>
 
 Only Reset and NMI can preempt the fixed priority hard fault. A hard fault can preempt any
 exception other than Reset, NMI, or another hard fault.
@@ -1940,7 +2002,9 @@ Usage fault UFSR -
 Configurable fault status register (SCB_CFSR) on
 page 142
 
-                            <!-- *P42*/156 -->
+<!-- *P42*/156 -->
+[P42]: #P42
+<a id="P42"></a>
 
 This section describes the mechanisms for entering sleep mode, and the conditions for
 waking up from sleep mode.
@@ -1989,7 +2053,9 @@ wakes up, and before it executes an interrupt handler. To achieve this set the P
 to 1 and the FAULTMASK bit to 0. If an interrupt arrives that is enabled and has a higher
 priority than current exception priority, the processor wakes up but does not execute the
 
-                            <!-- *P43*/156 -->
+<!-- *P43*/156 -->
+[P43]: #P43
+<a id="P43"></a>
 
 interrupt handler until the processor sets PRIMASK to zero. For more information about
 PRIMASK and FAULTMASK see Exception mask registers on page 19.
@@ -2021,7 +2087,9 @@ following intrinsic functions for these instructions:
 void __WFE(void) // Wait for Event
 void __WFE(void) // Wait for Interrupt
 
-                            <!-- *P44*/156 -->
+<!-- *P44*/156 -->
+[P44]: #P44
+<a id="P44"></a>
 
 
 /3 The Cortex®-M3 instruction set
@@ -2087,7 +2155,9 @@ BLX Rm Branch indirect with link -
 3.8.5 on
 page 92
 
-                            <!-- *P45*/156 -->
+<!-- *P45*/156 -->
+[P45]: #P45
+<a id="P45"></a>
 
 BX Rm Branch indirect -
 3.8.5 on
@@ -2178,7 +2248,9 @@ Table 20. Cortex-M3 instructions (continued)
 
 Mnemonic Operands Brief description Flags Section
 
-                            <!-- *P46*/156 -->
+<!-- *P46*/156 -->
+[P46]: #P46
+<a id="P46"></a>
 
 LDREXB Rt, [Rn] Load register exclusive with byte -
 3.4.8 on
@@ -2266,7 +2338,9 @@ Table 20. Cortex-M3 instructions (continued)
 
 Mnemonic Operands Brief description Flags Section
 
-                            <!-- *P47*/156 -->
+<!-- *P47*/156 -->
+[P47]: #P47
+<a id="P47"></a>
 
 PUSH reglist Push registers onto stack -
 3.4.7 on
@@ -2363,7 +2437,9 @@ Table 20. Cortex-M3 instructions (continued)
 
 Mnemonic Operands Brief description Flags Section
 
-                            <!-- *P48*/156 -->
+<!-- *P48*/156 -->
+[P48]: #P48
+<a id="P48"></a>
 
 STREX Rd, Rt, [Rn, #offset] Store register exclusive -
 3.4.8 on
@@ -2441,7 +2517,9 @@ Table 20. Cortex-M3 instructions (continued)
 
 Mnemonic Operands Brief description Flags Section
 
-                            <!-- *P49*/156 -->
+<!-- *P49*/156 -->
+[P49]: #P49
+<a id="P49"></a>
 
 
 //3.2 Intrinsic functions
@@ -2483,7 +2561,9 @@ SEV void __SEV(void)
 WFE void __WFE(void)
 WFI void __WFI(void)
 
-                            <!-- *P50*/156 -->
+<!-- *P50*/156 -->
+[P50]: #P50
+<a id="P50"></a>
 
 The CMSIS also provides a number of functions for accessing the special registers using
 MRS and MSR instructions (see Table 22).
@@ -2534,7 +2614,9 @@ PSP
 Read uint32_t __get_PSP (void)
 Write void __set_PSP (uint32_t TopOfProcStack)
 
-                            <!-- *P51*/156 -->
+<!-- *P51*/156 -->
+[P51]: #P51
+<a id="P51"></a>
 
 
 //3.3.2 Restrictions when using PC or SP
@@ -2575,7 +2657,9 @@ Your assembler might be able to produce an equivalent instruction in cases where
 specify a constant that is not permitted. For example, an assembler might assemble the
 instruction CMP Rd, #0xFFFFFFFE as the equivalent instruction CMN Rd, #0x2 .
 
-                            <!-- *P52*/156 -->
+<!-- *P52*/156 -->
+[P52]: #P52
+<a id="P52"></a>
 
 Register with optional shift
 An operand2 register is specified in the form Rm {, shift}, where:
@@ -2623,7 +2707,9 @@ Note: 1 If n is 32 or more, all the bits in the result are set to the value of b
 2 If n is 32 or more and the carry flag is updated, it is updated to the value of bit[31] of Rm .
 
 
-                            <!-- *P53*/156 -->
+<!-- *P53*/156 -->
+[P53]: #P53
+<a id="P53"></a>
 
 
 **Figure 13**. ASR#3
@@ -2652,7 +2738,9 @@ Flag
 0 31 5 4 3 2 1
 0 0 0
 
-                            <!-- *P54*/156 -->
+<!-- *P54*/156 -->
+[P54]: #P54
+<a id="P54"></a>
 
 LSL
 Logical shift left by n bits moves the right-hand 32 - n bits of the register Rm , to the left by n
@@ -2695,7 +2783,9 @@ Carry
 Flag
 0 31 5 4 3 2 1
 
-                            <!-- *P55*/156 -->
+<!-- *P55*/156 -->
+[P55]: #P55
+<a id="P55"></a>
 
 RRX
 Rotate right with extend moves the bits of the register Rm to the right by one bit. And it
@@ -2733,7 +2823,9 @@ Carry
 Flag
 0 31 1
 
-                            <!-- *P56*/156 -->
+<!-- *P56*/156 -->
+[P56]: #P56
+<a id="P56"></a>
 
 
 //3.3.6 PC-relative expressions
@@ -2783,7 +2875,9 @@ This section describes:
 • The condition flags
 • Condition code suffixes on page 57
 
-                            <!-- *P57*/156 -->
+<!-- *P57*/156 -->
+[P57]: #P57
+<a id="P57"></a>
 
 The condition flags
 The APSR contains the following condition flags:
@@ -2827,7 +2921,9 @@ HI C = 1 and Z = 0 Higher, unsigned >
 LS C = 0 or Z = 1 Lower or same, unsigned ≤
 GE N = V Greater than or equal, signed ≥
 
-                            <!-- *P58*/156 -->
+<!-- *P58*/156 -->
+[P58]: #P58
+<a id="P58"></a>
 
 Specific example 1: Absolute value shows the use of a conditional instruction to find the
 absolute value of a number. R0 = ABS(R1).
@@ -2872,7 +2968,9 @@ Table 23. Condition code suffixes (continued)
 
 Suffix Flags Meaning
 
-                            <!-- *P59*/156 -->
+<!-- *P59*/156 -->
+[P59]: #P59
+<a id="P59"></a>
 
 
 //3.4 Memory access instructions
@@ -2900,7 +2998,9 @@ STR{type} Store register using register offset LDR and STR, register offset on p
 STR{type}T Store register with unprivileged access LDR and STR, unprivileged on page 64
 STREX{type} Store register exclusive LDREX and STREX on page 70
 
-                            <!-- *P60*/156 -->
+<!-- *P60*/156 -->
+[P60]: #P60
+<a id="P60"></a>
 
 
 //3.4.1 ADR
@@ -2931,7 +3031,9 @@ Examples
 ADR R1, TextMessage; write address value of a location labelled as
 ; TextMessage to R1
 
-                            <!-- *P61*/156 -->
+<!-- *P61*/156 -->
+[P61]: #P61
+<a id="P61"></a>
 
 
 //3.4.2 LDR and STR, immediate offset
@@ -2960,7 +3062,9 @@ SH: Signed halfword, sign extends to 32 bits ( LDR only)
 • ‘offset’ is an offset from Rn . If offset is omitted, the address is the contents of Rn
 • ‘Rt2’ is the additional register to load or store for two-word operations
 
-                            <!-- *P62*/156 -->
+<!-- *P62*/156 -->
+[P62]: #P62
+<a id="P62"></a>
 
 Operation
 LDR instructions load one or two registers with a value from memory. STR instructions store
@@ -3011,7 +3115,9 @@ range -1020 to 1020
 Multiple of 4 in the
 range -1020 to 1020
 
-                            <!-- *P63*/156 -->
+<!-- *P63*/156 -->
+[P63]: #P63
+<a id="P63"></a>
 
 Condition flags
 These instructions do not change the flags.
@@ -3058,7 +3164,9 @@ specified by the register Rm and can be shifted left by up to 3 bits using LSL .
 The value to load or store can be a byte, halfword, or word. For load instructions, bytes and
 halfwords can either be signed or unsigned (see Address alignment on page 55).
 
-                            <!-- *P64*/156 -->
+<!-- *P64*/156 -->
+[P64]: #P64
+<a id="P64"></a>
 
 Restrictions
 In these instructions:
@@ -3101,7 +3209,9 @@ SH: Signed halfword, sign extends to 32 bits ( LDR only)
 • ‘offset’ is an offset from Rn and can be 0 to 255. If offset is omitted, the address is the
 value in Rn.
 
-                            <!-- *P65*/156 -->
+<!-- *P65*/156 -->
+[P65]: #P65
+<a id="P65"></a>
 
 Operation
 These load and store instructions perform the same function as the memory access
@@ -3141,7 +3251,9 @@ SH: Signed halfword, sign extends to 32 bits
 • ‘Rt2’ is the second register to load or store
 • ‘label’ is a PC-relative expression (see PC-relative expressions on page 56)
 
-                            <!-- *P66*/156 -->
+<!-- *P66*/156 -->
+[P66]: #P66
+<a id="P66"></a>
 
 Operation
 LDR loads a register with a value from a PC-relative memory address. The memory address
@@ -3179,7 +3291,9 @@ Instruction type Offset range
 Word, halfword, signed halfword, byte, signed byte −4095 to 4095
 Two words −1020 to 1020
 
-                            <!-- *P67*/156 -->
+<!-- *P67*/156 -->
+[P67]: #P67
+<a id="P67"></a>
 
 
 //3.4.6 LDM and STM
@@ -3226,7 +3340,9 @@ numbered register using the highest memory address and the lowest number registe
 the lowest memory address. If the writeback suffix is specified, the value Rn - 4 * ( n -1) is
 written back to Rn.
 
-                            <!-- *P68*/156 -->
+<!-- *P68*/156 -->
+[P68]: #P68
+<a id="P68"></a>
 
 The PUSH and POP instructions can be expressed in this form (see PUSH and POP for
 details).
@@ -3266,7 +3382,9 @@ PUSH and POP are synonyms for STMDB and LDM (or LDMIA) with the memory
 addresses for the access based on SP, and with the final address for the access written
 back to the SP. PUSH and POP are the preferred mnemonics in these cases.
 
-                            <!-- *P69*/156 -->
+<!-- *P69*/156 -->
+[P69]: #P69
+<a id="P69"></a>
 
 Operation
 PUSH stores registers on the stack in order of decreasing register numbers, with the highest
@@ -3292,7 +3410,9 @@ PUSH{R0,R4-R7}
 PUSH{R2,LR}
 POP{R0,R10,PC}
 
-                            <!-- *P70*/156 -->
+<!-- *P70*/156 -->
+[P70]: #P70
+<a id="P70"></a>
 
 
 //3.4.8 LDREX and STREX
@@ -3334,7 +3454,9 @@ Note: The result of executing a store-exclusive instruction to an address that i
 used in the preceding load-exclusive instruction is unpredictable.
 
 
-                            <!-- *P71*/156 -->
+<!-- *P71*/156 -->
+[P71]: #P71
+<a id="P71"></a>
 
 Restrictions
 In these instructions:
@@ -3373,7 +3495,9 @@ These instructions do not change the flags.
 Examples
 CLREX
 
-                            <!-- *P72*/156 -->
+<!-- *P72*/156 -->
+[P72]: #P72
+<a id="P72"></a>
 
 
 //3.5 General data processing instructions
@@ -3419,7 +3543,9 @@ SUBW Subtract ADD, ADC, SUB, SBC, and RSB on page 73
 TEQ Test equivalence TST and TEQ on page 82
 TST Test TST and TEQ on page 82
 
-                            <!-- *P73*/156 -->
+<!-- *P73*/156 -->
+[P73]: #P73
+<a id="P73"></a>
 
 
 //3.5.1 ADD, ADC, SUB, SBC, and RSB
@@ -3458,7 +3584,9 @@ ADDW is equivalent to the ADD syntax that uses the imm12 operand. SUBW is equiva
 to the SUB syntax that uses the imm12 operand.
 
 
-                            <!-- *P74*/156 -->
+<!-- *P74*/156 -->
+[P74]: #P74
+<a id="P74"></a>
 
 Restrictions
 In these instructions:
@@ -3500,7 +3628,9 @@ Specific example 4: 64-bit addition
 ADDSR4, R0, R2; add the least significant words
 ADCR5, R1, R3; add the most significant words with carry
 
-                            <!-- *P75*/156 -->
+<!-- *P75*/156 -->
+[P75]: #P75
+<a id="P75"></a>
 
 Multiword values do not have to use consecutive registers. Specific example 5: 96-bit
 subtraction shows instructions that subtract a 96-bit integer contained in R9, R1, and R11
@@ -3540,7 +3670,9 @@ the corresponding bits in the value of operand2.
 Restrictions
 Do not use either SP or PC.
 
-                            <!-- *P76*/156 -->
+<!-- *P76*/156 -->
+[P76]: #P76
+<a id="P76"></a>
 
 Condition flags
 If S is specified, these instructions:
@@ -3585,7 +3717,9 @@ LSR: Shift length from 1 to 32
 ROR: Shift length from 1 to 31
 Note: MOV{S}{cond} Rd, Rm is the preferred syntax for LSL{S}{cond} Rd, Rm, #0.
 
-                            <!-- *P77*/156 -->
+<!-- *P77*/156 -->
+[P77]: #P77
+<a id="P77"></a>
 
 Operation
 ASR, LSL, LSR, and ROR move the bits in the register Rm to the left or right by the number
@@ -3627,7 +3761,9 @@ Do not use either SP or PC.
 Condition flags
 This instruction does not change the flags.
 
-                            <!-- *P78*/156 -->
+<!-- *P78*/156 -->
+[P78]: #P78
+<a id="P78"></a>
 
 Examples
 CLZR4,R9
@@ -3663,7 +3799,9 @@ CMPR2, R9
 CMNR0, #6400
 CMPGTSP, R7, LSL #2
 
-                            <!-- *P79*/156 -->
+<!-- *P79*/156 -->
+[P79]: #P79
+<a id="P79"></a>
 
 
 //3.5.6 MOV and MVN
@@ -3704,7 +3842,9 @@ the value, and places the result into Rd .
 Note: The MOVW instruction provides the same function as MOV , but is restricted to using the
 imm16 operand.
 
-                            <!-- *P80*/156 -->
+<!-- *P80*/156 -->
+[P80]: #P80
+<a id="P80"></a>
 
 Restrictions
 You can use SP and PC only in the MOV instruction, with the following restrictions:
@@ -3747,7 +3887,9 @@ MOVT writes a 16-bit immediate value, imm16, to the top halfword, Rd[31:16], of 
 destination register. The write does not affect Rd[15:0].
 The MOV, MOVT instruction pair enables you to generate any 32-bit constant.
 
-                            <!-- *P81*/156 -->
+<!-- *P81*/156 -->
+[P81]: #P81
+<a id="P81"></a>
 
 Restrictions
 Rd must be neither SP nor PC.
@@ -3789,7 +3931,9 @@ Examples
 REVR3, R7; reverse byte order of value in R7 and write it to R3
 REV16 R0, R0; reverse byte order of each 16-bit halfword in R0
 
-                            <!-- *P82*/156 -->
+<!-- *P82*/156 -->
+[P82]: #P82
+<a id="P82"></a>
 
 REVSH R0, R5 ; reverse Signed Halfword
 REVHS R3, R7 ; reverse with Higher or Same condition
@@ -3834,7 +3978,9 @@ TSTR0, #0x3F8; perform bitwise AND of R0 value to 0x3F8,
 TEQEQR10, R9; conditionally test if value in R10 is equal to
 ; value in R9, APSR is updated but result is discarded
 
-                            <!-- *P83*/156 -->
+<!-- *P83*/156 -->
+[P83]: #P83
+<a id="P83"></a>
 
 
 //3.6 Multiply and divide instructions
@@ -3887,7 +4033,9 @@ result
 UMULL, UMLAL, SMULL, and SMLAL on
 page 85
 
-                            <!-- *P84*/156 -->
+<!-- *P84*/156 -->
+[P84]: #P84
+<a id="P84"></a>
 
 Operation
 The MUL instruction multiplies the values from Rn and Rm , and places the least significant 32
@@ -3915,7 +4063,9 @@ MULSR0, R2, R2; multiply with flag update, R0 = R2 x R2
 MULLTR2, R3, R2; conditionally multiply, R2 = R3 x R2
 MLSR4, R5, R6, R7; multiply with subtract, R4 = R7 - (R5 x R6)
 
-                            <!-- *P85*/156 -->
+<!-- *P85*/156 -->
+[P85]: #P85
+<a id="P85"></a>
 
 
 //3.6.2 UMULL, UMLAL, SMULL, and SMLAL
@@ -3958,7 +4108,9 @@ Examples
 UMULLR0, R4, R5, R6; unsigned (R4,R0) = R5 x R6
 SMLALR4, R5, R3, R8; signed (R5,R4) = (R5,R4) + R3 x R8
 
-                            <!-- *P86*/156 -->
+<!-- *P86*/156 -->
+[P86]: #P86
+<a id="P86"></a>
 
 
 //3.6.3 SDIV and UDIV
@@ -3986,7 +4138,9 @@ Examples
 SDIVR0, R2, R4; signed divide, R0 = R2/R4
 UDIVR8, R8, R1; unsigned divide, R8 = R8/R1
 
-                            <!-- *P87*/156 -->
+<!-- *P87*/156 -->
+[P87]: #P87
+<a id="P87"></a>
 
 
 //3.7 Saturating instructions
@@ -4034,7 +4188,9 @@ saturation occurs, the instruction sets the Q flag to 1 in the APSR. Otherwise, 
 flag unchanged. To clear the Q flag to 0, you must use the MSR instruction, see MSR on
 page 101.
 
-                            <!-- *P88*/156 -->
+<!-- *P88*/156 -->
+[P88]: #P88
+<a id="P88"></a>
 
 To read the state of the Q flag, use the MRS instruction (see MRS on page 100).
 Restrictions
@@ -4067,7 +4223,9 @@ UBFX Unsigned bit field extract SBFX and UBFX on page 89
 UXTB Zero extend a byte SXT and UXT on page 90
 UXTH Zero extend a halfword SXT and UXT on page 90
 
-                            <!-- *P89*/156 -->
+<!-- *P89*/156 -->
+[P89]: #P89
+<a id="P89"></a>
 
 
 //3.8.1 BFC and BFI
@@ -4107,7 +4265,9 @@ Syntax
 SBFX{cond} Rd, Rn, #lsb, #width
 UBFX{cond} Rd, Rn, #lsb, #width
 
-                            <!-- *P90*/156 -->
+<!-- *P90*/156 -->
+[P90]: #P90
+<a id="P90"></a>
 
 where:
 • ‘cond’ is an optional condition code, see Conditional execution on page 56.
@@ -4151,7 +4311,9 @@ ROR #16: Value from Rm is rotated right 16 bits.
 ROR #24: Value from Rm is rotated right 24 bits.
 If ROR #n is omitted, no rotation is performed.
 
-                            <!-- *P91*/156 -->
+<!-- *P91*/156 -->
+[P91]: #P91
+<a id="P91"></a>
 
 Operation
 These instructions do the following:
@@ -4197,7 +4359,9 @@ IT If-Then IT on page 94
 TBB Table Branch Byte TBB and TBH on page 96
 TBH Table Branch Halfword TBB and TBH on page 96
 
-                            <!-- *P92*/156 -->
+<!-- *P92*/156 -->
+[P92]: #P92
+<a id="P92"></a>
 
 
 //3.8.5 B, BL, BX, and BLX
@@ -4243,7 +4407,9 @@ BL{cond} label −16 MB to +16 MB
 BX{cond} Rm Any value in register
 BLX{cond} Rm Any value in register
 
-                            <!-- *P93*/156 -->
+<!-- *P93*/156 -->
+[P93]: #P93
+<a id="P93"></a>
 
 Restrictions
 The restrictions are:
@@ -4289,7 +4455,9 @@ CMP Rn, #0
 BEQ label
 CBNZ Rn, label does not change condition flags but is otherwise equivalent to:
 
-                            <!-- *P94*/156 -->
+<!-- *P94*/156 -->
+[P94]: #P94
+<a id="P94"></a>
 
 CMP Rn, #0
 BNE label
@@ -4330,7 +4498,9 @@ instructions following the IT instruction form the IT block.
 The instructions in the IT block, including any branches, must specify the condition in the
 {cond} part of their syntax.
 
-                            <!-- *P95*/156 -->
+<!-- *P95*/156 -->
+[P95]: #P95
+<a id="P95"></a>
 
 Your assembler might be able to generate the required IT instructions for conditional
 instructions automatically, so that you do not need to write them yourself. See your
@@ -4375,7 +4545,9 @@ MOVEQ R2, R3 ; Conditional move
 
 
 
-                            <!-- *P96*/156 -->
+<!-- *P96*/156 -->
+[P96]: #P96
+<a id="P96"></a>
 
 CMP R0, #9 ; Convert R0 hex value (0 to 15) into ASCII
 ; ('0'-'9', 'A'-'F')
@@ -4427,7 +4599,9 @@ The restrictions are:
 • When any of these instructions is used inside an IT block, it must be the last instruction
 of the IT block.
 
-                            <!-- *P97*/156 -->
+<!-- *P97*/156 -->
+[P97]: #P97
+<a id="P97"></a>
 
 Condition flags
 These instructions do not change the flags.
@@ -4482,7 +4656,9 @@ MRS Move from special register to register MRS on page 100
 MSR Move from register to special register MSR on page 101
 NOP No Operation NOP on page 102
 
-                            <!-- *P98*/156 -->
+<!-- *P98*/156 -->
+[P98]: #P98
+<a id="P98"></a>
 
 
 //3.9.1 BKPT
@@ -4521,7 +4697,9 @@ Table 32. Miscellaneous instructions (continued)
 
 Mnemonic Brief description See
 
-                            <!-- *P99*/156 -->
+<!-- *P99*/156 -->
+[P99]: #P99
+<a id="P99"></a>
 
 where:
 • ‘effect’ is one of:
@@ -4563,7 +4741,9 @@ This instruction does not change the flags.
 Examples
 DMB ; Data Memory Barrier
 
-                            <!-- *P100*/156 -->
+<!-- *P100*/156 -->
+[P100]: #P100
+<a id="P100"></a>
 
 
 //3.9.4 DSB
@@ -4607,7 +4787,9 @@ Move the contents of a special register to a general-purpose register.
 Syntax
 MRS{cond} Rd, spec_reg
 
-                            <!-- *P101*/156 -->
+<!-- *P101*/156 -->
+[P101]: #P101
+<a id="P101"></a>
 
 where:
 • ‘cond’ is an optional condition code, see Conditional execution on page 56.
@@ -4647,7 +4829,9 @@ can only access the APSR, see Table 4: APSR bit definitions on page 17. Privileg
 software can access all special registers.
 In unprivileged software writes to unallocated or execution state bits in the PSR are ignored.
 
-                            <!-- *P102*/156 -->
+<!-- *P102*/156 -->
+[P102]: #P102
+<a id="P102"></a>
 
 When you write to BASEPRI_MAX, the instruction writes to BASEPRI only if either:
 • Rn is non-zero and the current BASEPRI value is 0
@@ -4687,7 +4871,9 @@ SEV{cond}
 where:
 • ‘cond’ is an optional condition code, see Conditional execution on page 56.
 
-                            <!-- *P103*/156 -->
+<!-- *P103*/156 -->
+[P103]: #P103
+<a id="P103"></a>
 
 Operation
 SEV is a hint instruction that causes an event to be signaled to all processors within a
@@ -4728,7 +4914,9 @@ where:
 Operation
 WFE is a hint instruction.
 
-                            <!-- *P104*/156 -->
+<!-- *P104*/156 -->
+[P104]: #P104
+<a id="P104"></a>
 
 If the event register is 0, WFE suspends execution until one of the following events occurs:
 • An exception, unless masked by the exception mask registers or the current priority
@@ -4762,7 +4950,9 @@ This instruction does not change the flags.
 Examples
 WFI ; Wait for interrupt
 
-                            <!-- *P105*/156 -->
+<!-- *P105*/156 -->
+[P105]: #P105
+<a id="P105"></a>
 
 
 /4 Core peripherals
@@ -4819,7 +5009,9 @@ Table 44 on page 128
 Privileged Only privileged software can access the register.
 Unprivileged Both unprivileged and privileged software can access the register.
 
-                            <!-- *P106*/156 -->
+<!-- *P106*/156 -->
+[P106]: #P106
+<a id="P106"></a>
 
 The Cortex-M3 MPU memory map is unified. This means instruction accesses and data
 accesses have same region settings.
@@ -4874,7 +5066,9 @@ Cacheable
 Normal memory that only a single
 processor uses.
 
-                            <!-- *P107*/156 -->
+<!-- *P107*/156 -->
+[P107]: #P107
+<a id="P107"></a>
 
 
 Table 36 shows the cache policy for memory attribute encodings with a TEX value is in the
@@ -4948,7 +5142,9 @@ Encoding, AA or BB Corresponding cache policy
 10 Write through, no write allocate
 11 Write back, no write allocate
 
-                            <!-- *P108*/156 -->
+<!-- *P108*/156 -->
+[P108]: #P108
+<a id="P108"></a>
 
 
 
@@ -5013,7 +5209,9 @@ software
 Read only, by privileged or unprivileged
 software
 
-                            <!-- *P109*/156 -->
+<!-- *P109*/156 -->
+[P109]: #P109
+<a id="P109"></a>
 
 STRH R3, [R0, #0xA] ; Region Attribute
 ORR R2, #1 ; Enable
@@ -5066,7 +5264,9 @@ LDR R0,=MPU_RBAR ; 0xE000ED9C, MPU Region Base register
 STM R0, {R1-R2} ; Region base address, region number and VALID bit,
 ; and Region Attribute, Size and Enable
 
-                            <!-- *P110*/156 -->
+<!-- *P110*/156 -->
+[P110]: #P110
+<a id="P110"></a>
 
 Subregions
 Regions of 256 bytes or more are divided into eight equal-sized subregions. Set the
@@ -5118,7 +5318,9 @@ base address
 448KB
 512KB
 
-                            <!-- *P111*/156 -->
+<!-- *P111*/156 -->
+[P111]: #P111
+<a id="P111"></a>
 
 
 In STM32 implementations, the shareability and cache policy attributes do not affect the
@@ -5168,7 +5370,9 @@ These bits indicates the number of supported MPU instruction regions.
 Always contains 0x00. The MPU memory map is unified and is described by the DREGION
 field.
 
-                            <!-- *P112*/156 -->
+<!-- *P112*/156 -->
+[P112]: #P112
+<a id="P112"></a>
 
 
 //4.2.6 MPU control register (MPU_CR)
@@ -5216,7 +5420,9 @@ This bit indicates support for unified or separate instruction and data memory m
 0 = Unified
 1 = Separate
 
-                            <!-- *P113*/156 -->
+<!-- *P113*/156 -->
+[P113]: #P113
+<a id="P113"></a>
 
 
 
@@ -5267,7 +5473,9 @@ Reserved
 Reserved REGION[7:0]
 rw rw rw rw rw rw rw rw
 
-                            <!-- *P114*/156 -->
+<!-- *P114*/156 -->
+[P114]: #P114
+<a id="P114"></a>
 
 
 
@@ -5298,7 +5506,9 @@ ADDR[31:N]...
 ....ADDR[31:N] VALID REGION[3:0]
 rw rw rw rw rw
 
-                            <!-- *P115*/156 -->
+<!-- *P115*/156 -->
+[P115]: #P115
+<a id="P115"></a>
 
 Bits 31:N ADDR[31:N]: Region base address field
 The value of N depends on the region size.
@@ -5324,7 +5534,9 @@ Bits 3:0 REGION[3:0]: MPU region field
 For the behavior on writes, see the description of the VALID field.
 On reads, returns the current region number, as specified by the MPU_RNR register.
 
-                            <!-- *P116*/156 -->
+<!-- *P116*/156 -->
+[P116]: #P116
+<a id="P116"></a>
 
 
 //4.2.9 MPU region attribute and size register (MPU_RASR)
@@ -5373,7 +5585,9 @@ See Subregions on page 110 for more information.
 Region sizes of 128 bytes and less do not support subregions. When writing the attributes for
 such a region, write the SRD field as 0x00.
 
-                            <!-- *P117*/156 -->
+<!-- *P117*/156 -->
+[P117]: #P117
+<a id="P117"></a>
 
 SIZE field values
 The SIZE field defines the size of the MPU memory region specified by the MPU_RNR
@@ -5454,7 +5668,9 @@ REGION
 [3:0]
 Reset Value 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 
-                            <!-- *P118*/156 -->
+<!-- *P118*/156 -->
+[P118]: #P118
+<a id="P118"></a>
 
 
 //4.3 Nested vectored interrupt controller (NVIC)
@@ -5593,7 +5809,9 @@ Offset Register
 1
 0
 
-                            <!-- *P119*/156 -->
+<!-- *P119*/156 -->
+[P119]: #P119
+<a id="P119"></a>
 
 The processor automatically stacks its state on exception entry and unstacks this state on
 exception exit, with no instruction overhead. This provides low latency exception handling.
@@ -5632,7 +5850,9 @@ Set-enable Clear-enable Set-pending Clear-pending Active Bit
 32-63 ISER[1] ICER[1] ISPR[1] ICPR[1] IABR[1]
 64-67 ISER[2] ICER[2] ISPR[2] ICPR[2] IABR[2]
 
-                            <!-- *P120*/156 -->
+<!-- *P120*/156 -->
+[P120]: #P120
+<a id="P120"></a>
 
 
 //4.3.2 Interrupt set-enable registers (NVIC_ISERx)
@@ -5664,7 +5884,9 @@ If a pending interrupt is enabled, the NVIC activates the interrupt based on its
 interrupt is not enabled, asserting its interrupt signal changes the interrupt state to pending,
 but the NVIC never activates the interrupt, regardless of its priority.
 
-                            <!-- *P121*/156 -->
+<!-- *P121*/156 -->
+[P121]: #P121
+<a id="P121"></a>
 
 
 //4.3.3 Interrupt clear-enable registers (NVIC_ICERx)
@@ -5694,7 +5916,9 @@ Read:
 See Table 41: Mapping of interrupts to the interrupt variables on page 119 for the
 correspondence of interrupts to each register bit.
 
-                            <!-- *P122*/156 -->
+<!-- *P122*/156 -->
+[P122]: #P122
+<a id="P122"></a>
 
 
 //4.3.4 Interrupt set-pending registers (NVIC_ISPRx)
@@ -5729,7 +5953,9 @@ Writing 1 to the ISPR bit corresponding to an interrupt that is pending:
 Writing 1 to the ISPR bit corresponding to a disabled interrupt:
 – sets the state of that interrupt to pending.
 
-                            <!-- *P123*/156 -->
+<!-- *P123*/156 -->
+[P123]: #P123
+<a id="P123"></a>
 
 
 //4.3.5 Interrupt clear-pending registers (NVIC_ICPRx)
@@ -5761,7 +5987,9 @@ See Table 41: Mapping of interrupts to the interrupt variables on page 119 for t
 correspondence of interrupts to each register bit.
 Writing 1 to an ICPR bit does not affect the active state of the corresponding interrupt.
 
-                            <!-- *P124*/156 -->
+<!-- *P124*/156 -->
+[P124]: #P124
+<a id="P124"></a>
 
 
 //4.3.6 Interrupt active bit registers (NVIC_IABRx)
@@ -5789,7 +6017,9 @@ See Table 41: Mapping of interrupts to the interrupt variables on page 119 for t
 correspondence of interrupts to each register bit.
 A bit reads as 1 if the status of the corresponding interrupt is active or active and pending.
 
-                            <!-- *P125*/156 -->
+<!-- *P125*/156 -->
+[P125]: #P125
+<a id="P125"></a>
 
 
 //4.3.7 Interrupt priority registers (NVIC_IPRx)
@@ -5839,7 +6069,9 @@ IP[3] IP[2] IP[1] IP[0] IPR0
 . . .
 Reserved Reserved Reserved
 
-                            <!-- *P126*/156 -->
+<!-- *P126*/156 -->
+[P126]: #P126
+<a id="P126"></a>
 
 
 //4.3.8 Software trigger interrupt register (NVIC_STIR)
@@ -5893,7 +6125,9 @@ Write to the STIR to generate a Software Generated Interrupt (SGI). The value to
 the Interrupt ID of the required SGI, in the range 0-239. For example, a value of 0b000000011
 specifies interrupt IRQ3.
 
-                            <!-- *P127*/156 -->
+<!-- *P127*/156 -->
+[P127]: #P127
+<a id="P127"></a>
 
 A pending interrupt remains pending until one of the following:
 • The processor enters the ISR for the interrupt. This changes the state of the interrupt
@@ -5944,7 +6178,9 @@ uint32_t NVIC_GetPendingIRQ (IRQn_t IRQn)
 Return true (IRQ-Number) if IRQn is
 pending
 
-                            <!-- *P128*/156 -->
+<!-- *P128*/156 -->
+[P128]: #P128
+<a id="P128"></a>
 
 For more information about these functions see the CMSIS documentation.
 
@@ -6043,7 +6279,9 @@ Reset Value 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 NVIC_IABR0 ACTIVE[31:0]
 Reset Value 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 
-                            <!-- *P129*/156 -->
+<!-- *P129*/156 -->
+[P129]: #P129
+<a id="P129"></a>
 
 
 //4.4 System control block (SCB)
@@ -6138,7 +6376,9 @@ CYCI
 NT
 rw rw rw
 
-                            <!-- *P130*/156 -->
+<!-- *P130*/156 -->
+[P130]: #P130
+<a id="P130"></a>
 
 
 
@@ -6188,7 +6428,9 @@ The p value in the rnpn product revision identifier, indicates patch release.
 0x0: = p0
 0x1: = p1
 
-                            <!-- *P131*/156 -->
+<!-- *P131*/156 -->
+[P131]: #P131
+<a id="P131"></a>
 
 
 //4.4.3 Interrupt control and state register (SCB_ICSR)
@@ -6237,7 +6479,9 @@ Reserved
 VECTACTIVE[8:0]
 r r r r r rw rw rw rw rw rw rw rw rw
 
-                            <!-- *P132*/156 -->
+<!-- *P132*/156 -->
+[P132]: #P132
+<a id="P132"></a>
 
 
 Bit 31 NMIPENDSET: NMI set-pending bit.
@@ -6282,7 +6526,9 @@ Bit 22 ISRPENDING: Interrupt pending flag, excluding NMI and Faults
 0: Interrupt not pending
 1: Interrupt pending
 
-                            <!-- *P133*/156 -->
+<!-- *P133*/156 -->
+[P133]: #P133
+<a id="P133"></a>
 
 
 //4.4.4 Vector table offset register (SCB_VTOR)
@@ -6335,7 +6581,9 @@ Bit 29 determines whether the vector table is in the code or SRAM memory region.
 Note: Bit 29 is sometimes called the TBLBASE bit.
 Bits 8:0 Reserved, must be kept cleared
 
-                            <!-- *P134*/156 -->
+<!-- *P134*/156 -->
+[P134]: #P134
+<a id="P134"></a>
 
 
 //4.4.5 Application interrupt and reset control register (SCB_AIRCR)
@@ -6392,7 +6640,9 @@ Bit 0 VECTRESET
 Reserved for Debug use. This bit reads as 0. When writing to the register you must write 0 to
 this bit, otherwise behavior is unpredictable.
 
-                            <!-- *P135*/156 -->
+<!-- *P135*/156 -->
+[P135]: #P135
+<a id="P135"></a>
 
 Binary point
 The PRIGROUP field indicates the position of the binary point that splits the PRI_n fields in
@@ -6425,7 +6675,9 @@ priorities
 0b110 0bx.yyy [7] [6:4] 2 8
 0b111 0b.yyyy None [7:4] None 16
 
-                            <!-- *P136*/156 -->
+<!-- *P136*/156 -->
+[P136]: #P136
+<a id="P136"></a>
 
 
 //4.4.6 System control register (SCB_SCR)
@@ -6475,7 +6727,9 @@ Configures sleep-on-exit when returning from Handler mode to Thread mode. Settin
 1: Enter sleep, or deep sleep, on return from an interrupt service routine.
 Bit 0 Reserved, must be kept cleared
 
-                            <!-- *P137*/156 -->
+<!-- *P137*/156 -->
+[P137]: #P137
+<a id="P137"></a>
 
 
 //4.4.7 Configuration and control register (SCB_CCR)
@@ -6541,7 +6795,9 @@ divisor of 0:
 1: Trap divide by 0.
 When this bit is set to 0, a divide by zero returns a quotient of 0.
 
-                            <!-- *P138*/156 -->
+<!-- *P138*/156 -->
+[P138]: #P138
+<a id="P138"></a>
 
 
 //4.4.8 System handler priority registers (SHPRx)
@@ -6589,7 +6845,9 @@ System handler priority register 3 (SCB_SHPR3) on
 page 140
 SysTick PRI_15
 
-                            <!-- *P139*/156 -->
+<!-- *P139*/156 -->
+[P139]: #P139
+<a id="P139"></a>
 
 System handler priority register 1 ( SCB_ SHPR1)
 Address offset: 0x18
@@ -6623,7 +6881,9 @@ Reserved
 Bits 31:24 PRI_11[7:0]: Priority of system handler 11, SVCall
 Bits 23:0 Reserved, must be kept cleared
 
-                            <!-- *P140*/156 -->
+<!-- *P140*/156 -->
+[P140]: #P140
+<a id="P140"></a>
 
 System handler priority register 3 ( SCB_ SHPR3)
 Address: 0xE000 ED20
@@ -6664,7 +6924,9 @@ Bits 31:24 PRI_15[7:0]: Priority of system handler 15, SysTick exception
 Bits 23:16 PRI_14[7:0]: Priority of system handler 14, PendSV
 Bits 15:0 Reserved, must be kept cleared
 
-                            <!-- *P141*/156 -->
+<!-- *P141*/156 -->
+[P141]: #P141
+<a id="P141"></a>
 
 
 
@@ -6752,7 +7014,9 @@ pending status of the exceptions.
 3. Active bits, read as 1 if the exception is active, or as 0 if it is not active. You can write to these bits to change the active
 status of the exceptions, but see the Caution in this section.
 
-                            <!-- *P142*/156 -->
+<!-- *P142*/156 -->
+[P142]: #P142
+<a id="P142"></a>
 
 
 //4.4.10 Configurable fault status register (SCB_CFSR)
@@ -6839,7 +7103,9 @@ UNALIGN_TRP.
 0: No unaligned access fault, or unaligned access trapping not enabled
 1: the processor has made an unaligned memory access.
 
-                            <!-- *P143*/156 -->
+<!-- *P143*/156 -->
+[P143]: #P143
+<a id="P143"></a>
 
 Bits 23:20 Reserved, must be kept cleared
 Bit 19 NOCP: No coprocessor usage fault. The processor does not support coprocessor instructions:
@@ -6885,7 +7151,9 @@ return, does not performed a new save, and does not write a fault address to the
 0: No unstacking fault
 1: Unstack for an exception return has caused one or more bus faults.
 
-                            <!-- *P144*/156 -->
+<!-- *P144*/156 -->
+[P144]: #P144
+<a id="P144"></a>
 
 Bit 10 IMPRECISERR: Imprecise data bus error
 When the processor sets this bit to 1, it does not write a fault address to the BFAR.
@@ -6927,7 +7195,9 @@ performed a new save. The processor has not written a fault address to the MMAR.
 0: No unstacking fault
 1: Unstack for an exception return has caused one or more access violations.
 
-                            <!-- *P145*/156 -->
+<!-- *P145*/156 -->
+[P145]: #P145
+<a id="P145"></a>
 
 
 //4.4.11 Hard fault status register (SCB_HFSR)
@@ -6980,7 +7250,9 @@ the cause of the fault.
 0: No forced hard fault
 1: Forced hard fault.
 
-                            <!-- *P146*/156 -->
+<!-- *P146*/156 -->
+[P146]: #P146
+<a id="P146"></a>
 
 Bits 29:2 Reserved, must be kept cleared
 Bit 1 VECTTBL: Vector table hard fault
@@ -6992,7 +7264,9 @@ that was preempted by the exception.
 1: Bus fault on vector table read.
 Bit 0 Reserved, must be kept cleared
 
-                            <!-- *P147*/156 -->
+<!-- *P147*/156 -->
+[P147]: #P147
+<a id="P147"></a>
 
 
 //4.4.12 Memory management fault address register (SCB_MMFAR)
@@ -7044,7 +7318,9 @@ instruction, even if it is not the address of the fault.
 Flags in the BFSR register indicate the cause of the fault, and whether the value in the BFAR
 is valid. See Configurable fault status register (SCB_CFSR) on page 142.
 
-                            <!-- *P148*/156 -->
+<!-- *P148*/156 -->
+[P148]: #P148
+<a id="P148"></a>
 
 
 //4.4.14 System control block design hints and tips
@@ -7113,7 +7389,9 @@ Offset Register
 SCB_ACTLR Implementer Variant Constant PartNo Revision
 Reset Value 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 
-                            <!-- *P149*/156 -->
+<!-- *P149*/156 -->
+[P149]: #P149
+<a id="P149"></a>
 
 
 
@@ -7231,7 +7509,9 @@ SCB_SHPR3 PRI15 PRI14
 Reserved
 Reset Value 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 
-                            <!-- *P150*/156 -->
+<!-- *P150*/156 -->
+[P150]: #P150
+<a id="P150"></a>
 
 
 //4.5 SysTick timer (STK)
@@ -7320,7 +7600,9 @@ Offset Register
 1
 0
 
-                            <!-- *P151*/156 -->
+<!-- *P151*/156 -->
+[P151]: #P151
+<a id="P151"></a>
 
 
 //4.5.1 SysTick control and status register (STK_CTRL)
@@ -7368,7 +7650,9 @@ value again, and begins counting.
 0: Counter disabled
 1: Counter enabled
 
-                            <!-- *P152*/156 -->
+<!-- *P152*/156 -->
+[P152]: #P152
+<a id="P152"></a>
 
 
 //4.5.2 SysTick reload value register (STK_LOAD)
@@ -7404,7 +7688,9 @@ l To deliver a single SysTick interrupt after a delay of N processor clock cycle
 RELOAD of value N. For example, if a SysTick interrupt is required after 400 clock
 pulses, set RELOAD to 400.
 
-                            <!-- *P153*/156 -->
+<!-- *P153*/156 -->
+[P153]: #P153
+<a id="P153"></a>
 
 
 //4.5.3 SysTick current value register (STK_VAL)
@@ -7456,7 +7742,9 @@ Bit 31 NOREF: NOREF flag
 Reads as zero. Indicates that a separate reference clock is provided. The frequency of this
 clock is HCLK/8.
 
-                            <!-- *P154*/156 -->
+<!-- *P154*/156 -->
+[P154]: #P154
+<a id="P154"></a>
 
 
 //4.5.5 SysTick design hints and tips
@@ -7544,7 +7832,9 @@ Reserved
 TENMS[23:0]
 Reset Value 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 
-                            <!-- *P155*/156 -->
+<!-- *P155*/156 -->
+[P155]: #P155
+<a id="P155"></a>
 
 
 /5 Revision history
@@ -7581,7 +7871,9 @@ and status register (STK_CTRL).
 Updated Table 49: SysTick register map and reset values
 STK_CTRL bit 2 reset value to zero.
 
-                            <!-- *P156*/156 -->
+<!-- *P156*/156 -->
+[P156]: #P156
+<a id="P156"></a>
 
 
 IMPORTANT NOTICE – PLEASE READ CAREFULLY
