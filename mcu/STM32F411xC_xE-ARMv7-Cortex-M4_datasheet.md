@@ -58,6 +58,9 @@ https://www.st.com/resource/en/datasheet/stm32f411re.pdf
 *   • All packages (WLCSP49, LQFP64/100, UFQFPN48, UFBGA100) are ECOPACK ® 2
 
 
+[Table 1]: #Table%201
+<a id="Table 1"></a>
+
 **Table 1**. Device summary
 
 
@@ -417,6 +420,9 @@ applications:
 
 
 
+[Table 2]: #Table%202
+<a id="Table 2"></a>
+
 **Table 2**. STM32F411xC/xE features and peripheral counts
 
 Flash memory in Kbytes 256 512
@@ -470,6 +476,9 @@ The STM32F411xC/xE are fully software and feature compatible with the STM32F4 se
 (STM32F42x, STM32F401, STM32F43x, STM32F41x, STM32F405 and STM32F407)
 The STM32F411xC/xE can be used as drop-in replacement of the other STM32F4 products
 but some slight changes have to be done on the PCB board.
+
+[Figure 1]: #Figure%201
+<a id="Figure 1"></a>
 
 **Figure 1**. Compatible board design for LQFP100 package
 
@@ -567,6 +576,9 @@ but some slight changes have to be done on the PCB board.
 <a id="P14"></a>
 
 
+
+[Figure 2]: #Figure%202
+<a id="Figure 2"></a>
 
 **Figure 2**. Compatible board design for LQFP64 package
 
@@ -686,6 +698,9 @@ but some slight changes have to be done on the PCB board.
 <a id="P15"></a>
 
 
+
+[Figure 3]: #Figure%203
+<a id="Figure 3"></a>
 
 **Figure 3**. STM32F411xC/xE block diagram
 
@@ -998,6 +1013,9 @@ The 32-bit multi-AHB bus matrix interconnects all the masters (CPU, DMAs) and th
 (Flash memory, RAM, AHB and APB peripherals) and ensures a seamless and efficient
 operation even when several high-speed peripherals work simultaneously.
 
+[Figure 4]: #Figure%204
+<a id="Figure 4"></a>
+
 **Figure 4**. Multi-AHB matrix
 
 
@@ -1183,6 +1201,9 @@ supervisor. Refer to Figure 5: Power supply supervisor interconnection with inte
 OFF.
 
 
+[Figure 5]: #Figure%205
+<a id="Figure 5"></a>
+
 **Figure 5**. Power supply supervisor interconnection with internal reset OFF (1)
 
 1. The PRD_ON pin is only available on the WLCSP49 and UFBGA100 packages.
@@ -1265,6 +1286,9 @@ domain which is not reset by the NRST pin.
 a consequence, PA0 and NRST pins must be managed separately if the debug
 connection under reset or pre-reset is required.
 
+[Figure 6]: #Figure%206
+<a id="Figure 6"></a>
+
 **Figure 6**. Regulator OFF
 
 The following conditions must be respected:
@@ -1302,10 +1326,16 @@ Note: The minimum value of V 12 depends on the maximum frequency targeted in the
 
 
 
+[Figure 7]: #Figure%207
+<a id="Figure 7"></a>
+
 **Figure 7**. Startup in regulator OFF: slow V DD slope -
 
 power-down reset risen after V CAP_1 /V CAP_2 stabilization
 1. This figure is valid whatever the internal reset mode (ON or OFF).
+
+[Figure 8]: #Figure%208
+<a id="Figure 8"></a>
 
 **Figure 8**. Startup in regulator OFF mode: fast V DD slope -
 
@@ -1371,6 +1401,9 @@ or when the device wakes up from the Standby mode (see Section 3.18: Low-power
 modes).
 Additional 32-bit registers contain the programmable alarm subseconds, seconds, minutes,
 hours, day, and date.
+
+[Table 3]: #Table%203
+<a id="Table 3"></a>
 
 **Table 3**. Regulator ON/OFF and internal power supply supervisor availability
 
@@ -1479,6 +1512,9 @@ purpose timer. Its 4 independent channels can be used for:
 • Output compare
 • PWM generation (edge- or center-aligned modes)
 • One-pulse mode output
+
+[Table 4]: #Table%204
+<a id="Table 4"></a>
 
 **Table 4**. Timer feature comparison
 
@@ -1661,6 +1697,9 @@ USART1 and USART2 also provide hardware management of the CTS and RTS signals,
 Smart Card mode (ISO 7816 compliant) and SPI-like communication capability. All
 interfaces can be served by the DMA controller.
 
+[Table 5]: #Table%205
+<a id="Table 5"></a>
+
 **Table 5**. Comparison of I2C analog and digital filters
 
 Analog filter Digital filter
@@ -1708,6 +1747,9 @@ The PLLI2S configuration can be modified to manage an I2S sample rate change wit
 disabling the main PLL (PLL) used for the CPU.
 The audio PLL can be programmed with very low error to obtain sampling rates ranging
 from 8 kHz to 192 kHz.
+
+[Table 6]: #Table%206
+<a id="Table 6"></a>
 
 **Table 6**. USART feature comparison
 
@@ -1858,6 +1900,9 @@ The Embedded Trace Macrocell operates with third party debugger software tools.
 ==============================
 
 
+[Figure 9]: #Figure%209
+<a id="Figure 9"></a>
+
 **Figure 9**. STM32F411xC/xE WLCSP49 pinout
 
 1. The above figure shows the package bump side.
@@ -1932,6 +1977,9 @@ The Embedded Trace Macrocell operates with third party debugger software tools.
 <a id="P34"></a>
 
 
+
+[Figure 10]: #Figure%2010
+<a id="Figure 10"></a>
 
 **Figure 10**. STM32F411xC/xE UFQFPN48 pinout
 
@@ -2010,6 +2058,9 @@ The Embedded Trace Macrocell operates with third party debugger software tools.
 <a id="P35"></a>
 
 
+
+[Figure 11]: #Figure%2011
+<a id="Figure 11"></a>
 
 **Figure 11**. STM32F411xC/xE LQFP64 pinout
 
@@ -2120,6 +2171,9 @@ The Embedded Trace Macrocell operates with third party debugger software tools.
 <a id="P36"></a>
 
 
+
+[Figure 12]: #Figure%2012
+<a id="Figure 12"></a>
 
 **Figure 12**. STM32F411xC/xE LQFP100 pinout
 
@@ -2333,6 +2387,9 @@ The Embedded Trace Macrocell operates with third party debugger software tools.
 
 
 
+[Figure 13]: #Figure%2013
+<a id="Figure 13"></a>
+
 **Figure 13**. STM32F411xC/xE UFBGA100 pinout
 
 1. This figure shows the package top view
@@ -2466,6 +2523,9 @@ The Embedded Trace Macrocell operates with third party debugger software tools.
 
 
 
+[Table 7]: #Table%207
+<a id="Table 7"></a>
+
 **Table 7**. Legend/abbreviations used in the pinout table
 
 Name Abbreviation Definition
@@ -2488,6 +2548,9 @@ Functions selected through GPIOx_AFR registers
 Additional
 functions
 Functions directly selected/enabled through peripheral registers
+
+[Table 8]: #Table%208
+<a id="Table 8"></a>
 
 **Table 8**. STM32F411xC/xE pin definitions
 
@@ -3134,6 +3197,9 @@ UFBGA100
 <a id="P47"></a>
 
 
+
+[Table 9]: #Table%209
+<a id="Table 9"></a>
 
 **Table 9**. Alternate function mapping
 
@@ -3865,9 +3931,15 @@ OTG1_FS SDIO
 
 The memory map is shown in Figure 14.
 
+[Figure 14]: #Figure%2014
+<a id="Figure 14"></a>
+
 **Figure 14**. Memory map
 
 
+
+[Table 10]: #Table%2010
+<a id="Table 10"></a>
 
 **Table 10**. STM32F411xC/xE
 
@@ -4089,6 +4161,9 @@ not tested.
 
 The loading conditions used for pin parameter measurement are shown in Figure 15.
 
+[Figure 15]: #Figure%2015
+<a id="Figure 15"></a>
+
 **Figure 15**. Pin loading conditions
 
 ?????????
@@ -4106,6 +4181,9 @@ The loading conditions used for pin parameter measurement are shown in Figure 15
 
 The input voltage measurement on a pin of the device is described in Figure 16.
 
+[Figure 16]: #Figure%2016
+<a id="Figure 16"></a>
+
 **Figure 16**. Input voltage measurement
 
 ?????????
@@ -4121,6 +4199,9 @@ The input voltage measurement on a pin of the device is described in Figure 16.
 //6.1.6 Power supply scheme
 ---------------------------
 
+
+[Figure 17]: #Figure%2017
+<a id="Figure 17"></a>
 
 **Figure 17**. Power supply scheme
 
@@ -4194,6 +4275,9 @@ This might cause incorrect operation of the device.
 ---------------------------------------
 
 
+[Figure 18]: #Figure%2018
+<a id="Figure 18"></a>
+
 **Figure 18**. Current consumption measurement scheme
 
 
@@ -4212,6 +4296,9 @@ extended periods may affect device reliability.
 ? ???
 ? ?? ?? ???
 ? ??
+
+[Table 11]: #Table%2011
+<a id="Table 11"></a>
 
 **Table 11**. Voltage characteristics
 
@@ -4247,6 +4334,9 @@ sensitivity)
 
 
 
+[Table 12]: #Table%2012
+<a id="Table 12"></a>
+
 **Table 12**. Current characteristics
 
 Symbol Ratings Max. Unit
@@ -4274,6 +4364,9 @@ permitted range.
 value.
 5. When several inputs are submitted to a current injection, the maximum Σ I INJ(PIN) is the absolute sum of the positive and
 negative injected currents (instantaneous values).
+
+[Table 13]: #Table%2013
+<a id="Table 13"></a>
 
 **Table 13**. Thermal characteristics
 
@@ -4304,6 +4397,9 @@ directive 2011/65/EU, July 2011).
 ------------------------------------
 
 
+
+[Table 14]: #Table%2014
+<a id="Table 14"></a>
 
 **Table 14**. General operating conditions
 
@@ -4422,6 +4518,9 @@ V DDA can be tolerated during power-up and power-down operation.
 Table 14. General operating conditions (continued)
 Symbol Parameter Conditions Min Typ Max Unit
 
+[Table 15]: #Table%2015
+<a id="Table 15"></a>
+
 **Table 15**. Features depending on the operating power supply range
 
 Operating
@@ -4493,6 +4592,9 @@ Stabilization for the main regulator is achieved by connecting the external capa
 the VCAP_1 and VCAP_2 pins. For packages supporting only 1 VCAP pin, the 2 CEXT
 capacitors are replaced by a single capacitor.
 C EXT is specified in Table 16.
+
+[Figure 19]: #Figure%2019
+<a id="Figure 19"></a>
 
 **Figure 19**. External capacitor C EXT
 
@@ -4589,6 +4691,9 @@ operations
 
 Subject to general operating conditions for T A .
 
+[Table 17]: #Table%2017
+<a id="Table 17"></a>
+
 **Table 17**. Operating conditions at power-up / power-down (regulator ON)
 
 
@@ -4598,6 +4703,9 @@ Subject to general operating conditions for T A .
 Subject to general operating conditions for T A .
 
 Note: This feature is only available for UFBGA100 package.
+
+[Table 16]: #Table%2016
+<a id="Table 16"></a>
 
 **Table 16**. VCAP_1/VCAP_2 operating conditions (1)
 
@@ -4617,6 +4725,9 @@ t VDD
 V DD rise time rate 20 ∞
 µs/V
 V DD fall time rate 20 ∞
+
+[Table 18]: #Table%2018
+<a id="Table 18"></a>
 
 **Table 18**. Operating conditions at power-up / power-down (regulator OFF) (1)
 
@@ -4643,6 +4754,9 @@ V CAP_1 and V CAP_2 fall time rate Power-down 20 ∞
 The parameters given in Table 19 are derived from tests performed under ambient
 temperature and V DD supply voltage @ 3.3V.
 
+
+[Table 19]: #Table%2019
+<a id="Table 19"></a>
 
 **Table 19**. Embedded reset and power control block characteristics
 
@@ -4760,6 +4874,9 @@ Symbol Parameter Conditions Min Typ Max Unit
 
 
 
+[Table 20]: #Table%2020
+<a id="Table 20"></a>
+
 **Table 20**. Typical and maximum current consumption, code with data processing (ART
 
 accelerator disabled) running from SRAM - V DD = 1.7 V
@@ -4826,6 +4943,9 @@ analog part.
 
 
 
+[Table 21]: #Table%2021
+<a id="Table 21"></a>
+
 **Table 21**. Typical and maximum current consumption, code with data processing (ART
 
 accelerator disabled) running from SRAM - V DD = 3.6 V
@@ -4891,6 +5011,9 @@ analog part.
 
 
 
+[Table 22]: #Table%2022
+<a id="Table 22"></a>
+
 **Table 22**. Typical and maximum current consumption in run mode, code with data processing
 
 (ART accelerator enabled except prefetch) running from Flash memory- V DD = 1.7 V
@@ -4949,6 +5072,9 @@ analog part.
 
 
 
+
+[Table 23]: #Table%2023
+<a id="Table 23"></a>
 
 **Table 23**. Typical and maximum current consumption in run mode, code with data processing
 
@@ -5010,6 +5136,9 @@ analog part.
 
 
 
+[Table 24]: #Table%2024
+<a id="Table 24"></a>
+
 **Table 24**. Typical and maximum current consumption in run mode, code with data processing
 
 (ART accelerator disabled) running from Flash memory - V DD = 3.6 V
@@ -5069,6 +5198,9 @@ analog part.
 
 
 
+
+[Table 25]: #Table%2025
+<a id="Table 25"></a>
 
 **Table 25**. Typical and maximum current consumption in run mode, code with data processing
 
@@ -5131,6 +5263,9 @@ analog part.
 
 
 
+[Table 26]: #Table%2026
+<a id="Table 26"></a>
+
 **Table 26**. Typical and maximum current consumption in Sleep mode - V DD = 3.6 V
 
 Symbol Parameter Conditions
@@ -5182,6 +5317,9 @@ while the ADC is ON (ADON bit is set in the ADC_CR2 register).
 4. When the ADC is ON (ADON bit set in the ADC_CR2), add an additional power consumption of 1.6mA per ADC for the
 analog part.
 
+[Table 27]: #Table%2027
+<a id="Table 27"></a>
+
 **Table 27**. Typical and maximum current consumptions in Stop mode - V DD = 1.7 V
 
 Symbol Conditions Parameter
@@ -5226,6 +5364,9 @@ usage
 
 
 
+[Table 28]: #Table%2028
+<a id="Table 28"></a>
+
 **Table 28**. Typical and maximum current consumption in Stop mode - V DD =3.6 V
 
 Symbol Conditions Parameter
@@ -5261,6 +5402,9 @@ usage
 1. Guaranteed by characterization results.
 2. Guaranteed by test in production.
 
+[Table 29]: #Table%2029
+<a id="Table 29"></a>
+
 **Table 29**. Typical and maximum current consumption in Standby mode - V DD = 1.7 V
 
 Symbol Parameter Conditions
@@ -5285,6 +5429,9 @@ RTC and LSE OFF 1.8 3 (3) 11 24 49 (3)
 1. When the PDR is OFF (internal reset is OFF), the typical current consumption is reduced by 1.2 µA.
 2. Guaranteed by characterization results.
 3. Guaranteed by test in production.
+
+[Table 30]: #Table%2030
+<a id="Table 30"></a>
 
 **Table 30**. Typical and maximum current consumption in Standby mode - V DD = 3.6 V
 
@@ -5319,8 +5466,14 @@ RTC and LSE OFF 2.1 4 (3) 13.5 28 58 (3)
 
 
 
+[Figure 20]: #Figure%2020
+<a id="Figure 20"></a>
+
 **Figure 20**. Typical V BAT current consumption (LSE in low-drive mode and RTC ON)
 
+
+[Table 31]: #Table%2031
+<a id="Table 31"></a>
 
 **Table 31**. Typical and maximum current consumptions in V BAT mode
 
@@ -5422,6 +5575,9 @@ I SW V DD f SW C × × =
 
 
 
+[Table 32]: #Table%2032
+<a id="Table 32"></a>
+
 **Table 32**. Switching output I/O current consumption
 
 Symbol Parameter Conditions (1)
@@ -5495,6 +5651,9 @@ The given value is calculated by measuring the difference of current consumption
 – with only one peripheral clocked on
 • Ambient operating temperature is 25 °C and V DD =3.3 V.
 
+
+[Table 33]: #Table%2033
+<a id="Table 33"></a>
 
 **Table 33**. Peripheral current consumption
 
@@ -5571,6 +5730,9 @@ to the first instruction executed by the CPU:
 • For Stop or Sleep modes: the wakeup event is WFE.
 • WKUP (PA0) pin is used to wakeup from Standby, Stop and Sleep modes.
 
+[Figure 21]: #Figure%2021
+<a id="Figure 21"></a>
+
 **Figure 21**. Low-power mode wakeup
 
 All timings are derived from tests performed under ambient temperature and V DD =3.3 V.
@@ -5642,6 +5804,9 @@ external clock source, and under ambient temperature and supply voltage conditio
 summarized in Table 14.
 
 
+[Table 34]: #Table%2034
+<a id="Table 34"></a>
+
 **Table 34**. Low-power mode wakeup timings (1)
 
 Symbol Parameter
@@ -5670,6 +5835,9 @@ Wakeup of Flash from Flash Deep power down mode - - 100
 2. The wakeup times are measured from the wakeup event to the point in which the application code reads the first instruction.
 3. t WUSTDBY maximum value is given at –40 °C.
 
+[Table 35]: #Table%2035
+<a id="Table 35"></a>
+
 **Table 35**. High-speed external user clock characteristics
 
 Symbol Parameter Conditions Min Typ Max Unit
@@ -5697,6 +5865,9 @@ I L OSC_IN Input leakage current V SS ≤ V IN ≤ V DD - - ±1 µA
 
 
 
+[Figure 22]: #Figure%2022
+<a id="Figure 22"></a>
+
 **Figure 22**. High-speed external clock source AC timing diagram
 
 Low-speed external user clock generated from an external source
@@ -5718,6 +5889,9 @@ summarized in Table 14.
 ? ????
 ? ???????
 ? ???????
+
+[Table 36]: #Table%2036
+<a id="Table 36"></a>
 
 **Table 36**. Low-speed external user clock characteristics
 
@@ -5751,6 +5925,9 @@ I L OSC32_IN Input leakage current V SS ≤ V IN ≤ V DD - - ±1 µA
 
 
 
+[Figure 23]: #Figure%2023
+<a id="Figure 23"></a>
+
 **Figure 23**. Low-speed external clock source AC timing diagram
 
 High-speed external clock generated from a crystal/ceramic resonator
@@ -5771,6 +5948,9 @@ can be used as a rough estimate of the combined pin and board capacitance) when 
 C L1 and C L2 .
 Note: For information on selecting the crystal, refer to the application note AN2867 “Oscillator
 design guide for ST microcontrollers” available from the ST website www.st.com.
+
+[Table 37]: #Table%2037
+<a id="Table 37"></a>
 
 **Table 37**. HSE 4-26 MHz oscillator characteristics (1)
 
@@ -5811,6 +5991,9 @@ Startup time V DD is stabilized - 2 - ms
 
 
 
+[Figure 24]: #Figure%2024
+<a id="Figure 24"></a>
+
 **Figure 24**. Typical application with an 8 MHz crystal
 
 1. R EXT value depends on the crystal characteristics.
@@ -5828,6 +6011,9 @@ of higher power consumption.
 Note: For information on selecting the crystal, refer to the application note AN2867 “Oscillator
 design guide for ST microcontrollers” available from the ST website www.st.com.
 For information about the LSE high-power mode, refer to the reference manual RM0383.
+
+[Table 38]: #Table%2038
+<a id="Table 38"></a>
 
 **Table 38**. LSE oscillator characteristics (f LSE = 32.768 kHz) (1)
 
@@ -5876,6 +6062,9 @@ startup time V DD is stabilized - 2 - s
 
 
 
+[Figure 25]: #Figure%2025
+<a id="Figure 25"></a>
+
 **Figure 25**. Typical application with a 32.768 kHz crystal
 
 
@@ -5902,6 +6091,9 @@ L
 ??????????
 ????
 ? ??
+
+[Table 39]: #Table%2039
+<a id="Table 39"></a>
 
 **Table 39**. HSI oscillator characteristics (1)
 
@@ -5940,11 +6132,17 @@ power consumption
 
 
 
+[Figure 26]: #Figure%2026
+<a id="Figure 26"></a>
+
 **Figure 26**. ACC HSI versus temperature
 
 1. Guaranteed by characterization results.
 Low-speed internal (LSI) RC oscillator
 
+
+[Table 40]: #Table%2040
+<a id="Table 40"></a>
 
 **Table 40**. LSI oscillator characteristics (1)
 
@@ -5979,6 +6177,9 @@ I DD(LSI) (3) LSI oscillator power consumption - 0.4 0.6 µA
 
 
 
+[Figure 27]: #Figure%2027
+<a id="Figure 27"></a>
+
 **Figure 27**. ACC LSI versus temperature
 
 
@@ -6005,6 +6206,9 @@ temperature and V DD supply voltage conditions summarized in Table 14.
 ???
 ???
 ???
+
+[Table 41]: #Table%2041
+<a id="Table 41"></a>
 
 **Table 41**. Main PLL characteristics
 
@@ -6069,6 +6273,9 @@ between PLL and PLLI2S.
 4. Guaranteed by characterization results.
 Table 41. Main PLL characteristics (continued)
 Symbol Parameter Conditions Min Typ Max Unit
+
+[Table 42]: #Table%2042
+<a id="Table 42"></a>
 
 **Table 42**. PLLI2S (audio PLL) characteristics
 
@@ -6156,6 +6363,9 @@ INCSTEP. As a result, the achieved modulation depth is quantized. The percentage
 quantized modulation depth is given by the following formula:
 As a result:
 
+[Table 43]: #Table%2043
+<a id="Table 43"></a>
+
 **Table 43**. SSCG parameter constraints
 
 Symbol Parameter Min Typ Max (1) Unit
@@ -6181,9 +6391,15 @@ F0 is f PLL_OUT nominal.
 T mode is the modulation period.
 md is the modulation depth.
 
+[Figure 28]: #Figure%2028
+<a id="Figure 28"></a>
+
 **Figure 28**. PLL output clock waveforms in center spread mode
 
-Figure 29. PLL output clock waveforms in down spread mode
+[Figure 29]: #Figure%2029
+<a id="Figure 29"></a>
+
+**Figure 29**. PLL output clock waveforms in down spread mode
 
 //6.3.12 Memory characteristics
 -------------------------------
@@ -6206,6 +6422,9 @@ The devices are shipped to customers with the Flash memory erased.
 ????
 ????????
 
+[Table 44]: #Table%2044
+<a id="Table 44"></a>
+
 **Table 44**. Flash memory characteristics
 
 Symbol Parameter Conditions Min Typ Max Unit
@@ -6221,6 +6440,9 @@ Write / Erase 32-bit mode, V DD = 3.3 V - 12 -
 
 
 
+
+[Table 45]: #Table%2045
+<a id="Table 45"></a>
 
 **Table 45**. Flash memory programming
 
@@ -6282,6 +6504,9 @@ V prog Programming voltage
 16-bit program operation 2.1 - 3.6 V
 8-bit program operation 1.7 - 3.6 V
 
+[Table 46]: #Table%2046
+<a id="Table 46"></a>
+
 **Table 46**. Flash memory programming with V PP voltage
 
 Symbol Parameter Conditions Min (1) Typ Max (1) Unit
@@ -6300,6 +6525,9 @@ t ME Mass erase time - 3.50 - s
 <a id="P93"></a>
 
 
+
+[Table 47]: #Table%2047
+<a id="Table 47"></a>
 
 **Table 47**. Flash memory endurance and data retention
 
@@ -6385,6 +6613,9 @@ To complete these trials, ESD stress can be applied directly on the device, over
 specification values. When unexpected behavior is detected, the software can be hardened
 to prevent unrecoverable errors occurring (see application note AN1015).
 
+[Table 48]: #Table%2048
+<a id="Table 48"></a>
+
 **Table 48**. EMS characteristics for LQFP100 package
 
 Symbol Parameter Conditions
@@ -6430,6 +6661,9 @@ conforms to the JESD22-A114/C101 standard.
 
 
 
+[Table 49]: #Table%2049
+<a id="Table 49"></a>
+
 **Table 49**. EMI characteristics for LQFP100
 
 Symbol Parameter Conditions
@@ -6446,6 +6680,9 @@ IEC61967-2
 dBµV 30 to 130 MHz 17
 130 MHz to 1 GHz 12
 SAE EMI Level 3.5 -
+
+[Table 50]: #Table%2050
+<a id="Table 50"></a>
 
 **Table 50**. ESD absolute maximum ratings
 
@@ -6508,10 +6745,16 @@ leakage current by positive injection.
 The test results are given in Table 52.
 
 
+[Table 51]: #Table%2051
+<a id="Table 51"></a>
+
 **Table 51**. Electrical sensitivities
 
 Symbol Parameter Conditions Class
 LU Static latch-up class T A = + 125 °C conforming to JESD78A II level A
+
+[Table 52]: #Table%2052
+<a id="Table 52"></a>
 
 **Table 52**. I/O current injection susceptibility (1)
 
@@ -6551,6 +6794,9 @@ Unless otherwise specified, the parameters given in Table 53 are derived from te
 performed under the conditions summarized in Table 14. All I/Os are CMOS and TTL
 compliant.
 
+
+[Table 53]: #Table%2053
+<a id="Table 53"></a>
 
 **Table 53**. I/O static characteristics
 
@@ -6662,6 +6908,9 @@ Symbol Parameter Conditions Min Typ Max Unit
 
 
 
+[Figure 30]: #Figure%2030
+<a id="Figure 30"></a>
+
 **Figure 30**. FT/TC I/O input characteristics
 
 Output driving current
@@ -6712,6 +6961,9 @@ Unless otherwise specified, the parameters given in Table 54 are derived from te
 performed under ambient temperature and V DD supply voltage conditions summarized in
 Table 14. All I/Os are CMOS and TTL compliant.
 
+
+[Table 54]: #Table%2054
+<a id="Table 54"></a>
 
 **Table 54**. Output voltage characteristics
 
@@ -6768,6 +7020,9 @@ Unless otherwise specified, the parameters given in Table 55 are derived from te
 performed under the ambient temperature and V DD supply voltage conditions summarized
 in Table 14.
 
+
+[Table 55]: #Table%2055
+<a id="Table 55"></a>
 
 **Table 55**. I/O AC characteristics (1)(2)
 
@@ -6830,6 +7085,9 @@ C L = 10 pF, V DD ≥ 1.7 V - - 6
 <a id="P102"></a>
 
 
+
+[Figure 31]: #Figure%2031
+<a id="Figure 31"></a>
 
 **Figure 31**. I/O AC characteristics definition
 
@@ -6896,11 +7154,17 @@ in Table 14. Refer to Table 53: I/O static characteristics for the values of VIH
 NRST pin.
 
 
+[Figure 32]: #Figure%2032
+<a id="Figure 32"></a>
+
 **Figure 32**. Recommended NRST pin protection
 
 1. The reset network protects the device against parasitic resets.
 2. The user must ensure that the level on the NRST pin can go below the V IL(NRST) max level specified in
 Table 56. Otherwise the reset is not taken into account by the device.
+
+[Table 56]: #Table%2056
+<a id="Table 56"></a>
 
 **Table 56**. NRST pin characteristics
 
@@ -6958,6 +7222,9 @@ The I2C bus interface supports standard mode (up to 100 kHz) and fast mode (up t
 kHz). The I2C bus frequency can be increased up to 1 MHz. For more details about the
 complete solution, please contact your local ST sales representative.
 
+[Table 57]: #Table%2057
+<a id="Table 57"></a>
+
 **Table 57**. TIMx characteristics (1)(2)
 
 1. TIMx is used as a general term to refer to the TIM1 to TIM11 timers.
@@ -7005,6 +7272,9 @@ f TIMxCLK = 100 MHz - 51.1 S
 
 
 
+
+[Table 58]: #Table%2058
+<a id="Table 58"></a>
 
 **Table 58**. I2C characteristics
 
@@ -7065,12 +7335,18 @@ line
 
 
 
+[Figure 33]: #Figure%2033
+<a id="Figure 33"></a>
+
 **Figure 33**. I2C bus AC waveforms and measurement circuit
 
 1. R S = series protection resistor.
 2. R P = external pull-up resistor.
 3. V DD_I2C is the I2C bus power supply.
 
+
+[Table 59]: #Table%2059
+<a id="Table 59"></a>
 
 **Table 59**. SCL frequency (f PCLK1 = 50 MHz, V DD = V DD_I2C = 3.3 V) (1)(2)
 
@@ -7131,6 +7407,9 @@ supply voltage conditions summarized in Table 14, with the following configurati
 Refer to Section 6.3.16: I/O port characteristics for more details on the input/output alternate
 function characteristics (NSS, SCK, MOSI, MISO for SPI).
 
+
+[Table 60]: #Table%2060
+<a id="Table 60"></a>
 
 **Table 60**. SPI dynamic characteristics (1)
 
@@ -7199,6 +7478,9 @@ t h(SI) Slave mode 3.5 - - ns
 
 
 
+[Figure 34]: #Figure%2034
+<a id="Figure 34"></a>
+
 **Figure 34**. SPI timing diagram - slave mode and CPHA = 0
 
 t a(SO ) Data output access time Slave mode 7 - 21 ns
@@ -7231,9 +7513,16 @@ Symbol Parameter Conditions Min Typ Max Unit
 
 
 
+[Figure 35]: #Figure%2035
+<a id="Figure 35"></a>
+
 **Figure 35**. SPI timing diagram - slave mode and CPHA = 1 (1)
 
-Figure 36. SPI timing diagram - master mode (1)
+[Figure 36]: #Figure%2036
+<a id="Figure 36"></a>
+
+**Figure 36**. SPI timing diagram - master mode (1)
+
 ????????
 ?????????
 ? ??????? ? ?????? ? ??????
@@ -7312,6 +7601,9 @@ on the value of ODD bit. The digital contribution leads to a minimum value of
 (I2SDIV/(2*I2SDIV+ODD) and a maximum value of (I2SDIV+ODD)/(2*I2SDIV+ODD). F S
 maximum value is supported for each mode/condition.
 
+[Table 61]: #Table%2061
+<a id="Table 61"></a>
+
 **Table 61**. I2S dynamic characteristics (1)
 
 Symbol Parameter Conditions Min Max Unit
@@ -7351,10 +7643,16 @@ t h(SD_MT) Master transmitter (after enable edge) 2 -
 
 
 
+[Figure 37]: #Figure%2037
+<a id="Figure 37"></a>
+
 **Figure 37**. I2S slave timing diagram (Philips protocol) (1)
 
 1. LSB transmit/receive of the previously transmitted byte. No LSB transmit/receive is sent before the first
 byte.
+
+[Figure 38]: #Figure%2038
+<a id="Figure 38"></a>
 
 **Figure 38**. I2S master timing diagram (Philips protocol) (1)
 
@@ -7375,12 +7673,18 @@ input), not as alternate function. A typical 200 µA current consumption of the 
 sensing block (current to voltage conversion to determine the different sessions) can be
 observed on PA9 when the feature is enabled.
 
+[Table 62]: #Table%2062
+<a id="Table 62"></a>
+
 **Table 62**. USB OTG FS startup time
 
 Symbol Parameter Max Unit
 t STARTUP (1)
 1. Guaranteed by design.
 USB OTG FS transceiver startup time 1 µs
+
+[Table 63]: #Table%2063
+<a id="Table 63"></a>
 
 **Table 63**. USB OTG FS DC electrical characteristics
 
@@ -7434,6 +7738,9 @@ PA9 (OTG_FS_VBUS) V IN = V SS 0.25 0.37 0.55
 
 
 
+[Figure 39]: #Figure%2039
+<a id="Figure 39"></a>
+
 **Figure 39**. USB OTG FS timings: definition of data signal rise and fall time
 
 
@@ -7445,6 +7752,9 @@ Unless otherwise specified, the parameters given in Table 65 are derived from te
 performed under the ambient temperature, f PCLK2 frequency and V DDA supply voltage
 conditions summarized in Table 14.
 
+
+[Table 64]: #Table%2064
+<a id="Table 64"></a>
 
 **Table 64**. USB OTG FS electrical characteristics (1)
 
@@ -7466,6 +7776,9 @@ V CRS Output signal crossover voltage 1.3 2.0 V
 ? ???
 ? ??
 ? ? ? ?
+
+[Table 65]: #Table%2065
+<a id="Table 65"></a>
 
 **Table 65**. ADC characteristics
 
@@ -7580,6 +7893,9 @@ sampling periods defined in the ADC_SMPR1 register.
 
 
 
+[Table 66]: #Table%2066
+<a id="Table 66"></a>
+
 **Table 66**. ADC accuracy at f ADC = 18 MHz (1)
 
 1. Better performance could be achieved in restricted V DD , frequency and temperature ranges.
@@ -7597,6 +7913,9 @@ EO Offset error ±2 ±3
 EG Gain error ±1 ±3
 ED Differential linearity error ±1 ±2
 EL Integral linearity error ±2 ±3
+
+[Table 67]: #Table%2067
+<a id="Table 67"></a>
 
 **Table 67**. ADC accuracy at f ADC = 30 MHz (1)
 
@@ -7616,6 +7935,9 @@ EO Offset error ±1.5 ±2.5
 EG Gain error ±1.5 ±4
 ED Differential linearity error ±1 ±2
 EL Integral linearity error ±1.5 ±3
+
+[Table 68]: #Table%2068
+<a id="Table 68"></a>
 
 **Table 68**. ADC accuracy at f ADC = 36 MHz (1)
 
@@ -7656,6 +7978,9 @@ ground) to analog pins which may potentially inject negative currents.
 Any positive injection current within the limits specified for I INJ(PIN) and ΣI INJ(PIN) in
 Section 6.3.16 does not affect the ADC accuracy.
 
+[Table 69]: #Table%2069
+<a id="Table 69"></a>
+
 **Table 69**. ADC dynamic accuracy at f ADC = 18 MHz - limited test conditions (1)
 
 Symbol Parameter Test conditions Min Typ Max Unit
@@ -7669,6 +7994,9 @@ SINAD Signal-to-noise and distortion ratio 64 64.2 -
 dB SNR Signal-to-noise ratio 64 65 -
 THD Total harmonic distortion - -72 -67
 1. Guaranteed by characterization results.
+
+[Table 70]: #Table%2070
+<a id="Table 70"></a>
 
 **Table 70**. ADC dynamic accuracy at f ADC = 36 MHz - limited test conditions (1)
 
@@ -7690,6 +8018,9 @@ THD Total harmonic distortion - -72 -70
 
 
 
+[Figure 40]: #Figure%2040
+<a id="Figure 40"></a>
+
 **Figure 40**. ADC accuracy characteristics
 
 1. See also Table 67.
@@ -7702,6 +8033,9 @@ EG = Gain Error: deviation between the last ideal transition and the last actual
 ED = Differential Linearity Error: maximum deviation between actual steps and the ideal one.
 EL = Integral Linearity Error: maximum deviation between any actual transition and the end point
 correlation line.
+
+[Figure 41]: #Figure%2041
+<a id="Figure 41"></a>
 
 **Figure 41**. Typical connection diagram using the ADC
 
@@ -7768,6 +8102,9 @@ Power supply decoupling should be performed as shown in Figure 42 or Figure 43,
 depending on whether V REF+ is connected to V DDA or not. The 10 nF capacitors should be
 ceramic (good quality). They should be placed them as close as possible to the chip.
 
+[Figure 42]: #Figure%2042
+<a id="Figure 42"></a>
+
 **Figure 42**. Power supply and reference decoupling (V REF+ not connected to V DDA )
 
 1. V REF+ and V REF- inputs are both available on UFBGA100. V REF+ is also available on LQFP100. When
@@ -7785,6 +8122,9 @@ V REF+ and V REF- are not available, they are internally connected to V DDA and 
 <a id="P119"></a>
 
 
+
+[Figure 43]: #Figure%2043
+<a id="Figure 43"></a>
 
 **Figure 43**. Power supply and reference decoupling (V REF+ connected to V DDA )
 
@@ -7804,6 +8144,9 @@ V REF+ and V REF- are not available, they are internally connected to V DDA and 
 ???
 ???
 
+[Table 71]: #Table%2071
+<a id="Table 71"></a>
+
 **Table 71**. Temperature sensor characteristics
 
 Symbol Parameter Min Typ Max Unit
@@ -7814,6 +8157,9 @@ t START (2) Startup time - 6 10 µs
 T S_temp (2) ADC sampling time when reading the temperature (1 °C accuracy) 10 - - µs
 1. Guaranteed by characterization results.
 2. Guaranteed by design.
+
+[Table 72]: #Table%2072
+<a id="Table 72"></a>
 
 **Table 72**. Temperature sensor calibration values
 
@@ -7840,6 +8186,9 @@ temperature and V DD supply voltage conditions summarized in Table 14.
 
 
 
+[Table 73]: #Table%2073
+<a id="Table 73"></a>
+
 **Table 73**. V BAT monitoring characteristics
 
 Symbol Parameter Min Typ Max Unit
@@ -7852,6 +8201,9 @@ ADC sampling time when reading the V BAT
 5 - - µs
 1. Guaranteed by design.
 2. Shortest sampling time can be determined in the application by multiple iterations.
+
+[Table 74]: #Table%2074
+<a id="Table 74"></a>
 
 **Table 74**. Embedded internal reference voltage
 
@@ -7871,6 +8223,9 @@ T Coeff (2) Temperature coefficient - - 30 50 ppm/°C
 t START (2) Startup time - - 6 10 µs
 1. Shortest sampling time can be determined in the application by multiple iterations.
 2. Guaranteed by design.
+
+[Table 75]: #Table%2075
+<a id="Table 75"></a>
 
 **Table 75**. Internal reference voltage calibration values
 
@@ -7898,9 +8253,15 @@ and V DD supply voltage conditions summarized in Table 14, with the following co
 Refer to Section 6.3.16: I/O port characteristics for more details on the input/output
 characteristics.
 
+[Figure 44]: #Figure%2044
+<a id="Figure 44"></a>
+
 **Figure 44**. SDIO high-speed mode
 
-Figure 45. SD default mode
+[Figure 45]: #Figure%2045
+<a id="Figure 45"></a>
+
+**Figure 45**. SD default mode
 
 <!-- *P122*/149 -->
 [P122]: #P122 
@@ -7908,6 +8269,9 @@ Figure 45. SD default mode
 
 
 
+
+[Table 76]: #Table%2076
+<a id="Table 76"></a>
 
 **Table 76**. Dynamic characteristics: SD / MMC characteristics (1)(2)
 
@@ -7956,6 +8320,9 @@ t OHD Output hold default time SD fpp =25 MHz 4.5 - -
 
 
 
+[Table 77]: #Table%2077
+<a id="Table 77"></a>
+
 **Table 77**. Dynamic characteristics: eMMC characteristics V DD = 1.7 V to 1.9 V (1)(2)
 
 1. Guaranteed by characterization results.
@@ -7976,6 +8343,9 @@ CMD, D outputs (referenced to CK) in eMMC mode
 t OV Output valid time HS fpp = 50 MHz - 3.5 5
 ns
 t OH Output hold time HS fpp = 50 MHz 2 - -
+
+[Table 78]: #Table%2078
+<a id="Table 78"></a>
 
 **Table 78**. RTC characteristics
 
@@ -8002,6 +8372,9 @@ ECOPACK ® is an ST trademark.
 //7.1 WLCSP49 package information
 ---------------------------------
 
+
+[Figure 46]: #Figure%2046
+<a id="Figure 46"></a>
 
 **Figure 46**. WLCSP49 - 49-ball, 2.999 x 3.185 mm, 0.4 mm pitch wafer level
 
@@ -8057,9 +8430,15 @@ chip scale package outline
 
 
 
+[Figure 47]: #Figure%2047
+<a id="Figure 47"></a>
+
 **Figure 47**. WLCSP49 - 49-ball, 2.999 x 3.185 mm, 0.4 mm pitch wafer level chip scale
 
 recommended footprint
+
+[Table 79]: #Table%2079
+<a id="Table 79"></a>
 
 **Table 79**. WLCSP49 - 49-ball, 2.999 x 3.185 mm, 0.4 mm pitch wafer level chip scale
 
@@ -8105,6 +8484,9 @@ location.
 Other optional marking or inset/upset marks, which depend on supply chain operations, are
 not indicated below.
 
+[Figure 48]: #Figure%2048
+<a id="Figure 48"></a>
+
 **Figure 48**. WLCSP49 marking (package top view)
 
 1. Parts marked as ES or E or accompanied by an Engineering Sample notification letter are not yet qualified
@@ -8112,6 +8494,9 @@ and therefore not approved for use in production. ST is not responsible for any 
 from such use. In no event will ST be liable for the customer using any of these engineering samples in
 production. ST’s Quality department must be contacted prior to any decision to use these engineering
 samples to run a qualification activity.
+
+[Table 80]: #Table%2080
+<a id="Table 80"></a>
 
 **Table 80**. WLCSP49 recommended PCB design rules (0.4 mm pitch)
 
@@ -8141,6 +8526,9 @@ PCB pad design Non-solder mask defined via underbump allowed
 //7.2 UFQFPN48 package information
 ----------------------------------
 
+
+[Figure 49]: #Figure%2049
+<a id="Figure 49"></a>
 
 **Figure 49**. UFQFPN48 - 48-lead, 7 x 7 mm, 0.5 mm pitch, ultra thin fine pitch
 
@@ -8181,6 +8569,9 @@ solder this back-side pad to PCB ground.
 ????????
 ?
 
+[Table 81]: #Table%2081
+<a id="Table 81"></a>
+
 **Table 81**. UFQFPN48 - 48-lead, 7 x 7 mm, 0.5 mm pitch, ultra thin fine pitch
 
 quad flat package mechanical data
@@ -8198,6 +8589,9 @@ D2 5.500 5.600 5.700 0.2165 0.2205 0.2244
 <a id="P128"></a>
 
 
+
+[Figure 50]: #Figure%2050
+<a id="Figure 50"></a>
 
 **Figure 50**. UFQFPN48 - 48-lead, 7 x 7 mm, 0.5 mm pitch, ultra thin fine pitch
 
@@ -8248,6 +8642,9 @@ location.
 Other optional marking or inset/upset marks, which depend on supply chain operations, are
 not indicated below.
 
+[Figure 51]: #Figure%2051
+<a id="Figure 51"></a>
+
 **Figure 51**. UFQFPN48 marking example (package top view)
 
 1. Parts marked as ES or E or accompanied by an Engineering Sample notification letter are not yet qualified
@@ -8276,10 +8673,16 @@ samples to run a qualification activity.
 --------------------------------
 
 
+[Figure 52]: #Figure%2052
+<a id="Figure 52"></a>
+
 **Figure 52**. LQFP64 - 64-pin, 10 x 10 mm low-profile quad flat package outline
 
 1. Drawing is not to scale.
 
+
+[Table 82]: #Table%2082
+<a id="Table 82"></a>
 
 **Table 82**. LQFP64 - 64-pin, 10 x 10 mm low-profile quad flat
 
@@ -8334,6 +8737,9 @@ E1 - 10.000 - - 0.3937 -
 
 
 
+[Figure 53]: #Figure%2053
+<a id="Figure 53"></a>
+
 **Figure 53**. LQFP64 - 64-pin, 10 x 10 mm low-profile quad flat package
 
 recommended footprint
@@ -8379,6 +8785,9 @@ location.
 Other optional marking or inset/upset marks, which depend on supply chain operations, are
 not indicated below.
 
+[Figure 54]: #Figure%2054
+<a id="Figure 54"></a>
+
 **Figure 54**. LQFP64 marking example (package top view)
 
 1. Parts marked as ES or E or accompanied by an Engineering Sample notification letter are not yet qualified
@@ -8406,6 +8815,9 @@ samples to run a qualification activity.
 //7.4 LQFP100 package information
 ---------------------------------
 
+
+[Figure 55]: #Figure%2055
+<a id="Figure 55"></a>
 
 **Figure 55**. LQFP100 - 100-pin, 14 x 14 mm, 100-pin low-profile quad flat
 
@@ -8449,6 +8861,9 @@ package outline
 
 
 
+[Table 83]: #Table%2083
+<a id="Table 83"></a>
+
 **Table 83**. LQPF100 - 100-pin, 14 x 14 mm, 100-pin low-profile quad flat package mechanical data
 
 Symbol
@@ -8478,6 +8893,9 @@ ccc 0.080 0.0031
 
 
 
+[Figure 56]: #Figure%2056
+<a id="Figure 56"></a>
+
 **Figure 56**. LQFP100 - 100-pin, 14 x 14 mm, 100-pin low-profile quad flat
 
 recommended footprint
@@ -8505,6 +8923,9 @@ The following figure gives an example of topside marking orientation versus pin 
 location.
 Other optional marking or inset/upset marks, which depend on supply chain operations, are
 not indicated below.
+
+[Figure 57]: #Figure%2057
+<a id="Figure 57"></a>
 
 **Figure 57**. LQPF100 marking example (package top view)
 
@@ -8534,11 +8955,17 @@ these engineering samples to run a qualification activity.
 ----------------------------------
 
 
+[Figure 58]: #Figure%2058
+<a id="Figure 58"></a>
+
 **Figure 58**. UFBGA100 - 100-ball, 7 x 7 mm, 0.50 mm pitch, ultra fine pitch ball
 
 grid array package outline
 1. Drawing is not to scale.
 
+
+[Table 84]: #Table%2084
+<a id="Table 84"></a>
 
 **Table 84**. UFBGA100 - 100-ball, 7 x 7 mm, 0.50 mm pitch, ultra fine pitch ball
 
@@ -8598,6 +9025,9 @@ F 0.700 0.750 0.800 0.0276 0.0295 0.0315
 
 
 
+[Figure 59]: #Figure%2059
+<a id="Figure 59"></a>
+
 **Figure 59**. UFBGA100 - 100-ball, 7 x 7 mm, 0.50 mm pitch, ultra fine pitch ball
 
 grid array recommended footprint
@@ -8608,6 +9038,9 @@ ddd - - 0.100 - - 0.0039
 eee - - 0.150 - - 0.0059
 fff - - 0.050 - - 0.0020
 1. Values in inches are converted from mm and rounded to 4 decimal digits.
+
+[Table 85]: #Table%2085
+<a id="Table 85"></a>
 
 **Table 85**. UFBGA100 recommended PCB design rules (0.5 mm pitch BGA)
 
@@ -8637,6 +9070,9 @@ The following figure gives an example of topside marking orientation versus ball
 location.
 Other optional marking or inset/upset marks, which depend on supply chain operations, are
 not indicated below.
+
+[Figure 60]: #Figure%2060
+<a id="Figure 60"></a>
 
 **Figure 60**. UFBGA100 marking example (package top view)
 
@@ -8687,6 +9123,9 @@ application.
 JESD51-2 Integrated Circuits Thermal Test Method Environment Conditions - Natural
 Convection (Still Air). Available from www.jedec.org.
 
+[Table 86]: #Table%2086
+<a id="Table 86"></a>
+
 **Table 86**. Package thermal characteristics
 
 Symbol Parameter Value Unit
@@ -8718,6 +9157,9 @@ UFBGA100
 =======================
 
 
+
+[Table 87]: #Table%2087
+<a id="Table 87"></a>
 
 **Table 87**. Ordering information scheme
 
@@ -8769,6 +9211,9 @@ When the internal reset is OFF, the following integrated features are no longer 
 --------------------------
 
 
+
+[Table 88]: #Table%2088
+<a id="Table 88"></a>
 
 **Table 88**. Limitations depending on the operating power supply range
 
@@ -8831,9 +9276,15 @@ operations only
 -------------------------------------------------
 
 
+[Figure 61]: #Figure%2061
+<a id="Figure 61"></a>
+
 **Figure 61**. USB controller configured as peripheral-only and used in Full-Speed mode
 
 1. The external voltage regulator is only needed when building a V BUS powered device.
+
+[Figure 62]: #Figure%2062
+<a id="Figure 62"></a>
 
 **Figure 62**. USB controller configured as host-only and used in Full-Speed mode
 
@@ -8885,6 +9336,9 @@ switch can be used if 5V are available on the application board.
 
 
 
+[Figure 63]: #Figure%2063
+<a id="Figure 63"></a>
+
 **Figure 63**. USB controller configured in dual mode and used in Full-Speed mode
 
 1. The external voltage regulator is only needed when building a V BUS powered device.
@@ -8933,6 +9387,9 @@ switch can be used if 5 V are available on the application board.
 //B.2 Sensor Hub application example
 ------------------------------------
 
+
+[Figure 64]: #Figure%2064
+<a id="Figure 64"></a>
 
 **Figure 64**. Sensor Hub application example
 
@@ -9009,6 +9466,9 @@ the MCU is set in low power mode.
 • The clocks are enabled only for the required interfaces.
 • MCU core is set in sleep mode (core clock stopped waiting for interrupt).
 • Only the needed DMA channels are enabled and running.
+
+[Figure 65]: #Figure%2065
+<a id="Figure 65"></a>
 
 **Figure 65**. Batch Acquisition Mode (BAM) example
 
@@ -9094,6 +9554,9 @@ the MCU is set in low power mode.
 =================
 
 
+
+[Table 89]: #Table%2089
+<a id="Table 89"></a>
 
 **Table 89**. Document revision history
 
