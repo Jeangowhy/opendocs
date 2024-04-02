@@ -1345,9 +1345,9 @@ X = don’t care; 1 = HIGH; 0 = LOW.
     compatible devices in the same system. I²C-bus compatible devices are not allowed to respond on
     reception of this address.
 
-[4] The address reserved for a different bus format is included to enable I²C and other protocols to be mixed.
-    Only I²C-bus compatible devices that can work with such formats and protocols are allowed to respond to
-    this address.
+[4] The address reserved for a different bus format is included to enable I²C and 
+    other protocols to be mixed. Only I²C-bus compatible devices that can work 
+    with such formats and protocols are allowed to respond to this address.
 
 Assignment of addresses within a local system is up to the system architect who must
 take into account the devices being used on the bus and any future interaction with other
@@ -1379,21 +1379,28 @@ general call address is always specified in the second byte (see [Figure 16]).
 <a id="P18"></a>
 
 There are two cases to consider:
+
 •   When the least significant bit B is a ‘zero’.
 
 •   When the least significant bit B is a ‘one’.
 
 When bit B is a ‘zero’, the second byte has the following definition:
-• 0000 0110 (06h): Reset and write programmable part of slave address by
-hardware. On receiving this 2-byte sequence, all devices designed to respond to the
-general call address reset and take in the programmable part of their address.
-Precautions must be taken to ensure that a device is not pulling down the SDA or SCL
-line after applying the supply voltage, since these low levels would block the bus.
-• 0000 0100 (04h): Write programmable part of slave address by hardware.
-Behaves as above, but the device does not reset.
-• 0000 0000 (00h): This code is not allowed to be used as the second byte.
+
+
+•   **0000 0110 (06h): Reset and write programmable part of slave address by hardware.**
+    On receiving this 2-byte sequence, all devices designed to respond to the
+    general call address reset and take in the programmable part of their address.
+    Precautions must be taken to ensure that a device is not pulling down the SDA or SCL
+    line after applying the supply voltage, since these low levels would block the bus.
+
+•   **0000 0100 (04h): Write programmable part of slave address by hardware.**
+    Behaves as above, but the device does not reset.
+
+•   **0000 0000 (00h): This code is not allowed to be used as the second byte.**
+
 Sequences of programming procedure are published in the appropriate device data
 sheets. The remaining codes have not been fixed and devices must ignore them.
+
 When bit B is a ‘one’, the 2-byte sequence is a ‘hardware general call’. This means that
 the sequence is transmitted by a hardware master device, such as a keyboard scanner,
 which can be programmed to transmit a desired slave address. Since a hardware master
@@ -1412,26 +1419,28 @@ address.
 
 **Figure 16**. General call address format
 
+    MSB                                                                  LSB
+    ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬─┴─┬───┐
+    │ 0 │ 0 │ 0 │ 0 │ 0 │ 0 │ 0 │ 0 │ A │ X │ X │ X │ X │ X │ X │ X │ X │ B │ A │
+    ├───┴───┴───┴───┴───┴───┴───┴───┼───┼───┴───┴───┴───┴───┴───┴───┴───┼───┴───┘
+    └────────── first byte ─────────┘   └────────── first byte ─────────┘
+        (general call address)
+                                                                 <!-- mbc623 -->
+
 [Figure 17]: #Figure-17
 <a id="Figure-17"></a>
 
 **Figure 17**. Data transfer from a hardware master-transmitter
-mbc623
-LSB
-second byte
-0 0 0 0 0 0 0 0 A X X X X X X X B A
-first byte
-(general call address)
-mbc624
-general
-call address
-(B)
-A A
-second
-byte
-A A
-(n bytes + ack.)
-S 00000000 MASTER ADDRESS 1 P DATA DATA
+
+
+    ┌───┬──────────┬───┬────────────────┬───┬───┬──────┬───┬──────┬───┬───┐
+    │░S │░00000000 │▓A │░MASTER ADDRESS │░1 │▓A │░DATA │▓A │░DATA │▓A │░P │
+    └───┴──────────┴───┴────────────────┴───┴───┴──────┴───┴──────┴───┴───┘
+        │          │   │                 (B)│   │                     │
+        └─────┬────┘   └─── second byte ────┘   └─── n bytes + ack ───┘
+    (general call address)
+
+                                                                <!-- mbc624 -->
 
 <!-- *P19* of 64 -->
 [P19]: #P19
@@ -1471,10 +1480,13 @@ on-chip hardware I²C-bus interface can be programmed to be only interrupted by 
 from the bus. When the device does not have such an interface, it must constantly monitor
 the bus via software. Obviously, the more times the microcontroller monitors, or polls the
 bus, the less time it can spend carrying out its intended function.
+
 There is therefore a speed difference between fast hardware devices and a relatively slow
 microcontroller which relies on software polling.
+
 In this case, data transfer can be preceded by a start procedure which is much longer than
 normal (see [Figure 19]). The start procedure consists of:
+
 •   A START condition (S)
 
 •   A START byte (0000 0001)
@@ -1483,23 +1495,28 @@ normal (see [Figure 19]). The start procedure consists of:
 
 •   A repeated START condition (Sr).
 
-a. Configuring master sends dump address to hardware master
-b. Hardware master dumps data to selected slave
-
 [Figure 18]: #Figure-18
 <a id="Figure-18"></a>
 
-**Figure 18**. Data transfer by a hardware-transmitter capable of dumping data directly to slave
-devices
-002aac885
-write
-A A R/W̅̅ S P SLAVE ADDR. H/W MASTER DUMP ADDR. FOR H/W MASTER X
-002aac886
-R/W̅̅
-write
-A A
-(n bytes + ack.)
-A/A S P DUMP ADDR. FROM H/W MASTER DATA DATA
+**Figure 18**. Data transfer by a hardware-transmitter capable of dumping data directly to slave devices
+
+    ┌───┬──────────────────────────┬─────┬───┬───────────────────────────┬───┬───┬───┐
+    │░S │░SLAVE ADDRESS H/W MASTER │░R/W̅̅ │▓A │░DUMP ADDR. FOR H/W MASTER │░X │▓A │░P │
+    └───┴──────────────────────────┴──┬──┴───┴───────────────────────────┴───┴───┴───┘
+                                      │     
+                                    write 
+
+                                                            <!-- 002aac885 -->
+a.    Configuring master sends dump address to hardware master
+
+    ┌───┬───────────────────────────┬─────┬───┬──────┬───┬──────┬─────┬───┐
+    │░S │░DUMP ADDR FROM H/W MASTER │░R/W̅̅ │▓A │░DATA │▓A │░DATA │▓A/A̅̅ │░P │
+    └───┴───────────────────────────┴──┬──┴───┴──────┴───┴──────┴─────┴───┘
+                                       │      │                       │
+                                     write    └──── n bytes + ack ────┘
+                                                            <!-- 002aac886 -->
+
+b.    Hardware master dumps data to selected slave
 
 <!-- *P20* of 64 -->
 [P20]: #P20
@@ -1511,8 +1528,10 @@ the SDA line at a low sampling rate until one of the seven zeros in the START by
 detected. After detection of this LOW level on the SDA line, the microcontroller can switch
 to a higher sampling rate to find the repeated START condition Sr which is then used for
 synchronization.
+
 A hardware receiver resets upon receipt of the repeated START condition Sr and
 therefore ignores the START byte.
+
 An acknowledge-related clock pulse is generated after the START byte. This is present
 only to conform with the byte handling format used on the bus. No device is allowed to
 acknowledge the START byte.
@@ -1528,6 +1547,7 @@ In the unlikely event where the clock (SCL) is stuck LOW, the preferential proce
 reset the bus using the HW reset signal if your I²C devices have HW reset inputs. If the
 I²C devices do not have HW reset inputs, cycle power to the devices to activate the
 mandatory internal Power-On Reset (POR) circuit.
+
 If the data line (SDA) is stuck LOW, the master should send nine clock pulses. The device
 that held the bus LOW should release it sometime within those nine clocks. If not, then
 use the HW reset or cycle power to clear the bus.
@@ -1541,55 +1561,67 @@ use the HW reset or cycle power to clear the bus.
 
 The Device ID field (see [Figure 20]) is an optional 3-byte read-only (24 bits) word giving
 the following information:
+
 •   Twelve bits with the manufacturer name, unique per manufacturer (for example, NXP)
 
-•   Nine bits with the part identification, assigned by manufacturer (for example,
+•   Nine bits with the part identification, assigned by manufacturer (for example, PCA9698)
 
-PCA9698)
-• Three bits with the die revision, assigned by manufacturer (for example, RevX)
+•   Three bits with the die revision, assigned by manufacturer (for example, RevX)
 
 [Figure 19]: #Figure-19
 <a id="Figure-19"></a>
 
 **Figure 19**. START byte procedure
-002aac997
-S
-9 8 2 1
-Sr
-7
-NACK
-dummy
-acknowledge
-(HIGH)
-START byte 0000 0001
-SDA
-SCL
+
+        |   |                                                                 |    |
+    ____|_  |                                          _______________________|    |
+    SDA | \ |                                         /        dummy          |\   |
+        |  \|________________________________________/  acknowledge (HIGH)    | \__|__ 
+        |   |                                                                 |    |
+    ____|___|_       ___       ___             ___       ___       ___       _|____|__
+        |   | \     /   \     /   \           /   \     /   \     /   \     / |    |
+    SCL | S |  \___/  1  \___/  2  \__ _ _ __/  7  \___/  8  \___/  9  \___/  | Sr |
+                  |                                            |   NACK         
+                  |<---------- START byte 0000 0001 ---------->|               
+                                                              <!-- 002aac997 -->
+
 
 <!-- *P21* of 64 -->
 [P21]: #P21
 <a id="P21"></a>
 
 The Device ID is read-only, hard-wired in the device and can be accessed as follows:
-1. START condition
-2. The master sends the Reserved Device ID I²C-bus address followed by the R/W̅̅ bit
-set to ‘0’ (write): ‘1111 1000’.
-3. The master sends the I²C-bus slave address of the slave device it must identify. The
-LSB is a ‘Don’t care’ value. Only one device must acknowledge this byte (the one that
-has the I²C-bus slave address).
-4. The master sends a Re-START condition.
-Remark: A STOP condition followed by a START condition resets the slave state
-machine and the Device ID Read cannot be performed. Also, a STOP condition or a
-Re-START condition followed by an access to another slave device resets the slave
-state machine and the Device ID Read cannot be performed.
-5. The master sends the Reserved Device ID I²C-bus address followed by the R/W̅̅ bit
-set to ‘1’ (read): ‘1111 1001’.
-6. The Device ID Read can be done, starting with the 12 manufacturer bits (first byte +
-four MSBs of the second byte), followed by the nine part identification bits (four LSBs
-of the second byte + five MSBs of the third byte), and then the three die revision bits
-(three LSBs of the third byte).
-7. The master ends the reading sequence by NACKing the last byte, thus resetting the
-slave device state machine and allowing the master to send the STOP condition.
-Remark: The reading of the Device ID can be stopped anytime by sending a NACK.
+
+
+1.  START condition
+
+2.  The master sends the Reserved Device ID I²C-bus address followed by the R/W̅̅ bit
+    set to ‘0’ (write): ‘1111 1000’.
+
+3.  The master sends the I²C-bus slave address of the slave device it must identify. The
+    LSB is a ‘Don’t care’ value. Only one device must acknowledge this byte (the one that
+    has the I²C-bus slave address).
+
+4.  The master sends a Re-START condition.
+    > [!TIP]
+    >  Remark: A STOP condition followed by a START condition resets the slave state
+    >  machine and the Device ID Read cannot be performed. Also, a STOP condition or a
+    >  Re-START condition followed by an access to another slave device resets the slave
+    >  state machine and the Device ID Read cannot be performed.
+
+5.  The master sends the Reserved Device ID I²C-bus address followed by the R/W̅̅ bit
+    set to ‘1’ (read): ‘1111 1001’.
+
+6.  The Device ID Read can be done, starting with the 12 manufacturer bits (first byte +
+    four MSBs of the second byte), followed by the nine part identification bits (four LSBs
+    of the second byte + five MSBs of the third byte), and then the three die revision bits
+    (three LSBs of the third byte).
+
+7.  The master ends the reading sequence by NACKing the last byte, thus resetting the
+    slave device state machine and allowing the master to send the STOP condition.
+    > [!TIP]
+    >  Remark: The reading of the Device ID can be stopped anytime by sending a NACK.
+
 If the master continues to ACK the bytes after the third byte, the slave rolls back to the first
 byte and keeps sending the Device ID sequence until a NACK has been detected.
 
@@ -2271,7 +2303,8 @@ be made active and a CBUS-format transmission sent. After the STOP condition, al
 devices are again ready to accept data.
 Master-transmitters can send CBUS formats after sending the CBUS address. The
 transmission is ended by a STOP condition, recognized by all devices.
-Remark: If the CBUS configuration is known, and expansion with CBUS compatible
+> [!TIP]
+>  Remark: If the CBUS configuration is known, and expansion with CBUS compatible
 devices is not foreseen, the designer is allowed to adapt the hold time to the specific
 requirements of the device(s) used.
 
@@ -2932,7 +2965,8 @@ closed and the transfer proceeds in F/S-mode. [Table 8] gives the possible commu
 speeds in such a system.
 
 
-Remark: [Table 8] assumes that the Hs devices are isolated from the Fm and Sm devices
+> [!TIP]
+>  Remark: [Table 8] assumes that the Hs devices are isolated from the Fm and Sm devices
 when operating at 3.4 Mbit/s. The bus speed is always constrained to the maximum
 communication rate of the slowest device attached to the bus.
 (1) Bridge not used. SDA and SCL may have an alternative function.
@@ -3808,7 +3842,8 @@ these values. Actual rise time (t r ) depends on the RC time constant. The most 
 time (t f ) depends on the lowest output drive on the bus. Be sure to allow for any devices
 that have a minimum t r or t f . Refer to Equation 3 for the resulting f max .
 (3)
-Remark: Very long buses must also account for time of flight of signals.
+> [!TIP]
+>  Remark: Very long buses must also account for time of flight of signals.
 Actual results are slower, as real parts do not tend to control t LOW and t HIGH to the
 minimum from 30 % to 70 %, or 70 % to 30 %, respectively.
 
@@ -3878,7 +3913,8 @@ shown in [Figure 42], this value of R p limits the maximum bus capacitance to ab
 to meet the maximum t r requirement of 300 ns. If the bus has a higher capacitance than
 this, a switched pull-up circuit (as shown in [Figure 44]) can be used.
 
-Remark: Some buffers allow VDD1 and VDD2 to be different levels.
+> [!TIP]
+>  Remark: Some buffers allow VDD1 and VDD2 to be different levels.
 
 [Figure 43]: #Figure-43
 <a id="Figure-43"></a>
