@@ -383,8 +383,8 @@ modified or upgraded simply by ‘clipping’ or ‘unclipping’ ICs to or from
     ║             │              │                 │                     │                 │       │ (with I²C) │<========>
     ╚═════════════╧══════════════╧═════════════════╧═════════════════════╧═════════════════╧═══════╡            │    USB
                                                                                                    └────────────┘
+                                                            <!-- 002aac858 -->
 ```
-<!-- 002aac858 -->
 
 注：框架图使用 [PlantUML](../PlantUML_Language_reference.md) Sequence Diagram 
 生成基本图元后，再手工使用 Unicode 制表符号（Box Darawing）拼接、修正。图中的上拉
@@ -631,7 +631,7 @@ specification and which system configurations use them.
                     │ GATE       │        │         │       │ MICRO-       │  
                     │ ARRAY      │        │ ADC     │       │ CONTROLLER B │  
                     └────────────┘        └─────────┘       └──────────────┘  
-<!-- mbc645 -->
+                                                            <!-- mbc645 -->
 
 
 
@@ -715,7 +715,7 @@ if there are no devices on the bus which would stretch the clock.
     ═══════╧═══╪════════╧════╪═════════╧════╪═════════╧════╪═════════╧════╪════
     SCL        │             │              │              │              │    
     ═══════════╧═════════════╧══════════════╧══════════════╧══════════════╧════
-<!-- 002aac860 -->
+                                                            <!-- 002aac860 -->
 
 VDD2, VDD3 are device-dependent (for example, 12 V).
 
@@ -755,13 +755,13 @@ LOW (see [Figure 4]). One clock pulse is generated for each data bit transferred
 
 **Figure 4**. Bit transfer on the I²C-bus
 
-          ╱﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈╲╱﹈﹈﹈﹈﹈ ﹈ ﹈ ﹈ ﹈﹈﹈╲
-    SDA  ╱  |               |    ╱╲   |                     ╲
-    ﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈ ﹈ ﹈ ﹈ ﹈﹈﹈﹈﹈﹈﹈﹈﹈
+          ╱﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈╲╱﹈﹈﹈﹈﹈ ﹈ ﹈ ﹈ ﹈﹈﹈﹈﹈╲
+    SDA  ╱  |               |    ╱╲   |                        ╲
+    ﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈  ﹈﹈﹈﹈﹈﹈ ﹈ ﹈ ﹈ ﹈﹈﹈﹈﹈﹈﹈﹈
             |               |         |    
-            | ╱﹈﹈﹈﹈﹈﹈╲ |         | ╱﹈﹈ ﹈ ﹈ ﹈ ﹈╲
-    SCL     |╱             ╲|         |╱                 ╲
-    ﹈﹈﹈﹈﹈                ﹈﹈﹈﹈﹈﹈                   ﹈﹈﹈﹈﹈﹈
+            | ╱﹈﹈﹈﹈﹈﹈╲ |         | ╱﹈﹈ ﹈ ﹈ ﹈ ﹈﹈╲
+    SCL     |╱             ╲|         |╱                   ╲
+    ﹈﹈﹈﹈﹈                ﹈﹈﹈﹈﹈﹈                    ﹈﹈﹈﹈﹈﹈
             |   data line   | change  |
                 stable;       of data
                data valid     allowed                     <!-- mba607 -->
@@ -791,14 +791,18 @@ relevant.
 <a id="Figure-5"></a>
 
 **Figure 5**. START and STOP conditions
-mba608
-SDA
-SCL
-P
-STOP condition
-S
-START condition
 
+
+    ﹈﹈﹈╲              ╱﹈﹈﹈ ﹈ ﹈ ﹈﹈﹈╲               ╱﹈﹈﹈﹈ ﹈ ﹈
+    SDA |  ╲  |        ╱                    ╲          |  ╱  | 
+        |   ﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈ ﹈ ﹈ ﹈ ﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈   | 
+        |     |                                        |     |  
+    ﹈﹈﹈﹈﹈﹈﹈╲          ╱﹈ ﹈ ﹈ ﹈﹈╲        ╱﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈ ﹈ ﹈
+    SCL |     |   ╲        ╱              ╲      ╱     |     | 
+        |  P  |    ﹈﹈﹈﹈                 ﹈﹈﹈      |  S  | 
+    START condition                                 STOP condition
+
+                                                             <!-- mba608  -->
 <!-- *P10* of 64 -->
 [P10]: #P10
 <a id="P10"></a>
@@ -839,44 +843,45 @@ The Acknowledge signal is defined as follows: the transmitter releases the SDA l
 during the acknowledge clock pulse so the receiver can pull the SDA line LOW and it
 remains stable LOW during the HIGH period of this clock pulse (see [Figure 4]). Set-up and
 hold times (specified in [Section 6]) must also be taken into account.
+
 When SDA remains HIGH during this ninth clock pulse, this is defined as the Not
 Acknowledge signal. The master can then generate either a STOP condition to abort the
 transfer, or a repeated START condition to start a new transfer. There are five conditions
 that lead to the generation of a NACK:
-1. No receiver is present on the bus with the transmitted address so there is no device to
-respond with an acknowledge.
-2. The receiver is unable to receive or transmit because it is performing some real-time
-function and is not ready to start communication with the master.
-3. During the transfer, the receiver gets data or commands that it does not understand.
-4. During the transfer, the receiver cannot receive any more data bytes.
-5. A master-receiver must signal the end of the transfer to the slave transmitter.
+
+1.  No receiver is present on the bus with the transmitted address so there is no 
+    device to respond with an acknowledge.
+
+2.  The receiver is unable to receive or transmit because it is performing some 
+    real-time function and is not ready to start communication with the master.
+
+3.  During the transfer, the receiver gets data or commands that it does not understand.
+
+4.  During the transfer, the receiver cannot receive any more data bytes.
+
+5.  A master-receiver must signal the end of the transfer to the slave transmitter.
+
 
 [Figure 6]: #Figure-6
 <a id="Figure-6"></a>
 
 **Figure 6**. Data transfer on the I²C-bus
-S or Sr Sr or P
-SDA
-SCL
-MSB
-1 2 7 8 9 1 2 3 to 8 9
-ACK ACK
-002aac861
-START or
-repeated START
-condition
-STOP or
-repeated START
-condition
-acknowledgement
-signal from slave
-byte complete,
-interrupt within slave
-clock line held LOW
-while interrupts are serviced
-P
-Sr acknowledgement
-signal from receiver
+
+
+         |    |    MSB                                                                                  |   P | 
+    ﹈﹈﹈﹈╲  |   ╱﹈﹈╲╱﹈﹈╲ ╱﹈ ﹈ ﹈╲╱﹈﹈╲╱﹈﹈﹈╲       ╱﹈﹈╲﹈﹈﹈╲╱﹈﹈╲╱﹈ ﹈ ﹈╲╱﹈﹈﹈╲╱﹈﹈﹈﹈﹈﹈╲╱﹈﹈﹈
+    SDA  |  ╲ |  ╱     ╱╲    ╱╲        ╱╲    ╱╲      ╲     ╱      ╲    ╱╲    ╱╲       ╱╲      ╱╲        |  ╱╲ |   
+         |   ﹈﹈﹈﹈﹈   ﹈﹈  ﹈ ﹈ ﹈   ﹈﹈  ﹈﹈﹈﹈﹈﹈﹈       ﹈﹈   ﹈﹈  ﹈ ﹈ ﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈
+         |    |                                   acknowledgement                     acknowledgement   |   Sr|
+         |    |                                  signal from slave                  signal from receiver|     |
+         |    |                                                                                         |     |
+    ﹈﹈﹈﹈﹈﹈╲    ╱﹈╲  ╱﹈╲            ╱﹈╲  ╱﹈╲  ╱﹈╲          ╱﹈╲  ╱﹈╲  ╱ ﹈﹈╲    ╱﹈╲        ╱﹈﹈﹈﹈﹈﹈﹈
+    SCL  |    | ╲  ╱ 1  ╲╱ 2  ╲         ╱  7 ╲╱ 8  ╲╱ 9  ╲        ╱ 1  ╲╱ 2  ╲╱ ...  ╲  ╱ 9  ╲      ╱   |     |
+         S or Sr ﹈     ﹈     ﹈ ﹈ ﹈﹈     ﹈    ﹈ ACK ﹈﹈﹈﹈﹈     ﹈    ﹈       ﹈ ACK   ﹈﹈﹈﹈ Sr or P
+         START or                   byte complete,᎗᎗᎗᎗᎗⮥    ⮤᎗᎗᎗᎗᎗᎗᎗ clock line held LOW                STOP or
+      repeated START        interrupt within slave                  while interrupts are serviced    repeated START
+        condition                                                                                      condition
+                                                          <!-- 002aac861 -->
 
 <!-- *P11* of 64 -->
 [P11]: #P11
