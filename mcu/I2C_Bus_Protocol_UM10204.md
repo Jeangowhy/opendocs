@@ -59,8 +59,8 @@ For sales office addresses, please send an email to: salesaddresses@nxp.com
 |----------|----------|-----------------------------------------------------------------------------------------------------|
 | v.6      | 20140404 | User manual; sixth release                                                                          |
 |----------|----------|-----------------------------------------------------------------------------------------------------|
-| Modifications:      | • Figure 41 “R p(max) as a function of bus capacitance” updated (recalculated)                      |
-|                     | • Figure 42 “R p(min) as a function of V DD ” updated (recalculated)                                |
+| Modifications:      | • [Figure 41] “R p(max) as a function of bus capacitance” updated (recalculated)                      |
+|                     | • [Figure 42] “R p(min) as a function of V DD ” updated (recalculated)                                |
 |----------|----------|-----------------------------------------------------------------------------------------------------|
 | v.5      | 20121009 | User manual; fifth release                                                                          |
 |----------|----------|-----------------------------------------------------------------------------------------------------|
@@ -92,12 +92,12 @@ For sales office addresses, please send an email to: salesaddresses@nxp.com
 /Table of Contents
 ==================
 
-*   1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P3]
-*   2 I²C-bus features . . . . . . . . . . . . . . . . . . . . . . . . . . . [P3]
+* 1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P3]
+* 2 I²C-bus features . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P3]
 *   2.1 Designer benefits  . . . . . . . . . . . . . . . . . . . . . . . . . [P4]
 *   2.2 Manufacturer benefits  . . . . . . . . . . . . . . . . . . . . . . . [P5]
 *   2.3 IC designer benefits . . . . . . . . . . . . . . . . . . . . . . . . [P6]
-*   3 The I²C-bus protocol . . . . . . . . . . . . . . . . . . . . . . . . . [P6]
+* 3 The I²C-bus protocol . . . . . . . . . . . . . . . . . . . . . . . . . . [P6]
 *   3.1 Standard-mode, Fast-mode and Fast-mode Plus I²C-bus protocols  . . . [P6]
 *   3.1.1 SDA and SCL signals  . . . . . . . . . . . . . . . . . . . . . . . [P8]
 *   3.1.2 SDA and SCL logic levels . . . . . . . . . . . . . . . . . . . . . [P9]
@@ -131,7 +131,7 @@ For sales office addresses, please send an email to: salesaddresses@nxp.com
 *   3.2.12 START byte  . . . . . . . . . . . . . . . . . . . . . . . . . . . [P30]
 *   3.2.13 Unresponsive slave reset  . . . . . . . . . . . . . . . . . . . . [P31]
 *   3.2.14 Device ID . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P31]
-*   4 Other uses of the I²C-bus communications protocol  . . . . . . . . . . [P32]
+* 4 Other uses of the I²C-bus communications protocol  . . . . . . . . . . . [P32]
 *   4.1 CBUS compatibility . . . . . . . . . . . . . . . . . . . . . . . . . [P32]
 *   4.2 SMBus - System Management Bus  . . . . . . . . . . . . . . . . . . . [P32]
 *   4.2.1 I²C/SMBus compliancy . . . . . . . . . . . . . . . . . . . . . . . [P32]
@@ -141,7 +141,7 @@ For sales office addresses, please send an email to: salesaddresses@nxp.com
 *   4.4 Intelligent Platform Management Interface (IPMI) . . . . . . . . . . [P34]
 *   4.5 Advanced Telecom Computing Architecture (ATCA) . . . . . . . . . . . [P35]
 *   4.6 Display Data Channel (DDC) . . . . . . . . . . . . . . . . . . . . . [P35]
-*   5 Bus speeds . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P35]
+* 5 Bus speeds . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P35]
 *   5.1 Fast-mode  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P36]
 *   5.2 Fast-mode Plus . . . . . . . . . . . . . . . . . . . . . . . . . . . [P36]
 *   5.3 Hs-mode  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P37]
@@ -154,11 +154,11 @@ For sales office addresses, please send an email to: salesaddresses@nxp.com
 *   5.3.7 Hs-mode transfer in a mixed-speed bus system . . . . . . . . . . . [P44]
 *   5.3.8 Timing requirements for the bridge in a mixed-speed bus system . . [P45]
 *   5.4 Ultra Fast-mode  . . . . . . . . . . . . . . . . . . . . . . . . . . [P46]
-*   6 Electrical specifications and timing for I/O stages and bus lines  . . [P46]
+* 6 Electrical specifications and timing for I/O stages and bus lines  . . . [P46]
 *   6.1 Standard-, Fast-, and Fast-mode Plus devices . . . . . . . . . . . . [P46]
 *   6.2 Hs-mode devices  . . . . . . . . . . . . . . . . . . . . . . . . . . [P50]
 *   6.3 Ultra Fast-mode devices  . . . . . . . . . . . . . . . . . . . . . . [P53]
-*   7 Electrical connections of I²C-bus devices to the bus lines . . . . . . [P55]
+* 7 Electrical connections of I²C-bus devices to the bus lines . . . . . . . [P55]
 *   7.1 Pull-up resistor sizing  . . . . . . . . . . . . . . . . . . . . . . [P55]
 *   7.2 Operating above the maximum allowable bus capacitance  . . . . . . . [P56]
 *   7.2.1 Reduced f SCL  . . . . . . . . . . . . . . . . . . . . . . . . . . [P56]
@@ -168,16 +168,20 @@ For sales office addresses, please send an email to: salesaddresses@nxp.com
 *   7.3 Series protection resistors  . . . . . . . . . . . . . . . . . . . . [P58]
 *   7.4 Input leakage  . . . . . . . . . . . . . . . . . . . . . . . . . . . [P59]
 *   7.5 Wiring pattern of the bus lines  . . . . . . . . . . . . . . . . . . [P60]
-*   8 Abbreviations  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P61]
-*   9 Legal information  . . . . . . . . . . . . . . . . . . . . . . . . . . [P62]
+* 8 Abbreviations  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P61]
+* 9 Legal information  . . . . . . . . . . . . . . . . . . . . . . . . . . . [P62]
 *   9.1 Definitions  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P62]
 *   9.2 Disclaimers  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P62]
 *   9.3 Trademarks . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P62]
-*   10 Contents  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P63]
+* 10 Contents  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P63]
 
 <!-- *P3* of 64 -->
 [P3]: #P3
 <a id="P3"></a>
+
+<!-- **Section 1** -->
+[Section 1]: #Section%201
+<a id="Section 1"></a>
 
 /1. Introduction
 ================
@@ -198,6 +202,10 @@ Designers of I²C-compatible chips should use this document as a reference and e
 that new devices meet all limits specified in this document. Designers of systems that
 include I²C devices should review this document and also refer to individual component
 data sheets.
+
+<!-- **Section 2** -->
+[Section 2]: #Section%202
+<a id="Section 2"></a>
 
 /2. I²C-bus features
 ====================
@@ -236,120 +244,186 @@ Here are some of the features of the I²C-bus:
 •   Serial, 8-bit oriented, bidirectional data transfers can be made at up to 100 kbit/s in
     the Standard-mode, up to 400 kbit/s in the Fast-mode, up to 1 Mbit/s in Fast-mode
     Plus, or up to 3.4 Mbit/s in the High-speed mode.
-    UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P4* of 64 -->
 [P4]: #P4
 <a id="P4"></a>
 
+•   Serial, 8-bit oriented, unidirectional data transfers up to 5 Mbit/s in Ultra Fast-mode
 
-• Serial, 8-bit oriented, unidirectional data transfers up to 5 Mbit/s in Ultra Fast-mode
-• On-chip filtering rejects spikes on the bus data line to preserve data integrity.
-• The number of ICs that can be connected to the same bus is limited only by a
-maximum bus capacitance. More capacitance may be allowed under some
-conditions. Refer to Section 7.2.
-Figure 1 shows an example of I²C-bus applications.
+•   On-chip filtering rejects spikes on the bus data line to preserve data integrity.
 
-2.1 Designer benefits
+•   The number of ICs that can be connected to the same bus is limited only by a
+    maximum bus capacitance. More capacitance may be allowed under some
+    conditions. Refer to [Section 7.2].
+
+[Figure 1] shows an example of I²C-bus applications.
+
+<!-- **Section 2.1** -->
+[Section 2.1]: #Section%202.1
+<a id="Section 2.1"></a>
+
+//2.1 Designer benefits
+-----------------------
+
 I²C-bus compatible ICs allow a system design to progress rapidly directly from a
 functional block diagram to a prototype. Moreover, since they ‘clip’ directly onto the
 I²C-bus without any additional external interfacing, they allow a prototype system to be
 modified or upgraded simply by ‘clipping’ or ‘unclipping’ ICs to or from the bus.
-Here are some of the features of I²C-bus compatible ICs that are particularly attractive to
-designers:
-• Functional blocks on the block diagram correspond with the actual ICs; designs
-proceed rapidly from block diagram to final schematic.
-• No need to design bus interfaces because the I²C-bus interface is already integrated
-on-chip.
-Fig 1. Example of I²C-bus applications
-I²C
-A/D or D/A
-Converters
-I²C
-General Purpose
-I/O Expanders
-I²C
-LED Controllers
-V DD4
-I²C
-Repeaters/
-Hubs/Extenders
-I²C
-DIP Switches
-V DD5
-I²C
-Slave
-V DD0
-V DD1
-PCA9541
-I²C
-Master Selector/
-Demux
-I²C
-Multiplexers
-and Switches
-V DD2
-I²C Port
-via HW or
-Bit Banging
-I²C
-Bus Controllers
-MCUs
-8
-MCUs
-I²C
-Serial EEPROMs
-LCD Drivers
-(with I²C)
-I²C
-Real Time Clock/
-Calendars
-V DD3
-I²C
-Temperature
-Sensors
-Bridges
-(with I²C)
-SPI
-UART
-USB
-002aac858
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
+
+[Figure 1]: #Figure-1
+<a id="Figure-1"></a>
+
+**Figure 1**. Example of I²C-bus applications
+
+```sh
+                ┌────────────┐   ┌─────────────────┐                                                                     
+                │     I²C    │   │      I²C        │   ┌─────────────┐                 ┌──────────┐          ┌──────────┐ 
+        VDD4    │ A/D or D/A │   │ General Purpose │   │   I²C LED   │                 │ I²C DIP  │  VDD5    │   I²C    │ 
+       ─┬───┬─  │ Converters │   │ I/O Expanders   │   │ Controllers │                 │ Switches │ ─┬───┬─  │  Slave   │ 
+       ┌┴┐ ┌┴┐  └────┬──┬────┘   └────┬──────┬─────┘   └───┬────┬────┘                 └──┬────┬──┘ ┌┴┐ ┌┴┐  └──┬────┬──┘ 
+       │ │ │ │       │  │             │      │             │    │                         │    │    │ │ │ │     │    │    
+       └┬┘ └┬┘       │  │             │      │             │    │    ┌────────────────┐   │    │    └┬┘ └┬┘     │    │    
+    ╔═══╧═══╪════════╧══╪═════════════╧══════╪═════════════╧════╪════╡      I²C       ╞═══╧════╪═════╧═══╪══════╧════╪════
+    ║       │           │                    │                  │    │   Repeaters/   │        │         │           │    
+    ║     ╔═╧═══════════╧════════════════════╧══════════════════╧════╡ Hubs/Extenders ╞════════╧═════════╧═══════════╧════
+    ║     ║                                                          └────────────────┘                       
+    ║     ║                                          VDD0      VDD1                                           
+    ║     ║         VDD2                            ─┬───┬─   ─┬───┬─                                         
+    ║     ║        ─┬───┬─                          ┌┴┐ ┌┴┐   ┌┴┐ ┌┴┐                                         
+    ║     ║        ┌┴┐ ┌┴┐                          │ │ │ │   │ │ │ │      ┌──────────────┬────────┐          
+    ║     ║        │ │ │ │   ┌──────────────────┐   └┬┘ └┬┘   └┬┘ └┬┘      │  I²C Port    │        │          
+┌───╨─────╨────┐   └┬┘ └┬┘   │                  ╞════╧═══╪═════╪═══╪═══════╡  via HW or   │  MCUs  │          
+│     I²C      ╞════╧═══╪════╡      PCA9541     ╞════════╧═════╪═══╪═══════╡ Bit Banging  │        │          
+│ Multiplexers │        │    │        I²C       │              │   │       └──────────────┴────────┘          
+│ and Switches ╞════════╧════╡ Master Selector/ │              │   │       ┌──────────────┐        ┌────────┐ 
+└───╥─────╥────┘             │       Demux      ╞══════════════╧═══╪═══════╡    I²C Bus   ├───/────┤        │ 
+    ║     ║                  │                  ╞══════════════════╧═══════╡  Controllers │   8    │  MCUs  │ 
+    ║     ║                  └──────────────────┘                          └──────────────┘        └────────┘ 
+    ║     ║                                                                                            
+    ║     ║                                                ┌──────────────────┐   ┌─────────────┐      
+    ║     ║   VDD4    ┌───────────────┐   ┌────────────┐   │     I²C          │   │     I²C     │      
+    ║     ║  ─┬───┬─  │     I²C       │   │LCD Drivers │   │ Real Time Clock/ │   │ Temperature │      
+    ║     ║  ┌┴┐ ┌┴┐  │ Serial EEPROMs│   │ (width I²C)│   │ Calendars        │   │ Sensors     │      
+    ║     ║  │ │ │ │  └─────┬────┬────┘   └───┬────┬───┘   └────┬────────┬────┘   └───┬────┬────┘      
+    ║     ║  └┬┘ └┬┘        │    │            │    │            │        │            │    │       ┌────────────┐
+    ║     ╚═══╧═══╪═════════╧════╪════════════╧════╪════════════╧════════╪════════════╧════╪═══════╡  Bridges   │ SPI UART
+    ║             │              │                 │                     │                 │       │ (with I²C) │<========>
+    ╚═════════════╧══════════════╧═════════════════╧═════════════════════╧═════════════════╧═══════╡            │    USB
+                                                                                                   └────────────┘
+```
+<!-- 002aac858 -->
+
+注：框架图使用 [PlantUML](../PlantUML_Language_reference.md) Sequence Diagram 
+生成基本图元后，再手工使用 Unicode 制表符号（Box Darawing）拼接、修正。
+使用 [RunSnippet](../readme.mc) 插件中的 UnicodeSymbols 可以方便录入这些功能符号。
+
+```sh
+╔ ╦ ═ ╗      ┌ ─ ┬ ┐     ┌ ─ ┬ ┐     ╓─╥─╖     ╒═╤═╕
+╠ ╬ ═ ╣      │ │ │ │     ├ ─ ┼ ┤     ╟─╫─╢     ╞═╪═╡
+║ ║ ║ ║      ├ ─ ┼ ┤     │ │ │ │     ╙─╨─╜     ╘═╧═╛
+╚ ╩ ═ ╝      └ ─ ┴ ┘     └ ─ ┴ ┘
+```
+<!-- 
+```sh
+@startuml
+skinparam defaultTextAlignment center
+skinparam sequenceMessageAlign center
+participant P11 as "     I²C \n A/D or D/A \n Converters "
+participant P12 as "     I²C \n General Purpose \n I/O Expanders "
+participant P13 as "     I²C \n LED Controllers "
+participant P14 as "     I²C \n DIP Switches "
+participant P15 as "     I²C \n Slave "
+== l2 ==
+participant P21 as "     I²C \n Repeaters/ \n Hubs/Extenders "
+== l3 ==
+participant P31 as "     I²C \n Multiplexers \n and Switches "
+participant P32 as "PCA9541 \n I²C \n Master Selector/ \n Demux "
+participant P33 as "     I²C Port \n via HW or \n Bit Banging "
+participant P34 as " MCUs "
+participant P35 as "     I²C \n Bus Controllers "
+participant P36 as " MCUs "
+== l4 ==
+participant P41 as "     I²C \n Serial EEPROMs "
+participant P42 as "LCD Drivers \n (width I²C) "
+participant P43 as "     I²C \n Real Time Clock/ \n Calendars "
+participant P44 as "     I²C \n Temperature \n Sensors "
+participant P45 as "Bridges \n (with I²C) "
+P11 -> P31
+'P12 -> P31
+'P13 -> P31
+P31 -> P11
+'P31 -> P12
+'P31 -> P13
+@enduml
+``` -->
 
 <!-- *P5* of 64 -->
 [P5]: #P5
 <a id="P5"></a>
 
 
-• Integrated addressing and data-transfer protocol allow systems to be completely
-software-defined.
-• The same IC types can often be used in many different applications.
-• Design-time reduces as designers quickly become familiar with the frequently used
-functional blocks represented by I²C-bus compatible ICs.
-• ICs can be added to or removed from a system without affecting any other circuits on
-the bus.
-• Fault diagnosis and debugging are simple; malfunctions can be immediately traced.
-• Software development time can be reduced by assembling a library of reusable
-software modules.
+Here are some of the features of I²C-bus compatible ICs that are particularly attractive to
+designers:
+
+•   Functional blocks on the block diagram correspond with the actual ICs; designs
+    proceed rapidly from block diagram to final schematic.
+
+•   No need to design bus interfaces because the I²C-bus interface is already 
+    integrated on-chip.
+
+* • Integrated addressing and data-transfer protocol allow systems to be completely
+    software-defined.
+
+* • The same IC types can often be used in many different applications.
+
+* • Design-time reduces as designers quickly become familiar with the frequently used
+    functional blocks represented by I²C-bus compatible ICs.
+
+* • ICs can be added to or removed from a system without affecting any other circuits on
+    the bus.
+
+* • Fault diagnosis and debugging are simple; malfunctions can be immediately traced.
+
+* • Software development time can be reduced by assembling a library of reusable
+    software modules.
+
 In addition to these advantages, the CMOS ICs in the I²C-bus compatible range offer
 designers special features which are particularly attractive for portable equipment and
 battery-backed systems.
+
 They all have:
-• Extremely low current consumption
-• High noise immunity
-• Wide supply voltage range
-• Wide operating temperature range.
-2.2 Manufacturer benefits
+
+* • Extremely low current consumption
+
+* • High noise immunity
+
+* • Wide supply voltage range
+
+* • Wide operating temperature range.
+
+<!-- **Section 2.2** -->
+[Section 2.2]: #Section%202.2
+<a id="Section 2.2"></a>
+
+//2.2 Manufacturer benefits
+---------------------------
+
 I²C-bus compatible ICs not only assist designers, they also give a wide range of benefits
 to equipment manufacturers because:
-• The simple 2-wire serial I²C-bus minimizes interconnections so ICs have fewer pins
-and there are not so many PCB tracks; result — smaller and less expensive PCBs.
-• The completely integrated I²C-bus protocol eliminates the need for address decoders
-and other ‘glue logic’.
-• The multi-master capability of the I²C-bus allows rapid testing and alignment of
-end-user equipment via external connections to an assembly line.
-• The availability of I²C-bus compatible ICs in various leadless packages reduces
-space requirements even more.
+
+•   The simple 2-wire serial I²C-bus minimizes interconnections so ICs have fewer pins
+    and there are not so many PCB tracks; result — smaller and less expensive PCBs.
+
+•   The completely integrated I²C-bus protocol eliminates the need for address decoders
+    and other ‘glue logic’.
+
+•   The multi-master capability of the I²C-bus allows rapid testing and alignment of
+    end-user equipment via external connections to an assembly line.
+
+•   The availability of I²C-bus compatible ICs in various leadless packages reduces
+    space requirements even more.
+
 These are just some of the benefits. In addition, I²C-bus compatible ICs increase system
 design flexibility by allowing simple construction of equipment variants and easy
 upgrading to keep designs up-to-date. In this way, an entire family of equipment can be
@@ -360,39 +434,60 @@ of selecting a microcontroller with a larger ROM from our comprehensive range. A
 ICs supersede older ones, it is easy to add new features to equipment or to increase its
 performance by simply unclipping the outdated IC from the bus and clipping on its
 successor.
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P6* of 64 -->
 [P6]: #P6
 <a id="P6"></a>
 
 
-2.3 IC designer benefits
+
+<!-- **Section 2.3** -->
+[Section 2.3]: #Section%202.3
+<a id="Section 2.3"></a>
+
+//2.3 IC designer benefits
+--------------------------
+
 Designers of microcontrollers are frequently under pressure to conserve output pins. The
 I²C protocol allows connection of a wide variety of peripherals without the need for
 separate addressing or chip enable signals. Additionally, a microcontroller that includes an
 I²C interface is more successful in the marketplace due to the wide variety of existing
 peripheral devices available.
 
+<!-- **Section 3** -->
+[Section 3]: #Section%203
+<a id="Section 3"></a>
+
 /3. The I²C-bus protocol
 ========================
 
-3.1 Standard-mode, Fast-mode and Fast-mode Plus I²C-bus protocols
+
+<!-- **Section 3.1** -->
+[Section 3.1]: #Section%203.1
+<a id="Section 3.1"></a>
+
+//3.1 Standard-mode, Fast-mode and Fast-mode Plus I²C-bus protocols
+-------------------------------------------------------------------
+
 Two wires, serial data (SDA) and serial clock (SCL), carry information between the
 devices connected to the bus. Each device is recognized by a unique address (whether
 it is a microcontroller, LCD driver, memory or keyboard interface) and can operate as
 either a transmitter or receiver, depending on the function of the device. An LCD driver
 may be only a receiver, whereas a memory can both receive and transmit data. In addition
 to transmitters and receivers, devices can also be considered as masters or slaves when
-performing data transfers (see Table 1). A master is the device which initiates a data
+performing data transfers (see [Table 1]). A master is the device which initiates a data
 transfer on the bus and generates the clock signals to permit that transfer. At that time,
 any device addressed is considered a slave.
 
 The I²C-bus is a multi-master bus. This means that more than one device capable of
 controlling the bus can be connected to it. As masters are usually microcontrollers, let us
 consider the case of a data transfer between two microcontrollers connected to the
-I²C-bus (see Figure 2).
-Table 1. Definition of I²C-bus terminology
+I²C-bus (see [Figure 2]).
+
+[Table 1]: #Table-1
+<a id="Table-1"></a>
+
+**Table 1**. Definition of I²C-bus terminology
 Term Description
 Transmitter the device which sends data to the bus
 Receiver the device which receives data from the bus
@@ -405,7 +500,6 @@ Arbitration procedure to ensure that, if more than one master simultaneously tri
 control the bus, only one is allowed to do so and the winning message is
 not corrupted
 Synchronization procedure to synchronize the clock signals of two or more devices
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P7* of 64 -->
 [P7]: #P7
@@ -439,9 +533,14 @@ Generation of clock signals on the I²C-bus is always the responsibility of mast
 each master generates its own clock signals when transferring data on the bus. Bus clock
 signals from a master can only be altered when they are stretched by a slow slave device
 holding down the clock line or by another master when arbitration occurs.
-Table 2 summarizes the use of mandatory and optional portions of the I²C-bus
+
+[Table 2] summarizes the use of mandatory and optional portions of the I²C-bus
 specification and which system configurations use them.
-Fig 2. Example of an I²C-bus configuration using two microcontrollers
+
+[Figure 2]: #Figure-2
+<a id="Figure-2"></a>
+
+**Figure 2**. Example of an I²C-bus configuration using two microcontrollers
 mbc645
 SDA
 SCL
@@ -459,7 +558,6 @@ ADC
 MICRO -
 CONTROLLER
 B
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P8* of 64 -->
 [P8]: #P8
@@ -470,9 +568,16 @@ UM10204 All information provided in this document is subject to legal disclaimer
 the master need not be designed to handle this procedure.
 [3] ‘Bit banging’ (software emulation) multi-master systems should consider a START byte. See
 Section 3.1.15.
-3.1.1 SDA and SCL signals
+
+<!-- **Section 3.1.1** -->
+[Section 3.1.1]: #Section%203.1.1
+<a id="Section 3.1.1"></a>
+
+//3.1.1 SDA and SCL signals
+---------------------------
+
 Both SDA and SCL are bidirectional lines, connected to a positive supply voltage via a
-current-source or pull-up resistor (see Figure 3). When the bus is free, both lines are
+current-source or pull-up resistor (see [Figure 3]). When the bus is free, both lines are
 HIGH. The output stages of devices connected to the bus must have an open-drain or
 open-collector to perform the wired-AND function. Data on the I²C-bus can be transferred
 at rates of up to 100 kbit/s in the Standard-mode, up to 400 kbit/s in the Fast-mode, up to
@@ -481,7 +586,11 @@ capacitance limits the number of interfaces connected to the bus.
 For a single master application, the master’s SCL output can be a push-pull driver design
 if there are no devices on the bus which would stretch the clock.
 
-Table 2. Applicability of I²C-bus protocol features
+
+[Table 2]: #Table-2
+<a id="Table-2"></a>
+
+**Table 2**. Applicability of I²C-bus protocol features
 M = mandatory; O = optional; n/a = not applicable.
 Feature Configuration
 Single master Multi-master Slave [1]
@@ -498,7 +607,11 @@ Software Reset O O O
 START byte n/a O [3] n/a
 Device ID n/a n/a O
 V DD2 , V DD3 are device-dependent (for example, 12 V).
-Fig 3. Devices with various supply voltages sharing the same bus
+
+[Figure 3]: #Figure-3
+<a id="Figure-3"></a>
+
+**Figure 3**. Devices with various supply voltages sharing the same bus
 CMOS CMOS NMOS BIPOLAR
 002aac860
 V DD1 =
@@ -507,39 +620,63 @@ R p R p
 SDA
 SCL
 V DD2 V DD3
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P9* of 64 -->
 [P9]: #P9
 <a id="P9"></a>
 
 
-3.1.2 SDA and SCL logic levels
+
+<!-- **Section 3.1.2** -->
+[Section 3.1.2]: #Section%203.1.2
+<a id="Section 3.1.2"></a>
+
+//3.1.2 SDA and SCL logic levels
+--------------------------------
+
 Due to the variety of different technology devices (CMOS, NMOS, bipolar) that can be
 connected to the I²C-bus, the levels of the logical ‘0’ (LOW) and ‘1’ (HIGH) are not fixed
 and depend on the associated level of V DD . Input reference levels are set as 30 % and
-70 % of V DD ; V IL is 0.3V DD and V IH is 0.7V DD . See Figure 38, timing diagram. Some
+70 % of V DD ; V IL is 0.3V DD and V IH is 0.7V DD . See [Figure 38], timing diagram. Some
 legacy device input levels were fixed at V IL = 1.5 V and V IH = 3.0 V, but all new devices
-require this 30 %/70 % specification. See Section 6 for electrical specifications.
-3.1.3 Data validity
+require this 30 %/70 % specification. See [Section 6] for electrical specifications.
+
+<!-- **Section 3.1.3** -->
+[Section 3.1.3]: #Section%203.1.3
+<a id="Section 3.1.3"></a>
+
+//3.1.3 Data validity
+---------------------
+
 The data on the SDA line must be stable during the HIGH period of the clock. The HIGH
 or LOW state of the data line can only change when the clock signal on the SCL line is
-LOW (see Figure 4). One clock pulse is generated for each data bit transferred.
+LOW (see [Figure 4]). One clock pulse is generated for each data bit transferred.
 
-3.1.4 START and STOP conditions
-All transactions begin with a START (S) and are terminated by a STOP (P) (see Figure 5).
+
+<!-- **Section 3.1.4** -->
+[Section 3.1.4]: #Section%203.1.4
+<a id="Section 3.1.4"></a>
+
+//3.1.4 START and STOP conditions
+---------------------------------
+
+All transactions begin with a START (S) and are terminated by a STOP (P) (see [Figure 5]).
 A HIGH to LOW transition on the SDA line while SCL is HIGH defines a START condition.
 A LOW to HIGH transition on the SDA line while SCL is HIGH defines a STOP condition.
 
 START and STOP conditions are always generated by the master. The bus is considered
 to be busy after the START condition. The bus is considered to be free again a certain
-time after the STOP condition. This bus free situation is specified in Section 6.
+time after the STOP condition. This bus free situation is specified in [Section 6].
 The bus stays busy if a repeated START (Sr) is generated instead of a STOP condition. In
 this respect, the START (S) and repeated START (Sr) conditions are functionally identical.
 For the remainder of this document, therefore, the S symbol is used as a generic term to
 represent both the START and repeated START conditions, unless Sr is particularly
 relevant.
-Fig 4. Bit transfer on the I²C-bus
+
+[Figure 4]: #Figure-4
+<a id="Figure-4"></a>
+
+**Figure 4**. Bit transfer on the I²C-bus
 mba607
 data line
 stable;
@@ -549,7 +686,11 @@ of data
 allowed
 SDA
 SCL
-Fig 5. START and STOP conditions
+
+[Figure 5]: #Figure-5
+<a id="Figure-5"></a>
+
+**Figure 5**. START and STOP conditions
 mba608
 SDA
 SCL
@@ -557,7 +698,6 @@ P
 STOP condition
 S
 START condition
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P10* of 64 -->
 [P10]: #P10
@@ -568,23 +708,37 @@ Detection of START and STOP conditions by devices connected to the bus is easy i
 incorporate the necessary interfacing hardware. However, microcontrollers with no such
 interface have to sample the SDA line at least twice per clock period to sense the
 transition.
-3.1.5 Byte format
+
+<!-- **Section 3.1.5** -->
+[Section 3.1.5]: #Section%203.1.5
+<a id="Section 3.1.5"></a>
+
+//3.1.5 Byte format
+-------------------
+
 Every byte put on the SDA line must be eight bits long. The number of bytes that can be
 transmitted per transfer is unrestricted. Each byte must be followed by an Acknowledge
-bit. Data is transferred with the Most Significant Bit (MSB) first (see Figure 6). If a slave
+bit. Data is transferred with the Most Significant Bit (MSB) first (see [Figure 6]). If a slave
 cannot receive or transmit another complete byte of data until it has performed some other
 function, for example servicing an internal interrupt, it can hold the clock line SCL LOW to
 force the master into a wait state. Data transfer then continues when the slave is ready for
 another byte of data and releases clock line SCL.
 
-3.1.6 Acknowledge (ACK) and Not Acknowledge (NACK)
+
+<!-- **Section 3.1.6** -->
+[Section 3.1.6]: #Section%203.1.6
+<a id="Section 3.1.6"></a>
+
+//3.1.6 Acknowledge (ACK) and Not Acknowledge (NACK)
+----------------------------------------------------
+
 The acknowledge takes place after every byte. The acknowledge bit allows the receiver to
 signal the transmitter that the byte was successfully received and another byte may be
 sent. The master generates all clock pulses, including the acknowledge ninth clock pulse.
 The Acknowledge signal is defined as follows: the transmitter releases the SDA line
 during the acknowledge clock pulse so the receiver can pull the SDA line LOW and it
-remains stable LOW during the HIGH period of this clock pulse (see Figure 4). Set-up and
-hold times (specified in Section 6) must also be taken into account.
+remains stable LOW during the HIGH period of this clock pulse (see [Figure 4]). Set-up and
+hold times (specified in [Section 6]) must also be taken into account.
 When SDA remains HIGH during this ninth clock pulse, this is defined as the Not
 Acknowledge signal. The master can then generate either a STOP condition to abort the
 transfer, or a repeated START condition to start a new transfer. There are five conditions
@@ -596,7 +750,11 @@ function and is not ready to start communication with the master.
 3. During the transfer, the receiver gets data or commands that it does not understand.
 4. During the transfer, the receiver cannot receive any more data bytes.
 5. A master-receiver must signal the end of the transfer to the slave transmitter.
-Fig 6. Data transfer on the I²C-bus
+
+[Figure 6]: #Figure-6
+<a id="Figure-6"></a>
+
+**Figure 6**. Data transfer on the I²C-bus
 S or Sr Sr or P
 SDA
 SCL
@@ -619,14 +777,20 @@ while interrupts are serviced
 P
 Sr acknowledgement
 signal from receiver
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P11* of 64 -->
 [P11]: #P11
 <a id="P11"></a>
 
 
-3.1.7 Clock synchronization
+
+<!-- **Section 3.1.7** -->
+[Section 3.1.7]: #Section%203.1.7
+<a id="Section 3.1.7"></a>
+
+//3.1.7 Clock synchronization
+-----------------------------
+
 Two masters can begin transmitting on a free bus at the same time and there must be a
 method for deciding which takes control of the bus and complete its transmission. This is
 done by clock synchronization and arbitration. In single master systems, clock
@@ -635,7 +799,7 @@ Clock synchronization is performed using the wired-AND connection of I²C interf
 the SCL line. This means that a HIGH to LOW transition on the SCL line causes the
 masters concerned to start counting off their LOW period and, once a master clock has
 gone LOW, it holds the SCL line in that state until the clock HIGH state is reached (see
-Figure 7). However, if another clock is still within its LOW period, the LOW to HIGH
+[Figure 7]). However, if another clock is still within its LOW period, the LOW to HIGH
 transition of this clock may not change the state of the SCL line. The SCL line is therefore
 held LOW by the master with the longest LOW period. Masters with shorter LOW periods
 enter a HIGH wait-state during this time.
@@ -647,7 +811,14 @@ complete its HIGH period pulls the SCL line LOW again.
 In this way, a synchronized SCL clock is generated with its LOW period determined by the
 master with the longest clock LOW period, and its HIGH period determined by the one
 with the shortest clock HIGH period.
-3.1.8 Arbitration
+
+<!-- **Section 3.1.8** -->
+[Section 3.1.8]: #Section%203.1.8
+<a id="Section 3.1.8"></a>
+
+//3.1.8 Arbitration
+-------------------
+
 Arbitration, like synchronization, refers to a portion of the protocol required only if more
 than one master is used in the system. Slaves are not involved in the arbitration
 procedure. A master may start a transfer only if the bus is free. Two masters may
@@ -657,7 +828,11 @@ to determine which master will complete its transmission.
 Arbitration proceeds bit by bit. During every bit, while SCL is HIGH, each master checks to
 see if the SDA level matches what it has sent. This process may take many bits. Two
 masters can actually complete an entire transaction without error, as long as the
-Fig 7. Clock synchronization during the arbitration procedure
+
+[Figure 7]: #Figure-7
+<a id="Figure-7"></a>
+
+**Figure 7**. Clock synchronization during the arbitration procedure
 CLK
 1
 CLK
@@ -670,7 +845,6 @@ state
 start counting
 HIGH period
 mbc632
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P12* of 64 -->
 [P12]: #P12
@@ -686,7 +860,7 @@ must restart its transaction when the bus is free.
 If a master also incorporates a slave function and it loses arbitration during the addressing
 stage, it is possible that the winning master is trying to address it. The losing master must
 therefore switch over immediately to its slave mode.
-Figure 8 shows the arbitration procedure for two masters. More may be involved
+[Figure 8] shows the arbitration procedure for two masters. More may be involved
 depending on how many masters are connected to the bus. The moment there is a
 difference between the internal data level of the master generating DATA1 and the actual
 level on the SDA line, the DATA1 output is switched off. This does not affect the data
@@ -701,7 +875,11 @@ undefined condition:
 • Master 1 sends a repeated START condition and master 2 sends a data bit.
 • Master 1 sends a STOP condition and master 2 sends a data bit.
 • Master 1 sends a repeated START condition and master 2 sends a STOP condition.
-Fig 8. Arbitration procedure of two masters
+
+[Figure 8]: #Figure-8
+<a id="Figure-8"></a>
+
+**Figure 8**. Arbitration procedure of two masters
 msc609
 DATA
 1
@@ -712,14 +890,20 @@ SCL
 S
 master 1 loses arbitration
 DATA 1 SDA
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P13* of 64 -->
 [P13]: #P13
 <a id="P13"></a>
 
 
-3.1.9 Clock stretching
+
+<!-- **Section 3.1.9** -->
+[Section 3.1.9]: #Section%203.1.9
+<a id="Section 3.1.9"></a>
+
+//3.1.9 Clock stretching
+------------------------
+
 Clock stretching pauses a transaction by holding the SCL line LOW. The transaction
 cannot continue until the line is released HIGH again. Clock stretching is optional and in
 fact, most slave devices do not include an SCL driver so they are unable to stretch the
@@ -728,23 +912,34 @@ On the byte level, a device may be able to receive bytes of data at a fast rate,
 more time to store a received byte or prepare another byte to be transmitted. Slaves can
 then hold the SCL line LOW after reception and acknowledgment of a byte to force the
 master into a wait state until the slave is ready for the next byte transfer in a type of
-handshake procedure (see Figure 7).
+handshake procedure (see [Figure 7]).
 On the bit level, a device such as a microcontroller with or without limited hardware for the
 I²C-bus, can slow down the bus clock by extending each clock LOW period. The speed of
 any master is adapted to the internal operating rate of this device.
-In Hs-mode, this handshake feature can only be used on byte level (see Section 5.3.2).
-3.1.10 The slave address and R/W bit
-Data transfers follow the format shown in Figure 9. After the START condition (S), a slave
+In Hs-mode, this handshake feature can only be used on byte level (see [Section 5.3.2]).
+
+<!-- **Section 3.1.10** -->
+[Section 3.1.10]: #Section%203.1.10
+<a id="Section 3.1.10"></a>
+
+//3.1.10 The slave address and R/W bit
+--------------------------------------
+
+Data transfers follow the format shown in [Figure 9]. After the START condition (S), a slave
 address is sent. This address is seven bits long followed by an eighth bit which is a data
 direction bit (R/W) — a ‘zero’ indicates a transmission (WRITE), a ‘one’ indicates a
-request for data (READ) (refer to Figure 10). A data transfer is always terminated by a
+request for data (READ) (refer to [Figure 10]). A data transfer is always terminated by a
 STOP condition (P) generated by the master. However, if a master still wishes to
 communicate on the bus, it can generate a repeated START condition (Sr) and address
 another slave without first generating a STOP condition. Various combinations of
 read/write formats are then possible within such a transfer.
 
 
-Fig 9. A complete data transfer
+
+[Figure 9]: #Figure-9
+<a id="Figure-9"></a>
+
+**Figure 9**. A complete data transfer
 S
 1 - 7 8 9 1 - 7 8 9 1 - 7 8 9
 P
@@ -756,12 +951,15 @@ DATA ACK DATA ACK ADDRESS ACK R/W
 SDA
 SCL
 mbc604
-Fig 10. The first byte after the START procedure
+
+[Figure 10]: #Figure-10
+<a id="Figure-10"></a>
+
+**Figure 10**. The first byte after the START procedure
 mbc608
 R/W
 LSB MSB
 slave address
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P14* of 64 -->
 [P14]: #P14
@@ -770,14 +968,14 @@ UM10204 All information provided in this document is subject to legal disclaimer
 
 Possible data transfer formats are:
 • Master-transmitter transmits to slave-receiver. The transfer direction is not changed
-(see Figure 11). The slave receiver acknowledges each byte.
-• Master reads slave immediately after first byte (see Figure 12). At the moment of the
+(see [Figure 11]). The slave receiver acknowledges each byte.
+• Master reads slave immediately after first byte (see [Figure 12]). At the moment of the
 first acknowledge, the master-transmitter becomes a master-receiver and the
 slave-receiver becomes a slave-transmitter. This first acknowledge is still generated
 by the slave. The master generates subsequent acknowledges. The STOP condition
 is generated by the master, which sends a not-acknowledge (A) just before the STOP
 condition.
-• Combined format (see Figure 13). During a change of direction within a transfer, the
+• Combined format (see [Figure 13]). During a change of direction within a transfer, the
 START condition and the slave address are both repeated, but with the R/W bit
 reversed. If a master-receiver sends a repeated START condition, it sends a
 not-acknowledge (A) just before the repeated START condition.
@@ -805,7 +1003,6 @@ same time, understanding that it is impossible to determine that each slave
 acknowledges, and then turn on one channel at a time to read back each individual
 device’s configuration to confirm the programming. Refer to individual component
 data sheets.
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P15* of 64 -->
 [P15]: #P15
@@ -813,7 +1010,14 @@ UM10204 All information provided in this document is subject to legal disclaimer
 
 
 
-3.1.11 10-bit addressing
+
+<!-- **Section 3.1.11** -->
+[Section 3.1.11]: #Section%203.1.11
+<a id="Section 3.1.11"></a>
+
+//3.1.11 10-bit addressing
+--------------------------
+
 10-bit addressing expands the number of possible addresses. Devices with 7-bit and
 10-bit addresses can be connected to the same I²C-bus, and both 7-bit and 10-bit
 addressing can be used in all bus speed modes. Currently, 10-bit addressing is not being
@@ -826,10 +1030,22 @@ first byte is the R/W bit that determines the direction of the message.
 Although there are eight possible combinations of the reserved address bits 1111 XXX,
 only the four combinations 1111 0XX are used for 10-bit addressing. The remaining four
 combinations 1111 1XX are reserved for future I²C-bus enhancements.
-Fig 11. A master-transmitter addressing a slave receiver with a 7-bit address
+
+[Figure 11]: #Figure-11
+<a id="Figure-11"></a>
+
+**Figure 11**. A master-transmitter addressing a slave receiver with a 7-bit address
 (the transfer direction is not changed)
-Fig 12. A master reads a slave immediately after the first byte
-Fig 13. Combined format
+
+[Figure 12]: #Figure-12
+<a id="Figure-12"></a>
+
+**Figure 12**. A master reads a slave immediately after the first byte
+
+[Figure 13]: #Figure-13
+<a id="Figure-13"></a>
+
+**Figure 13**. Combined format
 mbc605
 A/A
 A
@@ -871,7 +1087,6 @@ transfer direction of
 data and acknowledge bits
 depends on R/W bits.
 SLAVE ADDRESS S Sr P SLAVE ADDRESS
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P16* of 64 -->
 [P16]: #P16
@@ -881,7 +1096,7 @@ UM10204 All information provided in this document is subject to legal disclaimer
 All combinations of read/write formats previously described for 7-bit addressing are
 possible with 10-bit addressing. Two are detailed here:
 • Master-transmitter transmits to slave-receiver with a 10-bit slave address.
-The transfer direction is not changed (see Figure 14). When a 10-bit address follows
+The transfer direction is not changed (see [Figure 14]). When a 10-bit address follows
 a START condition, each slave compares the first seven bits of the first byte of the
 slave address (1111 0XX) with its own address and tests if the eighth bit (R/W
 direction bit) is 0. It is possible that more than one device finds a match and generate
@@ -891,7 +1106,7 @@ one slave finds a match and generates an acknowledge (A2). The matching slave
 remains addressed by the master until it receives a STOP condition (P) or a repeated
 START condition (Sr) followed by a different slave address.
 • Master-receiver reads slave-transmitter with a 10-bit slave address.
-The transfer direction is changed after the second R/W bit (Figure 15). Up to and
+The transfer direction is changed after the second R/W bit ([Figure 15]). Up to and
 including acknowledge bit A2, the procedure is the same as that described for a
 master-transmitter addressing a slave-receiver. After the repeated START condition
 (Sr), a matching slave remembers that it was addressed before. This slave then
@@ -911,9 +1126,13 @@ Slave devices with 10-bit addressing react to a ‘general call’ in the same w
 devices with 7-bit addressing. Hardware masters can transmit their 10-bit address after a
 ‘general call’. In this case, the ‘general call’ address byte is followed by two successive
 bytes containing the 10-bit address of the master-transmitter. The format is as shown in
-Figure 15 where the first DATA byte contains the eight least-significant bits of the master
+[Figure 15] where the first DATA byte contains the eight least-significant bits of the master
 address.
-Fig 14. A master-transmitter addresses a slave-receiver with a 10-bit address
+
+[Figure 14]: #Figure-14
+<a id="Figure-14"></a>
+
+**Figure 14**. A master-transmitter addresses a slave-receiver with a 10-bit address
 mbc613
 R/W A1
 (write)
@@ -924,7 +1143,11 @@ SLAVE ADDRESS
 S DATA P DATA
 SLAVE ADDRESS
 2nd BYTE
-Fig 15. A master-receiver addresses a slave-transmitter with a 10-bit address
+
+[Figure 15]: #Figure-15
+<a id="Figure-15"></a>
+
+**Figure 15**. A master-receiver addresses a slave-transmitter with a 10-bit address
 mbc614
 R/W A1
 (write)
@@ -939,7 +1162,6 @@ SLAVE ADDRESS
 SLAVE ADDRESS
 1st 7 BITS
 S
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P17* of 64 -->
 [P17]: #P17
@@ -947,8 +1169,15 @@ UM10204 All information provided in this document is subject to legal disclaimer
 
 
 The START byte 0000 0001 (01h) can precede the 10-bit addressing in the same way as
-for 7-bit addressing (see Section 3.1.15).
-3.1.12 Reserved addresses
+for 7-bit addressing (see [Section 3.1.15]).
+
+<!-- **Section 3.1.12** -->
+[Section 3.1.12]: #Section%203.1.12
+<a id="Section 3.1.12"></a>
+
+//3.1.12 Reserved addresses
+---------------------------
+
 Two groups of eight addresses (0000 XXX and 1111 XXX) are reserved for the purposes
 shown in Table 3.
 
@@ -966,7 +1195,14 @@ conventional I²C-buses. For example, a device with seven user-assignable addres
 allows all 128 addresses to be assigned. If it is known that the reserved address is never
 going to be used for its intended purpose, a reserved address can be used for a slave
 address.
-3.1.13 General call address
+
+<!-- **Section 3.1.13** -->
+[Section 3.1.13]: #Section%203.1.13
+<a id="Section 3.1.13"></a>
+
+//3.1.13 General call address
+-----------------------------
+
 The general call address is for addressing every device connected to the I²C-bus at the
 same time. However, if a device does not need any of the data supplied within the general
 call structure, it can ignore this address by not issuing an acknowledgment. If a device
@@ -976,8 +1212,12 @@ if one or more devices respond. The second and following bytes are acknowledged 
 every slave-receiver capable of handling this data. A slave who cannot process one of
 these bytes must ignore it by not-acknowledging. Again, if one or more slaves
 acknowledge, the not-acknowledge will not be seen by the master. The meaning of the
-general call address is always specified in the second byte (see Figure 16).
-Table 3. Reserved addresses
+general call address is always specified in the second byte (see [Figure 16]).
+
+[Table 3]: #Table-3
+<a id="Table-3"></a>
+
+**Table 3**. Reserved addresses
 X = don’t care; 1 = HIGH; 0 = LOW.
 Slave address R/W bit Description
 0000 000 0 general call address [1]
@@ -988,7 +1228,6 @@ Slave address R/W bit Description
 0000 1XX X Hs-mode master code
 1111 1XX 1 device ID
 1111 0XX X 10-bit slave addressing
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P18* of 64 -->
 [P18]: #P18
@@ -1013,15 +1252,23 @@ the sequence is transmitted by a hardware master device, such as a keyboard scan
 which can be programmed to transmit a desired slave address. Since a hardware master
 does not know in advance to which device the message has to be transferred, it can only
 generate this hardware general call and its own address — identifying itself to the system
-(see Figure 17).
+(see [Figure 17]).
 
 The seven bits remaining in the second byte contain the address of the hardware master.
 This address is recognized by an intelligent device (for example, a microcontroller)
 connected to the bus which then accepts the information from the hardware master. If the
 hardware master can also act as a slave, the slave address is identical to the master
 address.
-Fig 16. General call address format
-Fig 17. Data transfer from a hardware master-transmitter
+
+[Figure 16]: #Figure-16
+<a id="Figure-16"></a>
+
+**Figure 16**. General call address format
+
+[Figure 17]: #Figure-17
+<a id="Figure-17"></a>
+
+**Figure 17**. Data transfer from a hardware master-transmitter
 mbc623
 LSB
 second byte
@@ -1038,7 +1285,6 @@ byte
 A A
 (n bytes + ack.)
 S 00000000 MASTER ADDRESS 1 P DATA DATA
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P19* of 64 -->
 [P19]: #P19
@@ -1048,17 +1294,31 @@ UM10204 All information provided in this document is subject to legal disclaimer
 In some systems, an alternative could be that the hardware master transmitter is set in the
 slave-receiver mode after the system reset. In this way, a system configuring master can
 tell the hardware master-transmitter (which is now in slave-receiver mode) to which
-address data must be sent (see Figure 18). After this programming procedure, the
+address data must be sent (see [Figure 18]). After this programming procedure, the
 hardware master remains in the master-transmitter mode.
 
-3.1.14 Software reset
+
+<!-- **Section 3.1.14** -->
+[Section 3.1.14]: #Section%203.1.14
+<a id="Section 3.1.14"></a>
+
+//3.1.14 Software reset
+-----------------------
+
 Following a General Call, (0000 0000), sending 0000 0110 (06h) as the second byte
 causes a software reset. This feature is optional and not all devices respond to this
 command. On receiving this 2-byte sequence, all devices designed to respond to the
 general call address reset and take in the programmable part of their address.
 Precautions must be taken to ensure that a device is not pulling down the SDA or SCL line
 after applying the supply voltage, since these low levels would block the bus.
-3.1.15 START byte
+
+<!-- **Section 3.1.15** -->
+[Section 3.1.15]: #Section%203.1.15
+<a id="Section 3.1.15"></a>
+
+//3.1.15 START byte
+-------------------
+
 Microcontrollers can be connected to the I²C-bus in two ways. A microcontroller with an
 on-chip hardware I²C-bus interface can be programmed to be only interrupted by requests
 from the bus. When the device does not have such an interface, it must constantly monitor
@@ -1067,14 +1327,18 @@ bus, the less time it can spend carrying out its intended function.
 There is therefore a speed difference between fast hardware devices and a relatively slow
 microcontroller which relies on software polling.
 In this case, data transfer can be preceded by a start procedure which is much longer than
-normal (see Figure 19). The start procedure consists of:
+normal (see [Figure 19]). The start procedure consists of:
 • A START condition (S)
 • A START byte (0000 0001)
 • An acknowledge clock pulse (ACK)
 • A repeated START condition (Sr).
 a. Configuring master sends dump address to hardware master
 b. Hardware master dumps data to selected slave
-Fig 18. Data transfer by a hardware-transmitter capable of dumping data directly to slave
+
+[Figure 18]: #Figure-18
+<a id="Figure-18"></a>
+
+**Figure 18**. Data transfer by a hardware-transmitter capable of dumping data directly to slave
 devices
 002aac885
 write
@@ -1085,7 +1349,6 @@ write
 A A
 (n bytes + ack.)
 A/A S P DUMP ADDR. FROM H/W MASTER DATA DATA
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P20* of 64 -->
 [P20]: #P20
@@ -1102,7 +1365,14 @@ therefore ignores the START byte.
 An acknowledge-related clock pulse is generated after the START byte. This is present
 only to conform with the byte handling format used on the bus. No device is allowed to
 acknowledge the START byte.
-3.1.16 Bus clear
+
+<!-- **Section 3.1.16** -->
+[Section 3.1.16]: #Section%203.1.16
+<a id="Section 3.1.16"></a>
+
+//3.1.16 Bus clear
+------------------
+
 In the unlikely event where the clock (SCL) is stuck LOW, the preferential procedure is to
 reset the bus using the HW reset signal if your I²C devices have HW reset inputs. If the
 I²C devices do not have HW reset inputs, cycle power to the devices to activate the
@@ -1110,14 +1380,25 @@ mandatory internal Power-On Reset (POR) circuit.
 If the data line (SDA) is stuck LOW, the master should send nine clock pulses. The device
 that held the bus LOW should release it sometime within those nine clocks. If not, then
 use the HW reset or cycle power to clear the bus.
-3.1.17 Device ID
-The Device ID field (see Figure 20) is an optional 3-byte read-only (24 bits) word giving
+
+<!-- **Section 3.1.17** -->
+[Section 3.1.17]: #Section%203.1.17
+<a id="Section 3.1.17"></a>
+
+//3.1.17 Device ID
+------------------
+
+The Device ID field (see [Figure 20]) is an optional 3-byte read-only (24 bits) word giving
 the following information:
 • Twelve bits with the manufacturer name, unique per manufacturer (for example, NXP)
 • Nine bits with the part identification, assigned by manufacturer (for example,
 PCA9698)
 • Three bits with the die revision, assigned by manufacturer (for example, RevX)
-Fig 19. START byte procedure
+
+[Figure 19]: #Figure-19
+<a id="Figure-19"></a>
+
+**Figure 19**. START byte procedure
 002aac997
 S
 9 8 2 1
@@ -1130,7 +1411,6 @@ acknowledge
 START byte 0000 0001
 SDA
 SCL
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P21* of 64 -->
 [P21]: #P21
@@ -1159,7 +1439,11 @@ slave device state machine and allowing the master to send the STOP condition.
 Remark: The reading of the Device ID can be stopped anytime by sending a NACK.
 If the master continues to ACK the bytes after the third byte, the slave rolls back to the first
 byte and keeps sending the Device ID sequence until a NACK has been detected.
-Fig 20. Device ID field
+
+[Figure 20]: #Figure-20
+<a id="Figure-20"></a>
+
+**Figure 20**. Device ID field
 0
 002aab942
 0 0
@@ -1170,7 +1454,6 @@ revision
 0 0 0 0
 part identification
 manufacturer
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P22* of 64 -->
 [P22]: #P22
@@ -1178,7 +1461,11 @@ UM10204 All information provided in this document is subject to legal disclaimer
 
 Designers of new I²C devices who want to implement the device ID feature should contact
 NXP at i2c.support@nxp.com to have a unique manufacturer ID assigned.
-Table 4. Assigned manufacturer IDs
+
+[Table 4]: #Table-4
+<a id="Table-4"></a>
+
+**Table 4**. Assigned manufacturer IDs
 Manufacturer bits Company
 11 10 9 8 7 6 5 4 3 2 1 0
 0 0 0 0 0 0 0 0 0 0 0 0 NXP Semiconductors
@@ -1195,14 +1482,20 @@ Manufacturer bits Company
 0 0 0 0 0 0 0 0 1 0 1 1 Flir
 0 0 0 0 0 0 0 0 1 1 0 0 O 2 Micro
 0 0 0 0 0 0 0 0 1 1 0 1 Atmel
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P23* of 64 -->
 [P23]: #P23
 <a id="P23"></a>
 
 
-3.2 Ultra Fast-mode I²C-bus protocol
+
+<!-- **Section 3.2** -->
+[Section 3.2]: #Section%203.2
+<a id="Section 3.2"></a>
+
+//3.2 Ultra Fast-mode I²C-bus protocol
+--------------------------------------
+
 The UFm I²C-bus is a 2-wire push-pull serial bus that operates from DC to 5 MHz
 transmitting data in one direction. It is most useful for speeds greater than 1 MHz to drive
 LED controllers and other devices that do not need feedback. The UFm I²C-bus protocol
@@ -1221,16 +1514,24 @@ device that initiates a data transfer on the bus and generates the clock signals
 that transfer. All other devices addressed are considered slaves.
 
 Let us consider the case of a data transfer between a master and multiple slaves
-connected to the UFm I²C-bus (see Figure 21).
+connected to the UFm I²C-bus (see [Figure 21]).
 
-Table 5. Definition of UFm I²C-bus terminology
+
+[Table 5]: #Table-5
+<a id="Table-5"></a>
+
+**Table 5**. Definition of UFm I²C-bus terminology
 Term Description
 Transmitter the device that sends data to the bus
 Receiver the device that receives data from the bus
 Master the device that initiates a transfer, generates clock signals and
 terminates a transfer
 Slave the device addressed by a master
-Fig 21. Example of UFm I²C-bus configuration
+
+[Figure 21]: #Figure-21
+<a id="Figure-21"></a>
+
+**Figure 21**. Example of UFm I²C-bus configuration
 002aag654
 USDA
 USCL
@@ -1242,7 +1543,6 @@ LED
 controller 1
 LED
 controller 2 GPO
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P24* of 64 -->
 [P24]: #P24
@@ -1267,7 +1567,11 @@ device, that is, the master generates the clock signals when transferring data o
 Bus clock signals from a master cannot be altered by a slave device with clock stretching
 and the process of arbitration and clock synchronization does not exist within the UFm
 I²C-bus.
-Table 6 summarizes the use of mandatory and optional portions of the UFm I²C-bus
+
+[Table 6]: #Table-6
+<a id="Table-6"></a>
+
+**Table 6** summarizes the use of mandatory and optional portions of the UFm I²C-bus
 specification.
  Table 6.
 Applicability of I²C-bus features to UFm
@@ -1286,43 +1590,78 @@ General Call address O
 Software Reset O
 START byte O
 Device ID n/p
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P25* of 64 -->
 [P25]: #P25
 <a id="P25"></a>
 
 
-3.2.1 USDA and USCL signals
+
+<!-- **Section 3.2.1** -->
+[Section 3.2.1]: #Section%203.2.1
+<a id="Section 3.2.1"></a>
+
+//3.2.1 USDA and USCL signals
+-----------------------------
+
 Both USDA and USCL are unidirectional lines, with push-pull outputs. When the bus is
 free, both lines are pulled HIGH by the upper transistor of the output stage. Data on the
 I²C-bus can be transferred at rates of up to 5000 kbit/s in the Ultra Fast-mode. The
 number of interfaces connected to the bus is limited by the bus loading, reflections from
 cable ends, connectors, and stubs.
 
-3.2.2 USDA and USCL logic levels
+
+<!-- **Section 3.2.2** -->
+[Section 3.2.2]: #Section%203.2.2
+<a id="Section 3.2.2"></a>
+
+//3.2.2 USDA and USCL logic levels
+----------------------------------
+
 Due to the variety of different technology devices (CMOS, NMOS, bipolar) that can be
 connected to the I²C-bus, the levels of the logical ‘0’ (LOW) and ‘1’ (HIGH) are not fixed
 and depend on the associated level of V DD . Input reference levels are set as 30 % and
-70 % of V DD ; V IL is 0.3V DD and V IH is 0.7V DD . See Figure 40, timing diagram. See
+70 % of V DD ; V IL is 0.3V DD and V IH is 0.7V DD . See [Figure 40], timing diagram. See
 Section 6 for electrical specifications.
-3.2.3 Data validity
+
+<!-- **Section 3.2.3** -->
+[Section 3.2.3]: #Section%203.2.3
+<a id="Section 3.2.3"></a>
+
+//3.2.3 Data validity
+---------------------
+
 The data on the USDA line must be stable during the HIGH period of the clock. The HIGH
 or LOW state of the data line can only change when the clock signal on the USCL line is
-LOW (see Figure 23). One clock pulse is generated for each data bit transferred.
+LOW (see [Figure 23]). One clock pulse is generated for each data bit transferred.
 
-3.2.4 START and STOP conditions
+
+<!-- **Section 3.2.4** -->
+[Section 3.2.4]: #Section%203.2.4
+<a id="Section 3.2.4"></a>
+
+//3.2.4 START and STOP conditions
+---------------------------------
+
 Both data and clock lines remain HIGH when the bus is not busy. All transactions begin
-with a START (S) and can be terminated by a STOP (P) (see Figure 24). A HIGH to LOW
+with a START (S) and can be terminated by a STOP (P) (see [Figure 24]). A HIGH to LOW
 transition on the USDA line while USCL is HIGH defines a START condition. A LOW to
 HIGH transition on the USDA line while USCL is HIGH defines a STOP condition.
-Fig 22. Simplified schematic of USCL, USDA outputs
+
+[Figure 22]: #Figure-22
+<a id="Figure-22"></a>
+
+**Figure 22**. Simplified schematic of USCL, USDA outputs
 002aag655
 V DD(IO)
 V SS
 USCL or
 USDA pin
-Fig 23. Bit transfer on the UFm I²C-bus
+
+[Figure 23]: #Figure-23
+<a id="Figure-23"></a>
+
+**Figure 23**. Bit transfer on the UFm I²C-bus
 002aaf113
 data line
 stable;
@@ -1332,7 +1671,6 @@ of data
 allowed
 USDA
 USCL
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P26* of 64 -->
 [P26]: #P26
@@ -1340,7 +1678,7 @@ UM10204 All information provided in this document is subject to legal disclaimer
 
 START and STOP conditions are always generated by the master. The bus is considered
 to be busy after the START condition. The bus is considered to be free again a certain
-time after the STOP condition. This bus free situation is specified in Section 6. The bus
+time after the STOP condition. This bus free situation is specified in [Section 6]. The bus
 stays busy if a repeated START (Sr) is generated instead of a STOP condition. In this
 respect, the START (S) and repeated START (Sr) conditions are functionally identical. For
 the remainder of this document, therefore, the S symbol is used as a generic term to
@@ -1350,15 +1688,26 @@ Detection of START and STOP conditions by devices connected to the bus is easy i
 incorporate the necessary interfacing hardware. However, microcontrollers with no such
 interface have to sample the USDA line at least twice per clock period to sense the
 transition.
-3.2.5 Byte format
+
+<!-- **Section 3.2.5** -->
+[Section 3.2.5]: #Section%203.2.5
+<a id="Section 3.2.5"></a>
+
+//3.2.5 Byte format
+-------------------
+
 Every byte put on the USDA line must be eight bits long. The number of bytes that can be
 transmitted per transfer is unrestricted. The master drives the USDA HIGH after each byte
 during the Acknowledge cycle. Data is transferred with the Most Significant Bit (MSB) first
-(see Figure 25). A slave is not allowed to hold the clock LOW if it cannot receive another
+(see [Figure 25]). A slave is not allowed to hold the clock LOW if it cannot receive another
 complete byte of data or while it is performing some other function, for example servicing
 an internal interrupt.
 
-Fig 24. Definition of START and STOP conditions for UFm I²C-bus
+
+[Figure 24]: #Figure-24
+<a id="Figure-24"></a>
+
+**Figure 24**. Definition of START and STOP conditions for UFm I²C-bus
 002aaf145
 USDA
 USCL
@@ -1366,7 +1715,11 @@ P
 STOP condition
 S
 START condition
-Fig 25. Data transfer on the UFm I²C-bus
+
+[Figure 25]: #Figure-25
+<a id="Figure-25"></a>
+
+**Figure 25**. Data transfer on the UFm I²C-bus
 S or Sr Sr or P
 USDA
 USCL
@@ -1389,25 +1742,38 @@ Sr
 Master drives the line HIGH on 9th clock cycle.
 Slave never drives the USDA line.
 9
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P27* of 64 -->
 [P27]: #P27
 <a id="P27"></a>
 
 
-3.2.6 Acknowledge (ACK) and Not Acknowledge (NACK)
+
+<!-- **Section 3.2.6** -->
+[Section 3.2.6]: #Section%203.2.6
+<a id="Section 3.2.6"></a>
+
+//3.2.6 Acknowledge (ACK) and Not Acknowledge (NACK)
+----------------------------------------------------
+
 Since the slaves are not able to respond the ninth clock cycle, the ACK and NACK are not
 required. However, the clock cycle is preserved in the UFm to be compatible with the
 I²C-bus protocol. The ACK and NACK are also referred to as the ninth clock cycle. The
 master generates all clock pulses, including the ninth clock pulse. The ninth data bit is
 always driven HIGH (‘1’). Slave devices are not allowed to drive the SDA line at any time.
-3.2.7 The slave address and R/W bit
-Data transfers follow the format shown in Figure 26. After the START condition (S), a
+
+<!-- **Section 3.2.7** -->
+[Section 3.2.7]: #Section%203.2.7
+<a id="Section 3.2.7"></a>
+
+//3.2.7 The slave address and R/W bit
+-------------------------------------
+
+Data transfers follow the format shown in [Figure 26]. After the START condition (S), a
 slave address is sent. This address is seven bits long followed by an eighth bit which is a
 data direction bit (W) — a ‘zero’ indicates a transmission (WRITE); a ‘one’ indicates a
 request for data (READ) and is not supported by UFm (except for the START byte,
-Section 3.2.12) since the communication is unidirectional (refer to Figure 27). A data
+Section 3.2.12) since the communication is unidirectional (refer to [Figure 27]). A data
 transfer is always terminated by a STOP condition (P) generated by the master. However,
 if a master still wishes to communicate on the bus, it can generate a repeated START
 condition (Sr) and address another slave without first generating a STOP condition.
@@ -1415,9 +1781,13 @@ condition (Sr) and address another slave without first generating a STOP conditi
 
 The UFm data transfer format is:
 • Master-transmitter transmits to slave-receiver. The transfer direction is not changed
-(see Figure 28). The master never acknowledges because it never receives any data
+(see [Figure 28]). The master never acknowledges because it never receives any data
 but generates the ‘1’ on the ninth bit for the slave to conform to the I²C-bus protocol.
-Fig 26. A complete UFm data transfer
+
+[Figure 26]: #Figure-26
+<a id="Figure-26"></a>
+
+**Figure 26**. A complete UFm data transfer
 S
 1 - 7 8 9 1 - 7 8 9 1 - 7 8 9
 P
@@ -1429,12 +1799,15 @@ DATA NACK DATA NACK ADDRESS NACK W
 USDA
 USCL
 002aag658
-Fig 27. The first byte after the START procedure
+
+[Figure 27]: #Figure-27
+<a id="Figure-27"></a>
+
+**Figure 27**. The first byte after the START procedure
 002aag659
 W
 LSB MSB
 slave address
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P28* of 64 -->
 [P28]: #P28
@@ -1461,7 +1834,14 @@ can receive and respond simultaneously, for example, in a group broadcast where 
 identical devices are configured at the same time, understanding that it is impossible
 to determine that each slave is responsive. Refer to individual component data
 sheets.
-3.2.8 10-bit addressing
+
+<!-- **Section 3.2.8** -->
+[Section 3.2.8]: #Section%203.2.8
+<a id="Section 3.2.8"></a>
+
+//3.2.8 10-bit addressing
+-------------------------
+
 10-bit addressing expands the number of possible addresses. Devices with 7-bit and
 10-bit addresses can be connected to the same I²C-bus, and both 7-bit and 10-bit
 addressing can be used in all bus speed modes.
@@ -1473,7 +1853,11 @@ the direction of the message.
 Although there are eight possible combinations of the reserved address bits 1111 XXX,
 only the four combinations 1111 0XX are used for 10-bit addressing. The remaining four
 combinations 1111 1XX are reserved for future I²C-bus enhancements.
-Fig 28. A master-transmitter addressing a slave receiver with a 7-bit address
+
+[Figure 28]: #Figure-28
+<a id="Figure-28"></a>
+
+**Figure 28**. A master-transmitter addressing a slave receiver with a 7-bit address
 002aag660
 A
 ‘0’ (write)
@@ -1485,7 +1869,6 @@ P = STOP condition
 W
 from master to slave
 DATA DATA A SLAVE ADDRESS S P A
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P29* of 64 -->
 [P29]: #P29
@@ -1495,7 +1878,7 @@ UM10204 All information provided in this document is subject to legal disclaimer
 Only the write format previously described for 7-bit addressing is possible with 10-bit
 addressing. Detailed here:
 • Master-transmitter transmits to slave-receiver with a 10-bit slave address. The
-transfer direction is not changed (see Figure 29). When a 10-bit address follows a
+transfer direction is not changed (see [Figure 29]). When a 10-bit address follows a
 START condition, each slave compares the first seven bits of the first byte of the slave
 address (1111 0XX) with its own address and tests if the eighth bit (R/W direction bit)
 is 0 (W). All slaves that found a match compare the eight bits of the second byte of the
@@ -1505,8 +1888,15 @@ condition (P) or a repeated START condition (Sr) followed by a different slave
 address.
 
 The START byte 0000 0001 (01h) can precede the 10-bit addressing in the same way as
-for 7-bit addressing (see Section 3.2.12).
-3.2.9 Reserved addresses in UFm
+for 7-bit addressing (see [Section 3.2.12]).
+
+<!-- **Section 3.2.9** -->
+[Section 3.2.9]: #Section%203.2.9
+<a id="Section 3.2.9"></a>
+
+//3.2.9 Reserved addresses in UFm
+---------------------------------
+
 The UFm I²C-bus has a different physical layer than the other I²C-bus modes. Therefore
 the available slave address range is different. Two groups of eight addresses (0000 XXX
 and 1111 XXX) are reserved for the purposes shown in Table 7.
@@ -1519,7 +1909,11 @@ reserved addresses. For example, a device with seven user-assignable address pin
 allows all 128 addresses to be assigned. If it is known that the reserved address is never
 going to be used for its intended purpose, then a reserved address can be used for a
 slave address.
-Fig 29. A master-transmitter addresses a slave-receiver with a 10-bit address
+
+[Figure 29]: #Figure-29
+<a id="Figure-29"></a>
+
+**Figure 29**. A master-transmitter addresses a slave-receiver with a 10-bit address
 002aag661
 W A
 (write)
@@ -1530,7 +1924,11 @@ SLAVE ADDRESS
 S DATA P DATA
 SLAVE ADDRESS
 2nd BYTE
-Table 7. Reserved addresses
+
+[Table 7]: #Table-7
+<a id="Table-7"></a>
+
+**Table 7**. Reserved addresses
 X = don’t care; 1 = HIGH; 0 = LOW.
 Slave address R/W bit Description
 0000 000 0 general call address [1]
@@ -1541,14 +1939,20 @@ Slave address R/W bit Description
 0000 1XX X reserved for future purposes
 1111 1XX X reserved for future purposes
 1111 0XX X 10-bit slave addressing
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P30* of 64 -->
 [P30]: #P30
 <a id="P30"></a>
 
 
-3.2.10 General call address
+
+<!-- **Section 3.2.10** -->
+[Section 3.2.10]: #Section%203.2.10
+<a id="Section 3.2.10"></a>
+
+//3.2.10 General call address
+-----------------------------
+
 The general call address is for addressing every device connected to the I²C-bus at the
 same time. However, if a device does not need any of the data supplied within the general
 call structure, it can ignore this address. If a device does require data from a general call
@@ -1556,7 +1960,7 @@ address, it behaves as a slave-receiver. The master does not actually know how m
 devices are responsive to the general call. The second and following bytes are received
 by every slave-receiver capable of handling this data. A slave that cannot process one of
 these bytes must ignore it. The meaning of the general call address is always specified in
-the second byte (see Figure 30).
+the second byte (see [Figure 30]).
 
 There are two cases to consider:
 • When the least significant bit B is a ‘zero’
@@ -1571,12 +1975,26 @@ above, but the device does not reset.
 Sequences of programming procedure are published in the appropriate device data
 sheets. The remaining codes have not been fixed and devices must ignore them.
 When bit B is a ‘one’, the 2-byte sequence is ignored.
-3.2.11 Software reset
+
+<!-- **Section 3.2.11** -->
+[Section 3.2.11]: #Section%203.2.11
+<a id="Section 3.2.11"></a>
+
+//3.2.11 Software reset
+-----------------------
+
 Following a General Call, (0000 0000), sending 0000 0110 (06h) as the second byte
 causes a software reset. This feature is optional and not all devices respond to this
 command. On receiving this 2-byte sequence, all devices designed to respond to the
 general call address reset and take in the programmable part of their address.
-3.2.12 START byte
+
+<!-- **Section 3.2.12** -->
+[Section 3.2.12]: #Section%203.2.12
+<a id="Section 3.2.12"></a>
+
+//3.2.12 START byte
+-------------------
+
 Microcontrollers can be connected to the I²C-bus in two ways. A microcontroller with an
 on-chip hardware I²C-bus interface can be programmed to be only interrupted by requests
 from the bus. When the device does not have such an interface, it must constantly monitor
@@ -1584,14 +2002,17 @@ the bus via software. Obviously, the more times the microcontroller monitors, or
 bus, the less time it can spend carrying out its intended function.
 There is therefore a speed difference between fast hardware devices and a relatively slow
 microcontroller which relies on software polling.
-Fig 30. General call address format
+
+[Figure 30]: #Figure-30
+<a id="Figure-30"></a>
+
+**Figure 30**. General call address format
 002aag662
 LSB
 second byte
 0 0 0 0 0 0 0 0 A X X X X X X X B A
 first byte
 (general call address)
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P31* of 64 -->
 [P31]: #P31
@@ -1599,7 +2020,7 @@ UM10204 All information provided in this document is subject to legal disclaimer
 
 
 In this case, data transfer can be preceded by a start procedure which is much longer than
-normal (see Figure 31). The start procedure consists of:
+normal (see [Figure 31]). The start procedure consists of:
 • A START condition (S)
 • A START byte (0000 0001)
 • A Not Acknowledge clock pulse (NACK)
@@ -1614,15 +2035,33 @@ used for synchronization. A hardware receiver resets upon receipt of the repeate
 condition Sr and therefore ignores the START byte. An acknowledge-related clock pulse
 is generated after the START byte. This is present only to conform with the byte handling
 format used on the bus. No device is allowed to acknowledge the START byte.
-3.2.13 Unresponsive slave reset
+
+<!-- **Section 3.2.13** -->
+[Section 3.2.13]: #Section%203.2.13
+<a id="Section 3.2.13"></a>
+
+//3.2.13 Unresponsive slave reset
+---------------------------------
+
 In the unlikely event where the slave becomes unresponsive (for example, determined
 through external feedback, not through UFm I²C-bus), the preferential procedure is to
 reset the slave by using the software reset command or the hardware reset signal. If the
 slaves do not support these features, then cycle power to the devices to activate the
 mandatory internal Power-On Reset (POR) circuit.
-3.2.14 Device ID
+
+<!-- **Section 3.2.14** -->
+[Section 3.2.14]: #Section%203.2.14
+<a id="Section 3.2.14"></a>
+
+//3.2.14 Device ID
+------------------
+
 The Device ID field is not supported in UFm.
-Fig 31. START byte procedure
+
+[Figure 31]: #Figure-31
+<a id="Figure-31"></a>
+
+**Figure 31**. START byte procedure
 002aag663
 S
 9 8 2 1
@@ -1635,11 +2074,14 @@ acknowledge
 START byte 0000 0001
 USDA
 USCL
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P32* of 64 -->
 [P32]: #P32
 <a id="P32"></a>
+
+<!-- **Section 4** -->
+[Section 4]: #Section%204
+<a id="Section 4"></a>
 
 /4. Other uses of the I²C-bus communications protocol
 =====================================================
@@ -1649,7 +2091,14 @@ These architectures have added command sets and application-specific extensions 
 addition to the base I²C specification. In general, simple I²C-bus devices such as I/O
 extenders could be used in any one of these architectures since the protocol and physical
 interfaces are the same.
-4.1 CBUS compatibility
+
+<!-- **Section 4.1** -->
+[Section 4.1]: #Section%204.1
+<a id="Section 4.1"></a>
+
+//4.1 CBUS compatibility
+------------------------
+
 CBUS receivers can be connected to the Standard-mode I²C-bus. However, a third bus
 line called DLEN must then be connected and the acknowledge bit omitted. Normally, I²C
 transmissions are sequences of 8-bit bytes; CBUS compatible devices have different
@@ -1664,7 +2113,14 @@ transmission is ended by a STOP condition, recognized by all devices.
 Remark: If the CBUS configuration is known, and expansion with CBUS compatible
 devices is not foreseen, the designer is allowed to adapt the hold time to the specific
 requirements of the device(s) used.
-4.2 SMBus - System Management Bus
+
+<!-- **Section 4.2** -->
+[Section 4.2]: #Section%204.2
+<a id="Section 4.2"></a>
+
+//4.2 SMBus - System Management Bus
+-----------------------------------
+
 The SMBus uses I²C hardware and I²C hardware addressing, but adds second-level
 software for building special systems. In particular, its specifications include an Address
 Resolution Protocol that can make dynamic address allocations.
@@ -1679,13 +2135,19 @@ others in 1995, it modified some I²C electrical and software characteristics fo
 compatibility with the quickly decreasing power supply budget of portable equipment.
 SMBus also has a ‘High Power’ version 2.0 that includes a 4 mA sink current that cannot
 be driven by I²C chips unless the pull-up resistor is sized to I²C-bus levels.
-4.2.1 I²C/SMBus compliancy
+
+<!-- **Section 4.2.1** -->
+[Section 4.2.1]: #Section%204.2.1
+<a id="Section 4.2.1"></a>
+
+//4.2.1 I²C/SMBus compliancy
+----------------------------
+
 SMBus and I²C protocols are basically the same: A SMBus master is able to control I²C
 devices and vice versa at the protocol level. The SMBus clock is defined from 10 kHz to
 100 kHz while I²C can be 0 Hz to 100 kHz, 0 Hz to 400 kHz, 0 Hz to 1 MHz and
 0 Hz to 3.4 MHz, depending on the mode. This means that an I²C-bus running at less
 than 10 kHz is not SMBus compliant since the SMBus devices may time-out.
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P33* of 64 -->
 [P33]: #P33
@@ -1696,7 +2158,14 @@ Logic levels are slightly different also: TTL for SMBus: LOW = 0.8 V and HIGH = 
 versus the 30 %/70 % V DD CMOS level for I²C. This is not a problem if V DD > 3.0 V. If the
 I²C device is below 3.0 V, then there could be a problem if the logic HIGH/LOW levels are
 not properly recognized.
-4.2.2 Time-out feature
+
+<!-- **Section 4.2.2** -->
+[Section 4.2.2]: #Section%204.2.2
+<a id="Section 4.2.2"></a>
+
+//4.2.2 Time-out feature
+------------------------
+
 SMBus has a time-out feature which resets devices if a communication takes too long.
 This explains the minimum clock frequency of 10 kHz to prevent locking up the bus. I²C
 can be a ‘DC’ bus, meaning that a slave device stretches the master clock when
@@ -1707,7 +2176,14 @@ long this delay can be, whereas for a SMBus system, it would be limited to 35 ms
 SMBus protocol just assumes that if something takes too long, then it means that there is
 a problem on the bus and that all devices must reset in order to clear this mode. Slave
 devices are not then allowed to hold the clock LOW too long.
-4.2.3 Differences between SMBus 1.0 and SMBus 2.0
+
+<!-- **Section 4.2.3** -->
+[Section 4.2.3]: #Section%204.2.3
+<a id="Section 4.2.3"></a>
+
+//4.2.3 Differences between SMBus 1.0 and SMBus 2.0
+---------------------------------------------------
+
 The SMBus specification defines two classes of electrical characteristics: low power and
 high power. The first class, originally defined in the SMBus 1.0 and 1.1 specifications, was
 designed primarily with Smart Batteries in mind, but could be used with other low-power
@@ -1727,21 +2203,34 @@ main difference is the current sink capability with V OL = 0.4 V.
 SMBus ‘high power’ devices and I²C-bus devices will work together if the pull-up resistor
 is sized for 3 mA.
 For more information, refer to: www.smbus.org/.
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P34* of 64 -->
 [P34]: #P34
 <a id="P34"></a>
 
 
-4.3 PMBus - Power Management Bus
+
+<!-- **Section 4.3** -->
+[Section 4.3]: #Section%204.3
+<a id="Section 4.3"></a>
+
+//4.3 PMBus - Power Management Bus
+----------------------------------
+
 PMBus is a standard way to communicate between power converters and a system host
 over the SMBus to provide more intelligent control of the power converters. The PMBus
 specification defines a standard set of device commands so that devices from multiple
 sources function identically. PMBus devices use the SMBus Version 1.1 plus extensions
 for transport.
 For more information, refer to: www.pmbus.org/.
-4.4 Intelligent Platform Management Interface (IPMI)
+
+<!-- **Section 4.4** -->
+[Section 4.4]: #Section%204.4
+<a id="Section 4.4"></a>
+
+//4.4 Intelligent Platform Management Interface (IPMI)
+------------------------------------------------------
+
 Intelligent Platform Management Interface (IPMI) defines a standardized, abstracted,
 message-based interface for intelligent platform management hardware. IPMI also
 defines standardized records for describing platform management devices and their
@@ -1766,14 +2255,20 @@ messages from other management controllers in the system
 Hardware implementation is isolated from software implementation so that new sensors
 and events can then be added without any software changes.
 For more information, refer to: www.intel.com/design/servers/ipmi/ipmi.htm.
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P35* of 64 -->
 [P35]: #P35
 <a id="P35"></a>
 
 
-4.5 Advanced Telecom Computing Architecture (ATCA)
+
+<!-- **Section 4.5** -->
+[Section 4.5]: #Section%204.5
+<a id="Section 4.5"></a>
+
+//4.5 Advanced Telecom Computing Architecture (ATCA)
+----------------------------------------------------
+
 Advanced Telecom Computing Architecture (ATCA) is a follow-on to Compact PCI (cPCI),
 providing a standardized form-factor with larger card area, larger pitch and larger power
 supply for use in advanced rack-mounted telecom hardware. It includes a fault-tolerant
@@ -1791,13 +2286,24 @@ support a multi-master I²C dual bus and handle the standard set of fan commands
 outlined in the protocol. In addition, on-board temperature reporting, tray capability
 reporting, fan turn-off capabilities, and non-volatile storage are required.
 For more information, refer to: www.picmg.org/v2internal/resourcepage2.cfm?id=2.
-4.6 Display Data Channel (DDC)
+
+<!-- **Section 4.6** -->
+[Section 4.6]: #Section%204.6
+<a id="Section 4.6"></a>
+
+//4.6 Display Data Channel (DDC)
+--------------------------------
+
 The Display Data Channel (DDC) allows a monitor or display to inform the host about its
 identity and capabilities. The specification for DDC version 2 calls for compliance with the
 I²C-bus standard mode specification. It allows bidirectional communication between the
 display and the host, enabling control of monitor functions such as how images are
 displayed and communication with other devices attached to the I²C-bus.
 For more information, refer to: www.vesa.org.
+
+<!-- **Section 5** -->
+[Section 5]: #Section%205
+<a id="Section 5"></a>
 
 /5. Bus speeds
 ==============
@@ -1815,14 +2321,20 @@ since the bus is unidirectional.
 – High-speed mode (Hs-mode), with a bit rate up to 3.4 Mbit/s.
 • Unidirectional bus:
 – Ultra Fast-mode (UFm), with a bit rate up to 5 Mbit/s
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P36* of 64 -->
 [P36]: #P36
 <a id="P36"></a>
 
 
-5.1 Fast-mode
+
+<!-- **Section 5.1** -->
+[Section 5.1]: #Section%205.1
+<a id="Section 5.1"></a>
+
+//5.1 Fast-mode
+---------------
+
 Fast-mode devices can receive and transmit at up to 400 kbit/s. The minimum
 requirement is that they can synchronize with a 400 kbit/s transfer; they can then prolong
 the LOW period of the SCL signal to slow down the transfer. The protocol, format, logic
@@ -1848,8 +2360,15 @@ The external pull-up devices connected to the bus lines must be adapted to accom
 the shorter maximum permissible rise time for the Fast-mode I²C-bus. For bus loads up to
 200 pF, the pull-up device for each bus line can be a resistor; for bus loads between
 200 pF and 400 pF, the pull-up device can be a current source (3 mA max.) or a switched
-resistor circuit (see Section 7.2.4).
-5.2 Fast-mode Plus
+resistor circuit (see [Section 7.2.4]).
+
+<!-- **Section 5.2** -->
+[Section 5.2]: #Section%205.2
+<a id="Section 5.2"></a>
+
+//5.2 Fast-mode Plus
+--------------------
+
 Fast-mode Plus (Fm+) devices offer an increase in I²C-bus transfer speeds and total bus
 capacitance. Fm+ devices can transfer information at bit rates of up to 1 Mbit/s, yet they
 remain fully downward compatible with Fast- or Standard-mode devices for bidirectional
@@ -1866,21 +2385,34 @@ capacitance as long as set-up, minimum LOW time and minimum HIGH time for
 Fast-mode Plus are all satisfied and the fall time and rise time do not exceed the 300 ns t f
 and 1 μs t r specifications of Standard-mode. Bus speed can be traded against load
 capacitance to increase the maximum capacitance by about a factor of ten.
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P37* of 64 -->
 [P37]: #P37
 <a id="P37"></a>
 
 
-5.3 Hs-mode
+
+<!-- **Section 5.3** -->
+[Section 5.3]: #Section%205.3
+<a id="Section 5.3"></a>
+
+//5.3 Hs-mode
+-------------
+
 High-speed mode (Hs-mode) devices offer a quantum leap in I²C-bus transfer speeds.
 Hs-mode devices can transfer information at bit rates of up to 3.4 Mbit/s, yet they remain
 fully downward compatible with Fast-mode Plus, Fast- or Standard-mode (F/S) devices for
 bidirectional communication in a mixed-speed bus system. With the exception that
 arbitration and clock synchronization is not performed during the Hs-mode transfer, the
 same serial bus protocol and data format is maintained as with the F/S-mode system.
-5.3.1 High speed transfer
+
+<!-- **Section 5.3.1** -->
+[Section 5.3.1]: #Section%205.3.1
+<a id="Section 5.3.1"></a>
+
+//5.3.1 High speed transfer
+---------------------------
+
 To achieve a bit transfer of up to 3.4 Mbit/s, the following improvements have been made
 to the regular I²C-bus specification:
 • Hs-mode master devices have an open-drain output buffer for the SDAH signal and a
@@ -1907,7 +2439,7 @@ the acknowledge bit in Hs-mode transfers.
 the SDAH and SCLH inputs.
 • The output buffers of Hs-mode devices incorporate slope control of the falling edges
 of the SDAH and SCLH signals.
-Figure 32 shows the physical I²C-bus configuration in a system with only Hs-mode
+[Figure 32] shows the physical I²C-bus configuration in a system with only Hs-mode
 devices. Pins SDA and SCL on the master devices are only used in mixed-speed bus
 systems and are not connected in an Hs-mode only system. In such cases, these pins can
 be used for other functions.
@@ -1917,7 +2449,6 @@ Pull-up resistors R p maintain the SDAH and SCLH lines at a HIGH level when the 
 free and ensure that the signals are pulled up from a LOW to a HIGH level within the
 required rise time. For higher capacitive bus-line loads (>100 pF), the resistor R p can be
 replaced by external current source pull-ups to meet the rise time requirements. Unless
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P38* of 64 -->
 [P38]: #P38
@@ -1928,13 +2459,20 @@ proceeded by an acknowledge bit, the rise time of the SCLH clock pulses in Hs-mo
 transfers is shortened by the internal current-source pull-up circuit MCS of the active
 master.
 
-5.3.2 Serial data format in Hs-mode
+
+<!-- **Section 5.3.2** -->
+[Section 5.3.2]: #Section%205.3.2
+<a id="Section 5.3.2"></a>
+
+//5.3.2 Serial data format in Hs-mode
+-------------------------------------
+
 Serial data transfer format in Hs-mode meets the Standard-mode I²C-bus specification.
 Hs-mode can only commence after the following conditions (all of which are in F/S-mode):
 1. START condition (S)
 2. 8-bit master code (0000 1XXX)
 3. Not-acknowledge bit (A)
-Figure 33 and Figure 34 show this in more detail. This master code has two main
+[Figure 33] and [Figure 34] show this in more detail. This master code has two main
 functions:
 • It allows arbitration and synchronization between competing masters at F/S-mode
 speeds, resulting in one winning master.
@@ -1949,7 +2487,11 @@ Designer.
 (2) To input filter.
 (3) Only the active master can enable its current-source pull-up circuit.
 (4) Dotted transistors are optional open-drain outputs which can stretch the serial clock signal SCLH.
-Fig 32. I²C-bus configuration with Hs-mode devices only
+
+[Figure 32]: #Figure-32
+<a id="Figure-32"></a>
+
+**Figure 32**. I²C-bus configuration with Hs-mode devices only
 msc612
 V SS
 SLAVE
@@ -1980,7 +2522,6 @@ V DD
 R p R p
 SCLH
 SDAH
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P39* of 64 -->
 [P39]: #P39
@@ -1993,14 +2534,14 @@ The master code indicates to other devices that an Hs-mode transfer is to begin 
 connected devices must meet the Hs-mode specification. As no device is allowed to
 acknowledge the master code, the master code is followed by a not-acknowledge (A).
 After the not-acknowledge bit (A), and the SCLH line has been pulled-up to a HIGH level,
-the active master switches to Hs-mode and enables (at time t H , see Figure 34) the
+the active master switches to Hs-mode and enables (at time t H , see [Figure 34]) the
 current-source pull-up circuit for the SCLH signal. As other devices can delay the serial
 transfer before t H by stretching the LOW period of the SCLH signal, the active master
 enables its current-source pull-up circuit when all devices have released the SCLH line
 and the SCLH signal has reached a HIGH level, thus speeding up the last part of the rise
 time of the SCLH signal.
 The active master then sends a repeated START condition (Sr) followed by a 7-bit slave
-address (or 10-bit slave address, see Section 3.1.11) with a R/W bit address, and
+address (or 10-bit slave address, see [Section 3.1.11]) with a R/W bit address, and
 receives an acknowledge bit (A) from the selected slave.
 After a repeated START condition and after each acknowledge bit (A) or not-acknowledge
 bit (A), the active master disables its current-source pull-up circuit. This enables other
@@ -2013,7 +2554,11 @@ switches back to F/S-mode after a STOP condition (P). To reduce the overhead of 
 master code, it is possible that a master links a number of Hs-mode transfers, separated
 by repeated START conditions (Sr).
 
-Fig 33. Data transfer format in Hs-mode
+
+[Figure 33]: #Figure-33
+<a id="Figure-33"></a>
+
+**Figure 33**. Data transfer format in Hs-mode
 F/S-mode Hs-mode (current-source for SCLH enabled) F/S-mode
 msc616
 A A A/A DATA
@@ -2022,18 +2567,24 @@ S R/W MASTER CODE Sr SLAVE ADD.
 Hs-mode continues
 Sr SLAVE ADD.
 P
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P40* of 64 -->
 [P40]: #P40
 <a id="P40"></a>
 
-5.3.3 Switching from F/S-mode to Hs-mode and back
+
+<!-- **Section 5.3.3** -->
+[Section 5.3.3]: #Section%205.3.3
+<a id="Section 5.3.3"></a>
+
+//5.3.3 Switching from F/S-mode to Hs-mode and back
+---------------------------------------------------
+
 After reset and initialization, Hs-mode devices must be in Fast-mode (which is in effect
 F/S-mode, as Fast-mode is downward compatible with Standard-mode). Each Hs-mode
 device can switch from Fast-mode to Hs-mode and back and is controlled by the serial
 transfer on the I²C-bus.
-Before time t 1 in Figure 34, each connected device operates in Fast-mode. Between times
+Before time t 1 in [Figure 34], each connected device operates in Fast-mode. Between times
 t 1 and t H (this time interval can be stretched by any device) each connected device must
 recognize the ‘S 00001XXX A’ sequence and has to switch its internal circuit from the
 Fast-mode setting to the Hs-mode setting. Between times t 1 and t H , the connected master
@@ -2046,7 +2597,11 @@ requirement in Hs-mode.
 Hs-mode requirement.
 4. Switches to the Hs-mode bit-rate, which is required after time t H .
 5. Enables the current source pull-up circuit of its SCLH output stage at time t H .
-Fig 34. A complete Hs-mode transfer
+
+[Figure 34]: #Figure-34
+<a id="Figure-34"></a>
+
+**Figure 34**. A complete Hs-mode transfer
 msc618
 8-bit master code 0000 1xxx A
 t H
@@ -2073,7 +2628,6 @@ n + (8-bit data + A/A)
 7-bit SLA R/W A
 = Master current source pull-up
 = Resistor pull-up
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P41* of 64 -->
 [P41]: #P41
@@ -2093,27 +2647,40 @@ requirement may already be fulfilled by the adaptation of the input filters.
 slope control is applicable for the SDAH output stage only and, depending on circuit
 tolerances, both the Fast-mode and Hs-mode requirements may be fulfilled without
 switching its internal circuit.
-At time t FS in Figure 34, each connected device must recognize the STOP condition (P)
+At time t FS in [Figure 34], each connected device must recognize the STOP condition (P)
 and switch its internal circuit from the Hs-mode setting back to the Fast-mode setting as
 present before time t 1 . This must be completed within the minimum bus free time as
-specified in Table 10 according to the Fast-mode specification.
-5.3.4 Hs-mode devices at lower speed modes
+specified in [Table 10] according to the Fast-mode specification.
+
+<!-- **Section 5.3.4** -->
+[Section 5.3.4]: #Section%205.3.4
+<a id="Section 5.3.4"></a>
+
+//5.3.4 Hs-mode devices at lower speed modes
+--------------------------------------------
+
 Hs-mode devices are fully downwards compatible, and can be connected to an F/S-mode
-I²C-bus system (see Figure 35). As no master code is transmitted in such a configuration,
+I²C-bus system (see [Figure 35]). As no master code is transmitted in such a configuration,
 all Hs-mode master devices stay in F/S-mode and communicate at F/S-mode speeds with
 their current-source disabled. The SDAH and SCLH pins are used to connect to the
 F/S-mode bus system, allowing the SDA and SCL pins (if present) on the Hs-mode
 master device to be used for other functions.
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P42* of 64 -->
 [P42]: #P42
 <a id="P42"></a>
 
-5.3.5 Mixed speed modes on one serial bus system
+
+<!-- **Section 5.3.5** -->
+[Section 5.3.5]: #Section%205.3.5
+<a id="Section 5.3.5"></a>
+
+//5.3.5 Mixed speed modes on one serial bus system
+--------------------------------------------------
+
 If a system has a combination of Hs-mode, Fast-mode and/or Standard-mode devices,
 it is possible, by using an interconnection bridge, to have different bit rates between
-different devices (see Figure 36 and Figure 37).
+different devices (see [Figure 36] and [Figure 37]).
 One bridge is required to connect/disconnect an Hs-mode section to/from an F/S-mode
 section at the appropriate time. This bridge includes a level shift function that allows
 devices with different supply voltages to be connected. For example F/S-mode devices
@@ -2132,12 +2699,16 @@ During F/S-mode speed, a bridge on one of the Hs-mode masters connects the SDAH
 and SCLH lines to the corresponding SDA and SCL lines thus permitting Hs-mode
 devices to communicate with F/S-mode devices at slower speeds. Arbitration and
 synchronization are possible during the total F/S-mode transfer between all connected
-devices as described in Section 3.1.7. During Hs-mode transfer, however, the bridge
+devices as described in [Section 3.1.7]. During Hs-mode transfer, however, the bridge
 (1) Bridge not used. SDA and SCL may have an alternative function.
 (2) To input filter.
 (3) The current-source pull-up circuit stays disabled.
 (4) Dotted transistors are optional open-drain outputs which can stretch the serial clock signal SCL.
-Fig 35. Hs-mode devices at F/S-mode speed
+
+[Figure 35]: #Figure-35
+<a id="Figure-35"></a>
+
+**Figure 35**. Hs-mode devices at F/S-mode speed
 V SS V SS
 Hs-mode
 SLAVE
@@ -2173,7 +2744,6 @@ R p R p
 SCL
 SDA
 msc613
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P43* of 64 -->
 [P43]: #P43
@@ -2185,18 +2755,22 @@ each other at 3.4 Mbit/s. Arbitration between Hs-mode devices and F/S-mode devic
 only performed during the master code (0000 1XXX), and normally won by one Hs-mode
 master as no slave address has four leading zeros. Other masters can win the arbitration
 only if they send a reserved 8-bit code (0000 0XXX). In such cases, the bridge remains
-closed and the transfer proceeds in F/S-mode. Table 8 gives the possible communication
+closed and the transfer proceeds in F/S-mode. [Table 8] gives the possible communication
 speeds in such a system.
 
 
-Remark: Table 8 assumes that the Hs devices are isolated from the Fm and Sm devices
+Remark: [Table 8] assumes that the Hs devices are isolated from the Fm and Sm devices
 when operating at 3.4 Mbit/s. The bus speed is always constrained to the maximum
 communication rate of the slowest device attached to the bus.
 (1) Bridge not used. SDA and SCL may have an alternative function.
 (2) To input filter.
 (3) Only the active master can enable its current-source pull-up circuit.
 (4) Dotted transistors are optional open-drain outputs which can stretch the serial clock signal SCL or SCLH.
-Fig 36. Bus system with transfer at Hs-mode and F/S-mode speeds
+
+[Figure 36]: #Figure-36
+<a id="Figure-36"></a>
+
+**Figure 36**. Bus system with transfer at Hs-mode and F/S-mode speeds
 msc614
 V SS
 Hs-mode
@@ -2251,7 +2825,11 @@ BRIDGE
 TR1
 TR3
 TR2
-Table 8. Communication bit rates in a mixed-speed bus system
+
+[Table 8]: #Table-8
+<a id="Table-8"></a>
+
+**Table 8**. Communication bit rates in a mixed-speed bus system
 Transfer between Serial bus system configuration
 Hs + Fast +
 Standard
@@ -2262,30 +2840,43 @@ Hs ↔ Standard 0 to 100 kbit/s - 0 to 100 kbit/s -
 Fast ↔ Standard 0 to 100 kbit/s - - 0 to 100 kbit/s
 Fast ↔ Fast 0 to 100 kbit/s 0 to 400 kbit/s - 0 to 100 kbit/s
 Standard ↔ Standard 0 to 100 kbit/s - 0 to 100 kbit/s 0 to 100 kbit/s
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P44* of 64 -->
 [P44]: #P44
 <a id="P44"></a>
 
 
-5.3.6 Standard, Fast-mode and Fast-mode Plus transfer in a mixed-speed bus
+
+<!-- **Section 5.3.6** -->
+[Section 5.3.6]: #Section%205.3.6
+<a id="Section 5.3.6"></a>
+
+//5.3.6 Standard, Fast-mode and Fast-mode Plus transfer in a mixed-speed bus
+----------------------------------------------------------------------------
+
 system
-The bridge shown in Figure 36 interconnects corresponding serial bus lines, forming one
+The bridge shown in [Figure 36] interconnects corresponding serial bus lines, forming one
 serial bus system. As no master code (0000 1XXX) is transmitted, the current-source
 pull-up circuits stay disabled and all output stages are open-drain. All devices, including
 Hs-mode devices, communicate with each other according to the protocol, format and
 speed of the F/S-mode I²C-bus specification.
-5.3.7 Hs-mode transfer in a mixed-speed bus system
-Figure 37 shows the timing diagram of a complete Hs-mode transfer, which is invoked by
+
+<!-- **Section 5.3.7** -->
+[Section 5.3.7]: #Section%205.3.7
+<a id="Section 5.3.7"></a>
+
+//5.3.7 Hs-mode transfer in a mixed-speed bus system
+----------------------------------------------------
+
+[Figure 37] shows the timing diagram of a complete Hs-mode transfer, which is invoked by
 a START condition, a master code, and a not-acknowledge A (at F/S-mode speed).
 Although this timing diagram is split in two parts, it should be viewed as one timing
 diagram were time point t H is a common point for both parts.
 The master code is recognized by the bridge in the active or non-active master (see
-Figure 36). The bridge performs the following actions:
-1. Between t 1 and t H (see Figure 37), transistor TR1 opens to separate the SDAH and
+[Figure 36]). The bridge performs the following actions:
+1. Between t 1 and t H (see [Figure 37]), transistor TR1 opens to separate the SDAH and
 SDA lines, after which transistor TR3 closes to pull-down the SDA line to V SS .
-2. When both SCLH and SCL become HIGH (t H in Figure 37), transistor TR2 opens to
+2. When both SCLH and SCL become HIGH (t H in [Figure 37]), transistor TR2 opens to
 separate the SCLH and SCL lines. TR2 must be opened before SCLH goes LOW
 after Sr.
 Hs-mode transfer starts after t H with a repeated START condition (Sr). During Hs-mode
@@ -2301,29 +2892,39 @@ open) at any time by pulling down the SCL line for at least 1 μs, for example, 
 from a bus hang-up.
 Hs-mode finishes with a STOP condition and brings the bus system back into the
 F/S-mode. The active master disables its current-source MCS when the STOP condition
-(P) at SDAH is detected (t FS in Figure 37). The bridge also recognizes this STOP
+(P) at SDAH is detected (t FS in [Figure 37]). The bridge also recognizes this STOP
 condition and takes the following actions:
 1. Transistor TR2 closes after t FS to connect SCLH with SCL; both of which are HIGH at
 this time. Transistor TR3 opens after t FS , which releases the SDA line and allows it to
 be pulled HIGH by the pull-up resistor R p . This is the STOP condition for the
 F/S-mode devices. TR3 must open fast enough to ensure the bus free time between
 the STOP condition and the earliest next START condition is according to the
-Fast-mode specification (see t BUF in Table 10).
-2. When SDA reaches a HIGH (t 2 in Figure 37), transistor TR1 closes to connect SDAH
+Fast-mode specification (see t BUF in [Table 10]).
+2. When SDA reaches a HIGH (t 2 in [Figure 37]), transistor TR1 closes to connect SDAH
 with SDA. (Note: interconnections are made when all lines are HIGH, thus preventing
 spikes on the bus lines.) TR1 and TR2 must be closed within the minimum bus free
-time according to the Fast-mode specification (see t BUF in Table 10).
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
+time according to the Fast-mode specification (see t BUF in [Table 10]).
 
 <!-- *P45* of 64 -->
 [P45]: #P45
 <a id="P45"></a>
 
-5.3.8 Timing requirements for the bridge in a mixed-speed bus system
-It can be seen from Figure 37 that the actions of the bridge at t 1 , t H and t FS must be so fast
+
+<!-- **Section 5.3.8** -->
+[Section 5.3.8]: #Section%205.3.8
+<a id="Section 5.3.8"></a>
+
+//5.3.8 Timing requirements for the bridge in a mixed-speed bus system
+----------------------------------------------------------------------
+
+It can be seen from [Figure 37] that the actions of the bridge at t 1 , t H and t FS must be so fast
 that it does not affect the SDAH and SCLH lines. Furthermore the bridge must meet the
 related timing requirements of the Fast-mode specification for the SDA and SCL lines.
-Fig 37. A complete Hs-mode transfer in a mixed-speed bus system
+
+[Figure 37]: #Figure-37
+<a id="Figure-37"></a>
+
+**Figure 37**. A complete Hs-mode transfer in a mixed-speed bus system
 mcs611
 8-bit Master code 00001xxx
 A
@@ -2359,39 +2960,55 @@ n × (8-bit DATA + A/A)
 7-bit SLA R/W A
 = MCS current source pull-up
 = Rp resistor pull-up
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P46* of 64 -->
 [P46]: #P46
 <a id="P46"></a>
 
 
-5.4 Ultra Fast-mode
+
+<!-- **Section 5.4** -->
+[Section 5.4]: #Section%205.4
+<a id="Section 5.4"></a>
+
+//5.4 Ultra Fast-mode
+---------------------
+
 Ultra Fast-mode (UFm) devices offer an increase in I²C-bus transfer speeds. UFm
 devices can transfer information at bit rates of up to 5 Mbit/s. UFm devices offer push-pull
 drivers, eliminating the pull-up resistors, allowing higher transfer rates. The same serial
 bus protocol and data format is maintained as with the Sm, Fm, or Fm+ system. UFm bus
 devices are not compatible with bidirectional I²C-bus devices.
 
+<!-- **Section 6** -->
+[Section 6]: #Section%206
+<a id="Section 6"></a>
+
 /6. Electrical specifications and timing for I/O stages and bus lines
 =====================================================================
 
-6.1 Standard-, Fast-, and Fast-mode Plus devices
+
+<!-- **Section 6.1** -->
+[Section 6.1]: #Section%206.1
+<a id="Section 6.1"></a>
+
+//6.1 Standard-, Fast-, and Fast-mode Plus devices
+--------------------------------------------------
+
 The I/O levels, I/O current, spike suppression, output slope control and pin capacitance
 are given in Table 9. The I²C-bus timing characteristics, bus-line capacitance and noise
-margin are given in Table 10. Figure 38 shows the timing definitions for the I²C-bus.
-The minimum HIGH and LOW periods of the SCL clock specified in Table 10 determine
+margin are given in Table 10. [Figure 38] shows the timing definitions for the I²C-bus.
+The minimum HIGH and LOW periods of the SCL clock specified in [Table 10] determine
 the maximum bit transfer rates of 100 kbit/s for Standard-mode devices, 400 kbit/s for
 Fast-mode devices, and 1000 kbit/s for Fast-mode Plus. Devices must be able to follow
 transfers at their own maximum bit rates, either by being able to transmit or receive at that
-speed or by applying the clock synchronization procedure described in Section 3.1.7
+speed or by applying the clock synchronization procedure described in [Section 3.1.7]
 which forces the master into a wait state and stretch the LOW period of the SCL signal.
 In the latter case, the bit transfer rate is reduced.
 xxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxx x x x xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxx xx xx xxxxx
 xxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxx xxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxx x x
 xxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxx
 xxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx xxx
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P47* of 64 -->
 [P47]: #P47
@@ -2402,14 +3019,18 @@ UM10204 All information provided in this document is subject to legal disclaimer
 [2] Maximum V IH = V DD(max) + 0.5 V or 5.5 V, which ever is lower. See component data sheets.
 [3] The same resistor value to drive 3 mA at 3.0 V V DD provides the same RC time constant when using <2 V V DD with a smaller current draw.
 [4] In order to drive full bus load at 400 kHz, 6 mA I OL is required at 0.6 V V OL . Parts not meeting this specification can still function, but not at 400 kHz and 400 pF.
-[5] The maximum t f for the SDA and SCL bus lines quoted in Table 10 (300 ns) is longer than the specified maximum t of for the output stages (250 ns). This allows series protection
-resistors (R s ) to be connected between the SDA/SCL pins and the SDA/SCL bus lines as shown in Figure 45 without exceeding the maximum specified t f .
+[5] The maximum t f for the SDA and SCL bus lines quoted in [Table 10] (300 ns) is longer than the specified maximum t of for the output stages (250 ns). This allows series protection
+resistors (R s ) to be connected between the SDA/SCL pins and the SDA/SCL bus lines as shown in [Figure 45] without exceeding the maximum specified t f .
 [6] Necessary to be backwards compatible with Fast-mode.
 [7] In Fast-mode Plus, fall time is specified the same for both output stage and bus timing. If series resistors are used, designers should allow for this when considering bus timing.
 [8] Input filters on the SDA and SCL inputs suppress noise spikes of less than 50 ns.
 [9] If V DD is switched off, I/O pins of Fast-mode and Fast-mode Plus devices must not obstruct the SDA and SCL lines.
 [10] Special purpose devices such as multiplexers and switches may exceed this capacitance because they connect multiple paths together.
-Table 9. Characteristics of the SDA and SCL I/O stages
+
+[Table 9]: #Table-9
+<a id="Table-9"></a>
+
+**Table 9**. Characteristics of the SDA and SCL I/O stages
 n/a = not applicable.
 Symbol Parameter Conditions Standard-mode Fast-mode Fast-mode Plus Unit
 Min Max Min Max Min Max
@@ -2448,20 +3069,23 @@ xxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxx x x x xxxxxxxxxxxxxxxxx
 xxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxx xxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxx x x
 xxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxx
 xxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx xxx
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P48* of 64 -->
 [P48]: #P48
 <a id="P48"></a>
 
-[1] All values referred to V IH(min) (0.3V DD ) and V IL(max) (0.7V DD ) levels (see Table 9).
+[1] All values referred to V IH(min) (0.3V DD ) and V IL(max) (0.7V DD ) levels (see [Table 9]).
 [2] t HD;DAT is the data hold time that is measured from the falling edge of SCL, applies to data in transmission and the acknowledge.
 [3] A device must internally provide a hold time of at least 300 ns for the SDA signal (with respect to the V IH(min) of the SCL signal) to bridge the undefined region of the falling edge of
 SCL.
 [4] The maximum t HD;DAT could be 3.45 μs and 0.9 μs for Standard-mode and Fast-mode, but must be less than the maximum of t VD;DAT or t VD;ACK by a transition time. This maximum
 must only be met if the device does not stretch the LOW period (t LOW ) of the SCL signal. If the clock stretches the SCL, the data must be valid by the set-up time before it releases
 the clock.
-Table 10. Characteristics of the SDA and SCL bus lines for Standard, Fast, and Fast-mode Plus I²C-bus devices [1]
+
+[Table 10]: #Table-10
+<a id="Table-10"></a>
+
+**Table 10**. Characteristics of the SDA and SCL bus lines for Standard, Fast, and Fast-mode Plus I²C-bus devices [1]
 Symbol Parameter Conditions Standard-mode Fast-mode Fast-mode Plus Unit
 Min Max Min Max Min Max
 f SCL SCL clock frequency 0 100 0 400 0 1000 kHz
@@ -2474,7 +3098,7 @@ t SU;STA set-up time for a repeated START
 condition
 4.7 - 0.6 - 0.26 - μs
 t HD;DAT data hold time [2] CBUS compatible masters
-(see Remark in Section 4.1)
+(see Remark in [Section 4.1])
 5.0 - - - - - μs
 I²C-bus devices 0 [3] - [4] 0 [3] - [4] 0 - μs
 t SU;DAT data set-up time 250 - 100 [5] - 50 - ns
@@ -2503,7 +3127,6 @@ xxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxx x x x xxxxxxxxxxxxxxxxx
 xxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxx xxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxx x x
 xxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxx
 xxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx xxx
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P49* of 64 -->
 [P49]: #P49
@@ -2514,27 +3137,33 @@ UM10204 All information provided in this document is subject to legal disclaimer
 device does not stretch the LOW period of the SCL signal. If such a device does stretch the LOW period of the SCL signal, it must output the next data bit to the SDA line
 t r(max) + t SU;DAT = 1000 + 250 = 1250 ns (according to the Standard-mode I²C-bus specification) before the SCL line is released. Also the acknowledge timing must meet this
 set-up time.
-[6] If mixed with Hs-mode devices, faster fall times according to Table 10 are allowed.
+[6] If mixed with Hs-mode devices, faster fall times according to [Table 10] are allowed.
 [7] The maximum t f for the SDA and SCL bus lines is specified at 300 ns. The maximum fall time for the SDA output stage t f is specified at 250 ns. This allows series protection
 resistors to be connected in between the SDA and the SCL pins and the SDA/SCL bus lines without exceeding the maximum specified t f .
 [8] In Fast-mode Plus, fall time is specified the same for both output stage and bus timing. If series resistors are used, designers should allow for this when considering bus timing.
 [9] Necessary to be backwards compatible to Fast-mode.
-[10] The maximum bus capacitance allowable may vary from this value depending on the actual operating voltage and frequency of the application. Section 7.2 discusses techniques
+[10] The maximum bus capacitance allowable may vary from this value depending on the actual operating voltage and frequency of the application. [Section 7.2] discusses techniques
 for coping with higher bus capacitances.
 [11] t VD;DAT = time for data signal from SCL LOW to SDA output (HIGH or LOW, depending on which one is worse).
 [12] t VD;ACK = time for Acknowledgement signal from SCL LOW to SDA output (HIGH or LOW, depending on which one is worse).
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P50* of 64 -->
 [P50]: #P50
 <a id="P50"></a>
 
 
-6.2 Hs-mode devices
+
+<!-- **Section 6.2** -->
+[Section 6.2]: #Section%206.2
+<a id="Section 6.2"></a>
+
+//6.2 Hs-mode devices
+---------------------
+
 The I/O levels, I/O current, spike suppression, output slope control and pin capacitance for
 I²C-bus Hs-mode devices are given in Table 11. The noise margin for HIGH and LOW
 levels on the bus lines are the same as specified for F/S-mode I²C-bus devices.
-Figure 39 shows all timing parameters for the Hs-mode timing. The ‘normal’ START
+[Figure 39] shows all timing parameters for the Hs-mode timing. The ‘normal’ START
 condition S does not exist in Hs-mode. Timing parameters for Address bits, R/W bit,
 Acknowledge bit and DATA bits are all the same. Only the rising edge of the first SCLH
 clock signal after an acknowledge bit has a larger value because the external R p has to
@@ -2554,7 +3183,11 @@ bus lines, the bit rate decreases gradually. The timing parameters for a capacit
 load of 400 pF are specified in Table 12, allowing a maximum bit rate of 1.7 Mbit/s. For
 V IL = 0.3V DD
 V IH = 0.7V DD
-Fig 38. Definition of timing for F/S-mode devices on the I²C-bus
+
+[Figure 38]: #Figure-38
+<a id="Figure-38"></a>
+
+**Figure 38**. Definition of timing for F/S-mode devices on the I²C-bus
 002aac938
 t f
 70 %
@@ -2597,7 +3230,6 @@ t LOW
 t VD;ACK
 9 th clock
 t SU;DAT
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P51* of 64 -->
 [P51]: #P51
@@ -2617,7 +3249,11 @@ the current-source output circuit, which normally has a clipping diode to V DD ,
 SDAH I/O stage of Hs-mode master devices. This means that the supply voltage of Hs-mode master devices cannot be switched off
 without affecting the SDAH and SCLH lines.
 [5] Special purpose devices such as multiplexers and switches may exceed this capacitance because they connect multiple paths together.
-Table 11. Characteristics of the SDAH, SCLH, SDA and SCL I/O stages for Hs-mode I²C-bus devices
+
+[Table 11]: #Table-11
+<a id="Table-11"></a>
+
+**Table 11**. Characteristics of the SDAH, SCLH, SDA and SCL I/O stages for Hs-mode I²C-bus devices
 Symbol Parameter Conditions Hs-mode Unit
 Min Max
 V IL LOW-level input voltage −0.5 0.3V DD [1] V
@@ -2660,17 +3296,20 @@ I i [4] input current each I/O pin input voltage between 0.1V DD and
 0.9V DD
 - 10 μA
 C i capacitance for each I/O pin [5] - 10 pF
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P52* of 64 -->
 [P52]: #P52
 <a id="P52"></a>
 
-[1] All values referred to V IH(min) and V IL(max) levels (see Table 11).
+[1] All values referred to V IH(min) and V IL(max) levels (see [Table 11]).
 [2] For bus line loads C b between 100 pF and 400 pF the timing parameters must be linearly interpolated.
 [3] A device must internally provide a data hold time to bridge the undefined part between V IH and V IL of the falling edge of the SCLH signal.
 An input circuit with a threshold as low as possible for the falling edge of the SCLH signal minimizes this hold time.
-Table 12. Characteristics of the SDAH, SCLH, SDA and SCL bus lines for Hs-mode I²C-bus devices [1]
+
+[Table 12]: #Table-12
+<a id="Table-12"></a>
+
+**Table 12**. Characteristics of the SDAH, SCLH, SDA and SCL bus lines for Hs-mode I²C-bus devices [1]
 Symbol Parameter Conditions C b = 100 pF (max) C b = 400 pF [2] Unit
 Min Max Min Max
 f SCLH SCLH clock frequency 0 3.4 0 1.7 MHz
@@ -2703,17 +3342,23 @@ V nL noise margin at the LOW level for each connected device
 V nH noise margin at the HIGH level for each connected device
 (including hysteresis)
 0.2V DD - 0.2V DD - V
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P53* of 64 -->
 [P53]: #P53
 <a id="P53"></a>
 
-6.3 Ultra Fast-mode devices
+
+<!-- **Section 6.3** -->
+[Section 6.3]: #Section%206.3
+<a id="Section 6.3"></a>
+
+//6.3 Ultra Fast-mode devices
+-----------------------------
+
 The I/O levels, I/O current, spike suppression, output slope control and pin capacitance
 are given in Table 13. The UFm I²C-bus timing characteristics are given in Table 14.
-Figure 40 shows the timing definitions for the I²C-bus. The minimum HIGH and LOW
-periods of the SCL clock specified in Table 14 determine the maximum bit transfer rates of
+[Figure 40] shows the timing definitions for the I²C-bus. The minimum HIGH and LOW
+periods of the SCL clock specified in [Table 14] determine the maximum bit transfer rates of
 5000 kbit/s for Ultra Fast-mode. Devices must be able to follow transfers at their own
 maximum bit rates, either by being able to transmit or receive at that speed.
 
@@ -2722,7 +3367,11 @@ maximum bit rates, either by being able to transmit or receive at that speed.
 [3] Special purpose devices such as multiplexers and switches may exceed this capacitance because they connect multiple paths together.
 [4] Input filters on the USDA and USCL slave inputs suppress noise spikes of less than 10 ns.
 (1) First rising edge of the SCLH signal after Sr and after each acknowledge bit.
-Fig 39. Definition of timing for Hs-mode devices on the I²C-bus
+
+[Figure 39]: #Figure-39
+<a id="Figure-39"></a>
+
+**Figure 39**. Definition of timing for Hs-mode devices on the I²C-bus
 002aag825
 SDAH
 Sr Sr P
@@ -2748,7 +3397,11 @@ t SU;STA
 0.3 × V DD
 0.7 × V DD
 0.3 × V DD
-Table 13. Characteristics of the USDA and USCL I/O stages
+
+[Table 13]: #Table-13
+<a id="Table-13"></a>
+
+**Table 13**. Characteristics of the USDA and USCL I/O stages
 n/a = not applicable.
 Symbol Parameter Conditions Ultra Fast-mode Unit
 Min Max
@@ -2766,7 +3419,6 @@ t SP pulse width of spikes that must
 be suppressed by the input filter
 [4]
 - 10 ns
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P54* of 64 -->
 [P54]: #P54
@@ -2776,7 +3428,11 @@ UM10204 All information provided in this document is subject to legal disclaimer
 [2] Typical rise time or fall time for UFm signals is 25 ns measured from the 30 % level to the 70 % level (rise time) or from the 70 % level to
 the 30 % level (fall time).
 
-Table 14. UFm I²C-bus frequency and timing specifications
+
+[Table 14]: #Table-14
+<a id="Table-14"></a>
+
+**Table 14**. UFm I²C-bus frequency and timing specifications
 Symbol Parameter Conditions Ultra Fast-mode Unit
 Min Max
 f USCL USCL clock frequency 0 5000 kHz
@@ -2793,7 +3449,11 @@ t LOW LOW period of the USCL clock 50 - ns
 t HIGH HIGH period of the USCL clock 50 - ns
 t f fall time of both USDA and USCL signals - [2] 50 ns
 t r rise time of both USDA and USCL signals - [2] 50 ns
-Fig 40. Definition of timing for Ultra Fast-mode devices on the I²C-bus
+
+[Figure 40]: #Figure-40
+<a id="Figure-40"></a>
+
+**Figure 40**. Definition of timing for Ultra Fast-mode devices on the I²C-bus
 002aag826
 t f
 70 %
@@ -2836,18 +3496,28 @@ t LOW
 t VD;ACK
 9th clock
 t SU;DAT
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P55* of 64 -->
 [P55]: #P55
 <a id="P55"></a>
 
+<!-- **Section 7** -->
+[Section 7]: #Section%207
+<a id="Section 7"></a>
+
 /7. Electrical connections of I²C-bus devices to the bus lines
 ==============================================================
 
-7.1 Pull-up resistor sizing
+
+<!-- **Section 7.1** -->
+[Section 7.1]: #Section%207.1
+<a id="Section 7.1"></a>
+
+//7.1 Pull-up resistor sizing
+-----------------------------
+
 The bus capacitance is the total capacitance of wire, connections and pins. This
-capacitance limits the maximum value of R p due to the specified rise time. Figure 41
+capacitance limits the maximum value of R p due to the specified rise time. [Figure 41]
 shows R p(max) as a function of bus capacitance.
 Consider the V DD related input threshold of V IH = 0.7V DD and V IL = 0.3V DD for the
 purposes of RC time constant calculation. Then V(t) = V DD (1 − e −t / RC ), where t is the
@@ -2855,14 +3525,14 @@ time since the charging started and RC is the time constant.
 V(t1) = 0.3 × V DD = V DD (1 − e −t1 / RC ); then t1 = 0.3566749 × RC
 V(t2) = 0.7 × V DD = V DD (1 − e −t2 / RC ); then t2 = 1.2039729 × RC
 T = t2 − t1 = 0.8473 × RC
-Figure 41 and Equation 1 shows maximum R p as a function of bus capacitance for
+[Figure 41] and Equation 1 shows maximum R p as a function of bus capacitance for
 Standard-, Fast- and Fast-mode Plus. For each mode, the R p(max) is a function of the
-rise time maximum (t r ) from Table 10 and the estimated bus capacitance (C b ):
+rise time maximum (t r ) from [Table 10] and the estimated bus capacitance (C b ):
 (1)
 
 The supply voltage limits the minimum value of resistor R p due to the specified minimum
 sink current of 3 mA for Standard-mode and Fast-mode, or 20 mA for Fast-mode Plus.
-R p(min) as a function of V DD is shown in Figure 42. The traces are calculated using
+R p(min) as a function of V DD is shown in [Figure 42]. The traces are calculated using
 Equation 2:
 (2)
 R p max
@@ -2875,7 +3545,16 @@ t r
 (3) Fast-mode Plus
 (1) Fast-mode and Standard-mode
 (2) Fast-mode Plus
-Fig 41. R p(max) as a function of bus capacitance Fig 42. R p(min) as a function of V DD
+
+[Figure 41]: #Figure-41
+<a id="Figure-41"></a>
+
+**Figure 41**. R p(max) as a function of bus capacitance 
+
+[Figure 42]: #Figure-42
+<a id="Figure-42"></a>
+
+**Figure 42**. R p(min) as a function of V DD
 40
 80
 120
@@ -2910,7 +3589,6 @@ V DD V OL max
 –
 I OL
 -------------------------------------- =
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P56* of 64 -->
 [P56]: #P56
@@ -2920,7 +3598,14 @@ UM10204 All information provided in this document is subject to legal disclaimer
 The designer now has the minimum and maximum value of R p that is required to meet the
 timing specification. Portable designs with sensitivity to supply current consumption can
 use a value toward the higher end of the range in order to limit I DD .
-7.2 Operating above the maximum allowable bus capacitance
+
+<!-- **Section 7.2** -->
+[Section 7.2]: #Section%207.2
+<a id="Section 7.2"></a>
+
+//7.2 Operating above the maximum allowable bus capacitance
+-----------------------------------------------------------
+
 Bus capacitance limit is specified to limit rise time reductions and allow operating at the
 rated frequency. While most designs can easily stay within this limit, some applications
 may exceed it. There are several strategies available to system designers to cope with
@@ -2934,7 +3619,14 @@ allowable limit, such as the PCA9517 bus buffer or the PCA9546A switch.
 • Switched pull-up circuit (Section 7.2.4): A switched pull-up circuit can be used to
 accelerate rising edges by switching a low value pull-up alternately in and out when
 needed.
-7.2.1 Reduced f SCL
+
+<!-- **Section 7.2.1** -->
+[Section 7.2.1]: #Section%207.2.1
+<a id="Section 7.2.1"></a>
+
+//7.2.1 Reduced f SCL
+---------------------
+
 To determine a lower allowable bus operating frequency, begin by finding the t LOW and
 t HIGH of the most limiting device on the bus. Refer to individual component data sheets for
 these values. Actual rise time (t r ) depends on the RC time constant. The most limiting fall
@@ -2944,17 +3636,31 @@ that have a minimum t r or t f . Refer to Equation 3 for the resulting f max .
 Remark: Very long buses must also account for time of flight of signals.
 Actual results are slower, as real parts do not tend to control t LOW and t HIGH to the
 minimum from 30 % to 70 %, or 70 % to 30 %, respectively.
-7.2.2 Higher drive outputs
+
+<!-- **Section 7.2.2** -->
+[Section 7.2.2]: #Section%207.2.2
+<a id="Section 7.2.2"></a>
+
+//7.2.2 Higher drive outputs
+----------------------------
+
 If higher drive devices like the PCA96xx Fast-mode Plus or the P82B bus buffers are
 used, the higher strength output drivers sink more current which results in considerably
 faster edge rates, or, looked at another way, allows a higher bus capacitance. Refer to
 individual component data sheets for actual output drive capability. Repeat the calculation
 above using the new values of C b , R p , t r and t f to determine maximum frequency. Bear in
-mind that the maximum rating for f SCL as specified in Table 10 (100 kHz, 400 kHz and
+mind that the maximum rating for f SCL as specified in [Table 10] (100 kHz, 400 kHz and
 1000 kHz) may become limiting.
-7.2.3 Bus buffers, multiplexers and switches
+
+<!-- **Section 7.2.3** -->
+[Section 7.2.3]: #Section%207.2.3
+<a id="Section 7.2.3"></a>
+
+//7.2.3 Bus buffers, multiplexers and switches
+----------------------------------------------
+
 Another approach to coping with excess bus capacitance is to divide the bus into smaller
-segments using bus buffers, multiplexers or switches. Figure 43 shows an example of a
+segments using bus buffers, multiplexers or switches. [Figure 43] shows an example of a
 bus that uses a PCA9515 buffer to deal with high bus capacitance. Each segment is then
 allowed to have the maximum capacitance so the total bus can have twice the maximum
 f max
@@ -2969,7 +3675,6 @@ t f actual
 ( )
 + + +
 ------------------------------------------------------------------------------------------------------------ - =
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P57* of 64 -->
 [P57]: #P57
@@ -2983,16 +3688,27 @@ Refer to application notes AN255, I²C / SMBus Repeaters, Hubs and Expanders and
 AN262, PCA954x Family of I²C / SMBus Multiplexers and Switches for more details on
 this subject and the devices available from NXP Semiconductors.
 
-7.2.4 Switched pull-up circuit
+
+<!-- **Section 7.2.4** -->
+[Section 7.2.4]: #Section%207.2.4
+<a id="Section 7.2.4"></a>
+
+//7.2.4 Switched pull-up circuit
+--------------------------------
+
 The supply voltage (V DD ) and the maximum output LOW level determine the minimum
-value of pull-up resistor R p (see Section 7.1). For example, with a supply voltage of
+value of pull-up resistor R p (see [Section 7.1]). For example, with a supply voltage of
 V DD = 5 V ± 10 % and V OL(max) = 0.4 V at 3 mA, R p(min) = (5.5 − 0.4) / 0.003 = 1.7 kΩ. As
-shown in Figure 42, this value of R p limits the maximum bus capacitance to about 200 pF
+shown in [Figure 42], this value of R p limits the maximum bus capacitance to about 200 pF
 to meet the maximum t r requirement of 300 ns. If the bus has a higher capacitance than
-this, a switched pull-up circuit (as shown in Figure 44) can be used.
+this, a switched pull-up circuit (as shown in [Figure 44]) can be used.
 
 Remark: Some buffers allow V DD1 and V DD2 to be different levels.
-Fig 43. Using a buffer to divide bus capacitance
+
+[Figure 43]: #Figure-43
+<a id="Figure-43"></a>
+
+**Figure 43**. Using a buffer to divide bus capacitance
 BUFFER
 002aac882
 V DD1
@@ -3003,7 +3719,11 @@ slaves and masters
 slaves and masters
 400 pF
 V DD2
-Fig 44. Switched pull-up circuit
+
+[Figure 44]: #Figure-44
+<a id="Figure-44"></a>
+
+**Figure 44**. Switched pull-up circuit
 mbc620
 1.3 kΩ
 V CC
@@ -3033,14 +3753,13 @@ N
 max.
 FAST - MODE I C BUS DEVICES
 2
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P58* of 64 -->
 [P58]: #P58
 <a id="P58"></a>
 
 
-The switched pull-up circuit in Figure 44 is for a supply voltage of V DD = 5 V ± 10 % and a
+The switched pull-up circuit in [Figure 44] is for a supply voltage of V DD = 5 V ± 10 % and a
 maximum capacitive load of 400 pF. Since it is controlled by the bus levels, it needs no
 additional switching control signals. During the rising/falling edges, the bilateral switch in
 the HCT4066 switches pull-up resistor R p2 on/off at bus levels between 0.8 V and 2.0 V.
@@ -3053,16 +3772,27 @@ drop across this resistor when the bus line is switched to the LOW level in orde
 off R p2 .
 Additionally, some bus buffers contain integral rise time accelerators. Stand-alone rise
 time accelerators are also available.
-7.3 Series protection resistors
-As shown in Figure 45, series resistors (R s ) of, for example, 300 Ω can be used for
+
+<!-- **Section 7.3** -->
+[Section 7.3]: #Section%207.3
+<a id="Section 7.3"></a>
+
+//7.3 Series protection resistors
+---------------------------------
+
+As shown in [Figure 45], series resistors (R s ) of, for example, 300 Ω can be used for
 protection against high-voltage spikes on the SDA and SCL lines (resulting from the
 flash-over of a TV picture tube, for example). If series resistors are used, designers must
 add the additional resistance into their calculations for R p and allowable bus capacitance.
 
 The required noise margin of 0.1V DD for the LOW level, limits the maximum value of R s .
-R s(max) as a function of R p is shown in Figure 46. Note that series resistors affect the
+R s(max) as a function of R p is shown in [Figure 46]. Note that series resistors affect the
 output fall time.
-Fig 45. Series resistors (R s ) for protection against high-voltage spikes
+
+[Figure 45]: #Figure-45
+<a id="Figure-45"></a>
+
+**Figure 45**. Series resistors (R s ) for protection against high-voltage spikes
 mbc627
 SDA
 SCL
@@ -3073,19 +3803,29 @@ R s R s R s R s
 R p R p
 DEVICE
 I²C
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P59* of 64 -->
 [P59]: #P59
 <a id="P59"></a>
 
-7.4 Input leakage
+
+<!-- **Section 7.4** -->
+[Section 7.4]: #Section%207.4
+<a id="Section 7.4"></a>
+
+//7.4 Input leakage
+-------------------
+
 The maximum HIGH level input current of each input/output connection has a specified
 maximum value of 10 μA. Due to the required noise margin of 0.2V DD for the HIGH level,
 this input current limits the maximum value of R p . This limit depends on V DD . The total
-HIGH-level input current is shown as a function of R p(max) in Figure 47.
+HIGH-level input current is shown as a function of R p(max) in [Figure 47].
 
-Fig 46. Maximum value of R s as a function of the value of R p with supply voltage as a
+
+[Figure 46]: #Figure-46
+<a id="Figure-46"></a>
+
+**Figure 46**. Maximum value of R s as a function of the value of R p with supply voltage as a
 parameter
 0 400 800 1600
 10
@@ -3102,7 +3842,11 @@ maximum value R s (Ω)
 R p
 (kΩ)
 V DD = 2.5 V 5 V
-Fig 47. Total HIGH-level input current as a function of the maximum value of R p with
+
+[Figure 47]: #Figure-47
+<a id="Figure-47"></a>
+
+**Figure 47**. Total HIGH-level input current as a function of the maximum value of R p with
 supply voltage as a parameter
 0 200
 20
@@ -3121,14 +3865,20 @@ value R p
 V DD = 15 V
 2.5 V
 10 V
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P60* of 64 -->
 [P60]: #P60
 <a id="P60"></a>
 
 
-7.5 Wiring pattern of the bus lines
+
+<!-- **Section 7.5** -->
+[Section 7.5]: #Section%207.5
+<a id="Section 7.5"></a>
+
+//7.5 Wiring pattern of the bus lines
+-------------------------------------
+
 In general, the wiring must be chosen so that crosstalk and interference to/from the bus
 lines is minimized. The bus lines are most susceptible to crosstalk and interference at the
 HIGH level because of the relatively high impedance of the pull-up devices.
@@ -3151,86 +3901,116 @@ V SS line at both ends of the twisted pairs.
 If the bus lines are shielded (shield connected to V SS ), interference is minimized.
 However, the shielded cable must have low capacitive coupling between the SDA and
 SCL lines to minimize crosstalk.
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
 
 <!-- *P61* of 64 -->
 [P61]: #P61
 <a id="P61"></a>
 
+<!-- **Section 8** -->
+[Section 8]: #Section%208
+<a id="Section 8"></a>
+
 /8. Abbreviations
 =================
 
- Table 15.
-Abbreviations
-Acronym Description
-A/D Analog-to-Digital
-ATCA Advanced Telecom Computing Architecture
-BMC Baseboard Management Controller
-CMOS Complementary Metal-Oxide Semiconductor
-cPCI compact Peripheral Component Interconnect
-D/A Digital-to-Analog
-DIP Dual In-line Package
-EEPROM Electrically Erasable Programmable Read Only Memory
-HW Hardware
-I/O Input/Output
-I²C-bus Inter-Integrated Circuit bus
-IC Integrated Circuit
-IPMI Intelligent Platform Management Interface
-LCD Liquid Crystal Display
-LED Light Emitting Diode
-LSB Least Significant Bit
-MCU Microcontroller
-MSB Most Significant Bit
-NMOS Negative-channel Metal-Oxide Semiconductor
-PCB Printed-Circuit Board
-PCI Peripheral Component Interconnect
-PMBus Power Management Bus
-RAM Random Access Memory
-ROM Read-Only Memory
-SMBus System Management Bus
-SPI Serial Peripheral Interface
-UART Universal Asynchronous Receiver/Transmitter
-USB Universal Serial Bus
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
+[Table 15]: #Table-15
+<a id="Table-15"></a>
+
+**Table 15**. Abbreviations
+
+| Acronym |                     Description                     |
+|---------|-----------------------------------------------------|
+| A/D     | Analog-to-Digital                                   |
+| ATCA    | Advanced Telecom Computing Architecture             |
+| BMC     | Baseboard Management Controller                     |
+| CMOS    | Complementary Metal-Oxide Semiconductor             |
+| cPCI    | compact Peripheral Component Interconnect           |
+| D/A     | Digital-to-Analog                                   |
+| DIP     | Dual In-line Package                                |
+| EEPROM  | Electrically Erasable Programmable Read Only Memory |
+| HW      | Hardware                                            |
+| I/O     | Input/Output                                        |
+| I²C-bus | Inter-Integrated Circuit bus                        |
+| IC      | Integrated Circuit                                  |
+| IPMI    | Intelligent Platform Management Interface           |
+| LCD     | Liquid Crystal Display                              |
+| LED     | Light Emitting Diode                                |
+| LSB     | Least Significant Bit                               |
+| MCU     | Microcontroller                                     |
+| MSB     | Most Significant Bit                                |
+| NMOS    | Negative-channel Metal-Oxide Semiconductor          |
+| PCB     | Printed-Circuit Board                               |
+| PCI     | Peripheral Component Interconnect                   |
+| PMBus   | Power Management Bus                                |
+| RAM     | Random Access Memory                                |
+| ROM     | Read-Only Memory                                    |
+| SMBus   | System Management Bus                               |
+| SPI     | Serial Peripheral Interface                         |
+| UART    | Universal Asynchronous Receiver/Transmitter         |
+| USB     | Universal Serial Bus                                |
 
 <!-- *P62* of 64 -->
 [P62]: #P62
 <a id="P62"></a>
 
+<!-- **Section 9** -->
+[Section 9]: #Section%209
+<a id="Section 9"></a>
+
 /9. Legal information
 =====================
 
-9.1 Definitions
-Draft — The document is a draft version only. The content is still under
+
+<!-- **Section 9.1** -->
+[Section 9.1]: #Section%209.1
+<a id="Section 9.1"></a>
+
+//9.1 Definitions
+-----------------
+
+
+**Draft** — The document is a draft version only. The content is still under
 internal review and subject to formal approval, which may result in
 modifications or additions. NXP Semiconductors does not give any
 representations or warranties as to the accuracy or completeness of
 information included herein and shall have no liability for the consequences of
 use of such information.
-9.2 Disclaimers
-Limited warranty and liability — Information in this document is believed to
+
+<!-- **Section 9.2** -->
+[Section 9.2]: #Section%209.2
+<a id="Section 9.2"></a>
+
+//9.2 Disclaimers
+-----------------
+
+
+**Limited warranty and liability** — Information in this document is believed to
 be accurate and reliable. However, NXP Semiconductors does not give any
 representations or warranties, expressed or implied, as to the accuracy or
 completeness of such information and shall have no liability for the
 consequences of use of such information. NXP Semiconductors takes no
 responsibility for the content in this document if provided by an information
 source outside of NXP Semiconductors.
+
 In no event shall NXP Semiconductors be liable for any indirect, incidental,
-punitive, special or consequential damages (including - without limitation - lost
-profits, lost savings, business interruption, costs related to the removal or
+punitive, special or consequential damages (including - without limitation - 
+lost profits, lost savings, business interruption, costs related to the removal or
 replacement of any products or rework charges) whether or not such
 damages are based on tort (including negligence), warranty, breach of
 contract or any other legal theory.
+
 Notwithstanding any damages that customer might incur for any reason
 whatsoever, NXP Semiconductors’ aggregate and cumulative liability towards
 customer for the products described herein shall be limited in accordance
 with the Terms and conditions of commercial sale of NXP Semiconductors.
-Right to make changes — NXP Semiconductors reserves the right to make
+
+**Right to make changes** — NXP Semiconductors reserves the right to make
 changes to information published in this document, including without
 limitation specifications and product descriptions, at any time and without
 notice. This document supersedes and replaces all information supplied prior
 to the publication hereof.
-Suitability for use — NXP Semiconductors products are not designed,
+
+**Suitability for use** — NXP Semiconductors products are not designed,
 authorized or warranted to be suitable for use in life support, life-critical or
 safety-critical systems or equipment, nor in applications where failure or
 malfunction of an NXP Semiconductors product can reasonably be expected
@@ -3239,10 +4019,12 @@ damage. NXP Semiconductors and its suppliers accept no liability for
 inclusion and/or use of NXP Semiconductors products in such equipment or
 applications and therefore such inclusion and/or use is at the customer’s own
 risk.
-Applications — Applications that are described herein for any of these
+
+**Applications** — Applications that are described herein for any of these
 products are for illustrative purposes only. NXP Semiconductors makes no
 representation or warranty that such applications will be suitable for the
 specified use without further testing or modification.
+
 Customers are responsible for the design and operation of their applications
 and products using NXP Semiconductors products, and NXP Semiconductors
 accepts no liability for any assistance with applications or customer product
@@ -3252,6 +4034,7 @@ products planned, as well as for the planned application and use of
 customer’s third party customer(s). Customers should provide appropriate
 design and operating safeguards to minimize the risks associated with their
 applications and products.
+
 NXP Semiconductors does not accept any liability related to any default,
 damage, costs or problem which is based on any weakness or default in the
 customer’s applications or products, or the application or use by customer’s
@@ -3260,33 +4043,47 @@ testing for the customer’s applications and products using NXP
 Semiconductors products in order to avoid a default of the applications and
 the products or of the application or use by customer’s third party
 customer(s). NXP does not accept any liability in this respect.
-Export control — This document as well as the item(s) described herein
+
+**Export control** — This document as well as the item(s) described herein
 may be subject to export control regulations. Export might require a prior
 authorization from competent authorities.
-Translations — A non-English (translated) version of a document is for
+
+**Translations** — A non-English (translated) version of a document is for
 reference only. The English version shall prevail in case of any discrepancy
 between the translated and English versions.
-9.3 Trademarks
-Notice: All referenced brands, product names, service names and trademarks
-are the property of their respective owners.
-I²C-bus — logo is a trademark of NXP Semiconductors N.V.
-UM10204 All information provided in this document is subject to legal disclaimers. © NXP Semiconductors N.V. 2014. All rights reserved
+
+<!-- **Section 9.3** -->
+[Section 9.3]: #Section%209.3
+<a id="Section 9.3"></a>
+
+//9.3 Trademarks
+----------------
+
+>  [!NOTE]
+>  Notice: All referenced brands, product names, service names and trademarks
+>  are the property of their respective owners.
+>  
+>  I²C-bus — logo is a trademark of NXP Semiconductors N.V.
 
 <!-- *P63* of 64 -->
 [P63]: #P63
 <a id="P63"></a>
 
 
+<!-- **Section 10** -->
+[Section 10]: #Section%2010
+<a id="Section 10"></a>
+
 /10. Contents
 =============
 
 
-*   1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P3]
-*   2 I²C-bus features . . . . . . . . . . . . . . . . . . . . . . . . . . . [P3]
+* 1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P3]
+* 2 I²C-bus features . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P3]
 *   2.1 Designer benefits  . . . . . . . . . . . . . . . . . . . . . . . . . [P4]
 *   2.2 Manufacturer benefits  . . . . . . . . . . . . . . . . . . . . . . . [P5]
 *   2.3 IC designer benefits . . . . . . . . . . . . . . . . . . . . . . . . [P6]
-*   3 The I²C-bus protocol . . . . . . . . . . . . . . . . . . . . . . . . . [P6]
+* 3 The I²C-bus protocol . . . . . . . . . . . . . . . . . . . . . . . . . . [P6]
 *   3.1 Standard-mode, Fast-mode and Fast-mode Plus I²C-bus protocols  . . . [P6]
 *   3.1.1 SDA and SCL signals  . . . . . . . . . . . . . . . . . . . . . . . [P8]
 *   3.1.2 SDA and SCL logic levels . . . . . . . . . . . . . . . . . . . . . [P9]
@@ -3320,7 +4117,7 @@ UM10204 All information provided in this document is subject to legal disclaimer
 *   3.2.12 START byte  . . . . . . . . . . . . . . . . . . . . . . . . . . . [P30]
 *   3.2.13 Unresponsive slave reset  . . . . . . . . . . . . . . . . . . . . [P31]
 *   3.2.14 Device ID . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P31]
-*   4 Other uses of the I²C-bus communications protocol  . . . . . . . . . . [P32]
+* 4 Other uses of the I²C-bus communications protocol  . . . . . . . . . . . [P32]
 *   4.1 CBUS compatibility . . . . . . . . . . . . . . . . . . . . . . . . . [P32]
 *   4.2 SMBus - System Management Bus  . . . . . . . . . . . . . . . . . . . [P32]
 *   4.2.1 I²C/SMBus compliancy . . . . . . . . . . . . . . . . . . . . . . . [P32]
@@ -3330,7 +4127,7 @@ UM10204 All information provided in this document is subject to legal disclaimer
 *   4.4 Intelligent Platform Management Interface (IPMI) . . . . . . . . . . [P34]
 *   4.5 Advanced Telecom Computing Architecture (ATCA) . . . . . . . . . . . [P35]
 *   4.6 Display Data Channel (DDC) . . . . . . . . . . . . . . . . . . . . . [P35]
-*   5 Bus speeds . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P35]
+* 5 Bus speeds . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P35]
 *   5.1 Fast-mode  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P36]
 *   5.2 Fast-mode Plus . . . . . . . . . . . . . . . . . . . . . . . . . . . [P36]
 *   5.3 Hs-mode  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P37]
@@ -3343,11 +4140,11 @@ UM10204 All information provided in this document is subject to legal disclaimer
 *   5.3.7 Hs-mode transfer in a mixed-speed bus system . . . . . . . . . . . [P44]
 *   5.3.8 Timing requirements for the bridge in a mixed-speed bus system . . [P45]
 *   5.4 Ultra Fast-mode  . . . . . . . . . . . . . . . . . . . . . . . . . . [P46]
-*   6 Electrical specifications and timing for I/O stages and bus lines  . . [P46]
+* 6 Electrical specifications and timing for I/O stages and bus lines  . . . [P46]
 *   6.1 Standard-, Fast-, and Fast-mode Plus devices . . . . . . . . . . . . [P46]
 *   6.2 Hs-mode devices  . . . . . . . . . . . . . . . . . . . . . . . . . . [P50]
 *   6.3 Ultra Fast-mode devices  . . . . . . . . . . . . . . . . . . . . . . [P53]
-*   7 Electrical connections of I²C-bus devices to the bus lines . . . . . . [P55]
+* 7 Electrical connections of I²C-bus devices to the bus lines . . . . . . . [P55]
 *   7.1 Pull-up resistor sizing  . . . . . . . . . . . . . . . . . . . . . . [P55]
 *   7.2 Operating above the maximum allowable bus capacitance  . . . . . . . [P56]
 *   7.2.1 Reduced f SCL  . . . . . . . . . . . . . . . . . . . . . . . . . . [P56]
@@ -3357,12 +4154,12 @@ UM10204 All information provided in this document is subject to legal disclaimer
 *   7.3 Series protection resistors  . . . . . . . . . . . . . . . . . . . . [P58]
 *   7.4 Input leakage  . . . . . . . . . . . . . . . . . . . . . . . . . . . [P59]
 *   7.5 Wiring pattern of the bus lines  . . . . . . . . . . . . . . . . . . [P60]
-*   8 Abbreviations  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P61]
-*   9 Legal information  . . . . . . . . . . . . . . . . . . . . . . . . . . [P62]
+* 8 Abbreviations  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P61]
+* 9 Legal information  . . . . . . . . . . . . . . . . . . . . . . . . . . . [P62]
 *   9.1 Definitions  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P62]
 *   9.2 Disclaimers  . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P62]
 *   9.3 Trademarks . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P62]
-*   10 Contents  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P63]
+* 10 Contents  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [P63]
 
 :FINAL
 
