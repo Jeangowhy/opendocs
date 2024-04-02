@@ -60,7 +60,7 @@ For sales office addresses, please send an email to: salesaddresses@nxp.com
 | v.6      | 20140404 | User manual; sixth release                                                                          |
 |----------|----------|-----------------------------------------------------------------------------------------------------|
 | Modifications:      | • [Figure 41] “R p(max) as a function of bus capacitance” updated (recalculated)                      |
-|                     | • [Figure 42] “R p(min) as a function of V DD ” updated (recalculated)                                |
+|                     | • [Figure 42] “R p(min) as a function of VDD ” updated (recalculated)                                |
 |----------|----------|-----------------------------------------------------------------------------------------------------|
 | v.5      | 20121009 | User manual; fifth release                                                                          |
 |----------|----------|-----------------------------------------------------------------------------------------------------|
@@ -178,6 +178,78 @@ For sales office addresses, please send an email to: salesaddresses@nxp.com
 <!-- *P3* of 64 -->
 [P3]: #P3
 <a id="P3"></a>
+
+//List of Tables
+================
+
+[Table 1]. Definition of I²C-bus terminology
+[Table 2]. Applicability of I²C-bus protocol features
+[Table 3A]. Working mode and speed.
+[Table 3]. Reserved addresses
+[Table 4]. Assigned manufacturer IDs
+[Table 5]. Definition of UFm I²C-bus terminology
+[Table 6]* summarizes the use of mandatory and optional portions of the UFm I²C-bus
+[Table 7]. Reserved addresses
+[Table 8]. Communication bit rates in a mixed-speed bus system
+[Table 9]. Characteristics of the SDA and SCL I/O stages
+[Table 10]. Characteristics of the SDA and SCL bus lines for Standard, Fast, and Fast-mode Plus I²C-bus devices [1]
+[Table 11]. Characteristics of the SDAH, SCLH, SDA and SCL I/O stages for Hs-mode I²C-bus devices
+[Table 12]. Characteristics of the SDAH, SCLH, SDA and SCL bus lines for Hs-mode I²C-bus devices [1]
+[Table 13]. Characteristics of the USDA and USCL I/O stages
+[Table 14]. UFm I²C-bus frequency and timing specifications
+[Table 15]. Abbreviations
+
+//List of Figures
+=================
+
+[Figure 1]. Example of I²C-bus applications
+[Figure 2]. Example of an I²C-bus configuration using two microcontrollers
+[Figure 3]. Devices with various supply voltages sharing the same bus
+[Figure 4]. Bit transfer on the I²C-bus
+[Figure 5]. START and STOP conditions
+[Figure 6]. Data transfer on the I²C-bus
+[Figure 7]. Clock synchronization during the arbitration procedure
+[Figure 8]. Arbitration procedure of two masters
+[Figure 9]. A complete data transfer
+[Figure 10]. The first byte after the START procedure
+[Figure 11]. A master-transmitter addressing a slave receiver with a 7-bit address
+[Figure 12]. A master reads a slave immediately after the first byte
+[Figure 13]. Combined format
+[Figure 14]. A master-transmitter addresses a slave-receiver with a 10-bit address
+[Figure 15]. A master-receiver addresses a slave-transmitter with a 10-bit address
+[Figure 16]. General call address format
+[Figure 17]. Data transfer from a hardware master-transmitter
+[Figure 18]. Data transfer by a hardware-transmitter capable of dumping data directly to slave
+[Figure 19]. START byte procedure
+[Figure 20]. Device ID field
+[Figure 21]. Example of UFm I²C-bus configuration
+[Figure 22]. Simplified schematic of USCL, USDA outputs
+[Figure 23]. Bit transfer on the UFm I²C-bus
+[Figure 24]. Definition of START and STOP conditions for UFm I²C-bus
+[Figure 25]. Data transfer on the UFm I²C-bus
+[Figure 26]. A complete UFm data transfer
+[Figure 27]. The first byte after the START procedure
+[Figure 28]. A master-transmitter addressing a slave receiver with a 7-bit address
+[Figure 29]. A master-transmitter addresses a slave-receiver with a 10-bit address
+[Figure 30]. General call address format
+[Figure 31]. START byte procedure
+[Figure 32]. I²C-bus configuration with Hs-mode devices only
+[Figure 33]. Data transfer format in Hs-mode
+[Figure 34]. A complete Hs-mode transfer
+[Figure 35]. Hs-mode devices at F/S-mode speed
+[Figure 36]. Bus system with transfer at Hs-mode and F/S-mode speeds
+[Figure 37]. A complete Hs-mode transfer in a mixed-speed bus system
+[Figure 38]. Definition of timing for F/S-mode devices on the I²C-bus
+[Figure 39]. Definition of timing for Hs-mode devices on the I²C-bus
+[Figure 40]. Definition of timing for Ultra Fast-mode devices on the I²C-bus
+[Figure 41]. R p(max) as a function of bus capacitance 
+[Figure 42]. R p(min) as a function of VDD
+[Figure 43]. Using a buffer to divide bus capacitance
+[Figure 44]. Switched pull-up circuit
+[Figure 45]. Series resistors (R s ) for protection against high-voltage spikes
+[Figure 46]. Maximum value of R s as a function of the value of R p with supply voltage as a
+[Figure 47]. Total HIGH-level input current as a function of the maximum value of R p with
+
 
 <!-- **Section 1** -->
 [Section 1]: #Section%201
@@ -315,8 +387,9 @@ modified or upgraded simply by ‘clipping’ or ‘unclipping’ ICs to or from
 <!-- 002aac858 -->
 
 注：框架图使用 [PlantUML](../PlantUML_Language_reference.md) Sequence Diagram 
-生成基本图元后，再手工使用 Unicode 制表符号（Box Darawing）拼接、修正。
-使用 [RunSnippet](../readme.mc) 插件中的 UnicodeSymbols 可以方便录入这些功能符号。
+生成基本图元后，再手工使用 Unicode 制表符号（Box Darawing）拼接、修正。图中的上拉
+电阻（pull-up resistor）也使用制表符号表现。
+使用 [RunSnippet](../readme.md) 插件中的 UnicodeSymbols 可以方便录入这些功能符号。
 
 ```sh
 ╔ ╦ ═ ╗      ┌ ─ ┬ ┐     ┌ ─ ┬ ┐     ╓─╥─╖     ╒═╤═╕
@@ -488,18 +561,20 @@ I²C-bus (see [Figure 2]).
 <a id="Table-1"></a>
 
 **Table 1**. Definition of I²C-bus terminology
-Term Description
-Transmitter the device which sends data to the bus
-Receiver the device which receives data from the bus
-Master the device which initiates a transfer, generates clock signals and
-terminates a transfer
-Slave the device addressed by a master
-Multi-master more than one master can attempt to control the bus at the same time
-without corrupting the message
-Arbitration procedure to ensure that, if more than one master simultaneously tries to
-control the bus, only one is allowed to do so and the winning message is
-not corrupted
-Synchronization procedure to synchronize the clock signals of two or more devices
+
+|       Term      |                            Description                            |
+|-----------------|-------------------------------------------------------------------|
+| Transmitter     | the device which sends data to the bus                            |
+| Receiver        | the device which receives data from the bus                       |
+| Master          | the device which initiates a transfer,                            |
+|                 | generates clock signals and terminates a transfer                 |
+| Slave           | the device addressed by a master                                  |
+| Multi-master    | more than one master can attempt to control the bus at            |
+|                 | the same time without corrupting the message                      |
+| Arbitration     | procedure to ensure that, if more than one master                 |
+|                 | simultaneously tries to control the bus, only one is allowed      |
+|                 | to do so and the winning message is not corrupted                 |
+| Synchronization | procedure to synchronize the clock signals of two or more devices |
 
 <!-- *P7* of 64 -->
 [P7]: #P7
@@ -508,18 +583,19 @@ Synchronization procedure to synchronize the clock signals of two or more device
 This example highlights the master-slave and receiver-transmitter relationships found on
 the I²C-bus. Note that these relationships are not permanent, but only depend on the
 direction of data transfer at that time. The transfer of data would proceed as follows:
-1. Suppose microcontroller A wants to send information to microcontroller B:
-– microcontroller A (master), addresses microcontroller B (slave)
-– microcontroller A (master-transmitter), sends data to microcontroller B
-(slave-receiver)
-– microcontroller A terminates the transfer.
-2. If microcontroller A wants to receive information from microcontroller B:
-– microcontroller A (master) addresses microcontroller B (slave)
-– microcontroller A (master-receiver) receives data from microcontroller B
-(slave-transmitter)
-– microcontroller A terminates the transfer.
+
+1.  Suppose microcontroller A wants to send information to microcontroller B:
+    – microcontroller A (master), addresses microcontroller B (slave)
+    – microcontroller A (master-transmitter), sends data to microcontroller B (slave-receiver)
+    – microcontroller A terminates the transfer.
+2.  If microcontroller A wants to receive information from microcontroller B:
+    – microcontroller A (master) addresses microcontroller B (slave)
+    – microcontroller A (master-receiver) receives data from microcontroller B (slave-transmitter)
+    – microcontroller A terminates the transfer.
+
 Even in this case, the master (microcontroller A) generates the timing and terminates the
 transfer.
+
 The possibility of connecting more than one microcontroller to the I²C-bus means that
 more than one master could try to initiate a data transfer at the same time. To avoid the
 chaos that might ensue from such an event, an arbitration procedure has been developed.
@@ -527,8 +603,9 @@ This procedure relies on the wired-AND connection of all I²C interfaces to the 
 If two or more masters try to put information onto the bus, the first to produce a ‘one’ when
 the other produces a ‘zero’ loses the arbitration. The clock signals during arbitration are a
 synchronized combination of the clocks generated by the masters using the wired-AND
-connection to the SCL line (for more detailed information concerning arbitration see
-Section 3.1.8).
+connection to the SCL line (for more detailed information concerning arbitration 
+see [Section 3.1].8).
+
 Generation of clock signals on the I²C-bus is always the responsibility of master devices;
 each master generates its own clock signals when transferring data on the bus. Bus clock
 signals from a master can only be altered when they are stretched by a slow slave device
@@ -541,33 +618,57 @@ specification and which system configurations use them.
 <a id="Figure-2"></a>
 
 **Figure 2**. Example of an I²C-bus configuration using two microcontrollers
-mbc645
-SDA
-SCL
-MICRO -
-CONTROLLER
-A
-STATIC
-RAM OR
-EEPROM
-LCD
-DRIVER
-GATE
-ARRAY
-ADC
-MICRO -
-CONTROLLER
-B
+
+         ┌──────────────┐                          ┌────────────┐             
+         │ MICRO-       │      ┌─────────────┐     │ STATIC RAM │             
+         │ CONTROLLER A │      │ LCD DRIVER  │     │ OR EEPROM  │             
+         └────┬────┬────┘      └───┬────┬────┘     └───┬────┬───┘             
+    SDA       │    │               │    │              │    │                 
+    ══════════╧════╪════╤══════════╧════╪════╤═════════╧════╪═══╤═════════════
+    ═══════════════╧════╪════╤══════════╧════╪════╤═════════╧═══╪══════╤══════
+    SCL                 │    │               │    │             │      │      
+                    ┌───┴────┴───┐        ┌──┴────┴─┐       ┌───┴──────┴───┐  
+                    │ GATE       │        │         │       │ MICRO-       │  
+                    │ ARRAY      │        │ ADC     │       │ CONTROLLER B │  
+                    └────────────┘        └─────────┘       └──────────────┘  
+<!-- mbc645 -->
+
+
 
 <!-- *P8* of 64 -->
 [P8]: #P8
 <a id="P8"></a>
 
+[Table 2]: #Table-2
+<a id="Table-2"></a>
+
+**Table 2**. Applicability of I²C-bus protocol features
+
+M = mandatory; O = optional; n/a = not applicable.
+
+|       Feature        | Configuration |              |           |
+|----------------------|---------------|--------------|-----------|
+|                      | Single master | Multi-master | Slave [1] |
+| START condition      | M             | M            | M         |
+| STOP condition       | M             | M            | M         |
+| Acknowledge          | M             | M            | M         |
+| Synchronization      | n/a           | M            | n/a       |
+| Arbitration          | n/a           | M            | n/a       |
+| Clock stretching     | O [2]         | O [2]        | O         |
+| 7-bit slave address  | M             | M            | M         |
+| 10-bit slave address | O             | O            | O         |
+| General Call address | O             | O            | O         |
+| Software Reset       | O             | O            | O         |
+| START byte           | n/a           | O [3]        | n/a       |
+| Device ID            | n/a           | n/a          | O         |
+
 [1] Also refers to a master acting as a slave.
-[2] Clock stretching is a feature of some slaves. If no slaves in a system can stretch the clock (hold SCL LOW),
-the master need not be designed to handle this procedure.
-[3] ‘Bit banging’ (software emulation) multi-master systems should consider a START byte. See
-Section 3.1.15.
+
+[2] Clock stretching is a feature of some slaves. If no slaves in a system can stretch 
+    the clock (hold SCL LOW), the master need not be designed to handle this procedure.
+
+[3] ‘Bit banging’ (software emulation) multi-master systems should consider a START byte. 
+    See [Section 3.1.15].
 
 <!-- **Section 3.1.1** -->
 [Section 3.1.1]: #Section%203.1.1
@@ -576,50 +677,47 @@ Section 3.1.15.
 //3.1.1 SDA and SCL signals
 ---------------------------
 
-Both SDA and SCL are bidirectional lines, connected to a positive supply voltage via a
+Both [SDA] and [SCL] are bidirectional lines, connected to a positive supply voltage via a
 current-source or pull-up resistor (see [Figure 3]). When the bus is free, both lines are
 HIGH. The output stages of devices connected to the bus must have an open-drain or
 open-collector to perform the wired-AND function. Data on the I²C-bus can be transferred
 at rates of up to 100 kbit/s in the Standard-mode, up to 400 kbit/s in the Fast-mode, up to
 1 Mbit/s in Fast-mode Plus, or up to 3.4 Mbit/s in the High-speed mode. The bus
 capacitance limits the number of interfaces connected to the bus.
+
 For a single master application, the master’s SCL output can be a push-pull driver design
 if there are no devices on the bus which would stretch the clock.
 
+[Table 3A]: #Table-3A
+<a id="Table-3A"></a>
 
-[Table 2]: #Table-2
-<a id="Table-2"></a>
+**Table 3A**. Working mode and speed.
 
-**Table 2**. Applicability of I²C-bus protocol features
-M = mandatory; O = optional; n/a = not applicable.
-Feature Configuration
-Single master Multi-master Slave [1]
-START condition M M M
-STOP condition M M M
-Acknowledge M M M
-Synchronization n/a M n/a
-Arbitration n/a M n/a
-Clock stretching O [2] O [2] O
-7-bit slave address M M M
-10-bit slave address O O O
-General Call address O O O
-Software Reset O O O
-START byte n/a O [3] n/a
-Device ID n/a n/a O
-V DD2 , V DD3 are device-dependent (for example, 12 V).
+|       Mode      |   Speed    |
+|-----------------|------------|
+| Standard-mode   | 100 kbit/s |
+| Fast-mode       | 400 kbit/s |
+| Fast-mode plus  | 1 Mbit/s   |
+| High-speed mode | 3.4 Mbit/s |
 
 [Figure 3]: #Figure-3
 <a id="Figure-3"></a>
 
 **Figure 3**. Devices with various supply voltages sharing the same bus
-CMOS CMOS NMOS BIPOLAR
-002aac860
-V DD1 =
-5 V ± 10 %
-R p R p
-SDA
-SCL
-V DD2 V DD3
+
+                             VDD1 = 5v ± 10%            VDD2           VDD3 
+                                  │                      │              │
+           ┌───┬───────────┬──────┴───────┐              │              │
+          ┌┴┐ ┌┴┐    ┌─────┴────┐   ┌─────┴────┐   ┌─────┴────┐   ┌─────┴────┐
+          │ │ │ │    │   CMOS   │   │   CMOS   │   │   NMOS   │   │  BIPOLAR │
+          └┬┘ └┬┘    └──┬────┬──┘   └──┬────┬──┘   └──┬────┬──┘   └──┬────┬──┘
+    SDA    │   │        │    │         │    │         │    │         │    │
+    ═══════╧═══╪════════╧════╪═════════╧════╪═════════╧════╪═════════╧════╪════
+    SCL        │             │              │              │              │    
+    ═══════════╧═════════════╧══════════════╧══════════════╧══════════════╧════
+<!-- 002aac860 -->
+
+VDD2, VDD3 are device-dependent (for example, 12 V).
 
 <!-- *P9* of 64 -->
 [P9]: #P9
@@ -636,10 +734,10 @@ V DD2 V DD3
 
 Due to the variety of different technology devices (CMOS, NMOS, bipolar) that can be
 connected to the I²C-bus, the levels of the logical ‘0’ (LOW) and ‘1’ (HIGH) are not fixed
-and depend on the associated level of V DD . Input reference levels are set as 30 % and
-70 % of V DD ; V IL is 0.3V DD and V IH is 0.7V DD . See [Figure 38], timing diagram. Some
-legacy device input levels were fixed at V IL = 1.5 V and V IH = 3.0 V, but all new devices
-require this 30 %/70 % specification. See [Section 6] for electrical specifications.
+and depend on the associated level of VDD. Input reference levels are set as 30% and
+70% of VDD; VIL is 0.3VDD and VIH is 0.7VDD . See [Figure 38], timing diagram. Some
+legacy device input levels were fixed at VIL = 1.5 V and VIH = 3.0 V, but all new devices
+require this 30%/70% specification. See [Section 6] for electrical specifications.
 
 <!-- **Section 3.1.3** -->
 [Section 3.1.3]: #Section%203.1.3
@@ -652,6 +750,21 @@ The data on the SDA line must be stable during the HIGH period of the clock. The
 or LOW state of the data line can only change when the clock signal on the SCL line is
 LOW (see [Figure 4]). One clock pulse is generated for each data bit transferred.
 
+[Figure 4]: #Figure-4
+<a id="Figure-4"></a>
+
+**Figure 4**. Bit transfer on the I²C-bus
+
+          ╱﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈╲╱﹈﹈﹈﹈﹈ ﹈ ﹈ ﹈ ﹈﹈﹈╲
+    SDA  ╱  |               |    ╱╲   |                     ╲
+    ﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈ ﹈ ﹈ ﹈ ﹈﹈﹈﹈﹈﹈﹈﹈﹈
+            |               |         |    
+            | ╱﹈﹈﹈﹈﹈﹈╲ |         | ╱﹈﹈ ﹈ ﹈ ﹈ ﹈╲
+    SCL     |╱             ╲|         |╱                 ╲
+    ﹈﹈﹈﹈﹈                ﹈﹈﹈﹈﹈﹈                   ﹈﹈﹈﹈﹈﹈
+            |   data line   | change  |
+                stable;       of data
+               data valid     allowed                     <!-- mba607 -->
 
 <!-- **Section 3.1.4** -->
 [Section 3.1.4]: #Section%203.1.4
@@ -673,19 +786,6 @@ For the remainder of this document, therefore, the S symbol is used as a generic
 represent both the START and repeated START conditions, unless Sr is particularly
 relevant.
 
-[Figure 4]: #Figure-4
-<a id="Figure-4"></a>
-
-**Figure 4**. Bit transfer on the I²C-bus
-mba607
-data line
-stable;
-data valid
-change
-of data
-allowed
-SDA
-SCL
 
 [Figure 5]: #Figure-5
 <a id="Figure-5"></a>
@@ -1620,8 +1720,8 @@ cable ends, connectors, and stubs.
 
 Due to the variety of different technology devices (CMOS, NMOS, bipolar) that can be
 connected to the I²C-bus, the levels of the logical ‘0’ (LOW) and ‘1’ (HIGH) are not fixed
-and depend on the associated level of V DD . Input reference levels are set as 30 % and
-70 % of V DD ; V IL is 0.3V DD and V IH is 0.7V DD . See [Figure 40], timing diagram. See
+and depend on the associated level of VDD . Input reference levels are set as 30 % and
+70 % of VDD ; VIL is 0.3VDD and VIH is 0.7VDD . See [Figure 40], timing diagram. See
 Section 6 for electrical specifications.
 
 <!-- **Section 3.2.3** -->
@@ -1653,7 +1753,7 @@ HIGH transition on the USDA line while USCL is HIGH defines a STOP condition.
 
 **Figure 22**. Simplified schematic of USCL, USDA outputs
 002aag655
-V DD(IO)
+VDD(IO)
 V SS
 USCL or
 USDA pin
@@ -1773,7 +1873,7 @@ Data transfers follow the format shown in [Figure 26]. After the START condition
 slave address is sent. This address is seven bits long followed by an eighth bit which is a
 data direction bit (W) — a ‘zero’ indicates a transmission (WRITE); a ‘one’ indicates a
 request for data (READ) and is not supported by UFm (except for the START byte,
-Section 3.2.12) since the communication is unidirectional (refer to [Figure 27]). A data
+[Section 3.2].12) since the communication is unidirectional (refer to [Figure 27]). A data
 transfer is always terminated by a STOP condition (P) generated by the master. However,
 if a master still wishes to communicate on the bus, it can generate a repeated START
 condition (Sr) and address another slave without first generating a STOP condition.
@@ -2155,7 +2255,7 @@ than 10 kHz is not SMBus compliant since the SMBus devices may time-out.
 
 
 Logic levels are slightly different also: TTL for SMBus: LOW = 0.8 V and HIGH = 2.1 V,
-versus the 30 %/70 % V DD CMOS level for I²C. This is not a problem if V DD > 3.0 V. If the
+versus the 30 %/70 % VDD CMOS level for I²C. This is not a problem if VDD > 3.0 V. If the
 I²C device is below 3.0 V, then there could be a problem if the logic HIGH/LOW levels are
 not properly recognized.
 
@@ -2192,11 +2292,11 @@ The 2.0 version introduces an alternative higher power set of electrical charact
 This class is appropriate for use when higher drive capability is required, for example with
 SMBus devices on PCI add-in cards and for connecting such cards across the PCI
 connector between each other and to SMBus devices on the system board.
-Devices may be powered by the bus V DD or by another power source, V Bus (as with, for
+Devices may be powered by the bus VDD or by another power source, V Bus (as with, for
 example, Smart Batteries), and will inter-operate as long as they adhere to the SMBus
 electrical specifications for their class.
 NXP devices have a higher power set of electrical characteristics than SMBus 1.0. The
-main difference is the current sink capability with V OL = 0.4 V.
+main difference is the current sink capability with VOL = 0.4 V.
 • SMBus low power = 350 μA
 • SMBus high power = 4 mA
 • I²C-bus = 3 mA
@@ -2506,19 +2606,19 @@ SLAVE
 SDAH SCLH
 V SS
 R s R s R s R s
-V DD
+VDD
 V SS
 MASTER/SLAVE
 SDAH SCLH SDA SCL
 R s R s
-V DD
+VDD
 (1) (1) (1) (1)
 (2) (2)
 (4) (4) (3)
 MCS
 (3)
 (2) (2) (2) (2) (2) (2)
-V DD
+VDD
 R p R p
 SCLH
 SDAH
@@ -2684,8 +2784,8 @@ different devices (see [Figure 36] and [Figure 37]).
 One bridge is required to connect/disconnect an Hs-mode section to/from an F/S-mode
 section at the appropriate time. This bridge includes a level shift function that allows
 devices with different supply voltages to be connected. For example F/S-mode devices
-with a V DD2 of 5 V can be connected to Hs-mode devices with a V DD1 of 3 V or less
-(that is, where V DD2 ≥ V DD1 ), provided SDA and SCL pins are 5 V tolerant. This bridge is
+with a VDD2 of 5 V can be connected to Hs-mode devices with a VDD1 of 3 V or less
+(that is, where VDD2 ≥ VDD1 ), provided SDA and SCL pins are 5 V tolerant. This bridge is
 incorporated in Hs-mode master devices and is completely controlled by the serial signals
 SDAH, SCLH, SDA and SCL. Such a bridge can be implemented in any IC as an
 autonomous circuit.
@@ -2694,7 +2794,7 @@ and TR3 is an open-drain pull-down stage. If TR1 or TR2 are switched on they tra
 LOW level in both directions, otherwise when both the drain and source rise to a HIGH
 level there is a high-impedance between the drain and source of each switched-on
 transistor. In the latter case, the transistors act as a level shifter as SDAH and SCLH are
-pulled-up to V DD1 and SDA and SCL are pulled-up to V DD2 .
+pulled-up to VDD1 and SDA and SCL are pulled-up to VDD2 .
 During F/S-mode speed, a bridge on one of the Hs-mode masters connects the SDAH
 and SCLH lines to the corresponding SDA and SCL lines thus permitting Hs-mode
 devices to communicate with F/S-mode devices at slower speeds. Arbitration and
@@ -2732,14 +2832,14 @@ SLAVE
 SDA SCL
 V SS
 R s R s R s R s
-V DD
+VDD
 (1)
 (2) (2)
 (4) (4) (4)
 (2) (2) (2) (2) (2) (2) (2) (2)
 (3)
 (1)
-V DD
+VDD
 R p R p
 SCL
 SDA
@@ -2804,14 +2904,14 @@ V SS
 R s R s R s R s
 R s
 R s
-V DD
+VDD
 V SS
 Hs-mode
 MASTER/SLAVE
-V DD
-V DD1
+VDD
+VDD1
 R p R p
-V DD2
+VDD2
 R p R p
 SCLH
 SDAH
@@ -3015,16 +3115,16 @@ xxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx xxx
 <a id="P47"></a>
 
 
-[1] Some legacy Standard-mode devices had fixed input levels of V IL = 1.5 V and V IH = 3.0 V. Refer to component data sheets.
-[2] Maximum V IH = V DD(max) + 0.5 V or 5.5 V, which ever is lower. See component data sheets.
-[3] The same resistor value to drive 3 mA at 3.0 V V DD provides the same RC time constant when using <2 V V DD with a smaller current draw.
-[4] In order to drive full bus load at 400 kHz, 6 mA I OL is required at 0.6 V V OL . Parts not meeting this specification can still function, but not at 400 kHz and 400 pF.
+[1] Some legacy Standard-mode devices had fixed input levels of VIL = 1.5 V and VIH = 3.0 V. Refer to component data sheets.
+[2] Maximum VIH = VDD(max) + 0.5 V or 5.5 V, which ever is lower. See component data sheets.
+[3] The same resistor value to drive 3 mA at 3.0 V VDD provides the same RC time constant when using <2 V VDD with a smaller current draw.
+[4] In order to drive full bus load at 400 kHz, 6 mA I OL is required at 0.6 V VOL . Parts not meeting this specification can still function, but not at 400 kHz and 400 pF.
 [5] The maximum t f for the SDA and SCL bus lines quoted in [Table 10] (300 ns) is longer than the specified maximum t of for the output stages (250 ns). This allows series protection
 resistors (R s ) to be connected between the SDA/SCL pins and the SDA/SCL bus lines as shown in [Figure 45] without exceeding the maximum specified t f .
 [6] Necessary to be backwards compatible with Fast-mode.
 [7] In Fast-mode Plus, fall time is specified the same for both output stage and bus timing. If series resistors are used, designers should allow for this when considering bus timing.
 [8] Input filters on the SDA and SCL inputs suppress noise spikes of less than 50 ns.
-[9] If V DD is switched off, I/O pins of Fast-mode and Fast-mode Plus devices must not obstruct the SDA and SCL lines.
+[9] If VDD is switched off, I/O pins of Fast-mode and Fast-mode Plus devices must not obstruct the SDA and SCL lines.
 [10] Special purpose devices such as multiplexers and switches may exceed this capacitance because they connect multiple paths together.
 
 [Table 9]: #Table-9
@@ -3034,36 +3134,36 @@ resistors (R s ) to be connected between the SDA/SCL pins and the SDA/SCL bus li
 n/a = not applicable.
 Symbol Parameter Conditions Standard-mode Fast-mode Fast-mode Plus Unit
 Min Max Min Max Min Max
-V IL LOW-level input voltage [1] −0.5 0.3V DD −0.5 0.3V DD −0.5 0.3V DD V
-V IH HIGH-level input voltage [1] 0.7V DD
+VIL LOW-level input voltage [1] −0.5 0.3VDD −0.5 0.3VDD −0.5 0.3VDD V
+VIH HIGH-level input voltage [1] 0.7VDD
 [2]
-0.7V DD
+0.7VDD
 [2]
-0.7V DD [1]
+0.7VDD [1]
 [2]
 V
-V hys hysteresis of Schmitt trigger inputs - - 0.05V DD - 0.05V DD - V
-V OL1 LOW-level output voltage 1 (open-drain or open-collector)
+V hys hysteresis of Schmitt trigger inputs - - 0.05VDD - 0.05VDD - V
+VOL1 LOW-level output voltage 1 (open-drain or open-collector)
 at 3 mA sink current;
-V DD > 2 V
+VDD > 2 V
 0 0.4 0 0.4 0 0.4 V
-V OL2 LOW-level output voltage 2 (open-drain or open-collector)
+VOL2 LOW-level output voltage 2 (open-drain or open-collector)
 at 2 mA sink current [3] ;
-V DD ≤ 2 V
-- - 0 0.2V DD 0 0.2V DD V
-I OL LOW-level output current V OL = 0.4 V 3 - 3 - 20 - mA
-V OL = 0.6 V [4] - - 6 - - - mA
-t of output fall time from V IHmin
-to V ILmax
+VDD ≤ 2 V
+- - 0 0.2VDD 0 0.2VDD V
+I OL LOW-level output current VOL = 0.4 V 3 - 3 - 20 - mA
+VOL = 0.6 V [4] - - 6 - - - mA
+t of output fall time from VIHmin
+to VILmax
 - 250 [5] 20 ×
-(V DD / 5.5 V) [6]
+(VDD / 5.5 V) [6]
 250 [5] 20 ×
-(V DD / 5.5 V) [6]
+(VDD / 5.5 V) [6]
 120 [7] ns
 t SP pulse width of spikes that must be
 suppressed by the input filter
 - - 0 50 [8] 0 50 [8] ns
-I i input current each I/O pin 0.1V DD < V I < 0.9V DDmax −10 +10 −10 [9] +10 [9] −10 [9] +10 [9] μA
+I i input current each I/O pin 0.1VDD < V I < 0.9VDDmax −10 +10 −10 [9] +10 [9] −10 [9] +10 [9] μA
 C i capacitance for each I/O pin [10] - 10 - 10 - 10 pF
 xxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxx x x x xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxx xx xx xxxxx
 xxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxx xxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxx x x
@@ -3074,9 +3174,9 @@ xxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx xxx
 [P48]: #P48
 <a id="P48"></a>
 
-[1] All values referred to V IH(min) (0.3V DD ) and V IL(max) (0.7V DD ) levels (see [Table 9]).
+[1] All values referred to VIH(min) (0.3VDD ) and VIL(max) (0.7VDD ) levels (see [Table 9]).
 [2] t HD;DAT is the data hold time that is measured from the falling edge of SCL, applies to data in transmission and the acknowledge.
-[3] A device must internally provide a hold time of at least 300 ns for the SDA signal (with respect to the V IH(min) of the SCL signal) to bridge the undefined region of the falling edge of
+[3] A device must internally provide a hold time of at least 300 ns for the SDA signal (with respect to the VIH(min) of the SCL signal) to bridge the undefined region of the falling edge of
 SCL.
 [4] The maximum t HD;DAT could be 3.45 μs and 0.9 μs for Standard-mode and Fast-mode, but must be less than the maximum of t VD;DAT or t VD;ACK by a transition time. This maximum
 must only be met if the device does not stretch the LOW period (t LOW ) of the SCL signal. If the clock stretches the SCL, the data must be valid by the set-up time before it releases
@@ -3106,9 +3206,9 @@ t r rise time of both SDA and SCL signals - 1000 20 300 - 120 ns
 t f fall time of both SDA and SCL
 signals [3][6][7][8]
 - 300 20 ×
-(V DD / 5.5 V)
+(VDD / 5.5 V)
 300 20 ×
-(V DD / 5.5 V) [9]
+(VDD / 5.5 V) [9]
 120 [8] ns
 t SU;STO set-up time for STOP condition 4.0 - 0.6 - 0.26 - μs
 t BUF bus free time between a STOP and
@@ -3119,10 +3219,10 @@ t VD;DAT data valid time [11] - 3.45 [4] - 0.9 [4] - 0.45 [4] μs
 t VD;ACK data valid acknowledge time [12] - 3.45 [4] - 0.9 [4] - 0.45 [4] μs
 V nL noise margin at the LOW level for each connected device
 (including hysteresis)
-0.1V DD - 0.1V DD - 0.1V DD - V
+0.1VDD - 0.1VDD - 0.1VDD - V
 V nH noise margin at the HIGH level for each connected device
 (including hysteresis)
-0.2V DD - 0.2V DD - 0.2V DD - V
+0.2VDD - 0.2VDD - 0.2VDD - V
 xxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxx x x x xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxx xx xx xxxxx
 xxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxx xxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxx x x
 xxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxx
@@ -3181,8 +3281,8 @@ Timing parameters are independent for capacitive load up to 100 pF for each bus 
 allowing the maximum possible bit rate of 3.4 Mbit/s. At a higher capacitive load on the
 bus lines, the bit rate decreases gradually. The timing parameters for a capacitive bus
 load of 400 pF are specified in Table 12, allowing a maximum bit rate of 1.7 Mbit/s. For
-V IL = 0.3V DD
-V IH = 0.7V DD
+VIL = 0.3VDD
+VIH = 0.7VDD
 
 [Figure 38]: #Figure-38
 <a id="Figure-38"></a>
@@ -3256,17 +3356,17 @@ without affecting the SDAH and SCLH lines.
 **Table 11**. Characteristics of the SDAH, SCLH, SDA and SCL I/O stages for Hs-mode I²C-bus devices
 Symbol Parameter Conditions Hs-mode Unit
 Min Max
-V IL LOW-level input voltage −0.5 0.3V DD [1] V
-V IH HIGH-level input voltage 0.7V DD [1] V DD + 0.5 [2] V
+VIL LOW-level input voltage −0.5 0.3V DD [1] V
+VIH HIGH-level input voltage 0.7V DD [1] V DD + 0.5 [2] V
 V hys hysteresis of Schmitt trigger inputs 0.1V DD [1] - V
-V OL LOW-level output voltage (open-drain) at 3 mA sink current at
+VOL LOW-level output voltage (open-drain) at 3 mA sink current at
 SDAH, SDA and SCLH
 V DD > 2 V 0 0.4 V
 V DD ≤ 2 V 0 0.2V DD V
 R onL transfer gate on resistance for
 currents between SDA and SDAH or
 SCL and SCLH
-V OL level; I OL = 3 mA - 50 Ω
+VOL level; I OL = 3 mA - 50 Ω
 R onH [2] transfer gate on resistance between
 SDA and SDAH or SCL and SCLH
 both signals (SDA and SDAH, or SCL
@@ -3301,9 +3401,9 @@ C i capacitance for each I/O pin [5] - 10 pF
 [P52]: #P52
 <a id="P52"></a>
 
-[1] All values referred to V IH(min) and V IL(max) levels (see [Table 11]).
+[1] All values referred to VIH(min) and VIL(max) levels (see [Table 11]).
 [2] For bus line loads C b between 100 pF and 400 pF the timing parameters must be linearly interpolated.
-[3] A device must internally provide a data hold time to bridge the undefined part between V IH and V IL of the falling edge of the SCLH signal.
+[3] A device must internally provide a data hold time to bridge the undefined part between VIH and VIL of the falling edge of the SCLH signal.
 An input circuit with a threshold as low as possible for the falling edge of the SCLH signal minimizes this hold time.
 
 [Table 12]: #Table-12
@@ -3363,7 +3463,7 @@ periods of the SCL clock specified in [Table 14] determine the maximum bit trans
 maximum bit rates, either by being able to transmit or receive at that speed.
 
 [1] Refer to component data sheets for actual switching points.
-[2] Maximum V IH = V DD(max) + 0.5 V or 5.5 V, whichever is lower. See component data sheets.
+[2] Maximum VIH = V DD(max) + 0.5 V or 5.5 V, whichever is lower. See component data sheets.
 [3] Special purpose devices such as multiplexers and switches may exceed this capacitance because they connect multiple paths together.
 [4] Input filters on the USDA and USCL slave inputs suppress noise spikes of less than 10 ns.
 (1) First rising edge of the SCLH signal after Sr and after each acknowledge bit.
@@ -3405,10 +3505,10 @@ t SU;STA
 n/a = not applicable.
 Symbol Parameter Conditions Ultra Fast-mode Unit
 Min Max
-V IL LOW-level input voltage [1] −0.5 +0.3V DD V
-V IH HIGH-level input voltage [1] 0.7V DD [1] - [2] V
+VIL LOW-level input voltage [1] −0.5 +0.3V DD V
+VIH HIGH-level input voltage [1] 0.7V DD [1] - [2] V
 V hys hysteresis of Schmitt trigger inputs 0.05V DD - V
-V OL LOW-level output voltage at 4 mA sink current; V DD > 2 V 0 0.4 V
+VOL LOW-level output voltage at 4 mA sink current; V DD > 2 V 0 0.4 V
 V OH HIGH-level output voltage at 4 mA source current; V DD > 2 V V DD − 0.4 - V
 I L leakage current V DD = 3.6 V −1 +1 μA
 V DD = 5.5 V −10 +10 μA
@@ -3519,7 +3619,7 @@ t SU;DAT
 The bus capacitance is the total capacitance of wire, connections and pins. This
 capacitance limits the maximum value of R p due to the specified rise time. [Figure 41]
 shows R p(max) as a function of bus capacitance.
-Consider the V DD related input threshold of V IH = 0.7V DD and V IL = 0.3V DD for the
+Consider the V DD related input threshold of VIH = 0.7V DD and VIL = 0.3V DD for the
 purposes of RC time constant calculation. Then V(t) = V DD (1 − e −t / RC ), where t is the
 time since the charging started and RC is the time constant.
 V(t1) = 0.3 × V DD = V DD (1 − e −t1 / RC ); then t1 = 0.3566749 × RC
@@ -3584,7 +3684,7 @@ aaa-012678
 (2)
 R p min
 ( )
-V DD V OL max
+VDD VOL max
 ( )
 –
 I OL
@@ -3683,7 +3783,7 @@ t f actual
 
 capacitance. Keep in mind that adding a buffer always adds delays — a buffer delay plus
 an additional transition time to each edge, which reduces the maximum operating
-frequency and may also introduce special V IL and V OL considerations.
+frequency and may also introduce special VIL and VOL considerations.
 Refer to application notes AN255, I²C / SMBus Repeaters, Hubs and Expanders and
 AN262, PCA954x Family of I²C / SMBus Multiplexers and Switches for more details on
 this subject and the devices available from NXP Semiconductors.
@@ -3696,14 +3796,14 @@ this subject and the devices available from NXP Semiconductors.
 //7.2.4 Switched pull-up circuit
 --------------------------------
 
-The supply voltage (V DD ) and the maximum output LOW level determine the minimum
+The supply voltage (VDD ) and the maximum output LOW level determine the minimum
 value of pull-up resistor R p (see [Section 7.1]). For example, with a supply voltage of
-V DD = 5 V ± 10 % and V OL(max) = 0.4 V at 3 mA, R p(min) = (5.5 − 0.4) / 0.003 = 1.7 kΩ. As
+VDD = 5 V ± 10 % and VOL(max) = 0.4 V at 3 mA, R p(min) = (5.5 − 0.4) / 0.003 = 1.7 kΩ. As
 shown in [Figure 42], this value of R p limits the maximum bus capacitance to about 200 pF
 to meet the maximum t r requirement of 300 ns. If the bus has a higher capacitance than
 this, a switched pull-up circuit (as shown in [Figure 44]) can be used.
 
-Remark: Some buffers allow V DD1 and V DD2 to be different levels.
+Remark: Some buffers allow VDD1 and VDD2 to be different levels.
 
 [Figure 43]: #Figure-43
 <a id="Figure-43"></a>
@@ -3711,14 +3811,14 @@ Remark: Some buffers allow V DD1 and V DD2 to be different levels.
 **Figure 43**. Using a buffer to divide bus capacitance
 BUFFER
 002aac882
-V DD1
+VDD1
 SDA
 SCL
 slaves and masters
 400 pF
 slaves and masters
 400 pF
-V DD2
+VDD2
 
 [Figure 44]: #Figure-44
 <a id="Figure-44"></a>
@@ -3730,7 +3830,7 @@ V CC
 V SS
 I/O
 C b
-V DD
+VDD
 SDA or SCL
 bus line
 N P
@@ -3759,7 +3859,7 @@ FAST - MODE I C BUS DEVICES
 <a id="P58"></a>
 
 
-The switched pull-up circuit in [Figure 44] is for a supply voltage of V DD = 5 V ± 10 % and a
+The switched pull-up circuit in [Figure 44] is for a supply voltage of VDD = 5 V ± 10 % and a
 maximum capacitive load of 400 pF. Since it is controlled by the bus levels, it needs no
 additional switching control signals. During the rising/falling edges, the bilateral switch in
 the HCT4066 switches pull-up resistor R p2 on/off at bus levels between 0.8 V and 2.0 V.
@@ -3785,7 +3885,7 @@ protection against high-voltage spikes on the SDA and SCL lines (resulting from 
 flash-over of a TV picture tube, for example). If series resistors are used, designers must
 add the additional resistance into their calculations for R p and allowable bus capacitance.
 
-The required noise margin of 0.1V DD for the LOW level, limits the maximum value of R s .
+The required noise margin of 0.1VDD for the LOW level, limits the maximum value of R s .
 R s(max) as a function of R p is shown in [Figure 46]. Note that series resistors affect the
 output fall time.
 
@@ -3797,7 +3897,7 @@ mbc627
 SDA
 SCL
 DEVICE
-V DD V DD
+VDD VDD
 I²C
 R s R s R s R s
 R p R p
@@ -3817,8 +3917,8 @@ I²C
 -------------------
 
 The maximum HIGH level input current of each input/output connection has a specified
-maximum value of 10 μA. Due to the required noise margin of 0.2V DD for the HIGH level,
-this input current limits the maximum value of R p . This limit depends on V DD . The total
+maximum value of 10 μA. Due to the required noise margin of 0.2VDD for the HIGH level,
+this input current limits the maximum value of R p . This limit depends on VDD . The total
 HIGH-level input current is shown as a function of R p(max) in [Figure 47].
 
 
@@ -3841,7 +3941,7 @@ maximum value R s (Ω)
 10 V
 R p
 (kΩ)
-V DD = 2.5 V 5 V
+VDD = 2.5 V 5 V
 
 [Figure 47]: #Figure-47
 <a id="Figure-47"></a>
@@ -3862,7 +3962,7 @@ maximum
 value R p
 (k ) Ω
 5 V
-V DD = 15 V
+VDD = 15 V
 2.5 V
 10 V
 
@@ -3883,9 +3983,9 @@ In general, the wiring must be chosen so that crosstalk and interference to/from
 lines is minimized. The bus lines are most susceptible to crosstalk and interference at the
 HIGH level because of the relatively high impedance of the pull-up devices.
 If the length of the bus lines on a PCB or ribbon cable exceeds 10 cm and includes the
-V DD and V SS lines, the wiring pattern should be:
+VDD and V SS lines, the wiring pattern should be:
 SDA _______________________
-V DD ________________________
+VDD ________________________
 V SS ________________________
 SCL _______________________
 If only the V SS line is included, the wiring pattern should be:
@@ -3893,10 +3993,10 @@ SDA _______________________
 V SS ________________________
 SCL _______________________
 These wiring patterns also result in identical capacitive loads for the SDA and SCL lines.
-If a PCB with a V SS and/or V DD layer is used, the V SS and V DD lines can be omitted.
+If a PCB with a V SS and/or VDD layer is used, the V SS and VDD lines can be omitted.
 If the bus lines are twisted-pairs, each bus line must be twisted with a V SS return.
 Alternatively, the SCL line can be twisted with a V SS return, and the SDA line twisted with
-a V DD return. In the latter case, capacitors must be used to decouple the V DD line to the
+a VDD return. In the latter case, capacitors must be used to decouple the VDD line to the
 V SS line at both ends of the twisted pairs.
 If the bus lines are shielded (shield connected to V SS ), interference is minimized.
 However, the shielded cable must have low capacitive coupling between the SDA and
@@ -3918,36 +4018,38 @@ SCL lines to minimize crosstalk.
 
 **Table 15**. Abbreviations
 
-| Acronym |                     Description                     |
-|---------|-----------------------------------------------------|
-| A/D     | Analog-to-Digital                                   |
-| ATCA    | Advanced Telecom Computing Architecture             |
-| BMC     | Baseboard Management Controller                     |
-| CMOS    | Complementary Metal-Oxide Semiconductor             |
-| cPCI    | compact Peripheral Component Interconnect           |
-| D/A     | Digital-to-Analog                                   |
-| DIP     | Dual In-line Package                                |
-| EEPROM  | Electrically Erasable Programmable Read Only Memory |
-| HW      | Hardware                                            |
-| I/O     | Input/Output                                        |
-| I²C-bus | Inter-Integrated Circuit bus                        |
-| IC      | Integrated Circuit                                  |
-| IPMI    | Intelligent Platform Management Interface           |
-| LCD     | Liquid Crystal Display                              |
-| LED     | Light Emitting Diode                                |
-| LSB     | Least Significant Bit                               |
-| MCU     | Microcontroller                                     |
-| MSB     | Most Significant Bit                                |
-| NMOS    | Negative-channel Metal-Oxide Semiconductor          |
-| PCB     | Printed-Circuit Board                               |
-| PCI     | Peripheral Component Interconnect                   |
-| PMBus   | Power Management Bus                                |
-| RAM     | Random Access Memory                                |
-| ROM     | Read-Only Memory                                    |
-| SMBus   | System Management Bus                               |
-| SPI     | Serial Peripheral Interface                         |
-| UART    | Universal Asynchronous Receiver/Transmitter         |
-| USB     | Universal Serial Bus                                |
+|   Acronym   |                     Description                     |
+|-------------|-----------------------------------------------------|
+| **A/D**     | Analog-to-Digital                                   |
+| **ATCA**    | Advanced Telecom Computing Architecture             |
+| **BMC**     | Baseboard Management Controller                     |
+| **CMOS**    | Complementary Metal-Oxide Semiconductor             |
+| **cPCI**    | compact Peripheral Component Interconnect           |
+| **D/A**     | Digital-to-Analog                                   |
+| **DIP**     | Dual In-line Package                                |
+| **EEPROM**  | Electrically Erasable Programmable Read Only Memory |
+| **HW**      | Hardware                                            |
+| **I/O**     | Input/Output                                        |
+| **I²C-bus** | Inter-Integrated Circuit bus                        |
+| **IC**      | Integrated Circuit                                  |
+| **IPMI**    | Intelligent Platform Management Interface           |
+| **LCD**     | Liquid Crystal Display                              |
+| **LED**     | Light Emitting Diode                                |
+| **LSB**     | Least Significant Bit                               |
+| **MCU**     | Microcontroller                                     |
+| **MSB**     | Most Significant Bit                                |
+| **NMOS**    | Negative-channel Metal-Oxide Semiconductor          |
+| **PCB**     | Printed-Circuit Board                               |
+| **PCI**     | Peripheral Component Interconnect                   |
+| **PMBus**   | Power Management Bus                                |
+| **RAM**     | Random Access Memory                                |
+| **ROM**     | Read-Only Memory                                    |
+| **SMBus**   | System Management Bus                               |
+| **SPI**     | Serial Peripheral Interface                         |
+| **UART**    | Universal Asynchronous Receiver/Transmitter         |
+| **USB**     | Universal Serial Bus                                |
+| **SDA** | Serial Data Line
+| **SCL** | Serial Clock Line
 
 <!-- *P62* of 64 -->
 [P62]: #P62
