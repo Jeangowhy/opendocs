@@ -17,6 +17,7 @@
                                            I²C-bus specification and user manual
                                                Rev. 6 — 4 April 2014 User manual
 
+```sh
 |   Info   |                                     Content                                     |
 |----------|---------------------------------------------------------------------------------|
 | Keywords | I2C, I2C-bus, Standard-mode, Fast-mode, Fast-mode Plus, Fm+,                    |
@@ -30,6 +31,7 @@
 |          | 400 kbit/s in the Fast-mode, up to 1 Mbit/s in the Fast-mode Plus (Fm+), or     |
 |          | up to 3.4 Mbit/s in the High-speed mode. The Ultra Fast-mode is a               |
 |          | uni-directional mode with data transfers of up to 5 Mbit/s.                     |
+```
 
 
 /Contact information
@@ -108,7 +110,7 @@ For sales office addresses, please send an email to: salesaddresses@nxp.com
 *   3.1.7 Clock synchronization  . . . . . . . . . . . . . . . . . . . . . . [P11]
 *   3.1.8 Arbitration  . . . . . . . . . . . . . . . . . . . . . . . . . . . [P11]
 *   3.1.9 Clock stretching . . . . . . . . . . . . . . . . . . . . . . . . . [P13]
-*   3.1.10 The slave address and R/W bit . . . . . . . . . . . . . . . . . . [P13]
+*   3.1.10 The slave address and R/W̅̅ bit . . . . . . . . . . . . . . . . . . [P13]
 *   3.1.11 10-bit addressing . . . . . . . . . . . . . . . . . . . . . . . . [P15]
 *   3.1.12 Reserved addresses  . . . . . . . . . . . . . . . . . . . . . . . [P17]
 *   3.1.13 General call address  . . . . . . . . . . . . . . . . . . . . . . [P17]
@@ -123,7 +125,7 @@ For sales office addresses, please send an email to: salesaddresses@nxp.com
 *   3.2.4 START and STOP conditions  . . . . . . . . . . . . . . . . . . . . [P25]
 *   3.2.5 Byte format  . . . . . . . . . . . . . . . . . . . . . . . . . . . [P26]
 *   3.2.6 Acknowledge (ACK) and Not Acknowledge (NACK) . . . . . . . . . . . [P27]
-*   3.2.7 The slave address and R/W bit  . . . . . . . . . . . . . . . . . . [P27]
+*   3.2.7 The slave address and R/W̅̅ bit  . . . . . . . . . . . . . . . . . . [P27]
 *   3.2.8 10-bit addressing  . . . . . . . . . . . . . . . . . . . . . . . . [P28]
 *   3.2.9 Reserved addresses in UFm  . . . . . . . . . . . . . . . . . . . . [P29]
 *   3.2.10 General call address  . . . . . . . . . . . . . . . . . . . . . . [P30]
@@ -182,73 +184,73 @@ For sales office addresses, please send an email to: salesaddresses@nxp.com
 //List of Tables
 ================
 
-[Table 1]. Definition of I²C-bus terminology
-[Table 2]. Applicability of I²C-bus protocol features
-[Table 3A]. Working mode and speed.
-[Table 3]. Reserved addresses
-[Table 4]. Assigned manufacturer IDs
-[Table 5]. Definition of UFm I²C-bus terminology
-[Table 6]* summarizes the use of mandatory and optional portions of the UFm I²C-bus
-[Table 7]. Reserved addresses
-[Table 8]. Communication bit rates in a mixed-speed bus system
-[Table 9]. Characteristics of the SDA and SCL I/O stages
-[Table 10]. Characteristics of the SDA and SCL bus lines for Standard, Fast, and Fast-mode Plus I²C-bus devices [1]
-[Table 11]. Characteristics of the SDAH, SCLH, SDA and SCL I/O stages for Hs-mode I²C-bus devices
-[Table 12]. Characteristics of the SDAH, SCLH, SDA and SCL bus lines for Hs-mode I²C-bus devices [1]
-[Table 13]. Characteristics of the USDA and USCL I/O stages
-[Table 14]. UFm I²C-bus frequency and timing specifications
-[Table 15]. Abbreviations
+*   [Table 1]. Definition of I²C-bus terminology
+*   [Table 2]. Applicability of I²C-bus protocol features
+*   [Table 3A]. Working mode and speed.
+*   [Table 3]. Reserved addresses
+*   [Table 4]. Assigned manufacturer IDs
+*   [Table 5]. Definition of UFm I²C-bus terminology
+*   [Table 6]* summarizes the use of mandatory and optional portions of the UFm I²C-bus
+*   [Table 7]. Reserved addresses
+*   [Table 8]. Communication bit rates in a mixed-speed bus system
+*   [Table 9]. Characteristics of the SDA and SCL I/O stages
+*   [Table 10]. Characteristics of the SDA and SCL bus lines for Standard, Fast, and Fast-mode Plus I²C-bus devices *  [1]
+*   [Table 11]. Characteristics of the SDAH, SCLH, SDA and SCL I/O stages for Hs-mode I²C-bus devices
+*   [Table 12]. Characteristics of the SDAH, SCLH, SDA and SCL bus lines for Hs-mode I²C-bus devices * [1]
+*   [Table 13]. Characteristics of the USDA and USCL I/O stages
+*   [Table 14]. UFm I²C-bus frequency and timing specifications
+*   [Table 15]. Abbreviations
 
 //List of Figures
 =================
 
-[Figure 1]. Example of I²C-bus applications
-[Figure 2]. Example of an I²C-bus configuration using two microcontrollers
-[Figure 3]. Devices with various supply voltages sharing the same bus
-[Figure 4]. Bit transfer on the I²C-bus
-[Figure 5]. START and STOP conditions
-[Figure 6]. Data transfer on the I²C-bus
-[Figure 7]. Clock synchronization during the arbitration procedure
-[Figure 8]. Arbitration procedure of two masters
-[Figure 9]. A complete data transfer
-[Figure 10]. The first byte after the START procedure
-[Figure 11]. A master-transmitter addressing a slave receiver with a 7-bit address
-[Figure 12]. A master reads a slave immediately after the first byte
-[Figure 13]. Combined format
-[Figure 14]. A master-transmitter addresses a slave-receiver with a 10-bit address
-[Figure 15]. A master-receiver addresses a slave-transmitter with a 10-bit address
-[Figure 16]. General call address format
-[Figure 17]. Data transfer from a hardware master-transmitter
-[Figure 18]. Data transfer by a hardware-transmitter capable of dumping data directly to slave
-[Figure 19]. START byte procedure
-[Figure 20]. Device ID field
-[Figure 21]. Example of UFm I²C-bus configuration
-[Figure 22]. Simplified schematic of USCL, USDA outputs
-[Figure 23]. Bit transfer on the UFm I²C-bus
-[Figure 24]. Definition of START and STOP conditions for UFm I²C-bus
-[Figure 25]. Data transfer on the UFm I²C-bus
-[Figure 26]. A complete UFm data transfer
-[Figure 27]. The first byte after the START procedure
-[Figure 28]. A master-transmitter addressing a slave receiver with a 7-bit address
-[Figure 29]. A master-transmitter addresses a slave-receiver with a 10-bit address
-[Figure 30]. General call address format
-[Figure 31]. START byte procedure
-[Figure 32]. I²C-bus configuration with Hs-mode devices only
-[Figure 33]. Data transfer format in Hs-mode
-[Figure 34]. A complete Hs-mode transfer
-[Figure 35]. Hs-mode devices at F/S-mode speed
-[Figure 36]. Bus system with transfer at Hs-mode and F/S-mode speeds
-[Figure 37]. A complete Hs-mode transfer in a mixed-speed bus system
-[Figure 38]. Definition of timing for F/S-mode devices on the I²C-bus
-[Figure 39]. Definition of timing for Hs-mode devices on the I²C-bus
-[Figure 40]. Definition of timing for Ultra Fast-mode devices on the I²C-bus
-[Figure 41]. R p(max) as a function of bus capacitance 
-[Figure 42]. R p(min) as a function of VDD
-[Figure 43]. Using a buffer to divide bus capacitance
-[Figure 44]. Switched pull-up circuit
-[Figure 45]. Series resistors (R s ) for protection against high-voltage spikes
-[Figure 46]. Maximum value of R s as a function of the value of R p with supply voltage as a
-[Figure 47]. Total HIGH-level input current as a function of the maximum value of R p with
+*   [Figure 1]. Example of I²C-bus applications
+*   [Figure 2]. Example of an I²C-bus configuration using two microcontrollers
+*   [Figure 3]. Devices with various supply voltages sharing the same bus
+*   [Figure 4]. Bit transfer on the I²C-bus
+*   [Figure 5]. START and STOP conditions
+*   [Figure 6]. Data transfer on the I²C-bus
+*   [Figure 7]. Clock synchronization during the arbitration procedure
+*   [Figure 8]. Arbitration procedure of two masters
+*   [Figure 9]. A complete data transfer
+*   [Figure 10]. The first byte after the START procedure
+*   [Figure 11]. A master-transmitter addressing a slave receiver with a 7-bit address
+*   [Figure 12]. A master reads a slave immediately after the first byte
+*   [Figure 13]. Combined format
+*   [Figure 14]. A master-transmitter addresses a slave-receiver with a 10-bit address
+*   [Figure 15]. A master-receiver addresses a slave-transmitter with a 10-bit address
+*   [Figure 16]. General call address format
+*   [Figure 17]. Data transfer from a hardware master-transmitter
+*   [Figure 18]. Data transfer by a hardware-transmitter capable of dumping data directly to slave
+*   [Figure 19]. START byte procedure
+*   [Figure 20]. Device ID field
+*   [Figure 21]. Example of UFm I²C-bus configuration
+*   [Figure 22]. Simplified schematic of USCL, USDA outputs
+*   [Figure 23]. Bit transfer on the UFm I²C-bus
+*   [Figure 24]. Definition of START and STOP conditions for UFm I²C-bus
+*   [Figure 25]. Data transfer on the UFm I²C-bus
+*   [Figure 26]. A complete UFm data transfer
+*   [Figure 27]. The first byte after the START procedure
+*   [Figure 28]. A master-transmitter addressing a slave receiver with a 7-bit address
+*   [Figure 29]. A master-transmitter addresses a slave-receiver with a 10-bit address
+*   [Figure 30]. General call address format
+*   [Figure 31]. START byte procedure
+*   [Figure 32]. I²C-bus configuration with Hs-mode devices only
+*   [Figure 33]. Data transfer format in Hs-mode
+*   [Figure 34]. A complete Hs-mode transfer
+*   [Figure 35]. Hs-mode devices at F/S-mode speed
+*   [Figure 36]. Bus system with transfer at Hs-mode and F/S-mode speeds
+*   [Figure 37]. A complete Hs-mode transfer in a mixed-speed bus system
+*   [Figure 38]. Definition of timing for F/S-mode devices on the I²C-bus
+*   [Figure 39]. Definition of timing for Hs-mode devices on the I²C-bus
+*   [Figure 40]. Definition of timing for Ultra Fast-mode devices on the I²C-bus
+*   [Figure 41]. R p(max) as a function of bus capacitance 
+*   [Figure 42]. R p(min) as a function of VDD
+*   [Figure 43]. Using a buffer to divide bus capacitance
+*   [Figure 44]. Switched pull-up circuit
+*   [Figure 45]. Series resistors (R s ) for protection against high-voltage spikes
+*   [Figure 46]. Maximum value of R s as a function of the value of R p with supply voltage as a
+*   [Figure 47]. Total HIGH-level input current as a function of the maximum value of R p with
 
 
 <!-- **Section 1** -->
@@ -390,6 +392,7 @@ modified or upgraded simply by ‘clipping’ or ‘unclipping’ ICs to or from
 生成基本图元后，再手工使用 Unicode 制表符号（Box Darawing）拼接、修正。图中的上拉
 电阻（pull-up resistor）也使用制表符号表现。
 使用 [RunSnippet](../readme.md) 插件中的 UnicodeSymbols 可以方便录入这些功能符号。
+建议配合 [Fira Code](https://github.com/tonsky/FiraCode) 字体使用，其它字体可能无法正确显示。
 
 ```sh
 ╔ ╦ ═ ╗      ┌ ─ ┬ ┐     ┌ ─ ┬ ┐     ╓─╥─╖     ╒═╤═╕
@@ -935,7 +938,7 @@ with the shortest clock HIGH period.
      1      ﹈﹈﹈﹈﹈﹈                    |           ﹈﹈﹈﹈﹈﹈﹈
               counter                      |
     ﹈﹈﹈╲﹈ ╲ reset                      ╱﹈﹈﹈﹈﹈╲﹈ ﹈ ╲
-    CLK    ╲⬃ ╲                          ╱ |          ╲     ╲
+    CLK    ╲⬃ ╲                          ╱|          ╲     ╲
      2      ﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈  |           ﹈﹈﹈﹈﹈﹈﹈
                                            |               
     ﹈﹈╲                                  ╱﹈﹈﹈﹈﹈╲     
@@ -1040,26 +1043,29 @@ Clock stretching pauses a transaction by holding the SCL line LOW. The transacti
 cannot continue until the line is released HIGH again. Clock stretching is optional and in
 fact, most slave devices do not include an SCL driver so they are unable to stretch the
 clock.
+
 On the byte level, a device may be able to receive bytes of data at a fast rate, but needs
 more time to store a received byte or prepare another byte to be transmitted. Slaves can
 then hold the SCL line LOW after reception and acknowledgment of a byte to force the
 master into a wait state until the slave is ready for the next byte transfer in a type of
 handshake procedure (see [Figure 7]).
+
 On the bit level, a device such as a microcontroller with or without limited hardware for the
 I²C-bus, can slow down the bus clock by extending each clock LOW period. The speed of
 any master is adapted to the internal operating rate of this device.
+
 In Hs-mode, this handshake feature can only be used on byte level (see [Section 5.3.2]).
 
 <!-- **Section 3.1.10** -->
 [Section 3.1.10]: #Section%203.1.10
 <a id="Section 3.1.10"></a>
 
-//3.1.10 The slave address and R/W bit
+//3.1.10 The slave address and R/W̅̅ bit
 --------------------------------------
 
 Data transfers follow the format shown in [Figure 9]. After the START condition (S), a slave
 address is sent. This address is seven bits long followed by an eighth bit which is a data
-direction bit (R/W) — a ‘zero’ indicates a transmission (WRITE), a ‘one’ indicates a
+direction bit (R/W̅̅) — a ‘zero’ indicates a transmission (WRITE), a ‘one’ indicates a
 request for data (READ) (refer to [Figure 10]). A data transfer is always terminated by a
 STOP condition (P) generated by the master. However, if a master still wishes to
 communicate on the bus, it can generate a repeated START condition (Sr) and address
@@ -1067,74 +1073,87 @@ another slave without first generating a STOP condition. Various combinations of
 read/write formats are then possible within such a transfer.
 
 
-
 [Figure 9]: #Figure-9
 <a id="Figure-9"></a>
 
 **Figure 9**. A complete data transfer
-S
-1 - 7 8 9 1 - 7 8 9 1 - 7 8 9
-P
-STOP
-condition
-START
-condition
-DATA ACK DATA ACK ADDRESS ACK R/W
-SDA
-SCL
-mbc604
+
+    ____|_  |   __ _ _ _  _____           ____________  ____         ___ _ _ ___  _____  ____     |  _|_____
+    SDA | \ |  /        \/     \         / \          \/    \       / \         \/     \/    \    | / |
+        |  \|_/_ _ _ _ _/\______\_______/   \__ _ _ __/\____/\_____/   \_ _ ____/\_____/\____/\___|/  |
+        |   |                                                                                     |   |
+    ____|___|     _ _ _     _       _         _____      _      _        _____      _      _      |___|_____
+    SCL |   |\   /     \   / \     / \       /     \    / \    / \      /     \    / \    / \    /|   |
+        | S | \_/ 1 - 7 \_/ 8 \___/ 9 \_____/ 1 - 7 \__/ 8 \__/ 9 \____/ 1 - 7 \__/ 8 \__/ 9 \__/ | P |
+        |   |  └────────┘└─────┘ └─────┘  └─────────────────┘└─────┘ └─────────────────┘└─────┘   |   |
+        START    ADDRESS    R/W̅̅    ACK          DATA           ACK          DATA          ACK     |   |
+      condiion
+                                                                <!-- mbc604 -->
 
 [Figure 10]: #Figure-10
 <a id="Figure-10"></a>
 
 **Figure 10**. The first byte after the START procedure
-mbc608
-R/W
-LSB MSB
-slave address
 
+                     MSB                         LSB
+                    ┌───┬───┬───┬───┬───┬───┬───┬───┐
+                    │                            R/W̅̅│
+                    └───┴───┴───┴───┴───┴───┴───┴───┘
+                    └──────── slave address ────────┘
+
+                                                                 <!-- mbc608 -->
 <!-- *P14* of 64 -->
 [P14]: #P14
 <a id="P14"></a>
 
 
 Possible data transfer formats are:
-• Master-transmitter transmits to slave-receiver. The transfer direction is not changed
-(see [Figure 11]). The slave receiver acknowledges each byte.
-• Master reads slave immediately after first byte (see [Figure 12]). At the moment of the
-first acknowledge, the master-transmitter becomes a master-receiver and the
-slave-receiver becomes a slave-transmitter. This first acknowledge is still generated
-by the slave. The master generates subsequent acknowledges. The STOP condition
-is generated by the master, which sends a not-acknowledge (A) just before the STOP
-condition.
-• Combined format (see [Figure 13]). During a change of direction within a transfer, the
-START condition and the slave address are both repeated, but with the R/W bit
-reversed. If a master-receiver sends a repeated START condition, it sends a
-not-acknowledge (A) just before the repeated START condition.
-Notes:
-1. Combined formats can be used, for example, to control a serial memory. The internal
-memory location must be written during the first data byte. After the START condition
-and slave address is repeated, data can be transferred.
-2. All decisions on auto-increment or decrement of previously accessed memory
-locations, etc., are taken by the designer of the device.
-3. Each byte is followed by an acknowledgment bit as indicated by the A or A blocks in
-the sequence.
-4. I²C-bus compatible devices must reset their bus logic on receipt of a START or
-repeated START condition such that they all anticipate the sending of a slave
-address, even if these START conditions are not positioned according to the proper
-format.
-5. A START condition immediately followed by a STOP condition (void message) is an
-illegal format. Many devices however are designed to operate properly under this
-condition.
-6. Each device connected to the bus is addressable by a unique address. Normally a
-simple master/slave relationship exists, but it is possible to have multiple identical
-slaves that can receive and respond simultaneously, for example in a group
-broadcast. This technique works best when using bus switching devices like the
-PCA9546A where all four channels are on and identical devices are configured at the
-same time, understanding that it is impossible to determine that each slave
-acknowledges, and then turn on one channel at a time to read back each individual
-device’s configuration to confirm the programming. Refer to individual component
-data sheets.
+
+*   Master-transmitter transmits to slave-receiver. The transfer direction is not changed
+    (see [Figure 11]). The slave receiver acknowledges each byte.
+
+*   Master reads slave immediately after first byte (see [Figure 12]). At the moment of the
+    first acknowledge, the master-transmitter becomes a master-receiver and the
+    slave-receiver becomes a slave-transmitter. This first acknowledge is still generated
+    by the slave. The master generates subsequent acknowledges. The STOP condition
+    is generated by the master, which sends a not-acknowledge (A) just before the STOP
+    condition.
+
+*   Combined format (see [Figure 13]). During a change of direction within a transfer, the
+    START condition and the slave address are both repeated, but with the R/W̅̅ bit
+    reversed. If a master-receiver sends a repeated START condition, it sends a
+    not-acknowledge (A) just before the repeated START condition.
+
+> [!Notes]:
+>   
+>   1. Combined formats can be used, for example, to control a serial memory. The internal
+>   memory location must be written during the first data byte. After the START condition
+>   and slave address is repeated, data can be transferred.
+>   
+>   2. All decisions on auto-increment or decrement of previously accessed memory
+>   locations, etc., are taken by the designer of the device.
+>   
+>   3. Each byte is followed by an acknowledgment bit as indicated by the A or A blocks in
+>   the sequence.
+>   
+>   4. I²C-bus compatible devices must reset their bus logic on receipt of a START or
+>   repeated START condition such that they all anticipate the sending of a slave
+>   address, even if these START conditions are not positioned according to the proper
+>   format.
+>   
+>   5. A START condition immediately followed by a STOP condition (void message) is an
+>   illegal format. Many devices however are designed to operate properly under this
+>   condition.
+>   
+>   6. Each device connected to the bus is addressable by a unique address. Normally a
+>   simple master/slave relationship exists, but it is possible to have multiple identical
+>   slaves that can receive and respond simultaneously, for example in a group
+>   broadcast. This technique works best when using bus switching devices like the
+>   PCA9546A where all four channels are on and identical devices are configured at the
+>   same time, understanding that it is impossible to determine that each slave
+>   acknowledges, and then turn on one channel at a time to read back each individual
+>   device’s configuration to confirm the programming. Refer to individual component
+>   data sheets.
 
 <!-- *P15* of 64 -->
 [P15]: #P15
@@ -1154,11 +1173,14 @@ data sheets.
 10-bit addresses can be connected to the same I²C-bus, and both 7-bit and 10-bit
 addressing can be used in all bus speed modes. Currently, 10-bit addressing is not being
 widely used.
+
 The 10-bit slave address is formed from the first two bytes following a START condition
 (S) or a repeated START condition (Sr).
+
 The first seven bits of the first byte are the combination 1111 0XX of which the last two bits
 (XX) are the two Most-Significant Bits (MSB) of the 10-bit address; the eighth bit of the
-first byte is the R/W bit that determines the direction of the message.
+first byte is the R/W̅̅ bit that determines the direction of the message.
+
 Although there are eight possible combinations of the reserved address bits 1111 XXX,
 only the four combinations 1111 0XX are used for 10-bit addressing. The remaining four
 combinations 1111 1XX are reserved for future I²C-bus enhancements.
@@ -1169,56 +1191,47 @@ combinations 1111 1XX are reserved for future I²C-bus enhancements.
 **Figure 11**. A master-transmitter addressing a slave receiver with a 7-bit address
 (the transfer direction is not changed)
 
+    ┌───┬───────────────┬─────┬───┬──────┬───┬──────┬─────┬───┐
+    │░S │░SLAVE ADDRESS │░R/W̅̅ │▓A │░DATA │▓A │░DATA │▓A/A̅̅ │░P │
+    └───┴───────────────┴──┬──┴───┴──────┴───┴──────┴─────┴───┘
+                           │      └──── data  transferred ────┘
+                        0(write)      (n bytes + acknowledge)
+    
+    ░  from master to slave       A = acknowledge (SDA LOW)   
+    ▓  from slave to master       A̅̅ = not acknowledge (SDA HIGH)
+                                  S = START condition
+                                  P = STOP condition
+                                                                <!-- mbc605 -->
+
 [Figure 12]: #Figure-12
 <a id="Figure-12"></a>
 
 **Figure 12**. A master reads a slave immediately after the first byte
 
+    ┌───┬───────────────┬─────┬───┬──────┬───┬──────┬─────┬───┐
+    │░S │░SLAVE ADDRESS │░R/W̅̅ │▓A │▓DATA │▓A │░DATA │▓ A̅̅  │░P │
+    └───┴───────────────┴──┬──┴───┴──────┴───┴──────┴─────┴───┘
+                           │      └──── data  transferred ────┘
+                        1(read)      (n bytes + acknowledge)
+                                                                <!-- mbc606 -->
+
+
 [Figure 13]: #Figure-13
 <a id="Figure-13"></a>
 
 **Figure 13**. Combined format
-mbc605
-A/A
-A
-'0' (write)
-data transferred
-(n bytes + acknowledge)
-A = acknowledge (SDA LOW)
-A = not acknowledge (SDA HIGH)
-S = START condition
-P = STOP condition
-R/W
-from master to slave
-from slave to master
-DATA DATA A SLAVE ADDRESS S P
-mbc606
-A
-(read)
-data transferred
-(n bytes + acknowledge)
-R/W A
-1
-P DATA DATA SLAVE ADDRESS S A
-mbc607
-DATA A R/W
-read or write
-A/A DATA A R/W
-(n bytes
-+ ack.) *
-direction of transfer
-may change at this
-point.
-read or write
-(n bytes
-+ ack.) *
-Sr = repeated START condition
-A/A
-* not shaded because
-transfer direction of
-data and acknowledge bits
-depends on R/W bits.
-SLAVE ADDRESS S Sr P SLAVE ADDRESS
+
+    ┌───┬───────────────┬─────┬───┬──────┬─────┬────┬───────────────┬─────┬───┬──────┬─────┬───┐
+    │░S │░SLAVE ADDRESS │░R/W̅̅ │▓A │▓DATA │▓A/A̅̅ │░Sr │░SLAVE ADDRESS │░R/W̅̅ │▓A │▓DATA │▓A/A̅̅ │░P │
+    └───┴───────────────┴──┬──┴───┴──────┴─────┴────┴───────────────┴─────┴───┴──────┴─────┴───┘
+                           │      └─ n bytes ──┘ │                         |  └─ n bytes ──┘
+                     read or write   +ack        │                         |     +ack
+                                                 │                       direction of transfer
+                                    Sr = repeated START condition        may change at this point.           
+
+        *not shaded because transfer direction
+        of data and acknowledge bits depends on R/W̅̅ bits.
+                                                                <!-- mbc607 -->
 
 <!-- *P16* of 64 -->
 [P16]: #P16
@@ -1227,31 +1240,33 @@ SLAVE ADDRESS S Sr P SLAVE ADDRESS
 
 All combinations of read/write formats previously described for 7-bit addressing are
 possible with 10-bit addressing. Two are detailed here:
-• Master-transmitter transmits to slave-receiver with a 10-bit slave address.
-The transfer direction is not changed (see [Figure 14]). When a 10-bit address follows
-a START condition, each slave compares the first seven bits of the first byte of the
-slave address (1111 0XX) with its own address and tests if the eighth bit (R/W
-direction bit) is 0. It is possible that more than one device finds a match and generate
-an acknowledge (A1). All slaves that found a match compare the eight bits of the
-second byte of the slave address (XXXX XXXX) with their own addresses, but only
-one slave finds a match and generates an acknowledge (A2). The matching slave
-remains addressed by the master until it receives a STOP condition (P) or a repeated
-START condition (Sr) followed by a different slave address.
-• Master-receiver reads slave-transmitter with a 10-bit slave address.
-The transfer direction is changed after the second R/W bit ([Figure 15]). Up to and
-including acknowledge bit A2, the procedure is the same as that described for a
-master-transmitter addressing a slave-receiver. After the repeated START condition
-(Sr), a matching slave remembers that it was addressed before. This slave then
-checks if the first seven bits of the first byte of the slave address following Sr are the
-same as they were after the START condition (S), and tests if the eighth (R/W) bit is 1.
-If there is a match, the slave considers that it has been addressed as a transmitter
-and generates acknowledge A3. The slave-transmitter remains addressed until it
-receives a STOP condition (P) or until it receives another repeated START condition
-(Sr) followed by a different slave address. After a repeated START condition (Sr), all
-the other slave devices will also compare the first seven bits of the first byte of the
-slave address (1111 0XX) with their own addresses and test the eighth (R/W) bit.
-However, none of them will be addressed because R/W = 1 (for 10-bit devices), or the
-1111 0XX slave address (for 7-bit devices) does not match.
+
+* • Master-transmitter transmits to slave-receiver with a 10-bit slave address.
+    The transfer direction is not changed (see [Figure 14]). When a 10-bit address follows
+    a START condition, each slave compares the first seven bits of the first byte of the
+    slave address (1111 0XX) with its own address and tests if the eighth bit (R/W̅̅
+    direction bit) is 0. It is possible that more than one device finds a match and generate
+    an acknowledge (A1). All slaves that found a match compare the eight bits of the
+    second byte of the slave address (XXXX XXXX) with their own addresses, but only
+    one slave finds a match and generates an acknowledge (A2). The matching slave
+    remains addressed by the master until it receives a STOP condition (P) or a repeated
+    START condition (Sr) followed by a different slave address.
+
+* • Master-receiver reads slave-transmitter with a 10-bit slave address.
+    The transfer direction is changed after the second R/W̅̅ bit ([Figure 15]). Up to and
+    including acknowledge bit A2, the procedure is the same as that described for a
+    master-transmitter addressing a slave-receiver. After the repeated START condition
+    (Sr), a matching slave remembers that it was addressed before. This slave then
+    checks if the first seven bits of the first byte of the slave address following Sr are the
+    same as they were after the START condition (S), and tests if the eighth (R/W̅̅) bit is 1.
+    If there is a match, the slave considers that it has been addressed as a transmitter
+    and generates acknowledge A3. The slave-transmitter remains addressed until it
+    receives a STOP condition (P) or until it receives another repeated START condition
+    (Sr) followed by a different slave address. After a repeated START condition (Sr), all
+    the other slave devices will also compare the first seven bits of the first byte of the
+    slave address (1111 0XX) with their own addresses and test the eighth (R/W̅̅) bit.
+    However, none of them will be addressed because R/W̅̅ = 1 (for 10-bit devices), or the
+    1111 0XX slave address (for 7-bit devices) does not match.
 
 
 Slave devices with 10-bit addressing react to a ‘general call’ in the same way as slave
@@ -1265,35 +1280,27 @@ address.
 <a id="Figure-14"></a>
 
 **Figure 14**. A master-transmitter addresses a slave-receiver with a 10-bit address
-mbc613
-R/W A1
-(write)
-A2 A A/A
-1 1 1 1 0 X X 0
-SLAVE ADDRESS
-1st 7 BITS
-S DATA P DATA
-SLAVE ADDRESS
-2nd BYTE
+
+         1 1 1 1 0 X X    0 
+    ┌───┬───────────────┬─────┬───┬───────────────┬─────┬───┬─────┬───┬ ─ ─ ┬─────┬─────┬───┐
+    │░S │░SLAVE ADDRESS │░R/W̅̅ │▓A1│░SLAVE ADDRESS │░R/W̅̅ │▓A2│░DATA│▓A │     │░DATA│▓A/A̅̅ │░P │
+    └───┴───────────────┴──┬──┴───┴───────────────┴─────┴───┴─────┴───┴ ─ ─ ┴─────┴─────┴───┘
+        └─the 1st 7bits─┘  │      └─the 2nd byte ─┘ 
+                         write 
+                                                                <!-- mbc613 -->
 
 [Figure 15]: #Figure-15
 <a id="Figure-15"></a>
 
 **Figure 15**. A master-receiver addresses a slave-transmitter with a 10-bit address
-mbc614
-R/W A1
-(write)
-A3 DATA DATA A2 R/W
-(read)
-1 1 1 1 0 X X 0 1 1 1 1 0 X X 1
-A A P Sr
-SLAVE ADDRESS
-1st 7 BITS
-SLAVE ADDRESS
-2nd BYTE
-SLAVE ADDRESS
-1st 7 BITS
-S
+
+         1 1 1 1 0 X X    0                                  1 1 1 1 0 X X    1
+    ┌───┬───────────────┬─────┬───┬───────────────┬────┬────┬───────────────┬─────┬────┬─────┬───┬ ─ ─ ┬─────┬───┬───┐
+    │░S │░SLAVE ADDRESS │░R/W̅̅ │▓A1│░SLAVE ADDRESS │▓A2 │░Sr │░SLAVE ADDRESS │░R/W̅̅ │▓A3 │▓DATA│░A │     │▓DATA│░A̅̅ │░P │
+    └───┴───────────────┴──┬──┴───┴───────────────┴────┴────┴───────────────┴──┬──┴────┴─────┴───┴ ─ ─ ┴─────┴───┴───┘
+        └─the 1st 7bits─┘  │      └─the 2nd byte ─┘         └─the 1st 7bits─┘  │  
+                         write                                               read 
+                                                                <!-- mbc614 -->
 
 <!-- *P17* of 64 -->
 [P17]: #P17
@@ -1311,16 +1318,37 @@ for 7-bit addressing (see [Section 3.1.15]).
 ---------------------------
 
 Two groups of eight addresses (0000 XXX and 1111 XXX) are reserved for the purposes
-shown in Table 3.
+shown in [Table 3].
+
+[Table 3]: #Table-3
+<a id="Table-3"></a>
+**Table 3**. Reserved addresses
+
+X = don’t care; 1 = HIGH; 0 = LOW.
+
+| Slave address | R/W̅̅ bit |              Description              |
+|---------------|-----------|---------------------------------------|
+| 0000 000      | 0         | general call address [1]              |
+| 0000 000      | 1         | START byte [2]                        |
+| 0000 001      | X         | CBUS address [3]                      |
+| 0000 010      | X         | reserved for different bus format [4] |
+| 0000 011      | X         | reserved for future purposes          |
+| 0000 1XX      | X         | Hs-mode master code                   |
+| 1111 1XX      | 1         | device ID                             |
+| 1111 0XX      | X         | 10-bit slave addressing               |
 
 [1] The general call address is used for several functions including software reset.
+
 [2] No device is allowed to acknowledge at the reception of the START byte.
+
 [3] The CBUS address has been reserved to enable the inter-mixing of CBUS compatible and I²C-bus
-compatible devices in the same system. I²C-bus compatible devices are not allowed to respond on
-reception of this address.
+    compatible devices in the same system. I²C-bus compatible devices are not allowed to respond on
+    reception of this address.
+
 [4] The address reserved for a different bus format is included to enable I²C and other protocols to be mixed.
-Only I²C-bus compatible devices that can work with such formats and protocols are allowed to respond to
-this address.
+    Only I²C-bus compatible devices that can work with such formats and protocols are allowed to respond to
+    this address.
+
 Assignment of addresses within a local system is up to the system architect who must
 take into account the devices being used on the bus and any future interaction with other
 conventional I²C-buses. For example, a device with seven user-assignable address pins
@@ -1345,21 +1373,6 @@ every slave-receiver capable of handling this data. A slave who cannot process o
 these bytes must ignore it by not-acknowledging. Again, if one or more slaves
 acknowledge, the not-acknowledge will not be seen by the master. The meaning of the
 general call address is always specified in the second byte (see [Figure 16]).
-
-[Table 3]: #Table-3
-<a id="Table-3"></a>
-
-**Table 3**. Reserved addresses
-X = don’t care; 1 = HIGH; 0 = LOW.
-Slave address R/W bit Description
-0000 000 0 general call address [1]
-0000 000 1 START byte [2]
-0000 001 X CBUS address [3]
-0000 010 X reserved for different bus format [4]
-0000 011 X reserved for future purposes
-0000 1XX X Hs-mode master code
-1111 1XX 1 device ID
-1111 0XX X 10-bit slave addressing
 
 <!-- *P18* of 64 -->
 [P18]: #P18
@@ -1480,9 +1493,9 @@ b. Hardware master dumps data to selected slave
 devices
 002aac885
 write
-A A R/W S P SLAVE ADDR. H/W MASTER DUMP ADDR. FOR H/W MASTER X
+A A R/W̅̅ S P SLAVE ADDR. H/W MASTER DUMP ADDR. FOR H/W MASTER X
 002aac886
-R/W
+R/W̅̅
 write
 A A
 (n bytes + ack.)
@@ -1558,7 +1571,7 @@ SCL
 
 The Device ID is read-only, hard-wired in the device and can be accessed as follows:
 1. START condition
-2. The master sends the Reserved Device ID I²C-bus address followed by the R/W bit
+2. The master sends the Reserved Device ID I²C-bus address followed by the R/W̅̅ bit
 set to ‘0’ (write): ‘1111 1000’.
 3. The master sends the I²C-bus slave address of the slave device it must identify. The
 LSB is a ‘Don’t care’ value. Only one device must acknowledge this byte (the one that
@@ -1568,7 +1581,7 @@ Remark: A STOP condition followed by a START condition resets the slave state
 machine and the Device ID Read cannot be performed. Also, a STOP condition or a
 Re-START condition followed by an access to another slave device resets the slave
 state machine and the Device ID Read cannot be performed.
-5. The master sends the Reserved Device ID I²C-bus address followed by the R/W bit
+5. The master sends the Reserved Device ID I²C-bus address followed by the R/W̅̅ bit
 set to ‘1’ (read): ‘1111 1001’.
 6. The Device ID Read can be done, starting with the 12 manufacturer bits (first byte +
 four MSBs of the second byte), followed by the nine part identification bits (four LSBs
@@ -1708,28 +1721,30 @@ Bus clock signals from a master cannot be altered by a slave device with clock s
 and the process of arbitration and clock synchronization does not exist within the UFm
 I²C-bus.
 
+[Table 6] summarizes the use of mandatory and optional portions of the UFm I²C-bus
+specification.
+
 [Table 6]: #Table-6
 <a id="Table-6"></a>
 
-**Table 6** summarizes the use of mandatory and optional portions of the UFm I²C-bus
-specification.
- Table 6.
-Applicability of I²C-bus features to UFm
+**Table 6**. Applicability of I²C-bus features to UFm
+
 M = mandatory; O = optional; n/p = not possible
-Feature Configuration
-Single master
-START condition M
-STOP condition M
-Acknowledge n/p
-Synchronization n/p
-Arbitration n/p
-Clock stretching n/p
-7-bit slave address M
-10-bit slave address O
-General Call address O
-Software Reset O
-START byte O
-Device ID n/p
+
+|       Feature        | Configuration (Single master) |
+|----------------------|-------------------------------|
+| START condition      | M                             |
+| STOP condition       | M                             |
+| Acknowledge          | n/p                           |
+| Synchronization      | n/p                           |
+| Arbitration          | n/p                           |
+| Clock stretching     | n/p                           |
+| 7-bit slave address  | M                             |
+| 10-bit slave address | O                             |
+| General Call address | O                             |
+| Software Reset       | O                             |
+| START byte           | O                             |
+| Device ID            | n/p                           |
 
 <!-- *P25* of 64 -->
 [P25]: #P25
@@ -1906,7 +1921,7 @@ always driven HIGH (‘1’). Slave devices are not allowed to drive the SDA lin
 [Section 3.2.7]: #Section%203.2.7
 <a id="Section 3.2.7"></a>
 
-//3.2.7 The slave address and R/W bit
+//3.2.7 The slave address and R/W̅̅ bit
 -------------------------------------
 
 Data transfers follow the format shown in [Figure 26]. After the START condition (S), a
@@ -1953,7 +1968,7 @@ slave address
 [P28]: #P28
 <a id="P28"></a>
 
-Notes:
+> [!Notes]:
 1. Individual transaction or repeated START formats addressing multiple slaves in one
 transaction can be used. After the START condition and slave address is repeated,
 data can be transferred.
@@ -1988,7 +2003,7 @@ addressing can be used in all bus speed modes.
 The 10-bit slave address is formed from the first two bytes following a START condition
 (S) or a repeated START condition (Sr). The first seven bits of the first byte are the
 combination 1111 0XX of which the last two bits (XX) are the two Most Significant Bits
-(MSBs) of the 10-bit address; the eighth bit of the first byte is the R/W bit that determines
+(MSBs) of the 10-bit address; the eighth bit of the first byte is the R/W̅̅ bit that determines
 the direction of the message.
 Although there are eight possible combinations of the reserved address bits 1111 XXX,
 only the four combinations 1111 0XX are used for 10-bit addressing. The remaining four
@@ -2020,7 +2035,7 @@ addressing. Detailed here:
 • Master-transmitter transmits to slave-receiver with a 10-bit slave address. The
 transfer direction is not changed (see [Figure 29]). When a 10-bit address follows a
 START condition, each slave compares the first seven bits of the first byte of the slave
-address (1111 0XX) with its own address and tests if the eighth bit (R/W direction bit)
+address (1111 0XX) with its own address and tests if the eighth bit (R/W̅̅ direction bit)
 is 0 (W). All slaves that found a match compare the eight bits of the second byte of the
 slave address (XXXX XXXX) with their own addresses, but only one slave finds a
 match. The matching slave remains addressed by the master until it receives a STOP
@@ -2039,7 +2054,7 @@ for 7-bit addressing (see [Section 3.2.12]).
 
 The UFm I²C-bus has a different physical layer than the other I²C-bus modes. Therefore
 the available slave address range is different. Two groups of eight addresses (0000 XXX
-and 1111 XXX) are reserved for the purposes shown in Table 7.
+and 1111 XXX) are reserved for the purposes shown in [Table 7].
 
 [1] The general call address is used for several functions including software reset.
 [2] No UFm device is allowed to acknowledge at the reception of the START byte.
@@ -2070,7 +2085,7 @@ SLAVE ADDRESS
 
 **Table 7**. Reserved addresses
 X = don’t care; 1 = HIGH; 0 = LOW.
-Slave address R/W bit Description
+Slave address R/W̅̅ bit Description
 0000 000 0 general call address [1]
 0000 000 1 START byte [2]
 0000 001 X reserved for future purposes
@@ -2699,7 +2714,7 @@ enables its current-source pull-up circuit when all devices have released the SC
 and the SCLH signal has reached a HIGH level, thus speeding up the last part of the rise
 time of the SCLH signal.
 The active master then sends a repeated START condition (Sr) followed by a 7-bit slave
-address (or 10-bit slave address, see [Section 3.1.11]) with a R/W bit address, and
+address (or 10-bit slave address, see [Section 3.1.11]) with a R/W̅̅ bit address, and
 receives an acknowledge bit (A) from the selected slave.
 After a repeated START condition and after each acknowledge bit (A) or not-acknowledge
 bit (A), the active master disables its current-source pull-up circuit. This enables other
@@ -2721,7 +2736,7 @@ F/S-mode Hs-mode (current-source for SCLH enabled) F/S-mode
 msc616
 A A A/A DATA
 (n bytes + ack.)
-S R/W MASTER CODE Sr SLAVE ADD.
+S R/W̅̅ MASTER CODE Sr SLAVE ADD.
 Hs-mode continues
 Sr SLAVE ADD.
 P
@@ -2783,7 +2798,7 @@ t H
 t FS
 Sr Sr P
 n + (8-bit data + A/A)
-7-bit SLA R/W A
+7-bit SLA R/W̅̅ A
 = Master current source pull-up
 = Resistor pull-up
 
@@ -3115,7 +3130,7 @@ t FS
 Sr Sr P
 P
 n × (8-bit DATA + A/A)
-7-bit SLA R/W A
+7-bit SLA R/W̅̅ A
 = MCS current source pull-up
 = Rp resistor pull-up
 
@@ -3154,8 +3169,8 @@ devices are not compatible with bidirectional I²C-bus devices.
 --------------------------------------------------
 
 The I/O levels, I/O current, spike suppression, output slope control and pin capacitance
-are given in Table 9. The I²C-bus timing characteristics, bus-line capacitance and noise
-margin are given in Table 10. [Figure 38] shows the timing definitions for the I²C-bus.
+are given in [Table 9]. The I²C-bus timing characteristics, bus-line capacitance and noise
+margin are given in [Table 10]. [Figure 38] shows the timing definitions for the I²C-bus.
 The minimum HIGH and LOW periods of the SCL clock specified in [Table 10] determine
 the maximum bit transfer rates of 100 kbit/s for Standard-mode devices, 400 kbit/s for
 Fast-mode devices, and 1000 kbit/s for Fast-mode Plus. Devices must be able to follow
@@ -3319,14 +3334,14 @@ for coping with higher bus capacitances.
 ---------------------
 
 The I/O levels, I/O current, spike suppression, output slope control and pin capacitance for
-I²C-bus Hs-mode devices are given in Table 11. The noise margin for HIGH and LOW
+I²C-bus Hs-mode devices are given in [Table 11]. The noise margin for HIGH and LOW
 levels on the bus lines are the same as specified for F/S-mode I²C-bus devices.
 [Figure 39] shows all timing parameters for the Hs-mode timing. The ‘normal’ START
-condition S does not exist in Hs-mode. Timing parameters for Address bits, R/W bit,
+condition S does not exist in Hs-mode. Timing parameters for Address bits, R/W̅̅ bit,
 Acknowledge bit and DATA bits are all the same. Only the rising edge of the first SCLH
 clock signal after an acknowledge bit has a larger value because the external R p has to
 pull up SCLH without the help of the internal current-source.
-The Hs-mode timing parameters for the bus lines are specified in Table 12. The minimum
+The Hs-mode timing parameters for the bus lines are specified in [Table 12]. The minimum
 HIGH and LOW periods and the maximum rise and fall times of the SCLH clock signal
 determine the highest bit rate.
 With an internally generated SCLH signal with LOW and HIGH level periods of 200 ns and
@@ -3514,7 +3529,7 @@ V nH noise margin at the HIGH level for each connected device
 -----------------------------
 
 The I/O levels, I/O current, spike suppression, output slope control and pin capacitance
-are given in Table 13. The UFm I²C-bus timing characteristics are given in Table 14.
+are given in [Table 13]. The UFm I²C-bus timing characteristics are given in [Table 14].
 [Figure 40] shows the timing definitions for the I²C-bus. The minimum HIGH and LOW
 periods of the SCL clock specified in [Table 14] determine the maximum bit transfer rates of
 5000 kbit/s for Ultra Fast-mode. Devices must be able to follow transfers at their own
@@ -4256,7 +4271,7 @@ between the translated and English versions.
 *   3.1.7 Clock synchronization  . . . . . . . . . . . . . . . . . . . . . . [P11]
 *   3.1.8 Arbitration  . . . . . . . . . . . . . . . . . . . . . . . . . . . [P11]
 *   3.1.9 Clock stretching . . . . . . . . . . . . . . . . . . . . . . . . . [P13]
-*   3.1.10 The slave address and R/W bit . . . . . . . . . . . . . . . . . . [P13]
+*   3.1.10 The slave address and R/W̅̅ bit . . . . . . . . . . . . . . . . . . [P13]
 *   3.1.11 10-bit addressing . . . . . . . . . . . . . . . . . . . . . . . . [P15]
 *   3.1.12 Reserved addresses  . . . . . . . . . . . . . . . . . . . . . . . [P17]
 *   3.1.13 General call address  . . . . . . . . . . . . . . . . . . . . . . [P17]
@@ -4271,7 +4286,7 @@ between the translated and English versions.
 *   3.2.4 START and STOP conditions  . . . . . . . . . . . . . . . . . . . . [P25]
 *   3.2.5 Byte format  . . . . . . . . . . . . . . . . . . . . . . . . . . . [P26]
 *   3.2.6 Acknowledge (ACK) and Not Acknowledge (NACK) . . . . . . . . . . . [P27]
-*   3.2.7 The slave address and R/W bit  . . . . . . . . . . . . . . . . . . [P27]
+*   3.2.7 The slave address and R/W̅̅ bit  . . . . . . . . . . . . . . . . . . [P27]
 *   3.2.8 10-bit addressing  . . . . . . . . . . . . . . . . . . . . . . . . [P28]
 *   3.2.9 Reserved addresses in UFm  . . . . . . . . . . . . . . . . . . . . [P29]
 *   3.2.10 General call address  . . . . . . . . . . . . . . . . . . . . . . [P30]
