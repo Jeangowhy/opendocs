@@ -691,14 +691,18 @@ if there are no devices on the bus which would stretch the clock.
 [Table 3A]: #Table-3A
 <a id="Table-3A"></a>
 
-**Table 3A**. Working mode and speed.
+**Table 3A**. Working mode and speed. include 2021 Rev 7.0 Ultra Fast-mode(UFm).
 
-|       Mode      |   Speed    |
-|-----------------|------------|
-| Standard-mode   | 100 kbit/s |
-| Fast-mode       | 400 kbit/s |
-| Fast-mode plus  | 1 Mbit/s   |
-| High-speed mode | 3.4 Mbit/s |
+|             Mode            |    Speed    |
+|-----------------------------|-------------|
+| • Bidirectional bus:        |             |
+| – Standard-mode (Sm)        | 100 kbit/s  |
+| – Fast-mode (Fm)            | 400 kbit/s  |
+| – Fast-mode Plus (Fm+)      | 1 Mbit/s    |
+| – High-speed mode (Hs-mode) | 3.4 Mbit/s. |
+| • Unidirectional bus:       |             |
+| – Ultra Fast-mode (UFm)     | 5 Mbit/s    |
+
 
 [Figure 3]: #Figure-3
 <a id="Figure-3"></a>
@@ -877,8 +881,8 @@ that lead to the generation of a NACK:
          |    |                                                                                         |     |
     ﹈﹈﹈﹈﹈﹈╲    ╱﹈╲  ╱﹈╲            ╱﹈╲  ╱﹈╲  ╱﹈╲          ╱﹈╲  ╱﹈╲  ╱ ﹈﹈╲    ╱﹈╲        ╱﹈﹈﹈﹈﹈﹈﹈
     SCL  |    | ╲  ╱ 1  ╲╱ 2  ╲         ╱  7 ╲╱ 8  ╲╱ 9  ╲        ╱ 1  ╲╱ 2  ╲╱ ...  ╲  ╱ 9  ╲      ╱   |     |
-         S or Sr ﹈     ﹈     ﹈ ﹈ ﹈﹈     ﹈    ﹈ ACK ﹈﹈﹈﹈﹈     ﹈    ﹈       ﹈ ACK   ﹈﹈﹈﹈ Sr or P
-         START or                   byte complete,᎗᎗᎗᎗᎗⮥    ⮤᎗᎗᎗᎗᎗᎗᎗ clock line held LOW                STOP or
+         S or Sr ﹈     ﹈     ﹈ ﹈ ﹈﹈     ﹈    ﹈ ACK ﹈﹈﹈﹈﹈     ﹈    ﹈       ﹈ ACK   ﹈﹈﹈   Sr or P
+         START or                   byte complete,᎗᎗᎗᎗᎗⮥    ⮤᎗᎗᎗᎗᎗᎗᎗ clock line held LOW       STOP or
       repeated START        interrupt within slave                  while interrupts are serviced    repeated START
         condition                                                                                      condition
                                                           <!-- 002aac861 -->
@@ -900,6 +904,7 @@ Two masters can begin transmitting on a free bus at the same time and there must
 method for deciding which takes control of the bus and complete its transmission. This is
 done by clock synchronization and arbitration. In single master systems, clock
 synchronization and arbitration are not needed.
+
 Clock synchronization is performed using the wired-AND connection of I²C interfaces to
 the SCL line. This means that a HIGH to LOW transition on the SCL line causes the
 masters concerned to start counting off their LOW period and, once a master clock has
@@ -913,9 +918,33 @@ When all masters concerned have counted off their LOW period, the clock line is 
 and goes HIGH. There is then no difference between the master clocks and the state of
 the SCL line, and all the masters start counting their HIGH periods. The first master to
 complete its HIGH period pulls the SCL line LOW again.
+
 In this way, a synchronized SCL clock is generated with its LOW period determined by the
 master with the longest clock LOW period, and its HIGH period determined by the one
 with the shortest clock HIGH period.
+
+[Figure 7]: #Figure-7
+<a id="Figure-7"></a>
+
+**Figure 7**. Clock synchronization during the arbitration procedure
+
+                         |<----  wait ---->|<--------- start counting
+                         |      state      |            HIGH period
+    ﹈﹈﹈╲              ╱﹈﹈﹈ ﹈ ﹈ ﹈ ﹈ ﹈ ﹈ ﹈﹈╲  
+    CLK    ╲           ╱                   |          ╲            
+     1      ﹈﹈﹈﹈﹈﹈                    |           ﹈﹈﹈﹈﹈﹈﹈
+              counter                      |
+    ﹈﹈﹈╲﹈ ╲ reset                      ╱﹈﹈﹈﹈﹈╲﹈ ﹈ ╲
+    CLK    ╲⬃ ╲                          ╱ |          ╲     ╲
+     2      ﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈  |           ﹈﹈﹈﹈﹈﹈﹈
+                                           |               
+    ﹈﹈╲                                  ╱﹈﹈﹈﹈﹈╲     
+    SCL  ╲                               ╱            ╲    
+          ﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈              ﹈﹈﹈﹈﹈﹈﹈
+    START condition                                 STOP condition
+
+                                                                <!-- mbc632 -->
+
 
 <!-- **Section 3.1.8** -->
 [Section 3.1.8]: #Section%203.1.8
@@ -927,44 +956,29 @@ with the shortest clock HIGH period.
 Arbitration, like synchronization, refers to a portion of the protocol required only if more
 than one master is used in the system. Slaves are not involved in the arbitration
 procedure. A master may start a transfer only if the bus is free. Two masters may
-generate a START condition within the minimum hold time (t HD;STA ) of the START
+generate a START condition within the minimum hold time (t <sub>HD;STA</sub>) of the START
 condition which results in a valid START condition on the bus. Arbitration is then required
 to determine which master will complete its transmission.
+
 Arbitration proceeds bit by bit. During every bit, while SCL is HIGH, each master checks to
 see if the SDA level matches what it has sent. This process may take many bits. Two
 masters can actually complete an entire transaction without error, as long as the
-
-[Figure 7]: #Figure-7
-<a id="Figure-7"></a>
-
-**Figure 7**. Clock synchronization during the arbitration procedure
-CLK
-1
-CLK
-2
-SCL
-counter
-reset
-wait
-state
-start counting
-HIGH period
-mbc632
+transmissions are identical. The first time a master tries to send a HIGH, but detects that
+the SDA level is LOW, the master knows that it has lost the arbitration and turns off its
+SDA output driver. The other master goes on to complete its transaction.
 
 <!-- *P12* of 64 -->
 [P12]: #P12
 <a id="P12"></a>
 
-
-transmissions are identical. The first time a master tries to send a HIGH, but detects that
-the SDA level is LOW, the master knows that it has lost the arbitration and turns off its
-SDA output driver. The other master goes on to complete its transaction.
 No information is lost during the arbitration process. A master that loses the arbitration
 can generate clock pulses until the end of the byte in which it loses the arbitration and
 must restart its transaction when the bus is free.
+
 If a master also incorporates a slave function and it loses arbitration during the addressing
 stage, it is possible that the winning master is trying to address it. The losing master must
 therefore switch over immediately to its slave mode.
+
 [Figure 8] shows the arbitration procedure for two masters. More may be involved
 depending on how many masters are connected to the bus. The moment there is a
 difference between the internal data level of the master generating DATA1 and the actual
@@ -973,28 +987,41 @@ transfer initiated by the winning master.
 
 Since control of the I²C-bus is decided solely on the address and data sent by competing
 masters, there is no central master, nor any order of priority on the bus.
+
 There is an undefined condition if the arbitration procedure is still in progress at the
 moment when one master sends a repeated START or a STOP condition while the other
 master is still sending data. In other words, the following combinations result in an
 undefined condition:
-• Master 1 sends a repeated START condition and master 2 sends a data bit.
-• Master 1 sends a STOP condition and master 2 sends a data bit.
-• Master 1 sends a repeated START condition and master 2 sends a STOP condition.
+
+•   Master 1 sends a repeated START condition and master 2 sends a data bit.
+
+•   Master 1 sends a STOP condition and master 2 sends a data bit.
+
+•   Master 1 sends a repeated START condition and master 2 sends a STOP condition.
 
 [Figure 8]: #Figure-8
 <a id="Figure-8"></a>
 
 **Figure 8**. Arbitration procedure of two masters
-msc609
-DATA
-1
-DATA
-2
-SDA
-SCL
-S
-master 1 loses arbitration
-DATA 1 SDA
+
+        |     |          |                |<--- master 1 loses arbitration
+        |     |          |                |           DATA 1 SDA
+    ﹈﹈﹈╲   |     ╱﹈﹈﹈╲          ╱﹈﹈ ﹈ ﹈ ﹈ ﹈ ﹈ ﹈ ﹈ ﹈  
+    DATA|  ╲  |   ╱      | ╲        ╱     | 
+     1  |   ﹈﹈﹈        |  ﹈﹈﹈﹈      | 
+        |     |          |                | 
+    ﹈﹈﹈﹈╲  |     ╱﹈﹈﹈╲              |      | ╱﹈﹈﹈﹈﹈╲         ╱﹈﹈﹈
+    DATA|   ╲ |    ╱        ╲             |      |╱         | ╲       ╱ |
+     2  |    ﹈﹈﹈           ﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈           |  ﹈﹈﹈﹈ |
+        |     |                           |      |          |           |
+    ﹈﹈﹈﹈╲  |     ╱﹈﹈﹈╲              |      | ╱﹈﹈﹈﹈﹈╲         ╱﹈﹈﹈
+    SDA |   ╲ |    ╱        ╲             |      |╱         | ╲       ╱ |
+        |    ﹈﹈﹈           ﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈﹈           |  ﹈﹈﹈﹈ |
+        |     |                           |             
+    ﹈﹈﹈﹈﹈﹈╲      ╱﹈╲      ╱﹈╲       ╱﹈╲        ╱﹈╲      ╱﹈╲      ╱﹈﹈
+    SCL |     | ╲    ╱    ╲   ╱     ╲    ╱     ╲     ╱    ╲    ╱    ╲    ╱ 
+        |  S  |  ﹈﹈      ﹈﹈       ﹈﹈        ﹈﹈      ﹈﹈       ﹈﹈
+                                                                <!-- msc609 -->
 
 <!-- *P13* of 64 -->
 [P13]: #P13
@@ -1339,8 +1366,10 @@ Slave address R/W bit Description
 <a id="P18"></a>
 
 There are two cases to consider:
-• When the least significant bit B is a ‘zero’.
-• When the least significant bit B is a ‘one’.
+•   When the least significant bit B is a ‘zero’.
+
+•   When the least significant bit B is a ‘one’.
+
 When bit B is a ‘zero’, the second byte has the following definition:
 • 0000 0110 (06h): Reset and write programmable part of slave address by
 hardware. On receiving this 2-byte sequence, all devices designed to respond to the
@@ -1433,10 +1462,14 @@ There is therefore a speed difference between fast hardware devices and a relati
 microcontroller which relies on software polling.
 In this case, data transfer can be preceded by a start procedure which is much longer than
 normal (see [Figure 19]). The start procedure consists of:
-• A START condition (S)
-• A START byte (0000 0001)
-• An acknowledge clock pulse (ACK)
-• A repeated START condition (Sr).
+•   A START condition (S)
+
+•   A START byte (0000 0001)
+
+•   An acknowledge clock pulse (ACK)
+
+•   A repeated START condition (Sr).
+
 a. Configuring master sends dump address to hardware master
 b. Hardware master dumps data to selected slave
 
@@ -1495,8 +1528,10 @@ use the HW reset or cycle power to clear the bus.
 
 The Device ID field (see [Figure 20]) is an optional 3-byte read-only (24 bits) word giving
 the following information:
-• Twelve bits with the manufacturer name, unique per manufacturer (for example, NXP)
-• Nine bits with the part identification, assigned by manufacturer (for example,
+•   Twelve bits with the manufacturer name, unique per manufacturer (for example, NXP)
+
+•   Nine bits with the part identification, assigned by manufacturer (for example,
+
 PCA9698)
 • Three bits with the die revision, assigned by manufacturer (for example, RevX)
 
@@ -2068,8 +2103,10 @@ these bytes must ignore it. The meaning of the general call address is always sp
 the second byte (see [Figure 30]).
 
 There are two cases to consider:
-• When the least significant bit B is a ‘zero’
-• When the least significant bit B is a ‘one’
+•   When the least significant bit B is a ‘zero’
+
+•   When the least significant bit B is a ‘one’
+
 When bit B is a ‘zero’, the second byte has the following definition:
 0000 0110 (06h) — Reset and write programmable part of slave address by hardware.
 On receiving this 2-byte sequence, all devices designed to respond to the general call
@@ -2126,10 +2163,14 @@ first byte
 
 In this case, data transfer can be preceded by a start procedure which is much longer than
 normal (see [Figure 31]). The start procedure consists of:
-• A START condition (S)
-• A START byte (0000 0001)
-• A Not Acknowledge clock pulse (NACK)
-• A repeated START condition (Sr)
+•   A START condition (S)
+
+•   A START byte (0000 0001)
+
+•   A Not Acknowledge clock pulse (NACK)
+
+•   A repeated START condition (Sr)
+
 
 After the START condition S has been transmitted by a master which requires bus access,
 the START byte (0000 0001) is transmitted. Another microcontroller can therefore sample
@@ -2302,8 +2343,10 @@ example, Smart Batteries), and will inter-operate as long as they adhere to the 
 electrical specifications for their class.
 NXP devices have a higher power set of electrical characteristics than SMBus 1.0. The
 main difference is the current sink capability with VOL = 0.4 V.
-• SMBus low power = 350 μA
-• SMBus high power = 4 mA
+•   SMBus low power = 350 μA
+
+•   SMBus high power = 4 mA
+
 • I²C-bus = 3 mA
 SMBus ‘high power’ devices and I²C-bus devices will work together if the pull-up resistor
 is sized for 3 mA.
@@ -2347,16 +2390,24 @@ standardized interface to intelligent platform management hardware aids in predi
 early monitoring of hardware failures as well as diagnosis of hardware problems.
 This standardized bus and protocol for extending management control, monitoring, and
 event delivery within the chassis:
-• I²C based
-• Multi-master
-• Simple Request/Response Protocol
-• Uses IPMI Command sets
-• Supports non-IPMI devices
-• Physically I²C but write-only (master capable devices); hot swap not required
+•   I²C based
+
+•   Multi-master
+
+•   Simple Request/Response Protocol
+
+•   Uses IPMI Command sets
+
+•   Supports non-IPMI devices
+
+•   Physically I²C but write-only (master capable devices); hot swap not required
+
 • Enables the Baseboard Management Controller (BMC) to accept IPMI request
 messages from other management controllers in the system
-• Allows non-intelligent devices as well as management controllers on the bus
-• BMC serves as a controller to give system software access to IPMB.
+•   Allows non-intelligent devices as well as management controllers on the bus
+
+•   BMC serves as a controller to give system software access to IPMB.
+
 Hardware implementation is isolated from software implementation so that new sensors
 and events can then be added without any software changes.
 For more information, refer to: www.intel.com/design/servers/ipmi/ipmi.htm.
@@ -2451,8 +2502,10 @@ incorporated in a Fast-mode I²C-bus system as they cannot follow the higher tra
 and unpredictable states would occur.
 The Fast-mode I²C-bus specification has the following additional features compared with
 the Standard-mode:
-• The maximum bit rate is increased to 400 kbit/s.
-• Timing of the serial data (SDA) and serial clock (SCL) signals has been adapted.
+•   The maximum bit rate is increased to 400 kbit/s.
+
+•   Timing of the serial data (SDA) and serial clock (SCL) signals has been adapted.
+
 There is no need for compatibility with other bus systems such as CBUS because
 they cannot operate at the increased bit rate.
 • The inputs of Fast-mode devices incorporate spike suppression and a Schmitt trigger
@@ -3715,8 +3768,10 @@ Bus capacitance limit is specified to limit rise time reductions and allow opera
 rated frequency. While most designs can easily stay within this limit, some applications
 may exceed it. There are several strategies available to system designers to cope with
 excess bus capacitance.
-• Reduced f SCL (Section 7.2.1): The bus may be operated at a lower speed (lower f SCL ).
-• Higher drive outputs (Section 7.2.2): Devices with higher drive current such as those
+•   Reduced f SCL (Section 7.2.1): The bus may be operated at a lower speed (lower f SCL ).
+
+•   Higher drive outputs (Section 7.2.2): Devices with higher drive current such as those
+
 rated for Fast-mode Plus can be used (PCA96xx).
 • Bus buffers (Section 7.2.3): There are a number of bus buffer devices available that
 can divide the bus into segments so that each segment has a capacitance below the
