@@ -395,7 +395,8 @@ code from the request PDU with its most significant bit set to logic 1.
 <a id="P5"></a>
 
 
->  [!NOTE]: It is desirable to manage a time out in order not to indefinitely 
+>  [!NOTE]
+>  It is desirable to manage a time out in order not to indefinitely 
 >  wait for an answer which will perhaps never arrive.
 
 The size of the MODBUS PDU is limited by the size constraint inherited from the first
@@ -456,7 +457,8 @@ byte is sent first. So for example
     | Register size | value  |                                       |
     | 16 - bits     | 0x1234 | the first byte sent is 0x12 then 0x34 |
 
->  [!NOTE]: For more details, see [1] .
+>  [!NOTE]
+>  For more details, see [1] .
 
 <!-- **P6**/50 -->
 [P6]: #P6
@@ -851,53 +853,66 @@ There are three categories of MODBUS Functions codes. They are :
 --------------------------
 
 This function code is used to read from 1 to 2000 contiguous status of coils in a remote
-device. The Request PDU specifies the starting address, i.e. the address of the first coil
-specified, and the number of coils. In the PDU Coils are addressed starting at zero. Therefore
+device. The Request [PDU] specifies the starting address, i.e. the address of the first coil
+specified, and the number of coils. In the [PDU] Coils are addressed starting at zero. Therefore
 coils numbered 1-16 are addressed as 0-15.
 
 The coils in the response message are packed as one coil per bit of the data field. Status is
 indicated as 1= ON and 0= OFF. The LSB of the first data byte contains the output addressed
 in the query. The other coils follow toward the high order end of this byte, and from low order
 to high order in subsequent bytes.
+
 If the returned output quantity is not a multiple of eight, the remaining bits in the final data
 byte will be padded with zeros (toward the high order end of the byte). The Byte Count field
 specifies the quantity of complete bytes of data.
-Request
-Function code 1 Byte 0x01
-Starting Address 2 Bytes 0x0000 to 0xFFFF
-Quantity of coils 2 Bytes 1 to 2000 (0x7D0)
-Response
-Function code 1 Byte 0x01
-Byte count 1 Byte N*
-Coil Status n Byte n = N or N+1
+
+    Request
+    | Function code     | 1 Byte  | 0x01                 |
+    | Starting Address  | 2 Bytes | 0x0000 to 0xFFFF     |
+    | Quantity of coils | 2 Bytes | 1 to 2000 (0x7D0)    |
+
+    Response
+    | Function code     | 1 Byte  | 0x01                 |
+    | Byte count        | 1 Byte  | N*                   |
+    | Coil Status       | n Byte  | n = N or N+1         |
+
+    Error
+    | Function code     | 1 Byte  | Function code + 0x80 |
+    | Exception code    | 1 Byte  | 01 or 02 or 03 or 04 |
+
+\*N = Quantity of Outputs / 8, if the remainder is different of 0 ⇨ N = N+1
 
 <!-- **P12**/50 -->
 [P12]: #P12
 <a id="P12"></a>
 
-*N = Quantity of Outputs / 8, if the remainder is different of 0  N = N+1
-Error
-Function code 1 Byte Function code + 0x80
-Exception code 1 Byte 01 or 02 or 03 or 04
 Here is an example of a request to read discrete outputs 20–38:
-Request Response
-Field Name (Hex) Field Name (Hex)
-Function 01 Function 01
-Starting Address Hi 00 Byte Count 03
-Starting Address Lo 13 Outputs status 27-20 CD
-Quantity of Outputs Hi 00 Outputs status 35-28 6B
-Quantity of Outputs Lo 13 Outputs status 38-36 05
+
+|        Request                 |       Response            |
+|--------------------------------|---------------------------|
+| Field Name             | (Hex) | Field Name (Hex)     |    |
+|------------------------|-------|----------------------|----|
+| Function               | 01    | Function             | 01 |
+| Starting Address Hi    | 00    | Byte Count           | 03 |
+| Starting Address Lo    | 13    | Outputs status 27-20 | CD |
+| Quantity of Outputs Hi | 00    | Outputs status 35-28 | 6B |
+| Quantity of Outputs Lo | 13    | Outputs status 38-36 | 05 |
+
 The status of outputs 27–20 is shown as the byte value CD hex, or binary 1100 1101. Output
 27 is the MSB of this byte, and output 20 is the LSB.
+
 By convention, bits within a byte are shown with the MSB to the left, and the LSB to the right.
 Thus the outputs in the first byte are ‘27 through 20’, from left to right. The next byte has
 outputs ‘35 through 28’, left to right. As the bits are transmitted serially, they flow from LSB to
 MSB: 20 . . . 27, 28 . . . 35, and so on.
+
 In the last data byte, the status of outputs 38-36 is shown as the byte value 05 hex, or binary
 0000 0101. Output 38 is in the sixth bit position from the left, and output 36 is the LSB of this
 byte. The five remaining high order bits are zero filled.
 
->  [!NOTE]: The five remaining bits (toward the high order end) are zero filled.
+>  [!NOTE]
+>  The five remaining bits (toward the high order end) are zero filled.
+
 MB Server Sends mb_exception_rsp EXIT
 MB Server receives mb_req_pdu
 ExceptionCode = 01
@@ -976,7 +991,8 @@ The status of discrete inputs 204–197 is shown as the byte value AC hex, or bi
 The status of discrete inputs 218–213 is shown as the byte value 35 hex, or binary 0011 0101.
 Input 218 is in the third bit position from the left, and input 213 is the LSB.
 
->  [!NOTE]: The two remaining bits (toward the high order end) are zero filled.
+>  [!NOTE]
+>  The two remaining bits (toward the high order end) are zero filled.
 
 <!-- **P14**/50 -->
 [P14]: #P14
@@ -2258,9 +2274,10 @@ Or_Mask = 25 0010 0101
 (NOT And_Mask)= 0D 0000 1101
 Result = 17 0001 0111
 
->  [!NOTE]:
+>  [!NOTE]
 >   If the Or_Mask value is zero, the result is simply the logical ANDing of the current contents and
 >  And_Mask. If the And_Mask value is zero, the result is equal to the Or_Mask value.
+>  
 >   The contents of the register can be read with the Read Holding Registers function (function code 03).
 >  They could, however, be changed subsequently as the controller scans its user logic program.
 
