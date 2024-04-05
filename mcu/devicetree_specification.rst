@@ -775,7 +775,6 @@ name should be one of the following choices:
 ..    :columns: 3
 
 .. code-block::
-   
    |-----------------------|-----------------------|---------------------|
    |  adc                  |  gpu                  |  phy                |
    |  accelerometer        |  gyrometer            |  pinctrl            |
@@ -1458,74 +1457,77 @@ representation of a devicetree with interrupt parent relationships shown. It
 shows both the natural structure of the devicetree as well as where each node
 sits in the logical interrupt tree.
 
-.. _example-interrupt-tree:
-.. digraph:: tree
-   :caption: Example of the interrupt tree
+.. Image:: https://dsyx.github.io/images/devicetree-specification/fig2.3.png
 
-   rankdir = LR
-   ranksep = "1.5"
-   size = "6,8"
-   edge [ dir="none" ]
-   node [ shape="Mrecord" width="2.5" ]
-
-   subgraph cluster_devices {
-      label = "Devicetree"
-      graph [ style = dotted ]
-      "soc" [ ]
-      "device1" [ label = "device1 | interrupt-parent=\<&open-pic\>" ]
-      "device2" [ label = "device2 | interrupt-parent=\<&gpioctrl\>" ]
-      "pci-host" [ label = "pci-host | interrupt-parent=\<&open-pic\>" ]
-      "slot0" [ label = "slot0 | interrupt-parent=\<&pci-host\>" ]
-      "slot1" [ label = "slot1 | interrupt-parent=\<&pci-host\>" ]
-      "simple-bus" [ label = "simple-bus" ]
-      "gpioctrl" [ label = "gpioctrl | interrupt-parent=\<&open-pic\>" ]
-      "device3" [ label = "device3 | interrupt-parent=\<&gpioctrl\>" ]
-
-      edge [dir=back color=blue]
-      "soc":e -> "device1":w
-      "soc":e -> "device2":w
-      "soc":e -> "open-pic":w
-      "soc":e -> "pci-host":w
-      "soc":e -> "simple-bus":w
-      "pci-host":e -> "slot0":w
-      "pci-host":e -> "slot1":w
-      "simple-bus":e -> "gpioctrl":w
-      "simple-bus":e -> "device3":w
-   }
-
-   subgraph cluster_interrupts {
-      label = "Interrupt tree"
-      graph [ style = dotted ]
-
-      "i-open-pic" [ label = "open-pic | Root of Interrupt tree" ]
-      "i-pci-host" [ label = "pci-host | Nexus Node" ]
-      "i-gpioctrl" [ label = "gpioctrl | Nexus Node" ]
-      "i-device1" [ label = "device1" ]
-      "i-device2" [ label = "device2" ]
-      "i-device3" [ label = "device3" ]
-      "i-slot0" [ label = "slot0" ]
-      "i-slot1" [ label = "slot1" ]
-
-      edge [dir=back color=green]
-      "i-open-pic":e -> "i-device1":w
-      "i-open-pic":e -> "i-pci-host":w
-      "i-open-pic":e -> "i-gpioctrl":w
-      "i-pci-host":e -> "i-slot0":w
-      "i-pci-host":e -> "i-slot1":w
-      "i-gpioctrl":e -> "i-device2":w
-      "i-gpioctrl":e -> "i-device3":w
-   }
-
-   subgraph {
-      edge [color=red, style=dotted, constraint=false]
-      "open-pic" -> "i-open-pic"
-      "gpioctrl":w -> "i-gpioctrl"
-      "pci-host" -> "i-pci-host"
-      "slot0":e -> "i-slot0":e
-      "slot1":e -> "i-slot1":e
-      "device2":e -> "i-device2":w
-      "device3":e -> "i-device3":e
-   }
+.. 
+   .. _example-interrupt-tree:
+   .. digraph:: tree
+      :caption: Example of the interrupt tree
+   
+      rankdir = LR
+      ranksep = "1.5"
+      size = "6,8"
+      edge [ dir="none" ]
+      node [ shape="Mrecord" width="2.5" ]
+   
+      subgraph cluster_devices {
+         label = "Devicetree"
+         graph [ style = dotted ]
+         "soc" [ ]
+         "device1" [ label = "device1 | interrupt-parent=\<&open-pic\>" ]
+         "device2" [ label = "device2 | interrupt-parent=\<&gpioctrl\>" ]
+         "pci-host" [ label = "pci-host | interrupt-parent=\<&open-pic\>" ]
+         "slot0" [ label = "slot0 | interrupt-parent=\<&pci-host\>" ]
+         "slot1" [ label = "slot1 | interrupt-parent=\<&pci-host\>" ]
+         "simple-bus" [ label = "simple-bus" ]
+         "gpioctrl" [ label = "gpioctrl | interrupt-parent=\<&open-pic\>" ]
+         "device3" [ label = "device3 | interrupt-parent=\<&gpioctrl\>" ]
+   
+         edge [dir=back color=blue]
+         "soc":e -> "device1":w
+         "soc":e -> "device2":w
+         "soc":e -> "open-pic":w
+         "soc":e -> "pci-host":w
+         "soc":e -> "simple-bus":w
+         "pci-host":e -> "slot0":w
+         "pci-host":e -> "slot1":w
+         "simple-bus":e -> "gpioctrl":w
+         "simple-bus":e -> "device3":w
+      }
+   
+      subgraph cluster_interrupts {
+         label = "Interrupt tree"
+         graph [ style = dotted ]
+   
+         "i-open-pic" [ label = "open-pic | Root of Interrupt tree" ]
+         "i-pci-host" [ label = "pci-host | Nexus Node" ]
+         "i-gpioctrl" [ label = "gpioctrl | Nexus Node" ]
+         "i-device1" [ label = "device1" ]
+         "i-device2" [ label = "device2" ]
+         "i-device3" [ label = "device3" ]
+         "i-slot0" [ label = "slot0" ]
+         "i-slot1" [ label = "slot1" ]
+   
+         edge [dir=back color=green]
+         "i-open-pic":e -> "i-device1":w
+         "i-open-pic":e -> "i-pci-host":w
+         "i-open-pic":e -> "i-gpioctrl":w
+         "i-pci-host":e -> "i-slot0":w
+         "i-pci-host":e -> "i-slot1":w
+         "i-gpioctrl":e -> "i-device2":w
+         "i-gpioctrl":e -> "i-device3":w
+      }
+   
+      subgraph {
+         edge [color=red, style=dotted, constraint=false]
+         "open-pic" -> "i-open-pic"
+         "gpioctrl":w -> "i-gpioctrl"
+         "pci-host" -> "i-pci-host"
+         "slot0":e -> "i-slot0":e
+         "slot1":e -> "i-slot1":e
+         "device2":e -> "i-device2":w
+         "device3":e -> "i-device3":e
+      }
 
 In the example shown in :numref:`example-interrupt-tree`:
 
@@ -3524,24 +3526,45 @@ Thus, the devicetree structure as a whole, when loaded into memory at address,
 will resemble the diagram in :numref:`figure_device_tree_structure`
 (lower addresses are at the top of the diagram).
 
-.. _figure_device_tree_structure:
-.. digraph:: tree
-   :caption: Devicetree .dtb Structure
+.. code-block:: 
+       ╭──────────────────────────╮
+       │    struct fdt_header     │
+       │──────────────────────────│
+       │       free space         │
+       │──────────────────────────│
+       │ memory reservation block │
+       │──────────────────────────│
+       │       free space         │
+       │──────────────────────────│
+       │    struct fdt_header     │
+       │──────────────────────────│
+       │       free space         │
+       │──────────────────────────│
+       │      strings block       │
+       │──────────────────────────│
+       │       free space         │
+       ╰──────────────────────────╯
+      Fig. 5.1 Devicetree .dtb Structure
 
-   rankdir = LR
-   ranksep = "1.5"
-   size = "6,8"
-   edge [ dir="none" ]
-   node [ shape="Mrecord" width="2.5" ]
-
-   "node" [ label = "struct fdt_header |
-      (free space) |
-      memory reservation block |
-      (free space) |
-      structure block |
-      (free space) |
-      strings block |
-      (free space)" ]
+.. 
+   .. _figure_device_tree_structure:
+   .. digraph:: tree
+      :caption: Devicetree .dtb Structure
+   
+      rankdir = LR
+      ranksep = "1.5"
+      size = "6,8"
+      edge [ dir="none" ]
+      node [ shape="Mrecord" width="2.5" ]
+   
+      "node" [ label = "struct fdt_header |
+         (free space) |
+         memory reservation block |
+         (free space) |
+         structure block |
+         (free space) |
+         strings block |
+         (free space)" ]
 
 The (free space) sections may not be present, though in some cases they
 might be required to satisfy the alignment constraints of the individual
