@@ -801,6 +801,7 @@ name should be one of the following choices:
 ..    :columns: 3
 
 .. code-block::
+
    |-----------------------|-----------------------|---------------------|
    |  adc                  |  gpu                  |  phy                |
    |  accelerometer        |  gyrometer            |  pinctrl            |
