@@ -157,6 +157,38 @@ By contributing in this way, you agree to the terms as follows:
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+TODOLIST
+========
+
+.. 
+   TODO requirements for release v1.0:
+   
+   Section 2 - The Devicetree
+   - Expand on generic names
+   - Add interrupts-extended
+   - Add note on not using underscore for prop names
+   Section 3 - Device nodes
+   - Add reserved-memory bindings
+   - Expand on aliases node
+   Section 6 - Device Bindings
+   - Add GPIO bindings
+   - Add I2C bindings
+   - Add SPI bindings
+   - Add clock bindings
+   - Add regulator bindings
+   Other
+   - Add ARM bindings
+     - CPU
+     - GIC
+     - SMMU
+     - PSCI & spin-table
+     - Idle states
+   
+   Note: When copying in bindings documented in the Linux kernel tree,
+   you *must* contact the original authors,
+   and get permission for relicensing to Apache v2.
+   Patches for those bindings must have "Acked-by"s from the original author(s).
+
 
 |spec-fullname| |SpecVersion|
 ======================================
@@ -546,36 +578,37 @@ complete enough to boot a simple operating system, with the platform
 type, CPU, memory and a single UART described. Device nodes are shown
 with properties and values inside each node.
 
+.. code-block::
 
-                                    ╭────────────────────╮        ╭────────────────────────────────╮
-                                    │ cpus               │        │ cpu@0                          │
-                                    │────────────────────│        │────────────────────────────────│
-                                    │ #address-cells=<1> │────┬──>│ device_type="cpu"              │
-                                ╭──>│ #size-cells=<0>"]  │    │   │ reg=<0>                        │
-                                │   ╰────────────────────╯    │   │ timebase-frequency=<825000000> │
-                                │   ╭───────────────────────╮ │   │ clock-frequency=<825000000>"]  │
-                                │   │ memory@0              │ │   ╰────────────────────────────────╯
-                                │   │───────────────────────│ │
-                                ├──>│ device_type="memory"  │ │   ╭────────────────────────────────╮
-╭────────────────────────────╮  │   │ reg=<0 0x20000000>"]  │ ╰──>│ cpu@1                          │
-│ /                          │  │   ╰───────────────────────╯     │────────────────────────────────│
-│────────────────────────────│  │                                 │ device_type="cpu"              │
-│ model="fsl,mpc8572ds"      │  │   ╭───────────────────────────╮ │ reg=<1>                        │
-│ compatible="fsl,mpc8572ds" │──┼──>│ uart@fe001000             │ │ timebase-frequency=<825000000> │
-│ #address-cells=<1>         │  │   │───────────────────────────│ │ clock-frequency=<825000000>"]  │
-│ #size-cells=<1>"]          │  │   │ compatible="ns16550"      │ ╰────────────────────────────────╯
-╰────────────────────────────╯  │   │ reg=<0xfe001000 0x100>"]  │ 
-                                │   ╰───────────────────────────╯
-                                │   ╭─────────────────────────────╮
-                                ├──>│ chosen                      │
-                                │   │─────────────────────────────│
-                                │   │ bootargs="root=/dev/sda2""] │
-                                │   ╰─────────────────────────────╯
-                                │   ╭─────────────────────────────╮
-                                ╰──>│ aliases                     │
-                                    │─────────────────────────────│
-                                    │ serial0="/uart@fe001000""]  │
-                                    ╰─────────────────────────────╯
+                                       ╭────────────────────╮        ╭────────────────────────────────╮
+                                       │ cpus               │        │ cpu@0                          │
+                                       │────────────────────│        │────────────────────────────────│
+                                       │ #address-cells=<1> │────┬──>│ device_type="cpu"              │
+                                   ╭──>│ #size-cells=<0>"]  │    │   │ reg=<0>                        │
+                                   │   ╰────────────────────╯    │   │ timebase-frequency=<825000000> │
+                                   │   ╭───────────────────────╮ │   │ clock-frequency=<825000000>"]  │
+                                   │   │ memory@0              │ │   ╰────────────────────────────────╯
+                                   │   │───────────────────────│ │
+                                   ├──>│ device_type="memory"  │ │   ╭────────────────────────────────╮
+   ╭────────────────────────────╮  │   │ reg=<0 0x20000000>"]  │ ╰──>│ cpu@1                          │
+   │ /                          │  │   ╰───────────────────────╯     │────────────────────────────────│
+   │────────────────────────────│  │                                 │ device_type="cpu"              │
+   │ model="fsl,mpc8572ds"      │  │   ╭───────────────────────────╮ │ reg=<1>                        │
+   │ compatible="fsl,mpc8572ds" │──┼──>│ uart@fe001000             │ │ timebase-frequency=<825000000> │
+   │ #address-cells=<1>         │  │   │───────────────────────────│ │ clock-frequency=<825000000>"]  │
+   │ #size-cells=<1>"]          │  │   │ compatible="ns16550"      │ ╰────────────────────────────────╯
+   ╰────────────────────────────╯  │   │ reg=<0xfe001000 0x100>"]  │ 
+                                   │   ╰───────────────────────────╯
+                                   │   ╭─────────────────────────────╮
+                                   ├──>│ chosen                      │
+                                   │   │─────────────────────────────│
+                                   │   │ bootargs="root=/dev/sda2""] │
+                                   │   ╰─────────────────────────────╯
+                                   │   ╭─────────────────────────────╮
+                                   ╰──>│ aliases                     │
+                                       │─────────────────────────────│
+                                       │ serial0="/uart@fe001000""]  │
+                                       ╰─────────────────────────────╯
 .. 
     .. _example-simple-devicetree:
     .. digraph:: tree
@@ -687,21 +720,23 @@ be unique from any property names at the same level in the tree.
 The root node does not have a node-name or unit-address. It is
 identified by a forward slash (/).
 
-                       ╭─────────────────╮       ╭───────────────╮
-                   ╭──>│ cpus            │───┬──>│ cpu@0         │
-                   │   ╰─────────────────╯   │   ╰───────────────╯
-                   │   ╭────────────────╮    │   ╭───────────────╮
-╭───────────────╮  │   │ memory@0       │    ╰──>│ cpu@1         │
-│ /             │──┼──>╰────────────────╯        ╰───────────────╯
-╰───────────────╯  │   ╭────────────────╮        
-                   ├──>│ uart@fe001000  │       
-                   │   ╰────────────────╯
-                   │   ╭────────────────╮
-                   ├──>│ chosen         │
-                   │   ╰────────────────╯
-                   │   ╭────────────────╮
-                   ╰──>│ aliases        │
-                       ╰────────────────╯
+.. code-block::
+
+                          ╭─────────────────╮       ╭───────────────╮
+                      ╭──>│ cpus            │───┬──>│ cpu@0         │
+                      │   ╰─────────────────╯   │   ╰───────────────╯
+                      │   ╭────────────────╮    │   ╭───────────────╮
+   ╭───────────────╮  │   │ memory@0       │    ╰──>│ cpu@1         │
+   │ /             │──┼──>╰────────────────╯        ╰───────────────╯
+   ╰───────────────╯  │   ╭────────────────╮        
+                      ├──>│ uart@fe001000  │       
+                      │   ╰────────────────╯
+                      │   ╭────────────────╮
+                      ├──>│ chosen         │
+                      │   ╰────────────────╯
+                      │   ╭────────────────╮
+                      ╰──>│ aliases        │
+                          ╰────────────────╯
 
 .. 
    .. _example-nodenames:
@@ -721,7 +756,7 @@ identified by a forward slash (/).
       "/":e    -> "ethernet@fe002000":w
       "/":e    -> "ethernet@fe003000":w
 
-In :numref:`example-nodenames`:
+In :numref:`example-nodenames`: 
 
 * The nodes with the name ``cpu`` are distinguished by their unit-address
   values of 0 and 1.
@@ -959,7 +994,7 @@ Property name: ``compatible``
 
 Value type: ``<stringlist>``
 
-Description:
+Description: 
 
    The *compatible* property value consists of one or more strings that
    define the specific programming model for the device. This list of
@@ -978,7 +1013,7 @@ Description:
    dashes, and should start with a letter. A single comma is typically only
    used following a vendor prefix. Underscores should not be used.
 
-Example:
+Example: 
 
    ``compatible = "fsl,mpc8641", "ns16550";``
 
@@ -994,7 +1029,7 @@ Property name: ``model``
 
 Value type: ``<string>``
 
-Description:
+Description: 
 
    The model property value is a ``<string>`` that specifies the manufacturer’s
    model number of the device.
@@ -1003,7 +1038,7 @@ Description:
    ``manufacturer`` is a string describing the name of the manufacturer
    (such as a stock ticker symbol), and model specifies the model number.
 
-Example:
+Example: 
 
    ``model = "fsl,MPC8349EMITX";``
 
@@ -1016,14 +1051,14 @@ Property name: ``phandle``
 
 Value type: ``<u32>``
 
-Description:
+Description: 
 
    The *phandle* property specifies a numerical identifier for a node that
    is unique within the devicetree. The *phandle* property value is used
    by other nodes that need to refer to the node associated with the
    property.
 
-Example:
+Example: 
 
    See the following devicetree excerpt:
 
@@ -1062,7 +1097,7 @@ Property name: ``status``
 
 Value type: ``<string>``
 
-Description:
+Description: 
 
    The ``status`` property indicates the operational status of a device.  The
    lack of a ``status`` property should be treated as if the property existed
@@ -1107,7 +1142,7 @@ Property name: ``#address-cells``, ``#size-cells``
 
 Value type: ``<u32>``
 
-Description:
+Description: 
 
    The *#address-cells* and *#size-cells* properties may be used in any
    device node that has children in the devicetree hierarchy and describes
@@ -1126,7 +1161,7 @@ Description:
    If missing, a client program should assume a default value of 2 for
    *#address-cells*, and a value of 1 for *#size-cells*.
 
-Example:
+Example: 
 
    See the following devicetree excerpt:
 
@@ -1161,7 +1196,7 @@ Property name: ``reg``
 
 Property value: ``<prop-encoded-array>`` encoded as an arbitrary number of (*address*, *length*) pairs.
 
-Description:
+Description: 
 
    The *reg* property describes the address of the device’s resources
    within the address space defined by its parent bus. Most commonly this
@@ -1177,7 +1212,7 @@ Description:
    specifies a value of 0 for *#size-cells*, the length field in the value
    of *reg* shall be omitted.
 
-Example:
+Example: 
 
    Suppose a device within a system-on-a-chip had two blocks of registers, a
    32-byte block at offset 0x3000 in the SOC and a 256-byte block at offset
@@ -1195,7 +1230,7 @@ Property name: ``virtual-reg``
 
 Value type: ``<u32>``
 
-Description:
+Description: 
 
    The *virtual-reg* property specifies an effective address that maps to
    the first physical address specified in the *reg* property of the device
@@ -1212,7 +1247,7 @@ Property name: ``ranges``
 Value type: ``<empty>`` or ``<prop-encoded-array>`` encoded as an arbitrary number of
 (*child-bus-address*, *parent-bus-address*, *length*) triplets.
 
-Description:
+Description: 
 
    The *ranges* property provides a means of defining a mapping or
    translation between the address space of the bus (the child address
@@ -1281,7 +1316,7 @@ Property name: ``dma-ranges``
 Value type: ``<empty>`` or ``<prop-encoded-array>`` encoded as an arbitrary number of
 (*child-bus-address*, *parent-bus-address*, *length*) triplets.
 
-Description:
+Description: 
 
    The *dma-ranges* property is used to describe the direct memory access
    (DMA) structure of a memory-mapped bus whose devicetree parent can be
@@ -1315,7 +1350,7 @@ Property name: ``dma-coherent``
 
 Value type: ``<empty>``
 
-Description:
+Description: 
    For architectures which are by default non-coherent for I/O, the
    *dma-coherent* property is used to indicate a device is capable of
    coherent DMA operations. Some architectures have coherent DMA by default
@@ -1328,7 +1363,7 @@ Property name: ``dma-noncoherent``
 
 Value type: ``<empty>``
 
-Description:
+Description: 
    For architectures which are by default coherent for I/O, the
    *dma-noncoherent* property is used to indicate a device is not capable of
    coherent DMA operations. Some architectures have non-coherent DMA by
@@ -1341,7 +1376,7 @@ Property name: ``name``
 
 Value type: ``<string>``
 
-Description:
+Description: 
 
    The *name* property is a string specifying the name of the node. This
    property is deprecated, and its use is not recommended. However, it
@@ -1356,7 +1391,7 @@ Property name: ``device_type``
 
 Value type: ``<string>``
 
-Description:
+Description: 
 
    The *device\_type* property was used in IEEE 1275 to describe the
    device’s FCode programming model. Because |spec| does not have FCode, new
@@ -1519,7 +1554,7 @@ Property: ``interrupts``
 Value type: ``<prop-encoded-array>`` encoded as arbitrary number of
 interrupt specifiers
 
-Description:
+Description: 
 
    The *interrupts* property of a device node defines the interrupt or
    interrupts that are generated by the device. The value of the
@@ -1530,7 +1565,7 @@ Description:
    *interrupts* is overridden by the *interrupts-extended*
    property and normally only one or the other should be used.
 
-Example:
+Example: 
 
    A common definition of an interrupt specifier in an open PIC–compatible
    interrupt domain consists of two cells; an interrupt number and
@@ -1547,7 +1582,7 @@ Property: ``interrupt-parent``
 
 Value type: ``<phandle>``
 
-Description:
+Description: 
 
    Because the hierarchy of the nodes in the interrupt tree might not match
    the devicetree, the *interrupt-parent* property is available to make
@@ -1562,7 +1597,7 @@ Property: ``interrupts-extended``
 
 Value type: ``<phandle> <prop-encoded-array>``
 
-Description:
+Description: 
 
    The *interrupts-extended* property lists the interrupt(s) generated by a
    device.
@@ -1570,7 +1605,7 @@ Description:
    is connected to multiple interrupt controllers as it encodes a parent phandle
    with each interrupt specifier.
 
-Example:
+Example: 
 
    This example shows how a device with two interrupt outputs connected to two
    separate interrupt controllers would describe the connection using an
@@ -1599,7 +1634,7 @@ Property: ``#interrupt-cells``
 
 Value type: ``<u32>``
 
-Description:
+Description: 
 
    The *#interrupt-cells* property defines the number of cells required to
    encode an interrupt specifier for an interrupt domain.
@@ -1611,7 +1646,7 @@ Property: ``interrupt-controller``
 
 Value type: ``<empty>``
 
-Description:
+Description: 
 
    The presence of an *interrupt-controller* property defines a node as an
    interrupt controller node.
@@ -1629,7 +1664,7 @@ Property: ``interrupt-map``
 Value type: ``<prop-encoded-array>`` encoded as an arbitrary number of
 interrupt mapping entries.
 
-Description:
+Description: 
 
    An *interrupt-map* is a property on a nexus node that bridges one
    interrupt domain with a set of parent interrupt domains and specifies
@@ -1690,7 +1725,7 @@ Property: ``interrupt-map-mask``
 
 Value type: ``<prop-encoded-array>`` encoded as a bit mask
 
-Description:
+Description: 
 
    An *interrupt-map-mask* property is specified for a nexus node in the
    interrupt tree. This property specifies a mask that is ANDed with the
@@ -1704,7 +1739,7 @@ Property: ``#interrupt-cells``
 
 Value type: ``<u32>``
 
-Description:
+Description: 
 
    The *#interrupt-cells* property defines the number of cells required to
    encode an interrupt specifier for an interrupt domain.
@@ -1846,7 +1881,7 @@ Property: ``<specifier>-map``
 Value type: ``<prop-encoded-array>`` encoded as an arbitrary number of
 specifier mapping entries.
 
-Description:
+Description: 
 
    A *<specifier>-map* is a property in a nexus node that bridges one
    specifier domain with a set of parent specifier domains and describes
@@ -1894,7 +1929,7 @@ Property: ``<specifier>-map-mask``
 
 Value type: ``<prop-encoded-array>`` encoded as a bit mask
 
-Description:
+Description: 
 
    A *<specifier>-map-mask* property may be specified for a nexus node.
    This property specifies a mask that is ANDed with the child unit
@@ -1911,7 +1946,7 @@ Property: ``<specifier>-map-pass-thru``
 
 Value type: ``<prop-encoded-array>`` encoded as a bit mask
 
-Description:
+Description: 
 
    A *<specifier>-map-pass-thru* property may be specified for a nexus node.
    This property specifies a mask that is applied to the child unit
@@ -1927,7 +1962,7 @@ Property: ``#<specifier>-cells``
 
 Value type: ``<u32>``
 
-Description:
+Description: 
 
    The *#<specifier>-cells* property defines the number of cells required to
    encode a specifier for a domain.
@@ -2157,7 +2192,7 @@ physical memory layout for the system. If a system has multiple ranges
 of memory, multiple memory nodes can be created, or the ranges can be
 specified in the *reg* property of a single memory node.
 
-The *unit-name* component of the node name
+The *unit-name* component of the node name 
 (see :numref:`sect-node-names`)
 shall be ``memory``.
 
@@ -2397,6 +2432,7 @@ nodes by adding a ``memory-region`` property to the device node.
 
 ``/reserved-memory`` and UEFI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 When booting via [UEFI]_, static ``/reserved-memory`` regions must
 also be listed in the system memory map obtained via the GetMemoryMap()
 UEFI boot time service as defined in [UEFI]_ § 7.2.
@@ -3906,7 +3942,7 @@ Phandle and path references can be automatically generated by referencing a labe
 explicitly specifying a phandle value or the full path to a node.
 Labels are only used in the devicetree source format and are not encoded into the DTB binary.
 
-A label shall be between 1 to 31 characters in length,
+A label shall be between 1 to 31 characters in length, 
 be composed only of the characters in the set :numref:`label-characters`,
 and must not start with a number.
 
