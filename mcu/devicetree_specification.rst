@@ -429,7 +429,8 @@ the client program to have hard-coded descriptions of system hardware.
 This specification partially supersedes the |epapr| [EPAPR]_ specification.
 |epapr| documents how devicetree is used by the Power ISA, and covers both
 general concepts, as well as Power ISA specific bindings.
-The text of this document was derived from |epapr|, but either removes architecture specific bindings, or moves them into an appendix.
+The text of this document was derived from |epapr|, but either removes 
+architecture specific bindings, or moves them into an appendix.
 
 32-bit and 64-bit Support
 -------------------------
@@ -579,7 +580,6 @@ type, CPU, memory and a single UART described. Device nodes are shown
 with properties and values inside each node.
 
 .. code-block::
-
                                        ╭────────────────────╮        ╭────────────────────────────────╮
                                        │ cpus               │        │ cpu@0                          │
                                        │────────────────────│        │────────────────────────────────│
@@ -721,7 +721,6 @@ The root node does not have a node-name or unit-address. It is
 identified by a forward slash (/).
 
 .. code-block::
-
                           ╭─────────────────╮       ╭───────────────╮
                       ╭──>│ cpus            │───┬──>│ cpu@0         │
                       │   ╰─────────────────╯   │   ╰───────────────╯
@@ -772,45 +771,46 @@ name should be one of the following choices:
 
 .. FIXME should describe when each node name is appropriate
 
-.. hlist::
-   :columns: 3
+.. .. hlist::
+..    :columns: 3
 
-
-|-----------------------|-----------------------|---------------------|
-|  adc                  |  gpu                  |  phy                |
-|  accelerometer        |  gyrometer            |  pinctrl            |
-|  air-pollution-sensor |  hdmi                 |  pmic               |
-|  atm                  |  hwlock               |  pmu                |
-|  audio-codec          |  i2c                  |  port               |
-|  audio-controller     |  i2c-mux              |  ports              |
-|  backlight            |  ide                  |  power-monitor      |
-|  bluetooth            |  interrupt-controller |  pwm                |
-|  bus                  |  iommu                |  regulator          |
-|  cache-controller     |  isa                  |  reset-controller   |
-|  camera               |  keyboard             |  rng                |
-|  can                  |  key                  |  rtc                |
-|  charger              |  keys                 |  sata               |
-|  clock                |  lcd-controller       |  scsi               |
-|  clock-controller     |  led                  |  serial             |
-|  co2-sensor           |  leds                 |  sound              |
-|  compact-flash        |  led-controller       |  spi                |
-|  cpu                  |  light-sensor         |  spmi               |
-|  cpus                 |  lora                 |  sram-controller    |
-|  crypto               |  magnetometer         |  ssi-controller     |
-|  disk                 |  mailbox              |  syscon             |
-|  display              |  mdio                 |  temperature-sensor |
-|  dma-controller       |  memory               |  timer              |
-|  dsi                  |  memory-controller    |  touchscreen        |
-|  dsp                  |  mmc                  |  tpm                |
-|  eeprom               |  mmc-slot             |  usb                |
-|  efuse                |  mouse                |  usb-hub            |
-|  endpoint             |  nand-controller      |  usb-phy            |
-|  ethernet             |  nvram                |  vibrator           |
-|  ethernet-phy         |  oscillator           |  video-codec        |
-|  fdc                  |  parallel             |  vme                |
-|  flash                |  pc-card              |  watchdog           |
-|  gnss                 |  pci                  |  wifi               |
-|  gpio                 |  pcie                 |                     |
+.. code-block::
+   
+   |-----------------------|-----------------------|---------------------|
+   |  adc                  |  gpu                  |  phy                |
+   |  accelerometer        |  gyrometer            |  pinctrl            |
+   |  air-pollution-sensor |  hdmi                 |  pmic               |
+   |  atm                  |  hwlock               |  pmu                |
+   |  audio-codec          |  i2c                  |  port               |
+   |  audio-controller     |  i2c-mux              |  ports              |
+   |  backlight            |  ide                  |  power-monitor      |
+   |  bluetooth            |  interrupt-controller |  pwm                |
+   |  bus                  |  iommu                |  regulator          |
+   |  cache-controller     |  isa                  |  reset-controller   |
+   |  camera               |  keyboard             |  rng                |
+   |  can                  |  key                  |  rtc                |
+   |  charger              |  keys                 |  sata               |
+   |  clock                |  lcd-controller       |  scsi               |
+   |  clock-controller     |  led                  |  serial             |
+   |  co2-sensor           |  leds                 |  sound              |
+   |  compact-flash        |  led-controller       |  spi                |
+   |  cpu                  |  light-sensor         |  spmi               |
+   |  cpus                 |  lora                 |  sram-controller    |
+   |  crypto               |  magnetometer         |  ssi-controller     |
+   |  disk                 |  mailbox              |  syscon             |
+   |  display              |  mdio                 |  temperature-sensor |
+   |  dma-controller       |  memory               |  timer              |
+   |  dsi                  |  memory-controller    |  touchscreen        |
+   |  dsp                  |  mmc                  |  tpm                |
+   |  eeprom               |  mmc-slot             |  usb                |
+   |  efuse                |  mouse                |  usb-hub            |
+   |  endpoint             |  nand-controller      |  usb-phy            |
+   |  ethernet             |  nvram                |  vibrator           |
+   |  ethernet-phy         |  oscillator           |  video-codec        |
+   |  fdc                  |  parallel             |  vme                |
+   |  flash                |  pc-card              |  watchdog           |
+   |  gnss                 |  pci                  |  wifi               |
+   |  gpio                 |  pcie                 |                     |
 
 
 Path Names
