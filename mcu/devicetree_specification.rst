@@ -108,6 +108,7 @@ to the `Developer Certificate of Origin` as defined at http://elinux.org/Develop
 Commits to this project need to contain the following line to indicate the submitter accepts the DCO:
 
 .. code-block::
+
     Signed-off-by: Your Name <your_email@domain.com>
 
 
@@ -188,6 +189,7 @@ TODOLIST
    you *must* contact the original authors,
    and get permission for relicensing to Apache v2.
    Patches for those bindings must have "Acked-by"s from the original author(s).
+
 
 
 |spec-fullname| |SpecVersion|
@@ -326,6 +328,28 @@ communities that developed and implemented the flattened devicetree concept.
 
 Purpose and Scope
 -----------------
+
+各种软件组件互相配合以初始化和引导计算机系统。在将控制权传递给操作系统，OS - Operating System 、
+Bootloader（引导加载程序） 或 Hypervisor（管理程序） 等软件之前， Firmware（固件） 可能会
+对系统硬件执行低级初始化。Bootloader 和 Hypervisor 可以依次加载并将控制权转移给 OS。
+标准、一致的接口和约定有利于这些软件组件之间的交互。在本文档中，术语 引导程序（boot program） 
+用于泛指初始化系统状态并执行另一个软件组件（称为 客户程序（client program） ）的软件组件。
+引导程序的示例包括：Firmware、Bootloader 和 Hypervisor。客户程序的示例包括：Bootloader、
+Hypervisor、OS 和专用程序。一个软件既可以是客户程序，也可以是引导程序（例如 Hypervisor）。
+
+本规范，即设备树规范 (DTSpec，Devicetree Specification)，为客户程序接口定义提供了完整的
+引导程序，并结合了有助于开发各种系统的最低系统要求。
+
+本规范针对嵌入式系统的要求。嵌入式系统通常由系统硬件、操作系统和应用软件组成，这些软件是为执行一组 
+固定的特定任务而定制的。与通用计算机不同，嵌入式系统旨在由用户使用各种软件和 I/O 设备进行定制。
+嵌入式系统的其他特征可能包括：
+
+*  一组固定的 I/O 设备，其可能为应用程序高度定制
+*  一块针对尺寸和成本优化的系统板
+*  有限的用户接口
+*  资源限制，例如有限的内存和有限的非易失性存储
+*  实时性约束
+*  使用多种操作系统，包括 Linux、实时操作系统，和自定义或专用的系统
 
 To initialize and boot a computer system, various software components
 interact. Firmware might perform low-level initialization of the system
@@ -580,16 +604,17 @@ type, CPU, memory and a single UART described. Device nodes are shown
 with properties and values inside each node.
 
 .. code-block::
-                                       ╭────────────────────╮        ╭────────────────────────────────╮
-                                       │ cpus               │        │ cpu@0                          │
-                                       │────────────────────│        │────────────────────────────────│
-                                       │ #address-cells=<1> │────┬──>│ device_type="cpu"              │
-                                   ╭──>│ #size-cells=<0>"]  │    │   │ reg=<0>                        │
-                                   │   ╰────────────────────╯    │   │ timebase-frequency=<825000000> │
-                                   │   ╭───────────────────────╮ │   │ clock-frequency=<825000000>"]  │
-                                   │   │ memory@0              │ │   ╰────────────────────────────────╯
-                                   │   │───────────────────────│ │
-                                   ├──>│ device_type="memory"  │ │   ╭────────────────────────────────╮
+   
+   :                                   ╭────────────────────╮        ╭────────────────────────────────╮
+   :                                   │ cpus               │        │ cpu@0                          │
+   :                                   │────────────────────│        │────────────────────────────────│
+   :                                   │ #address-cells=<1> │────┬──>│ device_type="cpu"              │
+   :                               ╭──>│ #size-cells=<0>"]  │    │   │ reg=<0>                        │
+   :                               │   ╰────────────────────╯    │   │ timebase-frequency=<825000000> │
+   :                               │   ╭───────────────────────╮ │   │ clock-frequency=<825000000>"]  │
+   :                               │   │ memory@0              │ │   ╰────────────────────────────────╯
+   :                               │   │───────────────────────│ │
+   :                               ├──>│ device_type="memory"  │ │   ╭────────────────────────────────╮
    ╭────────────────────────────╮  │   │ reg=<0 0x20000000>"]  │ ╰──>│ cpu@1                          │
    │ /                          │  │   ╰───────────────────────╯     │────────────────────────────────│
    │────────────────────────────│  │                                 │ device_type="cpu"              │
