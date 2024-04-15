@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32" height="32"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+  <rect width="32" height="32" fill="gray" rx="2" />
+  <rect x="2" y="6" width="28" height="24" fill="lightgray" rx="4" />
+  <circle cx="28" cy="3" width="32" height="32" fill="red"   r="2" />
+  <circle cx="22" cy="3" width="32" height="32" fill="green" r="2" />
+  <circle cx="16" cy="3" width="32" height="32" fill="blue"  r="2" />
+  <text x="4" y="12" font-size="2.0">GHCi, version 9.8.2: </text>
+  <text x="4" y="16" font-size="2.0">https://www.haskell.org/ghc/</text>
+  <text x="4" y="20" font-size="2.0">:? for help</text>
+  <text x="4" y="24" font-size="2.0">ghci></text>
+</svg>

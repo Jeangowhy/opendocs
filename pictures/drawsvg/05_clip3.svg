@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="600" height="320" viewBox="-300.0 -160.0 600 320">
+<defs>
+<g id="d0">
+<rect x="0" y="50" width="90" height="60" fill="#999" />
+<circle cx="25" cy="25" r="25" fill="#666" />
+<path d="M30,0 L80,0 L80,100 Z" fill="#ccc" />
+</g>
+<path d="M5,55 C25,5,45,-25,75,55 C85,85,20,105,40,55 Z" stroke="black" stroke-width="1" stroke-dasharray="3 2" fill="none" id="d1" />
+<clipPath id="d2">
+<use xlink:href="#d1" x="0" y="0" />
+</clipPath>
+<text x="20" y="20" font-size="48" font-weight="bold" transform="rotate(60)" stroke="black" stroke-width="1" stroke-dasharray="3 2" fill="none" id="d3">CLIP</text>
+<clipPath id="d4">
+<use xlink:href="#d3" x="0" y="0" />
+</clipPath>
+</defs>
+<use xlink:href="#d0" x="0" y="0" clip-path="url(#d2)" />
+<g transform="translate(100,0)">
+<use xlink:href="#d0" />
+<use xlink:href="#d1" x="0" y="0" />
+</g>
+<use xlink:href="#d0" x="0" y="150" clip-path="url(#d4)" />
+<g transform="translate(100,150)">
+<use xlink:href="#d0" />
+<use xlink:href="#d3" x="0" y="0" />
+</g>
+</svg>

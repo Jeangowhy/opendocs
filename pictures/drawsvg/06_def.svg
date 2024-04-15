@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="200" height="200" viewBox="0 0 200 200">
+<defs>
+<path d="M0,0 L10,10" stroke="black" id="defs0" />
+</defs>
+<use xlink:href="#defs0" x="20" y="50" />
+<use xlink:href="#defs0" x="50" y="50" />
+<use xlink:href="#defs0" x="80" y="50" />
+</svg>

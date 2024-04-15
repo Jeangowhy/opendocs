@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="600" height="320" viewBox="-300.0 -160.0 600 320">
+<defs>
+<rect x="70" y="80" width="60" height="40" stroke="black" fill="none" id="d0" />
+</defs>
+<circle cx="100" cy="100" r="4" fill="black" />
+<use xlink:href="#d0" />
+<use xlink:href="#d0" x="0" y="0" transform="translate(-100,-100) scale(2)" stroke-width="0.5" />
+<use xlink:href="#d0" x="0" y="0" transform="translate(-150,-150) scale(2.5)" stroke-width="0.4" />
+<use xlink:href="#d0" x="0" y="0" transform="translate(-200,-200) scale(3)" stroke-width="0.33" />
+</svg>
