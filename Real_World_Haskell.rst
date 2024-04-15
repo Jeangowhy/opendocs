@@ -11,7 +11,8 @@
 
 .. raw:: html
 
-   <style type="text/css"><!--
+   <style type="text/css">
+   <!--
       .screen { 
          min-height: 32px;
          padding: 1em 1em 1em 5em !important; 
@@ -4871,15 +4872,13 @@ comments anonymously.
       to create a value of that type.
 
       .. Note:: A note about naming
-            - 
 
-               - 
-               - Although the phrase “algebraic data type” is long,
-                  we're being careful to avoid using the acronym “ADT”.
-                  That acronym is already widely understood to stand for
-                  “\ *abstract* data type\ ”. Since Haskell supports
-                  both algebraic and abstract data types, we'll be
-                  explicit and avoid the acronym entirely.
+         Although the phrase “algebraic data type” is long,
+         we're being careful to avoid using the acronym “ADT”.
+         That acronym is already widely understood to stand for
+         “\ *abstract* data type\ ”. Since Haskell supports
+         both algebraic and abstract data types, we'll be
+         explicit and avoid the acronym entirely.
 
       Each of an algebraic data type's value constructors can take zero
       or more arguments. As an example, here's one way we might
@@ -5036,21 +5035,12 @@ comments anonymously.
          The ``(==)`` operator requires its arguments to have the same
          type.
 
-         .. tip::
+         .. Tip:: Comparing for equality
 
-            .. list-table::
-
-               - 
-
-                  - |[Tip]|
-                  - Comparing for equality
-               - 
-
-                  - 
-                  - Notice that in the ``deriving`` clause for our
-                     vector types, we added another word, ``Eq``. This
-                     causes the Haskell implementation to generate code
-                     that lets us compare the values for equality.
+            Notice that in the ``deriving`` clause for our
+            vector types, we added another word, ``Eq``. This
+            causes the Haskell implementation to generate code
+            that lets us compare the values for equality.
 
          If we used tuples to represent these values, we could quickly
          land ourselves in hot water by mixing the two representations
@@ -5139,11 +5129,9 @@ comments anonymously.
             first field of the Haskell type, and the title is in the
             second. We refer to them by location, not by name.
 
-            In `the section called “Pattern
-            matching” <#deftypes.pattern>`__,
+            In `the section called “Pattern matching” <#deftypes.pattern>`__,
             we'll see how to access the fields of a BookStore value. In
-            `the section called “Record
-            syntax” <#deftypes.record>`__,
+            `the section called “Record syntax” <#deftypes.record>`__,
             we'll introduce an alternate syntax for defining data types
             that looks a little more C-like.
 
@@ -5299,23 +5287,14 @@ comments anonymously.
             ``Square``. We will see why in `the section called “Pattern
             matching” <#deftypes.pattern>`__
 
-            .. tip::
+            .. Tip:: A few notes
 
-               .. list-table::
-
-                  - 
-
-                     - |[Tip]|
-                     - A few notes
-                  - 
-
-                     - 
-                     - From reading the preceding sections, it should
-                        now be clear that *all* of the data types that
-                        we define with the ``data`` keyword are
-                        algebraic data types. Some may have just one
-                        alternative, while others have several, but
-                        they're all using the same machinery.
+               From reading the preceding sections, it should
+               now be clear that *all* of the data types that
+               we define with the ``data`` keyword are
+               algebraic data types. Some may have just one
+               alternative, while others have several, but
+               they're all using the same machinery.
 
    .. container:: sect1
 
@@ -5413,14 +5392,12 @@ comments anonymously.
       ``3``.
 
       .. Note:: Ordering is important
-            - 
 
-               - 
-               - As we have already mentioned, a Haskell implementation
-                  checks patterns for matches in the order in which we
-                  specify them in our equations. Matching proceeds from
-                  top to bottom, and stops at the first success.
-                  Equations below a successful match have no effect.
+         As we have already mentioned, a Haskell implementation
+         checks patterns for matches in the order in which we
+         specify them in our equations. Matching proceeds from
+         top to bottom, and stops at the first success.
+         Equations below a successful match have no effect.
 
       As a final note, there already exists a standard function,
       ``sum``, that performs this sum-of-a-list for us. Our ``sumList``
@@ -5472,14 +5449,12 @@ comments anonymously.
          it's sometimes referred to as *de*\ construction.
 
          .. Note:: Deconstruction doesn't destroy anything
-               - 
 
-                  - 
-                  - If you're steeped in object oriented programming
-                     jargon, don't confuse deconstruction with
-                     destruction! Matching a pattern has no effect on
-                     the value we're examining: it just lets us “look
-                     inside” it.
+            If you're steeped in object oriented programming
+            jargon, don't confuse deconstruction with
+            destruction! Matching a pattern has no effect on
+            the value we're examining: it just lets us “look
+            inside” it.
 
       .. container:: sect2
 
@@ -5534,11 +5509,10 @@ comments anonymously.
             :class: screen
 
             ghci> complicated (False, 1, [1,2,3], 5)
-            *** Exception: Tuple.hs:10:0-39: Non-exhaustive patterns in function complicated
+            \*\*\* Exception: Tuple.hs:10:0-39: Non-exhaustive patterns in function complicated
 
-         For an explanation of this error message, skip forward a
-         little, to `the section called “Exhaustive patterns and wild
-         cards” <#deftypes.patterns.nonexhaustive>`__.
+         For an explanation of this error message, skip forward a little, to
+         `the section called “Exhaustive patterns and wild cards” <#deftypes.patterns.nonexhaustive>`__.
 
          We can pattern match on an algebraic data type using its value
          constructors. Recall the BookInfo type we defined earlier: we
@@ -5679,27 +5653,18 @@ comments anonymously.
             :class: screen
 
             ghci> badExample []
-            *** Exception: BadPattern.hs:4:0-36: Non-exhaustive patterns in function badExample
+            \*\*\* Exception: BadPattern.hs:4:0-36: Non-exhaustive patterns in function badExample
 
          In this example, no equation in the function's definition
          matches the value ``[]``.
 
-         .. tip::
+         .. Tip:: Warning about incomplete patterns
 
-            .. list-table::
-
-               - 
-
-                  - |[Tip]|
-                  - Warning about incomplete patterns
-               - 
-
-                  - 
-                  - GHC provides a helpful compilation option,
-                     ``-fwarn-incomplete-patterns``, that will cause it
-                     to print a warning during compilation if a sequence
-                     of patterns don't match all of a type's value
-                     constructors.
+            GHC provides a helpful compilation option,
+            ``-fwarn-incomplete-patterns``, that will cause it
+            to print a warning during compilation if a sequence
+            of patterns don't match all of a type's value
+            constructors.
 
          If we need to provide a default behavior in cases where we
          don't care about specific constructors, we can use a wild card
@@ -6013,43 +5978,33 @@ comments anonymously.
       We could continue in this fashion indefinitely, creating ever
       longer ``Cons`` chains, each with a single ``Nil`` at the end.
 
-      .. tip::
+      .. Tip:: Is List an acceptable list?
 
-         .. list-table::
-            :widths: 36 36
+         We can easily prove to ourselves that our List a type
+         has the same shape as the built-in list type [a]. To
+         do this, we write a function that takes any value of
+         type [a], and produces a value of type List a.
 
-            - 
+         .. code:: haskell
+            :class: programlisting
 
-               - |[Tip]|
-               - Is List an acceptable list?
-            - 
+            -- file: ch03/ListADT.hs
+            fromList (x:xs) = Cons x (fromList xs)
+            fromList []     = Nil
 
-               - 
-               - We can easily prove to ourselves that our List a type
-                  has the same shape as the built-in list type [a]. To
-                  do this, we write a function that takes any value of
-                  type [a], and produces a value of type List a.
+         By inspection, this clearly substitutes a ``Cons`` for
+         every ``(:)``, and a ``Nil`` for each ``[]``. This
+         covers both of the built-in list type's constructors.
+         The two types are *isomorphic*; they have the same
+         shape.
 
-                  .. code:: haskell
-                     :class: programlisting
+         .. code:: haskell
+            :class: screen
 
-                     -- file: ch03/ListADT.hs
-                     fromList (x:xs) = Cons x (fromList xs)
-                     fromList []     = Nil
-
-                  By inspection, this clearly substitutes a ``Cons`` for
-                  every ``(:)``, and a ``Nil`` for each ``[]``. This
-                  covers both of the built-in list type's constructors.
-                  The two types are *isomorphic*; they have the same
-                  shape.
-
-                  .. code:: haskell
-                     :class: screen
-
-                     ghci> fromList "durian"
-                     Cons 'd' (Cons 'u' (Cons 'r' (Cons 'i' (Cons 'a' (Cons 'n' Nil)))))
-                     ghci> fromList [Just True, Nothing, Just False]
-                     Cons (Just True) (Cons Nothing (Cons (Just False) Nil))
+            ghci> fromList "durian"
+            Cons 'd' (Cons 'u' (Cons 'r' (Cons 'i' (Cons 'a' (Cons 'n' Nil)))))
+            ghci> fromList [Just True, Nothing, Just False]
+            Cons (Just True) (Cons Nothing (Cons (Just False) Nil))
 
       For a third example of what a recursive type is, here is a
       definition of a binary tree type.
@@ -6139,9 +6094,14 @@ comments anonymously.
                - 
 
                   - **1.**
+                     Write the converse of fromList for the List type: a function 
+                     that takes a List a and generates a [a].
                - 
 
                   - **2.**
+                     Define a tree type that has only one constructor, 
+                     like our Java example. Instead of the Empty constructor,
+                     use the Maybe type to refer to a node's children.
 
    .. container:: sect1
 
@@ -6187,9 +6147,9 @@ comments anonymously.
          ghci> mySecond "xi"
          'i'
          ghci> mySecond [2]
-         *** Exception: list too short
+         \*\*\* Exception: list too short
          ghci> head (mySecond [[9]])
-         *** Exception: list too short
+         \*\*\* Exception: list too short
 
       Notice the third case above, where we try to use the result of the
       call to ``mySecond`` as the argument to another function.
@@ -6205,7 +6165,7 @@ comments anonymously.
          :class: screen
 
          ghci> mySecond []
-         *** Exception: Prelude.tail: empty list
+         \*\*\* Exception: Prelude.tail: empty list
 
       .. container:: sect2
 
@@ -6307,28 +6267,24 @@ comments anonymously.
       line introduces a new variable. The name is on the left of the
       ``=``, and the expression to which it is bound is on the right.
 
-      .. Note:: |[Note]|
-               - Special notes
-            - 
+      .. Note:: Special notes
 
-               - 
-               - Let us re-emphasise our wording: a name in a ``let``
-                  block is bound to an *expression*, not to a *value*.
-                  Because Haskell is a lazy language, the expression
-                  associated with a name won't actually be evaluated
-                  until it's needed. In the above example, we will not
-                  compute the value of ``newBalance`` if we do not meet
-                  our reserve.
+         Let us re-emphasise our wording: a name in a ``let``
+         block is bound to an *expression*, not to a *value*.
+         Because Haskell is a lazy language, the expression
+         associated with a name won't actually be evaluated
+         until it's needed. In the above example, we will not
+         compute the value of ``newBalance`` if we do not meet
+         our reserve.
 
-                  When we define a variable in a ``let`` block, we refer
-                  to it as a *``let``-bound* variable. This simply means
-                  what it says: we have bound the variable in a ``let``
-                  block.
+         When we define a variable in a ``let`` block, we refer
+         to it as a *``let``-bound* variable. This simply means
+         what it says: we have bound the variable in a ``let``
+         block.
 
-                  Also, our use of white space here is important. We'll
-                  talk in more detail about the layout rules in `the
-                  section called “The offside rule and white space in an
-                  expression” <#deftypes.offside>`__.
+         Also, our use of white space here is important. We'll
+         talk in more detail about the layout rules in 
+         `the section called “The offside rule and white space in an expression” <#deftypes.offside>`__.
 
       We can use the names of a variable in a ``let`` block both within
       the block of declarations and in the expression that follows the
@@ -6401,22 +6357,13 @@ comments anonymously.
             ghci> :type quux
             quux :: t -> [Char]
 
-         .. tip::
+         .. Tip:: Compiler warnings are your friends
 
-            .. list-table::
-
-               - 
-
-                  - |[Tip]|
-                  - Compiler warnings are your friends
-               - 
-
-                  - 
-                  - Shadowing can obviously lead to confusion and nasty
-                     bugs, so GHC has a helpful
-                     ``-fwarn-name-shadowing`` option. When enabled, GHC
-                     will print a warning message any time we shadow a
-                     name.
+            Shadowing can obviously lead to confusion and nasty
+            bugs, so GHC has a helpful
+            ``-fwarn-name-shadowing`` option. When enabled, GHC
+            will print a warning message any time we shadow a
+            name.
 
       .. container:: sect2
 
@@ -6453,10 +6400,9 @@ comments anonymously.
          lack them.
 
          As with ``let`` expressions, white space is significant in
-         ``where`` clauses. We will talk more about the layout rules
-         shortly, in `the section called “The offside rule and white
-         space in an
-         expression” <#deftypes.offside>`__.
+         ``where`` clauses. We will talk more about the layout rules shortly, in
+         the section called 
+         `“The offside rule and white space in an expression” <#deftypes.offside>`__.
 
       .. container:: sect2
 
@@ -6556,8 +6502,7 @@ comments anonymously.
            -- Our second is left of the first, which is illegal!
            secondBadIndentation = 2
 
-      Here's what happens when we try to load the two files into
-      **ghci**.
+      Here's what happens when we try to load the two files into **ghci**.
 
       .. code:: haskell
          :class: screen
@@ -6968,44 +6913,63 @@ comments anonymously.
 
             - 
 
-               - **1.**
+               - **1.** Write a function that computes the number of elements in a list. To test it, ensure that it gives the same answers as the standard length function. 
             - 
 
-               - **2.**
+               - **2.** Add a type signature for your function to your source file. To test it, load the source file into ghci again.
             - 
 
-               - **3.**
+               - **3.** Write a function that computes the mean of a list, i.e. the sum of all elements in the list divided by its length. (You may need to use the fromIntegral function to convert the length of the list from an integer into a floating point number.) 
             - 
 
-               - **4.**
+               - **4.** Turn a list into a palindrome, i.e. it should read the same both backwards and forwards. For example, given the list [1,2,3], your function should return [1,2,3,3,2,1]. 
             - 
 
-               - **5.**
+               - **5.** Write a function that determines whether its input list is a palindrome.
             - 
 
-               - **6.**
+               - **6.** Create a function that sorts a list of lists based on the length of each sublist. (You may want to look at the sortBy function from the Data.List module.)
             - 
 
-               - **7.**
+               - **7.** Define a function that joins a list of lists together using a separator value.
+
+                  .. code:: haskell
+                     :class: programlisting
+
+                     -- file: ch03/Intersperse.hs
+                     intersperse :: a -> [[a]] -> [a]
+
+                  The separator should appear between elements of the list, but should not follow the last element. Your function should behave as follows.
+
+                  .. code:: haskell
+                     :class: screen
+
+                     ghci> :load Intersperse
+                     [1 of 1] Compiling Main             ( Intersperse.hs, interpreted )
+                     Ok, modules loaded: Main.
+                     ghci> intersperse ',' []
+                     ""
+                     ghci> intersperse ',' ["foo"]
+                     "foo"
+                     ghci> intersperse ',' ["foo","bar","baz","quux"]
+                     "foo,bar,baz,quux"
             - 
 
-               - **8.**
+               - **8.** Using the binary tree type that we defined earlier in this chapter, write a function that will determine the height of the tree. The height is the largest number of hops from the root to an Empty. For example, the tree Empty has height zero; Node "x" Empty Empty has height one; Node "x" Empty (Node "y" Empty Empty) has height two; and so on.
             - 
 
-               - **9.**
+               - **9.** onsider three two-dimensional points a, b, and c. If we look at the angle formed by the line segment from a to b and the line segment from b to c, it either turns left, turns right, or forms a straight line. Define a Direction data type that lets you represent these possibilities.
             - 
 
-               - **10.**
+               - **10.** Write a function that calculates the turn made by three 2D points and returns a Direction.
             - 
 
-               - **11.**
+               - **11.** Define a function that takes a list of 2D points and computes the direction of each successive triple. Given a list of points [a,b,c,d,e], it should begin by computing the turn made by [a,b,c], then the turn made by [b,c,d], then [c,d,e]. Your function should return a list of Direction.
             - 
 
-               - **12.**
+               - **12.** Using the code from the preceding three exercises, implement Graham's scan algorithm for the convex hull of a set of 2D points. You can find good description of what a convex hull. is, and how the Graham scan algorithm should work, on Wikipedia.
 
    .. container:: footnotes
-
-      --------------
 
       .. container:: footnote
 
