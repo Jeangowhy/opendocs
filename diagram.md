@@ -968,11 +968,8 @@ for char in list(uni):
 
 # /PlantUML ASCII Art
 - [PlantUML Ascii Art](https://plantuml.com/zh/ascii-art)
-- https://crashedmind.github.io/PlantUMLHitchhikersGuide/
-- https://github.com/Crashedmind/PlantUMLHitchhikersGuide
-- https://github.com/Crashedmind/PlayingWithPlantUMLSource
 - https://pdf.plantuml.net/PlantUML_Language_Reference_Guide_en.pdf
-
+- https://crashedmind.github.io/PlantUMLHitchhikersGuide/
 
 工作目录中建立一个 sequenceDiagram.wsd, 内容如下:
 

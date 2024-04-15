@@ -1,4 +1,65 @@
 
+# SVG Viewer Extension for Windows Explorer
+- https://www.apriorit.com/dev-blog/357-shell-extentions-basics-samples-common-problems
+- Shell Developer's Guide https://learn.microsoft.com/en-us/windows/win32/shell/intro
+
+A Windows Shell Extensions for SVG preview!
+
+Extension module for Windows Explorer to render SVG thumbnails, 
+so that you can have an overview of your SVG files.
+
+Installation
+-- - -
+From _[Releases](https://github.com/tibold/svg-explorer-extension/releases)_ download and run appropriate binary for your system. There are no further actions required after installations.
+
+> Make sure you download the right architecture (the 32 bit installer will run on a 64 bit system, but the extension will not function).
+
+Troubleshooting
+-- - -
+
+> Thumbnails do no show after installation
+
+Method 1:
+
+This may happen if the thumbnail's are disabled in the system. To verify that it is indeed turned on:
+
+* Open the start menu
+* Search for `File Explorer Options` and open it
+* Under the `View` tab make sure that the `Always show icons, never thumbnails` is __unchecked__
+
+Method 2:
+
+This may happen if the system already contains cached thumbnails for the SVGs you are trying to view. This can be fixed by clearing the system's thumbnail cache.
+
+* Open the start menu
+* Search for "Disk cleanup" and open it
+* In the dialog there is a list of items that can be cleaned. Select `Thumbnails` at the end of the list. You may unselect the rest or leave the default selection.
+* Click `OK`
+
+Method 3:
+
+Kill `explorer.exe` and delete the icon cache manually
+([ref](https://superuser.com/questions/342052/how-to-get-svg-thumbnails-in-windows-explorer)):
+   
+    TASKKILL /IM explorer* /F
+    DEL "%localappdata%\IconCache.db" /A
+    explorer.exe
+
+If neither of the above helped please open an issue on our github page.
+
+
+# QuickView for Sublime Text
+1. https://github.com/jwortmann/quick-view
+3. https://github.com/imagemagick/imagemagick
+2. Fred's ImageMagick Scripts http://www.fmwconcepts.com/imagemagick/index.php
+
+QuikView support preview image of markdown documentation, and also preview svg
+graphics, it works with magick or inkscape.
+
+![This is test svg graphic](../svg/svg_test.svg)
+
+
+
 # SVG 矢量图形
 - https://developer.mozilla.org/zh-CN/docs/Web/SVG
 - https://validator.w3.org/#validate_by_input

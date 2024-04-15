@@ -283,7 +283,7 @@ This is line 3
 
 | CMD | Description | Example |
 | --- | ----------- | ------- |
-| 'a TEXT'     | Appending TEXT after a line.    | '2i world'        |
+| 'a TEXT'     | Appending TEXT after a line.    | '2a world'        |
 | 'c TEXT'     | Replaces the line(s) with TEXT. | '2,9c hello'      |
 | 'i TEXT'     | insert TEXT before a line.      | '2i hello'        |
 | 'r FILENAME' | Reads file FILENAME.            | '2r/etc/hostname' |
@@ -1112,19 +1112,19 @@ AWK 正则规则符号参考如下，匹配测试表达式语法是 `EXP ~ /REGE
 
 | Escape | Description |
 |--------|-------------|
-| `\\` | Escape one backslash in the string or regexp.
-|`\a` | The "alert" character, `Ctrl-g`, ASCII code 7 (BEL). 
-|`\b` | Backspace, `Ctrl-h`, ASCII code 8 (BS).
-|`\f` | Formfeed, `Ctrl-l`, ASCII code 12 (FF).
-|`\n` | Newline, `Ctrl-j`, ASCII code 10 (LF).
-|`\r` | Carriage return, `Ctrl-m`, ASCII code 13 (CR).
-|`\t` | Horizontal TAB, `Ctrl-i`, ASCII code 9 (HT).
-|`\v` | Vertical TAB, `Ctrl-k`, ASCII code 11 (VT).
-|`\NNN` | The octal value NNN, where NNN stands for 1 to 3 digits between `0` and `7`. 
+| `\\`   | Escape one backslash in the string or regexp.
+|`\a`    | The "alert" character, `Ctrl-g`, ASCII code 7 (BEL). 
+|`\b`    | Backspace, `Ctrl-h`, ASCII code 8 (BS).
+|`\f`    | Formfeed, `Ctrl-l`, ASCII code 12 (FF).
+|`\n`    | Newline, `Ctrl-j`, ASCII code 10 (LF).
+|`\r`    | Carriage return, `Ctrl-m`, ASCII code 13 (CR).
+|`\t`    | Horizontal TAB, `Ctrl-i`, ASCII code 9 (HT).
+|`\v`    | Vertical TAB, `Ctrl-k`, ASCII code 11 (VT).
+|`\NNN`  | The octal value NNN, where NNN stands for 1 to 3 digits between `0` and `7`. 
 |`\xHH...` | The hexadecimal value HH. (The `\x` escape sequence is not allowed in POSIX awk.)
 |`\uHH...` | The hexadecimal value HH. (The `\u` escape sequence is not allowed in POSIX awk.)
-|`\/` | A literal slash (should be used for regexp constants only). 
-| `\"` | A literal double quote (should be used for string constants only). 
+|`\/`    | A literal slash (should be used for regexp constants only). 
+| `\"`   | A literal double quote (should be used for string constants only). 
 
 正则中使用 `$` 和 `\n` 表示含义并不完全一至，`$` 表示行尾，这个位置总是存在的，
 不管所在行有没有字符。但是 `\n` 却不一定存在，对于没有换行的内容，就不存在这
@@ -1157,14 +1157,14 @@ AWK 正则规则符号参考如下，匹配测试表达式语法是 `EXP ~ /REGE
 
 | Operators | Description |
 |-----------|-------------|
-| `\s` | Matches any space character as defined by the current locale. shorthand for `[[:space:]]`.
-| `\S` | Matches any character that is not a space, shorthand for `[^[:space:]]`.
-| `\w` | Matches any word-constituent character, shorthand for `[[:alnum:]_]`.
-| `\W` | Matches any character that is not word-constituent, shorthand for `[^[:alnum:]_]`.
-| `\<` | Matches the empty string at the beginning of a word.  For example, `/\<away/` matches `away` but not `stowaway`.
-| `\>` | Matches the empty string at the end of a word.  For example, `/stow\>/` matches `stow` but not `stowaway`.
-| `\y` | Matches the empty string at the word boundar*y*.
-| `\B` | Matches the empty string that occurs between two word-constituent characters.
+| `\s`      | Matches any space character as defined by the current locale. shorthand for `[[:space:]]`.
+| `\S`      | Matches any character that is not a space, shorthand for `[^[:space:]]`.
+| `\w`      | Matches any word-constituent character, shorthand for `[[:alnum:]_]`.
+| `\W`      | Matches any character that is not word-constituent, shorthand for `[^[:alnum:]_]`.
+| `\<`      | Matches the empty string at the beginning of a word.  For example, `/\<away/` matches `away` but not `stowaway`.
+| `\>`      | Matches the empty string at the end of a word.  For example, `/stow\>/` matches `stow` but not `stowaway`.
+| `\y`      | Matches the empty string at the word boundar*y*.
+| `\B`      | Matches the empty string that occurs between two word-constituent characters.
 
 `gawk` 有两个工作在缓冲区数据之上的运算，用于匹配整个缓冲区的数据边界：
 
@@ -1273,7 +1273,7 @@ This is sed.info, produced by makeinfo version 6.5 from sed.texi.
 
 This file documents version 4.8 of GNU 'sed', a stream editor.
 
-   Copyright (C) 1998-2020 Free Software Foundation, Inc.
+    Copyright (C) 1998-2020 Free Software Foundation, Inc.
 
      Permission is granted to copy, distribute and/or modify this
      document under the terms of the GNU Free Documentation License,
@@ -1281,6 +1281,7 @@ This file documents version 4.8 of GNU 'sed', a stream editor.
      Foundation; with no Invariant Sections, no Front-Cover Texts, and
      no Back-Cover Texts.  A copy of the license is included in the
      section entitled "GNU Free Documentation License".
+
 INFO-DIR-SECTION Text creation and manipulation
 START-INFO-DIR-ENTRY
 * sed: (sed).                   Stream EDitor.

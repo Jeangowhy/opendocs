@@ -352,8 +352,6 @@ this is *italic* and this is **bold** .  another _italic_ and another __bold__
 
 this is `important` text. and percentage signs : % and `%`
 
-This is a paragraph with a footnote (builtin parser only). [^note-id]
-
 Insert `[ TOC ]` without spaces to generate a table of contents (builtin parsers only).
 
 ## //Indentation
@@ -722,7 +720,11 @@ async_call('/path/to/api', function(json) {
 
 The Github Markdown also brings some [nice Emoji support][emoji] : :+1: :heart: :beer:
 
+This is a paragraph with a footnote (builtin parser only). [^note-id]
+
 [^note-id]: This is the text of the note. 
+
+
 
 ## //GitHub MD Advanced fromating: Alerts
 https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting

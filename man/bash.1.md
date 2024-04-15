@@ -5466,7 +5466,7 @@ BASH(1)                     General Commands Manual                    BASH(1)
                   completes, the shell prints a line containing its exit
                   status.
           -n      Read commands but do not execute them.  This may be used
-                  to check a shell script for syntax errors.  This is
+                  to check a shell 3or syntax errors.  This is
                   ignored by interactive shells.
           -o option-name
                   The option-name can be one of the following:

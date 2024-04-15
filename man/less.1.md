@@ -1,24 +1,26 @@
 LESS(1)                              General Commands Manual                             LESS(1)
 
-NAME
-========================================================
+# /NAME
+
 less - opposite of more
 
-SYNOPSIS
-========================================================
-less -?
-less --help
-less -V
-less --version
-less [-[+]aABcCdeEfFgGiIJKLmMnNqQrRsSuUVwWX~]
-     [-b space] [-h lines] [-j line] [-k keyfile]
-     [-{oO} logfile] [-p pattern] [-P prompt] [-t tag]
-     [-T tagsfile] [-x tab,...] [-y lines] [-[z] lines]
-     [-# shift] [+[+]cmd] [--] [filename]...
+# /SYNOPSIS
+
+
+    less -?
+    less --help
+    less -V
+    less --version
+    less [-[+]aABcCdeEfFgGiIJKLmMnNqQrRsSuUVwWX~]
+         [-b space] [-h lines] [-j line] [-k keyfile]
+         [-{oO} logfile] [-p pattern] [-P prompt] [-t tag]
+         [-T tagsfile] [-x tab,...] [-y lines] [-[z] lines]
+         [-# shift] [+[+]cmd] [--] [filename]...
+
 (See the OPTIONS section for alternate option syntax with long option names.)
 
-DESCRIPTION
-========================================================
+# /DESCRIPTION
+
 Less is a program similar to more (1), but it has many more features.  Less does not have
 to read the entire input file before starting, so with large input  files  it  starts  up
 faster  than  text editors like vi (1).  Less uses termcap (or terminfo on some systems),
@@ -29,8 +31,8 @@ are prefixed with a caret.)
 Commands are based on both more and vi.  Commands may be preceded by  a  decimal  number,
 called N in the descriptions below.  The number is used by some commands, as indicated.
 
-COMMANDS
-========================================================
+# /COMMANDS
+
 In  the  following  descriptions, ^X means control-X.  ESC stands for the ESCAPE key; for
 example ESC-v means the two character sequence "ESCAPE", then "v".
 
@@ -376,8 +378,8 @@ s filename
        Save the input to a file.  This only works if the input is a pipe, not an ordinary
        file.
 
-OPTIONS
-========================================================
+# /OPTIONS
+
 Command line options are described below.  Most options may be changed while less is run‐
 ning, via the "-" command.
 
@@ -821,8 +823,8 @@ and there is no way to include a dollar sign in the option string.
        described  previously  may  also be used to set (or change) an initial command for
        every file.
 
-LINE EDITING
-========================================================
+# /LINE EDITING
+
 When entering command line at the bottom of the screen (for example, a filename  for  the
 :e  command, or the pattern for a search command), certain keys can be used to manipulate
 the command line.  Most commands have an alternate form in [ brackets ] which can be used
@@ -894,8 +896,8 @@ BACKTAB [ ESC-TAB ]
 
 ^G     Delete the entire command line and return to the main prompt.
 
-KEY BINDINGS
-========================================================
+# /KEY BINDINGS
+
 You  may  define  your  own  less  commands  by using the program lesskey (1) to create a
 lesskey file.  This file specifies a set of command keys and an  action  associated  with
 each  key.   You may also use lesskey to change the line-editing keys (see LINE EDITING),
@@ -920,8 +922,8 @@ a  different  sysconf  directory than /usr/local/etc, that directory is where th
 file is found.)  On MS-DOS and Windows systems, the system-wide lesskey file is  c:\_sys‐
 less.  On OS/2 systems, the system-wide lesskey file is c:\sysless.ini.
 
-INPUT PREPROCESSOR
-========================================================
+# /INPUT PREPROCESSOR
+
 You  may  define  an  "input  preprocessor" for less.  Before less opens a file, it first
 gives your input preprocessor a chance to modify the way the contents  of  the  file  are
 displayed.   An  input  preprocessor  is  simply an executable program (or shell script),
@@ -1024,8 +1026,8 @@ dash (|-) or two vertical bars and a dash (||-), the input pipe is used on stand
 as well as other files.  Again, in this case the dash is not considered to be part of the
 input pipe command.
 
-NATIONAL CHARACTER SETS
-========================================================
+# /NATIONAL CHARACTER SETS
+
 There are three types of characters in the input file:
 
 normal characters
@@ -1132,8 +1134,8 @@ trailing octets) are displayed individually using LESSBINFMT so as to facilitate
 tic of how the UTF-8 file is ill-formed.
 
 
-PROMPTS
-========================================================
+# /PROMPTS
+
 The  -P  option  allows you to tailor the prompt to your preference.  The string given to
 the -P option replaces the specified prompt string.  Certain characters in the string are
 interpreted  specially.   The prompt mechanism is rather complicated to provide flexibil‐
@@ -1291,8 +1293,8 @@ by the shell-escaped file name.  If your editor does not accept the "+linenumber
 or has other differences in invocation syntax, the LESSEDIT variable can  be  changed  to
 modify this default.
 
-SECURITY
-========================================================
+# /SECURITY
+
 When the environment variable LESSSECURE is set to 1, less runs in a "secure" mode.  This
 means these features are disabled:
 
@@ -1316,8 +1318,8 @@ means these features are disabled:
 
 Less can also be compiled to be permanently in "secure" mode.
 
-COMPATIBILITY WITH MORE
-========================================================
+# /COMPATIBILITY WITH MORE
+
 If the environment variable LESS_IS_MORE is set to 1, or if the program is invoked via  a
 file  link  named "more", less behaves (mostly) in conformance with the POSIX "more" com‐
 mand specification.  In this mode, less behaves differently in these ways:
@@ -1338,8 +1340,8 @@ tern.
 The  LESS  environment  variable is ignored, and the MORE environment variable is used in
 its place.
 
-ENVIRONMENT VARIABLES
-========================================================
+# /ENVIRONMENT VARIABLES
+
 Environment variables may be specified either in the system environment as usual, or in a
 lesskey (1) file.  If environment variables are defined in more than one place, variables
 defined in a local lesskey file take precedence over variables defined in the system  en‐
@@ -1456,12 +1458,12 @@ TERM   The type of terminal on which less is being run.
 
 VISUAL The name of the editor (used for the v command).
 
-SEE ALSO
-========================================================
+# /SEE ALSO
+
 lesskey(1)
 
-COPYRIGHT
-========================================================
+# /COPYRIGHT
+
 Copyright (C) 1984-2019  Mark Nudelman
 
 less  is  part  of  the GNU project and is free software.  You can redistribute it and/or
@@ -1477,8 +1479,8 @@ less is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY
 even  the  implied  warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See
 the GNU General Public License for more details.
 
-AUTHOR
-========================================================
+# /AUTHOR
+
 Mark Nudelman
 Report bugs at https://github.com/gwsw/less/issues.
 For more information, see the less homepage at

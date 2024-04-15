@@ -189,6 +189,23 @@ CPU 工艺从 10000nm 发展到 10nm 以内的水平，工作主频从 KHz 水�
 An Illustrated History of Computers 
 http://www.computersciencelab.com/ComputerHistory/History.htm
 
+AMD 64-bit CPU 手册：
+
+0. AMD Documentation Hub https://www.amd.com/en/search/documentation/hub.html
+1.  AMD64 Architecture Programmer's Manual Volume 1: Application Programming (24592) 
+    https://www.amd.com/content/dam/amd/en/documents/processor-tech-docs/programmer-references/24592.pdf
+2.  AMD64 Architecture Programmer's Manual Volume 2: System Programming (24593) 
+    https://www.amd.com/content/dam/amd/en/documents/processor-tech-docs/programmer-references/24593.pdf
+3.  AMD64 Architecture Programmer's Manual Volume 3: General-Purpose and System Instructions (24594) 
+    https://www.amd.com/content/dam/amd/en/documents/processor-tech-docs/programmer-references/24594.pdf
+4.  AMD64 Architecture Programmer's Manual Volume 4: 128-Bit Media Instructions (26568) 
+    https://www.amd.com/content/dam/amd/en/documents/processor-tech-docs/programmer-references/26568.pdf
+5.  AMD64 Architecture Programmer’s Manual Volume 5: 64-Bit Media and x87 Floating-Point Instructions (26569_2) 
+    https://www.amd.com/content/dam/amd/en/documents/processor-tech-docs/programmer-references/26569.pdf
+6.  AMD64 Architecture Programmer's Manual Volumes 1-5 (40332) 
+    Inclues Volume 24592, 24593, 24594, 26568, 26569.
+    https://www.amd.com/content/dam/amd/en/documents/processor-tech-docs/programmer-references/40332.pdf
+
 
 而作为移动设备的霸主，ARM 无疑是当下的学习首选，它代表的是嵌入式硬件开发的未来方向。
 例如，日本任天堂游戏公司 (Nintendo) 出品的 GameBoy Advance (GBA) 可移植的掌上游戏机，
@@ -236,6 +253,40 @@ https://www.coranac.com/tonc/text/asm.htm
 3. 机器码，Machine-level instruction encoding: hex EB 21 (binary 1110101100100001)
 4. 微码，Microcode that implements the correcponding operation inside the CPU.
 
+在当下的市场形势下，Windows + Intel X86 CPU 垄断桌面平台，Android + ARM CPU 垄断移动平台，
+只有嵌入式是一个可使劲的方向。ISC-V 将是潜在的破局者！2010 年，伯克利研究团队要设计一款 CPU，
+然而，英特尔对 X86 的授权卡的很严，ARM 的指令集授权很贵，MIPS、SPARC、Open Power 也都需要
+各自的公司授权。在选择受限情况下，伯克利的研究团队决定从零开始设计一套全新指令集，诞生了 RISC-V。
+
+01. Volume I: User-Level ISA 用户级指令集文档 238 页左右
+    https://github.com/riscv/riscv-isa-manual/releases/download/Ratified-IMAFDQC/riscv-spec-20191213.pdf
+02. Volume II: Privileged Architecture 特权架构文档 155 页左右
+    https://github.com/riscv/riscv-isa-manual/releases/download/Priv-v1.12/riscv-privileged-20211203.pdf
+
+为了更方便地编写汇编程序，可以使用 LSP 语言服务的智能提示：
+
+1. Sublime Text 中安装 LSP 支持插件，一并安装 ARM Assembly 语法支持插件；
+2. 安装一个汇编语言 LSP 服务程序，比如 [Asm-lsp](https://github.com/bergercookie/asm-lsp)
+3. 为 Asm-lsp 安装 Rust 编译器，执行 `cargo install asm-lsp` 命令编译安装。
+
+然后为 Sublime Text LSP 插件编写以下配置（Preferences: LSP Setting）：
+
+```json
+{
+    "clients": {
+        "asm-lsp": {
+            "enabled": true,
+            "command": ["asm-lsp"],
+            "selector": "source.asm | source.assembly"
+        }
+    }
+}
+```
+
+Asm-lsp 只有一个可执行文件，（.cargo/bin/asm-lsp.exe），可以从源代码中看到提示信息数据
+来源于 XML 文件中记录的相关指令信息。asm-lsp 程序主要工作就是实现 LSP 协议服务端，并解释
+XML 数据文件。按编辑器提供的上下文信息，适时提供智能提示。
+
 80286 CPU 开始引入保护地址模式（Protected Address Mode），以及兼容旧 x86 CPU 的虚拟
 8086 模式（Virtual 8086 Mode），还有加电时默认的实地址模式（Real-address mode）。
 
@@ -243,7 +294,9 @@ https://www.coranac.com/tonc/text/asm.htm
 MIT 6.828: Operating System Engineering 课程网站提供一个非常棒的课件，图形化演示
 保护模式的转换，Protected-Mode Address Translation。指示了分布内存的两个主要步骤，
 段转译，和分页映射机制。在两年前还做过 [MIT 6.828 课程实验导读](../kernel.md)。
+
 https://pdos.csail.mit.edu/6.828/2016/lec/x86_translation_and_registers.pdf
+https://pdos.csail.mit.edu/6.828/2007/lec/x86_translation.pdf
 
 Ulrich Drepper 制作了一份 x86 指令编码图 x86 Instruction Encoding Cheat Sheet
 https://www.akkadia.org/drepper/x86-opcode-structure.pdf
@@ -348,6 +401,26 @@ intel80386_chm2md()
 }
 intel80386_chm2md
 ```
+
+随着 Unicode 收录的符号越来越丰富，部分简单的电路示意图都可以使用以下符号实现：
+https://altcodeunicode.com/alt-codes-electrotechnical-power-symbols/
+
+| Symbol | ALT Code | ALT X Code |                Name               | HTML Entity | Code Point |
+|--------|----------|------------|-----------------------------------|-------------|------------|
+| ⏚      | ALT 9178 | 23DA ALT X | Earth ground                      | &#9178      | U+23DA     |
+| ⏛      | ALT 9179 | 23DB ALT X | Fuse                              | &#9179      | U+23DB     |
+| ⎐      | ALT 9104 | 2390 ALT X | Open-circuit-output l-type symbol | &#9104      | U+2390     |
+| ⎑      | ALT 9105 | 2391 ALT X | Passive-pull-down-output symbol   | &#9105      | U+2391     |
+| ⎒      | ALT 9106 | 2392 ALT X | Passive-pull-up-output symbol     | &#9106      | U+2392     |
+| ⎓      | ALT 9107 | 2393 ALT X | Direct current symbol form two    | &#9107      | U+2393     |
+| ⎔      | ALT 9108 | 2394 ALT X | Software-function symbol          | &#9108      | U+2394     |
+| ⎍      | ALT 9101 | 238D ALT X | Monostable symbol                 | &#9101      | U+238D     |
+| ⎎      | ALT 9102 | 238E ALT X | Hysteresis symbol                 | &#9102      | U+238E     |
+| ⎏      | ALT 9103 | 238F ALT X | Open-circuit-output h-type symbol | &#9103      | U+238F     |
+| ⏾      | ALT 9214 | 23FE ALT X | Power sleep symbol                | &#9214      | U+23FE     |
+| ⏻      | ALT 9211 | 23FB ALT X | Power symbol                      | &#9211      | U+23FB     |
+| ⏼      | ALT 9212 | 23FC ALT X | Power on-off symbol               | &#9212      | U+23FC     |
+| ⏽      | ALT 9213 | 23FD ALT X | Power on symbol                   | &#9213      | U+23FD     |
 
 /Intel 80386 Reference Programmer's Manual
 ==========================================
@@ -528,7 +601,7 @@ intel80386_chm2md
 | [ADC](#IC_ADC)     | [ENTER](#IC_ENTER) | [MOVRS](#IC_MOVRS) | [SAL](#IC_SAL)     |
 | [ADD](#IC_ADD)     | [HLT](#IC_HLT)     | [MOVS](#IC_MOVS)   | [SBB](#IC_SBB)     |
 | [AND](#IC_AND)     | [IDIV](#IC_IDIV)   | [MOVSX](#IC_MOVSX) | [SCAS](#IC_SCAS)   |
-| [ARPL](#IC_ARPL)   | [IMUL](#IC_IMUL)   | [MOVZX](#IC_MOVZX) | [SETCC](#IC_SETCC) |
+| [ARPL](#IC_ARPL)   | [IMUL](#IC_IMUL)   | [MOVZX](#IC_MOVZX) | [SETCC](#IC_SET) |
 | [BOUND](#IC_BOUND) | [IN](#IC_IN)       | [MUL](#IC_MUL)     | [SGDT](#IC_SGDT)   |
 | [BSF](#IC_BSF)     | [INC](#IC_INC)     | [NEG](#IC_NEG)     | [SHLD](#IC_SHLD)   |
 | [BSR](#IC_BSR)     | [INS](#IC_INS)     | [NOP](#IC_NOP)     | [SHRD](#IC_SHRD)   |
@@ -556,6 +629,162 @@ intel80386_chm2md
 *   [Appendix B -- Complete Flag Cross-Reference](#APPB_)
 *   [Appendix C -- Status Flag Summary](#APPC_)
 *   [Appendix D -- Condition Codes](#APPD_)
+
+
+/Instruction Acronyms
+=====================
+
+001. [AAA](#IC_AAA) ── (ASCII Adjust after Addition)
+002. [AAD](#IC_AAD) ── (ASCII Adjust before Division)
+003. [AAM](#IC_AAM) ── (ASCII Adjust after Multiplication)
+004. [AAS](#IC_AAS) ── (ASCII Adjust after Subtraction)
+005. [ADC](#IC_ADC) ── (Add Integers with Carry)
+006. [ADD](#IC_ADD) ── (Add Integers)
+007. [AND](#IC_AND) ── (Logical AND)
+008. [ARPL](#IC_ARPL) ── (Adjust Requestor's Privilege Level)
+009. [BOUND](#IC_BOUND) ── (Check Array Index Against Bounds)
+010. [BSF](#IC_BSF) ── (Bit Scan Forward)
+011. [BSR](#IC_BSR) ── (Bit Scan Reverse)
+012. [BTC](#IC_BTC) ── (Bit Test and Complement)
+013. [BTR](#IC_BTR) ── (Bit Test and Reset)
+014. [BTS](#IC_BTS) ── (Bit Test and Set)
+015. [BT](#IC_BT) ── (Bit Test)
+016. [CALL](#IC_CALL) ── (Call Procedure)
+017. [CBW](#IC_CBW) ── (Convert Byte to Word)
+018. [CDQ](#IC_CWD) ── (Convert Doubleword to Quad-Word)
+019. [CLC](#IC_CLC) ── (Clear Carry Flag)
+020. [CLD](#IC_CLD) ── (Clear Direction Flag)
+021. [CLI](#IC_CLI) ── (Clear Interrupt-Enable Flag)
+022. [CLTS](#IC_CLTS) ── Clear Task-Switched Flag in CR0
+023. [CMC](#IC_CMC) ── (Complement Carry Flag)
+024. [CMPSB](#IC_CMPS) ── Compare bytes  ES:[(E)DI]  with DS:[SI]
+025. [CMPSW](#IC_CMPS) ── Compare words  ES:[(E)DI]  with DS:[SI]
+026. [CMPSD](#IC_CMPS) ── Compare dwords ES:[(E)DI] with DS:[SI]
+027. [CMPS](#IC_CMPS) ── (Compare Strings)
+028. [CMP](#IC_CMP) ── (Compare)
+029. [CWDE](#IC_CBW) ── (Convert Word to Doubleword Extended)
+030. [CWD](#IC_CWD) ── (Convert Word to Doubleword)
+031. [DAA](#IC_DAA) ── (Decimal Adjust after Addition)
+032. [DAS](#IC_DAS) ── (Decimal Adjust after Subtraction)
+033. [DEC](#IC_DEC) ── (Decrement)
+034. [DIV](#IC_DIV) ── Unsigned Divide
+035. [ENTER](#IC_ENTER) ── (Enter Procedure)
+
+036. [HLT](#IC_HLT) ── Stops instruction execution and places the processor in a HALT state. 
+037. [IDIV](#IC_DIV) ── Signed Divide
+038. [IMUL](#IC_MUL) ── Signed Multiply
+039. [INC](#IC_INC) ── (Increment)
+040. [INS](#IC_INS) ── Input from Port to String
+041. [INSB](#IC_INS) ── Input byte from port DX into ES:(E)DI
+042. [INSW](#IC_INS) ── Input word from port DX into ES:(E)DI
+043. [INSD](#IC_INS) ── Input dword from port DX into ES:(E)DI
+044. [INT](#IC_INT) ── Call to Interrupt Procedure
+045. [INTO](#IC_INT) ── (Interrupt on Overflow)
+046. [IN](#IC_IN) ── (Input from Port)
+047. [IRET](#IC_IRET) ── Interrupt Return
+048. [IRETD](#IC_IRET) ── Interrupt Return
+049. [JCXZ](#IC_JCC) ── (Jump if ECX Zero)
+050. [JMP](#IC_JMP) ── (Jump)
+051. [Jcc](#IC_JCC) ── Jump if Condition is Met， such as JA, JB, JC, JE, JZ, JG...
+052. [LAHF](#IC_LAHF) ── (Load AH from Flags)
+053. [LAR](#IC_LAR) ── (Load Access Rights)
+054. [LEAVE](#IC_LEAVE) ── (Leave Procedure)
+055. [LEA](#IC_LEA) ── (Load Effective Address)
+056. [LGDT](#IC_LGDT) ── Load GDT (Global Descriptor Table) Register
+057. [LGS](#IC_LGS) ── Load Full Pointer
+058. [LSS](#IC_LGS) ── (Load Pointer Using SS)
+059. [LDS](#IC_LGS) ── (Load Pointer Using DS)
+060. [LES](#IC_LGS) ── (Load Pointer Using ES)
+061. [LFS](#IC_LGS) ── (Load Pointer Using FS)
+062. [LGS](#IC_LGS) ── (Load Pointer Using GS)
+063. [LIDT](#IC_LGDT) ── Load IDT (Interrupt Descriptor Table) registe
+064. [LLDT](#LLDT) ── Load Local Descriptor Table Register
+065. [LMSW](#LMSW) ── Load Machine Status Word
+066. [LOCK](#IC_LOCK) ── Assert LOCK# Signal Prefix
+067. [LODS](#IC_LODS) ── (Load String)
+068. [LODSB](#IC_LODS) ── Load byte DS:[(E)SI] into AL
+069. [LODSW](#IC_LODS) ── Load word DS:[(E)SI] into AX
+070. [LODSD](#IC_LODS) ── Load dword DS:[(E)SI] into EAX
+071. [LOOPE](#IC_LOOP) ── (Loop While Equal ZF=1)
+072. [LOOPZ](#IC_LOOP) ── (Loop While Zero ZF=1)
+073. [LOOPNE](#IC_LOOP) ── (Loop While Not Equal ZF=0)
+074. [LOOPNZ](#IC_LOOP) ── (Loop While Not Zero ZF=0)
+075. [LOOP](#IC_LOOP) ── (Loop While ECX Not Zero)
+076. [LSL](#IC_LSL) ── (Load Segment Limit)
+077. [LTR](#IC_LTR) ── (Load task register)
+078. [MOV](#IC_MOV) ── (Move Data)
+079. [MOVS](#IC_MOVS) ── Move Data from String to String
+080. [MOVSB](#IC_MOVS) ── Move byte DS:[(E)SI] to ES:[(E)DI]
+081. [MOVSW](#IC_MOVS) ── Move word DS:[(E)SI] to ES:[(E)DI]
+082. [MOVSD](#IC_MOVS) ── Move dword DS:[(E)SI] to ES:[(E)DI]
+083. [MOVSX](#IC_MOVSX) ── (Move with Sign Extension)
+084. [MOVZX](#IC_MOVZX) ── (Move with Zero Extension)
+085. [MUL](#IC_MUL) ── Unsigned Multiplication of AL or AX
+086. [NEG](#IC_NEG) ── Two's Complement Negation
+087. [NOP](#IC_NOP) ── (No Operation)
+088. [NOT](#IC_NOT) ── (One's Complement Negation)
+
+089. [OR](#IC_OR) ── (Logical Inclusive OR)
+090. [OUT](#IC_OUT) ── Output to Port
+091. [OUTS](#IC_OUTS) ── (Output String to Port)
+092. [OUTSB](#IC_OUTS) ── Output byte DS:[(E)SI] to port in DX
+093. [OUTSW](#IC_OUTS) ── Output word DS:[(E)SI] to port in DX
+094. [OUTSD](#IC_OUTS) ── Output dword DS:[(E)SI] to port in DX
+095. [POP](#IC_POP) ── (Pop a Word from the Stack)
+096. [POPA](#IC_POPA) ── Pop All Registers, the eight 16-bit general registers.
+097. [POPAD](#IC_POPA) ── Pops the eight 32-bit general registers.
+098. [POPF](#IC_POPF) ── pops the word and stores the value in the flags register. 
+099. [POPFD](#IC_POPF) ── pops the doubleword and stores the value in the flags register. 
+100. [PUSH](#IC_PUSH) ── Push Operand onto the Stack
+101. [PUSHA](#IC_PUSHA) ── (Push All Registers), save the 16-bit general registers on the 80386 stack.
+102. [PUSHAD](#IC_PUSHA) ── save all the 32-bit general registers on the 80386 stack.
+103. [PUSHF](#IC_PUSHF) ── (Push Flags)
+104. [PUSHFD](#IC_PUSHF) ── Push Flags Register onto the Stack, doubleword, 32-bit.
+105. [RCL](#IC_RCL) ── (Rotate Through Carry Left)
+106. [RCR](#IC_RCL) ── (Rotate Through Carry Right)
+107. [REP](#IC_REP) ── (Repeat While ECX Not Zero)
+108. [REPE](#IC_REP) ── (repeat while equal)
+109. [REPNE](#IC_REP) ── (repeat while not equal) 
+110. [REPNZ](#IC_REP) ── (Repeat While Not Equal
+111. [REPZ](#IC_REP) ── (Repeat While Equal
+112. [RET](#IC_RET) ── (Return From Procedure)
+113. [ROL](#IC_RCL) ── (Rotate Left)
+114. [ROR](#IC_RCL) ── (Rotate Right)
+115. [SAHF](#IC_SAHF) ── (Store AH into Flags)
+116. [SAL](#IC_SAL) ── (Shift Arithmetic Left)
+117. [SAR](#IC_SAL) ── (Shift Arithmetic Right)
+118. [SBB](#IC_SBB) ── (Subtract Integers with Borrow)
+119. [SCAS](#IC_SCAS) ── Compare String Data
+120. [SCASB](#IC_SCAS) ── Compare bytes   AL-ES:[DI], update (E)DI
+121. [SCASW](#IC_SCAS) ── Compare words   AX-ES:[DI], update (E)DI
+122. [SCASD](#IC_SCAS) ── Compare dwords EAX-ES:[DI], update (E)DI
+123. [SCAS](#IC_SCAS) ── (Scan String)
+124. [SETcc](#IC_SET) ── Byte Set on Condition
+125. [SGDT](#IC_SGDT) ── Store GDT (Global Descriptor Table) Register
+126. [SHLD](#IC_SHLD) ── (Shift Left Double)
+127. [SHL](#IC_SAL) ── (Shift Logical Left)
+128. [SHRD](#IC_SHRD) ── (Shift Right Double)
+129. [SHR](#IC_SAL) ── (Shift Logical Right)
+130. [SIDT](#IC_SGDT) ── Store IDT (Interrupt Descriptor Table) register
+131. [SLDT](#IC_SLDT) ── Store Local Descriptor Table Register
+132. [SMSW](#IC_SMSW) ── Store Machine Status Word
+133. [STC](#IC_STC) ── (Set Carry Flag)
+134. [STD](#IC_STD) ── (Set Direction Flag)
+135. [STI](#IC_STI) ── (Set Interrupt-Enable Flag)
+136. [STOS](#IC_STOS) ── (Store String)
+137. [STOSB](#IC_STOS) ── Store AL in byte   ES:[(E)DI], update (E)DI
+138. [STOSW](#IC_STOS) ── Store AX in word   ES:[(E)DI], update (E)DI
+139. [STOSD](#IC_STOS) ── Store EAX in dword ES:[(E)DI], update (E)DI
+140. [STR](#IC_STR) ── (Store task register)
+141. [SUB](#IC_SUB) ── (Subtract Integers)
+142. [TEST](#IC_TEST) ── Logical Compare
+143. [VERR](#IC_VERR) ── (Verify for Reading)
+144. [VERW](#IC_VERR) ── (Verify for Writing)
+145. [WAIT](#IC_WAIT) ── Wait until BUSY# Pin is Inactive (HIGH)
+146. [XCHG](#IC_SCHG) ── Exchange Register/Memory with Register
+147. [XLAT](#IC_XLAT) ── Table Look-up Translation
+148. [XLATB](#IC_XLAT) ── Table Look-up Translation (Binary)
+149. [XOR](#IC_XOR) ── (Logical Exclusive OR)
 
 
 * * *
@@ -2833,7 +3062,7 @@ If the integer is signed, both SF and OF should be tested. SF always has the sam
 *   A one-bit was carried from the sign bit into the MSB 
     but no one bit was carried into the sign bit (subtraction instructions [SUB](#IC_SUB), [SBB](#IC_SBB), [DEC](#IC_DEC), [AAS](#IC_AAS), [DAS](#IC_DAS), [CMP](#IC_CMP), and [NEG](#IC_NEG)). In other words, the result was smaller that the smallest negative number that could be contained in the destination operand.
 
-These status flags are tested by executing one of the two families of conditional instructions: [Jcc](#IC_JCC) (jump on condition cc) or [SETcc](#IC_SETCC) (byte set on condition).
+These status flags are tested by executing one of the two families of conditional instructions: [Jcc](#IC_JCC) (jump on condition cc) or [SETcc](#IC_SET) (byte set on condition).
 
 //3.2.1 Addition and Subtraction Instructions
 ---------------------------------------------
@@ -2853,7 +3082,7 @@ These status flags are tested by executing one of the two families of conditiona
 //3.2.2 Comparison and Sign Change Instruction
 ----------------------------------------------
 
-[CMP](#IC_CMP) (Compare) subtracts the source operand from the destination operand. It updates OF, SF, ZF, AF, PF, and CF but does not alter the source and destination operands. A subsequent [Jcc](#IC_JCC) or [SETcc](#IC_SETCC) instruction can test the appropriate flags.
+[CMP](#IC_CMP) (Compare) subtracts the source operand from the destination operand. It updates OF, SF, ZF, AF, PF, and CF but does not alter the source and destination operands. A subsequent [Jcc](#IC_JCC) or [SETcc](#IC_SET) instruction can test the appropriate flags.
 
 [NEG](#IC_NEG) (Negate) subtracts a signed integer operand from zero. The effect of [NEG](#IC_NEG) is to reverse the sign of the operand from positive to negative or from negative to positive.
 
@@ -3222,10 +3451,9 @@ This instruction differs from [ROR](#IC_RCL) in that it treats CF as a low-order
 
 <a name="fig3_15"></a><!-- *fig3_15* -->  <!-- *Figure 3-15* -->
 
-[](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-15.gif)
+[Figure 3-15. RCR](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-15.gif)
 
 ```sh
-Figure 3-15. RCR
  ┌──────────────────────────────────────────────────────────────────────┐
  │   31                   DESTINATION                   0               │
  │   ╔══════════════════════════════════════════════════╗        ╔════╗ │
@@ -3424,7 +3652,7 @@ The following coded examples illustrate bit insertion and extraction under vario
 
 This group of instructions sets a byte to zero or one depending on any of the 16 conditions defined by the status flags. The byte may be in memory or may be a one-byte general register. These instructions are especially useful for implementing Boolean expressions in high-level languages such as Pascal.
 
-[SETcc](#IC_SETCC) (Set Byte on Condition cc) set a byte to one if condition cc is true; sets the byte to zero otherwise. Refer to Appendix D for a definition of the possible conditions.
+[SETcc](#IC_SET) (Set Byte on Condition cc) set a byte to one if condition cc is true; sets the byte to zero otherwise. Refer to Appendix D for a definition of the possible conditions.
 
 //3.4.6 Test Instruction
 ------------------------
@@ -4261,9 +4489,9 @@ The systems flags of the EFLAGS register control I/O, maskable interrupts, debug
 ```sh
  31              23              15              7              0
 ╔═══════════════╪═══════════╤═╤═╤╪╤═╤════╤═╤═╤═╤═╤╪╤═╤═╤═╤═╤═╤═╤═╗
-║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│V│R│▒│N│ID │O│D│I│T│S│Z│▒│A│▒│P│▒│C║
-║0 0 0 0 0 0 0 0 0 0 0 0 0 0│ │ │0│ │ │▒│▒│ │▒│▒│▒│0│▒│0│▒│1│▒║
-║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│M│F│▒│T│ PL│F│F│F│F│F│F│▒│F│▒│F│▒│F║
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│V│R│▒│N│ID  │O│D│I│T│S│Z│▒│A│▒│P│▒│C║
+║0 0 0 0 0 0 0 0 0 0 0 0 0 0│ │ │0│ │    │▒│▒│ │▒│▒│▒│0│▒│0│▒│1│▒║
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│M│F│▒│T│  PL│F│F│F│F│F│F│▒│F│▒│F│▒│F║
 ╚═══════════════╪═══════════╧╤╧╤╧╪╧╤╧═╤══╧═╧═╧╤╧═╧╪╧═╧═╧═╧═╧═╧═╧═╝
                              │ │   │  │       │
         VIRTUAL 8086 MODE────┘ │   │  │       │
@@ -4284,17 +4512,17 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
 Four registers of the 80386 locate the data structures that control segmented memory management:
 
-GDTR Global Descriptor Table Register
+GDTR    Global Descriptor Table Register
 
-LDTR Local Descriptor Table Register
+LDTR    Local Descriptor Table Register
 
 These registers point to the segment descriptor tables GDT and LDT. Refer to [Chapter 5](#C05) for an explanation of addressing via descriptor tables.
 
-IDTR Interrupt Descriptor Table Register
+IDTR    Interrupt Descriptor Table Register
 
 This register points to a table of entry points for interrupt handlers (the IDT ) . Refer to [Chapter 9](#C09) for details of the interrupt mechanism .
 
-TR Task Register
+TR      Task Register
 
 This register points to the information needed by the processor to define the current task . Refer to [Chapter 7](#C07) for a description of the multitasking features of the 80386.
 
@@ -4303,34 +4531,34 @@ This register points to the information needed by the processor to define the cu
 
 [Figure 4-2](#fig4_2) shows the format of the 80386 control registers CR0, CR2, and CR3. These registers are accessible to systems programmers only via variants of the [MOV](#IC_MOV) instruction, which allow them to be loaded from or stored in general registers; for example:
 
-MOV EAX, CR0
-MOV CR3, EBX
+    MOV EAX, CR0
+    MOV CR3, EBX
 
 CR0 contains system control flags, which control or indicate conditions that apply to the system as a whole, not to an individual task.
 
-EM (Emulation, bit 2)
+1. EM (Emulation, bit 2)
 
-EM indicates whether coprocessor functions are to be emulated. Refer to [Chapter 11](#C11) for details .
+    EM indicates whether coprocessor functions are to be emulated. Refer to [Chapter 11](#C11) for details .
 
-ET (Extension Type, bit 4)
+2. ET (Extension Type, bit 4)
 
-ET indicates the type of coprocessor present in the system (80287 or 80387 ) . Refer to [Chapter 11](#C11) and [Chapter 10](#C10) for details.
+    ET indicates the type of coprocessor present in the system (80287 or 80387 ) . Refer to [Chapter 11](#C11) and [Chapter 10](#C10) for details.
 
-MP (Math Present, bit 1)
+3. MP (Math Present, bit 1)
 
-MP controls the function of the [WAIT](#IC_WAIT) instruction, which is used to coordinate a coprocessor . Refer to [Chapter 11](#C11) for details .
+    MP controls the function of the [WAIT](#IC_WAIT) instruction, which is used to coordinate a coprocessor . Refer to [Chapter 11](#C11) for details .
 
-PE (Protection Enable, bit 0)
+4. PE (Protection Enable, bit 0)
 
-Setting PE causes the processor to begin executing in protected mode. Resetting PE returns to real-address mode . Refer to [Chapter 14](#C14) and [Chapter 10](#C10) for more information on changing processor modes .
+    Setting PE causes the processor to begin executing in protected mode. Resetting PE returns to real-address mode . Refer to [Chapter 14](#C14) and [Chapter 10](#C10) for more information on changing processor modes .
 
-PG (Paging, bit 31)
+5. PG (Paging, bit 31)
 
-PG indicates whether the processor uses page tables to translate linear addresses into physical addresses . Refer to [Chapter 5](#C05) for a description of page translation; refer to [Chapter 10](#C10) for a discussion of how to set PG.
+    PG indicates whether the processor uses page tables to translate linear addresses into physical addresses . Refer to [Chapter 5](#C05) for a description of page translation; refer to [Chapter 10](#C10) for a discussion of how to set PG.
 
-TS (Task Switched, bit 3)
+6. TS (Task Switched, bit 3)
 
-The processor sets TS with every task switch and tests TS when interpreting coprocessor instructions . Refer to [Chapter 11](#C11) for details .
+    The processor sets TS with every task switch and tests TS when interpreting coprocessor instructions . Refer to [Chapter 11](#C11) for details .
 
 CR2 is used for handling page faults when PG is set. The processor stores in CR2 the linear address that triggers the fault . Refer to [Chapter 9](#C09) for a description of page-fault handling.
 
@@ -4338,7 +4566,24 @@ CR3 is used when PG is set. CR3 enables the processor to locate the page table d
 
 <a name="fig4_2"></a><!-- *fig4_2* -->  <!-- *Figure 4-2* -->
 
-![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig4-2.gif)
+[Figure 4-2. Control Registers](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig4-2.gif)
+
+```sh
+ 31                23                15                7                0
+╔═════════════════╪═════════════════╪════════╦════════╪═════════════════╗
+║                                            ║                          ║
+║ PAGE DIRECTORY BASE REGISTER (PDBR)        ║        RESERVED          ║CR3
+╟────────────────────────────────────────────╨──────────────────────────╢
+║                                                                       ║
+║ PAGE FAULT LINEAR ADDRESS                                             ║CR2
+╟───────────────────────────────────────────────────────────────────────╢
+║                                                                       ║
+║                                RESERVED                               ║CR1
+╟─┬───────────────────────────────────────────────────────────┬─┬─┬─┬─┬─╢
+║P│                                                           │E│T│E│M│P║
+║G│                                                  RESERVED │T│S│M│P│E║CR0
+╚═╧═══════════════╪═════════════════╪═════════════════╪═══════╧═╧═╧═╧═╧═╝
+```
 
 //4.1.4 Debug Register
 ----------------------
@@ -4363,58 +4608,58 @@ Systems instructions deal with such functions as:
 
 1.  Verification of pointer parameters (refer to [Chapter 6](#C06)):
     
-    *   [ARPL> -- Adjust RPL](#IC_ARPL)
-    *   [LAR -- Load Access Rights](#IC_LAR)
-    *   [LSL -- Load Segment Limit](#IC_LSL)
-    *   [VERR -- Verify for Reading](#IC_VERR)
-    *   [VERW -- Verify for Writing](#IC_VERR)
+    *   [ARPL](#IC_ARPL) -- Adjust RPL
+    *   [LAR](#IC_LAR) -- Load Access Rights
+    *   [LSL](#IC_LSL) -- Load Segment Limit
+    *   [VERR](#IC_VERR) -- Verify for Reading
+    *   [VERW](#IC_VERR) -- Verify for Writing
     
 2.  Addressing descriptor tables (refer to [Chapter 5](#C05)):
     
-    *   [LLDT -- Load LDT Register](#IC_LLDT)
-    *   [SLDT -- Store LDT Register](#IC_SLDT)
-    *   [LGDT -- Load GDT Register](#IC_LGDT)
-    *   [SGDT -- Store GDT Register](#IC_SGDT)
+    *   [LLDT](#IC_LLDT) -- Load LDT Register
+    *   [SLDT](#IC_SLDT) -- Store LDT Register
+    *   [LGDT](#IC_LGDT) -- Load GDT Register
+    *   [SGDT](#IC_SGDT) -- Store GDT Register
     
 3.  Multitasking (refer to [Chapter 7](#C07)):
     
-    *   [LTR -- Load Task Register](#IC_LTR)
-    *   [STR -- Store Task Register](#IC_STR)
+    *   [LTR](#IC_LTR) -- Load Task Register
+    *   [STR](#IC_STR) -- Store Task Register
     
 4.  Coprocessing and Multiprocessing (refer to [Chapter 11](#C11)):
     
-    *   [CLTS -- Clear Task-Switched Flag](#IC_CLTS)
-    *   ESC -- Escape instructions
-    *   [WAIT -- Wait until Coprocessor not Busy](#IC_WAIT)
-    *   [LOCK -- Assert Bus-Lock Signal](#IC_LOCK)
+    *   [CLTS](#IC_CLTS) -- Clear Task-Switched Flag
+    *   [ESC](#S11_01) -- Escape instructions
+    *   [WAIT](#IC_WAIT) -- Wait until Coprocessor not Busy
+    *   [LOCK](#IC_LOCK) -- Assert Bus-Lock Signal
     
 5.  Input and Output (refer to [Chapter 8](#C08)):
     
-    *   [IN -- Input](#IC_IN)
-    *   [OUT -- Output](#IC_OUT)
-    *   [INS -- Input String](#IC_INS)
-    *   [OUTS -- Output String](#IC_OUTS)
+    *   [IN](#IC_IN) -- Input
+    *   [OUT](#IC_OUT) -- Output
+    *   [INS](#IC_INS) -- Input String
+    *   [OUTS](#IC_OUTS) -- Output String
     
 6.  Interrupt control (refer to [Chapter 9](#C09)):
     
-    *   [CLI -- Clear Interrupt-Enable Flag](#IC_CLI)
-    *   [STI -- Set Interrupt-Enable Flag](#IC_STI)
-    *   [LIDT -- Load IDT Register](#IC_LGDT)
-    *   [SIDT -- Store IDT Register](#IC_SGDT)
+    *   [CLI](#IC_CLI) -- Clear Interrupt-Enable Flag
+    *   [STI](#IC_STI) -- Set Interrupt-Enable Flag
+    *   [LIDT](#IC_LGDT) -- Load IDT Register
+    *   [SIDT](#IC_SGDT) -- Store IDT Register
     
 7.  Debugging (refer to [Chapter 12](#C12)):
     
-    *   [MOV -- Move to and from debug registers](#IC_MOVRS)
+    *   [MOV](#IC_MOVRS) -- Move to and from debug registers
     
 8.  TLB testing (refer to [Chapter 10](#C10)):
     
-    *   [MOV -- Move to and from test registers](#IC_MOVRS)
+    *   [MOV](#IC_MOVRS) -- Move to and from test registers
     
 9.  System Control:
-    *   [SMSW -- Set MSW](#IC_SMSW)
-    *   [LMSW -- Load MSW](#IC_LMSW)
-    *   [HLT -- Halt Processor](#IC_HLT)
-    *   [MOV -- Move to and from control registers](#IC_MOVRS)
+    *   [SMSW](#IC_SMSW) -- Set [MSW]
+    *   [LMSW](#IC_LMSW) -- Load [MSW]
+    *   [HLT](#IC_HLT) -- Halt Processor
+    *   [MOV](#IC_MOVRS) -- Move to and from control registers
 
 The instructions [SMSW](#IC_SMSW) and [LMSW](#IC_LMSW) are provided for compatibility with the 80286 processor. 80386 programs access the MSW in CR0 via variants of the [MOV](#IC_MOVRS) instruction. [HLT](#IC_HLT) stops the processor until receipt of an INTR or RESET signal.
 
@@ -4430,10 +4675,17 @@ In addition to the chapters cited above, detailed information about each of thes
 /Chapter 5 Memory Management
 ============================
 
+- [5.1 Segment Translation](#S05_01)
+- [5.2 Page Translation](#S05_02)
+- [5.3 Combining Segment and Page Translation](#S05_03)
+
 The 80386 transforms logical addresses (i.e., addresses as viewed by programmers) into physical address (i.e., actual addresses in physical memory) in two steps:
 
-*   Segment translation, in which a logical address (consisting of a segment selector and segment offset) are converted to a linear address.
-*   Page translation, in which a linear address is converted to a physical address. This step is optional, at the discretion of systems-software designers.
+*   Segment translation, in which a logical address 
+    (consisting of a segment selector and segment offset) are converted to a linear address.
+
+*   Page translation, in which a linear address is converted to a physical address. 
+    This step is optional, at the discretion of systems-software designers.
 
 These translations are performed in a way that is not visible to applications programmers. [Figure 5-1](#fig5_1) illustrates the two translations at a high level of abstraction.
 
@@ -4441,11 +4693,34 @@ These translations are performed in a way that is not visible to applications pr
 
 <a name="fig5_1"></a><!-- *fig5_1* -->  <!-- *Figure 5-1* -->
 
-![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-1.gif)
+[Figure 5-1. Address Translation Overview](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-1.gif)
 
-- [5.1 Segment Translation](#S05_01)
-- [5.2 Page Translation](#S05_02)
-- [5.3 Combining Segment and Page Translation](#S05_03)
+```sh
+        15             0     31                           0
+LOGICAL ╔═══════════════╗   ╔══════════════════════════════╗
+ADDRESS ║   SELECTOR    ║   ║            OFFSET            ║
+        ╚═══════════════╝   ╚═══╤══════════════════════════╝
+                                ▼
+                 ╔══════════════════════════════╗
+                 ║      SEGMENT TRANSLATION     ║
+                 ╚══════════════╤═══════════════╝
+                             ╔══╧═╗       PAGING ENABLED
+                             ║PG ?╟────────────────────┐
+                             ╚══╤═╝                    │
+               31        PAGING ▼ DISABLED        0    │
+      LINEAR  ╔═══════════╦═══════════╦═══════════╗    │
+      ADDRESS ║    DIR    ║   PAGE    ║   OFFSET  ║    │
+              ╚═══════════╩═════╤═════╩═══════════╝    │
+                                ▼                      │
+                 ╔══════════════════════════════╗      │
+                 ║      PAGE TRANSLATION        ║      │
+                 ╚══════════════╤═══════════════╝      │
+                                │◄─────────────────────┘
+                 31             ▼             0
+       PHYSICAL ╔══════════════════════════════╗
+       ADDRESS  ║                              ║
+                ╚══════════════════════════════╝
+```
 
 * * *
 
@@ -4470,37 +4745,100 @@ To perform this translation, the processor uses the following data structures:
 
 The segment descriptor provides the processor with the data it needs to map a logical address into a linear address. Descriptors are created by compilers, linkers, loaders, or the operating system, not by applications programmers. [Figure 5-3](#fig5_3) illustrates the two general descriptor formats. All types of segment descriptors take one of these formats. Segment-descriptor fields are:
 
-BASE: Defines the location of the segment within the 4 gigabyte linear address space. The processor concatenates the three fragments of the base address to form a single 32-bit value.
+1.  **BASE:** 
+    Defines the location of the segment within the 4 gigabyte linear address space. The processor concatenates the three fragments of the base address to form a single 32-bit value.
 
-LIMIT: Defines the size of the segment. When the processor concatenates the two parts of the limit field, a 20-bit value results. The processor interprets the limit field in one of two ways, depending on the setting of the granularity bit:
+2.  **LIMIT:** 
+    Defines the size of the segment. When the processor concatenates the two parts of the limit field, a 20-bit value results. The processor interprets the limit field in one of two ways, depending on the setting of the granularity bit:
 
-1.  In units of one byte, to define a limit of up to 1 megabyte.
-2.  In units of 4 Kilobytes, to define a limit of up to 4 gigabytes. The limit is shifted left by 12 bits when loaded, and low-order one-bits are inserted.
+    1.  In units of one byte, to define a limit of up to 1 megabyte.
+    2.  In units of 4 Kilobytes, to define a limit of up to 4 gigabytes. The limit is shifted left by 12 bits when loaded, and low-order one-bits are inserted.
 
-Granularity bit: Specifies the units with which the LIMIT field is interpreted. When thebit is clear, the limit is interpreted in units of one byte; when set, the limit is interpreted in units of 4 Kilobytes.
+3.  **Granularity bit**:
+    Specifies the units with which the LIMIT field is interpreted. When thebit is clear, the limit is interpreted in units of one byte; when set, the limit is interpreted in units of 4 Kilobytes.
 
-TYPE: Distinguishes between various kinds of descriptors.
+    TYPE: Distinguishes between various kinds of descriptors.
 
-DPL (Descriptor Privilege Level): Used by the protection mechanism (refer to [Chapter 6](#C06) ) .
+4.  **DPL (Descriptor Privilege Level)**: 
+    Used by the protection mechanism (refer to [Chapter 6](#C06) ) .
 
-Segment-Present bit: If this bit is zero, the descriptor is not valid for use in address transformation; the processor will signal an exception when a selector for the descriptor is loaded into a segment register. [Figure 5-4](#fig5_4) shows the format of a descriptor when the present-bit is zero. The operating system is free to use the locations marked AVAILABLE. Operating systems that implement segment-based virtual memory clear the present bit in either of these cases:
+5.  **Segment-Present** 
+    bit: If this bit is zero, the descriptor is not valid for use in address transformation; the processor will signal an exception when a selector for the descriptor is loaded into a segment register. [Figure 5-4](#fig5_4) shows the format of a descriptor when the present-bit is zero. The operating system is free to use the locations marked AVAILABLE. Operating systems that implement segment-based virtual memory clear the present bit in either of these cases:
 
-*   When the linear space spanned by the segment is not mapped by the paging mechanism.
-*   When the segment is not present in memory.
+    *   When the linear space spanned by the segment is not mapped by the paging mechanism.
+    *   When the segment is not present in memory.
 
-Accessed bit: The processor sets this bit when the segment is accessed; i.e., a selector for the descriptor is loaded into a segment register or used by a selector test instruction. Operating systems that implement virtual memory at the segment level may, by periodically testing and clearing this bit, monitor frequency of segment usage.
+6.  **Accessed bit**:
+    The processor sets this bit when the segment is accessed; i.e., a selector for the descriptor is loaded into a segment register or used by a selector test instruction. Operating systems that implement virtual memory at the segment level may, by periodically testing and clearing this bit, monitor frequency of segment usage.
 
 Creation and maintenance of descriptors is the responsibility of systems software, usually requiring the cooperation of compilers, program loaders or system builders, and therating system.
 
 <a name="fig5_2"></a><!-- *fig5_2* -->  <!-- *Figure 5-2* -->
 
-![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-2.gif)
+[Figure 5-2. Segment Translation](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-2.gif)
+
+```sh
+             15             0     31                                   0
+    LOGICAL ╔════════════════╗   ╔═════════════════════════════════════╗
+    ADDRESS ║ SELECTOR       ║   ║               OFFSET                ║
+            ╚═══╤═════════╤══╝   ╚═══════════════════╤═════════════════╝
+         ┌──────┘         ▼                          │
+         │ DESCRIPTOR TABLE                          │
+         │  ╔════════════╗                           │
+         │  ║            ║                           │
+         │  ║            ║                           │
+         │  ║            ║                           │
+         │  ║            ║                           │
+         │  ╠════════════╣                           │
+         │  ║  SEGMENT   ║ BASE          ╔═══╗       │
+         └─►║ DESCRIPTOR ╟──────────────►║ + ║◄──────┘
+            ╠════════════╣ ADDRESS       ╚═╤═╝
+            ║            ║                 │
+            ╚════════════╝                 │
+                                           ▼
+                 LINEAR  ╔════════════╦═══════════╦══════════════╗
+                 ADDRESS ║     DIR    ║    PAGE   ║    OFFSET    ║
+                         ╚════════════╩═══════════╩══════════════╝
+```
 
 * * *
 
 <a name="fig5_3"></a><!-- *fig5_3* -->  <!-- *Figure 5-3* -->
 
-![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-3.gif)
+[Figure 5-3. General Segment-Descriptor Format](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-3.gif)
+
+```sh
+        DESCRIPTORS USED FOR APPLICATIONS CODE AND DATA SEGMENTS
+ 31                23                15                7                0
+╔═════════════════╪═╤═╤═╤═╤═════════╪═╤═════╤═╤═════╤═╪═════════════════╗
+║                 │ │ │ │A│         │ │     │ │     │ │                 ║
+║   BASE 31..24   │G│X│O│V│ LIMIT   │P│ DPL │1│ TYPE│A│   BASE 23..16   ║ 4
+║                 │ │ │ │L│ 19..16  │ │     │ │     │ │                 ║
+╟─────────────────┴─┴─┴─┴─┴─────────┼─┴─────┴─┴─────┴─┴─────────────────╢
+║                                   │                                   ║
+║        SEGMENT BASE 15..0         │        SEGMENT LIMIT 15..0        ║ 0
+║                                   │                                   ║
+╚═════════════════╪═════════════════╪═════════════════╪═════════════════╝
+
+
+                DESCRIPTORS USED FOR SPECIAL SYSTEM SEGMENTS
+ 31                23                15                7                0
+╔═════════════════╪═╤═╤═╤═╤═════════╪═╤═════╤═╤═══════╪═════════════════╗
+║                 │ │ │ │A│         │ │     │ │       │                 ║
+║   BASE 31..24   │G│X│O│V│ LIMIT   │P│ DPL │0│ TYPE  │  BASE 23..16    ║ 4
+║                 │ │ │ │L│ 19..16  │ │     │ │       │                 ║
+╟─────────────────┴─┴─┴─┴─┴─────────┼─┴─────┴─┴───────┴─────────────────╢
+║                                   │                                   ║
+║         SEGMENT BASE 15..0        │       SEGMENT LIMIT 15..0         ║ 0
+║                                   │                                   ║
+╚═════════════════╪═════════════════╪═════════════════╪═════════════════╝
+
+            A   - ACCESSED
+            AVL - AVAILABLE FOR USE BY SYSTEMS PROGRAMMERS
+            DPL - DESCRIPTOR PRIVILEGE LEVEL
+            G   - GRANULARITY
+            P   - SEGMENT PRESENT
+```
 
 //5.1.2 Descriptor Tables
 -------------------------
@@ -4516,22 +4854,76 @@ The processor locates the GDT and the current LDT in memory by means of the GDTR
 
 <a name="fig5_4"></a><!-- *fig5_4* -->  <!-- *Figure 5-4* -->
 
-![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-4.gif)
+[Figure 5-4. Format of Not-Present Descriptor](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-4.gif)
 
+```sh
+
+ 31                23                15                7                0
+╔═════════════════╪═════════════════╪═╤═════╤═╤═══════╪═════════════════╗
+║                                   │ │     │ │       │                 ║
+║             AVAILABLE             │O│ DPL │S│ TYPE  │   AVAILABLE     ║ 4
+║                                   │ │     │ │       │                 ║
+╟───────────────────────────────────┴─┴─────┴─┴───────┴─────────────────╢
+║                                                                       ║
+║                              AVAILABLE                                ║ 0
+║                                                                       ║
+╚═════════════════╪═════════════════╪═════════════════╪═════════════════╝
+```
 * * *
 
 <a name="fig5_5"></a><!-- *fig5_5* -->  <!-- *Figure 5-5* -->
 
-![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-5.gif)
+[Figure 5-5. Descriptor Tables](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-5.gif)
+
+```sh
+            GLOBAL DESCRIPTOR TABLE LOCAL DESCRIPTOR TABLE
+╔══════╤═════╤═════╤══════╗            ╔══════╤═════╤═════╤══════╗
+║      │     │     │      ║            ║      │     │     │      ║
+╟──────┴─────┼─────┴──────╢            ╟──────┴─────┼─────┴──────╢
+║            │            ║ M          ║            │            ║ M
+╚════════════╧════════════╝            ╚════════════╧════════════╝
+|                         |            |                         |
+|                         |            |                         |
+╔══════╤═════╤═════╤══════╗            ╔══════╤═════╤═════╤══════╗
+║      │     │     │      ║            ║      │     │     │      ║
+╟──────┴─────┼─────┴──────╢            ╟──────┴─────┼─────┴──────╢
+║            │            ║ N + 3      ║            │            ║ N + 3
+╠══════╤═════╪═════╤══════╣            ╠══════╤═════╪═════╤══════╣
+║      │     │     │      ║            ║      │     │     │      ║
+╟──────┴─────┼─────┴──────╢            ╟──────┴─────┼─────┴──────╢
+║            │            ║ N + 2      ║            │            ║ N + 2
+╠══════╤═════╪═════╤══════╣            ╠══════╤═════╪═════╤══════╣
+║      │     │     │      ║            ║      │     │     │      ║
+╟──────┴─────┼─────┴──────╢            ╟──────┴─────┼─────┴──────╢
+║            │            ║ N + 1      ║            │            ║ N + 1
+╠══════╤═════╪═════╤══════╣            ╠══════╤═════╪═════╤══════╣
+║      │     │     │      ║            ║      │     │     │      ║
+╟──────┴─────┼─────┴──────╢            ╟──────┴─────┼─────┴──────╢
+║            │            ║ N          ║            │            ║ N
+╚════════════╧════════════╝            ╚════════════╧════════════╝
+|                         |            |                         |
+|                         |            |                         |
+╔══════╤═════╤═════╤══════╗            ╔══════╤═════╤═════╤══════╗
+║      │     │     │      ║            ║      │     │     │      ║
+╟──────┴──(UNUSED)─┴──────╢            ╟──────┴─────┼─────┴──────╢
+║    the first entry      ║            ║            │            ║
+╚═════════════════════════╝            ╚════════════╧════════════╝
+                          ▲                                     ▲
+ ╔═════════════════════╗  │            ╔═════════════════════╗  │
+ ║          GDTR       ╟──┘            ║        LDTR         ╟──┘
+ ╚═════════════════════╝               ╚═════════════════════╝
+```
 
 //5.1.3 Selectors
 -----------------
 
 The selector portion of a logical address identifies a descriptor by specifying a descriptor table and indexing a descriptor within that table. Selectors may be visible to applications programs as a field within a pointer variable, but the values of selectors are usually assigned (fixed up) by linkers or linking loaders. [Figure 5-6](#fig5_6) shows the format of a selector.
 
-Index: Selects one of 8192 descriptors in a descriptor table. The processor simply multiplies this index value by 8 (the length of a descriptor), and adds the result to the base address of the descriptor table in order to access the appropriate segment descriptor in the table.
+1.  **Index**: 
+    Selects one of 8192 descriptors in a descriptor table. The processor simply multiplies this index value by 8 (the length of a descriptor), and adds the result to the base address of the descriptor table in order to access the appropriate segment descriptor in the table.
 
-Table Indicator: Specifies to which descriptor table the selector refers. A zero indicates the GDT; a one indicates the current LDT.
+2.  **Table Indicator**: 
+    Specifies to which descriptor table the selector refers. A zero indicates the GDT; a one indicates the current LDT.
 
 Requested Privilege Level: Used by the protection mechanism. (Refer to [Chapter 6](#C06))
 
@@ -4539,13 +4931,42 @@ Because the first entry of the GDT is not used by the processor, a selector that
 
 <a name="fig5_6"></a><!-- *fig5_6* -->  <!-- *Figure 5-6* -->
 
-![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-6.gif)
+[Figure 5-6. Format of a Selector](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-6.gif)
+
+```sh
+                 15         4         3         0
+                ╔═════════════════════════╤═╤═══╗
+                ║                         │T│   ║
+                ║          INDEX          │ │RPL║
+                ║                         │I│   ║
+                ╚═════════════════════════╧═╧═══╝
+                TI - TABLE INDICATOR
+                RPL - REQUESTOR'S PRIVILEGE LEVEL
+```
 
 * * *
 
 <a name="fig5_7"></a><!-- *fig5_7* -->  <!-- *Figure 5-7* -->
 
-![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-7.gif)
+[Figure 5-7. Segment Registers](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-7.gif)
+
+```sh
+         16-BIT VISIBLE
+            SELECTOR                 HIDDEN DESCRIPTOR
+       ╔════════════════╦════════════════════════════════════════╗
+    CS ║                ║                                        ║
+       ╟────────────────╫────────────────────────────────────────╢
+    SS ║                ║                                        ║
+       ╟────────────────╫────────────────────────────────────────╢
+    DS ║                ║                                        ║
+       ╟────────────────╫────────────────────────────────────────╢
+    ES ║                ║                                        ║
+       ╟────────────────╫────────────────────────────────────────╢
+    FS ║                ║                                        ║
+       ╟────────────────╫────────────────────────────────────────╢
+    GS ║                ║                                        ║
+       ╚════════════════╩════════════════════════════════════════╝
+```
 
 //5.1.4 Segment Registers
 -------------------------
@@ -4556,8 +4977,11 @@ Every segment register has a "visible" portion and an "invisible" portion, as [F
 
 The operations that load these registers are normal program instructions (previously described in [Chapter 3](#C03)). These instructions are of two classes:
 
-1.  Direct load instructions; for example, [MOV](#IC_MOV), [POP](#IC_POP), [LDS](#IC_LGS), [LSS](#IC_LGS), [LGS](#IC_LGS), [LFS](#IC_LGS). These instructions explicitly reference the segment registers.
-2.  Implied load instructions; for example, far [CALL](#IC_CALL) and [JMP](#IC_JMP). These instructions implicitly reference the CS register, and load it with a new value.
+1.  Direct load instructions; 
+    for example, [MOV](#IC_MOV), [POP](#IC_POP), [LDS](#IC_LGS), [LSS](#IC_LGS), [LGS](#IC_LGS), [LFS](#IC_LGS). These instructions explicitly reference the segment registers.
+
+2.  Implied load instructions; 
+    for example, far [CALL](#IC_CALL) and [JMP](#IC_JMP). These instructions implicitly reference the CS register, and load it with a new value.
 
 Using these instructions, a program loads the visible part of the segment register with a 16-bit selector. The processor automatically fetches the base address, limit, type, and other information from a descriptor table and loads them into the invisible part of the segment register.
 
@@ -4590,13 +5014,45 @@ A linear address refers indirectly to a physical address by specifying a page ta
 
 <a name="fig5_8"></a><!-- *fig5_8* -->  <!-- *Figure 5-8* -->
 
-![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-8.gif)
+[Figure 5-8. Format of a Linear Address](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-8.gif)
 
+```sh
+ 31                 22 21                 12 11                  0
+╔═════════════════════╦═════════════════════╦════════════════════╗
+║                     ║                     ║                    ║
+║         DIR         ║         PAGE        ║      OFFSET        ║
+║                     ║                     ║                    ║
+╚═════════════════════╩═════════════════════╩════════════════════╝
+```
 * * *
 
 <a name="fig5_9"></a><!-- *fig5_9* -->  <!-- *Figure 5-9* -->
 
-![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-9.gif)
+[Figure 5-9. Page Translation](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-9.gif)
+
+```sh
+                                                              PAGE FRAME
+              ╔═══════════╦═══════════╦══════════╗         ╔═══════════════╗
+              ║    DIR    ║    PAGE   ║  OFFSET  ║         ║               ║
+              ╚═════╤═════╩═════╤═════╩═════╤════╝         ║               ║
+                    │           │           │              ║               ║
+      ┌─────────────┘           │           └─────────────►║   PHYSICAL    ║
+      │                         │                          ║   ADDRESS     ║
+      │   PAGE DIRECTORY        │  PAGE TABLE              ║               ║
+      │  ╔═══════════════╗      │   ╔═══════════════╗      ║               ║
+      │  ║               ║      │   ║               ║      ╚═══════════════╝
+      │  ║               ║      │   ╠═══════════════╣              ▲
+      │  ║               ║      └──►║ PG TBL ENTRY  ╟──────────────┘
+      │  ╠═══════════════╣          ╠═══════════════╣
+      └─►║  DIR ENTRY    ╟──┐       ║               ║
+         ╠═══════════════╣  │       ║               ║
+         ║               ║  │       ║               ║
+         ╚═══════════════╝  │       ╚═══════════════╝
+                 ▲          │               ▲
+╔═══════╗        │          └───────────────┘
+║ CR3   ╟────────┘
+╚═══════╝
+```
 
 //5.2.3 Page Tables
 -------------------
@@ -4628,14 +5084,36 @@ Note that there is no present bit for the page directory itself. The page direct
 
 <a name="fig5_10"></a><!-- *fig5_10* -->  <!-- *Figure 5-10* -->
 
-![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-10.gif)
+[Figure 5-10. Format of a Page Table Entry](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-10.gif)
 
+```sh
+31                                   12 11                        0
+╔══════════════════════════════════════╤═══════╤═══╤═╤═╤═══╤═╤═╤═╗
+║                                      │       │   │ │ │   │U│R│ ║
+║       PAGE FRAME ADDRESS 31..12      │ AVAIL │0 0│D│A│0 0│/│/│P║
+║                                      │       │   │ │ │   │S│W│ ║
+╚══════════════════════════════════════╧═══════╧═══╧═╧═╧═══╧═╧═╧═╝
+        P - PRESENT
+        R/W - READ/WRITE
+        U/S - USER/SUPERVISOR
+        D - DIRTY
+        AVAIL - AVAILABLE FOR SYSTEMS PROGRAMMER USE
+        NOTE: 0 INDICATES INTEL RESERVED. DO NOT DEFINE.
+```
 * * *
 
 <a name="fig5_11"></a><!-- *fig5_11* -->  <!-- *Figure 5-11* -->
 
-![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-11.gif)
+[Figure 5-11. Invalid Page Table Entry](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-11.gif)
 
+```sh
+ 31                                                           1 0
+╔══════════════════════════════════════════════════════════════╤═╗
+║                                                              │ ║
+║                         AVAILABLE                            │0║
+║                                                              │ ║
+╚══════════════════════════════════════════════════════════════╧═╝
+```
 ### //5.2.4.3 Accessed and Dirty Bits
 
 These bits provide data about page usage in both levels of the page tables. With the exception of the dirty bit in a page directory entry, these bits are set by the hardware; however, the processor does not clear any of these bits.
@@ -7102,15 +7580,24 @@ The 80386 is designed to operate with either an 80287 or 80387 math coprocessor.
 
 The 80386 interprets the pattern 11011B in the first five bits of an instruction as an opcode intended for a coprocessor. Instructions thus marked are called ESCAPE or ESC instructions. The CPU performs the following functions upon encountering an ESC instruction before sending the instruction to the coprocessor:
 
-*   Tests the emulation mode (EM) flag to determine whether coprocessor functions are being emulated by software.
-*   Tests the TS flag to determine whether there has been a context change since the last ESC instruction.
-*   For some ESC instructions, tests the ERROR# pin to determine whether the coprocessor detected an error in the previous ESC instruction.
+*   Tests the emulation mode (EM) flag to determine 
+    whether coprocessor functions are being emulated by software.
+
+*   Tests the TS flag to determine whether there has been 
+    a context change since the last ESC instruction.
+
+*   For some ESC instructions, tests the ERROR# pin to determine whether 
+    the coprocessor detected an error in the previous ESC instruction.
 
 The [WAIT](#IC_WAIT) instruction is not an ESC instruction, but [WAIT](#IC_WAIT) causes the CPU to perform some of the same tests that it performs upon encountering an ESC instruction. The processor performs the following actions for a [WAIT](#IC_WAIT) instruction:
 
 *   Waits until the coprocessor no longer asserts the BUSY# pin.
-*   Tests the ERROR# pin (after BUSY# goes inactive). If ERROR# is active, the 80386 signals exception 16, which indicates that the coprocessor encountered an error in the previous ESC instruction.
-*   [WAIT](#IC_WAIT) can therefore be used to cause exception 16 if an error is pending from a previous ESC instruction. Note that, if no coprocessor is present, the ERROR# and BUSY# pins should be tied inactive to prevent [WAIT](#IC_WAIT) from waiting forever or causing spurious exceptions.
+
+*   Tests the ERROR# pin (after BUSY# goes inactive). 
+    If ERROR# is active, the 80386 signals exception 16, which indicates that the coprocessor encountered an error in the previous ESC instruction.
+
+*   [WAIT](#IC_WAIT) can therefore be used to cause exception 16 
+    if an error is pending from a previous ESC instruction. Note that, if no coprocessor is present, the ERROR# and BUSY# pins should be tied inactive to prevent [WAIT](#IC_WAIT) from waiting forever or causing spurious exceptions.
 
 //11.1.3 EM and MP Flags
 ------------------------
@@ -8551,104 +9038,104 @@ This chapter presents instructions for the 80386 in alphabetical order. For each
 Instruction Set
 ---------------
 
-01. [AAA](IC_AAA)    ASCII Adjust after Addition
-02. [AAD](IC_AAD)    ASCII Adjust AX before Division
-03. [AAM](IC_AAM)    ASCII Adjust AX after Multiply
-04. [AAS](IC_AAS)    ASCII Adjust AL after Subtraction
-05. [ADC](IC_ADC)    Add with Carry
-06. [ADD](IC_ADD)    Add
-07. [AND](IC_AND)    Logical AND
-08. [ARPL](IC_ARPL)  Adjust RPL Field of Selector
-09. [BOUND](IC_BOUND)    Check Array Index Against Bounds
-10. [BSF](IC_BSF)    Bit Scan Forward
-11. [BSR](IC_BSR)    Bit Scan Reverse
-12. [BT](IC_BT)      Bit Test
-13. [BTC](IC_BTC)    Bit Test and Complement
-14. [BTR](IC_BTR)    Bit Test and Reset
-15. [BTS](IC_BTS)    Bit Test and Set
-16. [CALL](IC_CALL)  Call Procedure
-17. [CBW](IC_CBW)/[CWDE](IC_CBW)  Convert Byte to Word/Convert Word to Doubleword
-18. [CLC](IC_CLC)    Clear Carry Flag
-19. [CLD](IC_CLD)    Clear Direction Flag
-20. [CLI](IC_CLI)    Clear Interrupt Flag
-21. [CLTS](IC_CLTS)  Clear Task-Switched Flag in CR0
-22. [CMC](IC_CMC)    Complement Carry Flag
-23. [CMP](IC_CMP)    Compare Two Operands
-24. [CMPS](IC_CMPS)/[CMPSB](IC_CMPS)/[CMPSW](IC_CMPS)/[CMPSD](IC_CMPS)  Compare String Operands
-25. [CWD](IC_CWD)/[CDQ](IC_CWD)   Convert Word to Doubleword/Convert Doubleword to Quadword
+01. [AAA](#IC_AAA)    ASCII Adjust after Addition
+02. [AAD](#IC_AAD)    ASCII Adjust AX before Division
+03. [AAM](#IC_AAM)    ASCII Adjust AX after Multiply
+04. [AAS](#IC_AAS)    ASCII Adjust AL after Subtraction
+05. [ADC](#IC_ADC)    Add with Carry
+06. [ADD](#IC_ADD)    Add
+07. [AND](#IC_AND)    Logical AND
+08. [ARPL](#IC_ARPL)  Adjust RPL Field of Selector
+09. [BOUND](#IC_BOUND)    Check Array Index Against Bounds
+10. [BSF](#IC_BSF)    Bit Scan Forward
+11. [BSR](#IC_BSR)    Bit Scan Reverse
+12. [BT](#IC_BT)      Bit Test
+13. [BTC](#IC_BTC)    Bit Test and Complement
+14. [BTR](#IC_BTR)    Bit Test and Reset
+15. [BTS](#IC_BTS)    Bit Test and Set
+16. [CALL](#IC_CALL)  Call Procedure
+17. [CBW](#IC_CBW)/[CWDE](#IC_CBW)  Convert Byte to Word/Convert Word to Doubleword
+18. [CLC](#IC_CLC)    Clear Carry Flag
+19. [CLD](#IC_CLD)    Clear Direction Flag
+20. [CLI](#IC_CLI)    Clear Interrupt Flag
+21. [CLTS](#IC_CLTS)  Clear Task-Switched Flag in CR0
+22. [CMC](#IC_CMC)    Complement Carry Flag
+23. [CMP](#IC_CMP)    Compare Two Operands
+24. [CMPS](#IC_CMPS)/[CMPSB](#IC_CMPS)/[CMPSW](#IC_CMPS)/[CMPSD](#IC_CMPS)  Compare String Operands
+25. [CWD](#IC_CWD)/[CDQ](#IC_CWD)   Convert Word to Doubleword/Convert Doubleword to Quadword
 
-26. [DAA](IC_DAA)    Decimal Adjust AL after Addition
-27. [DAS](IC_DAS)    Decimal Adjust AL after Subtraction
-28. [DEC](IC_DEC)    Decrement by 1
-29. [DIV](IC_DIV)    Unsigned Divide
-30. [ENTER](IC_ENTER)    Make Stack Frame for Procedure Parameters
-31. [HLT](IC_HLT)    Halt
-32. [IDIV](IC_IDIV)  Signed Divide
-33. [IMUL](IC_IMUL)  Signed Multiply
-34. [IN](IC_IN)  Input from Port
-35. [INC](IC_INC)    Increment by 1
-36. [INS](IC_INS)/[INSB](IC_INS)/[INSW](IC_INS)/[INSD](IC_INS)  Input from Port to String
-37. [INT](IC_INT)/[INTO](IC_INT)  Call to Interrupt Procedure
-38. [IRET](IC_IRET)/[IRETD](IC_IRET)  Interrupt Return
-39. [Jcc](IC_JCC)    Jump if Condition is Met
-40. [JMP](IC_JMP)    Jump
-41. [LAHF](IC_LAHF)  Load Flags into AH Register
-42. [LAR](IC_LAR)    Load Access Rights Byte
-43. [LEA](IC_LEA)    Load Effective Address
-44. [LEAVE](IC_LEAVE)    High Level Procedure Exit
-45. [LGDT](IC_LGDT)/[LIDT](IC_LGDT)   Load Global/Interrupt Descriptor Table Register
-46. [LGS](IC_LGS)/[LSS](IC_LGS)/[LDS](IC_LGS)/[LES](IC_LGS)/[LFS](IC_LGS)    Load Full Pointer
-47. [LLDT](IC_LLDT)  Load Local Descriptor Table Register
-48. [LMSW](IC_LMSW)  Load Machine Status Word
-49. [LOCK](IC_LOCK)  Assert LOCK# Signal Prefix
-50. [LODS](IC_LODS)/[LODSB](IC_LODS)/[LODSW](IC_LODS)/[LODSD](IC_LODS)  Load String Operand
-51. [LOOP](IC_LOOP)/[LOOPcond](IC_LOOP)   Loop Control with CX Counter
-52. [LSL](IC_LSL)    Load Segment Limit
-53. [LTR](IC_LTR)    Load Task Register
-54. [MOV](IC_MOV)    Move Data
-55. [MOV](IC_MOVRS)  Move to/from Special Registers
-56. [MOVS](IC_MOVS)/[MOVSB](IC_MOVS)/[MOVSW](IC_MOVS)/[MOVSD](IC_MOVS)  Move Data from String to String
-57. [MOVSX](IC_MOVSX)    Move with Sign-Extend
-58. [MOVZX](IC_MOVZX)    Move with Zero-Extend
-59. [MUL](IC_MUL)    Unsigned Multiplication of AL or AX
-60. [NEG](IC_NEG)    Two's Complement Negation
-61. [NOP](IC_NOP)    No Operation
-62. [NOT](IC_NOT)    One's Complement Negation
+26. [DAA](#IC_DAA)    Decimal Adjust AL after Addition
+27. [DAS](#IC_DAS)    Decimal Adjust AL after Subtraction
+28. [DEC](#IC_DEC)    Decrement by 1
+29. [DIV](#IC_DIV)    Unsigned Divide
+30. [ENTER](#IC_ENTER)    Make Stack Frame for Procedure Parameters
+31. [HLT](#IC_HLT)    Halt
+32. [IDIV](#IC_IDIV)  Signed Divide
+33. [IMUL](#IC_IMUL)  Signed Multiply
+34. [IN](#IC_IN)  Input from Port
+35. [INC](#IC_INC)    Increment by 1
+36. [INS](#IC_INS)/[INSB](#IC_INS)/[INSW](#IC_INS)/[INSD](#IC_INS)  Input from Port to String
+37. [INT](#IC_INT)/[INTO](#IC_INT)  Call to Interrupt Procedure
+38. [IRET](#IC_IRET)/[IRETD](#IC_IRET)  Interrupt Return
+39. [Jcc](#IC_JCC)    Jump if Condition is Met
+40. [JMP](#IC_JMP)    Jump
+41. [LAHF](#IC_LAHF)  Load Flags into AH Register
+42. [LAR](#IC_LAR)    Load Access Rights Byte
+43. [LEA](#IC_LEA)    Load Effective Address
+44. [LEAVE](#IC_LEAVE)    High Level Procedure Exit
+45. [LGDT](#IC_LGDT)/[LIDT](#IC_LGDT)   Load Global/Interrupt Descriptor Table Register
+46. [LGS](#IC_LGS)/[LSS](#IC_LGS)/[LDS](#IC_LGS)/[LES](#IC_LGS)/[LFS](#IC_LGS)    Load Full Pointer
+47. [LLDT](#IC_LLDT)  Load Local Descriptor Table Register
+48. [LMSW](#IC_LMSW)  Load Machine Status Word
+49. [LOCK](#IC_LOCK)  Assert LOCK# Signal Prefix
+50. [LODS](#IC_LODS)/[LODSB](#IC_LODS)/[LODSW](#IC_LODS)/[LODSD](#IC_LODS)  Load String Operand
+51. [LOOP](#IC_LOOP)/[LOOPcond](#IC_LOOP)   Loop Control with CX Counter
+52. [LSL](#IC_LSL)    Load Segment Limit
+53. [LTR](#IC_LTR)    Load Task Register
+54. [MOV](#IC_MOV)    Move Data
+55. [MOV](#IC_MOVRS)  Move to/from Special Registers
+56. [MOVS](#IC_MOVS)/[MOVSB](#IC_MOVS)/[MOVSW](#IC_MOVS)/[MOVSD](#IC_MOVS)  Move Data from String to String
+57. [MOVSX](#IC_MOVSX)    Move with Sign-Extend
+58. [MOVZX](#IC_MOVZX)    Move with Zero-Extend
+59. [MUL](#IC_MUL)    Unsigned Multiplication of AL or AX
+60. [NEG](#IC_NEG)    Two's Complement Negation
+61. [NOP](#IC_NOP)    No Operation
+62. [NOT](#IC_NOT)    One's Complement Negation
 
-63. [OR](IC_OR)  Logical Inclusive OR
-64. [OUT](IC_OUT)    Output to Port
-65. [OUTS](IC_OUTS)/[OUTSB](IC_OUTS)/[OUTSW](IC_OUTS)/[OUTSD](IC_OUTS)  Output String to Port
-66. [POP](IC_POP)    Pop a Word from the Stack
-67. [POPA](IC_POPA)/[POPAD](IC_POPA)  Pop all General Registers
-68. [POPF](IC_POPF)/[POPFD](IC_POPF)  Pop Stack into FLAGS or EFLAGS Register
-69. [PUSH](IC_PUSH)  Push Operand onto the Stack
-70. [PUSHA](IC_PUSHA)/[PUSHAD](IC_PUSHA)  Push all General Registers
-71. [PUSHF](IC_PUSHF)/[PUSHFD](IC_PUSHF)  Push Flags Register onto the Stack
-72. [RCL](IC_RCL)/[RCR](IC_RCL)/[ROL](IC_RCL)/[ROR](IC_RCL)     Rotate
-73. [REP](IC_REP)/[REPE](IC_REP)/[REPZ](IC_REP)/[REPNE](IC_REP)/[REPNZ](IC_REP)  Repeat Following String Operation
-74. [RET](IC_RET)    Return from Procedure
-75. [SAHF](IC_SAHF)  Store AH into Flags
-76. [SAL](IC_SAL)/[SAR](IC_SAL)/[SHL](IC_SAL)/[SHR](IC_SAL)     Shift Instructions
-77. [SBB](IC_SBB)    Integer Subtraction with Borrow
-78. [SCAS](IC_SCAS)/[SCASB](IC_SCAS)/[SCASW](IC_SCAS)/[SCASD](IC_SCAS)  Compare String Data
-79. [SETcc](IC_SETCC)    Byte Set on Condition
-80. [SGDT](IC_SGDT)/[SIDT](IC_SGDT)   Store Global/Interrupt Descriptor Table Register
-81. [SHLD](IC_SHLD)  Double Precision Shift Left
-82. [SHRD](IC_SHRD)  Double Precision Shift Right
-83. [SLDT](IC_SLDT)  Store Local Descriptor Table Register
-84. [SMSW](IC_SMSW)  Store Machine Status Word
-85. [STC](IC_STC)    Set Carry Flag
-86. [STD](IC_STD)    Set Direction Flag
-87. [STI](IC_STI)    Set Interrupt Flag
-88. [STOS](IC_STOS)/[STOSB](IC_STOS)/[STOSW](IC_STOS)/[STOSD](IC_STOS)  Store String Data
-89. [STR](IC_STR)    Store Task Register
-90. [SUB](IC_SUB)    Integer Subtraction
-91. [TEST](IC_TEST)  Logical Compare
-92. [VERR](IC_VERR)/[VERW](IC_VERR)   Verify a Segment for Reading or Writing
-93. [WAIT](IC_WAIT)  Wait until BUSY# Pin is Inactive (HIGH)
-94. [XCHG](IC_XCHG)  Exchange Register/Memory with Register
-95. [XLAT](IC_XLAT)/[XLATB](IC_XLAT)  Table Look-up Translation
-96. [XOR](IC_XOR)    Logical Exclusive OR
+63. [OR](#IC_OR)  Logical Inclusive OR
+64. [OUT](#IC_OUT)    Output to Port
+65. [OUTS](#IC_OUTS)/[OUTSB](#IC_OUTS)/[OUTSW](#IC_OUTS)/[OUTSD](#IC_OUTS)  Output String to Port
+66. [POP](#IC_POP)    Pop a Word from the Stack
+67. [POPA](#IC_POPA)/[POPAD](#IC_POPA)  Pop all General Registers
+68. [POPF](#IC_POPF)/[POPFD](#IC_POPF)  Pop Stack into FLAGS or EFLAGS Register
+69. [PUSH](#IC_PUSH)  Push Operand onto the Stack
+70. [PUSHA](#IC_PUSHA)/[PUSHAD](#IC_PUSHA)  Push all General Registers
+71. [PUSHF](#IC_PUSHF)/[PUSHFD](#IC_PUSHF)  Push Flags Register onto the Stack
+72. [RCL](#IC_RCL)/[RCR](#IC_RCL)/[ROL](#IC_RCL)/[ROR](#IC_RCL)     Rotate
+73. [REP](#IC_REP)/[REPE](#IC_REP)/[REPZ](#IC_REP)/[REPNE](#IC_REP)/[REPNZ](#IC_REP)  Repeat Following String Operation
+74. [RET](#IC_RET)    Return from Procedure
+75. [SAHF](#IC_SAHF)  Store AH into Flags
+76. [SAL](#IC_SAL)/[SAR](#IC_SAL)/[SHL](#IC_SAL)/[SHR](#IC_SAL)     Shift Instructions
+77. [SBB](#IC_SBB)    Integer Subtraction with Borrow
+78. [SCAS](#IC_SCAS)/[SCASB](#IC_SCAS)/[SCASW](#IC_SCAS)/[SCASD](#IC_SCAS)  Compare String Data
+79. [SETcc](#IC_SET)    Byte Set on Condition
+80. [SGDT](#IC_SGDT)/[SIDT](#IC_SGDT)   Store Global/Interrupt Descriptor Table Register
+81. [SHLD](#IC_SHLD)  Double Precision Shift Left
+82. [SHRD](#IC_SHRD)  Double Precision Shift Right
+83. [SLDT](#IC_SLDT)  Store Local Descriptor Table Register
+84. [SMSW](#IC_SMSW)  Store Machine Status Word
+85. [STC](#IC_STC)    Set Carry Flag
+86. [STD](#IC_STD)    Set Direction Flag
+87. [STI](#IC_STI)    Set Interrupt Flag
+88. [STOS](#IC_STOS)/[STOSB](#IC_STOS)/[STOSW](#IC_STOS)/[STOSD](#IC_STOS)  Store String Data
+89. [STR](#IC_STR)    Store Task Register
+90. [SUB](#IC_SUB)    Integer Subtraction
+91. [TEST](#IC_TEST)  Logical Compare
+92. [VERR](#IC_VERR)/[VERW](#IC_VERR)   Verify a Segment for Reading or Writing
+93. [WAIT](#IC_WAIT)  Wait until BUSY# Pin is Inactive (#HIGH)
+94. [XCHG](#IC_XCHG)  Exchange Register/Memory with Register
+95. [XLAT](#IC_XLAT)/[XLATB](#IC_XLAT)  Table Look-up Translation
+96. [XOR](#IC_XOR)    Logical Exclusive OR
 
 * * *
 
@@ -10951,7 +11438,7 @@ LeftSRC - SignExtend(RightSRC);
 Description
 -----------
 
-CMP subtracts the second operand from the first but, unlike the [SUB](#IC_SUB) instruction, does not store the result; only the flags are changed. CMP is typically used in conjunction with conditional jumps and the [SETcc](#IC_SETCC) instruction. (Refer to Appendix D for the list of signed and unsigned flag tests provided.) If an operand greater than one byte is compared to an immediate byte, the byte value is first sign-extended.
+CMP subtracts the second operand from the first but, unlike the [SUB](#IC_SUB) instruction, does not store the result; only the flags are changed. CMP is typically used in conjunction with conditional jumps and the [SETcc](#IC_SET) instruction. (Refer to Appendix D for the list of signed and unsigned flag tests provided.) If an operand greater than one byte is compared to an immediate byte, the byte value is first sign-extended.
 
 Flags Affected
 --------------
@@ -12110,12 +12597,10 @@ IC: IRET/IRETD -- Interrupt Return
 ```sh
 Opcode  Instruction  Clocks       Description
 
-CF      IRET         22,pm=38     Interrupt return (far return and pop
-                                  flags)
+CF      IRET         22,pm=38     Interrupt return (far return and pop flags)
 CF      IRET         pm=82        Interrupt return to lesser privilege
 CF      IRET         ts           Interrupt return, different task (NT = 1)
-CF      IRETD        22,pm=38     Interrupt return (far return and pop
-                                  flags)
+CF      IRETD        22,pm=38     Interrupt return (far return and pop flags)
 CF      IRETD        pm=82        Interrupt return to lesser privilege
 CF      IRETD        pm=60        Interrupt return to V86 mode
 CF      IRETD        ts           Interrupt return, different task (NT = 1)
@@ -12133,7 +12618,7 @@ Old Task       386 TSS       386 TSS       286 TSS
 TSS VM=0         275           224           271
 
 286
-TSS              265           214           232_
+TSS              265           214           232
 ```
 
 Operation
@@ -12374,6 +12859,7 @@ Virtual 8086 Mode Exceptions
 
 
 * * *
+<a name="IC_JCC"></a> <!--    *JCC* -->
 
 IC: Jcc -- Jump if Condition is Met
 ===================================
@@ -12519,34 +13005,24 @@ IC: JMP -- Jump
 Opcode    Instruction     Clocks          Description
 
 EB  cb    JMP rel8        7+m             Jump short
-E9  cw    JMP rel16       7+m             Jump near, displacement relative
-                                          to next instruction
+E9  cw    JMP rel16       7+m             Jump near, displacement relative to next instruction
 FF  /4    JMP r/m16       7+m/10+m        Jump near indirect
-EA  cd    JMP ptr16:16    12+m,pm=27+m    Jump intersegment, 4-byte
-                                          immediate address
-EA  cd    JMP ptr16:16    pm=45+m         Jump to call gate, same
-                                          privilege
+EA  cd    JMP ptr16:16    12+m,pm=27+m    Jump intersegment, 4-byte immediate address
+EA  cd    JMP ptr16:16    pm=45+m         Jump to call gate, same privilege
 EA  cd    JMP ptr16:16    ts              Jump via task state segment
 EA  cd    JMP ptr16:16    ts              Jump via task gate
-FF  /5    JMP m16:16      43+m,pm=31+m    Jump r/m16:16 indirect and
-                                          intersegment
-FF  /5    JMP m16:16      pm=49+m         Jump to call gate, same
-                                          privilege
+FF  /5    JMP m16:16      43+m,pm=31+m    Jump r/m16:16 indirect and intersegment
+FF  /5    JMP m16:16      pm=49+m         Jump to call gate, same privilege
 FF  /5    JMP m16:16      5 + ts          Jump via task state segment
 FF  /5    JMP m16:16      5 + ts          Jump via task gate
-E9  cd    JMP rel32       7+m             Jump near, displacement relative
-                                          to next instruction
+E9  cd    JMP rel32       7+m             Jump near, displacement relative to next instruction
 FF  /4    JMP r/m32       7+m,10+m        Jump near, indirect
-EA  cp    JMP ptr16:32    12+m,pm=27+m    Jump intersegment, 6-byte
-                                          immediate address
-EA  cp    JMP ptr16:32    pm=45+m         Jump to call gate, same
-                                          privilege
+EA  cp    JMP ptr16:32    12+m,pm=27+m    Jump intersegment, 6-byte immediate address
+EA  cp    JMP ptr16:32    pm=45+m         Jump to call gate, same privilege
 EA  cp    JMP ptr16:32    ts              Jump via task state segment
 EA  cp    JMP ptr16:32    ts              Jump via task gate
-FF  /5    JMP m16:32      43+m,pm=31+m    Jump intersegment, address at
-                                          r/m dword
-FF  /5    JMP m16:32      pm=49+m         Jump to call gate, same
-                                          privilege
+FF  /5    JMP m16:32      43+m,pm=31+m    Jump intersegment, address at r/m dword
+FF  /5    JMP m16:32      pm=49+m         Jump to call gate, same privilege
 FF  /5    JMP m16:32      5 + ts          Jump via task state segment
 FF  /5    JMP m16:32      5 + ts          Jump via task gate
 ```
@@ -14344,9 +14820,9 @@ Virtual 8086 Mode Exceptions
 
 * * *
 <a name="IC_OUTS"></a> <!--   *OUTS* -->
-
-IC: OUTS/OUTSB/OUTSW/OUTSD -- Output String to Port
-===================================================
+ 
+IC: OUTS/OUTSB/OUTSW/OUTSD -- Output String to Port 
+=================================================== 
 
 ```sh
 Opcode   Instruction     Clocks          Description
@@ -15000,74 +15476,50 @@ F3  6C    REP INS r/m8, DX    13+6*(E)CX,
                               pm=7+6*(E)CX
 If CPL <= IOPL/
                               27+6*(E)CX
-If CPL > IOPL or if in virtual 8086 mode      Input (E)CX bytes from port
-                                               DX into ES:[(E)DI]
+If CPL > IOPL or if in virtual 8086 mode      Input (E)CX bytes from port DX into ES:[(E)DI]
 F3  6D    REP INS r/m16,DX    13+6*(E)CX,
                               pm=7+6*(E)CX
 If CPL <= IOPL/
                               27+6*(E)CX
-If CPL > IOPL or if in virtual 8086 mode      Input (E)CX words from port
-                                               DX into ES:[(E)DI]
+If CPL > IOPL or if in virtual 8086 mode      Input (E)CX words from port DX into ES:[(E)DI]
 F3  6D    REP INS r/m32,DX    13+6*(E)CX,
                               pm=7+6*(E)CX
 If CPL <= IOPL/
                               27+6*(E)CX
-If CPL > IOPL or if in virtual 8086 mode      Input (E)CX dwords from port
-                                               DX into ES:[(E)DI]
-F3  A4    REP MOVS m8,m8      5+4*(E)CX        Move (E)CX bytes from
-                                               [(E)SI] to ES:[(E)DI]
-F3  A5    REP MOVS m16,m16    5+4*(E)CX        Move (E)CX words from
-                                               [(E)SI] to ES:[(E)DI]
-F3  A5    REP MOVS m32,m32    5+4*(E)CX        Move (E)CX dwords from
-                                               [(E)SI] to ES:[(E)DI]
+If CPL > IOPL or if in virtual 8086 mode      Input (E)CX dwords from port DX into ES:[(E)DI]
+F3  A4    REP MOVS m8,m8      5+4*(E)CX        Move (E)CX bytes from [(E)SI] to ES:[(E)DI]
+F3  A5    REP MOVS m16,m16    5+4*(E)CX        Move (E)CX words from [(E)SI] to ES:[(E)DI]
+F3  A5    REP MOVS m32,m32    5+4*(E)CX        Move (E)CX dwords from [(E)SI] to ES:[(E)DI]
 F3  6E    REP OUTS DX,r/m8    5+12*(E)CX,
                               pm=6+5*(E)CX
 If CPL <= IOPL/
                               26+5*(E)CX
-If CPL > IOPL or if in virtual 8086 mode      Output (E)CX bytes from
-                                               [(E)SI] to port DX
+If CPL > IOPL or if in virtual 8086 mode      Output (E)CX bytes from [(E)SI] to port DX
 F3  6F    REP OUTS DX,r/m16   5+12*(E)CX,
                               pm=6+5*(E)CX
 If CPL <= IOPL/
                               26+5*(E)CX
-If CPL > IOPL or if in virtual 8086 mode      Output (E)CX words from
-                                               [(E)SI] to port DX
+If CPL > IOPL or if in virtual 8086 mode      Output (E)CX words from [(E)SI] to port DX
 F3  6F    REP OUTS DX,r/m32   5+12*(E)CX,
                               pm=6+5*(E)CX
 If CPL <= IOPL/
                               26+5*(E)CX
-If CPL > IOPL or if in virtual 8086 mode      Output (E)CX dwords from
-                                               [(E)SI] to port DX
-F3  AA    REP STOS m8         5+5*(E)CX        Fill (E)CX bytes at
-                                               ES:[(E)DI] with AL
-F3  AB    REP STOS m16        5+5*(E)CX        Fill (E)CX words at
-                                               ES:[(E)DI] with AX
-F3  AB    REP STOS m32        5+5*(E)CX        Fill (E)CX dwords at
-                                               ES:[(E)DI] with EAX
-F3  A6    REPE CMPS m8,m8     5+9*N            Find nonmatching bytes in
-                                               ES:[(E)DI] and [(E)SI]
-F3  A7    REPE CMPS m16,m16   5+9*N            Find nonmatching words in
-                                               ES:[(E)DI] and [(E)SI]
-F3  A7    REPE CMPS m32,m32   5+9*N            Find nonmatching dwords in
-                                               ES:[(E)DI] and [(E)SI]
-F3  AE    REPE SCAS m8        5+8*N            Find non-AL byte starting
-                                               at ES:[(E)DI]
-F3  AF    REPE SCAS m16       5+8*N            Find non-AX word starting
-                                               at ES:[(E)DI]
-F3  AF    REPE SCAS m32       5+8*N            Find non-EAX dword starting
-                                               at ES:[(E)DI]
-F2  A6    REPNE CMPS m8,m8    5+9*N            Find matching bytes in
-                                               ES:[(E)DI] and [(E)SI]
-F2  A7    REPNE CMPS m16,m16  5+9*N            Find matching words in
-                                               ES:[(E)DI] and [(E)SI]
-F2  A7    REPNE CMPS m32,m32  5+9*N            Find matching dwords in
-                                               ES:[(E)DI] and [(E)SI]
-F2  AE    REPNE SCAS m8       5+8*N            Find AL, starting at
-                                               ES:[(E)DI]
-F2  AF    REPNE SCAS m16      5+8*N            Find AX, starting at
-                                               ES:[(E)DI]
-F2  AF    REPNE SCAS m32      5+8*N            Find EAX, starting at
-                                               ES:[(E)DI]
+If CPL > IOPL or if in virtual 8086 mode      Output (E)CX dwords from [(E)SI] to port DX
+F3  AA    REP STOS m8         5+5*(E)CX        Fill (E)CX bytes at ES:[(E)DI] with AL
+F3  AB    REP STOS m16        5+5*(E)CX        Fill (E)CX words at ES:[(E)DI] with AX
+F3  AB    REP STOS m32        5+5*(E)CX        Fill (E)CX dwords at ES:[(E)DI] with EAX
+F3  A6    REPE CMPS m8,m8     5+9*N            Find nonmatching bytes in ES:[(E)DI] and [(E)SI]
+F3  A7    REPE CMPS m16,m16   5+9*N            Find nonmatching words in ES:[(E)DI] and [(E)SI]
+F3  A7    REPE CMPS m32,m32   5+9*N            Find nonmatching dwords in ES:[(E)DI] and [(E)SI]
+F3  AE    REPE SCAS m8        5+8*N            Find non-AL byte starting at ES:[(E)DI]
+F3  AF    REPE SCAS m16       5+8*N            Find non-AX word starting at ES:[(E)DI]
+F3  AF    REPE SCAS m32       5+8*N            Find non-EAX dword starting at ES:[(E)DI]
+F2  A6    REPNE CMPS m8,m8    5+9*N            Find matching bytes in ES:[(E)DI] and [(E)SI]
+F2  A7    REPNE CMPS m16,m16  5+9*N            Find matching words in ES:[(E)DI] and [(E)SI]
+F2  A7    REPNE CMPS m32,m32  5+9*N            Find matching dwords in ES:[(E)DI] and [(E)SI]
+F2  AE    REPNE SCAS m8       5+8*N            Find AL, starting at ES:[(E)DI]
+F2  AF    REPNE SCAS m16      5+8*N            Find AX, starting at ES:[(E)DI]
+F2  AF    REPNE SCAS m32      5+8*N            Find EAX, starting at ES:[(E)DI]
 ```
 
 Operation
@@ -15655,6 +16107,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
+<a name="IC_SET"></a> <!--   *SETcc* -->
 
 IC: SETcc -- Byte Set on Condition
 ==================================

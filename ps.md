@@ -618,7 +618,7 @@ C1 C2     C3
 
 
 
-# 🚩 PowerShell Language Specification 3.0
+# /🚩 PowerShell Language Specification 3.0
 
 克隆 PowerShell 源代码及文档：
 
@@ -628,144 +628,144 @@ C1 C2     C3
 
 PowerShell Language Specification 3.0 官方文档参考：
 
-- [ 1. Introduction](lang-spec/chapter-01.md)
-- [ 2. Lexical Structure](lang-spec/chapter-02.md)
-- [ 3. Basic concepts](lang-spec/chapter-03.md)
-- [ 4. Types](lang-spec/chapter-04.md)
-- [ 5. Variables](lang-spec/chapter-05.md)
-- [ 6. Conversions](lang-spec/chapter-06.md)
-- [ 7. Expressions](lang-spec/chapter-07.md)
-- [ 8. Statements](lang-spec/chapter-08.md)
-- [ 9. Arrays](lang-spec/chapter-09.md)
-- [10. Hashtables](lang-spec/chapter-10.md)
-- [11. Modules](lang-spec/chapter-11.md)
-- [12. Attributes](lang-spec/chapter-12.md)
-- [13. Cmdlets](lang-spec/chapter-13.md)
-- [ A. Comment-Based Help](lang-spec/chapter-14.md)
-- [ B. Grammar](lang-spec/chapter-15.md)
-- [ C. References](lang-spec/chapter-16.md)
+- [ 1. Introduction](https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/docs-conceptual/lang-spec/chapter-01.md)
+- [ 2. Lexical Structure](https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/docs-conceptual/lang-spec/chapter-02.md)
+- [ 3. Basic concepts](https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/docs-conceptual/lang-spec/chapter-03.md)
+- [ 4. Types](https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/docs-conceptual/lang-spec/chapter-04.md)
+- [ 5. Variables](https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/docs-conceptual/lang-spec/chapter-05.md)
+- [ 6. Conversions](https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/docs-conceptual/lang-spec/chapter-06.md)
+- [ 7. Expressions](https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/docs-conceptual/lang-spec/chapter-07.md)
+- [ 8. Statements](https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/docs-conceptual/lang-spec/chapter-08.md)
+- [ 9. Arrays](https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/docs-conceptual/lang-spec/chapter-09.md)
+- [10. Hashtables](https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/docs-conceptual/lang-spec/chapter-10.md)
+- [11. Modules](https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/docs-conceptual/lang-spec/chapter-11.md)
+- [12. Attributes](https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/docs-conceptual/lang-spec/chapter-12.md)
+- [13. Cmdlets](https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/docs-conceptual/lang-spec/chapter-13.md)
+- [ A. Comment-Based Help](https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/docs-conceptual/lang-spec/chapter-14.md)
+- [ B. Grammar](https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/docs-conceptual/lang-spec/chapter-15.md)
+- [ C. References](https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/docs-conceptual/lang-spec/chapter-16.md)
 
 
-## ⚡ About PS
+## //⚡ About PS
 
 About Topics
 
-- [about_Alias_Provider](about_Alias_Provider.md)
-- [about_Aliases](about_Aliases.md)
-- [about_Arithmetic_Operators](about_Arithmetic_Operators.md)
-- [about_Arrays](about_Arrays.md)
-- [about_Assignment_Operators](about_Assignment_Operators.md)
-- [about_Automatic_Variables](about_Automatic_Variables.md)
-- [about_Break](about_Break.md)
-- [about_CimSession](about_CimSession.md)
-- [about_Classes](about_Classes.md)
-- [about_Command_Precedence](about_Command_Precedence.md)
-- [about_Command_Syntax](about_Command_Syntax.md)
-- [about_Comment_Based_Help](about_Comment_Based_Help.md)
-- [about_CommonParameters](about_CommonParameters.md)
-- [about_Comparison_Operators](about_Comparison_Operators.md)
-- [about_Continue](about_Continue.md)
-- [about_Core_Commands](about_Core_Commands.md)
-- [about_Data_Sections](about_Data_Sections.md)
-- [about_Debuggers](about_Debuggers.md)
-- [about_Do](about_Do.md)
-- [about_Enum](about_Enum.md)
-- [about_Environment_Provider](about_Environment_Provider.md)
-- [about_Environment_Variables](about_Environment_Variables.md)
-- [about_Execution_Policies](about_Execution_Policies.md)
-- [about_Experimental_Features](about_Experimental_Features.md)
-- [about_FileSystem_Provider](about_FileSystem_Provider.md)
-- [about_For](about_For.md)
-- [about_Foreach](about_Foreach.md)
-- [about_Format.ps1xml](about_Format.ps1xml.md)
-- [about_Function_Provider](about_Function_Provider.md)
-- [about_Functions](about_Functions.md)
-- [about_Functions_Advanced](about_Functions_Advanced.md)
-- [about_Functions_Advanced_Methods](about_Functions_Advanced_Methods.md)
-- [about_Functions_Advanced_Parameters](about_Functions_Advanced_Parameters.md)
-- [about_Functions_CmdletBindingAttribute](about_Functions_CmdletBindingAttribute.md)
-- [about_Functions_OutputTypeAttribute](about_Functions_OutputTypeAttribute.md)
-- [about_Group_Policy_Settings](about_Group_Policy_Settings.md)
-- [about_Hash_Tables](about_Hash_Tables.md)
-- [about_hidden](about_hidden.md)
-- [about_History](about_History.md)
-- [about_If](about_If.md)
-- [about_Job_Details](about_Job_Details.md)
-- [about_Jobs](about_Jobs.md)
-- [about_Join](about_Join.md)
-- [about_Language_Keywords](about_Language_Keywords.md)
-- [about_Language_Modes](about_Language_Modes.md)
-- [about_Line_Editing](about_Line_Editing.md)
-- [about_locations](about_locations.md)
-- [about_Logging_Non-Windows](about_Logging_Non-Windows.md)
-- [about_Logging_Windows](about_Logging_Windows.md)
-- [about_logical_operators](about_logical_operators.md)
-- [about_Methods](about_Methods.md)
-- [about_Modules](about_Modules.md)
-- [about_Object_Creation](about_Object_Creation.md)
-- [about_Objects](about_Objects.md)
-- [about_Operator_Precedence](about_Operator_Precedence.md)
-- [about_Operators](about_Operators.md)
-- [about_PackageManagement](about_PackageManagement.md)
-- [about_Parameters](about_Parameters.md)
-- [about_Parameters_Default_Values](about_Parameters_Default_Values.md)
-- [about_Parsing](about_Parsing.md)
-- [about_Path_Syntax](about_Path_Syntax.md)
-- [about_pipelines](about_pipelines.md)
-- [about_PowerShell_Config](about_PowerShell_Config.md)
-- [about_PowerShell_Editions](about_PowerShell_Editions.md)
-- [about_Preference_Variables](about_Preference_Variables.md)
-- [about_Profiles](about_Profiles.md)
-- [about_Prompts](about_Prompts.md)
-- [about_Properties](about_Properties.md)
-- [about_Providers](about_Providers.md)
-- [about_psconsolehostreadline](about_psconsolehostreadline.md)
-- [about_PSSession_Details](about_PSSession_Details.md)
-- [about_PSSessions](about_PSSessions.md)
-- [about_pwsh](about_pwsh.md)
-- [about_Quoting_Rules](about_Quoting_Rules.md)
-- [about_Redirection](about_Redirection.md)
-- [about_Ref](about_Ref.md)
-- [about_Registry_Provider](about_Registry_Provider.md)
-- [about_Regular_Expressions](about_Regular_Expressions.md)
-- [about_Remote](about_Remote.md)
-- [about_Remote_Disconnected_Sessions](about_Remote_Disconnected_Sessions.md)
-- [about_Remote_Jobs](about_Remote_Jobs.md)
-- [about_Remote_Output](about_Remote_Output.md)
-- [about_Remote_Requirements](about_Remote_Requirements.md)
-- [about_Remote_Troubleshooting](about_Remote_Troubleshooting.md)
-- [about_Remote_Variables](about_Remote_Variables.md)
-- [about_Requires](about_Requires.md)
-- [about_Reserved_Words](about_Reserved_Words.md)
-- [about_Return](about_Return.md)
-- [about_Run_With_PowerShell](about_Run_With_PowerShell.md)
-- [about_Scopes](about_Scopes.md)
-- [about_Script_Blocks](about_Script_Blocks.md)
-- [about_Script_Internationalization](about_Script_Internationalization.md)
-- [about_Scripts](about_Scripts.md)
-- [about_Session_Configuration_Files](about_Session_Configuration_Files.md)
-- [about_Session_Configurations](about_Session_Configurations.md)
-- [about_Signing](about_Signing.md)
-- [about_simplified_syntax](about_simplified_syntax.md)
-- [about_Special_Characters](about_Special_Characters.md)
-- [about_Splatting](about_Splatting.md)
-- [about_Split](about_Split.md)
-- [about_Switch](about_Switch.md)
-- [about_Telemetry](about_Telemetry.md)
-- [about_Throw](about_Throw.md)
-- [about_Trap](about_Trap.md)
-- [about_Try_Catch_Finally](about_Try_Catch_Finally.md)
-- [about_Type_Operators](about_Type_Operators.md)
-- [about_Types.ps1xml](about_Types.ps1xml.md)
-- [about_Updatable_Help](about_Updatable_Help.md)
-- [About_Using](About_Using.md)
-- [about_Variable_Provider](about_Variable_Provider.md)
-- [about_Variables](about_Variables.md)
-- [about_While](about_While.md)
-- [about_Wildcards](about_Wildcards.md)
+- [about_Alias_Provider](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Alias_Provider.md)
+- [about_Aliases](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Aliases.md)
+- [about_Arithmetic_Operators](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Arithmetic_Operators.md)
+- [about_Arrays](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Arrays.md)
+- [about_Assignment_Operators](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Assignment_Operators.md)
+- [about_Automatic_Variables](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Automatic_Variables.md)
+- [about_Break](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Break.md)
+- [about_CimSession](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_CimSession.md)
+- [about_Classes](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Classes.md)
+- [about_Command_Precedence](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Command_Precedence.md)
+- [about_Command_Syntax](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Command_Syntax.md)
+- [about_Comment_Based_Help](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Comment_Based_Help.md)
+- [about_CommonParameters](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_CommonParameters.md)
+- [about_Comparison_Operators](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Comparison_Operators.md)
+- [about_Continue](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Continue.md)
+- [about_Core_Commands](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Core_Commands.md)
+- [about_Data_Sections](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Data_Sections.md)
+- [about_Debuggers](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Debuggers.md)
+- [about_Do](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Do.md)
+- [about_Enum](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Enum.md)
+- [about_Environment_Provider](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Environment_Provider.md)
+- [about_Environment_Variables](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Environment_Variables.md)
+- [about_Execution_Policies](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Execution_Policies.md)
+- [about_Experimental_Features](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Experimental_Features.md)
+- [about_FileSystem_Provider](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_FileSystem_Provider.md)
+- [about_For](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_For.md)
+- [about_Foreach](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Foreach.md)
+- [about_Format.ps1xml](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Format.ps1xml.md)
+- [about_Function_Provider](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Function_Provider.md)
+- [about_Functions](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Functions.md)
+- [about_Functions_Advanced](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Functions_Advanced.md)
+- [about_Functions_Advanced_Methods](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Functions_Advanced_Methods.md)
+- [about_Functions_Advanced_Parameters](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Functions_Advanced_Parameters.md)
+- [about_Functions_CmdletBindingAttribute](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Functions_CmdletBindingAttribute.md)
+- [about_Functions_OutputTypeAttribute](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Functions_OutputTypeAttribute.md)
+- [about_Group_Policy_Settings](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Group_Policy_Settings.md)
+- [about_Hash_Tables](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Hash_Tables.md)
+- [about_hidden](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_hidden.md)
+- [about_History](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_History.md)
+- [about_If](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_If.md)
+- [about_Job_Details](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Job_Details.md)
+- [about_Jobs](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Jobs.md)
+- [about_Join](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Join.md)
+- [about_Language_Keywords](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Language_Keywords.md)
+- [about_Language_Modes](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Language_Modes.md)
+- [about_Line_Editing](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Line_Editing.md)
+- [about_locations](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_locations.md)
+- [about_Logging_Non-Windows](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Logging_Non-Windows.md)
+- [about_Logging_Windows](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Logging_Windows.md)
+- [about_logical_operators](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_logical_operators.md)
+- [about_Methods](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Methods.md)
+- [about_Modules](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Modules.md)
+- [about_Object_Creation](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Object_Creation.md)
+- [about_Objects](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Objects.md)
+- [about_Operator_Precedence](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Operator_Precedence.md)
+- [about_Operators](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Operators.md)
+- [about_PackageManagement](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_PackageManagement.md)
+- [about_Parameters](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Parameters.md)
+- [about_Parameters_Default_Values](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Parameters_Default_Values.md)
+- [about_Parsing](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Parsing.md)
+- [about_Path_Syntax](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Path_Syntax.md)
+- [about_pipelines](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_pipelines.md)
+- [about_PowerShell_Config](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_PowerShell_Config.md)
+- [about_PowerShell_Editions](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_PowerShell_Editions.md)
+- [about_Preference_Variables](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Preference_Variables.md)
+- [about_Profiles](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Profiles.md)
+- [about_Prompts](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Prompts.md)
+- [about_Properties](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Properties.md)
+- [about_Providers](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Providers.md)
+- [about_psconsolehostreadline](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_psconsolehostreadline.md)
+- [about_PSSession_Details](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_PSSession_Details.md)
+- [about_PSSessions](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_PSSessions.md)
+- [about_pwsh](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_pwsh.md)
+- [about_Quoting_Rules](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Quoting_Rules.md)
+- [about_Redirection](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Redirection.md)
+- [about_Ref](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Ref.md)
+- [about_Registry_Provider](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Registry_Provider.md)
+- [about_Regular_Expressions](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Regular_Expressions.md)
+- [about_Remote](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Remote.md)
+- [about_Remote_Disconnected_Sessions](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Remote_Disconnected_Sessions.md)
+- [about_Remote_Jobs](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Remote_Jobs.md)
+- [about_Remote_Output](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Remote_Output.md)
+- [about_Remote_Requirements](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Remote_Requirements.md)
+- [about_Remote_Troubleshooting](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Remote_Troubleshooting.md)
+- [about_Remote_Variables](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Remote_Variables.md)
+- [about_Requires](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Requires.md)
+- [about_Reserved_Words](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Reserved_Words.md)
+- [about_Return](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Return.md)
+- [about_Run_With_PowerShell](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Run_With_PowerShell.md)
+- [about_Scopes](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Scopes.md)
+- [about_Script_Blocks](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Script_Blocks.md)
+- [about_Script_Internationalization](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Script_Internationalization.md)
+- [about_Scripts](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Scripts.md)
+- [about_Session_Configuration_Files](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Session_Configuration_Files.md)
+- [about_Session_Configurations](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Session_Configurations.md)
+- [about_Signing](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Signing.md)
+- [about_simplified_syntax](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_simplified_syntax.md)
+- [about_Special_Characters](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Special_Characters.md)
+- [about_Splatting](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Splatting.md)
+- [about_Split](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Split.md)
+- [about_Switch](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Switch.md)
+- [about_Telemetry](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Telemetry.md)
+- [about_Throw](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Throw.md)
+- [about_Trap](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Trap.md)
+- [about_Try_Catch_Finally](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Try_Catch_Finally.md)
+- [about_Type_Operators](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Type_Operators.md)
+- [about_Types.ps1xml](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Types.ps1xml.md)
+- [about_Updatable_Help](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Updatable_Help.md)
+- [About_Using](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/About_Using.md)
+- [about_Variable_Provider](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Variable_Provider.md)
+- [about_Variables](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Variables.md)
+- [about_While](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_While.md)
+- [about_Wildcards](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Wildcards.md)
 
 
-## ⚡ Lexical & Syntactic grammar
+## //⚡ Lexical & Syntactic grammar
 - [ 2. Lexical Structure](lang-spec/chapter-02.md)
 - [ 3. Basic concepts](lang-spec/chapter-03.md)
 - [ 4. Types](lang-spec/chapter-04.md)
@@ -849,7 +849,7 @@ keyword: one of
     var            while          workflow
 ```
 
-## ==⚡ Special Characters
+## //==⚡ Special Characters
 - [about_Special_Characters](about_Special_Characters.md)
 - [about_Splatting](Microsoft.PowerShell.Core/About/about_Splatting.md)
 - [about_Wildcards](Microsoft.PowerShell.Core\About\about_Wildcards.md)
@@ -895,7 +895,7 @@ Special parsing token:
 | `--%`    | Stop parsing anything that follows |
 
 
-### ===🗝 splatting operator '@'
+### //===🗝 splatting operator '@'
 
 Splatting is a method of passing a collection of parameter values to a command
 as a unit. PowerShell associates each value in the collection with a command
@@ -917,7 +917,7 @@ The first example uses the traditional format in which parameter names are
 included.
 
 ```sh
-## Splatting with hash tables
+## //Splatting with hash tables
 Copy-Item -Path "test.txt" -Destination "test2.txt" -WhatIf
 
 $HashArguments = @{
@@ -927,7 +927,7 @@ $HashArguments = @{
 }
 Copy-Item @HashArguments
 
-## Splatting with arrays
+## //Splatting with arrays
 Copy-Item "test.txt" "test2.txt" -WhatIf
 
 $ArrayArguments = "test.txt", "test2.txt"
@@ -945,20 +945,20 @@ Copy-Item @ArrayArguments -WhatIf
 > $a.GetType() # Object[] System.Array
 
 
-## Using the ArgumentList parameter
+## //Using the ArgumentList parameter
 
 $array = 'Hello', 'World!'
 Invoke-Command -ScriptBlock {
   param([string[]]$words) $words -join ' '
 } -ArgumentList (,$array)
 
-# Output:
+# //Output:
 Hello World!
 ```
 
 
 
-## ⚡ signature block
+## //⚡ signature block
 - [Add Credential support to PowerShell functions](deep-dives\add-credentials-to-powershell-functions.md)
 
 签名块起止标记为 `# SIG # Begin signature block`，`# SIG # End signature block`，包括换行符号，签名内容是 base64 编码的字符串，每行都使用注解符号，签名用来验证脚本的完整性防止加入恶意代码。
@@ -1000,25 +1000,25 @@ MachinePolicy       Undefined
 根据证书存储位置加载使用，CurrentUser 或 LocalMachine 等位置，以下脚本可以进行签名操作，文件属性页获取脚本文件的签名信息：
 
 ```sh
-# Get the code-signing certificate from the local computer's certificate 
-# store with the name *Code Authenticode*.
+# //Get the code-signing certificate from the local computer's certificate 
+# //store with the name *Code Authenticode*.
 $cn = "CN=Code Authenticode"
 $cert = New-SelfSignedCertificate -certstorelocation cert:\CurrentUser\My -dnsname $cn -Type CodeSigningCert
 $cert = Get-ChildItem Cert:\CurrentUser\My | Where-Object {$_.Subject -eq $cn} | Select -First 1
-# $cert = Get-ChildItem Cert:\LocalMachine\My | Where-Object {$_.Subject -eq $cn} | Select -First 1
+# //$cert = Get-ChildItem Cert:\LocalMachine\My | Where-Object {$_.Subject -eq $cn} | Select -First 1
 
-# Sign the PowerShell script
-# PARAMETERS:
-# FilePath - Specifies the file path of the PowerShell script to sign.
-# Certificate - Specifies the certificate to use when signing the script.
-# TimeStampServer - Specifies the trusted timestamp server that adds a timestamp to your 
-# script's digital signature. Adding a timestamp ensures that your code will not expire 
-# when the signing certificate expires.
+# //Sign the PowerShell script
+# //PARAMETERS:
+# //FilePath - Specifies the file path of the PowerShell script to sign.
+# //Certificate - Specifies the certificate to use when signing the script.
+# //TimeStampServer - Specifies the trusted timestamp server that adds a timestamp to your 
+# //script's digital signature. Adding a timestamp ensures that your code will not expire 
+# //when the signing certificate expires.
 Set-AuthenticodeSignature -FilePath myscript.ps1 -Certificate $cert -TimeStampServer http://timestamp.digicert.com
 Get-AuthenticodeSignature -FilePath myscript.ps1 | Select-Object -Property *
 ```
 
-## ⚡ Variables & Providers and Drives
+## //⚡ Variables & Providers and Drives
 
 ```yaml
 variable:
@@ -1105,7 +1105,7 @@ PowerShell 支持以下作用域：
 使用打点标记可以避免执行命令之前创建新的作用域：
 
 ```sh
-# Use *dot source notation*
+# //Use *dot source notation*
 . Script2.ps1
 . "Script2.ps1"
 . { ... }
@@ -1195,7 +1195,7 @@ Variable                               Variable
 WSMan                                  WSMan                                              
 ```
 
-## ⚡ Numeric/Real literals
+## //⚡ Numeric/Real literals
 
 字面量有 3 种：
 
@@ -1285,7 +1285,7 @@ dash:
     Horizontal bar character (U+2015)
 ```
 
-## ⚡ Strings literals
+## //⚡ Strings literals
 - [Everything about variable substitution in strings](deep-dives\everything-about-string-substitutions.md)
 - [ 2. Lexical Structure](lang-spec/chapter-02.md)
 - [Appendix A - Grammar](lang-spec\chapter-15.md)
@@ -1342,7 +1342,7 @@ $s2 = "`$a = $($a; ++$a)"
 "`$s2 = >$s2<"
 $s2 = $s1
 "`$s2 = >$s2<"
-# Output
+# //Output
 $s1 = >$a = 10<
 $s2 = >$a = 11<
 $s2 = >$a = 10<
@@ -1350,12 +1350,12 @@ $s2 = >$a = 10<
 $i = 5; $j = 10; $k = 15
 "`$i, `$j, and `$k have the values $( $i; $j; $k )"
 "`$i, `$j, and `$k have the values $(($i = 5); ($j = 10); ($k = 15))"
-# Output
+# //Output
 $i, $j, and $k have the values 5 10 15
 
 
 "First 10 squares: $(for ($i = 1; $i -le 10; ++$i) { "$i $($i*$i) " })"
-# Output
+# //Output
 First 10 squares: 1 1  2 4  3 9  4 16  5 25  6 36  7 49  8 64  9 81  10 100 
 ```
 
@@ -1470,7 +1470,8 @@ verbatim-here-string-part:
 ```
 
 
-## ⚡ Operators and punctuators
+## //⚡ Operators and punctuators
+https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/docs-conceptual/lang-spec/chapter-07.md
 
 Use PowerShell’s arithmetic operators:
 
@@ -1562,7 +1563,7 @@ PowerShell supports the following logical operators.
 数学函数调用：
 
 ```sh
-# Example 6-1. A root function and some example calculations
+# //Example 6-1. A root function and some example calculations
 PS > function root($number, $root) { [Math]::Pow($number, 1 / $root) }
 PS > root 64 3
 4
@@ -1641,7 +1642,7 @@ format-operator:
 ```
 
 
-## ⚡ Builtin Automatic Variables
+## //⚡ Builtin Automatic Variables
 - [about_automatic_variables](module/microsoft.powershell.core/about/about_automatic_variables.md)
 - [SpecialVariables](src\System.Management.Automation\engine\SpecialVariables.cs)
 - [MutableTuple](src\System.Management.Automation\engine\runtime\MutableTuple.cs)
@@ -1785,7 +1786,7 @@ As of PowerShell 7.2 you can now access the $PSStyle automatic variable to view 
 
 
 
-## ⚡ Types - Numbers/Strings/Datetime
+## //⚡ Types - Numbers/Strings/Datetime
 - 4. Types https://docs.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04
 - 5. Variables https://docs.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-05
 - 6. Conversions https://docs.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-06
@@ -2041,7 +2042,7 @@ Alias           ac -> Add-Content
 ```
 
 
-## ⚡ ArrayList & Hashtable & PSCustomObject
+## //⚡ ArrayList & Hashtable & PSCustomObject
 - [7. Expressions](lang-spec/chapter-07.md)
 - [9. Arrays](lang-spec/chapter-09.md)
 - [10. Hashtables](lang-spec/chapter-10.md)
@@ -2236,7 +2237,7 @@ $ageList.GetEnumerator() | ForEach-Object{
 
 
 
-## ⚡ Flow Control
+## //⚡ Flow Control
 - [8. Statements](lang-spec/chapter-08.md)
 - [about_Switch](Microsoft.PowerShell.Core/About/about_Switch.md)
 - [about_If](Microsoft.PowerShell.Core/About/about_If.md)
@@ -2619,7 +2620,7 @@ keywords used in the C\# programming language.
 
 
 
-## ⚡ Function
+## //⚡ Function
 - [12. Atributes](https://docs.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-12)
 - [A. Comment-Based Help](https://docs.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-14)
 - [ 8. Statements](lang-spec/chapter-08.md)
@@ -2804,7 +2805,7 @@ Function Remove-ByForce {
 Remove-ByForce test
 ```
 
-## ⚡ Paramerters & Attributes
+## //⚡ Paramerters & Attributes
 - [12. Atributes](reference\docs-conceptual\lang-spec\chapter-12.md)
 - [ValidateRangeAttribute](System.Management.Automation\engine\Attributes.cs)
 - [Advanced Parameters](Microsoft.PowerShell.Core\About\about_Functions_Advanced_Parameters.md)
@@ -3079,7 +3080,7 @@ LiteralPath      -LiteralPath <string> [-Lines] [-Words] [-Characters] [<CommonP
 LiteralPathAll   -LiteralPath <string> -All [<CommonParameters>]
 ```
 
-## ⚡ Scopes
+## //⚡ Scopes
 - [about_Scopes](microsoft.powershell.core/about/about_Scopes.md)
 
 PowerShell 支持三种作用域：
@@ -3172,7 +3173,7 @@ $test
 $global:test
 ```
 
-## ⚡ ScriptBlocks
+## //⚡ ScriptBlocks
 - [ScriptBlocks](Microsoft.PowerShell.Core\About\about_Script_Blocks.md)
 - [about_Return](Microsoft.PowerShell.Core\About\about_Return.md)
 - [about_Functions](Microsoft.PowerShell.Core\About\about_Functions.md)
@@ -3503,7 +3504,7 @@ At line:1 char:23
 可以给脚本文件、函数、Cmdlet 或模块设置帮助信息，并且通过 help 命令查询帮助信息内容，但脚本块不可以。
 
 
-## ⚡ Scripts & Arguments
+## //⚡ Scripts & Arguments
 - [about_Scripts](microsoft.powershell.core/about/about_Scripts.md)
 - [about_Script_Internationalization](about/about_Script_Internationalization.md)
 - [about_Scopes](microsoft.powershell.core/about/about_Scopes.md)
@@ -3709,7 +3710,7 @@ Please be here next time
 # Listing 8-14: Variable values remain over subsequent session connections.
 ```
 
-## ==⚡ Hosting
+## //==⚡ Hosting
 - [Windows PowerShell Host Quickstart](hosting\windows-powershell-host-quickstart.md)
 - System.Management.Automation\engine\hostifaces\RunspacePool.cs
 
@@ -3722,7 +3723,7 @@ $ps.Invoke()
 $ps.Dispose()
 ```
 
-## ⚡ Start-Job Async & Parallel
+## //⚡ Start-Job Async & Parallel
 - https://devblogs.microsoft.com/powershell/powershell-foreach-object-parallel-feature/
 - https://triveniglobalsoft.com/parallel-processing-with-powershell/
 - [PowerShell Docs - About jobs](Microsoft.PowerShell.Core\About\about_Jobs.md)
@@ -4132,7 +4133,7 @@ Write-Host -ForegroundColor Red ($end - $start).TotalSeconds
 结果，这次只花费了 5.05 秒。与后台作业几乎同时完成，所以后台作业更适合解决长时间执行的任务。从三个任务返回的数据观察，好处是这种按顺数在前台获得数据能减少了执行过程的开销。
 
 
-## ⚡ ThreadJob 多线程下载器
+## //⚡ ThreadJob 多线程下载器
 - [Progress while multi-threading](learn/deep-dives/write-progress-across-multiple-threads.md)
 
 
@@ -4367,7 +4368,7 @@ if ($map -and ($map.GetType() -eq [HashTable])) {
 }
 ```
 
-## ⚡ Workflows
+## //⚡ Workflows
 - [about_Remote_Disconnected_Sessions](Microsoft.PowerShell.Core/About/about_Remote_Disconnected_Sessions.md)
 - [about_WorkFlows](5.1\PSWorkflow\about_WorkFlows.md)
 - [about_ActivityCommonParameters](5.1\PSWorkflow\about_ActivityCommonParameters.md)
@@ -4418,7 +4419,7 @@ Get-Command -CommandType Workflow
 
 
 
-## ⚡ Write Output Stream
+## //⚡ Write Output Stream
 - [about_Output_Streams](Microsoft.PowerShell.Core/About/about_Output_Streams.md)
 - [about_Redirection](Microsoft.PowerShell.Core/About/about_Redirection.md)
 - [about_Return](Microsoft.PowerShell.Core/About/about_Return.md)
@@ -4517,7 +4518,7 @@ ColoredText "Green", " Red ", "Yellow" Green,Red,Yellow
 > [Console]::ResetColor()
 ```
 
-### ===🗝 ProgressBar
+### //===🗝 ProgressBar
 - [How to Display Job Progress](https://key2consulting.com/powershell-how-to-display-job-progress/)
 - [System.Management.Automation.Job](System.Management.Automation\engine\remoting\client\Job.cs)
 
@@ -4642,7 +4643,7 @@ return StartJobs $works $task
 
 
 
-## ⚡ Pipeline
+## //⚡ Pipeline
 - https://powershell.one/powershell-internals/scriptblocks/powershell-pipeline
 - [ValidateRangeAttribute](System.Management.Automation\engine\Attributes.cs)
 - [about Pipeline](Microsoft.PowerShell.Core/About/about_Pipelines.md)

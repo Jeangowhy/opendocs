@@ -173,6 +173,76 @@ Unicode 编码方案可使用的字符更多，看起来也更美观，例如以
 
 Bash 脚本编程参考 [Bash 5.1 Manual](./bash.5.1.md)
 
+PlantUML 除了一系列标准库提供各种图形，还有以下几何可以查询各种图形图案和外观参数：
+
+    //14.17 OpenIconic
+    ------------------
+    OpenIconic is a very nice open source icon set. Those icons have been 
+    integrated into the creole parser, so you can use them out-of-the-box. 
+    You can use the following syntax: <&ICON_NAME>.
+
+
+    @startsalt
+    {
+    Login<&person> | "MyName "
+    Password<&key> | "**** "
+    [Cancel <&circle-x>] | [OK <&account-login>]
+    }
+    @endsalt
+
+    The complete list is available on OpenIconic Website, or you can use the 
+    following special diagram:
+
+    ```uml
+    @startuml
+    listopeniconic
+    @enduml
+    ```
+
+    //15.5 List possible sprites
+    ----------------------------
+
+    You can list all possible sprites for Archimate using the following diagram:
+
+    ```uml
+    @startuml
+    listsprite
+    @enduml
+    ```
+
+    //23.7 Listing Sprites
+    ----------------------
+    You can use the listsprites command to show available sprites:
+    
+    •   Used on its own, it just shows ArchiMate sprites
+
+    •   If you include some sprite libraries in your diagram, the command shows 
+        all these sprites, as explained in View all the icons with listsprites.
+        (Example from Hitchhikers Guide to PlantUML)
+
+    @startuml
+    !define osaPuml https://raw.githubusercontent.com/Crashedmind/PlantUML-opensecurityarchitecture2-icons/master
+    !include osaPuml/Common.puml
+    !include osaPuml/User/all.puml
+    !include osaPuml/Hardware/all.puml
+    !include osaPuml/Misc/all.puml
+    !include osaPuml/Server/all.puml
+    !include osaPuml/Site/all.puml
+    listsprites
+    ' From The Hitchhiker’s Guide to PlantUML
+    @enduml
+
+
+//24.10.3 Command: skinparameters
+---------------------------------
+
+```uml
+@startuml
+skinparameters
+@enduml
+```
+
+
 
 //1.1 Basic Examples
 --------------------
@@ -305,27 +375,28 @@ Bob->Alice: Authentication Response
 Bob->L: Log transaction
 @enduml
 ```
-
-      ,-.
-      `-'
-      /|\                                     ,---------------.
-       |                     ,-----.          |I have a really|
-      / \                    |Alice|          |long name      |
-      Bob                    `--+--'          `-------+-------'
-       |Authentication Request  |                     |
-       |<-----------------------|                     |
-       |                        |                     |
-       |Authentication Response |                     |
-       |----------------------->|                     |
-       |                        |                     |
-       |               Log transaction                |
-       |--------------------------------------------->|
-      Bob                    ,--+--.          ,-------+-------.
-      ,-.                    |Alice|          |I have a really|
-      `-'                    `-----'          |long name      |
-      /|\                                     `---------------'
-       |
-      / \
+      ┌─┐                                                      
+      ║"│                                                      
+      └┬┘                                                      
+      ┌┼┐                                     ┌───────────────┐
+       │                     ┌─────┐          │I have a really│
+      ┌┴┐                    │Alice│          │long name      │
+      Bob                    └──┬──┘          └───────┬───────┘
+       │Authentication Request  │                     │        
+       │<───────────────────────│                     │        
+       │                        │                     │        
+       │Authentication Response │                     │        
+       │───────────────────────>│                     │        
+       │                        │                     │        
+       │               Log transaction                │        
+       │─────────────────────────────────────────────>│        
+      Bob                    ┌──┴──┐          ┌───────┴───────┐
+      ┌─┐                    │Alice│          │I have a really│
+      ║"│                    └─────┘          │long name      │
+      └┬┘                                     └───────────────┘
+      ┌┼┐                                                      
+       │                                                       
+      ┌┴┐                                                      
 
 You can use the order keyword to customize the display order of participants.
 <!-- Page 3 / 550 -->
@@ -1982,7 +2053,7 @@ Alice ->] : ""->]""\nfrom actor1 **to end**
 Alice ->? : ""->?""\n**short** from actor1
 Alice -> Bob : ""->"" \nfrom actor1 to actor2
 @enduml
-    ```
+```
                           ,-----.                 ,---.
                           |Alice|                 |Bob|
                           `--+--'                 `-+-'
@@ -2747,8 +2818,11 @@ a x->o] : ""x->o] ""
 
 <!-- Page 39 / 550 -->
 
-1.38.6 Short incoming and outgoing messages (with ’?’)
-1.38.7 Short incoming (with ’?’)
+//1.38.6 Short incoming and outgoing messages (with ’?’)
+--------------------------------------------------------
+
+//1.38.7 Short incoming (with ’?’)
+----------------------------------
 
 ```uml
 @startuml
@@ -2780,7 +2854,8 @@ a -> b : //Long long label//
 
 <!-- Page 40 / 550 -->
 
-1.38.8 Short outgoing (with ’?’)
+//1.38.8 Short outgoing (with ’?’)
+----------------------------------
 
 ```uml
 @startuml
@@ -10987,13 +11062,18 @@ This is still under construction. You can propose new features if you need some.
 //10.1 Declaring element or participant
 ---------------------------------------
 You declare participant using the following keywords, depending on how you want them to be drawn.
-| Keyword |                                                  Description                                                   |
-|---------|----------------------------------------------------------------------------------------------------------------|
-| analog  | An analog signal is continuous, and the values are linearly interpolated between the given setpoints           |
-| binary  | A binary signal restricted to only 2 states                                                                    |
-| clock   | A clocked signal that repeatedly transitions from high to low, with a period, and an optional pulse and offset |
-| concise | A simplified concise signal designed to show the movement of data (great for messages)                         |
-| robust  | A robust complex line signal designed to show the transition from one state to another (can have many states)  |
+
+| Keyword |                           Description                           |
+|---------|-----------------------------------------------------------------|
+| analog  | An analog signal is continuous, and the values are              |
+|         | linearly interpolated between the given setpoints               |
+| binary  | A binary signal restricted to only 2 states                     |
+| clock   | A clocked signal that repeatedly transitions from               |
+|         | high to low, with a period, and an optional pulse and offset    |
+| concise | A simplified concise signal designed to show                    |
+|         | the movement of data (great for messages)                       |
+| robust  | A robust complex line signal designed to show                   |
+|         | the transition from one state to another (can have many states) |
 
 You define state change using the @ notation, and the is verb.
 
@@ -11041,6 +11121,7 @@ A is 1
 //10.2 Binary and Clock
 -----------------------
 It’s also possible to have binary and clock signal, using the following keywords:
+
 • binary
 
 • clock
@@ -14419,7 +14500,8 @@ WAIT -down-> JunctionAnd
 
 <!-- Page 324 / 550 -->
 
-15.3 Example 1
+//15.3 Example 1
+----------------
 
 ```uml
 @startuml
@@ -14457,8 +14539,6 @@ claimsAdministration -up-> I
 Payment -up-> P
 Printing -up-> V
 Printing -up-> P
-<!-- Page 325 / 550 -->
-
 rectangle "Document\nManagement\nSystem" as DMS <<$aComponent>> #Application
 rectangle "General\nCRM\nSystem" as CRM <<$aComponent>> #Application
 rectangle "Home & Away\nPolicy\nAdministration" as HAPA <<$aComponent>> #Application
@@ -14486,7 +14566,6 @@ endlegend
 
 ```uml
 @startuml
-<!-- Page 326 / 550 -->
 
 skinparam roundcorner 25
 rectangle "Capture Information" as CI <<$archimate/business-process>> #Business
@@ -14503,6 +14582,58 @@ You can list all possible sprites for Archimate using the following diagram:
 listsprite
 @enduml
 ```
+
+| List Current Sprites         |                               |                                  |                               |
+| Credit to                    | business-object               | interface-symmetric              | service                       |
+|                              | business-process              | interface                        | serving                       |
+| http://www.archimatetool.com |                               |                                  |                               |
+|                              | business-product              | junction-and                     | specialisation                |
+| archimate:                   | business-representation       | junction-or                      | specialization                |
+|                              |                               |                                  |                               |
+| business-role                | junction                      | stakeholder-filled               |                               |
+| access                       | business-service              | location                         | strategy-capability           |
+| activity                     |                               |                                  |                               |
+| business-value               | meaning                       | strategy-course-of-action        |                               |
+| actor                        | collaboration                 | motivation-assessment            | strategy-resource             |
+| aggregation                  |                               |                                  |                               |
+| communication-path           | motivation-constraint         | strategy-value-stream            |                               |
+| application-collaboration    | component                     | motivation-driver                | system-software               |
+| application-component        |                               |                                  |                               |
+| composition                  | motivation-goal               | technology-artifact              |                               |
+| application-data-object      | constraint-filled             | motivation-meaning               | technology-collaboration      |
+| application-event            |                               |                                  |                               |
+| constraint                   | motivation-outcome            | technology-communication-network |                               |
+| application-function         | contract                      | motivation-principle             | technology-communication-path |
+| application-interaction      |                               |                                  |                               |
+| deliverable-filled           | motivation-requirement        | technology-device                |                               |
+| application-interface        | deliverable                   | motivation-stakeholder           | technology-event              |
+| application-process          |                               |                                  |                               |
+| device                       | motivation-value              | technology-function              |                               |
+| application-service          | driver-filled                 | network                          | technology-infra-interface    |
+| assessment-filled            |                               |                                  |                               |
+| driver                       | node                          | technology-infra-service         |                               |
+| assessment                   | event                         | object                           | technology-interaction        |
+| assignment                   |                               |                                  |                               |
+| flow                         | physical-distribution-network | technology-interface             |                               |
+| association-unidirect        | function                      | physical-equipment               | technology-network            |
+| association                  |                               |                                  |                               |
+| gap-filled                   | physical-facility             | technology-node                  |                               |
+| business-activity            | gap                           | physical-material                | technology-path               |
+| business-actor               |                               |                                  |                               |
+| goal-filled                  | plateau                       | technology-process               |                               |
+| business-collaboration       | goal                          | principle-filled                 | technology-service            |
+| business-contract            |                               |                                  |                               |
+| implementation-deliverable   | principle                     | technology-system-software       |                               |
+| business-event               | implementation-event          | process                          | triggering                    |
+| business-function            |                               |                                  |                               |
+| implementation-gap           | product                       | used-by                          |                               |
+| business-interaction         | implementation-plateau        | realisation                      | value                         |
+| business-interface           |                               |                                  |                               |
+| implementation-workpackage   | representation                | workpackage-filled               |                               |
+| business-location            | influence                     | requirement-filled               |                               |
+| business-meaning             |                               |                                  |                               |
+| interaction                  | requirement                   |                                  |                               |
+| interface-required           | role                          |                                  |                               |
 
 //15.6 ArchiMate Macros
 -----------------------
@@ -19443,8 +19574,6 @@ Level 1
 |_ Level 3d
 |_ Level 2b
 |_ Level 3e
-<!-- Page 457 / 550 -->
-
 ]
 }
 A -> B
@@ -20424,12 +20553,12 @@ PlantUML Stdlib Overview
 //23.7 Listing Sprites
 ----------------------
 You can use the listsprites command to show available sprites:
-• Used on its own, it just shows ArchiMate sprites
 
-• If you include some sprite libraries in your diagram, the command shows all these sprites, as
+•   Used on its own, it just shows ArchiMate sprites
 
-explained in View all the icons with listsprites.
-(Example from Hitchhikers Guide to PlantUML)
+•   If you include some sprite libraries in your diagram, the command shows 
+    all these sprites, as explained in View all the icons with listsprites.
+    (Example from Hitchhikers Guide to PlantUML)
 
 ```uml
 @startuml

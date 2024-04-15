@@ -32192,51 +32192,55 @@ ________________________________________________________________
 
    *   Choose descriptive names for variables and functions.
 
-fl=`ls -al $dirname`                 # Cryptic.
-file_listing=`ls -al $dirname`       # Better.
+   ```sh
+   fl=`ls -al $dirname`                 # Cryptic.
+   file_listing=`ls -al $dirname`       # Better.
 
 
-MAXVAL=10   # All caps used for a script constant.
-while [ "$index" -le "$MAXVAL" ]
-...
+   MAXVAL=10   # All caps used for a script constant.
+   while [ "$index" -le "$MAXVAL" ]
+   ...
 
 
-E_NOTFOUND=95                        #  Uppercase for an errorcode,
-                                     #+ and name prefixed with E_.
-if [ ! -e "$filename" ]
-then
-  echo "File $filename not found."
-  exit $E_NOTFOUND
-fi
+   E_NOTFOUND=95                        #  Uppercase for an errorcode,
+                                        #+ and name prefixed with E_.
+   if [ ! -e "$filename" ]
+   then
+     echo "File $filename not found."
+     exit $E_NOTFOUND
+   fi
 
 
-MAIL_DIRECTORY=/var/spool/mail/bozo  #  Uppercase for an environmental
-export MAIL_DIRECTORY                #+ variable.
+   MAIL_DIRECTORY=/var/spool/mail/bozo  #  Uppercase for an environmental
+   export MAIL_DIRECTORY                #+ variable.
 
 
-GetAnswer ()                         #  Mixed case works well for a
-{                                    #+ function name, especially
-  prompt=$1                          #+ when it improves legibility.
-  echo -n $prompt
-  read answer
-  return $answer
-}
+   GetAnswer ()                         #  Mixed case works well for a
+   {                                    #+ function name, especially
+     prompt=$1                          #+ when it improves legibility.
+     echo -n $prompt
+     read answer
+     return $answer
+   }
 
-GetAnswer "What is your favorite number? "
-favorite_number=$?
-echo $favorite_number
+   GetAnswer "What is your favorite number? "
+   favorite_number=$?
+   echo $favorite_number
 
 
-_uservariable=23                     # Permissible, but not recommended.
-# It's better for user-defined variables not to start with an underscore.
-# Leave that for system variables.
+   _uservariable=23                     # Permissible, but not recommended.
+   # It's better for user-defined variables not to start with an underscore.
+   # Leave that for system variables.
+   ```
 
    *   Use exit codes in a systematic and meaningful way.
 
-E_WRONG_ARGS=95
-...
-...
-exit $E_WRONG_ARGS
+   ```sh
+   E_WRONG_ARGS=95
+   ...
+   ...
+   exit $E_WRONG_ARGS
+   ```
 
        See also Appendix E.
        Ender suggests using the exit codes in /usr/include/sysexits.h in
@@ -32267,14 +32271,15 @@ exit $E_WRONG_ARGS
        appropriate. See Example 37-4.
    *   Don't use a complex construct where a simpler one will do.
 
-COMMAND
-if [ $? -eq 0 ]
-...
-# Redundant and non-intuitive.
-
-if COMMAND
-...
-# More concise (if perhaps not quite as legible).
+   ```sh
+   COMMAND
+   if [ $? -eq 0 ]
+   ...
+   # Redundant and non-intuitive.
+   if COMMAND
+   ...
+   # More concise (if perhaps not quite as legible).
+   ```
 
    
 
@@ -32306,20 +32311,22 @@ ________________________________________________________________
    A shell running a script is always a non-interactive shell. All the
    same, the script can still access its tty. It is even possible to
    emulate an interactive shell in a script.
-#!/bin/bash
-MY_PROMPT='$ '
-while :
-do
-  echo -n "$MY_PROMPT"
-  read line
-  eval "$line"
-  done
 
-exit 0
+   ```sh
+   #!/bin/bash
+   MY_PROMPT='$ '
+   while :
+   do
+     echo -n "$MY_PROMPT"
+     read line
+     eval "$line"
+     done
+
+   exit 0
+
+   # This example script, and much of the above explanation supplied by
+   # Stéphane Chazelas (thanks again).
    ```
-
-# This example script, and much of the above explanation supplied by
-# Stéphane Chazelas (thanks again).
 
    Let us consider an interactive script to be one that requires input
    from the user, usually with read statements (see Example 15-3). "Real
@@ -32336,8 +32343,11 @@ exit 0
    ones hang, waiting for input that never comes. Handle that difficulty
    by having an expect script or embedded here document feed input to an
    interactive script running as a background job. In the simplest case,
-   redirect a file to supply input to a read statement (read variable
-   <file). These particular workarounds make possible general purpose
+   redirect a file to supply input to a read statement
+      
+      read variable <file
+
+   These particular workarounds make possible general purpose
    scripts that run in either interactive or non-interactive modes.
 
    If a script needs to test whether it is running in an interactive
@@ -32345,54 +32355,63 @@ exit 0
    $PS1 is set. (If the user is being prompted for input, then the
    script needs to display a prompt.)
 
-if [ -z $PS1 ] # no prompt?
-### if [ -v PS1 ]   # On Bash 4.2+ ...
-then
-  # non-interactive
-  ...
-else
-  # interactive
-  ...
-fi
+
+   ```sh
+   if [ -z $PS1 ] # no prompt?
+   ### if [ -v PS1 ]   # On Bash 4.2+ ...
+   then
+     # non-interactive
+     ...
+   else
+     # interactive
+     ...
+   fi
+   ```
 
    Alternatively, the script can test for the presence of option "i" in
    the $- flag.
 
-case $- in
-*i*)    # interactive shell
-;;
-*)      # non-interactive shell
-;;
-# (Courtesy of "UNIX F.A.Q.," 1993)
+
+   ```sh
+   case $- in
+   *i*)    # interactive shell
+   ;;
+   *)      # non-interactive shell
+   ;;
+   # (Courtesy of "UNIX F.A.Q.," 1993)
+   ```
 
    However, John Lange describes an alternative method, using the -t
    test operator.
 
-# Test for a terminal!
 
-fd=0   # stdin
+   ```sh
+   # Test for a terminal!
 
-#  As we recall, the -t test option checks whether the stdin, [ -t 0 ],
-#+ or stdout, [ -t 1 ], in a given script is running in a terminal.
-if [ -t "$fd" ]
-then
-  echo interactive
-else
-  echo non-interactive
-fi
+   fd=0   # stdin
 
+   #  As we recall, the -t test option checks whether the stdin, [ -t 0 ],
+   #+ or stdout, [ -t 1 ], in a given script is running in a terminal.
+   if [ -t "$fd" ]
+   then
+     echo interactive
+   else
+     echo non-interactive
+   fi
 
-#  But, as John points out:
-#    if [ -t 0 ] works ... when you're logged in locally
-#    but fails when you invoke the command remotely via ssh.
-#    So for a true test you also have to test for a socket.
+   #  But, as John points out:
+   #    if [ -t 0 ] works ... when you're logged in locally
+   #    but fails when you invoke the command remotely via ssh.
+   #    So for a true test you also have to test for a socket.
 
-if [[ -t "$fd" || -p /dev/stdin ]]
-then
-  echo interactive
-else
-  echo non-interactive
-fi
+   if [[ -t "$fd" || -p /dev/stdin ]]
+   then
+     echo interactive
+   else
+     echo non-interactive
+   fi
+   ```
+
 
    Note
 
@@ -32422,115 +32441,120 @@ ________________________________________________________________
    ```sh
    #!/bin/bash
 
-# This simple script removes blank lines from a file.
-# No argument checking.
-#
-# You might wish to add something like:
-#
-# E_NOARGS=85
-# if [ -z "$1" ]
-# then
-#  echo "Usage: `basename $0` target-file"
-#  exit $E_NOARGS
-# fi
+
+   # This simple script removes blank lines from a file.
+   # No argument checking.
+   #
+   # You might wish to add something like:
+   #
+   # E_NOARGS=85
+   # if [ -z "$1" ]
+   # then
+   #  echo "Usage: `basename $0` target-file"
+   #  exit $E_NOARGS
+   # fi
 
 
 
-sed -e /^$/d "$1"
-# Same as
-#    sed -e '/^$/d' filename
-# invoked from the command-line.
+   sed -e /^$/d "$1"
+   # Same as
+   #    sed -e '/^$/d' filename
+   # invoked from the command-line.
 
-#  The '-e' means an "editing" command follows (optional here).
-#  '^' indicates the beginning of line, '$' the end.
-#  This matches lines with nothing between the beginning and the end --
-#+ blank lines.
-#  The 'd' is the delete command.
+   #  The '-e' means an "editing" command follows (optional here).
+   #  '^' indicates the beginning of line, '$' the end.
+   #  This matches lines with nothing between the beginning and the end --
+   #+ blank lines.
+   #  The 'd' is the delete command.
 
-#  Quoting the command-line arg permits
-#+ whitespace and special characters in the filename.
+   #  Quoting the command-line arg permits
+   #+ whitespace and special characters in the filename.
 
-#  Note that this script doesn't actually change the target file.
-#  If you need to do that, redirect its output.
+   #  Note that this script doesn't actually change the target file.
+   #  If you need to do that, redirect its output.
 
-exit
+   exit
+   ```
 
    ### Example 36-2. A slightly more complex shell wrapper
 
    ```sh
    #!/bin/bash
 
-#  subst.sh: a script that substitutes one pattern for
-#+ another in a file,
-#+ i.e., "sh subst.sh Smith Jones letter.txt".
-#                     Jones replaces Smith.
+   #  subst.sh: a script that substitutes one pattern for
+   #+ another in a file,
+   #+ i.e., "sh subst.sh Smith Jones letter.txt".
+   #                     Jones replaces Smith.
 
-ARGS=3         # Script requires 3 arguments.
-E_BADARGS=85   # Wrong number of arguments passed to script.
+   ARGS=3         # Script requires 3 arguments.
+   E_BADARGS=85   # Wrong number of arguments passed to script.
 
-if [ $# -ne "$ARGS" ]
-then
-  echo "Usage: `basename $0` old-pattern new-pattern filename"
-  exit $E_BADARGS
-fi
+   if [ $# -ne "$ARGS" ]
+   then
+     echo "Usage: `basename $0` old-pattern new-pattern filename"
+     exit $E_BADARGS
+   fi
 
-old_pattern=$1
-new_pattern=$2
+   old_pattern=$1
+   new_pattern=$2
 
-if [ -f "$3" ]
-then
-    file_name=$3
-else
-    echo "File \"$3\" does not exist."
-    exit $E_BADARGS
-fi
+   if [ -f "$3" ]
+   then
+       file_name=$3
+   else
+       echo "File \"$3\" does not exist."
+       exit $E_BADARGS
+   fi
 
 
-# -----------------------------------------------
-#  Here is where the heavy work gets done.
-sed -e "s/$old_pattern/$new_pattern/g" $file_name
-# -----------------------------------------------
+   # -----------------------------------------------
+   #  Here is where the heavy work gets done.
+   sed -e "s/$old_pattern/$new_pattern/g" $file_name
+   # -----------------------------------------------
 
-#  's' is, of course, the substitute command in sed,
-#+ and /pattern/ invokes address matching.
-#  The 'g,' or global flag causes substitution for EVERY
-#+ occurence of $old_pattern on each line, not just the first.
-#  Read the 'sed' docs for an in-depth explanation.
+   #  's' is, of course, the substitute command in sed,
+   #+ and /pattern/ invokes address matching.
+   #  The 'g,' or global flag causes substitution for EVERY
+   #+ occurence of $old_pattern on each line, not just the first.
+   #  Read the 'sed' docs for an in-depth explanation.
 
-exit $?  # Redirect the output of this script to write to a file.
+   exit $?  # Redirect the output of this script to write to a file.
+   ```
 
    ### Example 36-3. A generic shell wrapper that writes to a logfile
 
    ```sh
    #!/bin/bash
-#  logging-wrapper.sh
-#  Generic shell wrapper that performs an operation
-#+ and logs it.
 
-DEFAULT_LOGFILE=logfile.txt
+   #  logging-wrapper.sh
+   #  Generic shell wrapper that performs an operation
+   #+ and logs it.
 
-# Set the following two variables.
-OPERATION=
-#         Can be a complex chain of commands,
-#+        for example an awk script or a pipe . . .
+   DEFAULT_LOGFILE=logfile.txt
 
-LOGFILE=
-if [ -z "$LOGFILE" ]
-then     # If not set, default to ...
-  LOGFILE="$DEFAULT_LOGFILE"
-fi
+   # Set the following two variables.
+   OPERATION=
+   #         Can be a complex chain of commands,
+   #+        for example an awk script or a pipe . . .
 
-#         Command-line arguments, if any, for the operation.
-OPTIONS="$@"
+   LOGFILE=
+   if [ -z "$LOGFILE" ]
+   then     # If not set, default to ...
+     LOGFILE="$DEFAULT_LOGFILE"
+   fi
+
+   #         Command-line arguments, if any, for the operation.
+   OPTIONS="$@"
 
 
-# Log it.
-echo "`date` + `whoami` + $OPERATION "$@"" >> $LOGFILE
-# Now, do it.
-exec $OPERATION "$@"
+   # Log it.
+   echo "`date` + `whoami` + $OPERATION "$@"" >> $LOGFILE
+   # Now, do it.
+   exec $OPERATION "$@"
 
-# It's necessary to do the logging before the operation.
-# Why?
+   # It's necessary to do the logging before the operation.
+   # Why?
+   ```
 
    ### Example 36-4. A shell wrapper around an awk script
 

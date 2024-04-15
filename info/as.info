@@ -1,7 +1,7 @@
 File: as.info,  Node: Top,  Next: Overview,  Up: (dir)
 
-Using as
-********
+# /Using as
+***********
 
 This file is a user guide to the GNU assembler ‘as’ (GNU Binutils)
 version 2.41.
@@ -28,8 +28,8 @@ entitled “GNU Free Documentation License”.
 
 File: as.info,  Node: Overview,  Next: Invoking,  Prev: Top,  Up: Top
 
-1 Overview
-**********
+# /1 Overview
+*************
 
 Here is a brief summary of how to invoke ‘as’.  For details, see *note
 Command-Line Options: Invoking.
@@ -1508,8 +1508,8 @@ them aren’t supposed to happen.
 
 File: as.info,  Node: Invoking,  Next: Syntax,  Prev: Overview,  Up: Top
 
-2 Command-Line Options
-**********************
+# /2 Command-Line Options
+*************************
 
 This chapter describes command-line options available in _all_ versions
 of the GNU assembler; see *note Machine Dependencies::, for options
@@ -1926,8 +1926,8 @@ file.’
 
 File: as.info,  Node: Syntax,  Next: Sections,  Prev: Invoking,  Up: Top
 
-3 Syntax
-********
+# /3 Syntax
+***********
 
 This chapter describes the machine-independent syntax allowed in a
 source file.  ‘as’ syntax is similar to what many other assemblers use;
@@ -2306,8 +2306,8 @@ independently of any floating point hardware in the computer running
 
 File: as.info,  Node: Sections,  Next: Symbols,  Prev: Syntax,  Up: Top
 
-4 Sections and Relocation
-*************************
+# /4 Sections and Relocation
+****************************
 
 * Menu:
 
@@ -2584,8 +2584,8 @@ symbol definitions and ‘.skip’ directives (*note ‘.skip’: Skip.).
 
 File: as.info,  Node: Symbols,  Next: Expressions,  Prev: Sections,  Up: Top
 
-5 Symbols
-*********
+# /5 Symbols
+************
 
 Symbols are a central concept: the programmer uses symbols to name
 things, the linker uses symbols to link, and the debugger uses symbols
@@ -2895,8 +2895,8 @@ assembler directive documentation.
 
 File: as.info,  Node: Expressions,  Next: Pseudo Ops,  Prev: Symbols,  Up: Top
 
-6 Expressions
-*************
+# /6 Expressions
+****************
 
 An “expression” specifies an address or numeric value.  Whitespace may
 precede and/or follow an expression.
@@ -3080,8 +3080,8 @@ arguments.
 
 File: as.info,  Node: Pseudo Ops,  Next: Object Attributes,  Prev: Expressions,  Up: Top
 
-7 Assembler Directives
-**********************
+# /7 Assembler Directives
+*************************
 
 All assembler directives have names that begin with a period (‘.’).  The
 names are case insensitive for most targets, and usually written in
@@ -6009,8 +6009,8 @@ compatibility with older assemblers.
 
 File: as.info,  Node: Object Attributes,  Next: Machine Dependencies,  Prev: Pseudo Ops,  Up: Top
 
-8 Object Attributes
-*******************
+# /8 Object Attributes
+**********************
 
 ‘as’ assembles source files written for a specific architecture into
 object files for that architecture.  But not all object files are alike.
@@ -6180,8 +6180,8 @@ you will need to modify.  New attributes should be discussed on the
 
 File: as.info,  Node: Machine Dependencies,  Next: Reporting Bugs,  Prev: Object Attributes,  Up: Top
 
-9 Machine Dependent Features
-****************************
+# /9 Machine Dependent Features
+*******************************
 
 The machine instruction sets are (almost by definition) different on
 each machine where ‘as’ runs.  Floating point representations vary as
@@ -25455,8 +25455,8 @@ For detailed information on the Z8000 machine instruction set, see
 
 File: as.info,  Node: Reporting Bugs,  Next: Acknowledgements,  Prev: Machine Dependencies,  Up: Top
 
-10 Reporting Bugs
-*****************
+# /10 Reporting Bugs
+********************
 
 Your bug reports play an essential role in making ‘as’ reliable.
 
@@ -25639,8 +25639,8 @@ might as well expedite matters by sending them to begin with.
 
 File: as.info,  Node: Acknowledgements,  Next: GNU Free Documentation License,  Prev: Reporting Bugs,  Up: Top
 
-11 Acknowledgements
-*******************
+# /11 Acknowledgements
+**********************
 
 If you have contributed to GAS and your name isn’t listed here, it is
 not meant as a slight.  We just don’t know about it.  Send mail to the
@@ -25749,8 +25749,8 @@ history has been lost; we are not intentionally leaving anyone out.
 
 File: as.info,  Node: GNU Free Documentation License,  Next: AS Index,  Prev: Acknowledgements,  Up: Top
 
-Appendix A GNU Free Documentation License
-*****************************************
+# /Appendix A GNU Free Documentation License
+********************************************
 
                      Version 1.3, 3 November 2008
 
@@ -26230,8 +26230,8 @@ their use in free software.
 
 File: as.info,  Node: AS Index,  Prev: GNU Free Documentation License,  Up: Top
 
-AS Index
-********
+# /AS Index
+***********
 
 
 * Menu:

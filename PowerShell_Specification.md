@@ -43258,20 +43258,21 @@ An *escaped character* is a way to assign a special interpretation to a characte
 prefix Backtick character (U+0060). The following table shows the meaning of each
 *escaped-character*:
 
-| Escaped Character |                                                           Meaning                                                            |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `` `a ``          | Alert (U+0007)                                                                                                               |
-| `` `b ``          | Backspace (U+0008)                                                                                                           |
-| `` `f ``          | Form-feed (U+000C)                                                                                                           |
-| `` `n ``          | New-line (U+000A)                                                                                                            |
-| `` `r ``          | Carriage return (U+000D)                                                                                                     |
-| `` `t ``          | Horizontal tab (U+0009)                                                                                                      |
-| `` `v ``          | Vertical tab (U+0009)                                                                                                        |
-| `` `' ``          | Single quote (U+0027)                                                                                                        |
-| `` `" ``          | Double quote (U+0022)                                                                                                        |
-| ` `` `            | Backtick (U+0060)                                                                                                            |
-| `` `0 ``          | NUL (U+0000)                                                                                                                 |
-| `` `x ``          | If `x` is a character other than those characters shown above, the backtick character is ignored and `x` is taken literally. |
+| Escaped Character |                            Meaning                             |
+|-------------------|----------------------------------------------------------------|
+| `` `a ``          | Alert (U+0007)                                                 |
+| `` `b ``          | Backspace (U+0008)                                             |
+| `` `f ``          | Form-feed (U+000C)                                             |
+| `` `n ``          | New-line (U+000A)                                              |
+| `` `r ``          | Carriage return (U+000D)                                       |
+| `` `t ``          | Horizontal tab (U+0009)                                        |
+| `` `v ``          | Vertical tab (U+0009)                                          |
+| `` `' ``          | Single quote (U+0027)                                          |
+| `` `" ``          | Double quote (U+0022)                                          |
+| ` `` `            | Backtick (U+0060)                                              |
+| `` `0 ``          | NUL (U+0000)                                                   |
+| `` `x ``          | If `x` is a character other than those characters shown above, |
+|                   | the backtick character is ignored and `x` is taken literally.  |
 
 The implication of the final entry in the table above is that spaces that would otherwise separate
 tokens can be made part of a token instead. For example, a file name containing a space can be

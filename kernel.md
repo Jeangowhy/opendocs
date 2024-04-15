@@ -449,10 +449,19 @@ RISC-V 指令集是基于精简指令集计算原理建立的开放指令集架�
 所以自带历史包袱，其不得不保留许多过时的定义，久而久之就变得极为冗长。全新的 RISC-V 架构则没有
 向后兼容这样的问题。目前的 RISC-V 架构文档分为两卷：
 
+00. https://riscv.org/technical/specifications/
 01. Volume I: User-Level ISA 用户级指令集文档 238 页左右
     https://github.com/riscv/riscv-isa-manual/releases/download/Ratified-IMAFDQC/riscv-spec-20191213.pdf
 02. Volume II: Privileged Architecture 特权架构文档 155 页左右
     https://github.com/riscv/riscv-isa-manual/releases/download/Priv-v1.12/riscv-privileged-20211203.pdf
+04. Computer Organization Design: THE HARDWARE/SOFTWARE INTERFACE
+    http://home.ustc.edu.cn/~louwenqi/reference_books_tools/Computer_Organization_and_Design_3Rd.pdf
+04. RISC-V 手册
+    http://staff.ustc.edu.cn/~llxx/cod/reference_srcs.html
+    https://soc.ustc.edu.cn/CECS/appendix/RISC-V_指令集卷1-用户级指令-中文版.pdf
+    http://staff.ustc.edu.cn/~llxx/cod/reference_books/RISC-V-Reader-Chinese-v2p12017.pdf
+05. Computer Organization Design: RISC-V EDITION
+    https://github.dev/srpoyrek/RISC-V/blob/master/reference's/Computer_organization_and_design_RISC_V.pdf
 
 RISC-V 架构相比其他成熟的商业架构的最大一个不同还在于它是一个模块化的架构。因此，RISC-V 架构
 不仅短小精悍，而且其不同的部分还能以模块化的方式组织在一起，从而试图通过一套统一的架构满足各种

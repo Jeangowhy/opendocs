@@ -1,6 +1,7 @@
 #! /usr/bin/env bash
 
-print_title () {
+print_title () 
+{
     printf '\n%.0s' {1..2};
     printf '=%.0s' {1..51};
     printf "\n/. 🚀 $1\n"
@@ -8,28 +9,47 @@ print_title () {
     printf '\n%.0s' {1..2};
 }
 
-function filter {
+function filter 
+{
     local parent=`echo $1 | sed -n 's/[^/\]\+$//p'`
     echo $1
-    for it in `sed -n "/^.. toctree::/,/^\S/{ s/^ \+[^:]\+$/\0/p }" $1 | sed -n 's|.*<\(.*\)>|\1|;p'`
+    while read it
     do
-        doc="$parent$it"
-        if [ -a $doc ] && [ -z ${doc/*index.rst/} ]
+        if [[ -z "$it" ]]; then break; fi
+        doc="$parent${it/.rst/}.rst"
+        if ( [ -a $doc ] || [ -a "$doc.rst" ] ) && [ -z ${doc/*index.rst/} ]
         then
-            filter $doc
+            echo "➊==>$doc" >&2
+            filter "$doc"
         else
-            echo $doc
+            echo "➋$doc" >&2
+            echo "$doc"
         fi
-    done
+    done <<< $( sed -n "/^.. toctree::/,/^\S/{ s/^ \+[^:]\+$/\0/p }" $1 \
+      | sed -n 's|.*<\(.*\)>|\1|;p' \
+      )
 }
 
-function toc() {
-    echo ./README.rst
-    echo ./Doc/README.rst
-    filter ./Doc/contents.rst
+function include()
+{
+    while read -r it
+    do 
+        if [[ -z "$it" ]]; then break; fi
+        echo "➌+++$1" >&2
+        print_title "$it"
+        printf ".. code-block:: \n\n"
+        cat $it | sed -n 's/.*/    \0/p'
+    done <<< $(cat "$1" | sed -n 's/.. include:://p')
 }
 
-function doc(){
+function toc() 
+{
+    # echo ../README.md
+    filter ./index.rst
+}
+
+function doc()
+{
     cat << EOF
 文档合并脚本中使用了 sed 流式编辑器、awk 结构化数据编辑器，使用教程参考 OpenDocs： 
 
@@ -39,52 +59,35 @@ function doc(){
 EOF
 }
 
-function combine() {
+function self_include()
+{
     print_title "Docs combine script"
     doc
     echo '.. code-block:: bash'
 
     echo ''
-    cat $0 | sed -n 's/^/    /p'
+    cat "$0" | sed -n 's/^/    /p'
 
     echo ''
-    echo "Docs Count [library included]: `find ./ -name "*.rst" | wc -l` ::"
+    echo "Docs files count: `find ./ -name "*.rst" | wc -l` ::"
     echo ''
     find ./ -name "*.rst" | sed -n 's/.*/    \0/p' | grep -v library
+}
 
+function combine() 
+{
+    self_include
     while read -r it
     do 
-        # echo $it
         print_title "$it"
-        cat $it
+        cat "$it"
+        include "$it"
     done << EOF
 `toc`
 EOF
 }
 
 
-function include(){
-    while read -r it
-    do 
-        # echo $it
-        print_title "$it"
-        printf ".. code-block:: \n\n"
-        cat $it | sed -n 's/.*/    \0/p'
-    done << EOF
-./Grammar/python.gram
-Doc/includes/newtypes/custom.c
-Doc/includes/newtypes/pyproject.toml
-Doc/includes/newtypes/custom2.c
-Doc/includes/newtypes/custom3.c
-Doc/includes/newtypes/custom4.c
-Doc/includes/newtypes/sublist.c
-Doc/includes/typestruct.h
-Doc/includes/run-func.c
-Doc/includes/typestruct.h
-EOF
-}
-
-out=/c/opendocs/pydocs312.rst
+out=/c/opendocs/haskell_docs.rst
 combine > $out
-include >> $out
 subl $out

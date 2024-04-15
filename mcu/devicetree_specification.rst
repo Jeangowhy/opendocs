@@ -3554,24 +3554,25 @@ will resemble the diagram in :numref:`figure_device_tree_structure`
 (lower addresses are at the top of the diagram).
 
 .. code-block:: 
-       ╭──────────────────────────╮
-       │    struct fdt_header     │
-       │──────────────────────────│
-       │       free space         │
-       │──────────────────────────│
-       │ memory reservation block │
-       │──────────────────────────│
-       │       free space         │
-       │──────────────────────────│
-       │    struct fdt_header     │
-       │──────────────────────────│
-       │       free space         │
-       │──────────────────────────│
-       │      strings block       │
-       │──────────────────────────│
-       │       free space         │
-       ╰──────────────────────────╯
-      Fig. 5.1 Devicetree .dtb Structure
+
+   ╭──────────────────────────╮
+   │    struct fdt_header     │
+   │──────────────────────────│
+   │       free space         │
+   │──────────────────────────│
+   │ memory reservation block │
+   │──────────────────────────│
+   │       free space         │
+   │──────────────────────────│
+   │    struct fdt_header     │
+   │──────────────────────────│
+   │       free space         │
+   │──────────────────────────│
+   │      strings block       │
+   │──────────────────────────│
+   │       free space         │
+   ╰──────────────────────────╯
+   Fig. 5.1 Devicetree .dtb Structure
 
 .. 
    .. _figure_device_tree_structure:

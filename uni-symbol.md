@@ -1796,6 +1796,161 @@ It inspired the later Semitic Ugaritic alphabet and Old Persian cuneiform.
 
 
 
+# =🚩 Unicode Combining Symbols
+
+拿 ((̵̵́ ̆͒͟˚̩̭ ̆͒)̵̵̀) 举例子，看这一坨符号有多长？答：20个字符。
+
+这些组合在一起的符号叫组合字符(Combining character)，它们用来修饰前面的符号，一般被用来注音。
+所以它们一般不额外占用空间，而是与前面的符号占据同一空间。不是所有字符都能用输入法打出来，
+除非输入法支持输入 unicode。
+
+这样的组合符号 Ŭ，一般编辑中会作为一个字符看待，不同编辑器在用户在编辑时有不同效果。
+Sublime Text 可以通过 backlash 删除其右侧的组合符号，但是无法对组合符号进行选择操作。
+Sublime Text 字符交换功能（Edit -> Text -> Transpose）可以将组合符号交换到前或后一字符。
+比如，aeioŭ 通过交换字符，就可以将组合符号调整成 uoieă。组合符号作为修饰用字符，不同
+字体会有不同的显示效果，并且可能出现不可组合的问题。可用的组合符号可以查询 Unicode 字符集文档。
+
+1. https://www.unicode.org/faq/char_combmark.html
+1. https://www.compart.com/en/unicode/combining
+1. https://www.unicode.org/versions/Unicode6.2.0/ch02.pdf
+2. https://www.unicode.org/versions/Unicode15.1.0/ch03.pdf#G30602
+
+D52 Combining character: A character with the General Category of Combining Mark (M).
+
+• Combining characters consist of all characters with the General Category 
+values of Spacing Combining Mark (Mc), Nonspacing Mark (Mn), and Enclosing
+Mark (Me). 
+
+以下是变音组合符号表（修饰字符上或下面） Combining Diacritical Marks 
+
+0.  https://www.unicode.org/charts/PDF/U0300.pdf
+1.  Combining Diacritical Marks 112 
+    http://www.unicode-symbol.com/block/Diacriticals.html
+
+    |   -    | 0/8 | 1/9 | 2/a | 3/b | 4/c | 5/d | 6/e | 7/f |
+    |--------|-----|-----|-----|-----|-----|-----|-----|-----|
+    | U+0300 | À  | B́  | Ĉ  | D̃  | Ē  | F̅  | Ğ  | Ḣ  |
+    | U+0308 | Ä  | B̉  | C̊  | D̋  | Ě  | F̍  | G̎  | H̏  |
+    | U+0310 | A̐  | B̑  | C̒  | D̓  | E̔  | F̕  | G̖  | H̗  |
+    | U+0318 | A̘  | B̙  | C̚  | D̛  | E̜  | F̝  | G̞  | H̟  |
+    | U+0320 | A̠  | B̡  | C̢  | Ḍ  | E̤  | F̥  | G̦  | Ḩ  |
+    | U+0328 | Ą  | B̩  | C̪  | D̫  | E̬  | F̭  | G̮  | H̯  |
+    | U+0330 | A̰  | Ḇ  | C̲  | D̳  | E̴  | F̵  | G̶  | H̷  |
+    | U+0338 | A̸  | B̹  | C̺  | D̻  | E̼  | F̽  | G̾  | H̿  |
+    | U+0340 | À  | B́  | C͂  | D̓  | Ë́  | Fͅ  | G͆  | H͇  |
+    | U+0348 | A͈  | B͉  | C͊  | D͋  | E͌  | F͍  | G͎  | H͏  |
+    | U+0350 | A͐  | B͑  | C͒  | D͓  | E͔  | F͕  | G͖  | H͗  |
+    | U+0358 | A͘  | B͙  | C͚  | D͛  | E͜  | F͝  | G͞  | H͟  |
+    | U+0360 | A͠  | B͡  | C͢  | Dͣ  | Eͤ  | Fͥ  | Gͦ  | Hͧ  |
+    | U+0368 | Aͨ  | Bͩ  | Cͪ  | Dͫ  | Eͬ  | Fͭ  | Gͮ  | Hͯ  |
+
+2.  Combining Diacritical Marks Extended    31 
+    http://www.unicode-symbol.com/block/Diacriticals_Ext.html
+
+    |   -    | 0/8 | 1/9 | 2/a | 3/b | 4/c | 5/d | 6/e | 7/f |
+    |--------|-----|-----|-----|-----|-----|-----|-----|-----|
+    | U+1AB0 | A᪰  | B᪱  | C᪲  | D᪳  | E᪴  | F᪵  | G᪶  | H᪷  |
+    | U+1AB8 | A᪸  | B᪹  | C᪺  | D᪻  | E᪼  | F᪽  | G᪾  | Hᪿ  |
+    | U+1AC0 | Aᫀ  | B᫁  | C᫂  | D᫃  | E᫄  | F᫅  | G᫆  | H᫇  |
+    | U+1AC8 | A᫈  | B᫉  | C᫊  | D᫋  | Eᫌ  | Fᫍ  | Gᫎ  | H   |
+
+3.  Combining Diacritical Marks Supplement  64
+    http://www.unicode-symbol.com/block/Diacriticals_Sup.html
+
+    |   -    | 0/8 | 1/9 | 2/a | 3/b | 4/c | 5/d | 6/e | 7/f |
+    |--------|-----|-----|-----|-----|-----|-----|-----|-----|
+    | U+1DC0 | A᷀  | B᷁  | C᷂  | D᷃  | E᷄  | F᷅  | G᷆  | H᷇  |
+    | U+1DC8 | A᷈  | B᷉  | C᷊  | D᷋  | E᷌  | F᷍  | G᷎  | H᷏  |
+    | U+1DD0 | A᷐  | B᷑  | C᷒  | Dᷓ  | Eᷔ  | Fᷕ  | Gᷖ  | Hᷗ  |
+    | U+1DD8 | Aᷘ  | Bᷙ  | Cᷚ  | Dᷛ  | Eᷜ  | Fᷝ  | Gᷞ  | Hᷟ  |
+    | U+1DE0 | Aᷠ  | Bᷡ  | Cᷢ  | Dᷣ  | Eᷤ  | Fᷥ  | Gᷦ  | Hᷧ  |
+    | U+1DE8 | Aᷨ  | Bᷩ  | Cᷪ  | Dᷫ  | Eᷬ  | Fᷭ  | Gᷮ  | Hᷯ  |
+    | U+1DF0 | Aᷰ  | Bᷱ  | Cᷲ  | Dᷳ  | Eᷴ  | F᷵  | G᷶  | H᷷  |
+    | U+1DF8 | A᷸  | B᷹  | C᷺  | D᷻  | E᷼  | F᷽  | G᷾  | H᷿  |
+
+4.  Combining Diacritical Marks for Symbols 33
+    http://www.unicode-symbol.com/block/Diacriticals_For_Symbols.html
+
+    |   -    | 0/8 | 1/9 | 2/a | 3/b | 4/c | 5/d | 6/e | 7/f |
+    |--------|-----|-----|-----|-----|-----|-----|-----|-----|
+    | U+20D0 | A⃐  | B⃑  | C⃒  | D⃓  | E⃔  | F⃕  | G⃖  | H⃗  |
+    | U+20D8 | A⃘  | B⃙  | C⃚  | D⃛  | E⃜  | F⃝  | G⃞  | H⃟  |
+    | U+20E0 | A⃠  | B⃡  | C⃢  | D⃣  | E⃤  | F⃥  | G⃦  | H⃧  |
+    | U+20E8 | A⃨  | B⃩  | C⃪  | D⃫  | E⃬  | F⃭  | G⃮  | H⃯  |
+    | U+20F0 | A⃰  |     |     |     |     |     |     |     |
+
+5.  Combining Half Marks    16
+    http://www.unicode-symbol.com/block/Half_Marks.html
+
+    |   -    | 0/8 | 1/9 | 2/a | 3/b | 4/c | 5/d | 6/e | 7/f |
+    |--------|-----|-----|-----|-----|-----|-----|-----|-----|
+    | U+FE20 | A︠  | B︡  | C︢  | D︣  | E︤  | F︥  | G︦  | H︧  |
+    | U+FE28 | A︨  | B︩  | C︪  | D︫  | E︬  | F︭  | G︮  | H︯  |
+
+
+使用 Python 脚本打印这些 Unicode 符号及名称：
+
+```py
+import unicodedata
+from unicodedata import category, name
+uni = '''((̵̵́ ̆͒͟˚̩̭ ̆͒)̵̵̀)'''
+for char in list(uni):
+    print(f"%s - %s: %s" % (repr(char), category(uni[3]), name(char)))
+
+# print(repr(sys.version))
+
+# print('\n'.join([' '.join((repr(x), category(x), name(x))) for x in  list(uni)]))
+# with open('/dl/pl/out.html', 'w', encoding="utf-8") as cout:
+#     for char in [x for x in list(uni)]:
+#         cout.write(f"%s - %s: %s\n" % (repr(char), category(uni[3]), name(char)))
+```
+
+```sh
+    '(' Ps LEFT PARENTHESIS
+    '(' Ps LEFT PARENTHESIS
+    '̵' Mn COMBINING SHORT STROKE OVERLAY
+    '́' Mn COMBINING ACUTE ACCENT
+    '̵' Mn COMBINING SHORT STROKE OVERLAY
+    ' ' Zs SPACE
+    '̆' Mn COMBINING BREVE
+    '͒' Mn COMBINING FERMATA
+    '͟' Mn COMBINING DOUBLE MACRON BELOW
+    '˚' Sk RING ABOVE
+    '̩' Mn COMBINING VERTICAL LINE BELOW
+    '̭' Mn COMBINING CIRCUMFLEX ACCENT BELOW
+    ' ' Zs SPACE
+    '̆' Mn COMBINING BREVE
+    '͒' Mn COMBINING FERMATA
+    ')' Pe RIGHT PARENTHESIS
+    '̵' Mn COMBINING SHORT STROKE OVERLAY
+    '̀' Mn COMBINING GRAVE ACCENT
+    '̵' Mn COMBINING SHORT STROKE OVERLAY
+    ')' Pe RIGHT PARENTHESIS
+```
+
+
+
+# =🚩 电路示意图⏚
+https://altcodeunicode.com/alt-codes-electrotechnical-power-symbols/
+
+| Symbol | ALT Code | ALT X Code |                Name               | HTML Entity | Code Point |
+|--------|----------|------------|-----------------------------------|-------------|------------|
+| ⏚      | ALT 9178 | 23DA ALT X | Earth ground                      | &#9178      | U+23DA     |
+| ⏛      | ALT 9179 | 23DB ALT X | Fuse                              | &#9179      | U+23DB     |
+| ⎐      | ALT 9104 | 2390 ALT X | Open-circuit-output l-type symbol | &#9104      | U+2390     |
+| ⎑      | ALT 9105 | 2391 ALT X | Passive-pull-down-output symbol   | &#9105      | U+2391     |
+| ⎒      | ALT 9106 | 2392 ALT X | Passive-pull-up-output symbol     | &#9106      | U+2392     |
+| ⎓      | ALT 9107 | 2393 ALT X | Direct current symbol form two    | &#9107      | U+2393     |
+| ⎔      | ALT 9108 | 2394 ALT X | Software-function symbol          | &#9108      | U+2394     |
+| ⎍      | ALT 9101 | 238D ALT X | Monostable symbol                 | &#9101      | U+238D     |
+| ⎎      | ALT 9102 | 238E ALT X | Hysteresis symbol                 | &#9102      | U+238E     |
+| ⎏      | ALT 9103 | 238F ALT X | Open-circuit-output h-type symbol | &#9103      | U+238F     |
+| ⏾      | ALT 9214 | 23FE ALT X | Power sleep symbol                | &#9214      | U+23FE     |
+| ⏻      | ALT 9211 | 23FB ALT X | Power symbol                      | &#9211      | U+23FB     |
+| ⏼      | ALT 9212 | 23FC ALT X | Power on-off symbol               | &#9212      | U+23FC     |
+| ⏽      | ALT 9213 | 23FD ALT X | Power on symbol                   | &#9213      | U+23FD     |
+
+
 # =🚩 Emoji 😄
 
 | Emoji    | ☺ ☻ 😃 😄 😅 😆 😊 😎 😇 😈 😏 🤣 🤩 🤪 🥳 😁 😀 😂 🤠 🤡 🤑 🤓 🤖
@@ -2442,6 +2597,7 @@ The following can only be shown as emoji. (In practice, what it actually shows m
 | Vertical representation form    | ﹁ ﹂ ﹃ ﹄ ︹ ︺ ︻ ︼ ︗ ︘ ︿ ﹀ ︽ ︾ ﹇ ﹈ ︷ ︸
 
 # =🚩 Box Drawing Characters
+Box Drawing Range: 2500–257F https://www.unicode.org/charts/PDF/U2500.pdf
 
 ┌ ─ ┬ ┐  ┏ ┳ ━ ┓  ╔ ╦ ═ ╗
 │ │ │ │  ┣ ╋ ━ ┫  ╠ ╬ ═ ╣

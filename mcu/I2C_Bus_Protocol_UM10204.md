@@ -1505,7 +1505,6 @@ normal (see [Figure 19]). The start procedure consists of:
     └───┴──────────────────────────┴──┬──┴───┴───────────────────────────┴───┴───┴───┘
                                       │     
                                     write 
-
                                                             <!-- 002aac885 -->
 a.    Configuring master sends dump address to hardware master
 
@@ -1603,6 +1602,7 @@ The Device ID is read-only, hard-wired in the device and can be accessed as foll
     has the I²C-bus slave address).
 
 4.  The master sends a Re-START condition.
+
     > [!TIP]
     >  Remark: A STOP condition followed by a START condition resets the slave state
     >  machine and the Device ID Read cannot be performed. Also, a STOP condition or a
@@ -1619,6 +1619,7 @@ The Device ID is read-only, hard-wired in the device and can be accessed as foll
 
 7.  The master ends the reading sequence by NACKing the last byte, thus resetting the
     slave device state machine and allowing the master to send the STOP condition.
+
     > [!TIP]
     >  Remark: The reading of the Device ID can be stopped anytime by sending a NACK.
 
@@ -1629,16 +1630,17 @@ byte and keeps sending the Device ID sequence until a NACK has been detected.
 <a id="Figure-20"></a>
 
 **Figure 20**. Device ID field
-0
-002aab942
-0 0
-0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0
-revision
-0
-0 0 0 0
-part identification
-manufacturer
+
+                   ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
+     manufacturer  │ 0 │ 0 │ 0 │ 0 │ 0 │ 0 │ 0 │ 0 │ 0 │ 0 │ 0 │ 0 │ 12 bits
+                   └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘
+                               ┌───┬───┬───┬───┬───┬───┬───┬───┬───┐
+      part identification      │ 0 │ 0 │ 0 │ 0 │ 0 │ 0 │ 0 │ 0 │ 0 │  9 bits
+                               └───┴───┴───┴───┴───┴───┴───┴───┴───┘
+                                                       ┌───┬───┬───┐
+                                                       │ 0 │ 0 │ 0 │  3 bits
+                                                       └───┴───┴───┘
+                                                            <!-- 002aab942 -->
 
 <!-- *P22* of 64 -->
 [P22]: #P22
@@ -1651,22 +1653,26 @@ NXP at i2c.support@nxp.com to have a unique manufacturer ID assigned.
 <a id="Table-4"></a>
 
 **Table 4**. Assigned manufacturer IDs
-Manufacturer bits Company
-11 10 9 8 7 6 5 4 3 2 1 0
-0 0 0 0 0 0 0 0 0 0 0 0 NXP Semiconductors
-0 0 0 0 0 0 0 0 0 0 0 1 NXP Semiconductors (reserved)
-0 0 0 0 0 0 0 0 0 0 1 0 NXP Semiconductors (reserved)
-0 0 0 0 0 0 0 0 0 0 1 1 NXP Semiconductors (reserved)
-0 0 0 0 0 0 0 0 0 1 0 0 Ramtron International
-0 0 0 0 0 0 0 0 0 1 0 1 Analog Devices
-0 0 0 0 0 0 0 0 0 1 1 0 STMicroelectronics
-0 0 0 0 0 0 0 0 0 1 1 1 ON Semiconductor
-0 0 0 0 0 0 0 0 1 0 0 0 Sprintek Corporation
-0 0 0 0 0 0 0 0 1 0 0 1 ESPROS Photonics AG
-0 0 0 0 0 0 0 0 1 0 1 0 Fujitsu Semiconductor
-0 0 0 0 0 0 0 0 1 0 1 1 Flir
-0 0 0 0 0 0 0 0 1 1 0 0 O 2 Micro
-0 0 0 0 0 0 0 0 1 1 0 1 Atmel
+
+```sh
+|                Manufacturer bits                |            Company            |
+|-------------------------------------------------|                               |
+| 11 | 10 | 9 | 8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |-------------------------------|
+|  0 |  0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | NXP Semiconductors            |
+|  0 |  0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | NXP Semiconductors (reserved) |
+|  0 |  0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | NXP Semiconductors (reserved) |
+|  0 |  0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | NXP Semiconductors (reserved) |
+|  0 |  0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | Ramtron International         |
+|  0 |  0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 1 | Analog Devices                |
+|  0 |  0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 0 | STMicroelectronics            |
+|  0 |  0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 1 | ON Semiconductor              |
+|  0 |  0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | Sprintek Corporation          |
+|  0 |  0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | ESPROS Photonics AG           |
+|  0 |  0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 1 | 0 | Fujitsu Semiconductor         |
+|  0 |  0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 1 | 1 | Flir                          |
+|  0 |  0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 0 | 0 | O₂Micro                       |
+|  0 |  0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 0 | 1 | Atmel                         |
+```
 
 <!-- *P23* of 64 -->
 [P23]: #P23
@@ -1689,10 +1695,12 @@ command bit, ninth clock, and a STOP bit. The command bit is a ‘write’ only,
 bit on the ninth clock is driven HIGH, ignoring the ACK cycle due to the unidirectional
 nature of the bus. The 2-wire push-pull driver consists of a UFm serial clock (USCL) and
 serial data (USDA).
+
 Slave devices contain a unique address (whether it is a microcontroller, LCD driver, LED
 controller, GPO) and operate only as receivers. An LED driver may be only a receiver and
 can be supported by UFm, whereas a memory can both receive and transmit data and is
 not supported by UFm.
+
 Since UFm I²C-bus uses push-pull drivers, it does not have the multi-master capability of
 the wired-AND open-drain Sm, Fm, and Fm+ I²C-buses. In UFm, a master is the only
 device that initiates a data transfer on the bus and generates the clock signals to permit
@@ -1706,28 +1714,33 @@ connected to the UFm I²C-bus (see [Figure 21]).
 <a id="Table-5"></a>
 
 **Table 5**. Definition of UFm I²C-bus terminology
-Term Description
-Transmitter the device that sends data to the bus
-Receiver the device that receives data from the bus
-Master the device that initiates a transfer, generates clock signals and
-terminates a transfer
-Slave the device addressed by a master
+
+|     Term    |                            Description                            |
+|-------------|-------------------------------------------------------------------|
+| Transmitter | the device that sends data to the bus                             |
+| Receiver    | the device that receives data from the bus                        |
+| Master      | the device that initiates a transfer, generates clock signals and |
+|             | terminates a transfer                                             |
+| Slave       | the device addressed by a master                                  |
 
 [Figure 21]: #Figure-21
 <a id="Figure-21"></a>
 
 **Figure 21**. Example of UFm I²C-bus configuration
-002aag654
-USDA
-USCL
-Master ASIC LED
-controller 3
-LCD
-DRIVER
-LED
-controller 1
-LED
-controller 2 GPO
+
+         ┌──────────────┐     ┌─────────────┐    ┌──────────────┐       
+         │ Master       │     │ LCD DRIVER  │    │ LCD          │       
+         │ ASIC         │     │             │    │ controller 3 │       
+         └────┬────┬────┘     └───┬────┬────┘    └────┬────┬────┘       
+    USDA      │    │              │    │              │    │         
+    ══════════╧════╪════╤═════════╧════╪═════╤════════╧════╪══╤═══════
+    ═══════════════╧════╪════╤═════════╧═════╪════╤════════╧══╪══╤════
+    USCL                │    │               │    │           │  │    
+                ┌───────┴────┴───┐    ┌──────┴────┴─────┐   ┌─┴──┴─┐  
+                │  LED           │    │ LED             │   │ GPIO │  
+                │  controller 1  │    │ controller 2    │   │      │  
+                └────────────────┘    └─────────────────┘   └──────┘  
+                                                            <!-- 002aag654 -->
 
 <!-- *P24* of 64 -->
 [P24]: #P24
@@ -1737,16 +1750,22 @@ controller 2 GPO
 This highlights the master/transmitter-slave/receiver relationship found on the UFm
 I²C-bus. Note that these relationships are permanent, as data transfer is only permitted in
 one direction. The transfer of data would proceed as follows:
+
 Suppose that the master ASIC wants to send information to the LED controller 2:
-• ASIC A (master-transmitter), addresses LED controller 2 (slave-receiver) by sending
-the address on the USDA and generating the clock on USCL.
-• ASIC A (master-transmitter), sends data to LED controller 2 (slave-receiver) on the
-USDA and generates the clock on USCL.
-• ASIC A terminates the transfer.
+
+•   ASIC A (master-transmitter), addresses LED controller 2 (slave-receiver) by sending
+    the address on the USDA and generating the clock on USCL.
+
+•   ASIC A (master-transmitter), sends data to LED controller 2 (slave-receiver) on the
+    USDA and generates the clock on USCL.
+
+•   ASIC A terminates the transfer.
+
 The possibility of connecting more than one UFm master to the UFm I²C-bus is not
 allowed due to bus contention on the push-pull outputs. If an additional master is required
 in the system, it must be fully isolated from the other master (that is, with a true ‘one hot’
 MUX) as only one master is allowed on the bus at a time.
+
 Generation of clock signals on the UFm I²C-bus is always the responsibility of the master
 device, that is, the master generates the clock signals when transferring data on the bus.
 Bus clock signals from a master cannot be altered by a slave device with clock stretching
@@ -1839,26 +1858,41 @@ HIGH transition on the USDA line while USCL is HIGH defines a STOP condition.
 <a id="Figure-22"></a>
 
 **Figure 22**. Simplified schematic of USCL, USDA outputs
-002aag655
-VDD(IO)
-V SS
-USCL or
-USDA pin
+
+    ─────────────────────────┐
+                  Vcc(IO)    │
+                   ─┬─       │             
+                    │        │             
+                .│─<┘        │             
+         ─ ─ ─ ─││──┐        │             
+                    │        │             
+                    ├────────│───════      
+                    │    USCL│or USDA pin  
+                .│──┘        │             
+         ─ ─ ─ ─││─>┐        │             
+                    │        │             
+               Vss  ⏚        │             
+    ─────────────────────────┘
+                                                            <!-- 002aag655 -->
 
 [Figure 23]: #Figure-23
 <a id="Figure-23"></a>
 
 **Figure 23**. Bit transfer on the UFm I²C-bus
-002aaf113
-data line
-stable;
-data valid
-change
-of data
-allowed
-USDA
-USCL
 
+             |                          |        |      
+             |                          |        |      
+             |                          |        |     
+           __|__________________________|__  ____|______ _ _ _ _______
+    USDA  /  |                          |  \/    |                    \     
+    _____/___|__________________________|__/\____|______ _ _ _ ________\_____
+             |                          |        |                           
+             |  ______________________  |        |  ____ _ _ _ ___              
+    USCL     | /                      \ |        | /              \             
+    _________|/                        \|________|/                \__________
+             |    data line stable;     | change |   
+                      data valid      of data allowed
+                                                            <!-- 002aaf113 -->
 <!-- *P26* of 64 -->
 [P26]: #P26
 <a id="P26"></a>
@@ -1871,6 +1905,7 @@ respect, the START (S) and repeated START (Sr) conditions are functionally ident
 the remainder of this document, therefore, the S symbol is used as a generic term to
 represent both the START and repeated START conditions, unless Sr is particularly
 relevant.
+
 Detection of START and STOP conditions by devices connected to the bus is easy if they
 incorporate the necessary interfacing hardware. However, microcontrollers with no such
 interface have to sample the USDA line at least twice per clock period to sense the
@@ -1895,40 +1930,35 @@ an internal interrupt.
 <a id="Figure-24"></a>
 
 **Figure 24**. Definition of START and STOP conditions for UFm I²C-bus
-002aaf145
-USDA
-USCL
-P
-STOP condition
-S
-START condition
+
+            |    |                                         |     |   
+    _ _ ____|_   |           _____ _ _ ______              |   __|____ _ _
+            | \  |          /                \             |  /  |                                              
+            |  \_|_________/                  \____________|_/   |                                              
+    ________|____|_            ___ _ _ ___           ______|_____|____ _ _                                    
+            |    | \          /           \         /      |     |                                          
+            | S  |  \________/             \_______/       |  P  |                                          
+        START condition                                STOP condition
+                                                            <!-- 002aaf145 -->
 
 [Figure 25]: #Figure-25
 <a id="Figure-25"></a>
 
 **Figure 25**. Data transfer on the UFm I²C-bus
-S or Sr Sr or P
-USDA
-USCL
-MSB
-1 2 8 9 1 2
-3 to 7
-8
-NACK NACK
-002aag657
-START or
-repeated START
-condition
-STOP or
-repeated START
-condition
-byte complete,
-interrupt within slave
-P
-Sr
-Master drives the line HIGH on 9th clock cycle.
-Slave never drives the USDA line.
-9
+
+        |    |                                                                                   |      p  |    
+    ____|_   |       ___  ____  _ _  ____         _______________  ____  _ _ ___      ___________|___  ____|___
+    USDA| \  |      /   \/    \/   \/    \       /         \     \/    \/       \    /     \     |   \/    |   
+        |  \_|_____/____/\____/\_ _/\____/\_____/           \____/\____/\_ _ ____\__/   ⭜   \____|___/\____|___
+        |    |       MSB                     Master drives the line HIGH on 9th clock cycle      |    Sr   |      
+        |    |                                   Slave never drives the USDA line                |         |                                                              '
+    ____|____|__      _     _         _     _     _           _     _     _ _     _     _       _|_________|___                                                           '
+    USCL|    |  \    / \   / \       / \   / \   / \         / \   / \   /   \   / \   / \     / | Sr or P |                                                              '
+        |    |   \__/ 1 \_/ 2 \_ _ _/ 7 \_/ 8 \_/ 9 \_______/ 1 \_/ 2 \_/ 3-7 \_/ 8 \_/ 9 \___/  |         |                                                             '
+        S or Sr                                  NACK  A                               NACK      STOP or
+      START or                      byte complete ─────┘                                         repeated START
+    repeated START condition        interrupt within slave                                       condition
+                                                           <!-- 002aag657 -->
 
 <!-- *P27* of 64 -->
 [P27]: #P27

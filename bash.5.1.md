@@ -394,6 +394,212 @@ reg_bash_4_shebang()
 
 
 
+## //⚡ Exm: Performance test - pipelines vs. process substitution
+https://unix.stackexchange.com/questions/127645/performance-differences-between-pipelines-and-process-substitution
+
+performance_test.sh
+
+```sh
+performance_test_pipe()
+{
+    [[ -z $1 ]] && last=100 || last=$1
+    for it in $(seq $last); do
+        echo "$it hello pipe!" |
+        while read it; do
+            echo "Test: $it" >trace.txt #>/dev/null
+        done
+    done
+}
+[[ $1 == "test_pipe" ]] && performance_test_pipe $2
+
+# set "test_subprocess" 20
+performance_test_subprocess()
+{
+    [[ -z $1 ]] && last=100 || last=$1
+    for it in $(seq $last); do
+        while read th; do
+            echo "Test: $th" >trace.txt #>/dev/null
+        done <<< $(echo "$it hello subprocess")
+    done
+}
+[[ $1 == "test_subprocess" ]] && performance_test_subprocess $2
+
+# Test Starting
+[[ -z $1 ]] && strace -c $0 test_pipe 1000
+[[ -z $1 ]] && strace -o trace.out -c $0 test_subprocess 1000
+# subprocess   |  pipe             | output      |
+# -------------|-------------------|-------------|
+# 2.504463 vs. | 1.393631 seconds  | >trace.txt  |
+# 1.765540 vs. | 0.960210 seconds  | >/dev/null  |
+```
+
+
+Command Substitution 和 Process Substitution 之间有差别：
+
+   Command substitution has two forms:
+
+          $(command)
+   or
+          `command`
+
+   Process Substitution
+
+        <(list) or >(list)
+
+The command substitution $(cat file) can be replaced by the
+   equivalent but faster $(< file).
+
+
+I tend to use pipelines in my bash scripts over process substitution 
+in most situations, especially in cases of using multiple sets of 
+commands as it seems more readable to do:
+
+    ... | ... | ... over ... <<(... <<(...))
+
+I'm wondering though why using process substitution is much faster 
+in some situations than using a pipeline.
+
+To test this, I timed two scripts using 10000 iterations of the same attached 
+commands with one using a pipeline and another using process substitution.
+
+Scripts:
+
+```sh
+# pipeline.bash:
+
+for i in {1..10000}; do
+    echo foo bar |
+    while read; do
+        echo $REPLY >/dev/null
+    done
+done
+
+# proc-sub.bash
+
+for i in {1..10000}; do
+    while read; do
+        echo $REPLY >/dev/null
+    done <<(echo foo bar)
+done
+
+# Test Results:
+
+~$ time ./pipeline.bash
+
+real    0m17.678s
+user    0m14.666s
+sys     0m14.807s
+
+~$ time ./proc-sub.bash
+
+real    0m8.479s
+user    0m4.649s
+sys     0m6.358s
+```
+
+I know that pipelines create a sub process whereas process substitution 
+creates a named pipe or some file in /dev/fd, but am unclear about 
+how those differences impact performance.
+
+
+Doing same strace, you can see the differences:
+
+```sh
+# With pipe:
+
+$ strace -c ./pipe.sh 
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 57.89    0.103005           5     20000           clone
+ 40.81    0.072616           2     30000     10000 wait4
+  0.58    0.001037           0    120008           rt_sigprocmask
+  0.40    0.000711           0     10000           pipe
+
+# With proc-sub:
+
+$ strace -c ./procsub.sh 
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 85.08    0.045502           5     10000           clone
+  3.25    0.001736           0     90329       322 read
+  2.12    0.001133           0     20009           open
+  2.03    0.001086           0     50001           dup2
+```
+
+With above statistics, you can see pipe create more child processes 
+(clone syscall) and spending many times to wait child process (wait4 syscall) 
+to finish for parent process to continue executing.
+
+Process substitution is not. It can read directly from child processes.
+Process substitution is performed at the same time with parameter and 
+variable expansion, the command in Process Substitution run in background. 
+
+From bash manpage:
+
+    Process Substitution
+          Process  substitution  is supported on systems that support named pipes
+          (FIFOs) or the /dev/fd method of naming open files.  It takes the  form
+          of  <(list) or >(list).  The process list is run with its input or out‐
+          put connected to a FIFO or some file in /dev/fd.  The name of this file
+          is  passed  as  an argument to the current command as the result of the
+          expansion.  If the >(list) form is used, writing to the file will  pro‐
+          vide  input  for list.  If the <(list) form is used, the file passed as
+          an argument should be read to obtain the output of list.
+
+          When available, process substitution is performed  simultaneously  with
+          parameter  and variable expansion, command substitution, and arithmetic
+          expansion.
+
+Update
+
+Doing strace with statistics from child processes:
+
+```sh
+# With pipe:
+
+$ strace -fqc ./pipe.sh 
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 70.76    0.215739           7     30000     10000 wait4
+ 28.04    0.085490           4     20000           clone
+  0.78    0.002374           0    220008           rt_sigprocmask
+  0.17    0.000516           0    110009     20000 close
+  0.15    0.000456           0     10000           pipe
+
+# With proc-sub:
+
+$ strace -fqc ./procsub.sh 
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 52.38    0.033977           3     10000           clone
+ 32.24    0.020913           0     96070      6063 read
+  5.24    0.003398           0     20009           open
+  2.34    0.001521           0    110003     10001 fcntl
+  1.87    0.001210           0    100009           close
+```
+
+
+## //⚡ Exm: Logic test and shell arithmetic
+
+```sh
+# Use string Condition Expression and Shell Arithmetic
+logical_test()
+{
+    echo   "Test group: $1"
+    printf "============%s\n" ${1//?/=}  # replace all chars in $1 with '='
+    [[ $2 == 0 ]] && echo "➊ This execution use &&, when \$2 is $2"
+    [[ $2 == 0 ]] || echo "➋ This execution use ||, when \$2 is $2"
+    [[ $2 == 0 ]] &  echo "➌ This execution use &, when \$2 is $2"
+    [[ $2 == 0 ]] |  echo "➍ This execution use |, when \$2 is $2"
+    [[ -z   $2 ]] && echo "➎ This execution use -z test (empty string), when \$2 is $2"
+}
+                         #            &&  ||  &  |  -z
+logical_test "Group A"   # this cause  ―  ➋  ➌  ➍  ➎
+logical_test "Group B" 0 # this cause  ➊  ―  ➌  ➍  ―
+logical_test "Group C" 1 # this cause  ―  ➋  ➌  ➍  ―
+```
+
+
 ## //⚡ Exm: An usleep on sleep
 
 ```sh
@@ -653,6 +859,7 @@ echo "Hex Number: $hex_number"
 echo "Decimal Number: $dec_number"
 ```
 
+
 ## //⚡ Exm: Clipboard and PlantUML ASCII Graph
 
 Windows 提供 clip 命令行工具用于将输入、输出重定向到剪贴板或粘贴（重定向 stdout）到其他程序中。
@@ -665,15 +872,27 @@ echo $(pwsh -c 'Get-Clipboard')
 sleep 3
 ```
 
-通过以下脚本调用 PlantUML 绘图工具，就可以拷贝以下 UML 定义转绘成 ASCII Graph 图表：
+通过以下脚本调用 PlantUML 绘图工具，就可以拷贝以下 UML 定义转绘成 ASCII Graph 图表，
+并将结果保存在临时文件，再将内容设置回粘贴板：
 
 ```sh
-# clip < put_file_to_clipboard.txt
-# echo "put string to clipboard" | clip
-cat <<< "$(pwsh -c 'Get-Clipboard')"
-plantuml='C:/jdk-14.0.2/jars/plantuml.1.2018.1.jar'
-cat | java -jar "$plantuml" -txt -pipe <<<"$(pwsh -c 'Get-Clipboard')"
-sleep 3
+PLANTUML='C:/jdk-14.0.2/jars/plantuml.1.2018.1.jar'
+PLANTUML="C:/jdk-14.0.2/jars/plantuml-1.2024.3.jar"
+PLANTUML="C:/jdk-14.0.2/jars/plantuml-lgpl-1.2024.3.jar"
+
+PlantUML_Clipboard () 
+{   
+    jvmops=-DPLANTUML_LIMIT_SIZE=50000
+    pumops='-duration -timeout 6 -txt -pipe'
+    TMP=/c/dl/tmp
+    cat | java $jvmops -jar "$PLANTUML" $pumops > $TMP <<<$(pwsh -c 'Get-Clipboard')
+    cat $TMP
+    clip < $TMP
+#    pwsh -c "Set-Clipboard @'
+#$(cat $TMP)
+#'@"
+}
+PlantUML_Clipboard
 ```
 
 另外，可以使用 Sublime Text，配置 Build System 设置，直接通过快捷键转换粘贴板上的 UML。
@@ -688,7 +907,10 @@ Windows 系统上执行，使用 `%PLANTUML%` 获取环境变量。如果是 Lin
       "word_wrap": false,
             "env": {
                 "PLANTUML": "C:/jdk-14.0.2/jars/plantuml.1.2018.1.jar",
+                "PLANTUML": "C:/jdk-14.0.2/jars/plantuml-1.2024.3.jar",
+                "PLANTUML": "C:/jdk-14.0.2/jars/plantuml-lgpl-1.2024.3.jar",
                 "TMPPNG": "/c/dl/tmp.png",
+                "TMPUML": "/c/dl/tmp.uml",
             },
         "windows": { },
        "variants": [
@@ -701,12 +923,22 @@ Windows 系统上执行，使用 `%PLANTUML%` 获取环境变量。如果是 Lin
                "shell_cmd": "bash -c \"echo cat | java -jar '%PLANTUML%' -txt -pipe <<<$(pwsh -c 'Get-Clipboard')\""
             },
             {
+               "name": "PlantUML to ASCII [COPY]",
+               "shell_cmd": "bash -c \"echo cat | java -jar '%PLANTUML%' -txt -pipe > %TMPUML% <<<$(pwsh -c 'Get-Clipboard') && clip < %TMPUML%\""
+            },
+            {
                "name": "PlantUML to PNG",
-               "shell_cmd": "bash -c \"echo cat | java -jar '%PLANTUML%' -png -pipe > %TMPPNG% <<<$(pwsh -c 'Get-Clipboard'); start %TMPPNG%\""
+               "shell_cmd": "bash -c \"echo cat | java -jar '%PLANTUML%' -png -pipe > %TMPPNG% <<<$(pwsh -c 'Get-Clipboard') && start %TMPPNG%\""
             },
        ]
 }
 ```
+
+注意，定义环境变量时不要与 PlantUML 本身需要使用的变量名称冲突， 例如 TMP 就用于指定缓存文件路径。
+还有 filename 环境变量用于指定输入的 UML 文件，也可以使用 -filename 选项指定文件。
+如果使用 Unicode （-tutxt） 输出，则脚本运行环境的编码方案应该改为 UTF8，GBK 就会导致乱码。
+并且，Powershell 环境中执行的命令需要在 `CHCP 65001` 设置之后执行，否则也会乱码。
+Unicode 编码方案可使用的字符更多，看起来也更美观，例如以下是 Basic Example 效果对比：
 
 ```uml
 @startuml
@@ -724,7 +956,7 @@ Alice <-- Bob: Another authentication Response
         |------------------------------->|
         |                                |
         |    Authentication Response     |
-        |<- - - - - - - - - - - - - - - -|
+        |<- - - - - - - - - - - - - - - -|             -ttxt  ASCII
         |                                |
         |Another authentication Request  |
         |------------------------------->|
@@ -735,7 +967,43 @@ Alice <-- Bob: Another authentication Response
      |Alice|                           |Bob|
      `-----'                           `---'
 
+     ┌─────┐                           ┌───┐
+     │Alice│                           │Bob│
+     └──┬──┘                           └─┬─┘
+        │    Authentication Request      │  
+        │───────────────────────────────>│  
+        │                                │  
+        │    Authentication Response     │  
+        │<─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─│              -tutxt  UNICODE
+        │                                │  
+        │Another authentication Request  │  
+        │───────────────────────────────>│  
+        │                                │  
+        │Another authentication Response │  
+        │<─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─│  
+     ┌──┴──┐                           ┌─┴─┐
+     │Alice│                           │Bob│
+     └─────┘                           └───┘
+
 以上 PlantUML 可以使用 ASCII Art 呈现，但是彩色图案就需要图形格式表现，例如 PNG。
+对于使用代码块包括的 UML 代码，可以使用正则表达式去选择，方便直接复制和执行转绘命令。
+正则表达式需要使用零宽度断言匹配模式（Zero-Width），使用零宽断言可以避免选择到代码块头尾标记，
+参考`(?<=```uml)(\n.+)+(?=\n```)`。
+
+在处理 [PlantUML Language Reference Guide](./PlantUML_Language_reference.md)
+文档过程中就大量使用正则表达式去转换 PDF 为 Markdown，还包括优雅的 
+[RegularSelection](../readme.md) 正则多选区插件，它可以任意多选文档中与正则表达式匹配的内容。
+PlantUML 手册中就有将近 500 个图表。
+
+PlantUML 使用流式输入时（-pipe），可以绘制将多个 UML 图表，批量的转换有助提升效率。
+
+更多正则使用教程参考：
+
+1.  [JavaScript ES6](./ES6.md)
+2.  [Vim 哲学](./vim_flavor.md)
+2.  [Sed 手册](./info\sed.info)
+3.  [Mastering Regular Expressions](./RegExp.rst)
+
 
 ```uml
 @startuml
@@ -750,6 +1018,30 @@ Bob -> Alice : Yet another authentication Request
 Bob <- Alice : Yet another authentication Response
 @enduml
 ```
+
+     ┌───┐                                           ┌─────┐
+     │Bob│                                           │Alice│
+     └─┬─┘                                           └──┬──┘
+       │         [001] Authentication Request           │   
+       │───────────────────────────────────────────────>│   
+       │                                                │   
+       │         [002] Authentication Response          │   
+       │<───────────────────────────────────────────────│   
+       │                                                │   
+       │      (15) Another authentication Request       │   
+       │───────────────────────────────────────────────>│   
+       │                                                │   
+       │     (16) Another authentication Response       │   
+       │<───────────────────────────────────────────────│   
+       │                                                │   
+       │Message 40  Yet another authentication Request  │   
+       │───────────────────────────────────────────────>│   
+       │                                                │   
+       │Message 50  Yet another authentication Response │   
+       │<───────────────────────────────────────────────│   
+     ┌─┴─┐                                           ┌──┴──┐
+     │Bob│                                           │Alice│
+     └───┘                                           └─────┘
 
 
 # /🚩 Bash Features
@@ -829,84 +1121,84 @@ Shells offer features geared specifically for interactive use rather than to aug
 These definitions are used throughout the remainder of this manual.
 
 
-*POSIX*
-A family of open system standards based on Unix. Bash is primarily concerned with the Shell and Utilities portion of the POSIX 1003.1 standard.
+*   **POSIX**
+      A family of open system standards based on Unix. Bash is primarily concerned with the Shell and Utilities portion of the POSIX 1003.1 standard.
 
 
-*blank*
-A space or tab character.
+*   **blank**
+      A space or tab character.
 
 
-*builtin*
-A command that is implemented internally by the shell itself, rather than by an executable program somewhere in the file system.
+*   **builtin**
+      A command that is implemented internally by the shell itself, rather than by an executable program somewhere in the file system.
 
 
-*control operator*
-A token that performs a control function. It is a newline or one of the following: ‘||’, ‘&&’, ‘&’, ‘;’, ‘;;’, ‘;&’, ‘;;&’, ‘|’, ‘|&’, ‘(’, or ‘)’.
+*   **control operator**
+      A token that performs a control function. It is a newline or one of the following: ‘||’, ‘&&’, ‘&’, ‘;’, ‘;;’, ‘;&’, ‘;;&’, ‘|’, ‘|&’, ‘(’, or ‘)’.
 
 
-*exit status*
-The value returned by a command to its caller. The value is restricted to eight bits, so the maximum value is 255.
+*   **exit status**
+      The value returned by a command to its caller. The value is restricted to eight bits, so the maximum value is 255.
 
 
-*field*
-A unit of text that is the result of one of the shell expansions. After expansion, when executing a command, the resulting fields are used as the command name and arguments.
+*   **field**
+      A unit of text that is the result of one of the shell expansions. After expansion, when executing a command, the resulting fields are used as the command name and arguments.
 
 
-*filename*
-A string of characters used to identify a file.
+*   **filename**
+      A string of characters used to identify a file.
 
 
-*job*
-A set of processes comprising a pipeline, and any processes descended from it, that are all in the same process group.
+*   **job**
+      A set of processes comprising a pipeline, and any processes descended from it, that are all in the same process group.
 
 
-*job control*
-A mechanism by which users can selectively stop (suspend) and restart (resume) execution of processes.
+*   **job control**
+      A mechanism by which users can selectively stop (suspend) and restart (resume) execution of processes.
 
 
-*metacharacter*
-A character that, when unquoted, separates words. A metacharacter is a space, tab, newline, or one of the following characters: ‘|’, ‘&’, ‘;’, ‘(’, ‘)’, ‘<’, or ‘>’.
+*   **metacharacter**
+      A character that, when unquoted, separates words. A metacharacter is a space, tab, newline, or one of the following characters: ‘|’, ‘&’, ‘;’, ‘(’, ‘)’, ‘<’, or ‘>’.
 
 
-*name*
-A word consisting solely of letters, numbers, and underscores, and beginning with a letter or underscore. Names are used as shell variable and function names. Also referred to as an identifier.
+*   **name**
+      A word consisting solely of letters, numbers, and underscores, and beginning with a letter or underscore. Names are used as shell variable and function names. Also referred to as an identifier.
 
 
-*operator*
-A control operator or a redirection operator. See Redirections, for a list of redirection operators. Operators contain at least one unquoted metacharacter.
+*   **operator**
+      A control operator or a redirection operator. See Redirections, for a list of redirection operators. Operators contain at least one unquoted metacharacter.
 
 
-*process group*
-A collection of related processes each having the same process group ID.
+*   **process group**
+      A collection of related processes each having the same process group ID.
 
 
-*process group ID*
-A unique identifier that represents a process group during its lifetime.
+*   **process group ID**
+      A unique identifier that represents a process group during its lifetime.
 
 
-*reserved word*
-A word that has a special meaning to the shell. Most reserved words introduce shell flow control constructs, such as for and while.
+*   **reserved word**
+      A word that has a special meaning to the shell. Most reserved words introduce shell flow control constructs, such as for and while.
 
 
-*return status*
-A synonym for exit status.
+*   **return status**
+      A synonym for exit status.
 
 
-*signal*
-A mechanism by which a process may be notified by the kernel of an event occurring in the system.
+*   **signal**
+      A mechanism by which a process may be notified by the kernel of an event occurring in the system.
 
 
-*special builtin*
-A shell builtin command that has been classified as special by the POSIX standard.
+*   **special builtin**
+      A shell builtin command that has been classified as special by the POSIX standard.
 
 
-*token*
-A sequence of characters considered a single unit by the shell. It is either a word or an operator.
+*   **token**
+      A sequence of characters considered a single unit by the shell. It is either a word or an operator.
 
 
-*word*
-A sequence of characters treated as a unit by the shell. Words may not include unquoted metacharacters.
+*   **word**
+      A sequence of characters treated as a unit by the shell. Words may not include unquoted metacharacters.
 
         ⬇ [Shell Builtin Commands] ⬆ [Definitions] ⬅ [Top]
                                                               [Contents] [Index]
@@ -974,6 +1266,7 @@ Optionally waits for the command to complete and collects its exit status (see [
 • Double Quotes     How to suppress most of the interpretation of a sequence of characters.
 • ANSI-C Quoting        How to expand ANSI-C sequences in quoted strings.
 • Locale Translation        How to translate strings into different languages.
+
 Quoting is used to remove the special meaning of certain characters or words to the shell. Quoting can be used to disable special treatment for special characters, to prevent reserved words from being recognized as such, and to prevent parameter expansion.
 
 Each of the shell metacharacters (see [definitions]) has special meaning to the shell and must be quoted if it is to represent itself. When the command history expansion facilities are being used (see [history interaction]), the history expansion character, usually ‘!’, must be quoted to prevent history expansion. See Bash History Facilities, for more details concerning history expansion.
@@ -1212,40 +1505,40 @@ Bash supports the following looping constructs.
 
 Note that wherever a ‘;’ appears in the description of a command’s syntax, it may be replaced with one or more newlines.
 
-until
+*     **until**
                                                                         *until*
 
-The syntax of the until command is:
+    The syntax of the until command is:
 
-    until test-commands; do consequent-commands; done
+         until test-commands; do consequent-commands; done
 
-Execute consequent-commands as long as test-commands has an exit status which is not zero. The return status is the exit status of the last command executed in consequent-commands, or zero if none was executed.
+    Execute consequent-commands as long as test-commands has an exit status which is not zero. The return status is the exit status of the last command executed in consequent-commands, or zero if none was executed.
 
-while
+*     **while**
                                                                         *while*
 
-The syntax of the while command is:
+    The syntax of the while command is:
 
-    while test-commands; do consequent-commands; done
+         while test-commands; do consequent-commands; done
 
-Execute consequent-commands as long as test-commands has an exit status of zero. The return status is the exit status of the last command executed in consequent-commands, or zero if none was executed.
+    Execute consequent-commands as long as test-commands has an exit status of zero. The return status is the exit status of the last command executed in consequent-commands, or zero if none was executed.
 
-for
+*     **for**
                                                                           *for*
 
-The syntax of the for command is:
+    The syntax of the for command is:
 
-    for name [ [in [words …] ] ; ] do commands; done
+         for name [ [in [words …] ] ; ] do commands; done
 
-Expand words (see [shell expansions]), and execute commands once for each member in the resultant list, with name bound to the current member. If ‘in words’ is not present, the for command executes the commands once for each positional parameter that is set, as if ‘in "$@"’ had been specified (see [special parameters]).
+    Expand words (see [shell expansions]), and execute commands once for each member in the resultant list, with name bound to the current member. If ‘in words’ is not present, the for command executes the commands once for each positional parameter that is set, as if ‘in "$@"’ had been specified (see [special parameters]).
 
-The return status is the exit status of the last command that executes. If there are no items in the expansion of words, no commands are executed, and the return status is zero.
+    The return status is the exit status of the last command that executes. If there are no items in the expansion of words, no commands are executed, and the return status is zero.
 
-An alternate form of the for command is also supported:
+    An alternate form of the for command is also supported:
 
-    for (( expr1 ; expr2 ; expr3 )) ; do commands ; done
+        for (( expr1 ; expr2 ; expr3 )) ; do commands ; done
 
-First, the arithmetic expression expr1 is evaluated according to the rules described below (see [shell arithmetic]). The arithmetic expression expr2 is then evaluated repeatedly until it evaluates to zero. Each time expr2 evaluates to a non-zero value, commands are executed and the arithmetic expression expr3 is evaluated. If any expression is omitted, it behaves as if it evaluates to 1. The return value is the exit status of the last command in commands that is executed, or false if any of the expressions is invalid.
+    First, the arithmetic expression expr1 is evaluated according to the rules described below (see [shell arithmetic]). The arithmetic expression expr2 is then evaluated repeatedly until it evaluates to zero. Each time expr2 evaluates to a non-zero value, commands are executed and the arithmetic expression expr3 is evaluated. If any expression is omitted, it behaves as if it evaluates to 1. The return value is the exit status of the last command in commands that is executed, or false if any of the expressions is invalid.
 
 The break and continue builtins (see [bourne shell builtins]) may be used to control loop execution.
 
@@ -1403,23 +1696,23 @@ The first two matches will succeed, but the second two will not, because in the 
 
 Expressions may be combined using the following operators, listed in decreasing order of precedence:
 
-    ( expression )
+*   `( expression )`
 
-Returns the value of expression. This may be used to override the normal precedence of operators.
+    Returns the value of expression. This may be used to override the normal precedence of operators.
 
-    ! expression
+*   `! expression`
 
-True if expression is false.
+    True if expression is false.
 
-    expression1 && expression2
+*   `expression1 && expression2`
 
-True if both expression1 and expression2 are true.
+    True if both expression1 and expression2 are true.
 
-    expression1 || expression2
+*   `expression1 || expression2`
 
-True if either expression1 or expression2 is true.
+    True if either expression1 or expression2 is true.
 
-The && and || operators do not evaluate expression2 if the value of expression1 is sufficient to determine the return value of the entire conditional expression.
+    The && and || operators do not evaluate expression2 if the value of expression1 is sufficient to determine the return value of the entire conditional expression.
 
         ⬆ [Conditional Constructs]  ⬅ [Compound Commands]   
                                                               [Contents] [Index]
@@ -1476,11 +1769,11 @@ Since the coprocess is created as an asynchronous command, the coproc command al
 
 There are ways to run commands in parallel that are not built into Bash. GNU Parallel is a tool to do just that.
 
-GNU Parallel, as its name suggests, can be used to build and run commands in parallel. You may run the same command with different arguments, whether they are filenames, usernames, hostnames, or lines read from files. GNU Parallel provides shorthand references to many of the most common operations (input lines, various portions of the input line, different ways to specify the input source, and so on). Parallel can replace xargs or feed commands from its input sources to several different instances of Bash.
+GNU Parallel, as its name suggests, can be used to build and run commands in parallel. You may run the same command with different arguments, whether they are filenames, usernames, hostnames, or lines read from files. GNU Parallel provides shorthand references to many of the most common operations (input lines, various portions of the input line, different ways to specify the input source, and so on). Parallel can replace `xargs` or `feed` commands from its input sources to several different instances of Bash.
 
 For a complete description, refer to the GNU Parallel documentation. A few examples should provide a brief introduction to its use.
 
-For example, it is easy to replace xargs to gzip all html files in the current directory and its subdirectories:
+For example, it is easy to replace `xargs` to gzip all html files in the current directory and its subdirectories:
 
     find . -type f -name '*.html' -print | parallel gzip
 
@@ -1703,29 +1996,29 @@ When a positional parameter consisting of more than a single digit is expanded, 
 
 The shell treats several parameters specially. These parameters may only be referenced; assignment to them is not allowed.
 
-*
-    (`$*`) Expands to the positional parameters, starting from one. When the expansion is not within double quotes, each positional parameter expands to a separate word. In contexts where it is performed, those words are subject to further word splitting and filename expansion. When the expansion occurs within double quotes, it expands to a single word with the value of each parameter separated by the first character of the IFS special variable. That is, "`$*`" is equivalent to "$1c$2c…", where c is the first character of the value of the IFS variable. If IFS is unset, the parameters are separated by spaces. If IFS is null, the parameters are joined without intervening separators.
+1. `  *  ` (`$*`) Expands to the positional parameters, starting from one. 
+    When the expansion is not within double quotes, each positional parameter expands to a separate word. In contexts where it is performed, those words are subject to further word splitting and filename expansion. When the expansion occurs within double quotes, it expands to a single word with the value of each parameter separated by the first character of the IFS special variable. That is, "`$*`" is equivalent to "$1c$2c…", where c is the first character of the value of the IFS variable. If IFS is unset, the parameters are separated by spaces. If IFS is null, the parameters are joined without intervening separators.
 
-@
-    ($@) Expands to the positional parameters, starting from one. In contexts where word splitting is performed, this expands each positional parameter to a separate word; if not within double quotes, these words are subject to word splitting. In contexts where word splitting is not performed, this expands to a single word with each positional parameter separated by a space. When the expansion occurs within double quotes, and word splitting is performed, each parameter expands to a separate word. That is, "$@" is equivalent to "$1" "$2" …. If the double-quoted expansion occurs within a word, the expansion of the first parameter is joined with the beginning part of the original word, and the expansion of the last parameter is joined with the last part of the original word. When there are no positional parameters, "$@" and $@ expand to nothing (i.e., they are removed).
+2. `  @  ` ($@) Expands to the positional parameters, starting from one.
+    In contexts where word splitting is performed, this expands each positional parameter to a separate word; if not within double quotes, these words are subject to word splitting. In contexts where word splitting is not performed, this expands to a single word with each positional parameter separated by a space. When the expansion occurs within double quotes, and word splitting is performed, each parameter expands to a separate word. That is, "$@" is equivalent to "$1" "$2" …. If the double-quoted expansion occurs within a word, the expansion of the first parameter is joined with the beginning part of the original word, and the expansion of the last parameter is joined with the last part of the original word. When there are no positional parameters, "$@" and $@ expand to nothing (i.e., they are removed).
 
-`#`
+3. `  #   `
     (`$#`) Expands to the number of positional parameters in decimal.
 
-?
+4. `  ?  `
     ($?) Expands to the exit status of the most recently executed foreground pipeline.
 
--
-    ($-, a hyphen.) Expands to the current option flags as specified upon invocation, by the set builtin command, or those set by the shell itself (such as the -i option).
+5. `  -  ` ($-, a hyphen.) Expands to the current option flags
+    as specified upon invocation, by the set builtin command, or those set by the shell itself (such as the -i option).
 
-$
-    ($$) Expands to the process ID of the shell. In a subshell, it expands to the process ID of the invoking shell, not the subshell.
+6. `  $  ` ($$) Expands to the process ID of the shell.
+    In a subshell, it expands to the process ID of the invoking shell, not the subshell.
 
-!
-    ($!) Expands to the process ID of the job most recently placed into the background, whether executed as an asynchronous command or using the bg builtin (see [job control builtins]).
+7. `  !  ` ($!) Expands to the process ID of the job most recently placed into the background,
+    whether executed as an asynchronous command or using the bg builtin (see [job control builtins]).
 
-0
-    ($0) Expands to the name of the shell or shell script. This is set at shell initialization. If Bash is invoked with a file of commands (see [shell scripts]), $0 is set to the name of that file. If Bash is started with the -c option (see [invoking bash]), then $0 is set to the first argument after the string to be executed, if one is present. Otherwise, it is set to the filename used to invoke Bash, as given by argument zero.
+8. `  0  ` ($0) Expands to the name of the shell or shell script.
+    This is set at shell initialization. If Bash is invoked with a file of commands (see [shell scripts]), $0 is set to the name of that file. If Bash is started with the -c option (see [invoking bash]), then $0 is set to the first argument after the string to be executed, if one is present. Otherwise, it is set to the filename used to invoke Bash, as given by argument zero.
 
         ⬇ [Redirections] ⬆ [Shell Parameters] ⬅ [Basic Shell Features]
                                                               [Contents] [Index]
@@ -2424,15 +2717,15 @@ After a command has been split into words, if it results in a simple command and
 
 The shell has an execution environment, which consists of the following:
 
-1. open files inherited by the shell at invocation, as modified by redirections supplied to the exec builtin
-2. the current working directory as set by cd, pushd, or popd, or inherited by the shell at invocation
-3. the file creation mode mask as set by umask or inherited from the shell’s parent
-4. current traps set by trap
-5. shell parameters that are set by variable assignment or with set or inherited from the shell’s parent in the environment
-6. shell functions defined during execution or inherited from the shell’s parent in the environment
-7. options enabled at invocation (either by default or with command-line arguments) or by set
-8. options enabled by shopt (see [the shopt builtin])
-9. shell aliases defined with alias (see [aliases])
+1.  open files inherited by the shell at invocation, as modified by redirections supplied to the exec builtin
+2.  the current working directory as set by cd, pushd, or popd, or inherited by the shell at invocation
+3.  the file creation mode mask as set by umask or inherited from the shell’s parent
+4.  current traps set by trap
+5.  shell parameters that are set by variable assignment or with set or inherited from the shell’s parent in the environment
+6.  shell functions defined during execution or inherited from the shell’s parent in the environment
+7.  options enabled at invocation (either by default or with command-line arguments) or by set
+8.  options enabled by shopt (see [the shopt builtin])
+9.  shell aliases defined with alias (see [aliases])
 10. various process IDs, including those of background jobs (see [lists]), the value of $$, and the value of $PPID
 
 When a simple command other than a builtin or shell function is to be executed, it is invoked in a separate execution environment that consists of the following. Unless otherwise noted, the values are inherited from the shell.
@@ -2487,6 +2780,41 @@ The exit status is used by the Bash conditional commands (see [conditional const
 
 All of the Bash builtins return an exit status of zero if they succeed and a non-zero status on failure, so they may be used by the conditional and list constructs. All builtins return an exit status of 2 to indicate incorrect usage, generally invalid options or missing arguments.
 
+> 
+>  Advanced Bash-Scripting Guide
+>  https://tldp.org/LDP/abs/html/
+> 
+> 
+> Appendix E. Exit Codes With Special Meanings
+> 
+>    ### Table E-1. Reserved Exit Codes
+> 
+> | Exit Code |            Meaning             |         Example         |
+> |-----------|--------------------------------|-------------------------|
+> | 1         | Catchall for general errors    | let "var1 = 1/0"        |
+> | 2         | Misuse of shell builtins       | empty_function() {}     |
+> | 126       | Command invoked cannot execute | /dev/null               |
+> | 127       | "command not found"            | illegal_command         |
+> | 128       | Invalid argument to exit       | exit 3.14159            |
+> | 128+n     | Fatal error signal "n"         | kill -9 $PPID of script |
+> | 130       | Script terminated by Control-C | Ctl-C                   |
+> | 255*      | Exit status out of range       | exit -1                 |
+> 
+> | Exit Code |                                Comments                                |
+> |-----------|------------------------------------------------------------------------|
+> | 1         | Miscellaneous errors, such as "divide by zero"                         |
+> |           | and other impermissible operations                                     |
+> |-----------|------------------------------------------------------------------------|
+> | 2         | Missing keyword or command, or permission problem                      |
+> |           | (and diff return code on a failed binary file comparison).             |
+> |-----------|------------------------------------------------------------------------|
+> | 126       | Permission problem or command is not an executable                     |
+> | 127       | Possible problem with $PATH or a typo                                  |
+> | 128       | exit takes only integer args in the range 0 - 255 (see first footnote) |
+> | 128+n     | $? returns 137 (128 + 9)                                               |
+> | 130       | Control-C is fatal error signal 2, (130 = 128 + 2, see above)          |
+> | 255*      | exit takes only integer args in the range 0 - 255                      |
+> 
         ⬆ [Exit Status]  ⬅ [Executing Commands]   
                                                               [Contents] [Index]
 
@@ -4689,77 +5017,106 @@ When invoked as sh, Bash enters POSIX mode after reading the startup files.
 
 The following list is what’s changed when ‘POSIX mode’ is in effect:
 
-01.  Bash ensures that the POSIXLY_CORRECT variable is set.
+01.  Bash ensures that the `POSIXLY_CORRECT` variable is set.
 
-02.  When a command in the hash table no longer exists, Bash will re-search $PATH to find the new location. This is also available with ‘shopt -s checkhash’.
+02.  When a command in the hash table no longer exists, 
+     Bash will re-search $PATH to find the new location. This is also available with ‘shopt -s checkhash’.
 
-03.  Bash will not insert a command without the execute bit set into the command hash table, even if it returns it as a (last-ditch) result from a $PATH search.
+03.  Bash will not insert a command without the execute bit 
+     set into the command hash table, even if it returns it as a (last-ditch) result from a $PATH search.
 
-04.  The message printed by the job control code and builtins when a job exits with a non-zero status is ‘Done(status)’.
+04.  The message printed by the job control code and builtins 
+     when a job exits with a non-zero status is ‘Done(status)’.
 
-05.  The message printed by the job control code and builtins when a job is stopped is ‘Stopped(signame)’, where signame is, for example, SIGTSTP.
+05.  The message printed by the job control code and builtins 
+     when a job is stopped is ‘Stopped(signame)’, where signame is, for example, SIGTSTP.
 
 06.  Alias expansion is always enabled, even in non-interactive shells.
 
-07.  Reserved words appearing in a context where reserved words are recognized do not undergo alias expansion.
+07.  Reserved words appearing in a context 
+     where reserved words are recognized do not undergo alias expansion.
 
-08.  The POSIX PS1 and PS2 expansions of ‘!’ to the history number and ‘!!’ to ‘!’ are enabled, and parameter expansion is performed on the values of PS1 and PS2 regardless of the setting of the promptvars option.
+08.  The POSIX PS1 and PS2 expansions of ‘!’ to the history number 
+     and ‘!!’ to ‘!’ are enabled, and parameter expansion is performed on the values of PS1 and PS2 regardless of the setting of the promptvars option.
 
 09.  The POSIX startup files are executed ($ENV) rather than the normal Bash files.
 
-10.  Tilde expansion is only performed on assignments preceding a command name, rather than on all assignment statements on the line.
+10.  Tilde expansion is only performed on assignments preceding 
+     a command name, rather than on all assignment statements on the line.
 
-11.  The default history file is ~/.sh_history (this is the default value of $HISTFILE).
+11.  The default history file is ~/.sh_history 
+     (this is the default value of $HISTFILE).
 
-12.  Redirection operators do not perform filename expansion on the word in the redirection unless the shell is interactive.
+12.  Redirection operators do not perform filename expansion 
+     on the word in the redirection unless the shell is interactive.
 
 13.  Redirection operators do not perform word splitting on the word in the redirection.
 
-14.  Function names must be valid shell names. That is, they may not contain characters other than letters, digits, and underscores, and may not start with a digit. Declaring a function with an invalid name causes a fatal syntax error in non-interactive shells.
+14.  Function names must be valid shell names. 
+     That is, they may not contain characters other than letters, digits, and underscores, and may not start with a digit. Declaring a function with an invalid name causes a fatal syntax error in non-interactive shells.
 
 15.  Function names may not be the same as one of the POSIX special builtins.
 
 16.  POSIX special builtins are found before shell functions during command lookup.
 
-17.  When printing shell function definitions (e.g., by type), Bash does not print the function keyword.
+17.  When printing shell function definitions (e.g., by type), 
+     Bash does not print the function keyword.
 
-18.  Literal tildes that appear as the first character in elements of the PATH variable are not expanded as described above under Tilde Expansion.
+18.  Literal tildes that appear as the first character in elements 
+     of the PATH variable are not expanded as described above under Tilde Expansion.
 
-19.  The time reserved word may be used by itself as a command. When used in this way, it displays timing statistics for the shell and its completed children. The TIMEFORMAT variable controls the format of the timing information.
+19.  The time reserved word may be used by itself as a command. 
+     When used in this way, it displays timing statistics for the shell and its completed children. The TIMEFORMAT variable controls the format of the timing information.
 
-20.  When parsing and expanding a ${…} expansion that appears within double quotes, single quotes are no longer special and cannot be used to quote a closing brace or other special character, unless the operator is one of those defined to perform pattern removal. In this case, they do not have to appear as matched pairs.
+20.  When parsing and expanding a ${…} expansion that appears 
+     within double quotes, single quotes are no longer special and cannot be used to quote a closing brace or other special character, unless the operator is one of those defined to perform pattern removal. In this case, they do not have to appear as matched pairs.
 
 21.  The parser does not recognize time as a reserved word if the next token begins with a ‘-’.
 
-22.  The ‘!’ character does not introduce history expansion within a double-quoted string, even if the histexpand option is enabled.
+22.  The ‘!’ character does not introduce history expansion 
+     within a double-quoted string, even if the histexpand option is enabled.
 
-23.  If a POSIX special builtin returns an error status, a non-interactive shell exits. The fatal errors are those listed in the POSIX standard, and include things like passing incorrect options, redirection errors, variable assignment errors for assignments preceding the command name, and so on.
+23.  If a POSIX special builtin returns an error status, 
+     a non-interactive shell exits. The fatal errors are those listed in the POSIX standard, and include things like passing incorrect options, redirection errors, variable assignment errors for assignments preceding the command name, and so on.
 
-24.  A non-interactive shell exits with an error status if a variable assignment error occurs when no command name follows the assignment statements. A variable assignment error occurs, for example, when trying to assign a value to a readonly variable.
+24.  A non-interactive shell exits with an error status 
+     if a variable assignment error occurs when no command name follows the assignment statements. A variable assignment error occurs, for example, when trying to assign a value to a readonly variable.
 
-25.  A non-interactive shell exits with an error status if a variable assignment error occurs in an assignment statement preceding a special builtin, but not with any other simple command.
+25.  A non-interactive shell exits with an error status 
+     if a variable assignment error occurs in an assignment statement preceding a special builtin, but not with any other simple command.
 
-26.  A non-interactive shell exits with an error status if the iteration variable in a for statement or the selection variable in a select statement is a readonly variable.
+26.  A non-interactive shell exits with an error status 
+     if the iteration variable in a for statement or the selection variable in a select statement is a readonly variable.
 
-27.  Non-interactive shells exit if filename in . filename is not found.
+27.  Non-interactive shells exit 
+     if filename in . filename is not found.
 
-28.  Non-interactive shells exit if a syntax error in an arithmetic expansion results in an invalid expression.
+28.  Non-interactive shells exit 
+     if a syntax error in an arithmetic expansion results in an invalid expression.
 
-29.  Non-interactive shells exit if a parameter expansion error occurs.
+29.  Non-interactive shells exit 
+     if a parameter expansion error occurs.
 
-30.  Non-interactive shells exit if there is a syntax error in a script read with the . or source builtins, or in a string processed by the eval builtin.
+30.  Non-interactive shells exit 
+     if there is a syntax error in a script read with the . or source builtins, or in a string processed by the eval builtin.
 
-31.  While variable indirection is available, it may not be applied to the ‘#’ and ‘?’ special parameters.
+31.  While variable indirection is available, 
+     it may not be applied to the ‘#’ and ‘?’ special parameters.
 
-32.  When expanding the `‘*’` special parameter in a pattern context where the expansion is double-quoted does not treat the $* as if it were double-quoted.
+32.  When expanding the `‘*’` special parameter in a pattern context 
+     where the expansion is double-quoted does not treat the $* as if it were double-quoted.
 
-33.  Assignment statements preceding POSIX special builtins persist in the shell environment after the builtin completes.
+33.  Assignment statements preceding POSIX special builtins persist 
+     in the shell environment after the builtin completes.
 
-34.  The command builtin does not prevent builtins that take assignment statements as arguments from expanding them as assignment statements; when not in POSIX mode, assignment builtins lose their assignment statement expansion properties when preceded by command.
+34.  The command builtin does not prevent builtins 
+     that take assignment statements as arguments from expanding them as assignment statements; when not in POSIX mode, assignment builtins lose their assignment statement expansion properties when preceded by command.
 
-35.  The bg builtin uses the required format to describe each job placed in the background, which does not include an indication of whether the job is the current or previous job.
+35.  The bg builtin uses the required format to describe each job 
+     placed in the background, which does not include an indication of whether the job is the current or previous job.
 
-36.  The output of ‘kill -l’ prints all the signal names on a single line, separated by spaces, without the ‘SIG’ prefix.
+36.  The output of ‘kill -l’ prints all the signal names 
+     on a single line, separated by spaces, without the ‘SIG’ prefix.
 
 37.  The kill builtin does not accept signal names with a ‘SIG’ prefix.
 
@@ -4767,51 +5124,72 @@ The following list is what’s changed when ‘POSIX mode’ is in effect:
 
 39.  The trap builtin displays signal names without the leading SIG.
 
-40.  The trap builtin doesn’t check the first argument for a possible signal specification and revert the signal handling to the original disposition if it is, unless that argument consists solely of digits and is a valid signal number. If users want to reset the handler for a given signal to the original disposition, they should use ‘-’ as the first argument.
+40.  The trap builtin doesn’t check the first argument 
+     for a possible signal specification and revert the signal handling to the original disposition if it is, unless that argument consists solely of digits and is a valid signal number. If users want to reset the handler for a given signal to the original disposition, they should use ‘-’ as the first argument.
 
-41.  trap -p displays signals whose dispositions are set to SIG_DFL and those that were ignored when the shell started.
+41.  trap -p displays signals whose dispositions are set to SIG_DFL 
+     and those that were ignored when the shell started.
 
-42.  The . and source builtins do not search the current directory for the filename argument if it is not found by searching PATH.
+42.  The . and source builtins do not search the current directory 
+     for the filename argument if it is not found by searching PATH.
 
-43.  Enabling POSIX mode has the effect of setting the inherit_errexit option, so subshells spawned to execute command substitutions inherit the value of the -e option from the parent shell. When the inherit_errexit option is not enabled, Bash clears the -e option in such subshells.
+43.  Enabling POSIX mode has the effect of setting the inherit_errexit option, 
+     so subshells spawned to execute command substitutions inherit the value of the -e option from the parent shell. When the inherit_errexit option is not enabled, Bash clears the -e option in such subshells.
 
-44.  Enabling POSIX mode has the effect of setting the shift_verbose option, so numeric arguments to shift that exceed the number of positional parameters will result in an error message.
+44.  Enabling POSIX mode has the effect of setting the shift_verbose option, 
+     so numeric arguments to shift that exceed the number of positional parameters will result in an error message.
 
-45.  When the alias builtin displays alias definitions, it does not display them with a leading ‘alias ’ unless the -p option is supplied.
+45.  When the alias builtin displays alias definitions, 
+     it does not display them with a leading ‘alias ’ unless the -p option is supplied.
 
-46.  When the set builtin is invoked without options, it does not display shell function names and definitions.
+46.  When the set builtin is invoked without options, 
+     it does not display shell function names and definitions.
 
-47.  When the set builtin is invoked without options, it displays variable values without quotes, unless they contain shell metacharacters, even if the result contains nonprinting characters.
+47.  When the set builtin is invoked without options, 
+     it displays variable values without quotes, unless they contain shell metacharacters, even if the result contains nonprinting characters.
 
-48.  When the cd builtin is invoked in logical mode, and the pathname constructed from $PWD and the directory name supplied as an argument does not refer to an existing directory, cd will fail instead of falling back to physical mode.
+48.  When the cd builtin is invoked in logical mode, 
+     and the pathname constructed from $PWD and the directory name supplied as an argument does not refer to an existing directory, cd will fail instead of falling back to physical mode.
 
-49.  When the cd builtin cannot change a directory because the length of the pathname constructed from $PWD and the directory name supplied as an argument exceeds PATH_MAX when all symbolic links are expanded, cd will fail instead of attempting to use only the supplied directory name.
+49.  When the cd builtin cannot change a directory 
+     because the length of the pathname constructed from $PWD and the directory name supplied as an argument exceeds PATH_MAX when all symbolic links are expanded, cd will fail instead of attempting to use only the supplied directory name.
 
-50.  The pwd builtin verifies that the value it prints is the same as the current directory, even if it is not asked to check the file system with the -P option.
+50.  The pwd builtin verifies that the value it prints is 
+     the same as the current directory, even if it is not asked to check the file system with the -P option.
 
-51.  When listing the history, the fc builtin does not include an indication of whether or not a history entry has been modified.
+51.  When listing the history, the fc builtin does not include 
+     an indication of whether or not a history entry has been modified.
 
 52.  The default editor used by fc is ed.
 
-53.  The type and command builtins will not report a non-executable file as having been found, though the shell will attempt to execute such a file if it is the only so-named file found in $PATH.
+53.  The type and command builtins will not report a non-executable 
+     file as having been found, though the shell will attempt to execute such a file if it is the only so-named file found in $PATH.
 
-54.  The vi editing mode will invoke the vi editor directly when the ‘v’ command is run, instead of checking $VISUAL and $EDITOR.
+54.  The vi editing mode will invoke the vi editor directly 
+     when the ‘v’ command is run, instead of checking $VISUAL and $EDITOR.
 
-55.  When the xpg_echo option is enabled, Bash does not attempt to interpret any arguments to echo as options. Each argument is displayed, after escape characters are converted.
+55.  When the xpg_echo option is enabled, Bash does not attempt to 
+     interpret any arguments to echo as options. Each argument is displayed, after escape characters are converted.
 
 56.  The ulimit builtin uses a block size of 512 bytes for the -c and -f options.
 
-57.  The arrival of SIGCHLD when a trap is set on SIGCHLD does not interrupt the wait builtin and cause it to return immediately. The trap command is run once for each child that exits.
+57.  The arrival of SIGCHLD when a trap is set on SIGCHLD does not 
+     interrupt the wait builtin and cause it to return immediately. The trap command is run once for each child that exits.
 
-58.  The read builtin may be interrupted by a signal for which a trap has been set. If Bash receives a trapped signal while executing read, the trap handler executes and read returns an exit status greater than 128.
+58.  The read builtin may be interrupted by a signal for 
+     which a trap has been set. If Bash receives a trapped signal while executing read, the trap handler executes and read returns an exit status greater than 128.
 
-59.  Bash removes an exited background process’s status from the list of such statuses after the wait builtin is used to obtain it.
+59.  Bash removes an exited background process’s status 
+     from the list of such statuses after the wait builtin is used to obtain it.
 
 
 There is other POSIX behavior that Bash does not implement by default even when in POSIX mode. Specifically:
 
-1. The fc builtin checks $EDITOR as a program to edit history entries if FCEDIT is unset, rather than defaulting directly to ed. fc uses ed if EDITOR is unset.
-2. As noted above, Bash requires the xpg_echo option to be enabled for the echo builtin to be fully conformant.
+1.   The fc builtin checks $EDITOR as a program to edit history entries 
+     if FCEDIT is unset, rather than defaulting directly to ed. fc uses ed if EDITOR is unset.
+     
+2.   As noted above, Bash requires the xpg_echo option to be enabled 
+     for the echo builtin to be fully conformant.
 
 Bash can be configured to be POSIX-conformant by default, by specifying the --enable-strict-posix-default to configure when building (see [optional features]).
 
@@ -6365,29 +6743,26 @@ The shell allows control of the various characters used by the history expansion
 
 An event designator is a reference to a command line entry in the history list. Unless the reference is absolute, events are relative to the current position in the history list.
 
-!
-    Start a history substitution, except when followed by a space, tab, the end of the line, ‘=’ or ‘(’ (when the extglob shell option is enabled using the shopt builtin).
-
-!n
-    Refer to command line n.
-
-!-n
-    Refer to the command n lines back.
-
-!!
-    Refer to the previous command. This is a synonym for ‘!-1’.
-
-!string
-    Refer to the most recent command preceding the current position in the history list starting with string.
-
-!?string[?]
-    Refer to the most recent command preceding the current position in the history list containing string. The trailing ‘?’ may be omitted if the string is followed immediately by a newline. If string is missing, the string from the most recent search is used; it is an error if there is no previous search string.
-
-^string1^string2^
-    Quick Substitution. Repeat the last command, replacing string1 with string2. Equivalent to !!:s^string1^string2^.
-
-!#
-    The entire command line typed so far.
+|  Word designators |                                Notes                                |
+|-------------------|---------------------------------------------------------------------|
+| !                 | Start a history substitution, except when followed by               |
+|                   | a space, tab, the end of the line, ‘=’ or ‘(’                       |
+|                   | (when the extglob shell option is enabled using the shopt builtin). |
+| !n                | Refer to command line n.                                            |
+| !-n               | Refer to the command n lines back.                                  |
+| !!                | Refer to the previous command. This is a synonym for ‘!-1’.         |
+| !string           | Refer to the most recent command preceding the current position     |
+|                   | in the history list starting with string.                           |
+| !?string[?]       | Refer to the most recent command preceding the current position     |
+|                   | in the history list containing string.                              |
+|                   | The trailing ‘?’ may be omitted if the string is followed           |
+|                   | immediately by a newline. If string is missing, the string from     |
+|                   | the most recent search is used;                                     |
+|                   | it is an error if there is no previous search string.               |
+| ^string1^string2^ | Quick Substitution. Repeat the last command,                        |
+|                   | replacing string1 with string2.                                     |
+|                   | Equivalent to !!:s^string1^string2^.                                |
+| !#                | The entire command line typed so far.                               |
 
         ⬇ [Modifiers] ⬆ [Event Designators] ⬅ [History Interaction]
                                                               [Contents] [Index]
@@ -6400,43 +6775,32 @@ Word designators are used to select desired words from the event. A ‘:’ sepa
 
 For example,
 
-!!
-designates the preceding command. When you type this, the preceding command is repeated in toto.
-
-!!:$
-designates the last argument of the preceding command. This may be shortened to !$.
-
-!fi:2
-designates the second argument of the most recent command starting with the letters fi.
+| Word designators |                         Notes                          |
+|------------------|--------------------------------------------------------|
+| !!               | designates the preceding command. When you type this,  |
+|                  | the preceding command is repeated in toto.             |
+| !!:$             | designates the last argument of the preceding command. |
+|                  | This may be shortened to !$.                           |
+| !fi:2            | designates the second argument of                      |
+|                  | the most recent command starting with the letters fi.  |
 
 Here are the word designators:
 
-0 (zero)
-The 0th word. For many applications, this is the command word.
-
-n
-The nth word.
-
-^
-The first argument; that is, word 1.
-
-$
-The last argument.
-
-%
-The first word matched by the most recent ‘?string?’ search, if the search string begins with a character that is part of a word.
-
-x-y
-A range of words; ‘-y’ abbreviates ‘0-y’.
-
-*
-All of the words, except the 0th. This is a synonym for ‘1-$’. It is not an error to use `‘*’` if there is just one word in the event; the empty string is returned in that case.
-
-x*
-Abbreviates ‘x-$’
-
-x-
-Abbreviates ‘x-$’ like `‘x*’`, but omits the last word. If ‘x’ is missing, it defaults to 0.
+| Word designators |                                  Notes                                  |
+|------------------|-------------------------------------------------------------------------|
+| 0 (zero)         | The 0th word. For many applications, this is the command word.          |
+| n                | The nth word.                                                           |
+| ^                | The first argument; that is, word 1.                                    |
+| $                | The last argument.                                                      |
+| %                | The first word matched by the most recent ‘?string?’ search,            |
+|                  | if the search string begins with a character that is part of a word.    |
+| x-y              | A range of words; ‘-y’ abbreviates ‘0-y’.                               |
+| *                | All of the words, except the 0th. This is a synonym for ‘1-$’.          |
+|                  | It is not an error to use `‘*’` if there is just one word in the event; |
+|                  | the empty string is returned in that case.                              |
+| x*               | Abbreviates ‘x-$’                                                       |
+| x-               | Abbreviates ‘x-$’ like `‘x*’`, but omits the last word.                 |
+|                  | If ‘x’ is missing, it defaults to 0.                                    |
 
 If a word designator is supplied without an event specification, the previous command is used as the event.
 
@@ -6513,24 +6877,29 @@ These are installation instructions for Bash.
 The simplest way to compile Bash is:
 
 cd to the directory containing the source code and type ‘./configure’ to configure Bash for your system. If you’re using csh on an old version of System V, you might need to type ‘sh ./configure’ instead to prevent csh from trying to execute configure itself.
+
 Running configure takes some time. While running, it prints messages telling which features it is checking for.
 
 Type ‘make’ to compile Bash and build the bashbug bug reporting script.
+
 Optionally, type ‘make tests’ to run the Bash test suite.
+
 Type ‘make install’ to install bash and bashbug. This will also install the manual pages and Info file.
 The configure shell script attempts to guess correct values for various system-dependent variables used during compilation. It uses those values to create a Makefile in each directory of the package (the top directory, the builtins, doc, and support directories, each directory under lib, and several others). It also creates a config.h file containing system-dependent definitions. Finally, it creates a shell script named config.status that you can run in the future to recreate the current configuration, a file config.cache that saves the results of its tests to speed up reconfiguring, and a file config.log containing compiler output (useful mainly for debugging configure). If at some point config.cache contains results you don’t want to keep, you may remove or edit it.
 
 To find out more about the options and arguments that the configure script understands, type
 
-bash-4.2$ ./configure --help
+    bash-4.2$ ./configure --help
+
 at the Bash prompt in your Bash source directory.
 
 If you want to build Bash in a directory separate from the source directory – to build for multiple architectures, for example – just use the full path to the configure script. The following commands will build bash in a directory under /usr/local/build from the source code in /usr/local/src/bash-4.4:
 
-mkdir /usr/local/build/bash-4.4
-cd /usr/local/build/bash-4.4
-bash /usr/local/src/bash-4.4/configure
-make
+    mkdir /usr/local/build/bash-4.4
+    cd /usr/local/build/bash-4.4
+    bash /usr/local/src/bash-4.4/configure
+    make
+
 See Compiling For Multiple Architectures for more information about building in a directory separate from the source.
 
 If you need to do unusual things to compile Bash, please try to figure out how configure could check whether or not to do them, and mail diffs or instructions to bash-maintainers@gnu.org so they can be considered for the next release.
@@ -6548,10 +6917,12 @@ You can remove the program binaries and object files from the source code direct
 
 Some systems require unusual options for compilation or linking that the configure script does not know about. You can give configure initial values for variables by setting them in the environment. Using a Bourne-compatible shell, you can do that on the command line like this:
 
-CC=c89 CFLAGS=-O2 LIBS=-lposix ./configure
+    CC=c89 CFLAGS=-O2 LIBS=-lposix ./configure
+
 On systems that have the env program, you can do it like this:
 
-env CPPFLAGS=-I/usr/local/include LDFLAGS=-s ./configure
+    env CPPFLAGS=-I/usr/local/include LDFLAGS=-s ./configure
+
 The configuration process uses GCC to build Bash if it is available.
 
         ⬇ [Installation Names] ⬆ [Compilers and Options] ⬅ [Installing Bash]
@@ -6824,84 +7195,216 @@ Please send all reports concerning this manual to bug-bash@gnu.org.
 
 Bash implements essentially the same grammar, parameter and variable expansion, redirection, and quoting as the Bourne Shell. Bash uses the POSIX standard as the specification of how these features are to be implemented. There are some differences between the traditional Bourne shell and Bash; this section quickly details the differences of significance. A number of these differences are explained in greater depth in previous sections. This section uses the version of sh included in SVR4.2 (the last version of the historical Bourne shell) as the baseline reference.
 
-• Bash is POSIX-conformant, even where the POSIX specification differs from traditional sh behavior (see [bash POSIx mode]).
-• Bash has multi-character invocation options (see [invoking bash]).
-• Bash has command-line editing (see [command line editing]) and the bind builtin.
-• Bash provides a programmable word completion mechanism (see [programmable completion]), and builtin commands complete, compgen, and compopt, to manipulate it.
-• Bash has command history (see [bash history facilities]) and the history and fc builtins to manipulate it. The Bash history list maintains timestamp information and uses the value of the HISTTIMEFORMAT variable to display it.
-• Bash implements csh-like history expansion (see [history interaction]).
-• Bash has one-dimensional array variables (see [Arrays]), and the appropriate variable expansions and assignment syntax to use them. Several of the Bash builtins take options to act on arrays. Bash provides a number of built-in array variables.
-• The $'…' quoting syntax, which expands ANSI-C backslash-escaped characters in the text between the single quotes, is supported (see [ANSi-c quoting]).
-• Bash supports the $"…" quoting syntax to do locale-specific translation of the characters between the double quotes. The -D, --dump-strings, and --dump-po-strings invocation options list the translatable strings found in a script (see [locale translation]).
-• Bash implements the ! keyword to negate the return value of a pipeline (see [pipelines]). Very useful when an if statement needs to act only if a test fails. The Bash ‘-o pipefail’ option to set will cause a pipeline to return a failure status if any command fails.
-• Bash has the time reserved word and command timing (see [pipelines]). The display of the timing statistics may be controlled with the TIMEFORMAT variable.
-• Bash implements the for (( expr1 ; expr2 ; expr3 )) arithmetic for command, similar to the C language (see [looping constructs]).
-• Bash includes the select compound command, which allows the generation of simple menus (see [conditional constructs]).
-• Bash includes the [[ compound command, which makes conditional testing part of the shell grammar (see [conditional constructs]), including optional regular expression matching.
-• Bash provides optional case-insensitive matching for the case and [[ constructs.
-• Bash includes brace expansion (see [brace expansion]) and tilde expansion (see [tilde expansion]).
-• Bash implements command aliases and the alias and unalias builtins (see [aliases]).
-• Bash provides shell arithmetic, the (( compound command (see [conditional constructs]), and arithmetic expansion (see [shell arithmetic]).
-• Variables present in the shell’s initial environment are automatically exported to child processes. The Bourne shell does not normally do this unless the variables are explicitly marked using the export command.
-• Bash supports the ‘+=’ assignment operator, which appends to the value of the variable named on the left hand side.
-• Bash includes the POSIX pattern removal ‘%’, ‘#’, ‘%%’ and ‘##’ expansions to remove leading or trailing substrings from variable values (see [shell parameter expansion]).
-• The expansion ${#xx}, which returns the length of ${xx}, is supported (see [shell parameter expansion]).
-• The expansion ${var:offset[:length]}, which expands to the substring of var’s value of length length, beginning at offset, is present (see [shell parameter expansion]).
-• The expansion ${var/[/]pattern[/replacement]}, which matches pattern and replaces it with replacement in the value of var, is available (see [shell parameter expansion]).
-• The expansion `${!prefix*}` expansion, which expands to the names of all shell variables whose names begin with prefix, is available (see [shell parameter expansion]).
-• Bash has indirect variable expansion using ${!word} (see [shell parameter expansion]).
-• Bash can expand positional parameters beyond $9 using ${num}.
-• The POSIX $() form of command substitution is implemented (see [command substitution]), and preferred to the Bourne shell’s `` (which is also implemented for backwards compatibility).
-• Bash has process substitution (see [process substitution]).
-• Bash automatically assigns variables that provide information about the current user (UID, EUID, and GROUPS), the current host (HOSTTYPE, OSTYPE, MACHTYPE, and HOSTNAME), and the instance of Bash that is running (BASH, BASH_VERSION, and BASH_VERSINFO). See Bash Variables, for details.
-• The IFS variable is used to split only the results of expansion, not all words (see [word splitting]). This closes a longstanding shell security hole.
-• The filename expansion bracket expression code uses ‘!’ and ‘^’ to negate the set of characters between the brackets. The Bourne shell uses only ‘!’.
-• Bash implements the full set of POSIX filename expansion operators, including character classes, equivalence classes, and collating symbols (see [filename expansion]).
-• Bash implements extended pattern matching features when the extglob shell option is enabled (see [pattern matching]).
-• It is possible to have a variable and a function with the same name; sh does not separate the two name spaces.
-• Bash functions are permitted to have local variables using the local builtin, and thus useful recursive functions may be written (see [bash builtins]).
-• Variable assignments preceding commands affect only that command, even builtins and functions (see [environment]). In sh, all variable assignments preceding commands are global unless the command is executed from the file system.
-• Bash performs filename expansion on filenames specified as operands to input and output redirection operators (see [redirections]).
-• Bash contains the ‘<>’ redirection operator, allowing a file to be opened for both reading and writing, and the ‘&>’ redirection operator, for directing standard output and standard error to the same file (see [redirections]).
-• Bash includes the ‘<<<’ redirection operator, allowing a string to be used as the standard input to a command.
-• Bash implements the ‘[n]<&word’ and ‘[n]>&word’ redirection operators, which move one file descriptor to another.
-• Bash treats a number of filenames specially when they are used in redirection operators (see [redirections]).
-• Bash can open network connections to arbitrary machines and services with the redirection operators (see [redirections]).
-• The noclobber option is available to avoid overwriting existing files with output redirection (see [the set builtin]). The ‘>|’ redirection operator may be used to override noclobber.
-• The Bash cd and pwd builtins (see [bourne shell builtins]) each take -L and -P options to switch between logical and physical modes.
-• Bash allows a function to override a builtin with the same name, and provides access to that builtin’s functionality within the function via the builtin and command builtins (see [bash builtins]).
-• The command builtin allows selective disabling of functions when command lookup is performed (see [bash builtins]).
-• Individual builtins may be enabled or disabled using the enable builtin (see [bash builtins]).
-• The Bash exec builtin takes additional options that allow users to control the contents of the environment passed to the executed command, and what the zeroth argument to the command is to be (see [bourne shell builtins]).
-• Shell functions may be exported to children via the environment using export -f (see [shell functions]).
-• The Bash export, readonly, and declare builtins can take a -f option to act on shell functions, a -p option to display variables with various attributes set in a format that can be used as shell input, a -n option to remove various variable attributes, and ‘name=value’ arguments to set variable attributes and values simultaneously.
-• The Bash hash builtin allows a name to be associated with an arbitrary filename, even when that filename cannot be found by searching the $PATH, using ‘hash -p’ (see [bourne shell builtins]).
-• Bash includes a help builtin for quick reference to shell facilities (see [bash builtins]).
-• The printf builtin is available to display formatted output (see [bash builtins]).
-• The Bash read builtin (see [bash builtins]) will read a line ending in ‘\’ with the -r option, and will use the REPLY variable as a default if no non-option arguments are supplied. The Bash read builtin also accepts a prompt string with the -p option and will use Readline to obtain the line when given the -e option. The read builtin also has additional options to control input: the -s option will turn off echoing of input characters as they are read, the -t option will allow read to time out if input does not arrive within a specified number of seconds, the -n option will allow reading only a specified number of characters rather than a full line, and the -d option will read until a particular character rather than newline.
-• The return builtin may be used to abort execution of scripts executed with the . or source builtins (see [bourne shell builtins]).
-• Bash includes the shopt builtin, for finer control of shell optional capabilities (see [the shopt builtin]), and allows these options to be set and unset at shell invocation (see [invoking bash]).
-• Bash has much more optional behavior controllable with the set builtin (see [the set builtin]).
-• The ‘-x’ (xtrace) option displays commands other than simple commands when performing an execution trace (see [the set builtin]).
-• The test builtin (see [bourne shell builtins]) is slightly different, as it implements the POSIX algorithm, which specifies the behavior based on the number of arguments.
-• Bash includes the caller builtin, which displays the context of any active subroutine call (a shell function or a script executed with the . or source builtins). This supports the bash debugger.
-• The trap builtin (see [bourne shell builtins]) allows a DEBUG pseudo-signal specification, similar to EXIT. Commands specified with a DEBUG trap are executed before every simple command, for command, case command, select command, every arithmetic for command, and before the first command executes in a shell function. The DEBUG trap is not inherited by shell functions unless the function has been given the trace attribute or the functrace option has been enabled using the shopt builtin. The extdebug shell option has additional effects on the DEBUG trap.
-• The trap builtin (see [bourne shell builtins]) allows an ERR pseudo-signal specification, similar to EXIT and DEBUG. Commands specified with an ERR trap are executed after a simple command fails, with a few exceptions. The ERR trap is not inherited by shell functions unless the -o errtrace option to the set builtin is enabled.
+01. • Bash is POSIX-conformant, even where the POSIX specification 
+      differs from traditional sh behavior (see [bash POSIx mode]).
 
-   • The trap builtin (see [bourne shell builtins]) allows a RETURN pseudo-signal specification, similar to EXIT and DEBUG. Commands specified with an RETURN trap are executed before execution resumes after a shell function or a shell script executed with . or source returns. The RETURN trap is not inherited by shell functions unless the function has been given the trace attribute or the functrace option has been enabled using the shopt builtin.
+02. • Bash has multi-character invocation options (see [invoking bash]).
 
-   • The Bash type builtin is more extensive and gives more information about the names it finds (see [bash builtins]).
+03. • Bash has command-line editing (see [command line editing]) and the bind builtin.
 
-• The Bash umask builtin permits a -p option to cause the output to be displayed in the form of a umask command that may be reused as input (see [bourne shell builtins]).
-• Bash implements a csh-like directory stack, and provides the pushd, popd, and dirs builtins to manipulate it (see [the directory stack]). Bash also makes the directory stack visible as the value of the DIRSTACK shell variable.
-• Bash interprets special backslash-escaped characters in the prompt strings when interactive (see [controlling the prompt]).
-• The Bash restricted mode is more useful (see [the restricted shell]); the SVR4.2 shell restricted mode is too limited.
-• The disown builtin can remove a job from the internal shell job table (see [job control builtins]) or suppress the sending of SIGHUP to a job when the shell exits as the result of a SIGHUP.
-• Bash includes a number of features to support a separate debugger for shell scripts.
-• The SVR4.2 shell has two privilege-related builtins (mldmode and priv) not present in Bash.
-• Bash does not have the stop or newgrp builtins.
-• Bash does not use the SHACCT variable or perform shell accounting.
-• The SVR4.2 sh uses a TIMEOUT variable like Bash uses TMOUT.
+04. • Bash provides a programmable word completion mechanism 
+      (see [programmable completion]), and builtin commands complete, compgen, and compopt, to manipulate it.
+
+05. • Bash has command history 
+      (see [bash history facilities]) and the history and fc builtins to manipulate it. The Bash history list maintains timestamp information and uses the value of the HISTTIMEFORMAT variable to display it.
+
+06. • Bash implements csh-like history expansion (see [history interaction]).
+
+07. • Bash has one-dimensional array variables 
+      (see [Arrays]), and the appropriate variable expansions and assignment syntax to use them. Several of the Bash builtins take options to act on arrays. Bash provides a number of built-in array variables.
+
+08. • The $'…' quoting syntax, 
+      which expands ANSI-C backslash-escaped characters in the text between the single quotes, is supported (see [ANSi-c quoting]).
+
+09. • Bash supports the $"…" quoting syntax 
+      to do locale-specific translation of the characters between the double quotes. The -D, --dump-strings, and --dump-po-strings invocation options list the translatable strings found in a script (see [locale translation]).
+
+10. • Bash implements the ! keyword to negate the return value 
+      of a pipeline (see [pipelines]). Very useful when an if statement needs to act only if a test fails. The Bash ‘-o pipefail’ option to set will cause a pipeline to return a failure status if any command fails.
+
+11. • Bash has the time reserved word and command timing 
+      (see [pipelines]). The display of the timing statistics may be controlled with the TIMEFORMAT variable.
+
+12. • Bash implements the for (( expr1 ; expr2 ; expr3 )) 
+      arithmetic for command, similar to the C language (see [looping constructs]).
+
+13. • Bash includes the select compound command, 
+      which allows the generation of simple menus (see [conditional constructs]).
+
+14. • Bash includes the [[ compound command, 
+      which makes conditional testing part of the shell grammar (see [conditional constructs]), including optional regular expression matching.
+
+15. • Bash provides optional case-insensitive matching for the case and [[ constructs.
+
+16. • Bash includes brace expansion (see [brace expansion]) 
+      and tilde expansion (see [tilde expansion]).
+
+17. • Bash implements command aliases and the alias and unalias builtins (see [aliases]).
+
+18. • Bash provides shell arithmetic, the (( compound command 
+      (see [conditional constructs]), and arithmetic expansion (see [shell arithmetic]).
+
+19. • Variables present in the shell’s initial environment 
+      are automatically exported to child processes. The Bourne shell does not normally do this unless the variables are explicitly marked using the export command.
+
+20. • Bash supports the ‘+=’ assignment operator, 
+      which appends to the value of the variable named on the left hand side.
+
+21. • Bash includes the POSIX pattern removal ‘%’, ‘#’, ‘%%’ and ‘##’ 
+      expansions to remove leading or trailing substrings from variable values (see [shell parameter expansion]).
+
+22. • The expansion ${#xx}, which returns the length of ${xx}, 
+      is supported (see [shell parameter expansion]).
+
+23. • The expansion ${var:offset[:length]}, 
+      which expands to the substring of var’s value of length length, beginning at offset, is present (see [shell parameter expansion]).
+
+24. • The expansion ${var/[/]pattern[/replacement]}, 
+      which matches pattern and replaces it with replacement in the value of var, is available (see [shell parameter expansion]).
+
+25. • The expansion `${!prefix*}` expansion, 
+      which expands to the names of all shell variables whose names begin with prefix, is available (see [shell parameter expansion]).
+
+26. • Bash has indirect variable expansion using ${!word} 
+      (see [shell parameter expansion]).
+
+27. • Bash can expand positional parameters beyond $9 using ${num}.
+
+28. • The POSIX $() form of command substitution is implemented 
+      (see [command substitution]), and preferred to the Bourne shell’s `` (which is also implemented for backwards compatibility).
+
+29. • Bash has process substitution (see [process substitution]).
+
+30. • Bash automatically assigns variables that provide information 
+      about the current user (UID, EUID, and GROUPS), the current host (HOSTTYPE, OSTYPE, MACHTYPE, and HOSTNAME), and the instance of Bash that is running (BASH, BASH_VERSION, and BASH_VERSINFO). See Bash Variables, for details.
+
+31. • The IFS variable is used to split only the results of expansion, 
+      not all words (see [word splitting]). This closes a longstanding shell security hole.
+
+32. • The filename expansion bracket expression code uses ‘!’ and ‘^’ to 
+      negate the set of characters between the brackets. The Bourne shell uses only ‘!’.
+
+33. • Bash implements the full set of POSIX filename expansion operators, 
+      including character classes, equivalence classes, and collating symbols (see [filename expansion]).
+
+34. • Bash implements extended pattern matching features 
+      when the extglob shell option is enabled (see [pattern matching]).
+
+35. • It is possible to have a variable and a function 
+      with the same name; sh does not separate the two name spaces.
+
+36. • Bash functions are permitted to have local variables 
+      using the local builtin, and thus useful recursive functions may be written (see [bash builtins]).
+
+37. • Variable assignments preceding commands affect only that command, 
+      even builtins and functions (see [environment]). In sh, all variable assignments preceding commands are global unless the command is executed from the file system.
+
+38. • Bash performs filename expansion on filenames specified as operands 
+      to input and output redirection operators (see [redirections]).
+
+39. • Bash contains the ‘<>’ redirection operator, 
+      allowing a file to be opened for both reading and writing, and the ‘&>’ redirection operator, for directing standard output and standard error to the same file (see [redirections]).
+
+40. • Bash includes the ‘<<<’ redirection operator, 
+      allowing a string to be used as the standard input to a command.
+
+41. • Bash implements the ‘[n]<&word’ and ‘[n]>&word’ redirection operators, 
+      which move one file descriptor to another.
+
+42. • Bash treats a number of filenames specially 
+      when they are used in redirection operators (see [redirections]).
+
+43. • Bash can open network connections to arbitrary machines and services 
+      with the redirection operators (see [redirections]).
+
+44. • The noclobber option is available to avoid overwriting existing files 
+      with output redirection (see [the set builtin]). The ‘>|’ redirection operator may be used to override noclobber.
+
+45. • The Bash cd and pwd builtins (see [bourne shell builtins]) 
+      each take -L and -P options to switch between logical and physical modes.
+
+46. • Bash allows a function to override a builtin with the same name,
+       and provides access to that builtin’s functionality within the function via the builtin and command builtins (see [bash builtins]).
+
+47. • The command builtin allows selective disabling of functions 
+      when command lookup is performed (see [bash builtins]).
+
+48. • Individual builtins may be enabled or disabled using the enable builtin (see [bash builtins]).
+
+49. • The Bash exec builtin takes additional options that allow users 
+      to control the contents of the environment passed to the executed command, and what the zeroth argument to the command is to be (see [bourne shell builtins]).
+
+50. • Shell functions may be exported to children via the environment 
+      using export -f (see [shell functions]).
+
+51. • The Bash export, readonly, and declare builtins can take a -f option 
+      to act on shell functions, a -p option to display variables with various attributes set in a format that can be used as shell input, a -n option to remove various variable attributes, and ‘name=value’ arguments to set variable attributes and values simultaneously.
+
+52. • The Bash hash builtin allows a name to be associated 
+      with an arbitrary filename, even when that filename cannot be found by searching the $PATH, using ‘hash -p’ (see [bourne shell builtins]).
+
+53. • Bash includes a help builtin for quick reference to shell facilities (see [bash builtins]).
+
+54. • The printf builtin is available to display formatted output (see [bash builtins]).
+
+55. • The Bash read builtin (see [bash builtins]) 
+      will read a line ending in ‘\’ with the -r option, and will use the REPLY variable as a default if no non-option arguments are supplied. The Bash read builtin also accepts a prompt string with the -p option and will use Readline to obtain the line when given the -e option. The read builtin also has additional options to control input: the -s option will turn off echoing of input characters as they are read, the -t option will allow read to time out if input does not arrive within a specified number of seconds, the -n option will allow reading only a specified number of characters rather than a full line, and the -d option will read until a particular character rather than newline.
+
+56. • The return builtin may be used to abort execution of scripts executed 
+      with the . or source builtins (see [bourne shell builtins]).
+
+57. • Bash includes the shopt builtin, for finer control 
+      of shell optional capabilities (see [the shopt builtin]), and allows these options to be set and unset at shell invocation (see [invoking bash]).
+
+58. • Bash has much more optional behavior controllable with the set builtin (see [the set builtin]).
+
+59. • The ‘-x’ (xtrace) option displays commands other than simple commands 
+      when performing an execution trace (see [the set builtin]).
+
+60. • The test builtin (see [bourne shell builtins]) is slightly different, 
+      as it implements the POSIX algorithm, which specifies the behavior based on the number of arguments.
+
+61. • Bash includes the caller builtin, 
+      which displays the context of any active subroutine call (a shell function or a script executed with the . or source builtins). This supports the bash debugger.
+
+62. • The trap builtin (see [bourne shell builtins]) 
+      allows a DEBUG pseudo-signal specification, similar to EXIT. Commands specified with a DEBUG trap are executed before every simple command, for command, case command, select command, every arithmetic for command, and before the first command executes in a shell function. The DEBUG trap is not inherited by shell functions unless the function has been given the trace attribute or the functrace option has been enabled using the shopt builtin. The extdebug shell option has additional effects on the DEBUG trap.
+
+63. • The trap builtin (see [bourne shell builtins]) 
+      allows an ERR pseudo-signal specification, similar to EXIT and DEBUG. Commands specified with an ERR trap are executed after a simple command fails, with a few exceptions. The ERR trap is not inherited by shell functions unless the -o errtrace option to the set builtin is enabled.
+
+64. • The trap builtin (see [bourne shell builtins]) 
+      allows a RETURN pseudo-signal specification, similar to EXIT and DEBUG. Commands specified with an RETURN trap are executed before execution resumes after a shell function or a shell script executed with . or source returns. The RETURN trap is not inherited by shell functions unless the function has been given the trace attribute or the functrace option has been enabled using the shopt builtin.
+
+65. • The Bash type builtin is more extensive and gives more information 
+      about the names it finds (see [bash builtins]).
+
+66. • The Bash umask builtin permits a -p option to cause the output 
+      to be displayed in the form of a umask command that may be reused as input (see [bourne shell builtins]).
+
+67. • Bash implements a csh-like directory stack, 
+      and provides the pushd, popd, and dirs builtins to manipulate it (see [the directory stack]). Bash also makes the directory stack visible as the value of the DIRSTACK shell variable.
+
+68. • Bash interprets special backslash-escaped characters 
+      in the prompt strings when interactive (see [controlling the prompt]).
+
+69. • The Bash restricted mode is more useful (see [the restricted shell]); 
+      the SVR4.2 shell restricted mode is too limited.
+
+70. • The disown builtin can remove a job from 
+      the internal shell job table (see [job control builtins]) or suppress the sending of SIGHUP to a job when the shell exits as the result of a SIGHUP.
+
+71. • Bash includes a number of features to support a separate debugger for shell scripts.
+
+72. • The SVR4.2 shell has two privilege-related builtins (mldmode and priv) not present in Bash.
+
+73. • Bash does not have the stop or newgrp builtins.
+
+74. • Bash does not use the SHACCT variable or perform shell accounting.
+
+75. • The SVR4.2 sh uses a TIMEOUT variable like Bash uses TMOUT.
+
+
 
 More features unique to Bash may be found in Bash Features.
 
@@ -6929,20 +7432,23 @@ Since Bash is a completely new implementation, it does not suffer from many of t
 # /🚩 Appendix C GNU Free Documentation License
                                                *GNU Free Documentation License*
 
-Version 1.3, 3 November 2008
-Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
-http://fsf.org/
+    Version 1.3, 3 November 2008
+    Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
+    http://fsf.org/
 
-Everyone is permitted to copy and distribute verbatim copies
-of this license document, but changing it is not allowed.
-PREAMBLE
+    Everyone is permitted to copy and distribute verbatim copies
+    of this license document, but changing it is not allowed.
+
+1. PREAMBLE
+
 The purpose of this License is to make a manual, textbook, or other functional and useful document free in the sense of freedom: to assure everyone the effective freedom to copy and redistribute it, with or without modifying it, either commercially or noncommercially. Secondarily, this License preserves for the author and publisher a way to get credit for their work, while not being considered responsible for modifications made by others.
 
 This License is a kind of “copyleft”, which means that derivative works of the document must themselves be free in the same sense. It complements the GNU General Public License, which is a copyleft license designed for free software.
 
 We have designed this License in order to use it for manuals for free software, because free software needs free documentation: a free program should come with manuals providing the same freedoms that the software does. But this License is not limited to software manuals; it can be used for any textual work, regardless of subject matter or whether it is published as a printed book. We recommend this License principally for works whose purpose is instruction or reference.
 
-APPLICABILITY AND DEFINITIONS
+2. APPLICABILITY AND DEFINITIONS
+
 This License applies to any manual or other work, in any medium, that contains a notice placed by the copyright holder saying it can be distributed under the terms of this License. Such a notice grants a world-wide, royalty-free license, unlimited in duration, to use that work under the conditions stated herein. The “Document”, below, refers to any such manual or work. Any member of the public is a licensee, and is addressed as “you”. You accept the license if you copy, modify or distribute the work in a way requiring permission under copyright law.
 
 A “Modified Version” of the Document means any work containing the Document or a portion of it, either copied verbatim, or with modifications and/or translated into another language.
@@ -6965,12 +7471,14 @@ A section “Entitled XYZ” means a named subunit of the Document whose title e
 
 The Document may include Warranty Disclaimers next to the notice which states that this License applies to the Document. These Warranty Disclaimers are considered to be included by reference in this License, but only as regards disclaiming warranties: any other implication that these Warranty Disclaimers may have is void and has no effect on the meaning of this License.
 
-VERBATIM COPYING
+3. VERBATIM COPYING
+
 You may copy and distribute the Document in any medium, either commercially or noncommercially, provided that this License, the copyright notices, and the license notice saying this License applies to the Document are reproduced in all copies, and that you add no other conditions whatsoever to those of this License. You may not use technical measures to obstruct or control the reading or further copying of the copies you make or distribute. However, you may accept compensation in exchange for copies. If you distribute a large enough number of copies you must also follow the conditions in section 3.
 
 You may also lend copies, under the same conditions stated above, and you may publicly display copies.
 
-COPYING IN QUANTITY
+4. COPYING IN QUANTITY
+
 If you publish printed copies (or copies in media that commonly have printed covers) of the Document, numbering more than 100, and the Document’s license notice requires Cover Texts, you must enclose the copies in covers that carry, clearly and legibly, all these Cover Texts: Front-Cover Texts on the front cover, and Back-Cover Texts on the back cover. Both covers must also clearly and legibly identify you as the publisher of these copies. The front cover must present the full title with all words of the title equally prominent and visible. You may add other material on the covers in addition. Copying with changes limited to the covers, as long as they preserve the title of the Document and satisfy these conditions, can be treated as verbatim copying in other respects.
 
 If the required texts for either cover are too voluminous to fit legibly, you should put the first ones listed (as many as fit reasonably) on the actual cover, and continue the rest onto adjacent pages.
@@ -6979,24 +7487,68 @@ If you publish or distribute Opaque copies of the Document numbering more than 1
 
 It is requested, but not required, that you contact the authors of the Document well before redistributing any large number of copies, to give them a chance to provide you with an updated version of the Document.
 
-MODIFICATIONS
+5. MODIFICATIONS
+
 You may copy and distribute a Modified Version of the Document under the conditions of sections 2 and 3 above, provided that you release the Modified Version under precisely this License, with the Modified Version filling the role of the Document, thus licensing distribution and modification of the Modified Version to whoever possesses a copy of it. In addition, you must do these things in the Modified Version:
 
-Use in the Title Page (and on the covers, if any) a title distinct from that of the Document, and from those of previous versions (which should, if there were any, be listed in the History section of the Document). You may use the same title as a previous version if the original publisher of that version gives permission.
-List on the Title Page, as authors, one or more persons or entities responsible for authorship of the modifications in the Modified Version, together with at least five of the principal authors of the Document (all of its principal authors, if it has fewer than five), unless they release you from this requirement.
-State on the Title page the name of the publisher of the Modified Version, as the publisher.
-Preserve all the copyright notices of the Document.
-Add an appropriate copyright notice for your modifications adjacent to the other copyright notices.
-Include, immediately after the copyright notices, a license notice giving the public permission to use the Modified Version under the terms of this License, in the form shown in the Addendum below.
-Preserve in that license notice the full lists of Invariant Sections and required Cover Texts given in the Document’s license notice.
-Include an unaltered copy of this License.
-Preserve the section Entitled “History”, Preserve its Title, and add to it an item stating at least the title, year, new authors, and publisher of the Modified Version as given on the Title Page. If there is no section Entitled “History” in the Document, create one stating the title, year, authors, and publisher of the Document as given on its Title Page, then add an item describing the Modified Version as stated in the previous sentence.
-Preserve the network location, if any, given in the Document for public access to a Transparent copy of the Document, and likewise the network locations given in the Document for previous versions it was based on. These may be placed in the “History” section. You may omit a network location for a work that was published at least four years before the Document itself, or if the original publisher of the version it refers to gives permission.
-For any section Entitled “Acknowledgements” or “Dedications”, Preserve the Title of the section, and preserve in the section all the substance and tone of each of the contributor acknowledgements and/or dedications given therein.
-Preserve all the Invariant Sections of the Document, unaltered in their text and in their titles. Section numbers or the equivalent are not considered part of the section titles.
-Delete any section Entitled “Endorsements”. Such a section may not be included in the Modified Version.
-Do not retitle any existing section to be Entitled “Endorsements” or to conflict in title with any Invariant Section.
-Preserve any Warranty Disclaimers.
+   A. Use in the Title Page (and on the covers, if any) a title distinct from 
+      that of the Document, and from those of previous versions (which should, 
+      if there were any, be listed in the History section of the Document). 
+      You may use the same title as a previous version if the original publisher 
+      of that version gives permission.
+
+   B. List on the Title Page, as authors, one or more persons or entities responsible 
+      for authorship of the modifications in the Modified Version, together with at 
+      least five of the principal authors of the Document (all of its principal 
+      authors, if it has fewer than five), unless they release you from this requirement.
+
+   C. State on the Title page the name of the publisher of the Modified Version, as 
+      the publisher.
+
+   D. Preserve all the copyright notices of the Document.
+
+   E. Add an appropriate copyright notice for your modifications adjacent to the 
+      other copyright notices.
+
+   F. Include, immediately after the copyright notices, a license notice giving the 
+      public permission to use the Modified Version under the terms of this License, 
+      in the form shown in the Addendum below.
+      
+   G. Preserve in that license notice the full lists of Invariant Sections and 
+      required Cover Texts given in the Document’s license notice.
+
+   H. Include an unaltered copy of this License.
+
+   I. Preserve the section Entitled “History”, Preserve its Title, and add to it an 
+      item stating at least the title, year, new authors, and publisher of the 
+      Modified Version as given on the Title Page. If there is no section Entitled “History” 
+      in the Document, create one stating the title, year, authors, and publisher of 
+      the Document as given on its Title Page, then add an item describing the Modified 
+      Version as stated in the previous sentence.
+
+   J. Preserve the network location, if any, given in the Document for public access 
+      to a Transparent copy of the Document, and likewise the network locations given 
+      in the Document for previous versions it was based on. These may be placed in 
+      the “History” section. You may omit a network location for a work that was 
+      published at least four years before the Document itself, or if the original publisher 
+      of the version it refers to gives permission.
+
+   K. For any section Entitled “Acknowledgements” or “Dedications”, Preserve the 
+      Title of the section, and preserve in the section all the substance and tone of 
+      each of the contributor acknowledgements and/or dedications given therein.
+
+   L. Preserve all the Invariant Sections of the Document, unaltered in their text 
+      and in their titles. Section numbers or the equivalent are not considered part of 
+      the section titles.
+
+   M. Delete any section Entitled “Endorsements”. Such a section may not be included 
+      in the Modified Version.
+
+   N. Do not retitle any existing section to be Entitled “Endorsements” or to 
+      conflict in title with any Invariant Section.
+
+   O. Preserve any Warranty Disclaimers.
+
 If the Modified Version includes new front-matter sections or appendices that qualify as Secondary Sections and contain no material copied from the Document, you may at your option designate some or all of these sections as invariant. To do this, add their titles to the list of Invariant Sections in the Modified Version’s license notice. These titles must be distinct from any other section titles.
 
 You may add a section Entitled “Endorsements”, provided it contains nothing but endorsements of your Modified Version by various parties—for example, statements of peer review or that the text has been approved by an organization as the authoritative definition of a standard.
@@ -7005,29 +7557,34 @@ You may add a passage of up to five words as a Front-Cover Text, and a passage o
 
 The author(s) and publisher(s) of the Document do not by this License give permission to use their names for publicity for or to assert or imply endorsement of any Modified Version.
 
-COMBINING DOCUMENTS
+6. COMBINING DOCUMENTS
+
 You may combine the Document with other documents released under this License, under the terms defined in section 4 above for modified versions, provided that you include in the combination all of the Invariant Sections of all of the original documents, unmodified, and list them all as Invariant Sections of your combined work in its license notice, and that you preserve all their Warranty Disclaimers.
 
 The combined work need only contain one copy of this License, and multiple identical Invariant Sections may be replaced with a single copy. If there are multiple Invariant Sections with the same name but different contents, make the title of each such section unique by adding at the end of it, in parentheses, the name of the original author or publisher of that section if known, or else a unique number. Make the same adjustment to the section titles in the list of Invariant Sections in the license notice of the combined work.
 
 In the combination, you must combine any sections Entitled “History” in the various original documents, forming one section Entitled “History”; likewise combine any sections Entitled “Acknowledgements”, and any sections Entitled “Dedications”. You must delete all sections Entitled “Endorsements.”
 
-COLLECTIONS OF DOCUMENTS
+7. COLLECTIONS OF DOCUMENTS
+
 You may make a collection consisting of the Document and other documents released under this License, and replace the individual copies of this License in the various documents with a single copy that is included in the collection, provided that you follow the rules of this License for verbatim copying of each of the documents in all other respects.
 
 You may extract a single document from such a collection, and distribute it individually under this License, provided you insert a copy of this License into the extracted document, and follow this License in all other respects regarding verbatim copying of that document.
 
-AGGREGATION WITH INDEPENDENT WORKS
+8. AGGREGATION WITH INDEPENDENT WORKS
+
 A compilation of the Document or its derivatives with other separate and independent documents or works, in or on a volume of a storage or distribution medium, is called an “aggregate” if the copyright resulting from the compilation is not used to limit the legal rights of the compilation’s users beyond what the individual works permit. When the Document is included in an aggregate, this License does not apply to the other works in the aggregate which are not themselves derivative works of the Document.
 
 If the Cover Text requirement of section 3 is applicable to these copies of the Document, then if the Document is less than one half of the entire aggregate, the Document’s Cover Texts may be placed on covers that bracket the Document within the aggregate, or the electronic equivalent of covers if the Document is in electronic form. Otherwise they must appear on printed covers that bracket the whole aggregate.
 
-TRANSLATION
+9. TRANSLATION
+
 Translation is considered a kind of modification, so you may distribute translations of the Document under the terms of section 4. Replacing Invariant Sections with translations requires special permission from their copyright holders, but you may include translations of some or all Invariant Sections in addition to the original versions of these Invariant Sections. You may include a translation of this License, and all the license notices in the Document, and any Warranty Disclaimers, provided that you also include the original English version of this License and the original versions of those notices and disclaimers. In case of a disagreement between the translation and the original version of this License or a notice or disclaimer, the original version will prevail.
 
 If a section in the Document is Entitled “Acknowledgements”, “Dedications”, or “History”, the requirement (section 4) to Preserve its Title (section 1) will typically require changing the actual title.
 
-TERMINATION
+10. TERMINATION
+
 You may not copy, modify, sublicense, or distribute the Document except as expressly provided under this License. Any attempt otherwise to copy, modify, sublicense, or distribute it is void, and will automatically terminate your rights under this License.
 
 However, if you cease all violation of this License, then your license from a particular copyright holder is reinstated (a) provisionally, unless and until the copyright holder explicitly and finally terminates your license, and (b) permanently, if the copyright holder fails to notify you of the violation by some reasonable means prior to 60 days after the cessation.
@@ -7036,12 +7593,14 @@ Moreover, your license from a particular copyright holder is reinstated permanen
 
 Termination of your rights under this section does not terminate the licenses of parties who have received copies or rights from you under this License. If your rights have been terminated and not permanently reinstated, receipt of a copy of some or all of the same material does not give you any rights to use it.
 
-FUTURE REVISIONS OF THIS LICENSE
+11. FUTURE REVISIONS OF THIS LICENSE
+
 The Free Software Foundation may publish new, revised versions of the GNU Free Documentation License from time to time. Such new versions will be similar in spirit to the present version, but may differ in detail to address new problems or concerns. See http://www.gnu.org/copyleft/.
 
 Each version of the License is given a distinguishing version number. If the Document specifies that a particular numbered version of this License “or any later version” applies to it, you have the option of following the terms and conditions either of that specified version or of any later version that has been published (not as a draft) by the Free Software Foundation. If the Document does not specify a version number of this License, you may choose any version ever published (not as a draft) by the Free Software Foundation. If the Document specifies that a proxy can decide which future versions of this License can be used, that proxy’s public statement of acceptance of a version permanently authorizes you to choose that version for the Document.
 
-RELICENSING
+12. RELICENSING
+
 “Massive Multiauthor Collaboration Site” (or “MMC Site”) means any World Wide Web server that publishes copyrightable works and also provides prominent facilities for anybody to edit those works. A public wiki that anybody can edit is an example of such a server. A “Massive Multiauthor Collaboration” (or “MMC”) contained in the site means any set of copyrightable works thus published on the MMC site.
 
 “CC-BY-SA” means the Creative Commons Attribution-Share Alike 3.0 license published by Creative Commons Corporation, a not-for-profit corporation with a principal place of business in San Francisco, California, as well as future copyleft versions of that license published by that same organization.
@@ -7055,13 +7614,13 @@ The operator of an MMC Site may republish an MMC contained in the site under CC-
 ADDENDUM: How to use this License for your documents
 To use this License in a document you have written, include a copy of the License in the document and put the following copyright and license notices just after the title page:
 
-  Copyright (C)  year  your name.
-  Permission is granted to copy, distribute and/or modify this document
-  under the terms of the GNU Free Documentation License, Version 1.3
-  or any later version published by the Free Software Foundation;
-  with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
-  Texts.  A copy of the license is included in the section entitled ``GNU
-  Free Documentation License''.
+     Copyright (C)  year  your name.
+     Permission is granted to copy, distribute and/or modify this document
+     under the terms of the GNU Free Documentation License, Version 1.3
+     or any later version published by the Free Software Foundation;
+     with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
+     Texts.  A copy of the license is included in the section entitled ``GNU
+     Free Documentation License''.
 
 If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts, replace the “with…Texts.” line with this:
 

@@ -3,8 +3,10 @@
 ========================
 https://www.st.com/en/microcontrollers-microprocessors/stm32f103cb.html
 
-This is information on a product in full production.
-September 2023 DS5319 Rev 19 1/114
+https://www.st.com/resource/en/datasheet/stm32f103cb.pdf
+
+                    This is information on a product in full production.
+                                     September 2023 DS5319 Rev 19 1/114
 
                                                             STM32F103x8
                                                             STM32F103xB
@@ -306,7 +308,9 @@ Includes ST state-of-the-art patented technology
 
 
 
-                                <!-- *9*/114 -->
+<!-- *P9*/114 -->
+[P9]: #P9
+<a id="P9"></a>
 
 
 /1 Introduction
@@ -348,7 +352,9 @@ applications, PLCs, inverters, printers, scanners, alarm systems, video intercom
 HVACs.
 a. Arm is a registered trademark of Arm Limited (or its subsidiaries) in the US and/or elsewhere.
 
-                                <!-- *P10*/114 -->
+<!-- *P10*/114 -->
+[P10]: #P10
+<a id="P10"></a>
 
 
 //2.1 Device overview
@@ -397,7 +403,9 @@ LQFP100,
 LFBGA100,
 UFBGA100
 
-                                <!-- *11*/114 -->
+<!-- *11*/114 -->
+[11]: #11
+<a id="11"></a>
 
 
 **Figure 1**. STM32F103xx performance line block diagram
@@ -545,7 +553,9 @@ TPIU
 Trace/trig
 CK, SmartCard as AF
 
-                                <!-- *P12*/114 -->
+<!-- *P12*/114 -->
+[P12]: #P12
+<a id="P12"></a>
 
 
 **Figure 2**. Clock tree
@@ -666,7 +676,9 @@ ai14903
 FLITFCLK
 to Flash programming interface
 
-                                <!-- *13*/114 -->
+<!-- *13*/114 -->
+[13]: #13
+<a id="13"></a>
 
 
 //2.2 Full compatibility throughout the family
@@ -730,7 +742,9 @@ CAN, 1× PWM timer
 48 - - -
 36 - - -
 
-                                <!-- *P14*/114 -->
+<!-- *P14*/114 -->
+[P14]: #P14
+<a id="P14"></a>
 
 
 //2.3 Overview
@@ -782,7 +796,9 @@ M3) and 16 priority levels.
 • Processor state automatically saved
 • Interrupt entry restored on interrupt exit with no instruction overhead
 
-                                <!-- *15*/114 -->
+<!-- *15*/114 -->
+[15]: #15
+<a id="15"></a>
 
 This hardware block provides flexible interrupt management features with minimal interrupt
 latency.
@@ -834,7 +850,9 @@ For more details on how to connect power pins, refer to Figure 14: Power supply 
 The device has an integrated power-on reset (POR)/power-down reset (PDR) circuitry. It is
 always active, and ensures proper operation starting from/down to 2 V. The device remains
 
-                                <!-- *P16*/114 -->
+<!-- *P16*/114 -->
+[P16]: #P16
+<a id="P16"></a>
 
 in reset mode when V DD is below a specified threshold, V POR/PDR , without the need for an
 external reset circuit.
@@ -883,7 +901,9 @@ rising edge on the WKUP pin, or an RTC alarm occurs.
 Note: The RTC, the IWDG, and the corresponding clock sources are not stopped by entering Stop
 or Standby mode.
 
-                                <!-- *17*/114 -->
+<!-- *17*/114 -->
+[17]: #17
+<a id="17"></a>
 
 
 //2.3.13 DMA
@@ -955,7 +975,9 @@ between 1
 and 65536
 Yes 4 No
 
-                                <!-- *P18*/114 -->
+<!-- *P18*/114 -->
+[P18]: #P18
+<a id="P18"></a>
 
 Advanced-control timer (TIM1)
 The advanced-control timer (TIM1) can be seen as a three-phase PWM multiplexed on 6
@@ -998,7 +1020,9 @@ can be used as a watchdog to reset the device when a problem occurs. It is clock
 the main clock. It has an early warning interrupt capability and the counter can be frozen in
 debug mode.
 
-                                <!-- *19*/114 -->
+<!-- *19*/114 -->
+[19]: #19
+<a id="19"></a>
 
 SysTick timer
 This timer is dedicated for OS, but can be used also as a standard downcounter. It features:
@@ -1046,7 +1070,9 @@ interface. It has software-configurable endpoint setting and suspend/resume supp
 dedicated 48 MHz clock is generated from the internal main PLL (the clock source must use
 a HSE crystal oscillator).
 
-                                <!-- *P20*/114 -->
+<!-- *P20*/114 -->
+[P20]: #P20
+<a id="P20"></a>
 
 
 //2.3.21 GPIOs (general-purpose inputs/outputs)
@@ -1091,7 +1117,9 @@ port that enables either a serial wire debug or a JTAG probe to be connected to 
 The JTAG TMS and TCK pins are shared with SWDIO and SWCLK, respectively, and a
 specific sequence on the TMS pin is used to switch between JTAG-DP and SW-DP.
 
-                                <!-- *21*/114 -->
+<!-- *21*/114 -->
+[21]: #21
+<a id="21"></a>
 
 
 /3 Pinouts and pin description
@@ -1101,7 +1129,9 @@ specific sequence on the TMS pin is used to switch between JTAG-DP and SW-DP.
 **Figure 3**. STM32F103xx performance line LFBGA100 ballout
 
 
-                                <!-- *P22*/114 -->
+<!-- *P22*/114 -->
+[P22]: #P22
+<a id="P22"></a>
 
 
 **Figure 4**. STM32F103xx performance line LQFP100 pinout
@@ -1309,7 +1339,9 @@ PA1
 PA2
 LQFP100
 
-                                <!-- *23*/114 -->
+<!-- *23*/114 -->
+[23]: #23
+<a id="23"></a>
 
 
 **Figure 5**. STM32F103xx performance line UFBGA100 pinout
@@ -1433,7 +1465,9 @@ VDD_1
 PC13
 OSC32_IN
 
-                                <!-- *P24*/114 -->
+<!-- *P24*/114 -->
+[P24]: #P24
+<a id="P24"></a>
 
 
 **Figure 6**. STM32F103xx performance line LQFP64 pinout
@@ -1539,7 +1573,9 @@ V DD_1
 LQFP64
 ai14392
 
-                                <!-- *25*/114 -->
+<!-- *25*/114 -->
+[25]: #25
+<a id="25"></a>
 
 
 **Figure 7**. STM32F103xx performance line TFBGA64 ballout
@@ -1602,7 +1638,9 @@ PB15
 PB12
 PA0-WKUP
 
-                                <!-- *P26*/114 -->
+<!-- *P26*/114 -->
+[P26]: #P26
+<a id="P26"></a>
 
 
 **Figure 8**. STM32F103xx performance line LQFP48 pinout
@@ -1767,7 +1805,9 @@ QFPN48
 11
 12
 
-                                <!-- *27*/114 -->
+<!-- *27*/114 -->
+[27]: #27
+<a id="27"></a>
 
 
 **Figure 10**. STM32F103xx performance line VFQFPN36 pinout
@@ -1816,7 +1856,9 @@ V SS_1
 ai14654
 
 
-                                <!-- *P28*/114 -->
+<!-- *P28*/114 -->
+[P28]: #P28
+<a id="P28"></a>
 
 
 
@@ -1867,7 +1909,9 @@ H1 K1 - - - 20 - V REF- S - V REF- - -
 J1 L1 - G1 (8) - 21 - V REF+ S - V REF+ - -
 K1 M1 9 H1 13 22 6 V DDA S - V DDA - -
 
-                                <!-- *29*/114 -->
+<!-- *29*/114 -->
+[29]: #29
+<a id="29"></a>
 
     G2 L2 10 G2 14 23 7 PA0-WKUP I/O - PA0
     WKUP/
@@ -1940,7 +1984,9 @@ K1 M1 9 H1 13 22 6 V DDA S - V DDA - -
     VFQFPN36
     Default Remap
 
-                                <!-- *P30*/114 -->
+<!-- *P30*/114 -->
+[P30]: #P30
+<a id="P30"></a>
 
     G5 L6 20 G6 28 37 17 PB2 I/O FT PB2/BOOT1 - -
     H5 M7 - - - 38 - PE7 I/O FT PE7 - TIM1_ETR
@@ -2002,7 +2048,9 @@ K1 M1 9 H1 13 22 6 V DDA S - V DDA - -
     VFQFPN36
     Default Remap
 
-                                <!-- *31*/114 -->
+<!-- *31*/114 -->
+[31]: #31
+<a id="31"></a>
 
     H9 J12 - - - 57 - PD10 I/O FT PD10 - USART3_CK
     G9 J11 - - - 58 - PD11 I/O FT PD11 - USART3_CTS
@@ -2063,7 +2111,9 @@ K1 M1 9 H1 13 22 6 V DDA S - V DDA - -
     VFQFPN36
     Default Remap
 
-                                <!-- *P32*/114 -->
+<!-- *P32*/114 -->
+[P32]: #P32
+<a id="P32"></a>
 
 A9 A10 37 A7 49 76 28 PA14 I/O FT JTCK/SWCLK - PA14
 A8 A9 38 A6 50 77 29 PA15 I/O FT JTDI -
@@ -2120,7 +2170,9 @@ LQFP100
 VFQFPN36
 Default Remap
 
-                                <!-- *33*/114 -->
+<!-- *33*/114 -->
+[33]: #33
+<a id="33"></a>
 
 B4 A3 45 B3 61 95 - PB8 I/O FT PB8 TIM4_CH3 (9)
 I2C1_SCL /
@@ -2174,7 +2226,9 @@ LQFP100
 VFQFPN36
 Default Remap
 
-                                <!-- *P34*/114 -->
+<!-- *P34*/114 -->
+[P34]: #P34
+<a id="P34"></a>
 
 
 /4 Memory mapping
@@ -2322,7 +2376,9 @@ Reserved
 1
 0
 
-                                <!-- *35*/114 -->
+<!-- *35*/114 -->
+[35]: #35
+<a id="35"></a>
 
 
 /5 Electrical characteristics
@@ -2383,7 +2439,9 @@ The input voltage measurement on a pin of the device is described in Figure 13.
          ⏚            ai14141              ⏚            ai14142
 
 
-                                <!-- *P36*/114 -->
+<!-- *P36*/114 -->
+[P36]: #P36
+<a id="P36"></a>
 <!-- 
 @startuml
 [-> Boy
@@ -2448,7 +2506,9 @@ V DDA
 I DD _V BAT
 I DD
 
-                                <!-- *37*/114 -->
+<!-- *37*/114 -->
+[37]: #37
+<a id="37"></a>
 
 
 //5.2 Absolute maximum ratings
@@ -2513,7 +2573,9 @@ T STG Storage temperature range –65 to +150
 °C
 T J Maximum junction temperature 150
 
-                                <!-- *P38*/114 -->
+<!-- *P38*/114 -->
+[P38]: #P38
+<a id="P38"></a>
 
 
 //5.3 Operating conditions
@@ -2584,7 +2646,9 @@ T J Junction temperature range
 6 suffix version –40 105
 7 suffix version –40 125
 
-                                <!-- *39*/114 -->
+<!-- *39*/114 -->
+[39]: #39
+<a id="39"></a>
 
 
 //5.3.2 Operating conditions at power-up / power-down
@@ -2646,7 +2710,9 @@ T RSTTEMPO (2)
 2. Specified by design, not tested in production.
 Reset temporization - 1.0 2.5 4.5 ms
 
-                                <!-- *P40*/114 -->
+<!-- *P40*/114 -->
+[P40]: #P40
+<a id="P40"></a>
 
 
 //5.3.4 Embedded reference voltage
@@ -2699,7 +2765,9 @@ range
 V DD = 3 V ±10 mV - - 10 mV
 T Coeff (2) Temperature coefficient - - - 100 ppm/°C
 
-                                <!-- *41*/114 -->
+<!-- *41*/114 -->
+[41]: #41
+<a id="41"></a>
 
 
 
@@ -2765,7 +2833,9 @@ peripherals disabled
 16 MHz 8.5 9
 8 MHz 5.5 6
 
-                                <!-- *P42*/114 -->
+<!-- *P42*/114 -->
+[P42]: #P42
+<a id="P42"></a>
 
 
 **Figure 16**. Typical current consumption in Run mode versus frequency (at 3.6 V),
@@ -2808,7 +2878,9 @@ Consumption (mA)
 16 MHz
 8 MHz
 
-                                <!-- *43*/114 -->
+<!-- *43*/114 -->
+[43]: #43
+<a id="43"></a>
 
 
 **Table 15**. Maximum current consumption in Sleep mode, code running
@@ -2841,7 +2913,9 @@ peripherals disabled
 1. Based on characterization, tested in production at V DD max , f HCLK max with peripherals enabled.
 2. External clock is 8 MHz and PLL is on when f HCLK > 8 MHz.
 
-                                <!-- *P44*/114 -->
+<!-- *P44*/114 -->
+[P44]: #P44
+<a id="P44"></a>
 
 
 
@@ -2912,7 +2986,9 @@ Consumption ( µA )
 3.6 V
 ai17351
 
-                                <!-- *45*/114 -->
+<!-- *45*/114 -->
+[45]: #45
+<a id="45"></a>
 
 
 **Figure 19**. Typical current consumption in Stop mode, with regulator in Run mode
@@ -2945,7 +3021,9 @@ Consumption (µA)
 3.3 V
 3.6 V
 
-                                <!-- *P46*/114 -->
+<!-- *P46*/114 -->
+[P46]: #P46
+<a id="P46"></a>
 
 
 **Figure 21**. Typical current consumption in Standby mode
@@ -2976,7 +3054,9 @@ Consumption (µA)
 3.3 V
 3.6 V
 
-                                <!-- *47*/114 -->
+<!-- *47*/114 -->
+[47]: #47
+<a id="47"></a>
 
 
 
@@ -3030,7 +3110,9 @@ mA
 500 kHz 0.73 0.67
 125 kHz 0.5 0.48
 
-                                <!-- *P48*/114 -->
+<!-- *P48*/114 -->
+[P48]: #P48
+<a id="P48"></a>
 
 
 
@@ -3082,7 +3164,9 @@ frequency
 500 kHz 0.49 0.42
 125 kHz 0.43 0.41
 
-                                <!-- *49*/114 -->
+<!-- *49*/114 -->
+[49]: #49
+<a id="49"></a>
 
 On-chip peripheral current consumption
 The current consumption of the on-chip peripherals is given in Table 19. The MCU is put
@@ -3119,7 +3203,9 @@ PWR 1.67
 BKP 2.50
 IWDG 11.67
 
-                                <!-- *P50*/114 -->
+<!-- *P50*/114 -->
+[P50]: #P50
+<a id="P50"></a>
 
 
 //5.3.6 External clock source characteristics
@@ -3170,7 +3256,9 @@ C in(HSE) OSC_IN input capacitance (1) - - 5 - pF
 DuCy (HSE) Duty cycle - 45 - 55 %
 I L OSC_IN Input leakage current V SS ≤ V IN ≤ V DD - - ±1 µA
 
-                                <!-- *51*/114 -->
+<!-- *51*/114 -->
+[51]: #51
+<a id="51"></a>
 
 Low-speed external user clock generated from an external source
 The characteristics given in Table 21 result from tests performed using a low-speed external
@@ -3222,7 +3310,9 @@ t W(HSE)
 f HSE_ext
 V HSEL
 
-                                <!-- *P52*/114 -->
+<!-- *P52*/114 -->
+[P52]: #P52
+<a id="P52"></a>
 
 
 **Figure 23**. Low-speed external clock source AC timing diagram
@@ -3276,7 +3366,9 @@ t SU(HSE (3) Startup time V DD is stabilized - 2 - ms
 oscillation is reached. This value is measured for a standard crystal resonator and it can vary significantly
 with the crystal manufacturer
 
-                                <!-- *53*/114 -->
+<!-- *53*/114 -->
+[53]: #53
+<a id="53"></a>
 
 C L2 . Refer to AN2867 “Oscillator design guide for ST microcontrollers”, available from the
 STMicroelectronics website www.st.com.
@@ -3336,7 +3428,9 @@ T A = -40 °C - 60 -
 stabilized 32.768 kHz oscillation is reached. This value is measured for a standard crystal and it can vary significantly with
 the crystal manufacturer
 
-                                <!-- *P54*/114 -->
+<!-- *P54*/114 -->
+[P54]: #P54
+<a id="P54"></a>
 
 usually the same size. The crystal manufacturer typically specifies a load capacitance,
 which is the series combination of C L1 and C L2 .
@@ -3404,7 +3498,9 @@ HSI oscillator power
 consumption
 - - 80 100 µA
 
-                                <!-- *55*/114 -->
+<!-- *55*/114 -->
+[55]: #55
+<a id="55"></a>
 
 Low-speed internal (LSI) RC oscillator
 
@@ -3433,7 +3529,9 @@ t su(LSI) (3)
 LSI oscillator startup time - - 85 µs
 I DD(LSI) (3) LSI oscillator power consumption - 0.65 1.2 µA
 
-                                <!-- *P56*/114 -->
+<!-- *P56*/114 -->
+[P56]: #P56
+<a id="P56"></a>
 
 
 
@@ -3487,7 +3585,9 @@ t ERASE Page (1 KB) erase time T A = –40 to +105 °C 20 - 40
 ms
 t ME Mass erase time T A = –40 to +105 °C 20 - 40
 
-                                <!-- *57*/114 -->
+<!-- *57*/114 -->
+[57]: #57
+<a id="57"></a>
 
 
 
@@ -3542,7 +3642,9 @@ Years 1 kcycle (2) at T A = 105 °C 10 - -
 Table 28. Flash memory characteristics (continued)
 Symbol Parameter Conditions Min (1) Typ Max (1) Unit
 
-                                <!-- *P58*/114 -->
+<!-- *P58*/114 -->
+[P58]: #P58
+<a id="P58"></a>
 
 
 Designing hardened software to avoid noise problems
@@ -3609,7 +3711,9 @@ Level (2)
 2. Refer to AN1709 “EMI level classification” chapter.
 0.1 MHz to 1GHz 4 -
 
-                                <!-- *59*/114 -->
+<!-- *59*/114 -->
+[59]: #59
+<a id="59"></a>
 
 
 
@@ -3677,7 +3781,9 @@ II 500
 Symbol Parameter Conditions Class
 LU Static latch-up class T A = +105 °C conforming to JESD78A II level A
 
-                                <!-- *P60*/114 -->
+<!-- *P60*/114 -->
+[P60]: #P60
+<a id="P60"></a>
 
 
 //5.3.12 I/O current injection characteristics
@@ -3711,7 +3817,9 @@ mA
 Injected current on all FT pins -5 +0
 Injected current on any other pin -5 +5
 
-                                <!-- *61*/114 -->
+<!-- *61*/114 -->
+[61]: #61
+<a id="61"></a>
 
 
 //5.3.13 I/O port characteristics
@@ -3790,7 +3898,9 @@ otherwise specified.
 5. With a minimum of 100 mV.
 6. Leakage can be higher than Max if negative current is injected on adjacent pins.
 
-                                <!-- *P62*/114 -->
+<!-- *P62*/114 -->
+[P62]: #P62
+<a id="P62"></a>
 
 All I/Os are CMOS and TTL compliant (no software configuration required). Their
 characteristics cover more than the strict CMOS-technology or TTL parameters. The
@@ -3857,7 +3967,9 @@ Based on design simulations
 Area not
 determined
 
-                                <!-- *63*/114 -->
+<!-- *63*/114 -->
+[63]: #63
+<a id="63"></a>
 
 
 **Figure 28**. 5 V tolerant I/O input characteristics - CMOS port
@@ -3915,7 +4027,9 @@ Based on design simulations
 Area not
 determined
 
-                                <!-- *P64*/114 -->
+<!-- *P64*/114 -->
+[P64]: #P64
+<a id="P64"></a>
 
 Output driving current
 The GPIOs (general-purpose inputs/outputs) can sink or source up to ±8 mA, and sink or
@@ -3989,7 +4103,9 @@ and the sum of I IO (I/O ports and control pins) must not exceed I VSS .
 Table 7 and the sum of I IO (I/O ports and control pins) must not exceed I VDD .
 4. Evaluated by characterization, not tested in production, unless otherwise specified.
 
-                                <!-- *65*/114 -->
+<!-- *65*/114 -->
+[65]: #65
+<a id="65"></a>
 
 Input/output AC characteristics
 The definition and values of input/output AC characteristics are given in Figure 30 and
@@ -4057,7 +4173,9 @@ signals detected by
 the EXTI controller
 - 10 - ns
 
-                                <!-- *P66*/114 -->
+<!-- *P66*/114 -->
+[P66]: #P66
+<a id="P66"></a>
 
 
 **Figure 30**. I/O AC characteristics definition
@@ -4104,7 +4222,9 @@ V IN = V SS 30 40 50 kΩ
 V F(NRST) (1) NRST Input filtered pulse - - - 100 ns
 V NF(NRST) (1) NRST Input not filtered pulse - 300 - - ns
 
-                                <!-- *67*/114 -->
+<!-- *67*/114 -->
+[67]: #67
+<a id="67"></a>
 
 
 **Figure 31**. Recommended NRST pin protection
@@ -4153,7 +4273,9 @@ t MAX_COUNT Maximum possible count
 - - 65536 × 65536 t TIMxCLK
 f TIMxCLK = 72 MHz - 59.6 s
 
-                                <!-- *P68*/114 -->
+<!-- *P68*/114 -->
+[P68]: #P68
+<a id="P68"></a>
 
 
 //5.3.16 Communications interfaces
@@ -4201,7 +4323,9 @@ I2C frequencies. It must be a multiple of 10 MHz to reach the 400 kHz maximum I2
 3. The maximum Data hold time must be met if the interface does not stretch the low period of SCL signal.
 4. The minimum width of the spikes filtered by the analog filter is above t SP (max).
 
-                                <!-- *69*/114 -->
+<!-- *69*/114 -->
+[69]: #69
+<a id="69"></a>
 
 
 **Figure 32**. I2C bus AC waveforms and measurement circuit
@@ -4251,7 +4375,9 @@ Rp Rp
 Rs
 Rs
 
-                                <!-- *P70*/114 -->
+<!-- *P70*/114 -->
+[P70]: #P70
+<a id="P70"></a>
 
 SPI interface characteristics
 Unless otherwise specified, the parameters given in Table 43 are derived from tests
@@ -4312,7 +4438,9 @@ Data output hold time
 Slave mode (after enable edge) 15 -
 t h(MO) (1) Master mode (after enable edge) 2 -
 
-                                <!-- *71*/114 -->
+<!-- *71*/114 -->
+[71]: #71
+<a id="71"></a>
 
 
 **Figure 33**. SPI timing diagram - slave mode and CPHA = 0
@@ -4365,7 +4493,9 @@ Last bit OUT
 First bit IN Last bit IN Next bits IN
 t h(SO)
 
-                                <!-- *P72*/114 -->
+<!-- *P72*/114 -->
+[P72]: #P72
+<a id="P72"></a>
 
 
 **Figure 35**. SPI timing diagram - master mode
@@ -4403,7 +4533,9 @@ Symbol Parameter Max Unit
 t STARTUP (1) USB transceiver startup time 1 µs
 1. Guaranteed by design.
 
-                                <!-- *73*/114 -->
+<!-- *73*/114 -->
+[73]: #73
+<a id="73"></a>
 
 
 
@@ -4462,7 +4594,9 @@ V CRS
 V SS
 t f t r
 
-                                <!-- *P74*/114 -->
+<!-- *P74*/114 -->
+[P74]: #P74
+<a id="P74"></a>
 
 
 //5.3.18 12-bit ADC characteristics
@@ -4529,7 +4663,9 @@ connected to V SSA . Devices that come in the TFBGA64 package have a V REF+ pin 
 connected to V SSA ), see Table 5 and Figure 7.
 4. For external triggers, a delay of 1/f PCLK2 must be added to the latency specified in Table 47.
 
-                                <!-- *75*/114 -->
+<!-- *75*/114 -->
+[75]: #75
+<a id="75"></a>
 
 Equation 1: R AIN max formula:
 The formula above (Equation 1) is used to determine the maximum external impedance allowed for an
@@ -4581,7 +4717,9 @@ f ADC C ADC 2 N
 ( ) ln × ×
 --------------------------------------------------------------- - R ADC – <
 
-                                <!-- *P76*/114 -->
+<!-- *P76*/114 -->
+[P76]: #P76
+<a id="P76"></a>
 
 
 
@@ -4667,7 +4805,9 @@ V REF+
 (2 n-1 /2 n )*V REF+
 (2 n /2 n )*V REF+
 
-                                <!-- *77*/114 -->
+<!-- *77*/114 -->
+[77]: #77
+<a id="77"></a>
 
 
 **Figure 38**. Typical connection diagram using the ADC
@@ -4715,7 +4855,9 @@ V SSA /V REF–
 1 μF // 10 nF
 ai14388b
 
-                                <!-- *P78*/114 -->
+<!-- *P78*/114 -->
+[P78]: #P78
+<a id="P78"></a>
 
 
 **Figure 40**. Power supply and reference decoupling (V REF+ connected to V DDA )
@@ -4749,7 +4891,9 @@ T S_temp (3)(2)
 3. Shortest sampling time can be determined in the application by multiple iterations.
 ADC sampling time when reading the temperature - - 17.1
 
-                                <!-- *79*/114 -->
+<!-- *79*/114 -->
+[79]: #79
+<a id="79"></a>
 
 
 /6 Package information
@@ -4772,7 +4916,9 @@ using any of these engineering samples in production. ST’s Quality department 
 contacted prior to any decision to use these engineering samples to run a qualification
 activity.
 
-                                <!-- *P80*/114 -->
+<!-- *P80*/114 -->
+[P80]: #P80
+<a id="P80"></a>
 
 
 //6.2 VFQFPN36 package information
@@ -4809,7 +4955,9 @@ L
 L
 K
 
-                                <!-- *81*/114 -->
+<!-- *81*/114 -->
+[81]: #81
+<a id="81"></a>
 
 
 
@@ -4834,7 +4982,9 @@ L 0.350 0.550 0.750 0.0138 0.0217 0.0295
 K 0.250 - - 0.0098 - -
 ddd - - 0.080 - - 0.0031
 
-                                <!-- *P82*/114 -->
+<!-- *P82*/114 -->
+[P82]: #P82
+<a id="P82"></a>
 
 
 **Figure 42**. VFQFPN - 36 pin, 6x6 mm, 0.5 mm pitch very thin profile fine pitch quad flat
@@ -4861,7 +5011,9 @@ ZR_FP_V1
 10
 0.75
 
-                                <!-- *83*/114 -->
+<!-- *83*/114 -->
+[83]: #83
+<a id="83"></a>
 
 
 //6.3 UFQFPN48 package information (A0B9)
@@ -4903,7 +5055,9 @@ D
 TOP VIEW
 A0B9_UFQFPN48_ME_V4
 
-                                <!-- *P84*/114 -->
+<!-- *P84*/114 -->
+[P84]: #P84
+<a id="P84"></a>
 
 
 
@@ -4956,7 +5110,9 @@ A0B9_UFQFPN48_FP_V3
 36
 37
 
-                                <!-- *85*/114 -->
+<!-- *85*/114 -->
+[85]: #85
+<a id="85"></a>
 
 
 //6.4 LFBGA100 package information
@@ -5020,7 +5176,9 @@ identifier
 A1 ball
 index area
 
-                                <!-- *P86*/114 -->
+<!-- *P86*/114 -->
+[P86]: #P86
+<a id="P86"></a>
 
 
 **Figure 46**. LFBGA100 – 100-ball low profile fine pitch ball grid array, 10 x 10 mm,
@@ -5051,7 +5209,9 @@ H0_FP_V1
 Dpad
 Dsm
 
-                                <!-- *87*/114 -->
+<!-- *87*/114 -->
+[87]: #87
+<a id="87"></a>
 
 
 //6.5 LQFP100 package information (1L)
@@ -5133,7 +5293,9 @@ BOTTOM VIEW
 (2)
 (11) (1)
 
-                                <!-- *P88*/114 -->
+<!-- *P88*/114 -->
+[P88]: #P88
+<a id="P88"></a>
 
 
 
@@ -5169,7 +5331,9 @@ bbb (1) 0.20 0.0079
 ccc (1) 0.08 0.0031
 ddd (1) 0.08 0.0031
 
-                                <!-- *89*/114 -->
+<!-- *89*/114 -->
+[89]: #89
+<a id="89"></a>
 
 Notes:
 1. Dimensioning and tolerancing schemes conform to ASME Y14.5M-1994.
@@ -5212,7 +5376,9 @@ body.
 1
 1L_LQFP100_FP_V1
 
-                                <!-- *P90*/114 -->
+<!-- *P90*/114 -->
+[P90]: #P90
+<a id="P90"></a>
 
 
 //6.6 UFBGA100 package information (A0C2)
@@ -5283,7 +5449,9 @@ SD
 A1 ball pad
 corner
 
-                                <!-- *91*/114 -->
+<!-- *91*/114 -->
+[91]: #91
+<a id="91"></a>
 
 
 Notes:
@@ -5328,7 +5496,9 @@ ddd 0.08 0.0031
 eee 0.15 0.0059
 fff 0.05 0.0020
 
-                                <!-- *P92*/114 -->
+<!-- *P92*/114 -->
+[P92]: #P92
+<a id="P92"></a>
 
 integral heat slug. A distinguish feature is allowable on the bottom surface of the
 package to identify the terminal A1 corner. Exact shape of each corner is optional.
@@ -5357,7 +5527,9 @@ BGA_WLCSP_FT_V1
 Dsm
 Dpad
 
-                                <!-- *93*/114 -->
+<!-- *93*/114 -->
+[93]: #93
+<a id="93"></a>
 
 
 //6.7 LQFP64 package information (5W)
@@ -5435,7 +5607,9 @@ BASE METAL
 (11)
 (1)
 
-                                <!-- *P94*/114 -->
+<!-- *P94*/114 -->
+[P94]: #P94
+<a id="P94"></a>
 
 
 
@@ -5471,7 +5645,9 @@ bbb (1) 0.20 0.0079
 ccc (1) 0.08 0.0031
 ddd (1) 0.08 0.0031
 
-                                <!-- *95*/114 -->
+<!-- *95*/114 -->
+[95]: #95
+<a id="95"></a>
 
 Notes:
 1. Dimensioning and tolerancing schemes conform to ASME Y14.5M-1994.
@@ -5520,7 +5696,9 @@ body.
 12.70
 5W_LQFP64_FP_V2
 
-                                <!-- *P96*/114 -->
+<!-- *P96*/114 -->
+[P96]: #P96
+<a id="P96"></a>
 
 
 //6.8 TFBGA64 package information
@@ -5579,7 +5757,9 @@ A1 ball
 index area
 SIDE VIEW
 
-                                <!-- *97*/114 -->
+<!-- *97*/114 -->
+[97]: #97
+<a id="97"></a>
 
 
 
@@ -5619,7 +5799,9 @@ R8_FP_V1
 Dpad
 Dsm
 
-                                <!-- *P98*/114 -->
+<!-- *P98*/114 -->
+[P98]: #P98
+<a id="P98"></a>
 
 
 //6.9 LQFP48 package information (5B)
@@ -5702,7 +5884,9 @@ TOP VIEW
 (11)
 (1)
 
-                                <!-- *99*/114 -->
+<!-- *99*/114 -->
+[99]: #99
+<a id="99"></a>
 
 
 
@@ -5738,7 +5922,9 @@ bbb (1)(7) 0.20 0.0079
 ccc (1)(7) 0.08 0.0031
 ddd (1)(7) 0.08 0.0031
 
-                                <!-- *P100*/114 -->
+<!-- *P100*/114 -->
+[P100]: #P100
+<a id="P100"></a>
 
 Notes:
 1. Dimensioning and tolerancing schemes conform to ASME Y14.5M-1994.
@@ -5784,7 +5970,9 @@ body.
 0.20
 5B_LQFP48_FP_V1
 
-                                <!-- *101*/114 -->
+<!-- *101*/114 -->
+[101]: #101
+<a id="101"></a>
 
 
 //6.10 Thermal characteristics
@@ -5841,7 +6029,9 @@ Thermal resistance junction-ambient
 VFQFPN 36 - 6 × 6 mm / 0.5 mm pitch
 18
 
-                                <!-- *P102*/114 -->
+<!-- *P102*/114 -->
+[P102]: #P102
+<a id="P102"></a>
 
 
 //6.10.2 Selecting the product temperature range
@@ -5886,7 +6076,9 @@ This gives: P INTmax = 70 mW and P IOmax = 64 mW:
 P Dmax = 70 + 64 = 134 mW
 Thus: P Dmax = 134 mW
 
-                                <!-- *103*/114 -->
+<!-- *103*/114 -->
+[103]: #103
+<a id="103"></a>
 
 Using the values obtained in Table 63 T Jmax is calculated as follows:
 – For LQFP100, 46 °C/W
@@ -5911,7 +6103,9 @@ P D (mW)
 Suffix 6
 Suffix 7
 
-                                <!-- *P104*/114 -->
+<!-- *P104*/114 -->
+[P104]: #P104
+<a id="P104"></a>
 
 
 /7 Ordering information scheme
@@ -5948,7 +6142,9 @@ Options
 xxx = programmed parts
 TR = tape and reel
 
-                                <!-- *105*/114 -->
+<!-- *105*/114 -->
+[105]: #105
+<a id="105"></a>
 
 
 /8 Important security notice
@@ -6003,7 +6199,9 @@ OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF
 MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE, unless the
 applicable written and signed contract terms specifically provide otherwise.
 
-                                <!-- *P106*/114 -->
+<!-- *P106*/114 -->
+[P106]: #P106
+<a id="P106"></a>
 
 
 /9 Revision history
@@ -6046,7 +6244,9 @@ modified.
 Figure 14: Power supply scheme modified.
 Features on page 1 list optimized. Small text changes.
 
-                                <!-- *107*/114 -->
+<!-- *107*/114 -->
+[107]: #107
+<a id="107"></a>
 
 18-Oct-2007 3
 STM32F103CBT6, STM32F103T6 and STM32F103T8 root part numbers
@@ -6101,7 +6301,9 @@ Added Figure 16, Figure 17, Figure 19 and Figure 21.
 Table 64. Document revision history (continued)
 Date Revision Changes
 
-                                <!-- *P108*/114 -->
+<!-- *P108*/114 -->
+[P108]: #P108
+<a id="P108"></a>
 
 22-Nov-2007 4
 Document status promoted from preliminary data to datasheet.
@@ -6157,7 +6359,9 @@ Impedance specified in A.4: Voltage glitch on ADC input 0 on page 81.
 Table 64. Document revision history (continued)
 Date Revision Changes
 
-                                <!-- *109*/114 -->
+<!-- *109*/114 -->
+[109]: #109
+<a id="109"></a>
 
 14-Mar-2008 5
 Figure 2: Clock tree on page 12 added.
@@ -6209,7 +6413,9 @@ Axx option added to Table 63: Ordering information scheme on page 110.
 Table 64. Document revision history (continued)
 Date Revision Changes
 
-                                <!-- *P110*/114 -->
+<!-- *P110*/114 -->
+[P110]: #P110
+<a id="P110"></a>
 
 21-Jul-2008 8
 Power supply supervisor updated and V DDA added to Table 9: General
@@ -6257,7 +6463,9 @@ Package thermal characteristics. Small text changes.
 Table 64. Document revision history (continued)
 Date Revision Changes
 
-                                <!-- *111*/114 -->
+<!-- *111*/114 -->
+[111]: #111
+<a id="111"></a>
 
 23-Apr-2009 10
 I/O information clarified on page 1.
@@ -6310,7 +6518,9 @@ Updated Section 5.3.12: I/O current injection characteristics
 Table 64. Document revision history (continued)
 Date Revision Changes
 
-                                <!-- *P112*/114 -->
+<!-- *P112*/114 -->
+[P112]: #P112
+<a id="P112"></a>
 
 19-Apr-2011 13
 Updated footnotes below Table 6: Voltage characteristics on page 37 and
@@ -6364,7 +6574,9 @@ x 5 mm, 0.5 mm pitch, package mechanical data
 Table 64. Document revision history (continued)
 Date Revision Changes
 
-                                <!-- *113*/114 -->
+<!-- *113*/114 -->
+[113]: #113
+<a id="113"></a>
 
 05-Aug-2013 16
 Updated the reference for ‘V ESD(CDM) ’ in Table 32: ESD absolute
@@ -6410,7 +6622,9 @@ Updated all packages in Section 6: Package information.
 Table 64. Document revision history (continued)
 Date Revision Changes
 
-                                <!-- *114*/114 -->
+<!-- *114*/114 -->
+[114]: #114
+<a id="114"></a>
 
 IMPORTANT NOTICE – PLEASE READ CAREFULLY
 STMicroelectronics NV and its subsidiaries (“ST”) reserve the right to make changes, corrections, enhancements, modifications, and

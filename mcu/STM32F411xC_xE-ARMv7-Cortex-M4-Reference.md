@@ -8265,7 +8265,7 @@ clock cycle
 
 
 [Figure 18]: #Figure%2018
-<a id="Figure 18"></a>
+g<a id="Figure 18"></a>
 
 **Figure 18**. Input floating/pull up/pull down configurations
 

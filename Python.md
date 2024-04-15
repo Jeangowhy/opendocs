@@ -1295,6 +1295,7 @@ print("final g007 = %d  l007 = %d" % (g007, l007)) # print global g007 and l007
 # final g007 = 7  l007 = 9
 ```
 
+
 小结：
 
 1. global 变量查找顺序： Top Level -> 模块命名空间 -> Python 内置作用域；
@@ -1302,6 +1303,52 @@ print("final g007 = %d  l007 = %d" % (g007, l007)) # print global g007 and l007
 3. 内部作用域声明变量会覆盖外部变量，不声明直接用就逐级向上搜索变量变量；
 4. nonlocal 变量只查找外一层作用域。
 
+## ==⚡ Typehints and NameError
+https://peps.python.org/pep-0563/
+PEP 563 – Postponed Evaluation of Annotations
+
+PEP 563 defined the new postponed evaluation behaviour. This moves all 
+type hints to follow this pattern, without requiring the string syntax.
+https://adamj.eu/tech/2021/05/15/python-type-hints-future-annotations/
+
+NameError 一样会在 typehint 中出现，当定义类型内部使用本身类型作为 typehit 时出现。
+新版本的 Python 支持 typehints 类型提示，但是旧版本会检查这些只用于提示的代码。
+因此，导致脚本运行出错，NameError，解决此问题的方案就是禁止 Python 检查 Typehints
+中标记的类型。
+
+We can opt into postponed evaluation in a file by adding from __future__ 
+import annotations at the top. In our example:
+
+```py
+from __future__ import annotations
+
+from copy import deepcopy
+
+
+class Widget:
+    ...
+
+    def copy(self) -> Widget:
+        return deepcopy(self)
+```
+
+Python no longer interprets the type hints at runtime, so it doesn’t hit the 
+NameError. And type checkers can still work with the type hints as they 
+evaluate them after reading the whole file.
+
+Another benefit is that type hints are kept in string form at runtime, unless 
+they’re explicitly used. This provides some nice memory savings, valuable 
+on larger projects.
+
+Update (2022-10-18): Updated the below to reflect the decision in Python 3.11.
+
+
+Postponed evaluation is opt-in from Python 3.7, and was originally scheduled 
+to become the default in Python 3.10. This was deferred until Python 3.11, 
+and then again until… maybe never. The Python 3.11 release notes say that the 
+feature “may not be the future”. This links to the steering council’s post, 
+which notes the outstanding backwards-incompatible issues, and asks for 
+input.
 
 
 ## ==⚡ Scopes and Namespaces
@@ -6334,9 +6381,31 @@ Python 字典包含了以下内置方法：
 ## ==⚡ set in Python
 - [Built-in Types](libarary/stdtypes.rst)
 
-集合中的元素一定要满足一个基本条件：“这个东西必须是可以进行哈希摘要（Hashable）”，或者说定义了对象的 __hash__ 方法。
+集合（数学概念）是指具有某种特定性质的具体的或抽象的对象汇总而成的集体。
+其中，构成集合的这些对象则称为该集合的元素。
 
-Python 里的字典和集合对象都基于哈希表（Hash Table）实现，在查找一个元素时算法效率非常高，判断一个东西是不是在集合里的平均时间复杂度是常数 O(1)，不会随着数据增加而增加。
+集合具有以下几种性质：
+
+*   **确定性**
+    给定一个集合，任给一个元素，该元素或者属于或者不属于该集合，二者必居其一，不允许有模棱两可的情况出现。
+*   **互异性**
+    一个集合中，任何两个元素都认为是不相同的，即每个元素只能出现一次。有时需要对同一元素出现多次的情形进行刻画，可以使用多重集，其中的元素允许出现多次。
+*   **无序性**
+    一个集合中，每个元素的地位都是相同的，元素之间是无序的。集合上可以定义序关系，定义了序关系后，元素之间就可以按照序关系排序。但就集合本身的特性而言，元素之间没有必然的序。
+
+**交集定义**：由属于 A 且属于 B 的相同元素组成的集合，记作 A∩B，读作“A交B”，即 A∩B={x|x∈A,且x∈B}。若 A 包含 B，则 A∩B=B，A∪B=A。
+
+**并集定义**：由所有属于集合 A 或属于集合 B 的元素所组成的集合，记作 A∪B，读作“A并B”，即 A∪B={x|x∈A,或x∈B}。
+
+**相对补集定义**：由属于 A 而不属于 B 的元素组成的集合，称为 B 关于 A 的相对补集，记作 A-B 或 AB，即 A-B={x|x∈A，且x∉B'}。
+
+**绝对补集定义**：A 关于全集合 U 的相对补集称作 A 的绝对补集，记作 A' 或 ∁u（A）或 ~A。有 U'=Φ；Φ'=U。
+
+Python 集合中的元素一定要满足一个基本条件：“这个东西必须是可以进行哈希摘要（Hashable）”，
+或者说定义了对象的 __hash__ 方法。
+
+Python 里的字典和集合对象都基于哈希表（Hash Table）实现，在查找一个元素时算法效率非常高，
+判断一个东西是不是在集合里的平均时间复杂度是常数 O(1)，不会随着数据增加而增加。
 
 集合是一种重要且基础的数学概念，也是一种基本的数据结构：
 
@@ -6362,6 +6431,128 @@ a = { {"1":"a"}, {2:"b"}, {3:"c"}, {4:"d"}, }
 b = { {"1":"a"}, {3:"c"}, {4:"d"}, }
 print(a-b) # TypeError: unhashable type: 'dict'
 ```
+
+Python 如何实现任意类型的集合运算呢？
+
+```py
+#! /usr/bin/env python
+from __future__ import annotations
+
+
+class Region:
+    a: int
+    b: int
+
+    def __init__(self, a=0, b=0):
+        self.a = a
+        self.b = b
+
+    def __sub__(self, target: Region):
+        tmp = Region()
+        tmp.a = max(self.a, target.a)
+        tmp.b = min(self.b, target.b)
+        if tmp.a > tmp.b:
+            tmp.a = tmp.b = 0
+        return tmp
+
+    def __add__(self, target: Region):
+        tmp = Region()
+        tmp.a = min(self.a, target.a)
+        tmp.b = max(self.b, target.b)
+        if tmp.a > tmp.b:
+            tmp.a = tmp.b = 0
+        return tmp
+
+    def __str__(self):
+        return "<a:%s, b:%s>" % (self.a, self.b)
+
+
+def test_set():
+    # s1 = {'Region(1, 2)', 'Region(2, 3)', 'Region(3, 4)'}
+    # s2 = {'Region(2, 3)', 'Region(3, 4)', 'Region(4, 5)'}
+    s1 = {Region(1, 2), Region(2, 3), Region(3, 4)}
+    s2 = {Region(2, 3), Region(3, 4), Region(4, 5)}
+    # print(s1 + s2)
+    # print(s1 - s2)
+    # print(s1 & s2)
+    # print(s1 ^ s2)
+
+
+def basic_set():
+    s1 = {1, 2, 3}
+    s2 = {3, 'y', 'z'}
+
+    print("并集 union", s1 | s2)                   # {1, 2, 3, 'y', 'z'}
+    print("差集 difference", s2 - s1)              # {'y', 'z'}
+    print("交集 intersection", s2 & s1)            # {3}
+    print("补集 symmetric difference", s2 ^ s1)    # {1, 2, 'y', 'z'}
+
+    s3 = {"apple", "peach", "pineapple"}
+    s4 = {"chestnut", "melon seeds"}
+
+    # TypeError: unsupported operand type(s) for +: 'set' and 'set'
+    # print(s3 + s4)  
+
+    r1 = Region(1, 2)
+    r2 = Region(3, 4)
+    print(r1 + r2)  # <a:1, b:4>
+    print(r1 - r2)  # <a:0, b:0>
+
+
+if __name__ == "__main__":
+    basic_set()
+    test_set()
+```
+
+Python 通过魔术机制提供类似 C++ 那样的运算符重载功能（operators overloading）:
+
+    |   Operator   |        Magic Method       |
+    |--------------|---------------------------|
+    |   Binary Operators                       |
+    |--------------|---------------------------|
+    | +            | __add__(self, other)      |
+    | –            | __sub__(self, other)      |
+    | *            | __mul__(self, other)      |
+    | /            | __truediv__(self, other)  |
+    | //           | __floordiv__(self, other) |
+    | %            | __mod__(self, other)      |
+    | **           | __pow__(self, other)      |
+    | >>           | __rshift__(self, other)   |
+    | <<           | __lshift__(self, other)   |
+    | &            | __and__(self, other)      |
+    | |            | __or__(self, other)       |
+    | ^            | __xor__(self, other)      |
+    |--------------|---------------------------|
+    | Comparison Operators:                    |
+    |--------------|---------------------------|
+    | <            | __lt__(self, other)       |
+    | >            | __gt__(self, other)       |
+    | <=           | __le__(self, other)       |
+    | >=           | __ge__(self, other)       |
+    | ==           | __eq__(self, other)       |
+    | !=           | __ne__(self, other)       |
+    |--------------|---------------------------|
+    | Assignment Operators:                    |
+    |--------------|---------------------------|
+    | -=           | __isub__(self, other)     |
+    | +=           | __iadd__(self, other)     |
+    | *=           | __imul__(self, other)     |
+    | /=           | __idiv__(self, other)     |
+    | //= _        | _ifloordiv__(self, other) |
+    | %=           | __imod__(self, other)     |
+    | **= _        | _ipow__(self, other)      |
+    | >>=          | __irshift__(self, other)  |
+    | <<= _        | _ilshift__(self, other)   |
+    | &=           | __iand__(self, other)     |
+    | |=           | __ior__(self, other)      |
+    | ^=           | __ixor__(self, other)     |
+    |--------------|---------------------------|
+    | Unary Operators:                         |
+    |--------------|---------------------------|
+    | –            | __neg__(self)             |
+    | +            | __pos__(self)             |
+    | ~            | __invert__(self)          |
+
 
 ## ==⚡ for a while in Python
 - [Built-in Types](reference/index.rst)

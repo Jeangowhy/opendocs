@@ -1,5 +1,6 @@
-Cygwin User's Guide
+/Cygwin User's Guide
 ===================
+https://cygwin.com/cygwin-ug-net/cygwin-ug-net.html
 
 Copyright © Cygwin authors
 
@@ -15,7 +16,8 @@ Cygwin User's Guide
 
 * * *
 
-**Table of Contents**
+/Table of Contents
+==================
 
 * [1. Cygwin Overview](#overview)
 *   [What is it?](#what-is-it)
@@ -24,209 +26,210 @@ Cygwin User's Guide
 *   [Are the Cygwin tools free software?](#are-free)
 *   [A brief history of the Cygwin project](#brief-history)
 *   [Highlights of Cygwin Functionality](#highlights)
-*   [Introduction](#ov-hi-intro)
-*   [Permissions and Security](#ov-hi-perm)
-*   [File Access](#ov-hi-files)
-*   [Text Mode vs. Binary Mode](#ov-hi-textvsbinary)
-*   [ANSI C Library](#ov-hi-ansiclib)
-*   [Process Creation](#ov-hi-process)
-*   [Signals](#ov-hi-signals)
-*   [Sockets](#ov-hi-sockets)
-*   [Select](#ov-hi-select)
+    *   [Introduction](#ov-hi-intro)
+    *   [Permissions and Security](#ov-hi-perm)
+    *   [File Access](#ov-hi-files)
+    *   [Text Mode vs. Binary Mode](#ov-hi-textvsbinary)
+    *   [ANSI C Library](#ov-hi-ansiclib)
+    *   [Process Creation](#ov-hi-process)
+    *   [Signals](#ov-hi-signals)
+    *   [Sockets](#ov-hi-sockets)
+    *   [Select](#ov-hi-select)
 *   [What's new and what changed in Cygwin](#ov-new)
-*   [What's new and what changed in 3.4](#ov-new3.4)
-*   [What's new and what changed in 3.3](#ov-new3.3)
-*   [What's new and what changed in 3.2](#ov-new3.2)
-*   [What's new and what changed in 3.1](#ov-new3.1)
-*   [What's new and what changed in 3.0](#ov-new3.0)
-*   [What's new and what changed in 2.11](#ov-new2.11)
-*   [What's new and what changed in 2.10](#ov-new2.10)
-*   [What's new and what changed in 2.9](#ov-new2.9)
-*   [What's new and what changed in 2.8](#ov-new2.8)
-*   [What's new and what changed in 2.7](#ov-new2.7)
-*   [What's new and what changed in 2.6](#ov-new2.6)
-*   [What's new and what changed in 2.5](#ov-new2.5)
-*   [What's new and what changed in 2.4](#ov-new2.4)
-*   [What's new and what changed in 2.3](#ov-new2.3)
-*   [What's new and what changed in 2.2](#ov-new2.2)
-*   [What's new and what changed in 2.1](#ov-new2.1)
-*   [What's new and what changed in 2.0](#ov-new2.0)
-*   [What's new and what changed in 1.7.35](#ov-new1.7.35)
-*   [What's new and what changed in 1.7.34](#ov-new1.7.34)
-*   [What's new and what changed in 1.7.33](#ov-new1.7.33)
-*   [What's new and what changed in 1.7.32](#ov-new1.7.32)
-*   [What's new and what changed in 1.7.31](#ov-new1.7.31)
-*   [What's new and what changed in 1.7.29](#ov-new1.7.29)
-*   [What's new and what changed in 1.7.28](#ov-new1.7.28)
-*   [What's new and what changed in 1.7.27](#ov-new1.7.27)
-*   [What's new and what changed in 1.7.26](#ov-new1.7.26)
-*   [What's new and what changed in 1.7.25](#ov-new1.7.25)
-*   [What's new and what changed in 1.7.24](#ov-new1.7.24)
-*   [What's new and what changed in 1.7.23](#ov-new1.7.23)
-*   [What's new and what changed in 1.7.22](#ov-new1.7.22)
-*   [What's new and what changed in 1.7.21](#ov-new1.7.21)
-*   [What's new and what changed in 1.7.19](#ov-new1.7.19)
-*   [What's new and what changed in 1.7.18](#ov-new1.7.18)
-*   [What's new and what changed in 1.7.17](#ov-new1.7.17)
-*   [What's new and what changed in 1.7.16](#ov-new1.7.16)
-*   [What's new and what changed in 1.7.15](#ov-new1.7.15)
-*   [What's new and what changed in 1.7.14](#ov-new1.7.14)
-*   [What's new and what changed in 1.7.13](#ov-new1.7.13)
-*   [What's new and what changed in 1.7.12](#ov-new1.7.12)
-*   [What's new and what changed in 1.7.11](#ov-new1.7.11)
-*   [What's new and what changed in 1.7.10](#ov-new1.7.10)
-*   [What's new and what changed in 1.7.9](#ov-new1.7.9)
-*   [What's new and what changed in 1.7.8](#ov-new1.7.8)
-*   [What's new and what changed in 1.7.7](#ov-new1.7.7)
-*   [What's new and what changed in 1.7.6](#ov-new1.7.6)
-*   [What's new and what changed in 1.7.5](#ov-new1.7.5)
-*   [What's new and what changed in 1.7.3](#ov-new1.7.3)
-*   [What's new and what changed in 1.7.2](#ov-new1.7.2)
-*   [What's new and what changed from 1.5 to 1.7](#ov-new1.7.1)
-*   [OS related changes](#ov-new1.7-os)
-*   [File Access related changes](#ov-new1.7-file)
-*   [Network related changes](#ov-new1.7-net)
-*   [Device related changes](#ov-new1.7-device)
-*   [Other POSIX related changes](#ov-new1.7-posix)
-*   [Security related changes](#ov-new1.7-sec)
-*   [Miscellaneous](#ov-new1.7-misc)
+    *   [What's new and what changed in 3.5](#ov-new3.5)
+    *   [What's new and what changed in 3.4](#ov-new3.4)
+    *   [What's new and what changed in 3.3](#ov-new3.3)
+    *   [What's new and what changed in 3.2](#ov-new3.2)
+    *   [What's new and what changed in 3.1](#ov-new3.1)
+    *   [What's new and what changed in 3.0](#ov-new3.0)
+    *   [What's new and what changed in 2.11](#ov-new2.11)
+    *   [What's new and what changed in 2.10](#ov-new2.10)
+    *   [What's new and what changed in 2.9](#ov-new2.9)
+    *   [What's new and what changed in 2.8](#ov-new2.8)
+    *   [What's new and what changed in 2.7](#ov-new2.7)
+    *   [What's new and what changed in 2.6](#ov-new2.6)
+    *   [What's new and what changed in 2.5](#ov-new2.5)
+    *   [What's new and what changed in 2.4](#ov-new2.4)
+    *   [What's new and what changed in 2.3](#ov-new2.3)
+    *   [What's new and what changed in 2.2](#ov-new2.2)
+    *   [What's new and what changed in 2.1](#ov-new2.1)
+    *   [What's new and what changed in 2.0](#ov-new2.0)
+    *   [What's new and what changed in 1.7.35](#ov-new1.7.35)
+    *   [What's new and what changed in 1.7.34](#ov-new1.7.34)
+    *   [What's new and what changed in 1.7.33](#ov-new1.7.33)
+    *   [What's new and what changed in 1.7.32](#ov-new1.7.32)
+    *   [What's new and what changed in 1.7.31](#ov-new1.7.31)
+    *   [What's new and what changed in 1.7.29](#ov-new1.7.29)
+    *   [What's new and what changed in 1.7.28](#ov-new1.7.28)
+    *   [What's new and what changed in 1.7.27](#ov-new1.7.27)
+    *   [What's new and what changed in 1.7.26](#ov-new1.7.26)
+    *   [What's new and what changed in 1.7.25](#ov-new1.7.25)
+    *   [What's new and what changed in 1.7.24](#ov-new1.7.24)
+    *   [What's new and what changed in 1.7.23](#ov-new1.7.23)
+    *   [What's new and what changed in 1.7.22](#ov-new1.7.22)
+    *   [What's new and what changed in 1.7.21](#ov-new1.7.21)
+    *   [What's new and what changed in 1.7.19](#ov-new1.7.19)
+    *   [What's new and what changed in 1.7.18](#ov-new1.7.18)
+    *   [What's new and what changed in 1.7.17](#ov-new1.7.17)
+    *   [What's new and what changed in 1.7.16](#ov-new1.7.16)
+    *   [What's new and what changed in 1.7.15](#ov-new1.7.15)
+    *   [What's new and what changed in 1.7.14](#ov-new1.7.14)
+    *   [What's new and what changed in 1.7.13](#ov-new1.7.13)
+    *   [What's new and what changed in 1.7.12](#ov-new1.7.12)
+    *   [What's new and what changed in 1.7.11](#ov-new1.7.11)
+    *   [What's new and what changed in 1.7.10](#ov-new1.7.10)
+    *   [What's new and what changed in 1.7.9](#ov-new1.7.9)
+    *   [What's new and what changed in 1.7.8](#ov-new1.7.8)
+    *   [What's new and what changed in 1.7.7](#ov-new1.7.7)
+    *   [What's new and what changed in 1.7.6](#ov-new1.7.6)
+    *   [What's new and what changed in 1.7.5](#ov-new1.7.5)
+    *   [What's new and what changed in 1.7.3](#ov-new1.7.3)
+    *   [What's new and what changed in 1.7.2](#ov-new1.7.2)
+    *   [What's new and what changed from 1.5 to 1.7](#ov-new1.7.1)
+        *   [OS related changes](#ov-new1.7-os)
+        *   [File Access related changes](#ov-new1.7-file)
+        *   [Network related changes](#ov-new1.7-net)
+        *   [Device related changes](#ov-new1.7-device)
+        *   [Other POSIX related changes](#ov-new1.7-posix)
+        *   [Security related changes](#ov-new1.7-sec)
+        *   [Miscellaneous](#ov-new1.7-misc)
 * [2. Setting Up Cygwin](#setup-net)
 *   [Internet Setup](#internet-setup)
-*   [Download Source](#setup-download)
-*   [Selecting an Install Directory](#setup-dir)
-*   [Local Package Directory](#setup-localdir)
-*   [Connection Method](#setup-connection)
-*   [Choosing Mirrors](#setup-mirror)
-*   [Choosing Packages](#setup-packages)
-*   [Download and Installation Progress](#setup-progress)
-*   [Shortcuts](#setup-icons)
-*   [Post-Install Scripts](#setup-postinstall)
-*   [Troubleshooting](#setup-troubleshooting)
+    *   [Download Source](#setup-download)
+    *   [Selecting an Install Directory](#setup-dir)
+    *   [Local Package Directory](#setup-localdir)
+    *   [Connection Method](#setup-connection)
+    *   [Choosing Mirrors](#setup-mirror)
+    *   [Choosing Packages](#setup-packages)
+    *   [Download and Installation Progress](#setup-progress)
+    *   [Shortcuts](#setup-icons)
+    *   [Post-Install Scripts](#setup-postinstall)
+    *   [Troubleshooting](#setup-troubleshooting)
 *   [Environment Variables](#setup-env)
-*   [Overview](#setup-env-ov)
-*   [Restricted Win32 environment](#setup-env-win32)
-*   [Changing Cygwin's Maximum Memory](#setup-maxmem)
+    *   [Overview](#setup-env-ov)
+    *   [Restricted Win32 environment](#setup-env-win32)
+    *   [Changing Cygwin's Maximum Memory](#setup-maxmem)
 *   [Internationalization](#setup-locale)
-*   [Overview](#setup-locale-ov)
-*   [How to set the locale](#setup-locale-how)
-*   [The Windows Console character set](#setup-locale-console)
-*   [Potential Problems when using Locales](#setup-locale-problems)
-*   [List of supported character sets](#setup-locale-charsetlist)
+    *   [Overview](#setup-locale-ov)
+    *   [How to set the locale](#setup-locale-how)
+    *   [The Windows Console character set](#setup-locale-console)
+    *   [Potential Problems when using Locales](#setup-locale-problems)
+    *   [List of supported character sets](#setup-locale-charsetlist)
 *   [Customizing bash](#setup-files)
 * [3. Using Cygwin](#using)
 *   [Mapping path names](#using-pathnames)
-*   [Introduction](#pathnames-intro)
-*   [The Cygwin Mount Table](#mount-table)
-*   [UNC paths](#unc-paths)
-*   [The cygdrive path prefix](#cygdrive)
-*   [The usertemp file system type](#usertemp)
-*   [Symbolic links](#pathnames-symlinks)
-*   [Using native Win32 paths](#pathnames-win32)
-*   [Using the Win32 file API in Cygwin applications](#pathnames-win32-api)
-*   [Additional Path-related Information](#pathnames-additional)
+    *   [Introduction](#pathnames-intro)
+    *   [The Cygwin Mount Table](#mount-table)
+    *   [UNC paths](#unc-paths)
+    *   [The cygdrive path prefix](#cygdrive)
+    *   [The usertemp file system type](#usertemp)
+    *   [Symbolic links](#pathnames-symlinks)
+    *   [Using native Win32 paths](#pathnames-win32)
+    *   [Using the Win32 file API in Cygwin applications](#pathnames-win32-api)
+    *   [Additional Path-related Information](#pathnames-additional)
 *   [Text and Binary modes](#using-textbinary)
-*   [The Issue](#textbin-issue)
-*   [The default Cygwin behavior](#textbin-default)
-*   [Binary or text?](#textbin-question)
-*   [Programming](#textbin-devel)
+    *   [The Issue](#textbin-issue)
+    *   [The default Cygwin behavior](#textbin-default)
+    *   [Binary or text?](#textbin-question)
+    *   [Programming](#textbin-devel)
 *   [File permissions](#using-filemodes)
 *   [Special filenames](#using-specialnames)
-*   [Special files in /etc](#pathnames-etc)
-*   [Invalid filenames](#pathnames-dosdevices)
-*   [Forbidden characters in filenames](#pathnames-specialchars)
-*   [Filenames with unusual (foreign) characters](#pathnames-unusual)
-*   [Case sensitive filenames](#pathnames-casesensitive)
-*   [Case sensitive directories](#pathnames-casesensitivedirs)
-*   [POSIX devices](#pathnames-posixdevices)
-*   [The .exe extension](#pathnames-exe)
-*   [The /proc filesystem](#pathnames-proc)
-*   [The /proc/registry filesystem](#pathnames-proc-registry)
-*   [The @pathnames](#pathnames-at)
+    *   [Special files in /etc](#pathnames-etc)
+    *   [Invalid filenames](#pathnames-dosdevices)
+    *   [Forbidden characters in filenames](#pathnames-specialchars)
+    *   [Filenames with unusual (foreign) characters](#pathnames-unusual)
+    *   [Case sensitive filenames](#pathnames-casesensitive)
+    *   [Case sensitive directories](#pathnames-casesensitivedirs)
+    *   [POSIX devices](#pathnames-posixdevices)
+    *   [The .exe extension](#pathnames-exe)
+    *   [The /proc filesystem](#pathnames-proc)
+    *   [The /proc/registry filesystem](#pathnames-proc-registry)
+    *   [The @pathnames](#pathnames-at)
 *   [The `CYGWIN` environment variable](#using-cygwinenv)
-*   [Implemented options](#cygwinenv-implemented-options)
-*   [Obsolete options](#cygwinenv-removed-options)
+    *   [Implemented options](#cygwinenv-implemented-options)
+    *   [Obsolete options](#cygwinenv-removed-options)
 *   [POSIX accounts, permission, and security](#ntsec)
-*   [Brief overview of Windows security](#ntsec-common)
-*   [Mapping Windows accounts to POSIX accounts](#ntsec-mapping)
-*   [Mapping Windows SIDs to POSIX uid/gid values](#ntsec-mapping-how)
-*   [Caching account information](#ntsec-mapping-caching)
-*   [Cygwin user names, home dirs, login shells](#ntsec-mapping-passwdinfo)
-*   [The `/etc/nsswitch.conf` file](#ntsec-mapping-nsswitch)
-*   [The `/etc/nsswitch.conf` syntax](#ntsec-mapping-nsswitch-syntax)
-*   [The `passwd:` and `group:` settings](#ntsec-mapping-nsswitch-pwdgrp)
-*   [The `db_enum:` setting](#ntsec-mapping-nsswitch-enum)
-*   [Settings defining how to create the `passwd` entry](#ntsec-mapping-nsswitch-passwd)
-*   [The `db_home` setting](#ntsec-mapping-nsswitch-home)
-*   [The `db_shell` setting](#ntsec-mapping-nsswitch-shell)
-*   [The `db_gecos` setting](#ntsec-mapping-nsswitch-gecos)
-*   [The `cygwin` schema](#ntsec-mapping-nsswitch-cygwin)
-*   [The `unix` schema](#ntsec-mapping-nsswitch-posix)
-*   [The `desc` schema](#ntsec-mapping-nsswitch-desc)
-*   [NFS account mapping](#ntsec-mapping-nfs)
-*   [Samba account mapping](#ntsec-mapping-samba)
-*   [File permissions](#ntsec-files)
-*   [Switching the user context](#ntsec-setuid-overview)
-*   [Switching the user context with password authentication](#ntsec-logonuser)
-*   [Switching the user context without password, Method 1: Kerberos/MsV1_0 S4U authentication](#ntsec-nopasswd1)
-*   [Switching the user context without password, Method 2: With password](#ntsec-nopasswd3)
-*   [Switching the user context, how does it all fit together?](#ntsec-setuid-impl)
+    *   [Brief overview of Windows security](#ntsec-common)
+    *   [Mapping Windows accounts to POSIX accounts](#ntsec-mapping)
+        *   [Mapping Windows SIDs to POSIX uid/gid values](#ntsec-mapping-how)
+        *   [Caching account information](#ntsec-mapping-caching)
+        *   [Cygwin user names, home dirs, login shells](#ntsec-mapping-passwdinfo)
+        *   [The `/etc/nsswitch.conf` file](#ntsec-mapping-nsswitch)
+        *   [The `/etc/nsswitch.conf` syntax](#ntsec-mapping-nsswitch-syntax)
+        *   [The `passwd:` and `group:` settings](#ntsec-mapping-nsswitch-pwdgrp)
+        *   [The `db_enum:` setting](#ntsec-mapping-nsswitch-enum)
+        *   [Settings defining how to create the `passwd` entry](#ntsec-mapping-nsswitch-passwd)
+        *   [The `db_home` setting](#ntsec-mapping-nsswitch-home)
+        *   [The `db_shell` setting](#ntsec-mapping-nsswitch-shell)
+        *   [The `db_gecos` setting](#ntsec-mapping-nsswitch-gecos)
+        *   [The `cygwin` schema](#ntsec-mapping-nsswitch-cygwin)
+        *   [The `unix` schema](#ntsec-mapping-nsswitch-posix)
+        *   [The `desc` schema](#ntsec-mapping-nsswitch-desc)
+        *   [NFS account mapping](#ntsec-mapping-nfs)
+        *   [Samba account mapping](#ntsec-mapping-samba)
+    *   [File permissions](#ntsec-files)
+    *   [Switching the user context](#ntsec-setuid-overview)
+        *   [Switching the user context with password authentication](#ntsec-logonuser)
+        *   [Switching the user context without password, Method 1: Kerberos/MsV1_0 S4U authentication](#ntsec-nopasswd1)
+        *   [Switching the user context without password, Method 2: With password](#ntsec-nopasswd3)
+        *   [Switching the user context, how does it all fit together?](#ntsec-setuid-impl)
 *   [Cygserver](#using-cygserver)
-*   [What is Cygserver?](#what-is-cygserver)
-*   [Cygserver command line options](#cygserver-command-line)
-*   [How to install Cygserver](#install-cygserver)
-*   [How to start Cygserver](#start-cygserver)
-*   [The Cygserver configuration file](#cygserver-config)
+    *   [What is Cygserver?](#what-is-cygserver)
+    *   [Cygserver command line options](#cygserver-command-line)
+    *   [How to install Cygserver](#install-cygserver)
+    *   [How to start Cygserver](#start-cygserver)
+    *   [The Cygserver configuration file](#cygserver-config)
 *   [Cygwin Utilities](#using-utils)
-*   [chattr](#chattr)
-*   [cygcheck](#cygcheck)
-*   [cygpath](#cygpath)
-*   [dumper](#dumper)
-*   [getconf](#getconf)
-*   [getfacl](#getfacl)
-*   [gmondump](#gmondump)
-*   [kill](#kill)
-*   [ldd](#ldd)
-*   [locale](#locale)
-*   [lsattr](#lsattr)
-*   [minidumper](#minidumper)
-*   [mkgroup](#mkgroup)
-*   [mkpasswd](#mkpasswd)
-*   [mount](#mount)
-*   [passwd](#passwd)
-*   [pldd](#pldd)
-*   [profiler](#profiler)
-*   [ps](#ps)
-*   [regtool](#regtool)
-*   [setfacl](#setfacl)
-*   [setmetamode](#setmetamode)
-*   [ssp](#ssp)
-*   [strace](#strace)
-*   [tzset](#tzset)
-*   [umount](#umount)
+    *   [chattr](#chattr)
+    *   [cygcheck](#cygcheck)
+    *   [cygpath](#cygpath)
+    *   [dumper](#dumper)
+    *   [getconf](#getconf)
+    *   [getfacl](#getfacl)
+    *   [gmondump](#gmondump)
+    *   [kill](#kill)
+    *   [ldd](#ldd)
+    *   [locale](#locale)
+    *   [lsattr](#lsattr)
+    *   [minidumper](#minidumper)
+    *   [mkgroup](#mkgroup)
+    *   [mkpasswd](#mkpasswd)
+    *   [mount](#mount)
+    *   [passwd](#passwd)
+    *   [pldd](#pldd)
+    *   [profiler](#profiler)
+    *   [ps](#ps)
+    *   [regtool](#regtool)
+    *   [setfacl](#setfacl)
+    *   [setmetamode](#setmetamode)
+    *   [ssp](#ssp)
+    *   [strace](#strace)
+    *   [tzset](#tzset)
+    *   [umount](#umount)
 *   [Using Cygwin effectively with Windows](#using-effectively)
-*   [Pathnames](#using-pathnames-effectively)
-*   [Cygwin and Windows Networking](#using-net)
-*   [Creating shortcuts](#using-shortcuts)
-*   [Printing](#using-printing)
+    *   [Pathnames](#using-pathnames-effectively)
+    *   [Cygwin and Windows Networking](#using-net)
+    *   [Creating shortcuts](#using-shortcuts)
+    *   [Printing](#using-printing)
 * [4. Programming with Cygwin](#programming)
 *   [Using GCC with Cygwin](#gcc)
-*   [Standard Usage](#gcc-default)
-*   [Building applications for 64 bit Cygwin](#gcc-64)
-*   [GUI Mode Applications](#gcc-gui)
+    *   [Standard Usage](#gcc-default)
+    *   [Building applications for 64 bit Cygwin](#gcc-64)
+    *   [GUI Mode Applications](#gcc-gui)
 *   [Debugging Cygwin Programs](#gdb)
 *   [Building and Using DLLs](#dll)
-*   [Building DLLs](#dll-build)
-*   [Linking Against DLLs](#dll-link)
+    *   [Building DLLs](#dll-build)
+    *   [Linking Against DLLs](#dll-link)
 *   [Defining Windows Resources](#windres)
 *   [Profiling Cygwin Programs](#gprof)
-*   [Introduction](#gprof-intro)
-*   [Examples](#gprof-ex)
-*   [Special situations](#gprof-ss)
-*   [Profiling multi-threaded programs](#gprof-mt)
-*   [Profiling programs that fork](#gprof-fork)
-*   [Getting better profiling resolution](#gprof-res)
-*   [Profiling programs with their libraries](#gprof-lib)
-*   [Profiling Cygwin itself](#gprof-cyg)
+    *   [Introduction](#gprof-intro)
+    *   [Examples](#gprof-ex)
+    *   [Special situations](#gprof-ss)
+        *   [Profiling multi-threaded programs](#gprof-mt)
+        *   [Profiling programs that fork](#gprof-fork)
+        *   [Getting better profiling resolution](#gprof-res)
+        *   [Profiling programs with their libraries](#gprof-lib)
+        *   [Profiling Cygwin itself](#gprof-cyg)
 
 **List of Examples**
 
@@ -253,7 +256,7 @@ Cygwin User's Guide
 4.9. [Source line profile](#gprof-line)
 4.10. [gprof](#gprof-prefix)
 
-Chapter 1. Cygwin Overview
+/1. Cygwin Overview
 ==========================
 
 **Table of Contents**
@@ -264,72 +267,72 @@ Chapter 1. Cygwin Overview
 *  [Are the Cygwin tools free software?](#are-free)
 *  [A brief history of the Cygwin project](#brief-history)
 *  [Highlights of Cygwin Functionality](#highlights)
-*  [Introduction](#ov-hi-intro)
-*  [Permissions and Security](#ov-hi-perm)
-*  [File Access](#ov-hi-files)
-*  [Text Mode vs. Binary Mode](#ov-hi-textvsbinary)
-*  [ANSI C Library](#ov-hi-ansiclib)
-*  [Process Creation](#ov-hi-process)
-*  [Signals](#ov-hi-signals)
-*  [Sockets](#ov-hi-sockets)
-*  [Select](#ov-hi-select)
+    *  [Introduction](#ov-hi-intro)
+    *  [Permissions and Security](#ov-hi-perm)
+    *  [File Access](#ov-hi-files)
+    *  [Text Mode vs. Binary Mode](#ov-hi-textvsbinary)
+    *  [ANSI C Library](#ov-hi-ansiclib)
+    *  [Process Creation](#ov-hi-process)
+    *  [Signals](#ov-hi-signals)
+    *  [Sockets](#ov-hi-sockets)
+    *  [Select](#ov-hi-select)
 *  [What's new and what changed in Cygwin](#ov-new)
-*  [What's new and what changed in 3.4](#ov-new3.4)
-*  [What's new and what changed in 3.3](#ov-new3.3)
-*  [What's new and what changed in 3.2](#ov-new3.2)
-*  [What's new and what changed in 3.1](#ov-new3.1)
-*  [What's new and what changed in 3.0](#ov-new3.0)
-*  [What's new and what changed in 2.11](#ov-new2.11)
-*  [What's new and what changed in 2.10](#ov-new2.10)
-*  [What's new and what changed in 2.9](#ov-new2.9)
-*  [What's new and what changed in 2.8](#ov-new2.8)
-*  [What's new and what changed in 2.7](#ov-new2.7)
-*  [What's new and what changed in 2.6](#ov-new2.6)
-*  [What's new and what changed in 2.5](#ov-new2.5)
-*  [What's new and what changed in 2.4](#ov-new2.4)
-*  [What's new and what changed in 2.3](#ov-new2.3)
-*  [What's new and what changed in 2.2](#ov-new2.2)
-*  [What's new and what changed in 2.1](#ov-new2.1)
-*  [What's new and what changed in 2.0](#ov-new2.0)
-*  [What's new and what changed in 1.7.35](#ov-new1.7.35)
-*  [What's new and what changed in 1.7.34](#ov-new1.7.34)
-*  [What's new and what changed in 1.7.33](#ov-new1.7.33)
-*  [What's new and what changed in 1.7.32](#ov-new1.7.32)
-*  [What's new and what changed in 1.7.31](#ov-new1.7.31)
-*  [What's new and what changed in 1.7.29](#ov-new1.7.29)
-*  [What's new and what changed in 1.7.28](#ov-new1.7.28)
-*  [What's new and what changed in 1.7.27](#ov-new1.7.27)
-*  [What's new and what changed in 1.7.26](#ov-new1.7.26)
-*  [What's new and what changed in 1.7.25](#ov-new1.7.25)
-*  [What's new and what changed in 1.7.24](#ov-new1.7.24)
-*  [What's new and what changed in 1.7.23](#ov-new1.7.23)
-*  [What's new and what changed in 1.7.22](#ov-new1.7.22)
-*  [What's new and what changed in 1.7.21](#ov-new1.7.21)
-*  [What's new and what changed in 1.7.19](#ov-new1.7.19)
-*  [What's new and what changed in 1.7.18](#ov-new1.7.18)
-*  [What's new and what changed in 1.7.17](#ov-new1.7.17)
-*  [What's new and what changed in 1.7.16](#ov-new1.7.16)
-*  [What's new and what changed in 1.7.15](#ov-new1.7.15)
-*  [What's new and what changed in 1.7.14](#ov-new1.7.14)
-*  [What's new and what changed in 1.7.13](#ov-new1.7.13)
-*  [What's new and what changed in 1.7.12](#ov-new1.7.12)
-*  [What's new and what changed in 1.7.11](#ov-new1.7.11)
-*  [What's new and what changed in 1.7.10](#ov-new1.7.10)
-*  [What's new and what changed in 1.7.9](#ov-new1.7.9)
-*  [What's new and what changed in 1.7.8](#ov-new1.7.8)
-*  [What's new and what changed in 1.7.7](#ov-new1.7.7)
-*  [What's new and what changed in 1.7.6](#ov-new1.7.6)
-*  [What's new and what changed in 1.7.5](#ov-new1.7.5)
-*  [What's new and what changed in 1.7.3](#ov-new1.7.3)
-*  [What's new and what changed in 1.7.2](#ov-new1.7.2)
-*  [What's new and what changed from 1.5 to 1.7](#ov-new1.7.1)
-*  [OS related changes](#ov-new1.7-os)
-*  [File Access related changes](#ov-new1.7-file)
-*  [Network related changes](#ov-new1.7-net)
-*  [Device related changes](#ov-new1.7-device)
-*  [Other POSIX related changes](#ov-new1.7-posix)
-*  [Security related changes](#ov-new1.7-sec)
-*  [Miscellaneous](#ov-new1.7-misc)
+    *  [What's new and what changed in 3.4](#ov-new3.4)
+    *  [What's new and what changed in 3.3](#ov-new3.3)
+    *  [What's new and what changed in 3.2](#ov-new3.2)
+    *  [What's new and what changed in 3.1](#ov-new3.1)
+    *  [What's new and what changed in 3.0](#ov-new3.0)
+    *  [What's new and what changed in 2.11](#ov-new2.11)
+    *  [What's new and what changed in 2.10](#ov-new2.10)
+    *  [What's new and what changed in 2.9](#ov-new2.9)
+    *  [What's new and what changed in 2.8](#ov-new2.8)
+    *  [What's new and what changed in 2.7](#ov-new2.7)
+    *  [What's new and what changed in 2.6](#ov-new2.6)
+    *  [What's new and what changed in 2.5](#ov-new2.5)
+    *  [What's new and what changed in 2.4](#ov-new2.4)
+    *  [What's new and what changed in 2.3](#ov-new2.3)
+    *  [What's new and what changed in 2.2](#ov-new2.2)
+    *  [What's new and what changed in 2.1](#ov-new2.1)
+    *  [What's new and what changed in 2.0](#ov-new2.0)
+    *  [What's new and what changed in 1.7.35](#ov-new1.7.35)
+    *  [What's new and what changed in 1.7.34](#ov-new1.7.34)
+    *  [What's new and what changed in 1.7.33](#ov-new1.7.33)
+    *  [What's new and what changed in 1.7.32](#ov-new1.7.32)
+    *  [What's new and what changed in 1.7.31](#ov-new1.7.31)
+    *  [What's new and what changed in 1.7.29](#ov-new1.7.29)
+    *  [What's new and what changed in 1.7.28](#ov-new1.7.28)
+    *  [What's new and what changed in 1.7.27](#ov-new1.7.27)
+    *  [What's new and what changed in 1.7.26](#ov-new1.7.26)
+    *  [What's new and what changed in 1.7.25](#ov-new1.7.25)
+    *  [What's new and what changed in 1.7.24](#ov-new1.7.24)
+    *  [What's new and what changed in 1.7.23](#ov-new1.7.23)
+    *  [What's new and what changed in 1.7.22](#ov-new1.7.22)
+    *  [What's new and what changed in 1.7.21](#ov-new1.7.21)
+    *  [What's new and what changed in 1.7.19](#ov-new1.7.19)
+    *  [What's new and what changed in 1.7.18](#ov-new1.7.18)
+    *  [What's new and what changed in 1.7.17](#ov-new1.7.17)
+    *  [What's new and what changed in 1.7.16](#ov-new1.7.16)
+    *  [What's new and what changed in 1.7.15](#ov-new1.7.15)
+    *  [What's new and what changed in 1.7.14](#ov-new1.7.14)
+    *  [What's new and what changed in 1.7.13](#ov-new1.7.13)
+    *  [What's new and what changed in 1.7.12](#ov-new1.7.12)
+    *  [What's new and what changed in 1.7.11](#ov-new1.7.11)
+    *  [What's new and what changed in 1.7.10](#ov-new1.7.10)
+    *  [What's new and what changed in 1.7.9](#ov-new1.7.9)
+    *  [What's new and what changed in 1.7.8](#ov-new1.7.8)
+    *  [What's new and what changed in 1.7.7](#ov-new1.7.7)
+    *  [What's new and what changed in 1.7.6](#ov-new1.7.6)
+    *  [What's new and what changed in 1.7.5](#ov-new1.7.5)
+    *  [What's new and what changed in 1.7.3](#ov-new1.7.3)
+    *  [What's new and what changed in 1.7.2](#ov-new1.7.2)
+    *  [What's new and what changed from 1.5 to 1.7](#ov-new1.7.1)
+        *  [OS related changes](#ov-new1.7-os)
+        *  [File Access related changes](#ov-new1.7-file)
+        *  [Network related changes](#ov-new1.7-net)
+        *  [Device related changes](#ov-new1.7-device)
+        *  [Other POSIX related changes](#ov-new1.7-posix)
+        *  [Security related changes](#ov-new1.7-sec)
+        *  [Miscellaneous](#ov-new1.7-misc)
 
 What is it?
 -----------
@@ -457,7 +460,7 @@ The `fork` call in Cygwin is particularly interesting because it does not map we
 
 As the child process is created as new process, both the main executable and all the dlls loaded either statically or dynamically have to be identical as to when the parent process has started or loaded a dll. While Windows does not allow to remove binaries in use from the file system, they still can be renamed or moved into the recycle bin, as outlined for unlink(2) in [the section called “File Access related changes”](#ov-new1.7-file "File Access related changes"). To allow an existing process to fork, the original binary files need to be available via their original file names, but they may reside in a different directory when using the [DotLocal (.local) Dll Redirection](https://social.msdn.microsoft.com/search/en-US?query=dotlocal%20dll%20redirection) feature. Since NTFS does support hardlinks, when the fork fails we try again, but create a private directory containing hardlinks to the original files as well as the `.local` file now. The base directory for the private hardlink directory is `/var/run/cygfork/`, which you have to create manually for now if you need to protect fork against updates to executables and dlls on your Cygwin instance. As hardlinks cannot be used across multiple NTFS file systems, please make sure your executable and dll replacing operations operate on the same single NTFS file system as your Cygwin instance and the `/var/run/cygfork/` directory. Note that this private hardlink directory also does help for when a wrong dll is found in the parent process' current working directory. To enable creating the hardlinks, you need to stop all currently running Cygwin processes after creating this directory, once per Cygwin installation:
 
-$ mkdir --mode=a=rwxt /var/run/cygfork
+$ mkdir --mode=a=rwxt /var/run/cygfork
 
 We create one hardlink directory per user, application and application age, and remove it when no more processes use that directory. To indicate whether a directory still is in use, we define a mutex name similar to the directory name. As mutexes are destroyed when no process holds a handle open any more, we can clean up even after power loss or similar: Both the parent and child process, at exit they lock the mutex with almost no timeout and close it, to get the closure promoted synchronously. If the lock succeeded before closing, directory cleanup is started: For each directory found, the corresponding mutex is created with lock. If that succeeds, the directory is removed, as it is unused now, and the corresponding mutex handle is closed.
 
@@ -508,6 +511,59 @@ Upon entry into the select function, the first operation is to sort the file des
 
 What's new and what changed in Cygwin
 -------------------------------------
+
+### What's new and what changed in 3.5
+
+*   Drop support for Windows 7, Windows 8, Server 2008 R2 and Server 2012.
+
+*   Console devices (/dev/consN) are now accessible by processes attached to other consoles or ptys. Thanks to this new feature, GNU screen and tmux now work in the console.
+
+*   newgrp(1) tool.
+
+*   cygcheck has new options searching for available packages in the cygwin distro, as well as getting extended info on available and installed packages.
+
+*   fnmatch(3) and glob(3) now support named character classes, equivalence class expressions, and collating symbols in the search pattern, i.e., [:alnum:], [=a=], [.aa.].
+
+*   Introduce /dev/disk directory with various by-* subdirectories which provide symlinks to disk and partition raw devices:
+
+    ```sh
+      by-drive/DRIVE_LETTER ->  ../../sdXN
+      by-label/VOLUME_LABEL ->  ../../sdXN
+      by-id/BUSTYPE-[VENDOR_]PRODUCT_[SERIAL|0xHASH][-partN] -> ../../sdX[N]
+      by-partuuid/MBR_SERIAL-OFFSET -> ../../sdXN
+      by-partuuid/GPT_GUID -> ../../sdXN
+      by-uuid/VOLUME_SERIAL -> ../../sdXN
+      by-voluuid/MBR_SERIAL-OFFSET -> ../../sdXN
+      by-voluuid/VOLUME_GUID -> ../../sdXN
+    ```
+      
+*   The subdirectories by-drive and by-voluuid are Cygwin specific.
+
+*   Introduce /proc/codesets and /proc/locales with information on supported codesets and locales for all interested parties. Locale(1) opens these files and uses the info for printing locale info like any other process could do.
+
+*   Add support for GB18030 codeset.
+
+*   Add support for lseek flags SEEK_DATA and SEEK_HOLE, a GNU extension.
+
+*   New API calls: posix_spawn_file_actions_addchdir_np, posix_spawn_file_actions_addfchdir_np.
+
+*   New API calls: c8rtomb, c16rtomb, c32rtomb, mbrtoc8, mbrtoc16, mbrtoc32.
+
+*   New API call: close_range (available on FreeBSD and Linux).
+
+*   New API call: fallocate (Linux-specific).
+
+*   posix_spawnp no longer falls back to starting the shell for unrecognized files as execvp. For the reasoning, see https://www.austingroupbugs.net/view.php?id=1674
+
+*   FIFOs now also work on NFS filesystems.
+
+*   Enable automatic sparsifying of files on SSDs, independent of the "sparse" mount mode.
+
+*   When RLIMIT_CORE is more than 1MB, a core dump file which can be loaded by gdb is now written on a fatal error. Otherwise, if it's greater than zero, a text format .stackdump file is written, as previously.
+
+*   The default RLIMIT_CORE is now 0, disabling the generation of core dump or stackdump files. Use e.g. ulimit -c unlimited or ulimit -c 1024 to enable them again.
+
+
 
 ### What's new and what changed in 3.4
 
@@ -1483,7 +1539,7 @@ What's new and what changed in Cygwin
 *   Each Cygwin DLL stores its path and installation key in the registry. This allows troubleshooting of problems which could be a result of having multiple concurrent Cygwin installations.
     
 
-Chapter 2. Setting Up Cygwin
+/2. Setting Up Cygwin
 ============================
 
 **Table of Contents**
@@ -1882,7 +1938,7 @@ The first command makes filename completion case insensitive, which can be conve
     alias less='/bin/less -r'
     alias ls='/bin/ls -F --color=tty --show-control-chars'
 
-Chapter 3. Using Cygwin
+/3. Using Cygwin
 =======================
 
 **Table of Contents**
@@ -2109,7 +2165,7 @@ Whenever Cygwin generates a Win32 path from a POSIX one, it uses the longest mat
 
 If you want to see the current set of mount points valid in your session, you can invoke the Cygwin tool **mount** without arguments:
 
-**Example 3.1. Displaying the current set of mount points**
+**Example 3.1. Displaying the current set of mount points**
 
   `bash$` **`mount`**
   f:/cygwin/bin on /usr/bin type ntfs (binary,auto)
@@ -2585,7 +2641,7 @@ One unique aspect of the Cygwin `/proc` filesystem is `/proc/registry`, see next
 
 The Cygwin `/proc` is not as complete as the one in Linux, but it provides significant capabilities. The `procps` package contains several utilities that use it.
 
-/. proc
+//. proc
 ========================================================
 
 Name
@@ -2643,7 +2699,7 @@ This is a symbolic link to the current working directory of the process. To find
 		  `$` **`cd /proc/20/cwd; /bin/pwd`**
 		
 
-Note that the _pwd_ command is often a shell built-in, and might not work properly. In bash(1), you may use **`pwd -P`**.
+Note that the _pwd_ command is often a shell built-in, and might not work properly. In bash(1), you may use **`pwd -P`**.
 
 `/proc/_[pid]_/environ`
 
@@ -3185,7 +3241,7 @@ This directory contains a number of files and subdirectories linking to Windows 
 
 String values may be terminated by either '\0' or '\n'.
 
-Integer and long values may be either in decimal or in hexadecimal notation (e.g. 0x3FFF). Multiple integer or long values may be separated by any of the following whitespace characters: ' ', '\t', or '\n'.
+Integer and long values may be either in decimal or in hexadecimal notation (e.g. 0x3FFF). Multiple integer or long values may be separated by any of the following whitespace characters: ' ', '\t', or '\n'.
 
 `/proc/sysvipc`
 
@@ -3245,7 +3301,7 @@ If a registry key contains a subkey and a value with the same name `foo`, Cygwin
 
 To circumvent the limitations on shell line length in the native Windows command shells, Cygwin programs, when invoked by non-Cygwin processes, expand their arguments starting with "@" in a special way. If a file `pathname` exists, the argument `@pathname` expands recursively to the content of `pathname`. Double quotes can be used inside the file to delimit strings containing blank space. In the following example compare the behaviors **/bin/echo** when run from bash and from the Windows command prompt.
 
-**Example 3.2.  Using @pathname**
+**Example 3.2.  Using @pathname**
 
     bash$ /bin/echo  'This   is   "a     long"  line' > mylist
     bash$ /bin/echo @mylist
@@ -4414,7 +4470,7 @@ Cygwin Utilities
 
 Cygwin comes with a number of command-line utilities that are used to manage the UNIX emulation portion of the Cygwin environment. While many of these reflect their UNIX counterparts, each was written specifically for Cygwin. You may use the long or short option names interchangeably; for example, `--help` and `-h` function identically. All of the Cygwin command-line utilities support the `--help` and `--version` options.
 
-/. chattr
+//. chattr
 ========================================================
 
 Name
@@ -4467,7 +4523,7 @@ Supported attributes:
 
 * * *
 
-/. cygcheck
+//. cygcheck
 ========================================================
 
 Name
@@ -4537,7 +4593,7 @@ If you list one or more programs on the command line, **cygcheck** will diagnose
 
 The `-f` option helps you to track down which package a file came from, and `-l` lists all files in a package. For example, to find out about `/usr/bin/less` and its package:
 
-**Example 3.3. Example cygcheck usage**
+**Example 3.3. Example cygcheck usage**
 
     $ cygcheck -f /usr/bin/less
     less-381-1
@@ -4561,7 +4617,7 @@ In contrast to the other options that search the packages that are installed on 
 
 For example, perhaps you are getting an error because you are missing a certain DLL and you want to know which package includes that file:
 
-**Example 3.4. Searching all packages for a file**
+**Example 3.4. Searching all packages for a file**
 
     $ cygcheck -p 'cygintl-2\.dll'
     Found 1 matches for 'cygintl-2\.dll'.
@@ -4595,7 +4651,7 @@ Each Cygwin DLL stores its path and installation key in the registry. This allow
 
 * * *
 
-/. cygpath
+//. cygpath
 ========================================================
 
 Name
@@ -4688,7 +4744,7 @@ The `-p` option means that you want to convert a path-style string rather than a
 
 The `-i` option supresses the print out of the usage message if no filename argument was given. It can be used in make file rules converting variables that may be omitted to a proper format. Note that **cygpath** output may contain spaces (C:\Program Files) so should be enclosed in quotes.
 
-**Example 3.5. Example cygpath usage**
+**Example 3.5. Example cygpath usage**
 
 #!/bin/sh
 if [ "${1}" = "" ];
@@ -4705,7 +4761,7 @@ The capital options `-D`, `-H`, `-P`, `-S`, and `-W` output directories used by 
 
 * * *
 
-/. dumper
+//. dumper
 ========================================================
 
 Name
@@ -4746,7 +4802,7 @@ To save space in the core dump, **dumper** doesn't write those portions of the t
 
 * * *
 
-/. getconf
+//. getconf
 ========================================================
 
 Name
@@ -4788,7 +4844,7 @@ Use the `-a` option to print a list of all available configuration variables for
 
 * * *
 
-/. getfacl
+//. getfacl
 ========================================================
 
 Name
@@ -4842,7 +4898,7 @@ For each argument that is a regular file, special file or directory, **getfacl**
 
 * * *
 
-/. gmondump
+//. gmondump
 ========================================================
 
 Name
@@ -4882,7 +4938,7 @@ file gmon.out.21900.zstd.exe, gmon version 0x51879, sample rate 100
 
 * * *
 
-/. kill
+//. kill
 ========================================================
 
 Name
@@ -4929,7 +4985,7 @@ The **kill -l** option prints the name of the given signal, or a list of all sig
 
 To send a specific signal, use the `-signN` option, either with a signal number or a signal name (minus the "SIG" part), as shown in these examples:
 
-**Example 3.6. Using the kill command**
+**Example 3.6. Using the kill command**
 
     $ kill 123
     $ kill -1 123
@@ -4977,7 +5033,7 @@ Here is a list of available signals, their numbers, and some commentary on them,
 
 * * *
 
-/. ldd
+//. ldd
 ========================================================
 
 Name
@@ -5015,7 +5071,7 @@ Description
 
 * * *
 
-/. locale
+//. locale
 ========================================================
 
 Name
@@ -5160,7 +5216,7 @@ Otherwise, if arguments are given, **locale** prints the values assigned to thes
 
 * * *
 
-/. lsattr
+//. lsattr
 ========================================================
 
 Name
@@ -5216,7 +5272,7 @@ Supported attributes:
 
 * * *
 
-/. minidumper
+//. minidumper
 ========================================================
 
 Name
@@ -5253,7 +5309,7 @@ The **minidumper** utility can be used to create a minidump of a running Windows
 
 * * *
 
-/. mkgroup
+//. mkgroup
 ========================================================
 
 Name
@@ -5306,7 +5362,7 @@ Note that this information is static, in contrast to the information automatical
 
 By default, the information generated by **mkgroup** is equivalent to the information generated by Cygwin itself. The `-d` and `-l/-L` options allow you to specify where the information comes from, some domain, or the local SAM of a machine. Note that you can only enumerate accounts from trusted domains. Any non-trusted domain will be ignored. Access-restrictions of your current account apply. The `-l/-L` when used with a machine name, tries to contact that machine to enumerate local groups of other machines, typically outside of domains. This scenario cannot be covered by Cygwin's account automatism. If you want to use the `-L` option, but you don't like the default domain/group separator from `/etc/nsswitch.conf`, you can specify another separator using the `-S` option, for instance:
 
-**Example 3.7. Setting up group entry for current user with different domain/group separator**
+**Example 3.7. Setting up group entry for current user with different domain/group separator**
 
     $ mkgroup -L server1 -S= > /etc/group 
 
@@ -5316,7 +5372,7 @@ The `-o` option allows for (unlikely) special cases with multiple machines where
 
 * * *
 
-/. mkpasswd
+//. mkpasswd
 ========================================================
 
 Name
@@ -5376,7 +5432,7 @@ For very simple needs, an entry for the current user can be created by using the
 
 The `-o` option allows for special cases (such as multiple domains) where the UIDs might match otherwise. The `-p` option causes **mkpasswd** to use the specified prefix instead of the account home dir or `/home/` . For example, this command:
 
-**Example 3.8. Using an alternate home root**
+**Example 3.8. Using an alternate home root**
 
     $ mkpasswd -l -p "$(cygpath -H)" > /etc/passwd 
 
@@ -5384,7 +5440,7 @@ would put local users' home directories in the Windows 'Profiles' directory. The
 
 * * *
 
-/. mount
+//. mount
 ========================================================
 
 Name
@@ -5430,7 +5486,7 @@ The **mount** program is used to map your drives and shares onto Cygwin's simula
 
 If you just type **mount** with no parameters, it will display the current mount table for you.
 
-**Example 3.9. Displaying the current set of mount points**
+**Example 3.9. Displaying the current set of mount points**
 
     $ mount
     C:/cygwin/bin on /usr/bin type ntfs (binary)
@@ -5445,7 +5501,7 @@ In this example, c:/cygwin is the POSIX root and the D drive is mapped to `/mnt/
 
 The **mount** utility is also the mechanism for adding new mounts to the mount table in memory. The following example demonstrates how to mount the directory `//pollux/home/joe/data` to `/data` for the duration of the current session.
 
-**Example 3.10. Adding mount points**
+**Example 3.10. Adding mount points**
 
     $ ls /data
     ls: /data: No such file or directory
@@ -5521,7 +5577,7 @@ The `-m` option causes the **mount** utility to output the current mount table i
 
 Whenever Cygwin cannot use any of the existing mounts to convert from a particular Win32 path to a POSIX one, Cygwin will, instead, convert to a POSIX path using a default mount point: `/cygdrive`. For example, if Cygwin accesses `z:\foo` and the z drive is not currently in the mount table, then `z:\` will be accessible as `/cygdrive/z`. The **mount** utility can be used to change this default automount prefix through the use of the "--change-cygdrive-prefix" option. In the following example, we will set the automount prefix to `/mnt`:
 
-**Example 3.11. Changing the default prefix**
+**Example 3.11. Changing the default prefix**
 
     $ mount --change-cygdrive-prefix /mnt
 
@@ -5530,7 +5586,7 @@ Whenever Cygwin cannot use any of the existing mounts to convert from a particul
 
 Note that the cygdrive prefix can be set both per-user and system-wide, and that as with all mounts, a user-specific mount takes precedence over the system-wide setting. The **mount** utility creates system-wide mounts by default if you do not specify a type. You can always see the user and system cygdrive prefixes with the `-p` option. Using the `--options` flag with `--change-cygdrive-prefix` makes all new automounted filesystems default to this set of options. For instance (using the short form of the command line flags)
 
-**Example 3.12. Changing the default prefix with specific mount options**
+**Example 3.12. Changing the default prefix with specific mount options**
 
     $ mount -c /mnt -o binary,noacl
   
@@ -5545,7 +5601,7 @@ It is sometimes desirable to mount to a non-existent directory, for example to a
 
 * * *
 
-/. passwd
+//. passwd
 ========================================================
 
 Name
@@ -5633,7 +5689,7 @@ Limitations: Users may not be able to change their password on some systems.
 
 * * *
 
-/. pldd
+//. pldd
 ========================================================
 
 Name
@@ -5662,7 +5718,7 @@ Description
 
 * * *
 
-/. profiler
+//. profiler
 ========================================================
 
 Name
@@ -5713,7 +5769,7 @@ $ profiler du -khs .
 
 * * *
 
-/. ps
+//. ps
 ========================================================
 
 Name
@@ -5754,7 +5810,7 @@ By default, **ps** will only show processes owned by the current user. With eith
 
 * * *
 
-/. regtool
+//. regtool
 ========================================================
 
 Name
@@ -5897,7 +5953,7 @@ By default, the last "" or "/" is assumed to be the separator between the key an
 
 * * *
 
-/. setfacl
+//. setfacl
 ========================================================
 
 Name
@@ -5991,7 +6047,7 @@ Directories may contain default ACL entries. Files created in a directory that c
 
 * * *
 
-/. setmetamode
+//. setmetamode
 ========================================================
 
 Name
@@ -6026,7 +6082,7 @@ Description
 
 * * *
 
-/. ssp
+//. ssp
 ========================================================
 
 Name
@@ -6133,7 +6189,7 @@ There are many options to ssp. Since step-profiling makes your program run about
 
 * * *
 
-/. strace
+//. strace
 ========================================================
 
 Name
@@ -6214,7 +6270,7 @@ Note that **strace** is a standalone Windows program and so does not rely on the
 
 * * *
 
-/. tzset
+//. tzset
 ========================================================
 
 Name
@@ -6252,7 +6308,7 @@ The **tzset** tool reads the current timezone from Windows and generates a POSIX
 
 * * *
 
-/. umount
+//. umount
 ========================================================
 
 Name
@@ -6322,7 +6378,7 @@ A device name may be a UNC path (`\server_name\printer_name`), a reserved DOS de
 
 **lpr** sends raw data to the printer; no formatting is done. Many, but not all, printers accept plain text as input. If your printer supports PostScript, packages such as `a2ps` and `enscript` can prepare text files for printing. The `ghostscript` package also provides some translation from PostScript to various native printer languages. Additionally, a native Windows application for printing PostScript, **gsprint**, is available from the [Ghostscript website](http://www.cs.wisc.edu/~ghost/).
 
-Chapter 4. Programming with Cygwin
+/4. Programming with Cygwin
 ==================================
 
 **Table of Contents**
@@ -6353,7 +6409,7 @@ Using GCC with Cygwin
 
 Use gcc to compile, just like under UNIX. Refer to the GCC User's Guide for information on standard usage and options. Here's a simple example:
 
-**Example 4.1. Building Hello World with GCC**
+**Example 4.1. Building Hello World with GCC**
 
     bash$ gcc hello.c -o hello.exe
     bash$ hello.exe
@@ -6379,7 +6435,7 @@ BOOL WINAPI ReadFile (HANDLE, PVOID, DWORD, PDWORD, LPOVERLAPPED);
 
 Note that the forth parameter is a pointer to a DWORD, thus it's a pointer to a 4 byte type, on 32 as well as on 64 bit Windows. Now we write our own `my_read` function using ReadFile:
 
-**Example 4.2. 64bit-programming, Using ReadFile, 1st try**
+**Example 4.2. 64bit-programming, Using ReadFile, 1st try**
 
 ```cpp
 ssize_t
@@ -6399,7 +6455,7 @@ While this example code works fine on 32 bit Windows, it has in fact a bad bug. 
 
 Here's the fixed version of `my_read`:
 
-**Example 4.3. 64bit-programming, Using ReadFile, 2nd try**
+**Example 4.3. 64bit-programming, Using ReadFile, 2nd try**
 
 ```cpp
 ssize_t
@@ -6438,7 +6494,7 @@ When your program doesn't work right, it usually has a "bug" in it, meaning ther
 
 Before you can debug your program, you need to prepare your program for debugging. What you need to do is add `-g` to all the other flags you use when compiling your sources to objects.
 
-**Example 4.4. Compiling with -g**
+**Example 4.4. Compiling with -g**
 
     bash$ gcc -g -O2 -c myapp.c
     bash$ gcc -g myapp.c -o myapp
@@ -6452,7 +6508,7 @@ If your program crashes and you're trying to figure out why it crashed, the best
 
 If your program is doing something unexpected, you can use the **break** command to tell gdb to stop your program when it gets to a specific function or line number:
 
-**Example 4.5. "break" in gdb**
+**Example 4.5. "break" in gdb**
 
     (gdb) break my_function
     (gdb) break 47
@@ -6461,7 +6517,7 @@ Now, when you type **run** your program will stop at that "breakpoint" and you c
 
 Note that you may specify additional arguments to the **run** command to provide command-line arguments to your program. These two cases are the same as far as your program is concerned:
 
-**Example 4.6. Debugging with command line arguments**
+**Example 4.6. Debugging with command line arguments**
 
     bash$ myprog -t foo --queue 47
 
@@ -6725,7 +6781,7 @@ If you don't specify any flags, gprof operates as if you gave it flags **`-p -q`
 
 ### Examples
 
-**Example 4.7. Flat profile**
+**Example 4.7. Flat profile**
 
     bash$ gprof -b -p myapp
     Flat profile:
@@ -6739,7 +6795,7 @@ If you don't specify any flags, gprof operates as if you gave it flags **`-p -q`
      24.89     53.12    13.22        1    13.22    13.22  func2
   
 
-**Example 4.8. Call graph**
+**Example 4.8. Call graph**
 
     bash$ gprof -b -q myapp
                             Call graph
@@ -6775,7 +6831,7 @@ Index by function name
    [3] func1                   [4] func3
   
 
-**Example 4.9. Source line profile**
+**Example 4.9. Source line profile**
 
     bash$ gprof -b -l myapp
 
@@ -6829,7 +6885,7 @@ Multi-threaded programs are profiled just like single-threaded programs. There i
 
 Programs that fork, i.e., use the fork() system call with or without using exec() afterwards, require special care. Since there is only one gmon.out file, profiling data from the parent process might get overwritten by the child process, or vice-versa, after a fork(). You can avoid this by setting the environment variable GMON_OUT_PREFIX before running your program. If the variable is non-empty, its contents will be used as a prefix to name the profiling data files. Here's an example:
 
-**Example 4.10.** 
+**Example 4.10.** 
 
     bash$ export GMON_OUT_PREFIX=myapp.out
     bash$ ./myapp -fork

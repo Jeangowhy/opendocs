@@ -34,7 +34,7 @@ See something incorrectly described, buggy or outright wrong? Open an issue or s
 
 <br>
 
-# Writing the Bible
+# /Writing the Bible
 ========================================================
 
 <!-- vim-markdown-toc GFM -->
@@ -111,7 +111,7 @@ cd pure-bash-bible
 ./test.sh
 ```
 
-# LICENSE
+# /LICENSE
 ========================================================
 
 The MIT License (MIT)
@@ -137,7 +137,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
-# test.sh - split code from README.md and test
+# /test.sh - split code from README.md and test
 ========================================================
 
 ```sh
@@ -394,7 +394,7 @@ SOFTWARE.
     main "$@"
 ```
 
-# build.sh - split README.md to chapters
+# /build.sh - split README.md to chapters
 ========================================================
 
 ```sh
@@ -425,7 +425,7 @@ SOFTWARE.
 ```
 
 
-# Table of Contents
+# /Table of Contents
 ========================================================
 
 <!-- vim-markdown-toc GFM -->

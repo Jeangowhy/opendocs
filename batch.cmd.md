@@ -22355,6 +22355,7 @@ Equivalent bash command (Linux): [gzip](../bash/gzip.html) - Compress or decompr
 
 /. nt/explorer.html
 ========================================================
+* https://ss64.com/nt/explorer.html
 
     Explorer.exe - Windows CMD - SS64.com
 
@@ -22392,232 +22393,58 @@ Windows File Explorer search box
 
 > Windows File explorer supports Advanced Query Syntax (AQS) to help define precise searches.  
 > Microsoft describe this as an '[obsolete technology'](https://learn.microsoft.com/en-gb/windows/win32/lwef/-search-2x-wds-aqsreference) but it is still present and mostly working. Searches work for filenames and properties but not reliably for file contents, use a third party tool for that.  
-> 
-> File kind to search
-> 
-> AQS Keyword
-> 
-> Example
-> 
-> All file kinds
-> 
-> everything
-> 
-> kind:everything
-> 
-> Author
-> 
-> author or by
-> 
-> author:"Gabrielle Zavin"
-> 
-> Company
-> 
-> company
-> 
-> company:Microsoft
-> 
-> Date
-> 
-> date
-> 
-> date:today  
-> date:tomorrow  
-> date:yesterday  
-> date:this week  
-> date:last week  
-> date:next month  
-> date:past month  
-> date:coming year
-> 
-> Date modified
-> 
-> datemodified or modified
-> 
-> modified:last week
-> 
-> Deleted
-> 
-> deleted or isdeleted
-> 
-> isdeleted:true
-> 
-> Documents
-> 
-> docs
-> 
-> kind:docs
-> 
-> Favorites
-> 
-> favorites
-> 
-> kind:favorites
-> 
-> File extension
-> 
-> ext or fileext
-> 
-> ext:.txt
-> 
-> File name or foldername
-> 
-> Filename or name
-> 
-> filename:MyResume  
-> filename:*Resume
-> 
-> File name or foldername (exact match)
-> 
-> Filename or name
-> 
-> filename:=MyResume
-> 
-> Files within a specific folder or any subfolders
-> 
-> folder, under or path
-> 
-> folder:downloads  
-> folder:"Public\Public Desktop"
-> 
-> Files within a specific folder name
-> 
-> foldername or in
-> 
-> foldername:mydocs or in:mydocs
-> 
-> Folders
-> 
-> folders
-> 
-> kind:folders
-> 
-> Music
-> 
-> music
-> 
-> kind:music
-> 
-> Pictures
-> 
-> pics
-> 
-> kind:pics
-> 
-> Presentations
-> 
-> presentations
-> 
-> kind:presentations
-> 
-> Programs
-> 
-> programs
-> 
-> kind:programs
-> 
-> Size
-> 
-> size
-> 
-> size:> 5m
-> 
-> Spreadsheets
-> 
-> spreadsheets
-> 
-> kind:spreadsheets
-> 
-> Status
-> 
-> status
-> 
-> status:complete
-> 
-> Text documents
-> 
-> text
-> 
-> kind:text
-> 
-> Title
-> 
-> title, subject or about
-> 
-> title:"Quarterly Financial"
-> 
-> Videos
-> 
-> videos
-> 
-> kind:videos
-> 
-> There are [additional](https://learn.microsoft.com/en-gb/windows/win32/lwef/-search-2x-wds-aqsreference) keywords available but many will only work for specific document types (e.g. datelastprinted: lastsavedby).
-> 
-> You can combine search keywords and file properties with the following operators to broaden or narrow a search.
-> 
-> Operator
-> 
-> Example
-> 
-> Result
-> 
-> NOT
-> 
-> social NOT security
-> 
-> Finds items that contain _social_, but not _security_.
-> 
-> Space
-> 
-> social security
-> 
-> Finds items that contain _social_ and _security_.
-> 
-> OR
-> 
-> social OR security
-> 
-> Finds items that contain _social_ or _security_.
-> 
-> Quotation marks
-> 
-> "social security"
-> 
-> Finds items that contain the exact phrase _social security_.  
-> Use quotes to match "long filenames".
-> 
-> Parentheses
-> 
-> (social security)
-> 
-> Finds items that contain _social_ and _security_ in any order.
-> 
-> >
-> 
-> date:>11/13/2023  
-> size:>500  
-> 
-> Finds items newer than a given date (use the [locale's](../locale.html) [date format](date.html)).  
-> Finds items with a size greater than 500 bytes.  
-> 
-> <
-> 
-> date:<11/13/2023  
-> size:<50k  
-> 
-> Finds items older than a given date (use the locale's [date format](date.html)).  
-> Finds items with a size less than 50 Kbytes.  
-> 
-> ..
-> 
-> date:11/13/21..11/15/21
-> 
-> Finds items with a modified date between the given range (use the locale's [date format](date.html)).
-> 
-> The operators **NOT** and **OR** must be in uppercase and can't be combined in the same query.
-> 
-> Similar search options are provided in macOS Finder but with a graphical interface.
+
+| File kind to search |       AQS Keyword        |           Example           |
+|---------------------|--------------------------|-----------------------------|
+| All file kinds      | everything               | kind:everything             |
+| Author              | author or by             | author:"Gabrielle Zavin"    |
+| Company             | company                  | company:Microsoft           |
+| Date                | date                     | see below ...               |
+| Date modified       | datemodified or modified | modified:last week          |
+| Deleted             | deleted or isdeleted     | isdeleted:true              |
+| Documents           | docs                     | kind:docs                   |
+| Favorites           | favorites                | kind:favorites              |
+| File extension      | ext or fileext           | ext:.txt                    |
+| Folders             | folders                  | kind:folders                |
+| Music               | music                    | kind:music                  |
+| Pictures            | pics                     | kind:pics                   |
+| Presentations       | presentations            | kind:presentations          |
+| Programs            | programs                 | kind:programs               |
+| Size                | size                     | size:> 5m                   |
+| Spreadsheets        | spreadsheets             | kind:spreadsheets           |
+| Status              | status                   | status:complete             |
+| Text documents      | text                     | kind:text                   |
+| Title               | title, subject or about  | title:"Quarterly Financial" |
+| Videos              | videos                   | kind:videos                 |
+| File name or foldername                 | Filename or name         | filename:MyResume filename:*Resume              |
+| File name or foldername (exact match)   | Filename or name         | filename:=MyResume                              |
+| Files within a folder or any subfolders | folder, under or path    | folder:downloads folder:"Public\Public Desktop" |
+| Files within a folder name              | foldername or in         | foldername:mydocs or in:mydocs                  |
+
+AQS Keyword date: 
+date:today date:tomorrow date:yesterday date:this week date:last week date:next month date:past month date:coming year
+
+There are [additional](https://learn.microsoft.com/en-gb/windows/win32/lwef/-search-2x-wds-aqsreference) keywords available but many will only work for specific document types (e.g. datelastprinted: lastsavedby).
+
+You can combine search keywords and file properties with the following operators to broaden or narrow a search.
+
+|     Operator    |          Example           |                                                        Result                                                       |
+|-----------------|----------------------------|---------------------------------------------------------------------------------------------------------------------|
+| NOT             | social NOT security        | Finds items that contain social, but not security.                                                                  |
+| Space           | social  security           | Finds items that contain social and security.                                                                       |
+| OR              | social OR security         | Finds items that contain social or security.                                                                        |
+| Quotation marks | "social security"          | Finds items that contain the exact phrase social security. Use quotes to match "long filenames".                    |
+| Parentheses     | (social security)          | Finds items that contain social and security in any order.                                                          |
+| >               | date:>11/13/2023 size:>500 | Finds items newer than a given date (use the locale's date format). Finds items with a size greater than 500 bytes. |
+| >               | date:<11/13/2023 size:<50k | Finds items older than a given date (use the locale's date format). Finds items with a size less than 50 Kbytes.    |
+| ..              | date:11/13/21..11/15/21    | Finds items with a modified date between the given range (use the locale's date format).                            |
+
+ 
+Finds items with a modified date between the given range (use the locale's [date format](date.html)).
+
+The operators **NOT** and **OR** must be in uppercase and can't be combined in the same query.
+
+Similar search options are provided in macOS Finder but with a graphical interface.
 
 ### Examples
 

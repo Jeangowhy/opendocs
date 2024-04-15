@@ -11893,6 +11893,10 @@ Clearing the FPU exception flags depends on the FPU context save/restore configu
 
 
 
+<!-- *P261*/262 -->
+[P261]: #P261
+<a id="P261"></a>
+
 
 /5 Revision history
 ===================
@@ -11900,77 +11904,60 @@ Clearing the FPU exception flags depends on the FPU context save/restore configu
 
 **Table 58**. Document revision history
 
-Date Revision Changes
-20-Feb-2012 1 Initial release.
-09-Jul-2012 2
-Changed reset value in Section 4.6.2: Floating-point context control
-register (FPCCR).
-Added Table 1: Applicable products.
-04-Sep-2012 3
-Added information on the STM32F3xxx Cortex-M4 processor.
-Added extra part numbers to Table 1: Applicable products.
-Added related documentation references to Introduction.
-Changed “IEEE754-compliant single-precision FPU” bullet in
-Section 1.3.3: Cortex-M4 processor features and benefits summary.
-Added information on extended interrupt/event controller to
-Section 2.5.3: External event input / extended interrupt and event
-input.
-Changed first “interrupt” bullet in Section 4.3: Nested vectored
-interrupt controller (NVIC).
-Removed outdated reset value information in Section 4.4.7:
-Configuration and control register (CCR), and for 0x14 offset in
-Table 52: System fault handler priority fields.
-Added a note about IEEE 754 to Section 4.6: Floating point unit
-(FPU).
-12-May-2014 4
-Updated Reference documents.
-Updated Section 4.4.1: Auxiliary control register (ACTLR).
-Updated Section 4.5.1: SysTick control and status register
-(STK_CTRL).
-18-Apr-2016 5
-Updated:
-– Introduction
-– Reference documents
-– Section 2.5.3: External event input / extended interrupt and event
-input
-– Section 4.6.7: Enabling and clearing FPU exception interrupts
-– Table 51: Priority grouping
-Removed:
-– Table 1: Applicable products
-02-Oct-2017 6
-Updated document scope to include STM32L4+ Series impacting
-only the document’s title and cover page.
-Updated Table 49: NVIC register map and reset values
-21-Feb-2019 7
-Updated:
-– Document scope to include STM32MP1 Series, STM32WB Series,
-STM32G4 Series
-– Title and cover page
-– Section 1: About this document
-– General update of Section 4.3: Nested vectored interrupt controller
-(NVIC)
+|     Date    | Revision |                                   Changes                                    |
+|-------------|----------|------------------------------------------------------------------------------|
+| 20-Feb-2012 |        1 | Initial release.                                                             |
+|-------------|----------|------------------------------------------------------------------------------|
+| 09-Jul-2012 |        2 | Changed reset value in Section 4.6.2:                                        |
+|             |          | Floating-point context control register (FPCCR).                             |
+|             |          | Added Table 1: Applicable products.                                          |
+|-------------|----------|------------------------------------------------------------------------------|
+| 04-Sep-2012 |        3 | Added information on the STM32F3xxx Cortex-M4 processor.                     |
+|             |          | Added extra part numbers to Table 1: Applicable products.                    |
+|             |          | Added related documentation references to Introduction.                      |
+|             |          | Changed “IEEE754-compliant single-precision FPU” bullet in                   |
+|             |          | Section 1.3.3: Cortex-M4 processor features and benefits summary.            |
+|             |          | Added information on extended interrupt/event controller to                  |
+|             |          | Section 2.5.3: External event input / extended interrupt and event input.    |
+|             |          | Changed first “interrupt” bullet in Section 4.3:                             |
+|             |          | Nested vectored interrupt controller (NVIC).                                 |
+|             |          | Removed outdated reset value information in Section 4.4.7:                   |
+|             |          | Configuration and control register (CCR), and for 0x14 offset in             |
+|             |          | Table 52: System fault handler priority fields.                              |
+|             |          | Added a note about IEEE 754 to Section 4.6: Floating point unit (FPU).       |
+|-------------|----------|------------------------------------------------------------------------------|
+| 12-May-2014 |        4 | Updated Reference documents.                                                 |
+|             |          | Updated Section 4.4.1: Auxiliary control register (ACTLR).                   |
+|             |          | Updated Section 4.5.1: SysTick control and status register (STK_CTRL).       |
+|-------------|----------|------------------------------------------------------------------------------|
+| 18-Apr-2016 |        5 | Updated:                                                                     |
+|             |          | – Introduction                                                               |
+|             |          | – Reference documents                                                        |
+|             |          | – Section 2.5.3: External event input / extended interrupt and event input   |
+|             |          | – Section 4.6.7: Enabling and clearing FPU exception interrupts              |
+|             |          | – Table 51: Priority grouping                                                |
+|             |          | Removed:                                                                     |
+|             |          | – Table 1: Applicable products                                               |
+|-------------|----------|------------------------------------------------------------------------------|
+| 02-Oct-2017 |        6 | Updated document scope to include STM32L4+ Series impacting                  |
+|             |          | only the document’s title and cover page.                                    |
+|             |          | Updated Table 49: NVIC register map and reset values                         |
+|-------------|----------|------------------------------------------------------------------------------|
+| 21-Feb-2019 |        7 | Updated:                                                                     |
+|             |          | – Document scope to include STM32MP1 Series, STM32WB Series, STM32G4 Series  |
+|             |          | – Title and cover page                                                       |
+|             |          | – Section 1: About this document                                             |
+|             |          | – General update of Section 4.3: Nested vectored interrupt controller (NVIC) |
+|-------------|----------|------------------------------------------------------------------------------|
+| 24-Jun-2019 |        8 | Updated the Introduction and Reference documents to include                  |
+|             |          | the support for STM32H7 Series.                                              |
+| 18-Dec-2019 |        9 | Added STM32WL Series.                                                        |
+|             |          | Replaced SHCRS by SHCSR in Table 50: Summary of the system                   |
+|             |          | control block registers and Table 53: SCB register map and reset values.     |
+| 23-Mar-2020 |       10 | Replaced STM32H7 Series by STM32H745/755 and                                 |
+|             |          | STM32H747/757 Lines, since Arm Cortex-M4 core is only                        |
+|             |          | present in these product lines.                                              |
 
-<!-- *P261*/262 -->
-[P261]: #P261
-<a id="P261"></a>
-
-
-24-Jun-2019 8
-Updated the Introduction and Reference documents to include the
-support for STM32H7 Series.
-18-Dec-2019 9
-Added STM32WL Series.
-Replaced SHCRS by SHCSR in Table 50: Summary of the system
-control block registers and Table 53: SCB register map and reset
-values.
-23-Mar-2020 10
-Replaced STM32H7 Series by STM32H745/755 and
-STM32H747/757 Lines, since Arm Cortex-M4 core is only present in
-these product lines.
-
-Table 58. Document revision history (continued)
-
-Date Revision Changes
 
 
 <!-- *P262*/262 -->
@@ -11981,15 +11968,27 @@ Date Revision Changes
 
 IMPORTANT NOTICE – PLEASE READ CAREFULLY
 
-STMicroelectronics NV and its subsidiaries (“ST”) reserve the right to make changes, corrections, enhancements, modifications, and
-improvements to ST products and/or to this document at any time without notice. Purchasers should obtain the latest relevant information on
-ST products before placing orders. ST products are sold pursuant to ST’s terms and conditions of sale in place at the time of order
-acknowledgement.
-Purchasers are solely responsible for the choice, selection, and use of ST products and ST assumes no liability for application assistance or
-the design of Purchasers’ products.
+STMicroelectronics NV and its subsidiaries (“ST”) reserve the right to make changes, 
+corrections, enhancements, modifications, and improvements to ST products 
+and/or to this document at any time without notice. Purchasers should obtain 
+the latest relevant information on ST products before placing orders. 
+ST products are sold pursuant to ST’s terms and conditions of sale in place 
+at the time of order acknowledgement.
+
+Purchasers are solely responsible for the choice, selection, and use of ST products 
+and ST assumes no liability for application assistance or the design of 
+Purchasers’ products.
+
 No license, express or implied, to any intellectual property right is granted by ST herein.
-Resale of ST products with provisions different from the information set forth herein shall void any warranty granted by ST for such product.
-ST and the ST logo are trademarks of ST. For additional information about ST trademarks, please refer to www.st.com/trademarks. All other
-product or service names are the property of their respective owners.
-Information in this document supersedes and replaces information previously supplied in any prior versions of this document.
+
+Resale of ST products with provisions different from the information set forth 
+herein shall void any warranty granted by ST for such product.
+
+ST and the ST logo are trademarks of ST. For additional information about ST trademarks, 
+please refer to www.st.com/trademarks. All other product or service 
+names are the property of their respective owners.
+
+Information in this document supersedes and replaces information previously supplied 
+in any prior versions of this document.
+
 © 2020 STMicroelectronics – All rights reserved
