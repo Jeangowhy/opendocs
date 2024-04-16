@@ -84,14 +84,14 @@ XML 格式文档是 SVG 图形的标准载体，但是 SVG 除了使用规范的
 - Inline 方式，即以上这种直接在页面编写的 SVG 片段，可以直接与 JavaScript 交互；
 - External 方式，使用 `<embed>` `<object>` `<iframe>`  `<img>` 标签或者 background-image 样式属性。
 
-    <object id="svg-object" data="path/to/external.svg" type="image/svg+xml"></object>
+    `<object id="svg-object" data="path/to/external.svg" type="image/svg+xml"></object>`
 
 和光栅图形一样，SVG 图形可以使用 URL 连接到文件，也可以使用 base64 编码嵌入 HTML 页面：
 
-          background: url(./pictures/haskell-warning.svg) no-repeat 16px 16px;
-          background: url(data:image/svg+xml;base64,...) no-repeat 16px 16px;
-          
-          <img src="data:image/svg+xml;base64,..."
+      background: url(./pictures/haskell-warning.svg) no-repeat 16px 16px;
+      background: url(data:image/svg+xml;base64,...) no-repeat 16px 16px;
+      
+      <img src="data:image/svg+xml;base64,..."
 
 Linux 提供了 base64 命令，可以直接用于编码 SVG 图形，Windows 系统上可以通过 MSYS64 移植平台
 使用 GNU coreutils 工具套件，以下命令直接将编译进行 base64 编码并复制到剪贴板中备用。编码工具
@@ -104,8 +104,13 @@ img=/od/pictures/css-148-named-colors.svg
 echo "url(data:image/svg+xml;base64,$(base64 -w 0 "$img"))" | clip
 ```
 
-Github 中托管的 Markdown 或者 reStructuredText 文档格式可以显示 SVG 图像，但是对
-XML 文档格式有要求：
+Github 中托管的 Markdown 或者 reStructuredText 文档格式可以显示 SVG 图像，但可能对
+XML 文档格式要求更严格，并且国内基本上无法通过 raw.githubusercontent.com 访问图像资源。
+反而是 github.dev 可以使用 vscode-cdn.net 一个子域名服务提供图像资源服务，并且也支持
+通过 base64 编码嵌入图像。反而 github 官方网站的文档文件中不支持：
+
+- https://github.com/Jeangowhy/opendocs/tree/main/svg
+- https://github.dev/Jeangowhy/opendocs/tree/main/svg
 
 ```sh
 # cat | base64 -w 0 | clip <<EOF  # This line dones't work
@@ -622,9 +627,9 @@ SVG 动画专有属性详情参考 SVG 1.2 Tiny - Attributes to control the timi
   <rect id="shape1" x="50" width="200" height="50" fill="lightgray" />
   <rect id="shape2" x="300" width="200" height="50" fill="lightyellow" />
   <animate xlink:href="#shape1" attributeName="y" dur="3s" from="10" to="50" 
-    repeatCount="5" />
+    begin="click" repeatCount="5" />
   <animate xlink:href="#shape2" attributeName="y" dur="3s" from="10" to="50"
-    repeatCount="5" accumulate="sum" additive="sum" />
+    begin="click" repeatCount="5" accumulate="sum" additive="sum" />
 </svg>
 ```
 
@@ -632,9 +637,9 @@ SVG 动画专有属性详情参考 SVG 1.2 Tiny - Attributes to control the timi
   <rect id="shape1" x="50" width="200" height="50" fill="lightgray" />
   <rect id="shape2" x="300" width="200" height="50" fill="lightyellow" />
   <animate xlink:href="#shape1" attributeName="y" dur="3s" from="10" to="50" 
-    repeatCount="5" />
+    begin="click" repeatCount="5" />
   <animate xlink:href="#shape2" attributeName="y" dur="3s" from="10" to="50"
-    repeatCount="5" accumulate="sum" additive="sum" />
+    begin="click" repeatCount="5" accumulate="sum" additive="sum" />
 </svg>
 
 The ‘[values]’ attribute specifies a sequence of values to use over the course of the animation.
@@ -1391,9 +1396,8 @@ inkview SVG-viewer-CTM.svg
 例如，以上公式图像产生的 SVG 就有 40KB，单是将数值精减到小数点后两位，文件尺寸就可以优化到 30KB，
 单这一项优化就缩小的 1/4 的数据量，而且从外观上并无差别。
 
-![MikTeX as Inkscape Extension](../svg/miktex_as_inkscape_extensions.svg)
-![MikTeX as Inkscape Extension](../svg/miktex_as_inkscape_extensions-truncated.svg)
-![MikTeX as Inkscape Extension](../svg/miktex_as_inkscape_extensions-svgo.svg)
+| ![MikTeX as Inkscape Extension](../svg/miktex_as_inkscape_extensions.svg) | ![MikTeX as Inkscape Extension](../svg/miktex_as_inkscape_extensions-truncated.svg) | ![MikTeX as Inkscape Extension](../svg/miktex_as_inkscape_extensions-svgo.svg)
+
 
 ```sh
 # https://github.com/svg/svgo
@@ -1404,6 +1408,7 @@ svgo --pretty $name.svg -o $name-svgo.svg
 ```
 
 SVGO 是专门用于 SVG 图形文件优化的工具，经过压缩后的图像兼容性会下降，ImageMagick 可能无法准确重绘。
+它还可能会删除包含 XML 版本信息的标记头。
 
 Inkscape SVG 会引入两个自用的命名空间，它们专用于设置 Inkscape 专属的标记集：
 
