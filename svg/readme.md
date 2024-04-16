@@ -101,7 +101,13 @@ Linux 提供了 base64 命令，可以直接用于编码 SVG 图形，Windows �
 ```sh
 img=/od/pictures/haskell-warning.svg
 img=/od/pictures/css-148-named-colors.svg
-# echo "url(data:image/svg+xml;base64,$(base64 -w 0 "$img"))" | clip
+echo "url(data:image/svg+xml;base64,$(base64 -w 0 "$img"))" | clip
+```
+
+Github 中托管的 Markdown 或者 reStructuredText 文档格式可以显示 SVG 图像，但是对
+XML 文档格式有要求：
+
+```sh
 # cat | base64 -w 0 | clip <<EOF  # This line dones't work
 svg=$(cat <<<'
 <?xml version="1.0"?>
@@ -109,7 +115,16 @@ svg=$(cat <<<'
     <circle fill="red" cx="240" cy="90" r="80" />
 </svg>
 ')
-echo "url(data:image/svg+xml;base64,$(echo $svg | base64 -w 0)" | clip
+
+svg=$(cat <<<'
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="480" height="180">
+    <circle fill="red" cx="240" cy="90" r="80" />
+</svg>
+')
+echo -n "url(data:image/svg+xml;base64,$(echo $svg | base64 -w 0))" | clip
 ```
 
 出于安全性考虑，引用外部资源的方式，SVG 不能执行脚本交互。
@@ -121,7 +136,7 @@ SVG 参考图供参考：
 
 作为一个好色之徒，区区 148 个 CSS 标准色是远远不能满足的，还差一个绝美的中国传统色：
 
-![中国红 测试](data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+IDxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0ODAiIGhlaWdodD0iMTgwIj4gPGNpcmNsZSBmaWxsPSJyZWQiIGN4PSIyNDAiIGN5PSI5MCIgcj0iODAiIC8+IDwvc3ZnPgo=)
+![中国红 测试](data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+IDwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+IDxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0ODAiIGhlaWdodD0iMTgwIj4gPGNpcmNsZSBmaWxsPSJyZWQiIGN4PSIyNDAiIGN5PSI5MCIgcj0iODAiIC8+IDwvc3ZnPgo=)
 
 
 SVG Shapes
