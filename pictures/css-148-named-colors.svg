@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="1660"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+  <rect width="600" height="1660" fill="navajowhite" rx="2" />
+  <rect x="2" y="32" width="596" height="1626" fill="antiquewhite" rx="4" />
+  <a xlink:href="https://github.com/Jeangowhy/opendocs/blob/main/svg/readme.md">
+    <text x="30" y="20" font-size="16" class="title">CSS Color Module Level 4 - Named Colors [Color Name + Hex/Decimal RGB]</text>
+  </a>
+  <style>
+    .title { fill: darkred; font-weight: bold; }
+    text.vl { font-size:11px; font-weight: normal; fill: gray; }
+    text.cn { font-size:14px; font-weight: bold; fill: #282828 }
+    circle { stroke: #282828cc;  }
+  </style>
+  <g transform="translate(-10 32)">
+    <circle fill="#f0f8ff" cx="48" cy="32"   r="14" /> 
+      <text x="70" y="30"    class="cn">         aliceblue </text>
+      <text x="70" y="44"    class="vl">      #f0f8ff      </text>
+      <text x="120" y="44"   class="vl"> ( 240, 248, 255 ) </text>
+    <circle fill="#faebd7" cx="48" cy="64"   r="14" /> 
+      <text x="70" y="62"    class="cn">      antiquewhite </text>
+      <text x="70" y="76"    class="vl">      #faebd7      </text>
+      <text x="120" y="76"   class="vl"> ( 250, 235, 215 ) </text>
+    <circle fill="#00ffff" cx="48" cy="96"   r="14" /> 
+      <text x="70" y="94"    class="cn">              aqua </text>
+      <text x="70" y="108"   class="vl">      #00ffff      </text>
+      <text x="120" y="108"  class="vl"> (   0, 255, 255 ) </text>
+    <circle fill="#7fffd4" cx="48" cy="128"  r="14" /> 
+      <text x="70" y="126"   class="cn">        aquamarine </text>
+      <text x="70" y="140"   class="vl">      #7fffd4      </text>
+      <text x="120" y="140"  class="vl"> ( 127, 255, 212 ) </text>
+    <circle fill="#f0ffff" cx="48" cy="160"  r="14" /> 
+      <text x="70" y="158"   class="cn">             azure </text>
+      <text x="70" y="172"   class="vl">      #f0ffff      </text>
+      <text x="120" y="172"  class="vl"> ( 240, 255, 255 ) </text>
+    <circle fill="#f5f5dc" cx="48" cy="192"  r="14" /> 
+      <text x="70" y="190"   class="cn">             beige </text>
+      <text x="70" y="204"   class="vl">      #f5f5dc      </text>
+      <text x="120" y="204"  class="vl"> ( 245, 245, 220 ) </text>
+    <circle fill="#ffe4c4" cx="48" cy="224"  r="14" /> 
+      <text x="70" y="222"   class="cn">            bisque </text>
+      <text x="70" y="236"   class="vl">      #ffe4c4      </text>
+      <text x="120" y="236"  class="vl"> ( 255, 228, 196 ) </text>
+    <circle fill="#000000" cx="48" cy="256"  r="14" /> 
+      <text x="70" y="254"   class="cn">             black </text>
+      <text x="70" y="268"   class="vl">      #000000      </text>
+      <text x="120" y="268"  class="vl"> (   0,   0,   0 ) </text>
+    <circle fill="#ffebcd" cx="48" cy="288"  r="14" /> 
+      <text x="70" y="286"   class="cn">    blanchedalmond </text>
+      <text x="70" y="300"   class="vl">      #ffebcd      </text>
+      <text x="120" y="300"  class="vl"> ( 255, 235, 205 ) </text>
+    <circle fill="#0000ff" cx="48" cy="320"  r="14" /> 
+      <text x="70" y="318"   class="cn">              blue </text>
+      <text x="70" y="332"   class="vl">      #0000ff      </text>
+      <text x="120" y="332"  class="vl"> (   0,   0, 255 ) </text>
+    <circle fill="#8a2be2" cx="48" cy="352"  r="14" /> 
+      <text x="70" y="350"   class="cn">        blueviolet </text>
+      <text x="70" y="364"   class="vl">      #8a2be2      </text>
+      <text x="120" y="364"  class="vl"> ( 138,  43, 226 ) </text>
+    <circle fill="#a52a2a" cx="48" cy="384"  r="14" /> 
+      <text x="70" y="382"   class="cn">             brown </text>
+      <text x="70" y="396"   class="vl">      #a52a2a      </text>
+      <text x="120" y="396"  class="vl"> ( 165,  42,  42 ) </text>
+    <circle fill="#deb887" cx="48" cy="416"  r="14" /> 
+      <text x="70" y="414"   class="cn">         burlywood </text>
+      <text x="70" y="428"   class="vl">      #deb887      </text>
+      <text x="120" y="428"  class="vl"> ( 222, 184, 135 ) </text>
+    <circle fill="#5f9ea0" cx="48" cy="448"  r="14" /> 
+      <text x="70" y="446"   class="cn">         cadetblue </text>
+      <text x="70" y="460"   class="vl">      #5f9ea0      </text>
+      <text x="120" y="460"  class="vl"> (  95, 158, 160 ) </text>
+    <circle fill="#7fff00" cx="48" cy="480"  r="14" /> 
+      <text x="70" y="478"   class="cn">        chartreuse </text>
+      <text x="70" y="492"   class="vl">      #7fff00      </text>
+      <text x="120" y="492"  class="vl"> ( 127, 255,   0 ) </text>
+    <circle fill="#d2691e" cx="48" cy="512"  r="14" /> 
+      <text x="70" y="510"   class="cn">         chocolate </text>
+      <text x="70" y="524"   class="vl">      #d2691e      </text>
+      <text x="120" y="524"  class="vl"> ( 210, 105,  30 ) </text>
+    <circle fill="#ff7f50" cx="48" cy="544"  r="14" /> 
+      <text x="70" y="542"   class="cn">             coral </text>
+      <text x="70" y="556"   class="vl">      #ff7f50      </text>
+      <text x="120" y="556"  class="vl"> ( 255, 127,  80 ) </text>
+    <circle fill="#6495ed" cx="48" cy="576"  r="14" /> 
+      <text x="70" y="574"   class="cn">    cornflowerblue </text>
+      <text x="70" y="588"   class="vl">      #6495ed      </text>
+      <text x="120" y="588"  class="vl"> ( 100, 149, 237 ) </text>
+    <circle fill="#fff8dc" cx="48" cy="608"  r="14" /> 
+      <text x="70" y="606"   class="cn">          cornsilk </text>
+      <text x="70" y="620"   class="vl">      #fff8dc      </text>
+      <text x="120" y="620"  class="vl"> ( 255, 248, 220 ) </text>
+    <circle fill="#dc143c" cx="48" cy="640"  r="14" /> 
+      <text x="70" y="638"   class="cn">           crimson </text>
+      <text x="70" y="652"   class="vl">      #dc143c      </text>
+      <text x="120" y="652"  class="vl"> ( 220,  20,  60 ) </text>
+    <circle fill="#00ffff" cx="48" cy="672"  r="14" /> 
+      <text x="70" y="670"   class="cn">              cyan </text>
+      <text x="70" y="684"   class="vl">      #00ffff      </text>
+      <text x="120" y="684"  class="vl"> (   0, 255, 255 ) </text>
+    <circle fill="#00008b" cx="48" cy="704"  r="14" /> 
+      <text x="70" y="702"   class="cn">          darkblue </text>
+      <text x="70" y="716"   class="vl">      #00008b      </text>
+      <text x="120" y="716"  class="vl"> (   0,   0, 139 ) </text>
+    <circle fill="#008b8b" cx="48" cy="736"  r="14" /> 
+      <text x="70" y="734"   class="cn">          darkcyan </text>
+      <text x="70" y="748"   class="vl">      #008b8b      </text>
+      <text x="120" y="748"  class="vl"> (   0, 139, 139 ) </text>
+    <circle fill="#b8860b" cx="48" cy="768"  r="14" /> 
+      <text x="70" y="766"   class="cn">     darkgoldenrod </text>
+      <text x="70" y="780"   class="vl">      #b8860b      </text>
+      <text x="120" y="780"  class="vl"> ( 184, 134,  11 ) </text>
+    <circle fill="#a9a9a9" cx="48" cy="800"  r="14" /> 
+      <text x="70" y="798"   class="cn">          darkgray </text>
+      <text x="70" y="812"   class="vl">      #a9a9a9      </text>
+      <text x="120" y="812"  class="vl"> ( 169, 169, 169 ) </text>
+    <circle fill="#006400" cx="48" cy="832"  r="14" /> 
+      <text x="70" y="830"   class="cn">         darkgreen </text>
+      <text x="70" y="844"   class="vl">      #006400      </text>
+      <text x="120" y="844"  class="vl"> (   0, 100,   0 ) </text>
+    <circle fill="#a9a9a9" cx="48" cy="864"  r="14" /> 
+      <text x="70" y="862"   class="cn">          darkgrey </text>
+      <text x="70" y="876"   class="vl">      #a9a9a9      </text>
+      <text x="120" y="876"  class="vl"> ( 169, 169, 169 ) </text>
+    <circle fill="#bdb76b" cx="48" cy="896"  r="14" /> 
+      <text x="70" y="894"   class="cn">         darkkhaki </text>
+      <text x="70" y="908"   class="vl">      #bdb76b      </text>
+      <text x="120" y="908"  class="vl"> ( 189, 183, 107 ) </text>
+    <circle fill="#8b008b" cx="48" cy="928"  r="14" /> 
+      <text x="70" y="926"   class="cn">       darkmagenta </text>
+      <text x="70" y="940"   class="vl">      #8b008b      </text>
+      <text x="120" y="940"  class="vl"> ( 139,   0, 139 ) </text>
+    <circle fill="#556b2f" cx="48" cy="960"  r="14" /> 
+      <text x="70" y="958"   class="cn">    darkolivegreen </text>
+      <text x="70" y="972"   class="vl">      #556b2f      </text>
+      <text x="120" y="972"  class="vl"> (  85, 107,  47 ) </text>
+    <circle fill="#ff8c00" cx="48" cy="992"  r="14" /> 
+      <text x="70" y="990"   class="cn">        darkorange </text>
+      <text x="70" y="1004"  class="vl">      #ff8c00      </text>
+      <text x="120" y="1004" class="vl"> ( 255, 140,   0 ) </text>
+    <circle fill="#9932cc" cx="48" cy="1024" r="14" /> 
+      <text x="70" y="1022"  class="cn">        darkorchid </text>
+      <text x="70" y="1036"  class="vl">      #9932cc      </text>
+      <text x="120" y="1036" class="vl"> ( 153,  50, 204 ) </text>
+    <circle fill="#8b0000" cx="48" cy="1056" r="14" /> 
+      <text x="70" y="1054"  class="cn">           darkred </text>
+      <text x="70" y="1068"  class="vl">      #8b0000      </text>
+      <text x="120" y="1068" class="vl"> ( 139,   0,   0 ) </text>
+    <circle fill="#e9967a" cx="48" cy="1088" r="14" /> 
+      <text x="70" y="1086"  class="cn">        darksalmon </text>
+      <text x="70" y="1100"  class="vl">      #e9967a      </text>
+      <text x="120" y="1100" class="vl"> ( 233, 150, 122 ) </text>
+    <circle fill="#8fbc8f" cx="48" cy="1120" r="14" /> 
+      <text x="70" y="1118"  class="cn">      darkseagreen </text>
+      <text x="70" y="1132"  class="vl">      #8fbc8f      </text>
+      <text x="120" y="1132" class="vl"> ( 143, 188, 143 ) </text>
+    <circle fill="#483d8b" cx="48" cy="1152" r="14" /> 
+      <text x="70" y="1150"  class="cn">     darkslateblue </text>
+      <text x="70" y="1164"  class="vl">      #483d8b      </text>
+      <text x="120" y="1164" class="vl"> (  72,  61, 139 ) </text>
+    <circle fill="#2f4f4f" cx="48" cy="1184" r="14" /> 
+      <text x="70" y="1182"  class="cn">     darkslategray </text>
+      <text x="70" y="1196"  class="vl">      #2f4f4f      </text>
+      <text x="120" y="1196" class="vl"> (  47,  79,  79 ) </text>
+    <circle fill="#2f4f4f" cx="48" cy="1216" r="14" /> 
+      <text x="70" y="1214"  class="cn">     darkslategrey </text>
+      <text x="70" y="1228"  class="vl">      #2f4f4f      </text>
+      <text x="120" y="1228" class="vl"> (  47,  79,  79 ) </text>
+    <circle fill="#00ced1" cx="48" cy="1248" r="14" /> 
+      <text x="70" y="1246"  class="cn">     darkturquoise </text>
+      <text x="70" y="1260"  class="vl">      #00ced1      </text>
+      <text x="120" y="1260" class="vl"> (   0, 206, 209 ) </text>
+    <circle fill="#9400d3" cx="48" cy="1280" r="14" /> 
+      <text x="70" y="1278"  class="cn">        darkviolet </text>
+      <text x="70" y="1292"  class="vl">      #9400d3      </text>
+      <text x="120" y="1292" class="vl"> ( 148,   0, 211 ) </text>
+    <circle fill="#ff1493" cx="48" cy="1312" r="14" /> 
+      <text x="70" y="1310"  class="cn">          deeppink </text>
+      <text x="70" y="1324"  class="vl">      #ff1493      </text>
+      <text x="120" y="1324" class="vl"> ( 255,  20, 147 ) </text>
+    <circle fill="#00bfff" cx="48" cy="1344" r="14" /> 
+      <text x="70" y="1342"  class="cn">       deepskyblue </text>
+      <text x="70" y="1356"  class="vl">      #00bfff      </text>
+      <text x="120" y="1356" class="vl"> (   0, 191, 255 ) </text>
+    <circle fill="#696969" cx="48" cy="1376" r="14" /> 
+      <text x="70" y="1374"  class="cn">           dimgray </text>
+      <text x="70" y="1388"  class="vl">      #696969      </text>
+      <text x="120" y="1388" class="vl"> ( 105, 105, 105 ) </text>
+    <circle fill="#696969" cx="48" cy="1408" r="14" /> 
+      <text x="70" y="1406"  class="cn">           dimgrey </text>
+      <text x="70" y="1420"  class="vl">      #696969      </text>
+      <text x="120" y="1420" class="vl"> ( 105, 105, 105 ) </text>
+    <circle fill="#1e90ff" cx="48" cy="1440" r="14" /> 
+      <text x="70" y="1438"  class="cn">        dodgerblue </text>
+      <text x="70" y="1452"  class="vl">      #1e90ff      </text>
+      <text x="120" y="1452" class="vl"> (  30, 144, 255 ) </text>
+    <circle fill="#b22222" cx="48" cy="1472" r="14" /> 
+      <text x="70" y="1470"  class="cn">         firebrick </text>
+      <text x="70" y="1484"  class="vl">      #b22222      </text>
+      <text x="120" y="1484" class="vl"> ( 178,  34,  34 ) </text>
+    <circle fill="#fffaf0" cx="48" cy="1504" r="14" /> 
+      <text x="70" y="1502"  class="cn">       floralwhite </text>
+      <text x="70" y="1516"  class="vl">      #fffaf0      </text>
+      <text x="120" y="1516" class="vl"> ( 255, 250, 240 ) </text>
+    <circle fill="#228b22" cx="48" cy="1536" r="14" /> 
+      <text x="70" y="1534"  class="cn">       forestgreen </text>
+      <text x="70" y="1548"  class="vl">      #228b22      </text>
+      <text x="120" y="1548" class="vl"> (  34, 139,  34 ) </text>
+    <circle fill="#ff00ff" cx="48" cy="1568" r="14" /> 
+      <text x="70" y="1566"  class="cn">           fuchsia </text>
+      <text x="70" y="1580"  class="vl">      #ff00ff      </text>
+      <text x="120" y="1580" class="vl"> ( 255,   0, 255 ) </text>
+    <circle fill="#dcdcdc" cx="48" cy="1600" r="14" /> 
+      <text x="70" y="1598"  class="cn">         gainsboro </text>
+      <text x="70" y="1612"  class="vl">      #dcdcdc      </text>
+      <text x="120" y="1612" class="vl"> ( 220, 220, 220 ) </text>
+  </g>
+  <g transform="translate(180 32)">
+    <circle fill="#f8f8ff" cx="48" cy="32"   r="14" />
+      <text x="70" y="30"    class="cn">        ghostwhite </text>
+      <text x="70" y="44"    class="vl">      #f8f8ff      </text>
+      <text x="120" y="44"   class="vl"> ( 248, 248, 255 ) </text>
+    <circle fill="#ffd700" cx="48" cy="64"   r="14" />
+      <text x="70" y="62"    class="cn">              gold </text>
+      <text x="70" y="76"    class="vl">      #ffd700      </text>
+      <text x="120" y="76"   class="vl"> ( 255, 215,   0 ) </text>
+    <circle fill="#daa520" cx="48" cy="96"   r="14" />
+      <text x="70" y="94"    class="cn">         goldenrod </text>
+      <text x="70" y="108"   class="vl">      #daa520      </text>
+      <text x="120" y="108"  class="vl"> ( 218, 165,  32 ) </text>
+    <circle fill="#808080" cx="48" cy="128"  r="14" />
+      <text x="70" y="126"   class="cn">              gray </text>
+      <text x="70" y="140"   class="vl">      #808080      </text>
+      <text x="120" y="140"  class="vl"> ( 128, 128, 128 ) </text>
+    <circle fill="#008000" cx="48" cy="160"  r="14" />
+      <text x="70" y="158"   class="cn">             green </text>
+      <text x="70" y="172"   class="vl">      #008000      </text>
+      <text x="120" y="172"  class="vl"> (   0, 128,   0 ) </text>
+    <circle fill="#adff2f" cx="48" cy="192"  r="14" />
+      <text x="70" y="190"   class="cn">       greenyellow </text>
+      <text x="70" y="204"   class="vl">      #adff2f      </text>
+      <text x="120" y="204"  class="vl"> ( 173, 255,  47 ) </text>
+    <circle fill="#808080" cx="48" cy="224"  r="14" />
+      <text x="70" y="222"   class="cn">              grey </text>
+      <text x="70" y="236"   class="vl">      #808080      </text>
+      <text x="120" y="236"  class="vl"> ( 128, 128, 128 ) </text>
+    <circle fill="#f0fff0" cx="48" cy="256"  r="14" />
+      <text x="70" y="254"   class="cn">          honeydew </text>
+      <text x="70" y="268"   class="vl">      #f0fff0      </text>
+      <text x="120" y="268"  class="vl"> ( 240, 255, 240 ) </text>
+    <circle fill="#ff69b4" cx="48" cy="288"  r="14" />
+      <text x="70" y="286"   class="cn">           hotpink </text>
+      <text x="70" y="300"   class="vl">      #ff69b4      </text>
+      <text x="120" y="300"  class="vl"> ( 255, 105, 180 ) </text>
+    <circle fill="#cd5c5c" cx="48" cy="320"  r="14" />
+      <text x="70" y="318"   class="cn">         indianred </text>
+      <text x="70" y="332"   class="vl">      #cd5c5c      </text>
+      <text x="120" y="332"  class="vl"> ( 205,  92,  92 ) </text>
+    <circle fill="#4b0082" cx="48" cy="352"  r="14" />
+      <text x="70" y="350"   class="cn">            indigo </text>
+      <text x="70" y="364"   class="vl">      #4b0082      </text>
+      <text x="120" y="364"  class="vl"> (  75,   0, 130 ) </text>
+    <circle fill="#fffff0" cx="48" cy="384"  r="14" />
+      <text x="70" y="382"   class="cn">             ivory </text>
+      <text x="70" y="396"   class="vl">      #fffff0      </text>
+      <text x="120" y="396"  class="vl"> ( 255, 255, 240 ) </text>
+    <circle fill="#f0e68c" cx="48" cy="416"  r="14" />
+      <text x="70" y="414"   class="cn">             khaki </text>
+      <text x="70" y="428"   class="vl">      #f0e68c      </text>
+      <text x="120" y="428"  class="vl"> ( 240, 230, 140 ) </text>
+    <circle fill="#e6e6fa" cx="48" cy="448"  r="14" />
+      <text x="70" y="446"   class="cn">          lavender </text>
+      <text x="70" y="460"   class="vl">      #e6e6fa      </text>
+      <text x="120" y="460"  class="vl"> ( 230, 230, 250 ) </text>
+    <circle fill="#fff0f5" cx="48" cy="480"  r="14" />
+      <text x="70" y="478"   class="cn">     lavenderblush </text>
+      <text x="70" y="492"   class="vl">      #fff0f5      </text>
+      <text x="120" y="492"  class="vl"> ( 255, 240, 245 ) </text>
+    <circle fill="#7cfc00" cx="48" cy="512"  r="14" />
+      <text x="70" y="510"   class="cn">         lawngreen </text>
+      <text x="70" y="524"   class="vl">      #7cfc00      </text>
+      <text x="120" y="524"  class="vl"> ( 124, 252,   0 ) </text>
+    <circle fill="#fffacd" cx="48" cy="544"  r="14" />
+      <text x="70" y="542"   class="cn">      lemonchiffon </text>
+      <text x="70" y="556"   class="vl">      #fffacd      </text>
+      <text x="120" y="556"  class="vl"> ( 255, 250, 205 ) </text>
+    <circle fill="#add8e6" cx="48" cy="576"  r="14" />
+      <text x="70" y="574"   class="cn">         lightblue </text>
+      <text x="70" y="588"   class="vl">      #add8e6      </text>
+      <text x="120" y="588"  class="vl"> ( 173, 216, 230 ) </text>
+    <circle fill="#f08080" cx="48" cy="608"  r="14" />
+      <text x="70" y="606"   class="cn">        lightcoral </text>
+      <text x="70" y="620"   class="vl">      #f08080      </text>
+      <text x="120" y="620"  class="vl"> ( 240, 128, 128 ) </text>
+    <circle fill="#e0ffff" cx="48" cy="640"  r="14" />
+      <text x="70" y="638"   class="cn">         lightcyan </text>
+      <text x="70" y="652"   class="vl">      #e0ffff      </text>
+      <text x="120" y="652"  class="vl"> ( 224, 255, 255 ) </text>
+    <circle fill="#fafad2" cx="48" cy="672"  r="14" />
+      <text x="70" y="670"   class="cn"> lightgoldenrodyellow </text>
+      <text x="70" y="684"   class="vl">      #fafad2      </text>
+      <text x="120" y="684"  class="vl"> ( 250, 250, 210 ) </text>
+    <circle fill="#d3d3d3" cx="48" cy="704"  r="14" />
+      <text x="70" y="702"   class="cn">         lightgray </text>
+      <text x="70" y="716"   class="vl">      #d3d3d3      </text>
+      <text x="120" y="716"  class="vl"> ( 211, 211, 211 ) </text>
+    <circle fill="#90ee90" cx="48" cy="736"  r="14" />
+      <text x="70" y="734"   class="cn">        lightgreen </text>
+      <text x="70" y="748"   class="vl">      #90ee90      </text>
+      <text x="120" y="748"  class="vl"> ( 144, 238, 144 ) </text>
+    <circle fill="#d3d3d3" cx="48" cy="768"  r="14" />
+      <text x="70" y="766"   class="cn">         lightgrey </text>
+      <text x="70" y="780"   class="vl">      #d3d3d3      </text>
+      <text x="120" y="780"  class="vl"> ( 211, 211, 211 ) </text>
+    <circle fill="#ffb6c1" cx="48" cy="800"  r="14" />
+      <text x="70" y="798"   class="cn">         lightpink </text>
+      <text x="70" y="812"   class="vl">      #ffb6c1      </text>
+      <text x="120" y="812"  class="vl"> ( 255, 182, 193 ) </text>
+    <circle fill="#ffa07a" cx="48" cy="832"  r="14" />
+      <text x="70" y="830"   class="cn">       lightsalmon </text>
+      <text x="70" y="844"   class="vl">      #ffa07a      </text>
+      <text x="120" y="844"  class="vl"> ( 255, 160, 122 ) </text>
+    <circle fill="#20b2aa" cx="48" cy="864"  r="14" />
+      <text x="70" y="862"   class="cn">     lightseagreen </text>
+      <text x="70" y="876"   class="vl">      #20b2aa      </text>
+      <text x="120" y="876"  class="vl"> (  32, 178, 170 ) </text>
+    <circle fill="#87cefa" cx="48" cy="896"  r="14" />
+      <text x="70" y="894"   class="cn">      lightskyblue </text>
+      <text x="70" y="908"   class="vl">      #87cefa      </text>
+      <text x="120" y="908"  class="vl"> ( 135, 206, 250 ) </text>
+    <circle fill="#778899" cx="48" cy="928"  r="14" />
+      <text x="70" y="926"   class="cn">    lightslategray </text>
+      <text x="70" y="940"   class="vl">      #778899      </text>
+      <text x="120" y="940"  class="vl"> ( 119, 136, 153 ) </text>
+    <circle fill="#778899" cx="48" cy="960"  r="14" />
+      <text x="70" y="958"   class="cn">    lightslategrey </text>
+      <text x="70" y="972"   class="vl">      #778899      </text>
+      <text x="120" y="972"  class="vl"> ( 119, 136, 153 ) </text>
+    <circle fill="#b0c4de" cx="48" cy="992"  r="14" />
+      <text x="70" y="990"   class="cn">    lightsteelblue </text>
+      <text x="70" y="1004"  class="vl">      #b0c4de      </text>
+      <text x="120" y="1004" class="vl"> ( 176, 196, 222 ) </text>
+    <circle fill="#ffffe0" cx="48" cy="1024" r="14" />
+      <text x="70" y="1022"  class="cn">       lightyellow </text>
+      <text x="70" y="1036"  class="vl">      #ffffe0      </text>
+      <text x="120" y="1036" class="vl"> ( 255, 255, 224 ) </text>
+    <circle fill="#00ff00" cx="48" cy="1056" r="14" />
+      <text x="70" y="1054"  class="cn">              lime </text>
+      <text x="70" y="1068"  class="vl">      #00ff00      </text>
+      <text x="120" y="1068" class="vl"> (   0, 255,   0 ) </text>
+    <circle fill="#32cd32" cx="48" cy="1088" r="14" />
+      <text x="70" y="1086"  class="cn">         limegreen </text>
+      <text x="70" y="1100"  class="vl">      #32cd32      </text>
+      <text x="120" y="1100" class="vl"> (  50, 205,  50 ) </text>
+    <circle fill="#faf0e6" cx="48" cy="1120" r="14" />
+      <text x="70" y="1118"  class="cn">             linen </text>
+      <text x="70" y="1132"  class="vl">      #faf0e6      </text>
+      <text x="120" y="1132" class="vl"> ( 250, 240, 230 ) </text>
+    <circle fill="#ff00ff" cx="48" cy="1152" r="14" />
+      <text x="70" y="1150"  class="cn">           magenta </text>
+      <text x="70" y="1164"  class="vl">      #ff00ff      </text>
+      <text x="120" y="1164" class="vl"> ( 255,   0, 255 ) </text>
+    <circle fill="#800000" cx="48" cy="1184" r="14" />
+      <text x="70" y="1182"  class="cn">            maroon </text>
+      <text x="70" y="1196"  class="vl">      #800000      </text>
+      <text x="120" y="1196" class="vl"> ( 128,   0,   0 ) </text>
+    <circle fill="#66cdaa" cx="48" cy="1216" r="14" />
+      <text x="70" y="1214"  class="cn">  mediumaquamarine </text>
+      <text x="70" y="1228"  class="vl">      #66cdaa      </text>
+      <text x="120" y="1228" class="vl"> ( 102, 205, 170 ) </text>
+    <circle fill="#0000cd" cx="48" cy="1248" r="14" />
+      <text x="70" y="1246"  class="cn">        mediumblue </text>
+      <text x="70" y="1260"  class="vl">      #0000cd      </text>
+      <text x="120" y="1260" class="vl"> (   0,   0, 205 ) </text>
+    <circle fill="#ba55d3" cx="48" cy="1280" r="14" />
+      <text x="70" y="1278"  class="cn">      mediumorchid </text>
+      <text x="70" y="1292"  class="vl">      #ba55d3      </text>
+      <text x="120" y="1292" class="vl"> ( 186,  85, 211 ) </text>
+    <circle fill="#9370db" cx="48" cy="1312" r="14" />
+      <text x="70" y="1310"  class="cn">      mediumpurple </text>
+      <text x="70" y="1324"  class="vl">      #9370db      </text>
+      <text x="120" y="1324" class="vl"> ( 147, 112, 219 ) </text>
+    <circle fill="#3cb371" cx="48" cy="1344" r="14" />
+      <text x="70" y="1342"  class="cn">    mediumseagreen </text>
+      <text x="70" y="1356"  class="vl">      #3cb371      </text>
+      <text x="120" y="1356" class="vl"> (  60, 179, 113 ) </text>
+    <circle fill="#7b68ee" cx="48" cy="1376" r="14" />
+      <text x="70" y="1374"  class="cn">   mediumslateblue </text>
+      <text x="70" y="1388"  class="vl">      #7b68ee      </text>
+      <text x="120" y="1388" class="vl"> ( 123, 104, 238 ) </text>
+    <circle fill="#00fa9a" cx="48" cy="1408" r="14" />
+      <text x="70" y="1406"  class="cn"> mediumspringgreen </text>
+      <text x="70" y="1420"  class="vl">      #00fa9a      </text>
+      <text x="120" y="1420" class="vl"> (   0, 250, 154 ) </text>
+    <circle fill="#48d1cc" cx="48" cy="1440" r="14" />
+      <text x="70" y="1438"  class="cn">   mediumturquoise </text>
+      <text x="70" y="1452"  class="vl">      #48d1cc      </text>
+      <text x="120" y="1452" class="vl"> (  72, 209, 204 ) </text>
+    <circle fill="#c71585" cx="48" cy="1472" r="14" />
+      <text x="70" y="1470"  class="cn">   mediumvioletred </text>
+      <text x="70" y="1484"  class="vl">      #c71585      </text>
+      <text x="120" y="1484" class="vl"> ( 199,  21, 133 ) </text>
+    <circle fill="#191970" cx="48" cy="1504" r="14" />
+      <text x="70" y="1502"  class="cn">      midnightblue </text>
+      <text x="70" y="1516"  class="vl">      #191970      </text>
+      <text x="120" y="1516" class="vl"> (  25,  25, 112 ) </text>
+    <circle fill="#f5fffa" cx="48" cy="1536" r="14" />
+      <text x="70" y="1534"  class="cn">         mintcream </text>
+      <text x="70" y="1548"  class="vl">      #f5fffa      </text>
+      <text x="120" y="1548" class="vl"> ( 245, 255, 250 ) </text>
+    <circle fill="#ffe4e1" cx="48" cy="1568" r="14" />
+      <text x="70" y="1566"  class="cn">         mistyrose </text>
+      <text x="70" y="1580"  class="vl">      #ffe4e1      </text>
+      <text x="120" y="1580" class="vl"> ( 255, 228, 225 ) </text>
+    <circle fill="#ffe4b5" cx="48" cy="1600" r="14" />
+      <text x="70" y="1598"  class="cn">          moccasin </text>
+      <text x="70" y="1612"  class="vl">      #ffe4b5      </text>
+      <text x="120" y="1612" class="vl"> ( 255, 228, 181 ) </text>
+  </g>
+  <g transform="translate(390 32)">
+    <circle fill="#ffdead" cx="48" cy="32"   r="14" />
+      <text x="70" y="30"    class="cn">       navajowhite </text>
+      <text x="70" y="44"    class="vl">      #ffdead      </text>
+      <text x="120" y="44"   class="vl"> ( 255, 222, 173 ) </text>
+    <circle fill="#000080" cx="48" cy="64"   r="14" />
+      <text x="70" y="62"    class="cn">              navy </text>
+      <text x="70" y="76"    class="vl">      #000080      </text>
+      <text x="120" y="76"   class="vl"> (   0,   0, 128 ) </text>
+    <circle fill="#fdf5e6" cx="48" cy="96"   r="14" />
+      <text x="70" y="94"    class="cn">           oldlace </text>
+      <text x="70" y="108"   class="vl">      #fdf5e6      </text>
+      <text x="120" y="108"  class="vl"> ( 253, 245, 230 ) </text>
+    <circle fill="#808000" cx="48" cy="128"  r="14" />
+      <text x="70" y="126"   class="cn">             olive </text>
+      <text x="70" y="140"   class="vl">      #808000      </text>
+      <text x="120" y="140"  class="vl"> ( 128, 128,   0 ) </text>
+    <circle fill="#6b8e23" cx="48" cy="160"  r="14" />
+      <text x="70" y="158"   class="cn">         olivedrab </text>
+      <text x="70" y="172"   class="vl">      #6b8e23      </text>
+      <text x="120" y="172"  class="vl"> ( 107, 142,  35 ) </text>
+    <circle fill="#ffa500" cx="48" cy="192"  r="14" />
+      <text x="70" y="190"   class="cn">            orange </text>
+      <text x="70" y="204"   class="vl">      #ffa500      </text>
+      <text x="120" y="204"  class="vl"> ( 255, 165,   0 ) </text>
+    <circle fill="#ff4500" cx="48" cy="224"  r="14" />
+      <text x="70" y="222"   class="cn">         orangered </text>
+      <text x="70" y="236"   class="vl">      #ff4500      </text>
+      <text x="120" y="236"  class="vl"> ( 255,  69,   0 ) </text>
+    <circle fill="#da70d6" cx="48" cy="256"  r="14" />
+      <text x="70" y="254"   class="cn">            orchid </text>
+      <text x="70" y="268"   class="vl">      #da70d6      </text>
+      <text x="120" y="268"  class="vl"> ( 218, 112, 214 ) </text>
+    <circle fill="#eee8aa" cx="48" cy="288"  r="14" />
+      <text x="70" y="286"   class="cn">     palegoldenrod </text>
+      <text x="70" y="300"   class="vl">      #eee8aa      </text>
+      <text x="120" y="300"  class="vl"> ( 238, 232, 170 ) </text>
+    <circle fill="#98fb98" cx="48" cy="320"  r="14" />
+      <text x="70" y="318"   class="cn">         palegreen </text>
+      <text x="70" y="332"   class="vl">      #98fb98      </text>
+      <text x="120" y="332"  class="vl"> ( 152, 251, 152 ) </text>
+    <circle fill="#afeeee" cx="48" cy="352"  r="14" />
+      <text x="70" y="350"   class="cn">     paleturquoise </text>
+      <text x="70" y="364"   class="vl">      #afeeee      </text>
+      <text x="120" y="364"  class="vl"> ( 175, 238, 238 ) </text>
+    <circle fill="#db7093" cx="48" cy="384"  r="14" />
+      <text x="70" y="382"   class="cn">     palevioletred </text>
+      <text x="70" y="396"   class="vl">      #db7093      </text>
+      <text x="120" y="396"  class="vl"> ( 219, 112, 147 ) </text>
+    <circle fill="#ffefd5" cx="48" cy="416"  r="14" />
+      <text x="70" y="414"   class="cn">        papayawhip </text>
+      <text x="70" y="428"   class="vl">      #ffefd5      </text>
+      <text x="120" y="428"  class="vl"> ( 255, 239, 213 ) </text>
+    <circle fill="#ffdab9" cx="48" cy="448"  r="14" />
+      <text x="70" y="446"   class="cn">         peachpuff </text>
+      <text x="70" y="460"   class="vl">      #ffdab9      </text>
+      <text x="120" y="460"  class="vl"> ( 255, 218, 185 ) </text>
+    <circle fill="#cd853f" cx="48" cy="480"  r="14" />
+      <text x="70" y="478"   class="cn">              peru </text>
+      <text x="70" y="492"   class="vl">      #cd853f      </text>
+      <text x="120" y="492"  class="vl"> ( 205, 133,  63 ) </text>
+    <circle fill="#ffc0cb" cx="48" cy="512"  r="14" />
+      <text x="70" y="510"   class="cn">              pink </text>
+      <text x="70" y="524"   class="vl">      #ffc0cb      </text>
+      <text x="120" y="524"  class="vl"> ( 255, 192, 203 ) </text>
+    <circle fill="#dda0dd" cx="48" cy="544"  r="14" />
+      <text x="70" y="542"   class="cn">              plum </text>
+      <text x="70" y="556"   class="vl">      #dda0dd      </text>
+      <text x="120" y="556"  class="vl"> ( 221, 160, 221 ) </text>
+    <circle fill="#b0e0e6" cx="48" cy="576"  r="14" />
+      <text x="70" y="574"   class="cn">        powderblue </text>
+      <text x="70" y="588"   class="vl">      #b0e0e6      </text>
+      <text x="120" y="588"  class="vl"> ( 176, 224, 230 ) </text>
+    <circle fill="#800080" cx="48" cy="608"  r="14" />
+      <text x="70" y="606"   class="cn">            purple </text>
+      <text x="70" y="620"   class="vl">      #800080      </text>
+      <text x="120" y="620"  class="vl"> ( 128,   0, 128 ) </text>
+    <circle fill="#663399" cx="48" cy="640"  r="14" />
+      <text x="70" y="638"   class="cn">     rebeccapurple </text>
+      <text x="70" y="652"   class="vl">      #663399      </text>
+      <text x="120" y="652"  class="vl"> ( 102,  51, 153 ) </text>
+    <circle fill="#ff0000" cx="48" cy="672"  r="14" />
+      <text x="70" y="670"   class="cn">               red </text>
+      <text x="70" y="684"   class="vl">      #ff0000      </text>
+      <text x="120" y="684"  class="vl"> ( 255,   0,   0 ) </text>
+    <circle fill="#bc8f8f" cx="48" cy="704"  r="14" />
+      <text x="70" y="702"   class="cn">         rosybrown </text>
+      <text x="70" y="716"   class="vl">      #bc8f8f      </text>
+      <text x="120" y="716"  class="vl"> ( 188, 143, 143 ) </text>
+    <circle fill="#4169e1" cx="48" cy="736"  r="14" />
+      <text x="70" y="734"   class="cn">         royalblue </text>
+      <text x="70" y="748"   class="vl">      #4169e1      </text>
+      <text x="120" y="748"  class="vl"> (  65, 105, 225 ) </text>
+    <circle fill="#8b4513" cx="48" cy="768"  r="14" />
+      <text x="70" y="766"   class="cn">       saddlebrown </text>
+      <text x="70" y="780"   class="vl">      #8b4513      </text>
+      <text x="120" y="780"  class="vl"> ( 139,  69,  19 ) </text>
+    <circle fill="#fa8072" cx="48" cy="800"  r="14" />
+      <text x="70" y="798"   class="cn">            salmon </text>
+      <text x="70" y="812"   class="vl">      #fa8072      </text>
+      <text x="120" y="812"  class="vl"> ( 250, 128, 114 ) </text>
+    <circle fill="#f4a460" cx="48" cy="832"  r="14" />
+      <text x="70" y="830"   class="cn">        sandybrown </text>
+      <text x="70" y="844"   class="vl">      #f4a460      </text>
+      <text x="120" y="844"  class="vl"> ( 244, 164,  96 ) </text>
+    <circle fill="#2e8b57" cx="48" cy="864"  r="14" />
+      <text x="70" y="862"   class="cn">          seagreen </text>
+      <text x="70" y="876"   class="vl">      #2e8b57      </text>
+      <text x="120" y="876"  class="vl"> (  46, 139,  87 ) </text>
+    <circle fill="#fff5ee" cx="48" cy="896"  r="14" />
+      <text x="70" y="894"   class="cn">          seashell </text>
+      <text x="70" y="908"   class="vl">      #fff5ee      </text>
+      <text x="120" y="908"  class="vl"> ( 255, 245, 238 ) </text>
+    <circle fill="#a0522d" cx="48" cy="928"  r="14" />
+      <text x="70" y="926"   class="cn">            sienna </text>
+      <text x="70" y="940"   class="vl">      #a0522d      </text>
+      <text x="120" y="940"  class="vl"> ( 160,  82,  45 ) </text>
+    <circle fill="#c0c0c0" cx="48" cy="960"  r="14" />
+      <text x="70" y="958"   class="cn">            silver </text>
+      <text x="70" y="972"   class="vl">      #c0c0c0      </text>
+      <text x="120" y="972"  class="vl"> ( 192, 192, 192 ) </text>
+    <circle fill="#87ceeb" cx="48" cy="992"  r="14" />
+      <text x="70" y="990"   class="cn">           skyblue </text>
+      <text x="70" y="1004"  class="vl">      #87ceeb      </text>
+      <text x="120" y="1004" class="vl"> ( 135, 206, 235 ) </text>
+    <circle fill="#6a5acd" cx="48" cy="1024" r="14" />
+      <text x="70" y="1022"  class="cn">         slateblue </text>
+      <text x="70" y="1036"  class="vl">      #6a5acd      </text>
+      <text x="120" y="1036" class="vl"> ( 106,  90, 205 ) </text>
+    <circle fill="#708090" cx="48" cy="1056" r="14" />
+      <text x="70" y="1054"  class="cn">         slategray </text>
+      <text x="70" y="1068"  class="vl">      #708090      </text>
+      <text x="120" y="1068" class="vl"> ( 112, 128, 144 ) </text>
+    <circle fill="#708090" cx="48" cy="1088" r="14" />
+      <text x="70" y="1086"  class="cn">         slategrey </text>
+      <text x="70" y="1100"  class="vl">      #708090      </text>
+      <text x="120" y="1100" class="vl"> ( 112, 128, 144 ) </text>
+    <circle fill="#fffafa" cx="48" cy="1120" r="14" />
+      <text x="70" y="1118"  class="cn">              snow </text>
+      <text x="70" y="1132"  class="vl">      #fffafa      </text>
+      <text x="120" y="1132" class="vl"> ( 255, 250, 250 ) </text>
+    <circle fill="#00ff7f" cx="48" cy="1152" r="14" />
+      <text x="70" y="1150"  class="cn">       springgreen </text>
+      <text x="70" y="1164"  class="vl">      #00ff7f      </text>
+      <text x="120" y="1164" class="vl"> (   0, 255, 127 ) </text>
+    <circle fill="#4682b4" cx="48" cy="1184" r="14" />
+      <text x="70" y="1182"  class="cn">         steelblue </text>
+      <text x="70" y="1196"  class="vl">      #4682b4      </text>
+      <text x="120" y="1196" class="vl"> (  70, 130, 180 ) </text>
+    <circle fill="#d2b48c" cx="48" cy="1216" r="14" />
+      <text x="70" y="1214"  class="cn">               tan </text>
+      <text x="70" y="1228"  class="vl">      #d2b48c      </text>
+      <text x="120" y="1228" class="vl"> ( 210, 180, 140 ) </text>
+    <circle fill="#008080" cx="48" cy="1248" r="14" />
+      <text x="70" y="1246"  class="cn">              teal </text>
+      <text x="70" y="1260"  class="vl">      #008080      </text>
+      <text x="120" y="1260" class="vl"> (   0, 128, 128 ) </text>
+    <circle fill="#d8bfd8" cx="48" cy="1280" r="14" />
+      <text x="70" y="1278"  class="cn">           thistle </text>
+      <text x="70" y="1292"  class="vl">      #d8bfd8      </text>
+      <text x="120" y="1292" class="vl"> ( 216, 191, 216 ) </text>
+    <circle fill="#ff6347" cx="48" cy="1312" r="14" />
+      <text x="70" y="1310"  class="cn">            tomato </text>
+      <text x="70" y="1324"  class="vl">      #ff6347      </text>
+      <text x="120" y="1324" class="vl"> ( 255,  99,  71 ) </text>
+    <circle fill="#40e0d0" cx="48" cy="1344" r="14" />
+      <text x="70" y="1342"  class="cn">         turquoise </text>
+      <text x="70" y="1356"  class="vl">      #40e0d0      </text>
+      <text x="120" y="1356" class="vl"> (  64, 224, 208 ) </text>
+    <circle fill="#ee82ee" cx="48" cy="1376" r="14" />
+      <text x="70" y="1374"  class="cn">            violet </text>
+      <text x="70" y="1388"  class="vl">      #ee82ee      </text>
+      <text x="120" y="1388" class="vl"> ( 238, 130, 238 ) </text>
+    <circle fill="#f5deb3" cx="48" cy="1408" r="14" />
+      <text x="70" y="1406"  class="cn">             wheat </text>
+      <text x="70" y="1420"  class="vl">      #f5deb3      </text>
+      <text x="120" y="1420" class="vl"> ( 245, 222, 179 ) </text>
+    <circle fill="#ffffff" cx="48" cy="1440" r="14" />
+      <text x="70" y="1438"  class="cn">             white </text>
+      <text x="70" y="1452"  class="vl">      #ffffff      </text>
+      <text x="120" y="1452" class="vl"> ( 255, 255, 255 ) </text>
+    <circle fill="#f5f5f5" cx="48" cy="1472" r="14" />
+      <text x="70" y="1470"  class="cn">        whitesmoke </text>
+      <text x="70" y="1484"  class="vl">      #f5f5f5      </text>
+      <text x="120" y="1484" class="vl"> ( 245, 245, 245 ) </text>
+    <circle fill="#ffff00" cx="48" cy="1504" r="14" />
+      <text x="70" y="1502"  class="cn">            yellow </text>
+      <text x="70" y="1516"  class="vl">      #ffff00      </text>
+      <text x="120" y="1516" class="vl"> ( 255, 255,   0 ) </text>
+    <circle fill="#9acd32" cx="48" cy="1536" r="14" />
+      <text x="70" y="1534"  class="cn">       yellowgreen </text>
+      <text x="70" y="1548"  class="vl">      #9acd32      </text>
+      <text x="120" y="1548" class="vl"> ( 154, 205,  50 ) </text>
+  </g>
+</svg>
