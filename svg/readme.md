@@ -90,24 +90,38 @@ XML 格式文档是 SVG 图形的标准载体，但是 SVG 除了使用规范的
 
           background: url(./pictures/haskell-warning.svg) no-repeat 16px 16px;
           background: url(data:image/svg+xml;base64,...) no-repeat 16px 16px;
+          
+          <img src="data:image/svg+xml;base64,..."
 
 Linux 提供了 base64 命令，可以直接用于编码 SVG 图形，Windows 系统上可以通过 MSYS64 移植平台
 使用 GNU coreutils 工具套件，以下命令直接将编译进行 base64 编码并复制到剪贴板中备用。编码工具
 默认按 76 个字符换行显示，通过 -w 0 禁止换行，因为 CSS 不支持换行。另外，图形的 MIME 格式信息
 也要对应 SVG 文件（image/svg+xml）：
 
+```sh
+img=/od/pictures/haskell-warning.svg
+img=/od/pictures/css-148-named-colors.svg
+# echo "url(data:image/svg+xml;base64,$(base64 -w 0 "$img"))" | clip
+# cat | base64 -w 0 | clip <<EOF  # This line dones't work
+svg=$(cat <<<'
+<?xml version="1.0"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="480" height="180">
+    <circle fill="red" cx="240" cy="90" r="80" />
+</svg>
+')
+echo "url(data:image/svg+xml;base64,$(echo $svg | base64 -w 0)" | clip
+```
+
+出于安全性考虑，引用外部资源的方式，SVG 不能执行脚本交互。
+
 CSS 规范为 Web 视觉设计制定了一套标准色彩模型，其中包含了 148 个命名色彩，现制作成
 SVG 参考图供参考：
 
 ![148 named colors of CSS Color Module Level 4](../pictures/css-148-named-colors.svg)
 
+作为一个好色之徒，区区 148 个 CSS 标准色是远远不能满足的，还差一个绝美的中国传统色：
 
-```sh
-img=/od/pictures/haskell-warning.svg
-echo "url(data:image/svg+xml;base64,$(base64 -w 0 "$img"))" | clip
-```
-
-出于安全性考虑，引用外部资源的方式，SVG 不能执行脚本交互。
+![中国红 测试](data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+IDxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0ODAiIGhlaWdodD0iMTgwIj4gPGNpcmNsZSBmaWxsPSJyZWQiIGN4PSIyNDAiIGN5PSI5MCIgcj0iODAiIC8+IDwvc3ZnPgo=)
 
 
 SVG Shapes
