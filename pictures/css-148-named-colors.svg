@@ -1,19 +1,70 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="600" height="1660"
+<svg id="rootview" width="600" height="1660"
+    onclick="copyColor(event)"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink">
+  <script>
+  // <![CDATA[
+  // SVG 已经添加脚本功能，可以点击色块复制其色值。
+  // 因为浏览器安全问题，除非是 HTML 内嵌的 SVG 才可以执行脚本交互功能，图片嵌入等方式不可以。
+  // 为了执行 SVG 脚本交互，可以单独打开 SVG 图形文档，这样它就是单独在沙箱中执行。
+  function copyColor(event) {
+    let target = event.target
+    mytarget = target
+    if (target instanceof SVGCircleElement) {
+      let cn = target.nextElementSibling
+      let hx = cn.nextElementSibling
+      setClipboard(cn.textContent.trimLeft() + hx.textContent.trim())
+      setAnimation(target, hx.textContent.trim())
+    }
+    console.log({is: target instanceof SVGCircleElement, 
+      target: event.target, src: event.srcElement})
+  }
+  function setAnimation(target, bgc){
+    aniclick = document.getElementById("aniclick")
+    rect = target.getClientRects()[0]
+    rootview = document.getElementById('rootview')
+    aniclick.setAttribute('cx', rect.x + 14 + rootview.scrollLeft)
+    aniclick.setAttribute('cy', rect.y + 14 + rootview.scrollTop)
+    console.log({rect, aniclick})
+    // access ElementTimeControl interface
+    ani = document.getElementById("mani")
+    ani.beginElement()
+    anib = document.getElementById("manib")
+    anib.setAttribute('from', anib.getAttribute("to"))
+    anib.setAttribute('to', bgc)
+    anib.beginElement()
+  }
+  function setClipboard(text) {
+      var type = "text/plain";
+      var blob = new Blob([text], { type });
+      var data = [new ClipboardItem({ [type]: blob })];
+
+      navigator.clipboard.write(data).then(
+          function () {
+          console.log("/* copy successful */")
+          },
+          function (evt) {
+          console.log("/* copy failure */", evt)
+          }
+      );
+  }
+  // ]]>
+  </script>
   <rect width="600" height="1660" fill="navajowhite" rx="2" />
-  <rect x="2" y="32" width="596" height="1626" fill="antiquewhite" rx="4" />
+  <rect id="aniboard" x="2" y="32" width="596" height="1626" fill="antiquewhite" rx="4" />
+  <animate id="manib" xlink:href="#aniboard" attributeName="fill" dur="3.5" 
+    to="antiquewhite" additive="replace" accumulate="sum" fill="freeze" />
   <a xlink:href="https://github.com/Jeangowhy/opendocs/blob/main/svg/readme.md">
     <text x="30" y="20" font-size="16" class="title">CSS Color Module Level 4 - Named Colors [Color Name + Hex/Decimal RGB]</text>
   </a>
   <style>
     .title { fill: darkred; font-weight: bold; }
-    text.vl { font-size:11px; font-weight: normal; fill: gray; }
+    text.vl { font-size:11px; font-weight: normal; fill: #809080; }
     text.cn { font-size:14px; font-weight: bold; fill: #282828 }
-    circle { stroke: #282828cc;  }
+    circle { stroke: #282828cc; cursor: pointer; }
   </style>
   <g transform="translate(-10 32)">
     <circle fill="#f0f8ff" cx="48" cy="32"   r="14" /> 
@@ -613,4 +664,7 @@
       <text x="70" y="1548"  class="vl">      #9acd32      </text>
       <text x="120" y="1548" class="vl"> ( 154, 205,  50 ) </text>
   </g>
+  <circle cx="0" cy="0" r="0" stroke="gray" fill="transparent" id="aniclick" />
+  <animate id="mani" xlink:href="#aniclick" attributeName="r" 
+      dur="0.31s" begin="click" from="0" to="32" />
 </svg>

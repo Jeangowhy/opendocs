@@ -74,6 +74,20 @@ XML 格式文档是 SVG 图形的标准载体，但是 SVG 除了使用规范的
 
       target.setAttribute("r", radius);
    }
+   function setClipboard(text) {
+      var type = "text/plain";
+      var blob = new Blob([text], { type });
+      var data = [new ClipboardItem({ [type]: blob })];
+
+      navigator.clipboard.write(data).then(
+        function () {
+            console.log("/* copy successful */")
+        },
+        function (evt) {
+            console.log("/* copy failure */", evt)
+        }
+      );
+    }
    // ]]>
   </script>
 </svg>
@@ -104,13 +118,22 @@ img=/od/pictures/css-148-named-colors.svg
 echo "url(data:image/svg+xml;base64,$(base64 -w 0 "$img"))" | clip
 ```
 
+因为浏览器安全问题，除非是 HTML 内嵌的 SVG 才可以执行脚本交互功能，图片嵌入等方式不可以。
+为了执行 SVG 脚本交互，可以单独打开 SVG 图形文档，这样它就是单独在沙箱中执行。
+
 Github 中托管的 Markdown 或者 reStructuredText 文档格式可以显示 SVG 图像，但可能对
 XML 文档格式要求更严格，并且国内基本上无法通过 raw.githubusercontent.com 访问图像资源。
 反而是 github.dev 可以使用 vscode-cdn.net 一个子域名服务提供图像资源服务，并且也支持
-通过 base64 编码嵌入图像。反而 github 官方网站的文档文件中不支持：
+通过 base64 编码嵌入图像。反而 github 官方网站的文档文件中不支持。
+
 
 - https://github.com/Jeangowhy/opendocs/tree/main/svg
 - https://github.dev/Jeangowhy/opendocs/tree/main/svg
+
+- https://github.com/github/dev
+- https://docs.github.com/en/codespaces/the-githubdev-web-based-editor
+
+Github dev 切换快捷键是句点（.）。
 
 ```sh
 # cat | base64 -w 0 | clip <<EOF  # This line dones't work
@@ -137,12 +160,20 @@ echo -n "url(data:image/svg+xml;base64,$(echo $svg | base64 -w 0))" | clip
 CSS 规范为 Web 视觉设计制定了一套标准色彩模型，其中包含了 148 个命名色彩，现制作成
 SVG 参考图供参考：
 
-![148 named colors of CSS Color Module Level 4](../pictures/css-148-named-colors.svg)
+[![148 named colors of CSS Color Module Level 4](../pictures/css-148-named-colors.svg)](../pictures/css-148-named-colors.svg)
+
+以上 SVG 已经添加脚本功能，可以点击色块复制其色值。
+因为浏览器安全问题，除非是 HTML 内嵌的 SVG 才可以执行脚本交互功能，图片嵌入等方式不可以。
+为了执行 SVG 脚本交互，可以单独打开 SVG 图形文档，这样它就是单独在沙箱中执行。
 
 作为一个好色之徒，区区 148 个 CSS 标准色是远远不能满足的，还差一个绝美的中国传统色：
 
 ![中国红 测试](data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+IDwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+IDxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0ODAiIGhlaWdodD0iMTgwIj4gPGNpcmNsZSBmaWxsPSJyZWQiIGN4PSIyNDAiIGN5PSI5MCIgcj0iODAiIC8+IDwvc3ZnPgo=)
 
+参考资源：
+
+-  国立国会図書館 彩雅 影印版 https://dl.ndl.go.jp/pid/2607750
+-  色谱 中科院科技情报编委会名词室.科学出版社 https://www.zhongguose.com/colors.json
 
 SVG Shapes
 ---------------
@@ -603,7 +634,7 @@ SVG 动画专有属性详情参考 SVG 1.2 Tiny - Attributes to control the timi
 ```
 
 <svg width="600" height="200">
-  <text x="100" y="130" fill="magenta">Click color box to test reastart animation</text>
+  <text x="100" y="130" fill="magenta" font-size="22">Click color box to test reastart animation</text>
   <text x="30"  y="180" fill="lightgray">"always" [default]</text>
   <text x="230" y="180" fill="lightgray">"whenNotActive"</text>
   <text x="470" y="180" fill="lightgray">"never"</text>
