@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<svg version="1.1" 
+  xmlns="http://www.w3.org/2000/svg" 
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="500" height="200">
+  <defs>
+    <g id="box">
+      <rect x="0" y="0" width="100" height="100" fill="lightblue" />
+      <path d="M0 -10 L0 100 L110 100" stroke-dasharray="3,4" fill="none" stroke="black" />
+      <text x="-20" y="110" font-size="9">(0,0)</text>
+      <text x="100" y="-5" font-size="9">(1,1)</text>
+    </g>
+  </defs>
+  <g transform="translate(50 20)">
+    <use xlink:href="#box" />
+    <circle cx="50" cy="0" r="3" fill="red" />
+    <circle cx="50" cy="100" r="3" fill="red" />
+    <path d="M0 100 L50 0" fill="none" stroke="red" />
+    <path d="M50 100 L100 0" fill="none" stroke="red" />
+    <path d="M0 100 C 50 0 50 100 100 0" stroke="orange" fill="none" />
+    <text x="15" y="120" font-size="14">(.5, 1) (.5, 0)</text>
+  </g>
+  <g transform="translate(200 20)">
+    <use xlink:href="#box" />
+    <circle cx="20" cy="50" r="3" fill="red" />
+    <circle cx="80" cy="50" r="3" fill="red" />
+    <path d="M0 100 L20 50" fill="none" stroke="red" />
+    <path d="M80 50 L100 0" fill="none" stroke="red" />
+    <path d="M0 100 C 20 50 80 50 100 0" stroke="orange" fill="none" />
+    <text x="15" y="120" font-size="14">(.2, 0.5) (.8, 0.5)</text>
+  </g>
+  <g transform="translate(350 20)">
+    <use xlink:href="#box" />
+    <circle cx="0" cy="0" r="3" fill="red" />
+    <circle cx="100" cy="100" r="3" fill="red" />
+    <path d="M0 100 L00 0" fill="none" stroke="red" />
+    <path d="M100 100 L100 0" fill="none" stroke="red" />
+    <path d="M0 100 C 0 0 100 100 100 0" stroke="orange" fill="none" />
+    <text x="15" y="120" font-size="14">(.0, 1) (.1, 0)</text>
+  </g>
+  <text x="160" y="180" font-size="16">Simple keySplines curves</text>
+</svg>

@@ -167,6 +167,226 @@ Copyright 2006–2022 [John MacFarlane](http://johnmacfarlane.net/).
 [![diagram of pandoc conversions](https://pandoc.org/diagram.svgz)](https://pandoc.org/diagram.svgz?v=20240215100618)
 
 
+# /0. Pandoc Demos
+https://pandoc.org/demos.html#examples
+
+You can try pandoc online here. http://johnmacfarlane.net/pandoc/try
+
+Examples
+
+To see the output created by each of the commands below, click on the name of the output file:
+https://pandoc.org/demo/MANUAL.txt
+
+https://pandoc.org/demo/SLIDES
+
+```sh
+% Eating Habits
+% John Doe
+% March 22, 2005
+
+# In the morning
+
+- Eat eggs
+- Drink coffee
+
+# In the evening
+
+- Eat spaghetti
+- Drink wine
+
+# Conclusion
+
+- And the answer is...
+- $f(x)=\sum_{n=0}^\infty\frac{f^{(n)}(a)}{n!}(x-a)^n$    
+```
+
+
+HTML fragment:
+
+    pandoc MANUAL.txt -o example1.html
+
+Standalone HTML file:
+
+    pandoc -s MANUAL.txt -o example2.html
+
+HTML with table of contents, CSS, and custom footer:
+
+    pandoc -s --toc -c pandoc.css -A footer.html MANUAL.txt -o example3.html
+
+LaTeX:
+
+    pandoc -s MANUAL.txt -o example4.tex
+
+From LaTeX to markdown:
+
+    pandoc -s example4.tex -o example5.text
+
+reStructuredText:
+
+    pandoc -s -t rst --toc MANUAL.txt -o example6.text
+
+Rich text format (RTF):
+
+    pandoc -s MANUAL.txt -o example7.rtf
+
+Beamer slide show:
+
+    pandoc -t beamer SLIDES -o example8.pdf
+
+DocBook XML:
+
+    pandoc -s -t docbook MANUAL.txt -o example9.db
+
+Man page:
+
+    pandoc -s -t man pandoc.1.md -o example10.1
+
+ConTeXt:
+
+    pandoc -s -t context MANUAL.txt -o example11.tex
+
+Converting a web page to markdown:
+
+    pandoc -s -r html http://www.gnu.org/software/make/ -o example12.text
+
+From markdown to PDF:
+
+    pandoc MANUAL.txt --pdf-engine=xelatex -o example13.pdf
+
+PDF with numbered sections and a custom LaTeX header:
+
+    pandoc -N --variable "geometry=margin=1.2in" --variable mainfont="Palatino" --variable sansfont="Helvetica" --variable monofont="Menlo" --variable fontsize=12pt --variable version=2.0 MANUAL.txt --include-in-header fancyheaders.tex --pdf-engine=lualatex --toc -o example14.pdf
+
+ipynb (Jupyter notebook):
+
+    pandoc example15.md -o example15.ipynb
+
+HTML slide shows:
+
+    pandoc -s --mathml -i -t dzslides SLIDES -o example16a.html
+
+    pandoc -s --webtex -i -t slidy SLIDES -o example16b.html
+
+    pandoc -s --mathjax -i -t revealjs SLIDES -o example16d.html
+
+TeX math in HTML:
+
+    pandoc math.text -s -o mathDefault.html
+
+    pandoc math.text -s --mathml  -o mathMathML.html
+
+    pandoc math.text -s --webtex  -o mathWebTeX.html
+
+    pandoc math.text -s --mathjax -o mathMathJax.html
+
+    pandoc math.text -s --katex   -o mathKaTeX.html
+
+Syntax highlighting of delimited code blocks:
+
+    pandoc code.text -s --highlight-style pygments -o example18a.html
+
+    pandoc code.text -s --highlight-style kate -o example18b.html
+
+    pandoc code.text -s --highlight-style monochrome -o example18c.html
+
+    pandoc code.text -s --highlight-style espresso -o example18d.html
+
+    pandoc code.text -s --highlight-style haddock -o example18e.html
+
+    pandoc code.text -s --highlight-style tango -o example18f.html
+
+    pandoc code.text -s --highlight-style zenburn -o example18g.html
+
+GNU Texinfo:
+
+    pandoc MANUAL.txt -s -o example19.texi
+
+OpenDocument XML:
+
+    pandoc MANUAL.txt -s -t opendocument -o example20.xml
+
+ODT (OpenDocument Text, readable by OpenOffice):
+
+    pandoc MANUAL.txt -o example21.odt
+
+MediaWiki markup:
+
+    pandoc -s -t mediawiki --toc MANUAL.txt -o example22.wiki
+
+EPUB ebook:
+
+    pandoc MANUAL.txt -o MANUAL.epub
+
+Markdown citations:
+
+    pandoc -s --bibliography biblio.bib --citeproc CITATIONS -o example24a.html
+
+    pandoc -s --bibliography biblio.json --citeproc --csl chicago-fullnote-bibliography.csl CITATIONS -o example24b.html
+
+    pandoc -s --bibliography biblio.yaml --citeproc --csl ieee.csl CITATIONS -t man -o example24c.1
+
+Textile writer:
+
+    pandoc -s MANUAL.txt -t textile -o example25.textile
+
+Textile reader:
+
+    pandoc -s example25.textile -f textile -t html -o example26.html
+
+Org-mode:
+
+    pandoc -s MANUAL.txt -o example27.org
+
+AsciiDoc:
+
+    pandoc -s MANUAL.txt -t asciidoc -o example28.txt
+
+Word docx:
+
+    pandoc -s MANUAL.txt -o example29.docx
+
+LaTeX math to docx:
+
+    pandoc -s math.tex -o example30.docx
+
+DocBook to markdown:
+
+    pandoc -f docbook -t markdown -s howto.xml -o example31.text
+
+MediaWiki to html5:
+
+    pandoc -f mediawiki -t html5 -s haskell.wiki -o example32.html
+
+Chunked HTML:
+
+    pandoc -t chunkedhtml --split-level=2 --toc --toc-depth=2 --number-sections -o example33 MANUAL.txt
+
+Docx with a reference docx:
+
+    pandoc --reference-doc twocolumns.docx -o UsersGuide.docx MANUAL.txt
+
+Docx to markdown, including math:
+
+    pandoc -s example30.docx -t markdown -o example35.md
+
+EPUB to plain text:
+
+    pandoc MANUAL.epub -t plain -o example36.text
+
+Using a template to produce a table from structured data:
+
+    pandoc fishwatch.yaml -t rst --template fishtable.rst -o fish.rst # see also the partial species.rst
+
+Converting a bibliography from BibTeX to CSL JSON:
+
+    pandoc biblio.bib -t csljson -o biblio2.json
+
+Producing a formatted version of a bibliography:
+
+    pandoc biblio.bib --citeproc --csl ieee.csl -s -o biblio.html
+
+
+
 # /0. Pandoc CLI
 
 ```sh
@@ -282,7 +502,7 @@ pandoc --to=markdown "$man" >> $out; subl $out
       -h                    --help                                                
 
 
-# /1. Pandoc User's Guide {#pandoc-users-guide .title}
+# /1. Pandoc User's Guide
 
 John MacFarlane
 
@@ -292,46 +512,32 @@ March 17, 2024
 -   [Synopsis](#synopsis){#toc-synopsis}
 -   [Description](#description){#toc-description}
     -   [Using pandoc](#using-pandoc){#toc-using-pandoc}
-    -   [Specifying
-        formats](#specifying-formats){#toc-specifying-formats}
-    -   [Character
-        encoding](#character-encoding){#toc-character-encoding}
+    -   [Specifying formats](#specifying-formats){#toc-specifying-formats}
+    -   [Character encoding](#character-encoding){#toc-character-encoding}
     -   [Creating a PDF](#creating-a-pdf){#toc-creating-a-pdf}
-    -   [Reading from the
-        Web](#reading-from-the-web){#toc-reading-from-the-web}
+    -   [Reading from the Web](#reading-from-the-web){#toc-reading-from-the-web}
 -   [Options](#options){#toc-options}
     -   [General options](#general-options){#toc-general-options}
     -   [Reader options](#reader-options){#toc-reader-options}
-    -   [General writer
-        options](#general-writer-options){#toc-general-writer-options}
-    -   [Options affecting specific
-        writers](#options-affecting-specific-writers){#toc-options-affecting-specific-writers}
-    -   [Citation
-        rendering](#citation-rendering){#toc-citation-rendering}
-    -   [Math rendering in
-        HTML](#math-rendering-in-html){#toc-math-rendering-in-html}
-    -   [Options for wrapper
-        scripts](#options-for-wrapper-scripts){#toc-options-for-wrapper-scripts}
+    -   [General writer options](#general-writer-options){#toc-general-writer-options}
+    -   [Options affecting specific writers](#options-affecting-specific-writers){#toc-options-affecting-specific-writers}
+    -   [Citation rendering](#citation-rendering){#toc-citation-rendering}
+    -   [Math rendering in HTML](#math-rendering-in-html){#toc-math-rendering-in-html}
+    -   [Options for wrapper scripts](#options-for-wrapper-scripts){#toc-options-for-wrapper-scripts}
 -   [Exit codes](#exit-codes){#toc-exit-codes}
 -   [Defaults files](#defaults-files){#toc-defaults-files}
     -   [General options](#general-options-1){#toc-general-options-1}
     -   [Reader options](#reader-options-1){#toc-reader-options-1}
-    -   [General writer
-        options](#general-writer-options-1){#toc-general-writer-options-1}
-    -   [Options affecting specific
-        writers](#options-affecting-specific-writers-1){#toc-options-affecting-specific-writers-1}
-    -   [Citation
-        rendering](#citation-rendering-1){#toc-citation-rendering-1}
-    -   [Math rendering in
-        HTML](#math-rendering-in-html-1){#toc-math-rendering-in-html-1}
-    -   [Options for wrapper
-        scripts](#options-for-wrapper-scripts-1){#toc-options-for-wrapper-scripts-1}
+    -   [General writer options](#general-writer-options-1){#toc-general-writer-options-1}
+    -   [Options affecting specific writers](#options-affecting-specific-writers-1){#toc-options-affecting-specific-writers-1}
+    -   [Citation rendering](#citation-rendering-1){#toc-citation-rendering-1}
+    -   [Math rendering in HTML](#math-rendering-in-html-1){#toc-math-rendering-in-html-1}
+    -   [Options for wrapper scripts](#options-for-wrapper-scripts-1){#toc-options-for-wrapper-scripts-1}
 -   [Templates](#templates){#toc-templates}
     -   [Template syntax](#template-syntax){#toc-template-syntax}
         -   [Comments](#comments){#toc-comments}
         -   [Delimiters](#delimiters){#toc-delimiters}
-        -   [Interpolated
-            variables](#interpolated-variables){#toc-interpolated-variables}
+        -   [Interpolated variables](#interpolated-variables){#toc-interpolated-variables}
         -   [Conditionals](#conditionals){#toc-conditionals}
         -   [For loops](#for-loops){#toc-for-loops}
         -   [Partials](#partials){#toc-partials}
@@ -339,68 +545,45 @@ March 17, 2024
         -   [Breakable spaces](#breakable-spaces){#toc-breakable-spaces}
         -   [Pipes](#pipes){#toc-pipes}
     -   [Variables](#variables){#toc-variables}
-        -   [Metadata
-            variables](#metadata-variables){#toc-metadata-variables}
-        -   [Language
-            variables](#language-variables){#toc-language-variables}
-        -   [Variables for
-            HTML](#variables-for-html){#toc-variables-for-html}
-        -   [Variables for HTML
-            math](#variables-for-html-math){#toc-variables-for-html-math}
-        -   [Variables for HTML
-            slides](#variables-for-html-slides){#toc-variables-for-html-slides}
-        -   [Variables for Beamer
-            slides](#variables-for-beamer-slides){#toc-variables-for-beamer-slides}
-        -   [Variables for
-            PowerPoint](#variables-for-powerpoint){#toc-variables-for-powerpoint}
-        -   [Variables for
-            LaTeX](#variables-for-latex){#toc-variables-for-latex}
-        -   [Variables for
-            ConTeXt](#variables-for-context){#toc-variables-for-context}
-        -   [Variables for
-            `wkhtmltopdf`](#variables-for-wkhtmltopdf){#toc-variables-for-wkhtmltopdf}
-        -   [Variables for man
-            pages](#variables-for-man-pages){#toc-variables-for-man-pages}
-        -   [Variables for
-            Typst](#variables-for-typst){#toc-variables-for-typst}
+        -   [Metadata variables](#metadata-variables){#toc-metadata-variables}
+        -   [Language variables](#language-variables){#toc-language-variables}
+        -   [Variables for HTML](#variables-for-html){#toc-variables-for-html}
+        -   [Variables for HTML math](#variables-for-html-math){#toc-variables-for-html-math}
+        -   [Variables for HTML slides](#variables-for-html-slides){#toc-variables-for-html-slides}
+        -   [Variables for Beamer slides](#variables-for-beamer-slides){#toc-variables-for-beamer-slides}
+        -   [Variables for PowerPoint](#variables-for-powerpoint){#toc-variables-for-powerpoint}
+        -   [Variables for LaTeX](#variables-for-latex){#toc-variables-for-latex}
+        -   [Variables for ConTeXt](#variables-for-context){#toc-variables-for-context}
+        -   [Variables for `wkhtmltopdf`](#variables-for-wkhtmltopdf){#toc-variables-for-wkhtmltopdf}
+        -   [Variables for man pages](#variables-for-man-pages){#toc-variables-for-man-pages}
+        -   [Variables for Typst](#variables-for-typst){#toc-variables-for-typst}
         -   [Variables for ms](#variables-for-ms){#toc-variables-for-ms}
-        -   [Variables set
-            automatically](#variables-set-automatically){#toc-variables-set-automatically}
+        -   [Variables set automatically](#variables-set-automatically){#toc-variables-set-automatically}
 -   [Extensions](#extensions){#toc-extensions}
     -   [Typography](#typography){#toc-typography}
-    -   [Headings and
-        sections](#headings-and-sections){#toc-headings-and-sections}
+    -   [Headings and sections](#headings-and-sections){#toc-headings-and-sections}
     -   [Math Input](#math-input){#toc-math-input}
     -   [Raw HTML/TeX](#raw-htmltex){#toc-raw-htmltex}
-    -   [Literate Haskell
-        support](#literate-haskell-support){#toc-literate-haskell-support}
+    -   [Literate Haskell support](#literate-haskell-support){#toc-literate-haskell-support}
     -   [Other extensions](#other-extensions){#toc-other-extensions}
 -   [Pandoc's Markdown](#pandocs-markdown){#toc-pandocs-markdown}
     -   [Philosophy](#philosophy){#toc-philosophy}
     -   [Paragraphs](#paragraphs){#toc-paragraphs}
     -   [Headings](#headings){#toc-headings}
-        -   [Setext-style
-            headings](#setext-style-headings){#toc-setext-style-headings}
-        -   [ATX-style
-            headings](#atx-style-headings){#toc-atx-style-headings}
-        -   [Heading
-            identifiers](#heading-identifiers){#toc-heading-identifiers}
+        -   [Setext-style headings](#setext-style-headings){#toc-setext-style-headings}
+        -   [ATX-style headings](#atx-style-headings){#toc-atx-style-headings}
+        -   [Heading identifiers](#heading-identifiers){#toc-heading-identifiers}
     -   [Block quotations](#block-quotations){#toc-block-quotations}
-    -   [Verbatim (code)
-        blocks](#verbatim-code-blocks){#toc-verbatim-code-blocks}
-        -   [Indented code
-            blocks](#indented-code-blocks){#toc-indented-code-blocks}
-        -   [Fenced code
-            blocks](#fenced-code-blocks){#toc-fenced-code-blocks}
+    -   [Verbatim (code) blocks](#verbatim-code-blocks){#toc-verbatim-code-blocks}
+        -   [Indented code blocks](#indented-code-blocks){#toc-indented-code-blocks}
+        -   [Fenced code blocks](#fenced-code-blocks){#toc-fenced-code-blocks}
     -   [Line blocks](#line-blocks){#toc-line-blocks}
     -   [Lists](#lists){#toc-lists}
         -   [Bullet lists](#bullet-lists){#toc-bullet-lists}
-        -   [Block content in list
-            items](#block-content-in-list-items){#toc-block-content-in-list-items}
+        -   [Block content in list items](#block-content-in-list-items){#toc-block-content-in-list-items}
         -   [Ordered lists](#ordered-lists){#toc-ordered-lists}
         -   [Definition lists](#definition-lists){#toc-definition-lists}
-        -   [Numbered example
-            lists](#numbered-example-lists){#toc-numbered-example-lists}
+        -   [Numbered example lists](#numbered-example-lists){#toc-numbered-example-lists}
         -   [Ending a list](#ending-a-list){#toc-ending-a-list}
     -   [Horizontal rules](#horizontal-rules){#toc-horizontal-rules}
     -   [Tables](#tables){#toc-tables}
@@ -409,16 +592,14 @@ March 17, 2024
     -   [Inline formatting](#inline-formatting){#toc-inline-formatting}
         -   [Emphasis](#emphasis){#toc-emphasis}
         -   [Strikeout](#strikeout){#toc-strikeout}
-        -   [Superscripts and
-            subscripts](#superscripts-and-subscripts){#toc-superscripts-and-subscripts}
+        -   [Superscripts and subscripts](#superscripts-and-subscripts){#toc-superscripts-and-subscripts}
         -   [Verbatim](#verbatim){#toc-verbatim}
         -   [Underline](#underline){#toc-underline}
         -   [Small caps](#small-caps){#toc-small-caps}
         -   [Highlighting](#highlighting){#toc-highlighting}
     -   [Math](#math){#toc-math}
     -   [Raw HTML](#raw-html){#toc-raw-html}
-        -   [Generic raw
-            attribute](#generic-raw-attribute){#toc-generic-raw-attribute}
+        -   [Generic raw attribute](#generic-raw-attribute){#toc-generic-raw-attribute}
     -   [LaTeX macros](#latex-macros){#toc-latex-macros}
     -   [Links](#links-1){#toc-links-1}
         -   [Automatic links](#automatic-links){#toc-automatic-links}
@@ -429,84 +610,58 @@ March 17, 2024
     -   [Divs and Spans](#divs-and-spans){#toc-divs-and-spans}
     -   [Footnotes](#footnotes){#toc-footnotes}
     -   [Citation syntax](#citation-syntax){#toc-citation-syntax}
-    -   [Non-default
-        extensions](#non-default-extensions){#toc-non-default-extensions}
+    -   [Non-default extensions](#non-default-extensions){#toc-non-default-extensions}
     -   [Markdown variants](#markdown-variants){#toc-markdown-variants}
 -   [Citations](#citations){#toc-citations}
-    -   [Specifying bibliographic
-        data](#specifying-bibliographic-data){#toc-specifying-bibliographic-data}
-        -   [Capitalization in
-            titles](#capitalization-in-titles){#toc-capitalization-in-titles}
-        -   [Conference Papers, Published
-            vs. Unpublished](#conference-papers-published-vs.-unpublished){#toc-conference-papers-published-vs.-unpublished}
-    -   [Specifying a citation
-        style](#specifying-a-citation-style){#toc-specifying-a-citation-style}
-    -   [Citations in note
-        styles](#citations-in-note-styles){#toc-citations-in-note-styles}
-    -   [Placement of the
-        bibliography](#placement-of-the-bibliography){#toc-placement-of-the-bibliography}
-    -   [Including uncited items in the
-        bibliography](#including-uncited-items-in-the-bibliography){#toc-including-uncited-items-in-the-bibliography}
-    -   [Other relevant metadata
-        fields](#other-relevant-metadata-fields){#toc-other-relevant-metadata-fields}
+    -   [Specifying bibliographic data](#specifying-bibliographic-data){#toc-specifying-bibliographic-data}
+        -   [Capitalization in titles](#capitalization-in-titles){#toc-capitalization-in-titles}
+        -   [Conference Papers, Published vs. Unpublished](#conference-papers-published-vs.-unpublished){#toc-conference-papers-published-vs.-unpublished}
+    -   [Specifying a citation style](#specifying-a-citation-style){#toc-specifying-a-citation-style}
+    -   [Citations in note styles](#citations-in-note-styles){#toc-citations-in-note-styles}
+    -   [Placement of the bibliography](#placement-of-the-bibliography){#toc-placement-of-the-bibliography}
+    -   [Including uncited items in the bibliography](#including-uncited-items-in-the-bibliography){#toc-including-uncited-items-in-the-bibliography}
+    -   [Other relevant metadata fields](#other-relevant-metadata-fields){#toc-other-relevant-metadata-fields}
 -   [Slide shows](#slide-shows){#toc-slide-shows}
-    -   [Structuring the slide
-        show](#structuring-the-slide-show){#toc-structuring-the-slide-show}
-        -   [PowerPoint layout
-            choice](#powerpoint-layout-choice){#toc-powerpoint-layout-choice}
+    -   [Structuring the slide show](#structuring-the-slide-show){#toc-structuring-the-slide-show}
+        -   [PowerPoint layout choice](#powerpoint-layout-choice){#toc-powerpoint-layout-choice}
     -   [Incremental lists](#incremental-lists){#toc-incremental-lists}
     -   [Inserting pauses](#inserting-pauses){#toc-inserting-pauses}
-    -   [Styling the
-        slides](#styling-the-slides){#toc-styling-the-slides}
+    -   [Styling the slides](#styling-the-slides){#toc-styling-the-slides}
     -   [Speaker notes](#speaker-notes){#toc-speaker-notes}
     -   [Columns](#columns){#toc-columns}
-        -   [Additional columns attributes in
-            beamer](#additional-columns-attributes-in-beamer){#toc-additional-columns-attributes-in-beamer}
-    -   [Frame attributes in
-        beamer](#frame-attributes-in-beamer){#toc-frame-attributes-in-beamer}
-    -   [Background in reveal.js, beamer, and
-        pptx](#background-in-reveal.js-beamer-and-pptx){#toc-background-in-reveal.js-beamer-and-pptx}
-        -   [On all slides (beamer, reveal.js,
-            pptx)](#on-all-slides-beamer-reveal.js-pptx){#toc-on-all-slides-beamer-reveal.js-pptx}
-        -   [On individual slides (reveal.js,
-            pptx)](#on-individual-slides-reveal.js-pptx){#toc-on-individual-slides-reveal.js-pptx}
-        -   [On the title slide (reveal.js,
-            pptx)](#on-the-title-slide-reveal.js-pptx){#toc-on-the-title-slide-reveal.js-pptx}
-        -   [Example
-            (reveal.js)](#example-reveal.js){#toc-example-reveal.js}
+        -   [Additional columns attributes in beamer](#additional-columns-attributes-in-beamer){#toc-additional-columns-attributes-in-beamer}
+    -   [Frame attributes in beamer](#frame-attributes-in-beamer){#toc-frame-attributes-in-beamer}
+    -   [Background in reveal.js, beamer, and pptx](#background-in-reveal.js-beamer-and-pptx){#toc-background-in-reveal.js-beamer-and-pptx}
+        -   [On all slides (beamer, reveal.js, pptx)](#on-all-slides-beamer-reveal.js-pptx){#toc-on-all-slides-beamer-reveal.js-pptx}
+        -   [On individual slides (reveal.js, pptx)](#on-individual-slides-reveal.js-pptx){#toc-on-individual-slides-reveal.js-pptx}
+        -   [On the title slide (reveal.js, pptx)](#on-the-title-slide-reveal.js-pptx){#toc-on-the-title-slide-reveal.js-pptx}
+        -   [Example (reveal.js)](#example-reveal.js){#toc-example-reveal.js}
 -   [EPUBs](#epubs){#toc-epubs}
     -   [EPUB Metadata](#epub-metadata){#toc-epub-metadata}
-    -   [The `epub:type`
-        attribute](#the-epubtype-attribute){#toc-the-epubtype-attribute}
+    -   [The `epub:type` attribute](#the-epubtype-attribute){#toc-the-epubtype-attribute}
     -   [Linked media](#linked-media){#toc-linked-media}
     -   [EPUB styling](#epub-styling){#toc-epub-styling}
 -   [Chunked HTML](#chunked-html){#toc-chunked-html}
 -   [Jupyter notebooks](#jupyter-notebooks){#toc-jupyter-notebooks}
--   [Syntax
-    highlighting](#syntax-highlighting){#toc-syntax-highlighting}
+-   [Syntax highlighting](#syntax-highlighting){#toc-syntax-highlighting}
 -   [Custom Styles](#custom-styles){#toc-custom-styles}
     -   [Output](#output){#toc-output}
     -   [Input](#input){#toc-input}
--   [Custom readers and
-    writers](#custom-readers-and-writers){#toc-custom-readers-and-writers}
--   [Reproducible
-    builds](#reproducible-builds){#toc-reproducible-builds}
--   [Accessible PDFs and PDF archiving
-    standards](#accessible-pdfs-and-pdf-archiving-standards){#toc-accessible-pdfs-and-pdf-archiving-standards}
+-   [Custom readers and writers](#custom-readers-and-writers){#toc-custom-readers-and-writers}
+-   [Reproducible builds](#reproducible-builds){#toc-reproducible-builds}
+-   [Accessible PDFs and PDF archiving standards](#accessible-pdfs-and-pdf-archiving-standards){#toc-accessible-pdfs-and-pdf-archiving-standards}
     -   [ConTeXt](#context){#toc-context}
     -   [WeasyPrint](#weasyprint){#toc-weasyprint}
     -   [Prince XML](#prince-xml){#toc-prince-xml}
     -   [Word Processors](#word-processors){#toc-word-processors}
--   [Running pandoc as a web
-    server](#running-pandoc-as-a-web-server){#toc-running-pandoc-as-a-web-server}
--   [Running pandoc as a Lua
-    interpreter](#running-pandoc-as-a-lua-interpreter){#toc-running-pandoc-as-a-lua-interpreter}
+-   [Running pandoc as a web server](#running-pandoc-as-a-web-server){#toc-running-pandoc-as-a-web-server}
+-   [Running pandoc as a Lua interpreter](#running-pandoc-as-a-lua-interpreter){#toc-running-pandoc-as-a-lua-interpreter}
 -   [A note on security](#a-note-on-security){#toc-a-note-on-security}
 -   [Authors](#authors){#toc-authors}
 
 # /2. Synopsis
 
-`pandoc` \[*options*\] \[*input-file*\]...
+`pandoc` [*options*] [*input-file*]...
 
 # /3. Description
 
@@ -628,11 +783,12 @@ the command line. The tool used to generate the PDF from the
 intermediate format may be specified using `--pdf-engine`.
 
 You can control the PDF style using variables, depending on the
-intermediate format used: see [variables for
-LaTeX](#variables-for-latex), [variables for
-ConTeXt](#variables-for-context), [variables for
-`wkhtmltopdf`](#variables-for-wkhtmltopdf), [variables for
-ms](#variables-for-ms). When HTML is used as an intermediate format, the
+intermediate format used: see 
+[variables for LaTeX](#variables-for-latex), 
+[variables for ConTeXt](#variables-for-context), 
+[variables for `wkhtmltopdf`](#variables-for-wkhtmltopdf), 
+[variables for ms](#variables-for-ms). 
+When HTML is used as an intermediate format, the
 output can be styled using `--css`.
 
 To debug the PDF creation, it can be useful to look at the intermediate
@@ -641,24 +797,24 @@ representation: instead of `-o test.pdf`, use for example
 with `pdflatex test.tex`.
 
 When using LaTeX, the following packages need to be available (they are
-included with all recent versions of [TeX
-Live](https://www.tug.org/texlive/)):
+included with all recent versions of 
+[TeX Live](https://www.tug.org/texlive/)):
 [`amsfonts`](https://ctan.org/pkg/amsfonts),
 [`amsmath`](https://ctan.org/pkg/amsmath),
 [`lm`](https://ctan.org/pkg/lm),
 [`unicode-math`](https://ctan.org/pkg/unicode-math),
 [`iftex`](https://ctan.org/pkg/iftex),
-[`listings`](https://ctan.org/pkg/listings) (if the `--listings` option
-is used), [`fancyvrb`](https://ctan.org/pkg/fancyvrb),
+[`listings`](https://ctan.org/pkg/listings) (if the `--listings` option is used), 
+[`fancyvrb`](https://ctan.org/pkg/fancyvrb),
 [`longtable`](https://ctan.org/pkg/longtable),
 [`booktabs`](https://ctan.org/pkg/booktabs),
-[`graphicx`](https://ctan.org/pkg/graphicx) (if the document contains
-images), [`bookmark`](https://ctan.org/pkg/bookmark),
+[`graphicx`](https://ctan.org/pkg/graphicx) (if the document contains images), 
+[`bookmark`](https://ctan.org/pkg/bookmark),
 [`xcolor`](https://ctan.org/pkg/xcolor),
 [`soul`](https://ctan.org/pkg/soul),
-[`geometry`](https://ctan.org/pkg/geometry) (with the `geometry`
-variable set), [`setspace`](https://ctan.org/pkg/setspace) (with
-`linestretch`), and [`babel`](https://ctan.org/pkg/babel) (with `lang`).
+[`geometry`](https://ctan.org/pkg/geometry) (with the `geometry` variable set), 
+[`setspace`](https://ctan.org/pkg/setspace) (with `linestretch`), 
+and [`babel`](https://ctan.org/pkg/babel) (with `lang`).
 If `CJKmainfont` is set, [`xeCJK`](https://ctan.org/pkg/xecjk) is
 needed. The use of `xelatex` or `lualatex` as the PDF engine requires
 [`fontspec`](https://ctan.org/pkg/fontspec). `lualatex` uses
@@ -703,218 +859,204 @@ requesting a document from a URL:
 
 # /4. Options
 
-## //4.1. General options {#general-options .options}
+## //4.1. General options
 
 `-f` *FORMAT*, `-r` *FORMAT*, `--from=`*FORMAT*, `--read=`*FORMAT*
 
 :   Specify input format. *FORMAT* can be:
 
-    ::: {#input-formats}
-    -   `bibtex` ([BibTeX](https://ctan.org/pkg/bibtex) bibliography)
-    -   `biblatex` ([BibLaTeX](https://ctan.org/pkg/biblatex)
-        bibliography)
-    -   `bits` ([BITS](https://jats.nlm.nih.gov/extensions/bits/) XML,
-        alias for `jats`)
-    -   `commonmark` ([CommonMark](https://commonmark.org) Markdown)
-    -   `commonmark_x` ([CommonMark](https://commonmark.org) Markdown
-        with extensions)
-    -   `creole` ([Creole
-        1.0](http://www.wikicreole.org/wiki/Creole1.0))
-    -   `csljson` ([CSL
-        JSON](https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html)
-        bibliography)
-    -   `csv` ([CSV](https://tools.ietf.org/html/rfc4180) table)
-    -   `tsv`
-        ([TSV](https://www.iana.org/assignments/media-types/text/tab-separated-values)
-        table)
-    -   `djot` ([Djot markup](https://djot.net))
-    -   `docbook` ([DocBook](https://docbook.org))
-    -   `docx` ([Word
-        docx](https://en.wikipedia.org/wiki/Office_Open_XML))
-    -   `dokuwiki` ([DokuWiki
-        markup](https://www.dokuwiki.org/dokuwiki))
-    -   `endnotexml` ([EndNote XML
-        bibliography](https://support.clarivate.com/Endnote/s/article/EndNote-XML-Document-Type-Definition))
-    -   `epub` ([EPUB](http://idpf.org/epub))
-    -   `fb2`
-        ([FictionBook2](http://www.fictionbook.org/index.php/Eng:XML_Schema_Fictionbook_2.1)
-        e-book)
-    -   `gfm` ([GitHub-Flavored
-        Markdown](https://help.github.com/articles/github-flavored-markdown/)),
-        or the deprecated and less accurate `markdown_github`; use
-        [`markdown_github`](#markdown-variants) only if you need
-        extensions not supported in [`gfm`](#markdown-variants).
-    -   `haddock` ([Haddock
-        markup](https://www.haskell.org/haddock/doc/html/ch03s08.html))
-    -   `html` ([HTML](https://www.w3.org/html/))
-    -   `ipynb` ([Jupyter
-        notebook](https://nbformat.readthedocs.io/en/latest/))
-    -   `jats` ([JATS](https://jats.nlm.nih.gov) XML)
-    -   `jira`
-        ([Jira](https://jira.atlassian.com/secure/WikiRendererHelpAction.jspa?section=all)/Confluence
-        wiki markup)
-    -   `json` (JSON version of native AST)
-    -   `latex` ([LaTeX](https://www.latex-project.org/))
-    -   `markdown` ([Pandoc's Markdown](#pandocs-markdown))
-    -   `markdown_mmd`
-        ([MultiMarkdown](https://fletcherpenney.net/multimarkdown/))
-    -   `markdown_phpextra` ([PHP Markdown
-        Extra](https://michelf.ca/projects/php-markdown/extra/))
-    -   `markdown_strict` (original unextended
-        [Markdown](https://daringfireball.net/projects/markdown/))
-    -   `mediawiki` ([MediaWiki
-        markup](https://www.mediawiki.org/wiki/Help:Formatting))
-    -   `man` ([roff man](https://man.cx/groff_man(7)))
-    -   `muse` ([Muse](https://amusewiki.org/library/manual))
-    -   `native` (native Haskell)
-    -   `odt` ([ODT](https://en.wikipedia.org/wiki/OpenDocument))
-    -   `opml` ([OPML](http://dev.opml.org/spec2.html))
-    -   `org` ([Emacs Org mode](https://orgmode.org))
-    -   `ris` ([RIS](https://en.wikipedia.org/wiki/RIS_(file_format))
-        bibliography)
-    -   `rtf` ([Rich Text
-        Format](https://en.wikipedia.org/wiki/Rich_Text_Format))
-    -   `rst`
-        ([reStructuredText](https://docutils.sourceforge.io/docs/ref/rst/introduction.html))
-    -   `t2t` ([txt2tags](https://txt2tags.org))
-    -   `textile` ([Textile](https://textile-lang.com))
-    -   `tikiwiki` ([TikiWiki
-        markup](https://doc.tiki.org/Wiki-Syntax-Text#The_Markup_Language_Wiki-Syntax))
-    -   `twiki` ([TWiki
-        markup](https://twiki.org/cgi-bin/view/TWiki/TextFormattingRules))
-    -   `typst` ([typst](https://typst.app))
-    -   `vimwiki` ([Vimwiki](https://vimwiki.github.io))
-    -   the path of a custom Lua reader, see [Custom readers and
-        writers](#custom-readers-and-writers) below
-    :::
+   ::: {#input-formats}
+   -   `bibtex` ([BibTeX](https://ctan.org/pkg/bibtex) bibliography)
+   -   `biblatex` ([BibLaTeX](https://ctan.org/pkg/biblatex) bibliography)
+   -   `bits` ([BITS](https://jats.nlm.nih.gov/extensions/bits/) XML,
+       alias for `jats`)
+   -   `commonmark` ([CommonMark](https://commonmark.org) Markdown)
+   -   `commonmark_x` ([CommonMark](https://commonmark.org) Markdown
+       with extensions)
+   -   `creole` ([Creole 1.0](http://www.wikicreole.org/wiki/Creole1.0))
+   -   `csljson` ([CSL JSON](https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html)
+       bibliography)
+   -   `csv` ([CSV](https://tools.ietf.org/html/rfc4180) table)
+   -   `tsv` ([TSV](https://www.iana.org/assignments/media-types/text/tab-separated-values)
+       table)
+   -   `djot` ([Djot markup](https://djot.net))
+   -   `docbook` ([DocBook](https://docbook.org))
+   -   `docx` ([Word docx](https://en.wikipedia.org/wiki/Office_Open_XML))
+   -   `dokuwiki` ([DokuWiki markup](https://www.dokuwiki.org/dokuwiki))
+   -   `endnotexml` ([EndNote XML bibliography](https://support.clarivate.com/Endnote/s/article/EndNote-XML-Document-Type-Definition))
+   -   `epub` ([EPUB](http://idpf.org/epub))
+   -   `fb2` ([FictionBook2](http://www.fictionbook.org/index.php/Eng:XML_Schema_Fictionbook_2.1) e-book)
+   -   `gfm` ([GitHub-Flavored Markdown](https://help.github.com/articles/github-flavored-markdown/)),
+       or the deprecated and less accurate `markdown_github`; use
+       [`markdown_github`](#markdown-variants) only if you need
+       extensions not supported in [`gfm`](#markdown-variants).
+   -   `haddock` ([Haddock markup](https://www.haskell.org/haddock/doc/html/ch03s08.html))
+   -   `html` ([HTML](https://www.w3.org/html/))
+   -   `ipynb` ([Jupyter notebook](https://nbformat.readthedocs.io/en/latest/))
+   -   `jats` ([JATS](https://jats.nlm.nih.gov) XML)
+   -   `jira` ([Jira](https://jira.atlassian.com/secure/WikiRendererHelpAction.jspa?section=all)/Confluence wiki markup)
+   -   `json` (JSON version of native AST)
+   -   `latex` ([LaTeX](https://www.latex-project.org/))
+   -   `markdown` ([Pandoc's Markdown](#pandocs-markdown))
+   -   `markdown_mmd`
+       ([MultiMarkdown](https://fletcherpenney.net/multimarkdown/))
+   -   `markdown_phpextra` ([PHP Markdown
+       Extra](https://michelf.ca/projects/php-markdown/extra/))
+   -   `markdown_strict` (original unextended
+       [Markdown](https://daringfireball.net/projects/markdown/))
+   -   `mediawiki` ([MediaWiki
+       markup](https://www.mediawiki.org/wiki/Help:Formatting))
+   -   `man` ([roff man](https://man.cx/groff_man(7)))
+   -   `muse` ([Muse](https://amusewiki.org/library/manual))
+   -   `native` (native Haskell)
+   -   `odt` ([ODT](https://en.wikipedia.org/wiki/OpenDocument))
+   -   `opml` ([OPML](http://dev.opml.org/spec2.html))
+   -   `org` ([Emacs Org mode](https://orgmode.org))
+   -   `ris` ([RIS](https://en.wikipedia.org/wiki/RIS_(file_format))
+       bibliography)
+   -   `rtf` ([Rich Text
+       Format](https://en.wikipedia.org/wiki/Rich_Text_Format))
+   -   `rst`
+       ([reStructuredText](https://docutils.sourceforge.io/docs/ref/rst/introduction.html))
+   -   `t2t` ([txt2tags](https://txt2tags.org))
+   -   `textile` ([Textile](https://textile-lang.com))
+   -   `tikiwiki` ([TikiWiki
+       markup](https://doc.tiki.org/Wiki-Syntax-Text#The_Markup_Language_Wiki-Syntax))
+   -   `twiki` ([TWiki
+       markup](https://twiki.org/cgi-bin/view/TWiki/TextFormattingRules))
+   -   `typst` ([typst](https://typst.app))
+   -   `vimwiki` ([Vimwiki](https://vimwiki.github.io))
+   -   the path of a custom Lua reader, see [Custom readers and
+       writers](#custom-readers-and-writers) below
+   :::
 
-    Extensions can be individually enabled or disabled by appending
-    `+EXTENSION` or `-EXTENSION` to the format name. See
-    [Extensions](#extensions) below, for a list of extensions and their
-    names. See `--list-input-formats` and `--list-extensions`, below.
+   Extensions can be individually enabled or disabled by appending
+   `+EXTENSION` or `-EXTENSION` to the format name. See
+   [Extensions](#extensions) below, for a list of extensions and their
+   names. See `--list-input-formats` and `--list-extensions`, below.
 
 `-t` *FORMAT*, `-w` *FORMAT*, `--to=`*FORMAT*, `--write=`*FORMAT*
 
 :   Specify output format. *FORMAT* can be:
 
-    ::: {#output-formats}
-    -   `asciidoc` (modern
-        [AsciiDoc](https://www.methods.co.nz/asciidoc/) as interpreted
-        by [AsciiDoctor](https://asciidoctor.org/))
-    -   `asciidoc_legacy`
-        ([AsciiDoc](https://www.methods.co.nz/asciidoc/) as interpreted
-        by [`asciidoc-py`](https://github.com/asciidoc-py/asciidoc-py)).
-    -   `asciidoctor` (deprecated synonym for `asciidoc`)
-    -   `beamer` ([LaTeX beamer](https://ctan.org/pkg/beamer) slide
-        show)
-    -   `bibtex` ([BibTeX](https://ctan.org/pkg/bibtex) bibliography)
-    -   `biblatex` ([BibLaTeX](https://ctan.org/pkg/biblatex)
-        bibliography)
-    -   `chunkedhtml` (zip archive of multiple linked HTML files)
-    -   `commonmark` ([CommonMark](https://commonmark.org) Markdown)
-    -   `commonmark_x` ([CommonMark](https://commonmark.org) Markdown
-        with extensions)
-    -   `context` ([ConTeXt](https://www.contextgarden.net/))
-    -   `csljson` ([CSL
-        JSON](https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html)
-        bibliography)
-    -   `djot` ([Djot markup](https://djot.net))
-    -   `docbook` or `docbook4` ([DocBook](https://docbook.org) 4)
-    -   `docbook5` (DocBook 5)
-    -   `docx` ([Word
-        docx](https://en.wikipedia.org/wiki/Office_Open_XML))
-    -   `dokuwiki` ([DokuWiki
-        markup](https://www.dokuwiki.org/dokuwiki))
-    -   `epub` or `epub3` ([EPUB](http://idpf.org/epub) v3 book)
-    -   `epub2` (EPUB v2)
-    -   `fb2`
-        ([FictionBook2](http://www.fictionbook.org/index.php/Eng:XML_Schema_Fictionbook_2.1)
-        e-book)
-    -   `gfm` ([GitHub-Flavored
-        Markdown](https://help.github.com/articles/github-flavored-markdown/)),
-        or the deprecated and less accurate `markdown_github`; use
-        [`markdown_github`](#markdown-variants) only if you need
-        extensions not supported in [`gfm`](#markdown-variants).
-    -   `haddock` ([Haddock
-        markup](https://www.haskell.org/haddock/doc/html/ch03s08.html))
-    -   `html` or `html5` ([HTML](https://www.w3.org/html/),
-        i.e. [HTML5](https://html.spec.whatwg.org/)/XHTML [polyglot
-        markup](https://www.w3.org/TR/html-polyglot/))
-    -   `html4` ([XHTML](https://www.w3.org/TR/xhtml1/) 1.0
-        Transitional)
-    -   `icml` ([InDesign
-        ICML](https://manualzz.com/doc/9627253/adobe-indesign-cs6-idml-cookbook))
-    -   `ipynb` ([Jupyter
-        notebook](https://nbformat.readthedocs.io/en/latest/))
-    -   `jats_archiving` ([JATS](https://jats.nlm.nih.gov) XML,
-        Archiving and Interchange Tag Set)
-    -   `jats_articleauthoring` ([JATS](https://jats.nlm.nih.gov) XML,
-        Article Authoring Tag Set)
-    -   `jats_publishing` ([JATS](https://jats.nlm.nih.gov) XML, Journal
-        Publishing Tag Set)
-    -   `jats` (alias for `jats_archiving`)
-    -   `jira`
-        ([Jira](https://jira.atlassian.com/secure/WikiRendererHelpAction.jspa?section=all)/Confluence
-        wiki markup)
-    -   `json` (JSON version of native AST)
-    -   `latex` ([LaTeX](https://www.latex-project.org/))
-    -   `man` ([roff man](https://man.cx/groff_man(7)))
-    -   `markdown` ([Pandoc's Markdown](#pandocs-markdown))
-    -   `markdown_mmd`
-        ([MultiMarkdown](https://fletcherpenney.net/multimarkdown/))
-    -   `markdown_phpextra` ([PHP Markdown
-        Extra](https://michelf.ca/projects/php-markdown/extra/))
-    -   `markdown_strict` (original unextended
-        [Markdown](https://daringfireball.net/projects/markdown/))
-    -   `markua` ([Markua](https://leanpub.com/markua/read))
-    -   `mediawiki` ([MediaWiki
-        markup](https://www.mediawiki.org/wiki/Help:Formatting))
-    -   `ms` ([roff ms](https://man.cx/groff_ms(7)))
-    -   `muse` ([Muse](https://amusewiki.org/library/manual))
-    -   `native` (native Haskell)
-    -   `odt` ([OpenOffice text
-        document](https://en.wikipedia.org/wiki/OpenDocument))
-    -   `opml` ([OPML](http://dev.opml.org/spec2.html))
-    -   `opendocument` ([OpenDocument](http://opendocument.xml.org))
-    -   `org` ([Emacs Org mode](https://orgmode.org))
-    -   `pdf` ([PDF](https://www.adobe.com/pdf/))
-    -   `plain` (plain text)
-    -   `pptx`
-        ([PowerPoint](https://en.wikipedia.org/wiki/Microsoft_PowerPoint)
-        slide show)
-    -   `rst`
-        ([reStructuredText](https://docutils.sourceforge.io/docs/ref/rst/introduction.html))
-    -   `rtf` ([Rich Text
-        Format](https://en.wikipedia.org/wiki/Rich_Text_Format))
-    -   `texinfo` ([GNU Texinfo](https://www.gnu.org/software/texinfo/))
-    -   `textile` ([Textile](https://textile-lang.com))
-    -   `slideous` ([Slideous](https://goessner.net/articles/slideous/)
-        HTML and JavaScript slide show)
-    -   `slidy` ([Slidy](https://www.w3.org/Talks/Tools/Slidy2/) HTML
-        and JavaScript slide show)
-    -   `dzslides` ([DZSlides](https://paulrouget.com/dzslides/) HTML5 +
-        JavaScript slide show)
-    -   `revealjs` ([reveal.js](https://revealjs.com/) HTML5 +
-        JavaScript slide show)
-    -   `s5` ([S5](https://meyerweb.com/eric/tools/s5/) HTML and
-        JavaScript slide show)
-    -   `tei` ([TEI Simple](https://github.com/TEIC/TEI-Simple))
-    -   `typst` ([typst](https://typst.app))
-    -   `xwiki` ([XWiki
-        markup](https://www.xwiki.org/xwiki/bin/view/Documentation/UserGuide/Features/XWikiSyntax/))
-    -   `zimwiki` ([ZimWiki
-        markup](https://zim-wiki.org/manual/Help/Wiki_Syntax.html))
-    -   the path of a custom Lua writer, see [Custom readers and
-        writers](#custom-readers-and-writers) below
-    :::
+   ::: {#output-formats}
+   -   `asciidoc` (modern
+       [AsciiDoc](https://www.methods.co.nz/asciidoc/) as interpreted
+       by [AsciiDoctor](https://asciidoctor.org/))
+   -   `asciidoc_legacy`
+       ([AsciiDoc](https://www.methods.co.nz/asciidoc/) as interpreted
+       by [`asciidoc-py`](https://github.com/asciidoc-py/asciidoc-py)).
+   -   `asciidoctor` (deprecated synonym for `asciidoc`)
+   -   `beamer` ([LaTeX beamer](https://ctan.org/pkg/beamer) slide
+       show)
+   -   `bibtex` ([BibTeX](https://ctan.org/pkg/bibtex) bibliography)
+   -   `biblatex` ([BibLaTeX](https://ctan.org/pkg/biblatex)
+       bibliography)
+   -   `chunkedhtml` (zip archive of multiple linked HTML files)
+   -   `commonmark` ([CommonMark](https://commonmark.org) Markdown)
+   -   `commonmark_x` ([CommonMark](https://commonmark.org) Markdown
+       with extensions)
+   -   `context` ([ConTeXt](https://www.contextgarden.net/))
+   -   `csljson` ([CSL
+       JSON](https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html)
+       bibliography)
+   -   `djot` ([Djot markup](https://djot.net))
+   -   `docbook` or `docbook4` ([DocBook](https://docbook.org) 4)
+   -   `docbook5` (DocBook 5)
+   -   `docx` ([Word
+       docx](https://en.wikipedia.org/wiki/Office_Open_XML))
+   -   `dokuwiki` ([DokuWiki
+       markup](https://www.dokuwiki.org/dokuwiki))
+   -   `epub` or `epub3` ([EPUB](http://idpf.org/epub) v3 book)
+   -   `epub2` (EPUB v2)
+   -   `fb2`
+       ([FictionBook2](http://www.fictionbook.org/index.php/Eng:XML_Schema_Fictionbook_2.1)
+       e-book)
+   -   `gfm` ([GitHub-Flavored
+       Markdown](https://help.github.com/articles/github-flavored-markdown/)),
+       or the deprecated and less accurate `markdown_github`; use
+       [`markdown_github`](#markdown-variants) only if you need
+       extensions not supported in [`gfm`](#markdown-variants).
+   -   `haddock` ([Haddock
+       markup](https://www.haskell.org/haddock/doc/html/ch03s08.html))
+   -   `html` or `html5` ([HTML](https://www.w3.org/html/),
+       i.e. [HTML5](https://html.spec.whatwg.org/)/XHTML [polyglot
+       markup](https://www.w3.org/TR/html-polyglot/))
+   -   `html4` ([XHTML](https://www.w3.org/TR/xhtml1/) 1.0
+       Transitional)
+   -   `icml` ([InDesign
+       ICML](https://manualzz.com/doc/9627253/adobe-indesign-cs6-idml-cookbook))
+   -   `ipynb` ([Jupyter
+       notebook](https://nbformat.readthedocs.io/en/latest/))
+   -   `jats_archiving` ([JATS](https://jats.nlm.nih.gov) XML,
+       Archiving and Interchange Tag Set)
+   -   `jats_articleauthoring` ([JATS](https://jats.nlm.nih.gov) XML,
+       Article Authoring Tag Set)
+   -   `jats_publishing` ([JATS](https://jats.nlm.nih.gov) XML, Journal
+       Publishing Tag Set)
+   -   `jats` (alias for `jats_archiving`)
+   -   `jira`
+       ([Jira](https://jira.atlassian.com/secure/WikiRendererHelpAction.jspa?section=all)/Confluence
+       wiki markup)
+   -   `json` (JSON version of native AST)
+   -   `latex` ([LaTeX](https://www.latex-project.org/))
+   -   `man` ([roff man](https://man.cx/groff_man(7)))
+   -   `markdown` ([Pandoc's Markdown](#pandocs-markdown))
+   -   `markdown_mmd`
+       ([MultiMarkdown](https://fletcherpenney.net/multimarkdown/))
+   -   `markdown_phpextra` ([PHP Markdown
+       Extra](https://michelf.ca/projects/php-markdown/extra/))
+   -   `markdown_strict` (original unextended
+       [Markdown](https://daringfireball.net/projects/markdown/))
+   -   `markua` ([Markua](https://leanpub.com/markua/read))
+   -   `mediawiki` ([MediaWiki
+       markup](https://www.mediawiki.org/wiki/Help:Formatting))
+   -   `ms` ([roff ms](https://man.cx/groff_ms(7)))
+   -   `muse` ([Muse](https://amusewiki.org/library/manual))
+   -   `native` (native Haskell)
+   -   `odt` ([OpenOffice text
+       document](https://en.wikipedia.org/wiki/OpenDocument))
+   -   `opml` ([OPML](http://dev.opml.org/spec2.html))
+   -   `opendocument` ([OpenDocument](http://opendocument.xml.org))
+   -   `org` ([Emacs Org mode](https://orgmode.org))
+   -   `pdf` ([PDF](https://www.adobe.com/pdf/))
+   -   `plain` (plain text)
+   -   `pptx`
+       ([PowerPoint](https://en.wikipedia.org/wiki/Microsoft_PowerPoint)
+       slide show)
+   -   `rst`
+       ([reStructuredText](https://docutils.sourceforge.io/docs/ref/rst/introduction.html))
+   -   `rtf` ([Rich Text
+       Format](https://en.wikipedia.org/wiki/Rich_Text_Format))
+   -   `texinfo` ([GNU Texinfo](https://www.gnu.org/software/texinfo/))
+   -   `textile` ([Textile](https://textile-lang.com))
+   -   `slideous` ([Slideous](https://goessner.net/articles/slideous/)
+       HTML and JavaScript slide show)
+   -   `slidy` ([Slidy](https://www.w3.org/Talks/Tools/Slidy2/) HTML
+       and JavaScript slide show)
+   -   `dzslides` ([DZSlides](https://paulrouget.com/dzslides/) HTML5 +
+       JavaScript slide show)
+   -   `revealjs` ([reveal.js](https://revealjs.com/) HTML5 +
+       JavaScript slide show)
+   -   `s5` ([S5](https://meyerweb.com/eric/tools/s5/) HTML and
+       JavaScript slide show)
+   -   `tei` ([TEI Simple](https://github.com/TEIC/TEI-Simple))
+   -   `typst` ([typst](https://typst.app))
+   -   `xwiki` ([XWiki
+       markup](https://www.xwiki.org/xwiki/bin/view/Documentation/UserGuide/Features/XWikiSyntax/))
+   -   `zimwiki` ([ZimWiki
+       markup](https://zim-wiki.org/manual/Help/Wiki_Syntax.html))
+   -   the path of a custom Lua writer, see [Custom readers and
+       writers](#custom-readers-and-writers) below
+   :::
 
-    Note that `odt`, `docx`, `epub`, and `pdf` output will not be
-    directed to *stdout* unless forced with `-o -`.
+   Note that `odt`, `docx`, `epub`, and `pdf` output will not be
+   directed to *stdout* unless forced with `-o -`.
 
-    Extensions can be individually enabled or disabled by appending
-    `+EXTENSION` or `-EXTENSION` to the format name. See
-    [Extensions](#extensions) below, for a list of extensions and their
-    names. See `--list-output-formats` and `--list-extensions`, below.
+   Extensions can be individually enabled or disabled by appending
+   `+EXTENSION` or `-EXTENSION` to the format name. See
+   [Extensions](#extensions) below, for a list of extensions and their
+   names. See `--list-output-formats` and `--list-extensions`, below.
 
 `-o` *FILE*, `--output=`*FILE*
 
@@ -1014,7 +1156,7 @@ requesting a document from a URL:
 
 :   Show usage message.
 
-## //4.2. Reader options {#reader-options .options}
+## //4.2. Reader options
 
 `--shift-heading-level-by=`*NUMBER*
 
@@ -1058,13 +1200,13 @@ requesting a document from a URL:
     footnotes and links will not work across files. Reading binary files
     (docx, odt, epub) implies `--file-scope`.
 
-    If two or more files are processed using `--file-scope`, prefixes
+   If two or more files are processed using `--file-scope`, prefixes
     based on the filenames will be added to identifiers in order to
     disambiguate them, and internal links will be adjusted accordingly.
     For example, a header with identifier `foo` in `subdir/file1.txt`
     will have its identifier changed to `subdir__file1.txt__foo`.
 
-    In addition, a Div with an identifier based on the filename will be
+   In addition, a Div with an identifier based on the filename will be
     added around the file's content, so that internal links to the
     filename will point to this Div's identifier.
 
@@ -1079,33 +1221,33 @@ requesting a document from a URL:
 
         pandoc --filter ./caps.py -t latex
 
-    is equivalent to
+   is equivalent to
 
-        pandoc -t json | ./caps.py latex | pandoc -f json -t latex
+       pandoc -t json | ./caps.py latex | pandoc -f json -t latex
 
-    The latter form may be useful for debugging filters.
+   The latter form may be useful for debugging filters.
 
-    Filters may be written in any language. `Text.Pandoc.JSON` exports
-    `toJSONFilter` to facilitate writing filters in Haskell. Those who
-    would prefer to write filters in python can use the module
-    [`pandocfilters`](https://github.com/jgm/pandocfilters), installable
-    from PyPI. There are also pandoc filter libraries in
-    [PHP](https://github.com/vinai/pandocfilters-php),
-    [perl](https://metacpan.org/pod/Pandoc::Filter), and
-    [JavaScript/node.js](https://github.com/mvhenderson/pandoc-filter-node).
+   Filters may be written in any language. `Text.Pandoc.JSON` exports
+   `toJSONFilter` to facilitate writing filters in Haskell. Those who
+   would prefer to write filters in python can use the module
+   [`pandocfilters`](https://github.com/jgm/pandocfilters), installable
+   from PyPI. There are also pandoc filter libraries in
+   [PHP](https://github.com/vinai/pandocfilters-php),
+   [perl](https://metacpan.org/pod/Pandoc::Filter), and
+   [JavaScript/node.js](https://github.com/mvhenderson/pandoc-filter-node).
 
-    In order of preference, pandoc will look for filters in
+   In order of preference, pandoc will look for filters in
 
-    1.  a specified full or relative path (executable or
-        non-executable),
+   1.  a specified full or relative path (executable or
+       non-executable),
 
-    2.  `$DATADIR/filters` (executable or non-executable) where
-        `$DATADIR` is the user data directory (see `--data-dir`, above),
+   2.  `$DATADIR/filters` (executable or non-executable) where
+       `$DATADIR` is the user data directory (see `--data-dir`, above),
 
-    3.  `$PATH` (executable only).
+   3.  `$PATH` (executable only).
 
-    Filters, Lua-filters, and citeproc processing are applied in the
-    order specified on the command line.
+   Filters, Lua-filters, and citeproc processing are applied in the
+   order specified on the command line.
 
 `-L` *SCRIPT*, `--lua-filter=`*SCRIPT*
 
@@ -1116,22 +1258,22 @@ requesting a document from a URL:
     element-transforming functions indexed by the name of the AST
     element on which the filter function should be applied.
 
-    The `pandoc` Lua module provides helper functions for element
-    creation. It is always loaded into the script's Lua environment.
+   The `pandoc` Lua module provides helper functions for element
+   creation. It is always loaded into the script's Lua environment.
 
-    See the [Lua filters
-    documentation](https://pandoc.org/lua-filters.html) for further
-    details.
+   See the [Lua filters
+   documentation](https://pandoc.org/lua-filters.html) for further
+   details.
 
-    In order of preference, pandoc will look for Lua filters in
+   In order of preference, pandoc will look for Lua filters in
 
-    1.  a specified full or relative path,
+   1.  a specified full or relative path,
 
-    2.  `$DATADIR/filters` where `$DATADIR` is the user data directory
-        (see `--data-dir`, above).
+   2.  `$DATADIR/filters` where `$DATADIR` is the user data directory
+       (see `--data-dir`, above).
 
-    Filters, Lua filters, and citeproc processing are applied in the
-    order specified on the command line.
+   Filters, Lua filters, and citeproc processing are applied in the
+   order specified on the command line.
 
 `-M` *KEY*\[`=`*VAL*\], `--metadata=`*KEY*\[`:`*VAL*\]
 
@@ -1217,7 +1359,7 @@ requesting a document from a URL:
     option is intended for use by developers in diagnosing performance
     issues.
 
-## //4.3. General writer options {#general-writer-options .options}
+## //4.3. General writer options
 
 `-s`, `--standalone`
 
@@ -1256,7 +1398,7 @@ requesting a document from a URL:
     directives. Anyone using pandoc on untrusted user input should use
     this option.
 
-    Note: some readers and writers (e.g., `docx`) need access to data
+   Note: some readers and writers (e.g., `docx`) need access to data
     files. If these are stored on the file system, then pandoc will not
     be able to find them when run in `--sandbox` mode and will raise an
     error. For these applications, we recommend using a pandoc binary
@@ -1272,7 +1414,7 @@ requesting a document from a URL:
     to redirect output to a file, but `-o`/`--output` must come before
     `--print-default-template` on the command line.
 
-    Note that some of the default templates use partials, for example
+   Note that some of the default templates use partials, for example
     `styles.html`. To print the partials, use
     `--print-default-data-file`: for example,
     `--print-default-data-file=templates/styles.html`.
@@ -1438,7 +1580,7 @@ requesting a document from a URL:
     HTTP resources (for example when the certificate is no longer valid
     or self signed).
 
-## //4.4. Options affecting specific writers {#options-affecting-specific-writers .options}
+## //4.4. Options affecting specific writers
 
 `--self-contained[=true|false]`
 
@@ -1616,9 +1758,9 @@ requesting a document from a URL:
 :   Use the specified file as a style reference in producing a docx or
     ODT file.
 
-    Docx
+   Docx
 
-    :   For best results, the reference docx should be a modified
+   :   For best results, the reference docx should be a modified
         version of a docx file produced using pandoc. The contents of
         the reference docx are ignored, but its stylesheets and document
         properties (including margins, page size, header, and footer)
@@ -1627,7 +1769,7 @@ requesting a document from a URL:
         in the user data directory (see `--data-dir`). If this is not
         found either, sensible defaults will be used.
 
-        To produce a custom `reference.docx`, first get a copy of the
+   :    To produce a custom `reference.docx`, first get a copy of the
         default `reference.docx`:
         `pandoc -o custom-reference.docx --print-default-data-file reference.docx`.
         Then open `custom-reference.docx` in Word, modify the styles as
@@ -1685,7 +1827,7 @@ requesting a document from a URL:
 
     ODT
 
-    :   For best results, the reference ODT should be a modified version
+   :   For best results, the reference ODT should be a modified version
         of an ODT produced using pandoc. The contents of the reference
         ODT are ignored, but its stylesheets are used in the new ODT. If
         no reference ODT is specified on the command line, pandoc will
@@ -1693,7 +1835,7 @@ requesting a document from a URL:
         `--data-dir`). If this is not found either, sensible defaults
         will be used.
 
-        To produce a custom `reference.odt`, first get a copy of the
+   :    To produce a custom `reference.odt`, first get a copy of the
         default `reference.odt`:
         `pandoc -o custom-reference.odt --print-default-data-file reference.odt`.
         Then open `custom-reference.odt` in LibreOffice, modify the
@@ -1701,11 +1843,11 @@ requesting a document from a URL:
 
     PowerPoint
 
-    :   Templates included with Microsoft PowerPoint 2013 (either with
+   :   Templates included with Microsoft PowerPoint 2013 (either with
         `.pptx` or `.potx` extension) are known to work, as are most
         templates derived from these.
 
-        The specific requirement is that the template should contain
+   :    The specific requirement is that the template should contain
         layouts with the following names (as seen within PowerPoint):
 
         -   Title Slide
@@ -1716,18 +1858,18 @@ requesting a document from a URL:
         -   Content with Caption
         -   Blank
 
-        For each name, the first layout found with that name will be
+   :    For each name, the first layout found with that name will be
         used. If no layout is found with one of the names, pandoc will
         output a warning and use the layout with that name from the
         default reference doc instead. (How these layouts are used is
         described in [PowerPoint layout
         choice](#powerpoint-layout-choice).)
 
-        All templates included with a recent version of MS PowerPoint
+   :    All templates included with a recent version of MS PowerPoint
         will fit these criteria. (You can click on `Layout` under the
         `Home` menu to check.)
 
-        You can also modify the default `reference.pptx`: first run
+   :    You can also modify the default `reference.pptx`: first run
         `pandoc -o custom-reference.pptx --print-default-data-file reference.pptx`,
         and then modify `custom-reference.pptx` in MS PowerPoint (pandoc
         will use the layouts with the names listed above).
@@ -1781,7 +1923,7 @@ requesting a document from a URL:
          <dc:rights>Creative Commons</dc:rights>
          <dc:language>es-AR</dc:language>
 
-    By default, pandoc will include the following metadata elements:
+   By default, pandoc will include the following metadata elements:
     `<dc:title>` (from the document title), `<dc:creator>` (from the
     document authors), `<dc:date>` (from the document date, which should
     be in [ISO 8601 format](https://www.w3.org/TR/NOTE-datetime)),
@@ -1790,7 +1932,7 @@ requesting a document from a URL:
     UUID). Any of these may be overridden by elements in the metadata
     file.
 
-    Note: if the source document is Markdown, a YAML metadata block in
+   Note: if the source document is Markdown, a YAML metadata block in
     the document can be used instead. See below under [EPUB
     Metadata](#epub-metadata).
 
@@ -1870,7 +2012,7 @@ requesting a document from a URL:
     auxiliary files, use `--pdf-engine-opt=-outdir=foo`. Note that no
     check for duplicate options is done.
 
-## //4.5. Citation rendering {#citation-rendering .options}
+## //4.5. Citation rendering
 
 `-C`, `--citeproc`
 
@@ -1934,7 +2076,7 @@ requesting a document from a URL:
     [`bibtex`](https://ctan.org/pkg/bibtex) or
     [`biber`](https://ctan.org/pkg/biber).
 
-## //4.6. Math rendering in HTML {#math-rendering-in-html .options}
+## //4.6. Math rendering in HTML
 
 The default is to render TeX math as far as possible using Unicode
 characters. Formulas are put inside a `span` with `class="math"`, so
@@ -1989,7 +2131,7 @@ will want to use `--mathjax` or another of the following options.
         gladtex -d image_dir myfile.htex
         # produces myfile.html and images in image_dir
 
-## //4.7. Options for wrapper scripts {#options-for-wrapper-scripts .options}
+## //4.7. Options for wrapper scripts
 
 `--dump-args[=true|false]`
 
@@ -7774,6 +7916,7 @@ Note that custom writers have no default template. If you want to use
 manually using `--template` or add a new default template with the name
 `default.NAME_OF_CUSTOM_WRITER.lua` to the `templates` subdirectory of
 your user data directory (see [Templates](#templates)).
+
 
 # /18. Reproducible builds
 

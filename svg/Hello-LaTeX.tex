@@ -1,0 +1,71 @@
+% !TeX encoding = UTF-8
+\documentclass{article}
+\usepackage[a4paper, total={7in, 9in}]{geometry}
+\usepackage{multicol}
+\setlength{\columnsep}{2cm}
+\usepackage{listings}
+\usepackage{fontspec}
+\setmainfont[BoldFont={Latin Modern Math}]{Microsoft Yahei}
+%\definefontfamily[mainface][serif][Times New Roman]
+%\definefontfamily[mainface][sans][NotoSans]
+%\definefontfamily[mainfont][SimSun]
+\begin{document}
+
+\section{Chinese}
+\begin{multicols}{2}
+大部分学者将科学分成自然科学、社会科学和思维科学\\
+（noetic science）三大领域。自然科学研究自然界运动规律；\newline
+社会科学研究社会运动规律；思维科学研究人类思维活动规律。\break
+作为三大科学的研究工具，把哲学与数学作为三大科学的共同“方法”。
+
+因而，又把科学划分为自然科学、社会科学、思维科学、哲学、数学五大门类。
+哲学揭示一般规律，数学揭示数量关系。
+\end{multicols}
+
+\section{Japanese}
+
++ 名前も知らない駅の ホームで雪を見ている
+* 名前（なまえ）知（し） 駅（えき） 雪（ゆき） 见（み）
+
+\section{Русский язык}
+Русский язык
+
+\section{Math Letter}
+\bfseries
+𝔄 𝔅 ℭ 𝔇 𝔈 𝔉 𝔊 ℌ ℑ 𝔍 𝔎 𝔏 𝔐 𝔑 𝔒 𝔓 𝔔 ℜ 𝔖 𝔗 𝔘 𝔙 𝔚 𝔛 𝔜 ℨ
+𝔞 𝔟 𝔠 𝔡 𝔢 𝔣 𝔤 𝔥 𝔦 𝔧 𝔨 𝔩 𝔪 𝔫 𝔬 𝔭 𝔮 𝔯 𝔰 𝔱 𝔲 𝔳 𝔴 𝔵 𝔶 𝔷
+
+\section{Greek Letter}
+\bfseries
+α β γ δ ε ɛ ζ η θ ϑ ι κ λ μ ν ξ π ρ σ τ υ ϕ φ χ ψ ω
+
+\section{AsciiMath}
+\sffamily
+Most AsciiMath symbols attempt to mimic in text what they look like rendered, 
+like `oo` for `∞`. Many symbols can also be displayed using a TeX alternative, 
+but a preceeding backslash is not required.
+
+\section{Default Font Family of LaTeX}
+\bfseries
+
+\begin{lstlisting}[language=bash, caption=example]
+
+[Default font families]
+typeface = family        command                      switch command
+serif (roman)            \textrm{Sample Text 0123}    \rmfamily
+sans serif               \textsf{Sample Text 0123}    \sffamily
+typewriter (monospace)   \texttt{Sample Text 0123}    \ttfamily
+
+[Font styles]
+style                    command                      switch command
+medium                   \textmd{Sample Text 0123}    \mdseries
+bold                     \textbf{Sample Text 0123}    \bfseries
+upright                  \textup{Sample Text 0123}    \upshape
+italic                   \textit{Sample Text 0123}    \itshape
+slanted                  \textsl{Sample Text 0123}    \slshape
+small caps               \textsc{Sample Text 0123}    \scshape
+
+\end{lstlisting}
+
+\end{document}
+\end{document}

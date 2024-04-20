@@ -1,4 +1,5 @@
 
+[TOC]
 
 # =🚩 Unicode 14.0 Character Code Charts
 
@@ -628,7 +629,7 @@ Equality, Identity, Equivalence, Approx, Congruence
 | Bracket operators       | ⌈ ⌉ ⌊ ⌋ ⫍ ⫎
 | integral                | ∫ ∬ ∭ ⨌ ∮ ∯ ∰ ∱ ∲ ∳ ⨍ ⨎ ⨏ ⨐ ⨑ ⨒ ⨓ ⨔ ⨕ ⨖ ⨗ ⨘ ⨙ ⨚ ⨛ ⨜ ⨋
 | Derivative              | ∂ ′ ″ ‴ ∆
-| linear algebra, vector  | ⨯ ∇ ⊹
+| linear algebra, vector  | ⨯ ∇ ⊹ ◌⃗ H⃗
 | Tilde Operators         | ∼ ∽ ⩪ ⸟ ⩫ ⩳
 | sine wave               | ∿
 | Misc Operators          | ⋄ ⫶ ⫼ ⫾

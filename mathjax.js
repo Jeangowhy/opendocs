@@ -174,7 +174,7 @@ function render_svg(ins)
 {
     const form = form_test(ins)
     const input = magic_trim(ins)
-    console.error({form, input})
+    console.error({form, ins})
     
     MJ.typeset({
       math: input,

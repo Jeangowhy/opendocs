@@ -80,8 +80,88 @@ attributed to the user-friendly nature of its syntax, designed to be both intuit
 
     You can learn more about some of the common commands in PlantUML to enhance your diagram creation experience.
 
+/CLI Command line options
+===================================
+
+    Usage: java -jar plantuml.jar [options] -gui
+        (to execute the GUI)
+        or java -jar plantuml.jar [options] [file/dir] [file/dir] [file/dir]
+        (to process files or directories)
+
+    You can use the following wildcards in files/dirs:
+        *   means any characters but '\'
+        ?   one and only one character but '\'
+        **  means any characters (used to recurse through directories)
+
+    where options include:
+        -gui        To run the graphical user interface
+        -tpng       To generate images using PNG format (default)
+        -tsvg       To generate images using SVG format
+        -teps       To generate images using EPS format
+        -tpdf       To generate images using PDF format
+        -tvdx       To generate images using VDX format
+        -txmi       To generate XMI file for class diagram
+        -tscxml     To generate SCXML file for state diagram
+        -thtml      To generate HTML file for class diagram
+        -ttxt       To generate images with ASCII art
+        -tutxt      To generate images with ASCII art using Unicode characters
+        -tlatex     To generate images using LaTeX/Tikz format
+        -tlatex:nopreamble  To generate images using LaTeX/Tikz format without preamble
+        -o[utput] "dir" To generate images in the specified directory
+        -DVAR1=value    To set a preprocessing variable as if '!define VAR1 value' were used
+        -Sparam1=value  To set a skin parameter as if 'skinparam param1 value' were used
+        -r[ecurse]      recurse through directories
+        -I\path\to\file To include file as if '!include file' were used
+        -I\path\to\*.puml   To include files with pattern
+        -charset xxx    To use a specific charset (default is GBK)
+        -e[x]clude pattern  To exclude files that match the provided pattern
+        -metadata       To retrieve PlantUML sources from PNG images
+        -nometadata     To NOT export metadata in PNG/SVG generated files
+        -checkmetadata      Skip PNG files that don't need to be regenerated
+        -version        To display information about PlantUML and Java versions
+        -v[erbose]      To have log information
+        -quiet      To NOT print error message into the console
+        -debugsvek      To generate intermediate svek files
+        -h[elp]     To display this help message
+        -testdot        To test the installation of graphviz
+        -graphvizdot "exe"  To specify dot executable
+        -p[ipe]     To use stdin for PlantUML source and stdout for PNG/SVG/EPS generation
+        -encodesprite 4|8|16[z] "file"  To encode a sprite at gray level (z for compression) from an image
+        -computeurl|-encodeurl  To compute the encoded URL of a PlantUML source file
+        -decodeurl      To retrieve the PlantUML source from an encoded URL
+        -syntax     To report any syntax error from standard input without generating images
+        -language       To print the list of PlantUML keywords
+        -checkonly      To check the syntax of files without generating images
+        -failfast       To stop processing as soon as a syntax error in diagram occurs
+        -failfast2      To do a first syntax check before processing files, to fail even faster
+        -pattern        To print the list of Regular Expression used by PlantUML
+        -duration       To print the duration of complete diagrams processing
+        -nbthread N     To use (N) threads for processing
+        -nbthread auto  To use 8 threads for processing
+        -timeout N      Processing timeout in (N) seconds. Defaults to 15 minutes (900 seconds).
+        -author[s]      To print information about PlantUML authors
+        -overwrite      To allow to overwrite read only files
+        -printfonts     To print fonts available on your system
+        -enablestats    To enable statistics computation
+        -disablestats   To disable statistics computation (default)
+        -htmlstats      To output general statistics in file plantuml-stats.html
+        -xmlstats       To output general statistics in file plantuml-stats.xml
+        -realtimestats  To generate statistics on the fly rather than at the end
+        -loopstats      To continuously print statistics about usage
+        -splash     To display a splash screen with some progress bar
+        -progress       To display a textual progress bar in console
+        -pipeimageindex N   To generate the Nth image with pipe option
+        -stdlib     To print standard library info
+        -extractstdlib  To extract PlantUML Standard Library into stdlib folder
+        -filename "example.puml"    To override %filename% variable
+        -preproc        To output preprocessor text of diagrams
+        -cypher     To cypher texts of diagrams so that you can share them
+
+    If needed, you can setup the environment variable GRAPHVIZ_DOT.
+
+
 /Clipboard and PlantUML ASCII Graph
-------------------------------------
+===================================
 
 Windows 提供 clip 命令行工具用于将输入、输出重定向到剪贴板或粘贴（重定向 stdout）到其他程序中。
 PowerShell 提供了粘贴板内容读取命令，Bash 脚本中可以这样调用 `pwsh -c 'Get-Clipboard'`：
@@ -20523,7 +20603,6 @@ sprite $disk {
 867BD4433BBBBB1
 39AAAAABBBBBBC1
 }
-<!-- Page 482 / 550 -->
 
 title Use of sprites (<$printer>, <$bug>...)
 class Example {
@@ -20533,12 +20612,14 @@ Click on <$disk> to save
 note left : The printer <$printer> is available
 @enduml
 ```
+<!-- Page 482 / 550 -->
 
 //23.6 StdLib
 -------------
 The PlantUML StdLib includes a number of ready icons in various IT areas such as architecture, cloud
-services, logos etc. It including AWS, Azure, Kubernetes, C4, product Logos and many others. To explore
-these libraries:
+services, logos etc. It including AWS, Azure, Kubernetes, C4, product Logos and many others. 
+To explore these libraries:
+
 • Browse the Github folders of PlantUML StdLib
 
 • Browse the source repos of StdLib collections that interest you. Eg if you are interested in logos

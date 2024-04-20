@@ -31,7 +31,6 @@
             <switch>
                 <text x="38" y="20" fill="#FFFFFF" text-anchor="middle" font-size="23px" font-family="'Microsoft YaHei', Fira Code, Helvetica Neue, Helvetica, Arial">Kernel</text>
             </switch>
-                <text>kernel E</text>
         </g>
         <rect x="311" y="21" width="217" height="65" rx="9.75" ry="9.75" fill="#197795" stroke="none" pointer-events="none" />
         <g transform="translate(357,41)">

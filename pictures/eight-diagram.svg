@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="640"
+   height="300"
+   viewBox="0 0 640 300"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="eight-diagram.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     inkscape:zoom="1.8262752"
+     inkscape:cx="496.09173"
+     inkscape:cy="139.0809"
+     inkscape:window-width="1500"
+     inkscape:window-height="948"
+     inkscape:window-x="-6"
+     inkscape:window-y="-6"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g23"
+     showguides="true">
+    <sodipodi:guide
+       position="150,70"
+       orientation="1,0"
+       id="guide43"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="70,150"
+       orientation="0,-1"
+       id="guide44"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="167.61693,167.61693"
+       orientation="0.70710678,-0.70710678"
+       id="guide45"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="150,150"
+       orientation="-0.70710678,-0.70710678"
+       id="guide46"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="493.50707,230.09547"
+       orientation="1,0"
+       id="guide23"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1">
+    <linearGradient
+       id="swatch26"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#00ffff;stop-opacity:1;"
+         offset="0"
+         id="stop26" />
+    </linearGradient>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath38">
+      <rect
+         style="display:inline;opacity:0.99;fill:#161924;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.881229;paint-order:stroke fill markers"
+         id="rect38"
+         width="80"
+         height="160"
+         x="0"
+         y="-80"
+         inkscape:label="阳clip" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath40">
+      <rect
+         style="display:inline;opacity:0.99;fill:#2c001e;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.881229;paint-order:stroke fill markers"
+         id="rect40"
+         width="80"
+         height="160"
+         x="-80"
+         y="-80"
+         inkscape:label="阴clip" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="unicode"
+     fill="#ff0000"
+     transform="translate(150,150)"
+     style="display:inline">
+    <g
+       id="g41"
+       inkscape:label="太极两仪"
+       style="display:inline">
+      <circle
+         style="display:inline;opacity:0.99;fill:#161924;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.881229;paint-order:stroke fill markers"
+         id="circle26"
+         cx="0"
+         cy="0"
+         r="80"
+         inkscape:label="阴cliped"
+         clip-path="url(#clipPath40)" />
+      <circle
+         style="display:inline;opacity:0.99;fill:#dff2e4;fill-opacity:1;fill-rule:nonzero;stroke-width:0.881229;paint-order:stroke fill markers"
+         id="circle27"
+         cx="0"
+         cy="40"
+         r="40"
+         inkscape:label="阳鱼头" />
+      <circle
+         style="display:inline;opacity:0.99;fill:#dff2e4;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.881229;paint-order:stroke fill markers"
+         id="circle28"
+         cx="0"
+         cy="0"
+         r="80"
+         inkscape:label="阳cliped"
+         clip-path="url(#clipPath38)" />
+      <circle
+         style="display:inline;opacity:0.99;fill:#161924;fill-opacity:1;fill-rule:nonzero;stroke-width:0.881229;paint-order:stroke fill markers"
+         id="circle33"
+         cx="0"
+         cy="-40"
+         r="40"
+         inkscape:label="阴鱼头" />
+      <circle
+         style="display:inline;opacity:0.99;fill:#dff2e4;fill-opacity:1;fill-rule:nonzero;stroke-width:0.881229;paint-order:stroke fill markers"
+         id="circle40"
+         cx="0"
+         cy="-40"
+         r="8"
+         inkscape:label="阳鱼眼" />
+      <circle
+         style="display:inline;opacity:0.99;fill:#161924;fill-opacity:1;fill-rule:nonzero;stroke-width:0.881229;paint-order:stroke fill markers"
+         id="circle41"
+         cx="0"
+         cy="40"
+         r="8"
+         inkscape:label="阴鱼眼" />
+    </g>
+    <g
+       id="g13"
+       inkscape:label="天乾"
+       transform="matrix(1.509434,0,0,0.91743119,-70.085765,-100.06238)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-opacity:1;stroke:none;stroke-width:0.24053"
+         x="14.431818"
+         y="0"
+         id="text12"
+         inkscape:label="☰"><tspan
+           sodipodi:role="line"
+           id="tspan19"
+           x="14.431818"
+           y="0">☰</tspan></text>
+    </g>
+    <g
+       id="g14"
+       inkscape:label="地坤"
+       transform="matrix(1.1428575,0,0,0.91743144,-36.571441,142.26423)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:73.5514px;line-height:1.25;font-family:sans-serif;fill-opacity:1;stroke:none;stroke-width:0.276427"
+         id="text13"
+         inkscape:label="☷"
+         x="-8.9312325"
+         transform="scale(1.1492409,0.87013957)"
+         y="-1.5235522e-05"><tspan
+           sodipodi:role="line"
+           id="tspan13"
+           style="font-size:73.5514px;stroke-width:0.276427"
+           x="-8.9312325"
+           y="-1.5235522e-05">☷</tspan></text>
+    </g>
+    <g
+       id="g15"
+       inkscape:label="左离"
+       transform="matrix(0,1.5165877,-0.92165899,0,-143.63169,-48.72038)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-opacity:1;stroke:none;stroke-width:0.24053"
+         x="0"
+         y="0"
+         id="text14"
+         inkscape:label="☲"><tspan
+           sodipodi:role="line"
+           id="tspan20"
+           x="0"
+           y="0">☲</tspan></text>
+    </g>
+    <g
+       id="g16"
+       inkscape:label="右坎"
+       transform="matrix(0,-1.5165877,0.91743119,0,138.92406,47.836496)"
+       style="display:inline">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-opacity:1;stroke:none;stroke-width:0.336129"
+         x="0"
+         y="5.1509037"
+         id="text15"
+         inkscape:label="☵"><tspan
+           sodipodi:role="line"
+           id="tspan21"
+           x="0"
+           y="5.1509037">☵</tspan></text>
+    </g>
+    <g
+       id="g42"
+       inkscape:label="兑"
+       style="display:inline"
+       transform="matrix(1.0606602,-1.0606602,0.70710679,0.70710678,-113.03338,-45.958716)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;line-height:1.25;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-opacity:1;stroke:none;stroke-width:0.24053"
+         id="text41"
+         inkscape:label="☱"
+         y="0"
+         x="0"><tspan
+           sodipodi:role="line"
+           id="tspan43"
+           x="0"
+           y="0">☱</tspan></text>
+    </g>
+    <g
+       id="g1"
+       inkscape:label="巽"
+       style="display:inline"
+       transform="matrix(1.0606602,1.0606601,-0.70710677,0.70710679,45.151127,-113.84096)"
+       inkscape:transform-center-x="-95.823457"
+       inkscape:transform-center-y="-94.728332">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;line-height:1.25;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-opacity:1;stroke:none;stroke-width:0.24053"
+         id="text1"
+         inkscape:label="☴"
+         y="0"
+         x="0"><tspan
+           sodipodi:role="line"
+           id="tspan1"
+           x="0"
+           y="0">☴</tspan></text>
+    </g>
+    <g
+       id="g2"
+       inkscape:label="艮"
+       style="display:inline"
+       transform="matrix(-1.0606601,1.0606603,-0.70710679,-0.70710677,115.22641,48.773485)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;line-height:1.25;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-opacity:1;stroke:none;stroke-width:0.24053"
+         id="text2"
+         inkscape:label="☴"
+         y="0"
+         x="0"><tspan
+           sodipodi:role="line"
+           id="tspan2"
+           x="0"
+           y="0">☶</tspan></text>
+    </g>
+    <g
+       id="g3"
+       inkscape:label="震"
+       style="display:inline"
+       transform="matrix(-1.0606601,1.0606603,-0.70710679,-0.70710677,115.22641,48.773485)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;line-height:1.25;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-opacity:1;stroke:none;stroke-width:0.24053"
+         id="text3"
+         inkscape:label="☴"
+         y="-165.41879"
+         x="46.279198"
+         transform="matrix(8.3993526e-8,1.5,-0.66666666,-8.0766891e-8,0,0)"><tspan
+           sodipodi:role="line"
+           id="tspan3"
+           x="46.279198"
+           y="-165.41879">☳</tspan></text>
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="g23"
+     inkscape:label="unicode"
+     fill="#ff0000"
+     transform="translate(493.50707,149.90453)"
+     style="display:inline">
+    <g
+       id="g8"
+       inkscape:label="太极两仪"
+       style="display:inline">
+      <circle
+         style="display:inline;opacity:0.99;fill:#161924;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.881229;paint-order:stroke fill markers"
+         id="circle3"
+         cx="0"
+         cy="0"
+         r="80"
+         inkscape:label="阴cliped"
+         clip-path="url(#clipPath40)" />
+      <circle
+         style="display:inline;opacity:0.99;fill:#dff2e4;fill-opacity:1;fill-rule:nonzero;stroke-width:0.881229;paint-order:stroke fill markers"
+         id="circle4"
+         cx="0"
+         cy="40"
+         r="40"
+         inkscape:label="阳鱼头" />
+      <circle
+         style="display:inline;opacity:0.99;fill:#dff2e4;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.881229;paint-order:stroke fill markers"
+         id="circle5"
+         cx="0"
+         cy="0"
+         r="80"
+         inkscape:label="阳cliped"
+         clip-path="url(#clipPath38)" />
+      <circle
+         style="display:inline;opacity:0.99;fill:#161924;fill-opacity:1;fill-rule:nonzero;stroke-width:0.881229;paint-order:stroke fill markers"
+         id="circle6"
+         cx="0"
+         cy="-40"
+         r="40"
+         inkscape:label="阴鱼头" />
+      <circle
+         style="display:inline;opacity:0.99;fill:#dff2e4;fill-opacity:1;fill-rule:nonzero;stroke-width:0.881229;paint-order:stroke fill markers"
+         id="circle7"
+         cx="0"
+         cy="-40"
+         r="8"
+         inkscape:label="阳鱼眼" />
+      <circle
+         style="display:inline;opacity:0.99;fill:#161924;fill-opacity:1;fill-rule:nonzero;stroke-width:0.881229;paint-order:stroke fill markers"
+         id="circle8"
+         cx="0"
+         cy="40"
+         r="8"
+         inkscape:label="阴鱼眼" />
+    </g>
+    <g
+       id="g9"
+       inkscape:label="天乾"
+       transform="matrix(1.5094261,0.00489275,-0.00297381,0.91742637,-69.763317,-100.28904)"
+       inkscape:transform-center-y="-120.46314"
+       inkscape:transform-center-x="-0.39047882">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-opacity:1;stroke:none;stroke-width:0.24053"
+         x="14.431818"
+         y="0"
+         id="text8"
+         inkscape:label="☰"><tspan
+           sodipodi:role="line"
+           id="tspan8"
+           x="14.431818"
+           y="0">☰</tspan></text>
+    </g>
+    <g
+       id="g10"
+       inkscape:label="地坤"
+       transform="matrix(1.1428575,0,0,0.91743144,-36.571441,142.26423)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:73.5514px;line-height:1.25;font-family:sans-serif;fill-opacity:1;stroke:none;stroke-width:0.276427"
+         id="text9"
+         inkscape:label="☷"
+         x="-8.9312325"
+         transform="scale(1.1492409,0.87013957)"
+         y="-1.5235522e-05"><tspan
+           sodipodi:role="line"
+           id="tspan9"
+           style="font-size:73.5514px;stroke-width:0.276427"
+           x="-8.9312325"
+           y="-1.5235522e-05">☷</tspan></text>
+    </g>
+    <g
+       id="g11"
+       inkscape:label="左离"
+       transform="matrix(0,1.5165877,-0.92165899,0,-143.63169,-48.72038)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-opacity:1;stroke:none;stroke-width:0.24053"
+         x="0"
+         y="0"
+         id="text10"
+         inkscape:label="☲"><tspan
+           sodipodi:role="line"
+           id="tspan10"
+           x="0"
+           y="0">☲</tspan></text>
+    </g>
+    <g
+       id="g12"
+       inkscape:label="右坎"
+       style="display:inline"
+       transform="matrix(0,-1.5165877,0.91743119,0,138.92406,47.836496)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-opacity:1;stroke:none;stroke-width:0.336129"
+         x="0"
+         y="5.1509037"
+         id="text11"
+         inkscape:label="☵"><tspan
+           sodipodi:role="line"
+           id="tspan11"
+           x="0"
+           y="5.1509037">☵</tspan></text>
+    </g>
+    <g
+       id="g17"
+       inkscape:label="兑"
+       style="display:inline"
+       transform="matrix(1.0606602,-1.0606602,0.70710679,0.70710678,-113.03338,-45.958716)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;line-height:1.25;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-opacity:1;stroke:none;stroke-width:0.24053"
+         id="text16"
+         inkscape:label="☱"
+         y="0"
+         x="0"><tspan
+           sodipodi:role="line"
+           id="tspan12"
+           x="0"
+           y="0">☱</tspan></text>
+    </g>
+    <g
+       id="g18"
+       inkscape:label="巽"
+       style="display:inline"
+       transform="matrix(1.0606602,1.0606601,-0.70710677,0.70710679,45.151127,-113.84096)"
+       inkscape:transform-center-x="-95.823457"
+       inkscape:transform-center-y="-94.728332">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;line-height:1.25;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-opacity:1;stroke:none;stroke-width:0.24053"
+         id="text17"
+         inkscape:label="☴"
+         y="0"
+         x="0"><tspan
+           sodipodi:role="line"
+           id="tspan17"
+           x="0"
+           y="0">☴</tspan></text>
+    </g>
+    <g
+       id="g19"
+       inkscape:label="艮"
+       style="display:inline"
+       transform="matrix(-1.0606601,1.0606603,-0.70710679,-0.70710677,115.22641,48.773485)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;line-height:1.25;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-opacity:1;stroke:none;stroke-width:0.24053"
+         id="text18"
+         inkscape:label="☴"
+         y="0"
+         x="0"><tspan
+           sodipodi:role="line"
+           id="tspan18"
+           x="0"
+           y="0">☶</tspan></text>
+    </g>
+    <g
+       id="g22"
+       inkscape:label="震"
+       style="display:inline"
+       transform="matrix(-1.0606601,1.0606603,-0.70710679,-0.70710677,115.22641,48.773485)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;line-height:1.25;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-opacity:1;stroke:none;stroke-width:0.24053"
+         id="text22"
+         inkscape:label="☴"
+         y="-165.41879"
+         x="46.279198"
+         transform="matrix(8.3993526e-8,1.5,-0.66666666,-8.0766891e-8,0,0)"><tspan
+           sodipodi:role="line"
+           id="tspan22"
+           x="46.279198"
+           y="-165.41879">☳</tspan></text>
+    </g>
+  </g>
+</svg>

@@ -2,6 +2,11 @@
 # SVG Viewer Extension for Windows Explorer
 - https://www.apriorit.com/dev-blog/357-shell-extentions-basics-samples-common-problems
 - Shell Developer's Guide https://learn.microsoft.com/en-us/windows/win32/shell/intro
+- https://github.com/SVG-Edit/svgedit 
+    _ https://editor.method.ac/
+    - https://svgedit.netlify.app/editor/index.html
+- Scalable Vector Graphics (SVG) 2 W3C 2018 https://www.w3.org/TR/SVG/Overview.html
+- Scalable Vector Graphics (SVG) 1.1 https://www.w3.org/TR/SVG11/
 
 A Windows Shell Extensions for SVG preview!
 
@@ -59,14 +64,13 @@ graphics, it works with magick or inkscape.
 ![This is test svg graphic](../svg/svg_test.svg)
 
 
-
 # SVG 矢量图形
 - https://developer.mozilla.org/zh-CN/docs/Web/SVG
 - https://validator.w3.org/#validate_by_input
 - https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Tools_for_SVG
 - SVG Art Gallery by Brian Lukis http://www1.plurib.us/svg_gallery/
 - https://xmlgraphics.apache.org/batik/download.html
-- Google Autodraw 智能绘画工具 https://www.autodraw.com/
+- Selman Design Autodraw 智能绘画工具 https://www.autodraw.com/
 
 SVG - Scalable Vector Graphics 可伸缩矢量图形是一门用于描述 2D 图形的语言，图形应用使用 XML 编写，然后 XML 由 SVG 阅读器程序呈现。
 

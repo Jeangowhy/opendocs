@@ -1,298 +1,3074 @@
 #!/usr/bin/env bash
-
-curl -s http://tavmjong.free.fr/SVG/ | /od/html2md.ts
-
+url=http://tavmjong.free.fr/SVG/
+url=https://inkscape.org/doc/keys-1.3.x.html
+url=https://inkscape.org/doc/inkscape-man.html
+curl -s "$url" | /od/html2md.ts
+# https://inkscape-manuals.readthedocs.io/en/latest/
+# https://gitlab.com/inkscape/inkscape-docs/manuals/
 exit
 
-/SVG Conversion
-================
--   Scalable Vector Graphics (SVG) 2 - W3C Editor’s Draft 08 March 2023 
-    https://svgwg.org/svg2-draft/single-page.html
+/Inkscape Man Page
+==================
+https://inkscape.org/doc/inkscape-man.html
 
-ImageMagick 进行 SVG 转图片时，如果字体不对则可能导致出图错乱，除非回退后备的字体可以显示：
+NAME
+====
 
-```sh
-#!/usr/bin/env bash
-pushd /od/pictures
-svg=jupyter_zmq_websocket.svg
-if ! [[ -f "$svg" ]]; then
-    curl -o "$svg" -s -L https://ipywidgets.readthedocs.io/en/latest/_images/transport.svg
-fi
-convert -debug annotate $svg some.png
+Inkscape - an SVG (Scalable Vector Graphics) editing program.
 
-    # WARNING **: 10:50:48.160: couldn't load font "Helvetica Neue, Helvetica, Arial Light Not-Rotated 17.25", falling back to "Sans Light Not-Rotated 17.25", expect ugly output.
+SYNOPSIS
+========
 
-magick identify -list format 
-magick -list font #| grep "\(Helvetica\|Arial\|微软雅黑\|Fira Code\)"
+`inkscape [options] [filename_1 filename_2 ...]`
 
-magick identify -list format | grep SVG
+options:
 
-    # MSVG* SVG       rw+   ImageMagick's own SVG internal renderer
-    # RSVG* SVG       rw+   Librsvg SVG renderer (RSVG 2.40.20)
-    #  SVG* SVG       rw+   Scalable Vector Graphics (RSVG 2.40.20)
-    # SVGZ* SVG       rw+   Compressed Scalable Vector Graphics (RSVG 2.40.20)
-```
+        -?, --help
+            --help-all
+            --help-gapplication
+            --help-gtk
+    
+        -V, --version
+            --debug-info
+            --system-data-directory
+            --user-data-directory
+    
+        -p, --pipe
+        -n, --pages=PAGE[,PAGE]
+            --pdf-poppler
+            --convert-dpi-method=METHOD
+            --no-convert-text-baseline-spacing
+    
+        -o, --export-filename=FILENAME
+            --export-overwrite
+            --export-type=TYPE[,TYPE]*
+            --export-extension=EXTENSION-ID
+    
+        -C, --export-area-page
+        -D, --export-area-drawing
+        -a, --export-area=x0:y0:x1:y1
+            --export-area-snap
+        -d, --export-dpi=DPI
+        -w, --export-width=WIDTH
+        -h, --export-height=HEIGHT
+            --export-margin=MARGIN
+    
+            --export-page=all|n[,a-b]
+        -i, --export-id=OBJECT-ID[;OBJECT-ID]*
+        -j, --export-id-only
+        -l, --export-plain-svg
+            --export-png-color-mode=COLORMODE
+            --export-png-use-dithering=BOOLEAN
+            --export-ps-level=LEVEL
+            --export-pdf-version=VERSION
+        -T, --export-text-to-path
+            --export-latex
+            --export-ignore-filters
+        -t, --export-use-hints
+        -b, --export-background=COLOR
+        -y, --export-background-opacity=VALUE
+    
+        -I, --query-id=OBJECT-ID[,OBJECT-ID]*
+        -S, --query-all
+        -X, --query-x
+        -Y, --query-y
+        -W, --query-width
+        -H, --query-height
+    
+            --vacuum-defs
+            --select=OBJECT-ID[,OBJECT-ID]*
+            --actions=ACTION(:ARG)[;ACTION(:ARG)]*
+            --action-list
+            --actions-file=FILENAME
+    
+        -g, --with-gui
+        -q, --active-window
+            --display=DISPLAY
+            --app-id-tag=TAG
+            --batch-process
+            --shell
 
-ImageMagick 转换 SVG 需要一个 SVG renderer，官方文档所述，优先寻找环境中安装的 inkscape，
-或者 RSVG 作为 SVG 渲染程序，如果没有就使用内部的 Imagemagick MSVG。应该使用 -list format
-检查当前系统支持的文件格式。使用 `whereis inkscape` 命令查询是否有安装，inkscape 或 rsvg。 
-ImageMagick 可能不认识 Windows 系统上的字体中文名称，可以使用 Inkscape 读取到的字体名称：
+DESCRIPTION
+===========
 
-    style="font-family:'Fira Code'"
-    style="font-family:'Microsoft YaHei'"
+**Inkscape** is a Free and open source vector graphics editor. It offers a rich set of features and is widely used for both artistic and technical illustrations such as cartoons, clip art, logos, typography, diagramming and flowcharting. It uses vector graphics to allow for sharp printouts and renderings at unlimited resolution and is not bound to a fixed number of pixels like raster graphics. Inkscape uses the standardized **SVG** file format as its main format, which is supported by many other applications including web browsers.
 
-Windows 平台上，执行 inkscape 命令无回显，不不显示错误信息，这涉及可执行程序的类型问题。
-Windows 平台下 Inkscape 可以执行程序有两个，inkscape.com 和 inkscape.exe，命令行默认
-执行 com 程序，这是带控制台消息输出的版本。Msys 环境 inkscape --shell 不能正常进入交互模式，
-因为默认执行的是 inkscape.exe，这个版本是 GUI 版本，不含有控制台消息输出。所以这种情况就像
-MySQL 初始化时不显示初始密码一样，mysqld --initialize --console，初始密码直接直接数据库
-目录下的日志文件，默认日志文件名称为用户主机名加 .err 后缀。
+The interface is designed to be comfortable and efficient for skilled users, while remaining conformant to **GNOME** standards so that users familiar with other GNOME applications can learn its interface rapidly.
 
-两个版本的程序对应 MSVC 编译器使用的 /SUBSYSTEM:CONSOLE 和 WINDOWS 链接参数。
-程序参数使用也有区别，参考 --help 命令帮助信息。
+**SVG** is a W3C standard XML format for 2D vector drawing. It allows defining objects in the drawing using points, paths, and primitive shapes. Colors, fonts, stroke width, and so forth are specified as \`style' attributes to these objects. The intent is that since SVG is a standard, and since its files are text/xml, it will be possible to use SVG files in a sizeable number of programs and for a wide range of uses.
 
-此问题的解决方法是创建一个 bash 脚本作为 Msys 环境下默认执行 inkscape.com 程序的入口：
+**Inkscape** uses SVG as its native document format, and has the goal of becoming the most fully compliant drawing program for SVG files available in the Open Source community.
 
-```sh
-cat > /c/vcpkg/inkscape <<EOF
-#!/usr/bin/env bash
-'C:\Program Files\Inkscape\bin\inkscapecom.com' \$@
-EOF
-cat > /c/vcpkg/inkscapew <<EOF
-#!/usr/bin/env bash
-'C:\Program Files\Inkscape\bin\inkscape.exe' \$@
-EOF
-cat /c/vcpkg/inkscape; sleep 3;
-```
+OPTIONS
+=======
 
-Inkscape shee 交互模式中，直接输入支持的命令，比如 verb-list 打印所有 action 列表。
+**-?**, **--help**
 
-Inkscape 命令行中可以传入多个 svg 文件进行批量处理，但是文件名不能有空格，会当成成多个文件对待。
-以下是 Inkscape 安装目录下自带的 svg 图像，分别以矩阵展示了 PDF 特性以及 Inkscape 架构：
+Shows a help message.
 
-![](../svg/PDF-Feature-Matrix.svg)
-![Inkscape architecture.svg](../svg/architecture.svg)
+**--help-all**
 
-Inkscape 转换 SVG 文件时会给出较详细的报告信息，相比较 ImageMagick 就隐晦多了。
-比如，Jupyter 官方文档中一个介绍其底层功能框架的 SVG 中使用了 SVG 2.0 规范的标签，
-Inkscape (Pango version: 1.48.2) 就不支持：
+Shows all help options.
 
-```sh
-$inkscape --version
-# Inkscape 1.0.2-2 (e86c870879, 2021-01-15)
-#     Pango version: 1.48.2
+**--help-gapplication**
 
-inkscape --export-type=png ../pictures/jupyter_zmq_websocket.svg
-#   Unimplemented style property 110
-#   WARNING: unknown type: svg:foreignObject
-```
-![](https://ipywidgets.readthedocs.io/en/latest/_images/transport.svg)
+Shows the GApplication options.
 
-The <foreignObject> SVG element includes elements from a different XML namespace. 
-In the context of a browser, it is most likely (X)HTML.
+**--help-gtk**
 
-此标签用于包含来自不同的 XML 命名空间的元素，主要是在浏览器的上下文中包含 XHTML / HTML 标签。
-对于 Inkscape 这种非 Web 应用来说，不支持它似乎说得过去，但是用它来为 Web 设计 SVG 就麻烦了。
-Inkscape 20 周年：1.3.1 版发布，修复 70 多个错误并新增两项功能。
-新版本一改旧版的 UI 界面，运行速度也有优化。
-https://media.inkscape.org/dl/resources/file/inkscape-1.3.2_2023-11-25_091e20e-x64.msi
+Shows the GTK+ options.
 
-Inkscape 作为一个开源免费的 SVG 绘画工具，实属是专业的，而且受到大批论文写作者的喜欢。同时，
-Web 应用开发上也可以使用，比如绘画对象中设置事件属性：打开对象菜单中的对象属性面板（Ctrl+Shift+O），
-在属性分组 Interactivity (交互属性)中的 onclick 事件（鼠标单击时触发）中填入 JavaScript
-脚本，比如 `alert("hello world")` 用于弹出一个消息框。当用户点击图形时触发此代码，但是只有
-在鼠标点击到图形对应的的色块像素时才触发，透明区不触发：
+**-V**, **--version**
 
-```xml
-    <g
-       inkscape:label=""
-       transform="translate(-56.696763,-10.583)"
-       id="g916"
-       onclick="alert(&quot;hello world&quot;)">
-       ...
-   </g>
-```
+Shows the Inkscape version and build date.
 
-[MikTeX](https://miktex.org/download)  可以为 Inkscape 提供 Latex 渲染扩展，
-安装好 MikTeX 并将 pdflatex.exe (MiKTeX-pdfTeX) 所在目录添加到环境变量中即可。
-Inkscape 会检测到，并作为数学公式编辑器扩展使用，然后就需要在对话框输入 LaTeX 代码： 
-Extensions ==> Mathematics ==> LaTeX(pdflatex)
+**--debug-info**
 
-以下使用脚本调用 pdflatex 命令（[miktex-pdftex]）生成 PDF 文件，并嵌入 LaTeX 数学公式。
-生成 pdf 文档后，为了方便在 Web 页面上展示，可以使用 Inkscape 将其转换为 SVG 格式：
+Prints technical information including Inkscape version, dependency versions and operating system. This Information is useful when debugging issues with Inkscape and should be included whenever filing a bug report.
 
-```sh
-#!/usr/bin/env bash
-cat | pdflatex <<EOF
-    \documentclass{scrartcl}
-    \begin{document}
+**--system-data-directory**
 
-    \(\displaystyle\frac{\pi^2}{6}=\lim_{n \to \infty}\sum_{k=1}^n \frac{1}{k^2}\)
+Prints the system data directory where data files that ship with Inkscape are stored. This includes files which Inkscape requires to run (like unit definitions, built-in key maps, files describing UI layout, icon themes, etc.), core extensions, stock resources (filters, fonts, markers, color palettes, symbols, templates) and documentation (SVG example files, tutorials).
 
-    Hello, world!
-    \end{document}
-EOF
-inkscape --export-type=svg  texput.pdf 
-# ** (org.inkscape.Inkscape:17600): 
-# WARNING **: 23:00:07.354: No pages selected, getting first page only. 
-# sleep 12
-```
+The location in which Inkscape expects the system data directory can be overridden with the INKSCAPE_DATADIR environment variable.
 
-LaTeX 中包含插图、外部图形文件的方法，引用 graphicx 和 svg 包，前者支持 png, eps, pdf 等格式，
-但不支持 svg 格式：
+**--user-data-directory**
 
-```sh
-\usepackage{graphicx}
+Prints the user profile directory where user-specific data files and preferences are stored. Custom extensions and resources (filters, fonts, markers, color palettes, symbols, templates) should be installed into their respective subdirectories in this directory. In addition placing a file with a name identical to one in the system data directory here allows to override most presets from the system data directory (e.g. default templates, UI files, etc.).
 
-\begin{figure}[h]
-\includegraphics{filename}
-\end{figure}
+The default location of the profile directory can be overridden with the INKSCAPE_PROFILE_DIR environment variable.
 
-\usepackage{svg}
+**-p**, **--pipe**
 
-\begin{figure}[h]
-\includesvg{filename}
-\end{figure}
-```
+Reads input file from standard input (stdin).
+
+**--pages**=_PAGE_
+
+Imports the given comma separated list of pages from a PDF, or multi page SVG file.
+
+This replaces the _--pdf-page_ from previous Inkscape versions.
+
+**--pdf-poppler**
+
+By default Inkscape imports PDF files via an internal (poppler-derived) library. Text is stored as text. Meshes are converted to tiles. Use --pdf-poppler to import via an external (poppler with cairo backend) library instead. Text consists of groups containing cloned glyphs where each glyph is a path. Images are stored internally. Meshes cause entire document to be rendered as a raster image.
+
+**--convert-dpi-method**=_METHOD_
+
+Choose method used to rescale legacy (pre-0.92) files which render slightly smaller due to the switch from 90 DPI to 96 DPI when interpreting lengths expressed in units of pixels. Possible values are "none" (no change, document will render at 94% of its original size), "scale-viewbox" (document will be rescaled globally, individual lengths will stay untouched) and "scale-document" (each length will be re-scaled individually).
+
+**--no-convert-text-baseline-spacing**
+
+Do not automatically fix text baselines in legacy (pre-0.92) files on opening. Inkscape 0.92 adopts the CSS standard definition for the 'line-height' property, which differs from past versions. By default, the line height values in files created prior to Inkscape 0.92 will be adjusted on loading to preserve the intended text layout. This command line option will skip that adjustment.
+
+**-o**, **--export-filename**=_FILENAME_
+
+Sets the name of the output file. The default is to re-use the name of the input file. If --export-type is also used, the file extension will be adjusted (or added) as appropriate. Otherwise the file type to export will be inferred from the extension of the specified filename.
+
+Usage of the special filename "-" makes Inkscape write the image data to standard output (stdout).
+
+**--export-overwrite**
+
+Overwrites input file.
+
+**--export-type**=_TYPE[,TYPE]*_
+
+Specify the file type to export. Possible values: svg, png, ps, eps, pdf, emf, wmf and every file type for which an export extension exists. It is possible to export more than one file type at a time.
+
+Note that PostScript does not support transparency, so any transparent objects in the original SVG will be automatically rasterized. Used fonts are subset and embedded. The default export area is page; you can set it to drawing by --export-area-drawing.
+
+Note that PDF format preserves the transparency in the original SVG.
+
+**--export-extension**=_EXTENSION-ID_
+
+Allows to specify an output extension that will be used for exporting, which is especially relevant if there is more than one export option for a given file type. If set, the file extension in --export-filename and --export-type may be omitted. Additionally, if set, only one file type may be given in --export-type.
+
+**-C**, **--export-area-page**
+
+In SVG, PNG, PDF, PS exported area is the page. This is the default for SVG, PNG, PDF, and PS, so you don't need to specify this unless you are using --export-id to export a specific object. For EPS this option is currently not supported.
+
+**-D**, **--export-area-drawing**
+
+In SVG, PNG, PDF, PS, and EPS export, exported area is the drawing (not page), i.e. the bounding box of all objects of the document (or of the exported object if --export-id is used). With this option, the exported image will display all the visible objects of the document without margins or cropping. This is the default export area for EPS. For PNG, it can be used in combination with --export-use-hints.
+
+**-a** _x0:y0:x1:y1_, **--export-area**=_x0:y0:x1:y1_
+
+In PNG export, set the exported area of the document, specified in px (1/96 in). The default is to export the entire document page. The point (0,0) is the lower-left corner.
+
+**--export-area-snap**
+
+For PNG export, snap the export area outwards to the nearest integer px values. If you are using the default export resolution of 96 dpi and your graphics are pixel-snapped to minimize antialiasing, this switch allows you to preserve this alignment even if you are exporting some object's bounding box (with --export-id or --export-area-drawing) which is itself not pixel-aligned.
+
+**-d** _DPI_, **--export-dpi**=_DPI_
+
+The resolution used for PNG export. It is also used for fallback rasterization of filtered objects when exporting to PS, EPS, or PDF (unless you specify --export-ignore-filters to suppress rasterization). The default is 96 dpi, which corresponds to 1 SVG user unit (px, also called "user unit") exporting to 1 bitmap pixel. This value overrides the DPI hint if used with --export-use-hints.
+
+**-w** _WIDTH_, **--export-width**=_WIDTH_
+
+The width of generated bitmap in pixels. This value overrides the --export-dpi setting (or the DPI hint if used with --export-use-hints).
+
+**-h** _HEIGHT_, **--export-height**=_HEIGHT_
+
+The height of generated bitmap in pixels. This value overrides the --export-dpi setting (or the DPI hint if used with --export-use-hints).
+
+**--export-margin**=_MARGIN_
+
+Adds a margin around the exported area. The size of the margin is specified in units of page size (for SVG) or millimeters (for PS/PDF). The option currently has no effect for other export formats.
+
+**-i** _ID_, **--export-page**=_all|n[,a-b]*_
+
+Exports the selected pages only. If more than one page is specified then the resulting document may contain multiple pages if the format supports it.
+
+Value can be a comma separated list of page numbers, or page ranges of two numbers separated by a dash. The keyword 'all' can be used to indicate all pages would be exported.
+
+**-i** _ID_, **--export-id**=_OBJECT-ID[;OBJECT-ID]*_
+
+For PNG, PS, EPS, PDF and plain SVG export, the id attribute value of the object(s) that you want to export from the document; all other objects are not exported. By default the exported area is the bounding box of the object; you can override this using --export-area (PNG only) or --export-area-page.
+
+If you specify many values with a semicolon separated list of objects, each one will be exported separately. In this case the exported files will be named this way: 
+
+    [input_filename]_[ID].[export_type]
+
+**-j**, **--export-id-only**
+
+For PNG, PS, EPS, PDF and plain SVG export, only export the object whose id is given in --export-id. All other objects are hidden and won't show in export even if they overlay the exported object. Without --export-id, this option is ignored.
+
+**-l**, **--export-plain-svg**
+
+Export document(s) to plain SVG format, without sodipodi: or inkscape: namespaces and without RDF metadata. Use the --export-filename option to specify the filename.
+
+**--export-png-color-mode**=_COLORMODE_
+
+Sets the color mode (bit depth and color type) for exported bitmaps (Gray_1/Gray_2/Gray_4/Gray_8/Gray_16/RGB_8/RGB_16/GrayAlpha_8/GrayAlpha_16/RGBA_8/RGBA_16)
+
+**--export-png-use-dithering**=_false|true_
+
+Forces dithering or disables it (the Inkscape build must support dithering for this).
+
+**--export-ps-level**=_LEVEL_
+
+Set language version for PS and EPS export. PostScript level 2 or 3 is supported. Default is 3.
+
+**--export-pdf-version**=_VERSION_
+
+Select the PDF version of the exported PDF file. This option basically exposes the PDF version selector found in the PDF-export dialog of the GUI. You must provide one of the versions from that combo-box, e.g. "1.4". The default pdf export version is "1.4".
+
+**-T**, **--export-text-to-path**
+
+Convert text objects to paths on export, where applicable (for PS, EPS, PDF and SVG export).
+
+**--export-latex**
+
+(for PS, EPS, and PDF export) Used for creating images for LaTeX documents, where the image's text is typeset by LaTeX. When exporting to PDF/PS/EPS format, this option splits the output into a PDF/PS/EPS file (e.g. as specified by --export-type) and a LaTeX file. Text will not be output in the PDF/PS/EPS file, but instead will appear in the LaTeX file. This LaTeX file includes the PDF/PS/EPS. Inputting (\\input{image.tex}) the LaTeX file in your LaTeX document will show the image and all text will be typeset by LaTeX. See the resulting LaTeX file for more information. Also see GNUPlot's \`epslatex' output terminal.
+
+**--export-ignore-filters**
+
+Export filtered objects (e.g. those with blur) as vectors, ignoring the filters (for PS, EPS, and PDF export). By default, all filtered objects are rasterized at --export-dpi (default 96 dpi), preserving the appearance.
+
+**-t**, **--export-use-hints**
+
+While exporting to PNG, use export filename and DPI hints stored in the exported object (only with --export-id). These hints are set automatically when you export selection from within Inkscape. So, for example, if you export a shape with id="path231" as /home/me/shape.png at 300 dpi from document.svg using Inkscape GUI, and save the document, then later you will be able to reexport that shape to the same file with the same resolution simply with
+
+        inkscape -i path231 -t document.svg
+
+If you use --export-dpi, --export-width, or --export-height with this option, then the DPI hint will be ignored and the value from the command line will be used. If you use --export-filename with this option, then the filename hint will be ignored and the filename from the command line will be used.
+
+**-b** _COLOR_, **--export-background**=_COLOR_
+
+Background color of exported PNG. This may be any SVG supported color string, for example "#ff007f" or "rgb(255, 0, 128)". If not set, then the page color set in Inkscape in the Document Properties dialog will be used (stored in the pagecolor= attribute of sodipodi:namedview).
+
+**-y** _VALUE_, **--export-background-opacity**=_VALUE_
+
+Opacity of the background of exported PNG. This may be a value either between 0.0 and 1.0 (0.0 meaning full transparency, 1.0 full opacity) or greater than 1 up to 255 (255 meaning full opacity). If not set and the -b option is not used, then the page opacity set in Inkscape in the Document Properties dialog will be used (stored in the inkscape:pageopacity= attribute of sodipodi:namedview). If not set but the -b option is used, then the value of 255 (full opacity) will be used.
+
+**-I**, **--query-id**=_OBJECT-ID[,OBJECT-ID]*_
+
+Set the ID(s) of the object(s) whose dimensions are queried in a comma-separated list. If not set, query options will return the dimensions of the drawing (i.e. all document objects), not the page or viewbox.
+
+If you specify many values with a comma separated list of objects, any geometry query (e.g. --query-x) will return a comma separated list of values corresponding to the list of objects in _--query-id_.
+
+**-S**, **--query-all**
+
+Prints a comma delimited listing of all objects in the SVG document with IDs defined, along with their x, y, width, and height values.
+
+**-X**, **--query-x**
+
+Query the X coordinate of the drawing or, if specified, of the object with --query-id. The returned value is in px (SVG user units).
+
+**-Y**, **--query-y**
+
+Query the Y coordinate of the drawing or, if specified, of the object with --query-id. The returned value is in px (SVG user units).
+
+**-W**, **--query-width**
+
+Query the width of the drawing or, if specified, of the object with --query-id. The returned value is in px (SVG user units).
+
+**-H**, **--query-height**
+
+Query the height of the drawing or, if specified, of the object with --query-id. The returned value is in px (SVG user units).
+
+**--vacuum-defs**
+
+Remove all unused items from the `<defs>` section of the SVG file. If this option is invoked in conjunction with --export-plain-svg, only the exported file will be affected. If it is used alone, the specified file will be modified in place.
+
+**--select**=_OBJECT-ID[,OBJECT-ID]*_
+
+The --select command will cause objects that have the ID specified to be selected. You can select many objects width a comma separated list. This allows various verbs to act upon them. To remove all the selections use `--verb=EditDeselect`. The object IDs available are dependent on the document specified to load.
+
+**--actions**=_ACTION(:ARG)[;ACTION(:ARG)]*_
+
+Actions are a new method to call functions with an optional single parameter. To get a list of the action IDs available, use the --action-list command line option. Eventually all verbs will be replaced by actions. Temporarily, any verb can be used as an action (without a parameter). Note, most verbs require a GUI (even if they don't use it). To close the GUI automatically at the end of processing, use --batch-process. In addition all export options have matching actions (remove the '--' in front of the option and replace '=' with ':').
+
+If only actions are used --batch-process must be used.
+
+Export can be forced at any point with the export-do action. This allows one to do multiple exports on a single file.
+
+**--action-list**
+
+Prints a list of all available actions.
+
+**--actions-file**=_FILENAME_
+
+Execute all actions listed in the file. The file contents must be formatted using the syntax of --actions. This option overrides the --actions argument when both are given.
+
+**-g**, **--with-gui**
+
+Try to use the GUI (on Unix, use the X server even if $DISPLAY is not set).
+
+**-q**, **--active-window**
+
+Instead of launching a new Inkscape process, this will run the command in the most recently focused Inkscape document.
+
+**--display**=_DISPLAY_
+
+Sets the X display to use for the Inkscape window.
+
+**--app-id-tag**=_TAG_
+
+Creates a unique instance of Inkscape with the application ID 'org.inkscape.Inkscape.TAG'. This is useful to separate the Inkscape instances when running different Inkscape versions or using different preferences files concurrently.
+
+**--batch-process**
+
+Close GUI after executing all actions or verbs.
+
+**--shell**
+
+With this parameter, Inkscape will enter an interactive command line shell mode. In this mode, you type in commands at the prompt and Inkscape executes them, without you having to run a new copy of Inkscape for each command. This feature is mostly useful for scripting and server uses: it adds no new capabilities but allows you to improve the speed and memory requirements of any script that repeatedly calls Inkscape to perform command line tasks (such as export or conversions).
+
+In shell mode Inkscape expects a sequence of actions (or verbs) as input. They will be processed line by line, that means typically when pressing enter. It is possible (but not necessary) to put all actions on a single line.
+
+This option can be combined with the --active-window parameter, to execute the shell commands in an already opened Inkscape document.
+
+The following example opens a file and exports it into two different formats, then opens another file and exports a single object:
+
+        file-open:file1.svg; export-type:pdf; export-do; export-type:png; export-do
+        file-open:file2.svg; export-id:rect2; export-id-only; export-filename:rect_only.svg; export-do
+
+CONFIGURATION
+=============
+
+The main configuration file is located in ~/.config/inkscape/preferences.xml; it stores a variety of customization settings that you can change in Inkscape (mostly in the Inkscape Preferences dialog). Also in the subdirectories there, you can place your own:
+
+    $HOME/.config/inkscape/extensions/  - extensions.
+    $HOME/.config/inkscape/fonts/       - fonts.
+    $HOME/.config/inkscape/icons/       - icon sets.
+    $HOME/.config/inkscape/keys/        - keyboard maps.
+    $HOME/.config/inkscape/paint/       - patterns and hatches.
+    $HOME/.config/inkscape/palettes/    - palettes.
+    $HOME/.config/inkscape/symbols/     - symbol files.
+    $HOME/.config/inkscape/templates/   - new file templates.
+    $HOME/.config/inkscape/ui/          - user interface files.
+
+DIAGNOSTICS
+===========
+
+The program returns zero on success or non-zero on failure.
+
+A variety of error messages and warnings may be printed to STDERR or STDOUT. If the program behaves erratically with a particular SVG file or crashes, it is useful to look at this output for clues.
+
+EXAMPLES
+========
+
+While obviously **Inkscape** is primarily intended as a GUI application, it can be used for doing SVG processing on the command line as well.
+
+Open an SVG file in the GUI:
+
+        inkscape filename.svg
+
+Export an SVG file into PNG with the default resolution of 96 dpi (one SVG user unit translates to one bitmap pixel):
+
+        inkscape --export-filename=filename.png filename.svg
+
+Same, but force the PNG file to be 600x400 pixels:
+
+        inkscape --export-filename=filename.png -w 600 -h 400 filename.svg
+
+Same, but export the drawing (bounding box of all objects), not the page:
+
+        inkscape --export-filename=filename.png --export-area-drawing filename.svg
+
+Export two different files into four distinct file formats each:
+
+        inkscape --export-type=png,ps,eps,pdf filename1.svg filename2.svg
+
+Export to PNG the object with id="text1555", using the output filename and the resolution that were used for that object last time when it was exported from the GUI:
+
+        inkscape --export-id=text1555 --export-use-hints filename.svg
+
+Same, but use the default 96 dpi resolution, specify the filename, and snap the exported area outwards to the nearest whole SVG user unit values (to preserve pixel-alignment of objects and thus minimize aliasing):
+
+        inkscape --export-id=text1555 --export-filename=text.png --export-area-snap filename.svg
+
+Convert an Inkscape SVG document to plain SVG:
+
+        inkscape --export-plain-svg --export-filename=filename2.svg filename1.svg
+
+Convert an SVG document to EPS, converting all texts to paths:
+
+        inkscape --export-filename=filename.eps --export-text-to-path filename.svg
+
+Query the width of the object with id="text1555":
+
+        inkscape --query-width --query-id=text1555 filename.svg
+
+Duplicate the objects with id="path1555" and id="rect835", rotate the duplicates 90 degrees, save SVG, and quit:
+
+        inkscape --select=path1555,rect835 --actions="duplicate;object-rotate-90-cw" --export-overwrite filename.svg
+
+Select all objects with ellipse tag, rotate them 30 degrees, save the file, and quit.
+
+        inkscape --actions="select-by-element:ellipse;transform-rotate:30" --export-overwrite filename.svg
+
+Export the object with the ID MyTriangle with a semi transparent purple background to the file triangle_purple.png and with a red background to the file triangle_red.png.
+
+        inkscape --actions="export-id:MyTriangle; export-id-only; export-background:purple; export-background-opacity:0.5;export-filename:triangle_purple.png; export-do; export-background:red; export-background-opacity:1; export-filename:triangle_red.png; export-do" filename.svg
+
+Read an SVG from standard input (stdin) and export it to PDF format:
+
+        cat filename.svg | inkscape --pipe --export-filename=filename.pdf
+
+Export an SVG to PNG format and write it to standard output (stdout), then convert it to JPG format with ImageMagick's convert program:
+
+        inkscape --export-type=png --export-filename=- filename.svg | convert - filename.jpg
+
+Same as above, but also reading from a pipe (--export-filename can be omitted in this case)
+
+        cat filename.svg | inkscape --pipe --export-type=png | convert - filename.jpg
+
+ENVIRONMENT VARIABLES
+=====================
+
+**INKSCAPE_PROFILE_DIR**
+
+Set a custom location for the user profile directory.
+
+**INKSCAPE_DATADIR**
+
+Set a custom location for the Inkscape data directory (e.g. **$PREFIX**/share if Inkscape's shared files are in **$PREFIX**/share/inkscape).
+
+**INKSCAPE_LOCALEDIR**
+
+Set a custom location for the translation catalog.
+
+For more details see also [http://wiki.inkscape.org/wiki/index.php/Environment_variables](http://wiki.inkscape.org/wiki/index.php/Environment_variables)
+
+OTHER INFO
+==========
+
+The canonical place to find **Inkscape** info is at [https://www.inkscape.org/](https://www.inkscape.org/). The website has news, documentation, tutorials, examples, mailing list archives, the latest released version of the program, bugs and feature requests databases, forums, and more.
+
+SEE ALSO
+========
+
+potrace, cairo, rsvg, batik, ghostscript, pstoedit.
+
+SVG compliance test suite: [https://www.w3.org/Graphics/SVG/WG/wiki/Test_Suite_Overview](https://www.w3.org/Graphics/SVG/WG/wiki/Test_Suite_Overview)
+
+SVG validator: [https://validator.w3.org/](https://validator.w3.org/)
+
+_Scalable Vector Graphics (SVG) 1.1 Specification_ _W3C Recommendation 16 August 2011_ [https://www.w3.org/TR/SVG11/](https://www.w3.org/TR/SVG11/)
+
+_Scalable Vector Graphics (SVG) 1.2 Specification_ _W3C Working Draft 13 April 2005_ [https://www.w3.org/TR/SVG12/](https://www.w3.org/TR/SVG12/)
+
+_Scalable Vector Graphics (SVG) 2 Specification_ _W3C Candidate Recommendation 15 September 2016_ [https://www.w3.org/TR/SVG2/](https://www.w3.org/TR/SVG2/)
+
+_Document Object Model (DOM): Level 2 Core_ _W3C Recommendation 13 November 2000_ [https://www.w3.org/TR/DOM-Level-2-Core/](https://www.w3.org/TR/DOM-Level-2-Core/)
+
+GUI NOTES
+=========
+
+To learn Inkscape's GUI operation, read the manual in Help > Inkscape manual, and the tutorials in Help > Tutorials.
+
+Apart from SVG, Inkscape can import (File > Import) most bitmap formats (PNG, BMP, JPG, XPM, GIF, etc.), plain text (requires Perl), PS and EPS (requires Ghostscript), PDF and AI format (AI version 9.0 or newer).
+
+Inkscape exports 32-bit PNG images (File > Export PNG Image) as well as AI, PS, EPS, PDF, DXF, and several other formats via File > Save as.
+
+Inkscape can use the pressure and tilt of a graphic tablet pen for width, angle, and force of action of several tools, including the Calligraphic pen.
+
+Inkscape includes a GUI front-end to the Potrace bitmap tracing engine ([http://potrace.sf.net](http://potrace.sf.net)) which is embedded into Inkscape.
+
+Inkscape can use external scripts (stdin-to-stdout filters) that are represented by commands in the Extensions menu. A script can have a GUI dialog for setting various parameters and can get the IDs of the selected objects on which to act via the command line. Inkscape comes with an assortment of effects written in Python.
+
+KEYBINDINGS
+===========
+
+To get a complete list of keyboard and mouse shortcuts, view doc/keys.html, or use the Keys and Mouse command in Help menu.
+
+BUGS
+====
+
+Many bugs are known; please refer to the website ([https://www.inkscape.org/](https://www.inkscape.org/)) for reviewing the reported ones and to report newly found issues. See also the Known Issues section in the Release Notes for your version (file \`NEWS').
+
+HISTORY
+=======
+
+The codebase that would become Inkscape began life in 1999 as the program Gill, the GNOME Illustrator application, created by Raph Levien. The stated objective for Gill was to eventually support all of SVG. Raph implemented the PostScript bezier imaging model, including stroking and filling, line cap style, line join style, text, etc. Raph's Gill page is at [http://www.levien.com/svg/](http://www.levien.com/svg/). Work on Gill appears to have slowed or ceased in 2000.
+
+The next incarnation of the codebase was to become the highly popular program Sodipodi, led by Lauris Kaplinski. The codebase was turned into a powerful illustration program over the course of several year's work, adding several new features, multi-lingual support, porting to Windows and other operating systems, and eliminating dependencies.
+
+Inkscape was formed in 2003 by four active Sodipodi developers, Bryce Harrington, MenTaLguY, Nathan Hurst, and Ted Gould, wanting to take a different direction with the codebase in terms of focus on SVG compliance, interface look-and-feel, and a desire to open development opportunities to more participants. The project progressed rapidly, gaining a number of very active contributors and features.
+
+Much work in the early days of the project focused on code stabilization and internationalization. The original renderer inherited from Sodipodi was laced with a number of mathematical corner cases which led to unexpected crashes when the program was pushed beyond routine uses; this renderer was replaced with Livarot which, while not perfect either, was significantly less error prone. The project also adopted a practice of committing code frequently, and encouraging users to run developmental snapshots of the program; this helped identify new bugs swiftly, and ensure it was easy for users to verify the fixes. As a result, Inkscape releases have generally earned a reputation for being robust and reliable.
+
+Similarly, efforts were taken to internationalize and localize the interface, which has helped the program gain contributors worldwide.
+
+Inkscape has had a beneficial impact on the visual attractiveness of Open Source in general, by providing a tool for creating and sharing icons, splash screens, website art, and so on. In a way, despite being "just an drawing program", Inkscape has played an important role in making Open Source more visually stimulating to larger audiences.
+
+AUTHORS
+=======
+
+This codebase owes its existence to a large number of contributors throughout its various incarnations. The following list is certainly incomplete, but serves to recognize the many shoulders on which this application sits:
+
+Maximilian Albert, Joshua A. Andler, Tavmjong Bah, Pierre Barbry-Blot, Jean-François Barraud, Campbell Barton, Bill Baxter, John Beard, John Bintz, Arpad Biro, Nicholas Bishop, Joshua L. Blocher, Hanno Böck, Tomasz Boczkowski, Adrian Boguszewski, Henrik Bohre, Boldewyn, Daniel Borgmann, Bastien Bouclet, Hans Breuer, Gustav Broberg, Christopher Brown, Marcus Brubaker, Luca Bruno, Brynn, Nicu Buculei, Bulia Byak, Pierre Caclin, Ian Caldwell, Gail Carmichael, Ed Catmur, Chema Celorio, Jabiertxo Arraiza Cenoz, Johan Ceuppens, Zbigniew Chyla, Alexander Clausen, John Cliff, Kees Cook, Ben Cromwell, Jon Cruz, Aurélie De-Cooman, Kris De Gussem, Milosz Derezynski, Daniel Díaz, Bruno Dilly, Larry Doolittle, Nicolas Dufour, Tim Dwyer, Maxim V. Dziumanenko, Moritz Eberl, Johan Engelen, Miklos Erdelyi, Ulf Erikson, Noé Falzon, Sebastian Faubel, Frank Felfe, Andrew Fitzsimon, Edward Flick, Marcin Floryan, Fred, Ben Fowler, Cedric Gemy, Steren Giannini, Olivier Gondouin, Ted Gould, Toine de Greef, Michael Grosberg, Bryce Harrington, Dale Harvey, Aurélio Adnauer Heckert, René de Hesselle, Carl Hetherington, Jos Hirth, Hannes Hochreiner, Thomas Holder, Joel Holdsworth, Christoffer Holmstedt, Alan Horkan, Karl Ove Hufthammer, Richard Hughes, Nathan Hurst, inductiveload, Thomas Ingham, Jean-Olivier Irisson, Bob Jamison, Ted Janeczko, Marc Jeanmougin, jEsuSdA, Lauris Kaplinski, Lynn Kerby, Niko Kiirala, James Kilfiger, Nikita Kitaev, Jason Kivlighn, Adrian Knoth, Krzysztof Kosiński, Petr Kovar, Michael Kowalski, Benoît Lavorata, Alex Leone, Julien Leray, Raph Levien, Diederik van Lierop, Nicklas Lindgren, Vitaly Lipatov, Ivan Louette, Fernando Lucchesi Bastos Jurema, Pierre-Antoine Marc, Aurel-Aimé Marmion, Colin Marquardt, Craig Marshall, Ivan Masár, Dmitry G. Mastrukov, David Mathog, Matiphas, Patrick McDermott, Michael Meeks, Federico Mena, MenTaLguY, Aubanel Monnier, Vincent Montagne, Tim Mooney, Derek P. Moore, Chris Morgan, Peter Moulder, Jörg Müller, Yukihiro Nakai, Victor Navez, Jonathan Neuhauser, Christian Neumair, Nick, Andreas Nilsson, Mitsuru Oka, Vinícius dos Santos Oliveira, Martin Owens, PBS, Alvin Penner, Matthew Petroff, Jon Phillips, Zdenko Podobny, Alexandre Prokoudine, Jean-René Reinhard, Alexey Remizov, Frederic Rodrigo, Hugo Rodrigues, Jean Franco Amoni Rodríguez, Juarez Rudsatz, Xavier Conde Rueda, Felipe Corrêa da Silva Sanches, Christian Schaller, Marco Scholten, Tom von Schwerdtner, Markus Schwienbacher, Danilo Šegan, Abhishek Sharma, Tim Sheridan, Shivaken, Rafał Siejakowski, Michael Sloan, John Smith, Sandra Snan, Boštjan Špetič, Aaron Spike, Kaushik Sridharan, Ralf Stephan, Dariusz Stojek, Patrick Storz, Martin Sucha, Sushant A.A., ~suv, Pat Suwalski, Adib Taraben, Parcly Taxel, Hugh Tebby, Jonas Termeau, David Turner, Andre Twupack, Aleksandar Urošević, Alex Valavanis, Joakim Verona, Lucas Vieites, Daniel Wagenaar, Liam P. White, Sebastian Wüst, Michael Wybrow, Gellule Xg, Daniel Yacob, Masatake Yamato, David Yip,
+
+COPYRIGHT AND LICENSE
+=====================
+
+**Copyright (C)** 1999-2023 by Authors.
+
+**Inkscape** is free software; you can redistribute it and/or modify it under the terms of the GPL version 2 or later.
+
+Inkscape is Free and Open Source Software licensed under the [GPL](http://www.gnu.org/licenses/gpl-2.0.html).
 
 
-软件编辑 SVG 会产生非常多的数据，特别是数值的表达上，因为精度可以表示小数点后面的 6 位小数以上，
-使用字符串表示数值占用空间较多。例如，以上公式产生的 SVG 就有 40KB，单是将数值精减到小数点后两位，
-文件尺寸就可以优化到 30KB，单这一项优化就缩小的 1/4 的数据量，而且从外观上并无差别。
+* * *
+/Inkscape keyboard and mouse reference
+============================================
 
-![MikTeX as Inkscape Extension](../pictures/miktex_as_inkscape_extensions.svg)
-![MikTeX as Inkscape Extension](../pictures/miktex_as_inkscape_extensions-truncated.svg)
+Version 1.3.x
 
-[MiKTeX Manual Revision 4.6 Christian Schenk](https://docs.miktex.org/manual/)
+Last revision: 2023-07-12
 
-用户扩展保存目录位于 %AppData%\inkscape，扩展开发参考：
-Writing Extensions (Text Guide) https://inkscape.org/develop/extensions/
+This document describes the default keyboard and mouse shortcuts of Inkscape, corresponding to the `share/inkscape/keys/inkscape.xml` file in your Inkscape installation. Some of the keyboard shortcuts may not be available for non-US keyboard layouts, but most (not all) of these shortcuts are configurable by the user. You can create custom shortcuts and load custom keyboard shortcut files in the Inkscape Preferences, or by following the instructions in the default.xml file.
 
-[Pango](https://wiki.inkscape.org/wiki/index.php/Pangoification) is a library 
-that provides layout and rendering of internationalized text, 
-that uses Unicode for its encoding and aims for supporting output in all 
-the world's major languages.
+Unless noted otherwise, keypad keys (such as arrows, Home, End, +, \-, digits) are supposed to work the same as corresponding regular keys.
 
-Pango's principle use has been for internationalizing the text in Gnome GUI's.
+*   [Tools]
+*   [Dialogs]
+    *   [Open]
+    *   [Toggle visibility]
+    *   [Within a dialog]
+    *   [XML editor]
+    *   [Layers and Objects Dialog]
+*   [Tool controls bar]
+    *   [Access]
+    *   [Navigate]
+    *   [Change values]
+*   [Canvas]
+    *   [Zoom]
+    *   [Preset zooms]
+    *   [Zoom history]
+    *   [Scroll (pan)]
+    *   [Guides, grids, snapping]
+    *   [Display/Color mode]
+    *   [Split Canvas]
+    *   [X-Ray Mode]
+    *   [Command Palette]
+*   [Document]
+*   [Palette]
+*   [File]
+*   [Window]
+*   [Extensions]
+*   [Layers]
+*   [Object]
+    *   [Undo/redo]
+    *   [Clipboard]
+    *   [Duplicate]
+    *   [Transform]
+    *   [Clone]
+    *   [Bitmaps]
+    *   [Patterns]
+    *   [Guides]
+    *   [Group]
+    *   [Align]
+    *   [Z-order]
+*   [Path]
+    *   [Convert to path]
+    *   [Boolean operations]
+    *   [Offsets]
+    *   [Combine]
+    *   [Simplify]
+    *   [Path effects]
+*   [Selector]
+    *   [Select (mouse)]
+    *   [Rubberband, touch selection]
+    *   [Select (keyboard)]
+    *   [Select within group, select under]
+    *   [Move (mouse)]
+    *   [Move (keyboard)]
+    *   [Transform (mouse)]
+    *   [Scale by handles]
+    *   [Scale (keyboard)]
+    *   [Rotate/skew by handles]
+    *   [Rotate (keyboard)]
+    *   [Flip]
+    *   [Rotation center]
+    *   [Cancel]
+*   [Node tool]
+    *   [Select objects (mouse)]
+    *   [Select nodes (mouse)]
+    *   [Selecting / Deselecting multiple nodes]
+    *   [Select nodes (keyboard)]
+    *   [Grow/shrink node selection]
+    *   [Move nodes (mouse)]
+    *   [Move nodes (keyboard)]
+    *   [Move node handle (mouse)]
+    *   [Scale handle (1 node selected)]
+    *   [Rotate handle (1 node selected)]
+    *   [Handles visibility]
+    *   [Scale nodes (>1 nodes selected)]
+    *   [Rotate nodes (>1 nodes selected)]
+    *   [Flip nodes (>1 nodes selected)]
+    *   [Change segment(s)]
+    *   [Change node type]
+    *   [Join/break]
+    *   [Delete, create, duplicate, copy]
+    *   [Reverse]
+    *   [Edit shapes]
+    *   [Edit fills and path effects]
+    *   [Cancel]
+*   [Shape Builder tool]
+    *   [Add mode]
+    *   [Remove mode]
+    *   [Apply]
+*   [Rectangle tool]
+    *   [Draw]
+    *   [Select]
+    *   [Move]
+    *   [Resize by handles]
+    *   [Round corners by handles]
+*   [Ellipse tool]
+    *   [Draw]
+    *   [Select]
+    *   [Move]
+    *   [Edit by handles]
+*   [Star tool]
+    *   [Draw]
+    *   [Select]
+    *   [Move]
+    *   [Edit by handles]
+*   [3D box tool]
+    *   [Draw]
+    *   [Select]
+    *   [Move]
+    *   [Edit by handles]
+    *   [Edit perspectives]
+*   [Spiral tool]
+    *   [Draw]
+    *   [Select]
+    *   [Move]
+    *   [Edit by handles]
+*   [Pen (Bezier) tool]
+    *   [Create nodes]
+    *   [Move last node]
+    *   [Create/modify segments]
+    *   [Create dots]
+    *   [Finish]
+    *   [Cancel]
+*   [Pencil tool]
+    *   [Create dots]
+*   [Calligraphy tool]
+    *   [Draw]
+    *   [Create dots]
+*   [Text tool]
+    *   [Select/create]
+    *   [Navigate in text]
+    *   [Flowed text (internal frame)]
+    *   [Flowed text (external frame)]
+    *   [Text on path]
+    *   [Edit text]
+    *   [Select text]
+    *   [Style selection]
+    *   [Letter spacing]
+    *   [Line spacing]
+    *   [Kerning and shifting]
+    *   [Rotate]
+*   [Gradient tool]
+    *   [Select objects]
+    *   [Create gradients]
+    *   [Select handles]
+    *   [Create/delete intermediate stops]
+    *   [Move handles/stops]
+    *   [Reverse]
+*   [Mesh tool]
+    *   [Create]
+    *   [Selecting corners and handles]
+    *   [Modify corners]
+    *   [Colors]
+*   [Dropper tool]
+*   [Paint Bucket]
+*   [Tweak tool]
+    *   [Operation]
+    *   [Modes]
+    *   [Parameters]
+*   [Spray tool]
+    *   [Operation]
+    *   [Modes]
+    *   [Parameters]
+*   [Eraser tool]
+*   [Measure tool]
+*   [Zoom tool]
+*   [Pages tool]
 
-Pango 也在数学符号标记语言中用于排版，[Draft of MathML 4](https://www.w3.org/Math/)。
-[The Math WG published the first Working Draft of MathML 4](https://www.w3.org/TR/2022/WD-mathml4-20220908/)
-[Mathematical Markup Language (MathML) Version 3.0 2nd Edition](https://www.w3.org/TR/MathML3/mathml.html)
+Tools[⚓]
+----------------
 
-Inkscape 中使用 Pango 提供的以下功能，主要是它的国际化文字排版功能：
+*   s,F1Selector
+    
+*   SpaceSelector (temporary)
+    
+    Space switches to the Selector tool temporarily; another Space switches back.
+    
+    When the "Mouse move pans when Space is pressed" option is on in Preferences, Space+mouse drag pans canvas instead of switching to/from Selector.
+    
+*   n,F2Node tool
+*   xShape Builder tool
+*   r,F4Rectangle tool
+*   e,F5Ellipse/arc tool
+*   \*,Shift+F9Star tool
+*   Shift+F43D box tool
+*   i,F9Spiral tool
+*   b+Shift+F6Pen (Bezier) tool
+*   p,F6Pencil (Freehand) tool
+*   c,Ctrl+F6Calligraphy tool
+*   t,F8Text tool
+*   g,Ctrl+F1Gradient tool
+*   d,F7Dropper tool
+*   u,Shift+F7Paint Bucket tool
+*   w,Shift+F2Tweak tool
+*   a,Shift+F3Spray tool
+*   Shift+EEraser tool
+*   o,Ctrl+F2Connector tool
+    Double click on the tool buttons opens the Preferences dialog showing the page of the corresponding tool.
+    
+*   mMeasure tool
+    
+*   F3,zZoom tool
+    
 
-1. Internationalization support
-2. An actively maintained library (last release 16 Mar 2004)
-3. Documentation ([Man](http://developer.gnome.org/doc/API/2.0/pango/))
-4. Modular system for renderers gives us a clean interface for hooking Inkscape's renderer to.
-5. A text layout system (left/right align, tab stops, etc.) - may not be powerful enough to meet our needs, though.
-6. Already exists as a dependency for Inkscape due to Gtk, so adds no additional dependencies for our users.
+Dialogs[⚓]
+-------------------
 
-Inkscape 作者 Tavmjong Bah 主页上有丰富的 SVG 和 Inkscape 资讯：
-[SVG AND THE WEB - Tav's Blog](http://tavmjong.free.fr/SVG/)
+### Open
 
-> 
-> Resources for using SVG in HTML
-> ===============================
-> 
-> HTML5 is changing the playing field. Good, practical resources are hard to find, though. Many SVG examples date from SVG's early years when Adobe's no-longer supported plug-in was the primary way to view SVGs on the web. Many recent examples are too complicated relying, on JavaScript libraries or features that are not present in all the major browsers. Here is a collection of resources I've created or found on the web.
-> 
-> Simple Tests and Examples
-> -------------------------
-> 
-> *   [SVG in HTML.](http://tavmjong.free.fr/SVG/SVG_IN_HTML/svg_in_html.html) Discusion with tests of various ways of including SVG in HTML.
-> *   Button Test:[HTML](http://tavmjong.free.fr/SVG/BUTTON_TEST/button_test.html), [XHTML](http://tavmjong.free.fr/SVG/BUTTON_TEST/button_test.xhtml), Experiments in using SVG buttons in HTML.
-> *   Viewport: [HTML](http://tavmjong.free.fr/SVG/VIEWPORT/viewport.html), [XHTML](http://tavmjong.free.fr/SVG/VIEWPORT/viewport.xhtml), Tests embeding using <object> tag with various combinations of "viewPort", "width", and "height" defined.
-> *   Viewport 2: [HTML](http://tavmjong.free.fr/SVG/SCHILLER/html.html), [XHTML.](http://tavmjong.free.fr/SVG/SCHILLER/html.xhtml) A modified version of [Jeff Schiller's test page](http://codedread.com/browser-tests/svg-image/html.html) that includes inlined SVG.
-> *   [Tests from my Inkscape book](http://tavmjong.free.fr/INKSCAPE/MANUAL/web/svg_tests.xml).
-> *   [My Ligature Test](http://dev.w3.org/SVG/profiles/1.1F2/ua-tests/ligature-breaking.svg).
-> *   [SVG1.1 Second Edition Tests, Inkscape](http://tavmjong.free.fr/SVG/../INKSCAPE/W3C_SVG_1.1F2/harness/htmlInkscapeApproved/).
-> *   [CSS in SVG tests.](http://tavmjong.free.fr/SVG/SVG_CSS_TESTS/2.1/HTML/index.html)
-> *   [CSS and SVG together.](http://tavmjong.free.fr/SVG/CSS/index.html)
-> *   [Distorting Text with Inkscape.](http://tavmjong.free.fr/SVG/TEXT_PATH/TextPath.html)
-> 
-> SVG 2
-> -----
-> 
-> Some of my work for SVG2.
-> 
-> *   Already in SVG 2 Specification:
-> 
-> *   [Mesh gradients](http://tavmjong.free.fr/SVG/MESH/Mesh.html), [SVG2 Spec](https://svgwg.org/svg2-draft/pservers.html#MeshGradients)
-> *   [Radial gradients (improvements)](http://tavmjong.free.fr/SVG/RADIALGRAD/index.html), [SVG2 Spec](https://svgwg.org/svg2-draft/pservers.html#RadialGradients)
-> *   [Extrapolated line join](http://tavmjong.free.fr/SVG/LINEJOIN/index.html), [SVG2 Spec](https://svgwg.org/svg2-draft/painting.html#LineJoin)
-> *   Hash shading: [SVG2 Spec](https://svgwg.org/svg2-draft/pservers.html#Hatches)
-> 
-> *   Future work:
-> 
-> *   [Color Interpolation](http://tavmjong.free.fr/SVG/COLOR_INTERPOLATION/index.html)
-> *   [Connectors](http://tavmjong.free.fr/SVG/CONNECTORS/index.xhtml)
-> *   [Screening filter primitive](http://tavmjong.free.fr/SVG/SCREENING/index.html)
-> *   [Flowed text](http://tavmjong.free.fr/SVG/TEXT_FLOW/index.html)
-> *   [Variable width strokes](http://tavmjong.free.fr/SVG/VARIABLE_WIDTHS/index.html)
-> 
-> WhatWG and W3C Documentation, etc.
-> ----------------------------------
-> 
-> *   [SVG 1.1 (Second Edition)](http://dev.w3.org/SVG/profiles/1.1F2/publish/) (Recommendation).
-> *   [SVG 2](https://svgwg.org/svg2-draft/) (Editor's Draft).
-> *   [HTML5](http://www.whatwg.org/specs/web-apps/current-work/multipage/) (Draft Standard, WhatWG).
-> *   [HTML5](http://dev.w3.org/html5/spec/spec.html) (Editor's Draft, W3C).
-> *   [HTML 5 Reference](http://dev.w3.org/html5/html-author/) (Editor's Draft).
-> *   [HTML: The Markup Language Reference](http://dev.w3.org/html5/markup/Overview.html) (Editor's Draft).
-> *   [HTML5 differences from HTML4](http://dev.w3.org/html5/html4-differences/) (Editor's Draft).
-> *   [Polyglot Markup: HTML-Compatable XHTML Documents](http://dev.w3.org/html5/html-xhtml-author-guide/html-xhtml-authoring-guide.html).
-> *   [Markup Validation Service](http://validator.w3.org/).
-> *   [When can I use...](http://caniuse.com/), HTML5, CSS3, SVG compatability tables.
-> 
-> My SVG Examples
-> ---------------
-> 
-> *   [ARIA Button](http://tavmjong.free.fr/SVG/ARIA_BUTTON/svg_button_aria.svg). An example [ARIA](http://www.w3.org/WAI/intro/aria) (Accessible Rich Internet Application) button derived from an example by [Doug Schepers](http://schepers.cc/). There are very few good examples on the Web. This may or may not be a valid example.
-> *   SVG Steam Engine Progress Bar: [Embedded in HTML](http://tavmjong.free.fr/SVG/PROGRESSBAR/SteamEngineProgressBar.html), [Pure SVG Version](http://tavmjong.free.fr/SVG/PROGRESSBAR/SteamEngineProgressBar_StandAlone.svg). My entry in the fradulent [Progress Bar competition](http://westciv.com/nobit/). Winners have never been announced.
-> *   SVG Gear Clocks: [Simple](http://tavmjong.free.fr/SVG/../INKSCAPE/DRAWINGS/clock.svg), [Complex](http://tavmjong.free.fr/INKSCAPE/DRAWINGS/clock2.svg).
-> 
-> SVG Examples From Other Sites
-> -----------------------------
-> 
-> *   [IEBlog](http://blogs.msdn.com/b/ie/archive/2010/08/27/more-on-svg.aspx)
-> *   [svgwow](http://svg-wow.org/). Sophisticated demos.
-> *   [SVG Backgrounds](http://www.alistapart.com/articles/using-svg-for-flexible-scalable-and-fun-backgrounds-part-i) from "A LIST apart".
-> 
-> My Talks
-> --------
-> 
-> Use _Page Down_ and _Page Up_ to navigate. (SVG files using JessyInk.)
-> 
-> *   [Inkscape](http://tavmjong.free.fr/SVG/SVGOpen2010/svg_2010_tavmjong_bah.svg), SVG Open 2010.
-> *   [JessyInk demonstration](http://tavmjong.free.fr/SVG/SVGOpen2010/Effects_JessyInk.svg).
-> *   [Inkscape](http://tavmjong.free.fr/SVG/SVGOpen2011/INKSCAPE/svg_2011_inkscape.svg), SVG Open 2011.
-> *   [Coons-Patch Mesh Gradients](http://tavmjong.free.fr/SVG/SVGOpen2011/MESH/svg_2011_mesh.svg), SVG Open 2011.
-> *   [Inkscape](http://tavmjong.free.fr/SVG/SVGOpen2012/INKSCAPE/svg_2012_inkscape.svg), SVG Open 2012.
-> *   [SVG 2 for Artists](http://tavmjong.free.fr/SVG/SVGOpen2012/ARTISTS/svg_2012_artists.svg), SVG Open 2012.
-> *   [The Future of SVG and Web Standards](http://tavmjong.free.fr/SVG/LG_SVG_2013/lg_2013_svgwg.svg), Libre Graphics 2013.
-> *   [Inkscape Update](http://tavmjong.free.fr/SVG/LG_INK_2013/lg_2013_inkscape.svg), Libre Graphics 2013.
-> *   [SVG 2 for Artists](http://tavmjong.free.fr/SVG/SVGOpen2013/ARTISTS_2013/svg_2013_artists_images.svg), SVG Open 2013.
-> *   [SVG 2 for Artists](http://tavmjong.free.fr/SVG/LG_SVG_2014/lg_svg_2014.svg), Libre Graphics 2014.
-> *   [SVG 2 for Artists and Developers](http://tavmjong.free.fr/SVG/SVGOpen2014/svg_2014.svg), SVG Open 2014.
-> 
+*   Ctrl+Shift+FFill and Stroke
+*   Ctrl+Shift+WSwatches
+*   Ctrl+Shift+TText and Font
+*   Ctrl+Shift+MTransform
+*   Ctrl+Shift+LLayers and Objects
+*   Ctrl+Shift+YSymbols
+*   Ctrl+&Path effects
+*   Ctrl+Shift+AAlign and Distribute
+*   Ctrl+Shift+OObject Properties
+*   Ctrl+Shift+HUndo History
+*   Ctrl+Shift+XXML Editor
+*   Ctrl+Shift+QSelectors and CSS dialog
+*   Ctrl+Shift+DDocument Properties
+*   Ctrl+Shift+PInkscape Preferences
+*   Ctrl+Shift+EExport
+*   Ctrl+FFind/Replace
+*   Shift+Alt+BTrace Bitmap
+*   Ctrl+Alt+KCheck Spelling
+    
+    These shortcuts open a new dialog window if it wasn't open yet, otherwise the corresponding dialog gets focus.
+    
+
+### Toggle visibility
+
+*   F12toggle dialogs
+    
+    This temporarily hides all open dialogs; another F12 shows them again.
+    
+
+### Within a dialog
+
+*   Escreturn to the canvas
+    
+*   Ctrl+F4,Ctrl+Wclose the dialog
+    
+*   Tabjump to next widget
+    
+*   Shift+Tabjump to previous widget
+    
+*   Enterset the new value
+    
+    This accepts the new value you typed in a text field and returns focus to canvas.
+    
+*   Space,Enteractivate current button or list
+    
+*   Ctrl+PgUp,Ctrl+PgDnin a multi-tab dialog, switch tabs
+    
+*   Ctrl+Fopen a search field in a dialog with a list
+    
+    Start typing to select the first match. In some dialogs, this will only find elements starting with the search term (e.g. Text and Font), in others (e.g. XML editor), it will find all elements that contain the search term. Use the up/down arrows to select the next matching element.
+    
+
+### XML editor
+
+*   \*expand all children and subchildren of the currently selected element
+    
+*   +,Shift+Right arrowexpand direct children of the currently selected element*   \-,Shift+Left arrowcollapse the currently selected element
+    
+*   Home,Endselect the topmost/lowermost visible element in the list
+    
+*   Up arrow,Down arrowselect the previous/next visible element in the list
+    
+*   PgUp,PgDnselect element on previous/next page of list
+    
+*   Ctrl+Enterset the attribute's value
+    
+    When editing an attribute value in XML Editor, this sets the new value (same as clicking the "Set attribute" button).
+    
+
+### Layers and Objects Dialog
+
+*   mouse dragdrag label to move in object stack
+    
+*   right clickright-click on label to open context menu
+    
+*   Shift+clickselect a layer and toggle visibility (eye icon) or lock status (lock icon) on the other layers
+    
+*   Shift+Alt+clicktoggle visibility (eye icon) or lock status (lock icon) on the unselected layers
+    
+*   mouse dragdrag eye icon/lock vertically to (un)lock/(un)hide all touched objects
+    
+*   clickclick on opacity indicator to open opacity and blend mode menu
+    
+*   arrowsnavigate through dialog's rows and columns with arrow keys
+    
+*   Spaceconfirm (select, apply or open)
+    
+*   Shift+Left arrow,Shift+Right arrowexpand/contract selected group or layer
+    
+*   Shift+Up arrow,Shift+Down arrowmove current selection up or down in z-order
+    
+
+Tool controls bar[⚓]
+-----------------------------
+
+### Access
+
+*   The tool controls bar at the top of the document window provides different buttons and controls for each tool.
+    
+    Alt+Xjump to the first editable field
+    
+
+### Navigate
+
+*   Tabjump to next field
+    
+*   Shift+Tabjump to previous field
+    
+    Use these to navigate between fields in the tool controls bar (the value in the field you leave, if changed, is accepted).
+    
+
+### Change values
+
+*   Up arrow,Down arrowchange value by 0.1
+    
+*   PgUp,PgDnchange value by 5.0
+    
+*   Enteraccept the new value
+    
+    This accepts the new value you typed in a text field and returns focus to canvas.
+    
+*   Esccancel changes, return to canvas
+    
+    This cancels any changes you made in a text field and returns focus to canvas.
+    
+*   Ctrl+Zcancel changes
+    
+    This cancels any changes you made in a text field but you stay in the field.
+    
+
+Canvas[⚓]
+------------------
+
+### Zoom
+
+*   \=,+zoom in
+    
+*   \-zoom out
+    
+    The keypad +/- keys do zooming even when you are editing a text object, unless NumLock is on.
+    
+*   middle click,Ctrl+right clickzoom in
+    
+*   Shift+middle click,Shift+right clickzoom out
+    
+*   Ctrl+mouse wheelzoom in or out
+    
+    When the "Mouse wheel zooms by default" option is on in Preferences, Ctrl+wheel scrolls instead of zooming. To zoom, use wheel without Ctrl.
+    
+*   Shift+middle button dragzoom into the area
+    
+*   Alt+Zactivate zoom field
+    
+    The zoom field in the lower right corner of the window allows you to specify zoom level precisely.
+    
+*   Qquick zoom
+    
+    Zooms to selection, or doubles the current zoom factor if nothing is selected, until key is released.
+    
+
+### Preset zooms
+
+*   1zoom 1:1
+    
+*   2zoom 1:2
+    
+*   3zoom to selection
+    
+*   4zoom to drawing
+    
+*   5zoom to page
+    
+*   Ctrl+E,6zoom to page width
+    
+*   Ctrl+4center page in view (without changing zoom level)
+    
+
+### Zoom history
+
+*   \`(back quote) previous zoom
+    
+*   Shift+\`next zoom
+    
+    With these keys, you can travel back and forth through the history of zooms in this session.
+    
+
+### Scroll (pan)
+
+*   Ctrl+arrowsscroll canvas
+    
+    Scrolling by keys is accelerated, i.e. it speeds up when you press Ctrl+arrows in quick succession, or press and hold.
+    
+*   middle button dragpan canvas
+    
+*   Shift+right button drag,Ctrl+right button dragpan canvas
+    
+*   mouse wheelscroll canvas vertically
+    
+    When the "Mouse wheel zooms by default" option is on in Preferences, mouse wheel zooms instead of scrolling. To scroll, use Ctrl+wheel.
+    
+*   Shift+mouse wheelscroll canvas horizontally
+    
+    When the "Mouse move pans when Space is pressed" option is on in Preferences, Space+mouse drag also pans canvas.
+    
+
+### Guides, grids, snapping
+
+*   mouse dragdrag off a ruler to create guide
+    
+    Drag off the horizontal or vertical ruler to create a new guideline. Drag a guideline onto the ruler to delete it.
+    
+*   mouse dragdrag a guide to move it
+    
+*   Shift+mouse dragdrag a guide (not near anchor) to rotate it
+    
+*   Ctrl+Shift+mouse dragrotate guide with angle snapping
+    
+*   Deldelete guide
+    
+*   |toggle guide visibility
+    
+    For activating / deactivating snapping to guides, use the snap bar or the global snapping toggle (% key).
+    
+    When you create a new guide by dragging off the ruler, guide visibility is automatically turned on.
+    
+*   #toggle grids visibility
+    
+    For activating / deactivating snapping to grids, use the snap bar or the global snapping toggle (% key).
+    
+    Note that only the 3 key on the main keyboard works, not on the keypad.
+    
+*   %toggle snapping on and off
+    
+    This toggle affects snapping to grids, guides, and objects in all tools. The settings in the snap bar determine which snap targets and snapping points will snap.
+    
+
+### Display/Color mode
+
+*   Ctrl+keypad 5toggle normal/no filters/outline/enhance thin lines/outline overlay mode
+    
+*   Shift+keypad 5toggle normal/grayscale mode
+    
+*   fQuick preview
+    
+    This will temporarily hide any objects that are not on a page as well as any handles, guide lines and other canvas overlays.
+    
+
+### Split Canvas
+
+*   Ctrl+keypad 6toggle split canvas
+    
+
+### X-Ray Mode
+
+*   Alt+keypad 6toggle X-ray mode
+    
+
+### Command Palette
+
+*   ?open command palette
+    
+*   Escclose command palette
+    
+
+Document[⚓]
+--------------------
+
+*   Ctrl+Shift+Rresize page to current selection, or to the drawing if nothing is selected
+    
+
+Palette[⚓]
+-------------------
+
+*   These keys work both in the floating palette dialog and in the palette frame at the bottom of the window.
+    
+    clickset fill color on selection
+    
+*   Shift+click,middle clickset stroke color on selection
+    
+*   right clickopen pop-up menu
+    
+*   mouse dragdrag fill color to objects
+    
+*   Shift+mouse dragdrag stroke color to objects
+    
+    To change fill/stroke of an object by dragging color on it, that object need not be selected.
+    
+    You can also drag colors to the Fill (F) and Stroke (S) indicators in the statusbar to change the selection.
+    
+*   mouse wheelscroll palette
+    
+
+File[⚓]
+----------------
+
+*   Ctrl+Ncreate new document
+    
+*   Ctrl+Alt+Nopen template selection to create new document
+    
+*   Ctrl+Oopen a document
+    
+*   Ctrl+Shift+Eexport to various image formats
+    
+*   Ctrl+Iimport bitmap or vector
+    
+*   Ctrl+Pprint document
+    
+*   Ctrl+Ssave document
+    
+*   Ctrl+Shift+Ssave under a new name
+    
+*   Ctrl+Shift+Alt+Ssave a copy
+    
+*   Ctrl+Qexit Inkscape
+    
+
+Window[⚓]
+------------------
+
+*   Ctrl+Rtoggle rulers
+    
+*   Ctrl+Btoggle scrollbars
+    
+*   Shift+Alt+Ptoggle palette
+    
+*   F11toggle fullscreen
+    
+*   Shift+F11toggle toolbars
+    
+*   Ctrl+F11toggle toolbars and fullscreen
+    
+
+*   F10main menu
+    
+    Menus can also be activated by Alt with the letter underscored in the menu name.
+    
+*   Shift+F10,right clickdrop-down (context) menu
+    
+
+*   Ctrl+F4,Ctrl+Wclose document window
+    
+    This shuts down Inkscape if it was the only document window open.
+    
+*   Ctrl+Tabnext document window
+    
+*   Ctrl+Shift+Tabprevious document window
+    
+    These cycle through the active document windows forward and backward.
+    
+
+Extensions[⚓]
+----------------------
+
+*   Alt+Qprevious extension
+    
+*   Shift+Alt+Qprevious extension settings
+    
+
+Layers[⚓]
+------------------
+
+*   Ctrl+Shift+Ncreate new layer
+    
+
+*   Shift+PgUpmove to layer above
+    
+*   Shift+PgDnmove to layer below
+    
+    These commands move the selected objects from one layer to another.
+    
+*   Ctrl+Shift+PgUpraise layer
+    
+*   Ctrl+Shift+PgDnlower layer
+    
+*   Ctrl+Shift+Homeraise layer to top
+    
+*   Ctrl+Shift+Endlower layer to bottom
+    
+    These commands move the current layer among its siblings (normally other layers).
+    
+
+Object[⚓]
+-------------------
+
+### Undo/redo
+
+*   Ctrl+Zundo
+    
+*   Ctrl+Yredo
+    
+
+### Clipboard
+
+*   Ctrl+C,Ctrl+Inscopy selection
+    
+*   Ctrl+X,Shift+Delcut selection
+    
+*   Ctrl+V,Shift+Inspaste clipboard
+    
+    This places the clipboard objects at the mouse cursor, or at the center of the window if mouse is outside the canvas.
+    
+    When editing text with the text tool, this pastes the text from the clipboard into the current text object.
+    
+*   Ctrl+Alt+Vpaste in place
+    
+    This places the clipboard objects into the original location from which they were copied.
+    
+*   Ctrl+Shift+Vpaste style
+    
+    This applies the style of the (first of the) copied object(s) to the current selection.
+    
+    If a gradient handle (in Gradient tool) or a text span (in Text tool) are selected, they get the style instead of the entire object.
+    
+
+### Duplicate
+
+*   Ctrl+Dduplicate selection
+    
+    New object(s) are placed exactly over the original(s) and selected.
+    
+*   Ctrl+Alt+Dduplicate and transform
+    
+    Duplicates the selection and applies its last transform to the duplicate, so that each new object created this way will be inserted in a different position/size/angle
+    
+
+### Transform
+
+*   Ctrl+Alt+Treapply transform
+    
+    Applies the object's previous transformation action (move, scale, rotate, shear) another time.
+    
+    On Linux, this shortcut might by default open a new terminal window, so you may want to change this shortcut either in Inkscape or in your system settings.
+    
+
+### Clone
+
+*   Alt+Dclone object
+    
+    A clone can be moved/scaled/rotated/skewed independently, but it updates the path, fill, and stroke from its original.
+    
+    The clone is placed exactly over the original object and is selected.
+    
+    You can only clone one object at a time; if you want to clone several objects together, group them and clone the group.
+    
+*   Shift+Alt+Dunlink clone
+    
+    Unlinking a clone cuts the link to the original, turning the clone into a plain copy.
+    
+*   Shift+Dselect original
+    
+    To find out which object this is a clone of, select the clone and give this command. The original will be selected.
+    
+
+### Bitmaps
+
+*   Alt+Bcreate a bitmap copy
+    
+    This exports the selected object(s) (all other objects hidden) as PNG in the document's directory and imports it back as embedded bitmap.
+    
+    The imported bitmap is placed over the original selection and is selected.
+    
+*   Shift+Alt+Btrace bitmap
+    
+    This opens the Trace Bitmap dialog allowing you to convert a bitmap object to path(s).
+    
+
+### Patterns
+
+*   Alt+Iobject(s) to pattern
+    
+    This converts the selection to a rectangle with tiled pattern fill.
+    
+*   Shift+Alt+Ipattern to object(s)
+    
+    Each selected object with pattern fill is broken into the same object without fill and a single pattern object.
+    
+
+### Guides
+
+*   Shift+Gobject(s) to guide(s)
+    
+
+### Group
+
+*   Ctrl+Shift+U,Ctrl+Ggroup selected objects
+    
+    Use Ctrl+click to select objects within group.
+    
+*   Ctrl+Shift+G,Ctrl+Uungroup selected group(s)
+    
+    This removes only one level of grouping; press Ctrl+U repeatedly to ungroup nested groups.
+    
+
+### Align
+
+*   Ctrl+Alt+keypad 1center selected objects on vertical axis
+    
+*   Ctrl+Alt+keypad 7center selected objects on horizontal axis
+    
+*   Ctrl+Alt+keypad 5center selected objects on horizontal and vertical axis
+    
+*   Ctrl+Alt+keypad 4align left edges of selected objects
+    
+*   Ctrl+Alt+keypad 8align top edges of selected objects
+    
+*   Ctrl+Alt+keypad 6align right edges of selected objects
+    
+*   Ctrl+Alt+keypad 2align bottom edges of selected objects
+    
+    Objects are aligned relative to the anchor point set in the "Relative to" field in the "Align and Distribute" dialog.
+    
+
+### Z-order
+
+*   Homeraise selection to top
+    
+*   Endlower selection to bottom
+    
+*   PgUpraise selection one step
+    
+*   PgDnlower selection one step
+    
+
+Path[⚓]
+-----------------
+
+### Convert to path
+
+*   Ctrl+Shift+Cconvert selected object(s) to path
+    
+*   Ctrl+Alt+Cconvert stroke to path
+    
+
+### Boolean operations
+
+*   Ctrl++union
+    
+    Union combines any number of objects into a single path, removing overlaps.
+    
+*   Ctrl+\-difference
+    
+    Difference works on 2 objects, extracting the top from the bottom.
+    
+*   Ctrl+\*intersection
+    
+    Intersection creates a path representing the common (overlapping) area of all selected objects.
+    
+*   Ctrl+^exclusive OR (XOR)
+    
+    XOR is similar to Union, except that it works on 2 objects and removes areas where the objects overlap.
+    
+*   Ctrl+/division (cut)
+    
+    Division cuts the bottom object into pieces by the top object, preserving the fill and stroke of the bottom.
+    
+*   Ctrl+Alt+/cut path
+    
+    Cut Path cuts the bottom object's stroke only where it is intersected by the top path, removing any fill from the result.
+    
+    The result of Union, Difference, Intersection, and XOR inherits the id= attribute and therefore the clones of the bottom object.
+    
+    Division and Cut path normally produce several objects; of them, a random one inherits the id= of the bottom source object.
+    
+*   Ctrl+Shift+Alt+Ksplit path
+    
+    Separates a path that consists of multiple subpaths into a set of paths that 'belong together'. This means that parts of a path that have holes in them are kept as whole objects.
+    
+*   Shift+Alt+Ffracture
+    
+    Cuts a set of paths along every line in any path in the selection, keeping only the topmost objects.
+    
+*   Shift+Fflatten
+    
+    Only visible parts of overlapping objects will be kept. Useful for separating colors for screen printing and offset printing as well as for doing any kind of plotting.
+    
+
+### Offsets
+
+*   Ctrl+(inset path (towards center)
+    
+*   Ctrl+)outset path (away from center)
+    
+    The default offset distance is 2 px (SVG pixel units, not screen pixels).
+    
+*   Alt+(inset path by 1 pixel
+    
+*   Alt+)outset path by 1 pixel
+    
+*   Shift+Alt+(inset path by 10 pixels
+    
+*   Shift+Alt+)outset path by 10 pixels
+    
+    The actual distance for pixel offsets depends on zoom level. Zoom in for finer adjustment.
+    
+    All the (, ) commands convert the object to path, if necessary, and produce regular path.
+    
+*   Ctrl+Jcreate dynamic offset
+    
+*   Ctrl+Alt+Jcreate linked offset
+    
+    These commands produce an offset object, editable by the node tool, standalone or linked to the original.
+    
+*   Shift+Dselect source
+    
+    Selecting a linked offset and giving this command will select the source path of the linked offset.
+    
+
+### Combine
+
+*   Ctrl+Kcombine paths
+    
+    This is different from grouping in that combined paths create one object.
+    
+    This is different from Union in that overlapping areas are not affected.
+    
+    Whether overlapping areas are filled is controlled by the Fill: winding/alternating switch on the Fill & Stroke dialog.
+    
+*   Ctrl+Shift+Kbreak paths apart
+    
+    This attempts to break an object into constituent paths; it will fail if the object is one solid path.
+    
+
+### Simplify
+
+*   Ctrl+Lsimplify
+    
+    This command attempts to simplify selected path(s) by removing extra nodes. It converts all objects to paths first.
+    
+    If you invoke this command several times in quick succession, it will act more and more aggressively.
+    
+    Invoking Simplify again after a pause restores the default threshold (settable in the Inkscape Preferences dialog).
+    
+
+### Path effects
+
+*   7show next editable path effect parameter
+    
+*   Ctrl+7,&paste path effect
+    
+    This applies the path effect of the copied path to the paths/shapes in the current selection.
+    
+
+Selector[⚓]
+---------------------
+
+### Select (mouse)
+
+*   clickselect an object
+    
+    When you left-click on an object, previous selection is deselected.
+    
+*   Shift+clicktoggle selection
+    
+    Shift+click adds an object to the current selection if it was not selected, or deselects it otherwise.
+    
+*   double-clickedit the object
+    
+    For paths, double clicking switches to Node tool; for shapes, to corresponding shape tool; for text, to Text tool.
+    
+    For groups, double clicking performs the "Enter group" command (the group becomes a temporary layer).
+    
+    Double clicking in empty space switches to the parent layer in the hierarchy, if any.
+    
+
+### Rubberband, touch selection
+
+*   mouse dragselect by rubberband
+    
+    Dragging around objects does "rubberband" selection; previous selection is deselected.
+    
+*   Shift+mouse dragadd objects to selection
+    
+    Normally, you need to start from an empty space to initiate a rubberband.
+    
+    However, if you press Shift before dragging, Inkscape will do rubberband selection even if you start from an object.
+    
+*   Alt+mouse drag,Shift+Alt+mouse dragselect by touch
+    
+    Alt+dragging over objects selects those objects that are touched by the path.
+    
+    To start touch selection with Alt, you must have nothing selected; otherwise use Shift+Alt.
+    
+    You can switch rubberband selection to touch selection and back while dragging by pressing/releasing Alt.
+    
+
+### Select (keyboard)
+
+*   Tabselect next object
+    
+*   Shift+Tabselect previous object
+    
+    These keys pick objects in their z-order (Tab cycles from bottom to top, Shift+Tab cycles from top to bottom).
+    
+    Unless you did manual rearrangements, the last object you created is always on top.
+    
+    As a result, if nothing is selected, pressing Shift+Tab once conveniently selects the object you created last.
+    
+    This works on objects within the current layer (unless you change that in preferences).
+    
+*   Ctrl+Aselect all (current layer)
+    
+    This works on objects within the current layer (unless you change that in preferences).
+    
+*   Ctrl+Alt+Aselect all (all layers)
+    
+    This works on objects in all visible and unlocked layers.
+    
+*   Shift+Alt+Aselect all with same type (all layers)
+    
+    Selects all objects of the same type as the currently selected. This works on objects in all visible and unlocked layers.
+    
+*   !invert selection (current layer)
+    
+    This inverts selection (deselects what was selected and vice versa) in the current layer.
+    
+*   Alt+!invert selection (all layers)
+    
+    This inverts selection (deselects what was selected and vice versa) in visible and unlocked layers.
+    
+*   Escdeselect
+    
+*   Backspace,Deldelete selection
+    
+
+### Select within group, select under
+
+*   Ctrl+clickselect within group
+    
+    Ctrl+click selects the object at click point disregarding any levels of grouping that this object might belong to.
+    
+*   Shift+Ctrl+clicktoggle selection within group
+    
+*   Alt+clickselect under
+    
+    Alt+click selects the object at click point which is beneath (in z-order) the lowest selected object at click point.
+    
+    If the bottom object is reached, Alt+click again selects the top object. So, several Alt+clicks cycle through z-order stack at point.
+    
+    On GNU/Linux, Alt+click and Alt+drag may be reserved by the window manager. Reconfigure it so you can use them in Inkscape.
+    
+    If your keyboard has a Meta key, you may wish to set your "Modifier key" to use it instead of Alt.
+    
+    (Sometimes you can also use Ctrl+Alt+click (select under in groups) with the same effect as Alt+click.)
+    
+*   Shift+Alt+button click">clicktoggle under
+
+*   Ctrl+Alt+clickselect under, in groups
+    
+*   Shift+Ctrl+Alt+clicktoggle under, in groups
+    
+*   Ctrl+Enterenter group
+    
+*   Ctrl+Backspacego to parent group/layer
+    
+
+### Move (mouse)
+
+*   mouse dragselect + move
+    
+    Dragging an object selects it if it was not selected, then moves selection.
+    
+*   Alt+mouse dragmove selected
+    
+    Alt+drag moves the current selection (without selecting what is under cursor), no matter where you start the drag.
+    
+    On GNU/Linux, Alt+click and Alt+drag may be reserved by the window manager. Reconfigure it so you can use them in Inkscape.
+    
+    If your keyboard has a Meta key, you may wish to set your "Modifier key" to use it instead of Alt.
+    
+*   Ctrl+mouse dragrestrict movement to horizontal or vertical
+    
+*   Ctrl+mouse dragselect and drag first touched item
+    
+    When starting the drag motion in an empty area of the canvas and then touching any object, that object will be moved along with the mouse. You can then let go of the Ctrl key to keep dragging the item without restriction of movement direction.
+    
+*   Shift+mouse dragtemporarily disable snapping
+    
+    This temporarily disables snapping when you are dragging with snapping activated.
+    
+*   mouse drag+Spacedrop a copy
+    
+    When dragging or transforming with mouse, each Space leaves a copy of the selected object.
+    
+    You can press and hold Space while dragging for a nice "trail."
+    
+*   mouse drag+Cdrop a clone
+    
+    When dragging or transforming with mouse, each time you press C leaves a clone of the selected object.
+    
+
+### Move (keyboard)
+
+*   arrowsmove selection by the nudge distance
+    
+*   Shift+arrowsmove selection by 10x nudge distance
+    
+    The default nudge distance is 2 px (SVG pixel units, not screen pixels).
+    
+*   Alt+arrowsmove selection by 1 pixel
+    
+*   Shift+Alt+arrowsmove selection by 10 pixels
+    
+    The actual distance for pixel movements depends on zoom level. Zoom in for finer movement.
+    
+
+### Transform (mouse)
+
+*   click,Shift+Stoggle scale/rotation handles
+    
+*   mouse dragscale (with scale handles)
+    
+*   mouse dragrotate or skew (with rotation handles)
+    
+
+### Scale by handles
+
+*   mouse dragscale
+    
+*   Ctrl+mouse dragscale preserving aspect ratio
+    
+*   Shift+mouse dragsymmetric transformation
+    
+    Holding Shift while transforming makes the transformation symmetric around the rotation center of the selection. Combined with Ctrl, this can be used to scale objects around an arbitrary center point.
+    
+*   Alt+mouse dragscale by integer
+    
+    Hold Alt while scaling to limit scale to 2, 3, 4, etc. or 1/2, 1/3, 1/4 etc. of the initial size.
+    
+
+### Scale (keyboard)
+
+*   .,> scale selection up by the scale step
+    
+*   ,,< scale selection down by the scale step
+    
+    The default scale step is 2 px (SVG pixel units, not screen pixels).
+    
+*   Ctrl+.,`Ctrl+>` scale selection to 200%
+    
+*   Ctrl+,,`Ctrl+<scale` selection to 50%
+    
+*   Alt+.,`Alt+>` scale selection up by 1 pixel
+    
+*   Alt+,,`Alt+<scale` selection down by 1 pixel
+    
+    The actual size increment for pixel scaling depends on zoom level. Zoom in for finer scaling.
+    
+    The default size increment is added to (or subtracted from) either the selection's height or width, whichever one is larger. Scaling is done around the center of the selection's bounding box and keeps the proportions of the selected object(s).
+    
+
+### Rotate/skew by handles
+
+*   mouse dragrotate or skew
+    
+*   Ctrl+mouse dragsnap skew angle
+    
+    Holding Ctrl when dragging a skew (non-corner) handle snaps the skew angle to angle steps (default 15 degrees).
+    
+*   Ctrl+mouse dragsnap rotation angle
+    
+    Holding Ctrl when dragging a rotation (corner) handle snaps the rotation angle to angle steps (default 15 degrees).
+    
+*   Shift+mouse dragrotate around opposite corner
+    
+
+### Rotate (keyboard)
+
+*   [,] rotate selection by the angle step
+    
+    The default angle step is 15 degrees. ]  rotates clockwise, [ rotates counterclockwise.
+    
+*   Ctrl+[,Ctrl+] rotate selection by 90 degrees
+    
+*   Alt+[,Alt+] rotate selection by 1 pixel
+    
+    The actual angle for pixel rotation depends on zoom level. Zoom in for finer movement.
+    
+    These commands use the rotation center, draggable in Selector (by default it's in geometric center).
+    
+
+### Flip
+
+*   hflip selection horizontally
+    
+*   vflip selection vertically
+    
+    If the tool is in rotate mode (rotation center visible), that center becomes the axis of flipping; otherwise it flips around geometric center of selection.
+    
+
+### Rotation center
+
+*   mouse dragmove rotation center
+    
+    Moved rotation center remembers and saves its position for (all) selected object(s); you can reset it.
+    
+*   Shift+mouse dragmove without snapping
+    
+*   Shift+clickreset rotation center
+    
+    Resetting rotation center moves it back to the geometric center of the object's or selection's bounding box.
+    
+
+### Cancel
+
+*   Esccancel rubberband, move, transformation
+    
+    Press Esc while mouse button is still down to cancel rubberband selection, move, or transformation of any kind.
+    
+
+Node tool[⚓]
+----------------------
+
+### Select objects (mouse)
+
+*   clickclick a non-selected object to select
+    
+*   Alt+clickselect under
+    
+*   Alt+mouse wheelcycle z-order
+    
+*   Shift+clicktoggle selection
+    
+    These work the same as in Selector. The nodes or handles of the single selected object become editable.
+    
+
+### Select nodes (mouse)
+
+*   clickselect a node
+    
+    Clicking on a node selects it.
+    
+*   clickselect two adjacent nodes
+    
+    Clicking on a selected path between the nodes selects the two nodes closest to the click point.
+    
+*   Shift+clicktoggle selection
+    
+    This adds/removes a node (if clicked on node) or two nodes (if clicked on path) to/from the node selection.
+    
+*   clickdeselect
+    
+    Clicking in an empty space deselects all selected nodes. Next click will deselect the object.
+    
+
+### Selecting / Deselecting multiple nodes
+
+*   mouse dragselect multiple nodes
+    
+    Opens a rectangular "rubberband" selection area. All nodes within the current object and in the area will be selected; previous node selection is deselected.
+    
+*   Alt+mouse dragselect multiple nodes
+    
+    Draw around nodes on the canvas to select them. All nodes within the current object and in the area that is enclosed by the drawn line will be selected; previous node selection is deselected
+    
+*   Shift+mouse dragadd nodes to selection
+    
+    Normally, you need to start from a point not over a path or a node to initiate a rubberband.
+    
+    However, if you press Shift before dragging, Inkscape will do rubberband selection even if you start over the path.
+    
+*   Ctrl+Shift+mouse dragremove nodes from selection
+    
+    Creates a box-shaped area.
+    
+*   Ctrl+Alt+Shift+mouse dragremove nodes from selection
+    
+    Draw around nodes (similar to the Pencil tool) to remove them.
+    
+*   Ctrl+mouse draginverted node selection
+    
+    This selects all nodes in all subpaths of the path outside the rubberband.
+    
+*   Ctrl+Alt+mouse draginverted node selection
+    
+    This selects all nodes in all subpaths of the path outside the drawn selection area.
+    
+
+### Select nodes (keyboard)
+
+*   Tabselect next node
+    
+*   Shift+Tabselect previous node
+    
+    These keys select nodes within the selected path.
+    
+*   Ctrl+Aselect all nodes in subpath(s)
+    
+    If the path has multiple subpaths and some nodes selected, this selects all only in subpaths with already selected nodes.
+    
+*   Ctrl+Alt+Aselect all nodes in path
+    
+    This selects all nodes in the entire path.
+    
+*   !invert selection in subpath(s)
+    
+    If the path has multiple subpaths and some nodes selected, this inverts selection only in subpaths with already selected nodes.
+    
+*   Alt+!invert selection in path
+    
+    This inverts selection (deselects what was selected and vice versa) in the entire path.
+    
+*   Escdeselect all nodes
+    
+
+### Grow/shrink node selection
+
+*   PgUp,PgDngrow/shrink selection (spatial)
+    
+*   mouse wheelgrow/shrink selection (spatial)
+    
+*   Ctrl+PgUp,Ctrl+PgDngrow/shrink selection (along path)
+    
+*   Ctrl+mouse wheelgrow/shrink selection (along path)
+    
+    Your mouse pointer must be over a node for growing/shrinking.
+    
+    Each key press or turn of the mouse wheel selects the nearest unselected node or deselects the farthest selected node.
+    
+    Distance to nodes can be calculated directly (spatial mode) or along path.
+    
+
+### Move nodes (mouse)
+
+*   mouse dragmove selected nodes
+    
+*   Ctrl+mouse dragrestrict movement to horizontal or vertical
+    
+*   Ctrl+Alt+mouse dragmove along handles
+    
+    This restricts movement to the directions of the node's handles, their counter directions and perpendiculars (total 8 snaps).
+    
+    If the node has straight lines on one or both sides, this will snap it to these lines' directions and perpendiculars instead.
+    
+*   Shift+mouse dragtemporarily disable snapping
+    
+*   Shift+mouse dragdrag out handle
+    
+    If a node has a retracted handle, dragging with Shift lets you drag it out of the node.
+    
+*   mouse drag+Spacedrop a copy
+    
+    When dragging nodes with mouse, each Space leaves a copy of the selected object.
+    
+    You can press and hold Space while dragging for a nice "trail."
+    
+*   Alt+mouse dragsculpt selected nodes
+    
+    Sculpting moves the selected nodes so that the dragged node moves all the way, the farthest selected nodes stay put; all intermediate selected nodes move intermediate distances, governed by a bell-like curve.
+    
+    Sculpting is pressure-sensitive with a tablet; press harder for a blunter drag profile, press lightly for a sharper profile.
+    
+    To stop sculpting without losing the pressure-sensitive profile, release Alt first and then lift the pen.
+    
+
+### Move nodes (keyboard)
+
+*   arrowsmove selected node(s) by the nudge distance
+    
+*   Shift+arrowsmove selected node(s) by 10x nudge distance
+    
+    The default nudge distance is 2 px (SVG pixel units, not screen pixels).
+    
+*   Alt+arrowsmove selected node(s) by 1 pixel
+    
+*   Shift+Alt+arrowsmove selected node(s) by 10 pixels
+    
+    The actual distance for pixel movements depends on zoom level. Zoom in for finer movement.
+    
+
+### Move node handle (mouse)
+
+*   mouse dragmove a node handle
+    
+*   Ctrl+mouse dragsnap the handle to angle steps
+    
+    The default angle step is 15 degrees. This also snaps to the handle's original angle, its counter direction and perpendiculars.
+    
+*   Shift+mouse dragrotate both handles
+    
+*   Alt+mouse draglock the handle length
+    
+    Ctrl, Shift, Alt can be combined when dragging handles.
+    
+*   Ctrl+clickretract the handle
+    
+    Retracted handle is zero length; use Shift+drag to drag it back out.
+    
+
+### Scale handle (1 node selected)
+
+*   <,> contract/expand both handles by scale step
+    
+    The default scale step is 2 px (SVG pixel units, not screen pixels). May apply to more than one node.
+    
+*   Left Ctrl+<,Left Ctrl+> scale left handle by the scale step
+    
+*   Right Ctrl+<,Right Ctrl+> scale right handle by the scale step
+    
+*   Left Alt+<,Left Alt+> scale left handle by 1 pixel
+    
+*   Right Alt+<,Right Alt+> scale right handle by 1 pixel
+    
+    The actual size increment for pixel scaling depends on zoom level. Zoom in for finer scaling.
+    
+    Instead of the < and > keys, you can use the , (comma) and . (period) keys respectively.
+    
+
+### Rotate handle (1 node selected)
+
+*   [,] rotate both handles by the angle step
+    
+    The default angle step is 15 degrees. ]  rotates clockwise, [ rotates counterclockwise. May apply to more than one node.
+    
+*   Left Ctrl+[,Left Ctrl+] rotate left handle by the angle step
+    
+*   Right Ctrl+[,Right Ctrl+] rotate right handle by the angle step
+    
+*   Left Alt+[,Left Alt+] rotate left handle by 1 pixel
+    
+*   Right Alt+[,Right Alt+] rotate right handle by 1 pixel
+    
+
+### Handles visibility
+
+*   Ctrl+Htoggle handles
+    
+
+### Scale nodes (>1 nodes selected)
+
+*   These commands scale the selected nodes as if they were an "object".
+    
+    If mouse is over a node, that node becomes the axis of scaling; otherwise it scales around geometric center of selected nodes.
+    
+    .,> scale nodes up by the scale step
+    
+*   ,,<scale nodes down by the scale step
+    
+    The default scale step is 2 px (SVG pixel units, not screen pixels).
+    
+*   Alt+.,Alt+> scale nodes up by 1 pixel
+    
+*   Alt+,,Alt+<scale nodes down by 1 pixel
+    
+    The actual size increment for pixel scaling depends on zoom level. Zoom in for finer scaling.
+    
+    The default size increment is added to (or subtracted from) either the node selection's height or width, whichever one is larger. Scaling keeps the proportions of the node selection.
+    
+
+### Rotate nodes (>1 nodes selected)
+
+*   These commands rotate the selected nodes as if they were an "object".
+    
+    If mouse is over a node, that node becomes the axis of rotation; otherwise it rotates around geometric center of selected nodes.
+    
+    [,] rotate nodes by the angle step
+    
+    The default angle step is 15 degrees. ]  rotates clockwise, [ rotates counterclockwise.
+    
+*   Alt+[,Alt+] rotate nodes by 1 pixel
+    
+    The actual angle for pixel rotation depends on zoom level. Zoom in for finer movement.
+    
+
+### Flip nodes (>1 nodes selected)
+
+*   These commands flip the selected nodes as if they were an "object", around the center of that object.
+    
+    hflip nodes horizontally
+    
+*   vflip nodes vertically
+    
+    If mouse is over a node, that node becomes the axis of flipping; otherwise it flips around geometric center of selected nodes
+    
+
+### Change segment(s)
+
+*   Shift+L,Ctrl+clickmake line
+    
+    The keyboard shortcut works with pairs of selected nodes, while the mouse shortcut works directly with any (unselected) path segment.
+    
+*   Shift+Umake curve
+    
+
+### Change node type
+
+*   Shift+Cmake cusp
+    
+    First Shift+C changes type of node; if you do another Shift+C on an already cusp node, it retracts its handles.
+    
+*   Shift+Smake smooth
+    
+    If a cusp node is adjacent to a line segment, first Shift+S makes it half-smooth with one handle collinear with the segment; another Shift+S will expand a second handle.
+    
+*   Shift+Ymake symmetric
+    
+    When making smooth or symmetric, you can lock the position of one of the handles by hovering mouse over it.
+    
+*   Shift+Amake auto
+    
+*   Ctrl+clicktoggle smooth/cusp/symmetric/auto
+    
+
+### Join/break
+
+*   Shift+Jjoin selected nodes
+    
+    This requires that exactly two end nodes within the path be selected.
+    
+    You can lock the position of one of the two joined nodes by hovering mouse over it.
+    
+*   Alt+Jjoin selected end nodes with new segment
+    
+*   Shift+Bbreak selected node(s)
+    
+    After break, only one of each two new nodes is selected. May apply to more than one node.
+    
+
+### Delete, create, duplicate, copy
+
+*   Backspace,Deldelete selected node(s)
+    
+*   Ctrl+Backspace,Ctrl+Deldelete always preserving shape
+    
+    Deleting without Ctrl adjusts handles on the remaining nodes to preserve the shape of the curve in some, but not all cases. Deleting sharp corners will result in straight lines
+    
+    Deleting with Ctrl will always try to preserve the shape.
+    
+*   Alt+Backspace,Ctrl+double-clickdelete segment
+    
+    The keyboard shortcut works with pairs of selected nodes, while the mouse shortcut works directly with any (unselected) path segment.
+    
+*   Ctrl+Alt+clickcreate/delete node
+    
+    Ctrl+Alt+click on a node deletes it; Ctrl+Alt+click on the path between nodes creates a new node in the click point.
+    
+    Deleting nodes this way always tries to preserve the shape of the curve (same as Del/Backspace).
+    
+*   double-clickcreate node
+    
+    Double clicking on the path between nodes creates a node in the click point.
+    
+*   Ins,Shift+Iinsert new node(s)
+    
+    This adds new node(s) in the middle(s) of selected segment(s), so it requires that more than two adjacent nodes be selected.
+    
+*   Shift+Dduplicate selected node(s)
+    
+    New nodes are created on the same path; they are placed exactly over the old ones and are selected.
+    
+*   Ctrl+Ccopy selected node(s) to clipboard
+    
+*   Ctrl+Vinsert nodes from clipboard
+    
+    Inserts a set of nodes into the currently selected path in the current mouse cursor position.
+    
+
+### Reverse
+
+*   Shift+Rreverse path direction
+    
+
+### Edit shapes
+
+*   Node tool can also drag the handles of shapes (rectangles, ellipses, stars, spirals). Click on a shape to select it.
+    
+    See the corresponding shape tools for their editing shortcuts, all of which also work in node tool.
+    
+
+### Edit fills and path effects
+
+*   Node tool can also edit the handles of a pattern fill, gradient fill, and the editable handles of path effects.
+    
+
+### Cancel
+
+*   Esccancel rubberband or move
+    
+    Press Esc while mouse button is still down to cancel rubberband selection, node move, or handle move.
+    
+
+Shape Builder tool[⚓]
+-------------------------------
+
+### Add mode
+
+*   This is the default mode. To indicate it select "Shape Builder Tool: Add" button on the toolbar.
+    
+    clickon segment to add it to the result as separate object
+    
+*   Shift+clickon a segment to remove the segment
+    
+*   mouse dragover segment boundary to union all touched segments
+    
+*   Shift+mouse dragover segment boundary to remove all touched segments
+    
+
+### Remove mode
+
+*   This is the inverted mode. To indicate it select "Shape Builder Tool: Delete" button on the toolbar.
+    
+    clickon segment to remove the segment
+    
+*   Shift+clickon segment to add it to the result as separate object
+    
+*   mouse dragover segment boundary to remove all touched segments
+    
+*   Shift+mouse dragover segment boundary to union all touched segments
+    
+
+### Apply
+
+*   Enterapply changes and leave Shape Builder tool
+    
+*   Escleave Shape Builder tool without changes
+    
+
+Rectangle tool[⚓]
+---------------------------
+
+### Draw
+
+*   mouse dragdraw a rectangle
+    
+*   Ctrl+mouse dragmake a square or integer-ratio rectangle
+    
+    This restricts width/height ratio or its inverse to a whole number or the golden ratio.
+    
+*   Shift+mouse dragdraw around the starting point
+    
+    This creates a rectangle symmetric around the starting point of the mouse drag.
+    
+
+### Select
+
+*   clickclick to select
+    
+*   Alt+click,Ctrl+Alt+clickselect under
+    
+
+### Move
+
+*   mouse dragdrag cross handle to move
+    
+
+### Resize by handles
+
+*   mouse dragdrag a square handle to resize
+    
+    Initially, the two resize (square) handles are in top left and bottom right corners.
+    
+    Resize handles change the width and height of the rectangle in its own coordinate system, before any transforms are applied.
+    
+*   Ctrl+mouse draglock width, height, or ratio
+    
+
+### Round corners by handles
+
+*   mouse dragdrag a circular handle to round corners
+    
+    Initially, the two rounding handles are in the top right corner of the rectangle.
+    
+*   Ctrl+mouse draglock the corner circular
+    
+*   Ctrl+clickset the corner circular
+    
+    When rounding corners, dragging one rounding handle keeps the corner circular if the other remains at the corner.
+    
+    You can drag both handles for an elliptic rounded corner, or drag/click one with Ctrl to make it circular again.
+    
+*   Shift+clickremove corner rounding
+    
+
+Ellipse tool[⚓]
+-------------------------
+
+### Draw
+
+*   Without Alt the starting and ending point of the mouse drag mark the corners of the bounding box.
+    
+    With Alt the ellipse is enlarged so that its circumference passes through these two points (Ctrl+Alt is a special case; see below).
+    
+    mouse dragdraw an ellipse
+    
+*   Ctrl+mouse dragmake circle or integer-ratio ellipse
+    
+    This restricts width/height ratio or its inverse to a whole number or the golden ratio.
+    
+*   Shift+mouse dragdraw around the starting point
+    
+    This creates an ellipse symmetric around the starting point of the mouse drag.
+    
+*   Ctrl+Alt+mouse dragcreate circle passing through the starting and ending point
+    
+    This creates a perfect circle whose diameter is defined by the starting and ending point of the mouse drag.
+    
+
+### Select
+
+*   clickclick to select
+    
+*   Alt+click,Ctrl+Alt+clickselect under
+    
+*   Shift+clicktoggle selection
+    
+    In this tool, selecting by click disregards any grouping (i.e. acts as clicking with Ctrl in Selector).
+    
+*   Escdeselect
+    
+
+### Move
+
+*   mouse dragdrag cross handle to move
+    
+
+### Edit by handles
+
+*   mouse dragresize, make arc or segment
+    
+    Initially, the two resize handles are at the topmost and leftmost points; the two arc/segment handles are in the rightmost point.
+    
+*   Ctrl+mouse draglock circle (resize handles)
+    
+*   Ctrl+mouse dragsnap to angle steps (arc/segment handles)
+    
+    Resize handles change the width and height of the ellipse in its own coordinate system, before any transforms are applied.
+    
+    The default angle step is 15 degrees.
+    
+*   Shift+clickmake whole (arc/segment handles)
+    
+
+Star tool[⚓]
+----------------------
+
+### Draw
+
+*   mouse dragdraw a star
+    
+*   Ctrl+mouse dragsnap star to angle stepspan>
+
+The default angle step is 15 degrees.
+
+### Select
+
+*   clickclick to select
+    
+*   Alt+click,Ctrl+Alt+clickselect under
+    
+*   Shift+clicktoggle selection
+    
+    In this tool, selecting by click disregards any grouping (i.e. acts as clicking with Ctrl in Selector).
+    
+*   Escdeselect
+    
+
+### Move
+
+*   mouse dragdrag cross handle to move
+    
+
+### Edit by handles
+
+*   mouse dragdrag a handle to vary the star shape
+    
+*   Ctrl+mouse dragkeep star rays radial (no skew)
+    
+*   Shift+mouse draground the star
+    
+*   Shift+clickremove rounding
+    
+*   Alt+mouse dragrandomize the star
+    
+*   Alt+click,Ctrl+Alt+clickremove randomization
+    
+
+3D box tool[⚓]
+------------------------
+
+### Draw
+
+*   mouse dragdraw a 3D box (X/Y plane)
+    
+*   Shift+mouse dragdraw a 3D box (extrude in Z)
+    
+
+### Select
+
+*   clickclick to select
+    
+*   Alt+click,Ctrl+Alt+clickselect under
+    
+*   Shift+clicktoggle selection
+    
+*   Escdeselect
+    
+
+### Move
+
+*   mouse dragdrag cross handle to move
+    
+
+### Edit by handles
+
+*   All editing operations occur "in perspective", i.e., either along perspective lines or within planes spanned by these.
+    
+    mouse dragresize/move box
+    
+    The four front handles and the center normally move within the XY plane, the four rear handles along the Z axis.
+    
+*   Shift+mouse dragresize/move (with handle behaviour swapped)
+    
+*   Ctrl+mouse dragresize/move (handles snap to axes or diagonals)
+    
+
+### Edit perspectives
+
+*   In what follows, we use the abbreviations VP = vanishing point, PL = perspective line.
+    
+    mouse dragdrag square handles to move the VPs
+    
+*   [,] rotate X-PLs (if parallel) by the angle step
+    
+    The default angle step is 15 degrees. ] ,),} rotate clockwise, [,(,{ rotate counterclockwise.
+    
+*   Alt+[,Alt+] rotate X-PLs (if parallel) by 1 pixel
+    
+*   (,)rotate Y-PLs (if parallel) by the angle step
+    
+*   Alt+(,Alt+)rotate Y-PLs (if parallel) by 1 pixel
+    
+*   {,}rotate Z-PLs (if parallel) by the angle step
+    
+*   Alt+{,Alt+}rotate Z-PLs (if parallel) by 1 pixel
+    
+
+Spiral tool[⚓]
+------------------------
+
+### Draw
+
+*   mouse dragdraw a spiral
+    
+*   Ctrl+mouse dragsnap spiral to angle steps
+    
+    The default angle step is 15 degrees.
+    
+
+### Select
+
+*   clickclick to select
+    
+*   Alt+click,Ctrl+Alt+clickselect under
+    
+*   Shift+clicktoggle selection
+    
+    In this tool, selecting by click disregards any grouping (i.e. acts as clicking with Ctrl in Selector).
+    
+*   Escdeselect
+    
+
+### Move
+
+*   mouse dragdrag cross handle to move
+    
+
+### Edit by handles
+
+*   mouse dragroll/unroll from inside (inner handle)
+    
+    Dragging the inner handle adjusts the "inner radius" parameter.
+    
+*   Alt+mouse dragconverge/diverge (inner handle)
+    
+*   Alt+click,Ctrl+Alt+clickreset divergence (inner handle)
+    
+    Vertical Alt+drag of the inner handle adjusts the "divergence" parameter, Alt+click resets it to 1.
+    
+*   Shift+clickzero inner radius (inner handle)
+    
+    Shift+click on inner handle makes the spiral start from the center.
+    
+*   mouse dragroll/unroll from outside (outer handle)
+    
+    Dragging the outer handle adjusts the "turns" parameter.
+    
+*   Alt+mouse draglock radius (outer handle)
+    
+    Roll/unroll without changing radius.
+    
+*   Shift+mouse dragscale/rotate (outer handle)
+    
+    Use Shift+Alt+drag to rotate only (locks the radius of the spiral).
+    
+*   Ctrl+mouse dragsnap handles to angle steps
+    
+    The default angle step is 15 degrees. This works for both handles.
+    
+
+Pen (Bezier) tool[⚓]
+------------------------------
+
+### Create nodes
+
+*   clickcreate a sharp node
+    
+    If no path is being created, this starts a new path.
+    
+*   Shift+clickadd to selected path
+    
+    If a path is selected, Shift+dragging anywhere creates a new subpath instead of a new independent path.
+    
+*   mouse dragcreate a Bezier node with two handles
+    
+*   Shift+mouse dragmove only one handle
+    
+    This moves only one handle (instead of both) while creating a node, making it cusp.
+    
+*   Ctrl+mouse dragsnap the handle to angle steps
+    
+    The default angle step is 15 degrees.
+    
+
+### Move last node
+
+*   These commands move the last created node (at the start of the red segment) while creating a path.
+    
+    arrowsmove last node by the nudge distance
+    
+*   Shift+arrowsmove last node by 10x nudge distance
+    
+    The default nudge distance is 2 px (SVG pixel units, not screen pixels).
+    
+*   Alt+arrowsmove last node by 1 pixel
+    
+*   Shift+Alt+arrowsmove last node by 10 pixels
+    
+    The actual distance for pixel movements depends on zoom level. Zoom in for finer movement.
+    
+
+### Create/modify segments
+
+*   Ctrlsnap last segment to angle steps
+    
+    This snaps the new node's angle, relative to the previous node, to angle steps (default 15 degrees).
+    
+*   Shift+Lmake last segment line
+    
+*   Shift+Umake last segment curve
+    
+    These commands change the last (red) segment of the path to straight line or curve.
+    
+
+### Create dots
+
+*   Ctrl+clickcreate a dot (straight line modes only)
+    
+    This creates a small circle. Its size (relative to the current stroke width) can be set in Preferences.
+    
+*   Ctrl+Shift+clickcreate a double-sized dot
+    
+*   Ctrl+Alt+clickcreate a random-sized dot
+    
+
+### Finish
+
+*   Enterfinish current path
+    
+*   Shift+Enterfinish and close current path
+    
+*   right clickfinish current path
+    
+*   double-clickfinish current path
+    
+    Enter or right click finish the current line, discarding the last unfinished (red) segment. Double left click finishes the current line where double-clicked.
+    
+
+### Cancel
+
+*   Esc,Ctrl+Zcancel current line
+    
+*   Backspace,Delerase last segment of current line
+    
+
+Pencil tool[⚓]
+------------------------
+
+*   mouse dragdraw a freehand path
+    
+*   Shift+mouse dragadd to selected path
+    
+    If a path is selected, Shift+dragging from anywhere starts a new subpath instead of a new independent path.
+    
+*   Shift+mouse dragtemporarily disable snapping
+    
+    This temporarily disables snapping when you are dragging with snapping activated.
+    
+*   Alt+mouse dragaveraging draw (sketch mode)
+    
+*   Ctrl+mouse draglift pencil
+    
+    A short press of the Ctrl key discontinues the current path. Release the mouse button and click and drag again to continue. The loose ends will be connected by straight lines when the path is finished.
+    
+*   clickstart a straight path (finish with another click)
+    
+
+### Create dots
+
+*   Ctrl+clickcreate a dot
+    
+    This creates a small circle. Its size (relative to the current stroke width) can be set in Preferences.
+    
+*   Ctrl+Shift+clickcreate a double-sized dot
+    
+*   Ctrl+Alt+clickcreate a random-sized dot
+    
+
+Calligraphy tool[⚓]
+-----------------------------
+
+### Draw
+
+*   mouse dragdraw a calligraphic stroke
+    
+*   Shift+mouse dragadd to selected path
+    
+    Drawing with Shift unions the newly created stroke with the previous selection.
+    
+*   Alt+mouse dragsubtract from selected path
+    
+    Drawing with Alt subtracts the newly created stroke from the previous selection.
+    
+*   Ctrl+mouse dragtrack a guide path
+    
+    Drawing with Ctrl tracks a selected guide path at the constant distance.
+    
+*   Left arrow,Right arrowadjust pen width by 1
+    
+*   Home,Endset pen width to its minimum or maximum
+    
+*   Up arrow,Down arrowadjust pen angle
+    
+    Width and angle can be adjusted while drawing.
+    
+*   Escdeselect
+    
+
+### Create dots
+
+*   clickcreate a dot
+    
+*   Shift+clickcreate a larger dot
+    
+    Click in place without moving the mouse to create a dot.
+    
+
+Text tool[⚓]
+----------------------
+
+### Select/create
+
+*   clickcreate/select a text object
+    
+    Clicking in an empty space or on a non-text creates a text object; now you can type your text.
+    
+    Clicking on a text object selects it; cursor is placed near the click point.
+    
+*   Escdeselect the text object
+    
+
+### Navigate in text
+
+*   arrowsmove cursor by one character
+    
+*   Ctrl+Left arrow,Ctrl+Right arrowmove cursor by one word
+    
+*   Ctrl+Up arrow,Ctrl+Down arrowmove cursor by one paragraph
+    
+*   Home,Endgo to beginning/end of line
+    
+*   Ctrl+Home,Ctrl+Endgo to beginning/end of text
+    
+*   PgUp,PgDnmove cursor by one screen
+    
+    All these commands cancel current text selection, if any. Use them with Shift to add to / subtract from selection instead.
+    
+
+### Flowed text (internal frame)
+
+*   mouse dragcreate flowed text
+    
+    Clicking and dragging in an empty space or on a non-text creates a flowed text object with internal frame.
+    
+*   mouse dragadjust frame size
+    
+    Dragging the handle in the lower right corner of the selected flowed text changes width/height of the frame.
+    
+*   Ctrl+mouse draglock width, height, or ratio of frame
+    
+    Dragging the corner handle with Ctrl resizes the frame preserving either width, or height, or ratio.
+    
+
+### Flowed text (external frame)
+
+*   Alt+Wflow text into frame
+    
+    With a text object and a shape/path selected, this flows text into the shape/path.
+    
+    Both remain separate objects, but are linked; editing the shape/path causes the text to reflow.
+    
+*   Shift+Alt+Wunflow text from frame
+    
+    This cuts the flowed text's link to the shape/path, producing a single-line regular text object.
+    
+*   Shift+Dselect external frame
+    
+    To find out which object is the frame of this flowed text, select it and press Shift+D. The frame will be selected.
+    
+
+### Text on path
+
+*   Shift+Dselect path from text
+    
+    To find out which path this text is put on, select it and press Shift+D. The path will be selected.
+    
+
+### Edit text
+
+*   To type + and - characters, use the main keyboard; keypad + and - are reserved for zoom (unless NumLock is on).
+    
+    Enterstart a new line or paragraph
+    
+    Enter in regular text creates new line; in flowed text it creates a new paragraph.
+    
+*   Ctrl+Utoggle Unicode entry
+    
+    To insert an arbitrary Unicode character, type Ctrl+U, then the hexadecimal code point, then Enter.
+    
+    For example, type Ctrl+U 2 0 1 4 Enter for an em-dash; Ctrl+U a 9 Enter for a copyright sign.
+    
+    To stay in Unicode mode after inserting the character, press Space instead of Enter.
+    
+    Press Esc or another Ctrl+U to cancel Unicode mode without inserting the character.
+    
+*   Ctrl+Spaceinsert no-break space
+    
+    A no-break space is visible even in a text object without xml:space="preserve".
+    
+
+### Select text
+
+*   mouse dragselect text
+    
+    Left-dragging over a text object selects a text span.
+    
+*   Shift+arrowsselect text by character
+    
+*   Shift+Ctrl+arrowsselect text by word
+    
+*   Shift+Home,Shift+Endselect to beginning/end of line
+    
+*   Shift+Ctrl+Home,Shift+Ctrl+Endselect to beginning/end of text
+    
+*   Shift+PgUp,Shift+PgDnselect one screen up/down
+    
+*   double-clickselect word
+    
+*   click+click+clickselect line
+    
+*   Ctrl+Aselect all text
+    
+    This selects the entire text of the current text object.
+    
+
+### Style selection
+
+*   Ctrl+Bmake selection bold
+    
+*   Ctrl+Imake selection italic
+    
+    Also, you can use the Text&Font or Fill&Stroke dialogs to assign any style to text selection.
+    
+
+### Letter spacing
+
+*   `Alt+>` expand line/paragraph by 1 pixel
+    
+*   `Shift+Alt+>` expand line/paragraph by 10 pixels
+    
+*   `Alt+<contract` line/paragraph by 1 pixel
+    
+*   `Shift+Alt+<contract` line/paragraph by 10 pixels
+    
+    These commands (only when editing text) adjust letter spacing in the current line (regular text) or paragraph (flowed text).
+    
+    The actual adjustment for pixel movements depends on zoom level. Zoom in for finer adjustment.
+    
+
+### Line spacing
+
+*   `Ctrl+Alt+>` make the text object taller by 1 pixel
+    
+*   `Shift+Ctrl+Alt+>` make the text object taller by 10 pixels
+    
+*   `Ctrl+Alt+<make` the text object shorter by 1 pixel
+    
+*   `Shift+Ctrl+Alt+<make` the text object shorter by 10 pixels
+    
+    These commands (only when editing text) adjust line spacing in the entire text object (regular or flowed).
+    
+    The actual adjustment for pixel movements depends on zoom level. Zoom in for finer adjustment.
+    
+
+### Kerning and shifting
+
+*   Alt+arrowsshift characters by 1 pixel
+    
+*   Shift+Alt+arrowsshift characters by 10 pixels
+    
+    These commands work when editing a regular text object. Kerning does not work in flowed text.
+    
+    With no selection, they shift (horizontally or vertically) the characters after the cursor until the end of line.
+    
+    With selection, they shift the selection relative to the rest of text (by inserting opposite kerns at both ends of selection).
+    
+    The actual adjustment for pixel movements depends on zoom level. Zoom in for finer adjustment.
+    
+
+### Rotate
+
+*   Ctrl+[,Ctrl+] rotate character(s) by 90 degrees
+    
+*   Alt+[,Alt+] rotate character(s) by 1 pixel
+    
+    These commands rotate the next character (without selection) or all characters in the selection (with selection).
+    
+    Rotation only works in regular text (not flowed text).
+    
+    The actual angle for pixel rotation depends on zoom level. Zoom in for finer movement.
+    
+
+Gradient tool[⚓]
+--------------------------
+
+### Select objects
+
+*   clickclick an object to select
+    
+*   Alt+clickselect under
+    
+*   Shift+clicktoggle selection
+    
+
+### Create gradients
+
+*   mouse dragcreate gradient
+    
+    This creates gradient on selected objects. The tool controls bar lets you select linear/radial and fill/stroke for the new gradient.
+    
+*   double-clickcreate default gradient
+    
+    This creates default (horizontal edge-to-edge for linear, centered edge-to-edge-to-edge for radial) gradient on clicked object.
+    
+
+### Select handles
+
+*   clickselect a handle
+    
+*   Shift+clickadd handle to selection
+    
+*   Shift+mouse dragselect by rubberband
+    
+*   Tabselect next handle
+    
+*   Shift+Tabselect previous handle
+    
+*   Ctrl+Aselect all handles
+    
+*   Escdeselect all handles
+    
+    Single click outside all handles also deselects all handles.
+    
+
+### Create/delete intermediate stops
+
+*   Ctrl+Alt+click,double-clickcreate a stop
+    
+    Ctrl+Alt+click or double click on a gradient line creates a new intermediate stop.
+    
+*   Ctrl+Alt+clickdelete stop
+    
+    Ctrl+Alt+click on a stop's handle deletes the stop; if it was an end stop, gradient shortens or disappears.
+    
+*   Ins,Shift+Iinsert new stop(s)
+    
+    This adds new stop(s) in the middle(s) between adjacent, selected stops or, if only one stop is selected, in the middle of the segment that starts with the selected stop.
+    
+*   Deldelete selected stops
+    
+
+### Move handles/stops
+
+*   mouse dragmove selected handle(s)
+    
+*   Ctrl+mouse dragmove stops in 1/10 range increments
+    
+    Ctrl+dragging selected intermediate stops moves them snapping to 1/10 steps of the available range.
+    
+*   Alt+mouse dragsculpt selected stops
+    
+    Sculpting moves the selected intermediate stops depending on how close each one is to the stop being dragged, using a smooth bell-like curve similar to the node sculpting feature in Node tool.
+    
+*   Ctrl+Lsimplify selected stops
+    
+    Simplify looks at adjacent selected stops and removes redundant stops.
+    
+*   arrowsmove selected handle by the nudge distance
+    
+*   Shift+arrowsmove selected handle by 10x nudge distance
+    
+    The default nudge distance is 2 px (SVG pixel units, not screen pixels).
+    
+*   Alt+arrowsmove selected handle by 1 pixel
+    
+*   Shift+Alt+arrowsmove selected handle by 10 pixels
+    
+    If at least one end handle is selected, arrow keys move the end handle to move or resize the gradient line.
+    
+    If only mid stops are selected, arrow keys move the selected stops along the gradient line.
+    
+    The actual distance for pixel movements depends on zoom level. Zoom in for finer movement.
+    
+
+### Reverse
+
+*   Shift+Rreverse gradient definition
+    
+    This mirrors the stop positions of the current gradient without moving the gradient handles.
+    
+
+Mesh tool[⚓]
+----------------------
+
+### Create
+
+*   click+mouse drag,double-clickcreate a mesh gradient on an object
+    
+
+### Selecting corners and handles
+
+*   clickon a corner to select the mesh corner
+    
+*   clickon a path to select the end corners of a path
+    
+*   Shift+clickon a path to add the end corners of a path to selection
+    
+*   mouse dragselect multiple mesh corners
+    
+    Opens a rectangular "rubberband" selection area.
+    
+*   Shift+mouse dragadd mesh corners to selection
+    
+*   Ctrl+Aselect all mesh corners
+    
+
+### Modify corners
+
+*   mouse dragdrag a mesh corner or handle (circle, triangle) to modify mesh geometry
+    
+*   Alt+Btoggle selected sides between Beziers and lines
+    
+*   Alt+Cmake selected sides elliptical by changing the length of handles
+    
+*   Shift+Isubdivide mesh between two selected corners
+    
+*   double-clickon a path to divide row/column by two at that point
+    
+*   Alt+Gtoggle on/off tensor points (square markers) for selected (all four surrounding corners) patches
+    
+
+### Colors
+
+*   Alt+Kpick color underneath mesh at selected corners
+    
+*   Alt+Jeliminate "Mach Banding" optical illusion by making color transition smooth around a corner by changing length of Bezier handles
+    
+
+Dropper tool[⚓]
+-------------------------
+
+*   clickpick fill color
+    
+*   Shift+clickpick stroke color
+    
+*   mouse dragaverage fill color
+    
+*   Shift+mouse dragaverage stroke color
+    
+    Click applies the color under cursor to the current selection. Dragging a radius calculates the average color of a circular area.
+    
+    If a gradient handle (in Gradient tool) is selected, it gets the color instead of the entire object.
+    
+*   Alt+click,Alt+mouse drag,Ctrl+Alt+click,Ctrl+Alt+mouse dragpick inverse color
+    
+    If Alt is pressed, picking color (with or without Shift, by click or by drag) picks the inverse of the color.
+    
+*   Ctrl+Ccopy color
+    
+    This copies the color under cursor to the clipboard, as text in RRGGBBAA format (8 hex digits).
+    
+
+Paint Bucket[⚓]
+-------------------------
+
+*   clickfill a bounded area
+    
+*   Shift+clickadd to selected path
+    
+    Clicking with Shift unions the newly created fill with the previous selection.
+    
+*   mouse dragfill from each point
+    
+    From each point, the fill spreads to the neighbors with the colors similar to that point.
+    
+    This can be used to fill an area currently filled with a gradient or blur.
+    
+*   Alt+mouse dragfill from each point similar to the initial point
+    
+    From each point, the fill spreads to the neighbors with the colors similar to the initial point of the drag.
+    
+    This can be used to fill several disjoint bounded areas by starting in one and dragging over all of the areas. 
+
+*   Ctrl+clickset fill color
+
+*   Shift+Ctrl+clickset stroke color
+    
+    Ctrl+clicking an object sets its fill (or stroke with Shift) to the tool's current style; the object need not be selected.
+    
+
+Tweak tool[⚓]
+-----------------------
+
+### Operation
+
+*   mouse dragact on selected paths in the current mode
+    
+*   Shift+mouse dragreverse current mode (when applicable)
+    
+*   Ctrl+mouse dragtemporarily switch to shrink mode
+    
+*   Ctrl+Shift+mouse dragtemporarily switch to grow mode
+    
+    The amount of tweaking action is the greatest at the center of the circular area and drops off smoothly towards the edges.
+    
+
+### Modes
+
+*   Shift+Mmove mode
+    
+*   Shift+Imove in/out mode
+    
+    Drag moves objects inwards to cursor, drag with Shift moves outwards from cursor.
+    
+*   Shift+Zmove jitter mode
+    
+*   Shift+<,Shift+> scale mode
+    
+    Drag scales objects down, drag with Shift scales up.
+    
+*   Shift+[,Shift+] rotate mode
+    
+    Drag rotates objects clockwise, drag with Shift, counterclockwise.
+    
+*   Shift+Dduplicate/delete mode
+    
+    Drag randomly duplicates objects, drag with Shift randomly deletes.
+    
+*   Shift+Ppush path mode
+    
+*   Shift+Sshrink/grow path mode
+    
+    Drag insets paths, drag with Shift outsets.
+    
+*   Shift+Aattract/repel path mode
+    
+    Drag attracts paths to cursor, drag with Shift repels.
+    
+*   Shift+Rroughen mode
+    
+*   Shift+Ccolor paint mode
+    
+*   Shift+Jcolor jitter mode
+    
+*   Shift+Bblur mode
+    
+
+### Parameters
+
+*   Left arrow,Right arrowadjust brush width by 1
+    
+*   Home,Endset brush width to its minimum or maximum
+    
+*   Up arrow,Down arrowadjust tweaking force
+    
+    Width and force can be adjusted while drawing. With a pressure-sensitive tablet, force also depends on pen pressure.
+    
+
+Spray tool[⚓]
+-----------------------
+
+### Operation
+
+*   mouse dragspray on the canvas
+    
+*   click+mouse wheelspray more items in the same location
+    
+
+### Modes
+
+*   Shift+Jcopy mode
+    
+*   Shift+Kclone mode
+    
+*   Shift+Lsingle path mode
+    
+
+### Parameters
+
+*   Left arrow,Right arrowadjust spray width by 1
+    
+*   Up arrow,Down arrowadjust spray population by 1
+    
+*   Home,Endset spray width to its minimum or maximum
+    
+
+Eraser tool[⚓]
+------------------------
+
+*   Left arrow,Right arrowadjust eraser width by 1
+    
+*   Home,Endset eraser width to its minimum or maximum
+    
+
+Measure tool[⚓]
+-------------------------
+
+*   mouse dragmeasure distance and angle between the start point and the cursor
+    
+*   Shift+mouse dragset base of angle measurement to cursor position
+    
+*   Ctrl+mouse dragsnap angle measure to angle steps
+    
+    The default angle step is 15 degrees.
+    
+
+Zoom tool[⚓]
+----------------------
+
+*   clickzoom in
+    
+*   Shift+clickzoom out
+    
+*   mouse dragzoom into the area
+    
+
+Pages tool[⚓]
+-----------------------
+
+*   mouse dragon empty space of canvas to create new page
+    
+*   clickon existing page to select the page
+    
+*   mouse dragmove a selected page
+    
+*   mouse dragcorner square-shaped handles to resize the page
+    
+*   mouse dragblue circle-shaped handle to adjust page margin on that side
+    
+*   Ctrl+mouse dragblue circle-shaped handle to adjust all page margins of equal value simultaneously
+    
+*   Backspace,Deldelete a selected page
+    
+
+Authors: Sylvain Chiron; Nicolas Dufour; Jabier Arraiza; Lucas Vieites; Nathan Lee; Patrick Storz; Maren Hachmann; Gellért Gyuris
+
+
 
 * * *
 /Inkscape: Guide to a Vector Drawing Program
 ============================================
 
-Get the  
-[Book](http://www.informit.com/title/0132764164) or 
+Get the [Book](http://www.informit.com/title/0132764164) or
 
 * * *
 
 Older versions: 0.16: 
 [English](http://tavmjong.free.fr/INKSCAPE/MANUAL/html/index.html), 
 [Espa ol](http://tavmjong.free.fr/INKSCAPE/MANUAL/html_es/index.html), 
-0.15: 
-[Fran ais](http://tavmjong.free.fr/INKSCAPE/MANUAL/html_fr/index.html), 
-0.14: 
-[Italian](http://tavmjong.free.fr/INKSCAPE/MANUAL_v14/html_it/index.html).
+0.15: [Fran ais](http://tavmjong.free.fr/INKSCAPE/MANUAL/html_fr/index.html),
+0.14: [Italian](http://tavmjong.free.fr/INKSCAPE/MANUAL_v14/html_it/index.html).
 
 
 * * *
@@ -7348,7 +10124,7 @@ Text can be flowed inside any arbitrary shape by linking a text object to a shap
 
 Text flowed into a path with the shape of an old Chinese coin. The path consists of both the outer circle and inner square.
 
-To create a linked flowed text object, select a text object and one or more shape/path objects. Then use the Text → ![icon][text-flow-into-frame]Flow into Frame (**Alt+W**) command. If multiple shape/path objects are selected, the text will flow into the _last_ object selected first.
+To create a linked flowed text obje ct, select a text object and one or more shape/path objects. Then use the Text → ![icon][text-flow-into-frame]Flow into Frame (**Alt+W**) command. If multiple shape/path objects are selected, the text will flow into the _last_ object selected first.
 
 ![Text flowed into three circle objects.](http://tavmjong.free.fr/INKSCAPE/MANUAL/images/TEXT/Text_Multiple.png)
 
@@ -14497,261 +17273,261 @@ _[Zoom Tool]_. You don't need to hold **Ctrl** down when using **+** and **−**
 Glossary
 --------
 
-alpha
+*   alpha
 
-The transparency of an object (or pixel). If an object with a non-maximal value of _Alpha_ is placed over another object, the second object will be visible under the first. In Inkscape, a value of _Alpha_ of 255 means the object is completely opaque, while a value of 0 means it is fully transparent (not visible).
+    The transparency of an object (or pixel). If an object with a non-maximal value of _Alpha_ is placed over another object, the second object will be visible under the first. In Inkscape, a value of _Alpha_ of 255 means the object is completely opaque, while a value of 0 means it is fully transparent (not visible).
 
-Animated Portable Network Graphic (APNG)
+    Animated Portable Network Graphic (APNG)
 
-An open standard for animated [bitmap graphics], the animated parallel of the _[PNG]_ standard and an alternative to _[MNG]_. There is support for this format in Firefox 3 and Opera 9.5 but the _[PNG]_ group has rejected this extension to the standard.
+    An open standard for animated [bitmap graphics], the animated parallel of the _[PNG]_ standard and an alternative to _[MNG]_. There is support for this format in Firefox 3 and Opera 9.5 but the _[PNG]_ group has rejected this extension to the standard.
 
-Accessible Rich Internet Applications (ARIA)
+    Accessible Rich Internet Applications (ARIA)
 
-An open standard for adding semantic content to web content. This is important for accessibility to those with disabilities. See: the [WAI-ARIA](http://www.w3.org/TR/wai-aria/) specification.
+    An open standard for adding semantic content to web content. This is important for accessibility to those with disabilities. See: the [WAI-ARIA](http://www.w3.org/TR/wai-aria/) specification.
 
-baseline
+*   baseline
 
-For text, the line on which most characters (i.e., “x”) rest. Some characters such as “p” extend significantly below the baseline. Other characters such as “O” usually extend a small amount below the baseline so that they optically appear to rest on the baseline. Inkscape can align text to a common baseline. Inkscape also uses the word to describe the point at which vertical text is aligned horizontally. The baseline is indicated by a small square when text is selected.
+    For text, the line on which most characters (i.e., “x”) rest. Some characters such as “p” extend significantly below the baseline. Other characters such as “O” usually extend a small amount below the baseline so that they optically appear to rest on the baseline. Inkscape can align text to a common baseline. Inkscape also uses the word to describe the point at which vertical text is aligned horizontally. The baseline is indicated by a small square when text is selected.
 
-bitmap graphics
+*   bitmap graphics
 
-The description of a drawing using pixels (in contrast to vectors). Also refered to as “raster” graphics.
+    The description of a drawing using pixels (in contrast to vectors). Also refered to as “raster” graphics.
 
-See Also [vector graphics].
+    See Also [vector graphics].
 
-bounding box
+*   bounding box
 
-The smallest rectangular box with sides parallel to the _x_ and _y_ axis that completely encloses an object. Note: In Inkscape, the _[bounding box]_ is calculated assuming a round stroke _[Join]_ and _[Cap]_ style if the stroke is visible and the _Visual bounding box_ option is selected in the _Tools_ section of the _[Inkscape Preferences]_ dialog. If the _Geometric bounding box_ option is selected, only the nodes are considered in the calculation.
+    The smallest rectangular box with sides parallel to the _x_ and _y_ axis that completely encloses an object. Note: In Inkscape, the _[bounding box]_ is calculated assuming a round stroke _[Join]_ and _[Cap]_ style if the stroke is visible and the _Visual bounding box_ option is selected in the _Tools_ section of the _[Inkscape Preferences]_ dialog. If the _Geometric bounding box_ option is selected, only the nodes are considered in the calculation.
 
-bump map
+*   bump map
 
-A [bitmap graphics] used to define the contour of a surface so that a lighting effect can be applied. The _[SVG]_ specification uses the _[Alpha]_ channel for this purpose in several of the _[Filter]_ primitives. See: [Wikipedia entry](http://en.wikipedia.org/wiki/Bump_mapping).
+    A [bitmap graphics] used to define the contour of a surface so that a lighting effect can be applied. The _[SVG]_ specification uses the _[Alpha]_ channel for this purpose in several of the _[Filter]_ primitives. See: [Wikipedia entry](http://en.wikipedia.org/wiki/Bump_mapping).
 
-Cascading Style Sheets (CSS)
+*   Cascading Style Sheets (CSS)
 
-A way of controlling the layout and style of graphics objects (including text) through the use of external files. This allows the separation of content from presentation. It allows documents to be easily adapted for a variety of rendering methods such as printing and web display.
+    A way of controlling the layout and style of graphics objects (including text) through the use of external files. This allows the separation of content from presentation. It allows documents to be easily adapted for a variety of rendering methods such as printing and web display.
 
-Computer-Aided Design (CAD)
+*   Computer-Aided Design (CAD)
 
-Use of a computer for techinical design of objects. See: [Wikipedia entry](http://en.wikipedia.org/wiki/Computer-aided_design).
+    Use of a computer for techinical design of objects. See: [Wikipedia entry](http://en.wikipedia.org/wiki/Computer-aided_design).
 
-Cyan Magenta Yellow Key (Black) (CMYK)
+*   Cyan Magenta Yellow Key (Black) (CMYK)
 
-A method for describing a color by the amount of cyan, magenta, and yellow needed to generate the color. This subtractive color model (where light is absorbed) is most often used in printing. As a good black is difficult to obtain using a mixture of these colors, a fourth ink, the _Key_ or black, is also used. See: [Wikipedia entry](http://en.wikipedia.org/wiki/CMYK).
+    A method for describing a color by the amount of cyan, magenta, and yellow needed to generate the color. This subtractive color model (where light is absorbed) is most often used in printing. As a good black is difficult to obtain using a mixture of these colors, a fourth ink, the _Key_ or black, is also used. See: [Wikipedia entry](http://en.wikipedia.org/wiki/CMYK).
 
-dots per inch (dpi)
+*   dots per inch (dpi)
 
-The number of pixels per inch when printing or displaying a digitized image. Inkscape has a default resolution for exporting bitmaps of 90 dpi.
+    The number of pixels per inch when printing or displaying a digitized image. Inkscape has a default resolution for exporting bitmaps of 90 dpi.
 
-ECMAScript
+*   ECMAScript
 
-A standardized language typically used to manipulate elements in an _[HTML]_ page. See [Wikipedia entry](http://http://en.wikipedia.org/wiki/ECMAScript). [JavaScript] is an implemenation of the ECMAScript standard as is JScript used in Internet Explorer.
+    A standardized language typically used to manipulate elements in an _[HTML]_ page. See [Wikipedia entry](http://http://en.wikipedia.org/wiki/ECMAScript). [JavaScript] is an implemenation of the ECMAScript standard as is JScript used in Internet Explorer.
 
-See Also [JavaScript].
+    See Also [JavaScript].
 
-gamma
+*   gamma
 
-A correction factor to account for nonlinearity in a display device. More technically, the numerical value of the exponent of the power-law correction.
+    A correction factor to account for nonlinearity in a display device. More technically, the numerical value of the exponent of the power-law correction.
 
-Gaussian distribution
+*   Gaussian distribution
 
-Also called [_Normal distribution_](http://en.wikipedia.org/wiki/Normal_distribution), a mathematical function that describes a distribution found often in statistics (e.g., the distribution of scores on a test). The relevance for Inkscape comes from the use of the distribution in the _[Gaussian Blur]_ filter. The key point is that the color of a pixel is determined by the colors of nearby pixels in the source, weighting the nearest pixels more.
+    Also called [_Normal distribution_](http://en.wikipedia.org/wiki/Normal_distribution), a mathematical function that describes a distribution found often in statistics (e.g., the distribution of scores on a test). The relevance for Inkscape comes from the use of the distribution in the _[Gaussian Blur]_ filter. The key point is that the color of a pixel is determined by the colors of nearby pixels in the source, weighting the nearest pixels more.
 
-ghostscript
+*   ghostscript
 
-An open-source [PostScript] interpreter. See: [Ghostscript Home Page](http://www.ghostscript.com).
+    An open-source [PostScript] interpreter. See: [Ghostscript Home Page](http://www.ghostscript.com).
 
-Graphics Interchange Format (GIF)
+*   Graphics Interchange Format (GIF)
 
-A patented standard for compressing [bitmap graphics] supported by most web browsers. The open _[PNG]_ standard is technically superior and should be the format of choice for lossless compressed bitmaps.
+    A patented standard for compressing [bitmap graphics] supported by most web browsers. The open _[PNG]_ standard is technically superior and should be the format of choice for lossless compressed bitmaps.
 
-Graphics User Interface (GUI)
+*   Graphics User Interface (GUI)
 
-The interface a computer program presents to the user.
+    The interface a computer program presents to the user.
 
-hexadecimal number
+*   hexadecimal number
 
-A way of representing a number using base 16 rather than the normal base 10. Very commonly used with computers. The base 10 numbers 0–9 are augmented by the letters a through f (which may or may not be capitalized) representing the numbers 10–15. For example, 31 in base 10 is written as 1F in hexadecimal (1 times 16 plus 15 is 31).
+    A way of representing a number using base 16 rather than the normal base 10. Very commonly used with computers. The base 10 numbers 0–9 are augmented by the letters a through f (which may or may not be capitalized) representing the numbers 10–15. For example, 31 in base 10 is written as 1F in hexadecimal (1 times 16 plus 15 is 31).
 
-hue, saturation, lightness (HSL)
+*   hue, saturation, lightness (HSL)
 
-A method for describing a color using hue, saturation, and lightness. See: [Wikipedia entry](http://en.wikipedia.org/wiki/HSL_color_space).
+    A method for describing a color using hue, saturation, and lightness. See: [Wikipedia entry](http://en.wikipedia.org/wiki/HSL_color_space).
 
-HyperText Markup Language (HTML)
+*   HyperText Markup Language (HTML)
 
-The original markup language for web pages. The current version is HTML 4.01. _[HTML5]_ will include inlined _[SVG]_ as part of the standard. See: [Wikipedia entry](http://en.wikipedia.org/wiki/Html).
+    The original markup language for web pages. The current version is HTML 4.01. _[HTML5]_ will include inlined _[SVG]_ as part of the standard. See: [Wikipedia entry](http://en.wikipedia.org/wiki/Html).
 
-HyperText Markup Language, Version 5 (HTML5)
+*   HyperText Markup Language, Version 5 (HTML5)
 
-The upcoming HTML standard. See: [Wikipedia entry](http://en.wikipedia.org/wiki/HTML5).
+    The upcoming HTML standard. See: [Wikipedia entry](http://en.wikipedia.org/wiki/HTML5).
 
-Joint Photographic Experts Group (JPEG)
+*   Joint Photographic Experts Group (JPEG)
 
-A standard for lossy compression of [bitmap graphics] supported by most web browsers. More suitable for photographs than line art.
+    A standard for lossy compression of [bitmap graphics] supported by most web browsers. More suitable for photographs than line art.
 
-JavaScript
+*   JavaScript
 
-A language typically used to manipulate elements in an _[HTML]_ page. See [Wikipedia entry](http://http://en.wikipedia.org/wiki/JavaScript). JavaScript is an implemenation of the [ECMAScript] standard.
+    A language typically used to manipulate elements in an _[HTML]_ page. See [Wikipedia entry](http://http://en.wikipedia.org/wiki/JavaScript). JavaScript is an implemenation of the [ECMAScript] standard.
 
-See Also [ECMAScript].
+    See Also [ECMAScript].
 
-kerning
+*   kerning
 
-The process of adjusting the space between letters in text to improve the appearance of the text. A classic example is that the “A” and “v” in “Aviary” should slightly overlap.
+    The process of adjusting the space between letters in text to improve the appearance of the text. A classic example is that the “A” and “v” in “Aviary” should slightly overlap.
 
-LaTeX
+*   LaTeX
 
-A system for producing high-quality documents commonly used in mathematics and physics documents. LaTeX is built on top of TeX. See: [LaTeX home page](http://www.latex-project.org/).
+    A system for producing high-quality documents commonly used in mathematics and physics documents. LaTeX is built on top of TeX. See: [LaTeX home page](http://www.latex-project.org/).
 
-Linear Red Green Blue Color Space (linearRGB)
+*   Linear Red Green Blue Color Space (linearRGB)
 
-A color space where the output intensity of a color is linearly proportional to the input value.
+    A color space where the output intensity of a color is linearly proportional to the input value.
 
-See Also [Standard Red Green Blue Color Space].
+    See Also [Standard Red Green Blue Color Space].
 
-MathML
+*   MathML
 
-Mathematical Markup Language. An _[XML]_ based language for marking up mathematical notation. Permitted, along with _[SVG]_, in _[HTML5]_ documents.
+    Mathematical Markup Language. An _[XML]_ based language for marking up mathematical notation. Permitted, along with _[SVG]_, in _[HTML5]_ documents.
 
-Multipurpose Internet Mail Extensions (MIME)
+*   Multipurpose Internet Mail Extensions (MIME)
 
-An Internet standard originally developed for electronic mail that assigns to each type of document content a unique name so that clients (programs) can interpret the data correctly.
+    An Internet standard originally developed for electronic mail that assigns to each type of document content a unique name so that clients (programs) can interpret the data correctly.
 
-Multiple-Image Network Graphic (MNG)
+*   Multiple-Image Network Graphic (MNG)
 
-An open standard for animated [bitmap graphics], the animated parallel of the _[PNG]_ standard. Unfortunately, there is little support for this format in web browsers.
+    An open standard for animated [bitmap graphics], the animated parallel of the _[PNG]_ standard. Unfortunately, there is little support for this format in web browsers.
 
-name spaces
+*   name spaces
 
-The use of tags to define a region in a file where certain definitions are applicable. For example, an _[XML]_ file can contain both _[SVG]_ and _[XHTML]_. Name spaces keep the two from conflicting with each other.
+    The use of tags to define a region in a file where certain definitions are applicable. For example, an _[XML]_ file can contain both _[SVG]_ and _[XHTML]_. Name spaces keep the two from conflicting with each other.
 
-opacity
+*   opacity
 
-The property of an object that determines the visibility of an underlying object. Opposite of _[transparency]_.
+    The property of an object that determines the visibility of an underlying object. Opposite of _[transparency]_.
 
-See Also [alpha], [transparency].
+    See Also [alpha], [transparency].
 
-PDF
+*   PDF
 
-Portable Document Format. A “printing” language created by Adobe that supersedes PostScript. See: [Adobe PDF site](http://partners.adobe.com/public/developer/pdf/index_reference.html).
+    Portable Document Format. A “printing” language created by Adobe that supersedes PostScript. See: [Adobe PDF site](http://partners.adobe.com/public/developer/pdf/index_reference.html).
 
-pixel
+*   pixel
 
-Short for picture element. The smallest part of a digitized image that includes all the color information for a region. Computer screen resolutions are typically described as having some number of pixels per inch. The pixel (px) is the default user unit for _[SVG]_. Inkscape has a default resolution for exporting bitmaps of 90 pixels/inch (ppi). _[SVG]_ viewers typically have a default resolution of either 72 or 90 ppi.
+    Short for picture element. The smallest part of a digitized image that includes all the color information for a region. Computer screen resolutions are typically described as having some number of pixels per inch. The pixel (px) is the default user unit for _[SVG]_. Inkscape has a default resolution for exporting bitmaps of 90 pixels/inch (ppi). _[SVG]_ viewers typically have a default resolution of either 72 or 90 ppi.
 
-point
+*   point
 
-A unit derived from the days when printers used letters carved in metal blocks for printing. Various points have been defined. Inkscape uses the computer point, which is 1/72 of an inch or 0.35277 mm.
+    A unit derived from the days when printers used letters carved in metal blocks for printing. Various points have been defined. Inkscape uses the computer point, which is 1/72 of an inch or 0.35277 mm.
 
-Portable Network Graphic (PNG)
+    Portable Network Graphic (PNG)
 
-An open standard for compressing [bitmap graphics] supported by most web browsers.
+    An open standard for compressing [bitmap graphics] supported by most web browsers.
 
-PostScript
+*   PostScript
 
-A printing language created by Adobe. The language can be used to describe a document in a device-independent way. See: [Adobe PostScript site](http://www.adobe.com/products/postscript/index.html).
+    A printing language created by Adobe. The language can be used to describe a document in a device-independent way. See: [Adobe PostScript site](http://www.adobe.com/products/postscript/index.html).
 
-px
+*   px
 
-See [pixel].
+    See [pixel].
 
-red-green-blue (RGB)
+*   red-green-blue (RGB)
 
-A method for describing a color using the amount of each primary color present. See [Wikipedia entry](http://en.wikipedia.org/wiki/RGB_color_space).
+    A method for describing a color using the amount of each primary color present. See [Wikipedia entry](http://en.wikipedia.org/wiki/RGB_color_space).
 
-red-green-blue-alpha (RGBA)
+*   red-green-blue-alpha (RGBA)
 
-The addition of _[Alpha]_ (transparency) as a fourth component to a _[RGB]_ specified color.
+    The addition of _[Alpha]_ (transparency) as a fourth component to a _[RGB]_ specified color.
 
-rubber band
+*   rubber band
 
-The box drawn when click-dragging the mouse with the _[Select Tool]_ or the _[Node Tool]_ active. The objects or nodes within the box will be selected. The drag must begin over an area without an object or with the **Shift** key held down.
+    The box drawn when click-dragging the mouse with the _[Select Tool]_ or the _[Node Tool]_ active. The objects or nodes within the box will be selected. The drag must begin over an area without an object or with the **Shift** key held down.
 
-Scalable Vector Graphics (SVG)
+*   Scalable Vector Graphics (SVG)
 
-An XML standard for describing a drawing using vector graphics. See: [W3C SVG page](http://www.w3.org/Graphics/SVG/).
+    An XML standard for describing a drawing using vector graphics. See: [W3C SVG page](http://www.w3.org/Graphics/SVG/).
 
-Standard Red Green Blue Color Space (sRGB)
+*   Standard Red Green Blue Color Space (sRGB)
 
-A very common standard created by HP and Microsoft for defining color use on monitors and printers. See [Wikipedia entry](http://en.wikipedia.org/wiki/SRGB). The basic property of this color space is that the output intensity for a color (e.g., red) is (roughly) exponentially dependent on the specified input value. All _[SVG]_ colors are defined using this standard. In _[SVG]_, color interpolation is by default done in the sRGB space except for filters, which is by default done in the linearRGB color space.
+    A very common standard created by HP and Microsoft for defining color use on monitors and printers. See [Wikipedia entry](http://en.wikipedia.org/wiki/SRGB). The basic property of this color space is that the output intensity for a color (e.g., red) is (roughly) exponentially dependent on the specified input value. All _[SVG]_ colors are defined using this standard. In _[SVG]_, color interpolation is by default done in the sRGB space except for filters, which is by default done in the linearRGB color space.
 
-See Also [Linear Red Green Blue Color Space].
+    See Also [Linear Red Green Blue Color Space].
 
-Synchronized Multimedia Integration Language (SMIL)
+*   Synchronized Multimedia Integration Language (SMIL)
 
-A language for authoring interactive audiovisual presentations. See [Wikipedia entry](http://en.wikipedia.org/wiki/Synchronized_Multimedia_Integration_Language). _[SVG]_ can uses SMIL for animation (in addition to JavaScript).
+    A language for authoring interactive audiovisual presentations. See [Wikipedia entry](http://en.wikipedia.org/wiki/Synchronized_Multimedia_Integration_Language). _[SVG]_ can uses SMIL for animation (in addition to JavaScript).
 
-Tag Image File Format (TIFF)
+*   Tag Image File Format (TIFF)
 
-A file format for storing high-quality images such as photographs or line drawings.
+    A file format for storing high-quality images such as photographs or line drawings.
 
-tool tip
+*   tool tip
 
-A short dialog shown while the mouse cursor is above some part of window. A typical use is to describe the function of an icon.
+    A short dialog shown while the mouse cursor is above some part of window. A typical use is to describe the function of an icon.
 
-transformation matrix
+*   transformation matrix
 
-A 3   3 matrix that describes how an object is to be transformed. The upper-left 2   2 sub-matrix controls scaling, rotating, and skewing. While the upper-right 1   2 sub-matrix controls translations, the bottom row is not modifiable.
+    A 3   3 matrix that describes how an object is to be transformed. The upper-left 2   2 sub-matrix controls scaling, rotating, and skewing. While the upper-right 1   2 sub-matrix controls translations, the bottom row is not modifiable.
 
-An advantage of using transformation matrices is that cumulative transformations can be described by simply multiplying the matrices that describe each individual transformation. Inkscape stores an object's transformation internally as a transformation matrix (which can be seen and modified with the _XML Editor_).
+    An advantage of using transformation matrices is that cumulative transformations can be described by simply multiplying the matrices that describe each individual transformation. Inkscape stores an object's transformation internally as a transformation matrix (which can be seen and modified with the _XML Editor_).
 
-In non-matrix form, we have the transformation: _x'_ = A_x_ + C_y_ + E and _y'_ = B_x_ + D_y_ + F where (_x'_, _y'_) is the new coordinate of a point at (_x_, _y_).
+    In non-matrix form, we have the transformation: _x'_ = A_x_ + C_y_ + E and _y'_ = B_x_ + D_y_ + F where (_x'_, _y'_) is the new coordinate of a point at (_x_, _y_).
 
-With the above set of equations, it is easy to see that E is magnitude of a translation in the _x_ direction and F is magnitude of a translation in the _y_ direction. For scaling, A and D are the scale factors for the _x_ and _y_ directions, respectively. For a pure rotation, A = D = sin(theta) and B = −C = cos(theta) where theta is the angle of the desired rotation. For skewing, C and B control skewing parallel to the _x_ and _y_ axes, respectively.
+    With the above set of equations, it is easy to see that E is magnitude of a translation in the _x_ direction and F is magnitude of a translation in the _y_ direction. For scaling, A and D are the scale factors for the _x_ and _y_ directions, respectively. For a pure rotation, A = D = sin(theta) and B = −C = cos(theta) where theta is the angle of the desired rotation. For skewing, C and B control skewing parallel to the _x_ and _y_ axes, respectively.
 
-A _transformation matrix_ is always defined with respect to some point. The internal representation is with respect to the internal coordinate system origin (upper-left corner of “page”).
+    A _transformation matrix_ is always defined with respect to some point. The internal representation is with respect to the internal coordinate system origin (upper-left corner of “page”).
 
-transparency
+*   transparency
 
-The property of an object that determines the visibility of an underlying object.
+    The property of an object that determines the visibility of an underlying object.
 
-See Also [alpha], [opacity].
+    See Also [alpha], [opacity].
 
-Vector Markup Language (VML)
+*   Vector Markup Language (VML)
 
-An _[XML]_ based language for describing vector graphics. See [Wikipedia entry](http://en.wikipedia.org/wiki/Vector_Markup_Language). VML is supported by Internet Explorer but is deprecated.
+    An _[XML]_ based language for describing vector graphics. See [Wikipedia entry](http://en.wikipedia.org/wiki/Vector_Markup_Language). VML is supported by Internet Explorer but is deprecated.
 
-Unicode
+*   Unicode
 
-A standard for encoding characters for all the world's living languages as well as many historic ones. The character mapping for Unicode can be found at the [Unicode](http://www.unicode.org/charts) organization's web pages.
+    A standard for encoding characters for all the world's living languages as well as many historic ones. The character mapping for Unicode can be found at the [Unicode](http://www.unicode.org/charts) organization's web pages.
 
-UniConvertor
+*   UniConvertor
 
-An open-source program for parsing various vector graphics files. See: [Uniconvertor Home Page](https://sk1project.net/modules.php?name=Products&product=uniconvertor).
+    An open-source program for parsing various vector graphics files. See: [Uniconvertor Home Page](https://sk1project.net/modules.php?name=Products&product=uniconvertor).
 
-Universal Resource Locator (URL)
+*   Universal Resource Locator (URL)
 
-The address of a web page, graphic, etc., on the WWW.
+    The address of a web page, graphic, etc., on the WWW.
 
-user unit
+*   user unit
 
-The length corresponding to the value _one_ after accounting for any transformations. _[SVG]_ follows _[CSS]_ and defines that "1px" (one pixel) is equal to one user unit. It is important to note that a _CSS_ pixel is _not_ the same as a screen pixel.
+    The length corresponding to the value _one_ after accounting for any transformations. _[SVG]_ follows _[CSS]_ and defines that "1px" (one pixel) is equal to one user unit. It is important to note that a _CSS_ pixel is _not_ the same as a screen pixel.
 
-vector graphics
+*   vector graphics
 
-The description of a drawing using vectors (in contrast to bitmaps).
+    The description of a drawing using vectors (in contrast to bitmaps).
 
-See Also [bitmap graphics].
+    See Also [bitmap graphics].
 
-eXperimental Computing Facility (XCF)
+*   eXperimental Computing Facility (XCF)
 
-The native format for Gimp. The acronym comes from the name of the student group at the University of California, Berkeley, that gave birth to Gimp.
+    The native format for Gimp. The acronym comes from the name of the student group at the University of California, Berkeley, that gave birth to Gimp.
 
-eXtensible HyperText Markup Language (XHTML)
+*   eXtensible HyperText Markup Language (XHTML)
 
-An _[XML]_ markup language for web pages. See: [Wikipedia entry](http://en.wikipedia.org/wiki/Xhtml).
+    An _[XML]_ markup language for web pages. See: [Wikipedia entry](http://en.wikipedia.org/wiki/Xhtml).
 
-eXtensible Markup Language (XML)
+*   eXtensible Markup Language (XML)
 
-The underlying format for _[SVG]_ files. See: [Wikipedia entry](http://en.wikipedia.org/wiki/Xml).
+    The underlying format for _[SVG]_ files. See: [Wikipedia entry](http://en.wikipedia.org/wiki/Xml).
 
-XLink
+*   XLink
 
-_[XML]_ Linking Language. A language for creating sophisticated links between documents. Similar to the simpler _[URL]_. The _[SVG]_ specification uses “simple” _Xlinks_.
+    _[XML]_ Linking Language. A language for creating sophisticated links between documents. Similar to the simpler _[URL]_. The _[SVG]_ specification uses “simple” _Xlinks_.
 
-z-order
+*   z-order
 
-The order in which objects are drawn when they overlap each other. Objects drawn on top are higher up in z-order. Unless explicitly changed, the most recent object created is on top.
+    The order in which objects are drawn when they overlap each other. Objects drawn on top are higher up in z-order. Unless explicitly changed, the most recent object created is on top.
 
 
 

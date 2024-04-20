@@ -1,0 +1,16 @@
+@startuml
+    Alice -> Bob: Hello
+    Alice <- Bob: Hi!
+    interface ICheckUserAccount{
+        boolean check_account(String user_accpout)
+        String md5_password(String user_password, String solt)
+    }
+            
+    class CheckUserAccount implements ICheckUserAccount{
+        + String user_account
+        - String solt
+        - Int pass_type
+        
+        + void Check_result()
+    }
+@enduml

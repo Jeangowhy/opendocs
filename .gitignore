@@ -13,14 +13,26 @@ deno.lock
 *sublime-workspace
 
 node_modules
+@types
+package.json
+package-lock.json
 
+*.ipynb
 /**/*.html
+/**/*.log
+/**/_*
 /#*#
+.ipynb_checkpoints
+.virtual_documents
+*.out
+*.aux
+*.log
+*.pdf
+/auto
+
 .bin
 .build
 .mscbackup
-package.json
-package-lock.json
 info.exe.stackdump
 
 Adv_Prog_UNIX_Env_3rd.txt

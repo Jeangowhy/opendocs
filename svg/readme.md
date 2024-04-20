@@ -8,6 +8,14 @@
     https://www.w3.org/TR/CSS22/
 -   SVG Tutorial by Jakob Jenkov    
     https://jenkov.com/tutorials/svg/index.html
+-   Examples and Tests for SVG Animation http://hoffmann.bplaced.net/svgtest/
+
+此教程《让世界多一份 Inkscape 教程：SVG 漫谈》，目的在于通过学习 SVG 文档规范，达到深入理解
+Inkscape 绘图工具的学习与熟练使用。
+
+Inkscape 早在 2003 年起源于 SodiPodi 软件，开发组内部的 4 位成员从其派生出的一个分支。
+Bryce Harrington, MenTaLguY, Nathan Hurst, Ted Gould 四人希望 Inkscape 遵循
+SVG 规范、更美的观感，并将其开源共建。因此 Inkscape 的根本是 SVG 规范及其对标准的扩展。
 
 SVG 全称 Scalable Vector Graphics，可伸缩式向量图形，俗称矢量图。它与位图（bitmap）即以
 比特数据定义像素的图形有着完全不同的绘画逻辑：SVG 基于几何逻辑行为进行构图。这种绘图方式的一特点
@@ -43,10 +51,163 @@ SVG 图形基本的着色属性有两个：`fill` 和 `stroke`，对应笔触、
     fill="#6495ED"              by hex value
     fill="aliceblue"            by color name
 
+这些基本的色彩绘制在图形之上，而图形的叠加还可以进行透明度混合（Alpha Compositing and Blending），
+这些与颜色处理相关的属性可以直接使用 style 样式属性指定，参考如下；
+
+    opacity: 0.99;
+    mix-blend-mode: darken;
+    fill: #00ffff;
+    fill-opacity: 1;
+    stroke: #000000;
+    stroke-width: 0.881229;
+
+此外还有渐变色，和特效处理。渐变有线性 `<linearGradient>` 和径向 `<radialGradient>` 两种，
+渐变也和普通图形一样可以进行几何变换，使用 `gradientTransform` 指定变换效果。SVG 可以呈现
+的效果和绘图软件的算法设计有非常大的关系。比如，Inkscape 可以根据图形曲线来弯曲其它图形，
+Path Effects - Bend 工具通过描述目标曲线，就可以拟合得到弯曲后的图形。但是渐变色块就
+不能进行类似的处理。
+
+渐变色定义使用多个 `<stop>` 标签来标记不同位置的颜色，其它过度区域的颜色由插值算法自动
+计算得到。定义好渐变色块，就可以像 `<pattern>` 模板图案一样由其它图形标签通过 fill 属性
+调用，或者使用 style 样式属性设置，比如 `style="fill:url(#linearGradient23);"`。
+
+```xml
+    <linearGradient
+       id="linearGradient23"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#1e021e;stop-opacity:1;"
+         offset="0"
+         id="stop23" />
+      <stop
+         style="stop-color:#1e021e;stop-opacity:0;"
+         offset="1"
+         id="stop24" />
+    </linearGradient>
+```
+
+Inkscape 制作色环不能使用渐变加 Bend 的方式，也不能使用径向渐变 `<radialGradient>`。
+应该使用 Path Effects - Bend 工具将色块环绕起来，做成放射线状的色环。注意，Bend 默认
+按 x 轴（水平轴）弯曲图形，可以点击 Original path is vertical 切换为竖直轴向的弯曲。
+通常需要先将曲线图形复制到粘贴板，然后在 Bend 面板中将其粘贴到要进行弯曲的图形上。然后，
+再点击 Bend path: Edit on-canvas 编辑、调整曲线。因为弯曲工具是通过算法计算出图形的
+坐标点绘制得到的结果，图形会与目标曲线产生关联，并且移动图形时，如果没有和曲线一并移动，
+就会产生坐标偏移，在渐变图形上的效果就是渐变色的坐标偏移导致渐变色变化。点击 Bend 面板
+中的眼睛图标可以切换 Bend 工具的生效状态，方便对原图进行位置调整。
+
+![Bend effect.](http://tavmjong.free.fr/INKSCAPE/MANUAL/images/PATHS/LPE_BendPath.png)
+
+Bend 弯曲效果的操作上还是比较麻烦一点，而且算法和 UI 操作上不够好用，操作不好可能
+出来混乱的图形。参考操作如下：
+
+1. 使用椭圆和弧线工具绘画出一个圆形，然后使用 Path 菜单中的 Object to path 转换成路径；
+2. 复制转换得到的路径对象作为 Bend 弯曲使用的目标曲线；
+3. 将要圆周弯曲排列的色块顶端对齐、竖直排成一行，并用包含一个组内；
+4. 选择好色块的分组节点，并打开 Path Effects - Bend 面板；
+5. 从下拉菜单（面板右上角向下的三角形图标）中选择 Bend 弯曲特效；
+6. 添加 Bend 特效后，点击 Bend path 右侧的按钮（Link path to in clipboard）应用粘贴板中的曲线；
+7. 然后，调整曲线，或点击眼睛图标禁用弯曲特效，对原图形做临时性调整。
+
+![RGB vs. CMYK](../pictures/RGB_vs_CMYK.svg)
+
+注意：椭圆工具属性中需要保持是闭合的圆形，不能画成扇形。两者的区别是：`<circle>` 和 `<path>`。
+画圆形时配合 Ctrl+Shift 约束为正圆形，虽然这个功能不是很流畅，但还是可以使用。
+使用 Stroke to path 转换路径时，一个图形会产生对应 fill 和 stroke 的两个路径装在一个分组。
+如果弯曲效果不满意，可以随时粘贴应用新的曲线，或者移除特效。Inkscape 会将 SVG 对应的标签
+恢复到未应用特效处理的状态。
+
+弯曲后的图形中心可能有穿插的问题，可以考虑使用圆形去遮挡。但是问题是弯曲工具 width 属性
+的绝对值超过 1 或比图形比曲线半径大导致的，要调整合适的 width 属性。另外，Bend 工具默认的
+行为是将弯曲轴向上的图形首尾相连，所以制作色环时就要考虑如果连接首尾的图形。由于算法的
+问题，通过 Bend 环绕的色块无法实现径向的渐变，渐变色依然是基于全局坐标渲染的。因此，
+通过 Bend 弯曲的色环只能使用同一个明度。变通的方法是使用另外的圆形，做径向的黑白渐变，
+去覆盖住中心位置，以模拟出一个明度的变化效果。缺点是可能存在边缘过滤不平滑，有拼接痕迹。
+
+另外，在移动图形时，无法与定义渐变色的 `<radialGradient>` 等标签联动，这会导致在
+图形移动到不同的位置（渐变关键位），色彩会发生变化。
+
+
+这小节讨论了 SVG 图形绘制中的色彩基本应用，以及特效功能对 SVG 图形的作用。特效本身
+就是程序算法，通过算法实现某种特别的效果，并且效果都基于 SVG 图形标签的基本能力之上。
+算法只提通过插值、拟合，丰富了 SVG 标签的绘图数据，即达成特别的效果。
+
+用户也可以安装甚至是开发 Inkscape 扩展，用户扩展保存目录位于 %AppData%\inkscape，
+扩展开发参考：
+
+1. Writing Extensions (Text Guide) https://inkscape.org/develop/extensions/
+2. [MiKTeX Manual Revision 4.6 Christian Schenk](https://docs.miktex.org/manual/)
+
+
+SVG and XML
+---------------
+
+SVG 和其它图形文件格式不同，SVG 使用的是 XML 文本文档格式。
+
+Inkscape SVG 会引入两个自用的命名空间，它们专用于设置 Inkscape 专属的标记集：
+
+    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:svg="http://www.w3.org/2000/svg"
+
+Sodipodi means "mish mash" or "hodgepodge" in Estonian child-speak.
+Inkscape 是早在 2003 年，SodiPodi 软件开发组内部的 4 位成员从其派生出的一个分支。
+Bryce Harrington, MenTaLguY, Nathan Hurst, Ted Gould 四人希望 Inkscape 遵循
+SVG 规范、更美的观感，并将其开源共建。
+
+Inkscape Tutorial - Chapter 6.  SVG File Format
+https://inkscapetutorial.org/svg-file-format.html
+
+Inkscape 使用的这些 XML 符号集主要是用于扩展 SVG 的功能，包括图层、图形 Lable 属性，
+旋转中心设置，以及扩展、特效需要使用到的数据等等。
+
+Extensible Markup Language (XML) 技术特点是其标签格式的完备、可验证、可扩展等特性。
+XML 最早脱胎于 Simple Object Access Protocol (SOAP)，这是一个基于 XML 数据格式的
+消息交换协议，早年流行于 Web 接口开发。XML 文档有效性约束（validity constraint）和
+良构约束（well-formedness constraint）是保证 XML 作为信息交换数据格式的稳定根源。
+许多软件都选择使用 XML 作为数据交换格式，它和 JSON 格式一样，是现今最流行的信息交换数据格式。
+
+XML 文档要求文档必须定义一个 ROOT 标签节点，但是用于版本说明的序言和文档类型声明属于特殊的
+标签（Prolog and Document Type Declaration）。这些特殊标签就像是其它文件中使用的
+魔术符号（magic number）用于识别文件类型或版本，这些特殊标签也不像基本规范标签那样闭合。
+
+所以一个最简单的 XML 文档可以像以下这样，ROOT 标签就是 `<greeeting>`，有版本声明标签，
+但是没有文档类型声明标签，即它是一个通用的 XML 文档类型：
+
+```xml
+   <?xml version="1.0"?>
+   <greeting>Hello, world!</greeting> 
+```
+
+XML 文档类型定义通常编写在 DTD 文件，并且使用 URI 地址引用。以下是两种文档类型定义的形式：
+通过 URI 引用和直接编写在 XML 文档内部（方括号中包含的部分就相当于一个 DTD 定义）：
+
+```xml
+    <!-- An example of an XML document with a document type declaration: -->
+
+    <?xml version="1.0"?>
+    <!DOCTYPE greeting SYSTEM "hello.dtd">
+    <greeting>Hello, world!</greeting> 
+
+    <!-- The declarations can also be given locally, as in this example: -->
+
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <!DOCTYPE greeting [
+      <!ELEMENT greeting (#PCDATA)>
+    ]>
+    <greeting>Hello, world!</greeting>
+```
+<!-- 
+`<!ELEMENT>` Element Type Declaration
+`<!ATTLIST>` Attribute-List Declarations
+**#PCDATA** "parsed character data." Mixed-content Declaration
+ -->
+
 XML 格式文档是 SVG 图形的标准载体，但是 SVG 除了使用规范的 XML 文档保存，还可以作为片段的形式
 用于 Web 程序中，或者其它场合。前者称为合规的 SVG 独立文档，Conforming SVG Stand-Alone Documents，
-后者则是合规的内嵌 SVG 片段，Conforming SVG Included Document Fragments。两种形式都
-可以在 Web 页面中使用 SVG 图形，Web 环境下，SVG 可以使用 CSS2 样式表和 JavaScript 编程模型。
+后者则是合规的内嵌 SVG 片段，Conforming SVG Included Document Fragments。
+
+SVG 两种形式都可以在 Web 页面中使用，Web 环境下可以使用 CSS2 样式表和 JavaScript 编程模型。
 
 ```svg
 <svg width="200" height="100" xmlns="http://www.w3.org/2000/svg">
@@ -126,14 +287,27 @@ XML 文档格式要求更严格，并且国内基本上无法通过 raw.githubus
 反而是 github.dev 可以使用 vscode-cdn.net 一个子域名服务提供图像资源服务，并且也支持
 通过 base64 编码嵌入图像。反而 github 官方网站的文档文件中不支持。
 
-
 - https://github.com/Jeangowhy/opendocs/tree/main/svg
 - https://github.dev/Jeangowhy/opendocs/tree/main/svg
 
 - https://github.com/github/dev
+- https://github.com/github/markup
 - https://docs.github.com/en/codespaces/the-githubdev-web-based-editor
+- https://docs.github.com/en/repositories/working-with-files/using-files/working-with-non-code-files
 
-Github dev 切换快捷键是句点（.）。
+Github dev 切换快捷键是句点（.），切换非常方便，但是 Github dev 不支持单独预览 SVG 图形。
+GitHub Markup 目前可以支持多种基于字符串格式的文档：
+
+-  Markdown
+-  AsciiDoc
+-  Textile
+-  ReStructuredText
+-  Rdoc
+-  Org
+-  Creole
+-  MediaWiki
+-  Pod
+
 
 ```sh
 # cat | base64 -w 0 | clip <<EOF  # This line dones't work
@@ -166,31 +340,41 @@ SVG 参考图供参考：
 因为浏览器安全问题，除非是 HTML 内嵌的 SVG 才可以执行脚本交互功能，图片嵌入等方式不可以。
 为了执行 SVG 脚本交互，可以单独打开 SVG 图形文档，这样它就是单独在沙箱中执行。
 
-作为一个好色之徒，区区 148 个 CSS 标准色是远远不能满足的，还差一个绝美的中国传统色：
+作为一个好色之徒，区区 148 个 CSS 标准色是远远不能满足的，还差一个绝美的中国传统色。
+中国色彩模型与西方基于物理特性的色彩模型具有非常多的细节差异，已经不适合在此文档中整理汇编，
+应该另开一个文档做专题：[](../svg/cn_traditional_colors.md)。
+
+以下是一个正红大圆，使用 base64 编码内嵌，用于测试 Github 文档是否能够正常渲染：
 
 ![中国红 测试](data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+IDwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+IDxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0ODAiIGhlaWdodD0iMTgwIj4gPGNpcmNsZSBmaWxsPSJyZWQiIGN4PSIyNDAiIGN5PSI5MCIgcj0iODAiIC8+IDwvc3ZnPgo=)
 
 参考资源：
 
--  国立国会図書館 彩雅 影印版 https://dl.ndl.go.jp/pid/2607750
+-  国立国会図書館 彩雅 15巻 著者 杉原直養 影印版 https://dl.ndl.go.jp/pid/2607750
 -  色谱 中科院科技情报编委会名词室.科学出版社 https://www.zhongguose.com/colors.json
 
 SVG Shapes
 ---------------
 
 SVG 标签分为可显示的 UI 标签和不显示的功能性标签（例如 `<svg>` 和分组标签 `<g>`）。
+其中，图形标签又可以分为基础几何图形和路径（复杂图形），Inkscape 有路径专用的逻辑运算。
+包括 Path 菜单提供的各种逻辑运算功能，以及 Path Effect 特效扩展。
+
+几乎所有 SVG 标签都可以使用 transform 设置几何变换，`<symbol>`、`<defs>` 等功能标签除外。
+部分标签还可以设置 x y 坐标，其中圆形和椭圆则是通过设置圆心来定位（cx, cy）。
+
 两大类标签具体用法参考规范文档：Basic Shapes 和 Document Structure 部分。
 
 SVG 规范文档 3.4 Types of graphics elements 则作以下分类：
 
 *   [Shapes]，6 种基本形状，直线与曲线几何图形，以及路径绘图：
-    1. line 给定起止坐标（x1, y1, x2, y2）画直线；
-    2. rect 给定起点坐标和宽高（x, y, width, height）画矩形，(rx, ry) 设置圆角；
-    3. circle 给定圆心坐标（cx, cy, r）和半径画圆；
-    4. ellipse 给定圆心坐标（cx, cy, rx, ry）和两半径画椭圆；
-    5. polyline 按给定坐标（points）连线，坐标之间使用逗号分隔，每个坐标两个值空格分隔；
-    6. polygon 给多个坐标给多边形，坐标形式同上。多边形的 fill 填充的是坐标点连线围起的区域；
-    6. path 使用路径指令进行绘图，属性 `d` 中填写绘图指令：
+    1. `<line>` 给定起止坐标（x1, y1, x2, y2）画直线；
+    2. `<rect>` 给定起点坐标和宽高（x, y, width, height）画矩形，(rx, ry) 设置圆角；
+    3. `<circle>` 给定圆心坐标（cx, cy, r）和半径画圆；
+    4. `<ellipse>` 给定圆心坐标（cx, cy, rx, ry）和两半径画椭圆；
+    5. `<polyline>` 按给定坐标（points）连线，坐标之间使用逗号分隔，每个坐标两个值空格分隔；
+    6. `<polygon>` 给多个坐标给多边形，坐标形式同上。多边形的 fill 填充的是坐标点连线围起的区域；
+    6. `<path>` 使用路径指令进行绘图，属性 `d` 中填写绘图指令：
 
         01. M = moveto (move from one point to another point)
         02. L = lineto (create a line)
@@ -210,13 +394,143 @@ SVG 规范文档 3.4 Types of graphics elements 则作以下分类：
     因为 SVG 对文本排版支持较弱，文本不能自动分行，新规范的 inline-size 属性亦未得到有效实现。
     暂行办法除了手动 `<tspan>` 分行，还有就是使用 `<foreignObject>` 包括 HTML 标签来做排版。
     配合 `<textPath>` 标签和路径，还可以将文字沿着曲线分布排列，使用 path 属性指定曲线。
-    
+
 *   可替代内容，主要是各种多媒体数据：
 
     *   Raster images，光栅图像，也就是位图一类的图形，使用一个数组包含图形的色值与透明度信息。
     *   Video，视频，即由一系列光栅图像构成的动态影像。
     *   Animation，运动图形（动画），也即是 Motion Graph，基于时间变化的矢量图形动画。
     *   Foreign objects，外部对象，用于呈现非 SVG 内容。
+
+Inkscape 绘图工具中不提供多边线、多边形两种标签，使用 `<path>` 替代，因为功能上它们是重叠关系。
+另外，椭圆形工具也绘画椭圆，芤可以绘画扇形和圆形及弧线。当椭圆的两个圆心重叠时，Inkscape 会自动
+用 `<circle>`  替代 `<ellipse>` 
+
+以下是基本的图形标签的使用演示，[basic-shapes](../svg/svg-basic-shapes.svg)：
+
+```xml
+<?xml version="1.0"?>
+<svg version="1.1" width="580" height="240"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns="http://www.w3.org/2000/svg">
+  <style>
+    svg { border: 1px solid black; }
+    #basic-line line { 
+      fill: white;
+      /*stroke: magenta;*/
+      stroke-width: 6px;
+      stroke-dasharray: 10px; 
+    }
+  </style>
+  <svg id="basic">
+    <title>Basic graphical elements</title>
+    <text x="0" y="50" dx="20" dy="0" rotate="15" 
+      font-family="Microsoft YaHei"> Basic Lines</text>
+    <g id="basic-line" transform="translate(40 50) rotate(0 0 0) scale(0.9)">
+       <line x1="0" y1="18" x2="90" y2="18" stroke="chocolate" />
+       <line x1="0" y1="36" x2="90" y2="36" stroke="chocolate" />
+       <line x1="0" y1="54" x2="90" y2="54" stroke="chocolate" />
+       <line x1="0" y1="72" x2="90" y2="72" stroke="chocolate" />
+       <line x1="0" y1="90" x2="90" y2="90" stroke="chocolate" />
+    </g>
+    <g id="basic-rect" transform="translate(140, 60)">
+      <rect x="15" y="0" width="80" height="80" rx="8" fill="blue" />
+    </g>
+    <g id="basic-circle" transform="translate(264, 50)">
+      <circle cx='46' cy='50' r='45' fill='yellOw' />
+    </g>
+    <g id="b3sic-ellipse" transform="translate(290, 40)">
+      <ellipse cx="0" cy="0" rx="290" ry="120" fill="none" stroke="black" stroke-width=".1" />
+    </g>
+    <g id-2="basic-polyline" transform="translate(360, 40)">
+      <polyline points="50,0 5,75 25,100 75,100 95,75 50,0" fill="purple" xlink:title="diamon" />
+    </g>
+    <g id="basic-polygon" transform="translate(460, 40)">
+      <polygon points="0,38 100,38 15,100 50,0 85,100" fill="firebrick" xlink:title="star" />
+    </g>
+  </svg>
+
+  <svg id="path">
+    <title>Complex Path Command</title>
+    <defs>
+      <symbol id="star" stroke="lightblue">
+        <path d="m 65,75 -23,-12 -23,12 4,-26 -19,-18 26,-4 11,-24 12,23 26,3 -18,18 -23,-12" />
+      </symbol>
+    </defs>
+    <g id="path" transform="translate(-5,0)" stroke="black" stroke-width="3" fill="none">
+      <use xlink:href="#star" transform="translate(0,160)" />
+      <use xlink:href="#star" transform="translate(73,160)" />
+      <use xlink:href="#star" transform="translate(146,160)" />
+      <use xlink:href="#star" transform="translate(219,160)" />
+      <use xlink:href="#star" transform="translate(292,160)" />
+      <use xlink:href="#star" transform="translate(365,160)" />
+      <use xlink:href="#star" transform="translate(438,160)" />
+      <use xlink:href="#star" transform="translate(511,160)" />
+    </g>
+  </svg>
+</svg>
+```
+
+<?xml version="1.0"?>
+<svg version="1.1" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns="http://www.w3.org/2000/svg" width="580" height="240">
+  <style>
+    svg { border: 1px solid black; }
+    #basic-line line { 
+      fill: white;
+      /*stroke: magenta;*/
+      stroke-width: 6px;
+      stroke-dasharray: 10px; 
+    }
+  </style>
+  <svg id="basic">
+    <title>Basic graphical elements</title>
+    <text x="0" y="50" dx="20" dy="0" rotate="15" 
+      font-family="Microsoft YaHei"> Basic Lines</text>
+    <g id="basic-line" transform="translate(40 50) rotate(0 0 0) scale(0.9)">
+       <line x1="0" y1="18" x2="90" y2="18" stroke="chocolate" />
+       <line x1="0" y1="36" x2="90" y2="36" stroke="chocolate" />
+       <line x1="0" y1="54" x2="90" y2="54" stroke="chocolate" />
+       <line x1="0" y1="72" x2="90" y2="72" stroke="chocolate" />
+       <line x1="0" y1="90" x2="90" y2="90" stroke="chocolate" />
+    </g>
+    <g id="basic-rect" transform="translate(140, 60)">
+      <rect x="15" y="0" width="80" height="80" rx="8" fill="blue" />
+    </g>
+    <g id="basic-circle" transform="translate(264, 50)">
+      <circle cx='46' cy='50' r='45' fill='yellOw' />
+    </g>
+    <g id="b3sic-ellipse" transform="translate(290, 40)">
+      <ellipse cx="0" cy="0" rx="290" ry="120" fill="none" stroke="black" stroke-width=".1" />
+    </g>
+    <g id-2="basic-polyline" transform="translate(360, 40)">
+      <polyline points="50,0 5,75 25,100 75,100 95,75 50,0" fill="purple" xlink:title="diamon" />
+    </g>
+    <g id="basic-polygon" transform="translate(460, 40)">
+      <polygon points="0,38 100,38 15,100 50,0 85,100" fill="firebrick" xlink:title="star" />
+    </g>
+  </svg>
+  <svg id="path">
+    <title>Complex Path Command</title>
+    <defs>
+      <symbol id="star-u" stroke="lightblue">
+        <path d="m 65,75 -23,-12 -23,12 4,-26 -19,-18 26,-4 11,-24 12,23 26,3 -18,18 -23,-12" />
+      </symbol>
+    </defs>
+    <g id="path" transform="translate(-5,0)" stroke="black" stroke-width="3" fill="none">
+      <use xlink:href="#star-u" transform="translate(0,160)" />
+      <use xlink:href="#star-u" transform="translate(73,160)" />
+      <use xlink:href="#star-u" transform="translate(146,160)" />
+      <use xlink:href="#star-u" transform="translate(219,160)" />
+      <use xlink:href="#star-u" transform="translate(292,160)" />
+      <use xlink:href="#star-u" transform="translate(365,160)" />
+      <use xlink:href="#star-u" transform="translate(438,160)" />
+      <use xlink:href="#star-u" transform="translate(511,160)" />
+    </g>
+  </svg>
+</svg>
+
 
 绘制多边形时，因为线条有可能交叉，这涉及到如何填充图形的问题，对于一个凸壳（Convex hull）形状，
 自然就是填充边线围起来的中心区域，因为过凸壳两条边的直线只能与图形本身形成两个交点，不存在线条分割
@@ -276,6 +590,7 @@ stroke-dashoffset：虚线的偏移量，一个百分比或数字长度，正值
 2. Complex shape 复杂身体图形：路径绘画命令（path）；
 3. Join decoration 线条连接位的修饰；
 4. 色彩填充（fill）与笔触轮廓（stroke）;
+4. 渐变色 `<linearGradient>` 和 `<radialGradient>`，及渐变变换属性 gradientTransform；
 5. 透明度混合（Alpha Compositing and Blending）；
 6. 滤镜特效（Effect Filters）
 
@@ -385,6 +700,7 @@ SVG 提供条件处理容器，`<switch>` 标签根据一些客户端环境条�
 
 2.  标记标签 `<marker>` 是一个用图形标记其它直线、线段、多边形等起始、中段、结束位置的标签。
     通过 marker-start marker-mid marker-end 等属性引用一个 marker 对象定义的图形。
+    比如，marker-start="url(#m1)" 引用 id="m1" 标记图形，并绘制于当前图形起点。
 
 3.  图形模板标签 `<pattern>` 用于定义图案，这些图案可作为其它图形的填充色、或笔触绘制出来，
     一般在 `<defs>` 标签内定义图形模板图案，然后通过其它元素的 fill 或者 stroke 属性
@@ -474,38 +790,52 @@ SVG 动画是典型的 Motion Graph，相比传统的逐帧绘制的动画，SVG
 实现图形动画。这种思维与 3D 动画系统中基于骨骼的动画制作具有同样的模型概念：属性数据驱动动画。
 动画领域的前沿，还有基于动作捕捉的动画，Motion Matching 基于输入影像动作模式匹配生成动画。
 
+SMIL 3.0 动画规范定义了两种动画模型：
+
+*   `BasicAnimation` 基于坐标点序列的动画，使用 discrete, linear, paced 三种插值方式。
+*   `SplineAnimation` 基于样条的动画，扩展了以上有一种插值方式，提供更多的插值、时序的控制。
+
+SVG 动画函数表达就是一个时间相关的线性函数，如下两种动画参数对应的函数表达，其中时间 t 单位用秒：
+
+    <animate from="10px" to="100px" ... dur="10s"
+
+    f(t) = (10 + 90 * t/10) px
+
+    <animate attributeName="top" to="10" dur="2.5s" />``
+
+    f(t,u) = (u * (2.5s-t)/2.5s) + 10 * (t/2.5s)
+
+第二个式子多了一个参数 u，表示动画目标对象对应属性的当前值（underlying value）。
+
 由于 SVG 动画是基于数据驱动的，与早期 Flash 技术一样，动画设置通常是指定，起点、终止的状态，
-中间状态由插值算法生成。因此，SVG 动画标签设计 **calcMode*** 属性用于控制插值算法。由算法
+中间状态由插值算法生成。因此，SVG 动画标签设计 **calcMode** 属性用于控制插值算法。由算法
 插值产生的中间状态就称为**插值帧**，Interpolation frame，或者称为**补间**动画，In-Betweens。
-SVG 有四种插值控制方式：
 
- discrete 离散方式，不对图形运动使用插值，动画只按照起点状态、终止状态两者进行切换；
- linear 线性插值，`<animate>` 的默认插值模式，按起止状态的数据差值平均分配到每一插值帧；
- paced 步调调整插值，`<animateMotion>` 的默认动画模式，主要是让动画步调一致（even pace）。
- spline 。
-
-步调动画（Paced animations）假设动画起止状态值由 ‘to’, ‘from’, ‘by’ and ‘values’ 属性设置，
-并用数值差距（Distance）使用标量定义，比如长度（length），色值（colors）和其经过几何变换后的值。
-
- assume a notion of distance between the various animation values defined by the ‘to’, ‘from’, ‘by’ and ‘values’ attributes. Distance is defined only for scalar types (such as <length>), colors and the subset of transformation types that are supported by ‘animateTransform’. In the list of distance functions below, Va and Vb represent the two values the distance between which is being calculated.
-
-如果使用 'paced' 插值模式，那么动画标签的 ‘keyTimes’ 和 ‘keySplines’ 属性失效。
-参考规范文档 SVG Animation Level 2 - 2.8 Paced animation and complex types。
+变换矩阵也可以用来做动画，但是 `<animate>` 不能对矩阵进行处理，需要使用 `<animateTransform>`。
 
 W3C 专用为平面动画编写的规范文档：
--  [SVG Animation Level 2](https://svgwg.org/specs/animations)
-- Synchronized Multimedia Integration Language (SMIL 3.0) https://www.w3.org/TR/REC-smil/
+
+-  SVG Animation Level 2 https://svgwg.org/specs/animations
+-  Synchronized Multimedia Integration Language (SMIL 3.0) https://www.w3.org/TR/REC-smil/
 
 SVG 动画控制标签：
 
-1. `<set>` 设置父层属性。
+1. `<set>` 设置父层或指定对象的属性。
     例：`<set attributeName="r" to="50" begin="3s" />`
-2. `<animate>` 动态地设置父层属性。
+2. `<animate>` 动态地设置父层或指定对象的属性。
     例：`<animate attributeName="cx" begin="0s" dur="8s" from="50" to="90%" repeatCount="indefinite" />`
-3. `<animateTransform>` 动态地设置父层几何变换。
+3. `<animateTransform>` 动态地设置父层或指定对象的几何变换。
     例：`<animateTransform attributeName="transform" begin="0s" dur="1s" type="rotate" from="0 85 85" to="360 85 85" repeatCount="freeze" />`
 4. `<animateMotion>` 使用曲线驱动目标对象的运动。
     通过自身的 path 属性填写的路径绘制命令产生曲线，也可以使用 `<mpath>` 子节点引用曲线。
+
+动画标签默认以父节点为动画目标对象，为了可以指定动画目标，SVG 在 href 属性值上做了逻辑设计。
+动画标签通过 xlink:href 属性指定动画目标标签，属性值是一个 XLink 定位路径，也是一个 IRI。
+还可以使用 `targetElement` 属性指定动画目标，但是前者更优先。动画目标只能指定一个，指定多个无效。
+并且动画目标必需是 SVG 文档片段内的图形标签。对于 `<animate>` 动画，还不能指定 `<g>` 这样的容器。
+因为容器没有 x y 这样的属性来进行图形定位，它只能通过 transform 属性实现移动等几何变换。另外，
+`<polygon>` 和 `<polygon>` 这种不常用的标签也没有 x y 坐标属性。还直线、椭圆、圆形的坐标
+有不同的形式（x1, y1, x2, y2, cx, cy）。
 
 SVG 支持以下动画标签或属性， SMIL 2.1 Animation 规范功能以及对其实现的扩展：
 
@@ -521,7 +851,6 @@ SVG 支持以下动画标签或属性， SMIL 2.1 Animation 规范功能以及�
 | ⚙['keyPoints']        | attribute | compatible extensions to SMIL 2.1 |
 | ⚙['rotate']           | attribute | compatible extensions to SMIL 2.1 |
 
-动画标签默认以父节点为动画目标对象，为了可以指定动画目标，SVG 在 href 属性值上做了逻辑设计。
 以下红色块被 `<animate>` 指定为动画目标对象，其 y 属性将按动画节点设置，在 2s 时间内匀速
 移动到 y = 150 的位置。如果动画标签在方块节点内，则不需要显式通过 href 属性指定动画对象。
 动画的触发时机是鼠标点击动画目标，即点击色块并延时 100ms 就开始播放动画：
@@ -655,8 +984,8 @@ SVG 动画专有属性详情参考 SVG 1.2 Tiny - Attributes to control the timi
 
 ```xml
 <svg width="600" height="200">
-  <rect id="shape1" x="50" width="200" height="50" fill="lightgray" />
-  <rect id="shape2" x="300" width="200" height="50" fill="lightyellow" />
+  <rect id="shape1" x="50" width="200" height="50" fill="gray" />
+  <rect id="shape2" x="300" width="200" height="50" fill="yellow" />
   <animate xlink:href="#shape1" attributeName="y" dur="3s" from="10" to="50" 
     begin="click" repeatCount="5" />
   <animate xlink:href="#shape2" attributeName="y" dur="3s" from="10" to="50"
@@ -665,33 +994,176 @@ SVG 动画专有属性详情参考 SVG 1.2 Tiny - Attributes to control the timi
 ```
 
 <svg width="600" height="200">
-  <rect id="shape1" x="50" width="200" height="50" fill="lightgray" />
-  <rect id="shape2" x="300" width="200" height="50" fill="lightyellow" />
+  <rect id="shape1" x="50" width="200" height="50" fill="gray" />
+  <rect id="shape2" x="300" width="200" height="50" fill="yellow" />
   <animate xlink:href="#shape1" attributeName="y" dur="3s" from="10" to="50" 
     begin="click" repeatCount="5" />
   <animate xlink:href="#shape2" attributeName="y" dur="3s" from="10" to="50"
     begin="click" repeatCount="5" accumulate="sum" additive="sum" />
 </svg>
 
-The ‘[values]’ attribute specifies a sequence of values to use over the course of the animation.
 
-Name : keyTimes
+以上是基本的 `<animate>` 动画的使用，还有两较比常用的动画标签和更多的动画控制功能：
 
-A semicolon-separated list of time values used to control the pacing of the animation. Each time in the list corresponds to a value in the ‘[values]’ attribute list, and defines when the value is used in the animation function.
+1. `<animateMotion>` SMIL 2.1 规范定义的曲线运动动画。
+2. `<animateTransform>` SVG 对 SMIL 2.1 的扩展，用于几何变换动画。
+
+以下是这两个动画标签的专用属性：
+
+* ⚙ type = "translate" | "scale" | "rotate" | "skewX" | "skewY"
+* ⚙ calcMode = "discrete" | "linear" | "paced" | "spline"
+* ⚙ path = "[`<path-data>`]"
+* ⚙ keyPoints = "[`<list-of numbers>`]"
+* ⚙ rotate = "auto" | "auto-reverse" | "[`<number>`]"
+* ⚙ origin = "default"
+
+其中 type 指定几何变换动画的变换类型，然后 from 和 to 属性值根据指定的变换类型来设置。
+path 指定路径动画的路径数据，属性值和 `<path>` 标签的绘画指令一致。如果要引用现有的路径对象，
+那么就在 `<animateMotion>` 内部使用 `<mpath>` 引用。注意，路径对象本身的几何变换不会影响
+到路径动画，它只会按原比例进行动画。如果要缩放路径并应用到动画，那么就应该重绘路径，或者使用
+`<svg>` 这类可以设置 viewBox 属性的标签进行映射以间接实现路径运动的缩放。
+
+使用 values 属性指定动画路径时，每个坐标用分号隔开，比如 values="10,20;30,20;30,40"。
+各个路径指定的优先级从高到低为：`<mpath>` -> path -> values。
+
+接下来要讲讲动画帧和时序控制相关属性，这些属性和生效条件非常烦杂：
+
+* ⚙ keyTimes 设置单键帧的时间列表，起始为 0.0，结束为 1.0，时间值不要加单位，使用分号分隔。
+* ⚙ values 设置关键帧数值列表，使用分号分隔。给一般动画设置数值列表，或者为路径运动指定坐标列表。
+* ⚙ keySplines 样条控制属性，设置一组 Bézier 曲线控制点，用于控制 values 项定义的曲线段。
+* ⚙ keyPoints 定义路径的分段，使用用 0.0 ~ 1.0 表示路径的起点到终点，控制曲线的运动步调。
+
+样条控制属性只有插件模式为 spline 方式下有效。其使用的数据项为两个坐标，`x1 y1 x2 y2`，
+对应两个控制点为一组，数据项数量要与 keyTimes 列表定义的动画分段一致，即比时间帧少一项。
+注意，SMIL 2.1 规范允许使用空格、逗号分隔坐标。
+
+样条控制属性 keySplines 提供了一种方法，通过定义样条曲线来调整动画步调（速度）的方法。可以为
+values 列表对应的每段运动路径都定义相应的样条曲线，以实现分段的步调控制。
+
+下图定义了三条 splines 用于演示样条曲线是如何作用于 values 对应的运动路径线段的：
+
+![Simple keySplines curves](../svg/keySplines_curve.svg)
+
+样条定义在 1x1 大小的区间，控制点的坐标不能超出此空间范围。图中的坐标系以左下角为原点，右上角为
+(1,1) 最大边界，这个边界对于步调控制一来说，就是到达 values 定义的对应路径线段的终点，(0,0)
+表示运动路径线段的起点。通过调整两个控制点，就可以改变对应运动路径线段的快慢。
+
+keyTimes 的几点说明：
+
+1. 使用 'paced' 插值模式，那么动画标签的 ‘keyTimes’ 和 ‘keySplines’ 属性失效。
+2. 如果 duration（持续时间）不确定，则将忽略 keyTimes。
+3. 指定 keyTimes 必要有与之数量完全对应的 values 列表。
+4. 连续的两个时间值要求后一个值必须大于等于前一个时间值。
+5. keyTimes 列表与 values 值列表没有一一对应的数据项时，此动画属性失效。
+
+keyTimes 列表的语义取决于插值模式：
+
+对于 linear (线性) 和 spline(样条) 动画，列表的首个时间值和最后一个时间值必须为 0 和 1 1。
+keyTies 列表与 values 每个数值对应关联，时间值定义了何时设置对应的 value，该值在 keyTimes 
+对应的时间值的中间插值。
+
+对于 discrete(离线) 动画，列表中的第一个值必须为 0。关联的时间值定义了何时应用 values 对应值，
+动画函数使用该 value，直到 keyTimes 中定义的下一个时间值。
+
+总结一下：
+
+1. keyTime 搭配 values 使用，不能设置 peaced 插值模式，使用 path 路径会导致失效。
+2. keyTime 搭配 keySplines 样条控制 values 动画分段的步调，calcMode="spline" 插值模式下有效。
+3. keyTime 搭配 keyPoints 控制曲线的运动步调，配合 path 属性设置路径或 mpath 引用路径对象。
 
 
-* ⚙keySplines = "[<list>]"
+SVG 动画标签 calcMode 属性用于控制插值算法，四种插值控制方式说明如下：
 
-    A set of Bézier control points associated with the ['keyTimes'] list, defining a cubic Bézier function that controls interval pacing. The attribute value is a semicolon separated list of control point descriptions. Each control point description is a set of four values: `x1 y1 x2 y2`, describing the Bézier control points for one time segment. Note SMIL 2.1 allows these values to be separated either by commas with optional white space, or by white space alone. The ['keyTimes'] values that define the associated segment are the Bézier "anchor points", and the ['keySplines'] values are the control points. Thus, there must be one fewer set of control points than there are ['keyTimes'].
+1.  **discrete** 离散方式，不对图形运动使用插值，按照 values 列表或起、止点状态进行切换。
+2.  **linear** 线性插值，`<animate>` 的默认插值模式，按起止状态的数据差值平均分配到每一插值帧。
+3.  **paced** 步调调整插值，`<animateMotion>` 的默认动画模式，主要是让动画步调一致（even pace）。
+4.  **spline** 样条动画，通过两个控制点来定义样条曲线，以实现动画路径线段的步调调。
 
-    The values must all be in the range 0 to 1.
+步调动画（Paced animations）假设动画起止状态值由 ‘to’, ‘from’, ‘by’, ‘values’ 属性设置，
+并用数值差距（Distance）使用标量定义，比如长度（length），色值（colors）和其经过几何变换后的值。
+参考规范文档 SVG Animation Level 2 - 2.8 Paced animation and complex types。
+其作用配合 values 和 keyTimes 等属性演示更明了。
 
-    This attribute is ignored unless the ['calcMode'] is set to 'spline'.
+以下是 [`<animateTransform>`](../svg/animateTransfom.svg) 几何变换动画的演示。
+几何变换动画 `<animateTransform>` 总是覆盖动画目标的几何变换，如果希望保留原有的几何变换，
+那么可以使用 additive="sum" 启用叠加模式，或者设置另外一个几何变换动画来保持相应的值。
 
-    If the ['keySplines'] attribute has a value that doesn't conform to the above requirements the ['keySplines'] attribute has an [unsupported value] and is processed as if the attribute had not been specified.
+<?xml version="1.0"?>
+<svg version="1.1" 
+    xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="-500 -200 1000 400" width="580" height="180">
+  <style>
+    svg { border: 1px solid black; }
+    .cross { stroke: lightblue; }
+  </style>
+  <path class="cross" d="M -500 0 L 500 0 M 0 -200 L 0 200 z" stroke-dasharray="2,6" />
+  <g id="basic" transform="translate(-100 -50)" >
+    <path class="cross" d="M -500 0 L 500 0 M 0 -200 L 0 200 z" />
+    <g id="diamon-trans" transform="translate(-160, 40)">
+      <polyline points="50,0 5,75 25,100 75,100 95,75 50,0" fill="purple" />
+    </g>
+    <g id="star-trans" transform="translate(160, 50)">
+      <polygon points="0,38 100,38 15,100 50,0 85,100" fill="firebrick" />
+    </g>
+    <animateTransform attributeName="transform" xlink:href="#diamon-trans"
+                      type="rotate"
+                      from="10 290 90"
+                      to="360 290 90"
+                      dur="5s"
+                      begin="click" 
+    />
+    <animateTransform attributeName="transform" xlink:href="#star-trans"
+                      type="rotate"
+                      from="0 0 0"
+                      to="360 0 0"
+                      dur="5s"
+                      begin="click" 
+                      additive="sum"
+    />
+  </g>
+</svg>
 
-    Except for any SVG-specific rules explicitly mentioned in this specification, the normative definition for this attribute is found in the [Calculation mode attributes](http://www.w3.org/TR/2005/REC-SMIL2-20051213/animation.html#adef-keySplines) section of the SMIL 2.1 Animation Modules (\[[SMIL21]\], section 3.8.1).
+以下是 [`<animateMotion>`](../svg/animateMotion.svg) 路径运动的演示，可以点击不同的色块
+来观察不同的动画模式：
 
+<?xml version="1.0"?>
+<svg version="1.1" 
+    xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="580" height="180" viewBox="0 -30 220 140">
+  <style>
+    #red { fill: red; x: -20; y: -10; cursor: pointer; }
+    #gen { fill: green; x: 0; y: -10; cursor: pointer; }
+    #bue { fill: blue; x: 20; y: -10; cursor: pointer; }
+    #yel { fill: yellow; x: 40; y: -10; cursor: pointer; }
+    #cyn { fill: cyan; x: 60; y: -10; cursor: pointer; }
+  </style>
+  <path id="path-motion" d="M10,50 q60,50 100,0 q60,-70 100,0" fill="none" stroke="gray"/>
+  <rect id="red" width="20" height="15" />
+  <rect id="gen" width="20" height="15" />
+  <rect id="bue" width="20" height="15" />
+  <rect id="yel" width="20" height="15" />
+  <rect id="cyn" width="20" height="15" />
+    <animateMotion xlink:href="#red" keyTimes="0;.1;1" calcMode="linear"
+        begin="click" dur="5s" rotate="auto" values="0,50;100,50;180,40;" >
+    </animateMotion>
+    <animateMotion xlink:href="#gen" calcMode="discrete"
+        begin="click" dur="5s" rotate="auto">
+        <mpath xlink:href="#path-motion" />
+    </animateMotion>
+    <animateMotion xlink:href="#bue" keyTimes="0;.1;0.71" calcMode="discrete"
+        begin="click" dur="5s" rotate="auto" values="0,50;100,50;180,40;" >
+    </animateMotion>
+    <animateMotion xlink:href="#yel" keyTimes="0;0.2;1" calcMode="spline"
+        keySplines=".2 .5 .8 .5;.2 1 .8 .0; "
+        begin="click" dur="5s" rotate="auto" values="0,50;100,50;200,50;" >
+    </animateMotion>
+    <animateMotion xlink:href="#cyn" keyTimes="0;.1;0.71" calcMode="peaced"
+        keyPoints="0.0;0.5;.90" begin="click" dur="5s" rotate="auto">
+        <mpath xlink:href="#path-motion" />
+    </animateMotion>
+</svg>
 
 
 SVG Layouts
@@ -734,7 +1206,7 @@ SVG 元素不像 HTML 那样设计了 Z-index 深度属性来改变层次的叠�
 就需要通过调整标签在容器中出现的先后顺序。
 
 
-viewport and Viewport
+Viewport and viewBort
 ---------------------
 
 Inkscape 文档属性设置界面中，Document Properties，包含以下尺寸信息：
@@ -774,8 +1246,7 @@ Viewport 与 viewBox 对应的图形宽高比例不一定会一致，那么就�
 设置 viewBox 属性后，就可以使用 ‘[preserveAspectRatio]’ 属性来约束缩放、级比例关系，后续细说。
 
 其中 `<view>` 是一个专用于视口设置的标签，通过它可以对当前 `<svg>` 等拥有 viewport 的对象
-进行视图设置，跟在 `<view>` 标签后的图形就会以它设置坐标作为新的参考位置，并以参考进行绘图。
-以下的例子使用 `<view>` 来指定三个圆的：
+进行视图设置，通过 id 定位到 `<view>` 标签后，视口就会按其设置呈现，如缩放级别或细节视图。
 
 ```xml
 <svg viewBox="0 0 300 100" width="300" height="100"
@@ -813,6 +1284,10 @@ SVG 中使用的计量单位如下，默认使用像素（px）作为单位，�
 |  cm    | Centimeters
 |  mm    | Millimeters
 |  in    | Inches
+
+Inkscape 不提供相对于字体的单位 em ex 支持，只能在读取文件是做转换。刚好，MathJax 数学公式渲染
+生成的 SVG 文件常用相对于字体的单位，这会导致一些软件转换 SVG 格式为图形时，出现超出常规的尺寸。
+可以通过修改 SVG 文件中使用 em ex 单位为 pc 或者像素等单位，提供兼容性。
 
 通过设置坐标系统单位（Coordinate System Units）才能赋予数值具体的含义，单位 1 表示的是什么量。
 CSS 规范定义 "in" (inch) 单位对应 96 pixels。但是，在高分屏幕上物理单位和像素关系并不是这样。
@@ -854,89 +1329,6 @@ SVG 图形的人，而是对 SVG 标签中那些使用当前坐标系统的情�
 
 1. SVG 1.2 Tiny - 7.7.2 ViewBox to viewport transformation
 2. SVG 2.0 草案 - Chapter 8: Coordinate Systems, Transformations and Units
-
-整个图形渲染流程中，涉及以下计量和变换：
-
-1. viewBox 的初始值 [min-x, min-y, width, height]
-2. 标签元素的初始值 [x, y, width, height]
-3. 顶级标签 `<svg>` 的比例约束属性值 [preserveAspectRatio]
-4. viewBox 的平移、伸缩变换 [translate, scale]
-5. 容器的平移、伸缩变换 [translate, scale]
-
-以下标签都会建立新的 SVG 视口：
-
-*   The ‘[svg]’ element
-*   A ‘[symbol]’ element that is instanced by a ‘[use]’ element.
-
-也就是说，Viewport 是图形渲染的出口，它对应的是 viewport coordinate system。
-视口坐标系统对应的空间称为 _viewport space_，用户坐标系统的空间称为 _user space_。
-
-SVG 文档中最外层的 `<svg>` 标签所对应的 viewport 就是初始视口，对应的就是初始坐标系统，
-包括初始 viewport 坐标系统和初始用户坐标系统，它们都定义在 SVG 文档中，并且是等价的。
-即以左上角为坐标原点，右向、下方分别为 x y 轴的正方向。
-
-拥有独立 viewport 的标签，父层级的 viewBox 设置（比如 `<svg>`）与它本身的 viewBox 设置
-决定如何影响它的缩放。
-
-保留默认值，会跟随父级 viewport 等比例缩放。但是一但用户设置了 viewBox 它的缩放比例就由自己
-决定。而父级 viewBox 的变动因为会影响其它图形的缩放与位置的相对变化，另外还会影响 `<use>` 标签
-的相对位置，导致符号图形也像是有相对移动。这些行为是所有拥有独立 viewport 的标签的通性。这些创建
-新视口的标签的坐标，就是其 viewport 的原点。这个原点坐标非常重要，因为子层图形的绘画坐标都是以此
-作为参考点设置的。如果没显式设置标签的 x y 坐标值，那默认的值就是当前坐标的原点。
-
-
-```xml
-<svg width="600" height="300" viewBox="-300 -150 600 300" 
-    fill="blue" stroke="black" stroke-width="5">
-    <symbol id="graph-symbol">
-        <circle cx="0" cy="0" r="50" fill="red" onclick="alert('&lt;symbol&gt; handler')" />
-    </symbol>
-    <use xlink:href="#graph-symbol" x="50" y="25" onclick="alert('&lt;use&gt; handler')" />
-    <circle cx="0" cy="0" r="50" />
-</svg>
-```
-
-特别地，transform 作为通用几何变换，它会从父层 viewport 传递到子层，这与 viewBox 机制不同。
-因此，SVG 上的图形有两套基本的几何变换：viewport <==> viewBox 之间的影射变换和通用的几何变换。
-
-几何体的变换（transform）通用的方法是使用 4x4 的矩阵来计算，SVG 中常用的是各种平面变换，
-包括位移 translate，旋转 rotate，缩放 scale，斜切 skew，或者直接使用 maxtrix 设置变换矩阵。
-
-简单来说，就是仿射变换（Affine Transformation），“仿射变换”就是：“线性变换”+“平移”。
-平移本身没有对图形进行变换，只是换了个位置显示，所以它本身不属于“变换”，只是习惯统一概括它。
-从几何角度来看(爱尔朗根纲领意义下), 仿射变换不保持度量性质(正交关系和长度、角度、面积等), 
-只保持平行和相交关系,
-
-1872 年德国数学家克莱因在埃尔朗根大学的教授就职演讲，《关于近代几何研究的比较考察》论文演讲，
-论述了变换群在几何中的主导作用，把到当时为止已发现的所有几何统一在变换群论观点之下，明确地给出
-几何的一种新定义，把几何定义为一个变换群之下的不变性质。这种观点突出了变换群在研讨几何中的地位，
-后来简称为《埃尔朗根纲领》。
-
-SVG 中的标签层次结构和 HTML 相似，几何变换也会按层级关系继承下去。
-
-由于几何变换在图形学上的通用性，W3C 专门为其设立一个规范 CSS Transforms Module Level 1
-https://www.w3.org/TR/css-transforms-1/
-
-SVG 规范中，A.8.10 SVGMatrix 描述了几何变换的一般实现要求，能通过 ['transform'] 属性读写
-变换矩阵的数据，包括各个分量。[SVGMatrix] 对象接口实现要求有 [`mTranslate`], [`inverse`], 
-[`mMultiply`], [`mScale`] and [`mRotate`] 等方法来处理图形的几何变换，这些图形变换方法
-应该计算原矩阵数值后（变换叠加）再返回一个 [SVGMatrix] 实例用于叠加后续潜在的变换。
-
-以下矩阵运算中， (x, y) 原坐标（看作向量）与变换矩阵的每一行相乘，得到变换后的新坐标 (x', y')。
-
-    [ x' ]    [  a  c  e  ]   [ x ]    [ a.x + c.y + e ]
-    [ y' ] =  [  b  d  f  ]   [ y ] =  [ b.x + d.y + f ]
-    [ 1  ]    [  0  0  1  ]   [ 1 ]    [        1      ]
- 
-SVG transform 属性设置 skew 变换可能无效，可以直接使用样式属性进行变换：
-
-    <text transform="skew(90deg, 90deg)" 
-        style="transform: skew(35deg);">transform test</text>
-
-
-边界框（bounding box）是图形学上一个常用概念，表示一个物体的矩形边界，即一个最贴紧物体的矩形。
-边界框用来约束图形渲染，保证不会在超出边界外做错误的图形渲染工作。
-![8.10. Bounding boxes](https://svgwg.org/svg2-draft/images/coords/bbox01.svg)
 
 
 8.7. The ‘preserveAspectRatio’ attribute
@@ -991,6 +1383,387 @@ SVG transform 属性设置 skew 变换可能无效，可以直接使用样式属
 [Noël's Blog]: https://blog.noelcserepy.com/the-interactive-guide-to-svgs-viewport-viewbox-and-preserveaspectratio
 
 
+SVG Transform
+----------------
+
+整个 SVG 图形渲染流程中，涉及以下计量和变换：
+
+1. viewBox 的初始值 [min-x, min-y, width, height]
+2. 标签元素的初始值 [x, y, width, height]
+3. 顶级标签 `<svg>` 的比例约束属性值 [preserveAspectRatio]
+4. viewBox 的平移、伸缩变换 [translate, scale]
+5. 容器的平移、伸缩变换 [translate, scale]
+
+以下标签都会建立新的 SVG 视口：
+
+*   The ‘[svg]’ element
+*   A ‘[symbol]’ element that is instanced by a ‘[use]’ element.
+
+也就是说，Viewport 是图形渲染的出口，它对应的是 viewport coordinate system。
+视口坐标系统对应的空间称为 _viewport space_，用户坐标系统的空间称为 _user space_。
+
+SVG 文档中最外层的 `<svg>` 标签所对应的 viewport 就是初始视口，对应的就是初始坐标系统，
+包括初始 viewport 坐标系统和初始用户坐标系统，它们都定义在 SVG 文档中，并且是等价的。
+即以左上角为坐标原点，右向、下方分别为 x y 轴的正方向。原点坐标是几何变换的参考点，也是
+几何旋转中心，当然可以显式指定旋转参考点，并且这个参考点也是相对当前坐标的原点。
+
+拥有独立 viewport 的标签，父层级的 viewBox 设置（比如 `<svg>`）与它本身的 viewBox 设置
+决定如何影响它的缩放。
+
+保留默认值，会跟随父级 viewport 等比例缩放。但是一但用户设置了 viewBox 它的缩放比例就由自己
+决定。而父级 viewBox 的变动因为会影响其它图形的缩放与位置的相对变化，另外还会影响 `<use>` 标签
+的相对位置，导致符号图形也像是有相对移动。这些行为是所有拥有独立 viewport 的标签的通性。这些创建
+新视口的标签的坐标，就是其 viewport 的原点。这个原点坐标非常重要，因为子层图形的绘画坐标都是以此
+作为参考点设置的。如果没显式设置标签的 x y 坐标值，那默认的值就是当前坐标的原点。
+
+```xml
+<svg width="600" height="300" viewBox="-300 -150 600 300" 
+    fill="blue" stroke="black" stroke-width="5">
+    <symbol id="graph-symbol">
+        <circle cx="0" cy="0" r="50" fill="red" onclick="alert('&lt;symbol&gt; handler')" />
+    </symbol>
+    <use xlink:href="#graph-symbol" x="50" y="25" onclick="alert('&lt;use&gt; handler')" />
+    <circle cx="0" cy="0" r="50" />
+</svg>
+```
+
+特别地，transform 作为通用几何变换，它会从父层 viewport 传递到子层，这与 viewBox 机制不同。
+因此，SVG 上的图形有两套基本的几何变换：viewport <==> viewBox 之间的影射变换和通用的几何变换。
+作为拥有视图定义的标签，`<svg>` 本身不能使用 transform 属性进行几何变换，只能使用 viewBox
+属性进行视图映射。如果再叠加几何变换，则会使用此类标签的变换变得更复杂。
+
+几何体的变换（transform）通用的方法是使用 4x4 的矩阵来计算，SVG 中常用的是各种平面变换，
+包括位移 translate，旋转 rotate，缩放 scale，斜切 skew，或者直接使用 maxtrix 设置变换矩阵。
+注意，几何变换可以多次叠加，但是叠加顺序不同结果就不同。使用 Inkscape 设置变换时，它会从算法上
+保证视觉上的一致性，即对一个分组 `<g>` 进行旋转、缩放，那么就会保持其内部的图形具有同等的整体变换。
+
+简单来说，就是仿射变换（Affine Transformation），“仿射变换”就是：“线性变换”+“平移”。
+平移本身没有对图形进行变换，只是换了个位置显示，所以它本身不属于“变换”，只是习惯统一概括它。
+从几何角度来看(爱尔朗根纲领意义下), 仿射变换不保持度量性质(正交关系和长度、角度、面积等), 
+只保持平行和相交关系,
+
+1872 年德国数学家克莱因在埃尔朗根大学的教授就职演讲，《关于近代几何研究的比较考察》论文演讲，
+论述了变换群在几何中的主导作用，把到当时为止已发现的所有几何统一在变换群论观点之下，明确地给出
+几何的一种新定义，把几何定义为一个变换群之下的不变性质。这种观点突出了变换群在研讨几何中的地位，
+后来简称为《埃尔朗根纲领》。
+
+SVG 中的标签层次结构和 HTML 相似，几何变换也会按层级关系继承下去。
+
+由于几何变换在图形学上的通用性，W3C 专门为其设立一个规范 CSS Transforms Module Level 1
+https://www.w3.org/TR/css-transforms-1/
+
+SVG 规范中，A.8.10 SVGMatrix 描述了几何变换的一般实现要求，能通过 ['transform'] 属性读写
+变换矩阵的数据，包括各个分量。[SVGMatrix] 对象接口实现要求有 [`mTranslate`], [`inverse`], 
+[`mMultiply`], [`mScale`] and [`mRotate`] 等方法来处理图形的几何变换，这些图形变换方法
+应该计算原矩阵数值后（变换叠加）再返回一个 [SVGMatrix] 实例用于叠加后续潜在的变换。
+
+以下矩阵运算中， (x, y) 原坐标（看作向量）与变换矩阵的每一行相乘，得到变换后的新坐标 (x', y')。
+
+    [ x' ]    [  a  c  e  ]   [ x ]    [ a.x + c.y + e ]
+    [ y' ] =  [  b  d  f  ]   [ y ] =  [ b.x + d.y + f ]
+    [ 1  ]    [  0  0  1  ]   [ 1 ]    [        1      ]
+ 
+SVG transform 属性设置 skew 变换可能无效，可以直接使用样式属性进行变换：
+
+    <text transform="skew(90deg, 90deg)" 
+        style="transform: skew(35deg);">transform test</text>
+
+Inkscape 绘图也需要正确处理对象的 [x, y] 坐标位置、几何变换与 viewBox 映射多重定位。事实上，
+其工具栏上显示的 X: Y: 数值就是将这两者都考虑在内的一最终值，它指示了一个节点经过多层变换后的
+绝对位置。如果直接修改这个值，那么 Inkscape 就会按几何变换关系调整所选择目标的 x y 属性，
+这种修改并非将修改值一比一设置属性，而是考虑了合部的操作变换。对于文字对象，直接修改宽高值，
+将导致 Inkscape 应用 scle 几何变换。另一个方法是使用文字工具，修改字体大小来改变文字的尺寸。
+对已经添加的文字节点，需要通过可以通过 Text and Font 属性面板修改。类似的，`<g>` 分组节点
+本身也没有 width 和 height 属性，在工具栏中修改宽高值同样导致对它们应用几何变换，并且这会
+影响容器内部的图形对象的缩放。
+
+使用分组时，`<g>` 节点点选图形节点的内容时，其父层的分组节点也处于选中状态，通过点击图形对象
+切换操纵柄的类型，依次为绽放操纵、旋转（切变）操纵和对齐操纵。但是，在多层 `<g>` 分组的情况下，
+无法在画布中对分组节点进行操作，只能通过图层面板选择或者 XML Editor 中的层级树编辑上层分组节点。
+并且画布中只能使用当前出现的操纵柄，因为上层分组并不是图形，不能直接通过点击操作来切换操纵柄。
+只能先通过其它图形将操纵柄切换到需要的操作状态（绽放、旋转或对齐），再在图层中选择要做变换的分组节点。
+因为 Inkscape 会保留当前正在使用的操纵柄类型，直接下次点击图形对象进行切换。
+
+或者配合 Alt 按键使用 Selection Tool，此时会进入移动操作模式（Forced Drag）。在未有选中
+对象的情况下，按住 Alt 是画线选择模式（Touch-Path），通过鼠标划线碰到的对象都会被选中。
+已经选择好对象时，可以按住 Shift + Alt 拖选更多的对象。按住 Shift 点选可以切换某个对象
+的选中与否的状态。
+
+Inkscape 会引入自己的 XML 命令空间，并且设置用于扩展功能的符号集，比如几何变换中的
+缩放功能，inkscape:transform-center-x 和 transform-center-y 用于记录目标的旋转中心。
+如果用户没有对图形对象进行过变换，Inkscape 就会使用 SVG 默认的图形的几何原点进行旋转。
+如果用户已经对图形进行过变换处理，那么 Inkscape 就会启用变换矩阵，以将现有的变换包含在内。
+
+几何变换会逐层传递，作用到所有子层。但是层进行变换时就是在父层变换的基础上进行变换叠加。
+并且参考点是当前坐标的原点，父级的移动、缩放、旋转等等操作都会改变了层的坐标原点。所以，
+清晰的层级关系保证各对象的坐标原点，和几何变换的叠加。
+
+矩阵即由行和列构成的一个数学表达形式，两矩阵 A B 相乘，是前者每列元素与后者行的元素对应相乘，
+因此必需要求前者列数 columns 和后者行数 row 一致。
+
+矩阵运算性质 Properties：
+
+    (AB)C = A(BC)
+    A(B+C) = AB + AC
+    (A+B)C = AC + BC
+
+- 不可交换：Non-commutative (AB and BA are different in general)
+- 结合律和分配律：Associative and distributive
+
+交换律不成立，AB 相乘与 BA 相乘结果不一样，假设 A 是平移，那么将 A 移到后面就意味着没有对 B 进行移位了。特殊情况除外，比如单位矩阵。
+
+结合律成立，可以先乘 AB 也可以先乘 BC。
+
+向量和矩阵都可以转秩 Transpose，将行列互换，进行转换，然后用一个 T 上标表示。
+
+    (AB)^T = B^T A^T
+
+单位矩阵 `Identity`，即斜对角线上的元素全为 1 其余全为 0 的矩阵，先乘后乘都不变，即相当不操作。
+但是单位矩阵有个作用，如果两个矩阵相乘，结果是单位矩阵，那么就称这两个矩阵互逆，也称为逆矩阵 `Inverses`。
+换一种说法，对一个矩阵进行变 A 变换，再用 A 的逆矩阵变换，就等于什么也没做，复原了。
+
+        | 1 0 0 |
+    I = | 0 1 0 |
+        | 0 0 1 |
+
+     AA^-1 = A^-1 A = I
+    (AB)^-1 = B^-1 A^-1
+
+向量的点积和叉乘都可以写成矩阵形式，叉乘会复杂点。如 a × b 通常使用叫做 Dual matrix 的矩阵 `A*` 去乘。
+
+    a × b = A*b
+
+         |  0 -Za  Ya |
+    A* = |  Za  0 -Xa |
+         | -Ya Xa   0 |
+
+
+以下是 SVG 中的几何变换叠加的运算表达式：
+
+```sh
+#!/usr/bin/env bash
+svg='c:\\opendocs\\pictures\\nested_transform.svg'
+math='
+[ (X_{prev}),    (Y_{prev}),    (1)     ] = 
+[ [a_1,c_1,e_1], [b_1,d_1,f_1], [0,0,1] ] 
+[ [a_2,c_2,e_2], [b_2,d_2,f_2], [0,0,1] ] 
+[ (X_{curr}),    (Y_{curr}),    (1)     ]
+'
+echo "\`$math\`" | /od/mathjax.js pipe svg > "$svg"
+cairosvg "$svg" -o "$svg.png"  # PNG or PDF
+# inkscape --export-type=jpg "$svg"
+# i_view64  /convert="$svg.jpg" /file="$svg" 
+# magick -size 640x120 "mvg:$svg" $svg.jpg
+```
+
+![Nested Transform](../pictures/nested_transform.svg)
+
+在式中的 3x3 的变换矩阵中，前面两列前两行共四个数表示旋转操作，因为是平面旋转、绽放，四个数足够表达。
+如果是三维空间中的变换矩阵就需要扩充多一维坐标。第三列前两行是平移参数，translate(e1, f1) 或
+translate(e2,f2)。SVG 变换属性中直接指定矩阵元素，其格式为 matrix(a,b,c,d,e,f)，最后两个
+参数用于平移。
+
+    translate(tx, ty)    =>    matrix(1,0,0,1,tx,ty)
+        scale(sx, sy)    =>    matrix(sx,0,0,sy,0,0)
+       rotate(a)         =>    matrix(cos(a), sin(a), -sin(a), cos(a), 0, 0)
+       rotate(a, cx, cy) =>    matrix(cos(a), sin(a), -sin(a), cos(a),  -cx × cos(a) + cy × sin(a) + cx + tx, -cx × sin(a) - cy × cos(a) + cy + ty)
+        skewX(a)         =>    matrix(tan(a), 0, 0, 1, 0, 0)
+        skewY(a)         =>    matrix(1, tan(a), 0, 1, 0, 0)
+
+SVG 1.2 Tiny 规范文档中，给一个多层几何变换叠加的示范：
+
+```xml
+  <!-- First, a translate -->
+   <g id="g1" transform="translate(50,90)">
+    <!-- Second, a rotate -->
+     <g id="g2" transform="rotate(-45)">
+      <!-- Third, another translate -->
+       <g id="g3" transform="translate(130,160)">
+        ...
+      </g>
+    </g>
+  </g>
+```
+
+以上的变换嵌套（叠加变换）三层，几何变换的叠加计算从顶层开始，最后到最子层，g1 -> g2 -> g3。
+假定当前要变换的目标是 g3，那么当前的变换矩阵使用 CTM (Current Transform Matrix) 表示，
+其中旋转 45° 直接使用三角函数值替代，cos(45°) = sin(45°) = 0.707。
+
+以下使用 MathJax 生成的公式图形表示整个变换过程，公式使用 LaTeX 语法，AsciiMath 不支持换行。
+LaTex 公式中的矩阵元素使用 & 符号进行对齐。
+
+```sh
+#!/usr/bin/env bash
+svg='c:\\opendocs\\pictures\\nested_transform_g3.svg'
+math=' $$
+\begin{matrix}
+    CTM = translate(50, 90), rotate(-45), translate(130,160) \\
+
+    = 
+    \begin{bmatrix}
+             1  &  0  &  50   \\ 
+             0  &  1  &  90   \\ 
+             0  &  0  &  1    \\
+    \end{bmatrix}
+    \begin{bmatrix}
+          .707  &  .707  &  0 \\
+         -.707  &  .707  &  0 \\
+           0    &   0    &  1 \\
+    \end{bmatrix}
+    \begin{bmatrix}
+          .707  &  .707  &  0 \\
+         -.707  &  .707  &  0 \\
+           0    &   0    &  1 \\
+    \end{bmatrix}
+
+    = 
+    \begin{bmatrix}
+          .707  &  .707  & 255.03 \\
+         -.707  &  .707  & 111.21 \\
+           0    &   0    & 1      \\
+    \end{bmatrix} \\
+
+    \begin{bmatrix} 
+        X_{initial} \\ Y_{initial} \\ 1 \\
+    \end{bmatrix} 
+    = CTM · 
+    \begin{bmatrix}
+        X_{userspace} \\ Y_{userspace} \\ 1 \\
+    \end{bmatrix}
+\end{matrix}
+$$ '
+echo "$math" | /od/mathjax.js pipe svg > "$svg"
+# cairosvg "$svg" -o "$svg.png"  # PNG or PDF
+# inkscape --export-type=jpg "$svg"
+# i_view64  /convert="$svg.jpg" /file="$svg" 
+# magick -size 640x120 "mvg:$svg" $svg.jpg
+```
+
+![Nested Transform](../pictures/nested_transform_g3.svg)
+
+Transform 属性可以引用变换，称为约束变换 TransformRef（constrained transformations）。
+语法形式如 'ref(...)'，比如 'ref(svg, x, y)' 表示引用 `<svg>` 的变换进行约束，表达含义是：
+取父节点的 CTM 逆矩阵乘以顶层 `<svg>` 元素的 CTM，但不包含它的平移、旋转、缩放等几何变换。
+这种用法只见 SVG 1.2 Tiny 文档中有说明，浏览器也不见得支持，不求甚解。
+
+以下是 SVG 嵌套几何变换的演示，默认设置了 basic 分组中的旋转为 10，可以观察到它是以原点旋转的。
+点击 diamon 或者 star 其中任一图形触发几何旋转动画，它的旋转指定为 `<svg>` 的视口的几何中心。
+但是，由于设置了 viewBox 视盒映射，通过映射将最顶层的视图原点平移到了画面中心。因此，图形真实的
+旋转点应该靠近渲染画面的右下角。另外，点击 star 还会同时触发另一个动画，注意它会覆盖掉 star 分组
+设置的平移转换，看起来就是 star 会在旋转开始时跳到原点位置。事实上，`<animateTransform>` 总是
+覆盖动画目标的几何变换，如果希望保留原有的几何变换，可以使用 additive="sum" 进行数据叠加，
+或者设置另外一个几何变换动画来保持相应的值。
+
+```xml
+<?xml version="1.0"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" 
+    viewBox="-500 -200 1000 400" width="580" height="180">
+  <style>
+    svg { border: 1px solid black; }
+    .cross { stroke: lightblue; }
+  </style>
+  <path class="cross" d="M -500 0 L 500 0 M 0 -200 L 0 200 z" />
+  <g id="basic" transform="rotate(10)" >
+    <path class="cross" d="M -500 0 L 500 0 M 0 -200 L 0 200 z" />
+
+    <g id="diamon" transform="translate(60, 40)">
+      <polyline points="50,0 5,75 25,100 75,100 95,75 50,0" fill="purple" />
+    </g>
+    <g id="star" transform="translate(420, 40)">
+      <polygon points="0,38 100,38 15,100 50,0 85,100" fill="firebrick" />
+    </g>
+    <animateTransform attributeName="transform"
+                      type="rotate"
+                      from="10 290 90"
+                      to="360 290 90"
+                      dur="5s"
+                      begin="click" 
+    />
+    <animateTransform attributeName="transform" xlink:href="#star"
+                      type="rotate"
+                      from="0"
+                      to="360"
+                      dur="5s"
+                      begin="click" 
+    />
+    <!-- <animateTransform attributeName="transform" xlink:href="#star"
+                      type="translate"
+                      from="420 40"
+                      to="420 40"
+                      dur="5s"
+                      begin="click" 
+    /> -->
+  </g>
+</svg>
+```
+
+<?xml version="1.0"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" 
+    viewBox="-500 -200 1000 400" width="580" height="180">
+  <style>
+    svg { border: 1px solid black; }
+    .cross { stroke: lightblue; }
+  </style>
+  <path class="cross" d="M -500 0 L 500 0 M 0 -200 L 0 200 z" />
+  <g id="basic" transform="rotate(10)" >
+    <path class="cross" d="M -500 0 L 500 0 M 0 -200 L 0 200 z" />
+    <g id="diamon-n" transform="translate(60, 40)">
+      <polyline points="50,0 5,75 25,100 75,100 95,75 50,0" fill="purple" />
+    </g>
+    <g id="star-n" transform="translate(420, 40)">
+      <polygon points="0,38 100,38 15,100 50,0 85,100" fill="firebrick" />
+    </g>
+    <animateTransform attributeName="transform"
+                      type="rotate"
+                      from="10 290 90"
+                      to="360 290 90"
+                      dur="5s"
+                      begin="click" 
+    />
+    <animateTransform attributeName="transform" xlink:href="#star-n"
+                      type="rotate"
+                      from="0"
+                      to="360"
+                      dur="5s"
+                      begin="click" 
+    />
+  </g>
+</svg>
+
+几何变换的属性值设置参考：
+
+* ⚙ `matrix(<a> <b> <c> <d> <e> <f>)` 
+
+    which specifies a transformation in the form of a [transformation matrix] of six values. matrix(a,b,c,d,e,f) is equivalent to applying the transformation matrix **\[a b c d e f\]**.
+    
+* ⚙ `translate(<tx> [<ty>])`
+
+    which specifies a [translation] by tx and ty. 
+    If _<ty>_ is not provided, it is assumed to be zero.
+    
+* ⚙ `scale(<sx> [<sy>])`
+
+    which specifies a [scale] operation by sx and sy. 
+    If _<sy>_ is not provided, it is assumed to be equal to _<sx>_.
+    
+* ⚙ `rotate(<rotate-angle> [<cx> <cy>])`
+    
+    which specifies a [rotation] by <rotate-angle> degrees about a given point.
+    
+    If optional parameters <cx> and <cy> are not supplied, the rotation is about the origin of the current [user coordinate system]. The operation corresponds to the matrix **[cos(a) sin(a) -sin(a) cos(a) 0 0]**.
+    
+    If optional parameters <cx> and <cy> are supplied, the rotation is about the point (cx, cy). The operation represents the equivalent of the following specification: translate(<cx>, <cy>) rotate(<rotate-angle>) translate(-<cx>, -<cy>).
+    
+* ⚙ `skewX(<skew-angle>)`, which specifies a [skew transformation along the x-axis].
+    
+* ⚙ `skewY(<skew-angle>)`, which specifies a [skew transformation along the y-axis].
+    
+
+边界框（bounding box）是图形学上一个常用概念，表示一个物体的矩形边界，即一个最贴紧物体的矩形。
+边界框用来约束图形渲染，保证不会在超出边界外做错误的图形渲染工作。
+![8.10. Bounding boxes](https://svgwg.org/svg2-draft/images/coords/bbox01.svg)
+
+
 SVG Conversion
 ----------------
 
@@ -1004,6 +1777,19 @@ SVG Conversion
 6. PlantUML - UML 图形制作工具；
 7. [GeoGebra](https://www.geogebra.org/) 一个在线免费的数学应用程序包；
 8. [Latex/MathML editor][https://math-editor.online]
+9. [CairoSVG](https://cairosvg.org/)
+
+[CairoSVG](https://cairosvg.org/) 是一个 Python 模块，此模块支持 PNG 及 PDF 等矢量格式。
+输出的 PNG 格式质量高，并且可以比其它转换工具产生的 JPG 更小。支持 SVG 1.1 规范，本身还依赖
+tinycss2 模块以提供 CSS 样式属性的支持。
+
+```sh
+$ cairosvg image.svg -o image.png
+
+$ python3
+>>> import cairosvg
+>>> cairosvg.svg2pdf(url='image.svg', write_to='image.pdf')
+```
 
 ImageMagick 进行 SVG 转图片时，如果字体不对则可能导致出图错乱，除非回退后备的字体可以显示：
 
@@ -1323,21 +2109,6 @@ export GRAPHVIZ_DOT='C:/Graphviz-10.0.1-win64/bin/dot.exe'
 export PLANTUML_JAR='C:/jdk-14.0.2/jars/plantuml.1.2018.1.jar'
 java -Djava.awt.headless=true -jar "$PLANTUML_JAR" -testdot
 java -Djava.awt.headless=true -jar "$PLANTUML_JAR" -help | grep '\-t' #| clip
-sleep 9
-    # -tpng       To generate images using PNG format (default)
-    # -tsvg       To generate images using SVG format
-    # -teps       To generate images using EPS format
-    # -tpdf       To generate images using PDF format
-    # -tvdx       To generate images using VDX format
-    # -txmi       To generate XMI file for class diagram
-    # -tscxml     To generate SCXML file for state diagram
-    # -thtml      To generate HTML file for class diagram
-    # -ttxt       To generate images with ASCII art
-    # -tutxt      To generate images with ASCII art using Unicode characters
-    # -tlatex     To generate images using LaTeX/Tikz format
-    # -tlatex:nopreamble  To generate images using LaTeX/Tikz format without preamble
-    # -testdot        To test the installation of graphviz
-    # -timeout N      Processing timeout in (N) seconds. Defaults to 15 minutes (900 seconds).
 ```
 
 所以，自己动手丰衣足食，使用 bash 脚本调用基本的工具完成 SVG 的生成，并调用 inkview 查看图形输出：
@@ -1386,10 +2157,10 @@ https://graphviz.org/Gallery/directed/Linux_kernel_diagram.html
 
 LaTeX 页面布局与页眉、页脚、页码设置：
 
-LaTeX2e: An unofficial reference manual https://latexref.xyz/Layout.html
-https://www.overleaf.com/learn/latex/Page_numbering
-https://www.overleaf.com/learn/latex/Headers_and_footers
-https://www.overleaf.com/learn/latex/Articles/A_visual_guide_to_LaTeX’s_page_layout_parameters
+1. LaTeX2e: An unofficial reference manual https://latexref.xyz/Layout.html
+2. https://www.overleaf.com/learn/latex/Page_numbering
+3. https://www.overleaf.com/learn/latex/Headers_and_footers
+4. https://www.overleaf.com/learn/latex/Articles/A_visual_guide_to_LaTeX’s_page_layout_parameters
 
 ```sh
 #!/usr/bin/env bash
@@ -1427,6 +2198,8 @@ inkview SVG-viewer-CTM.svg
 例如，以上公式图像产生的 SVG 就有 40KB，单是将数值精减到小数点后两位，文件尺寸就可以优化到 30KB，
 单这一项优化就缩小的 1/4 的数据量，而且从外观上并无差别。
 
+|   |   |   |
+|---|---|---|
 | ![MikTeX as Inkscape Extension](../svg/miktex_as_inkscape_extensions.svg) | ![MikTeX as Inkscape Extension](../svg/miktex_as_inkscape_extensions-truncated.svg) | ![MikTeX as Inkscape Extension](../svg/miktex_as_inkscape_extensions-svgo.svg)
 
 
@@ -1441,25 +2214,6 @@ svgo --pretty $name.svg -o $name-svgo.svg
 SVGO 是专门用于 SVG 图形文件优化的工具，经过压缩后的图像兼容性会下降，ImageMagick 可能无法准确重绘。
 它还可能会删除包含 XML 版本信息的标记头。
 
-Inkscape SVG 会引入两个自用的命名空间，它们专用于设置 Inkscape 专属的标记集：
-
-    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-    xmlns="http://www.w3.org/2000/svg"
-    xmlns:svg="http://www.w3.org/2000/svg"
-
-Sodipodi means "mish mash" or "hodgepodge" in Estonian child-speak.
-Inkscape 是早在 2003 年，SodiPodi 软件开发组内部的 4 位成员从其派生出的一个分支。
-Bryce Harrington, MenTaLguY, Nathan Hurst, Ted Gould 四人希望 Inkscape 遵循
-SVG 规范、更美的观感，并将其开源共建。
-
-Inkscape Tutorial - Chapter 6.  SVG File Format
-https://inkscapetutorial.org/svg-file-format.html
-
-
-用户扩展保存目录位于 %AppData%\inkscape，扩展开发参考：
-Writing Extensions (Text Guide) https://inkscape.org/develop/extensions/
-[MiKTeX Manual Revision 4.6 Christian Schenk](https://docs.miktex.org/manual/)
 
 [Pango](https://wiki.inkscape.org/wiki/index.php/Pangoification) is a library 
 that provides layout and rendering of internationalized text, 

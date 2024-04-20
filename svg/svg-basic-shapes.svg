@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<svg version="1.1" width="580" height="240"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns="http://www.w3.org/2000/svg">
+  <style>
+    svg { border: 1px solid black; }
+    #basic-line line { 
+      fill: white;
+      /*stroke: magenta;*/
+      stroke-width: 6px;
+      stroke-dasharray: 10px; 
+    }
+  </style>
+  <svg id="basic">
+    <title>Basic graphical elements</title>
+    <text x="0" y="50" dx="20" dy="0" rotate="15" 
+      font-family="Microsoft YaHei"> Basic Lines</text>
+    <g id="basic-line" transform="translate(40 50) rotate(0 0 0) scale(0.9)">
+       <line x1="0" y1="18" x2="90" y2="18" stroke="chocolate" />
+       <line x1="0" y1="36" x2="90" y2="36" stroke="chocolate" />
+       <line x1="0" y1="54" x2="90" y2="54" stroke="chocolate" />
+       <line x1="0" y1="72" x2="90" y2="72" stroke="chocolate" />
+       <line x1="0" y1="90" x2="90" y2="90" stroke="chocolate" />
+    </g>
+    <g id="basic-rect" transform="translate(140, 60)">
+      <rect x="15" y="0" width="80" height="80" rx="8" fill="blue" />
+    </g>
+    <g id="basic-circle" transform="translate(264, 50)">
+      <circle cx='46' cy='50' r='45' fill='yellOw' />
+    </g>
+    <g id="b3sic-ellipse" transform="translate(290, 40)">
+      <ellipse cx="0" cy="0" rx="290" ry="120" fill="none" stroke="black" stroke-width=".1" />
+    </g>
+    <g id-2="basic-polyline" transform="translate(360, 40)">
+      <polyline points="50,0 5,75 25,100 75,100 95,75 50,0" fill="purple" xlink:title="diamon" />
+    </g>
+    <g id="basic-polygon" transform="translate(460, 40)">
+      <polygon points="0,38 100,38 15,100 50,0 85,100" fill="firebrick" xlink:title="star" />
+    </g>
+  </svg>
+
+  <svg id="path">
+    <title>Complex Path Command</title>
+    <defs>
+      <symbol id="star" stroke="lightblue">
+        <path d="m 65,75 -23,-12 -23,12 4,-26 -19,-18 26,-4 11,-24 12,23 26,3 -18,18 -23,-12" />
+      </symbol>
+    </defs>
+    <g id="path" transform="translate(-5,0)" stroke="black" stroke-width="3" fill="none">
+      <use xlink:href="#star" transform="translate(0,160)" />
+      <use xlink:href="#star" transform="translate(73,160)" />
+      <use xlink:href="#star" transform="translate(146,160)" />
+      <use xlink:href="#star" transform="translate(219,160)" />
+      <use xlink:href="#star" transform="translate(292,160)" />
+      <use xlink:href="#star" transform="translate(365,160)" />
+      <use xlink:href="#star" transform="translate(438,160)" />
+      <use xlink:href="#star" transform="translate(511,160)" />
+    </g>
+  </svg>
+</svg>

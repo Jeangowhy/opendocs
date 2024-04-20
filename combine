@@ -9,23 +9,42 @@ print_title ()
     printf '\n%.0s' {1..2};
 }
 
+# $1 {string} file
+# $2 {boolean} force toc extract
+# $3 {number} depth
 function filter 
 {
-    local parent=`echo $1 | sed -n 's/[^/\]\+$//p'`
-    echo $1
+    local file="$1"
+    local toc="$2"
+    local depth="$3"
+    local parent=`echo "$file" | sed -n 's/[^/\]\+$//p'`
+    echo "$file"
+    if ! [[ -z $depth ]]; then echo "$file L$depth" >&2; fi
+
     while read it
     do
         if [[ -z "$it" ]]; then break; fi
+
+        if [[ "$it" =~ "*" ]]; then ls "$parent"$it; continue; fi
+
         doc="$parent${it/.rst/}.rst"
-        if ( [ -a $doc ] || [ -a "$doc.rst" ] ) && [ -z ${doc/*index.rst/} ]
+        bname=$(basename "${doc/.rst/}")
+        pname=$(basename $(dirname "$doc"))
+
+        if  ( [ -a $doc ] || [ -a "$doc.rst" ] ) && [ -z ${doc/*index.rst/} ] \
+            || [[ "$bname" == "$pname" ]] || ! [[ -z $toc ]]
         then
             echo "➊==>$doc" >&2
-            filter "$doc"
+            if [[ $depth > 1 ]]; then
+                filter "$doc" $toc $(($depth - 1))
+            else
+                filter "$doc"
+            fi
         else
             echo "➋$doc" >&2
             echo "$doc"
         fi
-    done <<< $( sed -n "/^.. toctree::/,/^\S/{ s/^ \+[^:]\+$/\0/p }" $1 \
+    done <<< $( sed -n 's/.. toctree::/::\n\0/; p' "$file" | sed -n "/^.. toctree::/,/^\S/{ s/^ \+[^:]\+$/\0/p }" \
       | sed -n 's|.*<\(.*\)>|\1|;p' \
       )
 }
@@ -44,8 +63,7 @@ function include()
 
 function toc() 
 {
-    # echo ../README.md
-    filter ./index.rst
+    filter docs/source/index.rst true 1
 }
 
 function doc()
@@ -88,6 +106,6 @@ EOF
 }
 
 
-out=/c/opendocs/haskell_docs.rst
+out=./manim_docs_community.rst
 combine > $out
 subl $out

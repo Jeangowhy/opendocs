@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<svg version="1.1" 
+    xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="580" height="180" viewBox="0 -30 220 140">
+  <style>
+    #red { fill: red; x: -20; y: -10; cursor: pointer; }
+    #gen { fill: green; x: 0; y: -10; cursor: pointer; }
+    #bue { fill: blue; x: 20; y: -10; cursor: pointer; }
+    #yel { fill: yellow; x: 40; y: -10; cursor: pointer; }
+    #cyn { fill: cyan; x: 60; y: -10; cursor: pointer; }
+  </style>
+  <path id="path" d="M10,50 q60,50 100,0 q60,-70 100,0" fill="none" stroke="gray"/>
+  <rect id="red" width="20" height="15" />
+  <rect id="gen" width="20" height="15" />
+  <rect id="bue" width="20" height="15" />
+  <rect id="yel" width="20" height="15" />
+  <rect id="cyn" width="20" height="15" />
+    <animateMotion xlink:href="#red" keyTimes="0;.1;1" calcMode="linear"
+        begin="click" dur="5s" rotate="auto" values="0,50;100,50;180,40;" >
+    </animateMotion>
+    <animateMotion xlink:href="#gen" calcMode="discrete"
+        begin="click" dur="5s" rotate="auto">
+        <mpath xlink:href="#path" />
+    </animateMotion>
+    <animateMotion xlink:href="#bue" keyTimes="0;.1;0.71" calcMode="discrete"
+        begin="click" dur="5s" rotate="auto" values="0,50;100,50;180,40;" >
+    </animateMotion>
+    <animateMotion xlink:href="#yel" keyTimes="0;0.2;1" calcMode="spline"
+        keySplines=".2 .5 .8 .5;.2 1 .8 .0; "
+        begin="click" dur="5s" rotate="auto" values="0,50;100,50;200,50;" >
+    </animateMotion>
+    <animateMotion xlink:href="#cyn" keyTimes="0;.1;0.71" calcMode="peaced"
+        keyPoints="0.0;0.5;.90" begin="click" dur="5s" rotate="auto">
+        <mpath xlink:href="#path" />
+    </animateMotion>
+</svg>

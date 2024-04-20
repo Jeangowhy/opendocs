@@ -2565,7 +2565,7 @@ Commands may be passed to Sublime Text directly from the command line
 of the operating system. Usage:
 
 ```bash
-subl --command 'show_overlay {"overlay": "command_palette", "text": "hello"}'
+subl --command 'show_overlay {"overlay": "command_palette", "text": "Markdown"}'
 # on Windows:
 sublime-text.exe --command "show_overlay {\"overlay\": \"command_palette\", \"text\": \"hello\"}"
 ```

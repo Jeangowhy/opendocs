@@ -1387,7 +1387,7 @@ Node.js 默认给 64 位的机器的新生代分配的内存是 64MB，但因为
 - https://nodejs.dev/learn/the-nodejs-event-emitter
 - https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/
 - JavaScript 运行机制详解：再谈 Event Loop http://www.ruanyifeng.com/blog/2014/10/event-loop.html
-- JavaScript 中的 Event Loop - Jake Archibald https://www.bilibili.com/video/BV1E441197g5
+- JavaScript 中的 Event Loop - Jake Archibald JSconf 2018 https://www.bilibili.com/video/BV1E441197g5
 - https://nodejs.org/en/docs/guides/timers-in-node/
 - https://nodejs.org/dist/latest-v14.x/docs/api/timers.html
 - https://swtch.com/~rsc/regexp/regexp1.html
@@ -1395,7 +1395,7 @@ Node.js 默认给 64 位的机器的新生代分配的内存是 64MB，但因为
 - https://nodejs.org/en/docs/guides/dont-block-the-event-loop/
 - https://nodejs.org/en/docs/guides/blocking-vs-non-blocking/
 - https://nodejs.dev/learn/the-nodejs-event-loop
-
+In The Loop - Jake Archibald@JSconf 2018 https://www.bilibili.com/video/BV1a4411F7t7
 Node.js 的运行机制如下：
 
 - V8 引擎解析 JavaScript 脚本。
@@ -1443,25 +1443,42 @@ Phases Overview
 
 示范：
 
-```
-setImmediate(function A() {
-  console.log(3);
-  setImmediate(function B(){console.log(4);});
-  setTimeout(function timeout() {
-    console.log('TIMEOUT FIRED');
+```js
+setImmediate( () => {
+  console.log('7 Imm');
+  setImmediate(() => {console.log('8 Imm');});
+  setTimeout(() => {
+    console.log('9 Timer');
   }, 0)
 });
 
-process.nextTick(function A() {
-  console.log(1);
-  process.nextTick(function B(){console.log(2);});
+setTimeout(()=>console.log("4 Timer"), 0)
+process.nextTick( () => {
+  console.log('2 Tick');
+  setTimeout(()=>console.log("6 Timer"), 0)
+  process.nextTick(() => {
+      console.log('3 Tick');
+  });
 });
 
-// 1
-// 2
-// 3
-// TIMEOUT FIRED
-// 4
+new Promise((res, rej) => {
+    console.log('1 Promise')
+    setTimeout( () => { res('Resolve') }, 0)
+}).then((res) => {
+    console.log('5 ' + res)
+})
+
+/*
+    1 Promise
+    2 Tick
+    3 Tick
+    4 Timer
+    5 Resolve
+    6 Timer
+    7 Imm
+    8 Imm
+    9 Timer
+*/
 ```
 
 Node.js 使用 Worker Pool 来执行那些花销大的任务，包括操作系统没有提供非阻塞的 I/O，也包含 CPU 密集型任务。
@@ -1530,7 +1547,7 @@ ReDoS - Regular expression Denial of Service 正则表达式拒绝服务攻击�
 - [译] Deep Dive into Worker Threads in Node.js https://blog.csdn.net/u010862794/article/details/107519722
 - [译] NodeJS Event Loop Part 2 - Timers, Immediates, nextTick  https://zhuanlan.zhihu.com/p/87396353
 - JavaScript 运行机制详解：再谈 Event Loop http://www.ruanyifeng.com/blog/2014/10/event-loop.html
-- JavaScript Event Loop - Jake Archibald https://www.bilibili.com/video/BV1E441197g5
+- In The Loop - Jake Archibald@JSconf 2018 https://www.bilibili.com/video/BV1E441197g5
 - https://developer.mozilla.org/zh-CN/docs/Web/API/MutationObserver
 
 Deepal Jayasekara 发布了 NodeJS Event Loop 系列文章，详细解析了事件循环与任务队列：
@@ -1589,6 +1606,24 @@ new MutationObserver(function () {
 - Timeers 队列在每次循环中不一定所有任务者执行完，可以被打断； 
 - RAF 队列在每个 Event Loop 循环中将当前队列中的所有任务处理完，后面添加的任务会在下一轮执行； 
 - Microtask 队列只要有任务，Event Loop 当下就会执行完再进入下一轮循环，如果持续在往队列添加任务会导致事件环卡在微任务的执行中；
+
+RAF 任务的目的是以固定帧率去执行 UI 任务，它们在 Event loop 中以固定的时间间隔执行。
+对比定时器等任务，它们可能在多轮 loop 中执行了多次，但是 RAF 始终固定的频率在执行。
+
+
+In The Loop - Jake Archibald@JSconf 2018 讲座中使用到的动画演示中，形象地展示这两种任务。
+https://blog.nerdondon.com/images/archibald-event-loop.png
+
+[Jake 文章中演示动画](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
+将代码运行任务划分成三个部分：
+
+1. Tasks      - setTimeout/setInterval callback
+2. Microtasks - Promise then
+3. JS stack   - sync code
+
+运行脚本时，要执行的代码就会进入 JS stack，遇到不同的回调就会安排不同的任务到 FIFO 队列，
+并安 Event loop 的处理顺序处理这些任务。
+
 
 以下代码，演示了各种任务的执行顺序，按数字编号：
 

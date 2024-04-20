@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-   #::
+#::
 
-      url=https://book.realworldhaskell.org/read/
-      url=https://book.realworldhaskell.org/read/defining-types-streamlining-functions.html
-      #pandoc --list-table=true -r html "$url" -t rst >> $0
-      python -m docutils "$0" "$0.html"
-      if [[ $? == 0 ]]; then start "$0.html" fi
-      exit
+   url=https://book.realworldhaskell.org/read/
+   url=https://book.realworldhaskell.org/read/data-structures.html
+   pandoc --list-table=true -r html "$url" -t rst >> $0
+   #python -m docutils "$0" "$0.html"
+   if [[ $? == 0 ]]; then start "$0.html" fi
+exit
 
 .. raw:: html
 
@@ -21,7 +21,7 @@
       .note, .tip {
          min-height: 32px;
           padding-left: 63px;
-          background: url(./pictures/haskell-tip.svg) no-repeat 16px 16px;
+          background: url(./pictures/haskell-tip.svg) no-repeat 16px 16px lightskyblue;
       }
 
       .warning, .caution {
@@ -47,28 +47,6 @@ by Bryan O'Sullivan, Don Stewart, and John Goerzen
       by Bryan O'Sullivan, Don Stewart, and John Goerzen
 
 .. 
-   .. _Defining types, streamlining functions: 
-      https://book.realworldhaskell.org/read/defining-types-streamlining-functions.html
-   .. _Functional programming: 
-      https://book.realworldhaskell.org/read/functional-programming.html
-   .. _Writing a library - working with JSON data: 
-      https://book.realworldhaskell.org/read/writing-a-library-working-with-json-data.html
-   .. _Using typeclasses: 
-      https://book.realworldhaskell.org/read/using-typeclasses.html
-   .. _Input and output: 
-      https://book.realworldhaskell.org/read/io.html
-   .. _Efficient file processing, regular expressions, and file name matching: 
-      https://book.realworldhaskell.org/read/efficient-file-processing-regular-expressions-and-file-name-matching.html
-   .. _I/O case study - a library for searching the filesystem: 
-      https://book.realworldhaskell.org/read/io-case-study-a-library-for-searching-the-filesystem.html
-   .. _Code case study - parsing a binary data format: 
-      https://book.realworldhaskell.org/read/code-case-study-parsing-a-binary-data-format.html
-   .. _Testing and quality assurance: 
-      https://book.realworldhaskell.org/read/testing-and-quality-assurance.html
-   .. _Barcode recognition: 
-      https://book.realworldhaskell.org/read/barcode-recognition.html
-   .. _Data structures: 
-      https://book.realworldhaskell.org/read/data-structures.html
    .. _Monads: 
       https://book.realworldhaskell.org/read/monads.html
    .. _Programming with monads: 
@@ -106,56 +84,6 @@ by Bryan O'Sullivan, Don Stewart, and John Goerzen
    .. _Web site and comment system usage and policies: 
       https://book.realworldhaskell.org/read/web-site-and-comment-system-usage-and-policies.html
 
-
-.. _sec-4:
-
-/Chapter 4. Functional programming `🔼 <#toc>`_
-================================================
-
-.. _sec-5:
-
-/Chapter 5. Writing a library - working with JSON data `🔼 <#toc>`_
-====================================================================
-
-.. _sec-6:
-
-/Chapter 6. Using typeclasses `🔼 <#toc>`_
-===========================================
-
-.. _sec-7:
-
-/Chapter 7. Input and output `🔼 <#toc>`_
-==========================================
-
-.. _sec-8:
-
-/Chapter 8. Efficient file processing, regular expressions, and file name matching `🔼 <#toc>`_
-================================================================================================
-
-.. _sec-9:
-
-/Chapter 9. I/O case study - a library for searching the filesystem `🔼 <#toc>`_
-=================================================================================
-
-.. _sec-10:
-
-/Chapter 10. Code case study - parsing a binary data format `🔼 <#toc>`_
-=========================================================================
-
-.. _sec-11:
-
-/Chapter 11. Testing and quality assurance `🔼 <#toc>`_
-========================================================
-
-.. _sec-12:
-
-/Chapter 12. Barcode recognition `🔼 <#toc>`_
-==============================================
-
-.. _sec-13:
-
-/Chapter 13. Data structures `🔼 <#toc>`_
-==========================================
 
 .. _sec-14:
 
@@ -284,14 +212,10 @@ by Bryan O'Sullivan, Don Stewart, and John Goerzen
    -  B. `Characters, strings, and escaping rules <#sec-B>`_
    -  C. `Web site and comment system usage and policies <#sec-C>`_
 
-.. container:: rwhfooter
-
-   Want to stay up to date? Subscribe to comment feeds for any
-   chapter, or the `entire book <https://book.realworldhaskell.org/feeds/comments/>`__.
-
    Copyright 2007, 2008 Bryan O'Sullivan, Don Stewart, and John Goerzen.
    This work is licensed under a 
-   `Creative Commons Attribution-Noncommercial 3.0 License <http://creativecommons.org/licenses/by-nc/3.0/>`__. Icons by
+   `Creative Commons Attribution-Noncommercial 3.0 License <http://creativecommons.org/licenses/by-nc/3.0/>`__. 
+   Icons by
    `Paul Davey <mailto:mattahan@gmail.com>`__ aka
    `Mattahan <http://mattahan.deviantart.com/>`__.
 
@@ -1283,11 +1207,10 @@ comments anonymously.
 
 .. _sec-1:
 
-/Chapter 1. Getting Started `🔼 <#toc>`_
+/Chapter 1. Getting Started `🔼 <#toc>`_
 ===================================================
 
-.. 
-   .. rubric:: Chapter 1. Getting Started
+..   .. rubric:: Chapter 1. Getting Started
       :name: chapter-1.-getting-started
       :class: title
 
@@ -1330,6 +1253,10 @@ comments anonymously.
                .. rubric:: Your Haskell environment
                   :name: starting.ghc
                   :class: title
+
+Your Haskell environment
+------------------------
+
 
       Haskell is a language with many implementations, of which two are
       in wide use. Hugs is an interpreter that is primarily used for
@@ -1378,7 +1305,7 @@ comments anonymously.
 
       For more detailed information about how to install GHC on a
       variety of popular platforms, we've provided some instructions in
-      `Appendix A, Installing GHC and Haskell libraries <installing-ghc-and-haskell-libraries.html>`__.
+      `Appendix A, Installing GHC and Haskell libraries <installing-ghc-and-haskell-libraries.html>`__.
 
    .. container:: sect1
 
@@ -1391,6 +1318,10 @@ comments anonymously.
                .. rubric:: Getting started with ghci, the interpreter
                   :name: starting.ghci
                   :class: title
+
+Getting started with ghci, the interpreter
+------------------------------------------
+
 
       The interactive interpreter for GHC is a program named **ghci**.
       It lets us enter and evaluate Haskell expressions, explore
@@ -1410,7 +1341,7 @@ comments anonymously.
       window. On Windows, it's available via the Start Menu. For
       example, if you installed using the GHC installer on Windows XP,
       you should go to “All Programs”, then “GHC”; you will then see
-      **ghci** in the list. (See `the section called “Windows” <installing-ghc-and-haskell-libraries.html#install.win>`__
+      **ghci** in the list. (See the section called `“Windows” <installing-ghc-and-haskell-libraries.html#install.win>`__
       for a screenshot.)
 
       When we run **ghci**, it displays a startup banner, followed by a
@@ -1485,6 +1416,10 @@ comments anonymously.
                   :name: starting.calc
                   :class: title
 
+Basic interaction: using ghci as a calculator
+---------------------------------------------
+
+
       In addition to providing a convenient interface for testing code
       fragments, **ghci** can function as a readily accessible desktop
       calculator. We can easily express any calculator operation in
@@ -1504,6 +1439,10 @@ comments anonymously.
                   .. rubric:: Simple arithmetic
                      :name: starting.calc.arithmetic
                      :class: title
+
+Simple arithmetic
+-----------------
+
 
          We can immediately start entering expressions, to see what
          **ghci** will do with them. Basic arithmetic works similarly to
@@ -1552,10 +1491,13 @@ comments anonymously.
 
                .. container::
 
-                  .. rubric:: An arithmetic quirk: writing negative
-                     numbers
+                  .. rubric:: An arithmetic quirk: writing negative numbers
                      :name: starting.calc.neg
                      :class: title
+
+An arithmetic quirk: writing negative numbers
+---------------------------------------------
+
 
          Haskell presents us with one peculiarity in how we must write
          numbers: it's often necessary to enclose a negative number in
@@ -1653,10 +1595,13 @@ comments anonymously.
 
                .. container::
 
-                  .. rubric:: Boolean logic, operators, and value
-                     comparisons
+                  .. rubric:: Boolean logic, operators, and value comparisons
                      :name: starting.calc.comparison
                      :class: title
+
+Boolean logic, operators, and value comparisons
+-----------------------------------------------
+
 
          The values of Boolean logic in Haskell are ``True`` and
          ``False``. The capitalization of these names is important. The
@@ -1700,15 +1645,15 @@ comments anonymously.
 
          .. container:: itemizedlist
 
-            -  “\ ``No instance for (Num Bool)``\ ” tells us that
+            -  “ ``No instance for (Num Bool)`` ” tells us that
                **ghci** is trying to treat the numeric value 1 as having
                a Bool type, but it cannot.
 
-            -  “\ :literal:`arising from the literal \`1'`\ ” indicates
+            -  “ :literal:`arising from the literal \`1'` ” indicates
                that it was our use of the number ``1`` that caused the
                problem.
 
-            -  “\ :literal:`In the definition of \`it'`\ ” refers to a
+            -  “ :literal:`In the definition of \`it'` ” refers to a
                **ghci** short cut that we will revisit in a few pages.
 
          .. Tip:: Remain fearless in the face of error messages
@@ -1777,6 +1722,10 @@ comments anonymously.
                      :name: starting.calc.precedence
                      :class: title
 
+Operator precedence and associativity
+-------------------------------------
+
+
          Like written algebra and other programming languages that use
          infix operators, Haskell has a notion of operator precedence.
          We can use parentheses to explicitly group parts of an
@@ -1816,10 +1765,10 @@ comments anonymously.
                 -- Defined in GHC.Num
             infixl 7 *
 
-         The information we seek is in the line “\ ``infixl 6 +``\ ”,
+         The information we seek is in the line “ ``infixl 6 +`` ”,
          which indicates that the ``(+)`` operator has a precedence of
          6. (We will explain the other output in a later chapter.) The
-         “\ ``infixl 7 *``\ ” tells us that the ``(*)`` operator has a
+         “ ``infixl 7 *`` ” tells us that the ``(*)`` operator has a
          precedence of 7. Since ``(*)`` has a higher precedence than
          ``(+)``, we can now see why ``1 + 4 * 4`` is evaluated as
          ``1 + (4 * 4)``, and not ``(1 + 4) * 4``.
@@ -1849,10 +1798,13 @@ comments anonymously.
 
                .. container::
 
-                  .. rubric:: Undefined values, and introducing
-                     variables
+                  .. rubric:: Undefined values, and introducing variables
                      :name: starting.calc.undef
                      :class: title
+
+Undefined values, and introducing variables
+-------------------------------------------
+
 
          Haskell's prelude, the standard library we mentioned earlier,
          defines at least one well-known mathematical constant for us.
@@ -1912,7 +1864,7 @@ comments anonymously.
             The syntax for ``let`` that **ghci** accepts is not
             the same as we would use at the “top level” of a
             normal Haskell program. We will see the normal
-            syntax in `the section called “Introducing local variables” <#deftypes.locals>`__.
+            syntax in the section called `“Introducing local variables” <#deftypes.locals>`__.
 
       .. container:: sect2
 
@@ -1922,10 +1874,13 @@ comments anonymously.
 
                .. container::
 
-                  .. rubric:: Dealing with precedence and associativity
-                     rules
+                  .. rubric:: Dealing with precedence and associativity rules
                      :name: id575887
                      :class: title
+
+Dealing with precedence and associativity rules
+-----------------------------------------------
+
 
          It is sometimes better to leave at least some parentheses in
          place, even when Haskell allows us to omit them. Their presence
@@ -1953,6 +1908,10 @@ comments anonymously.
                .. rubric:: Command line editing in ghci
                   :name: starting.ghci.edit
                   :class: title
+
+Command line editing in ghci
+----------------------------
+
 
       On most systems, **ghci** has some amount of command line editing
       ability. In case you are not familiar with command line editing,
@@ -1990,6 +1949,10 @@ comments anonymously.
                .. rubric:: Lists
                   :name: starting.list
                   :class: title
+
+Lists
+-----
+
 
       A list is surrounded by square brackets; the elements are
       separated by commas.
@@ -2113,6 +2076,10 @@ comments anonymously.
                      :name: starting.list.op
                      :class: title
 
+Operators on lists
+------------------
+
+
          There are two ubiquitous operators for working with lists. We
          concatenate two lists using the ``(++)`` operator.
 
@@ -2153,6 +2120,10 @@ comments anonymously.
                   :name: starting.string
                   :class: title
 
+Strings and characters
+----------------------
+
+
       If you know a language like Perl or C, you'll find Haskell's
       notations for strings familiar.
 
@@ -2168,7 +2139,7 @@ comments anonymously.
       “escaping” them. Haskell's escape characters and escaping rules
       follow the widely used conventions established by the C language.
       For example, ``'\n'`` denotes a newline character, and ``'\t'`` is
-      a tab character. For complete details, see `Appendix B,
+      a tab character. For complete details, see `Appendix B,
       Characters, strings, and escaping
       rules <characters-strings-and-escaping-rules.html>`__.
 
@@ -2233,6 +2204,10 @@ comments anonymously.
                .. rubric:: First steps with types
                   :name: starting.types
                   :class: title
+
+First steps with types
+----------------------
+
 
       While we've talked a little about types already, our interactions
       with **ghci** have so far been free of much type-related thinking.
@@ -2437,7 +2412,7 @@ comments anonymously.
       case, we ask **ghci** to print the type of the expression without
       actually evaluating it, so it does not have to be so specific. It
       answers, in effect, “its type is numeric”. We will see more of
-      this style of type annotation in `Chapter 6, Using Typeclasses <using-typeclasses.html>`__.
+      this style of type annotation in `Chapter 6, Using Typeclasses <using-typeclasses.html>`__.
 
    .. container:: sect1
 
@@ -2450,6 +2425,10 @@ comments anonymously.
                .. rubric:: A simple program
                   :name: id577314
                   :class: title
+
+A simple program
+----------------
+
 
       Let's take a small leap ahead, and write a small program that
       counts the number of lines in its input. Don't expect to
@@ -2467,7 +2446,7 @@ comments anonymously.
              where wordCount input = show (length (lines input)) ++ "\n"
 
       Find or create a text file; let's call it
-      ``quux.txt``\ :sup:`[`\ `1 <#ftn.id577349>`__\ :sup:`]`.
+      ``quux.txt`` :sup:`[` `1 <#ftn.id577349>`__ :sup:`]`.
 
       .. code:: haskell
          :class: screen
@@ -2505,6 +2484,10 @@ comments anonymously.
                .. rubric:: Exercises
                   :name: starting.types.exercises
                   :class: title
+
+Exercises
+---------
+
 
       .. container:: qandaset
 
@@ -2556,7 +2539,7 @@ comments anonymously.
 
       .. container:: footnote
 
-         :sup:`[`\ `1 <#id577349>`__\ :sup:`]` Incidentally, what do
+         :sup:`[` `1 <#id577349>`__ :sup:`]` Incidentally, what do
          these cities have in common?
 
 
@@ -2565,18 +2548,10 @@ comments anonymously.
 /Chapter 2. Types and Functions `🔼 <#toc>`_
 ============================================
 
-.. container:: chapter
-   :name: funcstypes
+..   .. rubric:: Chapter 2. Types and Functions
+      :name: chapter-2.-types-and-functions
+      :class: title
 
-   .. container:: titlepage
-
-      .. container::
-
-         .. container::
-
-            .. rubric:: Chapter 2. Types and Functions
-               :name: chapter-2.-types-and-functions
-               :class: title
 
    .. container:: toc
 
@@ -2638,6 +2613,10 @@ comments anonymously.
                   :name: id577672
                   :class: title
 
+Why care about types?
+---------------------
+
+
       Every expression and function in Haskell has a *type*. For
       example, the value ``True`` has the type Bool, while the value
       ``"foo"`` has the type String. The type of a value indicates that
@@ -2683,6 +2662,10 @@ comments anonymously.
                   :name: funcstypes.types
                   :class: title
 
+Haskell's type system
+---------------------
+
+
       There are three interesting aspects to types in Haskell: they are
       *strong*, they are *static*, and they can be automatically
       *inferred*. Let's talk in more detail about each of these ideas.
@@ -2702,6 +2685,10 @@ comments anonymously.
                   .. rubric:: Strong types
                      :name: id577786
                      :class: title
+
+Strong types
+------------
+
 
          When we say that Haskell has a *strong* type system, we mean
          that the type system guarantees that a program cannot contain
@@ -2784,6 +2771,10 @@ comments anonymously.
                      :name: id577931
                      :class: title
 
+Static types
+------------
+
+
          Having a *static* type system means that the compiler knows the
          type of every value and expression at compile time, before any
          code is executed. A Haskell compiler or interpreter will detect
@@ -2812,9 +2803,9 @@ comments anonymously.
          Static typing can occasionally make it difficult to write some
          useful kinds of code. In languages like Python, “duck typing”
          is common, where an object acts enough like another to be used
-         as a substitute for it\ :sup:`[`\ `2 <#ftn.id578004>`__\ :sup:`]`. Fortunately,
+         as a substitute for it :sup:`[` `2 <#ftn.id578004>`__ :sup:`]`. Fortunately,
          Haskell's system of *typeclasses*, which we will cover in
-         `Chapter 6, Using Typeclasses <using-typeclasses.html>`__,
+         `Chapter 6, Using Typeclasses <using-typeclasses.html>`__,
          provides almost all of the benefits of dynamic typing, in a
          safe and convenient form. Haskell has some support for
          programming with truly dynamic types, though it is not quite as
@@ -2862,8 +2853,12 @@ comments anonymously.
                      :name: id578066
                      :class: title
 
+Type inference
+--------------
+
+
          Finally, a Haskell compiler can automatically deduce the types
-         of almost\ :sup:`[`\ `3 <#ftn.id578076>`__\ :sup:`]` all
+         of almost :sup:`[` `3 <#ftn.id578076>`__ :sup:`]` all
          expressions in a program. This process is known as *type
          inference*. Haskell allows us to explicitly declare the type of
          any value, but the presence of type inference means that this
@@ -2880,6 +2875,10 @@ comments anonymously.
                .. rubric:: What to expect from the type system
                   :name: id578095
                   :class: title
+
+What to expect from the type system
+-----------------------------------
+
 
       Our exploration of the major capabilities and benefits of
       Haskell's type system will span a number of chapters. Early on,
@@ -2929,7 +2928,11 @@ comments anonymously.
                   :name: funcstypes.basic
                   :class: title
 
-      In `the section called “First steps with types” <getting-started.html#starting.types>`__, 
+Some common basic types
+-----------------------
+
+
+      In the section called `“First steps with types” <getting-started.html#starting.types>`__, 
       we introduced a
       few types. Here are several more of the most common base types.
 
@@ -2963,9 +2966,9 @@ comments anonymously.
             efficient, so Float is much slower.)
 
       We have already briefly seen Haskell's notation for types in 
-      `the section called “First steps with types” <getting-started.html#starting.types>`__. 
+      the section called `“First steps with types” <getting-started.html#starting.types>`__. 
       When we write a
-      type explicitly, we use the notation ``expression ::``\ ``MyType``
+      type explicitly, we use the notation ``expression ::`` ``MyType``
       to say that ``expression`` has the type MyType. If we omit the
       ``::`` and the type that follows, a Haskell compiler will infer
       the type of the expression.
@@ -2998,6 +3001,10 @@ comments anonymously.
                .. rubric:: Function application
                   :name: funcstypes.calling
                   :class: title
+
+Function application
+--------------------
+
 
       Now that we've had our fill of data types for a while, let's turn
       our attention to *working* with some of the types we've seen,
@@ -3071,11 +3078,15 @@ comments anonymously.
                   :name: funcstypes.composite
                   :class: title
 
+Useful composite data types: lists and tuples
+---------------------------------------------
+
+
       A composite data type is constructed from other types. The most
       common composite data types in Haskell are lists and tuples.
 
       We've already seen the list type mentioned in 
-      `the section called “Strings and characters” <getting-started.html#starting.string>`__, 
+      the section called `“Strings and characters” <getting-started.html#starting.string>`__, 
       where we found that Haskell represents a text string as a list of Char
       values, and that the type “list of Char” is written [Char].
 
@@ -3103,7 +3114,7 @@ comments anonymously.
          ghci> tail "list"
          "ist"
          ghci> tail []
-         \*\*\* Exception: Prelude.tail: empty list
+         *** Exception: Prelude.tail: empty list
 
       As you can see, we can apply ``head`` and ``tail`` to lists of
       different types. Applying ``head`` to a [Char] value returns a
@@ -3112,7 +3123,7 @@ comments anonymously.
       deals with.
 
       Because the values in a list can have any type, we call the list
-      type *polymorphic*\ :sup:`[`\ `4 <#ftn.id578737>`__\ :sup:`]`.
+      type *polymorphic* :sup:`[` `4 <#ftn.id578737>`__ :sup:`]`.
       When we want to write a polymorphic type, we use a *type
       variable*, which must begin with a lowercase letter. A type
       variable is a placeholder, where eventually we'll substitute a
@@ -3155,7 +3166,7 @@ comments anonymously.
          stepping stone into the idea that we can use data to
          structure our program and its control flow. We'll be
          spending a lot more time discussing lists in
-         `Chapter 4, Functional programming <functional-programming.html>`__.
+         `Chapter 4, Functional programming <functional-programming.html>`__.
 
       A tuple is a fixed-size collection of values, where each value can
       have a different type. This distinguishes them from a list, which
@@ -3244,6 +3255,10 @@ comments anonymously.
                      :name: funcstypes.composite.exercises
                      :class: title
 
+Exercises
+---------
+
+
          .. container:: qandaset
 
             .. list-table::
@@ -3270,6 +3285,10 @@ comments anonymously.
                .. rubric:: Functions over lists and tuples
                   :name: id579120
                   :class: title
+
+Functions over lists and tuples
+-------------------------------
+
 
       Our discussion of lists and tuples mentioned how we can construct
       them, but little about how we do anything with them afterwards. We
@@ -3336,6 +3355,10 @@ comments anonymously.
                      :name: funcstypes.calling.expr
                      :class: title
 
+Passing an expression to a function
+-----------------------------------
+
+
          In Haskell, function application is left associative. This is
          best illustrated by example: the expression ``a b c d`` is
          equivalent to ``(((a b) c) d)``. If we want to use one
@@ -3368,6 +3391,10 @@ comments anonymously.
                   :name: funcstypes.sigs
                   :class: title
 
+Function types and purity
+-------------------------
+
+
       Let's take a look at a function's type.
 
       .. code:: haskell
@@ -3377,8 +3404,8 @@ comments anonymously.
          lines :: String -> [String]
 
       We can read the ``->`` above as “to”, which loosely translates to
-      “returns”. The signature as a whole thus reads as “\ ``lines`` has
-      the type String to list-of-String\ ”. Let's try applying the
+      “returns”. The signature as a whole thus reads as “ ``lines`` has
+      the type String to list-of-String ”. Let's try applying the
       function.
 
       .. code:: haskell
@@ -3428,17 +3455,20 @@ comments anonymously.
 
             .. container::
 
-               .. rubric:: Haskell source files, and writing simple
-                  functions
+               .. rubric:: Haskell source files, and writing simple functions
                   :name: funcstypes.srcfile
                   :class: title
+
+Haskell source files, and writing simple functions
+--------------------------------------------------
+
 
       Now that we know how to apply functions, it's time we turned our
       attention to writing them. While we can write functions in
       **ghci**, it's not a good environment for this. It only accepts a
       highly restricted subset of Haskell: most importantly, the syntax
       it uses for defining functions is not the same as we use in a
-      Haskell source file\ :sup:`[`\ `5 <#ftn.id579534>`__\ :sup:`]`.
+      Haskell source file :sup:`[` `5 <#ftn.id579534>`__ :sup:`]`.
       Instead, we'll finally break down and create a source file.
 
       Haskell source files are usually identified with a suffix of
@@ -3513,6 +3543,10 @@ comments anonymously.
                      :name: funcstypes.variable
                      :class: title
 
+Just what is a variable, anyway?
+--------------------------------
+
+
          In Haskell, a variable provides a way to give a name to an
          expression. Once a variable is *bound to* (i.e. associated
          with) a particular expression, its value does not change: we
@@ -3579,6 +3613,10 @@ comments anonymously.
                   .. rubric:: Conditional evaluation
                      :name: funcstypes.if
                      :class: title
+
+Conditional evaluation
+----------------------
+
 
          Like many other languages, Haskell has an ``if`` expression.
          Let's see it in action, then we'll explain what's going on. As
@@ -3758,6 +3796,10 @@ comments anonymously.
                   :name: id580425
                   :class: title
 
+Understanding evaluation by example
+-----------------------------------
+
+
       In our description of ``myDrop``, we have so far focused on
       surface features. We need to go deeper, and develop a useful
       mental model of how function application works. To do this, we'll
@@ -3782,6 +3824,10 @@ comments anonymously.
                   .. rubric:: Lazy evaluation
                      :name: id580456
                      :class: title
+
+Lazy evaluation
+---------------
+
 
          We will begin by looking at the definition of a simple,
          nonrecursive function.
@@ -3818,7 +3864,7 @@ comments anonymously.
          never subsequently used, we will not compute its value at all.
 
          Non-strict evaluation is often referred to as *lazy
-         evaluation*\ :sup:`[`\ `6 <#ftn.id580576>`__\ :sup:`]`.
+         evaluation* :sup:`[` `6 <#ftn.id580576>`__ :sup:`]`.
 
       .. container:: sect2
 
@@ -3831,6 +3877,10 @@ comments anonymously.
                   .. rubric:: A more involved example
                      :name: id580594
                      :class: title
+
+A more involved example
+-----------------------
+
 
          Let us now look at the evaluation of the expression
          ``myDrop 2 "abcd"``, where we use ``print`` to ensure that it
@@ -3944,6 +3994,10 @@ comments anonymously.
                      :name: id580915
                      :class: title
 
+Recursion
+---------
+
+
          When we apply ``myDrop`` recursively, ``n`` is bound to the
          thunk ``2 - 1``, and ``xs`` to ``tail "abcd"``.
 
@@ -4005,6 +4059,10 @@ comments anonymously.
                      :name: id581112
                      :class: title
 
+Ending the recursion
+--------------------
+
+
          In the next recursive application of ``myDrop``, we bind ``n``
          to ``1 - 1`` and ``xs`` to ``tail "bcd"``.
 
@@ -4055,6 +4113,10 @@ comments anonymously.
                   .. rubric:: Returning from the recursion
                      :name: id581267
                      :class: title
+
+Returning from the recursion
+----------------------------
+
 
          Remember, we're now inside our second recursive application of
          ``myDrop``. This application evaluates to ``tail "bcd"``. We
@@ -4114,6 +4176,10 @@ comments anonymously.
                      :name: id581397
                      :class: title
 
+What have we learned?
+---------------------
+
+
          We have established several important points here.
 
          .. container:: itemizedlist
@@ -4139,6 +4205,10 @@ comments anonymously.
                .. rubric:: Polymorphism in Haskell
                   :name: funcstypes.polymorphism
                   :class: title
+
+Polymorphism in Haskell
+-----------------------
+
 
       When we introduced lists, we mentioned that the list type is
       polymorphic. We'll talk about Haskell's polymorphism in more
@@ -4244,7 +4314,7 @@ comments anonymously.
       simple automatic coercion.
 
       This is not the whole story of polymorphism in Haskell: we'll
-      return to the subject in `Chapter 6, Using
+      return to the subject in `Chapter 6, Using
       Typeclasses <using-typeclasses.html>`__.
 
       .. container:: sect2
@@ -4259,7 +4329,11 @@ comments anonymously.
                      :name: id581696
                      :class: title
 
-         In `the section called “Function types and
+Reasoning about polymorphic functions
+-------------------------------------
+
+
+         In the section called `“Function types and
          purity” <#funcstypes.sigs>`__, we
          talked about figuring out the behaviour of a function based on
          its type signature. We can apply the same kind of reasoning to
@@ -4295,6 +4369,10 @@ comments anonymously.
                         :name: id581793
                         :class: title
 
+Further reading
+---------------
+
+
             There is a deep mathematical sense in which any
             non-pathological function of type (a,b) -> a must do exactly
             what ``fst`` does. Moreover, this line of reasoning extends
@@ -4314,10 +4392,13 @@ comments anonymously.
 
             .. container::
 
-               .. rubric:: The type of a function of more than one
-                  argument
+               .. rubric:: The type of a function of more than one argument
                   :name: id581829
                   :class: title
+
+The type of a function of more than one argument
+------------------------------------------------
+
 
       So far, we haven't looked much at signatures for functions that
       take more than one argument. We've already used a few such
@@ -4348,7 +4429,7 @@ comments anonymously.
 
       This is correct, but it's not easy to see what its consequences
       might be. We'll return to this topic in 
-      `the section called “Partial function application and currying” <functional-programming.html#fp.partialapp>`__, 
+      the section called `“Partial function application and currying” <#fp.partialapp>`__, 
       once we've spent a bit of time writing functions. For now, we can treat
       the type following the last ``->`` as being the function's return
       type, and the preceding types to be those of the function's
@@ -4374,6 +4455,10 @@ comments anonymously.
                .. rubric:: Exercises
                   :name: funcstypes.sigs.exercises
                   :class: title
+
+Exercises
+---------
+
 
       .. container:: qandaset
 
@@ -4411,6 +4496,10 @@ comments anonymously.
                .. rubric:: Why the fuss over purity?
                   :name: id582031
                   :class: title
+
+Why the fuss over purity?
+-------------------------
+
 
       Few programming languages go as far as Haskell in insisting that
       purity should be the default. This choice has profound and
@@ -4476,6 +4565,10 @@ comments anonymously.
                   :name: funcstypes.end
                   :class: title
 
+Conclusion
+----------
+
+
       In this chapter, we've had a whirlwind overview of Haskell's type
       system and much of its syntax. We've read about the most common
       types, and discovered how to write simple functions. We've been
@@ -4483,7 +4576,7 @@ comments anonymously.
       about lazy evaluation.
 
       This all amounts to a lot of information to absorb. In 
-      `Chapter 3, Defining Types, Streamlining Functions <defining-types-streamlining-functions.html>`__, 
+      `Chapter 3, Defining Types, Streamlining Functions <defining-types-streamlining-functions.html>`__, 
       we'll build on this basic knowledge to further enhance our understanding
       of Haskell.
 
@@ -4491,32 +4584,32 @@ comments anonymously.
 
       .. container:: footnote
 
-         :sup:`[`\ `2 <#id578004>`__\ :sup:`]` “If it walks like a duck,
+         :sup:`[` `2 <#id578004>`__ :sup:`]` “If it walks like a duck,
          and quacks like a duck, then let's call it a duck.”
 
       .. container:: footnote
 
-         :sup:`[`\ `3 <#id578076>`__\ :sup:`]` Occasionally, we need to
+         :sup:`[` `3 <#id578076>`__ :sup:`]` Occasionally, we need to
          give the compiler a little information to help it to make a
          choice in understanding our code.
 
       .. container:: footnote
 
-         :sup:`[`\ `4 <#id578737>`__\ :sup:`]` We'll talk more about
-         polymorphism in `the section called “Polymorphism in
+         :sup:`[` `4 <#id578737>`__ :sup:`]` We'll talk more about
+         polymorphism in the section called `“Polymorphism in
          Haskell” <#funcstypes.polymorphism>`__.
 
       .. container:: footnote
 
-         :sup:`[`\ `5 <#id579534>`__\ :sup:`]` The environment in which
-         **ghci** operates is called the IO monad. In `Chapter 7,
+         :sup:`[` `5 <#id579534>`__ :sup:`]` The environment in which
+         **ghci** operates is called the IO monad. In `Chapter 7,
          I/O <io.html>`__, we will cover the IO monad in depth, and the
          seemingly arbitrary restrictions that **ghci** places on us
          will make more sense.
 
       .. container:: footnote
 
-         :sup:`[`\ `6 <#id580576>`__\ :sup:`]` The terms “non-strict”
+         :sup:`[` `6 <#id580576>`__ :sup:`]` The terms “non-strict”
          and “lazy” have slightly different technical meanings, but we
          won't go into the details of the distinction here.
 
@@ -4526,11 +4619,10 @@ comments anonymously.
 /Chapter 3. Defining types, streamlining functions `🔼 <#toc>`_
 ================================================================
 
-   .. 
-            .. rubric:: Chapter 3. Defining Types, Streamlining
-               Functions
-               :name: chapter-3.-defining-types-streamlining-functions
-               :class: title
+..   .. rubric:: Chapter 3. Defining Types, Streamlining
+      Functions
+      :name: chapter-3.-defining-types-streamlining-functions
+      :class: title
 
    .. container:: toc
 
@@ -4599,6 +4691,10 @@ comments anonymously.
                   :name: deftypes.data
                   :class: title
 
+Defining a new data type
+------------------------
+
+
       Although lists and tuples are useful, we'll often want to
       construct new data types of our own. This allows us to add
       structure to the values in our programs. Instead of using an
@@ -4664,7 +4760,7 @@ comments anonymously.
       .. Note:: Deriving what?
 
          We'll explain the full meaning of ``deriving (Show)``
-         later, in `the section called “Show” <using-typeclasses.html#typeclasses.wellknown.show>`__.
+         later, in the section called `“Show” <#typeclasses.wellknown.show>`__.
          For now, it's enough to know that we need to tack this
          onto a type declaration so that **ghci** will
          automatically know how to print a value of this type.
@@ -4765,6 +4861,10 @@ comments anonymously.
                      :name: id582783
                      :class: title
 
+Naming types and values
+-----------------------
+
+
          When we introduced the type BookStore, we deliberately chose to
          give the type constructor BookStore a different name from the
          value constructor ``Book``, purely to make it obvious which was
@@ -4807,6 +4907,10 @@ comments anonymously.
                   :name: deftypes.alias
                   :class: title
 
+Type synonyms
+-------------
+
+
       We can introduce a *synonym* for an existing type at any time, to
       give a type a more descriptive name. For example, the String in
       our BookReview type doesn't tell us what the string is for, but we
@@ -4838,7 +4942,7 @@ comments anonymously.
       This states that we can use BookRecord as a synonym for the tuple
       (BookInfo, BookReview). A type synonym only creates a new name
       that refers to an existing
-      type\ :sup:`[`\ `7 <#ftn.id582956>`__\ :sup:`]`. We still use the
+      type :sup:`[` `7 <#ftn.id582956>`__ :sup:`]`. We still use the
       same value constructors to create a value of the type.
 
    .. container:: sect1
@@ -4852,6 +4956,10 @@ comments anonymously.
                .. rubric:: Algebraic data types
                   :name: deftypes.adt
                   :class: title
+
+Algebraic data types
+--------------------
+
 
       The familiar Bool is the simplest common example of a category of
       type called an *algebraic data type*. An algebraic data type can
@@ -4876,7 +4984,7 @@ comments anonymously.
          Although the phrase “algebraic data type” is long,
          we're being careful to avoid using the acronym “ADT”.
          That acronym is already widely understood to stand for
-         “\ *abstract* data type\ ”. Since Haskell supports
+         “ *abstract* data type ”. Since Haskell supports
          both algebraic and abstract data types, we'll be
          explicit and avoid the acronym entirely.
 
@@ -4947,10 +5055,13 @@ comments anonymously.
 
                .. container::
 
-                  .. rubric:: Tuples, algebraic data types, and when to
-                     use each
+                  .. rubric:: Tuples, algebraic data types, and when to use each
                      :name: id583233
                      :class: title
+
+Tuples, algebraic data types, and when to use each
+--------------------------------------------------
+
 
          There is some overlap between tuples and user-defined algebraic
          data types. If we wanted to, we could represent our BookInfo
@@ -5075,10 +5186,13 @@ comments anonymously.
 
                .. container::
 
-                  .. rubric:: Analogues to algebraic data types in other
-                     languages
+                  .. rubric:: Analogues to algebraic data types in other languages
                      :name: deftypes.adt.comp
                      :class: title
+
+Analogues to algebraic data types in other languages
+-----------------------------------------------------
+
 
          Algebraic data types provide a single powerful way to describe
          data types. Other languages often need several different
@@ -5098,6 +5212,10 @@ comments anonymously.
                      .. rubric:: The structure
                         :name: id583523
                         :class: title
+
+The structure
+-------------
+
 
             With just one constructor, an algebraic data type is similar
             to a tuple: it groups related values together into a
@@ -5129,9 +5247,9 @@ comments anonymously.
             first field of the Haskell type, and the title is in the
             second. We refer to them by location, not by name.
 
-            In `the section called “Pattern matching” <#deftypes.pattern>`__,
+            In the section called `“Pattern matching” <#deftypes.pattern>`__,
             we'll see how to access the fields of a BookStore value. In
-            `the section called “Record syntax” <#deftypes.record>`__,
+            the section called `“Record syntax” <#deftypes.record>`__,
             we'll introduce an alternate syntax for defining data types
             that looks a little more C-like.
 
@@ -5146,6 +5264,10 @@ comments anonymously.
                      .. rubric:: The enumeration
                         :name: id583611
                         :class: title
+
+The enumeration
+---------------
+
 
             Algebraic data types also serve where we'd use an ``enum``
             in C or C++, to represent a range of symbolic values. Such
@@ -5228,6 +5350,10 @@ comments anonymously.
                         :name: id583781
                         :class: title
 
+The discriminated union
+-----------------------
+
+
             If an algebraic data type has multiple alternatives, we can
             think of it as similar to a ``union`` in C or C++. A big
             difference between the two is that a union doesn't tell us
@@ -5284,7 +5410,7 @@ comments anonymously.
             If we create a Shape value using the ``Circle`` constructor,
             the fact that we created a ``Circle`` is stored. When we
             later use a ``Circle``, we can't accidentally treat it as a
-            ``Square``. We will see why in `the section called “Pattern
+            ``Square``. We will see why in the section called `“Pattern
             matching” <#deftypes.pattern>`__
 
             .. Tip:: A few notes
@@ -5307,6 +5433,10 @@ comments anonymously.
                .. rubric:: Pattern matching
                   :name: deftypes.pattern
                   :class: title
+
+Pattern matching
+----------------
+
 
       Now that we've seen how to construct values with algebraic data
       types, let's discuss how we work with these values. If we have a
@@ -5365,7 +5495,7 @@ comments anonymously.
       notation ``[1,2]`` is shorthand for the expression ``(1:(2:[]))``.
       We begin by trying to match the pattern in the first equation of
       the definition of ``sumList``. In the ``(x:xs)`` pattern, the
-      “\ ``:``\ ” is the familiar list constructor, ``(:)``. We are now
+      “ ``:`` ” is the familiar list constructor, ``(:)``. We are now
       using it to match against a value, not to construct one. The value
       ``(1:(2:[]))`` was constructed with ``(:)``, so the constructor in
       the value matches the constructor in the pattern. We say that the
@@ -5415,6 +5545,10 @@ comments anonymously.
                      :name: id584277
                      :class: title
 
+Construction and deconstruction
+-------------------------------
+
+
          Let's step back and take a look at the relationship between
          constructing a value and pattern matching on it.
 
@@ -5446,7 +5580,7 @@ comments anonymously.
                ``["John Long"]``.
 
          Because pattern matching acts as the inverse of construction,
-         it's sometimes referred to as *de*\ construction.
+         it's sometimes referred to as *de* construction.
 
          .. Note:: Deconstruction doesn't destroy anything
 
@@ -5467,6 +5601,10 @@ comments anonymously.
                   .. rubric:: Further adventures
                      :name: id584453
                      :class: title
+
+Further adventures
+------------------
+
 
          The syntax for pattern matching on a tuple is similar to the
          syntax for constructing a tuple. Here's a function that returns
@@ -5509,10 +5647,10 @@ comments anonymously.
             :class: screen
 
             ghci> complicated (False, 1, [1,2,3], 5)
-            \*\*\* Exception: Tuple.hs:10:0-39: Non-exhaustive patterns in function complicated
+            *** Exception: Tuple.hs:10:0-39: Non-exhaustive patterns in function complicated
 
          For an explanation of this error message, skip forward a little, to
-         `the section called “Exhaustive patterns and wild cards” <#deftypes.patterns.nonexhaustive>`__.
+         the section called `“Exhaustive patterns and wild cards” <#deftypes.patterns.nonexhaustive>`__.
 
          We can pattern match on an algebraic data type using its value
          constructors. Recall the BookInfo type we defined earlier: we
@@ -5571,10 +5709,14 @@ comments anonymously.
                      :name: id584746
                      :class: title
 
+Variable naming in patterns
+---------------------------
+
+
          As you read functions that match on lists, you'll frequently
          find that the names of the variables inside a pattern resemble
          ``(x:xs)`` or ``(d:ds)``. This is a popular naming convention.
-         The idea is that the name ``xs`` has an “\ ``s``\ ” on the end
+         The idea is that the name ``xs`` has an “ ``s`` ” on the end
          of its name as if it's the “plural” of ``x``, because ``x``
          contains the head of the list, and ``xs`` the remaining
          elements.
@@ -5591,9 +5733,13 @@ comments anonymously.
                      :name: deftypes.wildcard
                      :class: title
 
+The wild card pattern
+---------------------
+
+
          We can indicate that we don't care what is present in part of a
          pattern. The notation for this is the underscore character
-         “\ ``_``\ ”, which we call a *wild card*. We use it as follows.
+         “ ``_`` ”, which we call a *wild card*. We use it as follows.
 
          .. code:: haskell
             :class: programlisting
@@ -5631,6 +5777,10 @@ comments anonymously.
                      :name: deftypes.patterns.nonexhaustive
                      :class: title
 
+Exhaustive patterns and wild cards
+----------------------------------
+
+
          When writing a series of patterns, it's important to cover all
          of a type's constructors. For example, if we're inspecting a
          list, we should have one equation that matches the non-empty
@@ -5653,7 +5803,7 @@ comments anonymously.
             :class: screen
 
             ghci> badExample []
-            \*\*\* Exception: BadPattern.hs:4:0-36: Non-exhaustive patterns in function badExample
+            *** Exception: BadPattern.hs:4:0-36: Non-exhaustive patterns in function badExample
 
          In this example, no equation in the function's definition
          matches the value ``[]``.
@@ -5699,6 +5849,10 @@ comments anonymously.
                .. rubric:: Record syntax
                   :name: deftypes.record
                   :class: title
+
+Record syntax
+-------------
+
 
       Writing accessor functions for each of a data type's components
       can be repetitive and tedious.
@@ -5852,6 +6006,10 @@ comments anonymously.
                   :name: deftypes.paramtypes
                   :class: title
 
+Parameterised types
+-------------------
+
+
       We've repeatedly mentioned that the list type is polymorphic: the
       elements of a list can be of any type. We can also add
       polymorphism to our own types. To do this, we introduce type
@@ -5924,6 +6082,10 @@ comments anonymously.
                .. rubric:: Recursive types
                   :name: deftypes.recursive
                   :class: title
+
+Recursive types
+---------------
+
 
       The familiar list type is *recursive*: it's defined in terms of
       itself. To understand this, let's create our own list-like type.
@@ -6086,6 +6248,10 @@ comments anonymously.
                      :name: id585938
                      :class: title
 
+Exercises
+---------
+
+
          .. container:: qandaset
 
             .. list-table::
@@ -6114,6 +6280,10 @@ comments anonymously.
                .. rubric:: Reporting errors
                   :name: deftypes.error
                   :class: title
+
+Reporting errors
+----------------
+
 
       Haskell provides a standard function, ``error :: String -> a``,
       that we can call when something has gone terribly wrong in our
@@ -6147,9 +6317,9 @@ comments anonymously.
          ghci> mySecond "xi"
          'i'
          ghci> mySecond [2]
-         \*\*\* Exception: list too short
+         *** Exception: list too short
          ghci> head (mySecond [[9]])
-         \*\*\* Exception: list too short
+         *** Exception: list too short
 
       Notice the third case above, where we try to use the result of the
       call to ``mySecond`` as the argument to another function.
@@ -6165,7 +6335,7 @@ comments anonymously.
          :class: screen
 
          ghci> mySecond []
-         \*\*\* Exception: Prelude.tail: empty list
+         *** Exception: Prelude.tail: empty list
 
       .. container:: sect2
 
@@ -6178,6 +6348,10 @@ comments anonymously.
                   .. rubric:: A more controlled approach
                      :name: deftypes.morecontrolled
                      :class: title
+
+A more controlled approach
+--------------------------
+
 
          We can use the Maybe type to represent the possibility of an
          error.
@@ -6245,6 +6419,10 @@ comments anonymously.
                   :name: deftypes.locals
                   :class: title
 
+Introducing local variables
+---------------------------
+
+
       Within the body of a function, we can introduce new local
       variables whenever we need them, using a ``let`` expression. Here
       is a simple function that determines whether we should lend some
@@ -6284,7 +6462,7 @@ comments anonymously.
 
          Also, our use of white space here is important. We'll
          talk in more detail about the layout rules in 
-         `the section called “The offside rule and white space in an expression” <#deftypes.offside>`__.
+         the section called `“The offside rule and white space in an expression” <#deftypes.offside>`__.
 
       We can use the names of a variable in a ``let`` block both within
       the block of declarations and in the expression that follows the
@@ -6306,6 +6484,10 @@ comments anonymously.
                   .. rubric:: Shadowing
                      :name: id586544
                      :class: title
+
+Shadowing
+---------
+
 
          We can “nest” multiple ``let`` blocks inside each other in an
          expression.
@@ -6377,6 +6559,10 @@ comments anonymously.
                      :name: id586728
                      :class: title
 
+The where clause
+----------------
+
+
          We can use another mechanism to introduce local variables: the
          ``where`` clause. The definitions in a ``where`` clause apply
          to the code that *precedes* it. Here's a similar function to
@@ -6415,6 +6601,10 @@ comments anonymously.
                   .. rubric:: Local functions, global variables
                      :name: deftypes.locals.functions
                      :class: title
+
+Local functions, global variables
+---------------------------------
+
 
          You'll have noticed that Haskell's syntax for defining a
          variable looks very similar to its syntax for defining a
@@ -6457,10 +6647,13 @@ comments anonymously.
 
             .. container::
 
-               .. rubric:: The offside rule and white space in an
-                  expression
+               .. rubric:: The offside rule and white space in an expression
                   :name: deftypes.offside
                   :class: title
+
+The offside rule and white space in an expression
+-------------------------------------------------
+
 
       In our definitions of ``lend`` and ``lend2``, the left margin of
       our text wandered around quite a bit. This was not an accident: in
@@ -6587,6 +6780,10 @@ comments anonymously.
                      :name: deftypes.tabs
                      :class: title
 
+A note about tabs versus spaces
+-------------------------------
+
+
          If you use a Haskell-aware text editor (e.g. Emacs), it is
          probably already configured to use space characters for all
          white space when you edit Haskell source files. If your editor
@@ -6616,6 +6813,10 @@ comments anonymously.
                   .. rubric:: The offside rule is not mandatory
                      :name: deftypes.block
                      :class: title
+
+The offside rule is not mandatory
+---------------------------------
+
 
          We can use explicit structuring instead of layout to indicate
          what we mean. To do so, we start a block of equations with an
@@ -6657,6 +6858,10 @@ comments anonymously.
                .. rubric:: The case expression
                   :name: deftypes.case
                   :class: title
+
+The case expression
+-------------------
+
 
       Function definitions are not the only place where we can use
       pattern matching. The ``case`` construct lets us match patterns
@@ -6702,6 +6907,10 @@ comments anonymously.
                   :name: deftypes.pattern.limits
                   :class: title
 
+Common beginner mistakes with patterns
+--------------------------------------
+
+
       There are a few ways in which new Haskell programmers can
       misunderstand or misuse patterns. Here are some attempts at
       pattern matching gone awry. Depending on what you expect one of
@@ -6718,6 +6927,10 @@ comments anonymously.
                   .. rubric:: Incorrectly matching against a variable
                      :name: id587485
                      :class: title
+
+Incorrectly matching against a variable
+---------------------------------------
+
 
          .. code:: haskell
             :class: programlisting
@@ -6786,6 +6999,10 @@ comments anonymously.
                      :name: id587613
                      :class: title
 
+Incorrectly trying to compare for equality
+------------------------------------------
+
+
          What if we want to compare the values stored in two nodes of
          type Tree, and return one of them if they're equal? Here's an
          attempt.
@@ -6814,6 +7031,10 @@ comments anonymously.
                .. rubric:: Conditional evaluation with guards
                   :name: deftypes.guard
                   :class: title
+
+Conditional evaluation with guards
+----------------------------------
+
 
       Pattern matching limites us to performing fixed tests of a value's
       shape. Although this is useful, we will often want to make a more
@@ -6868,7 +7089,7 @@ comments anonymously.
       We can use guards anywhere that we can use patterns. Writing a
       function as a series of equations using pattern matching and
       guards can make it much clearer. Remember the ``myDrop`` function
-      we defined in `the section called “Conditional
+      we defined in the section called `“Conditional
       evaluation” <types-and-functions.html#funcstypes.if>`__?
 
       .. code:: haskell
@@ -6906,6 +7127,10 @@ comments anonymously.
                   :name: id587860
                   :class: title
 
+Exercises
+---------
+
+
       .. container:: qandaset
 
          .. list-table::
@@ -6913,25 +7138,32 @@ comments anonymously.
 
             - 
 
-               - **1.** Write a function that computes the number of elements in a list. To test it, ensure that it gives the same answers as the standard length function. 
+               - **1.** 
+                  Write a function that computes the number of elements in a list. To test it, ensure that it gives the same answers as the standard length function. 
             - 
 
-               - **2.** Add a type signature for your function to your source file. To test it, load the source file into ghci again.
+               - **2.** 
+                  Add a type signature for your function to your source file. To test it, load the source file into ghci again.
             - 
 
-               - **3.** Write a function that computes the mean of a list, i.e. the sum of all elements in the list divided by its length. (You may need to use the fromIntegral function to convert the length of the list from an integer into a floating point number.) 
+               - **3.** 
+                  Write a function that computes the mean of a list, i.e. the sum of all elements in the list divided by its length. (You may need to use the fromIntegral function to convert the length of the list from an integer into a floating point number.) 
             - 
 
-               - **4.** Turn a list into a palindrome, i.e. it should read the same both backwards and forwards. For example, given the list [1,2,3], your function should return [1,2,3,3,2,1]. 
+               - **4.** 
+                  Turn a list into a palindrome, i.e. it should read the same both backwards and forwards. For example, given the list [1,2,3], your function should return [1,2,3,3,2,1]. 
             - 
 
-               - **5.** Write a function that determines whether its input list is a palindrome.
+               - **5.** 
+                  Write a function that determines whether its input list is a palindrome.
             - 
 
-               - **6.** Create a function that sorts a list of lists based on the length of each sublist. (You may want to look at the sortBy function from the Data.List module.)
+               - **6.** 
+                  Create a function that sorts a list of lists based on the length of each sublist. (You may want to look at the sortBy function from the Data.List module.)
             - 
 
-               - **7.** Define a function that joins a list of lists together using a separator value.
+               - **7.** 
+                  Define a function that joins a list of lists together using a separator value.
 
                   .. code:: haskell
                      :class: programlisting
@@ -6955,24 +7187,19587 @@ comments anonymously.
                      "foo,bar,baz,quux"
             - 
 
-               - **8.** Using the binary tree type that we defined earlier in this chapter, write a function that will determine the height of the tree. The height is the largest number of hops from the root to an Empty. For example, the tree Empty has height zero; Node "x" Empty Empty has height one; Node "x" Empty (Node "y" Empty Empty) has height two; and so on.
+               - **8.** 
+                  Using the binary tree type that we defined earlier in this chapter, write a function that will determine the height of the tree. The height is the largest number of hops from the root to an Empty. For example, the tree Empty has height zero; Node "x" Empty Empty has height one; Node "x" Empty (Node "y" Empty Empty) has height two; and so on.
             - 
 
-               - **9.** onsider three two-dimensional points a, b, and c. If we look at the angle formed by the line segment from a to b and the line segment from b to c, it either turns left, turns right, or forms a straight line. Define a Direction data type that lets you represent these possibilities.
+               - **9.** 
+                  onsider three two-dimensional points a, b, and c. If we look at the angle formed by the line segment from a to b and the line segment from b to c, it either turns left, turns right, or forms a straight line. Define a Direction data type that lets you represent these possibilities.
             - 
 
-               - **10.** Write a function that calculates the turn made by three 2D points and returns a Direction.
+               - **10.** 
+                  Write a function that calculates the turn made by three 2D points and returns a Direction.
             - 
 
-               - **11.** Define a function that takes a list of 2D points and computes the direction of each successive triple. Given a list of points [a,b,c,d,e], it should begin by computing the turn made by [a,b,c], then the turn made by [b,c,d], then [c,d,e]. Your function should return a list of Direction.
+               - **11.** 
+                  Define a function that takes a list of 2D points and computes the direction of each successive triple. Given a list of points [a,b,c,d,e], it should begin by computing the turn made by [a,b,c], then the turn made by [b,c,d], then [c,d,e]. Your function should return a list of Direction.
             - 
 
-               - **12.** Using the code from the preceding three exercises, implement Graham's scan algorithm for the convex hull of a set of 2D points. You can find good description of what a convex hull. is, and how the Graham scan algorithm should work, on Wikipedia.
+               - **12.** 
+                  Using the code from the preceding three exercises, implement Graham's scan algorithm for the convex hull of a set of 2D points. You can find good description of what a convex hull. is, and how the Graham scan algorithm should work, on Wikipedia.
 
    .. container:: footnotes
 
       .. container:: footnote
 
-         :sup:`[`\ `7 <#id582956>`__\ :sup:`]` If you are familiar with
+         :sup:`[` `7 <#id582956>`__ :sup:`]` If you are familiar with
          C or C++, it is analogous to a ``typedef``.
 
+
+
+.. _sec-4:
+
+/Chapter 4. Functional programming `🔼 <#toc>`_
+================================================
+
+..   .. rubric:: Chapter 4. Functional programming
+      :name: chapter-4.-functional-programming
+      :class: title
+
+.. container:: toc
+
+   **Table of Contents**
+
+   *  `Thinking in Haskell <#fp.thinking>`__
+   *  `A simple command line framework <#fp.framework>`__
+   *  `Warming up: portably splitting lines of text <#fp.splitlines>`__
+
+      *  `A line ending conversion program <#id589136>`__
+
+   *  `Infix functions <#fp.infix>`__
+   *  `Working with lists <#fp.lists>`__
+
+      *  `Basic list manipulation <#fp.lists.basic>`__
+      *  `Safely and sanely working with crashy functions <#fp.lists.safe>`__
+      *  `Partial and total functions <#id590211>`__
+      *  `More simple list manipulations <#id590283>`__
+      *  `Working with sublists <#id590714>`__
+      *  `Searching lists <#fp.list.search>`__
+      *  `Working with several lists at once <#id591412>`__
+      *  `Special string-handling functions <#fp.lists.strings>`__
+      *  `Exercises <#id591678>`__
+
+   *  `How to think about loops <#fp.loop>`__
+
+      *  `Explicit recursion <#fp.tailrecursion>`__
+      *  `Transforming every piece of input <#id592265>`__
+      *  `Mapping over a list <#id592470>`__
+      *  `Selecting pieces of input <#fp.filter>`__
+      *  `Computing one answer over a collection <#id592937>`__
+      *  `The left fold <#fp.foldl>`__
+      *  `Why use folds, maps, and filters? <#id593448>`__
+      *  `Folding from the right <#fp.foldr.filter>`__
+      *  `Left folds, laziness, and space leaks <#id594142>`__
+      *  `Exercises <#fp.fold.exercises>`__
+      *  `Further reading <#id594881>`__
+
+   *  `Anonymous (lambda) functions <#fp.anonymous>`__
+   *  `Partial function application and currying <#fp.partialapp>`__
+
+      *  `Sections <#id596329>`__
+
+   *  `As-patterns <#fp.aspattern>`__
+   *  `Code reuse through composition <#fp.compose>`__
+
+      *  `Use your head wisely <#id597329>`__
+
+   *  `Tips for writing readable code <#fp.readability>`__
+   *  `Space leaks and strict evaluation <#fp.seq>`__
+
+      *  `Avoiding space leaks with seq <#id597540>`__
+      *  `Learning to use seq <#id597688>`__
+
+.. container:: sect1
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: Thinking in Haskell
+               :name: fp.thinking
+               :class: title
+
+Thinking in Haskell
+-------------------
+
+   Our early learning of Haskell has two distinct aspects. The first
+   is coming to terms with the shift in mindset from imperative
+   programming to functional: we have to replace our programming
+   habits from other languages. We do this not because imperative
+   techniques are bad, but because in a functional language other
+   techniques work better.
+
+   Our second challenge is learning our way around the standard
+   Haskell libraries. As in any language, the libraries act as a
+   lever, enabling us to multiply our problem solving power. Haskell
+   libraries tend to operate at a higher level of abstraction than
+   those in many other languages. We'll need to work a little harder
+   to learn to use the libraries, but in exchange they offer a lot of
+   power.
+
+   In this chapter, we'll introduce a number of common functional
+   programming techniques. We'll draw upon examples from imperative
+   languages to highlight the shift in thinking that we'll need to
+   make. As we do so, we'll walk through some of the fundamentals of
+   Haskell's standard libraries. We'll also intermittently cover a
+   few more language features along the way.
+
+.. container:: sect1
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: A simple command line framework
+               :name: fp.framework
+               :class: title
+
+A simple command line framework
+-------------------------------
+
+   In most of this chapter, we will concern ourselves with code that
+   has no interaction with the outside world. To maintain our focus
+   on practical code, we will begin by developing a gateway between
+   our “pure” code and the outside world. Our framework simply reads
+   the contents of one file, applies a function to the file, and
+   writes the result to another file.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch04/InteractWith.hs
+      -- Save this in a source file, e.g. Interact.hs
+
+      import System.Environment (getArgs)
+
+      interactWith function inputFile outputFile = do
+        input <- readFile inputFile
+        writeFile outputFile (function input)
+
+      main = mainWith myFunction
+        where mainWith function = do
+                args <- getArgs
+                case args of
+                  [input,output] -> interactWith function input output
+                  _ -> putStrLn "error: exactly two arguments needed"
+
+              -- replace "id" with the name of our function below
+              myFunction = id
+
+   This is all we need to write simple, but complete, file processing
+   programs. This is a complete program. We can compile it to an
+   executable named ``InteractWith`` as follows.
+
+   .. code:: haskell
+      :class: screen
+
+      $ ghc --make InteractWith
+      [1 of 1] Compiling Main             ( InteractWith.hs, InteractWith.o )
+      Linking InteractWith ...
+
+   If we run this program from the shell or command prompt, it will
+   accept two file names: the name of a file to read, and the name of
+   a file to write.
+
+   .. code:: haskell
+      :class: screen
+
+      $ ./Interact
+      error: exactly two arguments needed
+      $ ./Interact hello-in.txt hello-out.txt
+      $ cat hello-in.txt
+      hello world
+      $ cat hello-out.txt
+      hello world
+
+   Some of the notation in our source file is new. The ``do`` keyword
+   introduces a block of *actions* that can cause effects in the real
+   world, such as reading or writing a file. The ``<-`` operator is
+   the equivalent of assignment inside a ``do`` block. This is enough
+   explanation to get us started. We will talk in much more detail
+   about these details of notation, and I/O in general, in
+   `Chapter 7, I/O <io.html>`__.
+
+   When we want to test a function that cannot talk to the outside
+   world, we simply replace the name ``id`` in the code above with
+   the name of the function we want to test. Whatever our function
+   does, it will need to have the type String -> String: in other
+   words, it must accept a string, and return a string.
+
+.. container:: sect1
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: Warming up: portably splitting lines of text
+               :name: fp.splitlines
+               :class: title
+
+Warming up: portably splitting lines of text
+--------------------------------------------
+
+   Haskell provides a built-in function, ``lines``, that lets us
+   split a text string on line boundaries. It returns a list of
+   strings with line termination characters omitted.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> :type lines
+      lines :: String -> [String]
+      ghci> lines "line 1\nline 2"
+      ["line 1","line 2"]
+      ghci> lines "foo\n\nbar\n"
+      ["foo","","bar"]
+
+   While ``lines`` looks useful, it relies on us reading a file in
+   “text mode” in order to work. Text mode is a feature common to
+   many programming languages: it provides a special behavior when we
+   read and write files on Windows. When we read a file in text mode,
+   the file I/O library translates the line ending sequence
+   ``"\r\n"`` (carriage return followed by newline) to ``"\n"``
+   (newline alone), and it does the reverse when we write a file. On
+   Unix-like systems, text mode does not perform any translation. As
+   a result of this difference, if we read a file on one platform
+   that was written on the other, the line endings are likely to
+   become a mess. (Both ``readFile`` and ``writeFile`` operate in
+   text mode.)
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> lines "a\r\nb"
+      ["a\r","b"]
+
+   The ``lines`` function only splits on newline characters, leaving
+   carriage returns dangling at the ends of lines. If we read a
+   Windows-generated text file on a Linux or Unix box, we'll get
+   trailing carriage returns at the end of each line.
+
+   We have comfortably used Python's “universal newline” support for
+   years: this transparently handles Unix and Windows line ending
+   conventions for us. We would like to provide something similar in
+   Haskell.
+
+   Since we are still early in our career of reading Haskell code, we
+   will discuss our Haskell implementation in quite some detail.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch04/SplitLines.hs
+      splitLines :: String -> [String]
+
+   Our function's type signature indicates that it accepts a single
+   string, the contents of a file with some unknown line ending
+   convention. It returns a list of strings, representing each line
+   from the file.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch04/SplitLines.hs
+      splitLines [] = []
+      splitLines cs =
+          let (pre, suf) = break isLineTerminator cs
+          in  pre : case suf of 
+                      ('\r':'\n':rest) -> splitLines rest
+                      ('\r':rest)      -> splitLines rest
+                      ('\n':rest)      -> splitLines rest
+                      _                -> []
+
+      isLineTerminator c = c == '\r' || c == '\n'
+
+   Before we dive into detail, notice first how we have organized our
+   code. We have presented the important pieces of code first,
+   keeping the definition of ``isLineTerminator`` until later.
+   Because we have given the helper function a readable name, we can
+   guess what it does even before we've read it, which eases the
+   smooth “flow” of reading the code.
+
+   The Prelude defines a function named ``break`` that we can use to
+   partition a list into two parts. It takes a function as its first
+   parameter. That function must examine an element of the list, and
+   return a Bool to indicate whether to break the list at that point.
+   The ``break`` function returns a pair, which consists of the
+   sublist consumed before the predicate returned ``True`` (the
+   *prefix*), and the rest of the list (the *suffix*).
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> break odd [2,4,5,6,8]
+      ([2,4],[5,6,8])
+      ghci> :module +Data.Char
+      ghci> break isUpper "isUpper"
+      ("is","Upper")
+
+   Since we only need to match a single carriage return or newline at
+   a time, examining one element of the list at a time is good enough
+   for our needs.
+
+   The first equation of ``splitLines`` indicates that if we match an
+   empty string, we have no further work to do.
+
+   In the second equation, we first apply ``break`` to our input
+   string. The prefix is the substring before a line terminator, and
+   the suffix is the remainder of the string. The suffix will include
+   the line terminator, if any is present.
+
+   The “ ``pre :`` ” expression tells us that we should add the
+   ``pre`` value to the front of the list of lines. We then use a
+   ``case`` expression to inspect the suffix, so we can decide what
+   to do next. The result of the ``case`` expression will be used as
+   the second argument to the ``(:)`` list constructor.
+
+   The first pattern matches a string that begins with a carriage
+   return, followed by a newline. The variable ``rest`` is bound to
+   the remainder of the string. The other patterns are similar, so
+   they ought to be easy to follow.
+
+   A prose description of a Haskell function isn't necessarily easy
+   to follow. We can gain a better understanding by stepping into
+   **ghci**, and oberving the behavior of the function in different
+   circumstances.
+
+   Let's start by partitioning a string that doesn't contain any line
+   terminators.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> splitLines "foo"
+      ["foo"]
+
+   Here, our application of ``break`` never finds a line terminator,
+   so the suffix it returns is empty.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> break isLineTerminator "foo"
+      ("foo","")
+
+   The ``case`` expression in ``splitLines`` must thus be matching on
+   the fourth branch, and we're finished. What about a slightly more
+   interesting case?
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> splitLines "foo\r\nbar"
+      ["foo","bar"]
+
+   Our first application of ``break`` gives us a non-empty suffix.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> break isLineTerminator "foo\r\nbar"
+      ("foo","\r\nbar")
+
+   Because the suffix begins with a carriage return, followed by a
+   newline, we match on the first branch of the ``case`` expression.
+   This gives us ``pre`` bound to ``"foo"``, and ``suf`` bound to
+   ``"bar"``. We apply ``splitLines`` recursively, this time on
+   ``"bar"`` alone.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> splitLines "bar"
+      ["bar"]
+
+   The result is that we construct a list whose head is ``"foo"`` and
+   whose tail is ``["bar"]``.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> "foo" : ["bar"]
+      ["foo","bar"]
+
+   This sort of experimenting with **ghci** is a helpful way to
+   understand and debug the behavior of a piece of code. It has an
+   even more important benefit that is almost accidental in nature.
+   It can be tricky to test complicated code from **ghci**, so we
+   will tend to write smaller functions. This can further help the
+   readability of our code.
+
+   This style of creating and reusing small, powerful pieces of code
+   is a fundamental part of functional programming.
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: A line ending conversion program
+                  :name: id589136
+                  :class: title
+
+A line ending conversion program
+--------------------------------
+
+      Let's hook our ``splitLines`` function into the little
+      framework we wrote earlier. Make a copy of the ``Interact.hs``
+      source file; let's call the new file ``FixLines.hs``. Add the
+      ``splitLines`` function to the new source file. Since our
+      function must produce a single String, we must stitch the list
+      of lines back together. The Prelude provides an ``unlines``
+      function that concatenates a list of strings, adding a newline
+      to the end of each.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/SplitLines.hs
+         fixLines :: String -> String
+         fixLines input = unlines (splitLines input)
+
+      If we replace the ``id`` function with ``fixLines``, we can
+      compile an executable that will convert a text file to our
+      system's native line ending.
+
+      .. code:: haskell
+         :class: screen
+
+         $ ghc --make FixLines
+         [1 of 1] Compiling Main             ( FixLines.hs, FixLines.o )
+         Linking FixLines ...
+
+      If you are on a Windows system, find and download a text file
+      that was created on a Unix system (for example
+      `gpl-3.0.txt <http://www.gnu.org/licenses/gpl-3.0.txt>`__).
+      Open it in the standard Notepad text editor. The lines should
+      all run together, making the file almost unreadable. Process
+      the file using the **FixLines** command you just created, and
+      open the output file in Notepad. The line endings should now be
+      fixed up.
+
+      On Unix-like systems, the standard pagers and editors hide
+      Windows line endings. This makes it more difficult to verify
+      that **FixLines** is actually eliminating them. Here are a few
+      commands that should help.
+
+      .. code:: haskell
+         :class: screen
+
+         $ file gpl-3.0.txt
+         gpl-3.0.txt: ASCII English text
+         $ unix2dos gpl-3.0.txt
+         unix2dos: converting file gpl-3.0.txt to DOS format ...
+         $ file gpl-3.0.txt
+         gpl-3.0.txt: ASCII English text, with CRLF line terminators
+
+.. container:: sect1
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: Infix functions
+               :name: fp.infix
+               :class: title
+
+Infix functions
+---------------
+
+   Usually, when we define or apply a function in Haskell, we write
+   the name of the function, followed by its arguments. This notation
+   is referred to as *prefix*, because the name of the function comes
+   before its arguments.
+
+   If a function or constructor takes two or more arguments, we have
+   the option of using it in *infix* form, where we place it
+   *between* its first and second arguments. This allows us to use
+   functions as infix operators.
+
+   To define or apply a function or value constructor using infix
+   notation, we enclose its name in backtick characters (sometimes
+   known as backquotes). Here are simple infix definitions of a
+   function and a type.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch04/Plus.hs
+      a `plus` b = a + b
+
+      data a `Pair` b = a `Pair` b
+                        deriving (Show)
+
+      -- we can use the constructor either prefix or infix
+      foo = Pair 1 2
+      bar = True `Pair` "quux"
+
+   Since infix notation is purely a syntactic convenience, it does
+   not change a function's behavior.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> 1 `plus` 2
+      3
+      ghci> plus 1 2
+      3
+      ghci> True `Pair` "something"
+      True `Pair` "something"
+      ghci> Pair True "something"
+      True `Pair` "something"
+
+   Infix notation can often help readability. For instance, the
+   Prelude defines a function, ``elem``, that indicates whether a
+   value is present in a list. If we use ``elem`` using prefix
+   notation, it is fairly easy to read.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> elem 'a' "camogie"
+      True
+
+   If we switch to infix notation, the code becomes even easier to
+   understand. It is now clearer that we're checking to see if the
+   value on the left is present in the list on the right.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> 3 `elem` [1,2,4,8]
+      False
+
+   We see a more pronounced improvement with some useful functions
+   from the ``Data.List`` module. The ``isPrefixOf`` function tells
+   us if one list matches the beginning of another.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> :module +Data.List
+      ghci> "foo" `isPrefixOf` "foobar"
+      True
+
+   The ``isInfixOf`` and ``isSuffixOf`` functions match anywhere in a
+   list and at its end, respectively.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> "needle" `isInfixOf` "haystack full of needle thingies"
+      True
+      ghci> "end" `isSuffixOf` "the end"
+      True
+
+   There is no hard-and-fast rule that dictates when you ought to use
+   infix versus prefix notation, although prefix notation is far more
+   common. It's best to choose whichever makes your code more
+   readable in a specific situation.
+
+   .. Note:: Beware familiar notation in an unfamiliar language
+
+      A few other programming languages use backticks, but in
+      spite of the visual similarities, the purpose of
+      backticks in Haskell does not remotely resemble their
+      meaning in, for example, Perl, Python, or Unix shell
+      scripts.
+
+      The only legal thing we can do with backticks in
+      Haskell is wrap them around the name of a function. We
+      can't, for example, use them to enclose a complex
+      expression whose value is a function. It might be
+      convenient if we could, but that's not how the
+      language is today.
+
+.. container:: sect1
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: Working with lists
+               :name: fp.lists
+               :class: title
+
+Working with lists
+------------------
+
+   As the bread and butter of functional programming, lists deserve
+   some serious attention. The standard prelude defines dozens of
+   functions for dealing with lists. Many of these will be
+   indispensable tools, so it's important that we learn them early
+   on.
+
+   For better or worse, this section is going to read a bit like a
+   “laundry list” of functions. Why present so many functions at
+   once? These functions are both easy to learn and absolutely
+   ubiquitous. If we don't have this toolbox at our fingertips, we'll
+   end up wasting time by reinventing simple functions that are
+   already present in the standard libraries. So bear with us as we
+   go through the list; the effort you'll save will be huge.
+
+   The ``Data.List`` module is the “real” logical home of all
+   standard list functions. The Prelude merely re-exports a large
+   subset of the functions exported by ``Data.List``. Several useful
+   functions in ``Data.List`` are *not* re-exported by the standard
+   prelude. As we walk through list functions in the sections that
+   follow, we will explicitly mention those that are only in
+   ``Data.List``.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> :module +Data.List
+
+   Because none of these functions is complex or takes more than
+   about three lines of Haskell to write, we'll be brief in our
+   descriptions of each. In fact, a quick and useful learning
+   exercise is to write a definition of each function after you've
+   read about it.
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Basic list manipulation
+                  :name: fp.lists.basic
+                  :class: title
+
+Basic list manipulation
+-----------------------
+
+      The ``length`` function tells us how many elements are in a
+      list.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> :type length
+         length :: [a] -> Int
+         ghci> length []
+         0
+         ghci> length [1,2,3]
+         3
+         ghci> length "strings are lists, too"
+         22
+
+      If you need to determine whether a list is empty, use the
+      ``null`` function.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> :type null
+         null :: [a] -> Bool
+         ghci> null []
+         True
+         ghci> null "plugh"
+         False
+
+      To access the first element of a list, we use the ``head``
+      function.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> :type head
+         head :: [a] -> a
+         ghci> head [1,2,3]
+         1
+
+      The converse, ``tail``, returns all *but* the head of a list.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> :type tail
+         tail :: [a] -> [a]
+         ghci> tail "foo"
+         "oo"
+
+      Another function, ``last``, returns the very last element of a
+      list.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> :type last
+         last :: [a] -> a
+         ghci> last "bar"
+         'r'
+
+      The converse of ``last`` is ``init``, which returns a list of
+      all but the last element of its input.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> :type init
+         init :: [a] -> [a]
+         ghci> init "bar"
+         "ba"
+
+      Several of the functions above behave poorly on empty lists, so
+      be careful if you don't know whether or not a list is empty.
+      What form does their misbehavior take?
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> head []
+         *** Exception: Prelude.head: empty list
+
+      Try each of the above functions in **ghci**. Which ones crash
+      when given an empty list?
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Safely and sanely working with crashy functions
+                  :name: fp.lists.safe
+                  :class: title
+
+Safely and sanely working with crashy functions
+-----------------------------------------------
+
+      When we want to use a function like ``head``, where we know
+      that it might blow up on us if we pass in an empty list, the
+      temptation might initially be strong to check the length of the
+      list before we call ``head``. Let's construct an artificial
+      example to illustrate our point.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/EfficientList.hs
+         myDumbExample xs = if length xs > 0
+                            then head xs
+                            else 'Z'
+
+      If we're coming from a language like Perl or Python, this might
+      seem like a perfectly natural way to write this test. Behind
+      the scenes, Python lists are arrays; and Perl arrays are, well,
+      arrays. So they necessarily know how long they are, and calling
+      ``len(foo)`` or ``scalar(@foo)`` is a perfectly natural thing
+      to do. But as with many other things, it's not a good idea to
+      blindly transplant such an assumption into Haskell.
+
+      We've already seen the definition of the list algebraic data
+      type many times, and know that a list doesn't store its own
+      length explicitly. Thus, the only way that ``length`` can
+      operate is to walk the entire list.
+
+      Therefore, when we only care whether or not a list is empty,
+      calling ``length`` isn't a good strategy. It can potentially do
+      a lot more work than we want, if the list we're working with is
+      finite. Since Haskell lets us easily create infinite lists, a
+      careless use of ``length`` may even result in an infinite loop.
+
+      A more appropriate function to call here instead is ``null``,
+      which runs in constant time. Better yet, using ``null`` makes
+      our code indicate what property of the list we really care
+      about. Here are two improved ways of expressing
+      ``myDumbExample``.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/EfficientList.hs
+         mySmartExample xs = if not (null xs)
+                             then head xs
+                             else 'Z'
+
+         myOtherExample (x:_) = x
+         myOtherExample [] = 'Z'
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Partial and total functions
+                  :name: id590211
+                  :class: title
+
+Partial and total functions
+---------------------------
+
+      Functions that only have return values defined for a subset of
+      valid inputs are called *partial* functions (calling ``error``
+      doesn't qualify as returning a value!). We call functions that
+      return valid results over their entire input domains *total*
+      functions.
+
+      It's always a good idea to know whether a function you're using
+      is partial or total. Calling a partial function with an input
+      that it can't handle is probably the single biggest source of
+      straightforward, avoidable bugs in Haskell programs.
+
+      Some Haskell programmers go so far as to give partial functions
+      names that begin with a prefix such as ``unsafe``, so that they
+      can't shoot themselves in the foot accidentally.
+
+      It's arguably a deficiency of the standard prelude that it
+      defines quite a few “unsafe” partial functions, like ``head``,
+      without also providing “safe” total equivalents.
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: More simple list manipulations
+                  :name: id590283
+                  :class: title
+
+More simple list manipulations
+------------------------------
+
+      Haskell's name for the “append” function is ``(++)``.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> :type (++)
+         (++) :: [a] -> [a] -> [a]
+         ghci> "foo" ++ "bar"
+         "foobar"
+         ghci> [] ++ [1,2,3]
+         [1,2,3]
+         ghci> [True] ++ []
+         [True]
+
+      The ``concat`` function takes a list of lists, all of the same
+      type, and concatenates them into a single list.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> :type concat
+         concat :: [[a]] -> [a]
+         ghci> concat [[1,2,3], [4,5,6]]
+         [1,2,3,4,5,6]
+
+      It removes one level of nesting.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> concat [[[1,2],[3]], [[4],[5],[6]]]
+         [[1,2],[3],[4],[5],[6]]
+         ghci> concat (concat [[[1,2],[3]], [[4],[5],[6]]])
+         [1,2,3,4,5,6]
+
+      The ``reverse`` function returns the elements of a list in
+      reverse order.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> :type reverse
+         reverse :: [a] -> [a]
+         ghci> reverse "foo"
+         "oof"
+
+      For lists of Bool, the ``and`` and ``or`` functions generalise
+      their two-argument cousins, ``(&&)`` and ``(||)``, over lists.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> :type and
+         and :: [Bool] -> Bool
+         ghci> and [True,False,True]
+         False
+         ghci> and []
+         True
+         ghci> :type or
+         or :: [Bool] -> Bool
+         ghci> or [False,False,False,True,False]
+         True
+         ghci> or []
+         False
+
+      They have more useful cousins, ``all`` and ``any``, which
+      operate on lists of any type. Each one takes a predicate as its
+      first argument; ``all`` returns ``True`` if that predicate
+      succeeds on every element of the list, while ``any`` returns
+      ``True`` if the predicate succeeds on at least one element of
+      the list.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> :type all
+         all :: (a -> Bool) -> [a] -> Bool
+         ghci> all odd [1,3,5]
+         True
+         ghci> all odd [3,1,4,1,5,9,2,6,5]
+         False
+         ghci> all odd []
+         True
+         ghci> :type any
+         any :: (a -> Bool) -> [a] -> Bool
+         ghci> any even [3,1,4,1,5,9,2,6,5]
+         True
+         ghci> any even []
+         False
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Working with sublists
+                  :name: id590714
+                  :class: title
+
+Working with sublists
+---------------------
+
+      The ``take`` function, which we already met in the section called 
+      `“Function application” <types-and-functions.html#funcstypes.calling>`__,
+      returns a sublist consisting of the first *k* elements from a
+      list. Its converse, ``drop``, drops *k* elements from the start
+      of the list.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> :type take
+         take :: Int -> [a] -> [a]
+         ghci> take 3 "foobar"
+         "foo"
+         ghci> take 2 [1]
+         [1]
+         ghci> :type drop
+         drop :: Int -> [a] -> [a]
+         ghci> drop 3 "xyzzy"
+         "zy"
+         ghci> drop 1 []
+         []
+
+      The ``splitAt`` function combines the functions of ``take`` and
+      ``drop``, returning a pair of the input list, split at the
+      given index.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> :type splitAt
+         splitAt :: Int -> [a] -> ([a], [a])
+         ghci> splitAt 3 "foobar"
+         ("foo","bar")
+
+      The ``takeWhile`` and ``dropWhile`` functions take predicates:
+      ``takeWhile`` takes elements from the beginning of a list as
+      long as the predicate returns ``True``, while ``dropWhile``
+      drops elements from the list as long as the predicate returns
+      ``True``.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> :type takeWhile
+         takeWhile :: (a -> Bool) -> [a] -> [a]
+         ghci> takeWhile odd [1,3,5,6,8,9,11]
+         [1,3,5]
+         ghci> :type dropWhile
+         dropWhile :: (a -> Bool) -> [a] -> [a]
+         ghci> dropWhile even [2,4,6,7,9,10,12]
+         [7,9,10,12]
+
+      Just as ``splitAt`` “tuples up” the results of ``take`` and
+      ``drop``, the functions ``break`` (which we already saw in `the
+      section called “Warming up: portably splitting lines of
+      text” <#fp.splitlines>`__) and
+      ``span`` tuple up the results of ``takeWhile`` and
+      ``dropWhile``.
+
+      Each function takes a predicate; ``break`` consumes its input
+      while its predicate fails, while ``span`` consumes while its
+      predicate succeeds.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> :type span
+         span :: (a -> Bool) -> [a] -> ([a], [a])
+         ghci> span even [2,4,6,7,9,10,11]
+         ([2,4,6],[7,9,10,11])
+         ghci> :type break
+         break :: (a -> Bool) -> [a] -> ([a], [a])
+         ghci> break even [1,3,5,6,8,9,10]
+         ([1,3,5],[6,8,9,10])
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Searching lists
+                  :name: fp.list.search
+                  :class: title
+
+Searching lists
+---------------
+
+      As we've already seen, the ``elem`` function indicates whether
+      a value is present in a list. It has a companion function,
+      ``notElem``.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> :type elem
+         elem :: (Eq a) => a -> [a] -> Bool
+         ghci> 2 `elem` [5,3,2,1,1]
+         True
+         ghci> 2 `notElem` [5,3,2,1,1]
+         False
+
+      For a more general search, ``filter`` takes a predicate, and
+      returns every element of the list on which the predicate
+      succeeds.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> :type filter
+         filter :: (a -> Bool) -> [a] -> [a]
+         ghci> filter odd [2,4,1,3,6,8,5,7]
+         [1,3,5,7]
+
+      In ``Data.List``, three predicates, ``isPrefixOf``,
+      ``isInfixOf``, and ``isSuffixOf``, let us test for the presence
+      of sublists within a bigger list. The easiest way to use them
+      is using infix notation.
+
+      The ``isPrefixOf`` function tells us whether its left argument
+      matches the beginning of its right argument.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> :module +Data.List
+         ghci> :type isPrefixOf
+         isPrefixOf :: (Eq a) => [a] -> [a] -> Bool
+         ghci> "foo" `isPrefixOf` "foobar"
+         True
+         ghci> [1,2] `isPrefixOf` []
+         False
+
+      The ``isInfixOf`` function indicates whether its left argument
+      is a sublist of its right.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> :module +Data.List
+         ghci> [2,6] `isInfixOf` [3,1,4,1,5,9,2,6,5,3,5,8,9,7,9]
+         True
+         ghci> "funk" `isInfixOf` "sonic youth"
+         False
+
+      The operation of ``isSuffixOf`` shouldn't need any explanation.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> :module +Data.List
+         ghci> ".c" `isSuffixOf` "crashme.c"
+         True
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Working with several lists at once
+                  :name: id591412
+                  :class: title
+
+Working with several lists at once
+----------------------------------
+
+      The ``zip`` function takes two lists and “zips” them into a
+      single list of pairs. The resulting list is the same length as
+      the shorter of the two inputs.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> :type zip
+         zip :: [a] -> [b] -> [(a, b)]
+         ghci> zip [12,72,93] "zippity"
+         [(12,'z'),(72,'i'),(93,'p')]
+
+      More useful is ``zipWith``, which takes two lists and applies a
+      function to each pair of elements, generating a list that is
+      the same length as the shorter of the two.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> :type zipWith
+         zipWith :: (a -> b -> c) -> [a] -> [b] -> [c]
+         ghci> zipWith (+) [1,2,3] [4,5,6]
+         [5,7,9]
+
+      Haskell's type system makes it an interesting challenge to
+      write functions that take variable numbers of
+      arguments :sup:`[` `8 <#ftn.id591518>`__ :sup:`]`. So if we
+      want to zip three lists together, we call ``zip3`` or
+      ``zipWith3``, and so on up to ``zip7`` and ``zipWith7``.
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Special string-handling functions
+                  :name: fp.lists.strings
+                  :class: title
+
+Special string-handling functions
+---------------------------------
+
+      We've already encountered the standard ``lines`` function in
+      the section called `“Warming up: portably splitting lines of
+      text” <#fp.splitlines>`__, and its
+      standard counterpart, ``unlines``. Notice that ``unlines``
+      always places a newline on the end of its result.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> lines "foo\nbar"
+         ["foo","bar"]
+         ghci> unlines ["foo", "bar"]
+         "foo\nbar\n"
+
+      The ``words`` function splits an input string on any white
+      space. Its counterpart, ``unwords``, uses a single space to
+      join a list of words.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> words "the  \r  quick \t  brown\n\n\nfox"
+         ["the","quick","brown","fox"]
+         ghci> unwords ["jumps", "over", "the", "lazy", "dog"]
+         "jumps over the lazy dog"
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Exercises
+                  :name: id591678
+                  :class: title
+
+Exercises
+---------
+
+      .. container:: qandaset
+
+         .. list-table::
+            :widths: 1
+
+            - 
+
+               - **1.**
+                  Write your own “safe” definitions of the standard partial list functions, but make sure that yours never fail. As a hint, you might want to consider using the following types. 
+
+                  .. code: haskell
+                     :class: programlisting
+
+                     -- file: ch04/ch04.exercises.hs
+                     safeHead :: [a] -> Maybe a
+                     safeTail :: [a] -> Maybe [a]
+                     safeLast :: [a] -> Maybe a
+                     safeInit :: [a] -> Maybe [a]
+            - 
+
+               - **2.**
+                  Write a function splitWith that acts similarly to words, but takes a predicate and a list of any type, and splits its input list on every element for which the predicate returns False.
+
+                  .. code: haskell
+                     :class: programlisting
+
+                     -- file: ch04/ch04.exercises.hs
+                     splitWith :: (a -> Bool) -> [a] -> [[a]]
+            - 
+
+               - **3.**
+                  Using the command framework from the section called “A simple command line framework”, write a program that prints the first word of each line of its input.
+            - 
+
+               - **4.**
+                  Write a program that transposes the text in a file. For instance, it should convert "hello\nworld\n" to "hw\neo\nlr\nll\nod\n".
+
+.. container:: sect1
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: How to think about loops
+               :name: fp.loop
+               :class: title
+
+How to think about loops
+------------------------
+
+   Unlike traditional languages, Haskell has neither a ``for`` loop
+   nor a ``while`` loop. If we've got a lot of data to process, what
+   do we use instead? There are several possible answers to this
+   question.
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Explicit recursion
+                  :name: fp.tailrecursion
+                  :class: title
+
+Explicit recursion
+------------------
+
+      A straightforward way to make the jump from a language that has
+      loops to one that doesn't is to run through a few examples,
+      looking at the differences. Here's a C function that takes a
+      string of decimal digits and turns them into an integer.
+
+      .. code:: haskell
+         :class: programlisting
+
+         int as_int(char *str)
+         {
+             int acc; /* accumulate the partial result */
+
+             for (acc = 0; isdigit(*str); str++) {
+             acc = acc * 10 + (*str - '0');
+             }
+
+             return acc;
+         }
+
+      Given that Haskell doesn't have any looping constructs, how
+      should we think about representing a fairly straightforward
+      piece of code like this?
+
+      We don't have to start off by writing a type signature, but it
+      helps to remind us of what we're working with.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/IntParse.hs
+         import Data.Char (digitToInt) -- we'll need ord shortly
+
+         asInt :: String -> Int
+
+      The C code computes the result incrementally as it traverses
+      the string; the Haskell code can do the same. However, in
+      Haskell, we can express the equivalent of a loop as a function.
+      We'll call ours ``loop`` just to keep things nice and explicit.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/IntParse.hs
+         loop :: Int -> String -> Int
+
+         asInt xs = loop 0 xs
+
+      That first parameter to ``loop`` is the accumulator variable
+      we'll be using. Passing zero into it is equivalent to
+      initialising the ``acc`` variable in C at the beginning of the
+      loop.
+
+      Rather than leap into blazing code, let's think about the data
+      we have to work with. Our familiar String is just a synonym for
+      [Char], a list of characters. The easiest way for us to get the
+      traversal right is to think about the structure of a list: it's
+      either empty, or a single element followed by the rest of the
+      list.
+
+      We can express this structural thinking directly by pattern
+      matching on the list type's constructors. It's often handy to
+      think about the easy cases first: here, that means we will
+      consider the empty-list case.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/IntParse.hs
+         loop acc [] = acc
+
+      An empty list doesn't just mean “the input string is empty”;
+      it's also the case we'll encounter when we traverse all the way
+      to the end of a non-empty list. So we don't want to “error out”
+      if we see an empty list. Instead, we should do something
+      sensible. Here, the sensible thing is to terminate the loop,
+      and return our accumulated value.
+
+      The other case we have to consider arises when the input list
+      is not empty. We need to do something with the current element
+      of the list, and something with the rest of the list.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/IntParse.hs
+         loop acc (x:xs) = let acc' = acc * 10 + digitToInt x
+                           in loop acc' xs
+
+      We compute a new value for the accumulator, and give it the
+      name ``acc'``. We then call the ``loop`` function again,
+      passing it the updated value ``acc'`` and the rest of the input
+      list; this is equivalent to the loop starting another round in
+      C.
+
+      .. Note:: Single quotes in variable names
+
+         Remember, a single quote is a legal character to use
+         in a Haskell variable name, and is pronounced
+         “prime”. There's a common idiom in Haskell programs
+         involving a variable, say ``foo``, and another
+         variable, say ``foo'``. We can usually assume that
+         ``foo'`` is somehow related to ``foo``. It's often
+         a new value for ``foo``, as in our code above.
+
+         Sometimes we'll see this idiom extended, such as
+         ``foo''``. Since keeping track of the number of
+         single quotes tacked onto the end of a name rapidly
+         becomes tedious, use of more than two in a row is
+         thankfully rare. Indeed, even one single quote can
+         be easy to miss, which can lead to confusion on the
+         part of readers. It might be better to think of the
+         use of single quotes as a coding convention that
+         you should be able to recognize, and less as one
+         that you should actually follow.
+
+      Each time the ``loop`` function calls itself, it has a new
+      value for the accumulator, and it consumes one element of the
+      input list. Eventually, it's going to hit the end of the list,
+      at which time the ``[]`` pattern will match, and the recursive
+      calls will cease.
+
+      How well does this function work? For positive integers, it's
+      perfectly cromulent.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> asInt "33"
+         33
+
+      But because we were focusing on how to traverse lists, not
+      error handling, our poor function misbehaves if we try to feed
+      it nonsense.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> asInt ""
+         0
+         ghci> asInt "potato"
+         *** Exception: Char.digitToInt: not a digit 'p'
+
+      We'll defer fixing our function's shortcomings to
+      `Q: 1 <#fp.asInt.fix>`__.
+
+      Because the last thing that ``loop`` does is simply call
+      itself, it's an example of a tail recursive function. There's
+      another common idiom in this code, too. Thinking about the
+      structure of the list, and handling the empty and non-empty
+      cases separately, is a kind of approach called *structural
+      recursion*.
+
+      We call the non-recursive case (when the list is empty) the
+      *base case* (sometimes the *terminating case*). We'll see
+      people refer to the case where the function calls itself as the
+      recursive case (surprise!), or they might give a nod to
+      mathematical induction and call it the *inductive case*.
+
+      As a useful technique, structural recursion is not confined to
+      lists; we can use it on other algebraic data types, too. We'll
+      have more to say about it later.
+
+      .. Note:: What's the big deal about tail recursion?
+
+         In an imperative language, a loop executes in
+         constant space. Lacking loops, we use tail
+         recursive functions in Haskell instead. Normally, a
+         recursive function allocates some space each time
+         it applies itself, so it knows where to return to.
+
+         Clearly, a recursive function would be at a huge
+         disadvantage relative to a loop if it allocated
+         memory for every recursive application: this would
+         require linear space instead of constant space.
+         However, functional language implementations detect
+         uses of tail recursion, and transform tail
+         recursive calls to run in constant space; this is
+         called *tail call optimisation*, abbreviated TCO.
+
+         Few imperative language implementations perform
+         TCO; this is why using any kind of ambitiously
+         functional style in an imperative language often
+         leads to memory leaks and poor performance.
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Transforming every piece of input
+                  :name: id592265
+                  :class: title
+
+Transforming every piece of input
+---------------------------------
+
+      Consider another C function, ``square``, which squares every
+      element in an array.
+
+      .. code:: cpp
+         :class: programlisting
+
+         void square(double *out, const double *in, size_t length)
+         {
+             for (size_t i = 0; i < length; i++) {
+             out[i] = in[i] * in[i];
+             }
+         }
+
+      This contains a straightforward and common kind of loop, one
+      that does exactly the same thing to every element of its input
+      array. How might we write this loop in Haskell?
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Map.hs
+         square :: [Double] -> [Double]
+
+         square (x:xs) = x*x : square xs
+         square []     = []
+
+      Our ``square`` function consists of two pattern matching
+      equations. The first “deconstructs” the beginning of a
+      non-empty list, to get its head and tail. It squares the first
+      element, then puts that on the front of a new list, which is
+      constructed by calling ``square`` on the remainder of the empty
+      list. The second equation ensures that ``square`` halts when it
+      reaches the end of the input list.
+
+      The effect of ``square`` is to construct a new list that's the
+      same length as its input list, with every element in the input
+      list substituted with its square in the output list.
+
+      Here's another such C loop, one that ensures that every letter
+      in a string is converted to uppercase.
+
+      .. code:: cpp
+         :class: programlisting
+
+         #include <ctype.h>
+
+         char *uppercase(const char *in)
+         {
+             char *out = strdup(in);
+             
+             if (out != NULL) {
+             for (size_t i = 0; out[i] != '\0'; i++) {
+                 out[i] = toupper(out[i]);
+             }
+             }
+
+             return out;
+         }
+
+      Let's look at a Haskell equivalent.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Map.hs
+         import Data.Char (toUpper)
+
+         upperCase :: String -> String
+
+         upperCase (x:xs) = toUpper x : upperCase xs
+         upperCase []     = []
+
+      Here, we're importing the ``toUpper`` function from the
+      standard ``Data.Char`` module, which contains lots of useful
+      functions for working with Char data.
+
+      Our ``upperCase`` function follows a similar pattern to our
+      earlier ``square`` function. It terminates with an empty list
+      when the input list is empty; and when the input isn't empty,
+      it calls ``toUpper`` on the first element, then constructs a
+      new list cell from that and the result of calling itself on the
+      rest of the input list.
+
+      These examples follow a common pattern for writing recursive
+      functions over lists in Haskell. The *base case* handles the
+      situation where our input list is empty. The *recursive case*
+      deals with a non-empty list; it does something with the head of
+      the list, and calls itself recursively on the tail.
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Mapping over a list
+                  :name: id592470
+                  :class: title
+
+Mapping over a list
+-------------------
+
+      The ``square`` and ``upperCase`` functions that we just defined
+      produce new lists that are the same lengths as their input
+      lists, and do only one piece of work per element. This is such
+      a common pattern that Haskell's prelude defines a function,
+      ``map``, to make it easier. ``map`` takes a function, and
+      applies it to every element of a list, returning a new list
+      constructed from the results of these applications.
+
+      Here are our ``square`` and ``upperCase`` functions rewritten
+      to use ``map``.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Map.hs
+         square2 xs = map squareOne xs
+             where squareOne x = x * x
+
+         upperCase2 xs = map toUpper xs
+
+      This is our first close look at a function that takes another
+      function as its argument. We can learn a lot about what ``map``
+      does by simply inspecting its type.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> :type map
+         map :: (a -> b) -> [a] -> [b]
+
+      The signature tells us that ``map`` takes two arguments. The
+      first is a function that takes a value of one type, ``a``, and
+      returns a value of another type, ``b``.
+
+      Since ``map`` takes a function as argument, we refer to it as a
+      *higher-order* function. (In spite of the name, there's nothing
+      mysterious about higher-order functions; it's just a term for
+      functions that take other functions as arguments, or return
+      functions.)
+
+      Since ``map`` abstracts out the pattern common to our
+      ``square`` and ``upperCase`` functions so that we can reuse it
+      with less boilerplate, we can look at what those functions have
+      in common and figure out how to implement it ourselves.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Map.hs
+         myMap :: (a -> b) -> [a] -> [b]
+
+         myMap f (x:xs) = f x : myMap f xs
+         myMap _ _      = []
+
+      .. Note:: What are those wild cards doing there?
+
+         If you're new to functional programming, the reasons
+         for matching patterns in certain ways won't always
+         be obvious. For example, in the definition of
+         ``myMap`` above, the first equation binds the
+         function we're mapping to the variable ``f``, but
+         the second uses wild cards for both parameters.
+         What's going on?
+
+         We use a wild card in place of ``f`` to indicate
+         that we aren't calling the function ``f`` on the
+         right hand side of the equation. What about the
+         list parameter? The list type has two constructors.
+         We've already matched on the non-empty constructor
+         in the first equation that defines ``myMap``. By
+         elimination, the constructor in the second equation
+         is necessarily the empty list constructor, so
+         there's no need to perform a match to see what its
+         value really is.
+
+         As a matter of style, it is fine to use wild cards
+         for well known simple types like lists and Maybe.
+         For more complicated or less familiar types, it can
+         be safer and more readable to name constructors
+         explicitly.
+
+      We try out our ``myMap`` function to give ourselves some
+      assurance that it behaves similarly to the standard ``map``.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> :module +Data.Char
+         ghci> map toLower "SHOUTING"
+         "shouting"
+         ghci> myMap toUpper "whispering"
+         "WHISPERING"
+         ghci> map negate [1,2,3]
+         [-1,-2,-3]
+
+      This pattern of spotting a repeated idiom, then abstracting it
+      so we can reuse (and write less!) code, is a common aspect of
+      Haskell programming. While abstraction isn't unique to Haskell,
+      higher order functions make it remarkably easy.
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Selecting pieces of input
+                  :name: fp.filter
+                  :class: title
+
+Selecting pieces of input
+-------------------------
+
+      Another common operation on a sequence of data is to comb
+      through it for elements that satisfy some criterion. Here's a
+      function that walks a list of numbers and returns those that
+      are odd. Our code has a recursive case that's a bit more
+      complex than our earlier functions: it only puts a number in
+      the list it returns if the number is odd. Using a guard
+      expresses this nicely.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Filter.hs
+         oddList :: [Int] -> [Int]
+
+         oddList (x:xs) | odd x     = x : oddList xs
+                        | otherwise = oddList xs
+         oddList _                  = []
+
+      Let's see that in action.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> oddList [1,1,2,3,5,8,13,21,34]
+         [1,1,3,5,13,21]
+
+      Once again, this idiom is so common that the Prelude defines a
+      function, ``filter``, which we have already introduced. It
+      removes the need for boilerplate code to recurse over the list.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> :type filter
+         filter :: (a -> Bool) -> [a] -> [a]
+         ghci> filter odd [3,1,4,1,5,9,2,6,5]
+         [3,1,1,5,9,5]
+
+      The ``filter`` function takes a predicate and applies it to
+      every element in its input list, returning a list of only those
+      for which the predicate evaluates to ``True``. We'll revisit
+      ``filter`` again soon, in the section called `“Folding from the
+      right” <#fp.foldr.filter>`__.
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Computing one answer over a collection
+                  :name: id592937
+                  :class: title
+
+Computing one answer over a collection
+--------------------------------------
+
+      Another common thing to do with a collection is reduce it to a
+      single value. A simple example of this is summing the values of
+      a list.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Sum.hs
+         mySum xs = helper 0 xs
+             where helper acc (x:xs) = helper (acc + x) xs
+                   helper acc _      = acc
+
+      Our ``helper`` function is tail recursive, and uses an
+      accumulator parameter, ``acc``, to hold the current partial sum
+      of the list. As we already saw with ``asInt``, this is a
+      “natural” way to represent a loop in a pure functional
+      language.
+
+      For something a little more complicated, let's take a look at
+      the Adler-32 checksum. This is a popular checksum algorithm; it
+      concatenates two 16-bit checksums into a single 32-bit
+      checksum. The first checksum is the sum of all input bytes,
+      plus one. The second is the sum of all intermediate values of
+      the first checksum. In each case, the sums are computed modulo
+      65521. Here's a straightforward, unoptimised Java
+      implementation. (It's safe to skip it if you don't read Java.)
+
+      .. code:: haskell
+         :class: programlisting
+
+         public class Adler32 
+         {
+             private static final int base = 65521;
+
+             public static int compute(byte[] data, int offset, int length)
+             {
+             int a = 1, b = 0;
+
+             for (int i = offset; i < offset + length; i++) {
+                 a = (a + (data[i] & 0xff)) % base;
+                 b = (a + b) % base;
+             }
+
+             return (b << 16) | a;
+             }
+         }
+
+      Although Adler-32 is a simple checksum, this code isn't
+      particularly easy to read on account of the bit-twiddling
+      involved. Can we do any better with a Haskell implementation?
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Adler32.hs
+         import Data.Char (ord)
+         import Data.Bits (shiftL, (.&.), (.|.))
+
+         base = 65521
+
+         adler32 xs = helper 1 0 xs
+             where helper a b (x:xs) = let a' = (a + (ord x .&. 0xff)) `mod` base
+                                           b' = (a' + b) `mod` base
+                                       in helper a' b' xs
+                   helper a b _     = (b `shiftL` 16) .|. a
+
+      This code isn't exactly easier to follow than the Java code,
+      but let's look at what's going on. First of all, we've
+      introduced some new functions. The ``shiftL`` function
+      implements a logical shift left; ``(.&.)`` provides bitwise
+      “and”; and ``(.|.)`` provides bitwise “or”.
+
+      Once again, our ``helper`` function is tail recursive. We've
+      turned the two variables we updated on every loop iteration in
+      Java into accumulator parameters. When our recursion terminates
+      on the end of the input list, we compute our checksum and
+      return it.
+
+      If we take a step back, we can restructure our Haskell
+      ``adler32`` to more closely resemble our earlier ``mySum``
+      function. Instead of two accumulator parameters, we can use a
+      pair as the accumulator.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Adler32.hs
+         adler32_try2 xs = helper (1,0) xs
+             where helper (a,b) (x:xs) =
+                       let a' = (a + (ord x .&. 0xff)) `mod` base
+                           b' = (a' + b) `mod` base
+                       in helper (a',b') xs
+                   helper (a,b) _     = (b `shiftL` 16) .|. a
+
+      Why would we want to make this seemingly meaningless structural
+      change? Because as we've already seen with ``map`` and
+      ``filter``, we can extract the common behavior shared by
+      ``mySum`` and ``adler32_try2`` into a higher-order function. We
+      can describe this behavior as “do something to every element of
+      a list, updating an accumulator as we go, and returning the
+      accumulator when we're done”.
+
+      This kind of function is called a *fold*, because it “folds up”
+      a list. There are two kinds of fold over lists, ``foldl`` for
+      folding from the left (the start) and ``foldr`` for folding
+      from the right (the end).
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: The left fold
+                  :name: fp.foldl
+                  :class: title
+
+The left fold
+-------------
+
+      Here is the definition of ``foldl``.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Fold.hs
+         foldl :: (a -> b -> a) -> a -> [b] -> a
+
+         foldl step zero (x:xs) = foldl step (step zero x) xs
+         foldl _    zero []     = zero
+
+      The ``foldl`` function takes a “step” function, an initial
+      value for its accumulator, and a list. The “step” takes an
+      accumulator and an element from the list, and returns a new
+      accumulator value. All ``foldl`` does is call the “stepper” on
+      the current accumulator and an element of the list, and passes
+      the new accumulator value to itself recursively to consume the
+      rest of the list.
+
+      We refer to ``foldl`` as a “left fold” because it consumes the
+      list from left (the head) to right.
+
+      Here's a rewrite of ``mySum`` using ``foldl``.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Sum.hs
+         foldlSum xs = foldl step 0 xs
+             where step acc x = acc + x
+
+      That local function ``step`` just adds two numbers, so let's
+      simply use the addition operator instead, and eliminate the
+      unnecessary ``where`` clause.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Sum.hs
+         niceSum :: [Integer] -> Integer
+         niceSum xs = foldl (+) 0 xs
+
+      Notice how much simpler this code is than our original
+      ``mySum``? We're no longer using explicit recursion, because
+      ``foldl`` takes care of that for us. We've simplified our
+      problem down to two things: what the initial value of the
+      accumulator should be (the second parameter to ``foldl``), and
+      how to update the accumulator (the ``(+)`` function). As an
+      added bonus, our code is now shorter, too, which makes it
+      easier to understand.
+
+      Let's take a deeper look at what ``foldl`` is doing here, by
+      manually writing out each step in its evaluation when we call
+      ``niceSum [1,2,3]``.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Fold.hs
+         foldl (+) 0 (1:2:3:[])
+                   == foldl (+) (0 + 1)             (2:3:[])
+                   == foldl (+) ((0 + 1) + 2)       (3:[])
+                   == foldl (+) (((0 + 1) + 2) + 3) []
+                   ==           (((0 + 1) + 2) + 3)
+
+      We can rewrite ``adler32_try2`` using ``foldl`` to let us focus
+      on the details that are important.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Adler32.hs
+         adler32_foldl xs = let (a, b) = foldl step (1, 0) xs
+                            in (b `shiftL` 16) .|. a
+             where step (a, b) x = let a' = a + (ord x .&. 0xff)
+                                   in (a' `mod` base, (a' + b) `mod` base)
+
+      Here, our accumulator is a pair, so the result of ``foldl``
+      will be, too. We pull the final accumulator apart when
+      ``foldl`` returns, and bit-twiddle it into a “proper” checksum.
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Why use folds, maps, and filters?
+                  :name: id593448
+                  :class: title
+
+Why use folds, maps, and filters?
+---------------------------------
+
+      A quick glance reveals that ``adler32_foldl`` isn't really any
+      shorter than ``adler32_try2``. Why should we use a fold in this
+      case? The advantage here lies in the fact that folds are
+      extremely common in Haskell, and they have regular, predictable
+      behavior.
+
+      This means that a reader with a little experience will have an
+      easier time understanding a use of a fold than code that uses
+      explicit recursion. A fold isn't going to produce any
+      surprises, but the behavior of a function that recurses
+      explicitly isn't immediately obvious. Explicit recursion
+      requires us to read closely to understand exactly what's going
+      on.
+
+      This line of reasoning applies to other higher-order library
+      functions, including those we've already seen, ``map`` and
+      ``filter``. Because they're library functions with well-defined
+      behavior, we only need to learn what they do once, and we'll
+      have an advantage when we need to understand any code that uses
+      them. These improvements in readability also carry over to
+      writing code. Once we start to think with higher order
+      functions in mind, we'll produce concise code more quickly.
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Folding from the right
+                  :name: fp.foldr.filter
+                  :class: title
+
+Folding from the right
+----------------------
+
+      The counterpart to ``foldl`` is ``foldr``, which folds from the
+      right of a list.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Fold.hs
+         foldr :: (a -> b -> b) -> b -> [a] -> b
+
+         foldr step zero (x:xs) = step x (foldr step zero xs)
+         foldr _    zero []     = zero
+
+      Let's follow the same manual evaluation process with
+      ``foldr (+) 0 [1,2,3]`` as we did with ``niceSum`` 
+      in the section called `“The left fold” <#fp.foldl>`__.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Fold.hs
+         foldr (+) 0 (1:2:3:[])
+                   == 1 +           foldr (+) 0 (2:3:[])
+                   == 1 + (2 +      foldr (+) 0 (3:[])
+                   == 1 + (2 + (3 + foldr (+) 0 []))
+                   == 1 + (2 + (3 + 0))
+
+      The difference between ``foldl`` and ``foldr`` should be clear
+      from looking at where the parentheses and the “empty list”
+      elements show up. With ``foldl``, the empty list element is on
+      the left, and all the parentheses group to the left. With
+      ``foldr``, the ``zero`` value is on the right, and the
+      parentheses group to the right.
+
+      There is a lovely intuitive explanation of how ``foldr`` works:
+      it replaces the empty list with the ``zero`` value, and every
+      constructor in the list with an application of the step
+      function.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Fold.hs
+         1 : (2 : (3 : []))
+         1 + (2 + (3 + 0 ))
+
+      At first glance, ``foldr`` might seem less useful than
+      ``foldl``: what use is a function that folds from the right?
+      But consider the Prelude's ``filter`` function, which we last
+      encountered in the section called 
+      `“Selecting pieces of input” <#fp.filter>`__. If we write
+      ``filter`` using explicit recursion, it will look something
+      like this.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Fold.hs
+         filter :: (a -> Bool) -> [a] -> [a]
+         filter p []   = []
+         filter p (x:xs)
+             | p x       = x : filter p xs
+             | otherwise = filter p xs
+
+      Perhaps surprisingly, though, we can write ``filter`` as a
+      fold, using ``foldr``.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Fold.hs
+         myFilter p xs = foldr step [] xs
+             where step x ys | p x       = x : ys
+                             | otherwise = ys
+
+      This is the sort of definition that could cause us a headache,
+      so let's examine it in a little depth. Like ``foldl``,
+      ``foldr`` takes a function and a base case (what to do when the
+      input list is empty) as arguments. From reading the type of
+      ``filter``, we know that our ``myFilter`` function must return
+      a list of the same type as it consumes, so the base case should
+      be a list of this type, and the ``step`` helper function must
+      return a list.
+
+      Since we know that ``foldr`` calls ``step`` on one element of
+      the input list at a time, with the accumulator as its second
+      argument, what ``step`` does must be quite simple. If the
+      predicate returns ``True``, it pushes that element onto the
+      accumulated list; otherwise, it leaves the list untouched.
+
+      The class of functions that we can express using ``foldr`` is
+      called *primitive recursive*. A surprisingly large number of
+      list manipulation functions are primitive recursive. For
+      example, here's ``map`` written in terms of ``foldr``.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Fold.hs
+         myMap :: (a -> b) -> [a] -> [b]
+
+         myMap f xs = foldr step [] xs
+             where step x ys = f x : ys
+
+      In fact, we can even write ``foldl`` using ``foldr``!
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Fold.hs
+         myFoldl :: (a -> b -> a) -> a -> [b] -> a
+
+         myFoldl f z xs = foldr step id xs z
+             where step x g a = g (f a x)
+
+      .. Tip:: Understanding foldl in terms of foldr
+
+         If you want to set yourself a solid challenge, try
+         to follow the above definition of ``foldl`` using
+         ``foldr``. Be warned: this is not trivial! You
+         might want to have the following tools at hand:
+         some headache pills and a glass of water, **ghci**
+         (so that you can find out what the ``id`` function
+         does), and a pencil and paper.
+
+         You will want to follow the same manual evaluation
+         process as we outlined above to see what ``foldl``
+         and ``foldr`` were really doing. If you get stuck,
+         you may find the task easier after reading the section called 
+         `“Partial function application and currying” <#fp.partialapp>`__.
+
+      Returning to our earlier intuitive explanation of what
+      ``foldr`` does, another useful way to think about it is that it
+      *transforms* its input list. Its first two arguments are “what
+      to do with each head/tail element of the list”, and “what to
+      substitute for the end of the list”.
+
+      The “identity” transformation with ``foldr`` thus replaces the
+      empty list with itself, and applies the list constructor to
+      each head/tail pair:
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Fold.hs
+         identity :: [a] -> [a]
+         identity xs = foldr (:) [] xs
+
+      It transforms a list into a copy of itself.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> identity [1,2,3]
+         [1,2,3]
+
+      If ``foldr`` replaces the end of a list with some other value,
+      this gives us another way to look at Haskell's list append
+      function, ``(++)``.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> [1,2,3] ++ [4,5,6]
+         [1,2,3,4,5,6]
+
+      All we have to do to append a list onto another is substitute
+      that second list for the end of our first list.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Fold.hs
+         append :: [a] -> [a] -> [a]
+         append xs ys = foldr (:) ys xs
+
+      Let's try this out.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> append [1,2,3] [4,5,6]
+         [1,2,3,4,5,6]
+
+      Here, we replace each list constructor with another list
+      constructor, but we replace the empty list with the list we
+      want to append onto the end of our first list.
+
+      As our extended treatment of folds should indicate, the
+      ``foldr`` function is nearly as important a member of our
+      list-programming toolbox as the more basic list functions we
+      saw in the section called 
+      `“Working with lists” <#fp.lists>`__. It can
+      consume and produce a list incrementally, which makes it useful
+      for writing lazy data processing code.
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Left folds, laziness, and space leaks
+                  :name: id594142
+                  :class: title
+
+Left folds, laziness, and space leaks
+-------------------------------------
+
+      To keep our initial discussion simple, we used ``foldl``
+      throughout most of this section. This is convenient for
+      testing, but we will never use ``foldl`` in practice.
+
+      The reason has to do with Haskell's non-strict evaluation. If
+      we apply ``foldl (+) [1,2,3]``, it evaluates to the expression
+      ``(((0 + 1) + 2) + 3)``. We can see this occur if we revisit
+      the way in which the function gets expanded.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Fold.hs
+         foldl (+) 0 (1:2:3:[])
+                   == foldl (+) (0 + 1)             (2:3:[])
+                   == foldl (+) ((0 + 1) + 2)       (3:[])
+                   == foldl (+) (((0 + 1) + 2) + 3) []
+                   ==           (((0 + 1) + 2) + 3)
+
+      The final expression will not be evaluated to ``6`` until its
+      value is demanded. Before it is evaluated, it must be stored as
+      a thunk. Not surprisingly, a thunk is more expensive to store
+      than a single number, and the more complex the thunked
+      expression, the more space it needs. For something cheap like
+      arithmetic, thunking an expresion is more computationally
+      expensive than evaluating it immediately. We thus end up paying
+      both in space and in time.
+
+      When GHC is evaluating a thunked expression, it uses an
+      internal stack to do so. Because a thunked expression could
+      potentially be infinitely large, GHC places a fixed limit on
+      the maximum size of this stack. Thanks to this limit, we can
+      try a large thunked expression in **ghci** without needing to
+      worry that it might consume all of memory.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> foldl (+) 0 [1..1000]
+         500500
+
+      From looking at the expansion above, we can surmise that this
+      creates a thunk that consists of 1000 integers and 999
+      applications of ``(+)``. That's a lot of memory and effort to
+      represent a single number! With a larger expression, although
+      the size is still modest, the results are more dramatic.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> foldl (+) 0 [1..1000000]
+         *** Exception: stack overflow
+
+      On small expressions, ``foldl`` will work correctly but slowly,
+      due to the thunking overhead that it incurs. We refer to this
+      invisible thunking as a *space leak*, because our code is
+      operating normally, but using far more memory than it should.
+
+      On larger expressions, code with a space leak will simply fail,
+      as above. A space leak with ``foldl`` is a classic roadblock
+      for new Haskell programmers. Fortunately, this is easy to
+      avoid.
+
+      The ``Data.List`` module defines a function named ``foldl'``
+      that is similar to ``foldl``, but does not build up thunks. The
+      difference in behavior between the two is immediately obvious.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> foldl  (+) 0 [1..1000000]
+         *** Exception: stack overflow
+         ghci> :module +Data.List
+         ghci> foldl' (+) 0 [1..1000000]
+         500000500000
+
+      Due to the thunking behavior of ``foldl``, it is wise to avoid
+      this function in real programs: even if it doesn't fail
+      outright, it will be unnecessarily inefficient. Instead, import
+      ``Data.List`` and use ``foldl'``.
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Exercises
+                  :name: fp.fold.exercises
+                  :class: title
+
+Exercises
+---------
+
+      .. container:: qandaset
+
+         .. list-table::
+            :widths: 1
+
+            - 
+
+               - **1.**
+                  Use a fold (choosing the appropriate fold will make your code much simpler) to rewrite and improve upon the asInt function from the section called “Explicit recursion”.
+
+                  .. code:: haskell
+                     :class: programlisting
+
+                     -- file: ch04/ch04.exercises.hs
+                     asInt_fold :: String -> Int
+                     
+                  Your function should behave as follows. 
+
+                  .. code:: haskell
+                     :class: screen
+
+                     ghci> asInt_fold "101"
+                     101
+                     ghci> asInt_fold "-31337"
+                     -31337
+                     ghci> asInt_fold "1798"
+                     1798
+                  
+                  Extend your function to handle the following kinds of exceptional conditions by calling error. 
+
+                  .. code:: haskell
+                     :class: programlisting
+
+                     ghci> asInt_fold ""
+                     0
+                     ghci> asInt_fold "-"
+                     0
+                     ghci> asInt_fold "-3"
+                     -3
+                     ghci> asInt_fold "2.7"
+                     *** Exception: Char.digitToInt: not a digit '.'
+                     ghci> asInt_fold "314159265358979323846"
+                     564616105916946374
+            - 
+
+               - **2.**
+                  The asInt_fold function uses error, so its callers cannot handle errors. Rewrite it to fix this problem. 
+            - 
+
+               - **3.**
+                  The Prelude function concat concatenates a list of lists into a single list, and has the following type.
+
+                  .. code:: haskell
+                     :class: programlisting
+
+                     -- file: ch04/ch04.exercises.hs
+                     concat :: [[a]] -> [a]
+            - 
+
+               - **4.**
+                  Write your own definition of the standard takeWhile function, first using explicit recursion, then foldr. 
+            - 
+
+               - **5.**
+                  The Data.List module defines a function, groupBy, which has the following type.
+
+                  .. code:: haskell
+                     :class: programlisting
+
+                     -- file: ch04/ch04.exercises.hs
+                     groupBy :: (a -> a -> Bool) -> [a] -> [[a]]
+
+                  Use ghci to load the Data.List module and figure out what groupBy does, then write your own implementation using a fold.
+            - 
+
+               - **6.**
+                  How many of the following Prelude functions can you rewrite using list folds? 
+
+                  *  any 
+                  *  cycle
+                  *  words
+                  *  unlin
+
+                  For those functions where you can use either foldl' or foldr, which is more appropriate in each case?
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Further reading
+                  :name: id594881
+                  :class: title
+
+Further reading
+---------------
+
+      The article [`Hutton99 <bibliography.html#bib.hutton99>`__] is
+      an excellent and deep tutorial covering folds. It includes many
+      examples of how to use simple, systematic calculation
+      techniques to turn functions that use explicit recursion into
+      folds.
+
+.. container:: sect1
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: Anonymous (lambda) functions
+               :name: fp.anonymous
+               :class: title
+
+Anonymous (lambda) functions
+----------------------------
+
+   In many of the function definitions we've seen so far, we've
+   written short helper functions.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch04/Partial.hs
+      isInAny needle haystack = any inSequence haystack
+          where inSequence s = needle `isInfixOf` s
+
+   Haskell lets us write completely anonymous functions, which we can
+   use to avoid the need to give names to our helper functions.
+   Anonymous functions are often called “lambda” functions, in a nod
+   to their heritage in the lambda calculus. We introduce an
+   anonymous function with a backslash character, ``\``, pronounced
+   *lambda* :sup:`[` `9 <#ftn.id594951>`__ :sup:`]`. This is
+   followed by the function's arguments (which can include patterns),
+   then an arrow ``->`` to introduce the function's body.
+
+   Lambdas are most easily illustrated by example. Here's a rewrite
+   of ``isInAny`` using an anonymous function.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch04/Partial.hs
+      isInAny2 needle haystack = any (\s -> needle `isInfixOf` s) haystack
+
+   We've wrapped the lambda in parentheses here so that Haskell can
+   tell where the function body ends.
+
+   Anonymous functions behave in every respect identically to
+   functions that have names, but Haskell places a few important
+   restrictions on how we can define them. Most importantly, while we
+   can write a normal function using multiple clauses containing
+   different patterns and guards, a lambda can only have a single
+   clause in its definition.
+
+   The limitation to a single clause restricts how we can use
+   patterns in the definition of a lambda. We'll usually write a
+   normal function with several clauses to cover different pattern
+   matching possibilities.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch04/Lambda.hs
+      safeHead (x:_) = Just x
+      safeHead _ = Nothing
+
+   But as we can't write multiple clauses to define a lambda, we must
+   be certain that any patterns we use will match.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch04/Lambda.hs
+      unsafeHead = \(x:_) -> x
+
+   This definition of ``unsafeHead`` will explode in our faces if we
+   call it with a value on which pattern matching fails.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> :type unsafeHead
+      unsafeHead :: [t] -> t
+      ghci> unsafeHead [1]
+      1
+      ghci> unsafeHead []
+      *** Exception: Lambda.hs:7:13-23: Non-exhaustive patterns in lambda
+
+   The definition typechecks, so it will compile, so the error will
+   occur at runtime. The moral of this story is to be careful in how
+   you use patterns when defining an anonymous function: make sure
+   your patterns can't fail!
+
+   Another thing to notice about the ``isInAny`` and ``isInAny2``
+   functions we showed above is that the first version, using a
+   helper function that has a name, is a little easier to read than
+   the version that plops an anonymous function into the middle. The
+   named helper function doesn't disrupt the “flow” of the function
+   in which it's used, and the judiciously chosen name gives us a
+   little bit of information about what the function is expected to
+   do.
+
+   In contrast, when we run across a lambda in the middle of a
+   function body, we have to switch gears and read its definition
+   fairly carefully to understand what it does. To help with
+   readability and maintainability, then, we tend to avoid lambdas in
+   many situations where we could use them to trim a few characters
+   from a function definition. Very often, we'll use a partially
+   applied function instead, resulting in clearer and more readable
+   code than either a lambda or an explicit function. Don't know what
+   a partially applied function is yet? Read on!
+
+   We don't intend these caveats to suggest that lambdas are useless,
+   merely that we ought to be mindful of the potential pitfalls when
+   we're thinking of using them. In later chapters, we will see that
+   they are often invaluable as “glue”.
+
+.. container:: sect1
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: Partial function application and currying
+               :name: fp.partialapp
+               :class: title
+
+Partial function application and currying
+-----------------------------------------
+
+   You may wonder why the ``->`` arrow is used for what seems to be
+   two purposes in the type signature of a function.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> :type dropWhile
+      dropWhile :: (a -> Bool) -> [a] -> [a]
+
+   It looks like the ``->`` is separating the arguments to
+   ``dropWhile`` from each other, but that it also separates the
+   arguments from the return type. But in fact ``->`` has only one
+   meaning: it denotes a function that takes an argument of the type
+   on the left, and returns a value of the type on the right.
+
+   The implication here is very important: in Haskell, *all functions
+   take only one argument*. While ``dropWhile`` *looks* like a
+   function that takes two arguments, it is actually a function of
+   one argument, which returns a function that takes one argument.
+   Here's a perfectly valid Haskell expression.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> :module +Data.Char
+      ghci> :type dropWhile isSpace
+      dropWhile isSpace :: [Char] -> [Char]
+
+   Well, *that* looks useful. The value ``dropWhile isSpace`` is a
+   function that strips leading white space from a string. How is
+   this useful? As one example, we can use it as an argument to a
+   higher order function.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> map (dropWhile isSpace) [" a","f","   e"]
+      ["a","f","e"]
+
+   Every time we supply an argument to a function, we can “chop” an
+   element off the front of its type signature. Let's take ``zip3``
+   as an example to see what we mean; this is a function that zips
+   three lists into a list of three-tuples.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> :type zip3
+      zip3 :: [a] -> [b] -> [c] -> [(a, b, c)]
+      ghci> zip3 "foo" "bar" "quux"
+      [('f','b','q'),('o','a','u'),('o','r','u')]
+
+   If we apply ``zip3`` with just one argument, we get a function
+   that accepts two arguments. No matter what arguments we supply to
+   this compound function, its first argument will always be the
+   fixed value we specified.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> :type zip3 "foo"
+      zip3 "foo" :: [b] -> [c] -> [(Char, b, c)]
+      ghci> let zip3foo = zip3 "foo"
+      ghci> :type zip3foo
+      zip3foo :: [b] -> [c] -> [(Char, b, c)]
+      ghci> (zip3 "foo") "aaa" "bbb"
+      [('f','a','b'),('o','a','b'),('o','a','b')]
+      ghci> zip3foo "aaa" "bbb"
+      [('f','a','b'),('o','a','b'),('o','a','b')]
+      ghci> zip3foo [1,2,3] [True,False,True]
+      [('f',1,True),('o',2,False),('o',3,True)]
+
+   When we pass fewer arguments to a function than the function can
+   accept, we call this *partial application* of the function: we're
+   applying the function to only some of its arguments.
+
+   In the example above, we have a partially applied function,
+   ``zip3 "foo"``, and a new function, ``zip3foo``. We can see that
+   the type signatures of the two and their behavior are identical.
+
+   This applies just as well if we fix two arguments, giving us a
+   function of just one argument.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> let zip3foobar = zip3 "foo" "bar"
+      ghci> :type zip3foobar
+      zip3foobar :: [c] -> [(Char, Char, c)]
+      ghci> zip3foobar "quux"
+      [('f','b','q'),('o','a','u'),('o','r','u')]
+      ghci> zip3foobar [1,2]
+      [('f','b',1),('o','a',2)]
+
+   Partial function application lets us avoid writing tiresome
+   throwaway functions. It's often more useful for this purpose than
+   the anonymous functions we introduced in `the section called
+   “Anonymous (lambda)
+   functions” <#fp.anonymous>`__. Looking
+   back at the ``isInAny`` function we defined there, here's how we'd
+   use a partially applied function instead of a named helper
+   function or a lambda.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch04/Partial.hs
+      isInAny3 needle haystack = any (isInfixOf needle) haystack
+
+   Here, the expression ``isInfixOf needle`` is the partially applied
+   function. We're taking the function ``isInfixOf``, and “fixing”
+   its first argument to be the ``needle`` variable from our
+   parameter list. This gives us a partially applied function that
+   has exactly the same type and behavior as the helper and lambda in
+   our earlier definitions.
+
+   Partial function application is named *currying*, after the
+   logician Haskell Curry (for whom the Haskell language is named).
+
+   As another example of currying in use, let's return to the
+   list-summing function we wrote in the section called 
+   `“The left fold” <#fp.foldl>`__.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch04/Sum.hs
+      niceSum :: [Integer] -> Integer
+      niceSum xs = foldl (+) 0 xs
+
+   We don't need to fully apply ``foldl``; we can omit the list
+   ``xs`` from both the parameter list and the parameters to
+   ``foldl``, and we'll end up with a more compact function that has
+   the same type.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch04/Sum.hs
+      nicerSum :: [Integer] -> Integer
+      nicerSum = foldl (+) 0
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Sections
+                  :name: id596329
+                  :class: title
+
+Sections
+--------
+
+      Haskell provides a handy notational shortcut to let us write a
+      partially applied function in infix style. If we enclose an
+      operator in parentheses, we can supply its left or right
+      argument inside the parentheses to get a partially applied
+      function. This kind of partial application is called a
+      *section*.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> (1+) 2
+         3
+         ghci> map (*3) [24,36]
+         [72,108]
+         ghci> map (2^) [3,5,7,9]
+         [8,32,128,512]
+
+      If we provide the left argument inside the section, then
+      calling the resulting function with one argument supplies the
+      operator's right argument. And vice versa.
+
+      Recall that we can wrap a function name in backquotes to use it
+      as an infix operator. This lets us use sections with functions.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> :type (`elem` ['a'..'z'])
+         (`elem` ['a'..'z']) :: Char -> Bool
+
+      The above definition fixes ``elem``'s second argument, giving
+      us a function that checks to see whether its argument is a
+      lowercase letter.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> (`elem` ['a'..'z']) 'f'
+         True
+
+      Using this as an argument to ``all``, we get a function that
+      checks an entire string to see if it's all lowercase.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> all (`elem` ['a'..'z']) "Frobozz"
+         False
+
+      If we use this style, we can further improve the readability of
+      our earlier ``isInAny3`` function.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Partial.hs
+         isInAny4 needle haystack = any (needle `isInfixOf`) haystack
+
+.. container:: sect1
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: As-patterns
+               :name: fp.aspattern
+               :class: title
+
+As-patterns
+-----------
+
+   Haskell's ``tails`` function, in the ``Data.List`` module,
+   generalises the ``tail`` function we introduced earlier. Instead
+   of returning one “tail” of a list, it returns *all* of them.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> :m +Data.List
+      ghci> tail "foobar"
+      "oobar"
+      ghci> tail (tail "foobar")
+      "obar"
+      ghci> tails "foobar"
+      ["foobar","oobar","obar","bar","ar","r",""]
+
+   Each of these strings is a *suffix* of the initial string, so
+   ``tails`` produces a list of all suffixes, plus an extra empty
+   list at the end. It always produces that extra empty list, even
+   when its input list is empty.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> tails []
+      [[]]
+
+   What if we want a function that behaves like ``tails``, but which
+   *only* returns the non-empty suffixes? One possibility would be
+   for us to write our own version by hand. We'll use a new piece of
+   notation, the ``@`` symbol.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch04/SuffixTree.hs
+      suffixes :: [a] -> [[a]]
+      suffixes xs@(_:xs') = xs : suffixes xs'
+      suffixes _ = []
+
+   The pattern ``xs@(_:xs')`` is called an *as-pattern*, and it means
+   “bind the variable ``xs`` to the value that matches the right side
+   of the ``@`` symbol”.
+
+   In our example, if the pattern after the “@” matches, ``xs`` will
+   be bound to the entire list that matched, and ``xs'`` to all but
+   the head of the list (we used the wild card ``_`` pattern to
+   indicate that we're not interested in the value of the head of the
+   list).
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> tails "foo"
+      ["foo","oo","o",""]
+      ghci> suffixes "foo"
+      ["foo","oo","o"]
+
+   The as-pattern makes our code more readable. To see how it helps,
+   let us compare a definition that lacks an as-pattern.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch04/SuffixTree.hs
+      noAsPattern :: [a] -> [[a]]
+      noAsPattern (x:xs) = (x:xs) : noAsPattern xs
+      noAsPattern _ = []
+
+   Here, the list that we've deconstructed in the pattern match just
+   gets put right back together in the body of the function.
+
+   As-patterns have a more practical use than simple readability:
+   they can help us to share data instead of copying it. In our
+   definition of ``noAsPattern``, when we match ``(x:xs)``, we
+   construct a new copy of it in the body of our function. This
+   causes us to allocate a new list node at run time. That may be
+   cheap, but it isn't free. In contrast, when we defined
+   ``suffixes``, we reused the value ``xs`` that we matched with our
+   as-pattern. Since we reuse an existing value, we avoid a little
+   allocation.
+
+.. container:: sect1
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: Code reuse through composition
+               :name: fp.compose
+               :class: title
+
+Code reuse through composition
+------------------------------
+
+   It seems a shame to introduce a new function, ``suffixes``, that
+   does almost the same thing as the existing ``tails`` function.
+   Surely we can do better?
+
+   Recall the ``init`` function we introduced in the section called
+   `“Working with lists” <#fp.lists>`__: it
+   returns all but the last element of a list.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch04/SuffixTree.hs
+      suffixes2 xs = init (tails xs)
+
+   This ``suffixes2`` function behaves identically to ``suffixes``,
+   but it's a single line of code.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> suffixes2 "foo"
+      ["foo","oo","o"]
+
+   If we take a step back, we see the glimmer of a pattern here:
+   we're applying a function, then applying another function to its
+   result. Let's turn that pattern into a function definition.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch04/SuffixTree.hs
+      compose :: (b -> c) -> (a -> b) -> a -> c
+      compose f g x = f (g x)
+
+   We now have a function, ``compose``, that we can use to “glue” two
+   other functions together.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch04/SuffixTree.hs
+      suffixes3 xs = compose init tails xs
+
+   Haskell's automatic currying lets us drop the ``xs`` variable, so
+   we can make our definition even shorter.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch04/SuffixTree.hs
+      suffixes4 = compose init tails
+
+   Fortunately, we don't need to write our own ``compose`` function.
+   Plugging functions into each other like this is so common that the
+   Prelude provides function composition via the ``(.)`` operator.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch04/SuffixTree.hs
+      suffixes5 = init . tails
+
+   The ``(.)`` operator isn't a special piece of language syntax;
+   it's just a normal operator.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> :type (.)
+      (.) :: (b -> c) -> (a -> b) -> a -> c
+      ghci> :type suffixes
+      suffixes :: [a] -> [[a]]
+      ghci> :type suffixes5
+      suffixes5 :: [a] -> [[a]]
+      ghci> suffixes5 "foo"
+      ["foo","oo","o"]
+
+   We can create new functions at any time by writing chains of
+   composed functions, stitched together with ``(.)``, so long (of
+   course) as the result type of the function on the right of each
+   ``(.)`` matches the type of parameter that the function on the
+   left can accept.
+
+   As an example, let's solve a simple puzzle: counting the number of
+   words in a string that begin with a capital letter.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> :module +Data.Char
+      ghci> let capCount = length . filter (isUpper . head) . words
+      ghci> capCount "Hello there, Mom!"
+      2
+
+   We can understand what this composed function does by examining
+   its pieces. The ``(.)`` function is right associative, so we will
+   proceed from right to left.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> :type words
+      words :: String -> [String]
+
+   The ``words`` function has a result type of [String], so whatever
+   is on the left side of ``(.)`` must accept a compatible argument.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> :type isUpper . head
+      isUpper . head :: [Char] -> Bool
+
+   This function returns ``True`` if a word begins with a capital
+   letter (try it in **ghci**), so ``filter (isUpper . head)``
+   returns a list of Strings containing only words that begin with
+   capital letters.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> :type filter (isUpper . head)
+      filter (isUpper . head) :: [[Char]] -> [[Char]]
+
+   Since this expression returns a list, all that remains is
+   calculate the length of the list, which we do with another
+   composition.
+
+   Here's another example, drawn from a real application. We want to
+   extract a list of macro names from a C header file shipped with
+   ``libpcap``, a popular network packet filtering library. The
+   header file contains a large number definitions of the following
+   form.
+
+   .. code:: haskell
+      :class: programlisting
+
+      #define DLT_EN10MB      1       /* Ethernet (10Mb) */
+      #define DLT_EN3MB       2       /* Experimental Ethernet (3Mb) */
+      #define DLT_AX25        3       /* Amateur Radio AX.25 */
+
+   Our goal is to extract names such as ``DLT_EN10MB`` and
+   ``DLT_AX25``.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch04/dlts.hs
+      import Data.List (isPrefixOf)
+
+      dlts :: String -> [String]
+
+      dlts = foldr step [] . lines
+
+   We treat an entire file as a string, split it up with ``lines``,
+   then apply ``foldr step []`` to the resulting list of lines. The
+   ``step`` helper function operates on a single line.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch04/dlts.hs
+        where step l ds
+                | "#define DLT_" `isPrefixOf` l = secondWord l : ds
+                | otherwise                     = ds
+              secondWord = head . tail . words
+
+   If we match a macro definition with our guard expression, we cons
+   the name of the macro onto the head of the list we're returning;
+   otherwise, we leave the list untouched.
+
+   While the individual functions in the body of ``secondWord`` are
+   by now familiar to us, it can take a little practice to piece
+   together a chain of compositions like this. Let's walk through the
+   procedure.
+
+   Once again, we proceed from right to left. The first function is
+   ``words``.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> :type words
+      words :: String -> [String]
+      ghci> words "#define DLT_CHAOS    5"
+      ["#define","DLT_CHAOS","5"]
+
+   We then apply ``tail`` to the result of ``words``.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> :type tail
+      tail :: [a] -> [a]
+      ghci> tail ["#define","DLT_CHAOS","5"]
+      ["DLT_CHAOS","5"]
+      ghci> :type tail . words
+      tail . words :: String -> [String]
+      ghci> (tail . words) "#define DLT_CHAOS    5"
+      ["DLT_CHAOS","5"]
+
+   Finally, applying ``head`` to the result of ``drop 1 . words``
+   will give us the name of our macro.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> :type head . tail . words
+      head . tail . words :: String -> String
+      ghci> (head . tail . words) "#define DLT_CHAOS    5"
+      "DLT_CHAOS"
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Use your head wisely
+                  :name: id597329
+                  :class: title
+
+Use your head wisely
+--------------------
+
+      After warning against unsafe list functions in `the section
+      called “Safely and sanely working with crashy
+      functions” <#fp.lists.safe>`__, here
+      we are calling both ``head`` and ``tail``, two of those unsafe
+      list functions. What gives?
+
+      In this case, we can assure ourselves by inspection that we're
+      safe from a runtime failure. The pattern guard in the
+      definition of ``step`` contains two words, so when we apply
+      ``words`` to any string that makes it past the guard, we'll
+      have a list of at least two elements, ``"#define"`` and some
+      macro beginning with ``"DLT_"``.
+
+      This the kind of reasoning we ought to do to convince ourselves
+      that our code won't explode when we call partial functions.
+      Don't forget our earlier admonition: calling unsafe functions
+      like this requires care, and can often make our code more
+      fragile in subtle ways. If we for some reason modified the
+      pattern guard to only contain one word, we could expose
+      ourselves to the possibility of a crash, as the body of the
+      function assumes that it will receive two words.
+
+.. container:: sect1
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: Tips for writing readable code
+               :name: fp.readability
+               :class: title
+
+Tips for writing readable code
+------------------------------
+
+   So far in this chapter, we've come across two tempting looking
+   features of Haskell: tail recursion and anonymous functions. As
+   nice as these are, we don't often want to use them.
+
+   Many list manipulation operations can be most easily expressed
+   using combinations of library functions such as ``map``, ``take``,
+   and ``filter``. Without a doubt, it takes some practice to get
+   used to using these. In return for our initial investment, we can
+   write and read code more quickly, and with fewer bugs.
+
+   The reason for this is simple. A tail recursive function
+   definition has the same problem as a loop in an imperative
+   language: it's completely general. It might perform some
+   filtering, some mapping, or who knows what else. We are forced to
+   look in detail at the entire definition of the function to see
+   what it's really doing. In contrast, ``map`` and most other list
+   manipulation functions do only *one* thing. We can take for
+   granted what these simple building blocks do, and focus on the
+   idea the code is trying to express, not the minute details of how
+   it's manipulating its inputs.
+
+   In the middle ground between tail recursive functions (with
+   complete generality) and our toolbox of list manipulation
+   functions (each of which does one thing) lie the folds. A fold
+   takes more effort to understand than, say, a composition of
+   ``map`` and ``filter`` that does the same thing, but it behaves
+   more regularly and predictably than a tail recursive function. As
+   a general rule, don't use a fold if you can compose some library
+   functions, but otherwise try to use a fold in preference to a
+   hand-rolled a tail recursive loop.
+
+   As for anonymous functions, they tend to interrupt the “flow” of
+   reading a piece of code. It is very often as easy to write a local
+   function definition in a ``let`` or ``where`` clause, and use
+   that, as it is to put an anonymous function into place. The
+   relative advantages of a named function are twofold: we don't need
+   to understand the function's definition when we're reading the
+   code that uses it; and a well chosen function name acts as a tiny
+   piece of local documentation.
+
+.. container:: sect1
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: Space leaks and strict evaluation
+               :name: fp.seq
+               :class: title
+
+Space leaks and strict evaluation
+---------------------------------
+
+   The ``foldl`` function that we discussed earlier is not the only
+   place where space leaks can arise in Haskell code. We will use it
+   to illustrate how non-strict evaluation can sometimes be
+   problematic, and how to solve the difficulties that can arise.
+
+   .. Tip:: Do you need to know all of this right now?
+
+      It is perfectly reasonable to skip this section until
+      you encounter a space leak “in the wild”. Provided you
+      use ``foldr`` if you are generating a list, and
+      ``foldl'`` instead of ``foldl`` otherwise, space leaks
+      are unlikely to bother you in practice for a while.
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Avoiding space leaks with seq
+                  :name: id597540
+                  :class: title
+
+Avoiding space leaks with seq
+-----------------------------
+
+      We refer to an expression that is not evaluated lazily as
+      *strict*, so ``foldl'`` is a strict left fold. It bypasses
+      Haskell's usual non-strict evaluation through the use of a
+      special function named ``seq``.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Fold.hs
+         foldl' _    zero []     = zero
+         foldl' step zero (x:xs) =
+             let new = step zero x
+             in  new `seq` foldl' step new xs
+
+      This ``seq`` function has a peculiar type, hinting that it is
+      not playing by the usual rules.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> :type seq
+         seq :: a -> t -> t
+
+      It operates as follows: when a ``seq`` expression is evaluated,
+      it forces its first argument to be evaluated, then returns its
+      second argument. It doesn't actually do anything with the first
+      argument: ``seq`` exists solely as a way to force that value to
+      be evaluated. Let's walk through a brief application to see
+      what happens.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Fold.hs
+         foldl' (+) 1 (2:[])
+
+      This expands as follows.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Fold.hs
+         let new = 1 + 2
+         in new `seq` foldl' (+) new []
+
+      The use of ``seq`` forcibly evaluates ``new`` to ``3``, and
+      returns its second argument.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Fold.hs
+         foldl' (+) 3 []
+
+      We end up with the following result.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Fold.hs
+         3
+
+      Thanks to ``seq``, there are no thunks in sight.
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Learning to use seq
+                  :name: id597688
+                  :class: title
+
+Learning to use seq
+-------------------
+
+      Without some direction, there is an element of mystery to using
+      ``seq`` effectively. Here are some useful rules for using it
+      well.
+
+      To have any effect, a ``seq`` expression must be the first
+      thing evaluated in an expression.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Fold.hs
+         -- incorrect: seq is hidden by the application of someFunc
+         -- since someFunc will be evaluated first, seq may occur too late
+         hiddenInside x y = someFunc (x `seq` y)
+
+         -- incorrect: a variation of the above mistake
+         hiddenByLet x y z = let a = x `seq` someFunc y
+                             in anotherFunc a z
+
+         -- correct: seq will be evaluated first, forcing evaluation of x
+         onTheOutside x y = x `seq` someFunc y
+
+      To strictly evaluate several values, chain applications of
+      ``seq`` together.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Fold.hs
+         chained x y z = x `seq` y `seq` someFunc z
+
+      A common mistake is to try to use ``seq`` with two unrelated
+      expressions.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Fold.hs
+         badExpression step zero (x:xs) =
+             seq (step zero x)
+                 (badExpression step (step zero x) xs)
+
+      Here, the apparent intention is to evaluate ``step zero x``
+      strictly. Since the expression is duplicated in the body of the
+      function, strictly evaluating the first instance of it will
+      have no effect on the second. The use of ``let`` from the
+      definition of ``foldl'`` above shows how to achieve this effect
+      correctly.
+
+      When evaluating an expression, ``seq`` stops as soon as it
+      reaches a constructor. For simple types like numbers, this
+      means that it will evaluate them completely. Algebraic data
+      types are a different story. Consider the value
+      ``(1+2):(3+4):[]``. If we apply ``seq`` to this, it will
+      evaluate the ``(1+2)`` thunk. Since it will stop when it
+      reaches the first ``(:)`` constructor, it will have no effect
+      on the second thunk. The same is true for tuples:
+      ``seq ((1+2),(3+4)) True`` will do nothing to the thunks inside
+      the pair, since it immediately hits the pair's constructor.
+
+      If necessary, we can use normal functional programming
+      techniques to work around these limitations.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch04/Fold.hs
+         strictPair (a,b) = a `seq` b `seq` (a,b)
+
+         strictList (x:xs) = x `seq` x : strictList xs
+         strictList []     = []
+
+      It is important to understand that ``seq`` isn't free: it has
+      to perform a check at runtime to see if an expression has been
+      evaluated. Use it sparingly. For instance, while our
+      ``strictPair`` function evaluates the contents of a pair up to
+      the first constructor, it adds the overheads of pattern
+      matching, two applications of ``seq``, and the construction of
+      a new tuple. If we were to measure its performance in the inner
+      loop of a benchmark, we might find it to slow the program down.
+
+      Aside from its performance cost if overused, ``seq`` is not a
+      miracle cure-all for memory consumption problems. Just because
+      you *can* evaluate something strictly doesn't mean you
+      *should*. Careless use of ``seq`` may do nothing at all; move
+      existing space leaks around; or introduce new leaks.
+
+      The best guides to whether ``seq`` is necessary, and how well
+      it is working, are performance measurement and profiling, which
+      we will cover in `Chapter 25, Profiling and
+      optimization <profiling-and-optimization.html>`__. From a base
+      of empirical measurement, you will develop a reliable sense of
+      when ``seq`` is most useful.
+
+.. container:: footnotes
+
+   .. container:: footnote
+
+      :sup:`[` `8 <#id591518>`__ :sup:`]` Unfortunately, we do not
+      have room to address that challenge in this book.
+
+   .. container:: footnote
+
+      :sup:`[` `9 <#id594951>`__ :sup:`]` The backslash was chosen
+      for its visual resemblance to the Greek letter lambda, ``λ``.
+      Although GHC can accept Unicode input, it correctly treats
+      ``λ`` as a letter, not as a synonym for ``\``.
+
+
+
+.. _sec-5:
+
+/Chapter 5. Writing a library - working with JSON data `🔼 <#toc>`_
+====================================================================
+
+..   .. rubric:: Chapter 5. Writing a library: working with JSON data
+      :name: chapter-5.-writing-a-library-working-with-json-data
+      :class: title
+
+.. container:: toc
+
+   **Table of Contents**
+
+   *  `A whirlwind tour of JSON <#id597922>`__
+   *  `Representing JSON data in Haskell <#library.jvalue>`__
+   *  `The anatomy of a Haskell module <#library.anatomy>`__
+   *  `Compiling Haskell source <#id598438>`__
+   *  `Generating a Haskell program, and importing modules <#id598585>`__
+   *  `Printing JSON data <#id598831>`__
+   *  `Type inference is a double-edged sword <#id598932>`__
+   *  `A more general look at rendering <#id599139>`__
+   *  `Developing Haskell code without going nuts <#id599306>`__
+   *  `Pretty printing a string <#id599468>`__
+   *  `Arrays and objects, and the module header <#id600000>`__
+   *  `Writing a module header <#id600205>`__
+   *  `Fleshing out the pretty printing library <#id600358>`__
+
+      *  `Compact rendering <#id600830>`__
+      *  `True pretty printing <#id601329>`__
+      *  `Following the pretty printer <#id601549>`__
+      *  `Exercises <#id601782>`__
+
+   *  `Creating a package <#library.package>`__
+
+      *  `Writing a package description <#id601900>`__
+      *  `GHC's package manager <#id602195>`__
+      *  `Setting up, building, and installing <#id602275>`__
+
+   *  `Practical pointers and further reading <#id602458>`__
+
+.. container:: sect1
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: A whirlwind tour of JSON
+               :name: id597922
+               :class: title
+
+   In this chapter, we'll develop a small, but complete, Haskell
+   library. Our library will manipulate and serialize data in a
+   popular form known as JSON.
+
+   The JSON (JavaScript Object Notation) language is a small, simple
+   representation for storing and transmitting structured data, for
+   example over a network connection. It is most commonly used to
+   transfer data from a web service to a browser-based JavaScript
+   application. The JSON format is described at
+   `www.json.org <http://www.json.org/>`__, and in greater detail by
+   `RFC 4627 <http://www.ietf.org/rfc/rfc4627.txt>`__.
+
+   JSON supports four basic types of value: strings, numbers,
+   booleans, and a special value named ``null``.
+
+   .. code:: haskell
+      :class: programlisting
+
+      "a string" 12345 true
+            null
+
+   The language provides two compound types: an *array* is an ordered
+   sequence of values, and an *object* is an unordered collection of
+   name/value pairs. The names in an object are always strings; the
+   values in an object or array can be of any type.
+
+   .. code:: haskell
+      :class: programlisting
+
+      [-3.14, true, null, "a string"]
+            {"numbers": [1,2,3,4,5], "useful": false}
+
+.. container:: sect1
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: Representing JSON data in Haskell
+               :name: library.jvalue
+               :class: title
+
+   To work with JSON data in Haskell, we use an algebraic data type
+   to represent the range of possible JSON types.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/SimpleJSON.hs
+      data JValue = JString String
+                  | JNumber Double
+                  | JBool Bool
+                  | JNull
+                  | JObject [(String, JValue)]
+                  | JArray [JValue]
+                    deriving (Eq, Ord, Show)
+
+   For each JSON type, we supply a distinct value constructor. Some
+   of these constructors have parameters: if we want to construct a
+   JSON string, we must provide a String value as an argument to the
+   ``JString`` constructor.
+
+   To start experimenting with this code, save the file
+   ``SimpleJSON.hs`` in your editor, switch to a **ghci** window, and
+   load the file into **ghci**.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> :load SimpleJSON
+      [1 of 1] Compiling SimpleJSON       ( SimpleJSON.hs, interpreted )
+      Ok, modules loaded: SimpleJSON.
+      ghci> JString "foo"
+      JString "foo"
+      ghci> JNumber 2.7
+      JNumber 2.7
+      ghci> :type JBool True
+      JBool True :: JValue
+
+   We can see how to use a constructor to take a normal Haskell value
+   and turn it into a JValue. To do the reverse, we use pattern
+   matching. Here's a function that we can add to ``SimpleJSON.hs``
+   that will extract a string from a JSON value for us. If the JSON
+   value actually contains a string, our function will wrap the
+   string with the ``Just`` constructor. Otherwise, it will return
+   ``Nothing``.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/SimpleJSON.hs
+      getString :: JValue -> Maybe String
+      getString (JString s) = Just s
+      getString _           = Nothing
+
+   When we save the modified source file, we can reload it in
+   **ghci** and try the new definition. (The **:reload** command
+   remembers the last source file we loaded, so we do not need to
+   name it explicitly.)
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> :reload
+      Ok, modules loaded: SimpleJSON.
+      ghci> getString (JString "hello")
+      Just "hello"
+      ghci> getString (JNumber 3)
+      Nothing
+
+   A few more accessor functions, and we've got a small body of code
+   to work with.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/SimpleJSON.hs
+      getInt (JNumber n) = Just (truncate n)
+      getInt _           = Nothing
+
+      getDouble (JNumber n) = Just n
+      getDouble _           = Nothing
+
+      getBool (JBool b) = Just b
+      getBool _         = Nothing
+
+      getObject (JObject o) = Just o
+      getObject _           = Nothing
+
+      getArray (JArray a) = Just a
+      getArray _          = Nothing
+
+      isNull v            = v == JNull
+
+   The ``truncate`` function turns a floating point or rational
+   number into an integer by dropping the digits after the decimal
+   point.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> truncate 5.8
+      5
+      ghci> :module +Data.Ratio
+      ghci> truncate (22 % 7)
+      3
+
+.. container:: sect1
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: The anatomy of a Haskell module
+               :name: library.anatomy
+               :class: title
+
+   A Haskell source file contains a definition of a single *module*.
+   A module lets us determine which names inside the module are
+   accessible from other modules.
+
+   A source file begins with a *module declaration*. This must
+   precede all other definitions in the source file.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/SimpleJSON.hs
+      module SimpleJSON
+          (
+            JValue(..)
+          , getString
+          , getInt
+          , getDouble
+          , getBool
+          , getObject
+          , getArray
+          , isNull
+          ) where
+
+   The word ``module`` is reserved. It is followed by the name of the
+   module, which must begin with a capital letter. A source file must
+   have the same *base name* (the component before the suffix) as the
+   name of the module it contains. This is why our file
+   ``SimpleJSON.hs`` contains a module named ``SimpleJSON``.
+
+   Following the module name is a list of *exports*, enclosed in
+   parentheses. The ``where`` keyword indicates that the body of the
+   module follows.
+
+   The list of exports indicates which names in this module are
+   visible to other modules. This lets us keep private code hidden
+   from the outside world. The special notation ``(..)`` that follows
+   the name ``JValue`` indicates that we are exporting both the type
+   and all of its constructors.
+
+   It might seem strange that we can export a type's name (i.e. its
+   type constructor), but not its value constructors. The ability to
+   do this is important: it lets us hide the details of a type from
+   its users, making the type *abstract*. If we cannot see a type's
+   value constructors, we cannot pattern match against a value of
+   that type, nor can we construct a new value of that type. Later in
+   this chapter, we'll discuss some situations in which we might want
+   to make a type abstract.
+
+   If we omit the exports (and the parentheses that enclose them)
+   from a module declaration, every name in the module will be
+   exported.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/Exporting.hs
+      module ExportEverything where
+
+   To export no names at all (which is rarely useful), we write an
+   empty export list using a pair of parentheses.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/Exporting.hs
+      module ExportNothing () where
+
+.. container:: sect1
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: Compiling Haskell source
+               :name: id598438
+               :class: title
+
+   In addition to the **ghci** interpreter, the GHC distribution
+   includes a compiler, **ghc**, that generates native code. If you
+   are already familiar with a command line compiler such as **gcc**
+   or **cl** (the C++ compiler component of Microsoft's Visual
+   Studio), you'll immediately be at home with **ghc**.
+
+   To compile a source file, we first open a terminal or command
+   prompt window, then invoke **ghc** with the name of the source
+   file to compile.
+
+   .. code:: haskell
+      :class: programlisting
+
+      ghc -c SimpleJSON.hs
+
+   The ``-c`` option tells **ghc** to only generate object code. If
+   we were to omit the ``-c`` option, the compiler would attempt to
+   generate a complete executable. That would fail, because we
+   haven't written a ``main`` function, which GHC calls to start the
+   execution of a standalone program.
+
+   After **ghc** completes, if we list the contents of the directory,
+   it should contain two new files: ``SimpleJSON.hi`` and
+   ``SimpleJSON.o``. The former is an *interface file*, in which
+   **ghc** stores information about the names exported from our
+   module in machine-readable form. The latter is an *object file*,
+   which contains the generated machine code.
+
+.. container:: sect1
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: Generating a Haskell program, and importing
+               modules
+               :name: id598585
+               :class: title
+
+   Now that we've successfully compiled our minimal library, we'll
+   write a tiny program to exercise it. Create the following file in
+   your text editor, and save it as ``Main.hs``.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/Main.hs
+      module Main () where
+
+      import SimpleJSON
+
+      main = print (JObject [("foo", JNumber 1), ("bar", JBool False)])
+
+   Notice the ``import`` directive that follows the module
+   declaration. This indicates that we want to take all of the names
+   that are exported from the ``SimpleJSON`` module, and make them
+   available in our module. Any ``import`` directives must appear in
+   a group at the beginning of a module. They must appear after the
+   module declaration, but before all other code. We cannot, for
+   example, scatter them throughout a source file.
+
+   Our choice of naming for the source file and function is
+   deliberate. To create an executable, **ghc** expects a module
+   named ``Main`` that contains a function named ``main``. The
+   ``main`` function is the one that will be called when we run the
+   program once we've built it.
+
+   .. code:: haskell
+      :class: programlisting
+
+      ghc -o simple Main.hs SimpleJSON.o
+
+   This time around, we're omitting the ``-c`` option when we invoke
+   **ghc**, so it will attempt to generate an executable. The process
+   of generating an executable is called *linking*. As our command
+   line suggests, **ghc** is perfectly able to both compile source
+   files and link an executable in a single invocation.
+
+   We pass **ghc** a new option, ``-o``, which takes one argument:
+   this is the name of the executable that **ghc** should
+   create :sup:`[` `10 <#ftn.id598725>`__ :sup:`]`. Here, we've
+   decided to name the program ``simple``. On Windows, the program
+   will have the suffix ``.exe``, but on Unix variants there will not
+   be a suffix.
+
+   Finally, we supply the name of our new source file, ``Main.hs``,
+   and the object file we already compiled, ``SimpleJSON.o``. We must
+   explicitly list every one of our files that contains code that
+   should end up in the executable. If we forget a source or object
+   file, **ghc** will complain about *undefined symbols*, which
+   indicates that some of the definitions that it needs are not
+   provided in the files we have supplied.
+
+   When compiling, we can pass **ghc** any mixture of source and
+   object files. If **ghc** notices that it has already compiled a
+   source file into an object file, it will only recompile the source
+   file if we've modified it.
+
+   Once **ghc** has finished compiling and linking our ``simple``
+   program, we can run it from the command line.
+
+.. container:: sect1
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: Printing JSON data
+               :name: id598831
+               :class: title
+
+   Now that we have a Haskell representation for JSON's types, we'd
+   like to be able to take Haskell values and render them as JSON
+   data.
+
+   There are a few ways we could go about this. Perhaps the most
+   direct would be to write a rendering function that prints a value
+   in JSON form. Once we're done, we'll explore some more interesting
+   approaches.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/PutJSON.hs
+      module PutJSON where
+
+      import Data.List (intercalate)
+      import SimpleJSON
+
+      renderJValue :: JValue -> String
+
+      renderJValue (JString s)   = show s
+      renderJValue (JNumber n)   = show n
+      renderJValue (JBool True)  = "true"
+      renderJValue (JBool False) = "false"
+      renderJValue JNull         = "null"
+
+      renderJValue (JObject o) = "{" ++ pairs o ++ "}"
+        where pairs [] = ""
+              pairs ps = intercalate ", " (map renderPair ps)
+              renderPair (k,v)   = show k ++ ": " ++ renderJValue v
+
+      renderJValue (JArray a) = "[" ++ values a ++ "]"
+        where values [] = ""
+              values vs = intercalate ", " (map renderJValue vs)
+
+   Good Haskell style involves separating pure code from code that
+   performs I/O. Our ``renderJValue`` function has no interaction
+   with the outside world, but we still need to be able to print a
+   JValue.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/PutJSON.hs
+      putJValue :: JValue -> IO ()
+      putJValue v = putStrLn (renderJValue v)
+
+   Printing a JSON value is now easy.
+
+   Why should we separate the rendering code from the code that
+   actually prints a value? This gives us flexibility. For instance,
+   if we wanted to compress the data before writing it out, and we
+   intermixed rendering with printing, it would be much more
+   difficult to adapt our code to that change in circumstances.
+
+   This idea of separating pure from impure code is powerful, and
+   pervasive in Haskell code. Several Haskell compression libraries
+   exist, all of which have simple interfaces: a compression function
+   accepts an uncompressed string and returns a compressed string. We
+   can use function composition to render JSON data to a string, then
+   compress to another string, postponing any decision on how to
+   actually display or transmit the data.
+
+.. container:: sect1
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: Type inference is a double-edged sword
+               :name: id598932
+               :class: title
+
+   A Haskell compiler's ability to infer types is powerful and
+   valuable. Early on, you'll probably be faced by a strong
+   temptation to take advantage of type inference by omitting as many
+   type declarations as possible: let's simply make the compiler
+   figure the whole lot out!
+
+   Skimping on explicit type information has a downside, one that
+   disproportionately affects new Haskell programmer. As a new
+   Haskell programmer, we're extremely likely to write code that will
+   fail to compile due to straightforward type errors.
+
+   When we omit explicit type information, we force the compiler to
+   figure out our intentions. It will infer types that are logical
+   and consistent, but perhaps not at all what we meant. If we and
+   the compiler unknowingly disagree about what is going on, it will
+   naturally take us longer to find the source of our problem.
+
+   Suppose, for instance, that we write a function that we believe
+   returns a String, but we don't write a type signature for it.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/Trouble.hs
+      upcaseFirst (c:cs) = toUpper c -- forgot ":cs" here
+
+   Here, we want to upper-case the first character of a word, but
+   we've forgotten to append the rest of the word onto the result. We
+   think our function's type is String -> String, but the compiler
+   will correctly infer its type as String -> Char. Let's say we then
+   try to use this function somewhere else.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/Trouble.hs
+      camelCase :: String -> String
+      camelCase xs = concat (map upcaseFirst (words xs))
+
+   When we try to compile this code or load it into **ghci**, we
+   won't necessarily get an obvious error message.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> :load Trouble
+      [1 of 1] Compiling Main             ( Trouble.hs, interpreted )
+
+      Trouble.hs:9:27:
+          Couldn't match expected type `[Char]' against inferred type `Char'
+            Expected type: [Char] -> [Char]
+            Inferred type: [Char] -> Char
+          In the first argument of `map', namely `upcaseFirst'
+          In the first argument of `concat', namely
+              `(map upcaseFirst (words xs))'
+      Failed, modules loaded: none.
+
+   Notice that the error is reported where we *use* the
+   ``upcaseFirst`` function. If we're erroneously convinced that our
+   definition and type for ``upcaseFirst`` are correct, we may end up
+   staring at the wrong piece of code for quite a while, until
+   enlightenment strikes.
+
+   Every time we write a type signature, we remove a degree of
+   freedom from the type inference engine. This reduces the
+   likelihood of divergence between our understanding of our code and
+   the compiler's. Type declarations also act as shorthand for
+   ourselves as readers of our own code, making it easier for us to
+   develop a sense of what must be going on.
+
+   This is not to say that we need to pepper every tiny fragment of
+   code with a type declaration. It is, however, usually good form to
+   add a signature to every top-level definition in our code. It's
+   best to start out fairly aggressive with explicit type signatures,
+   and slowly ease back as your mental model of how type checking
+   works becomes more accurate.
+
+   .. Tip:: Explicit types, undefined values, and error
+
+      The special value ``undefined`` will happily typecheck
+      no matter where we use it, as will an expression like
+      ``error "argh!"``. It is especially important that we
+      write type signatures when we use these. Suppose we
+      use ``undefined`` or ``error "write me"`` to act as a
+      placeholder in the body of a top-level definition. If
+      we omit a type signature, we may be able to use the
+      value we have defined in places where a correctly
+      typed version would be rejected by the compiler. This
+      can easily lead us astray.
+
+.. container:: sect1
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: A more general look at rendering
+               :name: id599139
+               :class: title
+
+   Our JSON rendering code is narrowly tailored to the exact needs of
+   our data types and the JSON formatting conventions. The output it
+   produces can be unfriendly to human eyes. We will now look at
+   rendering as a more generic task: how can we build a library that
+   is useful for rendering data in a variety of situations?
+
+   We would like to produce output that is suitable either for human
+   consumption (e.g. for debugging) or for machine processing.
+   Libraries that perform this job are referred to as *pretty
+   printers*. There already exist several Haskell pretty printing
+   libraries. We are creating one of our own not to replace them, but
+   for the many useful insights we will gain into both library design
+   and functional programming techniques.
+
+   We will call our generic pretty printing module ``Prettify``, so
+   our code will go into a source file named ``Prettify.hs``.
+
+   .. Note:: Naming
+
+      In our ``Prettify`` module, we will base our names on
+      those used by several established Haskell pretty
+      printing libraries. This will give us a degree of
+      compatibility with existing mature libraries.
+
+   To make sure that ``Prettify`` meets practical needs, we write a
+   new JSON renderer that uses the ``Prettify`` API. After we're
+   done, we'll go back and fill in the details of the ``Prettify``
+   module.
+
+   Instead of rendering straight to a string, our ``Prettify`` module
+   will use an abstract type that we'll call Doc. By basing our
+   generic rendering library on an abstract type, we can choose an
+   implementation that is flexible and efficient. If we decide to
+   change the underlying code, our users will not be able to tell.
+
+   We will name our new JSON rendering module ``PrettyJSON.hs``, and
+   retain the name ``renderJValue`` for the rendering function.
+   Rendering one of the basic JSON values is straightforward.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/PrettyJSON.hs
+      renderJValue :: JValue -> Doc
+      renderJValue (JBool True)  = text "true"
+      renderJValue (JBool False) = text "false"
+      renderJValue JNull         = text "null"
+      renderJValue (JNumber num) = double num
+      renderJValue (JString str) = string str
+
+   The ``text``, ``double``, and ``string`` functions will be
+   provided by our ``Prettify`` module.
+
+.. container:: sect1
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: Developing Haskell code without going nuts
+               :name: id599306
+               :class: title
+
+   Early on, as we come to grips with Haskell development, we have so
+   many new, unfamiliar concepts to keep track of at one time that it
+   can be a challenge to write code that compiles at all.
+
+   As we write our first substantial body of code, it's a *huge* help
+   to pause every few minutes and try to compile what we've produced
+   so far. Because Haskell is so strongly typed, if our code compiles
+   cleanly, we're assuring ourselves that we're not wandering too far
+   off into the programming weeds.
+
+   One useful technique for quickly developing the skeleton of a
+   program is to write placeholder, or *stub* versions of types and
+   functions. For instance, we mentioned above that our ``string``,
+   ``text`` and ``double`` functions would be provided by our
+   ``Prettify`` module. If we don't provide definitions for those
+   functions or the Doc type, our attempts to “compile early, compile
+   often” with our JSON renderer will fail, as the compiler won't
+   know anything about those functions. To avoid this problem, we
+   write stub code that doesn't do anything.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/PrettyStub.hs
+      import SimpleJSON
+
+      data Doc = ToBeDefined
+               deriving (Show)
+
+      string :: String -> Doc
+      string str = undefined
+
+      text :: String -> Doc
+      text str = undefined
+
+      double :: Double -> Doc
+      double num = undefined
+
+   The special value ``undefined`` has the type ``a``, so it always
+   typechecks, no matter where we use it. If we attempt to evaluate
+   it, it will cause our program to crash.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> :type undefined
+      undefined :: a
+      ghci> undefined
+      *** Exception: Prelude.undefined
+      ghci> :type double
+      double :: Double -> Doc
+      ghci> double 3.14
+      *** Exception: Prelude.undefined
+
+   Even though we can't yet run our stubbed code, the compiler's type
+   checker will ensure that our program is sensibly typed.
+
+.. container:: sect1
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: Pretty printing a string
+               :name: id599468
+               :class: title
+
+   When we must pretty print a string value, JSON has moderately
+   involved escaping rules that we must follow. At the highest level,
+   a string is just a series of characters wrapped in quotes.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/PrettyJSON.hs
+      string :: String -> Doc
+      string = enclose '"' '"' . hcat . map oneChar
+
+   .. Note:: Point-free style
+
+      This style of writing a definition exclusively as a
+      composition of other functions is called *point-free
+      style*. The use of the word “point” is not related to
+      the “ ``.`` ” character used for function
+      composition. The term *point* is roughly synonymous
+      (in Haskell) with *value*, so a *point-free*
+      expression makes no mention of the values that it
+      operates on.
+
+      Contrast the point-free definition of ``string`` above
+      with this “pointy” version, which uses a variable
+      ``s`` to refer to the value on which it operates.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch05/PrettyJSON.hs
+         pointyString :: String -> Doc
+         pointyString s = enclose '"' '"' (hcat (map oneChar s))
+
+   The ``enclose`` function simply wraps a Doc value with an opening
+   and closing character.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/PrettyJSON.hs
+      enclose :: Char -> Char -> Doc -> Doc
+      enclose left right x = char left <> x <> char right
+
+   We provide a ``(<>)`` function in our pretty printing library. It
+   appends two Doc values, so it's the Doc equivalent of ``(++)``.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/PrettyStub.hs
+      (<>) :: Doc -> Doc -> Doc
+      a <> b = undefined
+
+      char :: Char -> Doc
+      char c = undefined
+
+   Our pretty printing library also provides ``hcat``, which
+   concatenates multiple Doc values into one: it's the analogue of
+   ``concat`` for lists.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/PrettyStub.hs
+      hcat :: [Doc] -> Doc
+      hcat xs = undefined
+
+   Our ``string`` function applies the ``oneChar`` function to every
+   character in a string, concatenates the lot, and encloses the
+   result in quotes. The ``oneChar`` function escapes or renders an
+   individual character.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/PrettyJSON.hs
+      oneChar :: Char -> Doc
+      oneChar c = case lookup c simpleEscapes of
+                    Just r -> text r
+                    Nothing | mustEscape c -> hexEscape c
+                            | otherwise    -> char c
+          where mustEscape c = c < ' ' || c == '\x7f' || c > '\xff'
+
+      simpleEscapes :: [(Char, String)]
+      simpleEscapes = zipWith ch "\b\n\f\r\t\\\"/" "bnfrt\\\"/"
+          where ch a b = (a, ['\\',b])
+
+   The ``simpleEscapes`` value is a list of pairs. We call a list of
+   pairs an *association list*, or *alist* for short. Each element of
+   our alist associates a character with its escaped representation.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> take 4 simpleEscapes
+      [('\b',"\\b"),('\n',"\\n"),('\f',"\\f"),('\r',"\\r")]
+
+   Our ``case`` expression attempts to see if our character has a
+   match in this alist. If we find the match, we emit it, otherwise
+   we might need to escape the character in a more complicated way.
+   If so, we perform this escaping. Only if neither kind of escaping
+   is required do we emit the plain character. To be conservative,
+   the only unescaped characters we emit are printable ASCII
+   characters.
+
+   The more complicated escaping involves turning a character into
+   the string “ ``\u`` ” followed by a four-character sequence of
+   hexadecimal digits representing the numeric value of the Unicode
+   character.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/PrettyJSON.hs
+      smallHex :: Int -> Doc
+      smallHex x  = text "\\u"
+                 <> text (replicate (4 - length h) '0')
+                 <> text h
+          where h = showHex x ""
+
+   The ``showHex`` function comes from the ``Numeric`` library (you
+   will need to import this at the beginning of ``Prettify.hs``), and
+   returns a hexadecimal representation of a number.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> showHex 114111 ""
+      "1bdbf"
+
+   The ``replicate`` function is provided by the Prelude, and builds
+   a fixed-length repeating list of its argument.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> replicate 5 "foo"
+      ["foo","foo","foo","foo","foo"]
+
+   There's a wrinkle: the four-digit encoding that ``smallHex``
+   provides can only represent Unicode characters up to ``0xffff``.
+   Valid Unicode characters can range up to ``0x10ffff``. To properly
+   represent a character above ``0xffff`` in a JSON string, we follow
+   some complicated rules to split it into two. This gives us an
+   opportunity to perform some bit-level manipulation of Haskell
+   numbers.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/PrettyJSON.hs
+      astral :: Int -> Doc
+      astral n = smallHex (a + 0xd800) <> smallHex (b + 0xdc00)
+          where a = (n `shiftR` 10) .&. 0x3ff
+                b = n .&. 0x3ff
+
+   The ``shiftR`` function comes from the ``Data.Bits`` module, and
+   shifts a number to the right. The ``(.&.)`` function, also from
+   ``Data.Bits``, performs a bit-level *and* of two values.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> 0x10000 `shiftR` 4   :: Int
+      4096
+      ghci> 7 .&. 2   :: Int
+      2
+
+   Now that we've written ``smallHex`` and ``astral``, we can provide
+   a definition for ``hexEscape``.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/PrettyJSON.hs
+      hexEscape :: Char -> Doc
+      hexEscape c | d < 0x10000 = smallHex d
+                  | otherwise   = astral (d - 0x10000)
+        where d = ord c
+
+.. container:: sect1
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: Arrays and objects, and the module header
+               :name: id600000
+               :class: title
+
+   Compared to strings, pretty printing arrays and objects is a snap.
+   We already know that the two are visually similar: each starts
+   with an opening character, followed by a series of values
+   separated with commas, followed by a closing character. Let's
+   write a function that captures the common structure of arrays and
+   objects.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/PrettyJSON.hs
+      series :: Char -> Char -> (a -> Doc) -> [a] -> Doc
+      series open close item = enclose open close
+                             . fsep . punctuate (char ',') . map item
+
+   We'll start by interpreting this function's type. It takes an
+   opening and closing character, then a function that knows how to
+   pretty print a value of some unknown type ``a``, followed by a
+   list of values of type ``a``, and it returns a value of type Doc.
+
+   Notice that although our type signature mentions four parameters,
+   we have only listed three in the definition of the function. We
+   are simply following the same rule that lets us simplify a
+   definiton like ``myLength xs = length xs`` to
+   ``myLength = length``.
+
+   We have already written ``enclose``, which wraps a Doc value in
+   opening and closing characters. The ``fsep`` function will live in
+   our ``Prettify`` module. It combines a list of Doc values into
+   one, possibly wrapping lines if the output will not fit on a
+   single line.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/PrettyStub.hs
+      fsep :: [Doc] -> Doc
+      fsep xs = undefined
+
+   By now, you should be able to define your own stubs in
+   ``Prettify.hs``, by following the examples we have supplied. We
+   will not explicitly define any more stubs.
+
+   The ``punctuate`` function will also live in our ``Prettify``
+   module, and we can define it in terms of functions for which we've
+   already written stubs.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/Prettify.hs
+      punctuate :: Doc -> [Doc] -> [Doc]
+      punctuate p []     = []
+      punctuate p [d]    = [d]
+      punctuate p (d:ds) = (d <> p) : punctuate p ds
+
+   With this definition of ``series``, pretty printing an array is
+   entirely straightforward. We add this equation to the end of the
+   block we've already written for our ``renderJValue`` function.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/PrettyJSON.hs
+      renderJValue (JArray ary) = series '[' ']' renderJValue ary
+
+   To pretty print an object, we need to do only a little more work:
+   for each element, we have both a name and a value to deal with.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/PrettyJSON.hs
+      renderJValue (JObject obj) = series '{' '}' field obj
+          where field (name,val) = string name
+                                <> text ": "
+                                <> renderJValue val
+
+.. container:: sect1
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: Writing a module header
+               :name: id600205
+               :class: title
+
+   Now that we have written the bulk of our ``PrettyJSON.hs`` file,
+   we must go back to the top and add a module declaration.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/PrettyJSON.hs
+      module PrettyJSON
+          (
+            renderJValue
+          ) where
+
+      import Numeric (showHex)
+      import Data.Char (ord)
+      import Data.Bits (shiftR, (.&.))
+
+      import SimpleJSON (JValue(..))
+      import Prettify (Doc, (<>), char, double, fsep, hcat, punctuate, text,
+                       compact, pretty)
+
+   We export just one name from this module: ``renderJValue``, our
+   JSON rendering function. The other definitions in the module exist
+   purely to support ``renderJValue``, so there's no reason to make
+   them visible to other modules.
+
+   Regarding imports, the ``Numeric`` and ``Data.Bits`` modules are
+   distributed with GHC. We've already written the ``SimpleJSON``
+   module, and filled our ``Prettify`` module with skeletal
+   definitions. Notice that there's no difference in the way we
+   import standard modules from those we've written ourselves.
+
+   With each ``import`` directive, we explicitly list each of the
+   names we want to bring into our module's namespace. This is not
+   required: if we omit the list of names, all of the names exported
+   from a module will be available to us. However, it's generally a
+   good idea to write an explicit import list.
+
+   .. container:: itemizedlist
+
+      -  An explicit list makes it clear which names we're importing
+         from where. This will make it easier for a reader to look up
+         documentation if they encounter an unfamiliar function.
+
+      -  Occasionally, a library maintainer will remove or rename a
+         function. If a function disappears from a third party module
+         that we use, any resulting compilation error is likely to
+         happen long after we've written the module. The explicit
+         list of imported names can act as a reminder to ourselves of
+         where we had been importing the missing name from, which
+         will help us to pinpoint the problem more quickly.
+
+      -  It can also occur that someone will add a name to a module
+         that is identical to a name already in our own code. If we
+         don't use an explicit import list, we'll end up with the
+         same name in our module twice. If we use that name, GHC will
+         report an error due to the ambiguity. An explicit list lets
+         us avoid the possibility of accidentally importing an
+         unexpected new name.
+
+   This idea of using explicit imports is a guideline that usually
+   makes sense, not a hard-and-fast rule. Occasionally, we'll need so
+   many names from a module that listing each one becomes messy. In
+   other cases, a module might be so widely used that a moderately
+   experienced Haskell programmer will probably know which names come
+   from that module.
+
+.. container:: sect1
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: Fleshing out the pretty printing library
+               :name: id600358
+               :class: title
+
+   In our ``Prettify`` module, we represent our Doc type as an
+   algebraic data type.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/Prettify.hs
+      data Doc = Empty
+               | Char Char
+               | Text String
+               | Line
+               | Concat Doc Doc
+               | Union Doc Doc
+                 deriving (Show,Eq)
+
+   Observe that the Doc type is actually a tree. The ``Concat`` and
+   ``Union`` constructors create an internal node from two other Doc
+   values, while the ``Empty`` and other simple constructors build
+   leaves.
+
+   In the header of our module, we will export the name of the type,
+   but not any of its constructors: this will prevent modules that
+   use the Doc type from creating and pattern matching against Doc
+   values.
+
+   Instead, to create a Doc, a user of the ``Prettify`` module will
+   call a function that we provide. Here are the simple construction
+   functions. As we add real definitions, we must replace any stubbed
+   versions already in the ``Prettify.hs`` source file.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/Prettify.hs
+      empty :: Doc
+      empty = Empty
+
+      char :: Char -> Doc
+      char c = Char c
+
+      text :: String -> Doc
+      text "" = Empty
+      text s  = Text s
+
+      double :: Double -> Doc
+      double d = text (show d)
+
+   The ``Line`` constructor represents a line break. The ``line``
+   function creates *hard* line breaks, which always appear in the
+   pretty printer's output. Sometimes we'll want a *soft* line break,
+   which is only used if a line is too wide to fit in a window or
+   page. We'll introduce a ``softline`` function shortly.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/Prettify.hs
+      line :: Doc
+      line = Line
+
+   Almost as simple as the basic constructors is the ``(<>)``
+   function, which concatenates two Doc values.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/Prettify.hs
+      (<>) :: Doc -> Doc -> Doc
+      Empty <> y = y
+      x <> Empty = x
+      x <> y = x `Concat` y
+
+   We pattern match against ``Empty`` so that concatenating a Doc
+   value with ``Empty`` on the left or right will have no effect.
+   This keeps us from bloating the tree with useless values.
+
+   .. code:: haskell
+      :class: screen
+
+      ghci> text "foo" <> text "bar"
+      Concat (Text "foo") (Text "bar")
+      ghci> text "foo" <> empty
+      Text "foo"
+      ghci> empty <> text "bar"
+      Text "bar"
+
+   .. Tip:: A mathematical moment
+
+      If we briefly put on our mathematical hats, we can say
+      that ``Empty`` is the identity under concatenation,
+      since nothing happens if we concatenate a Doc value
+      with ``Empty``. In a similar vein, 0 is the identity
+      for adding numbers, and 1 is the identity for
+      multiplying them. Taking the mathematical perspective
+      has useful practical consequences, as we will see in a
+      number of places throughout this book.
+
+   Our ``hcat`` and ``fsep`` functions concatenate a list of Doc
+   values into one. In `the section called
+   “Exercises” <functional-programming.html#fp.fold.exercises>`__, we
+   mentioned that we could define concatenation for lists using
+   ``foldr``.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/Concat.hs
+      concat :: [[a]] -> [a]
+      concat = foldr (++) []
+
+   Since ``(<>)`` is analogous to ``(++)``, and ``empty`` to ``[]``,
+   we can see how we might write ``hcat`` and ``fsep`` as folds, too.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/Prettify.hs
+      hcat :: [Doc] -> Doc
+      hcat = fold (<>)
+
+      fold :: (Doc -> Doc -> Doc) -> [Doc] -> Doc
+      fold f = foldr f empty
+
+   The definition of ``fsep`` depends on several other functions.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/Prettify.hs
+      fsep :: [Doc] -> Doc
+      fsep = fold (</>)
+
+      (</>) :: Doc -> Doc -> Doc
+      x </> y = x <> softline <> y
+
+      softline :: Doc
+      softline = group line
+
+   These take a little explaining. The ``softline`` function should
+   insert a newline if the current line has become too wide, or a
+   space otherwise. How can we do this if our Doc type doesn't
+   contain any information about rendering? Our answer is that every
+   time we encounter a soft newline, we maintain *two* alternative
+   representations of the document, using the ``Union`` constructor.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/Prettify.hs
+      group :: Doc -> Doc
+      group x = flatten x `Union` x
+
+   Our ``flatten`` function replaces a ``Line`` with a space, turning
+   two lines into one longer line.
+
+   .. code:: haskell
+      :class: programlisting
+
+      -- file: ch05/Prettify.hs
+      flatten :: Doc -> Doc
+      flatten (x `Concat` y) = flatten x `Concat` flatten y
+      flatten Line           = Char ' '
+      flatten (x `Union` _)  = flatten x
+      flatten other          = other
+
+   Notice that we always call ``flatten`` on the left element of a
+   ``Union``: the left of each ``Union`` is always the same width (in
+   characters) as, or wider than, the right. We'll be making use of
+   this property in our rendering functions below.
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Compact rendering
+                  :name: id600830
+                  :class: title
+
+      We frequently need to use a representation for a piece of data
+      that contains as few characters as possible. For example, if
+      we're sending JSON data over a network connection, there's no
+      sense in laying it out nicely: the software on the far end
+      won't care whether the data is pretty or not, and the added
+      white space needed to make the layout look good would add a lot
+      of overhead.
+
+      For these cases, and because it's a simple piece of code to
+      start with, we provide a bare-bones compact rendering function.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch05/Prettify.hs
+         compact :: Doc -> String
+         compact x = transform [x]
+             where transform [] = ""
+                   transform (d:ds) =
+                       case d of
+                         Empty        -> transform ds
+                         Char c       -> c : transform ds
+                         Text s       -> s ++ transform ds
+                         Line         -> '\n' : transform ds
+                         a `Concat` b -> transform (a:b:ds)
+                         _ `Union` b  -> transform (b:ds)
+
+      The ``compact`` function wraps its argument in a list, and
+      applies the ``transform`` helper function to it. The
+      ``transform`` function treats its argument as a stack of items
+      to process, where the first element of the list is the top of
+      the stack.
+
+      The ``transform`` function's ``(d:ds)`` pattern breaks the
+      stack into its head, ``d``, and the remainder, ``ds``. In our
+      ``case`` expression, the first several branches recurse on
+      ``ds``, consuming one item from the stack for each recursive
+      application. The last two branches add items in front of
+      ``ds``: the ``Concat`` branch adds both elements to the stack,
+      while the ``Union`` branch ignores its left element, on which
+      we called ``flatten``, and adds its right element to the stack.
+
+      We have now fleshed out enough of our original skeletal
+      definitions that we can try out our ``compact`` function in
+      **ghci**.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> let value = renderJValue (JObject [("f", JNumber 1), ("q", JBool True)])
+         ghci> :type value
+         value :: Doc
+         ghci> putStrLn (compact value)
+         {"f": 1.0,
+         "q": true
+         }
+
+      To better understand how the code works, let's look at a
+      simpler example in more detail.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> char 'f' <> text "oo"
+         Concat (Char 'f') (Text "oo")
+         ghci> compact (char 'f' <> text "oo")
+         "foo"
+
+      When we apply ``compact``, it turns its argument into a list
+      and applies ``transform``.
+
+      .. container:: itemizedlist
+
+         -  The ``transform`` function receives a one-item list,
+            which matches the ``(d:ds)`` pattern. Thus ``d`` is the
+            value ``Concat (Char 'f') (Text "oo")``, and ``ds`` is
+            the empty list, ``[]``.
+
+            Since ``d``'s constructor is ``Concat``, the ``Concat``
+            pattern matches in the ``case`` expression. On the right
+            hand side, we add ``Char 'f'`` and ``Text "oo"`` to the
+            stack, and apply ``transform`` recursively.
+
+         -  
+
+            .. container:: itemizedlist
+
+               -  The ``transform`` function receives a two-item
+                  list, again matching the ``(d:ds)`` pattern. The
+                  variable ``d`` is bound to ``Char 'f'``, and ``ds``
+                  to ``[Text "oo"]``.
+
+                  The ``case`` expression matches in the ``Char``
+                  branch. On the right hand side, we use ``(:)`` to
+                  construct a list whose head is ``'f'``, and whose
+                  body is the result of a recursive application of
+                  ``transform``.
+
+               -  
+
+                  .. container:: itemizedlist
+
+                     -  The recursive invocation receives a one-item
+                        list. The variable ``d`` is bound to
+                        ``Text "oo"``, and ``ds`` to ``[]``.
+
+                        The ``case`` expression matches in the
+                        ``Text`` branch. On the right hand side, we
+                        use ``(++)`` to concatenate ``"oo"`` with the
+                        result of a recursive application of
+                        ``transform``.
+
+                     -  
+
+                        .. container:: itemizedlist
+
+                           -  In the final invocation, ``transform``
+                              is invoked with an empty list, and
+                              returns an empty string.
+
+                     -  The result is ``"oo" ++ ""``.
+
+               -  The result is ``'f' : "oo" ++ ""``.
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: True pretty printing
+                  :name: id601329
+                  :class: title
+
+      While our ``compact`` function is useful for machine-to-machine
+      communication, its result is not always easy for a human to
+      follow: there's very little information on each line. To
+      generate more readable output, we'll write another function,
+      ``pretty``. Compared to ``compact``, ``pretty`` takes one extra
+      argument: the maximum width of a line, in columns. (We're
+      assuming that our typeface is of fixed width.)
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch05/Prettify.hs
+         pretty :: Int -> Doc -> String
+
+      To be more precise, this Int parameter controls the behaviour
+      of ``pretty`` when it encounters a ``softline``. Only at a
+      ``softline`` does ``pretty`` have the option of either
+      continuing the current line or beginning a new line. Elsewhere,
+      we must strictly follow the directives set out by the person
+      using our pretty printing functions.
+
+      Here's the core of our implementation
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch05/Prettify.hs
+         pretty width x = best 0 [x]
+             where best col (d:ds) =
+                       case d of
+                         Empty        -> best col ds
+                         Char c       -> c :  best (col + 1) ds
+                         Text s       -> s ++ best (col + length s) ds
+                         Line         -> '\n' : best 0 ds
+                         a `Concat` b -> best col (a:b:ds)
+                         a `Union` b  -> nicest col (best col (a:ds))
+                                                    (best col (b:ds))
+                   best _ _ = ""
+
+                   nicest col a b | (width - least) `fits` a = a
+                                  | otherwise                = b
+                                  where least = min width col
+
+      Our ``best`` helper function takes two arguments: the number of
+      columns emitted so far on the current line, and the list of
+      remaining Doc values to process.
+
+      In the simple cases, ``best`` updates the ``col`` variable in
+      straightforward ways as it consumes the input. Even the
+      ``Concat`` case is obvious: we push the two concatenated
+      components onto our stack/list, and don't touch ``col``.
+
+      The interesting case involves the ``Union`` constructor. Recall
+      that we applied ``flatten`` to the left element, and did
+      nothing to the right. Also, remember that ``flatten`` replaces
+      newlines with spaces. Therefore, our job is to see which (if
+      either) of the two layouts, the ``flatten`` ed one or the
+      original, will fit into our ``width`` restriction.
+
+      To do this, we write a small helper that determines whether a
+      single line of a rendered Doc value will fit into a given
+      number of columns.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch05/Prettify.hs
+         fits :: Int -> String -> Bool
+         w `fits` _ | w < 0 = False
+         w `fits` ""        = True
+         w `fits` ('\n':_)  = True
+         w `fits` (c:cs)    = (w - 1) `fits` cs
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Following the pretty printer
+                  :name: id601549
+                  :class: title
+
+      In order to understand how this code works, let's first
+      consider a simple Doc value.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> empty </> char 'a'
+         Concat (Union (Char ' ') Line) (Char 'a')
+
+      We'll apply ``pretty 2`` on this value. When we first apply
+      ``best``, the value of ``col`` is zero. It matches the
+      ``Concat`` case, pushes the values ``Union (Char ' ') Line``
+      and ``Char 'a'`` onto the stack, and applies itself
+      recursively. In the recursive application, it matches on
+      ``Union (Char ' ') Line``.
+
+      At this point, we're going to ignore Haskell's usual order of
+      evaluation. This keeps our explanation of what's going on
+      simple, without changing the end result. We now have two
+      subexpressions, ``best 0 [Char ' ', Char 'a']`` and
+      ``best 0 [Line, Char 'a']``. The first evaluates to ``" a"``,
+      and the second to ``"\na"``. We then substitute these into the
+      outer expression to give ``nicest 0 " a" "\na"``.
+
+      To figure out what the result of ``nicest`` is here, we do a
+      little substitution. The values of ``width`` and ``col`` are 0
+      and 2, respectively, so ``least`` is 0, and ``width - least``
+      is 2. We quickly evaluate :literal:`2 \`fits\` " a"` in
+      **ghci**.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> 2 `fits` " a"
+         True
+
+      Since this evaluates to ``True``, the result of ``nicest`` here
+      is ``" a"``.
+
+      If we apply our ``pretty`` function to the same JSON data as
+      earlier, we can see that it produces different output depending
+      on the width that we give it.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> putStrLn (pretty 10 value)
+         {"f": 1.0,
+         "q": true
+         }
+         ghci> putStrLn (pretty 20 value)
+         {"f": 1.0, "q": true
+         }
+         ghci> putStrLn (pretty 30 value)
+         {"f": 1.0, "q": true }
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Exercises
+                  :name: id601782
+                  :class: title
+
+      Our current pretty printer is spartan, so that it will fit
+      within our space constraints, but there are a number of useful
+      improvements we can make.
+
+      .. container:: qandaset
+
+         .. list-table::
+            :widths: 1
+
+            - 
+
+               - **1.** Write a function, fill, with the following type signature.
+
+                  .. code:: haskell
+                     :class: programlisting
+
+                     -- file: ch05/Prettify.hs
+                     fill :: Int -> Doc -> Doc
+
+                  It should add spaces to a document until it is the given number of columns wide. If it is already wider than this value, it should add no spaces. 
+            - 
+
+               - **2.** Our pretty printer does not take nesting into account. Whenever we open parentheses, braces, or brackets, any lines that follow should be indented so that they are aligned with the opening character until a matching closing character is encountered. 
+
+                  Add support for nesting, with a controllable amount of indentation.
+
+                  .. code:: haskell
+                     :class: programlisting
+
+                     -- file: ch05/Prettify.hs
+                     nest :: Int -> Doc -> Doc
+
+.. container:: sect1
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: Creating a package
+               :name: library.package
+               :class: title
+
+   The Haskell community has built a standard set of tools, named
+   Cabal, that help with building, installing, and distributing
+   software. Cabal organises software as a *package*. A package
+   contains one library, and possibly several executable programs.
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Writing a package description
+                  :name: id601900
+                  :class: title
+
+      To do anything with a package, Cabal needs a description of it.
+      This is contained in a text file whose name ends with the
+      suffix ``.cabal``. This file belongs in the top-level directory
+      of your project. It has a simple format, which we'll describe
+      below.
+
+      A Cabal package must have a name. Usually, the name of the
+      package matches the name of the ``.cabal`` file. We'll call our
+      package ``mypretty``, so our file is ``mypretty.cabal``. Often,
+      the directory that contains a ``.cabal`` file will have the
+      same name as the package, e.g. ``mypretty``.
+
+      A package description begins with a series of global
+      properties, which apply to every library and executable in the
+      package.
+
+      .. code:: haskell
+         :class: programlisting
+
+         Name:          mypretty
+         Version:       0.1
+
+         -- This is a comment.  It stretches to the end of the line.
+
+      Package names must be unique. If you create and install a
+      package that has the same name as a package already present on
+      your system, GHC will become very confused.
+
+      The global properties include a substantial amount of
+      information that is intended for human readers, not Cabal
+      itself.
+
+      .. code:: haskell
+         :class: programlisting
+
+         Synopsis:      My pretty printing library, with JSON support
+         Description:
+           A simple pretty printing library that illustrates how to
+           develop a Haskell library.
+         Author:        Real World Haskell
+         Maintainer:    nobody@realworldhaskell.org
+
+      As the ``Description`` field indicates, a field can span
+      multiple lines, provided they're indented.
+
+      Also included in the global properties is license information.
+      Most Haskell packages are licensed under the BSD license, which
+      Cabal calls
+      ``BSD3`` :sup:`[` `11 <#ftn.id602026>`__ :sup:`]`.
+      (Obviously, you're free to choose whatever license you think is
+      appropriate.) The optional ``License-File`` field lets us
+      specify the name of a file that contains the exact text of our
+      package's licensing terms.
+
+      The features supported by successive versions of Cabal evolve
+      over time, so it's wise to indicate what versions of Cabal we
+      expect to be compatible with. The features we are describing
+      are supported by versions 1.2 and higher of Cabal.
+
+      .. code:: haskell
+         :class: programlisting
+
+         Cabal-Version: >= 1.2
+
+      To describe an individual library within a package, we write a
+      *library section*. The use of indentation here is significant:
+      the contents of a section must be indented.
+
+      .. code:: haskell
+         :class: programlisting
+
+         library
+           Exposed-Modules: Prettify
+                            PrettyJSON
+                            SimpleJSON
+           Build-Depends:   base >= 2.0
+
+      The ``Exposed-Modules`` field contains a list of modules that
+      should be available to users of this package. An optional
+      field, ``Other-Modules``, contains a list of *internal*
+      modules. These are required for this library to function, but
+      will not be visible to users.
+
+      The ``Build-Depends`` field contains a comma-separated list of
+      packages that our library requires to build. For each package,
+      we can optionally specify the range of versions with which this
+      library is known to work. The ``base`` package contains many of
+      the core Haskell modules, such as the Prelude, so it's
+      effectively always required.
+
+      .. Tip:: Figuring out build dependencies
+
+         We don't have to guess or do any research to
+         establish which packages we depend on. If we try to
+         build our package without a ``Build-Depends``
+         field, compilation will fail with a useful error
+         message. Here's an example where we commented out
+         the dependency on the ``base`` package.
+
+         .. code:: haskell
+            :class: screen
+
+            $ runghc Setup build
+            Preprocessing library mypretty-0.1...
+            Building mypretty-0.1...
+
+            PrettyJSON.hs:8:7:
+                Could not find module `Data.Bits':
+                  it is a member of package base, which is hidden
+
+         The error message makes it clear that we need to
+         add the ``base`` package, even though ``base`` is
+         already installed. Forcing us to be explicit about
+         every package we need has a practical benefit: a
+         command line tool named ``cabal-install`` will
+         automatically download, build, and install a
+         package and all of the packages it depends on.
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: GHC's package manager
+                  :name: id602195
+                  :class: title
+
+      GHC includes a simple package manager that tracks which
+      packages are installed, and what the versions of those packages
+      are. A command line tool named **ghc-pkg** lets us work with
+      its package databases.
+
+      We say *databases* because GHC distinguishes between
+      *system-wide* packages, which are available to every user, and
+      *per-user* packages, which are only visible to the current
+      user. The per-user database lets us avoid the need for
+      administrative privileges to install packages.
+
+      The **ghc-pkg** command provides subcommands to address
+      different tasks. Most of the time, we'll only need two of them.
+      The ``ghc-pkg list`` command lets us see what packages are
+      installed. When we want to uninstall a package,
+      ``ghc-pkg unregister`` tells GHC that we won't be using a
+      particular package any longer. (We will have to manually delete
+      the installed files ourselves.)
+
+   .. container:: sect2
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Setting up, building, and installing
+                  :name: id602275
+                  :class: title
+
+      In addition to a ``.cabal`` file, a package must contain a
+      *setup* file. This allows Cabal's build process to be heavily
+      customised, if a package needs it. The simplest setup file
+      looks like this.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch05/Setup.hs
+         #!/usr/bin/env runhaskell
+         import Distribution.Simple
+         main = defaultMain
+
+      We save this file under the name ``Setup.hs``.
+
+      Once we have the ``.cabal`` and ``Setup.hs`` files written, we
+      have three steps left.
+
+      To instruct Cabal how to build and where to install a package,
+      we run a simple command.
+
+      .. code:: haskell
+         :class: screen
+
+         $ runghc Setup configure
+
+      This ensures that the packages we need are available, and
+      stores settings to be used later by other Cabal commands.
+
+      If we do not provide any arguments to ``configure``, Cabal will
+      install our package in the system-wide package database. To
+      install it into our home directory and our personal package
+      database, we must provide a little more information.
+
+      .. code:: haskell
+         :class: screen
+
+         $ runghc Setup configure --prefix=$HOME --user
+
+      Following the ``configure`` step, we build the package.
+
+      .. code:: haskell
+         :class: screen
+
+         $ runghc Setup build
+
+      If this succeeds, we can install the package. We don't need to
+      indicate where to install to: Cabal will use the settings we
+      provided in the ``configure`` step. It will install to our own
+      directory and update GHC's per-user package database.
+
+      .. code:: haskell
+         :class: screen
+
+         $ runghc Setup install
+
+.. container:: sect1
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: Practical pointers and further reading
+               :name: id602458
+               :class: title
+
+   GHC already bundles a pretty printing library,
+   ``Text.PrettyPrint.HughesPJ``. It provides the same basic API as
+   our example, but a much richer and more useful set of pretty
+   printing functions. We recommend using it, rather than writing
+   your own.
+
+   The design of the ``HughesPJ`` pretty printer was introduced by
+   John Hughes in [`Hughes95 <bibliography.html#bib.hughes95>`__].
+   The library was subsequently improved by Simon Peyton Jones, hence
+   the name. Hughes's paper is long, but well worth reading for his
+   discussion of how to design a library in Haskell.
+
+   In this chapter, our pretty printing library is based on a simpler
+   system described by Philip Wadler in
+   [`Wadler98 <bibliography.html#bib.wadler98>`__]. His library was
+   extended by Daan Leijen; this version is available for download
+   from Hackage as ``wl-pprint``. If you use the **cabal** command
+   line tool, you can download, build, and install it in one step
+   with **cabal install wl-pprint**.
+
+.. container:: footnotes
+
+   .. container:: footnote
+
+      :sup:`[` `10 <#id598725>`__ :sup:`]` Memory aid: ``-o``
+      stands for “output” or “object file”.
+
+   .. container:: footnote
+
+      :sup:`[` `11 <#id602026>`__ :sup:`]` The “3” in ``BSD3``
+      refers to the number of clauses in the license. An older
+      version of the BSD license contained 4 clauses, but it is no
+      longer used.
+
+
+.. _sec-6:
+
+/Chapter 6. Using typeclasses `🔼 <#toc>`_
+===========================================
+
+.. container:: chapter
+   :name: typeclasses
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: Chapter 6. Using Typeclasses
+               :name: chapter-6.-using-typeclasses
+               :class: title
+
+   .. container:: toc
+
+      **Table of Contents**
+
+      *  `The need for typeclasses <#typeclasses.need>`__
+      *  `What are typeclasses? <#typeclasses.whatarethey>`__
+      *  `Declaring typeclass instances <#typeclasses.instances>`__
+
+         *  `Important Built-In Typeclasses <#typeclasses.wellknown>`__
+         *  `Show <#typeclasses.wellknown.show>`__
+         *  `Read <#typeclasses.wellknown.read>`__
+         *  `Serialization with Read and Show <#typeclasses.wellknown.serialization>`__
+         *  `Numeric Types <#typeclasses.wellknown.numeric>`__
+         *  `Equality, Ordering, and Comparisons <#typeclasses.wellknown.equality>`__
+
+      *  `Automatic Derivation <#typeclasses.auto.derivation>`__
+      *  `Typeclasses at work: making JSON easier to use <#jsonclass>`__
+
+         *  `More helpful errors <#id607846>`__
+         *  `Making an instance with a type synonym <#id607949>`__
+
+      *  `Living in an open world <#id608052>`__
+
+         *  `When do overlapping instances cause problems? <#id608148>`__
+         *  `Relaxing some restrictions on typeclasses <#id608327>`__
+         *  `How does show work for strings? <#id608550>`__
+
+      *  `How to give a type a new identity <#id608689>`__
+
+         *  `Differences between data and newtype declarations <#id608962>`__
+         *  `Summary: the three ways of naming types <#id609334>`__
+
+      *  `JSON typeclasses without overlapping instances <#jsonclass.instances>`__
+
+         *  `Exercises <#id609889>`__
+
+      *  `The dreaded monomorphism restriction <#id609960>`__
+      *  `Conclusion <#typeclasses.conclusion>`__
+
+   Typeclasses are among the most powerful features in Haskell. They
+   allow you to define generic interfaces that provide a common feature
+   set over a wide variety of types. Typeclasses are at the heart of
+   some basic language features such as equality testing and numeric
+   operators. Before we talk about what exactly typeclasses are, though,
+   we'd like to explain the need for them.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: The need for typeclasses
+                  :name: typeclasses.need
+                  :class: title
+
+      Let's imagine that for some unfathomable reason, the designers of
+      the Haskell language neglected to implement the equality test
+      ``==``. Once you got over your shock at hearing this, you resolved
+      to implement your own equality tests. Your application consisted
+      of a simple ``Color`` type, and so your first equality test is for
+      this type. Your first attempt might look like this:
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch06/naiveeq.hs
+         data Color = Red | Green | Blue
+
+         colorEq :: Color -> Color -> Bool
+         colorEq Red   Red   = True
+         colorEq Green Green = True
+         colorEq Blue  Blue  = True
+         colorEq _     _     = False
+
+      You can test this with **ghci**:
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> :load naiveeq.hs
+         [1 of 1] Compiling Main             ( naiveeq.hs, interpreted )
+         Ok, modules loaded: Main.
+         ghci> colorEq Red Red
+         True
+         ghci> colorEq Red Green
+         False
+
+      Now, let's say that you want to add an equality test for
+      ``String`` s. Since a Haskell ``String`` is a list of characters,
+      we can write a simple function to perform that test. For
+      simplicity, we cheat a bit and use the ``==`` operator here to
+      illustrate.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch06/naiveeq.hs
+         stringEq :: [Char] -> [Char] -> Bool
+
+         -- Match if both are empty
+         stringEq [] [] = True
+
+         -- If both start with the same char, check the rest
+         stringEq (x:xs) (y:ys) = x == y && stringEq xs ys
+
+         -- Everything else doesn't match
+         stringEq _ _ = False
+
+      You should now be able to see a problem: we have to use a function
+      with a different name for every different type that we want to be
+      able to compare. That's inefficient and annoying. It's much more
+      convenient to be able to just use ``==`` to compare anything. It
+      may also be useful to write generic functions such as ``/=`` that
+      could be implemented in terms of ``==``, and valid for almost
+      anything. By having a generic function that can compare anything,
+      we can also make our code generic: if a piece of code only needs
+      to compare things, then it ought to be able to accept any data
+      type that the compiler knows how to compare. And, what's more, if
+      new data types are added later, the existing code shouldn't have
+      to be modified.
+
+      Haskell's typeclasses are designed to address all of these things.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: What are typeclasses?
+                  :name: typeclasses.whatarethey
+                  :class: title
+
+      Typeclasses define a set of functions that can have different
+      implementations depending on the type of data they are given.
+      Typeclasses may look like the objects of object-oriented
+      programming, but they are truly quite different.
+
+      Let's use typeclasses to solve our equality dilemma from earlier
+      in the chapter. To begin with, we must define the typeclass
+      itself. We want a function that takes two parameters, both the
+      same type, and returns a ``Bool`` indicating whether or not they
+      are equal. We don't care what that type is, but we just want two
+      items of that type. Here's our first definition of a typeclass:
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch06/eqclasses.hs
+         class BasicEq a where
+             isEqual :: a -> a -> Bool
+
+      This says that we are declaring a typeclass named ``BasicEq``, and
+      we'll refer to instance types with the letter ``a``. An instance
+      type of this typeclass is any type that implements the functions
+      defined in the typeclass. This typeclass defines one function.
+      That function takes two parameters—both corresponding to instance
+      types—and returns a ``Bool``.
+
+      .. Note:: When is a class not a class?
+
+         The keywoard to define a typeclass in Haskell is
+         ``class``. Unfortunately, this may be confusing for
+         those of you coming from an object-oriented
+         background, as we are not really defining the same
+         thing.
+
+      On the first line, the name of the parameter ``a`` was chosen
+      arbitrarily. We could have used any name. The key is that, when
+      you list the types of your functions, you must use that name to
+      refer to instance types.
+
+      Let's look at this in **ghci**. Recall that you can type **:type**
+      in **ghci** to have it show you the type of something. Let's see
+      what it says about ``isEqual``:
+
+      .. code:: haskell
+         :class: screen
+
+         *Main> :type isEqual
+         isEqual :: (BasicEq a) => a -> a -> Bool
+             
+
+      You can read that this way: "For all types ``a``, so long as ``a``
+      is an instance of ``BasicEq``, ``isEqual`` takes two parameters of
+      type ``a`` and returns a ``Bool``". Let's take a quick look at
+      defining ``isEqual`` for a particular type.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch06/eqclasses.hs
+         instance BasicEq Bool where
+             isEqual True  True  = True
+             isEqual False False = True
+             isEqual _     _     = False
+
+      You can also use **ghci** to verify that we can now use
+      ``isEqual`` on ``Bool`` s, but not on any other type:
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> :load eqclasses.hs
+         [1 of 1] Compiling Main             ( eqclasses.hs, interpreted )
+         Ok, modules loaded: Main.
+         ghci> isEqual False False
+         True
+         ghci> isEqual False True
+         False
+         ghci> isEqual "Hi" "Hi"
+
+         <interactive>:1:0:
+             No instance for (BasicEq [Char])
+               arising from a use of `isEqual' at <interactive>:1:0-16
+             Possible fix: add an instance declaration for (BasicEq [Char])
+             In the expression: isEqual "Hi" "Hi"
+             In the definition of `it': it = isEqual "Hi" "Hi"
+
+      Notice that when we tried to compare two strings, **ghci** noticed
+      that we hadn't provided an instance of ``BasicEq`` for ``String``.
+      It therefore didn't know how to compare a ``String``, and
+      suggested that we could fix the problem by defining an instance of
+      ``BasicEq`` for ``[Char]``, which is the same as ``String``.
+
+      We'll go into more detail on defining instances in the section
+      called `“Declaring typeclass instances” <#typeclasses.instances>`__.
+      First, though, let's continue to look at ways to define
+      typeclasses. In this example, a not-equal-to function might be
+      useful. Here's what we might say to define a typeclass with two
+      functions:
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch06/eqclasses.hs
+         class BasicEq2 a where
+             isEqual2    :: a -> a -> Bool
+             isNotEqual2 :: a -> a -> Bool
+
+      Someone providing an instance of ``BasicEq2`` will be required to
+      define two functions: ``isEqual2`` and ``isNotEqual2``.
+
+      While our definition of ``BasicEq2`` is fine, it seems that we're
+      making extra work for ourselves. Logically speaking, if we know
+      what ``isEqual`` or ``isNotEqual`` would return, we know how to
+      figure out what the other function would return, for all types.
+      Rather than making users of the typeclass define both functions
+      for all types, we can provide default implementations for them.
+      Then, users will only have to implement one function.
+      :sup:`[` `12 <#ftn.id603171>`__ :sup:`]` Here's an example that
+      shows how to do this.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch06/eqclasses.hs
+         class BasicEq3 a where
+             isEqual3 :: a -> a -> Bool
+             isEqual3 x y = not (isNotEqual3 x y)
+
+             isNotEqual3 :: a -> a -> Bool
+             isNotEqual3 x y = not (isEqual3 x y)
+
+      People implementing this class must provide an implementation of
+      at least one function. They can implement both if they wish, but
+      they will not be required to. While we did provide defaults for
+      both functions, each function depends on the presence of the other
+      to calculate an answer. If we don't specify at least one, the
+      resulting code would be an endless loop. Therefore, at least one
+      function must always be implemented.
+
+      With ``BasicEq3``, we have provided a class that does very much
+      the same thing as Haskell's built-in ``==`` and ``/=`` operators.
+      In fact, these operators are defined by a typeclass that looks
+      almost identical to ``BasicEq3``. The Haskell 98 Report defines a
+      typeclass that implements equality comparison. Here is the code
+      for the built-in ``Eq`` typeclass. Note how similar it is to our
+      ``BasicEq3`` typeclass.
+
+      .. code:: haskell
+         :class: programlisting
+
+         class  Eq a  where
+             (==), (/=) :: a -> a -> Bool
+
+                -- Minimal complete definition:
+                --     (==) or (/=)
+             x /= y     =  not (x == y)
+             x == y     =  not (x /= y)
+            
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Declaring typeclass instances
+                  :name: typeclasses.instances
+                  :class: title
+
+      Now that you know how to define typeclasses, it's time to learn
+      how to define instances of typeclasses. Recall that types are made
+      instances of a particular typeclass by implementing the functions
+      necessary for that typeclass.
+
+      Recall our attempt to create a test for equality over a ``Color``
+      type back in the section called `“The need for typeclasses” <#typeclasses.need>`__. Now
+      let's see how we could make that same ``Color`` type a member of
+      the ``BasicEq3`` class.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch06/eqclasses.hs
+         instance BasicEq3 Color where
+             isEqual3 Red Red = True
+             isEqual3 Green Green = True
+             isEqual3 Blue Blue = True
+             isEqual3 _ _ = False
+
+      Notice that we provide essentially the same function as we used
+      back in the section called `“The need for typeclasses” <#typeclasses.need>`__. In
+      fact, the implementation is identical. However, in this case, we
+      can use ``isEqual3`` on *any* type that we declare is an instance
+      of ``BasicEq3``, not just this one color type. We could define
+      equality tests for anything from numbers to graphics using the
+      same basic pattern. In fact, as you will see in the section
+      called `“Equality, Ordering, and Comparisons” <#typeclasses.wellknown.equality>`__,
+      this is exactly how you can make Haskell's ``==`` operator work
+      for your own custom types.
+
+      Note also that the ``BasicEq3`` class defined both ``isEqual3``
+      and ``isNotEqual3``, but we implemented only one of them in the
+      ``Color`` instance. That's because of the default implementation
+      contained in ``BasicEq3``. Since we didn't explicitly define
+      ``isNotEqual3``, the compiler automatically uses the default
+      implementation given in the ``BasicEq3`` declaration.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Important Built-In Typeclasses
+                  :name: typeclasses.wellknown
+                  :class: title
+
+      Now that we've discussed defining your own typeclasses and making
+      your types instances of typeclasses, it's time to introduce you to
+      typeclasses that are a standard part of the Haskell Prelude. As we
+      mentioned at the beginning of this chapter, typeclasses are at the
+      core of some important aspects of the language. We'll cover the
+      most common ones here. For more details, the Haskell library
+      reference is a good resource. It will give you a description of
+      the typeclasses, and usually also will tell you which functions
+      you must implement to have a complete definition.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Show
+                     :name: typeclasses.wellknown.show
+                     :class: title
+
+         The ``Show`` typeclass is used to convert values to
+         ``String`` s. It is perhaps most commonly used to convert
+         numbers to ``String`` s, but it is defined for so many types
+         that it can be used to convert quite a bit more. If you have
+         defined your own types, making them instances of ``Show`` will
+         make it easy to display them in **ghci** or print them out in
+         programs.
+
+         The most important function of ``Show`` is ``show``. It takes
+         one argument: the data to convert. It returns a ``String``
+         representing that data. **ghci** reports the type of ``show``
+         like this:
+
+         .. code:: haskell
+            :class: screen
+
+            ghci> :type show
+            show :: (Show a) => a -> String
+
+         Let's look at some examples of converting values to strings:
+
+         .. code:: haskell
+            :class: screen
+
+            ghci> show 1
+            "1"
+            ghci> show [1, 2, 3]
+            "[1,2,3]"
+            ghci> show (1, 2)
+            "(1,2)"
+
+         Remember that **ghci** displays results as they would be
+         entered into a Haskell program. So the expression ``show 1``
+         returns a single-character string containing the digit ``1``.
+         That is, the quotes are not part of the string itself. We can
+         make that clear by using ``putStrLn``:
+
+         .. code:: haskell
+            :class: screen
+
+            ghci> putStrLn (show 1)
+            1
+            ghci> putStrLn (show [1,2,3])
+            [1,2,3]
+
+         You can also use ``show`` on ``String`` s:
+
+         .. code:: haskell
+            :class: screen
+
+            ghci> show "Hello!"
+            "\"Hello!\""
+            ghci> putStrLn (show "Hello!")
+            "Hello!"
+            ghci> show ['H', 'i']
+            "\"Hi\""
+            ghci> putStrLn (show "Hi")
+            "Hi"
+            ghci> show "Hi, \"Jane\""
+            "\"Hi, \\\"Jane\\\"\""
+            ghci> putStrLn (show "Hi, \"Jane\"")
+            "Hi, \"Jane\""
+
+         Running ``show`` on ``String`` s can be confusing. Since
+         ``show`` generates a result that is suitable for a Haskell
+         literal, ``show`` adds quotes and escaping suitable for
+         inclusion in a Haskell program. **ghci** also uses ``show`` to
+         display results, so quotes and escaping get added twice. Using
+         ``putStrLn`` can help make this difference clear.
+
+         You can define a ``Show`` instance for your own types easily.
+         Here's an example:
+
+         .. code:: haskell
+            :class: programlisting
+
+            -- file: ch06/eqclasses.hs
+            instance Show Color where
+                show Red   = "Red"
+                show Green = "Green"
+                show Blue  = "Blue"
+
+         This example defines an instance of ``Show`` for our type
+         ``Color`` (see the section called `“The need for typeclasses” <#typeclasses.need>`__). 
+         The implementation is simple: we define a function ``show`` and
+         that's all that's needed.
+
+         .. Note:: The Show typeclass
+
+            ``Show`` is usually used to define a ``String``
+            representation for data that is useful for a
+            machine to parse back with ``Read``. Haskell
+            programmers generally write custom functions to
+            format data in pretty ways for displaying to end
+            users, if this representation would be different
+            than expected via ``Show``.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Read
+                     :name: typeclasses.wellknown.read
+                     :class: title
+
+         The ``Read`` typeclass is essentially the opposite of ``Show``:
+         it defines functions that will take a ``String``, parse it, and
+         return data in any type that is a member of ``Read``. The most
+         useful function in ``Read`` is ``read``. You can ask **ghci**
+         for its type like this:
+
+         .. code:: haskell
+            :class: screen
+
+            ghci> :type read
+            read :: (Read a) => String -> a
+
+         Here's an example illustrating the use of ``read`` and
+         ``show``:
+
+         .. code:: haskell
+            :class: programlisting
+
+            -- file: ch06/read.hs
+            main = do
+                    putStrLn "Please enter a Double:"
+                    inpStr <- getLine
+                    let inpDouble = (read inpStr)::Double
+                    putStrLn ("Twice " ++ show inpDouble ++ " is " ++ show (inpDouble * 2))
+
+         This is a simple example of ``read`` and ``show`` together.
+         Notice that we gave an explicit type of ``Double`` when
+         processing the ``read``. That's because ``read`` returns a
+         value of type ``Read a => a`` and ``show`` expects a value of
+         type ``Show a => a``. There are many types that have instances
+         defined for both ``Read`` and ``Show``. Without knowing a
+         specific type, the compiler must guess from these many types
+         which one is needed. In situations like this, it may often
+         choose ``Integer``. If we wanted to accept floating-point
+         input, this wouldn't work, so we provided an explicit type.
+
+         .. Tip:: A note about defaulting
+
+            In most cases, if the explicit ``Double`` type
+            annotation were omitted, the compiler would refuse
+            to guess a common type and simply give an error.
+            The fact that it could default to ``Integer`` here
+            is a special case arising from the fact that the
+            literal ``2`` is treated as an ``Integer`` unless a
+            different type of expected for it.
+
+         You can see the same effect at work if you try to use ``read``
+         on the **ghci** command line. **ghci** internally uses ``show``
+         to display results, meaning that you can hit this ambiguous
+         typing problem there as well. You'll need to explicitly give
+         types for your ``read`` results in **ghci** as shown here:
+
+         .. code:: haskell
+            :class: screen
+
+            ghci> read "5"
+
+            <interactive>:1:0:
+                Ambiguous type variable `a' in the constraint:
+                  `Read a' arising from a use of `read' at <interactive>:1:0-7
+                Probable fix: add a type signature that fixes these type variable(s)
+            ghci> :type (read "5")
+            (read "5") :: (Read a) => a
+            ghci> (read "5")::Integer
+            5
+            ghci> (read "5")::Double
+            5.0
+
+         Recall the type of ``read``: ``(Read a) => String -> a``. The
+         ``a`` here is the type of each instance of ``Read``. Which
+         particular parsing function is called depends upon the type
+         that is expected from the return value of ``read``. Let's see
+         how that works:
+
+         .. code:: haskell
+            :class: screen
+
+            ghci> (read "5.0")::Double
+            5.0
+            ghci> (read "5.0")::Integer
+            *** Exception: Prelude.read: no parse
+
+         Notice the error when trying to parse ``5.0`` as an
+         ``Integer``. The interpreter selected a different instance of
+         ``Read`` when the return value was expected to be ``Integer``
+         than it did when a ``Double`` was expected. The ``Integer``
+         parser doesn't accept decimal points, and caused an exception
+         to be raised.
+
+         The ``Read`` class provides for some fairly complicated
+         parsers. You can define a simple parser by providing an
+         implementation for the ``readsPrec`` function. Your
+         implementation can return a list containing exactly one tuple
+         on a successful parse, or an empty list on an unsuccessful
+         parse. Here's an example implementation:
+
+         .. code:: haskell
+            :class: programlisting
+
+            -- file: ch06/eqclasses.hs
+            instance Read Color where
+                -- readsPrec is the main function for parsing input
+                readsPrec _ value = 
+                    -- We pass tryParse a list of pairs.  Each pair has a string
+                    -- and the desired return value.  tryParse will try to match
+                    -- the input to one of these strings.
+                    tryParse [("Red", Red), ("Green", Green), ("Blue", Blue)]
+                    where tryParse [] = []    -- If there is nothing left to try, fail
+                          tryParse ((attempt, result):xs) =
+                                  -- Compare the start of the string to be parsed to the
+                                  -- text we are looking for.
+                                  if (take (length attempt) value) == attempt
+                                     -- If we have a match, return the result and the
+                                     -- remaining input
+                                     then [(result, drop (length attempt) value)]
+                                     -- If we don't have a match, try the next pair
+                                     -- in the list of attempts.
+                                     else tryParse xs
+
+         This example handles the known cases for the three colors. It
+         returns an empty list (resulting in a "no parse" message) for
+         others. The function is supposed to return the part of the
+         input that was not parsed, so that the system can integrate the
+         parsing of different types together. Here's an example of using
+         this new instance of ``Read``:
+
+         .. code:: haskell
+            :class: screen
+
+            ghci> (read "Red")::Color
+            Red
+            ghci> (read "Green")::Color
+            Green
+            ghci> (read "Blue")::Color
+            Blue
+            ghci> (read "[Red]")::[Color]
+            [Red]
+            ghci> (read "[Red,Red,Blue]")::[Color]
+            [Red,Red,Blue]
+            ghci> (read "[Red, Red, Blue]")::[Color]
+            *** Exception: Prelude.read: no parse
+
+         Notice the error on the final attempt. That's because our
+         parser is not smart enough to handle leading spaces yet. If we
+         modified it to accept leading spaces, that attempt would work.
+         You could rectify this by modifying your ``Read`` instance to
+         discard any leading spaces, which is common practice in Haskell
+         programs.
+
+         .. Tip:: Read is not widely used
+
+            While it is possible to build sophisticated parsers
+            using the ``Read`` typeclass, many people find it
+            easier to do so using Parsec, and rely on ``Read``
+            only for simpler tasks. Parsec is covered in detail
+            in `Chapter 16, Using Parsec <using-parsec.html>`__.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Serialization with Read and Show
+                     :name: typeclasses.wellknown.serialization
+                     :class: title
+
+         You may often have a data structure in memory that you need to
+         store on disk for later retrieval or to send across the
+         network. The process of converting data in memory to a flat
+         series of bits for storage is called *serialization*.
+
+         It turns out that ``read`` and ``show`` make excellent tools
+         for serialization. ``show`` produces output that is both
+         human-readable and machine-readable. Most ``show`` output is
+         also syntactically-valid Haskell, though it is up to people
+         that write ``Show`` instances to make it so.
+
+         .. Tip:: Parsing large strings
+
+            String handling in Haskell is normally lazy, so
+            ``read`` and ``show`` can be used on quite large
+            data structures without incident. The built-in
+            ``read`` and ``show`` instances in Haskell are
+            efficient and implemented in pure Haskell. For
+            information on how to handle parsing exceptions,
+            refer to `Chapter 19, Error handling <error-handling.html>`__.
+
+         Let's try it out in **ghci**:
+
+         .. code:: haskell
+            :class: screen
+
+            ghci> let d1 = [Just 5, Nothing, Nothing, Just 8, Just 9]::[Maybe Int]
+            ghci> putStrLn (show d1)
+            [Just 5,Nothing,Nothing,Just 8,Just 9]
+            ghci> writeFile "test" (show d1)
+
+         First, we assign ``d1`` to be a list. Next, we print out the
+         result of ``show d1`` so we can see what it generates. Then, we
+         write the result of ``show d1`` to a file named ``test``.
+
+         Let's try reading it back. *FIXME: xref to explanation of
+         variable binding in ghci*
+
+         .. code:: haskell
+            :class: screen
+
+            ghci> input <- readFile "test"
+            "[Just 5,Nothing,Nothing,Just 8,Just 9]"
+            ghci> let d2 = read input
+
+            <interactive>:1:9:
+                Ambiguous type variable `a' in the constraint:
+                  `Read a' arising from a use of `read' at <interactive>:1:9-18
+                Probable fix: add a type signature that fixes these type variable(s)
+            ghci> let d2 = (read input)::[Maybe Int]
+            ghci> print d1
+            [Just 5,Nothing,Nothing,Just 8,Just 9]
+            ghci> print d2
+            [Just 5,Nothing,Nothing,Just 8,Just 9]
+            ghci> d1 == d2
+            True
+
+         First, we ask Haskell to read the file
+         back. :sup:`[` `13 <#ftn.id604799>`__ :sup:`]` Then, we try
+         to assign the result of ``read input`` to ``d2``. That
+         generates an error. The reason is that the interpreter doesn't
+         know what type ``d2`` is meant to be, so it doesn't know how to
+         parse the input. If we give it an explicit type, it works, and
+         we can verify that the two sets of data are equal.
+
+         Since so many different types are instances of ``Read`` and
+         ``Show`` by default (and others can be made instances easily;
+         see the section called `“Automatic Derivation” <#typeclasses.auto.derivation>`__),
+         you can use it for some really complex data structures. Here
+         are a few examples of slightly more complex data structures:
+
+         .. code:: haskell
+            :class: screen
+
+            ghci> putStrLn $ show [("hi", 1), ("there", 3)]
+            [("hi",1),("there",3)]
+            ghci> putStrLn $ show [[1, 2, 3], [], [4, 0, 1], [], [503]]
+            [[1,2,3],[],[4,0,1],[],[503]]
+            ghci> putStrLn $ show [Left 5, Right "three", Left 0, Right "nine"]
+            [Left 5,Right "three",Left 0,Right "nine"]
+            ghci> putStrLn $ show [Left 0, Right [1, 2, 3], Left 5, Right []]
+            [Left 0,Right [1,2,3],Left 5,Right []]
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Numeric Types
+                     :name: typeclasses.wellknown.numeric
+                     :class: title
+
+         *FIXME: some of these tables don't render well under sgml2x.
+         Will need to verify that they look good under the O'Reilly
+         renderer.*
+
+         Haskell has a powerful set of numeric types. You can use
+         everything from fast 32-bit or 64-bit integers to
+         arbitrary-precision rational numbers. You probably know that
+         operators such as ``+`` can work with just about all of these.
+         This feature is implemented using typeclasses. As a side
+         benefit, it allows you to define your own numeric types and
+         make them first-class citizens in Haskell.
+
+         Let's begin our discussion of the typeclasses surrounding
+         numeric types with an examination of the types themselves.
+         `Table 6.1, “Selected Numeric Types” <#numerictypes.summary>`__
+         describes the most commonly-used numeric types in Haskell. Note
+         that there are also many more numeric types available for
+         specific purposes such as interfacing to C.
+
+         .. container:: table
+
+            **Table 6.1. Selected Numeric Types**
+
+            .. container:: table-contents
+
+               .. list-table::
+                  :header-rows: 1
+
+                  - 
+
+                     - Type
+                     - Description
+                  - 
+
+                     - ``Double``
+                     - Double-precision floating point. A common choice
+                        for floating-point data.
+                  - 
+
+                     - ``Float``
+                     - Single-precision floating point. Often used when
+                        interfacing with C.
+                  - 
+
+                     - ``Int``
+                     - Fixed-precision signed integer; minimum range
+                        [-2^29..2^29-1]. Commonly used.
+                  - 
+
+                     - ``Int8``
+                     - 8-bit signed integer
+                  - 
+
+                     - ``Int16``
+                     - 16-bit signed integer
+                  - 
+
+                     - ``Int32``
+                     - 32-bit signed integer
+                  - 
+
+                     - ``Int64``
+                     - 64-bit signed integer
+                  - 
+
+                     - ``Integer``
+                     - Arbitrary-precision signed integer; range limited
+                        only by machine resources. Commonly used.
+                  - 
+
+                     - ``Rational``
+                     - Arbitrary-precision rational numbers. Stored as a
+                        ratio of two ``Integer`` s.
+                  - 
+
+                     - ``Word``
+                     - Fixed-precision unsigned integer; storage size
+                        same as ``Int``
+                  - 
+
+                     - ``Word8``
+                     - 8-bit unsigned integer
+                  - 
+
+                     - ``Word16``
+                     - 16-bit unsigned integer
+                  - 
+
+                     - ``Word32``
+                     - 32-bit unsigned integer
+                  - 
+
+                     - ``Word64``
+                     - 64-bit unsigned integer
+
+         These are quite a few different numeric types. There are some
+         operations, such as addition, that work with all of them. There
+         are others, such as ``asin``, that only apply to floating-point
+         types. `Table 6.2, “Selected Numeric Functions and Constants” <#numerictypes.funcs>`__
+         summarizes the different functions that operate on numeric
+         types, and `Table 6.3, “Typeclass Instances for Numeric Types” <#numerictypes.typeclasses>`__
+         matches the types with their respective typeclasses. As you
+         read that table, keep in mind that Haskell operators are just
+         functions: you can say either ``(+) 2 3`` or ``2 + 3`` with the
+         same result. By convention, when referring to an operator as a
+         function, it is written in parenthesis as seen in this table.
+
+         .. container:: table
+
+            **Table 6.2. Selected Numeric Functions and Constants**
+
+            .. container:: table-contents
+
+               .. list-table::
+                  :header-rows: 1
+
+                  - 
+
+                     - Item
+                     - Type
+                     - Module
+                     - Description
+                  - 
+
+                     - ``(+)``
+                     - ``Num a => a -> a -> a``
+                     - ``Prelude``
+                     - Addition
+                  - 
+
+                     - ``(-)``
+                     - ``Num a => a -> a -> a``
+                     - ``Prelude``
+                     - Subtraction
+                  - 
+
+                     - ``(*)``
+                     - ``Num a => a -> a -> a``
+                     - ``Prelude``
+                     - Multiplication
+                  - 
+
+                     - ``(/)``
+                     - ``Fractional a => a -> a -> a``
+                     - ``Prelude``
+                     - Fractional division
+                  - 
+
+                     - ``(**)``
+                     - ``Floating a => a -> a -> a``
+                     - ``Prelude``
+                     - Raise to the power of
+                  - 
+
+                     - ``(^)``
+                     - ``(Num a, Integral b) => a -> b -> a``
+                     - ``Prelude``
+                     - Raise a number to a non-negative, integral power
+                  - 
+
+                     - ``(^^)``
+                     - ``(Fractional a, Integral b) => a -> b -> a``
+                     - ``Prelude``
+                     - Raise a fractional number to any integral power
+                  - 
+
+                     - ``(%)``
+                     - ``Integral a => a -> a -> Ratio a``
+                     - ``Data.Ratio``
+                     - Ratio composition
+                  - 
+
+                     - ``(.&.)``
+                     - ``Bits a => a -> a -> a``
+                     - ``Data.Bits``
+                     - Bitwise and
+                  - 
+
+                     - ``(.|.)``
+                     - ``Bits a => a -> a -> a``
+                     - ``Data.Bits``
+                     - Bitwise or
+                  - 
+
+                     - ``abs``
+                     - ``Num a => a -> a``
+                     - ``Prelude``
+                     - Absolute value
+                  - 
+
+                     - ``approxRational``
+                     - ``RealFrac a => a -> a -> Rational``
+                     - ``Data.Ratio``
+                     - Approximate rational composition based on
+                        fractional numerators and denominators
+                  - 
+
+                     - ``cos``
+                     - ``Floating a => a -> a``
+                     - ``Prelude``
+                     - Cosine. Also provided are ``acos``, ``cosh``, and
+                        ``acosh``, with the same type.
+                  - 
+
+                     - ``div``
+                     - ``Integral a => a -> a -> a``
+                     - ``Prelude``
+                     - Integer division always truncated down; see also
+                        ``quot``
+                  - 
+
+                     - ``fromInteger``
+                     - ``Num a => Integer -> a``
+                     - ``Prelude``
+                     - Conversion from an ``Integer`` to any numeric
+                        type
+                  - 
+
+                     - ``fromIntegral``
+                     - ``(Integral a, Num b) => a -> b``
+                     - ``Prelude``
+                     - More general conversion from any ``Integral`` to
+                        any numeric type
+                  - 
+
+                     - ``fromRational``
+                     - ``Fractional a => Rational -> a``
+                     - ``Prelude``
+                     - Conversion from a ``Rational``. May be lossy.
+                  - 
+
+                     - ``log``
+                     - ``Floating a => a -> a``
+                     - ``Prelude``
+                     - Natural logarithm
+                  - 
+
+                     - ``logBase``
+                     - ``Floating a => a -> a -> a``
+                     - ``Prelude``
+                     - Log with explicit base
+                  - 
+
+                     - ``maxBound``
+                     - ``Bounded a => a``
+                     - ``Prelude``
+                     - The maximum value of a bounded type
+                  - 
+
+                     - ``minBound``
+                     - ``Bounded a => a``
+                     - ``Prelude``
+                     - The minimum value of a bounded type
+                  - 
+
+                     - ``mod``
+                     - ``Integral a => a -> a -> a``
+                     - ``Prelude``
+                     - Integer modulus
+                  - 
+
+                     - ``pi``
+                     - ``Floating a => a``
+                     - ``Prelude``
+                     - Mathematical constant pi
+                  - 
+
+                     - ``quot``
+                     - ``Integral a => a -> a -> a``
+                     - ``Prelude``
+                     - Integer division; fractional part of quotient
+                        truncated towards zero
+                  - 
+
+                     - ``recip``
+                     - ``Fractional a => a -> a``
+                     - ``Prelude``
+                     - Reciprocal
+                  - 
+
+                     - ``rem``
+                     - ``Integral a => a -> a -> a``
+                     - ``Prelude``
+                     - Remainder of integer division
+                  - 
+
+                     - ``round``
+                     - ``(RealFrac a, Integral b) => a -> b``
+                     - ``Prelude``
+                     - Rounds to nearest integer
+                  - 
+
+                     - ``shift``
+                     - ``Bits a => a -> Int -> a``
+                     - ``Bits``
+                     - Shift left by the specified number of bits, which
+                        may be negative for a right shift.
+                  - 
+
+                     - ``sin``
+                     - ``Floating a => a -> a``
+                     - ``Prelude``
+                     - Sine. Also provided are ``asin``, ``sinh``, and
+                        ``asinh``, with the same type.
+                  - 
+
+                     - ``sqrt``
+                     - ``Floating a => a -> a``
+                     - ``Prelude``
+                     - Square root
+                  - 
+
+                     - ``tan``
+                     - ``Floating a => a -> a``
+                     - ``Prelude``
+                     - Tangent. Also provided are ``atan``, ``tanh``,
+                        and ``atanh``, with the same type.
+                  - 
+
+                     - ``toInteger``
+                     - ``Integral a => a -> Integer``
+                     - ``Prelude``
+                     - Convert any ``Integral`` to an ``Integer``
+                  - 
+
+                     - ``toRational``
+                     - ``Real a => a -> Rational``
+                     - ``Prelude``
+                     - Convert losslessly to ``Rational``
+                  - 
+
+                     - ``truncate``
+                     - ``(RealFrac a, Integral b) => a -> b``
+                     - ``Prelude``
+                     - Truncates number towards zero
+                  - 
+
+                     - ``xor``
+                     - ``Bits a => a -> a -> a``
+                     - ``Data.Bits``
+                     - Bitwise exclusive or
+
+         .. container:: table
+
+            **Table 6.3. Typeclass Instances for Numeric Types**
+
+            .. container:: table-contents
+
+               +----------+------+-------+-------+-------+-------+-----+------+-------+
+               | Type     | Bits | Bo    | Flo   | Fract | Int   | Num | Real | Rea   |
+               |          |      | unded | ating | ional | egral |     |      | lFrac |
+               +==========+======+=======+=======+=======+=======+=====+======+=======+
+               | D        |      |       | X     | X     |       | X   | X    | X     |
+               | ouble    |      |       |       |       |       |     |      |       |
+               +----------+------+-------+-------+-------+-------+-----+------+-------+
+               | Float    |      |       | X     | X     |       | X   | X    | X     |
+               +----------+------+-------+-------+-------+-------+-----+------+-------+
+               | Int      | X    | X     |       |       | X     | X   | X    |       |
+               +----------+------+-------+-------+-------+-------+-----+------+-------+
+               | Int16    | X    | X     |       |       | X     | X   | X    |       |
+               +----------+------+-------+-------+-------+-------+-----+------+-------+
+               | Int32    | X    | X     |       |       | X     | X   | X    |       |
+               +----------+------+-------+-------+-------+-------+-----+------+-------+
+               | Int64    | X    | X     |       |       | X     | X   | X    |       |
+               +----------+------+-------+-------+-------+-------+-----+------+-------+
+               | Integer  | X    |       |       |       | X     | X   | X    |       |
+               +----------+------+-------+-------+-------+-------+-----+------+-------+
+               | Rational |      |       |       | X     |       | X   | X    | X     |
+               | or any   |      |       |       |       |       |     |      |       |
+               | Ratio    |      |       |       |       |       |     |      |       |
+               +----------+------+-------+-------+-------+-------+-----+------+-------+
+               | Word     | X    | X     |       |       | X     | X   | X    |       |
+               +----------+------+-------+-------+-------+-------+-----+------+-------+
+               | W        | X    | X     |       |       | X     | X   | X    |       |
+               | ord16    |      |       |       |       |       |     |      |       |
+               +----------+------+-------+-------+-------+-------+-----+------+-------+
+               | W        | X    | X     |       |       | X     | X   | X    |       |
+               | ord32    |      |       |       |       |       |     |      |       |
+               +----------+------+-------+-------+-------+-------+-----+------+-------+
+               | W        | X    | X     |       |       | X     | X   | X    |       |
+               | ord64    |      |       |       |       |       |     |      |       |
+               +----------+------+-------+-------+-------+-------+-----+------+-------+
+
+
+         Converting between numeric types is another common need.
+         `Table 6.2, “Selected Numeric Functions and Constants” <#numerictypes.funcs>`__
+         listed many functions that can be used for conversion. However,
+         it is not always obvious how to apply them to convert between
+         two arbitrary types. To help you out, 
+         `Table 6.4, “Conversion Between Numeric Types” <#numerictypes.conversion>`__
+         provides information on converting between different types.
+
+         .. container:: table
+
+            **Table 6.4. Conversion Between Numeric Types**
+
+            .. container:: table-contents
+
+               .. list-table::
+                  :header-rows: 1
+
+                  - 
+
+                     - Source Type
+                     - Destination Type
+                     - 
+                     - 
+                     - 
+                  - 
+
+                     - 
+                     - ``Double``, ``Float``
+                     - ``Int``, ``Word``
+                     - ``Integer``
+                     - ``Rational``
+                  - 
+
+                     - ``Double``, ``Float``
+                     - ``fromRational . toRational``
+                     - ``truncate`` \*
+                     - ``truncate`` \*
+                     - ``toRational``
+                  - 
+
+                     - ``Int``, ``Word``
+                     - ``fromIntegral``
+                     - ``fromIntegral``
+                     - ``fromIntegral``
+                     - ``fromIntegral``
+                  - 
+
+                     - ``Integer``
+                     - ``fromIntegral``
+                     - ``fromIntegral``
+                     - N/A
+                     - ``fromIntegral``
+                  - 
+
+                     - ``Rational``
+                     - ``fromRational``
+                     - ``truncate`` \*
+                     - ``truncate`` \*
+                     - N/A
+
+         \* Instead of ``truncate``, you could also use ``round``,
+         ``ceiling``, or ``floor``.
+
+         For an extended example demonstrating the use of these numeric
+         typeclasses, see the section called `“Extended example: Numeric
+         Types” <#data.num>`__.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Equality, Ordering, and Comparisons
+                     :name: typeclasses.wellknown.equality
+                     :class: title
+
+         We've already talked about the arithmetic operators such as
+         ``+`` that can be used for all sorts of different numbers. But
+         there are some even more widely-applied operators in Haskell.
+         The most obvious, of course, are the equality tests: ``==`` and
+         ``/=``. These operators are defined in the ``Eq`` class.
+
+         There are also comparison operators such as ``>=`` and ``<=``.
+         These are declared by the ``Ord`` typeclass. These are in a
+         separate typeclass because there are some types, such as
+         ``Handle``, where an equality test makes sense, but there is no
+         way to express a particular ordering. Anything that is an
+         instance of ``Ord`` can be sorted by ``Data.List.sort``.
+
+         Almost all Haskell types are instances of ``Eq``, and nearly as
+         many are instances of ``Ord``.
+
+         .. Tip:: Tip
+
+            Sometimes, the ordering in ``Ord`` is arbitrary. For
+            instance, for ``Maybe``, ``Nothing`` sorts before
+            ``Just x``, but this was a somewhat arbitrary
+            decision.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Automatic Derivation
+                  :name: typeclasses.auto.derivation
+                  :class: title
+
+      For many simple data types, the Haskell compiler can automatically
+      derive instances of ``Read``, ``Show``, ``Bounded``, ``Enum``,
+      ``Eq``, and ``Ord`` for us. This saves us the effort of having to
+      manually write code to compare or display our own types.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch06/colorderived.hs
+         data Color = Red | Green | Blue
+              deriving (Read, Show, Eq, Ord)
+
+      .. Note::  Which types can be automatically derived?
+
+         The Haskell standard requires compilers to be able to
+         automatically derive instances of these specific
+         typeclasses. This automation is not available for
+         other typeclasses.
+
+      Let's take a look at how these derived instances work for us:
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> show Red
+         "Red"
+         ghci> (read "Red")::Color
+         Red
+         ghci> (read "[Red,Red,Blue]")::[Color]
+         [Red,Red,Blue]
+         ghci> (read "[Red, Red, Blue]")::[Color]
+         [Red,Red,Blue]
+         ghci> Red == Red
+         True
+         ghci> Red == Blue
+         False
+         ghci> Data.List.sort [Blue,Green,Blue,Red]
+         [Red,Green,Blue,Blue]
+         ghci> Red < Blue
+         True
+
+      Notice that the sort order for ``Color`` was based on the order
+      that the constructors were defined.
+
+      Automatic derivation is not always possible. For instance, if you
+      defined a type ``data MyType = MyType (Int -> Bool)``, the
+      compiler will not be able to derive an instance of ``Show``
+      because it doesn't know how to render a function. We will get a
+      compilation error in such a situation.
+
+      When we automatically derive an instance of some typeclass, the
+      types that we refer to in our ``data`` declaration must also be
+      instances of that typeclass (manually or automatically).
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch06/AutomaticDerivation.hs
+         data CannotShow = CannotShow
+                         deriving (Show)
+
+         -- will not compile, since CannotShow is not an instance of Show
+         data CannotDeriveShow = CannotDeriveShow CannotShow
+                                 deriving (Show)
+
+         data OK = OK
+
+         instance Show OK where
+             show _ = "OK"
+
+         data ThisWorks = ThisWorks OK
+                          deriving (Show)
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Typeclasses at work: making JSON easier to
+                  use
+                  :name: jsonclass
+                  :class: title
+
+      The JValue type that we introduced in the section called
+      `“Representing JSON data in Haskell” <#library.jvalue>`__
+      is not especially easy to work with. Here is a truncated and
+      tidied snippet of some real JSON data, produced by a well known
+      search engine.
+
+      .. code:: haskell
+         :class: programlisting
+
+         {
+           "query": "awkward squad haskell",
+           "estimatedCount": 3920,
+           "moreResults": true,
+           "results":
+           [{
+             "title": "Simon Peyton Jones: papers",
+             "snippet": "Tackling the awkward squad: monadic input/output ...",
+             "url": "http://research.microsoft.com/~simonpj/papers/marktoberdorf/",
+            },
+            {
+             "title": "Haskell for C Programmers | Lambda the Ultimate",
+             "snippet": "... the best job of all the tutorials I've read ...",
+             "url": "http://lambda-the-ultimate.org/node/724",
+            }]
+         }
+
+      And here's a further slimmed down fragment of that data,
+      represented in Haskell.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch05/SimpleResult.hs
+         import SimpleJSON
+
+         result :: JValue
+         result = JObject [
+           ("query", JString "awkward squad haskell"),
+           ("estimatedCount", JNumber 3920),
+           ("moreResults", JBool True),
+           ("results", JArray [
+              JObject [
+               ("title", JString "Simon Peyton Jones: papers"),
+               ("snippet", JString "Tackling the awkward ..."),
+               ("url", JString "http://.../marktoberdorf/")
+              ]])
+           ]
+
+      Because Haskell doesn't natively support lists that contain types
+      of different value, we can't directly represent a JSON object that
+      contains values of different types. Instead, we must wrap each
+      value with a JValue constructor. This limits our flexibility: if
+      we want to change the number ``3920`` to a string ``"3,920"``, we
+      must change the constructor that we use to wrap it from
+      ``JNumber`` to ``JString``.
+
+      Haskell's typeclasses offer a tempting solution to this problem.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch06/JSONClass.hs
+         type JSONError = String
+
+         class JSON a where
+             toJValue :: a -> JValue
+             fromJValue :: JValue -> Either JSONError a
+
+         instance JSON JValue where
+             toJValue = id
+             fromJValue = Right
+
+      Now, instead of applying a constructor like ``JNumber`` to a value
+      to wrap it, we apply the ``toJValue`` function. If we change a
+      value's type, the compiler will choose a suitable implementation
+      of toJValue to use with it.
+
+      We also provide a ``fromJValue`` function, which attempts to
+      convert a JValue into a value of our desired type.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: More helpful errors
+                     :name: id607846
+                     :class: title
+
+         The return type of our ``fromJValue`` function uses the Either
+         type. Like Maybe, this type is predefined for us, and we'll
+         often use it to represent a computation that could fail.
+
+         While Maybe is useful for this purpose, it gives us no
+         information if a failure occurs: we literally have ``Nothing``.
+         The Either type has a similar structure, but instead of
+         ``Nothing``, the “something bad happened” constructor is named
+         ``Left``, and it takes a parameter.
+
+         .. code:: haskell
+            :class: programlisting
+
+            -- file: ch06/DataEither.hs
+            data Maybe a = Nothing
+                         | Just a
+                           deriving (Eq, Ord, Read, Show)
+
+            data Either a b = Left a
+                            | Right b
+                              deriving (Eq, Ord, Read, Show)
+
+         Quite often, the type we use for the ``a`` parameter value is
+         String, so we can provide a useful description if something
+         goes wrong. To see how we use the Either type in practice,
+         let's look at a simple instance of our typeclass.
+
+         .. code:: haskell
+            :class: programlisting
+
+            -- file: ch06/JSONClass.hs
+            instance JSON Bool where
+                toJValue = JBool
+                fromJValue (JBool b) = Right b
+                fromJValue _ = Left "not a JSON boolean"
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Making an instance with a type synonym
+                     :name: id607949
+                     :class: title
+
+         The Haskell 98 standard does not allow us to write an instance
+         of the following form, even though it seems perfectly
+         reasonable.
+
+         .. code:: haskell
+            :class: programlisting
+
+            -- file: ch06/JSONClass.hs
+            instance JSON String where
+                toJValue               = JString
+
+                fromJValue (JString s) = Right s
+                fromJValue _           = Left "not a JSON string"
+
+         Recall that String is a synonym for [Char], which in turn is
+         the type [a] where Char is substituted for the type parameter
+         ``a``. According to Haskell 98's rules, we are not allowed to
+         supply a type in place of a type parameter when we write an
+         instance. In other words, it would be legal for us to write an
+         instance for [a], but not for [Char].
+
+         While GHC follows the Haskell 98 standard by default, we can
+         relax this particular restriction by placing a specially
+         formatted comment at the top of our source file.
+
+         .. code:: haskell
+            :class: programlisting
+
+            -- file: ch06/JSONClass.hs
+            {-# LANGUAGE TypeSynonymInstances #-}
+
+         This comment is a directive to the compiler, called a *pragma*,
+         which tells it to enable a language extension. The
+         ``TypeSynonymInstances`` language extension makes the above
+         code legal. We'll encounter a few other language extensions in
+         this chapter, and a handful more later in this book.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Living in an open world
+                  :name: id608052
+                  :class: title
+
+      Haskell's typeclasses are intentionally designed to let us create
+      new instances of a typeclass whenever we see fit.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch06/JSONClass.hs
+         doubleToJValue :: (Double -> a) -> JValue -> Either JSONError a
+         doubleToJValue f (JNumber v) = Right (f v)
+         doubleToJValue _ _ = Left "not a JSON number"
+
+         instance JSON Int where
+             toJValue = JNumber . realToFrac
+             fromJValue = doubleToJValue round
+
+         instance JSON Integer where
+             toJValue = JNumber . realToFrac
+             fromJValue = doubleToJValue round
+
+         instance JSON Double where
+             toJValue = JNumber
+             fromJValue = doubleToJValue id
+
+      We can add new instances anywhere; they are not confined to the
+      module where we define a typeclass. This feature of the typeclass
+      system is referred to as its *open world assumption*. If we had a
+      way to express a notion of “the following are the only instances
+      of this typeclass that can exist”, we would have a *closed* world.
+
+      We would like to be able to turn a list into what JSON calls an
+      array. We won't worry about implementation details just yet, so
+      let's use ``undefined`` as the bodies of the instance's methods.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch06/BrokenClass.hs
+         instance (JSON a) => JSON [a] where
+             toJValue = undefined
+             fromJValue = undefined
+
+      It would also be convenient if we could turn a list of name/value
+      pairs into a JSON object.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch06/BrokenClass.hs
+         instance (JSON a) => JSON [(String, a)] where
+             toJValue = undefined
+             fromJValue = undefined
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: When do overlapping instances cause
+                     problems?
+                     :name: id608148
+                     :class: title
+
+         If we put these definitions into a source file and load them
+         into **ghci**, everything initially seems fine.
+
+         .. code:: haskell
+            :class: screen
+
+            ghci> :load BrokenClass
+            [1 of 2] Compiling SimpleJSON       ( ../ch05/SimpleJSON.hs, interpreted )
+            [2 of 2] Compiling BrokenClass      ( BrokenClass.hs, interpreted )
+            Ok, modules loaded: SimpleJSON, BrokenClass.
+
+         However, once we try to *use* the list-of-pairs instance, we
+         run into trouble.
+
+         .. code:: haskell
+            :class: screen
+
+            ghci> toJValue [("foo","bar")]
+
+            <interactive>:1:0:
+                Overlapping instances for JSON [([Char], [Char])]
+                  arising from a use of `toJValue' at <interactive>:1:0-23
+                Matching instances:
+                  instance (JSON a) => JSON [a]
+                    -- Defined at BrokenClass.hs:(44,0)-(46,25)
+                  instance (JSON a) => JSON [(String, a)]
+                    -- Defined at BrokenClass.hs:(50,0)-(52,25)
+                In the expression: toJValue [("foo", "bar")]
+                In the definition of `it': it = toJValue [("foo", "bar")]
+
+         This problem of *overlapping instances* is a consequence of
+         Haskell's open world assumption. Here's a simpler example that
+         makes it clearer what's going on.
+
+         .. code:: haskell
+            :class: programlisting
+
+            -- file: ch06/Overlap.hs
+            class Borked a where
+                bork :: a -> String
+
+            instance Borked Int where
+                bork = show
+
+            instance Borked (Int, Int) where
+                bork (a, b) = bork a ++ ", " ++ bork b
+
+            instance (Borked a, Borked b) => Borked (a, b) where
+                bork (a, b) = ">>" ++ bork a ++ " " ++ bork b ++ "<<"
+
+         We have two instances of the typeclass Borked for pairs: one
+         for a pair of Ints and another for a pair of anything else
+         that's Borked.
+
+         Suppose that we want to ``bork`` a pair of Int values. To do
+         so, the compiler must choose an instance to use. Because these
+         instances are right next to each other, it may seem that it
+         could simply choose the more specific instance.
+
+         However, GHC is conservative by default, and insists that there
+         must be only one possible instance that it can use. It will
+         thus report an error if we try to use ``bork``.
+
+         .. Note:: When do overlapping instances matter?
+
+            As we mentioned earlier, we can scatter instances of
+            a typeclass across several modules. GHC does not
+            complain about the mere existence of overlapping
+            instances. Instead, it only complains when we try
+            to use a method of the affected typeclass, when it
+            is forced to make a decision about which instance
+            to use.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Relaxing some restrictions on typeclasses
+                     :name: id608327
+                     :class: title
+
+         Normally, we cannot write an instance of a typeclass for a
+         specialized version of a polymorphic type. The [Char] type is
+         the polymorphic type [a] specialized to the type Char. We are
+         thus prohibited from declaring [Char] to be an instance of a
+         typeclass. This is highly inconvenient, since strings are
+         ubiquitous in real code.
+
+         The ``TypeSynonymInstances`` language extension removes this
+         restriction, permitting us to write such instances.
+
+         GHC supports another useful language extension,
+         ``OverlappingInstances``, which addresses the problem we saw
+         with overlapping instances. When there are multiple overlapping
+         instances to choose from, this extension causes the compiler to
+         pick the most specific one.
+
+         We frequently use this extension together with
+         ``TypeSynonymInstances``. Here's an example.
+
+         .. code:: haskell
+            :class: programlisting
+
+            -- file: ch06/SimpleClass.hs
+            {-# LANGUAGE TypeSynonymInstances, OverlappingInstances #-}
+
+            import Data.List
+
+            class Foo a where
+                foo :: a -> String
+
+            instance Foo a => Foo [a] where
+                foo = concat . intersperse ", " . map foo
+
+            instance Foo Char where
+                foo c = [c]
+
+            instance Foo String where
+                foo = id
+
+         If we apply ``foo`` to a String, the compiler will use the
+         String-specific implementation. Even though we have an instance
+         of Foo for [a] and Char, the instance for String is more
+         specific, so GHC chooses it. For other types of list, we will
+         see the behavior specified for [a].
+
+         With the ``OverlappingInstances`` extension enabled, GHC will
+         still reject code if it finds more than one equally specific
+         instance.
+
+         .. Note:: When to use the OverlappingInstances extension
+
+            Here's an important point: GHC treats
+            ``OverlappingInstances`` as affecting the
+            declaration of an instance, *not* a location where
+            we use the instance. In other words, when we define
+            an instance that we wish to allow to overlap with
+            another instance, we must enable the extension for
+            the module that contains the definition. When it
+            compiles the module, GHC will record that instance
+            as “can be overlapped with other instances”.
+
+            Once we import this module and use the instance, we
+            *won't* need to enable ``OverlappingInstances`` in
+            the importing module: GHC will already know that
+            the instance was marked as “okay to overlap” when
+            it was defined.
+
+            This behaviour is useful when we are writing a
+            library: we can choose to create overlappable
+            instances, but users of our library do not need to
+            enable any special language extensions.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: How does show work for strings?
+                     :name: id608550
+                     :class: title
+
+         The ``OverlappingInstances`` and ``TypeSynonymInstances``
+         language extensions are specific to GHC, and by definition were
+         not present in Haskell 98. However, the familiar Show typeclass
+         from Haskell 98 somehow renders a list of Char differently from
+         a list of Int. It achieves this via a clever, but simple,
+         trick.
+
+         The Show class defines both a ``show`` method, which renders
+         one value, and a ``showList`` method, which renders a list of
+         values. The default implementation of ``showList`` renders a
+         list using square brackets and commas.
+
+         The instance of Show for [a] is implemented using ``showList``.
+         The instance of Show for Char provides a special implementation
+         of ``showList`` that uses double quotes and escapes
+         non-ASCII-printable characters.
+
+         As a result, if someone applies ``show`` to a [Char] value, the
+         implementation of ``showList`` will be chosen, and it will
+         correctly render the string using quotes.
+
+         At least sometimes, then, we can avoid the need for the
+         ``OverlappingInstances`` extension with a little bit of lateral
+         thinking.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: How to give a type a new identity
+                  :name: id608689
+                  :class: title
+
+      In addition to the familiar ``data`` keyword, Haskell provides us
+      with another way to create a new type, using the ``newtype``
+      keyword.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch06/Newtype.hs
+         data DataInt = D Int
+             deriving (Eq, Ord, Show)
+
+         newtype NewtypeInt = N Int
+             deriving (Eq, Ord, Show)
+
+      The purpose of a ``newtype`` declaration is to rename an existing
+      type, giving it a distinct identity. As we can see, it is similar
+      in appearance to a type declared using the ``data`` keyword.
+
+      .. Note:: The type and newtype keywords
+
+         Although their names are similar, the ``type`` and
+         ``newtype`` keywords have different purposes. The
+         ``type`` keyword gives us another way of referring to
+         a type, like a nickname for a friend. Both we and the
+         compiler know that [Char] and String names refer to
+         the same type.
+
+         In contrast, the ``newtype`` keyword exists to *hide*
+         the nature of a type. Consider a UniqueID type.
+
+         .. code:: haskell
+            :class: programlisting
+
+            -- file: ch06/Newtype.hs
+            newtype UniqueID = UniqueID Int
+                deriving (Eq)
+
+         The compiler treats UniqueID as a different type from
+         Int. As a user of a UniqueID, we know only that we
+         have a unique identifier; we cannot see that it is
+         implemented as an Int.
+
+      When we declare a ``newtype``, we must choose which of the
+      underlying type's typeclass instances we want to expose. Here,
+      we've elected to make NewtypeInt provide Int's instances for Eq,
+      Ord and Show. As a result, we can compare and print values of type
+      NewtypeInt.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> N 1 < N 2
+         True
+
+      Since we are *not* exposing Int's Num or Integral instances,
+      values of type NewtypeInt are not numbers. For instance, we can't
+      add them.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> N 313 + N 37
+
+         <interactive>:1:0:
+             No instance for (Num NewtypeInt)
+               arising from a use of `+' at <interactive>:1:0-11
+             Possible fix: add an instance declaration for (Num NewtypeInt)
+             In the expression: N 313 + N 37
+             In the definition of `it': it = N 313 + N 37
+
+      As with the ``data`` keyword, we can use a ``newtype``'s value
+      constructor to create a new value, or to pattern match on an
+      existing value.
+
+      If a ``newtype`` does not use automatic deriving to expose the
+      underlying type's implementation of a typeclass, we are free to
+      either write a new instance or leave the typeclass unimplemented.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Differences between data and newtype
+                     declarations
+                     :name: id608962
+                     :class: title
+
+         The ``newtype`` keyword exists to give an existing type a new
+         identity, and it has more restrictions on its uses than the
+         ``data`` keyword. Specifically, a ``newtype`` can only have one
+         value constructor, and that constructor must have exactly one
+         field.
+
+         .. code:: haskell
+            :class: programlisting
+
+            -- file: ch06/NewtypeDiff.hs
+            -- ok: any number of fields and constructors
+            data TwoFields = TwoFields Int Int
+
+            -- ok: exactly one field
+            newtype Okay = ExactlyOne Int
+
+            -- ok: type parameters are no problem
+            newtype Param a b = Param (Either a b)
+
+            -- ok: record syntax is fine
+            newtype Record = Record {
+                  getInt :: Int
+                }
+
+            -- bad: no fields
+            newtype TooFew = TooFew
+
+            -- bad: more than one field
+            newtype TooManyFields = Fields Int Int
+
+            -- bad: more than one constructor
+            newtype TooManyCtors = Bad Int
+                                 | Worse Int
+
+         Beyond this, there's another important difference between
+         ``data`` and ``newtype``. A type created with the ``data``
+         keyword has a book-keeping cost at runtime, for example to
+         track which constructor a value was created with. A ``newtype``
+         value, on the other hand, can only have one constructor, and so
+         does not need this overhead. This makes it more space- and
+         time-efficient at runtime.
+
+         Because a ``newtype``'s constructor is used only at compile
+         time and does not even exist at runtime, pattern matching on
+         ``undefined`` behaves differently for types defined using
+         ``newtype`` than for those that use ``data``.
+
+         To understand the difference, let's first review what we might
+         expect with a normal datatype. We are already familiar with the
+         idea that if ``undefined`` is evaluated at runtime, it causes a
+         crash.
+
+         .. code:: haskell
+            :class: screen
+
+            ghci> undefined
+            *** Exception: Prelude.undefined
+
+         Here is a pattern match where we construct a DataInt using the
+         ``D`` constructor, and put ``undefined`` inside.
+
+         .. code:: haskell
+            :class: screen
+
+            ghci> case D undefined of D _ -> 1
+            1
+
+         Since our pattern matches against the constructor but doesn't
+         inspect the payload, the ``undefined`` remains unevaluated and
+         does not cause an exception to be thrown.
+
+         In this example, we're not using the ``D`` constructor, so the
+         unprotected ``undefined`` is evaluated when the pattern match
+         occurs, and we throw an exception.
+
+         .. code:: haskell
+            :class: screen
+
+            ghci> case undefined of D _ -> 1
+            *** Exception: Prelude.undefined
+
+         When we use the ``N`` constructor for the NewtypeInt type, we
+         see the same behaviour as with the DataInt type's ``D``
+         constructor: no exception.
+
+         .. code:: haskell
+            :class: screen
+
+            ghci> case N undefined of N _ -> 1
+            1
+
+         The crucial difference arises when we get rid of the ``N``
+         constructor from the expression, and match against an
+         unprotected ``undefined``.
+
+         .. code:: haskell
+            :class: screen
+
+            ghci> case undefined of N _ -> 1
+            1
+
+         We don't crash! Because there's no constructor present at
+         runtime, matching against ``N _`` is in fact equivalent to
+         matching against the plain wild card ``_``: since the wild card
+         always matches, the expression does not need to be evaluated.
+
+         .. Tip:: Another perspective on newtype constructors
+
+            Even though we use the value constructor for a
+            ``newtype`` in the same way as that of a type
+            defined using the ``data`` keyword, all it does is
+            coerce a value between its “normal” type and its
+            ``newtype`` type.
+
+            In other words, when we apply the ``N`` constructor
+            in an expression, we coerce an expression from type
+            Int to type NewtypeInt as far as we and the
+            compiler are concerned, but absolutely nothing
+            occurs at runtime.
+
+            Similarly, when we match on the ``N`` constructor
+            in a pattern, we coerce an expression from type
+            NewtypeInt to Int, but again there's no overhead
+            involved at runtime.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Summary: the three ways of naming types
+                     :name: id609334
+                     :class: title
+
+         Here's a brief recap of Haskell's three ways to introduce new
+         names for types.
+
+         .. container:: itemizedlist
+
+            -  The ``data`` keyword introduces a truly new albegraic
+               data type.
+
+            -  The ``type`` keyword gives us a synonym to use for an
+               existing type. We can use the type and its synonym
+               interchangeably.
+
+            -  The ``newtype`` keyword gives an existing type a distinct
+               identity. The original type and the new type are *not*
+               interchangeable.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: JSON typeclasses without overlapping
+                  instances
+                  :name: jsonclass.instances
+                  :class: title
+
+      Enabling GHC's support for overlapping instances is an effective
+      and quick way to make our JSON code happy. In more complex cases,
+      we will occasionally be faced with several equally good instances
+      for some typeclass, in which case overlapping instances will not
+      help us and we will need to put some ``newtype`` declarations into
+      place. To see what's involved, let's rework our JSON typeclass
+      instances to use ``newtype`` s instead of overlapping instances.
+
+      Our first task, then, is to help the compiler to distinguish
+      between [a], the representation we use for JSON arrays, and
+      [(String,[a])], which we use for objects. These were the types
+      that gave us problems before we learned about
+      ``OverlappingInstances``. We wrap up the list type so that the
+      compiler will not see it as a list.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch06/JSONClass.hs
+         newtype JAry a = JAry {
+               fromJAry :: [a]
+             } deriving (Eq, Ord, Show)
+
+      When we export this type from our module, we'll export the
+      complete details of the type. Our module header will look like
+      this:
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch06/JSONClassExport.hs
+         module JSONClass
+             (
+               JAry(..)
+             ) where
+
+      The “ ``(..)`` ” following the JAry name means “export all
+      details of this type”.
+
+      .. Note:: A slight deviation from normal use
+           
+         Usually, when we export a ``newtype``, we will *not*
+         export its data constructor, in order to keep the
+         details of the type abstract. Instead, we would define
+         a function to apply the constructor for us.
+
+         .. code:: haskell
+            :class: programlisting
+
+            -- file: ch06/JSONClass.hs
+            jary :: [a] -> JAry a
+            jary = JAry
+
+         We would then export the type constructor, the
+         deconstructor function, and our construction function,
+         but not the data constructor.
+
+         .. code:: haskell
+            :class: programlisting
+
+            -- file: ch06/JSONClassExport.hs
+            module JSONClass
+                (
+                  JAry(fromJAry)
+                , jary
+                ) where
+
+         When we don't export a type's data constructor,
+         clients of our library can only use the functions we
+         provide to construct and deconstruct values of that
+         type. This gives us, the library authors, the liberty
+         to change our internal representation if we need to.
+
+         If we export the data constructor, clients are likely
+         to start depending on it, for instance by using it in
+         patterns. If we later wish to change the innards of
+         our type, we'll risk breaking any code that uses the
+         constructor.
+
+         In our circumstances here, we have nothing to gain by
+         making the array wrapper abstract, so we may as well
+         simply export the entire definition of the type.
+
+      We provide another wrapper type that hides our representation of a
+      JSON object.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch06/JSONClass.hs
+         newtype JObj a = JObj {
+               fromJObj :: [(String, a)]
+             } deriving (Eq, Ord, Show)
+
+      With these types defined, we make small changes to the definition
+      of our ``JValue`` type.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch06/JSONClass.hs
+         data JValue = JString String
+                     | JNumber Double
+                     | JBool Bool
+                     | JNull
+                     | JObject (JObj JValue)   -- was [(String, JValue)]
+                     | JArray (JAry JValue)    -- was [JValue]
+                       deriving (Eq, Ord, Show)
+
+      This change doesn't affect the instances of the JSON typeclass
+      that we've already written, but we will want to write instances
+      for our new JAry and JObj types.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch06/JSONClass.hs
+         jaryFromJValue :: (JSON a) => JValue -> Either JSONError (JAry a)
+
+         jaryToJValue :: (JSON a) => JAry a -> JValue
+
+         instance (JSON a) => JSON (JAry a) where
+             toJValue = jaryToJValue
+             fromJValue = jaryFromJValue
+
+      Let's take a slow walk through the individual steps of converting
+      a JAry a to a JValue. Given a list where we know that everything
+      inside is a JSON instance, converting it to a list of JValues is
+      easy.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch06/JSONClass.hs
+         listToJValues :: (JSON a) => [a] -> [JValue]
+         listToJValues = map toJValue
+
+      Taking this and wrapping it to become a JAry JValue is just a
+      matter of applying the ``newtype``'s type constructor.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch06/JSONClass.hs
+         jvaluesToJAry :: [JValue] -> JAry JValue
+         jvaluesToJAry = JAry
+
+      (Remember, this has no performance cost. We're just telling the
+      compiler to hide the fact that we're using a list.) To turn this
+      into a JValue, we apply another type constructor.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch06/JSONClass.hs
+         jaryOfJValuesToJValue :: JAry JValue -> JValue
+         jaryOfJValuesToJValue = JArray
+
+      Assemble these pieces using function composition, and we get a
+      concise one-liner for converting to a JValue.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch06/JSONClass.hs
+         jaryToJValue = JArray . JAry . map toJValue . fromJAry
+
+      We have more work to do to convert *from* a JValue to a JAry a,
+      but we'll break it into reusable parts. The basic function is
+      straightforward.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch06/JSONClass.hs
+         jaryFromJValue (JArray (JAry a)) =
+             whenRight JAry (mapEithers fromJValue a)
+         jaryFromJValue _ = Left "not a JSON array"
+
+      The ``whenRight`` function inspects its argument: calls a function
+      on it if it was created with the ``Right`` constructor, and leaves
+      a ``Left`` value untouched.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch06/JSONClass.hs
+         whenRight :: (b -> c) -> Either a b -> Either a c
+         whenRight _ (Left err) = Left err
+         whenRight f (Right a) = Right (f a)
+
+      More complicated is ``mapEithers``. It acts like the regular
+      ``map`` function, but if it ever encounters a ``Left`` value, it
+      returns that immediately, instead of continuing to accumulate a
+      list of ``Right`` values.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch06/JSONClass.hs
+         mapEithers :: (a -> Either b c) -> [a] -> Either b [c]
+         mapEithers f (x:xs) = case mapEithers f xs of
+                                 Left err -> Left err
+                                 Right ys -> case f x of
+                                               Left err -> Left err
+                                               Right y -> Right (y:ys)
+         mapEithers _ _ = Right []
+
+      Because the elements of the list hidden in the JObj type have a
+      little more structure, the code to convert to and from a JValue is
+      a bit more complex. Fortunately, we can reuse the functions that
+      we just defined.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch06/JSONClass.hs
+         import Control.Arrow (second)
+
+         instance (JSON a) => JSON (JObj a) where
+             toJValue = JObject . JObj . map (second toJValue) . fromJObj
+
+             fromJValue (JObject (JObj o)) = whenRight JObj (mapEithers unwrap o)
+               where unwrap (k,v) = whenRight ((,) k) (fromJValue v)
+             fromJValue _ = Left "not a JSON object"
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Exercises
+                     :name: id609889
+                     :class: title
+
+         .. container:: qandaset
+
+            .. list-table::
+               :widths: 1
+
+               - 
+
+                  - **1.** Load the Control.Arrow module into ghci, and find out what the second function does.
+
+               - 
+
+                  - **2.** What is the type of (,)? When you use it in ghci, what does it do? What about (,,)?
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: The dreaded monomorphism restriction
+                  :name: id609960
+                  :class: title
+
+      The Haskell 98 standard has a subtle feature that can sometimes
+      bite us in unexpected circumstances. Here's a simple function
+      definition that illustrates the issue.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch06/Monomorphism.hs
+         myShow = show
+
+      If we try to load this definition into **ghci**, it issues a
+      peculiar complaint.
+
+      .. code:: haskell
+         :class: screen
+
+         ghci> :load Monomorphism
+         [1 of 1] Compiling Main             ( Monomorphism.hs, interpreted )
+
+         Monomorphism.hs:2:9:
+             Ambiguous type variable `a' in the constraint:
+               `Show a' arising from a use of `show' at Monomorphism.hs:2:9-12
+             Possible cause: the monomorphism restriction applied to the following:
+               myShow :: a -> String (bound at Monomorphism.hs:2:0)
+             Probable fix: give these definition(s) an explicit type signature
+                           or use -fno-monomorphism-restriction
+         Failed, modules loaded: none.
+
+      The “monomorphism restriction” to which the error message refers
+      is a part of the Haskell 98 standard. *Monomorphism* is simply the
+      opposite of polymorphism: it indicates that an expression has
+      exactly one type. The *restriction* lies in the fact that Haskell
+      sometimes forces a declaration to be less polymorphic than we
+      would expect.
+
+      We mention the monomorphism restriction here because although it
+      isn't specifically related to typeclasses, they usually provide
+      the circumstances in which it crops up.
+
+      .. Tip::
+
+         It's possible that you will not run into the
+         monomorphism restriction in real code for a long time.
+         We don't think you need to try to remember the details
+         of this section. It should suffice to make a mental
+         note of its existence, until eventually GHC complains
+         at you with something like the above error message. If
+         that occurs, simply remember that you read about the
+         error here, and come back for guidance.
+
+      We won't attempt to explain the monomorphism
+      restriction :sup:`[` `14 <#ftn.id610076>`__ :sup:`]`. The
+      consensus within the Haskell community is that it doesn't arise
+      often; it is tricky to explain; it provides almost no practical
+      benefit; and so it mostly serves to trip people up. For an example
+      of its trickiness, while the definition above falls afoul of it,
+      the following two compile without problems.
+
+      .. code:: haskell
+         :class: programlisting
+
+         -- file: ch06/Monomorphism.hs
+         myShow2 value = show value
+
+         myShow3 :: (Show a) => a -> String
+         myShow3 = show
+
+      As these alternative definitions suggest, if GHC complains about
+      the monomorphism restriction, we have three easy ways to address
+      the error.
+
+      .. container:: itemizedlist
+
+         -  Make the function's arguments explicit, instead of leaving
+            them implicit.
+
+         -  Give the definition an explicit type signature, instead of
+            making the compiler infer its type.
+
+         -  Leave the code untouched, and compile the module with the
+            ``NoMonomorphismRestriction`` language extension enabled.
+            This disables the monomorphism restriction.
+
+      Because the monomorphism restriction is unwanted and unloved, it
+      will almost certainly be dropped from the next revision of the
+      Haskell standard. This does not quite mean that compiling with
+      ``NoMonomorphismRestriction`` is always the right thing to do:
+      some Haskell compilers (including older versions of GHC) do not
+      understand this extension, but they'll accept either of the other
+      approaches to making the error disappear. If this degree of
+      portability isn't a concern to you, then by all means enable the
+      language extension.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Conclusion
+                  :name: typeclasses.conclusion
+                  :class: title
+
+      *FIXME: needs extending to cover JSON*
+
+      In this chapter, you learned about the need for typeclasses and
+      how to use them. We talked about defining our own typeclasses and
+      then covered some of the important typeclasses that are defined in
+      the Haskell library. Finally, we showed how to have the Haskell
+      compiler automatically derive instances of certain typeclasses for
+      your types.
+
+   .. container:: footnotes
+
+      .. container:: footnote
+
+         :sup:`[` `12 <#id603171>`__ :sup:`]` We provided a default
+         implementation of both functions, which gives implementers of
+         instances choice: they can pick which one they implement. We
+         could have provided a default for only one function, which
+         would have forced users to implement the other every time. As
+         it is, users can implement one or both, as they see fit.
+
+      .. container:: footnote
+
+         :sup:`[` `13 <#id604799>`__ :sup:`]` As you will see in 
+         `the section called “Lazy I/O” <#io.lazy>`__, Haskell doesn't
+         actually read the entire file at this point. But for the
+         purposes of this example, we can ignore that distinction.
+
+      .. container:: footnote
+
+         :sup:`[` `14 <#id610076>`__ :sup:`]` If you simply *must*
+         read the gory details, see 
+         `section 4.5.5 <http://www.haskell.org/onlinereport/decls.html#sect4.5.5>`__
+         of the Haskell 98 Report.
+
+
+.. _sec-7:
+
+/Chapter 7. Input and output `🔼 <#toc>`_
+==========================================
+
+.. container:: chapter
+   :name: io
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: Chapter 7. I/O
+               :name: chapter-7.-io
+               :class: title
+
+   .. container:: toc
+
+      **Table of Contents**
+
+      *  `Classic I/O in Haskell <#io.basics>`__
+
+         *  `Pure vs. I/O <#io.purevsimpure>`__
+         *  `Why Purity Matters <#io.purity>`__
+
+      *  `Working With Files and Handles <#io.files>`__
+
+         *  `More on openFile <#io.files.openFile>`__
+         *  `Closing Handles <#io.files.closing>`__
+         *  `Seek and Tell <#io.files.seeking>`__
+         *  `Standard Input, Output, and Error <#io.files.stdin>`__
+         *  `Deleting and Renaming Files <#io.files.ops>`__
+         *  `Temporary Files <#io.files.temp>`__
+
+      *  `Extended Example: Functional I/O and Temporary Files <#io.example>`__
+      *  `Lazy I/O <#io.lazy>`__
+
+         *  `hGetContents <#io.lazy.hGetContents>`__
+         *  `readFile and writeFile <#io.lazy.readFile>`__
+         *  `A Word On Lazy Output <#io.lazy.output>`__
+         *  `interact <#io.lazy.interact>`__
+         *  `Filters with interact <#id614267>`__
+
+      *  `The IO Monad <#io.monad>`__
+
+         *  `Actions <#io.monad.actions>`__
+         *  `Sequencing <#io.bind>`__
+         *  `The True Nature of Return <#io.return>`__
+
+      *  `Is Haskell Really Imperative? <#io.imperative>`__
+      *  `Side Effects with Lazy I/O <#io.sideeffects>`__
+      *  `Buffering <#io.buffering>`__
+
+         *  `Buffering Modes <#id615631>`__
+         *  `Flushing The Buffer <#id615793>`__
+
+      *  `Reading Command-Line Arguments <#io.args>`__
+      *  `Environment Variables <#io.environ>`__
+
+   It should be obvious that most, if not all, programs are devoted to
+   gathering data from outside, processing it, and providing results
+   back to the outside world. That is, input and output are key.
+
+   Haskell's I/O system is powerful and expressive. It is easy to work
+   with and important to understand. Haskell strictly separates pure
+   code from code that could cause things to occur in the world. That
+   is, it provides a complete isolation from side-effects in pure code.
+   Besides helping programmers to reason about the correctness of their
+   code, it also permits compilers to automatically introduce
+   optimizations and parallelism.
+
+   We'll begin this chapter with simple, standard-looking I/O in
+   Haskell. Then we'll discuss some of the more powerful options as well
+   as provide more detail on how I/O fits into the pure, lazy,
+   functional Haskell world.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Classic I/O in Haskell
+                  :name: io.basics
+                  :class: title
+
+      Let's get started with I/O in Haskell by looking at a program that
+      looks surprisingly similar to I/O in other languages such as C or
+      Perl.
+
+      .. code:: programlisting
+
+         -- file: ch07/basicio.hs
+         main = do
+                putStrLn "Greetings!  What is your name?"
+                inpStr <- getLine
+                putStrLn $ "Welcome to Haskell, " ++ inpStr ++ "!"
+
+      You can compile this program to a standalone executable, run it
+      with **runghc**, or invoke ``main`` from within **ghci**. Here's a
+      sample session using **runghc**:
+
+      .. code:: screen
+
+         $ runghc basicio.hs
+         Greetings!  What is your name?
+         John
+         Welcome to Haskell, John!
+
+      That's a fairly simple, obvious result. You can see that
+      ``putStrLn`` writes out a ``String``, followed by an end-of-line
+      character. ``getLine`` reads a line from standard input. The
+      ``<-`` syntax may be new to you. Put simply, that binds the result
+      from executing an I/O action to a name.
+      :sup:`[` `15 <#ftn.id610368>`__ :sup:`]` We use the simple list
+      concatenation operator ``++`` to join the input string with our
+      own text.
+
+      Let's take a look at the types of ``putStrLn`` and ``getLine``.
+      You can find that information in the library reference, or just
+      ask **ghci**:
+
+      .. code:: screen
+
+         ghci> :type putStrLn
+         putStrLn :: String -> IO ()
+         ghci> :type getLine
+         getLine :: IO String
+
+      Notice that both of these types have IO in their return value.
+      That is your key to knowing that they may have side effects, or
+      that they may return different values even when called with the
+      same arguments, or both. The type of ``putStrLn`` looks like a
+      function. It takes a parameter of type ``String`` and returns
+      value of type ``IO ()``. Just what is an ``IO ()`` though?
+
+      Anything that is type ``IO`` *``something``* is an I/O *action*.
+      You can store it and nothing will happen. I could say
+      ``writefoo = putStrLn "foo"`` and nothing happens right then. But
+      if I later use ``writefoo`` in the middle of another I/O action,
+      the ``writefoo`` action will be executed when its parent action is
+      executed -- I/O actions can be glued together to form bigger I/O
+      actions. The ``()`` is an empty tuple (pronounced “unit”),
+      indicating that there is no return value from ``putStrLn``. This
+      is similar to ``void`` in Java or
+      C. :sup:`[` `16 <#ftn.id610538>`__ :sup:`]`
+
+      .. Tip::
+
+         Actions can be created, assigned, and passed anywhere.
+         However, they may only be performed (executed) from
+         within another I/O action.
+
+      Let's look at this with **ghci**:
+
+      .. code:: screen
+
+         ghci> let writefoo = putStrLn "foo"
+         ghci> writefoo
+         foo
+
+      In this example, the output ``foo`` is not a return value from
+      ``putStrLn``. Rather, it's the side effect of ``putStrLn``
+      actually writing ``foo`` to the terminal.
+
+      Notice one other thing: **ghci** actually executed ``writefoo``.
+      This means that, when given an I/O action, **ghci** will perform
+      it for you on the spot.
+
+      .. Note:: What Is An I/O Action?
+           
+         Actions:
+
+         .. container:: itemizedlist
+
+            -  Have the type ``IO`` *``t``*
+
+            -  Are first-class values in Haskell and fit
+               seamlessly with Haskell's type system
+
+            -  Produce an effect when *performed*, but not when
+               *evaluated*. That is, they only produce an
+               effect when called by something else in an I/O
+               context.
+
+            -  Any expression may produce an action as its
+               value, but the action will not perform I/O until
+               it is executed inside another I/O action (or it
+               is ``main``)
+
+            -  Performing (executing) an action of type
+               ``IO t`` may perform I/O and will ultimately
+               deliver a result of type ``t``
+
+      The type of ``getLine`` may look strange to you. It looks like a
+      value, rather than a function. And in fact, that is one way to
+      look at it: ``getLine`` is storing an I/O action. When that action
+      is performed, you get a ``String``. The ``<-`` operator is used to
+      "pull out" the result from performing an I/O action and store it
+      in a variable.
+
+      ``main`` itself is an I/O action with type ``IO ()``. You can only
+      perform I/O actions from within other I/O actions. All I/O in
+      Haskell programs is driven from the top at ``main``, which is
+      where execution of every Haskell program begins. This, then, is
+      the mechanism that provides isolation from side effects in
+      Haskell: you perform I/O in your ``IO`` actions, and call pure
+      (non-I/O) functions from there. Most Haskell code is pure; the I/O
+      actions perform I/O and call that pure code.
+
+      ``do`` is a convenient way to define a sequence of actions. As
+      you'll see later, there are other ways. When you use ``do`` in
+      this way, indentation is significant; make sure you line up your
+      actions properly.
+
+      You only need to use ``do`` if you have more than one action that
+      you need to perform. The value of a ``do`` block is the value of
+      the last action executed. For a complete description of ``do``
+      syntax, see `the section called “Desugaring of do
+      blocks” <monads.html#monads.do>`__.
+
+      Let's consider an example of calling pure code from within an I/O
+      action:
+
+      .. code:: programlisting
+
+         -- file: ch07/callingpure.hs
+         name2reply :: String -> String
+         name2reply name =
+             "Pleased to meet you, " ++ name ++ ".\n" ++
+             "Your name contains " ++ charcount ++ " characters."
+             where charcount = show (length name)
+
+         main :: IO ()
+         main = do
+                putStrLn "Greetings once again.  What is your name?"
+                inpStr <- getLine
+                let outStr = name2reply inpStr
+                putStrLn outStr
+
+      Notice the ``name2reply`` function in this example. It is a
+      regular Haskell function and obeys all the rules we've told you
+      about: it always returns the same result when given the same
+      input, it has no side effects, and it operates lazily. It uses
+      other Haskell functions: ``(++)``, ``show``, and ``length``.
+
+      Down in ``main``, we bind the result of ``name2reply inpStr`` to
+      ``outStr``. When you're working in a ``do`` block, you use ``<-``
+      to get results from IO actions and ``let`` to get results from
+      pure code. When used in a ``do`` block, you should not put ``in``
+      after your ``let`` statement.
+
+      You can see here how we read the person's name from the keyboard.
+      Then, that data got passed to a pure function, and its result was
+      printed. In fact, the last two lines of ``main`` could have been
+      replaced with ``putStrLn (name2reply inpStr)``. So, while ``main``
+      did have side effects—it caused things to appear on the terminal,
+      for instance—``name2reply`` did not and could not. That's because
+      ``name2reply`` is a pure function, not an action.
+
+      Let's examine this with **ghci**:
+
+      .. code:: screen
+
+         ghci> :load callingpure.hs
+         [1 of 1] Compiling Main             ( callingpure.hs, interpreted )
+         Ok, modules loaded: Main.
+         ghci> name2reply "John"
+         "Pleased to meet you, John.\nYour name contains 4 characters."
+         ghci> putStrLn (name2reply "John")
+         Pleased to meet you, John.
+         Your name contains 4 characters.
+
+      The ``\n`` within the string is the end-of-line (newline)
+      character, which causes the terminal to begin a new line in its
+      output. Just calling ``name2reply "John"`` in **ghci** will show
+      you the ``\n`` literally, because it is using ``show`` to display
+      the return value. But using ``putStrLn`` sends it to the terminal,
+      and the terminal interprets ``\n`` to start a new line.
+
+      What do you think will happen if you simply type **``main``** at
+      the **ghci** prompt? Give it a try.
+
+      After looking at these example programs, you may be wondering if
+      Haskell is really imperative rather than pure, lazy, and
+      functional. Some of these examples look like a sequence of actions
+      to be followed in order. There's more to it than that, though.
+      We'll discuss that question later in this chapter in `the section
+      called “Is Haskell Really Imperative?” <#io.imperative>`__
+      and `the section called “Lazy I/O” <#io.lazy>`__.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Pure vs. I/O
+                     :name: io.purevsimpure
+                     :class: title
+
+         As a way to help with understanding the differences between
+         pure code and I/O, here's a comparison table. When we speak of
+         pure code, we are talking about Haskell functions that always
+         return the same result when given the same input and have no
+         side effects. In Haskell, only the execution of I/O actions
+         avoid these rules.
+
+         .. container:: table
+
+            **Table 7.1. Pure vs. Impure**
+
+            .. container:: table-contents
+
+               .. list-table::
+                  :header-rows: 1
+
+                  - 
+
+                     - Pure
+                     - Impure
+                  - 
+
+                     - Always produces the same result when given the
+                        same parameters
+                     - May produce different results for the same
+                        parameters
+                  - 
+
+                     - Never has side effects
+                     - May have side effects
+                  - 
+
+                     - Never alters state
+                     - May alter the global state of the program,
+                        system, or world
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Why Purity Matters
+                     :name: io.purity
+                     :class: title
+
+         In this section, we've discussed how Haskell draws a clear
+         distinction between pure code and I/O actions. Most languages
+         don't draw this distinction. In languages such as C or Java,
+         there is no such thing as a function that is guaranteed by the
+         compiler to always return the same result for the same
+         arguments, or a function that is guaranteed to never have side
+         effects. The only way to know if a given function has side
+         effects is to read its documentation and hope that it's
+         accurate.
+
+         Many bugs in programs are caused by unanticipated side effects.
+         Still more are caused by misunderstanding circumstances in
+         which functions may return different results for the same
+         input. As multithreading and other forms of parallelism grow
+         increasingly common, it becomes more difficult to manage global
+         side effects.
+
+         Haskell's method of isolating side effects into I/O actions
+         provides a clear boundary. You can always know which parts of
+         the system may alter state and which won't. You can always be
+         sure that the pure parts of your program aren't having
+         unanticipated results. This helps you to think about the
+         program. It also helps the compiler to think about it. Recent
+         versions of **ghc**, for instance, can provide a level of
+         automatic parallelism for the pure parts of your code --
+         something of a holy grail for computing.
+
+         For more discussion on this topic, refer to the section called
+         `“Side Effects with Lazy I/O” <#io.sideeffects>`__.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Working With Files and Handles
+                  :name: io.files
+                  :class: title
+
+      So far, you've seen how to interact with the user at the
+      computer's terminal. Of course, you'll often need to manipulate
+      specific files. That's easy to do, too.
+
+      Haskell defines quite a few basic functions for I/O, many of which
+      are similar to functions seen in other programming languages. The
+      library reference for ``System.IO`` provides a good summary of all
+      the basic I/O functions, should you need one that we aren't
+      touching upon here.
+
+      You will generally begin by using ``openFile``, which will give
+      you a file ``Handle``. That ``Handle`` is then used to perform
+      specific operations on the file. Haskell provides functions such
+      as ``hPutStrLn`` that work just like ``putStrLn`` but take an
+      additional argument—a ``Handle``—that specifies which file to
+      operate upon. When you're done, you'll use ``hClose`` to close the
+      ``Handle``. These functions are all defined in ``System.IO``, so
+      you'll need to import that module when working with files. There
+      are "h" functions corresponding to virtually all of the non-"h"
+      functions; for instance, there is ``print`` for printing to the
+      screen and ``hPrint`` for printing to a file.
+
+      Let's start with an imperative way to read and write files. This
+      should seem similar to a ``while`` loop that you may find in other
+      languages. This isn't the best way to write it in Haskell; later,
+      you'll see examples of more Haskellish approaches.
+
+      .. code:: programlisting
+
+         -- file: ch07/toupper-imp.hs
+         import System.IO
+         import Data.Char(toUpper)
+
+         main :: IO ()
+         main = do 
+                inh <- openFile "input.txt" ReadMode
+                outh <- openFile "output.txt" WriteMode
+                mainloop inh outh
+                hClose inh
+                hClose outh
+
+         mainloop :: Handle -> Handle -> IO ()
+         mainloop inh outh = 
+             do ineof <- hIsEOF inh
+                if ineof
+                    then return ()
+                    else do inpStr <- hGetLine inh
+                            hPutStrLn outh (map toUpper inpStr)
+                            mainloop inh outh
+
+      Like every Haskell program, execution of this program begins with
+      ``main``. Two files are opened: ``input.txt`` is opened for
+      reading, and ``output.txt`` is opened for writing. Then we call
+      ``mainloop`` to process the file.
+
+      ``mainloop`` begins by checking to see if we're at the end of file
+      (EOF) for the input. If not, we read a line from the input. We
+      write out the same line to the output, after first converting it
+      to uppercase. Then we recursively call ``mainloop`` again to
+      continue processing the
+      file. :sup:`[` `17 <#ftn.id611551>`__ :sup:`]`
+
+      Notice that ``return`` call. This is not really the same as
+      ``return`` in C or Python. In those languages, ``return`` is used
+      to terminate execution of the current function immediately, and to
+      return a value to the caller. In Haskell, ``return`` is the
+      opposite of ``<-``. That is, ``return`` takes a pure value and
+      wraps it inside IO. Since every I/O action must return some IO
+      type, if your result came from pure computation, you must use
+      ``return`` to wrap it in IO. As an example, if ``7`` is an
+      ``Int``, then ``return 7`` would create an action stored in a
+      value of type ``IO Int``. When executed, that action would produce
+      the result ``7``. For more details on ``return``, see `the section
+      called “The True Nature of Return” <#io.return>`__.
+
+      Let's try running the program. We've got a file named
+      ``input.txt`` that looks like this:
+
+      .. code:: programlisting
+
+         This is ch08/input.txt
+
+         Test Input
+         I like Haskell
+         Haskell is great
+         I/O is fun
+
+         123456789
+             
+
+      Now, you can use ``runghc toupper-imp.hs`` and you'll find
+      ``output.txt`` in your directory. It should look like this:
+
+      .. code:: programlisting
+
+         THIS IS CH08/INPUT.TXT
+
+         TEST INPUT
+         I LIKE HASKELL
+         HASKELL IS GREAT
+         I/O IS FUN
+
+         123456789
+             
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: More on openFile
+                     :name: io.files.openFile
+                     :class: title
+
+         Let's use **ghci** to check on the type of ``openFile``:
+
+         .. code:: screen
+
+            ghci> :module System.IO
+            ghci> :type openFile
+            openFile :: FilePath -> IOMode -> IO Handle
+
+         ``FilePath`` is simply another name for ``String``. It is used
+         in the types of I/O functions to help clarify that the
+         parameter is being used as a filename, and not as regular data.
+
+         ``IOMode`` specifies how the file is to be managed. The
+         possible values for ``IOMode`` are listed in `Table 7.2,
+         “Possible IOMode
+         Values” <#io.files.openFile.IOModes>`__.
+
+         *FIXME: check formatting on this table for final book; openjade
+         doesn't render it well*
+
+         .. container:: table
+
+            **Table 7.2. Possible IOMode Values**
+
+            .. container:: table-contents
+
+               .. list-table::
+                  :header-rows: 1
+
+                  - 
+
+                     - ``IOMode``
+                     - Can read?
+                     - Can write?
+                     - Starting position
+                  - 
+
+                     - ``ReadMode``
+                     - Yes
+                     - No
+                     - Beginning of file
+                  - 
+
+                     - ``WriteMode``
+                     - No
+                     - Yes
+                     - Beginning of file
+                  - 
+
+                     - ``ReadWriteMode``
+                     - Yes
+                     - Yes
+                     - Beginning of file
+                  - 
+
+                     - ``AppendMode``
+                     - No
+                     - Yes
+                     - End of file
+
+         While we are mostly working with text examples in this chapter,
+         binary files can also be used in Haskell. If you are working
+         with a binary file, you should use ``openBinaryFile`` instead
+         of ``openFile``. Operating systems such as Windows process
+         files differently if they are opened as binary instead of as
+         text. On operating systems such as Linux, both ``openFile`` and
+         ``openBinaryFile`` perform the same operation. Nevertheless,
+         for portability, it is still wise to always use
+         ``openBinaryFile`` if you will be dealing with binary data.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Closing Handles
+                     :name: io.files.closing
+                     :class: title
+
+         You've already seen that ``hClose`` is used to close file
+         handles. Let's take a moment and think about why this is
+         important.
+
+         As you'll see in `the section called
+         “Buffering” <#io.buffering>`__, Haskell maintains
+         internal buffers for files. This provides an important
+         performance boost. However, it means that until you call
+         ``hClose`` on a file that is open for writing, your data may
+         not be flushed out to the operating system.
+
+         Another reason to make sure to ``hClose`` files is that open
+         files take up resources on the system. If your program runs for
+         a long time, and opens many files but fails to close them, it
+         is conceivable that your program could even crash due to
+         resource exhaustion. All of this is no different in Haskell
+         than in other languages.
+
+         When a program exits, Haskell will normally take care of
+         closing any files that remain open. However, there are some
+         circumstances in which this may not
+         happen :sup:`[` `18 <#ftn.id612101>`__ :sup:`]`, so once
+         again, it is best to be responsible and call ``hClose`` all the
+         time.
+
+         Haskell provides several tools for you to use to easily ensure
+         this happens, regardless of whether errors are present. You can
+         read about ``finally`` in the section called 
+         `“Extended Example: Functional I/O and Temporary Files” <#io.example>`__ 
+         and ``bracket`` in the section called
+         *  `“The acquire-use-release cycle” <#find.acquire.use.release>`__.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Seek and Tell
+                     :name: io.files.seeking
+                     :class: title
+
+         When reading and writing from a ``Handle`` that corresponds to
+         a file on disk, the operating system maintains an internal
+         record of the current position. Each time you do another read,
+         the operating system returns the next chunk of data that begins
+         at the current position, and increments the position to reflect
+         the data that you read.
+
+         You can use ``hTell`` to find out your current position in the
+         file. When the file is initially created, it is empty and your
+         position will be 0. After you write out 5 bytes, your position
+         will be 5, and so on. ``hTell`` takes a ``Handle`` and returns
+         an ``IO Integer`` with your position.
+
+         The companion to ``hTell`` is ``hSeek``. ``hSeek`` lets you
+         change the file position. It takes three parameters: a
+         ``Handle``, a ``SeekMode``, and a position.
+
+         ``SeekMode`` can be one of three different values, which
+         specify how the given position is to be interpreted.
+         ``AbsoluteSeek`` means that the position is a precise location
+         in the file. This is the same kind of information that
+         ``hTell`` gives you. ``RelativeSeek`` means to seek from the
+         current position. A positive number requests going forwards in
+         the file, and a negative number means going backwards. Finally,
+         ``SeekFromEnd`` will seek to the specified number of bytes
+         before the end of the file. ``hSeek handle SeekFromEnd 0`` will
+         take you to the end of the file. For an example of ``hSeek``,
+         refer to `the section called “Extended Example: Functional I/O
+         and Temporary Files” <#io.example>`__.
+
+         Not all ``Handle`` s are seekable. A ``Handle`` usually
+         corresponds to a file, but it can also correspond to other
+         things such as network connections, tape drives, or terminals.
+         You can use ``hIsSeekable`` to see if a given ``Handle`` is
+         seekable.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Standard Input, Output, and Error
+                     :name: io.files.stdin
+                     :class: title
+
+         Earlier, we pointed out that for each non-"h" function, there
+         is usually also a corresponding "h" function that works on any
+         ``Handle``. In fact, the non-"h" functions are nothing more
+         than shortcuts for their "h" counterparts.
+
+         There are three pre-defined ``Handle`` s in ``System.IO``.
+         These ``Handle`` s are always available for your use. They are
+         ``stdin``, which corresponds to standard input; ``stdout`` for
+         standard output; and ``stderr`` for standard error. Standard
+         input normally refers to the keyboard, standard output to the
+         monitor, and standard error also normally goes to the monitor.
+
+         Functions such as ``getLine`` can thus be trivially defined
+         like this:
+
+         .. code:: programlisting
+
+            getLine = hGetLine stdin
+            putStrLn = hPutStrLn stdout
+            print = hPrint stdout
+
+         .. Tip::
+
+            We're using partial application here. If this isn't
+            making sense, consult `the section called “Partial
+            function application and
+            currying” <functional-programming.html#fp.partialapp>`__
+            for a refresher.
+
+         Earlier, we told you what the three standard file handles
+         "normally" correspond to. That's because some operating systems
+         let you redirect the file handles to come from (or go to)
+         different places—files, devices, or even other programs. This
+         feature is used extensively in shell scripting on POSIX (Linux,
+         BSD, Mac) operating systems, but can also be used on Windows.
+
+         It often makes sense to use standard input and output instead
+         of specific files. This lets you interact with a human at the
+         terminal. But it also lets you work with input and output
+         files—or even combine your code with other programs—if that's
+         what's requested. :sup:`[` `19 <#ftn.id612475>`__ :sup:`]`
+
+         As an example, we can provide input to ``callingpure.hs`` in
+         advance like this:
+
+         .. code:: screen
+
+            $ echo John|runghc callingpure.hs
+            Greetings once again.  What is your name?
+            Pleased to meet you, John.
+            Your name contains 4 characters.
+                  
+
+         While ``callingpure.hs`` was running, it did not wait for input
+         at the keyboard; instead it received ``John`` from the ``echo``
+         program. Notice also that the output didn't contain the word
+         ``John`` on a separate line as it did when this program was run
+         at the keyboard. The terminal normally echoes everything you
+         type back to you, but that is technically input, and is not
+         included in the output stream.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Deleting and Renaming Files
+                     :name: io.files.ops
+                     :class: title
+
+         So far in this chapter, we've discussed the contents of the
+         files. Let's now talk a bit about the files themselves.
+
+         ``System.Directory`` provides two functions you may find
+         useful. ``removeFile`` takes a single argument, a filename, and
+         deletes that file. :sup:`[` `20 <#ftn.id612589>`__ :sup:`]`
+         ``renameFile`` takes two filenames: the first is the old name
+         and the second is the new name. If the new filename is in a
+         different directory, you can also think of this as a move. The
+         old filename must exist prior to the call to ``renameFile``. If
+         the new file already exists, it is removed before the rename
+         takes place.
+
+         Like many other functions that take a filename, if the "old"
+         name doesn't exist, ``renameFile`` will raise an exception.
+         More information on exception handling can be found in
+         `Chapter 19, Error handling <error-handling.html>`__.
+
+         There are many other functions in ``System.Directory`` for
+         doing things such as creating and removing directories, finding
+         lists of files in directories, and testing for file existence.
+         These are discussed in `the section called “Directory and File
+         Information” <systems-programming-in-haskell.html#systems.directories>`__.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Temporary Files
+                     :name: io.files.temp
+                     :class: title
+
+         Programmers frequently need temporary files. These files may be
+         used to store large amounts of data needed for computations,
+         data to be used by other programs, or any number of other uses.
+
+         While you could craft a way to manually open files with unique
+         names, the details of doing this in a secure way differ from
+         platform to platform. Haskell provides a convenient function
+         called ``openTempFile`` (and a corresponding
+         ``openBinaryTempFile``) to handle the difficult bits for you.
+
+         ``openTempFile`` takes two parameters: the directory in which
+         to create the file, and a "template" for naming the file. The
+         directory could simply be ``"."`` for the current working
+         directory. Or you could use
+         ``System.Directory.getTemporaryDirectory`` to find the best
+         place for temporary files on a given machine. The template is
+         used as the basis for the file name; it will have some random
+         characters added to it to ensure that the result is truly
+         unique. It guarantees that it will be working on a unique
+         filename, in fact.
+
+         The return type of ``openTempFile`` is
+         ``IO (FilePath, Handle)``. The first part of the tuple is the
+         name of the file created, and the second is a ``Handle`` opened
+         in ``ReadWriteMode`` over that file. When you're done with the
+         file, you'll want to ``hClose`` it and then call ``removeFile``
+         to delete it. See the following example for a sample function
+         to use.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Extended Example: Functional I/O and
+                  Temporary Files
+                  :name: io.example
+                  :class: title
+
+      Here's a larger example that puts together some concepts from this
+      chapter, from some earlier chapters, and a few you haven't seen
+      yet. Take a look at the program and see if you can figure out what
+      it does and how it works.
+
+      .. code:: programlisting
+
+         -- file: ch07/tempfile.hs
+         import System.IO
+         import System.Directory(getTemporaryDirectory, removeFile)
+         import System.IO.Error(catch)
+         import Control.Exception(finally)
+
+         -- The main entry point.  Work with a temp file in myAction.
+         main :: IO ()
+         main = withTempFile "mytemp.txt" myAction
+
+         {- The guts of the program.  Called with the path and handle of a temporary
+            file.  When this function exits, that file will be closed and deleted
+            because myAction was called from withTempFile. -}
+         myAction :: FilePath -> Handle -> IO ()
+         myAction tempname temph = 
+             do -- Start by displaying a greeting on the terminal
+                putStrLn "Welcome to tempfile.hs"
+                putStrLn $ "I have a temporary file at " ++ tempname
+
+                -- Let's see what the initial position is
+                pos <- hTell temph
+                putStrLn $ "My initial position is " ++ show pos
+
+                -- Now, write some data to the temporary file
+                let tempdata = show [1..10]
+                putStrLn $ "Writing one line containing " ++ 
+                           show (length tempdata) ++ " bytes: " ++
+                           tempdata
+                hPutStrLn temph tempdata
+
+                -- Get our new position.  This doesn't actually modify pos
+                -- in memory, but makes the name "pos" correspond to a different 
+                -- value for the remainder of the "do" block.
+                pos <- hTell temph
+                putStrLn $ "After writing, my new position is " ++ show pos
+
+                -- Seek to the beginning of the file and display it
+                putStrLn $ "The file content is: "
+                hSeek temph AbsoluteSeek 0
+
+                -- hGetContents performs a lazy read of the entire file
+                c <- hGetContents temph
+
+                -- Copy the file byte-for-byte to stdout, followed by \n
+                putStrLn c
+
+                -- Let's also display it as a Haskell literal
+                putStrLn $ "Which could be expressed as this Haskell literal:"
+                print c
+
+         {- This function takes two parameters: a filename pattern and another
+            function.  It will create a temporary file, and pass the name and Handle
+            of that file to the given function.
+
+            The temporary file is created with openTempFile.  The directory is the one
+            indicated by getTemporaryDirectory, or, if the system has no notion of
+            a temporary directory, "." is used.  The given pattern is passed to
+            openTempFile.
+
+            After the given function terminates, even if it terminates due to an
+            exception, the Handle is closed and the file is deleted. -}
+         withTempFile :: String -> (FilePath -> Handle -> IO a) -> IO a
+         withTempFile pattern func =
+             do -- The library ref says that getTemporaryDirectory may raise on
+                -- exception on systems that have no notion of a temporary directory.
+                -- So, we run getTemporaryDirectory under catch.  catch takes
+                -- two functions: one to run, and a different one to run if the
+                -- first raised an exception.  If getTemporaryDirectory raised an
+                -- exception, just use "." (the current working directory).
+                tempdir <- catch (getTemporaryDirectory) (\_ -> return ".")
+                (tempfile, temph) <- openTempFile tempdir pattern 
+
+                -- Call (func tempfile temph) to perform the action on the temporary
+                -- file.  finally takes two actions.  The first is the action to run.
+                -- The second is an action to run after the first, regardless of
+                -- whether the first action raised an exception.  This way, we ensure
+                -- the temporary file is always deleted.  The return value from finally
+                -- is the first action's return value.
+                finally (func tempfile temph) 
+                        (do hClose temph
+                            removeFile tempfile)
+
+      Let's start looking at this program from the end. The
+      ``withTempFile`` function demonstrates that Haskell doesn't forget
+      its functional nature when I/O is introduced. This function takes
+      a ``String`` and another function. The function passed to
+      ``withTempFile`` is invoked with the name and ``Handle`` of a
+      temporary file. When that function exits, the temporary file is
+      closed and deleted. So even when dealing with I/O, we can still
+      find the idiom of passing functions as parameters to be
+      convenient. Lisp programmers might find our ``withTempFile``
+      function similar to Lisp's ``with-open-file`` function.
+
+      There is some exception handling going on to make the program more
+      robust in the face of errors. You normally want the temporary
+      files to be deleted after processing completes, even if something
+      went wrong. So we make sure that happens. For more on exception
+      handling, see `Chapter 19, Error
+      handling <error-handling.html>`__.
+
+      Let's return to the start of the program. ``main`` is defined
+      simply as ``withTempFile "mytemp.txt" myAction``. ``myAction``,
+      then, will be invoked with the name and ``Handle`` of the
+      temporary file.
+
+      ``myAction`` displays some information to the terminal, writes
+      some data to the file, seeks to the beginning of the file, and
+      reads the data back with
+      ``hGetContents``. :sup:`[` `21 <#ftn.id612980>`__ :sup:`]` It
+      then displays the contents of the file byte-for-byte, and also as
+      a Haskell literal via ``print c``. That's the same as
+      ``putStrLn (show c)``.
+
+      Let's look at the output:
+
+      .. code:: screen
+
+         $ runhaskell tempfile.hs
+         Welcome to tempfile.hs
+         I have a temporary file at /tmp/mytemp8572.txt
+         My initial position is 0
+         Writing one line containing 22 bytes: [1,2,3,4,5,6,7,8,9,10]
+         After writing, my new position is 23
+         The file content is:
+         [1,2,3,4,5,6,7,8,9,10]
+
+         Which could be expressed as this Haskell literal:
+         "[1,2,3,4,5,6,7,8,9,10]\n"
+             
+
+      Every time you run this program, your temporary file name should
+      be slightly different since it contains a randomly-generated
+      component. Looking at this output, there are a few questions that
+      might occur to you:
+
+      .. container:: orderedlist
+
+         1. Why is your position 23 after writing a line with 22 bytes?
+
+         2. Why is there an empty line after the file content display?
+
+         3. Why is there a ``\n`` at the end of the Haskell literal
+            display?
+
+      You might be able to guess that the answers to all three questions
+      are related. See if you can work out the answers for a moment. If
+      you need some help, here are the explanations:
+
+      .. container:: orderedlist
+
+         1. That's because we used ``hPutStrLn`` instead of ``hPutStr``
+            to write the data. ``hPutStrLn`` always terminates the line
+            by writing a ``\n`` at the end, which didn't appear in
+            ``tempdata``.
+
+         2. We used ``putStrLn c`` to display the file contents ``c``.
+            Because the data was written originally with ``hPutStrLn``,
+            ``c`` ends with the newline character, and ``putStrLn`` adds
+            a second newline character. The result is a blank line.
+
+         3. The ``\n`` is the newline character from the original
+            ``hPutStrLn``.
+
+      As a final note, the byte counts may be different on some
+      operating systems. Windows, for instance, uses the two-byte
+      sequence ``\r\n`` as the end-of-line marker, so you may see
+      differences on that platform.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Lazy I/O
+                  :name: io.lazy
+                  :class: title
+
+      So far in this chapter, you've seen examples of fairly traditional
+      I/O. Each line, or block of data, is requested individually and
+      processed individually.
+
+      Haskell has another approach available to you as well. Since
+      Haskell is a lazy language, meaning that any given piece of data
+      is only evaluated when its value must be known, there are some
+      novel ways of approaching I/O.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: hGetContents
+                     :name: io.lazy.hGetContents
+                     :class: title
+
+         One novel way to approach I/O is the ``hGetContents``
+         function. :sup:`[` `22 <#ftn.id613259>`__ :sup:`]`
+         ``hGetContents`` has the type ``Handle -> IO String``. The
+         ``String`` it returns represents all of the data in the file
+         given by the
+         ``Handle``. :sup:`[` `23 <#ftn.id613298>`__ :sup:`]`
+
+         In a strictly-evaluated language, using such a function is
+         often a bad idea. It may be fine to read the entire contents of
+         a 2KB file, but if you try to read the entire contents of a
+         500GB file, you are likely to crash due to lack of RAM to store
+         all that data. In these languages, you would traditionally use
+         mechanisms such as loops to process the file's entire data.
+
+         But ``hGetContents`` is different. The ``String`` it returns is
+         evaluated lazily. At the moment you call ``hGetContents``,
+         nothing is actually read. Data is only read from the ``Handle``
+         as the elements (characters) of the list are processed. As
+         elements of the ``String`` are no longer used, Haskell's
+         garbage collector automatically frees that memory. All of this
+         happens completely transparently to you. And since you have
+         what looks like—and, really, is—a pure ``String``, you can pass
+         it to pure (non-IO) code.
+
+         Let's take a quick look at an example. Back in `the section
+         called “Working With Files and Handles” <#io.files>`__,
+         you saw an imperative program that converted the entire content
+         of a file to uppercase. Its imperative algorithm was similar to
+         what you'd see in many other languages. Here now is the much
+         simpler algorithm that exploits lazy evaluation:
+
+         .. code:: programlisting
+
+            -- file: ch07/toupper-lazy1.hs
+            import System.IO
+            import Data.Char(toUpper)
+
+            main :: IO ()
+            main = do 
+                   inh <- openFile "input.txt" ReadMode
+                   outh <- openFile "output.txt" WriteMode
+                   inpStr <- hGetContents inh
+                   let result = processData inpStr
+                   hPutStr outh result
+                   hClose inh
+                   hClose outh
+
+            processData :: String -> String
+            processData = map toUpper
+
+         Notice that ``hGetContents`` handled *all* of the reading for
+         us. Also, take a look at ``processData``. It's a pure function
+         since it has no side effects and always returns the same result
+         each time it is called. It has no need to know—and no way to
+         tell—that its input is being read lazily from a file in this
+         case. It can work perfectly well with a 20-character literal or
+         a 500GB data dump on disk.
+
+         You can even verify that with **ghci**:
+
+         .. code:: screen
+
+            ghci> :load toupper-lazy1.hs
+            [1 of 1] Compiling Main             ( toupper-lazy1.hs, interpreted )
+            Ok, modules loaded: Main.
+            ghci> processData "Hello, there!  How are you?"
+            "HELLO, THERE!  HOW ARE YOU?"
+            ghci> :type processData
+            processData :: String -> String
+            ghci> :type processData "Hello!"
+            processData "Hello!" :: String
+
+         .. warning::
+
+            If we had tried to hang on to ``inpStr`` in the
+            above example, past the one place where it was used
+            (the call to ``processData``), the program would
+            have lost its memory efficiency. That's because the
+            compiler would have been forced to keep
+            ``inpStr``'s value in memory for future use. Here
+            it knows that ``inpStr`` will never be reused, and
+            frees the memory as soon as it is done with it.
+            Just remember: memory is only freed after its last
+            use.
+
+         This program was a bit verbose to make it clear that there was
+         pure code in use. Here's a bit more concise version, which we
+         will build on in the next examples:
+
+         .. code:: programlisting
+
+            -- file: ch07/toupper-lazy2.hs
+            import System.IO
+            import Data.Char(toUpper)
+
+            main = do 
+                   inh <- openFile "input.txt" ReadMode
+                   outh <- openFile "output.txt" WriteMode
+                   inpStr <- hGetContents inh
+                   hPutStr outh (map toUpper inpStr)
+                   hClose inh
+                   hClose outh
+
+         You are not required to ever consume all the data from the
+         input file when using ``hGetContents``. Whenever the Haskell
+         system determines that the entire string ``hGetContents``
+         returned can be garbage collected —which means it will never
+         again be used—the file is closed for you automatically. The
+         same principle applies to data read from the file. Whenever a
+         given piece of data will never again be needed, the Haskell
+         environment releases the memory it was stored within. Strictly
+         speaking, we wouldn't have to call ``hClose`` at all in this
+         example program. However, it is still a good practice to get
+         into, as later changes to a program could make the call to
+         ``hClose`` important.
+
+         .. warning::
+
+            When using ``hGetContents``, it is important to
+            remember that even though you may never again
+            explicitly reference ``Handle`` directly in the
+            rest of the program, you must not close the
+            ``Handle`` until you have finished consuming its
+            results via ``hGetContents``. Doing so would cause
+            you to miss on some or all of the file's data.
+            Since Haskell is lazy, you generally can assume
+            that you have consumed input only after you have
+            output the result of the computations involving the
+            input.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: readFile and writeFile
+                     :name: io.lazy.readFile
+                     :class: title
+
+         Haskell programmers use ``hGetContents`` as a filter quite
+         often. They read from one file, do something to the data, and
+         write the result out elsewhere. This is so common that there
+         are some shortcuts for doing it. ``readFile`` and ``writeFile``
+         are shortcuts for working with files as strings. They handle
+         all the details of opening files, closing files, reading data,
+         and writing data. ``readFile`` uses ``hGetContents``
+         internally.
+
+         Can you guess the Haskell types of these functions? Let's check
+         with **ghci**:
+
+         .. code:: screen
+
+            ghci> :type readFile
+            readFile :: FilePath -> IO String
+            ghci> :type writeFile
+            writeFile :: FilePath -> String -> IO ()
+
+         Now, here's an example program that uses ``readFile`` and
+         ``writeFile``:
+
+         .. code:: programlisting
+
+            -- file: ch07/toupper-lazy3.hs
+            import Data.Char(toUpper)
+
+            main = do 
+                   inpStr <- readFile "input.txt"
+                   writeFile "output.txt" (map toUpper inpStr)
+
+         Look at that—the guts of the program take up only two lines!
+         ``readFile`` returned a lazy ``String``, which we stored in
+         ``inpStr``. We then took that, processed it, and passed it to
+         ``writeFile`` for writing.
+
+         Neither ``readFile`` nor ``writeFile`` ever provide a
+         ``Handle`` for you to work with, so there is nothing to ever
+         ``hClose``. ``readFile`` uses ``hGetContents`` internally, and
+         the underlying ``Handle`` will be closed when the returned
+         ``String`` is garbage-collected or all the input has been
+         consumed. ``writeFile`` will close its underlying ``Handle``
+         when the entire ``String`` supplied to it has been written.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: A Word On Lazy Output
+                     :name: io.lazy.output
+                     :class: title
+
+         By now, you should understand how lazy input works in Haskell.
+         But what about laziness during output?
+
+         As you know, nothing in Haskell is evaluated before its value
+         is needed. Since functions such as ``writeFile`` and ``putStr``
+         write out the entire ``String`` passed to them, that entire
+         ``String`` must be evaluated. So you are guaranteed that the
+         argument to ``putStr`` will be evaluated in
+         full. :sup:`[` `24 <#ftn.id613923>`__ :sup:`]`
+
+         But what does that mean for laziness of the input? In the
+         examples above, will the call to ``putStr`` or ``writeFile``
+         force the entire input string to be loaded into memory at once,
+         just to be written out?
+
+         The answer is no. ``putStr`` (and all the similar output
+         functions) write out data as it becomes available. They also
+         have no need for keeping around data already written, so as
+         long as nothing else in the program needs it, the memory can be
+         freed immediately. In a sense, you can think of the ``String``
+         between ``readFile`` and ``writeFile`` as a pipe linking the
+         two. Data goes in one end, is transformed some way, and flows
+         back out the other.
+
+         You can verify this yourself by generating a large
+         ``input.txt`` for ``toupper-lazy3.hs``. It may take a bit to
+         process, but you should see a constant—and low—memory usage
+         while it is being processed.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: interact
+                     :name: io.lazy.interact
+                     :class: title
+
+         You learned that ``readFile`` and ``writeFile`` address the
+         common situation of reading from one file, making a conversion,
+         and writing to a different file. There's a situation that's
+         even more common than that: reading from standard input, making
+         a conversion, and writing the result to standard output. For
+         that situation, there is a function called ``interact``. The
+         type of ``interact`` is ``(String -> String) -> IO ()``. That
+         is, it takes one argument: a function of type
+         ``String -> String``. That function is passed the result of
+         ``getContents``—that is, standard input read lazily. The result
+         of that function is sent to standard output.
+
+         We can convert our example program to operate on standard input
+         and standard output by using ``interact``. Here's one way to do
+         that:
+
+         .. code:: programlisting
+
+            -- file: ch07/toupper-lazy4.hs
+            import Data.Char(toUpper)
+
+            main = interact (map toUpper)
+
+         Look at that—*one* line of code to achieve our transformation!
+         To achieve the same effect as with the previous examples, you
+         could run this one like this:
+
+         .. code:: screen
+
+            $ runghc toupper-lazy4.hs < input.txt > output.txt
+                  
+
+         Or, if you'd like to see the output printed to the screen, you
+         could type:
+
+         .. code:: screen
+
+            $ runghc toupper-lazy4.hs < input.txt
+                  
+
+         If you want to see that Haskell output truly does write out
+         chunks of data as soon as they are received, run
+         ``runghc toupper-lazy4.hs`` without any other command-line
+         parameters. You should see each character echoed back out as
+         soon as you type it, but in uppercase. Buffering may change
+         this behavior; see the section called
+         `“Buffering” <#io.buffering>`__ later in this chapter for
+         more on buffering. If you see each line echoed as soon as you
+         type it, or even nothing at all for awhile, buffering is
+         causing this behavior.
+
+         You can also write simple interactive programs using
+         ``interact``. Let's start with a simple example: adding a line
+         of text before the uppercase output.
+
+         .. code:: programlisting
+
+            -- file: ch07/toupper-lazy5.hs
+            import Data.Char(toUpper)
+
+            main = interact (map toUpper . (++) "Your data, in uppercase, is:\n\n")
+
+         .. Tip::
+
+            If the use of the ``.`` operator is confusing, you
+            might wish to refer to the section called 
+            `“Code reuse through composition” <functional-programming.html#fp.compose>`__.
+
+         Here we add a string at the beginning of the output. Can you
+         spot the problem, though?
+
+         Since we're calling ``map`` on the *result* of ``(++)``, that
+         header itself will appear in uppercase. We can fix that in this
+         way:
+
+         .. code:: programlisting
+
+            -- file: ch07/toupper-lazy6.hs
+            import Data.Char(toUpper)
+
+            main = interact ((++) "Your data, in uppercase, is:\n\n" . 
+                             map toUpper)
+
+         This moved the header outside of the ``map``.
+
+         .. container:: sect3
+
+            .. container:: titlepage
+
+               .. container::
+
+                  .. container::
+
+                     .. rubric:: Filters with interact
+                        :name: id614267
+                        :class: title
+
+            Another common use of ``interact`` is filtering. Let's say
+            that you want to write a program that reads a file and
+            prints out every line that contains the character "a".
+            Here's how you might do that with ``interact``:
+
+            .. code:: programlisting
+
+               -- file: ch07/filter.hs
+               main = interact (unlines . filter (elem 'a') . lines)
+
+            This may have introduced three functions that you aren't
+            familiar with yet. Let's inspect their types with **ghci**:
+
+            .. code:: screen
+
+               ghci> :type lines
+               lines :: String -> [String]
+               ghci> :type unlines
+               unlines :: [String] -> String
+               ghci> :type elem
+               elem :: (Eq a) => a -> [a] -> Bool
+
+            Can you guess what these functions do just by looking at
+            their types? If not, you can find them explained in `the
+            section called “Warming up: portably splitting lines of
+            text” <functional-programming.html#fp.splitlines>`__ and
+            `the section called “Special string-handling
+            functions” <functional-programming.html#fp.lists.strings>`__.
+            You'll frequently see ``lines`` and ``unlines`` used with
+            I/O. Finally, ``elem`` takes a element and a list and
+            returns ``True`` if that element occurs anywhere in the
+            list.
+
+            Try running this over our standard example input:
+
+            .. code:: screen
+
+                 $ runghc filter.hs < input.txt
+                 I like Haskell
+                 Haskell is great
+                       
+
+            Sure enough, you got back the two lines that contain an "a".
+            Lazy filters are a powerful way to use Haskell. When you
+            think about it, a filter—such as the standard Unix program
+            **grep**—sounds a lot like a function. It takes some input,
+            applies some computation, and generates a predictable
+            output.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: The IO Monad
+                  :name: io.monad
+                  :class: title
+
+      You've seen a number of examples of I/O in Haskell by this point.
+      Let's take a moment to step back and think about how I/O relates
+      to the broader Haskell language.
+
+      Since Haskell is a pure language, if you give a certain function a
+      specific argument, the function will return the same result every
+      time you give it that argument. Moreover, the function will not
+      change anything about the program's overall state.
+
+      You may be wondering, then, how I/O fits into this picture. Surely
+      if you want to read a line of input from the keyboard, the
+      function to read input can't possibly return the same result every
+      time it is run, right? Moreover, I/O is all about changing state.
+      I/O could cause pixels on a terminal to light up, to cause paper
+      to start coming out of a printer, or even to cause a package to be
+      shipped from a warehouse on a different continent. I/O doesn't
+      just change the state of a program. You can think of I/O as
+      changing the state of the world.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Actions
+                     :name: io.monad.actions
+                     :class: title
+
+         Most languages do not make a distinction between a pure
+         function and an impure one. Haskell has functions in the
+         mathematical sense: they are purely computations which cannot
+         be altered by anything external. Moreover, the computation can
+         be performed at any time—or even never, if its result is never
+         needed.
+
+         Clearly, then, we need some other tool to work with I/O. That
+         tool in Haskell is called *actions*. Actions resemble
+         functions. They do nothing when they are defined, but perform
+         some task when they are invoked. I/O actions are defined within
+         the IO monad. Monads are a powerful way of chaining functions
+         together purely and are covered in 
+         `Chapter 14, Monads <monads.html>`__. It's not necessary to understand
+         monads in order to understand I/O. Just understand that the
+         result type of actions is "tagged" with IO. Let's take a look
+         at some types:
+
+         .. code:: screen
+
+            ghci> :type putStrLn
+            putStrLn :: String -> IO ()
+            ghci> :type getLine
+            getLine :: IO String
+
+         The type of ``putStrLn`` is just like any other function. The
+         function takes one parameter and returns an ``IO ()``. This
+         ``IO ()`` is the action. You can store and pass actions in pure
+         code if you wish, though this isn't frequently done. An action
+         doesn't do anything until it is invoked. Let's look at an
+         example of this:
+
+         .. code:: programlisting
+
+            -- file: ch07/actions.hs
+            str2action :: String -> IO ()
+            str2action input = putStrLn ("Data: " ++ input)
+
+            list2actions :: [String] -> [IO ()]
+            list2actions = map str2action
+
+            numbers :: [Int]
+            numbers = [1..10]
+
+            strings :: [String]
+            strings = map show numbers
+
+            actions :: [IO ()]
+            actions = list2actions strings
+
+            printitall :: IO ()
+            printitall = runall actions
+
+            -- Take a list of actions, and execute each of them in turn.
+            runall :: [IO ()] -> IO ()
+            runall [] = return ()
+            runall (firstelem:remainingelems) = 
+                do firstelem
+                   runall remainingelems
+
+            main = do str2action "Start of the program"
+                      printitall
+                      str2action "Done!"
+
+         ``str2action`` is a function that takes one parameter and
+         returns an ``IO ()``. As you can see at the end of ``main``,
+         you could use this directly in another action and it will print
+         out a line right away. Or, you can store—but not execute—the
+         action from pure code. You can see an example of that in
+         ``list2actions``—we use ``map`` over ``str2action`` and return
+         a list of actions, just like we would with other pure data. You
+         can see that everything up through ``printitall`` is built up
+         with pure tools.
+
+         Although we define ``printitall``, it doesn't get executed
+         until its action is evaluated somewhere else. Notice in
+         ``main`` how we use ``str2action`` as an I/O action to be
+         executed, but earlier we used it outside of the I/O monad and
+         assembled results into a list.
+
+         You could think of it this way: every statement, except
+         ``let``, in a ``do`` block must yield an I/O action which will
+         be executed.
+
+         The call to ``printitall`` finally executes all those actions.
+         Actually, since Haskell is lazy, the actions aren't generated
+         until here either.
+
+         When you run the program, your output will look like this:
+
+         .. code:: screen
+
+            Data: Start of the program
+            Data: 1
+            Data: 2
+            Data: 3
+            Data: 4
+            Data: 5
+            Data: 6
+            Data: 7
+            Data: 8
+            Data: 9
+            Data: 10
+            Data: Done!
+                  
+
+         We can actually write this in a much more compact way. Consider
+         this revision of the example:
+
+         .. code:: programlisting
+
+            -- file: ch07/actions2.hs
+            str2message :: String -> String
+            str2message input = "Data: " ++ input
+
+            str2action :: String -> IO ()
+            str2action = putStrLn . str2message
+
+            numbers :: [Int]
+            numbers = [1..10]
+
+            main = do str2action "Start of the program"
+                      mapM_ (str2action . show) numbers
+                      str2action "Done!"
+
+         Notice in ``str2action`` the use of the standard function
+         composition operator. In ``main``, there's a call to ``mapM_``.
+         This function is similar to ``map``. It takes a function and a
+         list. The function supplied to ``mapM_`` is an I/O action that
+         is executed for every item in the list. ``mapM_`` throws out
+         the result of the function, though you can use ``mapM`` to
+         return a list of I/O results if you want them. Take a look at
+         their types:
+
+         .. code:: screen
+
+            ghci> :type mapM
+            mapM :: (Monad m) => (a -> m b) -> [a] -> m [b]
+            ghci> :type mapM_
+            mapM_ :: (Monad m) => (a -> m b) -> [a] -> m ()
+
+         .. Tip::
+
+            These functions actually work for more than just
+            I/O; they work for any ``Monad``. For now, wherever
+            you see "M", just think "IO". Also, functions that
+            end with an underscore typically discard their
+            result.
+
+         Why a ``mapM`` when we already have ``map``? Because ``map`` is
+         a pure function that returns a list. It doesn't—and
+         can't—actually execute actions directly. ``mapM`` is a utility
+         that lives in the IO monad and thus can actually execute the
+         actions. :sup:`[` `25 <#ftn.id614894>`__ :sup:`]`
+
+         Going back to ``main``, ``mapM_`` applies
+         ``(str2action . show)`` to every element in ``numbers``.
+         ``show`` converts each number to a ``String`` and
+         ``str2action`` converts each ``String`` to an action. ``mapM_``
+         combines these individual actions into one big action that
+         prints out lines.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Sequencing
+                     :name: io.bind
+                     :class: title
+
+         ``do`` blocks are actually shortcut notations for joining
+         together actions. There are two operators that you can use
+         instead of ``do`` blocks: ``>>`` and ``>>=``. Let's look at
+         their types in **ghci**:
+
+         .. code:: screen
+
+            ghci> :type (>>)
+            (>>) :: (Monad m) => m a -> m b -> m b
+            ghci> :type (>>=)
+            (>>=) :: (Monad m) => m a -> (a -> m b) -> m b
+
+         The ``>>`` operator sequences two actions together: the first
+         action is performed, then the second. The result of the
+         computation is the result of the second action. The result of
+         the first action is thrown away. This is similar to simply
+         having a line in a ``do`` block. You might write
+         ``putStrLn "line 1"`` ``>>`` ``putStrLn "line 2"`` to test
+         this out. It will print out two lines, discard the result from
+         the first ``putStrLn``, and provide the result from the second.
+
+         The ``>>=`` operator runs an action, then passes its result to
+         a function that returns an action. That second action is run as
+         well, and the result of the entire expression is the result of
+         that second action. As an example, you could write
+         ``getLine`` ``>>=`` ``putStrLn``, which would read a line
+         from the keyboard and then display it back out.
+
+         Let's re-write one of our examples to avoid ``do`` blocks.
+         Remember this example from the start of the chapter?
+
+         .. code:: programlisting
+
+            -- file: ch07/basicio.hs
+            main = do
+                   putStrLn "Greetings!  What is your name?"
+                   inpStr <- getLine
+                   putStrLn $ "Welcome to Haskell, " ++ inpStr ++ "!"
+
+         Let's write that without a ``do`` block:
+
+         .. code:: programlisting
+
+            -- file: ch07/basicio-nodo.hs
+            main =
+                putStrLn "Greetings!  What is your name?" >>
+                getLine >>=
+                (\inpStr -> putStrLn $ "Welcome to Haskell, " ++ inpStr ++ "!")
+
+         The Haskell compiler internally performans a translation just
+         like this when you define a ``do`` block.
+
+         .. Tip::
+
+            Forgetting how to use ``\`` (lambda expressions)?
+            See `the section called “Anonymous (lambda)
+            functions” <functional-programming.html#fp.anonymous>`__.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: The True Nature of Return
+                     :name: io.return
+                     :class: title
+
+         Earlier in this chapter, we mentioned that ``return`` is
+         probably not what it looks like. Many languages have a keyword
+         named ``return`` that aborts execution of a function
+         immediately and returns a value to the caller.
+
+         The Haskell ``return`` function is quite different. In Haskell,
+         ``return`` is used to wrap data in a monad. When speaking about
+         I/O, ``return`` is used to take pure data and bring it into the
+         IO monad.
+
+         Now, why would we want to do that? Remember that anything whose
+         result depends on I/O must be within the IO monad. So if we are
+         writing a function that performs I/O, then a pure computation,
+         we will need to use ``return`` to make this pure computation
+         the proper return value of the function. Otherwise, a type
+         error would occur. Here's an example:
+
+         .. code:: programlisting
+
+            -- file: ch07/return1.hs
+            import Data.Char(toUpper)
+
+            isGreen :: IO Bool
+            isGreen =
+                do putStrLn "Is green your favorite color?"
+                   inpStr <- getLine
+                   return ((toUpper . head $ inpStr) == 'Y')
+
+         We have a pure computation that yields a ``Bool``. That
+         computation is passed to ``return``, which puts it into the IO
+         monad. Since it is the last value in the ``do`` block, it
+         becomes the return value of ``isGreen``, but this is not
+         because we used the ``return`` function.
+
+         Here's a version of the same program with the pure computation
+         broken out into a separate function. This helps keep the pure
+         code separate, and can also make the intent more clear.
+
+         .. code:: programlisting
+
+            -- file: ch07/return2.hs
+            import Data.Char(toUpper)
+
+            isYes :: String -> Bool
+            isYes inpStr = (toUpper . head $ inpStr) == 'Y'
+
+            isGreen :: IO Bool
+            isGreen =
+                do putStrLn "Is green your favorite color?"
+                   inpStr <- getLine
+                   return (isYes inpStr)
+
+         Finally, here's a contrived example to show that ``return``
+         truly does not have to occur at the end of a ``do`` block. In
+         practice, it usually is, but it need not be so.
+
+         .. code:: programlisting
+
+            -- file: ch07/return3.hs
+            returnTest :: IO ()
+            returnTest =
+                do one <- return 1
+                   let two = 2
+                   putStrLn $ show (one + two)
+
+         Notice that we used ``<-`` in combination with ``return``, but
+         ``let`` in combination with the simple literal. That's because
+         we needed both values to be pure in order to add them, and
+         ``<-`` pulls things out of monads, effectively reversing the
+         effect of ``return``. Run this in **ghci** and you'll see ``3``
+         displayed, as expected.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Is Haskell Really Imperative?
+                  :name: io.imperative
+                  :class: title
+
+      These ``do`` blocks may look a lot like an imperative language.
+      After all, you're giving commands to run in sequence most of the
+      time.
+
+      But Haskell remains a lazy language at its core. While it is
+      necessary to sequence actions for I/O at times, this is done using
+      tools that are part of Haskell already. Haskell achieves a nice
+      separation of I/O from the rest of the language through the IO
+      monad as well.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Side Effects with Lazy I/O
+                  :name: io.sideeffects
+                  :class: title
+
+      Earlier in this chapter, you read about ``hGetContents``. We
+      explained that the ``String`` it returns can be used in pure code.
+
+      We need to get a bit more specific about what side effects are.
+      When we say Haskell has no side-effects, what exactly does that
+      mean?
+
+      At a certain level, side-effects are always possible. A
+      poorly-written loop, even if written in pure code, could cause the
+      system's RAM to be exhausted and the machine to crash. Or it could
+      cause data to be swapped to disk.
+
+      When we speak of no side effects, we mean that pure code in
+      Haskell can't run commands that trigger side effects. Pure
+      functions can't modify a global variable, request I/O, or run a
+      command to take down a system.
+
+      When you have a ``String`` from ``hGetContents`` that is passed to
+      a pure function, the function has no idea that this ``String`` is
+      backed by a disk file. It will behave just as it always would, but
+      processing that ``String`` may cause the environment to issue I/O
+      commands. The pure function isn't issuing them; they are happening
+      as a result of the processing the pure function is doing, just as
+      with the example of swapping RAM to disk.
+
+      In some cases, you may need more control over exactly when your
+      I/O occurs. Perhaps you are reading data interactively from the
+      user, or via a pipe from another program, and need to communicate
+      directly with the user. In those cases, ``hGetContents`` will
+      probably not be appropriate.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Buffering
+                  :name: io.buffering
+                  :class: title
+
+      The I/O subsystem is one of the slowest parts of a modern
+      computer. Completing a write to disk can take thousands of times
+      as long as a write to memory. A write over the network can be
+      hundreds or thousands of times slower yet. Even if your operation
+      doesn't directly communicate with the disk—perhaps because the
+      data is cached—I/O still involves a system call, which slows
+      things down by itself.
+
+      For this reason, modern operating systems and programming
+      languages both provide tools to help programs perform better where
+      I/O is concerned. The operating system typically performs
+      caching—storing frequently-used pieces of data in memory for
+      faster access.
+
+      Programming languages typically perform buffering. This means that
+      they may request one large chunk of data from the operating
+      system, even if the code underneath is processing data one
+      character at a time. By doing this, they can achieve remarkable
+      performance gains because each request for I/O to the operating
+      system carries a processing cost. Buffering allows us to read the
+      same amount of data with far fewer I/O requests.
+
+      Haskell, too, provides buffering in its I/O system. In many cases,
+      it is even on by default. Up till now, we have pretended it isn't
+      there. Haskell usually is good about picking a good default
+      buffering mode. But this default is rarely the fastest. If you
+      have speed-critical I/O code, changing buffering could make a
+      significant impact on your program.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Buffering Modes
+                     :name: id615631
+                     :class: title
+
+         There are three different buffering modes in Haskell. They are
+         defined as the ``BufferMode`` type: ``NoBuffering``,
+         ``LineBuffering``, and ``BlockBuffering``.
+
+         ``NoBuffering`` does just what it sounds like—no buffering.
+         Data read via functions like ``hGetLine`` will be read from the
+         OS one character at a time. Data written will be written
+         immediately, and also often will be written one character at a
+         time. For this reason, ``NoBuffering`` is usually a very poor
+         performer and not suitable for general-purpose use.
+
+         ``LineBuffering`` causes the output buffer to be written
+         whenever the newline character is output, or whenever it gets
+         too large. On input, it will usually attempt to read whatever
+         data is available in chunks until it first sees the newline
+         character. When reading from the terminal, it should return
+         data immediately after each press of Enter. It is often a
+         reasonable default.
+
+         ``BlockBuffering`` causes Haskell to read or write data in
+         fixed-size chunks when possible. This is the best performer
+         when processing large amounts of data in batch, even if that
+         data is line-oriented. However, it is unusable for interactive
+         programs because it will block input until a full block is
+         read. ``BlockBuffering`` accepts one parameter of type
+         ``Maybe``: if ``Nothing``, it will use an
+         implementation-defined buffer size. Or, you can use a setting
+         such as ``Just 4096`` to set the buffer to 4096 bytes.
+
+         The default buffering mode is dependent upon the operating
+         system and Haskell implementation. You can ask the system for
+         the current buffering mode by calling ``hGetBuffering``. The
+         current mode can be set with ``hSetBuffering``, which accepts a
+         ``Handle`` and ``BufferMode``. As an example, you can say
+         ``hSetBuffering stdin (BlockBuffering Nothing)``.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Flushing The Buffer
+                     :name: id615793
+                     :class: title
+
+         For any type of buffering, you may sometimes want to force
+         Haskell to write out any data that has been saved up in the
+         buffer. There are a few times when this will happen
+         automatically: a call to ``hClose``, for instance. Sometimes
+         you may want to instead call ``hFlush``, which will force any
+         pending data to be written immediately. This could be useful
+         when the ``Handle`` is a network socket and you want the data
+         to be transmitted immediately, or when you want to make the
+         data on disk available to other programs that might be reading
+         it concurrently.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Reading Command-Line Arguments
+                  :name: io.args
+                  :class: title
+
+      Many command-line programs are interested in the parameters passed
+      on the command line. ``System.Environment.getArgs`` returns
+      ``IO [String]`` listing each argument. This is the same as
+      ``argv`` in C, starting with ``argv[1]``. The program name
+      (``argv[0]`` in C) is available from
+      ``System.Environment.getProgName``.
+
+      The ``System.Console.GetOpt`` module provides some tools for
+      parsing command-line options. If you have a program with complex
+      options, you may find it useful. You can find an example of its
+      use in the section called 
+      `“Command line parsing” <software-transactional-memory.html#stm.urlcheck.parseArgs>`__.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Environment Variables
+                  :name: io.environ
+                  :class: title
+
+      If you need to read environment variables, you can use one of two
+      functions in ``System.Environment``: ``getEnv`` or
+      ``getEnvironment``. ``getEnv`` looks for a specific variable and
+      raises an exception if it doesn't exist. ``getEnvironment``
+      returns the whole environment as a ``[(String, String)]``, and
+      then you can use functions such as ``lookup`` to find the
+      environment entry you want.
+
+      Setting environment variables is not defined in a cross-platform
+      way in Haskell. If you are on a POSIX platform such as Linux, you
+      can use ``putEnv`` or ``setEnv`` from the ``System.Posix.Env``
+      module. Environment setting is not defined for Windows.
+
+   .. container:: footnotes
+
+      .. container:: footnote
+
+         :sup:`[` `15 <#id610368>`__ :sup:`]` You will later see that
+         it has a more broad application, but it is sufficient to think
+         of it in these terms for now.
+
+      .. container:: footnote
+
+         :sup:`[` `16 <#id610538>`__ :sup:`]` The type of the value
+         ``()`` is also ``()``.
+
+      .. container:: footnote
+
+         :sup:`[` `17 <#id611551>`__ :sup:`]` Imperative programmers
+         might be concerned that such a recursive call would consume
+         large amounts of stack space. In Haskell, recursion is a common
+         idiom, and the compiler is smart enough to avoid consuming much
+         stack by optimizing tail-recursive functions.
+
+      .. container:: footnote
+
+         :sup:`[` `18 <#id612101>`__ :sup:`]` If there was a bug in
+         the C part of a hybrid program, for instance
+
+      .. container:: footnote
+
+         :sup:`[` `19 <#id612475>`__ :sup:`]` For more information on
+         interoperating with other programs with pipes, see `the section
+         called “Extended Example:
+         Piping” <systems-programming-in-haskell.html#systems.piping>`__.
+
+      .. container:: footnote
+
+         :sup:`[` `20 <#id612589>`__ :sup:`]` POSIX programmers may be
+         interested to know that this corresponds to ``unlink()`` in C.
+
+      .. container:: footnote
+
+         :sup:`[` `21 <#id612980>`__ :sup:`]` ``hGetContents`` will be
+         discussed in `the section called “Lazy
+         I/O” <#io.lazy>`__
+
+      .. container:: footnote
+
+         :sup:`[` `22 <#id613259>`__ :sup:`]` There is also a shortcut
+         function ``getContents`` that operates on standard input.
+
+      .. container:: footnote
+
+         :sup:`[` `23 <#id613298>`__ :sup:`]` More precisely, it is
+         the entire data from the current position of the file pointer
+         to the end of the file.
+
+      .. container:: footnote
+
+         :sup:`[` `24 <#id613923>`__ :sup:`]` Excepting I/O errors
+         such as a full disk, of course.
+
+      .. container:: footnote
+
+         :sup:`[` `25 <#id614894>`__ :sup:`]` Technically speaking,
+         ``mapM`` combines a bunch of separate I/O actions into one big
+         action. The separate actions are executed when the big action is.
+
+
+.. _sec-8:
+
+/Chapter 8. Efficient file processing, regular expressions, and file name matching `🔼 <#toc>`_
+================================================================================================
+
+.. container:: chapter
+   :name: glob
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: Chapter 8. Efficient file processing, regular
+               expressions, and file name matching
+               :name: chapter-8.-efficient-file-processing-regular-expressions-and-file-name-matching
+               :class: title
+
+   .. container:: toc
+
+      **Table of Contents**
+
+      *  `Efficient file processing <#glob-bytestring>`__
+
+         *  `Binary I/O and qualified imports <#id616188>`__
+         *  `Text I/O <#id616460>`__
+
+      *  `File name matching <#glob.fnmatch>`__
+      *  `Regular expressions in Haskell <#glob.regex>`__
+
+         *  `The many types of result <#id617251>`__
+
+      *  `More about regular expressions <#id617813>`__
+
+         *  `Mixing and matching string types <#id617819>`__
+         *  `Other things you should know <#id618092>`__
+
+      *  `Translating a glob pattern into a regular expression <#glob.translate>`__
+
+         *  `Exercises <#id618693>`__
+
+      *  `An important aside: writing lazy functions <#glob.lazyfn>`__
+      *  `Making use of our pattern matcher <#glob.use>`__
+
+         *  `Exercises <#id619751>`__
+
+      *  `Handling errors through API design <#glob.errapi>`__
+
+         *  `Exercises <#id620049>`__
+
+      *  `Putting our code to work <#glob.work>`__
+      *  `Exercises <#glob.exercises>`__
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Efficient file processing
+                  :name: glob-bytestring
+                  :class: title
+
+      This simple microbenchmark reads a text file full of numbers, and
+      prints their sum.
+
+      .. code:: programlisting
+
+         -- file: ch08/SumFile.hs
+         main = do
+             contents <- getContents
+             print (sumFile contents)
+           where sumFile = sum . map read . words
+
+      Although the String type is the default used for reading and
+      writing files, it is not efficient, so a simple program like this
+      will perform badly.
+
+      A String is represented as a list of Char values; each element of
+      a list is allocated individually, and has some book-keeping
+      overhead. These factors affect the memory consumption and
+      performance of a program that must read or write text or binary
+      data. On simple benchmarks like this, even programs written in
+      interpreted languages such as Python can outperform Haskell code
+      that uses String by an order of magnitude.
+
+      The ``bytestring`` library provides a fast, cheap alternative to
+      the String type. Code written with ``bytestring`` can often match
+      or exceed the performance and memory footprint of C, while
+      maintaining Haskell's expressivity and conciseness.
+
+      The library supplies two modules. Each defines functions that are
+      nearly drop-in replacements for their String counterparts.
+
+      .. container:: itemizedlist
+
+         -  The ``Data.ByteString`` module defines a *strict* type named
+            ByteString. This represents a string of binary or text data
+            in a single array.
+
+         -  The ``Data.ByteString.Lazy`` module provides a *lazy* type,
+            also named ByteString. This represents a string of data as a
+            list of *chunks*, arrays of up to 64KB in size.
+
+      Each ByteString type performs better under particular
+      circumstances. For streaming a large quantity (hundreds of
+      megabytes to terabytes) of data, the lazy ByteString type is
+      usually best. Its chunk size is tuned to be friendly to a modern
+      CPU's L1 cache, and a garbage collector can quickly discard chunks
+      of streamed data that are no longer being used.
+
+      The strict ByteString type performs best for applications that are
+      less concerned with memory footprint, or that need to access data
+      randomly.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Binary I/O and qualified imports
+                     :name: id616188
+                     :class: title
+
+         Let's develop a small function to illustrate some of the
+         ``ByteString`` API. We will determine if a file is an ELF
+         object file: this is the format used for executables on almost
+         all modern Unix-like systems.
+
+         This is a simple matter of looking at the first four bytes in
+         the file, and seeing if they match a specific sequence of
+         bytes. A byte sequence that identifies a file's type is often
+         known as a *magic number*.
+
+         .. code:: programlisting
+
+            -- file: ch08/ElfMagic.hs
+            import qualified Data.ByteString.Lazy as L
+
+            hasElfMagic :: L.ByteString -> Bool
+            hasElfMagic content = L.take 4 content == elfMagic
+                where elfMagic = L.pack [0x7f, 0x45, 0x4c, 0x46]
+
+         We import the ``ByteString`` modules using Haskell's *qualified
+         import* syntax, the ``import qualified`` that we see above.
+         This lets us refer to a module with a name of our choosing.
+
+         For instance, when we want to refer to the lazy ``ByteString``
+         module's ``take`` function, we must write ``L.take``, since we
+         imported the module under the name ``L``. If we are not
+         explicit about which version of e.g. ``take`` we want, the
+         compiler will report an error.
+
+         We will always use qualified import syntax with the
+         ``ByteString`` modules, because they provide many functions
+         that have the same names as Prelude functions.
+
+         .. tip::
+
+            Qualified imports make it easy to switch between
+            ByteString types. All you should need to do is
+            modify an ``import`` declaration at the top of your
+            source file; the rest of your code will probably
+            not need any changes. You can thus handily
+            benchmark the two types, to see which is best
+            suited to your application's needs
+
+         Whether or not we use qualified imports, we can always use the
+         entire name of a module to identify something unambiguously.
+         For instance, both ``Data.ByteString.Lazy.length`` and
+         ``L.length`` identify the same function, as do ``Prelude.sum``
+         and ``sum``.
+
+         The lazy and strict ``ByteString`` modules are intended for
+         binary I/O. The Haskell data type for representing bytes is
+         Word8; if we need to refer to it by name, we import it from the
+         ``Data.Word`` module.
+
+         The ``L.pack`` function takes a list of Word8 values, and packs
+         them into a lazy ByteString. (The ``L.unpack`` function
+         performs the reverse conversion.) Our ``hasElfMagic`` function
+         simply compares the first four bytes of a ``ByteString``
+         against a magic number.
+
+         We are writing in classic Haskell style, where our
+         ``hasElfMagic`` function does not perform I/O. Here is the
+         function that uses it on a file.
+
+         .. code:: programlisting
+
+            -- file: ch08/ElfMagic.hs
+            isElfFile :: FilePath -> IO Bool
+            isElfFile path = do
+              content <- L.readFile path
+              return (hasElfMagic content)
+
+         The ``L.readFile`` function is the lazy ByteString equivalent
+         of ``readFile``. It operates lazily, reading the file as data
+         is demanded. It is also efficient, reading chunks of up to 64KB
+         at once. The lazy ByteString is a good choice for our task:
+         since we only need to read at most the first four bytes of the
+         file, we can safely use this function on a file of any size.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Text I/O
+                     :name: id616460
+                     :class: title
+
+         For convenience, the ``bytestring`` library provides two other
+         modules with limited text I/O capabilities,
+         ``Data.ByteString.Char8`` and ``Data.ByteString.Lazy.Char8``.
+         These expose individual string elements as Char instead of
+         Word8.
+
+         .. warning::
+
+            The functions in these modules only work with
+            byte-sized Char values, so they are only suitable
+            for use with ASCII and some European character
+            sets. Values above 255 are truncated.
+
+         The character-oriented ``bytestring`` modules provide useful
+         functions for text processing. Here is a file that contains
+         monthly stock prices for a well-known Internet company from
+         mid-2008.
+
+         .. code:: screen
+
+            ghci> putStr =<< readFile "prices.csv"
+            Date,Open,High,Low,Close,Volume,Adj Close
+            2008-08-01,20.09,20.12,19.53,19.80,19777000,19.80
+            2008-06-30,21.12,21.20,20.60,20.66,17173500,20.66
+            2008-05-30,27.07,27.10,26.63,26.76,17754100,26.76
+            2008-04-30,27.17,27.78,26.76,27.41,30597400,27.41
+
+         How can we find the highest closing price from a series of
+         entries like this? Closing prices are in the fourth
+         comma-separated column. This function obtains a closing price
+         from one line of data.
+
+         .. code:: programlisting
+
+            -- file: ch08/HighestClose.hs
+            import qualified Data.ByteString.Lazy.Char8 as L
+
+            closing = readPrice . (!!4) . L.split ','
+
+         Since this function is written in point-free style, we read
+         from right to left. The ``L.split`` function splits a lazy
+         ByteString into a list of them, every time it finds a matching
+         character. The ``(!!)`` operator retrieves the *k* th element
+         of a list. Our ``readPrice`` function turns a string
+         representing a fractional price into a whole number.
+
+         .. code:: programlisting
+
+            -- file: ch08/HighestClose.hs
+            readPrice :: L.ByteString -> Maybe Int
+            readPrice str =
+                case L.readInt str of
+                  Nothing             -> Nothing
+                  Just (dollars,rest) ->
+                    case L.readInt (L.tail rest) of
+                      Nothing           -> Nothing
+                      Just (cents,more) ->
+                        Just (dollars * 100 + cents)
+
+         We use the ``L.readInt`` function, which parses an integer. It
+         returns both the integer and the remainder of the string once a
+         run of digits is consumed. Our definition is slightly
+         complicated by ``L.readInt`` returning ``Nothing`` if parsing
+         fails.
+
+         Our function for finding the highest closing price is
+         straightforward.
+
+         .. code:: programlisting
+
+            -- file: ch08/HighestClose.hs
+            highestClose = maximum . (Nothing:) . map closing . L.lines
+
+            highestCloseFrom path = do
+                contents <- L.readFile path
+                print (highestClose contents)
+
+         We use one trick to work around the fact that we cannot supply
+         an empty list to the ``maximum`` function.
+
+         .. code:: screen
+
+            ghci> maximum [3,6,2,9]
+            9
+            ghci> maximum []
+            *** Exception: Prelude.maximum: empty list
+
+         Since we do not want our code to throw an exception if we have
+         no stock data, the ``(Nothing:)`` expression ensures that the
+         list of Maybe Int values that we supply to ``maximum`` will
+         never be empty.
+
+         .. code:: screen
+
+            ghci> maximum [Nothing, Just 1]
+            Just 1
+            ghci> maximum [Nothing]
+            Nothing
+
+         Does our function work?
+
+         .. code:: screen
+
+            ghci> :load HighestClose
+            [1 of 1] Compiling Main             ( HighestClose.hs, interpreted )
+            Ok, modules loaded: Main.
+            ghci> highestCloseFrom "prices.csv"
+            Loading package array-0.1.0.0 ... linking ... done.
+            Loading package bytestring-0.9.0.1 ... linking ... done.
+            Just 2741
+
+         Since we have separated our I/O from our logic, we can test the
+         no-data case without having to create an empty file.
+
+         .. code:: screen
+
+            ghci> highestClose L.empty
+            Nothing
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: File name matching
+                  :name: glob.fnmatch
+                  :class: title
+
+      Many systems-oriented programming languages provide library
+      routines that let us match a file name against a pattern, or that
+      will give a list of files that match the pattern. In other
+      languages, this function is often named ``fnmatch``.) Although
+      Haskell's standard library generally has good systems programming
+      facilities, it doesn't provide these kinds of pattern matching
+      functions. We'll take this as an opportunity to develop our own.
+
+      The kinds of patterns we'll be dealing with are commonly referred
+      to as *glob patterns* (the term we'll use), wild card patterns, or
+      shell-style patterns. They have just a few simple rules. You
+      probably already know them, but we'll quickly recap here.
+
+      .. container:: itemizedlist
+
+         -  Matching a string against a pattern starts at the beginning
+            of the string, and finishes at the end.
+
+         -  Most literal characters match themselves. For example, the
+            text ``foo`` in a pattern will match ``foo``, and only
+            ``foo``, in an input string.
+
+         -  The ``*`` (asterisk) character means “match anything”; it
+            will match any text, including the empty string. For
+            instance, the pattern ``foo*`` will match any string that
+            begins with ``foo``, such as ``foo`` itself, ``foobar``, or
+            ``foo.c``. The pattern ``quux*.c`` will match any string
+            that begins with ``quux`` and ends in ``.c``, such as
+            ``quuxbaz.c``.
+
+         -  The ``?`` (question mark) character matches any single
+            character. The pattern ``pic??.jpg`` will match names like
+            ``picaa.jpg`` or ``pic01.jpg``.
+
+         -  A ``[`` (open square bracket) character begins a *character
+            class*, which is ended by a ``]``. Its meaning is “match any
+            character in this class”. A character class can be *negated*
+            by following the opening ``[`` with a ``!``, so that it
+            means “match any character *not* in this class”.
+
+            As a shorthand, a character followed by a ``-`` (dash),
+            followed by another character, denotes a *range*: “match any
+            character within this set”.
+
+            Character classes have an added subtlety; they can't be
+            empty. The first character after the opening ``[`` or ``[!``
+            is part of the class, so we can write a class containing the
+            ``]`` character as ``[]aeiou]``. The pattern
+            ``pic[0-9].[pP][nN][gG]`` will match a name consisting of
+            the string ``pic``, followed by a single digit, followed by
+            any capitalization of the strig ``.png``.
+
+      While Haskell doesn't provide a way to match glob patterns among
+      its standard libraries, it provides a good regular expression
+      matching library. Glob patterns are nothing more than cut-down
+      regular expressions with slightly different syntax. It's easy to
+      convert glob patterns into regular expressions, but to do so, we
+      must first understand how to use regular expressions in Haskell.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Regular expressions in Haskell
+                  :name: glob.regex
+                  :class: title
+
+      In this section, we will be assume that you are already familiar
+      with regular expressions by way of some other language, such as
+      Python, Perl, or Java :sup:`[` `26 <#ftn.id617121>`__ :sup:`]`.
+
+      For brevity, we will abbreviate “regular expression” as *regexp*
+      from here on.
+
+      Rather than introduce regexps as something new, we will focus on
+      what's different about regexp handling in Haskell, compared to
+      other languages. Haskell's regular expression matching libraries
+      are a lot more expressive than those of other languages, so
+      there's plenty to talk about.
+
+      To begin our exploration of the regexp libraries, the only module
+      we'll need to work with is ``Text.Regex.Posix``. As usual, the
+      most convenient way to explore this module is by interacting with
+      it via **ghci**.
+
+      .. code:: screen
+
+         ghci> :module +Text.Regex.Posix
+
+      The only function that we're likely to need for normal use is the
+      regexp matching function, an infix operator named ``(=~)``
+      (borrowed from Perl). The first hurdle to overcome is that
+      Haskell's regexp libraries make heavy use of polymorphism. As a
+      result, the type signature of the ``(=~)`` operator is difficult
+      to understand, so we will not explain it here.
+
+      The ``=~`` operator uses typeclasses for both of its arguments,
+      and also for its return type. The first argument (on the left of
+      the ``=~``) is the text to match; the second (on the right) is the
+      regular expression to match against. We can pass either a String
+      or a ByteString as either argument.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: The many types of result
+                     :name: id617251
+                     :class: title
+
+         The ``=~`` operator is polymorphic in its return type, so the
+         Haskell compiler needs some way to know what type of result we
+         would like. In real code, it may be able to infer the right
+         type, due to the way we subsequently use the result. But such
+         cues are often lacking when we're exploring with **ghci**. If
+         we omit a specific type for the result, we'll get an error from
+         the interpreter, as it does not have enough information to
+         successfuly infer the result type.
+
+         When **ghci** can't infer the ``target`` type, we tell it what
+         we'd like the type to be. If we want a result of type Bool,
+         we'll get a pass/fail answer.
+
+         .. code:: screen
+
+            ghci> "my left foot" =~ "foo" :: Bool
+            Loading package array-0.1.0.0 ... linking ... done.
+            Loading package containers-0.1.0.1 ... linking ... done.
+            Loading package bytestring-0.9.0.1 ... linking ... done.
+            Loading package mtl-1.1.0.0 ... linking ... done.
+            Loading package regex-base-0.93.1 ... linking ... done.
+            Loading package regex-posix-0.93.1 ... linking ... done.
+            True
+            ghci> "your right hand" =~ "bar" :: Bool
+            False
+            ghci> "your right hand" =~ "(hand|foot)" :: Bool
+            True
+
+         In the bowels of the regexp libraries, there's a typeclass
+         named ``RegexContext`` that describes how a ``target`` type
+         should behave; the base library defines many instances of this
+         typeclass for us. The Bool type is an instance of this
+         typeclass, so we get back a usable result. Another such
+         instance is Int, which gives us a count of the number of times
+         the regexp matches.
+
+         .. code:: screen
+
+            ghci> "a star called henry" =~ "planet" :: Int
+            0
+            ghci> "honorificabilitudinitatibus" =~ "[aeiou]" :: Int
+            13
+
+         If we ask for a String result, we'll get the first substring
+         that matches, or an empty string if nothing matches.
+
+         .. code:: screen
+
+            ghci> "I, B. Ionsonii, uurit a lift'd batch" =~ "(uu|ii)" :: String
+            "ii"
+            ghci> "hi ludi, F. Baconis nati, tuiti orbi" =~ "Shakespeare" :: String
+            ""
+
+         Another valid type of result is [String], which returns a list
+         of *all* matching strings.
+
+         .. code:: screen
+
+            ghci> "I, B. Ionsonii, uurit a lift'd batch" =~ "(uu|ii)" :: [String]
+
+            <interactive>:1:0:
+                No instance for (RegexContext Regex [Char] [String])
+                  arising from a use of `=~' at <interactive>:1:0-50
+                Possible fix:
+                  add an instance declaration for
+                  (RegexContext Regex [Char] [String])
+                In the expression:
+                        "I, B. Ionsonii, uurit a lift'd batch" =~ "(uu|ii)" :: [String]
+                In the definition of `it':
+                    it = "I, B. Ionsonii, uurit a lift'd batch" =~ "(uu|ii)" ::
+                         [String]
+            ghci> "hi ludi, F. Baconis nati, tuiti orbi" =~ "Shakespeare" :: [String]
+
+            <interactive>:1:0:
+                No instance for (RegexContext Regex [Char] [String])
+                  arising from a use of `=~' at <interactive>:1:0-54
+                Possible fix:
+                  add an instance declaration for
+                  (RegexContext Regex [Char] [String])
+                In the expression:
+                        "hi ludi, F. Baconis nati, tuiti orbi" =~ "Shakespeare" :: [String]
+                In the definition of `it':
+                    it = "hi ludi, F. Baconis nati, tuiti orbi" =~ "Shakespeare" ::
+                         [String]
+
+         .. note:: Watch out for String results
+   
+            If you want a result that's a plain String, beware.
+            Since ``(=~)`` returns an empty string to signify
+            “no match”, this poses an obvious difficulty if the
+            empty string could also be a valid match for the
+            regexp. If such a case arises, you should use a
+            different return type instead, such as [String].
+
+         That's about it for “simple” result types, but we're not by any
+         means finished. Before we continue, let's use a single pattern
+         for our remaining examples. We can define this pattern as a
+         variable in **ghci**, to save a little typing.
+
+         .. code:: screen
+
+            ghci> let pat = "(foo[a-z]*bar|quux)"
+
+         We can obtain quite a lot of information about the context in
+         which a match occurs. If we ask for a (String, String, String)
+         tuple, we'll get back the text *before* the first match, the
+         text *of* that match, and the text that *follows* it.
+
+         .. code:: screen
+
+            ghci> "before foodiebar after" =~ pat :: (String,String,String)
+            ("before ","foodiebar"," after")
+
+         If the match fails, the entire text is returned as the “before”
+         element of the tuple, with the other two elements left empty.
+
+         .. code:: screen
+
+            ghci> "no match here" =~ pat :: (String,String,String)
+            ("no match here","","")
+
+         Asking for a four-element tuple gives us a fourth element
+         that's a list of all groups in the pattern that matched.
+
+         .. code:: screen
+
+            ghci> "before foodiebar after" =~ pat :: (String,String,String,[String])
+            ("before ","foodiebar"," after",["foodiebar"])
+
+         We can get numeric information about matches, too. A pair of
+         Ints gives us the starting offset of the first match, and its
+         length. If we ask for a list of these pairs, we'll get this
+         information for all matches.
+
+         .. code:: screen
+
+            ghci> "before foodiebar after" =~ pat :: (Int,Int)
+            (7,9)
+            ghci> "i foobarbar a quux" =~ pat :: [(Int,Int)]
+
+            <interactive>:1:0:
+                No instance for (RegexContext Regex [Char] [(Int, Int)])
+                  arising from a use of `=~' at <interactive>:1:0-26
+                Possible fix:
+                  add an instance declaration for
+                  (RegexContext Regex [Char] [(Int, Int)])
+                In the expression: "i foobarbar a quux" =~ pat :: [(Int, Int)]
+                In the definition of `it':
+                    it = "i foobarbar a quux" =~ pat :: [(Int, Int)]
+
+         A failed match is represented by the value ``-1`` as the first
+         element of the tuple (the match offset) if we've asked for a
+         single tuple, or an empty list if we've asked for a list of
+         tuples.
+
+         .. code:: screen
+
+            ghci> "eleemosynary" =~ pat :: (Int,Int)
+            (-1,0)
+            ghci> "mondegreen" =~ pat :: [(Int,Int)]
+
+            <interactive>:1:0:
+                No instance for (RegexContext Regex [Char] [(Int, Int)])
+                  arising from a use of `=~' at <interactive>:1:0-18
+                Possible fix:
+                  add an instance declaration for
+                  (RegexContext Regex [Char] [(Int, Int)])
+                In the expression: "mondegreen" =~ pat :: [(Int, Int)]
+                In the definition of `it': it = "mondegreen" =~ pat :: [(Int, Int)]
+
+         This is not a comprehensive list of built-in instances of the
+         ``RegexContext`` typeclass. For a complete list, see the
+         documentation for the ``Text.Regex.Base.Context`` module.
+
+         This ability to make a function polymorphic in its result type
+         is an unusual feature for a statically typed language.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: More about regular expressions
+                  :name: id617813
+                  :class: title
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Mixing and matching string types
+                     :name: id617819
+                     :class: title
+
+         As we noted earlier, the ``=~`` operator uses typeclasses for
+         its argument types and its return type. We can use either
+         String or strict ByteString values for both the regular
+         expression and the text to match against.
+
+         .. code:: screen
+
+            ghci> :module +Data.ByteString.Char8
+            ghci> :type pack "foo"
+            pack "foo" :: ByteString
+
+         We can then try using different combinations of String and
+         ByteString.
+
+         .. code:: screen
+
+            ghci> pack "foo" =~ "bar" :: Bool
+            False
+            ghci> "foo" =~ pack "bar" :: Int
+            0
+            ghci> pack "foo" =~ pack "o" :: [(Int, Int)]
+
+            <interactive>:1:0:
+                No instance for (RegexContext Regex ByteString [(Int, Int)])
+                  arising from a use of `=~' at <interactive>:1:0-21
+                Possible fix:
+                  add an instance declaration for
+                  (RegexContext Regex ByteString [(Int, Int)])
+                In the expression: pack "foo" =~ pack "o" :: [(Int, Int)]
+                In the definition of `it':
+                    it = pack "foo" =~ pack "o" :: [(Int, Int)]
+
+         However, we need to be aware that if we want a string value in
+         the result of a match, the text we're matching against must be
+         the same type of string. Let's see what this means in practice.
+
+         .. code:: screen
+
+            ghci> pack "good food" =~ ".ood" :: [ByteString]
+
+            <interactive>:1:0:
+                No instance for (RegexContext Regex ByteString [ByteString])
+                  arising from a use of `=~' at <interactive>:1:0-25
+                Possible fix:
+                  add an instance declaration for
+                  (RegexContext Regex ByteString [ByteString])
+                In the expression: pack "good food" =~ ".ood" :: [ByteString]
+                In the definition of `it':
+                    it = pack "good food" =~ ".ood" :: [ByteString]
+
+         In the above example, we've used the ``pack`` to turn a String
+         into a ByteString. The type checker accepts this because
+         ByteString appears in the result type. But if we try getting a
+         String out, that *won't* work.
+
+         .. code:: screen
+
+            ghci> "good food" =~ ".ood" :: [ByteString]
+
+            <interactive>:1:0:
+                No instance for (RegexContext Regex [Char] [ByteString])
+                  arising from a use of `=~' at <interactive>:1:0-20
+                Possible fix:
+                  add an instance declaration for
+                  (RegexContext Regex [Char] [ByteString])
+                In the expression: "good food" =~ ".ood" :: [ByteString]
+                In the definition of `it':
+                    it = "good food" =~ ".ood" :: [ByteString]
+
+         We can easily fix this problem by making the string types of
+         the left hand side and the result match once again.
+
+         .. code:: screen
+
+            ghci> "good food" =~ ".ood" :: [String]
+
+            <interactive>:1:0:
+                No instance for (RegexContext Regex [Char] [String])
+                  arising from a use of `=~' at <interactive>:1:0-20
+                Possible fix:
+                  add an instance declaration for
+                  (RegexContext Regex [Char] [String])
+                In the expression: "good food" =~ ".ood" :: [String]
+                In the definition of `it': it = "good food" =~ ".ood" :: [String]
+
+         This restriction does *not* apply to the type of the regexp
+         we're matching against. It can be either a String or
+         ByteString, unconstrained by the other types in use.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Other things you should know
+                     :name: id618092
+                     :class: title
+
+         When you look through Haskell library documentation, you'll see
+         several regexp-related modules. The modules under
+         ``Text.Regex.Base`` define the common API adhered to by all of
+         the other regexp modules. It's possible to have multiple
+         implementations of the regexp API installed at one time. At the
+         time of writing, GHC is bundled with one implementation,
+         ``Text.Regex.Posix``. As its name suggests, this package
+         provides POSIX regexp semantics.
+
+         .. note:: Perl and POSIX regular expressions
+            
+            If you're coming to Haskell from a language like
+            Perl, Python, or Java, and you've used regular
+            expressions in one of those languages, you should
+            be aware that the POSIX regexps handled by the
+            ``Text.Regex.Posix`` module are different in some
+            significant ways from Perl-style regexps. Here are
+            a few of the more notable differences.
+
+            Perl regexp engines perform left-biased matching
+            when matching alternatives, whereas POSIX engines
+            choose the greediest match. What this means is that
+            given a regexp of ``(foo|fo*)`` and a text string
+            of ``foooooo``, a Perl-style engine will give a
+            match of ``foo`` (the leftmost match), while a
+            POSIX engine will match the entire string (the
+            greediest match).
+
+            POSIX regexps have less uniform syntax than
+            Perl-style regexps. They also lack a number of
+            capabilities provided by Perl-style regexps, such
+            as zero-width assertions and control over greedy
+            matching.
+
+         Other Haskell regexp packages are available for download from
+         Hackage. Some provide better performance than the current POSIX
+         engine (e.g. ``regex-tdfa``); others provide the Perl-style
+         matching that most programmers are now familiar with (e.g.
+         ``regex-pcre``). All follow the standard API that we have
+         covered in this section.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Translating a glob pattern into a regular
+                  expression
+                  :name: glob.translate
+                  :class: title
+
+      Now that we've seen the myriad of ways to match text against
+      regular expressions, let's turn our attention back to glob
+      patterns. We want to write a function that will take a glob
+      pattern and return its representation as a regular expression.
+      Both glob patterns and regexps are text strings, so the type that
+      our function ought to have seems clear.
+
+      .. code:: programlisting
+
+         -- file: ch08/GlobRegex.hs
+         module GlobRegex
+             (
+               globToRegex
+             , matchesGlob
+             ) where
+
+         import Text.Regex.Posix ((=~))
+
+         globToRegex :: String -> String
+
+      The regular expression that we generate must be *anchored*, so
+      that it starts matching from the beginning of a string and
+      finishes at the end.
+
+      .. code:: programlisting
+
+         -- file: ch08/GlobRegex.hs
+         globToRegex cs = '^' : globToRegex' cs ++ "$"
+
+      Recall that the String is just a synonym for [Char], a list of
+      Chars. The ``:`` operator puts a value (the ``^`` character in
+      this case) onto the front of a list, where the list is the value
+      returned by the yet-to-be-seen ``globToRegex'`` function.
+
+      .. note::  Using a value before defining it
+         
+         Haskell does not require that a value or function be
+         declared or defined in a source file before it's used.
+         It's perfectly normal for a definition to come *after*
+         the first place it's used. The Haskell compiler
+         doesn't care about ordering at this level. This grants
+         us the flexibility to structure our code in the manner
+         that makes most logical sense to us, rather than
+         follow an order that makes the compiler writer's life
+         easiest.
+
+         Haskell module writers often use this flexibility to
+         put “more important” code earlier in a source file,
+         relegating “plumbing” to later. This is exactly how we
+         are presenting the ``globToRegex`` function and its
+         helpers here.
+
+      With the regular expression rooted, the ``globToRegex'`` function
+      will do the bulk of the translation work. We'll use the
+      convenience of Haskell's pattern matching to enumerate each of the
+      cases we'll need to cover.
+
+      .. code:: programlisting
+
+         -- file: ch08/GlobRegex.hs
+         globToRegex' :: String -> String
+         globToRegex' "" = ""
+
+         globToRegex' ('*':cs) = ".*" ++ globToRegex' cs
+
+         globToRegex' ('?':cs) = '.' : globToRegex' cs
+
+         globToRegex' ('[':'!':c:cs) = "[^" ++ c : charClass cs
+         globToRegex' ('[':c:cs)     = '['  :  c : charClass cs
+         globToRegex' ('[':_)        = error "unterminated character class"
+
+         globToRegex' (c:cs) = escape c ++ globToRegex' cs
+
+      Our first clause stipulates that if we hit the end of our glob
+      pattern (by which time we'll be looking at the empty string), we
+      return ``$``, the regular expression symbol for “match
+      end-of-line”. Following this is a series of clauses that switch
+      our pattern from glob syntax to regexp syntax. The last clause
+      passes every other character through, possibly escaping it first.
+
+      The ``escape`` function ensures that the regexp engine will not
+      interpret certain characters as pieces of regular expression
+      syntax.
+
+      .. code:: programlisting
+
+         -- file: ch08/GlobRegex.hs
+         escape :: Char -> String
+         escape c | c `elem` regexChars = '\\' : [c]
+                  | otherwise = [c]
+             where regexChars = "\\+()^$.{}]|"
+
+      The ``charClass`` helper function only checks that a character
+      class is correctly terminated. It passes its input through
+      unmodified until it hits a ``]``, when it hands control back to
+      ``globToRegex'``.
+
+      .. code:: programlisting
+
+         -- file: ch08/GlobRegex.hs
+         charClass :: String -> String
+         charClass (']':cs) = ']' : globToRegex' cs
+         charClass (c:cs)   = c : charClass cs
+         charClass []       = error "unterminated character class"
+
+      Now that we've finished defining ``globToRegex`` and its helpers,
+      let's load it into **ghci** and try it out.
+
+      .. code:: screen
+
+         ghci> :load GlobRegex.hs
+         [1 of 1] Compiling GlobRegex        ( GlobRegex.hs, interpreted )
+         Ok, modules loaded: GlobRegex.
+         ghci> :module +Text.Regex.Posix
+         ghci> globToRegex "f??.c"
+         Loading package array-0.1.0.0 ... linking ... done.
+         Loading package containers-0.1.0.1 ... linking ... done.
+         Loading package bytestring-0.9.0.1 ... linking ... done.
+         Loading package mtl-1.1.0.0 ... linking ... done.
+         Loading package regex-base-0.93.1 ... linking ... done.
+         Loading package regex-posix-0.93.1 ... linking ... done.
+         "^f..\\.c$"
+
+      Sure enough, that looks like a reasonable regexp. Can we use it to
+      match against a string?
+
+      .. code:: screen
+
+         ghci> "foo.c" =~ globToRegex "f??.c" :: Bool
+         True
+         ghci> "test.c" =~ globToRegex "t[ea]s*" :: Bool
+         True
+         ghci> "taste.txt" =~ globToRegex "t[ea]s*" :: Bool
+         True
+
+      It works! Now let's play around a little with **ghci**. We can
+      create a temporary definition for ``fnmatch`` and try it out.
+
+      .. code:: screen
+
+         ghci> let fnmatch pat name  =  name =~ globToRegex pat :: Bool
+         ghci> :type fnmatch
+         fnmatch :: (RegexLike Regex source1) => String -> source1 -> Bool
+         ghci> fnmatch "d*" "myname"
+         False
+
+      The name ``fnmatch`` doesn't really have the “Haskell nature”,
+      though. By far the most common Haskell style is for functions to
+      have descriptive, “camel cased” names. Camel casing concatenates
+      words, capitalising all but possibly the first word. For instance,
+      the words “file name matches” would become the name
+      ``fileNameMatches``. The name “camel case” comes from the “humps”
+      introduced by the capital letters. In our library, we'll give this
+      function the name ``matchesGlob``.
+
+      .. code:: programlisting
+
+         -- file: ch08/GlobRegex.hs
+         matchesGlob :: FilePath -> String -> Bool
+         name `matchesGlob` pat = name =~ globToRegex pat
+
+      You may have noticed that most of the names that we have used for
+      variables so far have been short. As a rule of thumb, descriptive
+      variable names are more useful in longer function definitions, as
+      they aid readability. For a two-line function, a long variable
+      name has less value.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Exercises
+                     :name: id618693
+                     :class: title
+
+         .. container:: qandaset
+
+            .. list-table::
+               :widths: 1
+
+               - 
+
+                  - **1.** Use ghci to explore what happens if you pass a malformed pattern, such as [, to globToRegex. Write a small function that calls globToRegex, and pass it a malformed pattern. What happens?
+               - 
+
+                  - **2.** While filesystems on Unix are usually sensitive to case (e.g. “G” vs. “g”) in file names, Windows filesystems are not. Add a parameter to the globToRegex and matchesGlob functions that allows control over case sensitive matching. 
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: An important aside: writing lazy functions
+                  :name: glob.lazyfn
+                  :class: title
+
+      In an imperative language, the ``globToRegex'`` function is one
+      that we'd usually express as a loop. For example, Python's
+      standard fnmatch module includes a function named ``translate``
+      that does exactly the same job as our ``globToRegex`` function.
+      It's written as a loop.
+
+      If you've been exposed to functional programming through a
+      language such as Scheme or ML, you've probably had drilled into
+      your head the notion that “the way to emulate a loop is via tail
+      recursion”.
+
+      Looking at the ``globToRegex'`` function, we can see that it is
+      *not* tail recursive. To see why, examine its final clause again
+      (several of its other clauses are structured similarly).
+
+      .. code:: programlisting
+
+         -- file: ch08/GlobRegex.hs
+         globToRegex' (c:cs) = escape c ++ globToRegex' cs
+
+      It applies itself recursively, and the result of the recursive
+      application is used as a parameter to the ``(++)`` function. Since
+      the recursive application *isn't* the last thing the function
+      does, ``globToRegex'`` is not tail recursive.
+
+      Why is our definition of this function not tail recursive? The
+      answer lies with Haskell's non-strict evaluation strategy. Before
+      we start talking about that, let's quickly talk about why, in a
+      traditional language, we'd try to avoid this kind of recursive
+      definition. Here is a simpler definition, of the ``(++)``
+      operator. It is recursivem, but not tail recursive.
+
+      .. code:: programlisting
+
+         -- file: ch08/append.hs
+         (++) :: [a] -> [a] -> [a]
+
+         (x:xs) ++ ys = x : (xs ++ ys)
+         []     ++ ys = ys
+
+      In a strict language, if we evaluate ``"foo" ++ "bar"``, the
+      entire list is constructed, then returned. Non-strict evaluation
+      defers much of the work until it is needed.
+
+      If we demand an element of the expression ``"foo" ++ "bar"``, the
+      first pattern of the function's definition matches, and we return
+      the expression ``x : (xs ++ ys)``. Because the ``(:)`` constructor
+      is non-strict, the evaluation of ``xs ++ ys`` can be deferred: we
+      generate more elements of the result at whatever rate they are
+      demanded. When we generate more of the result, we will no longer
+      be using ``x``, so the garbage collector can reclaim it. Since we
+      generate elements of the result on demand, and do not hold onto
+      parts that we are done with, the compiler can evaluate our code in
+      constant space.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Making use of our pattern matcher
+                  :name: glob.use
+                  :class: title
+
+      It's all very well to have a function that can match glob
+      patterns, but we'd like to be able to put this to practical use.
+      On Unix-like systems, the ``glob`` function returns the names of
+      all files and directories that match a given glob pattern. Let's
+      build a similar function in Haskell. Following the Haskell norm of
+      descriptive naming, we'll call our function ``namesMatching``.
+
+      .. code:: programlisting
+
+         -- file: ch08/Glob.hs
+         module Glob (namesMatching) where
+
+      We specify that ``namesMatching`` is the only name that users of
+      our ``Glob`` module will be able to see.
+
+      This function will obviously have to manipulate filesystem paths a
+      lot, splicing and joining them as it goes. We'll need to use a few
+      previously unfamiliar modules along the way.
+
+      The ``System.Directory`` module provides standard functions for
+      working with directories and their contents.
+
+      .. code:: programlisting
+
+         -- file: ch08/Glob.hs
+         import System.Directory (doesDirectoryExist, doesFileExist,
+                                  getCurrentDirectory, getDirectoryContents)
+
+      The ``System.FilePath`` module abstracts the details of an
+      operating system's path name conventions. The ``(</>)`` function
+      joins two path components.
+
+      .. code:: screen
+
+         ghci> :m +System.FilePath
+         ghci> "foo" </> "bar"
+         Loading package filepath-1.1.0.0 ... linking ... done.
+         "foo/bar"
+
+      The name of the ``dropTrailingPathSeparator`` function is
+      perfectly descriptive.
+
+      .. code:: screen
+
+         ghci> dropTrailingPathSeparator "foo/"
+         "foo"
+
+      The ``splitFileName`` function splits a path at the last slash.
+
+      .. code:: screen
+
+         ghci> splitFileName "foo/bar/Quux.hs"
+         ("foo/bar/","Quux.hs")
+         ghci> splitFileName "zippity"
+         ("","zippity")
+
+      Using ``System.FilePath`` together with the ``System.Directory``
+      module, we can write a portable ``namesMatching`` function that
+      will run on both Unix-like and Windows systems.
+
+      .. code:: programlisting
+
+         -- file: ch08/Glob.hs
+         import System.FilePath (dropTrailingPathSeparator, splitFileName, (</>))
+
+      In this module, we'll be emulating a “for” loop; getting our first
+      taste of exception handling in Haskell; and of course using the
+      ``matchesGlob`` function we just wrote.
+
+      .. code:: programlisting
+
+         -- file: ch08/Glob.hs
+         import Control.Exception (handle)
+         import Control.Monad (forM)
+         import GlobRegex (matchesGlob)
+
+      Since directories and files live in the “real world” of activities
+      that have effects, our globbing function will have to have ``IO``
+      in its result type.
+
+      If the string we're passed contains no pattern characters, we
+      simply check that the given name exists in the filesystem. (Notice
+      that we use Haskell's function guard syntax here to write a nice
+      tidy definition. An “if” would do, but isn't as aesthetically
+      pleasing.)
+
+      .. code:: programlisting
+
+         -- file: ch08/Glob.hs
+         isPattern :: String -> Bool
+         isPattern = any (`elem` "[*?")
+
+         namesMatching pat
+           | not (isPattern pat) = do
+             exists <- doesNameExist pat
+             return (if exists then [pat] else [])
+
+      The name ``doesNameExist`` refers to a function that we will
+      define shortly.
+
+      What if the string *is* a glob pattern? Our function definition
+      continues.
+
+      .. code:: programlisting
+
+         -- file: ch08/Glob.hs
+           | otherwise = do
+             case splitFileName pat of
+               ("", baseName) -> do
+                   curDir <- getCurrentDirectory
+                   listMatches curDir baseName
+               (dirName, baseName) -> do
+                   dirs <- if isPattern dirName
+                           then namesMatching (dropTrailingPathSeparator dirName)
+                           else return [dirName]
+                   let listDir = if isPattern baseName
+                                 then listMatches
+                                 else listPlain
+                   pathNames <- forM dirs $ \dir -> do
+                                    baseNames <- listDir dir baseName
+                                    return (map (dir </>) baseNames)
+                   return (concat pathNames)
+
+      We use ``splitFileName`` to split the string into a pair of
+      “everything but the final name” and “the final name”. If the first
+      element is empty, we're looking for a pattern in the current
+      directory. Otherwise, we must check the directory name and see if
+      it contains patterns. If it does not, we create a singleton list
+      of the directory name. If it contains a pattern, we list all of
+      the matching directories.
+
+      .. note:: Things to watch out for
+         
+         The ``System.FilePath`` module can be a little tricky.
+         Above is a case in point; the ``splitFileName``
+         function leaves a trailing slash on the end of the
+         directory name that it returns.
+
+         .. code:: screen
+
+            ghci> :module +System.FilePath
+            ghci> splitFileName "foo/bar"
+            Loading package filepath-1.1.0.0 ... linking ... done.
+            ("foo/","bar")
+
+         If we didn't remember (or know enough) to remove that
+         slash, we'd recurse endlessly in ``namesMatching``,
+         because of the following behaviour of
+         ``splitFileName``.
+
+         .. code:: screen
+
+            ghci> splitFileName "foo/"
+            ("foo/","")
+
+         You can guess what happened to us that led us to add
+         this note!
+
+      Finally, we collect all matches in every directory, giving us a
+      list of lists, and concatenate them into a single list of names.
+
+      The unfamiliar ``forM`` function above acts a little like a “for”
+      loop: it maps its second argument (an action) over its first (a
+      list), and returns the list of results.
+
+      We have a few loose ends to clean up. The first is the definition
+      of the ``doesNameExist`` function, used above. The
+      ``System.Directory`` module doesn't let us check to see if a name
+      exists in the filesystem. It forces us to decide whether we want
+      to check for a file or a directory. This API is ungainly, so we
+      roll the two checks into a single function. In the name of
+      performance, we make the check for a file first, since files are
+      far more common than directories.
+
+      .. code:: programlisting
+
+         -- file: ch08/Glob.hs
+         doesNameExist :: FilePath -> IO Bool
+
+         doesNameExist name = do
+             fileExists <- doesFileExist name
+             if fileExists
+               then return True
+               else doesDirectoryExist name
+
+      We have two other functions to define, each of which returns a
+      list of names in a directory. The ``listMatches`` function returns
+      a list of all files matching the given glob pattern in a
+      directory.
+
+      .. code:: programlisting
+
+         -- file: ch08/Glob.hs
+         listMatches :: FilePath -> String -> IO [String]
+         listMatches dirName pat = do
+             dirName' <- if null dirName
+                         then getCurrentDirectory
+                         else return dirName
+             handle (const (return [])) $ do
+                 names <- getDirectoryContents dirName'
+                 let names' = if isHidden pat
+                              then filter isHidden names
+                              else filter (not . isHidden) names
+                 return (filter (`matchesGlob` pat) names')
+
+         isHidden ('.':_) = True
+         isHidden _       = False
+
+      The ``listPlain`` function returns either an empty or singleton
+      list, depending on whether the single name it's passed exists.
+
+      .. code:: programlisting
+
+         -- file: ch08/Glob.hs
+         listPlain :: FilePath -> String -> IO [String]
+         listPlain dirName baseName = do
+             exists <- if null baseName
+                       then doesDirectoryExist dirName
+                       else doesNameExist (dirName </> baseName)
+             return (if exists then [baseName] else [])
+
+      If we look closely at the definition of ``listMatches`` above,
+      we'll see a call to a function named ``handle``. Earlier on, we
+      imported this from the ``Control.Exception`` module; as that
+      import implies, this gives us our first taste of exception
+      handling in Haskell. Let's drop into **ghci** and see what we can
+      find out.
+
+      .. code:: screen
+
+         ghci> :module +Control.Exception
+         ghci> :type handle
+         handle :: (Exception -> IO a) -> IO a -> IO a
+
+      This is telling us that ``handle`` takes two arguments. The first
+      is a function that is passed an exception value, and can have side
+      effects (see the IO type in its return value); this is the handler
+      to run if an exception is thrown. The second argument is the code
+      that might throw an exception.
+
+      As for the exception handler, the type of the ``handle``
+      constrains it to return the same type of value as the body of code
+      that threw the exception. So its choices are to either throw an
+      exception or, as in our case, return a list of Strings.
+
+      The ``const`` function takes two arguments; it always returns its
+      first argument, no matter what its second argument is.
+
+      .. code:: screen
+
+         ghci> :type const
+         const :: a -> b -> a
+         ghci> :type return []
+         return [] :: (Monad m) => m [a]
+         ghci> :type handle (const (return []))
+         handle (const (return [])) :: IO [a] -> IO [a]
+
+      We use ``const`` to write an exception handler that ignores the
+      exception it is passed. Instead, it causes our code to return an
+      empty list if we catch an exception.
+
+      We won't have anything more to say about exception handling here.
+      There's plenty more to cover, though, so we'll be returning to the
+      subject of exceptions in chapter `Chapter 19, Error
+      handling <error-handling.html>`__.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Exercises
+                     :name: id619751
+                     :class: title
+
+         .. container:: qandaset
+
+            .. list-table::
+               :widths: 1
+
+               - 
+
+                  - **1.** Although we've gone to some lengths to write a portable namesMatching function, the function uses our case sensitive globToRegex function. Find a way to modify namesMatching to be case sensitive on Unix, and case insensitive on Windows, without modifying its type signature.
+
+                  Hint: consider reading the documentation for System.FilePath to look for a variable that tells us whether we're running on a Unix-like system, or on Windows.
+               - 
+
+                  - **2.** If you're on a Unix-like system, look through the documentation for the System.Posix.Files module, and see if you can find a replacement for the doesNameExist function.
+               - 
+
+                  - **3.** The * wild card only matches names within a single directory. Many shells have an extended wild card syntax, **, that matches names recursively in all directories. For example, **.c would mean “match a name ending in .c in this directory or any subdirectory at any depth”. Implement matching on ** wildcards.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Handling errors through API design
+                  :name: glob.errapi
+                  :class: title
+
+      It's not necessarily a disaster if our ``globToRegex`` is passed a
+      malformed pattern. Perhaps a user mistyped a pattern, in which
+      case we'd like to be able to report a meaningful error message.
+
+      Calling the ``error`` function when this kind of problem occurs
+      can be a drastic response (exploring its consequences was the
+      focus of exercise
+      `Q: 1 <#ch07.q.error>`__).
+      The ``error`` throws an exception. Pure Haskell code cannot deal
+      with exceptions, so control is going to rocket out of our pure
+      code into the nearest caller that lives in ``IO`` and has an
+      appropriate exception handler installed. If no such handler is
+      installed, the Haskell runtime will default to terminating our
+      program (or print a nasty error message, in **ghci**).
+
+      So calling ``error`` is a little like pulling the handle of a
+      fighter plane's ejection seat. We're bailing out of a catastrophic
+      situation that we can't deal with gracefully, and there's likely
+      to be a lot of flaming wreckage strewn about by the time we hit
+      the ground.
+
+      We've established that ``error`` is for disasters, but we're still
+      using it in ``globToRegex``. In that case, malformed input should
+      be rejected, but not turned into a big deal. What would be a
+      better way to handle this?
+
+      Haskell's type system and libraries to the rescue! We can encode
+      the possibility of failure in the type signature of
+      ``globToRegex``, using the predefined Either type.
+
+      .. code:: programlisting
+
+         -- file: ch08/GlobRegexEither.hs
+         type GlobError = String
+
+         globToRegex :: String -> Either GlobError String
+
+      A value returned by ``globToRegex`` will now be either
+      ``Left "an error message"`` or ``Right "a valid regexp"``. This
+      return type forces our callers to deal with the possibility of
+      error. (You'll find that this use of the Either type occurs
+      frequently in Haskell code.)
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Exercises
+                     :name: id620049
+                     :class: title
+
+         .. container:: qandaset
+
+            .. list-table::
+               :widths: 1
+
+               - 
+
+                  - **1.** Write a version of globToRegex that uses the type signature above.
+
+               - 
+
+                  - **2.** Modify the type signature of namesMatching so that it encodes the possibility of a bad pattern, and make it use your rewritten globToRegex function.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Putting our code to work
+                  :name: glob.work
+                  :class: title
+
+      The ``namesMatching`` function isn't very exciting by itself, but
+      it's a useful building block. Combine it with a few more
+      functions, and we can start to do interesting things.
+
+      Here's one such example. Let's define a ``renameWith`` function
+      that, instead of simply renaming a file, applies a function to the
+      file's name, and renames the file to whatever that function
+      returns.
+
+      .. code:: programlisting
+
+         -- file: ch08/Useful.hs
+         import System.FilePath (replaceExtension)
+         import System.Directory (doesFileExist, renameDirectory, renameFile)
+         import Glob (namesMatching)
+
+         renameWith :: (FilePath -> FilePath)
+                    -> FilePath
+                    -> IO FilePath
+
+         renameWith f path = do
+             let path' = f path
+             rename path path'
+             return path'
+
+      Once again, we work around the ungainly file/directory split in
+      ``System.Directory`` with a helper function.
+
+      .. code:: programlisting
+
+         -- file: ch08/Useful.hs
+         rename :: FilePath -> FilePath -> IO ()
+
+         rename old new = do
+             isFile <- doesFileExist old
+             let f = if isFile then renameFile else renameDirectory
+             f old new
+
+      The ``System.FilePath`` module provides many useful functions for
+      manipulating file names. These functions mesh nicely with our
+      ``renameWith`` and ``namesMatching`` functions, so that we can
+      quickly use them to create functions with complex behaviour. As an
+      example, this terse function changes the file name suffixing
+      convention for C++ source files.
+
+      .. code:: programlisting
+
+         -- file: ch08/Useful.hs
+         cc2cpp =
+           mapM (renameWith (flip replaceExtension ".cpp")) =<< namesMatching "*.cc"
+
+      The ``cc2cpp`` function uses a few functions we'll be seeing over
+      and over. The ``flip`` function takes another function as
+      argument, and swaps the order of its arguments (inspect the type
+      of ``replaceExtension`` in **ghci** to see why). The ``=<<``
+      function feeds the result of the action on its right side to the
+      action on its left.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Exercises
+                  :name: glob.exercises
+                  :class: title
+
+      .. container:: qandaset
+
+         .. list-table::
+            :widths: 1
+
+            - 
+
+               - **1.** Glob patterns are simple enough to interpret that it's easy to write a matcher directly in Haskell, rather than going through the regexp machinery. Give it a try.
+
+   .. container:: footnotes
+
+      .. container:: footnote
+
+         :sup:`[` `26 <#id617121>`__ :sup:`]` If you are not
+         acquainted with regular expressions, we recommend Jeffrey
+         Friedl's book *Mastering Regular Expressions*.
+
+
+.. _sec-9:
+
+/Chapter 9. I/O case study - a library for searching the filesystem `🔼 <#toc>`_
+=================================================================================
+
+.. container:: chapter
+   :name: find
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: Chapter 9. I/O case study: a library for
+               searching the filesystem
+               :name: chapter-9.-io-case-study-a-library-for-searching-the-filesystem
+               :class: title
+
+   .. container:: toc
+
+      **Table of Contents**
+
+      *  `The find command <#find.getRecursiveContents>`__
+      *  `Starting simple: recursively listing a directory <#id620419>`__
+
+         *  `Revisiting anonymous and named functions <#id620646>`__
+         *  `Why provide both mapM and forM? <#id620698>`__
+
+      *  `A naive finding function <#find.simpleFind>`__
+      *  `Predicates: from poverty to riches, while remaining pure <#id621089>`__
+      *  `Sizing a file safely <#id621667>`__
+
+         *  `The acquire-use-release cycle <#find.acquire.use.release>`__
+         *  `Exercises <#id622126>`__
+
+      *  `A domain specific language for predicates <#find.predicate>`__
+
+         *  `Avoiding boilerplate with lifting <#find.predicate.lift>`__
+         *  `Gluing predicates together <#find.predicate.combinator>`__
+         *  `Defining and using new operators <#id622920>`__
+
+      *  `Controlling traversal <#find.traverse>`__
+
+         *  `Exercises <#id623372>`__
+
+      *  `Density, readability, and the learning process <#id623486>`__
+      *  `Another way of looking at traversal <#find.fold>`__
+
+         *  `Exercises <#id624090>`__
+
+      *  `Useful coding guidelines <#id624164>`__
+
+         *  `Common layout styles <#id624278>`__
+
+      *  `Exercises <#id624455>`__
+
+   The problem of “I know I have this file, but I don't know where it
+   is” has been around for as long as computers have had hierarchical
+   filesystems. The fifth edition of Unix introduced the **find**
+   command in 1974; it remains indispensable today. The state of the art
+   has come a long way: modern operating systems ship with advanced
+   document indexing and search capabilities.
+
+   There's still a valuable place for **find**-like capability in the
+   programmer's toolbox. In this chapter, we'll develop a library that
+   gives us many of **find**'s capabilities, without leaving Haskell.
+   We'll explore several different approaches to writing this library,
+   each with different strengths.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: The find command
+                  :name: find.getRecursiveContents
+                  :class: title
+
+      If you don't use a Unix-like operating system, or you're not a
+      heavy shell user, it's quite possible you may not have heard of
+      **find**. Given a list of directories, it searches each one
+      recursively and prints the name of every entry that matches an
+      expression.
+
+      Individual expressions can take such forms as “name matches this
+      glob pattern”, “entry is a plain file”, “last modified before this
+      date”, and many more. They can be stitched together into more
+      complex expressions using “and” and “or” operators.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Starting simple: recursively listing a
+                  directory
+                  :name: id620419
+                  :class: title
+
+      Before we plunge into designing our library, let's solve a few
+      smaller problems. Our first problem is to recursively list the
+      contents of a directory and its subdirectories.
+
+      .. code:: programlisting
+
+         -- file: ch09/RecursiveContents.hs
+         module RecursiveContents (getRecursiveContents) where
+
+         import Control.Monad (forM)
+         import System.Directory (doesDirectoryExist, getDirectoryContents)
+         import System.FilePath ((</>))
+
+         getRecursiveContents :: FilePath -> IO [FilePath]
+
+         getRecursiveContents topdir = do
+           names <- getDirectoryContents topdir
+           let properNames = filter (`notElem` [".", ".."]) names
+           paths <- forM properNames $ \name -> do
+             let path = topdir </> name
+             isDirectory <- doesDirectoryExist path
+             if isDirectory
+               then getRecursiveContents path
+               else return [path]
+           return (concat paths)
+
+      The ``filter`` expression ensures that a listing for a single
+      directory won't contain the special directory names ``.`` or
+      ``..``, which refer to the current and parent directory,
+      respectively. If we forgot to filter these out, we'd recurse
+      endlessly.
+
+      We encountered ``forM`` in the previous chapter; it is ``mapM``
+      with its arguments flipped.
+
+      .. code:: screen
+
+         ghci> :m +Control.Monad
+         ghci> :type mapM
+         mapM :: (Monad m) => (a -> m b) -> [a] -> m [b]
+         ghci> :type forM
+         forM :: (Monad m) => [a] -> (a -> m b) -> m [b]
+
+      The body of the loop checks to see whether the current entry is a
+      directory. If it is, it recursively calls ``getRecursiveContents``
+      to list that directory. Otherwise, it returns a single-element
+      list that is the name of the current entry. (Don't forget that the
+      ``return`` function has a unique meaning in Haskell: it wraps a
+      value with the monad's type constructor.)
+
+      Another thing worth pointing out is the use of the variable
+      ``isDirectory``. In an imperative language such as Python, we'd
+      normally write ``if os.path.isdir(path)``. However, the
+      ``doesDirectoryExist`` function is an *action*; its return type is
+      IO Bool, not Bool. Since an ``if`` expression requires an
+      expression of type Bool, we have to use ``<-`` to get the Bool
+      result of the action out of its IO wrapper, so that we can use the
+      plain, unwrapped Bool in the ``if``.
+
+      Each iteration of the loop body yields a list of names, so the
+      result of ``forM`` here is IO [[FilePath]]. We use ``concat`` to
+      flatten it into a single list.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Revisiting anonymous and named functions
+                     :name: id620646
+                     :class: title
+
+         In `the section called “Anonymous (lambda)
+         functions” <functional-programming.html#fp.anonymous>`__, we
+         listed some reasons not to use anonymous functions, and yet
+         here we are, using one as the body of a loop. This is one of
+         the most common uses of anonymous functions in Haskell.
+
+         We've already seen from their types that ``forM`` and ``mapM``
+         take functions as arguments. Most loop bodies are blocks of
+         code that only appear once in a program. Since we're most
+         likely to use a loop body in only one place, why give it a
+         name?
+
+         Of course, it sometimes happens that we need to deploy exactly
+         the same code in several different loops. Rather than cutting
+         and pasting the same anonymous function, it makes sense in such
+         cases to give a name to an existing anonymous function.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Why provide both mapM and forM?
+                     :name: id620698
+                     :class: title
+
+         It might seem a bit odd that there exist two functions that are
+         identical but for the order in which they accept their
+         arguments. However, ``mapM`` and ``forM`` are convenient in
+         different circumstances.
+
+         Consider our example above, using an anonymous function as a
+         loop body. If we were to use ``mapM`` instead of ``forM``, we'd
+         have to place the variable ``properNames`` after the body of
+         the function. In order to get the code to parse correctly, we'd
+         have to wrap the entire anonymous function in parentheses, or
+         replace it with a named function that would otherwise be
+         unnecessary. Try it yourself: copy the code above, replacing
+         ``forM`` with ``mapM``, and see what this does to the
+         readability of the code.
+
+         By contrast, if the body of the loop was already a named
+         function, and the list over which we were looping was computed
+         by a complicated expression, we'd have a good case for using
+         ``mapM`` instead.
+
+         The stylistic rule of thumb to follow here is to use whichever
+         of ``mapM`` or ``forM`` lets you write the tidiest code. If the
+         loop body and the expression computing the data over which
+         you're looping are both short, it doesn't matter which you use.
+         If the loop is short, but the data is long, use ``mapM``. If
+         the loop is long, but the data short, use ``forM``. And if both
+         are long, use a ``let`` or ``where`` clause to make one of them
+         short. With just a little practice, it will become obvious
+         which of these approaches is best in every instance.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: A naive finding function
+                  :name: find.simpleFind
+                  :class: title
+
+      We can use our ``getRecursiveContents`` function as the basis for
+      a simple-minded file finder.
+
+      .. code:: programlisting
+
+         -- file: ch09/SimpleFinder.hs
+         import RecursiveContents (getRecursiveContents)
+
+         simpleFind :: (FilePath -> Bool) -> FilePath -> IO [FilePath]
+
+         simpleFind p path = do
+           names <- getRecursiveContents path
+           return (filter p names)
+
+      This function takes a predicate that we use to filter the names
+      returned by ``getRecursiveContents``. Each name passed to the
+      predicate is a complete path, so how can we perform a common
+      operation like “find all files ending in the extension ``.c``”?
+
+      The ``System.FilePath`` module contains numerous invaluable
+      functions that help us to manipulate file names. In this case, we
+      want ``takeExtension``.
+
+      .. code:: screen
+
+         ghci> :m +System.FilePath
+         ghci> :type takeExtension
+         takeExtension :: FilePath -> String
+         ghci> takeExtension "foo/bar.c"
+         Loading package filepath-1.1.0.0 ... linking ... done.
+         ".c"
+         ghci> takeExtension "quux"
+         ""
+
+      This gives us a simple matter of writing a function that takes a
+      path, extracts its extension, and compares it with ``.c``.
+
+      .. code:: screen
+
+         ghci> :load SimpleFinder
+         [1 of 2] Compiling RecursiveContents ( RecursiveContents.hs, interpreted )
+         [2 of 2] Compiling Main             ( SimpleFinder.hs, interpreted )
+         Ok, modules loaded: RecursiveContents, Main.
+         ghci> :type simpleFind (\p -> takeExtension p == ".c")
+         simpleFind (\p -> takeExtension p == ".c") :: FilePath -> IO [FilePath]
+
+      While ``simpleFind`` works, it has a few glaring problems. The
+      first is that the predicate is not very expressive. It can only
+      look at the name of a directory entry; it cannot, for example,
+      find out whether it's a file or a directory. This means that our
+      attempt to use ``simpleFind`` will list directories ending in
+      ``.c`` as well as files with the same extension.
+
+      The second problem is that ``simpleFind`` gives us no control over
+      how it traverses the filesystem. To see why this is significant,
+      consider the problem of searching for a source file in a tree
+      managed by the Subversion revision control system. Subversion
+      maintains a private ``.svn`` directory in every directory that it
+      manages; each one contains many subdirectories and files that are
+      of no interest to us. While we can easily enough filter out any
+      path containing ``.svn``, it's more efficient to simply avoid
+      traversing these directories in the first place. For example, one
+      of us has a Subversion source tree containing 45,000 files, 30,000
+      of which are stored in 1,200 different ``.svn`` directories. It's
+      cheaper to avoid traversing those 1,200 directories than to filter
+      out the 30,000 files they contain.
+
+      Finally, ``simpleFind`` is strict, because it consists of a series
+      of actions executed in the IO monad. If we have a million files to
+      traverse, we encounter a long delay, then receive one huge result
+      containing a million names. This is bad for both resource usage
+      and responsiveness. We might prefer a lazy stream of results
+      delivered as they arrive.
+
+      In the sections that follow, we'll overcome each one of these
+      problems.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Predicates: from poverty to riches, while
+                  remaining pure
+                  :name: id621089
+                  :class: title
+
+      Our predicates can only look at file names. This excludes a wide
+      variety of interesting behaviours: for instance, what if we'd like
+      to list files of greater than a given size?
+
+      An easy reaction to this is to reach for IO: instead of our
+      predicate being of type FilePath -> Bool, why don't we change it
+      to FilePath -> IO Bool? This would let us perform arbitrary I/O as
+      part of our predicate. As appealing as this might seem, it's also
+      potentially a problem: such a predicate could have arbitrary side
+      effects, since a function with return type IO a can have whatever
+      side effects it pleases.
+
+      Let's enlist the type system in our quest to write more
+      predictable, less buggy code: we'll keep predicates pure by
+      avoiding the taint of “IO”. This will ensure that they can't have
+      any nasty side effects. We'll feed them more information, too, so
+      that they can gain the expressiveness we want without also
+      becoming potentially dangerous.
+
+      Haskell's portable ``System.Directory`` module provides a useful,
+      albeit limited, set of file metadata.
+
+      .. code:: screen
+
+         ghci> :m +System.Directory
+
+      .. container:: itemizedlist
+
+         -  We can use ``doesFileExist`` and ``doesDirectoryExist`` to
+            determine whether a directory entry is a file or a
+            directory. There are not yet portable ways to query for
+            other file types that have become widely available in recent
+            years, such as named pipes, hard links and symbolic links.
+
+            .. code:: screen
+
+               ghci> :type doesFileExist
+               doesFileExist :: FilePath -> IO Bool
+               ghci> doesFileExist "."
+               Loading package old-locale-1.0.0.0 ... linking ... done.
+               Loading package old-time-1.0.0.0 ... linking ... done.
+               Loading package directory-1.0.0.0 ... linking ... done.
+               False
+               ghci> :type doesDirectoryExist
+               doesDirectoryExist :: FilePath -> IO Bool
+               ghci> doesDirectoryExist "."
+               True
+
+         -  The ``getPermissions`` function lets us find out whether
+            certain operations on a file or directory are allowed.
+
+            .. code:: screen
+
+               ghci> :type getPermissions
+               getPermissions :: FilePath -> IO Permissions
+               ghci> :info Permissions
+               data Permissions
+                 = Permissions {readable :: Bool,
+                                writable :: Bool,
+                                executable :: Bool,
+                                searchable :: Bool}
+                   -- Defined in System.Directory
+               instance Eq Permissions -- Defined in System.Directory
+               instance Ord Permissions -- Defined in System.Directory
+               instance Read Permissions -- Defined in System.Directory
+               instance Show Permissions -- Defined in System.Directory
+               ghci> getPermissions "."
+               Permissions {readable = True, writable = True, executable = False, searchable = True}
+               ghci> :type searchable
+               searchable :: Permissions -> Bool
+               ghci> searchable it
+               True
+
+            (If you cannot recall the special **ghci** variable ``it``,
+            take a look back at `the section called “First steps with
+            types” <getting-started.html#starting.types>`__.) A
+            directory will be ``searchable`` if we have permission to
+            list its contents; files are never ``searchable``.
+
+         -  Finally, ``getModificationTime`` tells us when an entry was
+            last modified.
+
+            .. code:: screen
+
+               ghci> :type getModificationTime
+               getModificationTime :: FilePath -> IO System.Time.ClockTime
+               ghci> getModificationTime "."
+               Mon Aug 18 12:08:24 CDT 2008
+
+      If we stick with portable, standard Haskell code, these functions
+      are all we have at our disposal. (We can also find a file's size
+      using a small hack; see below.) They're also quite enough to let
+      us illustrate the principles we're interested in, without letting
+      us get carried away with an example that's too expansive. If you
+      need to write more demanding code, the ``System.Posix`` and
+      ``System.Win32`` module families provide much more detailed file
+      metadata for the two major modern computing platforms. There also
+      exists a ``unix-compat`` package on Hackage, which provides a
+      Unix-like API on Windows.
+
+      How many pieces of data does our new, richer predicate need to
+      see? Since we can find out whether an entry is a file or a
+      directory by looking at its Permissions, we don't need to pass in
+      the results of ``doesFileExist`` or ``doesDirectoryExist``. We
+      thus have four pieces of data that a richer predicate needs to
+      look at.
+
+      .. code:: programlisting
+
+         -- file: ch09/BetterPredicate.hs
+         import Control.Monad (filterM)
+         import System.Directory (Permissions(..), getModificationTime, getPermissions)
+         import System.Time (ClockTime(..))
+         import System.FilePath (takeExtension)
+         import Control.Exception (bracket, handle)
+         import System.IO (IOMode(..), hClose, hFileSize, openFile)
+
+         -- the function we wrote earlier
+         import RecursiveContents (getRecursiveContents)
+
+         type Predicate =  FilePath      -- path to directory entry
+                        -> Permissions   -- permissions
+                        -> Maybe Integer -- file size (Nothing if not file)
+                        -> ClockTime     -- last modified
+                        -> Bool
+
+      Our Predicate type is just a synonym for a function of four
+      arguments. It will save us a little keyboard work and screen
+      space.
+
+      Notice that the return value of this predicate is Bool, not IO
+      Bool: the predicate is pure, and cannot perform I/O. With this
+      type in hand, our more expressive finder function is still quite
+      trim.
+
+      .. code:: programlisting
+
+         -- file: ch09/BetterPredicate.hs
+         -- soon to be defined
+         getFileSize :: FilePath -> IO (Maybe Integer)
+
+         betterFind :: Predicate -> FilePath -> IO [FilePath]
+
+         betterFind p path = getRecursiveContents path >>= filterM check
+             where check name = do
+                     perms <- getPermissions name
+                     size <- getFileSize name
+                     modified <- getModificationTime name
+                     return (p name perms size modified)
+
+      Let's walk through the code. We'll talk about ``getFileSize`` in
+      some detail soon, so let's skip over it for now.
+
+      We can't use ``filter`` to call our predicate ``p``, as ``p``'s
+      purity means it cannot do the I/O needed to gather the metadata it
+      requires.
+
+      This leads us to the unfamiliar function ``filterM``. It behaves
+      like the normal ``filter`` function, but in this case it evaluates
+      its predicate in the IO monad, allowing the predicate to perform
+      I/O.
+
+      .. code:: screen
+
+         ghci> :m +Control.Monad
+         ghci> :type filterM
+         filterM :: (Monad m) => (a -> m Bool) -> [a] -> m [a]
+
+      Our ``check`` predicate is an I/O-capable wrapper for our pure
+      predicate ``p``. It does all the “dirty” work of I/O on ``p``'s
+      behalf, so that we can keep ``p`` incapable of unwanted side
+      effects. After gathering the metadata, ``check`` calls ``p``, then
+      uses ``return`` to wrap ``p``'s result with IO.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Sizing a file safely
+                  :name: id621667
+                  :class: title
+
+      Although ``System.Directory`` doesn't let us find out how large a
+      file is, we can use the similarly portable ``System.IO`` module to
+      do this. It contains a function named ``hFileSize``, which returns
+      the size in bytes of an open file. Here's a simple function that
+      wraps it.
+
+      .. code:: programlisting
+
+         -- file: ch09/BetterPredicate.hs
+         simpleFileSize :: FilePath -> IO Integer
+
+         simpleFileSize path = do
+           h <- openFile path ReadMode
+           size <- hFileSize h
+           hClose h
+           return size
+
+      While this function works, it's not yet suitable for us to use. In
+      ``betterFind``, we call ``getFileSize`` unconditionally on any
+      directory entry; it should return ``Nothing`` if an entry is not a
+      plain file, or the size wrapped by ``Just`` otherwise. This
+      function instead throws an exception if an entry is not a plain
+      file or could not be opened (perhaps due to insufficient
+      permissions), and returns the size unwrapped.
+
+      Here's a safer version of this function.
+
+      .. code:: programlisting
+
+         -- file: ch09/BetterPredicate.hs
+         saferFileSize :: FilePath -> IO (Maybe Integer)
+
+         saferFileSize path = handle (\_ -> return Nothing) $ do
+           h <- openFile path ReadMode
+           size <- hFileSize h
+           hClose h
+           return (Just size)
+
+      The body of the function is almost identical, save for the
+      ``handle`` clause.
+
+      Our exception handler above ignores the exception it's passed, and
+      returns ``Nothing``. The only change to the body that follows is
+      that it wraps the file size with ``Just``.
+
+      The ``saferFileSize`` function now has the correct type signature,
+      and it won't throw any exceptions. But it's still not completely
+      well behaved. There are directory entries on which ``openFile``
+      will succeed, but ``hFileSize`` will throw an exception. This can
+      happen with, for example, named pipes. Such an exception will be
+      caught by ``handle``, but our call to ``hClose`` will never occur.
+
+      A Haskell implementation will automatically close the file handle
+      when it notices that the handle is no longer being used. That will
+      not occur until the garbage collector runs, and the delay until
+      the next garbage collection pass is not predictable.
+
+      File handles are scarce resources. Their scarcity is enforced by
+      the underlying operating system. On Linux, for example, a process
+      is by default only allowed to have 1024 files open simultaneously.
+
+      It's not hard to imagine a scenario in which a program that called
+      a version of ``betterFind`` that used ``saferFileSize`` could
+      crash due to ``betterFind`` exhausting the supply of open file
+      handles before enough garbage file handles could be closed.
+
+      This is a particularly pernicious kind of bug: it has several
+      aspects that combine to make it incredibly difficult to track
+      down. It will only be triggered if ``betterFind`` visits a
+      sufficiently large number of non-files to hit the process's limit
+      on open file handles, and then returns to a caller that tries to
+      open another file before any of the accumulated garbage file
+      handles is closed.
+
+      To make matters worse, any subsequent error will be caused by data
+      that is no longer reachable from within the program, and has yet
+      to be garbage collected. Such a bug is thus dependent on the
+      structure of the program, the contents of the filesystem, and how
+      close the current run of the program is to triggering the garbage
+      collector.
+
+      This sort of problem is easy to overlook during development, and
+      when it later occurs in the field (as these awkward problems
+      always seem to do), it will be much harder to diagnose.
+
+      Fortunately, we can avoid this kind of error very easily, while
+      also making our function *shorter*.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: The acquire-use-release cycle
+                     :name: find.acquire.use.release
+                     :class: title
+
+         We need ``hClose`` to always be called if ``openFile``
+         succeeds. The ``Control.Exception`` module provides the
+         ``bracket`` function for exactly this purpose.
+
+         .. code:: screen
+
+            ghci> :type bracket
+            bracket :: IO a -> (a -> IO b) -> (a -> IO c) -> IO c
+
+         The ``bracket`` function takes three actions as arguments. The
+         first action acquires a resource. The second releases the
+         resource. The third runs in between, while the resource is
+         acquired; let's call this the “use” action. If the “acquire”
+         action succeeds, the “release” action is *always* called. This
+         guarantees that the resource will always be released. The “use”
+         and “release” actions are each passed the resource acquired by
+         the “acquire” action.
+
+         If an exception occurs while the “use” action is executing,
+         ``bracket`` calls the “release” action and rethrows the
+         exception. If the “use” action succeeds, ``bracket`` calls the
+         “release” action, and returns the value returned by the “use”
+         action.
+
+         We can now write a function that is completely safe: it will
+         not throw exceptions; neither will it accumulate garbage file
+         handles that could cause spurious failures elsewhere in our
+         program.
+
+         .. code:: programlisting
+
+            -- file: ch09/BetterPredicate.hs
+            getFileSize path = handle (\_ -> return Nothing) $
+              bracket (openFile path ReadMode) hClose $ \h -> do
+                size <- hFileSize h
+                return (Just size)
+
+         Look closely at the arguments of ``bracket`` above. The first
+         opens the file, and returns the open file handle. The second
+         closes the handle. The third simply calls ``hFileSize`` on the
+         handle and wraps the result in ``Just``.
+
+         We need to use both ``bracket`` and ``handle`` for this
+         function to operate correctly. The former ensures that we don't
+         accumulate garbage file handles, while the latter gets rid of
+         exceptions.
+
+         .. container:: sect3
+
+            .. container:: titlepage
+
+               .. container::
+
+                  .. container::
+
+                     .. rubric:: Exercises
+                        :name: id622126
+                        :class: title
+
+            .. container:: qandaset
+
+               .. list-table::
+                  :widths: 1
+
+                  - 
+
+                     - **1.** Is the order in which we call bracket and handle important? Why?
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: A domain specific language for predicates
+                  :name: find.predicate
+                  :class: title
+
+      Let's take a stab at writing a predicate. Our predicate will check
+      for a C++ source file that is over 128KB in size.
+
+      .. code:: programlisting
+
+         -- file: ch09/BetterPredicate.hs
+         myTest path _ (Just size) _ =
+             takeExtension path == ".cpp" && size > 131072
+         myTest _ _ _ _ = False
+
+      This isn't especially pleasing. The predicate takes four
+      arguments, always ignores two of them, and requires two equations
+      to define. Surely we can do better. Let's create some code that
+      will help us to write more concise predicates.
+
+      Sometimes, this kind of library is referred to as an *embedded
+      domain specific language*: we use our programming language's
+      native facilities (hence *embedded*) to write code that lets us
+      solve some narrow problem (hence *domain specific*) particularly
+      elegantly.
+
+      Our first step is to write a function that returns one of its
+      arguments. This one extracts the path from the arguments passed to
+      a Predicate.
+
+      .. code:: programlisting
+
+         -- file: ch09/BetterPredicate.hs
+         pathP path _ _ _ = path
+
+      If we don't provide a type signature, a Haskell implementation
+      will infer a very general type for this function. This can later
+      lead to error messages that are difficult to interpret, so let's
+      give ``pathP`` a type.
+
+      .. code:: programlisting
+
+         -- file: ch09/BetterPredicate.hs
+         type InfoP a =  FilePath        -- path to directory entry
+                      -> Permissions     -- permissions
+                      -> Maybe Integer   -- file size (Nothing if not file)
+                      -> ClockTime       -- last modified
+                      -> a
+
+         pathP :: InfoP FilePath
+
+      We've created a type synonym that we can use as shorthand for
+      writing other, similarly structured functions. Our type synonym
+      accepts a type parameter so that we can specify different result
+      types.
+
+      .. code:: programlisting
+
+         -- file: ch09/BetterPredicate.hs
+         sizeP :: InfoP Integer
+         sizeP _ _ (Just size) _ = size
+         sizeP _ _ Nothing     _ = -1
+
+      (We're being a little sneaky here, and returning a size of -1 for
+      entries that are not files, or that we couldn't open.)
+
+      In fact, a quick glance shows that the Predicate type that we
+      defined near the beginning of this chapter is the same type as
+      InfoP Bool. (We could thus legitimately get rid of the Predicate
+      type.)
+
+      What use are ``pathP`` and ``sizeP``? With a little more glue, we
+      can use them in a predicate (the ``P`` suffix on each name is
+      intended to suggest “predicate”). This is where things start to
+      get interesting.
+
+      .. code:: programlisting
+
+         -- file: ch09/BetterPredicate.hs
+         equalP :: (Eq a) => InfoP a -> a -> InfoP Bool
+         equalP f k = \w x y z -> f w x y z == k
+
+      The type signature of ``equalP`` deserves a little attention. It
+      takes an InfoP a, which is compatible with both ``pathP`` and
+      ``sizeP``. It takes an a. And it returns an InfoP Bool, which we
+      already observed is a synonym for Predicate. In other words,
+      ``equalP`` constructs a predicate.
+
+      The ``equalP`` function works by returning an anonymous function.
+      That one takes the arguments accepted by a predicate, passes them
+      to ``f``, and compares the result to ``k``.
+
+      This equation for ``equalP`` emphasises the fact that we think of
+      it as taking two arguments. Since Haskell curries all functions,
+      writing ``equalP`` in this way is not actually necessary. We can
+      omit the anonymous function and rely on currying to work on our
+      behalf, letting us write a function that behaves identically.
+
+      .. code:: programlisting
+
+         -- file: ch09/BetterPredicate.hs
+         equalP' :: (Eq a) => InfoP a -> a -> InfoP Bool
+         equalP' f k w x y z = f w x y z == k
+
+      Before we continue with our explorations, let's load our module
+      into **ghci**.
+
+      .. code:: screen
+
+         ghci> :load BetterPredicate
+         [1 of 2] Compiling RecursiveContents ( RecursiveContents.hs, interpreted )
+         [2 of 2] Compiling Main             ( BetterPredicate.hs, interpreted )
+         Ok, modules loaded: RecursiveContents, Main.
+
+      Let's see if a simple predicate constructed from these functions
+      will work.
+
+      .. code:: screen
+
+         ghci> :type betterFind (sizeP `equalP` 1024)
+         betterFind (sizeP `equalP` 1024) :: FilePath -> IO [FilePath]
+
+      Notice that we're not actually calling ``betterFind``, we're
+      merely making sure that our expression typechecks. We now have a
+      more expressive way to list all files that are exactly some size.
+      Our success gives us enough confidence to continue.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Avoiding boilerplate with lifting
+                     :name: find.predicate.lift
+                     :class: title
+
+         Besides ``equalP``, we'd like to be able to write other binary
+         functions. We'd prefer not to write a complete definition of
+         each one, because that seems unnecessarily verbose.
+
+         To address this, let's put Haskell's powers of abstraction to
+         use. We'll take the definition of ``equalP``, and instead of
+         calling ``(==)`` directly, we'll pass in as another argument
+         the binary function that we want to call.
+
+         .. code:: programlisting
+
+            -- file: ch09/BetterPredicate.hs
+            liftP :: (a -> b -> c) -> InfoP a -> b -> InfoP c
+            liftP q f k w x y z = f w x y z `q` k
+
+            greaterP, lesserP :: (Ord a) => InfoP a -> a -> InfoP Bool
+            greaterP = liftP (>)
+            lesserP = liftP (<)
+
+         This act of taking a function, such as ``(>)``, and
+         transforming it into another function that operates in a
+         different context, here ``greaterP``, is referred to as
+         *lifting* it into that context. This explains the presence of
+         ``lift`` in the function's name. Lifting lets us reuse code and
+         reduce boilerplate. We'll be using it a lot, in different
+         guises, throughout the rest of this book.
+
+         When we lift a function, we'll often refer to its original and
+         new versions as *unlifted* and *lifted*, respectively.
+
+         By the way, our placement of ``q`` (the function to lift) as
+         the first argument to ``liftP`` was quite deliberate. This made
+         it possible for us to write such concise definitions of
+         ``greaterP`` and ``lesserP``. Partial application makes finding
+         the “best” order for arguments a more important part of API
+         design in Haskell than in other languages. In languages without
+         partial application, argument ordering is a matter of taste and
+         convention. Put an argument in the wrong place in Haskell,
+         however, and we lose the concision that partial application
+         gives.
+
+         We can recover some of that conciseness via combinators. For
+         instance, ``forM`` was not added to the ``Control.Monad``
+         module until 2007. Prior to that, people wrote ``flip mapM``
+         instead.
+
+         .. code:: screen
+
+            ghci> :m +Control.Monad
+            ghci> :t mapM
+            mapM :: (Monad m) => (a -> m b) -> [a] -> m [b]
+            ghci> :t forM
+            forM :: (Monad m) => [a] -> (a -> m b) -> m [b]
+            ghci> :t flip mapM
+            flip mapM :: (Monad m) => [a] -> (a -> m b) -> m [b]
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Gluing predicates together
+                     :name: find.predicate.combinator
+                     :class: title
+
+         If we want to combine predicates, we can of course follow the
+         obvious path of doing so by hand.
+
+         .. code:: programlisting
+
+            -- file: ch09/BetterPredicate.hs
+            simpleAndP :: InfoP Bool -> InfoP Bool -> InfoP Bool
+            simpleAndP f g w x y z = f w x y z && g w x y z
+
+         Now that we know about lifting, it becomes more natural to
+         reduce the amount of code we must write by lifting our existing
+         Boolean operators.
+
+         .. code:: programlisting
+
+            -- file: ch09/BetterPredicate.hs
+            liftP2 :: (a -> b -> c) -> InfoP a -> InfoP b -> InfoP c
+            liftP2 q f g w x y z = f w x y z `q` g w x y z
+
+            andP = liftP2 (&&)
+            orP = liftP2 (||)
+
+         Notice that ``liftP2`` is very similar to our earlier
+         ``liftP``. In fact, it's more general, because we can write
+         ``liftP`` in terms of ``liftP2``.
+
+         .. code:: programlisting
+
+            -- file: ch09/BetterPredicate.hs
+            constP :: a -> InfoP a
+            constP k _ _ _ _ = k
+
+            liftP' q f k w x y z = f w x y z `q` constP k w x y z
+
+         .. note:: Combinators
+            
+            In Haskell, we refer to functions that take other
+            functions as arguments, returning new functions, as
+            *combinators*.
+
+         Now that we have some helper functions in place, we can return
+         to the ``myTest`` function we defined earlier.
+
+         .. code:: programlisting
+
+            -- file: ch09/BetterPredicate.hs
+            myTest path _ (Just size) _ =
+                takeExtension path == ".cpp" && size > 131072
+            myTest _ _ _ _ = False
+
+         How will this function look if we write it using our new
+         combinators?
+
+         .. code:: programlisting
+
+            -- file: ch09/BetterPredicate.hs
+            liftPath :: (FilePath -> a) -> InfoP a
+            liftPath f w _ _ _ = f w
+
+            myTest2 = (liftPath takeExtension `equalP` ".cpp") `andP`
+                      (sizeP `greaterP` 131072)
+
+         We've added one final combinator, ``liftPath``, since
+         manipulating file names is such a common activity.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Defining and using new operators
+                     :name: id622920
+                     :class: title
+
+         We can take our domain specific language further by defining
+         new infix operators.
+
+         .. code:: programlisting
+
+            -- file: ch09/BetterPredicate.hs
+            (==?) = equalP
+            (&&?) = andP
+            (>?) = greaterP
+
+            myTest3 = (liftPath takeExtension ==? ".cpp") &&? (sizeP >? 131072)
+
+         We chose names like ``(==?)`` for the lifted functions
+         specifically for their visual similarity to their unlifted
+         counterparts.
+
+         The parentheses in our definition above are necessary, because
+         we haven't told Haskell about the precedence or associativity
+         of our new operators. The language specifies that operators
+         without fixity declarations should be treated as ``infixl 9``,
+         i.e. they are evaluated from left to right at the highest
+         precedence level. If we were to omit the parentheses, the
+         expression would thus be parsed as
+         ``(((liftPath takeExtension) ==? ".cpp") &&? sizeP) >? 131072``,
+         which is horribly wrong.
+
+         We can respond by writing fixity declarations for our new
+         operators. Our first step is to find out what the fixities of
+         the unlifted operators are, so that we can mimic them.
+
+         .. code:: screen
+
+            ghci> :info ==
+            class Eq a where
+              (==) :: a -> a -> Bool
+              ...
+                -- Defined in GHC.Base
+            infix 4 ==
+            ghci> :info &&
+            (&&) :: Bool -> Bool -> Bool  -- Defined in GHC.Base
+            infixr 3 &&
+            ghci> :info >
+            class (Eq a) => Ord a where
+              ...
+              (>) :: a -> a -> Bool
+              ...
+                -- Defined in GHC.Base
+            infix 4 >
+
+         With these in hand, we can now write a parenthesis-free
+         expression that will be parsed identically to ``myTest3``.
+
+         .. code:: programlisting
+
+            -- file: ch09/BetterPredicate.hs
+            infix 4 ==?
+            infixr 3 &&?
+            infix 4 >?
+
+            myTest4 = liftPath takeExtension ==? ".cpp" &&? sizeP >? 131072
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Controlling traversal
+                  :name: find.traverse
+                  :class: title
+
+      When traversing the filesystem, we'd like to give ourselves more
+      control over which directories we enter, and when. An easy way in
+      which we can allow this is to pass in a function that takes a list
+      of subdirectories of a given directory, and returns another list.
+      This list can have elements removed, or it can be ordered
+      differently than the original list, or both. The simplest such
+      control function is ``id``, which will return its input list
+      unmodified.
+
+      For variety, we're going to change a few aspects of our
+      representation here. Instead of an elaborate function type InfoP
+      a, we'll use a normal algebraic data type to represent
+      substantially the same information.
+
+      .. code:: programlisting
+
+         -- file: ch09/ControlledVisit.hs
+         data Info = Info {
+               infoPath :: FilePath
+             , infoPerms :: Maybe Permissions
+             , infoSize :: Maybe Integer
+             , infoModTime :: Maybe ClockTime
+             } deriving (Eq, Ord, Show)
+
+         getInfo :: FilePath -> IO Info
+
+      We're using record syntax to give ourselves “free” accessor
+      functions, such as ``infoPath``. The type of our ``traverse``
+      function is simple, as we proposed above. To obtain Info about a
+      file or directory, we call the ``getInfo`` action.
+
+      .. code:: programlisting
+
+         -- file: ch09/ControlledVisit.hs
+         traverse :: ([Info] -> [Info]) -> FilePath -> IO [Info]
+
+      The definition of ``traverse`` is short, but dense.
+
+      .. code:: programlisting
+
+         -- file: ch09/ControlledVisit.hs
+         traverse order path = do
+             names <- getUsefulContents path
+             contents <- mapM getInfo (path : map (path </>) names)
+             liftM concat $ forM (order contents) $ \info -> do
+               if isDirectory info && infoPath info /= path
+                 then traverse order (infoPath info)
+                 else return [info]
+
+         getUsefulContents :: FilePath -> IO [String]
+         getUsefulContents path = do
+             names <- getDirectoryContents path
+             return (filter (`notElem` [".", ".."]) names)
+
+         isDirectory :: Info -> Bool
+         isDirectory = maybe False searchable . infoPerms
+
+      While we're not introducing any new techniques here, this is one
+      of the densest function definitions we've yet encountered. Let's
+      walk through it almost line by line, explaining what is going on.
+      The first couple of lines hold no mystery, as they're almost
+      verbatim copies of code we've already seen.
+
+      Things begin to get interesting when we assign to the variable
+      ``contents``. Let's read this line from right to left. We already
+      know that ``names`` is a list of directory entries. We make sure
+      that the current directory is prepended to every element of the
+      list, and included in the list itself. We use ``mapM`` to apply
+      ``getInfo`` to the resulting paths.
+
+      The line that follows is even more dense. Again reading from right
+      to left, we see that the last element of the line begins the
+      definition of an anonymous function that continues to the end of
+      the paragraph. Given one Info value, this function either visits a
+      directory recursively (there's an extra check to make sure we
+      don't visit ``path`` again), or returns that value as a
+      single-element list (to match the result type of ``traverse``).
+
+      We use ``forM`` to apply this function to each element of the list
+      of Info values returned by ``order``, the user-supplied traversal
+      control function.
+
+      At the beginning of the line, we use the technique of lifting in a
+      new context. The ``liftM`` function takes a regular function,
+      ``concat``, and lifts it into the IO monad. In other words, it
+      takes the result of ``forM`` (of type IO [[Info]]) out of the IO
+      monad, applies ``concat`` to it (yielding a result of type [Info],
+      which is what we need), and puts the result back into the IO
+      monad.
+
+      Finally, we mustn't forget to define our ``getInfo`` function.
+
+      .. code:: programlisting
+
+         -- file: ch09/ControlledVisit.hs
+         maybeIO :: IO a -> IO (Maybe a)
+         maybeIO act = handle (\_ -> return Nothing) (Just `liftM` act)
+
+         getInfo path = do
+           perms <- maybeIO (getPermissions path)
+           size <- maybeIO (bracket (openFile path ReadMode) hClose hFileSize)
+           modified <- maybeIO (getModificationTime path)
+           return (Info path perms size modified)
+
+      The only noteworthy thing here is a useful combinator,
+      ``maybeIO``, which turns an IO action that might throw an
+      exception into one that wraps its result in Maybe.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Exercises
+                     :name: id623372
+                     :class: title
+
+         .. container:: qandaset
+
+            .. list-table::
+               :widths: 1
+
+               - 
+
+                  - **1.** What should you pass to traverse to traverse a directory tree in reverse alphabetic order? No 
+               - 
+
+                  - **2.** Using id as a control function, traverse id performs a preorder traversal of a tree: it returns a parent directory before its children. Write a control function that makes traverse perform a postorder traversal, in which it returns children before their parent. 
+               - 
+
+                  - **3.** Take the predicates and combinators from the section called “Gluing predicates together” and make them work with our new Info type. 
+               - 
+
+                  - **4.** Write a wrapper for traverse that lets you control traversal using one predicate, and filter results using another.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Density, readability, and the learning
+                  process
+                  :name: id623486
+                  :class: title
+
+      Code as dense as ``traverse`` is not unusual in Haskell. The gain
+      in expressiveness is significant, and it requires a relatively
+      small amount of practice to be able to fluently read and write
+      code in this style.
+
+      For comparison, here's a less dense presentation of the same code.
+      This might be more typical of a less experienced Haskell
+      programmer.
+
+      .. code:: programlisting
+
+         -- file: ch09/ControlledVisit.hs
+         traverseVerbose order path = do
+             names <- getDirectoryContents path
+             let usefulNames = filter (`notElem` [".", ".."]) names
+             contents <- mapM getEntryName ("" : usefulNames)
+             recursiveContents <- mapM recurse (order contents)
+             return (concat recursiveContents)
+           where getEntryName name = getInfo (path </> name)
+                 isDirectory info = case infoPerms info of
+                                      Nothing -> False
+                                      Just perms -> searchable perms
+                 recurse info = do
+                     if isDirectory info && infoPath info /= path
+                         then traverseVerbose order (infoPath info)
+                         else return [info]
+
+      All we've done here is make a few substitutions. Instead of
+      liberally using partial application and function composition,
+      we've defined some local functions in a ``where`` block. In place
+      of the ``maybe`` combinator, we're using a ``case`` expression.
+      And instead of using ``liftM``, we're manually lifting ``concat``
+      ourselves.
+
+      This is not to say that density is a uniformly good property. Each
+      line of the original ``traverse`` function is short. We introduce
+      a local variable (``usefulNames``) and a local function
+      (``isDirectory``) specifically to keep the lines short and the
+      code clearer. Our names are descriptive. While we use function
+      composition and pipelining, the longest pipeline contains only
+      three elements.
+
+      The key to writing maintainable Haskell code is to find a balance
+      between density and readability. Where your code falls on this
+      continuum is likely to be influenced by your level of experience.
+
+      .. container:: itemizedlist
+
+         -  As a beginning Haskell programmer, Andrew doesn't know his
+            way around the standard libraries very well. As a result, he
+            unwittingly duplicates a lot of existing code.
+
+         -  Zack has been programming for a few months, and has mastered
+            the use of ``(.)`` to compose long pipelines of code. Every
+            time the needs of his program change slightly, he has to
+            construct a new pipeline from scratch: he can't understand
+            the existing pipeline any longer, and it is in any case too
+            fragile to change.
+
+         -  Monica has been coding for a while. She's familiar enough
+            with Haskell libraries and idioms to write tight code, but
+            she avoids a hyperdense style. Her code is maintainable, and
+            she finds it easy to refactor when faced with changing
+            requirements.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Another way of looking at traversal
+                  :name: find.fold
+                  :class: title
+
+      While the ``traverse`` function gives us more control than our
+      original ``betterFind`` function, it still has a significant
+      failing: we can avoid recursing into directories, but we can't
+      filter other names until after we've generated the entire list of
+      names in a tree. If we are traversing a directory containing
+      100,000 files of which we care about three, we'll allocate a
+      100,000-element list before we have a chance to trim it down to
+      the three we really want.
+
+      One approach would be to provide a filter function as a new
+      argument to ``traverse``, which we would apply to the list of
+      names as we generate it. This would allow us to allocate a list of
+      only as many elements as we need.
+
+      However, this approach also has a weakness: say we know that we
+      want at most three entries from our list, and that those three
+      entries happen to be the first three of the 100,000 that we
+      traverse. In this case, we'll needlessly visit 99,997 other
+      entries. This is not by any means a contrived example: for
+      example, the Maildir mailbox format stores a folder of email
+      messages as a directory of individual files. It's common for a
+      single directory representing a mailbox to contain tens of
+      thousands of files.
+
+      We can address the weaknesses of our two prior traversal functions
+      by taking a different perspective: what if we think of filesystem
+      traversal as a *fold* over the directory hierarchy?
+
+      The familiar folds, ``foldr`` and ``foldl'``, neatly generalise
+      the idea of traversing a list while accumulating a result. It's
+      hardly a stretch to extend the idea of folding from lists to
+      directory trees, but we'd like to add an element of *control* to
+      our fold. We'll represent this control as an algebraic data type.
+
+      .. code:: programlisting
+
+         -- file: ch09/FoldDir.hs
+         data Iterate seed = Done     { unwrap :: seed }
+                           | Skip     { unwrap :: seed }
+                           | Continue { unwrap :: seed }
+                             deriving (Show)
+
+         type Iterator seed = seed -> Info -> Iterate seed
+
+      The Iterator type gives us a convenient alias for the function
+      that we fold with. It takes a seed and an Info value representing
+      a directory entry, and returns both a new seed and an instruction
+      for our fold function, where the instructions are represented as
+      the constructors of the Iterate type.
+
+      .. container:: itemizedlist
+
+         -  If the instruction is ``Done``, traversal should cease
+            immediately. The value wrapped by ``Done`` should be
+            returned as the result.
+
+         -  If the instruction is ``Skip`` and the current Info
+            represents a directory, traversal will not recurse into that
+            directory.
+
+         -  Otherwise, the traversal should continue, using the wrapped
+            value as the input to the next call to the fold function.
+
+      Our fold is logically a kind of left fold, because we start
+      folding from the first entry we encounter, and the seed for each
+      step is the result of the prior step.
+
+      .. code:: programlisting
+
+         -- file: ch09/FoldDir.hs
+         foldTree :: Iterator a -> a -> FilePath -> IO a
+
+         foldTree iter initSeed path = do
+             endSeed <- fold initSeed path
+             return (unwrap endSeed)
+           where
+             fold seed subpath = getUsefulContents subpath >>= walk seed
+
+             walk seed (name:names) = do
+               let path' = path </> name
+               info <- getInfo path'
+               case iter seed info of
+                 done@(Done _) -> return done
+                 Skip seed'    -> walk seed' names
+                 Continue seed'
+                   | isDirectory info -> do
+                       next <- fold seed' path'
+                       case next of
+                         done@(Done _) -> return done
+                         seed''        -> walk (unwrap seed'') names
+                   | otherwise -> walk seed' names
+             walk seed _ = return (Continue seed)
+
+      There are a few interesting things about the way this code is
+      written. The first is the use of scoping to avoid having to pass
+      extra parameters around. The top-level ``foldTree`` function is
+      just a wrapper for ``fold`` that peels off the constructor of the
+      ``fold``'s final result.
+
+      Because ``fold`` is a local function, we don't have to pass
+      ``foldTree``'s ``iter`` variable into it; it can already access it
+      in the outer scope. Similarly, ``walk`` can see ``path`` in its
+      outer scope.
+
+      Another point to note is that ``walk`` is a tail recursive loop,
+      instead of an anonymous function called by ``forM`` as in our
+      earlier functions. By taking the reins ourselves, we can stop
+      early if we need to. This lets us drop out when our iterator
+      returns ``Done``.
+
+      Although ``fold`` calls ``walk``, ``walk`` calls ``fold``
+      recursively to traverse subdirectories. Each function returns a
+      seed wrapped in an Iterate: when ``fold`` is called by ``walk``
+      and returns, ``walk`` examines its result to see whether it should
+      continue or drop out because it returned ``Done``. In this way, a
+      return of ``Done`` from the caller-supplied iterator immediately
+      terminates all mutually recursive calls between the two functions.
+
+      What does an iterator look like in practice? Here's a somewhat
+      complicated example that looks for at most three bitmap images,
+      and won't recurse into Subversion metadata directories.
+
+      .. code:: programlisting
+
+         -- file: ch09/FoldDir.hs
+         atMostThreePictures :: Iterator [FilePath]
+
+         atMostThreePictures paths info
+             | length paths == 3
+               = Done paths
+             | isDirectory info && takeFileName path == ".svn"
+               = Skip paths
+             | extension `elem` [".jpg", ".png"]
+               = Continue (path : paths)
+             | otherwise
+               = Continue paths
+           where extension = map toLower (takeExtension path)
+                 path = infoPath info
+
+      To use this, we'd call ``foldTree atMostThreePictures []``, giving
+      us a return value of type IO [FilePath].
+
+      Of course, iterators don't have to be this complicated. Here's one
+      that counts the number of directories it encounters.
+
+      .. code:: programlisting
+
+         -- file: ch09/FoldDir.hs
+         countDirectories count info =
+             Continue (if isDirectory info
+                       then count + 1
+                       else count)
+
+      Here, the initial seed that we pass to ``foldTree`` should be the
+      number zero.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Exercises
+                     :name: id624090
+                     :class: title
+
+         .. container:: qandaset
+
+            .. list-table::
+               :widths: 1
+
+               - 
+
+                  - **1.** Modify foldTree to allow the caller to change the order of traversal of entries in a directory. 
+               - 
+
+                  - **2.** The foldTree function performs preorder traversal. Modify it to allow the caller to determine the order of traversal.
+               - 
+
+                  - **3.** Write a combinator library that makes it possible to express the kinds of iterators that foldTree accepts. Does it make the iterators you write any more succinct? 
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Useful coding guidelines
+                  :name: id624164
+                  :class: title
+
+      While many good Haskell programming habits come with experience,
+      we have a few general guidelines to offer so that you can write
+      readable code more quickly.
+
+      As we already mentioned in `the section called “A note about tabs
+      versus
+      spaces” <defining-types-streamlining-functions.html#deftypes.tabs>`__,
+      never use tab characters in Haskell source files. Use spaces.
+
+      If you find yourself proudly thinking that a particular piece of
+      code is fiendishly clever, stop and consider whether you'll be
+      able to understand it again after you've stepped away from it for
+      a month.
+
+      The conventional way of naming types and variables with compound
+      names is to use “camel case”, i.e. ``myVariableName``. This style
+      is almost universal in Haskell code. Regardless of your opinion of
+      other naming practices, if you follow a non-standard convention,
+      your Haskell code will be somewhat jarring to the eyes of other
+      readers.
+
+      Until you've been working with Haskell for a substantial amount of
+      time, spend a few minutes searching for library functions before
+      you write small functions. This applies particularly to ubiquitous
+      types like lists, Maybe, and Either. If the standard libraries
+      don't already provide exactly what you need, you might be able to
+      combine a few functions to obtain the result you desire.
+
+      Long pipelines of composed functions are hard to read, where
+      “long” means a series of more than three or four elements. If you
+      have such a pipeline, use a ``let`` or ``where`` block to break it
+      into smaller parts. Give each one of these pipeline elements a
+      meaningful name, then glue them back together. If you can't think
+      of a meaningful name for an element, ask yourself if you can even
+      describe what it does. If the answer is “no”, simplify your code.
+
+      Even though it's easy to resize a text editor window far beyond 80
+      columns, this width is still very common. Wider lines are wrapped
+      or truncated in 80-column text editor windows, which severely
+      hurts readability. Treating lines as no more than 80 characters
+      long limits the amount of code you can cram onto a single line.
+      This helps to keep individual lines less complicated, therefore
+      easier to understand.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Common layout styles
+                     :name: id624278
+                     :class: title
+
+         A Haskell implementation won't make a fuss about indentation as
+         long as your code follows the layout rules and can hence be
+         parsed unambiguously. That said, some layout patterns are
+         widely used.
+
+         The ``in`` keyword is usually aligned directly under the
+         ``let`` keyword, with the expression immediately following it.
+
+         .. code:: programlisting
+
+            -- file: ch09/Style.hs
+            tidyLet = let foo = undefined
+                          bar = foo * 2
+                      in undefined
+
+         While it's *legal* to indent the ``in`` differently, or to let
+         it “dangle” at the end of a series of equations, the following
+         would generally be considered odd.
+
+         .. code:: programlisting
+
+            -- file: ch09/Style.hs
+            weirdLet = let foo = undefined
+                           bar = foo * 2
+                in undefined
+
+            strangeLet = let foo = undefined
+                             bar = foo * 2 in
+                undefined
+
+         In contrast, it's usual to let a ``do`` dangle at the end of a
+         line, rather than sit at the beginning of a line.
+
+         .. code:: programlisting
+
+            -- file: ch09/Style.hs
+            commonDo = do
+              something <- undefined
+              return ()
+
+            -- not seen very often
+            rareDo =
+              do something <- undefined
+                 return ()
+
+         Curly braces and semicolons, though legal, are almost never
+         used. There's nothing wrong with them; they just make code look
+         strange due to their rarity. They're really intended to let
+         programs generate Haskell code without having to implement the
+         layout rules, not for human use.
+
+         .. code:: programlisting
+
+            -- file: ch09/Style.hs
+            unusualPunctuation =
+                [ (x,y) | x <- [1..a], y <- [1..b] ] where {
+                                                       b = 7;
+             a = 6 }
+
+            preferredLayout = [ (x,y) | x <- [1..a], y <- [1..b] ]
+                where b = 7
+                      a = 6
+
+         If the right hand side of an equation starts on a new line,
+         it's usually indented a small number of spaces relative to the
+         name of the variable or function that it's defining.
+
+         .. code:: programlisting
+
+            -- file: ch09/Style.hs
+            normalIndent =
+                undefined
+
+            strangeIndent =
+                                       undefined
+
+         The actual number of spaces used to indent varies, sometimes
+         within a single file. Depths of two, three, and four spaces are
+         about equally common. A single space is legal, but not very
+         visually distinctive, so it's easy to misread.
+
+         When indenting a ``where`` clause, it's best to make it
+         visually distinctive.
+
+         .. code:: programlisting
+
+            -- file: ch09/Style.hs
+            goodWhere = take 5 lambdas
+                where lambdas = []
+
+            alsoGood =
+                take 5 lambdas
+              where
+                lambdas = []
+
+            badWhere =           -- legal, but ugly and hard to read
+                take 5 lambdas
+                where
+                lambdas = []
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Exercises
+                  :name: id624455
+                  :class: title
+
+      Although the file finding code we described in this chapter is a
+      good vehicle for learning, it's not ideal for real systems
+      programming tasks, because Haskell's portable I/O libraries don't
+      expose enough information to let us write interesting and
+      complicated queries.
+
+      .. container:: qandaset
+
+         .. list-table::
+            :widths: 1
+
+            - 
+
+               - **1.** Port the code from this chapter to your platform's native API, either System.Posix or System.Win32.
+            - 
+
+               - **2.** Add the ability to find out who owns a directory entry to your code. Make this information available to predicates. 
+
+
+
+.. _sec-10:
+
+/Chapter 10. Code case study - parsing a binary data format `🔼 <#toc>`_
+=========================================================================
+
+.. container:: chapter
+   :name: binary
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: Chapter 10. Code case study: parsing a binary
+               data format
+               :name: chapter-10.-code-case-study-parsing-a-binary-data-format
+               :class: title
+
+   .. container:: toc
+
+      **Table of Contents**
+
+      *  `Greyscale files <#id624562>`__
+      *  `Parsing a raw PGM file <#id624638>`__
+      *  `Getting rid of boilerplate code <#id624895>`__
+      *  `Implicit state <#binary.implicit>`__
+
+         *  `The identity parser <#id625296>`__
+         *  `Record syntax, updates, and pattern matching <#id625467>`__
+         *  `A more interesting parser <#id625576>`__
+         *  `Obtaining and modifying the parse state <#id625735>`__
+         *  `Reporting parse errors <#id625864>`__
+         *  `Chaining parsers together <#id625932>`__
+
+      *  `Introducing functors <#binary.functor>`__
+
+         *  `Constraints on type definitions are bad <#id626723>`__
+         *  `Infix use of fmap <#binary.fmap>`__
+         *  `Flexible instances <#id627053>`__
+         *  `Thinking more about functors <#binary.functor.laws>`__
+
+      *  `Writing a functor instance for Parse <#id627398>`__
+      *  `Using functors for parsing <#id627617>`__
+      *  `Rewriting our PGM parser <#id627853>`__
+      *  `Future directions <#id627990>`__
+      *  `Exercises <#id628045>`__
+
+   In this chapter, we'll discuss a common task: parsing a binary file.
+   We will use this task for two purposes. Our first is indeed to talk a
+   little about parsing, but our main goal is to talk about program
+   organisation, refactoring, and “boilerplate removal”. We will
+   demonstrate how you can tidy up repetitious code, and set the stage
+   for our discussion of monads in `Chapter 14, Monads <monads.html>`__.
+
+   The file formats that we will work with come from the netpbm suite,
+   an ancient and venerable collection of programs and file formats for
+   working with bitmap images. These file formats have the dual
+   advantages of wide use and being fairly easy, though not completely
+   trivial, to parse. Most importantly for our convenience, netpbm files
+   are not compressed.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Greyscale files
+                  :name: id624562
+                  :class: title
+
+      The name of netpbm's greyscale file format is PGM (“portable grey
+      map”). It is actually not one format, but two; the “plain” (or
+      “P2”) format is encoded as ASCII, while the more common “raw”
+      (“P5”) format is mostly binary.
+
+      A file of either format starts with a header, which in turn begins
+      with a “magic” string describing the format. For a plain file, the
+      string is ``P2``, and for raw, it's ``P5``. The magic string is
+      followed by white space, then by three numbers: the width, height,
+      and maximum grey value of the image. These numbers are represented
+      as ASCII decimal numbers, separated by white space.
+
+      After the maximum grey value comes the image data. In a raw file,
+      this is a string of binary values. In a plain file, the values are
+      represented as ASCII decimal numbers separated by single space
+      characters.
+
+      A raw file can contain a sequence of images, one after the other,
+      each with its own header. A plain file contains only one image.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Parsing a raw PGM file
+                  :name: id624638
+                  :class: title
+
+      For our first try at a parsing function, we'll only worry about
+      raw PGM files. We'll write our PGM parser as a *pure* function.
+      It's not responsible for obtaining the data to parse, just for the
+      actual parsing. This is a common approach in Haskell programs. By
+      separating the reading of the data from what we subsequently do
+      with it, we gain flexibility in where we take the data from.
+
+      We'll use the ByteString type to store our greymap data, because
+      it's compact. Since the header of a PGM file is ASCII text, but
+      its body is binary, we import both the text- and binary-oriented
+      ByteString modules.
+
+      .. code:: programlisting
+
+         -- file: ch10/PNM.hs
+         import qualified Data.ByteString.Lazy.Char8 as L8
+         import qualified Data.ByteString.Lazy as L
+         import Data.Char (isSpace)
+
+      For our purposes, it doesn't matter whether we use a lazy or
+      strict ByteString, so we've somewhat arbitrarily chosen the lazy
+      kind.
+
+      We'll use a straightforward data type to represent PGM images.
+
+      .. code:: programlisting
+
+         -- file: ch10/PNM.hs
+         data Greymap = Greymap {
+               greyWidth :: Int
+             , greyHeight :: Int
+             , greyMax :: Int
+             , greyData :: L.ByteString
+             } deriving (Eq)
+
+      Normally, a Haskell Show instance should produce a string
+      representation that we can read back by calling ``read``. However,
+      for a bitmap graphics file, this would potentially produce huge
+      text strings, for example if we were to ``show`` a photo. For this
+      reason, we're not going to let the compiler automatically derive a
+      Show instance for us: we'll write our own, and intentionally
+      simplify it.
+
+      .. code:: programlisting
+
+         -- file: ch10/PNM.hs
+         instance Show Greymap where
+             show (Greymap w h m _) = "Greymap " ++ show w ++ "x" ++ show h ++
+                                      " " ++ show m
+
+      Because our Show instance intentionally avoids printing the bitmap
+      data, there's no point in writing a Read instance, as we can't
+      reconstruct a valid Greymap from the result of ``show``.
+
+      Here's an obvious type for our parsing function.
+
+      .. code:: programlisting
+
+         -- file: ch10/PNM.hs
+         parseP5 :: L.ByteString -> Maybe (Greymap, L.ByteString)
+
+      This will take a ByteString, and if the parse succeeds, it will
+      return a single parsed Greymap, along with the string that remains
+      after parsing. That residual string will
+
+      Our parsing function has to consume a little bit of its input at a
+      time. First, we need to assure ourselves that we're really looking
+      at a raw PGM file; then we need to parse the numbers from the
+      remainder of the header; then we consume the bitmap data. Here's
+      an obvious way to express this, which we will use as a base for
+      later improvements.
+
+      .. code:: programlisting
+
+         -- file: ch10/PNM.hs
+         matchHeader :: L.ByteString -> L.ByteString -> Maybe L.ByteString
+
+         -- "nat" here is short for "natural number"
+         getNat :: L.ByteString -> Maybe (Int, L.ByteString)
+
+         getBytes :: Int -> L.ByteString
+                  -> Maybe (L.ByteString, L.ByteString)
+
+         parseP5 s =
+           case matchHeader (L8.pack "P5") s of
+             Nothing -> Nothing
+             Just s1 ->
+               case getNat s1 of
+                 Nothing -> Nothing
+                 Just (width, s2) ->
+                   case getNat (L8.dropWhile isSpace s2) of
+                     Nothing -> Nothing
+                     Just (height, s3) ->
+                       case getNat (L8.dropWhile isSpace s3) of
+                         Nothing -> Nothing
+                         Just (maxGrey, s4)
+                           | maxGrey > 255 -> Nothing
+                           | otherwise ->
+                               case getBytes 1 s4 of
+                                 Nothing -> Nothing
+                                 Just (_, s5) ->
+                                   case getBytes (width * height) s5 of
+                                     Nothing -> Nothing
+                                     Just (bitmap, s6) ->
+                                       Just (Greymap width height maxGrey bitmap, s6)
+
+      This is a very literal piece of code, performing all of the
+      parsing in one long staircase of ``case`` expressions. Each
+      function returns the residual ByteString left over after it has
+      consumed all it needs from its input string. We pass each residual
+      string along to the next step. We deconstruct each result in turn,
+      either returning ``Nothing`` if the parsing step failed, or
+      building up a piece of the final result as we proceed. Here are
+      the bodies of the functions that we apply during parsing. Their
+      types are commented out because we already presented them above.
+
+      .. code:: programlisting
+
+         -- file: ch10/PNM.hs
+         -- L.ByteString -> L.ByteString -> Maybe L.ByteString
+         matchHeader prefix str
+             | prefix `L8.isPrefixOf` str
+                 = Just (L8.dropWhile isSpace (L.drop (L.length prefix) str))
+             | otherwise
+                 = Nothing
+
+         -- L.ByteString -> Maybe (Int, L.ByteString)
+         getNat s = case L8.readInt s of
+                      Nothing -> Nothing
+                      Just (num,rest)
+                          | num <= 0    -> Nothing
+                          | otherwise -> Just (fromIntegral num, rest)
+
+         -- Int -> L.ByteString -> Maybe (L.ByteString, L.ByteString)
+         getBytes n str = let count           = fromIntegral n
+                              both@(prefix,_) = L.splitAt count str
+                          in if L.length prefix < count
+                             then Nothing
+                             else Just both
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Getting rid of boilerplate code
+                  :name: id624895
+                  :class: title
+
+      While our ``parseP5`` function works, the style in which we wrote
+      it is somehow not pleasing. Our code marches steadily to the right
+      of the screen, and it's clear that a slightly more complicated
+      function would soon run out of visual real estate. We repeat a
+      pattern of constructing and then deconstructing Maybe values, only
+      continuing if a particular value matches ``Just``. All of the
+      similar ``case`` expressions act as “boilerplate code”, busywork
+      that obscures what we're really trying to do. In short, this
+      function is begging for some abstraction and refactoring.
+
+      If we step back a little, we can see two patterns. First is that
+      many of the functions that we apply have similar types. Each takes
+      a ByteString as its last argument, and returns Maybe something
+      else. Secondly, every step in the “ladder” of our ``parseP5``
+      function deconstructs a Maybe value, and either fails or passes
+      the unwrapped result to a function.
+
+      We can quite easily write a function that captures this second
+      pattern.
+
+      .. code:: programlisting
+
+         -- file: ch10/PNM.hs
+         (>>?) :: Maybe a -> (a -> Maybe b) -> Maybe b
+         Nothing >>? _ = Nothing
+         Just v  >>? f = f v
+
+      The ``(>>?)`` function acts very simply: it takes a value as its
+      left argument, and a function as its right. If the value is not
+      ``Nothing``, it applies the function to whatever is wrapped in the
+      ``Just`` constructor. We have defined our function as an operator
+      so that we can use it to chain functions together. Finally, we
+      haven't provided a fixity declaration for ``(>>?)``, so it
+      defaults to ``infixl 9`` (left associative, strongest operator
+      precedence). In other words, ``a >>? b >>? c`` will be evaluated
+      from left to right, as ``(a >>? b) >>? c)``.
+
+      With this chaining function in hand, we can take a second try at
+      our parsing function.
+
+      .. code:: programlisting
+
+         -- file: ch10/PNM.hs
+         parseP5_take2 :: L.ByteString -> Maybe (Greymap, L.ByteString)
+         parseP5_take2 s =
+             matchHeader (L8.pack "P5") s       >>?
+             \s -> skipSpace ((), s)           >>?
+             (getNat . snd)                    >>?
+             skipSpace                         >>?
+             \(width, s) ->   getNat s         >>?
+             skipSpace                         >>?
+             \(height, s) ->  getNat s         >>?
+             \(maxGrey, s) -> getBytes 1 s     >>?
+             (getBytes (width * height) . snd) >>?
+             \(bitmap, s) -> Just (Greymap width height maxGrey bitmap, s)
+
+         skipSpace :: (a, L.ByteString) -> Maybe (a, L.ByteString)
+         skipSpace (a, s) = Just (a, L8.dropWhile isSpace s)
+
+      The key to understanding this function is to think about the
+      chaining. On the left hand side of each ``(>>?)`` is a Maybe
+      value; on the right is a function that returns a Maybe value. Each
+      left-and-right-sides expression is thus of type Maybe, suitable
+      for passing to the following ``(>>?)`` expression.
+
+      The other change that we've made to improve readability is add a
+      ``skipSpace`` function. With these changes, we've halved the
+      number of lines of code compared to our original parsing function.
+      By removing the boilerplate ``case`` expressions, we've made the
+      code easier to follow.
+
+      While we warned against overuse of anonymous functions in `the
+      section called “Anonymous (lambda)
+      functions” <functional-programming.html#fp.anonymous>`__, we use
+      several in our chain of functions here. Because these functions
+      are so small, we wouldn't improve readability by giving them
+      names.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Implicit state
+                  :name: binary.implicit
+                  :class: title
+
+      We're not yet out of the woods. Our code explicitly passes pairs
+      around, using one element for an intermediate part of the parsed
+      result and the other for the current residual ByteString. If we
+      want to extend the code, for example to track the number of bytes
+      we've consumed so that we can report the location of a parse
+      failure, we already have eight different spots that we will need
+      to modify, just to pass a three-tuple around.
+
+      This approach makes even a small body of code difficult to change.
+      The problem lies with our use of pattern matching to pull values
+      out of each pair: we have embedded the knowledge that we are
+      always working with pairs straight into our code. As pleasant and
+      helpful as pattern matching is, it can lead us in some undesirable
+      directions if we do not use it carefully.
+
+      Let's do something to address the inflexibility of our new code.
+      First, we will change the type of state that our parser uses.
+
+      .. code:: programlisting
+
+         -- file: ch10/Parse.hs
+         data ParseState = ParseState {
+               string :: L.ByteString
+             , offset :: Int64           -- imported from Data.Int
+             } deriving (Show)
+
+      In our switch to an algebraic data type, we added the ability to
+      track both the current residual string and the offset into the
+      original string since we started parsing. The more important
+      change was our use of record syntax: we can now *avoid* pattern
+      matching on the pieces of state that we pass around, and use the
+      accessor functions ``string`` and ``offset`` instead.
+
+      We have given our parsing state a name. When we name something, it
+      can become easier to reason about. For example, we can now look at
+      parsing as a kind of function: it consumes a parsing state, and
+      produces both a new parsing state and some other piece of
+      information. We can directly represent this as a Haskell type.
+
+      .. code:: programlisting
+
+         -- file: ch10/Parse.hs
+         simpleParse :: ParseState -> (a, ParseState)
+         simpleParse = undefined
+
+      To provide more help to our users, we would like to report an
+      error message if parsing fails. This only requires a minor tweak
+      to the type of our parser.
+
+      .. code:: programlisting
+
+         -- file: ch10/Parse.hs
+         betterParse :: ParseState -> Either String (a, ParseState)
+         betterParse = undefined
+
+      In order to future-proof our code, it is best if we do not expose
+      the implementation of our parser to our users. When we explicitly
+      used pairs for state earlier, we found ourselves in trouble almost
+      immediately, once we considered extending the capabilities of our
+      parser. To stave off a repeat of that difficulty, we will hide the
+      details of our parser type using a ``newtype`` declaration.
+
+      .. code:: programlisting
+
+         -- file: ch10/Parse.hs
+         newtype Parse a = Parse {
+               runParse :: ParseState -> Either String (a, ParseState)
+             }
+
+      Remember that the ``newtype`` definition is just a compile-time
+      wrapper around a function, so it has no run-time overhead. When we
+      want to use the function, we will apply the ``runParser``
+      accessor.
+
+      If we do not export the ``Parse`` value constructor from our
+      module, we can ensure that nobody else will be able to
+      accidentally create a parser, nor will they be able to inspect its
+      internals via pattern matching.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: The identity parser
+                     :name: id625296
+                     :class: title
+
+         Let's try to define a simple parser, the *identity* parser. All
+         it does is turn whatever it is passed into the result of the
+         parse. In this way, it somewhat resembles the ``id`` function.
+
+         .. code:: programlisting
+
+            -- file: ch10/Parse.hs
+            identity :: a -> Parse a
+            identity a = Parse (\s -> Right (a, s))
+
+         This function leaves the parse state untouched, and uses its
+         argument as the result of the parse. We wrap the body of the
+         function in our Parse type to satisfy the type checker. How can
+         we use this wrapped function to parse something?
+
+         The first thing we must do is peel off the ``Parse`` wrapper so
+         that we can get at the function inside. We do so using the
+         ``runParse`` function. We also need to construct a ParseState,
+         then run our parsing function on that parse state. Finally,
+         we'd like to separate the result of the parse from the final
+         ParseState.
+
+         .. code:: programlisting
+
+            -- file: ch10/Parse.hs
+            parse :: Parse a -> L.ByteString -> Either String a
+            parse parser initState
+                = case runParse parser (ParseState initState 0) of
+                    Left err          -> Left err
+                    Right (result, _) -> Right result
+
+         Because neither the ``identity`` parser nor the ``parse``
+         function examines the parse state, we don't even need to create
+         an input string in order to try our code.
+
+         .. code:: screen
+
+            ghci> :load Parse
+            [1 of 2] Compiling PNM              ( PNM.hs, interpreted )
+            [2 of 2] Compiling Parse            ( Parse.hs, interpreted )
+            Ok, modules loaded: PNM, Parse.
+            ghci> :type parse (identity 1) undefined
+            parse (identity 1) undefined :: (Num t) => Either String t
+            ghci> parse (identity 1) undefined
+            Loading package array-0.1.0.0 ... linking ... done.
+            Loading package bytestring-0.9.0.1 ... linking ... done.
+            Right 1
+            ghci> parse (identity "foo") undefined
+            Right "foo"
+
+         A parser that doesn't even inspect its input might not seem
+         interesting, but we will shortly see that in fact it is useful.
+         Meanwhile, we have gained confidence that our types are correct
+         and that we understand the basic workings of our code.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Record syntax, updates, and pattern
+                     matching
+                     :name: id625467
+                     :class: title
+
+         Record syntax is useful for more than just accessor functions:
+         we can use it to copy and partly change an existing value. In
+         use, the notation looks like this.
+
+         .. code:: programlisting
+
+            -- file: ch10/Parse.hs
+            modifyOffset :: ParseState -> Int64 -> ParseState
+            modifyOffset initState newOffset =
+                initState { offset = newOffset }
+
+         This creates a new ParseState value identical to ``initState``,
+         but with its ``offset`` field set to whatever value we specify
+         for ``newOffset``.
+
+         .. code:: screen
+
+            ghci> let before = ParseState (L8.pack "foo") 0
+            ghci> let after = modifyOffset before 3
+            ghci> before
+            ParseState {string = Chunk "foo" Empty, offset = 0}
+            ghci> after
+            ParseState {string = Chunk "foo" Empty, offset = 3}
+
+         We can set as many fields as we want inside the curly braces,
+         separating them using commas.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: A more interesting parser
+                     :name: id625576
+                     :class: title
+
+         Let's focus now on writing a parser that does something
+         meaningful. We're not going to get too ambitious yet: all we
+         want to do is parse a single byte.
+
+         .. code:: programlisting
+
+            -- file: ch10/Parse.hs
+            -- import the Word8 type from Data.Word
+            parseByte :: Parse Word8
+            parseByte =
+                getState ==> \initState ->
+                case L.uncons (string initState) of
+                  Nothing ->
+                      bail "no more input"
+                  Just (byte,remainder) ->
+                      putState newState ==> \_ ->
+                      identity byte
+                    where newState = initState { string = remainder,
+                                                 offset = newOffset }
+                          newOffset = offset initState + 1
+
+         There are a number of new functions in our definition.
+
+         The ``L8.uncons`` function takes the first element from a
+         ByteString.
+
+         .. code:: screen
+
+            ghci> L8.uncons (L8.pack "foo")
+            Just ('f',Chunk "oo" Empty)
+            ghci> L8.uncons L8.empty
+            Nothing
+
+         Our ``getState`` function retrieves the current parsing state,
+         while ``putState`` replaces it. The ``bail`` function
+         terminates parsing and reports an error. The ``(==>)`` function
+         chains parsers together. We will cover each of these functions
+         shortly.
+
+         .. tip:: Hanging lambdas
+
+            The definition of ``parseByte`` has a visual style
+            that we haven't discussed before. It contains
+            anonymous functions in which the parameters and
+            ``->`` sit at the end of a line, with the
+            function's body following on the next line.
+
+            This style of laying out an anonymous function
+            doesn't have an official name, so let's call it a
+            “hanging lambda”. Its main use is to make room for
+            more text in the body of the function. It also
+            makes it more visually clear that there's a
+            relationship between one function and the one that
+            follows. Often, for instance, the result of the
+            first function is being passed as a parameter to
+            the second.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Obtaining and modifying the parse state
+                     :name: id625735
+                     :class: title
+
+         Our ``parseByte`` function doesn't take the parse state as an
+         argument. Instead, it has to call ``getState`` to get a copy of
+         the state, and ``putState`` to replace the current state with a
+         new one.
+
+         .. code:: programlisting
+
+            -- file: ch10/Parse.hs
+            getState :: Parse ParseState
+            getState = Parse (\s -> Right (s, s))
+
+            putState :: ParseState -> Parse ()
+            putState s = Parse (\_ -> Right ((), s))
+
+         When reading these functions, recall that the left element of
+         the tuple is the result of a Parse, while the right is the
+         current ParseState. This makes it easier to follow what these
+         functions are doing.
+
+         The ``getState`` function extracts the current parsing state,
+         so that the caller can access the string. The ``putState``
+         function replaces the current parsing state with a new one.
+         This becomes the state that will be seen by the next function
+         in the ``(==>)`` chain.
+
+         These functions let us move explicit state handling into the
+         bodies of only those functions that need it. Many functions
+         don't need to know what the current state is, and so they'll
+         never call ``getState`` or ``putState``. This lets us write
+         more compact code than our earlier parser, which had to pass
+         tuples around by hand. We will see the effect in some of the
+         code that follows.
+
+         We've packaged up the details of the parsing state into the
+         ParseState type, and we work with it using accessors instead of
+         pattern matching. Now that the parsing state is passed around
+         implicitly, we gain a further benefit. If we want to add more
+         information to the parsing state, all we need to do is modify
+         the definition of ParseState, and the bodies of whatever
+         functions need the new information. Compared to our earlier
+         parsing code, where all of our state was exposed through
+         pattern matching, this is much more modular: the only code we
+         affect is code that needs the new information.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Reporting parse errors
+                     :name: id625864
+                     :class: title
+
+         We carefully defined our Parse type to accommodate the
+         possibility of failure. The ``(==>)`` combinator checks for a
+         parse failure and stops parsing if it runs into a failure. But
+         we haven't yet introduced the ``bail`` function, which we use
+         to report a parse error.
+
+         .. code:: programlisting
+
+            -- file: ch10/Parse.hs
+            bail :: String -> Parse a
+            bail err = Parse $ \s -> Left $
+                       "byte offset " ++ show (offset s) ++ ": " ++ err
+
+         After we call ``bail``, ``(==>)`` will successfully pattern
+         match on the ``Left`` constructor that it wraps the error
+         message with, and it will not invoke the next parser in the
+         chain. This will cause the error message to percolate back
+         through the chain of prior callers.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Chaining parsers together
+                     :name: id625932
+                     :class: title
+
+         The ``(==>)`` function serves a similar purpose to our earlier
+         ``(>>?)`` function: it is “glue” that lets us chain functions
+         together.
+
+         .. code:: programlisting
+
+            -- file: ch10/Parse.hs
+            (==>) :: Parse a -> (a -> Parse b) -> Parse b
+
+            firstParser ==> secondParser  =  Parse chainedParser
+              where chainedParser initState   =
+                      case runParse firstParser initState of
+                        Left errMessage ->
+                            Left errMessage
+                        Right (firstResult, newState) ->
+                            runParse (secondParser firstResult) newState
+
+         The body of ``(==>)`` is interesting, and ever so slightly
+         tricky. Recall that the Parse type represents really a function
+         inside a wrapper. Since ``(==>)`` lets us chain two Parse
+         values to produce a third, it must return a function, in a
+         wrapper.
+
+         The function doesn't really “do” much: it just creates a
+         *closure* to remember the values of ``firstParser`` and
+         ``secondParser``.
+
+         .. tip::
+
+            A closure is simply the pairing of a function with
+            its *environment*, the bound variables that it can
+            see. Closures are commonplace in Haskell. For
+            instance, the section ``(+5)`` is a closure. An
+            implementation must record the value ``5`` as the
+            second argument to the ``(+)`` operator, so that
+            the resulting function can add ``5`` to whatever
+            value it is passed.
+
+         This closure will not be unwrapped and applied until we apply
+         ``parse``. At that point, it will be applied with a ParseState.
+         It will apply ``firstParser`` and inspect its result. If that
+         parse fails, the closure will fail too. Otherwise, it will pass
+         the result of the parse and the new ParseState to
+         ``secondParser``.
+
+         This is really quite fancy and subtle stuff: we're effectively
+         passing the ParseState down the chain of Parse values in a
+         hidden argument. (We'll be revisiting this kind of code in a
+         few chapters, so don't fret if that description seemed dense.)
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Introducing functors
+                  :name: binary.functor
+                  :class: title
+
+      We're by now thoroughly familiar with the ``map`` function, which
+      applies a function to every element of a list, returning a list of
+      possibly a different type.
+
+      .. code:: screen
+
+         ghci> map (+1) [1,2,3]
+         [2,3,4]
+         ghci> map show [1,2,3]
+         ["1","2","3"]
+         ghci> :type map show
+         map show :: (Show a) => [a] -> [String]
+
+      This ``map``-like activity can be useful in other instances. For
+      example, consider a binary tree.
+
+      .. code:: programlisting
+
+         -- file: ch10/TreeMap.hs
+         data Tree a = Node (Tree a) (Tree a)
+                     | Leaf a
+                       deriving (Show)
+
+      If we want to take a tree of strings and turn it into a tree
+      containing the lengths of those strings, we could write a function
+      to do this.
+
+      .. code:: programlisting
+
+         -- file: ch10/TreeMap.hs
+         treeLengths (Leaf s) = Leaf (length s)
+         treeLengths (Node l r) = Node (treeLengths l) (treeLengths r)
+
+      Now that our eyes are attuned to looking for patterns that we can
+      turn into generally useful functions, we can see a possible case
+      of this here.
+
+      .. code:: programlisting
+
+         -- file: ch10/TreeMap.hs
+         treeMap :: (a -> b) -> Tree a -> Tree b
+         treeMap f (Leaf a)   = Leaf (f a)
+         treeMap f (Node l r) = Node (treeMap f l) (treeMap f r)
+
+      As we might hope, ``treeLengths`` and ``treeMap length`` give the
+      same results.
+
+      .. code:: screen
+
+         ghci> let tree = Node (Leaf "foo") (Node (Leaf "x") (Leaf "quux"))
+         ghci> treeLengths tree
+         Node (Leaf 3) (Node (Leaf 1) (Leaf 4))
+         ghci> treeMap length tree
+         Node (Leaf 3) (Node (Leaf 1) (Leaf 4))
+         ghci> treeMap (odd . length) tree
+         Node (Leaf True) (Node (Leaf True) (Leaf False))
+
+      Haskell provides a well-known typeclass to further generalise
+      ``treeMap``. This typeclass is named Functor, and it defines one
+      function, ``fmap``.
+
+      .. code:: programlisting
+
+         -- file: ch10/TreeMap.hs
+         class Functor f where
+             fmap :: (a -> b) -> f a -> f b
+
+      We can think of ``fmap`` as a kind of *lifting* function, as we
+      introduced in `the section called “Avoiding boilerplate with
+      lifting” <io-case-study-a-library-for-searching-the-filesystem.html#find.predicate.lift>`__.
+      It takes a function over ordinary values a -> b and lifts it to
+      become a function over containers f a -> f b, where ``f`` is the
+      container type.
+
+      If we substitute Tree for the type variable ``f``, for example,
+      the type of ``fmap`` is identical to the type of ``treeMap``, and
+      in fact we can use ``treeMap`` as the implementation of ``fmap``
+      over Trees.
+
+      .. code:: programlisting
+
+         -- file: ch10/TreeMap.hs
+         instance Functor Tree where
+             fmap = treeMap
+
+      We can also use ``map`` as the implementation of ``fmap`` for
+      lists.
+
+      .. code:: programlisting
+
+         -- file: ch10/TreeMap.hs
+         instance Functor [] where
+             fmap = map
+
+      We can now use ``fmap`` over different container types.
+
+      .. code:: screen
+
+         ghci> fmap length ["foo","quux"]
+         [3,4]
+         ghci> fmap length (Node (Leaf "Livingstone") (Leaf "I presume"))
+         Node (Leaf 11) (Leaf 9)
+
+      The Prelude defines instances of Functor for several common types,
+      notably lists and Maybe.
+
+      .. code:: programlisting
+
+         -- file: ch10/TreeMap.hs
+         instance Functor Maybe where
+             fmap _ Nothing  = Nothing
+             fmap f (Just x) = Just (f x)
+
+      The instance for Maybe makes it particularly clear what an
+      ``fmap`` implementation needs to do. The implementation must have
+      a sensible behaviour for each of a type's constructors. If a value
+      is wrapped in ``Just``, for example, the ``fmap`` implementation
+      calls the function on the unwrapped value, then rewraps it in
+      ``Just``.
+
+      The definition of Functor imposes a few obvious restrictions on
+      what we can do with ``fmap``. For example, we can only make
+      instances of ``Functor`` from types that have exactly one type
+      parameter.
+
+      We can't write an ``fmap`` implementation for Either a b or (a,
+      b), for example, because these have two type parameters. We also
+      can't write one for Bool or Int, as they have no type parameters.
+
+      In addition, we can't place any constraints on our type
+      definition. What does this mean? To illustrate, let's first look
+      at a normal ``data`` definition and its ``Functor`` instance.
+
+      .. code:: programlisting
+
+         -- file: ch10/ValidFunctor.hs
+         data Foo a = Foo a
+                    
+         instance Functor Foo where
+             fmap f (Foo a) = Foo (f a)
+
+      When we define a new type, we can add a type constraint just after
+      the ``data`` keyword as follows.
+
+      .. code:: programlisting
+
+         -- file: ch10/ValidFunctor.hs
+         data Eq a => Bar a = Bar a
+
+         instance Functor Bar where
+             fmap f (Bar a) = Bar (f a)
+
+      This says that we can only put a type ``a`` into a Foo if ``a`` is
+      a member of the ``Eq`` typeclass. However, the constraint renders
+      it impossible to write a ``Functor`` instance for Bar.
+
+      .. code:: screen
+
+         ghci> :load ValidFunctor
+         [1 of 1] Compiling Main             ( ValidFunctor.hs, interpreted )
+
+         ValidFunctor.hs:13:12:
+             Could not deduce (Eq a) from the context (Functor Bar)
+               arising from a use of `Bar' at ValidFunctor.hs:13:12-16
+             Possible fix:
+               add (Eq a) to the context of the type signature for `fmap'
+             In the pattern: Bar a
+             In the definition of `fmap': fmap f (Bar a) = Bar (f a)
+             In the definition for method `fmap'
+
+         ValidFunctor.hs:13:21:
+             Could not deduce (Eq b) from the context (Functor Bar)
+               arising from a use of `Bar' at ValidFunctor.hs:13:21-29
+             Possible fix:
+               add (Eq b) to the context of the type signature for `fmap'
+             In the expression: Bar (f a)
+             In the definition of `fmap': fmap f (Bar a) = Bar (f a)
+             In the definition for method `fmap'
+         Failed, modules loaded: none.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Constraints on type definitions are bad
+                     :name: id626723
+                     :class: title
+
+         Adding a constraint to a type definition is essentially never a
+         good idea. It has the effect of forcing you to add type
+         constraints to *every* function that will operate on values of
+         that type. Let's say that we need a stack data structure that
+         we want to be able to query to see whether its elements obey
+         some ordering. Here's a naive definition of the data type.
+
+         .. code:: programlisting
+
+            -- file: ch10/TypeConstraint.hs
+            data (Ord a) => OrdStack a = Bottom
+                                       | Item a (OrdStack a)
+                                         deriving (Show)
+
+         If we want to write a function that checks the stack to see
+         whether it is increasing (i.e. every element is bigger than the
+         element below it), we'll obviously need an ``Ord`` constraint
+         to perform the pairwise comparisons.
+
+         .. code:: programlisting
+
+            -- file: ch10/TypeConstraint.hs
+            isIncreasing :: (Ord a) => OrdStack a -> Bool
+            isIncreasing (Item a rest@(Item b _))
+                | a < b     = isIncreasing rest
+                | otherwise = False
+            isIncreasing _  = True
+
+         However, because we wrote the type constraint on the type
+         definition, that constraint ends up infecting places where it
+         isn't needed: we need to add the ``Ord`` constraint to
+         ``push``, which does not care about the ordering of elements on
+         the stack.
+
+         .. code:: programlisting
+
+            -- file: ch10/TypeConstraint.hs
+            push :: (Ord a) => a -> OrdStack a -> OrdStack a
+            push a s = Item a s
+
+         Try removing that ``Ord`` constraint above, and the definition
+         of ``push`` will fail to typecheck.
+
+         This is why our attempt to write a ``Functor`` instance for Bar
+         failed earlier: it would have required an ``Eq`` constraint to
+         somehow get retroactively added to the signature of ``fmap``.
+
+         Now that we've tentatively established that putting a type
+         constraint on a type definition is a misfeature of Haskell,
+         what's a more sensible alternative? The answer is simply to
+         omit type constraints from type definitions, and instead place
+         them on the functions that need them.
+
+         In this example, we can drop the ``Ord`` constraints from
+         ``OrdStack`` and ``push``. It needs to stay on
+         ``isIncreasing``, which otherwise couldn't call ``(<)``. We now
+         have the constraints where they actually matter. This has the
+         further benefit of making the type signatures better document
+         the true requirements of each function.
+
+         Most Haskell container types follow this pattern. The Map type
+         in the ``Data.Map`` module requires that its keys be ordered,
+         but the type itself does not have such a constraint. The
+         constraint is expressed on functions like ``insert``, where
+         it's actually needed, and not on ``size``, where ordering isn't
+         used.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Infix use of fmap
+                     :name: binary.fmap
+                     :class: title
+
+         Quite often, you'll see ``fmap`` called as an operator.
+
+         .. code:: screen
+
+            ghci> (1+) `fmap` [1,2,3] ++ [4,5,6]
+            [2,3,4,4,5,6]
+
+         Perhaps strangely, plain old ``map`` is almost never used in
+         this way.
+
+         One possible reason for the stickiness of the
+         ``fmap``-as-operator meme is that this use lets us omit
+         parentheses from its second argument. Fewer parentheses leads
+         to reduced mental juggling while reading a function.
+
+         .. code:: screen
+
+            ghci> fmap (1+) ([1,2,3] ++ [4,5,6])
+            [2,3,4,5,6,7]
+
+         If you really want to use ``fmap`` as an operator, the
+         ``Control.Applicative`` module contains an operator ``(<$>)``
+         that is an alias for ``fmap``. The ``$`` in its name appeals to
+         the similarity between applying a function to its arguments
+         (using the ``($)`` operator) and lifting a function into a
+         functor. We will see that this works well for parsing when we
+         return to the code that we have been writing.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Flexible instances
+                     :name: id627053
+                     :class: title
+
+         You might hope that we could write a Functor instance for the
+         type Either Int b, which has one type parameter.
+
+         .. code:: programlisting
+
+            -- file: ch10/EitherInt.hs
+            instance Functor (Either Int) where
+                fmap _ (Left n) = Left n
+                fmap f (Right r) = Right (f r)
+
+         However, the type system of Haskell 98 cannot guarantee that
+         checking the constraints on such an instance will terminate. A
+         non-terminating constraint check may send a compiler into an
+         infinite loop, so instances of this form are forbidden.
+
+         .. code:: screen
+
+            ghci> :load EitherInt
+            [1 of 1] Compiling Main             ( EitherInt.hs, interpreted )
+
+            EitherInt.hs:2:0:
+                Illegal instance declaration for `Functor (Either Int)'
+                    (All instance types must be of the form (T a1 ... an)
+                     where a1 ... an are distinct type *variables*
+                     Use -XFlexibleInstances if you want to disable this.)
+                In the instance declaration for `Functor (Either Int)'
+            Failed, modules loaded: none.
+
+         GHC has a more powerful type system than the base Haskell 98
+         standard. It operates in Haskell 98 compatibility mode by
+         default, for maximal portability. We can instruct it to allow
+         more flexible instances using a special compiler directive.
+
+         .. code:: programlisting
+
+            -- file: ch10/EitherIntFlexible.hs
+            {-# LANGUAGE FlexibleInstances #-}
+
+            instance Functor (Either Int) where
+                fmap _ (Left n)  = Left n
+                fmap f (Right r) = Right (f r)
+
+         The directive is embedded in the specially formatted
+         ``LANGUAGE`` pragma.
+
+         With our Functor instance in hand, let's try out ``fmap`` on
+         Either Int.
+
+         .. code:: screen
+
+            ghci> :load EitherIntFlexible
+            [1 of 1] Compiling Main             ( EitherIntFlexible.hs, interpreted )
+            Ok, modules loaded: Main.
+            ghci> fmap (== "cheeseburger") (Left 1 :: Either Int String)
+            Left 1
+            ghci> fmap (== "cheeseburger") (Right "fries" :: Either Int String)
+            Right False
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Thinking more about functors
+                     :name: binary.functor.laws
+                     :class: title
+
+         We've made a few implicit assumptions about how functors ought
+         to work. It's helpful to make these explicit and to think of
+         them as rules to follow, because this lets us treat functors as
+         uniform, well-behaved objects. We have only two rules to
+         remember, and they're simple.
+
+         Our first rule is that a functor must preserve *identity*. That
+         is, applying ``fmap id`` to a value should give us back an
+         identical value.
+
+         .. code:: screen
+
+            ghci> fmap id (Node (Leaf "a") (Leaf "b"))
+            Node (Leaf "a") (Leaf "b")
+
+         Our second rule is that functors must be *composable*. That is,
+         composing two uses of ``fmap`` should give the same result as
+         one ``fmap`` with the same functions composed.
+
+         .. code:: screen
+
+            ghci> (fmap even . fmap length) (Just "twelve")
+            Just True
+            ghci> fmap (even . length) (Just "twelve")
+            Just True
+
+         Another way of looking at these two rules is that a functor
+         must preserve *shape*. The structure of a collection should not
+         be affected by a functor; only the values that it contains
+         should change.
+
+         .. code:: screen
+
+            ghci> fmap odd (Just 1)
+            Just True
+            ghci> fmap odd Nothing
+            Nothing
+
+         If you're writing a Functor instance, it's useful to keep these
+         rules in mind, and indeed to test them, because the compiler
+         can't check the rules we've listed above. On the other hand, if
+         you're simply *using* functors, the rules are “natural” enough
+         that there's no need to memorise them. They just formalize a
+         few intuitive notions of “do what I mean”. Here is a pseudocode
+         representation of the expected behavior.
+
+         .. code:: programlisting
+
+            -- file: ch10/FunctorLaws.hs
+            fmap id       ==  id
+            fmap (f . g)  ==  fmap f . fmap g
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Writing a functor instance for Parse
+                  :name: id627398
+                  :class: title
+
+      For the types we have surveyed so far, the behaviour we ought to
+      expect of ``fmap`` has been obvious. This is a little less clear
+      for Parse, due to its complexity. A reasonable guess is that the
+      function we're ``fmap`` ping should be applied to the current
+      result of a parse, and leave the parse state untouched.
+
+      .. code:: programlisting
+
+         -- file: ch10/Parse.hs
+         instance Functor Parse where
+             fmap f parser = parser ==> \result ->
+                             identity (f result)
+
+      This definition is easy to read, so let's perform a few quick
+      experiments to see if we're following our rules for functors.
+
+      First, we'll check that identity is preserved. Let's try this
+      first on a parse that ought to fail: parsing a byte from an empty
+      string (remember that ``(<$>)`` is ``fmap``).
+
+      .. code:: screen
+
+         ghci> parse parseByte L.empty
+         Left "byte offset 0: no more input"
+         ghci> parse (id <$> parseByte) L.empty
+         Left "byte offset 0: no more input"
+
+      Good. Now for a parse that should succeed.
+
+      .. code:: screen
+
+         ghci> let input = L8.pack "foo"
+         ghci> L.head input
+         102
+         ghci> parse parseByte input
+         Right 102
+         ghci> parse (id <$> parseByte) input
+         Right 102
+
+      By inspecting the results above, we can also see that our functor
+      instance is obeying our second rule, that of preserving shape.
+      Failure is preserved as failure, and success as success.
+
+      Finally, we'll ensure that composability is preserved.
+
+      .. code:: screen
+
+         ghci> parse ((chr . fromIntegral) <$> parseByte) input
+         Right 'f'
+         ghci> parse (chr <$> fromIntegral <$> parseByte) input
+         Right 'f'
+
+      On the basis of this brief inspection, our Functor instance
+      appears to be well behaved.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Using functors for parsing
+                  :name: id627617
+                  :class: title
+
+      All this talk of functors had a purpose: they often let us write
+      tidy, expressive code. Recall the ``parseByte`` function that we
+      introduced earlier. In recasting our PGM parser to use our new
+      parser infrastructure, we'll often want to work with ASCII
+      characters instead of Word8 values.
+
+      While we could write a ``parseChar`` function that has a similar
+      structure to ``parseByte``, we can now avoid this code duplication
+      by taking advantage of the functor nature of Parse. Our functor
+      takes the result of a parse and applies a function to it, so what
+      we need is a function that turns a Word8 into a Char.
+
+      .. code:: programlisting
+
+         -- file: ch10/Parse.hs
+         w2c :: Word8 -> Char
+         w2c = chr . fromIntegral
+
+         -- import Control.Applicative
+         parseChar :: Parse Char
+         parseChar = w2c <$> parseByte
+
+      We can also use functors to write a compact “peek” function. This
+      returns ``Nothing`` if we're at the end of the input string.
+      Otherwise, it returns the next character without consuming it
+      (i.e. it inspects, but doesn't disturb, the current parsing
+      state).
+
+      .. code:: programlisting
+
+         -- file: ch10/Parse.hs
+         peekByte :: Parse (Maybe Word8)
+         peekByte = (fmap fst . L.uncons . string) <$> getState
+
+      The same lifting trick that let us define ``parseChar`` lets us
+      write a compact definition for ``peekChar``.
+
+      .. code:: programlisting
+
+         -- file: ch10/Parse.hs
+         peekChar :: Parse (Maybe Char)
+         peekChar = fmap w2c <$> peekByte
+
+      Notice that ``peekByte`` and ``peekChar`` each make two calls to
+      ``fmap``, one of which is disguised as ``(<$>)``. This is
+      necessary because the type Parse (Maybe a) is a functor within a
+      functor. We thus have to lift a function twice to “get it into”
+      the inner functor.
+
+      Finally, we'll write another generic combinator, which is the
+      Parse analogue of the familiar ``takeWhile``: it consumes its
+      input while its predicate returns ``True``.
+
+      .. code:: programlisting
+
+         -- file: ch10/Parse.hs
+         parseWhile :: (Word8 -> Bool) -> Parse [Word8]
+         parseWhile p = (fmap p <$> peekByte) ==> \mp ->
+                        if mp == Just True
+                        then parseByte ==> \b ->
+                             (b:) <$> parseWhile p
+                        else identity []
+
+      Once again, we're using functors in several places (doubled up,
+      when necessary) to reduce the verbosity of our code. Here's a
+      rewrite of the same function in a more direct style that does not
+      use functors.
+
+      .. code:: programlisting
+
+         -- file: ch10/Parse.hs
+         parseWhileVerbose p =
+             peekByte ==> \mc ->
+             case mc of
+               Nothing -> identity []
+               Just c | p c ->
+                          parseByte ==> \b ->
+                          parseWhileVerbose p ==> \bs ->
+                          identity (b:bs)
+                      | otherwise ->
+                          identity []
+
+      The more verbose definition is likely easier to read when you are
+      less familiar with functors. However, use of functors is
+      sufficiently common in Haskell code that the more compact
+      representation should become second nature (both to read and to
+      write) fairly quickly.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Rewriting our PGM parser
+                  :name: id627853
+                  :class: title
+
+      With our new parsing code, what does the raw PGM parsing function
+      look like now?
+
+      .. code:: programlisting
+
+         -- file: ch10/Parse.hs
+         parseRawPGM =
+             parseWhileWith w2c notWhite ==> \header -> skipSpaces ==>&
+             assert (header == "P5") "invalid raw header" ==>&
+             parseNat ==> \width -> skipSpaces ==>&
+             parseNat ==> \height -> skipSpaces ==>&
+             parseNat ==> \maxGrey ->
+             parseByte ==>&
+             parseBytes (width * height) ==> \bitmap ->
+             identity (Greymap width height maxGrey bitmap)
+           where notWhite = (`notElem` " \r\n\t")
+
+      This definition makes use of a few more helper functions that we
+      present here, following a pattern that should by now be familiar.
+
+      .. code:: programlisting
+
+         -- file: ch10/Parse.hs
+         parseWhileWith :: (Word8 -> a) -> (a -> Bool) -> Parse [a]
+         parseWhileWith f p = fmap f <$> parseWhile (p . f)
+
+         parseNat :: Parse Int
+         parseNat = parseWhileWith w2c isDigit ==> \digits ->
+                    if null digits
+                    then bail "no more input"
+                    else let n = read digits
+                         in if n < 0
+                            then bail "integer overflow"
+                            else identity n
+
+         (==>&) :: Parse a -> Parse b -> Parse b
+         p ==>& f = p ==> \_ -> f
+
+         skipSpaces :: Parse ()
+         skipSpaces = parseWhileWith w2c isSpace ==>& identity ()
+
+         assert :: Bool -> String -> Parse ()
+         assert True  _   = identity ()
+         assert False err = bail err
+
+      The ``(==>&)`` combinator chains parsers like ``(==>)``, but the
+      right hand side ignores the result from the left. The ``assert``
+      function lets us check a property, and abort parsing with a useful
+      error message if the property is ``False``.
+
+      Notice how few of the functions that we have written make any
+      reference to the current parsing state. Most notably, where our
+      old ``parseP5`` function explicitly passed two-tuples down the
+      chain of dataflow, all of the state management in ``parseRawPGM``
+      is hidden from us.
+
+      Of course, we can't completely avoid inspecting and modifying the
+      parsing state. Here's a case in point, the last of the helper
+      functions needed by ``parseRawPGM``.
+
+      .. code:: programlisting
+
+         -- file: ch10/Parse.hs
+         parseBytes :: Int -> Parse L.ByteString
+         parseBytes n =
+             getState ==> \st ->
+             let n' = fromIntegral n
+                 (h, t) = L.splitAt n' (string st)
+                 st' = st { offset = offset st + L.length h, string = t }
+             in putState st' ==>&
+                assert (L.length h == n') "end of input" ==>&
+                identity h
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Future directions
+                  :name: id627990
+                  :class: title
+
+      Our main theme in this chapter has been abstraction. We found
+      passing explicit state down a chain of functions to be
+      unsatisfactory, so we abstracted this detail away. We noticed some
+      recurring needs as we worked out our parsing code, and abstracted
+      those into common functions. Along the way, we introduced the
+      notion of a functor, which offers a generalised way to map over a
+      parameterised type.
+
+      We will revisit parsing in 
+      `Chapter 16, Using Parsec <using-parsec.html>`__, to discuss Parsec, 
+      a widely used and flexible parsing library. And in 
+      `Chapter 14, Monads <monads.html>`__, we will return to our theme of
+      abstraction, where we will find that much of the code that we have
+      developed in this chapter can be further simplified by the use of
+      monads.
+
+      For efficiently parsing binary data represented as a ByteString, a
+      number of packages are available via the Hackage package database.
+      At the time of writing, the most popular is named ``binary``,
+      which is easy to use and offers high performance.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Exercises
+                  :name: id628045
+                  :class: title
+
+      .. container:: qandaset
+
+         .. list-table::
+            :widths: 1
+
+            - 
+
+               - **1.** Write a parser for “plain” PGM files. 
+            - 
+
+               - **2.** In our description of “raw” PGM files, we omitted a small detail. If the “maximum grey” value in the header is less than 256, each pixel is represented by a single byte. However, it can range up to 65535, in which case each pixel will be represented by two bytes, in big endian order (most significant byte first).
+
+               Rewrite the raw PGM parser to accommodate both the single- and double-byte pixel formats. 
+            -
+
+               - **3.** Extend your parser so that it can identify a raw or plain PGM file, and parse the appropriate file type. 
+
+
+
+.. _sec-11:
+
+/Chapter 11. Testing and quality assurance `🔼 <#toc>`_
+========================================================
+
+.. container:: chapter
+   :name: testing
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: Chapter 11. Testing and quality assurance
+               :name: chapter-11.-testing-and-quality-assurance
+               :class: title
+
+   .. container:: toc
+
+      **Table of Contents**
+
+      *  `QuickCheck: type-based testing <#id628197>`__
+
+         *  `Testing for properties <#id628462>`__
+         *  `Testing against a model <#id628672>`__
+
+      *  `Testing case study: specifying a pretty printer <#quickcheck.indepth>`__
+
+         *  `Generating test data <#id628734>`__
+         *  `Testing document construction <#id629125>`__
+         *  `Using lists as a model <#id629248>`__
+         *  `Putting it altogether <#id629413>`__
+
+      *  `Measuring test coverage with HPC <#id629497>`__
+
+   Building real systems means caring about quality control, robustness
+   and correctness. With the right quality assurance mechanisms in
+   place, well-written code can feel like a precision machine, with all
+   functions performing their tasks exactly as specified. There is no
+   sloppiness around the edges, and the final result can be code that is
+   self-explanatory, obviously correct -- the kind of code that inspires
+   confidence.
+
+   In Haskell, we have several tools at our disposal for building such
+   precise systems. The most obvious tool, and one built into the
+   language itself, is the expressive type-system, which allows for
+   complicated invariants to be enforced statically — making it
+   impossible to write code violating chosen constraints. In addition,
+   purity and polymorphism encourage a style of code that is modular,
+   refactorable and testable. This is the kind of code that just doesn't
+   go wrong.
+
+   Testing plays a key role in keeping code on the straight-and-narrow
+   path. The main testing mechanisms in Haskell are traditional unit
+   testing (via the HUnit library), and its more powerful descendant:
+   type-based “property” testing, with QuickCheck, an open source
+   testing framework for Haskell. Property-based testing encourages a
+   high level approach to testing in the form of abstract invariants
+   functions should satisfy universally, with the actual test data
+   generated for the programmer by the testing library. In this way code
+   can be hammered with thousands of tests that would be infeasible to
+   write by hand, often uncovering subtle corner cases that wouldn't be
+   found otherwise.
+
+   In this chapter we'll look at how to use QuickCheck to establish
+   invariants in code and then re-examine the pretty printer developed
+   in previous chapters, testing it with QuickCheck. We'll also see how
+   to guide the testing process with GHC's code coverage tool: HPC.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: QuickCheck: type-based testing
+                  :name: id628197
+                  :class: title
+
+      To get an overview of how property-based testing works, we'll
+      begin with a simple scenario: you've written a specialised sorting
+      function and want to test its behaviour.
+
+      First, we import the QuickCheck
+      library :sup:`[` `27 <#ftn.id628218>`__ :sup:`]`, and any other
+      modules we need:
+
+      .. code:: programlisting
+
+         -- file: ch11/QC-basics.hs
+         import Test.QuickCheck
+         import Data.List
+
+      And the function we want to test — a custom sort routine:
+
+      .. code:: programlisting
+
+         -- file: ch11/QC-basics.hs
+         qsort :: Ord a => [a] -> [a]
+         qsort []     = []
+         qsort (x:xs) = qsort lhs ++ [x] ++ qsort rhs
+             where lhs = filter  (< x) xs
+                   rhs = filter (>= x) xs
+
+      This is the classic Haskell sort implementation: a study in
+      functional programming elegance, if not efficiency (this isn't an
+      inplace sort). Now, we'd like to check that this function obeys
+      the basic rules a good sort should follow. One useful invariant to
+      start with, and one that comes up in a lot of purely functional
+      code, is *idempotency* — applying a function twice has the same
+      result as applying it only once. For our sort routine, a stable
+      sort algorithm, this should certainly be true, or things have gone
+      horribly wrong! This invariant can be encoded as a property
+      simply:
+
+      .. code:: programlisting
+
+         -- file: ch11/QC-basics.hs
+         prop_idempotent xs = qsort (qsort xs) == qsort xs
+
+      We'll use the QuickCheck convention of prefixing test properties
+      with ``prop_`` to distinguish them from normal code. This
+      idempotency property is written simply as a Haskell function
+      stating an equality that must hold for any input data that is
+      sorted. We can check this makes sense for a few simple cases by
+      hand:
+
+      .. code:: screen
+
+         ghci> prop_idempotent []       
+         True
+         ghci> prop_idempotent [1,1,1,1]  
+         True
+         ghci> prop_idempotent [1..100]
+         True
+         ghci> prop_idempotent [1,5,2,1,2,0,9]
+         True
+
+      Looking good. However, writing out the input data by hand is
+      tedious, and violates the moral code of the efficient functional
+      programmer: let the machine do the work! To automate this the
+      QuickCheck library comes with a set of data generators for all the
+      basic Haskell data types. QuickCheck uses the Arbitrary typeclass
+      to present a uniform interface to (pseudo-)random data generation
+      with the type system used to resolve which generator to use.
+      QuickCheck normally hides the data generation plumbing, however we
+      can also run the generators by hand to get a sense for the
+      distribution of data QuickCheck produces. For example, to generate
+      a random list of boolean values:
+
+      .. code:: screen
+
+         ghci> generate 10 (System.Random.mkStdGen 2) arbitrary :: [Bool]
+         [False,False,False,False,False,True]
+
+      QuickCheck generates test data like this and passes it to the
+      property of our choosing, via the ``quickCheck`` function. The
+      type of the property itself determines which data generator is
+      used. ``quickCheck`` then checks that for all the test data
+      produced, the property is satisfied. Now, since our idempotency
+      test is polymorphic in the list element type, we need to pick a
+      particular type to generate test data for, which we write as a
+      type constraint on the property. To run the test, we just call
+      ``quickCheck`` with our property function, set to the required
+      data type (otherwise the list element type will default to the
+      uninteresting ``()`` type):
+
+      .. code:: screen
+
+         ghci> :type quickCheck
+         quickCheck :: (Testable a) => a -> IO ()
+         ghci> quickCheck (prop_idempotent :: [Integer] -> Bool)
+         00, passed 100 tests.
+
+      For the 100 different lists generated, our property held — great!
+      When developing tests, it is often useful to see the actual data
+      generated for each test. To do this, we would replace
+      ``quickCheck`` with its sibling, ``verboseCheck``, to see
+      (verbose) output for each test. Now, let's look at more
+      sophisticated properties that our function might satisfy.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Testing for properties
+                     :name: id628462
+                     :class: title
+
+         Good libraries consist of a set of orthogonal primitives having
+         sensible relationships to each other. We can use QuickCheck to
+         specify the relationships between functions in our code,
+         helping us find a good library interface by developing
+         functions that are interrelated via useful properties.
+         QuickCheck in this way acts as an API "lint" tool — it provides
+         machine support for ensuring our library API makes sense.
+
+         The list sorting function should certainly have a number of
+         interesting properties that tie it to other list operations.
+         For example: the first element in a sorted list should always
+         be the smallest element of the input list. We might be tempted
+         to specify this intuition in Haskell, using the ``List``
+         library's ``minimum`` function:
+
+         .. code:: programlisting
+
+            -- file: ch11/QC-basics.hs
+            prop_minimum xs         = head (qsort xs) == minimum xs
+
+         Testing this, though, reveals an error:
+
+         .. code:: screen
+
+            ghci> quickCheck (prop_minimum :: [Integer] -> Bool)
+            0** Exception: Prelude.head: empty list
+
+         The property failed when sorting an empty list — for which
+         ``head`` and ``minimum`` are't defined, as we can see from
+         their definition:
+
+         .. code:: programlisting
+
+            -- file: ch11/minimum.hs
+            head       :: [a] -> a
+            head (x:_) = x
+            head []    = error "Prelude.head: empty list"
+
+            minimum    :: (Ord a) => [a] -> a
+            minimum [] =  error "Prelude.minimum: empty list"
+            minimum xs =  foldl1 min xs
+
+         So this property will only hold for non-empty lists.
+         QuickCheck, thankfully, comes with a full property writing
+         embedded language, so we can specify more precisely our
+         invariants, filtering out values we don't want to consider. For
+         the empty list case, we really want to say: *if* the list is
+         non-empty, *then* the first element of the sorted result is the
+         minimum. This is done by using the ``(==>)`` implication
+         function, which filters out invalid data before running the
+         property:
+
+         .. code:: programlisting
+
+            -- file: ch11/QC-basics.hs
+            prop_minimum' xs         = not (null xs) ==> head (qsort xs) == minimum xs
+
+         The result is quite clean. By separating out the empty list
+         case, we can now confirm the property does in fact hold:
+
+         .. code:: screen
+
+            ghci> quickCheck (prop_minimum' :: [Integer] -> Property)
+            00, passed 100 tests.
+
+         Note that we had to change the type of the property from being
+         a simple Bool result to the more general Property type (the
+         property itself is now a function that filters non-empty lists,
+         before testing them, rather than a simple boolean constant).
+
+         We can now complete the basic property set for the sort
+         function with some other invariants that it should satisfy:
+         that the output is ordered (each element should be smaller
+         than, or equal to, its successor); that the output is a
+         permutation of the input (which we achieve via the list
+         difference function, ``(\\)``); that the last sorted element
+         should be the largest element; and if we find the smallest
+         element of two different lists, that should be the first
+         element if we append and sort those lists. These properties can
+         be stated as:
+
+         .. code:: programlisting
+
+            -- file: ch11/QC-basics.hs
+            prop_ordered xs = ordered (qsort xs)
+                where ordered []       = True
+                      ordered [x]      = True
+                      ordered (x:y:xs) = x <= y && ordered (y:xs)
+
+            prop_permutation xs = permutation xs (qsort xs)
+                where permutation xs ys = null (xs \ ys) && null (ys \ xs)
+
+            prop_maximum xs         =
+                not (null xs) ==>
+                    last (qsort xs) == maximum xs
+
+            prop_append xs ys       =
+                not (null xs) ==>
+                not (null ys) ==>
+                    head (qsort (xs ++ ys)) == min (minimum xs) (minimum ys)
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Testing against a model
+                     :name: id628672
+                     :class: title
+
+         Another technique for gaining confidence in some code is to
+         test it against a model implementation. We can tie our
+         implementation of list sort to the reference sort function in
+         the standard list library, and, if they behave the same, we
+         gain confidence that our sort does the right thing.
+
+         .. code:: programlisting
+
+            -- file: ch11/QC-basics.hs
+            prop_sort_model xs      = sort xs == qsort xs
+
+         This kind of model-based testing is extremely powerful. Often
+         developers will have a reference implementation or prototype
+         that, while inefficient, is correct. This can then be kept
+         around and used to ensure optimised production code conforms to
+         the reference. By building a large suite of these model-based
+         tests, and running them regularly (on every commit, for
+         example), we can cheaply ensure the precision of our code.
+         Large Haskell projects often come bundled with property suites
+         comparable in size to the project itself, with thousands of
+         invariants tested on every change, keeping the code tied to the
+         specification, and ensuring it behaves as required.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Testing case study: specifying a pretty
+                  printer
+                  :name: quickcheck.indepth
+                  :class: title
+
+      Testing individual functions for their natural properties is one
+      of the basic building blocks that guides development of large
+      systems in Haskell. We'll look now at a more complicated scenario:
+      taking the pretty printing library developed in earlier chapters,
+      and building a test suite for it.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Generating test data
+                     :name: id628734
+                     :class: title
+
+         Recall that the pretty printer is built around the Doc, an
+         algebraic data type that represents well-formed documents:
+
+         .. code:: programlisting
+
+            -- file: ch11/Prettify2.hs
+
+            data Doc = Empty
+                     | Char Char
+                     | Text String
+                     | Line
+                     | Concat Doc Doc
+                     | Union Doc Doc
+                     deriving (Show,Eq)
+
+         The library itself is implemented as a set of functions that
+         build and transform values of this document type, before
+         finally rendering the finished document to a string.
+
+         QuickCheck encourages an approach to testing where the
+         developer specifies invariants that should hold for any data we
+         can throw at the code. To test the pretty printing library,
+         then, we'll need a source of input data. To do this, we take
+         advantage of the small combinator suite for building random
+         data that QuickCheck provides via the Arbitrary class. The
+         class provides a function, ``arbitrary``, to generate data of
+         each type, and with this we can define our data generator for
+         our custom data types.
+         :sup:`[` `28 <#ftn.id628795>`__ :sup:`]`
+
+         .. code:: programlisting
+
+            -- file: ch11/Arbitrary.hs
+            class Arbitrary a where
+              arbitrary   :: Gen a
+
+         One thing to notice is that the generators run in a Gen
+         environment, indicated by the type. This is a simple
+         state-passing monad that is used to hide the random number
+         generator state that is threaded through the code. We'll look
+         thoroughly at monads in later chapters, but for now it suffices
+         to know that, as Gen is defined as a monad, we can use ``do``
+         syntax to write new generators that access the implicit random
+         number source. To actually write generators for our custom type
+         we use any of a set of functions defined in the library for
+         introducing new random values and gluing them together to build
+         up data structures of the type we're interested in. The types
+         of the key functions are:
+
+         .. code:: programlisting
+
+            -- file: ch11/Arbitrary.hs
+              elements :: [a] -> Gen a
+              choose   :: Random a => (a, a) -> Gen a
+              oneof    :: [Gen a] -> Gen a
+
+         The function ``elements``, for example, takes a list of values,
+         and returns a generator of random values from that list.
+         ``choose`` and ``oneof`` we'll use later. With this, we can
+         start writing generators for simple data types. For example, if
+         we define a new data type for ternary logic:
+
+         .. code:: programlisting
+
+            -- file: ch11/Arbitrary.hs
+            data Ternary
+                = Yes
+                | No
+                | Unknown
+                deriving (Eq,Show)
+
+         we can write an Arbitrary instance for the Ternary type by
+         defining a function that picks elements from a list of the
+         possible values of Ternary type:
+
+         .. code:: programlisting
+
+            -- file: ch11/Arbitrary.hs
+            instance Arbitrary Ternary where
+              arbitrary     = elements [Yes, No, Unknown]
+
+         Another approach to data generation is to generate values for
+         one of the basic Haskell types and then translate those values
+         into the type you're actually interested in. We could have
+         written the Ternary instance by generating integer values from
+         0 to 2 instead, using ``choose``, and then mapping them onto
+         the ternary values:
+
+         .. code:: programlisting
+
+            -- file: ch11/Arbitrary2.hs
+            instance Arbitrary Ternary where
+              arbitrary     = do
+                  n <- choose (0, 2) :: Gen Int
+                  return $ case n of
+                                0 -> Yes
+                                1 -> No
+                                _ -> Unknown
+
+         For simple *sum* types, this approach works nicely, as the
+         integers map nicely onto the constructors of the data type. For
+         *product* types (such as structures and tuples), we need to
+         instead generate each component of the product separately (and
+         recursively for nested types), and then combine the components.
+         For example, to generate random pairs of random values:
+
+         .. code:: programlisting
+
+            -- file: ch11/Arbitrary.hs
+            instance (Arbitrary a, Arbitrary b) => Arbitrary (a, b) where
+              arbitrary = do
+                  x <- arbitrary
+                  y <- arbitrary
+                  return (x, y)
+
+         So let's now write a generator for all the different variants
+         of the Doc type. We'll start by breaking the problem down,
+         first generating random constructors for each type, then,
+         depending on the result, the components of each field. The most
+         complicated case are the union and concatenation variants.
+
+         First, though, we need to write an instance for generating
+         random characters — QuickCheck doesn't have a default instance
+         for characters, due to the abundance of different text
+         encodings we might want to use for character tests. We'll write
+         our own, and, as we don't care about the actual text content of
+         the document, a simple generator of alphabetic characters and
+         punctuation will suffice (richer generators are simple
+         extensions of this basic approach):
+
+         .. code:: programlisting
+
+            -- file: ch11/QC.hs
+            instance Arbitrary Char where
+                arbitrary = elements (['A'..'Z'] ++ ['a' .. 'z'] ++ " ~!@#$%^&*()")
+
+         With this in place, we can now write an instance for documents,
+         by enumerating the constructors, and filling the fields in. We
+         choose a random integer to represent which document variant to
+         generate, and then dispatch based on the result. To generate
+         concat or union document nodes, we just recurse on
+         ``arbitrary``, letting type inference determine which instance
+         of ``Arbitrary`` we mean:
+
+         .. code:: programlisting
+
+            -- file: ch11/QC.hs
+            instance Arbitrary Doc where
+                arbitrary = do
+                    n <- choose (1,6) :: Gen Int
+                    case n of
+                         1 -> return Empty
+
+                         2 -> do x <- arbitrary
+                                 return (Char x)
+
+                         3 -> do x <- arbitrary
+                                 return (Text x)
+
+                         4 -> return Line
+
+                         5 -> do x <- arbitrary
+                                 y <- arbitrary
+                                 return (Concat x y)
+
+                         6 -> do x <- arbitrary
+                                 y <- arbitrary
+                                 return (Union x y)
+
+         That was fairly straightforward, and we can clean it up some
+         more by using the ``oneof`` function, whose type we saw
+         earlier, to pick between different generators in a list (we can
+         also use the monadic combinator, ``liftM`` to avoid naming
+         intermediate results from each generator):
+
+         .. code:: programlisting
+
+            -- file: ch11/QC.hs
+            instance Arbitrary Doc where
+                arbitrary =
+                    oneof [ return Empty
+                          , liftM  Char   arbitrary
+                          , liftM  Text   arbitrary
+                          , return Line
+                          , liftM2 Concat arbitrary arbitrary
+                          , liftM2 Union  arbitrary arbitrary ]
+
+         The latter is more concise, just picking between a list of
+         generators, but they describe the same data either way. We can
+         check that the output makes sense, by generating a list of
+         random documents (seeding the pseudo-random generator with an
+         initial seed of 2):
+
+         .. code:: screen
+
+            ghci> generate 10 (System.Random.mkStdGen 2) arbitrary :: [Doc]
+            [Line,Empty,Union Empty Line,Union (Char 'R') (Concat (Union Line (Concat (Text "i@BmSu") (Char ')'))) (Union (Concat (Concat (Concat (Text "kqV!iN") Line) Line) Line) Line)),Char 'M',Text "YdwVLrQOQh"]
+
+         Looking at the output we see a good mix of simple, base cases,
+         and some more complicated nested documents. We'll be generating
+         hundreds of these each test run, so that should do a pretty
+         good job. We can now write some generic properties for our
+         document functions.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Testing document construction
+                     :name: id629125
+                     :class: title
+
+         Two of the basic functions on documents are the null document
+         constant (a nullary function), ``empty``, and the append
+         function. Their types are:
+
+         .. code:: programlisting
+
+            -- file: ch11/Prettify2.hs
+            empty :: Doc
+            (<>)  :: Doc -> Doc -> Doc
+
+         Together, these should have a nice property: appending or
+         prepending the empty list onto a second list, should leave the
+         second list unchanged. We can state this invariant as a
+         property:
+
+         .. code:: programlisting
+
+            -- file: ch11/QC.hs
+            prop_empty_id x =
+                empty <> x == x
+              &&
+                x <> empty == x
+
+         Confirming that this is indeed true, we're now underway with
+         our testing:
+
+         .. code:: screen
+
+            ghci> quickCheck prop_empty_id
+            00, passed 100 tests.
+
+         To look at what actual test documents were generated (by
+         replacing ``quickCheck`` with ``verboseCheck``). A good mixture
+         of both simple and complicated cases are being generated. We
+         can refine the data generation further, with constraints on the
+         proportion of generated data, if desirable.
+
+         Other functions in the API are also simple enough to have their
+         behaviour fully described via properties. By doing so we can
+         maintain an external, checkable description of the function's
+         behaviour, so later changes won't break these basic invariants.
+
+         .. code:: programlisting
+
+            -- file: ch11/QC.hs
+
+            prop_char c   = char c   == Char c
+
+            prop_text s   = text s   == if null s then Empty else Text s
+
+            prop_line     = line     == Line
+
+            prop_double d = double d == text (show d)
+
+         These properties are enough to fully test the structure
+         returned by the basic document operators. To test the rest of
+         the library will require more work.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Using lists as a model
+                     :name: id629248
+                     :class: title
+
+         Higher order functions are the basic glue of reusable
+         programming, and our pretty printer library is no exception — a
+         custom fold function is used internally to implement both
+         document concatenation and interleaving separators between
+         document chunks. The ``fold`` defined for documents takes a
+         list of document pieces, and glues them all together with a
+         supplied combining function:
+
+         .. code:: programlisting
+
+            -- file: ch11/Prettify2.hs
+            fold :: (Doc -> Doc -> Doc) -> [Doc] -> Doc
+            fold f = foldr f empty
+
+         We can write tests in isolation for specific instances of fold
+         easily. Horizontal concatenation of documents, for example, is
+         easy to specify by writing a reference implementation on lists:
+
+         .. code:: programlisting
+
+            -- file: ch11/QC.hs
+
+            prop_hcat xs = hcat xs == glue xs
+                where
+                    glue []     = empty
+                    glue (d:ds) = d <> glue ds
+
+         It is a similar story for ``punctuate``, where we can model
+         inserting punctuation with list interspersion (from
+         ``Data.List``, ``intersperse`` is a function that takes an
+         element and interleaves it between other elements of a list):
+
+         .. code:: programlisting
+
+            -- file: ch11/QC.hs
+
+            prop_punctuate s xs = punctuate s xs == intersperse s xs
+
+         While this looks fine, running it reveals a flaw in our
+         reasoning:
+
+         .. code:: screen
+
+            ghci>  quickCheck prop_punctuate
+            Falsifiable, after 6 tests:
+            Empty
+            [Line,Text "",Line]
+                
+
+         The pretty printing library optimises away redundant empty
+         documents, something the model implementation doesn't, so we'll
+         need to augment our model to match reality. First, we can
+         intersperse the punctuation text throughout the document list,
+         then a little loop to clean up the ``Empty`` documents
+         scattered through, like so:
+
+         .. code:: programlisting
+
+            -- file: ch11/QC.hs
+            prop_punctuate' s xs = punctuate s xs == combine (intersperse s xs)
+                where
+                    combine []           = []
+                    combine [x]          = [x]
+
+                    combine (x:Empty:ys) = x : combine ys
+                    combine (Empty:y:ys) = y : combine ys
+                    combine (x:y:ys)     = x `Concat` y : combine ys
+
+         Running this in GHCi, we can confirm the result. It is
+         reassuring to have the test framework spot the flaws in our
+         reasoning about the code — exactly what we're looking for:
+
+         .. code:: screen
+
+            ghci> quickCheck prop_punctuate'
+            00, passed 100 tests.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Putting it altogether
+                     :name: id629413
+                     :class: title
+
+         We can put all these tests together in a single file, and run
+         them simply by using one of QuickCheck's driver functions.
+         Several exist, including elaborate parallel ones. The basic
+         batch driver is often good enough, however. All we need do is
+         set up some default test parameters, and then list the
+         functions we want to test:
+
+         .. code:: programlisting
+
+            -- file: ch11/Run.hs
+            import Prettify2
+            import Test.QuickCheck.Batch
+
+            options = TestOptions
+                  { no_of_tests         = 200
+                  , length_of_tests     = 1
+                  , debug_tests         = False }
+
+            main = do
+                runTests "simple" options
+                    [ run prop_empty_id
+                    , run prop_char
+                    , run prop_text
+                    , run prop_line
+                    , run prop_double
+                    ]
+
+                runTests "complex" options
+                    [ run prop_hcat
+                    , run prop_puncutate'
+                    ]
+
+         We've structured the code here as a separate, standalone test
+         script, with instances and properties in their own file,
+         separate to the library source. This is typical for library
+         projects, where the tests are kept apart from the library
+         itself, and import the library via the module system. The test
+         script can then be compiled and executed:
+
+         .. code:: screen
+
+            $ ghc --make Run.hs
+            $ ./Run 
+                             simple : .....                            (1000)
+                            complex : ..                               (400)
+               
+
+         A total of 1400 individual tests were created, which is
+         comforting. We can increase the depth easily enough, but to
+         find out exactly how well the code is being tested we should
+         turn to the built in code coverage tool, HPC, which can state
+         precisely what is going on.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Measuring test coverage with HPC
+                  :name: id629497
+                  :class: title
+
+      HPC (Haskell Program Coverage) is an extension to the compiler to
+      observe what parts of the code were actually executed during a
+      given program run. This is useful in the context of testing, as it
+      lets us observe precisely which functions, branches and
+      expressions were evaluated. The result is precise knowledge about
+      the percent of code tested, that's easy to obtain. HPC comes with
+      a simple utility to generate useful graphs of program coverage,
+      making it easy to zoom in on weak spots in the test suite.
+
+      To obtain test coverage data, all we need to do is add the
+      ``-fhpc`` flag to the command line, when compiling the tests:
+
+      .. code:: screen
+
+             $ ghc -fhpc Run.hs --make
+           
+
+      Then run the tests as normal;
+
+      .. code:: screen
+
+             $ ./Run
+                          simple : .....                            (1000)
+                         complex : ..                               (400)
+
+            
+
+      During the test run the trace of the program is written to .tix
+      and .mix files in the current directory. Afterwards, these files
+      are used by the command line tool, ``hpc``, to display various
+      statistics about what happened. The basic interface is textual. To
+      begin, we can get a summary of the code tested during the run
+      using the ``report`` flag to ``hpc``. We'll exclude the test
+      programs themselves, (using the ``--exclude`` flag), so as to
+      concentrate only on code in the pretty printer library. Entering
+      the following into the console:
+
+      .. code:: screen
+
+             $ hpc report Run --exclude=Main --exclude=QC
+              18% expressions used (30/158)
+               0% boolean coverage (0/3)
+                    0% guards (0/3), 3 unevaluated
+                  100% 'if' conditions (0/0)
+                  100% qualifiers (0/0)
+              23% alternatives used (8/34)
+               0% local declarations used (0/4)
+              42% top-level declarations used (9/21)
+             
+
+      we see that, on the last line, 42% of top level definitions were
+      evaluated during the test run. Not too bad for a first attempt. As
+      we test more and more functions from the library, this figure will
+      rise. The textual version is useful for a quick summary, but to
+      really see what's going on it is best to look at the marked up
+      output. To generate this, use the ``markup`` flag instead:
+
+      .. code:: screen
+
+             $ hpc markup Run --exclude=Main --exclude=QC
+           
+
+      This will generate one html file for each Haskell source file, and
+      some index files. Loading the file ``hpc_index.html`` into a
+      browser, we can see some pretty graphs of the code coverage:
+
+      .. container:: informalfigure
+
+         .. container:: mediaobject
+
+            |Revised coverage for module Prettify2: 52% of top level
+            definitions (up from 42%), 23% of alternatives, 18% of
+            expressions.|
+
+      Not too bad. Clicking through to the pretty module itself, we see
+      the actual source of the program, marked up in bold yellow for
+      code that wasn't tested, and code that was executed simply bold.
+
+      .. container:: informalfigure
+
+         .. container:: mediaobject
+
+            |Screenshot of annotated coverage output, displaying the
+            Monoid instance for Doc in bold yellow (not tested), and
+            other code nearby in bold (was executed).|
+
+      We forgot to test the Monoid instance, for example, and some of
+      the more complicated functions. HPC helps keep our test suite
+      honest. Let's add a test for the typeclass instance of Monoid, the
+      class of types that support appending and empty elements:
+
+      .. code:: programlisting
+
+         -- file: ch11/QC.hs
+         prop_mempty_id x =
+             mempty `mappend` x == x
+           &&
+             x `mappend` mempty == (x :: Doc)
+
+      Running this property in ghci, to check it is correct:
+
+      .. code:: screen
+
+         ghci> quickCheck prop_mempty_id
+         00, passed 100 tests.
+
+      We can now recompile and run the test driver. It is important to
+      remove the old .tix file first though, or an error will occur as
+      HPC tries to combine the statistics from separate runs:
+
+      .. code:: screen
+
+           $ ghc -fhpc Run.hs --make -no-recomp
+           $ ./Run 
+           Hpc failure: inconsistent number of tick boxes
+           (perhaps remove Run.tix file?)
+           $ rm *.tix
+           $ ./Run   
+                              simple : .....                            (1000)
+                             complex : ...                              (600)
+
+      Another two hundred tests were added to the suite, and our
+      coverage statistics improves to 52 percent of the code base:
+
+      .. container:: informalfigure
+
+         .. container:: mediaobject
+
+            |Coverage for module Prettify2: 42% of top level
+            definitions, 23% of alternatives, 18% of expressions.|
+
+      HPC ensures that we're honest in our testing, as anything less
+      than 100% coverage will be pointed out in glaring color. In
+      particular, it ensures the programmer has to think about error
+      cases, and complicated branches with obscure conditions, all forms
+      of code smell. When combined with a saturating test generation
+      system, like QuickCheck's, testing becomes a rewarding activity,
+      and a core part of Haskell development.
+
+   .. container:: footnotes
+
+      .. container:: footnote
+
+         :sup:`[` `27 <#id628218>`__ :sup:`]` Throughout this chapter
+         we'll use QuickCheck 1.0 (classic QuickCheck). It should be
+         kept in mind that a some functions may differ in later releases
+         of the library.
+
+      .. container:: footnote
+
+         :sup:`[` `28 <#id628795>`__ :sup:`]` The class also defines a
+         method, ``coarbitrary``, which given a value of some type,
+         yields a function for new generators. We can disregard for now,
+         as it is only needed for generating random values of function
+         type. One result of disregarding ``coarbitrary`` is that GHC
+         will warn about it not being defined, however, it is safe to
+         ignore these warnings.
+
+
+
+.. _sec-12:
+
+/Chapter 12. Barcode recognition `🔼 <#toc>`_
+==============================================
+
+.. container:: chapter
+   :name: barcode
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: Chapter 12. Barcode recognition
+               :name: chapter-12.-barcode-recognition
+               :class: title
+
+   .. container:: toc
+
+      **Table of Contents**
+
+      *  `A little bit about barcodes <#id629839>`__
+
+         *  `EAN-13 encoding <#barcode.encode>`__
+
+      *  `Introducing arrays <#barcode.array>`__
+
+         *  `Arrays and laziness <#id630493>`__
+         *  `Folding over arrays <#barcode.fold>`__
+         *  `Modifying array elements <#barcode.array.mutable>`__
+         *  `Exercises <#id630742>`__
+
+      *  `Encoding an EAN-13 barcode <#id630808>`__
+      *  `Constraints on our decoder <#id630886>`__
+      *  `Divide and conquer <#id631008>`__
+      *  `Turning a colour image into something tractable <#id631101>`__
+
+         *  `Parsing a colour image <#id631116>`__
+         *  `Greyscale conversion <#id631231>`__
+         *  `Greyscale to binary, and type safety <#id631316>`__
+
+      *  `What have we done to our image? <#id631472>`__
+      *  `Finding matching digits <#id631606>`__
+
+         *  `Run length encoding <#id631625>`__
+         *  `Scaling run lengths, and finding approximate matches <#id631784>`__
+         *  `List comprehensions <#id631976>`__
+         *  `Remembering a match's parity <#id632165>`__
+         *  `Another kind of laziness, of the keyboarding variety <#id632319>`__
+         *  `Chunking a list <#id632473>`__
+         *  `Generating a list of candidate digits <#id632516>`__
+
+      *  `Life without arrays or hash tables <#id632644>`__
+
+         *  `A forest of solutions <#id632722>`__
+         *  `A brief introduction to maps <#id632817>`__
+         *  `Type constraints <#id632892>`__
+         *  `Partial application awkwardness <#barcode.map.partial>`__
+         *  `Getting started with the API <#id632952>`__
+         *  `Further reading <#id633434>`__
+
+      *  `Turning digit soup into an answer <#id633476>`__
+
+         *  `Solving for check digits in parallel <#id633535>`__
+         *  `Completing the solution map with the first digit <#id633876>`__
+         *  `Finding the correct sequence <#id633953>`__
+
+      *  `Working with row data <#id634020>`__
+      *  `Pulling it all together <#id634156>`__
+      *  `A few comments on development style <#id634269>`__
+
+   In this chapter, we'll make use of the image parsing library we
+   developed in `Chapter 10, Code case study: parsing a binary data
+   format <code-case-study-parsing-a-binary-data-format.html>`__ to
+   build a barcode recognition application. Given a picture of the back
+   of a book taken with a camera phone, we could use this to extract its
+   ISBN number.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: A little bit about barcodes
+                  :name: id629839
+                  :class: title
+
+      The vast majority of packaged and mass-produced consumer goods
+      sold have a barcode somewhere on them. Although there are dozens
+      of barcode systems used across a variety specialised domains,
+      consumer products typically use either UPC-A or EAN-13. UPC-A was
+      developed in the United States, while EAN-13 is European in
+      origin.
+
+      EAN-13 was developed after UPC-A, and is a superset of UPC-A. (In
+      fact, UPC-A has been officially declared obsolete since 2005,
+      though it's still widely used within the United States.) Any
+      software or hardware that can understand EAN-13 barcodes will
+      automatically handle UPC-A barcodes. This neatly reduces our
+      descriptive problem to one standard.
+
+      As the name suggests, EAN-13 describes a 13-digit sequence, which
+      is broken into four groups.
+
+      .. container:: itemizedlist
+
+         -  The first two digits describe the *number system*. This can
+            either indicate the nationality of the manufacturer, or
+            describe one of a few other categories, such as ISBN (book
+            identifier) numbers.
+
+         -  The next five digits are a manufacturer ID, assigned by a
+            country's numbering authority.
+
+         -  The five digits that follow are a product ID, assigned by
+            the manufacturer. (Smaller manufacturers may have a longer
+            manufacturer ID and shorter product ID, but they still add
+            up to ten digits.)
+
+         -  The last digit is a *check digit*, allowing a scanner to
+            validate the digit string it scans.
+
+      The only way in which an EAN-13 barcode differs from a UPC-A
+      barcode is that the latter uses a single digit to represent its
+      number system. EAN-13 barcodes retain UPC-A compatibility by
+      setting the first number system digit to zero.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: EAN-13 encoding
+                     :name: barcode.encode
+                     :class: title
+
+         Before we worry about decoding an EAN-13 barcode, we need to
+         understand how they are encoded. The system used by EAN-13 is a
+         little involved. We start by computing the check digit, which
+         is the last digit of a string.
+
+         .. code:: programlisting
+
+            -- file: ch12/Barcode.hs
+            checkDigit :: (Integral a) => [a] -> a
+            checkDigit ds = 10 - (sum products `mod` 10)
+                where products = mapEveryOther (*3) (reverse ds)
+
+            mapEveryOther :: (a -> a) -> [a] -> [a]
+            mapEveryOther f = zipWith ($) (cycle [f,id])
+
+         This is one of those algorithms that is more easily understood
+         via the code than a verbal description. The computation
+         proceeds from the right of the string. Each successive digit is
+         either multiplied by three or left alone (the ``cycle``
+         function repeats its input list infinitely). The check digit is
+         the difference between their sum, modulo ten, and the number
+         ten.
+
+         A barcode is a series of fixed-width bars, where black
+         represents a binary “one” bit, and white a “zero”. A run of the
+         same digits thus looks like a thicker bar.
+
+         The sequence of bits in a barcode is as follows.
+
+         .. container:: itemizedlist
+
+            -  The leading guard sequence, encoded as 101.
+
+            -  A group of six digits, each seven bits wide.
+
+            -  Another guard sequence, encoded as 01010.
+
+            -  A group of six more digits.
+
+            -  The trailing guard sequence, encoded as 101.
+
+         The digits in the left and right groups have separate
+         encodings. On the left, digits are encoded with parity bits.
+         The parity bits encode the 13th digit of the barcode.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Introducing arrays
+                  :name: barcode.array
+                  :class: title
+
+      Before we continue, here are all of the imports that we will be
+      using in the remainder of this chapter.
+
+      .. code:: programlisting
+
+         -- file: ch12/Barcode.hs
+         import Data.Array (Array(..), (!), bounds, elems, indices,
+                            ixmap, listArray)
+
+         import Control.Applicative ((<$>))
+         import Control.Monad (forM_)
+         import Data.Char (digitToInt)
+         import Data.Ix (Ix(..))
+         import Data.List (foldl', group, sort, sortBy, tails)
+         import Data.Maybe (catMaybes, listToMaybe)
+         import Data.Ratio (Ratio)
+         import Data.Word (Word8)
+         import System.Environment (getArgs)
+         import qualified Data.ByteString.Lazy.Char8 as L
+         import qualified Data.Map as M
+
+         import Parse                    -- from chapter 11
+
+      The barcode encoding process can largely be table-driven, in which
+      we use small tables of bit patterns to decide how to encode each
+      digit. Haskell's bread-and-butter data types, lists and tuples,
+      are not well suited to use for tables whose elements may be
+      accessed randomly. A list has to be traversed linearly to reach
+      the *k*\ th element. A tuple doesn't have this problem, but
+      Haskell's type system makes it difficult to write a function that
+      takes a tuple and an element offset and returns the element at
+      that offset within the tuple. (We'll explore why in the exercises
+      below.)
+
+      The usual data type for constant-time random access is of course
+      the array. Haskell provides several array data types. We'll thus
+      represent our encoding tables as arrays of strings.
+
+      The simplest array type is in the ``Data.Array`` module, which
+      we're using here. This presents arrays that can contain values of
+      any Haskell type. Like other common Haskell types, these arrays
+      are immutable. An immutable array is populated with values just
+      once, when it is created. Its contents cannot subsequently be
+      modified. (The standard libraries also provide other array types,
+      some of which are mutable, but we won't cover those for a while.)
+
+      .. code:: programlisting
+
+         -- file: ch12/Barcode.hs
+         leftOddList = ["0001101", "0011001", "0010011", "0111101", "0100011",
+                        "0110001", "0101111", "0111011", "0110111", "0001011"]
+
+         rightList = map complement <$> leftOddList
+             where complement '0' = '1'
+                   complement '1' = '0'
+
+         leftEvenList = map reverse rightList
+
+         parityList = ["111111", "110100", "110010", "110001", "101100",
+                       "100110", "100011", "101010", "101001", "100101"]
+
+         listToArray :: [a] -> Array Int a
+         listToArray xs = listArray (0,l-1) xs
+             where l = length xs
+
+         leftOddCodes, leftEvenCodes, rightCodes, parityCodes :: Array Int String
+
+         leftOddCodes = listToArray leftOddList
+         leftEvenCodes = listToArray leftEvenList
+         rightCodes = listToArray rightList
+         parityCodes = listToArray parityList
+
+      The ``Data.Array`` module's ``listArray`` function populates an
+      array from a list. It takes as its first parameter the bounds of
+      the array to create; the second is the values with which to
+      populate it.
+
+      An unusual feature of the Array type is that its type is
+      parameterised over both the data it contains and the index type.
+      For example, the type of a one-dimensional array of String is
+      Array Int String, but a two-dimensional array would have the type
+      Array (Int,Int) String.
+
+      .. code:: screen
+
+         ghci> :m +Data.Array
+         ghci> :type listArray
+         listArray :: (Ix i) => (i, i) -> [e] -> Array i e
+
+      We can construct an array easily.
+
+      .. code:: screen
+
+         ghci> listArray (0,2) "foo"
+         array (0,2) [(0,'f'),(1,'o'),(2,'o')]
+
+      Notice that we have to specify the lower and upper bounds of the
+      array. These bounds are inclusive, so an array from 0 to 2 has
+      elements 0, 1, and 2.
+
+      .. code:: screen
+
+         ghci> listArray (0,3) [True,False,False,True,False]
+         array (0,3) [(0,True),(1,False),(2,False),(3,True)]
+         ghci> listArray (0,10) "too short"
+         array (0,10) [(0,'t'),(1,'o'),(2,'o'),(3,' '),(4,'s'),(5,'h'),(6,'o'),(7,'r'),(8,'t'),(9,*** Exception: (Array.!): undefined array element
+
+      Once an array is constructed, we can use the ``(!)`` operator to
+      access its elements by index.
+
+      .. code:: screen
+
+         ghci> let a = listArray (0,14) ['a'..]
+         ghci> a ! 2
+         'c'
+         ghci> a ! 100
+         *** Exception: Error in array index
+
+      Since the array construction function lets us specify the bounds
+      of an array, we don't have to use the zero-based array indexing
+      familiar to C programmers. We can choose whatever bounds are
+      convenient for our purposes.
+
+      .. code:: screen
+
+         ghci> let a = listArray (-9,5) ['a'..]
+         ghci> a ! (-2)
+         'h'
+
+      The index type can be any member of the Ix type. This lets us use,
+      for example, Char as the index type.
+
+      .. code:: screen
+
+         ghci> let a = listArray ('a', 'h') [97..]
+         ghci> a ! 'e'
+         101
+
+      To create a higher-dimensioned array, we use a tuple of Ix
+      instances as the index type. The Prelude makes tuples of up to
+      five elements members of the Ix class. To illustrate, here's a
+      small three-dimensional array.
+
+      .. code:: screen
+
+         ghci> let a = listArray ((0,0,0), (9,9,9)) [0..]
+         ghci> a ! (4,3,7)
+         437
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Arrays and laziness
+                     :name: id630493
+                     :class: title
+
+         The list that we use to populate the array must contain at
+         least as many elements as are in the array. If we do not
+         provide enough elements, we'll get an error at runtime. When
+         the error will occur depends on the nature of the array.
+
+         Here, we are using an array type that is non-strict in its
+         elements. If we provide a list of three values to an array that
+         we specify as containing more than three elements, the
+         remaining elements will undefined. We will not get an error
+         unless we access an element beyond the third.
+
+         .. code:: screen
+
+            ghci> let a = listArray (0,5) "bar"
+            ghci> a ! 2
+            'r'
+            ghci> a ! 4
+            *** Exception: (Array.!): undefined array element
+
+         Haskell also provides strict arrays, which behave differently.
+         We will discuss the tradeoffs between the two kinds of array
+         much later, in `the section called “Unboxing, lifting, and
+         bottom” <advanced-library-design-building-a-bloom-filter.html#bloomfilter.uarray>`__.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Folding over arrays
+                     :name: barcode.fold
+                     :class: title
+
+         The ``bounds`` function returns a tuple describing the bounds
+         that we used to create the array. The ``indices`` function
+         returns a list of every index. We can use these to define some
+         useful folds, since the ``Data.Array`` module doesn't define
+         any fold functions itself.
+
+         .. code:: programlisting
+
+            -- file: ch12/Barcode.hs
+            -- | Strict left fold, similar to foldl' on lists.
+            foldA :: Ix k => (a -> b -> a) -> a -> Array k b -> a
+            foldA f s a = go s (indices a)
+                where go s (j:js) = let s' = f s (a ! j)
+                                    in s' `seq` go s' js
+                      go s _ = s
+
+            -- | Strict left fold using the first element of the array as its
+            -- starting value, similar to foldl1 on lists.
+            foldA1 :: Ix k => (a -> a -> a) -> Array k a -> a
+            foldA1 f a = foldA f (a ! fst (bounds a)) a
+
+         You might wonder why the array modules don't already provide
+         such useful things as folding functions. There are some obvious
+         correspondences between a one-dimensional array and a list. For
+         instance, there are only two natural ways in which we can fold
+         sequentially: left-to-right and right-to-left. Additionally, we
+         can only fold over one element at a time.
+
+         This does not translate even to two-dimensional arrays. First
+         of all, there are several kinds of fold that make sense. We
+         might still want to fold over single elements, but we now have
+         the possibility of folding over rows or columns, too. On top of
+         this, for element-at-a-time folding, there are no longer just
+         two sequences for traversal.
+
+         In other words, for two-dimensional arrays, there are enough
+         permutations of possibly useful behaviour that there aren't
+         many compelling reasons to choose a handful for a standard
+         library. This problem is only compounded for higher dimensions,
+         so it's best to let developers write folds that suit the needs
+         of their applications. As we can see from our examples above,
+         this is not hard to do.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Modifying array elements
+                     :name: barcode.array.mutable
+                     :class: title
+
+         While there exist “modification” functions for immutable
+         arrays, they are not very practical. For example, the ``accum``
+         function takes an array and a list of ``(index, value)`` pairs,
+         and returns a new array with the values at the given indices
+         replaced.
+
+         Since arrays are immutable, modifying even one element requires
+         copying the entire array. This quickly becomes prohibitively
+         expensive on arrays of even modest size.
+
+         Another array type, DiffArray in the ``Data.Array.Diff``
+         module, attempts to offset the cost of small modifications by
+         storing deltas between successive versions of an array.
+         Unfortunately, it is not implemented efficiently at the time we
+         are writing this book, and is currently too slow to be of
+         practical use.
+
+         .. note:: Don't lose hope
+            
+            It *is* in fact possible to modify an array
+            efficiently in Haskell, using the ST monad. This is
+            a subject that we will return to later, in
+            `Chapter 26, Advanced library design: building a Bloom
+            filter <advanced-library-design-building-a-bloom-filter.html>`__.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Exercises
+                     :name: id630742
+                     :class: title
+
+         Let's briefly explore the suitability of tuples as stand-ins
+         for arrays.
+
+         .. container:: qandaset
+
+            .. list-table::
+               :widths: 1
+
+               - 
+
+                  - **1.** Write a function that takes two arguments: a four-element tuple, and an integer. With an integer argument of zero, it should return the leftmost element of the tuple. With an argument of one, it should return the next element. And so on. What restrictions do you have to put on the types of the arguments in order to write a function that typechecks correctly?
+               - 
+
+                  - **2.** Write a similar function that takes a six-tuple as its first argument.
+               - 
+
+                  - **3.** Try refactoring the two functions to share any common code you can identify. How much shared code are you able to you find? 
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Encoding an EAN-13 barcode
+                  :name: id630808
+                  :class: title
+
+      Even though our goal is to *decode* a barcode, it's useful to have
+      an encoder for reference. This will allow us to, for example,
+      ensure that our code is correct by checking that the output of
+      ``decode . encode`` the same as its input.
+
+      .. code:: programlisting
+
+         -- file: ch12/Barcode.hs
+         encodeEAN13 :: String -> String
+         encodeEAN13 = concat . encodeDigits . map digitToInt
+
+         -- | This function computes the check digit; don't pass one in.
+         encodeDigits :: [Int] -> [String]
+         encodeDigits s@(first:rest) =
+             outerGuard : lefties ++ centerGuard : righties ++ [outerGuard]
+           where (left, right) = splitAt 5 rest
+                 lefties = zipWith leftEncode (parityCodes ! first) left
+                 righties = map rightEncode (right ++ [checkDigit s])
+
+         leftEncode :: Char -> Int -> String
+         leftEncode '1' = (leftOddCodes !)
+         leftEncode '0' = (leftEvenCodes !)
+
+         rightEncode :: Int -> String
+         rightEncode = (rightCodes !)
+
+         outerGuard = "101"
+         centerGuard = "01010"
+
+      The string to encode is twelve digits long, with ``encodeDigits``
+      adding a thirteenth check digit.
+
+      The barcode is encoded as two groups of six digits, with a guard
+      sequence in the middle and “outside” sequences on either side. But
+      if we have two groups of six digits, what happened to the missing
+      digit?
+
+      Each digit in the left group is encoded using either odd or even
+      parity, with the parity chosen based on the bits of the first
+      digit in the string. If a bit of the first digit is zero, the
+      corresponding digit in the left group is encoded with even parity.
+      A one bit causes the digit to be encoded with odd parity. This
+      encoding is an elegant hack, chosen to make EAN-13 barcodes
+      backwards compatible with the older UPC-A standard.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Constraints on our decoder
+                  :name: id630886
+                  :class: title
+
+      Before we talk about decoding, let's set a few practical limits on
+      what kinds of barcode image we can work with.
+
+      Phone cameras and webcams generally output JPEG images, but
+      writing a JPEG decoder would take us several chapters. We'll
+      simplify our parsing problem by handling the netpbm file format.
+      We will use the parsing combinators we developed earlier, in
+      `Chapter 10, Code case study: parsing a binary data
+      format <code-case-study-parsing-a-binary-data-format.html>`__.
+
+      We'd like to deal with real images from the kinds of cheap,
+      fixed-focus cameras that come with low-end cell phones. These
+      images tend to be out of focus, noisy, low in contrast, and of
+      poor resolution. Fortunately, it's not hard to write code that can
+      handle noisy, defocused VGA-resolution (640x480) images with
+      terrible contrast ratios. We've verified that the code in this
+      chapter captures barcodes from real books, using pictures taken by
+      authentically mediocre cameras.
+
+      We will avoid any image processing heroics, because that's another
+      chapter-consuming subject. We won't correct perspective. Neither
+      will we sharpen images taken from too near to the subject, which
+      causes narrow bars to fade out; or from too far, which causes
+      adjacent bars to blur together.
+
+      .. container:: informalfigure
+
+         .. container:: mediaobject
+
+            |Barcode image distorted by perspective, due to photo being
+            taken from an angle.|
+
+      .. container:: informalfigure
+
+         .. container:: mediaobject
+
+            |Barcode image blurred by being taken from inside the focal
+            length of the camera lens, causing bars to run together.|
+
+      .. container:: informalfigure
+
+         .. container:: mediaobject
+
+            |Barcode image contains insufficient detail, due to poor
+            resolution of camera lens and CCD.|
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Divide and conquer
+                  :name: id631008
+                  :class: title
+
+      Our task is to take a camera image and extract a valid barcode
+      from it. Given such a nonspecific description, it can be hard to
+      see how to make progress. However, we can break the big problem
+      into a series of subproblems, each of which is self-contained and
+      more tractable.
+
+      .. container:: itemizedlist
+
+         -  Convert colour data into a form we can easily work with.
+
+         -  Sample a single scan line from the image, and extract a set
+            of guesses as to what the encoded digits in this line could
+            be.
+
+         -  From the guesses, create a list of valid decodings.
+
+      Many of these subproblems can be further divided, as we'll see.
+
+      You might wonder how closely this approach of subdivision mirrors
+      the actual work we did when writing the code that we present in
+      this chapter. The answer is that we're far from image processing
+      gurus, and when we started on this chapter we didn't know exactly
+      what our solution was going to look like.
+
+      We made some early educated guesses as to what a reasonable
+      solution might look like, and came up with the list of subtasks
+      above. We were then able to start tackling those parts that we
+      knew how to solve, using our spare time to think about the bits
+      that we had no prior experience with. We certainly didn't have a
+      pre-existing algorithm or master plan in mind.
+
+      Dividing the problem up like this helped us in two ways. By making
+      progress on familiar ground, we had the psychological advantage of
+      starting to solve the problem, even when we didn't really know
+      where we were going. And as we started to work on a particular
+      subproblem, we found ourselves able to further subdivide it into
+      tasks of varying familiarity. We continued to focus on easier
+      components, deferring ones we hadn't thought about in enough
+      detail yet, and jumping from one element of the master list above
+      to another. Eventually, we ran out of problems that were both
+      unfamiliar and unsolved, and we had a complete idea of our
+      eventual solution.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Turning a colour image into something
+                  tractable
+                  :name: id631101
+                  :class: title
+
+      Since we want to work with barcodes, which are sequences of black
+      and white stripes, and we want to write a simple decoder, an easy
+      representation to work with will be a monochrome image, in which
+      each pixel is either black or white.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Parsing a colour image
+                     :name: id631116
+                     :class: title
+
+         As we mentioned earlier, we'll work with netpbm images. The
+         netpbm colour image format is only slightly more complicated
+         than the greyscale image format that we parsed in `Chapter 10,
+         Code case study: parsing a binary data
+         format <code-case-study-parsing-a-binary-data-format.html>`__.
+         The identifying string in a header is “P6”, with the rest of
+         the header layout identical to the greyscale format. In the
+         body of an image, each pixel is represented as three bytes, one
+         each for red, green and blue.
+
+         We'll represent the image data as a two-dimensional array of
+         pixels. We're using arrays here purely to gain experience with
+         them. For this application, we could just as well use a list of
+         lists. The only advantage of an array here is slight: we can
+         efficiently extract a row.
+
+         .. code:: programlisting
+
+            -- file: ch12/Barcode.hs
+            type Pixel = Word8
+            type RGB = (Pixel, Pixel, Pixel)
+
+            type Pixmap = Array (Int,Int) RGB
+
+         We provide a few type synonyms to make our type signatures more
+         readable.
+
+         Since Haskell gives us considerable freedom in how we lay out
+         an array, we must choose a representation. We'll play safe and
+         follow a popular convention: indices begin at zero. We don't
+         need to store the dimensions of the image explicitly, since we
+         can extract them using the ``bounds`` function.
+
+         The actual parser is mercifully short, thanks to the
+         combinators we developed in `Chapter 10, Code case study:
+         parsing a binary data
+         format <code-case-study-parsing-a-binary-data-format.html>`__.
+
+         .. code:: programlisting
+
+            -- file: ch12/Barcode.hs
+            parseRawPPM :: Parse Pixmap
+            parseRawPPM =
+                parseWhileWith w2c (/= '\n') ==> \header -> skipSpaces ==>&
+                assert (header == "P6") "invalid raw header" ==>&
+                parseNat ==> \width -> skipSpaces ==>&
+                parseNat ==> \height -> skipSpaces ==>&
+                parseNat ==> \maxValue ->
+                assert (maxValue == 255) "max value out of spec" ==>&
+                parseByte ==>&
+                parseTimes (width * height) parseRGB ==> \pxs ->
+                identity (listArray ((0,0),(width-1,height-1)) pxs)
+
+            parseRGB :: Parse RGB
+            parseRGB = parseByte ==> \r ->
+                       parseByte ==> \g ->
+                       parseByte ==> \b ->
+                       identity (r,g,b)
+
+            parseTimes :: Int -> Parse a -> Parse [a]
+            parseTimes 0 _ = identity []
+            parseTimes n p = p ==> \x -> (x:) <$> parseTimes (n-1) p
+
+         The only function of note above is ``parseTimes``, which calls
+         another parser a given number of times, building up a list of
+         results.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Greyscale conversion
+                     :name: id631231
+                     :class: title
+
+         Now that we have a colour image in hand, we need to convert the
+         colour data into monochrome. An intermediate step is to convert
+         the data to greyscale. There's a simple, widely used
+         formula\ :sup:`[`\ `29 <#ftn.id631244>`__\ :sup:`]` for
+         converting an RGB image into a greyscale image, based on the
+         perceived brightness of each colour channel.
+
+         .. code:: programlisting
+
+            -- file: ch12/Barcode.hs
+            luminance :: (Pixel, Pixel, Pixel) -> Pixel
+            luminance (r,g,b) = round (r' * 0.30 + g' * 0.59 + b' * 0.11)
+                where r' = fromIntegral r
+                      g' = fromIntegral g
+                      b' = fromIntegral b
+
+         Haskell arrays are members of the ``Functor`` typeclass, so we
+         can simply use ``fmap`` to turn an entire image, or a single
+         scanline, from colour into greyscale.
+
+         .. code:: programlisting
+
+            -- file: ch12/Barcode.hs
+            type Greymap = Array (Int,Int) Pixel
+
+            pixmapToGreymap :: Pixmap -> Greymap
+            pixmapToGreymap = fmap luminance
+
+         This ``pixmapToGreymap`` function is just for illustration.
+         Since we'll only be checking a few rows of an image for
+         possible barcodes, there's no reason to do the extra work of
+         converting data we'll never subsequently use.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Greyscale to binary, and type safety
+                     :name: id631316
+                     :class: title
+
+         Our next subproblem is to convert the greyscale image into a
+         two-valued image, where each pixel is either on or off.
+
+         In an image processing application, where we're juggling lots
+         of numbers, it would be easy to reuse the same numeric type for
+         several different purposes. For example, we could use the Pixel
+         type to represent on/off states, using the convention that the
+         digit one represents a bit that's “on”, and zero “off”.
+
+         However, reusing types for multiple purposes in this way
+         quickly leads to potential confusion. To see whether a
+         particular “Pixel” is a number or an on/off value, we can no
+         longer simply glance at a type signature. We could easily use a
+         value containing “the wrong kind of number” in some context,
+         and the compiler won't catch it because the types work out.
+
+         We could try to work around this by introducing a type alias.
+         In the same way that we declared Pixel to be a synonym of
+         Word8, we could declare a Bit type as a synonym of Pixel. While
+         this might help readability, type synonyms still don't make the
+         compiler do any useful work on our behalf.
+
+         The compiler would treat Pixel and Bit as exactly the same
+         type, so it could not catch a mistake such as using a Pixel
+         value of 253 in a function that expects Bit values of zero or
+         one.
+
+         If we define the monochrome type ourselves, the compiler will
+         prevent us from accidentally mixing our types up like this.
+
+         .. code:: programlisting
+
+            -- file: ch12/Barcode.hs
+            data Bit = Zero | One
+                       deriving (Eq, Show)
+
+            threshold :: (Ix k, Integral a) => Double -> Array k a -> Array k Bit
+            threshold n a = binary <$> a
+                where binary i | i < pivot  = Zero
+                               | otherwise  = One
+                      pivot    = round $ least + (greatest - least) * n
+                      least    = fromIntegral $ choose (<) a
+                      greatest = fromIntegral $ choose (>) a
+                      choose f = foldA1 $ \x y -> if f x y then x else y
+
+         Our ``threshold`` function computes the minimum and maximum
+         values in its input array. It takes these and a threshold
+         valued between zero and one, and computes a “pivot” value. Then
+         for each value in the array, if that value is less than the
+         pivot, the result is ``Zero``, otherwise ``One``. Notice that
+         we use one of the folding functions that we wrote in `the
+         section called “Folding over
+         arrays” <#barcode.fold>`__.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: What have we done to our image?
+                  :name: id631472
+                  :class: title
+
+      Let's step back for a moment and consider what we've done to our
+      image when we converted it from colour to monochrome. Here's an
+      image captured from a VGA-resolution camera. All we've done is
+      crop it down to the barcode.
+
+      .. container:: informalfigure
+
+         .. container:: mediaobject
+
+            |Barcode photo, somewhat blurry and dim.|
+
+      The encoded digit string, 9780132114677, is printed below the
+      barcode. The left group encodes the digits 780132, with 9 encoded
+      in their parity. The right group encodes the digits 114677, where
+      the final 7 is the check digit. Here's a clean encoding of this
+      barcode, from one of the many web sites that offer barcode image
+      generation for free.
+
+      .. container:: informalfigure
+
+         .. container:: mediaobject
+
+            |Automatically generated image of the same barcode.|
+
+      We've chosen a row from the captured image, and stretched it out
+      vertically to make it easier to see. We've superimposed this on
+      top of the perfect image, and stretched it out so that the two are
+      aligned.
+
+      .. container:: informalfigure
+
+         .. container:: mediaobject
+
+            |Photographic and generated images of barcode juxtaposed to
+            illustrate the variation in bar brightness and resolution.|
+
+      The luminance-converted row from the photo is in the dark grey
+      band. It is low in contrast and poor in quality, with plenty of
+      blurring and noise. The paler band is the same row with the
+      contrast adjusted.
+
+      Somewhat below these two bands is another: this shows the effect
+      of thresholding the luminance-converted row. Notice that some bars
+      have gotten thicker, others thinner, and many bars have moved a
+      little to the left or right.
+
+      Clearly, any attempt to find exact matches in an image with
+      problems like these is not going to succeed very often. We must
+      write code that's robust in the face of bars that are too thick,
+      too thin, or not exactly where they're supposed to be. The widths
+      of our bars will depend on how far our book was from the camera,
+      so we can't make any assumptions about widths, either.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Finding matching digits
+                  :name: id631606
+                  :class: title
+
+      Our first problem is to find the digits that *might* be encoded at
+      a given position. For the next while, we'll make a few simplifying
+      assumptions. The first is that we're working with a single row.
+      The second is that we know exactly where in a row the left edge of
+      a barcode begins.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Run length encoding
+                     :name: id631625
+                     :class: title
+
+         How can we overcome the problem of not even knowing how thick
+         our bars are? The answer is to run length encode our image
+         data.
+
+         .. code:: programlisting
+
+            -- file: ch12/Barcode.hs
+            type Run = Int
+            type RunLength a = [(Run, a)]
+
+            runLength :: Eq a => [a] -> RunLength a
+            runLength = map rle . group
+                where rle xs = (length xs, head xs)
+
+         The ``group`` function takes sequences of identical elements in
+         a list, and groups them into sublists.
+
+         .. code:: screen
+
+            ghci> group [1,1,2,3,3,3,3]
+            [[1,1],[2],[3,3,3,3]]
+
+         Our ``runLength`` function represents each group as a pair of
+         its length and first element.
+
+         .. code:: screen
+
+            ghci> let bits = [0,0,1,1,0,0,1,1,0,0,0,0,0,0,1,1,1,1,0,0,0,0]
+            ghci> runLength bits
+            Loading package array-0.1.0.0 ... linking ... done.
+            Loading package containers-0.1.0.1 ... linking ... done.
+            Loading package bytestring-0.9.0.1 ... linking ... done.
+            [(2,0),(2,1),(2,0),(2,1),(6,0),(4,1),(4,0)]
+
+         Since the data we're run length encoding are just ones and
+         zeros, the encoded numbers will simply alternate between one
+         and zero. We can throw the encoded values away without losing
+         any useful information, keeping only the length of each run.
+
+         .. code:: programlisting
+
+            -- file: ch12/Barcode.hs
+            runLengths :: Eq a => [a] -> [Run]
+            runLengths = map fst . runLength
+
+         .. code:: screen
+
+            ghci> runLengths bits
+            [2,2,2,2,6,4,4]
+
+         The bit patterns above aren't random; they're the left outer
+         guard and first encoded digit of a row from our captured image.
+         If we drop the guard bars, we're left with the run lengths
+         ``[2,6,4,4]``. How do we find matches for these in the encoding
+         tables we wrote in `the section called “Introducing
+         arrays” <#barcode.array>`__?
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Scaling run lengths, and finding
+                     approximate matches
+                     :name: id631784
+                     :class: title
+
+         One possible approach is to scale the run lengths so that they
+         sum to one. We'll use the Ratio Int type instead of the usual
+         Double to manage these scaled values, as Ratios print out more
+         readably in **ghci**. This makes interactive debugging and
+         development much easier.
+
+         .. code:: programlisting
+
+            -- file: ch12/Barcode.hs
+            type Score = Ratio Int
+
+            scaleToOne :: [Run] -> [Score]
+            scaleToOne xs = map divide xs
+                where divide d = fromIntegral d / divisor
+                      divisor = fromIntegral (sum xs)
+            -- A more compact alternative that "knows" we're using Ratio Int:
+            -- scaleToOne xs = map (% sum xs) xs
+
+            type ScoreTable = [[Score]]
+
+            -- "SRL" means "scaled run length".
+            asSRL :: [String] -> ScoreTable
+            asSRL = map (scaleToOne . runLengths)
+
+            leftOddSRL = asSRL leftOddList
+            leftEvenSRL = asSRL leftEvenList
+            rightSRL = asSRL rightList
+            paritySRL = asSRL parityList
+
+         We use the Score type synonym so that most of our code won't
+         have to care what the underlying type is. Once we're done
+         developing our code and poking around with **ghci**, we could,
+         if we wish, go back and turn the “Score” type synonym into
+         Doubles, without changing any code.
+
+         We can use ``scaleToOne`` to scale a sequence of digits that
+         we're searching for. We've now corrected for variations in bar
+         widths due to distance, as there should be a pretty close match
+         between an entry in a scaled run length encoding table and a
+         run length sequence pulled from an image.
+
+         The next question is how we turn the intuitive idea of “pretty
+         close” into a measure of “close enough”. Given two scaled run
+         length sequences, we can calculate an approximate “distance”
+         between them as follows.
+
+         .. code:: programlisting
+
+            -- file: ch12/Barcode.hs
+            distance :: [Score] -> [Score] -> Score
+            distance a b = sum . map abs $ zipWith (-) a b
+
+         An exact match will give a distance of zero, with weaker
+         matches resulting in larger distances.
+
+         .. code:: screen
+
+            ghci> let group = scaleToOne [2,6,4,4]
+            ghci> distance group (head leftEvenSRL)
+            13%28
+            ghci> distance group (head leftOddSRL)
+            17%28
+
+         Given a scaled run length table, we choose the best few matches
+         in that table for a given input sequence.
+
+         .. code:: programlisting
+
+            -- file: ch12/Barcode.hs
+            bestScores :: ScoreTable -> [Run] -> [(Score, Digit)]
+            bestScores srl ps = take 3 . sort $ scores
+                where scores = zip [distance d (scaleToOne ps) | d <- srl] digits
+                      digits = [0..9]
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: List comprehensions
+                     :name: id631976
+                     :class: title
+
+         The new notation that we introduced in the previous example is
+         an example of a *list comprehension*, which creates a list from
+         one or more other lists.
+
+         .. code:: screen
+
+            ghci> [ (a,b) | a <- [1,2], b <- "abc" ]
+            [(1,'a'),(1,'b'),(1,'c'),(2,'a'),(2,'b'),(2,'c')]
+
+         The expression on the left of the vertical bar is evaluated for
+         each combination of *generator expressions* on the right. A
+         generator expression binds a variable on the left of a ``<-``
+         to an element of the list on the right. As the example above
+         shows, the combinations of generators are evaluated in depth
+         first order: for the first element of the first list, we
+         evaluate every element of the second, and so on.
+
+         In addition to generators, we can also specify guards on the
+         right of a list comprehension. A guard is a Bool expression. If
+         it evaluates to ``False``, that element is skipped over.
+
+         .. code:: screen
+
+            ghci> [ (a,b) | a <- [1..6], b <- [5..7], even (a + b ^ 2) ]
+            [(1,5),(1,7),(2,6),(3,5),(3,7),(4,6),(5,5),(5,7),(6,6)]
+
+         We can also bind local variables using a ``let`` expression.
+
+         .. code:: screen
+
+            ghci> let vowel = (`elem` "aeiou")
+            ghci> [ x | a <- "etaoin", b <- "shrdlu", let x = [a,b], all vowel x ]
+            ["eu","au","ou","iu"]
+
+         If a pattern match fails in a generator expression, no error
+         occurs. Instead, that list element is skipped.
+
+         .. code:: screen
+
+            ghci> [ a | (3,a) <- [(1,'y'),(3,'e'),(5,'p')] ]
+            "e"
+
+         List comprehensions are powerful and concise. As a result, they
+         can be difficult to read. When used with care, they can make
+         our code easier to follow.
+
+         .. code:: programlisting
+
+            -- file: ch12/Barcode.hs
+            -- our original
+            zip [distance d (scaleToOne ps) | d <- srl] digits
+
+            -- the same expression, expressed without a list comprehension
+            zip (map (flip distance (scaleToOne ps)) srl) digits
+
+            -- the same expression, written entirely as a list comprehension
+            [(distance d (scaleToOne ps), n) | d <- srl, n <- digits]
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Remembering a match's parity
+                     :name: id632165
+                     :class: title
+
+         For each match in the left group, we have to remember whether
+         we found it in the even parity table or the odd table.
+
+         .. code:: programlisting
+
+            -- file: ch12/Barcode.hs
+            data Parity a = Even a | Odd a | None a
+                            deriving (Show)
+
+            fromParity :: Parity a -> a
+            fromParity (Even a) = a
+            fromParity (Odd a) = a
+            fromParity (None a) = a
+
+            parityMap :: (a -> b) -> Parity a -> Parity b
+            parityMap f (Even a) = Even (f a)
+            parityMap f (Odd a) = Odd (f a)
+            parityMap f (None a) = None (f a)
+
+            instance Functor Parity where
+                fmap = parityMap
+
+         We wrap a value in the parity with which it was encoded, and
+         making it a ``Functor`` instance so that we can easily
+         manipulate parity-encoded values.
+
+         We would like to be able to sort parity-encoded values based on
+         the values they contain. The ``Data.Function`` module provides
+         a lovely combinator that we can use for this, named ``on``.
+
+         .. code:: programlisting
+
+            -- file: ch12/Barcode.hs
+            on :: (a -> a -> b) -> (c -> a) -> c -> c -> b
+            on f g x y = g x `f` g y
+
+            compareWithoutParity = compare `on` fromParity
+
+         In case it's unclear, try thinking of ``on`` as a function of
+         two arguments, ``f`` and ``g``, which returns a function of two
+         arguments, ``x`` and ``y``. It applies ``g`` to ``x`` and to
+         ``y``, then ``f`` on the two results (hence the name ``on``).
+
+         Wrapping a match in a parity value is straightforward.
+
+         .. code:: programlisting
+
+            -- file: ch12/Barcode.hs
+            type Digit = Word8
+
+            bestLeft :: [Run] -> [Parity (Score, Digit)]
+            bestLeft ps = sortBy compareWithoutParity
+                          ((map Odd (bestScores leftOddSRL ps)) ++
+                           (map Even (bestScores leftEvenSRL ps)))
+
+            bestRight :: [Run] -> [Parity (Score, Digit)]
+            bestRight = map None . bestScores rightSRL
+
+         Once we have the best left-hand matches from the even and odd
+         tables, we sort them based only on the quality of each match.
+
+         .. container:: sect3
+
+            .. container:: titlepage
+
+               .. container::
+
+                  .. container::
+
+                     .. rubric:: Another kind of laziness, of the
+                        keyboarding variety
+                        :name: id632319
+                        :class: title
+
+            In our definition of the Parity type, we could have used
+            Haskell's record syntax to avoid the need to write a
+            fromParity function. In other words, we could have written
+            it as follows.
+
+            .. code:: programlisting
+
+               -- file: ch12/Barcode.hs
+               data AltParity a = AltEven {fromAltParity :: a}
+                                | AltOdd  {fromAltParity :: a}
+                                | AltNone {fromAltParity :: a}
+                                  deriving (Show)
+
+            Why did we not do this? The answer is slightly shameful, and
+            has to do with interactive debugging in **ghci**. When we
+            tell GHC to automatically derive a Show instance for a type,
+            it produces different code depending on whether or not we
+            declare the type with record syntax.
+
+            .. code:: screen
+
+               ghci> show $ Even 1
+               "Even 1"
+               ghci> show $ AltEven 1
+               "AltEven {fromAltParity = 1}"
+               ghci> length . show $ Even 1
+               6
+               ghci> length . show $ AltEven 1
+               27
+
+            The Show instance for the variant that uses record syntax is
+            considerably more verbose. This creates much more noise that
+            we must scan through when we're trying to read, say, a list
+            of parity-encoded values output by **ghci**.
+
+            Of course we could write our own, less noisy, Show instance.
+            It's simply less effort to avoid record syntax and write our
+            own fromParity function instead, letting GHC derive a more
+            terse Show instance for us. This isn't an especially
+            satisfying rationale, but programmer laziness can lead in
+            odd directions at times.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Chunking a list
+                     :name: id632473
+                     :class: title
+
+         A common aspect of working with lists is needing to “chunk”
+         them. For example, each digit in a barcode is encoded using a
+         run of four digits. We can turn the flat list that represents a
+         row into a list of four-element lists as follows.
+
+         .. code:: programlisting
+
+            -- file: ch12/Barcode.hs
+            chunkWith :: ([a] -> ([a], [a])) -> [a] -> [[a]]
+            chunkWith _ [] = []
+            chunkWith f xs = let (h, t) = f xs
+                             in h : chunkWith f t
+
+            chunksOf :: Int -> [a] -> [[a]]
+            chunksOf n = chunkWith (splitAt n)
+
+         It's somewhat rare that we need to write generic list
+         manipulation functions like this. Often, a glance through the
+         ``Data.List`` module will find us a function that does exactly,
+         or close enough to, what we need.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Generating a list of candidate digits
+                     :name: id632516
+                     :class: title
+
+         With our small army of helper functions deployed, the function
+         that generates lists of candidate matches for each digit group
+         is easy to write. First of all, we take care of a few early
+         checks to determine whether matching even makes sense. A list
+         of runs must start on a black (``Zero``) bar, and contain
+         enough bars. Here are the first few equations of our function.
+
+         .. code:: programlisting
+
+            -- file: ch12/Barcode.hs
+            candidateDigits :: RunLength Bit -> [[Parity Digit]]
+            candidateDigits ((_, One):_) = []
+            candidateDigits rle | length rle < 59 = []
+
+         If any application of ``bestLeft`` or ``bestRight`` results in
+         an empty list, we can't possibly have a match. Otherwise, we
+         throw away the scores, and return a list of lists of
+         parity-encoded candidate digits. The outer list is twelve
+         elements long, one per digit in the barcode. The digits in each
+         sublist are ordered by match quality.
+
+         Here is the remainder of the definition of our function.
+
+         .. code:: programlisting
+
+            -- file: ch12/Barcode.hs
+            candidateDigits rle
+                | any null match = []
+                | otherwise      = map (map (fmap snd)) match
+              where match = map bestLeft left ++ map bestRight right
+                    left = chunksOf 4 . take 24 . drop 3 $ runLengths
+                    right = chunksOf 4 . take 24 . drop 32 $ runLengths
+                    runLengths = map fst rle
+
+         Let's take a glance at the candidate digits chosen for each
+         group of bars, from a row taken from the image above.
+
+         .. code:: screen
+
+            ghci> :type input
+            input :: [(Run, Bit)]
+            ghci> take 7 input
+            [(2,Zero),(2,One),(2,Zero),(2,One),(6,Zero),(4,One),(4,Zero)]
+            ghci> mapM_ print $ candidateDigits input
+            [Even 1,Even 5,Odd 7,Odd 1,Even 2,Odd 5]
+            [Even 8,Even 7,Odd 1,Odd 2,Odd 0,Even 6]
+            [Even 0,Even 1,Odd 8,Odd 2,Odd 4,Even 9]
+            [Odd 1,Odd 0,Even 8,Odd 2,Even 2,Even 4]
+            [Even 3,Odd 4,Odd 5,Even 7,Even 0,Odd 2]
+            [Odd 2,Odd 4,Even 7,Even 0,Odd 1,Even 1]
+            [None 1,None 5,None 0]
+            [None 1,None 5,None 2]
+            [None 4,None 5,None 2]
+            [None 6,None 8,None 2]
+            [None 7,None 8,None 3]
+            [None 7,None 3,None 8]
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Life without arrays or hash tables
+                  :name: id632644
+                  :class: title
+
+      In an imperative language, the array is as much a “bread and
+      butter” type as a list or tuple in Haskell. We take it for granted
+      that an array in an imperative language is usually mutable; we can
+      change an element of an array whenever it suits us.
+
+      As we mentioned in `the section called “Modifying array
+      elements” <#barcode.array.mutable>`__,
+      Haskell arrays are *not* mutable. This means that to “modify” a
+      single array element, a copy of the entire array is made, with
+      that single element set to its new value. Clearly, this approach
+      is not a winner for performance.
+
+      The mutable array is a building block for another ubiquitous
+      imperative data structure, the hash table. In the typical
+      implementation, an array acts as the “spine” of the table, with
+      each element containing a list of elements. To add an element to a
+      hash table, we hash the element to find the array offset, and
+      modify the list at that offset to add the element to it.
+
+      If arrays aren't mutable, to updating a hash table, we must create
+      a new one. We copy the array, putting a new list at the offset
+      indicated by the element's hash. We don't need to copy the lists
+      at other offsets, but we've already dealt performance a fatal blow
+      simply by having to copy the spine.
+
+      At a single stroke, then, immutable arrays have eliminated *two*
+      canonical imperative data structures from our toolbox. Arrays are
+      somewhat less useful in pure Haskell code than in many other
+      languages. Still, many array codes only update an array during a
+      build phase, and subsequently use it in a read-only manner.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: A forest of solutions
+                     :name: id632722
+                     :class: title
+
+         This is not the calamitous situation that it might seem,
+         though. Arrays and hash tables are often used as collections
+         indexed by a key, and in Haskell we use *trees* for this
+         purpose.
+
+         Implementing a naive tree type is particularly easy in Haskell.
+         Beyond that, more useful tree types are also unusually easy to
+         implement. Self-balancing structures, such as red-black trees,
+         have struck fear into generations of undergraduate computer
+         science students, because the balancing algorithms are
+         notoriously hard to get right.
+
+         Haskell's combination of algebraic data types, pattern
+         matching, and guards reduce even the hairiest of balancing
+         operations to a few lines of code. We'll bite back our
+         enthusiasm for building trees, however, and focus on why
+         they're particularly useful in a pure functional language.
+
+         The attraction of a tree to a functional programmer is *cheap
+         modification*. We don't break the immutability rule: trees are
+         immutable just like everything else. However, when we modify a
+         tree, creating a new tree, we can share most of the structure
+         of the tree between the old and new versions. For example, in a
+         tree containing 10,000 nodes, we might expect that the old and
+         new versions will share about 9,985 elements when we add or
+         remove one. In other words, the number of elements modified per
+         update depends on the height of the tree, or the logarithm of
+         the size of the tree.
+
+         Haskell's standard libraries provide two collection types that
+         are implemented using balanced trees behind the scenes:
+         ``Data.Map`` for key/value pairs, and ``Data.Set`` for sets of
+         values. As we'll be using ``Data.Map`` in the sections that
+         follow, we'll give a quick introduction to it below.
+         ``Data.Set`` is sufficiently similar that you should be able to
+         pick it up quickly.
+
+         .. note:: A word about performance
+           
+            Compared to a hash table, a well-implemented purely
+            functional tree data structure will perform
+            competitively. You should not approach trees with
+            the assumption that your code will pay a
+            performance penalty.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: A brief introduction to maps
+                     :name: id632817
+                     :class: title
+
+         The ``Data.Map`` module provides a parameterised type, Map k a,
+         that maps from a key type ``k`` to a value type ``a``. Although
+         it is internally a size-balanced binary tree, the
+         implementation is not visible to us.
+
+         Map is strict in its keys, but non-strict in its values. In
+         other words, the *spine*, or structure, of the map is always
+         kept up to date, but values in the map aren't evaluated unless
+         we force them to be.
+
+         It is very important to remember this, as Map's laziness over
+         values is a frequent source of space leaks among coders who are
+         not expecting it.
+
+         Because the ``Data.Map`` module contains a number of names that
+         clash with Prelude names, it's usually imported in qualified
+         form. Earlier in this chapter, we imported it using the prefix
+         ``M``.
+
+         .. container:: sect3
+
+            .. container:: titlepage
+
+               .. container::
+
+                  .. container::
+
+                     .. rubric:: Type constraints
+                        :name: id632892
+                        :class: title
+
+            The Map type doesn't place any explicit constraints on its
+            key type, but most of the module's useful functions require
+            that keys be instances of ``Ord``. This is noteworthy, as
+            it's an example of a common design pattern in Haskell code:
+            type constraints are pushed out to where they're actually
+            needed, not necessarily applied at the point where they'd
+            result in the least fingertyping for a library's author.
+
+            Neither the Map type nor any functions in the module
+            constrain the types that can be used as values.
+
+         .. container:: sect3
+
+            .. container:: titlepage
+
+               .. container::
+
+                  .. container::
+
+                     .. rubric:: Partial application awkwardness
+                        :name: barcode.map.partial
+                        :class: title
+
+            For some reason, the type signatures of the functions in
+            ``Data.Map`` are not generally friendly to partial
+            application. The map parameter always comes last, whereas it
+            would be easier to partially apply if it were first. As a
+            result, code that uses partially applied map functions
+            almost always contains adapter functions to fiddle with
+            argument ordering.
+
+         .. container:: sect3
+
+            .. container:: titlepage
+
+               .. container::
+
+                  .. container::
+
+                     .. rubric:: Getting started with the API
+                        :name: id632952
+                        :class: title
+
+            The ``Data.Map`` module has a large “surface area”: it
+            exports dozens of functions. Just a handful of these
+            comprise the most frequently used core of the module.
+
+            To create an empty map, we use ``empty``. For a map
+            containing one key/value pair, we use ``singleton``.
+
+            .. code:: screen
+
+               ghci> M.empty
+               Loading package array-0.1.0.0 ... linking ... done.
+               Loading package containers-0.1.0.1 ... linking ... done.
+               fromList []
+               ghci> M.singleton "foo" True
+               fromList [("foo",True)]
+
+            Since the implementation is abstract, we can't pattern match
+            on Map values. Instead, it provides a number of lookup
+            functions, of which two are particularly widely used. The
+            ``lookup`` function has a slightly tricky type signature,
+            but don't worry; all will become clear shortly, in
+            `Chapter 14, Monads <monads.html>`__.
+
+            .. code:: screen
+
+               ghci> :type M.lookup
+               M.lookup :: (Ord k, Monad m) => k -> M.Map k a -> m a
+
+            Most often, the type parameter ``m`` in the result is Maybe.
+            In other words, if the map contains a value for the given
+            key, ``lookup`` will return the value wrapped in ``Just``.
+            Otherwise, it will return ``Nothing``.
+
+            .. code:: screen
+
+               ghci> let m = M.singleton "foo" 1 :: M.Map String Int
+               ghci> case M.lookup "bar" m of { Just v -> "yay"; Nothing -> "boo" }
+               "boo"
+
+            The ``findWithDefault`` function takes a value to return if
+            the key isn't in the map.
+
+            .. warning:: Beware the partial functions!
+               
+               There exists a ``(!)`` operator that performs a
+               lookup and returns the unadorned value
+               associated with a key (i.e. not wrapped in
+               ``Maybe`` or whatever). Unfortunately, it is not
+               a total function: it calls ``error`` if the key
+               is not present in the map.
+
+            To add a key/value pair to the map, the most useful
+            functions are ``insert`` and ``insertWith'``. The ``insert``
+            function simply inserts a value into the map, overwriting
+            any matching value that may already have been present.
+
+            .. code:: screen
+
+               ghci> :type M.insert
+               M.insert :: (Ord k) => k -> a -> M.Map k a -> M.Map k a
+               ghci> M.insert "quux" 10 m
+               fromList [("foo",1),("quux",10)]
+               ghci> M.insert "foo" 9999 m
+               fromList [("foo",9999)]
+
+            The ``insertWith'`` function takes a further *combining
+            function* as its argument. If no matching key was present in
+            the map, the new value is inserted verbatim. Otherwise, the
+            combining function is called on the new and old values, and
+            its result is inserted into the map.
+
+            .. code:: screen
+
+               ghci> :type M.insertWith'
+               M.insertWith' :: (Ord k) => (a -> a -> a) -> k -> a -> M.Map k a -> M.Map k a
+               ghci> M.insertWith' (+) "zippity" 10 m
+               fromList [("foo",1),("zippity",10)]
+               ghci> M.insertWith' (+) "foo" 9999 m
+               fromList [("foo",10000)]
+
+            As the tick at the end of its name suggests, ``insertWith'``
+            evaluates the combining function strictly. This allows you
+            to avoid space leaks. While there exists a lazy variant
+            (``insertWith`` without the trailing tick in the name), it's
+            rarely what you actually want.
+
+            The ``delete`` function deletes the given key from the map.
+            It returns the map unmodified if the key was not present.
+
+            .. code:: screen
+
+               ghci> :type M.delete
+               M.delete :: (Ord k) => k -> M.Map k a -> M.Map k a
+               ghci> M.delete "foo" m
+               fromList []
+
+            Finally, there are several efficient functions for
+            performing set-like operations on maps. Of these, we'll be
+            using ``union`` below. This function is “left biased”: if
+            two maps contain the same key, the result will contain the
+            value from the left map.
+
+            .. code:: screen
+
+               ghci> m `M.union` M.singleton "quux" 1
+               fromList [("foo",1),("quux",1)]
+               ghci> m `M.union` M.singleton "foo" 0
+               fromList [("foo",1)]
+
+            We have barely covered ten percent of the ``Data.Map`` API.
+            We will cover maps and similar data structures in greater
+            detail in `Chapter 13, Data
+            Structures <data-structures.html>`__. For further
+            inspiration, we encourage you to browse the module
+            documentation. The module is impressively thorough.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Further reading
+                     :name: id633434
+                     :class: title
+
+         The book [`Okasaki99 <bibliography.html#bib.okasaki99>`__]
+         gives a wonderful and thorough implementor's tour of many pure
+         functional data structures, including several kinds of balanced
+         tree. It also provides valuable insight into reasoning about
+         the performance of purely functional data structures and lazy
+         evaluation.
+
+         We recommend Okasaki's book as essential reading for functional
+         programmers. If you're not convinced, Okasaki's PhD thesis,
+         [`Okasaki96 <bibliography.html#bib.okasaki96>`__], is a less
+         complete and polished version of the book, and it is available
+         for free online.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Turning digit soup into an answer
+                  :name: id633476
+                  :class: title
+
+      We've got yet another problem to solve now. We have many
+      candidates for the last twelve digits of the barcode. In addition,
+      we need to use the parities of the first six digits to figure out
+      what the first digit is. Finally, we need to ensure that our
+      answer's check digit makes sense.
+
+      This seems quite challenging! We have a lot of uncertain data;
+      what should we do? It's reasonable to ask if we could perform a
+      brute force search. Given the candidates we saw in the **ghci**
+      session above, how many combinations would we have to examine?
+
+      .. code:: screen
+
+         ghci> product . map length . candidateDigits $ input
+         34012224
+
+      So much for that idea. Once again, we'll initially focus on a
+      subproblem that we know how to solve, and postpone worrying about
+      the rest.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Solving for check digits in parallel
+                     :name: id633535
+                     :class: title
+
+         Let's abandon the idea of searching for now, and focus on
+         computing a check digit. The check digit for a barcode can
+         assume one of ten possible values. For a given parity digit,
+         which input sequences can cause that digit to be computed?
+
+         .. code:: programlisting
+
+            -- file: ch12/Barcode.hs
+            type Map a = M.Map Digit [a]
+
+         In this map, the key is a check digit, and the value is a
+         sequence that evaluates to this check digit. We have two
+         further map types based on this definition.
+
+         .. code:: programlisting
+
+            -- file: ch12/Barcode.hs
+            type DigitMap = Map Digit
+            type ParityMap = Map (Parity Digit)
+
+         We'll generically refer to these as “solution maps”, because
+         they show us the digit sequence that “solves for” each check
+         digit.
+
+         Given a single digit, here's how we can update an existing
+         solution map.
+
+         .. code:: programlisting
+
+            -- file: ch12/Barcode.hs
+            updateMap :: Parity Digit       -- ^ new digit
+                      -> Digit              -- ^ existing key
+                      -> [Parity Digit]     -- ^ existing digit sequence
+                      -> ParityMap          -- ^ map to update
+                      -> ParityMap
+            updateMap digit key seq = insertMap key (fromParity digit) (digit:seq)
+
+            insertMap :: Digit -> Digit -> [a] -> Map a -> Map a
+            insertMap key digit val m = val `seq` M.insert key' val m
+                where key' = (key + digit) `mod` 10
+
+         With an existing check digit drawn from the map, the sequence
+         that solves for it, and a new input digit, this function
+         updates the map with the new sequence that leads to the new
+         check digit.
+
+         This might seem a bit much to digest, but an example will make
+         it clear. Let's say the check digit we're looking at is ``4``,
+         the sequence leading to it is ``[1,3]``, and the digit we want
+         to add to the map is ``8``. The sum of ``4`` and ``8``, modulo
+         10, is ``2``, so this is the key we'll be inserting into the
+         map. The sequence that leads to the new check digit ``2`` is
+         thus ``[8,1,3]``, so this is what we'll insert as the value.
+
+         For each digit in a sequence, we'll generate a new solution
+         map, using that digit and an older solution map.
+
+         .. code:: programlisting
+
+            -- file: ch12/Barcode.hs
+            useDigit :: ParityMap -> ParityMap -> Parity Digit -> ParityMap
+            useDigit old new digit =
+                new `M.union` M.foldWithKey (updateMap digit) M.empty old
+
+         Once again, let's illustrate what this code is doing using some
+         examples. This time, we'll use **ghci**.
+
+         .. code:: screen
+
+            ghci> let single n = M.singleton n [Even n] :: ParityMap
+            ghci> useDigit (single 1) M.empty (Even 1)
+            fromList [(2,[Even 1,Even 1])]
+            ghci> useDigit (single 1) (single 2) (Even 2)
+            fromList [(2,[Even 2]),(3,[Even 2,Even 1])]
+
+         The new solution map that we feed to ``useDigits`` starts out
+         empty. We populate it completely by folding ``useDigits`` over
+         a sequence of input digits.
+
+         .. code:: programlisting
+
+            -- file: ch12/Barcode.hs
+            incorporateDigits :: ParityMap -> [Parity Digit] -> ParityMap
+            incorporateDigits old digits = foldl' (useDigit old) M.empty digits
+
+         This generates a complete new solution map from an old one.
+
+         .. code:: screen
+
+            ghci> incorporateDigits (M.singleton 0 []) [Even 1, Even 5]
+            fromList [(1,[Even 1]),(5,[Even 5])]
+
+         Finally, we must build the complete solution map. We start out
+         with an empty map, then fold over each digit position from the
+         barcode in turn. For each position, we create a new map from
+         our guesses at the digits in that position. This becomes the
+         old map for the next round of the fold.
+
+         .. code:: programlisting
+
+            -- file: ch12/Barcode.hs
+            finalDigits :: [[Parity Digit]] -> ParityMap
+            finalDigits = foldl' incorporateDigits (M.singleton 0 [])
+                        . mapEveryOther (map (fmap (*3)))
+
+         (From the ``checkDigit`` function that we defined in `the
+         section called “EAN-13
+         encoding” <#barcode.encode>`__, we
+         remember that the check digit computation requires that we
+         multiply every other digit by ``3``.)
+
+         How long is the list with which we call ``finalDigits``? We
+         don't yet know what the first digit of our sequence is, so
+         obviously we can't provide that. And we don't want to include
+         our guess at the check digit. So the list must be eleven
+         elements long.
+
+         Once we've returned from ``finalDigits``, our solution map is
+         necessarily incomplete, because we haven't yet figured out what
+         the first digit is.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Completing the solution map with the first
+                     digit
+                     :name: id633876
+                     :class: title
+
+         We haven't yet discussed how we should extract the value of the
+         first digit from the parities of the left group of digits. This
+         is a straightforward matter of reusing code that we've already
+         written.
+
+         .. code:: programlisting
+
+            -- file: ch12/Barcode.hs
+            firstDigit :: [Parity a] -> Digit
+            firstDigit = snd
+                       . head
+                       . bestScores paritySRL
+                       . runLengths
+                       . map parityBit
+                       . take 6
+              where parityBit (Even _) = Zero
+                    parityBit (Odd _) = One
+
+         Each element of our partial solution map now contains a
+         reversed list of digits and parity data. Our next task is to
+         create a completed solution map, by computing the first digit
+         in each sequence, and using it to create that last solution
+         map.
+
+         .. code:: programlisting
+
+            -- file: ch12/Barcode.hs
+            addFirstDigit :: ParityMap -> DigitMap
+            addFirstDigit = M.foldWithKey updateFirst M.empty
+
+            updateFirst :: Digit -> [Parity Digit] -> DigitMap -> DigitMap
+            updateFirst key seq = insertMap key digit (digit:renormalize qes)
+              where renormalize = mapEveryOther (`div` 3) . map fromParity
+                    digit = firstDigit qes
+                    qes = reverse seq
+
+         Along the way, we get rid of the Parity type, and reverse our
+         earlier multiplications by three. Our last step is to complete
+         the check digit computation.
+
+         .. code:: programlisting
+
+            -- file: ch12/Barcode.hs
+            buildMap :: [[Parity Digit]] -> DigitMap
+            buildMap = M.mapKeys (10 -)
+                     . addFirstDigit
+                     . finalDigits
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Finding the correct sequence
+                     :name: id633953
+                     :class: title
+
+         We now have a map of all possible checksums and the sequences
+         that lead to each. All that remains is to take our guesses at
+         the check digit, and see if we have a corresponding solution
+         map entry.
+
+         .. code:: programlisting
+
+            -- file: ch12/Barcode.hs
+            solve :: [[Parity Digit]] -> [[Digit]]
+            solve [] = []
+            solve xs = catMaybes $ map (addCheckDigit m) checkDigits
+                where checkDigits = map fromParity (last xs)
+                      m = buildMap (init xs)
+                      addCheckDigit m k = (++[k]) <$> M.lookup k m
+
+         Let's try this out on the row we picked from our photo, and see
+         if we get a sensible answer.
+
+         .. code:: screen
+
+            ghci> listToMaybe . solve . candidateDigits $ input
+            Just [9,7,8,0,1,3,2,1,1,4,6,7,7]
+
+         Excellent! This is exactly the string encoded in the barcode we
+         photographed.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Working with row data
+                  :name: id634020
+                  :class: title
+
+      We've mentioned repeatedly that we are taking a single row from
+      our image. Here's how.
+
+      .. code:: programlisting
+
+         -- file: ch12/Barcode.hs
+         withRow :: Int -> Pixmap -> (RunLength Bit -> a) -> a
+         withRow n greymap f = f . runLength . elems $ posterized
+             where posterized = threshold 0.4 . fmap luminance . row n $ greymap
+
+      The ``withRow`` function takes a row, converts it to monochrome,
+      then calls another function on the run length encoded row data. To
+      get the row data, it calls ``row``.
+
+      .. code:: programlisting
+
+         -- file: ch12/Barcode.hs
+         row :: (Ix a, Ix b) => b -> Array (a,b) c -> Array a c
+         row j a = ixmap (l,u) project a
+             where project i = (i,j)
+                   ((l,_), (u,_)) = bounds a
+
+      This function takes a bit of explaining. Whereas ``fmap``
+      transforms the *values* in an array, ``ixmap`` transforms the
+      *indices* of an array. It's a very powerful function that lets us
+      “slice” an array however we please.
+
+      The first argument to ``ixmap`` is the bounds of the new array.
+      These bounds can be of a different dimension than the source
+      array. In ``row``, for example, we're extracting a one-dimensional
+      array from a two-dimensional array.
+
+      The second argument is a *projection* function. This takes an
+      index from the new array and returns an index into the source
+      array. The value at that projected index then becomes the value in
+      the new array at the original index. For example, if we pass ``2``
+      into the projection function and it returns ``(2,2)``, the element
+      at index ``2`` of the new array will be taken from element
+      ``(2,2)`` of the source array.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Pulling it all together
+                  :name: id634156
+                  :class: title
+
+      Our ``candidateDigits`` function gives an empty result unless we
+      call it at the beginning of a barcode sequence. We can easily scan
+      across a row until we get a match as follows.
+
+      .. code:: programlisting
+
+         -- file: ch12/Barcode.hs
+         findMatch :: [(Run, Bit)] -> Maybe [[Digit]]
+         findMatch = listToMaybe
+                   . filter (not . null)
+                   . map (solve . candidateDigits)
+                   . tails
+
+      Here, we're taking advantage of lazy evaluation. The call to
+      ``map`` over ``tails`` will only be evaluated until it results in
+      a non-empty list.
+
+      Next, we choose a row from an image, and try to find a barcode in
+      it.
+
+      .. code:: programlisting
+
+         -- file: ch12/Barcode.hs
+         findEAN13 :: Pixmap -> Maybe [Digit]
+         findEAN13 pixmap = withRow center pixmap (fmap head . findMatch)
+           where (_, (maxX, _)) = bounds pixmap
+                 center = (maxX + 1) `div` 2
+
+      Finally, here's a very simple wrapper that prints barcodes from
+      whatever netpbm image files we pass into our program on the
+      command line.
+
+      .. code:: programlisting
+
+         -- file: ch12/Barcode.hs
+         main :: IO ()
+         main = do
+           args <- getArgs
+           forM_ args $ \arg -> do
+             e <- parse parseRawPPM <$> L.readFile arg
+             case e of
+               Left err ->     print $ "error: " ++ err
+               Right pixmap -> print $ findEAN13 pixmap
+
+      Notice that, of the more than thirty functions we've defined in
+      this chapter, ``main`` is the only one that lives in IO.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: A few comments on development style
+                  :name: id634269
+                  :class: title
+
+      You may have noticed that many of the functions we presented in
+      this chapter were short functions at the top level of the source
+      file. This is no accident. As we mentioned earlier, when we
+      started on this chapter, we didn't know what form our solution was
+      going to take.
+
+      Quite often, then, we had to explore a problem space in order to
+      figure out where we were going. To do this, we spent a lot of time
+      fiddling about in **ghci**, performing tiny experiments on
+      individual functions. This kind of exploration requires that a
+      function be declared at the top level of a source file, as
+      otherwise **ghci** won't be able to see it.
+
+      Once we were satisfied that individual functions were behaving
+      themselves, we started to glue them together, again investigating
+      the consequences in **ghci**. This is where our devotion to
+      writing type signatures paid back, as we immediately discovered
+      when a particular composition of functions couldn't possibly work.
+
+      At the end of this process, we were left with a large number of
+      very small top-level functions, each with a type signature. This
+      isn't the most compact representation possible; we could have
+      hoisted many of those functions into ``let`` or ``where`` blocks
+      when we were done with them. However, we find that the added
+      vertical space, small function bodies, and type signatures make
+      the code far more readable, so we generally avoided “golfing”
+      functions after we wrote
+      them\ :sup:`[`\ `30 <#ftn.id634348>`__\ :sup:`]`.
+
+      Working in a language with strong, static typing does not at all
+      interfere with incrementally and fluidly developing a solution to
+      a problem. We find the turnaround between writing a function and
+      getting useful feedback from **ghci** to be very rapid; it greatly
+      assists us in writing good code quickly.
+
+   .. container:: footnotes
+
+      .. container:: footnote
+
+         :sup:`[`\ `29 <#id631244>`__\ :sup:`]` The formula originates
+         in ITU-R Recommendation 601.
+
+      .. container:: footnote
+
+         :sup:`[`\ `30 <#id634348>`__\ :sup:`]` Our use of the word
+         “golf” comes from a game originally played by Perl hackers, in
+         which programmers try to create the smallest piece of code for
+         some purpose. The code with the fewest (key)strokes wins.
+
+.. |Barcode image distorted by perspective, due to photo being taken from an angle.| image:: https://book.realworldhaskell.org/read/figs/ch12-bad-angled.jpg
+.. |Barcode image blurred by being taken from inside the focal length of the camera lens, causing bars to run together.| image:: https://book.realworldhaskell.org/read/figs/ch12-bad-too-near.jpg
+.. |Barcode image contains insufficient detail, due to poor resolution of camera lens and CCD.| image:: https://book.realworldhaskell.org/read/figs/ch12-bad-too-far.jpg
+.. |Barcode photo, somewhat blurry and dim.| image:: https://book.realworldhaskell.org/read/figs/ch12-barcode-photo.jpg
+.. |Automatically generated image of the same barcode.| image:: https://book.realworldhaskell.org/read/figs/ch12-barcode-generated.png
+.. |Photographic and generated images of barcode juxtaposed to illustrate the variation in bar brightness and resolution.| image:: https://book.realworldhaskell.org/read/figs/ch12-barcode-example.png
+
+
+.. _sec-13:
+
+/Chapter 13. Data structures `🔼 <#toc>`_
+==========================================
+
+.. container:: chapter
+   :name: data
+
+   .. container:: titlepage
+
+      .. container::
+
+         .. container::
+
+            .. rubric:: Chapter 13. Data Structures
+               :name: chapter-13.-data-structures
+               :class: title
+
+   .. container:: toc
+
+      **Table of Contents**
+
+      *  `Association Lists <#data.assoc>`__
+      *  `Maps <#data.map>`__
+      *  `Functions Are Data, Too <#data.funcs>`__
+      *  `Extended Example: /etc/passwd <#data.passwd>`__
+      *  `Extended example: Numeric Types <#data.num>`__
+
+         *  `First Steps <#id635992>`__
+         *  `Completed Code <#id636312>`__
+         *  `Exercises <#id636979>`__
+
+      *  `Taking advantage of functions as data <#data.dlist>`__
+
+         *  `Turning difference lists into a proper library <#id637423>`__
+         *  `Lists, difference lists, and monoids <#id637702>`__
+
+      *  `General purpose sequences <#data.seq>`__
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Association Lists
+                  :name: data.assoc
+                  :class: title
+
+      Often, we have to deal with data that is unordered but is indexed
+      by a key. For instance, a Unix administrator might have a list of
+      numeric UIDs (user IDs) and the textual usernames that they
+      correspond to. The value of this list lies in being able to look
+      up a textual username for a given UID, not in the order of the
+      data. In other words, the UID is a key into a database.
+
+      In Haskell, there are several ways to handle data that is
+      structured in this way. The two most common are association lists
+      and the Map type provided by ``Data.Map`` module. Association
+      lists are handy because they are simple. They are standard Haskell
+      lists, so all the familiar list functions work with association
+      lists. However, for large data sets, Map will have a considerable
+      performance advantage over association lists. We'll use both in
+      this chapter.
+
+      An association list is just a normal list containing (key, value)
+      tuples. The type of a list of mappings from UID to username might
+      be ``[(Integer, String)]``. We could use just about any
+      type\ :sup:`[`\ `31 <#ftn.id634459>`__\ :sup:`]`\ for both the key
+      and the value.
+
+      We can build association lists just we do any other list. Haskell
+      comes with one built-in function called ``Data.List.lookup`` to
+      look up data in an association list. Its type is
+      ``Eq a => a -> [(a, b)] -> Maybe b``. Can you guess how it works
+      from that type? Let's take a look in **ghci**.
+
+      .. code:: screen
+
+         ghci> let al = [(1, "one"), (2, "two"), (3, "three"), (4, "four")]
+         ghci> lookup 1 al
+         Just "one"
+         ghci> lookup 5 al
+         Nothing
+
+      The ``lookup`` function is really simple. Here's one way we could
+      write it:
+
+      .. code:: programlisting
+
+         -- file: ch13/lookup.hs
+         myLookup :: Eq a => a -> [(a, b)] -> Maybe b
+         myLookup _ [] = Nothing
+         myLookup key ((thiskey,thisval):rest) =
+             if key == thiskey
+                then Just thisval
+                else myLookup key rest
+
+      This function returns ``Nothing`` if passed the empty list.
+      Otherwise, it compares the key with the key we're looking for. If
+      a match is found, the corresponding value is returned. Otherwise,
+      it searches the rest of the list.
+
+      Let's take a look at a more complex example of association lists.
+      On Unix/Linux machines, there is a file called ``/etc/passwd``
+      that stores usernames, UIDs, home directories, and various other
+      data. We will write a program that parses such a file, creates an
+      association list, and lets the user look up a username by giving a
+      UID.
+
+      .. code:: programlisting
+
+         -- file: ch13/passwd-al.hs
+         import Data.List
+         import System.IO
+         import Control.Monad(when)
+         import System.Exit
+         import System.Environment(getArgs)
+
+         main = do
+             -- Load the command-line arguments
+             args <- getArgs
+
+             -- If we don't have the right amount of args, give an error and abort
+             when (length args /= 2) $ do
+                 putStrLn "Syntax: passwd-al filename uid"
+                 exitFailure
+
+             -- Read the file lazily
+             content <- readFile (args !! 0)
+
+             -- Compute the username in pure code
+             let username = findByUID content (read (args !! 1))
+
+             -- Display the result
+             case username of 
+                  Just x -> putStrLn x
+                  Nothing -> putStrLn "Could not find that UID"
+
+         -- Given the entire input and a UID, see if we can find a username.
+         findByUID :: String -> Integer -> Maybe String
+         findByUID content uid =
+             let al = map parseline . lines $ content
+                 in lookup uid al
+
+         -- Convert a colon-separated line into fields
+         parseline :: String -> (Integer, String)
+         parseline input =
+             let fields = split ':' input
+                 in (read (fields !! 2), fields !! 0)
+
+         {- | Takes a delimiter and a list.  Break up the list based on the
+         -  delimiter. -}
+         split :: Eq a => a -> [a] -> [[a]]
+
+         -- If the input is empty, the result is a list of empty lists.
+         split _ [] = [[]]
+         split delim str =
+             let -- Find the part of the list before delim and put it in "before".
+                 -- The rest of the list, including the leading delim, goes
+                 -- in "remainder".
+                 (before, remainder) = span (/= delim) str
+                 in
+                 before : case remainder of
+                               [] -> []
+                               x -> -- If there is more data to process,
+                                    -- call split recursively to process it
+                                    split delim (tail x)
+
+      Let's look at this program. The heart of it is ``findByUID``,
+      which is a simple function that parses the input one line at a
+      time, then calls ``lookup`` over the result. The remaining program
+      is concerned with parsing the input. The input file looks like
+      this:
+
+      .. code:: programlisting
+
+         root:x:0:0:root:/root:/bin/bash
+         daemon:x:1:1:daemon:/usr/sbin:/bin/sh
+         bin:x:2:2:bin:/bin:/bin/sh
+         sys:x:3:3:sys:/dev:/bin/sh
+         sync:x:4:65534:sync:/bin:/bin/sync
+         games:x:5:60:games:/usr/games:/bin/sh
+         man:x:6:12:man:/var/cache/man:/bin/sh
+         lp:x:7:7:lp:/var/spool/lpd:/bin/sh
+         mail:x:8:8:mail:/var/mail:/bin/sh
+         news:x:9:9:news:/var/spool/news:/bin/sh
+         jgoerzen:x:1000:1000:John Goerzen,,,:/home/jgoerzen:/bin/bash
+             
+
+      Its fields are separated by colons, and include a username,
+      numeric user ID, numeric group ID, full name, home directory, and
+      shell. No field may contain an internal colon.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Maps
+                  :name: data.map
+                  :class: title
+
+      The ``Data.Map`` module provides a Map type with behavior that is
+      similar to association lists, but has much better performance.
+
+      Maps give us the same capabilities as hash tables do in other
+      languages. Internally, a map is implemented as a balanced binary
+      tree. Compared to a hash table, this is a much more efficient
+      representation in a language with immutable data. This is the most
+      visible example of how deeply pure functional programming affects
+      how we write code: we choose data structures and algorithms that
+      we can express cleanly and that perform efficiently, but our
+      choices for specific tasks are often different their counterparts
+      in imperative languages.
+
+      Some functions in the ``Data.Map`` module have the same names as
+      those in the Prelude. Therefore, we will import it with
+      ``import qualified Data.Map as Map`` and use ``Map.``\ *``name``*
+      to refer to names in that module. Let's start our tour of
+      ``Data.Map`` by taking a look at some ways to build a map.
+
+      .. code:: programlisting
+
+         -- file: ch13/buildmap.hs
+         import qualified Data.Map as Map
+
+         -- Functions to generate a Map that represents an association list
+         -- as a map
+
+         al = [(1, "one"), (2, "two"), (3, "three"), (4, "four")]
+
+         {- | Create a map representation of 'al' by converting the association
+         -  list using Map.fromList -}
+         mapFromAL =
+             Map.fromList al
+
+         {- | Create a map representation of 'al' by doing a fold -}
+         mapFold =
+             foldl (\map (k, v) -> Map.insert k v map) Map.empty al
+
+         {- | Manually create a map with the elements of 'al' in it -}
+         mapManual =
+             Map.insert 2 "two" . 
+             Map.insert 4 "four" .
+             Map.insert 1 "one" .
+             Map.insert 3 "three" $ Map.empty
+
+      Functions like ``Map.insert`` work in the usual Haskell way: they
+      return a copy of the input data, with the requested change
+      applied. This is quite handy with maps. It means that you can use
+      ``foldl`` to build up a map as in the ``mapFold`` example. Or, you
+      can chain together calls to ``Map.insert`` as in the ``mapManual``
+      example. Let's use **ghci** to verify that all of these maps are
+      as expected:
+
+      .. code:: screen
+
+         ghci> :l buildmap.hs
+         [1 of 1] Compiling Main             ( buildmap.hs, interpreted )
+         Ok, modules loaded: Main.
+         ghci> al
+         Loading package array-0.1.0.0 ... linking ... done.
+         Loading package containers-0.1.0.1 ... linking ... done.
+         [(1,"one"),(2,"two"),(3,"three"),(4,"four")]
+         ghci> mapFromAL
+         fromList [(1,"one"),(2,"two"),(3,"three"),(4,"four")]
+         ghci> mapFold
+         fromList [(1,"one"),(2,"two"),(3,"three"),(4,"four")]
+         ghci> mapManual
+         fromList [(1,"one"),(2,"two"),(3,"three"),(4,"four")]
+
+      Notice that the output from ``mapManual`` differs from the order
+      of the list we used to construct the map. Maps do not guarantee
+      that they will preserve the original ordering.
+
+      Maps operate similarly in concept to association lists. The
+      ``Data.Map`` module provides functions for adding and removing
+      data from maps. It also lets us filter them, modify them, fold
+      over them, and convert to and from association lists. The library
+      documentation for this module is good, so instead of going into
+      detail on each function, we will present an example that ties
+      together many of the concepts we've discussed in this chapter.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Functions Are Data, Too
+                  :name: data.funcs
+                  :class: title
+
+      Part of Haskell's power is the ease with which it lets us create
+      and manipulate functions. Let's take a look at a record that
+      stores a function as one of its fields:
+
+      .. code:: programlisting
+
+         -- file: ch13/funcrecs.hs
+         {- | Our usual CustomColor type to play with -}
+         data CustomColor =
+           CustomColor {red :: Int,
+                        green :: Int,
+                        blue :: Int}
+           deriving (Eq, Show, Read)
+
+         {- | A new type that stores a name and a function.
+
+         The function takes an Int, applies some computation to it, and returns
+         an Int along with a CustomColor -}
+         data FuncRec =
+             FuncRec {name :: String,
+                      colorCalc :: Int -> (CustomColor, Int)}
+
+         plus5func color x = (color, x + 5)
+
+         purple = CustomColor 255 0 255
+
+         plus5 = FuncRec {name = "plus5", colorCalc = plus5func purple}
+         always0 = FuncRec {name = "always0", colorCalc = \_ -> (purple, 0)}
+
+      Notice the type of the ``colorCalc`` field: it's a function. It
+      takes an ``Int`` and returns a tuple of ``(CustomColor, Int)``. We
+      create two ``FuncRec`` records: ``plus5`` and ``always0``. Notice
+      that the ``colorCalc`` for both of them will always return the
+      color purple. ``FuncRec`` itself has no field to store the color
+      in, yet that value somehow becomes part of the function itself.
+      This is called a *closure*. Let's play with this a bit:
+
+      .. code:: screen
+
+         ghci> :l funcrecs.hs
+         [1 of 1] Compiling Main             ( funcrecs.hs, interpreted )
+         Ok, modules loaded: Main.
+         ghci> :t plus5
+         plus5 :: FuncRec
+         ghci> name plus5
+         "plus5"
+         ghci> :t colorCalc plus5
+         colorCalc plus5 :: Int -> (CustomColor, Int)
+         ghci> (colorCalc plus5) 7
+         (CustomColor {red = 255, green = 0, blue = 255},12)
+         ghci> :t colorCalc always0
+         colorCalc always0 :: Int -> (CustomColor, Int)
+         ghci> (colorCalc always0) 7
+         (CustomColor {red = 255, green = 0, blue = 255},0)
+
+      That worked well enough, but you might wonder how to do something
+      more advanced, such as making a piece of data available in
+      multiple places. A type construction function can be helpful.
+      Here's an example:
+
+      .. code:: programlisting
+
+         -- file: ch13/funcrecs2.hs
+         data FuncRec =
+             FuncRec {name :: String,
+                      calc :: Int -> Int,
+                      namedCalc :: Int -> (String, Int)}
+
+         mkFuncRec :: String -> (Int -> Int) -> FuncRec
+         mkFuncRec name calcfunc =
+             FuncRec {name = name,
+                      calc = calcfunc,
+                      namedCalc = \x -> (name, calcfunc x)}
+
+         plus5 = mkFuncRec "plus5" (+ 5)
+         always0 = mkFuncRec "always0" (\_ -> 0)
+
+      Here we have a function called ``mkFuncRec`` that takes a
+      ``String`` and another function as parameters, and returns a new
+      ``FuncRec`` record. Notice how both parameters to ``mkFuncRec``
+      are used in multiple places. Let's try it out:
+
+      .. code:: screen
+
+         ghci> :l funcrecs2.hs
+         [1 of 1] Compiling Main             ( funcrecs2.hs, interpreted )
+         Ok, modules loaded: Main.
+         ghci> :t plus5
+         plus5 :: FuncRec
+         ghci> name plus5
+         "plus5"
+         ghci> (calc plus5) 5
+         10
+         ghci> (namedCalc plus5) 5
+         ("plus5",10)
+         ghci> let plus5a = plus5 {name = "PLUS5A"}
+         ghci> name plus5a
+         "PLUS5A"
+         ghci> (namedCalc plus5a) 5
+         ("plus5",10)
+
+      Notice the creation of ``plus5a``. We changed the ``name`` field,
+      but not the ``namedCalc`` field. That's why ``name`` has the new
+      name, but ``namedCalc`` still returns the name that was passed to
+      ``mkFuncRec``; it doesn't change unless we explicitly change it.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Extended Example: /etc/passwd
+                  :name: data.passwd
+                  :class: title
+
+      In order to illustrate the usage of a number of different data
+      structures together, we've prepared an extended example. This
+      example parses and stores entries from files in the format of a
+      typical ``/etc/passwd`` file.
+
+      .. code:: programlisting
+
+         -- file: ch13/passwdmap.hs
+         import Data.List
+         import qualified Data.Map as Map
+         import System.IO
+         import Text.Printf(printf)
+         import System.Environment(getArgs)
+         import System.Exit
+         import Control.Monad(when)
+
+         {- | The primary piece of data this program will store.
+            It represents the fields in a POSIX /etc/passwd file -}
+         data PasswdEntry = PasswdEntry {
+             userName :: String,
+             password :: String,
+             uid :: Integer,
+             gid :: Integer,
+             gecos :: String,
+             homeDir :: String,
+             shell :: String}
+             deriving (Eq, Ord)
+
+         {- | Define how we get data to a 'PasswdEntry'. -}
+         instance Show PasswdEntry where
+             show pe = printf "%s:%s:%d:%d:%s:%s:%s" 
+                         (userName pe) (password pe) (uid pe) (gid pe)
+                         (gecos pe) (homeDir pe) (shell pe)
+
+         {- | Converting data back out of a 'PasswdEntry'. -}
+         instance Read PasswdEntry where
+             readsPrec _ value =
+                 case split ':' value of
+                      [f1, f2, f3, f4, f5, f6, f7] ->
+                          -- Generate a 'PasswdEntry' the shorthand way:
+                          -- using the positional fields.  We use 'read' to convert
+                          -- the numeric fields to Integers.
+                          [(PasswdEntry f1 f2 (read f3) (read f4) f5 f6 f7, [])]
+                      x -> error $ "Invalid number of fields in input: " ++ show x
+                 where 
+                 {- | Takes a delimiter and a list.  Break up the list based on the
+                 -  delimiter. -}
+                 split :: Eq a => a -> [a] -> [[a]]
+
+                 -- If the input is empty, the result is a list of empty lists.
+                 split _ [] = [[]]
+                 split delim str =
+                     let -- Find the part of the list before delim and put it in
+                         -- "before".  The rest of the list, including the leading 
+                         -- delim, goes in "remainder".
+                         (before, remainder) = span (/= delim) str
+                         in
+                         before : case remainder of
+                                       [] -> []
+                                       x -> -- If there is more data to process,
+                                            -- call split recursively to process it
+                                            split delim (tail x)
+
+         -- Convenience aliases; we'll have two maps: one from UID to entries
+         -- and the other from username to entries
+         type UIDMap = Map.Map Integer PasswdEntry
+         type UserMap = Map.Map String PasswdEntry
+
+         {- | Converts input data to maps.  Returns UID and User maps. -}
+         inputToMaps :: String -> (UIDMap, UserMap)
+         inputToMaps inp =
+             (uidmap, usermap)
+             where
+             -- fromList converts a [(key, value)] list into a Map
+             uidmap = Map.fromList . map (\pe -> (uid pe, pe)) $ entries
+             usermap = Map.fromList . 
+                       map (\pe -> (userName pe, pe)) $ entries
+             -- Convert the input String to [PasswdEntry]
+             entries = map read (lines inp)
+
+         main = do
+             -- Load the command-line arguments
+             args <- getArgs
+
+             -- If we don't have the right number of args,
+             -- give an error and abort
+
+             when (length args /= 1) $ do
+                 putStrLn "Syntax: passwdmap filename"
+                 exitFailure
+
+             -- Read the file lazily
+             content <- readFile (head args)
+             let maps = inputToMaps content
+             mainMenu maps
+
+         mainMenu maps@(uidmap, usermap) = do
+             putStr optionText
+             hFlush stdout
+             sel <- getLine
+             -- See what they want to do.  For every option except 4,
+             -- return them to the main menu afterwards by calling
+             -- mainMenu recursively
+             case sel of
+                  "1" -> lookupUserName >> mainMenu maps
+                  "2" -> lookupUID >> mainMenu maps
+                  "3" -> displayFile >> mainMenu maps
+                  "4" -> return ()
+                  _ -> putStrLn "Invalid selection" >> mainMenu maps
+
+             where 
+             lookupUserName = do
+                 putStrLn "Username: "
+                 username <- getLine
+                 case Map.lookup username usermap of
+                      Nothing -> putStrLn "Not found."
+                      Just x -> print x
+             lookupUID = do
+                 putStrLn "UID: "
+                 uidstring <- getLine
+                 case Map.lookup (read uidstring) uidmap of
+                      Nothing -> putStrLn "Not found."
+                      Just x -> print x
+             displayFile = 
+                 putStr . unlines . map (show . snd) . Map.toList $ uidmap
+             optionText = 
+                   "\npasswdmap options:\n\
+                    \\n\
+                    \1   Look up a user name\n\
+                    \2   Look up a UID\n\
+                    \3   Display entire file\n\
+                    \4   Quit\n\n\
+                    \Your selection: "
+
+      This example maintains two maps: one from username to
+      ``PasswdEntry`` and another one from UID to ``PasswdEntry``.
+      Database developers may find it convenient to think of this as
+      having two different indices into the data to speed searching on
+      different fields.
+
+      Take a look at the ``Show`` and ``Read`` instances for
+      ``PasswdEntry``. There is already a standard format for rendering
+      data of this type as a string: the colon-separated version already
+      used by the system. So our ``Show`` function displays a
+      ``PasswdEntry`` in the format, and ``Read`` parses that format.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Extended example: Numeric Types
+                  :name: data.num
+                  :class: title
+
+      We've told you how powerful and expressive Haskell's type system
+      is. We've shown you a lot of ways to use that power. Here's a
+      chance to really see that in action.
+
+      Back in `the section called “Numeric
+      Types” <using-typeclasses.html#typeclasses.wellknown.numeric>`__,
+      we showed the numeric typeclasses that come with Haskell. Let's
+      see what we can do by defining new types and utilizing the numeric
+      typeclasses to integrate them with basic mathematics in Haskell.
+
+      Let's start by thinking through what we'd like to see out of
+      **ghci** when we interact with our new types. To start with, it
+      might be nice to render numeric expressions as strings, making
+      sure to indicate proper precedence. Perhaps we could create a
+      function called ``prettyShow`` to do that. We'll show you how to
+      write it in a bit, but first we'll look at how we might use it.
+
+      .. code:: screen
+
+         ghci> :l num.hs
+         [1 of 1] Compiling Main             ( num.hs, interpreted )
+         Ok, modules loaded: Main.
+         ghci> 5 + 1 * 3
+         8
+         ghci> prettyShow $ 5 + 1 * 3
+         "5+(1*3)"
+         ghci> prettyShow $ 5 * 1 + 3
+         "(5*1)+3"
+
+      That looks nice, but it wasn't all that smart. We could easily
+      simplify out the ``1 *`` part of the expression. How about a
+      function to do some very basic simplification?
+
+      .. code:: screen
+
+         ghci> prettyShow $ simplify $ 5 + 1 * 3
+         "5+3"
+
+      How about converting a numeric expression to Reverse Polish
+      Notation (RPN)? RPN is a postfix notation that never requires
+      parentheses, and is commonly found on HP calculators. RPN is a
+      stack-based notation. We push numbers onto the stack, and when we
+      enter operations, they pop the most recent numbers off the stack
+      and place the result on the stack.
+
+      .. code:: screen
+
+         ghci> rpnShow $ 5 + 1 * 3
+         "5 1 3 * +"
+         ghci> rpnShow $ simplify $ 5 + 1 * 3
+         "5 3 +"
+
+      Maybe it would be nice to be able to represent simple expressions
+      with symbols for the unknowns.
+
+      .. code:: screen
+
+         ghci> prettyShow $ 5 + (Symbol "x") * 3
+         "5+(x*3)"
+
+      It's often important to track units of measure when working with
+      numbers. For instance, when you see the number 5, does it mean 5
+      meters, 5 feet, or 5 bytes? Of course, if you divide 5 meters by 2
+      seconds, the system ought to be able to figure out the appropriate
+      units. Moreover, it should stop you from adding 2 seconds to 5
+      meters.
+
+      .. code:: screen
+
+         ghci> 5 / 2
+         2.5
+         ghci> (units 5 "m") / (units 2 "s")
+         2.5_m/s
+         ghci> (units 5 "m") + (units 2 "s")
+         *** Exception: Mis-matched units in add
+         ghci> (units 5 "m") + (units 2 "m")
+         7_m
+         ghci> (units 5 "m") / 2
+         2.5_m
+         ghci> 10 * (units 5 "m") / (units 2 "s")
+         25.0_m/s
+
+      If we define an expression or a function that is valid for all
+      numbers, we should be able to calculate the result, or render the
+      expression. For instance, if we define ``test`` to have type
+      ``Num a => a``, and say ``test = 2 * 5 + 3``, then we ought to be
+      able to do this:
+
+      .. code:: screen
+
+         ghci> test
+         13
+         ghci> rpnShow test
+         "2 5 * 3 +"
+         ghci> prettyShow test
+         "(2*5)+3"
+         ghci> test + 5
+         18
+         ghci> prettyShow (test + 5)
+         "((2*5)+3)+5"
+         ghci> rpnShow (test + 5)
+         "2 5 * 3 + 5 +"
+
+      Since we have units, we should be able to handle some basic
+      trigonometry as well. Many of these operations operate on angles.
+      Let's make sure that we can handle both degrees and radians.
+
+      .. code:: screen
+
+         ghci> sin (pi / 2)
+         1.0
+         ghci> sin (units (pi / 2) "rad")
+         1.0_1.0
+         ghci> sin (units 90 "deg")
+         1.0_1.0
+         ghci> (units 50 "m") * sin (units 90 "deg")
+         50.0_m
+
+      Finally, we ought to be able to put all this together and combine
+      different kinds of expressions together.
+
+      .. code:: screen
+
+         ghci> ((units 50 "m") * sin (units 90 "deg")) :: Units (SymbolicManip Double)
+         50.0*sin(((2.0*pi)*90.0)/360.0)_m
+         ghci> prettyShow $ dropUnits $ (units 50 "m") * sin (units 90 "deg")
+         "50.0*sin(((2.0*pi)*90.0)/360.0)"
+         ghci> rpnShow $ dropUnits $ (units 50 "m") * sin (units 90 "deg")
+         "50.0 2.0 pi * 90.0 * 360.0 / sin *"
+         ghci> (units (Symbol "x") "m") * sin (units 90 "deg")
+         x*sin(((2.0*pi)*90.0)/360.0)_m
+
+      Everything you've just seen is possible with Haskell types and
+      classes. In fact, you've been reading a real **ghci** session
+      demonstrating ``num.hs``, which you'll see shortly.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: First Steps
+                     :name: id635992
+                     :class: title
+
+         Let's think about how we would accomplish everything shown
+         above. To start with, we might use **ghci** to check the type
+         of ``(+)``, which is ``Num a => a -> a -> a``. If we want to
+         make possible some custom behavior for the plus operator, then
+         we will have to define a new type and make it an instance of
+         ``Num``. This type will need to store an expression
+         symbolically. We can start by thinking of operations such as
+         addition. To store that, we will need to store the operation
+         itself, its left side, and its right side. The left and right
+         sides could themselves be expressions.
+
+         We can therefore think of an expression as a sort of tree.
+         Let's start with some simple types.
+
+         .. code:: programlisting
+
+            -- file: ch13/numsimple.hs
+            -- The "operators" that we're going to support
+            data Op = Plus | Minus | Mul | Div | Pow
+                    deriving (Eq, Show)
+
+            {- The core symbolic manipulation type -}
+            data SymbolicManip a = 
+                      Number a           -- Simple number, such as 5
+                    | Arith Op (SymbolicManip a) (SymbolicManip a)
+                      deriving (Eq, Show)
+
+            {- SymbolicManip will be an instance of Num.  Define how the Num
+            operations are handled over a SymbolicManip.  This will implement things
+            like (+) for SymbolicManip. -}
+            instance Num a => Num (SymbolicManip a) where
+                a + b = Arith Plus a b
+                a - b = Arith Minus a b
+                a * b = Arith Mul a b
+                negate a = Arith Mul (Number (-1)) a
+                abs a = error "abs is unimplemented"
+                signum _ = error "signum is unimplemented"
+                fromInteger i = Number (fromInteger i)
+
+         First, we define a type called ``Op``. This type simply
+         represents some of the operations we will support. Next, there
+         is a definition for ``SymbolicManip a``. Because of the
+         ``Num a`` constraint, any ``Num`` can be used for the ``a``. So
+         a full type may be something like ``SymbolicManip Int``.
+
+         A ``SymbolicManip`` type can be a plain number, or it can be
+         some arithmetic operation. The type for the ``Arith``
+         constructor is recursive, which is perfectly legal in Haskell.
+         ``Arith`` creates a ``SymbolicManip`` out of an ``Op`` and two
+         other ``SymbolicManip`` items. Let's look at an example:
+
+         .. code:: screen
+
+            ghci> :l numsimple.hs
+            [1 of 1] Compiling Main             ( numsimple.hs, interpreted )
+            Ok, modules loaded: Main.
+            ghci> Number 5
+            Number 5
+            ghci> :t Number 5
+            Number 5 :: (Num t) => SymbolicManip t
+            ghci> :t Number (5::Int)
+            Number (5::Int) :: SymbolicManip Int
+            ghci> Number 5 * Number 10
+            Arith Mul (Number 5) (Number 10)
+            ghci> (5 * 10)::SymbolicManip Int
+            Arith Mul (Number 5) (Number 10)
+            ghci> (5 * 10 + 2)::SymbolicManip Int
+            Arith Plus (Arith Mul (Number 5) (Number 10)) (Number 2)
+
+         You can see that we already have a very basic representation of
+         expressions working. Notice how Haskell "converted"
+         ``5 * 10 + 2`` into a ``SymbolicManip``, and even handled order
+         of evaluation properly. This wasn't really a true conversion;
+         ``SymbolicManip`` is a first-class number now. Integer numeric
+         literals are internally treated as being wrapped in
+         ``fromInteger`` anyway, so ``5`` is just as valid as a
+         ``SymbolicManip Int`` as it as an ``Int``.
+
+         From here, then, our task is simple: extend the
+         ``SymbolicManip`` type to be able to represent all the
+         operations we will want to perform, implement instances of it
+         for the other numeric typeclasses, and implement our own
+         instance of ``Show`` for ``SymbolicManip`` that renders this
+         tree in a more accessible fashion.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Completed Code
+                     :name: id636312
+                     :class: title
+
+         Here is the completed ``num.hs``, which was used with the
+         **ghci** examples at the beginning of this chapter. Let's look
+         at this code one piece at a time.
+
+         .. code:: programlisting
+
+            -- file: ch13/num.hs
+            import Data.List
+
+            --------------------------------------------------
+            -- Symbolic/units manipulation
+            --------------------------------------------------
+
+            -- The "operators" that we're going to support
+            data Op = Plus | Minus | Mul | Div | Pow
+                    deriving (Eq, Show)
+
+            {- The core symbolic manipulation type.  It can be a simple number,
+            a symbol, a binary arithmetic operation (such as +), or a unary
+            arithmetic operation (such as cos)
+
+            Notice the types of BinaryArith and UnaryArith: it's a recursive
+            type.  So, we could represent a (+) over two SymbolicManips. -}
+            data SymbolicManip a = 
+                      Number a           -- Simple number, such as 5
+                    | Symbol String      -- A symbol, such as x
+                    | BinaryArith Op (SymbolicManip a) (SymbolicManip a)
+                    | UnaryArith String (SymbolicManip a)
+                      deriving (Eq)
+
+         In this section of code, we define an ``Op`` that is identical
+         to the one we used before. We also define ``SymbolicManip``,
+         which is similar to what we used before. In this version, we
+         now support unary arithmetic operations (those which take only
+         one parameter) such as ``abs`` or ``cos``. Next we define our
+         instance of ``Num``.
+
+         .. code:: programlisting
+
+            -- file: ch13/num.hs
+            {- SymbolicManip will be an instance of Num.  Define how the Num
+            operations are handled over a SymbolicManip.  This will implement things
+            like (+) for SymbolicManip. -}
+            instance Num a => Num (SymbolicManip a) where
+                a + b = BinaryArith Plus a b
+                a - b = BinaryArith Minus a b
+                a * b = BinaryArith Mul a b
+                negate a = BinaryArith Mul (Number (-1)) a
+                abs a = UnaryArith "abs" a
+                signum _ = error "signum is unimplemented"
+                fromInteger i = Number (fromInteger i)
+
+         This is pretty straightforward and also similar to our earlier
+         code. Note that earlier we weren't able to properly support
+         ``abs``, but now with the ``UnaryArith`` constructor, we can.
+         Next we define some more instances.
+
+         .. code:: programlisting
+
+            -- file: ch13/num.hs
+            {- Make SymbolicManip an instance of Fractional -}
+            instance (Fractional a) => Fractional (SymbolicManip a) where
+                a / b = BinaryArith Div a b
+                recip a = BinaryArith Div (Number 1) a
+                fromRational r = Number (fromRational r)
+
+            {- Make SymbolicManip an instance of Floating -}
+            instance (Floating a) => Floating (SymbolicManip a) where
+                pi = Symbol "pi"
+                exp a = UnaryArith "exp" a
+                log a = UnaryArith "log" a
+                sqrt a = UnaryArith "sqrt" a
+                a ** b = BinaryArith Pow a b
+                sin a = UnaryArith "sin" a
+                cos a = UnaryArith "cos" a
+                tan a = UnaryArith "tan" a
+                asin a = UnaryArith "asin" a
+                acos a = UnaryArith "acos" a
+                atan a = UnaryArith "atan" a
+                sinh a = UnaryArith "sinh" a
+                cosh a = UnaryArith "cosh" a
+                tanh a = UnaryArith "tanh" a
+                asinh a = UnaryArith "asinh" a
+                acosh a = UnaryArith "acosh" a
+                atanh a = UnaryArith "atanh" a
+
+         This section of code defines some fairly straightforward
+         instances of ``Fractional`` and ``Floating``. Now let's work on
+         converting our expressions to strings for display.
+
+         .. code:: programlisting
+
+            -- file: ch13/num.hs
+            {- Show a SymbolicManip as a String, using conventional
+            algebraic notation -}
+            prettyShow :: (Show a, Num a) => SymbolicManip a -> String
+
+            -- Show a number or symbol as a bare number or serial
+            prettyShow (Number x) = show x
+            prettyShow (Symbol x) = x
+
+            prettyShow (BinaryArith op a b) =
+                let pa = simpleParen a
+                    pb = simpleParen b
+                    pop = op2str op
+                    in pa ++ pop ++ pb
+            prettyShow (UnaryArith opstr a) = 
+                opstr ++ "(" ++ show a ++ ")"
+
+            op2str :: Op -> String
+            op2str Plus = "+"
+            op2str Minus = "-"
+            op2str Mul = "*"
+            op2str Div = "/"
+            op2str Pow = "**"
+
+            {- Add parenthesis where needed.  This function is fairly conservative
+            and will add parenthesis when not needed in some cases.
+                
+            Haskell will have already figured out precedence for us while building
+            up the SymbolicManip. -}
+            simpleParen :: (Show a, Num a) => SymbolicManip a -> String
+            simpleParen (Number x) = prettyShow (Number x)
+            simpleParen (Symbol x) = prettyShow (Symbol x)
+            simpleParen x@(BinaryArith _ _ _) = "(" ++ prettyShow x ++ ")"
+            simpleParen x@(UnaryArith _ _) = prettyShow x
+
+            {- Showing a SymbolicManip calls the prettyShow function on it -}
+            instance (Show a, Num a) => Show (SymbolicManip a) where
+                show a = prettyShow a
+
+         We start by defining a function ``prettyShow``. It renders an
+         expression using conventional style. The algorithm is fairly
+         simple: bare numbers and symbols are rendered bare; binary
+         arithmetic is rendered with the two sides plus the operator in
+         the middle, and of course we handle the unary operators as
+         well. ``op2str`` simply converts an ``Op`` to a ``String``. In
+         ``simpleParen``, we have a quite conservative algorithm that
+         adds parenthesis to keep precedence clear in the result.
+         Finally, we make ``SymbolicManip`` an instance of ``Show`` and
+         use ``prettyShow`` to accomplish that. Now let's implement an
+         algorithm that converts an expression to s string in RPN
+         format.
+
+         .. code:: programlisting
+
+            -- file: ch13/num.hs
+            {- Show a SymbolicManip using RPN.  HP calculator users may
+            find this familiar. -}
+            rpnShow :: (Show a, Num a) => SymbolicManip a -> String
+            rpnShow i =
+                let toList (Number x) = [show x]
+                    toList (Symbol x) = [x]
+                    toList (BinaryArith op a b) = toList a ++ toList b ++
+                       [op2str op]
+                    toList (UnaryArith op a) = toList a ++ [op]
+                    join :: [a] -> [[a]] -> [a]
+                    join delim l = concat (intersperse delim l)
+                in join " " (toList i)
+
+         Fans of RPN will note how much simpler this algorithm is
+         compared to the algorithm to render with conventional notation.
+         In particular, we didn't have to worry about where to add
+         parenthesis, because RPN can, by definition, only be evaluated
+         one way. Next, let's see how we might implement a function to
+         do some rudimentary simplification on expressions.
+
+         .. code:: programlisting
+
+            -- file: ch13/num.hs
+            {- Perform some basic algebraic simplifications on a SymbolicManip. -}
+            simplify :: (Num a) => SymbolicManip a -> SymbolicManip a
+            simplify (BinaryArith op ia ib) = 
+                let sa = simplify ia
+                    sb = simplify ib
+                    in
+                    case (op, sa, sb) of 
+                            (Mul, Number 1, b) -> b
+                            (Mul, a, Number 1) -> a
+                            (Mul, Number 0, b) -> Number 0
+                            (Mul, a, Number 0) -> Number 0
+                            (Div, a, Number 1) -> a
+                            (Plus, a, Number 0) -> a
+                            (Plus, Number 0, b) -> b
+                            (Minus, a, Number 0) -> a
+                            _ -> BinaryArith op sa sb
+            simplify (UnaryArith op a) = UnaryArith op (simplify a)
+            simplify x = x
+
+         This function is pretty simple. For certain binary arithmetic
+         operations -- for instance, multiplying any value by 1 -- we
+         are able to easily simplify the situation. We begin by
+         obtaining simplified versions of both sides of the calculation
+         (this is where recursion hits) and then simplify the result. We
+         have little to do with unary operators, so we just simplify the
+         expression they act upon.
+
+         From here on, we will add support for units of measure to our
+         established library. This will let us represent quantities such
+         as "5 meters". We start, as before, by defining a type.
+
+         .. code:: programlisting
+
+            -- file: ch13/num.hs
+            {- New data type: Units.  A Units type contains a number
+            and a SymbolicManip, which represents the units of measure.
+            A simple label would be something like (Symbol "m") -}
+            data Num a => Units a = Units a (SymbolicManip a)
+                       deriving (Eq)
+
+         So, a ``Units`` contains a number and a label. The label is
+         itself a ``SymbolicManip``. Next, it will probably come as no
+         surprise to see an instance of ``Num`` for ``Units``.
+
+         .. code:: programlisting
+
+            -- file: ch13/num.hs
+            {- Implement Units for Num.  We don't know how to convert between
+            arbitrary units, so we generate an error if we try to add numbers with
+            different units.  For multiplication, generate the appropriate
+            new units. -}
+            instance (Num a) => Num (Units a) where
+                (Units xa ua) + (Units xb ub) 
+                    | ua == ub = Units (xa + xb) ua
+                    | otherwise = error "Mis-matched units in add or subtract"
+                (Units xa ua) - (Units xb ub) = (Units xa ua) + (Units (xb * (-1)) ub)
+                (Units xa ua) * (Units xb ub) = Units (xa * xb) (ua * ub)
+                negate (Units xa ua) = Units (negate xa) ua
+                abs (Units xa ua) = Units (abs xa) ua
+                signum (Units xa _) = Units (signum xa) (Number 1)
+                fromInteger i = Units (fromInteger i) (Number 1)
+
+         Now it may become clear why we use a ``SymbolicManip`` instead
+         of a ``String`` to store the unit of measure. As calculations
+         such as multiplication occur, the unit of measure also changes.
+         For instance, if we multiply 5 meters by 2 meters, we obtain 10
+         square meters. We force the units for addition to match, and
+         implement subtraction in terms of addition. Let's look at more
+         typeclass instances for ``Units``.
+
+         .. code:: programlisting
+
+            -- file: ch13/num.hs
+            {- Make Units an instance of Fractional -}
+            instance (Fractional a) => Fractional (Units a) where
+                (Units xa ua) / (Units xb ub) = Units (xa / xb) (ua / ub)
+                recip a = 1 / a
+                fromRational r = Units (fromRational r) (Number 1)
+
+            {- Floating implementation for Units.
+
+            Use some intelligence for angle calculations: support deg and rad
+            -}
+            instance (Floating a) => Floating (Units a) where
+                pi = (Units pi (Number 1))
+                exp _ = error "exp not yet implemented in Units"
+                log _ = error "log not yet implemented in Units"
+                (Units xa ua) ** (Units xb ub) 
+                    | ub == Number 1 = Units (xa ** xb) (ua ** Number xb)
+                    | otherwise = error "units for RHS of ** not supported"
+                sqrt (Units xa ua) = Units (sqrt xa) (sqrt ua)
+                sin (Units xa ua) 
+                    | ua == Symbol "rad" = Units (sin xa) (Number 1)
+                    | ua == Symbol "deg" = Units (sin (deg2rad xa)) (Number 1)
+                    | otherwise = error "Units for sin must be deg or rad"
+                cos (Units xa ua) 
+                    | ua == Symbol "rad" = Units (cos xa) (Number 1)
+                    | ua == Symbol "deg" = Units (cos (deg2rad xa)) (Number 1)
+                    | otherwise = error "Units for cos must be deg or rad"
+                tan (Units xa ua)
+                    | ua == Symbol "rad" = Units (tan xa) (Number 1)
+                    | ua == Symbol "deg" = Units (tan (deg2rad xa)) (Number 1)
+                    | otherwise = error "Units for tan must be deg or rad"
+                asin (Units xa ua) 
+                    | ua == Number 1 = Units (rad2deg $ asin xa) (Symbol "deg")
+                    | otherwise = error "Units for asin must be empty"
+                acos (Units xa ua)
+                    | ua == Number 1 = Units (rad2deg $ acos xa) (Symbol "deg")
+                    | otherwise = error "Units for acos must be empty"
+                atan (Units xa ua)
+                    | ua == Number 1 = Units (rad2deg $ atan xa) (Symbol "deg")
+                    | otherwise = error "Units for atan must be empty"
+                sinh = error "sinh not yet implemented in Units"
+                cosh = error "cosh not yet implemented in Units"
+                tanh = error "tanh not yet implemented in Units"
+                asinh = error "asinh not yet implemented in Units"
+                acosh = error "acosh not yet implemented in Units"
+                atanh = error "atanh not yet implemented in Units"
+
+         We didn't supply implementations for every function, but quite
+         a few have been defined. Now let's define a few utility
+         functions for working with units.
+
+         .. code:: programlisting
+
+            -- file: ch13/num.hs
+            {- A simple function that takes a number and a String and returns an
+            appropriate Units type to represent the number and its unit of measure -}
+            units :: (Num z) => z -> String -> Units z
+            units a b = Units a (Symbol b)
+
+            {- Extract the number only out of a Units type -}
+            dropUnits :: (Num z) => Units z -> z
+            dropUnits (Units x _) = x
+                                                                
+            {- Utilities for the Unit implementation -}
+            deg2rad x = 2 * pi * x / 360
+            rad2deg x = 360 * x / (2 * pi)
+
+         First, we have ``units``, which makes it easy to craft simple
+         expressions. It's faster to say ``units 5 "m"`` than
+         ``Units 5 (Symbol "m")``. We also have a corresponding
+         ``dropUnits``, which discards the unit of measure and returns
+         the embedded bare ``Num``. Finally, we define some functions
+         for use by our earlier instances to convert between degrees and
+         radians. Next, we just define a ``Show`` instance for
+         ``Units``.
+
+         .. code:: programlisting
+
+            -- file: ch13/num.hs
+            {- Showing units: we show the numeric component, an underscore,
+            then the prettyShow version of the simplified units -}
+            instance (Show a, Num a) => Show (Units a) where
+                show (Units xa ua) = show xa ++ "_" ++ prettyShow (simplify ua)
+
+         That was simple. For one last piece, we define a variable
+         ``test`` to experiment with.
+
+         .. code:: programlisting
+
+            -- file: ch13/num.hs
+            test :: (Num a) => a
+            test = 2 * 5 + 3
+
+         So, looking back over all this code, we have done what we set
+         out to accomplish: implemented more instances for
+         ``SymbolicManip``. We have also introduced another type called
+         ``Units`` which stores a number and a unit of measure. We
+         implement several show-like functions which render the
+         ``SymbolicManip`` or ``Units`` in different ways.
+
+         There is one other point that this example drives home. Every
+         language -- even those with objects and overloading -- has some
+         parts of the language that are special in some way. In Haskell,
+         the "special" bits are extremely small. We have just developed
+         a new representation for something as fundamental as a number,
+         and it has been really quite easy. Our new type is a
+         first-class type, and the compiler knows what functions to use
+         with it at compile time. Haskell takes code reuse and
+         interchangability to the extreme. It is easy to make code
+         generic and work on things of many different types. It's also
+         easy to make up new types and make them automatically be
+         first-class features of the system.
+
+         Remember our **ghci** examples at the beginning of the chapter?
+         All of them were made with the code in this example. You might
+         want to try them out for yourself and see how they work.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Exercises
+                     :name: id636979
+                     :class: title
+
+         .. container:: qandaset
+
+            .. list-table::
+               :widths: 1
+
+               - 
+
+                  - **1.**
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: Taking advantage of functions as data
+                  :name: data.dlist
+                  :class: title
+
+      In an imperative language, appending two lists is cheap and easy.
+      Here's a simple C structure in which we maintain a pointer to the
+      head and tail of a list.
+
+      .. code:: programlisting
+
+         struct list {
+             struct node *head, *tail;
+         };
+
+      When we have one list, and want to append another list onto its
+      end, we modify the last node of the existing list to point to its
+      ``head`` node, then update its ``tail`` pointer to point to its
+      ``tail`` node.
+
+      Obviously, this approach is off limits to us in Haskell if we want
+      to stay pure. Since pure data is immutable, we can't go around
+      modifying lists in place. Haskell's ``(++)`` operator appends two
+      lists by creating a new one.
+
+      .. code:: programlisting
+
+         -- file: ch13/Append.hs
+         (++) :: [a] -> [a] -> [a]
+         (x:xs) ++ ys = x : xs ++ ys
+         _      ++ ys = ys
+
+      From inspecting the code, we can see that the cost of creating a
+      new list depends on the length of the initial
+      list\ :sup:`[`\ `32 <#ftn.id637094>`__\ :sup:`]` .
+
+      We often need to append lists over and over, to construct one big
+      list. For instance, we might be generating the contents of a web
+      page as a String, emitting a chunk at a time as we traverse some
+      data structure. Each time we have a chunk of markup to add to the
+      page, we will naturally want to append it onto the end of our
+      existing String.
+
+      If a single append has a cost proportional to the length of the
+      initial list, and each repeated append makes the initial list
+      longer, we end up in an unhappy situation: the cost of all of the
+      repeated appends is proportional to the *square* of the length of
+      the final list.
+
+      To understand this, let's dig in a little. The ``(++)`` operator
+      is right associative.
+
+      .. code:: screen
+
+         ghci> :info (++)
+         (++) :: [a] -> [a] -> [a]     -- Defined in GHC.Base
+         infixr 5 ++
+
+      This means that a Haskell implementation will evaluate the
+      expression ``"a" ++ "b" ++ "c"`` as if we had put parentheses
+      around it as follows: ``"a" ++ ("b" ++ "c")``. This makes good
+      performance sense, because it keeps the left operand as short as
+      possible.
+
+      When we repeatedly append onto the end of a list, we defeat this
+      associativity. Let's say we start with the list ``"a"`` and append
+      ``"b"``, and save the result as our new list. If we later append
+      ``"c"`` onto this new list, our left operand is now ``"ab"``. In
+      this scheme, every time we append, our left operand gets longer.
+
+      Meanwhile, the imperative programmers are cackling with glee,
+      because the cost of *their* repeated appends only depends on the
+      number of them that they perform. They have linear performance;
+      ours is quadratic.
+
+      When something as common as repeated appending of lists imposes
+      such a performance penalty, it's time to look at the problem from
+      another angle.
+
+      The expression ``("a"++)`` is a section, a partially applied
+      function. What is its type?
+
+      .. code:: screen
+
+         ghci> :type ("a" ++)
+         ("a" ++) :: [Char] -> [Char]
+
+      Since this is a function, we can use the ``(.)`` operator to
+      compose it with another section, let's say ``("b"++)``.
+
+      .. code:: screen
+
+         ghci> :type ("a" ++) . ("b" ++)
+         ("a" ++) . ("b" ++) :: [Char] -> [Char]
+
+      Our new function has the same type. What happens if we stop
+      composing functions, and instead provide a String to the function
+      we've created?
+
+      .. code:: screen
+
+         ghci> let f = ("a" ++) . ("b" ++)
+         ghci> f []
+         "ab"
+
+      We've appended the strings! We're using these partially applied
+      functions to store data, which we can retrieve by providing an
+      empty list. Each partial application of ``(++)`` and ``(.)``
+      *represents* an append, but it doesn't actually *perform* the
+      append.
+
+      There are two very interesting things about this approach. The
+      first is that the cost of a partial application is constant, so
+      the cost of many partial applications is linear. The second is
+      that when we finally provide a ``[]`` value to unlock the final
+      list from its chain of partial applications, application proceeds
+      from right to left. This keeps the left operand of ``(++)`` small,
+      and so the overall cost of all of these appends is linear, not
+      quadratic.
+
+      By choosing an unfamiliar data representation, we've avoided a
+      nasty performance quagmire, while gaining a new perspective on the
+      usefulness of treating functions as data. By the way, this is an
+      old trick, and it's usually called a *difference list*.
+
+      We're not yet finished, though. As appealing as difference lists
+      are in theory, ours won't be very pleasant in practice if we leave
+      all the plumbing of ``(++)``, ``(.)``, and partial application
+      exposed. We need to turn this mess into something pleasant to work
+      with.
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Turning difference lists into a proper
+                     library
+                     :name: id637423
+                     :class: title
+
+         Our first step is to use a ``newtype`` declaration to hide the
+         underlying type from our users. We'll create a new type, and
+         call it DList. Like a regular list, it will be a parameterised
+         type.
+
+         .. code:: programlisting
+
+            -- file: ch13/DList.hs
+            newtype DList a = DL {
+                  unDL :: [a] -> [a]
+                }
+
+         The ``unDL`` function is our deconstructor, which removes the
+         ``DL`` constructor. When we go back and decide what we want to
+         export from our module, we will omit our data constructor and
+         deconstruction function, so the DList type will be completely
+         opaque to our users. They'll only be able to work with the type
+         using the other functions we export.
+
+         .. code:: programlisting
+
+            -- file: ch13/DList.hs
+            append :: DList a -> DList a -> DList a
+            append xs ys = DL (unDL xs . unDL ys)
+
+         Our ``append`` function may seem a little complicated, but it's
+         just performing some book-keeping around the same use of the
+         ``(.)`` operator that we demonstrated earlier. To compose our
+         functions, we must first unwrap them from their DL constructor,
+         hence the uses of ``unDL``. We then re-wrap the resulting
+         function with the DL constructor so that it will have the right
+         type.
+
+         Here's another way of writing the same function, in which we
+         perform the unwrapping of ``xs`` and ``ys`` via pattern
+         matching.
+
+         .. code:: programlisting
+
+            -- file: ch13/DList.hs
+            append' :: DList a -> DList a -> DList a
+            append' (DL xs) (DL ys) = DL (xs . ys)
+
+         Our DList type won't be much use if we can't convert back and
+         forth between the DList representation and a regular list.
+
+         .. code:: programlisting
+
+            -- file: ch13/DList.hs
+            fromList :: [a] -> DList a
+            fromList xs = DL (xs ++)
+
+            toList :: DList a -> [a]
+            toList (DL xs) = xs []
+
+         Once again, compared to the original versions of these
+         functions that we wrote, all we're doing is a little
+         book-keeping to hide the plumbing.
+
+         If we want to make DList useful as a substitute for regular
+         lists, we need to provide some more of the common list
+         operations.
+
+         .. code:: programlisting
+
+            -- file: ch13/DList.hs
+            empty :: DList a
+            empty = DL id
+
+            -- equivalent of the list type's (:) operator
+            cons :: a -> DList a -> DList a
+            cons x (DL xs) = DL ((x:) . xs)
+            infixr `cons`
+
+            dfoldr :: (a -> b -> b) -> b -> DList a -> b
+            dfoldr f z xs = foldr f z (toList xs)
+
+         Although the DList approach makes appends cheap, not all
+         list-like operations are easily available. The ``head``
+         function has constant cost for lists. Our DList equivalent
+         requires that we convert the entire DList to a regular list, so
+         it is much more expensive than its list counterpart: its cost
+         is linear in the number of appends we have performed to
+         construct the DList.
+
+         .. code:: programlisting
+
+            -- file: ch13/DList.hs
+            safeHead :: DList a -> Maybe a
+            safeHead xs = case toList xs of
+                            (y:_) -> Just y
+                            _ -> Nothing
+
+         To support an equivalent of ``map``, we can make our DList type
+         a functor.
+
+         .. code:: programlisting
+
+            -- file: ch13/DList.hs
+            dmap :: (a -> b) -> DList a -> DList b
+            dmap f = dfoldr go empty
+                where go x xs = cons (f x) xs
+
+            instance Functor DList where
+                fmap = dmap
+
+         Once we decide that we have written enough equivalents of list
+         functions, we go back to the top of our source file, and add a
+         module header.
+
+         .. code:: programlisting
+
+            -- file: ch13/DList.hs
+            module DList
+                (
+                  DList
+                , fromList
+                , toList
+                , empty
+                , append
+                , cons
+                , dfoldr
+                ) where
+
+      .. container:: sect2
+
+         .. container:: titlepage
+
+            .. container::
+
+               .. container::
+
+                  .. rubric:: Lists, difference lists, and monoids
+                     :name: id637702
+                     :class: title
+
+         In abstract algebra, there exists a simple abstract structure
+         called a *monoid*. Many mathematical objects are monoids,
+         because the “bar to entry” is very low. In order to be
+         considered a monoid, an object must have two properties.
+
+         .. container:: itemizedlist
+
+            -  An associative binary operator. Let's call it ``(*)``:
+               the expression ``a * (b * c)`` must give the same result
+               as ``(a * b) * c``.
+
+            -  An identity value. If we call this ``e``, it must obey
+               two rules: ``a * e == a`` and ``e * a == a``.
+
+         The rules for monoids don't say what the binary operator must
+         do, merely that such an operator must exist. Because of this,
+         lots of mathematical objects are monoids. If we take addition
+         as the binary operator and zero as the identity value, integers
+         form a monoid. With multiplication as the binary operator and
+         one as the identity value, integers form a different monoid.
+
+         Monoids are ubiquitous in
+         Haskell\ :sup:`[`\ `33 <#ftn.id637789>`__\ :sup:`]`. The Monoid
+         typeclass is defined in the ``Data.Monoid`` module.
+
+         .. code:: programlisting
+
+            -- file: ch13/Monoid.hs
+            class Monoid a where
+                mempty  :: a                -- the identity
+                mappend :: a -> a -> a      -- associative binary operator
+
+         If we take ``(++)`` as the binary operator and ``[]`` as the
+         identity, lists form a monoid.
+
+         .. code:: programlisting
+
+            -- file: ch13/Monoid.hs
+            instance Monoid [a] where
+                mempty  = []
+                mappend = (++)
+
+         Since lists and DLists are so closely related, it follows that
+         our DList type must be a monoid, too.
+
+         .. code:: programlisting
+
+            -- file: ch13/DList.hs
+            instance Monoid (DList a) where
+                mempty = empty
+                mappend = append
+
+         Let's try our the methods of the Monoid type class in **ghci**.
+
+         .. code:: screen
+
+            ghci> "foo" `mappend` "bar"
+            "foobar"
+            ghci> toList (fromList [1,2] `mappend` fromList [3,4])
+            [1,2,3,4]
+            ghci> mempty `mappend` [1]
+            [1]
+
+         .. tip::
+
+            .. list-table::
+               :widths: 36 36
+
+               - 
+
+                  - |[Tip]|
+                  - Tip
+               - 
+
+                  - 
+                  - Although from a mathematical perspective, integers
+                     can be monoids in two different ways, we can't
+                     write two differing Monoid instances for Int in
+                     Haskell: the compiler would complain about
+                     duplicate instances.
+
+                     In those rare cases where we really need several
+                     Monoid instances for the same type, we can use some
+                     ``newtype`` trickery to create distinct types for
+                     the purpose.
+
+                     .. code:: programlisting
+
+                        -- file: ch13/Monoid.hs
+                        {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+                                           
+                        newtype AInt = A { unA :: Int }
+                            deriving (Show, Eq, Num)
+
+                        -- monoid under addition
+                        instance Monoid AInt where
+                            mempty = 0
+                            mappend = (+)
+
+                        newtype MInt = M { unM :: Int }
+                            deriving (Show, Eq, Num)
+
+                        -- monoid under multiplication
+                        instance Monoid MInt where
+                            mempty = 1
+                            mappend = (*)
+
+                     We'll then get different behaviour depending on the
+                     type we use.
+
+                     .. code:: screen
+
+                        ghci> 2 `mappend` 5 :: MInt
+                        M {unM = 10}
+                        ghci> 2 `mappend` 5 :: AInt
+                        A {unA = 7}
+
+         We will have more to say about difference lists and their
+         monoidal nature in `the section called “The writer monad and
+         lists” <programming-with-monads.html#monadcase.writer.dlist>`__.
+
+         .. tip::
+
+            .. list-table::
+
+               - 
+
+                  - |[Tip]|
+                  - Tip
+               - 
+
+                  - 
+                  - As with the rules for functors, Haskell cannot check
+                     the rules for monoids on our behalf. If we're
+                     defining a Monoid instance, we can easily write
+                     QuickCheck properties to give us high statistical
+                     confidence that our code is following the monoid
+                     rules.
+
+   .. container:: sect1
+
+      .. container:: titlepage
+
+         .. container::
+
+            .. container::
+
+               .. rubric:: General purpose sequences
+                  :name: data.seq
+                  :class: title
+
+      Both Haskell's built-in list type and the DList type that we
+      defined above have poor performance characteristics under some
+      circumstances. The ``Data.Sequence`` module defines a Seq
+      container type that gives good performance for a wider variety of
+      operations.
+
+      As with other modules, ``Data.Sequence`` is intended to be used
+      via qualified import.
+
+      .. code:: programlisting
+
+         -- file: ch13/DataSequence.hs
+         import qualified Data.Sequence as Seq
+
+      We can construct an empty Seq using ``empty``, and a
+      single-element container using ``singleton``.
+
+      .. code:: screen
+
+         ghci> Seq.empty
+         Loading package array-0.1.0.0 ... linking ... done.
+         Loading package containers-0.1.0.1 ... linking ... done.
+         fromList []
+         ghci> Seq.singleton 1
+         fromList [1]
+
+      We can create a Seq from a list using ``fromList``.
+
+      .. code:: screen
+
+         ghci> let a = Seq.fromList [1,2,3]
+
+      The ``Data.Sequence`` module provides some constructor functions
+      in the form of operators. When we perform a qualified import, we
+      must qualify the name of an operator in our code, which is ugly.
+
+      .. code:: screen
+
+         ghci> 1 Seq.<| Seq.singleton 2
+         fromList [1,2]
+
+      If we import the operators explicitly, we can avoid the need to
+      qualify them.
+
+      .. code:: programlisting
+
+         -- file: ch13/DataSequence.hs
+         import Data.Sequence ((><), (<|), (|>))
+
+      By removing the qualification from the operator, we improve the
+      readability of our code.
+
+      .. code:: screen
+
+         ghci> Seq.singleton 1 |> 2
+         fromList [1,2]
+
+      A useful way to remember the ``(<|)`` and ``(|>)`` functions is
+      that the “arrow” points to the element we're adding to the
+      ``Seq``. The element will be added on the side to which the arrow
+      points: ``(<|)`` adds on the left, ``(|>)`` on the right.
+
+      Both adding on the left and adding on the right are constant-time
+      operations. Appending two ``Seq``\ s is also cheap, occurring in
+      time proportional to the logarithm of whichever is shorter. To
+      append, we use the ``(><)`` operator.
+
+      .. code:: screen
+
+         ghci> let left = Seq.fromList [1,3,3]
+         ghci> let right = Seq.fromList [7,1]
+         ghci> left >< right
+         fromList [1,3,3,7,1]
+
+      If we want to create a list from a Seq, we must use the
+      ``Data.Foldable`` module, which is best imported qualified.
+
+      .. code:: programlisting
+
+         -- file: ch13/DataSequence.hs
+         import qualified Data.Foldable as Foldable
+
+      This module defines a typeclass, Foldable, which Seq implements.
+
+      .. code:: screen
+
+         ghci> Foldable.toList (Seq.fromList [1,2,3])
+         [1,2,3]
+
+      If we want to fold over a Seq, we use the fold functions from the
+      ``Data.Foldable`` module.
+
+      .. code:: screen
+
+         ghci> Foldable.foldl' (+) 0 (Seq.fromList [1,2,3])
+         6
+
+      The ``Data.Sequence`` module provides a number of other useful
+      list-like functions. Its documentation is very thorough, giving
+      time bounds for each operation.
+
+      If Seq has so many desirable characteristics, why is it not the
+      default sequence type? Lists are simpler and have less overhead,
+      and so quite often they are good enough for the task at hand. They
+      are also well suited to a lazy setting, where Seq does not fare
+      well.
+
+   .. container:: footnotes
+
+      --------------
+
+      .. container:: footnote
+
+         :sup:`[`\ `31 <#id634459>`__\ :sup:`]` The type we use for the
+         key must be a member of the ``Eq`` typeclass.
+
+      .. container:: footnote
+
+         :sup:`[`\ `32 <#id637094>`__\ :sup:`]` Non-strict evaluation
+         makes the cost calculation more subtle. We only pay for an
+         append if we actually use the resulting list. Even then, we
+         only pay for as much as we actually use.
+
+      .. container:: footnote
+
+         :sup:`[`\ `33 <#id637789>`__\ :sup:`]` Indeed, monoids are
+         ubiquitous throughout programming. The difference is that in
+         Haskell, we recognize them, and talk about them.
+
+.. container:: rwhfooter
+
+   |image1| Want to stay up to date? Subscribe to the comment feed for
+   `this chapter </feeds/comments/>`__, or the `entire
+   book </feeds/comments/>`__.
+
+   Copyright 2007, 2008 Bryan O'Sullivan, Don Stewart, and John Goerzen.
+   This work is licensed under a `Creative Commons
+   Attribution-Noncommercial 3.0
+   License <http://creativecommons.org/licenses/by-nc/3.0/>`__. Icons by
+   `Paul Davey <mailto:mattahan@gmail.com>`__ aka
+   `Mattahan <http://mattahan.deviantart.com/>`__.
+
+.. container:: navfooter
+
+   .. list-table::
+
+      - 
+
+         - `Prev <barcode-recognition.html>`__ 
+         -  
+         -  `Next <monads.html>`__
+      - 
+
+         - Chapter 12. Barcode recognition 
+         - `Home <index.html>`__
+         -  Chapter 14. Monads
+
+.. |[Tip]| image:: /support/figs/tip.png
+.. |image1| image:: /support/figs/rss.png

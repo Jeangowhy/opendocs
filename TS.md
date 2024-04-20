@@ -7476,7 +7476,7 @@ https://www.typescriptlang.org/docs/handbook/2/functions.html
 
 Overload Signatures and the Implementation Signature
 
-如果重复实现同名函数，或者多个函数笔一致，重载使用不规范，TypeScript 编译器会报告 "duplicate function implementation.ts(2393)" 错误，关键是检查所有同名函数的定义，并确保它们的名称相同、参数列表和返回值类型有差异。
+如果重复实现同名函数，或者多个函数签名一致，重载使用不规范，TypeScript 编译器会报告 "duplicate function implementation.ts(2393)" 错误，关键是检查所有同名函数的定义，并确保它们的名称相同、参数列表和返回值类型有差异。
 
 重载声明的排序很重要，因为 TypeScript 是按照顺序进行检查的，一旦发现符合某个类型声明，就不再往下检查了，所以类型最宽的声明应该放在最后面，防止覆盖其他类型声明。
 

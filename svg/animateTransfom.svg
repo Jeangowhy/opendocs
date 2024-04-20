@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<svg version="1.1" 
+    xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="-500 -200 1000 400" width="580" height="180">
+  <style>
+    svg { border: 1px solid black; }
+    .cross { stroke: lightblue; }
+  </style>
+  <path class="cross" d="M -500 0 L 500 0 M 0 -200 L 0 200 z" stroke-dasharray="2,6" />
+  <g id="basic" transform="translate(-100 -50)" >
+    <path class="cross" d="M -500 0 L 500 0 M 0 -200 L 0 200 z" />
+    <g id="diamon" transform="translate(-160, 40)">
+      <polyline points="50,0 5,75 25,100 75,100 95,75 50,0" fill="purple" />
+    </g>
+    <g id="star" transform="translate(160, 50)">
+      <polygon points="0,38 100,38 15,100 50,0 85,100" fill="firebrick" />
+    </g>
+    <animateTransform attributeName="transform" xlink:href="#diamon"
+                      type="rotate"
+                      from="10 290 90"
+                      to="360 290 90"
+                      dur="5s"
+                      begin="click" 
+    />
+    <animateTransform attributeName="transform" xlink:href="#star"
+                      type="rotate"
+                      from="0 0 0"
+                      to="360 0 0"
+                      dur="5s"
+                      begin="click" 
+                      additive="sum"
+    />
+  </g>
+</svg>
