@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg id="rootview" width="600" height="260"
+    onclick="copyColor(event)"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+  <script>
+  // <![CDATA[
+  // SVG 已经添加脚本功能，可以点击色块复制其色值。
+  // 因为浏览器安全问题，除非是 HTML 内嵌的 SVG 才可以执行脚本交互功能，图片嵌入等方式不可以。
+  // 为了执行 SVG 脚本交互，可以单独打开 SVG 图形文档，这样它就是单独在沙箱中执行。
+  function copyColor(event) {
+    target = event.target
+    if (target instanceof SVGCircleElement) {
+      let cn = target.nextElementSibling
+      let hx = cn.nextElementSibling
+      setClipboard(cn.textContent.trimLeft() + hx.textContent.trim())
+      return setAnimation(target, hx.textContent.trim())
+    }
+    console.log({is: target instanceof SVGCircleElement, 
+      target: event.target, src: event.srcElement})
+  }
+  function setAnimation(target, bgc){
+    view = document.querySelector(location.hash || "#dark-theme")
+    group = view.nextElementSibling
+    let [viewx, viewy, vieww, viewh] = view.getAttribute("viewBox").split(" ").map(it=>+it)
+    aniclick = document.getElementById("aniclick")
+    rect = target.getClientRects()[0]
+    rootview = document.getElementById('rootview')
+    aniclick.setAttribute('cx', rect.x + 14 + viewx + rootview.scrollLeft)
+    aniclick.setAttribute('cy', rect.y + 14 + viewy + rootview.scrollTop)
+    console.log({rect, aniclick, viewx, viewy, vieww, viewh})
+    // access ElementTimeControl interface
+    ani = document.getElementById("mani")
+    ani.beginElement()
+    anib = group.querySelector(".maniboard")
+    anib.setAttribute('from', anib.getAttribute("to"))
+    anib.setAttribute('to', bgc)
+    anib.beginElement()
+  }
+  function setClipboard(text) {
+      var type = "text/plain";
+      var blob = new Blob([text], { type });
+      var data = [new ClipboardItem({ [type]: blob })];
+
+      navigator.clipboard.write(data).then(
+          function () {
+          console.log("/* copy successful */")
+          },
+          function (evt) {
+          console.log("/* copy failure */", evt)
+          }
+      );
+  }
+
+  themes = ["#dark-theme", "#light-theme", "#red-theme", "#yellow-theme", 
+            "#green-theme", "#cyan-theme", "#blue-theme", "#violet-theme"]
+
+  /**
+   * pushState cause <view> and set viewBox unworking.
+   **/
+  window.onkeydown = (evt) =>
+  {
+    let current = themes.indexOf(location.hash)
+    keyevent = evt
+    if (['magic', "Space", "ArrowRight", "ArrowUp"].indexOf(evt.code) > 0) {
+      let next = (current + 1) % themes.length
+      location.href = themes[next]
+      // history.pushState({key: evt.code}, "", themes[next])
+      // window.onhashchange && window.onhashchange()
+      evt.preventDefault()
+    } else if (['magic', "ArrowLeft", "ArrowDown"].indexOf(evt.code) > 0) {
+      let prev = (current - 1 + themes.length) % themes.length
+      location.href = themes[prev]
+      // history.pushState({key: evt.code}, "", themes[prev])
+      // window.onhashchange && window.onhashchange()
+      evt.preventDefault()
+    }
+  }
+
+  window.onhashchange = () => 
+  {
+    svg = document.getElementById("rootview")
+    hash = location.hash
+    theme = themes.indexOf(hash)
+    vbox = document.querySelector(hash).getAttribute("viewBox")
+    svg.setAttribute('viewBox', vbox);
+  }
+  // ]]>
+  </script>
+  <style>
+    svg { scrollbar-width: thin; overflow-y: visible;}
+    .title { fill: darkred; font-weight: bold; }
+    text.vl { font-size:11px; font-weight: normal; fill: #809080; }
+    text.cn { font-size:14px; font-weight: bold; fill: #282828 }
+    circle { stroke: #282828cc; cursor: pointer; }
+  </style>
+  <view id="dark-theme" viewBox="0 0 600 260" />
+  <g transform="translate(0 0)" class="dark-theme">
+    <rect width="600" height="260" fill="navajowhite" rx="2" />
+    <rect x="2" y="32" width="596" height="226" fill="black" rx="4" >
+      <animate class="maniboard" attributeName="fill" dur="2.5" 
+        to="black" additive="replace" accumulate="sum" fill="freeze" />
+    </rect>
+    <a xlink:href="https://github.com/Jeangowhy/opendocs/blob/main/svg/readme.md">
+      <text x="30" y="20" font-size="16" class="title">CSS Color Module Level 4 - Named Colors [Dark Theme]</text>
+    </a>
+      <rect x="18" y="28" fill="#e1e1e1" width="24" height="32" />
+      <rect x="560" y="28" fill="#000000" width="24" height="32" />
+      <rect x="18" y="51" fill="#c8c8c8" width="24" height="32" />
+      <rect x="560" y="51" fill="#191919" width="24" height="32" />
+      <rect x="18" y="74" fill="#afafaf" width="24" height="32" />
+      <rect x="560" y="74" fill="#323232" width="24" height="32" />
+      <rect x="18" y="97" fill="#969696" width="24" height="32" />
+      <rect x="560" y="97" fill="#4b4b4b" width="24" height="32" />
+      <rect x="18" y="120" fill="#7d7d7d" width="24" height="32" />
+      <rect x="560" y="120" fill="#646464" width="24" height="32" />
+      <rect x="18" y="143" fill="#646464" width="24" height="32" />
+      <rect x="560" y="143" fill="#7d7d7d" width="24" height="32" />
+      <rect x="18" y="166" fill="#4b4b4b" width="24" height="32" />
+      <rect x="560" y="166" fill="#969696" width="24" height="32" />
+      <rect x="18" y="189" fill="#323232" width="24" height="32" />
+      <rect x="560" y="189" fill="#afafaf" width="24" height="32" />
+      <rect x="18" y="212" fill="#191919" width="24" height="32" />
+      <rect x="560" y="212" fill="#c8c8c8" width="24" height="32" />
+      <rect x="18" y="235" fill="#000000" width="24" height="32" />
+      <rect x="560" y="235" fill="#e1e1e1" width="24" height="32" />
+    <circle fill="#000000" cx="48" cy="64"  r="14" /> 
+      <text x="70"  y="64"   class="cn">             black </text>
+      <text x="70"  y="80"   class="vl">      #000000      </text>
+      <text x="120" y="80"  class="vl"> (   0,   0,   0 ) </text>
+      <text fill="#000000" x="248" y="64" font-size="16"> 
+        Dark theme Dark theme Dark theme Dark theme </text>
+    <circle fill="#800000" cx="48" cy="94" r="14" />
+      <text x="70"  y="94"  class="cn">            maroon </text>
+      <text x="70"  y="110"  class="vl">      #800000      </text>
+      <text x="120" y="110" class="vl"> ( 128,   0,   0 ) </text>
+      <text fill="#800000" x="248" y="94" font-size="16"> 
+        Dark theme Dark theme Dark theme Dark theme </text>
+    <circle fill="#9932cc" cx="48" cy="124" r="14" />
+      <text x="70"  y="124"  class="cn">      darkorchid </text>
+      <text x="70"  y="140"  class="vl">      #9932cc      </text>
+      <text x="120" y="140" class="vl"> ( 153, 50, 204 ) </text>
+      <text fill="#9932cc" x="248" y="124" font-size="16"> 
+        Dark theme Dark theme Dark theme Dark theme </text>
+    <circle fill="#deb887" cx="48" cy="154" r="14" />
+      <text x="70"  y="154"  class="cn">        burlywood </text>
+      <text x="70"  y="170"  class="vl">      #deb887      </text>
+      <text x="120" y="170" class="vl"> ( 222, 184, 135 ) </text>
+      <text fill="#deb887" x="248" y="154" font-size="16"> 
+        Dark theme Dark theme Dark theme Dark theme </text>
+    <circle fill="#f0fff0" cx="48" cy="184" r="14" />
+      <text x="70"  y="184"  class="cn">       honeydew </text>
+      <text x="70"  y="200"  class="vl">      #f0fff0      </text>
+      <text x="120" y="200" class="vl"> ( 240, 255, 240 ) </text>
+      <text fill="#f0fff0" x="248" y="184" font-size="16"> 
+        Dark theme Dark theme Dark theme Dark theme </text>
+    <circle fill="#cd853f" cx="48" cy="214"  r="14" />
+      <text x="70"  y="214"   class="cn">              peru </text>
+      <text x="70"  y="230"   class="vl">      #cd853f      </text>
+      <text x="120" y="230"  class="vl"> ( 205, 133,  63 ) </text>
+      <text fill="#cd853f" x="248" y="214" font-size="16"> 
+        Dark theme Dark theme Dark theme Dark theme </text>
+  </g>
+  
+  <view id="light-theme" viewBox="0 260 600 260" />
+  <g transform="translate(0 260)">
+    <rect width="600" height="260" fill="navajowhite" rx="2" />
+    <rect x="2" y="32" width="596" height="226" fill="ivory" rx="4" >
+      <animate class="maniboard" attributeName="fill" dur="2.5" 
+        to="ivory" additive="replace" accumulate="sum" fill="freeze" />
+    </rect>
+    <a xlink:href="https://github.com/Jeangowhy/opendocs/blob/main/svg/readme.md">
+      <text x="30" y="20" font-size="16" class="title">CSS Color Module Level 4 - Named Colors [Light Theme]</text>
+    </a>
+      <rect x="18" y="28" fill="#e1e1e1" width="24" height="32" />
+      <rect x="560" y="28" fill="#000000" width="24" height="32" />
+      <rect x="18" y="51" fill="#c8c8c8" width="24" height="32" />
+      <rect x="560" y="51" fill="#191919" width="24" height="32" />
+      <rect x="18" y="74" fill="#afafaf" width="24" height="32" />
+      <rect x="560" y="74" fill="#323232" width="24" height="32" />
+      <rect x="18" y="97" fill="#969696" width="24" height="32" />
+      <rect x="560" y="97" fill="#4b4b4b" width="24" height="32" />
+      <rect x="18" y="120" fill="#7d7d7d" width="24" height="32" />
+      <rect x="560" y="120" fill="#646464" width="24" height="32" />
+      <rect x="18" y="143" fill="#646464" width="24" height="32" />
+      <rect x="560" y="143" fill="#7d7d7d" width="24" height="32" />
+      <rect x="18" y="166" fill="#4b4b4b" width="24" height="32" />
+      <rect x="560" y="166" fill="#969696" width="24" height="32" />
+      <rect x="18" y="189" fill="#323232" width="24" height="32" />
+      <rect x="560" y="189" fill="#afafaf" width="24" height="32" />
+      <rect x="18" y="212" fill="#191919" width="24" height="32" />
+      <rect x="560" y="212" fill="#c8c8c8" width="24" height="32" />
+      <rect x="18" y="235" fill="#000000" width="24" height="32" />
+      <rect x="560" y="235" fill="#e1e1e1" width="24" height="32" />
+    <circle fill="#fffff0" cx="48" cy="64"  r="14" /> 
+      <text x="70"  y="64"   class="cn">           ivory </text>
+      <text x="70"  y="80"   class="vl">     #fffff0     </text>
+      <text x="120" y="80"  class="vl"> ( 255, 255, 240 )</text>
+      <text fill="#fffff0" x="248" y="64" font-size="16"> 
+        Light theme Light theme Light theme Light theme </text>
+    <circle fill="#faf0e6" cx="48" cy="94" r="14" />
+      <text x="70"  y="94"  class="cn">            linen </text>
+      <text x="70"  y="110"  class="vl">       #faf0e6   </text>
+      <text x="120" y="110" class="vl"> ( 250, 240, 230 ) </text>
+      <text fill="#faf0e6" x="248" y="94" font-size="16"> 
+        Light theme Light theme Light theme Light theme </text>
+    <circle fill="#f5deb3" cx="48" cy="124" r="14" />
+      <text x="70"  y="124"  class="cn">           wheat </text>
+      <text x="70"  y="140"  class="vl">      #f5deb3     </text>
+      <text x="120" y="140" class="vl"> ( 245, 222, 179 ) </text>
+      <text fill="#f5deb3" x="248" y="124" font-size="16"> 
+        Light theme Light theme Light theme Light theme </text>
+    <circle fill="#bdb76b" cx="48" cy="154" r="14" />
+      <text x="70"  y="154"  class="cn">        darkkhaki </text>
+      <text x="70"  y="170"  class="vl">      #bdb76b      </text>
+      <text x="120" y="170" class="vl"> ( 189, 183, 107 ) </text>
+      <text fill="#bdb76b" x="248" y="154" font-size="16"> 
+        Light theme Light theme Light theme Light theme </text>
+    <circle fill="#808000" cx="48" cy="184" r="14" />
+      <text x="70"  y="184"  class="cn">        olive </text>
+      <text x="70"  y="200"  class="vl">      #808000     </text>
+      <text x="120" y="200" class="vl"> ( 128, 128, 0 ) </text>
+      <text fill="#808000" x="248" y="184" font-size="16"> 
+        Light theme Light theme Light theme Light theme </text>
+    <circle fill="#32cd32" cx="48" cy="214"  r="14" />
+      <text x="70"  y="214"   class="cn">      limegreen </text>
+      <text x="70"  y="230"   class="vl">      #32cd32   </text>
+      <text x="120" y="230"  class="vl"> ( 50, 205, 50 ) </text>
+      <text fill="#32cd32" x="248" y="214" font-size="16"> 
+        Light theme Light theme Light theme Light theme </text>
+  </g>
+  
+  <view id="red-theme" viewBox="0 520 600 260" />
+  <g transform="translate(0 520)">
+    <rect width="600" height="260" fill="navajowhite" rx="2" />
+    <rect x="2" y="32" width="596" height="226" fill="crimson" rx="4" >
+      <animate class="maniboard" attributeName="fill" dur="2.5" 
+        to="crimson" additive="replace" accumulate="sum" fill="freeze" />
+    </rect>
+    <a xlink:href="https://github.com/Jeangowhy/opendocs/blob/main/svg/readme.md">
+      <text x="30" y="20" font-size="16" class="title">CSS Color Module Level 4 - Named Colors [Red Theme]</text>
+    </a>
+      <rect x="18" y="28" fill="#e1e1e1" width="24" height="32" />
+      <rect x="560" y="28" fill="#000000" width="24" height="32" />
+      <rect x="18" y="51" fill="#c8c8c8" width="24" height="32" />
+      <rect x="560" y="51" fill="#191919" width="24" height="32" />
+      <rect x="18" y="74" fill="#afafaf" width="24" height="32" />
+      <rect x="560" y="74" fill="#323232" width="24" height="32" />
+      <rect x="18" y="97" fill="#969696" width="24" height="32" />
+      <rect x="560" y="97" fill="#4b4b4b" width="24" height="32" />
+      <rect x="18" y="120" fill="#7d7d7d" width="24" height="32" />
+      <rect x="560" y="120" fill="#646464" width="24" height="32" />
+      <rect x="18" y="143" fill="#646464" width="24" height="32" />
+      <rect x="560" y="143" fill="#7d7d7d" width="24" height="32" />
+      <rect x="18" y="166" fill="#4b4b4b" width="24" height="32" />
+      <rect x="560" y="166" fill="#969696" width="24" height="32" />
+      <rect x="18" y="189" fill="#323232" width="24" height="32" />
+      <rect x="560" y="189" fill="#afafaf" width="24" height="32" />
+      <rect x="18" y="212" fill="#191919" width="24" height="32" />
+      <rect x="560" y="212" fill="#c8c8c8" width="24" height="32" />
+      <rect x="18" y="235" fill="#000000" width="24" height="32" />
+      <rect x="560" y="235" fill="#e1e1e1" width="24" height="32" />
+    <circle fill="#dc143c" cx="48" cy="64"  r="14" /> 
+      <text x="70"  y="64"   class="cn">           crimson </text>
+      <text x="70"  y="80"   class="vl">     #dc143c     </text>
+      <text x="120" y="80"  class="vl"> ( 220, 20, 60 )</text>
+      <text fill="#dc143c" x="248" y="64" font-size="16"> 
+        Red theme Red theme Red theme Red theme </text>
+    <circle fill="#b22222" cx="48" cy="94" r="14" />
+      <text x="70"  y="94"  class="cn">       firebrick </text>
+      <text x="70"  y="110"  class="vl">      #b22222   </text>
+      <text x="120" y="110" class="vl"> ( 178, 34, 34 ) </text>
+      <text fill="#b22222" x="248" y="94" font-size="16"> 
+        Red theme Red theme Red theme Red theme </text>
+    <circle fill="#800000" cx="48" cy="124" r="14" />
+      <text x="70"  y="124"  class="cn">           maroon </text>
+      <text x="70"  y="140"  class="vl">      #800000     </text>
+      <text x="120" y="140" class="vl"> ( 128, 0, 0 ) </text>
+      <text fill="#800000" x="248" y="124" font-size="16"> 
+        Red theme Red theme Red theme Red theme </text>
+    <circle fill="#ff6347" cx="48" cy="154" r="14" />
+      <text x="70"  y="154"  class="cn">        tomato </text>
+      <text x="70"  y="170"  class="vl">      #ff6347      </text>
+      <text x="120" y="170" class="vl"> ( 255, 99, 71 ) </text>
+      <text fill="#ff6347" x="248" y="154" font-size="16"> 
+        Red theme Red theme Red theme Red theme </text>
+    <circle fill="#fa8072" cx="48" cy="184" r="14" />
+      <text x="70"  y="184"  class="cn">        salmon </text>
+      <text x="70"  y="200"  class="vl">      #fa8072     </text>
+      <text x="120" y="200" class="vl"> ( 250, 128, 114 ) </text>
+      <text fill="#fa8072" x="248" y="184" font-size="16"> 
+        Red theme Red theme Red theme Red theme </text>
+    <circle fill="#f0e68c" cx="48" cy="214"  r="14" />
+      <text x="70"  y="214"   class="cn">        khaki </text>
+      <text x="70"  y="230"   class="vl">      #f0e68c   </text>
+      <text x="120" y="230"  class="vl"> ( 240, 230, 140 ) </text>
+      <text fill="#f0e68c" x="248" y="214" font-size="16"> 
+        Red theme Red theme Red theme Red theme </text>
+  </g>
+  
+  <view id="yellow-theme" viewBox="0 780 600 260" />
+  <g transform="translate(0 780)">
+    <rect width="600" height="260" fill="navajowhite" rx="2" />
+    <rect x="2" y="32" width="596" height="226" fill="gold" rx="4" >
+      <animate class="maniboard" attributeName="fill" dur="2.5" 
+        to="gold" additive="replace" accumulate="sum" fill="freeze" />
+    </rect>
+    <a xlink:href="https://github.com/Jeangowhy/opendocs/blob/main/svg/readme.md">
+      <text x="30" y="20" font-size="16" class="title">CSS Color Module Level 4 - Named Colors [Yellow Theme]</text>
+    </a>
+      <rect x="18" y="28" fill="#e1e1e1" width="24" height="32" />
+      <rect x="560" y="28" fill="#000000" width="24" height="32" />
+      <rect x="18" y="51" fill="#c8c8c8" width="24" height="32" />
+      <rect x="560" y="51" fill="#191919" width="24" height="32" />
+      <rect x="18" y="74" fill="#afafaf" width="24" height="32" />
+      <rect x="560" y="74" fill="#323232" width="24" height="32" />
+      <rect x="18" y="97" fill="#969696" width="24" height="32" />
+      <rect x="560" y="97" fill="#4b4b4b" width="24" height="32" />
+      <rect x="18" y="120" fill="#7d7d7d" width="24" height="32" />
+      <rect x="560" y="120" fill="#646464" width="24" height="32" />
+      <rect x="18" y="143" fill="#646464" width="24" height="32" />
+      <rect x="560" y="143" fill="#7d7d7d" width="24" height="32" />
+      <rect x="18" y="166" fill="#4b4b4b" width="24" height="32" />
+      <rect x="560" y="166" fill="#969696" width="24" height="32" />
+      <rect x="18" y="189" fill="#323232" width="24" height="32" />
+      <rect x="560" y="189" fill="#afafaf" width="24" height="32" />
+      <rect x="18" y="212" fill="#191919" width="24" height="32" />
+      <rect x="560" y="212" fill="#c8c8c8" width="24" height="32" />
+      <rect x="18" y="235" fill="#000000" width="24" height="32" />
+      <rect x="560" y="235" fill="#e1e1e1" width="24" height="32" />
+    <circle fill="#ffff00" cx="48" cy="64"  r="14" /> 
+      <text x="70"  y="64"   class="cn">           yellow </text>
+      <text x="70"  y="80"   class="vl">     #ffff00     </text>
+      <text x="120" y="80"  class="vl"> ( 255, 255, 0 )</text>
+      <text fill="#ffff00" x="248" y="64" font-size="16"> 
+        Yellow theme Yellow theme Yellow theme Yellow theme </text>
+    <circle fill="#ffd700" cx="48" cy="94" r="14" />
+      <text x="70"  y="94"  class="cn">      gold </text>
+      <text x="70"  y="110"  class="vl">      #ffd700   </text>
+      <text x="120" y="110" class="vl"> ( 255, 215, 0 ) </text>
+      <text fill="#ffd700" x="248" y="94" font-size="16"> 
+        Yellow theme Yellow theme Yellow theme Yellow theme </text>
+    <circle fill="#ffa500" cx="48" cy="124" r="14" />
+      <text x="70"  y="124"  class="cn">           orange </text>
+      <text x="70"  y="140"  class="vl">      #ffa500     </text>
+      <text x="120" y="140" class="vl"> ( 255, 165, 0 ) </text>
+      <text fill="#ffa500" x="248" y="124" font-size="16"> 
+        Yellow theme Yellow theme Yellow theme Yellow theme </text>
+    <circle fill="#191970" cx="48" cy="154" r="14" />
+      <text x="70"  y="154"  class="cn">       midnightblue </text>
+      <text x="70"  y="170"  class="vl">      #191970      </text>
+      <text x="120" y="170" class="vl"> ( 25, 25, 112 ) </text>
+      <text fill="#191970" x="248" y="154" font-size="16"> 
+        Yellow theme Yellow theme Yellow theme Yellow theme </text>
+    <circle fill="#ff4500" cx="48" cy="184" r="14" />
+      <text x="70"  y="184"  class="cn">       orangered </text>
+      <text x="70"  y="200"  class="vl">      #ff4500     </text>
+      <text x="120" y="200" class="vl"> ( 255, 69, 0 ) </text>
+      <text fill="#ff4500" x="248" y="184" font-size="16"> 
+        Yellow theme Yellow theme Yellow theme Yellow theme </text>
+    <circle fill="#8b0000" cx="48" cy="214"  r="14" />
+      <text x="70"  y="214"   class="cn">        darkred </text>
+      <text x="70"  y="230"   class="vl">      #8b0000   </text>
+      <text x="120" y="230"  class="vl"> ( 139, 0, 0 ) </text>
+      <text fill="#8b0000" x="248" y="214" font-size="16"> 
+        Yellow theme Yellow theme Yellow theme Yellow theme </text>
+  </g>
+  
+  <view id="green-theme" viewBox="0 1040 600 260" />
+  <g transform="translate(0 1040)">
+    <rect width="600" height="260" fill="navajowhite" rx="2" />
+    <rect x="2" y="32" width="596" height="226" fill="darkgreen" rx="4" >
+      <animate class="maniboard" attributeName="fill" dur="2.5" 
+        to="darkgreen" additive="replace" accumulate="sum" fill="freeze" />
+    </rect>
+    <a xlink:href="https://github.com/Jeangowhy/opendocs/blob/main/svg/readme.md">
+      <text x="30" y="20" font-size="16" class="title">CSS Color Module Level 4 - Named Colors [Green Theme]</text>
+    </a>
+      <rect x="18" y="28" fill="#e1e1e1" width="24" height="32" />
+      <rect x="560" y="28" fill="#000000" width="24" height="32" />
+      <rect x="18" y="51" fill="#c8c8c8" width="24" height="32" />
+      <rect x="560" y="51" fill="#191919" width="24" height="32" />
+      <rect x="18" y="74" fill="#afafaf" width="24" height="32" />
+      <rect x="560" y="74" fill="#323232" width="24" height="32" />
+      <rect x="18" y="97" fill="#969696" width="24" height="32" />
+      <rect x="560" y="97" fill="#4b4b4b" width="24" height="32" />
+      <rect x="18" y="120" fill="#7d7d7d" width="24" height="32" />
+      <rect x="560" y="120" fill="#646464" width="24" height="32" />
+      <rect x="18" y="143" fill="#646464" width="24" height="32" />
+      <rect x="560" y="143" fill="#7d7d7d" width="24" height="32" />
+      <rect x="18" y="166" fill="#4b4b4b" width="24" height="32" />
+      <rect x="560" y="166" fill="#969696" width="24" height="32" />
+      <rect x="18" y="189" fill="#323232" width="24" height="32" />
+      <rect x="560" y="189" fill="#afafaf" width="24" height="32" />
+      <rect x="18" y="212" fill="#191919" width="24" height="32" />
+      <rect x="560" y="212" fill="#c8c8c8" width="24" height="32" />
+      <rect x="18" y="235" fill="#000000" width="24" height="32" />
+      <rect x="560" y="235" fill="#e1e1e1" width="24" height="32" />
+    <circle fill="#00ff7f" cx="48" cy="64"  r="14" /> 
+      <text x="70"  y="64"   class="cn">        springgreen </text>
+      <text x="70"  y="80"   class="vl">      #00ff7f  </text>
+      <text x="120" y="80"  class="vl"> ( 0, 255, 127 ) </text>
+      <text fill="#00ff7f" x="248" y="64" font-size="16"> 
+        Green theme Green theme Green theme Green theme </text>
+    <circle fill="#32cd32" cx="48" cy="94" r="14" />
+      <text x="70"  y="94"  class="cn">     limegreen  </text>
+      <text x="70"  y="110"  class="vl">     #32cd32    </text>
+      <text x="120" y="110" class="vl"> ( 50, 205, 50 ) </text>
+      <text fill="#32cd32" x="248" y="94" font-size="16"> 
+        Green theme Green theme Green theme Green theme </text>
+    <circle fill="#228b22" cx="48" cy="124" r="14" />
+      <text x="70"  y="124"  class="cn">      forestgreen </text>
+      <text x="70"  y="140"  class="vl">      #228b22   </text>
+      <text x="120" y="140" class="vl"> ( 34, 139, 34 ) </text>
+      <text fill="#228b22" x="248" y="124" font-size="16"> 
+        Green theme Green theme Green theme Green theme </text>
+    <circle fill="#006400" cx="48" cy="154" r="14" />
+      <text x="70"  y="154"  class="cn">           darkgreen </text>
+      <text x="70"  y="170"  class="vl">      #006400     </text>
+      <text x="120" y="170" class="vl"> ( 0, 100, 0 ) </text>
+      <text fill="#006400" x="248" y="154" font-size="16"> 
+        Green theme Green theme Green theme Green theme </text>
+    <circle fill="#800000" cx="48" cy="184" r="14" />
+      <text x="70"  y="184"  class="cn">       maroon     </text>
+      <text x="70"  y="200"  class="vl">      #800000   </text>
+      <text x="120" y="200" class="vl"> ( 128, 0, 0 ) </text>
+      <text fill="#800000" x="248" y="184" font-size="16"> 
+        Green theme Green theme Green theme Green theme </text>
+    <circle fill="#000000" cx="48" cy="214"  r="14" />
+      <text x="70"  y="214"   class="cn">  black </text>
+      <text x="70"  y="230"   class="vl">     #000000   </text>
+      <text x="120" y="230"  class="vl"> ( 0, 0, 0 ) </text>
+      <text fill="#000000" x="248" y="214" font-size="16"> 
+        Green theme Green theme Green theme Green theme </text>
+  </g>
+  
+  <view id="cyan-theme" viewBox="0 1300 600 260" />
+  <g transform="translate(0 1300)">
+    <rect width="600" height="260" fill="navajowhite" rx="2" />
+    <rect x="2" y="32" width="596" height="226" fill="dodgerblue" rx="4" >
+      <animate class="maniboard" attributeName="fill" dur="2.5" 
+        to="dodgerblue" additive="replace" accumulate="sum" fill="freeze" />
+    </rect>
+    <a xlink:href="https://github.com/Jeangowhy/opendocs/blob/main/svg/readme.md">
+      <text x="30" y="20" font-size="16" class="title">CSS Color Module Level 4 - Named Colors [Cyan Theme]</text>
+    </a>
+      <rect x="18" y="28" fill="#e1e1e1" width="24" height="32" />
+      <rect x="560" y="28" fill="#000000" width="24" height="32" />
+      <rect x="18" y="51" fill="#c8c8c8" width="24" height="32" />
+      <rect x="560" y="51" fill="#191919" width="24" height="32" />
+      <rect x="18" y="74" fill="#afafaf" width="24" height="32" />
+      <rect x="560" y="74" fill="#323232" width="24" height="32" />
+      <rect x="18" y="97" fill="#969696" width="24" height="32" />
+      <rect x="560" y="97" fill="#4b4b4b" width="24" height="32" />
+      <rect x="18" y="120" fill="#7d7d7d" width="24" height="32" />
+      <rect x="560" y="120" fill="#646464" width="24" height="32" />
+      <rect x="18" y="143" fill="#646464" width="24" height="32" />
+      <rect x="560" y="143" fill="#7d7d7d" width="24" height="32" />
+      <rect x="18" y="166" fill="#4b4b4b" width="24" height="32" />
+      <rect x="560" y="166" fill="#969696" width="24" height="32" />
+      <rect x="18" y="189" fill="#323232" width="24" height="32" />
+      <rect x="560" y="189" fill="#afafaf" width="24" height="32" />
+      <rect x="18" y="212" fill="#191919" width="24" height="32" />
+      <rect x="560" y="212" fill="#c8c8c8" width="24" height="32" />
+      <rect x="18" y="235" fill="#000000" width="24" height="32" />
+      <rect x="560" y="235" fill="#e1e1e1" width="24" height="32" />
+    <circle fill="#00ffff" cx="48" cy="64"  r="14" /> 
+      <text x="70"  y="64"   class="cn">     aqua  </text>
+      <text x="70"  y="80"   class="vl">     #00ffff    </text>
+      <text x="120" y="80"  class="vl"> ( 0, 255, 255 ) </text>
+      <text fill="#00ffff" x="248" y="64" font-size="16"> 
+        Cyan theme Cyan theme Cyan theme Cyan theme </text>
+    <circle fill="#87ceeb" cx="48" cy="94" r="14" />
+      <text x="70"  y="94"  class="cn">      skyblue </text>
+      <text x="70"  y="110"  class="vl">      #87ceeb   </text>
+      <text x="120" y="110" class="vl"> ( 135, 206, 235 ) </text>
+      <text fill="#87ceeb" x="248" y="94" font-size="16"> 
+        Cyan theme Cyan theme Cyan theme Cyan theme </text>
+    <circle fill="#40e0d0" cx="48" cy="124" r="14" />
+      <text x="70"  y="124"  class="cn">        turquoise </text>
+      <text x="70"  y="140"  class="vl">      #40e0d0  </text>
+      <text x="120" y="140" class="vl"> ( 64, 224, 208 ) </text>
+      <text fill="#40e0d0" x="248" y="124" font-size="16"> 
+        Cyan theme Cyan theme Cyan theme Cyan theme </text>
+    <circle fill="#1e90ff" cx="48" cy="154" r="14" />
+      <text x="70"  y="154"  class="cn">   dodgerblue </text>
+      <text x="70"  y="170"  class="vl">     #1e90ff  </text>
+      <text x="120" y="170" class="vl"> ( 30, 144, 255 ) </text>
+      <text fill="#1e90ff" x="248" y="154" font-size="16"> 
+        Cyan theme Cyan theme Cyan theme Cyan theme </text>
+    <circle fill="#4682b4" cx="48" cy="184" r="14" />
+      <text x="70"  y="184"  class="cn">     steelblue </text>
+      <text x="70"  y="200"  class="vl">      #4682b4    </text>
+      <text x="120" y="200" class="vl"> ( 70, 130, 180 ) </text>
+      <text fill="#4682b4" x="248" y="184" font-size="16"> 
+        Cyan theme Cyan theme Cyan theme Cyan theme </text>
+    <circle fill="#4b0082" cx="48" cy="214"  r="14" />
+      <text x="70"  y="214"   class="cn">  indigo </text>
+      <text x="70"  y="230"   class="vl">   #4b0082 </text>
+      <text x="120" y="230"  class="vl"> ( 75, 0, 130 ) </text>
+      <text fill="#4b0082" x="248" y="214" font-size="16"> 
+        Cyan theme Cyan theme Cyan theme Cyan theme </text>
+  </g>
+
+  <view id="blue-theme" viewBox="0 1560 600 260" />
+  <g transform="translate(0 1560)">
+    <rect width="600" height="260" fill="navajowhite" rx="2" />
+    <rect x="2" y="32" width="596" height="226" fill="darkblue" rx="4" >
+      <animate class="maniboard" attributeName="fill" dur="2.5" 
+        to="darkblue" additive="replace" accumulate="sum" fill="freeze" />
+    </rect>
+    <a xlink:href="https://github.com/Jeangowhy/opendocs/blob/main/svg/readme.md">
+      <text x="30" y="20" font-size="16" class="title">CSS Color Module Level 4 - Named Colors [Blue Theme]</text>
+    </a>
+      <rect x="18" y="28" fill="#e1e1e1" width="24" height="32" />
+      <rect x="560" y="28" fill="#000000" width="24" height="32" />
+      <rect x="18" y="51" fill="#c8c8c8" width="24" height="32" />
+      <rect x="560" y="51" fill="#191919" width="24" height="32" />
+      <rect x="18" y="74" fill="#afafaf" width="24" height="32" />
+      <rect x="560" y="74" fill="#323232" width="24" height="32" />
+      <rect x="18" y="97" fill="#969696" width="24" height="32" />
+      <rect x="560" y="97" fill="#4b4b4b" width="24" height="32" />
+      <rect x="18" y="120" fill="#7d7d7d" width="24" height="32" />
+      <rect x="560" y="120" fill="#646464" width="24" height="32" />
+      <rect x="18" y="143" fill="#646464" width="24" height="32" />
+      <rect x="560" y="143" fill="#7d7d7d" width="24" height="32" />
+      <rect x="18" y="166" fill="#4b4b4b" width="24" height="32" />
+      <rect x="560" y="166" fill="#969696" width="24" height="32" />
+      <rect x="18" y="189" fill="#323232" width="24" height="32" />
+      <rect x="560" y="189" fill="#afafaf" width="24" height="32" />
+      <rect x="18" y="212" fill="#191919" width="24" height="32" />
+      <rect x="560" y="212" fill="#c8c8c8" width="24" height="32" />
+      <rect x="18" y="235" fill="#000000" width="24" height="32" />
+      <rect x="560" y="235" fill="#e1e1e1" width="24" height="32" />
+    <circle fill="#4169e1" cx="48" cy="64"  r="14" /> 
+      <text x="70"  y="64"   class="cn">     royalblue  </text>
+      <text x="70"  y="80"   class="vl">     #4169e1    </text>
+      <text x="120" y="80"  class="vl"> ( 65, 105, 225 ) </text>
+      <text fill="#4169e1" x="248" y="64" font-size="16"> 
+        Blue theme Blue theme Blue theme Blue theme </text>
+    <circle fill="#87ceeb" cx="48" cy="94" r="14" />
+      <text x="70"  y="94"  class="cn">      skyblue </text>
+      <text x="70"  y="110"  class="vl">      #87ceeb   </text>
+      <text x="120" y="110" class="vl"> ( 135, 206, 235 ) </text>
+      <text fill="#87ceeb" x="248" y="94" font-size="16"> 
+        Blue theme Blue theme Blue theme Blue theme </text>
+    <circle fill="#87cefa" cx="48" cy="124" r="14" />
+      <text x="70"  y="124"  class="cn">   lightskyblue </text>
+      <text x="70"  y="140"  class="vl">      #87cefa  </text>
+      <text x="120" y="140" class="vl"> ( 135, 206, 250 ) </text>
+      <text fill="#87cefa" x="248" y="124" font-size="16"> 
+        Blue theme Blue theme Blue theme Blue theme </text>
+    <circle fill="#00008b" cx="48" cy="154" r="14" />
+      <text x="70"  y="154"  class="cn">   darkblue </text>
+      <text x="70"  y="170"  class="vl">     #00008b  </text>
+      <text x="120" y="170" class="vl"> ( 0, 0, 139 ) </text>
+      <text fill="#00008b" x="248" y="154" font-size="16"> 
+        Blue theme Blue theme Blue theme Blue theme </text>
+    <circle fill="#191970" cx="48" cy="184" r="14" />
+      <text x="70"  y="184"  class="cn">     midnightblue </text>
+      <text x="70"  y="200"  class="vl">      #191970   </text>
+      <text x="120" y="200" class="vl"> ( 25, 25, 112 ) </text>
+      <text fill="#191970" x="248" y="184" font-size="16"> 
+        Blue theme Blue theme Blue theme Blue theme </text>
+    <circle fill="#4b0082" cx="48" cy="214"  r="14" />
+      <text x="70"  y="214"   class="cn">  indigo </text>
+      <text x="70"  y="230"   class="vl">   #4b0082 </text>
+      <text x="120" y="230"  class="vl"> ( 75, 0, 130 ) </text>
+      <text fill="#4b0082" x="248" y="214" font-size="16"> 
+        Blue theme Blue theme Blue theme Blue theme </text>
+  </g>
+
+  <view id="violet-theme" viewBox="0 1820 600 260" />
+  <g transform="translate(0 1820)">
+    <rect width="600" height="260" fill="navajowhite" rx="2" />
+    <rect x="2" y="32" width="596" height="226" fill="darkblue" rx="4" >
+      <animate class="maniboard" attributeName="fill" dur="2.5" 
+        to="darkblue" additive="replace" accumulate="sum" fill="freeze" />
+    </rect>
+    <a xlink:href="https://github.com/Jeangowhy/opendocs/blob/main/svg/readme.md">
+      <text x="30" y="20" font-size="16" class="title">CSS Color Module Level 4 - Named Colors [Violet Theme]</text>
+    </a>
+      <rect x="18" y="28" fill="#e1e1e1" width="24" height="32" />
+      <rect x="560" y="28" fill="#000000" width="24" height="32" />
+      <rect x="18" y="51" fill="#c8c8c8" width="24" height="32" />
+      <rect x="560" y="51" fill="#191919" width="24" height="32" />
+      <rect x="18" y="74" fill="#afafaf" width="24" height="32" />
+      <rect x="560" y="74" fill="#323232" width="24" height="32" />
+      <rect x="18" y="97" fill="#969696" width="24" height="32" />
+      <rect x="560" y="97" fill="#4b4b4b" width="24" height="32" />
+      <rect x="18" y="120" fill="#7d7d7d" width="24" height="32" />
+      <rect x="560" y="120" fill="#646464" width="24" height="32" />
+      <rect x="18" y="143" fill="#646464" width="24" height="32" />
+      <rect x="560" y="143" fill="#7d7d7d" width="24" height="32" />
+      <rect x="18" y="166" fill="#4b4b4b" width="24" height="32" />
+      <rect x="560" y="166" fill="#969696" width="24" height="32" />
+      <rect x="18" y="189" fill="#323232" width="24" height="32" />
+      <rect x="560" y="189" fill="#afafaf" width="24" height="32" />
+      <rect x="18" y="212" fill="#191919" width="24" height="32" />
+      <rect x="560" y="212" fill="#c8c8c8" width="24" height="32" />
+      <rect x="18" y="235" fill="#000000" width="24" height="32" />
+      <rect x="560" y="235" fill="#e1e1e1" width="24" height="32" />
+    <circle fill="#4169e1" cx="48" cy="64"  r="14" /> 
+      <text x="70"  y="64"   class="cn">     royalblue  </text>
+      <text x="70"  y="80"   class="vl">     #4169e1    </text>
+      <text x="120" y="80"  class="vl"> ( 65, 105, 225 ) </text>
+      <text fill="#4169e1" x="248" y="64" font-size="16"> 
+        Violet theme Violet theme Violet theme Violet theme </text>
+    <circle fill="#87ceeb" cx="48" cy="94" r="14" />
+      <text x="70"  y="94"  class="cn">      skyblue </text>
+      <text x="70"  y="110"  class="vl">      #87ceeb   </text>
+      <text x="120" y="110" class="vl"> ( 135, 206, 235 ) </text>
+      <text fill="#87ceeb" x="248" y="94" font-size="16"> 
+        Violet theme Violet theme Violet theme Violet theme </text>
+    <circle fill="#87cefa" cx="48" cy="124" r="14" />
+      <text x="70"  y="124"  class="cn">   lightskyblue </text>
+      <text x="70"  y="140"  class="vl">      #87cefa  </text>
+      <text x="120" y="140" class="vl"> ( 135, 206, 250 ) </text>
+      <text fill="#87cefa" x="248" y="124" font-size="16"> 
+        Violet theme Violet theme Violet theme Violet theme </text>
+    <circle fill="#00008b" cx="48" cy="154" r="14" />
+      <text x="70"  y="154"  class="cn">   darkblue </text>
+      <text x="70"  y="170"  class="vl">     #00008b  </text>
+      <text x="120" y="170" class="vl"> ( 0, 0, 139 ) </text>
+      <text fill="#00008b" x="248" y="154" font-size="16"> 
+        Violet theme Violet theme Violet theme Violet theme </text>
+    <circle fill="#191970" cx="48" cy="184" r="14" />
+      <text x="70"  y="184"  class="cn">     midnightblue </text>
+      <text x="70"  y="200"  class="vl">      #191970   </text>
+      <text x="120" y="200" class="vl"> ( 25, 25, 112 ) </text>
+      <text fill="#191970" x="248" y="184" font-size="16"> 
+        Violet theme Violet theme Violet theme Violet theme </text>
+    <circle fill="#4b0082" cx="48" cy="214"  r="14" />
+      <text x="70"  y="214"   class="cn">  indigo </text>
+      <text x="70"  y="230"   class="vl">   #4b0082 </text>
+      <text x="120" y="230"  class="vl"> ( 75, 0, 130 ) </text>
+      <text fill="#4b0082" x="248" y="214" font-size="16"> 
+        Violet theme Violet theme Violet theme Violet theme </text>
+  </g>
+
+  <circle cx="0" cy="0" r="0" stroke="gray" fill="transparent" id="aniclick" />
+  <animate id="mani" xlink:href="#aniclick" attributeName="r" 
+      dur="0.31s" begin="indefinite" from="0" to="32" repeatCount="1" />
+</svg>

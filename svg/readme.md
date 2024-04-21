@@ -9,6 +9,7 @@
 -   SVG Tutorial by Jakob Jenkov    
     https://jenkov.com/tutorials/svg/index.html
 -   Examples and Tests for SVG Animation http://hoffmann.bplaced.net/svgtest/
+-   https://github.com/upb-lea/Inkscape_electric_Symbols
 
 此教程《让世界多一份 Inkscape 教程：SVG 漫谈》，目的在于通过学习 SVG 文档规范，达到深入理解
 Inkscape 绘图工具的学习与熟练使用。
@@ -143,6 +144,19 @@ SVG and XML
 
 SVG 和其它图形文件格式不同，SVG 使用的是 XML 文本文档格式。
 
+作为一种图形规范，SVG 一直受到多方厂商的拉扯。它本身支持静态图形来 Motion Graph 动画。但是
+SVG 动画常在浏览器有相应的支持，少见有独立的应用支持。并且 SVG 在不同浏览器上的兼容性也不同。
+虽然许多商用绘图软件（Adobe Illustrator, CorelDraw）都提供了矢量图的导出，但它们本身使用
+专用矢量图形格式，并且它们是主流的矢量图形设计工具。制定 SVG 标准的厂商各怀鬼胎，私有矢量格式，
+微软有 XAML、WMF，Adobe 使用 AI，CorelDraw 使用 CDR。参与标准制订的厂商有 Adobe、Canon
+和 Sun Microsystems 等等，但是主导方是 W3C。
+
+特别是 Adobe，在数字绘画领域常年占据绝对的领先地位。早年自家就有 fireworks，后来又被自家众多
+主力产品之一 Illustrator 替代，现代还出了个免费的 Adobe XD，当然功能也相当的符合免费策略。
+用来设计些简单的图标、交互式应用原型还是可以的。
+
+SVG 技术本身在图形的表现力较差，不能适用于所有绘画场合。这直接导致 SVG 矢量图本身只能成为小众艺术。
+厂商在自家的技术上发力，因而 SVG 技术地上只有寄托于开源社区的支持。Inkscape 就是其中的佼佼者。
 Inkscape SVG 会引入两个自用的命名空间，它们专用于设置 Inkscape 专属的标记集：
 
     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -331,27 +345,6 @@ echo -n "url(data:image/svg+xml;base64,$(echo $svg | base64 -w 0))" | clip
 
 出于安全性考虑，引用外部资源的方式，SVG 不能执行脚本交互。
 
-CSS 规范为 Web 视觉设计制定了一套标准色彩模型，其中包含了 148 个命名色彩，现制作成
-SVG 参考图供参考：
-
-[![148 named colors of CSS Color Module Level 4](../pictures/css-148-named-colors.svg)](../pictures/css-148-named-colors.svg)
-
-以上 SVG 已经添加脚本功能，可以点击色块复制其色值。
-因为浏览器安全问题，除非是 HTML 内嵌的 SVG 才可以执行脚本交互功能，图片嵌入等方式不可以。
-为了执行 SVG 脚本交互，可以单独打开 SVG 图形文档，这样它就是单独在沙箱中执行。
-
-作为一个好色之徒，区区 148 个 CSS 标准色是远远不能满足的，还差一个绝美的中国传统色。
-中国色彩模型与西方基于物理特性的色彩模型具有非常多的细节差异，已经不适合在此文档中整理汇编，
-应该另开一个文档做专题：[](../svg/cn_traditional_colors.md)。
-
-以下是一个正红大圆，使用 base64 编码内嵌，用于测试 Github 文档是否能够正常渲染：
-
-![中国红 测试](data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+IDwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+IDxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0ODAiIGhlaWdodD0iMTgwIj4gPGNpcmNsZSBmaWxsPSJyZWQiIGN4PSIyNDAiIGN5PSI5MCIgcj0iODAiIC8+IDwvc3ZnPgo=)
-
-参考资源：
-
--  国立国会図書館 彩雅 15巻 著者 杉原直養 影印版 https://dl.ndl.go.jp/pid/2607750
--  色谱 中科院科技情报编委会名词室.科学出版社 https://www.zhongguose.com/colors.json
 
 SVG Shapes
 ---------------
@@ -370,8 +363,8 @@ SVG 规范文档 3.4 Types of graphics elements 则作以下分类：
 *   [Shapes]，6 种基本形状，直线与曲线几何图形，以及路径绘图：
     1. `<line>` 给定起止坐标（x1, y1, x2, y2）画直线；
     2. `<rect>` 给定起点坐标和宽高（x, y, width, height）画矩形，(rx, ry) 设置圆角；
-    3. `<circle>` 给定圆心坐标（cx, cy, r）和半径画圆；
-    4. `<ellipse>` 给定圆心坐标（cx, cy, rx, ry）和两半径画椭圆；
+    3. `<circle>` 给定圆心坐标和半径画圆（cx, cy, r）；
+    4. `<ellipse>` 给定圆心坐标和两半径画椭圆（cx, cy, rx, ry）；
     5. `<polyline>` 按给定坐标（points）连线，坐标之间使用逗号分隔，每个坐标两个值空格分隔；
     6. `<polygon>` 给多个坐标给多边形，坐标形式同上。多边形的 fill 填充的是坐标点连线围起的区域；
     6. `<path>` 使用路径指令进行绘图，属性 `d` 中填写绘图指令：
@@ -403,8 +396,19 @@ SVG 规范文档 3.4 Types of graphics elements 则作以下分类：
     *   Foreign objects，外部对象，用于呈现非 SVG 内容。
 
 Inkscape 绘图工具中不提供多边线、多边形两种标签，使用 `<path>` 替代，因为功能上它们是重叠关系。
-另外，椭圆形工具也绘画椭圆，芤可以绘画扇形和圆形及弧线。当椭圆的两个圆心重叠时，Inkscape 会自动
-用 `<circle>`  替代 `<ellipse>` 
+另外，椭圆形工具也绘画椭圆，还可以绘画扇形和圆形及弧线。当椭圆的两个圆心重叠时，Inkscape 会自动
+用 `<circle>` 替代 `<ellipse>` 简化文档。
+
+|    Shapes    |    Positioning    | transform |
+|--------------|-------------------|-----------|
+| `<line>`     | (x1, y1) (x2, y2) | ✔         |
+| `<circle>`   | (cx, cy)          | ✔         |
+| `<ellipse>`  | (cx, cy)          | ✔         |
+| `<rect>`     | (x, y)            | ✔         |
+| `<polyline>` | -                 | ✔         |
+| `<polygon>`  | -                 | ✔         |
+| `<path>`     | -                 | ✔         |
+| `<text>`     | (x, y)            | ✔         |
 
 以下是基本的图形标签的使用演示，[basic-shapes](../svg/svg-basic-shapes.svg)：
 
@@ -471,74 +475,24 @@ Inkscape 绘图工具中不提供多边线、多边形两种标签，使用 `<pa
 </svg>
 ```
 
-<?xml version="1.0"?>
-<svg version="1.1" 
-    xmlns:xlink="http://www.w3.org/1999/xlink"
-    xmlns="http://www.w3.org/2000/svg" width="580" height="240">
-  <style>
-    svg { border: 1px solid black; }
-    #basic-line line { 
-      fill: white;
-      /*stroke: magenta;*/
-      stroke-width: 6px;
-      stroke-dasharray: 10px; 
-    }
-  </style>
-  <svg id="basic">
-    <title>Basic graphical elements</title>
-    <text x="0" y="50" dx="20" dy="0" rotate="15" 
-      font-family="Microsoft YaHei"> Basic Lines</text>
-    <g id="basic-line" transform="translate(40 50) rotate(0 0 0) scale(0.9)">
-       <line x1="0" y1="18" x2="90" y2="18" stroke="chocolate" />
-       <line x1="0" y1="36" x2="90" y2="36" stroke="chocolate" />
-       <line x1="0" y1="54" x2="90" y2="54" stroke="chocolate" />
-       <line x1="0" y1="72" x2="90" y2="72" stroke="chocolate" />
-       <line x1="0" y1="90" x2="90" y2="90" stroke="chocolate" />
-    </g>
-    <g id="basic-rect" transform="translate(140, 60)">
-      <rect x="15" y="0" width="80" height="80" rx="8" fill="blue" />
-    </g>
-    <g id="basic-circle" transform="translate(264, 50)">
-      <circle cx='46' cy='50' r='45' fill='yellOw' />
-    </g>
-    <g id="b3sic-ellipse" transform="translate(290, 40)">
-      <ellipse cx="0" cy="0" rx="290" ry="120" fill="none" stroke="black" stroke-width=".1" />
-    </g>
-    <g id-2="basic-polyline" transform="translate(360, 40)">
-      <polyline points="50,0 5,75 25,100 75,100 95,75 50,0" fill="purple" xlink:title="diamon" />
-    </g>
-    <g id="basic-polygon" transform="translate(460, 40)">
-      <polygon points="0,38 100,38 15,100 50,0 85,100" fill="firebrick" xlink:title="star" />
-    </g>
-  </svg>
-  <svg id="path">
-    <title>Complex Path Command</title>
-    <defs>
-      <symbol id="star-u" stroke="lightblue">
-        <path d="m 65,75 -23,-12 -23,12 4,-26 -19,-18 26,-4 11,-24 12,23 26,3 -18,18 -23,-12" />
-      </symbol>
-    </defs>
-    <g id="path" transform="translate(-5,0)" stroke="black" stroke-width="3" fill="none">
-      <use xlink:href="#star-u" transform="translate(0,160)" />
-      <use xlink:href="#star-u" transform="translate(73,160)" />
-      <use xlink:href="#star-u" transform="translate(146,160)" />
-      <use xlink:href="#star-u" transform="translate(219,160)" />
-      <use xlink:href="#star-u" transform="translate(292,160)" />
-      <use xlink:href="#star-u" transform="translate(365,160)" />
-      <use xlink:href="#star-u" transform="translate(438,160)" />
-      <use xlink:href="#star-u" transform="translate(511,160)" />
-    </g>
-  </svg>
-</svg>
+![SVG Basic Sahpes](../svg/svg-basic-shapes.svg)
 
 
 绘制多边形时，因为线条有可能交叉，这涉及到如何填充图形的问题，对于一个凸壳（Convex hull）形状，
 自然就是填充边线围起来的中心区域，因为过凸壳两条边的直线只能与图形本身形成两个交点，不存在线条分割
 中心区的问题。相反，当线条交叉形成重叠区，比如用多边形工具画五角星，中心区就是一个复杂的位置。
-使用 `fill-rule` 属性可以指定填充算法，nonzero | evenodd。
+使用 `fill-rule` 属性指定填充算法，算法目标是确定某个点是否位于图形的内部：
 
-nonzero 通过描述从某点向任意方向绘制射线，并统计路径上每一条线段与射线相交的情况来确定该点是否属于形状的内部或外部。如果统计结果为0，则表示该点在形状的外部；如果结果不为0，则表示该点在形状的内部。
-evenodd 从该点向任意方向无限远处绘制射线，并统计这个形状所有的路径段中，与射线相交的路径段的数量。如果有奇数个路径段与射线相交，则点在内部；如果有偶数个，则点在外部。
+![SVG fill-rule](../svg/svg-fill-rule.svg)
+
+*  **nonzero** 通过从某点向任意方向绘制射线，并统计射线与路径的线段相交的情况来确定该点
+    属于形状的内部或外部。当线段从左到右跨越射线，计数加 1，从右往左跨越射线就减 1。如果统计
+    结果为 0，则表示该点在形状的外部；如果结果大于 0，则表示该点在形状的内部。
+
+*  **evenodd** 从该点向任意方向无限远处绘制射线，并统计射线与路径线段相交的数量。
+    如果有奇数个路径段与射线相交，则点在内部，应用填充；如果有偶数个，则点在外部，无需填充。
+
+(Note: the above explanations do not specify what to do if a path segment coincides with or is tangent to the ray. Since any ray will do, one may simply choose a different ray that does not have such problem intersections.)
 
 使用路径绘画时注意：
 
@@ -549,10 +503,10 @@ evenodd 从该点向任意方向无限远处绘制射线，并统计这个形状
 05. H、V 表示从当前位置画水平线、竖直线，每组坐标接收一个值，(x)+ 或者 (y)+；
 06. M、L 都接收每组两个值的坐标，(x y)+；
 07. T 简化版二次贝塞尔曲线（Shorthand/smooth quadratic Bézier) 接收每组一对坐标 (x y)+；
-08. S 简化版本平滑曲线（）接收每组两对坐标，(x2 y2 x y)+；
+08. S 简化版本平滑曲线，接收参数为每组两对坐标，(x2 y2 x y)+；
 09. Q 二次贝塞尔曲线（Quadratic Bézier）接收每组两对坐标，(x1 y1 x y)+；
 10. C 三次贝塞尔曲线 **Cubic Bézier** 接收每组三对坐标值，(x1 y1 x2 y2 x y)+；
-11. A 椭圆弧线（elliptical arc）参数最复杂，(rx ry x-axis-rotation large-arc-flag sweep-flag x y)+
+11. A 椭圆弧线（elliptical arc）参数：(rx ry x-axis-rotation large-arc-flag sweep-flag x y)+
 12. Z 封闭路径，没有参数。
 
 二次贝塞尔曲线只有一个控制点，因为起点是当前位置，所以只需要给出控制点 (x1 y1) 和目标点 (x y)。
@@ -573,18 +527,100 @@ evenodd 从该点向任意方向无限远处绘制射线，并统计这个形状
 是绘制曲线的重要方式，曲线的使用除了直接作为图形，也可以用作控制线，由一些标签的 path 属性
 来指定要引用的曲线，比如设置文字沿曲线分布的标签： `<textPath>`。
 
+路径绘制中的椭圆弧线参数最复杂，从当前位置到目标位置 (x, y) 绘制绘制弧线需要使用 5 个数值控制，
+先是弧线的两轴半径 (rx, ry)，特别说明的是另外三个参数：
+
+*  **x-axis-rotation** 椭圆整体的 x 轴旋转角度，两轴半径相等时没有效果；
+*  **large-arc-flag** 是否使用大弧作画，可设置值为 0 或 1；
+*  **sweep-flag** 是否掠过首个椭圆，可设置值为 0 或 1，对应负角、正角画法；
+
+一般不需要使用后两个参数据画弧线，因为椭圆的圆心由算法自动计算，它们主要用于椭圆的圆心修正处理。
+在几何上讲，过给定的起点和终点，可以找到两个椭圆轨迹，并且起点到终点有四段弧线，这两个参数的配合
+用以确定使用哪一段弧线作画。
+
+```xml
+<path d="M 125,75 a100,50 0 ?,? 100,50" style="fill:none; stroke:red;"/>
+```
+
+注意坐标的表达，坐标的两个值之间可以使用逗号，也可以省略，使用逗号语义更清晰。
+以下是 规范文档的演示：
+
+![large-arc-flag and sweep-flag](https://www.w3.org/TR/SVG/images/paths/arcs02.svg)
+
+```xml
+<?xml version="1.0" standalone="no"?>
+<svg width="12cm" height="5.25cm" viewBox="0 0 1200 525" version="1.1"
+     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Example arcs02 - arc options in paths</title>
+  <desc>Pictures showing the result of setting
+        large-arc-flag and sweep-flag to the four
+        possible combinations of 0 and 1.</desc>
+  <g font-family="Verdana" >
+    <defs>
+      <g id="baseEllipses" font-size="20" >
+        <ellipse cx="125" cy="125" rx="100" ry="50"
+                 fill="none" stroke="#888888" stroke-width="2" />
+        <ellipse cx="225" cy="75" rx="100" ry="50"
+                 fill="none" stroke="#888888" stroke-width="2" />
+        <text x="35" y="70">Arc start</text>
+        <text x="225" y="145">Arc end</text>
+      </g>
+    </defs>
+    <rect x="1" y="1" width="1198" height="523"
+          fill="none" stroke="blue" stroke-width="1" />
+
+    <g font-size="30" >
+      <g transform="translate(0,0)">
+        <use xlink:href="#baseEllipses"/>
+      </g>
+      <g transform="translate(400,0)">
+        <text x="50" y="210">large-arc-flag=0</text>
+        <text x="50" y="250">sweep-flag=0</text>
+        <use xlink:href="#baseEllipses"/>
+        <path d="M 125,75 a100,50 0 0,0 100,50"
+              fill="none" stroke="red" stroke-width="6" />
+      </g>
+      <g transform="translate(800,0)">
+        <text x="50" y="210">large-arc-flag=0</text>
+        <text x="50" y="250">sweep-flag=1</text>
+        <use xlink:href="#baseEllipses"/>
+        <path d="M 125,75 a100,50 0 0,1 100,50"
+              fill="none" stroke="red" stroke-width="6" />
+      </g>
+      <g transform="translate(400,250)">
+        <text x="50" y="210">large-arc-flag=1</text>
+        <text x="50" y="250">sweep-flag=0</text>
+        <use xlink:href="#baseEllipses"/>
+        <path d="M 125,75 a100,50 0 1,0 100,50"
+              fill="none" stroke="red" stroke-width="6" />
+      </g>
+      <g transform="translate(800,250)">
+        <text x="50" y="210">large-arc-flag=1</text>
+        <text x="50" y="250">sweep-flag=1</text>
+        <use xlink:href="#baseEllipses"/>
+        <path d="M 125,75 a100,50 0 1,1 100,50"
+              fill="none" stroke="red" stroke-width="6" />
+      </g>
+    </g>
+  </g>
+</svg>
+```
+
 除了 fill 和 stroke 两个主要着色属性，SVG 另外提供了一些修饰性的图形功能：
 
-stroke-opacity：指定描边的透明度，值范围在 0~1 之间，对应 0% ~ 100% 的不透明度。
-stroke-linecap：线段盖帽，用于指定路径的端点样式，butt 平头，round 圆头，square 方块。
-stroke-miterlimit：限制 miter/miter-clip 连接方式的两条线段交角的尖长，超长时就截断到限值范围。
-stroke-linejoin：路径线段连接方式，miter miter-clip。
-stroke-dasharray：虚线描边控制数组，指定“折线”与其间隔的长度。数组每两值一对，对应“破折号”与间隔长度。
-的数字列表（以逗号分隔），如5,3表示“破折号”的长度为5，间隔长度的长度为3。
-注意：如果提供了奇数个值，则重复值列表以生成偶数个值。如5，3，2相当于5,3,2,5,3,2。
-stroke-dashoffset：虚线的偏移量，一个百分比或数字长度，正值向起点偏移，负值向末点偏移。
+1. **stroke-opacity**：指定描边的透明度，值范围在 0~1 之间，对应 0% ~ 100% 的不透明度。
+2. **stroke-linecap**：线段盖帽，用于指定路径的端点样式，butt 平头，round 圆头，square 方块。
+3. **stroke-linejoin**：路径线段连接方式（关节样式），miter 斜接，round 圆角，bevel 倒角。
+4. **stroke-miterlimit**：斜接尖角限制，限制两条线段交角的尖长，超长时就截断到设定的限值范围。
+5. **stroke-dasharray**：虚线描边控制数组，指定“折线”与其间隔的长度。
+    数组每两值一对，对应“破折线”的破折号与留白间隔的长度。
+    列表以逗号分隔，如 5,3 表示“破折号”的长度为 5，留白长度为 3。
+    注意：如果提供了奇数个值，则重复值列表以生成偶数个值。如5，3，2相当于5,3,2,5,3,2。
+6. **stroke-dashoffset**：虚线的偏移量，一个百分比或数字长度，正值向起点偏移，负值向末点偏移。
 
-更复杂的效果需要引入图形混合以及滤镜特效来实现，SVG 矢量图形主要构成就是以下几个层面：
+![linecap linejoin](../svg/svg-linecap-linejoin.svg)
+
+SVG 矢量图形主要构成就是以下几个层面，更复杂的效果需要引入图形混合以及滤镜特效来实现：
 
 1. Basic shapes 基本的几何图形：线条、矩形、圆形、弧线、连线、多边形；
 2. Complex shape 复杂身体图形：路径绘画命令（path）；
@@ -593,6 +629,28 @@ stroke-dashoffset：虚线的偏移量，一个百分比或数字长度，正值
 4. 渐变色 `<linearGradient>` 和 `<radialGradient>`，及渐变变换属性 gradientTransform；
 5. 透明度混合（Alpha Compositing and Blending）；
 6. 滤镜特效（Effect Filters）
+
+CSS 规范为 Web 视觉设计制定了一套标准色彩模型，其中包含了 148 个命名色彩，现制作成
+SVG 参考图供参考：
+
+[![148 named colors of CSS Color Module Level 4](../pictures/css-148-named-colors.svg)](../pictures/css-148-named-colors.svg)
+
+以上 SVG 已经添加脚本功能，可以点击色块复制其色值。
+因为浏览器安全问题，除非是 HTML 内嵌的 SVG 才可以执行脚本交互功能，图片嵌入等方式不可以。
+为了执行 SVG 脚本交互，可以单独打开 SVG 图形文档，这样它就是单独在沙箱中执行。
+
+作为一个好色之徒，区区 148 个 CSS 标准色是远远不能满足的，还差一个绝美的中国传统色。
+中国色彩模型与西方基于物理特性的色彩模型具有非常多的细节差异，已经不适合在此文档中整理汇编，
+应该另开一个文档做专题：[](../svg/cn_traditional_colors.md)。
+
+以下是一个正红大圆，使用 base64 编码内嵌，用于测试 Github 文档是否能够正常渲染：
+
+![中国红 测试](data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+IDwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+IDxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0ODAiIGhlaWdodD0iMTgwIj4gPGNpcmNsZSBmaWxsPSJyZWQiIGN4PSIyNDAiIGN5PSI5MCIgcj0iODAiIC8+IDwvc3ZnPgo=)
+
+参考资源：
+
+-  国立国会図書館 彩雅 15巻 著者 杉原直養 影印版 https://dl.ndl.go.jp/pid/2607750
+-  色谱 中科院科技情报编委会名词室.科学出版社 https://www.zhongguose.com/colors.json
 
 
 SVG Containers
@@ -945,6 +1003,8 @@ SVG 动画专有属性详情参考 SVG 1.2 Tiny - Attributes to control the timi
 
 部分属性，begin end keyTimes 等等，接收一个参数列表，使用分号分隔。比如 begin="0s;3s;6s;9s"
 表示在 SVG 图形加载后的四个时间点播放动画，这种情况下，repeatCount 循环次数无效，除非 indefinite。
+通过这种分号列表，begin 可以设置多种触发条件，包括时间触发，和以上罗列的事件值触发。设置 indefinite 
+表示不触发，这种情况下，还可以通过脚本操纵 ElementTimeControl 接口进行触发。
 
 以下使用三个色块测试控制动画重启的属性（restart），注意属性值的大小写:
 
@@ -1246,31 +1306,28 @@ Viewport 与 viewBox 对应的图形宽高比例不一定会一致，那么就�
 设置 viewBox 属性后，就可以使用 ‘[preserveAspectRatio]’ 属性来约束缩放、级比例关系，后续细说。
 
 其中 `<view>` 是一个专用于视口设置的标签，通过它可以对当前 `<svg>` 等拥有 viewport 的对象
-进行视图设置，通过 id 定位到 `<view>` 标签后，视口就会按其设置呈现，如缩放级别或细节视图。
+进行视图设置，通过 id 定位到 `<view>` 标签后，视口就会按其设置呈现，它呈现的视图会作用于它后面
+出现的标签。其属性包括：viewBox 和 preserveAspectRatio，另外 zoomAndPan 属性将被移除。
+要让 `<view>` 标签生效，除了 SVG 中定义了相应的视图 ID 和 viewBox，还需要通过图像标签引用视图，
+这需要 SVG 渲染程序支持。
 
-```xml
-<svg viewBox="0 0 300 100" width="300" height="100"
-      xmlns="http://www.w3.org/2000/svg">
-  <view id="one" viewBox="0 0 100 100" />
-  <circle cx="50" cy="50" r="40" fill="red" />
+编程接口对应 SVGAnimatedRect，是一个矩形区接口定义，包含结构对等 baseVal 和 animVal，后者
+是只读属性不可修改，所以通过 setAttribute("viewBox") 设置视图是修改的是 baseVal：
 
-  <view id="two" viewBox="100 0 100 100" />
-  <circle cx="150" cy="50" r="40" fill="green" />
-
-  <view id="three" viewBox="200 0 100 100" />
-  <circle cx="250" cy="50" r="40" fill="blue" />
-</svg>
+```js
+interface **SVGAnimatedRect** {
+  SameObject readonly attribute DOMRect baseVal;
+  SameObject readonly attribute DOMRectReadOnly animVal;
+};
 ```
 
-<svg viewBox="0 0 300 100" width="300" height="100"
-      xmlns="http://www.w3.org/2000/svg">
-  <view id="one" viewBox="0 0 100 100" />
-  <circle cx="50" cy="50" r="40" fill="red" />
-  <view id="two" viewBox="100 0 100 100" />
-  <circle cx="150" cy="50" r="40" fill="green" />
-  <view id="three" viewBox="200 0 100 100" />
-  <circle cx="250" cy="50" r="40" fill="blue" />
-</svg>
+注意，Chrome 浏览器中如果 SVG 中使用了 `<view>` 进行视图设置，激活的视图将与脚本设置冲突。
+这种情况发生在浏览器通过 history.pushState() 更改地址 hash 值时，并不能触发 `<view>`。
+此时，脚本设置 viewBox 也会失效。那么，SVG 中要使用 `<view>` 进行视图设置，那么就需要放弃
+history.pushState() 这种不会引起页面重新加载的方法。以下是基于 SVG 制作的 CSS 命名色彩
+配色方案参考图，通过改变地址 hash 就可以让图像显示出 `<view>` 指定的区域：
+
+![CSS light theme](../pictures/css-148-named-colors-themes.svg#light-theme)
 
 SVG 中使用的计量单位如下，默认使用像素（px）作为单位，此外，还有一个 % 百分比计量：
 
