@@ -3519,10 +3519,10 @@ An [SVGAnimatedRect] object is used to [reflect] an animatable attribute that ta
 
 In this specification the only attribute to be reflected as an [SVGAnimatedRect] is ‘[viewBox]’.
 
-\[Exposed=Window\]
+[Exposed=Window]
 interface **SVGAnimatedRect** {
-  \[SameObject\] readonly attribute [DOMRect](https://www.w3.org/TR/geometry-1/#DOMRect) [baseVal];
-  \[SameObject\] readonly attribute [DOMRectReadOnly](https://www.w3.org/TR/geometry-1/#domrectreadonly) [animVal];
+  [SameObject] readonly attribute [DOMRect](https://www.w3.org/TR/geometry-1/#DOMRect) [baseVal];
+  [SameObject] readonly attribute [DOMRectReadOnly](https://www.w3.org/TR/geometry-1/#domrectreadonly) [animVal];
 };
 
 The **baseVal** and **animVal** IDL attributes represent the current non-animated rectangle value of the reflected attribute. On getting [baseVal] or [animVal], a [DOMRect](https://www.w3.org/TR/geometry-1/#DOMRect) object is returned.
@@ -9595,14 +9595,16 @@ For most situations, there are actually four different arcs (two different ellip
 
 The following illustrates the four combinations of **large-arc-flag** and **sweep-flag** and the four different arcs that will be drawn based on the values of these flags. For each case, the following path data command was used:
 
+```xml
 <path d="M 125,75 a100,50 0 ?,? 100,50"
       style="fill:none; stroke:red; stroke-width:6"/>
+```
 
 where "?,?" is replaced by "0,0" "0,1" "1,0" and "1,1" to generate the four possible cases.
 
-![Illustration of flags in arc commands]
+![Illustration of flags in arc commands](https://www.w3.org/TR/SVG/images/paths/arcs02.png)
 
-[View this example as SVG (SVG-enabled browsers only)]
+[View this example as SVG (SVG-enabled browsers only)](https://www.w3.org/TR/SVG/images/paths/arcs02.svg)
 
 Refer to the section on [Out-of-range elliptical arc parameters] for detailed implementation notes for the path data elliptical arc commands.
 

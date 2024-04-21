@@ -6408,23 +6408,23 @@ The 'polyline' element defines a set of connected straight line segments. Typica
 
 _Attribute definitions:_
 
-points = "[<points-data>]"
+* ⚙points = "[`<points-data>`]"
 
-The points that make up the polyline. All coordinate values are in the [user coordinate system].
+    The points that make up the polyline. All coordinate values are in the [user coordinate system].
 
-An empty attribute value (points="") disables rendering of the element. The [lacuna value] is the empty string.
+    An empty attribute value (points="") disables rendering of the element. The [lacuna value] is the empty string.
 
-[Animatable] : yes.
+    [Animatable] : yes.
 
-focusable = "true" | "false" | "auto"
+* ⚙focusable = "true" | "false" | "auto"
 
-See [attribute definition] for description.
+    See [attribute definition] for description.
 
-[Animatable] : yes.
+    [Animatable] : yes.
 
-Navigation Attributes
+    Navigation Attributes
 
-See [definition].
+    See [definition].
 
 If an odd number of coordinates is provided, then the element is treated as if the attribute had not been specified.
 
@@ -6472,23 +6472,23 @@ The 'polygon' element defines a closed shape consisting of a set of connected st
 
 _Attribute definitions:_
 
-points = "[<points-data>]"
+* ⚙points = "[`<points-data>`]"
 
-The points that make up the polygon. All coordinate values are in the [user coordinate system].
+    The points that make up the polygon. All coordinate values are in the [user coordinate system].
 
-An empty attribute value (points="") disables rendering of the element. The [lacuna value] is the empty string.
+    An empty attribute value (points="") disables rendering of the element. The [lacuna value] is the empty string.
 
-[Animatable] : yes.
+    [Animatable] : yes.
 
-focusable = "true" | "false" | "auto"
+* ⚙focusable = "true" | "false" | "auto"
 
-See [attribute definition] for description.
+    See [attribute definition] for description.
 
-[Animatable] : yes.
+    [Animatable] : yes.
 
-Navigation Attributes
+    Navigation Attributes
 
-See [definition].
+    See [definition].
 
 If an odd number of coordinates is provided in the ['points'] attribute, then it is treated as an [unsupported value].
 
@@ -6502,6 +6502,7 @@ Example 09_07 below specifies two polygons (a star and a hexagon) in the [user c
 
 **Example:** [09_07.svg](https://www.w3.org/TR/2008/REC-SVGTiny12-20081222/examples/09_07.svg)
 
+```xml
 <?xml version="1.0"?>
 <svg width="12cm" height="4cm" viewBox="0 0 1200 400"
      xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny">
@@ -6517,12 +6518,13 @@ Example 09_07 below specifies two polygons (a star and a hexagon) in the [user c
             points="850,75  958,137.5 958,262.5
                     850,325 742,262.6 742,137.5" />
 </svg>
+```
 
 ![Rendering of 09_07.svg](https://www.w3.org/TR/2008/REC-SVGTiny12-20081222/examples/09_07.png)
 
 ### 9.7.1 The grammar for points specifications in 'polyline' and 'polygon' elements
 
-The following is an EBNF grammar for <points-data> values on 'polyline' and 'polygon' elements \[[EBNF]\] :
+The following is an EBNF grammar for `<points-data>` values on 'polyline' and 'polygon' elements \[[EBNF]\] :
 
 points-data:
     wsp\* coordinate-pairs? wsp\*
@@ -7927,37 +7929,21 @@ A [system paint server]
 
 'fill'
 
-_Value:_  
+_Value:_   [`<paint>`] | [inherit]
 
-[<paint>] | [inherit]
+_Initial:_   black
 
-_Initial:_  
+_Applies to:_   [shapes] and [text content elements]
 
-black
+_Inherited:_   yes
 
-_Applies to:_  
+_Percentages:_   N/A
 
-[shapes] and [text content elements]
+_Media:_   visual
 
-_Inherited:_  
+_[Animatable] :_   yes
 
-yes
-
-_Percentages:_  
-
-N/A
-
-_Media:_  
-
-visual
-
-_[Animatable] :_  
-
-yes
-
-_Computed value:_  
-
-"none", system paint, specified <color> value or absolute IRI
+_Computed value:_   "none", system paint, specified <color> value or absolute IRI
 
 The ['fill'] property specifies that the interior of the given graphical element must be painted. The area to be painted shall consist of any areas inside the outline of the shape. To determine the inside of the shape, all subpaths must be considered, and the interior shall be determined according to the rules associated with the current value of the ['fill-rule'] property. The zero-width geometric outline of a shape must be included in the area to be painted.
 
@@ -7965,37 +7951,21 @@ Open subpaths must be filled by performing the fill operation as if an additiona
 
 'fill-rule'
 
-_Value:_  
+_Value:_   nonzero | evenodd | [inherit]
 
-nonzero | evenodd | [inherit]
+_Initial:_   nonzero
 
-_Initial:_  
+_Applies to:_   [shapes] and [text content elements]
 
-nonzero
+_Inherited:_   yes
 
-_Applies to:_  
+_Percentages:_   N/A
 
-[shapes] and [text content elements]
+_Media:_   visual
 
-_Inherited:_  
+_[Animatable] :_   yes
 
-yes
-
-_Percentages:_  
-
-N/A
-
-_Media:_  
-
-visual
-
-_[Animatable] :_  
-
-yes
-
-_Computed value:_  
-
-Specified value, except inherit
+_Computed value:_   Specified value, except inherit
 
 The ['fill-rule'] property indicates the algorithm which must be used to determine what parts of the [canvas] are included inside the shape. For a simple, non-intersecting path, it is intuitively clear what region lies "inside"; however, for a more complex path, such as a path that intersects itself or where one subpath encloses another, the interpretation of "inside" is not so obvious.
 
@@ -8023,41 +7993,25 @@ The following algorithm, or any other that gives the same result, must be used t
 
 'fill-opacity'
 
-_Value:_  
+_Value:_   `<opacity-value>` | [inherit]
 
-<opacity-value> | [inherit]
+_Initial:_   1
 
-_Initial:_  
+_Applies to:_   [shapes] and [text content elements]
 
-1
+_Inherited:_   yes
 
-_Applies to:_  
+_Percentages:_   N/A
 
-[shapes] and [text content elements]
+_Media:_   visual
 
-_Inherited:_  
+_[Animatable] :_   yes
 
-yes
-
-_Percentages:_  
-
-N/A
-
-_Media:_  
-
-visual
-
-_[Animatable] :_  
-
-yes
-
-_Computed value:_  
-
-Specified value, except inherit
+_Computed value:_   Specified value, except inherit
 
 ['fill-opacity'] specifies the opacity of the painting operation which shall be used to paint the interior the current object. (See [Painting shapes and text].)
 
-<opacity-value>
+`<opacity-value>`
 
 The opacity of the painting operation that is to be used to fill the current object. Any values outside the range 0.0 (fully transparent) to 1.0 (fully opaque) must be clamped to this range. (See [Clamping values which are restricted to a particular range].)
 
@@ -8259,37 +8213,21 @@ Sometimes it is of interest to let the outline of an object keep its original wi
 
 'vector-effect'
 
-_Value:_  
+_Value:_   non-scaling-stroke | none | [inherit]
 
-non-scaling-stroke | none | [inherit]
+_Initial:_   none
 
-_Initial:_  
+_Applies to:_   [graphics elements]
 
-none
+_Inherited:_   no
 
-_Applies to:_  
+_Percentages:_   N/A
 
-[graphics elements]
+_Media:_   visual
 
-_Inherited:_  
+_[Animatable] :_   yes
 
-no
-
-_Percentages:_  
-
-N/A
-
-_Media:_  
-
-visual
-
-_[Animatable] :_  
-
-yes
-
-_Computed value:_  
-
-Specified value, except inherit
+_Computed value:_   Specified value, except inherit
 
 none
 
@@ -8305,6 +8243,7 @@ Below is an example of the non-scaling-stroke ['vector-effect'].
 
 **Example:** [non-scaling-stroke.svg](https://www.w3.org/TR/2008/REC-SVGTiny12-20081222/examples/non-scaling-stroke.svg)
 
+```xml
 <?xml version="1.0"?>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny"
      width="6cm" height="4cm" viewBox="0 0 600 400" 
@@ -8322,6 +8261,7 @@ Below is an example of the non-scaling-stroke ['vector-effect'].
   </g>
 
 </svg>
+```
 
 ![Rendering of non-scaling-stroke.svg](https://www.w3.org/TR/2008/REC-SVGTiny12-20081222/examples/non-scaling-stroke.png)
 
@@ -8360,37 +8300,21 @@ The ['viewport-fill'] property specifies the color which shall be used to fill t
 
 'viewport-fill'
 
-_Value:_
+_Value:_ none | currentColor | [<color>] | [inherit]
 
-none | currentColor | [<color>] | [inherit]
+_Initial:_ none
 
-_Initial:_
+_Applies to:_ [viewport-creating elements]
 
-none
+_Inherited:_ no
 
-_Applies to:_
+_Percentages:_ N/A
 
-[viewport-creating elements]
+_Media:_ visual
 
-_Inherited:_
+_Animatable:_ yes
 
-no
-
-_Percentages:_
-
-N/A
-
-_Media:_
-
-visual
-
-_Animatable:_
-
-yes
-
-_Computed value:_  
-
-"none" or specified <color> value, except inherit
+_Computed value:_   "none" or specified <color> value, except inherit
 
 If the value of ['viewport-fill'] is none, then no paint operation is applied to the viewport.
 
@@ -8398,6 +8322,7 @@ Below is an example of ['viewport-fill'].
 
 **Example:** [11_02.svg](https://www.w3.org/TR/2008/REC-SVGTiny12-20081222/examples/11_02.svg)
 
+```xml
 <?xml version="1.0"?>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny"
      viewport-fill="red">
@@ -8410,6 +8335,7 @@ Below is an example of ['viewport-fill'].
   <rect x="20" y="20" width="100" height="100" fill="none" stroke="black"/>
 
 </svg>
+```
 
 ![Rendering of 11_02.svg](https://www.w3.org/TR/2008/REC-SVGTiny12-20081222/examples/11_02.png)
 
@@ -8417,6 +8343,7 @@ Here is a slightly more complex example. The ['viewBox'] gives a coordinate syst
 
 **Example:** [11_03.svg](https://www.w3.org/TR/2008/REC-SVGTiny12-20081222/examples/11_03.svg)
 
+```xml
 <?xml version="1.0"?>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny"
      viewBox="0 0 300 100" viewport-fill="yellow">
@@ -8431,6 +8358,7 @@ Here is a slightly more complex example. The ['viewBox'] gives a coordinate syst
   <rect x="0" y="0" width="300" height="100" fill="red" fill-opacity="0.3" stroke="black"/>
 
 </svg>
+```
 
 ![Rendering of 11_03.svg](https://www.w3.org/TR/2008/REC-SVGTiny12-20081222/examples/11_03.png)
 
