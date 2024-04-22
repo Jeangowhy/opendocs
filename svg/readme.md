@@ -1224,11 +1224,11 @@ SVG 动画标签 calcMode 属性用于控制插值算法，四种插值控制方
 3. keyTime 搭配 keyPoints 控制曲线的运动步调，配合 path 属性设置路径或 mpath 引用路径对象。
 
 
-以下是 [`<animateTransform>`](../svg/animateTransfom.svg) 几何变换动画的演示。
+以下是 [`<animateTransform>`](../svg/animateTransform.svg) 几何变换动画的演示。
 几何变换动画 `<animateTransform>` 总是覆盖动画目标的几何变换，如果希望保留原有的几何变换，
 那么可以使用 additive="sum" 启用叠加模式，或者设置另外一个几何变换动画来保持相应的值。
 
-![`<animateTransform>`](../svg/animateTransfom.svg)
+![`<animateTransform>`](../svg/animateTransform.svg)
 
 ```xml
 <?xml version="1.0"?>
