@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <svg width="1200" height="800" viewBox="0 0 2400 1600" version="1.2" baseProfile="tiny"
      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <desc>Example stroke-linecap & stroke-linejoin</desc>
+  <desc>Example stroke-linecap &amp; stroke-linejoin</desc>
   <rect x="1" y="1" width="1200" height="800" fill="none" stroke="blue" />
   <defs>
     <path id="path1" d="M -125,150 L 0,0 L 125,150" fill="none" />

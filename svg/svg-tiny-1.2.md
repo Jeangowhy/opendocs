@@ -15557,6 +15557,7 @@ Here is an example of how metadata can be included in an SVG document. The examp
 
 **Example:** metadata-license.svg
 
+```xml
 <svg xmlns="http://www.w3.org/2000/svg"
      version="1.2" baseProfile="tiny"
      width="8in" height="7in">
@@ -15593,6 +15594,7 @@ Here is an example of how metadata can be included in an SVG document. The examp
   <!-- graphical elements -->
 
 </svg>
+```
 
 18.3 Extensible metadata attributes
 -----------------------------------

@@ -1543,6 +1543,7 @@ When an animation is active, the effect of non-additive ‘[animateTransform]’
 
 To illustrate:
 
+```xml
 <rect transform="skewX(30)"...>
   <animateTransform attributeName="transform"
                     type="rotate" from="0" to="90" dur="5s"
@@ -1551,9 +1552,11 @@ To illustrate:
                     type="scale" from="1" to="2" dur="5s"
                     additive="replace" fill="freeze"/>
 </rect>
+```
 
 In the code snippet above, because the both animations have additive="replace", the first animation overrides the transformation on the rectangle itself and the second animation overrides the transformation from the first animation; therefore, at time 5 seconds, the visual result of the above two animations would be equivalent to the following static rectangle:
 
+```xml
 <rect transform="scale(2)" ... />
 
 <rect transform="skewX(30)"...>
@@ -1564,6 +1567,7 @@ In the code snippet above, because the both animations have additive="replace", 
                     type="scale" from="1" to="2" dur="5s"
                     additive="sum" fill="freeze"/>
 </rect>
+```
 
 In this code snippet, because the both animations have additive="sum", the first animation post-multiplies its transformation to any transformations on the rectangle itself and the second animation post-multiplies its transformation to any transformation from the first animation; therefore, at time 5 seconds, the visual result of the above two animations would be equivalent to the following static rectangle:
 

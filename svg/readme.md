@@ -630,6 +630,77 @@ SVG 矢量图形主要构成就是以下几个层面，更复杂的效果需要�
 5. 透明度混合（Alpha Compositing and Blending）；
 6. 滤镜特效（Effect Filters）
 
+滤镜特效是 SVG 图形处理的扩展功能，通过扩展可以实现默认 SVG 渲染没提供的效果，在程序渲染图形时，
+根据滤镜标签的设置，调用相应的滤镜模块去处理图形，再将处理结果返回会渲染程序并呈现。以下是一个演示
+通过滤镜给椭圆图形加阴影的演示：
+
+```xml
+<defs>
+    <filter id="blurFilter2" y="-10" height="40" x="-10" width="150">
+        <feOffset in="SourceAlpha" dx="3" dy="3" result="offset2" />
+        <feGaussianBlur in="offset2" stdDeviation="3"  result="blur2"/>
+
+        <feMerge>
+            <feMergeNode in="blur2" />
+            <feMergeNode in="SourceGraphic" />
+        </feMerge>
+    </filter>
+</defs>
+
+<ellipse cx="55" cy="60" rx="25" ry="15"
+         style="stroke: none; fill: #0000ff; filter: url(#blurFilter2);" />  
+```
+
+`<filter>` 标签内编写用于调用不同滤镜的标签，以上演示了几种滤镜的使用：
+
+1. `<feMerge>` 此滤镜标签用于合并多个滤镜；
+2. `<feMergeNode>` 此标签是滤镜合并标签的子节点，用于设置要合并的滤镜，通过 in 属性指定滤镜 ID；
+3. `<feOffset>` 位置偏移滤镜，功能等价于几何变换中的平稳；
+4. `<feGaussianBlur>` 高斯模糊滤镜，提供基本的图像模糊处理；
+
+滤镜和渐变色一样，通常定义在 `<defs>` 容器标签内，并在其它图形标签的样式中通过 filter 样式属性
+引用滤镜。滤镜有输入和输出，in 属性指定输入，out 指定输出，它们都使用一个 ID 值关联相应的图形数据。
+滤镜中处理的数据称为 primitives，通过 ID 值引用输入、输出图像数据的方式称为 primitive reference。
+滤镜的层级关系构成了 Filter primitive tree。
+
+输入属性可以使用以下值，以指定要处理的源图形图层或颜色分量，需要多个输入的滤镜还有 in2 这样的属性：
+
+    in = "SourceGraphic | SourceAlpha | BackgroundImage | BackgroundAlpha | FillPaint | StrokePaint | <filter-primitive-reference>"
+
+以下是规范定义的滤镜列表：
+
+|            Name         | Description |
+|-------------------------|-------------|
+| `<feBlend>`             | Combines two graphics together by a certain blending mode
+| `<feColorMatrix>`       | Changes colors based on a transformation matrix
+| `<feComponentTransfer>` | Performs component-wise remapping of data for each pixel. Can adjust brightness, contrast, color balance, etc
+| `<feComposite>`         | Performs combination of two input images pixel-wise in image space using a compositing operation
+| `<feConvolveMatrix>`    | Applies a matrix convolution filter effect (this includes blurring, edge detection, sharpening, embossing and beveling)
+| `<feDiffuseLighting>`   | Lights a graphic by using the alpha channel as a bump map
+| `<feDisplacementMap>`   | Uses pixels values from the graphic from in2 attribute to displace the image from the in attribute
+| `<feDropShadow>`        | Creates a drop shadow of the graphic
+| `<feFlood>`             | Fills the filter subregion with the color and opacity defined by flood-color and flood-opacity attributes
+| `<feGaussianBlur>`      | Blurs the graphic
+| `<feImage>`             | Gets graphic data from an external source and provides the pixel data as output
+| `<feMerge>`             | Blends input graphic layers (applies filter effects concurrently instead of sequentially)
+| `<feMorphology>`        | Erodes or dilates the graphic (for fattening or thinning effects)
+| `<feOffset>`            | Offsets the input graphic
+| `<feSpecularLighting>`  | Lights a source graphic by using the alpha channel as a bump map
+| `<feTile>`              | Fills a target rectangle with a repeated pattern of an input graphic
+| `<feTurbulence>`        | Creates a graphic with the Perlin turbulence function
+
+
+其中，除了 `<feMerge>` 包含 `<feMergeNode>` 子节点，还有 `<feDiffuseLighting>` 和 
+`<feSpecularLighting>` 包含 `<feDistantLight>`、`<fePointLight>`、`<feSpotLight>`
+子节点。
+
+以及 `<feComponentTransfer>` 使用 `<feFuncR>`、`<feFuncG>`、`<feFuncB>`、`<feFuncA>`
+等子节点进行颜色分量的处理。
+
+
+滤镜的细节信息参考规范文档：[Filter Effects Module Level 1](https://drafts.fxtf.org/filter-effects/)
+
+
 CSS 规范为 Web 视觉设计制定了一套标准色彩模型，其中包含了 148 个命名色彩，现制作成
 SVG 参考图供参考：
 
@@ -641,7 +712,7 @@ SVG 参考图供参考：
 
 作为一个好色之徒，区区 148 个 CSS 标准色是远远不能满足的，还差一个绝美的中国传统色。
 中国色彩模型与西方基于物理特性的色彩模型具有非常多的细节差异，已经不适合在此文档中整理汇编，
-应该另开一个文档做专题：[](../svg/cn_traditional_colors.md)。
+应该另开一个文档做专题：[Chinese Traitional Colors](../svg/cn_traditional_colors.md)。
 
 以下是一个正红大圆，使用 base64 编码内嵌，用于测试 Github 文档是否能够正常渲染：
 
@@ -1040,28 +1111,37 @@ SVG 动画专有属性详情参考 SVG 1.2 Tiny - Attributes to control the timi
 
 当动画需要按“偏移量”进行处理，这就需要累加（additive）和累积（accumulate）动画属性。以下使用
 两个矩形来说明这两个属性的使用：需要和 from to 属性搭配使用，from 指定动画启动的初始值，to 
-指定的是可以在动画逐次播放过程中被累计的值。右侧淡黄矩形会在动画逐轮播放的过程中累加 y 轴的移动量：
+指定的是可以在动画逐次播放过程中被累计的值。黄色矩形会在动画逐轮播放的过程中累加 y 轴的移动量。
+另外，additive 属性在 `<animateTransform>` 几何变换动画中还另有作用，sum 表示将动画中的
+几何变换叠加到原有的几何变换之中。replace 则表示用动画计算得到的变换矩阵替换掉原有的几何变换。
 
 ```xml
+<?xml version="1.0"?>
 <svg width="600" height="200">
-  <rect id="shape1" x="50" width="200" height="50" fill="gray" />
-  <rect id="shape2" x="300" width="200" height="50" fill="yellow" />
+  <rect id="shape1" x="60" width="160" height="50" fill="gray" />
+  <rect id="shape2" x="220" width="160" height="50" fill="yellow" />
+  <rect id="shape3" x="380" width="160" height="50" fill="firebrick" />
   <animate xlink:href="#shape1" attributeName="y" dur="3s" from="10" to="50" 
     begin="click" repeatCount="5" />
   <animate xlink:href="#shape2" attributeName="y" dur="3s" from="10" to="50"
     begin="click" repeatCount="5" accumulate="sum" additive="sum" />
+  <animate xlink:href="#shape3" attributeName="y" dur="3s" from="10" to="50"
+    begin="click" repeatCount="5" accumulate="sum" additive="replace" />
 </svg>
 ```
 
+<?xml version="1.0"?>
 <svg width="600" height="200">
-  <rect id="shape1" x="50" width="200" height="50" fill="gray" />
-  <rect id="shape2" x="300" width="200" height="50" fill="yellow" />
+  <rect id="shape1" x="60" width="160" height="50" fill="gray" />
+  <rect id="shape2" x="220" width="160" height="50" fill="yellow" />
+  <rect id="shape3" x="380" width="160" height="50" fill="firebrick" />
   <animate xlink:href="#shape1" attributeName="y" dur="3s" from="10" to="50" 
     begin="click" repeatCount="5" />
   <animate xlink:href="#shape2" attributeName="y" dur="3s" from="10" to="50"
     begin="click" repeatCount="5" accumulate="sum" additive="sum" />
+  <animate xlink:href="#shape3" attributeName="y" dur="3s" from="10" to="50"
+    begin="click" repeatCount="5" accumulate="sum" additive="replace" />
 </svg>
-
 
 以上是基本的 `<animate>` 动画的使用，还有两较比常用的动画标签和更多的动画控制功能：
 
@@ -1125,13 +1205,6 @@ keyTies 列表与 values 每个数值对应关联，时间值定义了何时设�
 对于 discrete(离线) 动画，列表中的第一个值必须为 0。关联的时间值定义了何时应用 values 对应值，
 动画函数使用该 value，直到 keyTimes 中定义的下一个时间值。
 
-总结一下：
-
-1. keyTime 搭配 values 使用，不能设置 peaced 插值模式，使用 path 路径会导致失效。
-2. keyTime 搭配 keySplines 样条控制 values 动画分段的步调，calcMode="spline" 插值模式下有效。
-3. keyTime 搭配 keyPoints 控制曲线的运动步调，配合 path 属性设置路径或 mpath 引用路径对象。
-
-
 SVG 动画标签 calcMode 属性用于控制插值算法，四种插值控制方式说明如下：
 
 1.  **discrete** 离散方式，不对图形运动使用插值，按照 values 列表或起、止点状态进行切换。
@@ -1144,10 +1217,20 @@ SVG 动画标签 calcMode 属性用于控制插值算法，四种插值控制方
 参考规范文档 SVG Animation Level 2 - 2.8 Paced animation and complex types。
 其作用配合 values 和 keyTimes 等属性演示更明了。
 
+总结一下：
+
+1. keyTime 搭配 values 使用，不能设置 peaced 插值模式，使用 path 路径会导致失效。
+2. keyTime 搭配 keySplines 样条控制 values 动画分段的步调，calcMode="spline" 插值模式下有效。
+3. keyTime 搭配 keyPoints 控制曲线的运动步调，配合 path 属性设置路径或 mpath 引用路径对象。
+
+
 以下是 [`<animateTransform>`](../svg/animateTransfom.svg) 几何变换动画的演示。
 几何变换动画 `<animateTransform>` 总是覆盖动画目标的几何变换，如果希望保留原有的几何变换，
 那么可以使用 additive="sum" 启用叠加模式，或者设置另外一个几何变换动画来保持相应的值。
 
+![`<animateTransform>`](../svg/animateTransfom.svg)
+
+```xml
 <?xml version="1.0"?>
 <svg version="1.1" 
     xmlns="http://www.w3.org/2000/svg" 
@@ -1183,10 +1266,14 @@ SVG 动画标签 calcMode 属性用于控制插值算法，四种插值控制方
     />
   </g>
 </svg>
+```
 
 以下是 [`<animateMotion>`](../svg/animateMotion.svg) 路径运动的演示，可以点击不同的色块
 来观察不同的动画模式：
 
+![`<animateMotion>`](../svg/animateMotion.svg) 
+
+```xml
 <?xml version="1.0"?>
 <svg version="1.1" 
     xmlns="http://www.w3.org/2000/svg" 
@@ -1224,6 +1311,7 @@ SVG 动画标签 calcMode 属性用于控制插值算法，四种插值控制方
         <mpath xlink:href="#path-motion" />
     </animateMotion>
 </svg>
+```
 
 
 SVG Layouts
@@ -1265,8 +1353,15 @@ SVG 文档的默认布局模式为绝对定位模式，所有元素“后来居�
 SVG 元素不像 HTML 那样设计了 Z-index 深度属性来改变层次的叠加关系，要改变 SVG 元素的叠加关系，
 就需要通过调整标签在容器中出现的先后顺序。
 
+SVG 与 HTML 的一大区别就是没有提供文本的自动排版，不会对文本进行换行处理。
 
-Viewport and viewBort
+如果，部分文本需要做特别处理，还可用 `<tspan>` 标签进行文字修整，包括手动将长文本换行。
+因为 SVG 对文本排版支持较弱，文本不能自动分行，新规范的 inline-size 属性亦未得到有效实现。
+暂行办法除了手动 `<tspan>` 分行，还有就是使用 `<foreignObject>` 包括 HTML 标签来做排版。
+配合 `<textPath>` 标签和路径，还可以将文字沿着曲线分布排列，使用 path 属性指定曲线。
+
+
+Viewport and viewBox
 ---------------------
 
 Inkscape 文档属性设置界面中，Document Properties，包含以下尺寸信息：
@@ -1769,44 +1864,13 @@ Transform 属性可以引用变换，称为约束变换 TransformRef（constrain
 </svg>
 ```
 
-<?xml version="1.0"?>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" 
-    viewBox="-500 -200 1000 400" width="580" height="180">
-  <style>
-    svg { border: 1px solid black; }
-    .cross { stroke: lightblue; }
-  </style>
-  <path class="cross" d="M -500 0 L 500 0 M 0 -200 L 0 200 z" />
-  <g id="basic" transform="rotate(10)" >
-    <path class="cross" d="M -500 0 L 500 0 M 0 -200 L 0 200 z" />
-    <g id="diamon-n" transform="translate(60, 40)">
-      <polyline points="50,0 5,75 25,100 75,100 95,75 50,0" fill="purple" />
-    </g>
-    <g id="star-n" transform="translate(420, 40)">
-      <polygon points="0,38 100,38 15,100 50,0 85,100" fill="firebrick" />
-    </g>
-    <animateTransform attributeName="transform"
-                      type="rotate"
-                      from="10 290 90"
-                      to="360 290 90"
-                      dur="5s"
-                      begin="click" 
-    />
-    <animateTransform attributeName="transform" xlink:href="#star-n"
-                      type="rotate"
-                      from="0"
-                      to="360"
-                      dur="5s"
-                      begin="click" 
-    />
-  </g>
-</svg>
+![animateTransform](../svg/animateTransform.svg)
 
 几何变换的属性值设置参考：
 
 * ⚙ `matrix(<a> <b> <c> <d> <e> <f>)` 
 
-    which specifies a transformation in the form of a [transformation matrix] of six values. matrix(a,b,c,d,e,f) is equivalent to applying the transformation matrix **\[a b c d e f\]**.
+    which specifies a transformation in the form of a [transformation matrix] of six values. matrix(a,b,c,d,e,f) is equivalent to applying the transformation matrix **[a b c d e f]**.
     
 * ⚙ `translate(<tx> [<ty>])`
 
@@ -1820,11 +1884,11 @@ Transform 属性可以引用变换，称为约束变换 TransformRef（constrain
     
 * ⚙ `rotate(<rotate-angle> [<cx> <cy>])`
     
-    which specifies a [rotation] by <rotate-angle> degrees about a given point.
+    which specifies a [rotation] by `<rotate-angle>` degrees about a given point.
     
-    If optional parameters <cx> and <cy> are not supplied, the rotation is about the origin of the current [user coordinate system]. The operation corresponds to the matrix **[cos(a) sin(a) -sin(a) cos(a) 0 0]**.
+    If optional parameters `<cx>` and `<cy>` are not supplied, the rotation is about the origin of the current [user coordinate system]. The operation corresponds to the matrix **[cos(a) sin(a) -sin(a) cos(a) 0 0]**.
     
-    If optional parameters <cx> and <cy> are supplied, the rotation is about the point (cx, cy). The operation represents the equivalent of the following specification: translate(<cx>, <cy>) rotate(<rotate-angle>) translate(-<cx>, -<cy>).
+    If optional parameters `<cx>` and `<cy>` are supplied, the rotation is about the point (cx, cy). The operation represents the equivalent of the following specification: `translate(<cx>, <cy>) rotate(<rotate-angle>) translate(-<cx>, -<cy>)`.
     
 * ⚙ `skewX(<skew-angle>)`, which specifies a [skew transformation along the x-axis].
     
