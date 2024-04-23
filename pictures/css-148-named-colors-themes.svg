@@ -267,37 +267,37 @@
       <text x="70"  y="80"   class="vl">     #dc143c     </text>
       <text x="120" y="80"  class="vl"> ( 220, 20, 60 )</text>
       <text fill="#dc143c" x="248" y="64" font-size="16"> 
-        Red theme Red theme Red theme Red theme </text>
+        Red theme Red theme Red theme Red theme Red  </text>
     <circle fill="#b22222" cx="48" cy="94" r="14" />
       <text x="70"  y="94"  class="cn">       firebrick </text>
       <text x="70"  y="110"  class="vl">      #b22222   </text>
       <text x="120" y="110" class="vl"> ( 178, 34, 34 ) </text>
       <text fill="#b22222" x="248" y="94" font-size="16"> 
-        Red theme Red theme Red theme Red theme </text>
+        Red theme Red theme Red theme Red theme Red  </text>
     <circle fill="#800000" cx="48" cy="124" r="14" />
       <text x="70"  y="124"  class="cn">           maroon </text>
       <text x="70"  y="140"  class="vl">      #800000     </text>
       <text x="120" y="140" class="vl"> ( 128, 0, 0 ) </text>
       <text fill="#800000" x="248" y="124" font-size="16"> 
-        Red theme Red theme Red theme Red theme </text>
+        Red theme Red theme Red theme Red theme Red  </text>
     <circle fill="#ff6347" cx="48" cy="154" r="14" />
       <text x="70"  y="154"  class="cn">        tomato </text>
       <text x="70"  y="170"  class="vl">      #ff6347      </text>
       <text x="120" y="170" class="vl"> ( 255, 99, 71 ) </text>
       <text fill="#ff6347" x="248" y="154" font-size="16"> 
-        Red theme Red theme Red theme Red theme </text>
+        Red theme Red theme Red theme Red theme Red  </text>
     <circle fill="#fa8072" cx="48" cy="184" r="14" />
       <text x="70"  y="184"  class="cn">        salmon </text>
       <text x="70"  y="200"  class="vl">      #fa8072     </text>
       <text x="120" y="200" class="vl"> ( 250, 128, 114 ) </text>
       <text fill="#fa8072" x="248" y="184" font-size="16"> 
-        Red theme Red theme Red theme Red theme </text>
+        Red theme Red theme Red theme Red theme Red  </text>
     <circle fill="#f0e68c" cx="48" cy="214"  r="14" />
       <text x="70"  y="214"   class="cn">        khaki </text>
       <text x="70"  y="230"   class="vl">      #f0e68c   </text>
       <text x="120" y="230"  class="vl"> ( 240, 230, 140 ) </text>
       <text fill="#f0e68c" x="248" y="214" font-size="16"> 
-        Red theme Red theme Red theme Red theme </text>
+        Red theme Red theme Red theme Red theme Red  </text>
   </g>
   
   <view id="yellow-theme" viewBox="0 780 600 260" />
@@ -335,37 +335,37 @@
       <text x="70"  y="80"   class="vl">     #ffff00     </text>
       <text x="120" y="80"  class="vl"> ( 255, 255, 0 )</text>
       <text fill="#ffff00" x="248" y="64" font-size="16"> 
-        Yellow theme Yellow theme Yellow theme Yellow theme </text>
+        Yellow theme Yellow theme Yellow theme Yellow  </text>
     <circle fill="#ffd700" cx="48" cy="94" r="14" />
       <text x="70"  y="94"  class="cn">      gold </text>
       <text x="70"  y="110"  class="vl">      #ffd700   </text>
       <text x="120" y="110" class="vl"> ( 255, 215, 0 ) </text>
       <text fill="#ffd700" x="248" y="94" font-size="16"> 
-        Yellow theme Yellow theme Yellow theme Yellow theme </text>
+        Yellow theme Yellow theme Yellow theme Yellow  </text>
     <circle fill="#ffa500" cx="48" cy="124" r="14" />
       <text x="70"  y="124"  class="cn">           orange </text>
       <text x="70"  y="140"  class="vl">      #ffa500     </text>
       <text x="120" y="140" class="vl"> ( 255, 165, 0 ) </text>
       <text fill="#ffa500" x="248" y="124" font-size="16"> 
-        Yellow theme Yellow theme Yellow theme Yellow theme </text>
+        Yellow theme Yellow theme Yellow theme Yellow  </text>
     <circle fill="#191970" cx="48" cy="154" r="14" />
       <text x="70"  y="154"  class="cn">       midnightblue </text>
       <text x="70"  y="170"  class="vl">      #191970      </text>
       <text x="120" y="170" class="vl"> ( 25, 25, 112 ) </text>
       <text fill="#191970" x="248" y="154" font-size="16"> 
-        Yellow theme Yellow theme Yellow theme Yellow theme </text>
+        Yellow theme Yellow theme Yellow theme Yellow  </text>
     <circle fill="#ff4500" cx="48" cy="184" r="14" />
       <text x="70"  y="184"  class="cn">       orangered </text>
       <text x="70"  y="200"  class="vl">      #ff4500     </text>
       <text x="120" y="200" class="vl"> ( 255, 69, 0 ) </text>
       <text fill="#ff4500" x="248" y="184" font-size="16"> 
-        Yellow theme Yellow theme Yellow theme Yellow theme </text>
+        Yellow theme Yellow theme Yellow theme Yellow  </text>
     <circle fill="#8b0000" cx="48" cy="214"  r="14" />
       <text x="70"  y="214"   class="cn">        darkred </text>
       <text x="70"  y="230"   class="vl">      #8b0000   </text>
       <text x="120" y="230"  class="vl"> ( 139, 0, 0 ) </text>
       <text fill="#8b0000" x="248" y="214" font-size="16"> 
-        Yellow theme Yellow theme Yellow theme Yellow theme </text>
+        Yellow theme Yellow theme Yellow theme Yellow  </text>
   </g>
   
   <view id="green-theme" viewBox="0 1040 600 260" />
@@ -534,50 +534,50 @@
       <rect x="560" y="212" fill="#c8c8c8" width="24" height="32" />
       <rect x="18" y="235" fill="#000000" width="24" height="32" />
       <rect x="560" y="235" fill="#e1e1e1" width="24" height="32" />
-    <circle fill="#4169e1" cx="48" cy="64"  r="14" /> 
-      <text x="70"  y="64"   class="cn">     royalblue  </text>
-      <text x="70"  y="80"   class="vl">     #4169e1    </text>
-      <text x="120" y="80"  class="vl"> ( 65, 105, 225 ) </text>
-      <text fill="#4169e1" x="248" y="64" font-size="16"> 
-        Blue theme Blue theme Blue theme Blue theme </text>
+    <circle fill="#f0f8ff" cx="48" cy="64"  r="14" /> 
+      <text x="70"  y="64"   class="cn">aliceblue</text>
+      <text x="70"  y="80"   class="vl">#f0f8ff</text>
+      <text x="120" y="80"  class="vl">( 240, 248, 255 )</text>
+      <text fill="#f0f8ff" x="248" y="64" font-size="16"> 
+        Violet theme Violet theme Violet theme Violet theme </text>
     <circle fill="#87ceeb" cx="48" cy="94" r="14" />
       <text x="70"  y="94"  class="cn">      skyblue </text>
       <text x="70"  y="110"  class="vl">      #87ceeb   </text>
       <text x="120" y="110" class="vl"> ( 135, 206, 235 ) </text>
       <text fill="#87ceeb" x="248" y="94" font-size="16"> 
-        Blue theme Blue theme Blue theme Blue theme </text>
-    <circle fill="#87cefa" cx="48" cy="124" r="14" />
-      <text x="70"  y="124"  class="cn">   lightskyblue </text>
-      <text x="70"  y="140"  class="vl">      #87cefa  </text>
-      <text x="120" y="140" class="vl"> ( 135, 206, 250 ) </text>
-      <text fill="#87cefa" x="248" y="124" font-size="16"> 
-        Blue theme Blue theme Blue theme Blue theme </text>
-    <circle fill="#00008b" cx="48" cy="154" r="14" />
-      <text x="70"  y="154"  class="cn">   darkblue </text>
-      <text x="70"  y="170"  class="vl">     #00008b  </text>
-      <text x="120" y="170" class="vl"> ( 0, 0, 139 ) </text>
-      <text fill="#00008b" x="248" y="154" font-size="16"> 
-        Blue theme Blue theme Blue theme Blue theme </text>
-    <circle fill="#191970" cx="48" cy="184" r="14" />
-      <text x="70"  y="184"  class="cn">     midnightblue </text>
-      <text x="70"  y="200"  class="vl">      #191970   </text>
-      <text x="120" y="200" class="vl"> ( 25, 25, 112 ) </text>
-      <text fill="#191970" x="248" y="184" font-size="16"> 
-        Blue theme Blue theme Blue theme Blue theme </text>
-    <circle fill="#4b0082" cx="48" cy="214"  r="14" />
-      <text x="70"  y="214"   class="cn">  indigo </text>
-      <text x="70"  y="230"   class="vl">   #4b0082 </text>
-      <text x="120" y="230"  class="vl"> ( 75, 0, 130 ) </text>
-      <text fill="#4b0082" x="248" y="214" font-size="16"> 
-        Blue theme Blue theme Blue theme Blue theme </text>
+        Violet theme Violet theme Violet theme Violet theme </text>
+    <circle fill="#6495ed" cx="48" cy="124" r="14" />
+      <text x="70"  y="124"  class="cn"> cornflowerblue</text>
+      <text x="70"  y="140"  class="vl">  #6495ed</text>
+      <text x="120" y="140" class="vl">( 100, 149, 237 )</text>
+      <text fill="#6495ed" x="248" y="124" font-size="16"> 
+        Violet theme Violet theme Violet theme Violet theme </text>
+    <circle fill="#4169e1" cx="48" cy="154" r="14" />
+      <text x="70"  y="154"  class="cn">     royalblue  </text>
+      <text x="70"  y="170"  class="vl">     #4169e1    </text>
+      <text x="120" y="170" class="vl">  ( 65, 105, 225 ) </text>
+      <text fill="#4169e1" x="248" y="154" font-size="16"> 
+        Violet theme Violet theme Violet theme Violet theme </text>
+    <circle fill="#00008b" cx="48" cy="184" r="14" />
+      <text x="70"  y="184"  class="cn">   darkblue </text>
+      <text x="70"  y="200"  class="vl">     #00008b  </text>
+      <text x="120" y="200" class="vl"> ( 0, 0, 139 ) </text>
+      <text fill="#00008b" x="248" y="184" font-size="16"> 
+        Violet theme Violet theme Violet theme Violet theme </text>
+    <circle fill="#483d8b" cx="48" cy="214"  r="14" />
+      <text x="70"  y="214"   class="cn">darkslateblue</text>
+      <text x="70"  y="230"   class="vl">#483d8b</text>
+      <text x="120" y="230"  class="vl">( 72, 61, 139 )</text>
+      <text fill="#483d8b" x="248" y="214" font-size="16"> 
+        Violet theme Violet theme Violet theme Violet theme </text>
   </g>
 
   <view id="violet-theme" viewBox="0 1820 600 260" />
   <g transform="translate(0 1820)">
     <rect width="600" height="260" fill="navajowhite" rx="2" />
-    <rect x="2" y="32" width="596" height="226" fill="darkblue" rx="4" >
+    <rect x="2" y="32" width="596" height="226" fill="slateblue" rx="4" >
       <animate class="maniboard" attributeName="fill" dur="2.5" 
-        to="darkblue" additive="replace" accumulate="sum" fill="freeze" />
+        to="slateblue" additive="replace" accumulate="sum" fill="freeze" />
     </rect>
     <a xlink:href="https://github.com/Jeangowhy/opendocs/blob/main/svg/readme.md">
       <text x="30" y="20" font-size="16" class="title">CSS Color Module Level 4 - Named Colors [Violet Theme]</text>
@@ -602,29 +602,29 @@
       <rect x="560" y="212" fill="#c8c8c8" width="24" height="32" />
       <rect x="18" y="235" fill="#000000" width="24" height="32" />
       <rect x="560" y="235" fill="#e1e1e1" width="24" height="32" />
-    <circle fill="#4169e1" cx="48" cy="64"  r="14" /> 
-      <text x="70"  y="64"   class="cn">     royalblue  </text>
-      <text x="70"  y="80"   class="vl">     #4169e1    </text>
-      <text x="120" y="80"  class="vl"> ( 65, 105, 225 ) </text>
-      <text fill="#4169e1" x="248" y="64" font-size="16"> 
+    <circle fill="#da70d6" cx="48" cy="64"  r="14" /> 
+      <text x="70"  y="64"   class="cn">orchid</text>
+      <text x="70"  y="80"   class="vl">#da70d6</text>
+      <text x="120" y="80"  class="vl">( 218, 112, 214 )</text>
+      <text fill="#da70d6" x="248" y="64" font-size="16"> 
         Violet theme Violet theme Violet theme Violet theme </text>
-    <circle fill="#87ceeb" cx="48" cy="94" r="14" />
-      <text x="70"  y="94"  class="cn">      skyblue </text>
-      <text x="70"  y="110"  class="vl">      #87ceeb   </text>
-      <text x="120" y="110" class="vl"> ( 135, 206, 235 ) </text>
-      <text fill="#87ceeb" x="248" y="94" font-size="16"> 
+    <circle fill="#8a2be2" cx="48" cy="94" r="14" />
+      <text x="70"  y="94"  class="cn">blueviolet</text>
+      <text x="70"  y="110"  class="vl">#8a2be2</text>
+      <text x="120" y="110" class="vl">( 138, 43, 226 )</text>
+      <text fill="#8a2be2" x="248" y="94" font-size="16"> 
         Violet theme Violet theme Violet theme Violet theme </text>
-    <circle fill="#87cefa" cx="48" cy="124" r="14" />
-      <text x="70"  y="124"  class="cn">   lightskyblue </text>
-      <text x="70"  y="140"  class="vl">      #87cefa  </text>
-      <text x="120" y="140" class="vl"> ( 135, 206, 250 ) </text>
-      <text fill="#87cefa" x="248" y="124" font-size="16"> 
+    <circle fill="#6a5acd" cx="48" cy="124" r="14" />
+      <text x="70"  y="124"  class="cn">slateblue</text>
+      <text x="70"  y="140"  class="vl">#6a5acd</text>
+      <text x="120" y="140" class="vl">( 106, 90, 205 )</text>
+      <text fill="#6a5acd" x="248" y="124" font-size="16"> 
         Violet theme Violet theme Violet theme Violet theme </text>
-    <circle fill="#00008b" cx="48" cy="154" r="14" />
-      <text x="70"  y="154"  class="cn">   darkblue </text>
-      <text x="70"  y="170"  class="vl">     #00008b  </text>
-      <text x="120" y="170" class="vl"> ( 0, 0, 139 ) </text>
-      <text fill="#00008b" x="248" y="154" font-size="16"> 
+    <circle fill="#663399" cx="48" cy="154" r="14" />
+      <text x="70"  y="154"  class="cn">rebeccapurple</text>
+      <text x="70"  y="170"  class="vl">#663399</text>
+      <text x="120" y="170" class="vl">( 102, 51, 153 )</text>
+      <text fill="#663399" x="248" y="154" font-size="16"> 
         Violet theme Violet theme Violet theme Violet theme </text>
     <circle fill="#191970" cx="48" cy="184" r="14" />
       <text x="70"  y="184"  class="cn">     midnightblue </text>
@@ -637,7 +637,7 @@
       <text x="70"  y="230"   class="vl">   #4b0082 </text>
       <text x="120" y="230"  class="vl"> ( 75, 0, 130 ) </text>
       <text fill="#4b0082" x="248" y="214" font-size="16"> 
-        Violet theme Violet theme Violet theme Violet theme </text>
+        Blue theme Blue theme Blue theme Blue theme </text>
   </g>
 
   <circle cx="0" cy="0" r="0" stroke="gray" fill="transparent" id="aniclick" />

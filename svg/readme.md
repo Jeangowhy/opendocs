@@ -1914,6 +1914,173 @@ SVG Conversion
 7. [GeoGebra](https://www.geogebra.org/) 一个在线免费的数学应用程序包；
 8. [Latex/MathML editor][https://math-editor.online]
 9. [CairoSVG](https://cairosvg.org/)
+10. [Blender](../blender_docs_4.0.rst)
+
+在众多 SVG 开源软件中，必需要首推 Blender，这是一款全工作流程的 DCC (Digital Content Creation)
+数字内容创作工具，主要用于 2D/3D 影视动画与游戏内容制作。SVG 图形相关的工作流主要是 Grease Pencil
+2D 矢量图形建模工具。此外，Text、Curve 对象用于创建文字和曲线，这些基于曲线的对象都可以通过
+“对象转换菜单”进行转换。Convert 菜单提供 Curve、Mesh、Grease Pencil 等转换目标，转换成蜡笔对象
+就可以进行 SVG 格式的导出。SVG 本身也可以导入 Blender 作为曲线建模工具。Blender 文本对中文支持
+不好，需要先设置中文字体，再使用粘贴功能才能将中文符号输入 Text 对象。
+
+Grease Pencil 基于矢量曲线的蜡笔建模工具，配套 SVG Export for Grease Pencil 插件进行导出。
+Blender 基于曲线建模增加了 SVG 不支持的特效，所以导出的 SVG 图形可能与 Blender 渲染效果有出入。
+另外，导入 SVG 生成 Grease Pencil 对象也可能与 SVG 效果不一致，这需要对蜡笔对象的材质进行调整。
+同时，因为 Blender 中矢量图的着色方式比 SVG 复杂，也可能需要对画笔进行设置。即使使用相同的绘画工具，
+但是在蜡笔对象激活不同的材质、画笔和图层，绘制的结果也不一样。Blender 目前不支持导入 SVG Text，
+Text 需要先转换为曲线才能导入。
+
+Blender 从用户界面设计与操作流畅度来说，都要胜于 Inkscape，即使 Inkscape 大升级提升之后，
+这里没有贬低 Inkscape 的意思。如果要从 Inkscape 这种简单直观的绘画工具转换到 Blender 上，
+由于 Blender 的建模思维，导致了它的矢量绘图也是为建模服务的，因此矢量图形的着色也和材质紧密结合。
+好处是，一旦理解并掌握 Blender 的工作流程，将从其丰富的功能中获得创作的便利，并拓展软件的创作空间。
+并且，Blender 本身集成了 Python 脚本编程，所以通过编写脚本，很容易扩展自己需要的定制功能。
+Blender 提供了 Info 窗口，它打印当前的操作对应的脚本代码。Text Editor 窗口还提供 Python
+示范脚本，可以参考其代码编写插件。其中 External Script Stub 演示了如何运行外部脚本。其中
+bpy.data.filepath 变量指示的是当前 blend 文档的路径：
+
+```py
+# This stub runs a python script relative to the currently open
+# blend file, useful when editing scripts externally.
+
+import bpy
+import os
+
+# Use your own script name here:
+filename = "my_script.py"
+
+filepath = os.path.join(os.path.dirname(bpy.data.filepath), filename)
+global_namespace = {"__file__": filepath, "__name__": "__main__"}
+with open(filepath, 'rb') as file:
+    exec(compile(file.read(), filepath, 'exec'), global_namespace)
+```
+
+也有用户通过在 Blender 中使用 Python 开户 socket 服务来实现外部脚本的加载，不过这操作有点繁琐。
+Blender 本身可以作为 Python 模块运行，但是如果只是需要 LSP 智能提示，可以试试简化的 bpy 类型
+信息库即可，[fake-bpy-module](https://github.com/nutti/fake-bpy-module)。
+
+```sh
+pip install bpy
+pip install bpy==3.6.0
+pip install bpy==2.91a0
+pip install bpy==2.82
+pip install fake-bpy-module-2.93
+pip install fake-bpy-module-4.0
+```
+
+Blender Data-Blocks API 提供了所有对象的脚本操作，要修改场景中的对象就需要通过相应的 API。
+比如文字对象，text_add() 往当前场景添加一个文字对象，此时处于选中状态，然后通过上下方 API
+可以访问这个对象，bpy.context.object，它的内部类型是 FONT 对象，这个对象的 data 属性代表
+的就是文字对象所包含的矢量字符曲线数据（bpy.types.TextCurve）。一样可以通过脚本设置汉字文本，
+但是依然需要设置汉字字体才能正确呈现。可以使用 bpy.data.fonts（bpy.types.BlendDataFonts）
+加载字体数据：
+
+```py
+>>> bpy.ops.object.text_add(enter_editmode=False, align='WORLD', location=(0, 0, 0), scale=(1, 1, 1))
+>>> bpy.context.object
+bpy.data.objects['Text']
+
+>>> bpy.context.object.type
+'FONT'
+
+>>> bpy.context.object.data
+bpy.data.curves['Text']
+
+>>> bpy.context.object.data.font = bpy.data.fonts.load("C:\\Windows\\Fonts\\msyh.ttf")
+>>> bpy.context.object.data.body = "汉字"
+```
+
+注意，font 属性对应的是 Text 对象面板 Font 中设置正常字体（Regular），此外还有变体：
+
+1. font              正体
+2. font_bold         粗体
+3. font_bold_italic  粗体加斜体
+4. font_italic       斜体
+
+文本对象属性曲线建模，它的色彩不像变通的编辑器，直接设置字体颜色。Blender 中需要通过材质和环境光
+来改变字符模型的色彩。所有材质都保存在 bpy.data.materials (BlendDataMaterials) 集合对象中。
+文字对象的模型是曲线，也就是说它没有形成面，材质也无法形成色块（曲面着色）。可以将其转换为 mesh 
+曲面，并在顶点之间填充形成曲面，然后设置材质颜色。或者使用发光材质，这种方法可以让曲线包围的区域
+发射出光的颜色，相当于是曲面着色。要使用文字对象获取所设置的颜色，就需要将环境光设置为黑色，并且
+将基本色和发光体颜色设置为相同的值，方法是使用
+
+使用外部编辑可以提供 LSP 智能提示服务，需要在用户喜好设置界面指定外部编辑器，如果使用 Sublime
+Text 编辑器，那么就可以在 File Paths -> Applications -> Text Editor 配置面板中填写可
+执行程序 subl.exe 和相应参数 `$filepath:$line:$column`。
+https://docs.blender.org/manual/en/latest/editors/preferences/file_paths.html
+
+另外，Blender 蜡笔对象色彩可能与调色板指定的颜色不一致，这可能是由于使用光线渲染，也可能是受世界
+环境中的 Viewport Display 设置的颜色影响。如果调整颜色并没有作用，可能是创建 Blender 文档时
+没有使用 2D Animation Template，这个模板包含了 2D 图形的一些设置，特别是色彩管理模式设置：
+
+* 2D Animation is the default active workspace.
+* `World Properties --> Surface (Background) --> Color` is set to white.
+* `Render Properties --> Color Management --> View Transform` is set to Standard.
+* The `drawing plane` is set to Front (X-Z).
+* Line and Fill layers, along with some stroke materials, are configured for Grease Pencil.
+* The animation timeline will automatically create a new keyframe when Grease Pencil is used on empty frames.
+
+Blender 图形着色是基于 GPU 着色器程序实现的，也就是模型材质的低层实现机制。蜡笔对象的颜色之所以
+受到世界环境背景色的影响，是因为世界背景色在着色程序中充当环境光的作用。当启用蜡笔对象的图层光线，
+这时的蜡笔图形着色就受到 Blender 光照着色模型的影响，所以通过调整环境光就会改变矢量图形的填充色。
+蜡笔对象的各个图层拥有独立的光照、混合模式属性。Blender 没有提供蜡笔对象图层的复制操作，但可以
+通过复制、合并蜡笔对象实现图层的复制叠加。
+
+蜡笔对象的混合模式 (Blend Mode) 需要在的数据属性面板中设置，蜡笔图层、光线与混合式设置在同一个面板，
+并且只支持几种基本模式：Hard Light, Add, Subtract, Multiply, Divide。也就是说 Blender
+矢量图形的混合作用于蜡笔图层之间，SVG 的混合作用于图形对象之间。蜡笔对象同一图层的图形之间相互叠加，
+上层覆盖下层，不应用混合。另外，Subtract 按常理应该可以模拟 CMYK 减色模型的效果，但是减出了白色。
+https://docs.krita.org/en/reference_manual/blending_modes.html
+
+使用蜡笔绘图时，操作逻辑与 Inkscape 也有很大的差异。首先，需要选择合适的画笔和材质，以正确地绘画
+Stroke 和 Fill 颜色。要修改已经画好的图形颜色，就需要使用 Tint 色调调整工具。因为 Blender 建模
+是基于顶点着色的，也就是说曲线上的每个顶点都拥有一个顶点色（vertex color），通过调整这个顶点色
+来改变图形的描边或填充色。也是因为这一低层原理，Blender 中的矢量图形材质一般单独处理描边与填充。
+
+总体来说，Blender 引入的这些复杂性和其功能的丰富程序相关，需要正确使用 Blender 提供的视图渲染模式：
+渲染模式 Render Mode（显示正常渲染的图形），线框模式 Wireframe（显式曲线）。
+以及 Grease Pencil 的编辑模式 Edit Mode（用于调整曲线与点坐标）和绘画模式 Draw Mode（曲线绘制）。
+另外，新、旧版本 Blender 导入 SVG 分别使用 xy、xz 平面放置图形。而导出 SVG 时，蜡笔对象使用的
+是当前用户视图，而线稿（Freestyle）使用激活的摄像机镜头平面。
+
+Blender 中常用的 SVG 相关快捷键操作说明：
+
+1. G 切换为移动模式；
+2. R 切换为旋转模式；
+3. S 切换为缩放模式；
+4. M 对选中的对象进行分组；
+5. / 切换视图显示当前选择的对象；
+5. Tab 切换为编辑模式；
+5. Ctrl+. 切换到原点操作模式，用于修改原点坐标；
+
+蜡笔工具提供一个完全沉浸在 3D 环境中的 2D 动画工具，有多种方式进行动画制作：
+
+- 蜡笔作为整个物体移动及改变其位置、方向或大小；
+- 逐帧绘制，每次绘制一帧(传统动画)；
+- 对蜡笔对象作变形，为它们的点设置动画；
+- 继承其它对象的动画，使物体根据另一个物体移动(例如其父对象、挂钩、骨架等)，例如剪纸动画。
+
+蜡笔绘画工具是基于曲线（贝塞尔）实现的绘画笔迹，可以和骨骼系统结合，通过骨骼来控制曲线的运动。
+**Interpolate tool** 笔迹插值工具，在关键帧之间产生新的 breakdown keyframe。注意，
+Blender 还未提供蜡笔对象的 SVG 动画导出功能。另外一个线稿工具 Freestyle 附带的导出插件
+则可以提供 SVG 动画支持。
+
+Blender 线稿导出工具 Freestyle SVG Exporter 可以导出 SVG，同时支持创建 SVG 动画，
+支持 Base color、Base alpha、Base thickness、Dashes 等数据的导出。
+插件作者 [Julien Deswaef](https://github.com/xuv/freestyle-svg-exporter)
+插件启用及设置面板位置：
+
+0. Preferences ‣ Add-ons ‣ Render ‣ Freestyle SVG Exporter
+1. Properties ‣ Output ‣ Output 指定 SVG 文件导出位置，并以 0001-0250.svg 这样的帧区间命名
+2. Properties ‣ Render ‣ Freestyle SVG Export
+3. Properties ‣ View Layers ‣ Freestyle Line Style SVG Export
+4. https://docs.blender.org/manual/en/4.1/addons/render/render_freestyle_svg.html
+
+在导出的 SVG 动画文件中，每帧对应一个分组，分组使用 `<animate>` 标签去控制 display 属性，
+让动画帧的线稿显示在正确的时间。
+
+参考关联文档 [Grease Pencil Animation](../Blender.md#-grease-pencil-animation)
+
 
 [CairoSVG](https://cairosvg.org/) 是一个 Python 模块，此模块支持 PNG 及 PDF 等矢量格式。
 输出的 PNG 格式质量高，并且可以比其它转换工具产生的 JPG 更小。支持 SVG 1.1 规范，本身还依赖
@@ -2181,8 +2348,6 @@ inkscape --export-type=svg  texput.pdf
 
 [GeoGebra](https://www.geogebra.org/) 是一个在线免费的数学应用程序包: 
 将绘图、几何、代数、3D、统计、概率等集成在一起!可以用它的 Graphing Calculator 来绘制 SVG 图形。
-更进一步，专业的 3D 行业软件 Blender 其线稿工具 Freestyle SVG Exporter 就可以导出 SVG， 导出器支持创建 SVG 动画，插件作者 Julien Deswaef。
-https://github.com/xuv/freestyle-svg-exporter
 
 LaTeX 中包含插图、外部图形文件的方法，引用 graphicx 和 svg 包，前者支持 png, eps, pdf 等格式，
 但不支持 svg 格式：
