@@ -158,9 +158,13 @@
 
       .. container:: footdiv
 
-         -  
          -  `Table of contents <http://learnyouahaskell.com/chapters>`__
          -  `Starting Out <http://learnyouahaskell.com/starting-out>`__
+
+
+===============
+1. Introduction
+===============
 
       .. rubric:: Introduction
          :name: introduction
@@ -318,7 +322,6 @@
 
       .. container:: footdiv
 
-         -  
          -  `Table of contents <http://learnyouahaskell.com/chapters>`__
          -  `Starting Out <http://learnyouahaskell.com/starting-out>`__
 
@@ -348,6 +351,11 @@
          -  `Introduction <http://learnyouahaskell.com/introduction>`__
          -  `Table of contents <http://learnyouahaskell.com/chapters>`__
          -  `Types and Typeclasses <http://learnyouahaskell.com/types-and-typeclasses>`__
+
+
+===============
+2. Starting Out
+===============
 
       .. rubric:: Starting Out
          :name: starting-out
@@ -945,6 +953,11 @@
       a look at more list functions
       `later <http://learnyouahaskell.com/modules#data-list>`__
 
+
+================
+3. Texas ranges
+================
+
       .. rubric:: Texas ranges
          :name: texas-ranges
 
@@ -1419,8 +1432,12 @@
 
          -  `Starting Out <http://learnyouahaskell.com/starting-out>`__
          -  `Table of contents <http://learnyouahaskell.com/chapters>`__
-         -  `Syntax in
-            Functions <http://learnyouahaskell.com/syntax-in-functions>`__
+         -  `Syntax in Functions <http://learnyouahaskell.com/syntax-in-functions>`__
+
+
+========================
+4. Types and Typeclasses
+========================
 
       .. rubric:: Types and Typeclasses
          :name: types-and-typeclasses
@@ -1819,16 +1836,17 @@
 
       Bounded members have an upper and a lower bound.
 
-      .. code:: haskell:
+      .. code:: 
+         :class: haskell:
 
-         ghci> minBound :: Int
-         -2147483648
-         ghci> maxBound :: Char
-         '\1114111'
-         ghci> maxBound :: Bool
-         True
-         ghci> minBound :: Bool
-         False
+          ghci> minBound :: Int
+          -2147483648
+          ghci> maxBound :: Char
+          '\1114111'
+          ghci> maxBound :: Bool
+          True
+          ghci> minBound :: Bool
+          False
 
       minBound and maxBound are interesting because they have a type of
       (Bounded a) => a. In a sense they are polymorphic constants.
@@ -1939,6 +1957,11 @@
             Typeclasses <http://learnyouahaskell.com/types-and-typeclasses>`__
          -  `Table of contents <http://learnyouahaskell.com/chapters>`__
          -  `Recursion <http://learnyouahaskell.com/recursion>`__
+
+
+=======================
+5. Syntax in Functions
+=======================
 
       .. rubric:: Syntax in Functions
          :name: syntax-in-functions
@@ -2714,6 +2737,11 @@
          -  `Higher Order
             Functions <http://learnyouahaskell.com/higher-order-functions>`__
 
+
+============
+6. Recursion
+============
+
       .. rubric:: Recursion
          :name: recursion
 
@@ -3129,6 +3157,11 @@
          -  `Recursion <http://learnyouahaskell.com/recursion>`__
          -  `Table of contents <http://learnyouahaskell.com/chapters>`__
          -  `Modules <http://learnyouahaskell.com/modules>`__
+
+
+==========================
+7. Higher order functions
+==========================
 
       .. rubric:: Higher order functions
          :name: higher-order-functions
@@ -4348,6 +4381,11 @@
          -  `Table of contents <http://learnyouahaskell.com/chapters>`__
          -  `Making Our Own Types and
             Typeclasses <http://learnyouahaskell.com/making-our-own-types-and-typeclasses>`__
+
+
+==========
+8. Modules
+==========
 
       .. rubric:: Modules
          :name: modules
@@ -6051,6 +6089,11 @@
          -  `Table of contents <http://learnyouahaskell.com/chapters>`__
          -  `Input and
             Output <http://learnyouahaskell.com/input-and-output>`__
+
+
+========================================
+9. Making Our Own Types and Typeclasses
+========================================
 
       .. rubric:: Making Our Own Types and Typeclasses
          :name: making-our-own-types-and-typeclasses
@@ -8466,6 +8509,11 @@
          -  `Table of contents <http://learnyouahaskell.com/chapters>`__
          -  `Functionally Solving
             Problems <http://learnyouahaskell.com/functionally-solving-problems>`__
+
+
+=====================
+10. Input and Output
+=====================
 
       .. rubric:: Input and Output
          :name: input-and-output
@@ -11453,6 +11501,11 @@
          -  `Functors, Applicative Functors and
             Monoids <http://learnyouahaskell.com/functors-applicative-functors-and-monoids>`__
 
+
+=================================
+11. Functionally Solving Problems
+=================================
+
       .. rubric:: Functionally Solving Problems
          :name: functionally-solving-problems
 
@@ -11651,20 +11704,21 @@
 
       Let's play around with our function:
 
-      .. code:: haskell:hs
+      .. code:: 
+         :class: haskell:hs
 
-         ghci> solveRPN "10 4 3 + 2 * -"
-         -4
-         ghci> solveRPN "2 3 +"
-         5
-         ghci> solveRPN "90 34 12 33 55 66 + * - +"
-         -3947
-         ghci> solveRPN "90 34 12 33 55 66 + * - + -"
-         4037
-         ghci> solveRPN "90 34 12 33 55 66 + * - + -"
-         4037
-         ghci> solveRPN "90 3 -"
-         87
+          ghci> solveRPN "10 4 3 + 2 * -"
+          -4
+          ghci> solveRPN "2 3 +"
+          5
+          ghci> solveRPN "90 34 12 33 55 66 + * - +"
+          -3947
+          ghci> solveRPN "90 34 12 33 55 66 + * - + -"
+          4037
+          ghci> solveRPN "90 34 12 33 55 66 + * - + -"
+          4037
+          ghci> solveRPN "90 3 -"
+          87
 
       Cool, it works! One nice thing about this function is that it can
       be easily modified to support various other operators. They don't
@@ -12238,6 +12292,11 @@
          -  `Table of contents <http://learnyouahaskell.com/chapters>`__
          -  `A Fistful of
             Monads <http://learnyouahaskell.com/a-fistful-of-monads>`__
+
+
+===============================================
+12. Functors, Applicative Functors and Monoids
+===============================================
 
       .. rubric:: Functors, Applicative Functors and Monoids
          :name: functors-applicative-functors-and-monoids
@@ -15114,6 +15173,11 @@
          -  `For a Few Monads
             More <http://learnyouahaskell.com/for-a-few-monads-more>`__
 
+
+========================
+13. A Fistful of Monads
+========================
+
       .. rubric:: A Fistful of Monads
          :name: a-fistful-of-monads
 
@@ -16839,6 +16903,11 @@
             Monads <http://learnyouahaskell.com/a-fistful-of-monads>`__
          -  `Table of contents <http://learnyouahaskell.com/chapters>`__
          -  `Zippers <http://learnyouahaskell.com/zippers>`__
+
+
+=========================
+14. For a Few Monads More
+=========================
 
       .. rubric:: For a Few Monads More
          :name: for-a-few-monads-more
@@ -19382,7 +19451,11 @@
          -  `For a Few Monads
             More <http://learnyouahaskell.com/for-a-few-monads-more>`__
          -  `Table of contents <http://learnyouahaskell.com/chapters>`__
-         -  
+
+
+===========
+15. Zippers
+===========
 
       .. rubric:: Zippers
          :name: zippers
@@ -20332,7 +20405,6 @@
          -  `For a Few Monads
             More <http://learnyouahaskell.com/for-a-few-monads-more>`__
          -  `Table of contents <http://learnyouahaskell.com/chapters>`__
-         -  
 
 .. |hi im chet| image:: http://learnyouahaskell.com/60sdude.png
    :class: right
