@@ -11,7 +11,7 @@
 -   Examples and Tests for SVG Animation http://hoffmann.bplaced.net/svgtest/
 -   https://github.com/upb-lea/Inkscape_electric_Symbols
 
-此教程《让世界多一份 Inkscape 教程：SVG 漫谈》，目的在于通过学习 SVG 文档规范，达到深入理解
+此教程《让世界多一份 Inkscape 教程：SVG 漫谈》，目的在于通过学习 SVG 规范文档，达到深入理解
 Inkscape 绘图工具的学习与熟练使用。
 
 Inkscape 早在 2003 年起源于 SodiPodi 软件，开发组内部的 4 位成员从其派生出的一个分支。
@@ -53,7 +53,7 @@ SVG 图形基本的着色属性有两个：`fill` 和 `stroke`，对应笔触、
     fill="aliceblue"            by color name
 
 这些基本的色彩绘制在图形之上，而图形的叠加还可以进行透明度混合（Alpha Compositing and Blending），
-这些与颜色处理相关的属性可以直接使用 style 样式属性指定，参考如下；
+这些与颜色处理相关的属性可以直接使用 style 样式属性指定，参考如下：
 
     opacity: 0.99;
     mix-blend-mode: darken;
@@ -863,18 +863,25 @@ SVG 标签的设计上，`<defs>` 提供一个符号定义专用场所，`<symbo
 
 
 描述性标签 `<metadata>` 是一个信息媒体元数据。
+[FOAF Vocabulary Specification](http://xmlns.com/foaf/spec/)
+[Resource Description Framework](https://www.w3.org/RDF/)
 
-FOAF，即Friend-of-a-Friend，简称FOAF。FOAF 是一种 XML/RDF 词汇表，它以计算机可读的形式描述您通常可能放在主 Web 页面上的个人信息之类的信息。
+FOAF (Friend-of-a-Friend) 是一种 RDF 词汇表规范，Web 页面用于规格化的形式表达描述性网络属性。
 FOAF 词汇表提供了一种管理社区内信息的有用方法。关于其他人的信息常常是最令人感兴趣的一类数据，而且 FOAF 实现了分散、机器可读和个人描述等需求。但在其自己的应用领域之外，FOAF 提供了用于研究有关构建语义 Web 的概念（链接、信任和起源的概念）的有用试验台。
 
-RDF 是一个框架，用来描述网络资源，诸如网页的标题、作者、修改日期、内容以及版权信息等。
+RDF（Resource Description Framework）是一个描述资源和资源之间网络关系的构架，诸如网页的标题、
+作者、修改日期、内容以及版权信息等。简单来说，每一条描述都是一个主谓宾三元组构成的短句，比如：
 
-万维网是一个描述资源和资源之间关系的网络。RDF（Resource Description Framework）从名字就可以看出来，是一种描述资源的方式。简单来说每一条描述都是一个主谓宾三元组构成的短句，比如：{ 苹果, 是, 公司 }, { 库克, 是, 人 }, { 苹果, CEO 是, 库克 }
+{ 苹果, 是, 公司 }, { 库克, 是, 人 }, { 苹果, CEO 是, 库克 } { 苹果, 是, 水果 }
 
+这里还有一个要处理的是三元组本身的歧义：，苹果是什么？描述用词本身不能有歧义，需要一个唯一表示。
+解决方法就是用 URI（Universal Resource Identifier）。一旦确定每个东西都有唯一表述方式，
+那么 RDF 三元组的形式就是 { URI, URI, URI }。
 
-这里还有一个要处理的是三元组本身的歧义：哪天又输入了一条 { 苹果, 是, 水果 }，那怎么办？这和我们之前的苹果不是一个货啊。我们描述的用词本身不能有歧义，有什么唯一表示的方法么？答案就是用 URI（Universal Resource Identifier）。一旦确定每个东西都有唯一表述方式，那么 RDF 三元组的形式就是 { URI, URI, URI } 了。
-
-RDF描述资源的格式由三部分构成：一个RDF图，有两个节点（主体和客体）和一个连接它们的谓词RDF 语句表示两个资源之间的关系。主语和宾语表示两种资源相关，谓词表示其性质关系。关系以方向性的方式表达（从主语到宾语），并在RDF中称为属性。因为 RDF 语句由三元素构成，所以也被称为三元组。每个三元组是一个语句，每个语句断言一个关于资源的事实。
+RDF 描述资源的格式由三部分构成：一个 RDF 图，两端两个节点分别是主体和客体。中间是连接它们的
+谓词 RDF 语句，表示两个资源主体之间的关系。主语和宾语表示两种资源相关，谓词表示其性质关系。
+关系以方向性的方式表达（从主语到宾语），并在 RDF 中称为属性。因为 RDF 语句由三元素构成，
+所以也被称为三元组。每个三元组是一个语句，每个语句断言一个关于资源的事实。
 
 
 SVG Animation
@@ -2002,7 +2009,9 @@ bpy.data.curves['Text']
 文字对象的模型是曲线，也就是说它没有形成面，材质也无法形成色块（曲面着色）。可以将其转换为 mesh 
 曲面，并在顶点之间填充形成曲面，然后设置材质颜色。或者使用发光材质，这种方法可以让曲线包围的区域
 发射出光的颜色，相当于是曲面着色。要使用文字对象获取所设置的颜色，就需要将环境光设置为黑色，并且
-将基本色和发光体颜色设置为相同的值，方法是使用
+将基本色和发光体颜色设置为相同的值。
+
+参考此[中国传统色卡 Blender 插件](../pictures/addon_chinese_traditional_colors.py)
 
 使用外部编辑可以提供 LSP 智能提示服务，需要在用户喜好设置界面指定外部编辑器，如果使用 Sublime
 Text 编辑器，那么就可以在 File Paths -> Applications -> Text Editor 配置面板中填写可

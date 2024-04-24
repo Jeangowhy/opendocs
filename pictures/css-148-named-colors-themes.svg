@@ -12,7 +12,9 @@
   // 为了执行 SVG 脚本交互，可以单独打开 SVG 图形文档，这样它就是单独在沙箱中执行。
   function copyColor(event) {
     target = event.target
-    if (target instanceof SVGCircleElement) {
+    const isColorCircle = target.nextElementSibling && 
+      target.nextElementSibling instanceof SVGTextElement
+    if (target instanceof SVGCircleElement && isColorCircle) {
       let cn = target.nextElementSibling
       let hx = cn.nextElementSibling
       setClipboard(cn.textContent.trimLeft() + hx.textContent.trim())
@@ -87,6 +89,46 @@
     vbox = document.querySelector(hash).getAttribute("viewBox")
     svg.setAttribute('viewBox', vbox);
   }
+
+  /**
+   * SVG dons't support canvas embedded if xmlns not specified:
+   * 
+   * <foreignObject width="600" height="260" >
+   *  <canvas id="2d" width="600" height="260" />
+   * </foreignObject>
+   * 
+   * document.getElementById("2d").constructor == ƒ HTMLCanvasElement()
+   * document.createElement("canvas").constructor == ƒ Element()
+   */
+  function draw(evt) {
+    canvas = document.createElementNS("http://www.w3.org/1999/xhtml", "canvas")
+    document.getElementById("fo").prepend(canvas)
+    //canvas = document.getElementById("2d")
+    canvas.width = 1200
+    canvas.height = 520
+    let ctx
+    try {
+      ctx = canvas.getContext("2d");
+    } finally {
+      if (null == ctx) {
+        return console.log({ctx}, canvas.constructor)
+      }
+    }
+    const img = new Image();
+    img.width = 1200
+    img.height = 520
+    img.onload = () => {
+      ctx.drawImage(img, 0, 0, 1200, 520);
+      //canvas.toDataURL()
+      //document.removeChild(canvas)
+    };
+    img.src = "css-148-named-colors-themes.svg#red-theme";
+    img.src = "css-148-named-colors-themes.svg"+location.hash;
+    location.hash = '#image'
+    evt.preventDefault()
+    evt.stopPropagation()
+    evt.cancelBubble = true
+  }
   // ]]>
   </script>
   <style>
@@ -96,9 +138,18 @@
     text.cn { font-size:14px; font-weight: bold; fill: #282828 }
     circle { stroke: #282828cc; cursor: pointer; }
   </style>
+
+  <view id="image" viewBox="0 -520 1200 520" />
+  <foreignObject id="fo" x="0" y="-520" width="1200" height="520" >
+    <!-- <canvas id="2d" width="600" height="260" xmlns="http://www.w3.org/1999/xhtml" /> -->
+  </foreignObject>
+
   <view id="dark-theme" viewBox="0 0 600 260" />
   <g transform="translate(0 0)" class="dark-theme">
     <rect width="600" height="260" fill="navajowhite" rx="2" />
+    <a xlink:title="download image">
+      <circle cx="16" cy="16" r="8" fill="#363636" stroke="none" onclick="draw(event)" />
+    </a>
     <rect x="2" y="32" width="596" height="226" fill="black" rx="4" >
       <animate class="maniboard" attributeName="fill" dur="2.5" 
         to="black" additive="replace" accumulate="sum" fill="freeze" />
@@ -167,6 +218,7 @@
   <view id="light-theme" viewBox="0 260 600 260" />
   <g transform="translate(0 260)">
     <rect width="600" height="260" fill="navajowhite" rx="2" />
+    <circle cx="16" cy="16" r="8" fill="#363636" stroke="none" onclick="draw(event)" />
     <rect x="2" y="32" width="596" height="226" fill="ivory" rx="4" >
       <animate class="maniboard" attributeName="fill" dur="2.5" 
         to="ivory" additive="replace" accumulate="sum" fill="freeze" />
@@ -234,7 +286,8 @@
   
   <view id="red-theme" viewBox="0 520 600 260" />
   <g transform="translate(0 520)">
-    <rect width="600" height="260" fill="navajowhite" rx="2" />
+    <rect width="600" height="536" fill="navajowhite" rx="2" />
+    <circle cx="16" cy="16" r="8" fill="#363636" stroke="none" onclick="draw(event)" />
     <rect x="2" y="32" width="596" height="226" fill="crimson" rx="4" >
       <animate class="maniboard" attributeName="fill" dur="2.5" 
         to="crimson" additive="replace" accumulate="sum" fill="freeze" />
@@ -303,6 +356,7 @@
   <view id="yellow-theme" viewBox="0 780 600 260" />
   <g transform="translate(0 780)">
     <rect width="600" height="260" fill="navajowhite" rx="2" />
+    <circle cx="16" cy="16" r="8" fill="#363636" stroke="none" onclick="draw(event)" />
     <rect x="2" y="32" width="596" height="226" fill="gold" rx="4" >
       <animate class="maniboard" attributeName="fill" dur="2.5" 
         to="gold" additive="replace" accumulate="sum" fill="freeze" />
@@ -371,6 +425,7 @@
   <view id="green-theme" viewBox="0 1040 600 260" />
   <g transform="translate(0 1040)">
     <rect width="600" height="260" fill="navajowhite" rx="2" />
+    <circle cx="16" cy="16" r="8" fill="#363636" stroke="none" onclick="draw(event)" />
     <rect x="2" y="32" width="596" height="226" fill="darkgreen" rx="4" >
       <animate class="maniboard" attributeName="fill" dur="2.5" 
         to="darkgreen" additive="replace" accumulate="sum" fill="freeze" />
@@ -439,6 +494,7 @@
   <view id="cyan-theme" viewBox="0 1300 600 260" />
   <g transform="translate(0 1300)">
     <rect width="600" height="260" fill="navajowhite" rx="2" />
+    <circle cx="16" cy="16" r="8" fill="#363636" stroke="none" onclick="draw(event)" />
     <rect x="2" y="32" width="596" height="226" fill="dodgerblue" rx="4" >
       <animate class="maniboard" attributeName="fill" dur="2.5" 
         to="dodgerblue" additive="replace" accumulate="sum" fill="freeze" />
@@ -507,6 +563,7 @@
   <view id="blue-theme" viewBox="0 1560 600 260" />
   <g transform="translate(0 1560)">
     <rect width="600" height="260" fill="navajowhite" rx="2" />
+    <circle cx="16" cy="16" r="8" fill="#363636" stroke="none" onclick="draw(event)" />
     <rect x="2" y="32" width="596" height="226" fill="darkblue" rx="4" >
       <animate class="maniboard" attributeName="fill" dur="2.5" 
         to="darkblue" additive="replace" accumulate="sum" fill="freeze" />
@@ -575,6 +632,7 @@
   <view id="violet-theme" viewBox="0 1820 600 260" />
   <g transform="translate(0 1820)">
     <rect width="600" height="260" fill="navajowhite" rx="2" />
+    <circle cx="16" cy="16" r="8" fill="#363636" stroke="none" onclick="draw(event)" />
     <rect x="2" y="32" width="596" height="226" fill="slateblue" rx="4" >
       <animate class="maniboard" attributeName="fill" dur="2.5" 
         to="slateblue" additive="replace" accumulate="sum" fill="freeze" />
@@ -640,7 +698,9 @@
         Blue theme Blue theme Blue theme Blue theme </text>
   </g>
 
+
   <circle cx="0" cy="0" r="0" stroke="gray" fill="transparent" id="aniclick" />
   <animate id="mani" xlink:href="#aniclick" attributeName="r" 
       dur="0.31s" begin="indefinite" from="0" to="32" repeatCount="1" />
+
 </svg>
