@@ -861,6 +861,7 @@ SVG 标签的设计上，`<defs>` 提供一个符号定义专用场所，`<symbo
 
 另外，`<use>` 标签不能实例化 `<symbol>` 内部引用的其它符号，符号标签还涉及 viewport 问题。
 
+Inkscape 用户符号目录下的 SVG 定义的符号会自动导入，可以修改 User Symbols 目录位置。
 
 描述性标签 `<metadata>` 是一个信息媒体元数据。
 [FOAF Vocabulary Specification](http://xmlns.com/foaf/spec/)
@@ -929,7 +930,7 @@ SVG 动画是典型的 Motion Graph，相比传统的逐帧绘制的动画，SVG
 SMIL 3.0 动画规范定义了两种动画模型：
 
 *   `BasicAnimation` 基于坐标点序列的动画，使用 discrete, linear, paced 三种插值方式。
-*   `SplineAnimation` 基于样条的动画，扩展了以上有一种插值方式，提供更多的插值、时序的控制。
+*   `SplineAnimation` 基于样条的动画，扩展了以上这种插值方式，提供更多的插值、时序的控制。
 
 SVG 动画函数表达就是一个时间相关的线性函数，如下两种动画参数对应的函数表达，其中时间 t 单位用秒：
 

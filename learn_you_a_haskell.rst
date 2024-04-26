@@ -23,6 +23,12 @@
 
    exit
 
+.. _toc:
+
+====================================
+Learn You a Haskell for Great Good!
+====================================
+
 .. container:: bgwrapper
 
    .. container::
@@ -31,121 +37,121 @@
       .. rubric:: Learn You a Haskell for Great Good!
          :name: learn-you-a-haskell-for-great-good
 
-      #. `Introduction <http://learnyouahaskell.com/introduction>`__
+      #. `Introduction <#sec_1>`__
 
-         -  `About this tutorial <http://learnyouahaskell.com/introduction#about-this-tutorial>`__
-         -  `So what's Haskell? <http://learnyouahaskell.com/introduction#so-whats-haskell>`__
-         -  `What you need to dive in <http://learnyouahaskell.com/introduction#what-you-need>`__
+         -  `About this tutorial <#about-this-tutorial>`__
+         -  `So what's Haskell? <#so-whats-haskell>`__
+         -  `What you need to dive in <#what-you-need>`__
 
-      #. `Starting Out <http://learnyouahaskell.com/starting-out>`__
+      #. `Starting Out <#sec_2>`__
 
-         -  `Ready, set, go! <http://learnyouahaskell.com/starting-out#ready-set-go>`__
-         -  `Baby's first functions <http://learnyouahaskell.com/starting-out#babys-first-functions>`__
-         -  `An intro to lists <http://learnyouahaskell.com/starting-out#an-intro-to-lists>`__
-         -  `Texas ranges <http://learnyouahaskell.com/starting-out#texas-ranges>`__
-         -  `I'm a list comprehension <http://learnyouahaskell.com/starting-out#im-a-list-comprehension>`__
-         -  `Tuples <http://learnyouahaskell.com/starting-out#tuples>`__
+         -  `Ready, set, go! <#ready-set-go>`__
+         -  `Baby's first functions <#babys-first-functions>`__
+         -  `An intro to lists <#an-intro-to-lists>`__
+         -  `Texas ranges <#texas-ranges>`__
+         -  `I'm a list comprehension <#im-a-list-comprehension>`__
+         -  `Tuples <#tuples>`__
 
-      #. `Types and Typeclasses <http://learnyouahaskell.com/types-and-typeclasses>`__
+      #. `Types and Typeclasses <#sec_4>`__
 
-         -  `Believe the type <http://learnyouahaskell.com/types-and-typeclasses#believe-the-type>`__
-         -  `Type variables <http://learnyouahaskell.com/types-and-typeclasses#type-variables>`__
-         -  `Typeclasses 101 <http://learnyouahaskell.com/types-and-typeclasses#typeclasses-101>`__
+         -  `Believe the type <#believe-the-type>`__
+         -  `Type variables <#type-variables>`__
+         -  `Typeclasses 101 <#typeclasses-101>`__
 
-      #. `Syntax in Functions <http://learnyouahaskell.com/syntax-in-functions>`__
+      #. `Syntax in Functions <#sec_5>`__
 
-         -  `Pattern matching <http://learnyouahaskell.com/syntax-in-functions#pattern-matching>`__
-         -  `Guards, guards! <http://learnyouahaskell.com/syntax-in-functions#guards-guards>`__
-         -  `Where!? <http://learnyouahaskell.com/syntax-in-functions#where>`__
-         -  `Let it be <http://learnyouahaskell.com/syntax-in-functions#let-it-be>`__
-         -  `Case expressions <http://learnyouahaskell.com/syntax-in-functions#case-expressions>`__
+         -  `Pattern matching <#pattern-matching>`__
+         -  `Guards, guards! <#guards-guards>`__
+         -  `Where!? <#where>`__
+         -  `Let it be <#let-it-be>`__
+         -  `Case expressions <#case-expressions>`__
 
-      #. `Recursion <http://learnyouahaskell.com/recursion>`__
+      #. `Recursion <#sec_6>`__
 
-         -  `Hello recursion! <http://learnyouahaskell.com/recursion#hello-recursion>`__
-         -  `Maximum awesome <http://learnyouahaskell.com/recursion#maximum-awesome>`__
-         -  `A few more recursive functions <http://learnyouahaskell.com/recursion#a-few-more-recursive-functions>`__
-         -  `Quick, sort! <http://learnyouahaskell.com/recursion#quick-sort>`__
-         -  `Thinking recursively <http://learnyouahaskell.com/recursion#thinking-recursively>`__
+         -  `Hello recursion! <#hello-recursion>`__
+         -  `Maximum awesome <#maximum-awesome>`__
+         -  `A few more recursive functions <#a-few-more-recursive-functions>`__
+         -  `Quick, sort! <#quick-sort>`__
+         -  `Thinking recursively <#thinking-recursively>`__
 
-      #. `Higher Order Functions <http://learnyouahaskell.com/higher-order-functions>`__
+      #. `Higher Order Functions <#sec_7>`__
 
-         -  `Curried functions <http://learnyouahaskell.com/higher-order-functions#curried-functions>`__
-         -  `Some higher-orderism is in order <http://learnyouahaskell.com/higher-order-functions#higher-orderism>`__
-         -  `Maps and filters <http://learnyouahaskell.com/higher-order-functions#maps-and-filters>`__
-         -  `Lambdas <http://learnyouahaskell.com/higher-order-functions#lambdas>`__
-         -  `Only folds and horses <http://learnyouahaskell.com/higher-order-functions#folds>`__
-         -  `Function application with $ <http://learnyouahaskell.com/higher-order-functions#function-application>`__
-         -  `Function composition <http://learnyouahaskell.com/higher-order-functions#composition>`__
+         -  `Curried functions <#curried-functions>`__
+         -  `Some higher-orderism is in order <#higher-orderism>`__
+         -  `Maps and filters <#maps-and-filters>`__
+         -  `Lambdas <#lambdas>`__
+         -  `Only folds and horses <#folds>`__
+         -  `Function application with $ <#function-application>`__
+         -  `Function composition <#composition>`__
 
-      #. `Modules <http://learnyouahaskell.com/modules>`__
+      #. `Modules <#sec_8>`__
 
-         -  `Loading modules <http://learnyouahaskell.com/modules#loading-modules>`__
-         -  `Data.List <http://learnyouahaskell.com/modules#data-list>`__
-         -  `Data.Char <http://learnyouahaskell.com/modules#data-char>`__
-         -  `Data.Map <http://learnyouahaskell.com/modules#data-map>`__
-         -  `Data.Set <http://learnyouahaskell.com/modules#data-set>`__
-         -  `Making our own modules <http://learnyouahaskell.com/modules#making-our-own-modules>`__
+         -  `Loading modules <#loading-modules>`__
+         -  `Data.List <#data-list>`__
+         -  `Data.Char <#data-char>`__
+         -  `Data.Map <#data-map>`__
+         -  `Data.Set <#data-set>`__
+         -  `Making our own modules <#making-our-own-modules>`__
 
-      #. `Making Our Own Types and Typeclasses <http://learnyouahaskell.com/making-our-own-types-and-typeclasses>`__
+      #. `Making Our Own Types and Typeclasses <#sec_9>`__
 
-         -  `Algebraic data types intro <http://learnyouahaskell.com/making-our-own-types-and-typeclasses#algebraic-data-types>`__
-         -  `Record syntax <http://learnyouahaskell.com/making-our-own-types-and-typeclasses#record-syntax>`__
-         -  `Type parameters <http://learnyouahaskell.com/making-our-own-types-and-typeclasses#type-parameters>`__
-         -  `Derived instances <http://learnyouahaskell.com/making-our-own-types-and-typeclasses#derived-instances>`__
-         -  `Type synonyms <http://learnyouahaskell.com/making-our-own-types-and-typeclasses#type-synonyms>`__
-         -  `Recursive data structures <http://learnyouahaskell.com/making-our-own-types-and-typeclasses#recursive-data-structures>`__
-         -  `Typeclasses 102 <http://learnyouahaskell.com/making-our-own-types-and-typeclasses#typeclasses-102>`__
-         -  `A yes-no typeclass <http://learnyouahaskell.com/making-our-own-types-and-typeclasses#a-yes-no-typeclass>`__
-         -  `The Functor typeclass <http://learnyouahaskell.com/making-our-own-types-and-typeclasses#the-functor-typeclass>`__
-         -  `Kinds and some type-foo <http://learnyouahaskell.com/making-our-own-types-and-typeclasses#kinds-and-some-type-foo>`__
+         -  `Algebraic data types intro <#algebraic-data-types>`__
+         -  `Record syntax <#record-syntax>`__
+         -  `Type parameters <#type-parameters>`__
+         -  `Derived instances <#derived-instances>`__
+         -  `Type synonyms <#type-synonyms>`__
+         -  `Recursive data structures <#recursive-data-structures>`__
+         -  `Typeclasses 102 <#typeclasses-102>`__
+         -  `A yes-no typeclass <#a-yes-no-typeclass>`__
+         -  `The Functor typeclass <#the-functor-typeclass>`__
+         -  `Kinds and some type-foo <#kinds-and-some-type-foo>`__
 
-      #. `Input and Output <http://learnyouahaskell.com/input-and-output>`__
+      #. `Input and Output <#sec_10>`__
 
-         -  `Hello, world! <http://learnyouahaskell.com/input-and-output#hello-world>`__
-         -  `Files and streams <http://learnyouahaskell.com/input-and-output#files-and-streams>`__
-         -  `Command line arguments <http://learnyouahaskell.com/input-and-output#command-line-arguments>`__
-         -  `Randomness <http://learnyouahaskell.com/input-and-output#randomness>`__
-         -  `Bytestrings <http://learnyouahaskell.com/input-and-output#bytestrings>`__
-         -  `Exceptions <http://learnyouahaskell.com/input-and-output#exceptions>`__
+         -  `Hello, world! <#hello-world>`__
+         -  `Files and streams <#files-and-streams>`__
+         -  `Command line arguments <#command-line-arguments>`__
+         -  `Randomness <#randomness>`__
+         -  `Bytestrings <#bytestrings>`__
+         -  `Exceptions <#exceptions>`__
 
-      #. `Functionally Solving Problems <http://learnyouahaskell.com/functionally-solving-problems>`__
+      #. `Functionally Solving Problems <#sec_11>`__
 
-         -  `Reverse Polish notation calculator <http://learnyouahaskell.com/functionally-solving-problems#reverse-polish-notation-calculator>`__
-         -  `Heathrow to London <http://learnyouahaskell.com/functionally-solving-problems#heathrow-to-london>`__
+         -  `Reverse Polish notation calculator <#reverse-polish-notation-calculator>`__
+         -  `Heathrow to London <#heathrow-to-london>`__
 
-      #. `Functors, Applicative Functors and Monoids <http://learnyouahaskell.com/functors-applicative-functors-and-monoids>`__
+      #. `Functors, Applicative Functors and Monoids <#sec_12>`__
 
-         -  `Functors redux <http://learnyouahaskell.com/functors-applicative-functors-and-monoids#functors-redux>`__
-         -  `Applicative functors <http://learnyouahaskell.com/functors-applicative-functors-and-monoids#applicative-functors>`__
-         -  `The newtype keyword <http://learnyouahaskell.com/functors-applicative-functors-and-monoids#the-newtype-keyword>`__
-         -  `Monoids <http://learnyouahaskell.com/functors-applicative-functors-and-monoids#monoids>`__
+         -  `Functors redux <#functors-redux>`__
+         -  `Applicative functors <#applicative-functors>`__
+         -  `The newtype keyword <#the-newtype-keyword>`__
+         -  `Monoids <#monoids>`__
 
-      #. `A Fistful of Monads <http://learnyouahaskell.com/a-fistful-of-monads>`__
+      #. `A Fistful of Monads <#sec_13>`__
 
-         -  `Getting our feet wet with Maybe <http://learnyouahaskell.com/a-fistful-of-monads#getting-our-feet-wet-with-maybe>`__
-         -  `The Monad type class <http://learnyouahaskell.com/a-fistful-of-monads#the-monad-type-class>`__
-         -  `Walk the line <http://learnyouahaskell.com/a-fistful-of-monads#walk-the-line>`__
-         -  `do notation <http://learnyouahaskell.com/a-fistful-of-monads#do-notation>`__
-         -  `The list monad <http://learnyouahaskell.com/a-fistful-of-monads#the-list-monad>`__
-         -  `Monad laws <http://learnyouahaskell.com/a-fistful-of-monads#monad-laws>`__
+         -  `Getting our feet wet with Maybe <#getting-our-feet-wet-with-maybe>`__
+         -  `The Monad type class <#the-monad-type-class>`__
+         -  `Walk the line <#walk-the-line>`__
+         -  `do notation <#do-notation>`__
+         -  `The list monad <#the-list-monad>`__
+         -  `Monad laws <#monad-laws>`__
 
-      #. `For a Few Monads More <http://learnyouahaskell.com/for-a-few-monads-more>`__
+      #. `For a Few Monads More <#sec_14>`__
 
-         -  `Writer? I hardly know her! <http://learnyouahaskell.com/for-a-few-monads-more#writer>`__
-         -  `Reader? Ugh, not this joke again. <http://learnyouahaskell.com/for-a-few-monads-more#reader>`__
-         -  `Tasteful stateful computations <http://learnyouahaskell.com/for-a-few-monads-more#state>`__
-         -  `Error error on the wall <http://learnyouahaskell.com/for-a-few-monads-more#error>`__
-         -  `Some useful monadic functions <http://learnyouahaskell.com/for-a-few-monads-more#useful-monadic-functions>`__
-         -  `Making monads <http://learnyouahaskell.com/for-a-few-monads-more#making-monads>`__
+         -  `Writer? I hardly know her! <#writer>`__
+         -  `Reader? Ugh, not this joke again. <#reader>`__
+         -  `Tasteful stateful computations <#state>`__
+         -  `Error error on the wall <#error>`__
+         -  `Some useful monadic functions <#useful-monadic-functions>`__
+         -  `Making monads <#making-monads>`__
 
-      #. `Zippers <http://learnyouahaskell.com/zippers>`__
+      #. `Zippers <#sec_15>`__
 
-         -  `Taking a walk <http://learnyouahaskell.com/zippers#taking-a-walk>`__
-         -  `A trail of breadcrumbs <http://learnyouahaskell.com/zippers#a-trail-of-breadcrumbs>`__
-         -  `Focusing on lists <http://learnyouahaskell.com/zippers#focusing-on-lists>`__
-         -  `A very simple file system <http://learnyouahaskell.com/zippers#a-very-simple-file-system>`__
-         -  `Watch your step <http://learnyouahaskell.com/zippers#watch-your-step>`__
+         -  `Taking a walk <#taking-a-walk>`__
+         -  `A trail of breadcrumbs <#a-trail-of-breadcrumbs>`__
+         -  `Focusing on lists <#focusing-on-lists>`__
+         -  `A very simple file system <#a-very-simple-file-system>`__
+         -  `Watch your step <#watch-your-step>`__
 
       This work is licensed under a 
       `Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License <http://creativecommons.org/licenses/by-nc-sa/3.0/>`__
@@ -159,8 +165,10 @@
       .. container:: footdiv
 
          -  `Table of contents <http://learnyouahaskell.com/chapters>`__
-         -  `Starting Out <http://learnyouahaskell.com/starting-out>`__
+         -  `Starting Out <#sec_2>`__
 
+
+.. _sec_1:
 
 ===============
 1. Introduction
@@ -322,8 +330,8 @@
 
       .. container:: footdiv
 
-         -  `Table of contents <http://learnyouahaskell.com/chapters>`__
-         -  `Starting Out <http://learnyouahaskell.com/starting-out>`__
+         -  `Table of contents <#toc>`__
+         -  `Starting Out <#sec_2>`__
 
 .. |bird| image:: http://s3.amazonaws.com/lyah/bird.png
    :class: left
@@ -341,6 +349,7 @@
    :class: right
    :width: 160px
    :height: 153px
+
 .. container:: bgwrapper
 
    .. container::
@@ -348,10 +357,12 @@
 
       .. container:: footdiv
 
-         -  `Introduction <http://learnyouahaskell.com/introduction>`__
-         -  `Table of contents <http://learnyouahaskell.com/chapters>`__
-         -  `Types and Typeclasses <http://learnyouahaskell.com/types-and-typeclasses>`__
+         -  `Introduction <#sec_1>`__
+         -  `Table of contents <#toc>`__
+         -  `Types and Typeclasses <#sec_4>`__
 
+
+.. _sec_2:
 
 ===============
 2. Starting Out
@@ -633,6 +644,7 @@
                                  else x*2 
 
       |this is you|
+
       Right here we introduced Haskell's if statement. You're probably
       familiar with if statements from other languages. The difference
       between Haskell's if statement and if statements in imperative
@@ -951,8 +963,10 @@
 
       Those were a few basic functions that operate on lists. We'll take
       a look at more list functions
-      `later <http://learnyouahaskell.com/modules#data-list>`__
+      `later <#data-list>`__
 
+
+.. _sec_3:
 
 ================
 3. Texas ranges
@@ -1381,10 +1395,10 @@
 
       .. container:: footdiv
 
-         -  `Introduction <http://learnyouahaskell.com/introduction>`__
-         -  `Table of contents <http://learnyouahaskell.com/chapters>`__
+         -  `Introduction <#sec_1>`__
+         -  `Table of contents <#toc>`__
          -  `Types and
-            Typeclasses <http://learnyouahaskell.com/types-and-typeclasses>`__
+            Typeclasses <#sec_4>`__
 
 .. |egg| image:: http://s3.amazonaws.com/lyah/startingout.png
    :class: right
@@ -1430,10 +1444,12 @@
 
       .. container:: footdiv
 
-         -  `Starting Out <http://learnyouahaskell.com/starting-out>`__
-         -  `Table of contents <http://learnyouahaskell.com/chapters>`__
-         -  `Syntax in Functions <http://learnyouahaskell.com/syntax-in-functions>`__
+         -  `Starting Out <#sec_2>`__
+         -  `Table of contents <#toc>`__
+         -  `Syntax in Functions <#sec_5>`__
 
+
+.. _sec_4:
 
 ========================
 4. Types and Typeclasses
@@ -1925,10 +1941,10 @@
 
       .. container:: footdiv
 
-         -  `Starting Out <http://learnyouahaskell.com/starting-out>`__
-         -  `Table of contents <http://learnyouahaskell.com/chapters>`__
+         -  `Starting Out <#sec_2>`__
+         -  `Table of contents <#toc>`__
          -  `Syntax in
-            Functions <http://learnyouahaskell.com/syntax-in-functions>`__
+            Functions <#sec_5>`__
 
 .. |moo| image:: http://s3.amazonaws.com/lyah/cow.png
    :class: left
@@ -1954,10 +1970,12 @@
       .. container:: footdiv
 
          -  `Types and
-            Typeclasses <http://learnyouahaskell.com/types-and-typeclasses>`__
-         -  `Table of contents <http://learnyouahaskell.com/chapters>`__
-         -  `Recursion <http://learnyouahaskell.com/recursion>`__
+            Typeclasses <#sec_4>`__
+         -  `Table of contents <#toc>`__
+         -  `Recursion <#sec_6>`__
 
+
+.. _sec_5:
 
 =======================
 5. Syntax in Functions
@@ -2704,26 +2722,27 @@
       .. container:: footdiv
 
          -  `Types and
-            Typeclasses <http://learnyouahaskell.com/types-and-typeclasses>`__
-         -  `Table of contents <http://learnyouahaskell.com/chapters>`__
-         -  `Recursion <http://learnyouahaskell.com/recursion>`__
+            Typeclasses <#sec_4>`__
+         -  `Table of contents <#toc>`__
+         -  `Recursion <#sec_6>`__
 
-.. |four!| image:: http://s3.amazonaws.com/lyah/pattern.png
-   :class: right
-   :width: 162px
-   :height: 250px
-.. |guards| image:: http://s3.amazonaws.com/lyah/guards.png
-   :class: left
-   :width: 83px
-   :height: 180px
-.. |let it be| image:: http://s3.amazonaws.com/lyah/letitbe.png
-   :class: right
-   :width: 215px
-   :height: 240px
-.. |case| image:: http://s3.amazonaws.com/lyah/case.png
-   :class: right
-   :width: 185px
-   :height: 164px
+      .. |four!| image:: http://s3.amazonaws.com/lyah/pattern.png
+         :class: right
+         :width: 162px
+         :height: 250px
+      .. |guards| image:: http://s3.amazonaws.com/lyah/guards.png
+         :class: left
+         :width: 83px
+         :height: 180px
+      .. |let it be| image:: http://s3.amazonaws.com/lyah/letitbe.png
+         :class: right
+         :width: 215px
+         :height: 240px
+      .. |case| image:: http://s3.amazonaws.com/lyah/case.png
+         :class: right
+         :width: 185px
+         :height: 164px
+
 .. container:: bgwrapper
 
    .. container::
@@ -2732,11 +2751,13 @@
       .. container:: footdiv
 
          -  `Syntax in
-            Functions <http://learnyouahaskell.com/syntax-in-functions>`__
-         -  `Table of contents <http://learnyouahaskell.com/chapters>`__
+            Functions <#sec_5>`__
+         -  `Table of contents <#toc>`__
          -  `Higher Order
-            Functions <http://learnyouahaskell.com/higher-order-functions>`__
+            Functions <#sec_7>`__
 
+
+.. _sec_6:
 
 ============
 6. Recursion
@@ -3118,10 +3139,10 @@
       .. container:: footdiv
 
          -  `Syntax in
-            Functions <http://learnyouahaskell.com/syntax-in-functions>`__
-         -  `Table of contents <http://learnyouahaskell.com/chapters>`__
+            Functions <#sec_5>`__
+         -  `Table of contents <#toc>`__
          -  `Higher Order
-            Functions <http://learnyouahaskell.com/higher-order-functions>`__
+            Functions <#sec_7>`__
 
 .. |SOVIET RUSSIA| image:: http://s3.amazonaws.com/lyah/recursion.png
    :class: left
@@ -3154,10 +3175,12 @@
 
       .. container:: footdiv
 
-         -  `Recursion <http://learnyouahaskell.com/recursion>`__
-         -  `Table of contents <http://learnyouahaskell.com/chapters>`__
-         -  `Modules <http://learnyouahaskell.com/modules>`__
+         -  `Recursion <#sec_6>`__
+         -  `Table of contents <#toc>`__
+         -  `Modules <#sec_8>`__
 
+
+.. _sec_7:
 
 ==========================
 7. Higher order functions
@@ -3575,7 +3598,7 @@
       joining the predicates with the logical && function.
 
       Remember our quicksort function from the `previous
-      chapter <http://learnyouahaskell.com/recursion>`__? We used list
+      chapter <#sec_6>`__? We used list
       comprehensions to filter out the list elements that are smaller
       than (or equal to) and larger than the pivot. We can achieve the
       same functionality in a more readable way by using filter:
@@ -4320,9 +4343,9 @@
 
       .. container:: footdiv
 
-         -  `Recursion <http://learnyouahaskell.com/recursion>`__
-         -  `Table of contents <http://learnyouahaskell.com/chapters>`__
-         -  `Modules <http://learnyouahaskell.com/modules>`__
+         -  `Recursion <#sec_6>`__
+         -  `Table of contents <#toc>`__
+         -  `Modules <#sec_8>`__
 
 .. |sun| image:: http://s3.amazonaws.com/lyah/sun.png
    :class: right
@@ -4377,11 +4400,13 @@
       .. container:: footdiv
 
          -  `Higher Order
-            Functions <http://learnyouahaskell.com/higher-order-functions>`__
-         -  `Table of contents <http://learnyouahaskell.com/chapters>`__
+            Functions <#sec_7>`__
+         -  `Table of contents <#toc>`__
          -  `Making Our Own Types and
-            Typeclasses <http://learnyouahaskell.com/making-our-own-types-and-typeclasses>`__
+            Typeclasses <#sec_9>`__
 
+
+.. _sec_8:
 
 ==========
 8. Modules
@@ -6049,10 +6074,10 @@
       .. container:: footdiv
 
          -  `Higher Order
-            Functions <http://learnyouahaskell.com/higher-order-functions>`__
-         -  `Table of contents <http://learnyouahaskell.com/chapters>`__
+            Functions <#sec_7>`__
+         -  `Table of contents <#toc>`__
          -  `Making Our Own Types and
-            Typeclasses <http://learnyouahaskell.com/making-our-own-types-and-typeclasses>`__
+            Typeclasses <#sec_9>`__
 
 .. |modules| image:: http://s3.amazonaws.com/lyah/modules.png
    :class: right
@@ -6085,11 +6110,13 @@
 
       .. container:: footdiv
 
-         -  `Modules <http://learnyouahaskell.com/modules>`__
-         -  `Table of contents <http://learnyouahaskell.com/chapters>`__
+         -  `Modules <#sec_8>`__
+         -  `Table of contents <#toc>`__
          -  `Input and
-            Output <http://learnyouahaskell.com/input-and-output>`__
+            Output <#sec_10>`__
 
+
+.. _sec_9:
 
 ========================================
 9. Making Our Own Types and Typeclasses
@@ -6722,8 +6749,7 @@
          :name: derived-instances
 
       |gob|
-      In the `Typeclasses
-      101 <http://learnyouahaskell.com/types-and-typeclasses#typeclasses-101>`__
+      In the `Typeclasses 101 <#typeclasses-101>`__
       section, we explained the basics of typeclasses. We explained that
       a typeclass is a sort of an interface that defines some behavior.
       A type can be made an *instance* of a typeclass if it supports
@@ -8444,10 +8470,9 @@
 
       .. container:: footdiv
 
-         -  `Modules <http://learnyouahaskell.com/modules>`__
-         -  `Table of contents <http://learnyouahaskell.com/chapters>`__
-         -  `Input and
-            Output <http://learnyouahaskell.com/input-and-output>`__
+         -  `Modules <#sec_8>`__
+         -  `Table of contents <#toc>`__
+         -  `Input and Output <#sec_10>`__
 
 .. |caveman| image:: http://s3.amazonaws.com/lyah/caveman.png
    :class: left
@@ -8504,12 +8529,12 @@
 
       .. container:: footdiv
 
-         -  `Making Our Own Types and
-            Typeclasses <http://learnyouahaskell.com/making-our-own-types-and-typeclasses>`__
-         -  `Table of contents <http://learnyouahaskell.com/chapters>`__
-         -  `Functionally Solving
-            Problems <http://learnyouahaskell.com/functionally-solving-problems>`__
+         -  `Making Our Own Types and Typeclasses <#sec_9>`__
+         -  `Table of contents <#toc>`__
+         -  `Functionally Solving Problems <#sec_11>`__
 
+
+.. _sec_10:
 
 =====================
 10. Input and Output
@@ -8797,7 +8822,7 @@
 
       Remember *let* bindings? If you don't, refresh your memory on them
       by reading `this
-      section <http://learnyouahaskell.com/syntax-in-functions#let-it-be>`__.
+      section <#let-it-be>`__.
       They have to be in the form of let *bindings* in *expression*,
       where *bindings* are names to be given to expressions and
       *expression* is the expression that is to be evaluated that sees
@@ -9680,7 +9705,7 @@
       result.
 
       FilePath is just a `type
-      synonym <http://learnyouahaskell.com/making-our-own-types-and-typeclasses#type-synonyms>`__
+      synonym <#type-synonyms>`__
       for String, simply defined as:
 
       .. code:: haskell:hs
@@ -11297,7 +11322,7 @@
       meaning it has a type of isDoesNotExistError :: IOError -> Bool.
       We use it on the exception that gets passed to our handler to see
       if it's an error caused by a file not existing. We use
-      `guard <http://learnyouahaskell.com/syntax-in-functions#guards-guards>`__
+      `guard <#guards-guards>`__
       syntax here, but we could have also used an *if else*. If it's not
       caused by a file not existing, we re-throw the exception that was
       passed by the handler with the ioError function. It has a type of
@@ -11427,10 +11452,10 @@
       .. container:: footdiv
 
          -  `Making Our Own Types and
-            Typeclasses <http://learnyouahaskell.com/making-our-own-types-and-typeclasses>`__
-         -  `Table of contents <http://learnyouahaskell.com/chapters>`__
+            Typeclasses <#sec_9>`__
+         -  `Table of contents <#toc>`__
          -  `Functionally Solving
-            Problems <http://learnyouahaskell.com/functionally-solving-problems>`__
+            Problems <#sec_11>`__
 
 .. |poor dog| image:: http://s3.amazonaws.com/lyah/dognap.png
    :class: right
@@ -11496,11 +11521,13 @@
       .. container:: footdiv
 
          -  `Input and
-            Output <http://learnyouahaskell.com/input-and-output>`__
-         -  `Table of contents <http://learnyouahaskell.com/chapters>`__
+            Output <#sec_10>`__
+         -  `Table of contents <#toc>`__
          -  `Functors, Applicative Functors and
-            Monoids <http://learnyouahaskell.com/functors-applicative-functors-and-monoids>`__
+            Monoids <#sec_12>`__
 
+
+.. _sec_11:
 
 =================================
 11. Functionally Solving Problems
@@ -11594,7 +11621,7 @@
       went over it from left to right and kept a stack as we did that.
       Does the previous sentence remind you of anything? Remember, in
       the section about
-      `folds <http://learnyouahaskell.com/higher-order-functions/#folds>`__,
+      `folds <#folds>`__,
       we said that pretty much any function where you traverse a list
       from left to right or right to left one element by element and
       build up (accumulate) some result (whether it's a number, a list,
@@ -11642,7 +11669,7 @@
       new stack [3,4,10]. If the stack is [4,10] and the item "\*", then
       it will have to return [40]. But before that, let's turn our
       function into `point-free
-      style <http://learnyouahaskell.com/higher-order-functions#composition>`__
+      style <#composition>`__
       because it has a lot of parentheses that are kind of freaking me
       out:
 
@@ -12255,10 +12282,10 @@
       .. container:: footdiv
 
          -  `Input and
-            Output <http://learnyouahaskell.com/input-and-output>`__
-         -  `Table of contents <http://learnyouahaskell.com/chapters>`__
+            Output <#sec_10>`__
+         -  `Table of contents <#toc>`__
          -  `Functors, Applicative Functors and
-            Monoids <http://learnyouahaskell.com/functors-applicative-functors-and-monoids>`__
+            Monoids <#sec_12>`__
 
 .. |this expression| image:: http://s3.amazonaws.com/lyah/rpn.png
    :class: center
@@ -12288,11 +12315,13 @@
       .. container:: footdiv
 
          -  `Functionally Solving
-            Problems <http://learnyouahaskell.com/functionally-solving-problems>`__
-         -  `Table of contents <http://learnyouahaskell.com/chapters>`__
+            Problems <#sec_11>`__
+         -  `Table of contents <#toc>`__
          -  `A Fistful of
-            Monads <http://learnyouahaskell.com/a-fistful-of-monads>`__
+            Monads <#sec_13>`__
 
+
+.. _sec_12:
 
 ===============================================
 12. Functors, Applicative Functors and Monoids
@@ -12333,7 +12362,7 @@
 
       |frogs dont even need money|
       We've already talked about functors in `their own little
-      section <http://learnyouahaskell.com/making-our-own-types-and-typeclasses#the-functor-typeclass>`__.
+      section <#the-functor-typeclass>`__.
       If you haven't read it yet, you should probably give it a glance
       right now, or maybe later when you have more time. Or you can just
       pretend you read it.
@@ -12598,7 +12627,7 @@
       we left it out here for brevity, because we're talking about
       functors anyway so we know what the f stands for. When we first
       learned about `curried
-      functions <http://learnyouahaskell.com/higher-order-functions#curried-functions>`__,
+      functions <#curried-functions>`__,
       we said that all Haskell functions actually take one parameter. A
       function a -> b -> c actually takes just one parameter of type a
       and then returns a function b -> c, which takes one parameter and
@@ -12760,7 +12789,7 @@
 
       If you're a bit confused by this proof, don't worry. Be sure that
       you understand how `function
-      composition <http://learnyouahaskell.com/higher-order-functions#composition>`__
+      composition <#composition>`__
       works. Many times, you can intuitively see how these laws hold
       because the types act like containers or functions. You can also
       just try them on a bunch of different values of a type and be able
@@ -13214,7 +13243,7 @@
       What about <\*>? If we look at what <\*>'s type would be if it
       were limited only to lists, we get (<\*>) :: [a -> b] -> [a] ->
       [b]. It's implemented with a `list
-      comprehension <http://learnyouahaskell.com/starting-out#im-a-list-comprehension>`__.
+      comprehension <#im-a-list-comprehension>`__.
       <\*> has to somehow extract the function out of its left parameter
       and then map it over the right parameter. But the thing here is
       that the left list can have zero functions, one function, or
@@ -14944,7 +14973,7 @@
 
       Remember the tree data structure from the `Making Our Own Types
       and
-      Typeclasses <http://learnyouahaskell.com/making-our-own-types-and-typeclasses#recursive-data-structures>`__
+      Typeclasses <#recursive-data-structures>`__
       chapter? We defined it like this:
 
       .. code:: haskell:hs
@@ -15091,10 +15120,10 @@
       .. container:: footdiv
 
          -  `Functionally Solving
-            Problems <http://learnyouahaskell.com/functionally-solving-problems>`__
-         -  `Table of contents <http://learnyouahaskell.com/chapters>`__
+            Problems <#sec_11>`__
+         -  `Table of contents <#toc>`__
          -  `A Fistful of
-            Monads <http://learnyouahaskell.com/a-fistful-of-monads>`__
+            Monads <#sec_13>`__
 
 .. |frogs dont even need money| image:: http://s3.amazonaws.com/lyah/frogtor.png
    :class: right
@@ -15168,11 +15197,13 @@
       .. container:: footdiv
 
          -  `Functors, Applicative Functors and
-            Monoids <http://learnyouahaskell.com/functors-applicative-functors-and-monoids>`__
-         -  `Table of contents <http://learnyouahaskell.com/chapters>`__
+            Monoids <#sec_12>`__
+         -  `Table of contents <#toc>`__
          -  `For a Few Monads
-            More <http://learnyouahaskell.com/for-a-few-monads-more>`__
+            More <#sec_14>`__
 
+
+.. _sec_13:
 
 ========================
 13. A Fistful of Monads
@@ -15297,7 +15328,7 @@
       .. container:: hintbox
 
          Make sure you understand
-         `applicatives <http://learnyouahaskell.com/functors-applicative-functors-and-monoids#applicative-functors>`__
+         `applicatives <#applicative-functors>`__
          at this point. It's good if you have a feel for how the various
          Applicative instances work and what kind of computations they
          represent, because monads are nothing more than taking our
@@ -16839,10 +16870,10 @@
       .. container:: footdiv
 
          -  `Functors, Applicative Functors and
-            Monoids <http://learnyouahaskell.com/functors-applicative-functors-and-monoids>`__
-         -  `Table of contents <http://learnyouahaskell.com/chapters>`__
+            Monoids <#sec_12>`__
+         -  `Table of contents <#toc>`__
          -  `For a Few Monads
-            More <http://learnyouahaskell.com/for-a-few-monads-more>`__
+            More <#sec_14>`__
 
 .. |more cool than u| image:: http://s3.amazonaws.com/lyah/smugpig.png
    :class: right
@@ -16900,10 +16931,12 @@
       .. container:: footdiv
 
          -  `A Fistful of
-            Monads <http://learnyouahaskell.com/a-fistful-of-monads>`__
-         -  `Table of contents <http://learnyouahaskell.com/chapters>`__
-         -  `Zippers <http://learnyouahaskell.com/zippers>`__
+            Monads <#sec_13>`__
+         -  `Table of contents <#toc>`__
+         -  `Zippers <#sec_15>`__
 
+
+.. _sec_14:
 
 =========================
 14. For a Few Monads More
@@ -17061,7 +17094,7 @@
       .. container:: hintbox
 
          Be sure you know what
-         `monoids <http://learnyouahaskell.com/functors-applicative-functors-and-monoids#monoids>`__
+         `monoids <#monoids>`__
          are at this point! Cheers.
 
       Right now, applyLog takes values of type (a,String), but is there
@@ -17682,7 +17715,7 @@
 
       |bang youre dead|
       In the `chapter about
-      applicatives <http://learnyouahaskell.com/functors-applicative-functors-and-monoids>`__,
+      applicatives <#sec_12>`__,
       we saw that the function type, (->) r is an instance of Functor.
       Mapping a function f over a function g will make a function that
       takes the same thing as g, applies g to it and then applies f to
@@ -17824,7 +17857,7 @@
       while still keeping everything nice and pure.
 
       `When we were dealing with random
-      numbers <http://learnyouahaskell.com/input-and-output#randomness>`__,
+      numbers <#randomness>`__,
       we dealt with functions that took a random generator as a
       parameter and returned a random number and a new random generator.
       If we wanted to generate several random numbers, we always had to
@@ -19076,7 +19109,7 @@
       that composition happens in a monadic fashion.
 
       When we were getting to know the list monad in the `previous
-      chapter <http://learnyouahaskell.com/a-fistful-of-monads#the-list-monad>`__,
+      chapter <#the-list-monad>`__,
       we used it to figure out if a knight can go from one position on a
       chessboard to another in exactly three moves. We had a function
       called moveKnight which took the knight's position on the board
@@ -19385,9 +19418,9 @@
       .. container:: footdiv
 
          -  `A Fistful of
-            Monads <http://learnyouahaskell.com/a-fistful-of-monads>`__
-         -  `Table of contents <http://learnyouahaskell.com/chapters>`__
-         -  `Zippers <http://learnyouahaskell.com/zippers>`__
+            Monads <#sec_13>`__
+         -  `Table of contents <#toc>`__
+         -  `Zippers <#sec_15>`__
 
 .. |there are two kinds of people in the world, my friend. those who learn them a haskell and those who have the job of coding java| image:: http://s3.amazonaws.com/lyah/clint.png
    :class: right
@@ -19448,10 +19481,11 @@
 
       .. container:: footdiv
 
-         -  `For a Few Monads
-            More <http://learnyouahaskell.com/for-a-few-monads-more>`__
-         -  `Table of contents <http://learnyouahaskell.com/chapters>`__
+         -  `For a Few Monads More <#sec_14>`__
+         -  `Table of contents <#toc>`__
 
+
+.. _sec_15:
 
 ===========
 15. Zippers
@@ -19924,7 +19958,7 @@
       a tree has an element (or not) and several sub-trees, a node in a
       list has an element and only a single sub-list. When we
       `implemented our own
-      lists <http://learnyouahaskell.com/making-our-own-types-and-typeclasses#recursive-data-structures>`__,
+      lists <#recursive-data-structures>`__,
       we defined our data type like so:
 
       .. code:: haskell:hs
@@ -20357,7 +20391,7 @@
       But now, instead of returning Zipper a, they return Maybe (Zipper
       a), so chaining functions like this won't work. We had a similar
       problem when we were `dealing with our tightrope
-      walker <http://learnyouahaskell.com/a-fistful-of-monads#walk-the-line>`__
+      walker <#walk-the-line>`__
       in the chapter about monads. He also walked one step at a time and
       each of his steps could result in failure because a bunch of birds
       could land on one side of his balancing pole and make him fall.
@@ -20403,8 +20437,8 @@
       .. container:: footdiv
 
          -  `For a Few Monads
-            More <http://learnyouahaskell.com/for-a-few-monads-more>`__
-         -  `Table of contents <http://learnyouahaskell.com/chapters>`__
+            More <#sec_14>`__
+         -  `Table of contents <#toc>`__
 
 .. |hi im chet| image:: http://learnyouahaskell.com/60sdude.png
    :class: right

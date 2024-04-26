@@ -254,6 +254,23 @@ function make_color_table()
     console.log("</svg>")
 }
 
+function draw(event: Event) {
+  event.stopPropagation()
+  const anchor = document.createElement("a")
+  anchor.download
+  const canvas = document.createElement("canvas")
+  canvas.width = 600
+  canvas.height = 260
+  const ctx = canvas.getContext("2d");
+  if (null == ctx) {
+    return console.log({ctx})
+  }
+  const img = new Image();
+  img.onload = () => {
+    ctx.drawImage(img, 0, 0);
+  };
+  img.src = "css-148-named-colors-themes.svg#light-theme";
+}
 
 /*
 out=../pictures/chinese-colors.svg; /od/svg/chinese-colors.ts > $out ; inkview $out

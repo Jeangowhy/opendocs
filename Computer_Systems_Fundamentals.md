@@ -1637,7 +1637,7 @@ By providing a mechanism for increasing CPU utilization, multiprogramming create
 
 A simple way to illustrate multiprogramming in modern software is with the `sleep()` function. This function’s only argument is the number of seconds to pause the current process. During this time, the system will switch to other processes that need to run. In other words, calling `sleep()` can be interpreted as a form of cooperative multitasking.
 
-📦 C library functions - <unistd.h>
+📦 C library functions - `<unistd.h>`
 
 * * *
 
@@ -1760,17 +1760,17 @@ In contrast, many C functions are implemented to provide additional functionalit
 
 [Table 2.1](#tbl2-1) lists a small sample of the more than 300 system calls available on 64-bit Linux systems. The full list of system calls can be found in the `syscalls(2)` man or in `<asm/unistd_64.h>`, which is included (through a nested sequence of headers) by `<sys/syscall.h>`. [[3]](#f12) Each system call is documented in a section 2 man page [[4]](#f13) (e.g., `man 2 read`).
 
-|    Syscall     | Number |                            Purpose                             |
-|----------------|--------|----------------------------------------------------------------|
-| `read`         |      0 | Read from a file descriptor                                    |
-| `write`        |      1 | Write to a file descriptor                                     |
-| `nanosleep`    |     35 | High-resolution sleep (units in seconds and nanoseconds)       |
-| `exit`         |     60 | Terminate the current process                                  |
-| `kill`         |     62 | Send a signal to a process                                     |
-| `uname`        |     63 | Get information (name, release, etc.) about the current kernel |
-| `gettimeofday` |     96 | Get the system time (in seconds since 12:00 AM Jan. 1, 1970)   |
-| `sysinfo`      |     99 | Get information about memory usage and CPU load average        |
-| `ptrace`       |    101 | Trace another process's execution                              |
+|     Syscall    | Number | Purpose |
+|----------------|--------|---------|
+| `read`         |      0 | Read from a file descriptor
+| `write`        |      1 | Write to a file descriptor
+| `nanosleep`    |     35 | High-resolution sleep (units in seconds and nanoseconds)
+| `exit`         |     60 | Terminate the current process
+| `kill`         |     62 | Send a signal to a process
+| `uname`        |     63 | Get information (name, release, etc.) about the current kernel
+| `gettimeofday` |     96 | Get the system time (in seconds since 12:00 AM Jan. 1, 1970)
+| `sysinfo`      |     99 | Get information about memory usage and CPU load average
+| `ptrace`       |    101 | Trace another process's execution
 
 Table 2.1: A sample of common Linux system calls
 
@@ -1888,7 +1888,7 @@ From a very high-level perspective, we can describe the life cycle of a process 
 
 There are generally two system calls that are associated with creating a new process: `fork()` and `exec()`. When a program calls `fork()`, a system call is triggered that asks the kernel to create a new virtual memory instance. In the immediate moment when this occurs, the contents of the new virtual memory instance is an exact duplicate of the process that was running. We refer to the two processes as the _parent_ and _child_. While handling the `fork()`, the kernel will allocate new internal data structures for the child, assign it a [process identifier](#term-process-identifier) (PID), and assign a small set of initial resources to it. A PID is an integer value that acts like a name that can be used to uniquely refer to a process.
 
-📦 C library functions – <unistd.h>
+📦 C library functions – `<unistd.h>`
 
 * * *
 
@@ -1950,7 +1950,7 @@ Once a process uses `fork()` to create a child process, the timing of the execut
 
 In many cases, after making a call to `fork()`, you want to switch to a different program. For instance, consider the `bash` terminal program. Within `bash`, some commands are considered _built-in_ and are executed by `bash` itself. One example of a built-in is the export command, which can be used to define or change an [environment variable](#term-environment-variable), such as `PATH` or `CLASSPATH`. Other commands are used to call a separate compiled program, such as `ls`, `gcc`, or `vim`. The code to execute these commands does not exist as a part of `bash`. Rather, these are distinct programs and the code needs to be loaded into the new process.
 
-📦 C library functions – <unistd.h>
+📦 C library functions – `<unistd.h>`
 
 * * *
 
@@ -2039,7 +2039,7 @@ In recent years, the use of `fork()` has been criticized for a variety of reason
 
 To address some of these criticisms, POSIX includes a new function interface, `posix_spawn()`. This function takes multiple parameters, including the path to the executable and the `argv` and `envp` arrays that would be passed into `execv()` or `execve()` functions. In addition, `posix_spawn()` takes other parameters that can specify additional operations. These operations give the programmer explicit control over the special cases mentioned above.
 
-📦 C library functions – <spawn.h>
+📦 C library functions – `<spawn.h>`
 
 * * *
 
@@ -2071,7 +2071,7 @@ A process can be terminated in a number of ways. Some methods of process termina
 
 The preceding example also illustrates a key element about the timing of the destruction of processes. Once a process calls `fork()` and creates a child process, the relative scheduling between the parent and child is nondeterministic from the programmer’s perspective. The two processes are scheduled independently by the OS running on that particular machine, and the scheduling will be influenced by other processes running, as well. However, the parent can temporarily pause its own execution by making a call to `wait()` or `waitpid()`.
 
-📦 C library functions – <sys/wait.h>
+📦 C library functions – `<sys/wait.h>`
 
 * * *
 
@@ -2137,7 +2137,7 @@ By removing so much contextual information about files, this abstraction might s
 
 The most basic operations for working with files are creating and opening them. For files that can be identified with named locations in the file system directory structure (such as `/dev/random`, `/usr/bin/cksum`, or `/home/csf/movies.csv`), we can use the `open()` function. The first parameter is the path to the file; this path can be an _absolute path_ (such as `/dev/random`) or a _relative path_ (such as `../src/main.c`) that describes the location relative to the current working directory. If the file is successfully opened, the return value from `open()` is the file descriptor, a non-negative integer value that other functions use to identify the file. This value should typically be greater than 2, as the default behavior is to open three files when a process is created: 0 (`STDIN_FILENO`) for standard input (such as reading from the command prompt), 1 (`STDOUT_FILENO`) for standard output (such as writing out to the screen), and 2 (`STDERR_FILENO`) for standard error (also writing out to the screen).
 
-📦 C library functions – <fcntl.h>
+📦 C library functions – `<fcntl.h>`
 
 * * *
 
@@ -2147,15 +2147,15 @@ The most basic operations for working with files are creating and opening them. 
 
 The second parameter (`oflag`) specifies how the file will be accessed by the current process. [Table 2.2](#tbl2-2) shows the flags that may be passed as a bit-mask to `open()`. Note that these flags do not necessarily align with the common notion of file permissions; a file that is accessible for both reading and writing may be opened in read-only mode (`O_RDONLY`). However, if the file permissions do not allow the requested access, `open()` will return -1.
 
-| Permission |                                 Purpose                                  |
-|------------|--------------------------------------------------------------------------|
-| O_RDONLY   | Open for reading only                                                    |
-| O_WRONLY   | Open for writing only                                                    |
-| O_RDWR     | Open for reading and writing                                             |
-| O_NONBLOCK | Do not block on opening while waiting for data                           |
-| O_CREAT    | Create the file if it does not exist; requires passing `mode_t` argument |
-| O_TRUNC    | Truncate to size 0                                                       |
-| O_EXCL     | Error if `O_CREAT` and the file exists                                   |
+| Permission |                            Purpose                             |
+|------------|----------------------------------------------------------------|
+| O_RDONLY   | Open for reading only
+| O_WRONLY   | Open for writing only
+| O_RDWR     | Open for reading and writing
+| O_NONBLOCK | Do not block on opening while waiting for data
+| O_CREAT    | Create the file if it does not exist; requires passing `mode_t` 
+| O_TRUNC    | Truncate to size 0
+| O_EXCL     | Error if `O_CREAT` and the file exists
 
 Table 2.2: Flags for opening files
 
@@ -2176,7 +2176,7 @@ int fd = open (path, O_CREAT | O_TRUNC | O_WRONLY, mode);
 
 Once the file has been opened, it can be read from. The `read()` function takes three parameters: the file descriptor, the address of a buffer in memory to read the bytes into, and the maximum number of bytes to read. [[1]](#f15) The value returned from `read()` indicates the actual number of bytes successfully read, which may be fewer than the `nbyte` parameter. (Calling `read()` with `nbyte` set to 100 on a file that only contains 10 bytes of data will return 10, not 100.) Finally, when the process is finished working with a file, the `close()` function will release any associated resources in the kernel or the C library data that have been allocated for this process.
 
-📦 C library functions – <unistd.h>
+📦 C library functions – `<unistd.h>`
 
 * * *
 
@@ -2229,7 +2229,7 @@ printf ("\n");
 
 Some files, particularly IPC and device interface files, require special handling when reading. Recall that the default behavior for open files is to block until data is ready; this behavior is undesirable when other productive work could be done. For instance, a web server that is blocking while trying to read data from one client could be missing out on connection requests from other clients. The `poll()` function provides a useful interface for avoiding this situation.
 
-📦 C library functions – <poll.h>
+📦 C library functions – `<poll.h>`
 
 * * *
 
@@ -2276,7 +2276,7 @@ if (poll (fds, 1, 100) == 0) // wait for 100 ms
 
 In addition to reading, programs typically need to write to a file. The arguments to `write()` are identical to those for `read()`. Unlike `read()`, there is not really a concern with buffer overflow with `write()`, as data is being sent away from the current process; the kernel buffers on the other end will prevent such errors. However, checking the return value from `write()` is as important as it is with `read()` to make sure that all of the intended data was written successfully; this is especially true when writing large pieces of data. [Code Listing 2.15](#cl2-15) illustrates how to write to a file. Note that writing to the end of a persistent file will cause it to grow. In this example, the file is created to be empty (`O_TRUNC`), but writing six bytes creates a file of size six (the last byte is the null terminator `'\0'`).
 
-📦 C library functions – <unistd.h>
+📦 C library functions – `<unistd.h>`
 
 * * *
 
@@ -2310,7 +2310,7 @@ printf ("Contents: [%s]\n", buffer);
 
 If the file supports arbitrary accesses, the `lseek()` function will change the file’s internal location information to a specified target. The `offset` can be specified as either a positive or negative value. The `whence` parameter, which takes a limited number of possible values, plays an important role in determining this location. If `whence` if set to `SEEK_SET`, then the `offset` argument is the exact number of bytes into the file to use as the location. Setting `whence` to `SEEK_CUR` will add the `offset` to the current location number; a negative `offset` will seek backwards, while a positive value seeks forward. Lastly, setting `whence` to `SEEK_END` will add the `offset` to the size of the file; using a negative offset moves the location to the number of bytes before the end of the file. Whichever value is passed, the final location must be positive. If the location is larger than the file size, performing a write at that point will increase the file size accordingly. Any gap between the existing end of the file and the new data will be filled with null bytes.
 
-📦 C library functions – <unistd.h>
+📦 C library functions – `<unistd.h>`
 
 * * *
 
@@ -2357,7 +2357,7 @@ close (fd);
 
 When working with files, it is often important to access [metadata](#term-metadata) – information about the file – rather than the contents about the file itself. For instance, when reading a persistent file into memory from storage, knowing the file’s size is necessary for allocating memory for the buffer. As another example, consider an _intrusion detection_ program that is responsible for monitoring a file system for security threats or attacks; this program might check for changes to the associated permissions or the user ID that is considered the owner of the file.
 
-📦 C library functions – <sys/stat.h>
+📦 C library functions – `<sys/stat.h>`
 
 * * *
 
@@ -2537,7 +2537,7 @@ The `SIGCONT` signal can be used to resume a process that has been suspended wit
 
 The default behavior for C programs is to respond to `SIGSEGV` by printing a message that a segmentation fault occurred and then exit. A program can include a custom signal handler to respond to segmentation faults differently. As an example, this is how debuggers (e.g., `gdb`) detect segmentation faults. Instead of killing the process, the debugger pauses it, allowing the user to run the `backtrace` utility to determine what line of code caused the fault.
 
-📦 C library functions – <signal.h>
+📦 C library functions – `<signal.h>`
 
 * * *
 
@@ -2579,7 +2579,7 @@ printf ("Process %d is exiting\n", getpid ());
 
 To overwrite a signal handler, you start by defining a function with the desired new behavior. In the simplest form, this function must take exactly one `int` parameter and have a `void` return type. The parameter received by this function will be the specific signal that was passed. As such, it is possible to define one signal handling function and use it to respond to multiple signals.
 
-📦 C library functions – <signal.h>
+📦 C library functions – `<signal.h>`
 
 * * *
 
@@ -2640,7 +2640,7 @@ The call to `exit()` on line 20 is important for this example. Without this call
 
 In more realistic code, the signal might interfere with the executing code. For instance, the interrupted code might have just set a number of registers to prepare for a function call. The signal handler might then change these values, leading to errors when the normal execution resumes. If the application must be able to return to normal execution after processing a signal, the solution is to create a non-local goto with `sigsetjmp()` and `siglongjmp()`.
 
-📦 C library functions – <sig/setjmp.h>
+📦 C library functions – `<sig/setjmp.h>`
 
 * * *
 
@@ -2681,7 +2681,7 @@ main (int argc, char *argv[])
 
 The existing code has a problem, however. When a signal occurs, a bit gets set in the _signal mask_ to indicate that this signal has been raised. If the signal occurs again, **the signal handler will not get invoked again**. Rather, signal handlers will only run when the bit in the signal mask first gets set. Consequently, if [Code Listing 2.20](#cl2-20) was used to overwrite `SIGINT`, only the first `Ctrl-c` would invoke the signal handler. All additional `SIGINT`s would be ignored. The `sigprocmask()` function can fix this problem by lowering the bit in the signal mask.
 
-📦 C library functions – <setjmp.h>
+📦 C library functions – `<setjmp.h>`
 
 * * *
 
@@ -2936,7 +2936,7 @@ Although [signals](#term-signal) are covered in another chapter, we include them
 
 The simplest form of communication with pipes is to provide parent-child communication using the `pipe()` library function. This function takes an int array of length 2. (Recall that arrays are always passed by reference.) Assuming the kernel is able to create the pipe, the array will contain the file descriptors for the two ends of the pipe. If the pipe creation, the function returns -1.
 
-📦 C library functions – <unistd.h>
+📦 C library functions – `<unistd.h>`
 
 * * *
 
@@ -2997,15 +2997,8 @@ This code illustrates several conventions with using pipes. First, for the paren
 
 It is very important to follow the convention of closing the unused end of the pipe immediately after the `fork()`. Failure to do so can cause programs to freeze unexpectedly. Consider the following example:
 
-1
-2
-3
-4
-5
-6
-7
-8
 
+```cpp
 int pipefd[2];
 pipe (pipefd);
 
@@ -3014,6 +3007,7 @@ if (fork () == 0)
 
 char buffer[10];
 read (pipefd[0], buffer, sizeof (buffer));
+```
 
 On line 8, the parent process will try to read from the pipe. Instead of immediately returning, the process will block until an `EOF` (end-of-file) is written into the pipe. Since the child is the only other process that could write to the pipe and the child exits without writing anything, the parent will block indefinitely. This problem can be difficult to diagnose, such as when the child process is redirecting the standard output of an external program using `dup2()` (which we illustrate below) and the external program produces no output. To avoid this frustration, always close the unused end of the pipe.
 
@@ -3023,58 +3017,7 @@ Figure 3.3.3: Pipes are unidirectional and should not be used to respond
 
 [Figure 3.3.3](Pipes.html#ipcpipe) illustrates a key feature and common bug with pipes. Once a process has used `pipefd[0]` in a call to `read()`, the same process cannot turn around and `write()` to `pipefd[1]`; doing so will fail silently and no data will be sent. To allow for bidirectional communication, use two pipes as in [Code Listing 3.2](#cl3-2). After performing the `fork()`, either pipe can be designated to be used for parent-to-child or child-to-parent messages.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-
+```cpp
 /* Code Listing 3.2:
    Using two pipes for bidirectional communication between parent and child
  */
@@ -3126,6 +3069,7 @@ bytes_read = read (c2pfd[0], buffer, 10);
 if (bytes_read <= 0)
   exit (1); /* should receive response */
 printf ("Parent received: '%s'\n", buffer);
+```
 
 [Figure 3.3.4](Pipes.html#ipctwopipe) illustrates the circular structure of the two pipes used in Code Listing 3.2. The parent uses `p2cfd` to send data to the child. Responses from the child use the other pipe, identified by `c2pfd`. In both cases, the calls to `write()` use index 1 and the `read()` calls use index 0.
 
@@ -3138,7 +3082,9 @@ Figure 3.3.4: Structure of the two pipes used in Code Listing 3.2
 
 One of the most common use of pipes is to link together multiple commands on the command line. For instance, consider the following command line:
 
+```sh
 $ ls -l | sort -n -k 5 | tail -n 1 | awk '{print $NF}'
+```
 
 This command line creates four processes that are linked together. First, the `ls` command prints out the list of files along with their details. This list is sent as input to `sort`, which sorts numerically based on the 5th field (the file size). The `tail` process then grabs the last line, which is the line for the largest file. Finally, `awk` will print the last field of that line, which is the file name of whatever file is the largest.
 
@@ -3148,7 +3094,7 @@ Figure 3.3.5: Chained logical structure of a sequence of bash commands connected
 
 [Figure 3.3.5](Pipes.html#ipcpipeline) illustrates the chained structure of these four processes. These four processes are created by bash using both `fork()` and `exec()`. Once the processes are created, `bash` links their standard input and output by setting up a pipe to connect each process with the one after it. (This is the reason the vertical bar (`|`) is referred to as a pipe.) However, there is an additional step: `bash` needs to link the pipe with each process’s standard input and output. The `dup2()` function accomplishes this task.
 
-📦 C library functions – <unistd.h>
+📦 C library functions – `<unistd.h>`
 
 * * *
 
@@ -3166,51 +3112,8 @@ The arguments for `dup2()` are easily confused because of the names given in the
 
 Similarly, the `ls` process closes its read end of the pipe and links the write end to its standard output. Anything that `ls` writes to its standard output (using `printf()`), `sort` would read from its standard input; both processes are unaware that the pipe exists. In fact, even if this code used `exec()` to load new program code within these child processes, the processes would continue to use the pipe as `stdin` and `stdout` without any change to the program’s source code.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
 
+```cpp
 /* Code Listing 3.3:
    Creating a bash-like linkage between two processes
  */
@@ -3255,6 +3158,7 @@ if (child_pid == 0)
 close (pipefd[0]);
 close (pipefd[1]);
 wait (NULL);
+```
 
 This example also illustrates one subtle aspect of the closing of pipes. When a process closes one end of the pipe, it is only closing its access to that end of the pipe. Other processes may still use that end of the pipe. For instance, in the previous example, observe that the parent process closes both `pipefd[0]` and `pipefd[1]`. This does not affect the pipe itself, and it does not prevent the two child processes from communicating via the pipe. All these two lines of code do are close the parent’s (`bash`’s) access to the pipe, preventing it from reading or writing to the pipe. The pipe will remain in existence until all processes with access either close both ends of the pipe or exit (which closes all open file connections).
 
@@ -3265,7 +3169,7 @@ The pipes described above create a simple mechanism for parent and child process
 
 FIFOs work by attaching a filename to the pipe. For this reason, FIFOs are also called [named pipes](#term-named-pipe) as opposed to the anonymous pipes discussed previously. FIFOs are created by one process that calls `mkfifo()`. Once created, any process (with correct access permissions) can access the FIFO by calling `open()` on the associated filename. Once the processes have opened the file, they can use the standard `read()` and `write()` functions to communicate.
 
-📦 C library functions – <sys/stat.h>
+📦 C library functions – `<sys/stat.h>`
 
 * * *
 
@@ -3277,41 +3181,7 @@ A common use for FIFOs is to create client/server applications on the same machi
 
 As a simple scenario, consider a server that prints hello whenever a client writes a non-zero value to a file and shuts down when the client writes a zero. [Code Listing 3.4](#cl3-4) shows the structure of the server. The server starts by creating the FIFO with read and write permissions for the current user. Then, the server opens the FIFO in read-only mode and enters the listening loop. Once the server reads a value of 0 from the FIFO, it exits the loop, then closes and deletes the FIFO.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-
+```cpp
 /* Code Listing 3.4:
    The basic structure of a server process using a FIFO
  */
@@ -3346,33 +3216,11 @@ while (1)
 close (fifo);
 printf ("Deleting FIFO\n");
 unlink (FIFO); 
+```
 
 [Code Listing 3.5](#cl3-5) shows a sample client. This client opens the FIFO, then writes a sequence of integers (5 down to 0) into the FIFO. Note that anything the client writes after the 0 would be thrown away, as the server would delete the FIFO at that point.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-
+```cpp
 /* Code Listing 3.5:
    A client process that sends six messages to the server in Code Listing 3.4
  */
@@ -3396,6 +3244,7 @@ for (int index = 5; index >= 0; index--)
 
 /* Close the FIFO */
 close (fifo);
+```
 
 Although FIFOs use standard file I/O functions (e.g., `open()`, `read()`, and `write()`), it is important to note that they are not regular files. Specifically, once data has been read from a FIFO, the data is discarded and cannot be read again (just like an anonymous pipe). In contrast, with a regular file, multiple processes can read the same data from the same file. That is, regular files store data persistently, but FIFOs do not. Consequently, FIFOs cannot be used for broadcasting a single message to multiple recipients; only one process can read the data. Similarly, FIFOs (like pipes) are not suitable for bi-directional communication; if a process writes into the FIFO then immediately tries to read a response, **it may read its own message**!
 
@@ -3421,7 +3270,7 @@ When we say that the file is mapped to a particular region in memory, we mean th
 
 Three functions provide the basic functionality of memory-mapped files. The `mmap()` and `munmap()` functions are used to set up or remove a mapping, respectively. Both functions take a length parameter that specifies the size of the region. The `mmap()` function also includes parameters for the types of actions that can be performed (`prot`), whether the region is private or shared with other processes (`flags`), the file descriptor (`fd`), and the byte offset into the file that corresponds with the start of the region (`offset`). The `addr` parameter for mmap() is typically NULL, allowing the system to determine the address of the region. For `munmap()`, the `addr` must be the start of the memory-mapped region (which is the value returned by `mmap()`).
 
-📦 C library functions – <sys/mman.h>
+📦 C library functions – `<sys/mman.h>`
 
 * * *
 
@@ -3474,32 +3323,7 @@ Memory-mapped regions can also be designated as private (`MAP_PRIVATE`) or share
 
 [Code Listing 3.6](#cl3-6) shows how to map and unmap a file into memory. In this example, we are opening the `/bin/bash` executable file on Linux. Linux executables are formatted using the _executable and linking format (ELF)_ specification. Part of this specification indicates that the first byte of the file must be `0x7f` and the next three bytes are the ASCII characters for `ELF`. This program snippet confirms that `bash` on Linux is a valid ELF file. (It should be.)
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-
+```cpp
 /* Code Listing 3.6:
    Read the first bytes of the bash executable to confirm it is ELF format
  */
@@ -3525,6 +3349,7 @@ assert (mmap_addr[3] == 'F');
 /* Unmap the file and close it */
 munmap (mmap_addr, file_info.st_size);
 close (fd);
+```
 
 ![Memory-mapped files use provide direct access to contents](https://w3.cs.jmu.edu/kirkpams/OpenCSF/Books/csf/html/_images/CSF-Images.3.4.png)
 
@@ -3617,7 +3442,7 @@ Figure 3.6.2: POSIX message queues are priority-based, with 0 as the lowest prio
 
 There are six functions typically used for setting up and using POSIX [message queues](#term-message-queue).
 
-📦 C library functions – <mqueue.h>
+📦 C library functions – `<mqueue.h>`
 
 * * *
 
@@ -3647,25 +3472,8 @@ Receive a message into a buffer pointed to by msg_ptr and get its priority msg_p
 
 As with other POSIX IPC open functions, `mq_open()` includes both an `oflag` and `mode` parameter. In addition, the fourth parameter (`attr`) is used to specify attributes about the message queue, such as the message size or the capacity of the queue. Note that calls to `mq_open()` must have exactly 2 or 4 parameters. Both the `mode` and `attr` parameters must be included when creating a new message queue. When opening a connection to an existing message queue, both of these parameters are omitted. To use the system defaults when setting up a message queue, pass `NULL` as the fourth parameter to `mq_open()`. [Code Listing 3.7](#cl3-7) creates a message queue for writing and sends a simple message.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
 
+```cpp
 /* Code Listing 3.7:
    Sending "HELLO" through a POSIX message queue
  */
@@ -3684,36 +3492,11 @@ if (mqd == -1)
    Note the size is 6 to include the null byte '\0'. */
 mq_send (mqd, "HELLO", 6, 10);
 mq_close (mqd);
+```
 
 [Code Listing 3.8](#cl3-8) illustrates a standard approach for retrieving a message from the queue. The `msg_len` parameter for receiving messages requires special attention. The use of this parameter for `mq_send()` is intuitive and matches the behavior of functions like `write()` and `strncpy()`: `msg_len` specifies the maximum number of characters in the string identified by `msg_ptr` that will be sent. However, when receiving messages, `msg_len` must match the size of a message. As such, the standard approach is to use `mq_getattr()` and access the `mq_msgsize` field of the `struct mq_attr` returned.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-
+```cpp
 /* Code Listing 3.8:
    Opening a POSIX message queue and retrieving a message
  */
@@ -3740,6 +3523,7 @@ else
 free (buffer);
 buffer = NULL;
 mq_close (mqd);
+```
 
 🐞🐛🐌 Bug Warning
 
@@ -3753,39 +3537,18 @@ The reason for this is that the `msg_len` parameter does not exactly match the m
 
 Unlike pipes, message queues can be used to send `struct` instances, even if some of the fields contain the value 0. (Pipes treat a byte value of 0 as the null byte and stop at that point.) Consider the following trivial `struct` declaration:
 
-1
-2
-3
-4
-5
 
+```cpp
 struct message {
   int x;
   char y;
   long z;
 };
+```
 
 As shown in [Code Listing 3.9](#cl3-9), sending the message with POSIX message queues works almost exactly as shown previously with a `char` array. The only differences are the casting of the `msg_ptr` pointer and that the `msg_len` parameter is based on the size of the `struct`. Similarly, the only difference with reading is the casting of the `msg_ptr` to the `struct` type.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-
+```cpp
 /* Code Listing 3.9:
    Retrieving a structured POSIX message
  */
@@ -3804,10 +3567,11 @@ if ((mq_receive (mqd, buffer, attr.mq_msgsize, &prio)) != -1)
     struct message *msg = (struct message *)buffer;
     /* Retrieve message fields here */
   }
+```
 
 The default behavior for POSIX message queues is to perform [blocking I/O](#term-blocking-i-o) when writing to a full queue (or reading from an empty one). If this behavior is undesirable, there are three alternatives that can be used. The first is to include the `O_NONBLOCK` option in the `oflag` bit mask to open the queue in non-blocking mode. If the queue is ever full, `mq_send()` will return an error without blocking. The other option is to use `mq_timedsend()` and `mq_timedreceive()`, which use an additional parameter (`abs_timeout`) to specify the maximum amount of time to wait when blocked. Finally, rather than attempting to retrieve a message that may not have been sent, a process can use `mq_notify()` to request an asynchronous notification that a message has been sent. Interested readers should consult the language documentation for more information on these functions.
 
-📦 C library functions – <mqueue.h>
+📦 C library functions – `<mqueue.h>`
 
 * * *
 
@@ -3851,7 +3615,7 @@ The solution is to avoid the use of pointers within the shared memory region, us
 
 The POSIX interface for shared memory is very simple, consisting of two primary functions. The `shm_open()` takes the POSIX IPC object name, a bit-mask of flags (`oflag`) and a permission mode to apply new objects. [[1]](#f18) Similarly, `shm_unlink()` deletes the shared memory object.
 
-📦 C library functions – <sys/mman.h>
+📦 C library functions – `<sys/mman.h>`
 
 * * *
 
@@ -3865,62 +3629,18 @@ Delete a POSIX shared memory object.
 
 The following code sample uses a `struct` declared as follows:
 
-1
-2
-3
-4
-5
 
+```cpp
 struct permission {
   int user;
   int group;
   int other;
 };
+```
 
 [Code Listing 3.10](#cl3-10) sets up a POSIX shared memory object, which is identified by a given name. Note that the call to `shm_open()` creates the object but does not specify a size; instead, `ftruncate()` resizes the object to be large enough to store one instance of the `struct` permission. Next, the process maps the shared memory object into memory with `mmap()` before using `fork()` to create a child process (which inherits both the shared memory identifier and the memory mapped region). The child writes to the region before exiting; the parent waits until the child exits and reads the data.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-
+```cpp
 /* Code Listing 3.10:
    Using POSIX shared memory to exchange data between processes
  */
@@ -3962,6 +3682,7 @@ printf ("Permission bit-mask: 0%d%d%d\n", perm->user, perm->group, perm->other);
 munmap (perm, sizeof (struct permission));
 close (shmfd);
 shm_unlink ("/OpenCSF_SHM");
+```
 
 Combining `shm_open()` and `mmap()` in this way is a common technique that often confuses novices. Specifically, it seems redundant to use both IPC mechanisms, because the same task could be accomplished with either `shm_open()` or `mmap()` (not both). While it is true that both are not required, combining them leads to certain advantages:
 
@@ -4016,7 +3737,7 @@ In the scenario above, it is important to initialize the semaphore to 0 to achie
 
 POSIX defines two types of semaphores: named and unnamed. [Named semaphores](#term-named-semaphore) are created using the standard POSIX arguments of `name`, `oflag`, and `mode`, along with an initial unsigned integer `value`. The `mode` and `value` parameters must both be included when creating a new semaphore, and both must be excluded when connecting to an existing semaphore. The `sem_wait()` and `sem_post()` functions decrement (wait) or increment (post) the semaphore’s value. If the value is currently 0, `sem_wait()` will block the current process until the value is changed by another process calling `sem_post()`. Note that `sem_post()` will only unblock one process at a time; if five processes are waiting on the semaphore, then five calls to `sem_post()` must be made to unblock them all.
 
-📦 C library functions – <semaphore.h>
+📦 C library functions – `<semaphore.h>`
 
 * * *
 
@@ -4042,39 +3763,8 @@ Delete a named semaphore.
 
 [Code Listing 3.11](#cl3-11) illustrates how semaphores can be used to control the timing of two processes. In this example, the semaphore is used to guarantee the messages are printed in the correct order (“first” then “second” then “third”). Specifically, the semaphore blocks the child process until the parent prints “first” and ups the semaphore; then the parent calls `wait()`, which forces it to wait until the child exits. It is important to emphasize that named semaphores can be used by unrelated processes; they do not have to be parent and child as used in this example.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
 
+```cpp
 /* Code Listing 3.11:
    Creating and using a POSIX semaphore to control the timing of parent/child execution
  */
@@ -4107,10 +3797,11 @@ wait (NULL);
 printf ("third\n");
 sem_close (sem);
 sem_unlink ("/OpenCSF_Sema");
+```
 
 In many circumstances, a process may wish to check on the status of a semaphore without getting blocked indefinitely. For instance, assume one process is using a semaphore to signal that it has completed some important task; another process may want to check on whether the task has been completed, but still continue processing even if the event has not happened yet. Downing the semaphore with `sem_wait()` would not work, because it would block the process until the event occurs. Instead, POSIX provides two alternative functions for waiting on a semaphore. With `sem_trywait()`, a process can try to down the semaphore; however, if the semaphore’s current value is 0, then `sem_trywait()` returns an error instead of blocking. Alternatively, `sem_timedwait()` allows the process to specify a maximum amount of time to block; if no post occurs before the timeout arrives, then the process is unblocked and an error is returned.
 
-📦 C library functions – <semaphore.h>
+📦 C library functions – `<semaphore.h>`
 
 * * *
 
@@ -4127,7 +3818,7 @@ Decrement the semaphore, but place a time limit on the blocking
 
 POSIX [unnamed semaphores](#term-unnamed-semaphore) provide a lightweight approach for creating and using semaphores. Specifically, where `sem_open()` returns a pointer to a newly allocated semaphore, `sem_init()` takes a reference to a semaphore variable (declared as a `sem_t`) that has already been allocated within the current process’s memory space and sets the semaphore to the value passed. Once the semaphore is initialized, the other functions specified for named semaphores (e.g., `sem_post()` and `sem_wait()`) can be used.
 
-📦 C library functions – <semaphore.h>
+📦 C library functions – `<semaphore.h>`
 
 * * *
 
@@ -4166,201 +3857,7 @@ This section is describing the typical implementation of semaphores in most mode
 
 This Extended Example creates a minimal shell similar to the bash shell used in Linux and macOS. When this program runs, it will read a line of text at a time from the user. This line will be used as a command line, running in a separate process. The user can enter `quit` or `logout` to exit.
 
-  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
- 10
- 11
- 12
- 13
- 14
- 15
- 16
- 17
- 18
- 19
- 20
- 21
- 22
- 23
- 24
- 25
- 26
- 27
- 28
- 29
- 30
- 31
- 32
- 33
- 34
- 35
- 36
- 37
- 38
- 39
- 40
- 41
- 42
- 43
- 44
- 45
- 46
- 47
- 48
- 49
- 50
- 51
- 52
- 53
- 54
- 55
- 56
- 57
- 58
- 59
- 60
- 61
- 62
- 63
- 64
- 65
- 66
- 67
- 68
- 69
- 70
- 71
- 72
- 73
- 74
- 75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162
-163
-164
-165
-166
-167
-168
-169
-170
-171
-172
-173
-174
-175
-176
-177
-178
-179
-180
-181
-182
-183
-184
-185
-186
-187
-188
-189
-190
-191
-192
-193
-194
-
+```cpp
 #include <assert.h>
 #include <fcntl.h>
 #include <stdbool.h>
@@ -4555,6 +4052,7 @@ get_out_name (char *token, char **output_file, char **arguments)
   *output_file = token;
   return arguments;
 }
+```
 
 
 /Chapter 4   Networked Concurrency[¶]
@@ -4732,14 +4230,14 @@ Table 4.1: RFCs for some well-known Internet services
 
 RFCs for protocols typically include multiple sections, such as definitions of key terms, illustrations of the structure and timing of messages, explanations status and error messages, and security analyses. Some RFCs are very short, as short as a few pages in PDF format; others can be more than 100 pages. One key feature that is common is the use of :_ackus-Naur Form (BNF)_, a formal method for defining information about a language or a set of messages. Reading BNF is a key skill for understanding the protocol specifications in RFCs. As an example, consider the following portion of the HTTP/1.1 specification in RFC 2616:
 
-HTTP-message    = Request | Response
-Request         = Request-line
-                  *(( general-header
-                   | request-header
-                   | entity-header ) CRLF)
-                  CRLF
-                  [ message-body ]
-Request-Line    = Method SP Request-URI SP HTTP-Version CRLF
+    HTTP-message    = Request | Response
+    Request         = Request-line
+                      *(( general-header
+                       | request-header
+                       | entity-header ) CRLF)
+                      CRLF
+                      [ message-body ]
+    Request-Line    = Method SP Request-URI SP HTTP-Version CRLF
 
 These lines illustrate several key features of BNF. The text to the left of an equal sign (`'='`) declare a unique type of _entity_ that serves as a basic language feature; in this case, these lines define the structure of the entities `HTTP-message`, `Request`, and `Request-Line`. The vertical bar (`'|'`) denotes a choice operation that can be satisfied by either entity; for instance, an `HTTP-message` can be either a `Request` or a `Response`. Consecutive lines indicate multiple entities that are required in a particular sequence; the line breaks in BNF do not have a specific meaning and only serve the purpose of making the definition more readable. The parentheses are used for grouping entities, the _Kleene star_ character (`'*'`) indicates that an entity may appear zero or more times, and the brackets indicate an optional entity that may appear once or may be omitted. The `CRLF` entity denotes the character sequence “carriage return-line feed” that consists of ASCII character 13 (`'\r'`) followed by ASCII character 10 (`'\n'`), and the `SP` entity denotes a single space (ASCII code 32, `' '`).
 
@@ -4749,10 +4247,10 @@ These lines illustrate several key features of BNF. The text to the left of an e
 
 To combine these BNF rules in an example, an HTTP Request must begin with exactly one `Request-line` followed by some sequence of entities (possibly an empty sequence) that must be either a `general-header`, `request-header`, or `entity-header`; there can be multiple instances of each of these headers and they can appear in any order. After all of the headers, there must be a single blank line ending in `CRLF`, followed by an optional message body. The `Request-line` that starts the `Request` must consist of a `Method` (such as `GET` or `POST`), a `Request-URI` (which is different but related to the general URI previously discussed), and an `HTTP-Version`, separated by spaces and ending with a `CRLF`. As an example, the following lines of code is a valid `HTTP-message`:
 
-GET index.html HTTP/1.0
-Accept-Charset: iso-8859-5, Unicode-1-1
-Date: Tue, 19 Nov 2018 08:12:31 GMT
-Accept-Encoding: *
+    GET index.html HTTP/1.0
+    Accept-Charset: iso-8859-5, Unicode-1-1
+    Date: Tue, 19 Nov 2018 08:12:31 GMT
+    Accept-Encoding: *
 
 This example illustrates a `GET` request using HTTP version 1.0 to request a copy of the file designated by the `Request-URI` `index.html`. The `Accept-Charset` and `Accept-Encoding` lines are examples of the `request-header` entity types, while the `Date` is a `general-header`. Each line ends with a `CRLF`, including the last line, which has no other text.
 
@@ -4767,7 +4265,7 @@ The term [request for comment](#term-request-for-comment) may seem to suggest th
 
 The [socket](#term-socket) interface in C provides a mechanism for setting up a communication channel to another host system. For both clients and servers, the initial function call is the same. Processes call `socket()` to request a new socket instance from the OS. As with other forms of IPC such as pipes, sockets are treated as files, so the process receives a file descriptor from the return value. If the socket creation failed, the OS returns a negative value.
 
-📦 C library functions – <sys/socket.h>
+📦 C library functions – `<sys/socket.h>`
 
 * * *
 
@@ -4835,27 +4333,7 @@ The `domain` and `type` field constants are defined in the `sys/socket.h` header
 
 Only certain combinations of these arguments make sense. For instance, a raw socket created with the domain `AF_PACKET` would use the `SOCK_RAW` type; a raw socket would not be set up to use the `SOCK_STREAM` type, which is commonly used for the stream-oriented TCP transport-layer protocol. Similarly, a socket created for IPv6 communication (`AF_INET6`) would not use the `SOCK_RAW` type, which would deliver the IP datagram payload directly to the process without the transport-layer processing; the process would then receive the full payload, including the TCP or UDP header fields. [Code Listing 4.1](#cl4-1) illustrates several common combinations of socket arguments.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-
+```cpp
 /* Code Listing 4.1:
    Common argument types for various sockets
  */
@@ -4876,6 +4354,7 @@ socketfd = socket (AF_INET6, SOCK_DGRAM, 0);
 socketfd = socket (AF_PACKET, SOCK_RAW, htons (ETH_P_ALL));
 
 /* htons is explained below */
+```
 
 Processes running on two separate hosts normally intend to exchange application-layer messages, relying on the lower layers just as a mechanism to deliver the data. (Refer back to [Figure 4.2.1](FiveLayer.html#netbackbone).) However, some processes are designed to gather information about the network itself. One example of such a process would be a packet sniffer that captures and inspects data sent through the network. Another example is the `traceroute` utility, which can gather information about the routers that are encountered on the way to a target host. Both of these applications can be used to monitor the health and performance of a network, and they also form the basis of security tools, such as a _network intrusion detection systems (network IDS)_.
 
@@ -4888,32 +4367,18 @@ Normal applications should not use raw sockets, because most of the information 
 
 Once the socket is created, the client and server processes use different functions to establish the network link between their sockets. These functions rely on a common `struct sockaddr` data structure. The basic form of this structure contains two fields:
 
-1
-2
-3
-4
-5
-
+```cpp
 /* defined in sys/socket.h */
 struct sockaddr {  /* generic socket address structure */
   sa_family_t sa_family;
   char sa_data[14];
 };
+```
 
 The first field, `sa_family`, is two-bytes in size and identifies the domain of the socket that is being used. This field is set using `AF_INET`, `AF_PACKET`, and similar constants used to create the socket. The other field, `sa_data`, is an unstructured 14-byte sequence in the generic form. The interpretation of these bytes depends on the domain of the socket. For an IPv4 socket, the process would create a `struct sockaddr_in` [[1]](#f23) instead, which uses the following definition.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
 
+```cpp
 /* defined in netinet/in.h */
 struct sockaddr_in {
   sa_family_t sin_family;
@@ -4925,6 +4390,7 @@ struct sockaddr_in {
 struct in_addr {
   in_addr_t s_addr; /* in_addr_t is a typedef alias for uint32_t */
 };
+```
 
 The `sockaddr` and `sockaddr_in` structures are identical in size, allowing for straightforward casting between the two. Both begin with a `sa_family_t` field to indicate the domain. As the type is the same, both `struct`s use the same number of bytes for this information. The `sockaddr_in` breaks the rest of the bytes into three fields. The `sin_port` is a 16-bit field to designate the port number for the socket and the `sin_addr` contains the 32-bit IPv4 address. The `struct in_addr` contains a single field, `s_addr`, which is made an alias for a `uint32_t` by a `typedef` elsewhere in the C library. The `sin_zero` field of `struct sockaddr_in` is used to pad the size of the `struct` to match the size of the original `sockaddr`. [[2]](#f24)
 
@@ -4986,15 +4452,7 @@ In both cases, the first two bytes denote the family, and both types of `struct`
 
 IPv6 socket address `struct`s are similar in some respects. The `struct` is renamed `sockaddr_in6` and the fields are renamed to `sin6_family`, `sin6_port`, and `sin6_addr`. Two additional fields (`sin6_flowinfo` and `sin6_scope_id`) are also defined for behavior that exists in IPv6 but not in IPv4; these fields are used for specialized purposes that are beyond the scope of this book.
 
-1
-2
-3
-4
-5
-6
-7
-8
-
+```cpp
 /* included by netinet/in.h */
 struct sockaddr_in6 {
   sa_fmily_t sin6_family;
@@ -5003,18 +4461,11 @@ struct sockaddr_in6 {
   struct in6_addr sin6_addr;  /* IPv6 addresses are 128-bit */
   uint32_t sin6_scope_id;
 };
+```
 
 Despite their similar naming and ordering of fields, IPv6 socket address structs are considerably larger in size. To be precise, consider the type of `sin_addr` compared with `sin6_addr`. For IPv4, the `struct in_addr` type is an alias for `uint32_t`—an unsigned 32-bit (4-byte) integer. For IPv6, the `struct in6_addr` contains a `union` of three different types. For readers unfamiliar with C `union`s, the types are not distinct fields. Rather, the `__u6_addr` field of the `struct` contains 16 bytes, but it can be interpreted in multiple ways. As such, the `sin6_addr` field alone is the size of the entire `sockaddr` or `sockaddr_in` `struct`s.
 
-1
-2
-3
-4
-5
-6
-7
-8
-
+```cpp
 /* included by netinet/in.h */
 struct in6_addr {
   union {
@@ -5023,17 +4474,12 @@ struct in6_addr {
     uint32_t __u6_addr32[4];  /* aliased as s6_addr32 */
   } __u6_addr;
 };
+```
 
 The difference in the `sin6_addr` field size is not a problem in practice. As the first field (`sin6_family`) remains a constant size of 16 bits, this field can be used to determine which type of `struct` is being used. The address field can then be accessed by explicitly casting to `struct sockaddr`, `struct sockaddr_in`, or `struct sockaddr_in6` as needed. In the code, the 16 bytes of the `sin6_addr` field can be viewed as an array of 16 `uint8_t` values, an array of eight `uint16_t` values, or an array of four `uint32_t` values; all three views refer to the same sequence of bytes, and they all require the same size. Given that the syntax of unions can be awkward, these fields are aliased as `s6_addr`, `s6_addr16`, and `s6_addr32`. [Code Listing 4.2](#cl4-2) shows how the alias makes the syntax cleaner to use.
 
-1
-2
-3
-4
-5
-6
-7
 
+```cpp
 /* Code Listing 4.2:
    Accessing part of a union without and with an alias for the field
  */
@@ -5041,6 +4487,7 @@ The difference in the `sin6_addr` field size is not a problem in practice. As th
 struct in6_addr addr;
 addr.__u6_addr.__u6_addr[0] = 5; /* set first byte to 5 */
 addr.s6_addr[0] = 5; /* same thing, but using the alias */
+```
 
 📜 Example 4.4.2
 
@@ -5188,17 +4635,8 @@ The internal representations of `in_addr` and `in6_addr` are different from the 
 
 In both IPv4 and IPv6 the sin_port and sin6_port fields require special handling, due to the issue of _endianness_. Recall that multi-byte numbers, such as a 16-bit unsigned integer, can be stored according to either _big endian_ or _little endian_ format depending on the CPU architecture. In a big endian architecture, the most significant byte (i.e., the _big end_ of the number) is placed at the lowest memory address; this relationship can be captured with the mnemonic, “big end at the bottom.” In contrast, a little endian architecture would place the least significant byte at the lowest address; here, the mnemonic is “little end at the lowest.” As an illustration, consider [Code Listing 4.3](#cl4-3). By casting the address of the `uint16_t` variable—which would actually be the address of its byte at the lowest numerical address—as a `uint8_t` pointer, the two bytes can be accessed individually.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
 
+```cpp
 /* Code Listing 4.3:
    Casting and pointer arithmetic can illustrate endianness
  */
@@ -5209,6 +4647,7 @@ address.sin_port = htons (4096); /* see below */
 uint8_t *as_array = (uint8_t *) &address.sin_port;
 printf ("%p stores %" PRI8x "\n", &as_array[0], as_array[0]);
 printf ("%p stores %" PRI8x "\n", &as_array[1], as_array[1]);
+```
 
 If we assume the `address.sin_port` field resides at address `0xbfff1234` (thus also occupying `0xbfff1235`), the variable layout in memory would vary based on the CPU architecture:
 
@@ -5244,7 +4683,7 @@ Table 4.3: Placement of bytes in memory depends on CPU endianness
 
 While most modern CPU architectures use a little endian format, network protocols use big endian. Furthermore, since the sender and receiver hosts may have different CPU architectures, they may also differ in their endianness. To overcome this problem, multi-byte socket address fields that will be sent across the network require attention to endianness. The simplest way to achieve this is to use the C functions `htons()`, `htonl()`, `ntohs()`, and `ntohl()`. When the process is setting up the socket or sending data, use the `hton` (_host to network_) versions; as an example, refer back to the last line of [Code Listing 4.1](#cl4-1). At the other end, when a process reads data from the network, it will use the `ntoh` (_network to host_) version. Assuming both hosts follow this convention, neither host will require any advance knowledge of the other host’s CPU architecture endianness.
 
-📦 C library functions – <arpa/inet.h>
+📦 C library functions – `<arpa/inet.h>`
 
 * * *
 
@@ -5277,7 +4716,7 @@ Once a client process has created a socket, the next step is to build the socket
 
 While there are standard port numbers for many applications, IP addresses should not be hard-coded, as they can change. Instead, `getaddrinfo()` provides an interface to look up an IP address by the standard text format used in URIs. This string is passed as the first argument, `nodename`. The `servname` parameter indicates a desired service, such as `"http"`. The `hints` parameter can be used to limit the list of results, such as restricting the domain to `AF_INET` (IPv4) or `AF_INET6` (IPv6), or limiting the type to `SOCK_STREAM` or `SOCK_DGRAM`. The final parameter, `res`, is a call-by-reference parameter that will be set to point to a linked list of address structures.
 
-📦 C library functions – <netdb.h>
+📦 C library functions – `<netdb.h>`
 
 * * *
 
@@ -5291,18 +4730,8 @@ Free all address information structures in the linked list beginning at ai.
 
 Both the `hints` and `res` parameters use the `struct addrinfo` structure, defined in `netdb.h`. The `hints` argument initializes all fields to zero, setting the int fields as desired. For example, setting `hints.ai_family` to `AF_INET` would get results only for IPv4; to get all families, the value can be left as zero or explicitly set as `AF_UNSPEC`. Similarly, setting hints.ai_socktype to `SOCK_STREAM` would yield only byte stream sockets (e.g., those used in TCP). In the results list, the `ai_addr` field would point to a `struct sockaddr` as defined previously. Note that `getaddrinfo()` puts all values into the struct in the correct endianness needed for later functions, so no additional conversion is needed. Since `getaddrinfo()` dynamically allocates the results list, the `res` field should be passed to `freeaddrinfo()` to free the memory.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
 
+```cpp
 /* defined in netdb.h */
 struct addrinfo {
   int ai_flags;
@@ -5314,10 +4743,11 @@ struct addrinfo {
   struct sockaddr *ai_addr;
   struct addrinfo *ai_next;
 };
+```
 
 When building applications to connect to a server, the `ai_addr` field can be passed without casting. However, it is often beneficial to print the address in a readable format, such as when writing to a log file. The `inet_ntoa()` and `inet_ntop()` functions perform this formatting. Of these two, the `inet_ntoa()` function is older and only supports IPv4. This function takes a `struct in_addr` parameter, which would be the `sin_addr` field of a `struct sockaddr`. The return value is a pointer to a statically allocated location containing the string. As such, the pointer does not (and cannot) need to be freed later. On the other hand, `inet_ntop()` works with both IPv4 and IPv6, relying on the `af` parameter to distinguish between the two. The `src` argument points to the `sockaddr` to translate; note that this parameter uses a `void *` type, and the function will cast it based on the `af` argument. The `dst` argument is a pointer to a buffer to write the string into, with size indicating the length of the buffer. If the address can be translated properly, the function returns a pointer to the string, which should match the address of the buffer.
 
-📦 C library functions – <arpa/inet.h>
+📦 C library functions – `<arpa/inet.h>`
 
 * * *
 
@@ -5331,36 +4761,8 @@ Convert an IP address (either IPv4 or IPv6) into a string format.
 
 [Code Listing 4.4](#cl4-4) illustrates how these functions can be used along with `getaddrinfo()` to translate a hostname (assumed to be declared with a value such as `"www.example.com"`) into an IPv6 readable address format. The `getaddrinfo()` internal implementation typically relies on the [Domain Name System](#term-domain-name-system) (DNS) protocol to look up the IP address. In this initial version, each of the results in the server list are confirmed to be an IPv6 address. The `ai_addr` field is then cast to the appropriate socket address `struct` and its `sin6_addr` field is passed to the `inet_ntop()` function for formatting. This implementation could be modified to print IPv4 addresses correctly by changing only the constants and field names as described previously; the buffer size would need to use the constant `INET_ADDRSTRLEN`, as well.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
 
+```cpp
 /* Code Listing 4.4:
    Utility program that prints IPv6 addresses as a readable string
  */
@@ -5390,20 +4792,11 @@ for (server = server_list; server != NULL; server = server->ai_next)
       }
   }
 freeaddrinfo (server_list); /* Free allocated linked list data */
+```
 
 [Code Listing 4.5](#cl4-5) shows how the if-block from [Code Listing 4.4](#cl4-4) could use `inet_ntoa()` instead of `inet_ntop()`. For IPv4, the two functions produce identical output, so either one can be used.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-
+```cpp
 /* Code Listing 4.5:
    Additional code for printing out an IPv4 in dotted decimal format
  */
@@ -5414,6 +4807,7 @@ if (server->ai_family == AF_INET)
     struct sockaddr_in *addr = (struct sockaddr_in *)server->ai_addr;
     printf ("IPv4 address: %s\n", inet_ntoa (addr->sin_addr));
   }
+```
 
 [Code Listing 4.3](#cl4-3) showed how the port field could be explicitly set with a variable assignment. While it may not be apparent, [Code Listing 4.4](#cl4-4) illustrates a second, preferred way to handle this assignment. Specifically, `getaddrinfo()` puts the port number in socket address based on standard, [well-known ports](#term-well-known-port). In this case, the parameter `"http"` maps to port number 80. [Table 4.4](#tbl4-4) lists the port numbers for some common applications. Note that some services, such as FTP and Telnet, are discouraged because they offer no security guarantees; Telnet, for instance, allows anyone with a packet sniffer to discover a user’s password when logging in to a remote server. Instead, the secure approach is to run these protocols on top of SSH.
 
@@ -5673,7 +5067,7 @@ Note that these `struct addrinfo` instances form a linked list of possible addre
 
 Once the address information is established, it can be passed to the `connect()` function to establish the initial connection to the socket at a server address, so long as it is accepting requests. If TCP is the transport layer protocol used, `connect()` will send an initial message to the server host process to initiate the TCP [3-way handshake](#term-tcp-handshake), making the server aware of the connection. If UDP or another connectionless protocol is used, `connect()` simply sets the IP address of the peer (i.e., the server) in the client host’s socket.
 
-📦 C library functions – <sys/socket.h>
+📦 C library functions – `<sys/socket.h>`
 
 * * *
 
@@ -5683,37 +5077,7 @@ Connect to a server or set the peer address of a connectionless server socket.
 
 Building on the previous examples, [Code Listing 4.6](#cl4-6) shows how the results from `getaddrinfo()` can be used to connect to the server. In this example, we are creating a TCP connection over IPv4 to the designated `hostname`. Based on the hints fields and the second parameter to `getaddrinfo()`, every address returned in the `server_list` will be configured to connect to a web server running HTTP. When the for-loop ends, the process is either connected to the server to start an HTTP session or there is no socket connection available. In the latter case, the `socketfd` would be -1, and the client should recognize the failed connection.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-
+```cpp
 /* Code Listing 4.6:
    Client code that will connect to a web server for an HTTP session
  */
@@ -5744,6 +5108,7 @@ if (socketfd < 0)
   exit (1);
 
 /* ... begin HTTP session here ... */
+```
 
 ///4.4.3. Server Socket Interface[¶]
 ------------------------------------
@@ -5752,20 +5117,7 @@ Setting up the server socket involves a different sequence of steps from the cli
 
 Code Listing 4.7 shows the differences in the parameters passed to `getaddrinfo()` for a server. First, the `hints.ai_flags` field is set to `AI_PASSIVE` and the `nodename` argument is set to `NULL`. This combination specifies that the socket will use the local host’s IP address and will be listening for incoming requests. Next, the `servname` parameter has been changed to `"8000"` to demonstrate how a custom port number can be used. Systems have existing processes set up for well-known ports, and each port number can only be assigned to a single process. Consequently, if we want to build our own web server, we would need to pick a random port number to use, 8000 in this case. To connect to this server once it is running, the client from Code Listing 4.6 would also need to be modified to pass `"8000"` to `getaddrinfo()` instead of `"http"` as the `servname` argument.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-
+```cpp
 /* Code Listing 4.7:
    Getting socket address information for a server
  */
@@ -5779,10 +5131,11 @@ hints.ai_protocol = IPPROTO_TCP; /* create as a TCP socket */
 
 /* Get a list of addresses at hostname that serve HTTP */
 getaddrinfo (NULL, "8000", &hints, &server_info);
+```
 
 Once the socket address information has been configured, the process can then make a sequence of function calls to become a server. Typically (though not required), the first call is to `setsockopt()` to configure the socket with the `SO_REUSEADDR` option. This option avoids a common error during the next step, `bind()`. The `bind()` call links the port number with the current process. Sometimes when a port number is reused, a timing problem can cause the previous process (which is no longer running) to fail to release the port fully. Setting the `SO_REUSEADDR` option tells `bind()` to ignore this and forcefully replace the port association.
 
-📦 C library functions – <sys/socket.h>
+📦 C library functions – `<sys/socket.h>`
 
 * * *
 
@@ -5796,40 +5149,7 @@ Assign a local sockaddr to a socket identifier; returns negative values if the b
 
 [Code Listing 4.8](#cl4-8) demonstrates using `setsockopt()` and `bind()` to extend the [Code Listing 4.7](#cl4-7) to set up a TCP server. From [Code Listing 4.7](#cl4-7), the port number requested for the server is 8000, which is the port number that would be stored in the `struct sockaddr` passed to `bind()`. The call to `setsockopt()` sets the `SO_REUSEADDR` option to true (1, stored in `socket_option`) at the socket level (`SOL_SOCKET`), meaning only this particular socket is affected. If the `bind()` is successful, the server is established. Another common option is `SO_RCVTIMEO`, which sets a time limit for blocking calls that read from the socket, allowing the process to close lost connections.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-
+```cpp
 /* Code Listing 4.8:
    Setting up a connection-oriented server and receiving connections
  */
@@ -5863,6 +5183,7 @@ if (socketfd < 0)
     perror ("ERROR: Failed to bind socket");
     exit (1);
   }
+```
 
 ![Timing for a connection-less server that uses UDP](https://w3.cs.jmu.edu/kirkpams/OpenCSF/Books/csf/html/_images/CSF-Images.4.5.png)
 
@@ -5872,7 +5193,7 @@ For connection-less protocols like UDP, no further action is needed to set up th
 
 Connection-oriented TCP sockets require two additional function calls. The first, `listen()`, converts the socket to a connection-oriented server socket with a designated request queue. The second parameter, `backlog`, can be used to modify the maximum number of enqueued connection requests. Setting this value to 0 will use the system default size, which varies depending on the system implementation of the C library. There is also a maximum allowable listen queue size, defined by the constant `SOMAXCONN`. Once the process has converted its socket to a server socket, repeated calls to `accept()` establish connections with incoming requests. The `accept()` function is blocking, so the process will wait at that point until a new request comes in. When a new request arrives, `accept()` performs the server side of the 3-way handshake to establish the connection, storing information about the client in the `address` and `address_len` fields.
 
-📦 C library functions – <sys/socket.h>
+📦 C library functions – `<sys/socket.h>`
 
 * * *
 
@@ -5892,38 +5213,7 @@ Figure 4.4.14: Timing for a connection-oriented server that uses UDP
 
 [Code Listing 4.9](#cl4-9) shows the final steps of setting up a TCP connection-oriented server and receiving requests, beginning with the call to `listen()`. After converting the socket to a server socket, the process enters a loop waiting on incoming connection requests. When `accept()` returns with a connection, the client’s IP address and port number are copied into the struct sockaddr. Note that the client’s port number will not be 8000 in this case, which is the port number chosen for this server. Instead, client sockets are assigned an [ephemeral port](#term-ephemeral-port), which is a pseudo-randomly selected integer in the range 1024 - 65535, when they are being set up. In this example, the server uses the `inet_ntoa()` and `ntohs()` utilities to print the client’s IP address and port number, then immediately closes the connection and frees the resources. If the client tries to read from or write to the socket at that point, the operation would fail and the client would get an error message back.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-
+```cpp
 /* Code Listing 4.9:
    Receiving TCP connections
  */
@@ -5955,13 +5245,14 @@ while (1)
     free (address);
   }
 close (socketfd);
+```
 
 ///4.4.4. Socket Communication[¶]
 ---------------------------------
 
 For TCP sockets, exchanging messages between the client and server can be done using the standard `read()` and `write()` operations, as with other forms of IPC. This works because sockets are treated like files, and the value returned from `socket()` behaves the same as any other file descriptor. UDP sockets require the use of `recvfrom()` and `sendto()` for data exchange. These functions use `struct sockaddr` parameters to determine the sender’s IP address when receiving and to specify the destination when sending. The `read()` and `write()` functions cannot serve this purpose, as the UDP socket identified by the file descriptor does not store this information. The `recvfrom()` and `sendto()` functions can also be used by TCP for consistency.
 
-📦 C library functions – <sys/socket.h>
+📦 C library functions – `<sys/socket.h>`
 
 * * *
 
@@ -5975,37 +5266,7 @@ Send a message to another host through a socket.
 
 As with other socket-related functions, `recvfrom()` and `sendto()` use the generic `struct sockaddr` type, relying on the `socklen_t` parameter to determine its length and, indirectly, its specific type. Both functions take a `void*` parameter and a size that define the location of the bytes to send or to write received bytes. The `flags` parameter for each can specify advanced usage options. [Code Listing 4.10](#cl4-10) illustrates the use of these functions, sending a simple HTTP request and reading the first part of the response.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-
+```cpp
 /* Code Listing 4.10:
    Sending to and receiving from an IPv6 socket
  */
@@ -6036,6 +5297,7 @@ while ((bytes = recvfrom (socketfd, buffer, buffer_len - 1, 0, server->ai_addr,
     memset (buffer, 0, buffer_len);
   }
 close (socketfd);
+```
 
 [Code Listing 4.10](#cl4-10) assumes that a client socket has already been created and has connected to a web server, as shown in [Code Listing 4.6](#cl4-6). For simplicity regarding the call to `inet_ntop()`, we are assuming this socket uses an IPv6; this assumption is only needed to print the IP address out. When receiving, since the client does not know the number of bytes total that will be sent, the client enters a loop that repeatedly requests enough data to fill up the buffer. Since `recvfrom()` is a blocking call, the process will wait if there are delays in the network. When the server is finished sending, `recvfrom()` will return zero and the client will exit the loop.
 
@@ -6091,25 +5353,7 @@ To use `netcat`, you specify the hostname (`example.com`) and the port number (8
 
 Writing the messages for an HTTP header is straightforward, as the headers are just concatenated text output. Code Listing 4.11 illustrates the general structure of this task. The client creates a buffer and copies the required `Request` line into the beginning. The string concatenation function, `strncat()`, appends the other lines to the buffer, and the buffer is written to the socket. Note that the `length` variable is used to keep track of how much available space is remaining in the buffer, which is always the capacity (500) minus the length of the existing string in the buffer.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-
+```cpp
 /* Code Listing 4.11:
    Constructing and sending an HTTP GET request
  */
@@ -6128,6 +5372,7 @@ length = 500 - strlen (buffer);
 /* Other lines are similar and omitted... */
 
 write (socketfd, buffer, strlen (buffer));
+```
 
 🐞🐛🐌 Bug Warning
 
@@ -6162,17 +5407,7 @@ Readers with experience writing HTML code may be familiar with _query strings_ a
 
 The last part of an HTTP `Request-Line` is the version, which corresponds to the first field of the `Status-Line` that begins the response. The examples in [Example 4.5.1](TCPSockets.html#getrequestex) and [Example GetResponseEx](TCPSockets.html) used the version HTTP/1.0, which is the basic `request-response` protocol we have discussed so far. HTTP/1.1 introduces [persistent connections](#term-persistent-connection), which are commonly used in modern web applications. With a standard HTTP/1.0 request, the TCP socket connection is closed when the server sends the response. As such, if a client needs to request more data, the client must establish a new connection and start over. With an HTTP/1.1 persistent connection, the TCP connection is only closed after the client sends a request that explicitly asks to close the connection.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-
+```xml
 <!-- Code Listing 4.12:
      HTML code that causes the sequence in Figure 4.6 -->
 
@@ -6183,6 +5418,7 @@ The last part of an HTTP `Request-Line` is the version, which corresponds to the
 </head>
 <body><img src="logo.png" /></body>
 </html>
+```
 
 ![Requesting four objects with HTTP/1.1 and a fourth object with HTTP/1.0 from a second server](https://w3.cs.jmu.edu/kirkpams/OpenCSF/Books/csf/html/_images/CSF-Images.4.10.png)
 
@@ -6259,31 +5495,7 @@ Some status codes are unrecoverable error messages. For instance, if a client re
 
 Although writing HTTP headers—as shown in [Code Listing 4.11](#cl4-11)—is straightforward, reading them at the other end can be a challenge if not handled properly. The difficulty arises from the fact that header sizes vary, so the receiver does not know how many bytes to request from the socket at a time. To address this challenge, both clients and servers typically impose a maximum header size of 8 KB by convention. The initial read from the socket requests this much data. If a complete header is not found in this space, then the connection is terminated as invalid by clients; servers that receive such invalid headers return Status 413 to indicate `Entity Too Large`. A complete header must end with a blank line, creating the four-byte sequence `"\r\n\r\n"`. [Code Listing 4.13](#cl4-13) demonstrates how to perform this check by looking for this string. If it is found, the second `'\r'` is replaced with the null-byte `'\0'` to convert `buffer` to a complete string of the header, with each header line ending in `CRLF`.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-
+```cpp
 /* Code Listing 4.13:
    Checking for a complete HTTP response header
  */
@@ -6308,36 +5520,11 @@ if (eoh == NULL)
 /* Replace the blank line of CRLF CRLF with \0 to split the
    header and body */
 eoh[2] = '\0';
+```
 
 Once the header and body have been split, processing the header involves repeatedly breaking it at the `CRLF` locations. [Code Listing 4.14](#cl4-14) extends [Code Listing 4.13](#cl4-13) to demonstrate this processing, printing all header lines but looking specifically for the `Content-Length` header. Since [Code Listing 4.13](#cl4-13) ended by replacing the blank line of `CRLF CRLF` with the null byte, line 25 will set `eol` to `NULL` after the last header line is processed.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-
+```cpp
 /* Code Listing 4.14:
    Extending Code Listing 4.13 to read a header line at a time
  */
@@ -6364,23 +5551,11 @@ while (eol != NULL)
     line = eol + 2;
     eol = strstr (line, "\r\n");
   }
+```
 
 After [Code Listing 4.14](#cl4-14) establishes the Content-Length of the message (either request or response), this length can be compared with the length of the body that was already read. That is, the initial read from the socket received no more than 8 KB of data, which was the maximum size of the header. However, the body contents (particular for HTML data, images, and other objects returned as a response) are likely to exceed this 8 KB size limit. Consequently, an additional `read()` may be required to retrieve the rest of the body contents. [Code Listing 4.15](#cl4-15) completes the response processing by duplicating the body contents received so far and resizing it to read in the additional data. Note that line 12 will read from the socket into the space just after the existing body contents.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-
+```cpp
 /* Code Listing 4.15:
    Extending Code Listing 4.13 to read a header line at a time
  */
@@ -6394,6 +5569,7 @@ if (body_length > strlen (body)) // if false, all data received
     body = realloc (body, body_length);
     bytes = read (socketfd, body + strlen (body), body_length - strlen (body));
   }
+```
 
 In [Code Listings 4.13](#cl4-13), [4.14](#cl4-14), and [4.15](#cl4-15), we have been implicitly assuming the data was HTML for simplicity. The response header would declare this with the `Content-Type` header. However, the same principle ideas would apply regardless of the type of data requested. For instance, if the client issues a `GET` request for `/logo.png`, the response would start with the same headers we have used, but the `Content-Type` would inform the client that the body contains `image/png` instead of `text/html`. Given that images can contain the null-byte, [Code Listing 4.13](#cl4-13) and [Code Listing 4.15](#cl4-15) would need to be modified to avoid the use of `strlen()`. However, the code shown here could be adapted to support binary data objects, such as images.
 
@@ -6404,16 +5580,7 @@ Designing HTTP to be stateless worked well for its original purpose of sending a
 
 In modern web development, there are multiple options for data persistence. HTTP [cookies](#term-cookie) are one of the oldest and most pervasive tools to accomplish this. A cookie is a short, text-based key-value pair that gets sent as an HTTP header field (similar to the `Content-Length` or `Connection` headers previously discussed). [Code Listing 4.16](#cl4-16) demonstrates one way to create a cookie in Javascript.
 
-1
-2
-3
-4
-5
-6
-7
-8
-9
-
+```cpp
 /* Code Listing 4.16:
    Creating a new cookie in Javascript that expires in 15 minutes
  */
@@ -6423,6 +5590,7 @@ date.setTime(date.getTime() + 15 * 60 * 1000); // add 15 minutes
 var newCookie = "username=julian;expires=" + date.toUTCString() +
   ";path=/;samesite=strict;secure";
 document.cookie = newCookie;
+```
 
 The Javascript code in [Code Listing 4.16](#cl4-16) would run on the client side, causing the web browser to create a new cookie as the key-value pair `username=julian`. The rest of lines 7 and 8 control how the browser will use the cookie. The `expires` field indicates that the cookie is only valid for the next 15 minutes; it will be deleted after that time has passed. The `path=/` indicates that this cookie will be sent along with any requests for the current domain name, regardless of the web site’s directory structure. The `samesite=strict` prevents the cookie from being sent to third-party web sites; that is, the cookie will not be sent to other domains, such as advertising networks. Lastly, the `secure` restricts the cookie to transfer over HTTPS and will prevent its transfer over standard HTTP. Line 9 adds the new cookie to the browser’s`document.cookie` value, which is the concatenated list of all cookies. (This line is unintuitive, as Javascript uses the assignment operator for this purpose, but the line is actually appending the value to an existing string.)
 
@@ -6772,21 +5940,7 @@ The `QNAME` field of the resource record is employing a compression technique to
 
 To illustrate how to work with DNS in code, we start by declaring the following types for a DNS header and question. The `dns_header_t` and `dns_question_t` type definitions are those used in the macOS DNS implementation and are present in the `dns_util.h` header file. However, these are not part of the POSIX standard, so they do not exist on other systems. [[4]](#f30) We use them here for convenience to construct the query.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-
+```cpp
 typedef struct {
   uint16_t xid;      /* Randomly chosen identifier */
   uint16_t flags;    /* Bit-mask to indicate request/response */
@@ -6801,28 +5955,11 @@ typedef struct {
   uint16_t dnstype;  /* The QTYPE (1 = A) */
   uint16_t dnsclass; /* The QCLASS (1 = IN) */
 } dns_question_t;
+```
 
 [Code Listing 4.17](#cl4-17) illustrates how to start creating a DNS query using the OpenDNS service. This same request could be sent to any DNS server, such as the DNS server operated by the reader’s ISP. [[5]](#f31) As with HTTP before, the code starts by creating a socket, but this socket uses the `SOCK_DGRAM` type to create a UDP socket. OpenDNS’s DNS server IPv4 address is available at 208.67.222.222, which is the hexadecimal value `0xd043dede`. DNS servers listen on port 53, so that value is also set. For the DNS header, we can randomly assign any value to the `XID` field, which has no inherent meaning to the server itself. The flag field is set to declare the message is a request (`Q=0`) and to indicate that recursion is desired (`RD=1`). Finally, we declare that we will be sending a single question in this request. Note that all of the numeric values are set using the `htons()` and `htonl()` standard C functions to ensure that the values in the datagram will be in the correct byte order.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-
+```cpp
 /* Code Listing 4.17:
    Creating a DNS header and question to send to OpenDNS
  */
@@ -6841,22 +5978,12 @@ memset (&header, 0, sizeof (dns_header_t));
 header.xid= htons (0x1234);    /* Randomly chosen ID */
 header.flags = htons (0x0100); /* Q=0, RD=1 */
 header.qdcount = htons (1);    /* Sending 1 question */
+```
 
 [Code Listing 4.18](#cl4-18) illustrates the initial steps for setting up the question field. The length of this field is not fixed, as it depends on the length of the domain name being translated. As such, the `dns_question_t` type does not contain the full contents of the question itself, using a pointer to the name field within the program instead. For this scenario, we are only requesting an Internet address record, so we set the `QTYPE` to 1 (`A`) and `QCLASS` to 1 (`IN`).
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
 
+```cpp
 /* Code Listing 4.18:
    Creating a DNS header and question to send to OpenDNS
  */
@@ -6869,40 +5996,17 @@ question.dnsclass = htons (1); /* QCLASS 1=IN */
 /* DNS name format requires two bytes more than the length of the
    domain name as a string */
 question.name = calloc (strlen (hostname) + 2, sizeof (char));
+```
 
 Recall the domain name formatting in [Table 4.7](#tbl4-7) and [Table 4.9](#tbl4-9). Given a human readable domain name, such as `www.charity.org`, the string is broken apart into distinct fields based on the dot; in this case, the three fields are `"www"`, `"charity"`, and `"org"`. Within the DNS question, each field is preceded by a one-byte value that indicates the length of the field. The name is considered terminated once the null-byte is used to indicate a zero-length field. [Code Listing 4.19](#cl4-19) shows an algorithm to convert a human readable name into the DNS question format. The code starts by copying the hostname into the second byte of the space allocated for the name; the reason for this is to leave one byte of space for the length of the first field (which will be 3 for `"www"`), which will be determined later. Throughout the rest of the algorithm the prev pointer is used to keep track of the location of the byte where the current field’s length will be stored. As such, prev is initialized to the first byte of the space for the name.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-
+```cpp
 /* Code Listing 4.19:
    Algorithm for converting a hostname string to DNS question fields
  */
 
 /* Leave the first byte blank for the firstfield length */ memcpy (question.name + 1, hostname, strlen (hostname)); uint8_t *prev = (uint8_t *) question.name; uint8_t count = 0; /* Used to count the bytes in a field */ /* Traverse through the name, looking for the . locations */ for (size_t i = 0; i < strlen (hostname); i++) { /* A . indicates the end of a field */ if (hostname[i] == '.') { /* Copy the length to the byte before this field, then update prev to the location of the . */ *prev = count; prev = question.name + i + 1; count = 0; } else count++; } *prev = count;
+```
 
 When the hostname is copied into the space for the question, the string still contains the dot characters. In the DNS question format, these dots are replaced by the lengths of the field that follows. Returning to the example of `www.charity.org`, the first dot should be replaced by 7, indicating the length of the field `"charity"`. The for-loop in [Code Listing 4.19](#cl4-19) replaces the dots with the field name, by keeping prev pointing to the location of the dot preceding the current field. As such, once another dot is encountered, the code can update the byte where the previous dot is stored with the length of the field that just ended. The count variable is then reset to 0 (starting to count the length of a new field), and prev is updated to point to the new dot. When the loop ends, prev is still pointing to the location of the last dot, so its value can be modified with the length of the last field.
 
@@ -6914,31 +6018,7 @@ The correctness of [Code Listing 4.19](#cl4-19) relies on correct handling of tw
 
 Once the header and question fields have been constructed, all that remains is to assemble these bytes into a packet and send the request through the UDP socket. [Code Listing 4.20](#cl4-20) illustrates this procedure. First, the total packet length needs to be determined. DNS headers are fixed size, but the questions are not. The length of the question is based on the extended length of the hostname (including the byte for the first field’s length and the final null-terminating byte). The question also contains two 16-bit values to indicate the `QTYPE` and `QCLASS`. Once the size is determined and the space is dynamically allocated, the code concatenates all fields as necessary. The header is copied in first, followed immediately by the `QNAME`, with the `QTYPE` and `QCLASS` at the end. Since DNS is based on UDP for transport, the code must use `sendto()` to deliver the message to the socket.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-
+```cpp
 /* Code Listing 4.20:
    Assembling the DNS header and question to send via a UDP packet
  */
@@ -6963,23 +6043,14 @@ memcpy (p, &question.dnsclass, sizeof (question.dnsclass));
 /* Send the packet to OpenDNS, then request the response */
 sendto (socketfd, packet, packetlen, 0, (struct sockaddr *) &addr, 
         (socklen_t) sizeof (addr));
+```
 
 ///4.6.5. Processing DNS Query Responses[¶]
 -------------------------------------------
 
 To receive the response from the DNS server, [Code Listing 4.21](#cl4-21) starts by allocating and clearing the contents of a 512-byte buffer in memory. The length of this buffer can be hard-coded in this way, as the DNS specification mandates a maximum of 512 bytes for all messages. The actual length of the received data is set when `recvfrom()` retrieves the response from the socket.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-
+```cpp
 /* Code Listing 4.21:
    Receiving a DNS header and confirming there were no errors
  */
@@ -6990,19 +6061,12 @@ memset (&response, 0, 512);
 
 /* Receive the response from OpenDNS into a local buffer */
 ssize_t bytes = recvfrom (socketfd, response, 512, 0, (struct sockaddr *) &addr, &length);
+```
 
 The response from the server (assuming the request is successfully processed) would consist of the fixed-size header, a question field identical to that sent in the request, and an answer containing the information from a resource record. The structure of the answer depends on several factors, including the IP version (IPv4 or IPv6) and the type of record requested. That is, the responses for address (`A`), namespace (`NS`), or canonical name (`CNAME`) records vary in structure. In this scenario, we are requesting an IPv4 address, so the bytes in the request would match the following `struct` definition.
 
-1
-2
-3
-4
-5
-6
-7
-8
-9
 
+```cpp
 /* Structure of the bytes for an IPv4 answer */
 typedef struct {
   uint16_t compression;
@@ -7012,6 +6076,7 @@ typedef struct {
   uint16_t length;
   struct in_addr addr;
 } __attribute__((packed)) dns_record_a_t;
+```
 
 🐞🐛🐌 Bug Warning
 
@@ -7027,26 +6092,8 @@ However, compilers routinely re-order the fields in a `struct` to preserve _word
 
 [Code Listing 4.22](#cl4-22) shows how the client can take the received response and interpret it correctly for an IPv4 A record. By casting the response as a `dns_header_t *` variable, the code can refer to the fields within the header based on the struct declaration. By applying the `0xf` bit mask, we can examine just the `RCODE` field of the flag to detect if an error occurs. If the `RCODE` is 0, then the request was processed correctly. Next, we need to traverse through the question field, which begins with the variable-length `QNAME`. The `start_of_name` pointer is created to keep track of where the name starts. Each iteration of the loop determines where the next field length byte will occur and replaces it with a dot, while calculating the total length of the name.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
 
+```cpp
 /* Code Listing 4.22:
    Checking the header and question name of the DNS response
  */
@@ -7066,24 +6113,12 @@ while (*field_length != 0)
     *field_length = '.';
     field_length = start_of_name + total;
   }
+```
 
 Once we have determined the total length of the domain name in the question field, we can skip directly to the resource records in the answer. Immediately after the while loop in [Code Listing 4.22](#cl4-22), the `field_length` pointer will be pointing to the null byte at the end of the name. The records begin five bytes later, after the null byte, the `QTYPE`, and the `QCLASS` fields. Casting the remaining bytes as a `dns_record_a_t *` allows [Code Listing 4.23](#cl4-23) to treat this data as an array of records. The fields of these records can then be cast using the `struct` definition from above.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
 
+```cpp
 /* Code Listing 4.23:
    Printing the DNS resource records returned
  */
@@ -7098,9 +6133,11 @@ for (int i = 0; i < ntohs (response_header->ancount); i++)
     printf ("IPv4: %08" PRIx32 "\n", ntohl (records[i].addr));
     printf ("IPv4: %s\n", inet_ntoa (records[i].addr));
   }
+```
 
 The Extended Example for Chapter 5 combines all of the preceding code segments, along with some additional statements for printing, into a single program to run as a basic DNS client. If this program is compiled into the current directory as an executable called `dns`, the output would look like the following when querying the address `example.com`. Note that this example only works with some domain names, as our basic client only supports a limited subset of the required functionality as defined in RFC 1034 and RFC 1035.
 
+```sh
 $ ./dns example.com
 Lookup example.com
   1234 0100 0001 0000 0000 0000 0765 7861
@@ -7114,6 +6151,7 @@ CLASS: 1
 TTL: e949
 IPv4: 5db8d822
 IPv4: 93.184.216.34
+```
 
 [[1]](#id1)
 
@@ -7249,264 +6287,7 @@ The other fields in the DHCP message establish the new client’s IP configurati
 
 This Extended Example creates a web server for processing requests using the _common gateway interface_ (CGI). In a standard web server, HTML files are stored on the file system and their contents are sent through the socket when requested. With CGI, the server can execute a compiled program. Whatever the program writes to its standard output gets redirected through the socket to the client. This technique supports dynamic server-side execution, such as generating HTML based on database query results.
 
-  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
- 10
- 11
- 12
- 13
- 14
- 15
- 16
- 17
- 18
- 19
- 20
- 21
- 22
- 23
- 24
- 25
- 26
- 27
- 28
- 29
- 30
- 31
- 32
- 33
- 34
- 35
- 36
- 37
- 38
- 39
- 40
- 41
- 42
- 43
- 44
- 45
- 46
- 47
- 48
- 49
- 50
- 51
- 52
- 53
- 54
- 55
- 56
- 57
- 58
- 59
- 60
- 61
- 62
- 63
- 64
- 65
- 66
- 67
- 68
- 69
- 70
- 71
- 72
- 73
- 74
- 75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162
-163
-164
-165
-166
-167
-168
-169
-170
-171
-172
-173
-174
-175
-176
-177
-178
-179
-180
-181
-182
-183
-184
-185
-186
-187
-188
-189
-190
-191
-192
-193
-194
-195
-196
-197
-198
-199
-200
-201
-202
-203
-204
-205
-206
-207
-208
-209
-210
-211
-212
-213
-214
-215
-216
-217
-218
-219
-220
-221
-222
-223
-224
-225
-226
-227
-228
-229
-230
-231
-232
-233
-234
-235
-236
-237
-238
-239
-240
-241
-242
-243
-244
-245
-246
-247
-248
-249
-250
-251
-252
-253
-254
-255
-256
-257
-
+```cpp
 #include <arpa/inet.h>
 #include <assert.h>
 #include <netdb.h>
@@ -7765,33 +6546,6 @@ sigint_handler (int signum)
   exit (EXIT_SUCCESS);
 }
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
 
 /* This file needs to be compiled and the executable should be
    placed in a subdirectory of the directory where the server
@@ -7820,6 +6574,7 @@ main (void)
   printf ("</body>\n</html>\n");
   return 0;
 }
+```
 
 
 /Chapter 5   The Internet and Connectivity[¶]
@@ -7997,34 +6752,7 @@ DNS response for `example.com`
 
 The `checksum` value is the result of repeated one’s complement addition of 16-bit values in the UDP segment, as shown in [Code Listing 5.1](#cl5-1). In UDP, the checksum is evaluated over the payload, parts of the IP header (which we are ignoring here, as we have not examined IP yet), and a UDP [pseudo-header](#term-pseudo-header). The UDP pseudo-header contains the `source port`, `destination port`, and the `length` fields of the regular UDP header. The `checksum` field is replaced with a 16-bit value containing information about the protocol, which is defined in RFC 762; for UDP, this 16-bit value is 0x0011. Regarding the payload, if there are an odd number of bytes (as shown in the previous messages), that last byte is concatenated with zeroes to create a 16-bit value.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-
+```cpp
 /* Code Listing 5.1:
    Calculate a 16-bit checksum for use in UDP
  */
@@ -8052,6 +6780,7 @@ cksum (uint16_t *bytes, size_t length)
   sum = (uint16_t) sum + (uint16_t) (sum >> 16);
   return ~sum;
 }
+```
 
 [Table 5.3](#tbl5-3) illustrates the mechanics of how one’s complement addition works by adding the values `0x7d09` and `0xb5fc.` The result of this calculation would be `0x13305` based on binary arithmetic that does not require a fixed size. However, UDP checksums are fixed at a length of 16 bits. Whenever the addition would produce a carry out of 1 (requiring a 17th bit), that bit is folded around to the least-significant bit location. Consequently, the leading bit of `0x13305` would be removed (creating `0x3305`) and added to the least-significant bit, yielding the result `0x3306`.
 
@@ -8153,7 +6882,7 @@ In TCP segments, the [sequence number](#term-sequence-number) (`SEQ`) is an iden
 
 Figure 5.3.2: A TCP data exchange of four messages
 
-At the other end, the [acknowledgement number](#term-acknowledgement-number) (`ACK`) allows a receiving host to inform the sender that the segment was received. In the previous scenario, when the server receives the client’s `"Hello"` segment (five bytes sent with `SEQ=25`), the server’s next segment would contain the `ACK=30` (`SEQ + 5`). [Figure 5.3.2](TransLayer.html#internettcp) shows the sample exchange that we have been describing. The client’s first segment used `SEQ=25`; the client sent the `ACK=42`, indicating that was the value it expected for the server’s next segment. (This `ACK` is based on segments shown before this sequence.) The server then responds with a segment that does, in fact, use `SEQ=42`. Since this segment (`"Hello back"`) contains 10 bytes, the client indicates it received the segment by using `ACK=52` in its next segment.
+At the other end, the [acknowledgement number](#term-acknowledgement-number) (`ACK`) allows a receiving host to inform the sender that the segment was received. In the previous scenario, when the server receives the client’s `"Hello"` segment (five bytes sent with `SEQ=25`), the server’s next segment would contain the `ACK=30` (`SEQ + 5`). [Figure 5.3.2](#internettcp) shows the sample exchange that we have been describing. The client’s first segment used `SEQ=25`; the client sent the `ACK=42`, indicating that was the value it expected for the server’s next segment. (This `ACK` is based on segments shown before this sequence.) The server then responds with a segment that does, in fact, use `SEQ=42`. Since this segment (`"Hello back"`) contains 10 bytes, the client indicates it received the segment by using `ACK=52` in its next segment.
 
 During the session, the OS on each host maintains a buffer for storing data until the application reads it from the socket. As this buffer is finite in size, the hosts need to cooperate to prevent a buffer overflow. The [receive window](#term-receive-window) achieves this by declaring the maximum number of bytes that the sender is capable of receiving in the next segment. To observe how this value is used, consider the following analogous line of code when working with strings:
 
@@ -8161,7 +6890,7 @@ strncpy (buffer, input, sizeof (buffer));
 
 The third parameter indicates the maximum number of bytes that will be copied into the `buffer`. For instance, if the `buffer` has space for 20 bytes, but the `input` is a string that is 50 bytes in length, the third parameter prevents the additional 30 bytes from being written beyond the end of the `buffer`. The receive window serves the same purpose within the context of TCP segments. If the receiver’s next segment exceeds this size, then that host would need to break up its response and send it across multiple segments. This cooperation is the TCP [flow control](#term-flow-control) service, as each host takes steps to avoid sending too much data at a time.
 
-There is subtle point regarding flow control that is easily misunderstood. Consider the sequence of segments in [Figure 5.3.2](TransLayer.html#internettcp). In that scenario, the server sent two segments to the client: one containing the string `"Hello back"` and one containing `"Farewell"`. One possible explanation is that the application issued two system calls to write to the socket. Flow control provides another explanation. Although this string in particular is unlikely, the server application may have written the string `"Hello backFarewell"` to the socket. The client’s first segment (sequence number 25) may have included a receive window indicating it only had space for 10 bytes, so the server’s TCP implementation split the segment. The key point is that TCP itself provides flow, and the application is typically not made aware it is happening. The sender splits the segment without informing the application, and the receiving host’s TCP implementation concatenates all segments in its internal buffers as needed.
+There is subtle point regarding flow control that is easily misunderstood. Consider the sequence of segments in [Figure 5.3.2](#internettcp). In that scenario, the server sent two segments to the client: one containing the string `"Hello back"` and one containing `"Farewell"`. One possible explanation is that the application issued two system calls to write to the socket. Flow control provides another explanation. Although this string in particular is unlikely, the server application may have written the string `"Hello backFarewell"` to the socket. The client’s first segment (sequence number 25) may have included a receive window indicating it only had space for 10 bytes, so the server’s TCP implementation split the segment. The key point is that TCP itself provides flow, and the application is typically not made aware it is happening. The sender splits the segment without informing the application, and the receiving host’s TCP implementation concatenates all segments in its internal buffers as needed.
 
 📜 Example 5.3.2
 
@@ -8265,7 +6994,7 @@ Table 5.5: Structure of the 16-bit TCP flags field
 
 Figure 5.3.4: The TCP handshake
 
-The TCP handshake is initiated by a client application that calls the `connect()` socket function described in the previous chapter. The steps of the TCP handshake are shown in [Figure 5.3.4](TransLayer.html#internethandshake) and consists of three segments, commonly referred to as `"SYN"`, `"SYN-ACK"`, and `"ACK"` because of the bits they set. Note that this figure uses `"ACKnum"` to refer to the 32-bit acknowledgement number and `"ACK"` to denote the bit in the 16-bit flags field. A client initiates a TCP connection by sending a SYN segment (`"synchronize"`) that contains its randomly chosen `SEQ` value, setting `SYN=1` and putting `0x5002` into the 16-bit flags field. The server acknowledges receiving the synchronization request (setting `SYN=1` and `ACK=1` to get `0x5012`) and indicates its own initial sequence number. The client then responds again with the `ACK=1` (`0x5010`). Note that all of these segments use an empty payload, but the sequence numbers are incremented as if they contained a single byte.
+The TCP handshake is initiated by a client application that calls the `connect()` socket function described in the previous chapter. The steps of the TCP handshake are shown in [Figure 5.3.4](#internethandshake) and consists of three segments, commonly referred to as `"SYN"`, `"SYN-ACK"`, and `"ACK"` because of the bits they set. Note that this figure uses `"ACKnum"` to refer to the 32-bit acknowledgement number and `"ACK"` to denote the bit in the 16-bit flags field. A client initiates a TCP connection by sending a SYN segment (`"synchronize"`) that contains its randomly chosen `SEQ` value, setting `SYN=1` and putting `0x5002` into the 16-bit flags field. The server acknowledges receiving the synchronization request (setting `SYN=1` and `ACK=1` to get `0x5012`) and indicates its own initial sequence number. The client then responds again with the `ACK=1` (`0x5010`). Note that all of these segments use an empty payload, but the sequence numbers are incremented as if they contained a single byte.
 
 After completing the TCP handshake, the client and server share a logical connection. Both hosts know each other’s sequence numbers and initial receive window sizes. The OS on both hosts has established internal buffers, variables, and other data structures as needed. This internal state is maintained until the two parties close the connection. To close the connection, one host sends a segment with an empty payload and the _finish_ bit `FIN=1`; the other host responds with an `ACK=1` segment. These two segments are then repeated, but with the other party sending the `FIN=1` segment. As such, either side can sever the connection at any time.
 
@@ -8281,7 +7010,7 @@ Recall the distinction between HTTP/1.0 and HTTP/1.1 discussed in the previous c
 
 * * *
 
-This example illustrates the flow of a TCP handshake to set up an HTTP request. As in [Example 5.3.2](TransLayer.html#transtcpexample), the source and destination port numbers consist of the well-know port 80 and an ephemeral port. When the client (typically a web browser) establishes the connection, it starts by picking a random sequence number (4973 in this case) and using 0 as the acknowledgement number. The client sends an empty request (i.e., there is no payload and the message is just the TCP header) to the server as a `SYN` request.
+This example illustrates the flow of a TCP handshake to set up an HTTP request. As in [Example 5.3.2](#transtcpexample), the source and destination port numbers consist of the well-know port 80 and an ephemeral port. When the client (typically a web browser) establishes the connection, it starts by picking a random sequence number (4973 in this case) and using 0 as the acknowledgement number. The client sends an empty request (i.e., there is no payload and the message is just the TCP header) to the server as a `SYN` request.
 
 The server responds with a `SYN-ACK` that sets both of these bits in the `flags` field. (Observe that the port numbers reverse in this middle message to indicate the direction switched to be “server to client.”) As with the `SYN` request, the server selects a random initial sequence number (627). The acknowledgement number here is the client’s sequence number incremented by 1 (4973 + 1). Finally, the client completes the handshake with an `ACK` message back to the server. This ACK message uses the incremented sequence number (4974) and the incremented acknowledgement of the server’s sequence number (628). At this point, the connection is established and both hosts have established the sequence and acknowledgement numbers for future messages.
 
@@ -8316,7 +7045,7 @@ The combination of the sequence number (`SEQ`) acknowledgement number (`ACK`) an
 
 Figure 5.3.7: The client resends the message if the acknowledgement is lost
 
-[Figure 5.3.7](TransLayer.html#internetresend) illustrates the notion of [packet loss](#term-packet-loss), another common scenario involving TCP reliability. In this case, the server received and acknowledge the client’s segment, but the client did not receive the server’s response. As a result, the client re-sent the segment as a second attempt. From an omniscient perspective of all network traffic, this segment seems unnecessary: We can observe that the server did, in fact, receive the segment the first time. However, such a perspective is impossible; hosts can only observe the segments they send and receive. From the client’s perspective, it is possible that the first segment—not the reply—was lost.
+[Figure 5.3.7](#internetresend) illustrates the notion of [packet loss](#term-packet-loss), another common scenario involving TCP reliability. In this case, the server received and acknowledge the client’s segment, but the client did not receive the server’s response. As a result, the client re-sent the segment as a second attempt. From an omniscient perspective of all network traffic, this segment seems unnecessary: We can observe that the server did, in fact, receive the segment the first time. However, such a perspective is impossible; hosts can only observe the segments they send and receive. From the client’s perspective, it is possible that the first segment—not the reply—was lost.
 
 This simple scenario illustrates a critical design question for reliable transport: how long must the client want before declaring a packet lost? Hosts need to wait long enough for packets to traverse the network physically but waiting too long for a lost packet delays the recovery process. To complicate matters further, network conditions can change, so determining the optimal amount of time to wait is a moving target.
 
@@ -8368,7 +7097,7 @@ To make sense of this factor, consider the role of the absolute value $| SRTT �
 
 * * *
 
-When calculating the new RTTVAR, the SRTT value used should be the old SRTT, not the updated value from [Example 5.3.4](TransLayer.html#rttexample). The initial RTTVAR is set to $R/2$ when there are no previous measurements to use. Since the example above used $R = 4$ as the initially observed RTT, RTTVAR is initialized to 2. The table below illustrates the calculations for RTTVAR for the sequence of observations $R’$ from before, using the standard value of $\beta = 1/4$.
+When calculating the new RTTVAR, the SRTT value used should be the old SRTT, not the updated value from [Example 5.3.4](#rttexample). The initial RTTVAR is set to $R/2$ when there are no previous measurements to use. Since the example above used $R = 4$ as the initially observed RTT, RTTVAR is initialized to 2. The table below illustrates the calculations for RTTVAR for the sequence of observations $R’$ from before, using the standard value of $\beta = 1/4$.
 
 SRTT
 
@@ -8510,7 +7239,7 @@ The strength of symmetric key algorithms like AES derives from the strong probab
 
 The operations used in AES are very fast, measured on the scale of CPU cycles. The full encryption process for a single block requires 10, 12, or 14 rounds (based on the key size). Consequently, AES can encrypt a significant amount of data very efficiently. The only problem is how should Alice and Bob determine what key to use, particularly if they have never spoken before? For instance, when you use a web browser to visit your school’s or bank’s website for the first time, the browser and server need to determine a key to use. As a complicating factor, depending on more advanced characteristics of the algorithm, it may be necessary to ensure the key has not been used before.
 
-📦 C OpenSSL library functions – <openssl/evp.h>
+📦 C OpenSSL library functions – `<openssl/evp.h>`
 
 * * *
 
@@ -8538,20 +7267,8 @@ Writes the final ciphertext into the buffer out.
 
 [Code Listing 5.2](#cl5-2) shows the basic structure of initializing an encryption context using the OpenSSL `crypto` library. [[3]](#f35) All symmetric key ciphers require specifying a _cipher mode_. In this example, we are using cipher block chaining (CBC), a very widely used mode.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
 
+```cpp
 /* Code Listing 5.2:
    Create an encryption context for AES-256 in CBC mode
  */
@@ -8565,35 +7282,12 @@ unsigned char *iv = (unsigned char *) "iiiijjjjkkkkllll";
 /* Set up the context and initialize it */
 EVP_CIPHER_CTX *ctx = EVP_CIPHER_CTX_new();
 EVP_EncryptInit (ctx, EVP_aes_256_cbc (), key, iv);
+```
 
 [Code Listing 5.3](#cl5-3) illustrates how to encrypt a plaintext message using the initialized context. `EVP_EncryptUpdate()` can be called repeatedly as needed for long messages. For instance, if the plaintext consisted of a large file stored on disk, the file could be read into memory in small chunks at a time; each chunk would then be passed to `EVP_EncryptUpdate()` accordingly. [Code Listing 5.3](#cl5-3) only requires a single call on line 12, as the `plaintext` is short. Line 18 writes the final result into the allocated buffer `ciphertext` buffer. Note that this data is not in a printable format, so an appropriate encoding (such as Base64) will need to be used for many applications.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
 
+```cpp
 /* Code Listing 5.3:
    Encrypting a string using the AES context from Code Listing 5.1
  */
@@ -8619,9 +7313,11 @@ printf ("Plaintext is:\n");
 BIO_dump_fp (stdout, (const char *)plaintext, plain_length);
 printf ("Ciphertext is:\n");
 BIO_dump_fp (stdout, (const char *)ciphertext, cipher_length);
+```
 
 Assuming OpenSSL is installed in the directories shown, we can combine [Code Listings 5.2](#cl5-2) and [5.3](#cl5-3) into a single `encrypt.c` file, then can compile and run this program on macOS as follows (Linux should not need the `-L` and `-I` flags, as OpenSSL is typically installed in the standard locations checked by the compiler). Lines 23 and 25 use the OpenSSL `BIO_dump_fp()` function to write the `plaintext` and `ciphertext` buffers out to `STDOUT` in a format similar to `hexdump`.
 
+```sh
 $ gcc -o encrypt encrypt.c -L/usr/local/opt/openssl@1.1/lib \
 > -I/usr/local/opt/openssl@1.1/include -lcrypto
 $ ./encrypt
@@ -8629,6 +7325,7 @@ Plaintext is:
 0000 - 48 65 6c 6c 6f 20 77 6f-72 6c 64 00               Hello world.
 Ciphertext is:
 0000 - a8 46 db 10 77 55 c8 91-18 19 22 b4 73 1a d2 fc   .F..wU....".s...
+```
 
 Decrypting messages uses the same structure as [Code Listings 5.2](#cl5-2) and [5.3](#cl5-3). The only difference is the function names change accordingly, such as `EVP_DecryptUpdate()`. The order of the arguments in each of these functions is identical to the encryption versions.
 
@@ -8684,7 +7381,7 @@ At the time of this writing, SHA-2 is still recommended for use (unlike SHA-0 an
 
 On their own, cryptographic hash functions provide a basic mechanism for integrity. If a message $m$ is known and someone claims that the hash value $H(m)$ is the correct hash value, the truth of this statement can be easily confirmed. However, that construction alone does not allow anyone to claim to be the author if $m$. Instead, the cryptographic hash function must combine $m$ with a key. [Figure 5.4.6](NetSec.html#netsecmte) shows one technique for doing this, known as [MAC-then-Encrypt](#term-mac-then-encrypt) (MtE). The first step is to use a [keyed cryptographic hash function](#term-keyed-cryptographic-hash-function) that combines the plaintext with a secret key to compute a [message authentication code](#term-message-authentication-code) (MAC). The MAC is then appended to the plaintext, and the resulting message is encrypted. MtE provides guarantees of both confidentiality and integrity, but it also provides a claim of [authenticity](#term-authenticity) about authorship—only someone with the key could generate the MAC and ciphertext.
 
-📦 C OpenSSL library functions – <openssl/sha.h>
+📦 C OpenSSL library functions – `<openssl/sha.h>`
 
 * * *
 
@@ -8708,20 +7405,7 @@ Performs all steps to hash the data in one function call. The last parameter poi
 
 [Code Listing 5.4](#cl5-4) demonstrates how to use the OpenSSL functions for SHA-256. In this scenario, we are assuming that the data to be hashed has been broken into several fixed-size chunks. (If the data resides in a single block of memory, the `SHA256()` function performs the initialization, calculation, and finalization of the hash value in a single call.) The context value keeps track of the internal state of the hash over repeated calls to `SHA256_Update()`.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-
+```cpp
 /* Code Listing 5.4:
    Compute a single cryptographic hash over a sequence of fixed-size blocks
  */
@@ -8735,6 +7419,7 @@ for (size_t i = 0; i < number_of_blocks; i++)
 /* Write the hash into a byte array */
 uint8_t hash[SHA256_DIGEST_LENGTH];
 SHA256_Final (hash, &context);
+```
 
 ///5.4.4. Transport-Layer Security (TLS)[¶]
 -------------------------------------------
@@ -8774,25 +7459,27 @@ read(net): Connection reset by peer
 
 What is not immediately obvious in print form is that the last line of this output is produced by netcat immediately after the `GET` line is entered. That is, the protocol is aborted immediately by the server and the connection is shut down. The reason for this connection loss is that port 443 is expecting a TLS handshake before any HTTP messages can be processed. Since `netcat` sends all messages in an unencrypted format, it cannot be used for TLS sessions. Instead, we can use the `openssl` utility (`https://www.openssl.org`) for this purpose. [[5]](#f37) The `openssl` equivalent of the netcat command from above is as follows:
 
+```sh
 $ openssl s_client -crlf -connect www.example.com:443
 [...almost 100 lines of immediate output...]
+```
 
 The first parameter indicates the openssl command to execute, as the same utility can be used to run a TLS server, generate cryptographic keys, or many other functions. The `-crlf` option tells `openssl` to use both `'\r\n'` when the user hits the enter key, and the `-connect` option is used to specific the `host:port` combination. Once the `openssl` command is entered, the utility establishes a TCP connection followed by the TLS handshake. This procedure creates almost 100 lines of output, including specific information about the server’s certificate and how much data was exchanged during the handshake. The last part of this output contains information such as the following lines:
 
-SSL-Session:
-    Protocol  : TLSv1.2
-    Cipher    : ECDHE-RSA-AES128-GCM-SHA256
+    SSL-Session:
+        Protocol  : TLSv1.2
+        Cipher    : ECDHE-RSA-AES128-GCM-SHA256
 
 These lines indicate that the client and server have agreed to use TLS version 1.2. The key exchange protocol is the elliptic-curve version of Diffie-Hellman, using RSA for signatures. The session key will encrypt the application-layer payload using a variant of 128-bit AES in Galois/Counter Mode (GCM). Any cryptographic hashes will be computed using SHA-256, a 256-bit version of SHA-2. Eventually, the handshake messages end and the remainder of the session proceeds as follows:
 
-[...TLS handshake messages before this point...]
-GET / HTTP/1.1
-Host: www.example.com
-Connection: close
+    [...TLS handshake messages before this point...]
+    GET / HTTP/1.1
+    Host: www.example.com
+    Connection: close
 
-HTTP/1.1 200 OK
-[...remainder of HTTP response and HTML code...]
-closed
+    HTTP/1.1 200 OK
+    [...remainder of HTTP response and HTML code...]
+    closed
 
 As before, we can enter type the HTTP messages in plaintext. In this case, we are using HTTP/1.1, which would maintain a persistent connection. When using HTTP/1.1, the last request should include the header line `Connection: close`, which closes the TCP connection after processing the request. The HTML ends with the message `closed`, which indicates that the connection has been successfully terminated.
 
@@ -8836,7 +7523,7 @@ As the number of connected devices grew, one technique to compensate for the lim
 
 Readers who have set up a home wireless router may be familiar with the 192.168.0.0/16 subnet. This CIDR notation means the all devices that connect to the wireless router are assigned IP addresses that range from 192.168.0.0 to 192.168.255.255; the first 16 bits are designated to be identical for all devices. The IPv4 specification declares that 192.168.0.0/16 is a range of addresses that can only be used for a private subnet; similarly, 10.0.0.0/8 and 172.16.0.0/12 are also reserved. Choosing between the three ranges depends on the number of devices that will be connected. The 192.168.0.0/16 subnet allows 16 bits to vary, so the subnet can host $2^{16}$ (65,536) possible devices; this size is adequate for a home router. However, large organizations with thousands of workers may require more than that. Using 172.16.0.0/12 allows for up to $2^{20}$ (1,048,576) devices because 24 bits can vary; 10.0.0.0/8 supports up to $2^{24}$ (16,777,216) devices.
 
-It may seem odd to allow the same IP address to be reused repeatedly. Specifically, if two devices share the same IP address, it may seem that there is no way to tell them apart. [Figure 5.5.1](NetLayer.html#netprivate) illustrates how this situation can be resolved. In this figure, Alice and Bob both have home networks connected to the same ISP. In both of their homes, Alice and Bob have wireless routers that assign addresses to devices that either connect wirelessly (such as a laptop) or via a cable (such as a desktop). Note that both networks have a device with the IP address 192.168.1.2. These IP addresses were assigned by the router using DHCP when the device joined the network. As these subnet ranges are private, Alice’s devices and Bob’s devices have no knowledge of each other. Alice’s phone (192.168.1.5) cannot communicate directly with Bob’s laptop at address 192.168.1.7. To Alice’s devices, Bob’s devices simply do not exist.
+It may seem odd to allow the same IP address to be reused repeatedly. Specifically, if two devices share the same IP address, it may seem that there is no way to tell them apart. [Figure 5.5.1](#netprivate) illustrates how this situation can be resolved. In this figure, Alice and Bob both have home networks connected to the same ISP. In both of their homes, Alice and Bob have wireless routers that assign addresses to devices that either connect wirelessly (such as a laptop) or via a cable (such as a desktop). Note that both networks have a device with the IP address 192.168.1.2. These IP addresses were assigned by the router using DHCP when the device joined the network. As these subnet ranges are private, Alice’s devices and Bob’s devices have no knowledge of each other. Alice’s phone (192.168.1.5) cannot communicate directly with Bob’s laptop at address 192.168.1.7. To Alice’s devices, Bob’s devices simply do not exist.
 
 ![Two private subnets with common IPv4 internal addresses](https://w3.cs.jmu.edu/kirkpams/OpenCSF/Books/csf/html/_images/CSF-Images.5.9.png)
 
@@ -8929,7 +7616,7 @@ The `TTL` (time-to-live) field designates the maximum number of times that a pac
 
 * * *
 
-To illustrate the structure of IPv4 address, recall the TCP message from [Example 5.3.2](TransLayer.html#transtcpexample). This message contained an HTTP GET request to a web server. The following example shows an IPv4 header structure that could be used with this particular message.
+To illustrate the structure of IPv4 address, recall the TCP message from [Example 5.3.2](#transtcpexample). This message contained an HTTP GET request to a web server. The following example shows an IPv4 header structure that could be used with this particular message.
 
 Header
 
@@ -8939,7 +7626,7 @@ Header
 
 Payload
 
-See [Example 5.3.2](TransLayer.html#transtcpexample)
+See [Example 5.3.2](#transtcpexample)
 
 The `length` field (5) indicates the size of the IPv4 header in four-byte words (20 bytes total); this field indicates whether or not optional headers are in use. The `total length` field indicates the full size of the packet (including the IPv4 header, the TCP header, and the HTTP `GET` request) is 96 bytes in size. The `TTL` indicates that the packet can be routed an additional 8 hops. The `protocol` field (6) tells the receiving host how to interpret the payload; in this case, the payload contains TCP data. Lastly, the source and destination addresses are shown in both hex format on the left and their dotted-decimal translations.
 
@@ -8992,9 +7679,9 @@ BGP, defined in RFC 4271, is a router-to-router protocol that uses TCP, with ser
 
 Figure 5.5.3: A network can be modeled as a weighted graph
 
-The second key difference, as illustrated by OSPF and RIP, centers on how the shortest path is determined. OSPF, defined in RFCs 2328 and 5340, implements [Dijkstra’s algorithm](#term-dijkstra-s-algorithm) for finding the shortest path between nodes in a graph. This algorithm is a form of [link-state routing](#term-link-state-routing), in which all of the routers within the AS maintain information about the network as a whole. To illustrate OSPF, consider [Figure 5.5.3](NetLayer.html#netdijkstra), which models a simple network as a weighted, undirected graph. In this scenario, router A is trying to route a packet to router B. The weights on the edges indicate a “cost” of using that network link, such as a time delay. The shortest path, denoted with the arrows, has a total cost of 7 ms. Note that the edge marked with an X would involve fewer hops between routers (only two intervening routers instead of three), but the total cost would be 11 ms, making that path more expensive. In OSPF, routers broadcast messages to ensure all routers have the same view of the network.
+The second key difference, as illustrated by OSPF and RIP, centers on how the shortest path is determined. OSPF, defined in RFCs 2328 and 5340, implements [Dijkstra’s algorithm](#term-dijkstra-s-algorithm) for finding the shortest path between nodes in a graph. This algorithm is a form of [link-state routing](#term-link-state-routing), in which all of the routers within the AS maintain information about the network as a whole. To illustrate OSPF, consider [Figure 5.5.3](#netdijkstra), which models a simple network as a weighted, undirected graph. In this scenario, router A is trying to route a packet to router B. The weights on the edges indicate a “cost” of using that network link, such as a time delay. The shortest path, denoted with the arrows, has a total cost of 7 ms. Note that the edge marked with an X would involve fewer hops between routers (only two intervening routers instead of three), but the total cost would be 11 ms, making that path more expensive. In OSPF, routers broadcast messages to ensure all routers have the same view of the network.
 
-RIP, on the other hand, does not use Dijkstra’s algorithm. Instead, RIP employs [dynamic programming](#term-dynamic-programming) to update each router’s local view of the network as things change, as described in RFC 2453. For instance, consider the router in the middle of [Figure 5.5.3](NetLayer.html#netdijkstra). This router has a link to B that currently costs 10 ms. Consider the effect of that link cost dropping to 1 ms. When this router becomes aware of the change, it updates its own internal information about the minimal cost of the path to B. However, the router also forwards this updated information to its neighbor A. A now discovers that it has a new shortest path to B: the cost of this path is 3 ms, rather than the 7 ms for the path shown in [Figure 5.5.3](NetLayer.html#netdijkstra). A would then inform its neighbors, but neither of A’s other neighbors benefit from this improved link. Consequently, the traversal of the information stops. This approach is known as [distance vector routing](#term-distance-vector-routing).
+RIP, on the other hand, does not use Dijkstra’s algorithm. Instead, RIP employs [dynamic programming](#term-dynamic-programming) to update each router’s local view of the network as things change, as described in RFC 2453. For instance, consider the router in the middle of [Figure 5.5.3](#netdijkstra). This router has a link to B that currently costs 10 ms. Consider the effect of that link cost dropping to 1 ms. When this router becomes aware of the change, it updates its own internal information about the minimal cost of the path to B. However, the router also forwards this updated information to its neighbor A. A now discovers that it has a new shortest path to B: the cost of this path is 3 ms, rather than the 7 ms for the path shown in [Figure 5.5.3](#netdijkstra). A would then inform its neighbors, but neither of A’s other neighbors benefit from this improved link. Consequently, the traversal of the information stops. This approach is known as [distance vector routing](#term-distance-vector-routing).
 
 When the distance vector routing terminates, the costs of the paths determined are identical to those established by OSPF. To be clear, the actual paths returned by the two protocols may be different, but the minimal cost will be identical. Using either OSPF or RIP, the total cost of the path from A to B will be the same.
 
@@ -9007,7 +7694,7 @@ In summary, the Internet layer extends the process-to-process communication of t
 //5.6. Link Layer[¶]
 ====================
 
-The Internet layer determines the logical path that packets will traverse through a local network and the Internet as a whole. The link layer defines the protocols that control how the bits are transmitted across an underlying physical technology. For example, the network shown previously in [Figure 5.5.3](NetLayer.html#netdijkstra) places an emphasis on [routing](#term-routing) a packet through a series of routers in an AS. These routers may be part of distinct networks that use different underlying technologies. For instance, each router may be operated and administered by separate departments that are part of the same organization; some links may consist of wireless connections, while other logical links are created by a chain of [switches](#term-switch)—router-like devices that are connected by cables. The link layer, then, focuses on the task of [forwarding](#term-forwarding) packets across point-to-point connections between routers and end-point devices.
+The Internet layer determines the logical path that packets will traverse through a local network and the Internet as a whole. The link layer defines the protocols that control how the bits are transmitted across an underlying physical technology. For example, the network shown previously in [Figure 5.5.3](#netdijkstra) places an emphasis on [routing](#term-routing) a packet through a series of routers in an AS. These routers may be part of distinct networks that use different underlying technologies. For instance, each router may be operated and administered by separate departments that are part of the same organization; some links may consist of wireless connections, while other logical links are created by a chain of [switches](#term-switch)—router-like devices that are connected by cables. The link layer, then, focuses on the task of [forwarding](#term-forwarding) packets across point-to-point connections between routers and end-point devices.
 
 The distinction of routing and forwarding, like the distinction between routers and switches, is subtle and can be misunderstood. In essence, the classification of routing/routers is used to describe the communication between heterogeneous networks that may rely on different types of communication technologies. One network might employ a [packet switching](#term-packet-switching) technology (e.g., Ethernet) that uses a structured message format that allows any device to send and receive data at any time. A router might connect that network to one that uses [circuit switching](#term-circuit-switching) (e.g., FDDI or token ring), in which two devices communicate directly over a dedicated channel; other devices may be connected to the network, but they have to wait until it is their turn to control the transmission channel. In contrast, the classification of forwarding/switches refers to communication within a homogeneous network with a single underlying technology. A switch does not receive a message from one technology (Ethernet) and forward it using another (FDDI). Switches only serve as the links between hosts in a single network.
 
@@ -9054,7 +7741,7 @@ The MTU size implies that a lot of network traffic requires multiple frames. Con
 
 * * *
 
-To illustrate the structure of an Ethernet frame, the following header extends the IPv4 datagram from [Example 5.5.1](NetLayer.html#netipexample) (which extends the TCP segment from [Example 5.3.2](TransLayer.html#transtcpexample)).
+To illustrate the structure of an Ethernet frame, the following header extends the IPv4 datagram from [Example 5.5.1](#netipexample) (which extends the TCP segment from [Example 5.3.2](#transtcpexample)).
 
 Preamble
 
@@ -9082,7 +7769,7 @@ FCS
 
 The destination field is the MAC address `f0-de-f1-2c-c2-2b`, and the source field is the address `4f-5c-89-bd-33-2d`. These identifiers are persistently associated with the networking hardware components. The type 0800 indicates that this frame is using Ethernet II, the most common style of Ethernet framing. Finally, the FCS is the 32-bit CRC calculation over the entire frame.
 
-The figure below illustrates the complete structure of the Ethernet frame by combining this example with [Example 5.3.2](TransLayer.html#transtcpexample) and [NetIPExample](LinkLayer.html). The frame begins with the Ethernet header. The Ethernet payload combines the IPv4 header, TCP header, and HTTP header. (As a `GET` request, the HTTP message body is empty and only the header is sent.) At the same time, the IPv4 payload consists of the TCP and HTTP headers, whereas the HTTP header is the payload of the TCP segment.
+The figure below illustrates the complete structure of the Ethernet frame by combining this example with [Example 5.3.2](#transtcpexample) and [NetIPExample]. The frame begins with the Ethernet header. The Ethernet payload combines the IPv4 header, TCP header, and HTTP header. (As a `GET` request, the HTTP message body is empty and only the header is sent.) At the same time, the IPv4 payload consists of the TCP and HTTP headers, whereas the HTTP header is the payload of the TCP segment.
 
 ![Anatomy of a complete Ethernet frame with IPv4, TCP, and HTTP data](https://w3.cs.jmu.edu/kirkpams/OpenCSF/Books/csf/html/_images/CSF-Images.5.EX.png)
 
@@ -9175,241 +7862,7 @@ These three protocol stacks serve illustrate how wireless connectivity can be us
 
 This Extended Example is a minimal client for performing a DNS query for IPv4 addresses. Given a domain name (such as `example.com`), the client sets up the DNS question in `setup_dns_request()` (lines 200 – 234). The `packed` attribute of the `dns_record_a_t` (lines 31 – 39) ensures that the compiler does not add any unnecessary padding that would make the question improperly structured. The `build_domain_qname()` function (lines 95 – 134) replaces the dots in the domain name with an integer to denote the length of the next field. Lines 65 – 82 perform the actual query, sending the request to OpenDNS using a UDP socket. The client is only designed to support DNS `A` type records for IPv4. I.e., this client does not support `CNAME`, `NS`, or `MX` records. The `print_dns_response()` function (lines 153 – 198) will stop if any other record types are encountered.
 
-  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
- 10
- 11
- 12
- 13
- 14
- 15
- 16
- 17
- 18
- 19
- 20
- 21
- 22
- 23
- 24
- 25
- 26
- 27
- 28
- 29
- 30
- 31
- 32
- 33
- 34
- 35
- 36
- 37
- 38
- 39
- 40
- 41
- 42
- 43
- 44
- 45
- 46
- 47
- 48
- 49
- 50
- 51
- 52
- 53
- 54
- 55
- 56
- 57
- 58
- 59
- 60
- 61
- 62
- 63
- 64
- 65
- 66
- 67
- 68
- 69
- 70
- 71
- 72
- 73
- 74
- 75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162
-163
-164
-165
-166
-167
-168
-169
-170
-171
-172
-173
-174
-175
-176
-177
-178
-179
-180
-181
-182
-183
-184
-185
-186
-187
-188
-189
-190
-191
-192
-193
-194
-195
-196
-197
-198
-199
-200
-201
-202
-203
-204
-205
-206
-207
-208
-209
-210
-211
-212
-213
-214
-215
-216
-217
-218
-219
-220
-221
-222
-223
-224
-225
-226
-227
-228
-229
-230
-231
-232
-233
-234
-
+```cpp
 #include <arpa/inet.h>
 #include <assert.h>
 #include <inttypes.h>
@@ -9644,6 +8097,7 @@ setup_dns_request (char *hostname, size_t *packetlen)
 
   return packet;
 }
+```
 
 
 /Chapter 6   Concurrency with Multithreading[¶]
@@ -9695,40 +8149,8 @@ Another way to consider the relationship between threads and processes is to sep
 
 On the other hand, processes act as containers for resource ownership. As the process runs, it may request access to files stored on the disk, open network connections, or request the creation of a new window on the desktop. All of these resources are allocated to the process, not individual threads.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
 
+```cpp
 /* Code Listing 6.1:
    Structure of a simple multithreaded program framework
  */
@@ -9762,6 +8184,7 @@ main (int argc, char** argv)
   /* Wait for threads to finish */
   return 0;
 }
+```
 
 [Code Listing 6.1](#cl6-1) shows the structure of a simple program that creates two threads that run concurrently. For now, comments are used to indicate where the thread management code would be written. Thread A declares a local variable `x` and prints out the message A: 8, which is the sum of the value of `x` (5) and the global variable `number` (3). Thread B declares `y` and prints out B: 5, for similar reasons. One observation about this sample is that the code for the threads looks like normal functions in a typical program. The difference only becomes apparent when we run the program.
 
@@ -9867,13 +8290,11 @@ Race conditions with threads can arise from a variety of causes, including (but 
 
 A [critical section](#term-critical-section) is a sequence of instructions that must be executed [atomically](#term-atomic). That is, a critical section contains multiple instructions that create race conditions if they are [interleaved](#term-interleaved) with other threads. Every access to a global variable in a multithreaded program creates a critical section. For instance, consider the single line of C code `globalvar++;`, which simply adds 1 to a global variable. In x86 assembly language, this single line of code turns into three instructions:
 
-1
-2
-3
-
+```as
 movq  _globalvar(%rip), %rsi    # copy from memory into %rsi register
 addq  $1, %rsi                  # increment the value in the register
 movq  %rsi, _globalvar(%rip)    # store the result back into memory
+```
 
 To understand how this creates a race condition, assume that the variable initially stores the value of 5 and there are two threads (A and B) running. If both threads get to this section of code at the same time, a race condition arises. Specifically, consider the effects of this order of _possible_ timing:
 
@@ -9894,7 +8315,7 @@ A function is considered to be [thread-safe](#term-thread-safe) if it can be cal
 
 An example of a function that is neither thread-safe nor reentrant is the string tokenizer `strtok()`, which takes a string and breaks it into one substring at a time based on a specified separator. The problem with `strtok()` is that it uses an internal static pointer to keep track of where it needs to continue. That is, when `strtok()` returns one a token, the internal pointer is pointing to the next token within that particular string. If `strtok()` is interrupted and called by another thread, then the internal pointer will be switched to this second thread’s string. When the first thread resumes, it will then attempt to tokenize the second thread’s string rather than its own.
 
-📦 C library functions – <string.h>
+📦 C library functions – `<string.h>`
 
 * * *
 
@@ -9930,7 +8351,7 @@ In this section, we’ll return to the code from [Code Listing 6.1](ProcVThreads
 
 Three functions define the core functionality for creating and managing threads. The `pthread_create()` function will create and start a new thread inside a process. The `start_routine` parameter specifies the name of the function to use as the thread’s entry point, just as `main()` serves as the main thread’s entry point. The pthread_exit() is used to exit the current thread and optionally return a value. Finally, the `pthread_join()` function is the thread equivalent of the `wait()` function for processes. That is, calling `pthread_join()` on a child thread will cause the current (parent) thread to wait until the child finishes and calls `pthread_exit()`.
 
-📦 C library functions – <pthread.h>
+📦 C library functions – `<pthread.h>`
 
 * * *
 
@@ -9950,40 +8371,11 @@ The arg argument to the `pthread_create()` function gets passed verbatim as the 
 
 The prototype for the `pthread_create()` function can be rather difficult to read if you are not completely comfortable with [function pointers](#term-function-pointer). Specifically, this prototype declares that the third parameter must be a pointer to a function that adheres to the following type declaration:
 
-void *start_routine (void *args);
+    void *start_routine (void *args);
 
 This prototype requirement simplifies the interface specification for thread creation. The trade-off is that passing parameters becomes more complicated. The following program illustrates how to create a child thread and wait for it to finish.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-
+```cpp
 /* Code Listing 6.2:
    A POSIX thread version of "Hello world"
  */
@@ -10013,6 +8405,7 @@ main (int argc, char **argv)
   pthread_join (child_thread, NULL);
   pthread_exit (NULL);
 }
+```
 
 [Code Listing 6.2](#cl6-2) illustrates a subtle point that is not immediately obvious to novices: **The \`\`main()\`\` function defines a thread.** Specifically, every program begins with a single thread of execution with `main()` as its entry point. Once the pthread library creates an additional thread, it is important that `main()` should be treated as a thread. In the simplest terms, this perspective implies that `main()` needs to end with `pthread_exit()` instead of the standard return statement. Using `pthread_exit()` ensures that all threads are managed and run correctly.
 
@@ -10026,33 +8419,22 @@ Creating threads with `pthread_create()` happens [asynchronously](#term-asynchro
 
 There are a couple of common mistakes with pthread function parameters. With `pthread_create()`, the first parameter must point to a `pthread_t` instance. It is common to (incorrectly) declare the variable as a `pthread_t*`. Instead, the variable should be a `pthread_t` and the address of it should be passed as shown above. Similarly, the first parameter for `pthread_join()` must be a `pthread_t` instance, not a pointer. Next, the third parameter to `pthread_create()` must be the name of the function and must not include (). The parentheses would indicate that the function should be called (before creating the thread) and the function’s return value specifies the address to start at in the new thread. The following code sample illustrates these bugs.
 
-1
-2
-3
-4
-5
-6
 
+```cpp
 /* WRONG! thread should not be a pointer in this example */
 pthread_t *thread;
 /* WRONG! thread is invalid pointer and start should not have () */
 pthread_create (thread, NULL, start (), NULL);
 /* WRONG! pthread_join() doesn't take pointer as first parameter */
 pthread_join (thread, NULL); 
+```
 
 ///6.4.2. Attached and Detached Threads[¶]
 ------------------------------------------
 
 In some scenarios, a thread will be created as [detached](#term-detached-thread) instead of joinable. When a detached thread exits, its resources are immediately reclaimed for more efficient reuse. However, once a thread is detached, it can never be joined. This means that no other thread can wait on it to finish. According to the pthread specification, all threads are supposed to be created as joinable by default. The `pthread_attr_setdetachstate()` function can be used to change the `attr` argument to `PTHREAD_CREATE_DETACHED` to override the default.
 
-1
-2
-3
-4
-5
-6
-7
-
+```cpp
 pthread_attr_t attr;
 
 /* Get the default set of attributes */
@@ -10060,12 +8442,13 @@ pthread_attr_init(&attr);
 
 /* Mark the thread as detached */
 pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
+```
 
 Alternatively, the `pthread_detach()` function can be used to detach a running thread instance. A thread can detach itself by using its own `pthread_t` identifier as an argument to `pthread_detach()`.
 
 pthread_detach (pthread_self ());
 
-📦 C library functions – <pthread.h>
+📦 C library functions – `<pthread.h>`
 
 * * *
 
@@ -10089,22 +8472,8 @@ The `pthread_create()` imposes a strict format on the prototype of the function 
 
 Passing a single argument to a thread seems straightforward, but is easy to do incorrectly. As a simple example to illustrate the danger, [Code Listing 6.5](#cl6-5) is designed to run in a separate thread:
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
 
+```cpp
 /* Code Listing 6.5:
    A thread that will print a single integer value
  */
@@ -10120,18 +8489,11 @@ child_thread (void *args)
   printf ("Argument is %d\n", arg);
   pthread_exit (NULL);
 }
+```
 
 The danger of this code can be illustrated with the loop in [Code Listing 6.6](#cl6-6). The intent is to pass the value 1 to the first thread, 2 to the second, and so on. However, it is critical to note that **there is only a single copy of the** `i` **variable**. That is, this code passes the address of the single variable to all 10 threads; the code almost certainly does not pass the intended values.
 
-1
-2
-3
-4
-5
-6
-7
-8
-
+```cpp
 /* Code Listing 6.6:
    Passing a pointer to a variable that repeatedly changes is a common error with threads
  */
@@ -10140,20 +8502,13 @@ The danger of this code can be illustrated with the loop in [Code Listing 6.6](#
 /* What value is actually passed to the thread? */
 for (int i = 1; i <= 10; i++)
   assert (pthread_create (&child[i], NULL, child_thread, &i) == 0);
+```
 
 The key problem is that thread creation and execution is [asynchronous](#term-asynchronous). That means that it is impossible to predict when each of the new threads start running. One possible timing is that all 10 threads are created first, leading to `i` storing the value 11. At that point, each of the threads dereference their respective `argptr` variable and all get the same value of 11.
 
 One common solution to this problem is to cast numeric values as pointers, as shown in [Code Listing 6.7](#cl6-7). That is, the int `i` variable gets cast as a `(void*)` argument in the call to `pthread_create()`. Then, the `void*` argument to `child_thread()` casts the argument back to a `int` instance.
 
-1
-2
-3
-4
-5
-6
-7
-8
-
+```cpp
 /* Code Listing 6.7:
    Each thread should be given a separate value, rather than a shared address
  */
@@ -10162,31 +8517,11 @@ One common solution to this problem is to cast numeric values as pointers, as sh
 /* ints are passed by value, so a COPY gets passed to each call */
 for (int i = 1; i <= 10; i++)
   assert (pthread_create (&child[i], NULL, child_thread, (void *)i) == 0);
+```
 
 What makes this code work is the fact that scalar variables (e.g., `int` variables) are passed using call-by-value semantics. When this code prepares for the `pthread_create()` call, a separate copy of the current value of the `i` variable is placed into a register or onto the stack. [Code Listing 6.8](#cl6-8) shows the corrected version of [Code Listing 6.5](#cl6-5). The `child_thread()` function then gets this copy, regardless of any changes to the original `i` variable. When the child thread then casts its `args` parameter to a local `arg_value`, it is working with the correct value that was passed.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-
+```cpp
 /* Code Listing 6.8:
    A safer version of Code Listing 6.5
  */
@@ -10208,6 +8543,7 @@ child_thread (void *_args)
   printf ("Argument is %ld\n", arg);
   pthread_exit (NULL);
 }
+```
 
 🐞🐛🐌 Bug Warning
 
@@ -10222,24 +8558,7 @@ On the other hand, assume the argument was declared as a `long` variable instanc
 
 When passing multiple arguments to a child thread, the standard approach is to group the arguments within a `struct` declaration, as shown in [Code Listing 6.9](#cl6-9). The address of the `struct` instance gets passed as the `arg` to `pthread_create()`. The new thread’s entry point receives a `void*` parameter that can then be cast into the `struct` type.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-
+```cpp
 /* Code Listing 6.9:
    Passing multiple arguments to a thread requires grouping them into a struct
  */
@@ -10257,26 +8576,11 @@ args->second = "Hello";
 
 /* Note that the data structure resides on the heap */
 assert (pthread_create (&child, NULL, hello_thread, args) == 0);
+```
 
 [Code Listing 6.10](#cl6-10) shows the new thread receiving the pointer to the `struct` and freeing the allocated memory when it is finished with the data.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-
+```cpp
 /* Code Listing 6.10:
    The child thread receives multiple values through the passed struct
  */
@@ -10293,6 +8597,7 @@ hello_thread (void *_args)
   free (args);
   pthread_exit (NULL);
 }
+```
 
 🐞🐛🐌 Bug Warning
 
@@ -10300,19 +8605,7 @@ hello_thread (void *_args)
 
 A common mistake with passing arguments in this manner is to declare the `struct` instance as a local variable instead of using dynamic allocation. The problem, again, is the asynchronous nature of `pthread_create()`. Consider this sample code:
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-
+```cpp
 /* Create a local instance on the current thread's stack */
 struct thread_args args;
 args.first = 5;
@@ -10325,6 +8618,7 @@ assert (pthread_create (&child, NULL, hello_thread, &args) == 0);
 pthread_exit (NULL);
 
 /* Future references to args are invalid! */
+```
 
 If the child thread runs immediately before `pthread_create()` returns, then everything would be fine. However, there is no guarantee that this happens. Instead, it is just as likely that `pthread_create()` returns and the parent thread exits. Once that happens, all data on the parent thread’s stack (including the `struct thread_args` instance) become invalid. The child thread now has a dangling pointer to potentially corrupted data. This is another example of a race condition that can happen with threads.
 
@@ -10333,30 +8627,7 @@ If the child thread runs immediately before `pthread_create()` returns, then eve
 
 There are three common ways to get return values back from a thread. All three use techniques that are similar to those used for passing arguments. [Code Listing 6.11](#cl6-11) shows one simple technique, which is to augment the `struct` declaration to include space for any return values.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-
+```cpp
 /* Code Listing 6.11:
    Allocating space for a return value as part of the struct passed
  */
@@ -10380,29 +8651,11 @@ sum_thread (void *_args)
   args->sum = args->a + args->b;
   pthread_exit (NULL);
 }
+```
 
 The child thread receives a pointer to the `struct` instance, using the input parameters as needed. In this case, the values of `a` and `b` are added, and the resulting sum is copied back into the `struct`. As shown in [Code Listing 6.12](#cl6-12), the main thread uses `pthread_join()` to wait until the child thread exits. Once the child finishes, the main thread can retrieve all three values (`a`, `b`, and `sum`) from the `struct` itself.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-
+```cpp
 /* Code Listing 6.12:
    The main thread can retrieve the return value from the struct after joining the child thread
  */
@@ -10422,6 +8675,7 @@ printf ("%d + %d = %d\n", args->a, args->b, args->sum);
 /* Clean up the struct instance */
 free (args);
 args = NULL;
+```
 
 There are three key observations about this approach:
 
@@ -10431,28 +8685,7 @@ There are three key observations about this approach:
 
 [Code Listing 6.13](#cl6-13) shows an alternative approach for simple scalar return types, which is to reuse the trick of casting to and from the `void*` type. When a thread calls `pthread_exit()`, it can specify a pointer to return as an argument.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-
+```cpp
 /* Code Listing 6.13:
    A second technique to return a value is to pass it as the thread’s exit code
  */
@@ -10474,28 +8707,11 @@ sum_thread (void *_args)
   /* Pass the result back by casting it to the void* */
   pthread_exit ((void *) (args->a + args->b));
 }
+```
 
 [Code Listing 6.14](#cl6-14) shows how the main thread calls `pthread_join()` to retrieve the pointer. Unless the thread has been detached (or it was created with the `PTHREAD_CREATE_DETACHED` attribute), the pointer returned with `pthread_exit()` will remain associated with the thread until it is joined.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-
+```cpp
 /* Code Listing 6.14:
    Retrieving a thread’s exit code when it is joined
  */
@@ -10514,49 +8730,11 @@ printf ("Sum: %d\n", (int) sum);
 
 free (args);
 args == NULL;
+```
 
 [Code Listing 6.15](#cl6-15) shows a third approach to returning values from the thread. In this style, the child thread allocates a separate `struct` dynamically to hold the return values. This technique allows a thread to return multiple values rather than a single scalar. For instance, consider the following `calculator` thread. It receives two `int` values as input and returns the results of five simple arithmetic operations.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-
+```cpp
 /* Code Listing 6.15:
    The child can dynamically allocate space for the return values
  */
@@ -10596,52 +8774,13 @@ calculator (void *_args)
   free (args);
   pthread_exit (results);
 }
+```
 
 It is critical to note that the struct instance here must be allocated dynamically. Once the thread calls `pthread_exit()`, everything on its stack becomes invalid. A thread should never pass a pointer to a local variable with `pthread_exit()`.
 
 Retrieving the returned data can be accomplished with `pthread_join()`. In the following example, the main thread creates five separate instances of the `calculator` thread. Each of these child threads gets a pointer to a unique `struct args` instance with the corresponding parameters. Each child then allocates its own `struct results` instance on the heap. This allows the data to persist after the thread has finished. In [Code Listing 6.14](#cl6-14), the main thread gets each thread’s pointer one at a time, with a separate call to `pthread_join()`. Since the child thread has already finished at this point, the main thread must bear the responsibility for calling `free()` to de-allocate the `struct` results instance.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-
+```cpp
 /* Code Listing 6.16:
    The main thread passes arguments to the child threads and frees the results
  */
@@ -10678,7 +8817,11 @@ for (int i = 0; i < 5; i++)
     printf ("+:%3d;   ", results[i]->sum);
     printf ("-:%3d;   ", results[i]->difference);
     printf ("*:%3d;   ", results[i]->product);
-    printf ("/:%3d; ", results[i]->quotient); printf ("%%:%3d\n", results[i]->modulus); free (results[i]); }
+    printf ("/:%3d; ", results[i]->quotient); 
+    printf ("%%:%3d\n", results[i]->modulus); 
+    free (results[i]); 
+}
+```
 
 🐞🐛🐌 Bug Warning
 
@@ -10705,42 +8848,7 @@ Since threads were first introduced, language designers have explored a number o
 
 Implicit threading is the use of libraries or other language support to hide the management of threads. In the context of C, the most common implicit threading library is [OpenMP](#term-openmp). OpenMP uses the `#pragma` compiler directive to detect and insert additional library code at compile time. As an example, consider the prime number calculator from the Extended Examples. [Code Listing 6.17](#cl6-17) shows the OpenMP equivalent.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-
+```cpp
 /* Code Listing 6.17:
    OpenMP can make some multithreading trivial to implement
  */
@@ -10776,6 +8884,7 @@ main (int argc, char *argv[])
           count);
   return 0;
 }
+```
 
 With implicit threading, the focus of the programmer is on writing the algorithm rather than the multithreading. The OpenMP library itself takes care of managing the threads. Specifically, the `#pragma` line indicates that OpenMP (`omp`) should parallelize a for-loop (`parallel for`) with some constraints on the variables. The OpenMP implementation on that system will then inject code to perform the thread creation and join.
 
@@ -10790,37 +8899,7 @@ In other languages, traditional object-oriented languages provide explicit multi
 
 Java provides both a `Thread` class and a `Runnable` interface that can be used, as shown in [Code Listing 6.18](#cl6-18). Both require implementing a public void `run()` method that defines the entry point of the thread. Once an instance of the object is allocated, the thread can be started by invoking the `start()` method on it. As with pthreads, starting the thread is asynchronous, so the timing of the execution is nondeterministic.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-
+```java
 /* Code Listing 6.18:
    Java offers both a class and an interface to support threads as objects
  */
@@ -10851,48 +8930,13 @@ public static void main(String args[]) {
   te.join();
   j.join();
 }
+```
 
 ### 6.6.2.2. Python Threads[¶]
 
 [Code Listing 6.19](#cl6-19) demonstrates two mechanisms for multithreading in Python. One approach is similar to the pthread style, where a function name is passed to a library method `thread.start_new_thread()`. This approach is very limited and lacks the ability to join or terminate the thread after it starts. A more flexible technique is to use the threading module to define a class that extends threading. Similar to the Java approach, the class must have a `run()` method that provides the thread’s entry point. Once an object is instantiated from this class, it can be explicitly started and joined later.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-
+```py
 # Code Listing 6.19:
 # Python offers a pthread-like interface and an object-oriented module for threading */
 
@@ -10929,6 +8973,7 @@ threadObj.join()
 
 # Delay to make sure both run
 time.sleep(2)
+```
 
 ///6.6.3. Concurrency as Language Design[¶]
 -------------------------------------------
@@ -10943,60 +8988,7 @@ The Go language includes a trivial mechanism for implicit threading: place the k
 
 Channels and [goroutines](#term-goroutine) are core parts of the Go language, which was designed under the assumption that most programs would be multithreaded. This design choice streamlines the development model, allowing the language itself to bear the responsibility for managing the threads and scheduling.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-
+```cpp
 /* Code Listing 6.20:
    Go provides built-in concurrency techniques with goroutines and channels for communication
 */
@@ -11050,36 +9042,13 @@ func keyboard_listener(messages chan string) {
 		fmt.Print("Wrong. Try again. ")
 	}
 }
+```
 
 ### 6.6.3.2. Rust Concurrency[¶]
 
 Rust is another language that has been created in recent years, with concurrency as a central design feature. [Code Listing 6.21](#cl6-21) illustrates the use of `thread::spawn()` to create a new thread, which can later be joined by invoking `join()` on it. The argument to `thread::spawn()` beginning at the `||` is known as a closure, which can be thought of as an anonymous function. That is, the child thread here will print the value of `x`.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-
+```rust
 /* Code Listing 6.21:
    Rust threads can be created with anonymous functions known as closure
  */
@@ -11104,6 +9073,7 @@ fn main() {
     /* Join the thread and print x again */
     child_thread.join();
 }
+```
 
 However, there is a subtle point in this code that is central to Rust’s design. Within the new thread (executing the code in the closure), the `x` variable is distinct from the `x` in other parts of this code. Rust enforces a very strict memory model (known as _ownership_) which prevents multiple threads from accessing the same memory. In this example, the move keyword indicates that the spawned thread will receive a separate copy of `x` for its own use. Regardless of the scheduling of the two threads, the main and child threads cannot interfere with each other’s modifications of `x`, because they are distinct copies. It is impossible for the two threads to share access to the same memory.
 
@@ -11116,88 +9086,7 @@ In this small example, the issue of ownership may not seem to be a big deal. How
 
 This example illustrates how threads can be created to perform a particular task. This style of multithreading forms the basis of programs that have graphical user interfaces. Specifically, the example shown here acts as a custom keyboard event listener; the child thread continually reads from the keyboard until the user enters exactly a 7. Similarly, programs with mouse event handlers use threads specifically for that purpose.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-
+```cpp
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
@@ -11277,6 +9166,7 @@ flush_buffer (char *buffer)
            !ferror (stdin))
       ;
 }
+```
 
 
 
@@ -11285,103 +9175,7 @@ flush_buffer (char *buffer)
 
 This second example shows a different style of multithreaded programming. Instead of assigning a unique task to a particular thread, this example creates multiple threads that all execute the same code, but on different input parameters. For systems with [multiprocessing](#term-multiprocessing) capabilities, this style of programming forms the foundation of parallel execution. Since each thread’s calculations are independent of all the others’ calculations, they can run in parallel and compute the same answers.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96
-
+```cpp
 #include <stdio.h>
 #include <stdbool.h>
 #include <pthread.h>
@@ -11478,11 +9272,13 @@ main (int argc, char **argv)
 
   return 0;
 }
+```
 
 The time command-line utility can be used to measure the amount of time it takes to run a program. However, time gives you multiple pieces of information to interpret. The _real_ time is how much total time elapsed on the system clock from the start to finish. The _user_ time is how much total CPU time was spent on all of the processors combined. For instance, if a program runs in perfect parallelism on 2 cores for 15 minutes, the real time would be 15 minutes, but the user time would be 30 minutes.
 
 The following output shows the results for running the prime number program above twice. The first set of results (approximately 7.5 minutes for both real and user time) used only a single thread. The second set used 4 threads (best choice for the quad-core system used).
 
+```sh
 $ time ./prime
 From 2 to 99999999: 5761455
 ===============================================
@@ -11505,6 +9301,7 @@ Total number of primes less than 100000000: 5761455
 real	3m24.030s
 user	9m49.405s
 sys	0m0.438s
+```
 
 First, note that the parallel version took more total CPU time (almost 10 minutes); this kind of overhead is typical, as there are overhead performance penalties for using multiple threads. Second, the real time was only about 1/3 of the user time, not 1/4. In practice, no system ever achieves perfect parallel execution. Chapter 9 will explain the limits of parallelism in more detail.
 
@@ -11560,36 +9357,15 @@ The goal for this chapter is to examine the common synchronization primitives th
 
 [Critical sections](#term-critical-section) are sequences of instructions that cannot be interleaved among multiple threads. A simple example of a critical section arises when two threads share a global variable `globalvar` and both try to change its value with `globalvar++`. Recall from the [previous chapter](RaceConditions.html) that this line of code compiles into three assembly-language instructions to load, modify, and store the result.
 
-1
-2
-3
-
+```as
 movq  _globalvar(%rip), %rsi    # copy from memory into %rsi register
 addq  $1, %rsi                  # increment the value in the register
 movq  %rsi, _globalvar(%rip)    # store the result back into memory
+```
 
 When multiple threads execute this code, a race condition arises since the lines can be interleaved. For instance, an interrupt during the second instruction’s execution could trigger a switch from one thread to another. [Code Listing 7.1](#cl7-1) shows the interleaved sequence of instructions (distinct indentation denotes the two threads) that would result from this unfortunate timing of the interrupt.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-
+```as
 # Code Listing 7.1:
 # A possible sequence of assembly language instructions with a race condition
 
@@ -11609,6 +9385,7 @@ addq  $1, %rsi
 
 # Thread A also copies 6 back into globalvar
 movq  %rsi, _globalvar(%rip)
+```
 
 The result of this interleaving, assuming `globalvar` was originally 5, is that the threads (together) performed `globalvar++` twice, but the value only gets changed to 6 instead of the correct value of 7. The problem is that an interrupt occurred before the first thread was able to update `globalvar`, then the kernel switched to a different thread that read the old value. If this switch had not occurred until later, then the first thread would have updated `globalvar` with the value of 6, which is what the second thread would observe instead of the outdated 5.
 
@@ -11619,19 +9396,7 @@ It is important to note that the problem isn’t the interrupt, per se. If the i
 
 One approach to solving the problem of critical sections is to employ Peterson’s solution, an algorithmic approach that uses shared memory to declare intentions. [Code Listing 7.2](#cl7-2) shows the algorithm, which uses a `bool` array (`flag`) to signify a thread’s intent to enter and an `int` variable (`turn`) to indicate which thread is allowed to enter. [[1]](#f42)
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-
+```cpp
 /* Code Listing 7.2:
    Peterson's solution to solving the critical section problem
  */
@@ -11644,6 +9409,7 @@ while (flag[other] == true && turn == other) ;
 
 /* critical section */
 flag[self] = false;
+```
 
 The `turn` variable plays a critical role in ensuring the correct functioning of the solution. Specifically, this variable makes threads adopt a _polite_ approach to requesting access: when a thread wants to enter the critical section, it must declare that the other thread gets to go first. Since this type of variable manipulation consists of a single write to memory, it can be considered atomic. Consequently, this update does not create a race condition.
 
@@ -11661,25 +9427,7 @@ The four states at the bottom illustrate how the algorithm handles contention. I
 
 The state model in [Figure 7.2.1](CritSect.html#petersonstate) can be difficult to trace. Although it would be impractical to provide a full description of all possible sequences, we can describe a basic trace that traverses through seven of the states. As before, we use indentation to denote the separate threads, with thread `T0` unindented and `T1` indented. Comments interspersed indicate the state and changes to relevant variables.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-
+```cpp
 /* Initial state: Non-critical with turn=1 */
 flag[0] = true;
 turn = 1; /* Change to Waiting 0, turn=1 */
@@ -11698,6 +9446,7 @@ flag[0] = false; /* Enter Waiting 1, turn=0 */
     /* Enter Critical 1
        Thread 1 does critical work here */
     flag[1] = false; /* Enter Non-critical with turn=0 */
+```
 
 In this trace, both threads begin in non-critical code with neither attempting to enter a critical section until `T0` executes line 2. `T1` then declares its intention to enter on line 4. Lines 3 and 5 are the key events to control the ordering; whichever thread sets turn last loses the rase. Since `T1` changes turn after `T0` does, `T0` will be the thread to enter the critical section. To confirm this fact, check the `while`-loop conditions on lines 8 and 9. On these lines, `flag[0]` and `flag[1]` are both true. The condition then rests exclusively on turn. Later, after `T0` leaves the critical section (line 13), `T1`’s while-loop condition changes because `flag[0]` is now false; this change allows `T1` to break out of the loop and continue into the critical section.
 
@@ -11718,15 +9467,7 @@ In contrast, fairness is quite often difficult to achieve in practice and may ev
 
 This scenario highlights a key misunderstanding of the liveness property. If there are no threads in the critical section and one tries to enter, there is no guarantee that thread will actually be the one allowed in. Rather, without the fairness property, it may be possible for another thread to come along and enter without waiting. To illustrate this point, consider the approach shown in [Code Listing 7.3](#cl7-3). This code meets the safety and liveness properties by permanently blocking out one of the threads.
 
-1
-2
-3
-4
-5
-6
-7
-8
-
+```cpp
 /* Code Listing 7.3:
    An approach that guarantees safety and liveness but not fairness 
  */
@@ -11735,6 +9476,7 @@ if (thread == 0)
   while (1) ; /* thread 0 waits infinitely */
 
 /* enter critical section */
+```
 
 ///7.2.3. Peterson’s Solution and Modern Hardware[¶]
 ----------------------------------------------------
@@ -11761,13 +9503,11 @@ One of the most fundamental synchronization primitives is to use a [lock](#term-
 
 In the case of the threads trying to increment `globalvar`, the solution is to acquire the lock prior to the increment and release the lock afterwards:
 
-1
-2
-3
-
+```cpp
 /* acquire lock */
 globalvar++;
 /* release lock */
+```
 
 If an interrupt and thread switch occur after the first thread has acquired the lock, then the second thread would become blocked. The first thread would be allowed to increment `globalvar` atomically, storing back the new value of 6 to the variable in memory. Then, the first thread would release the lock, allowing the second thread to enter the critical section and increment `globalvar` again, producing the correct final result of 7.
 
@@ -11776,7 +9516,7 @@ If an interrupt and thread switch occur after the first thread has acquired the 
 
 In the POSIX interface, three functions provide the basic functionality for locks, which POSIX simply calls [mutexes](#term-mutex). POSIX provides functions for initializing, destroying, locking, and unlocking mutexes. POSIX also provides `pthread_mutex_trylock()`, which avoids blocking if the lock has already been acquired. The caller can check the return value if the mutex was successfully acquired; the function returns 0 if successful, or a non-zero error value otherwise. This function is useful if the system has several equivalent copies of a resource that are interchangeable. If the code tries to acquire the lock for one copy and fails, it can move on to another without blocking.
 
-📦 C library functions – <pthread.h>
+📦 C library functions – `<pthread.h>`
 
 * * *
 
@@ -11802,27 +9542,7 @@ Release the specified mutex lock.
 
 Returning to the example of modifying globalvar described above, [Code Listing 7.4](#cl7-4) shows how to use the mutex within a thread.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-
+```cpp
 /* Code Listing 7.4:
    Locking a global variable with a mutex
  */
@@ -11843,32 +9563,11 @@ increment (void *args)
 
   pthread_exit (NULL);
 }
+```
 
 The thread receives a pointer to the mutex as its argument. The mutex is locked before entering the critical section `globalvar++`, then unlocked immediately after. Given this code, regardless of how many threads are created and running, `globalvar` will be correctly incremented each time. [Code Listing 7.5](#cl7-5) shows how to create the mutex and pass it to the threads. In this simple scenario, we only create two threads.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-
+```cpp
 /* Code Listing 7.5:
    Passing a mutex to multiple threads
  */
@@ -11891,6 +9590,7 @@ pthread_join (threads[1], NULL);
 
 /* globalvar was initialized to 5 and incremented twice */
 assert (globalvar == 7);
+```
 
 The behavior of these operations is undefined in the POSIX specification under certain unusual circumstances. These situations are typically errors in the code, but there is not enough information to determine precisely what happened. As such, POSIX leaves the following behaviors undefined as a default:
 
@@ -11909,7 +9609,7 @@ In traditional uniprocessing systems, this argument is nonsensical. If one threa
 
 To exploit this advantage in parallel execution, POSIX (like other modern thread libraries) include a newer variation on locks called [spinlocks](#term-spinlock). A spinlock behaves similarly to a traditional lock with one exception: Instead of blocking if the lock is owned by another thread, the spinlock stays in a loop that keeps trying. If the lock becomes immediately available, the thread can then continue without the penalty of a context switch. The POSIX interface for spinlocks is virtually identical to the one for mutexes. The difference is primarily in the internal implementation.
 
-📦 C library functions – <pthread.h>
+📦 C library functions – `<pthread.h>`
 
 * * *
 
@@ -11944,24 +9644,7 @@ The choice of spinlocks vs. traditional mutexes ultimately comes down to the typ
 
 Selecting the appropriate size for a critical section is very complicated. Consider the two loops shown in [Code Listing 7.6](#cl7-6).
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-
+```cpp
 /* Code Listing 7.6:
    Two possible critical sections
  */
@@ -11979,6 +9662,7 @@ pthread_mutex_lock (&mutex);
 for (i = 0; i < 1000000; i++)
   globalvar++;
 pthread_mutex_unlock (&mutex);
+```
 
 If no other thread tries to access `globalvar` while this code is running, the end result of each loop is identical except for one critical factor: speed. Both of the loops would guarantee that `globalvar` gets incremented 1,000,000 times. The first version of the loop accomplishes this feat by acquiring and releasing the lock 1,000,000 times, whereas the second only acquires and releases the lock once. The first version would suffer from a tremendous overhead penalty. (A simple timing experiment showed the first loop consistently took 10 times as much time as the second.)
 
@@ -11995,7 +9679,7 @@ Ultimately, there is no universal answer or approach to which style should be us
 
 As described previously, a semaphore is a non-negative integer with atomic operations for incrementing and decrementing its value. The POSIX function for decrementing the semaphore is `sem_wait()`, while the `sem_post()` function increments the value. If the semaphore’s value is 0 prior to decrementing, then the `sem_wait()` operation will block the current thread. If a thread calls `sem_post()` and there is at least one thread waiting on the semaphore, then one of the threads becomes unblocked. The choice of which thread gets unblocked is implementation dependent.
 
-📦 C library functions – <semaphore.h>
+📦 C library functions – `<semaphore.h>`
 
 * * *
 
@@ -12016,50 +9700,7 @@ Semaphores can be used to send general signals to other threads that some applic
 
 To illustrate signaling, consider the two threads shown in [Code Listing 7.7](#cl7-7). One thread (`keyboard_listener()`) reads a line of input from `STDIN` into a shared buffer. Once the input has been received, the thread posts to the semaphore to alert the second thread that the event (receiving input) has occurred. The second thread (`keyboard_echo()`) starts by waiting on the semaphore before trying to read the input from the buffer. The semaphore ensures that the echo thread cannot try to read from the buffer until the listener has finished writing to the buffer.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-
+```cpp
 /* Code Listing 7.7:
    Two threads cooperating to echo input text
  */
@@ -12103,34 +9744,11 @@ keyboard_echo (void * _args)
   printf ("Hello, %s\n", args->buffer);
   pthread_exit (NULL);
 }
+```
 
 The key with signaling is that the semaphore must be created and initialized with an initial value of 0 as shown in [Code Listing 7.8](#cl7-8). By using this initial value, the semaphore eliminates the issue of nondeterministic thread scheduling. Specifically, if the `keyboard_echo()` thread runs first, it must wait until the `keyboard_listener()` reads the input and ups the semaphore. However, if `keyboard_listener()` runs first and ups the semaphore before `keyboard_echo()` gets scheduled, then the semaphore will have a value of 1 and the thread will not be blocked.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-
+```cpp
 /* Code Listing 7.8:
    Initializing a semaphore and passing it to threads
  */
@@ -12155,6 +9773,7 @@ assert (pthread_create (&threads[1], NULL, keyboard_echo, &args)
 pthread_join (threads[0], NULL);
 pthread_join (threads[1], NULL);
 sem_unlink ("/OpenCSF_Sema");
+```
 
 🐞🐛🐌 Bug Warning
 
@@ -12169,52 +9788,7 @@ Another complication arises if there are multiple threads repeatedly waiting on 
 
 Semaphores can also be used to ensure mutually exclusive access to a shared variable or resource. Consider the two threads, shown in [Code Listing 7.9](#cl7-9), that atomically increment or decrement an int counter variable. Each change to the shared variable is preceded by a call to `sem_wait()` and followed by a call to `sem_post()`. This wrapping is analogous to the mutual exclusion style used with locks.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-
+```cpp
 /* Code Listing 7.9:
    Two threads that synchronize modifications to a shared variable
  */
@@ -12260,23 +9834,11 @@ subtract (void * _args)
     }
   pthread_exit (NULL);
 }
+```
 
 As shown in [Code Listing 7.10](#cl7-10), the difference between signaling and mutual exclusion is the initial value of the semaphore. For mutual exclusion, the semaphore is initialized to 1.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-
+```cpp
 /* Code Listing 7.10:
    Initializing a semaphore for mutual exclusion instead of signaling
  */
@@ -12290,39 +9852,11 @@ assert (sem != SEM_FAILED);
 struct args args = { sem, 0 };
 assert (pthread_create (&threads[0], NULL, add, &args) == 0);
 assert (pthread_create (&threads[1], NULL, subtract, &args) == 0);
+```
 
 As illustrated in [Code Listing 7.9](#cl7-9), semaphores can be used identically to mutex locks as shown previously. In fact, [Code Listing 7.11](#cl7-11) shows that we can use semaphores as a foundation to create locks. Acquiring the lock involves waiting on the semaphore and setting oneself as the lock owner. Releasing the lock clears the ownership field and posts to the semaphore. If multiple threads try to acquire the lock, they all end up trying to down the semaphore, and only one is successful. Once that thread releases the lock, the semaphore is upped and a single thread is unblocked; that thread then sets itself as the owner.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-
+```cpp
 /* Code Listing 7.11:
    Creating locks from semaphores
  */
@@ -12352,6 +9886,7 @@ mutex_unlock (lock_t *lock)
   lock->owner = 0;
   return sem_post (lock->semaphore);
 }
+```
 
 The key difference between locks and semaphores is that a semaphore must be explicitly initialized to the integer value 1, whereas the initialization for a lock is opaque. Or, put a different way, **mutex locks are preferred because they adhere to the principles of encapsulation and information hiding**. The notion of _acquiring a lock_ is more concrete than _waiting on a semaphore,_ and is a more appropriate abstraction for mutual exclusion.
 
@@ -12364,36 +9899,7 @@ As a real-world example of multiplexing, consider a popular restaurant or club. 
 
 Within the context of computing, multiplexing has many uses. One example is to limit the number of concurrent accesses to a pool of resources where more than one is required for each operation. For example, consider a networking hub that has 10 incoming ports and 10 outgoing ports that can be locked independently. Consider the scenario where 9 threads have already locked both an incoming and an outgoing port. Two new threads arrive; one of them acquires an incoming port and the second acquires an outgoing port. At this point, no ports of either kind are available. If these last two threads then try to acquire the missing port, they cannot. As a result, there are two ports (one incoming and one outgoing) that are both locked but not in use. This waste of resources could be prevented with the structure in [Code Listing 7.12](#cl7-12).
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-
+```cpp
 /* Code Listing 7.12:
    Using a semaphore to multiplex access to a thread pool
  */
@@ -12423,6 +9929,7 @@ for (i = 0; i < 10; i++)
 pthread_mutex_unlock (incoming_mutex[in]);
 pthread_mutex_unlock (outgoing_mutex[out]);
 sem_post (pool_semaphore);
+```
 
 Assuming the `pool_semaphore` was initialized to 10, every thread granted access to the pool of resources (ports in this example) will have access to one of each type. Moreover, this structure makes it possible for the incoming and outgoing ports to be acquired in any order; this flexibility is commonly associated with the problem of [deadlock](#term-deadlock), but multiplexing in this manner avoids that issue.
 
@@ -12441,7 +9948,7 @@ As an alternative, [synchronization barriers](#term-barrier) allow programs to s
 
 The base functionality of barriers is specified with thread functions. The barrier is initialized with `pthread_barrier_init()`, with the last parameter indicating the _minimum_ number of threads that must reach the barrier before any can be allowed to continue. Threads use the `pthread_barrier_wait()` function to indicate that they have reached the common point. If the minimum number of threads have not yet reached the barrier, then the current thread will become blocked. Once the minimum number has been reached, all threads waiting at the barrier become unblocked; any future thread that calls `pthread_barrier_wait()` will pass right through the barrier without any delay. Finally, `pthread_barrier_destroy()` is used to clean up any resources associated with the barrier.
 
-📦 C library functions – <pthread.h>
+📦 C library functions – `<pthread.h>`
 
 * * *
 
@@ -12464,69 +9971,7 @@ To show how barriers work, consider using two threads to determine which functio
 
 [Code Listing 7.13](#cl7-13) shows how barriers can address this problem. The `fibonacci()` and `exponential()` threads take a struct that contains a shared `pthread_barrier_t`, a digit that specifies how far into the sequence and what exponent to calculate, and a base value that specifies the base of the exponent. That is, if digit is specified as 30 and base is 1.6, `fibonacci()` will calculate the 30th Fibonacci number, while `exponent()` will calculate (approximately) $1.6^{30}$.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-
+```cpp
 /* Code Listing 7.13:
    Using a barrier to pause multiple threads
  */
@@ -12589,6 +10034,7 @@ exponential (void *_args)
 
   pthread_exit (NULL);
 }
+```
 
 🐞🐛🐌 Bug Warning
 
@@ -12602,31 +10048,7 @@ One question that cannot be answered with this code is which thread runs faster.
 
 [Code Listing 7.14](#cl7-14) shows the initialization required. The main thread initializes the barrier so that 2 threads are required, then creates the threads. Notice that both threads receive pointers to the same `struct` instance, so they share the same `barrier`, `fib`, and `exp` fields. The main thread joins both of the helper threads, but the join must occur after the threads have called `pthread_exit()`. Since both threads call `pthread_barrier_wait()` before that, the main thread is guaranteed to clean up the barrier only _after_ it is no longer needed.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-
+```cpp
 /* Code Listing 7.14:
    Initializing the barrier and data structures for Code Listing 7.13 
  */
@@ -12651,6 +10073,7 @@ pthread_join (threads[0], NULL);
 pthread_join (threads[1], NULL);
 
 pthread_barrier_destroy (&barrier);
+```
 
 [[1]](#id2)
 
@@ -12674,7 +10097,7 @@ One of the primary uses of semaphores is to perform application-specific signali
 
 [Condition variables](#term-condition-variable) overcome many of these short-comings of semaphores. Similar to the POSIX semaphore interface, condition variables provide _wait_ and _signal_ functions. These provide a more natural mapping to the problems of synchronization, as one or more threads are waiting on a signal from another thread that a condition has occurred.
 
-📦 C library functions – <pthread.h>
+📦 C library functions – `<pthread.h>`
 
 * * *
 
@@ -12723,20 +10146,7 @@ The following sample program uses one thread read lines of keyboard input from `
 
 The threads all rely on the following shared `struct`. The `input_cond` condition variable is used to indicate that a line of input has been received. The `input_processed_cond` variable is used to indicate that the two helper threads have processed the input and the keyboard listener can get more input. The other fields are used to pass information between the threads.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-
+```cpp
 #define MAX_LENGTH 100
 
 /* Common struct with pointers to all variables needed */
@@ -12750,58 +10160,11 @@ struct args {
   bool shutdown;
   bool input_is_string;
 };
+```
 
 The keyboard listener starts by acquiring the mutex, guaranteeing that this thread has mutually exclusive access to the shared data. After reading a line of input with `fgets()`, this thread tries to convert the input to an long with `strtol()`. If so, it sets the current_value field to this integer value. If not, the string is checked against the string `"shutdown"`, which is used to make the program stop. In all three cases, `pthread_cond_broadcast()` signals to the other threads that input has been received. The listener then waits on the `input_processed_cond` condition, which indicates that the input has been processed completely by another thread. Finally, if the shutdown message was received, this thread sets a boolean value that the others detect during another broadcast. [Code Listing 7.15](#cl7-15) shows the keyboard listener thread.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-
+```cpp
 /* Code Listing 7.15:
    A thread that uses condition variable broadcasting to share data
  */
@@ -12850,82 +10213,11 @@ keyboard_listener (void *_args)
 
   pthread_exit (NULL);
 }
+```
 
 [Code Listing 7.16](#cl7-16) shows the additional threads that share this data. The `count_chars()` and `add_number()` threads behave in approximately the same manner. They both start by acquiring the mutex, then waiting on the `input_cond`. In both cases, the call to `pthread_cond_wait()` releases the lock at this point. Once the signal has been received and the mutex is re-acquired, the threads check if they need to shutdown. If not, they each check if the input was a string. Only the `count_chars()` thread processes string input, whereas only the `add_number()` thread processes numeric input. If the thread is not supposed to process input, it uses continue to go back to the beginning of the loop and wait on the condition again. If the thread did process its appropriate input, it signals on the `input_processed_cond` variable, which allows `keyboard_listener()` to move on to reading the next line of input.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-
+```cpp
 /* Code Listing 7.16:
    Threads that process data as it is received via a condition variable
  */
@@ -12998,6 +10290,7 @@ add_number (void *_args)
   pthread_mutex_unlock (args->mutex);
   pthread_exit (NULL);
 }
+```
 
 🐞🐛🐌 Bug Warning
 
@@ -13007,46 +10300,7 @@ For completeness, both the `count_chars()` and `add_number()` threads should che
 
 Finally, [Code Listing 7.17](#cl7-17) illustrates how to initialize the condition variables, create the threads, and clean up all of the resources for the condition variables and the mutex.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-
+```cpp
 /* Code Listing 7.17:
    Initializing a condition variable and other data structures
  */
@@ -13086,6 +10340,7 @@ printf ("Total: %d\n", args.counter);
 pthread_mutex_destroy (&mutex);
 pthread_cond_destroy (&input_cond);
 pthread_cond_destroy (&input_processed_cond);
+```
 
 ///7.6.4. Monitors and Synchronized Methods[¶]
 ----------------------------------------------
@@ -13113,36 +10368,7 @@ Deadlock is the **permanent and unresolvable blocking** of two or more threads t
 
 [Code Listing 7.18](#cl7-18) provides a simple illustration of how deadlock can happen. There are two threads, running the `first()` and `second()` functions. The code for `first()` tries to acquire semaphore `sem_a` before `sem_b`, while `second()` acquires them in the opposite order.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-
+```cpp
 /* Code Listing 7.18:
    Code that is likely to lead to deadlock
  */
@@ -13172,6 +10398,7 @@ second (void * _args)
   sem_wait (&args->sem_a);
   /* other code here */
 }
+```
 
 The problem arises if there is a thread switch after one of the threads successfully acquires the first semaphore it needs. That is, assume that `first()` runs and acquires `sem_a`, then a thread switch occurs. At that point, `second()` starts running and acquires `sem_b`. But `second()` gets blocked when it tries to acquire `sem_a`, which is held by `first()`. At that point, the system switches back to `first()`, which gets blocked trying to acquire `sem_b`. At this point, both threads are waiting on each other permanently.
 
@@ -13217,44 +10444,7 @@ It is a common mistake to assume that deadlock only arises with certain types of
 
 As a simple illustration of livelock, consider [Code Listing 7.19](#cl7-19), which attempts to fix the deadlock in the example above. In this code, after successfully acquiring the first semaphore, the threads use `sem_try_wait()` on the second. If the wait fails (because the semaphore is locked by the other thread), the thread releases the semaphore it has first acquired and starts over.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-
+```cpp
 /* Code Listing 7.19:
    Livelock occurs when the system is not deadlocked but no work is done
  */
@@ -13292,6 +10482,7 @@ second (void * _args)
     }
   /* other code here */
 }
+```
 
 This code makes deadlock impossible by voluntarily breaking the characteristic of hold and wait. Note that it works in this scenario because no work is done after the first semaphore is acquired. This approach is not generalizable, though, because most systems will perform work in between the two semaphore acquisitions; in many instances, that work performed cannot be undone.
 
@@ -13320,281 +10511,7 @@ Advanced systems software, such as OS kernels, use a variety of techniques for s
 
 Many concurrent systems use a common log file to store records of key events. For instance, journaling file systems use a log to keep track of changes that can be validated in case of a system crash. This Extended Example uses multiple threads that create random fake events that then get written to the common log file. Access to the log file is synchronized to ensure that the writes do not interfere with each other.
 
-  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
- 10
- 11
- 12
- 13
- 14
- 15
- 16
- 17
- 18
- 19
- 20
- 21
- 22
- 23
- 24
- 25
- 26
- 27
- 28
- 29
- 30
- 31
- 32
- 33
- 34
- 35
- 36
- 37
- 38
- 39
- 40
- 41
- 42
- 43
- 44
- 45
- 46
- 47
- 48
- 49
- 50
- 51
- 52
- 53
- 54
- 55
- 56
- 57
- 58
- 59
- 60
- 61
- 62
- 63
- 64
- 65
- 66
- 67
- 68
- 69
- 70
- 71
- 72
- 73
- 74
- 75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162
-163
-164
-165
-166
-167
-168
-169
-170
-171
-172
-173
-174
-175
-176
-177
-178
-179
-180
-181
-182
-183
-184
-185
-186
-187
-188
-189
-190
-191
-192
-193
-194
-195
-196
-197
-198
-199
-200
-201
-202
-203
-204
-205
-206
-207
-208
-209
-210
-211
-212
-213
-214
-215
-216
-217
-218
-219
-220
-221
-222
-223
-224
-225
-226
-227
-228
-229
-230
-231
-232
-233
-234
-235
-236
-237
-238
-239
-240
-241
-242
-243
-244
-245
-246
-247
-248
-249
-250
-251
-252
-253
-254
-255
-256
-257
-258
-259
-260
-261
-262
-263
-264
-265
-266
-267
-268
-269
-270
-271
-272
-273
-274
-
+```cpp
 #include <assert.h>
 #include <fcntl.h>
 #include <pthread.h>
@@ -13869,6 +10786,7 @@ create_initial_log (void)
                "97af98b5c126f4f86f5aaca809439c65\n\n", SHALENGTH + 2);
   close (file);
 }
+```
 
 
 /Chapter 8   Synchronization Patterns and Problems[¶]
@@ -13920,39 +10838,7 @@ The key observation with signaling is that the scheduling of the threads does no
 
 [Code Listing 8.1](#cl8-1) uses a separate thread to perform some sort of initialization work. For instance, this initialization might involve reading in a large amount of data from configuration files, allocating request queues, overwriting the default signal handlers, or other such tasks. This initialization may be done concurrently with other work that the main thread is trying to accomplish. But at a certain point, the main thread needs to pause until it can be guaranteed that all of the initialization is done. The semaphore guarantees the timing of this pause.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-
+```cpp
 /* Code Listing 8.1:
    The general structure of a program that uses signaling after initialization
  */
@@ -13985,6 +10871,7 @@ main (int argc, char **argv)
   /* Do other work that depended on complete initialization */
   return EXIT_SUCCESS;
 }
+```
 
 The use of the semaphore here may seem unnecessary, and that would be a fair objection to this particular scenario. That is, the same timing could be achieved by having the main thread call `pthread_join()` when it needs to wait for the initialization thread to complete. However, using the semaphore allows the initialization thread to signal that the critical work has been done _before_ the thread finishes. This early notification may be beneficial if the thread needs to perform additional work, such as freeing up allocated memory or cleaning up files. Furthermore, there may be other threads that are also waiting on the initialization; since they are not the thread’s parent, they cannot join it and must be signaled using a mechanism such as a semaphore.
 
@@ -13995,33 +10882,7 @@ A [turnstile](#term-turnstile) is a variant on signaling that can cause a chain-
 
 Once it becomes acceptable for the threads to enter, one thread makes a single call to `sem_post()`. This call unblocks exactly one thread that is waiting at the turnstile; that thread returns from the `sem_wait()` that had blocked it and immediately calls `sem_post()`, unblocking the next thread. This pattern then continues, with each thread unblocking the next thread in line, one at a time. [Code Listing 8.2](#cl8-2) illustrates this pattern, with the `user()` waiting at the turnstile.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-
+```cpp
 /* Code Listing 8.2:
    Turnstiles create a sequence of unblocking all other threads
  */
@@ -14048,6 +10909,7 @@ main (int argc, char **argv)
   sem_post (sem);
   /* Continue with other work */
 }
+```
 
 Turnstiles allow POSIX semaphores to behave similar to the broadcast feature of [condition variables](#term-condition-variable) or using the System V `semop()` function to increase a semaphore by more than 1. There is a key difference that distinguishes the intended use of turnstiles, though. Turnstiles cause the unblocking to propagate to all threads that are waiting at the turnstile, but also those that have not arrived yet. Broadcasting only notifies threads that are already waiting, and `semop()` unblocks a maximum of the number of threads specified by the `sem_op` argument. In other words, turnstiles permanently unblock all current and future threads based on a key event.
 
@@ -14058,33 +10920,7 @@ A [rendezvous](#term-rendezvous) is a mutual signaling between two threads. The 
 
 To illustrate the use of a rendezvous, assume that a program wants to detect corrupted files on a web server. To do this, the program uses one thread to retrieve the file from the web site; a second thread reads the same file from a location that is known to be secure and correct. The two threads need to complete reading the two copies before comparing their contents (a mismatch would indicate corruption). [Code Listing 8.3](#cl8-3) shows the structure for these two threads.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-
+```cpp
 /* Code Listing 8.3:
    Separate threads can be used to download a file twice to detect corruption
  */
@@ -14111,6 +10947,7 @@ secure_load (void *_args)
   sem_wait (args->download_sem);
   /* Additional work or thread cleanup here */
 }
+```
 
 ///8.2.4. Multiplexing[¶]
 -------------------------
@@ -14121,41 +10958,7 @@ The solution in this case is [multiplexing](#term-multiplexing-semaphore). Multi
 
 [Code Listing 8.4](#cl8-4) illustrates the code framework for a server that launches a new thread each time a request has been received. Whenever a request is received, the main thread first decrements the semaphore to determine if the limit has been reached. If the limit has not been reached, a new thread handles the request. However, if the maximum number of threads has already been reached, the main thread gets blocked. Eventually, one of the threads serving content finishes. Just before exiting, that thread increments the semaphore, which unblocks the main thread; at that point, the main thread creates a new thread to handle the pending request it had received.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-
+```cpp
 /* Code Listing 8.4:
    Semaphore multiplexing can place a limit on the number of concurrent threads
  */
@@ -14190,6 +10993,7 @@ main (int argc, char **argv)
         sem_post (create_thread_sem);
     }
 }
+```
 
 ///8.2.5. Lightswitches[¶]
 --------------------------
@@ -14198,30 +11002,7 @@ When providing concurrent access to a resource, it is sometimes necessary to dis
 
 The [lightswitch](#term-lightswitch) pattern makes it possible to enforce this type of constraint. In addition, the lightswitch allows the first thread of a particular type to perform some initialization as needed. The name derives from the idea of a group of people entering a room; the first person to enter turns on the lights by flipping the lightswitch and the last person to leave turns the lights off. [Code Listing 8.5](#cl8-5) shows one variant on a lightswitch. Note that the `if` statement in both cases can be extended to perform additional initialization and clean-up work if needed.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-
+```cpp
 /* Code Listing 8.5:
    Functions for creating an asymmetric lightswitch
  */
@@ -14245,35 +11026,11 @@ leave (pthread_mutex_t *lock, sem_t *can_enter, int counter)
     sem_post (can_enter);
   pthread_mutex_unlock (unlock);
 }
+```
 
 The implementation in [Code Listing 8.5](#cl8-5) works for an _asymmetric_ approach in which one type of thread allows concurrent access while another does not. The `enter()` and `leave()` functions would be used by the thread type that allows concurrency. The thread type that requires mutual exclusion would work directly with the `can_enter` semaphore without using the lock. That is, the lightswitch could be used as shown in [Code Listing 8.6](#cl8-6).
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-
+```cpp
 /* Code Listing 8.6:
    Using a lightswitch in asymmetric concurrency
  */
@@ -14299,6 +11056,7 @@ mutex_thread thread (void * _args)
   sem_post (args->can_enter);
   /* Do other work and exit thread */
 }
+```
 
 🐞🐛🐌 Bug Warning
 
@@ -14308,24 +11066,7 @@ The lightswitch in [Code Listing 8.6](#cl8-6) is not safe if all types of thread
 
 If the concurrency is not asymmetric—that is, multiple types of threads allow concurrent access—then the `if` statement would need to be modified. Using the structure in [Code Listing 8.5](#cl8-5), the `enter()` function could be modified to release the lock prior to calling `sem_wait(can_enter)`, then re-acquiring it as shown in [Code Listing 8.7](#cl8-7). Note that the `leave()` function remains unchanged, as `sem_post(can_enter)` would never block.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-
+```cpp
 /* Code Listing 8.7:
    A lightswitch for concurrency of all thread types
  */
@@ -14343,42 +11084,11 @@ enter (pthread_mutex_t *lock, sem_t *can_enter, int counter)
   else
     pthread_mutex_unlock (lock);
 }
+```
 
 As an alternative, the lightswitch could be modified to use condition variables as shown in [Code Listing 8.8](#cl8-8). In this case, a bool variable is added to indicate whether or not a new type of thread can enter its respective critical section. When the first thread of a new type enters the critical section, it would set `can_enter` to false, blocking out other threads that would try to enter until the last leaving thread sets `can_enter` back to true.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-
+```cpp
 /* Code Listing 8.8:
    Adapting the lightswitch for condition variables
  */
@@ -14411,30 +11121,11 @@ leave (pthread_mutex_t *lock, pthread_cond_t *leave,
     }
   pthread_mutex_unlock (unlock);
 }
+```
 
 Given that the lightswitch pattern is more complex than the other patterns, it is a good design choice to encapsulate the variables into a single `struct` that can then be passed around. Any thread needing access to the same lightswitch could be passed a pointer to the `struct` instance in the thread arguments as shown in [Code Listing 8.9](#cl8-9). Note that this assumes the interface for `enter()` and `leave()` have been adapted to receive the struct parameter instead of the individual fields.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-
+```cpp
 /* Code Listing 8.9:
    A modular approach to lightswitches
  */
@@ -14455,6 +11146,7 @@ lightswitch_user (void * _args)
   leave (lightswitch);
   /* Do other work and exit thread */
 }
+```
 
 
 
@@ -14470,33 +11162,7 @@ As an example, consider a researcher who discovers a previously unknown play and
 
 As a first variant on this problem, consider two threads that share an unbounded queue. This approach can be implemented using a linked list approach for the queue. Specifically, we can assume that there is a `queue_t` structure that contains pointers to the front and back of the queue, where the nodes in the queue are of type `queue_node_t`. The nodes all contain pointers to some sort of `data_t` field. [Code Listing 8.10](#cl8-10) shows the framework for enqueueing and dequeueing data.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-
+```cpp
 /* Code Listing 8.10:
    Enqueue and dequeue operations for a linked list implementation of a queue
  */
@@ -14523,11 +11189,13 @@ dequeue_unsafe (queue_t *queue)
   queue->front = next;
   return data;
 }
+```
 
 This implementation, which would be acceptable for a single-threaded application, has a race condition when used in a concurrent setting. Specifically, if one thread begins to `enqueue()` some data, another thread that tries to `dequeue()` the data at the same time may get a `NULL` pointer because the first thread has not yet reached the line the advances the back pointer.
 
 The solution here would be to refactor these functions to become a monitor as shown in [Code Listing 8.11](#cl8-11). Each function would be passed a reference to a shared mutex that would be locked on entry and released just before the function returns. This solution eliminates the race condition regarding the timing of access to the queue’s `back` field. Additionally, this solution is generalizable regardless of the number of producers and consumers. If there are multiple producers trying to `enqueue()` data, the mutex ensures that they will not try to manipulate the queue at that same time. For brevity, [Code Listing 8.11](#cl8-11) calls the functions from [Code Listing 8.10](#cl8-10).
 
+```cpp
 /* Code Listing 8.11:
    A synchronized version of linked list enqueueing and dequeueing
  */
@@ -14548,25 +11216,21 @@ dequeue (queue_t *queue, pthread_mutex_t *lock)
   pthread_mutex_unlock (lock);
   return data;
 }
+```
 
 ///8.3.2. Single Producer-Single Consumer Solution Using a Bounded Queue[¶]
 ---------------------------------------------------------------------------
 
 In many cases, the unbounded queue of the previous section is neither feasible nor desirable. For instance, this approach makes it very easy to launch a [denial-of-service](#term-denial-of-service) attack against the application, particularly if this code is used in a server. [Code Listing 8.12](#cl8-12) shows a single line of code that quickly exhausts the program’s dynamic memory resources, leading to a system crash.
 
-1
-2
-3
-4
-5
-6
-
+```cpp
 /* Code Listing 8.12:
    A trivial denial-of-service attack against the code in 8.11
  */
 
 while (1)
   enqueue (queue, data, lock);
+```
 
 Given this weakness, systems software typically imposes constraints on the number of items in the queue. One approach would be to use semaphores with the linked list queue above. Another approach is to use a finite circular array as the basis. For this approach, we will still assume the use of a `queue_t` data type to represent the queue, however the internal implementation uses an array instead of linked nodes. [Figure 8.3.1](ProdCons.html#circarray) illustrates the structure of the queue.
 
@@ -14576,26 +11240,7 @@ Figure 8.3.1: A circular queue using an array
 
 [Code Listing 8.13](#cl8-13) shows the unsafe version of the `enqueue()` and `dequeue()` operations for an array implementation of a queue. Within the `queue_t` data type, contents is an array of pointers to the enqueued data, while `front` and `back` are indexes into this array. When either of the indexes are incremented, the operations must recalculate the value modulo the array size to ensure that the values stay within the bounds of the array. This approach creates a circular structure, where the spaces in the array can be reused. Once the back index reaches the end of the array, it would return to the first position and continue from there.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-
+```cpp
 /* Code Listing 8.13:
    Enqueue and dequeue operations for an array queue implementation
  */
@@ -14615,33 +11260,13 @@ dequeue_unsafe (queue_t *queue)
   queue->front %= queue->capacity;
   return data;
 }
+```
 
 The implementation in [Code Listing 8.13](#cl8-13) has a fundamental flaw in both operations, as neither enforces the limited capacity. This design choice was intentional, as this code was meant to encapsulate the enqueueing and dequeueing behavior. That is, we can now reason through the synchronization issues for the producer-consumer problem without regard for the specific queue implementation.
 
 To build the rationale for the solution to the producer-consumer problem, consider [Code Listing 8.14](#cl8-14). This implementation attempts to keep track of the number of items (`queue->size`) in the queue, comparing it with values that indicate whether the queue is full or empty.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-
+```cpp
 /* Code Listing 8.14:
    An unsuccessful attempt at solving producer-consumer
  */
@@ -14663,6 +11288,7 @@ dequeue_failure (queue_t * queue)
   queue->counter--;
   return data;
 }
+```
 
 The attempted solution in [Code Listing 8.14](#cl8-14) fails because it has race conditions on the queue’s `counter` variable. If the producer is attempting to enqueue an item at the same moment the consumer is dequeueing one, the outcome depends on whether the producer’s check for available space happens before or after the consumer decrements the `counter`. A similar race condition arises if the queue is empty and both functions are called. This race condition could be fixed by wrapping the accesses to the `counter` with a mutex.
 
@@ -14670,27 +11296,7 @@ The attempted solution in [Code Listing 8.14](#cl8-14) fails because it has race
 
 A better, more user-friendly solution to the producer-consumer problem is to use semaphores. Note that semaphores incorporate the key functionality that we need: **atomic incrementing and decrementing of a counter variable**. The previous approach was trying to re-invent this already-solved problem. [Code Listing 8.15](#cl8-15) shows the framework for solving the producer-consumer problem for a single producer and single consumer.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-
+```cpp
 /* Code Listing 8.15:
    Solution for a single producer and single consumer
  */
@@ -14711,6 +11317,7 @@ dequeue (queue_t * queue, sem_t *space, sem_t *items)
   sem_post (space);
   return data;
 }
+```
 
 The structure of this approach is to use signaling with two semaphores. The key insight here is that there are actually _two_ bounds that need enforced: a maximum and a minimum. If the queue is full, then the producer needs to wait until there is a space available. That is, the producer must call `sem_wait(space)` and wait if necessary. The `space` semaphore is initialized to the capacity of the queue, so it would only be 0 if that many items are already in the queue. Once the consumer has removed an item from the queue, it performs the counterpart call `sem_post(space)` to alert the producer that a space is available. In short, the `space` semaphore enforces the maximum capacity of the queue.
 
@@ -14721,35 +11328,17 @@ At the same time, the consumer must not attempt to remove an item from the queue
 
 The solution in the previous section works successfully if there is only a single producer. However, if there are multiple producers, the previous solution will not work and should not be used. The problem is the line highlighted in [Code Listing 8.16](#cl8-16). Recall that post-increments in C are not atomic operations. That is, the internal execution at the machine language level involves a three-step process: load the value into a register, increment the value in the register, and store the result back into memory. If two threads try to perform this increment at the same time, the increments could interfere with each other.
 
-1
-2
-3
-4
-5
-
+```cpp
 /* Code Listing 8.16:
    Non-atomic increments are always race conditions
  */
 
 queue->contents[queue->back++] = data;
+```
 
 The solution in this case would be to add a lock as shown in [Code Listing 8.17](#cl8-17). Acquiring and releasing the lock as shown here minimizes the size of the critical section. That is, the operations on the semaphores do not require protection. Including the calls to `sem_wait()` and `sem_post()` within the critical section for the lock would unnecessarily prevent the other producers from manipulating the semaphores, partially eliminating the benefit of using a semaphore.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-
+```cpp
 /* Code Listing 8.17:
    Solution for a single producer and single consumer
  */
@@ -14764,36 +11353,11 @@ enqueue (queue_t *queue, data_t *data, sem_t *space, sem_t *items,
   pthread_mutex_unlock (lock);
   sem_post (items);
 }
+```
 
 Note that this approach does not require any modification to the `dequeue()` operation used by the consumer. Since there is only a single consumer, there is no race condition on incrementing the `queue->front` variable. This solution could be extended to multiple consumers by introducing a second lock for consumers used in `dequeue()` as shown in [Code Listing 8.18](#cl8-18). It is important, in this case, to use separate locks rather than simply reusing the same lock for both producers and consumers. When both the `space` and `items` semaphores have positive values, then the front and back of the queue are guaranteed to be in different places. That is, there are multiple items in the queue, so the producer and consumer within the critical sections would not be interfering with each other. Consequently, there is no reason that the producer needs to lock out the consumer, or vice versa.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-
+```cpp
 /* Code Listing 8.18:
    Solution for a multiple producers and consumers
  */
@@ -14820,6 +11384,7 @@ dequeue (queue_t * queue, sem_t *space, sem_t *items,
   sem_post (space);
   return data;
 }
+```
 
 
 
@@ -14835,32 +11400,7 @@ To illustrate the readers-writers problem, consider a web-based e-commerce appli
 
 One common solution for the readers-writers problem aligns with the asymmetric lightswitch described previously. As the readers allow concurrent access, the reader thread would use the `enter()` and `leave()` routines to access the shared resource. The writers, however, require mutual exclusion, both with other writers and with all of the readers. Consequently, the writers do not need to employ the lightswitch, simply accessing the semaphore directly. [Code Listing 8.19](#cl8-19) shows the framework for this solution.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-
+```cpp
 /* Code Listing 8.19:
    Asymmetric lightswitch solution to readers-writers
  */
@@ -14886,6 +11426,7 @@ writer (void * _args)
   sem_post (lightswitch->semaphore);
   /* Do other work and exit thread */
 }
+```
 
 ///8.4.2. Fairness to Writers[¶]
 --------------------------------
@@ -14898,41 +11439,7 @@ The solution to the readers-writers problem as shown in [Code Listing 8.19](#cl8
 
 The writer’s starvation in this scenario can be fixed by placing a turnstile before the readers can enter as shown in [Code Listing 8.20](#cl8-20). As long as there is no writer attempting to enter the critical section, the readers can each pass through the turnstile and invoke `enter()` on the lightswitch. However, once a writer arrives, it will call `sem_wait()` on the turnstile semaphore, blocking new readers from passing through the turnstile. The writer will then call `sem_wait()` on the lightswitch semaphore and block. When the last of the readers that are already in the critical section call `leave()`, that thread will `sem_post()` to the lightswitch semaphore, allowing the writer to enter. The writer can then `sem_post()` to the turnstile, allowing readers to pass through again. The first reader through calls `enter()` on the lightswitch and gets blocked until the writer leaves.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-
+```cpp
 /* Code Listing 8.20:
    A starvation-free readers-writers solution
  */
@@ -14967,6 +11474,7 @@ writer (void * _args)
   sem_post (lightswitch->semaphore);
   /* Do other work and exit thread */
 }
+```
 
 Depending on the particular context, it may be acceptable or desirable to use the solution that potentially allows writer starvation. For instance, if read accesses to the critical section are extremely fast and concurrent reads are rare, starvation would not occur; the turnstile would then impose unnecessary system calls and potential context switches that may accumulate. However, this cost may be acceptable to mitigate potential delays to the writers.
 
@@ -14977,21 +11485,7 @@ The [search-insert-delete problem](#term-search-insert-delete-problem) is a vari
 
 This problem can be solved with slight modifications of the original solution for the readers-writers. The searcher thread is identical to the reader, as shown in [Code Listing 8.21](#cl8-21).
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-
+```cpp
 /* Code Listing 8.21:
    Searchers are identical to readers
  */
@@ -15006,31 +11500,11 @@ searcher (void * _args)
   leave (search_switch);
   /* Do other work and exit thread */
 }
+```
 
 Inserters are also very similar to readers. The main difference is that inserters also require mutual exclusion among themselves, requiring a lock as shown in [Code Listing 8.22](#cl8-22).
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-
+```cpp
 /* Code Listing 8.22:
    Inserters also require a lock for mutual exclusion to the data structure
  */
@@ -15052,9 +11526,11 @@ inserter (void * _args)
   leave (args->insert_switch);
   /* Do other work and exit thread */
 }
+```
 
 To complete the solution, the deleter threads behave identically to the writers. The only difference is that the deleter must rely on both lightswitches for the other two types of threads as shown in [Code Listing 8.23](#cl8-23). If the deleter successfully passes the semaphore for the `search_switch`, then there are no searchers in the critical section and new searchers will be blocked by the lightswitch. Once the last inserter leaves the critical section, the deleter would be able to pass the `insert_switch` semaphore and enter the critical section. Additional inserters would also be locked out at this point. Once the deleter exits the critical section, inserters and searchers would be allowed back in.
 
+```sh
 /* Code Listing 8.23:
    Deleters must work with lightswitches for both searchers and inserters
  */
@@ -15068,6 +11544,7 @@ deleter ()
   sem_post (insert_switch->semaphore);
   sem_post (search_switch->semaphore);
 }
+```
 
 This solution, which is a variant on the original readers-writers solution, has the same weakness previously discussed. The deleter threads can potentially face starvation, as long as there is at least one searcher or inserter in their critical sections. Interestingly, though, the searcher threads can also face starvation. Specifically, consider the case where all the searchers leave the critical section and a deleter has arrived. As long as there are inserters in the critical section, the deleter cannot enter. However, the deleter has already successfully locked out future searchers. Consequently, the future searchers would be effectively locked out by the inserters. Adapting the turnstile approach used for readers-writers would successfully prevent starvation in this case, too.
 
@@ -15093,25 +11570,7 @@ The problem arises when all of the philosophers decide to eat at the same time. 
 
 [Code Listing 8.24](#cl8-24) illustrates how this scenario translates into code with semaphores. Multiple _philosopher_ threads share an array of N _fork_ semaphores (numbered 0 through N-1) and each thread tries to acquire two of them. Thread 0 waits on semaphores 0 and 1, thread 1 waits on semaphores 1 and 2, and so on, until thread N-1 waits on semaphores N-1 and 0 (since the modulus operator is applied).
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-
+```cpp
 /* Code Listing 8.24:
    The dining philosophers problem in code with semaphores
  */
@@ -15130,6 +11589,7 @@ philosopher (void * _args)
   sem_post (args->sems[self]); /* put down left fork */
   /* Do other work and exit thread */
 }
+```
 
 Assuming they are initialized to 1 and the standard `sem_wait()` is used, semaphores exhibit the three required system features of deadlock. They enforce mutual exclusion because the second thread to attempt to down the semaphore will become blocked since the internal value would be negative. Since the threads can acquire one and get blocked trying to acquire the second semaphore, they satisfy the hold-and-wait criterion. And since no thread can break another thread’s claim to a semaphore, the no preemption criterion is met. The fourth criterion for deadlock, circular wait, arises from the sequence in which the threads wait on the respective semaphores. Every philosopher is waiting on the fork to their right, which has been grabbed by someone else as their left fork.
 
@@ -15178,28 +11638,7 @@ Table 8.1: If all threads get through the first semaphore, no one gets by the se
 
 It is important to note that this problem applies to other synchronization primitives, not just semaphores. That is, locks and condition variables also meet the system requirements for deadlock. To illustrate how this problem could arise in practice with locks, consider the software that links incoming and outgoing connections in a network switch. In this scenario, assume that each thread responsible for forwarding data packets acquires locks on dedicated physical ports. As such, the software maintains an array of locks `nic_locks`. There is no assumption that the ports need to be adjacent; instead, the switch code just grabs any two that are available. [Code Listing 8.25](#cl8-25) shows a simplistic approach that fits the dining philosophers structure. The first loop iterates through the locks until one is assigned to be this thread’s incoming port; the second loop acquires the outgoing port. To make matters worse, these two loops may be in different portions of the code base, so someone reviewing the code **may not think they are actually connected in this way**!
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-
+```cpp
 /* Code Listing 8.25:
    It is easy to fall into the dining philosophers structure without realizing it
  */
@@ -15221,6 +11660,7 @@ while (true)
       break;
   }
   /* successfully locked network card out for outgoing data */
+```
 
 ///8.5.1. Solution of Limiting Accesses[¶]
 ------------------------------------------
@@ -15229,27 +11669,7 @@ One approach to solving the dining philosophers problem is to employ a multiplex
 
 [Code Listing 8.26](#cl8-26) shows how to incorporate this approach into the structure of [Code Listing 8.24](#cl8-24). A single additional semaphore (`can_sit`) is created and initialized to N-1 for N semaphores. This semaphore prevents all N semaphores from being decremented by the first call to `sem_wait()`. As such, there must be at least one semaphore that can be decremented by the second call, guaranteeing one thread enters the critical section. Once that thread leaves, it increments its _fork_ semaphores and the new semaphore, allowing a new thread to enter.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-
+```cpp
 /* Code Listing 8.26:
    Solving dining philosophers with a multiplexing semaphore
  */
@@ -15270,6 +11690,7 @@ philosopher (void * _args)
   sem_post (args->sems[self]); /* put down left fork */
   /* Do other work and exit thread */
 }
+```
 
 📜 Example 8.5.2
 
@@ -15319,23 +11740,7 @@ There are times where the previous approach would not be optimal, particularly i
 
 [Code Listing 8.27](#cl8-27) outlines a different approach focused on breaking the hold-and-wait criterion. Rather than using `sem_wait()` on the second semaphore, `sem_try_wait()` provides a mechanism to detect the failure without blocking. If the semaphore is successfully decremented, the thread continues as normal. However, if the decrement would cause the thread to block, it posts to the first semaphore and starts over from scratch. In the terms of the dining philosopher scenario, if someone fails to grab their right fork they would put their left fork back down and try again. In the meantime, the philosopher to their left could grab the fork before it is picked back up.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-
+```cpp
 /* Code Listing 8.27:
    Solving dining philosophers with a multiplexing semaphore
  */
@@ -15352,6 +11757,7 @@ while (! success)
     else
       success = true;
   }
+```
 
 This approach depends on the work that is done between waiting on the two semaphores. If the initial work cannot be undone, it is not clear what should be done if the `sem_try_wait()` fails. One possibility would be simply to discard the partial results, which may be acceptable in some cases. As an example of where this is true, consider a streaming media player. Partial results can happen when some but not all of the data packets have arrived; the result may be that the player switches to a low-resolution form (creating pixelated images) or switches to audio only.
 
@@ -15362,27 +11768,7 @@ On the other hand, consider a financial database where the initial work is to wi
 
 A third possibility for solving the dining philosophers problem is to impose a linear ordering on the semaphores. This order could be imposed by requiring `i < j` anytime `sems[i]` is accessed before `sems[j]`. As before, thread 0 would wait on semaphores 0 and 1 (in that order), thread 1 would wait on semaphores 1 and 2, and so on. However, the last thread would have a different ordering. If there are N semaphores (numbered 0 through N-1), the last thread would have to wait on semaphore 0 before semaphore N-1 to adhere to the linear ordering. [Code Listing 8.28](#cl8-28) shows how this order can be imposed by adding a single `if` statement.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-
+```cpp
 /* Code Listing 8.28:
    Enforcing a linear ordering by requiring self < next
  */
@@ -15403,6 +11789,7 @@ philosopher (void * _args)
   sem_post (args->sems[self]); /* put down left fork */
   /* Do other work and exit thread */
 }
+```
 
 📜 Example 8.5.3
 
@@ -15457,22 +11844,7 @@ The answer to this question is yes; using different types of synchronization pri
 
 The scenario for the cigarette smokers problem consists of four threads: three smokers and one agent. In order to smoke, the smoker needs to acquire three items: tobacco, paper, and a match. Once the smoker has all three, they combine the paper and tobacco to roll a cigarette and use the match to light it. Each of the three smokers has an infinite supply of exactly one item and needs the other two. [Code Listing 8.29](#cl8-29) shows a sample outline for the smoker threads. The smoker shown there is assumed to have an infinite supply of tobacco but needs the match and paper. The smoker sends a signal to request more paper and matches when they are finished smoking. The other two threads are similar, but one would wait on semaphores for a match and tobacco and the third would wait on tobacco and paper.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-
+```cpp
 /* Code Listing 8.29:
    Sample structure for a smoker thread
  */
@@ -15488,35 +11860,11 @@ smoker_with_tobacco (void)
       sem_post (more_needed); /* signal to agent */
     }
 }
+```
 
 The fourth thread is an agent that creates two of the three items at a time, placing the items on the table. Once the items are taken away, the agent waits on a signal to produce more. [Code Listing 8.30](#cl8-30) shows an outline of an agent thread. The agent picks randomly between three cases, producing some combination of two out of the three items. The agent places the items on the table, then waits for a request for more items.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-
+```cpp
 /* Code Listing 8.30:
    Sample structure for the agent thread
  */
@@ -15542,6 +11890,7 @@ agent (void)
       sem_wait (more_needed); /* wait for request for more */
     }
 }
+```
 
 To understand the implications of the cigarette smokers problem, it is important to emphasize that [Code Listings 8.29](#cl8-29) and [8.30](#cl8-30) are just sample implementations. The `smoker_with_tobacco()` could be changed to wait on the `paper_sem` before the `match_sem`; the order does not matter. Similarly, the `agent()` could be written so that case 0 would post to `paper_sem` before `match_sem`. The result does not rely on any particular ordering of these lines of code.
 
@@ -15608,25 +11957,7 @@ The key claim of the cigarette smokers problem is that this scenario has no solu
 
 As a result, the cigarette smokers problem proves that some form of introspection is needed for synchronization primitives. This introspection is provided by POSIX operations such as `sem_try_wait()` or `pthread_mutex_trylock()`. These operations provide information about whether or not the synchronization attempt will succeed. [Code Listing 8.31](#cl8-31) illustrates how these forms could be used in a successful solution to the cigarette smokers problem.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-
+```cpp
 /* Code Listing 8.31:
    Sample structure for a smoker thread
  */
@@ -15645,6 +11976,7 @@ smoker_with_tobacco (void)
       else sem_post (match_sem); /* drop the match */
     }
 }
+```
 
 ///8.6.2. On Cigarette Smokers and Dining Philosophers[¶]
 ---------------------------------------------------------
@@ -15666,223 +11998,7 @@ The name of this problem illustrates how cultural norms can change over time. Th
 
 Modular exponentiation is a mathematical calculation that is used in a variety of applications, including public key cryptography. This operation simply consists of performing an integer exponentiation and applying a modulus. For instance, 23 mod 7 = 8 mod 7 ≡ 1 mod 7. This parallel form makes use of the fact that multiplication is associative; if we want to compute (23 * 54 ) mod 7, we can calculate 23 mod 7 and 54 mod 7 in parallel, then multiply their results together. This form uses an intentionally slow implementation of modular exponentiation to illustrate the performance improvement from parallelism.
 
-  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
- 10
- 11
- 12
- 13
- 14
- 15
- 16
- 17
- 18
- 19
- 20
- 21
- 22
- 23
- 24
- 25
- 26
- 27
- 28
- 29
- 30
- 31
- 32
- 33
- 34
- 35
- 36
- 37
- 38
- 39
- 40
- 41
- 42
- 43
- 44
- 45
- 46
- 47
- 48
- 49
- 50
- 51
- 52
- 53
- 54
- 55
- 56
- 57
- 58
- 59
- 60
- 61
- 62
- 63
- 64
- 65
- 66
- 67
- 68
- 69
- 70
- 71
- 72
- 73
- 74
- 75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162
-163
-164
-165
-166
-167
-168
-169
-170
-171
-172
-173
-174
-175
-176
-177
-178
-179
-180
-181
-182
-183
-184
-185
-186
-187
-188
-189
-190
-191
-192
-193
-194
-195
-196
-197
-198
-199
-200
-201
-202
-203
-204
-205
-206
-207
-208
-209
-210
-211
-212
-213
-214
-215
-216
-
+```cpp
 #include <assert.h>
 #include <inttypes.h>
 #include <pthread.h>
@@ -16099,6 +12215,7 @@ randomize_powers (size_t length, unsigned seed,
     }
   return pows;
 }
+```
 
 
 /Chapter 9   Parallel and Distributed Systems[¶]
@@ -16168,14 +12285,7 @@ The first step in designing parallel processing software is to identify opportun
 
 A common example of task parallelism is input event handling: One task is responsible for detecting and processing keyboard presses, while another task is responsible for handling mouse clicks. [Code Listing 9.1](#cl9-1) illustrates an easy opportunity for data parallelism. Since each array element is modified independently of the rest of the array, it is possible to set every array element’s value at the same time. The previous examples are instances of [embarrassingly parallel problems](#term-embarrassingly-parallel) [[1]](#f47), which require little or no effort to parallelize, and they can easily be classified as task or data parallelism.
 
-1
-2
-3
-4
-5
-6
-7
-
+```cpp
 /* Code Listing 9.1:
    An embarrassingly parallel loop, as each array element is initialized independently
    of all other elements.
@@ -16183,27 +12293,13 @@ A common example of task parallelism is input event handling: One task is respon
 
 for (i = 0; i < 1000000000; i++)
   array[i] = i * i;
+```
 
 There are other ways to classify algorithms that exploit parallelism. One common approach is a [recursive splitting](#term-recursive-splitting) or [divide-and-conquer](#term-divide-and-conquer-algorithm) strategy. In a divide-and-conquer strategy, a complex task is broken down into concurrent sub-tasks. One example of this strategy is the quicksort algorithm: The array is first partitioned into two sub-arrays based on a pivot value; the sub-arrays can then be sorted recursively in parallel.
 
 _Merge sort_ is a common example of an algorithm that is both embarrassingly parallel and a divide-and-conquer approach. Consider the basic outline of the algorithm, as shown in [Code Listing 9.2](#cl9-2). Merge sort begins by recursively splitting an array into two halves [[2]](#f48). The left and right halves are sorted independently, then their resulting sorted versions are merged. This algorithm is considered embarrassingly parallel, because sorting the left and right halves in parallel are naturally independent tasks. It is also considered divide-and-conquer because it takes the larger problem and breaks it down into smaller tasks that can be parallelized. Not all divide-and-conquer algorithms are embarrassingly parallel, and vice versa; however, there is a significant amount of overlap between these classifications.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-
+```cpp
 /* Code Listing 9.2:
    Merge sort is an embarrassingly parallel problem, given its natural
    divide-and-conquer structure
@@ -16219,6 +12315,7 @@ mergesort (int * values, int start, int end)
   mergesort (values, mid + 1, end); /* sort the right half */
   merge (values, start, end);
 }
+```
 
 Another common strategy is [pipelining](#term-pipelining). In pipelining, a complex task is broken down into a sequence of independent sub-tasks, typically referred to as stages. There are multiple real-world scenarios that help to demonstrate the key ideas that underlie pipelining. On example is to think about doing laundry. Once a load of clothes has finished washing, you can put them into the dryer. At the same time, you start another load of clothes in the washing machine. Another example is to consider the line at a cafeteria-style restaurant where you make multiple selections. The line is often structured so that you select (in order) a salad, an entrée, side dishes, a dessert, and a drink. At any time, there can be customers in every stage of the line; it is not necessary to wait for each customer to pass through all parts of the line before making your first selection.
 
@@ -16239,18 +12336,7 @@ Figure 9.3.1: Illustration of sequential tasks (above) and the corresponding for
 
 Implementing the fork/join pattern in practice can be straightforward, particularly in the cases of embarrassingly parallel problems. The fork stage consists of setting up the arguments that each thread should receive. [Code Listing 9.3](#cl9-3), for example, shows how to break the loop from [Code Listing 9.1](#cl9-1) into 10 threads that each process 1/10th of the array calculations (encapsulated in a `multiply()` function). The join stage would combine their results after calling `pthread_join()`.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-
+```cpp
 /* Code Listing 9.3:
    The fork stage of a fork/join pattern
  */
@@ -16262,17 +12348,11 @@ for (i = 0; i < 10; i++) /* Assume we are creating 10 threads */
     assert (pthread_create (&threads[i], NULL,
                             multiply, &args[i]) != 0);
   }
+```
 
 The fork/join pattern is so common, particularly for loop parallelism, that many libraries provide simple mechanisms to automate the thread management for it when programming. [Code Listing 9.4](#cl9-4) shows the OpenMP version of parallelizing [Code Listing 9.1](#cl9-1). When the compiler encounters this `pragma`, it will inject code that handles the thread creation and cleanup with no additional work by the programmer. This pragma makes implementing the fork/join pattern trivial in this and many cases.
 
-1
-2
-3
-4
-5
-6
-7
-
+```cpp
 /* Code Listing 9.4:
    OpenMP works very well with embarrassingly parallel fork/join patterns
  */
@@ -16280,6 +12360,7 @@ The fork/join pattern is so common, particularly for loop parallelism, that many
 #pragma omp parallel for
 for (i = 0; i < 1000000000; i++)
   array[i] = i * i;
+```
 
 ![Map/reduce shares a common structure as fork/join](https://w3.cs.jmu.edu/kirkpams/OpenCSF/Books/csf/html/_images/CSF-Images.9.3.png)
 
@@ -16291,29 +12372,7 @@ An implementation strategy common with task parallelism is the [manager/worker](
 
 [Code Listing 9.5](#cl9-5) shows one way to structure a worker thread. The thread arguments contain a pointer to a piece of data to process (`args->data`) along with a lock (`args->lock`) and a condition variable (`args->data_received`). When the manager thread has a task to assign this particular thread, it would update the data pointer and send a signal with the condition variable. If each worker thread has its own data pointer, the manager can send data to a specific worker thread. On the other hand, if the data pointer is shared, this structure could still work; the main difference is that the thread would need to make a local copy of the data just before releasing the lock on line 17. Since condition variables also support broadcasting, the manager can send data to all of the worker threads with a single message. In addition, the thread arguments contain a boolean value `args->running`. The manager thread can stop all of the workers by setting this value to false and broadcasting on the condition variable (setting all `args->data` values to anything other than `NULL`).
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-
+```cpp
 /* Code Listing 9.5:
    A simple worker with condition variables
  */
@@ -16336,6 +12395,7 @@ worker (void * _args)
   pthread_mutex_unlock (args->lock);
   pthread_exit (NULL);
 }
+```
 
 ///9.3.3. Parallel Execution Patterns[¶]
 ----------------------------------------
@@ -16350,19 +12410,7 @@ At first glance, thread pools may look identical to the manager/worker implement
 
 The main idea of a thread pool is to create all of the threads needed once at the beginning of the program, rather than when needed. [Code Listing 9.3](#cl9-3), for instance, did not use a thread pool to parallelize the loop. This could be contrasted with [Code Listing 9.6](#cl9-6), which assumes the presence of a thread pool. In this approach, the for-loop employs the producer-consumer `enqueue()` operation from Chapter 8 to place the starting values into the shared queue. The `space` and `items` semaphores help to ensure that the queue is modified safely. After enqueueing all of the data, the main thread waits at a barrier until the pool threads have reached the end of their calculations. The barrier prevents the main thread from moving past the fork/join structure until all of the pool threads have reached the same point.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-
+```cpp
 /* Code Listing 9.6:
    Using a thread pool to parallelize Code Listing 9.1
  */
@@ -16375,25 +12423,11 @@ for (i = 0; i < 10; i++)
   enqueue (queue, i * 100000000, space, items);
 
 pthread_barrier_wait (barrier);
+```
 
 [Code Listing 9.7](#cl9-7) shows the structure of a thread in the thread pool. (For simplicity and focus on the thread pool, we are assuming all semaphores, the queue, the lock, and the barrier are globally accessible.) This thread starts by retrieving a piece of data from the shared queue, using the producer-consumer `dequeue()` operation. Note that, since there are multiple threads in the pool, this thread needs the `dequeue()` operation that employs a lock. This version synchronizes the pool threads’ access to the variables that maintain the queue structure. After retrieving the starting value (which was passed through the queue as a pointer), the thread performs the desired work and waits at the barrier (indicating completion to the main thread).
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-
+```cpp
 /* Code Listing 9.7:
    The threads in the pool for parallelizing Code Listing 9.1
  */
@@ -16409,6 +12443,7 @@ pool_thread (struct args *args)
   pthread_barrier_wait (barrier);
   /* ... Additional work may happen later ... */
 }
+```
 
 One way to characterize the difference between the thread pool approach in [Code Listing 9.6](#cl9-6) with the basic fork/join style of [Code Listing 9.3](#cl9-3) is to distinguish them as either a _pull_ or a _push_ model. Thread pools are typically implemented using a pull model, where the pool threads manage themselves, retrieving data from the queue at their availability and discretion. In contrast, the original approach used a push model, with the main thread controlling which thread accomplished which task.
 
@@ -16532,28 +12567,7 @@ To be fair, Gustafson’s law can also be criticized for ignoring complicating f
 
 As we have noted in this and previous chapters, concurrency and parallelism introduce an element of nondeterminism that can complicate the design, implementation, and execution of software. Once multiple threads or processes are running independently, the order in which key events are processed can become unpredictable. However, as individual computers possess a single, universal system clock that can be shared, it would be straightforward to use synchronization primitives to keep an orderly log of key events, as shown in [Code Listing 9.8](#cl9-8).
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-
+```cpp
 /* Code Listing 9.8:
    Sample routine for atomic log file append 
  */
@@ -16575,6 +12589,7 @@ append_log (char *message)
     }
   pthread_mutex_unlock (log_lock);
 }
+```
 
 The challenge of logging events in distributed environments is much more difficult, as there is no universal clock that can be used. Each system has its own internal system clock, but these clocks may be misconfigured or naturally drift over time. This problem could potentially be addressed by synchronizing the system clocks to agree on the time. However, as the system becomes larger and the physical distance between nodes increases, delays in the network can become unpredictable and too difficult to counteract. The solution in that case would be to give up on trying to synchronize the clocks and focus on a coherent ordering of events instead.
 
@@ -16600,17 +12615,7 @@ As systems grow larger and nodes increase in physical distance, trying to synchr
 
 [Lamport timestamps](#term-lamport-timestamp) are a simple approach to logical clocks. Each process (a task running on a separate node) maintains an internal counter of events that it experiences. These events could be a local action or computational result that is relevant to the system as a whole. Whenever a local event occurs, or a process sends or receives a message, this internal counter is incremented. When processes send messages, they append their counter. Given their distributed nature, processes can only observe local events and messages they send or receive; they cannot be aware of messages received by other processes or events that occur elsewhere in the system. [Code Listing 9.9](#cl9-9) shows the basic algorithm for receiving a message with a Lamport timestamp. The message’s timestamp is compared with the local process’s counter, and the local timestamp is updated to be the greater of the two. The timestamp is then incremented, keeping track of the event of receiving the message.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-
+```cpp
 /* Code Listing 9.9:
    Reading a message from a socket with a Lamport timestamp attached
  */
@@ -16621,6 +12626,7 @@ if (message.timestamp > local_timestamp)
   local_timestamp = message.timestamp;
 /* Increment local timestamp */
 local_timestamp++;
+```
 
 ![Events and messages using logical clocks](https://w3.cs.jmu.edu/kirkpams/OpenCSF/Books/csf/html/_images/CSF-Images.9.8.png)
 
@@ -16696,27 +12702,7 @@ Figure 9.6.3: Routing a Chord lookup message for key 19 from node 6 to node 21
 
 The routing structure of Chord is deceptively powerful. Although it seems complicated, the structure is straightforward to implement in code. [Code Listing 9.10](#cl9-10) illustrates the algorithm for this lookup procedure. The logic of the algorithm is to start with the last entry of the finger table (assuming 64 entries because of 64-bit integer types; supporting a 256-bit identifier would require larger integer types) and work backwards to find the first entry that precedes the key.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-
+```cpp
 /* Code Listing 9.10:
    Algorithm for finding the next node in a Chord finger table
  */
@@ -16737,6 +12723,7 @@ lookup (uint64_t key)
     }
   return node_id; /* default response is current node */
 }
+```
 
 The logic in [Code Listing 9.10](#cl9-10) is complicated by the modular arithmetic imposed by the Chord ring structure. Essentially, the algorithm starts by looking at `node_id + 2`max and incrementally decreases the exponent. Each time, the algorithm checks that the key would occur _after_ the jumped node but before the current node. For instance, considering the lookup in [Figure 9.6.2](DistDataStorage.html#chord), the algorithm would look at $6+^2$4, to check if the key lies after 22 but before 6; if so, the algorithm would return 22 as the next node to jump to, otherwise it would look at $6+2^3$. If we consider a similar query, though, starting from node 18, the algorithm would first look at $18+2^4$, but this value must be mapped to the ring by applying mod 32. As such, the algorithm would need to check if the key comes after node 2 and before node 18. With modular arithmetic, determining whether a key value is _between_ two nodes on the ring can be tricky to get the logic correct.
 
@@ -16757,16 +12744,7 @@ Distributed systems are often designed and implemented as [state machines](#term
 
 The notion of state machine replication can seem very theoretical and abstract, leading to confusion. To make it a bit more concrete, consider a process running on a traditional computing system. This process includes the lines shown in [Code Listing 9.11](#cl9-11). This code opens a file and reads the first part of the contents into a buffer, then compares the bytes read in with the string indicating the location of the Python interpreter.
 
-1
-2
-3
-4
-5
-6
-7
-8
-9
-
+```cpp
 /* Code Listing 9.11:
    Sample code that checks if a provided file is a Python script
  */
@@ -16776,6 +12754,7 @@ fread (file, buffer, sizeof (buffer));
 /* Confirm the file is a Python script */
 if (strncmp (buffer, "#!/usr/bin/python ", 18) != 0)
   printf ("ERROR: File is not a Python script\n");
+```
 
 This code implicitly relies on several pieces of information that could be considered state variables. To start, the call to `fopen()` needs information about the file system structure, eventually determining which exact block to read from which particular storage device. In the process, the system call required checking that the user running this program had appropriate access privileges to read from the file. More subtly, this code relies on the directory structure of the file system and the use of the `'/'` character to denote the directory hierarchy; in other words, there is an assumption that `"/usr/bin/smtpd.py"` is the name that uniquely identifies the file to be opened. The conditional check also relies on the assumption that the Python executable is present in a particular location. All of this information could be considered as part of the system state. The goal of [consensus](#term-consensus-protocol) in state machine [replication](#term-343) is to get all of the processes to agree on the values of these variables. For instance, one machine might have Python installed at `/usr/local/bin/python`, rather than the location shown above; this machine would be breaking the system’s consensus on where Python gets installed.
 
@@ -16853,15 +12832,7 @@ A blockchain is a sequence of messages that create a verifiable ordering of even
 
 Consider the example output below. Each line contains a message index (0, 1, 2, …) followed by the previous line’s hash value (`0000...`, `f74d...`, and so on), a timestamp (omitted for brevity), then a log message (“Genesis Block”). The line then ends with an integer value (called a _nonce_), such as `0000`, `22d75`, and `6ea` as shown. The entire line ending at the nonce is then used as input to a cryptographic hash function. If the output of the hash does not begin with 0s, the nonce is increased and the line is re-hashed. For instance, the second line required 142,709 (`0x22d75`) attempts before the hash output began with 0s. Once this entry is found, it can be added to the blockchain.
 
-1
-2
-3
-4
-5
-6
-7
-8
-
+```sh
 $ ./blockchain
 Here is the blockchain:
   ...0 00000000... [...] Genesis Block ...000000 f74d3a10...
@@ -16870,284 +12841,11 @@ Here is the blockchain:
   ...3 0000e2c4... [...] Data message 3 ...00be80 00002c45...
   ...4 00002c45... [...] Data message 4 ...019e63 0000a65e...
   ...5 0000a65e... [...] Data message 5 ...0188a8 0000cb6f...
+```
 
 The second field in each line is the previous line’s hash output, which serves the purpose of declaring that the new line is the only legitimate successor of the previous line. That is, each line explicitly ties itself to the previous line by including the previous line’s hash in the input. Note that the first line, often called a _Genesis block_, is special, as it does not follow any entry. As such, a nonce of 0 is often used for this value and the hash value does not need to begin with 0s. In this extended example, we use SHA-1 as a cryptographic hash function simply to make the search more efficient. **In practice, SHA-1 is considered insecure and should not be use for applications like this**.
 
-  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
- 10
- 11
- 12
- 13
- 14
- 15
- 16
- 17
- 18
- 19
- 20
- 21
- 22
- 23
- 24
- 25
- 26
- 27
- 28
- 29
- 30
- 31
- 32
- 33
- 34
- 35
- 36
- 37
- 38
- 39
- 40
- 41
- 42
- 43
- 44
- 45
- 46
- 47
- 48
- 49
- 50
- 51
- 52
- 53
- 54
- 55
- 56
- 57
- 58
- 59
- 60
- 61
- 62
- 63
- 64
- 65
- 66
- 67
- 68
- 69
- 70
- 71
- 72
- 73
- 74
- 75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162
-163
-164
-165
-166
-167
-168
-169
-170
-171
-172
-173
-174
-175
-176
-177
-178
-179
-180
-181
-182
-183
-184
-185
-186
-187
-188
-189
-190
-191
-192
-193
-194
-195
-196
-197
-198
-199
-200
-201
-202
-203
-204
-205
-206
-207
-208
-209
-210
-211
-212
-213
-214
-215
-216
-217
-218
-219
-220
-221
-222
-223
-224
-225
-226
-227
-228
-229
-230
-231
-232
-233
-234
-235
-236
-237
-238
-239
-240
-241
-242
-243
-244
-245
-246
-247
-248
-249
-250
-251
-252
-253
-254
-255
-256
-257
-258
-259
-260
-261
-262
-263
-264
-265
-266
-267
-268
-269
-270
-271
-272
-273
-274
-
+```cpp
 #include <assert.h>
 #include <inttypes.h>
 #include <openssl/sha.h>
@@ -17422,6 +13120,7 @@ hash_to_string (uint8_t *hash)
     sprintf (&str[j*2], "%02x", hash[j]);
   return str;
 }
+```
 
 
 /Appendix A[¶]
@@ -17463,8 +13162,10 @@ $ man man
 
 One issue that arises with man pages is that there are naming conflicts between command-line utilities and C functions. These conflicts can be resolved by specifying the _section_ of the manual as an integer parameter before the function name. The most common sections of interest for systems programming are sections 1 (executable programs and command-line utilities), 2 (system calls provided by the kernel), and 3 (C standard library functions that are not system calls). As an example, compare the following two `man` page entries; the former brings up the page for the `bash mkdir` command, while the latter brings up the C function documentation):
 
+```sh
 $ man mkdir
 $ man 2 mkdir
+```
 
 The header of the `man` page indicates a more precise naming convention to indicate the section under consideration. Using the examples above, the default behavior for man `mkdir` is to find `mkdir(1)`, the command-line utility, as opposed to `mkdir(2)`, the system call. Besides a header and footer that document the function’s section of the manual, the structure for `man` pages for C functions generally follows a specified format (may not contain all of these fields):
 
@@ -17536,29 +13237,7 @@ One hurdle that all programmers must overcome is that errors and crashes indicat
 
 In the systems programming field, particularly with languages like C, the lack of exception handling makes debugging challenging. Often, the only indication that the error has occurred is the notoriously vague “Segmentation fault.” To get started with GDB, we will use it to examine [Code Listing A.1](#cla-1).
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-
+```cpp
 /* Code Listing A.1:
    Code for tracing watchpoints and breakpoints in GDB 
  */
@@ -17581,34 +13260,21 @@ main (int argc)
 
   return 0;
 }
+```
 
 To get started with GDB, we must compile our program with the `-g` flag for `gcc`, indicating that we want to include debugging symbols. Without debugging symbols, we cannot refer to variables or (in certain circumstances) functions by their names. In the example code above, the steps to compile it, run it (without GDB), and run it again (with GDB) are as follows (note that GDB requires passing the `--args` option if there are command-line arguments):
 
+```sh
 $ gcc -g -o watch watch.c
 $ ./watch 5
 x = 10; y = 3
 $ gdb --args ./watch 5
 GNU gdb (Ubuntu 8.1-0ubuntu3.2) 8.1.0.20180409-git
+```
 
 The following GDB session illustrates how to use _watchpoints_ and _breakpoints_. In GDB, we can set a watchpoint on a variable and be notified any time that variable’s value changes. (In fact, we can set watchpoints for any arbitrary memory location, but that is beyond our current scope.) We can set a breakpoint for a function name and be notified any time that function is called. In this first GDB session, we set a breakpoint for the `helper()` function and a watchpoint for the `x` variable in `main()`.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-
+```sh
 GNU gdb (Ubuntu 8.1-0ubuntu3.2) 8.1.0.20180409-git
 [GDB license info omitted...]
 Reading symbols from ./watch...done.
@@ -17625,6 +13291,7 @@ Hardware watchpoint 3: x
 (gdb) watch input
 No symbol "input" in current context.
 (gdb)
+```
 
 For simplicity, we have omitted the several lines of introductory text that GDB shows regarding its license and documentation. The GDB command prompts are shown as bolded lines, where `(gdb)` indicates the prompt and our input is shown afterwards. On line 4 of this session, we use the `start` command to begin the program’s execution, which will pause when the `main()` function begins execution. When GDB executes lines of code as the result of a command, it displays the next line of code that will be executed in the future. So on line 9, GDB is indicating that it paused just before line 12 of [Code Listing A.1](#cla-1), which initializes the `x` variable.
 
@@ -17632,33 +13299,7 @@ Lines 10 and 12 of the GDB session set up the breakpoint and watchpoint with the
 
 The main commands to execute code in GDB are `step`, `next`, and `continue`. The `step` and `next` commands (not shown here) would simply execute the next line of code. In the session above, running either of these commands would execute the line 12 of [Code Listing A.1](#cla-1), which sets the variable `x` to 5. The difference between these two commands arises when the next line of code is a function call. The `step` command would _step into_ the called function’s body, whereas the `next` command treats the function call as an opaque box, executing the entire function as one step. Based on the previous session, we use the `continue` command, which allows the program to run until it is interrupted.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-
+```sh
 (gdb) continue
 Continuing.
 
@@ -17685,25 +13326,13 @@ main () at watch.c:15
 (gdb) print x
 $1 = 10
 (gdb)
+```
 
 In this session, we can observe the effects of the watchpoint and breakpoint that we set previously. When GDB encounters code that changes the value of a variable being observed with a watchpoint, it will pause the execution to indicate the old and new values (`x` has changed from 0 to 5), as well as the next line of code when execution resumes (line 13 to call the `helper()` function). By continuing a second time (line 10), this session encounters the breakpoint when the execution of `helper()` begins. Using breakpoints like this makes it easy to skip over large chunks of code and pausing right before the execution of a function that we wish to focus on. Line 15 of this session performs another continue, pausing on line 15 of the code; as `x`’s value changes from 5 to 10, the watchpoint is triggered again. Finally, note that we can also print in-scope variables at any point to observe their current value (line 24).
 
 To illustrate the end of a GDB session, we execute the `continue` command two more times. The first continue causes an interrupt to arise when the `return` from `main()` occurs. Once this `return` happens, the variable `x` no longer exists, so the watchpoint can be deleted (lines 5 and 6). Note that this deletion implies GDB can distinguish between the variable being temporarily out of scope (as `x` is not in scope while `helper()` is executing) and being no longer needed. Lines 7 – 9 of this session can be ignored here, as it is simply GDB informing us (indirectly) that the source code containing the next line to execute cannot be found; this typically happens when GDB pauses during the executing of the C standard library, as these libraries are not compiled with debugging symbols included. The last continue (line 10) runs the program until it finishes, with line 12 informing us that the process has been terminated.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-
+```sh
 (gdb) continue
 Continuing.
 x = 10; y = 6
@@ -17717,29 +13346,14 @@ __libc_start_main (main=0x555555554659 <main>, argc=2, argv=0x7fffffffea18, init
 Continuing.
 [Inferior 1 (process 16005) exited normally]
 (gdb)
+```
 
 ### 10.2.2.2. Backtrace[¶]
 
 One significant source of frustration for systems programming is the lack of information regarding segmentation faults. _Backtrace_ is an essential tool for debugging segmentation faults, such as the code shown in [Code Listing A.2](#cla-2).
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
 
+```cpp
 /* Code Listing A.2:
    Dereferencing a NULL pointer to trigger a segmentation fault
  */
@@ -17757,9 +13371,11 @@ main (void)
   segfault ();
   return 0;
 }
+```
 
 Compiling and running this program would produce the following unhelpful results: [[3]](#f53)
 
+```sh
 $ gcc -g -o segfault segfault.c
 segfault.c: In function ‘segfault’:
 segfault.c:4:18: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
@@ -17767,21 +13383,11 @@ segfault.c:4:18: warning: cast to pointer from integer of different size [-Wint-
                   ^
 $ ./segfault
 Segmentation fault
+```
 
 Diagnosing and fixing segmentation faults can be very difficult. One reason is that the message above provides no information about what line of code was executing when the segmentation fault occurred. Many programmers, particularly novices, try to address this with “`printf()` debugging,” the ad hoc approach of adding `printf()` statements to the code. This approach is inefficient and ineffective for a number of reasons. First, it requires re-editing and re-compiling the program. Second, adding any code, including `printf()`, **changes the program**. In some cases, this seemingly innocuous change will cause the segmentation fault to disappear—but only if the `printf()` stays in the code; removing the `printf()` brings the segmentation fault back. Lastly, adding code increases the opportunity for bugs to cause misleading results. For instance, changing the `main()` of [Code Listing A.2](#cla-2) to that shown in [Code Listing A.3](#cla-3) will produce identical results; without a `'\n'`, the `STDOUT` buffer will not be flushed and the message in the `printf()` will never be displayed to the screen.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-
+```cpp
 /* Code Listing A.3:
    Printing without newlines may prevent the display of the message
  */
@@ -17793,42 +13399,28 @@ main (void)
   segfault ();
   return 0;
 }
+```
 
 GDB’s `backtrace` utility provides a more efficient and effective approach to debugging. Line 10 of this GDB session informs us that GDB encountered a segmentation fault (`SIGSEGV)` while executing line 5 of [Code Listing A.2](#cla-2). Line 11 also provides information about the function that was executing at the time (`segfault()`), and what its current input arguments were (`value=0`). That information might be enough if the function is only called once or if the relationship between the arguments and the segmentation fault is clear. However, it is often the case that more context is needed; in order to debug the segmentation fault, we need to know what specific call—including the arguments passed and where it was called from—produced these results. This information is provided by `backtrace`, which shows the sequence of function calls that led to the segmentation fault.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-
+```sh
 (gdb) start
 Temporary breakpoint 1 at 0x61b: file segfault.c, line 11.
 Starting program: /home/csf/segfault 
 
 Temporary breakpoint 1, main () at segfault.c:11
-11	  segfault (0);
+11      segfault (0);
 (gdb) continue
 Continuing.
 
 Program received signal SIGSEGV, Segmentation fault.
 0x000055555555460e in segfault (value=0) at segfault.c:5
-5	  *nullptr = 5;
+5      *nullptr = 5;
 (gdb) backtrace
 #0  0x000055555555460e in segfault (value=0) at segfault.c:5
 #1  0x0000555555554625 in main () at segfault.c:11
 (gdb)
+```
 
 Lines 14 and 15 show that the segmentation fault occurred while executing line 5 of [Code Listing A.2](#cla-2). This line exists within the `segfault()` function, which was specifically called with the argument `value=0`. The call to `segfault(0)` occurred on line 11 of the code, which exists as part of the call to `main()`. Unless the contents of the stack have become corrupted (which go beyond our discussion here), this history will show the full trace [[4]](#f54) back to the `main()` context. That information provides more context that the programmer can use to determine what might be the root cause of the segmentation fault.
 
@@ -17836,37 +13428,7 @@ Lines 14 and 15 show that the segmentation fault occurred while executing line 5
 
 Debugging segmentation faults—and other bugs—with multiple processes can be particularly challenging. For one thing, the asynchronous timing of the execution might intersperse output messages in odd ways. Even more frustrating, messages written to the `STDERR` stream are also lost unless the output streams are specifically linked. Consider the example shown in [Code Listing A.4](#cla-4), which uses a slight variant on the same `segfault()` function from [Code Listing A.2](#cla-2).
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-
+```cpp
 /* Code Listing A.4:
    The child's "Segmentation fault" will not appear on screen
  */
@@ -17897,23 +13459,27 @@ main (void)
   printf ("Goodbye\n");
   return 0;
 }
+```
 
 As with the previous cases, running this code should result in a segmentation fault. However, the results would actually look as follows:
 
+```sh
 $ gcc -g -o forkfault forkfault.c
 $ ./forkfault
 Goodbye
+```
 
 In this case, the parent process calls `fork()` to create a child process. Based on the nondeterministic timing of process scheduling, either the parent continues executing or the child runs first. This nondeterminism is not an issue here, though; if the parent runs, it calls `wait()` until the child runs to completion. Consequently, when the parent executes the `printf()` call on line 24, the child has been guaranteed to run to completion; that child process definitely terminated with a segmentation fault because of the code on line 13. The reason the child’s error message does not appear on the terminal is that the child process’s `STDERR` output stream is thrown away.
 
 To debug these kinds of errors in multiple processes, GDB allows you to specify which process to follow when a `fork()` occurs. Specifically, the default behavior is that GDB will follow the parent; if you use next or continue to move past a `fork()`, GDB will show a message about a new process but continue executing the parent. To change this behavior, the set command can be used to change GDB’s `follow-fork-mode` setting as shown below. Based on this new setting, GDB will switch to the child process after the call to `fork()`; additional GDB commands will be sent to the child process rather than the parent.
 
+```sh
 (gdb) start
 Temporary breakpoint 2 at 0x6f7: file forkfault.c, line 15.
 Starting program:  /home/csf/forkfault 
 
 Breakpoint 1, main () at forkfault.c:15
-15	  int *nullptr = NULL;
+15      int *nullptr = NULL;
 (gdb) set follow-fork-mode child
 (gdb) continue
 Continuing.
@@ -17922,11 +13488,12 @@ Continuing.
 Thread 2.1 "forkfault" received signal SIGSEGV, Segmentation fault.
 [Switching to process 9666]
 0x0000555555554726 in segfault (ptr=0x0) at forkfault.c:9
-9	  *ptr = 5;
+9      *ptr = 5;
 (gdb) backtrace
 #0  0x0000555555554726 in segfault (ptr=0x0) at forkfault.c:9
 #1  0x000055555555477e in main () at forkfault.c:20
 (gdb) 
+```
 
 The full GDB manual provides much more information about debugging multiple processes. One particularly useful command is `info proc`, which can be used to examine information about the status of a process, including any memory map regions, memory usage, number of threads, and many others. Information on `info proc` can be found at:
 
@@ -17955,53 +13522,12 @@ This type of trace might look familiar to readers with experience in other langu
 
 C defines several basic integer types, as illustrated in [Table A.2](#tblA-2). For each of these types, there is both a signed (the default) and unsigned version (considered distinct types). [[1]](#f55) (Note that `short`, `long`, and `long long` can also be called `short int`, `long int`, and `long long int`, respectively.) For each type, there is a designated minimum range of values that the type must be capable of storing. The ranges are shown in the middle two columns. When printing a variable of the specified type, there are both `%d` (signed) and `%u` (unsigned) format specifiers with added `h` (half) or `l` (long) characters to vary the size. The char type can use %c to print the ASCII interpretation of the byte, whereas the `%hhd` and `%hhu` strings will produce the integer format.
 
-Type
-
-Unsigned range (minimum)
-
-Signed range (minimum)
-
-Format strings
-
-`char`
-
-[0, 255]
-
-[-127, 127]
-
-`%c`, `%hhd`, `%hhu`
-
-`short`
-
-[0, 65535]
-
-[-32767, 32767]
-
-`%hd`, `%hu`
-
-`int`
-
-[0, 65535]
-
-[-32767, 32767]
-
-`%d`, `%u`
-
-`long`
-
-[0, 4294967295]
-
-[-2147483647, 2147483647]
-
-`%ld`, `%lu`
-
-`long long`
-
-[0, 18446744073709551615]
-
-[-9223372036854775807, 9223372036854775807]
-
-`%lld`, `%llu`
+    Type       Unsigned range (minimum)   Signed range (minimum)     Format strings
+    char       [0, 255]                   [-127, 127]                `%c`, `%hhd`, `%hhu`
+    short      [0, 65535]                 [-32767, 32767]            `%hd`, `%hu`
+    int        [0, 65535]                 [-32767, 32767]            `%d`, `%u`
+    long       [0, 4294967295]            [-2147483647, 2147483647]   `%ld`, `%lu`
+    long long  [0, 18446744073709551615]  [-9223372036854775807, 9223372036854775807]  `%lld`, `%llu`
 
 Table A.2: C primitive integer types
 
@@ -18033,55 +13559,11 @@ C99 introduced a new header file, `stdbool.h`. This header defines a `bool` type
 
 In systems programming, this sort of inconsistent definition can lead to serious mistakes. If an embedded microcontroller (such as a tiny wireless sensor monitoring a car’s velocity) needs to send data to a centralized controller, it would be beneficial for both devices to agree on the size of various types of data. To fix this, systems code typically uses explicitly named types. These types, defined in `stdint.h`, are shown in [Table A.3](#tblA-3).
 
-Signed type
-
-`INT`_n`_MIN`_
-
-`INT`_n`_MAX`_
-
-Unsigned type
-
-`UINT`_n`_MAX`_
-
-`int8_t`
-
--128
-
-127
-
-`uint8_t`
-
-255
-
-`int16_t`
-
--32768
-
-32767
-
-`uint16_t`
-
-65535
-
-`int32_t`
-
--INT32_MAX-1
-
-2147483647
-
-`uint32_t`
-
-4294967295U
-
-`int64_t`
-
--INT64_MAX-1
-
-9223372036854775807LL
-
-`uint64_t`
-
-18446744073709551615ULL
+    Signed type  INT_n_MIN      INT_n_MAX             Unsigned type  UINT_n_MAX
+    int8_t       -128           127                   uint8_t        255
+    int16_t      -32768         32767                 uint16_t       65535
+    int32_t      -INT32_MAX-1   2147483647            uint32_t       4294967295U
+    int64_t      -INT64_MAX-1   9223372036854775807LL uint64_t       18446744073709551615ULL
 
 Table A.3: C99 fixed-width integer types
 
@@ -18089,39 +13571,7 @@ The type name is constructed as `int`_n_`_t` or `uint`_n_`_t`, where the n is on
 
 [Code Listing A.5](#cla-5) illustrates a few key points about using these standard and fixed types. Lines 6 – 10 declare a `char` variable and print it both in ASCII (using `%c`) and as an integer value (in decimal, octal, and hexadecimal format). This code would work identically even if the declaration of the achar variable was changed to `uint8_t`, the 8-bit unsigned integer type. Lines 13 – 16 demonstrate the standard printing for an `int` type.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-
+```cpp
 /* Code Listing A.5:
    Using and printing various integer types
  */
@@ -18154,6 +13604,7 @@ printf ("ui64val has value %" "lld" " (dec)\n", ui64val);
 printf ("ui64val has value %" PRId64 " (dec)\n", ui64val);
 printf ("ui64val has value %" PRIo64 " (oct\)\n", ui64val);
 printf ("ui64val has value %04" PRIx64 " (hex)\n\n", ui64val);
+```
 
 The remaining lines (19 – 31) demonstrate similar handling using the fixed-width integer types. These format strings initially look rather confusing, because they exploit a feature of string constants that is often overlooked (or not taught) to those new to C: consecutive string constants are concatenated automatically by the compiler. For example, the code `printf ("hello world");` is treated identically to `printf ("hello "  "world");` by the compiler. (The several white spaces between the strings are ignored and used here only for effect.)
 
@@ -18167,22 +13618,7 @@ The quotation marks around the C99 format strings is a common point of confusion
 
 One common task with working with C types is using the `sizeof()` operator [[2]](#f56) to examine the number of bytes allocated for a variable or a type. In the case of a type, `sizeof()` indicates how many bytes _would_ be allocated for such a variable instance. [Code Listing A.6](#cla-6) demonstrates the use of `sizeof()`, based off of the variable declarations in [Code Listing A.5](#cla-5). As the value returned from `sizeof()` is considered to be of type `size_t`, the `%zd` format specifier is required when printing these values. On most systems, lines 7, 8, 12, and 13 will all produce the same size result (4), as `int` and `int32_t` are typically identical.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-
+```cpp
 /* Code Listing A.6:
    Using sizeof() for introspection of variable and type sizes
  */
@@ -18198,6 +13634,7 @@ printf ("Primitive int type has size %zd\n", sizeof (int));
 printf ("C99 int32_t type has size %zd\n", sizeof (int32_t));
 printf ("C99 int64_t type has size %zd\n", sizeof (int64_t));
 printf ("Primitive size_t type has size %zd\n", sizeof (size_t));
+```
 
 ///10.3.2. Pointer Basics[¶]
 ----------------------------
@@ -18208,19 +13645,7 @@ As this Appendix is intended as a re-introduction to C, readers are generally as
 
 When a pointer variable is declared, its declaration generally indicates what type of data is stored at that address. This target type is generally included when discussing a pointer’s type, but it does not change the fact that the pointer stores an address. For instance, by declaring `int *x = NULL;`, we have declared the variable named `x` to be a _pointer to an_ `int`. That is, we might write that `x` is an `int*`. **It cannot be overstated that this statement is different from saying that** `x` **is an** `int`. Part of what makes this subtly complex is that addresses are, fundamentally, integer values that have a particular meaning. [Code Listing A.7](#cla-7) illustrates this confusion in a common manner.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
+```cpp
 
 /* Code Listing A.7:
    A subtle segfault bug
@@ -18235,6 +13660,7 @@ printf ("iptr = %p; *iptr = %d\n", iptr, *iptr);
 iptr = 0; // makes iptr point to nowhere (i.e., NULL)
 /* next line causes a segfault since iptr is now NULL */
 printf ("iptr = %p; *iptr = %d\n", iptr, *iptr);
+```
 
 Lines 5 and 6 declare two variables, one (`ival`) has the type `int` and the other (`iptr`) has the type `int*`. The value of `ival` is initialized to 10, whereas the value of `iptr` is the address of `ival` (`&ival`). That is, `iptr` is initialized so that it points to `ival`. We might also say that `iptr` is an indirect reference to `ival`. Line 8 dereferences the pointer (i.e., follows the arrow to the data pointed to) and sets that portion of memory to 0; specifically, by dereferencing the pointer, line 8 is changing the value of `ival` from 10 to 0. As such, line 9 runs without error, printing the value of `iptr` (which is the address of `ival`) along with the new value of `ival` (because we are again dereferencing the pointer).
 
@@ -18242,17 +13668,7 @@ Line 11 is fundamentally different, however. Since line 11 is not dereferencing 
 
 A common misunderstanding about this example is that setting the pointer to `NULL` does not necessarily cause an error. [Code Listing A.8](#cla-8) extends [A.7](#cla-7), with the exception that a new line is added just before the final printf() statement. In [Code Listing A.7](#cla-7), the code set `iptr` to 0 and immediately called `printf()`; in [Code Listing A.8](#cla-8), line 7 occurs between these steps, setting `iptr` to point back to `ival`. In restoring `iptr`’s value to point to a valid location, [Code Listing A.8](#cla-8) removes the segmentation fault that occurred in [A.7](#cla-7). In short, setting a pointer’s value to `NULL` does not cause a segmentation fault; the fault only occurs once the pointer is dereferenced.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-
+```cpp
 /* Code Listing A.8:
    Restoring successful execution to Code Listing A.7
  */
@@ -18263,29 +13679,11 @@ iptr = &ival; // makes iptr point to ival again
 
 /* next line no longer segfaults */
 printf ("iptr = %p; *iptr = %d\n", iptr, *iptr);
+```
 
 To return to the discussion of type sizes, a common misunderstanding arises when we combine the concepts of pointers and `sizeof()`. Recall two facts: `sizeof()` returns the number of bytes required for a variable of a particular type, and all pointers store addresses (and nothing else!). As such, calling sizeof() on a pointer will always return the same answer: the size of an address. **From the perspective of** `sizeof()`**, pointer declarations are all identical**. [Code Listing A.9](#cla-9) demonstrates this fact. The variables `ival` and `cval` have distinct sizes (typically, 4 bytes for `ival` as an `int` and 1 byte for `cval` as a `char`). In contrast, `iptr` and `cptr` have different types, but they are the same size (8 bytes, assuming this code runs on a 64-bit CPU architecture). As such, the assertions on lines 17 and 18 are both true.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-
+```cpp
 /* Code Listing A.9:
    Using sizeof() with pointers produces different results from basic types
  */
@@ -18305,32 +13703,13 @@ printf ("Size of *cptr = %zd\n", sizeof (*cptr));
 assert (sizeof (int *) == sizeof (char *));
 assert (sizeof (int) != sizeof (char));
 assert (sizeof (*iptr) != sizeof (*cptr));
+```
 
 Lastly, observe that `sizeof()` can be called successfully on pointer dereferences, as shown in lines 9 and 15. In this case, the size returned is the number of bytes for the referenced type, not the pointer. Line 9 will print that the size is 4, as that is the typical size for an `int` (which is the type of `*iptr`, also known as `ival`). Line 15 will print that the size is 1, given that `*cptr` (also known as `cval`) is a `char`. Consequently, the assertion on line 19 holds, as `sizeof(*iptr)` gets the size of an `int`, whereas `sizeof(*cptr)` is the size of a `char`.
 
 Given that a pointer is a variable that stores an address, an intuitive follow-up question is whether or not a pointer can store the address of a pointer. The answer is yes, and this is common in a variety of circumstances that we will examine later in this Appendix. [Code Listing A.10](#cla-10) illustrates an example of using pointers to pointers. Line 6 starts by declaring `iptr` (abbreviation of “integer pointer”) as an `int*` and making it point to `ival`. Line 7 takes this a step farther, making `pptr` (“pointer pointer”) be a pointer to a pointer to an `int` (`int**`), and initializing it to point to `iptr`; this initialization is correct, as `pptr` is pointing to an `int*`. Line 8 introduces the use of void with a pointer structure; specifically, the declaration indicates thenslate">vptr (“`void` pointer”) is a pointer to a pointer to a pointer to _something_, but the type of that something is unknown.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-
+```cpp
 /* Code Listing A.10:
    Multiple layers of indirection with pointers to pointers
  */
@@ -18351,6 +13730,7 @@ assert (sizeof (iptr) == sizeof (vptr));
 /* Just for the full, ridiculous effect */
 assert (sizeof (char*) == sizeof (int******));
 assert (sizeof (void*) == sizeof (double***));
+```
 
 [Figure 10.3.4](BasicTypes.html#cpointer) illustrates the relationship of the pointers as declared in lines 5 – 8. Line 11 prints the value 10 multiple times by dereferencing the pointers as needed. Specifically, line 11 starts by printing `ival` directly, and the value of `ival` is 10. Then, the value of `ival` is printed again by dereferencing `iptr`; since `iptr` is an `int*` and the value of `iptr` is `&ival`, dereferencing it once (as `*iptr`) ends up at the `int` variable `ival`. Similarly, the value of `ival` is printed one more time, as `pptr` is dereferenced twice (`**pptr`); the first dereference `*` follows the arrow from `pptr` to `iptr` and the second `*` follows the arrow from `iptr` to `ival`.
 
@@ -18377,16 +13757,7 @@ The `sizeof()` operator looks like a function and generally behaves like one, ta
 
 As with other common typed languages (such as Java), C supports arrays of other types. When declaring an array, the compiler must be able to determine the exact length. One way to do this is to specify the length inside the brackets of the declaration (such as `int array[10];`). Another way is to provide an explicit initialization array. [Code Listing A.11](#cla-11) demonstrates this second technique, omitting the length from inside the brackets on line 6 (although it could be included here).
 
-1
-2
-3
-4
-5
-6
-7
-8
-9
-
+```cpp
 /* Code Listing A.11:
    C array names are implicitly pointers to their first entry
  */
@@ -18396,35 +13767,13 @@ uint32_t data[] = { 1, 2, 3, 4, 5 };
 printf ("data     = %p\n", data);
 printf ("&data    = %p\n", &data);
 printf ("&data[0] = %p\n\n", &data[0]);
+```
 
 [Code Listing A.11](#cla-11) illustrates a key aspect of the relationship between arrays and pointers: **Array names are implicitly pointers to their first element**. To see this, consider lines 7 – 9; line 7 prints the _value_ of `data`, line 8 prints the address of data, and line 9 prints the _address_ of `data[0]`. When this program is run, these three lines produce the same value as the output. The convention in C is that any array variable is an alias for the starting address. All three of these notations can be used (and frequently are) depending on the context and style preferences of the programmer.
 
 [Code Listing A.12](#cla-12) extends the previous example to explore the relationship between arrays and pointers further. Line 7 starts by declaring a pointer and initializing it to point to the array. On this line, we could also initialize `u32ptr = &data[0]`, but (due to convoluted type checking rules) it is a compiler warning to initialize `u32ptr = &data` (despite the fact that data and &data are the same). Line 8 sets the `walker` pointer in the same way.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-
+```cpp
 /* Code Listing A.12:
    C arrays and pointer arithmetic work identically
  */
@@ -18448,6 +13797,7 @@ for (size_t i = 0; i < 5; i++, walker++)
     printf ("walker    address %p and value %08" PRIx32 "\n\n",
             walker, *walker);
   }
+```
 
 Lines 13 – 23 in [Code Listing A.12](#cla-12) demonstrate the equivalency between array dereferencing and _pointer arithmetic_. That is, when C performs an operation like `u32ptr + 5`, it is not simply the value of `u32ptr` plus the number 5 in standard arithmetic; instead, `u32ptr + 5` requires taking the value of `u32ptr` (which is an address) and adding 5 times the size of what `u32ptr` points to. In this case, if u32ptr stores the address `0x7ffee0000720`, `u32ptr + 5` would add 20 to this value (since `u32ptr` is a pointer to 4-byte `uint32_t` values), yielding `0x7ffee0000734`. In general terms, for an arbitrary pointer `ptr`, `&ptr[n]` and `ptr+n` are identical for any integer `n`; `ptr[n]` and `*(ptr+n)` also yield the same value. (As the bracket notation tends to be more familiar, many C programmers use it whenever pointer arithmetic is needed.)
 
@@ -18457,26 +13807,8 @@ Although pointer variables can be treated as arrays, the reverse is not true. Th
 
 [Code Listing A.13](#cla-13) illustrates a slight variation on [Code Listing A.12](#cla-12). In this scenario, `data` is declared as an array of 32-bit values. Since the array consists of two of these values, the array occupies eight consecutive bytes of memory. Line 12 declares a pointer like before, but the pointer is a `uint8_t*`, so it points to 8-bit values. Lines 13 – 19 will traverse through all of the bytes of the `data` array, but accessing it a byte at a time instead of just examining the two 32-bit entries. One advantage of this approach is that using a `uint8_t*` pointer provides a mechanism to explore the endianness of multi-byte integers. In this example, `data[0]` stores the 32-bit value `0x01020304`, spread across four memory locations. Assuming this runs on a little-endian architecture (such as x86), 0x04 is stored at the first of these four byte locations; consequently, `u8ptr[0]` accesses `0x04`, `u8ptr[1]` access `0x03`, and so on. Once the loop would get to `u8ptr[4]`, the result would be 0x08, which is the first byte stored for `data[1]`.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
 
+```cpp
 /* Code Listing A.13:
    Using a pointer to traverse an array of a different size
  */
@@ -18496,6 +13828,7 @@ for (size_t i = 0; i < 8; i++)
     printf ("u8ptr+%zd  address %p and value %02" PRIx8 "\n\n",
             i, u8ptr + i, *(u8ptr + i));
   }
+```
 
 🐞🐛🐌 Bug Warning
 
@@ -18503,14 +13836,7 @@ for (size_t i = 0; i < 8; i++)
 
 It is critical to understand that C does not explicitly store the length of an array anywhere, so there is no way to learn this information for a pointer to an arbitrary array. Consider the `data` and `ptr` variables as declared below. By examining this code, we can determine that the `data` array takes up 16 bytes and consists of four consecutive 32-bit values; i.e., this portion of source code makes it clear that the length of the array is four.
 
-1
-2
-3
-4
-5
-6
-7
-
+```cpp
 uint32_t data[4]; // an array of four 4-byte ints
 uint32_t *ptr = data;
 
@@ -18518,6 +13844,7 @@ printf ("sizeof(data) = %zd\n", sizeof (data)); // 16, NOT 4
 printf ("sizeof(ptr) = %zd\n", sizeof (ptr)); // 8, NOT 4
 
 printf ("number of elemenst = %zd\n", sizeof (data) / sizeof (uint32_t)); // SUCCESS!
+```
 
 A very common mistake is to try to use `sizeof()` as shown on lines 4 and 5. With one exception (shown on line 7), `sizeof()` **cannot be used to determine the length of an array**. Recall that `sizeof()` returns the number of bytes for a variable; it is not aware of the subdivision of those bytes into an array of consecutive elements. As such, the `sizeof(data)` on line 4 returns 16, which is the total number of bytes for the array. Similarly, the `sizeof(ptr)` on line 5 returns 8, which is the size of a pointer (i.e., an address) on a 64-bit CPU architecture. Neither of these return the number of elements in the array.
 
@@ -18525,49 +13852,21 @@ Line 7 is successful because we know the total amount of space for data (`sizeof
 
 This point becomes really important later, when we discuss the relationship of arrays and functions. Specifically, arrays cannot be directly passed as an argument to a function call. Rather, arrays are always passed as pointers. Because of this fact, the length of the array must be passed explicitly as a separate parameter. The simplest example of this is the parameter list of `main()`, which consists of an array (`argv`) and its array length (`argc`).
 
-1
-2
-3
-4
-5
 
+```cpp
 int
 main (int argc, char *argv[])
 {
    ...
 }
 
+```
 ///10.4.1. Two-dimensional Arrays[¶]
 ------------------------------------
 
 One side effect of C not storing array lengths is the complexity of working with multi-dimensional arrays. Consider [Code Listing A.14](#cla-14) as an example. Line 6 declares an array that contains two rows of three columns each. When declaring `data` on this line, the 3 must be specified within the brackets to indicate the number of columns per row. That is, this declaration could not be written as `data[][]`, even with the explicit initialization on the right side of the line.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-
+```cpp
 /* Code Listing A.14:
    Traversing through a two-dimensional array
  */
@@ -18593,6 +13892,7 @@ for (size_t i = 0; i < 2; i++)
       printf ("u32ptr+%zd   address %p, value %08" PRIx32 "\n\n",
               i * 3 + j, u32ptr + (i*3+j), *(u32ptr +(i*3+j)));
     }
+```
 
 ![Creating a virtual 2-d array with an array of pointers](https://w3.cs.jmu.edu/kirkpams/OpenCSF/Books/csf/html/_images/CSF-Images.A.2.png)
 
@@ -18602,25 +13902,7 @@ The rest of [Code Listing A.14](#cla-14) is modeled off of the structure of [Cod
 
 [Code Listing A.15](#cla-15) demonstrates a common variation on two-dimensional arrays. In this case, data is not declared as a two-dimensional array; rather, it is one-dimensional array of two pointers. Its initialization in line 10 provides those two pointers: the addresses of the two arrays `row0` and `row1`. Unlike the declaration structure of [Code Listing A.14](#cla-14), this version does not guarantee that the elements can all be accessed in row-major order. The `row0` and `row1` arrays are not guaranteed to be in any particular order in memory; consequently, we cannot say that `row1[0]` immediately follows `row0[2]`. [Figure 10.4.2](Arrays.html#twodptr) illustrates the pointer structure of this declaration.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-
+```cpp
 /* Code Listing A.15:
    Two-dimensional arrays as arrays of pointers
  */
@@ -18639,6 +13921,7 @@ for (size_t i = 0; i < 2; i++)
     for (size_t j = 0; j < 3; j++)
       printf ("&data[%zd][%zd] = %d <%p>\n", i, j, data[i][j], &data[i][j]);
   }
+```
 
 ![The argv array of command-line arguments is an array of pointers](https://w3.cs.jmu.edu/kirkpams/OpenCSF/Books/csf/html/_images/CSF-Images.A.3.png)
 
@@ -18655,27 +13938,7 @@ Elements in an array are, by definition, all of the same type. Given the declara
 
 Like arrays, structs are used to create a chunk of contiguous data in memory, but with two differences. First, the fields (rather than elements) of a `struct` are accessed with a name, rather than an index. Second, the fields in a `struct` do not have to adhere to the same type. [Code Listing A.16](#cla-16) illustrates both of these facts with a `struct` declaration for keeping track of time records. It is important to emphasize that lines 5 – 8 only define the structure of one of these structs (similar to defining a class in an object-oriented language like Java), rather than creating an instance of a `struct` in memory. In contrast, line 13 creates an instance as a local variable, with lines 14 and 15 initializing the fields of this struct. This declaration and initialization could be done on a single line, similar to initializing an array; line 13 could be extended to read `ts = { 100, 258.9275 }`, though this style requires knowing the specific order of elements in the `struct`.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-
+```cpp
 /* Code Listing A.16:
    A struct declaration to keep track of a time record
  */
@@ -18699,25 +13962,7 @@ main (void)
 
 In the computer systems field, this view of structs as _objects without methods_ is not necessarily sufficient. In particular, when two different machines are exchanging data, the two systems need to agree on the layout and interpretation of the bytes without the `struct`. This agreement is not necessarily guaranteed, even if the same source code is used. Different compilers may arrange the fields in different orders, and the CPU may interpret multi-byte sequences differently due to endianness issues. [Code Listing A.17](#cla-17) demonstrates how to perform introspection into the layout of a `struct` in code.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-
+```cpp
 /* Code Listing A.17:
    Exploring the size and layout of a struct
  */
@@ -18792,23 +14037,7 @@ struct __attribute__((__packed__)) alternating {
 
 Computer systems frequently take advantage of very compact data representations, particular in the networking domain. Bit masks, for instance, use the individual bits within a byte to represent distinct pieces of information. Within the `struct` declaration, the individual field names are append with `:n` to indicate that the field occupies `n` bits. Packed structs also help with this data compression by ensuring that there is no padding added. Consider the following example:
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-
+```cpp
 struct __attribute__((__packed__)) bits {
   unsigned type:2;   // can be 0, 1, 2, or 3
   unsigned urgent:1; // can be true (1) or false (0)
@@ -18889,14 +14118,7 @@ From the programmer’s perspective, C’s built-in types and `struct`s are low-
 
 To start with the latter problem, the solution is to define an enumerated type, or `enum`. An `enum` is a custom integer type that allows the programmer to use names instead of numeric constants. [Code Listing A.18](#cla-18) declares an `enum` for the days of the week as previously described. In the declaration, the values in the `enum` are automatically incremented. By setting `SUN` = 1 (instead of allowing the default starting value of 0), `MON` would be 2, `TUE` would be 3, and so on. The advantage of the `enum` is that we can use these meaningful names (`MON`, `TUE`, `WED`, …) instead of memorizing numeric values. We can also declare variables using the `enum` type as shown on line 6.
 
-1
-2
-3
-4
-5
-6
-7
-
+```cpp
 /* Code Listing A.18:
    Declaring the days of the week as an enumerated type
  */
@@ -18909,22 +14131,7 @@ To be clear, `enum`s are a syntactical mechanism of convenience, not security. I
 
 The `enum` keyword has the same problem as the `struct` keyword, in that it must be included in the type name and passed around throughout the code. In [Code Listing A.18](#cla-18), the type of the today variable is `enum days`, not `enum` or `days`. To make the code more readable for both `enum`s and `struct`s, we can declare a new custom type name with the `typedef` keyword. [Code Listing A.19](#cla-19) uses `typedef` on the `enum` from [A.18](#cla-18) and the `struct` from [A.17](#cla-17).
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-
+```cpp
 /* Code Listing A.19:
    Simplifying enum and struct type names with a typedef
  */
@@ -18947,22 +14154,7 @@ typedef int32_t size_t;
 
 One common problem with type definitions for `struct`s,\`in particular, is when there are circular dependencies. Consider [Code Listing A.20](#cla-20) that defines a `person_t` type and an `age_t` type. In this application, each person (`person_t`) has a unique name and age, but each `age_t` has and unique year and pointers to up to 5 people. In other words, the person_t definition needs to know about the `age_t` type, while the `age_t` definition needs to know about the `person_t` type. The problem is that the definition of `person_t` (lines 7 – 10) comes before the C compiler has learned about the `age_t` type (line 15); the C compiler cannot look ahead, so using age_t on line 9 would be a compiler error.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-
+```cpp
 /* Code Listing A.20:
    Defining two structs with a circular definition
  */
@@ -18981,19 +14173,7 @@ typedef struct age {
 
 The solution is to use a dummy `struct` definition on line 5 that matches the name on line 12. (It is vital that the name of both `struct` types match.) By structuring the code this way, the compiler is able to correctly link the type of the age field within `person_t` as a pointer to an `age_t` instance later. Once this is done, the circular definition can be ignored, as shown in [Code Listing A.21](#cla-21). The `person_t` instance is able to set its age field to the address of an `age_t` instance without causing a compiler error or warning.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-
+```cpp
 /* Code Listing A.21:
    When using the structs, the circular definition is not visible
  */
@@ -19014,34 +14194,7 @@ age.people[0] = &person;
 
 As with every modern programming language, C uses functions to create modularity as a step toward robust software. Encapsulating portions of a program’s code this way allows the programmer to isolate the functions for the purposes of testing and debugging. One key aspect of writing functions is to get the _scope_ of variables correct. [Code Listing A.22](#cla-22) illustrates the three main scopes for variables in C programs: _global_, _local_, and _static_. The split of global and local is fairly straightforward: if the variable declaration occurs inside the body of a function (see line 13), it is local to that function and unavailable to others; if the declaration is outside any function definition (see line 7), the variable is global and accessible by all functions for reading or modification.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-
+```cpp
 /* Code Listing A.22:
    Declaring local and global functions in a helper function
  */
@@ -19098,7 +14251,7 @@ memset (data, 0, sizeof (data)); // initialize all elements to 0
 struct stat info;
 memset (&info, 0, sizeof (info)); // initialize all fields to 0
 
-📦 C library functions – <ctype.h>
+📦 C library functions – `<ctype.h>`
 
 * * *
 
@@ -19110,31 +14263,7 @@ To return to the general discussion of scope, the third type of variable scope c
 
 In addition to being lexically bound, static variables are persistent. Unlike normal local variables that are created and destroyed with every call of a function, there is only one copy of each static variable, and that copy persists for the duration of the process execution. In that way, static variables are akin to global variables. [Code Listing A.23](#cla-23) demonstrates this fact by calling `helper()` twice. Each time that `helper()` is called, the `local` variable is initialized to 5 and incremented twice. In contrast, `local_static` is initialized once to the value 10. With the first call of `helper()`, line 20 of [Code Listing A.22](#cla-22) prints this initial value and increments it to 11. This value is then used when `helper()` is called again. In other words, the initialization on line 14 of [Code Listing A.22](#cla-22) is very deceiving; it only executes once, rather than every time the function is called. Similarly, the static variable hidden is also initialized once to 20 and incremented during the first call to `helper()`; the second call to the function begins with the modified value 21.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-
+```cpp
 /* Code Listing A.23:
    Using a separate file to call the function in Code Listing A.22
  */
@@ -19162,18 +14291,7 @@ main (void)
 
 Lines 9 and 10 of [Code Listing A.23](#cla-23) illustrate behavior that is normally specified in a header file. For instance, if [Code Listing A.22](#cla-22) was stored in a file called `"scope.c"`, these two lines would likely be in a file called `"scope.h"` that would look like [Code Listing A.24](#cla-24). The first line is a _function prototype_ for helper(), which serves the purpose of declaring the parameter types and return type for the function. The compiler uses this information to know that any calls to the function are correctly formatted. The `extern` keyword is used for a global variable to indicate that this variable is defined _somewhere_. When [Code Listing A.23](#cla-23) is compiled (before it is linked), the compiler only needs to know that `global` is an `int` variable to know that lines 15 and 22 are valid. The linking process will later tie these lines of code to the correct variable.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-
+```cpp
 /* Code Listing A.24:
    A header file for the public interface of Code Listing A.22
  */
@@ -19201,16 +14319,7 @@ $f(x) = x^2$
 
 The function f(x) takes one input parameter (x) and maps it to a single value by squaring it. C functions operate on the same principle, as shown in [Code Listing A.25](#cla-25). In this example, the `add()` function takes two input parameters, adds them together, and returns the result; that is, `add()` would map two input values to a particular output in the traditional mathematical sense. Observe that function parameters operate like local variables; the variables `x` and `y` can be accessed from within the function body and their values are not persistent from one call to the next.
 
-1
-2
-3
-4
-5
-6
-7
-8
-9
-
+```cpp
 /* Code Listing A.25:
    A trivial C function to add two numbers
  */
@@ -19229,33 +14338,7 @@ int printf (const char *, ...);
 
 The ellipsis (`...`) here is not this book’s notation to indicate “more stuff here.” Rather, the ellipsis is part of the C syntax to indicate that there are additional variables of unknown types. In the case of `printf()`, only the first argument’s type (`const char *`) is explicitly declared. [Code Listing A.26](#cla-26) demonstrates how to define a function with a variable-length parameter list. The first key feature is that the `stdarg.h` header file must be included (line 6). This header file defines a number of preprocessor macros—which look like functions—to process the arguments.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-
+```cpp
 /* Code Listing A.26:
    Defining a function with a variable-length parameter list
  */
@@ -19285,15 +14368,7 @@ sum (size_t length, ...)
 
 In [Code Listing A.26](#cla-26), the sum() function takes a `size_t` variable to indicate the number of integer values to add together. To begin processing these inputs, lines 13 and 14 declare and instantiate a variable-length argument list (type `va_list`) of the specified length. From there, each argument can be accessed from the list exactly once, using the `va_arg()` macro (line 21). The second argument to this function indicates the type of the variable; in this case, each argument in the list will be converted to an `int`. [Code Listing A.27](#cla-27) demonstrates how to use the `sum()` function. In both calls, the first argument is required to indicate the number of arguments that should be added together; line 5 only passes the value 42, whereas line 7 will calculate the sum 2 + 4 + 6 + 8.
 
-1
-2
-3
-4
-5
-6
-7
-8
-
+```cpp
 /* Code Listing A.27:
    Calling a function with a variable-length parameter list
  */
@@ -19309,13 +14384,7 @@ printf ("Total is %d\n\n", total); // prints 20
 
 It is common to return pointers for a variety of reasons. For instance, a function might dynamically allocate some space (see the section on Pointers and Dynamic Allocation) to use as a buffer or make a copy of a string. However, it is critical that a **function should never return a pointer to a local variable**. This rule includes returning local copies of strings, as shown in the following example:
 
-1
-2
-3
-4
-5
-6
-
+```cpp
 char *
 broken_function (void)
 {
@@ -19334,20 +14403,7 @@ One approach to providing multiple returns is simply to cheat: use global variab
 
 A better approach is to use _call-by-reference_ parameters. Consider performing traditional integer division as taught in the early grades of school. Calculating 17 ÷ 5 has two parts to the answer: a quotient of 3 and a remainder of 2 (since 5 * 3 + 2 = 17). [Code Listing A.28](#cla-28) demonstrates how to define a division function using a call-by-reference parameter.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-
+```cpp
 /* Code Listing A.28:
    Returning multiple parameters with call-by-reference
  */
@@ -19368,17 +14424,7 @@ Figure 10.5.6: Stack frames for `main()` and `divide()`
 
 In this function, the `remainder` parameter is a pointer to an `int`. The `assert()` call on line 10 is a safety check that will prevent anyone from passing a `NULL` pointer to this function. Within the `divide()` function, we will use this pointer to change the original `int`’s value. Line 11 performs this by dereferencing the pointer and storing the result of the modulus operation `dividend % divisor`. Once we have done this, line 12 returns the normal C integer division quotient (`dividend / divisor`). [Code Listing A.29](#cla-29) demonstrates how to call this function by passing the address of `remainder`. (Recall that pointers store addresses, so the address of a variable becomes a pointer.) [Figure 10.5.6](Functions.html#stackframes) illustrates the relationship between the stack frames for `main()` ([Code Listing A.29](#cla-29)) and the call to `divide()`. The remainder parameter for `divide()` contains a pointer back to the `rem` variable in `main()`’s stack frame.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-
+```cpp
 /* Code Listing A.29:
    Calling a function with a variable-length parameter list
  */
@@ -19410,32 +14456,7 @@ The difference between this code and [Code Listing A.29](#cla-29) is that the ad
 
 In the earlier discussion on arrays, we made the observation that array lengths must be passed as explicit parameters when an array is passed to another function. The reason for this is that arrays are always passed as call-by-reference parameters. [Code Listing A.30](#cla-30) provides an example of a function that takes an array as a parameter and modifies the values stored in the array. On line 6, the parameter list indicates that values is an array of int values. This declaration is not entirely true; values is, in fact, just a pointer to an `int`. Using the declaration `int values[]` instead of `int *values` serves the purpose of indicating how values will be used, but both declarations are acceptable.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-
+```cpp
 /* Code Listing A.30:
    All arrays are passed as call-by-reference pointers
  */
@@ -19491,24 +14512,7 @@ The first three bullet points may seem intuitive, as they all involve the size o
 
 The final bullet point is common in many different types of languages, applications, or systems, though the terminology might be different. [Code Listing A.31](#cla-31) provides an example in the Java programming language using the Factory design pattern. In the Factory pattern, there is a designated class (the _factory_) that is responsible for creating new instances of some class (here, just generic Objects). The Factory class only has a single method, typically with a name that starts with “get” or “create.” Later, in another part of the code (such as `main()`), a single instance of the Factory is created; this instance is then used to create the Objects over and over as needed.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-
+```cpp
 /* Code Listing A.31:
    The Java Factory design pattern uses dynamic allocation for
    persistence and non-local scope
@@ -19531,7 +14535,7 @@ Line 8 of the Factory class is an example of dynamic memory allocation for persi
 
 Despite the fact that dynamic memory allocation serves several different purposes in C, there are only two standard mechanisms for doing this: the `calloc()` and `malloc()` functions. Both functions take parameters to indicate how much space is needed, allocate that much space on the heap, and return a pointer to the beginning of the space. The primary difference is that `calloc()` guarantees these bytes are initialized to all zero; `malloc()` performs no initialization on the bytes, so there is the possibility that they hold random initial values. The difference in the calling parameters is superficial. For `malloc(),` the only parameter is the total number of bytes needed. For `calloc()`, the first parameter specifies how many consecutive elements there are (similar to specifying the length of an array) and the second parameter indicates how many bytes are needed for each element; these two values are internally multiplied to determine the total size, and `calloc()` ends up allocating exactly that much space (just like `malloc()`). Because `calloc()` guarantees the data is initialized to zero, it is typically considered safer and preferred for general use. On the other hand, `malloc()` is faster since it does not do any initialization; this function is acceptable (or even preferred) if you know that the data will be entirely initialized before it will be otherwise used.
 
-📦 C library functions – <stdlib.h>
+📦 C library functions – `<stdlib.h>`
 
 * * *
 
@@ -19555,28 +14559,7 @@ Unlike Java, C does not have a _garbage collector_. When a piece of data is dyna
 
 [Code Listing A.32](#cla-32) demonstrates the C equivalent of the Factory pattern from [A.31](#cla-31). The `get_integer()` function dynamically allocates space on the heap and returns it. In C, the `void*` type acts comparably to the Object class in Java; any type of pointer can be implicitly cast into `void*`. Once the space is allocated on line 8, this space on the heap is not necessarily tied to the duration of any particular function. The integer variable name in `main()` is lexically bound to that function’s scope, but the heap space is not. Consequently, if `main()` returned without calling `free()` on integer (line 17), then this heap space would still be allocated but without a way to de-allocate it. That is, there is no other pointer reference to that space. This situation is known as a _memory leak_. With enough memory leaks over time, the heap would eventually run out of space that can be allocated; when that happens additional calls to `malloc()` and `calloc()` would return `NULL` to indicate the allocation failure.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-
+```cpp
 /* Code Listing A.32:
    A C version of the Factory pattern from Code Listing A.31
  */
@@ -19607,21 +14590,7 @@ Using a pointer after calling `free()` on it (called _use-after-free_) leads to 
 
 [Code Listing A.33](#cla-33) demonstrates an example of the first bullet-point use case described previously. In this case, the `build_array()` function is creating and initializing an array of `int` values. Since the length of the array is determined by the argument passed as `length`, this function uses dynamic allocation to create it as the correct size.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-
+```cpp
 /* Code Listing A.33:
    Creating a dynamic-sized array
  */
@@ -19641,19 +14610,7 @@ As the program continues to run after dynamically allocating space, it frequentl
 
 [Code Listing A.34](#cla-34) uses the array from the function in [A.33](#cla-33), but later determines that more capacity is needed. Initially, after lines 5 and 6, the `array` consists of 40 bytes (10 elements that are 4-byte `int` values). Line 9 doubles the value of `len` from 10 to 20, then passes this new length to `realloc()`. Like `malloc()`, `realloc()` takes a single size parameter to indicate the new total number of bytes; since the array will now be 80 bytes (20 elements of 4-byte `int` values), we have to specifically multiply `len` by `sizeof(int)` to get the correct size request. Finally, line 10 uses a new variable name to capture the return value from `realloc()`. If, for some reason, `realloc()` failed to allocate the new space, it would return `NULL`. However, the original `array` would still be allocated and we might need that original pointer; storing the return value of `realloc()` directly into `array` would lose the reference to the original space on the heap, creating a memory leak. Once line 11 ensures that the return value was not `NULL`, line 12 updates array as needed.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-
+```cpp
 /* Code Listing A.34:
    Resizing the array built from A.33
  */
@@ -19675,10 +14632,7 @@ The `ptr` variable passed to `realloc()` must point to the heap; pointers to oth
 
 Another common bug with `realloc()` arises when the old pointer is freed:
 
-1
-2
-3
-
+```cpp
 int *newptr = realloc (oldptr, newsize);
 free (oldptr);
 *newptr = 5;
@@ -19691,30 +14645,7 @@ Finally, as a general piece of guidance, you should only dynamically allocate da
 
 [Code Listing A.35](#cla-35) compares these two styles of creating a local `struct` instance. In this case, the style of declaring the `jasmine` instance is preferred. When the function begins executing, the stack pointer is moved once to allocate all of the space needed for local variables; this takes the same amount of time regardless of how many variables there are. Consequently, the space for `jasmine` is automatically allocated by the function calling semantics itself. The allocation of `philippe,` on the other hand, requires significant extra work. Specifically, `malloc()` has to find available space, requiring modifications to the internal data structures that define the heap; then, then programmer must remember to `free()` the space later, causing more changes to the heap. Ultimately, this extra work is done for no reason; in fact, the changes to the heap might actually produce even worse performance later, because the `free()` might not return the heap to its original state (i.e., if there are multiple threads involved). It is true that C structs perform a similar function as Java objects; however, that does not automatically require the use of dynamic allocation.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-
+```cpp
 /* Code Listing A.35:
    Unnecessarily allocating a struct instance with malloc()
  */
@@ -19750,18 +14681,7 @@ It is often the case that a seemingly simplistic idea or design can turn out to 
 
 To interpret the situation in a slightly different way, the C programming language does not actually have a string type in the intuitive sense that makes sense to humans. Instead, C just provides a thin veneer of interface for working with fixed-size arrays of `char` data. A string in the C sense consists of the array of `char`s that are (typically) observable to a human reader, with one additional `char` added to the end of the array. [Code Listing A.36](#cla-36) illustrates this fact by defining the string `"Hello"` in a very unusual manner: as an array of six `uint8_t` values. One key idea here is that everything in the machine is just a number. The meaning and interpretation of those bytes as the string `"Hello"` is created by the `%s` format specifier, which tells the display to present the ASCII interpretation of the bytes to the user instead of the numeric values.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-
+```cpp
 /* Code Listing A.36:
    Printing "Hello" and turning it into "Ha!"
  */
@@ -19870,24 +14790,7 @@ Given this understanding of strings as arrays of `char`s, we can now focus on is
 
 [Code Listing A.37](#cla-37) illustrates this point by creating three different versions of the string `"Hello"`. The differences between lines 5, 6, and 7 are small but significant, which the other lines of the code reveal. Assuming this code is run inside the body of a function, all three variables (`array`, `pointer`, and `heap`) are local and associated with the idea of storage on the stack. Line 5, by declaring a local `array`, behaves in the intuitive manner in this regard; the `array` variable indicates an array of six bytes that are placed in the function’s stack frame. That is, line 5 operates in a similar manner to declaring an array of `int` values or any other such local array. Line 6, in contrast, places a pointer variable on the stack; the actual bytes of the string are placed into the program’s read-only data section (`.rodata`). Line 7 also places a pointer on the stack, but the `strdup()` function returns a pointer to a dynamically allocated copy of the string’s bytes on the heap. In short, these three lines illustrate how we can determine which memory segment (`stack,` `data,` or `heap)` will contain the bytes of the string.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-
+```cpp
 /* Code Listing A.37:
    Three different ways to create the string "Hello"
  */
@@ -19914,10 +14817,7 @@ Line 6 illustrates a very common source of confusion for those new to the intric
 
 The use of pointers to declare strings leads to a number of subtle misunderstandings that end up as bugs in programs. One misunderstanding is that there is a difference between initializing a pointer to the empty string (`""`) as opposed to `NULL`. The empty string is a `char` array that consists of a single `char`: the null byte `'\0'`. As such, initializing a `char*` to the empty string makes the pointer point to a valid memory location (the address of the null byte). In contrast, setting the `char*` variable to `NULL` makes it point to nothing; dereferencing the pointer would produce a segmentation fault. This point of confusion leads to potential errors when the strings are used. Consider the following example:
 
-1
-2
-3
-
+```cpp
 char *empty = "";
 char *null = NULL;
 printf ("Empty: %s; null: %s\n", empty, null);
@@ -19926,7 +14826,7 @@ Although there is no `*` on line 3, this code involves two pointer dereferences.
 
 In contrast, when `printf()` encounters the null pointer, there is a problem; processing `%s` involves dereferencing the pointer (which is `NULL`), so this line would traditionally cause a segmentation fault. Newer implementations of the C library have modified `printf()` to detect and avoid such crashes by printing the string `(null)` when given a `NULL` pointer. This new version only makes this exception for `NULL` exactly. If the pointer is not NULL, but the value is not a valid address (e.g., try changing the code above to point to use `char *null = (char *)1;`), `printf()` will cause a segmentation fault.
 
-📦 C library functions – <string.h>
+📦 C library functions – `<string.h>`
 
 * * *
 
@@ -19955,7 +14855,7 @@ On the other hand, some functions are considered so dangerous that the `str` ver
 
 Given a pointer to a string, particular an input string, it is common to investigate the string’s contents for a variety of purposes. The C standard library provides several functions that can be used to examine a string. One of the most common is `strcmp()`, which takes the pointers to two strings, dereferences them, and compares their contents. The return value for `strcmp()` can be -1, 0, or 1, with 0 indicating the strings are identical. The -1 and 1 values are used to indicate the lexicographic [[1]](#f58) ordering (i.e., how they would appear in an alphabetized list) if there is a mismatch; `strcmp ("hello", "goodbye")` would return the positive value to indicate that the first argument should be ordered after the second. Switching the order of the arguments would flip the result to -1. Two additional common functions are `strchr()` and `strstr()`, which are used for searching within the contents of the string; `strchr()` looks for a specified character in the string (passed as an int rather than a `char`), while `strstr()` looks for a substring. If the character or substring is found, these functions return a pointer to the first location; otherwise, they return `NULL`.
 
-📦 C library functions – <string.h>
+📦 C library functions – `<string.h>`
 
 * * *
 
@@ -19973,29 +14873,7 @@ Search for one string (needle) as a substring of another (haystack).
 
 [Code Listing A.38](#cla-38) demonstrates some common uses of these functions. Lines 5 and 6 specify two strings to work with. Line 9 then compares them using `strcmp()`, implicitly relying on a convention in C that 0 indicates _false_ and anything non-zero indicates _true_. Since these strings do not match, strcmp() would return 1 or -1 (1 in this particular case); C interprets this value as _true_, so the assertion is satisfied. (Note that it is a common practice to write `!strcmp(s1, s2)` to evaluate if the strings are identical. If they match, `strcmp()` returns 0 (false) and the logical negation (`!`) operator negates this value to true; if they do not match, the `!` would convert the 1 or -1 returned into false.)
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-
+```cpp
 /* Code Listing A.38:
    Comparing strings and searching for substring/character occurrences
  */
@@ -20029,23 +14907,7 @@ Lines 14 – 20 use `strchr()` in a loop to count the number of occurrences of a
 
 Many languages have built-in string types that allow easy comparison with the standard equality operator. Again, C is not one of those languages. The only safe way to check if two strings have the same contents is to use `strcmp()`. Using other comparisons, such as the `==` operator, can lead to erroneous results if not interpreted correctly. With primitives like `int` and `char`, this operator compares the values and returns true if the values match. The same is true of strings (and pointers in general), but this fact does not match our intuitions. Specifically, the value of a string (`char*`) variable or any other pointer is _the address being pointed to_. That is, the `==` operator checks if the pointers are pointing to the same location, not that the strings themselves match. The following example illustrates key features of this distinction:
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-
+```cpp
 char *first = "hello";
 char *second = "hello";
 char third[] = "hello";
@@ -20069,33 +14931,7 @@ The equality checks on lines 8 and 16 are somewhat less predictable initially. L
 
 Another common task with strings is to determine if the characters fit into particular classes, such as numeric, alphanumeric, whitespace, printable, upper- or lower-case, etc. The functions defined in the `ctype.h` file provide these tests without requiring the programmer to recreate the pattern-matching required. [Code Listing A.39](#cla-39) illustrates how these class tests could be used to validate the strength [[2]](#f59) of a password. Line 9 performs a standard safety check. Functions that take a pointer as input—particular from user-supplied input—need to check explicitly for `NULL` arguments. Line 12 then throws out passwords that are shorter than 16 characters in length.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-
+```cpp
 /* Code Listing A.39:
    Using ctype.h tests to determine if a password uses multiple classes
  */
@@ -20125,7 +14961,7 @@ is_strong (char *password)
 
 Lines 15 – 23 perform the bulk of the checking. The four `bool` variables are all initialized to false, indicating that we have not yet encountered a digit (`'0'` – `'9'`), lower-case letter (`'a'` – `'z'`), upper-case letter (`'A'` – `'Z'`), or a punctuation mark (see `ispunct(3)` for the full list). The `walker` variable is set to traverse through each byte of the string until the null byte is encountered (observe that line 22 advances `walker` after all checks have been done for one character). Within the `while`-loop, each bool variable is bit-wise `OR`ed (`|`) with the result of applying the `isX` functions to the current character `*walker`. The first time that a character passes one of the tests (e.g., when `*walker` points to `'Z'` and `isupper(*walker)` is called), the corresponding bool variable will be set to 1 (true). From then on, that variable can never become false, because applying bit-wise OR of 1 with any value will always produce a non-zero result. Consequently, line 25 will return true the password contains at least one character from each of the four classes.
 
-📦 C library functions – <ctype.h>
+📦 C library functions – `<ctype.h>`
 
 * * *
 
@@ -20164,7 +15000,7 @@ Most modern programming languages provide a simple mechanism for a very common t
 
 Unlike their unsafe cousins `strcpy()` and `strcat()` (which should **NEVER** be used), `strncpy()` and `strncat()` take a third argument that specifies a maximum number of bytes to copy. If the length of `s2` is less than `n`, then the function will stop before processing `n` bytes. The `memcpy()` function shown below behaves similarly to `strncpy()`, except that it ignores the null byte; that is, `memcpy()` is used to copy an arbitrary memory buffer from one location to another, regardless of whether that buffer contains a string. In that regard, `memcpy()` will always copy exactly n bytes, unless some unusual circumstance occurs (such as the `dst` and `src` buffers overlapping, which is undefined behavior in the C specification).
 
-📦 C library functions – <string.h>
+📦 C library functions – `<string.h>`
 
 * * *
 
@@ -20182,19 +15018,7 @@ Copy n bytes of memory from src to dst; does not stop at ‘0’.
 
 Although it is certainly fair to refer to `strcpy()` or `strcat()` as an unsafe version of `strncpy()` or `strncat()`, it would be a mistake to consider the latter two functions truly safe. One key aspect of this is whether or not these functions guarantee that the result is null terminated. [Code Listing A.40](#cla-40) demonstrate two examples of this problem. The `n` argument on line 10 ensures that only the `'h'` and `'e'` characters get copied into the buffer array. That is, the `n` argument for `strncpy()` places a maximum number of bytes copied, and the function does not guarantee that one of these is a null byte. Line 11, then, is likely to print additional characters after the string `"he"`, because there is no null byte in buffer. As such, the `%s` causes `printf()` to continue traversing through memory until a null byte is encountered.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-
+```cpp
 /* Code Listing A.40:
    strncpy() and strncat() do not agree on null-termination of strings
  */
@@ -20220,9 +15044,7 @@ This line of code, in essence, re-creates the functionality of the banned `strcp
 
 Another common mistake that occurs with these functions is due to confusion regarding the `sizeof()` operator as discussed previously. Consider the following example:
 
-1
-2
-
+```cpp
 char *buffer = calloc (100, sizeof (char));
 strncpy (buffer, "This is a string", sizeof (buffer));
 
@@ -20230,15 +15052,13 @@ The first line of this example creates a dynamically allocated buffer of 100 byt
 
 A third common mistake occurs when the programmer forgets about the implications of memory segment permissions. In the following example, `message` is declared as a `char*` that points to the hard-coded string `"Hello, "`, which resides in the read-only global data segment (`.rodata`). Line 2, then, is an attempt to write into read-only memory. The result would be a segmentation fault or an abort trap, depending on the architecture.
 
-1
-2
-
+```cpp
 char *message = "Hello, ";
 strncat (message, username, 20);
 
 While `strncpy()` and `strncat()` focus on building or merging strings, another common task is to split a string into smaller parts, a procedure known as _tokenizing_. C provides two functions, `strtok()` and `strtok_r()`, for this purpose. In both cases, when the function is first called, the `str` parameter points to the string to tokenize; on subsequent calls, `str` is set to `NULL` to indicate that the function is continuing to process the previous string. The sep parameter is a pointer to a string of separator characters; whenever one or more of these characters is encountered in a row, `strtok()` or `strtok_r()` would return a pointer to the token ending at that character. The difference between the two functions is that `strtok_r()` is [reentrant](#term-reentrant), while `strtok()` is not. (Reentrancy is discussed in Chapter 7.) In short, `strtok()` uses a static variable to keep track of where to continue within the string. This approach fails when there are multiple threads calling `strtok()` on distinct strings; the threads might accidentally receive each other’s tokens. If there are multiple threads in execution, the `strtok_r()` version is needed to avoid this dilemma; the third parameter, `lasts`, keeps track of the tokenization of the string, thus eliminating the race conditions that can occur with static variables.
 
-📦 C library functions – <string.h>
+📦 C library functions – `<string.h>`
 
 * * *
 
@@ -20256,19 +15076,7 @@ Wed,Jan,01,2020,New Year's Day
 
 Once the file contents have been read into memory, the lines might be tokenized to retrieve the individual fields of the line. [Code Listing A.41](#cla-41) splits this line one token at a time, storing the fields in the fields of a `struct` declared as the `holiday_t` type.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-
+```cpp
 /* Code Listing A.41:
    Using strtok_r() to split a CSV file line
  */
@@ -20411,33 +15219,7 @@ One call to `strtok_r()` would get the string `"2020"`. The next call would then
 
 [Code Listing A.42](#cla-42) demonstrates two techniques for splitting a file’s contents based on lines. To start, assume that the file’s contents have been read into `file_contents` and (for simplicity) this buffer is null-terminated. Lines 5 – 17 store copies of the lines without using `strtok()` or `strtok_r()`. Instead, these lines use `start_of_line` to keep track of where a line begins (initially, the start of the file contents). Line 6 then uses `strchr()` to identify the end of the first line by looking for the `'\n'` character. Line 10 uses `strndup()` to make a dynamically allocated copy of the line. The semantics of `strndup()` are like strncat(); it will copy up to the specified number of bytes and it will add on a null terminator. Since `end_of_line – start_of_line` is the exactly the number of bytes in the line, line 10 makes a complete null-terminated copy and stores the address of this copy into an array. Line 12 then moves `start_of_line` just past the newline character so that it points to the beginning of the next line. Line 14, then, starts looking for the next `end_of_line` after that point. The additional copy on line 17 is necessary because the `while`-loop will terminate when there are no more newline characters; when this occurs, `start_of_line` is pointing to the last line (which has no `'\n'` after it). Line 17 can use the standard `strdup()` instead of `strndup()`, because the original `file_contents` are null terminated.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-
+```cpp
 /* Code Listing A.42:
    Tokenizing and storing file lines without and with strtok()
  */
@@ -20472,23 +15254,7 @@ When line 19 begins processing, the original `file_contents` have not been alter
 
 One final common task in relation to strings involves converting numeric values back and forth between representations. When reading user input or data from a file, numeric text data (`"123"`) might need to be converted to one of C’s integer primitive representations (123) for easy manipulation or compact storage. On the other hand, integers often need to be converted to their string format to append to other text data (e.g., writing the HTTP header line `"Content-Length: 123\r\n"` when the length has been stored as a `size_t` variable). [Code Listing A.43](#cla-43) illustrates the difference in the internal representations of 123 (as a `uint8_t`) and `"123"` (as a string).
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-
+```cpp
 /* Code Listing A.43:
    Printing the byte contents of an integer and string
  */
@@ -20510,7 +15276,7 @@ The particular `for`-loops here might appear odd, but they are used to show that
 
 The first loop demonstrates that the internal representation of `integer` is the single byte `0x7b`. The second loop demonstrates that the representation of `string` is the four consecutive bytes `0x31`, `0x32`, `0x33`, and `0x00`. (Printing these four bytes were at once would produce the value `0x00333231` due to endianness.) The issue of conversion focuses on ways to translate automatically between these two byte representations, which do not appear to be similar.
 
-📦 C library functions – <stdlib.h>
+📦 C library functions – `<stdlib.h>`
 
 * * *
 
@@ -20522,36 +15288,7 @@ The `strtol()` function handles the conversion from integer to string. [[3]](#f6
 
 [Code Listing A.44](#cla-44) demonstrates multiple ways that `strtol()` can be used. Line 5 starts by creating a string `"123 -32 alpha"`. This can be broken down into the integer values 123 and -32, but the `"alpha"` cannot be interpreted as an integer. Lines 9, 14, and 20 use `strtol()` to parse this string into these numeric components. Line 9 uses the original `numbers` string as the first argument, whereas lines 14 and 20 use `end` for this parameter. Using `end` on the subsequent calls is necessary, because `strtol()` does not keep track of any prior progress; using `numbers` each time would repeatedly return the first value, 123.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-
+```cpp
 /* Code Listing A.44:
    Converting from string to integer representations
  */
@@ -20587,7 +15324,7 @@ Lines 27 – 29 demonstrate other features of `strtol()`. First, the endptr para
 
 Converting values in the opposite direction, from integers to strings, is mostly intuitive, because it is very similar to one of the first functions novices learn in C: `printf()`. The main difference is that the `snprintf()` function takes two parameters before the format string to indicate the destination and the maximum number of bytes. (The `sprintf()` function does not take a maximum number of bytes, which makes this function unsafe in the same ways as `strcpy()` or `strcat()`. As such, `sprintf()` should never be used.)
 
-📦 C library functions – <stdlib.h>
+📦 C library functions – `<stdlib.h>`
 
 * * *
 
@@ -20597,22 +15334,7 @@ Format a string in memory similar to printing to the screen.
 
 [Code Listing A.45](#cla-45) highlights the similarities between `snprintf()` and the more familiar `printf()`. Both functions take a format string (`"%d"` or `"%d\n"`) to indicate how the number should be formatted, along with the number as an additional argument. The primary difference is that `snprintf()` also indicates a destination to write the formatted value into (the `buffer`). Once the value has been written into the buffer, it can be printed (if needed) using the `%s` format specifier.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-
+```cpp
 /* Code Listing A.45:
    Converting from integer to string is similar to printing to standard I/O
  */
@@ -20631,14 +15353,7 @@ printf ("%s\n", buffer);
 
 Recall from the discussion of `strncpy()` and `strncat()` that the two functions had different interpretations of the respective maximum size parameter, `n`. Specifically, `strncpy()` would copy a maximum of `n` bytes, potentially leaving the string un-terminated if those `n` bytes did not contain the null byte. In contrast, `strncat()` would write a maximum of `n+1` bytes, because it always appends the null byte. The `snprintf()` function adds a third interpretation: it will print up to `n-1` bytes and then append the null byte. Frustrating! [Code Listing A.46](#cla-46) summarizes this situation. Since both `strncat()` and `snprintf()` guarantee null termination, they both end up writing a null byte; however, `strncat()` appends this after the two bytes `'h'` and `'e'`, whereas `snprintf()` does so after only one byte `'4'`. Unlike the other two, `strncpy()` does not guarantee null termination.
 
-1
-2
-3
-4
-5
-6
-7
-
+```cpp
 /* Code Listing A.46:
    Converting from integer to string is similar to printing to standard I/O
  */
@@ -20653,12 +15368,7 @@ snprintf (buffer_3, 2, "%d", 42); // copies 2 bytes '4' and '\0'
 
 The `snprintf()` function, once again, creates a very common vector for buffer overflow vulnerabilities. One of the challenges—and common mistakes—arises from the anticipation of what is a likely integer value as compared to what is a _possible_ one. The buffer from [Code Listing A.45](#cla-45) is not a safe size for the format specifier %d. As an int is typically four bytes, its string form can be as long as 12 characters in length (for example, including the negative sign and null byte for the `INT_MIN` constant `"-2147483647")`. As such, the buffer should generally be larger than required. One simple way to do this (and to ensure the bytes are all initialized to 0) is to use `calloc()` to allocate enough space. If needed, `realloc()` could then be used to shrink the buffer.
 
-1
-2
-3
-4
-5
-
+```cpp
 char *buffer = calloc (12, sizeof (char));
 snprintf (buffer, 12, "%d", 35);
 
@@ -20667,14 +15377,7 @@ buffer = realloc (buffer, strlen (buffer) + 1);
 
 Since `snprintf()` takes a normal format string (which can contain a mix of string data and multiple format specifiers), it creates an easier mechanism to concatenate multiple values together into a single string. [Code Listing A.47](#cla-47) demonstrates a simple example of this practice to build the string `"5 + 10 = 15\n"` using `int` variables.
 
-1
-2
-3
-4
-5
-6
-7
-
+```cpp
 /* Code Listing A.47:
    Using snprintf() to build a string that mixes integer and string data
  */
@@ -20693,17 +15396,7 @@ Content-Type: text/html\r\n
 
 Assuming some of these fields are stored in variables, this could be constructed with a single `snprintf()` call, as shown in [Code Listing A.48](#cla-48).
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-
+```cpp
 /* Code Listing A.48:
    Building an HTTP response header with one snprintf()
  */
@@ -20723,17 +15416,7 @@ snprintf (header, MAX_HEADER_LENGTH,
 
 Another common use of `snprintf()` is to inject formatted numbers into the middle of an existing string. For instance, consider an event logging mechanism that uses a common reporting form for events. The `snprintf()` function could be used to fill these in, but requires special care as shown in the example below.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-
+```cpp
 char record[] = "Month [   ] Day [  ] Year [    ]";
 snprintf (record + 7, 4, "%s", month);  // write [mon]
 snprintf (record + 17, 3, "%-2d", day); // write [da]
@@ -20770,26 +15453,7 @@ As we have seen, pointers have many uses in the C language. They can be used to 
 
 To get started with function pointers, [Code Listing A.49](#cla-49) defines two simple functions that we will use later. A key aspect of these functions is that they have the same _signature_. That is, the two functions take the same number of arguments, the types of the arguments are identical (the names of the parameters do not matter), and the return type is the same. In this example, both functions take two `int` arguments and return an `int`. Lines 6 and 7 are explicit _function prototypes_ that declare the functions’ interfaces. Function prototypes are only required when a function is used before it is defined. For instance, if line 12 were changed to make a call to `sub()`, the compiler would use the prototype on line 7 to confirm that the call is correctly formatted; calling `sub (1, 2)` would be acceptable, while calling `sub ("marine")` would not, due to the required parameter types. Function prototypes can be omitted (and usually are) if the function definition occurs before the first call to it.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-
+```cpp
 /* Code Listing A.49:
    Two simple arithmetic functions with the same function signature
  */
@@ -20812,18 +15476,7 @@ sub (int minuend, int subtrahend)
 
 [Code Listing A.50](#cla-50) uses the function declarations from [A.49](#cla-49). Line 5 starts by declaring a function pointer variable called `fun`. The full explanation of function pointer declarations is provided below. For now, it is sufficient to note that `fun` is a pointer, so it can store an address. The names of the functions from [Code Listing A.49](#cla-49), `add` and `sub`, are simply readable aliases for the addresses of the functions’ code. In other words, we can think of `add` and `sub` as address constants; setting `fun = add` is similar to setting `fun = NULL` to create a null pointer. Lines 5 and 8, then assign the addresses of add and sub to the pointer `fun`. The effect of this assignment is to make `fun` an alias for the function at that particular point. Lines 6 and 9 demonstrate that using a function pointer to make a function call works exactly like a standard function call. That is, the call to `fun (5, 3)` is identical to calling `add (5, 3)` directly.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-
+```cpp
 /* Code Listing A.50:
    Declaring a function pointer and assigning its value
  */
@@ -20852,15 +15505,7 @@ int (*ptr) (void) = trouble ();
 
 With one exception, this line is incorrectly written. The declaration on the left indicates that there is a new function pointer variable, `ptr`. Any function that `ptr` can be set to must adhere to the interface that it accepts no arguments (specified by `(void)`) and returns an `int`. Given this declaration, the compiler will check to see if the value being assigned to `ptr` has the same type. That is, does the right side of the assignment evaluate to a pointer to a function, specifically one that takes no arguments and returns an `int`? Consider one possible declaration for the function called `trouble()`:
 
-1
-2
-3
-4
-5
-6
-7
-8
-
+```cpp
 int trouble (void); // trouble's function prototype
 
 int 
@@ -20874,15 +15519,7 @@ At first glance, everything looks okay. The prototype on line 1 and the definiti
 
 The exception to this description is if `trouble()` was specifically a function that returned another function. That is, `trouble()` is a function that takes no arguments and returns a pointer to a function, such that the returned function takes no arguments and returns an `int`. The syntax for this version of `trouble()` is, frankly, atrocious and unreadable. We provide it here for the curious, though we do not recommend ever writing code like this. If it is necessary to return a function pointer, `typedef`s can make this code significantly more readable.
 
-1
-2
-3
-4
-5
-6
-7
-8
-
+```cpp
 /* The full prototype to be precise */
 int (*trouble (void)) (void);
 
@@ -20891,6 +15528,7 @@ int
 {
   /* return a function pointer */
 }
+```
 
 Perhaps the most confusing aspect of this declaration is which parameter list goes with which function. Counterintuitively, the inner portion defines the input parameters for `trouble()`. That is, the portion that reads (`*trouble (void)`) indicates that `trouble()` takes no parameters; the portions outside of these parentheses indicate the return type and parameter list for the function that `trouble()` returns.
 
@@ -20899,23 +15537,7 @@ Perhaps the most confusing aspect of this declaration is which parameter list go
 
 Given the complexity of declaring and working with function pointers, it is natural to ask why they are beneficial or even necessary. The two most common uses are to pass a function as an argument to another function and to build a lookup table of functions. We will start with the first example. This application might seem familiar to readers who are familiar with functional programming or the concept of lambdas that has been added to languages like Java. [Code Listing A.51](#cla-51) provides an example of this kind of usage, using the (much maligned) Bubble Sort algorithm.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-
+```cpp
 /* Code Listing A.51:
    Bubble sort implementation that takes a custom comparison operation
  */
@@ -20932,45 +15554,11 @@ bubble_sort (void *array[], size_t length, int (*compare) (void *, void *))
           array[j+1] = temp;
         }
 }
+```
 
 The `bubble_sort()` function takes three parameters: an array of pointers, an array length, and a comparison function. As the `array` parameter is an array of `void*` elements, this implementation can sort any type of objects. That is, the array could contain pointers to strings, pointers to `FILE` objects (e.g., to sort based on file size), or pointers to any custom data types. The compare function pointer must point to a function that takes two `void*` inputs and returns an `int`. The type cannot indicate this, but any function pointer passed as the compare parameter needs to adhere to a convention based on `strcmp()`; return 1 if the first item is “greater” than the second, -1 if the second item is “greater,” and 0 if they match. [Code Listing A.52](#cla-52) provides an example of such a comparison that performs a case-insensitive string comparison (as opposed to the case-sensitive nature of `strcmp()`).
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-
+```cpp
 /* Code Listing A.52:
    A case-insensitive string comparison
  */
@@ -21006,29 +15594,11 @@ strcmp_nocase (char *first, char *second)
 
   return 1; // First was longer than second
 }
+```
 
 [Code Listing A.53](#cla-53) applies these two functions to demonstrate the power of function pointers for flexible code execution. Line 5 starts with an array of strings with a mixture of cases. Line 7 passes this array to `bubble_sort()` along with a pointer to the `strcmp_nocase()` function. To be precise, the type of `strcmp_nocase()` does not match the type required for the compare parameter to `bubble_sort()`; `strcmp_nocase()` takes two `char*` arguments, whereas the type declaration of compare indicates that the function needs to take two `void*` arguments. Hence, line 7 explicitly casts `strcmp_nocase()` as needed. Similar casting is needed at line 14 for `strcmp()`.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-
+```cpp
 /* Code Listing A.53:
    Passing two functions as parameters to the generic Bubble Sort
  */
@@ -21051,17 +15621,7 @@ printf ("\n");
 
 Although the preceding code works, the number of parentheses and `*` operators can make it hard to read. One common way to improve the readability is to use a typedef to simplify the type declarations and function calls. [Code Listing A.54](#cla-54) demonstrates this practice by defining a new type, `comp_t`, as a function pointer that takes two `void*` parameters and returns an `int`. Readers who are comfortable with `typedef` may fine the version on line 5 to be odd; normally, the new type name appears at the end of the line, just before the `;` character. With function pointers, however, the type name is placed where the variable name would go in a function pointer declaration. Despite this oddity, line 8 is now easier to read than in [Code Listing A.51](#cla-51); the compare parameter now matches the `comp_t` type, and the reader does not need to parse the complexities of function pointer declarations. [Code Listing A.55](#cla-55) shows how the typedef simplifies the calls to `bubble_sort()` with cleaner casting.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-
+```cpp
 /* Code Listing A.54:
    Simplifying the bubble_sort() interface with a typedef
  */
@@ -21073,16 +15633,7 @@ bubble_sort (void *array[], size_t length, comp_t compare)
 {
   /* ... omitting the rest ... */
 
-1
-2
-3
-4
-5
-6
-7
-8
-9
-
+```cpp
 /* Code Listing A.55:
    Using the simplified bubble_sort() interface
  */
@@ -21092,33 +15643,14 @@ bubble_sort ((void **)strings, 5, (comp_t)strcmp_nocase);
 
 /* Replacement for A.53, line 14 */
 bubble_sort ((void **)strings, 5, (comp_t)strcmp);
+```
 
 ///10.8.2. Function Pointer Lookup Tables[¶]
 --------------------------------------------
 
 Another common use for function pointers is to create a lookup table of functions. That is, rather than building complex logic structures in code to determine which function needs to be called under certain conditions, this information is represented in a table format, such as a one- or two-dimensional array. To illustrate this concept, assume that [Code Listing A.49](#cla-49) has been extended to support the five basic arithmetic operations (addition, subtraction, multiplication, division, modulus). Using these functions, [Code Listing A.56](#cla-56) builds a single interface, `calculate()`, that can be used for any of them.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-
+```cpp
 /* Code Listing A.56:
    Using the simplified bubble_sort() interface
  */
@@ -21139,19 +15671,11 @@ calculate (op_t operation, int x, int y)
 
   return ops[operation] (x, y);
 }
+```
 
 Lines 5 and 6 start by defining custom types for the valid operations (`op_t`) and the binary arithmetic funtions (`arith_t)`. Line 11 defines the lookup table; it is a simple array of the five function pointers. (Again, note that these entries are just the names of the functions and do not have parentheses.) This line reiterates the value of using a `typedef` for function pointers, as the syntax to declare an array of function pointers, along with the `static` and `const` keywords, is unnecessarily cumbersome. Defining the enum on line 5 and performing the check on line 13 ensures that the `operation` is one of the five supported. Line 19, then, actually performs the operation. By indexing into the `ops` array, `ops[operation]` evaluates to a pointer to the specified function. The `(x, y)` notation after that indicates that this function is to be executed with `x` and `y` as the arguments. This calculate() function takes no special steps based on which function is being called (although it would be appropriate to prevent the use of 0 for `y` with `div` and `mod`); rather, the logic of determining the function lies entirely in the lookup table structure. [Code Listing A.57](#cla-57) uses this simplified interface to perform each of the specified operations.
 
-1
-2
-3
-4
-5
-6
-7
-8
-9
-
+```cpp
 /* Code Listing A.57:
    Using the single calculate() interface
  */
@@ -21182,7 +15706,7 @@ The idea of organizing and storing data as a file is one of the oldest abstracti
 
 When a file is stored, there is a certain amount of information—called [metadata](#term-metadata)—that is stored alongside the file’s contents. Metadata is stored in a data structure called an [inode](#term-inode), as discussed in Chapter 2. The inode contains a number of fields, one of which is the files permission mode. The permission mode indicates which actions (read, write, or execute) can be performed on a file by a particular user. These permission modes are commonly written as three octal values to specify permissions for the user (the owner of the file), the group (a pre-defined set of users), or others (everyone else). For each octal value, 4 (binary 100) indicates read permission, 2 (010) is write, and 1 (001) is execute. Setting one of these bits to 0 removes that permission.
 
-📦 C library functions – <sys/stat.h>
+📦 C library functions – `<sys/stat.h>`
 
 * * *
 
@@ -21196,20 +15720,7 @@ Change the permissions associated with an open file given its file descriptor.
 
 The `chmod()` and `fchmod()` functions, which can only be used by the owner of a particular file, provide an interface to change the permissions on a file. The first argument specifies which file, either by the standard file name (`path`) or using a file descriptor (`filedes`). The mode argument is the new permission bit mask to apply. Although the `mode_t` type is just an integer (e.g., 493), these numbers are written in their octal equivalent (`0755`). (The leading 0 is required to indicate octal format.) Among the three digits, the first applies to the user, the second to the group, and the third to others.
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-
+```cpp
 /* Code Listing A.58:
    Changing two files' permissions within a program
  */
@@ -21258,7 +15769,7 @@ For completeness, writing to a directory means adding or removing files. When yo
 
 The `access()` function provides an interface to check a file’s permissions before trying to access it. As with the `chmod()` function, the first parameter specifies the name of the file being checked. The `mode` parameter is not the same as the `mode_t` type used above, because `access()` is only checking the permissions for the current user. Furthermore, `access()` can check more than just the standard read, write, and execute bits, so this mode does not follow the same octal structure.
 
-📦 C library functions – <unistd.h>
+📦 C library functions – `<unistd.h>`
 
 * * *
 
@@ -21304,7 +15815,7 @@ Check for permission to access the specified file.
 
 The `unistd.h` header file provides additional functions that are relevant to the discussion of access permissions. The `chown()` and `fchown()` functions provide interfaces to change which user or group is considered the file’s owner. These functions are generally restricted in certain ways; clearly, it would not be advisable to allow a random user to take over another’s files by changing their ownership. Some systems allow users to run these functions only on files that they own, whereas others restrict access to these functions to system adminstrators.
 
-📦 C library functions – <unistd.h>
+📦 C library functions – `<unistd.h>`
 
 * * *
 
@@ -21318,7 +15829,7 @@ Change the ownership of a file specified by a file descriptor.
 
 The `getuid()`, `geteuid()`, `getgid()`, and `getegid()` functions are not about files, per se, but they are relevant to the current discussion. These functions get information about the current process that is executing. Whenever you run a program, you create a process; the process inherits a specified user ID and group ID that control the process’s access. Consequently, when the previous examples referred to checking the “user’s” access to a file, this check is based on the user ID associated with the process executing this code.
 
-📦 C library functions – <unistd.h>
+📦 C library functions – `<unistd.h>`
 
 * * *
 
@@ -21357,7 +15868,7 @@ When a file is in use (such as when you are editing a source code file in a text
 
 These changes are not automatically propagated to the inode stored on the device. This update typically (the details depend on the OS and the file system in use) only occurs when the file is closed or when the process calls `fsync()`. The `fsync()` function—which is run when you save a file—writes the contents to the storage device and updates the stored inode accordingly.
 
-📦 C library functions – <unistd.h>
+📦 C library functions – `<unistd.h>`
 
 * * *
 
@@ -21388,7 +15899,7 @@ To start, assume that we are examining the directory `/home/csf`. Since director
 
 Readers who have become comfortable with working on the command line are likely to have heard references to “being in” or “changing to” a directory. These phrases refer to examining or changing the current process’s _current working directory_, the default location that the process will look for files. Note that, when you are working on the command line, you are always running a process: the shell (typically `bash`). The `cd` command tells the `bash` process to change its current working directory. When you run a separate program by typing a command, bash creates a new process, and that new process inherits bash’s current working directory; this new process could change its current working directory with the `chdir()` and `fchdir()` functions.
 
-📦 C library functions – <unistd.h>
+📦 C library functions – `<unistd.h>`
 
 * * *
 
@@ -21402,7 +15913,7 @@ Change to the directory given as the open file descriptor `fd`.
 
 At this point, we have established that directories do not contain files or inodes; they just map a string to an inode number. Similarly, the `chdir()` function can change which directory the process will look in by default. Based on this understanding, we can now distinguish between _hard links_ and _symbolic links_. A hard link is a directory reference to an inode. In [Figure 10.9.7](Files.html#filesysblocks), block 51003 contains an entry for `data.txt` that links to inode 4873. Within inode 4873, there is a field that counts the number of such links; so 4873’s link count would be at least one. This figure did not show the contents of the `/home/csf/private` directory, but assume that it contains an entry for a file named copy.txt that also maps to inode 4873; i.e., there is a `/home/csf/private/copy.txt` file, and it points to the same inode as `/home/csf/data.txt`. In other words, the full path names `/home/csf/data.txt` and `/home/csf/private/copy.txt` are both hard links to the same inode and the inode’s reference count must be at least two. The effect of this hard link is that these two files are the same; changing the contents of one will change the other. Such hard links are created with the `link()` function.
 
-📦 C library functions – <unistd.h>
+📦 C library functions – `<unistd.h>`
 
 * * *
 
@@ -21449,7 +15960,7 @@ goodbye
 
 When concurrent software is working with files, there is the danger that multiple processes or threads might try to access or modify an existing file at the same time. This situation would allow one process or thread to change the file’s contents in ways that can cause errors in the other process or thread. Different OS and file systems provide a variety of mechanisms to prevent this from happening; as these approaches can vary between systems, it can be difficult to rely on them for cross-platform software. One mechanism that generally has cross-platform support is the use of _advisory locks_, which provide a mechanism for cooperating processes to try to avoid this situation. In essence, an advisory lock allows a process to check if another process has already locked the file; if so, the new process can wait until the first process is finished. As the name implies, though, these are advisory in nature; the new process can still proceed regardless of the first process’s claim.
 
-📦 C library functions – <sys/file.h>
+📦 C library functions – `<sys/file.h>`
 
 * * *
 
@@ -21494,7 +16005,7 @@ In the preceding discussion, we mentioned that advisory locks allow _cooperating
 
 Although it is generally cross-platform, `flock()` does not successfully create advisory locks on macOS. For code that truly needs to be cross-platform, `fcntl()` is the required interface for advisory locks. The primary disadvantage of `fcntl()` is that it is an older, generic interface for many different operations on files. Advisory locks are just one of the possible operations.
 
-📦 C library functions – <fcntl.h>
+📦 C library functions – `<fcntl.h>`
 
 * * *
 

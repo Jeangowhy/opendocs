@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="480"
+   height="220"
+   viewBox="0 0 127 58.208333"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="patience_creativity.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.93383004"
+     inkscape:cx="267.17924"
+     inkscape:cy="178.8334"
+     inkscape:window-width="1500"
+     inkscape:window-height="948"
+     inkscape:window-x="-6"
+     inkscape:window-y="-6"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 0,45.899681 c 122.96581,0 127,-0.283332 127,-0.283332"
+       id="path1" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 12.183248,0 c 0,56.099609 0,55.532945 0,55.532945"
+       id="path2" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 12.183248,0 C 28.899799,29.104166 39.430814,39.6837 98.9141,42.621692"
+       id="path3"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 19.833195,44.339634 C 31.757806,26.258299 48.449662,28.333246 108.51591,27.766584"
+       id="path4"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#f63622;fill-opacity:1;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 19.727105,44.818531 c 0,0 5.387306,-10.974138 19.205202,-14.004227 14.541104,8.39531 54.602806,10.629022 59.377157,11.248008 0,3.207034 0.105175,3.206719 0.105175,3.206719"
+       id="path5"
+       sodipodi:nodetypes="cccc" />
+    <text
+       xml:space="preserve"
+       style="font-size:6.35px;line-height:1.25;font-family:sans-serif;fill:#c9c9c9;fill-opacity:1;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
+       x="17.317455"
+       y="8.5823326"
+       id="text6"><tspan
+         sodipodi:role="line"
+         id="tspan6"
+         style="fill:#c9c9c9;fill-opacity:1;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
+         x="17.317455"
+         y="8.5823326">Patience</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6.35px;line-height:1.25;font-family:sans-serif;fill:#d0d0d0;fill-opacity:1;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
+       x="77.859596"
+       y="26.224566"
+       id="text7"><tspan
+         sodipodi:role="line"
+         id="tspan7"
+         style="fill:#d0d0d0;fill-opacity:1;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
+         x="77.859596"
+         y="26.224566">Creativity</tspan></text>
+  </g>
+</svg>
