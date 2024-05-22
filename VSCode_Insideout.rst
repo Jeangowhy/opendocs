@@ -465,7 +465,6 @@ Script and Terminal
    Terminal › External: Linux Exec            xterm
    Terminal › External: Osx Exec              Terminal.app
    Terminal › External: Windows Exec          C:\Windows\System32\cmd.exe
-   =========================================  ===============================
    Terminal › Integrated › Profiles: Linux    -
    Terminal › Integrated › Profiles: Osx      -
    Terminal › Integrated › Profiles: Windows  PowerShell
