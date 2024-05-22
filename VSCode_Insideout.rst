@@ -686,14 +686,14 @@ JavaFX GUI with Gradle and Kotlin LSP
    ======================= ======================= =========== ============
    Configuration name      Role                    Consumable?  Resolvable?
    ======================= ======================= =========== ============
-   ``api``                 声明编译时、运行时 API 依赖          no           no 
-   ``implementation``      声明依赖（强调内部而非导出）            no           no
-   ``compileOnly``         声明编译时依赖                   no           no
-   ``compileOnlyApi``      声明编译时 API 依赖              no           no   
-   ``runtimeOnly``         声明运行时依赖                   no           no
-   ``testImplementation``  声明测试用例依赖（编译时）             no           no
-   ``testCompileOnly``     声明测试用户编译时依赖               no           no    
-   ``testRuntimeOnly``     声明测试用例运行时依赖               no           no
+   ``api``                 声明编译时、运行时 API 依赖        no           no 
+   ``implementation``      声明依赖（强调内部而非导出）          no           no
+   ``compileOnly``         声明编译时依赖                 no           no
+   ``compileOnlyApi``      声明编译时 API 依赖            no           no   
+   ``runtimeOnly``         声明运行时依赖                 no           no
+   ``testImplementation``  声明测试用例依赖（编译时）           no           no
+   ``testCompileOnly``     声明测试用户编译时依赖             no           no    
+   ``testRuntimeOnly``     声明测试用例运行时依赖             no           no
    ======================= ======================= =========== ============
 
    Java Library plugin — configurations used by consumers
@@ -702,7 +702,7 @@ JavaFX GUI with Gradle and Kotlin LSP
    Configuration name      Role                    Consumable?  Resolvable?
    ======================= ======================= =========== ============
    ``apiElements``         用于针对当前库编译时的依赖           yes         no
-   ``runtimeElements``     用于当前库运行时的依赖              yes         no
+   ``runtimeElements``     用于当前库运行时的依赖             yes         no
    ======================= ======================= =========== ============
 
    Java Library plugin - configurations used by the library itself
@@ -710,8 +710,8 @@ JavaFX GUI with Gradle and Kotlin LSP
    ======================== ======================= =========== ============
    Configuration name       Role                    Consumable?  Resolvable?
    ======================== ======================= =========== ============
-   ``compileClasspath``     编译时支持库的类路径                 no         yes
-   ``runtimeClasspath``     运行时支持库的类路径                 no         yes
+   ``compileClasspath``     编译时支持库的类路径              no         yes
+   ``runtimeClasspath``     运行时支持库的类路径              no         yes
    ``testCompileClasspath`` 测试用例编译时支持库的类路径          no         yes
    ``testRuntimeClasspath`` 测试用例运行时支持库的类路径          no         yes
    ======================== ======================= =========== ============
@@ -928,20 +928,20 @@ JavaFX GUI with Gradle and Kotlin LSP
    +--------------------------+------------------+
    | Type                     | Description      |
    +==========================+==================+
-   | ``pom-maven-conversion`` | Converts an existing Apache Maven build to Gradle
-   | ``basic``                | A basic, empty, Gradle build
-   | ``java-application``     | A command-line application implemented in Java
-   | ``java-gradle-plugin``   | A Gradle plugin implemented in Java
-   | ``java-library``         | A Java library
-   | ``kotlin-application``   | A command-line application implemented in Kotlin/JVM
-   | ``kotlin-gradle-plugin`` | A Gradle plugin implemented in Kotlin/JVM
-   | ``kotlin-library``       | A Kotlin/JVM library
-   | ``groovy-application``   | A command-line application implemented in Groovy
-   | ``groovy-gradle-plugin`` | A Gradle plugin implemented in Groovy
-   | ``groovy-library``       | A Groovy library
-   | ``scala-application``    | A Scala application
-   | ``scala-library``        | A Scala library
-   | ``cpp-application``      | A command-line application implemented in C++
+   | ``pom-maven-conversion`` | Converts an existing Apache Maven build to Gradle |
+   | ``basic``                | A basic, empty, Gradle build |
+   | ``java-application``     | A command-line application implemented in Java |
+   | ``java-gradle-plugin``   | A Gradle plugin implemented in Java |
+   | ``java-library``         | A Java library |
+   | ``kotlin-application``   | A command-line application implemented in Kotlin/JVM |
+   | ``kotlin-gradle-plugin`` | A Gradle plugin implemented in Kotlin/JVM |
+   | ``kotlin-library``       | A Kotlin/JVM library |
+   | ``groovy-application``   | A command-line application implemented in Groovy |
+   | ``groovy-gradle-plugin`` | A Gradle plugin implemented in Groovy |
+   | ``groovy-library``       | A Groovy library |
+   | ``scala-application``    | A Scala application |
+   | ``scala-library``        | A Scala library |
+   | ``cpp-application``      | A command-line application implemented in C++ |
    | ``cpp-library``          | A C++ library    |
    +--------------------------+------------------+
 
