@@ -228,14 +228,14 @@ Tasks and Debug
 
    以下是配置文件中使用到的占位符号格式：
 
-   +---------------------------------------+-------------+
-   | Token                                 | Description |
-   +=======================================+=============+
-   | ``${workspaceFolder}``                | The selected workspace folder path. |
-   | ``${config:some.setting.identifier}`` | The value of any configuration setting. |
-   | ``${env:Name}``                       | The value of an environment variable. |
-   | ``${command:commandID}``              | The string return value of a command. |
-   +---------------------------------------+-------------+
+   ===================================== =======================================
+    Token                                 Description                          
+   ===================================== =======================================
+   ``${workspaceFolder}``                The selected workspace folder path.
+   ``${config:some.setting.identifier}`` The value of any configuration setting.
+   ``${env:Name}``                       The value of an environment variable.
+   ``${command:commandID}``              The string return value of a command.
+   ===================================== =======================================
 
    完整变量列表参考 `Visual Studio Code Variables Reference`__ 或插件扩展 `Extension Guides`__。
 
@@ -686,21 +686,14 @@ JavaFX GUI with Gradle and Kotlin LSP
    ======================= ======================= =========== ============
    Configuration name      Role                    Consumable?  Resolvable?
    ======================= ======================= =========== ============
-   ``api``                 声明编译时、运行时 API 依赖     no         no 
-
-   ``implementation``      声明依赖（强调内部而非导出）    no         no
-
-   ``compileOnly``         声明编译时依赖                no         no
-
-   ``compileOnlyApi``      声明编译时 API 依赖           no         no   
-
-   ``runtimeOnly``         声明运行时依赖                no         no
-
-   ``testImplementation``  声明测试用例依赖（编译时）      no         no
-
-   ``testCompileOnly``     声明测试用户编译时依赖         no         no    
-
-   ``testRuntimeOnly``     声明测试用例运行时依赖         no         no
+   ``api``                 声明编译时、运行时 API 依赖          no           no 
+   ``implementation``      声明依赖（强调内部而非导出）            no           no
+   ``compileOnly``         声明编译时依赖                   no           no
+   ``compileOnlyApi``      声明编译时 API 依赖              no           no   
+   ``runtimeOnly``         声明运行时依赖                   no           no
+   ``testImplementation``  声明测试用例依赖（编译时）             no           no
+   ``testCompileOnly``     声明测试用户编译时依赖               no           no    
+   ``testRuntimeOnly``     声明测试用例运行时依赖               no           no
    ======================= ======================= =========== ============
 
    Java Library plugin — configurations used by consumers
@@ -708,9 +701,8 @@ JavaFX GUI with Gradle and Kotlin LSP
    ======================= ======================= =========== ============
    Configuration name      Role                    Consumable?  Resolvable?
    ======================= ======================= =========== ============
-   ``apiElements``         用于针对当前库编译时的依赖       yes         no
-
-   ``runtimeElements``     用于当前库运行时的依赖          yes         no
+   ``apiElements``         用于针对当前库编译时的依赖           yes         no
+   ``runtimeElements``     用于当前库运行时的依赖              yes         no
    ======================= ======================= =========== ============
 
    Java Library plugin - configurations used by the library itself
@@ -718,13 +710,10 @@ JavaFX GUI with Gradle and Kotlin LSP
    ======================== ======================= =========== ============
    Configuration name       Role                    Consumable?  Resolvable?
    ======================== ======================= =========== ============
-   ``compileClasspath``     编译时支持库的类路径          no         yes   
-
-   ``runtimeClasspath``     运行时支持库的类路径          no         yes   
-
-   ``testCompileClasspath`` 测试用例编译时支持库的类路径   no         yes
-
-   ``testRuntimeClasspath`` 测试用例运行时支持库的类路径   no         yes
+   ``compileClasspath``     编译时支持库的类路径                 no         yes
+   ``runtimeClasspath``     运行时支持库的类路径                 no         yes
+   ``testCompileClasspath`` 测试用例编译时支持库的类路径          no         yes
+   ``testRuntimeClasspath`` 测试用例运行时支持库的类路径          no         yes
    ======================== ======================= =========== ============
 
    *  ``compile`` 已在 Gradle 7.0 中移除，原表示编译时和打包时都需要的依赖。
