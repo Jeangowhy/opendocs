@@ -534,6 +534,14 @@ JavaFX GUI with Gradle and Kotlin LSP
    * VS Code 中使用 Kotin + LSP 项目开发配置；
    * VS Code 中使用 Java 模块 + JavaFX 图形框架项目开发配置；
 
+   鉴于此，至少涉及 Java/Kotlin 两种编程语言，Maven/Gradle 两种自动化构建工具，以及 JavaFX
+   图形构架，还会涉及 Gradle 项目配置文件使用到的 Groovy 或 Kotlin 脚本。
+
+   Java + Kotlin 混合语言 Gradle JavaFX 项目模板： https://github.com/jimboyeah/demo/tree/hi_javafx
+
+Maven Project
+---------------
+
    VS Code 上开发 JavaFX 图形编程项目操作步骤：
    
    * 安装 Java 语言插件包： `Extension Pack for Java`__
@@ -600,9 +608,11 @@ JavaFX GUI with Gradle and Kotlin LSP
 .. _Exec Maven Plugin: https://www.mojohaus.org/exec-maven-plugin/
 .. _javafx-gradle-plugin: https://github.com/openjfx/javafx-gradle-plugin
 
+Gradle Project
+---------------
 
    Gradle 比 Maven 项目管理工具更流行，广泛应用于 Android 和 Java 以及 C++ 等项目，
-   Gradle 主要特点如下：
+   Gradle 主要特点如下，当然 Gradle 的臃肿也是一大特点：
 
    1. 声明式：Gradle 使用更简洁、更易读的 Groovy DSL 编写构建脚本。
    2. 灵活性：Gradle 支持多项目、变体和自定义构建逻辑。
@@ -746,6 +756,10 @@ JavaFX GUI with Gradle and Kotlin LSP
 
    启动脚本负责配置 Gradle Wrapper 运行环境，包括下载包装程序配置文件中指定的 Gradle 二进制
    程序包，所有下载到的 Gradle 会保存在用户主目录下的子目录内： %USERPROFILE%/.gradle 。
+
+
+JavaFX with Gradle and Kotlin
+-----------------------------
 
    VS Code 环境中使用 Gradle 项目管理工具进行 JavaFX 图形应用开发配置参考：
 
@@ -903,6 +917,9 @@ JavaFX GUI with Gradle and Kotlin LSP
       du -hd 4 "$USERPROFILE\.gradle\caches" | sort -h
 
 
+Gradle Project Init
+-------------------
+
    Gradle 工程配置可能很复杂，出现问题需要用点策略来排除，基本策略是从简化到复杂依赖逐步解决：
 
    *  首先确定使用的 JDK 版本，选择兼容的 JavaFX 版本，并决定是否使用 Java 模块系统；
@@ -967,6 +984,7 @@ JavaFX GUI with Gradle and Kotlin LSP
       cd AppKt
       gradle init --type kotlin-application --project-name AppKt
       gradle run
+      gradle clean :app:run
 
       gradle help tasks
       gradle :app:run
@@ -1090,7 +1108,8 @@ JavaFX GUI with Gradle and Kotlin LSP
       [plugins]
       jvm = { id = "org.jetbrains.kotlin.jvm", version = "1.9.22" }
 
-   Gradle Kotlin 程序项目模板默认的构建配置脚本参考（build.gradle.kts）：
+   Gradle Kotlin 项目模板默认的构建配置脚本参考（build.gradle.kts），为支持 Kotlin 语言，
+   配置脚本中启用了 Kotlin 插件，此处启用了 JVM 平台的支持：
 
    .. code-block:: kotlin
 
@@ -1168,10 +1187,13 @@ JavaFX GUI with Gradle and Kotlin LSP
 
       mainClassName = 'HelloFX'
 
+JavaFX GUI Framework
+---------------------
+
    但是，工程使用 Java 模块形式时，运行 JavaFX 程序就可能出现问题，不同版本 Java 版本输出
    错误信息也不同。这里使用编译器为 JDK 17（class file version 58.0）。低版本运行时不支持
-   高版本 class 文件版本这容易确认，但是同样的 Java 17 却提示缺少 JavaFX 运行时，其实已经
-   打包到输出的 lib 目录 ：
+   高版本 class 文件版本这容易确认，高版本 JDK 兼容低版本，可以运行低版本编译的类文件。但是
+   同样的 Java 17 却提示缺失 JavaFX 运行时，其实已经打包到输出的 lib 目录 ：
 
    .. code-block:: sh
 
@@ -1194,8 +1216,222 @@ JavaFX GUI with Gradle and Kotlin LSP
 
    JDK 8U302 不再捆绑 JavaFX，但是 JDK 8U201 仍然捆绑 ``jre/lib/ext/jfxrt.jar``。
    使用以下程序测试，JDK 8U201 捆绑的 JavaFX 构架，或者下载最新的版，配合使用最新 JDK。
-   此代码不依赖 FXML 文档，直接通过代码组建一个简单的窗体。JavaFX 构架的顶级容器是 ``Stage``
-   对象，它对应的是操作系统中的窗口，通过 new Stage 实例就可以创建多个窗口。
+   此代码不依赖 FXML 文档，直接通过代码组建一个简单的窗体。
+
+   JavaFX 构架的顶级容器是 ``Stage`` 对象，它对应的是操作系统中的窗口，通过创建 Stage 实例
+   就可以创建多个窗口。JavaFX 它由多个子组件组成，包括一个称为 Prism 的高性能图形引擎，一个小巧
+   高效的窗口系统 Glass，一个媒体引擎和一个 Web 引擎。集成了 Java 2D、OpenGL、D3D 等开发接口。
+   尽管这些组件没有公开暴露，但了它们的有助于更好地理解 JavaFX 应用程序的运行机制。
+
+   低层的 API 会封装在动态链接库中，Maven 仓库中提供的 JAR 包本身包含了动态连接库。如果是官方
+   下载到的 JavaFX 安装包，其实中就会单独在 bin 目录包含封装这些低层 API 的动态连接库。如果
+   缺失这些 API 文件，程序运行就会出现类似以下的异常信息：
+
+   .. code-block:: bash
+
+      Graphics Device initialization failed for :  d3d, sw
+      Error initializing QuantumRenderer: no suitable pipeline found
+      java.lang.RuntimeException: java.lang.RuntimeException: 
+         Error initializing QuantumRenderer: no suitable pipeline found
+          at javafx.graphics/com.sun.javafx.tk.quantum.QuantumRenderer.getInstance(QuantumRenderer.java:283)
+          ...
+      Exception in thread "main" java.lang.reflect.InvocationTargetException
+          ...
+      Caused by: java.lang.RuntimeException: No toolkit found
+          at javafx.graphics/com.sun.javafx.tk.Toolkit.getToolkit(Toolkit.java:280)
+
+   .. figure:: https://docs.oracle.com/javase/8/javafx/get-started-tutorial/img/jfxar_dt_001_arch-diag.png
+
+   UI 在窗口中的组织形式由 ``Scene`` 对象代表的 scene graph 表示，即 UI 控件的树状数据结构。
+   场景对象通过舞台对象的 setScene 方法添加到窗口上，然后调用舞台的 show 方法显示 UI 图形。
+
+   JavaFX 使用 MVVM 编程模式，视图与业务逻辑解耦，可以使用 FXML 标签文档来设计 UI。
+   FXML 标签文档记录了 UI 组件的层次结构，Application 负责加载它并通过 Java 反射技术，
+   将标签对就的节点的属性数据反向依赖注入类实例，并成为可运行程序的一部分。标签发展包含尺寸、
+   布局、文字以及事件标记。例如，AnchorPane 要绑定一个控制器类（javafx.fxml.Initializable），
+   就可以在 ``fx:controller`` 属性中填写相应的 Java/Kotlin 类型名称。
+
+   FXML 中的节点对应的是 Java 代码定义的各种类型，可以是 JavaFX 构架自身的类型，也可以是用户
+   定义的类型，Java 或 Kotlin 语言定义的类型都可以。FXML 只是通过标签结构存储属性数据而已，
+   它本身就是字符格式的文本。例如，以下演示了一个 fxml 文档与对应的 MyClass 类型的联系：
+
+   .. code-block:: java
+
+      <?xml version="1.0" encoding="UTF-8"?>
+      <?import hi_javafx.MyClass?>
+
+      <MyClass value="The Value"/>
+      
+      <!-- ---------------------------------------- -->
+
+      public MyClass 
+      {
+          public static MyClass valueOf(String value) 
+          {
+              return new MyClass(value);
+          }
+
+          private String value = null;
+
+          public MyClass(String value) 
+          {
+              this.value = value;
+          }
+      }
+   
+   FXML 文档中包含以下几类数据：
+
+   -  A class instance
+   -  A property of a class instance
+   -  A "static" property
+   -  A "define" block
+   -  A block of script code
+   
+   FXML 文档中的特性标签（Property Elements）：
+
+   -  A property setter
+   -  A read-only list property
+   -  A read-only map property
+
+   FXML 文档中可表示的各种属性（Attributes）：
+
+   -  A property of a class instance
+   -  A "static" property
+   -  An event handler
+
+   FXML 文档可以使用的特殊属性、标签：
+
+   ================== ====================================================
+   ``fx:id``          定义标签在文档中的 ID 编码，可用于引用、关联 Java 对象中的属性。
+   ``fx:value``       用于初始化那些拥有 valueOf(Stirng) 静态方法的实例对象。
+   ``fx:factory``     指定静态、无参数的工厂函数用于创建类型实例。
+   ``fx:controller``  用于 root 标签关联一个 MVVM 控制器。
+   ``<fx:constant>``  此标签创建一个类型的常量引用。
+   ``<fx:include>``   此标签引用其它 FXML 文档。
+   ``<fx:reference>`` 创建另一个标签的引用。
+   ``<fx:copy>``      创建现有标签的副本。
+   ``<fx:root>``      创建上一层定义的 root 标签的引用。
+   ``<fx:define>``    在对象层级关系外创建对象，以待引用使用。
+   ``<fx:script>``    定义 JVM 脚本块，支持 JavaScript, Groovy, Clojure 等等。
+   ================== ====================================================
+
+   所谓控制器（FXML Controller），就是 MVVM 编程模式约定的、用于控制 UI 的程序功能，因为解耦
+   需要而独立形成的一个概念。控制器本身是一般的 Java 类型定义，结合元编程、反射技术、反向依赖注入，
+   就可以将 FXML 文档中的标签属性填充到 Java 类实例对应的属性中，对应的属性或方法使用 @FXML
+   进行标注。标注的目的就是为反射技术提供信息，以确定需要执行的处理工作。
+
+   FXML 文档中的标签节点可以使用 ``fx:controller`` 属性绑定控制器，也可以在代码中加 FXML 
+   (FXMLLoader) 后使用加载器的 ``setController`` 方法绑定控制器。例如，以下代码片段演示了
+   如何使用 @FXML 标注来帮助反射技术绑定标签中设置的 ``onAction`` 事件到控制器上方法上。当然，
+   FXML 支持脚本，可以直接填写代码：
+
+   .. code-block:: java
+
+      <VBox xmlns:fx="http://javafx.com/fxml" spacing="20"
+         fx:controller="hi_javafx.FxmlController">
+      <children>
+          <Button fx:id="button1" text="Click me!" onAction="#buttonClicked"/>
+      </children>
+      </VBox>
+
+      <!-- ---------------------------------------- -->
+
+      import javafx.event.Event;
+      import javafx.fxml.FXML;
+      import javafx.scene.control.Label;
+
+      public class FxmlController 
+      {
+          @FXML
+          public void buttonClicked(Event e)
+          {
+              System.out.println("Button clicked");
+          }
+      }
+
+   这种标注、绑定语法在 Java 上可以使用，Kotlin 语言上也可以使用。``@FXML`` 的意义就是在
+   加载 FXML 文档后，解释各个节点的属性值，并将属性、标签对应的对像等等注入关联控制器上，使用 
+   @FXML 标注过的属性上。所谓“注入”（Injects）就是反向依赖编程模式的一种术语，也就是设置对象
+   的属性值。只不过这种设置方式比较特别：需要 @FXML 标记一个依赖外部数据的属性，以及从外部加载
+   的数据，这里的 FXML 文档就是外部数据。类属性名称与 FXML 标签的 fx:id 属性产生关联。
+
+   控制反转 IoC_ (Inversion of control) 技术是 Martin Fowler 教授提出的一种软件设计模式。
+
+   Inversion of Control Containers and the Dependency Injection pattern
+
+   .. _IoC: https://www.martinfowler.com/articles/injection.html
+
+
+   复杂软件系统中，依赖是随处可见的，如果处理不好，那么程序各个零件之间的耦合程度极高，难以分解，
+   会给软件的复用、扩展或维护造成极大问题。常规的依赖关系处理，如果 A 依赖 B，当 B 不可用或无效
+   时就会造成 A 也无法使用，是就是正向依赖控制。反转依赖控制就是将依赖控制从 A 内部转换给 B。A
+   只需要做好随时启用 B 的工作，至于 B 实际如下处理（被禁用、被移除）不关心。回到代码中的 @FXML，
+   它表示对应的属性需要反射技术为它绑定一个数据（属性、对象），但是要不要绑定就交给反射程序去处理。
+
+   当绑定的对象属性存在多个 FXML 数据时，就会在运行时出现 InvocationTargetException 异常。
+   假设代码中使用 @FXML 标注要绑定一个数据，但是 FXML 文档又找不到相应的数据（依赖缺失），那么
+   编译时就会给出错误信息，指示缺失依赖的数据：
+
+   .. code-block:: bash
+
+      FXMLController.java:16: error: cannot find symbol
+          private Button button;
+                  ^
+        symbol:   class Button
+        location: class FXMLController
+
+   控制器可以选择实现初始化接口 Initializable（Controller initialization interface），
+   它只包含一个会在 root 节点完全处理扣执行的初始化方法，参数接收有二：
+
+   * public void initialize(URL location, ResourceBundle resources);
+   * @param location 相对 root 对象文件的路径，可能是 null 表示未知位置；
+   * @param resources 用于 root 对象本地化 (localize) 的资源，可能是 null 表示未可本地化；
+
+   因为参数可为 null，Java 语言中没有区分参数是否可以为 null 的表达形式。但是使用 Kotlin 语言
+   实现接口时，就要使用 Nullable 形式声明参数，否则就会导致以下运行时异常：
+
+      override fun initialize(url: URL?, bundle: ResourceBundle?)
+
+      Caused by: java.lang.NullPointerException: 
+         Parameter specified as non-null is null: 
+         method hi_javafx.FXMLControllerKt.initialize, parameter bundle
+          at hi_javafx/hi_javafx.FXMLControllerKt.initialize(FXMLController.kt)
+          at javafx.fxml/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2655)
+
+   JavaFx 提供了众多的布局容器（Container），也支持响应式的布局。例如，BorderPane 布局 
+   支持视图的五分区分割，中间部分为主，四边只占据其 UI 控件所需的最小空间。当窗口大小调整后，
+   默认状态下容器整体所占大小区域还是保持初始值，并不会主动适应窗口变化。设置基本尺寸基础上，
+   prefHeight 和 prefWidth 属性，再配合 maxHeight 和 maxWidth 属性的 "Infinity"
+   无限值方式即可以实现响应式布局：
+
+   =============== ====================================================
+   ``Pane``        基础容器，代表一个放置 UI 控件的平面区域。
+   ``BorderPane``  分界布局，分割出 top/right/bottom/left/center 5 个区域。
+   ``HBox``        水平布局，水平排列控件，不换行。
+   ``VBox``        垂直布局，竖起排列控件，不换列。
+   ``FlowPane``    流式布局，HBox + VBox 整合，可设置一个方向排列 UI 控件。
+   ``GridPane``    方格布局，支持 UI 控件跨行、跨列分布。
+   ``AnchorPane``  锚点布局，通过设置一个控件的 Anchor 来改变位置。
+   ``Accordion``   卷帘布局，点击卷帘按钮时收起或展示内容。
+   ``ScrollPane``  滚动布局，支持滚动显示内容，带有滚动条的容器。
+   ``StackPane``   堆栈布局，UI 控件堆叠放置，使用绝对定位调整位置。
+   ``TabPane``     标签而已，使用标签页分组放置 UI 控件，点击标签切换显示。
+   =============== ====================================================
+
+   可视化设计工具及教程文档参考：
+
+   *  `Scene Builder`__ and `Scene Builder Wiki`__
+   *  `Getting Started with JavaFX`__ 
+   *  `JavaFX Tutorial`__ by akob Jenkov
+   *  `FXGL - JavaFX Game Library`__
+
+.. _Getting Started with JavaFX: https://docs.oracle.com/javase/8/javafx/get-started-tutorial/index.html
+.. _JavaFX Tutorial: https://jenkov.com/tutorials/javafx/index.html
+.. _Scene Builder Wiki: https://github.com/gluonhq/scenebuilder/wiki/Basic-JavaFX-project-with-Scene-Builder
+.. _Scene Builder: https://gluonhq.com/products/scene-builder
+..  _FXGL - JavaFX Game Library: https://github.dev/AlmasB/FXGL
+
+   /BMApp.java
 
    .. code-block:: bash
 
@@ -1213,8 +1449,10 @@ JavaFX GUI with Gradle and Kotlin LSP
           @Override
           public void start(Stage stage) throws Exception {
               // Parent root = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));
-              Label label = new Label("JavaFx " + System.getProperty("javafx.version"));
-              StackPane root = new StackPane(label);
+              String javer = System.getProperty("java.version");
+              String fxver = System.getProperty("javafx.version");
+              Label label = new Label("JavaFx "+fxver+" at Java "+javer);
+
               Scene scene = new Scene(root, 640, 240);
               // scene.getStylesheets().add("/styles/Styles.css");
               stage.setTitle(STYLESHEET_CASPIAN);
@@ -1228,6 +1466,43 @@ JavaFX GUI with Gradle and Kotlin LSP
               launch(args);
           }
       }
+
+   /fxml/Scene.fxml
+
+   .. code-block:: bash
+
+      <?xml version="1.0" encoding="UTF-8"?>
+
+      <?import java.lang.*?>
+      <?import java.util.*?>
+      <?import javafx.scene.control.Button?>
+      <?import javafx.scene.control.Label?>
+      <?import javafx.scene.layout.BorderPane?>
+      <?import javafx.scene.layout.HBox?>
+      <?import javafx.scene.layout.StackPane?>
+
+      <BorderPane id="root" 
+          maxHeight="Infinity" maxWidth="Infinity" 
+          prefHeight="200" prefWidth="320" 
+          xmlns="http://javafx.com/javafx/21" 
+          xmlns:fx="http://javafx.com/fxml/1" 
+          fx:controller="hi_javafx.FXMLController">
+        <center>
+          <StackPane prefHeight="200.0" prefWidth="320.0" BorderPane.alignment="CENTER">
+            <children>
+              <Button fx:id="button" onAction="#handleButtonAction" text="Try Click Me!" />
+            </children>
+          </StackPane>
+        </center>
+         <bottom>
+            <HBox alignment="CENTER">
+               <children>
+                  <Label fx:id="label" />
+               </children>
+            </HBox>
+         </bottom>
+      </BorderPane>
+
 
    .. code-block:: bash
 
@@ -1250,47 +1525,227 @@ JavaFX GUI with Gradle and Kotlin LSP
 
       error: package javafx.application does not exist
 
+   直接在命令行中运行 Kotlin 编译输出的类文件时，如果未指定 Kotlin 运行时就会出现以下错误：
+
+   .. code-block:: bash
+
+      Java HotSpot(TM) 64-Bit Server VM (build 17.0.8+9-LTS-211, mixed mode, sharing)
+      java.lang.reflect.InvocationTargetException
+          at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+          ...
+      Caused by: java.lang.NoClassDefFoundError: kotlin/jvm/internal/Intrinsics
+          at hi_javafx.App$Companion.main(App.kt)
+          at hi_javafx.App.main(App.kt)
+          ...
+      Caused by: java.lang.ClassNotFoundException: kotlin.jvm.internal.Intrinsics
+
+   `Intrinsics`__ 是 Kotlin 内部类，可以在编译器附带的标准库或者在 Gradle 缓存文件中找到。
+   **注意，要求和类文件使用的 Kotlin 编译器同版本捆绑的标准库，如果版本不一致也会导致以上错误。**
+
+   .. _Intrinsics: https://vscode.dev/github/JetBrains/kotlin/blob/master/libraries/stdlib/jvm/runtime/kotlin/jvm/internal/Intrinsics.java
+
+   .. code-block:: bash
+
+      for it in $(find /c/kotlin/kotlinc/lib/*); do
+          echo $it
+          7z l $it | grep kotlin.jvm.internal.Intrinsics
+      done
+
+      find $USERPROFILE/.gradle/caches | grep /kotlin-stdlib-1.9.20.jar
+
+      /c/kotlin/kotlinc/lib/kotlin-stdlib-sources.jar
+      1980-02-01 00:00:00 .....         9980         1961  jvmMain\kotlin\jvm\internal\Intrinsics.java
+      /c/kotlin/kotlinc/lib/kotlin-stdlib.jar
+      1980-02-01 00:00:00 .....          475          306  kotlin\jvm\internal\Intrinsics$Kotlin.class
+      1980-02-01 00:00:00 .....         9086         3612  kotlin\jvm\internal\Intrinsics.class
+
+
+Java Module Project
+--------------------
+
+   Java 9 引入 Java Platform Module System (JPMS)，模块信息包含以下内容及关键字：
+
+   ========================  ============================
+   ``module``                - module name
+   ``requires``              - dependencies
+   ``exports``               - exported packages
+   ``uses`` or ``provides``  - used and provided services
+   ========================  ============================
+
+   Module System Benefits
+
+   *  strong encapsulation
+   *  reliable configuration
+   *  scalable platform
+
+   https://dev.java/learn/modules/
+
    这里假定项目使用 Kotlin 作为配置脚本语言，模块及构建脚本配置参考如下，根据使用到的依赖调整。
    JDK 自带模块生成工具 `jlink`__ ，Gradle 项目对应有插件 `org.beryx.jlink`__ 。启用插件，
    并配置入口模块。
 
    .. _jlink: https://docs.oracle.com/en/java/javase/15/docs/specs/man/jlink.html
    .. _org.beryx.jlink: https://badass-jlink-plugin.beryx.org/releases/latest/
+   .. _JlinkTask: https://github.com/beryx/badass-jlink-plugin/blob/master/src/main/groovy/org/beryx/jlink/JlinkTask.groovy
 
-   以下是 Java 模块信息文件，``src/main/java/module-info.java``，注意其存放的位置，
-   应该在源代码的顶层目录，否则编译时将报告：Project :app => no module-info.java found
+   以下是 Java 模块信息文件，``src/main/java/module-info.java``，注意代码文件存放的位置，
+   应该在源代码的顶层目录，否则编译时将报告：Project :app => no module-info.java found。
+   模块信息编译后会打包到 JAR 文档的根目录下存放。模块信息声明的依赖需要和 Gradle 构建脚本中
+   配置的依赖相符合，否则编译时就会找不到相应的模块。
 
    .. code-block:: java
 
-      module hellofx {
-          requires javafx.controls;
-          requires javafx.fxml;
-          requires transitive javafx.graphics;
-          
-          opens org.openjfx.hellofx to javafx.fxml;
-          exports org.openjfx.hellofx;
-      }
-
       module hi_javafx {
+          requires kotlin.stdlib;
           requires javafx.controls;
           requires javafx.fxml;
           requires javafx.web;
-          requires kotlin.stdlib;
+          requires transitive javafx.graphics;
 
-          requires org.controlsfx.controls;
-          requires com.dlsc.formsfx;
-          requires net.synedra.validatorfx;
-          requires org.kordamp.ikonli.javafx;
-          requires org.kordamp.bootstrapfx.core;
-          requires eu.hansolo.tilesfx;
-          requires com.almasb.fxgl.all;
+          // requires org.controlsfx.controls;
+          // requires com.dlsc.formsfx;
+          // requires net.synedra.validatorfx;
+          // requires org.kordamp.ikonli.javafx;
+          // requires org.kordamp.bootstrapfx.core;
+          // requires eu.hansolo.tilesfx;
+          // requires com.almasb.fxgl.all;
 
           opens hi_javafx to javafx.fxml;
           exports hi_javafx;
       }
 
+   以下是启用 Kotlin 语言以及 Java 模块打包的构建脚本参考（build.gradle.kts），为支持 Java
+   模块打包启用了 ``jlink`` 插件并配置了对应的任务。添加了应用程序插件的 ``mainModule`` 属性，
+   它会在运行程序时设置 --module-path 添加模块路径。执行 ``gradle jar`` 命令打包后，输出 JAR
+   文件根目录含有 ``module-info.class`` 文件。可用 ``javap`` 命令反字节码得到模块定义信息。
 
-   程序代码参考（Java/Kotlin）：
+   .. code-block:: java
+
+      plugins {
+          // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
+          // alias(libs.plugins.jvm)
+          // kotlin("jvm") version "1.9.20"
+          id("org.jetbrains.kotlin.jvm") version "1.9.20"
+
+          // https://github.com/openjfx/javafx-gradle-plugin
+          id("org.openjfx.javafxplugin") version "0.0.13"
+
+          id("org.javamodularity.moduleplugin") version "1.8.12"
+          id("org.beryx.jlink") version "2.25.0"
+
+          // Apply the application plugin to add support for building a CLI application in Java.
+          application
+      }
+
+      repositories {
+          // Use Maven Central for resolving dependencies.
+          mavenCentral()
+      }
+
+      javafx {
+          version = "17"  // Specify JavaFX version
+          modules ("javafx.controls", "javafx.fxml", 
+                   "javafx.web", "javafx.swing" , "javafx.media")
+          
+          //configuration = "implementation" // set dependency scope
+          //configurations("implementation", "testImplementation")
+      }
+
+      jlink {
+          // options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
+          launcher {
+              name = "hi_javafx"
+          }
+      }
+
+      dependencies {
+
+          // Use the Kotlin JUnit 5 integration.
+          testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
+
+          // Use the JUnit 5 integration.
+          testImplementation(libs.junit.jupiter.engine)
+
+          testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+          // This dependency is used by the application.
+          implementation(libs.guava)
+
+          implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.20")
+
+          // implementation("org.controlsfx:controlsfx:11.1.2")
+          // implementation("com.dlsc.formsfx:formsfx-core:11.6.0") {
+          //     exclude(group = "org.openjfx")
+          // }
+          // implementation("net.synedra:validatorfx:0.4.0") {
+          //     exclude(group = "org.openjfx")
+          // }
+          // implementation("org.kordamp.ikonli:ikonli-javafx:12.3.1")
+          // implementation("org.kordamp.bootstrapfx:bootstrapfx-core:0.4.0")
+          // implementation("eu.hansolo:tilesfx:11.48") {
+          //     exclude(group = "org.openjfx")
+          // }
+          // implementation("com.github.almasb:fxgl:17.3") {
+          //     exclude(group = "org.openjfx")
+          //     exclude(group = "org.jetbrains.kotlin")
+          // }
+      }
+
+      // Apply a specific Java toolchain to ease working on different environments.
+      java {
+          toolchain {
+              languageVersion = JavaLanguageVersion.of(17)
+          }
+      }
+
+      application {
+          // Define the main class for the application.
+          mainClass = "hi_javafx.App"
+          mainModule.set("hi_javafx")
+      }
+
+      tasks.named<Test>("test") {
+          // Use JUnit Platform for unit tests.
+          useJUnitPlatform()
+      }
+
+   执行 Gradle 编译编译、打包命令生成可执行 Java 程序，参考以下脚本直接使用 Java 命令运行程序，
+   Kotlin 标准库根据编译时使用的版本引用相应的 kotlin-stdlib.jar 文件。如果编译器使用的是手动
+   安装的 Kotlin 版本，可以将其 kotlinc/lib 目录下的所有库文件添加到 -cp 路径列表中。另外，
+   同样也要注意 JavaFX 二进制文件所所用的 Java 编译器版本，只有版本匹配才能正常运行程序。以下
+   脚本中，可以根据需要调整是优先使用构建输出的 build/classes 还是 build/lib 中的 JAR 包：
+
+   .. code-block:: bash
+
+      gradle clean jar
+
+      LIBS=$(find "C:/kotlin/kotlinc/lib" -follow -type f -path "*/*.jar" | sed -n 'p; a ;')
+      BUNDLED=C:/jdk1.8.0_202/jre/lib/ext/jfxrt.jar;
+      SDK="C:/javafx-sdk-17.0.11/lib/"
+      MODULES=javafx.controls,javafx.fxml
+      CPBUILD="app/build/classes/kotlin/main/;app/build/classes/java/main/;app/build/resources/main;"
+      CPJAR="app/build/libs/appFX.jar"
+      CLASSPATH="$CPJAR;$CPBUILD;$USERPROFILE/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.9.20/e58b4816ac517e9cc5df1db051120c63d4cde669/kotlin-stdlib-1.9.20.jar"
+
+      $JAVA_HOME/bin/java -version
+      $JAVA_HOME/bin/java --module-path "$SDK" --add-modules $MODULES -cp "$CLASSPATH" hi_javafx.App
+
+      # find $USERPROFILE/.gradle/caches | grep /kotlin-stdlib-1.9.20.jar
+
+      function findIntrinsics()
+      {
+          for it in $(find /c/kotlin/kotlinc/lib/*); do
+              echo $it
+              7z l $it | grep kotlin.jvm.internal.Intrinsics
+          done
+      }
+
+   程序代码（Java/Kotlin）参考列表如下：
+
+   *  src/main/java/App.java
+   *  src/main/java/FXMLController.java
+   *  src/main/kotlin/FXMLController.kt
+   *  src/main/kotlin/App.kt
 
    src/main/java/App.java
 
@@ -1387,28 +1842,42 @@ JavaFX GUI with Gradle and Kotlin LSP
           </children>
       </AnchorPane>
 
-   FXML 标签文档记录了 UI 组件的层次结构，Application 负责加载它并通过 Java 反射技术，
-   将标签对就的节点的属性数据反向依赖注入类实例，并成为可运行程序的一部分。标签发展包含尺寸、
-   布局、文字以及事件标记。``fx:controller`` 属性指定了 AnchorPane 节点关联的类对象。
-
 
    src/main/kotlin/FXMLController.kt
 
    .. code-block:: kotlin
 
-
       package hi_javafx
 
+      import java.net.URL
+      import java.util.ResourceBundle
+      import javafx.event.ActionEvent
       import javafx.fxml.FXML
+      import javafx.fxml.Initializable
       import javafx.scene.control.Label
+      import javafx.scene.control.Button
 
-      class FXMLControllerKt {
-          @FXML
-          private lateinit var welcomeText: Label
+      class FXMLControllerKt () : Initializable
+      {
+
+          @FXML 
+          lateinit private var label: Label
 
           @FXML
-          private fun onHelloButtonClick() {
-              welcomeText.text = "Welcome to JavaFX Application!"
+          lateinit private var button: Button
+
+          @FXML
+          @Suppress("UNUSED_PARAMETER")
+          private fun handleButtonAction (event: ActionEvent)
+          {
+              System.out.println("Button was clicked!")
+              label.setText("Hello JavaFX with Kotlin")
+          }
+
+          override 
+          fun initialize(url: URL?, bundle: ResourceBundle?) 
+          { 
+              System.out.println("url: $url, bundle: $bundle")
           }
       }
 
@@ -1528,11 +1997,11 @@ Debugging and Debuginfo
       |           |      +-------------------+        |
       |           +----->+   node inspector  +--------+
       |                  +-------------------+
-
+      |
       |  CRDP: Chrome Remote Debugging Protocol
       |  V8DP: V8 Debugging Protocol
-
-
+      |
+      |
       |  +-----------------+        +----------------+
       |  |                 |        |                |
       |  |      IDE        |        |  Node Program  |
@@ -2194,10 +2663,19 @@ VS Code Extensions
       Headless 指的是无界面的环境中运行 Chrome，实属于无头无脸了。通过命令行或者脚本操作
       Chrome，无需人的干预，运行更稳定。只需要启动 Chrome 时添加参数 --headless 即可。
 
-      alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"  # Mac OS X 命令别名
-      chrome --headless --remote-debugging-port=9222 --disable-gpu                   # 开启远程调试
-      chrome --headless --disable-gpu --dump-dom https://www.baidu.com               # 获取页面 DOM
-      chrome --headless --disable-gpu --screenshot https://www.baidu.com             # 截图
+   .. code-block:: bash
+
+      # Mac OS X 命令别名
+      alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"  
+
+      # 开启远程调试
+      chrome --headless --remote-debugging-port=9222 --disable-gpu 
+
+      # 获取页面 DOM
+      chrome --headless --disable-gpu --dump-dom https://www.baidu.com 
+
+      # 截图
+      chrome --headless --disable-gpu --screenshot https://www.baidu.com 
 
    `List of Chromium Command Line Switches <https://peter.sh/experiments/chromium-command-line-switches/>`__
 
