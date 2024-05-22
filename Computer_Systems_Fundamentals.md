@@ -1637,7 +1637,7 @@ By providing a mechanism for increasing CPU utilization, multiprogramming create
 
 A simple way to illustrate multiprogramming in modern software is with the `sleep()` function. This function’s only argument is the number of seconds to pause the current process. During this time, the system will switch to other processes that need to run. In other words, calling `sleep()` can be interpreted as a form of cooperative multitasking.
 
-📦 C library functions - `<unistd.h>`
+## 📦 C library functions - `<unistd.h>`
 
 * * *
 
@@ -1888,7 +1888,7 @@ From a very high-level perspective, we can describe the life cycle of a process 
 
 There are generally two system calls that are associated with creating a new process: `fork()` and `exec()`. When a program calls `fork()`, a system call is triggered that asks the kernel to create a new virtual memory instance. In the immediate moment when this occurs, the contents of the new virtual memory instance is an exact duplicate of the process that was running. We refer to the two processes as the _parent_ and _child_. While handling the `fork()`, the kernel will allocate new internal data structures for the child, assign it a [process identifier](#term-process-identifier) (PID), and assign a small set of initial resources to it. A PID is an integer value that acts like a name that can be used to uniquely refer to a process.
 
-📦 C library functions – `<unistd.h>`
+## 📦 C library functions – `<unistd.h>`
 
 * * *
 
@@ -1950,7 +1950,7 @@ Once a process uses `fork()` to create a child process, the timing of the execut
 
 In many cases, after making a call to `fork()`, you want to switch to a different program. For instance, consider the `bash` terminal program. Within `bash`, some commands are considered _built-in_ and are executed by `bash` itself. One example of a built-in is the export command, which can be used to define or change an [environment variable](#term-environment-variable), such as `PATH` or `CLASSPATH`. Other commands are used to call a separate compiled program, such as `ls`, `gcc`, or `vim`. The code to execute these commands does not exist as a part of `bash`. Rather, these are distinct programs and the code needs to be loaded into the new process.
 
-📦 C library functions – `<unistd.h>`
+## 📦 C library functions – `<unistd.h>`
 
 * * *
 
@@ -2039,7 +2039,7 @@ In recent years, the use of `fork()` has been criticized for a variety of reason
 
 To address some of these criticisms, POSIX includes a new function interface, `posix_spawn()`. This function takes multiple parameters, including the path to the executable and the `argv` and `envp` arrays that would be passed into `execv()` or `execve()` functions. In addition, `posix_spawn()` takes other parameters that can specify additional operations. These operations give the programmer explicit control over the special cases mentioned above.
 
-📦 C library functions – `<spawn.h>`
+## 📦 C library functions – `<spawn.h>`
 
 * * *
 
@@ -2071,7 +2071,7 @@ A process can be terminated in a number of ways. Some methods of process termina
 
 The preceding example also illustrates a key element about the timing of the destruction of processes. Once a process calls `fork()` and creates a child process, the relative scheduling between the parent and child is nondeterministic from the programmer’s perspective. The two processes are scheduled independently by the OS running on that particular machine, and the scheduling will be influenced by other processes running, as well. However, the parent can temporarily pause its own execution by making a call to `wait()` or `waitpid()`.
 
-📦 C library functions – `<sys/wait.h>`
+## 📦 C library functions – `<sys/wait.h>`
 
 * * *
 
@@ -2137,7 +2137,7 @@ By removing so much contextual information about files, this abstraction might s
 
 The most basic operations for working with files are creating and opening them. For files that can be identified with named locations in the file system directory structure (such as `/dev/random`, `/usr/bin/cksum`, or `/home/csf/movies.csv`), we can use the `open()` function. The first parameter is the path to the file; this path can be an _absolute path_ (such as `/dev/random`) or a _relative path_ (such as `../src/main.c`) that describes the location relative to the current working directory. If the file is successfully opened, the return value from `open()` is the file descriptor, a non-negative integer value that other functions use to identify the file. This value should typically be greater than 2, as the default behavior is to open three files when a process is created: 0 (`STDIN_FILENO`) for standard input (such as reading from the command prompt), 1 (`STDOUT_FILENO`) for standard output (such as writing out to the screen), and 2 (`STDERR_FILENO`) for standard error (also writing out to the screen).
 
-📦 C library functions – `<fcntl.h>`
+## 📦 C library functions – `<fcntl.h>`
 
 * * *
 
@@ -2176,7 +2176,7 @@ int fd = open (path, O_CREAT | O_TRUNC | O_WRONLY, mode);
 
 Once the file has been opened, it can be read from. The `read()` function takes three parameters: the file descriptor, the address of a buffer in memory to read the bytes into, and the maximum number of bytes to read. [[1]](#f15) The value returned from `read()` indicates the actual number of bytes successfully read, which may be fewer than the `nbyte` parameter. (Calling `read()` with `nbyte` set to 100 on a file that only contains 10 bytes of data will return 10, not 100.) Finally, when the process is finished working with a file, the `close()` function will release any associated resources in the kernel or the C library data that have been allocated for this process.
 
-📦 C library functions – `<unistd.h>`
+## 📦 C library functions – `<unistd.h>`
 
 * * *
 
@@ -2229,7 +2229,7 @@ printf ("\n");
 
 Some files, particularly IPC and device interface files, require special handling when reading. Recall that the default behavior for open files is to block until data is ready; this behavior is undesirable when other productive work could be done. For instance, a web server that is blocking while trying to read data from one client could be missing out on connection requests from other clients. The `poll()` function provides a useful interface for avoiding this situation.
 
-📦 C library functions – `<poll.h>`
+## 📦 C library functions – `<poll.h>`
 
 * * *
 
@@ -2276,7 +2276,7 @@ if (poll (fds, 1, 100) == 0) // wait for 100 ms
 
 In addition to reading, programs typically need to write to a file. The arguments to `write()` are identical to those for `read()`. Unlike `read()`, there is not really a concern with buffer overflow with `write()`, as data is being sent away from the current process; the kernel buffers on the other end will prevent such errors. However, checking the return value from `write()` is as important as it is with `read()` to make sure that all of the intended data was written successfully; this is especially true when writing large pieces of data. [Code Listing 2.15](#cl2-15) illustrates how to write to a file. Note that writing to the end of a persistent file will cause it to grow. In this example, the file is created to be empty (`O_TRUNC`), but writing six bytes creates a file of size six (the last byte is the null terminator `'\0'`).
 
-📦 C library functions – `<unistd.h>`
+## 📦 C library functions – `<unistd.h>`
 
 * * *
 
@@ -2310,7 +2310,7 @@ printf ("Contents: [%s]\n", buffer);
 
 If the file supports arbitrary accesses, the `lseek()` function will change the file’s internal location information to a specified target. The `offset` can be specified as either a positive or negative value. The `whence` parameter, which takes a limited number of possible values, plays an important role in determining this location. If `whence` if set to `SEEK_SET`, then the `offset` argument is the exact number of bytes into the file to use as the location. Setting `whence` to `SEEK_CUR` will add the `offset` to the current location number; a negative `offset` will seek backwards, while a positive value seeks forward. Lastly, setting `whence` to `SEEK_END` will add the `offset` to the size of the file; using a negative offset moves the location to the number of bytes before the end of the file. Whichever value is passed, the final location must be positive. If the location is larger than the file size, performing a write at that point will increase the file size accordingly. Any gap between the existing end of the file and the new data will be filled with null bytes.
 
-📦 C library functions – `<unistd.h>`
+## 📦 C library functions – `<unistd.h>`
 
 * * *
 
@@ -2357,7 +2357,7 @@ close (fd);
 
 When working with files, it is often important to access [metadata](#term-metadata) – information about the file – rather than the contents about the file itself. For instance, when reading a persistent file into memory from storage, knowing the file’s size is necessary for allocating memory for the buffer. As another example, consider an _intrusion detection_ program that is responsible for monitoring a file system for security threats or attacks; this program might check for changes to the associated permissions or the user ID that is considered the owner of the file.
 
-📦 C library functions – `<sys/stat.h>`
+## 📦 C library functions – `<sys/stat.h>`
 
 * * *
 
@@ -2537,7 +2537,7 @@ The `SIGCONT` signal can be used to resume a process that has been suspended wit
 
 The default behavior for C programs is to respond to `SIGSEGV` by printing a message that a segmentation fault occurred and then exit. A program can include a custom signal handler to respond to segmentation faults differently. As an example, this is how debuggers (e.g., `gdb`) detect segmentation faults. Instead of killing the process, the debugger pauses it, allowing the user to run the `backtrace` utility to determine what line of code caused the fault.
 
-📦 C library functions – `<signal.h>`
+## 📦 C library functions – `<signal.h>`
 
 * * *
 
@@ -2579,7 +2579,7 @@ printf ("Process %d is exiting\n", getpid ());
 
 To overwrite a signal handler, you start by defining a function with the desired new behavior. In the simplest form, this function must take exactly one `int` parameter and have a `void` return type. The parameter received by this function will be the specific signal that was passed. As such, it is possible to define one signal handling function and use it to respond to multiple signals.
 
-📦 C library functions – `<signal.h>`
+## 📦 C library functions – `<signal.h>`
 
 * * *
 
@@ -2640,7 +2640,7 @@ The call to `exit()` on line 20 is important for this example. Without this call
 
 In more realistic code, the signal might interfere with the executing code. For instance, the interrupted code might have just set a number of registers to prepare for a function call. The signal handler might then change these values, leading to errors when the normal execution resumes. If the application must be able to return to normal execution after processing a signal, the solution is to create a non-local goto with `sigsetjmp()` and `siglongjmp()`.
 
-📦 C library functions – `<sig/setjmp.h>`
+## 📦 C library functions – `<sig/setjmp.h>`
 
 * * *
 
@@ -2681,7 +2681,7 @@ main (int argc, char *argv[])
 
 The existing code has a problem, however. When a signal occurs, a bit gets set in the _signal mask_ to indicate that this signal has been raised. If the signal occurs again, **the signal handler will not get invoked again**. Rather, signal handlers will only run when the bit in the signal mask first gets set. Consequently, if [Code Listing 2.20](#cl2-20) was used to overwrite `SIGINT`, only the first `Ctrl-c` would invoke the signal handler. All additional `SIGINT`s would be ignored. The `sigprocmask()` function can fix this problem by lowering the bit in the signal mask.
 
-📦 C library functions – `<setjmp.h>`
+## 📦 C library functions – `<setjmp.h>`
 
 * * *
 
@@ -2936,7 +2936,7 @@ Although [signals](#term-signal) are covered in another chapter, we include them
 
 The simplest form of communication with pipes is to provide parent-child communication using the `pipe()` library function. This function takes an int array of length 2. (Recall that arrays are always passed by reference.) Assuming the kernel is able to create the pipe, the array will contain the file descriptors for the two ends of the pipe. If the pipe creation, the function returns -1.
 
-📦 C library functions – `<unistd.h>`
+## 📦 C library functions – `<unistd.h>`
 
 * * *
 
@@ -3094,7 +3094,7 @@ Figure 3.3.5: Chained logical structure of a sequence of bash commands connected
 
 [Figure 3.3.5](Pipes.html#ipcpipeline) illustrates the chained structure of these four processes. These four processes are created by bash using both `fork()` and `exec()`. Once the processes are created, `bash` links their standard input and output by setting up a pipe to connect each process with the one after it. (This is the reason the vertical bar (`|`) is referred to as a pipe.) However, there is an additional step: `bash` needs to link the pipe with each process’s standard input and output. The `dup2()` function accomplishes this task.
 
-📦 C library functions – `<unistd.h>`
+## 📦 C library functions – `<unistd.h>`
 
 * * *
 
@@ -3169,7 +3169,7 @@ The pipes described above create a simple mechanism for parent and child process
 
 FIFOs work by attaching a filename to the pipe. For this reason, FIFOs are also called [named pipes](#term-named-pipe) as opposed to the anonymous pipes discussed previously. FIFOs are created by one process that calls `mkfifo()`. Once created, any process (with correct access permissions) can access the FIFO by calling `open()` on the associated filename. Once the processes have opened the file, they can use the standard `read()` and `write()` functions to communicate.
 
-📦 C library functions – `<sys/stat.h>`
+## 📦 C library functions – `<sys/stat.h>`
 
 * * *
 
@@ -3270,7 +3270,7 @@ When we say that the file is mapped to a particular region in memory, we mean th
 
 Three functions provide the basic functionality of memory-mapped files. The `mmap()` and `munmap()` functions are used to set up or remove a mapping, respectively. Both functions take a length parameter that specifies the size of the region. The `mmap()` function also includes parameters for the types of actions that can be performed (`prot`), whether the region is private or shared with other processes (`flags`), the file descriptor (`fd`), and the byte offset into the file that corresponds with the start of the region (`offset`). The `addr` parameter for mmap() is typically NULL, allowing the system to determine the address of the region. For `munmap()`, the `addr` must be the start of the memory-mapped region (which is the value returned by `mmap()`).
 
-📦 C library functions – `<sys/mman.h>`
+## 📦 C library functions – `<sys/mman.h>`
 
 * * *
 
@@ -3442,7 +3442,7 @@ Figure 3.6.2: POSIX message queues are priority-based, with 0 as the lowest prio
 
 There are six functions typically used for setting up and using POSIX [message queues](#term-message-queue).
 
-📦 C library functions – `<mqueue.h>`
+## 📦 C library functions – `<mqueue.h>`
 
 * * *
 
@@ -3571,7 +3571,7 @@ if ((mq_receive (mqd, buffer, attr.mq_msgsize, &prio)) != -1)
 
 The default behavior for POSIX message queues is to perform [blocking I/O](#term-blocking-i-o) when writing to a full queue (or reading from an empty one). If this behavior is undesirable, there are three alternatives that can be used. The first is to include the `O_NONBLOCK` option in the `oflag` bit mask to open the queue in non-blocking mode. If the queue is ever full, `mq_send()` will return an error without blocking. The other option is to use `mq_timedsend()` and `mq_timedreceive()`, which use an additional parameter (`abs_timeout`) to specify the maximum amount of time to wait when blocked. Finally, rather than attempting to retrieve a message that may not have been sent, a process can use `mq_notify()` to request an asynchronous notification that a message has been sent. Interested readers should consult the language documentation for more information on these functions.
 
-📦 C library functions – `<mqueue.h>`
+## 📦 C library functions – `<mqueue.h>`
 
 * * *
 
@@ -3615,7 +3615,7 @@ The solution is to avoid the use of pointers within the shared memory region, us
 
 The POSIX interface for shared memory is very simple, consisting of two primary functions. The `shm_open()` takes the POSIX IPC object name, a bit-mask of flags (`oflag`) and a permission mode to apply new objects. [[1]](#f18) Similarly, `shm_unlink()` deletes the shared memory object.
 
-📦 C library functions – `<sys/mman.h>`
+## 📦 C library functions – `<sys/mman.h>`
 
 * * *
 
@@ -3737,7 +3737,7 @@ In the scenario above, it is important to initialize the semaphore to 0 to achie
 
 POSIX defines two types of semaphores: named and unnamed. [Named semaphores](#term-named-semaphore) are created using the standard POSIX arguments of `name`, `oflag`, and `mode`, along with an initial unsigned integer `value`. The `mode` and `value` parameters must both be included when creating a new semaphore, and both must be excluded when connecting to an existing semaphore. The `sem_wait()` and `sem_post()` functions decrement (wait) or increment (post) the semaphore’s value. If the value is currently 0, `sem_wait()` will block the current process until the value is changed by another process calling `sem_post()`. Note that `sem_post()` will only unblock one process at a time; if five processes are waiting on the semaphore, then five calls to `sem_post()` must be made to unblock them all.
 
-📦 C library functions – `<semaphore.h>`
+## 📦 C library functions – `<semaphore.h>`
 
 * * *
 
@@ -3801,7 +3801,7 @@ sem_unlink ("/OpenCSF_Sema");
 
 In many circumstances, a process may wish to check on the status of a semaphore without getting blocked indefinitely. For instance, assume one process is using a semaphore to signal that it has completed some important task; another process may want to check on whether the task has been completed, but still continue processing even if the event has not happened yet. Downing the semaphore with `sem_wait()` would not work, because it would block the process until the event occurs. Instead, POSIX provides two alternative functions for waiting on a semaphore. With `sem_trywait()`, a process can try to down the semaphore; however, if the semaphore’s current value is 0, then `sem_trywait()` returns an error instead of blocking. Alternatively, `sem_timedwait()` allows the process to specify a maximum amount of time to block; if no post occurs before the timeout arrives, then the process is unblocked and an error is returned.
 
-📦 C library functions – `<semaphore.h>`
+## 📦 C library functions – `<semaphore.h>`
 
 * * *
 
@@ -3818,7 +3818,7 @@ Decrement the semaphore, but place a time limit on the blocking
 
 POSIX [unnamed semaphores](#term-unnamed-semaphore) provide a lightweight approach for creating and using semaphores. Specifically, where `sem_open()` returns a pointer to a newly allocated semaphore, `sem_init()` takes a reference to a semaphore variable (declared as a `sem_t`) that has already been allocated within the current process’s memory space and sets the semaphore to the value passed. Once the semaphore is initialized, the other functions specified for named semaphores (e.g., `sem_post()` and `sem_wait()`) can be used.
 
-📦 C library functions – `<semaphore.h>`
+## 📦 C library functions – `<semaphore.h>`
 
 * * *
 
@@ -4265,7 +4265,7 @@ The term [request for comment](#term-request-for-comment) may seem to suggest th
 
 The [socket](#term-socket) interface in C provides a mechanism for setting up a communication channel to another host system. For both clients and servers, the initial function call is the same. Processes call `socket()` to request a new socket instance from the OS. As with other forms of IPC such as pipes, sockets are treated as files, so the process receives a file descriptor from the return value. If the socket creation failed, the OS returns a negative value.
 
-📦 C library functions – `<sys/socket.h>`
+## 📦 C library functions – `<sys/socket.h>`
 
 * * *
 
@@ -4683,7 +4683,7 @@ Table 4.3: Placement of bytes in memory depends on CPU endianness
 
 While most modern CPU architectures use a little endian format, network protocols use big endian. Furthermore, since the sender and receiver hosts may have different CPU architectures, they may also differ in their endianness. To overcome this problem, multi-byte socket address fields that will be sent across the network require attention to endianness. The simplest way to achieve this is to use the C functions `htons()`, `htonl()`, `ntohs()`, and `ntohl()`. When the process is setting up the socket or sending data, use the `hton` (_host to network_) versions; as an example, refer back to the last line of [Code Listing 4.1](#cl4-1). At the other end, when a process reads data from the network, it will use the `ntoh` (_network to host_) version. Assuming both hosts follow this convention, neither host will require any advance knowledge of the other host’s CPU architecture endianness.
 
-📦 C library functions – `<arpa/inet.h>`
+## 📦 C library functions – `<arpa/inet.h>`
 
 * * *
 
@@ -4716,7 +4716,7 @@ Once a client process has created a socket, the next step is to build the socket
 
 While there are standard port numbers for many applications, IP addresses should not be hard-coded, as they can change. Instead, `getaddrinfo()` provides an interface to look up an IP address by the standard text format used in URIs. This string is passed as the first argument, `nodename`. The `servname` parameter indicates a desired service, such as `"http"`. The `hints` parameter can be used to limit the list of results, such as restricting the domain to `AF_INET` (IPv4) or `AF_INET6` (IPv6), or limiting the type to `SOCK_STREAM` or `SOCK_DGRAM`. The final parameter, `res`, is a call-by-reference parameter that will be set to point to a linked list of address structures.
 
-📦 C library functions – `<netdb.h>`
+## 📦 C library functions – `<netdb.h>`
 
 * * *
 
@@ -4747,7 +4747,7 @@ struct addrinfo {
 
 When building applications to connect to a server, the `ai_addr` field can be passed without casting. However, it is often beneficial to print the address in a readable format, such as when writing to a log file. The `inet_ntoa()` and `inet_ntop()` functions perform this formatting. Of these two, the `inet_ntoa()` function is older and only supports IPv4. This function takes a `struct in_addr` parameter, which would be the `sin_addr` field of a `struct sockaddr`. The return value is a pointer to a statically allocated location containing the string. As such, the pointer does not (and cannot) need to be freed later. On the other hand, `inet_ntop()` works with both IPv4 and IPv6, relying on the `af` parameter to distinguish between the two. The `src` argument points to the `sockaddr` to translate; note that this parameter uses a `void *` type, and the function will cast it based on the `af` argument. The `dst` argument is a pointer to a buffer to write the string into, with size indicating the length of the buffer. If the address can be translated properly, the function returns a pointer to the string, which should match the address of the buffer.
 
-📦 C library functions – `<arpa/inet.h>`
+## 📦 C library functions – `<arpa/inet.h>`
 
 * * *
 
@@ -5067,7 +5067,7 @@ Note that these `struct addrinfo` instances form a linked list of possible addre
 
 Once the address information is established, it can be passed to the `connect()` function to establish the initial connection to the socket at a server address, so long as it is accepting requests. If TCP is the transport layer protocol used, `connect()` will send an initial message to the server host process to initiate the TCP [3-way handshake](#term-tcp-handshake), making the server aware of the connection. If UDP or another connectionless protocol is used, `connect()` simply sets the IP address of the peer (i.e., the server) in the client host’s socket.
 
-📦 C library functions – `<sys/socket.h>`
+## 📦 C library functions – `<sys/socket.h>`
 
 * * *
 
@@ -5135,7 +5135,7 @@ getaddrinfo (NULL, "8000", &hints, &server_info);
 
 Once the socket address information has been configured, the process can then make a sequence of function calls to become a server. Typically (though not required), the first call is to `setsockopt()` to configure the socket with the `SO_REUSEADDR` option. This option avoids a common error during the next step, `bind()`. The `bind()` call links the port number with the current process. Sometimes when a port number is reused, a timing problem can cause the previous process (which is no longer running) to fail to release the port fully. Setting the `SO_REUSEADDR` option tells `bind()` to ignore this and forcefully replace the port association.
 
-📦 C library functions – `<sys/socket.h>`
+## 📦 C library functions – `<sys/socket.h>`
 
 * * *
 
@@ -5193,7 +5193,7 @@ For connection-less protocols like UDP, no further action is needed to set up th
 
 Connection-oriented TCP sockets require two additional function calls. The first, `listen()`, converts the socket to a connection-oriented server socket with a designated request queue. The second parameter, `backlog`, can be used to modify the maximum number of enqueued connection requests. Setting this value to 0 will use the system default size, which varies depending on the system implementation of the C library. There is also a maximum allowable listen queue size, defined by the constant `SOMAXCONN`. Once the process has converted its socket to a server socket, repeated calls to `accept()` establish connections with incoming requests. The `accept()` function is blocking, so the process will wait at that point until a new request comes in. When a new request arrives, `accept()` performs the server side of the 3-way handshake to establish the connection, storing information about the client in the `address` and `address_len` fields.
 
-📦 C library functions – `<sys/socket.h>`
+## 📦 C library functions – `<sys/socket.h>`
 
 * * *
 
@@ -5252,7 +5252,7 @@ close (socketfd);
 
 For TCP sockets, exchanging messages between the client and server can be done using the standard `read()` and `write()` operations, as with other forms of IPC. This works because sockets are treated like files, and the value returned from `socket()` behaves the same as any other file descriptor. UDP sockets require the use of `recvfrom()` and `sendto()` for data exchange. These functions use `struct sockaddr` parameters to determine the sender’s IP address when receiving and to specify the destination when sending. The `read()` and `write()` functions cannot serve this purpose, as the UDP socket identified by the file descriptor does not store this information. The `recvfrom()` and `sendto()` functions can also be used by TCP for consistency.
 
-📦 C library functions – `<sys/socket.h>`
+## 📦 C library functions – `<sys/socket.h>`
 
 * * *
 
@@ -7239,7 +7239,7 @@ The strength of symmetric key algorithms like AES derives from the strong probab
 
 The operations used in AES are very fast, measured on the scale of CPU cycles. The full encryption process for a single block requires 10, 12, or 14 rounds (based on the key size). Consequently, AES can encrypt a significant amount of data very efficiently. The only problem is how should Alice and Bob determine what key to use, particularly if they have never spoken before? For instance, when you use a web browser to visit your school’s or bank’s website for the first time, the browser and server need to determine a key to use. As a complicating factor, depending on more advanced characteristics of the algorithm, it may be necessary to ensure the key has not been used before.
 
-📦 C OpenSSL library functions – `<openssl/evp.h>`
+## 📦 C OpenSSL library functions – `<openssl/evp.h>`
 
 * * *
 
@@ -7381,7 +7381,7 @@ At the time of this writing, SHA-2 is still recommended for use (unlike SHA-0 an
 
 On their own, cryptographic hash functions provide a basic mechanism for integrity. If a message $m$ is known and someone claims that the hash value $H(m)$ is the correct hash value, the truth of this statement can be easily confirmed. However, that construction alone does not allow anyone to claim to be the author if $m$. Instead, the cryptographic hash function must combine $m$ with a key. [Figure 5.4.6](NetSec.html#netsecmte) shows one technique for doing this, known as [MAC-then-Encrypt](#term-mac-then-encrypt) (MtE). The first step is to use a [keyed cryptographic hash function](#term-keyed-cryptographic-hash-function) that combines the plaintext with a secret key to compute a [message authentication code](#term-message-authentication-code) (MAC). The MAC is then appended to the plaintext, and the resulting message is encrypted. MtE provides guarantees of both confidentiality and integrity, but it also provides a claim of [authenticity](#term-authenticity) about authorship—only someone with the key could generate the MAC and ciphertext.
 
-📦 C OpenSSL library functions – `<openssl/sha.h>`
+## 📦 C OpenSSL library functions – `<openssl/sha.h>`
 
 * * *
 
@@ -8315,7 +8315,7 @@ A function is considered to be [thread-safe](#term-thread-safe) if it can be cal
 
 An example of a function that is neither thread-safe nor reentrant is the string tokenizer `strtok()`, which takes a string and breaks it into one substring at a time based on a specified separator. The problem with `strtok()` is that it uses an internal static pointer to keep track of where it needs to continue. That is, when `strtok()` returns one a token, the internal pointer is pointing to the next token within that particular string. If `strtok()` is interrupted and called by another thread, then the internal pointer will be switched to this second thread’s string. When the first thread resumes, it will then attempt to tokenize the second thread’s string rather than its own.
 
-📦 C library functions – `<string.h>`
+## 📦 C library functions – `<string.h>`
 
 * * *
 
@@ -8351,7 +8351,7 @@ In this section, we’ll return to the code from [Code Listing 6.1](ProcVThreads
 
 Three functions define the core functionality for creating and managing threads. The `pthread_create()` function will create and start a new thread inside a process. The `start_routine` parameter specifies the name of the function to use as the thread’s entry point, just as `main()` serves as the main thread’s entry point. The pthread_exit() is used to exit the current thread and optionally return a value. Finally, the `pthread_join()` function is the thread equivalent of the `wait()` function for processes. That is, calling `pthread_join()` on a child thread will cause the current (parent) thread to wait until the child finishes and calls `pthread_exit()`.
 
-📦 C library functions – `<pthread.h>`
+## 📦 C library functions – `<pthread.h>`
 
 * * *
 
@@ -8448,7 +8448,7 @@ Alternatively, the `pthread_detach()` function can be used to detach a running t
 
 pthread_detach (pthread_self ());
 
-📦 C library functions – `<pthread.h>`
+## 📦 C library functions – `<pthread.h>`
 
 * * *
 
@@ -9516,7 +9516,7 @@ If an interrupt and thread switch occur after the first thread has acquired the 
 
 In the POSIX interface, three functions provide the basic functionality for locks, which POSIX simply calls [mutexes](#term-mutex). POSIX provides functions for initializing, destroying, locking, and unlocking mutexes. POSIX also provides `pthread_mutex_trylock()`, which avoids blocking if the lock has already been acquired. The caller can check the return value if the mutex was successfully acquired; the function returns 0 if successful, or a non-zero error value otherwise. This function is useful if the system has several equivalent copies of a resource that are interchangeable. If the code tries to acquire the lock for one copy and fails, it can move on to another without blocking.
 
-📦 C library functions – `<pthread.h>`
+## 📦 C library functions – `<pthread.h>`
 
 * * *
 
@@ -9609,7 +9609,7 @@ In traditional uniprocessing systems, this argument is nonsensical. If one threa
 
 To exploit this advantage in parallel execution, POSIX (like other modern thread libraries) include a newer variation on locks called [spinlocks](#term-spinlock). A spinlock behaves similarly to a traditional lock with one exception: Instead of blocking if the lock is owned by another thread, the spinlock stays in a loop that keeps trying. If the lock becomes immediately available, the thread can then continue without the penalty of a context switch. The POSIX interface for spinlocks is virtually identical to the one for mutexes. The difference is primarily in the internal implementation.
 
-📦 C library functions – `<pthread.h>`
+## 📦 C library functions – `<pthread.h>`
 
 * * *
 
@@ -9679,7 +9679,7 @@ Ultimately, there is no universal answer or approach to which style should be us
 
 As described previously, a semaphore is a non-negative integer with atomic operations for incrementing and decrementing its value. The POSIX function for decrementing the semaphore is `sem_wait()`, while the `sem_post()` function increments the value. If the semaphore’s value is 0 prior to decrementing, then the `sem_wait()` operation will block the current thread. If a thread calls `sem_post()` and there is at least one thread waiting on the semaphore, then one of the threads becomes unblocked. The choice of which thread gets unblocked is implementation dependent.
 
-📦 C library functions – `<semaphore.h>`
+## 📦 C library functions – `<semaphore.h>`
 
 * * *
 
@@ -9948,7 +9948,7 @@ As an alternative, [synchronization barriers](#term-barrier) allow programs to s
 
 The base functionality of barriers is specified with thread functions. The barrier is initialized with `pthread_barrier_init()`, with the last parameter indicating the _minimum_ number of threads that must reach the barrier before any can be allowed to continue. Threads use the `pthread_barrier_wait()` function to indicate that they have reached the common point. If the minimum number of threads have not yet reached the barrier, then the current thread will become blocked. Once the minimum number has been reached, all threads waiting at the barrier become unblocked; any future thread that calls `pthread_barrier_wait()` will pass right through the barrier without any delay. Finally, `pthread_barrier_destroy()` is used to clean up any resources associated with the barrier.
 
-📦 C library functions – `<pthread.h>`
+## 📦 C library functions – `<pthread.h>`
 
 * * *
 
@@ -10097,7 +10097,7 @@ One of the primary uses of semaphores is to perform application-specific signali
 
 [Condition variables](#term-condition-variable) overcome many of these short-comings of semaphores. Similar to the POSIX semaphore interface, condition variables provide _wait_ and _signal_ functions. These provide a more natural mapping to the problems of synchronization, as one or more threads are waiting on a signal from another thread that a condition has occurred.
 
-📦 C library functions – `<pthread.h>`
+## 📦 C library functions – `<pthread.h>`
 
 * * *
 
@@ -13959,6 +13959,7 @@ main (void)
 
   return 0;
 }
+```
 
 In the computer systems field, this view of structs as _objects without methods_ is not necessarily sufficient. In particular, when two different machines are exchanging data, the two systems need to agree on the layout and interpretation of the bytes without the `struct`. This agreement is not necessarily guaranteed, even if the same source code is used. Different compilers may arrange the fields in different orders, and the CPU may interpret multi-byte sequences differently due to endianness issues. [Code Listing A.17](#cla-17) demonstrates how to perform introspection into the layout of a `struct` in code.
 
@@ -13980,6 +13981,7 @@ printf ("sizeof(alt) = %zd\n", sizeof (alt));
 printf ("alt.a at %p, value %" PRId8 "\n", &alt.a, alt.a);
 printf ("alt.b at %p, value %" PRId32 "\n", &alt.b, alt.b);
 printf ("alt.c at %p, value %" PRId16 "\n", &altp">.c, alt.c); printf ("alt.d at %p, value %" PRId8 "\n", &alt.d, alt.d);
+```
 
 Line 14 prints the size of one `struct alternating` instance, `alt`. Reading lines 5 – 10 suggests that line 14 will indicate that the size of `alt` is 8 bytes (4 for `a`, 1 for `b`, 2 for `c`, and 1 for `d`). This intuition is wrong for typical compilers and modern hardware. Using both the `clang` and `gcc` compilers on an x86 architecture, the compiled code indicates that `alt` is 12 bytes in size. The specific layout of the memory for `alt` is shown in [Table A.4](#tblA-4). To be precise, the address of `alt` is the address of the byte on the left, containing the value `0x01`; the memory addresses increase from left to right in this table. As x86 is a little-endian architecture, the bytes of the multi-byte fields `b` and `c` are structured with the least-significant byte on the left (indicating a lower address offset within the `struct`).
 
@@ -14054,6 +14056,7 @@ printf ("Size of data is %zd\n", sizeof (data));
 
 /* Cast the address of data to a uint16_t* and dereference it */
 printf ("data as a hex int is %04" PRIx16 "\n", *((uint16_t*) &data));
+```
 
 The declaration of `struct bits` indicates that one instance requires 10 bits. Since we cannot actually allocate data at this bit level, this instance would be padded to make it exactly two bytes (16 bits) in size. Among those 16 bits, the C standard does not specify an exact order. The fields should only be accessed through their names, as shown in line 9 – 11. It is possible, however, to determine the layout on a particular system through trial and error. The `printf()` call on lines 15 and 16 reveal that one possible layout is as follows:
 
@@ -14126,6 +14129,7 @@ To start with the latter problem, the solution is to define an enumerated type, 
 enum days { SUN = 1, MON, TUE, WED, THU, FRI, SAT };
 enum days today = WED;
 printf ("Tomorrow is %d\n", today + 1);
+```
 
 To be clear, `enum`s are a syntactical mechanism of convenience, not security. Internally, an `enum` is just an `int`, and C does not perform any bounds checking to ensure that the values of an `enum` variable (such as today) match the names or the range in the definition. Line 6 could initialize today to be 37, or line 7 could be changed to use `today - 452`; either would be allowed, as today is ultimately just an `int` variable.
 
@@ -14147,6 +14151,7 @@ typedef struct alternating {
 } alt_t;
 
 alt_t alt = { 1, 2, 3, 4 };
+```
 
 The general structure for declaring a new type is `typedef [existing type] [new type name];`. By convention, the new type name typically ends with `_t` to indicate that this is a type. Observe that there are many such type definitions in the C standard library. For instance, the `size_t` type is defined (indirectly, as there are several chained type definitions involved) in the `ctype.h` header as shown below. The advantage of using the type definition is that it provides additional semantics. A variable declared as a `size_t` is not just being used as an integer, but as the size of something.
 
@@ -14170,6 +14175,7 @@ typedef struct age {
   int year;
   person_t *people[5];
 } age_t;
+```
 
 The solution is to use a dummy `struct` definition on line 5 that matches the name on line 12. (It is vital that the name of both `struct` types match.) By structuring the code this way, the compiler is able to correctly link the type of the age field within `person_t` as a pointer to an `age_t` instance later. Once this is done, the circular definition can be ignored, as shown in [Code Listing A.21](#cla-21). The `person_t` instance is able to set its age field to the address of an `age_t` instance without causing a compiler error or warning.
 
@@ -14186,6 +14192,7 @@ person.age = &age;
 
 age.year = 35;
 age.people[0] = &person;
+```
 
 
 
@@ -14222,6 +14229,7 @@ helper (void)
     }
   /* hidden cannot be accessed here */
 }
+```
 
 In addition to their differences in visibility, local and global variables differ in another key way: initialization. Global variables are always initialized, whether the code does so explicitly or not. Consider changing line 7 from [Code Listing A.22](#cla-22) as shown here:
 
@@ -14245,13 +14253,15 @@ At the risk of overkill on this particular point, it is critical to develop the 
 
 This failure to initialize local variables often arises when working with non-primitive data types, such as arrays or structs. In this case, the simplest approach is to use `memset()`. The first parameter is a pointer to a buffer to initialize, the second parameter is what value to write into each byte and the third parameter is the length of the buffer.
 
+```cpp
 int data[100];
 memset (data, 0, sizeof (data)); // initialize all elements to 0
 
 struct stat info;
 memset (&info, 0, sizeof (info)); // initialize all fields to 0
+```
 
-📦 C library functions – `<ctype.h>`
+## 📦 C library functions – `<ctype.h>`
 
 * * *
 
@@ -14535,7 +14545,7 @@ Line 8 of the Factory class is an example of dynamic memory allocation for persi
 
 Despite the fact that dynamic memory allocation serves several different purposes in C, there are only two standard mechanisms for doing this: the `calloc()` and `malloc()` functions. Both functions take parameters to indicate how much space is needed, allocate that much space on the heap, and return a pointer to the beginning of the space. The primary difference is that `calloc()` guarantees these bytes are initialized to all zero; `malloc()` performs no initialization on the bytes, so there is the possibility that they hold random initial values. The difference in the calling parameters is superficial. For `malloc(),` the only parameter is the total number of bytes needed. For `calloc()`, the first parameter specifies how many consecutive elements there are (similar to specifying the length of an array) and the second parameter indicates how many bytes are needed for each element; these two values are internally multiplied to determine the total size, and `calloc()` ends up allocating exactly that much space (just like `malloc()`). Because `calloc()` guarantees the data is initialized to zero, it is typically considered safer and preferred for general use. On the other hand, `malloc()` is faster since it does not do any initialization; this function is acceptable (or even preferred) if you know that the data will be entirely initialized before it will be otherwise used.
 
-📦 C library functions – `<stdlib.h>`
+## 📦 C library functions – `<stdlib.h>`
 
 * * *
 
@@ -14826,7 +14836,7 @@ Although there is no `*` on line 3, this code involves two pointer dereferences.
 
 In contrast, when `printf()` encounters the null pointer, there is a problem; processing `%s` involves dereferencing the pointer (which is `NULL`), so this line would traditionally cause a segmentation fault. Newer implementations of the C library have modified `printf()` to detect and avoid such crashes by printing the string `(null)` when given a `NULL` pointer. This new version only makes this exception for `NULL` exactly. If the pointer is not NULL, but the value is not a valid address (e.g., try changing the code above to point to use `char *null = (char *)1;`), `printf()` will cause a segmentation fault.
 
-📦 C library functions – `<string.h>`
+## 📦 C library functions – `<string.h>`
 
 * * *
 
@@ -14855,7 +14865,7 @@ On the other hand, some functions are considered so dangerous that the `str` ver
 
 Given a pointer to a string, particular an input string, it is common to investigate the string’s contents for a variety of purposes. The C standard library provides several functions that can be used to examine a string. One of the most common is `strcmp()`, which takes the pointers to two strings, dereferences them, and compares their contents. The return value for `strcmp()` can be -1, 0, or 1, with 0 indicating the strings are identical. The -1 and 1 values are used to indicate the lexicographic [[1]](#f58) ordering (i.e., how they would appear in an alphabetized list) if there is a mismatch; `strcmp ("hello", "goodbye")` would return the positive value to indicate that the first argument should be ordered after the second. Switching the order of the arguments would flip the result to -1. Two additional common functions are `strchr()` and `strstr()`, which are used for searching within the contents of the string; `strchr()` looks for a specified character in the string (passed as an int rather than a `char`), while `strstr()` looks for a substring. If the character or substring is found, these functions return a pointer to the first location; otherwise, they return `NULL`.
 
-📦 C library functions – `<string.h>`
+## 📦 C library functions – `<string.h>`
 
 * * *
 
@@ -14961,7 +14971,7 @@ is_strong (char *password)
 
 Lines 15 – 23 perform the bulk of the checking. The four `bool` variables are all initialized to false, indicating that we have not yet encountered a digit (`'0'` – `'9'`), lower-case letter (`'a'` – `'z'`), upper-case letter (`'A'` – `'Z'`), or a punctuation mark (see `ispunct(3)` for the full list). The `walker` variable is set to traverse through each byte of the string until the null byte is encountered (observe that line 22 advances `walker` after all checks have been done for one character). Within the `while`-loop, each bool variable is bit-wise `OR`ed (`|`) with the result of applying the `isX` functions to the current character `*walker`. The first time that a character passes one of the tests (e.g., when `*walker` points to `'Z'` and `isupper(*walker)` is called), the corresponding bool variable will be set to 1 (true). From then on, that variable can never become false, because applying bit-wise OR of 1 with any value will always produce a non-zero result. Consequently, line 25 will return true the password contains at least one character from each of the four classes.
 
-📦 C library functions – `<ctype.h>`
+## 📦 C library functions – `<ctype.h>`
 
 * * *
 
@@ -15000,7 +15010,7 @@ Most modern programming languages provide a simple mechanism for a very common t
 
 Unlike their unsafe cousins `strcpy()` and `strcat()` (which should **NEVER** be used), `strncpy()` and `strncat()` take a third argument that specifies a maximum number of bytes to copy. If the length of `s2` is less than `n`, then the function will stop before processing `n` bytes. The `memcpy()` function shown below behaves similarly to `strncpy()`, except that it ignores the null byte; that is, `memcpy()` is used to copy an arbitrary memory buffer from one location to another, regardless of whether that buffer contains a string. In that regard, `memcpy()` will always copy exactly n bytes, unless some unusual circumstance occurs (such as the `dst` and `src` buffers overlapping, which is undefined behavior in the C specification).
 
-📦 C library functions – `<string.h>`
+## 📦 C library functions – `<string.h>`
 
 * * *
 
@@ -15058,7 +15068,7 @@ strncat (message, username, 20);
 
 While `strncpy()` and `strncat()` focus on building or merging strings, another common task is to split a string into smaller parts, a procedure known as _tokenizing_. C provides two functions, `strtok()` and `strtok_r()`, for this purpose. In both cases, when the function is first called, the `str` parameter points to the string to tokenize; on subsequent calls, `str` is set to `NULL` to indicate that the function is continuing to process the previous string. The sep parameter is a pointer to a string of separator characters; whenever one or more of these characters is encountered in a row, `strtok()` or `strtok_r()` would return a pointer to the token ending at that character. The difference between the two functions is that `strtok_r()` is [reentrant](#term-reentrant), while `strtok()` is not. (Reentrancy is discussed in Chapter 7.) In short, `strtok()` uses a static variable to keep track of where to continue within the string. This approach fails when there are multiple threads calling `strtok()` on distinct strings; the threads might accidentally receive each other’s tokens. If there are multiple threads in execution, the `strtok_r()` version is needed to avoid this dilemma; the third parameter, `lasts`, keeps track of the tokenization of the string, thus eliminating the race conditions that can occur with static variables.
 
-📦 C library functions – `<string.h>`
+## 📦 C library functions – `<string.h>`
 
 * * *
 
@@ -15276,7 +15286,7 @@ The particular `for`-loops here might appear odd, but they are used to show that
 
 The first loop demonstrates that the internal representation of `integer` is the single byte `0x7b`. The second loop demonstrates that the representation of `string` is the four consecutive bytes `0x31`, `0x32`, `0x33`, and `0x00`. (Printing these four bytes were at once would produce the value `0x00333231` due to endianness.) The issue of conversion focuses on ways to translate automatically between these two byte representations, which do not appear to be similar.
 
-📦 C library functions – `<stdlib.h>`
+## 📦 C library functions – `<stdlib.h>`
 
 * * *
 
@@ -15324,7 +15334,7 @@ Lines 27 – 29 demonstrate other features of `strtol()`. First, the endptr para
 
 Converting values in the opposite direction, from integers to strings, is mostly intuitive, because it is very similar to one of the first functions novices learn in C: `printf()`. The main difference is that the `snprintf()` function takes two parameters before the format string to indicate the destination and the maximum number of bytes. (The `sprintf()` function does not take a maximum number of bytes, which makes this function unsafe in the same ways as `strcpy()` or `strcat()`. As such, `sprintf()` should never be used.)
 
-📦 C library functions – `<stdlib.h>`
+## 📦 C library functions – `<stdlib.h>`
 
 * * *
 
@@ -15618,6 +15628,7 @@ printf ("SORTED (case-sensitive):");
 for (size_t i = 0; i < 5; i++)
   printf (" %s", strings[i]);
 printf ("\n");
+```
 
 Although the preceding code works, the number of parentheses and `*` operators can make it hard to read. One common way to improve the readability is to use a typedef to simplify the type declarations and function calls. [Code Listing A.54](#cla-54) demonstrates this practice by defining a new type, `comp_t`, as a function pointer that takes two `void*` parameters and returns an `int`. Readers who are comfortable with `typedef` may fine the version on line 5 to be odd; normally, the new type name appears at the end of the line, just before the `;` character. With function pointers, however, the type name is placed where the variable name would go in a function pointer declaration. Despite this oddity, line 8 is now easier to read than in [Code Listing A.51](#cla-51); the compare parameter now matches the `comp_t` type, and the reader does not need to parse the complexities of function pointer declarations. [Code Listing A.55](#cla-55) shows how the typedef simplifies the calls to `bubble_sort()` with cleaner casting.
 
@@ -15633,7 +15644,6 @@ bubble_sort (void *array[], size_t length, comp_t compare)
 {
   /* ... omitting the rest ... */
 
-```cpp
 /* Code Listing A.55:
    Using the simplified bubble_sort() interface
  */
@@ -15685,6 +15695,7 @@ printf ("DIF: %d\n", calculate (SUB, 5, 3));
 printf ("PRO: %d\n", calculate (MUL, 5, 3));
 printf ("QUO: %d\n", calculate (DIV, 5, 3));
 printf ("REM: %d\n", calculate (MOD, 5, 3));
+```
 
 🔍 Note
 
@@ -15706,7 +15717,7 @@ The idea of organizing and storing data as a file is one of the oldest abstracti
 
 When a file is stored, there is a certain amount of information—called [metadata](#term-metadata)—that is stored alongside the file’s contents. Metadata is stored in a data structure called an [inode](#term-inode), as discussed in Chapter 2. The inode contains a number of fields, one of which is the files permission mode. The permission mode indicates which actions (read, write, or execute) can be performed on a file by a particular user. These permission modes are commonly written as three octal values to specify permissions for the user (the owner of the file), the group (a pre-defined set of users), or others (everyone else). For each octal value, 4 (binary 100) indicates read permission, 2 (010) is write, and 1 (001) is execute. Setting one of these bits to 0 removes that permission.
 
-📦 C library functions – `<sys/stat.h>`
+## 📦 C library functions – `<sys/stat.h>`
 
 * * *
 
@@ -15734,9 +15745,11 @@ chmod ("script.py", 0750);
 
 /* Restrict access to a private directory */
 chmod ("/home/csf/private_files", 0700);
+```
 
 [Code Listing A.58](#cla-58) changes the permissions on three files using the `chmod()` function. The bit mask on line 6 (`0644`) indicates that the user will have read and write permission (applying the bit-wise OR operator, `4 | 2 = 6`), while the group and other have only read permission. Line 10 gives the user all permissions (`4 | 2 | 1 = 7`, meaning read, write, and execute), whereas the group only has read and execute (`4 | 1 = 5`). Line 13 changes the permission on a _directory_—a special file that “contains” other files (explained below). Directories in the UNIX tradition are the equivalent of _folders_ in the Windows family of operating systems. The permissions here give the user full access to the directory, but the group and others are blocked out. These operations can also be performed on the command line as follows (note that the `chmod` utility is a C program that calls `chmod()` internally!). The `ls -ld` command displays the permissions at the first part of the file, in a format `rwxrwxrwx` for the three octal values (`-` indicates that permission is not set).
 
+```sh
 $ chmod 644 data.txt
 $ chmod 750 script.py
 $ chmod 700 /home/csf/private_files
@@ -15744,6 +15757,7 @@ $ ls -ld data.txt script.py /home/csf/private
 -rw-r--r--  1 csf  staff  8528 Jul 31 23:20 data.txt
 -rwxr-x---  1 csf  staff   440 Jul 31 23:20 script.py
 drwx------ 11 csf  staff   352 Jul 31 23:20 /home/csf/private
+```
 
 🔍 Note
 
@@ -15755,13 +15769,13 @@ For normal files (i.e., non-directories), the read bit indicates that a running 
 
 So if Python only needs to read the file, what is the purpose of setting the execute bit on `script.py`? In truth—and somewhat ironically—the execute bit does not indicate that `script.py` can be executed. The execute bit on files declares that the file should be found as an executable within the `$PATH` environment variable—a list of locations to search for executables—that the shell (`bash`) uses. When you type a command, `bash` searches through the locations listed in the `$PATH` for the first match of that command name that has the execute bit set. To start the process, `bash` looks into the file contents to look at the first line of the program. In the case of scripts like `script.py`, the first line contains a _shebang_ operator that indicates the location of the interpreter that is needed:
 
-#!/usr/bin/python
+    #!/usr/bin/python
 
 Consequently, executing a Python script requires the execute bit to add it to the `$PATH` that is searched, but requires the read bit for the program to actually run.
 
 The execute bit on directories is also frequently misunderstood, primarily because the bit is misnamed for directories. A directory is not a piece of code that can be run (executed). Instead, reading a directory is defined as listing its contents, whereas the execute bit allows the user to _enter or pass through_ the directory. For instance, consider the following file name (storing a cryptographic key that can be used to log into a remote email service), based on the permissions above:
 
-/home/csf/private/keys/email.id_rsa
+    /home/csf/private/keys/email.id_rsa
 
 [Code Listing A.58](#cla-58) set `0700` permissions for the `/home/csf/private`. The read bit allows the user to list the file contents (using the `ls` command, for instance). However, accessing those files or the subdirectories requires the execute bit. Since the group and others have no permissions, no one else can get access to the `keys` subdirectory, because doing so requires passing through `private`. Since the read and execute actions are distinct, the bits can be set independently. Setting a directory to `0444` would allow everyone to see the names of files in the directory, but no one could access any of them or access any subdirectories. On the other hand, setting the directory to `0111` would give everyone access to the files and subdirectories…if they already knew the name; these permissions would not allow anyone to list the directory contents to see the names of the files.
 
@@ -15769,7 +15783,7 @@ For completeness, writing to a directory means adding or removing files. When yo
 
 The `access()` function provides an interface to check a file’s permissions before trying to access it. As with the `chmod()` function, the first parameter specifies the name of the file being checked. The `mode` parameter is not the same as the `mode_t` type used above, because `access()` is only checking the permissions for the current user. Furthermore, `access()` can check more than just the standard read, write, and execute bits, so this mode does not follow the same octal structure.
 
-📦 C library functions – `<unistd.h>`
+## 📦 C library functions – `<unistd.h>`
 
 * * *
 
@@ -15779,43 +15793,28 @@ Check for permission to access the specified file.
 
 [Code Listing A.59](#cla-59) uses `access()` to determine if a file is readable. Intuitively, the `R_OK`, `W_OK`, and `X_OK` arguments (which can be successfully combined with bit-wise OR) check for read, write, and execute permissions. The `F_OK` argument could be used to check just if the file exists, regardless of the other access permissions. Different systems also support additional values that could allow the user to check if a file can be deleted, if the user can change its permissions, and so forth; these options are system-specific, though, and are not widely used.
 
->  1
->  2
->  3
->  4
->  5
->  6
->  7
->  8
->  9
-> 10
-> 11
-> 12
-> 13
-> 14
-> 15
-> 16
-> 
-> /* Code Listing A.59:
->    Checking for read permission to access a file
->  */
-> 
-> /* Check for permission */
-> if (access ("data.txt", R_OK) != 0)
->   {
->     /* Access failed, so check global errno to determine why.
->        Requires including <errno.h> */
->     if (errno == EACCES)
->       printf ("Access denied\n");
->     else
->       printf ("Access failed for other error\n");
->   }
-> else
->   printf ("Access granted\n");
+```cpp
+/* Code Listing A.59:
+   Checking for read permission to access a file
+ */
+
+/* Check for permission */
+if (access ("data.txt", R_OK) != 0)
+  {
+    /* Access failed, so check global errno to determine why.
+       Requires including <errno.h> */
+    if (errno == EACCES)
+      printf ("Access denied\n");
+    else
+      printf ("Access failed for other error\n");
+  }
+else
+  printf ("Access granted\n");
+```
 
 The `unistd.h` header file provides additional functions that are relevant to the discussion of access permissions. The `chown()` and `fchown()` functions provide interfaces to change which user or group is considered the file’s owner. These functions are generally restricted in certain ways; clearly, it would not be advisable to allow a random user to take over another’s files by changing their ownership. Some systems allow users to run these functions only on files that they own, whereas others restrict access to these functions to system adminstrators.
 
-📦 C library functions – `<unistd.h>`
+## 📦 C library functions – `<unistd.h>`
 
 * * *
 
@@ -15829,7 +15828,7 @@ Change the ownership of a file specified by a file descriptor.
 
 The `getuid()`, `geteuid()`, `getgid()`, and `getegid()` functions are not about files, per se, but they are relevant to the current discussion. These functions get information about the current process that is executing. Whenever you run a program, you create a process; the process inherits a specified user ID and group ID that control the process’s access. Consequently, when the previous examples referred to checking the “user’s” access to a file, this check is based on the user ID associated with the process executing this code.
 
-📦 C library functions – `<unistd.h>`
+## 📦 C library functions – `<unistd.h>`
 
 * * *
 
@@ -15868,7 +15867,7 @@ When a file is in use (such as when you are editing a source code file in a text
 
 These changes are not automatically propagated to the inode stored on the device. This update typically (the details depend on the OS and the file system in use) only occurs when the file is closed or when the process calls `fsync()`. The `fsync()` function—which is run when you save a file—writes the contents to the storage device and updates the stored inode accordingly.
 
-📦 C library functions – `<unistd.h>`
+## 📦 C library functions – `<unistd.h>`
 
 * * *
 
@@ -15899,7 +15898,7 @@ To start, assume that we are examining the directory `/home/csf`. Since director
 
 Readers who have become comfortable with working on the command line are likely to have heard references to “being in” or “changing to” a directory. These phrases refer to examining or changing the current process’s _current working directory_, the default location that the process will look for files. Note that, when you are working on the command line, you are always running a process: the shell (typically `bash`). The `cd` command tells the `bash` process to change its current working directory. When you run a separate program by typing a command, bash creates a new process, and that new process inherits bash’s current working directory; this new process could change its current working directory with the `chdir()` and `fchdir()` functions.
 
-📦 C library functions – `<unistd.h>`
+## 📦 C library functions – `<unistd.h>`
 
 * * *
 
@@ -15913,7 +15912,7 @@ Change to the directory given as the open file descriptor `fd`.
 
 At this point, we have established that directories do not contain files or inodes; they just map a string to an inode number. Similarly, the `chdir()` function can change which directory the process will look in by default. Based on this understanding, we can now distinguish between _hard links_ and _symbolic links_. A hard link is a directory reference to an inode. In [Figure 10.9.7](Files.html#filesysblocks), block 51003 contains an entry for `data.txt` that links to inode 4873. Within inode 4873, there is a field that counts the number of such links; so 4873’s link count would be at least one. This figure did not show the contents of the `/home/csf/private` directory, but assume that it contains an entry for a file named copy.txt that also maps to inode 4873; i.e., there is a `/home/csf/private/copy.txt` file, and it points to the same inode as `/home/csf/data.txt`. In other words, the full path names `/home/csf/data.txt` and `/home/csf/private/copy.txt` are both hard links to the same inode and the inode’s reference count must be at least two. The effect of this hard link is that these two files are the same; changing the contents of one will change the other. Such hard links are created with the `link()` function.
 
-📦 C library functions – `<unistd.h>`
+## 📦 C library functions – `<unistd.h>`
 
 * * *
 
@@ -15933,17 +15932,20 @@ Unlike changes to a file, the `unlink()` function only removes a single such lin
 
 In contrast to hard links, a symbolic link (also known as a _shortcut_ in the Windows family of OS) is a distinct file with its own inode. The inode’s type field would indicate that it is a symbolic link (or symlink for short) rather than a regular file. The inode’s Content would point to a content block just like a regular file; however, the contents would be the path name that the symbolic link points to. To illustrate the difference, consider the following command lines, which start with an original C source file called `hello.c`:
 
+```sh
 $ ln hello.c link.c
 $ ln -s hello.c symlink.c
 $ ls -li hello.c link.c symlink.c 
 12909398185 -rw-r--r--  2 csf  staff  74 Feb 23 17:09 hello.c
 12909398185 -rw-r--r--  2 csf  staff  74 Feb 23 17:09 link.c
 12909398210 lrwxr-xr-x  1 csf  staff   7 Feb 23 17:10 symlink.c -> hello.c
+```
 
 The first `ln` command uses link() to make `link.c` a hard link to the contents of `hello.c`. The `-s` flag on the second `ln` command calls `symlink()` instead, making `symlink.c` a symbolic link to `hello.c`; that is, `symlink.c` is a distinct special file whose contents are the literal string `"hello.c"` to indicate the target of the link. (Note that the symbolic link does not actually check for—or have any knowledge of—the existence of `hello.c` itself.) The `ls -li` command shows metadata about the three files. The first field on each line is the respective inode number (produced by the `-i` flag). Since `hello.c` and `link.c` are hard links to the same contents, their inode is the same. On the other hand, `symlink.c` is a separate file with a distinct inode number.
 
 One of the key differences between hard links and symbolic links can be observed through deletion. Hard links are bound to the actual file contents, whereas symbolic links are bound to the name. If the target of a symbolic link (`hello.c` in this case) is deleted (the `rm` command calls `unlink()` on the `hello.c` file name) and recreated with the same name, accessing the symbolic link will reflect the new contents; accessing the other hard link will get the old contents. The original contents will only be deleted when all hard links are removed.
 
+```sh
 $ rm hello.c
 $ cat link.c
 [original contents here...omitted for brevity]
@@ -15954,13 +15956,14 @@ $ cat link.c
 [original contents here...omitted for brevity]
 $ cat symlink.c
 goodbye
+```
 
 ///10.9.4. Advisory Locks[¶]
 ----------------------------
 
 When concurrent software is working with files, there is the danger that multiple processes or threads might try to access or modify an existing file at the same time. This situation would allow one process or thread to change the file’s contents in ways that can cause errors in the other process or thread. Different OS and file systems provide a variety of mechanisms to prevent this from happening; as these approaches can vary between systems, it can be difficult to rely on them for cross-platform software. One mechanism that generally has cross-platform support is the use of _advisory locks_, which provide a mechanism for cooperating processes to try to avoid this situation. In essence, an advisory lock allows a process to check if another process has already locked the file; if so, the new process can wait until the first process is finished. As the name implies, though, these are advisory in nature; the new process can still proceed regardless of the first process’s claim.
 
-📦 C library functions – `<sys/file.h>`
+## 📦 C library functions – `<sys/file.h>`
 
 * * *
 
@@ -15970,30 +15973,24 @@ Apply or remove an advisory lock on an open file.
 
 The `flock()` function provides one mechanism to create an advisory lock on a file. Unlike some of the previous functions we have described, `flock()` only works with file descriptors (see Chapter 2), not path names. That is, the process must have access to the file and must have already successfully opened it. [Code Listing A.60](#cla-60) demonstrates the use of flock(). (Note that this code relies on `fork()` and `open()`, which are explained in Chapter 2. Advisory locks are not a critical topic for the main chapter and are provided here for reference after that chapter has been completed.)
 
->  1
->  2
->  3
->  4
->  5
->  6
->  7
->  8
->  9
-> 10
-> 11
-> 12
-> 13
-> 14
-> 15
-> 16
-> 17
-> 18
-> 19
-> 20
-> 21
-> 
-> /* Code Listing A.60:
->    Setting an advisory lock on a file using the flock() interface */ /* Create a child process and race to get the file */ pid_t child = fork (); assert (child >= 0); /* Both parent and child will open the file */ int fd = open ("movies.csv", O_RDWR); assert (fd > 0); /* Only one will succeed in locking it */ if (flock (fd, LOCK_EX | LOCK_NB) == 0) printf ("Successfully locked file\n"); else printf ("Failed to lock\n"); close (fd); /* Add a slight pause to observe the locking */ sleep (2);
+```cpp
+/* Code Listing A.60:
+Setting an advisory lock on a file using the flock() interface */
+/* Create a child process and race to get the file */ 
+pid_t child = fork (); 
+assert (child >= 0); 
+/* Both parent and child will open the file */ 
+int fd = open ("movies.csv", O_RDWR); 
+assert (fd > 0); 
+/* Only one will succeed in locking it */ 
+if (flock (fd, LOCK_EX | LOCK_NB) == 0) 
+    printf ("Successfully locked file\n"); 
+else 
+    printf ("Failed to lock\n"); 
+close (fd); 
+/* Add a slight pause to observe the locking */ 
+sleep (2);
+```
 
 The `LOCK_EX | LOCK_NB` argument specifies that this process is requesting exclusive (`LOCK_EX`) access to the file (only one access at a time) and `flock()` should run in non-blocking mode (`LOCK_NB`). The default behavior of `flock()` is to cause current process to wait (block) if another process already has exclusive access. In non-blocking mode, `flock()` returns a non-zero value to indicate that the current process failed to acquire the lock. The process can then proceed to other work that may be necessary and try to acquire the lock at a later time. The call to `sleep()` on line 21 is included in this example to create a slight pause in both processes. That is, without this `sleep()`, it is possible that one process would run, acquire the lock, and exit (releasing the lock) before the other process had a chance to try for access. Including line 21 makes such timing unlikely, increasing the likelihood that the reader can observe the effects of the failed lock when running this code.
 
@@ -16005,7 +16002,7 @@ In the preceding discussion, we mentioned that advisory locks allow _cooperating
 
 Although it is generally cross-platform, `flock()` does not successfully create advisory locks on macOS. For code that truly needs to be cross-platform, `fcntl()` is the required interface for advisory locks. The primary disadvantage of `fcntl()` is that it is an older, generic interface for many different operations on files. Advisory locks are just one of the possible operations.
 
-📦 C library functions – `<fcntl.h>`
+## 📦 C library functions – `<fcntl.h>`
 
 * * *
 
@@ -16015,69 +16012,39 @@ Perform an operation on a file descriptor.
 
 [Code Listing A.61](#cla-61) demonstrates the `fcntl()` interface for creating an advisory lock. On lines 19 and 26, the `F_SETLK` argument tells `fcntl()` that the process is trying to set or release a lock; the `struct` reference passed as the third argument distinguishes between these two actions. Specifically, setting the `struct`’s `l_type` field to `F_WRLCK` indicates the process is requesting a lock for writing to the file; locking the file for reading would require also setting the `F_RDLCK` bit in this field. Setting the `l_type` field to `F_UNLCK` and calling `fcntl()` again releases the lock on the file.
 
->  1
->  2
->  3
->  4
->  5
->  6
->  7
->  8
->  9
-> 10
-> 11
-> 12
-> 13
-> 14
-> 15
-> 16
-> 17
-> 18
-> 19
-> 20
-> 21
-> 22
-> 23
-> 24
-> 25
-> 26
-> 27
-> 28
-> 29
-> 30
-> 31
-> 
-> /* Code Listing A.61:
->    Setting an advisory lock on a file using the fcntl() interface
->  */
-> 
-> /* Create a child process then race to get the file */
-> pid_t child = fork ();
-> assert (child >= 0);
-> 
-> /* Both parent and child will open the file */
-> int fd = open ("movies.csv", O_RDWR);
-> assert (fd > 0);
-> 
-> /* Initialize the lock for writing */
-> struct flock lock;
-> memset (&lock, 0, sizeof(lock));
-> lock.l_type = F_WRLCK;
-> 
-> /* Only one will succeed in locking it */
-> if (fcntl (fd, F_SETLK, &lock) == 0)
->   {
->     printf ("Successfully locked file\n");
->     /* Add a slight pause to observe the locking */
->     sleep (2);
->     /* Now release the lock */
->     lock.l_type = F_UNLCK;
->     fcntl (fd, F_SETLK, &lock);
->   }
-> else
->   printf ("Failed to lock\n");
-> 
-> close (fd);
+```cpp
+/* Code Listing A.61:
+   Setting an advisory lock on a file using the fcntl() interface
+ */
+
+/* Create a child process then race to get the file */
+pid_t child = fork ();
+assert (child >= 0);
+
+/* Both parent and child will open the file */
+int fd = open ("movies.csv", O_RDWR);
+assert (fd > 0);
+
+/* Initialize the lock for writing */
+struct flock lock;
+memset (&lock, 0, sizeof(lock));
+lock.l_type = F_WRLCK;
+
+/* Only one will succeed in locking it */
+if (fcntl (fd, F_SETLK, &lock) == 0)
+  {
+    printf ("Successfully locked file\n");
+    /* Add a slight pause to observe the locking */
+    sleep (2);
+    /* Now release the lock */
+    lock.l_type = F_UNLCK;
+    fcntl (fd, F_SETLK, &lock);
+  }
+else
+  printf ("Failed to lock\n");
+
+close (fd);
+```
 
 [[1]](#id3)
 

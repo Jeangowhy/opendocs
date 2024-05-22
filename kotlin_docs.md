@@ -847,7 +847,6 @@ Here you'll learn how to develop and publish a multiplatform library:
    > Learn more about [adding dependencies on libraries](multiplatform-add-dependencies.md).
    > You can also find a multiplatform library in the [community-driven list](https://libs.kmp.icerock.dev/).
    >
-   {type="tip"}
 
 3. **Learn more about Kotlin Multiplatform programming:**
 
@@ -932,7 +931,6 @@ In Kotlin:
 
 > Functions are discussed in more detail in a couple of chapters. Until then, all examples use the `main()` function.
 > 
-{type="note"}
 
 ## 02.1.1. Variables
 
@@ -963,14 +961,12 @@ fun main() {
 > Variables can be declared outside the `main()` function at the beginning of your program. Variables declared in this way
 > are said to be declared at **top level**.
 > 
-{type="tip"}
 
 As `customers` is a mutable variable, its value can be reassigned after declaration.
 
 > We recommend that you declare all variables as read-only (`val`) by default. Declare mutable variables (`var`) only if 
 > necessary.
 > 
-{type="note"}
 
 ## 02.1.2. String templates
 
@@ -1003,7 +999,7 @@ explains the different Kotlin basic types and how to declare them in the [next c
 
 ## 02.1.3. Practice
 
-### Exercise
+**Exercise**
 
 Complete the code to make the program print `"Mary is 20 years old"` to standard output:
 
@@ -1025,7 +1021,7 @@ fun main() {
 }
 ```
 
-## Next step
+**Next step**
 
 [Basic types](kotlin-tour-basic-types.md)
 
@@ -1073,7 +1069,6 @@ fun main() {
 
 > `+=`, `-=`, `*=`, `/=`, and `%=` are augmented assignment operators. For more information, see [Augmented assignments](operator-overloading.md#augmented-assignments).
 > 
-{type="tip"}
 
 In total, Kotlin has the following basic types:
 
@@ -1118,7 +1113,7 @@ Now that you know how to declare basic types, it's time to learn about [collecti
 
 ## Practice
 
-### Exercise
+**Exercise**
 
 Explicitly declare the correct type for each variable:
 
@@ -1146,7 +1141,7 @@ fun main() {
 }
 ```
 
-## Next step
+**Next step**
 
 [Collections](kotlin-tour-collections.md)
 
@@ -1214,7 +1209,6 @@ fun main() {
 > ```
 > This is also called **casting**.
 > 
-{type="tip"}
 
 Lists are ordered so to access an item in a list, use the [indexed access operator](operator-overloading.md#indexed-access-operator) `[]`:
 
@@ -1250,7 +1244,6 @@ fun main() {
 > For more information about extension functions, see [Extension functions](extensions.md#extension-functions).
 > For the purposes of this tour, you only need to know how to call them. 
 > 
-{type="note"}
 
 To get the number of items in a list, use the [`.count()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/count.html)
 function:
@@ -1340,7 +1333,6 @@ You can see in the previous example that because sets only contain unique elemen
 
 > As sets are **unordered**, you can't access an item at a particular index.
 > 
-{type="note"}
 
 To get the number of items in a set, use the [`.count()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/count.html)
 function:
@@ -1395,7 +1387,6 @@ without using a numbered index, like in a list.
 > * Every key in a map must be unique so that Kotlin can understand which value you want to get. 
 > * You can have duplicate values in a map.
 >
-{type="note"}
 
 To create a read-only map ([`Map`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/)), use the 
 [`mapOf()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map-of.html) function.
@@ -1521,7 +1512,6 @@ fun main() {
 > Properties are discussed in more detail in the [Classes](kotlin-tour-classes.md) chapter.
 > At this point in the tour, you only need to know how to access them.
 >
-{type="note"}
 
 To check that a key or value is in a map, use the [`in` operator](operator-overloading.md#in-operator):
 
@@ -1545,7 +1535,7 @@ that you can use in your programs.
 
 ## 02.3.4. Practice
 
-### Exercise 1
+**Exercise 1**
 
 You have a list of “green” numbers and a list of “red” numbers. Complete the code to print how many numbers there
 are in total.
@@ -1569,7 +1559,7 @@ fun main() {
 }
 ```
 
-### Exercise 2
+**Exercise 2**
 
 You have a set of protocols supported by your server. A user requests to use a particular protocol. Complete the program
 to check whether the requested protocol is supported or not (`isSupported` must be a Boolean value).
@@ -1601,7 +1591,7 @@ fun main() {
 }
 ```
 
-### Exercise 3
+**Exercise 3**
 
 Define a map that relates integer numbers from 1 to 3 to their corresponding spelling. Use this map to spell the given 
 number.
@@ -1624,7 +1614,7 @@ fun main() {
 }
 ```
 
-## Next step
+**Next step**
 
 [Control flow](kotlin-tour-control-flow.md)
 
@@ -1652,7 +1642,6 @@ Kotlin provides `if` and `when` for checking conditional expressions.
 
 > If you have to choose between `if` and `when`, we recommend using `when` as it leads to more robust and safer programs.
 > 
-{type="note"}
 
 ### 02.4.1.1. If
 
@@ -1725,7 +1714,6 @@ fun main() {
 > Note that all branch conditions are checked sequentially until one of them is satisfied. So only the first suitable 
 > branch is executed.
 >
-{type="note"}
 
 Here is an example of using `when` as an expression. The `when` syntax is assigned immediately to a variable:
 
@@ -1851,7 +1839,6 @@ In the first use case (`while`):
 > The following examples use the [increment operator](operator-overloading.md#increments-and-decrements) `++` to
 > increment the value of the `cakesEaten` variable.
 >
-{type="note"}
 
 ```kotlin
 fun main() {
@@ -1903,7 +1890,7 @@ Now that you know the fundamentals of Kotlin control flow, it's time to learn ho
 
 ## 02.4.4. Practice
 
-### Exercise 1
+**Exercise 1**
 
 Using a `when` expression, update the following program so that when you input the names of GameBoy buttons, the actions
 are printed to output. 
@@ -1944,7 +1931,7 @@ fun main() {
 }
 ```
 
-### Exercise 2
+**Exercise 2**
 
 You have a program that counts pizza slices until there’s a whole pizza with 8 slices. Refactor this program in two ways:
 * Use a `while` loop.
@@ -2002,7 +1989,7 @@ fun main() {
 
 ```
 
-### Exercise 3
+**Exercise 3**
 
 Write a program that simulates the [Fizz buzz](https://en.wikipedia.org/wiki/Fizz_buzz) game. Your task is to print 
 numbers from 1 to 100 incrementally, replacing any number divisible by three with the word "fizz", and any number 
@@ -2038,7 +2025,7 @@ fun main() {
 }
 ```
 
-### Exercise 4
+**Exercise 4**
 
 You have a list of words. Use `for` and `if` to print only the words that start with the letter `l`.
 
@@ -2068,7 +2055,7 @@ fun main() {
 }
 ```
 
-## Next step
+**Next step**
 
 [Functions](kotlin-tour-functions.md)
 
@@ -2110,7 +2097,6 @@ In Kotlin:
 > If a function doesn't return anything useful, the return type and `return` keyword can be omitted. Learn more about
 > this in [Functions without return](#functions-without-return).
 >
-{type="note"}
 
 In the following example:
 * `x` and `y` are function parameters.
@@ -2133,7 +2119,6 @@ fun main() {
 > We recommend in our [coding conventions](coding-conventions.md#function-names) that you name functions starting with 
 > a lowercase letter and use camel case with no underscores.
 > 
-{type="note"}
 
 ## 02.5.1. Named arguments
 
@@ -2144,7 +2129,6 @@ you can write the parameters in any order.
 > In the following example, [string templates](strings.md#string-templates) (`$`) are used to access
 > the parameter values, convert them to `String` type, and then concatenate them into a string for printing.
 > 
-{type="tip"}
 
 ```kotlin
 fun printMessageWithPrefix(message: String, prefix: String = "Info") {
@@ -2187,7 +2171,6 @@ fun main() {
 > You can skip specific parameters with default values, rather than omitting them all. However, after the 
 > first skipped parameter, you must name all subsequent parameters.
 >
-{type="note"}
 
 ## 02.5.3. Functions without return
 
@@ -2245,11 +2228,10 @@ fun main() {
 > Omitting the return type is only possible when your function has no body (`{}`). Unless your function's return type
 > is `Unit`.
 > 
-{type="note"}
 
 ## 02.5.5. Functions practice
 
-### Exercise 1
+**Exercise 1**
 
 Write a function called `circleArea` that takes the radius of a circle in integer format as a parameter and outputs the
 area of that circle.
@@ -2284,7 +2266,7 @@ fun main() {
 }
 ```
 
-### Exercise 2
+**Exercise 2**
 
 Rewrite the `circleArea` function from the previous exercise as a single-expression function.
 
@@ -2310,7 +2292,7 @@ fun main() {
 }
 ```
 
-### Exercise 3
+**Exercise 3**
 
 You have a function that translates a time interval given in hours, minutes, and seconds into seconds. In most cases,
 you need to pass only one or two function parameters while the rest are equal to 0. Improve the function and the code that
@@ -2389,7 +2371,6 @@ function called on `string`.
 > { println("Log message") }
 > ```
 >
-{type="note"}
 
 Lambda expressions can be used in a number of ways. You can:
 * [assign a lambda to a variable that you can then invoke later](#assign-to-variable)
@@ -2499,7 +2480,6 @@ If your lambda expression has no parameters then the parentheses `()` are left e
 > 
 > `val upperCaseString = { str -> str.uppercase() }`
 >
-{type="note"}
 
 ### 02.5.6.4. Return from a function
 
@@ -2573,7 +2553,7 @@ The next step in our tour is to learn about [classes](kotlin-tour-classes.md) in
 
 ## 02.5.7. Lambda expressions practice
 
-### Exercise 1
+**Exercise 1**
 
 You have a list of actions supported by a web service, a common prefix for all requests, and an ID of a particular resource.
 To request an action `title` over the resource with ID: 5, you need to create the following URL: `https://example.com/book-info/5/title`.
@@ -2601,7 +2581,7 @@ fun main() {
 }
 ```
 
-### Exercise 2
+**Exercise 2**
 
 Write a function that takes an `Int` value and an action (a function with type `() -> Unit`) which then repeats the 
 action the given number of times. Then use this function to print “Hello” 5 times.
@@ -2632,7 +2612,7 @@ fun main() {
 }
 ```
 
-## Next step
+**Next step**
 
 [Classes](kotlin-tour-classes.md)
 
@@ -2684,7 +2664,6 @@ instance has been created.
 > * The content contained within parentheses `()` is called the **class header**.
 > * You can use a [trailing comma](coding-conventions.md#trailing-commas) when declaring class properties.
 >
-{type="note"}
 
 Just like with function parameters, class properties can have default values:
 ```kotlin
@@ -2889,7 +2868,7 @@ The last chapter of this tour is about Kotlin's [null safety](kotlin-tour-null-s
 
 ## 02.6.6. Practice
 
-### Exercise 1
+**Exercise 1**
 
 Define a data class `Employee` with two properties: one for a name, and another for a salary. Make sure that the property
 for salary is mutable, otherwise you won’t get a salary boost at the end of the year! The main function demonstrates how
@@ -2919,7 +2898,7 @@ fun main() {
 }
 ```
 
-### Exercise 2
+**Exercise 2**
 
 To test your code, you need a generator that can create random employees. Define a class with a fixed list of potential 
 names (inside the class body), and that is configured by a minimum and maximum salary (inside the class header). Once 
@@ -2981,7 +2960,7 @@ fun main() {
 }
 ```
 
-## Next step
+**Next step**
 
 [Null safety](kotlin-tour-null-safety.md)
 
@@ -3098,7 +3077,6 @@ fun main() {
 >   person.company?.address?.country
 > ```
 >
-{type="note"}
 
 The safe call operator can also be used to safely call an extension or member function. In this case, a null check is 
 performed before the function is called. If the check detects a `null` value, then the call is skipped and `null` is returned.
@@ -3138,7 +3116,7 @@ For more information about null safety in Kotlin, see [Null safety](null-safety.
 
 ## 02.7.5. Practice
 
-### Exercise
+**Exercise**
 
 You have the `employeeById` function that gives you access to a database of employees of a company. Unfortunately, this 
 function returns a value of the `Employee?` type, so the result can be `null`. Your goal is to write a function that 
@@ -3182,7 +3160,7 @@ fun main() {
 }
 ```
 
-## What's next?
+**What's next?**
 
 Congratulations! Now that you have completed the Kotlin tour, check out our tutorials for popular Kotlin applications:
 * [Create a backend application](jvm-create-project-with-spring-boot.md)
@@ -3198,7 +3176,6 @@ Share application logic while keeping native user experience.
 > Kotlin Multiplatform is in [Beta](components-stability.md). It is almost stable, but migration steps may be required
 > in the future. We'll do our best to minimize any changes you have to make.
 >
-{type="note"}
 
 The Kotlin Multiplatform technology is designed to simplify the development of cross-platform projects. It reduces time
 spent writing and maintaining the same code for [different platforms](#kotlin-multiplatform-use-cases)
@@ -3323,7 +3300,6 @@ Here are some examples of the server-side frameworks for Kotlin:
   
 > You can find more frameworks at [https://kotlin.link/](https://kotlin.link/resources).
 >
-{type="note"}
 
 ## 03.2.2. Deploying Kotlin server-side applications
 
@@ -3346,7 +3322,7 @@ banks and built entirely in Kotlin.
 [JetBrains Account](https://account.jetbrains.com/), the system responsible for the entire license sales and validation
 process at JetBrains, is written in 100% Kotlin and has been running in production since 2015 with no major issues.
 
-## Next steps
+**Next steps**
 
 * For a more in-depth introduction to the language, check out the Kotlin documentation on this site and [Kotlin Koans](koans.md).
 * Watch a webinar ["Micronaut for microservices with Kotlin"](https://micronaut.io/2020/12/03/webinar-micronaut-for-microservices-with-kotlin/) and 
@@ -3414,7 +3390,6 @@ With Kotlin/Wasm, you can create applications that run on different environments
 
 > Learn more about Kotlin/Wasm in this [YouTube video](https://www.youtube.com/watch?v=oIbX7nrSTPQ).
 >
-{type="note"}
 
 ## 03.4.1. Browser support
 
@@ -3484,7 +3459,6 @@ Kotlin/Native supports the following platforms:
 > To compile Apple targets, macOS, iOS, tvOS, and watchOS, you need [Xcode](https://apps.apple.com/us/app/xcode/id497799835)
 > and its command-line tools installed.
 > 
-{type="note"}
 
 [See the full list of supported targets](native-target-support.md).
 
@@ -3561,7 +3535,6 @@ via dead code elimination and provides smoother interoperability with the JavaSc
 
 > The old compiler has been deprecated since the Kotlin 1.8.0 release.
 > 
-{type="note"}
 
 By generating TypeScript declaration files (`d.ts`) from Kotlin code, the IR compiler makes it easier to create "hybrid"
 applications that mix TypeScript and Kotlin code and to leverage code-sharing functionality using Kotlin Multiplatform.
@@ -4168,7 +4141,6 @@ Task info:
 > If you use Gradle 8.0, you might come across some problems with build reports, especially when Gradle configuration 
 > caching is enabled. This is a known issue, fixed in Gradle 8.1 and later.
 >
-{type="note"}
 
 ### 04.1.2.4. Current K2 compiler limitations
 
@@ -4230,7 +4202,7 @@ enum class Color(val colorName: String, val rgb: String) {
 
 fun findByRgb(rgb: String): Color? = Color.entries.find { it.rgb == rgb }
 ```
-{validate="false"}
+
 
 For more information about the `entries` property for enum classes, see [What's new in Kotlin 1.8.20](whatsnew1820.md#a-modern-and-performant-replacement-of-the-enum-class-values-function).
 
@@ -4255,7 +4227,7 @@ fun main() {
     println(EndOfFile) // EndOfFile
 }
 ```
-{validate="false"}
+
 
 For more information, see [What's new in Kotlin 1.8.20](whatsnew1820.md#preview-of-data-objects-for-symmetry-with-data-classes).
 
@@ -4281,7 +4253,7 @@ value class Person(private val fullName: String) {
     }
 }
 ```
-{validate="false"}
+
 
 Previously, Kotlin allowed only public primary constructors in inline classes. As a result, it was impossible to 
 encapsulate underlying values or create an inline class that would represent some constrained values.
@@ -4362,7 +4334,7 @@ kotlin {
     }
 }
 ```
-{validate="false"}
+
 
 #### 04.1.5.1.2. Leave feedback
 
@@ -4420,7 +4392,7 @@ fun main() {
     println(x.y)
 }
 ```
-{validate="false"}
+
 
 The behavior is now unified with Kotlin/JVM, where the implementation is consistent with Java and objects are never 
 initialized in this case. You can also expect some performance improvements in your Kotlin/Native projects thanks to 
@@ -4439,7 +4411,7 @@ tasks.withType<org.jetbrains.kotlin.gradle.targets.native.tasks.KotlinNativeSimu
     standalone.set(false)
 }
 ```
-{validate="false"}
+
 
 > If you disable standalone mode, you must boot the simulator manually. To boot your simulator
 > from CLI, you can use the following command:
@@ -4500,7 +4472,7 @@ kotlin {
     }
 }
 ```
-{validate="false"}
+
 
 ### 04.1.5.6. Compiler option for C interop implicit integer conversions
 
@@ -4520,7 +4492,7 @@ val tomorrow = NSCalendar.currentCalendar.dateByAddingUnit(
     options = 0
 )
 ```
-{validate="false"}
+
 
 To use implicit conversions with native interop libraries, use the `-XXLanguage:+ImplicitSignedToUnsignedIntegerConversion`
 compiler option.
@@ -4533,7 +4505,7 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinNativeCompile>().configur
     )
 }
 ```
-{validate="false"}
+
 
 ## 04.1.6. Kotlin Multiplatform
 
@@ -4581,7 +4553,6 @@ builds. The feature has become Stable since Gradle 8.1. To enable it, follow the
 > The Kotlin Multiplatform plugin still doesn't support the Gradle configuration cache with Xcode integration tasks or the
 > [Kotlin CocoaPods Gradle plugin](native-cocoapods-dsl-reference.md). We expect to add this feature in future Kotlin releases.
 >
-{type="note"}
 
 ## 04.1.7. Kotlin/Wasm
 
@@ -4638,7 +4609,6 @@ You can write, run, and share your Kotlin code that targets the Kotlin/Wasm. [Ch
 >
 > [Learn more about how to enable these features](wasm-get-started.md#troubleshooting).
 >
-{type="note"}
 
 ```kotlin
 import kotlin.time.*
@@ -4681,7 +4651,6 @@ support for ES6:
 
 > Starting from version 1.9.0, [partial library linkage](#library-linkage-in-kotlin-native) is also enabled for Kotlin/JS.
 >
-{type="note"}
 
 
 ### 04.1.8.1. Removal of the old Kotlin/JS compiler
@@ -4717,7 +4686,7 @@ external sealed class ExternalEnum {
     object B: ExternalEnum
 }
 ```
-{validate="false"}
+
 
 By switching to an external sealed class with object subclasses, you can achieve similar functionality to external enums
 while avoiding the problems associated with default methods.
@@ -4749,7 +4718,7 @@ tasks.withType<KotlinJsCompile>().configureEach {
     }
 }
 ```
-{validate="false"}
+
 
 [Learn more about ECMAScript 2015 (ES6) in the official documentation](https://262.ecma-international.org/6.0/).
 
@@ -4810,7 +4779,7 @@ kotlin {
     }
 }
 ```
-{validate="false"}
+
 
 It makes configuring compiler options much easier. However, it is important to note some important details:
 
@@ -4822,7 +4791,7 @@ android {
     kotlinOptions {}
 }
 ```
-{validate="false"}
+
 
 * The `android.kotlinOptions` and `kotlin.compilerOptions` configuration blocks override each other. The last (lowest) block in the build file always takes effect.
 * If `moduleName` is configured on the project level, its value could be changed when passed to the compiler. It's not the case for the `main` compilation, but for other types, for example, test sources, the Kotlin Gradle plugin will add the  `_test` suffix.
@@ -4932,7 +4901,7 @@ tasks.named<org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile>("compileKotlin")
     jvmTargetValidationMode.set(org.jetbrains.kotlin.gradle.dsl.jvm.JvmTargetValidationMode.WARNING)
 }
 ```
-{validate="false"}
+
 
 ## 04.1.10. Standard library
 
@@ -4964,7 +4933,7 @@ fun main() {
     // 2 4 6 8
 }
 ```
-{validate="false"}
+
 
 And here is an example using the new `..<` operator:
 
@@ -4978,12 +4947,11 @@ fun main() {
     // 2 4 6 8
 }
 ```
-{validate="false"}
+
 
 > From IntelliJ IDEA version 2023.1.1, a new code inspection is available that highlights when you
 > can use the `..<` operator.
 >
-{type="note"}
 
 For more information about what you can do with this operator, see [What's new in Kotlin 1.7.20](whatsnew1720.md#preview-of-the-operator-for-creating-open-ended-ranges).
 
@@ -5023,7 +4991,7 @@ object RealtimeMonotonicTimeSource : AbstractLongTimeSource(DurationUnit.NANOSEC
     override fun read(): Long = SystemClock.elapsedRealtimeNanos()
 }
 ```
-{validate="false"}
+
 
 #### Mark and measure differences in time
 
@@ -5105,7 +5073,6 @@ Based on these considerations, we made one of the following decisions:
 > * Deprecated, then it's been deprecated with deprecation level: `WARNING`.
 > * Marked as obsolete, then you can keep using it, but it will be replaced in future.
 >
-{type="note"}
 
 We won't list all of the results of the review here, but here are some of the highlights:
 * We stabilized the Atomics API.
@@ -5178,7 +5145,7 @@ fun main() {
     // 123
 }
 ```
-{validate="false"}
+
 
 ### 04.1.10.6. New path utility to create parent directories
 
@@ -5195,7 +5162,7 @@ sourcePath.copyToRecursively(
     followLinks = false
  )
  ```
-{validate="false"}
+
 
 ### 04.1.10.7. New HexFormat class to format and parse hexadecimals
 
@@ -5215,7 +5182,7 @@ For example:
 ```kotlin
 println(93.toHexString()) // "0000005d"
 ```
-{validate="false"}
+
 
 The `HexFormat` class includes formatting options that you can configure with the `HexFormat{}` builder.
 
@@ -5248,7 +5215,7 @@ val threeGroupFormat = HexFormat { upperCase = true; bytes.bytesPerGroup = 2; by
 println(macAddress.toHexString(threeGroupFormat))
 // "001B.6384.45E6"
 ```
-{validate="false"}
+
 
 If you are working with numeric types, you have the following options, which are configurable by properties:
 
@@ -5264,7 +5231,7 @@ For example:
 // Use HexFormat{} builder to parse a hexadecimal that has prefix: "0x".
 println("0x3a".hexToInt(HexFormat { number.prefix = "0x" })) // "58"
 ```
-{validate="false"}
+
 
 ## 04.1.11. Documentation updates
 
@@ -5298,7 +5265,7 @@ pluginManagement {
     }
 }
 ```
-{validate="false"}
+
 
 If the repository is not specified, Gradle uses the sunset JCenter repository, which could lead to issues with Kotlin artifacts.
 
@@ -5317,7 +5284,6 @@ _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 >
 > See the full list of changes in the [GitHub changelog](https://github.com/JetBrains/kotlin/releases/tag/v%kotlinEapVersion%).
 >
-{type="note"}
 
 The Kotlin %kotlinEapVersion% release is out! Here are some highlights from this preview version:
 
@@ -5687,7 +5653,6 @@ private external fun wasiRawClockTimeGet(clockId: Int, precision: Long, resultPt
 
 > It isn't possible to use [interoperability with JavaScript](wasm-js-interop.md), while targeting `wasmWasi`.
 >
-{type="note"}
 
 ## 04.2.5. How to update to Kotlin %kotlinEapVersion%
 
@@ -5833,7 +5798,7 @@ enum class Color(val colorName: String, val rgb: String) {
 @OptIn(ExperimentalStdlibApi::class)
 fun findByRgb(rgb: String): Color? = Color.entries.find { it.rgb == rgb }
 ```
-{validate="false"}
+
 
 #### How to enable the entries property
 
@@ -6243,7 +6208,7 @@ val persons = listOf(Person("Jack", 11), Person("Sofie", 12), Person("Peter", 11
         .forEach { person -> println(person.name) }
 }
 ```
-{validate="false"}
+
 
 #### How to enable Java synthetic property references
 
@@ -6400,7 +6365,6 @@ cocoapods {
 > If you use this option with static frameworks, it will remove the Pod dependency entirely because Pods are not used
 > for static framework linking.
 >
-{type="note"}
 
 ### 04.3.1.6.5. Import Objective-C extensions as class members in UIKit
 
@@ -6499,7 +6463,6 @@ You can find the complete scheme for the default target hierarchy in the [docume
 > This might be counter-intuitive for source sets like `native`, as you may expect that only APIs available on all
 > native targets are accessible in this source set. This behavior may change in the future.
 >
-{type="note"}
 
 #### Why replace shortcuts
 
@@ -6544,7 +6507,6 @@ help make it even better.
 > This feature has been supported in Gradle builds since Kotlin Gradle Plugin 1.8.20. For IDE support, use IntelliJ IDEA
 > 2023.1 Beta 2 (231.8109.2) or later and the Kotlin Gradle plugin 1.8.20 with any Kotlin IDE plugin.
 >
-{type="note"}
 
 Starting with 1.8.20-RC2, Kotlin Multiplatform supports [Gradle composite builds](https://docs.gradle.org/current/userguide/composite_builds.html).
 Composite builds allow you to include builds of separate projects or parts of the same project into a single build.
@@ -6635,7 +6597,7 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.Kotlin2JsCompile>().configureEa
     compilercompileOptions.sourceMapNamesPolicy.set(org.jetbrains.kotlin.gradle.dsl.JsSourceMapNamesPolicy.SOURCE_MAP_NAMES_POLICY_FQ_NAMES) // or SOURCE_MAP_NAMES_POLICY_NO, or SOURCE_MAP_NAMES_POLICY_SIMPLE_NAMES
 }
 ```
-{validate="false"}
+
 
 Debugging tools like those provided in Chromium-based browsers can pick up the original Kotlin names from your source
 map to improve the readability of your stack trace. Happy debugging!
@@ -6665,7 +6627,7 @@ kotlin {
    }
 }
 ```
-{validate="false"}
+
 
 > The generation of TypeScript definitions (`d.ts`)
 > is [Experimental](components-stability.md#stability-levels-explained). It may be dropped or changed at any time.
@@ -6880,7 +6842,7 @@ fun writeBooksTo(writer: XMLWriter) {
     }
 }
 ```
-{validate="false"}
+
 
 ### 04.3.1.10.2. Support for Base64 encoding
 
@@ -6920,7 +6882,7 @@ Base64.Default.decode("Zm8=") // foBytes
 
 Base64.UrlSafe.decode("Zm9vYmFy") // foobarBytes
 ```
-{validate="false"}
+
 
 You can use additional functions to encode or decode bytes into an existing buffer, as well as to append the encoding
 result to a provided `Appendable` type object.
@@ -7117,7 +7079,6 @@ The Kotlin plugin that supports 1.8.0 is available for:
 > To migrate existing projects to Kotlin 1.8.0 in IntelliJ IDEA 2022.3, change the Kotlin version to `1.8.0` and reimport
 > your Gradle or Maven project.
 >
-{type="note"}
 
 ## 04.3.2.2. Kotlin/JVM
 
@@ -7229,7 +7190,6 @@ To make Kotlin more interoperable with Objective-C and Swift, three new annotati
 
 > The new annotations require [opt-in](opt-in-requirements.md).
 >
-{type="note"}
 
 The Kotlin team is very grateful to [Rick Clephas](https://github.com/rickclephas) for implementing these annotations.
 
@@ -7371,7 +7331,6 @@ kotlin.mpp.androidSourceSetLayoutVersion=2
 
 > The new layout requires Android Gradle plugin 7.0 or later and is supported in Android Studio 2022.3 and later.
 >
-{type="note"}
 
 The usage of the previous Android-style directories is now discouraged. Kotlin 1.8.0 marks the start of the deprecation
 cycle, introducing a warning for the current layout. You can suppress the warning with the following Gradle property:
@@ -7544,7 +7503,6 @@ and to integrate them better into the Kotlin tasks, we made lots of changes:
 > This will be changed in the scope of [this issue](https://youtrack.jetbrains.com/issue/KT-15370/Gradle-DSL-add-module-level-kotlin-options),
 > when the `compilerOptions` DSL will be added to a module level.
 >
-{type="note"}
 
 #### Limitations
 
@@ -7616,7 +7574,6 @@ Learn about other cases and our suggested solutions in [the documentation](gradl
 
 > This section applies to your JVM project even if your source files are only in Kotlin and you don't use Java.
 >
-{type="note"}
 
 [Starting from this release](https://youtrack.jetbrains.com/issue/KT-54993/Raise-kotlin.jvm.target.validation.mode-check-default-level-to-error-when-build-is-running-on-Gradle-8),
 the default value for the [`kotlin.jvm.target.validation.mode` property](gradle-configure-project.md#check-for-jvm-target-compatibility-of-related-compile-tasks)
@@ -7691,7 +7648,6 @@ and `kotlin-stdlib-jdk8` separately in build scripts because the contents of the
 > If you have explicitly declared `kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` as dependencies in your build scripts,
 > then you should replace them with `kotlin-stdlib`.
 >
-{type="note"}
 
 Note that mixing different versions of stdlib artifacts could lead to class duplication or to missing classes.
 To avoid that, the Kotlin Gradle plugin can help you [align stdlib versions](#usage-of-the-latest-kotlin-stdlib-version-in-transitive-dependencies).
@@ -7818,7 +7774,7 @@ sourceRoot.copyToRecursively(destinationRoot, followLinks = false,
         OnErrorResult.TERMINATE
     })
 ```
-{validate="false"}
+
 
 When you use `deleteRecursively()`, if an exception occurs while deleting a file or folder, then the file or folder
 is skipped. Once the deletion has completed, `deleteRecursively()` throws an `IOException` containing all the exceptions
@@ -7838,7 +7794,7 @@ fun setUpEnvironment(projectDirectory: Path, fixtureName: String) {
             overwrite = true) // patches the common fixture
 }
 ```
-{validate="false"}
+
 
 #### Custom copying action
 
@@ -7855,7 +7811,7 @@ sourceRoot.copyToRecursively(destinationRoot, followLinks = false) { source, tar
     }
 }
 ```
-{validate="false"}
+
 
 For more information on these extension functions, see [our API reference](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io.path/java.nio.file.-path/copy-to-recursively.html).
 
@@ -7903,7 +7859,6 @@ an upcoming minor update.
 > To migrate existing projects to Kotlin 1.8.0 in IntelliJ IDEA 2022.3, change the Kotlin version to `1.8.0` and reimport
 > your Gradle or Maven project.
 >
-{type="note"}
 
 For Android Studio Electric Eel (221) and Flamingo (222), version 1.8.0 of the Kotlin plugin will be delivered with
 the upcoming Android Studios updates. The new command-line compiler is available for download on the [GitHub release page](https://github.com/JetBrains/kotlin/releases/tag/v1.8.0).
@@ -8029,7 +7984,7 @@ when (value) {
     in 0.75..1.0 ->  // Last quarter  <- Note closed range here
 }
 ```
-{validate="false"}
+
 
 #### Standard library API changes
 
@@ -8050,7 +8005,7 @@ interface OpenEndRange<T : Comparable<T>> {
     fun isEmpty(): Boolean = start >= endExclusive
 }
 ```
-{validate="false"}
+
 
 ##### Implementing OpenEndRange in the existing iterable ranges
 
@@ -8066,7 +8021,7 @@ class IntRange : IntProgression(...), ClosedRange<Int>, OpenEndRange<Int> {
     override val endExclusive: Int
 }
 ```
-{validate="false"}
+
 
 ##### rangeUntil operators for the standard types
 
@@ -8681,7 +8636,6 @@ will be clear which kotlinx library version you should use when you upgrade the 
 > For Android Studio Dolphin (213), Electric Eel (221), and Flamingo (222), the Kotlin plugin 1.7.20 will be delivered
 > with upcoming Android Studios updates.
 >
-{type="note"}
 
 The new command-line compiler is available for download on the [GitHub release page](https://github.com/JetBrains/kotlin/releases/tag/v1.7.20).
 
@@ -8831,7 +8785,6 @@ fun main() {
 
 > You can use the underscore operator in any position in the variables list to infer a type argument.
 >
-{type="note"}
 
 ### Stable builder inference
 
@@ -8911,7 +8864,6 @@ version 9 or higher.
 
 > This option is [not guaranteed](https://youtrack.jetbrains.com/issue/KT-29974) to be effective for each JDK distribution.
 >
-{type="note"}
 
 Please leave your feedback
 on [this YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-29974/Add-a-compiler-option-Xjdk-release-similar-to-javac-s-release-to).
@@ -8954,7 +8906,6 @@ previous releases. It also brings performance improvements for the new memory ma
 > It may change incompatibly and require manual migration in the future.
 > We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-48525).
 >
-{type="note"}
 
 The new memory manager is still in Alpha, but it is on its way to becoming [Stable](components-stability.md).
 This release delivers significant performance improvements for the new memory manager, especially in garbage
@@ -9054,7 +9005,6 @@ kotlin.native.distribution.baseDownloadUrl=https://example.com
 > The downloader will append the native version and target OS to this base URL to ensure it downloads the actual
 > compiler distribution.
 >
-{type="note"}
 
 ## 04.3.4.5. Kotlin/JS
 
@@ -9293,7 +9243,6 @@ fun main() {
 > This optimization is only available if the time source from which the `TimeMark` is obtained is statically known to
 > be `TimeSource.Monotonic`.
 >
-{type="note"}
 
 ### New experimental extension functions for Java Optionals
 
@@ -9451,7 +9400,6 @@ kotlin.incremental.useClasspathSnapshot=true
 > The new approach to incremental compilation is currently available for the JVM backend in the Gradle build system
 > only.
 >
-{type="note"}
 
 Learn how the new approach to incremental compilation is implemented under the hood in
 [this blog post](https://blog.jetbrains.com/kotlin/2022/07/a-new-approach-to-incremental-compilation-in-kotlin/).
@@ -9547,7 +9495,6 @@ string in the output starting with `Using Kotlin Gradle plugin`, for example, `U
 > * [ResolutionStrategy in pluginManagement is not working for plugins with multivariants](https://github.com/gradle/gradle/issues/20545)
 > * [Plugin variants are ignored when a plugin is added as the `buildSrc` common dependency](https://github.com/gradle/gradle/issues/20847)
 >
-{type="note"}
 
 Leave your feedback
 on [this YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-49227/Support-Gradle-plugins-variants).
@@ -9632,7 +9579,6 @@ Enable the statistics in two steps:
 
 > You can also enable verbose output via the [command line option `verbose`](kapt.md#using-in-cli).
 >
-{type="note"}
 
 The statistics will appear in the logs with the `info` level. You'll see the `Annotation processor stats:` line followed
 by statistics on the execution time of each annotation processor. After these lines, there will be
@@ -9698,7 +9644,6 @@ We've completed the deprecation cycle for several compiler options:
 
 > The compiler arguments `-jdkHome` and `-no-stdlib` are still available.
 >
-{type="note"}
 
 #### Removal of deprecated plugins
 
@@ -9755,7 +9700,6 @@ IntelliJ IDEA 2022.1 and Android Studio Chipmunk (212) automatically suggest upd
 
 > For IntelliJ IDEA 2022.2, and Android Studio Dolphin (213) or Android Studio Electric Eel (221), the Kotlin plugin 1.7.0 will be delivered with upcoming IntelliJ IDEA and Android Studios updates.
 > 
-{type="note"}
 
 The new command-line compiler is available for download on the [GitHub release page](https://github.com/JetBrains/kotlin/releases/tag/v1.7.0).
 
@@ -9860,7 +9804,7 @@ fun main() {
     elvisLike<String?>(null, null).length
 }
 ```
-{validate="false"}
+
 
 Set the language version to `1.7` to enable the feature:
 
@@ -9959,7 +9903,6 @@ If your project consists of lots of small modules and has a build parallelized b
 > * It doesn't work with [kapt](kapt.md) because kapt disables the IR backend
 > * It requires more JVM heap by design. The amount of heap is proportional to the number of threads
 >
-{type="note"}
 
 
 ### Support for callable references to functional interface constructors
@@ -9995,7 +9938,7 @@ Its constructor will be created implicitly, and any code using the `::Printer` f
 ```kotlin
 documentsStorage.addPrinter(::Printer)
 ```
-{validate="false"}
+
 
 Preserve the binary compatibility by marking the legacy function `Printer` with the [`@Deprecated`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-deprecated/) annotation with `DeprecationLevel.HIDDEN`:
 
@@ -10003,7 +9946,7 @@ Preserve the binary compatibility by marking the legacy function `Printer` with 
 @Deprecated(message = "Your message about the deprecation", level = DeprecationLevel.HIDDEN)
 fun Printer(...) {...}
 ```
-{validate="false"}
+
 
 Use the compiler option `-XXLanguage:+KotlinFunInterfaceConstructorReference` to enable this feature.
 
@@ -10027,7 +9970,6 @@ Kotlin/Native 1.6.20 marks continued development of its new components. We've ta
 > It may change incompatibly and require manual migration in the future.
 > We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-48525).
 >
-{type="note"}
 
 With Kotlin 1.6.20, you can try the Alpha version of the new Kotlin/Native memory manager.
 It eliminates the differences between the JVM and Native platforms to provide a consistent developer experience in multiplatform projects.
@@ -10466,7 +10408,6 @@ tasks.withType(org.jetbrains.kotlin.gradle.dsl.KotlinCompile).configureEach {
 
 > The feature was backported to Kotlin 1.6.10.
 >
-{type="note"}
 
 The Kotlin/JS Gradle plugin now provides an ability to persist the `yarn.lock` file, making it possible to lock the versions of the npm dependencies for your project without additional Gradle configuration.
 The feature brings changes to the default project structure by adding the auto-generated `kotlin-js-store` directory to the project root.
@@ -10513,7 +10454,6 @@ rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlu
 
 > The feature was backported to Kotlin 1.6.10.
 >
-{type="note"}
 
 The Kotlin/JS Gradle plugin now prevents the execution of [lifecycle scripts](https://docs.npmjs.com/cli/v8/using-npm/scripts#life-cycle-scripts) during the installation of npm dependencies by default.
 The change is aimed at reducing the likelihood of executing malicious code from compromised npm packages.
@@ -10892,7 +10832,6 @@ Kotlin/Native 1.6.0 supports Xcode 13 – the latest version of Xcode. Feel free
 
 > New libraries added in Xcode 13 aren't available for use in Kotlin 1.6.0, but we're going to add support for them in upcoming versions.
 >
-{type="note"}
 
 ### Compilation of Windows targets on any host
 
@@ -11068,7 +11007,6 @@ Kotlin 1.6.0 offers new functions for handling standard input: [`readln()`](http
 
 > For now, new functions are available for the JVM and Native target platforms only.
 >
-{type="note"}
 
 |**Earlier versions**|**1.6.0 alternative**|**Usage**|
 | --- | --- | --- |
@@ -11369,7 +11307,6 @@ We're planning to prohibit non-exhaustive `when` statements soon to make the beh
 
 > Enums already get a warning.
 >
-{type="note"}
 
 ```kotlin
 sealed class Mode {
@@ -11705,7 +11642,6 @@ This parameter will not appear in the Podspec file. When Xcode runs the Gradle b
 
 > There's no need to declare the `Debug` and `Release` configurations because they are supported by default.
 >
-{type="note"}
 
 ### Experimental interoperability with Swift 5.5 async/await
 
@@ -12115,7 +12051,6 @@ If you want to express duration in a single unit, use the overloaded `Duration.t
 
 > We recommend using [`Duration.toIsoString()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/to-iso-string.html) in certain cases, including serialization and interchange. `Duration.toIsoString()` uses the stricter [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format instead of `Duration.toString()`.
 >
-{type="note"}
 
 ### Parsing Duration from String
 
@@ -13187,7 +13122,6 @@ Kotlin 1.5.0 provides the following fully [Stable](components-stability.md) alte
 > For Kotlin/JVM, there are also overloaded `uppercase()`, `lowercase()`, and `titlecase()` functions with an explicit
 > `Locale` parameter.
 >
-{type="note"}
 
 The old API functions are marked as deprecated and will be removed in a future release.
 
@@ -13299,7 +13233,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{validate="false"}
+
 
 ### New API for getting a char category now available in multiplatform code
 
@@ -13937,7 +13871,6 @@ Kotlin 1.4.30 provides the following alternatives:
 > For Kotlin/JVM, there are also overloaded `uppercase()`, `lowercase()`, and `titlecase()` functions with an explicit
 > `Locale` parameter.
 >
-{type="note"}
 
 See the full list of changes to the text processing functions in [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/stdlib/locale-agnostic-string-conversions.md).
 
@@ -14001,7 +13934,6 @@ inline class Color(val rgb: Int)
 
 > The feature requires the new 1.4.30 IR compiler.
 >
-{type="note"}
 
 The serialization framework does not box serializable inline classes when they are used in other serializable classes.
 
@@ -14372,7 +14304,6 @@ the new `kotlin-parcelize` plugin. Apply this plugin instead of `kotlin-android-
 
 >`kotlin-parcelize` and `kotlin-android-extensions` can't be applied together in one module.
 >
-{type="note"}
 
 The `@Parcelize` annotation is moved to the `kotlinx.parcelize` package.
 
@@ -14703,7 +14634,6 @@ In Kotlin 1.4, debugging coroutines is now much more convenient with the new fun
 
 > Debugging works for versions 1.3.8 or later of `kotlinx-coroutines-core`.
 >
-{type="note"}
 
 The **Debug Tool Window** now contains a new **Coroutines** tab. In this tab, you can find information about both currently 
 running and suspended coroutines. The coroutines are grouped by the dispatcher they are running on. 
@@ -14939,14 +14869,12 @@ kotlinOptions.useIR = true
 > If you [enable Jetpack Compose](https://developer.android.com/jetpack/compose/setup?hl=en), you will automatically be 
 > opted in to the new JVM backend without needing to specify the compiler option in `kotlinOptions`.
 >
-{type="note"}
 
 When using the command-line compiler, add the compiler option `-Xuse-ir`.
 
 > You can use code compiled by the new JVM IR backend only if you've enabled the new backend. Otherwise, you will get an error.
 > Considering this, we don't recommend that library authors switch to the new backend in production.
 >
-{type="note"}
 
 ### New modes for generating default methods
 
@@ -15194,7 +15122,6 @@ and improvements:
 
 > Multiplatform projects require Gradle 6.0 or later.
 >
-{type="note"}
 
 ### Sharing code in several targets with the hierarchical project structure
 
@@ -15839,7 +15766,6 @@ important features and it can help you address any issues that you might face.
 
 >**Note**: `kotlinx-serialization` 1.0.0-RC only works with Kotlin compiler 1.4. Earlier compiler versions are not compatible.
 >
-{type="note"}
 
 ## 04.3.12.11. Scripting and REPL
 
@@ -17664,7 +17590,6 @@ The IDE support for the latest version of the language is available for the foll
 > Learn more about the latest Kotlin-related updates in IntelliJ IDEA in the **Kotlin** section of the
 > [What's new in IntelliJ IDEA page](https://www.jetbrains.com/idea/whatsnew/).
 > 
-{type="tip"}
 
 ## 05.1.3. Release details
 
@@ -18038,7 +17963,6 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
 > * There's no commitment to delivering specific features or fixes in specific versions.
 > * We will adjust our priorities as we go and update the roadmap approximately every six months.
 > 
-{type="note"}
 
 ## 05.2.3. What's changed since December 2022
 
@@ -18083,7 +18007,6 @@ We've **removed** the following items from the roadmap:
 > Some items were removed from the roadmap but not dropped completely. In some cases, we've merged previous roadmap items
 > with the current ones.
 >
-{type="note"}
 
 ### Items in progress
 
@@ -19110,7 +19033,7 @@ fun calcTaxes(): BigDecimal = TODO("Waiting for feedback from accounting")
 
 IntelliJ IDEA's kotlin plugin understands the semantics of `TODO()` and automatically adds a code pointer in the TODO tool window. 
 
-## What's next?
+**What's next?**
 
 * Solve [Advent of Code puzzles](advent-of-code.md) using the idiomatic Kotlin style.
 * Learn how to perform [typical tasks with strings in Java and Kotlin](java-to-kotlin-idioms-strings.md).
@@ -19154,7 +19077,6 @@ files in `org.example.kotlin.network.socket` should be in the `network/socket` s
 >source root as the Java source files, and follow the same directory structure: each file should be stored in the 
 >directory corresponding to each package statement.
 >
-{type="note"}
 
 ### Source file names
 
@@ -19211,7 +19133,6 @@ avoid clashes while retaining code readability.
 >   However, this naming scheme can help you avoid situations when a simple refactoring
 > or an addition could include a top-level function and result in the same "Duplicate JVM classes" error.
 > 
-{type="tip"}
 
 ### Source file organization
 
@@ -19372,7 +19293,6 @@ if (elements != null) {
 >In Kotlin, semicolons are optional, and therefore line breaks are significant. The language design assumes 
 >Java-style braces, and you may encounter surprising behavior if you try to use a different formatting style.
 >
-{type="note"}
 
 ### Horizontal whitespace
 
@@ -20375,7 +20295,6 @@ There are the following kinds of literal constants for integral values:
 
 > Octal literals are not supported in Kotlin.
 >
-{type="note"}
 
 Kotlin also supports a conventional notation for floating-point numbers:
 
@@ -20395,7 +20314,6 @@ val bytes = 0b11010010_01101001_10010100_10010010
 > There are also special tags for unsigned integer literals.  
 > Read more about [literals for unsigned integer types](unsigned-integer-types.md).
 > 
-{type="tip"}
 
 ## 07.1.1.2.4. Numbers representation on the JVM
 
@@ -20623,7 +20541,6 @@ Unsigned types support most of the operations of their signed counterparts.
 > signed counterpart type of the same width. Nevertheless, changing type from unsigned type to signed counterpart (and vice versa) 
 > is a _binary incompatible_ change.
 >
-{type="note"}
 
 ## 07.1.1.3.1. Unsigned arrays and ranges
 
@@ -20736,7 +20653,6 @@ fun main() {
 
 > **On JVM**: nullable references to boolean objects are boxed similarly to [numbers](numbers.md#numbers-representation-on-the-jvm).
 >
-{type="note"}
 
 # 📜 07.01.1.5. Characters
 
@@ -20774,7 +20690,6 @@ If a value of character variable is a digit, you can explicitly convert it to an
 > **On JVM**: Like [numbers](numbers.md#numbers-representation-on-the-jvm), characters are boxed when a nullable reference is needed.
 > Identity is not preserved by the boxing operation.
 >
-{type="note"}
 
 # 📜 07.01.1.6. Strings
 
@@ -20829,7 +20744,6 @@ println(s + "def")
 
 > In most cases using [string templates](#string-templates) or [multiline strings](#multiline-strings) is preferable to string concatenation.
 > 
-{type="note"}
 
 ## 07.1.1.6.1. String literals
 
@@ -20920,7 +20834,6 @@ The most common type of array in Kotlin is the object-type array, represented by
 > If you use primitives in an object-type array, this has a performance impact because your primitives are [boxed](https://docs.oracle.com/javase/tutorial/java/data/autoboxing.html)
 > into objects. To avoid boxing overhead, use [primitive-type arrays](#primitive-type-arrays) instead.
 >
-{type="note"}
 
 ## 07.1.1.7.1. When to use arrays
 
@@ -21007,7 +20920,6 @@ create an empty array :
 > var exampleArray: Array<String> = emptyArray()
 >```
 >
-{type="note"}
 
 The `Array` constructor takes the array size and a function that returns values for array elements given its index:
 
@@ -21030,7 +20942,6 @@ fun main() {
 
 > Like in most programming languages, indices start from 0 in Kotlin.
 >
-{type="note"}
 
 ### Nested arrays
 
@@ -21055,7 +20966,6 @@ fun main() {
 
 > Nested arrays don't have to be the same type or the same size.
 >
-{type="note"}
 
 ## 07.1.1.7.3. Access and modify elements
 
@@ -21172,7 +21082,6 @@ fun main() {
 
 > The `.sum()` function can only be used with arrays of [numeric data types](numbers.md), such as `Int`.
 >
-{type="note"}
 
 #### Shuffle
 
@@ -21289,9 +21198,8 @@ fun main() {
 > [`.toByteArray()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/to-byte-array.html), [`.toCharArray()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/to-char-array.html),
 > and so on.
 > 
-{type="note"}
 
-## What's next?
+**What's next?**
 
 * To learn more about why we recommend using collections for most use cases, read our [Collections overview](collections-overview.md).
 * Learn about other [basic types](basic-types.md).
@@ -22252,7 +22160,6 @@ class DontCreateMe private constructor() { /*...*/ }
 > class Customer(val customerName: String = "")
 > ```
 >
-{type="note"}
 
 ## 07.4.1.2. Creating instances of classes
 
@@ -22266,7 +22173,6 @@ val customer = Customer("Joe Smith")
 
 > Kotlin does not have a `new` keyword.
 >
-{type="note"}
 
 The process of creating instances of nested, inner, and anonymous inner classes is described in [Nested classes](nested-classes.md).
 
@@ -22344,7 +22250,6 @@ By default, Kotlin classes are final – they can't be inherited. To make a clas
 
 ```kotlin
 open class Base // Class is open for inheritance
-
 ```
 
 To declare an explicit supertype, place the type after a colon in the class header:
@@ -22707,7 +22612,6 @@ public val table: Map<String, Int>
 
 > On the JVM: Access to private properties with default getters and setters is optimized to avoid function call overhead.
 >
-{type="note"}
 
 ## 07.4.3.3. Compile-time constants
 
@@ -23067,7 +22971,6 @@ class Bar { ... }
 
 >To use a visible top-level declaration from another package, you should [import](packages.md#imports) it.
 >
-{type="note"}
 
 Examples:
 
@@ -23094,7 +22997,6 @@ For members declared inside a class:
 
 > In Kotlin, an outer class does not see private members of its inner classes.
 >
-{type="note"}
 
 If you override a `protected` or an `internal` member and do not specify the visibility explicitly, the overriding member
 will also have the same visibility as the original.
@@ -23135,7 +23037,6 @@ Use the following syntax to specify the visibility of the primary constructor of
 
 > You need to add an explicit `constructor` keyword.
 >
-{type="note"}
 
 ```kotlin
 class C private constructor(a: Int) { ... }
@@ -23305,7 +23206,6 @@ val <T> List<T>.lastIndex: Int
 > property to have a [backing field](properties.md#backing-fields). This is why _initializers are not allowed for
 > extension properties_. Their behavior can only be defined by explicitly providing getters/setters.
 >
-{type="note"}
 
 Example:
 
@@ -23491,7 +23391,6 @@ Data classes may extend other classes (see [Sealed classes](sealed-classes.md) f
 > On the JVM, if the generated class needs to have a parameterless constructor, default values for the properties have
 > to be specified (see [Constructors](classes.md#constructors)).
 >
-{type="note"}
 
 ```kotlin
 data class User(val name: String = "", val age: Int = 0)
@@ -23629,7 +23528,6 @@ Subclasses of sealed classes must have a proper qualified name. They can't be lo
 
 > `enum` classes can't extend a sealed class (as well as any other class), but they can implement sealed interfaces.
 >
-{type="note"}
 
 These restrictions don't apply to indirect subclasses. If a direct subclass of a sealed class is not marked as sealed,
 it can be extended in any way that its modifiers allow:
@@ -23671,7 +23569,6 @@ fun log(e: Error) = when(e) {
 > require an `else` branch. This happens because subclasses of `actual` platform implementations aren't known in the 
 > common code.
 >
-{type="note"}
 
 
 # 📜 07.04.10. [Generics: in, out, where](generics.md)
@@ -23784,7 +23681,6 @@ Joshua Bloch gives the name _Producers_ to objects you only _read from_ and _Con
 >
 >The only thing guaranteed by wildcards (or other types of variance) is _type safety_. Immutability is a completely different story.
 >
-{type="note"}
 
 ### Declaration-site variance
 
@@ -23939,7 +23835,6 @@ For example, if the type is declared as `interface Function<in T, out U>` you co
 
 > Star-projections are very much like Java's raw types, but safe.
 >
-{type="note"}
 
 ## 07.4.10.3. Generic functions
 
@@ -24147,7 +24042,6 @@ inline fun <reified T> List<*>.asListOfType(): List<T>? =
 >nullability and actual type arguments of the element type are still erased. For example,
 >the cast `foo as Array<List<String>?>` will succeed if `foo` is an array holding any `List<*>`, whether it is nullable or not.
 >
-{type="note"}
 
 ## 07.4.10.7. Underscore operator for type arguments
 
@@ -24253,7 +24147,6 @@ window.addMouseListener(object : MouseAdapter() {
 > val listener = ActionListener { println("clicked") }
 > ```
 >
-{type="note"}
 
 
 
@@ -24831,7 +24724,6 @@ object DefaultListener : MouseAdapter() {
 > Object declarations can't be local (that is, they can't be nested directly inside a function), but they can be nested
 > into other object declarations or non-inner classes.
 >
-{type="note"}
 
 ### Data objects
 
@@ -25420,7 +25312,6 @@ Under the hood, the Kotlin compiler generates auxiliary properties for some kind
 > For the optimization purposes, the compiler [_does not_ generate auxiliary properties in several cases](#optimized-cases-for-delegated-properties). 
 > Learn about the optimization on the example of [delegating to another property](#translation-rules-when-delegating-to-another-property).
 >
-{type="note"}
 
 For example, for the property `prop` it generates the hidden property `prop$delegate`, and the code of the accessors
 simply delegates to this additional property:
@@ -25833,7 +25724,6 @@ foo(strings = *arrayOf("a", "b", "c"))
 > When calling Java functions on the JVM, you can't use the named argument syntax because Java bytecode does not
 > always preserve the names of function parameters.
 >
-{type="note"}
 
 ### Unit-returning functions
 
@@ -25951,7 +25841,6 @@ infix fun Int.shl(x: Int): Int { ... }
 > * `a && b xor c` is equivalent to `a && (b xor c)`
 > * `a xor b in c` is equivalent to `(a xor b) in c`
 >
-{type="note"}
 
 Note that infix functions always require both the receiver and the parameter to be specified. When you're
 calling a method on the current receiver using the infix notation, use `this` explicitly. This is required to ensure
@@ -26175,7 +26064,6 @@ Function types can also be combined using parentheses: `(Int) -> ((Int) -> Unit)
 
 > The arrow notation is right-associative, `(Int) -> (Int) -> Unit` is equivalent to the previous example, but not to `((Int) -> (Int)) -> Unit`.
 >
-{type="note"}
 
 You can also give a function type an alternative name by using [a type alias](type-aliases.md):
 
@@ -26240,7 +26128,6 @@ fun main() {
 > to an extension function.
 > To alter that, specify the variable type explicitly.
 >
-{type="note"}
 
 ### Invoking a function type instance
 
@@ -26408,7 +26295,6 @@ functions with a block body.
 > When passing anonymous functions as parameters, place them inside the parentheses. The shorthand syntax that allows you to leave
 > the function outside the parentheses works only for lambda expressions.
 >
-{type="note"}
 
 Another difference between lambda expressions and anonymous functions is the behavior of [non-local returns](inline-functions.md#non-local-returns).
 A `return`  statement without a label always returns from the function declared with the `fun` keyword. This means that
@@ -26535,7 +26421,6 @@ however, can be manipulated in any way you like, including being stored in field
 > is very unlikely to be beneficial (you can use the `@Suppress("NOTHING_TO_INLINE")` annotation to suppress the warning
 > if you are sure the inlining is needed).
 >
-{type="note"}
 
 ## 07.5.3.2. Non-local returns
 
@@ -26607,7 +26492,6 @@ inline fun f(crossinline body: () -> Unit) {
 
 > `break` and `continue` are not yet available in inlined lambdas, but we are planning to support them, too.
 >
-{type="note"}
 
 ## 07.5.3.3. Reified type parameters
 
@@ -26753,7 +26637,6 @@ function or an extension function.
 > These operations, as well as all the others, are optimized for [basic types](basic-types.md) and do not introduce 
 > overhead of function calls for them.
 >
-{type="note"}
 
 As an example, here's how you can overload the unary minus operator:
 
@@ -26878,7 +26761,6 @@ For the assignment operations, for example `a += b`, the compiler performs the f
 
 > Assignments are *NOT* expressions in Kotlin.
 >
-{type="note"}
 
 ### Equality and inequality operators
 
@@ -26892,7 +26774,6 @@ which can be overridden to provide custom equality check implementation. Any oth
 
 > `===` and `!==` (identity checks) are not overloadable, so no conventions exist for them.
 >
-{type="note"}
 
 The `==` operation is special: it is translated to a complex expression that screens for `null`'s.
 `null == null` is always true, and `x == null` for a non-null `x` is always false and won't invoke `x.equals()`.
@@ -27306,7 +27187,6 @@ Builder inference allows to omit type arguments while using generic builders.
 > Before Kotlin 1.7.0, enabling builder inference for a builder function required `-Xenable-builder-inference` compiler option. 
 > In 1.7.0 the option is enabled by default.
 >
-{type="note"}
 
 To let builder inference work for your own builder, make sure its declaration has a builder lambda parameter of a
 function type with a receiver. There are also two requirements for the receiver type:
@@ -27778,7 +27658,7 @@ val nullableList: List<Int?> = listOf(1, 2, null, 4)
 val intList: List<Int> = nullableList.filterNotNull()
 ```
 
-## What's next?
+**What's next?**
 
 * Learn how to [handle nullability in Java and Kotlin](java-to-kotlin-nullability-guide.md).
 * Learn about generic types that are [definitely non-nullable](generics.md#definitely-non-nullable-types).
@@ -28481,7 +28361,6 @@ functions can be called on it. And, of course, there can be `component3()` and `
 > The `componentN()` functions need to be marked with the `operator` keyword to allow using them in a destructuring 
 >declaration.
 >
-{type="note"}
 
 Destructuring declarations also work in `for`-loops:
 
@@ -28513,7 +28392,6 @@ Since data classes automatically declare `componentN()` functions, destructuring
 > You could also use the standard class `Pair` and have `function()` return `Pair<Int, Status>`, 
 > but it's often better to have your data named properly.
 >
-{type="note"}
 
 ## 07.12.2. Example: destructuring declarations and maps
 
@@ -28596,7 +28474,6 @@ the type of a property or function at runtime) is essential when using a functio
 
 > Kotlin/JS provides limited support for reflection features. [Learn more about reflection in Kotlin/JS](js-reflection.md).
 >
-{type="note"}
 
 ## 07.13.1. JVM dependency
 
@@ -28659,7 +28536,6 @@ The reference is a [KClass](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.
 >On JVM: a Kotlin class reference is not the same as a Java class reference. To obtain a Java class reference,
 >use the `.java` property on a `KClass` instance.
 >
-{type="note"}
 
 ### Bound class references
 
@@ -28975,7 +28851,6 @@ for the business logic of your iOS and Android apps.
 > Kotlin Multiplatform is in [Beta](components-stability.md). It is almost stable, but migration steps may be required
 > in the future. We'll do our best to minimize any changes you have to make.
 >
-{type="note"}
 
 Kotlin Multiplatform technology simplifies the development of cross-platform projects.
 The Kotlin applications will work on different operating systems like iOS, Android, macOS, Windows, Linux, watchOS, and others.
@@ -29104,7 +28979,6 @@ To make sure everything works as expected, install and run the KDoctor tool:
 
 > KDoctor works on macOS only.
 >
-{type="note"}
 
 1. In the Android Studio terminal or your command-line tool, run the following command to install the tool using Homebrew:
 
@@ -29127,7 +29001,6 @@ To make sure everything works as expected, install and run the KDoctor tool:
    > You may ignore KDoctor's warnings regarding the CocoaPods installation. In your first project, you will use a
    > different iOS framework distribution option.
    >
-   {type="tip"}
 
 ## 08.1.2.3. Possible issues and solutions
 
@@ -29176,7 +29049,7 @@ To make sure everything works as expected, install and run the KDoctor tool:
     </def>
 </deflist>
 
-## Next step
+**Next step**
 
 In the next part of the tutorial, you'll create your first cross-platform mobile application.
 
@@ -29225,7 +29098,6 @@ Here you will learn how to create and run your first Kotlin Multiplatform applic
    > For more complex projects, you might need the CocoaPods dependency manager that helps handle library dependencies.
    > To learn more about CocoaPods and how to set up an environment for them, see [CocoaPods overview and setup](native-cocoapods.md).
    >
-   {type="tip"}
 
 5. Keep the default names for the application and shared folders. Click **Finish**.
 
@@ -29497,9 +29369,8 @@ If you want to run your application on a simulated device, you can add a new run
 
 > If your build fails, follow the workaround described in [this issue](https://youtrack.jetbrains.com/issue/KT-40907).
 >
-{type="note"}
 
-## Next step
+**Next step**
 
 In the next part of the tutorial, you'll learn how to update the UI elements using platform-specific libaries.
 
@@ -29634,7 +29505,7 @@ Implement the same changes as in the Android app:
 
    ![Updated UI of your iOS multiplatform app](first-multiplatform-project-on-ios-2.png){width=300}
 
-## Next step
+**Next step**
 
 In the next part of the tutorial, you'll learn about dependencies and add a third-party library to expand
 the functionality of your project.
@@ -29744,7 +29615,7 @@ multiplatform support, is the most convenient way to work with dates in your sha
 
 ![Updated mobile multiplatform app with external dependencies](first-multiplatform-project-3.png){width=500}
 
-## Next step
+**Next step**
 
 In the next part of the tutorial, you'll add more dependencies and more complex logic to your project.
 
@@ -30136,9 +30007,8 @@ is already imported and used in `ContentView.swift` with `import shared`.
 
 > You can find this state of the project in our [GitHub repository](https://github.com/kotlin-hands-on/get-started-with-kmp).
 > 
-{type="note"}
 
-## Next step
+**Next step**
 
 In the final part of the tutorial, you'll wrap up your project and see what steps to take next.
 
@@ -30242,7 +30112,6 @@ and an iOS app.
 
 > This structure isn't the only possible way to organize your project; however, we recommend it as a starting point.
 >
-{type="note"}
 
 To view the complete structure of your mobile multiplatform project, switch the view from **Android** to **Project**.
 
@@ -30574,7 +30443,6 @@ version of the framework for the iOS application. For details, see [iOS applicat
 
 > Use the `embedAndSignAppleFrameworkForXcode` Gradle task with Xcode project builds only; otherwise, you'll get an error.
 >
-{type="note"}
 
 ## 08.1.8.3. Android application
 
@@ -30729,7 +30597,6 @@ tab, add the `KOTLIN_FRAMEWORK_BUILD_TYPE` setting under **User-Defined** and se
 
 > Use the `embedAndSignAppleFrameworkForXcode` Gradle task with Xcode project builds only; otherwise, you'll get an error.
 >
-{type="note"}
 
 ![Execution of `embedAndSignAppleFrameworkForXcode` in the Xcode project settings](packforxcode-in-project-settings.png){width=700}
 
@@ -30768,7 +30635,6 @@ for entering a username and password. The credentials are validated and saved to
 > If you aren't familiar with Kotlin Multiplatform for mobile, learn how to [set up environment and create a cross-platform application from scratch](multiplatform-mobile-getting-started.md)
 > first.
 > 
-{type="tip"}
 
 ## 08.1.9.1. Prepare an environment for development
 
@@ -30789,7 +30655,6 @@ for entering a username and password. The credentials are validated and saved to
    > The `master` branch contains the project's initial state — a simple Android application. To see the final state
    > with the iOS application and the shared module, switch to the `final` branch.
    >
-   {type="tip"}
 
 3. Switch to the **Project** view.
 
@@ -31052,7 +30917,6 @@ Once you have the framework, you can connect it to your iOS project manually.
 > An alternative is to [configure integration via CocoaPods](native-cocoapods.md), but that integration is beyond the
 > scope of this tutorial.
 >
-{type="note"}
 
 Connect your framework to the iOS project manually:
 
@@ -31097,7 +30961,6 @@ Connect your framework to the iOS project manually:
 > If you have a custom build configuration different from the default `Debug` or `Release`, on the **Build Settings**
 > tab, add the `KOTLIN_FRAMEWORK_BUILD_TYPE` setting under **User-Defined** and set it to `Debug` or `Release`.
 >
-{type="note"}
 
 ### Use the shared module from Swift
 
@@ -31188,7 +31051,7 @@ For example, the `ViewModel` class code is almost the same for [Android](https:/
 and [iOS applications](https://github.com/Kotlin/kmm-integration-sample/blob/final/iosApp/SimpleLoginIOS/ContentView.swift#L84),
 and you can share it if your mobile applications should have the same presentation layer.
 
-## What's next?
+**What's next?**
 
 Once you've made your Android application cross-platform, you can move on and:
 
@@ -31282,7 +31145,6 @@ You will use the following multiplatform libraries in the project:
 > source code of the [final application](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final)
 > on the corresponding GitHub repository.
 >
-{type="note"}
 
 ## 08.1.11.1. Before you start
 
@@ -31317,7 +31179,6 @@ For more on project features and how to use them, see [Understand the project st
 
 > You can find the configured project [on the `master` branch](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage).
 >
-{type="note"}
 
 ## 08.1.11.3. Add dependencies to the multiplatform library
 
@@ -31405,7 +31266,6 @@ Learn more about adding [dependencies on multiplatform libraries](multiplatform-
 
 > You can find this state of the project [on the `final` branch](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
 >
-{type="note"}
 
 ## 08.1.11.4. Create an application data model
 
@@ -31433,7 +31293,6 @@ to declare properties in data classes with more easily readable names.
 
 > You can find the state of the project after this section [on the `final` branch](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
 >
-{type="note"}
 
 ## 08.1.11.5. Configure SQLDelight and implement cache logic
 
@@ -31682,7 +31541,6 @@ The `Database` class instance will be created later, along with the SDK facade c
 
 > You can find the state of the project after this section [on the `final` branch](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
 >
-{type="note"}
 
 ## 08.1.11.6. Implement an API service
 
@@ -31753,7 +31611,6 @@ In the `androidApp/src/main/AndroidManifest.xml` file, add the following permiss
 
 > You can find the state of the project after this section [on the `final` branch](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
 >
-{type="note"}
 
 # Build an SDK
 
@@ -31810,7 +31667,6 @@ public class.
 
 > You can find the state of the project after this section [on the `final` branch](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
 >
-{type="note"}
 
 ## 08.1.11.7. Create the Android application
 
@@ -32071,7 +31927,6 @@ module.
 
 > You can find the state of the project after this section [on the `final` branch](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
 >
-{type="note"}
 
 # Create the iOS application
 
@@ -32271,9 +32126,8 @@ library.
 
 > You can find the final version of the project [on the `final` branch](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
 >
-{type="note"}
 
-## What's next?
+**What's next?**
 
 This tutorial features some potentially resource-heavy operations, like parsing JSON and making requests to the database in
 the main thread. To learn about how to write concurrent code and optimize your app,
@@ -32297,7 +32151,6 @@ Learn how to create your first Kotlin cross-platform app or library benefiting f
 > Kotlin Multiplatform is in [Beta](components-stability.md). It is almost stable, but migration steps may be required
 > in the future. We'll do our best to minimize any changes you have to make.
 >
-{type="note"}
 
 Support for multiplatform programming is one of Kotlin's key benefits. It reduces time spent writing and maintaining the 
 same code for [different platforms](multiplatform-dsl-reference.md#targets) while retaining the flexibility and benefits of native programming.   
@@ -32355,7 +32208,6 @@ You can also apply it manually.
 
 >The `kotlin-multiplatform` plugin works with Gradle %minGradleVersion% or later. 
 >
-{type="note"}
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -32416,7 +32268,6 @@ default source sets for the `main` and `test` compilations of the common code an
 
 > Source set names are case-sensitive.
 >
-{type="note"}
 
 Source sets are added to the `sourceSets` block of the top-level `kotlin` block. For example, this is the source sets
 structure you get when creating a multiplatform library with the IntelliJ IDEA project wizard:
@@ -33003,7 +32854,7 @@ a `root` node for rendering components and a `script` tag that includes the appl
     </body>
 </html>
 ```
-{validate="false"}
+
 
 This file is placed in the `common` resources instead of a `jvm` source set to make tasks for running the JS application
 in the browser (`jsBrowserDevelopmentRun` and `jsBrowserProductionRun`) accessible to the file as well. It's helpful if
@@ -33439,7 +33290,6 @@ pass the application port and MongoDB connection string.
 > During application deployment, you might need to change the firewall rules to allow the application to access the
 > database. For more details, see the [MongoDB documentation](https://docs.atlas.mongodb.com/security/ip-access-list/).
 >
-{type="note"}
 
 ### Specify the PORT variable
 
@@ -33501,7 +33351,6 @@ You can set this environment variable when you deploy the application to the tar
 
 > You can find the finished application on GitHub on the [`final` branch](https://github.com/kotlin-hands-on/jvm-js-fullstack/tree/final).
 >
-{type="note"}
 
 #### Relevant Gradle configuration
 
@@ -33584,7 +33433,6 @@ You will also test your code using common tests, and then publish the library to
 
 > You can find a similar project in this [GitHub repository](https://github.com/KaterinaPetrova/mpp-sample-lib).
 >
-{type="note"}
 
 ## 08.3.1.1. Set up the environment
 
@@ -34168,7 +34016,7 @@ The `implementation` dependency consists of:
 
 For more details, see the [Gradle documentation](https://docs.gradle.org/current/userguide/publishing_maven.html) on the `maven-publish` plugin.
 
-## What's next?
+**What's next?**
 
 * Learn more about [publishing multiplatform libraries](multiplatform-publish-lib.md).
 * Learn more about [Kotlin Multiplatform](multiplatform-get-started.md).
@@ -34223,7 +34071,6 @@ This `kotlinMultiplatform` publication includes metadata artifacts and reference
 > The Kotlin Multiplatform plugin automatically produces the required artifact with the embedded metadata artifacts.  
 > This means you don't have to customize your build by adding an empty artifact to the root module of your library to meet the repository's requirements.
 >
-{type="note"}
  
 The `kotlinMultiplatform` publication may also need the sources and documentation artifacts if that is required by the repository. In that case, 
 add those artifacts by using [`artifact(...)`](https://docs.gradle.org/current/javadoc/org/gradle/api/publish/maven/MavenPublication.html#artifact-java.lang.Object-) 
@@ -34337,7 +34184,6 @@ kotlin {
 > It is not recommended that you publish variants grouped by the product flavor in case they have different dependencies, 
 > as those will be merged into one dependency list.
 >
-{type="note"}
 
 ## 08.3.2.4. Disable sources publication
 
@@ -34462,7 +34308,7 @@ To do that, add the following property to your `gradle.properties`:
 kotlin.mpp.enableCInteropCommonization=true
 ```
 
-## What's next?
+**What's next?**
 
 * Check out examples of code sharing using the Kotlin mechanism of [expect and actual declarations](multiplatform-connect-to-apis.md)
 * Learn more about [hierarchical project structure](multiplatform-hierarchy.md)
@@ -34496,7 +34342,6 @@ declarations marked with the `actual` keyword in all platform modules. The IDE p
 > Don't overuse expected and actual declarations – in some cases, an [interface](interfaces.md) may be a better choice
 > because it is more flexible and easier to test.
 >
-{type="note"}
 
 Learn how to [add dependencies on platform-specific libraries](multiplatform-add-dependencies.md).
 
@@ -34945,7 +34790,6 @@ from the `apple`, `native`, and `common` source sets is compiled to `watchosArm6
 > This can be counter-intuitive for source sets like `native`, as you might expect that only APIs available on all
 > native targets are accessible in this source set. This behavior may change in the future.
 >
-{type="note"}
 
 ### Adjust the resulting hierarchy
 
@@ -35032,7 +34876,6 @@ In that case, use an entirely [manual configuration](#manual-configuration) inst
 > look into the `targetHierarchy.custom { ... }` block and the declaration of `targetHierarchy.default()` as an example.
 > Keep in mind that this API is still in development. It might not be tested, and can change in further releases.
 > 
-{type="tip"}
 
 #### See the full hierarchy template
 
@@ -35597,7 +35440,6 @@ specified library declarations will then be available only in those source sets.
 
 > Don't use a platform-specific name in such cases, like SQLDelight `native-driver` in the example below. Find the exact name in the library's documentation.
 >
-{type="note"}
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -35701,7 +35543,7 @@ kotlin {
 </tab>
 </tabs>
 
-## What's next?
+**What's next?**
 
 Check out other resources on adding dependencies in multiplatform projects and learn more about:
 
@@ -35785,7 +35627,7 @@ Android projects, is also supported. However, we strongly recommend **against** 
 script with Android dependencies in the top-level block and other target dependencies in each source set is likely to
 cause confusion.
 
-## What's next?
+**What's next?**
 
 Check out other resources on adding dependencies in multiplatform projects and learn more about:
 
@@ -36060,7 +35902,7 @@ import MyFramework.*
 Learn more about [Objective-C and Swift interop](native-objc-interop.md) and
 [configuring cinterop from Gradle](multiplatform-dsl-reference.md#cinterops).
 
-## What's next?
+**What's next?**
 
 Check out other resources on adding dependencies in multiplatform projects and learn more about:
 
@@ -36302,7 +36144,6 @@ You can run this test using any of the ways [available in the IDE](#run-tests).
 > Here, the [mechanism of expected and actual declarations](multiplatform-connect-to-apis.md)
 > is used for brevity and simplicity. In more complex code, a better approach is to use interfaces and factory functions.
 >
-{type="note"}
 
 Now you have experience writing tests for common code. Let's explore writing platform-specific tests for Android and iOS.
 
@@ -36438,7 +36279,7 @@ When working with tests in your future projects, remember:
 * You can run tests both from the IDE and using Gradle tasks.
 * When you run tests, HTML test reports are generated automatically.
 
-## What's next?
+**What's next?**
 
 * Explore the layout of multiplatform projects in [Understand Multiplatform project structure](multiplatform-discover-project.md).
 * Check out [Kotest](https://kotest.io/), another multiplatform testing framework that the Kotlin ecosystem provides.
@@ -36566,7 +36407,6 @@ collection.
 > For custom compilations, you need to set up all dependencies manually. The default source set of a custom compilation 
 > does not depend on the `commonMain` and the `commonTest` source sets.
 >
-{type="note"}
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -36831,7 +36671,6 @@ of native binaries built for this target in addition to the default `*.klib` art
 > The `kotlin-multiplatform` plugin doesn't create any production binaries by default. The only binary available by default 
 > is a debug test executable that lets you run unit tests from the `test` compilation.
 >
-{type="note"}
 
 Kotlin artifact DSL can help you to solve a common issue: when you need to access multiple Kotlin modules from your app.
 Since the usage of several Kotlin/Native artifacts is limited, you can export multiple Kotlin modules into a single
@@ -37165,7 +37004,6 @@ and provides a set of methods for declaring and configuring them.
 > The `kotlin-multiplatform` plugin doesn't create any production binaries by default. The only binary available by default
 > is a debug test executable that lets you run unit tests from the `test` compilation.
 >
-{type="note"}
 
 Binaries produced by the Kotlin/Native compiler can include third-party code, data, or derived work.
 This means if you distribute a Kotlin/Native-compiled [final binary](multiplatform-build-native-binaries.md),
@@ -37290,7 +37128,6 @@ binary kind following the pattern: `<optional-name-prefix><build-type><binary-ki
 
 > Static and shared libraries have the suffixes static and shared respectively, for example, `fooDebugStatic` or `barReleaseShared`.
 >
-{type="note"}
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -37432,7 +37269,6 @@ export all these modules to it.
 
 > You can export only [`api` dependencies](gradle-configure-project.md#dependency-types) of the corresponding source set.
 >
-{type="note"}
 
 When you export a dependency, it includes all of its API to the framework API.
 The compiler adds the code from this dependency to the framework, even if you use a small fraction of it.
@@ -37660,7 +37496,6 @@ binaries {
 
 > Multiplatform projects are in [Alpha](components-stability.md). Language features and tooling may change in future Kotlin versions.
 >
-{type="note"}
 
 The Kotlin Multiplatform Gradle plugin is a tool for creating [Kotlin Multiplatform](multiplatform.md) projects.
 Here we provide a reference of its contents; use it as a reminder when writing Gradle build scripts
@@ -37758,7 +37593,6 @@ The complete list of available targets is the following:
 
 > A target that is not supported by the current host is ignored during building and, therefore, not published.
 >
-{type="note"}
 
 ```groovy
 kotlin {
@@ -38092,7 +37926,6 @@ Learn more about [compilation for Android](multiplatform-configure-compilations.
 > The `android` configuration inside `kotlin` doesn't replace the build configuration of any Android project.
 > Learn more about writing build scripts for Android projects in [Android developer documentation](https://developer.android.com/studio/build).
 >
-{type="note"}
 
 ## 08.8.4. Source sets
 
@@ -38975,7 +38808,6 @@ developing projects with Kotlin Multiplatform.
 > Mind the deprecation cycle of a specific change in relation to the Kotlin version you have in your projects. The current
 > Stable version of Kotlin is 1.9.10.
 > 
-{type="note"}
 
 ## 08.12.1. New approach to auto-generated targets
 
@@ -39482,7 +39314,6 @@ You can check your Kotlin version and update it in **Settings/Preferences** | **
 >If you do not have a compatible version of Kotlin installed, the Kotlin Multiplatform Mobile plugin will be disabled. You will need to update your Kotlin 
 >version, and then enable the plugin in **Settings/Preferences** | **Plugins**.
 >
-{type="note"}
 
 ## 08.13.2. Release details
 
@@ -40038,7 +39869,6 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
    > Select the **Create Git repository** checkbox to place the new project under version control. You will be able to do
    > it later at any time.
    >
-   {type="tip"}
 
 4. From the **Language** list, select **Kotlin**.
    
@@ -40114,7 +39944,7 @@ Enter your name and accept the greetings from your application!
 
 Congratulations! You have just run your first Kotlin application.
 
-## What's next?
+**What's next?**
 
 Once you've created this application, you can start to dive deeper into Kotlin syntax:
 
@@ -40167,7 +39997,7 @@ Kotlin fixes a series of issues that Java suffers from:
 * [Separate interfaces for read-only and mutable collections](collections-overview.md)
 * [Coroutines](coroutines-overview.md)
 
-## What's next?
+**What's next?**
 
 Learn how to:
 * Perform [typical tasks with strings in Java and Kotlin](java-to-kotlin-idioms-strings.md).
@@ -40304,7 +40134,6 @@ tasks
 
 > Prior to Kotlin 1.9.0, to enable this feature you had to set the `-language-version 1.9` compiler option.
 > 
-{type="note"}
 
 ## 09.1.3.3. Methods returning void
 
@@ -40400,7 +40229,6 @@ You can annotate the type arguments and type parameters of generic types to prov
 
 > All examples in the section use JetBrains nullability annotations from the `org.jetbrains.annotations` package.
 >
-{type="note"}
 
 #### Type arguments
 
@@ -40489,7 +40317,6 @@ nullability which deviates from the nullability annotations from Java.
 > `TYPE_USE` takes priority. For example, if `@Nullable` has both `TYPE_USE` and `METHOD` targets, the Java method
 > signature `@Nullable String[] f()` becomes `fun f(): Array<String?>!` in Kotlin.
 >
-{type="note"}
 
 ### JSR-305 support
 
@@ -40584,7 +40411,6 @@ interface A {
 > The types in this example only take place with the strict mode enabled; otherwise, the platform types remain.
 > See the [`@UnderMigration` annotation](#undermigration-annotation) and [Compiler configuration](#compiler-configuration) sections.
 >
-{type="note"}
 
 Package-level default nullability is also supported:
 
@@ -40626,7 +40452,6 @@ public class Test {}
 > The migration status of a nullability annotation is not inherited by its type qualifier nicknames but is applied
 > to its usages in default type qualifiers.
 >
-{type="note"}
 
 If a default type qualifier uses a type qualifier nickname and they are both `@UnderMigration`, the status
 from the default type qualifier is used.
@@ -40657,7 +40482,6 @@ and only the `strict` mode affects the types in the annotated declarations as th
 >[`@CheckForNull`](https://www.javadoc.io/doc/com.google.code.findbugs/jsr305/latest/javax/annotation/CheckForNull.html) are always enabled and
 >affect the types of the annotated declarations in Kotlin, regardless of compiler configuration with the `-Xjsr305` flag.
 >
-{type="note"}
 
 For example, adding `-Xjsr305=ignore -Xjsr305=under-migration:ignore -Xjsr305=@org.library.MyNullable:warn` to the
 compiler arguments makes the compiler generate warnings for inappropriate usages of types annotated by
@@ -40737,7 +40561,6 @@ Java's arrays are mapped as mentioned [below](java-interop.md#java-arrays):
 >The static members of these Java types are not directly accessible on the [companion objects](object-declarations.md#companion-objects)
 >of the Kotlin types. To call them, use the full qualified names of the Java types, e.g. `java.lang.Integer.toHexString(foo)`.
 >
-{type="note"}
 
 ## 09.1.3.7. Java generics in Kotlin
 
@@ -40976,7 +40799,6 @@ executor.execute(Runnable { println("This runs in a thread pool") })
 > SAM conversions only work for interfaces, not for abstract classes, even if those also have just a single
 abstract method.
 >
-{type="note"}
 
 ## 09.1.3.17. Using JNI with Kotlin
 
@@ -41280,7 +41102,6 @@ making its getter and setter methods static members in that object or the class 
 
 >Default methods are available only for targets JVM 1.8 and above.
 >
-{type="note"}
 
 Starting from JDK 1.8, interfaces in Java can contain [default methods](https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html).
 To make all non-abstract members of Kotlin interfaces default for the Java classes implementing them, compile the Kotlin 
@@ -41340,7 +41161,6 @@ public class BB8 implements Robot {
 > Detailed information about the changes in default methods generation in Kotlin 1.4 is provided in [this post](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/)
 > on the Kotlin blog.
 >
-{type="note"}
 
 ### Compatibility modes for default methods
 
@@ -41352,7 +41172,6 @@ This allows you to add this annotation to all interfaces in the public API once,
 > Starting from Kotlin 1.6.20, you can compile modules in the default mode (the `-Xjvm-default=disable` compiler option) against 
 > modules compiled with the `-Xjvm-default=all` or `-Xjvm-default=all-compatibility` modes.
 >
-{type="note"}
 
 Learn more about compatibility modes:
 
@@ -41372,7 +41191,6 @@ __Breaks binary compatibility__ if some client code relies on the presence of `D
 
 > If interface delegation is used, all interface methods are delegated. The only exception are methods annotated with the deprecated `@JvmDefault` annotation.
 >
-{type="note"}
 
 #### all-compatibility
 
@@ -41591,7 +41409,6 @@ Base unboxBase(Box<? extends Base> box) { ... }
 > When the argument type is final, there's usually no point in generating the wildcard, so `Box<String>` is always `Box<String>`,
 >no matter what position it takes.
 >
-{type="note"}
 
 If you need wildcards where they are not generated by default, use the `@JvmWildcard` annotation:
 
@@ -41612,7 +41429,6 @@ fun unboxBase(box: Box<@JvmSuppressWildcards Base>): Base = box.value
 >`@JvmSuppressWildcards` can be used not only on individual type arguments, but on entire declarations, such as functions
 >or classes, causing all wildcards inside them to be suppressed.
 >
-{type="note"}
 
 ### Translation of type `Nothing`
  
@@ -41648,7 +41464,7 @@ Going through these four steps, you'll learn a lot of essential features of the 
 
 ![Fourth step](icon-4.svg){width=25}{type="joined"} [Use Spring Data CrudRepository for database access](jvm-spring-boot-using-crudrepository.md)
 
-## Next step
+**Next step**
 
 Start by [creating a Spring Boot project](jvm-create-project-with-spring-boot.md) with Kotlin using IntelliJ IDEA.
 
@@ -41683,7 +41499,6 @@ Download and install the latest version of [IntelliJ IDEA Ultimate Edition](http
 
 > If you use IntelliJ IDEA Community Edition or another IDE, you can generate a Spring Boot project using a [web-based project generator](https://start.spring.io).
 > 
-{type="note"}
 
 ## 09.1.5.1.2.2. Create a Spring Boot project
 
@@ -41691,7 +41506,6 @@ Create a new Spring Boot project with Kotlin by using the Project Wizard in Inte
 
 > You can also create a new project using [IntelliJ IDEA with the Spring Boot plugin](https://www.jetbrains.com/help/idea/spring-boot.html).
 >
-{type="note"}
 
 1. In IntelliJ IDEA, select **File** | **New** | **Project**. 
 2. In the panel on the left, select **New Project** | **Spring Initializr**.
@@ -41897,7 +41711,6 @@ class MessageController {
 > import org.springframework.web.bind.annotation.RestController
 > ```
 >
-{type="note"}
 
 Here is a complete code of the `DemoApplication.kt`:
 
@@ -41949,7 +41762,7 @@ The Spring application is now ready to run:
 
     ![Spring Application response](spring-application-response.png){width=706}
 
-## Next step
+**Next step**
 
 In the next part of the tutorial you'll learn about Kotlin data classes and how you can use them in your application.
 
@@ -41966,7 +41779,6 @@ We will also send you language tips and useful materials on using Kotlin with Sp
 
 > You will need to share your email address on the next page to receive the materials.
 >
-{type="note"}
 
 
 # 📜 09.1.5.1.3. Add a data class to Spring Boot project
@@ -42065,7 +41877,6 @@ The response from `MessageController` will now be a JSON document containing a c
 > As you [specified the `spring-boot-starter-web` dependency in the `build.gradle.kts` file](jvm-create-project-with-spring-boot.md#explore-the-project-gradle-build-file), you received Jackson as a _transitive_ dependency.
 > Hence, the application responds with a JSON document if the endpoint returns a data structure that can be serialized to JSON.
 >
-{type="note"}
 
 Here is a complete code of the `DemoApplication.kt`:
 
@@ -42115,7 +41926,7 @@ The Spring application is ready to run:
 
     ![Run the application](messages-in-json-format.png){width=800}
 
-## Next step
+**Next step**
 
 In the next part of the tutorial, you'll add and configure a database to your project, and make HTTP requests.
 
@@ -42132,7 +41943,6 @@ We will also send you language tips and useful materials on using Kotlin with Sp
 
 > You will need to share your email address on the next page to receive the materials.
 >
-{type="note"}
 
 # 📜 09.1.5.1.4. Add database support for Spring Boot project
 
@@ -42521,7 +42331,7 @@ The Spring application is ready to run:
 
     ![Retrieve message by its id](retrieve-message-by-its-id.png){width=706}
 
-## Next step
+**Next step**
 
 The final step shows you how to use more popular connection to database using Spring Data. 
 
@@ -42538,7 +42348,6 @@ We will also send you language tips and useful materials on using Kotlin with Sp
 
 > You will need to share your email address on the next page to receive the materials.
 >
-{type="note"}
 
 
 # 📜 09.1.5.1.5. Use Spring Data CrudRepository for database access
@@ -42698,7 +42507,7 @@ class MessageService(val db: MessageRepository) {
 The application is ready to run again.
 By replacing the `JdbcTemplate` with `CrudRepository`, the functionality didn't change hence the application should work the same way as previously.
 
-## Next step
+**Next step**
 
 Get your personal language map to help you navigate Kotlin features and track your progress in studying the language.
 We will also send you language tips and useful materials on using Kotlin with Spring.
@@ -42709,7 +42518,6 @@ We will also send you language tips and useful materials on using Kotlin with Sp
 
 > You will need to share your email address on the next page to receive the materials.
 >
-{type="note"}
 
 
 # 📜 09.1.5.2. [Spring Framework Documentation for Kotlin](https://docs.spring.io/spring-framework/docs/current/reference/html/languages.html#languages)
@@ -42990,7 +42798,6 @@ To declare a record class in Kotlin, use the `@JvmRecord` annotation:
 
 > Applying `@JvmRecord` to an existing class is not a binary compatible change. It alters the naming convention of the class property accessors.
 >
-{type="note"}
 
 ```kotlin
 @JvmRecord
@@ -43140,7 +42947,6 @@ fun main() {
 
 > In Java, if you want spaces between your delimiters and following items, you need to add a space to the delimiter explicitly.
 >
-{type="note"}
 
 Learn more about [joinToString()](collection-transformations.md#string-representation) usage.
 
@@ -43391,7 +43197,7 @@ fun main() {
 
 Learn more about [multiline strings](coding-conventions.md#strings).
 
-## What's next?
+**What's next?**
 
 * Look through other [Kotlin idioms](idioms.md).
 * Learn how to convert existing Java code to Kotlin with
@@ -43418,7 +43224,6 @@ this [video](https://www.youtube.com/watch?v=F8jj7e-_jFA) by Sebastian Aigner, K
 
 > All of the examples below use Java and Kotlin standard library APIs only.
 >
-{type="note"}
 
 ## 09.1.9.2.1. Operations that are the same in Java and Kotlin
 
@@ -44100,7 +43905,6 @@ fun main() {
 > If collections have different sizes, the result of `zip()` is the smaller size. The last elements of 
 the larger collection are not included in the result.
 >
-{type="note"}
 
 ### Associate elements
 
@@ -44131,7 +43935,7 @@ fun main() {
 ```
 
 
-## What's next?
+**What's next?**
 
 * Visit [Kotlin Koans](koans.md) – complete exercises to learn Kotlin syntax. Each exercise is created as a failing unit test and your job is to make it pass.
 * Look through other [Kotlin idioms](idioms.md).
@@ -44171,7 +43975,6 @@ That means there's almost no runtime overhead for working with nullable types in
 > We say "almost" because, even though [intrinsic](https://en.wikipedia.org/wiki/Intrinsic_function) checks _are_ generated,
 their overhead is minimal.
 >
-{type="note"}
 
 In Java, if you don't write null checks, methods may throw a `NullPointerException`:
 
@@ -44479,9 +44282,8 @@ To make it return `null`, you can use the [_boxed_ type](https://docs.oracle.com
 However, it's more resource-efficient to make such functions return a negative value and then check the value –
 you would do the check anyway, but no additional boxing is performed this way.
 >
-{type="note"}
 
-## What's next?
+**What's next?**
 
 * Browse other [Kotlin idioms](idioms.md).
 * Learn how to convert existing Java code to Kotlin with the [Java-to-Kotlin (J2K) converter](mixing-java-kotlin-intellij.md#converting-an-existing-java-file-to-kotlin-with-j2k).
@@ -44666,7 +44468,7 @@ performs the incremental build of the project.
 
    ![Application output](native-output-3.png)
 
-## What's next?
+**What's next?**
 
 Once you have created your first application, you can complete our long-form tutorial on Kotlin/Native,
 [Create an app using C Interop and libcurl](native-app-with-c-and-libcurl.md) that explains how to create a native HTTP
@@ -44685,7 +44487,6 @@ To get started, install the latest version of [Gradle](https://gradle.org/instal
 
 > If you would like to use an IDE, check out the [Using IntelliJ IDEA](native-get-started.md) tutorial.
 > 
-{type="note"}
 
 ## 09.2.2.1. Create project files
 
@@ -44802,9 +44603,8 @@ Now you can open your project in any IDE that supports Gradle. If you use Intell
 
 > If you face any problem with the project, IntelliJ IDEA will show the error message in the **Build** tab.
 >
-{type="note"}
 
-## What's next?
+**What's next?**
 
 Learn how to [write Gradle build scripts for real-life Kotlin/Native projects](multiplatform-dsl-reference.md).
 
@@ -44985,7 +44785,6 @@ They are treated as a space-separated list of globs.
 > If the same header is both included with `headerFilter`, and excluded with `excludeFilter`, the latter will have a higher
 > priority. The specified header will not be included into the bindings.
 > 
-{type="note"}
 
 #### Filter headers by module maps
 
@@ -45699,7 +45498,7 @@ fun main() {
 }
 ```
 
-## Next steps
+**Next steps**
 
 Continue to explore more complicated C language types and their representation in Kotlin/Native
 in the next tutorials:
@@ -46106,7 +45905,7 @@ fun main() {
 }
 ```
 
-## Next steps
+**Next steps**
 
 Continue exploring the C language types and their representation in Kotlin/Native in the related tutorials:
 - [Mapping primitive data types from C](mapping-primitive-data-types-from-c.md)
@@ -46699,7 +46498,7 @@ fun main() {
 }
 ```
 
-## Next steps
+**Next steps**
 
 Continue to explore more C language types and their representation in Kotlin/Native
 in our other tutorials:
@@ -46863,7 +46662,6 @@ information on all the options available to `cinterop`, see [the Interop section
 > Windows SDK Commandline tools). For more details, see the [related blog post](https://jonnyzzz.com/blog/2018/10/29/kn-libcurl-windows/).
 > Alternatively, you may want to consider a [MinGW/MSYS2](https://www.msys2.org/) `curl` binary.
 >
-{type="note"}
 
 ## 09.2.4.6.3. Add interoperability to the build process
 
@@ -46994,7 +46792,6 @@ hide this using `curl_easy_setopt`.
 
 > You can get the full code [here](https://github.com/Kotlin/kotlin-hands-on-intro-kotlin-native).
 >
-{type="note"}
 
 # 📜 09.2.5. Objective-C interop
 
@@ -47033,7 +46830,6 @@ If you don't want to export Kotlin declarations to Objective-C and Swift, use sp
 
 > Using these annotations requires [opt-in](opt-in-requirements.md).
 >
-{type="note"}
 
 ## 09.2.5.1.2. Mappings
 
@@ -47100,7 +46896,6 @@ let index = array.index(of: "element")
 
 > Using this annotation requires [opt-in](opt-in-requirements.md).
 >
-{type="note"}
 
 ### 09.2.5.1.2.02. Initializers
 
@@ -47161,7 +46956,6 @@ or parameters.
 
 > Using this annotation requires [opt-in](opt-in-requirements.md).
 >
-{type="note"}
 
 ### 09.2.5.1.2.06. Errors and exceptions
 
@@ -47255,7 +47049,6 @@ And the extension initializers aren't available as Kotlin constructors.
 > in the same headers as the NSView class (from the AppKit framework) or UIView classes (from the UIKit framework) are
 > imported as members of these classes. This means that you can override methods that subclass from NSView or UIView.
 >
-{type="note"}
 
 Kotlin extensions to "regular" Kotlin classes are imported to Swift and Objective-C as extensions and category members, respectively.
 Kotlin extensions to other types are treated as [top-level declarations](#top-level-functions-and-properties)
@@ -47302,7 +47095,6 @@ MyClass.Companion.shared
 
 > Access objects through `[MySingleton mySingleton]` in Objective-C and `MySingleton()` in Swift has been deprecated.
 > 
-{type="note"}
 
 ### 09.2.5.1.2.11. NSNumber
 
@@ -47760,7 +47552,6 @@ It contains the definitions for our Kotlin code and a few Kotlin-wide declaratio
 
 >The way Kotlin/Native exports symbols is subject to change without notice.
 
-{type="note"}
 
 ### Kotlin/Native runtime declarations
 
@@ -48126,7 +47917,6 @@ Install the [CocoaPods dependency manager](https://cocoapods.org/) using the ins
 > This way of installation doesn't work on devices with Apple M chips. Use other tools to set up an environment to work
 > with CocoaPods.
 >
-{type="note"}
 
 You can install the CocoaPods dependency manager with the default Ruby that should be available on macOS:
 
@@ -48281,7 +48071,6 @@ of specs at the beginning of your Podfile:
 
 > Re-import the project after making changes in the Podfile.
 >
-{type="note"}
 
 If you don't make these changes to the Podfile, the `podInstall` task will fail, and the CocoaPods plugin will show
 an error message in the log.
@@ -48363,7 +48152,6 @@ the configuration block of the function.
 > If you don't specify the minimum deployment target version and a dependency Pod requires a higher deployment target,
 > you will get an error.
 >
-{type="note"}
 
 You can find a sample project [here](https://github.com/Kotlin/kmm-with-cocoapods-sample).
 
@@ -48554,7 +48342,6 @@ import cocoapods.CocoaLumberjack.*
 > source 'https://github.com/Kotlin/kotlin-cocoapods-spec.git'
 > ```
 >
-{type="note"}
 
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
 
@@ -48679,7 +48466,6 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
 > * If you don't specify the minimum deployment target version and a dependency Pod requires a higher deployment target,
 >   you will get an error.
 >
-{type="note"}
 
 ## 09.2.6.3.1. Xcode project with one target
 
@@ -48863,7 +48649,6 @@ The `framework` block is nested inside `cocoapods` and configures the framework 
 
 > Note that `baseName` is a required field.
 >
-{type="note"}
 
 | **Name**           | **Description**                                                                         | 
 |--------------------|-----------------------------------------------------------------------------------------|
@@ -49099,7 +48884,6 @@ An example layout can be found in `klib/stdlib` directory of your installation.
 
 > Using relative paths in klibs is available since Kotlin 1.6.20.
 > 
-{type="note"}
 
 A serialized IR representation of source files is [a part of](#library-format) a `klib` library. It includes paths of 
 files for generating proper debug information. By default, stored paths are absolute.
@@ -49369,7 +49153,6 @@ Let's discuss the code in parts to make it easier to understand.
 
 >The way Kotlin/Native exports symbols is subject to change without notice.
 
-{type="note"}
 
 The very first part contains the standard C/C++ header and footer:
 
@@ -49575,7 +49358,6 @@ library name is used as a prefix for the function name.
 Hosting the returned `libnative_ExportedSymbols*` pointer
 per thread might be necessary.
 
-{type="note"}
 
 ## 09.2.9.3. Use generated headers from C
 
@@ -49657,7 +49439,7 @@ cl.exe main.c libnative.lib
 
 The command produces the `main.exe` file, which you can run.
 
-## Next steps
+**Next steps**
 
 Dynamic libraries are the main way to use Kotlin code from existing programs. 
 You can use them to share your code with many platforms or languages, including JVM,
@@ -50282,7 +50064,6 @@ the concurrency rules altogether.
 > This is a more advanced topic. You should have a deep understanding of how concurrency in Kotlin/Native works under 
 > the hood, and you'll need to be very careful when using this approach. Learn more about [concurrency](native-immutability.md#concurrency-in-kotlin-native).
 >
-{type="note"}
 
 Kotlin/Native runs on top of C++ and provides interop with C and Objective-C. If you are running on iOS, you can also pass lambda 
 arguments into your shared code from Swift. All of this native code runs outside of the Kotlin/Native state restrictions. 
@@ -50521,7 +50302,6 @@ If you see `InvalidMutabilityException` related to a coroutine operation, it's v
 > Using multithreaded coroutines may result in _memory leaks_. This can be a problem for complex coroutine scenarios under load.
 > We are working on a solution for this.
 >
-{type="note"}
 
 See a [complete example of using multithreaded coroutines in a Kotlin Multiplatform application](https://github.com/touchlab/KaMPKit).
 
@@ -50603,7 +50383,6 @@ perform the following operations:
 
 >Supporting the DWARF 2 specification means that the debugger tool recognizes Kotlin as C89, because before the DWARF 5 specification, there is no identifier for the Kotlin language type in specification.
 >
-{type="note"}
 
 ## 09.2.11.1. Produce binaries with debug info with Kotlin/Native compiler
 
@@ -50932,7 +50711,6 @@ tiers depending on how well the compiler supports them.
 
 > We can adjust the number of tiers, the list of supported targets, and their features as we go.
 > 
-{type="tip"}
 
 Mind the following terms used in tier tables:
 
@@ -50984,7 +50762,6 @@ Mind the following terms used in tier tables:
 > Meanwhile, we sometimes run tests manually on iOS devices and rely on testing
 > similar targets, like `iosSimulatorArm64`, which should be sufficient in most cases.
 > 
-{type="tip"}
 
 ## 09.2.13.1.3. Tier 3
 
@@ -51113,7 +50890,6 @@ Sometimes it is derived work, such as code rewritten from C++ to Kotlin.
 > * [Kotlin compiler](https://github.com/JetBrains/kotlin/tree/master/license/third_party)
 > * [Kotlin/Native](https://github.com/JetBrains/kotlin/tree/master/kotlin-native/licenses/third_party)
 >
-{type="note"}
 
 In particular, the Kotlin/Native compiler produces binaries that can include third-party code, data, or derived work.
 This means that the Kotlin/Native-compiled binaries are subject to the terms and conditions of the third-party licenses.
@@ -51173,7 +50949,6 @@ Specific targets require additional license files:
 
 > None of these libraries require the distributed Kotlin/Native binaries to be open-sourced.
 >
-{type="note"}
 
 
 # 📜 09.2.13.4. Kotlin/Native FAQ
@@ -51309,7 +51084,6 @@ and swiftc's `-embed-bitcode`/`-embed-bitcode-marker`.
 > This issue is relevant for the legacy memory manager only. Check out [Kotlin/Native memory management](native-memory-manager.md)
 > to learn about the new memory manager, which has been enabled by default since Kotlin 1.7.20.
 >
-{type="note"}
 
 It likely happens, because you are trying to mutate a frozen object. An object can transfer to the
 frozen state either explicitly, as objects reachable from objects on which the `kotlin.native.concurrent.freeze` is called,
@@ -51320,7 +51094,6 @@ or implicitly (i.e. reachable from `enum` or global singleton object - see the n
 > This issue is relevant for the legacy memory manager only. Check out [Kotlin/Native memory management](native-memory-manager.md)
 > to learn about the new memory manager, which has been enabled by default since Kotlin 1.7.20.
 >
-{type="note"}
 
 Currently, singleton objects are immutable (i.e. frozen after creation), and it's generally considered
 good practise to have the global state immutable. If for some reason you need a mutable state inside such an
@@ -51470,7 +51243,7 @@ You'll see the text "Hello, you're using Kotlin/Wasm!":
 
 ![Kotlin/Wasm application in browser](wasm-browser-updated-app.png){width=500}
 
-## What's next?
+**What's next?**
 
 [Explore the Kotlin/Wasm interoperability with JavaScript](wasm-js-interop.md)
 
@@ -51484,7 +51257,6 @@ by adding the Kotlin [experimental repository](https://maven.pkg.jetbrains.space
 
 > For Kotlin 1.9.0 and later, use the latest available libraries' versions.
 >
-{type="note"}
 
 ## 09.3.2.1. Supported Kotlin libraries for Kotlin/Wasm
 
@@ -51555,7 +51327,7 @@ kotlin {
 }
 ```
 
-## What's next?
+**What's next?**
 
 [Explore the Kotlin/Wasm interoperability with JavaScript](wasm-js-interop.md)
 
@@ -51645,7 +51417,6 @@ project [Kotlin/Wasm browser](https://github.com/Kotlin/kotlin-wasm-examples/tre
 > * Implementing or extending external types
 > * External [enum classes](enum-classes.md)
 >
-{type="note"}
 
 ### @JsFun annotation
 
@@ -51670,7 +51441,6 @@ reported when running your JavaScript.
 > These function expressions are evaluated only once, before the Wasm module is loaded. Do not rely on side effects as
 > these expressions are not run if the function is not called.
 >
-{type="note"}
 
 ### @JsModule
 
@@ -51712,7 +51482,6 @@ external class User {
 
 > Kotlin/Wasm supports ES modules only. That's why you can't use the `@JsNonModule` annotation.
 >
-{type="note"}
 
 ## 09.3.3.2. Use Kotlin code from JavaScript
 
@@ -52016,7 +51785,6 @@ kotlin {
 > Not all libraries available for the Kotlin programming language are available when targeting JavaScript:
 > only libraries that include artifacts for Kotlin/JS can be used.
 >
-{type="note"}
 
 If the library you are adding has dependencies on [packages from npm](#npm-dependencies), Gradle will automatically resolve
 these transitive dependencies as well.
@@ -52288,7 +52056,6 @@ a `.js` file inside the `webpack.config.d` directory:
 
 > In this case, the configuration object is the `config` global object. You need to modify it in your script.
 >
-{type="note"}
 
 ```groovy
 config.module.rules.push({
@@ -52521,7 +52288,6 @@ rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlu
 
 > Version locking via `kotlin-js-store` is available since Kotlin 1.6.10.
 >
-{type="note"}
 
 The `kotlin-js-store` directory in the project root is automatically generated by the Kotlin Multiplatform Gradle plugin to hold 
 the `yarn.lock` file, which is necessary for version locking. The lockfile is entirely managed by the Yarn plugin 
@@ -52619,7 +52385,6 @@ rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlu
 
 > Installing npm dependencies with `--ignore-scripts` by default is available since Kotlin 1.6.10.
 >
-{type="note"}
 
 To reduce the likelihood of executing malicious code from compromised npm packages, the Kotlin Multiplatform Gradle plugin prevents 
 the execution of [lifecycle scripts](https://docs.npmjs.com/cli/v8/using-npm/scripts#life-cycle-scripts)
@@ -52931,7 +52696,6 @@ evaluation, and more. Learn more about [debugging in IntelliJ IDEA](https://www.
 > Because of the limitations of the current JavaScript debugger in IntelliJ IDEA, you may need to rerun the JavaScript
 > debug to make the execution stop on breakpoints.
 >
-{type="note"}
 
 ## 09.4.4.3. Debug in Node.js
 
@@ -53103,7 +52867,6 @@ with the module name as a prefix: `moduleName.dot.separated.package.name.declara
 >in the generated JavaScript code. To keep such functions from elimination, use the mangled names in the `keep` arguments
 >as they appear in the generated JavaScript code.
 >
-{type="note"}
 
 ```groovy
 kotlin {
@@ -53124,7 +52887,6 @@ generated JavaScript code.
 > Keeping whole packages or modules from elimination can prevent DCE from removing many unused declarations. Because of
 > this, it is preferable to select individual declarations which should be excluded from DCE one by one.
 >
-{type="note"}
 
 ## 09.4.6.2. Disable DCE
 
@@ -53211,7 +52973,6 @@ kotlin.incremental.js.ir=false // true by default
 
 > The clean build in the incremental compilation mode is usually slower because of the need to create and populate the caches.
 >
-{type="note"}
 
 ## 09.4.7.3. Output .js files: one per module or one for the whole project
 
@@ -53831,7 +53592,6 @@ function usingAsOperator(s) {
 
 > The dynamic type is not supported in code targeting the JVM.
 >
-{type="note"}
 
 Being a statically typed language, Kotlin still has to interoperate with untyped or loosely typed environments,
 such as the JavaScript ecosystem. To facilitate these use cases, the `dynamic` type is available in the language:
@@ -54051,7 +53811,6 @@ external fun newC()
 
 > The `@JsExport` annotation is currently marked as experimental. Its design may change in future versions.
 >
-{type="note"} 
 
 By applying the `@JsExport` annotation to a top-level declaration (like a class or function), you make the Kotlin
 declaration available from JavaScript. The annotation exports all nested declarations with the name given in Kotlin.
@@ -54172,7 +53931,6 @@ Available values are: `umd` (default), `commonjs`, `amd`, `plain`.
 > _generated by webpack_ (after your code has already been compiled). `compilerOptions.moduleKind` changes the output generated
 > _by the Kotlin compiler_.
 >
-{type="note"}  
 
 In the Kotlin Gradle DSL, there is also a shortcut for setting the CommonJS module kind:
 
@@ -54442,7 +54200,6 @@ concepts behind React may help you understand some sample code, but it is not st
 
 > You can get the final application [here](https://github.com/kotlin-hands-on/web-app-react-kotlin-js-gradle/tree/finished).
 >
-{type="note"}
 
 ## 09.4.10.1. Before you start
 
@@ -54554,7 +54311,6 @@ rebuild and reload the page when you make changes.
 
 > You can find this state of the project on the `master` branch [here](https://github.com/kotlin-hands-on/web-app-react-kotlin-js-gradle/tree/master).
 >
-{type="note"}
 
 ## 09.4.10.2. Create a web app draft
 
@@ -54585,7 +54341,7 @@ fun main() {
     })
 }
 ```
-{validate="false"}
+
 
 * The `render()` function instructs [kotlin-react-dom](https://github.com/JetBrains/kotlin-wrappers/tree/master/kotlin-react-dom)
   to render the first HTML element inside a [fragment](https://reactjs.org/docs/fragments.html) to the `root` element.
@@ -55683,7 +55439,6 @@ If the deployment is successful, you will see the URL people can use to reach th
 
 > You can find this state of the project on the `finished` branch [here](https://github.com/kotlin-hands-on/web-app-react-kotlin-js-gradle/tree/finished).
 >
-{type="note"}
 
 ## 09.4.10.9. What's next
 
@@ -55785,7 +55540,6 @@ Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains
    > Select the **Create Git repository** checkbox to place the new project under version control. You will be able to do
    > it later at any time.
    >
-   {type="tip"}
 
 4. From the **Language** list, select **Kotlin**.
 5. Select the **Gradle** build system.
@@ -56076,7 +55830,7 @@ printing the results of calling its functions:
 Resolving dependencies may take some time on the first run. Subsequent runs will complete much faster because they use
 downloaded dependencies from the local Maven repository.
 
-## What's next?
+**What's next?**
 
 Once you've created a simple Kotlin scripting project, find more information on this topic:
 * Read the [Kotlin scripting KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/scripting-support.md)
@@ -56121,7 +55875,6 @@ of its contents.
 
 > Arrays are not a type of collection. For more information, see [Arrays](arrays.md).
 >
-{type="note"}
 
 ### 10.1.1.1. Collection types
 
@@ -59374,7 +59127,6 @@ to the top of the file before the package specification and imports.
 
 > The `-opt-in` compiler option is available since Kotlin 1.6.0. For earlier Kotlin versions, use `-Xopt-in`.
 >
-{type="note"}
 
 If you don't want to annotate every usage of APIs that require opt-in, you can opt in to them for your whole module.
 To opt in to using an API in a module, compile it with the argument `-opt-in`,
@@ -60574,7 +60326,7 @@ fun main() {
     println(elapsed) // e.g. 103 ms
 }
 ```
-{validate="false"}
+
 
 For more information about the `kotlin.time` package, see our [standard library API reference](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/).
 
@@ -62114,14 +61866,13 @@ or pass a small [step-by-step tutorial](get-started-with-jvm-gradle-project.md) 
 
 > You can find information about the compatibility of Kotlin, Gradle, and Android Gradle plugin versions [here](gradle-configure-project.md#apply-the-plugin).
 > 
-{type="tip"}
 
 In this chapter, you can also learn about:
 * [Compiler options and how to pass them](gradle-compiler-options.md).
 * [Incremental compilation, caches support, build reports, and the Kotlin daemon](gradle-compilation-and-caches.md).
 * [Support for Gradle plugin variants](gradle-plugin-variants.md).
 
-## What's next?
+**What's next?**
 
 Learn about:
 * **Gradle Kotlin DSL**. The [Gradle Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html) is a domain specific language 
@@ -62149,7 +61900,6 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
    > Select the **Create Git repository** checkbox to place the new project under version control. You will be able to do
    > it later at any time.
    >
-   {type="tip"}
 
 4. From the **Language** list, select **Kotlin**.
 
@@ -62173,7 +61923,7 @@ You have successfully created a project with Gradle.
 Open the `build.gradle.kts` file. This is the Gradle Kotlin build script, which contains Kotlin-related artifacts and other parts required for the application:
 
 ```kotlin
- // For `KotlinCompile` task below
+// For `KotlinCompile` task below
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -62242,7 +61992,7 @@ You can see the result in the **Run** tool window.
 
 Congratulations! You have just run your first Kotlin application.
 
-## What's next?
+**What's next?**
 
 Learn more about:
 * [Gradle build file properties](https://docs.gradle.org/current/dsl/org.gradle.api.Project.html#N14E9A).
@@ -62260,7 +62010,6 @@ and [configure the project's dependencies](#configure-dependencies) there.
 > To learn more about the contents of a build script,
 > visit the [Explore the build script](get-started-with-jvm-gradle-project.md#explore-the-build-script) section.
 >
-{type="note"}
 
 ## 14.1.1.3.1. Apply the plugin
 
@@ -62292,7 +62041,6 @@ plugins {
 
 > The Kotlin Gradle plugin (KGP) and Kotlin share the same version numbering.
 >
-{type="note"}
 
 When configuring your project, check the Kotlin Gradle plugin (KGP) compatibility with available Gradle versions. 
 In the following table, there are the minimum and maximum **fully supported** versions of Gradle and Android Gradle plugin (AGP):
@@ -62309,7 +62057,6 @@ In the following table, there are the minimum and maximum **fully supported** ve
 > You can also use Gradle and AGP versions up to the latest releases, but if you do, keep in mind that you might encounter 
 > deprecation warnings or some new features might not work.
 >
-{type="note"}
 
 For example, the Kotlin Gradle plugin and the `kotlin-multiplatform` plugin 1.9.10 require the minimum Gradle
 version of %minGradleVersion% for your project to compile.
@@ -62398,7 +62145,6 @@ In the build module, you may have related compile tasks, for example:
 
 > `main` and `test` source set compile tasks are not related.
 >
-{type="note"}
 
 For related tasks like these, the Kotlin Gradle plugin checks for JVM target compatibility. Different values of 
 the [`jvmTarget` attribute](gradle-compiler-options.md#attributes-specific-to-jvm) in the `kotlin` extension or task 
@@ -62619,7 +62365,6 @@ Check that the version of `foojay-resolver-convention` corresponds to your Gradl
 > and find a string in the output starting with `[KOTLIN] Kotlin compilation 'jdkHome' argument:`.
 > The part after the colon will be the JDK version from the toolchain.
 >
-{type="note"}
 
 To set any JDK (even local) for a specific task, use the [Task DSL](#set-jdk-version-with-the-task-dsl).
 
@@ -62760,7 +62505,6 @@ tasks.named("compileJava", JavaCompile.class) {
 > For a module, a package name in Kotlin files should be equal to the package name from `module-info.java` to avoid a 
 > "package is empty or does not exist" build failure. 
 >
-{type="note"}
 
 Learn more about:
 * [Building modules for the Java Module System](https://docs.gradle.org/current/userguide/java_library_plugin.html#sec:java_library_modular)
@@ -62795,7 +62539,6 @@ require the `kotlin-multiplatform` plugin. [Learn more about the plugin](multipl
 
 >The `kotlin-multiplatform` plugin works with Gradle %minGradleVersion% or later.
 >
-{type="note"}
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -63197,7 +62940,6 @@ kotlin {
 
 > You can use shorthand for a dependency on a Kotlin module, for example, kotlin("test") for "org.jetbrains.kotlin:kotlin-test".
 >
-{type="note"}
 
 You can use the `kotlin-test` dependency in any shared or platform-specific source set as well.
 
@@ -63398,7 +63140,7 @@ dependencies {
 </tab>
 </tabs>
 
-## What's next?
+**What's next?**
 
 Learn more about:
 * [Compiler options and how to pass them](gradle-compiler-options.md).
@@ -63714,7 +63456,7 @@ Some of the `compilerOptions` use the new types instead of the `String` type:
 | `sourceMapEmbedSources` | [`JsSourceMapEmbedMode`](https://github.com/JetBrains/kotlin/blob/1.8.0/libraries/tools/kotlin-gradle-compiler-types/src/generated/kotlin/org/jetbrains/kotlin/gradle/dsl/JsSourceMapEmbedMode.kt) | `compilerOptions.sourceMapEmbedSources.set(JsSourceMapEmbedMode.SOURCE_MAP_SOURCE_CONTENT_INLINING)` |
 | `sourceMapNamesPolicy` | [`JsSourceMapNamesPolicy`](https://github.com/JetBrains/kotlin/blob/1.8.20/libraries/tools/kotlin-gradle-compiler-types/src/generated/kotlin/org/jetbrains/kotlin/gradle/dsl/JsSourceMapNamesPolicy.kt) | `compilerOptions.sourceMapNamesPolicy.set(JsSourceMapNamesPolicy.SOURCE_MAP_NAMES_POLICY_FQ_NAMES)` |
 
-## What's next?
+**What's next?**
 
 Learn more about:
 * [Incremental compilation, caches support, build reports, and the Kotlin daemon](gradle-compilation-and-caches.md).
@@ -63872,7 +63614,6 @@ To disable caching for all Kotlin tasks, set the system property `kotlin.caching
 >   * `org.jetbrains.kotlin.js`
 >   * `org.jetbrains.kotlin.android`
 >
-{type="note"}
 
 The Kotlin plugin uses the [Gradle configuration cache](https://docs.gradle.org/current/userguide/configuration_cache.html),
 which speeds up the build process by reusing the results of the configuration phase.
@@ -63992,7 +63733,6 @@ tasks.withType(CompileUsingKotlinDaemon::class).configureEach { task ->
 
 > In this case a new Kotlin daemon instance can start on task execution. Learn more about [Kotlin daemon's behavior with JVM arguments](#kotlin-daemon-s-behavior-with-jvm-arguments).
 >
-{type="note"}
 
 ### Kotlin daemon's behavior with JVM arguments
 
@@ -64029,7 +63769,6 @@ with the number of Kotlin tasks compiled using the K2 compiler compared to the c
 > Build reports don't provide information about Kotlin/Native tasks yet. Despite that,
 > we still recommend that you use Kotlin 2.0 as the default version.
 > 
-{type="tip"}
 
 Learn more about the stabilization of the K2 compiler in our [Kotlin blog](https://blog.jetbrains.com/kotlin/2023/02/k2-kotlin-2-0/)
 
@@ -64260,9 +63999,8 @@ your `gradle.properties`.
 
 > JetBrains doesn't collect these statistics. You choose a place [where to store your reports](#enabling-build-reports).
 > 
-{type="note"}
 
-## What's next?
+**What's next?**
 
 Learn more about:
 * [Gradle basics and specifics](https://docs.gradle.org/current/userguide/userguide.html).
@@ -64303,7 +64041,6 @@ string in the output starting with `Using Kotlin Gradle plugin`, for example, `U
 > * [ResolutionStrategy in pluginManagement is not working for plugins with multivariants](https://github.com/gradle/gradle/issues/20545)
 > * [Plugin variants are ignored when a plugin is added as the `buildSrc` common dependency](https://github.com/gradle/gradle/issues/20847)
 >
-{type="note"}
 
 ### Gradle can't select a KGP variant in a custom configuration
 
@@ -64424,7 +64161,7 @@ Otherwise, you will receive an error similar to this:
                  - Unmatched attributes:
 ```
 
-## What's next?
+**What's next?**
 
 Learn more about [Gradle basics and specifics](https://docs.gradle.org/current/userguide/userguide.html).
 
@@ -64473,7 +64210,6 @@ To use the standard library in your project, add the following dependency to you
 > * 1.8, use `kotlin-stdlib-jdk7` or `kotlin-stdlib-jdk8`, respectively.
 > * 1.2, use `kotlin-stdlib-jre7` or `kotlin-stdlib-jre8`, respectively.
 >
-{type="note"} 
 
 If your project uses [Kotlin reflection](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect.full/index.html)
 or testing facilities, you need to add the corresponding dependencies as well.
@@ -64529,7 +64265,6 @@ If you need to configure an execution, you need to specify its ID. You can find 
 > If several build plugins overwrite the default lifecycle and you have also enabled the `extensions` option, the last plugin in 
 > the `<build>` section has priority in terms of lifecycle settings. All earlier changes to lifecycle settings are ignored.
 > 
-{type="note"}
 
 <!-- The following header is used in the Mari link service. If you wish to change it here, change the link there too -->
 
@@ -65002,7 +64737,7 @@ You can use any text editor to write the Kotlin code, but without IDE-related fe
 To use Kotlin in text editors, you can download the latest Kotlin command-line compiler (`kotlin-compiler-1.9.10.zip`) from Kotlin [GitHub Releases](%kotlinLatestUrl%) and [install it manually](command-line.md#manual-install).
 Also, you could use package managers, such as [Homebrew](command-line.md#homebrew), [SDKMAN!](command-line.md#sdkman), and [Snap package](command-line.md#snap-package).
 
-## What's next?
+**What's next?**
 
 * [Start your first project using IntelliJ IDEA IDE](jvm-get-started.md)
 * [Create your first cross-platform mobile app using Android Studio](multiplatform-mobile-create-first-app.md)
@@ -65365,7 +65100,6 @@ inline markup.
 > Kotlin's documentation engine: Dokka, understands KDoc and can be used to generate documentation in various formats.
 > For more information, read our [Dokka documentation](dokka-introduction.md).
 >
-{type="note"}
 
 ## 14.7.1. KDoc syntax
 
@@ -65461,7 +65195,6 @@ API of a module but still have to be visible externally.
 
 > KDoc does not support the `@deprecated` tag. Instead, please use the `@Deprecated` annotation.
 >
-{type="note"}
 
 ## 14.7.2. Inline markup
 
@@ -65505,7 +65238,7 @@ To add an external link, use the typical Markdown syntax:
 For more information about KDoc syntax, see [KDoc](<example-URL>).
 ```
 
-## What's next?
+**What's next?**
 
 Learn how to use Kotlin's documentation generation tool: [Dokka](dokka-introduction.md).
 
@@ -65624,7 +65357,6 @@ Every Kotlin release ships with a standalone version of the compiler. You can do
 >They provide full Kotlin support out of the box without needing additional components. Learn how to 
 [get started with Kotlin in an IDE](getting-started.md).
 > 
-{type="note"}
 
 ## 15.1.1.1. Install the compiler
 
@@ -65796,7 +65528,6 @@ $ kotlinc hello.kt -include-runtime -d hello.jar
 >```
 >$ kotlinc.bat hello.kt -include-runtime -d "My Folder\hello.jar"
 >```
-{type="note"}
 
 ## 15.1.2.2. Common options
 
@@ -65926,7 +65657,6 @@ Possible values are `1.8`, `9`, `10`, ..., `20`. The default value is `%defaultJ
 
 > This option is [not guaranteed](https://youtrack.jetbrains.com/issue/KT-29974) to be effective for each JDK distribution.
 >
-{type="note"}
 
 ### -jvm-target _version_
 
@@ -66161,7 +65891,6 @@ We provide *all-open* plugin support both for Gradle and Maven with the complete
 
 >For Spring, you can use the `kotlin-spring` compiler plugin ([see below](#spring-support)).
 >
-{type="note"}
 
 ## 15.2.1.1. Gradle
 
@@ -66989,7 +66718,6 @@ for [@SuperBuilder](https://youtrack.jetbrains.com/issue/KT-53563/Kotlin-Lombok-
 
 > Kotlin compiler ignores Lombok annotations if you use them in Kotlin code.
 >
-{type="note"}
 
 ## 15.2.5.2. Gradle
 
@@ -67564,7 +67292,6 @@ ksp {
 > If you're using KSP 1.0.9 or newer and don't need to make the IDE aware of generated resources,
 > feel free to skip this section.
 >
-{type="note"}
 
 By default, IntelliJ IDEA or other IDEs don't know about the generated code. So it will mark references to generated
 symbols unresolvable. To make an IDE be able to reason about the generated symbols, mark the
@@ -67798,7 +67525,6 @@ in KSP:
 
 > [See the full-sized diagram](https://kotlinlang.org/docs/images/ksp-class-diagram.svg).
 >
-{type="note"}
 
 ## Type and resolution
 
@@ -68056,7 +67782,6 @@ ksClassDeclaration.superTypes
 
 > A `KSType` for a function is just a signature represented by the `FunctionN<R, T1, T2, ..., TN>` family.
 >
-{type="note"}
 
 | **Java** | **KSP equivalent** |
 | -------- | ------------------ |
@@ -68641,7 +68366,6 @@ ksp-a.b.c is too old for kotlin-x.y.z. Please upgrade ksp or downgrade kotlin-gr
 
 > Users of processors don't need to bump processor's version because processors only depend on API.
 >
-{type="note"}
 
 For example, some processor is released and tested with KSP 1.0.1, which depends strictly on Kotlin 1.6.0.
 To make it work with Kotlin 1.6.20, the only thing you need to do is bump KSP to a version (for example, KSP 1.1.0) 
@@ -68882,7 +68606,7 @@ In this episode, Kate Petrova shows three tips to help you work with [Kotlin Col
 
 <video width="560" height="315" href="ApXbm1T_eI4" title="Kotlin Tips: Kotlin Collections"/>
 
-## What's next?
+**What's next?**
 
 * See the complete list of Kotlin Tips in our [YouTube playlist](https://youtube.com/playlist?list=PLlFc5cFwUnmyDrc-mwwAL9cYFkSHoHHz7)
 * Learn how to write [idiomatic Kotlin code for popular cases](idioms.md)
@@ -69193,7 +68917,7 @@ or watch the video:
 
 <video width="560" height="315" href="vj3J9MuF1mI" title="Manipulating lists using windowed, scan, firstNotNullOfOrNull: Solving Advent of Code Puzzles"/>
 
-## What's next?
+**What's next?**
 
 * Complete more tasks with [Kotlin Koans](koans.md) 
 * Create working applications with the free [Kotlin Core track](https://hyperskill.org/tracks?category=4&utm_source=jbkotlin_hs&utm_medium=referral&utm_campaign=kotlinlang-docs&utm_content=button_1&utm_term=22.03.23) by JetBrains Academy
@@ -69245,7 +68969,6 @@ In this channel, you can also get notifications about new EAP builds.
 >
 > Please note that we don't provide any guarantees of compatibility between EAP and final versions of the same release. 
 >
-{type="note"}
 
 If you have already installed the EAP version and want to work on projects that were created previously, 
 check [our instructions on how to configure your build to support this version](configure-build-for-eap.md). 
@@ -69311,7 +69034,6 @@ check [our instructions on how to configure your build to support this version](
 
 > If the Kotlin EAP plugin can't find the latest EAP build, check that you are using the latest version of [IntelliJ IDEA](https://www.jetbrains.com/help/idea/update.html) or [Android Studio](https://developer.android.com/studio/intro/update).
 >
-{type="note"}
 
 # 📜 17.2. Install the EAP Plugin for IntelliJ IDEA or Android Studio
 
@@ -69427,7 +69149,6 @@ see [EAP build details](eap.md#build-details).
 > 
 > If there are incompatible changes in next EAP versions, we release a new version of the library.
 >
-{type="note"}
 
 Here is an example.
 
@@ -74009,7 +73730,6 @@ Kotlin Multiplatform Mobile is an SDK for cross-platform mobile development prov
 
 > Share the logic of your iOS and Android apps. Get started with [Kotlin Multiplatform Mobile](multiplatform-mobile-getting-started.md).
 >
-{type="note"}
 
 Global companies and start-ups alike have already leveraged Kotlin Multiplatform Mobile to optimize and accelerate their mobile development efforts. The benefits of this approach are apparent from the stories of the companies that have already adopted it.
 
@@ -74136,7 +73856,6 @@ In a nutshell, you should to opt for cross-platform solutions if:
 
 > Share the logic of your iOS and Android apps. See [Kotlin Multiplatform Mobile](multiplatform-mobile-getting-started.md) in action.
 >
-{type="note"}
 
 ## 18.4.2.5. When should you choose native app development?
 
@@ -74227,7 +73946,6 @@ Even though this cross-platform mobile development framework is the youngest on 
 
 > Create your first cross-platform mobile app with [Kotlin Multiplatform Mobile](multiplatform-mobile-getting-started.md).
 >
-{type="note"}
 
 ### Ionic
 
@@ -74333,7 +74051,6 @@ This article contains the [list of project ideas](#project-ideas) for Google Sum
 >
 > If you got any questions, [contact us](mailto:gsoc@kotlinfoundation.org) via gsoc@kotlinfoundation.org
 >
-{type="note"}
 
 ## 18.5.1. Kotlin contributor guidelines for Google Summer of Code (GSoC)
 
@@ -74357,7 +74074,6 @@ This article contains the [list of project ideas](#project-ideas) for Google Sum
 
 > Applications are accepted from March 20 to April 4, 2023.
 > 
-{type="note"}
 
 1. Check out the [project ideas](#project-ideas) and select the one you would like to work on.
 2. If you are not familiar with Kotlin, [read the introductory info on the Kotlin website](getting-started.md).
@@ -74671,7 +74387,6 @@ community, whether that includes presentations, hands-on labs, lectures, hackath
 
 > For Kotlin User Group brand assets, see [Kotlin brand assets documentation](kotlin-brand-assets.md#kotlin-user-group-brand-assets).
 >
-{type="note"}
 
 ## 18.6.2.1. How to run a KUG?
 
@@ -74712,7 +74427,6 @@ Kotlin Night is a meetup that includes 3-4 talks on Kotlin or related technologi
 
 > For Kotlin Night brand assets, see [Kotlin brand assets documentation](kotlin-brand-assets.md#kotlin-night-brand-assets).
 > 
-{type="note"}
 
 ## 18.6.3.1. Event guidelines
 

@@ -1932,6 +1932,15 @@ touch timestamp;
 参考 Bash 脚本编程 String comparisons 和 Compound Testing。
 
 
+### ☘ Java vs. Kotlin
+
+```java
+	// Java
+	java.lang.Object.getClass().getResource("/fxml/Scene.fxml")
+	// Kotlin
+	AppKt::class.java.getResource("/fxml/Scene.fxml")
+```
+
 ### ☘ from Java to Kotlin
 https://github.com/amitshekhariitbhu/from-java-to-kotlin
 
@@ -2005,7 +2014,7 @@ https://kotlinlang.org/docs/kotlin-tour-welcome.html
 		public static void main (String[] args) { /*...*/ }
 	}
 	// Kotlin
-	fun main (args:Array<String>) { /*...*/ }
+	fun main (args: Array<String>) { /*...*/ }
 ```
 
 代码文件中编写 Top-level 函数后，编译器就会生成入口类，其名称为文件名，并且后缀 Kt，例如 `main.kt` 生成 `MainKt` 入口类，这就是 Kotlin 代码的基本组织形式。正是因为 Kotlin 编译器会默认生成的这个包装类，因此可以在 Top-level 定义类、函数、属性，这和 Java 中显式定义的包含静态入口函数的公开类具有同等作用。
@@ -2044,6 +2053,27 @@ Kotlin 代码文件中，在不符合语法规范位置定义类型、函数或�
 
 解决这个问题只需要移动类型、函数或属性定义到正确的位置。确保你只在类、接口或文件的顶层定义函数或属性。
 
+Java 中强制 main() 入口函数必需为入口类的公开静态函数。Kotlin 简化作为代码文件的顶级函数，
+但是使用 @JvmStatic 标注在 JVM 虚拟机层面上做工作，以及使得伴随对象（companiion object），
+也可以将入口函数定义在一个类对象内部：
+
+[@JvmStatic](http://kotlinlang.org/docs/reference/java-to-kotlin-interop.html#static-methods)
+
+```java
+class AppKt ()
+{
+    companion object
+    {
+        @JvmStatic
+        @Suppress("UNUSED_PARAMETER")
+        fun main(args: Array<String>) 
+        {
+            println("Hello JavaFX Application"  )
+            // launch( AppKt::class.java )
+        }
+    }
+}
+```
 
 #### 💦 标准输出内容打印简化
 
@@ -2140,6 +2170,7 @@ const val PROP: String = "some value"
 3. `object` 关键字定义静态单例，和 `companion object` 类似；
 4. `const` 修饰符声明编译期常量，使用 Top-level declarations 声明符号；
 
+Java 支持 import static 静态导入，Kotlin 伴星对象静态方法可以像普通方式导入。
 Kotlin 伴星对象对应的是 Companion 成员，以及 Java 类定义中的 `static {}` 静态初始块。
 
 ```sh
@@ -5576,20 +5607,147 @@ tasks.withType(JavaCompile) {
 
 I/O 是程序最最基础的功能，从早期机械式计算机的开关状态输入，当时是人工控制开关的状态，再到纸质卡片打孔式数据输入，再到电子电路、晶体管开关、集成电路，数据的本质没有改变，但是在硬件实现上工艺却越来起复制，甚至让人觉得抽象得很！
 
+I/O 可以按存在形式分为两种：I/O 物理设备和逻辑 I/O (Logical I/O)。
+
+物理设备 I/O 是计算机外部输入数据的来源，通常是 CPU 通过读写指令从磁盘等存储设备实际获取数据。逻辑 I/O 是对存储器（块，缓冲区）获取数据。硬件设备通过抽象层（HAL - Hardware Abstract Layer）接入计算机操作系统，硬件驱动程序按照 HAL 接口规范编写驱动以实现数据的传输。
+
+大部分物理 I/O 设备操作是异步的，因为 CPU 速度对于 I/O 设备不是一个数量级。CPU 传输完成一部分数据后通常不会等待（Bloking）未传输完的部分，而是转而做其他更重要计算工作，它和中断系统组成一个消息系统，物理设备在数据准备好时会触发中断发信号，CPU 得到中断信息才会回来继续处理剩余数据。
+
+缓冲区（Buffer）在 I/O 数据传输过程中相当一个中间人。I/O 软件的最后一个问题也是缓冲（buffering）。通常情况下，从一个设备发出的数据不会直接到达接收端。其间会经过一系列的校验、检查、缓冲等操作才能到达。举个例子来说，从网络上发送一个数据包，会经过一系列检查之后到达缓冲区，从而消除缓冲区填满和缓冲区过载。
+
 尽管，I/O 和流式数据处理经常混为一谈，但是它们是两个完全不同的概念。
 
 “流式”Streams 是 I/O 数据处理的一种模式，进行流动式数据处理的一种抽象模型，各类型的数据序列就如同水流，这些数据序列称之为 elements，通过流式接口定义的各种方法进行处理。
-
 
 将早期机械开关机构和 CPU、内存等集成电路中的晶体管开关放到一起，不难发现数据即开关状态的数据，I/O 操作即通过开关数据的读写实现对应天关电路状态的切换。
 
 I/O 字面意思（Input/Output）即输入/输出，通常指 CPU 与内部存储器、外部存储器，或其他周边设备内部内存之间的数据输入和输出。
 
-从 C 语言时代开即，标准 I/O 文件（stdin stdou stderr）就是一个程序的标准配置，到 C++、Java、C#，再到现在的 Kotlin 语言，它们编写程序虽然在语言语法上各有差异，但是程序 I/O 基础结构上并没有太多不同：都不约而同地使用流式接口设计。
+总的来说，CPU 与设备的 I/O 操作有三种基本形式：
+
+1. 程序直接控制方式（Programmed I/O）
+2. 中断驱动方式（Interrupt-Driven I/O）
+3. DMA（Direct Memory Access）
+4. 通道控制方式（I/O Channel）
+
+轮询（Polling）是常见一种程序控制 I/O，它需要大量 CPU 时间来循环做 IO 测试。计算机的 I/O 测试指令通过轮询的方式，检测 I/O 设备的忙/闲标志，决定主存和外设之间是或否传出一个字或者一个字符。在这种情况下，CPU的大量时间在等待输入、输出的循环检测上，使计算机不能充分发挥效率，外设也得不到合理的使用，整个系统效率低下。
+
+程序中断（Interrupt-Driven I/O）：I/O 设备的控制器逐个比特的从设备中读取一块数据放入设备的内部缓冲区中，然后，计算该块数据的校验和，以保证读取的正确性。接着，设备控制器发出中断信号，操作系统开始逐个字节地从缓冲区中数据读入内存。中断机制的引入，使得外围设备有了反映自身状态的能力，仅当 I/O 操作正常或者异常结束时才中断 CPU，从而实现了一定程度的并行。但是，I/O 操作毕竟是由CPU控制的，此时每传输一个字或字符，往往就要中断一次。中断也需要消耗时间，因此这种模式也在一定程度上浪费 CPU 时间。I/O 设备很多时，CPU 可能完全陷入处理 I/O 中断中。
+
+CPU 时间作为计算机系统中最宝贵的硬件资源，设计新式 I/O 操作机制是必需的，DMA 方式解决了以上两种形式的最大弊端：大量消耗 CPU 时间资源。DMA 在内存和 I/O 设备之间直接进行数据交换，不需要 CPU 的干预。当需要 I/O 数据传输时，CPU 初始化 DMA 控制器，之后 DMA 接管总线的使用权，将所需要的数据全部读入内存后， I/O 设备的控制器才会发出中断。本质上讲，DMA 也是 Programmed I/O，只是 DMA 控制器替代了 CPU 的工作。
+
+I/O 通道方式是 DMA 方式的发展，是升级版的 DMA，它可以进一步减少 CPU 的干预。DMA 实现了内存块（block）的自动传输，实现对一个数据块的读（或写）为单位的干预。而使用 I/O 通道机制，将可以对一组数据块的读（或写）及有关控制和管理为单位的干预。同时，又可以实现 CPU、通道和 I/0 设备三者的并行操作，从而更有效地提高整个系统的资源利用率。
+
+I/O 通道能执行有限通道指令的 I/O 控制器，代替 CPU 管理控制外设。通道有自己的指令系统，是一个协处理器，一般用在大型计算机系统中（不是大型机）。通道实质是一台能够执行有限的输入输出指令，并能被多台外设共享的小型 DMA 专用处理机。广义上讲，DMA 也属于通道。
+
+通道解决了两个问题：由 CPU 承担 I/O 的工作，以及高速设备共享 DMA 接口的问题。虽然 DMA 无需 CPU 进行外设与内存的数据交换工作，但是这只是减少了 CPU 的负担。因而 DMA 中 I/O 的初始化仍然要由 CPU 来完成。大型计算机系统的外设太多以至于不得不共享有限的 DMA 接口，小型计算机系统比如 PC 机中每个高速设备分配一个 DMA 接口。
+
+I/O 最密切关联的是控制台程序（Console）和软终端（Terminal）。
+
+Unix/Linux 系统术语中，终端指的是一种设备文件（device file），它在读写之上实现了一些额外的 I/O 控制命令（ioctls）。有时叫做伪终端、终端模拟器（terminal emulators）的程序提供（通过内核的薄层封装）。
+控制台（Console）在操作系统中以终端（由内核负责实现）的形式显示，在一些系统上，控制台显示为多个终端。它们的名字可以是 ”控制台“，”虚拟控制台”，“虚拟终端”，（“console”, ”virtual console”, ”virtual terminal”）等等。
+
+计算机终端 Terminal 最早是指物理设备，通过电缆连接到大型机上，用于输入或显示来自系统的数据的电子设备，tty （teletype）是早期终端的一种，它的出现比电脑屏幕的使用早了数十年。
+
+早期的终端价格并不昂贵，但是相比打孔卡（punched cards）和打孔带（paper tape）而言速度很慢。但随着技术的进步和显示设备（video displays）的引入，终端将这些交互形式挤出了工业界。与终端相关的是分时系统（timesharing）的发展，它与终端共同发展，能够支持多个用户通过多个终端使用一台机器，从而弥补了用户低效的输入能力。
+
+终端的功能被限制在输入和显示数据；具有显著本地可编程或数据处理能力的设备可称为“智能终端”或胖客户端（fat client）。依赖于主机（host computer）处理能力的终端被称为“哑终端”或瘦终端（thin client）。个人电脑可以通过运行终端模拟器来复现终端的功能，这些终端模拟器可能允许并发运行本地程序和访问非本地终端主机系统。
+
+
+从 C 语言时代开即，标准 I/O 文件（stdin stdou stderr）就是一个程序的标准配置，到 C++、Java、C#，再到现在的 Kotlin 语言，它们编写程序虽然在语言语法上各有差异，但是程序 I/O 基础结构上并没有太多不同：都不约而同地使用流式接口设计。语义上，标准 I/O 文件是物理设备的一种抽象表达，它们的背后意味着缓冲区中存储的数据。Linux 系统上一切都是文件，物理设备也抽象为文件，不同的设备对应不同的文件类型。
 
 标准 I/O 文件和操作系统有密切联系，分别使用 0 1 2 文件号码表示，可以在命令行中进行管道操作、重定向操作。Linux Command Line and Shell Scripting Bible 一书对标准文件输入、输出重定向操作有详细描述，此书作者是 Christine Bresnahan，内容详尽到几乎可以用啰嗦来形容，能十分体现女性的思维。
 
 因为标准 I/O 都是缓存区方式的数据操作，如果下游程序没有 I/O 数据消费行为，那么上游的程序就有可能写满缓存，并且可能触发错误。
+
+示例，以下 Deno 脚本 (link.ts) 中配置了一个 4 字节的缓存，并通过它来读取用户输入（stdin）：
+
+```ts
+#!/usr/bin/env -S deno run
+
+while (true)
+{
+    const buf = new Uint8Array(4)
+    const num = Deno.stdin.readSync(buf)
+    console.log("read: ", {num, buf})
+    if (num == null) {
+        console.log("Bye!")
+        break
+    }
+}
+```
+
+尝试运行，并输入一串字符测试它，或者使用管道（|）或者使用文件重定向（<）、输入重定向（<<）功能
+指定标准输入文件或数据：
+
+```sh
+$ ./link.ts
+abcdefghijklm
+read:  { num: 4, buf: Uint8Array(4) [ 97, 98, 99, 100 ] }
+read:  { num: 4, buf: Uint8Array(4) [ 101, 102, 103, 104 ] }
+read:  { num: 4, buf: Uint8Array(4) [ 105, 106, 107, 108 ] }
+read:  { num: 4, buf: Uint8Array(4) [ 109, 13, 10, 0 ] }
+^Z
+read:  { num: null, buf: Uint8Array(4) [ 0, 0, 0, 0 ] }
+Bye!
+# Pipe some.data to ./link.ts
+$ cat some.data | ./link.ts
+...
+read:  { num: null, buf: Uint8Array(4) [ 0, 0, 0, 0 ] }
+Bye!
+# redirect some.data to ./link.ts
+$ ./link.ts < some.data
+...
+read:  { num: null, buf: Uint8Array(4) [ 0, 0, 0, 0 ] }
+Bye!
+# 
+$ ./link.ts <<EOF
+> app
+> EOF
+read:  { num: 4, buf: Uint8Array(4) [ 97, 112, 112, 10 ] }
+read:  { num: null, buf: Uint8Array(4) [ 0, 0, 0, 0 ] }
+Bye!
+```
+
+可以看到 while 循环经过了四回读取输入的 13 个字符。控制台默认的输入缓冲区大小肯定不止 4 个字节，这只是脚本程序自身配置的一个缓冲区。控制台本身还有屏幕缓冲区，用于保存输出到屏幕的数据。
+可以使用 `stty size` 命令查看当前控制台的屏幕缓冲区大小（row, column）。
+
+控制台程序为了让用户有机会修改输入的数据，默认需要按回车键（Enter）提交输入，称之为正规模式
+（canonical mode）。Linux 可以使用 stty 设置默认的控制台行为模式，切换为 raw mode：
+
+```sh
+   stty -icanon -echo                # Disable echo and canonical mode.
+   stty icanon echo                  # Enable echo and canonical mode.
+```
+
+当用户输入 EOF（Windows Ctrl+Z，Linux Ctrl+D）时表示结束输入，程序通常的行为应该是结束退出。
+
+Advanced Bash Scripting Guide (ABS) example code:
+
+-  Example 15-6. Detecting the arrow keys
+-  Example 16-59. Capturing Keystrokes
+-  Example 17-4. Keypress detection
+
+```sh
+#!/bin/bash
+# Example 17-4. Keypress detection
+# keypress.sh: Detect a user keypress ("hot keys").
+
+echo
+
+old_tty_settings=$(stty -g)   # Save old settings (why?).
+stty -icanon
+Keypress=$(head -c1)          # or $(dd bs=1 count=1 2> /dev/null)
+                             # on non-GNU systems
+
+echo
+echo "Key pressed was \""$Keypress"\"."
+echo
+
+stty "$old_tty_settings"      # Restore old settings.
+
+# Thanks, Stephane Chazelas.
+```
 
 比如使用 Node 处理标准 I/O 文件，就对 process 模块中提供的 stdin stdout stderr 对象进行操作：
 

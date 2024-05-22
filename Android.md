@@ -1,3 +1,62 @@
+# 🚩 F-Droid 镜像使用帮助
++ https://wiki.termux.com/wiki/Main_Page
++ https://f-droid.org/packages/com.termux/
+
+用 F-Droid 客户端打开此链接：
+
+https://mirrors.tuna.tsinghua.edu.cn/fdroid/repo/?fingerprint=43238D512C1E5EB2D6569F4A3AFBF5523418B82E0A3ED1552770ABB9A9C9CCAB
+
+或复制此链接后在客户端中添加存储库，可以将此镜像添加为用户镜像。
+
+如果需要添加 Archive 库，可以使用如下链接：
+
+https://mirrors.tuna.tsinghua.edu.cn/fdroid/archive?fingerprint=43238D512C1E5EB2D6569F4A3AFBF5523418B82E0A3ED1552770ABB9A9C9CCAB
+
+Termux
+带有软件包的终端模拟器
+Termux combines powerful terminal emulation with an extensive Linux package
+collection.
+
+* Enjoy the bash and zsh shells.
+* Edit files with nano and vim.
+* Access servers over ssh.
+* Compile code with gcc and clang.
+* Use the python console as a pocket calculator.
+* Check out projects with git and subversion.
+* Run text-based games with frotz.
+
+At first start a small base system is downloaded - desired packages can then be
+installed using the apt package manager known from the Debian and Ubuntu Linux
+distributions. Access the built-in help by long-pressing anywhere on the
+terminal and selecting the Help menu option to learn more.
+
+Read help online: https://wiki.termux.com/
+
+Reddit Community: https://termux.com/community
+
+安装 termux 和 droidvim 后，可以查看它们两者使用的账户各不相同，彼此也没有权限
+访问对方目录，一个解决方法是使用 sdcard 存储区域来实现多 app 之间的文件共享。
+
+```sh
+ ~ $ git
+The program git is not installed. Install it by executing:
+ pkg install git
+ ~ $ pkg install git
+ Testing the available mirrors:
+ [*] https://packages-cf.termux.org/apt/termux-main: bad
+ [*] https://deb.kcubeterm.me/termux-main: bad
+ [*] https://termux.mentality.rip/termux-main: bad
+ [*] https://grimler.se/termux-packages-24: ok
+```
+
+Android M 版本后, 通过SELinux 的 neverallow 语法强制性限制了普通进程访问data 
+目录的权限. 严禁除init system_server installd system_app 之外的其他进程直接操作
+/data 目录，比如创建文件，写文件，重命名文件等等这些操作会被 SELinux 直接拦截。
+并且没法直接添加访问 system_data_file 的权限，N 版本上更加严格, system_app 也会
+被拦截下来。
+
+
+
 # 🚩 Kiosk mode in Android
 [Set up Single-Purpose Devices Page](https://developer.android.com/work/cosu.html)
 

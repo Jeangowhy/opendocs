@@ -1584,9 +1584,9 @@ Java Module Project
    JDK 自带模块生成工具 `jlink`__ ，Gradle 项目对应有插件 `org.beryx.jlink`__ 。启用插件，
    并配置入口模块。
 
-   .. _jlink: https://docs.oracle.com/en/java/javase/15/docs/specs/man/jlink.html
-   .. _org.beryx.jlink: https://badass-jlink-plugin.beryx.org/releases/latest/
-   .. _JlinkTask: https://github.com/beryx/badass-jlink-plugin/blob/master/src/main/groovy/org/beryx/jlink/JlinkTask.groovy
+.. _jlink: https://docs.oracle.com/en/java/javase/15/docs/specs/man/jlink.html
+.. _org.beryx.jlink: https://badass-jlink-plugin.beryx.org/releases/latest/
+.. _JlinkTask: https://github.com/beryx/badass-jlink-plugin/blob/master/src/main/groovy/org/beryx/jlink/JlinkTask.groovy
 
    以下是 Java 模块信息文件，``src/main/java/module-info.java``，注意代码文件存放的位置，
    应该在源代码的顶层目录，否则编译时将报告：Project :app => no module-info.java found。

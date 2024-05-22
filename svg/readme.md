@@ -12,7 +12,9 @@
 -   https://github.com/upb-lea/Inkscape_electric_Symbols
 
 此教程《让世界多一份 Inkscape 教程：SVG 漫谈》，目的在于通过学习 SVG 规范文档，达到深入理解
-Inkscape 绘图工具的学习与熟练使用。
+Inkscape 绘图工具的学习与熟练使用。开篇明意，这里不是要推广 Inkscape，而是开源的 SVG，如果
+单纯的画图，可以使用 VS Code + drawio 插件，此插件基于 mxGraph 提供了交互图形制作的能力，
+并且使用体验比 Inkscape 更佳。
 
 Inkscape 早在 2003 年起源于 SodiPodi 软件，开发组内部的 4 位成员从其派生出的一个分支。
 Bryce Harrington, MenTaLguY, Nathan Hurst, Ted Gould 四人希望 Inkscape 遵循

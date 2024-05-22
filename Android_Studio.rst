@@ -64,7 +64,7 @@
    到了源码中，不再需要手动单独安装 Android API 文档，只需要安装 SDK platform source。
    可以使用 Sublime Text 这样的工具，查看源代码文件也很方便。
 
-   Android Studio 提供便利的快捷键配置方案，``Ctrl+\``` 调出 Quick Switch Scheme...
+   Android Studio 提供便利的快捷键配置方案，``Ctrl+``` 调出 Quick Switch Scheme...
    面板，可以快速切换主题（Theme）、快捷键方案（Keymap）、显示模式（View Mode），以及
    Editor Color Theme 和 Code Style Scheme。
  
@@ -154,6 +154,7 @@
       </div>
 
    .. _Emmet: https://www.jetbrains.com/help/idea/settings-emmet.html
+
    .. _Emmet documentation: https://docs.emmet.io/abbreviations/
 
    Android Studio 定制版只是众多 IDEA 定制版本之一，相当于社区版叠加 Android 扩展插件，
@@ -1273,128 +1274,12 @@ Java API Framework 也叫做 Application Framework，Android 应用开发必需�
    .. _AndroidX: https://developer.android.google.cn/topic/libraries/support-library
    .. _Jetpack: https://developer.android.google.cn/jetpack/androidx
 
-   得益于现代 UI 构架，可以在不使用 Android Studio 可视化布局编辑器功能前提下开发应用。这样
-   也就可以使用更轻量级的 VS Code 来开发 Android 应用。确保已经安装 Android SDK，并正确配置
-   环境变量（以正确调用 SDK 工具命令）。编程永远都是用合适的工具做合适的事情，Android Studio
-   开发 APP 是最佳选择。但是折腾不止是生命的意义，无它，仅凭开源与易用两条，就足够理由去折腾，
-   它让你在必需作出选择时拥有更更多的选择！
-
-   - [Visual Studio Code](https://code.visualstudio.com/docs)
-   - [Visual Studio Code - github](https://github.com/Microsoft/vscode-docs/)
-   - [Monaco - The Editor of the Web](https://github.com/Microsoft/monaco-editor)
-   - [Monaco Editor Samples](https://github.com/microsoft/monaco-editor-samples)
-   - [Monaco Editor](https://microsoft.github.io/monaco-editor/)
-
-   首先下载安装 VS Code，它本身是基于 Electron 开发的桌面应用，编辑器开源项目是 Monaco。
-
-   VS Code 创建 Android 项目，需要根据使用需求安装以下一些插件：
-
-   - Java Extension Pack，用于 Java 语言开发的插件包，含有 Java 语言支持、Java Debug、Maven 等。
-   - Android Extension Pack，用于 Android 应用开发的扩展包，包括 Android SDK 的集成、Gradle 集成、布局预览等。
-
-   插件安装目录 .vscode 位于用户主目录（Home），可以使用 MSYS2 或者 WSL 提供的命令查看这些
-   插件分别占用的空间。因为卸载旧版本时，过时插件的文件存在残留，可以根据此来决定回收哪些插件占用
-   的磁盘空间。插件安装有个基本逻辑：更新插件版本或卸载插件时，文件会在下次启动时删除（旧版本）。
-
-   .. code-block:: bash
-
-      #!/usr/bin/env bash
-      du -hd 2 "$USERPROFILE/.vscode/extensions" | sort -h
-
-      38M     $USERPROFILE/.vscode/extensions/stringham.move-ts-1.11.5
-      39M     $USERPROFILE/.vscode/extensions/james-yu.latex-workshop-7.3.0
-      47M     $USERPROFILE/.vscode/extensions/onecentlin.laravel-blade-1.20.0
-      47M     $USERPROFILE/.vscode/extensions/rust-lang.rust-analyzer-0.3.1317-win32-x64
-      49M     $USERPROFILE/.vscode/extensions/pivotal.vscode-spring-boot-1.15.0
-      55M     $USERPROFILE/.vscode/extensions/kodetech.krom-22.6.0
-      55M     $USERPROFILE/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.4.3
-      61M     $USERPROFILE/.vscode/extensions/redhat.java-0.53.1
-      66M     $USERPROFILE/.vscode/extensions/ms-vscode.cpptools-1.2.1
-      76M     $USERPROFILE/.vscode/extensions/quicktype.quicktype-12.0.46
-      77M     $USERPROFILE/.vscode/extensions/graphql.vscode-graphql-0.3.15
-      79M     $USERPROFILE/.vscode/extensions/flowtype.flow-for-vscode-1.5.0
-      85M     $USERPROFILE/.vscode/extensions/esbenp.prettier-vscode-1.9.0
-      104M    $USERPROFILE/.vscode/extensions/ms-vsliveshare.vsliveshare-1.0.614
-      132M    $USERPROFILE/.vscode/extensions/angular.ng-template-0.801.1
-      143M    $USERPROFILE/.vscode/extensions/ms-mssql.mssql-1.6.0
-      154M    $USERPROFILE/.vscode/extensions/alios.alios-studio-0.11.6
-      183M    $USERPROFILE/.vscode/extensions/octref.vetur-0.21.1
-      184M    $USERPROFILE/.vscode/extensions/ms-vscode.powershell-2019.5.0
-      194M    $USERPROFILE/.vscode/extensions/weex.weex-lang-0.0.14
-      317M    $USERPROFILE/.vscode/extensions/yzane.markdown-pdf-1.2.0
-      389M    $USERPROFILE/.vscode/extensions/ms-dotnettools.csharp-1.25.4-win32-x64
-      407M    $USERPROFILE/.vscode/extensions/ms-python.python-2019.9.34911
-      409M    $USERPROFILE/.vscode/extensions/kodetech.kha-22.8.0
-      4.0G    $USERPROFILE/.vscode/extensions
-
-   VS Code 基于 Electron 开发的桌面应用，基于 Web 技术，软件界面设计非常具有弹性。比如，UI
-   组件与编辑器的字体设置，可以通过 ``Ctrl Shift -`` 和 ``Ctrl Shift +`` 进行整体缩放调整，
-   也可以改变编辑器的字体为一个相对大一点的字号，这样就可以保持整体缩放的前提下，减小 UI 控制占
-   据屏幕空间的比例，提高笔记本等便携设备的小屏幕的利用效率。
-
-   VS Code 开源的最大好处是插件扩展特别丰富，一些常见问题都有解决方案。比如，Sublime Text 插件
-   开发使用的是 Python 脚本，它本身提供了一个模块，要将 Sublime 脚本模块引入 VS Code 编程环境，
-   就只可以安装 Pyright 或者 Pylance（推荐），并将外部模块路径添加到插件配置： Python › Analysis: Extra Paths
-
-      C:/Program Files/Sublime Text/Lib/python38
-      C:/Program Files/Blender Foundation/UPBGE-0.30-windows-x86_64/3.0/python/lib
-
-   由于插件众多，配置项可以使用搜索过滤，@ext:ms-python.vscode-pylance，避免陷入配置泥潭。
-
-   [yzane.markdown-pdf](https://marketplace.visualstudio.com/items?itemName=yzane.markdown-pdf)
-   是一款 PDF 文档生成插件，它内部使用了基于 Chromium 开源浏览器抓屏的 `Puppeteer <https://pptr.dev/category/introduction>`__。
-   此插件安装的浏览器（Chromium）是精简版本，裁剪掉与图形渲染无关的功能，不能播放视频，MP3 倒是
-   可以播放，并且浏览文档非常快速。Puppeteer 比较友好的实现 Web 爬虫、自动化测试、页面捕获等功能。
-
-   -  Automate form submission, UI testing, keyboard input, etc.
-   -  Create an automated testing environment using the latest JavaScript and browser features.
-   -  Capture a timeline trace of your site to help diagnose performance issues.
-   -  Test Chrome Extensions.
-   -  Generate screenshots and PDFs of pages.
-   -  Crawl a SPA (Single-Page Application) and generate pre-rendered content (i.e. "SSR" (Server-Side Rendering)).
-
-   它基于 Chrome DevTool Protocol 和 Headless Chrome 实现脚本自动化：
-
-   -  ``Chrome DevTool Protocol (CDP)``
-
-      CDP 基于 WebSocket 实现与浏览器内核的快速数据通道。
-      CDP 分为多个域（DOM，Debugger，Network，Profiler，Console...），每个域中都定义了
-      相关的命令和事件（Commands and Events）。基于 CDP 封装一些工具，就可以对 Chrome 
-      浏览器进行调试及分析，比如常用的 “Chrome 开发者工具” 就是基于 CDP 实现的 Web 开发工具。
-
-      如果以 remote-debugging-port 参数启动 Chrome，那么就可以看到所有 Tab 页面的开发者
-      调试前端页面，还会在同一端口上还提供了 http 服务，主要提供以下几个接口：
-
-      ===================================   ============================
-      GET /json/version                     # 获取浏览器的一些元信息
-      GET /json or /json/list               # 当前浏览器上打开的一些页面信息
-      GET /json/protocol                    # 获取当前 CDP 的协议信息   
-      GET /json/new?{url}                   # 开启一共新的 Tab 页面
-      GET /json/activate/{targetId}         # 激活某个页面成为当前显示的页面
-      GET /json/close/{targetId}            # 关闭某个页面
-      GET /devtools/inspector.html          # 打开当前页面的开发者调试工具
-      WebSocket /devtools/page/{targetId}   # 获取某个页面的 websocket 地址
-      ===================================   ============================
-
-   -  ``Headless Chrome``
-
-      Headless 指的是无界面的环境中运行 Chrome，实属于无头无脸了。通过命令行或者脚本操作
-      Chrome，无需人的干预，运行更稳定。只需要启动 Chrome 时添加参数 --headless 即可。
-
-      alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"  # Mac OS X 命令别名
-      chrome --headless --remote-debugging-port=9222 --disable-gpu                   # 开启远程调试
-      chrome --headless --disable-gpu --dump-dom https://www.baidu.com               # 获取页面 DOM
-      chrome --headless --disable-gpu --screenshot https://www.baidu.com             # 截图
-
-   `List of Chromium Command Line Switches <https://peter.sh/experiments/chromium-command-line-switches/>`__
-
 .. container:: 
 
    API Level 30 之后，导航栏、状态栏配置由 systemUiVisibility 替换为 WindowInsetsController。
    新版的对象引入了两个控制方法：hide 和 show，配合常量控制 UI 组件的显示或隐藏。
 
    .. code-block:: java
-
 
        override fun onWindowFocusChanged(hasFocus: Boolean) {
            super.onWindowFocusChanged(hasFocus)
@@ -1420,7 +1305,6 @@ Java API Framework 也叫做 Application Framework，Android 应用开发必需�
    使用这个字段，为了全屏布局应用程序，必须在 Window 类上使用一个新方法：
 
       window.setDecorFitsSystemWindows(false)
-
 
 
 Shell Scripting
@@ -1847,6 +1731,8 @@ GUI Application
    .. _JavaFX runtime: https://gluonhq.com/products/javafx/
    .. _Scene Builder: https://gluonhq.com/products/scene-builder/
 
+.. container:: section
+   
    可以先配置好 Intellij IDEA 项目，再创建 JavaFX 模块，并设置好 Sources 目录和依赖模块。
    可以先创建空项目（Gradle），然后将 JavaFX 库文件添加到项目的依赖库列表中，最好是添加到
    全局库列表中，并且将 JavaFX SDK 作为 New Project Libraray -> Java 形式添加，这样
@@ -2115,7 +2001,6 @@ Anti-virus program and build performance
    *  Select Star, then open Settings. Under Privacy & security, select Virus & threat protection.
    *  Under Virus & threat protection settings, select Manage settings, and then under Exclusions, select Add or remove exclusions.
    *  Select Add an exclusion, and then select from files, folders, file types, or process.
-
 
 /TOC 💛 Android Studio
 ======================
@@ -7752,6 +7637,12125 @@ Last updated 2023-04-12 UTC.
 
 /Topic: 3. 🟢 Write your code
 ===============================
+
+
+
+/Write your code quicker and more efficiently
+=============================================
+
+.. https://developer.android.google.cn/studio/write?hl=en
+
+.. container:: devsite-article-body clearfix
+
+   Android Studio includes tools for every stage of development, but what's most
+   important is simply writing your app: writing the code, building layouts,
+   creating images, and being productive along the way.
+
+   That's what this section is all about: the tools that help you write your app
+   and write it quickly.
+
+   .. rubric:: Coding productivity
+      :name: coding_productivity
+
+   The following are just a few features to help you be more productive when
+   coding.
+
+   .. rubric:: Code completion
+      :name: code_completion
+
+   Code completion speeds up app development by reducing typing errors and the
+   need to look up class, method, and variable names. The code editor provides
+   basic completion, smart completion, and statement completion.
+
+   Learn more about `Code completion <#/studio/intro#code_completion>`__.
+
+   .. rubric:: Create custom code-completion templates
+      :name: create_custom_code-completion_templates
+
+   Live templates allow you to enter code snippets for fast insertion and
+   completion of small chunks of code. To insert a live template, type the
+   template abbreviation and press the **Tab** key. Android Studio inserts the
+   code snippet associated with the template into your code.
+
+   For example, the ``comp`` abbreviation followed by **Tab** inserts the code
+   for a new composable function. Or type ``loge`` to find the ``Log.e()``
+   method and `log from your code <#/studio/command-line/logcat#logClass>`__.
+
+   To see the list of supported live templates and customize them, click **File
+   > Settings > Editor > Live Templates** (**Android Studio > Settings > Editor
+   > Live Templates** on macOS).
+
+   Learn more about `Live templates <https://medium.com/google-developers/writing-more-code-by-writing-less-code-with-android-studio-live-templates-244f648d17c7#.h1jn0hq31>`__.
+
+   .. rubric:: Get quick fixes from lint
+      :name: get_quick_fixes_from_lint
+
+   Android Studio provides a code scanning tool called Lint to help you to
+   identify and correct problems with the structural quality of your code,
+   without executing the app or writing tests.
+
+   Every time you build your app, Android Studio runs Lint to check your source
+   files for potential bugs and looks for optimization improvements in
+   correctness, security, performance, usability, accessibility, and
+   internationalization.
+
+   Learn more about `Lint <#/studio/write/lint>`__.
+
+   .. rubric:: See documentation and resource details
+      :name: see_documentation_and_resource_details
+
+   You can view documentation for an API by placing the caret on the
+   method/member/class name and pressing **F1**.
+
+   Information is also available for other resources, such as images and themes.
+   For example, if you place the caret on the theme name in your Android
+   manifest file and press **F1**, you can see the theme inheritance hierarchy
+   and colors or images for the various attributes.
+
+   .. rubric:: Quickly create new files
+      :name: quickly_create_new_files
+
+   When you want to create a new file, click the desired directory in the
+   Project window, then press **Alt + Insert** (**Command + N** on Mac). Android
+   Studio shows a small window with a list of suggested file types, as
+   appropriate for the selected directory.
+
+   .. rubric:: Working with resources
+      :name: working_with_resources
+
+   Android Studio includes the following features and tools to help you create
+   and manage resource files.
+
+   Learn more about `adding resources <#/studio/write/add-resources>`__.
+
+   .. rubric:: Create images for all screen densities
+      :name: create_images_for_all_screen_densities
+
+   Android Studio includes a tool called Vector Asset Studio that helps you
+   create images that support each screen density. You can upload your own SVG
+   file for editing or select from one of the many Google-provided material
+   design icons. To get started, click **File > New > Vector Asset**.
+
+   Learn more about `Vector Asset Studio <#/studio/write/vector-asset-studio>`__.
+
+   .. rubric:: Preview images and colors
+      :name: preview_images_and_colors
+
+   When referencing images and icons in your code, a preview of the image
+   appears in the left margin to help you verify the image or icon reference.
+
+   To view the full size image, click the thumbnail in the left margin. Or,
+   place the caret on the inline reference to the asset and press **F1** to see
+   the image details, including all the alternative sizes.
+
+   .. rubric:: Create new layouts
+      :name: create_new_layouts
+
+   Android Studio lets you preview your composable layouts when you use the
+   `composable preview <#/jetpack/compose/tooling/studio#preview>`__ function.
+   Previews of your composables appear in the **Design** view of the file and
+   update in real time as you edit the composables.
+
+   If you're using XML layouts, Android Studio offers the `Layout Editor <#/studio/write/layout-editor>`__ to preview your layout while editing
+   the XML.
+
+   .. rubric:: Translate UI strings
+      :name: translate_ui_strings
+
+   The Translations Editor tool gives you a single view of all of your
+   translated resources, making it easy to change or add translations, and even
+   find missing translations without opening every version of the
+   ``strings.xml`` file. You can even upload your strings file to order
+   translation services.
+
+   To get started, right-click on any copy of your ``strings.xml`` file then
+   click **Open Translations Editor**.
+
+   Learn more about the `Translations Editor <#/studio/write/translations-editor>`__.
+
+Content and code samples on this page are subject to the licenses described in
+the `Content License <#/license>`__. Java and OpenJDK are trademarks or
+registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2023-04-12 UTC.
+
+/Add code from a template
+=========================
+
+.. https://developer.android.google.cn/studio/projects/templates?hl=en
+
+.. container:: devsite-article-body clearfix
+
+   Android Studio provides code templates that follow the Android design and
+   development best practices to get you on the right track to creating
+   beautiful, functional apps. You can use templates to create new app modules,
+   individual activities, or other specific Android project components.
+
+   Some templates provide starter code for common usage contexts, such as
+   navigation drawers or login screens. You can choose from these app module and
+   activity templates when you first `create your project <#/studio/projects/create-project>`__, when you `add a new app module within an existing project <#/studio/projects/add-app-module>`__, or when you
+   add a new activity within an app module.
+
+   In addition to activities, you can also add other Android project components
+   to an existing app using templates. These templates include both code
+   components, such as services and fragments, and non-code components, such as
+   folders and XML files.
+
+   This page discusses how to add Android project components like activities to
+   your project and describes the commonly used activity templates available in
+   Android Studio. Note that most templates depend on the `Android Support Library <#/tools/support-library/features>`__ to include user interface
+   principles based on `material design <#/design/material>`__.
+
+   .. rubric:: Add a project component
+      :name: FindTemplates
+
+   .. container:: attempt-right
+
+      |image-templates-menu|
+      **Figure 1**. The templates menu, accessible through the **File** >
+      **New** menu or by right-clicking in the **Project** window.
+
+   The list of templates provided in Android Studio is constantly growing.
+   Android Studio groups templates by the type of component that they add, such
+   as an **Activity** or an **XML** file, as shown in figure 1.
+
+   To add an Android project component using a template, use the **Project**
+   |image-window-project| window. Right-click on the folder in which you want to add the new
+   component, and select **New**. Based on what components can be added to the
+   folder you clicked on, you then see a list of template types like those shown
+   in figure 1.
+
+   When you select the template you want to add, a corresponding wizard window
+   appears and asks for the component's configuration information, such as its
+   name. After you enter the configuration information, Android Studio creates
+   and opens the files for your new component. It also runs a Gradle build to
+   sync your project.
+
+   Although you can also use the **File** > **New** menu of Android Studio to
+   create a new Android project component, navigating to your desired folder in
+   the **Project** window ensures that you create the component in the correct
+   place.
+
+   .. rubric:: Select an activity template
+      :name: SelectTemplate
+
+   .. container:: attempt-right
+
+      |image-empty-compose-activity-template|
+      **Figure 2**. The Empty Compose Activity template.
+
+   One of the most common uses of templates is adding new activities to an
+   existing app module. There are templates for creating screens for logging
+   into an account, presenting a list of items with details, or scrolling
+   through a long block of text.
+
+   Android Studio also provides templates for a variety of different app module
+   types, including Wear OS, Android TV, and Cloud App Engine. You can view
+   templates for these different module types when `adding a project component <#FindTemplates>`__. Templates also exist for more API-specific
+   modules and activities, such as Google AdMobs Ads and Google Maps.
+
+   One of the most commonly used templates is the Empty Compose Activity
+   template, which creates an empty activity with a sample composable and a
+   preview of the composable. It lets you to start from scratch when building
+   your app module or activity.
+
+Content and code samples on this page are subject to the licenses described in
+the `Content License <#/license>`__. Java and OpenJDK are trademarks or
+registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2023-04-12 UTC.
+
+.. |image-templates-menu| image:: https://source.android.google.cn/static/studio/images/projects/templates-menu.png
+   :width: 232px
+.. |image-window-project| image:: https://source.android.google.cn/static/studio/images/buttons/window-project.png
+   :class: inline-icon
+.. |image-empty-compose-activity-template| image:: https://source.android.google.cn/static/studio/images/projects/empty-compose-activity-template.png
+   :width: 232px
+
+/Find sample code
+=================
+
+.. https://developer.android.google.cn/studio/write/sample-code?hl=en
+
+.. container:: devsite-article-body clearfix
+
+   Android Studio provides a selection of code samples and templates for you to
+   use to accelerate your app development. Browse sample code to learn how to
+   build different components for your apps. Use templates to create new app
+   modules, individual activities, or other specific Android project components.
+
+   This page describes how to access and use the high-quality, Google-provided
+   Android code samples. For information about templates, see `Add code from a template <#/studio/projects/templates>`__.
+
+   .. rubric:: Browse Samples dialog
+      :name: menus
+
+   Use the samples browser to select, preview, and import one or more sample
+   apps as projects:
+
+   #. Select **File > New > Import Sample**.
+   #. Use the search box or the scroll bar to browse the samples.
+   #. When you find a sample that interests you, highlight it and take a look at
+      the preview.
+   #. If you want to import the sample as a project, click **Next** and then
+      **Finish**.
+
+   .. figure:: https://source.android.google.cn/static/studio/images/write/new-browse-sample.png
+      :alt: The Browse Samples dialog
+      :width: 900px
+
+      **Figure 1.** Browse Samples dialog with sample list and preview.
+
+   You can also browse the source code through GitHub.
+
+Content and code samples on this page are subject to the licenses described in
+the `Content License <#/license>`__. Java and OpenJDK are trademarks or
+registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2023-04-13 UTC.
+
+/Create a Java class or type
+============================
+
+.. https://developer.android.google.cn/studio/write/create-java-class?hl=en
+
+.. container:: devsite-article-body clearfix
+
+   With the **Create New Class** dialog and file templates, Android Studio helps
+   you to quickly create the following new classes and types:
+
+   -  Java classes
+   -  Enumeration and singleton classes
+   -  Interface and annotation types
+
+   After you fill in the **Create New Class** dialog fields and click **OK**,
+   Android Studio creates a ``.java`` file containing skeleton code, including a
+   package statement, any necessary imports, a header, and a class or type
+   declaration. Next, you can add your code to this file.
+
+   File templates specify how Android Studio generates the skeleton code. You
+   can use the file templates provided with Android Studio as is, or customize
+   them to suit your development process.
+
+   .. rubric:: Viewing and customizing file templates
+      :name: viewing-templates
+
+   Android Studio provides file templates that determine how new Java classes
+   and types are created with the **Create New Class** dialog. You can customize
+   these templates.
+
+   |The Create New Class dialog.|
+
+   **Figure 1**. The **Create New Class** dialog.
+
+   The Android Studio file templates include Velocity Template Language
+   (`VTL <https://velocity.apache.org/engine/>`__) code and variables that
+   handle these additional options. The **Create New Class** dialog uses the
+   **AnnotationType**, **Class**, **Enum**, **Interface**, and **Singleton**
+   file templates.
+
+   To view the templates, find customizations, and modify the templates, follow
+   these steps:
+
+   #. Do one of the following:
+
+      -  For Windows or Linux, select **File > Settings > Editor > File and Code
+         Templates > Files**.
+      -  For macOS, select **Android Studio > Preferences > Editor > File and
+         Code Templates > Files**.
+
+      In the `template list <https://www.jetbrains.com/help/idea/2023.3/settings-file-and-code-templates.html>`__,
+      internal template names are in bold font. Customized template names are
+      displayed in a highlight color, such as blue.
+
+   #. Customize the file templates as needed.
+
+      If you want to use the **Create New Class** dialog fields, make sure your
+      changes comply with the `Android Studio file template code <#templates>`__.
+
+   For more information about file templates, including VTL, see `File and Code Templates <https://www.jetbrains.com/help/idea/2023.3/file-and-code-templates.html>`__
+   and `File and Code Templates Dialog <https://www.jetbrains.com/help/idea/2023.3/settings-file-and-code-templates.html>`__.
+
+   .. rubric:: Creating a Java class or type
+      :name: creating-class
+
+   Android Studio helps you to create new Java classes; enumeration and
+   singleton classes; and interface and annotation types based on `file templates <#templates>`__.
+
+   To create a new Java class or type, follow these steps:
+
+   In the **Project** window, right-click a Java file or folder, and select
+   **New** > **Java Class**.
+   Alternatively, select a Java file or folder in the **Project** window, or
+   click in a Java file in the Code Editor. Then select **File** > **New** >
+   **Java Class**.
+
+   The item you select determines the default package for the new class or type.
+
+   In the **Create New Class** dialog, fill in the fields:
+
+   -  **Name** - The name of the new class or type. It must comply with Java
+      name requirements. Don’t type a file name extension.
+   -  **Kind** - Select the category of class or type.
+   -  **Superclass** - The class that your new class inherits from. You can type
+      the package and class name, or just the class name and then double-click
+      an item in the drop-down list to autocomplete it.
+   -  **Interface(s)** - One or more interfaces that the new class or type
+      implements. Multiple interfaces should be separated by a comma followed by
+      an optional space. You can type the package and interface name, or just
+      the interface name and then double-click an item in the drop-down list to
+      autocomplete it.
+   -  **Package** - The package that the class or type will reside in. The
+      default automatically appears in the field. If you type a package name in
+      the field, any portions of the package identifier that don’t exist are
+      highlighted red; in this case, Android Studio creates the package after
+      you click **OK**. This field must contain a value; otherwise, the Java
+      file won’t contain a ``package`` statement, and the class or type won’t be
+      placed within a package in the project.
+   -  **Visibility** - Select whether the class or type is visible to all
+      classes, or just to those in its own package.
+   -  **Modifiers** - Select the **Abstract** or **Final** modifier for a
+      **Class**, or neither.
+   -  **Show Select Overrides Dialog** - For a **Kind** of **Class**, check this
+      option to open the `Select Methods to Override/Implement dialog <https://www.jetbrains.com/help/idea/2023.3/overriding-methods-of-a-superclass.html>`__
+      after you click **OK**. In this dialog, you can select methods that you
+      would like to override or implement, and Android Studio will generate
+      skeleton code for these methods.
+
+   Any fields that don’t apply to the **Kind** are hidden.
+
+   Click **OK**.
+   Android Studio creates a Java file with skeleton code that you can modify. It
+   opens the file in the Code Editor.
+
+   **Note:** You can create a singleton class by selecting **File** > **New** >
+   **Singleton** or **File** > **New** > **Java Class**; the latter technique
+   offers more options.
+
+   .. rubric:: Android Studio file templates
+      :name: templates
+
+   This section lists the Android Studio file template code written in the
+   `VTL <https://velocity.apache.org/engine/>`__ scripting language, followed by
+   definitions of the variables. The values that you provide in the **Create New
+   Class** dialog become the variable values in the template. Note that the
+   lines that begin with ``#if (${VISIBILITY}`` extend all the way to the open
+   brace ( ``{`` ).
+
+   .. rubric:: AnnotationType file template
+      :name: annotation
+
+   .. code:: none
+
+      #if (${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+
+      #if (${IMPORT_BLOCK} != "")${IMPORT_BLOCK}
+      #end
+      #parse("File Header.java")
+
+      #if (${VISIBILITY} == "PUBLIC")public #end @interface ${NAME} #if (${INTERFACES} != "")extends ${INTERFACES} #end {
+      }
+
+   .. rubric:: Class file template
+      :name: class
+
+   .. code:: none
+
+      #if (${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+
+      #if (${IMPORT_BLOCK} != "")${IMPORT_BLOCK}
+      #end
+      #parse("File Header.java")
+
+      #if (${VISIBILITY} == "PUBLIC")public #end #if (${ABSTRACT} == "TRUE")abstract #end #if (${FINAL} == "TRUE")final #end class ${NAME} #if (${SUPERCLASS} != "")extends ${SUPERCLASS} #end #if (${INTERFACES} != "")implements ${INTERFACES} #end {
+      }
+
+   .. rubric:: Enum file template
+      :name: enum
+
+   .. code:: none
+
+      #if (${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+
+      #if (${IMPORT_BLOCK} != "")${IMPORT_BLOCK}
+      #end
+      #parse("File Header.java")
+
+      #if (${VISIBILITY} == "PUBLIC")public #end enum ${NAME} #if (${INTERFACES} != "")implements ${INTERFACES} #end {
+      }
+
+   .. rubric:: Interface file template
+      :name: interface
+
+   .. code:: none
+
+      #if (${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+
+      #if (${IMPORT_BLOCK} != "")${IMPORT_BLOCK}
+      #end
+      #parse("File Header.java")
+
+      #if (${VISIBILITY} == "PUBLIC")public #end enum ${NAME} #if (${INTERFACES} != "")implements ${INTERFACES} #end {
+      #end {
+      }
+
+   .. rubric:: Singleton file template
+      :name: singleton
+
+   .. code:: none
+
+      #if (${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+
+      #if (${IMPORT_BLOCK} != "")${IMPORT_BLOCK}
+      #end
+      #parse("File Header.java")
+
+      #if (${VISIBILITY} == "PUBLIC")public #end class ${NAME} #if (${SUPERCLASS} != "")extends ${SUPERCLASS} #end #if (${INTERFACES} != "")implements ${INTERFACES} #end {
+          private static final ${NAME} ourInstance = new ${NAME}();
+
+          #if (${VISIBILITY} == "PUBLIC")public #end static ${NAME} getInstance() {
+              return ourInstance;
+          }
+
+          private ${NAME}() {
+          }
+      }
+
+   .. rubric:: File template variables
+      :name: variables
+
+   Android Studio replaces file template variables with values in the generated
+   Java file. You enter the values in the **Create New Class** dialog. The
+   template has the following variables that you can use:
+
+   -  ``IMPORT_BLOCK`` - A newline-delimited list of Java ``import`` statements
+      necessary to support any superclass or interfaces, or an empty string
+      (``""``). For example, If you only implement the ``Runnable`` interface
+      and extend nothing, this variable will be
+      ``"import java.lang.Runnable;\n"``. If you implement the ``Runnable``
+      interface and extend the ``Activity`` class, it will be
+      ``"import android.app.Activity;\nimportjava.lang.Runnable;\n"``.
+   -  ``VISIBILITY`` - Whether the class will have public access or not. It can
+      have a value of ``PUBLIC`` or ``PACKAGE_PRIVATE``.
+   -  ``SUPERCLASS`` - A single class name, or empty. If present, there will be
+      an ``extends ${SUPERCLASS}`` clause after the new class name.
+   -  ``INTERFACES`` - A comma-separated list of interfaces, or empty. If
+      present, there will be an ``implements ${INTERFACES}`` clause after the
+      superclass, or after the class name if there’s no superclass. For
+      interfaces and annotation types, the interfaces have the ``extends``
+      keyword.
+   -  ``ABSTRACT`` - Whether the class should be abstract or not. It can have a
+      value of ``TRUE`` or ``FALSE``.
+   -  ``FINAL`` - Whether the class should be final or not. It can have a value
+      of ``TRUE`` or ``FALSE``.
+
+Content and code samples on this page are subject to the licenses described in
+the `Content License <#/license>`__. Java and OpenJDK are trademarks or
+registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2024-05-03 UTC.
+
+.. |The Create New Class dialog.| image:: https://source.android.google.cn/static/studio/images/write/create-new-class.png
+   :width: 537px
+
+/Add a module for a new device
+==============================
+
+.. https://developer.android.google.cn/studio/projects/add-app-module?hl=en
+
+.. container:: devsite-article-body clearfix
+
+   Modules provide a container for your app's source code, resource files, and
+   app level settings, such as the module-level build file and Android manifest
+   file. Each module can be independently built, tested, and debugged.
+
+   Android Studio uses modules to make it easy to add new devices to your
+   project. By following a few simple steps in Android Studio, you can create a
+   module to contain code that's specific to a device type, such as Wear OS or
+   Android TV. Android Studio automatically creates module directories, such as
+   source and resource directories, and a default ``build.gradle`` file
+   appropriate for the device type. Also, Android Studio creates device modules
+   with recommended build configurations, such as using the Leanback library for
+   Android TV modules.
+
+   This page describes how to add a new module for a specific device.
+
+   Android Studio also makes it easy to add a library or Google Cloud module to
+   your project. For details on creating a library module, see `Create a Library Module <#/studio/projects/android-library#CreateLibrary>`__.
+
+   .. rubric:: Create a new module
+      :name: CreatingAModule
+
+   To add a new module to your project for a new device, proceed as follows:
+
+   #. Click **File** > **New** > **New Module**.
+
+   #. In the **Create New Module** window that appears, Android Studio offers
+      the following device modules:
+
+      -  Phone & Tablet Module
+      -  Wear OS Module
+      -  Android TV Module
+      -  Glass Module
+
+      Select the module for the device you want, and then click **Next**.
+
+   #. In the **Configure your new module** form, enter the following details:
+
+      -  **Application Name**: This name is used as the title of your app
+         launcher icon for the new module.
+      -  **Module Name**: This text is used as the name of the folder where your
+         source code and resources files are visible.
+      -  **Package Name**: This is the Java namespace for the code in your
+         module. It is added as the
+         `package <#/guide/topics/manifest/manifest-element#package>`__
+         attribute in the module's `Android manifest file <#/guide/topics/manifest/manifest-intro>`__.
+         **Important:** Module package names must be globally unique. You can't
+         have two modules with the same package name in the same project.
+      -  **Minimum SDK**: This setting indicates the lowest version of the
+         Android platform that the app module supports. This value sets the
+         ``minSdkVersion`` attribute in the ``build.gradle`` file, which you can
+         edit later.
+
+      Then click **Next**.
+
+   #. Depending on which device module you selected, the following page displays
+      a selection of appropriate code templates you can select to use as your
+      main activity. Click an activity template with which you want to start,
+      and then click **Next**. If you don't need an activity, click **Add No
+      Activity**, click **Finish**, and then you're done.
+
+   #. If you chose an activity template, enter the settings for your activity on
+      the **Customize the Activity** page. Most templates ask for an **Activity
+      Name**, **Layout Name**, **Title**, and **Source Language**, but each
+      template has activity-specific settings. Click **Finish**. When you create
+      an app module with an activity template, you can immediately run and test
+      the module on your device.
+
+   Android Studio creates all the necessary files for the new module and syncs
+   the project with the new module gradle files. Adding a module for a new
+   device also adds any required dependencies for the target device to the
+   module's build file.
+
+   Once the Gradle project sync completes, the new module appears in the
+   **Project** window on the left. If you don't see the new module folder, make
+   sure the window is displaying the `Android view <#/studio/projects#ProjectFiles>`__.
+
+   .. rubric:: Import a module
+      :name: ImportAModule
+
+   To import an existing module into your project, proceed as follows:
+
+   #. Click **File > New > Import Module**.
+   #. In the **Source directory** box, type or select the directory of the
+      module(s) that you want to import:
+
+      -  If you are importing one module, indicate its root directory.
+      -  If you are importing multiple modules from a project, indicate the
+         project folder. For each module inside the folder, a box appears and
+         indicates the **Source location** and **Module name**. Make sure the
+         **Import** box is checked for each module that you want to import.
+
+      If your module(s) have other dependencies, they will be listed to import
+      under **Additional required modules**.
+   #. Type your desired module name(s) in the **Module name** field(s).
+   #. Click **Finish.**
+
+   Once the module is imported, it appears in the `Project window <https://developer.android.google.cn/studio/projects/index.html#ProjectFiles>`__
+   on the left.
+
+   .. rubric:: Next steps
+      :name: ModuleNextSteps
+
+   Once you've added a new module, you can modify the module code and resources,
+   configure module build settings, and build the module. You can also run and
+   debug the module like any other app.
+
+   -  To learn about build settings for a module, see `The Module-level Build File <#/studio/build#module-level>`__.
+   -  To build and run a specific module, see `Select and build a different module <#/studio/run#build-module>`__.
+
+   You'll also want to add code and resources to properly support the new
+   device. For more information about how to develop app modules for different
+   device types, see the corresponding documentation:
+
+   -  For Wear OS modules: `Creating and Running a Wearable App <https://developer.android.google.cn/training/wearables/apps/creating.html>`__
+   -  For Android TV modules: `Get Started with TV Apps <https://developer.android.google.cn/training/tv/start/start.html>`__
+   -  For Glass modules: `GDK Quick Start <https://developers.google.cn/glass/develop/gdk/quick-start#for_android_experts>`__
+
+   As you develop your new module, you might create device independent code that
+   is already duplicated in a different app module. Instead of maintaining
+   duplicate code, consider moving the shared code to a library module and
+   adding the library as a dependency to your app modules. For more information
+   on creating a library module and adding it as a dependency, see `Create an Android Library <#/studio/projects/android-library>`__.
+
+Content and code samples on this page are subject to the licenses described in
+the `Content License <#/license>`__. Java and OpenJDK are trademarks or
+registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2023-04-12 UTC.
+
+/Use Java 8 language features
+=============================
+
+.. https://developer.android.google.cn/studio/write/java8-support?hl=en
+
+.. container:: devsite-article-body clearfix
+
+   The Android Gradle plugin 3.0.0 and later supports all Java 7 language
+   features and a subset of Java 8 language features that vary by platform
+   version. When building your app using the Android Gradle plugin 4.0.0 and
+   higher, you can use some Java 8 language APIs without requiring a minimum API
+   level for your app.
+
+   This page describes the Java 8 language features you can use, how to properly
+   configure your project to use them, and any known issues you may encounter.
+   See the following video for an overview of Java 8 language features.
+
+   .. container:: video-wrapper-left
+
+   **Note:**\  When developing apps for Android, using Java 8 language features
+   is optional. You can keep your project's source and target compatibility
+   values set to Java 7, but you still need to compile using JDK 8.
+   The Android Gradle plugin provides built-in support for using certain Java 8
+   language features and third-party libraries that use them. The default
+   toolchain implements the new language features by performing bytecode
+   transformations, called ``desugar``, as part of the D8/R8 compilation of
+   class files into DEX code, as shown in figure 1.
+
+   .. figure:: https://source.android.google.cn/static/studio/images/write/desugar_diagram.png
+      :alt: Java 8 language feature support using \`desugar\` bytecode
+      transformations
+
+      **Figure 1.** Java 8 language feature support using ``desugar`` bytecode
+      transformations.
+
+   **Note:**\  Your choice of bytecode level is a balance between functionality
+   and build speed. Bytecode level 6 has a faster build and fewer features,
+   whereas bytecode level 7 has a balance of features and build speed, and
+   bytecode 8 is more feature rich with slower builds.
+   .. rubric:: Java 8 language feature support (Android Gradle Plugin 3.0.0+)
+      :name: supported_features
+
+   To start using supported Java 8 language features:
+
+   #. `Update the Android Gradle plugin <#/studio/releases/gradle-plugin#updating-plugin>`__ to 3.0.0 or
+      higher.
+   #. For each module that uses Java 8 language features (either in its source
+      code or through dependencies), update the module's ``build.gradle`` or
+      ``build.gradle.kts`` file as shown below:
+
+   .. container::
+
+      .. container:: ds-selector-tabs
+
+         .. container:: section
+
+            .. rubric:: Kotlin
+               :name: kts
+               :class: two-line-tab
+
+            .. code:: prettyprint
+
+               android {
+                   ...
+                   // Configure only for each module that uses Java 8
+                   // language features (either in its source code or
+                   // through dependencies).
+                   compileOptions {
+                       sourceCompatibility = JavaVersion.VERSION_1_8
+                       targetCompatibility = JavaVersion.VERSION_1_8
+                   }
+                   // For Kotlin projects
+                   kotlinOptions {
+                       jvmTarget = "1.8"
+                   }
+               }
+
+         .. container:: section
+
+            .. rubric:: Groovy
+               :name: groovy
+               :class: two-line-tab
+
+            .. code:: prettyprint
+
+               android {
+                   ...
+                   // Configure only for each module that uses Java 8
+                   // language features (either in its source code or
+                   // through dependencies).
+                   compileOptions {
+                       sourceCompatibility JavaVersion.VERSION_1_8
+                       targetCompatibility JavaVersion.VERSION_1_8
+                   }
+                   // For Kotlin projects
+                   kotlinOptions {
+                       jvmTarget = "1.8"
+                   }
+               }
+
+   When building your app using the Android Gradle plugin 3.0.0 and higher, the
+   plugin doesn't support all Java 8 language features. The following language
+   features are available on any API level:
+
+   .. list-table::
+      :header-rows: 1
+
+      - 
+
+         - Java 8 language feature
+         - Notes
+      - 
+
+         - `Lambda expressions <https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html>`__
+         - Android doesn't support the serialization of lambda expressions.
+      - 
+
+         - `Method references <https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html>`__
+         -  
+      - 
+
+         - `Type annotations <https://docs.oracle.com/javase/tutorial/java/annotations/type_annotations.html>`__
+         - Type annotation information is only available at compile time, not at
+            runtime. The platform supports
+            `TYPE <#/reference/java/lang/annotation/ElementType#TYPE>`__ in
+            API level 24 and below, but not ``ElementType.TYPE_USE`` or
+            ``ElementType.TYPE_PARAMETER``.
+      - 
+
+         - `Default and static interface methods <https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html>`__
+         -  
+      - 
+
+         - `Repeating annotations <https://docs.oracle.com/javase/tutorial/java/annotations/repeating.html>`__
+         -  
+
+   In addition to these Java 8 language features, Android Gradle plugin versions
+   3.0.0 and higher extend support for
+   ```try``-with-resources <https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html>`__
+   to all Android API levels.
+
+   Desugar doesn't support
+   `MethodHandle.invoke <https://docs.oracle.com/javase/8/docs/api/java/lang/invoke/MethodHandle.html#invoke-java.lang.Object...->`__
+   or
+   `MethodHandle.invokeExact <https://docs.oracle.com/javase/8/docs/api/java/lang/invoke/MethodHandle.html#invokeExact-java.lang.Object...->`__.
+   If your source code or one of your module dependencies uses one of these
+   methods, you need to specify ``minSdkVersion 26`` or higher. Otherwise, you
+   receive the following error:
+
+   .. code:: devsite-click-to-copy
+
+      Dex: Error converting bytecode to dex:
+      Cause: signature-polymorphic method called without --min-sdk-version >= 26
+
+   In some cases, your module might not be using the ``invoke`` or
+   ``invokeExact`` methods even when they're included in a library dependency.
+   To keep using that library with ``minSdkVersion 25`` or lower, `enable code shrinking <#/studio/build/shrink-code#shrink-code>`__ to remove unused
+   methods. If that doesn't work, consider using an alternative library that
+   doesn't use the unsupported methods.
+
+   Java 8+ language features desugaring on the Android Gradle plugin 3.0.0 and
+   higher and doesn't make any additional classes and APIs (such as
+   ``java.util.stream.*``) available for use on older Android releases. Support
+   for partial Java API desugaring is available from the Android Gradle plugin
+   4.0.0 or higher, as described in the following section.
+
+   .. rubric:: Java 8+ API desugaring support (Android Gradle Plugin 4.0.0+)
+      :name: library-desugaring
+
+   If you're building your app using the Android Gradle plugin 4.0.0 or higher,
+   the plugin extends support for using a number of Java 8 language APIs without
+   requiring a minimum API level for your app. With Android Gradle plugin 7.4.0
+   or higher, a number of Java 11 language APIs are also available with
+   desugared library 2.0.0 or higher.
+
+   This additional support for older platform versions is possible because
+   plugin 4.0.0 and higher extends the desugaring engine to also desugar Java
+   language APIs. You can include standard language APIs that were available
+   only in recent Android releases (such as ``java.util.streams``) in apps that
+   support older versions of Android.
+
+   The following set of APIs are supported when building your app using Android
+   Gradle plugin 4.0.0 or higher:
+
+   -  Sequential streams (``java.util.stream``)
+   -  A subset of ``java.time``
+   -  ``java.util.function``
+   -  Recent additions to ``java.util.{Map,Collection,Comparator}``
+   -  Optionals (``java.util.Optional``, ``java.util.OptionalInt``, and
+      ``java.util.OptionalDouble``) and some new classes
+   -  Some additions to ``java.util.concurrent.atomic`` (new methods on
+      ``AtomicInteger``, ``AtomicLong``, and ``AtomicReference``)
+   -  ``ConcurrentHashMap`` (with bug fixes for Android 5.0)
+
+   With Android Gradle plugin 7.4.0 or higher, additional Java 11 APIs are
+   supported such as a subset of the ``java.nio.file`` package.
+
+   For a complete list of supported APIs, visit `Java 8+ APIs available through desugaring <#/studio/write/java8-support-table>`__ and `Java 11+ APIs available through desugaring <#/studio/write/java11-default-support-table>`__.
+
+   To support these language APIs, the plugin compiles a separate DEX file that
+   contains an implementation of the missing APIs and includes it in your app.
+   The desugaring process rewrites your app’s code to instead use this library
+   at runtime.
+
+   To enable support for these language APIs on any version of the Android
+   platform:
+
+   #. `Update the Android Gradle plugin <#/studio/releases/gradle-plugin#updating-plugin>`__ to 4.0.0 (or
+      higher).
+   #. Include the following in your **app module**\ ’s ``build.gradle`` or
+      ``build.gradle.kts`` file:
+
+   .. container::
+
+      .. container:: ds-selector-tabs
+
+         .. container:: section
+
+            .. rubric:: Kotlin
+               :name: kts
+               :class: two-line-tab
+
+            .. code:: prettyprint
+
+               android {
+                   defaultConfig {
+                       // Required when setting minSdkVersion to 20 or lower
+                       multiDexEnabled = true
+                   }
+
+                   compileOptions {
+                       // Flag to enable support for the new language APIs
+
+                       // For AGP 4.1+
+                       isCoreLibraryDesugaringEnabled = true
+                       // For AGP 4.0
+                       // coreLibraryDesugaringEnabled = true
+
+                       // Sets Java compatibility to Java 8
+                       sourceCompatibility = JavaVersion.VERSION_1_8
+                       targetCompatibility = JavaVersion.VERSION_1_8
+                   }
+               }
+
+               dependencies {
+                   // For AGP 7.4+
+                   coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.3")
+                   // For AGP 7.3
+                   // coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.2.3")
+                   // For AGP 4.0 to 7.2
+                   // coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.1.9")
+               }
+
+         .. container:: section
+
+            .. rubric:: Groovy
+               :name: groovy
+               :class: two-line-tab
+
+            .. code:: prettyprint
+
+               android {
+                   defaultConfig {
+                       // Required when setting minSdkVersion to 20 or lower
+                       multiDexEnabled true
+                   }
+
+                   compileOptions {
+                       // Flag to enable support for the new language APIs
+                       coreLibraryDesugaringEnabled true
+                       // Sets Java compatibility to Java 8
+                       sourceCompatibility JavaVersion.VERSION_1_8
+                       targetCompatibility JavaVersion.VERSION_1_8
+                   }
+               }
+
+               dependencies {
+                   // For AGP 7.4+
+                   coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'
+                   // For AGP 7.3
+                   // coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.2.3'
+                   // For AGP 4.0 to 7.2
+                   // coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.9'
+               }
+
+   Note that you may also need to include the previous code snippet in a library
+   module's ``build.gradle`` or ``build.gradle.kts`` file if:
+
+   -  The library module's instrumented tests use these language APIs (either
+      directly or through the library module or its dependencies). This is so
+      that the missing APIs are provided for your instrumented test APK.
+
+   -  You want to run lint on the library module in isolation. This is to help
+      lint recognize valid usages of the language APIs and avoid reporting false
+      warnings.
+
+   Also note that API desugaring can be combined with shrinking, but only when
+   using the R8 shrinker.
+
+   .. rubric:: Versions
+      :name: library-desugaring-versions
+
+   The following table shows the versions of the Java 8+ API library and the
+   minimum Android Gradle plugin version that supports each version:
+
+   .. list-table::
+      :header-rows: 1
+
+      - 
+
+         - Version
+         - Minimum Android Gradle plugin version
+      - 
+
+         - 1.1.9
+         - 4.0.0
+      - 
+
+         - 1.2.3
+         - 7.3.0
+      - 
+
+         - 2.0.3
+         - 7.4.0-alpha10
+
+   For details on the versions of the Java 8+ API library, see the `CHANGELOG.md file <https://github.com/google/desugar_jdk_libs/blob/master/CHANGELOG.md>`__
+   in the ``desugar_jdk_libs`` GitHub repository.
+
+Content and code samples on this page are subject to the licenses described in
+the `Content License <#/license>`__. Java and OpenJDK are trademarks or
+registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2023-09-14 UTC.
+
+/Java 8 language support table
+==============================
+
+.. https://developer.android.google.cn/studio/write/java8-support-table?hl=en
+
+.. container:: devsite-article-body clearfix
+
+   Android Studio now includes support for using a number of Java 8+ APIs
+   without requiring a minimum API level for your app. Through a process called
+   `API desugaring <#/studio/write/java8-support#library-desugaring>`__, the DEX
+   compiler (D8) allows you to include more standard language APIs in apps that
+   support older versions of Android.
+
+   Below is a searchable table showing which Java 8+ libraries are available
+   when using the latest version of the Android Gradle Plugin with the
+   ``coreLibraryDesugaring`` dependency set to
+   ``com.android.tools:desugar_jdk_libs:1.1.8`` in ``build.gradle`` (see `API desugaring <#/studio/write/java8-support#library-desugaring>`__ for more
+   information).
+
+   .. container::
+
+      .. list-table::
+         :widths: 27 27 27
+         :header-rows: 1
+
+         - 
+
+            - *Package +*
+               Class,
+               Enum,
+               or Interface
+            - Constructors,
+               Properties,
+               and Methods
+            - Notes
+         - 
+
+            - *``java.lang``*
+
+               .. container::
+
+                   Iterable
+            - 
+
+               -  ``public void forEach(Consumer action)``
+               -  ``public java.util.Spliterator spliterator()``
+            - | Additional methods on existing class.
+               |  
+         - 
+
+            - *``java.time``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   Clock
+            - 
+
+               -  ``protected Clock()``
+               -  ``public boolean equals(Object obj)``
+               -  ``public static Clock fixed(``
+                  `` Instant fixedInstant, ZoneId zone)``
+               -  ``public abstract ZoneId getZone()``
+               -  ``public int hashCode()``
+               -  ``public abstract Instant instant()``
+               -  ``public long millis()``
+               -  ``public static Clock offset(``
+                  `` Clock baseClock, Duration offsetDuration)``
+               -  ``public static Clock system(ZoneId zone)``
+               -  ``public static Clock systemDefaultZone()``
+               -  ``public static Clock systemUTC()``
+               -  ``public static Clock tick(``
+                  `` Clock baseClock, Duration tickDuration)``
+               -  ``public static Clock tickMinutes(ZoneId zone)``
+               -  ``public static Clock tickSeconds(ZoneId zone)``
+               -  ``public abstract Clock withZone(ZoneId p0)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   DateTimeException
+            - 
+
+               -  ``public DateTimeException(String message)``
+               -  ``public DateTimeException(``
+                  `` String message, Throwable cause)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   DayOfWeek
+            - 
+
+               -  ``public static final DayOfWeek FRIDAY``
+               -  ``public static final DayOfWeek MONDAY``
+               -  ``public static final DayOfWeek SATURDAY``
+               -  ``public static final DayOfWeek SUNDAY``
+               -  ``public static final DayOfWeek THURSDAY``
+               -  ``public static final DayOfWeek TUESDAY``
+               -  ``public static final DayOfWeek WEDNESDAY``
+               -  ``public Temporal adjustInto(Temporal temporal)``
+               -  ``public static DayOfWeek from(``
+                  `` TemporalAccessor temporal)``
+               -  ``public int get(TemporalField field)``
+               -  ``public String getDisplayName(``
+                  `` TextStyle style, java.util.Locale locale)``
+               -  ``public long getLong(TemporalField field)``
+               -  ``public int getValue()``
+               -  ``public boolean isSupported(TemporalField field)``
+               -  ``public DayOfWeek minus(long days)``
+               -  ``public static DayOfWeek of(int dayOfWeek)``
+               -  ``public DayOfWeek plus(long days)``
+               -  ``public Object query(TemporalQuery query)``
+               -  ``public ValueRange range(TemporalField field)``
+               -  ``public static DayOfWeek valueOf(String name)``
+               -  ``public static DayOfWeek[] values()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   Duration
+            - 
+
+               -  ``public static final Duration ZERO``
+               -  ``public Duration abs()``
+               -  ``public Temporal addTo(Temporal temporal)``
+               -  ``public static Duration between(``
+                  `` Temporal startInclusive, Temporal endExclusive)``
+               -  ``public int compareTo(Duration otherDuration)``
+               -  ``public Duration dividedBy(long divisor)``
+               -  ``public boolean equals(Object otherDuration)``
+               -  ``public static Duration from(TemporalAmount amount)``
+               -  ``public long get(TemporalUnit unit)``
+               -  ``public int getNano()``
+               -  ``public long getSeconds()``
+               -  ``public java.util.List getUnits()``
+               -  ``public int hashCode()``
+               -  ``public boolean isNegative()``
+               -  ``public boolean isZero()``
+               -  ``public Duration minus(``
+                  `` long amountToSubtract, TemporalUnit unit)``
+               -  ``public Duration minus(Duration duration)``
+               -  ``public Duration minusDays(long daysToSubtract)``
+               -  ``public Duration minusHours(long hoursToSubtract)``
+               -  ``public Duration minusMillis(long millisToSubtract)``
+               -  ``public Duration minusMinutes(long minutesToSubtract)``
+               -  ``public Duration minusNanos(long nanosToSubtract)``
+               -  ``public Duration minusSeconds(long secondsToSubtract)``
+               -  ``public Duration multipliedBy(long multiplicand)``
+               -  ``public Duration negated()``
+               -  ``public static Duration of(``
+                  `` long amount, TemporalUnit unit)``
+               -  ``public static Duration ofDays(long days)``
+               -  ``public static Duration ofHours(long hours)``
+               -  ``public static Duration ofMillis(long millis)``
+               -  ``public static Duration ofMinutes(long minutes)``
+               -  ``public static Duration ofNanos(long nanos)``
+               -  ``public static Duration ofSeconds(long seconds)``
+               -  ``public static Duration ofSeconds(``
+                  `` long seconds, long nanoAdjustment)``
+               -  ``public static Duration parse(CharSequence text)``
+               -  ``public Duration plus(``
+                  `` long amountToAdd, TemporalUnit unit)``
+               -  ``public Duration plus(Duration duration)``
+               -  ``public Duration plusDays(long daysToAdd)``
+               -  ``public Duration plusHours(long hoursToAdd)``
+               -  ``public Duration plusMillis(long millisToAdd)``
+               -  ``public Duration plusMinutes(long minutesToAdd)``
+               -  ``public Duration plusNanos(long nanosToAdd)``
+               -  ``public Duration plusSeconds(long secondsToAdd)``
+               -  ``public Temporal subtractFrom(Temporal temporal)``
+               -  ``public long toDays()``
+               -  ``public long toHours()``
+               -  ``public long toMillis()``
+               -  ``public long toMinutes()``
+               -  ``public long toNanos()``
+               -  ``public String toString()``
+               -  ``public Duration withNanos(int nanoOfSecond)``
+               -  ``public Duration withSeconds(long seconds)``
+            - Some methods (9) present in Android T are not supported.
+         - 
+
+            - *``java.time``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   Instant
+            - 
+
+               -  ``public static final Instant EPOCH``
+               -  ``public static final Instant MAX``
+               -  ``public static final Instant MIN``
+               -  ``public Temporal adjustInto(Temporal temporal)``
+               -  ``public OffsetDateTime atOffset(ZoneOffset offset)``
+               -  ``public ZonedDateTime atZone(ZoneId zone)``
+               -  ``public int compareTo(Instant otherInstant)``
+               -  ``public boolean equals(Object otherInstant)``
+               -  ``public static Instant from(``
+                  `` TemporalAccessor temporal)``
+               -  ``public int get(TemporalField field)``
+               -  ``public long getEpochSecond()``
+               -  ``public long getLong(TemporalField field)``
+               -  ``public int getNano()``
+               -  ``public int hashCode()``
+               -  ``public boolean isAfter(Instant otherInstant)``
+               -  ``public boolean isBefore(Instant otherInstant)``
+               -  ``public boolean isSupported(TemporalField field)``
+               -  ``public boolean isSupported(TemporalUnit unit)``
+               -  ``public Instant minus(``
+                  `` long amountToSubtract, TemporalUnit unit)``
+               -  ``public Instant minus(``
+                  `` TemporalAmount amountToSubtract)``
+               -  ``public Instant minusMillis(long millisToSubtract)``
+               -  ``public Instant minusNanos(long nanosToSubtract)``
+               -  ``public Instant minusSeconds(long secondsToSubtract)``
+               -  ``public static Instant now()``
+               -  ``public static Instant now(Clock clock)``
+               -  ``public static Instant ofEpochMilli(long epochMilli)``
+               -  ``public static Instant ofEpochSecond(``
+                  `` long epochSecond)``
+               -  ``public static Instant ofEpochSecond(``
+                  `` long epochSecond, long nanoAdjustment)``
+               -  ``public static Instant parse(CharSequence text)``
+               -  ``public Instant plus(``
+                  `` long amountToAdd, TemporalUnit unit)``
+               -  ``public Instant plus(TemporalAmount amountToAdd)``
+               -  ``public Instant plusMillis(long millisToAdd)``
+               -  ``public Instant plusNanos(long nanosToAdd)``
+               -  ``public Instant plusSeconds(long secondsToAdd)``
+               -  ``public Object query(TemporalQuery query)``
+               -  ``public ValueRange range(TemporalField field)``
+               -  ``public long toEpochMilli()``
+               -  ``public String toString()``
+               -  ``public Instant truncatedTo(TemporalUnit unit)``
+               -  ``public long until(``
+                  `` Temporal endExclusive, TemporalUnit unit)``
+               -  ``public Instant with(TemporalAdjuster adjuster)``
+               -  ``public Instant with(``
+                  `` TemporalField field, long newValue)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   LocalDate
+            - 
+
+               -  ``public static final LocalDate MAX``
+               -  ``public static final LocalDate MIN``
+               -  ``public Temporal adjustInto(Temporal temporal)``
+               -  ``public LocalDateTime atStartOfDay()``
+               -  ``public ZonedDateTime atStartOfDay(ZoneId zone)``
+               -  ``public LocalDateTime atTime(int hour, int minute)``
+               -  ``public LocalDateTime atTime(``
+                  `` int hour, int minute, int second)``
+               -  ``public LocalDateTime atTime(``
+                  ``  int hour,``
+                  ``  int minute,``
+                  ``  int second,``
+                  ``  int nanoOfSecond)``
+               -  ``public LocalDateTime atTime(LocalTime time)``
+               -  ``public OffsetDateTime atTime(OffsetTime time)``
+               -  ``public int compareTo(ChronoLocalDate other)``
+               -  ``public boolean equals(Object obj)``
+               -  ``public String format(DateTimeFormatter formatter)``
+               -  ``public static LocalDate from(``
+                  `` TemporalAccessor temporal)``
+               -  ``public int get(TemporalField field)``
+               -  ``public IsoChronology getChronology()``
+               -  ``public int getDayOfMonth()``
+               -  ``public DayOfWeek getDayOfWeek()``
+               -  ``public int getDayOfYear()``
+               -  ``public IsoEra getEra()``\ :sup:```23```
+               -  ``public long getLong(TemporalField field)``
+               -  ``public Month getMonth()``
+               -  ``public int getMonthValue()``
+               -  ``public int getYear()``
+               -  ``public int hashCode()``
+               -  ``public boolean isAfter(ChronoLocalDate other)``
+               -  ``public boolean isBefore(ChronoLocalDate other)``
+               -  ``public boolean isEqual(ChronoLocalDate other)``
+               -  ``public boolean isLeapYear()``
+               -  ``public boolean isSupported(TemporalField field)``
+               -  ``public boolean isSupported(TemporalUnit unit)``
+               -  ``public int lengthOfMonth()``
+               -  ``public int lengthOfYear()``
+               -  ``public LocalDate minus(``
+                  `` long amountToSubtract, TemporalUnit unit)``
+               -  ``public LocalDate minus(``
+                  `` TemporalAmount amountToSubtract)``
+               -  ``public LocalDate minusDays(long daysToSubtract)``
+               -  ``public LocalDate minusMonths(long monthsToSubtract)``
+               -  ``public LocalDate minusWeeks(long weeksToSubtract)``
+               -  ``public LocalDate minusYears(long yearsToSubtract)``
+               -  ``public static LocalDate now()``
+               -  ``public static LocalDate now(Clock clock)``
+               -  ``public static LocalDate now(ZoneId zone)``
+               -  ``public static LocalDate of(``
+                  `` int year, int month, int dayOfMonth)``
+               -  ``public static LocalDate of(``
+                  `` int year, Month month, int dayOfMonth)``
+               -  ``public static LocalDate ofEpochDay(long epochDay)``
+               -  ``public static LocalDate ofYearDay(``
+                  `` int year, int dayOfYear)``
+               -  ``public static LocalDate parse(CharSequence text)``
+               -  ``public static LocalDate parse(``
+                  `` CharSequence text, DateTimeFormatter formatter)``
+               -  ``public LocalDate plus(``
+                  `` long amountToAdd, TemporalUnit unit)``
+               -  ``public LocalDate plus(TemporalAmount amountToAdd)``
+               -  ``public LocalDate plusDays(long daysToAdd)``
+               -  ``public LocalDate plusMonths(long monthsToAdd)``
+               -  ``public LocalDate plusWeeks(long weeksToAdd)``
+               -  ``public LocalDate plusYears(long yearsToAdd)``
+               -  ``public Object query(TemporalQuery query)``
+               -  ``public ValueRange range(TemporalField field)``
+               -  ``public long toEpochDay()``
+               -  ``public String toString()``
+               -  ``public long until(``
+                  `` Temporal endExclusive, TemporalUnit unit)``
+               -  ``public Period until(``
+                  `` ChronoLocalDate endDateExclusive)``
+               -  ``public LocalDate with(TemporalAdjuster adjuster)``
+               -  ``public LocalDate with(``
+                  `` TemporalField field, long newValue)``
+               -  ``public LocalDate withDayOfMonth(int dayOfMonth)``
+               -  ``public LocalDate withDayOfYear(int dayOfYear)``
+               -  ``public LocalDate withMonth(int month)``
+               -  ``public LocalDate withYear(int year)``
+            - | :sup:`2` Not present in Android T (May not resolve at
+                 compilation).
+               |  :sup:`3` Not supported at all minSDK levels.
+               |  
+         - 
+
+            - *``java.time``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   LocalDateTime
+            - 
+
+               -  ``public static final LocalDateTime MAX``
+               -  ``public static final LocalDateTime MIN``
+               -  ``public Temporal adjustInto(Temporal temporal)``
+               -  ``public OffsetDateTime atOffset(ZoneOffset offset)``
+               -  ``public ZonedDateTime atZone(ZoneId zone)``
+               -  ``public int compareTo(ChronoLocalDateTime other)``
+               -  ``public boolean equals(Object obj)``
+               -  ``public String format(DateTimeFormatter formatter)``
+               -  ``public static LocalDateTime from(``
+                  `` TemporalAccessor temporal)``
+               -  ``public int get(TemporalField field)``
+               -  ``public int getDayOfMonth()``
+               -  ``public DayOfWeek getDayOfWeek()``
+               -  ``public int getDayOfYear()``
+               -  ``public int getHour()``
+               -  ``public long getLong(TemporalField field)``
+               -  ``public int getMinute()``
+               -  ``public Month getMonth()``
+               -  ``public int getMonthValue()``
+               -  ``public int getNano()``
+               -  ``public int getSecond()``
+               -  ``public int getYear()``
+               -  ``public int hashCode()``
+               -  ``public boolean isAfter(ChronoLocalDateTime other)``
+               -  ``public boolean isBefore(ChronoLocalDateTime other)``
+               -  ``public boolean isEqual(ChronoLocalDateTime other)``
+               -  ``public boolean isSupported(TemporalField field)``
+               -  ``public boolean isSupported(TemporalUnit unit)``
+               -  ``public LocalDateTime minus(``
+                  `` long amountToSubtract, TemporalUnit unit)``
+               -  ``public LocalDateTime minus(``
+                  `` TemporalAmount amountToSubtract)``
+               -  ``public LocalDateTime minusDays(long days)``
+               -  ``public LocalDateTime minusHours(long hours)``
+               -  ``public LocalDateTime minusMinutes(long minutes)``
+               -  ``public LocalDateTime minusMonths(long months)``
+               -  ``public LocalDateTime minusNanos(long nanos)``
+               -  ``public LocalDateTime minusSeconds(long seconds)``
+               -  ``public LocalDateTime minusWeeks(long weeks)``
+               -  ``public LocalDateTime minusYears(long years)``
+               -  ``public static LocalDateTime now()``
+               -  ``public static LocalDateTime now(Clock clock)``
+               -  ``public static LocalDateTime now(ZoneId zone)``
+               -  ``public static LocalDateTime of(``
+                  ``  int year,``
+                  ``  int month,``
+                  ``  int dayOfMonth,``
+                  ``  int hour,``
+                  ``  int minute)``
+               -  ``public static LocalDateTime of(``
+                  ``  int year,``
+                  ``  int month,``
+                  ``  int dayOfMonth,``
+                  ``  int hour,``
+                  ``  int minute,``
+                  ``  int second)``
+               -  ``public static LocalDateTime of(``
+                  ``  int year,``
+                  ``  int month,``
+                  ``  int dayOfMonth,``
+                  ``  int hour,``
+                  ``  int minute,``
+                  ``  int second,``
+                  ``  int nanoOfSecond)``
+               -  ``public static LocalDateTime of(``
+                  ``  int year,``
+                  ``  Month month,``
+                  ``  int dayOfMonth,``
+                  ``  int hour,``
+                  ``  int minute)``
+               -  ``public static LocalDateTime of(``
+                  ``  int year,``
+                  ``  Month month,``
+                  ``  int dayOfMonth,``
+                  ``  int hour,``
+                  ``  int minute,``
+                  ``  int second)``
+               -  ``public static LocalDateTime of(``
+                  ``  int year,``
+                  ``  Month month,``
+                  ``  int dayOfMonth,``
+                  ``  int hour,``
+                  ``  int minute,``
+                  ``  int second,``
+                  ``  int nanoOfSecond)``
+               -  ``public static LocalDateTime of(``
+                  `` LocalDate date, LocalTime time)``
+               -  ``public static LocalDateTime ofEpochSecond(``
+                  ``  long epochSecond,``
+                  ``  int nanoOfSecond,``
+                  ``  ZoneOffset offset)``
+               -  ``public static LocalDateTime ofInstant(``
+                  `` Instant instant, ZoneId zone)``
+               -  ``public static LocalDateTime parse(CharSequence text)``
+               -  ``public static LocalDateTime parse(``
+                  `` CharSequence text, DateTimeFormatter formatter)``
+               -  ``public LocalDateTime plus(``
+                  `` long amountToAdd, TemporalUnit unit)``
+               -  ``public LocalDateTime plus(``
+                  `` TemporalAmount amountToAdd)``
+               -  ``public LocalDateTime plusDays(long days)``
+               -  ``public LocalDateTime plusHours(long hours)``
+               -  ``public LocalDateTime plusMinutes(long minutes)``
+               -  ``public LocalDateTime plusMonths(long months)``
+               -  ``public LocalDateTime plusNanos(long nanos)``
+               -  ``public LocalDateTime plusSeconds(long seconds)``
+               -  ``public LocalDateTime plusWeeks(long weeks)``
+               -  ``public LocalDateTime plusYears(long years)``
+               -  ``public Object query(TemporalQuery query)``
+               -  ``public ValueRange range(TemporalField field)``
+               -  ``public LocalDate toLocalDate()``
+               -  ``public LocalTime toLocalTime()``
+               -  ``public String toString()``
+               -  ``public LocalDateTime truncatedTo(TemporalUnit unit)``
+               -  ``public long until(``
+                  `` Temporal endExclusive, TemporalUnit unit)``
+               -  ``public LocalDateTime with(TemporalAdjuster adjuster)``
+               -  ``public LocalDateTime with(``
+                  `` TemporalField field, long newValue)``
+               -  ``public LocalDateTime withDayOfMonth(int dayOfMonth)``
+               -  ``public LocalDateTime withDayOfYear(int dayOfYear)``
+               -  ``public LocalDateTime withHour(int hour)``
+               -  ``public LocalDateTime withMinute(int minute)``
+               -  ``public LocalDateTime withMonth(int month)``
+               -  ``public LocalDateTime withNano(int nanoOfSecond)``
+               -  ``public LocalDateTime withSecond(int second)``
+               -  ``public LocalDateTime withYear(int year)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   LocalTime
+            - 
+
+               -  ``public static final LocalTime MAX``
+               -  ``public static final LocalTime MIDNIGHT``
+               -  ``public static final LocalTime MIN``
+               -  ``public static final LocalTime NOON``
+               -  ``public Temporal adjustInto(Temporal temporal)``
+               -  ``public LocalDateTime atDate(LocalDate date)``
+               -  ``public OffsetTime atOffset(ZoneOffset offset)``
+               -  ``public int compareTo(LocalTime other)``
+               -  ``public boolean equals(Object obj)``
+               -  ``public String format(DateTimeFormatter formatter)``
+               -  ``public static LocalTime from(``
+                  `` TemporalAccessor temporal)``
+               -  ``public int get(TemporalField field)``
+               -  ``public int getHour()``
+               -  ``public long getLong(TemporalField field)``
+               -  ``public int getMinute()``
+               -  ``public int getNano()``
+               -  ``public int getSecond()``
+               -  ``public int hashCode()``
+               -  ``public boolean isAfter(LocalTime other)``
+               -  ``public boolean isBefore(LocalTime other)``
+               -  ``public boolean isSupported(TemporalField field)``
+               -  ``public boolean isSupported(TemporalUnit unit)``
+               -  ``public LocalTime minus(``
+                  `` long amountToSubtract, TemporalUnit unit)``
+               -  ``public LocalTime minus(``
+                  `` TemporalAmount amountToSubtract)``
+               -  ``public LocalTime minusHours(long hoursToSubtract)``
+               -  ``public LocalTime minusMinutes(``
+                  `` long minutesToSubtract)``
+               -  ``public LocalTime minusNanos(long nanosToSubtract)``
+               -  ``public LocalTime minusSeconds(``
+                  `` long secondsToSubtract)``
+               -  ``public static LocalTime now()``
+               -  ``public static LocalTime now(Clock clock)``
+               -  ``public static LocalTime now(ZoneId zone)``
+               -  ``public static LocalTime of(int hour, int minute)``
+               -  ``public static LocalTime of(``
+                  `` int hour, int minute, int second)``
+               -  ``public static LocalTime of(``
+                  ``  int hour,``
+                  ``  int minute,``
+                  ``  int second,``
+                  ``  int nanoOfSecond)``
+               -  ``public static LocalTime ofNanoOfDay(long nanoOfDay)``
+               -  ``public static LocalTime ofSecondOfDay(``
+                  `` long secondOfDay)``
+               -  ``public static LocalTime parse(CharSequence text)``
+               -  ``public static LocalTime parse(``
+                  `` CharSequence text, DateTimeFormatter formatter)``
+               -  ``public LocalTime plus(``
+                  `` long amountToAdd, TemporalUnit unit)``
+               -  ``public LocalTime plus(TemporalAmount amountToAdd)``
+               -  ``public LocalTime plusHours(long hoursToAdd)``
+               -  ``public LocalTime plusMinutes(long minutesToAdd)``
+               -  ``public LocalTime plusNanos(long nanosToAdd)``
+               -  ``public LocalTime plusSeconds(long secondstoAdd)``
+               -  ``public Object query(TemporalQuery query)``
+               -  ``public ValueRange range(TemporalField field)``
+               -  ``public long toNanoOfDay()``
+               -  ``public int toSecondOfDay()``
+               -  ``public String toString()``
+               -  ``public LocalTime truncatedTo(TemporalUnit unit)``
+               -  ``public long until(``
+                  `` Temporal endExclusive, TemporalUnit unit)``
+               -  ``public LocalTime with(TemporalAdjuster adjuster)``
+               -  ``public LocalTime with(``
+                  `` TemporalField field, long newValue)``
+               -  ``public LocalTime withHour(int hour)``
+               -  ``public LocalTime withMinute(int minute)``
+               -  ``public LocalTime withNano(int nanoOfSecond)``
+               -  ``public LocalTime withSecond(int second)``
+            - Some methods (2) present in Android T are not supported.
+         - 
+
+            - *``java.time``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   Month
+            - 
+
+               -  ``public static final Month APRIL``
+               -  ``public static final Month AUGUST``
+               -  ``public static final Month DECEMBER``
+               -  ``public static final Month FEBRUARY``
+               -  ``public static final Month JANUARY``
+               -  ``public static final Month JULY``
+               -  ``public static final Month JUNE``
+               -  ``public static final Month MARCH``
+               -  ``public static final Month MAY``
+               -  ``public static final Month NOVEMBER``
+               -  ``public static final Month OCTOBER``
+               -  ``public static final Month SEPTEMBER``
+               -  ``public Temporal adjustInto(Temporal temporal)``
+               -  ``public int firstDayOfYear(boolean leapYear)``
+               -  ``public Month firstMonthOfQuarter()``
+               -  ``public static Month from(TemporalAccessor temporal)``
+               -  ``public int get(TemporalField field)``
+               -  ``public String getDisplayName(``
+                  `` TextStyle style, java.util.Locale locale)``
+               -  ``public long getLong(TemporalField field)``
+               -  ``public int getValue()``
+               -  ``public boolean isSupported(TemporalField field)``
+               -  ``public int length(boolean leapYear)``
+               -  ``public int maxLength()``
+               -  ``public int minLength()``
+               -  ``public Month minus(long months)``
+               -  ``public static Month of(int month)``
+               -  ``public Month plus(long months)``
+               -  ``public Object query(TemporalQuery query)``
+               -  ``public ValueRange range(TemporalField field)``
+               -  ``public static Month valueOf(String name)``
+               -  ``public static Month[] values()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   MonthDay
+            - 
+
+               -  ``public Temporal adjustInto(Temporal temporal)``
+               -  ``public LocalDate atYear(int year)``
+               -  ``public int compareTo(MonthDay other)``
+               -  ``public boolean equals(Object obj)``
+               -  ``public String format(DateTimeFormatter formatter)``
+               -  ``public static MonthDay from(``
+                  `` TemporalAccessor temporal)``
+               -  ``public int get(TemporalField field)``
+               -  ``public int getDayOfMonth()``
+               -  ``public long getLong(TemporalField field)``
+               -  ``public Month getMonth()``
+               -  ``public int getMonthValue()``
+               -  ``public int hashCode()``
+               -  ``public boolean isAfter(MonthDay other)``
+               -  ``public boolean isBefore(MonthDay other)``
+               -  ``public boolean isSupported(TemporalField field)``
+               -  ``public boolean isValidYear(int year)``
+               -  ``public static MonthDay now()``
+               -  ``public static MonthDay now(Clock clock)``
+               -  ``public static MonthDay now(ZoneId zone)``
+               -  ``public static MonthDay of(int month, int dayOfMonth)``
+               -  ``public static MonthDay of(``
+                  `` Month month, int dayOfMonth)``
+               -  ``public static MonthDay parse(CharSequence text)``
+               -  ``public static MonthDay parse(``
+                  `` CharSequence text, DateTimeFormatter formatter)``
+               -  ``public Object query(TemporalQuery query)``
+               -  ``public ValueRange range(TemporalField field)``
+               -  ``public String toString()``
+               -  ``public MonthDay with(Month month)``
+               -  ``public MonthDay withDayOfMonth(int dayOfMonth)``
+               -  ``public MonthDay withMonth(int month)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   OffsetDateTime
+            - 
+
+               -  ``public static final OffsetDateTime MAX``
+               -  ``public static final OffsetDateTime MIN``
+               -  ``public Temporal adjustInto(Temporal temporal)``
+               -  ``public ZonedDateTime atZoneSameInstant(ZoneId zone)``
+               -  ``public ZonedDateTime atZoneSimilarLocal(ZoneId zone)``
+               -  ``public int compareTo(OffsetDateTime other)``
+               -  ``public boolean equals(Object obj)``
+               -  ``public String format(DateTimeFormatter formatter)``
+               -  ``public static OffsetDateTime from(``
+                  `` TemporalAccessor temporal)``
+               -  ``public int get(TemporalField field)``
+               -  ``public int getDayOfMonth()``
+               -  ``public DayOfWeek getDayOfWeek()``
+               -  ``public int getDayOfYear()``
+               -  ``public int getHour()``
+               -  ``public long getLong(TemporalField field)``
+               -  ``public int getMinute()``
+               -  ``public Month getMonth()``
+               -  ``public int getMonthValue()``
+               -  ``public int getNano()``
+               -  ``public ZoneOffset getOffset()``
+               -  ``public int getSecond()``
+               -  ``public int getYear()``
+               -  ``public int hashCode()``
+               -  ``public boolean isAfter(OffsetDateTime other)``
+               -  ``public boolean isBefore(OffsetDateTime other)``
+               -  ``public boolean isEqual(OffsetDateTime other)``
+               -  ``public boolean isSupported(TemporalField field)``
+               -  ``public boolean isSupported(TemporalUnit unit)``
+               -  ``public OffsetDateTime minus(``
+                  `` long amountToSubtract, TemporalUnit unit)``
+               -  ``public OffsetDateTime minus(``
+                  `` TemporalAmount amountToSubtract)``
+               -  ``public OffsetDateTime minusDays(long days)``
+               -  ``public OffsetDateTime minusHours(long hours)``
+               -  ``public OffsetDateTime minusMinutes(long minutes)``
+               -  ``public OffsetDateTime minusMonths(long months)``
+               -  ``public OffsetDateTime minusNanos(long nanos)``
+               -  ``public OffsetDateTime minusSeconds(long seconds)``
+               -  ``public OffsetDateTime minusWeeks(long weeks)``
+               -  ``public OffsetDateTime minusYears(long years)``
+               -  ``public static OffsetDateTime now()``
+               -  ``public static OffsetDateTime now(Clock clock)``
+               -  ``public static OffsetDateTime now(ZoneId zone)``
+               -  ``public static OffsetDateTime of(``
+                  ``  int year,``
+                  ``  int month,``
+                  ``  int dayOfMonth,``
+                  ``  int hour,``
+                  ``  int minute,``
+                  ``  int second,``
+                  ``  int nanoOfSecond,``
+                  ``  ZoneOffset offset)``
+               -  ``public static OffsetDateTime of(``
+                  `` LocalDate date, LocalTime time, ZoneOffset offset)``
+               -  ``public static OffsetDateTime of(``
+                  `` LocalDateTime dateTime, ZoneOffset offset)``
+               -  ``public static OffsetDateTime ofInstant(``
+                  `` Instant instant, ZoneId zone)``
+               -  ``public static OffsetDateTime parse(``
+                  `` CharSequence text)``
+               -  ``public static OffsetDateTime parse(``
+                  `` CharSequence text, DateTimeFormatter formatter)``
+               -  ``public OffsetDateTime plus(``
+                  `` long amountToAdd, TemporalUnit unit)``
+               -  ``public OffsetDateTime plus(``
+                  `` TemporalAmount amountToAdd)``
+               -  ``public OffsetDateTime plusDays(long days)``
+               -  ``public OffsetDateTime plusHours(long hours)``
+               -  ``public OffsetDateTime plusMinutes(long minutes)``
+               -  ``public OffsetDateTime plusMonths(long months)``
+               -  ``public OffsetDateTime plusNanos(long nanos)``
+               -  ``public OffsetDateTime plusSeconds(long seconds)``
+               -  ``public OffsetDateTime plusWeeks(long weeks)``
+               -  ``public OffsetDateTime plusYears(long years)``
+               -  ``public Object query(TemporalQuery query)``
+               -  ``public ValueRange range(TemporalField field)``
+               -  ``public static java.util.Comparator timeLineOrder()``
+               -  ``public long toEpochSecond()``
+               -  ``public Instant toInstant()``
+               -  ``public LocalDate toLocalDate()``
+               -  ``public LocalDateTime toLocalDateTime()``
+               -  ``public LocalTime toLocalTime()``
+               -  ``public OffsetTime toOffsetTime()``
+               -  ``public String toString()``
+               -  ``public ZonedDateTime toZonedDateTime()``
+               -  ``public OffsetDateTime truncatedTo(TemporalUnit unit)``
+               -  ``public long until(``
+                  `` Temporal endExclusive, TemporalUnit unit)``
+               -  ``public OffsetDateTime with(``
+                  `` TemporalAdjuster adjuster)``
+               -  ``public OffsetDateTime with(``
+                  `` TemporalField field, long newValue)``
+               -  ``public OffsetDateTime withDayOfMonth(int dayOfMonth)``
+               -  ``public OffsetDateTime withDayOfYear(int dayOfYear)``
+               -  ``public OffsetDateTime withHour(int hour)``
+               -  ``public OffsetDateTime withMinute(int minute)``
+               -  ``public OffsetDateTime withMonth(int month)``
+               -  ``public OffsetDateTime withNano(int nanoOfSecond)``
+               -  ``public OffsetDateTime withOffsetSameInstant(``
+                  `` ZoneOffset offset)``
+               -  ``public OffsetDateTime withOffsetSameLocal(``
+                  `` ZoneOffset offset)``
+               -  ``public OffsetDateTime withSecond(int second)``
+               -  ``public OffsetDateTime withYear(int year)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   OffsetTime
+            - 
+
+               -  ``public static final OffsetTime MAX``
+               -  ``public static final OffsetTime MIN``
+               -  ``public Temporal adjustInto(Temporal temporal)``
+               -  ``public OffsetDateTime atDate(LocalDate date)``
+               -  ``public int compareTo(OffsetTime other)``
+               -  ``public boolean equals(Object obj)``
+               -  ``public String format(DateTimeFormatter formatter)``
+               -  ``public static OffsetTime from(``
+                  `` TemporalAccessor temporal)``
+               -  ``public int get(TemporalField field)``
+               -  ``public int getHour()``
+               -  ``public long getLong(TemporalField field)``
+               -  ``public int getMinute()``
+               -  ``public int getNano()``
+               -  ``public ZoneOffset getOffset()``
+               -  ``public int getSecond()``
+               -  ``public int hashCode()``
+               -  ``public boolean isAfter(OffsetTime other)``
+               -  ``public boolean isBefore(OffsetTime other)``
+               -  ``public boolean isEqual(OffsetTime other)``
+               -  ``public boolean isSupported(TemporalField field)``
+               -  ``public boolean isSupported(TemporalUnit unit)``
+               -  ``public OffsetTime minus(``
+                  `` long amountToSubtract, TemporalUnit unit)``
+               -  ``public OffsetTime minus(``
+                  `` TemporalAmount amountToSubtract)``
+               -  ``public OffsetTime minusHours(long hours)``
+               -  ``public OffsetTime minusMinutes(long minutes)``
+               -  ``public OffsetTime minusNanos(long nanos)``
+               -  ``public OffsetTime minusSeconds(long seconds)``
+               -  ``public static OffsetTime now()``
+               -  ``public static OffsetTime now(Clock clock)``
+               -  ``public static OffsetTime now(ZoneId zone)``
+               -  ``public static OffsetTime of(``
+                  ``  int hour,``
+                  ``  int minute,``
+                  ``  int second,``
+                  ``  int nanoOfSecond,``
+                  ``  ZoneOffset offset)``
+               -  ``public static OffsetTime of(``
+                  `` LocalTime time, ZoneOffset offset)``
+               -  ``public static OffsetTime ofInstant(``
+                  `` Instant instant, ZoneId zone)``
+               -  ``public static OffsetTime parse(CharSequence text)``
+               -  ``public static OffsetTime parse(``
+                  `` CharSequence text, DateTimeFormatter formatter)``
+               -  ``public OffsetTime plus(``
+                  `` long amountToAdd, TemporalUnit unit)``
+               -  ``public OffsetTime plus(TemporalAmount amountToAdd)``
+               -  ``public OffsetTime plusHours(long hours)``
+               -  ``public OffsetTime plusMinutes(long minutes)``
+               -  ``public OffsetTime plusNanos(long nanos)``
+               -  ``public OffsetTime plusSeconds(long seconds)``
+               -  ``public Object query(TemporalQuery query)``
+               -  ``public ValueRange range(TemporalField field)``
+               -  ``public LocalTime toLocalTime()``
+               -  ``public String toString()``
+               -  ``public OffsetTime truncatedTo(TemporalUnit unit)``
+               -  ``public long until(``
+                  `` Temporal endExclusive, TemporalUnit unit)``
+               -  ``public OffsetTime with(TemporalAdjuster adjuster)``
+               -  ``public OffsetTime with(``
+                  `` TemporalField field, long newValue)``
+               -  ``public OffsetTime withHour(int hour)``
+               -  ``public OffsetTime withMinute(int minute)``
+               -  ``public OffsetTime withNano(int nanoOfSecond)``
+               -  ``public OffsetTime withOffsetSameInstant(``
+                  `` ZoneOffset offset)``
+               -  ``public OffsetTime withOffsetSameLocal(``
+                  `` ZoneOffset offset)``
+               -  ``public OffsetTime withSecond(int second)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   Period
+            - 
+
+               -  ``public static final Period ZERO``
+               -  ``public Temporal addTo(Temporal temporal)``
+               -  ``public static Period between(``
+                  ``  LocalDate startDateInclusive,``
+                  ``  LocalDate endDateExclusive)``
+               -  ``public boolean equals(Object obj)``
+               -  ``public static Period from(TemporalAmount amount)``
+               -  ``public long get(TemporalUnit unit)``
+               -  ``public IsoChronology getChronology()``
+               -  ``public int getDays()``
+               -  ``public int getMonths()``
+               -  ``public java.util.List getUnits()``
+               -  ``public int getYears()``
+               -  ``public int hashCode()``
+               -  ``public boolean isNegative()``
+               -  ``public boolean isZero()``
+               -  ``public Period minus(TemporalAmount amountToSubtract)``
+               -  ``public Period minusDays(long daysToSubtract)``
+               -  ``public Period minusMonths(long monthsToSubtract)``
+               -  ``public Period minusYears(long yearsToSubtract)``
+               -  ``public Period multipliedBy(int scalar)``
+               -  ``public Period negated()``
+               -  ``public Period normalized()``
+               -  ``public static Period of(``
+                  `` int years, int months, int days)``
+               -  ``public static Period ofDays(int days)``
+               -  ``public static Period ofMonths(int months)``
+               -  ``public static Period ofWeeks(int weeks)``
+               -  ``public static Period ofYears(int years)``
+               -  ``public static Period parse(CharSequence text)``
+               -  ``public Period plus(TemporalAmount amountToAdd)``
+               -  ``public Period plusDays(long daysToAdd)``
+               -  ``public Period plusMonths(long monthsToAdd)``
+               -  ``public Period plusYears(long yearsToAdd)``
+               -  ``public Temporal subtractFrom(Temporal temporal)``
+               -  ``public String toString()``
+               -  ``public long toTotalMonths()``
+               -  ``public Period withDays(int days)``
+               -  ``public Period withMonths(int months)``
+               -  ``public Period withYears(int years)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   Year
+            - 
+
+               -  ``public static final int MAX_VALUE``
+               -  ``public static final int MIN_VALUE``
+               -  ``public Temporal adjustInto(Temporal temporal)``
+               -  ``public LocalDate atDay(int dayOfYear)``
+               -  ``public YearMonth atMonth(int month)``
+               -  ``public YearMonth atMonth(Month month)``
+               -  ``public LocalDate atMonthDay(MonthDay monthDay)``
+               -  ``public int compareTo(Year other)``
+               -  ``public boolean equals(Object obj)``
+               -  ``public String format(DateTimeFormatter formatter)``
+               -  ``public static Year from(TemporalAccessor temporal)``
+               -  ``public int get(TemporalField field)``
+               -  ``public long getLong(TemporalField field)``
+               -  ``public int getValue()``
+               -  ``public int hashCode()``
+               -  ``public boolean isAfter(Year other)``
+               -  ``public boolean isBefore(Year other)``
+               -  ``public boolean isLeap()``
+               -  ``public static boolean isLeap(long year)``
+               -  ``public boolean isSupported(TemporalField field)``
+               -  ``public boolean isSupported(TemporalUnit unit)``
+               -  ``public boolean isValidMonthDay(MonthDay monthDay)``
+               -  ``public int length()``
+               -  ``public Year minus(``
+                  `` long amountToSubtract, TemporalUnit unit)``
+               -  ``public Year minus(TemporalAmount amountToSubtract)``
+               -  ``public Year minusYears(long yearsToSubtract)``
+               -  ``public static Year now()``
+               -  ``public static Year now(Clock clock)``
+               -  ``public static Year now(ZoneId zone)``
+               -  ``public static Year of(int isoYear)``
+               -  ``public static Year parse(CharSequence text)``
+               -  ``public static Year parse(``
+                  `` CharSequence text, DateTimeFormatter formatter)``
+               -  ``public Year plus(``
+                  `` long amountToAdd, TemporalUnit unit)``
+               -  ``public Year plus(TemporalAmount amountToAdd)``
+               -  ``public Year plusYears(long yearsToAdd)``
+               -  ``public Object query(TemporalQuery query)``
+               -  ``public ValueRange range(TemporalField field)``
+               -  ``public String toString()``
+               -  ``public long until(``
+                  `` Temporal endExclusive, TemporalUnit unit)``
+               -  ``public Year with(TemporalAdjuster adjuster)``
+               -  ``public Year with(TemporalField field, long newValue)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   YearMonth
+            - 
+
+               -  ``public Temporal adjustInto(Temporal temporal)``
+               -  ``public LocalDate atDay(int dayOfMonth)``
+               -  ``public LocalDate atEndOfMonth()``
+               -  ``public int compareTo(YearMonth other)``
+               -  ``public boolean equals(Object obj)``
+               -  ``public String format(DateTimeFormatter formatter)``
+               -  ``public static YearMonth from(``
+                  `` TemporalAccessor temporal)``
+               -  ``public int get(TemporalField field)``
+               -  ``public long getLong(TemporalField field)``
+               -  ``public Month getMonth()``
+               -  ``public int getMonthValue()``
+               -  ``public int getYear()``
+               -  ``public int hashCode()``
+               -  ``public boolean isAfter(YearMonth other)``
+               -  ``public boolean isBefore(YearMonth other)``
+               -  ``public boolean isLeapYear()``
+               -  ``public boolean isSupported(TemporalField field)``
+               -  ``public boolean isSupported(TemporalUnit unit)``
+               -  ``public boolean isValidDay(int dayOfMonth)``
+               -  ``public int lengthOfMonth()``
+               -  ``public int lengthOfYear()``
+               -  ``public YearMonth minus(``
+                  `` long amountToSubtract, TemporalUnit unit)``
+               -  ``public YearMonth minus(``
+                  `` TemporalAmount amountToSubtract)``
+               -  ``public YearMonth minusMonths(long monthsToSubtract)``
+               -  ``public YearMonth minusYears(long yearsToSubtract)``
+               -  ``public static YearMonth now()``
+               -  ``public static YearMonth now(Clock clock)``
+               -  ``public static YearMonth now(ZoneId zone)``
+               -  ``public static YearMonth of(int year, int month)``
+               -  ``public static YearMonth of(int year, Month month)``
+               -  ``public static YearMonth parse(CharSequence text)``
+               -  ``public static YearMonth parse(``
+                  `` CharSequence text, DateTimeFormatter formatter)``
+               -  ``public YearMonth plus(``
+                  `` long amountToAdd, TemporalUnit unit)``
+               -  ``public YearMonth plus(TemporalAmount amountToAdd)``
+               -  ``public YearMonth plusMonths(long monthsToAdd)``
+               -  ``public YearMonth plusYears(long yearsToAdd)``
+               -  ``public Object query(TemporalQuery query)``
+               -  ``public ValueRange range(TemporalField field)``
+               -  ``public String toString()``
+               -  ``public long until(``
+                  `` Temporal endExclusive, TemporalUnit unit)``
+               -  ``public YearMonth with(TemporalAdjuster adjuster)``
+               -  ``public YearMonth with(``
+                  `` TemporalField field, long newValue)``
+               -  ``public YearMonth withMonth(int month)``
+               -  ``public YearMonth withYear(int year)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   ZoneId
+            - 
+
+               -  ``public static final java.util.Map SHORT_IDS``
+               -  ``public boolean equals(Object obj)``
+               -  ``public static ZoneId from(TemporalAccessor temporal)``
+               -  ``public static java.util.Set getAvailableZoneIds()``
+               -  ``public String getDisplayName(``
+                  `` TextStyle style, java.util.Locale locale)``
+               -  ``public abstract String getId()``
+               -  ``public abstract ZoneRules getRules()``
+               -  ``public int hashCode()``
+               -  ``public ZoneId normalized()``
+               -  ``public static ZoneId of(String zoneId)``
+               -  ``public static ZoneId of(``
+                  `` String zoneId, java.util.Map aliasMap)``
+               -  ``public static ZoneId ofOffset(``
+                  `` String prefix, ZoneOffset offset)``
+               -  ``public static ZoneId systemDefault()``
+               -  ``public String toString()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   ZoneOffset
+            - 
+
+               -  ``public static final ZoneOffset MAX``
+               -  ``public static final ZoneOffset MIN``
+               -  ``public static final ZoneOffset UTC``
+               -  ``public Temporal adjustInto(Temporal temporal)``
+               -  ``public int compareTo(ZoneOffset other)``
+               -  ``public boolean equals(Object obj)``
+               -  ``public static ZoneOffset from(``
+                  `` TemporalAccessor temporal)``
+               -  ``public int get(TemporalField field)``
+               -  ``public String getId()``
+               -  ``public long getLong(TemporalField field)``
+               -  ``public ZoneRules getRules()``
+               -  ``public int getTotalSeconds()``
+               -  ``public int hashCode()``
+               -  ``public boolean isSupported(TemporalField field)``
+               -  ``public static ZoneOffset of(String offsetId)``
+               -  ``public static ZoneOffset ofHours(int hours)``
+               -  ``public static ZoneOffset ofHoursMinutes(``
+                  `` int hours, int minutes)``
+               -  ``public static ZoneOffset ofHoursMinutesSeconds(``
+                  `` int hours, int minutes, int seconds)``
+               -  ``public static ZoneOffset ofTotalSeconds(``
+                  `` int totalSeconds)``
+               -  ``public Object query(TemporalQuery query)``
+               -  ``public ValueRange range(TemporalField field)``
+               -  ``public String toString()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   ZonedDateTime
+            - 
+
+               -  ``public boolean equals(Object obj)``
+               -  ``public String format(DateTimeFormatter formatter)``
+               -  ``public static ZonedDateTime from(``
+                  `` TemporalAccessor temporal)``
+               -  ``public int get(TemporalField field)``
+               -  ``public int getDayOfMonth()``
+               -  ``public DayOfWeek getDayOfWeek()``
+               -  ``public int getDayOfYear()``
+               -  ``public int getHour()``
+               -  ``public long getLong(TemporalField field)``
+               -  ``public int getMinute()``
+               -  ``public Month getMonth()``
+               -  ``public int getMonthValue()``
+               -  ``public int getNano()``
+               -  ``public ZoneOffset getOffset()``
+               -  ``public int getSecond()``
+               -  ``public int getYear()``
+               -  ``public ZoneId getZone()``
+               -  ``public int hashCode()``
+               -  ``public boolean isSupported(TemporalField field)``
+               -  ``public boolean isSupported(TemporalUnit unit)``
+               -  ``public ZonedDateTime minus(``
+                  `` long amountToSubtract, TemporalUnit unit)``
+               -  ``public ZonedDateTime minus(``
+                  `` TemporalAmount amountToSubtract)``
+               -  ``public ZonedDateTime minusDays(long days)``
+               -  ``public ZonedDateTime minusHours(long hours)``
+               -  ``public ZonedDateTime minusMinutes(long minutes)``
+               -  ``public ZonedDateTime minusMonths(long months)``
+               -  ``public ZonedDateTime minusNanos(long nanos)``
+               -  ``public ZonedDateTime minusSeconds(long seconds)``
+               -  ``public ZonedDateTime minusWeeks(long weeks)``
+               -  ``public ZonedDateTime minusYears(long years)``
+               -  ``public static ZonedDateTime now()``
+               -  ``public static ZonedDateTime now(Clock clock)``
+               -  ``public static ZonedDateTime now(ZoneId zone)``
+               -  ``public static ZonedDateTime of(``
+                  ``  int year,``
+                  ``  int month,``
+                  ``  int dayOfMonth,``
+                  ``  int hour,``
+                  ``  int minute,``
+                  ``  int second,``
+                  ``  int nanoOfSecond,``
+                  ``  ZoneId zone)``
+               -  ``public static ZonedDateTime of(``
+                  `` LocalDate date, LocalTime time, ZoneId zone)``
+               -  ``public static ZonedDateTime of(``
+                  `` LocalDateTime localDateTime, ZoneId zone)``
+               -  ``public static ZonedDateTime ofInstant(``
+                  `` Instant instant, ZoneId zone)``
+               -  ``public static ZonedDateTime ofInstant(``
+                  ``  LocalDateTime localDateTime,``
+                  ``  ZoneOffset offset,``
+                  ``  ZoneId zone)``
+               -  ``public static ZonedDateTime ofLocal(``
+                  ``  LocalDateTime localDateTime,``
+                  ``  ZoneId zone,``
+                  ``  ZoneOffset preferredOffset)``
+               -  ``public static ZonedDateTime ofStrict(``
+                  ``  LocalDateTime localDateTime,``
+                  ``  ZoneOffset offset,``
+                  ``  ZoneId zone)``
+               -  ``public static ZonedDateTime parse(CharSequence text)``
+               -  ``public static ZonedDateTime parse(``
+                  `` CharSequence text, DateTimeFormatter formatter)``
+               -  ``public ZonedDateTime plus(``
+                  `` long amountToAdd, TemporalUnit unit)``
+               -  ``public ZonedDateTime plus(``
+                  `` TemporalAmount amountToAdd)``
+               -  ``public ZonedDateTime plusDays(long days)``
+               -  ``public ZonedDateTime plusHours(long hours)``
+               -  ``public ZonedDateTime plusMinutes(long minutes)``
+               -  ``public ZonedDateTime plusMonths(long months)``
+               -  ``public ZonedDateTime plusNanos(long nanos)``
+               -  ``public ZonedDateTime plusSeconds(long seconds)``
+               -  ``public ZonedDateTime plusWeeks(long weeks)``
+               -  ``public ZonedDateTime plusYears(long years)``
+               -  ``public Object query(TemporalQuery query)``
+               -  ``public ValueRange range(TemporalField field)``
+               -  ``public LocalDate toLocalDate()``
+               -  ``public LocalDateTime toLocalDateTime()``
+               -  ``public LocalTime toLocalTime()``
+               -  ``public OffsetDateTime toOffsetDateTime()``
+               -  ``public String toString()``
+               -  ``public ZonedDateTime truncatedTo(TemporalUnit unit)``
+               -  ``public long until(``
+                  `` Temporal endExclusive, TemporalUnit unit)``
+               -  ``public ZonedDateTime with(TemporalAdjuster adjuster)``
+               -  ``public ZonedDateTime with(``
+                  `` TemporalField field, long newValue)``
+               -  ``public ZonedDateTime withDayOfMonth(int dayOfMonth)``
+               -  ``public ZonedDateTime withDayOfYear(int dayOfYear)``
+               -  ``public ZonedDateTime withEarlierOffsetAtOverlap()``
+               -  ``public ZonedDateTime withFixedOffsetZone()``
+               -  ``public ZonedDateTime withHour(int hour)``
+               -  ``public ZonedDateTime withLaterOffsetAtOverlap()``
+               -  ``public ZonedDateTime withMinute(int minute)``
+               -  ``public ZonedDateTime withMonth(int month)``
+               -  ``public ZonedDateTime withNano(int nanoOfSecond)``
+               -  ``public ZonedDateTime withSecond(int second)``
+               -  ``public ZonedDateTime withYear(int year)``
+               -  ``public ZonedDateTime withZoneSameInstant(``
+                  `` ZoneId zone)``
+               -  ``public ZonedDateTime withZoneSameLocal(ZoneId zone)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.chrono``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   AbstractChronology
+            - 
+
+               -  ``protected AbstractChronology()``
+               -  ``public int compareTo(Chronology other)``
+               -  ``public boolean equals(Object obj)``
+               -  ``public int hashCode()``
+               -  ``public ChronoLocalDate resolveDate(``
+                  ``  java.util.Map fieldValues,``
+                  ``  ResolverStyle resolverStyle)``
+               -  ``public String toString()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.chrono``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   ChronoLocalDate
+            - 
+
+               -  ``public Temporal adjustInto(Temporal temporal)``
+               -  ``public ChronoLocalDateTime atTime(``
+                  `` LocalTime localTime)``
+               -  ``public int compareTo(ChronoLocalDate other)``
+               -  ``public abstract boolean equals(Object p0)``
+               -  ``public String format(DateTimeFormatter formatter)``
+               -  ``public static ChronoLocalDate from(``
+                  `` TemporalAccessor temporal)``
+               -  ``public abstract Chronology getChronology()``
+               -  ``public Era getEra()``
+               -  ``public abstract int hashCode()``
+               -  ``public boolean isAfter(ChronoLocalDate other)``
+               -  ``public boolean isBefore(ChronoLocalDate other)``
+               -  ``public boolean isEqual(ChronoLocalDate other)``
+               -  ``public boolean isLeapYear()``
+               -  ``public boolean isSupported(TemporalField field)``
+               -  ``public boolean isSupported(TemporalUnit unit)``
+               -  ``public abstract int lengthOfMonth()``
+               -  ``public int lengthOfYear()``
+               -  ``public ChronoLocalDate minus(``
+                  `` long amountToSubtract, TemporalUnit unit)``
+               -  ``public ChronoLocalDate minus(TemporalAmount amount)``
+               -  ``public ChronoLocalDate plus(``
+                  `` long amountToAdd, TemporalUnit unit)``
+               -  ``public ChronoLocalDate plus(TemporalAmount amount)``
+               -  ``public Object query(TemporalQuery query)``
+               -  ``public static java.util.Comparator timeLineOrder()``
+               -  ``public long toEpochDay()``
+               -  ``public abstract String toString()``
+               -  ``public abstract long until(``
+                  `` Temporal p0, TemporalUnit p1)``
+               -  ``public abstract ChronoPeriod until(``
+                  `` ChronoLocalDate p0)``
+               -  ``public ChronoLocalDate with(``
+                  `` TemporalAdjuster adjuster)``
+               -  ``public ChronoLocalDate with(``
+                  `` TemporalField field, long newValue)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.chrono``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   ChronoLocalDateTime
+            - 
+
+               -  ``public Temporal adjustInto(Temporal temporal)``
+               -  ``public abstract ChronoZonedDateTime atZone(``
+                  `` ZoneId p0)``
+               -  ``public int compareTo(ChronoLocalDateTime other)``
+               -  ``public abstract boolean equals(Object p0)``
+               -  ``public String format(DateTimeFormatter formatter)``
+               -  ``public static ChronoLocalDateTime from(``
+                  `` TemporalAccessor temporal)``
+               -  ``public Chronology getChronology()``
+               -  ``public abstract int hashCode()``
+               -  ``public boolean isAfter(ChronoLocalDateTime other)``
+               -  ``public boolean isBefore(ChronoLocalDateTime other)``
+               -  ``public boolean isEqual(ChronoLocalDateTime other)``
+               -  ``public abstract boolean isSupported(``
+                  `` TemporalField p0)``
+               -  ``public boolean isSupported(TemporalUnit unit)``
+               -  ``public ChronoLocalDateTime minus(``
+                  `` long amountToSubtract, TemporalUnit unit)``
+               -  ``public ChronoLocalDateTime minus(``
+                  `` TemporalAmount amount)``
+               -  ``public abstract ChronoLocalDateTime plus(``
+                  `` long p0, TemporalUnit p1)``
+               -  ``public ChronoLocalDateTime plus(``
+                  `` TemporalAmount amount)``
+               -  ``public Object query(TemporalQuery query)``
+               -  ``public static java.util.Comparator timeLineOrder()``
+               -  ``public long toEpochSecond(ZoneOffset offset)``
+               -  ``public Instant toInstant(ZoneOffset offset)``
+               -  ``public abstract ChronoLocalDate toLocalDate()``
+               -  ``public abstract LocalTime toLocalTime()``
+               -  ``public abstract String toString()``
+               -  ``public ChronoLocalDateTime with(``
+                  `` TemporalAdjuster adjuster)``
+               -  ``public abstract ChronoLocalDateTime with(``
+                  `` TemporalField p0, long p1)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.chrono``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   ChronoPeriod
+            - 
+
+               -  ``public abstract Temporal addTo(Temporal p0)``
+               -  ``public static ChronoPeriod between(``
+                  ``  ChronoLocalDate startDateInclusive,``
+                  ``  ChronoLocalDate endDateExclusive)``
+               -  ``public abstract boolean equals(Object p0)``
+               -  ``public abstract long get(TemporalUnit p0)``
+               -  ``public abstract Chronology getChronology()``
+               -  ``public abstract java.util.List getUnits()``
+               -  ``public abstract int hashCode()``
+               -  ``public boolean isNegative()``
+               -  ``public boolean isZero()``
+               -  ``public abstract ChronoPeriod minus(``
+                  `` TemporalAmount p0)``
+               -  ``public abstract ChronoPeriod multipliedBy(int p0)``
+               -  ``public ChronoPeriod negated()``
+               -  ``public abstract ChronoPeriod normalized()``
+               -  ``public abstract ChronoPeriod plus(TemporalAmount p0)``
+               -  ``public abstract Temporal subtractFrom(Temporal p0)``
+               -  ``public abstract String toString()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.chrono``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   ChronoZonedDateTime
+            - 
+
+               -  ``public int compareTo(ChronoZonedDateTime other)``
+               -  ``public abstract boolean equals(Object p0)``
+               -  ``public String format(DateTimeFormatter formatter)``
+               -  ``public static ChronoZonedDateTime from(``
+                  `` TemporalAccessor temporal)``
+               -  ``public int get(TemporalField field)``
+               -  ``public Chronology getChronology()``
+               -  ``public long getLong(TemporalField field)``
+               -  ``public abstract ZoneOffset getOffset()``
+               -  ``public abstract ZoneId getZone()``
+               -  ``public abstract int hashCode()``
+               -  ``public boolean isAfter(ChronoZonedDateTime other)``
+               -  ``public boolean isBefore(ChronoZonedDateTime other)``
+               -  ``public boolean isEqual(ChronoZonedDateTime other)``
+               -  ``public abstract boolean isSupported(``
+                  `` TemporalField p0)``
+               -  ``public boolean isSupported(TemporalUnit unit)``
+               -  ``public ChronoZonedDateTime minus(``
+                  `` long amountToSubtract, TemporalUnit unit)``
+               -  ``public ChronoZonedDateTime minus(``
+                  `` TemporalAmount amount)``
+               -  ``public abstract ChronoZonedDateTime plus(``
+                  `` long p0, TemporalUnit p1)``
+               -  ``public ChronoZonedDateTime plus(``
+                  `` TemporalAmount amount)``
+               -  ``public Object query(TemporalQuery query)``
+               -  ``public ValueRange range(TemporalField field)``
+               -  ``public static java.util.Comparator timeLineOrder()``
+               -  ``public long toEpochSecond()``
+               -  ``public Instant toInstant()``
+               -  ``public ChronoLocalDate toLocalDate()``
+               -  ``public abstract ChronoLocalDateTime toLocalDateTime()``
+               -  ``public LocalTime toLocalTime()``
+               -  ``public abstract String toString()``
+               -  ``public ChronoZonedDateTime with(``
+                  `` TemporalAdjuster adjuster)``
+               -  ``public abstract ChronoZonedDateTime with(``
+                  `` TemporalField p0, long p1)``
+               -  ``public abstract ChronoZonedDateTime withEarlierOffsetAtOverlap()``
+               -  ``public abstract ChronoZonedDateTime withLaterOffsetAtOverlap()``
+               -  ``public abstract ChronoZonedDateTime withZoneSameInstant(``
+                  `` ZoneId p0)``
+               -  ``public abstract ChronoZonedDateTime withZoneSameLocal(``
+                  `` ZoneId p0)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.chrono``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   Chronology
+            - 
+
+               -  ``public abstract int compareTo(Chronology p0)``
+               -  ``public abstract ChronoLocalDate date(``
+                  `` int p0, int p1, int p2)``
+               -  ``public ChronoLocalDate date(``
+                  `` Era era, int yearOfEra, int month, int dayOfMonth)``
+               -  ``public abstract ChronoLocalDate date(``
+                  `` TemporalAccessor p0)``
+               -  ``public abstract ChronoLocalDate dateEpochDay(``
+                  `` long p0)``
+               -  ``public ChronoLocalDate dateNow()``
+               -  ``public ChronoLocalDate dateNow(Clock clock)``
+               -  ``public ChronoLocalDate dateNow(ZoneId zone)``
+               -  ``public abstract ChronoLocalDate dateYearDay(``
+                  `` int p0, int p1)``
+               -  ``public ChronoLocalDate dateYearDay(``
+                  `` Era era, int yearOfEra, int dayOfYear)``
+               -  ``public abstract boolean equals(Object p0)``
+               -  ``public abstract Era eraOf(int p0)``
+               -  ``public abstract java.util.List eras()``
+               -  ``public static Chronology from(``
+                  `` TemporalAccessor temporal)``
+               -  ``public static java.util.Set getAvailableChronologies()``
+               -  ``public abstract String getCalendarType()``
+               -  ``public String getDisplayName(``
+                  `` TextStyle style, java.util.Locale locale)``
+               -  ``public abstract String getId()``
+               -  ``public abstract int hashCode()``
+               -  ``public abstract boolean isLeapYear(long p0)``
+               -  ``public ChronoLocalDateTime localDateTime(``
+                  `` TemporalAccessor temporal)``
+               -  ``public static Chronology of(String id)``
+               -  ``public static Chronology ofLocale(``
+                  `` java.util.Locale locale)``
+               -  ``public ChronoPeriod period(``
+                  `` int years, int months, int days)``
+               -  ``public abstract int prolepticYear(Era p0, int p1)``
+               -  ``public abstract ValueRange range(ChronoField p0)``
+               -  ``public abstract ChronoLocalDate resolveDate(``
+                  `` java.util.Map p0, ResolverStyle p1)``
+               -  ``public abstract String toString()``
+               -  ``public ChronoZonedDateTime zonedDateTime(``
+                  `` Instant instant, ZoneId zone)``
+               -  ``public ChronoZonedDateTime zonedDateTime(``
+                  `` TemporalAccessor temporal)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.chrono``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   Era
+            - 
+
+               -  ``public Temporal adjustInto(Temporal temporal)``
+               -  ``public int get(TemporalField field)``
+               -  ``public String getDisplayName(``
+                  `` TextStyle style, java.util.Locale locale)``
+               -  ``public long getLong(TemporalField field)``
+               -  ``public abstract int getValue()``
+               -  ``public boolean isSupported(TemporalField field)``
+               -  ``public Object query(TemporalQuery query)``
+               -  ``public ValueRange range(TemporalField field)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.chrono``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   HijrahChronology
+            - 
+
+               -  ``public static final HijrahChronology INSTANCE``
+               -  ``public HijrahDate date(``
+                  `` int prolepticYear, int month, int dayOfMonth)``
+               -  ``public HijrahDate date(``
+                  `` Era era, int yearOfEra, int month, int dayOfMonth)``
+               -  ``public HijrahDate date(TemporalAccessor temporal)``
+               -  ``public HijrahDate dateEpochDay(long epochDay)``
+               -  ``public HijrahDate dateNow()``
+               -  ``public HijrahDate dateNow(Clock clock)``
+               -  ``public HijrahDate dateNow(ZoneId zone)``
+               -  ``public HijrahDate dateYearDay(``
+                  `` int prolepticYear, int dayOfYear)``
+               -  ``public HijrahDate dateYearDay(``
+                  `` Era era, int yearOfEra, int dayOfYear)``
+               -  ``public HijrahEra eraOf(int eraValue)``
+               -  ``public java.util.List eras()``
+               -  ``public String getCalendarType()``
+               -  ``public String getId()``
+               -  ``public boolean isLeapYear(long prolepticYear)``
+               -  ``public ChronoLocalDateTime localDateTime(``
+                  `` TemporalAccessor temporal)``
+               -  ``public int prolepticYear(Era era, int yearOfEra)``
+               -  ``public ValueRange range(ChronoField field)``
+               -  ``public HijrahDate resolveDate(``
+                  ``  java.util.Map fieldValues,``
+                  ``  ResolverStyle resolverStyle)``
+               -  ``public ChronoZonedDateTime zonedDateTime(``
+                  `` Instant instant, ZoneId zone)``
+               -  ``public ChronoZonedDateTime zonedDateTime(``
+                  `` TemporalAccessor temporal)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.chrono``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   HijrahDate
+            - 
+
+               -  ``public final ChronoLocalDateTime atTime(``
+                  `` LocalTime localTime)``
+               -  ``public boolean equals(Object obj)``
+               -  ``public static HijrahDate from(``
+                  `` TemporalAccessor temporal)``
+               -  ``public HijrahChronology getChronology()``
+               -  ``public HijrahEra getEra()``
+               -  ``public long getLong(TemporalField field)``
+               -  ``public int hashCode()``
+               -  ``public boolean isLeapYear()``
+               -  ``public int lengthOfMonth()``
+               -  ``public int lengthOfYear()``
+               -  ``public HijrahDate minus(``
+                  `` long amountToSubtract, TemporalUnit unit)``
+               -  ``public HijrahDate minus(TemporalAmount amount)``
+               -  ``public static HijrahDate now()``
+               -  ``public static HijrahDate now(Clock clock)``
+               -  ``public static HijrahDate now(ZoneId zone)``
+               -  ``public static HijrahDate of(``
+                  `` int prolepticYear, int month, int dayOfMonth)``
+               -  ``public HijrahDate plus(``
+                  `` long amountToAdd, TemporalUnit unit)``
+               -  ``public HijrahDate plus(TemporalAmount amount)``
+               -  ``public ValueRange range(TemporalField field)``
+               -  ``public long toEpochDay()``
+               -  ``public ChronoPeriod until(ChronoLocalDate endDate)``
+               -  ``public HijrahDate with(TemporalAdjuster adjuster)``
+               -  ``public HijrahDate with(``
+                  `` TemporalField field, long newValue)``
+               -  ``public HijrahDate withVariant(``
+                  `` HijrahChronology chronology)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.chrono``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   HijrahEra
+            - 
+
+               -  ``public static final HijrahEra AH``
+               -  ``public int getValue()``
+               -  ``public static HijrahEra of(int hijrahEra)``
+               -  ``public ValueRange range(TemporalField field)``
+               -  ``public static HijrahEra valueOf(String name)``
+               -  ``public static HijrahEra[] values()``
+            - Some methods (1) present in Android T are not supported.
+         - 
+
+            - *``java.time.chrono``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   IsoChronology
+            - 
+
+               -  ``public static final IsoChronology INSTANCE``
+               -  ``public LocalDate date(``
+                  `` int prolepticYear, int month, int dayOfMonth)``
+               -  ``public LocalDate date(``
+                  `` Era era, int yearOfEra, int month, int dayOfMonth)``
+               -  ``public LocalDate date(TemporalAccessor temporal)``
+               -  ``public LocalDate dateEpochDay(long epochDay)``
+               -  ``public LocalDate dateNow()``
+               -  ``public LocalDate dateNow(Clock clock)``
+               -  ``public LocalDate dateNow(ZoneId zone)``
+               -  ``public LocalDate dateYearDay(``
+                  `` int prolepticYear, int dayOfYear)``
+               -  ``public LocalDate dateYearDay(``
+                  `` Era era, int yearOfEra, int dayOfYear)``
+               -  ``public IsoEra eraOf(int eraValue)``
+               -  ``public java.util.List eras()``
+               -  ``public String getCalendarType()``
+               -  ``public String getId()``
+               -  ``public boolean isLeapYear(long prolepticYear)``
+               -  ``public LocalDateTime localDateTime(``
+                  `` TemporalAccessor temporal)``
+               -  ``public Period period(``
+                  `` int years, int months, int days)``
+               -  ``public int prolepticYear(Era era, int yearOfEra)``
+               -  ``public ValueRange range(ChronoField field)``
+               -  ``public LocalDate resolveDate(``
+                  ``  java.util.Map fieldValues,``
+                  ``  ResolverStyle resolverStyle)``
+               -  ``public ZonedDateTime zonedDateTime(``
+                  `` Instant instant, ZoneId zone)``
+               -  ``public ZonedDateTime zonedDateTime(``
+                  `` TemporalAccessor temporal)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.chrono``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   IsoEra
+            - 
+
+               -  ``public static final IsoEra BCE``
+               -  ``public static final IsoEra CE``
+               -  ``public int getValue()``
+               -  ``public static IsoEra of(int isoEra)``
+               -  ``public static IsoEra valueOf(String name)``
+               -  ``public static IsoEra[] values()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.chrono``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   JapaneseChronology
+            - 
+
+               -  ``public static final JapaneseChronology INSTANCE``
+               -  ``public JapaneseDate date(``
+                  `` int prolepticYear, int month, int dayOfMonth)``
+               -  ``public JapaneseDate date(``
+                  `` Era era, int yearOfEra, int month, int dayOfMonth)``
+               -  ``public JapaneseDate date(TemporalAccessor temporal)``
+               -  ``public JapaneseDate dateEpochDay(long epochDay)``
+               -  ``public JapaneseDate dateNow()``
+               -  ``public JapaneseDate dateNow(Clock clock)``
+               -  ``public JapaneseDate dateNow(ZoneId zone)``
+               -  ``public JapaneseDate dateYearDay(``
+                  `` int prolepticYear, int dayOfYear)``
+               -  ``public JapaneseDate dateYearDay(``
+                  `` Era era, int yearOfEra, int dayOfYear)``
+               -  ``public JapaneseEra eraOf(int eraValue)``
+               -  ``public java.util.List eras()``
+               -  ``public String getCalendarType()``
+               -  ``public String getId()``
+               -  ``public boolean isLeapYear(long prolepticYear)``
+               -  ``public ChronoLocalDateTime localDateTime(``
+                  `` TemporalAccessor temporal)``
+               -  ``public int prolepticYear(Era era, int yearOfEra)``
+               -  ``public ValueRange range(ChronoField field)``
+               -  ``public JapaneseDate resolveDate(``
+                  ``  java.util.Map fieldValues,``
+                  ``  ResolverStyle resolverStyle)``
+               -  ``public ChronoZonedDateTime zonedDateTime(``
+                  `` Instant instant, ZoneId zone)``
+               -  ``public ChronoZonedDateTime zonedDateTime(``
+                  `` TemporalAccessor temporal)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.chrono``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   JapaneseDate
+            - 
+
+               -  ``public final ChronoLocalDateTime atTime(``
+                  `` LocalTime localTime)``
+               -  ``public boolean equals(Object obj)``
+               -  ``public static JapaneseDate from(``
+                  `` TemporalAccessor temporal)``
+               -  ``public JapaneseChronology getChronology()``
+               -  ``public JapaneseEra getEra()``
+               -  ``public long getLong(TemporalField field)``
+               -  ``public int hashCode()``
+               -  ``public boolean isSupported(TemporalField field)``
+               -  ``public int lengthOfMonth()``
+               -  ``public int lengthOfYear()``
+               -  ``public JapaneseDate minus(``
+                  `` long amountToAdd, TemporalUnit unit)``
+               -  ``public JapaneseDate minus(TemporalAmount amount)``
+               -  ``public static JapaneseDate now()``
+               -  ``public static JapaneseDate now(Clock clock)``
+               -  ``public static JapaneseDate now(ZoneId zone)``
+               -  ``public static JapaneseDate of(``
+                  `` int prolepticYear, int month, int dayOfMonth)``
+               -  ``public static JapaneseDate of(``
+                  ``  JapaneseEra era,``
+                  ``  int yearOfEra,``
+                  ``  int month,``
+                  ``  int dayOfMonth)``
+               -  ``public JapaneseDate plus(``
+                  `` long amountToAdd, TemporalUnit unit)``
+               -  ``public JapaneseDate plus(TemporalAmount amount)``
+               -  ``public ValueRange range(TemporalField field)``
+               -  ``public long toEpochDay()``
+               -  ``public ChronoPeriod until(ChronoLocalDate endDate)``
+               -  ``public JapaneseDate with(TemporalAdjuster adjuster)``
+               -  ``public JapaneseDate with(``
+                  `` TemporalField field, long newValue)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.chrono``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   JapaneseEra
+            - 
+
+               -  ``public static final JapaneseEra HEISEI``
+               -  ``public static final JapaneseEra MEIJI``
+               -  ``public static final JapaneseEra SHOWA``
+               -  ``public static final JapaneseEra TAISHO``
+               -  ``public String getDisplayName(``
+                  `` TextStyle style, java.util.Locale locale)``
+               -  ``public int getValue()``
+               -  ``public static JapaneseEra of(int japaneseEra)``
+               -  ``public ValueRange range(TemporalField field)``
+               -  ``public String toString()``
+               -  ``public static JapaneseEra valueOf(``
+                  `` String japaneseEra)``
+               -  ``public static JapaneseEra[] values()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.chrono``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   MinguoChronology
+            - 
+
+               -  ``public static final MinguoChronology INSTANCE``
+               -  ``public MinguoDate date(``
+                  `` int prolepticYear, int month, int dayOfMonth)``
+               -  ``public MinguoDate date(``
+                  `` Era era, int yearOfEra, int month, int dayOfMonth)``
+               -  ``public MinguoDate date(TemporalAccessor temporal)``
+               -  ``public MinguoDate dateEpochDay(long epochDay)``
+               -  ``public MinguoDate dateNow()``
+               -  ``public MinguoDate dateNow(Clock clock)``
+               -  ``public MinguoDate dateNow(ZoneId zone)``
+               -  ``public MinguoDate dateYearDay(``
+                  `` int prolepticYear, int dayOfYear)``
+               -  ``public MinguoDate dateYearDay(``
+                  `` Era era, int yearOfEra, int dayOfYear)``
+               -  ``public MinguoEra eraOf(int eraValue)``
+               -  ``public java.util.List eras()``
+               -  ``public String getCalendarType()``
+               -  ``public String getId()``
+               -  ``public boolean isLeapYear(long prolepticYear)``
+               -  ``public ChronoLocalDateTime localDateTime(``
+                  `` TemporalAccessor temporal)``
+               -  ``public int prolepticYear(Era era, int yearOfEra)``
+               -  ``public ValueRange range(ChronoField field)``
+               -  ``public MinguoDate resolveDate(``
+                  ``  java.util.Map fieldValues,``
+                  ``  ResolverStyle resolverStyle)``
+               -  ``public ChronoZonedDateTime zonedDateTime(``
+                  `` Instant instant, ZoneId zone)``
+               -  ``public ChronoZonedDateTime zonedDateTime(``
+                  `` TemporalAccessor temporal)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.chrono``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   MinguoDate
+            - 
+
+               -  ``public final ChronoLocalDateTime atTime(``
+                  `` LocalTime localTime)``
+               -  ``public boolean equals(Object obj)``
+               -  ``public static MinguoDate from(``
+                  `` TemporalAccessor temporal)``
+               -  ``public MinguoChronology getChronology()``
+               -  ``public MinguoEra getEra()``
+               -  ``public long getLong(TemporalField field)``
+               -  ``public int hashCode()``
+               -  ``public int lengthOfMonth()``
+               -  ``public MinguoDate minus(``
+                  `` long amountToAdd, TemporalUnit unit)``
+               -  ``public MinguoDate minus(TemporalAmount amount)``
+               -  ``public static MinguoDate now()``
+               -  ``public static MinguoDate now(Clock clock)``
+               -  ``public static MinguoDate now(ZoneId zone)``
+               -  ``public static MinguoDate of(``
+                  `` int prolepticYear, int month, int dayOfMonth)``
+               -  ``public MinguoDate plus(``
+                  `` long amountToAdd, TemporalUnit unit)``
+               -  ``public MinguoDate plus(TemporalAmount amount)``
+               -  ``public ValueRange range(TemporalField field)``
+               -  ``public long toEpochDay()``
+               -  ``public ChronoPeriod until(ChronoLocalDate endDate)``
+               -  ``public MinguoDate with(TemporalAdjuster adjuster)``
+               -  ``public MinguoDate with(``
+                  `` TemporalField field, long newValue)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.chrono``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   MinguoEra
+            - 
+
+               -  ``public static final MinguoEra BEFORE_ROC``
+               -  ``public static final MinguoEra ROC``
+               -  ``public int getValue()``
+               -  ``public static MinguoEra of(int minguoEra)``
+               -  ``public static MinguoEra valueOf(String name)``
+               -  ``public static MinguoEra[] values()``
+            - Some methods (1) present in Android T are not supported.
+         - 
+
+            - *``java.time.chrono``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   ThaiBuddhistChronology
+            - 
+
+               -  ``public static final ThaiBuddhistChronology INSTANCE``
+               -  ``public ThaiBuddhistDate date(``
+                  `` int prolepticYear, int month, int dayOfMonth)``
+               -  ``public ThaiBuddhistDate date(``
+                  `` Era era, int yearOfEra, int month, int dayOfMonth)``
+               -  ``public ThaiBuddhistDate date(``
+                  `` TemporalAccessor temporal)``
+               -  ``public ThaiBuddhistDate dateEpochDay(long epochDay)``
+               -  ``public ThaiBuddhistDate dateNow()``
+               -  ``public ThaiBuddhistDate dateNow(Clock clock)``
+               -  ``public ThaiBuddhistDate dateNow(ZoneId zone)``
+               -  ``public ThaiBuddhistDate dateYearDay(``
+                  `` int prolepticYear, int dayOfYear)``
+               -  ``public ThaiBuddhistDate dateYearDay(``
+                  `` Era era, int yearOfEra, int dayOfYear)``
+               -  ``public ThaiBuddhistEra eraOf(int eraValue)``
+               -  ``public java.util.List eras()``
+               -  ``public String getCalendarType()``
+               -  ``public String getId()``
+               -  ``public boolean isLeapYear(long prolepticYear)``
+               -  ``public ChronoLocalDateTime localDateTime(``
+                  `` TemporalAccessor temporal)``
+               -  ``public int prolepticYear(Era era, int yearOfEra)``
+               -  ``public ValueRange range(ChronoField field)``
+               -  ``public ThaiBuddhistDate resolveDate(``
+                  ``  java.util.Map fieldValues,``
+                  ``  ResolverStyle resolverStyle)``
+               -  ``public ChronoZonedDateTime zonedDateTime(``
+                  `` Instant instant, ZoneId zone)``
+               -  ``public ChronoZonedDateTime zonedDateTime(``
+                  `` TemporalAccessor temporal)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.chrono``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   ThaiBuddhistDate
+            - 
+
+               -  ``public final ChronoLocalDateTime atTime(``
+                  `` LocalTime localTime)``
+               -  ``public boolean equals(Object obj)``
+               -  ``public static ThaiBuddhistDate from(``
+                  `` TemporalAccessor temporal)``
+               -  ``public ThaiBuddhistChronology getChronology()``
+               -  ``public ThaiBuddhistEra getEra()``
+               -  ``public long getLong(TemporalField field)``
+               -  ``public int hashCode()``
+               -  ``public int lengthOfMonth()``
+               -  ``public ThaiBuddhistDate minus(``
+                  `` long amountToAdd, TemporalUnit unit)``
+               -  ``public ThaiBuddhistDate minus(TemporalAmount amount)``
+               -  ``public static ThaiBuddhistDate now()``
+               -  ``public static ThaiBuddhistDate now(Clock clock)``
+               -  ``public static ThaiBuddhistDate now(ZoneId zone)``
+               -  ``public static ThaiBuddhistDate of(``
+                  `` int prolepticYear, int month, int dayOfMonth)``
+               -  ``public ThaiBuddhistDate plus(``
+                  `` long amountToAdd, TemporalUnit unit)``
+               -  ``public ThaiBuddhistDate plus(TemporalAmount amount)``
+               -  ``public ValueRange range(TemporalField field)``
+               -  ``public long toEpochDay()``
+               -  ``public ChronoPeriod until(ChronoLocalDate endDate)``
+               -  ``public ThaiBuddhistDate with(``
+                  `` TemporalAdjuster adjuster)``
+               -  ``public ThaiBuddhistDate with(``
+                  `` TemporalField field, long newValue)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.chrono``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   ThaiBuddhistEra
+            - 
+
+               -  ``public static final ThaiBuddhistEra BE``
+               -  ``public static final ThaiBuddhistEra BEFORE_BE``
+               -  ``public int getValue()``
+               -  ``public static ThaiBuddhistEra of(``
+                  `` int thaiBuddhistEra)``
+               -  ``public static ThaiBuddhistEra valueOf(String name)``
+               -  ``public static ThaiBuddhistEra[] values()``
+            - Some methods (1) present in Android T are not supported.
+         - 
+
+            - *``java.time.format``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   DateTimeFormatter
+            - 
+
+               -  ``public static final DateTimeFormatter BASIC_ISO_DATE``
+               -  ``public static final DateTimeFormatter ISO_DATE``
+               -  ``public static final DateTimeFormatter ISO_DATE_TIME``
+               -  ``public static final DateTimeFormatter ISO_INSTANT``
+               -  ``public static final DateTimeFormatter ISO_LOCAL_DATE``
+               -  ``public static final DateTimeFormatter ISO_LOCAL_DATE_TIME``
+               -  ``public static final DateTimeFormatter ISO_LOCAL_TIME``
+               -  ``public static final DateTimeFormatter ISO_OFFSET_DATE``
+               -  ``public static final DateTimeFormatter ISO_OFFSET_DATE_TIME``
+               -  ``public static final DateTimeFormatter ISO_OFFSET_TIME``
+               -  ``public static final DateTimeFormatter ISO_ORDINAL_DATE``
+               -  ``public static final DateTimeFormatter ISO_TIME``
+               -  ``public static final DateTimeFormatter ISO_WEEK_DATE``
+               -  ``public static final DateTimeFormatter ISO_ZONED_DATE_TIME``
+               -  ``public static final DateTimeFormatter RFC_1123_DATE_TIME``
+               -  ``public String format(TemporalAccessor temporal)``
+               -  ``public void formatTo(``
+                  `` TemporalAccessor temporal, Appendable appendable)``
+               -  ``public Chronology getChronology()``
+               -  ``public DecimalStyle getDecimalStyle()``
+               -  ``public java.util.Locale getLocale()``
+               -  ``public java.util.Set getResolverFields()``
+               -  ``public ResolverStyle getResolverStyle()``
+               -  ``public ZoneId getZone()``
+               -  ``public static DateTimeFormatter ofLocalizedDate(``
+                  `` FormatStyle dateStyle)``
+               -  ``public static DateTimeFormatter ofLocalizedDateTime(``
+                  `` FormatStyle dateTimeStyle)``
+               -  ``public static DateTimeFormatter ofLocalizedDateTime(``
+                  `` FormatStyle dateStyle, FormatStyle timeStyle)``
+               -  ``public static DateTimeFormatter ofLocalizedTime(``
+                  `` FormatStyle timeStyle)``
+               -  ``public static DateTimeFormatter ofPattern(``
+                  `` String pattern)``
+               -  ``public static DateTimeFormatter ofPattern(``
+                  `` String pattern, java.util.Locale locale)``
+               -  ``public Object parse(``
+                  `` CharSequence text, TemporalQuery query)``
+               -  ``public TemporalAccessor parse(CharSequence text)``
+               -  ``public TemporalAccessor parse(``
+                  ``  CharSequence text,``
+                  ``  java.text.ParsePosition position)``
+               -  ``public TemporalAccessor parseBest(``
+                  `` CharSequence text, TemporalQuery[] queries)``
+               -  ``public TemporalAccessor parseUnresolved(``
+                  ``  CharSequence text,``
+                  ``  java.text.ParsePosition position)``
+               -  ``public static final TemporalQuery parsedExcessDays()``
+               -  ``public static final TemporalQuery parsedLeapSecond()``
+               -  ``public java.text.Format toFormat()``
+               -  ``public java.text.Format toFormat(``
+                  `` TemporalQuery parseQuery)``
+               -  ``public String toString()``
+               -  ``public DateTimeFormatter withChronology(``
+                  `` Chronology chrono)``
+               -  ``public DateTimeFormatter withDecimalStyle(``
+                  `` DecimalStyle decimalStyle)``
+               -  ``public DateTimeFormatter withLocale(``
+                  `` java.util.Locale locale)``
+               -  ``public DateTimeFormatter withResolverFields(``
+                  `` java.util.Set resolverFields)``
+               -  ``public DateTimeFormatter withResolverFields(``
+                  `` TemporalField[] resolverFields)``
+               -  ``public DateTimeFormatter withResolverStyle(``
+                  `` ResolverStyle resolverStyle)``
+               -  ``public DateTimeFormatter withZone(ZoneId zone)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.format``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   DateTimeFormatterBuilder
+            - 
+
+               -  ``public DateTimeFormatterBuilder()``
+               -  ``public DateTimeFormatterBuilder append(``
+                  `` DateTimeFormatter formatter)``
+               -  ``public DateTimeFormatterBuilder appendChronologyId()``
+               -  ``public DateTimeFormatterBuilder appendChronologyText(``
+                  `` TextStyle textStyle)``
+               -  ``public DateTimeFormatterBuilder appendFraction(``
+                  ``  TemporalField field,``
+                  ``  int minWidth,``
+                  ``  int maxWidth,``
+                  ``  boolean decimalPoint)``
+               -  ``public DateTimeFormatterBuilder appendInstant()``
+               -  ``public DateTimeFormatterBuilder appendInstant(``
+                  `` int fractionalDigits)``
+               -  ``public DateTimeFormatterBuilder appendLiteral(``
+                  `` char literal)``
+               -  ``public DateTimeFormatterBuilder appendLiteral(``
+                  `` String literal)``
+               -  ``public DateTimeFormatterBuilder appendLocalized(``
+                  `` FormatStyle dateStyle, FormatStyle timeStyle)``
+               -  ``public DateTimeFormatterBuilder appendLocalizedOffset(``
+                  `` TextStyle style)``
+               -  ``public DateTimeFormatterBuilder appendOffset(``
+                  `` String pattern, String noOffsetText)``
+               -  ``public DateTimeFormatterBuilder appendOffsetId()``
+               -  ``public DateTimeFormatterBuilder appendOptional(``
+                  `` DateTimeFormatter formatter)``
+               -  ``public DateTimeFormatterBuilder appendPattern(``
+                  `` String pattern)``
+               -  ``public DateTimeFormatterBuilder appendText(``
+                  `` TemporalField field)``
+               -  ``public DateTimeFormatterBuilder appendText(``
+                  `` TemporalField field, TextStyle textStyle)``
+               -  ``public DateTimeFormatterBuilder appendText(``
+                  `` TemporalField field, java.util.Map textLookup)``
+               -  ``public DateTimeFormatterBuilder appendValue(``
+                  `` TemporalField field)``
+               -  ``public DateTimeFormatterBuilder appendValue(``
+                  `` TemporalField field, int width)``
+               -  ``public DateTimeFormatterBuilder appendValue(``
+                  ``  TemporalField field,``
+                  ``  int minWidth,``
+                  ``  int maxWidth,``
+                  ``  SignStyle signStyle)``
+               -  ``public DateTimeFormatterBuilder appendValueReduced(``
+                  ``  TemporalField field,``
+                  ``  int width,``
+                  ``  int maxWidth,``
+                  ``  int baseValue)``
+               -  ``public DateTimeFormatterBuilder appendValueReduced(``
+                  ``  TemporalField field,``
+                  ``  int width,``
+                  ``  int maxWidth,``
+                  ``  ChronoLocalDate baseDate)``
+               -  ``public DateTimeFormatterBuilder appendZoneId()``
+               -  ``public DateTimeFormatterBuilder appendZoneOrOffsetId()``
+               -  ``public DateTimeFormatterBuilder appendZoneRegionId()``
+               -  ``public DateTimeFormatterBuilder appendZoneText(``
+                  `` TextStyle textStyle)``
+               -  ``public DateTimeFormatterBuilder appendZoneText(``
+                  `` TextStyle textStyle, java.util.Set preferredZones)``
+               -  ``public static String getLocalizedDateTimePattern(``
+                  ``  FormatStyle dateStyle,``
+                  ``  FormatStyle timeStyle,``
+                  ``  Chronology chrono,``
+                  ``  java.util.Locale locale)``
+               -  ``public DateTimeFormatterBuilder optionalEnd()``
+               -  ``public DateTimeFormatterBuilder optionalStart()``
+               -  ``public DateTimeFormatterBuilder padNext(``
+                  `` int padWidth)``
+               -  ``public DateTimeFormatterBuilder padNext(``
+                  `` int padWidth, char padChar)``
+               -  ``public DateTimeFormatterBuilder parseCaseInsensitive()``
+               -  ``public DateTimeFormatterBuilder parseCaseSensitive()``
+               -  ``public DateTimeFormatterBuilder parseDefaulting(``
+                  `` TemporalField field, long value)``
+               -  ``public DateTimeFormatterBuilder parseLenient()``
+               -  ``public DateTimeFormatterBuilder parseStrict()``
+               -  ``public DateTimeFormatter toFormatter()``
+               -  ``public DateTimeFormatter toFormatter(``
+                  `` java.util.Locale locale)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.format``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   DateTimeParseException
+            - 
+
+               -  ``public DateTimeParseException(``
+                  ``  String message,``
+                  ``  CharSequence parsedData,``
+                  ``  int errorIndex)``
+               -  ``public DateTimeParseException(``
+                  ``  String message,``
+                  ``  CharSequence parsedData,``
+                  ``  int errorIndex,``
+                  ``  Throwable cause)``
+               -  ``public int getErrorIndex()``
+               -  ``public String getParsedString()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.format``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   DecimalStyle
+            - 
+
+               -  ``public static final DecimalStyle STANDARD``
+               -  ``public boolean equals(Object obj)``
+               -  ``public static java.util.Set getAvailableLocales()``
+               -  ``public char getDecimalSeparator()``
+               -  ``public char getNegativeSign()``
+               -  ``public char getPositiveSign()``
+               -  ``public char getZeroDigit()``
+               -  ``public int hashCode()``
+               -  ``public static DecimalStyle of(``
+                  `` java.util.Locale locale)``
+               -  ``public static DecimalStyle ofDefaultLocale()``
+               -  ``public String toString()``
+               -  ``public DecimalStyle withDecimalSeparator(``
+                  `` char decimalSeparator)``
+               -  ``public DecimalStyle withNegativeSign(``
+                  `` char negativeSign)``
+               -  ``public DecimalStyle withPositiveSign(``
+                  `` char positiveSign)``
+               -  ``public DecimalStyle withZeroDigit(char zeroDigit)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.format``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   FormatStyle
+            - 
+
+               -  ``public static final FormatStyle FULL``
+               -  ``public static final FormatStyle LONG``
+               -  ``public static final FormatStyle MEDIUM``
+               -  ``public static final FormatStyle SHORT``
+               -  ``public static FormatStyle valueOf(String name)``
+               -  ``public static FormatStyle[] values()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.format``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   ResolverStyle
+            - 
+
+               -  ``public static final ResolverStyle LENIENT``
+               -  ``public static final ResolverStyle SMART``
+               -  ``public static final ResolverStyle STRICT``
+               -  ``public static ResolverStyle valueOf(String name)``
+               -  ``public static ResolverStyle[] values()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.format``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   SignStyle
+            - 
+
+               -  ``public static final SignStyle ALWAYS``
+               -  ``public static final SignStyle EXCEEDS_PAD``
+               -  ``public static final SignStyle NEVER``
+               -  ``public static final SignStyle NORMAL``
+               -  ``public static final SignStyle NOT_NEGATIVE``
+               -  ``public static SignStyle valueOf(String name)``
+               -  ``public static SignStyle[] values()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.format``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   TextStyle
+            - 
+
+               -  ``public static final TextStyle FULL``
+               -  ``public static final TextStyle FULL_STANDALONE``
+               -  ``public static final TextStyle NARROW``
+               -  ``public static final TextStyle NARROW_STANDALONE``
+               -  ``public static final TextStyle SHORT``
+               -  ``public static final TextStyle SHORT_STANDALONE``
+               -  ``public TextStyle asNormal()``
+               -  ``public TextStyle asStandalone()``
+               -  ``public boolean isStandalone()``
+               -  ``public static TextStyle valueOf(String name)``
+               -  ``public static TextStyle[] values()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.temporal``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   ChronoField
+            - 
+
+               -  ``public static final ChronoField ALIGNED_DAY_OF_WEEK_IN_MONTH``
+               -  ``public static final ChronoField ALIGNED_DAY_OF_WEEK_IN_YEAR``
+               -  ``public static final ChronoField ALIGNED_WEEK_OF_MONTH``
+               -  ``public static final ChronoField ALIGNED_WEEK_OF_YEAR``
+               -  ``public static final ChronoField AMPM_OF_DAY``
+               -  ``public static final ChronoField CLOCK_HOUR_OF_AMPM``
+               -  ``public static final ChronoField CLOCK_HOUR_OF_DAY``
+               -  ``public static final ChronoField DAY_OF_MONTH``
+               -  ``public static final ChronoField DAY_OF_WEEK``
+               -  ``public static final ChronoField DAY_OF_YEAR``
+               -  ``public static final ChronoField EPOCH_DAY``
+               -  ``public static final ChronoField ERA``
+               -  ``public static final ChronoField HOUR_OF_AMPM``
+               -  ``public static final ChronoField HOUR_OF_DAY``
+               -  ``public static final ChronoField INSTANT_SECONDS``
+               -  ``public static final ChronoField MICRO_OF_DAY``
+               -  ``public static final ChronoField MICRO_OF_SECOND``
+               -  ``public static final ChronoField MILLI_OF_DAY``
+               -  ``public static final ChronoField MILLI_OF_SECOND``
+               -  ``public static final ChronoField MINUTE_OF_DAY``
+               -  ``public static final ChronoField MINUTE_OF_HOUR``
+               -  ``public static final ChronoField MONTH_OF_YEAR``
+               -  ``public static final ChronoField NANO_OF_DAY``
+               -  ``public static final ChronoField NANO_OF_SECOND``
+               -  ``public static final ChronoField OFFSET_SECONDS``
+               -  ``public static final ChronoField PROLEPTIC_MONTH``
+               -  ``public static final ChronoField SECOND_OF_DAY``
+               -  ``public static final ChronoField SECOND_OF_MINUTE``
+               -  ``public static final ChronoField YEAR``
+               -  ``public static final ChronoField YEAR_OF_ERA``
+               -  ``public Temporal adjustInto(``
+                  `` Temporal temporal, long newValue)``
+               -  ``public int checkValidIntValue(long value)``
+               -  ``public long checkValidValue(long value)``
+               -  ``public TemporalUnit getBaseUnit()``
+               -  ``public String getDisplayName(``
+                  `` java.util.Locale locale)``
+               -  ``public long getFrom(TemporalAccessor temporal)``
+               -  ``public TemporalUnit getRangeUnit()``
+               -  ``public boolean isDateBased()``
+               -  ``public boolean isSupportedBy(``
+                  `` TemporalAccessor temporal)``
+               -  ``public boolean isTimeBased()``
+               -  ``public ValueRange range()``
+               -  ``public ValueRange rangeRefinedBy(``
+                  `` TemporalAccessor temporal)``
+               -  ``public String toString()``
+               -  ``public static ChronoField valueOf(String name)``
+               -  ``public static ChronoField[] values()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.temporal``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   ChronoUnit
+            - 
+
+               -  ``public static final ChronoUnit CENTURIES``
+               -  ``public static final ChronoUnit DAYS``
+               -  ``public static final ChronoUnit DECADES``
+               -  ``public static final ChronoUnit ERAS``
+               -  ``public static final ChronoUnit FOREVER``
+               -  ``public static final ChronoUnit HALF_DAYS``
+               -  ``public static final ChronoUnit HOURS``
+               -  ``public static final ChronoUnit MICROS``
+               -  ``public static final ChronoUnit MILLENNIA``
+               -  ``public static final ChronoUnit MILLIS``
+               -  ``public static final ChronoUnit MINUTES``
+               -  ``public static final ChronoUnit MONTHS``
+               -  ``public static final ChronoUnit NANOS``
+               -  ``public static final ChronoUnit SECONDS``
+               -  ``public static final ChronoUnit WEEKS``
+               -  ``public static final ChronoUnit YEARS``
+               -  ``public Temporal addTo(``
+                  `` Temporal temporal, long amount)``
+               -  ``public long between(``
+                  ``  Temporal temporal1Inclusive,``
+                  ``  Temporal temporal2Exclusive)``
+               -  ``public Duration getDuration()``
+               -  ``public boolean isDateBased()``
+               -  ``public boolean isDurationEstimated()``
+               -  ``public boolean isSupportedBy(Temporal temporal)``
+               -  ``public boolean isTimeBased()``
+               -  ``public String toString()``
+               -  ``public static ChronoUnit valueOf(String name)``
+               -  ``public static ChronoUnit[] values()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.temporal``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   IsoFields
+            - 
+
+               -  ``public static final TemporalField DAY_OF_QUARTER``
+               -  ``public static final TemporalField QUARTER_OF_YEAR``
+               -  ``public static final TemporalUnit QUARTER_YEARS``
+               -  ``public static final TemporalField WEEK_BASED_YEAR``
+               -  ``public static final TemporalUnit WEEK_BASED_YEARS``
+               -  ``public static final TemporalField WEEK_OF_WEEK_BASED_YEAR``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.temporal``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   JulianFields
+            - 
+
+               -  ``public static final TemporalField JULIAN_DAY``
+               -  ``public static final TemporalField MODIFIED_JULIAN_DAY``
+               -  ``public static final TemporalField RATA_DIE``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.temporal``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   Temporal
+            - 
+
+               -  ``public abstract boolean isSupported(TemporalUnit p0)``
+               -  ``public Temporal minus(``
+                  `` long amountToSubtract, TemporalUnit unit)``
+               -  ``public Temporal minus(TemporalAmount amount)``
+               -  ``public abstract Temporal plus(``
+                  `` long p0, TemporalUnit p1)``
+               -  ``public Temporal plus(TemporalAmount amount)``
+               -  ``public abstract long until(``
+                  `` Temporal p0, TemporalUnit p1)``
+               -  ``public Temporal with(TemporalAdjuster adjuster)``
+               -  ``public abstract Temporal with(``
+                  `` TemporalField p0, long p1)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.temporal``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   TemporalAccessor
+            - 
+
+               -  ``public int get(TemporalField field)``
+               -  ``public abstract long getLong(TemporalField p0)``
+               -  ``public abstract boolean isSupported(``
+                  `` TemporalField p0)``
+               -  ``public Object query(TemporalQuery query)``
+               -  ``public ValueRange range(TemporalField field)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.temporal``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   TemporalAdjuster
+            - 
+
+               -  ``public abstract Temporal adjustInto(Temporal p0)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.temporal``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   TemporalAdjusters
+            - 
+
+               -  ``public static TemporalAdjuster dayOfWeekInMonth(``
+                  `` int ordinal, DayOfWeek dayOfWeek)``
+               -  ``public static TemporalAdjuster firstDayOfMonth()``
+               -  ``public static TemporalAdjuster firstDayOfNextMonth()``
+               -  ``public static TemporalAdjuster firstDayOfNextYear()``
+               -  ``public static TemporalAdjuster firstDayOfYear()``
+               -  ``public static TemporalAdjuster firstInMonth(``
+                  `` DayOfWeek dayOfWeek)``
+               -  ``public static TemporalAdjuster lastDayOfMonth()``
+               -  ``public static TemporalAdjuster lastDayOfYear()``
+               -  ``public static TemporalAdjuster lastInMonth(``
+                  `` DayOfWeek dayOfWeek)``
+               -  ``public static TemporalAdjuster next(``
+                  `` DayOfWeek dayOfWeek)``
+               -  ``public static TemporalAdjuster nextOrSame(``
+                  `` DayOfWeek dayOfWeek)``
+               -  ``public static TemporalAdjuster ofDateAdjuster(``
+                  `` UnaryOperator dateBasedAdjuster)``
+               -  ``public static TemporalAdjuster previous(``
+                  `` DayOfWeek dayOfWeek)``
+               -  ``public static TemporalAdjuster previousOrSame(``
+                  `` DayOfWeek dayOfWeek)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.temporal``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   TemporalAmount
+            - 
+
+               -  ``public abstract Temporal addTo(Temporal p0)``
+               -  ``public abstract long get(TemporalUnit p0)``
+               -  ``public abstract java.util.List getUnits()``
+               -  ``public abstract Temporal subtractFrom(Temporal p0)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.temporal``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   TemporalField
+            - 
+
+               -  ``public abstract Temporal adjustInto(``
+                  `` Temporal p0, long p1)``
+               -  ``public abstract TemporalUnit getBaseUnit()``
+               -  ``public String getDisplayName(``
+                  `` java.util.Locale locale)``
+               -  ``public abstract long getFrom(TemporalAccessor p0)``
+               -  ``public abstract TemporalUnit getRangeUnit()``
+               -  ``public abstract boolean isDateBased()``
+               -  ``public abstract boolean isSupportedBy(``
+                  `` TemporalAccessor p0)``
+               -  ``public abstract boolean isTimeBased()``
+               -  ``public abstract ValueRange range()``
+               -  ``public abstract ValueRange rangeRefinedBy(``
+                  `` TemporalAccessor p0)``
+               -  ``public TemporalAccessor resolve(``
+                  ``  java.util.Map fieldValues,``
+                  ``  TemporalAccessor partialTemporal,``
+                  ``  ResolverStyle resolverStyle)``
+               -  ``public abstract String toString()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.temporal``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   TemporalQueries
+            - 
+
+               -  ``public static TemporalQuery chronology()``
+               -  ``public static TemporalQuery localDate()``
+               -  ``public static TemporalQuery localTime()``
+               -  ``public static TemporalQuery offset()``
+               -  ``public static TemporalQuery precision()``
+               -  ``public static TemporalQuery zone()``
+               -  ``public static TemporalQuery zoneId()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.temporal``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   TemporalQuery
+            - 
+
+               -  ``public abstract Object queryFrom(``
+                  `` TemporalAccessor p0)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.temporal``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   TemporalUnit
+            - 
+
+               -  ``public abstract Temporal addTo(Temporal p0, long p1)``
+               -  ``public abstract long between(``
+                  `` Temporal p0, Temporal p1)``
+               -  ``public abstract Duration getDuration()``
+               -  ``public abstract boolean isDateBased()``
+               -  ``public abstract boolean isDurationEstimated()``
+               -  ``public boolean isSupportedBy(Temporal temporal)``
+               -  ``public abstract boolean isTimeBased()``
+               -  ``public abstract String toString()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.temporal``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   UnsupportedTemporalTypeException
+            - 
+
+               -  ``public UnsupportedTemporalTypeException(``
+                  `` String message)``
+               -  ``public UnsupportedTemporalTypeException(``
+                  `` String message, Throwable cause)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.temporal``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   ValueRange
+            - 
+
+               -  ``public int checkValidIntValue(``
+                  `` long value, TemporalField field)``
+               -  ``public long checkValidValue(``
+                  `` long value, TemporalField field)``
+               -  ``public boolean equals(Object obj)``
+               -  ``public long getLargestMinimum()``
+               -  ``public long getMaximum()``
+               -  ``public long getMinimum()``
+               -  ``public long getSmallestMaximum()``
+               -  ``public int hashCode()``
+               -  ``public boolean isFixed()``
+               -  ``public boolean isIntValue()``
+               -  ``public boolean isValidIntValue(long value)``
+               -  ``public boolean isValidValue(long value)``
+               -  ``public static ValueRange of(long min, long max)``
+               -  ``public static ValueRange of(``
+                  `` long min, long maxSmallest, long maxLargest)``
+               -  ``public static ValueRange of(``
+                  ``  long minSmallest,``
+                  ``  long minLargest,``
+                  ``  long maxSmallest,``
+                  ``  long maxLargest)``
+               -  ``public String toString()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.temporal``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   WeekFields
+            - 
+
+               -  ``public static final WeekFields ISO``
+               -  ``public static final WeekFields SUNDAY_START``
+               -  ``public static final TemporalUnit WEEK_BASED_YEARS``
+               -  ``public TemporalField dayOfWeek()``
+               -  ``public boolean equals(Object object)``
+               -  ``public DayOfWeek getFirstDayOfWeek()``
+               -  ``public int getMinimalDaysInFirstWeek()``
+               -  ``public int hashCode()``
+               -  ``public static WeekFields of(``
+                  ``  DayOfWeek firstDayOfWeek,``
+                  ``  int minimalDaysInFirstWeek)``
+               -  ``public static WeekFields of(java.util.Locale locale)``
+               -  ``public String toString()``
+               -  ``public TemporalField weekBasedYear()``
+               -  ``public TemporalField weekOfMonth()``
+               -  ``public TemporalField weekOfWeekBasedYear()``
+               -  ``public TemporalField weekOfYear()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.zone``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   ZoneOffsetTransition
+            - 
+
+               -  ``public int compareTo(``
+                  `` ZoneOffsetTransition transition)``
+               -  ``public boolean equals(Object other)``
+               -  ``public LocalDateTime getDateTimeAfter()``
+               -  ``public LocalDateTime getDateTimeBefore()``
+               -  ``public Duration getDuration()``
+               -  ``public Instant getInstant()``
+               -  ``public ZoneOffset getOffsetAfter()``
+               -  ``public ZoneOffset getOffsetBefore()``
+               -  ``public int hashCode()``
+               -  ``public boolean isGap()``
+               -  ``public boolean isOverlap()``
+               -  ``public boolean isValidOffset(ZoneOffset offset)``
+               -  ``public static ZoneOffsetTransition of(``
+                  ``  LocalDateTime transition,``
+                  ``  ZoneOffset offsetBefore,``
+                  ``  ZoneOffset offsetAfter)``
+               -  ``public long toEpochSecond()``
+               -  ``public String toString()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.zone``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   ZoneOffsetTransitionRule.
+                   TimeDefinition
+            - 
+
+               -  ``public static final ZoneOffsetTransitionRule.TimeDefinition STANDARD``
+               -  ``public static final ZoneOffsetTransitionRule.TimeDefinition UTC``
+               -  ``public static final ZoneOffsetTransitionRule.TimeDefinition WALL``
+               -  ``public LocalDateTime createDateTime(``
+                  ``  LocalDateTime dateTime,``
+                  ``  ZoneOffset standardOffset,``
+                  ``  ZoneOffset wallOffset)``
+               -  ``public static ZoneOffsetTransitionRule.TimeDefinition valueOf(``
+                  `` String name)``
+               -  ``public static ZoneOffsetTransitionRule.TimeDefinition[] values()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.zone``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   ZoneOffsetTransitionRule
+            - 
+
+               -  ``public ZoneOffsetTransition createTransition(``
+                  `` int year)``
+               -  ``public boolean equals(Object otherRule)``
+               -  ``public int getDayOfMonthIndicator()``
+               -  ``public DayOfWeek getDayOfWeek()``
+               -  ``public LocalTime getLocalTime()``
+               -  ``public Month getMonth()``
+               -  ``public ZoneOffset getOffsetAfter()``
+               -  ``public ZoneOffset getOffsetBefore()``
+               -  ``public ZoneOffset getStandardOffset()``
+               -  ``public ZoneOffsetTransitionRule.TimeDefinition getTimeDefinition()``
+               -  ``public int hashCode()``
+               -  ``public boolean isMidnightEndOfDay()``
+               -  ``public static ZoneOffsetTransitionRule of(``
+                  ``  Month month,``
+                  ``  int dayOfMonthIndicator,``
+                  ``  DayOfWeek dayOfWeek,``
+                  ``  LocalTime time,``
+                  ``  boolean timeEndOfDay,``
+                  ``  ZoneOffsetTransitionRule.TimeDefinition timeDefnition,``
+                  ``  ZoneOffset standardOffset,``
+                  ``  ZoneOffset offsetBefore,``
+                  ``  ZoneOffset offsetAfter)``
+               -  ``public String toString()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.zone``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   ZoneRules
+            - 
+
+               -  ``public boolean equals(Object otherRules)``
+               -  ``public Duration getDaylightSavings(Instant instant)``
+               -  ``public ZoneOffset getOffset(Instant instant)``
+               -  ``public ZoneOffset getOffset(``
+                  `` LocalDateTime localDateTime)``
+               -  ``public ZoneOffset getStandardOffset(Instant instant)``
+               -  ``public ZoneOffsetTransition getTransition(``
+                  `` LocalDateTime localDateTime)``
+               -  ``public java.util.List getTransitionRules()``
+               -  ``public java.util.List getTransitions()``
+               -  ``public java.util.List getValidOffsets(``
+                  `` LocalDateTime localDateTime)``
+               -  ``public int hashCode()``
+               -  ``public boolean isDaylightSavings(Instant instant)``
+               -  ``public boolean isFixedOffset()``
+               -  ``public boolean isValidOffset(``
+                  `` LocalDateTime localDateTime, ZoneOffset offset)``
+               -  ``public ZoneOffsetTransition nextTransition(``
+                  `` Instant instant)``
+               -  ``public static ZoneRules of(ZoneOffset offset)``
+               -  ``public static ZoneRules of(``
+                  ``  ZoneOffset baseStandardOffset,``
+                  ``  ZoneOffset baseWallOffset,``
+                  ``  java.util.List standardOffsetTransitionList,``
+                  ``  java.util.List transitionList,``
+                  ``  java.util.List lastRules)``
+               -  ``public ZoneOffsetTransition previousTransition(``
+                  `` Instant instant)``
+               -  ``public String toString()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.time.zone``*
+               `See customizations <#java-time-customizations>`__
+
+               .. container::
+
+                   ZoneRulesException
+            - 
+
+               -  ``public ZoneRulesException(String message)``
+               -  ``public ZoneRulesException(``
+                  `` String message, Throwable cause)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   Arrays
+            - 
+
+               -  ``public static Spliterator.OfDouble spliterator(``
+                  `` double[] p0)``
+               -  ``public static Spliterator.OfDouble spliterator(``
+                  `` double[] p0, int p1, int p2)``
+               -  ``public static Spliterator.OfInt spliterator(``
+                  `` int[] p0)``
+               -  ``public static Spliterator.OfInt spliterator(``
+                  `` int[] p0, int p1, int p2)``
+               -  ``public static Spliterator.OfLong spliterator(``
+                  `` long[] p0)``
+               -  ``public static Spliterator.OfLong spliterator(``
+                  `` long[] p0, int p1, int p2)``
+               -  ``public static Spliterator spliterator(Object[] p0)``
+               -  ``public static Spliterator spliterator(``
+                  `` Object[] p0, int p1, int p2)``
+               -  ``public static DoubleStream stream(double[] p0)``
+               -  ``public static DoubleStream stream(``
+                  `` double[] p0, int p1, int p2)``
+               -  ``public static IntStream stream(int[] p0)``
+               -  ``public static IntStream stream(``
+                  `` int[] p0, int p1, int p2)``
+               -  ``public static LongStream stream(long[] p0)``
+               -  ``public static LongStream stream(``
+                  `` long[] p0, int p1, int p2)``
+               -  ``public static Stream stream(Object[] p0)``
+               -  ``public static Stream stream(``
+                  `` Object[] p0, int p1, int p2)``
+            - | Additional methods on existing class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   Calendar
+            - 
+
+               -  ``public final java.time.Instant toInstant()``
+            - | Additional methods on existing class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   Collection
+            - 
+
+               -  ``public Stream parallelStream()``\ :sup:```1```
+               -  ``public boolean removeIf(Predicate filter)``
+               -  ``public Spliterator spliterator()``
+               -  ``public Stream stream()``
+               -  ``public Object[] toArray(``
+                  `` IntFunction generator)``\ :sup:```3```
+            - | Additional methods on existing class.
+               |  :sup:`1` Supported only on devices which API level is 21 or
+                 higher.
+               |  :sup:`3` Not supported at all minSDK levels.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   Collections
+            - 
+
+               -  ``public static Map synchronizedMap(Map p0)``
+               -  ``public static SortedMap synchronizedSortedMap(``
+                  `` SortedMap p0)``
+            - | Additional methods on existing class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   Comparator
+            - 
+
+               -  ``public static Comparator comparing(``
+                  `` Function keyExtractor)``
+               -  ``public static Comparator comparing(``
+                  `` Function keyExtractor, Comparator keyComparator)``
+               -  ``public static Comparator comparingDouble(``
+                  `` ToDoubleFunction keyExtractor)``
+               -  ``public static Comparator comparingInt(``
+                  `` ToIntFunction keyExtractor)``
+               -  ``public static Comparator comparingLong(``
+                  `` ToLongFunction keyExtractor)``
+               -  ``public static Comparator naturalOrder()``
+               -  ``public static Comparator nullsFirst(``
+                  `` Comparator comparator)``
+               -  ``public static Comparator nullsLast(``
+                  `` Comparator comparator)``
+               -  ``public static Comparator reverseOrder()``
+               -  ``public Comparator reversed()``
+               -  ``public Comparator thenComparing(Comparator other)``
+               -  ``public Comparator thenComparing(``
+                  `` Function keyExtractor)``
+               -  ``public Comparator thenComparing(``
+                  `` Function keyExtractor, Comparator keyComparator)``
+               -  ``public Comparator thenComparingDouble(``
+                  `` ToDoubleFunction keyExtractor)``
+               -  ``public Comparator thenComparingInt(``
+                  `` ToIntFunction keyExtractor)``
+               -  ``public Comparator thenComparingLong(``
+                  `` ToLongFunction keyExtractor)``
+            - | Additional methods on existing class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   Date
+            - 
+
+               -  ``public static Date from(java.time.Instant p0)``
+               -  ``public java.time.Instant toInstant()``
+            - | Additional methods on existing class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   DoubleSummaryStatistics
+            - 
+
+               -  ``public DoubleSummaryStatistics()``
+               -  ``public void accept(double value)``
+               -  ``public void combine(DoubleSummaryStatistics other)``
+               -  ``public final double getAverage()``
+               -  ``public final long getCount()``
+               -  ``public final double getMax()``
+               -  ``public final double getMin()``
+               -  ``public final double getSum()``
+               -  ``public String toString()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   GregorianCalendar
+            - 
+
+               -  ``public static GregorianCalendar from(``
+                  `` java.time.ZonedDateTime p0)``
+               -  ``public java.time.ZonedDateTime toZonedDateTime()``
+            - | Additional methods on existing class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   IntSummaryStatistics
+            - 
+
+               -  ``public IntSummaryStatistics()``
+               -  ``public void accept(int value)``
+               -  ``public void combine(IntSummaryStatistics other)``
+               -  ``public final double getAverage()``
+               -  ``public final long getCount()``
+               -  ``public final int getMax()``
+               -  ``public final int getMin()``
+               -  ``public final long getSum()``
+               -  ``public String toString()``
+            - Some methods (1) present in Android T are not supported.
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   Iterator
+            - 
+
+               -  ``public void forEachRemaining(Consumer action)``
+               -  ``public void remove()``
+            - | Additional methods on existing class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   List
+            - 
+
+               -  ``public static List copyOf(Collection p0)``
+               -  ``public static List of()``
+               -  ``public static List of(Object p0)``
+               -  ``public static List of(Object p0, Object p1)``
+               -  ``public static List of(``
+                  `` Object p0, Object p1, Object p2)``
+               -  ``public static List of(``
+                  `` Object p0, Object p1, Object p2, Object p3)``
+               -  ``public static List of(``
+                  ``  Object p0,``
+                  ``  Object p1,``
+                  ``  Object p2,``
+                  ``  Object p3,``
+                  ``  Object p4)``
+               -  ``public static List of(``
+                  ``  Object p0,``
+                  ``  Object p1,``
+                  ``  Object p2,``
+                  ``  Object p3,``
+                  ``  Object p4,``
+                  ``  Object p5)``
+               -  ``public static List of(``
+                  ``  Object p0,``
+                  ``  Object p1,``
+                  ``  Object p2,``
+                  ``  Object p3,``
+                  ``  Object p4,``
+                  ``  Object p5,``
+                  ``  Object p6)``
+               -  ``public static List of(``
+                  ``  Object p0,``
+                  ``  Object p1,``
+                  ``  Object p2,``
+                  ``  Object p3,``
+                  ``  Object p4,``
+                  ``  Object p5,``
+                  ``  Object p6,``
+                  ``  Object p7)``
+               -  ``public static List of(``
+                  ``  Object p0,``
+                  ``  Object p1,``
+                  ``  Object p2,``
+                  ``  Object p3,``
+                  ``  Object p4,``
+                  ``  Object p5,``
+                  ``  Object p6,``
+                  ``  Object p7,``
+                  ``  Object p8)``
+               -  ``public static List of(``
+                  ``  Object p0,``
+                  ``  Object p1,``
+                  ``  Object p2,``
+                  ``  Object p3,``
+                  ``  Object p4,``
+                  ``  Object p5,``
+                  ``  Object p6,``
+                  ``  Object p7,``
+                  ``  Object p8,``
+                  ``  Object p9)``
+               -  ``public static List of(Object[] p0)``
+               -  ``public void replaceAll(UnaryOperator operator)``
+               -  ``public void sort(Comparator c)``
+               -  ``public Spliterator spliterator()``
+            - | Additional methods on existing class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   LongSummaryStatistics
+            - 
+
+               -  ``public LongSummaryStatistics()``
+               -  ``public void accept(int value)``
+               -  ``public void accept(long value)``
+               -  ``public void combine(LongSummaryStatistics other)``
+               -  ``public final double getAverage()``
+               -  ``public final long getCount()``
+               -  ``public final long getMax()``
+               -  ``public final long getMin()``
+               -  ``public final long getSum()``
+               -  ``public String toString()``
+            - Some methods (1) present in Android T are not supported.
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   Map.
+                   Entry
+            - 
+
+               -  ``public static Comparator comparingByKey()``
+               -  ``public static Comparator comparingByKey(``
+                  `` Comparator cmp)``
+               -  ``public static Comparator comparingByValue()``
+               -  ``public static Comparator comparingByValue(``
+                  `` Comparator cmp)``
+            - | Additional methods on existing class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   Map
+            - 
+
+               -  ``public Object compute(``
+                  `` Object key, BiFunction remappingFunction)``
+               -  ``public Object computeIfAbsent(``
+                  `` Object key, Function mappingFunction)``
+               -  ``public Object computeIfPresent(``
+                  `` Object key, BiFunction remappingFunction)``
+               -  ``public static Map copyOf(Map p0)``
+               -  ``public static Map.Entry entry(Object p0, Object p1)``
+               -  ``public void forEach(BiConsumer action)``
+               -  ``public Object getOrDefault(``
+                  `` Object key, Object defaultValue)``
+               -  ``public Object merge(``
+                  ``  Object key,``
+                  ``  Object value,``
+                  ``  BiFunction remappingFunction)``
+               -  ``public static Map of()``
+               -  ``public static Map of(Object p0, Object p1)``
+               -  ``public static Map of(``
+                  `` Object p0, Object p1, Object p2, Object p3)``
+               -  ``public static Map of(``
+                  ``  Object p0,``
+                  ``  Object p1,``
+                  ``  Object p2,``
+                  ``  Object p3,``
+                  ``  Object p4,``
+                  ``  Object p5)``
+               -  ``public static Map of(``
+                  ``  Object p0,``
+                  ``  Object p1,``
+                  ``  Object p2,``
+                  ``  Object p3,``
+                  ``  Object p4,``
+                  ``  Object p5,``
+                  ``  Object p6,``
+                  ``  Object p7)``
+               -  ``public static Map of(``
+                  ``  Object p0,``
+                  ``  Object p1,``
+                  ``  Object p2,``
+                  ``  Object p3,``
+                  ``  Object p4,``
+                  ``  Object p5,``
+                  ``  Object p6,``
+                  ``  Object p7,``
+                  ``  Object p8,``
+                  ``  Object p9)``
+               -  ``public static Map of(``
+                  ``  Object p0,``
+                  ``  Object p1,``
+                  ``  Object p2,``
+                  ``  Object p3,``
+                  ``  Object p4,``
+                  ``  Object p5,``
+                  ``  Object p6,``
+                  ``  Object p7,``
+                  ``  Object p8,``
+                  ``  Object p9,``
+                  ``  Object p10,``
+                  ``  Object p11)``
+               -  ``public static Map of(``
+                  ``  Object p0,``
+                  ``  Object p1,``
+                  ``  Object p2,``
+                  ``  Object p3,``
+                  ``  Object p4,``
+                  ``  Object p5,``
+                  ``  Object p6,``
+                  ``  Object p7,``
+                  ``  Object p8,``
+                  ``  Object p9,``
+                  ``  Object p10,``
+                  ``  Object p11,``
+                  ``  Object p12,``
+                  ``  Object p13)``
+               -  ``public static Map of(``
+                  ``  Object p0,``
+                  ``  Object p1,``
+                  ``  Object p2,``
+                  ``  Object p3,``
+                  ``  Object p4,``
+                  ``  Object p5,``
+                  ``  Object p6,``
+                  ``  Object p7,``
+                  ``  Object p8,``
+                  ``  Object p9,``
+                  ``  Object p10,``
+                  ``  Object p11,``
+                  ``  Object p12,``
+                  ``  Object p13,``
+                  ``  Object p14,``
+                  ``  Object p15)``
+               -  ``public static Map of(``
+                  ``  Object p0,``
+                  ``  Object p1,``
+                  ``  Object p2,``
+                  ``  Object p3,``
+                  ``  Object p4,``
+                  ``  Object p5,``
+                  ``  Object p6,``
+                  ``  Object p7,``
+                  ``  Object p8,``
+                  ``  Object p9,``
+                  ``  Object p10,``
+                  ``  Object p11,``
+                  ``  Object p12,``
+                  ``  Object p13,``
+                  ``  Object p14,``
+                  ``  Object p15,``
+                  ``  Object p16,``
+                  ``  Object p17)``
+               -  ``public static Map of(``
+                  ``  Object p0,``
+                  ``  Object p1,``
+                  ``  Object p2,``
+                  ``  Object p3,``
+                  ``  Object p4,``
+                  ``  Object p5,``
+                  ``  Object p6,``
+                  ``  Object p7,``
+                  ``  Object p8,``
+                  ``  Object p9,``
+                  ``  Object p10,``
+                  ``  Object p11,``
+                  ``  Object p12,``
+                  ``  Object p13,``
+                  ``  Object p14,``
+                  ``  Object p15,``
+                  ``  Object p16,``
+                  ``  Object p17,``
+                  ``  Object p18,``
+                  ``  Object p19)``
+               -  ``public static Map ofEntries(Map.Entry[] p0)``
+               -  ``public Object putIfAbsent(Object key, Object value)``
+               -  ``public boolean remove(Object key, Object value)``
+               -  ``public Object replace(Object key, Object value)``
+               -  ``public boolean replace(``
+                  `` Object key, Object oldValue, Object newValue)``
+               -  ``public void replaceAll(BiFunction function)``
+            - | Additional methods on existing class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   Optional
+            - 
+
+               -  ``public static Optional empty()``
+               -  ``public boolean equals(Object obj)``
+               -  ``public Optional filter(Predicate predicate)``
+               -  ``public Optional flatMap(Function mapper)``
+               -  ``public Object get()``
+               -  ``public int hashCode()``
+               -  ``public void ifPresent(Consumer consumer)``
+               -  ``public void ifPresentOrElse(``
+                  `` Consumer p0, Runnable p1)``
+               -  ``public boolean isEmpty()``
+               -  ``public boolean isPresent()``
+               -  ``public Optional map(Function mapper)``
+               -  ``public static Optional of(Object value)``
+               -  ``public static Optional ofNullable(Object value)``
+               -  ``public Optional or(Supplier p0)``
+               -  ``public Object orElse(Object other)``
+               -  ``public Object orElseGet(Supplier other)``
+               -  ``public Object orElseThrow()``
+               -  ``public Object orElseThrow(``
+                  `` Supplier exceptionSupplier)``
+               -  ``public Stream stream()``
+               -  ``public String toString()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   OptionalDouble
+            - 
+
+               -  ``public static OptionalDouble empty()``
+               -  ``public boolean equals(Object obj)``
+               -  ``public double getAsDouble()``
+               -  ``public int hashCode()``
+               -  ``public void ifPresent(DoubleConsumer consumer)``
+               -  ``public void ifPresentOrElse(``
+                  `` DoubleConsumer p0, Runnable p1)``
+               -  ``public boolean isEmpty()``
+               -  ``public boolean isPresent()``
+               -  ``public static OptionalDouble of(double value)``
+               -  ``public double orElse(double other)``
+               -  ``public double orElseGet(DoubleSupplier other)``
+               -  ``public double orElseThrow()``
+               -  ``public double orElseThrow(``
+                  `` Supplier exceptionSupplier)``
+               -  ``public DoubleStream stream()``
+               -  ``public String toString()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   OptionalInt
+            - 
+
+               -  ``public static OptionalInt empty()``
+               -  ``public boolean equals(Object obj)``
+               -  ``public int getAsInt()``
+               -  ``public int hashCode()``
+               -  ``public void ifPresent(IntConsumer consumer)``
+               -  ``public void ifPresentOrElse(``
+                  `` IntConsumer p0, Runnable p1)``
+               -  ``public boolean isEmpty()``
+               -  ``public boolean isPresent()``
+               -  ``public static OptionalInt of(int value)``
+               -  ``public int orElse(int other)``
+               -  ``public int orElseGet(IntSupplier other)``
+               -  ``public int orElseThrow()``
+               -  ``public int orElseThrow(Supplier exceptionSupplier)``
+               -  ``public IntStream stream()``
+               -  ``public String toString()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   OptionalLong
+            - 
+
+               -  ``public static OptionalLong empty()``
+               -  ``public boolean equals(Object obj)``
+               -  ``public long getAsLong()``
+               -  ``public int hashCode()``
+               -  ``public void ifPresent(LongConsumer consumer)``
+               -  ``public void ifPresentOrElse(``
+                  `` LongConsumer p0, Runnable p1)``
+               -  ``public boolean isEmpty()``
+               -  ``public boolean isPresent()``
+               -  ``public static OptionalLong of(long value)``
+               -  ``public long orElse(long other)``
+               -  ``public long orElseGet(LongSupplier other)``
+               -  ``public long orElseThrow()``
+               -  ``public long orElseThrow(Supplier exceptionSupplier)``
+               -  ``public LongStream stream()``
+               -  ``public String toString()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   PrimitiveIterator.
+                   OfDouble
+            - 
+
+               -  ``public void forEachRemaining(Consumer action)``
+               -  ``public void forEachRemaining(DoubleConsumer action)``
+               -  ``public Double next()``
+               -  ``public abstract double nextDouble()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   PrimitiveIterator.
+                   OfInt
+            - 
+
+               -  ``public void forEachRemaining(Consumer action)``
+               -  ``public void forEachRemaining(IntConsumer action)``
+               -  ``public Integer next()``
+               -  ``public abstract int nextInt()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   PrimitiveIterator.
+                   OfLong
+            - 
+
+               -  ``public void forEachRemaining(Consumer action)``
+               -  ``public void forEachRemaining(LongConsumer action)``
+               -  ``public Long next()``
+               -  ``public abstract long nextLong()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   PrimitiveIterator
+            - 
+
+               -  ``public abstract void forEachRemaining(Object p0)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   Set
+            - 
+
+               -  ``public static Set copyOf(Collection p0)``
+               -  ``public static Set of()``
+               -  ``public static Set of(Object p0)``
+               -  ``public static Set of(Object p0, Object p1)``
+               -  ``public static Set of(``
+                  `` Object p0, Object p1, Object p2)``
+               -  ``public static Set of(``
+                  `` Object p0, Object p1, Object p2, Object p3)``
+               -  ``public static Set of(``
+                  ``  Object p0,``
+                  ``  Object p1,``
+                  ``  Object p2,``
+                  ``  Object p3,``
+                  ``  Object p4)``
+               -  ``public static Set of(``
+                  ``  Object p0,``
+                  ``  Object p1,``
+                  ``  Object p2,``
+                  ``  Object p3,``
+                  ``  Object p4,``
+                  ``  Object p5)``
+               -  ``public static Set of(``
+                  ``  Object p0,``
+                  ``  Object p1,``
+                  ``  Object p2,``
+                  ``  Object p3,``
+                  ``  Object p4,``
+                  ``  Object p5,``
+                  ``  Object p6)``
+               -  ``public static Set of(``
+                  ``  Object p0,``
+                  ``  Object p1,``
+                  ``  Object p2,``
+                  ``  Object p3,``
+                  ``  Object p4,``
+                  ``  Object p5,``
+                  ``  Object p6,``
+                  ``  Object p7)``
+               -  ``public static Set of(``
+                  ``  Object p0,``
+                  ``  Object p1,``
+                  ``  Object p2,``
+                  ``  Object p3,``
+                  ``  Object p4,``
+                  ``  Object p5,``
+                  ``  Object p6,``
+                  ``  Object p7,``
+                  ``  Object p8)``
+               -  ``public static Set of(``
+                  ``  Object p0,``
+                  ``  Object p1,``
+                  ``  Object p2,``
+                  ``  Object p3,``
+                  ``  Object p4,``
+                  ``  Object p5,``
+                  ``  Object p6,``
+                  ``  Object p7,``
+                  ``  Object p8,``
+                  ``  Object p9)``
+               -  ``public static Set of(Object[] p0)``
+               -  ``public Spliterator spliterator()``
+            - | Additional methods on existing class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   SortedSet
+            - 
+
+               -  ``public Spliterator spliterator()``
+            - | Additional methods on existing class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   Spliterator.
+                   OfDouble
+            - 
+
+               -  ``public void forEachRemaining(Consumer action)``
+               -  ``public void forEachRemaining(DoubleConsumer action)``
+               -  ``public boolean tryAdvance(Consumer action)``
+               -  ``public abstract boolean tryAdvance(``
+                  `` DoubleConsumer p0)``
+               -  ``public abstract Spliterator.OfDouble trySplit()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   Spliterator.
+                   OfInt
+            - 
+
+               -  ``public void forEachRemaining(Consumer action)``
+               -  ``public void forEachRemaining(IntConsumer action)``
+               -  ``public boolean tryAdvance(Consumer action)``
+               -  ``public abstract boolean tryAdvance(IntConsumer p0)``
+               -  ``public abstract Spliterator.OfInt trySplit()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   Spliterator.
+                   OfLong
+            - 
+
+               -  ``public void forEachRemaining(Consumer action)``
+               -  ``public void forEachRemaining(LongConsumer action)``
+               -  ``public boolean tryAdvance(Consumer action)``
+               -  ``public abstract boolean tryAdvance(LongConsumer p0)``
+               -  ``public abstract Spliterator.OfLong trySplit()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   Spliterator.
+                   OfPrimitive
+            - 
+
+               -  ``public void forEachRemaining(Object action)``
+               -  ``public abstract boolean tryAdvance(Object p0)``
+               -  ``public abstract Spliterator.OfPrimitive trySplit()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   Spliterator
+            - 
+
+               -  ``public static final int CONCURRENT``
+               -  ``public static final int DISTINCT``
+               -  ``public static final int IMMUTABLE``
+               -  ``public static final int NONNULL``
+               -  ``public static final int ORDERED``
+               -  ``public static final int SIZED``
+               -  ``public static final int SORTED``
+               -  ``public static final int SUBSIZED``
+               -  ``public abstract int characteristics()``
+               -  ``public abstract long estimateSize()``
+               -  ``public void forEachRemaining(Consumer action)``
+               -  ``public Comparator getComparator()``
+               -  ``public long getExactSizeIfKnown()``
+               -  ``public boolean hasCharacteristics(``
+                  `` int characteristics)``
+               -  ``public abstract boolean tryAdvance(Consumer p0)``
+               -  ``public abstract Spliterator trySplit()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   Spliterators.
+                   AbstractDoubleSpliterator
+            - 
+
+               -  ``protected Spliterators.AbstractDoubleSpliterator(``
+                  `` long est, int additionalCharacteristics)``
+               -  ``public int characteristics()``
+               -  ``public long estimateSize()``
+               -  ``public Spliterator.OfDouble trySplit()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   Spliterators.
+                   AbstractIntSpliterator
+            - 
+
+               -  ``protected Spliterators.AbstractIntSpliterator(``
+                  `` long est, int additionalCharacteristics)``
+               -  ``public int characteristics()``
+               -  ``public long estimateSize()``
+               -  ``public Spliterator.OfInt trySplit()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   Spliterators.
+                   AbstractLongSpliterator
+            - 
+
+               -  ``protected Spliterators.AbstractLongSpliterator(``
+                  `` long est, int additionalCharacteristics)``
+               -  ``public int characteristics()``
+               -  ``public long estimateSize()``
+               -  ``public Spliterator.OfLong trySplit()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   Spliterators.
+                   AbstractSpliterator
+            - 
+
+               -  ``protected Spliterators.AbstractSpliterator(``
+                  `` long est, int additionalCharacteristics)``
+               -  ``public int characteristics()``
+               -  ``public long estimateSize()``
+               -  ``public Spliterator trySplit()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   Spliterators
+            - 
+
+               -  ``public static Spliterator.OfDouble emptyDoubleSpliterator()``
+               -  ``public static Spliterator.OfInt emptyIntSpliterator()``
+               -  ``public static Spliterator.OfLong emptyLongSpliterator()``
+               -  ``public static Spliterator emptySpliterator()``
+               -  ``public static Iterator iterator(``
+                  `` Spliterator spliterator)``
+               -  ``public static PrimitiveIterator.OfDouble iterator(``
+                  `` Spliterator.OfDouble spliterator)``
+               -  ``public static PrimitiveIterator.OfInt iterator(``
+                  `` Spliterator.OfInt spliterator)``
+               -  ``public static PrimitiveIterator.OfLong iterator(``
+                  `` Spliterator.OfLong spliterator)``
+               -  ``public static Spliterator.OfDouble spliterator(``
+                  ``  PrimitiveIterator.OfDouble iterator,``
+                  ``  long size,``
+                  ``  int characteristics)``
+               -  ``public static Spliterator.OfDouble spliterator(``
+                  `` double[] array, int additionalCharacteristics)``
+               -  ``public static Spliterator.OfDouble spliterator(``
+                  ``  double[] array,``
+                  ``  int fromIndex,``
+                  ``  int toIndex,``
+                  ``  int additionalCharacteristics)``
+               -  ``public static Spliterator.OfInt spliterator(``
+                  ``  PrimitiveIterator.OfInt iterator,``
+                  ``  long size,``
+                  ``  int characteristics)``
+               -  ``public static Spliterator.OfInt spliterator(``
+                  `` int[] array, int additionalCharacteristics)``
+               -  ``public static Spliterator.OfInt spliterator(``
+                  ``  int[] array,``
+                  ``  int fromIndex,``
+                  ``  int toIndex,``
+                  ``  int additionalCharacteristics)``
+               -  ``public static Spliterator.OfLong spliterator(``
+                  ``  PrimitiveIterator.OfLong iterator,``
+                  ``  long size,``
+                  ``  int characteristics)``
+               -  ``public static Spliterator.OfLong spliterator(``
+                  `` long[] array, int additionalCharacteristics)``
+               -  ``public static Spliterator.OfLong spliterator(``
+                  ``  long[] array,``
+                  ``  int fromIndex,``
+                  ``  int toIndex,``
+                  ``  int additionalCharacteristics)``
+               -  ``public static Spliterator spliterator(``
+                  `` Collection c, int characteristics)``
+               -  ``public static Spliterator spliterator(``
+                  `` Iterator iterator, long size, int characteristics)``
+               -  ``public static Spliterator spliterator(``
+                  `` Object[] array, int additionalCharacteristics)``
+               -  ``public static Spliterator spliterator(``
+                  ``  Object[] array,``
+                  ``  int fromIndex,``
+                  ``  int toIndex,``
+                  ``  int additionalCharacteristics)``
+               -  ``public static Spliterator.OfDouble spliteratorUnknownSize(``
+                  ``  PrimitiveIterator.OfDouble iterator,``
+                  ``  int characteristics)``
+               -  ``public static Spliterator.OfInt spliteratorUnknownSize(``
+                  ``  PrimitiveIterator.OfInt iterator,``
+                  ``  int characteristics)``
+               -  ``public static Spliterator.OfLong spliteratorUnknownSize(``
+                  ``  PrimitiveIterator.OfLong iterator,``
+                  ``  int characteristics)``
+               -  ``public static Spliterator spliteratorUnknownSize(``
+                  `` Iterator iterator, int characteristics)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   StringJoiner
+            - 
+
+               -  ``public StringJoiner(CharSequence delimiter)``
+               -  ``public StringJoiner(``
+                  ``  CharSequence delimiter,``
+                  ``  CharSequence prefix,``
+                  ``  CharSequence suffix)``
+               -  ``public StringJoiner add(CharSequence newElement)``
+               -  ``public int length()``
+               -  ``public StringJoiner merge(StringJoiner other)``
+               -  ``public StringJoiner setEmptyValue(``
+                  `` CharSequence emptyValue)``
+               -  ``public String toString()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util``*
+
+               .. container::
+
+                   TimeZone
+            - 
+
+               -  ``public static TimeZone getTimeZone(String p0)``
+               -  ``public static TimeZone getTimeZone(``
+                  `` java.time.ZoneId p0)``
+               -  ``public java.time.ZoneId toZoneId()``
+            - | Additional methods on existing class.
+               |  
+         - 
+
+            - *``java.util.concurrent``*
+
+               .. container::
+
+                   ConcurrentHashMap.
+                   KeySetView
+            - 
+
+               -  ``public boolean add(Object e)``
+               -  ``public boolean addAll(Collection c)``
+               -  ``public boolean contains(Object o)``
+               -  ``public boolean equals(Object o)``
+               -  ``public void forEach(Consumer action)``
+               -  ``public Object getMappedValue()``
+               -  ``public int hashCode()``
+               -  ``public Iterator iterator()``
+               -  ``public boolean remove(Object o)``
+               -  ``public Spliterator spliterator()``
+            - Some methods (9) present in Android T are not supported.
+         - 
+
+            - *``java.util.concurrent``*
+
+               .. container::
+
+                   ConcurrentHashMap
+            - 
+
+               -  ``public ConcurrentHashMap()``
+               -  ``public ConcurrentHashMap(int initialCapacity)``
+               -  ``public ConcurrentHashMap(``
+                  `` int initialCapacity, float loadFactor)``
+               -  ``public ConcurrentHashMap(``
+                  ``  int initialCapacity,``
+                  ``  float loadFactor,``
+                  ``  int concurrencyLevel)``
+               -  ``public ConcurrentHashMap(Map m)``
+               -  ``public void clear()``
+               -  ``public Object compute(``
+                  `` Object key, BiFunction remappingFunction)``
+               -  ``public Object computeIfAbsent(``
+                  `` Object key, Function mappingFunction)``
+               -  ``public Object computeIfPresent(``
+                  `` Object key, BiFunction remappingFunction)``
+               -  ``public boolean contains(Object value)``
+               -  ``public boolean containsKey(Object key)``
+               -  ``public boolean containsValue(Object value)``
+               -  ``public Enumeration elements()``
+               -  ``public Set entrySet()``
+               -  ``public boolean equals(Object o)``
+               -  ``public void forEach(BiConsumer action)``
+               -  ``public Object get(Object key)``
+               -  ``public Object getOrDefault(``
+                  `` Object key, Object defaultValue)``
+               -  ``public int hashCode()``
+               -  ``public boolean isEmpty()``
+               -  ``public Set keySet()``
+               -  ``public Enumeration keys()``
+               -  ``public long mappingCount()``
+               -  ``public Object merge(``
+                  ``  Object key,``
+                  ``  Object value,``
+                  ``  BiFunction remappingFunction)``
+               -  ``public Object put(Object key, Object value)``
+               -  ``public void putAll(Map m)``
+               -  ``public Object putIfAbsent(Object key, Object value)``
+               -  ``public Object remove(Object key)``
+               -  ``public boolean remove(Object key, Object value)``
+               -  ``public Object replace(Object key, Object value)``
+               -  ``public boolean replace(``
+                  `` Object key, Object oldValue, Object newValue)``
+               -  ``public void replaceAll(BiFunction function)``
+               -  ``public int size()``
+               -  ``public String toString()``
+               -  ``public Collection values()``
+            - Some methods (34) present in Android T are not supported.
+         - 
+
+            - *``java.util.concurrent``*
+
+               .. container::
+
+                   ConcurrentMap
+            - 
+
+               -  ``public Object compute(``
+                  `` Object key, BiFunction remappingFunction)``
+               -  ``public Object computeIfAbsent(``
+                  `` Object key, Function mappingFunction)``
+               -  ``public Object computeIfPresent(``
+                  `` Object key, BiFunction remappingFunction)``
+               -  ``public void forEach(BiConsumer action)``
+               -  ``public Object getOrDefault(``
+                  `` Object key, Object defaultValue)``
+               -  ``public Object merge(``
+                  ``  Object key,``
+                  ``  Object value,``
+                  ``  BiFunction remappingFunction)``
+               -  ``public void replaceAll(BiFunction function)``
+            - | Additional methods on existing class.
+               |  
+         - 
+
+            - *``java.util.concurrent``*
+
+               .. container::
+
+                   ThreadLocalRandom
+            - 
+
+               -  ``public static ThreadLocalRandom current()``
+               -  ``public DoubleStream doubles()``
+               -  ``public DoubleStream doubles(``
+                  ``  double randomNumberOrigin,``
+                  ``  double randomNumberBound)``
+               -  ``public DoubleStream doubles(long streamSize)``
+               -  ``public DoubleStream doubles(``
+                  ``  long streamSize,``
+                  ``  double randomNumberOrigin,``
+                  ``  double randomNumberBound)``
+               -  ``public IntStream ints()``
+               -  ``public IntStream ints(``
+                  `` int randomNumberOrigin, int randomNumberBound)``
+               -  ``public IntStream ints(long streamSize)``
+               -  ``public IntStream ints(``
+                  ``  long streamSize,``
+                  ``  int randomNumberOrigin,``
+                  ``  int randomNumberBound)``
+               -  ``public LongStream longs()``
+               -  ``public LongStream longs(long streamSize)``
+               -  ``public LongStream longs(``
+                  `` long randomNumberOrigin, long randomNumberBound)``
+               -  ``public LongStream longs(``
+                  ``  long streamSize,``
+                  ``  long randomNumberOrigin,``
+                  ``  long randomNumberBound)``
+               -  ``protected int next(int bits)``
+               -  ``public boolean nextBoolean()``
+               -  ``public double nextDouble()``
+               -  ``public double nextDouble(double bound)``
+               -  ``public double nextDouble(``
+                  `` double origin, double bound)``
+               -  ``public float nextFloat()``
+               -  ``public double nextGaussian()``
+               -  ``public int nextInt()``
+               -  ``public int nextInt(int bound)``
+               -  ``public int nextInt(int origin, int bound)``
+               -  ``public long nextLong()``
+               -  ``public long nextLong(long bound)``
+               -  ``public long nextLong(long origin, long bound)``
+               -  ``public void setSeed(long seed)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.``
+               `` concurrent.atomic``*
+
+               .. container::
+
+                   AtomicInteger
+            - 
+
+               -  ``public final int accumulateAndGet(``
+                  `` int p0, IntBinaryOperator p1)``
+               -  ``public final int getAndAccumulate(``
+                  `` int p0, IntBinaryOperator p1)``
+               -  ``public final int getAndUpdate(IntUnaryOperator p0)``
+               -  ``public final int updateAndGet(IntUnaryOperator p0)``
+            - | Additional methods on existing class.
+               |  
+         - 
+
+            - *``java.util.``
+               `` concurrent.atomic``*
+
+               .. container::
+
+                   AtomicLong
+            - 
+
+               -  ``public final long accumulateAndGet(``
+                  `` long p0, LongBinaryOperator p1)``
+               -  ``public final long getAndAccumulate(``
+                  `` long p0, LongBinaryOperator p1)``
+               -  ``public final long getAndUpdate(LongUnaryOperator p0)``
+               -  ``public final long updateAndGet(LongUnaryOperator p0)``
+            - | Additional methods on existing class.
+               |  
+         - 
+
+            - *``java.util.``
+               `` concurrent.atomic``*
+
+               .. container::
+
+                   AtomicReference
+            - 
+
+               -  ``public final Object accumulateAndGet(``
+                  `` Object p0, BinaryOperator p1)``
+               -  ``public final Object getAndAccumulate(``
+                  `` Object p0, BinaryOperator p1)``
+               -  ``public final Object getAndUpdate(UnaryOperator p0)``
+               -  ``public final Object updateAndGet(UnaryOperator p0)``
+            - | Additional methods on existing class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   BiConsumer
+            - 
+
+               -  ``public abstract void accept(Object p0, Object p1)``
+               -  ``public BiConsumer andThen(BiConsumer after)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   BiFunction
+            - 
+
+               -  ``public BiFunction andThen(Function after)``
+               -  ``public abstract Object apply(Object p0, Object p1)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   BiPredicate
+            - 
+
+               -  ``public BiPredicate and(BiPredicate other)``
+               -  ``public BiPredicate negate()``
+               -  ``public BiPredicate or(BiPredicate other)``
+               -  ``public abstract boolean test(Object p0, Object p1)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   BinaryOperator
+            - 
+
+               -  ``public static BinaryOperator maxBy(``
+                  `` Comparator comparator)``
+               -  ``public static BinaryOperator minBy(``
+                  `` Comparator comparator)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   BooleanSupplier
+            - 
+
+               -  ``public abstract boolean getAsBoolean()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   Consumer
+            - 
+
+               -  ``public abstract void accept(Object p0)``
+               -  ``public Consumer andThen(Consumer after)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   DoubleBinaryOperator
+            - 
+
+               -  ``public abstract double applyAsDouble(``
+                  `` double p0, double p1)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   DoubleConsumer
+            - 
+
+               -  ``public abstract void accept(double p0)``
+               -  ``public DoubleConsumer andThen(DoubleConsumer after)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   DoubleFunction
+            - 
+
+               -  ``public abstract Object apply(double p0)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   DoublePredicate
+            - 
+
+               -  ``public DoublePredicate and(DoublePredicate other)``
+               -  ``public DoublePredicate negate()``
+               -  ``public DoublePredicate or(DoublePredicate other)``
+               -  ``public abstract boolean test(double p0)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   DoubleSupplier
+            - 
+
+               -  ``public abstract double getAsDouble()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   DoubleToIntFunction
+            - 
+
+               -  ``public abstract int applyAsInt(double p0)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   DoubleToLongFunction
+            - 
+
+               -  ``public abstract long applyAsLong(double p0)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   DoubleUnaryOperator
+            - 
+
+               -  ``public DoubleUnaryOperator andThen(``
+                  `` DoubleUnaryOperator after)``
+               -  ``public abstract double applyAsDouble(double p0)``
+               -  ``public DoubleUnaryOperator compose(``
+                  `` DoubleUnaryOperator before)``
+               -  ``public static DoubleUnaryOperator identity()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   Function
+            - 
+
+               -  ``public Function andThen(Function after)``
+               -  ``public abstract Object apply(Object p0)``
+               -  ``public Function compose(Function before)``
+               -  ``public static Function identity()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   IntBinaryOperator
+            - 
+
+               -  ``public abstract int applyAsInt(int p0, int p1)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   IntConsumer
+            - 
+
+               -  ``public abstract void accept(int p0)``
+               -  ``public IntConsumer andThen(IntConsumer after)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   IntFunction
+            - 
+
+               -  ``public abstract Object apply(int p0)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   IntPredicate
+            - 
+
+               -  ``public IntPredicate and(IntPredicate other)``
+               -  ``public IntPredicate negate()``
+               -  ``public IntPredicate or(IntPredicate other)``
+               -  ``public abstract boolean test(int p0)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   IntSupplier
+            - 
+
+               -  ``public abstract int getAsInt()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   IntToDoubleFunction
+            - 
+
+               -  ``public abstract double applyAsDouble(int p0)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   IntToLongFunction
+            - 
+
+               -  ``public abstract long applyAsLong(int p0)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   IntUnaryOperator
+            - 
+
+               -  ``public IntUnaryOperator andThen(``
+                  `` IntUnaryOperator after)``
+               -  ``public abstract int applyAsInt(int p0)``
+               -  ``public IntUnaryOperator compose(``
+                  `` IntUnaryOperator before)``
+               -  ``public static IntUnaryOperator identity()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   LongBinaryOperator
+            - 
+
+               -  ``public abstract long applyAsLong(long p0, long p1)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   LongConsumer
+            - 
+
+               -  ``public abstract void accept(long p0)``
+               -  ``public LongConsumer andThen(LongConsumer after)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   LongFunction
+            - 
+
+               -  ``public abstract Object apply(long p0)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   LongPredicate
+            - 
+
+               -  ``public LongPredicate and(LongPredicate other)``
+               -  ``public LongPredicate negate()``
+               -  ``public LongPredicate or(LongPredicate other)``
+               -  ``public abstract boolean test(long p0)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   LongSupplier
+            - 
+
+               -  ``public abstract long getAsLong()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   LongToDoubleFunction
+            - 
+
+               -  ``public abstract double applyAsDouble(long p0)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   LongToIntFunction
+            - 
+
+               -  ``public abstract int applyAsInt(long p0)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   LongUnaryOperator
+            - 
+
+               -  ``public LongUnaryOperator andThen(``
+                  `` LongUnaryOperator after)``
+               -  ``public abstract long applyAsLong(long p0)``
+               -  ``public LongUnaryOperator compose(``
+                  `` LongUnaryOperator before)``
+               -  ``public static LongUnaryOperator identity()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   ObjDoubleConsumer
+            - 
+
+               -  ``public abstract void accept(Object p0, double p1)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   ObjIntConsumer
+            - 
+
+               -  ``public abstract void accept(Object p0, int p1)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   ObjLongConsumer
+            - 
+
+               -  ``public abstract void accept(Object p0, long p1)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   Predicate
+            - 
+
+               -  ``public Predicate and(Predicate other)``
+               -  ``public static Predicate isEqual(Object targetRef)``
+               -  ``public Predicate negate()``
+               -  ``public static Predicate not(Predicate p0)``
+               -  ``public Predicate or(Predicate other)``
+               -  ``public abstract boolean test(Object p0)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   Supplier
+            - 
+
+               -  ``public abstract Object get()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   ToDoubleBiFunction
+            - 
+
+               -  ``public abstract double applyAsDouble(``
+                  `` Object p0, Object p1)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   ToDoubleFunction
+            - 
+
+               -  ``public abstract double applyAsDouble(Object p0)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   ToIntBiFunction
+            - 
+
+               -  ``public abstract int applyAsInt(Object p0, Object p1)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   ToIntFunction
+            - 
+
+               -  ``public abstract int applyAsInt(Object p0)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   ToLongBiFunction
+            - 
+
+               -  ``public abstract long applyAsLong(``
+                  `` Object p0, Object p1)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   ToLongFunction
+            - 
+
+               -  ``public abstract long applyAsLong(Object p0)``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.function``*
+
+               .. container::
+
+                   UnaryOperator
+            - 
+
+               -  ``public static UnaryOperator identity()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.stream``*
+
+               .. container::
+
+                   BaseStream
+            - 
+
+               -  ``public abstract void close()``
+               -  ``public abstract boolean isParallel()``
+               -  ``public abstract Iterator iterator()``
+               -  ``public abstract BaseStream onClose(Runnable p0)``
+               -  ``public abstract BaseStream parallel()``\ :sup:```1```
+               -  ``public abstract BaseStream sequential()``
+               -  ``public abstract Spliterator spliterator()``
+               -  ``public abstract BaseStream unordered()``
+            - | :sup:`1` Supported only on devices which API level is 21 or
+                 higher.
+               |  
+         - 
+
+            - *``java.util.stream``*
+
+               .. container::
+
+                   Collector.
+                   Characteristics
+            - 
+
+               -  ``public static final Collector.Characteristics CONCURRENT``
+               -  ``public static final Collector.Characteristics IDENTITY_FINISH``
+               -  ``public static final Collector.Characteristics UNORDERED``
+               -  ``public static Collector.Characteristics valueOf(``
+                  `` String name)``
+               -  ``public static Collector.Characteristics[] values()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.stream``*
+
+               .. container::
+
+                   Collector
+            - 
+
+               -  ``public abstract BiConsumer accumulator()``
+               -  ``public abstract Set characteristics()``
+               -  ``public abstract BinaryOperator combiner()``
+               -  ``public abstract Function finisher()``
+               -  ``public static Collector of(``
+                  ``  Supplier supplier,``
+                  ``  BiConsumer accumulator,``
+                  ``  BinaryOperator combiner,``
+                  ``  Function finisher,``
+                  ``  Collector.Characteristics[] characteristics)``
+               -  ``public static Collector of(``
+                  ``  Supplier supplier,``
+                  ``  BiConsumer accumulator,``
+                  ``  BinaryOperator combiner,``
+                  ``  Collector.Characteristics[] characteristics)``
+               -  ``public abstract Supplier supplier()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.stream``*
+
+               .. container::
+
+                   Collectors
+            - 
+
+               -  ``public static Collector averagingDouble(``
+                  `` ToDoubleFunction mapper)``
+               -  ``public static Collector averagingInt(``
+                  `` ToIntFunction mapper)``
+               -  ``public static Collector averagingLong(``
+                  `` ToLongFunction mapper)``
+               -  ``public static Collector collectingAndThen(``
+                  `` Collector downstream, Function finisher)``
+               -  ``public static Collector counting()``
+               -  ``public static Collector groupingBy(``
+                  `` Function classifier)``
+               -  ``public static Collector groupingBy(``
+                  ``  Function classifier,``
+                  ``  Supplier mapFactory,``
+                  ``  Collector downstream)``
+               -  ``public static Collector groupingBy(``
+                  `` Function classifier, Collector downstream)``
+               -  ``public static Collector groupingByConcurrent(``
+                  `` Function classifier)``
+               -  ``public static Collector groupingByConcurrent(``
+                  ``  Function classifier,``
+                  ``  Supplier mapFactory,``
+                  ``  Collector downstream)``
+               -  ``public static Collector groupingByConcurrent(``
+                  `` Function classifier, Collector downstream)``
+               -  ``public static Collector joining()``
+               -  ``public static Collector joining(``
+                  `` CharSequence delimiter)``
+               -  ``public static Collector joining(``
+                  ``  CharSequence delimiter,``
+                  ``  CharSequence prefix,``
+                  ``  CharSequence suffix)``
+               -  ``public static Collector mapping(``
+                  `` Function mapper, Collector downstream)``
+               -  ``public static Collector maxBy(Comparator comparator)``
+               -  ``public static Collector minBy(Comparator comparator)``
+               -  ``public static Collector partitioningBy(``
+                  `` Predicate predicate)``
+               -  ``public static Collector partitioningBy(``
+                  `` Predicate predicate, Collector downstream)``
+               -  ``public static Collector reducing(``
+                  `` Object identity, BinaryOperator op)``
+               -  ``public static Collector reducing(``
+                  ``  Object identity,``
+                  ``  Function mapper,``
+                  ``  BinaryOperator op)``
+               -  ``public static Collector reducing(BinaryOperator op)``
+               -  ``public static Collector summarizingDouble(``
+                  `` ToDoubleFunction mapper)``
+               -  ``public static Collector summarizingInt(``
+                  `` ToIntFunction mapper)``
+               -  ``public static Collector summarizingLong(``
+                  `` ToLongFunction mapper)``
+               -  ``public static Collector summingDouble(``
+                  `` ToDoubleFunction mapper)``
+               -  ``public static Collector summingInt(``
+                  `` ToIntFunction mapper)``
+               -  ``public static Collector summingLong(``
+                  `` ToLongFunction mapper)``
+               -  ``public static Collector toCollection(``
+                  `` Supplier collectionFactory)``
+               -  ``public static Collector toConcurrentMap(``
+                  `` Function keyMapper, Function valueMapper)``
+               -  ``public static Collector toConcurrentMap(``
+                  ``  Function keyMapper,``
+                  ``  Function valueMapper,``
+                  ``  BinaryOperator mergeFunction)``
+               -  ``public static Collector toConcurrentMap(``
+                  ``  Function keyMapper,``
+                  ``  Function valueMapper,``
+                  ``  BinaryOperator mergeFunction,``
+                  ``  Supplier mapSupplier)``
+               -  ``public static Collector toList()``
+               -  ``public static Collector toMap(``
+                  `` Function keyMapper, Function valueMapper)``
+               -  ``public static Collector toMap(``
+                  ``  Function keyMapper,``
+                  ``  Function valueMapper,``
+                  ``  BinaryOperator mergeFunction)``
+               -  ``public static Collector toMap(``
+                  ``  Function keyMapper,``
+                  ``  Function valueMapper,``
+                  ``  BinaryOperator mergeFunction,``
+                  ``  Supplier mapSupplier)``
+               -  ``public static Collector toSet()``
+            - Some methods (6) present in Android T are not supported.
+         - 
+
+            - *``java.util.stream``*
+
+               .. container::
+
+                   DoubleStream.
+                   Builder
+            - 
+
+               -  ``public abstract void accept(double p0)``
+               -  ``public DoubleStream.Builder add(double t)``
+               -  ``public abstract DoubleStream build()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.stream``*
+
+               .. container::
+
+                   DoubleStream
+            - 
+
+               -  ``public abstract boolean allMatch(DoublePredicate p0)``
+               -  ``public abstract boolean anyMatch(DoublePredicate p0)``
+               -  ``public abstract OptionalDouble average()``
+               -  ``public abstract Stream boxed()``
+               -  ``public static DoubleStream.Builder builder()``
+               -  ``public abstract Object collect(``
+                  `` Supplier p0, ObjDoubleConsumer p1, BiConsumer p2)``
+               -  ``public static DoubleStream concat(``
+                  `` DoubleStream a, DoubleStream b)``
+               -  ``public abstract long count()``
+               -  ``public abstract DoubleStream distinct()``
+               -  ``public static DoubleStream empty()``
+               -  ``public abstract DoubleStream filter(``
+                  `` DoublePredicate p0)``
+               -  ``public abstract OptionalDouble findAny()``
+               -  ``public abstract OptionalDouble findFirst()``
+               -  ``public abstract DoubleStream flatMap(``
+                  `` DoubleFunction p0)``
+               -  ``public abstract void forEach(DoubleConsumer p0)``
+               -  ``public abstract void forEachOrdered(``
+                  `` DoubleConsumer p0)``
+               -  ``public static DoubleStream generate(``
+                  `` DoubleSupplier s)``
+               -  ``public static DoubleStream iterate(``
+                  `` double seed, DoubleUnaryOperator f)``
+               -  ``public abstract PrimitiveIterator.OfDouble iterator()``
+               -  ``public abstract DoubleStream limit(long p0)``
+               -  ``public abstract DoubleStream map(``
+                  `` DoubleUnaryOperator p0)``
+               -  ``public abstract IntStream mapToInt(``
+                  `` DoubleToIntFunction p0)``
+               -  ``public abstract LongStream mapToLong(``
+                  `` DoubleToLongFunction p0)``
+               -  ``public abstract Stream mapToObj(DoubleFunction p0)``
+               -  ``public abstract OptionalDouble max()``
+               -  ``public abstract OptionalDouble min()``
+               -  ``public abstract boolean noneMatch(``
+                  `` DoublePredicate p0)``
+               -  ``public static DoubleStream of(double t)``
+               -  ``public static DoubleStream of(double[] values)``
+               -  ``public abstract DoubleStream parallel()``\ :sup:```1```
+               -  ``public abstract DoubleStream peek(DoubleConsumer p0)``
+               -  ``public abstract double reduce(``
+                  `` double p0, DoubleBinaryOperator p1)``
+               -  ``public abstract OptionalDouble reduce(``
+                  `` DoubleBinaryOperator p0)``
+               -  ``public abstract DoubleStream sequential()``
+               -  ``public abstract DoubleStream skip(long p0)``
+               -  ``public abstract DoubleStream sorted()``
+               -  ``public abstract Spliterator.OfDouble spliterator()``
+               -  ``public abstract double sum()``
+               -  ``public abstract DoubleSummaryStatistics summaryStatistics()``
+               -  ``public abstract double[] toArray()``
+            - | :sup:`1` Supported only on devices which API level is 21 or
+                 higher.
+               |  
+         - 
+
+            - *``java.util.stream``*
+
+               .. container::
+
+                   IntStream.
+                   Builder
+            - 
+
+               -  ``public abstract void accept(int p0)``
+               -  ``public IntStream.Builder add(int t)``
+               -  ``public abstract IntStream build()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.stream``*
+
+               .. container::
+
+                   IntStream
+            - 
+
+               -  ``public abstract boolean allMatch(IntPredicate p0)``
+               -  ``public abstract boolean anyMatch(IntPredicate p0)``
+               -  ``public abstract DoubleStream asDoubleStream()``
+               -  ``public abstract LongStream asLongStream()``
+               -  ``public abstract OptionalDouble average()``
+               -  ``public abstract Stream boxed()``
+               -  ``public static IntStream.Builder builder()``
+               -  ``public abstract Object collect(``
+                  `` Supplier p0, ObjIntConsumer p1, BiConsumer p2)``
+               -  ``public static IntStream concat(``
+                  `` IntStream a, IntStream b)``
+               -  ``public abstract long count()``
+               -  ``public abstract IntStream distinct()``
+               -  ``public static IntStream empty()``
+               -  ``public abstract IntStream filter(IntPredicate p0)``
+               -  ``public abstract OptionalInt findAny()``
+               -  ``public abstract OptionalInt findFirst()``
+               -  ``public abstract IntStream flatMap(IntFunction p0)``
+               -  ``public abstract void forEach(IntConsumer p0)``
+               -  ``public abstract void forEachOrdered(IntConsumer p0)``
+               -  ``public static IntStream generate(IntSupplier s)``
+               -  ``public static IntStream iterate(``
+                  `` int seed, IntUnaryOperator f)``
+               -  ``public abstract PrimitiveIterator.OfInt iterator()``
+               -  ``public abstract IntStream limit(long p0)``
+               -  ``public abstract IntStream map(IntUnaryOperator p0)``
+               -  ``public abstract DoubleStream mapToDouble(``
+                  `` IntToDoubleFunction p0)``
+               -  ``public abstract LongStream mapToLong(``
+                  `` IntToLongFunction p0)``
+               -  ``public abstract Stream mapToObj(IntFunction p0)``
+               -  ``public abstract OptionalInt max()``
+               -  ``public abstract OptionalInt min()``
+               -  ``public abstract boolean noneMatch(IntPredicate p0)``
+               -  ``public static IntStream of(int t)``
+               -  ``public static IntStream of(int[] values)``
+               -  ``public abstract IntStream parallel()``\ :sup:```1```
+               -  ``public abstract IntStream peek(IntConsumer p0)``
+               -  ``public static IntStream range(``
+                  `` int startInclusive, int endExclusive)``
+               -  ``public static IntStream rangeClosed(``
+                  `` int startInclusive, int endInclusive)``
+               -  ``public abstract int reduce(``
+                  `` int p0, IntBinaryOperator p1)``
+               -  ``public abstract OptionalInt reduce(``
+                  `` IntBinaryOperator p0)``
+               -  ``public abstract IntStream sequential()``
+               -  ``public abstract IntStream skip(long p0)``
+               -  ``public abstract IntStream sorted()``
+               -  ``public abstract Spliterator.OfInt spliterator()``
+               -  ``public abstract int sum()``
+               -  ``public abstract IntSummaryStatistics summaryStatistics()``
+               -  ``public abstract int[] toArray()``
+            - | :sup:`1` Supported only on devices which API level is 21 or
+                 higher.
+               |  
+         - 
+
+            - *``java.util.stream``*
+
+               .. container::
+
+                   LongStream.
+                   Builder
+            - 
+
+               -  ``public abstract void accept(long p0)``
+               -  ``public LongStream.Builder add(long t)``
+               -  ``public abstract LongStream build()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.stream``*
+
+               .. container::
+
+                   LongStream
+            - 
+
+               -  ``public abstract boolean allMatch(LongPredicate p0)``
+               -  ``public abstract boolean anyMatch(LongPredicate p0)``
+               -  ``public abstract DoubleStream asDoubleStream()``
+               -  ``public abstract OptionalDouble average()``
+               -  ``public abstract Stream boxed()``
+               -  ``public static LongStream.Builder builder()``
+               -  ``public abstract Object collect(``
+                  `` Supplier p0, ObjLongConsumer p1, BiConsumer p2)``
+               -  ``public static LongStream concat(``
+                  `` LongStream a, LongStream b)``
+               -  ``public abstract long count()``
+               -  ``public abstract LongStream distinct()``
+               -  ``public static LongStream empty()``
+               -  ``public abstract LongStream filter(LongPredicate p0)``
+               -  ``public abstract OptionalLong findAny()``
+               -  ``public abstract OptionalLong findFirst()``
+               -  ``public abstract LongStream flatMap(LongFunction p0)``
+               -  ``public abstract void forEach(LongConsumer p0)``
+               -  ``public abstract void forEachOrdered(LongConsumer p0)``
+               -  ``public static LongStream generate(LongSupplier s)``
+               -  ``public static LongStream iterate(``
+                  `` long seed, LongUnaryOperator f)``
+               -  ``public abstract PrimitiveIterator.OfLong iterator()``
+               -  ``public abstract LongStream limit(long p0)``
+               -  ``public abstract LongStream map(LongUnaryOperator p0)``
+               -  ``public abstract DoubleStream mapToDouble(``
+                  `` LongToDoubleFunction p0)``
+               -  ``public abstract IntStream mapToInt(``
+                  `` LongToIntFunction p0)``
+               -  ``public abstract Stream mapToObj(LongFunction p0)``
+               -  ``public abstract OptionalLong max()``
+               -  ``public abstract OptionalLong min()``
+               -  ``public abstract boolean noneMatch(LongPredicate p0)``
+               -  ``public static LongStream of(long t)``
+               -  ``public static LongStream of(long[] values)``
+               -  ``public abstract LongStream parallel()``\ :sup:```1```
+               -  ``public abstract LongStream peek(LongConsumer p0)``
+               -  ``public static LongStream range(``
+                  `` long startInclusive, long endExclusive)``
+               -  ``public static LongStream rangeClosed(``
+                  `` long startInclusive, long endInclusive)``
+               -  ``public abstract long reduce(``
+                  `` long p0, LongBinaryOperator p1)``
+               -  ``public abstract OptionalLong reduce(``
+                  `` LongBinaryOperator p0)``
+               -  ``public abstract LongStream sequential()``
+               -  ``public abstract LongStream skip(long p0)``
+               -  ``public abstract LongStream sorted()``
+               -  ``public abstract Spliterator.OfLong spliterator()``
+               -  ``public abstract long sum()``
+               -  ``public abstract LongSummaryStatistics summaryStatistics()``
+               -  ``public abstract long[] toArray()``
+            - | :sup:`1` Supported only on devices which API level is 21 or
+                 higher.
+               |  
+         - 
+
+            - *``java.util.stream``*
+
+               .. container::
+
+                   Stream.
+                   Builder
+            - 
+
+               -  ``public abstract void accept(Object p0)``
+               -  ``public Stream.Builder add(Object t)``
+               -  ``public abstract Stream build()``
+            - | Fully implemented class.
+               |  
+         - 
+
+            - *``java.util.stream``*
+
+               .. container::
+
+                   Stream
+            - 
+
+               -  ``public abstract boolean allMatch(Predicate p0)``
+               -  ``public abstract boolean anyMatch(Predicate p0)``
+               -  ``public static Stream.Builder builder()``
+               -  ``public abstract Object collect(``
+                  `` Supplier p0, BiConsumer p1, BiConsumer p2)``
+               -  ``public abstract Object collect(Collector p0)``
+               -  ``public static Stream concat(Stream a, Stream b)``
+               -  ``public abstract long count()``
+               -  ``public abstract Stream distinct()``
+               -  ``public static Stream empty()``
+               -  ``public abstract Stream filter(Predicate p0)``
+               -  ``public abstract Optional findAny()``
+               -  ``public abstract Optional findFirst()``
+               -  ``public abstract Stream flatMap(Function p0)``
+               -  ``public abstract DoubleStream flatMapToDouble(``
+                  `` Function p0)``
+               -  ``public abstract IntStream flatMapToInt(Function p0)``
+               -  ``public abstract LongStream flatMapToLong(``
+                  `` Function p0)``
+               -  ``public abstract void forEach(Consumer p0)``
+               -  ``public abstract void forEachOrdered(Consumer p0)``
+               -  ``public static Stream generate(Supplier s)``
+               -  ``public static Stream iterate(``
+                  `` Object seed, UnaryOperator f)``
+               -  ``public abstract Stream limit(long p0)``
+               -  ``public abstract Stream map(Function p0)``
+               -  ``public abstract DoubleStream mapToDouble(``
+                  `` ToDoubleFunction p0)``
+               -  ``public abstract IntStream mapToInt(ToIntFunction p0)``
+               -  ``public abstract LongStream mapToLong(``
+                  `` ToLongFunction p0)``
+               -  ``public abstract Optional max(Comparator p0)``
+               -  ``public abstract Optional min(Comparator p0)``
+               -  ``public abstract boolean noneMatch(Predicate p0)``
+               -  ``public static Stream of(Object t)``
+               -  ``public static Stream of(Object[] values)``
+               -  ``public static Stream ofNullable(``
+                  `` Object p0)``\ :sup:```2```
+               -  ``public abstract Stream peek(Consumer p0)``
+               -  ``public abstract Object reduce(``
+                  `` Object p0, BiFunction p1, BinaryOperator p2)``
+               -  ``public abstract Object reduce(``
+                  `` Object p0, BinaryOperator p1)``
+               -  ``public abstract Optional reduce(BinaryOperator p0)``
+               -  ``public abstract Stream skip(long p0)``
+               -  ``public abstract Stream sorted()``
+               -  ``public abstract Stream sorted(Comparator p0)``
+               -  ``public abstract Object[] toArray()``
+               -  ``public abstract Object[] toArray(IntFunction p0)``
+            - | Fully implemented class.
+               |  :sup:`2` Not present in Android T (May not resolve at
+                 compilation).
+               |  
+         - 
+
+            - *``java.util.stream``*
+
+               .. container::
+
+                   StreamSupport
+            - 
+
+               -  ``public static DoubleStream doubleStream(``
+                  ``  Spliterator.OfDouble spliterator,``
+                  ``  boolean parallel)``
+               -  ``public static DoubleStream doubleStream(``
+                  ``  Supplier supplier,``
+                  ``  int characteristics,``
+                  ``  boolean parallel)``
+               -  ``public static IntStream intStream(``
+                  `` Spliterator.OfInt spliterator, boolean parallel)``
+               -  ``public static IntStream intStream(``
+                  ``  Supplier supplier,``
+                  ``  int characteristics,``
+                  ``  boolean parallel)``
+               -  ``public static LongStream longStream(``
+                  `` Spliterator.OfLong spliterator, boolean parallel)``
+               -  ``public static LongStream longStream(``
+                  ``  Supplier supplier,``
+                  ``  int characteristics,``
+                  ``  boolean parallel)``
+               -  ``public static Stream stream(``
+                  `` Spliterator spliterator, boolean parallel)``
+               -  ``public static Stream stream(``
+                  ``  Supplier supplier,``
+                  ``  int characteristics,``
+                  ``  boolean parallel)``
+            - | Fully implemented class.
+               |  
+
+   .. rubric:: ``java.time`` customizations
+      :name: java-time-customizations
+
+   The following is a summary of potentially behavior-changing modifications to
+   ``java.time`` that facilitate running the library on legacy Android devices.
+
+   -  The method ``Locale.getDefault()`` is used instead of
+      ``Locale.getDefault(Locale.Category.FORMAT)`` to look up user preferences.
+      The latter method, as well as the ``Category`` enum, is new in JDK 8.
+   -  Use ``DateFormat`` or ``SimpleDateFormat`` to look up parsing and
+      formatting patterns. The internal API normally used is new in JDK 8 and
+      not supported on Android. Formatting in ISO Chronology appears unaffected;
+      non-ISO dates and times are calculated correctly but formatted (and
+      parsed) using ISO patterns.
+   -  ``Temporal.getDisplayName(Locale)`` never localizes for built-in field
+      types and instead always returns English names such as "Day", "Week", and
+      "Year".
+   -  Similarly, chronology names are never localized during formatting and
+      parsing, as this information doesn't seem to be available on legacy
+      devices.
+   -  Formatting and parsing are limited to most ``ChronoField`` constants
+      (except quarters) and only supports ISO chronology concepts such as 7-day
+      weeks, 12-month years, BC and AD eras, etc. For instance, Japanese eras
+      don't work. "Standalone" formats also don't work. This is all due to the
+      necessary localized strings not available through legacy JDK APIs.
+   -  ``JapaneseChronology`` only partially supports the current REIWA era,
+      depending on whether the Android frameworks on the device and the
+      desugared library versions pre-date the start of the REIWA era (2019).
+   -  ``HijrahChronology`` doesn't support "variants". Android 8 doesn't include
+      any such variants, so this shouldn't make any practical difference.
+   -  Time zone formatting ("printing") won't localize "generic" time zone names
+      in the rare situation when the ``Temporal`` to print doesn't include
+      "seconds". Generic time zone names simply aren't available on legacy
+      devices, only "standard" and "daylight savings"-specific names.
+   -  ``ZoneRules`` by default fall back on ``java.util.TimeZone``. This has
+      limitations listed below. Note that the primary method in this class,
+      ``ZoneRules.getOffset(Instant)``, should work accurately whenever data is
+      available.
+
+      -  Typically data appears to be available back to ~1900 on tested devices,
+         so queries for 18xx (before the use of modern time zones) will probably
+         return wrong results. Note the first daylight saving occurred in 1916,
+         which is typically covered.
+      -  ``getStandardOffset()`` doesn't work for time periods where a given
+         timezone used a different offset from UTC. Because of that,
+         ``isDaylightSavings()`` and ``getDaylightSavings()`` may also return
+         wrong results in problematic time periods.
+      -  ``nextTransition()`` and ``previousTransition()`` are slow but appear
+         accurate within available data.
+      -  ``getTransitions()`` and ``getTransitionRules()`` return empty lists.
+         That's consistent with the spec but may be surprising; use
+         ``nextTransition()`` or ``previousTransition()`` instead.
+
+Content and code samples on this page are subject to the licenses described in
+the `Content License <#/license>`__. Java and OpenJDK are trademarks or
+registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2024-01-26 UTC.
+
+/Add app resources
+==================
+
+.. https://developer.android.google.cn/studio/write/add-resources?hl=en
+
+.. container:: devsite-article-body clearfix
+
+   App resources, such as bitmaps and layouts, are organized into type-specific
+   directories inside each module's ``res/`` directory. You can also add
+   alternative versions of each file that are optimized for different device
+   configurations, such as a high-res version of a bitmap for high-density
+   screens.
+
+   Android Studio helps you add new resources and alternative resources in
+   several ways, depending on the type of resource you want to add. This page
+   describes how to add basic resource files, how to change the location of your
+   resources, and how resource merging works.
+
+   See the following pages for details about how to create specific resource
+   types:
+
+   -  To add layout files, see `Build a UI with Layout Editor <#/studio/write/layout-editor>`__.
+   -  To add string files, see `Localize the UI with Translations Editor <#/studio/write/translations-editor>`__.
+   -  To add bitmaps, see `Create app icons with Image Asset Studio <#/studio/write/image-asset-studio>`__.
+   -  To add SVG files, see `Add multi-density vector graphics <#/studio/write/vector-asset-studio>`__.
+
+   For information about how to reference the resources from your app code, see
+   `App resources overview <#/guide/topics/resources/providing-resources>`__.
+
+   .. rubric:: Add an XML resource file
+      :name: add_xml_resource_file
+
+   Although the preceding page links describe workflows that are customized to
+   each type of resource, you can add any XML resource file by following these
+   steps:
+
+   #. Click the target app module in the **Project** window in either the
+      **Android** or **Project** view.
+
+   #. Select **File > New > Android resource file**.
+
+      |image-new-resource_2-2_2x|
+
+      **Figure 1.** **New Resource File** dialog.
+
+   #. Fill out the details in the dialog:
+
+      -  **File name**: Enter the name for the XML file (this doesn't require
+         the ``.xml`` suffix).
+      -  **Resource type**: Select the type of resource you want to create.
+      -  **Root element**: If applicable, select the root XML element for the
+         file. Some resource types support only one type of root element.
+         Depending on the resource type selected, this might not be editable.
+      -  **Source set**: Select the `source set <#/studio/build#sourcesets>`__
+         where you want to save the file.
+      -  **Directory name**: The directory must be named in a way that's
+         specific to the resource type and configuration qualifiers. Don't edit
+         this unless you want to add configuration qualifiers to the directory
+         name manually (use **Available qualifiers** instead).
+      -  **Available qualifiers**: Instead of manually including configuration
+         qualifiers in your directory name, you can add them by selecting a
+         qualifier from the list and clicking **Add** |image-ic_add-arrows|.
+
+   #. Once you've added all the qualifiers you want, click **OK**.
+
+   **Tip:** To open a simplified version of the **New Resource File** dialog
+   that's specific to the resource type you want to add, right-click an existing
+   resource directory within the **res** folder and select **New > ``type-name``
+   resource file**.
+
+   .. rubric:: Inline complex XML resources
+      :name: inline_complex_xml_resources
+
+   Some complex resources require multiple XML resource files. For example, an
+   animated vector drawable has a vector drawable object and an animation object
+   and requires at least three XML files.
+
+   In this example, you can create and keep the three separate XML files if you
+   need to reuse one or more of them. But if the XML files are used only for
+   this animated vector drawable, you can instead use the inline resource format
+   provided in the Android Asset Packaging Tool (AAPT). With AAPT, you can
+   define all three resources in one XML file. For more information, see `Inline complex XML resources <#/guide/topics/resources/complex-xml-resources>`__.
+
+   **Note:**\  Autocompletion isn't supported for inline resources. When
+   developing new complex resources it can be easier to create them using
+   separate resources and combine them into a single inline file once the
+   resource is working as intended.
+   .. rubric:: Add a resource directory
+      :name: add_resource_directory
+
+   To add a new resource directory, follow these steps:
+
+   #. Click the target app module in the **Project** window.
+
+   #. Select **File > New > Android resource directory**.
+
+      |image-new-resource-dir_2-2_2x|
+
+      **Figure 2.** **New Resource Directory** dialog.
+
+   #. Fill in the details in the dialog:
+
+      -  **Directory name**: The directory must be named in a way that's
+         specific to the resource type and combination of configuration
+         qualifiers. Don't edit this unless you want to add configuration
+         qualifiers to the directory name manually (use **Available qualifiers**
+         instead).
+      -  **Resource type:** Select the type of resource you want the directory
+         to contain.
+      -  **Source set:** Select the source set where you want the directory.
+      -  **Available qualifiers:** Instead of manually including configuration
+         qualifiers in your directory name, you can add them by selecting a
+         qualifier from the list and clicking **Add** |image-ic_add-arrows|.
+
+   #. Once you've added all the qualifiers you want, click **OK**.
+
+   .. rubric:: Change your resource directory
+      :name: change_your_resource_directory
+
+   By default, your resources are located in
+   ``module-name``\ ``/src/``\ ``source-set-name``\ ``/res/``. For example,
+   resources for your module's main source set are in ``src/main/res/``, and
+   resources for the debug source set are in ``src/debug/res/``.
+
+   However, you can change these paths to any other location (relative to the
+   ``build.gradle`` file) with the ``res.srcDirs`` property in the
+   ``sourceSets`` block. For example:
+
+   .. container::
+
+      .. container:: ds-selector-tabs
+
+         .. container:: section
+
+            .. rubric:: Groovy
+               :name: groovy
+
+            .. code:: prettyprint
+
+               android {
+                   sourceSets {
+                       main {
+                           res.srcDirs = ['resources/main']
+                       }
+                       debug {
+                           res.srcDirs = ['resources/debug']
+                       }
+                   }
+               }
+
+         .. container:: section
+
+            .. rubric:: Kotlin
+               :name: kts
+
+            .. code:: prettyprint
+
+               android {
+                   sourceSets {
+                       getByName("main") {
+                           res.srcDirs("resources/main")
+                       }
+                       getByName("debug") {
+                           res.srcDirs("resources/debug")
+                       }
+                   }
+               }
+
+   You can also specify multiple resource directories for one source set, and
+   then the build tools merge them together. For example:
+
+   .. container::
+
+      .. container:: ds-selector-tabs
+
+         .. container:: section
+
+            .. rubric:: Groovy
+               :name: groovy
+
+            .. code:: prettyprint
+
+
+               android {
+                   sourceSets {
+                       main {
+                           res.srcDirs = ['res1', 'res2']
+                       }
+                   }
+               }
+
+         .. container:: section
+
+            .. rubric:: Kotlin
+               :name: kts
+
+            .. code:: prettyprint
+
+               android {
+                   sourceSets {
+                       main {
+                           res.srcDirs("res1", "res2")
+                       }
+                   }
+               }
+
+   **Note:**\  If two or more resource directories contain the same resource
+   file, an error occurs during resource merging.
+   For more information, read about `source sets <#/studio/build/build-variants#sourcesets>`__.
+
+   .. rubric:: Resource merging
+      :name: resource_merging
+
+   Resources in your final app file can come from three sources:
+
+   -  The main source set (generally located in ``src/main/res/``)
+   -  `Build variant <#/studio/build/build-variants>`__ source sets
+   -  Android libraries (AARs)
+
+   When all resources from each source set or library are unique, they're all
+   added into the final app. A resource is considered unique if its filename is
+   unique within both its `resource type <#/guide/topics/resources/available-resources>`__ directory and the
+   `resource qualifier <#/guide/topics/resources/providing-resources#AlternativeResources>`__
+   (if defined).
+
+   If there are two or more matching versions of the same resource, then only
+   one version is included in the final app. The build tools select which
+   version to keep based on the following priority order (highest priority on
+   the left):
+
+      build variant > build type > product flavor > main source set > library
+      dependencies
+
+   For example, if the main source set contains:
+
+   -  ``res/layout/example.xml``
+   -  ``res/layout-land/example.xml``
+
+   And the debug build type contains:
+
+   -  ``res/layout/example.xml``
+
+   Then the final app includes ``res/layout/example.xml`` from the debug build
+   type and ``res/layout-land/example.xml`` from the main source set.
+
+   However, if your build configuration specifies `multiple resource folders <#change_your_resource_directory>`__ for a given source set and there
+   are conflicts between those sources, an error occurs and the merge fails
+   because each resource directory has the same priority.
+
+Content and code samples on this page are subject to the licenses described in
+the `Content License <#/license>`__. Java and OpenJDK are trademarks or
+registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2023-04-12 UTC.
+
+.. |image-new-resource_2-2_2x| image:: https://source.android.google.cn/static/studio/images/write/new-resource_2-2_2x.png
+   :width: 824px
+.. |image-ic_add-arrows| image:: https://source.android.google.cn/static/studio/images/buttons/ic_add-arrows.png
+   :class: inline-icon
+.. |image-new-resource-dir_2-2_2x| image:: https://source.android.google.cn/static/studio/images/write/new-resource-dir_2-2_2x.png
+   :width: 824px
+.. |image-ic_add-arrows| image:: https://source.android.google.cn/static/studio/images/buttons/ic_add-arrows.png
+   :class: inline-icon
+
+/Develop a layout with Compose
+==============================
+
+.. https://developer.android.google.cn/jetpack/compose/tooling/previews?hl=en
+
+
+
+/Develop a layout with Views
+============================
+
+.. https://developer.android.google.cn/studio/write/layout-editor?hl=en
+
+.. container:: devsite-article-body clearfix
+
+   **Note:**\  We recommend building your UI with Compose instead of Views where
+   possible. To learn how to preview your Compose UI, see `Compose previews <#/jetpack/compose/tooling/previews>`__.
+   The Layout Editor enables you to quickly build ``View``-based layouts by
+   dragging UI elements into a visual design editor instead of writing layout
+   XML. The design editor can preview your layout on different Android devices
+   and versions, and you can dynamically resize the layout to be sure it works
+   properly on different screen sizes.
+
+   The Layout Editor is especially powerful when `building a layout with ``ConstraintLayout`` <#/training/constraint-layout>`__.
+
+   This page provides an overview of the Layout Editor. To learn more about
+   layout fundamentals, see `Layouts <#/guide/topics/ui/declaring-layout>`__.
+
+   .. rubric:: Introduction to the Layout Editor
+      :name: intro
+
+   The Layout Editor appears when you open an XML layout file.
+
+   .. figure:: https://source.android.google.cn/static/studio/images/write/layout-editor.png
+      :alt: layout editor
+      :width: 856px
+
+      **Figure 1.** The Layout Editor.
+
+   #. **Palette**: contains various views and view groups that you can drag into
+      your layout.
+   #. **Component Tree**: shows the hierarchy of components in your layout.
+   #. **Toolbar**: has buttons that configure your layout appearance in the
+      editor and change layout attributes.
+   #. **Design editor**: lets you edit your layout in Design view, Blueprint
+      view, or both.
+   #. **Attributes**: has controls for the selected view's attributes.
+   #. **View mode**: lets you view your layout in either **Code** |code mode
+      icon|, **Split** |split mode icon|, or **Design** |design mode icon|
+      modes. **Split** mode shows the **Code** and **Design** windows at the
+      same time.
+   #. **Zoom and pan controls**: control the preview size and position within
+      the editor.
+
+   When you open an XML layout file, the design editor opens by default, as
+   shown in figure 1. To edit the layout XML in the text editor, click the
+   **Code** |code mode icon| button in the top-right corner of the window. Note
+   that the **Palette**, **Component Tree**, and **Attributes** panels are not
+   available while editing your layout in **Code** view.
+
+   **Tip:** To switch between design and text editors, press ``Alt``
+   (``Control`` on macOS) plus ``Shift`` and the right or left arrow key.
+
+   .. rubric:: Change the preview appearance
+      :name: change-appearance
+
+   The buttons in the top row of the design editor let you configure the
+   appearance of your layout in the editor.
+
+   .. figure:: https://source.android.google.cn/static/studio/images/write/layout-editor-toolbar.png
+      :alt: Buttons in the Layout Editor toolbar that configure the layout
+      appearance
+      :width: 458px
+
+      **Figure 2.** Buttons in the Layout Editor toolbar that configure the
+      layout appearance.
+
+   #. **Design and Blueprint**: Select how you want to view your layout in the
+      editor. You can also press ``B`` to cycle through these view types.
+
+      -  Choose **Design** to see a rendered preview of your layout.
+      -  Choose **Blueprint** to see only outlines for each view.
+      -  Choose **Design + Blueprint** to see both views side by side.
+
+   #. **Screen orientation and layout variants**: Choose between landscape or
+      portrait screen orientation or choose other screen modes that your app
+      provides alternative layouts for, such as night mode. This menu also
+      contains commands for `creating a new layout variant <#create-variant>`__,
+      as described in a section on this page. You can also press the letter
+      ``O`` on your keyboard to change orientation.
+
+   #. **System UI Mode**: If you've enabled `dynamic color <https://m3.material.io/styles/color/dynamic-color/overview>`__ in
+      your app, switch wallpapers and see how your layouts react to different
+      users chosen wallpaper. Note that you must first change the theme to a
+      Material dynamic color theme, then change the wallpaper.
+
+   #. **Device type and size**: Select the device type (phone/tablet, Android
+      TV, or Wear OS) and screen configuration (size and density). You can
+      select from several pre-configured device types and your own AVD
+      definitions, and you can create a new AVD by selecting **Add Device
+      Definition** from the list, as shown in figure 3.
+
+      -  To resize the device, drag the bottom-right corner of the layout.
+      -  Press ``D`` to cycle through the device list.
+
+      Testing your layout against the **Reference Devices** in this menu helps
+      your app scale well to layout states on real devices.
+
+      .. figure:: https://source.android.google.cn/static/studio/images/releases/new-device-picker.png
+         :alt: The device list menu with Reference Devices
+         :width: 50.0%
+
+         **Figure 3.** The device list showing Reference Devices.
+
+   #. **API version**: Select the version of Android to preview your layout. The
+      list of available Android versions depends on which SDK platform versions
+      you have installed using SDK Manager.
+
+   #. **App theme**: Select which UI theme to apply to the preview. This works
+      only for supported layout styles, so many themes in this list result in an
+      error.
+
+   #. **Language**: Select the language to show for your UI strings. This list
+      displays only the languages available in your string resources. If you'd
+      like to edit your translations, click **Edit Translations** from the menu.
+      For more information on working with translations, see `Localize the UI with Translations Editor <#/studio/write/translations-editor>`__.
+
+   **Note:**\  Unless you add a new layout file from **Layout Variants**, these
+   configurations don't affect your app's code or manifest. They affect only the
+   layout preview.
+   .. rubric:: Create a new layout
+      :name: create-layout
+
+   When adding a new layout for your app, first create a default layout file in
+   your project's default ``layout/`` directory so that it applies to all device
+   configurations. Once you have a default layout, you can `create layout variations <#create-variant>`__, as described in a section on this page, for
+   specific device configurations, such as for large screens.
+
+   You can create a new layout in one of the following ways:
+
+   .. rubric:: Use Android Studio's main menu
+      :name: create-layout-menu
+
+   #. In the **Project** window, click the module you want to add a layout to.
+   #. In the main menu, select **File > New > XML > Layout XML File**.
+   #. In the dialog that appears, provide the filename, the root layout tag, and
+      the source set where the layout belongs.
+   #. Click **Finish** to create the layout.
+
+   .. rubric:: Use the Project view
+      :name: create-layout-project
+
+   #. Choose the **Project** view from within the **Project** window.
+   #. Right-click the layout directory where you'd like to add the layout.
+   #. In the context menu that appears, click **New > Layout Resource File**.
+
+   .. rubric:: Use the Android view
+      :name: create-layout-android
+
+   #. Choose the **Android** view from within the **Project** window.
+   #. Right-click the ``layout`` folder.
+   #. In the context menu that appears, select **New > Layout Resource File**.
+
+   .. rubric:: Use the Resource Manager
+      :name: create-layout-rm
+
+   #. In the `Resource Manager <#/studio/write/resource-manager>`__, select the
+      **Layout** tab.
+   #. Click the ``+`` button, and then click **Layout Resource File**.
+
+   .. rubric:: Use layout variants to optimize for different screens
+      :name: create-variant
+
+   A *layout variant* is an alternative version of an existing layout that is
+   optimized for a certain screen size or orientation.
+
+   .. rubric:: Use a suggested layout variant
+      :name: create-variant-suggested
+
+   Android Studio includes common layout variants that you can use in your
+   project. To use a suggested layout variant, do the following:
+
+   #. Open your default layout file.
+   #. Click the **Design** |design mode icon| icon in the top-right corner of
+      the window.
+   #. The name of the layout file appears in the **Action to switch and create
+      qualifiers for layout files** drop-down. Select the drop-down.
+   #. In the drop-down list, select a variant such as **Create Landscape
+      Qualifier** or **Create Tablet Qualifier**.
+      .. figure::
+         https://source.android.google.cn/static/studio/images/write/layout-editor-create-qualifiers_2x.png
+         :alt: The Create qualifiers dropdown
+         :width: 806px
+
+         **Figure 4.** Drop-down list of layout qualifiers.
+
+   A new layout directory is created.
+
+   .. rubric:: Create your own layout variant
+      :name: create-variant-other
+
+   If you'd like to create your own layout variant, do the following:
+
+   #. Open your default layout file.
+
+   #. Click the **Design** |Design mode icon| icon in the top-right corner of
+      the window.
+
+   #. The name of the layout file appears in the **Action to switch and create
+      qualifiers for layout files** drop-down. Select the drop-down.
+
+   #. In the drop-down list, select **Add Resource Qualifier**. (See figure 4
+      above.)
+
+      The **Select Resource Directory** dialog appears.
+
+   #. In the **Select Resource Directory** dialog, define the resource
+      qualifiers for the variant:
+
+      #. Select a qualifier from the **Available qualifiers** list.
+      #. Click the **Add** |add qualifier button| button.
+      #. Enter any required values.
+      #. Repeat these steps to add other qualifiers.
+
+   #. Once you've added all of your qualifiers, click **OK**.
+
+   When you have multiple variations of the same layout, you can switch between
+   them by selecting a variant from the **Action to switch and create qualifiers
+   for layout files** drop-down.
+
+   For more information about how to create layouts for different screens, see
+   `Support different screen sizes <#/develop/ui/compose/layouts/adaptive/support-different-screen-sizes>`__.
+
+   .. rubric:: Convert a view or layout
+      :name: convert-view
+
+   You can convert a view to another kind of view, and you can convert a layout
+   to another kind of layout:
+
+   #. Click the **Design** button in the top-right corner of the editor window.
+   #. In the **Component Tree**, right-click the view or layout, and then click
+      **Convert view**.
+   #. In the dialog that appears, choose the new type of view or layout, and
+      then click **Apply**.
+
+   .. rubric:: Convert a layout to ConstraintLayout
+      :name: convert-constraint
+
+   For improved layout performance, convert older layouts to
+   `ConstraintLayout <#/reference/androidx/constraintlayout/widget/ConstraintLayout>`__.
+   ``ConstraintLayout`` uses a constraint-based layout system that lets you
+   build most layouts without any nested view groups.
+
+   To convert an existing layout to a ``ConstraintLayout``, do the following:
+
+   #. Open an existing layout in Android Studio.
+   #. Click the **Design** |design mode icon| icon in the top-right corner of
+      the editor window.
+   #. In the **Component Tree**, right-click the layout, and then click
+      **Convert ``your-layout-type`` to ConstraintLayout**.
+
+   To learn more about ``ConstraintLayout``, see `Build a Responsive UI with ConstraintLayout <#/training/constraint-layout>`__.
+
+   .. rubric:: Find items in the Palette
+      :name: views-palette
+
+   To search for a view or view group by name in the **Palette**, click the
+   **Search** |palette search button| button at the top of the palette.
+   Alternatively, you can type the name of the item whenever the **Palette**
+   window has focus.
+
+   In the **Palette**, you can find frequently used items in the **Common**
+   category. To add an item to this category, right-click a view or view group
+   in the **Palette** and then click **Favorite** in the context menu.
+
+   .. rubric:: Open documentation from the Palette
+      :name: palette-documentation
+
+   To open the Android Developers reference documentation for a view or view
+   group, select the UI element in the **Palette** and press
+   ``Shift``\ +\ ``F1``.
+
+   To view Material Guidelines documentation for a view or view group,
+   right-click the UI element in the **Palette** and select **Material
+   Guidelines** from the context menu. If no specific entry exists for the item,
+   then the command opens the homepage of the `Material Guidelines documentation <https://material.io/guidelines/>`__.
+
+   .. rubric:: Add views to your layout
+      :name: add-views
+
+   To start building your layout, drag views and view groups from the
+   **Palette** into the design editor. As you place a view in the layout, the
+   editor displays information about the view's relationship with the rest of
+   the layout.
+
+   If you are using ``ConstraintLayout``, you can `automatically create constraints <#/training/constraint-layout#use-autoconnect-and-infer-constraints>`__
+   using the Infer Constraints and Autoconnect features.
+
+   .. rubric:: Edit view attributes
+      :name: edit-properties
+
+   .. container:: attempt-right
+
+      .. figure:: https://source.android.google.cn/static/images/studio/write/layout-editor-attributes-2x.png
+         :alt: The
+         :width: 492px
+
+         **Figure 5.** The **Attributes** panel.
+
+   You can edit view attributes from the **Attributes** panel in the Layout
+   Editor. This window is available only when the design editor is open, so view
+   your layout in either **Design** or **Split** mode to use it.
+
+   When you select a view, whether by clicking the view in the **Component
+   Tree** or in the design editor, the **Attributes** panel shows the following,
+   as indicated in figure 5:
+
+   #. **Declared Attributes**: Lists attributes specified in the layout file. To
+      add an attribute, click the **Add** |add attribute button| button at the
+      top of the section.
+
+   #. **Layout**: Contains controls for the width and height of the view. If the
+      view is in a ``ConstraintLayout``, this section also shows constraint bias
+      and lists the constraints that the view uses. For more information on
+      controlling the size of views with ``ConstraintLayout``, see `Adjust the view size <#/training/constraint-layout#adjust-the-view-size>`__.
+
+   #. **Common Attributes**: Lists common attributes for the selected view. To
+      see all available attributes, expand the **All Attributes** section at the
+      bottom of the window.
+
+   #. **Search**: Lets you search for a specific view attribute.
+
+   #. The icons to the right of each attribute value indicate whether the
+      attribute values are resource references. These indicators are solid
+      |solid indicator icon| when the value is a resource reference and empty
+      |empty indicator icon| when the value is hardcoded to help you recognize
+      hardcoded values at a glance.
+
+      Click indicators in either state to open the **Resources** dialog, where
+      you can select a resource reference for the corresponding attribute.
+
+   #. A red highlight around an attribute value indicates an error with the
+      value. For example, an error might indicate an invalid entry for a
+      layout-defining attribute.
+
+      An orange highlight indicates a warning for the value. For example, a
+      warning might appear when you use a hardcoded value where a resource
+      reference is expected.
+
+   .. rubric:: Add sample data to your view
+      :name: sample-data
+
+   Because many Android layouts rely on runtime data, it can be difficult to
+   visualize the look and feel of a layout while designing your app. You can add
+   sample preview data to a ``TextView``, an ``ImageView``, or a
+   ``RecyclerView`` from within the Layout Editor.
+
+   **Note:**\  When you add sample data to a ``View``, Android Studio makes
+   changes to your project as though you were using your own data. You can then
+   modify these changes as needed.
+   To display the **Design-time View Attributes** window, right-click one of
+   these view types and choose **Set Sample Data**, as shown in figure 6.
+
+   .. figure::
+      https://source.android.google.cn/static/images/studio/write/layout-editor-design-time-view-attributes-2x.png
+      :alt: design time view attributes window
+
+      **Figure 6.** The **Design-time View Attributes** window.
+
+   For a ``TextView``, you can choose between different sample text categories.
+   When using sample text, Android Studio populates the ``text`` attribute of
+   the ``TextView`` with your chosen sample data. Note that you can choose
+   sample text via the **Design-time View Attributes** window only if the
+   ``text`` attribute is empty.
+
+   .. figure:: https://source.android.google.cn/static/images/studio/write/textview-sample-data-2x.png
+      :alt: text view with sample data
+
+      **Figure 7.** A ``TextView`` with sample data.
+
+   For an ``ImageView``, you can choose between different sample images. When
+   you choose a sample image, Android Studio populates the ``tools:src``
+   attribute of the ``ImageView`` (or ``tools:srcCompat`` if using AndroidX).
+
+   .. figure:: https://source.android.google.cn/static/images/studio/write/imageview-sample-data-2x.png
+      :alt: image view with sample data
+
+      **Figure 8.** An ``ImageView`` with sample data.
+
+   For a ``RecyclerView``, you can choose from a set of templates that contain
+   sample images and texts. When using these templates, Android Studio adds a
+   file to your ``res/layout`` directory, ``recycler_view_item.xml``, that
+   contains the layout for the sample data. Android Studio also adds metadata to
+   the ``RecyclerView`` to properly display the sample data.
+
+   .. figure:: https://source.android.google.cn/static/images/studio/write/recyclerview-sample-data-2x.png
+      :alt: recycler view with sample data
+
+      **Figure 9.** A ``RecyclerView`` with sample data.
+
+   .. rubric:: Show layout warnings and errors
+      :name: layout-warnings-errors
+
+   The Layout Editor notifies you of any layout issues next to the corresponding
+   view in the **Component Tree** by using a red circle exclamation icon |red
+   circle exclamation icon indicating a layout error| for errors or an orange
+   triangle exclamation icon |orange triangle exclamation icon indicating a
+   layout warning| for warnings. Click the icon to see more details.
+
+   To see all known issues in a window below the editor, click **Show Warnings
+   and Errors** (|red circle exclamation icon indicating a layout error| or
+   |orange triangle exclamation icon indicating a layout warning|) in the
+   toolbar.
+
+   .. rubric:: Download fonts and apply them to text
+      :name: download-fonts
+
+   When using Android 8.0 (API level 26) or the `Jetpack Core library <#/jetpack/androidx/releases/core>`__, you can select from hundreds of
+   fonts by following these steps:
+
+   #. In the Layout Editor, click the **Design** |design mode icon| icon to view
+      your layout in the design editor.
+   #. Select a text view.
+   #. In the **Attributes** panel, expand **textAppearance**, and then expand
+      the **fontFamily** box.
+   #. Scroll to the bottom of the list and click **More Fonts** to open the
+      **Resources** dialog.
+   #. In the **Resources** dialog, to select a font, browse the list or type
+      into the search bar at the top. If you select a font under
+      **Downloadable**, then you can either click **Create downloadable font**
+      to load the font at runtime as a `downloadable font <#/guide/topics/ui/look-and-feel/downloadable-fonts>`__ or click **Add
+      font to project** to package the TTF font file in your APK. The fonts
+      listed under **Android** are provided by the Android system, so they don't
+      need to be downloaded or bundled in your APK.
+   #. Click **OK** to finish.
+
+   .. rubric:: Layout Validation
+      :name: layout-validation
+
+   Layout Validation is a visual tool for simultaneously previewing layouts for
+   different devices and display configurations, helping you catch problems in
+   your layouts earlier in the process. To access this feature, click the
+   **Layout Validation** tab in the top-right corner of the IDE window:
+
+   |Screenshot of Layout Validation tab|
+
+   **Figure 10**. Layout Validation tab.
+
+   To switch between the available configuration sets, select one of the
+   following from the **Reference Devices** drop-down at the top of the Layout
+   Validation window:
+
+   -  Reference Devices
+   -  Custom
+   -  Color Blind
+   -  Font Sizes
+
+   |Screenshot of drop-down menu in the Layout Validation tool|
+
+   **Figure 11**. Reference Devices drop-down.
+
+   .. rubric:: Reference Devices
+      :name: ref-devices
+
+   Reference devices are a set of devices that we recommend you test against.
+   They include phone, foldable, tablet, and desktop interfaces. You should
+   preview how your layout appears on this set of reference devices:
+
+   |Screenshot of layout previews for different reference devices|
+
+   **Figure 12**. Reference device previews in the Layout Validation tool.
+
+   .. rubric:: Custom
+      :name: custom
+
+   To customize a display configuration to preview, choose from a variety of
+   settings including language, device, or screen orientation:
+
+   |Customize a device display in the Layout Validation tool|
+
+   **Figure 16**. Configure a custom display in the Layout Validation tool.
+
+   .. rubric:: Color Blind
+      :name: color-blind
+
+   To help make your app more accessible for users who are color blind, validate
+   your layout with simulations of common types of color blindness:
+
+   |Screenshot of simulation previews for different types of color blindness|
+
+   **Figure 13**. Color blindness simulation previews in the Layout Validation
+   tool.
+
+   .. rubric:: Font Sizes
+      :name: font-sizes
+
+   Validate your layouts at various font sizes, and improve your app's
+   accessibility for visually impaired users by testing your layouts with larger
+   fonts:
+
+   |Previews of app layouts at different font sizes with visible layout errors
+   for large fonts|
+
+   **Figure 14**. Variable font size previews in the Layout Validation tool.
+
+Content and code samples on this page are subject to the licenses described in
+the `Content License <#/license>`__. Java and OpenJDK are trademarks or
+registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2024-05-07 UTC.
+
+.. |code mode icon| image:: https://source.android.google.cn/static/images/studio/write/code-mode-icon-2x.png
+   :class: inline-icon
+.. |split mode icon| image:: https://source.android.google.cn/static/images/studio/write/split-mode-icon-2x.png
+   :class: inline-icon
+.. |design mode icon| image:: https://source.android.google.cn/static/images/studio/write/design-mode-icon-2x.png
+   :class: inline-icon
+.. |Design mode icon| image:: https://source.android.google.cn/static/images/studio/write/design-mode-icon-2x.png
+   :class: inline-icon
+.. |add qualifier button| image:: https://source.android.google.cn/static/studio/images/buttons/add-arrows.png
+   :class: inline-icon
+.. |palette search button| image:: https://source.android.google.cn/static/studio/images/buttons/search.png
+   :class: inline-icon
+.. |add attribute button| image:: https://source.android.google.cn/static/studio/images/buttons/layout-editor-plus-icon.png
+   :class: inline-icon
+.. |solid indicator icon| image:: https://source.android.google.cn/static/studio/images/buttons/layout-editor-indicator-solid.png
+   :class: inline-icon
+.. |empty indicator icon| image:: https://source.android.google.cn/static/studio/images/buttons/layout-editor-indicator-empty.png
+   :class: inline-icon
+.. |red circle exclamation icon indicating a layout error| image:: https://source.android.google.cn/static/studio/images/buttons/layout-editor-errors.png
+   :class: inline-icon
+.. |orange triangle exclamation icon indicating a layout warning| image:: https://source.android.google.cn/static/studio/images/buttons/layout-editor-warnings-inline.png
+   :class: inline-icon
+.. |Screenshot of Layout Validation tab| image:: https://source.android.google.cn/static/studio/images/debug/layout-validation-tab.png
+.. |Screenshot of drop-down menu in the Layout Validation tool| image:: https://source.android.google.cn/static/studio/images/debug/li-ref-devices-dropdown.png
+.. |Screenshot of layout previews for different reference devices| image:: https://source.android.google.cn/static/studio/images/debug/layout-validation-ref-devices-array.png
+.. |Customize a device display in the Layout Validation tool| image:: https://source.android.google.cn/static/studio/images/debug/layout-validation-custom.png
+.. |Screenshot of simulation previews for different types of color blindness| image:: https://source.android.google.cn/static/studio/images/debug/layout-validation-color-blind.png
+.. |Previews of app layouts at different font sizes with visible layout errors for large fonts| image:: https://source.android.google.cn/static/studio/images/debug/layout-validation-font-sizes.png
+
+/Create animations
+==================
+
+.. https://developer.android.google.cn/studio/write/motion-editor?hl=en
+
+.. container:: devsite-article-body clearfix
+
+   Android Studio includes a visual design editor for the
+   `MotionLayout <#/training/constraint-layout/motionlayout>`__ layout type,
+   making it easier to create and preview animations.
+
+   The Motion Editor provides a simple interface for manipulating elements from
+   the MotionLayout library that serves as the foundation for animation in
+   Android apps. Without Android Studio, creating and altering these elements
+   requires manually editing constraints in XML resource files. The Motion
+   Editor, however, can generate this XML for you, with support for start and
+   end states, keyframes, transitions, and timelines.
+
+   **Note:**\  Before using the Motion Editor, be sure to set the
+   ``ConstraintLayout`` dependency in your ``build.gradle`` file to version
+   ``2.0.0-beta3``, as described in the MotionLayout `reference documentation <#/training/constraint-layout/motionlayout#getting_started>`__.
+   To get started with the Motion Editor:
+
+   #. `Create a ConstraintLayout <#/training/constraint-layout#add-constraintlayout-to-your-project>`__.
+   #. Right-click on the preview in the Layout Editor.
+   #. Click **Convert to MotionLayout**, as shown below.
+
+   |image-motion-editor-convert|
+
+   After Android Studio converts your ConstraintLayout to MotionLayout, a Motion
+   Scene file (an ``.xml`` file with ``_scene`` appended to your layout
+   filename) is also added to the directory containing your XML.
+
+   |image-convert_to_motion_layout|
+
+   The ``MotionLayout`` then becomes your root layout, and it appears in the
+   Motion Editor UI. The layout already includes a start ``ConstraintSet``, end
+   ``ConstraintSet``, and a transition going from start to end.
+
+   |image-start_end_constraint_set|
+
+   You can use the overview graphic to select a ``ConstraintSet`` or
+   ``Transition`` and to select components on the selection panel.
+
+   |image-motion-editor-select|
+
+   Then you can edit the constraints and attributes of either the start or end
+   ``ConstraintSet`` the same way you would edit a ``ConstraintLayout``.
+
+   |image-motion_edit_constraints|
+
+   If you want to build more elements to your graph, you can use the creation
+   icons to quickly add a ``ConstraintSet``, ``Transition``, or
+   ``OnClick``/``OnSwipe`` gestures.
+
+   |image-motion_creation_icons|
+
+   To add a keyframe, first click on the **Transition** arrow:
+
+   |image-motion-editor-add-keyframe|
+
+   Then, in the **Transition** timeline pane, click on the top-right corner and
+   select **KeyPosition**:
+
+   |image-motion-editor-keyposition|
+
+   This action opens a dialog where you can set attributes for the keyframe.
+
+   You can also add ``OnClick`` and ``OnSwipe`` handlers to the Transition in
+   the attribute panel.
+
+   |image-motion_attribute_panel|
+
+   This action opens a dialog where you can set attributes of the click such as
+   target components and drag direction.
+
+   The Motion Editor supports previewing animations on the design surface. When
+   an animation is selected, click **Play** |image-motion_play_icon| above the timeline to
+   preview the animation.
+
+   |image-motion_animation_preview|
+
+Content and code samples on this page are subject to the licenses described in
+the `Content License <#/license>`__. Java and OpenJDK are trademarks or
+registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2023-04-12 UTC.
+
+.. |image-motion-editor-convert| image:: https://source.android.google.cn/static/studio/images/write/motion-editor-convert.png
+.. |image-convert_to_motion_layout| image:: https://source.android.google.cn/static/studio/images/write/convert_to_motion_layout.png
+.. |image-start_end_constraint_set| image:: https://source.android.google.cn/static/studio/images/write/start_end_constraint_set.png
+.. |image-motion-editor-select| image:: https://source.android.google.cn/static/studio/images/write/motion-editor-select.gif
+.. |image-motion_edit_constraints| image:: https://source.android.google.cn/static/studio/images/write/motion_edit_constraints.gif
+.. |image-motion_creation_icons| image:: https://source.android.google.cn/static/studio/images/write/motion_creation_icons.png
+.. |image-motion-editor-add-keyframe| image:: https://source.android.google.cn/static/studio/images/write/motion-editor-add-keyframe.png
+.. |image-motion-editor-keyposition| image:: https://source.android.google.cn/static/studio/images/write/motion-editor-keyposition.png
+.. |image-motion_attribute_panel| image:: https://source.android.google.cn/static/studio/images/write/motion_attribute_panel.png
+.. |image-motion_play_icon| image:: https://source.android.google.cn/static/studio/images/write/motion_play_icon.png
+.. |image-motion_animation_preview| image:: https://source.android.google.cn/static/studio/images/write/motion_animation_preview.gif
+
+/Manage UI resources
+====================
+
+.. https://developer.android.google.cn/studio/write/resource-manager?hl=en
+
+.. container:: devsite-article-body clearfix
+
+   Resource Manager is a tool window for importing, creating, managing, and
+   using resources in your app. To open the tool window, select **View > Tool
+   Windows > Resource Manager** from the menu or select **Resource Manager** in
+   the left side bar.
+
+   |image-resource-manager-2x|
+
+   **Figure 1.** The Resource Manager tool window.
+
+   #. Click **Add** |image-ic_plus_dark| to add a new resource to your project. You can add
+      image assets, vector assets, fonts, or resource files and values, or you
+      can `import drawables <#import>`__ into your project.
+   #. Select a module to view resources specific to that module.
+   #. Search for a resource across all modules in your project using the search
+      bar.
+   #. Display your resources according to
+      `type <#/guide/topics/resources/available-resources>`__ in the Resource
+      Manager. Use these tabs to switch between resource types. Click the
+      overflow icon |overflow icon| to show additional resource types.
+   #. Filter the displayed resources from local dependent modules, external
+      libraries, and the Android framework using the filter button. You can also
+      use the filter to show theme attributes.
+   #. Preview your resources in the main content area. Right-click a resource to
+      see a context menu where you can rename the resource and search your app
+      for where the resource is used.
+   #. Click these buttons to view your resources as either tiles or lists.
+   #. Click these buttons to change the preview size of your resources.
+
+   In addition to these features, the Resource Manager provides a way to
+   bulk-import drawables into your project. To bulk-import, you can either:
+
+   -  Drag your image files—including SVG files—directly onto the Resource
+      Manager.
+   -  Use the **Import Drawables** wizard.
+
+   For more information, see the `Import drawables into your project <#import>`__ section.
+
+   To see more detailed information, double-click a resource in Resource
+   Manager. If you have multiple versions of a resource, this detailed view
+   displays each version along with any associated qualifiers, as shown in
+   figure 2. From here, you can double-click a specific version to open it in an
+   editor window.
+
+   |image-resource-manager-flowers-2x|
+
+   **Figure 2.** The Resource Manager showing versions of an image resource for
+   different screen densities.
+
+   .. rubric:: Import drawables into your project
+      :name: import
+
+   You can use the Resource Manager to import image resources into your project.
+   For a list of supported image types, see `Image support <#/guide/topics/media/media-formats#image-formats>`__.
+
+   To import image resources into your project, do the following:
+
+   #. Drag your images directly onto the **Resource Manager** window in Android
+      Studio.
+
+      -  Alternatively, you can:
+
+         #. Click the plus icon (**+**).
+         #. Choose **Import Drawables**, as shown in figure 3.
+         #. Select the files and folders that you want to import.
+
+      |image-import-drawables-menu-2x|
+
+      **Figure 3.** Select **Import Drawables** from the menu.
+
+   #. The **Import drawables** dialog appears, as shown in figure 4. This dialog
+      displays a list of the resources you're importing. You can rename
+      resources by clicking the text box above a resource's preview.
+
+      If you're providing multiple versions of the same resource, add `device configuration qualifiers <#automatic-parsing>`__, as described in the
+      following section, that describe the specific configuration that each
+      resource supports.
+
+      For example, if you're providing multiple versions of the same resource
+      for different screen densities, you can add a **Density** qualifier for
+      each version. Note that if two or more resources have the same name and
+      qualifiers, only one version is imported.
+
+      For more information on resource qualifiers, see `Providing alternative resources <#/guide/topics/resources/providing-resources#AlternativeResources>`__.
+
+      |image-import-drawables-add-qualifiers-2x|
+
+      **Figure 4.** The **Import drawables** dialog.
+
+      Once you've named your resources and added any necessary qualifiers, click
+      **Next**.
+
+   #. The next screen shows a summary of the resources you're importing. When
+      you're ready to import, click **Import**.
+
+   In the **Resource Manager** window, your resources are now ready for you to
+   use in your project, as shown in figure 5.
+
+   |image-resource-manager-after-import-2x|
+
+   **Figure 5.** The Resource Manager now shows your imported images.
+
+   .. rubric:: Automatically parse drawable densities
+      :name: automatic-parsing
+
+   When you import a file or folder and its path contains a density qualifier,
+   the Resource Manager automatically applies the density qualifier as part of
+   the import. The Resource Manager can parse both Android's density qualifiers
+   and iOS's scale factors.
+
+   This table lists how different supported densities are represented for
+   Android and iOS:
+
+   .. list-table::
+      :header-rows: 1
+
+      - 
+
+         - Density
+         - Android density qualifier
+         - iOS scaling factor
+      - 
+
+         - Low-density (~120 dpi)
+         - ``ldpi``
+         - not supported
+      - 
+
+         - Medium-density (~160 dpi)
+         - ``mdpi``
+         - original scale
+      - 
+
+         - High-density (~240 dpi)
+         - ``hdpi``
+         - not supported
+      - 
+
+         - Extra-high-density (~320 dpi)
+         - ``xhdpi``
+         - @2x
+      - 
+
+         - Extra-extra-high-density (~480 dpi)
+         - ``xxhdpi``
+         - @3x
+      - 
+
+         - Extra-extra-extra-high-density (~640 dpi)
+         - ``xxxhdpi``
+         - @4x
+
+   Here are some examples of how input paths translate to resource paths after
+   import:
+
+   Android density qualifier: ``hdpi``
+      **Input path:** /UserFolder/icon1/**hdpi**/icon.png
+      **Resource path:** *<projectFolder>*/*<moduleFolder>*
+      /src/main/res/**drawable-hdpi**/icon.png
+   Android density qualifier: ``xxhdpi``
+      **Input path:** /UserFolder/icon1/abc-**xxhdpi**/icon.png
+      **Resource path:** *<projectFolder>*/*<moduleFolder>*
+      /src/main/res/**drawable-xxhdpi**/icon.png
+   iOS scaling factor: @2x
+      **Input path:** /UserFolder/icon1/icon\ **@2x**.png
+      **Resource path:** *<projectFolder>*/*<moduleFolder>*
+      /src/main/res/**drawable-xhdpi**/icon.png
+   iOS scaling factor: @2x
+      **Input path:** /UserFolder/icon1/icon\ **@2x**\ \_alternate.png
+      **Resource path:** *<projectFolder>*/*<moduleFolder>*
+      /src/main/res/**drawable-xhdpi**/icon_alternate.png
+
+   For more information on supporting devices with different pixel densities,
+   see `Support different pixel densities <#/training/multiscreen/screendensities>`__.
+
+   .. rubric:: Drag drawables into your layout
+      :name: drag-and-drop
+
+   You can drag drawables from the Resource Manager directly onto a layout. When
+   you drag a resource onto a layout, the Resource Manager creates a
+   corresponding ``ImageView`` for that drawable, as shown in animation 1:
+
+   |image-resource-manager-drag-and-drop-design|
+
+   **Animation 1.** Drag drawables onto a layout in **Design** view.
+
+   You can also drag directly onto the XML of the layout, as shown in animation
+   2:
+
+   |image-resource-manager-drag-and-drop-xml|
+
+   **Animation 2.** Drag drawables onto a layout in **Text** view.
+
+   When dragging a drawable onto a layout in the **Text** tab, the generated
+   code differs depending on where you place the drawable in the layout:
+
+   -  If you drag a drawable onto a blank area, the Resource Manager generates a
+      corresponding ``ImageView``.
+   -  If you drag a drawable onto any attribute in the layout XML, the Resource
+      Manager replaces that attribute value with a reference to the drawable.
+      You can also drag any other resource type onto an XML attribute to replace
+      the attribute value.
+   -  If you drag a drawable onto an existing ``ImageView`` element, the
+      Resource Manager replaces the corresponding source attribute.
+
+Content and code samples on this page are subject to the licenses described in
+the `Content License <#/license>`__. Java and OpenJDK are trademarks or
+registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2023-04-12 UTC.
+
+.. |image-resource-manager-2x| image:: https://source.android.google.cn/static/images/studio/write/resource-manager-2x.png
+   :width: 550px
+.. |image-ic_plus_dark| image:: https://source.android.google.cn/static/studio/images/buttons/ic_plus_dark.png
+   :class: inline-icon
+.. |overflow icon| image:: https://source.android.google.cn/static/images/studio/write/overflow-icon-2x.png
+   :class: inline-icon
+.. |image-resource-manager-flowers-2x| image:: https://source.android.google.cn/static/images/studio/write/resource-manager-flowers-2x.png
+   :width: 574px
+.. |image-import-drawables-menu-2x| image:: https://source.android.google.cn/static/images/studio/write/import-drawables-menu-2x.png
+.. |image-import-drawables-add-qualifiers-2x| image:: https://source.android.google.cn/static/images/studio/write/import-drawables-add-qualifiers-2x.png
+.. |image-resource-manager-after-import-2x| image:: https://source.android.google.cn/static/images/studio/write/resource-manager-after-import-2x.png
+.. |image-resource-manager-drag-and-drop-design| image:: https://source.android.google.cn/static/images/studio/write/resource-manager-drag-and-drop-design.gif
+.. |image-resource-manager-drag-and-drop-xml| image:: https://source.android.google.cn/static/images/studio/write/resource-manager-drag-and-drop-xml.gif
+
+/Add multi-density vector graphics
+==================================
+
+.. https://developer.android.google.cn/studio/write/vector-asset-studio?hl=en
+
+.. container:: devsite-article-body clearfix
+
+   Android Studio includes a tool called Vector Asset Studio that helps you add
+   material icons and import Scalable Vector Graphic (SVG) and Adobe Photoshop
+   Document (PSD) files into your project as vector drawable resources. Using
+   vector drawables instead of bitmaps reduces the size of your APK because the
+   same file can be resized for different screen densities without loss of image
+   quality. For older versions of Android that don't support vector drawables,
+   Vector Asset Studio can, at build time, turn your vector drawables into
+   different bitmap sizes for each screen density.
+
+   .. container:: video-wrapper-left
+
+   .. rubric:: About Vector Asset Studio
+      :name: about
+
+   Vector Asset Studio adds a vector graphic to the project as an XML file that
+   describes the image. Maintaining one XML file can be easier than updating
+   multiple raster graphics at various resolutions.
+
+   Android 4.4 (API level 20) and lower doesn't support vector drawables. If
+   your minimum API level is set at one of these API levels, you have two
+   options when using Vector Asset Studio: generate Portable Network Graphic
+   (PNG) files (the default) or use the Support Library.
+
+   For backward-compatibility, Vector Asset Studio generates raster images of
+   the vector drawable. The vector and raster drawables are packaged together in
+   the APK. You can refer to vector drawables as
+   `Drawable <#/reference/android/graphics/drawable/Drawable>`__ in Java code
+   or ``@drawable`` in XML code; when your app runs, the corresponding vector or
+   raster image displays automatically depending on the API level.
+
+   If you want to use vector drawables only, you can use Android Support Library
+   23.2 or higher. This technique requires a change to your ``build.gradle``
+   file before you run Vector Asset Studio, as described in `Support Library Backward Compatibility <#sloption>`__. The
+   `VectorDrawableCompat <#/reference/androidx/vectordrawable/graphics/drawable/VectorDrawableCompat>`__
+   class in the Support Library allows you to support ``VectorDrawable`` in
+   Android 2.1 (API level 7) and higher.
+
+   .. rubric:: Supported vector graphic types
+      :name: types
+
+   The Google Material Design specification provides `material icons <https://www.google.com/design/icons>`__ that you can use in your
+   Android apps. Vector Asset Studio helps you choose, import, and size material
+   icons, as well as define opacity and the Right-to-Left (RTL) mirroring
+   setting.
+
+   Vector Asset Studio also lets you import your own SVG and PSD files. SVG is
+   an XML-based open standard of the World Wide Web Consortium (W3C). The PSD
+   file format supports Adobe Photoshop features. Vector Asset Studio supports
+   the essential standards, but not all SVG and PSD features. When you specify
+   an SVG or PSD file, Vector Asset Studio gives immediate feedback about
+   whether the graphics code is supported or not. It converts the file into an
+   XML file containing
+   `VectorDrawable <#/reference/android/graphics/drawable/VectorDrawable>`__
+   code. If you receive errors, you should verify that your vector drawable
+   appears as intended. For more information about allowed PSD features, see
+   `Support and restrictions for PSD files <#PSD>`__.
+
+   For Android 5.0 (API level 21) and higher, you can use the
+   `AnimatedVectorDrawable <#/reference/android/graphics/drawable/AnimatedVectorDrawable>`__
+   class to animate the properties of the
+   `VectorDrawable <#/reference/android/graphics/drawable/VectorDrawable>`__
+   class. With the Support Library, you can use the
+   `AnimatedVectorDrawableCompat <#/reference/androidx/vectordrawable/graphics/drawable/AnimatedVectorDrawableCompat>`__
+   class to animate the ``VectorDrawable`` class for Android 3.0 (API level 11)
+   and higher. For more information, see `Animate vector drawables <#/training/material/animations#AnimVector>`__.
+
+   .. rubric:: Considerations for SVG and PSD files
+      :name: when
+
+   A vector drawable is appropriate for simple icons. The `material icons <https://www.google.com/design/icons>`__ provide good examples of the
+   types of images that work well as vector drawables in an app. In contrast,
+   many app launch icons do have many details, so they work better as raster
+   images.
+
+   The initial loading of a vector drawable can cost more CPU cycles than the
+   corresponding raster image. Afterward, memory use and performance are similar
+   between the two. We recommend that you limit a vector image to a maximum of
+   200 x 200 dp; otherwise, it can take too long to draw.
+
+   Although vector drawables do support one or more colors, in many cases it
+   makes sense to color icons black (``android:fillColor="#FF000000"``). Using
+   this approach, you can add a
+   `tint <#/training/material/drawables#DrawableTint>`__ to the vector drawable
+   that you placed in a layout, and the icon color changes to the tint color. If
+   the icon color isn't black, the icon color might instead blend with the tint
+   color.
+
+   .. rubric:: Vector drawable backward-compatibility solutions
+      :name: apilevel
+
+   The following table summarizes the two techniques that you can use for
+   backward-compatibility:
+
+   .. list-table::
+      :widths: 13 13 13 13 13 13
+      :header-rows: 1
+
+      - 
+
+         - Technique
+         - Drawables in APK
+         - VectorDrawable XML elements
+         - Version
+         - Build flags
+         - App code
+      - 
+
+         - **PNG generation**
+         - Vector and raster
+         - `Subset supported <#apilevel>`__
+         - SVG: `Android plugin for Gradle <#/studio/releases/gradle-plugin>`__
+            1.5.0 or higher
+
+            PSD: Android Studio 2.2 or higher
+         - Default
+         - Variety of coding techniques supported
+      - 
+
+         - **Support Library 23.2 or higher**
+         - Vector
+         - Full support
+         - Android plugin for Gradle 2.0 or higher
+         - Support Library statements required
+         - `Subset of coding techniques supported <https://android-developers.blogspot.com/2016/02/android-support-library-232.html>`__
+
+   Using vector drawables can produce a smaller APK, but the initial loading of
+   vector drawables can take longer.
+
+   .. rubric:: PNG generation
+      :name: pngoption
+
+   Android 5.0 (API level 21) and higher provides vector drawable support. If
+   your app has a minimum API level that's lower, Vector Asset Studio adds the
+   vector drawable file to your project; also, at build time, Gradle creates PNG
+   raster images at various resolutions. Gradle generates the PNG densities
+   specified by the Domain Specific Language (DSL)
+   `generatedDensities <https://google.github.io/android-gradle-dsl/1.4/com.android.build.gradle.internal.dsl.ProductFlavor.html#com.android.build.gradle.internal.dsl.ProductFlavor:generatedDensities>`__
+   property in a ``build.gradle`` file.
+
+   For Android 5.0 (API level 21) and higher, Vector Asset Studio supports all
+   of the
+   `VectorDrawable <#/reference/android/graphics/drawable/VectorDrawable>`__
+   elements. For backward compatibility with Android 4.4 (API level 20) and
+   lower, Vector Asset Studio supports the following XML elements:
+
+   .. container:: wrap
+
+      .. container:: cols
+
+         .. container:: col-1of3
+
+            ``<vector>``
+
+            -  ``android:width``
+            -  ``android:height``
+            -  ``android:viewportWidth``
+            -  ``android:viewportHeight``
+            -  ``android:alpha``
+
+         .. container:: col-1of3
+
+            ``<group>``
+
+            -  ``android:rotation``
+            -  ``android:pivotX``
+            -  ``android:pivotY``
+            -  ``android:scaleX``
+            -  ``android:scaleY``
+            -  ``android:translateX``
+            -  ``android:translateY``
+
+         .. container:: col-1of3
+
+            ``<path>``
+
+            -  ``android:pathData``
+            -  ``android:fillColor``
+            -  ``android:strokeColor``
+            -  ``android:strokeWidth``
+            -  ``android:strokeAlpha``
+            -  ``android:fillAlpha``
+            -  ``android:strokeLineCap``
+            -  ``android:strokeLineJoin``
+            -  ``android:strokeMiterLimit``
+
+   You can change the XML code that Vector Asset Studio generates, although it’s
+   not a best practice. Changing the values in the code should not cause any
+   issues, as long as they’re valid and static. If you want to add XML elements,
+   you need to make sure that they’re supported based on your minimum API level.
+
+   .. rubric:: Support Library
+      :name: sloption
+
+   This technique requires Android Support Library 23.2 or higher and Android
+   Plugin for Gradle 2.0 or higher, and uses vector drawables only. The
+   `VectorDrawableCompat <#/reference/androidx/vectordrawable/graphics/drawable/VectorDrawableCompat>`__
+   class in the Support Library allows you to support ``VectorDrawable`` in
+   Android 2.1 (API level 7) and higher.
+
+   Before using Vector Asset Studio, you must add a statement to your
+   ``build.gradle`` file:
+
+   .. container::
+
+      .. container:: ds-selector-tabs
+
+         .. container:: section
+
+            .. rubric:: Groovy
+               :name: groovy
+
+            .. code:: prettyprint
+
+               android {
+                   defaultConfig {
+                       vectorDrawables.useSupportLibrary = true
+                   }
+               }
+
+               dependencies {
+                   implementation 'com.android.support:appcompat-v7:23.2.0'
+               }
+
+         .. container:: section
+
+            .. rubric:: Kotlin
+               :name: kts
+
+            .. code:: prettyprint
+
+               android {
+                   defaultConfig {
+                       vectorDrawables.useSupportLibrary = true
+                   }
+               }
+
+               dependencies {
+                   implementation("com.android.support:appcompat-v7:23.2.0")
+               }
+
+   You must also use coding techniques that are compatible with the Support
+   Library, such as using the ``app:srcCompat`` attribute instead of the
+   ``android:src`` attribute for vector drawables. For more information, see
+   `Android Support Library 23.2 <https://android-developers.blogspot.com/2016/02/android-support-library-232.html>`__.
+
+   .. rubric:: Running Vector Asset Studio
+      :name: running
+
+   To start Vector Asset Studio:
+
+   #. In Android Studio, open an Android app project.
+   #. In the *Project* window, select the `Android view <#/studio/projects#ProjectFiles>`__.
+   #. Right-click the **res** folder and select **New** > **Vector Asset**.
+   #. If a *Need Newer Android Plugin for Gradle* dialog appears instead,
+      correct your Gradle version as follows:
+
+      a. Select **File** > **Project Structure**.
+      b. In the *Project Structure* dialog, select **Project**.
+      c. In the **Android Plugin Version** field, change the Android Plugin for
+         Gradle version to **1.5.0** or higher, and click **OK**.
+      d. In the `Android view <#/studio/projects#ProjectFiles>`__ of the
+         *Project* window, right-click the **res** folder and select **New** >
+         **Vector Asset**.
+
+   #. Continue with `Importing a Vector Graphic <#importing>`__.
+
+   .. rubric:: Importing a vector graphic
+      :name: importing
+
+   Vector Asset Studio helps you to import a vector graphics file into your app
+   project. Follow one of the following procedures:
+
+   -  `Adding a material icon <#materialicon>`__
+   -  `Importing an SVG or PSD file <#svg>`__
+
+   .. rubric:: Adding a material icon
+      :name: materialicon
+
+   After you `open Vector Asset Studio <#running>`__, you can add a material
+   icon as follows:
+
+   #. In Vector Asset Studio, select **Material Icon**.
+
+   #. In the Icon field, click the button.
+
+   #. The **Select Icon** dialog appears. You can filter which icons are visible
+      by selecting an icon category from the list on the left or typing in the
+      search field as shown in figure 2.
+
+      |image-vector-asset-studio-icon-filter_2-3_2x|
+
+      **Figure 2**. Filtering material icons in the Vector Asset Studio.
+
+   #. Optionally change the resource name, size, opacity, and Right-To-Left
+      (RTL) mirroring setting:
+
+      -  **Name** - Type a new name if you don’t want to use the default name.
+         Vector Asset Studio automatically creates a unique name (adds a number
+         to the end of the name) if that resource name already exists in the
+         project. The name can contain lowercase characters, underscores, and
+         digits only.
+      -  **Override** - Select this option if you want to adjust the size of the
+         image. When you type a new size, the change appears in the preview
+         area.
+      -  **Opacity** - Use the slider to adjust the opacity of the image. The
+         change appears in the preview area.
+      -  **Enable auto mirroring for RTL layout** - Select this option if you
+         want a mirror image to display when the layout is right to left,
+         instead of left to right. For example, some languages are read right to
+         left; if you have an arrow icon, you might want to display a mirror
+         image of it in this case. Note that if you’re working with an older
+         project, you might also need to add ``android:supportsRtl="true"`` to
+         your app manifest. Auto-mirroring is supported on Android 5.0 (API
+         level 21) and higher, and with the Support Library.
+
+   #. Click **Next**.
+
+   #. Optionally change the module and resource directory:
+
+      -  **Res Directory** - Select the resource source set where you want to
+         add the vector drawable: ``src/main/res``, ``src/debug/res``,
+         ``src/release/res``, or a user-defined source set. The main source set
+         applies to all build variants, including debug and release. The debug
+         and release source sets override the main source set and apply to one
+         version of a build. The debug source set is for debugging only. To
+         define a new source set, select **File** > **Project Structure** >
+         **app** > **Build Types**. For example, you could define a beta source
+         set and create a version of an icon that includes the text "BETA" in
+         the bottom right corner. For more information, see `Configure Build Variants <#/studio/build/build-variants#workBuildVariants>`__.
+
+      The **Output Directories** area displays the vector drawable and the
+      directory where it will appear.
+
+   #. Click **Finish**.
+
+   #. Build the project.
+
+   .. rubric:: Importing an SVG or PSD file
+      :name: svg
+
+   After you `open Vector Asset Studio <#running>`__, you can import an SVG or
+   PSD file as follows:
+
+   #. In Vector Asset Studio, select **Local file**.
+
+   #. Specify an **Image file** by clicking **…** .
+
+   #. Optionally change the resource name, size, opacity, and Right-To-Left
+      (RTL) mirroring setting:
+
+      -  **Name** - Type a new name if you don’t want to use the default name.
+         Vector Asset Studio automatically creates a unique name (adds a number
+         to the end of the name) if that resource name already exists in the
+         project. The name can contain lowercase characters, underscores, and
+         digits only.
+      -  **Override** - Select this option if you want to adjust the size of the
+         image. After you select it, the size changes to the size of the image
+         itself. Whenever you change the size, the change appears in the preview
+         area. The default is 24 x 24 dp, which is defined in the `material design <https://www.google.com/design/icons>`__ specification.
+      -  **Opacity** - Use the slider to adjust the opacity of the image. The
+         change appears in the preview area.
+      -  **Enable auto mirroring for RTL layout** - Select this option if you
+         want a mirror image to display when the layout is right to left,
+         instead of left to right. For example, some languages are read right to
+         left; if you have an arrow icon, you might want to display a mirror
+         image of it in this case. Note that if you’re working with an older
+         project, you might need to add ``android:supportsRtl="true"`` to your
+         app manifest. Auto-mirroring is supported by Android 5.0 (API level 21)
+         and higher, and the Support Library.
+
+   #. Click **Next**.
+
+   #. Optionally change the resource directory:
+
+      -  **Res Directory** - Select the resource source set where you want to
+         add the vector drawable: ``src/main/res``, ``src/debug/res``,
+         ``src/release/res``, or a user-defined source set. The main source set
+         applies to all build variants, including debug and release. The debug
+         and release source sets override the main source set and apply to one
+         version of a build. The debug source set is for debugging only. To
+         define a new source set, select **File** > **Project Structure** >
+         **app** > **Build Types**. For example, you could define a beta source
+         set and create a version of an icon that includes the text "BETA" in
+         the bottom right corner. For more information, see `Configure Build Variants <#/studio/build/build-variants#workBuildVariants>`__.
+
+      The **Output Directories** area displays the vector drawable and the
+      directory where it will appear.
+
+   #. Click **Finish**.
+
+   #. Build the project.
+
+   .. rubric:: Adding a vector drawable to a layout
+      :name: layout
+
+   In a layout file, you can set any icon-related widget, such as
+   `ImageButton <#/reference/android/widget/ImageButton>`__,
+   `ImageView <#/reference/android/widget/ImageView>`__, and so on, to point
+   to a vector drawable. For example, the following layout shows a vector
+   drawable displayed on a button:
+
+   |image-vas-layout_2-2_2x|
+   **Figure 4**. A vector drawable displayed on a button in a layout.
+
+   To display a vector drawable on a widget, as shown in the figure:
+
+   #. Open a project and `import a vector drawable <#running>`__.
+   #. In the `Android view <#/studio/projects#ProjectFiles>`__ of the *Project*
+      window, double-click a layout XML file, such as ``content_main.xml``.
+   #. Click the **Design** tab to display the `Layout Editor <#/studio/write/layout-editor>`__.
+   #. Drag the `ImageButton <#/reference/android/widget/ImageButton>`__
+      widget from the *Palette* window onto the Layout Editor.
+   #. In the *Resources* dialog, select **Drawable** in the left pane, and then
+      select the vector drawable you imported. Click **OK**.
+   #. To change the color of the image to the accent color defined in the theme,
+      in the *Properties* window, locate the **tint** property and click **…** .
+   #. In the *Resources* dialog, select **Color** in the left pane, and then
+      select **colorAccent**. Click **OK**.
+
+   If the project uses the Support Library, the ``ImageButton`` code should be
+   similar to the following:
+
+   .. code:: prettyprint
+
+      <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_build_black_24dp"
+        tools:layout_editor_absoluteX="11dp"
+        tools:layout_editor_absoluteY="225dp"
+        android:id="@+id/imageButton"
+        android:tint="@color/colorAccent" />
+
+   If the project doesn't use the Support Library, the vector drawable code
+   would instead be ``android:src="@drawable/ic_build_black_24dp"``.
+
+   .. rubric:: Referring to a vector drawable in code
+      :name: referring
+
+   You can normally refer to a vector drawable resource in a generic way in your
+   code, and when your app runs, the corresponding vector or raster image
+   displays automatically depending on the API level:
+
+   -  In most cases, you can refer to vector drawables as ``@drawable`` in XML
+      code or `Drawable <#/reference/android/graphics/drawable/Drawable>`__
+      in Java code.
+   -  If your app uses the Support Library at all (even if you don't have a
+      ``vectorDrawables.useSupportLibrary = true`` statement in your
+      ``build.gradle`` file), you can also refer to a vector drawable with an
+      ``app:srcCompat`` statement. For example:
+   -  Occasionally, you might need to typecast the drawable resource to its
+      exact class, such as when you need to use specific features of the
+      `VectorDrawable <#/reference/android/graphics/drawable/VectorDrawable>`__
+      class. To do so, you could use Java code such as the following:
+
+   You can access vector drawable resources from the main thread only.
+
+   For the Support Library technique, you must use coding techniques that are
+   compatible with the Support Library. For more information, see `Android Support Library 23.2 <https://android-developers.blogspot.com/2016/02/android-support-library-232.html>`__.
+
+   .. rubric:: Modifying XML code generated by Vector Asset Studio
+      :name: code
+
+   You can modify the vector drawable XML code, but not the PNGs and
+   corresponding XML code generated at build time. However, we don't recommend
+   it.
+
+   When using the PNG generation technique, Vector Asset Studio makes sure that
+   the vector drawable and the PNGs match, and that the manifest contains the
+   proper code. If you add code that's `not supported <#apilevel>`__ on Android
+   4.4 (API level 20) and lower, your vector and PNG images might differ. You
+   also need to make sure that the manifest contains the code to support your
+   changes.
+
+   To modify the vector XML file when you're not using the Support Library
+   technique:
+
+   #. In the *Project* window, double-click the generated vector XML file in the
+      **drawable** folder.
+   #. Edit the XML code based on what’s supported by the minimum API level:
+
+      -  Android 5.0 (API level 21) and higher - Vector Asset Studio supports
+         all of the
+         `Drawable <#/reference/android/graphics/drawable/Drawable>`__ and
+         `VectorDrawable <#/reference/android/graphics/drawable/VectorDrawable>`__
+         elements. You can add XML elements and change values.
+      -  Android 4.4 (API level 20) and lower - Vector Asset Studio supports all
+         of the `Drawable <#/reference/android/graphics/drawable/Drawable>`__
+         elements and a subset of the
+         `VectorDrawable <#/reference/android/graphics/drawable/VectorDrawable>`__
+         elements. See `Vector Drawable Backward-Compatibility Solutions <#apilevel>`__ for a list. You can change values in the
+         generated code and add XML elements that are supported.
+
+   #. Build the project and check that the vector drawable and corresponding
+      raster images look the same.
+
+   .. rubric:: Deleting a vector drawable from a project
+      :name: delete
+
+   To remove a vector drawable from a project:
+
+   #. In the *Project* window, delete the generated vector XML file by selecting
+      the file and pressing the **Delete** key (or select **Edit** >
+      **Delete**).
+   #. Optionally select options to find where the file is used in the project,
+      and click **OK**.
+   #. Select **Build** > **Clean Project**.
+
+   .. rubric:: Delivering an app Containing vector drawables
+      :name: apk
+
+   If you used the Support Library technique or your minimum API level is
+   Android 5.0 (API level 21) or higher, your APK will contain the vector
+   drawables that you added with Vector Asset Studio. These APKs will be smaller
+   than if the vector images were converted to PNGs.
+
+   When your minimum API level includes Android 4.4 (API level 20) or lower, and
+   you have corresponding vector drawables and raster images in your project,
+   you have two options for delivering your APK files:
+
+   -  Create one APK that includes both the vector drawables and the
+      corresponding raster representations. This solution is the simplest to
+      implement.
+   -  Create separate APKs for different API levels. When you don’t include the
+      corresponding raster images in the APK for Android 5.0 (API level 21) and
+      higher, the APK can be much smaller in size. For more information, see
+      `Multiple APK Support <#/google/play/publishing/multiple-apks>`__.
+
+   .. rubric:: Support and restrictions for PSD files
+      :name: PSD
+
+   Vector Asset Studio doesn't support all PSD file features. The following list
+   summarizes supported and unsupported PSD characteristics, as well as some
+   conversion details.
+
+   .. rubric:: Document
+      :name: document
+
+   Supported:
+
+   -  A PSD color mode of bitmap, grayscale, indexed, RGB, Lab, or CMYK.
+   -  A color depth of 8, 16, or 32 bits.
+
+   Conversion details:
+
+   -  PSD document dimensions become the vector drawable and viewport
+      dimensions.
+
+   Not supported:
+
+   -  A PSD color mode of duotone or multichannel.
+
+   .. rubric:: Shapes
+      :name: shapes
+
+   Supported:
+
+   -  Clipping masks, if the clipping base is another shape.
+   -  Shape operations, including merge/add, intersect, subtract, and exclude.
+
+   Not supported:
+
+   -  Even-odd fill rule used by Photoshop shapes. In Android 6.0 (API level 23)
+      and lower, vector drawables support the nonzero fill rule only. In
+      self-intersecting shapes, this limitation can lead to rendering
+      differences between the PSD and the resulting vector drawable. To fix this
+      issue, add ``android:fillType="evenOdd"`` on the shape in the vector
+      drawable. For example:
+
+      .. code:: prettyprint
+
+         <vector xmlns:android="https://schemas.android.com/apk/res/android"
+             android:viewportHeight="168"
+             android:height="24dp"
+             android:viewportWidth="209"
+             android:width="24dp">
+
+             <path
+                 android:fillAlpha="1.0"
+                 android:fillColor="#000000"
+                 android:fillType="evenOdd"
+                 android:pathData="M24,58 L24,167 L114,167 L114,66 M64,1 L64,96 L208,96 L208,8 M1,97 L146,139 L172,47"/>
+         </vector>
+
+   .. rubric:: Strokes and fills
+      :name: strokes-and-fills
+
+   Supported:
+
+   -  Strokes, including color, opacity, width, join, cap, dashes, and
+      alignment.
+   -  Solid color fills and strokes.
+   -  Stroke and fill colors specified as RGB, Lab, or CMYK.
+
+   Conversion details:
+
+   -  If a stroke is dashed, clipped using a clipping base, or uses an alignment
+      different from center, Vector Asset Studio converts it into a fill shape
+      in the vector drawable.
+
+   Not supported:
+
+   -  Color fills and strokes other than solid, such as gradients.
+
+   .. rubric:: Opacity
+      :name: opacity
+
+   Supported:
+
+   -  Shape layers with an opacity of 0.
+
+   Conversion details:
+
+   -  Vector Asset Studio multiplies the fill opacity with the layer opacity to
+      compute the fill alpha.
+   -  The tool multiplies the opacity of the clipping base (if there is a
+      clipping base) with the fill alpha to compute the final fill alpha.
+   -  The tool multiplies the stroke opacity with the layer opacity to compute
+      the stroke alpha.
+   -  The tool multiplies the opacity of the clipping base (if there is a
+      clipping base) with the stroke alpha to compute the final stroke alpha.
+
+   .. rubric:: Layers
+      :name: layers
+
+   Supported:
+
+   -  Any *visible* shape layer.
+
+   Conversion details:
+
+   -  Vector Asset Studio preserves the name of the layers in the vector
+      drawable file.
+
+   Not supported:
+
+   -  Layer effects.
+   -  Adjustment and text layers.
+   -  Blending modes (ignored).
+
+   .. rubric:: Support and restrictions for SVG files
+      :name: svg-support
+
+   Vector Asset Studio doesn't support all SVG file features. The following
+   section summarizes supported and unsupported features when the tool converts
+   an SVG file to a
+   `VectorDrawable <#/reference/android/graphics/drawable/VectorDrawable>`__,
+   along with additional conversion details.
+
+   .. rubric:: Supported features
+      :name: svg-supported
+
+   ``VectorDrawable`` supports all features from `Tiny SVG 1.2 <https://www.w3.org/TR/SVGTiny12/>`__ except for
+   `text <https://www.w3.org/TR/SVGTiny12/text.html>`__.
+
+   .. rubric:: Shapes
+      :name: shapes_1
+
+   ``VectorDrawable`` supports `SVG paths <https://www.w3.org/TR/SVG/paths.html#DAttribute>`__.
+
+   The tool converts primitive
+   `shapes <https://www.w3.org/TR/SVG/shapes.html>`__ such as circles, squares,
+   and polygons to paths.
+
+   .. rubric:: Transformations
+      :name: transformations
+
+   The tool supports transformation matrices and applies them directly to child
+   paths.
+
+   .. rubric:: Groups
+      :name: groups
+
+   The tool supports group elements for translation, scaling, and rotation.
+   Groups do not support an opacity property.
+
+   The tool also applies any group styling or opacity to child paths.
+
+   .. rubric:: Fills and strokes
+      :name: fills-and-strokes
+
+   Paths can be filled and stroked using solid colors or gradients (linear,
+   radial, or angular). Only centered strokes are supported. Blend modes are not
+   supported. Dashed paths are not supported.
+
+   .. rubric:: Masks
+      :name: masks
+
+   The tool supports one clipping mask per group.
+
+   .. rubric:: Features not supported by the SVG importer
+      :name: svg-unsupported
+
+   Any feature not listed in the `Supported features <#svg-supported>`__ section
+   above is unsupported. Notable unsupported features include the following:
+
+   -  Filter effects: effects such as drop shadows, blurs, and color matrix are
+      not supported.
+   -  Text: conversion of text to shapes using other tools is recommended.
+   -  Pattern fills
+
+Content and code samples on this page are subject to the licenses described in
+the `Content License <#/license>`__. Java and OpenJDK are trademarks or
+registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2024-01-03 UTC.
+
+.. |image-vector-asset-studio-icon-filter_2-3_2x| image:: https://source.android.google.cn/static/studio/images/write/vector-asset-studio-icon-filter_2-3_2x.png
+   :width: 704px
+.. |image-vas-layout_2-2_2x| image:: https://source.android.google.cn/static/images/tools/vas-layout_2-2_2x.png
+
+/Create app icons
+=================
+
+.. https://developer.android.google.cn/studio/write/create-app-icons?hl=en
+
+.. container:: devsite-article-body clearfix
+
+   Icons help your users identify your app and actions within it. You can access
+   the suite of Material icons and add them to your app directly with Compose.
+   To create custom icons or icons for your app with Views, Android Studio
+   offers Image Asset Studio.
+
+   .. rubric:: Add icons within your app with Compose
+      :name: material-icons-compose
+
+   With Compose, you can import the `Compose Material library <#/jetpack/androidx/releases/compose-material>`__ or `Compose Material 3 library <#/jetpack/androidx/releases/compose-material3>`__ to access any
+   Material icons. Then use the ``Icon`` composable to add icons to your app.
+   The Material icons are most useful for action bar icons, tab icons, or
+   notification icons. For more information, see `Material icons <#/jetpack/compose/graphics/images/material>`__.
+
+   If you need to create custom icons, for example your app launcher icon, use
+   `Image Asset Studio <#about>`__. For launcher icons, the
+   ``AndroidManifest.xml`` file must reference the ``mipmap/`` location. Image
+   Asset Studio adds this code automatically. The following manifest file code
+   references the ``ic_launcher`` icon in the ``mipmap/`` directory:
+
+   .. code:: prettyprint
+
+        <application android:name="ApplicationTitle"
+                  android:label="@string/app_label"
+                  android:icon="@mipmap/ic_launcher" >
+        
+
+   .. rubric:: About Image Asset Studio
+      :name: about
+
+   Android Studio includes a tool called Image Asset Studio that helps you
+   generate your own app icons from `material icons <https://design.google.com/icons/>`__, custom images, and text strings.
+   It generates a set of icons at the appropriate resolution for each `pixel density <#/training/multiscreen/screendensities>`__ that your app supports.
+   Image Asset Studio places the newly generated icons in density-specific
+   folders under the ``res/`` directory in your project. At runtime, Android
+   uses the appropriate resource based on the screen density of the device your
+   app is running on.
+
+   Image Asset Studio helps you generate the following icon types:
+
+   -  Launcher icons
+   -  Action bar and tab icons
+   -  Notification icons
+
+   The following sections describe the icon types that you can create and the
+   image and text inputs that you can use.
+
+   .. rubric:: Adaptive and legacy launcher icons
+      :name: launcher
+
+   A launcher icon is a graphic that represents your app to users. It can:
+
+   -  Appear in the list of apps installed on a device and on the Home screen.
+   -  Represent shortcuts into your app (for example, a contact shortcut icon
+      that opens detail information for a contact).
+   -  Be used by launcher apps.
+   -  Help users find your app on Google Play.
+
+   Adaptive launcher icons can display as a variety of shapes across different
+   device models and are available in Android 8.0 (API level 26) and higher.
+   Android Studio 3.0 introduces support for creating adaptive icons using Image
+   Asset Studio. Image Asset Studio generates previews of an adaptive icon in
+   circle, squircle, rounded square, and square shapes, as well as a full bleed
+   preview of the icon. Image Asset Studio also generates legacy, round, and
+   Google Play Store previews of the icon. A legacy launcher icon is a graphic
+   that represents your app on a device's home screen and in the launcher
+   window. Legacy launcher icons are intended for use on devices running Android
+   7.1 (API level 25) or lower, which don't support adaptive icons, and don't
+   display as varying shapes across device models.
+
+   Image Asset Studio places the icons in the proper locations in the
+   ``res/mipmap-``\ ``density``\ ``/`` directories. It also creates a 512 x 512
+   pixel image that's appropriate for the Google Play store.
+
+   We recommend that you use the material design style for launcher icons, even
+   if you support older Android versions.
+
+   See `Adaptive Launcher Icons <#/guide/practices/ui_guidelines/icon_design_adaptive>`__ and `Product Icons - Material Design <https://material.io/design/iconography/product-icons.html>`__ for
+   more information.
+
+   .. rubric:: Action bar and tab icons
+      :name: actionbar-tab
+
+   Action bar icons are graphical elements placed in the action bar and that
+   represent individual action items. See `Adding and Handling Actions <#/training/appbar/actions>`__, `App Bar - Material Design <https://material.google.com/layout/structure.html#structure-app-bar>`__,
+   and `Action Bar Design <#/design/patterns/actionbar>`__ for more information.
+
+   Tab icons are graphical elements used to represent individual tabs in a
+   multi-tab interface. Each tab icon has two states: unselected and selected.
+   See `Creating Swipe Views with Tabs <#/training/implementing-navigation/lateral>`__ and `Tabs - Material Design <https://material.google.com/components/tabs.html>`__ for more
+   information.
+
+   Image Asset Studio places the icons in the proper locations in the
+   ``res/drawable-``\ ``density``\ ``/`` directories.
+
+   We recommend that you use the material design style for action bar and tab
+   icons, even if you support older Android versions. Use ``appcompat`` and
+   other `support libraries <#/topic/libraries/support-library>`__ to deliver
+   your material design UI to older platform versions.
+
+   As an alternative to Image Asset Studio, you can use `Vector Asset Studio <#/studio/write/vector-asset-studio>`__ to create action bar and tab
+   icons. Vector drawables are appropriate for simple icons and can reduce the
+   size of your app.
+
+   .. rubric:: Notification icons
+      :name: notification
+
+   A notification is a message that you can display to the user outside of the
+   normal UI of your app. Image Asset Studio places notifications icons in the
+   proper locations in the ``res/drawable-``\ ``density``\ ``/`` directories:
+
+   -  Icons for Android 2.2 (API level 8) and lower are placed in
+      ``res/drawable-``\ ``density``\ ``/`` directories.
+   -  Icons for Android 2.3 to 2.3.7 (API level 9 to 10) are placed in
+      ``res/drawable-``\ ``density``\ ``-v9/`` directories.
+   -  Icons for Android 3 (API level 11) and higher are placed in
+      ``res/drawable-``\ ``density``\ ``-v11/`` directories.
+
+   If your app supports Android 2.3 to 2.3.7 (API level 9 to 10), Image Asset
+   Studio generates a gray version of your icon. Later Android versions use the
+   white icon that Image Asset Studio generates.
+
+   See `Notifications <#/guide/topics/ui/notifiers/notifications>`__;
+   `Notifications Material Design <https://material.io/design/platform-guidance/android-notifications>`__;
+   `Notifications, Android 5.0 Changes <#/about/versions/lollipop#Notifications>`__; `Notifications, Android 4.4 and Lower <#/design/patterns/notifications_k>`__; and `Status Bar Icons, Android 3.0 and Lower <#/guide/practices/ui_guidelines/icon_design_status_bar>`__ for more
+   information.
+
+   .. rubric:: Clip art
+      :name: clipart
+
+   Image Asset Studio makes it easy for you to import Google material icons in
+   VectorDrawable and PNG formats: simply select an icon from a dialog. For more
+   information, see `Material Icons <https://fonts.google.com/icons>`__.
+
+   .. rubric:: Images
+      :name: image
+
+   You can import your own images and adjust them for the icon type. Image Asset
+   Studio supports the following file types: PNG (preferred), JPG (acceptable),
+   and GIF (discouraged).
+
+   .. rubric:: Text strings
+      :name: text
+
+   Image Asset Studio lets you type a text string in a variety of fonts, and
+   places it on an icon. It converts the text-based icon into PNG files for
+   different densities. You can use the fonts that are installed on your
+   computer.
+
+   .. rubric:: Run Image Asset Studio
+      :name: access
+
+   To start Image Asset Studio, follow these steps:
+
+   #. In the **Project** window, select the `Android view <#/studio/projects#ProjectFiles>`__.
+
+   #. Right-click the **res** folder and select **New** > **Image Asset**.
+
+      |The adaptive and legacy icon wizard in Image Asset Studio.|
+
+   #. Continue by following the steps to:
+
+      -  If your app supports Android 8.0, create `adaptive and legacy launcher icons <#create-adaptive>`__.
+      -  If your app supports versions no higher than Android 7.1, create a
+         `legacy launcher icon only <#create-legacy>`__.
+      -  Create an `action bar or tab icon <#create-actionbartab>`__.
+      -  Create a `notification icon <#create-notification>`__.
+
+   .. rubric:: Create adaptive and legacy launcher icons
+      :name: create-adaptive
+
+   **Note:** If your app supports versions no higher than Android 7.1, follow
+   the instructions to create a `legacy launcher icon only <#create-legacy>`__
+   instead.
+
+   After you `open Image Asset Studio <#access>`__, you can add adaptive and
+   legacy icons by following these steps:
+
+   #. In the **Icon Type** field, select **Launcher Icons (Adaptive and
+      Legacy)**.
+   #. In the **Foreground Layer** tab, select an **Asset Type**, and then
+      specify the asset in the field underneath:
+
+      -  Select **Image** to specify the path for an image file.
+      -  Select **Clip Art** to specify an image from the `material design icon set <https://design.google.com/icons>`__.
+      -  Select **Text** to specify a text string and select a font.
+
+   #. In the **Background Layer** tab, select an **Asset Type**, and then
+      specify the asset in the field underneath. You can either select a color
+      or specify an image to use as the background layer.
+   #. In the **Legacy** tab, review the default settings and confirm you want to
+      generate legacy, round, and Google Play Store icons.
+   #. Optionally change the name and display settings for each of the
+      **Foreground Layer** and **Background Layer** tabs:
+
+      -  **Name** - If you don't want to use the default name, type a new name.
+         If that resource name already exists in the project, as indicated by an
+         error at the bottom of the wizard, it's overwritten. The name can
+         contain lowercase characters, underscores, and digits only.
+      -  **Trim** - To adjust the margin between the icon graphic and border in
+         the source asset, select **Yes**. This operation removes transparent
+         space, while preserving the aspect ratio. To leave the source asset
+         unchanged, select **No**.
+      -  **Color** - To change the color for a **Clip Art** or **Text** icon,
+         click the field. In the **Select Color** dialog, specify a color and
+         then click **Choose**. The new value appears in the field.
+      -  **Resize** - Use the slider to specify a scaling factor in percent to
+         resize an **Image**, **Clip Art**, or **Text** icon. This control is
+         disabled for the background layer when you specify a **Color** asset
+         type.
+
+   #. Click **Next**.
+   #. Optionally, change the resource directory: Select the resource source set
+      where you want to add the image asset: **src/main/res**,
+      **src/debug/res**, **src/release/res**, or a custom source set. The main
+      source set applies to all build variants, including debug and release. The
+      debug and release source sets override the main source set and apply to
+      one version of a build. The debug source set is for debugging only. To
+      define a new source set, select **File** > **Project Structure** > **app**
+      > **Build Types**. For example, you can define a beta source set and
+      create a version of an icon that includes the text "BETA" in the bottom
+      right corner. For more information, see `Configure Build Variants <#/studio/build/build-variants#workBuildVariants>`__.
+   #. Click **Finish**. Image Asset Studio adds the images to the **mipmap**
+      folders for the different densities.
+
+   .. rubric:: Preview themed app icons
+      :name: preview-themed-app-icons
+
+   Android Studio lets you preview your `themed app icon <#/about/versions/13/features#themed-app-icons>`__ and test how it adapts
+   to the coloring of the user's wallpaper. To preview your themed app icon,
+   open the ``launcher.xml`` file that defines your icon and then use the
+   **System UI Mode** selector on the toolbar to switch wallpapers and see how
+   the icon reacts.
+
+   To learn more about how to create themed app icons, see `Adaptive icons <#/develop/ui/views/launch/icon_design_adaptive>`__.
+
+   .. figure:: https://source.android.google.cn/static/studio/images/system-ui-mode-selector.png
+      name: system-ui-mode-selector
+      :width: 50.0%
+
+      **System UI Mode** selector.
+
+   .. figure:: https://source.android.google.cn/static/studio/images/preview-themed-app-icons.gif
+      name: preview-themed-app-icons
+      :width: 100.0%
+
+      Preview themed app icons across different wallpapers.
+
+   .. rubric:: Create a legacy launcher icon
+      :name: create-legacy
+
+   **Note:** If your app supports Android 8.0, follow the instructions to create
+   an `adaptive and legacy launcher icons <#create-adaptive>`__ instead.
+
+   After you `open Image Asset Studio <#access>`__, you can add a launcher icon
+   by following these steps:
+
+   #. In the **Icon Type** field, select **Launcher Icons (Legacy Only)** .
+
+   #. Select an **Asset Type**, and then specify the asset in the field
+      underneath:
+
+      -  In the **Clip Art** field, click the button.
+      -  In the **Path** field, specify the path and file name of the image.
+         Click **...** to use a dialog.
+      -  In the **Text** field, type a text string and select a font.
+
+      The icon appears in the **Source Asset** area on the right side, and in
+      the preview area at the bottom of the wizard.
+
+   #. Optionally change the name and display settings:
+
+      -  **Name** - If you don’t want to use the default name, type a new name.
+         If that resource name already exists in the project, as indicated by an
+         error at the bottom of the wizard, it's overwritten. The name can
+         contain lowercase characters, underscores, and digits only.
+      -  **Trim** - To adjust the margin between the icon graphic and border in
+         the source asset, select **Yes**. This operation removes transparent
+         space, while preserving the aspect ratio. To leave the source asset
+         unchanged, select **No**.
+      -  **Padding** - If you want to adjust the source asset padding on all
+         four sides, move the slider. Select a value between -10% and 50%. If
+         you also select **Trim**, the trimming happens first.
+      -  **Foreground** - To change the foreground color for a **Clip Art** or
+         **Text** icon, click the field. In the **Select Color** dialog, specify
+         a color and then click **Choose**. The new value appears in the field.
+      -  **Background** - To change the background color, click the field. In
+         the **Select Color** dialog, specify a color and then click **Choose**.
+         The new value appears in the field.
+      -  **Scaling** - To fit the icon size, select **Crop** or **Shrink to
+         Fit**. With crop, the image edges can be cut off, and with shrink, they
+         aren't. You can adjust the padding, if needed, if the source asset
+         still doesn't fit well.
+      -  **Shape** - To place a backdrop behind your source asset, select a
+         shape, one of circle, square, vertical rectangle, or horizontal
+         rectangle. For a transparent backdrop, select **None**.
+      -  **Effect** - If you want to add a dog-ear effect to the upper right of
+         a square or rectangle shape, select **DogEar**. Otherwise, select
+         **None**.
+
+      Image Asset Studio places the icon within a transparent square so there's
+      some padding on the edges. The padding provides adequate space for the
+      standard drop-shadow icon effect.
+
+   #. Click **Next**.
+
+   #. Optionally change the resource directory:
+
+      -  **Res Directory** - Select the resource source set where you want to
+         add the image asset: **src/main/res**, **src/debug/res**,
+         **src/release/res**, or a user-defined source set. The main source set
+         applies to all build variants, including debug and release. The debug
+         and release source sets override the main source set and apply to one
+         version of a build. The debug source set is for debugging only. To
+         define a new source set, select **File** > **Project Structure** >
+         **app** > **Build Types**. For example, you could define a beta source
+         set and create a version of an icon that includes the text "BETA" in
+         the bottom right corner. For more information, see `Configure Build Variants <#/studio/build/build-variants#workBuildVariants>`__.
+
+      The **Output Directories** area displays the images and the folders where
+      they will appear in `Project Files view <#/studio/projects#ProjectFiles>`__
+      of the **Project** window.
+
+   #. Click **Finish**.
+
+   .. rubric:: Create an action bar or tab icon
+      :name: create-actionbartab
+
+   After you `open Image Asset Studio <#access>`__, you can add an action bar or
+   tab icon by following these steps:
+
+   #. In the **Icon Type** field, select **Action Bar and Tab Icons**.
+
+   #. Select an **Asset Type**, and then specify the asset in the field
+      underneath:
+
+      -  In the **Clip Art** field, click the button.
+      -  In the **Path** field, specify the path and file name of the image.
+         Click **...** to use a dialog.
+      -  In the **Text** field, type a text string and select a font.
+
+      The icon appears in the **Source Asset** area on the right side, and in
+      the preview area at the bottom of the wizard.
+
+   #. Optionally change the name and display options:
+
+      -  **Name** - If you don’t want to use the default name, type a new name.
+         If that resource name already exists in the project, as indicated by an
+         error at the bottom of the wizard, it's overwritten. The name can
+         contain lowercase characters, underscores, and digits only.
+      -  **Trim** - To adjust the margin between the icon graphic and border in
+         the source asset, select **Yes**. This operation removes transparent
+         space, while preserving the aspect ratio. To leave the source asset
+         unchanged, select **No**.
+      -  **Padding** - If you want to adjust the source asset padding on all
+         four sides, move the slider. Select a value between -10% and 50%. If
+         you also select **Trim**, the trimming happens first.
+      -  **Theme** - Select
+         `HOLO_LIGHT <#/guide/topics/ui/themes#SelectATheme>`__ or **HOLO_DARK**.
+         Or, to specify a color in the **Select Color** dialog, select
+         **CUSTOM** and then click the **Custom color** field.
+
+      Image Asset Studio creates the icon within a transparent square so there's
+      some padding on the edges. The padding provides adequate space for the
+      standard drop-shadow icon effect.
+
+   #. Click **Next**.
+
+   #. Optionally change the resource directory:
+
+      -  **Res Directory** - Select the resource source set where you want to
+         add the image asset: **src/main/res**, **src/debug/res**,
+         **src/release/res**, or a user-defined source set. The main source set
+         applies to all build variants, including debug and release. The debug
+         and release source sets override the main source set and apply to one
+         version of a build. The debug source set is for debugging only. To
+         define a new source set, select **File** > **Project Structure** >
+         **app** > **Build Types**. For example, you could define a beta source
+         set and create a version of an icon that includes the text "BETA" in
+         the bottom right corner. For more information, see `Configure Build Variants <#/studio/build/build-variants#workBuildVariants>`__.
+
+      The **Output Directories** area displays the images and the folders where
+      they will appear in `Project Files view <#/studio/projects#ProjectFiles>`__
+      of the **Project** window.
+
+   #. Click **Finish**.
+
+   .. rubric:: Create a notification icon
+      :name: create-notification
+
+   After you `open Image Asset Studio <#access>`__, you can add a notification
+   icon by following these steps:
+
+   #. In the **Icon Type** field, select **Notification Icons**.
+
+   #. Select an **Asset Type**, and then specify the asset in the field
+      underneath:
+
+      -  In the **Clip Art** field, click the button.
+      -  In the **Path** field, specify the path and file name of the image.
+         Click **...** to use a dialog.
+      -  In the **Text** field, type a text string and select a font.
+
+      The icon appears in the **Source Asset** area on the right side, and in
+      the preview area at the bottom of the wizard.
+
+   #. Optionally change the name and display options:
+
+      -  **Name** - If you don’t want to use the default name, type a new name.
+         If that resource name already exists in the project, as indicated by an
+         error at the bottom of the wizard, it's overwritten. The name can
+         contain lowercase characters, underscores, and digits only.
+      -  **Trim** - To adjust the margin between the icon graphic and border in
+         the source asset, select **Yes**. This operation removes transparent
+         space, while preserving the aspect ratio. To leave the source asset
+         unchanged, select **No**.
+      -  **Padding** - If you want to adjust the source asset padding on all
+         four sides, move the slider. Select a value between -10% and 50%. If
+         you also select **Trim**, the trimming happens first.
+
+      Image Asset Studio creates the icon within a transparent square so there's
+      some padding on the edges. The padding provides adequate space for the
+      standard drop-shadow icon effect.
+
+   #. Click **Next**.
+
+   #. Optionally change the resource directory:
+
+      -  **Res Directory** - Select the resource source set where you want to
+         add the image asset: **src/main/res**, **src/debug/res**,
+         **src/release/res**, or a user-defined source set. The main source set
+         applies to all build variants, including debug and release. The debug
+         and release source sets override the main source set and apply to one
+         version of a build. The debug source set is for debugging only. To
+         define a new source set, select **File** > **Project Structure** >
+         **app** > **Build Types**. For example, you could define a beta source
+         set and create a version of an icon that includes the text "BETA" in
+         the bottom right corner. For more information, see `Configure Build Variants <#/studio/build/build-variants#workBuildVariants>`__.
+
+      The **Output Directories** area displays the images and the folders where
+      they will appear in `Project Files view <#/studio/projects#ProjectFiles>`__
+      of the **Project** window.
+
+   #. Click **Finish**.
+
+   .. rubric:: Refer to an image resource in code with Views
+      :name: referincode
+
+   **Note:** For information about referring to launcher icons in your code, see
+   the `Compose launcher icon guidance <#material-icons-compose>`__, which
+   applies to Views too.
+   You can normally refer to an image resource in a generic way in your code,
+   and when your app runs, the corresponding image displays automatically
+   depending on the device:
+
+   -  In most cases, you can refer to image resources as ``@drawable`` in XML
+      code or `Drawable <#/reference/android/graphics/drawable/Drawable>`__
+      in Java code.
+   -  If your app uses the Support Library, you can refer to an image resource
+      in XML code with an ``app:srcCompat`` statement. For example:
+
+   You can access image resources from the main thread only.
+
+   After you have an image resource in the ``res/`` directory of your project,
+   you can reference it from your Java code or your XML layout using its
+   resource ID. The following Java code sets an
+   `ImageView <#/reference/android/widget/ImageView>`__ to use the
+   ``drawable/myimage.png`` resource:
+
+   .. container:: ds-selector-tabs
+
+      .. container:: section
+
+         .. rubric:: Kotlin
+            :name: kotlin
+
+         .. code:: prettyprint
+
+            findViewById<ImageView>(R.id.myimageview).apply {
+                setImageResource(R.drawable.myimage)
+            }
+
+      .. container:: section
+
+         .. rubric:: Java
+            :name: java
+
+         .. code:: prettyprint
+
+            ImageView imageView = (ImageView) findViewById(R.id.myimageview);
+            imageView.setImageResource(R.drawable.myimage);
+
+   See `Accessing Resources <#/guide/topics/resources/accessing-resources#ResourcesFromCode>`__
+   for more information.
+
+   .. rubric:: Delete an icon from a project
+      :name: delete
+
+   To remove an icon from a project:
+
+   #. In the **Project** window, select the `Android view <#/studio/projects#ProjectFiles>`__.
+   #. Expand the **res/mipmap** folder for a launcher icon, or the
+      **res/drawable** folder for other types of icons.
+   #. Locate a subfolder that has the name of the icon you want to delete.
+   #. Select the folder and press the **Delete** key.
+   #. Optionally select options to find where the icon is used in the project,
+      and click **OK**.
+   #. Select **Build** > **Clean Project**.
+   #. If needed, correct any remaining errors due to portions of the code that
+      reference the resource.
+
+Content and code samples on this page are subject to the licenses described in
+the `Content License <#/license>`__. Java and OpenJDK are trademarks or
+registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2024-01-03 UTC.
+
+.. |The adaptive and legacy icon wizard in Image Asset Studio.| image:: https://source.android.google.cn/static/studio/images/write/new-image-asset-studio.png
+   :width: 803px
+
+/Create resizable bitmaps (9-patch)
+===================================
+
+.. https://developer.android.google.cn/studio/write/draw9patch?hl=en
+
+.. container:: devsite-article-body clearfix
+
+   The Draw 9-patch tool is a WYSIWYG editor included in Android Studio. The
+   tool lets you create bitmap images that automatically resize to accommodate
+   the contents of the view and the size of the screen. You can scale selected
+   parts of the image horizontally or vertically based on indicators drawn
+   within the image.
+
+   For an introduction to NinePatch graphics and how they work, read `NinePatch drawables <#/guide/topics/graphics/2d-graphics#nine-patch>`__.
+
+   |image-draw9patch-normal_2-2_2x|
+   **Figure 1.** Android Studio's Draw 9-patch tool displaying a NinePatch
+   image.
+
+   Follow these steps to create a NinePatch graphic using the Draw 9-patch tool
+   in Android Studio. You'll need the PNG image that you'd like to create a
+   NinePatch image from.
+
+   #. In Android Studio, right-click the PNG image you'd like to create a
+      NinePatch image from, then click **Create 9-patch file**.
+
+   #. Enter a filename for your NinePatch image and click **OK**. Your image
+      will be created with the ``.9.png`` file extension.
+
+   #. | Double-click your new NinePatch file to open it in Android Studio.
+
+      In the workspace that opens, the left pane is your drawing area, where you
+      can edit the lines for the stretchable patches and content area. The right
+      pane is the preview area, where you can preview your graphic when
+      stretched.
+
+   #. | Click within the 1-pixel perimeter to draw the lines that define the
+        stretchable patches and (optional) the content area.
+
+      Right-click to erase previously drawn lines (on Mac, hold Shift and
+      click).
+
+   #. When done, click **File** > **Save** to save your changes.
+
+   To open an existing NinePatch file in Android Studio, double-click the file.
+
+   To make sure that your NinePatch graphics scale down properly, verify that
+   any stretchable regions are at least 2x2 pixels in size. Otherwise, those
+   regions may disappear when scaled down. To avoid interpolation during scaling
+   that may cause the color at the boundaries to change, provide 1 pixel of
+   extra safe space in the graphics before and after stretchable regions.
+
+   **Note:** A normal PNG file (``*.png``) is loaded with an empty 1-pixel
+   border added around the image. You can draw the stretchable patches and
+   content area within the border. A previously saved NinePatch file
+   (``*.9.png``) is loaded as-is, with no drawing area added because it already
+   exists.
+
+   |image-draw9patch-badpatch_2-2_2x|
+   **Figure 2.** A NinePatch image in Android Studio showing content, patches,
+   and bad patches.
+
+   Optional controls include:
+
+   **Zoom**: Adjust the zoom level of the graphic in the drawing area.
+   **Patch scale**: Adjust the scale of the images in the preview area.
+   **Show lock**: Visualize the non-drawable area of the graphic on mouse-over.
+   **Show patches**: Preview the pink stretchable patches in the drawing area.
+   Pink indicates a stretchable patch, as shown in figure 2.
+   **Show content**: Highlight the content area in the preview images. Purple
+   indicates the area where content is allowed, as shown in figure 2.
+   **Show bad patches**: Adds a red border around patch areas that may produce
+   artifacts in the graphic when stretched, as shown in figure 2. If you
+   eliminate all bad patches, you will maintain the visual coherence of your
+   stretched image.
+
+Content and code samples on this page are subject to the licenses described in
+the `Content License <#/license>`__. Java and OpenJDK are trademarks or
+registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2023-04-12 UTC.
+
+.. |image-draw9patch-normal_2-2_2x| image:: https://source.android.google.cn/static/studio/images/write/draw9patch-normal_2-2_2x.png
+   :width: 689px
+.. |image-draw9patch-badpatch_2-2_2x| image:: https://source.android.google.cn/static/studio/images/write/draw9patch-badpatch_2-2_2x.png
+   :width: 680px
+
+/Create WebP images
+===================
+
+.. https://developer.android.google.cn/studio/write/convert-webp?hl=en
+
+.. container:: devsite-article-body clearfix
+
+   `WebP <https://developers.google.cn/speed/webp/>`__ is an image file format
+   from Google that provides lossy compression (like JPEG) as well as
+   transparency (like PNG) but can provide better compression than either JPEG
+   or PNG. Lossy WebP images are supported in Android 4.0 (API level 14) and
+   higher, and lossless and transparent WebP images are supported in Android 4.3
+   (API level 18) and higher. This page shows how to convert images to WebP
+   format and how to convert WebP images to PNG format.
+
+   **Note:**\  Because support for lossless and transparent WebP images is only
+   available in Android 4.3 and higher, your project must declare a
+   ``minSdkVersion`` of 18 or higher to create lossless or transparent WebP
+   images using Android Studio.
+   For more information about selecting the correct image format to improve
+   download speed, see `Reduce image download sizes <#/topic/performance/network-xfer#webp>`__.
+
+   .. rubric:: Convert images to WebP
+      :name: convert-to-webp
+
+   Android Studio can convert PNG, JPG, BMP, or static GIF images to WebP
+   format. You can convert individual images or folders of images.
+
+   To convert an image or folder of images, proceed as follows:
+
+   #. Right-click an image file or a folder containing image files, and then
+      click **Convert to WebP**.
+
+   #. The **Converting Images to WebP** dialog opens. The default settings
+      depend on the ``minSdkVersion`` setting for the current module.
+
+      | 
+
+      .. figure:: https://source.android.google.cn/static/studio/images/write/webp-convertimage_2x.png
+         :alt: The Converting Images to WebP dialog
+         :width: 524px
+
+         **Figure 1.** The Converting Images to WebP dialog.
+
+   #. Select either lossy or lossless encoding.
+
+      Lossless encoding is only available if your ``minSdkVersion`` is set to 18
+      or higher.
+
+      If you select lossy encoding, set the encoding quality and choose whether
+      to preview each converted image before saving.
+
+      You can also choose to skip the conversion of any files where the encoded
+      version would be larger than the original or any files with transparency
+      or an alpha channel. Because Android Studio only lets you create
+      transparent WebP images if your ``minSdkVersion`` is set to 18 or higher,
+      the **Skip images with transparency/alpha channel** checkbox is
+      automatically selected if your ``minSdkVersion`` is lower than 18.
+
+      **Note:** 9-patch files can't be converted to WebP images. The converter
+      tool always automatically skips 9-patch images.
+
+   #. Click **OK** to begin the conversion.
+
+      If you are converting more than one image, the conversion is a single
+      step, and can be undone to revert all the images you converted at once.
+
+      If you selected lossless conversion, the conversion happens immediately.
+      Your images are converted in their original location. If you selected
+      lossy conversion, continue to the next step.
+
+   #. If you selected lossy conversion and you chose to preview each converted
+      image before saving, Android Studio shows you each image during the
+      conversion so you can inspect the conversion result. During the preview
+      step, you can adjust the quality setting for each image individually, as
+      shown in figure 2.
+
+      If you did not choose to preview the converted images, Android Studio
+      skips this step and converts your images immediately.
+
+      .. figure:: https://source.android.google.cn/static/studio/images/write/webp-convertqualitydefault_2x.png
+         :alt: Converting a JPG to WebP format at 75% quality
+         :width: 716px
+
+         **Figure 2.** Previewing the conversion of a JPG image to WebP format
+         at 75% quality.
+
+      Figure 2 shows the original JPG image on the left and the lossy-encoded
+      WebP image on the right. The dialog shows the file size for the original
+      and the converted image. You can drag the slider left or right to change
+      the quality setting and immediately see the effect on the encoded image
+      and the file size.
+
+      The middle area shows the pixels that differ between the original image
+      and the encoded image. In figure 2, with the quality set to 75%, there's
+      almost no difference between the two images. Figure 3 shows the same image
+      encoded with the quality set to 0%.
+
+      .. figure:: https://source.android.google.cn/static/studio/images/write/webp-convertqualitylow_2x.png
+         :alt: Converting a JPG to WebP format at 0% quality
+         :width: 716px
+
+         **Figure 3.** Previewing the conversion of a JPG image to WebP format
+         at 0% quality.
+
+      **Note:** If you set the quality to 100% and the ``minSdkVersion`` is set
+      to 18 or higher, Android Studio automatically switches to lossless
+      encoding instead.
+
+      Select a quality setting for each image you review. If you are converting
+      more than one image, click **Next** to advance to the next image.
+
+   #. Click **Finish**. Your images are converted in their original location.
+
+   .. rubric:: Convert WebP images to PNG
+      :name: convert-webp-to-png
+
+   If you want to use a WebP image from your project for another purpose—for
+   example, in a web page that needs to correctly display images in a browser
+   without WebP support—you can use Android Studio to convert WebP images to PNG
+   format.
+
+   To convert a WebP image to PNG, proceed as follows:
+
+   #. Right-click a WebP image in Android Studio, and then click **Convert to
+      PNG**.
+
+   #. A dialog appears, asking whether you would like to delete the original
+      WebP file after conversion or keep the original WebP file as well as the
+      new PNG file.
+
+      Click **Yes** to delete the original WebP file or **No** to retain the
+      WebP file in addition to the PNG file. Your image is converted
+      immediately.
+
+Content and code samples on this page are subject to the licenses described in
+the `Content License <#/license>`__. Java and OpenJDK are trademarks or
+registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2023-04-12 UTC.
+
+/Localize the UI
+================
+
+.. https://developer.android.google.cn/studio/write/translations-editor?hl=en
+
+.. container:: devsite-article-body clearfix
+
+   The Translations Editor provides a consolidated and editable view of all of
+   your default and translated `string resources <#/guide/topics/resources/string-resource>`__.
+
+   For an introduction to translating your app for different languages, read
+   `Supporting different languages and cultures <#/training/basics/supporting-devices/languages>`__.
+
+   |image-translations-editor-basic_2x|
+   **Figure 1.** The **Translations Editor** showing app text before translation
+
+   .. rubric:: String resources
+      :name: resources
+
+   The string resources for a project are contained in ``strings.xml`` files.
+   Your project has a default ``strings.xml`` file that contains string
+   resources in the default language for your app, which is the language you
+   expect most of your app users to speak. You can also have translated
+   ``strings.xml`` files that contain string resources for other languages that
+   you want your app to accommodate.
+
+   Once you have your default ``strings.xml`` file completed, you can add the
+   translations yourself, or pay a professional service to do the translations.
+   Either way, you should take advantage of the Android Studio features to help
+   you `manage and test localizable text <#localize>`__. For information about
+   professional translation services, see `Order translation services <#ordering>`__.
+
+   .. rubric:: Open the Translations Editor
+      :name: open
+
+   You can access the Translations Editor from the following places in Android
+   Studio.
+
+   .. rubric:: Open from the Android view
+      :name: androidview
+
+   #. In the **Project > Android** panel on the left, select **``ModuleName`` >
+      res > values**.
+
+   #. Right-click the **strings.xml** file, and select **Open Translations
+      Editor**.
+
+      The Translations Editor displays the key and value pairs from the
+      ``strings.xml`` file.
+
+      **Note:** When you have translated ``strings.xml`` files, your project has
+      multiple corresponding **values** folders with suffixes that indicate the
+      language, such as **values-es** for Spanish. Your default ``strings.xml``
+      file is always in the **values** (no suffix) folder.
+
+   Figure 1 shows the default app text (in this case, English) in the
+   Translations Editor for a simple app before translation work has been done.
+   The contents of translated ``strings.xml`` files will appear to the right of
+   the **Untranslatable** column with one column per language as shown in figure
+   2.
+
+   .. rubric:: Open from within strings.xml
+      :name: strings
+
+   You can access the **Translations Editor** from within any of your
+   ``strings.xml`` files.
+
+   #. In the **Project > Android** panel on the left, select **``ModuleName`` >
+      res > values**.
+   #. Double-click **strings.xml** to open it for editing.
+   #. In **strings.xml**, click the **Open editor** link in the upper-right
+      corner.
+
+   **Note:** If you click the **Hide notification** link, the **Open editor**
+   link goes away. To bring it back, close and reopen the project.
+
+   .. rubric:: Open from the Design Editor
+      :name: designlayout
+
+   You can open the **Translations Editor** from the Layout Editor's Design
+   Editor to edit your default and translated text to better fit your layout.
+   For information about switching languages in the Design Editor, see `Display translated text in the Design Editor <#view>`__.
+
+   #. In the **Project > Android** panel on the left, select **``ModuleName`` >
+      res > layout**.
+   #. Double-click **content_main.xml** to open it for editing.
+   #. Click the **Design** tab in the lower-left corner to display the
+      **Design** Editor.
+   #. In the Design Editor, select the **Language** |image-layout-editor-language-icon| drop-down list.
+   #. Select **Edit Translations** |image-translations-edit-icon|.
+
+   .. rubric:: Configure untranslatable rows
+      :name: untranslatable
+
+   In the **Translations Editor**, you can select **Unstranslatable** to
+   indicate that you do not want the text in this row to be translated. Text
+   that you would not want translated might be product-specific text like trade
+   names and trade marks, or technical terms that do not have a translation.
+
+   When you check **Untranslatable**, the corresponding line in the default
+   ``strings.xml`` file adds **translatable="false"**. In the following example,
+   **EasyApp** in the top line is not translated because it is the product name.
+
+   .. code:: prettyprint
+
+      <resources>
+          <string name="app_name" translatable="false">EasyApp</string>
+          <string name="action_settings">Settings</string>
+          <string name="easy_app">I am a Simple App!</string>
+          <string name="next_page">Next Page</string>
+          <string name="second_page_message">I am the Second Page!</string>
+          <string name="title_activity_second">SecondActivity</string>
+      </resources>
+
+   .. rubric:: Add and delete languages
+      :name: addlanguage
+
+   The **Translations Editor** supports `BCP 47 <https://tools.ietf.org/html/bcp47>`__ and combines locale and region
+   (country) codes into a single selection for targeted localizations. A locale
+   defines more than the language. A locale includes country-dependent
+   formatting for things like the date and time, currencies, and decimals.
+
+   To add a language, do the following:
+
+   #. In the **Translations Editor**, click the globe icon |image-translations-edit-icon|.
+
+   #. From the drop-down list, select the language you want to add.
+
+      The new language appears in the **Translations Editor**, and a
+      **values-\*** folder with a ``strings.xml`` file is added to the project.
+      For example, **values-es** for Spanish.
+
+   To delete a language, do the following:
+
+   You can delete a language in the **Translations Editor** by deleting every
+   value in the column (see `Edit, add, or delete text <#editaddtext>`__), or
+   you can delete the project folder for that language, as follows:
+
+   #. In the **Project > Android** panel on the left, select **``ModuleName`` >
+      res**.
+   #. Right click the **values-\*** folder for the language you want to delete.
+      For example, **values-hi** for Hindi.
+   #. From the drop-down list, select **Delete** to delete the folder and its
+      **strings.xml** file.
+
+   .. rubric:: Edit, add, and delete text
+      :name: editaddtext
+
+   You can operate on the text settings directly in the ``strings.xml`` file or
+   through the **Translations Editor**. This section describes the
+   **Translations Editor** approach. In the **Translations Editor**, you can
+   edit, add, or delete text through the list view or through the
+   **Translation** field at the bottom of the **Translations Editor**.
+
+   |image-translation-field_2x|
+   **Figure 2.** List view on the top and the **Translation** field on the
+   bottom
+
+   .. rubric:: List view
+      :name: list-view
+
+   To edit or add text, do the following:
+
+   #. Double-click the cell where you want to edit or add text.
+   #. Do a keyboard copy-paste, or if you have a keyboard that supports
+      diacritic marks, type directly into the list view.
+   #. **Tab** or move the cursor out of the field.
+
+   To delete text, do the following:
+
+   #. Double-click the cell you want to delete.
+   #. In the list view, select the text and press **Delete**.
+   #. **Tab** or move the cursor out of the field.
+
+   .. rubric:: Translation field
+      :name: translation-field
+
+   To edit or add text, do the following:
+
+   #. In the list view, single-click the cell where you want to edit or add
+      text.
+   #. In the **Translation** field, do a keyboard copy-paste, or if you have a
+      keyboard that supports diacritic marks, type directly into the
+      **Translation** field.
+   #. **Tab** or move the cursor out of the field.
+
+   To delete text, do the following:
+
+   #. Single-click the cell you want to delete.
+   #. In the **Translation** field, select the text and press **Delete**.
+
+   .. rubric:: Add and delete keys
+      :name: addkey
+
+   In the Translations Editor, the **Key** column lists the unique identifiers
+   for each data item in your ``strings.xml`` files. You can add and delete keys
+   through the Translations Editor. When you delete a key, the Translations
+   Editor deletes it and all of its associated translations. The Translations
+   Editor uses the Safe Delete refactoring to delete a key so you know if the
+   key text is used elsewhere and have a chance to make necessary adjustments
+   before you delete the key. The Safe Delete refatoring ensures that your code
+   still compiles after you delete the key.
+
+   To add a key, do the following:
+
+   #. In the **Translations Editor**, click **Add Key** |image-add-sign-green-icon|.
+
+   #. In the dialog, enter a key name, default value, and the location of the
+      default **strings.xml** file. |image-addkey_2x|
+
+      **Figure 3.** Add a key
+
+   To delete a key, do the following:
+
+   #. In the Translations Editor, select the key you want to delete.
+
+   #. Click **Remove Keys** |image-ic_minus|.
+
+   #. In the **Delete** dialog, decide if you want a safe delete and whether you
+      want to search in comments and strings, and click **OK**.
+
+      |image-translations-editor-delete-dialog_2x|
+
+      **Figure 4.** Delete dialog
+
+      If there are no references (usages) to the deleted key, or if all
+      references are safely collapsible, the key is deleted. Otherwise, the
+      Translations Editor displays the **Usages Detected** dialog with
+      information about the problems detected.
+
+      |image-translations-editor-usages-detected_2x|
+
+      **Figure 5.** Delete dialog
+
+   #. Select **View Usages** to review what will be deleted. The **Find Safe
+      Delete Conflicts** dialog shows all of the usages that are not safe to
+      delete so you can edit your corresponding code. |image-translations-editor-delete-key_2x|
+
+      **Figure 6.** Unsafe usages
+
+   #. Right-click a usage to display the context menu and select **Jump to
+      Source** so you can make the needed changes.
+
+   #. In the **Find Safe Delete Conflicts** panel, select **Rerun Safe Delete**
+      to make sure there are no other usages that need attention.
+
+   #. When the usages are cleaned up, click **Do Refactor** to delete the key.
+
+   .. rubric:: Correct errors
+      :name: correct
+
+   Figure 7 shows the **Translations Editor** displaying the contents of the
+   English, Spanish, and French ``strings.xml`` files. The red text indicates
+   lines that have errors.
+
+   |image-translations-editor_2x|
+   **Figure 7.** Red text indicates an error condition that you must fix
+
+   To correct an error, hover over the red text to display an explanation of the
+   problem and its resolution.
+
+   When you make changes in the **Translations Editor**, the underlying
+   ``strings.xml`` files update with your changes. When you make changes in a
+   ``strings.xml`` file, the corresponding column in the **Translations Editor**
+   updates with your changes.
+
+   Example **Translations Editor** corrections:
+
+   -  Figure 7 shows that the **app_name** row has **Untranslatable** checked,
+      but there is a Spanish translation provided. Delete the Spanish
+      translation to correct the error.
+   -  Figure 7 shows that the **next_page** row is missing a French translation.
+      Use your keyboard to copy **Page Suivante** into the cell to correct the
+      error. A keyboard copy-paste operation copies the text with the diacritic
+      marks into the cell.
+
+   .. rubric:: Display translated text in the Design Editor
+      :name: view
+
+   To see how the translated text displays in your app layout, toggle the text
+   between the default and translated versions in the Design Editor, as follows:
+
+   #. In the **Project > Android** panel on the left, select **``ModuleName`` >
+      res > layout**.
+
+   #. Double-click **content_main.xml** to open it for editing.
+
+   #. Click the **Design** tab in the lower-left corner to display the
+      **Design** Editor.
+
+   #. In the Design Editor, select the **Language** |image-layout-editor-language-icon| drop-down list.
+
+   #. Select **Edit Translations** |image-translations-edit-icon|.
+
+   #. Select the language you want to use to view your app.
+
+      |image-spanish-language_2x|
+
+      **Figure 8.** The language drop-down list with Spanish selected
+
+   The Design Editor displays your app layout in the selected language, which in
+   this case is Spanish.
+
+   |image-spanish-translation_2x|
+   **Figure 9.** The Design Editor displaying translated text in Spanish
+
+   .. rubric:: Set the Design Editor to the default language
+      :name: default
+
+   To set the language back to the default, select **es > Language** |image-layout-editor-language-icon|.
+
+   |image-changelanguage_2x|
+   **Figure 10.** Set to the default language
+
+   .. rubric:: Manage and test localizable text
+      :name: localize
+
+   The Android platform and Android Studio provide several features to help you
+   manage and test your localizable app text. These features have options to
+   help you target issues with right-to-left (RTL) scripts, such as Arabic or
+   Hebrew. Testing your localizable text allows you to make adjustments to the
+   UI text and its layout before you commit your messages to the source
+   repository to be sent for translation later.
+
+   .. rubric:: Refactor your project for RTL support
+      :name: refactor
+
+   Android Studio has a refactoring command that enables support for
+   bidirectional text in `TextView <#/reference/android/widget/TextView>`__,
+   `ConstraintLayout <#/reference/androidx/constraintlayout/widget/ConstraintLayout>`__,
+   and `LinearLayout <#/reference/android/widget/LinearLayout>`__ elements so
+   your apps can display and allow users to edit text in both left-to-right
+   (LTR) and right-to-left (RTL) scripts. The command also provides automatic
+   mirroring of app UI layouts and all view widgets. To see the text direction
+   change and the layout mirroring, you must also set the `text and layout direction properties <#direction>`__ in the `Layout Editor <https://developer.android.google.cn/studio/write/layout-editor.html>`__.
+
+   The following procedure shows how to refactor your project for RTL support:
+
+   #. Select **Refactor > Add RTL support where possible** to display the dialog
+      shown in figure 11. |image-localize-add-rtl-support_2x|
+
+      **Figure 11.** Add RTL support
+
+      -  If the ``<application>`` element in your ``AndroidManifest.xml`` file
+         does not have the ``android:supportsRTL="true"`` attribute, then select
+         the **Update AndroidManifest.xml** checkbox.
+      -  If your app's ``targetSdkVersion`` is 17 or higher, select **Replace
+         Left/Right Properties with Start/End Properties**. In this case, your
+         properties should use "start" and "end" instead of "left" and "right".
+         For example, ``android:paddingLeft`` becomes ``android:paddingStart``.
+      -  If your app's ``targetSdkVersion`` is 16 or less, select **Generate
+         -v17 Versions** In this case, your XML should use both sets of
+         properties. For example, your XML should use both
+         ``android:paddingLeft`` and ``android:paddingStart``.
+
+   #. To display the **Find Refactoring Preview** window, click **Run**.
+      |image-localize-find-refactor-preview_2x|
+
+      **Figure 12.** Check the preview
+
+   #. Click **Do Refactor**.
+
+   For more information about refactoring your project for RTL support, see
+   `Native RTL support in Android 4.2 <https://android-developers.googleblog.com/2013/03/native-rtl-support-in-android-42.html>`__.
+
+   .. rubric:: Text and layout direction properties
+      :name: direction
+
+   The Properties window on the right provides the **textDirection** property to
+   use with text widgets and the **layoutDirection** property to use with layout
+   widgets to change the direction of text and layout components. The direction
+   properties are listed in the **Properties** window on the right, and work
+   with API Level 17 or higher.
+
+   To see the text direction change and the layout mirroring, you must also
+   `refactor <#refactor>`__ the project for RTL support. In English, the text
+   direction change moves only punctuation from the right side to the left side
+   of the text; for example, "Hello World!" becomes "!Hello World". To see LTR
+   text switch to RTL, you have to use an RTL language in your app. If you want
+   to use English and see the text switch to RTL for testing purposes, use
+   `pseudolocales <#pseudolocales>`__. Pseudolocales are independent of the
+   refactoring command and the direction properties.
+
+   To access and use the direction properties, do the following:
+
+   #. In the `Layout Editor <#/studio/write/layout-editor#intro>`__, select a
+      text widget.
+
+   #. Open the **Properties** window and search for the RTL property you want to
+      use.
+
+      To set the property value, select one of the following:
+
+      -  **firstStrong:** Default for the root view. The first strong
+         directional character determines the paragraph direction. If there is
+         no strong directional character, the paragraph direction is the view's
+         resolved layout direction.
+      -  **anyRtl:** The paragraph direction is RTL if it contains any strong
+         RTL character; otherwise, it is LTR if it contains any strong LTR
+         characters. If there are neither, the paragraph direction is the view's
+         resolved layout direction.
+      -  **ltr:** The paragraph direction is LTR.
+      -  **rtl:** The paragraph direction is RTL.
+      -  **locale:** The paragraph direction comes from the system locale.
+      -  **inherit:** Default. Use the direction set in the parent.
+
+      **Note:** Strong directional characters have their own predefined
+      direction, such as most alphabetic and syllabic characters, non-European
+      and non-Arabic digits, Han ideographs, and punctuation characters that are
+      specific to only those scripts.
+
+   #. To review the reversed text and layout, run the app.
+
+   .. rubric:: Pseudolocales
+      :name: pseudolocales
+
+   A pseudolocale is a simulated locale that is designed to assume the
+   characteristics of languages that cause UI, layout, RTL, and other
+   translation problems when an app is translated. Pseudolocales provide instant
+   and automatic translations that are readable in English for all localizable
+   messages. This makes it possible for you to catch untranslatable messages in
+   your source code.
+
+   For information about how to use pseudolocales, see `Test Your App with Pseudolocales <#/guide/topics/resources/pseudolocales>`__.
+
+Content and code samples on this page are subject to the licenses described in
+the `Content License <#/license>`__. Java and OpenJDK are trademarks or
+registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2023-04-12 UTC.
+
+.. |image-translations-editor-basic_2x| image:: https://source.android.google.cn/static/studio/images/write/translations-editor-basic_2x.png
+   :class: full-width-nav-aware
+   :width: 823px
+.. |image-layout-editor-language-icon| image:: https://source.android.google.cn/static/studio/images/buttons/layout-editor-language-icon.png
+   :class: inline-icon
+.. |image-translations-edit-icon| image:: https://source.android.google.cn/static/studio/images/buttons/translations-edit-icon.png
+   :class: inline-icon
+.. |image-translations-edit-icon| image:: https://source.android.google.cn/static/studio/images/buttons/translations-edit-icon.png
+   :class: inline-icon
+.. |image-translation-field_2x| image:: https://source.android.google.cn/static/studio/images/write/translation-field_2x.png
+   :name: fig2
+   :width: 878px
+.. |image-add-sign-green-icon| image:: https://source.android.google.cn/static/studio/images/buttons/add-sign-green-icon.png
+   :class: inline-icon
+.. |image-addkey_2x| image:: https://source.android.google.cn/static/studio/images/write/addkey_2x.png
+   :width: 388px
+.. |image-ic_minus| image:: https://source.android.google.cn/static/studio/images/buttons/ic_minus.png
+   :class: inline-icon
+.. |image-translations-editor-delete-dialog_2x| image:: https://source.android.google.cn/static/studio/images/write/translations-editor-delete-dialog_2x.png
+   :width: 263px
+.. |image-translations-editor-usages-detected_2x| image:: https://source.android.google.cn/static/studio/images/write/translations-editor-usages-detected_2x.png
+   :width: 389px
+.. |image-translations-editor-delete-key_2x| image:: https://source.android.google.cn/static/studio/images/write/translations-editor-delete-key_2x.png
+   :width: 938px
+.. |image-translations-editor_2x| image:: https://source.android.google.cn/static/studio/images/write/translations-editor_2x.png
+   :width: 886px
+.. |image-layout-editor-language-icon| image:: https://source.android.google.cn/static/studio/images/buttons/layout-editor-language-icon.png
+   :class: inline-icon
+.. |image-translations-edit-icon| image:: https://source.android.google.cn/static/studio/images/buttons/translations-edit-icon.png
+   :class: inline-icon
+.. |image-spanish-language_2x| image:: https://source.android.google.cn/static/studio/images/write/spanish-language_2x.png
+   :width: 143px
+.. |image-spanish-translation_2x| image:: https://source.android.google.cn/static/studio/images/write/spanish-translation_2x.png
+   :width: 321px
+.. |image-layout-editor-language-icon| image:: https://source.android.google.cn/static/studio/images/buttons/layout-editor-language-icon.png
+   :class: inline-icon
+.. |image-changelanguage_2x| image:: https://source.android.google.cn/static/studio/images/write/changelanguage_2x.png
+   :width: 143px
+.. |image-localize-add-rtl-support_2x| image:: https://source.android.google.cn/static/studio/images/write/localize-add-rtl-support_2x.png
+   :width: 488px
+.. |image-localize-find-refactor-preview_2x| image:: https://source.android.google.cn/static/studio/images/write/localize-find-refactor-preview_2x.png
+   :width: 636px
+
+/Add Android app links
+======================
+
+.. https://developer.android.google.cn/studio/write/app-link-indexing?hl=en
+
+.. container:: devsite-article-body clearfix
+
+   Android App Links are HTTP URLs that bring users directly to specific content
+   in your Android app. Android App Links can drive more traffic to your app,
+   help you discover which app content is used most, and make it easier for
+   users to find and share content in an installed app.
+
+   .. container::
+      :name: workflow
+
+      To add support for Android App Links:
+
+      #. Create intent filters in your manifest.
+      #. Add code to your app's activities to handle incoming links.
+      #. Associate your app and your website with Digital Asset Links.
+
+   The App Links Assistant in Android Studio simplifies the process with a
+   step-by-step wizard, as described below.
+
+   For more information about how app links work and the benefits they offer,
+   read `Handling Android App Links <#/training/app-links>`__.
+
+   .. container:: video-wrapper-left
+
+   .. rubric:: Add intent filters
+      :name: intent
+
+   The App Links Assistant in Android Studio can help you create `intent filters <#/training/app-links/deep-linking#adding-filters>`__ in your manifest
+   and map existing URLs from your website to activities in your app. The App
+   Links Assistant also adds template code in each corresponding activity to
+   handle the intent.
+
+   To add intent filters and URL handling, follow these steps:
+
+   #. Select **Tools > App Links Assistant**.
+
+   #. Click **Open URL Mapping Editor** and then click **Add** |image-ic_plus| at the
+      bottom of the **URL Mapping** list to add a new URL mapping.
+
+   #. Add details for the new URL mapping:
+
+      |The App Links Assistant walks you through basic URL mapping|
+
+      **Figure 1.** Add basic details about your site's link structure to map
+      URLs to activities in your app.
+
+      #. Enter your website's URL in the **Host** field.
+
+      #. Add a ```path``, ``pathPrefix``, or
+         ``pathPattern`` <#/guide/topics/manifest/data-element#path>`__ for the
+         URLs you want to map.
+
+         For example, if you have a recipe-sharing app with all the recipes
+         available in the same activity, and your corresponding website's
+         recipes are all in the same */recipe* directory, use **pathPrefix** and
+         enter */recipe.* This way, the URL
+         *http://www.recipe-app.com/recipe/grilled-potato-salad* maps to the
+         activity you select in the following step.
+
+      #. Select the **Activity** the URLs should take users to.
+
+      #. Click **OK.**
+
+      The URL Mapping Editor window appears. The App Links Assistant adds intent
+      filters based on your URL mapping to the ``AndroidManifest.xml`` file and
+      highlights the changes in the **Preview** field. If you'd like to make any
+      changes, click **Open AndroidManifest.xml** to edit the intent filter. To
+      learn more, see `intent filters for incoming links <#/training/app-links/deep-linking#adding-filters>`__.
+
+      The main App Links Assistant tool window also displays all existing deep
+      links in the ``AndroidManifest.xml`` file and lets you quickly fix any
+      misconfigurations by clicking **Fix All Manifest Issues**.
+
+      |The App Links Assistant lets you fix manifest misconfigurations.|
+
+      **Note:** To support future links without updating your app, define a URL
+      mapping that supports URLs that you plan to add. Also, include a URL for
+      your app home screen so it's included in search results.
+
+   #. To verify that your URL mapping works properly, enter a URL in the **Check
+      URL Mapping** field.
+
+      If it's working correctly, the success message shows that the URL you
+      entered maps to the activity you selected.
+
+   .. rubric:: Handle incoming links
+      :name: handling
+
+   Once you've verified that your URL mapping is working correctly, add logic to
+   handle the intent you created:
+
+   #. Click **Select Activity** from the App Links Assistant.
+   #. Select an activity from the list and click **Insert Code**.
+
+   The App Links Assistant adds code to your activity, similar to the following:
+
+   .. container::
+
+      .. container:: ds-selector-tabs
+
+         .. container:: section
+
+            .. rubric:: Kotlin
+               :name: kotlin
+
+            .. code:: prettyprint
+
+               override fun onCreate(savedInstanceState: Bundle?) {
+                   super.onCreate(savedInstanceState)
+                   ...
+                   // ATTENTION: This was auto-generated to handle app links.
+                   val appLinkIntent: Intent = intent
+                   val appLinkAction: String? = appLinkIntent.action
+                   val appLinkData: Uri? = appLinkIntent.data
+                   ...
+               }
+
+         .. container:: section
+
+            .. rubric:: Java
+               :name: java
+
+            .. code:: prettyprint
+
+               @Override
+               void onCreate(Bundle savedInstanceState) {
+                   super.onCreate(savedInstanceState);
+                   ...
+                   // ATTENTION: This was auto-generated to handle app links.
+                   Intent appLinkIntent = getIntent();
+                   String appLinkAction = appLinkIntent.getAction();
+                   Uri appLinkData = appLinkIntent.getData();
+                   ...
+               }
+
+   This code isn't complete on its own. You must now take an action based on the
+   URI in ``appLinkData``, such as displaying the corresponding content. For
+   example, for the recipe-sharing app, your code might look like the following
+   sample:
+
+   .. container::
+
+      .. container:: ds-selector-tabs
+
+         .. container:: section
+
+            .. rubric:: Kotlin
+               :name: kotlin
+
+            .. code:: prettyprint
+
+               override fun onCreate(savedInstanceState: Bundle?) {
+                   super.onCreate(savedInstanceState)
+                   ...
+                   handleIntent(intent)
+               }
+
+               override fun onNewIntent(intent: Intent) {
+                   super.onNewIntent(intent)
+                   handleIntent(intent)
+               }
+
+               private fun handleIntent(intent: Intent) {
+                   val appLinkAction = intent.action
+                   val appLinkData: Uri? = intent.data
+                   if (Intent.ACTION_VIEW == appLinkAction) {
+                       appLinkData?.lastPathSegment?.also { recipeId ->
+                           Uri.parse("content://com.recipe_app/recipe/")
+                                   .buildUpon()
+                                   .appendPath(recipeId)
+                                   .build().also { appData ->
+                                       showRecipe(appData)
+                                   }
+                       }
+                   }
+               }
+
+         .. container:: section
+
+            .. rubric:: Java
+               :name: java
+
+            .. code:: prettyprint
+
+               protected void onCreate(Bundle savedInstanceState) {
+                 super.onCreate(savedInstanceState);
+                 ...
+                 handleIntent(getIntent());
+               }
+
+               protected void onNewIntent(Intent intent) {
+                 super.onNewIntent(intent);
+                 handleIntent(intent);
+               }
+
+               private void handleIntent(Intent intent) {
+                   String appLinkAction = intent.getAction();
+                   Uri appLinkData = intent.getData();
+                   if (Intent.ACTION_VIEW.equals(appLinkAction) && appLinkData != null){
+                       String recipeId = appLinkData.getLastPathSegment();
+                       Uri appData = Uri.parse("content://com.recipe_app/recipe/").buildUpon()
+                           .appendPath(recipeId).build();
+                       showRecipe(appData);
+                   }
+               }
+
+   .. rubric:: Associate your app with your website
+      :name: associatesite
+
+   After setting up URL support for your app, the App Links Assistant generates
+   a Digital Assets Links file you can use to `associate your website with your app <#/training/app-links/verify-android-applinks#web-assoc>`__.
+
+   As an alternative to using the Digital Asset Links file, you can `associate your site and app in Search Console <https://support.google.com/webmasters/answer/6212023>`__.
+
+   If you're using `Play App Signing <https://support.google.com/googleplay/android-developer/answer/9842756>`__
+   for your app, then the certificate fingerprint produced by the App Links
+   Assistant usually doesn't match the one on users' devices. In this case, you
+   can find the correct Digital Asset Links JSON snippet for your app in your
+   `Play Console <https://play.google.com/console/>`__ developer account under
+   **Release > Setup > App signing**.
+
+   To associate your app and your website using the App Links Assistant, click
+   **Open Digital Asset Links File Generator** from the App Links Assistant and
+   follow these steps:
+
+   |image-app-links-assistant-dal-file-generator_2x|
+   **Figure 2.** Enter details about your site and app to generate a Digital
+   Asset Links file.
+
+   #. Enter your **Site domain** and your `Application ID <#/studio/build/configure-app-module#set-application-id>`__.
+
+   #. To include support in your Digital Asset Links file for `One Tap sign-in <https://developers.google.cn/identity/one-tap/android/overview>`__,
+      select **Support sharing credentials between the app and the website** and
+      enter your site's sign-in URL.This adds the following string to your
+      Digital Asset Links file declaring that your app and website share sign-in
+      credentials: ``delegate_permission/common.get_login_creds``.
+
+   #. Specify the `signing config <#/studio/publish/app-signing#sign-auto>`__ or
+      select a `keystore file <#/studio/publish/app-signing#certificates-keystores>`__.
+
+      Make sure you select the right release config or keystore file for the
+      release build or the debug config or keystore file for the debug build of
+      your app. If you want to set up your production build, use the release
+      config. If you want to test your build, use the debug config.
+
+   #. Click **Generate Digital Asset Links file**.
+
+   #. Once Android Studio generates the file, click **Save file** to download
+      it.
+
+   #. Upload the ``assetlinks.json`` file to your site, with read access for
+      everyone, at ``https://``\ ``yoursite``\ ``/.well-known/assetlinks.json``.
+
+      **Important:** The system verifies the Digital Asset Links file via the
+      encrypted HTTPS protocol. Make sure that the ``assetlinks.json`` file is
+      accessible over an HTTPS connection, regardless of whether your app's
+      intent filter includes ``https``.
+
+   #. Click **Link and Verify** to confirm that you've uploaded the correct
+      Digital Asset Links file to the correct location.
+
+   The App Link Assistant can validate the Digital Assets Links file that should
+   be published on your website. For each domain that's declared in the manifest
+   file, the Assistant parses the file on your website, performs validation
+   checks, and provides a detailed explanation on how to fix any errors.
+
+   Learn more about associating your website with your app through the Digital
+   Asset Links file in `Declare website associations <#/training/app-links/verify-android-applinks#web-assoc>`__.
+
+   .. rubric:: Test your Android App Links
+      :name: testindent
+
+   To verify that your links open the correct activity, follow these steps:
+
+   #. In the App Links Assistant, click **Test App Links**.
+   #. Enter the URL that you want to test in the **URL** field; for example,
+      *http://recipe-app.com/recipe/grilled-potato-salad*.
+   #. Click **Run Test**.
+
+   If the URL mapping isn't set up properly or doesn't exist, an error message
+   appears under the URL in the **Test App Links** dialog. Otherwise, Android
+   Studio launches your app in the device or emulator at the specified activity
+   without showing the disambiguation dialog ("app chooser") and shows a success
+   message in the **App Link Testing** dialog, as shown in figure 3.
+
+   If Android Studio can't launch the app, an error message appears in Android
+   Studio's **Run** window.
+
+   To test Android App Links through the App Links Assistant, you must have a
+   device connected or a virtual device available running Android 6.0 (API level
+   23) or higher. For more information, read about how to `connect a device <#/studio/run/device>`__ or `create an AVD <#/studio/run/managing-avds#createavd>`__.
+
+Content and code samples on this page are subject to the licenses described in
+the `Content License <#/license>`__. Java and OpenJDK are trademarks or
+registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2024-04-30 UTC.
+
+.. |image-ic_plus| image:: https://source.android.google.cn/static/studio/images/buttons/ic_plus.png
+   :class: inline-icon
+.. |The App Links Assistant walks you through basic URL mapping| image:: https://source.android.google.cn/static/studio/images/write/app-links-assistant-URL-mapping_2x.png
+   :width: 673px
+.. |The App Links Assistant lets you fix manifest misconfigurations.| image:: https://source.android.google.cn/static/studio/images/app-links-assistant.png
+.. |image-app-links-assistant-dal-file-generator_2x| image:: https://source.android.google.cn/static/studio/images/write/app-links-assistant-dal-file-generator_2x.png
+   :width: 731px
+
+/Connect to Firebase
+====================
+
+.. https://developer.android.google.cn/studio/write/firebase?hl=en
+
+.. container:: devsite-article-body clearfix
+
+   .. container:: attempt-right
+
+      |image-assistant-window_2-2_2x|
+      **Figure 1.** The Assistant tool window in Android Studio.
+
+   `Firebase <https://firebase.google.cn>`__ is a mobile platform that helps you
+   quickly develop high-quality apps, grow your user base, and earn more money.
+   Firebase consists of complementary features that you can mix and match to fit
+   your needs, with `Google Analytics for Firebase <https://firebase.google.cn/docs/analytics/>`__ at the core. You can
+   explore and integrate Firebase services in your app directly from Android
+   Studio using the **Assistant** window shown in figure 1.
+
+   First, make sure you have `added Google's Maven repository <#/studio/build/dependencies#google-maven>`__ to your project
+   configuration.
+
+   You can open and use the **Assistant** window in Android Studio by following
+   these steps:
+
+   #. Select **Tools > Firebase** to open the **Assistant** window.
+   #. Click to expand one of the listed features.
+   #. Click **Get Started with Firebase Analytics** to open a tutorial that
+      connects you to Firebase and adds the necessary code to your app.
+
+   For more information about using Firebase services, see the `Firebase documentation <https://firebase.google.cn/docs/>`__.
+
+Content and code samples on this page are subject to the licenses described in
+the `Content License <#/license>`__. Java and OpenJDK are trademarks or
+registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2023-04-12 UTC.
+
+.. |image-assistant-window_2-2_2x| image:: https://source.android.google.cn/static/studio/images/write/assistant-window_2-2_2x.png
+   :width: 351px
+
+/Improve your code with lint checks
+===================================
+
+.. https://developer.android.google.cn/studio/write/lint?hl=en
+
+.. container:: devsite-article-body clearfix
+
+   In addition to `building tests <https://android-china.devsite.corp.google.com/studio/test/test-in-android-studio>`__
+   to make sure your app meets its functional requirements, it's important that
+   you also run the code through the lint tool to help ensure your code has no
+   structural problems. The lint tool helps find poorly structured code that can
+   impact the reliability and efficiency of your Android apps and make your code
+   harder to maintain. It is strongly recommended that you correct any errors
+   that lint detects before publishing your app.
+
+   For example, if your XML resource files contain unused namespaces, this takes
+   up space and requires unnecessary processing. Other structural issues, such
+   as use of deprecated elements or API calls that are not supported by the
+   target API versions, might lead to code failing to run correctly. Lint can
+   help you clean up these issues.
+
+   To improve linting performance, you can also `add annotations to your code <#/studio/write/annotations>`__.
+
+   .. rubric:: Overview
+      :name: overview
+
+   Android Studio provides a code scanning tool called *lint* that can help you
+   identify and correct problems with the structural quality of your code
+   without having to execute the app or write test cases. Each problem detected
+   by the tool is reported with a description message and a severity level so
+   that you can prioritize the critical improvements that need to be made. You
+   can also lower the severity level of a problem to ignore issues that are not
+   relevant to your project or raise the severity level to highlight specific
+   problems.
+
+   The lint tool checks your Android project source files for potential bugs and
+   optimization improvements for correctness, security, performance, usability,
+   accessibility, and internationalization. When using Android Studio,
+   configured lint and IDE inspections run when you build your app. However, you
+   can `run inspections manually <#manuallyRunInspections>`__ or `run lint from the command line <#commandline>`__, as described on this page.
+
+   The built-in lint tool checks your code while you're using Android Studio.
+   You can view warnings and errors in two ways:
+
+   -  As pop-up text in the editor window. When lint finds a problem, it
+      highlights the problematic code in yellow. For more serious issues, it
+      underlines the code in red.
+   -  In the lint **Inspection Results** window when you click **Code > Inspect
+      Code**.
+
+   **Note:** When your code is compiled in Android Studio, additional `IntelliJ code inspections <https://www.jetbrains.com/help/idea/2023.3/code-inspection.html>`__
+   run to streamline code review.
+
+   Figure 1 shows how the lint tool processes app source files.
+
+   .. figure:: https://source.android.google.cn/static/studio/images/write/lint.png
+      :alt: Code scanning workflow with the lint tool.
+      :figclass: android-image-dark-theme-background
+      :name: Fig1
+
+      **Figure 1.** Code scanning workflow with the lint tool.
+
+   **App source files**
+      The source files consist of files that make up your Android project,
+      including Kotlin, Java, and XML files, icons, and ProGuard configuration
+      files.
+   **The ``lint.xml`` file**
+      A configuration file that you can use to specify any lint checks that you
+      want to exclude and to customize problem severity levels.
+   **The lint tool**
+      A static code scanning tool that you can run on your Android project
+      either from the command line or in Android Studio. The lint tool checks
+      for structural code problems that could affect the quality and performance
+      of your Android app.
+   **Results of lint checking**
+      You can view the results from lint either in the console or the
+      **Inspection Results** window in Android Studio. If you run ``lint`` from
+      the command line, the results are written to the ``build/`` folder. For
+      further details, see the section about `running inspections manually <#manuallyRunInspections>`__.
+
+   .. rubric:: Run lint from the command line
+      :name: commandline
+
+   If you're using Android Studio or Gradle, use the `Gradle wrapper <https://docs.gradle.org/current/userguide/gradle_wrapper.html>`__ to
+   invoke the ``lint`` task for your project by entering one of the following
+   commands from the root directory of your project:
+
+   -  On Windows:
+
+      .. code:: none
+
+         gradlew lint
+
+   -  On Linux or macOS:
+
+      .. code:: none
+
+         ./gradlew lint
+
+   You should see output similar to the following:
+
+   .. code:: none
+
+      > Task :app:lintDebug
+      Wrote HTML report to file:<path-to-project>/app/build/reports/lint-results-debug.html
+
+   When the lint tool completes its checks, it provides paths to the XML and
+   HTML versions of the lint report. You can then navigate to the HTML report
+   and open it in your browser, as shown in figure 2.
+
+   .. figure:: https://source.android.google.cn/static/studio/images/write/html_lint_report.png
+      :alt: Sample HTML lint report
+      :name: Fig2
+      :width: 758px
+
+      **Figure 2.** Sample HTML lint report.
+
+   If your project includes `build variants <#/studio/build/build-variants>`__,
+   lint checks only the default variant. If you want to run lint on a different
+   variant, you must capitalize the variant name and prefix it with ``lint``.
+
+   .. code:: none
+
+      ./gradlew lintRelease
+
+   To learn more about running Gradle tasks from the command line, read `Build your app from the command line <#/studio/build/building-cmdline>`__.
+
+   .. rubric:: Run lint using the standalone tool
+      :name: standalone-lint
+
+   If you're not using Android Studio or Gradle, install the `Android SDK command-line tools <#/studio/command-line#tools-sdk>`__ to use the standalone
+   lint tool. Locate the lint tool at
+   ``android_sdk``\ ``/cmdline-tools/``\ ``version``\ ``/bin/lint``.
+
+   **Note:** If you attempt to run the standalone tool on a Gradle project, it
+   gives an error. You should always use ``gradle lint`` (on Windows) or
+   ``./gradlew lint`` (on macOS or Linux) to run lint on a Gradle project.
+
+   To run lint against a list of files in a project directory, use the following
+   command:
+
+   .. code:: none
+
+      lint [flags] <project directory>
+
+   For example, you can issue the following command to scan the files under the
+   ``myproject`` directory and its subdirectories. The issue ID
+   ``MissingPrefix`` tells lint to only scan for XML attributes that are missing
+   the Android namespace prefix.
+
+   .. code:: none
+
+      lint --check MissingPrefix myproject 
+
+   To see the full list of flags and command-line arguments supported by the
+   tool, use the following command:
+
+   .. code:: none
+
+      lint --help
+
+   The following example shows the console output when the lint command is run
+   against a project called Earthquake:
+
+   .. code:: none
+
+      $ lint Earthquake
+
+      Scanning Earthquake: ...............................................................................................................................
+      Scanning Earthquake (Phase 2): .......
+      AndroidManifest.xml:23: Warning: <uses-sdk> tag appears after <application> tag [ManifestOrder]
+        <uses-sdk android:minSdkVersion="7" />
+        ^
+      AndroidManifest.xml:23: Warning: <uses-sdk> tag should specify a target API level (the highest verified version; when running on later versions, compatibility behaviors may be enabled) with android:targetSdkVersion="?" [UsesMinSdkAttributes]
+        <uses-sdk android:minSdkVersion="7" />
+        ^
+      res/layout/preferences.xml: Warning: The resource R.layout.preferences appears to be unused [UnusedResources]
+      res: Warning: Missing density variation folders in res: drawable-xhdpi [IconMissingDensityFolder]
+      0 errors, 4 warnings
+
+   The example output lists four warnings and no errors.
+
+   Two warnings relate to the project's ``AndroidManifest.xml`` file:
+
+   -  ``ManifestOrder``
+   -  ``UsesMinSdkAttributes``
+
+   One warning relates to the ``Preferences.xml`` layout file:
+   ``UnusedResources``.
+   One warning relates to the ``res`` directory: ``IconMissingDensityFolder``.
+
+   .. rubric:: Configure lint to suppress warnings
+      :name: config
+
+   By default, when you run a lint scan the tool checks for all issues that lint
+   supports. You can also restrict the issues for lint to check, and you can
+   assign severity levels for issues. For example, you can suppress lint
+   checking for specific issues that are not relevant to your project, and you
+   can configure lint to report non-critical issues at a lower severity level.
+
+   The severity levels are:
+
+   -  ``enable``
+   -  ``disable`` or ``ignore``
+   -  ``informational``
+   -  ``warning``
+   -  ``error``
+   -  ``fatal``
+
+   You can configure lint checking for different levels:
+
+   -  Globally (entire project)
+   -  Project module
+   -  Production module
+   -  Test module
+   -  Open files
+   -  Class hierarchy
+   -  Version Control System (VCS) scopes
+
+   .. rubric:: Configure the lint file
+      :name: pref
+
+   You can specify your lint checking preferences in the ``lint.xml`` file. If
+   you are creating this file manually, place it in the root directory of your
+   Android project.
+
+   The ``lint.xml`` file consists of an enclosing ``<lint>`` parent tag that
+   contains one or more children ``<issue>`` elements. Lint defines a unique
+   ``id`` attribute value for each ``<issue>``:
+
+   .. code:: prettyprint
+
+      <?xml version="1.0" encoding="UTF-8"?>
+      <lint>
+          <!-- list of issues to configure -->
+      </lint>
+
+   To change an issue's severity level or disable lint checking for the issue,
+   set the severity attribute in the ``<issue>`` tag.
+
+   **Tip:** For a full list of lint-supported issues and their corresponding
+   issue IDs, run the ``lint --list`` command.
+
+   .. rubric:: Sample lint.xml file
+      :name: sample-lint.xml-file
+
+   The following example shows the contents of a ``lint.xml`` file:
+
+   .. code:: prettyprint
+
+      <?xml version="1.0" encoding="UTF-8"?>
+      <lint>
+          <!-- Disable the IconMissingDensityFolder check in this project -->
+          <issue id="IconMissingDensityFolder" severity="ignore" />
+
+          <!-- Ignore the ObsoleteLayoutParam issue in the specified files -->
+          <issue id="ObsoleteLayoutParam">
+              <ignore path="res/layout/activation.xml" />
+              <ignore path="res/layout-xlarge/activation.xml" />
+          </issue>
+
+          <!-- Ignore the UselessLeaf issue in the specified file -->
+          <issue id="UselessLeaf">
+              <ignore path="res/layout/main.xml" />
+          </issue>
+
+          <!-- Change the severity of hardcoded strings to "error" -->
+          <issue id="HardcodedText" severity="error" />
+      </lint>
+
+   This example shows how different issue types are reported. The
+   ``IconMissingDensityFolder`` check is disabled completely, and the
+   ``ObsoleteLayoutParam`` check is disabled only in the files specified in the
+   enclosed ``<ignore ... />`` declarations.
+
+   .. rubric:: Configure lint checking for Kotlin, Java, and XML source files
+      :name: src
+
+   You can turn off lint checking for your Kotlin, Java, and XML source files in
+   the **Preferences** dialog:
+
+   #. Select **File > Settings** (on Windows) or **Android Studio >
+      Preferences** (on macOS or Linux).
+   #. Select **Editor > Inspections**.
+   #. To disable, deselect the appropriate source file.
+
+   You can set these either for the IDE or for individual projects by selecting
+   the appropriate profile.
+
+   .. rubric:: Configure lint checking in Java or Kotlin
+      :name: configure-lint-checking-in-java-or-kotlin
+
+   To disable lint checking specifically for a class or method in your Android
+   project, add the ``@SuppressLint`` annotation to that code.
+
+   The following example shows how you can turn off lint checking for the
+   ``NewApi`` issue in the ``onCreate`` method. The lint tool continues to check
+   for the ``NewApi`` issue in other methods of this class.
+
+   .. container:: ds-selector-tabs
+
+      .. container:: section
+
+         .. rubric:: Kotlin
+            :name: kotlin
+
+         .. code:: prettyprint
+
+            @SuppressLint("NewApi")
+            override fun onCreate(savedInstanceState: Bundle?) {
+                super.onCreate(savedInstanceState)
+                setContentView(R.layout.main)
+
+      .. container:: section
+
+         .. rubric:: Java
+            :name: java
+
+         .. code:: prettyprint
+
+            @SuppressLint("NewApi")
+            @Override
+            public void onCreate(Bundle savedInstanceState) {
+                super.onCreate(savedInstanceState);
+                setContentView(R.layout.main);
+
+   The same can be accomplished on any Composable. The following code snippet
+   shows how you can turn off ``NewApi`` checks on any Composable.
+
+   .. container:: ds-selector-tabs
+
+      .. container:: section
+
+         .. rubric:: Kotlin
+            :name: kotlin
+
+         .. code:: prettyprint
+
+              @SuppressLint("NewApi")
+              @Composable
+              fun MyComposable{
+                ...
+              }
+              
+
+   The following example shows how to turn off lint checking for the
+   ``ParserError`` issue in the ``FeedProvider`` class:
+
+   .. container:: ds-selector-tabs
+
+      .. container:: section
+
+         .. rubric:: Kotlin
+            :name: kotlin
+
+         .. code:: prettyprint
+
+            @SuppressLint("ParserError")
+            class FeedProvider : ContentProvider() {
+
+      .. container:: section
+
+         .. rubric:: Java
+            :name: java
+
+         .. code:: prettyprint
+
+            @SuppressLint("ParserError")
+            public class FeedProvider extends ContentProvider {
+
+   To suppress checking for all lint issues in the file, use the ``all``
+   keyword:
+
+   .. container:: ds-selector-tabs
+
+      .. container:: section
+
+         .. rubric:: Kotlin
+            :name: kotlin
+
+         .. code:: prettyprint
+
+            @SuppressLint("all")
+
+      .. container:: section
+
+         .. rubric:: Java
+            :name: java
+
+         .. code:: prettyprint
+
+            @SuppressLint("all")
+
+   You can use the same annotation to suppress lint checks on any Composable
+   function.
+
+   .. rubric:: Configure lint checking in XML
+      :name: configure-lint-checking-in-xml
+
+   Use the ``tools:ignore`` attribute to turn off lint checking for specific
+   sections of your XML files. Put the following namespace value in the
+   ``lint.xml`` file so the lint tool recognizes the attribute:
+
+   .. code:: prettyprint
+
+      namespace xmlns:tools="http://schemas.android.com/tools"
+
+   The following example shows how you can turn off lint checking for the
+   ``UnusedResources`` issue in a ``<LinearLayout>`` element of an XML layout
+   file. The ``ignore`` attribute is inherited by the children elements of the
+   parent element where the attribute is declared. In this example, the lint
+   check is also disabled for the child ``<TextView>`` element:
+
+   .. code:: prettyprint
+
+      <LinearLayout
+          xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          tools:ignore="UnusedResources" >
+
+          <TextView
+              android:text="@string/auto_update_prompt" />
+      </LinearLayout>
+
+   To disable more than one issue, list the issues to disable in a
+   comma-separated string. For example:
+
+   .. code:: prettyprint
+
+      tools:ignore="NewApi,StringFormatInvalid"
+
+   To suppress checking for all lint issues in the XML element, use the ``all``
+   keyword:
+
+   .. code:: prettyprint
+
+      tools:ignore="all"
+
+   .. rubric:: Configure lint options with Gradle
+      :name: gradle
+
+   The Android plugin for Gradle lets you configure certain lint options, such
+   as which checks to run or ignore, using the
+   `lint{} <https://developer.android.google.cn/reference/tools/gradle-api/7.0/com/android/build/api/dsl/Lint>`__
+   block in your module-level ``build.gradle`` file.
+
+   The following code snippet shows some of the properties you can configure:
+
+   .. container::
+
+      .. container:: ds-selector-tabs
+
+         .. container:: section
+
+            .. rubric:: Kotlin
+               :name: kts
+               :class: two-line-tab
+
+            .. code:: prettyprint
+
+               android {
+                   ...
+                   lint {
+                       // Turns off checks for the issue IDs you specify.
+                       disable += "TypographyFractions" + "TypographyQuotes"
+                       // Turns on checks for the issue IDs you specify. These checks are in
+                       // addition to the default lint checks.
+                       enable += "RtlHardcoded" + "RtlCompat" + "RtlEnabled"
+                       // To enable checks for only a subset of issue IDs and ignore all others,
+                       // list the issue IDs with the 'check' property instead. This property overrides
+                       // any issue IDs you enable or disable using the properties above.
+                       checkOnly += "NewApi" + "InlinedApi"
+                       // If set to true, turns off analysis progress reporting by lint.
+                       quiet = true
+                       // If set to true (default), stops the build if errors are found.
+                       abortOnError = false
+                       // If set to true, lint only reports errors.
+                       ignoreWarnings = true
+                       // If set to true, lint also checks all dependencies as part of its analysis.
+                       // Recommended for projects consisting of an app with library dependencies.
+                       checkDependencies = true
+                   }
+               }
+               ...
+
+         .. container:: section
+
+            .. rubric:: Groovy
+               :name: groovy
+               :class: two-line-tab
+
+            .. code:: prettyprint
+
+               android {
+                   ...
+                   lint {
+                       // Turns off checks for the issue IDs you specify.
+                       disable 'TypographyFractions','TypographyQuotes'
+                       // Turns on checks for the issue IDs you specify. These checks are in
+                       // addition to the default lint checks.
+                       enable 'RtlHardcoded','RtlCompat', 'RtlEnabled'
+                       // To enable checks for only a subset of issue IDs and ignore all others,
+                       // list the issue IDs with the 'check' property instead. This property overrides
+                       // any issue IDs you enable or disable using the properties above.
+                       checkOnly 'NewApi', 'InlinedApi'
+                       // If set to true, turns off analysis progress reporting by lint.
+                       quiet true
+                       // If set to true (default), stops the build if errors are found.
+                       abortOnError false
+                       // If set to true, lint only reports errors.
+                       ignoreWarnings true
+                       // If set to true, lint also checks all dependencies as part of its analysis.
+                       // Recommended for projects consisting of an app with library dependencies.
+                       checkDependencies true
+                   }
+               }
+               ...
+
+      All lint methods that override the given severity level of an issue
+      respect the order of configuration. For example, setting an issue as fatal
+      in
+      `finalizeDsl() <#/reference/tools/gradle-api/7.0/com/android/build/api/extension/AndroidComponentsExtension#finalizedsl_1>`__
+      overrides disabling it in the main DSL.
+
+   .. rubric:: Create a warnings baseline
+      :name: snapshot
+
+   You can take a snapshot of your project's current set of warnings, then use
+   the snapshot as a baseline for future inspection runs so that only new issues
+   are reported. The baseline snapshot lets you start using lint to fail the
+   build without having to go back and address all existing issues first.
+
+   To create a baseline snapshot, modify your project's ``build.gradle`` file as
+   follows:
+
+   .. container::
+
+      .. container:: ds-selector-tabs
+
+         .. container:: section
+
+            .. rubric:: Kotlin
+               :name: kts
+               :class: two-line-tab
+
+            .. code:: prettyprint
+
+               android {
+                   lint {
+                       baseline = file("lint-baseline.xml")
+                   }
+               }
+
+         .. container:: section
+
+            .. rubric:: Groovy
+               :name: groovy
+               :class: two-line-tab
+
+            .. code:: prettyprint
+
+               android {
+                   lintOptions {
+                       baseline file("lint-baseline.xml")
+                   }
+               }
+
+   When you first add this line, the ``lint-baseline.xml`` file is created to
+   establish your baseline. From then on, the tools only read the file to
+   determine the baseline. If you want to create a new baseline, manually delete
+   the file and run lint again to re-create it.
+
+   Then, run lint from the IDE by selecting **Code > Inspect Code** or from the
+   command line as follows. The output prints the location of the
+   ``lint-baseline.xml`` file. The file location for your setup might be
+   different from what is shown here:
+
+   .. code:: none
+
+      $ ./gradlew lintDebug -Dlint.baselines.continue=true
+      ...
+      Wrote XML report to file:///app/lint-baseline.xml
+      Created baseline file /app/lint-baseline.xml
+
+   Running ``lint`` records all the current issues in the ``lint-baseline.xml``
+   file. The set of current issues is called the *baseline*. You can check the
+   ``lint-baseline.xml`` file into version control if you want to share it with
+   others.
+
+   .. rubric:: Customize the baseline
+      :name: customize-the-baseline
+
+   If you want to add only certain issue types to the baseline, specify the
+   issues to add by editing your project's ``build.gradle`` file as follows:
+
+   .. container::
+
+      .. container:: ds-selector-tabs
+
+         .. container:: section
+
+            .. rubric:: Kotlin
+               :name: kts
+               :class: two-line-tab
+
+            .. code:: prettyprint
+
+               android {
+                   lint {
+                       checkOnly += "NewApi" + "HandlerLeak"
+                       baseline = file("lint-baseline.xml")
+                   }
+               }
+
+         .. container:: section
+
+            .. rubric:: Groovy
+               :name: groovy
+               :class: two-line-tab
+
+            .. code:: prettyprint
+
+               android {
+                   lintOptions {
+                       checkOnly 'NewApi', 'HandlerLeak'
+                       baseline file("lint-baseline.xml")
+                   }
+               }
+
+   If you add any new warnings to the codebase after you create the baseline,
+   lint lists only the newly introduced bugs.
+
+   .. rubric:: Baseline warning
+      :name: baseline-warning
+
+   When a baseline is in effect, you get an informational warning that tells you
+   that one or more issues were filtered out because they are listed in the
+   baseline. This warning helps you remember that you have configured a baseline
+   and that you need to fix all of the issues at some point.
+
+   This informational warning also keeps track of issues that are no longer
+   reported. This information lets you know if you have actually fixed issues,
+   so you can optionally re-create the baseline to prevent an error from coming
+   back undetected.
+
+   **Note:** Baselines are enabled when you run inspections in batch mode in the
+   IDE, but they are ignored for the in-editor checks that run in the background
+   when you are editing a file. This is because baselines are intended for the
+   case where a codebase has a large number of existing warnings, but you do
+   want to fix issues locally while you touch the code.
+
+   .. rubric:: Run inspections manually
+      :name: manuallyRunInspections
+
+   To manually run configured lint and other IDE inspections, select **Code >
+   Inspect Code**. The results of the inspection appear in the **Inspection
+   Results** window.
+
+   .. rubric:: Set the inspection scope and profile
+      :name: set
+
+   Select the files you want to analyze (the inspection *scope*) and the
+   inspections you want to run (the inspection *profile*) as follows:
+
+   #. In the **Android** view, open your project and select the project, folder,
+      or file that you want to analyze.
+
+   #. From the menu bar, select **Code > Inspect Code**.
+
+   #. In the **Specify Inspection Scope** dialog, review the settings.
+
+      .. figure:: https://source.android.google.cn/static/studio/images/write/specify_inspection_scope_2x.png
+         :alt: Specify Inspection Scope
+         :name: Fig3
+         :width: 495px
+
+         **Figure 3.** Review the inspection scope settings.
+
+      The options that appear in the **Specify Inspection Scope** dialog varies
+      depending on whether you selected a project, folder, or file:
+
+      -  When you select one project, file, or directory, the **Specify
+         Inspection Scope** dialog displays the path to the project, file, or
+         directory you selected.
+      -  When you select more than one project, file, or directory, the
+         **Specify Inspection Scope** dialog displays a selected radio button
+         for **Selected files**.
+
+      To change what to inspect, select one of the other radio buttons. See
+      `Specify Inspection Scope dialog <https://www.jetbrains.com/help/idea/2023.3/specify-inspection-scope-dialog.html>`__
+      for a description of all possible fields on the **Specify Inspection
+      Scope** dialog.
+
+   #. Under **Inspection profile**, select the profile you want to use.
+
+   #. Click **OK** to run the inspection.
+
+      Figure 4 shows lint and other IDE inspection results from the **Inspect
+      Code** run:
+
+      .. figure:: https://source.android.google.cn/static/studio/images/write/inspectandfix_2x.png
+         :alt: Select an issue to see its resolution.
+         :name: Fig4
+         :width: 925px
+
+         **Figure 4.** Results from the inspection. Select an issue to see the
+         resolution.
+
+   #. In the **Inspection Results** pane, view the inspection results by
+      expanding and selecting error categories, types, or issues.
+
+      The **Inspection Report** pane displays the inspection report for the
+      error category, type, or issue selected in the **Inspection Results** pane
+      and displays the name and location of the error. Where applicable, the
+      inspection report displays other information, such as a problem synopsis,
+      to help you correct the problem.
+
+   #. In the **Inspection Results** pane tree view, right-click a category,
+      type, or issue to display the context menu.
+
+      Depending on the context, you can:
+
+      -  Jump to source.
+      -  Exclude and include selected items.
+      -  Suppress problems.
+      -  Edit settings.
+      -  Manage inspection alerts.
+      -  Rerun an inspection.
+
+   For descriptions of the toolbar buttons, context menu items, and inspection
+   report fields, see `Inspection Results tool window <https://www.jetbrains.com/help/idea/2023.3/inspection-tool-window.html>`__.
+
+   .. rubric:: Use a custom scope
+      :name: cs
+
+   Use one of the custom scopes provided in Android Studio as follows:
+
+   #. In the **Specify Inspection Scope** dialog, select **Custom scope**.
+
+   #. Click the **Custom scope** list to display your options:
+
+      .. figure:: https://source.android.google.cn/static/studio/images/write/chooseinspectionscope_2x.png
+         :alt: Choose Inspection Scope
+         :name: Fig5
+         :width: 925px
+
+         **Figure 5.** Select which custom scope you want to use.
+
+      -  **All Places:** All files.
+      -  **Project Files:** All the files in the current project.
+      -  **Project Source Files:** Only the source files in the current project.
+      -  **Project Production Files:** Only the production files in the current
+         project.
+      -  **Project Test Files:** Only the test files in the current project.
+      -  **Scratches and Consoles:** Only the scratch files and consoles you
+         have open in the current project.
+      -  **Recently Viewed Files:** Only recently viewed files in the current
+         project.
+      -  **Current File:** Only the current file in your current project.
+         Appears when you have a file or folder selected.
+      -  **Selected Directory:** Only the current folder in your current
+         project. Appears when you have a folder selected.
+      -  **Class Hierarchy:** When you select this option and click **OK**, a
+         dialog appears with all of the classes in the current project. In the
+         dialog, use the **Search by Name** field to filter and select the
+         classes to inspect. If you don't filter the classes list, code
+         inspection inspects all of the classes.
+
+      If you have a VCS configured for the project, there are also options to
+      restrict the search to only files that have been modified.
+
+   #. Click **OK.**
+
+   .. rubric:: Create a custom scope
+      :name: crcs
+
+   When you want to inspect a selection of files and directories that isn't
+   covered by any of the currently available custom scopes, you can create a
+   custom scope:
+
+   #. In the **Specify Inspection Scope** dialog, select **Custom scope**.
+
+   #. Click the three dots after the **Custom Scope** list.
+
+      .. figure:: https://source.android.google.cn/static/studio/images/write/customscope-more_2x.png
+         :alt: Specify Inspection Scope dialog
+         :width: 490px
+
+         **Figure 6.** Specify Inspection Scope dialog.
+
+      The **Scopes** dialog appears.
+
+      .. figure:: https://source.android.google.cn/static/studio/images/write/scopes_2x.png
+         :alt: Create a custom scope
+         :width: 800px
+
+         **Figure 7.** Create a custom scope.
+
+   #. Click the |image-ic_plus| button in the top-left corner of the dialog to define a
+      new scope.
+
+   #. In the **Add Scope** list that appears, select **Local**.
+
+      Both the local and shared scopes are used within the project for the
+      **Inspect Code** feature. A **Shared** scope can also be used with other
+      project features that have a scope field. For example, when you click
+      **Edit Settings** |image-dialog-wrench| to change the settings for **Find Usages**, the
+      resulting dialog has a **Scope** field where you can select a shared
+      scope.
+
+      .. figure:: https://source.android.google.cn/static/studio/images/write/sharedscope_2x.png
+         :alt: Select a shared scope from the Find Usages dialog
+         :width: 372px
+
+         **Figure 8.** Select a shared scope from the **Find Usages** dialog.
+
+   #. Give the scope a name and click **OK**.
+
+      The right pane of the **Scopes** dialog populates with options that let
+      you define the custom scope.
+
+   #. From the list, select **Project**.
+
+      A list of available projects appears.
+
+      **Note:** You can create the custom scope for projects or packages. The
+      steps are the same.
+
+   #. Expand the project folders, select what you want to add to the custom
+      scope, and select whether to include or exclude it.
+
+      .. figure:: https://source.android.google.cn/static/studio/images/write/customscope_2x.png
+         :alt: Define a custom scope
+         :width: 800px
+
+         **Figure 9.** Define a custom scope.
+
+      -  **Include**: Include this folder and its files, but do not include any
+         of its subfolders.
+      -  **Include Recursively**: Include this folder and its files as well as
+         its subfolders and their files.
+      -  **Exclude**: Exclude this folder and its files, but do not exclude any
+         of its subfolders.
+      -  **Exclude Recursively**: Exclude this folder and its files as well as
+         its subfolders and their files.
+
+      Figure 10 shows that the **main** folder is included, and that the
+      **java** and **res** folders are included recursively. Blue indicates a
+      partially included folder, and green indicates recursively included
+      folders and files.
+
+      .. figure:: https://source.android.google.cn/static/studio/images/write/includepattern_2x.png
+         :alt: Example pattern for a custom scope
+         :width: 800px
+
+         **Figure 10.** Example pattern for a custom scope.
+
+      -  If you select the **java** folder and click **Exclude Recursively**,
+         the green highlighting goes away on the **java** folder and all the
+         folders and files under it.
+      -  If you select the green-highlighted **MainActivity.kt** file and click
+         **Exclude**, **MainActivity.kt** is no longer highlighted green, but
+         everything else under the **java** folder remains green.
+
+   #. Click **OK**. The custom scope appears at the bottom of the list.
+
+   .. rubric:: Review and edit inspection profiles
+      :name: cis
+
+   Android Studio has a selection of lint and other inspection profiles that are
+   updated through Android updates. You can use these profiles as they are or
+   edit their names, descriptions, severities, and scopes. You can also activate
+   and deactivate entire groups of profiles or individual profiles within a
+   group.
+
+   To access the **Inspections** settings:
+
+   #. Select **File > Settings.** (on Windows) or **Android Studio >
+      Preferences** (on macOS or Linux).
+
+   #. Select **Editor > Inspections**.
+
+   #. Select the **Profile** list to toggle between **Default** (Android Studio)
+      and **Project Default** (the active project) inspections.
+
+      For more information, see the IntelliJ `Manage profiles <https://www.jetbrains.com/help/idea/2023.3/inspections-settings.html#profile_management>`__
+      page.
+
+   #. In the **Inspections** list in the left pane, select a top-level profile
+      category or expand a group and select a specific profile.
+
+      When you select a profile category, you can edit all the inspections in
+      that category as a single inspection.
+
+   #. Select the **Show Schema Actions** |Show Schema Actions icon| list to
+      copy, rename, add descriptions to, export, and import inspections.
+
+   #. When you're done, click **OK**.
+
+Content and code samples on this page are subject to the licenses described in
+the `Content License <#/license>`__. Java and OpenJDK are trademarks or
+registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2024-05-03 UTC.
+
+.. |image-ic_plus| image:: https://source.android.google.cn/static/studio/images/buttons/ic_plus.png
+   :class: inline-icon
+.. |image-dialog-wrench| image:: https://source.android.google.cn/static/studio/images/buttons/dialog-wrench.png
+   :class: inline-icon
+.. |Show Schema Actions icon| image:: https://source.android.google.cn/static/studio/images/buttons/device-settings-icon.png
+   :class: inline-icon
+
+/Improve code inspection with annotations
+=========================================
+
+.. https://developer.android.google.cn/studio/write/annotations?hl=en
+
+.. container:: devsite-article-body clearfix
+
+   Using code inspections tools, such as `lint <#/studio/write/lint>`__, can help
+   you find problems and improve your code, but inspection tools can only infer
+   so much. Android resource IDs, for example, use an ``int`` to identify
+   strings, graphics, colors, and other resource types, so inspection tools
+   can't tell when you have specified a string resource where you should have
+   specified a color. This situation means that your app may render incorrectly
+   or fail to run at all, even if you use code inspection.
+
+   Annotations let you provide hints to code inspections tools, such as lint, to
+   help detect these more subtle code problems. Annotations are added as
+   metadata tags that you attach to variables, parameters, and return values to
+   inspect method return values, passed parameters, local variables, and fields.
+   When used with code inspection tools, annotations can help you detect
+   problems such as null pointer exceptions and resource type conflicts.
+
+   Android supports a variety of annotations through the `Jetpack Annotations Library <#/jetpack/androidx/releases/annotation>`__. You can access the
+   library through the
+   `androidx.annotation <#/reference/androidx/annotation/package-summary>`__
+   package.
+
+   **Note:** If a module has a dependency on an annotation processor, you must
+   use either the ``kapt`` or ``ksp`` dependency configuration for Kotlin or the
+   ``annotationProcessor`` dependency configuration for Java to add that
+   dependency.
+
+   .. rubric:: Add annotations to your project
+      :name: adding-annotations
+
+   To enable annotations in your project, add the
+   ``androidx.annotation:annotation`` dependency to your library or app. Any
+   annotations you add are checked when you run a code inspection or ``lint``
+   task.
+
+   .. rubric:: Add the Jetpack Annotations library dependency
+      :name: adding-library
+
+   The Jetpack Annotations library is published on `Google's Maven Repository <#/studio/build/dependencies#google-maven>`__. To add the Jetpack
+   Anotations library to your project, include the following line in the
+   ``dependencies`` block of your ``build.gradle`` or ``build.gradle.kts`` file:
+
+   .. container::
+
+      .. container:: ds-selector-tabs
+
+         .. container:: section
+
+            .. rubric:: Kotlin
+               :name: kts
+               :class: two-line-tab
+
+            .. code:: prettyprint
+
+               dependencies {
+                   implementation("androidx.annotation:annotation:1.7.1")
+               }
+
+         .. container:: section
+
+            .. rubric:: Groovy
+               :name: groovy
+               :class: two-line-tab
+
+            .. code:: prettyprint
+
+               dependencies {
+                   implementation 'androidx.annotation:annotation:1.7.1'
+               }
+
+   Then, in the toolbar or sync notification that appears, click **Sync Now**.
+   If you use annotations in your own library module, the annotations are
+   included as part of the Android Archive (AAR) artifact in XML format in the
+   ``annotations.zip`` file. Adding the ``androidx.annotation`` dependency
+   doesn't introduce a dependency for any downstream users of your library.
+
+   **Note:** If you're using other Jetpack libraries, you might not need to add
+   the ``androidx.annotation`` dependency. Because many other Jetpack libraries
+   depend on the Annotations Library, you might already have access to the
+   annotations.
+
+   For a complete list of annotations included in the Jetpack repository, either
+   see the `Jetpack Annotations library reference <#/reference/androidx/annotation/package-summary>`__ or use the
+   autocomplete feature to display the available options for the
+   ``import androidx.annotation.`` statement.
+
+   .. rubric:: Run code inspections
+      :name: running-code-inspections
+
+   To start a code inspection from Android Studio, which includes validating
+   annotations and automatic lint checking, select **Analyze** **> Inspect
+   Code** from the menu. Android Studio displays conflict messages to flag
+   potential problems where your code conflicts with annotations and to suggest
+   possible resolutions.
+
+   You can also enforce annotations by `running the ``lint`` task using the
+   command line <#/studio/write/lint#commandline>`__. Although this might be
+   useful for flagging problems with a continuous integration server, the
+   ``lint`` task doesn't enforce nullness annotations (described in the
+   following section); only Android Studio does this. For more information on
+   enabling and running lint inspections, see `Improving your code with lint checks <#/tools/debugging/improving-w-lint>`__.
+
+   Although annotation conflicts generate warnings, these warnings don't prevent
+   your app from compiling.
+
+   .. rubric:: Nullness annotations
+      :name: adding-nullness
+
+   Nullness annotations can be useful in Java code to enforce whether values can
+   be null. They are less useful in Kotlin code, as Kotlin has built in
+   nullability rules that are enforced at compile time.
+   Add `@Nullable <#/reference/androidx/annotation/Nullable>`__ and
+   `@NonNull <#/reference/androidx/annotation/NonNull>`__ annotations to
+   check the nullness of a given variable, parameter, or return value. The
+   ``@Nullable`` annotation indicates a variable, parameter, or return value
+   that can be null. ``@NonNull`` indicates a variable, parameter, or return
+   value that can't be null.
+
+   For example, if a local variable that contains a null value is passed as a
+   parameter to a method with the ``@NonNull`` annotation attached to that
+   parameter, building the code generates a warning indicating a non-null
+   conflict. Also, attempting to reference the result of a method marked by
+   ``@Nullable`` without first checking whether the result is null generates a
+   nullness warning. Only use ``@Nullable`` on a method's return value if every
+   use of the method must be explicitly null-checked.
+
+   The following example demonstrates nullability in action. The Kotlin example
+   code doesn't leverage the ``@NonNull`` annotation because it's automatically
+   added to the generated bytecode when a non-nullable type is specified. The
+   Java example leverages the ``@NonNull`` annotation on the ``context`` and
+   ``attrs`` parameters to check that the passed parameter values aren't null.
+   It also checks that the ``onCreateView()`` method itself doesn't return null:
+
+   .. container::
+
+      .. container:: ds-selector-tabs
+
+         .. container:: section
+
+            .. rubric:: Kotlin
+               :name: kotlin
+
+            .. code:: prettyprint
+
+               ...
+                   /** Annotation not used because of the safe-call operator(?)**/
+                   override fun onCreateView(
+                           name: String?,
+                           context: Context,
+                           attrs: AttributeSet
+                   ): View? {
+                       ...
+                   }
+               ...
+
+         .. container:: section
+
+            .. rubric:: Java
+               :name: java
+
+            .. code:: prettyprint
+
+               import androidx.annotation.NonNull;
+               ...
+                   /** Add support for inflating the <fragment> tag. **/
+                   @NonNull
+                   @Override
+                   public View onCreateView(String name, @NonNull Context context,
+                     @NonNull AttributeSet attrs) {
+                     ...
+                     }
+               ...
+
+   .. rubric:: Nullability analysis
+      :name: nullability-analysis
+
+   Android Studio supports running a nullability analysis to automatically infer
+   and insert nullness annotations in your code. A nullability analysis scans
+   the contracts throughout the method hierarchies in your code to detect:
+
+   -  Calling methods that can return null.
+   -  Methods that should not return null.
+   -  Variables, such as fields, local variables, and parameters, that can be
+      null.
+   -  Variables, such as fields, local variables, and parameters, that can't
+      hold a null value.
+
+   The analysis then automatically inserts the appropriate null annotations in
+   the detected locations.
+
+   To run a nullability analysis in Android Studio, select **Analyze** > **Infer
+   Nullity**. Android Studio inserts the Android
+   `@Nullable <#/reference/androidx/annotation/Nullable>`__ and
+   `@NonNull <#/reference/androidx/annotation/NonNull>`__ annotations in
+   detected locations in your code. After running a null analysis, it's a good
+   practice to verify the injected annotations.
+
+   **Note:** When adding nullness annotations, autocomplete may suggest the
+   IntelliJ `@Nullable and @NotNull <https://www.jetbrains.com/help/idea/2023.3/nullable-and-notnull-annotations.html>`__
+   annotations instead of the Android null annotations and may auto-import the
+   corresponding library. However, the Android Studio lint checker only looks
+   for the Android null annotations. When verifying your annotations, confirm
+   that your project uses the Android null annotations so the lint checker can
+   properly notify you during code inspection.
+
+   .. rubric:: Resource annotations
+      :name: res-annotations
+
+   Validating resource types can be useful because Android references to
+   resources, such as `drawable <#/guide/topics/resources/drawable-resource>`__
+   and `string <#/guide/topics/resources/string-resource>`__ resources, are
+   passed as integers.
+
+   Code that expects a parameter to reference a specific type of resource, such
+   as a ``String``, can be passed to the expected reference type of ``int``, but
+   actually reference a different type of resource, such as an ``R.string``
+   resource.
+
+   For example, add
+   `@StringRes <#/reference/androidx/annotation/StringRes>`__ annotations to
+   check whether a resource parameter contains an ``R.string`` reference, as
+   shown here:
+
+   .. container::
+
+      .. container:: ds-selector-tabs
+
+         .. container:: section
+
+            .. rubric:: Kotlin
+               :name: kotlin
+
+            .. code:: prettyprint
+
+               abstract fun setTitle(@StringRes resId: Int)
+
+         .. container:: section
+
+            .. rubric:: Java
+               :name: java
+
+            .. code:: prettyprint
+
+               public abstract void setTitle(@StringRes int resId)
+
+   During code inspection, the annotation generates a warning if an ``R.string``
+   reference isn't passed in the parameter.
+
+   Annotations for other resource types, such as
+   `@DrawableRes <#/reference/androidx/annotation/DrawableRes>`__,
+   `@DimenRes <#/reference/androidx/annotation/DimenRes>`__,
+   `@ColorRes <#/reference/androidx/annotation/ColorRes>`__, and
+   `@InterpolatorRes <#/reference/androidx/annotation/InterpolatorRes>`__,
+   can be added using the same annotation format and run during the code
+   inspection.
+
+   If your parameter supports multiple resource types, you can put more than one
+   resource type annotation on a given parameter. Use
+   `@AnyRes <#/reference/androidx/annotation/AnyRes>`__ to indicate that the
+   annotated parameter can be any type of ``R`` resource.
+
+   Although you can use ``@ColorRes`` to specify that a parameter should be a
+   color resource, a color integer (in the ``RRGGBB`` or ``AARRGGBB`` format)
+   isn't recognized as a color resource. Instead, use the
+   `@ColorInt <#/reference/androidx/annotation/ColorInt>`__ annotation to
+   indicate that a parameter must be a color integer. The build tools will flag
+   incorrect code that passes a color resource ID such as
+   ``android.R.color.black``, rather than a color integer, to annotated methods.
+
+   .. rubric:: Thread annotations
+      :name: thread-annotations
+
+   Thread annotations check whether a method is called from a specific type of
+   `thread <#/guide/components/processes-and-threads>`__. The following thread
+   annotations are supported:
+
+   -  `@MainThread <#/reference/androidx/annotation/MainThread>`__
+   -  `@UiThread <#/reference/androidx/annotation/UiThread>`__
+   -  `@WorkerThread <#/reference/androidx/annotation/WorkerThread>`__
+   -  `@BinderThread <#/reference/androidx/annotation/BinderThread>`__
+   -  `@AnyThread <#/reference/androidx/annotation/AnyThread>`__
+
+   The build tools treat the ``@MainThread`` and ``@UiThread`` annotations as
+   interchangeable, so you can call ``@UiThread`` methods from ``@MainThread``
+   methods and vice versa. However, it's possible for a UI thread to be
+   different from the main thread, in the case of system apps with multiple
+   views on different threads. Therefore, you should annotate methods associated
+   with an app's view hierarchy with ``@UiThread`` and annotate only methods
+   associated with an app's lifecycle with ``@MainThread``.
+
+   If all methods in a class share the same threading requirement, you can add a
+   single thread annotation to the class to verify that all methods in the class
+   are called from the same type of thread.
+
+   A common use of thread annotations is to validate that methods or classes
+   annotated with ``@WorkerThread`` are only called from an appropriate
+   background thread.
+
+   .. rubric:: Value constraint annotations
+      :name: value-constraint
+
+   Use the `@IntRange <#/reference/androidx/annotation/IntRange>`__,
+   `@FloatRange <#/reference/androidx/annotation/FloatRange>`__, and
+   `@Size <#/reference/androidx/annotation/Size>`__ annotations to validate
+   the values of passed parameters. Both ``@IntRange`` and ``@FloatRange`` are
+   most useful when applied to parameters where users are likely to get the
+   range wrong.
+
+   The ``@IntRange`` annotation validates that an integer or long parameter
+   value is within a specified range. The following example indicates that the
+   ``alpha`` parameter must contain an integer value from 0 to 255:
+
+   .. container::
+
+      .. container:: ds-selector-tabs
+
+         .. container:: section
+
+            .. rubric:: Kotlin
+               :name: kotlin
+
+            .. code:: prettyprint
+
+               fun setAlpha(@IntRange(from = 0, to = 255) alpha: Int) { ... }
+
+         .. container:: section
+
+            .. rubric:: Java
+               :name: java
+
+            .. code:: prettyprint
+
+               public void setAlpha(@IntRange(from=0,to=255) int alpha) { ... }
+
+   The ``@FloatRange`` annotation checks whether a float or double parameter
+   value is within a specified range of floating point values. The following
+   example indicates that the ``alpha`` parameter must contain a float value
+   from 0.0 to 1.0:
+
+   .. container::
+
+      .. container:: ds-selector-tabs
+
+         .. container:: section
+
+            .. rubric:: Kotlin
+               :name: kotlin
+
+            .. code:: prettyprint
+
+               fun setAlpha(@FloatRange(from = 0.0, to = 1.0) alpha: Float) {...}
+
+         .. container:: section
+
+            .. rubric:: Java
+               :name: java
+
+            .. code:: prettyprint
+
+               public void setAlpha(@FloatRange(from=0.0, to=1.0) float alpha) {...}
+
+   The ``@Size`` annotation checks the size of a collection or array or the
+   length of a string. The ``@Size`` annotation can be used to verify the
+   following qualities:
+
+   -  Minimum size, such as ``@Size(min=2)``
+   -  Maximum size, such as ``@Size(max=2)``
+   -  Exact size, such as ``@Size(2)``
+   -  A number that the size must be a multiple of, such as
+      ``@Size(multiple=2)``
+
+   For example, ``@Size(min=1)`` checks whether a collection is not empty, and
+   ``@Size(3)`` validates that an array contains exactly three values.
+
+   The following example indicates that the ``location`` array must contain at
+   least one element:
+
+   .. container::
+
+      .. container:: ds-selector-tabs
+
+         .. container:: section
+
+            .. rubric:: Kotlin
+               :name: kotlin
+
+            .. code:: prettyprint
+
+               fun getLocation(button: View, @Size(min=1) location: IntArray) {
+                   button.getLocationOnScreen(location)
+               }
+
+         .. container:: section
+
+            .. rubric:: Java
+               :name: java
+
+            .. code:: prettyprint
+
+               void getLocation(View button, @Size(min=1) int[] location) {
+                   button.getLocationOnScreen(location);
+               }
+
+   .. rubric:: Permission annotations
+      :name: permissions
+
+   Use the
+   `@RequiresPermission <#/reference/androidx/annotation/RequiresPermission>`__
+   annotation to validate the permissions of the caller of a method. To check
+   for a single permission from a list of valid permissions, use the ``anyOf``
+   attribute. To check for a set of permissions, use the ``allOf`` attribute.
+   The following example annotates the ``setWallpaper()`` method to indicate
+   that the caller of the method must have the ``permission.SET_WALLPAPERS``
+   permission:
+
+   .. container::
+
+      .. container:: ds-selector-tabs
+
+         .. container:: section
+
+            .. rubric:: Kotlin
+               :name: kotlin
+
+            .. code:: prettyprint
+
+               @RequiresPermission(Manifest.permission.SET_WALLPAPER)
+               @Throws(IOException::class)
+               abstract fun setWallpaper(bitmap: Bitmap)
+
+         .. container:: section
+
+            .. rubric:: Java
+               :name: java
+
+            .. code:: prettyprint
+
+               @RequiresPermission(Manifest.permission.SET_WALLPAPER)
+               public abstract void setWallpaper(Bitmap bitmap) throws IOException;
+
+   The following example requires the caller of the ``copyImageFile()`` method
+   to have both read access to external storage and read access to location
+   metadata in the copied image:
+
+   .. container::
+
+      .. container:: ds-selector-tabs
+
+         .. container:: section
+
+            .. rubric:: Kotlin
+               :name: kotlin
+
+            .. code:: prettyprint
+
+               @RequiresPermission(allOf = [
+                   Manifest.permission.READ_EXTERNAL_STORAGE,
+                   Manifest.permission.ACCESS_MEDIA_LOCATION
+               ])
+               fun copyImageFile(dest: String, source: String) {
+                   ...
+               }
+
+         .. container:: section
+
+            .. rubric:: Java
+               :name: java
+
+            .. code:: prettyprint
+
+               @RequiresPermission(allOf = {
+                   Manifest.permission.READ_EXTERNAL_STORAGE,
+                   Manifest.permission.ACCESS_MEDIA_LOCATION})
+               public static final void copyImageFile(String dest, String source) {
+                   //...
+               }
+
+   For permissions on intents, place the permission requirement on the string
+   field that defines the intent action name:
+
+   .. container::
+
+      .. container:: ds-selector-tabs
+
+         .. container:: section
+
+            .. rubric:: Kotlin
+               :name: kotlin
+
+            .. code:: prettyprint
+
+               @RequiresPermission(android.Manifest.permission.BLUETOOTH)
+               const val ACTION_REQUEST_DISCOVERABLE = "android.bluetooth.adapter.action.REQUEST_DISCOVERABLE"
+
+         .. container:: section
+
+            .. rubric:: Java
+               :name: java
+
+            .. code:: prettyprint
+
+               @RequiresPermission(android.Manifest.permission.BLUETOOTH)
+               public static final String ACTION_REQUEST_DISCOVERABLE =
+                           "android.bluetooth.adapter.action.REQUEST_DISCOVERABLE";
+
+   For permissions on content providers that need separate permissions for read
+   and write access, wrap each permission requirement in an
+   `@RequiresPermission.Read <#/reference/androidx/annotation/RequiresPermission.Read>`__
+   or
+   `@RequiresPermission.Write <#/reference/androidx/annotation/RequiresPermission.Write>`__
+   annotation:
+
+   .. container::
+
+      .. container:: ds-selector-tabs
+
+         .. container:: section
+
+            .. rubric:: Kotlin
+               :name: kotlin
+
+            .. code:: prettyprint
+
+               @RequiresPermission.Read(RequiresPermission(READ_HISTORY_BOOKMARKS))
+               @RequiresPermission.Write(RequiresPermission(WRITE_HISTORY_BOOKMARKS))
+               val BOOKMARKS_URI = Uri.parse("content://browser/bookmarks")
+
+         .. container:: section
+
+            .. rubric:: Java
+               :name: java
+
+            .. code:: prettyprint
+
+               @RequiresPermission.Read(@RequiresPermission(READ_HISTORY_BOOKMARKS))
+               @RequiresPermission.Write(@RequiresPermission(WRITE_HISTORY_BOOKMARKS))
+               public static final Uri BOOKMARKS_URI = Uri.parse("content://browser/bookmarks");
+
+   .. rubric:: Indirect permissions
+      :name: indirect-permissions
+
+   When a permission depends on the specific value supplied to a method's
+   parameter, use ``@RequiresPermission`` on the parameter itself without
+   listing the specific permissions. For example, the
+   `startActivity(Intent) <#/reference/android/app/Activity#startActivity(android.content.Intent)>`__
+   method uses an indirect permission on the intent passed to the method:
+
+   .. container::
+
+      .. container:: ds-selector-tabs
+
+         .. container:: section
+
+            .. rubric:: Kotlin
+               :name: kotlin
+
+            .. code:: prettyprint
+
+               abstract fun startActivity(@RequiresPermission intent: Intent, bundle: Bundle?)
+
+         .. container:: section
+
+            .. rubric:: Java
+               :name: java
+
+            .. code:: prettyprint
+
+               public abstract void startActivity(@RequiresPermission Intent intent, @Nullable Bundle)
+
+   When you use indirect permissions, the build tools perform data flow analysis
+   to check whether the argument passed into the method has any
+   ``@RequiresPermission`` annotations. They then enforce any existing
+   annotations from the parameter on the method itself. In the
+   ``startActivity(Intent)`` example, annotations in the
+   `Intent <#/reference/android/content/Intent>`__ class cause the resulting
+   warnings on invalid uses of ``startActivity(Intent)`` when an intent without
+   the appropriate permissions is passed to the method, as shown in figure 1.
+
+   |image-indirect-permissions-warning_2-2_2x|
+   **Figure 1.** The warning generated from an indirect permissions annotation
+   on the ``startActivity(Intent)`` method.
+
+   The build tools generate the warning on ``startActivity(Intent)`` from the
+   annotation on the corresponding intent action name in the ``Intent`` class:
+
+   .. container::
+
+      .. container:: ds-selector-tabs
+
+         .. container:: section
+
+            .. rubric:: Kotlin
+               :name: kotlin
+
+            .. code:: prettyprint
+
+               @RequiresPermission(Manifest.permission.CALL_PHONE)
+               const val ACTION_CALL = "android.intent.action.CALL"
+
+         .. container:: section
+
+            .. rubric:: Java
+               :name: java
+
+            .. code:: prettyprint
+
+               @RequiresPermission(Manifest.permission.CALL_PHONE)
+               public static final String ACTION_CALL = "android.intent.action.CALL";
+
+   If necessary, you can substitute ``@RequiresPermission`` for
+   ``@RequiresPermission.Read`` or ``@RequiresPermission.Write`` when annotating
+   a method's parameter. However, for indirect permissions
+   ``@RequiresPermission`` should not be used in conjunction with either the
+   read or the write permissions annotations.
+
+   .. rubric:: Return value annotations
+      :name: check-result
+
+   Use the `@CheckResult <#/reference/androidx/annotation/CheckResult>`__
+   annotation to validate that a method's result or return value is actually
+   used. Instead of annotating every non-void method with ``@CheckResult``, add
+   the annotation to clarify the results of potentially confusing methods.
+
+   For example, new Java developers often mistakenly think that
+   ``<``\ *``String``*\ ``>.trim()`` removes whitespace from the original
+   string. Annotating the method with ``@CheckResult`` flags uses of
+   ``<``\ *``String``*\ ``>.trim()`` where the caller doesn't do anything with
+   the method's return value.
+
+   The following example annotates the
+   `checkPermissions() <#/reference/android/content/pm/PackageManager#checkPermission(java.lang.String,%20java.lang.String)>`__
+   method to check whether the return value of the method is actually
+   referenced. It also names the
+   `enforcePermission() <#/reference/android/content/ContextWrapper#enforcePermission(java.lang.String,%20int,%20int,%20java.lang.String)>`__
+   method as a method to be suggested to the developer as a replacement:
+
+   .. container::
+
+      .. container:: ds-selector-tabs
+
+         .. container:: section
+
+            .. rubric:: Kotlin
+               :name: kotlin
+
+            .. code:: prettyprint
+
+               @CheckResult(suggest = "#enforcePermission(String,int,int,String)")
+               abstract fun checkPermission(permission: String, pid: Int, uid: Int): Int
+
+         .. container:: section
+
+            .. rubric:: Java
+               :name: java
+
+            .. code:: prettyprint
+
+               @CheckResult(suggest="#enforcePermission(String,int,int,String)")
+               public abstract int checkPermission(@NonNull String permission, int pid, int uid);
+
+   .. rubric:: CallSuper annotations
+      :name: call-super
+
+   Use the `@CallSuper <#/reference/androidx/annotation/CallSuper>`__
+   annotation to validate that an overriding method calls the super
+   implementation of the method.
+
+   The following example annotates the ``onCreate()`` method to ensure that any
+   overriding method implementations call ``super.onCreate()``:
+
+   .. container::
+
+      .. container:: ds-selector-tabs
+
+         .. container:: section
+
+            .. rubric:: Kotlin
+               :name: kotlin
+
+            .. code:: prettyprint
+
+               @CallSuper
+               override fun onCreate(savedInstanceState: Bundle?) {
+               }
+
+         .. container:: section
+
+            .. rubric:: Java
+               :name: java
+
+            .. code:: prettyprint
+
+               @CallSuper
+               protected void onCreate(Bundle savedInstanceState) {
+               }
+
+   .. rubric:: Typedef annotations
+      :name: enum-annotations
+
+   Typedef annotations check whether a particular parameter, return value, or
+   field references a specific set of constants. They also enable code
+   completion to automatically offer the allowed constants.
+
+   Use the `@IntDef <#/reference/androidx/annotation/IntDef>`__ and
+   `@StringDef <#/reference/androidx/annotation/StringDef>`__ annotations to
+   create enumerated annotations of integer and string sets to validate other
+   types of code references.
+
+   Typedef annotations use ``@interface`` to declare the new enumerated
+   annotation type. The ``@IntDef`` and ``@StringDef`` annotations, along with
+   ``@Retention``, annotate the new annotation and are necessary to define the
+   enumerated type. The ``@Retention(RetentionPolicy.SOURCE)`` annotation tells
+   the compiler not to store the enumerated annotation data in the ``.class``
+   file.
+
+   The following example shows the steps to create an annotation that checks
+   whether a value passed as a method parameter references one of the defined
+   constants:
+
+   .. container::
+
+      .. container:: ds-selector-tabs
+
+         .. container:: section
+
+            .. rubric:: Kotlin
+               :name: kotlin
+
+            .. code:: prettyprint
+
+               import androidx.annotation.IntDef
+               //...
+               // Define the list of accepted constants and declare the NavigationMode annotation.
+               @Retention(AnnotationRetention.SOURCE)
+               @IntDef(NAVIGATION_MODE_STANDARD, NAVIGATION_MODE_LIST, NAVIGATION_MODE_TABS)
+               annotation class NavigationMode
+
+               // Declare the constants.
+               const val NAVIGATION_MODE_STANDARD = 0
+               const val NAVIGATION_MODE_LIST = 1
+               const val NAVIGATION_MODE_TABS = 2
+
+               abstract class ActionBar {
+
+                   // Decorate the target methods with the annotation.
+                   // Attach the annotation.
+                   @get:NavigationMode
+                   @setparam:NavigationMode
+                   abstract var navigationMode: Int
+
+               }
+
+         .. container:: section
+
+            .. rubric:: Java
+               :name: java
+
+            .. code:: prettyprint
+
+               import androidx.annotation.IntDef;
+               //...
+               public abstract class ActionBar {
+                   //...
+                   // Define the list of accepted constants and declare the NavigationMode annotation.
+                   @Retention(RetentionPolicy.SOURCE)
+                   @IntDef({NAVIGATION_MODE_STANDARD, NAVIGATION_MODE_LIST, NAVIGATION_MODE_TABS})
+                   public @interface NavigationMode {}
+
+                   // Declare the constants.
+                   public static final int NAVIGATION_MODE_STANDARD = 0;
+                   public static final int NAVIGATION_MODE_LIST = 1;
+                   public static final int NAVIGATION_MODE_TABS = 2;
+
+                   // Decorate the target methods with the annotation.
+                   @NavigationMode
+                   public abstract int getNavigationMode();
+
+                   // Attach the annotation.
+                   public abstract void setNavigationMode(@NavigationMode int mode);
+               }
+
+   When you build this code, a warning is generated if the ``mode`` parameter
+   doesn't reference one of the defined constants (``NAVIGATION_MODE_STANDARD``,
+   ``NAVIGATION_MODE_LIST``, or ``NAVIGATION_MODE_TABS``).
+
+   Combine ``@IntDef`` and ``@IntRange`` to indicate that an integer can be
+   either a given set of constants or a value within a range.
+
+   .. rubric:: Enable combining constants with flags
+      :name: typedef-flags
+
+   If users can combine the allowed constants with a flag (such as ``|``, ``&``,
+   ``^``, and so on), you can define an annotation with a ``flag`` attribute to
+   check whether a parameter or return value references a valid pattern.
+
+   The following example creates the ``DisplayOptions`` annotation with a list
+   of valid ``DISPLAY_`` constants:
+
+   .. container::
+
+      .. container:: ds-selector-tabs
+
+         .. container:: section
+
+            .. rubric:: Kotlin
+               :name: kotlin
+
+            .. code:: prettyprint
+
+               import androidx.annotation.IntDef
+               ...
+
+               @IntDef(flag = true, value = [
+                   DISPLAY_USE_LOGO,
+                   DISPLAY_SHOW_HOME,
+                   DISPLAY_HOME_AS_UP,
+                   DISPLAY_SHOW_TITLE,
+                   DISPLAY_SHOW_CUSTOM
+               ])
+               @Retention(AnnotationRetention.SOURCE)
+               annotation class DisplayOptions
+               ...
+
+         .. container:: section
+
+            .. rubric:: Java
+               :name: java
+
+            .. code:: prettyprint
+
+               import androidx.annotation.IntDef;
+               ...
+
+               @IntDef(flag=true, value={
+                       DISPLAY_USE_LOGO,
+                       DISPLAY_SHOW_HOME,
+                       DISPLAY_HOME_AS_UP,
+                       DISPLAY_SHOW_TITLE,
+                       DISPLAY_SHOW_CUSTOM
+               })
+               @Retention(RetentionPolicy.SOURCE)
+               public @interface DisplayOptions {}
+
+               ...
+
+   When you build code with an annotation flag, a warning is generated if the
+   decorated parameter or return value doesn't reference a valid pattern.
+
+   .. rubric:: Keep annotation
+      :name: keep
+
+   The `@Keep <#/reference/androidx/annotation/Keep>`__ annotation ensures
+   that an annotated class or method is not removed when the code is minified at
+   build time. This annotation is typically added to methods and classes that
+   are accessed through reflection to prevent the compiler from treating the
+   code as unused.
+
+   .. caution::
+
+      **Caution:** The classes and methods that you annotate using ``@Keep``
+      always appear in your app's APK, even if you never reference these classes
+      and methods within your app's logic.
+
+      To keep your app's size small, consider whether it's necessary to preserve
+      each ``@Keep`` annotation in your app. If you use reflection to access an
+      annotated class or method, use an
+      `-if <https://www.guardsquare.com/en/products/proguard/manual/usage#if>`__
+      conditional in your ProGuard rules, specifying the class that makes the
+      reflection calls.
+
+   For more information about how to minify your code and specify which code is
+   not to be removed, see `Shrink, obfuscate, and optimize your app <#/studio/build/shrink-code>`__.
+
+   .. rubric:: Code visibility annotations
+      :name: visibility
+
+   Use the following annotations to denote the visibility of specific portions
+   of code, such as methods, classes, fields, or packages.
+
+   .. rubric:: Make code visible for testing
+      :name: visible
+
+   The
+   `@VisibleForTesting <#/reference/androidx/annotation/VisibleForTesting>`__
+   annotation indicates that an annotated method is more visible than normally
+   necessary to make the method testable. This annotation has an optional
+   ``otherwise`` argument that lets you designate what the visibility of the
+   method would be if not for the need to make it visible for testing. Lint uses
+   the ``otherwise`` argument to enforce the intended visibility.
+
+   In the following example, ``myMethod()`` is normally ``private``, but it is
+   ``package-private`` for tests. With the ``VisibleForTesting.PRIVATE``
+   designation, lint displays a message if this method is called from outside
+   the context allowed by ``private`` access, such as from a different
+   compilation unit.
+
+   .. container::
+
+      .. container:: ds-selector-tabs
+
+         .. container:: section
+
+            .. rubric:: Kotlin
+               :name: kotlin
+
+            .. code:: prettyprint
+
+               @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+               fun myMethod() {
+                   ...
+               }
+
+         .. container:: section
+
+            .. rubric:: Java
+               :name: java
+
+            .. code:: prettyprint
+
+               @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+               void myMethod() { ... }
+
+   You can also specify
+   ``@VisibleForTesting(otherwise = VisibleForTesting.NONE)`` to indicate that a
+   method exists only for testing. This form is the same as using
+   ``@RestrictTo(TESTS)``. They both perform the same lint check.
+
+   .. rubric:: Restrict an API
+      :name: restrict
+
+   The `@RestrictTo <#/reference/androidx/annotation/RestrictTo>`__
+   annotation indicates that access to the annotated API (package, class, or
+   method) is limited, as follows:
+
+   .. rubric:: Subclasses
+      :name: subclasses
+
+   Use the annotation form ``@RestrictTo(RestrictTo.Scope.SUBCLASSES)`` to
+   restrict API access to subclasses only.
+
+   Only classes that extend the annotated class can access this API. The Java
+   ``protected`` modifier is not restrictive enough, because it allows access
+   from unrelated classes within the same package. Also, there are cases when
+   you want to leave a method ``public`` for future flexibility, because you can
+   never make a previously ``protected`` and overridden method ``public``, but
+   you want to provide a hint that the class is intended for usages within the
+   class or from subclasses only.
+
+   .. rubric:: Libraries
+      :name: libraries
+
+   Use the annotation form
+   ``@RestrictTo(RestrictTo.Scope.LIBRARY_GROUP_PREFIX)`` to restrict API access
+   to your libraries only.
+
+   Only your library code can access the annotated API. This lets you not only
+   organize your code in whatever package hierarchy you want but also share the
+   code among a group of related libraries. This option is already available to
+   the Jetpack libraries that have a lot of implementation code that is not
+   meant for external use, but that has to be ``public`` to share it across the
+   various complementary Jetpack libraries.
+
+   .. rubric:: Testing
+      :name: testing
+
+   Use the annotation form ``@RestrictTo(RestrictTo.Scope.TESTS)`` to prevent
+   other developers from accessing your testing APIs.
+
+   Only testing code can access the annotated API. This prevents other
+   developers from using APIs for development that you intend for testing
+   purposes only.
+
+Content and code samples on this page are subject to the licenses described in
+the `Content License <#/license>`__. Java and OpenJDK are trademarks or
+registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2024-05-03 UTC.
+
+.. |image-indirect-permissions-warning_2-2_2x| image:: https://source.android.google.cn/static/studio/images/write/indirect-permissions-warning_2-2_2x.png
+
+/Tools attributes reference
+===========================
+
+.. https://developer.android.google.cn/studio/write/tool-attributes?hl=en
+
+.. container:: devsite-article-body clearfix
+
+   Android Studio supports a variety of XML attributes in the ``tools``
+   namespace that enable design-time features, such as which layout to show in a
+   fragment, or compile-time behaviors, such as which shrinking mode to apply to
+   your XML resources. When you build your app, the build tools remove these
+   attributes so that there is no effect on your APK size or runtime behavior.
+
+   To use these attributes, add the ``tools`` namespace to the root element of
+   each XML file where you'd like to use them, as shown here:
+
+   .. code:: prettyprint
+
+      <RootTag xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools" >
+
+   .. rubric:: Error-handling attributes
+      :name: error_handling_attributes
+
+   The following attributes help suppress lint warning messages:
+
+   .. rubric:: ``tools:ignore``
+      :name: toolsignore
+
+   **Intended for:** Any element
+
+   **Used by:** `Lint <#/studio/write/lint#configuring-lint-checking-in-xml>`__
+
+   This attribute accepts a comma-separated list of lint issue IDs that you'd
+   like the tools to ignore on this element or any of its descendants.
+
+   For example, you can tell the tools to ignore the ``MissingTranslation``
+   error:
+
+   .. code:: prettyprint
+
+      <string name="show_all_apps" tools:ignore="MissingTranslation">All</string>
+
+   .. rubric:: ``tools:targetApi``
+      :name: toolstargetapi
+
+   **Intended for**: Any element
+
+   **Used by**: Lint
+
+   This attribute works the same as the
+   `@TargetApi <#/reference/android/annotation/TargetApi>`__ annotation in
+   Java code. It lets you specify the API level (either as an integer or as a
+   code name) that supports this element.
+
+   This tells the tools that you believe this element and any children are used
+   only on the specified API level or higher. This stops lint from warning you
+   if that element or its attributes are not available on the API level you
+   specify as your ``minSdkVersion``.
+
+   For example, you might use this attribute because
+   `GridLayout <#/reference/android/widget/GridLayout>`__ is only available
+   on API level 14 and higher, but you know this layout is not used in your code
+   for any lower versions:
+
+   .. code:: prettyprint
+
+      <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          tools:targetApi="14" >
+
+   (However, note that we recommend that you use
+   `GridLayout <#/reference/androidx/gridlayout/widget/GridLayout>`__ from
+   the support library instead.)
+
+   .. rubric:: ``tools:locale``
+      :name: toolslocale
+
+   **Intended for:** ``<resources>``
+
+   **Used by:** Lint, Android Studio editor
+
+   This tells the tools what the default language or locale is for the resources
+   in the given ``<resources>`` element to avoid warnings from the spellchecker.
+   The tool otherwise assumes the language is English.
+
+   The value must be a valid `locale qualifier <#/guide/topics/resources/providing-resources#LocaleQualifier>`__.
+
+   For example, you can add this to your default ``values/strings.xml`` file to
+   indicate that the language used for the default strings is Spanish rather
+   than English:
+
+   .. code:: prettyprint
+
+      <resources xmlns:tools="http://schemas.android.com/tools"
+          tools:locale="es">
+
+   .. rubric:: Design-time view attributes
+      :name: design-time_view_attributes
+
+   The following attributes define layout characteristics that are visible only
+   in the Android Studio layout preview.
+
+   .. rubric:: ``tools:`` instead of ``android:``
+      :name: tools_instead_of_android
+
+   **Intended for:** ``<View>``
+
+   **Used by:** Android Studio layout editor
+
+   You can insert sample data in your layout preview by using the ``tools:``
+   prefix instead of ``android:`` with any ``<View>`` attribute from the Android
+   framework. This is useful when the attribute's value isn't populated until
+   runtime and you want to see the effect in the layout preview.
+
+   For example, if the ``android:text`` attribute value is set at runtime, or
+   you want to see the layout with a value different than the default, you can
+   add ``tools:text`` to specify some text for the layout preview only.
+
+   .. figure:: https://source.android.google.cn/static/studio/images/write/tools-attribute-text_2x.png
+      :alt: The tools:text attribute sets Google Voice as the value for the
+      layout preview
+      :width: 714px
+
+      **Figure 1.** The ``tools:text`` attribute sets "Google Voice" as the
+      value for the layout preview.
+
+   You can add both the ``android:`` namespace attribute, which is used at
+   runtime, and the matching ``tools:`` attribute, which overrides the runtime
+   attribute in the layout preview only.
+
+   You can also use a ``tools:`` attribute to undo an attribute setting for the
+   layout preview only. For example, if you have a ``FrameLayout`` with two
+   children but you want to see only one child in the layout preview, you can
+   set one of them to be invisible in the layout preview, as shown here:
+
+   .. code:: prettyprint
+
+      <Button
+          android:id="@+id/button"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="First" />
+
+      <Button
+          android:id="@+id/button2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Second"
+          tools:visibility="invisible"  />
+
+   When using the `Layout Editor <#/studio/write/layout-editor>`__ in design
+   view, the **Properties** window lets you edit some design-time view
+   attributes. Each design-time attribute is indicated with a wrench icon |The
+   Wrench icon| next to the attribute name to distinguish it from the real
+   attribute of the same name.
+
+   .. rubric:: ``tools:context``
+      :name: toolscontext
+
+   **Intended for:** Any root ``<View>``
+
+   **Used by:** Lint, `Android Studio Layout Editor <#/studio/write/layout-editor#sample-data>`__
+
+   This attribute declares which activity this layout is associated with by
+   default. This enables features in the editor or layout preview that require
+   knowledge of the activity, such as what the layout theme is in the preview
+   and where to insert ``onClick`` handlers generated from a quickfix, as shown
+   in figure 2.
+
+   .. figure:: https://source.android.google.cn/static/studio/images/write/tools-attribute-context_2x.png
+      :alt: Quickfix for the onClick attribute works only if you've set
+      tools:context
+      :width: 372px
+
+      **Figure 2.** Quickfix for the ``onClick`` attribute works only if you've
+      set ``tools:context``.
+
+   You can specify the activity class name using the same dot prefix as in the
+   manifest file (excluding the full package name).
+
+   For example:
+
+   .. code:: prettyprint
+
+      <android.support.constraint.ConstraintLayout
+          xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          tools:context=".MainActivity" >
+
+   **Tip:**\  You can also select the theme for the layout preview from the
+   `Layout Editor toolbar <#/studio/write/layout-editor#change-appearance>`__.
+   .. rubric:: ``tools:itemCount``
+      :name: toolsitemcount
+
+   **Intended for:** ``<RecyclerView>``
+
+   **Used by:** `Android Studio Layout Editor <#/studio/write/layout-editor#sample-data>`__
+
+   For a given
+   `RecyclerView <#/reference/androidx/recyclerview/widget/RecyclerView>`__,
+   this attribute specifies the number of items the Layout Editor should render
+   in the **Preview** window.
+
+   For example:
+
+   .. code:: prettyprint
+
+      <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/recyclerView"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          tools:itemCount="3"/>
+
+   .. rubric:: ``tools:layout``
+      :name: toolslayout
+
+   **Intended for:** ``<fragment>``
+
+   **Used by:** Android Studio Layout Editor
+
+   This attribute declares which layout you want the layout preview to draw
+   inside the fragment because the layout preview can't execute the activity
+   code that normally applies the layout.
+
+   For example:
+
+   .. code:: prettyprint
+
+      <fragment android:name="com.example.main.ItemListFragment"
+          tools:layout="@layout/list_content" />
+
+   .. rubric:: ``tools:listitem``, ``tools:listheader``, ``tools:listfooter``
+      :name: toolslistitem_tiilslistheader_toolslistfooter
+
+   **Intended for:** ``<AdapterView>`` (and subclasses like ``<ListView>``)
+
+   **Used by:** Android Studio Layout Editor
+
+   These attributes specify which layout to show in the layout preview for a
+   list's items, header, and footer. Any data fields in the layout are filled
+   with numeric contents, such as "Item 1," so that the list items are not
+   repetitive.
+
+   For example:
+
+   .. code:: prettyprint
+
+      <ListView xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          android:id="@android:id/list"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          tools:listitem="@layout/sample_list_item"
+          tools:listheader="@layout/sample_list_header"
+          tools:listfooter="@layout/sample_list_footer" />
+
+   .. rubric:: ``tools:showIn``
+      :name: toolsshownin
+
+   **Intended for:** Any root ``<View>`` in a layout that's referred to by an
+   ``<include>``
+
+   **Used by:** Android Studio Layout Editor
+
+   This attribute lets you point to a layout that uses this layout using
+   `<include> <#/training/improving-layouts/reusing-layouts>`__, so you can
+   preview and edit this file as it appears while embedded in its parent layout.
+
+   For example:
+
+   .. code:: prettyprint
+
+      <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          android:text="@string/hello_world"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          tools:showIn="@layout/activity_main" />
+
+   Now the layout preview shows this ``TextView`` layout as it appears inside
+   the ``activity_main`` layout.
+
+   .. rubric:: ``tools:menu``
+      :name: toolsmenu
+
+   **Intended for:** Any root ``<View>``
+
+   **Used by:** Android Studio Layout Editor
+
+   This attribute specifies which menu the layout preview shows in the `app bar <#/training/appbar>`__. The value is one or more menu IDs, separated by
+   commas, without ``@menu/`` or any such ID prefix and without the ``.xml``
+   extension.
+
+   For example:
+
+   .. code:: prettyprint
+
+      <?xml version="1.0" encoding="utf-8"?>
+      <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          android:orientation="vertical"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          tools:menu="menu1,menu2" />
+
+   .. rubric:: ``tools:minValue``, ``tools:maxValue``
+      :name: toolsminvalue_toolsmaxvalue
+
+   **Intended for:** ``<NumberPicker>``
+
+   **Used by:** Android Studio Layout Editor
+
+   These attributes set minimum and maximum values for a
+   `NumberPicker <#/reference/android/widget/NumberPicker>`__ view.
+
+   For example:
+
+   .. code:: prettyprint
+
+      <NumberPicker xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          android:id="@+id/numberPicker"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          tools:minValue="0"
+          tools:maxValue="10" />
+
+   .. rubric:: ``tools:openDrawer``
+      :name: toolsopendrawer
+
+   **Intended for:** ``<DrawerLayout>``
+
+   **Used by:** Android Studio Layout Editor
+
+   This attribute lets you open a
+   `DrawerLayout <#/reference/androidx/drawerlayout/widget/DrawerLayout>`__
+   in the preview.
+
+   You can also modify how the Layout Editor renders the layout by passing one
+   of the following values:
+
+   **Table 1.** Values to modify how the Layout Editor renders a
+   ``DrawerLayout``
+
+   .. list-table::
+
+      - 
+
+         - Constant
+         - Value
+         - Description
+      - 
+
+         - ``end``
+         - 800005
+         - Push object to the end of its container, not changing its size.
+      - 
+
+         - ``left``
+         - 3
+         - Push object to the left of its container, not changing its size.
+      - 
+
+         - ``right``
+         - 5
+         - Push object to the right of its container, not changing its size.
+      - 
+
+         - ``start``
+         - 800003
+         - Push object to the beginning of its container, not changing its size.
+
+   For example:
+
+   .. code:: prettyprint
+
+      <androidx.drawerlayout.widget.DrawerLayout
+          xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          android:id="@+id/drawer_layout"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          tools:openDrawer="start" />
+
+   .. rubric:: ``"@tools:sample/*"`` resources
+      :name: toolssample_resources
+
+   **Intended for:** Any view that supports UI text or images
+
+   **Used by:** `Android Studio Layout Editor <#/studio/write/layout-editor#sample-data>`__
+
+   This attribute lets you inject placeholder data or images into your view. For
+   example, to test how your layout behaves with text before you have finalized
+   UI text for your app, you can use placeholder text as follows:
+
+   .. code:: prettyprint
+
+      <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          tools:text="@tools:sample/lorem" />
+
+   The following table describes the types of placeholder data you can inject
+   into your layouts:
+
+   **Table 2.** Placeholder data for layouts
+
+   .. list-table::
+      :header-rows: 1
+
+      - 
+
+         - Attribute value
+         - Description of placeholder data
+      - 
+
+         - ``@tools:sample/full_names``
+         - Full names randomly generated from the combination of
+            ``@tools:sample/first_names`` and ``@tools:sample/last_names``
+      - 
+
+         - ``@tools:sample/first_names``
+         - Common first names
+      - 
+
+         - ``@tools:sample/last_names``
+         - Common last names
+      - 
+
+         - ``@tools:sample/cities``
+         - Names of cities from around the world
+      - 
+
+         - ``@tools:sample/us_zipcodes``
+         - Randomly generated US ZIP codes
+      - 
+
+         - ``@tools:sample/us_phones``
+         - Randomly generated phone numbers with the following format:
+            ``(800) 555-xxxx``
+      - 
+
+         - ``@tools:sample/lorem``
+         - Placeholder text in Latin
+      - 
+
+         - ``@tools:sample/date/day_of_week``
+         - Randomized dates and times for the specified format
+      - 
+
+         - ``@tools:sample/date/ddmmyy``
+         - 
+      - 
+
+         - ``@tools:sample/date/mmddyy``
+         - 
+      - 
+
+         - ``@tools:sample/date/hhmm``
+         - 
+      - 
+
+         - ``@tools:sample/date/hhmmss``
+         - 
+      - 
+
+         - ``@tools:sample/avatars``
+         - Vector drawables that you can use as profile avatars
+      - 
+
+         - ``@tools:sample/backgrounds/scenic``
+         - Images that you can use as backgrounds
+
+   .. rubric:: Resource shrinking attributes
+      :name: resource_shrinking_attributes
+
+   The following attributes let you enable strict reference checks and declare
+   whether to keep or discard certain resources when using `resource shrinking <#/studio/build/shrink-code#shrink-resources>`__.
+
+   To enable resource shrinking, set the ``shrinkResources`` property to
+   ``true`` in your ``build.gradle`` file, alongside ``minifyEnabled`` for code
+   shrinking.
+
+   For example:
+
+   .. container::
+
+      .. container:: ds-selector-tabs
+
+         .. container:: section
+
+            .. rubric:: Groovy
+               :name: groovy
+
+            .. code:: prettyprint
+
+               android {
+                   ...
+                   buildTypes {
+                       release {
+                           shrinkResources true
+                           minifyEnabled true
+                           proguardFiles getDefaultProguardFile('proguard-android.txt'),
+                                   'proguard-rules.pro'
+                       }
+                   }
+               }
+
+         .. container:: section
+
+            .. rubric:: Kotlin
+               :name: kts
+
+            .. code:: prettyprint
+
+               android {
+                   ...
+                   buildTypes {
+                       getByName("release") {
+                           isShrinkResources = true
+                           isMinifyEnabled = true
+                           proguardFiles(
+                               getDefaultProguardFile("proguard-android.txt"),
+                               "proguard-rules.pro"
+                           )
+                       }
+                   }
+               }
+
+   .. rubric:: ``tools:shrinkMode``
+      :name: toolsshrinkmode
+
+   **Intended for:** ``<resources>``
+
+   **Used by:** Build tools with resource shrinking
+
+   This attribute lets you specify whether the build tools should use the
+   following:
+
+   -  **Safe mode:** Keep all resources that are explicitly cited and that
+      *might* be referenced dynamically with a call to
+      `Resources.getIdentifier() <#/reference/android/content/res/Resources#getIdentifier(java.lang.String,%20java.lang.String,%20java.lang.String)>`__.
+   -  **Strict mode:** Keep only the resources that are explicitly cited in code
+      or in other resources.
+
+   The default is to use safe mode (``shrinkMode="safe"``). To instead use
+   strict mode, add ``shrinkMode="strict"`` to the ``<resources>`` tag as shown
+   here:
+
+   .. code:: prettyprint
+
+      <?xml version="1.0" encoding="utf-8"?>
+      <resources xmlns:tools="http://schemas.android.com/tools"
+          tools:shrinkMode="strict" />
+
+   When you enable strict mode, you might need to use
+   `tools:keep <#toolskeep>`__ to keep resources that were removed but that
+   you actually want, and use `tools:discard <#toolsdiscard>`__ to
+   explicitly remove even more resources.
+
+   For more information, see `Shrink your resources <#/studio/build/shrink-code#shrink-resources>`__.
+
+   .. rubric:: ``tools:keep``
+      :name: toolskeep
+
+   **Intended for:** ``<resources>``
+
+   **Used by:** Build tools with resource shrinking
+
+   When using resource shrinking to remove unused resources, this attribute lets
+   you specify resources to keep, typically because they are referenced in an
+   indirect way at runtime, such as by passing a dynamically generated resource
+   name to
+   `Resources.getIdentifier() <#/reference/android/content/res/Resources#getIdentifier(java.lang.String,%20java.lang.String,%20java.lang.String)>`__.
+
+   To use, create an XML file in your resources directory (for example,
+   ``res/raw/keep.xml``) with a ``<resources>`` tag and specify each resource to
+   keep in the ``tools:keep`` attribute as a comma-separated list. You can use
+   the asterisk character as a wild card.
+
+   For example:
+
+   .. code:: prettyprint
+
+      <?xml version="1.0" encoding="utf-8"?>
+      <resources xmlns:tools="http://schemas.android.com/tools"
+          tools:keep="@layout/used_1,@layout/used_2,@layout/*_3" />
+
+   For more information, see `Shrink your resources <#/studio/build/shrink-code#shrink-resources>`__.
+
+   .. rubric:: ``tools:discard``
+      :name: toolsdiscard
+
+   **Intended for:** ``<resources>``
+
+   **Used by:** Build tools with resource shrinking
+
+   When using resource shrinking to remove unused resources, this attribute lets
+   you specify resources you want to manually discard, typically because the
+   resource is referenced but in a way that does not affect your app or because
+   the Gradle plugin has incorrectly deduced that the resource is referenced.
+
+   To use, create an XML file in your resources directory (for example,
+   ``res/raw/keep.xml``) with a ``<resources>`` tag and specify each resource to
+   discard in the ``tools:discard`` attribute as a comma-separated list. You can
+   use the asterisk character as a wild card.
+
+   For example:
+
+   .. code:: prettyprint
+
+      <?xml version="1.0" encoding="utf-8"?>
+      <resources xmlns:tools="http://schemas.android.com/tools"
+          tools:discard="@layout/unused_1" />
+
+   For more information, see `Shrink your resources <#/studio/build/shrink-code#shrink-resources>`__.
+
+Content and code samples on this page are subject to the licenses described in
+the `Content License <#/license>`__. Java and OpenJDK are trademarks or
+registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2024-04-17 UTC.
+
+.. |The Wrench icon| image:: https://source.android.google.cn/static/studio/images/buttons/layout-tools-attr.png
+   :class: inline-icon
 
 
 /Topic: 4. 🟢 Run and debug your app
@@ -26633,3 +38637,10 @@ Last updated 2023-08-16 UTC.
    codes and serves them to users as needed.
 
 Last updated 2023-11-15 UTC.
+
+
+/TOC 💛 IntelliJ Platform SDK
+=============================
+
+.. _IntelliJ Platform SDK: https://plugins.jetbrains.com/docs/intellij/welcome.html
+

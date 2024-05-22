@@ -957,6 +957,7 @@ ________________________________________________________________
           chmod 555 scriptname (gives everyone read/execute permission)
           [NOTE_014](#N014)
 
+## or
    or
           chmod +rx scriptname (gives everyone read/execute permission)
 
@@ -4242,6 +4243,7 @@ ________________________________________________________________
 
 ### Else if and elif
 
+## elif
    elif
           elif is a contraction for else if. The effect is to nest an
           inner if/then construct within an outer one.
@@ -10044,6 +10046,7 @@ ________________________________________________________________
    ```sh
    #!/bin/bash
 
+## echo
    echo
                                   # Equivalent to:
    while [ "$var1" != "end" ]     # while test "$var1" != "end"
@@ -10205,6 +10208,7 @@ ________________________________________________________________
    end.
    A while loop may have its stdin supplied by a pipe.
 
+## until
    until
           This construct tests for a condition at the top of a loop, and
           keeps looping as long as that condition is false (opposite of
@@ -10897,6 +10901,7 @@ ________________________________________________________________
    #+ but adds a test for a mandatory decimal point.
    ```
 
+## select
    select
           The select construct, adopted from the Korn Shell, is yet
           another tool for building menus.
@@ -11941,6 +11946,7 @@ ________________________________________________________________
 
 ###   I/O
 
+## echo
    echo
           prints (to stdout) an expression or variable (see Example
           4-1).
@@ -12059,6 +12065,7 @@ ________________________________________________________________
    echo is /bin/echo
    ```
 
+## printf
    printf
           The printf, formatted print, command is an enhanced echo. It
           is a limited variant of the C language printf() library
@@ -12142,6 +12149,7 @@ ________________________________________________________________
 
    See also Example 36-17.
 
+## read
    read
           "Reads" the value of a variable from stdin, that is,
           interactively fetches input from the keyboard. The -a option
@@ -12579,6 +12587,7 @@ ________________________________________________________________
 
 ###   Filesystem
 
+## cd
    cd
           The familiar cd change directory command finds use in scripts
           where execution of a command requires being in a specified
@@ -12609,6 +12618,7 @@ ________________________________________________________________
    The output should, of course, be /. This is a problem both from the
    command-line and in a script.
 
+## pwd
    pwd
           Print Working Directory. This gives the user's (or script's)
           current directory (see Example 15-9). The effect is identical
@@ -12672,6 +12682,7 @@ ________________________________________________________________
 
 ###   Variables
 
+## let
    let
           The let command carries out arithmetic operations on
           variables. [NOTE_060](#N060) In many cases, it functions as a less complex
@@ -12765,6 +12776,7 @@ ________________________________________________________________
    #  let returns 0 otherwise." ['help let']
    ```
 
+## eval
    eval
           eval arg1 [arg2] ... [argN]
 
@@ -13030,6 +13042,7 @@ ________________________________________________________________
    rm -rf * . Running an eval on unfamiliar code written by persons
    unknown is living dangerously.
 
+## set
    set
           The set command changes the value of internal script
           variables/options. One use for this is to toggle option flags
@@ -13215,6 +13228,7 @@ ________________________________________________________________
 
    See also Example 11-2 and Example 16-56.
 
+## unset
    unset
           The unset command deletes a shell variable, effectively
           setting it to null. Note that this command does not affect
@@ -13256,6 +13270,7 @@ ________________________________________________________________
    are equivalent. However, the ${parameter:-default} parameter
    substitution construct can distinguish between the two.
 
+## export
    export
           The export [NOTE_061](#N061) command makes available variables to all child
           processes of the running script or shell. One important use of
@@ -13338,12 +13353,14 @@ ________________________________________________________________
           The declare and typeset commands specify and/or restrict
           properties of variables.
 
+## readonly
    readonly
           Same as declare -r, sets a variable as read-only, or, in
           effect, as a constant. Attempts to change the variable fail
           with an error message. This is the shell analog of the C
           language const type qualifier.
 
+## getopts
    getopts
           This powerful tool parses command-line arguments passed to the
           script. This is the Bash analog of the getopt external command
@@ -13606,6 +13623,7 @@ ________________________________________________________________
    # Write a script that uses this trick to actually do something useful.
    ```
 
+## exit
    exit
           Unconditionally terminates a script. [NOTE_063](#N063) The exit command may
           optionally take an integer argument, which is returned to the
@@ -13624,6 +13642,7 @@ ________________________________________________________________
 
    An exit command may also be used to terminate a subshell.
 
+## exec
    exec
           This shell builtin replaces the current process with a
           specified command. Normally, when the shell encounters a
@@ -13687,6 +13706,7 @@ ________________________________________________________________
 
    The -exec option to find is not the same as the exec shell builtin.
 
+## shopt
    shopt
           This command permits changing shell options on the fly (see
           Example 25-1 and Example 25-2). It often appears in the Bash
@@ -13703,6 +13723,7 @@ ________________________________________________________________
              # The shell corrected the misspelling.
    ```
 
+## caller
    caller
           Putting a caller command inside a function echoes to stdout
           information about the caller of that function.
@@ -13734,6 +13755,7 @@ ________________________________________________________________
 
    ### Commands
 
+## true
    true
           A command that returns a successful (zero) exit status, but
           does nothing else.
@@ -13754,6 +13776,7 @@ ________________________________________________________________
    done
    ```
 
+## false
    false
           A command that returns an unsuccessful exit status, but does
           nothing else.
@@ -13813,10 +13836,12 @@ ________________________________________________________________
           hash is called with no arguments, it simply lists the commands
           that have been hashed. The -r option resets the hash table.
 
+## bind
    bind
           The bind builtin displays or modifies readline [NOTE_066](#N066) key
           bindings.
 
+## help
    help
           Gets a short usage summary of a shell builtin. This is the
           counterpart to whatis, but for builtins. The display of help
@@ -13837,6 +13862,7 @@ ________________________________________________________________
    Certain of the following job control commands take a job identifier
    as an argument. See the table at end of the chapter.
 
+## jobs
    jobs
           Lists the jobs running in the background, giving the job
           number. Not as useful as ps.
@@ -13862,6 +13888,7 @@ ________________________________________________________________
    1384 works.
    Thanks, S.C.
 
+## disown
    disown
           Remove job(s) from the shell's table of active jobs.
 
@@ -13871,6 +13898,7 @@ ________________________________________________________________
           runs it in the background. If no job number is specified, then
           the fg or bg command acts upon the currently running job.
 
+## wait
    wait
           Suspend script execution until all jobs running in background
           have terminated, or until the job number or process ID
@@ -13978,11 +14006,13 @@ ________________________________________________________________
    Redirecting the output of the command to a file or even to
    /dev/null also takes care of this problem.
 
+## suspend
    suspend
           This has a similar effect to Control-Z, but it suspends the
           shell (the shell's parent process should resume it at an
           appropriate time).
 
+## logout
    logout
           Exit a login shell, optionally specifying an exit status.
 
@@ -13997,6 +14027,7 @@ ________________________________________________________________
           This capability is of relatively limited value, since it is
           not common to profile and benchmark shell scripts.
 
+## kill
    kill
           Forcibly terminate a process by sending it an appropriate
           terminate signal (see Example 17-6).
@@ -14037,6 +14068,7 @@ ________________________________________________________________
    kill something that is already dead -- but init will generally clean
    it up sooner or later.
 
+## killall
    killall
           The killall command kills a running process by name, rather
           than by process ID. If there are multiple instances of a
@@ -14048,6 +14080,7 @@ ________________________________________________________________
    This refers to the killall command in /usr/bin, not the killall
    script in /etc/rc.d/init.d.
 
+## command
    command
           The command directive disables aliases and functions for the
           command immediately following it.
@@ -14061,11 +14094,13 @@ ________________________________________________________________
    This is one of three shell directives that effect script command
    processing. The others are builtin and enable.
 
+## builtin
    builtin
           Invoking builtin BUILTIN_COMMAND runs the command
           BUILTIN_COMMAND as a shell builtin, temporarily disabling both
           functions and external system commands with the same name.
 
+## enable
    enable
           This either enables or disables a shell builtin command. As an
           example, enable -n kill disables the shell builtin kill, so
@@ -14077,6 +14112,7 @@ ________________________________________________________________
           option lets enable load a builtin as a shared library (DLL)
           module from a properly compiled object file. [NOTE_068](#N068).
 
+## autoload
    autoload
           This is a port to Bash of the ksh autoloader. With autoload in
           place, a function with an autoload declaration will load from
@@ -14111,6 +14147,7 @@ ________________________________________________________________
 
    The first commands a novice learns
 
+## ls
    ls
           The basic file "list" command. It is all too easy to
           underestimate the power of this humble command. For example,
@@ -14247,6 +14284,7 @@ ________________________________________________________________
 
    tac, is the inverse of cat, listing a file backwards from its end.
 
+## rev
    rev
           reverses each line of a file, and outputs to stdout. This does
           not have the same effect as tac, as it preserves the order of
@@ -14268,6 +14306,7 @@ ________________________________________________________________
    .2 enil si sihT
    ```
 
+## cp
    cp
           This is the file copy command. cp file1 file2 copies file1 to
           file2, overwriting file2 if it already exists (see Example
@@ -14285,6 +14324,7 @@ ________________________________________________________________
    #+  by copying over all newer and not previously existing files.
    ```
 
+## mv
    mv
           This is the file move command. It is equivalent to a
           combination of cp and rm. It may be used to move multiple
@@ -14307,6 +14347,7 @@ ________________________________________________________________
    drwxrwxr-x    2 bozo  bozo      1024 May 28 19:20 source_directory/
    ```
 
+## rm
    rm
           Delete (remove) a file or files. The -f option forces removal
           of even readonly files, and is useful for bypassing user input
@@ -14343,16 +14384,19 @@ ________________________________________________________________
    the way down the directory tree from the current directory. A
    careless rm -rf * can wipe out a big chunk of a directory structure.
 
+## rmdir
    rmdir
           Remove directory. The directory must be empty of all files --
           including "invisible" dotfiles [NOTE_071](#N071) -- for this command to
           succeed.
 
+## mkdir
    mkdir
           Make directory, creates a new directory. For example, mkdir -p
           project/programs/December creates the named directory. The -p
           option automatically creates any necessary parent directories.
 
+## chmod
    chmod
           Changes the attributes of an existing file or directory (see
           Example 15-14).
@@ -14405,6 +14449,7 @@ ________________________________________________________________
    #  These restrictions do not apply to root.
    ```
 
+## chattr
    chattr
           Change file attributes. This is analogous to chmod above, but
           with different options and a different invocation syntax, and
@@ -14442,6 +14487,7 @@ ________________________________________________________________
    The file attributes set with chattr do not show in a file listing (ls
    -l).
 
+## ln
    ln
           Creates links to pre-existings files. A "link" is a reference
           to a file, an alternate name for it. The ln command permits
@@ -14529,6 +14575,7 @@ ________________________________________________________________
 
    Commands for more advanced users
 
+## find
    find
           -exec COMMAND \;
 
@@ -14712,6 +14759,7 @@ ________________________________________________________________
    using find. Its manpage provides more detail on this complex
    and powerful command.
 
+## xargs
    xargs
           A filter for feeding arguments to a command, and also a tool
           for assembling the commands themselves. It breaks a data
@@ -14988,6 +15036,7 @@ ________________________________________________________________
    exit $?
    ```
 
+## expr
    expr
           All-purpose expression evaluator: Concatenates and evaluates
           the arguments according to the operation given (arguments must
@@ -15206,6 +15255,7 @@ ________________________________________________________________
 
    Time/date and timing
 
+## date
    date
           Simply invoked, date prints the date and time to stdout. Where
           this command gets interesting is in its formatting and parsing
@@ -15341,6 +15391,7 @@ ________________________________________________________________
 
    See also Example 3-4 and Example A-43.
 
+## zdump
    zdump
           Time zone dump: echoes the time in a specified time zone.
 
@@ -15350,6 +15401,7 @@ ________________________________________________________________
    EST  Tue Sep 18 22:09:22 2001 EST
    ```
 
+## time
    time
           Outputs verbose timing statistics for executing a command.
 
@@ -15370,6 +15422,7 @@ ________________________________________________________________
    As of version 2.0 of Bash, time became a shell reserved word, with
    slightly altered behavior in a pipeline.
 
+## touch
    touch
           Utility for updating access/modification times of a file to
           current system time or other specified time, but also useful
@@ -15396,6 +15449,7 @@ ________________________________________________________________
    names during a cp -u /home/bozo/financial_info/spreadsheet*data
    /home/bozo/tax_audit.
 
+## at
    at
           The at job control command executes a given set of commands at
           a specified time. Superficially, it resembles cron, however,
@@ -15419,6 +15473,7 @@ ________________________________________________________________
    job 2 at 2000-10-27 02:30
    ```
 
+## batch
    batch
           The batch job control command is similar to at, but it runs a
           command list when the system load drops below .8. Like at, it
@@ -15428,10 +15483,12 @@ ________________________________________________________________
    computers. It means running a set of commands without user
    intervention.
 
+## cal
    cal
           Prints a neatly formatted monthly calendar to stdout. Will do
           current year or a large range of past and future years.
 
+## sleep
    sleep
           This is the shell equivalent of a wait loop. It pauses for a
           specified number of seconds, doing nothing. It can be useful
@@ -15458,6 +15515,7 @@ ________________________________________________________________
    The watch command may be a better choice than sleep for running
    commands at timed intervals.
 
+## usleep
    usleep
           Microsleep (the u may be read as the Greek mu, or micro-
           prefix). This is the same as sleep, above, but "sleeps" in
@@ -15490,6 +15548,7 @@ ________________________________________________________________
 
    Commands affecting text and text files
 
+## sort
    sort
           File sort utility, often used as a filter in a pipe. This
           command sorts a text stream or file forwards or backwards, or
@@ -15498,6 +15557,7 @@ ________________________________________________________________
           its many capabilities and options. See Example 11-10, Example
           11-11, and Example A-8.
 
+## tsort
    tsort
           Topological sort, reading in pairs of whitespace-separated
           strings and sorting according to input patterns. The original
@@ -15508,6 +15568,7 @@ ________________________________________________________________
           The results of a tsort will usually differ markedly from those
           of the standard sort command, above.
 
+## uniq
    uniq
           This filter removes duplicate lines from a sorted file. It is
           often seen in a pipe coupled with sort.
@@ -15646,6 +15707,7 @@ ________________________________________________________________
           The unexpand filter converts spaces to tabs. This reverses the
           effect of expand.
 
+## cut
    cut
           A tool for extracting fields from files. It is similar to the
           print $N command set in awk, but more limited. It may be
@@ -15714,6 +15776,7 @@ ________________________________________________________________
 
    See also Example 16-48.
 
+## paste
    paste
           Tool for merging together different files into a single,
           multi-column file. In combination with cut, useful for
@@ -15737,6 +15800,7 @@ ________________________________________________________________
    cables  $3.75
    ```
 
+## join
    join
           Consider this a special-purpose cousin of paste. This powerful
           utility allows merging two files in a meaningful fashion,
@@ -15775,6 +15839,7 @@ ________________________________________________________________
 
    The tagged field appears only once in the output.
 
+## head
    head
           lists the beginning of a file to stdout. The default is 10
           lines, but a different number can be specified. The command
@@ -15904,6 +15969,7 @@ ________________________________________________________________
 
    See also Example 16-39.
 
+## tail
    tail
           lists the (tail) end of a file to stdout. The default is 10
           lines, but this can be changed with the -n option. Commonly
@@ -15953,6 +16019,7 @@ ________________________________________________________________
 
    See also Example 16-5, Example 16-39 and Example 32-6.
 
+## grep
    grep
           A multi-purpose file search tool that uses Regular
           Expressions. It was originally a command/filter in the
@@ -16401,6 +16468,7 @@ ________________________________________________________________
    some compressed, some not.
    To search bzipped files, use bzgrep.
 
+## look
    look
           The command look works like grep, but does a lookup on a
           "dictionary," a sorted word list. By default, look searches
@@ -16461,15 +16529,18 @@ ________________________________________________________________
           and command output. May be embedded singly or in combination
           in pipes and shell scripts.
 
+## sed
    sed
           Non-interactive "stream editor", permits using many ex
           commands in batch mode. It finds many uses in shell scripts.
 
+## awk
    awk
           Programmable file extractor and formatter, good for
           manipulating and/or extracting fields (columns) in structured
           text files. Its syntax is similar to C.
 
+## wc
    wc
           wc gives a "word count" on a file or I/O stream:
 
@@ -16540,6 +16611,7 @@ ________________________________________________________________
    # Thanks, S.C.
    ```
 
+## tr
    tr
           character translation filter.
 
@@ -16793,11 +16865,13 @@ ________________________________________________________________
    use brackets (tr a-z A-Z), but the SysV one does (tr '[a-z]'
    '[A-Z]'). The GNU version of tr resembles the BSD one.
 
+## fold
    fold
           A filter that wraps lines of input to a specified width. This
           is especially useful with the -s option, which breaks lines at
           word spaces (see Example 16-26 and Example A-1).
 
+## fmt
    fmt
           Simple-minded file formatter, used as a filter in a pipe to
           "wrap" long lines of text output.
@@ -16827,6 +16901,7 @@ ________________________________________________________________
    from [http://www.cs.berkeley.edu/~amc/Par/]
    http://www.cs.berkeley.edu/~amc/Par/.
 
+## col
    col
           This deceptively named filter removes reverse line feeds from
           an input stream. It also attempts to replace whitespace with
@@ -16834,6 +16909,7 @@ ________________________________________________________________
           output from certain text processing utilities, such as groff
           and tbl.
 
+## column
    column
           Column formatter. This filter transforms list-type text output
           into a "pretty-printed" table by inserting tabs at appropriate
@@ -16860,6 +16936,7 @@ ________________________________________________________________
    exit 0
    ```
 
+## colrm
    colrm
           Column removal filter. This removes columns (characters) from
           a file and writes the file, lacking the range of specified
@@ -16873,6 +16950,7 @@ ________________________________________________________________
    unpredictable behavior. In such cases, consider using expand and
    unexpand in a pipe preceding colrm.
 
+## nl
    nl
           Line numbering filter: nl filename lists filename to stdout,
           but inserts consecutive numbers at the beginning of each
@@ -16905,6 +16983,7 @@ ________________________________________________________________
    # -----------------------------------------------------------------
    ```
 
+## pr
    pr
           Print formatting filter. This will paginate files (or stdout)
           into sections suitable for hard copy printing or viewing on
@@ -16920,6 +16999,7 @@ ________________________________________________________________
           A particularly useful option is -d, forcing double-spacing
           (same effect as sed -G).
 
+## gettext
    gettext
           The GNU gettext package is a set of utilities for localizing
           and translating the text output of programs into foreign
@@ -16929,10 +17009,12 @@ ________________________________________________________________
 
           The gettext program works on shell scripts. See the info page.
 
+## msgfmt
    msgfmt
           A program for generating binary message catalogs. It is used
           for localization.
 
+## iconv
    iconv
           A utility for converting file(s) to a different encoding
           (character set). Its chief use is for localization.
@@ -16952,6 +17034,7 @@ ________________________________________________________________
    #  (http://booklistgensh.peterknowles.com)
    ```
 
+## recode
    recode
           Consider this a fancier version of iconv, above. This very
           versatile utility for converting a file to a different
@@ -16968,6 +17051,7 @@ ________________________________________________________________
 
           Ghostscript (gs) is a GPL-ed Postscript interpreter.
 
+## texexec
    texexec
           Utility for processing TeX and pdf files. Found in /usr/bin on
           many Linux distros, it is actually a shell wrapper that calls
@@ -16983,6 +17067,7 @@ ________________________________________________________________
    #  The above command-line could be parameterized and put into a shell script.
    ```
 
+## enscript
    enscript
           Utility for converting plain text file to PostScript
 
@@ -17053,6 +17138,7 @@ ________________________________________________________________
 
 ###   Archiving
 
+## tar
    tar
           The standard UNIX archiving utility. [NOTE_075](#N075) Originally a Tape
           ARchiving program, it has developed into a general purpose
@@ -17090,6 +17176,7 @@ ________________________________________________________________
    It may be difficult to recover data from a corrupted gzipped tar
    archive. When archiving important files, make multiple backups.
 
+## shar
    shar
           Shell archiving utility. The text and/or binary files in a
           shell archive are concatenated without compression, and the
@@ -17106,10 +17193,12 @@ ________________________________________________________________
           concatenate multiple files into a single one for e-mailing.
           This script supports compression and uuencoding.
 
+## ar
    ar
           Creation and manipulation utility for archives, mainly used
           for binary object file libraries.
 
+## rpm
    rpm
           The Red Hat Package Manager, or rpm utility provides a wrapper
           for source or binary archives. It includes commands for
@@ -17162,6 +17251,7 @@ ________________________________________________________________
    docbook-utils-0.6.9-2
    ```
 
+## cpio
    cpio
           This specialized archiving copy command (copy input and
           output) is rarely seen any more, having been supplanted by
@@ -17211,6 +17301,7 @@ ________________________________________________________________
    exit $?
    ```
 
+## rpm2cpio
    rpm2cpio
           This command extracts a cpio archive from an rpm one.
 
@@ -17241,6 +17332,7 @@ ________________________________________________________________
    #  Hint:                    Parse output of 'file' command.
    ```
 
+## pax
    pax
           The pax portable archive exchange toolkit facilitates periodic
           file backups and is designed to be cross-compatible between
@@ -17266,6 +17358,7 @@ ________________________________________________________________
 
 ###   Compression
 
+## gzip
    gzip
           The standard GNU/UNIX compression utility, replacing the
           inferior and proprietary compress. The corresponding
@@ -17290,6 +17383,7 @@ ________________________________________________________________
 
    See also Example 7-7.
 
+## bzip2
    bzip2
           An alternate compression utility, usually more efficient (but
           slower) than gzip, especially on large files. The
@@ -17313,6 +17407,7 @@ ________________________________________________________________
 
    The znew command transforms compressed files into gzipped ones.
 
+## sq
    sq
           Yet another compression (squeeze) utility, a filter that works
           only on sorted ASCII word lists. It uses the standard
@@ -17347,6 +17442,7 @@ ________________________________________________________________
 
 ###   File Information
 
+## file
    file
           A utility for identifying file types. The command file
           file-name will return a file specification for file-name, such
@@ -17469,6 +17565,7 @@ ________________________________________________________________
    exit 0
    ```
 
+## which
    which
           which command gives the full path to "command." This is useful
           for finding out whether a particular command or utility is
@@ -17482,6 +17579,7 @@ ________________________________________________________________
 
    For an interesting use of this command, see Example 36-16.
 
+## whereis
    whereis
           Similar to which, above, whereis command gives the full path
           to "command," but also to its manpage.
@@ -17492,6 +17590,7 @@ ________________________________________________________________
    rm: /bin/rm /usr/share/man/man1/rm.1.bz2
    ```
 
+## whatis
    whatis
           whatis command looks up "command" in the whatis database. This
           is useful for identifying system commands and important
@@ -17530,6 +17629,7 @@ ________________________________________________________________
 
    See also Example 11-3.
 
+## vdir
    vdir
           Show a detailed directory listing. The effect is similar to ls
           -lb.
@@ -17597,6 +17697,7 @@ ________________________________________________________________
    other::r--
    ```
 
+## readlink
    readlink
           Disclose the file that a symbolic link points to.
 
@@ -17605,6 +17706,7 @@ ________________________________________________________________
    ../../bin/gawk
    ```
 
+## strings
    strings
           Use the strings command to find printable strings in a binary
           or data file. It will list sequences of printable characters
@@ -17792,11 +17894,13 @@ ________________________________________________________________
           file1 to file2. Consider this command a stripped-down version
           of patch.
 
+## sdiff
    sdiff
           Compare and/or edit two files in order to merge them into an
           output file. Because of its interactive nature, this command
           would find little use in a script.
 
+## cmp
    cmp
           The cmp command is a simpler version of diff, above. Whereas
           diff reports the differences between two files, cmp merely
@@ -17852,6 +17956,7 @@ ________________________________________________________________
 
    Use zcmp on gzipped files.
 
+## comm
    comm
           Versatile file comparison utility. The files must be sorted
           for this to be useful.
@@ -17876,6 +17981,7 @@ ________________________________________________________________
 
 ###   Utilities
 
+## basename
    basename
           Strips the path information from a file name, printing only
           the file name. The construction basename $0 lets the script
@@ -17887,6 +17993,7 @@ ________________________________________________________________
    echo "Usage: `basename $0` arg1 arg2 ... argn"
    ```
 
+## dirname
    dirname
           Strips the basename from a filename, printing only the path
           information.
@@ -18130,6 +18237,7 @@ ________________________________________________________________
           longer bit-length sha224sum, sha256sum, sha384sum, and
           sha512sum commands.
 
+## uuencode
    uuencode
           This utility encodes binary files (images, sound files,
           compressed files, etc.) into ASCII characters, making them
@@ -18137,6 +18245,7 @@ ________________________________________________________________
           in a newsgroup posting. This is especially useful where MIME
           (multimedia) encoding is not available.
 
+## uudecode
    uudecode
           This reverses the encoding, decoding uuencoded files back into
           the original binaries.
@@ -18190,6 +18299,7 @@ ________________________________________________________________
           the command-line or in batch processing mode by means of a
           shell script.
 
+## crypt
    crypt
           At one time, this was the standard UNIX file encryption
           utility. [NOTE_079](#N079) Politically-motivated government regulations
@@ -18201,6 +18311,7 @@ ________________________________________________________________
           [ftp://metalab.unc.edu/pub/Linux/utils/file/cruft-0.2.tar.gz]
           cruft (see Example A-4).
 
+## openssl
    openssl
           This is an Open Source implementation of Secure Sockets Layer
           encryption.
@@ -18242,6 +18353,7 @@ ________________________________________________________________
           Of course, openssl has many other uses, such as obtaining
           signed certificates for Web sites. See the info page.
 
+## shred
    shred
           Securely erase a file by overwriting it multiple times with
           random bit patterns before deleting it. This command has the
@@ -18257,6 +18369,7 @@ ________________________________________________________________
 
 ###   Miscellaneous
 
+## mktemp
    mktemp
           Create a temporary file [NOTE_080](#N080) with a "unique" filename. When
           invoked from the command-line without additional arguments, it
@@ -18283,6 +18396,7 @@ ________________________________________________________________
    #+ but it's good programming practice nevertheless.
    ```
 
+## make
    make
           Utility for building and compiling binary packages. This can
           also be used for any set of operations triggered by
@@ -18296,6 +18410,7 @@ ________________________________________________________________
           recognizing dependencies. For in-depth coverage of this useful
           tool set, see the GNU software documentation site.
 
+## install
    install
           Special purpose file copying command, similar to cp, but
           capable of setting permissions and attributes of the copied
@@ -18304,11 +18419,13 @@ ________________________________________________________________
           the make install : section). It could likewise prove useful in
           installation scripts.
 
+## dos2unix
    dos2unix
           This utility, written by Benjamin Lin and collaborators,
           converts DOS-formatted text files (lines terminated by CR-LF)
           to UNIX format (lines terminated by LF only), and vice-versa.
 
+## ptx
    ptx
           The ptx [targetfile] command outputs a permuted index
           (cross-reference list) of the targetfile. This may be further
@@ -18343,6 +18460,7 @@ ________________________________________________________________
 
 ###   Information and Statistics
 
+## host
    host
           Searches for information about an Internet host by name or IP
           address, using DNS.
@@ -18352,6 +18470,7 @@ ________________________________________________________________
    surfacemail.com. has address 202.92.42.236
    ```
 
+## ipcalc
    ipcalc
           Displays IP information for a host. With the -h option, ipcalc
           does a reverse DNS lookup, finding the name of the host
@@ -18362,6 +18481,7 @@ ________________________________________________________________
    HOSTNAME=surfacemail.com
    ```
 
+## nslookup
    nslookup
           Do an Internet "name server lookup" on a host by IP address.
           This is essentially equivalent to ipcalc -h or dig -x . The
@@ -18381,6 +18501,7 @@ ________________________________________________________________
    Name:   kuhleersparnis.ch
    ```
 
+## dig
    dig
           Domain Information Groper. Similar to nslookup, dig does an
           Internet name server lookup on a host. May be run from the
@@ -18616,6 +18737,7 @@ ________________________________________________________________
           For a much more elaborate version of the above script, see
           Example A-28.
 
+## traceroute
    traceroute
           Trace the route taken by packets sent to a remote host. This
           command works within a LAN, WAN, or over the Internet. The
@@ -18631,6 +18753,7 @@ ________________________________________________________________
    ...
    ```
 
+## ping
    ping
           Broadcast an ICMP ECHO_REQUEST packet to another machine,
           either on a local or remote network. This is a diagnostic tool
@@ -18664,11 +18787,13 @@ ________________________________________________________________
    fi
    ```
 
+## whois
    whois
           Perform a DNS (Domain Name System) lookup. The -h option
           permits specifying which particular whois server to query. See
           Example 4-6 and Example 16-40.
 
+## finger
    finger
           Retrieve information about users on a network. Optionally,
           this command can display a user's ~/.plan, ~/.project, and
@@ -18698,6 +18823,7 @@ ________________________________________________________________
           Out of security considerations, many networks disable finger
           and its associated daemon. [NOTE_081](#N081)
 
+## chfn
    chfn
           Change information disclosed by the finger command.
 
@@ -18720,6 +18846,7 @@ ________________________________________________________________
           resumption of interrupted file transfers. Like sx and rx,
           these are generally part of a communications package.
 
+## ftp
    ftp
           Utility and protocol for uploading / downloading files to or
           from a remote host. An ftp session can be automated in a
@@ -18749,6 +18876,7 @@ ________________________________________________________________
           It is a sort of dumbed-down version of telnet. This command is
           part of the uucp package.
 
+## telnet
    telnet
           Utility and protocol for connecting to a remote host.
 
@@ -18758,6 +18886,7 @@ ________________________________________________________________
    probably be avoided. Its use within a shell script is not
    recommended.
 
+## wget
    wget
           The wget utility noninteractively retrieves or downloads files
           from a Web or ftp site. It works well in a script.
@@ -18823,6 +18952,7 @@ ________________________________________________________________
 
    See also Example A-30 and Example A-31.
 
+## lynx
    lynx
           The lynx Web and file browser can be used inside a script
           (with the -dump option) to retrieve a file from a Web or ftp
@@ -18837,18 +18967,22 @@ ________________________________________________________________
           located on that particular server. Used together with the
           -crawl option, outputs page text to a log file.
 
+## rlogin
    rlogin
           Remote login, initates a session on a remote host. This
           command has security issues, so use ssh instead.
 
+## rsh
    rsh
           Remote shell, executes command(s) on a remote host. This has
           security issues, so use ssh instead.
 
+## rcp
    rcp
           Remote copy, copies files between two different networked
           machines.
 
+## rsync
    rsync
           Remote synchronize, updates (synchronizes) files between two
           different networked machines.
@@ -19087,6 +19221,7 @@ ________________________________________________________________
    a shell script may not be advisable. Consider, instead, using ssh,
    scp, or an expect script.
 
+## ssh
    ssh
           Secure shell, logs onto a remote host and executes commands
           there. This secure replacement for telnet, rlogin, rcp, and
@@ -19175,6 +19310,7 @@ ________________________________________________________________
    loop's stdin. To remedy this, pass ssh either the -n or -f option.
    Thanks, Jason Bechtel, for pointing this out.
 
+## scp
    scp
           Secure copy, similar in function to rcp, copies files between
           two different networked machines, but does so using
@@ -19182,6 +19318,7 @@ ________________________________________________________________
 
 ###   Local Network
 
+## write
    write
           This is a utility for terminal-to-terminal communication. It
           allows sending lines from your terminal (console or xterm) to
@@ -19191,6 +19328,7 @@ ________________________________________________________________
           Since write is interactive, it would not normally find use in
           a script.
 
+## netconfig
    netconfig
           A command-line utility for configuring a network adapter
           (using DHCP). This command is native to Red Hat centric Linux
@@ -19198,6 +19336,7 @@ ________________________________________________________________
 
    Mail
 
+## mail
    mail
           Send or read e-mail messages.
 
@@ -19240,11 +19379,13 @@ ________________________________________________________________
    #+ for "mail" ... but with somewhat different options.
    ```
 
+## mailto
    mailto
           Similar to the mail command, mailto sends e-mail messages from
           the command-line or in a script. However, mailto also permits
           sending MIME (multimedia) messages.
 
+## mailstats
    mailstats
           Show mail statistics. This command may be invoked only by
           root.
@@ -19260,6 +19401,7 @@ ________________________________________________________________
      C      414                    0
    ```
 
+## vacation
    vacation
           This utility automatically replies to e-mails that the
           intended recipient is on vacation and temporarily unavailable.
@@ -19271,6 +19413,7 @@ ________________________________________________________________
 
 ###   Command affecting the console or terminal
 
+## tput
    tput
           Initialize terminal and/or fetch information about it from
           terminfo data. Various options permit certain terminal
@@ -19361,6 +19504,7 @@ ________________________________________________________________
 
    "Doing the numbers"
 
+## factor
    factor
           Decompose an integer into prime factors.
 
@@ -19413,6 +19557,7 @@ ________________________________________________________________
    exit
    ```
 
+## bc
    bc
           Bash can't handle floating point calculations, and it lacks
           operators for certain important mathematical functions.
@@ -19885,6 +20030,7 @@ EOF
 
    See also Example A-37.
 
+## dc
    dc
           The dc (desk calculator) utility is stack-oriented and uses
           RPN (Reverse Polish Notation). Like bc, it has much of the
@@ -20004,6 +20150,7 @@ EOF
    # 4093
    ```
 
+## awk
    awk
           Yet another way of doing floating point math in a script is
           using awk's built-in math functions in a shell wrapper.
@@ -20220,6 +20367,7 @@ ________________________________________________________________
    1428
    ```
 
+## getopt
    getopt
           The getopt command parses command-line options preceded by a
           dash. This external command corresponds to the getopts Bash
@@ -20297,6 +20445,7 @@ ________________________________________________________________
           The cron daemon invokes run-parts to run the scripts in the
           /etc/cron.* directories.
 
+## yes
    yes
           In its default behavior the yes command feeds a continuous
           string of the character y followed by a line feed to stdout. A
@@ -20376,6 +20525,7 @@ ________________________________________________________________
    }                  #+ --help and --version options.
    ```
 
+## banner
    banner
           Prints arguments as a large vertical banner to stdout, using
           an ASCII character (default '#'). This may be redirected to a
@@ -20384,6 +20534,7 @@ ________________________________________________________________
           Note that banner has been dropped from many Linux distros,
           presumably because it is no longer considered useful.
 
+## printenv
    printenv
           Show all the environmental variables set for a particular
           user.
@@ -20393,6 +20544,7 @@ ________________________________________________________________
    HOME=/home/bozo
    ```
 
+## lp
    lp
           The lp and lpr commands send file(s) to the print queue, to be
           printed as hard copy. [NOTE_083](#N083) These commands trace the origin of
@@ -20414,6 +20566,7 @@ ________________________________________________________________
           Related commands are lpq, for viewing the print queue, and
           lprm, for removing jobs from the print queue.
 
+## tee
    tee
           [UNIX borrows an idea from the plumbing trade.]
 
@@ -20439,6 +20592,7 @@ ________________________________________________________________
    #+ before the duplicate lines are removed by 'uniq.'
    ```
 
+## mkfifo
    mkfifo
           This obscure command creates a named pipe, a temporary
           first-in-first-out buffer for transferring data between
@@ -20477,6 +20631,7 @@ ________________________________________________________________
    Mixed.msg BOZO
    ```
 
+## pathchk
    pathchk
           This command checks the validity of a filename. If the
           filename exceeds the maximum allowable length (255 characters)
@@ -20487,6 +20642,7 @@ ________________________________________________________________
           code, and it is therefore pretty much useless in a script.
           Consider instead the file test operators.
 
+## dd
    dd
           Though this somewhat obscure and much feared data duplicator
           command originated as a utility for exchanging data on
@@ -20802,6 +20958,7 @@ ________________________________________________________________
 
    See also the dd thread entry in the bibliography.
 
+## od
    od
           The od, or octal dump filter converts input (or files) to
           octal (base-8) or other bases. This is useful for viewing or
@@ -20818,6 +20975,7 @@ ________________________________________________________________
 
    See also Example 9-16 and Example A-36.
 
+## hexdump
    hexdump
           Performs a hexadecimal, octal, decimal, or ASCII dump of a
           binary file. This command is the rough equivalent of od,
@@ -20829,6 +20987,7 @@ ________________________________________________________________
    # The -C option nicely formats the output in tabular form.
    ```
 
+## objdump
    objdump
           Displays information about an object file or binary executable
           in either hexadecimal form or as a disassembled listing (with
@@ -20846,6 +21005,7 @@ ________________________________________________________________
      . . .
    ```
 
+## mcookie
    mcookie
           This command generates a "magic cookie," a 128-bit
           (32-character) pseudorandom hexadecimal number, normally used
@@ -20901,6 +21061,7 @@ ________________________________________________________________
    exit 0
    ```
 
+## units
    units
           This utility converts between different units of measure.
           While normally invoked in interactive mode, units may find use
@@ -20939,6 +21100,7 @@ ________________________________________________________________
    #           with appropriate error checking, of course.
    ```
 
+## m4
    m4
           A hidden treasure, m4 is a powerful macro [NOTE_087](#N087) processing
           filter, virtually a complete language. Although originally
@@ -20970,6 +21132,7 @@ ________________________________________________________________
    exit
    ```
 
+## xmessage
    xmessage
           This X-based variant of echo pops up a message/query window on
           the desktop.
@@ -20978,11 +21141,13 @@ ________________________________________________________________
    xmessage Left click to continue -button okay
    ```
 
+## zenity
    zenity
           The [http://freshmeat.net/projects/zenity] zenity utility is
           adept at displaying GTK+ dialog widgets and very suitable for
           scripting purposes.
 
+## doexec
    doexec
           The doexec command enables passing an arbitrary list of
           arguments to a binary executable. In particular, passing
@@ -21014,12 +21179,14 @@ ________________________________________________________________
    esac
    ```
 
+## dialog
    dialog
           The dialog family of tools provide a method of calling
           interactive "dialog" boxes from a script. The more elaborate
           variations of dialog -- gdialog, Xdialog, and kdialog --
           actually invoke X-Windows widgets.
 
+## sox
    sox
           The sox, or "sound exchange" command plays and performs
           transformations on sound files. In fact, the /usr/bin/play
@@ -21044,10 +21211,12 @@ ________________________________________________________________
 
 ###   Users and Groups
 
+## users
    users
           Show all logged on users. This is the approximate equivalent
           of who -q.
 
+## groups
    groups
           Lists the current user and the groups she belongs to. This
           corresponds to the $GROUPS internal variable, but gives the
@@ -21094,16 +21263,19 @@ ________________________________________________________________
    The adduser command is a synonym for useradd and is usually a
    symbolic link to it.
 
+## usermod
    usermod
           Modify a user account. Changes may be made to the password,
           group membership, expiration date, and other attributes of a
           given user's account. With this command, a user's password may
           be locked, which has the effect of disabling the account.
 
+## groupmod
    groupmod
           Modify a given group. The group name and/or ID number may be
           changed using this command.
 
+## id
    id
           The id command lists the real and effective user IDs and the
           group IDs of the user associated with the current process.
@@ -21125,6 +21297,7 @@ ________________________________________________________________
 
           Also see Example 9-5.
 
+## lid
    lid
           The lid (list ID) command shows the group(s) that a given user
           belongs to, or alternately, the users belonging to a given
@@ -21142,6 +21315,7 @@ ________________________________________________________________
      lp(gid=7)
    ```
 
+## who
    who
           Show all users logged on to the system.
 
@@ -21169,6 +21343,7 @@ ________________________________________________________________
    bozo
    ```
 
+## w
    w
           Show all logged on users and the processes belonging to them.
           This is an extended version of who. The output of w may be
@@ -21179,6 +21354,7 @@ ________________________________________________________________
    bozo  tty1     -                 4:22pm  6:41   4.47s  0.45s  startx
    ```
 
+## logname
    logname
           Show current user's login name (as found in /var/run/utmp).
           This is a near-equivalent to whoami, above.
@@ -21209,11 +21385,13 @@ ________________________________________________________________
    name of the user attached to the current process. As we have just
    seen, sometimes these are not the same.
 
+## su
    su
           Runs a program or script as a substitute user. su rjones
           starts a shell as user rjones. A naked su defaults to root.
           See Example A-14.
 
+## sudo
    sudo
           Runs a command as root (or another user). This may be used in
           a script, thus permitting a regular user to run the script.
@@ -21229,6 +21407,7 @@ ________________________________________________________________
           The file /etc/sudoers holds the names of users permitted to
           invoke sudo.
 
+## passwd
    passwd
           Sets, changes, or manages a user's password.
 
@@ -21289,6 +21468,7 @@ ________________________________________________________________
           unlocking, and deleting a user's password. Only root may use
           these options.
 
+## ac
    ac
           Show users' logged in time, as read from /var/log/wtmp. This
           is one of the GNU accounting utilities.
@@ -21298,6 +21478,7 @@ ________________________________________________________________
            total       68.08
    ```
 
+## last
    last
           List last logged in users, as read from /var/log/wtmp. This
           command can also show remote logins.
@@ -21315,6 +21496,7 @@ ________________________________________________________________
     wtmp begins Tue Feb  1 12:50:09 2005
    ```
 
+## newgrp
    newgrp
           Change user's group ID without logging out. This permits
           access to the new group's files. Since users may be members of
@@ -21330,6 +21512,7 @@ ________________________________________________________________
 
    Terminals
 
+## tty
    tty
           Echoes the name (filename) of the current user's terminal.
           Note that each separate xterm window counts as a different
@@ -21340,6 +21523,7 @@ ________________________________________________________________
    /dev/pts/1
    ```
 
+## stty
    stty
           Shows and/or changes terminal settings. This complex command,
           used in a script, can control terminal behavior and the way
@@ -21442,10 +21626,8 @@ ________________________________________________________________
    ```sh
    bash$ stty -a
    speed 9600 baud; rows 36; columns 96; line = 0;
-    intr = ^C; quit = ^\; erase = ^H; kill = ^U; eof = ^D; eol = <undef>; eol2 =
-   <undef>;
-    start = ^Q; stop = ^S; susp = ^Z; rprnt = ^R; werase = ^W; lnext = ^V; flush
-   = ^O;
+    intr = ^C; quit = ^\; erase = ^H; kill = ^U; eof = ^D; eol = <undef>; eol2 = <undef>;
+    start = ^Q; stop = ^S; susp = ^Z; rprnt = ^R; werase = ^W; lnext = ^V; flush = ^O;
     ...
     isig icanon iexten echo echoe echok -echonl -noflsh -xcase -tostop -echoprt
    ```
@@ -21477,6 +21659,7 @@ ________________________________________________________________
    moves the cursor to the begining of the line.
    Stéphane Chazelas
 
+## setterm
    setterm
           Set certain terminal attributes. This command writes to its
           terminal's stdout a string that changes the behavior of that
@@ -21501,6 +21684,7 @@ ________________________________________________________________
    echo normal hello
    ```
 
+## tset
    tset
           Show or initialize terminal settings. This is a less capable
           version of stty.
@@ -21513,6 +21697,7 @@ ________________________________________________________________
     Interrupt is control-C (^C).
    ```
 
+## setserial
    setserial
           Set or display serial port parameters. This command must be
           run by root and is usually found in a system setup script.
@@ -21531,6 +21716,7 @@ ________________________________________________________________
           within user shell scripts. Their scripting counterpart is
           stty.
 
+## mesg
    mesg
           Enables or disables write access to the current user's
           terminal. Disabling access would prevent another user on the
@@ -21543,6 +21729,7 @@ ________________________________________________________________
    multi-user network, you might therefore wish to disable write access
    to your terminal when you need to avoid interruptions.
 
+## wall
    wall
           This is an acronym for "write all," i.e., sending a message to
           all users at every terminal logged into the network. It is
@@ -21565,6 +21752,7 @@ ________________________________________________________________
 
 ###   Information and Statistics
 
+## uname
    uname
           Output system specifications (OS, kernel version, etc.) to
           stdout. Invoked with the -a option, gives verbose system info
@@ -21584,6 +21772,7 @@ ________________________________________________________________
     i686 i686 i386 GNU/Linux
    ```
 
+## arch
    arch
           Show system architecture. Equivalent to uname -m. See Example
           11-27.
@@ -21597,12 +21786,14 @@ ________________________________________________________________
    i686
    ```
 
+## lastcomm
    lastcomm
           Gives information about previous commands, as stored in the
           /var/account/pacct file. Command name and user name can be
           specified by options. This is one of the GNU accounting
           utilities.
 
+## lastlog
    lastlog
           List the last login time of all system users. This references
           the /var/log/lastlog file.
@@ -21627,6 +21818,7 @@ ________________________________________________________________
    This command will fail if the user invoking it does not have read
    permission for the /var/log/lastlog file.
 
+## lsof
    lsof
           List open files. This command outputs a detailed table of all
           currently open files and gives information about their owner,
@@ -21660,6 +21852,7 @@ ________________________________________________________________
 
           See Example 30-2 for an effective use of lsof.
 
+## strace
    strace
           System trace: diagnostic and debugging tool for tracing system
           calls and signals. This command and ltrace, following, are
@@ -21677,6 +21870,7 @@ ________________________________________________________________
 
           This is the Linux equivalent of the Solaris truss command.
 
+## ltrace
    ltrace
           Library trace: diagnostic and debugging tool that traces
           library calls invoked by a given command.
@@ -21694,6 +21888,7 @@ ________________________________________________________________
     ...
    ```
 
+## nc
    nc
           The nc (netcat) utility is a complete toolkit for connecting
           to and listening to TCP and UDP ports. It is useful as a
@@ -21788,6 +21983,7 @@ ________________________________________________________________
    echo clone | nc thunk.org 5000 > e2fsprogs.dat
    ```
 
+## free
    free
           Shows memory and cache usage in tabular form. The output of
           this command lends itself to parsing, using grep, awk or Perl.
@@ -21809,6 +22005,7 @@ ________________________________________________________________
    1880
    ```
 
+## procinfo
    procinfo
           Extract and list information and statistics from the /proc
           pseudo-filesystem. This gives a very extensive and detailed
@@ -21819,6 +22016,7 @@ ________________________________________________________________
    Bootup: Wed Mar 21 15:15:50 2001    Load average: 0.04 0.21 0.34 3/47 6829
    ```
 
+## lsdev
    lsdev
           List devices, that is, show installed hardware.
 
@@ -21835,6 +22033,7 @@ ________________________________________________________________
     ...
    ```
 
+## du
    du
           Show (disk) file usage, recursively. Defaults to current
           working directory, unless otherwise specified.
@@ -21848,6 +22047,7 @@ ________________________________________________________________
     6.0k    total
    ```
 
+## df
    df
           Shows filesystem usage in tabular form.
 
@@ -21859,6 +22059,7 @@ ________________________________________________________________
     /dev/hda7              1408796   1075744    261488  80% /usr
    ```
 
+## dmesg
    dmesg
           Lists all system bootup messages to stdout. Handy for
           debugging and ascertaining which device drivers were installed
@@ -21874,6 +22075,7 @@ ________________________________________________________________
     hda: hda1 hda2 hda3 < hda5 hda6 hda7 > hda4
    ```
 
+## stat
    stat
           Gives detailed and verbose statistics on a given file (even a
           directory or device file) or set of files.
@@ -21937,6 +22139,7 @@ ________________________________________________________________
    File access rights: -rw-rw-r--
    ```
 
+## vmstat
    vmstat
           Display virtual memory statistics.
 
@@ -21947,6 +22150,7 @@ ________________________________________________________________
     0  0  0      0  11040   2636  38952   0   0    33     7  271    88   8   3 89
    ```
 
+## uptime
    uptime
           Shows how long the system has been running, along with
           associated statistics.
@@ -21964,6 +22168,7 @@ ________________________________________________________________
    single-core processor), then system performance is significantly
    degraded.
 
+## hostname
    hostname
           Lists the system's host name. This command sets the host name
           in an /etc/rc.d setup script (/etc/rc.d/rc.sysinit or
@@ -21983,6 +22188,7 @@ ________________________________________________________________
           these to display or set the system DNS or NIS/YP domain name.
           Various options to hostname also perform these functions.
 
+## hostid
    hostid
           Echo a 32-bit hexadecimal numerical identifier for the host
           machine.
@@ -22012,6 +22218,7 @@ ________________________________________________________________
    hostid returns, above. There exist only a few million other Linux
    machines with this identical hostid.
 
+## sar
    sar
           Invoking sar (System Activity Reporter) gives a very detailed
           rundown on system statistics. The Santa Cruz Operation ("Old"
@@ -22041,6 +22248,7 @@ ________________________________________________________________
    Average:          all      6.33      1.70     14.71      0.00     77.26
    ```
 
+## readelf
    readelf
           Show information and statistics about a designated elf binary.
           This is part of the binutils package.
@@ -22058,6 +22266,7 @@ ________________________________________________________________
       . . .
    ```
 
+## size
    size
           The size [/path/to/binary] command gives the segment sizes of
           a binary executable or archive file. This is mainly of use to
@@ -22071,6 +22280,7 @@ ________________________________________________________________
 
 ###   System Logs
 
+## logger
    logger
           Appends a user-generated message to the system log
           (/var/log/messages). You do not have to be root to invoke
@@ -22094,6 +22304,7 @@ ________________________________________________________________
    # Jul  7 20:48:58 localhost ./test.sh[1712]: Logging at line 3.
    ```
 
+## logrotate
    logrotate
           This utility manages the system log files, rotating,
           compressing, deleting, and/or e-mailing them, as appropriate.
@@ -22111,6 +22322,7 @@ ________________________________________________________________
 
    Job Control
 
+## ps
    ps
           Process Statistics: lists currently executing processes by
           owner and PID (process ID). This is usually invoked with ax or
@@ -22148,10 +22360,12 @@ ________________________________________________________________
 
           Compare the action of pkill with killall.
 
+## pstree
    pstree
           Lists currently executing processes in "tree" format. The -p
           option shows the PIDs, as well as the process names.
 
+## top
    top
           Continuously updated display of most cpu-intensive processes.
           The -b option displays in text mode, so that the output may be
@@ -22172,6 +22386,7 @@ ________________________________________________________________
       ...
    ```
 
+## nice
    nice
           Run a background job with an altered priority. Priorities run
           from 19 (lowest) to -20 (highest). Only root may set the
@@ -22180,12 +22395,14 @@ ________________________________________________________________
           processes, and skill, which sends a kill signal to a process
           or processes.
 
+## nohup
    nohup
           Keeps a command running even after user logs off. The command
           will run as a foreground process unless followed by &. If you
           use nohup within a script, consider coupling it with a wait to
           avoid creating an orphan or zombie process.
 
+## pidof
    pidof
           Identifies process ID (PID) of a running job. Since job
           control commands, such as kill and renice act on the PID of a
@@ -22238,6 +22455,7 @@ ________________________________________________________________
    exit 0
    ```
 
+## fuser
    fuser
           Identifies the processes (by PID) that are accessing a given
           file, set of files, or directory. May also be invoked with the
@@ -22293,6 +22511,7 @@ ________________________________________________________________
    2095 ?        Ss     0:00 sendmail: accepting connections
    ```
 
+## cron
    cron
           Administrative program scheduler, performing such duties as
           cleaning up and deleting system log files and updating the
@@ -22307,18 +22526,21 @@ ________________________________________________________________
 
 ###   Process Control and Booting
 
+## init
    init
           The init command is the parent of all processes. Called in the
           final step of a bootup, init determines the runlevel of the
           system from /etc/inittab. Invoked by its alias telinit, and by
           root only.
 
+## telinit
    telinit
           Symlinked to init, this is a means of changing the system
           runlevel, usually done for system maintenance or emergency
           filesystem repairs. Invoked only by root. This command can be
           dangerous -- be certain you understand it well before using!
 
+## runlevel
    runlevel
           Shows the current and last runlevel, that is, whether the
           system is halted (runlevel 0), in single-user mode (1), in
@@ -22335,6 +22557,7 @@ ________________________________________________________________
    can be invoked by a non-root user. A careless halt in a terminal or a
    script may shut down the system!
 
+## service
    service
           Starts or stops a system service. The startup scripts in
           /etc/init.d and /etc/rc.d use this command to start services
@@ -22349,6 +22572,7 @@ ________________________________________________________________
 
    Network
 
+## nmap
    nmap
           Network mapper and port scanner. This command scans a server
           to locate open ports and the services associated with those
@@ -22371,6 +22595,7 @@ ________________________________________________________________
    # 25/tcp     open        smtp
    ```
 
+## ifconfig
    ifconfig
           Network interface configuration and tuning utility.
 
@@ -22421,6 +22646,7 @@ ________________________________________________________________
 
    See also Example 32-6.
 
+## netstat
    netstat
           Show current network statistics and information, such as
           routing tables and active connections. This utility accesses
@@ -22447,10 +22673,12 @@ ________________________________________________________________
    associated processes. This can be useful for determining whether a
    computer has been hacked or compromised.
 
+## iwconfig
    iwconfig
           This is the command set for configuring a wireless network. It
           is the wireless equivalent of ifconfig, above.
 
+## ip
    ip
           General purpose utility for setting up, changing, and
           analyzing IP (Internet Protocol) networks and attached
@@ -22506,6 +22734,7 @@ ________________________________________________________________
    exit 0
    ```
 
+## route
    route
           Show info about or make changes to the kernel routing table.
 
@@ -22517,6 +22746,7 @@ ________________________________________________________________
     default         pm3-67.bozosisp 0.0.0.0         UG       40 0          0 ppp0
    ```
 
+## iptables
    iptables
           The iptables command set is a packet filtering tool used
           mainly for such security purposes as setting up network
@@ -22526,6 +22756,7 @@ ________________________________________________________________
 
    See also shutting down iptables and Example 30-2.
 
+## chkconfig
    chkconfig
           Check network and system configuration. This command lists and
           manages the network and system services started at bootup in
@@ -22541,6 +22772,7 @@ ________________________________________________________________
     ...
    ```
 
+## tcpdump
    tcpdump
           Network packet "sniffer." This is a tool for analyzing and
           troubleshooting traffic on a network by dumping packet headers
@@ -22557,6 +22789,7 @@ ________________________________________________________________
 
    Filesystem
 
+## mount
    mount
           Mount a filesystem, usually on an external device, such as a
           floppy or CDROM. The file /etc/fstab provides a handy listing
@@ -22598,6 +22831,7 @@ ________________________________________________________________
                       # And so forth.
    ```
 
+## umount
    umount
           Unmount a currently mounted filesystem. Before physically
           removing a previously mounted floppy or CDROM disk, the device
@@ -22633,6 +22867,7 @@ ________________________________________________________________
     /dev/sda1                63584     12034     51550  19% /media/disk
    ```
 
+## sync
    sync
           Forces an immediate write of all updated data from buffers to
           hard drive (synchronize drive with buffers). While not
@@ -22646,6 +22881,7 @@ ________________________________________________________________
           when securely deleting a file (see Example 16-61) or when the
           lights begin to flicker.
 
+## losetup
    losetup
           Sets up and configures loopback devices.
 
@@ -22662,6 +22898,7 @@ ________________________________________________________________
    # Thanks, S.C.
    ```
 
+## mkswap
    mkswap
           Creates a swap partition or file. The swap area must
           subsequently be enabled with swapon.
@@ -22670,6 +22907,7 @@ ________________________________________________________________
           Enable / disable swap partitition or file. These commands
           usually take effect at bootup and shutdown.
 
+## mke2fs
    mke2fs
           Create a Linux ext2 filesystem. This command must be invoked
           as root.
@@ -22722,6 +22960,7 @@ ________________________________________________________________
 
    See also Example 17-8 and Example 31-3.
 
+## mkdosfs
    mkdosfs
           Create a DOS FAT filesystem.
 
@@ -22735,6 +22974,7 @@ ________________________________________________________________
    This is an extremely dangerous command. Use it at your own risk, as
    you may inadvertently destroy your filesystem.
 
+## dumpe2fs
    dumpe2fs
           Dump (list to stdout) very verbose filesystem info. This must
           be invoked as root.
@@ -22746,10 +22986,12 @@ ________________________________________________________________
     Maximum mount count:      20
    ```
 
+## hdparm
    hdparm
           List or change hard disk parameters. This command must be
           invoked as root, and it may be dangerous if misused.
 
+## fdisk
    fdisk
           Create or change a partition table on a storage device,
           usually a hard drive. This command must be invoked as root.
@@ -22777,6 +23019,7 @@ ________________________________________________________________
    All of these should be invoked as root, and they can damage or
    destroy a filesystem if misused.
 
+## badblocks
    badblocks
           Checks for bad blocks (physical media flaws) on a storage
           device. This command finds use when formatting a newly
@@ -22812,6 +23055,7 @@ ________________________________________________________________
       . . .
    ```
 
+## lspci
    lspci
           Lists pci busses present.
 
@@ -22829,6 +23073,7 @@ ________________________________________________________________
       . . .
    ```
 
+## mkbootdisk
    mkbootdisk
           Creates a boot floppy which can be used to bring up the system
           if, for example, the MBR (master boot record) becomes
@@ -22839,6 +23084,7 @@ ________________________________________________________________
           The mkbootdisk command is actually a Bash script, written by
           Erik Troan, in the /sbin directory.
 
+## mkisofs
    mkisofs
           Creates an ISO9660 filesystem suitable for a CDR image.
 
@@ -22874,6 +23120,7 @@ ________________________________________________________________
    It might be necessary to copy certain system files to a chrooted
    directory, since the normal $PATH can no longer be relied upon.
 
+## lockfile
    lockfile
           This utility is part of the procmail package
           ([http://www.procmail.org] www.procmail.org). It creates a
@@ -22923,6 +23170,7 @@ ________________________________________________________________
      ...
    ```
 
+## flock
    flock
           Much less useful than the lockfile command is flock. It sets
           an "advisory" lock on a file and then executes a command while
@@ -22940,17 +23188,20 @@ ________________________________________________________________
 
    Unlike lockfile, flock does not automatically create a lock file.
 
+## mknod
    mknod
           Creates block or character device files (may be necessary when
           installing new hardware on the system). The MAKEDEV utility
           has virtually all of the functionality of mknod, and is easier
           to use.
 
+## MAKEDEV
    MAKEDEV
           Utility for creating device files. It must be run as root, and
           in the /dev directory. It is a sort of advanced version of
           mknod.
 
+## tmpwatch
    tmpwatch
           Automatically deletes files which have not been accessed
           within a specified period of time. Usually invoked by cron to
@@ -22966,11 +23217,13 @@ ________________________________________________________________
           storage media, including disks and tape drives. The restore
           command restores backups made with dump.
 
+## fdformat
    fdformat
           Perform a low-level format on a floppy disk (/dev/fd0*).
 
    System Resources
 
+## ulimit
    ulimit
           Sets an upper limit on use of system resources. Usually
           invoked with the -f option, which sets a limit on file size
@@ -23002,6 +23255,7 @@ ________________________________________________________________
    A ulimit -Hu XX (where XX is the user process limit) in /etc/profile
    would abort this script when it exceeded the preset limit.
 
+## quota
    quota
           Display user or group disk quotas.
 
@@ -23043,6 +23297,7 @@ ________________________________________________________________
    exit 0
    ```
 
+## rdev
    rdev
           Get info about or make changes to root device, swap space, or
           video mode. The functionality of rdev has generally been taken
@@ -23051,6 +23306,7 @@ ________________________________________________________________
 
    Modules
 
+## lsmod
    lsmod
           List installed kernel modules.
 
@@ -23074,10 +23330,12 @@ ________________________________________________________________
 
    Doing a cat /proc/modules gives the same information.
 
+## insmod
    insmod
           Force installation of a kernel module (use modprobe instead,
           when possible). Must be invoked as root.
 
+## rmmod
    rmmod
           Force unloading of a kernel module. Must be invoked as root.
 
@@ -23085,10 +23343,12 @@ ________________________________________________________________
           Module loader that is normally invoked automatically in a
           startup script. Must be invoked as root.
 
+## depmod
    depmod
           Creates module dependency file. Usually invoked from a startup
           script.
 
+## modinfo
    modinfo
           Output information about a loadable module.
 
@@ -23102,6 +23362,7 @@ ________________________________________________________________
 
 ###   Miscellaneous
 
+## env
    env
           Runs a program or script with certain environmental variables
           set or changed (without changing the overall system
@@ -23136,6 +23397,7 @@ ________________________________________________________________
    ...
    ```
 
+## ldd
    ldd
           Show shared lib dependencies for an executable file.
 
@@ -23145,6 +23407,7 @@ ________________________________________________________________
    /lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x80000000)
    ```
 
+## watch
    watch
           Run a command repeatedly, at specified time intervals.
 
@@ -23161,6 +23424,7 @@ ________________________________________________________________
    Unfortunately, piping the output of watch command to grep does not
    work.
 
+## strip
    strip
           Remove the debugging symbolic references from an executable
           binary. This decreases its size, but makes debugging it
@@ -23169,6 +23433,7 @@ ________________________________________________________________
           This command often occurs in a Makefile, but rarely in a shell
           script.
 
+## nm
    nm
           List symbols in an unstripped compiled binary.
 
@@ -23310,6 +23575,7 @@ ________________________________________________________________
    exit $E_CHANGE1
    ```
 
+## rdist
    rdist
           Remote distribution client: synchronizes, clones, or backs up
           a file system on a remote server.
@@ -26681,6 +26947,7 @@ ________________________________________________________________
           as $?. This mechanism effectively permits script functions to
           have a "return value" similar to C functions.
 
+## return
    return
           Terminates a function. A return command [NOTE_109](#N109) optionally takes
           an integer argument, which is returned to the calling script
@@ -29638,7 +29905,6 @@ ________________________________________________________________
    ### Example 28-1. Indirect Variable References
 
    ```sh
-   ```
    #!/bin/bash
    # ind-ref.sh: Indirect variable referencing.
    # Accessing the contents of the contents of a variable.
@@ -29663,6 +29929,7 @@ ________________________________________________________________
    #  Meaningful, but still not useful.
 
    # Now, let's start over and do it the right way.
+   ```
 
    # ============================================== #
 
@@ -31029,6 +31296,7 @@ missing-keyword.sh: line 10: syntax error: unexpected end of file
 
    Trapping signals
 
+## trap
    trap
           Specifies an action on receipt of a signal; also useful for
           debugging.
@@ -33353,6 +33621,7 @@ ________________________________________________________________
           # Missing $color argument.
    cecho "\"Empty\" color passed (defaults to black)." ""
           # Empty $color argument.
+## cecho
    cecho
           # Missing $message and $color arguments.
    cecho "" ""
@@ -38085,6 +38354,7 @@ calculate_difference ()            # Difference between two day indices.
    while [ "${n:=1}" -le "$LENGTH" ]
    # ==> Recall that := is "default substitution" operator.
    # ==> So, if 'n' has not been initialized, set it to 1.
+## do
    do
            PASS="$PASS${MATRIX:$(($RANDOM%${#MATRIX})):1}"
            # ==> Very clever, but tricky.
@@ -44723,6 +44993,7 @@ in the target file.
    DEBUG=1
            read -a list < <( od -Ad -w24 -t u2 /dev/urandom ) # Random list.
    #                    ^ ^  process substition
+## else
    else
            read -a list
    fi
@@ -52850,6 +53121,7 @@ ________________________________________________________________
           computer. Do not use the flawed hostid command. Hint: md5sum
           /etc/passwd, then select the first 6 digits of output.
 
+## Backup
    Backup
           Archive as a "tarball" (*.tar.gz file) all the files in your
           home directory tree (/home/your-name) that have been modified
@@ -52862,6 +53134,7 @@ ________________________________________________________________
           check, at user-specified intervals, whether the given process
           is still running. You may use the ps and sleep commands.
 
+## Primes
    Primes
           Print (to stdout) all prime numbers between 60000 and 63000.
           The output should be nicely formatted in columns (hint: use
@@ -52904,6 +53177,7 @@ ________________________________________________________________
           one. Write to a logfile the names of all deleted files and the
           deletion times.
 
+## Banner
    Banner
           Simulate the functionality of the deprecated banner command in
           a script.
@@ -52995,6 +53269,7 @@ ________________________________________________________________
           + 2 + 4 + 3 + 1 = 16, 1 + 6 = 7). Find all the lucky numbers
           between 1000 and 10000.
 
+## Craps
    Craps
           Borrowing the ASCII graphics from Example A-40, write a script
           that plays the well-known gambling game of craps. The script
@@ -53021,6 +53296,7 @@ ________________________________________________________________
           Alphabetize (in ASCII order) an arbitrary string read from the
           command-line.
 
+## Parsing
    Parsing
           Parse /etc/passwd, and output its contents in nice,
           easy-to-read tabular form.
@@ -53045,6 +53321,7 @@ ________________________________________________________________
           Reformat the data and print it out to stdout in labeled,
           evenly-spaced columns.
 
+## Justification
    Justification
           Given ASCII text input either from stdin or a file, adjust the
           word spacing to right-justify each line to a user-specified
@@ -53269,6 +53546,7 @@ ________________________________________________________________
           will find only horizontal and vertical words. (Hint: Treat
           each row and column as a string, and search for substrings.)
 
+## Anagramming
    Anagramming
           Anagram 4-letter input. For example, the anagrams of word are:
           do or rod row word. You may use /usr/share/dict/linux.words as

@@ -1,5 +1,101 @@
 ---
-headline: &📜jq_1.7_manual jq 1.7 Manual
+headline: &📜jq_1.7_manual jq 1.7 Manual 
+body: |
+
+  jq 是一个处理 JSON 数据的命令行工具，它具有一定的编程能力，有一些内置的过滤器（filter）。
+  输入的 JSON 数据通过 jq 的逻辑（属性选择、判断、赋值、条件）生成具有特定格式数据输出，
+  不一定是输出 JSON 数据。jq 不仅可以用于处理 JSON 数据生成新的数据格式，也可以
+  格式化 JSON。以下由三个最基本的特性来说明 jq 的工作模式：
+
+  - 最基本的就是当前值选择器，使用一个句点表示，`.`；
+  - 然后是条件处理，jq 1.7 支持 `if-then-end`，旧版不支持此种条件处理形式；  
+  - 然后是递归处理每个 JSON 节点的递归下降（Recursive Descent: `..`）；
+
+  echo '[1,2,[3,4]]' | jq '.[0,2]' # ➊-> 1 [3,4]
+  echo '[0,12]' | jq 'if .[0] == 0 then .[0]="zero" end' # ➋-> ["zero",12]
+  echo '{"a":0}' | jq '.. | if . == 0 then "zero" end' # ➌-> "zero"
+
+  以上三条命令设置的过滤器（filter）处理数据的逻辑说明如下：
+
+  ➊ 输入是一个二维数组，jq 命令中的语句使用句点 . 引用当前值，即这个二维精数组，并且
+  使用数组下标运行获取数组中的首个元素、第 2 号元素 [3,4]。
+
+  ➋ 输入一个一维数组，使用条件判断首个元素是否是 0，如果是就设置这个元素值为 "zero"。
+
+  ➌ 输入一个对象，使用递归下降处理，条件判断中的名句指的是对象的 a 属性（因为递归处理到这个值），
+  如果这个值为 0 那么就返回 "zero" 否则返回原值。
+
+  从以上几何语句可以看到，jq 具有一定的增、删（过滤）、改的能力。还可以使用以下构造语法创建对象：
+
+  - Array construction: `[]`
+  - Object Construction: `{}`
+
+  需要完全从 jq 中构建一个 JSON 数据结构，那么就在执行命令时添加 -n 参数表示不需要输入数据。
+
+  例如，以下使用条件判断以及数组构造，将那些 0 值替换成 "zero" 后保留下来，忽略其它值。
+  `empty` 表示空，这个关键字可以在递归下降处理过程中过滤掉不需要的数据。
+
+  echo '{"a":12, "b":0}' | jq ' .. | [ if . == 0 then "zero" else empty end]'
+
+  过滤器的数据传递使用 Pipe: `|`，它的作用和 shell 脚本中的管道类似，用于过滤器之间的数据
+  传递。递归下降处理会递归地处理传入对象的每一个子级对象，这个过程可能会有很多不需要的数据，
+  可以使用 `empty` 过滤掉，也可能有遇到不符合特定类型的数据，可用 ? 号来做判断或抑制错误。
+  拼接字符串时，也可以使用字符串插值：`\(exp)`，字符串内插入引号使用 \" 转义符号。
+
+  - Error Suppression / Optional Operator: `?`
+  - Optional Object Identifier-Index: `.foo?`
+  - String interpolation: `\(exp)`
+
+  递归下降过滤器也和其它过滤器一样，可以重复使用。在使用条件处理时，如果没有返回子层对象，或者
+  返回的对象不包含子层，递归过程就结束。
+
+  类似功能的还有 `map` 过滤器，它可以枚举数组元素、对象成员：
+
+  echo '[{"a":0},{"b":[1,"banana"]},{"c":[2,3],"d":4}]' | jq 'map(has("a"))'
+
+  另外一较常用的过滤器 `length`，它计算输入值的长度，返回一个数值。但是这个过滤器有副作用，
+  它根据不同输入类型有不同的含义：
+
+    - The length of a **string** is the number of Unicode
+        codepoints it contains (which will be the same as its
+        JSON-encoded length in bytes if it's pure ASCII).
+    - The length of a **number** is its absolute value.
+    - The length of an **array** is the number of elements.
+    - The length of an **object** is the number of key-value pairs.
+    - The length of **null** is zero.
+    - It is an error to use `length` on a **boolean**.
+
+  另外，还有一组按对象类型进行处理的过滤器：`arrays`, `objects`, `iterables`, `booleans`, 
+  `numbers`, `normals`, `finites`, `strings`, `nulls`, `values`, `scalars`：
+
+  jq 提供 `type` 函数作为类型判断，但是这组过滤也可以用来兼做类型判断，比如：
+
+  echo '{"a":{"b":[1,"banana"]},"c":[2,3],"d":4}' | jq 'if .a|arrays then "A" end' # -> "A"
+  echo '{"a":{"b":[1,"banana"]},"c":[2,3],"d":4}' | jq 'if .c|arrays then "A" end' # -> empty
+
+  jq 在递归下降处理数据时有个痛点：如何解决提取部分数据后继续递归处理子层。比如 VS Code 开源
+  文档中有一个 API 目录数据，如何提取目录标题后，再递归处理目录下层的文档？
+
+  https://github.com/microsoft/vscode-docs/tree/main/docs/api/toc.json
+
+  这就需要定义递归函数去处理，`recurse(f)`, `recurse`, `recurse(f; condition)`。
+
+    sed -n 's| *//.*||;p' 'vscode-docs\api\toc.json' \
+    | jq '
+        def recurse(f): def r: (f | select(. != null) | r); r;
+        .[] |
+        if type == "array" then
+            .[] | length
+        elif .name? then
+            .name, 
+            (.name as $sep | $sep | split("") | map("=") | join("") ), 
+            .topics.[].[] | recurse
+        end
+        '
+
+  A formal specification of the jq language Michael Färber 
+  https://arxiv.org/abs/2403.20132
+
 
 history: &📜History |
 
@@ -33,51 +129,6 @@ body: |
 
   But that's getting ahead of ourselves. :) Let's start with something
   simpler:
-
-  jq 是一个处理 JSON 数据的命令行工具，它具有一定的编程能力，有一些内置的过滤器（filter）。
-  输入的 JSON 数据通过 jq 的逻辑（属性选择、判断、赋值、条件）生成具有特定格式数据输出，
-  不一定是输出 JSON 数据。jq 不仅可以用于处理 JSON 数据生成新的数据格式，也可以
-  格式化 JSON。以下由三个最基本的特性来说明 jq 的工作模式：
-
-  - 最基本的就是当前值选择器，使用一个句点表示，`.`；
-  - 然后是条件处理，jq 1.7 支持 `if-then-end`，旧版不支持此种条件处理形式；  
-  - 然后是递归处理每个 JSON 节点的递归下降（Recursive Descent: `..`）；
-
-  echo '[1,2,[3,4]]' | jq '.[0,2]' # ➊-> 1 [3,4]
-  echo '[0,12]' | jq 'if .[0] == 0 then .[0]="zero" end' # ➋-> ["zero",12]
-  echo '{"a":0}' | jq '.. | if . == 0 then "zero" end' # ➌-> "zero"
-
-  以上三条命令设置的过滤器（filter）处理数据的逻辑说明如下：
-
-  ➊ 输入是一个二维数组，jq 命令中的语句使用句点 . 引用当前值，即这个二维精数组，并且
-  使用数组下标运行获取数组中的首个元素、第 2 号元素 [3,4]。
-
-  ➋ 输入一个一维数组，使用条件判断首个元素是否是 0，如果是就设置这个元素值为 "zero"。
-
-  ➌ 输入一个对象，使用递归下降处理，条件判断中的名句指的是对象的 a 属性（因为递归处理到这个值），
-  如果这个值为 0 那么就返回 "zero" 否则返回原值。
-
-  从以上几何语句可以看到，jq 具有一定的增、删（过滤）、改的能力。还可以使用以下构造语法创建对象：
-
-  - Array construction: `[]`
-  - Object Construction: `{}`
-
-  例如，以下使用条件判断以及数组构造，将那些 0 值替换成 "zero" 后保留下来，忽略其它值。
-  `empty` 表示空，这个关键字可以在递归下降处理过程中过滤掉不需要的数据。
-
-  echo '{"a":12, "b":0}' | jq ' .. | [ if . == 0 then "zero" else empty end]'
-
-  过滤器的数据传递使用 Pipe: `|`，它的作用和 shell 脚本中的管道类似，用于过滤器之间的数据
-  传递。递归下降处理会递归地处理传入对象的每一个子级对象，这个过程可能会有很多不需要的数据，
-  可以使用 `empty` 过滤掉，也可能有遇到不符合特定类型的数据，可用 ? 号来做判断或抑制错误。
-  拼接字符串时，也可以使用字符串插值：`\(exp)`，字符串内插入引号使用 \" 转义符号。
-
-  - Error Suppression / Optional Operator: `?`
-  - Optional Object Identifier-Index: `.foo?`
-  - String interpolation: `\(exp)`
-
-  递归下降过滤器也和其它过滤器一样，可以重复使用。在使用条件处理时，如果没有返回子层对象，或者
-  返回的对象不包含子层，递归过程就结束。
 
 
 manpage_intro: &📜00.CLI_JSON_Processor |
@@ -3748,6 +3799,323 @@ sections:
         - 37 (white)
 
 
+headline: &📜jq
+
+headline: jq
+
+blurb: |
+
+  jq is a lightweight and flexible command-line JSON processor.
+
+body1: |
+
+  jq is like `sed` for JSON data - you can use it to slice and filter
+  and map and transform structured data with the same ease that `sed`,
+  `awk`, `grep` and friends let you play with text.
+
+body2: |
+
+  jq is written in portable C, and it has zero runtime
+  dependencies. You can download a single binary, `scp` it to a far away
+  machine of the same type, and expect it to work.
+
+body3: |
+
+  jq can mangle the data format that you have into the one that you
+  want with very little effort, and the program to do so is often
+  shorter and simpler than you'd expect.
+
+tail: |
+
+  Go read the [tutorial](./tutorial/) for more, or the [manual](./manual/)
+  for *way* more.
+
+  Have a question related to jq? You can seek answers on [Stack Overflow](https://stackoverflow.com/)
+  by using the [jq tag](https://stackoverflow.com/questions/tagged/jq), or in the [#jq channel](https://web.libera.chat/#jq)
+  on [Libera.Chat](https://libera.chat/). For more interactive discussions, feel free to join our [Discord server](https://discord.gg/yg6yjNmgAC).
+
+news:
+  - date: 13 December 2023
+    body: |
+      jq 1.7.1 released. Security (CVE-2023-50246, CVE-2023-50268) and bug fixes.
+      See [release notes](https://github.com/jqlang/jq/releases/tag/jq-1.7.1) for details.
+
+  - date: 7 September 2023
+    body: |
+      After a five-year hiatus, we've returned with a revitalized [GitHub organization](https://github.com/jqlang)
+      and a much-anticipated 1.7 release, thanks to our new admins and maintainers.
+      Check out the [download](./download/) page for installation options and see the
+      [release notes](https://github.com/jqlang/jq/releases/tag/jq-1.7) for details.
+
+  - date: 1 November 2018
+    body: |
+      jq 1.6 released. See installation options on the [download](./download/)
+      page, and the [release notes](https://github.com/jqlang/jq/releases/tag/jq-1.6)
+      for details.
+
+  - date: 15 August 2015
+    body: |
+
+      jq 1.5 released, including new datetime, math, and regexp functions,
+      try/catch syntax, array and object destructuring, a streaming parser,
+      and a module system. See installation options on the
+      [download](./download/) page, and the
+      [release notes](https://github.com/jqlang/jq/releases/tag/jq-1.5)
+      for details.
+
+  - date: 26 July 2015
+    body: |
+
+      jq 1.5rc2 is available. Get it on the
+      [releases](https://github.com/jqlang/jq/releases) page.
+
+  - date: 01 January 2015
+    body: |
+
+      jq 1.5rc1 is available. Get it on the
+      [releases](https://github.com/jqlang/jq/releases) page.
+
+  - date: 09 June 2014
+    body: |
+
+      jq 1.4 (finally) released! Get it on the [download](./download/) page.
+
+  - date: 19 May 2013
+    body: |
+
+      jq 1.3 released.
+
+headline: &📜Download jq
+body:
+  - text: |
+
+      jq is written in C and has no runtime dependencies, so it should be
+      possible to build it for nearly any platform. Prebuilt binaries are
+      available for Linux, macOS and Windows.
+
+      The binaries should just run, but on macOS and Linux you may need
+      to make them executable first using `chmod +x jq`.
+
+      jq is licensed under the MIT license. For all of the gory
+      details, read the file `COPYING` in the source distribution.
+
+      jq uses a C library for decimal number support. This is an ICU 1.8.1
+      licensed code obtained from the ICU downloads archive.  
+      <https://download.icu-project.org/files/decNumber/decNumber-icu-368.zip>
+
+
+      ### Linux
+
+       * jq is in the official [Debian](https://packages.debian.org/jq) and
+         [Ubuntu](https://packages.ubuntu.com/jq) repositories. Install using
+         `sudo apt-get install jq`.
+
+       * jq is in the official [Fedora](https://src.fedoraproject.org/rpms/jq) repository.
+         Install using `sudo dnf install jq`.
+
+       * jq is in the official [openSUSE](https://software.opensuse.org/package/jq) repository.
+         Install using `sudo zypper install jq`.
+
+       * jq is in the official [Arch](https://archlinux.org/packages/?q=jq) repository.
+         Install using `sudo pacman -S jq`.
+
+       * jq 1.7.1 binaries for
+         [AMD64](https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-linux-amd64)
+         or
+         [ARM64](https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-linux-arm64)
+         or
+         [i386](https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-linux-i386).
+
+       * jq 1.7 binaries for
+         [AMD64](https://github.com/jqlang/jq/releases/download/jq-1.7/jq-linux-amd64)
+         or
+         [ARM64](https://github.com/jqlang/jq/releases/download/jq-1.7/jq-linux-arm64)
+         or
+         [i386](https://github.com/jqlang/jq/releases/download/jq-1.7/jq-linux-i386).
+
+       * jq 1.6 binaries for
+         [AMD64](https://github.com/jqlang/jq/releases/download/jq-1.6/jq-linux64)
+         or
+         [i386](https://github.com/jqlang/jq/releases/download/jq-1.6/jq-linux32).
+
+       * jq 1.5 binaries for
+         [AMD64](https://github.com/jqlang/jq/releases/download/jq-1.5/jq-linux64)
+         or
+         [i386](https://github.com/jqlang/jq/releases/download/jq-1.5/jq-linux32).
+
+       * jq 1.4 binaries for
+         [AMD64](https://github.com/jqlang/jq/releases/download/jq-1.4/jq-linux-x86_64)
+         or
+         [i386](https://github.com/jqlang/jq/releases/download/jq-1.4/jq-linux-x86).
+
+       * jq 1.3 binaries for
+         [AMD64](https://github.com/jqlang/jq/releases/download/jq-1.3/jq-linux-x86_64)
+         or
+         [i386](https://github.com/jqlang/jq/releases/download/jq-1.3/jq-linux-x86).
+
+      ### macOS
+
+       * Use [Homebrew](https://brew.sh/) to install jq with `brew install jq`.
+
+       * Use [MacPorts](https://www.macports.org) to install jq with `port install jq`.
+
+       * Use [Fink](https://finkproject.org) to install jq with `fink install jq`.
+
+       * jq 1.7.1 binaries for
+         [AMD64](https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-macos-amd64)
+         or
+         [ARM64](https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-macos-arm64).
+
+       * jq 1.7 binaries for
+         [AMD64](https://github.com/jqlang/jq/releases/download/jq-1.7/jq-macos-amd64)
+         or
+         [ARM64](https://github.com/jqlang/jq/releases/download/jq-1.7/jq-macos-arm64).
+
+       * jq 1.6 binary for
+         [AMD64](https://github.com/jqlang/jq/releases/download/jq-1.6/jq-osx-amd64).
+
+       * jq 1.5 binary for
+         [AMD64](https://github.com/jqlang/jq/releases/download/jq-1.5/jq-osx-amd64).
+
+       * jq 1.4 binaries for
+         [AMD64](https://github.com/jqlang/jq/releases/download/jq-1.4/jq-osx-x86_64)
+         or
+         [i386](https://github.com/jqlang/jq/releases/download/jq-1.4/jq-osx-x86).
+
+       * jq 1.3 binaries for
+         [AMD64](https://github.com/jqlang/jq/releases/download/jq-1.3/jq-osx-x86_64)
+         or
+         [i386](https://github.com/jqlang/jq/releases/download/jq-1.3/jq-osx-x86).
+
+      ### FreeBSD
+
+       * `pkg install jq` as root installs a pre-built
+         [binary package](https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/pkgng-intro.html).
+
+       * `make -C /usr/ports/textproc/jq install clean` as root installs the
+         [jq](https://www.freshports.org/textproc/jq/)
+         [port](https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/ports-using.html)
+         from source.
+
+      ### Solaris
+
+       * `pkgutil -i jq` in [OpenCSW](https://www.opencsw.org/p/jq) for Solaris
+         10+, Sparc and x86.
+
+       * jq 1.4 binaries for Solaris 11
+         [AMD64](https://github.com/jqlang/jq/releases/download/jq-1.4/jq-solaris11-64)
+         or
+         [i386](https://github.com/jqlang/jq/releases/download/jq-1.4/jq-solaris11-32).
+
+      ### Windows
+
+       * Use [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/)
+         to install jq with `winget install jqlang.jq`.
+
+       * Use [scoop](https://scoop.sh/) to install jq with `scoop install jq`.
+
+       * Use [Chocolatey NuGet](https://chocolatey.org/) to install jq with
+         `choco install jq`.
+
+       * jq 1.7.1 executables for
+         [AMD64](https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-windows-amd64.exe)
+         or
+         [i386](https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-windows-i386.exe).
+
+       * jq 1.7 executables for
+         [AMD64](https://github.com/jqlang/jq/releases/download/jq-1.7/jq-windows-amd64.exe)
+         or
+         [i386](https://github.com/jqlang/jq/releases/download/jq-1.7/jq-windows-i386.exe).
+
+       * jq 1.6 executables for
+         [AMD64](https://github.com/jqlang/jq/releases/download/jq-1.6/jq-win64.exe)
+         or
+         [i386](https://github.com/jqlang/jq/releases/download/jq-1.6/jq-win32.exe).
+
+       * jq 1.5 executables for
+         [AMD64](https://github.com/jqlang/jq/releases/download/jq-1.5/jq-win64.exe)
+         or
+         [i386](https://github.com/jqlang/jq/releases/download/jq-1.5/jq-win32.exe).
+
+       * jq 1.4 executables for
+         [AMD64](https://github.com/jqlang/jq/releases/download/jq-1.4/jq-win64.exe)
+         or
+         [i386](https://github.com/jqlang/jq/releases/download/jq-1.4/jq-win32.exe).
+
+      Additionally, all release artifacts are signed by a jq release key.  We have two release keys, [one for 1.6 and older releases](https://raw.githubusercontent.com/jqlang/jq/master/sig/jq-release-old.key), and [one for 1.7 and newer releases](https://raw.githubusercontent.com/jqlang/jq/master/sig/jq-release-new.key).
+      Signatures can be found under
+      [sig/v1.x/\*.asc](https://github.com/jqlang/jq/tree/master/sig).
+      The signatures for jq 1.7.1 are in
+      [sig/v1.7.1/\*.asc](https://github.com/jqlang/jq/tree/master/sig/v1.7.1).
+      The signatures for jq 1.7 are in
+      [sig/v1.7/\*.asc](https://github.com/jqlang/jq/tree/master/sig/v1.7).
+      The signatures for jq 1.6 are in
+      [sig/v1.6/\*.asc](https://github.com/jqlang/jq/tree/master/sig/v1.6).
+      The signatures for jq 1.5 are in
+      [sig/v1.5/\*.asc](https://github.com/jqlang/jq/tree/master/sig/v1.5).
+      You can use [GnuPG](https://gnupg.org/) to verify a signature by downloading
+      the signature and running `gpg --verify signature.asc`.
+
+      ### From source on Linux, macOS, Cygwin, and other POSIX-like operating systems
+
+       * [Source tarball for jq 1.7.1](https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-1.7.1.tar.gz)
+       * [Source tarball for jq 1.7](https://github.com/jqlang/jq/releases/download/jq-1.7/jq-1.7.tar.gz)
+       * [Source tarball for jq 1.6](https://github.com/jqlang/jq/releases/download/jq-1.6/jq-1.6.tar.gz)
+       * [Source tarball for jq 1.5](https://github.com/jqlang/jq/releases/download/jq-1.5/jq-1.5.tar.gz)
+
+      You can build it using the usual `./configure && make && sudo
+      make install` rigmarole.
+
+      If you're interested in using the latest development version, try:
+
+          git clone --recursive https://github.com/jqlang/jq.git
+          cd jq
+          autoreconf -i
+          ./configure
+          make
+          sudo make install
+
+      To build it from a git clone, you'll need to install a few
+      packages first:
+
+       * [GCC](https://gcc.gnu.org)
+       * [Make](https://www.gnu.org/software/make/)
+       * [Autotools](https://www.gnu.org/software/automake/)
+
+      For Linux systems, these will all be in your system's package
+      manager, and if you do development on the machine they're most
+      likely already installed.
+
+      On macOS, these are all included in Apple's command line tools, which can
+      be installed from [Xcode](https://developer.apple.com/xcode/). However,
+      you may find that you need a newer version of Bison than the one provided
+      by Apple. This can be found in [Homebrew](https://brew.sh/) or
+      [MacPorts](https://macports.org/).
+
+      If you want to generate the lexer and parser from source you can use the
+      `--enable-maintainer-mode` configure flag. This requires bison to be installed.
+      [Flex](https://github.com/westes/flex) and
+      [Bison](https://www.gnu.org/software/bison/).
+
+      ### Docker
+
+      Docker image is available from
+      [GitHub Container Registry](https://github.com/jqlang/jq/pkgs/container/jq).
+
+          docker run -i --rm ghcr.io/jqlang/jq -n 'range(3)'
+
+      #### Building the documentation
+
+      jq's documentation is compiled into static HTML using Python.
+      To build the docs, run `pipenv run python3 build_website.py --root /output`
+      in the `docs/` directory. To serve them locally, you can run
+      `python3 -m http.server`. You'll need a few Python dependencies,
+      which can be installed by following the instructions in `docs/README.md`.
+
+      The man page is built by `make jq.1`, or just `make`, also from
+      the YAML docs, and you'll still need the Python dependencies to
+      build the manpage.
+
 headline: &📜Tutorial
 body:
   - text: |
@@ -3963,3 +4331,4 @@ body:
       Here endeth the tutorial! There's lots more to play with. Go
       read [the manual](../manual/) if you're interested, and [download
       jq](../download/) if you haven't already.
+
