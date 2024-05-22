@@ -1,21 +1,22 @@
-#!/usr/bin/env bash
-url=https://blog.tonycrane.cc/p/b3ca5c18.html
-url=https://learnyouahaskell.com/chapters
-pandoc -r html "$url" -t rst | subl -
-
-exit 
 
 ===================================================
 /. 🚀 ./Documentation
 ===================================================
 
+`名安装 Haskell 在线编译器 <https://haskell.godbolt.org/>`__
+
 
 .. code-block::
+
+   #!/usr/bin/env bash
+   url=https://learnyouahaskell.com/chapters
+   url=https://www.haskell.org/documentation/
+   pandoc -r html "$url" -t rst | subl -
 
    # https://gitlab.haskell.org/ghc/ghc/-/tree/master/docs/users_guide
    git clone --recurse-submodules git@gitlab.haskell.org:ghc/ghc.git
 
-   pandoc -r html https://www.haskell.org/documentation/ -t rst | clip
+   exit 
 
 
 .. rubric:: Documentation
@@ -24,8 +25,7 @@ exit
 This page lists various resources to help you with 
 Haskell. Resources marked with [$] require payment.
 
-If you are new to Haskell and are not sure where to start
-from, we recommend
+If you are new to Haskell and are not sure where to start from, we recommend
 `CIS194 <https://www.seas.upenn.edu/~cis194/spring13/lectures.html>`__.
 CIS194 is the introductory Haskell course of the
 University of Pennsylvania; it is free, thorough,
@@ -148,15 +148,207 @@ The differences between GHC and the report can be found
 
 
 
-===========================
-/Haskell & Category Theory
-===========================
+================================
+/GHCI - command-line interpreter
+================================
 
 .. container::
 
-   Haskell 涉及大量数学术语，对于没有数学背景的读者，建议： 
+   Usage:
 
-   *  学习抽象代数。有这么几个好处：
+       ghci [command-line-options-and-input-files]
+
+   The kinds of input files that can be given on the command-line
+   include:
+
+     - Haskell source files (.hs or .lhs suffix)
+     - Object files (.o suffix, or .obj on Windows)
+     - Dynamic libraries (.so suffix, or .dll on Windows)
+
+   In addition, ghci accepts most of the command-line options that plain
+   GHC does.  Some of the options that are commonly used are:
+
+       -i<dir>         Search for imported modules in the directory <dir>.
+
+       -H32m       Increase GHC's default heap size to 32m
+
+       -cpp            Enable CPP processing of source files
+
+   Full details can be found in the User's Guide, an online copy of which
+   can be found here:
+
+       http://www.haskell.org/ghc/docs/latest/html/users_guide/
+
+   If you *really* want to see every option, then you can pass
+   '--show-options' to ghci.
+
+.. container::
+
+   ghci> :?
+    Commands available from the prompt:
+
+      <statement>                 evaluate/run <statement>
+      :                           repeat last command
+      :{\n ..lines.. \n:}\n       multiline command
+      :add [*]<module> ...        add module(s) to the current target set
+      :browse[!] [[*]<mod>]       display the names defined by module <mod>
+                                  (!: more details; *: all top-level names)
+      :cd <dir>                   change directory to <dir>
+      :cmd <expr>                 run the commands returned by <expr>::IO String
+      :complete <dom> [<rng>] <s> list completions for partial input string
+      :ctags[!] [<file>]          create tags file <file> for Vi (default: "tags")
+                                  (!: use regex instead of line number)
+      :def[!] <cmd> <expr>        define command :<cmd> (later defined command has
+                                  precedence, ::<cmd> is always a builtin command)
+                                  (!: redefine an existing command name)
+      :doc <name>                 display docs for the given name (experimental)
+      :edit <file>                edit file
+      :edit                       edit last module
+      :etags [<file>]             create tags file <file> for Emacs (default: "TAGS")
+      :help, :?                   display this list of commands
+      :info[!] [<name> ...]       display information about the given names
+                                  (!: do not filter instances)
+      :instances <type>           display the class instances available for <type>
+      :issafe [<mod>]             display safe haskell information of module <mod>
+      :kind[!] <type>             show the kind of <type>
+                                  (!: also print the normalised type)
+      :load[!] [*]<module> ...    load module(s) and their dependents
+                                  (!: defer type errors)
+      :main [<arguments> ...]     run the main function with the given arguments
+      :module [+/-] [*]<mod> ...  set the context for expression evaluation
+      :quit                       exit GHCi
+      :reload[!]                  reload the current module set
+                                  (!: defer type errors)
+      :run function [<arguments> ...] run the function with the given arguments
+      :script <file>              run the script <file>
+      :type <expr>                show the type of <expr>
+      :type +d <expr>             show the type of <expr>, defaulting type variables
+      :unadd <module> ...         remove module(s) from the current target set
+      :undef <cmd>                undefine user-defined command :<cmd>
+      ::<cmd>                     run the builtin command
+      :!<command>                 run the shell command <command>
+
+    -- Commands for debugging:
+
+      :abandon                    at a breakpoint, abandon current computation
+      :back [<n>]                 go back in the history N steps (after :trace)
+      :break [<mod>] <l> [<col>]  set a breakpoint at the specified location
+      :break <name>               set a breakpoint on the specified function
+      :continue [<count>]         resume after a breakpoint [and set break ignore count]
+      :delete <number> ...        delete the specified breakpoints
+      :delete *                   delete all breakpoints
+      :disable <number> ...       disable the specified breakpoints
+      :disable *                  disable all breakpoints
+      :enable <number> ...        enable the specified breakpoints
+      :enable *                   enable all breakpoints
+      :force <expr>               print <expr>, forcing unevaluated parts
+      :forward [<n>]              go forward in the history N step s(after :back)
+      :history [<n>]              after :trace, show the execution history
+      :ignore <breaknum> <count>  for break <breaknum> set break ignore <count>
+      :list                       show the source code around current breakpoint
+      :list <identifier>          show the source code for <identifier>
+      :list [<module>] <line>     show the source code around line number <line>
+      :print [<name> ...]         show a value without forcing its computation
+      :sprint [<name> ...]        simplified version of :print
+      :step                       single-step after stopping at a breakpoint
+      :step <expr>                single-step into <expr>
+      :steplocal                  single-step within the current top-level binding
+      :stepmodule                 single-step restricted to the current module
+      :trace                      trace after stopping at a breakpoint
+      :trace <expr>               evaluate <expr> with tracing on (see :history)
+
+    -- Commands for changing settings:
+
+      :set <option> ...           set options
+      :seti <option> ...          set options for interactive evaluation only
+      :set local-config { source | ignore }
+                                  set whether to source .ghci in current dir
+                                  (loading untrusted config is a security issue)
+      :set args <arg> ...         set the arguments returned by System.Environment.getArgs
+      :set prog <progname>        set the value returned by System.Environment.getProgName
+      :set prompt <prompt>        set the prompt used in GHCi
+      :set prompt-cont <prompt>   set the continuation prompt used in GHCi
+      :set prompt-function <expr> set the function to handle the prompt
+      :set prompt-cont-function <expr>
+                                  set the function to handle the continuation prompt
+      :set editor <cmd>           set the command used for :edit
+      :set stop [<n>] <cmd>       set the command to run when a breakpoint is hit
+      :unset <option> ...         unset options
+
+     Options for ':set' and ':unset':
+
+       +m            allow multiline commands
+       +r            revert top-level expressions after each evaluation
+       +s            print timing/memory stats after each evaluation
+       +t            print type after evaluation
+       +c            collect type/location info after loading modules
+       -<flags>      most GHC command line flags can also be set here
+                            (eg. -v2, -XFlexibleInstances, etc.)
+                       for GHCi-specific flags, see User's Guide,
+                       Flag reference, Interactive-mode options
+
+    -- Commands for displaying information:
+
+      :show bindings              show the current bindings made at the prompt
+      :show breaks                show the active breakpoints
+      :show context               show the breakpoint context
+      :show imports               show the current imports
+      :show linker                show current linker state
+      :show modules               show the currently loaded modules
+      :show packages              show the currently active package flags
+      :show paths                 show the currently active search paths
+      :show language              show the currently active language flags
+      :show targets               show the current set of targets
+      :show <setting>             show value of <setting>, which is one of
+                                     [args, prog, editor, stop]
+      :showi language             show language flags for interactive evaluation
+
+    The User's Guide has more information. An online copy can be found here:
+
+      https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/ghci.html
+
+
+=======================================
+/Category Theory：敲开 Haskell 箭头的大门
+=======================================
+
+.. container::
+
+   Haskell Brooks Curry（哈斯凯尔·科里，1900-1982），美国数学家、逻辑学家，数理逻辑和计算机
+   科学历史上里程碑式的存在，其名声不如阿兰·图灵那么响亮，其影响不如库尔特·哥德尔那么广泛，但是，
+   Curry 对的人类历史的贡献完全可以和前者比肩。如果说图灵机是现代计算机程序设计语言的基本模型，
+   那么可计算函数就是和图灵机等价的另一种模型。当前流行的丘奇的 λ-演算 模型，其动机就是函数式
+   编程模式的兴起。而柯里的组合逻辑，作为 λ-演算 的等价，在某些方面比后者更为洗练、优雅。当今，
+   有三种编程语言以他的名字命名: Haskell、 Brooks 和 Curry。为了纪念他，将一个多参数函数
+   转换为单参数函数序列的技术称为柯里化（Currying)。
+
+   Abstract Computing Machines: A Lambda Calculus Perspective (by Werner Klugew)
+   一书总结了 1930-1940 年代在可计算性（computability）研究方面的几种抽象计算机模型：
+
+      1. 阿兰·图灵的图灵机模型（Turing machine）
+      2. 丘奇的λ-演算模型（λ-calculus）
+      3. 克里尼的递归函数模型（Kleene’s recursive functions）
+      4. Schönfinkel 和柯里的组合逻辑模型（Schönfinkel’s and Curry’s combinators）
+      5. 波斯特的产生式系统（Emil Post's production systems）（乔姆斯基生成语法形式化部分的原型）
+      6. 马尔科夫算法（Markov algorithms）（一种类似前者的字串重写生成式系统）
+
+   Haskell 涉及大量数学术语，对于没有数学背景的读者，可能存在读不懂文档的问题。并且，像笔者这样
+   非数学专业、离开大学就冰封数学的水平，直接阅读“态射”这一概念都有困难。态射是范畴论的核心概念，
+   也是 Haskell 语言的基础结构：
+
+      态射（morphism）是在数学中是指两个数学结构之间保持结构的一种映射。
+
+   这是很简单的一个定义，每个汉字或单词你都认识，但是组合到一起你就是不懂在说什么。无它，抽象废话尔！
+   一个事物之所以会形成抽象的感觉，根本在于你缺少相关的前置知识，俗称基础不牢。通常这种问题首先解决
+   方法是向“历史老师”请教。这个历史老师打了双引，因为它不是一个人，而是一堆人在特定领域探索的道路。
+   这里的历史老师显然就是数学的历史。人类每一个知识点可能是前人经年累月的研究才达成的，而你要几分钟
+   或者几小时、几天的时间掌握它，显然不是一件轻松的事。数学本身就是抽象的科学，通过学习前人在数学
+   进化道路上形成的抽象观念，显得非常重要，特别对还没有形成强大数学抽象能力的人。
+
+   以下是新手建议，显然阅读这些教材是有前置基础要求的，毕竟是通用教材，并非基于个人水平定制。
+   因此，整理出一份属于自己的笔记就是为自己定制的“教材”：
+
+   *  了解数学的发展史，学习抽象代数。有这么几个好处：
       一、给范畴论提供许多例子；
       二、锻炼书写证明的能力；
       三、可重新理解许多常用工具，如线性代数。一般来说，学一点基础的群论、环论（可约性）、模就够了。
@@ -166,12 +358,39 @@ The differences between GHC and the report can be found
       举个例子，绕着一个圆环的首尾相连的路径，可以根据绕圆环的圈数进行分类，后者与整数集同构。
       这就是一个由拓扑空间范畴到群范畴上的函子。这些函子可比 Maybe 有趣的多。
 
-   *  教材上，新教材用范畴论的语言比较多，推荐 Algebra: Chapter 0。
-      拓扑有一本标准教材，Hatcher 的 Algebraic Topology。
+   *  教材及阅读材料：
+
+      Algebraic Topology by Allen Hatcher “一本写的像数学书的（多图）杂志。”
+      https://pi.math.cornell.edu/~hatcher/AT/AT+.pdf
+
+      代数拓扑 南开大学 王向军
+      https://www.bilibili.com/video/BV1aJ411J7ji/
+
+      Contemporary Abstract Algebra NINTH EDITION Joseph A. Gallian
+
       最后，不要学同调代数！不要学同调代数！不要学 Homology！
 
-      Category Theory for Computing Science by Michael Barr Charles Wells 
-      (Revised edition, 1999) https://www.math.mcgill.ca/barr/papers/ctcs.pdf
+      `在数学的海洋中飘荡 - MIT计算机视觉专业林达华 <https://dahuasky.wordpress.com/2009/01/22/在数学的海洋中飘荡/>`__
+
+      `Branches of Mathematics: Arithmetic, Algebra, Geometry, Calculus, Trigonometry, Topology, Probability and Statistics <https://leverageedu.com/blog/branches-of-mathematics/>`__
+
+      `Type Theory <https://plato.stanford.edu/entries/type-theory/>`__
+
+      `Constructive Type Theory <https://plato.stanford.edu/entries/type-theory-intuitionistic>`__
+
+      `Intuitionistic Type Theory <https://plato.stanford.edu/entries/type-theory-intuitionistic>`__
+
+      `A Sensible Introduction to Category Theory <https://www.bilibili.com/list/1801761269>`__
+
+      `Category Theory <https://plato.stanford.edu/entries/category-theory>`__
+
+      `Category Theory for Computing Science by Michael Barr Charles Wells (Revised edition, 1999) <https://www.math.mcgill.ca/barr/papers/ctcs.pdf>`__
+
+      `Type Theory and Functional Programming - Simon Thompson <https://www.cs.kent.ac.uk/people/staff/sjt/TTFP/ttfp.pdf>`__
+
+      `Introduction to Logic - Harry J. Gensler <https://pan.baidu.com/s/1g-HiWTtFkzmJGJCu_wcYBQ?pwd=1kq0>`__
+
+      `Categories Great and Small by Bartosz Milewski <https://bartoszmilewski.com/2014/12/05/categories-great-and-small/>`__
 
    传统程序语言与函数式语言的区别在于指令式（Imperative）与声明式（declarative）：
 
@@ -191,6 +410,49 @@ The differences between GHC and the report can be found
 
    Stanford's cs240h 公开课程的课件中 Lecture 1 Basics 很全面地介绍了 Haskell 纯函数式
    编程与传统命令式语言的差别。讲课教授包括 Readl World Haskell 一书作者。
+
+   Haskell 是纯函数 (Pure Function) 语言，纯函数这个概念是指：相同的输入，纯函数会返回相同值。
+   这种性质称为无副作用（side effects free）。
+
+
+   GHCI_ 中交互式解释器，“i” 即代表 “Interactive”，它可以执行以下功能；
+
+   1. interactively evaluate Haskell expressions
+   2. interpret Haskell programs
+   3. load GHC-compiled modules.
+
+   GHCI_ 交互解释器中敲入多行代码时，``:{`` 和 ``:}`` 符号包括多选代码。
+   也可以使用 ``:set +m`` 配置打开多行输入模式。使用 ``:?`` 查看相关命令帮助信息。
+   Windows 系统 CTRL-D 输入的是 EOT，CTRL-Z 才和 Linux 系统 CTRL-D 一样输入 EOF。
+
+   .. code-block:: haskell
+
+      ghci> :{
+         let  {  y   = a*b
+              ; f x = (x+y)/y
+              }
+         in f c + f d
+      :}
+
+   使用 ``:load`` 命令加载源代码模块，比如 ``:load Main`` 加载 Main.hs 或者 Main.lhs。
+   运行 GHCI_ 命令时，可以使用 -i 选项添加模块所在的目录。可以使用 ``cabal repl`` 进入
+   交互解释器，它会提供额外的配置，以使用依赖库。
+
+   通过 Cabal 或者 Stack 工具管理的模块通常是动态共享库（shared libraries）。
+   GHC 编译器在编译代码文件时生成目标文件（.o），与 C 的目标文件完全相同。
+   还有一个接口文件（.hi），相当于 C 语言的头文件 (.h)。接口文件包含有关 .o 文件的信息，
+   比如函数符号等等。编译其他依赖这个模块的代码时，GHC 就可以根据这些信息进行链接。
+
+   `Windows DLL`__ 目前不支持。``ghc -c -dynamic M.hs`` 这样的命令编译生成共享库会报错：
+
+      Perhaps you haven't installed the "dyn" libraries for package ‘base-4.17.2.1
+
+   .. _GHCI: https://downloads.haskell.org/ghc/latest/docs/users_guide/ghci.html
+   .. _5.3 Import Declarations: https://www.haskell.org/onlinereport/haskell2010/haskellch5.html#x11-1010005.3
+   .. _Windows DLL: https://gitlab.haskell.org/ghc/ghc/-/wikis/windows-dynamic-linking
+
+   按照 Haskell Language Report - Lexical Structure 描述，通过代码布局（Layout），
+   即代码的格式对齐，可以省略花括号和分号。
 
    The Haskell 2010 Language 文档所述，符号命名空间分为 6 类，有两条约束条件：
 
@@ -216,15 +478,62 @@ The differences between GHC and the report can be found
    #. 不能在同一个作用域中使用一个标识符作为类型构造器或类名称；
 
    Haskell 还支持 Unicode 符号，所以，Haskell 中的变量可以使用 var‘ 这样的名称。
+   为了避免命名冲突，应该禁止使用以下 Haskell 保留的运算符号：
+   ::
+
+      :!#$%&*+./<=>?@\^| 
 
    Haskell 中的变量是不可变的（Immutable），就像命令式语言中的常量，使用绑定（binding）来
    给变量赋值，因此 = 号在 Haskell 中意味着声明一个变量的绑定，而非赋值。变量一旦绑定之后，
    就不能再绑定其它值。Haskell 是编程语言又是数学语言，其类型系统也为数学服务。
 
+   命令式语言，一般上有一套内置的类型，一般中讨论变量或常量的类型。Haskell 语言中，
+   一切表达式都具有它本身的类型，即便是列表，它包含的元素不同，就具有不同的类型。
+
+
+   类型理论最早由罗素在其朴素集合论（Naive Set Theory）发现的悖论中演化而来。
+   构造性类型理论（Constructive Type Theory）又称为直觉类型理论，于 1970s 年代由 
+   Per Martin-Löf 发表。
+
+   简单地说，构造主义的核心就是 “要证明一个东西存在，必须把它构造出来”。
+   在计算机科学编程语言理论中，类型论提供了设计分析和研究类型系统的形式基础。
+
+   Haskell 基于直觉类型系统，GHCI_ 提供了 ``:kind`` 和 ``:type`` 两个命令用于获取类型信息。
+   `Haskell's kind system - a primer <https://diogocastro.com/blog/2018/10/17/haskells-kind-system-a-primer/>`__
+
+例如 "hello" 和 "world" 都属于 String 类型，True 和 False 都属于 Bool 类型。相似地，String 类型和 Bool 类型都属于 *（读作 "star"）kind。
+
+表达式 (values/terms) 都有类型 (types)，types 也有自己对应的 kinds。
+
+
+
+   Haskell 语言的 ``data`` 关键字对应构造器（Constructor），它可以有两种含义：
+
+   *  `Type constructor <https://wiki.haskell.org/Constructor>`__
+      ::
+
+         -- An example of a nullary type constructor Bool with 
+         -- two nullary data constructors True and False
+         data Bool = True | False
+
+         --  An example of a unary type constructor: Tree
+         data Tree a = Tip | Node a (Tree a) (Tree a)
+
+   *  Data constructor (or value constructor)
+      -  Data constructors are not types
+      -  Data constructors as first class values
+      ::
+
+         data Bool = True | False
+         data Tree a = Tip | Node a (Tree a) (Tree a)
+
+   即构造新的类型，或者构造新的值（数据值）。Haskell 语言的类型系统与传统的命令式语言有很大的不同。
+   Haskell 编程模型中，构造
+
    以下是来自 `Typeclassopedia <https://wiki.haskell.org/Typeclassopedia>`__
    一文中的关于 Haskell 类型关系的配图：
 
-   .. figure:: /pictures/haskell_typeclasses.svg
+   .. figure:: ./pictures/haskell_typeclasses.svg
 
       关系图使用 Graphviz 脚本定义，可以使用 dot -Tsvg 命令转换为 SVG 图形格式。
 
@@ -299,7 +608,7 @@ The differences between GHC and the report can be found
    -  函数：当函数作为参数传入时，该函数参数类型声明格式不变，但整体用小括号 () 包围；
    -  返回值类型：最后一个类型用于定义函数返回值的类型；
 
-   -  => 表示类型的推导。
+   -  => 表示逻辑推导。
    -  -> 表示变量之间的连接关系。
    -  <- 就是把此符号右边的计算语境 bind 到左边的变量上。
    -  <= 其实是比较运算符号。
@@ -331,36 +640,567 @@ The differences between GHC and the report can be found
 
    参数 a 定义为整形（Integral），返回值是一个字符串，sayMe 函数就是它们之间关系的映射。
 
+   函数的本质是一种映射关系，与集合 Sets 相关。通俗地讲，集合就是一堆确定的元素/物体。比如，
+   桌面上有两个不同颜色的苹果，如果将“桌面上的苹果”看作一个集合，那么这个集集合的元素就
+   两个不同颜色的平果。那么用数学符号表示为：::
 
-   纯数学家研究的是不同的抽象结构，但如果我们把不同的数学结构，如群（Group）、偏序（Partial）、
-   拓扑空间等，进行进一步的抽象，研究结构之上的结构，这就是范畴（Category theory）。
-   若再度抽象，就得到了函子（functor），再往上就是自然变换（natural transformation）。
-   范畴论还可以继续研究抽象的抽象，直至无穷。
+      ℂ = { 红苹果, 青苹果 }
 
-   函数的本质是映射关系，与集合 Sets 相关。集合间的元素，通过函数映射规则产生对应关系，如下图：
+   集合，简称集，是数学集合论分支中的一个基本抽象概念，也是集合论的主要研究对象，使用双线字母表示。
+   数学中使用 set（集合）与 collection（集族）表示单个集合与多个集合的结构，使用大写字母
+   C（Collection）表示集合或集族（其元素为集合），使用小写字母表示元素。计算机领域并不严格区分
+   集合和集族两者的差别。
+
+   集合论的基本理论创立于 19 世纪，朴素集合论（Intuitive/Navie Sets Theory）定义：
+   集合就是“确定的一堆东西”，“东西”即集合中的元素（Elements）。现代一般将集合定义为：
+   由一个或多个确定的元素所构成的整体。
+
+   集合有三个基本性质：
+
+      *  ``确定性``：任给一个元素，它必属于或者必不属于该集合，二者必居其一。
+      *  ``互异性``：一个集合中，不存在相同的元素。可以使用多重集，其中的元素允许出现多次。
+      *  ``无序性``：一个集合中，每个元素的地位对等且无序。
+
+   集合有三种基本表示形式：
+
+      *  ``列举法``：在花括号 { } 内一一列举集合的所有元素，比如 {1,2,3...}。
+      *  ``描述法``：在花括号 { } 内将集合元素的性质描述出来，比如 {x | x > 0}。
+      *  ``图示法``：使用文氏图（Venn diagram），用闭合曲线围成的图形表示一个集合，
+
+   集合中使用 | 符号表示“如此”“这样”，用于描述集合的元素。
+
+   以下是一些标准数学集合记号（Standard Notations）：
+
+      - ∅ 空集，没有任何元素的集合。
+      - 𝕌 通用集，Universal Set，所有可能值的集合。
+      - ℕ :sub:`0`  = { 0,1,2,3,4, ... }
+      - ℕ :sub:`1` = { 1,2,3,4,5, ... }
+      - ℤ  = {...- 3, -2, -1,0,1,2,3, ...}
+      - ℚ  = { x | x = un / b , un , b ∈ ℤ :sub:`y` b ≠ 0 }
+      - ℝ  = { x | -∞ < x < ∞ }
+      - ℂ  = { z | z = a + bi , -∞ < a <∞, -∞ < b < ∞ }
+
+   以下是一些基本的集合运算，注意 ⊂ ⊃ 符号存在误用，可能产生歧义，有人用 A ⊂ B 表示 
+   A 是 B 的真子集，有人则以之表示 A 是 B 的子集。为了避免歧义，使用严格符号表示不相等，
+   例如 ⫋ ⊊ 。 用 A ⊊ B 或者 A ⊆ B 分别表示 「A是B的真子集，A是B的子集」：
+
+      -  A ⋂ B    交集（intersection），由那些属于 A 又属于 B 的元素构成的集合。
+      -  A ⋃ B    并集（union），由 A 和 B 集合所有元素构成的集合。
+      -  A ⊆ B    子集（subset of），A 是 B 的子集。集合 B 包含集合 A。例如： {1,2} ⊆ {1,2}
+      -  A ⊂ B    严格子集、真子集（proper subset）。例如： {9,1} ⊂ {9,1,11}
+      -  A ⊄ B    非子集，A 不是 B 的子集。例如： {9,66} ⊄ {9,14,28}
+      -  A ⊇ B    超集（superset of），A 是 B 的超集。集合 A 包含集合 B。例如： {9,1,11} ⊇ {9,1,11}
+      -  A ⊃ B    严格超集（Strictly superset），例如： {9,14,28} ⊃ {9,14}
+      -  A ⊅ B    非超集。例如： {9,14,28} ⊅ {9,66}。
+
+      -  A △ B 或者 A ⊕ B  表示对称差（symmetric difference），(A-B) ⋃ (B-A)。
+      -  A − B 或者 A ～ B  表示差集（Difference），A 集合关于 B 的差集。
+      -  A :sup:`c` 补集（Complement），集合 A 关于某集合（全集）的补集。
+
+      -  a ∈ A     元素 a 属于 A 集合。
+      -  b ∉ A     元素 b 不属于 A 集合。
+
+      -  A ∆ B   对称差异，使用 ⊖ 符号表示那些属于 A 又属性 B，但不属于它们的交集的对象。
+
+         A = {3,9,14}
+         B = {1,2,3}
+         A ∆ B = {1,2,9,14}
+
+      -  A × B   笛卡尔积（Cartesian product），A 和 B 两集中所有元素有序对的集合。
+
+         A = {a, b}
+         B = {0, 1, 2}
+         A × B = {(a, 0), (a, 1), (a, 2), (b, 0), (b, 1), (b, 2)}
+
+   集合间的元素，通过函数（映射的一种具体形式）规则产生对应关系，如下图：
 
    ![单射、满射和双射](https://www.shuxuele.com/sets/images/function-mapping.svg)
 
    图中，将一对多的情况列为不是函数的例子，但在是复变函数，即以复数作为自变量和因变量的函数，
    就存在一对多的映射关系。对于 A、B 两个集合元素之间的映射存在各种情况：
 
-   - 一般函数映射特点：A 集合元素一对一映射 B 集合元素，B 集合有多余元素；
+   - 非函数映射 **Mapping**：A 集合元素一对多映射 B 集合元素；
+   - 一般函数 **Function**：A 集合元素一对一映射 B 集合元素，B 集合有剩余元素；
    - 单射 **Injective**：A 集合元素一对一映射 B 集合元素，且没有多对一的情况；
    - 满射 **Surjective**：B 集合元素在 A 集合中都有一个元素对应；
-   - 满射 **Bijective**：A 和 B 集合的元素一一对应，没有多余，没有重复；
+   - 双射 **Bijective**：A 和 B 集合的元素一一对应，既是单射又是满射；
 
-   比如，对于 A、B 集合分别为 {1, 2, 3} 和 {2, 4, 9}，映射规则为"平方"，即 f(x) = x²，，
+   比如，对于 A、B 集合分别为 {1, 2, 3} 和 {2, 4, 9}，映射规则为"平方"，即 𝑓(x) = x²，，
    那么这就是一个满射，即一一对应映射关系的函数：
 
    - A 集合作为输入称为定义域 **Domain**；
    - B 集合作为函数的实际输出称为值域 **Range**；
    - 而函数可能的输出称为培域 **Codomain**；
 
-   态射（morphism）是范畴中的一个基本概念，它是集合上的映射的推广。 在当代数学中，使用函子
-   来描述各种范畴间的关系。函子可以解释为 小范畴 内的 态射。
+   数学史出现过三次危机（Mathematical crisis）：
 
-   态射经常用从 域 到 陪域 的箭头来表示，例如 f: X -> Y 表示态射 f 的域为 X，陪域为 Y。
+   *  万物皆数危机，解决方法是修正原来基于有理数的基础上的理论错误，并承认无理数的存在；
+   *  微积分中无穷小危机，解决方法是极限论（theory of limitation）；
+   *  集合论（现代数学基础语言）危机，通过限制自包含（self-reference）集合的定义回避；
+
+   公元前 500 年左右，古希腊毕达哥拉斯学派作为一个唯心主义学派，认为“万物皆数”，数学知识是
+   可靠的、准确的，而且可以应用于现实的世界，数学知识由于纯粹的思维而获得，不需要观察、直觉和
+   日常经验。此数指整数 Integer。古希腊加了“古”字前缀是为了区别现在的希腊国。
+
+   据现存《几何原本》最古老的完整抄本，时间大概是公元 9 世纪左右，记录了毕达哥拉斯通过演绎法证明了
+   直角三角形斜边平方等于两直角边平方之和，即毕达哥拉斯定理（Pythagorean theorem）。如下图，
+   他设计了四个相同的三角形，以及两个按直角边长制作的正方形，将它们拼凑成两个相等的大正方形，
+   将三角形移走，剩下的部分也同样相等（红色部分）：
+
+   .. image:: ./pictures/Pythagorean_theorem.svg
+
+   然而，这个定理的公布将引导他的学生希伯斯提出一个致命的疑问！
+
+   有理数（rational number）有一种简单的几何解释：使用水平数轴上标出一段线段作为单位长，
+   如果令它的定端点和右端点分别表示数 0 和 1，则可用这条直线上的间隔为单位长的点的集合来表示整数，
+   正整数在 0 的右边，负整数在 0 的左边。以 q 为分母的分数，可以用每一单位间隔分为 q 等分的点表示。
+   于是，每一个有理数都对应着直线上的一个点。
+
+   公元前 400 年，希伯斯（Hippasus）依靠反证法发现无理数：直线上存在不对应任何有理数的点，
+   引发数学史上第一次数学危机。对于全部依靠整数的毕氏哲学，形成一次致命的打击。无理数的发现，
+   是毕氏学派的最伟大成就之一，也是数学史上的重要里程碑。他们证明了数轴上存在点 p 不对应于有理数，
+   这里距离 op 等于边长为单位长的正方形的对角线的距离，即 √2 这个数。于是就必须发明新的数对应
+   这样的点，并且因为这些数不可能是有理数，只好称它们为无理数（irrational number）。
+
+   为了维护学派的威信，他们严密封锁了希帕索斯的发现，并对所有泄露出去的信徒处以极刑——活埋。
+   希帕索斯听到风声后，立即逃跑到了国外。在国外流浪了几年后，由于思念家乡，他偷偷地返回了希腊。
+   终于在地中海的船上被毕达哥拉斯的忠实门徒发现，并投海淹死。所以，功利的故人都懂得，解决不了
+   问题就把提出问题的人解决掉！
+
+
+   十七世纪时，由于物理学中求解运动的问题越来越多，对微积分的需求变得越来越迫切。在这时，英国
+   著名数学家、物理学家牛顿和德国哲学家、数学家莱布尼茨各自独立发明了微积分。牛顿在《求积术》一文
+   中使用论证得出了 y = xⁿ 的导数是 nx⁽ⁿ⁻¹⁾。这个方法和结果在实际应用中非常成功，大大推进了
+   科学技术的发展。虽然这个结果是正确的，但是牛顿的论证过程实际上存在很大的问题，在处理增量中的
+   “无穷小”这个量上，牛顿将其直接略去了事。
+
+   如果函数 y = 𝑓(x) 在开区间内每一点都可导，就称函数 𝑓(x) 在区间内可导。这时函数 y = 𝑓(x)
+   对于区间内的每一个确定的 x 值，都对应着一个确定的导数值，这就构成一个新的函数，称这个函数
+   为原来函数 y = 𝑓(x) 的导函数，记作 y' 或者 𝑓'(x) 或者 dy/dx 或 df(x)/dx，简称导数。
+
+   导函数（derivative function）是用于在微积分中，描述一个函数曲线的斜率变化率的函数。
+   它表示了原函数在每个点的切线斜率。
+
+   函数可导性与导数、连续性之间的逻辑关系如下：
+
+      函数的导数连续 => 函数可导=>  函数连续
+
+   之所以取单向箭头，是因为，箭头后面的每一个条件都仅仅是前一个的必要条件，而不是充分条件。
+
+   Weierstrass 曾构造出闭区间上处处连续但处处不可导的函数。利用贝尔纲定理，可以得到闭区间上
+   处处连续但处处不可导的函数不仅存在，而且非常之多，当然这样的函数构造也很困难。
+
+   牛顿在证明过程中略去的无穷小量并不总是零，这就引起一个矛盾。如果它不是零，那么牛顿将其直接
+   略去的方法就不够严谨；如果它是零，那它就不能被放在分母中。牛顿对它曾作过三种不同解释：
+
+      *  1669 年说它是一种常量；
+      *  1671 年又说它是一个趋于零的变量；
+      *  1676 年它被“两个正在消逝的量的最终比”所代替。
+
+   但是，他始终无法解决上述矛盾。莱布尼茨曾试图用和无穷小量成比例的有限量的差分来代替无穷小量，
+   但是他也没有找到从有限量过渡到无穷小量的桥梁。于是在极限的问题尚未被完全认清之前，微积分的
+   基础问题一直受到一些人的批判和攻击，其中最有名的是贝克莱主教在 1734 年的攻击。贝克莱主教是
+   英国著名的哲学家，1734年，他在《分析家或致一位不信神的数学家》中明确指出牛顿论证的逻辑问题，
+   为无穷小量的莫名消失而质疑。
+
+   事实上无穷小量不是一个数，它是一个无限趋向零的过程，因此需要引入极限论来解决无穷小问题。
+
+
+   最近一次危机与集合论有关。十九世纪末，德国数学家康托尔(1845~1918)创立了集合论。 
+   罗素悖论（Russell's paradox），也称为理发师悖论，是英国哲学家罗素于 1901 年提出的悖论，
+   一个关于类的内涵问题。罗素悖论当时提出自含集合质疑了集合论的缺陷，造成第三次数学危机，至今无解，
+   只能通过修改集合定义来避免出现罗素悖论。
+
+      在某个城市中有一位理发师，他的广告词是这样写的：“本人的理发技艺十分高超，誉满全城。
+      我将为本城所有不给自己刮胡子的人刮胡子，我也只给这些人刮胡子。我对各位表示热诚欢迎！”
+      来找他刮胡子的人络绎不绝，自然都是那些不给自己刮胡子的人。可是，有一天，这位理发师从
+      镜子里看见自己长了胡子，他本能地抓起了剃刀，你们看他能不能给他自己刮胡子呢？如果他不
+      自己刮胡子，他就属于“不自己刮胡子的人”，他就要给自己刮胡子，而如果他给自己刮胡子呢？
+      他又属于“自己刮胡子的人”，他就不该给自己刮胡子。于是产生矛盾。
+
+
+   1950 年代是数学发展史上的一个重要转折点，得益于计算机的发展，数学家们的研究在强大的计算工具的支持下，
+   纷纷开辟出新的研究领域。计算数学、计算几何、数值分析等学科迅速兴起，为数学的发展注入了新的活力。
+
+   1960 年，拓扑学和几何学成为数学研究的热点领域。由于抽象代数的发展，拓扑学和几何学得到了更深入的理解
+   和应用。此外，拓扑学的发展还推动了拓扑动力系统和混沌理论的研究。
+
+   1970 年，数学发展的又一个重要时期，数学应用领域得到了广泛的拓展。运筹学、优化理论、控制论等应用数学
+   学科迅速发展，为工程、管理、经济等领域提供了强有力的工具。与此同时，数学基础的研究也在不断深化，
+   纯数学学科的研究成果为应用数学提供了坚实的基础。
+
+   1980 年代至今，数学的发展呈现出多样化的趋势。在这个时期，数学的分支学科日益细化，研究的方向也更加
+   专业化。数学的交叉学科研究成为一个新的研究热点，不同学科之间的交流和合作推动了数学的快速发展。数学
+   应用领域也进一步扩展，数据科学、人工智能等新兴领域涌现出一大批数学家。
+
+
+   代数、分析、几何是现代数学的三大基础分支，它们都基于集合论这一基础的数学语言。M. Hale 绘制
+   的数学分支树形能更简明地呈现丰茂的数学分支，以及逻辑与集合语言在数学领域中的基础作用：
+
+   .. figure:: https://users.quipo.it/base5/scuola/mate_metafor_albero1.png
+      :target: https://users.quipo.it/base5/scuola/mate_metafor.htm
+
+      The Tree of Mathematics, ©2002 M Hale
+
+      `La matematica come albero 2 <https://www2.stetson.edu/~mhale/logic/tree.htm>`__
+
+      Credit: Margie Hale Professor of Mathematics, Emeritus, Department of Mathematics and Computer Science, Stetson University
+
+   算术（arithmetic）无疑是数学中最古老、最初等的数学。算术研究数的性质及其运算，最大的特点是
+   关注数字。算术是把数和数的性质、数和数之间的四则运算在应用过程中的经验累积起来，并加以整理，
+   形成的最古老的一门数学。算术运算不仅仅指加减乘除，还可以分数、平方根、取幂和对数；对象包括
+   自然数、整数、有理数和实数、复数。
+
+   初等代数（elementary algebra）是古老算术的推广与发展。在古代，算术积累了大量数量问题的解法，
+   为寻求更系统、更普遍的各种数量关系的求解方法，产生了以解方程（equations）为中心的初等代数。
+   根据实际问题的数量关系（代数式：整式、分式、根式）、等量关系或者不等式，列出列出方程或者方程组。
+   方程（组）包括：
+
+      1. 一元一次方程（linear equations with one variable）
+      2. 二元一次方程（linear equations with two variable）
+      3. 一元二次方程（quadratic equations）
+      4. 指数、对数方程（exponential and logarithmic equations）
+      5. 无理方程（radical equations）
+      6. 线性方程组（system of linear equations）
+
+   高等代数相对于初等代数而言，本质上是一个东西，只是更加系统，扩展了深度与广度。
+
+   初等代数再进一步泛化推广（generalization）就形成了抽象代数，它与初等代数的界限在于：
+   初等代数只考虑实数和复数代数结构。
+
+   抽象代数（abstract algebra）、近世代数、现代代数（modern algebra）是同一个意思，甚至简称
+   为代数学。主要研究对象是代数结构：群（Group）、环（Ring）、域（Field）、向量空间（Vector space）。
+
+   群（Group）即满足群公理（group axioms）四个基本性质的代数结构与运算的构成的群组。
+   假如，非空集合记作 G，运算记作 ·，并且满足群公理的四个性质：
+
+      *  封闭性（closure）：对于 G 群中所有的 a, b，运算 a•b 的结果也在 G 群中；
+      *  结合律（Associativity）：对于 G 群中所有的 a, b 和 c，等式 (a•b)•c = a•(b•c) 成立；
+      *  单位元（幺元，Identity element）：存在 G 中的一个元素 e，使得 G 群所有的元素 a，总有等式 e•a = a•e = a 成立；
+      *  逆元（inverse element）：对于每个 G 中的 a，存在 G 中的一个元素 b 使得总有 a•b = b•a = e，此处 e 为单位元；
+
+   以上定义中的“元”是元素（element）的简称。“幺”意为数字一，即单位元（Identity element）。
+   单位元在数学中的作用特点就是：单元和其他元素结合时，并不会改变那些元素。，同样的数学结构，
+   不同的运算有不同的单位元。而逆元（inverse element）与单位元密切相关，对任意一个元素 a 与
+   它的逆元 ieₐ 组合结果就是其单位元 idₐ。有许多常见的单位元，比如：
+
+      *  实数加法的 0，实数乘法的 1，这两个数字会在群代数中抽象为单位元；
+      *  ∧（逻辑与）中的 ⊤（真值），∨（逻辑或）中的 ⊥（假值）；
+      *  矩阵乘法中的单位矩阵、矩阵加法中的零矩阵。
+
+   数学定义：若集合 G，在 G 上的二元运算（使用 • 或 * 符号表示二元运算）构成的代数结构，
+   •:G • G -> G 记作 {G,•}，满足以上四点，在无歧义时，可将 a•b 写成 ab。从定义上可以理解，
+
+   举个例子，整数（集合）和加法（运算）构成的一个群：
+
+      *  封闭性：对于任何两个整数 a 和 b，它们的和 a + b 也是整数
+      *  结合律：对于任何整数 a, b 和 c，(a + b) + c = a +（b + c）
+      *  幺元：如果 a 是任何整数，那么 0 + a = a + 0 = a
+      *  逆元：对于任何整数 a，存在另一个整数 b 使得 a + b = b + a = 0，整数 b 叫做整数 a 的逆元，记为 a⁻¹
+
+   以上 G 就称为一个加法群。类似地，可以定义乘法群。其它群概念：
+
+   *  原群（magma），对乘法封闭的集合。
+
+   *  阿贝尔群（Abelian groups），又称交换群/加群，即满足交换律的群；
+
+      *  半群（Semigroups）：仅满足群定义中封闭性与结合律；
+      *  幺半群（Monoid）：仅满足群定义中封闭性、结合律、单位元。
+
+   *  循环群（Cyclic groups）：
+
+      *  循环群是其所有元素都是特定元素 a 的幂的群。a 称为生成元或本原元。
+
+   幺半群（Monoid）是一个相当简单但是功能强大的概念。它是基本算数幕后的概念：只要有加法或乘法运算
+   就可以形成幺半群。在编程中，幺半群无处不在。它们表现为字符串、列表、可折叠数据结构，并发编程未来的
+   一些东西，函数式响应编程中的事件等等。
+
+   线性代数（linear algebra）是抽象代数特殊形式，其代数结构为：向量空间（vector spaces）
+   以及线性变换（linear mappings），向量空间也称为线性空间（liner spaces）。
+
+   在数学和抽象代数中，群论研究名为群（Group）的代数结构。群在抽象代数中具有基本的重要地位：
+   许多代数结构，包括环、域和模等可以看作是在群的基础上添加新的运算和公理而形成的。群的概念在数学的
+   许多分支都有出现，而且群论的研究方法也对抽象代数的其它分支有重要影响。群论的重要性还体现在物理学
+   和化学的研究中，因为许多不同的物理结构，如晶体结构和氢原子结构可以用群论方法来进行建模。
+
+   现代数学经常涉及一个术语:代数结构（algebraic structure），它是数学研究的对象。不同的数学分支
+   使用不同的数学结构统称，也称关系结构，简称结构。代数结构可以从不同角度描述，百度百科描述为：
+   代数是研究数、数量、关系与结构的数学分支。MIT 计算机视觉专业林达华在《在数学的海洋中飘荡》 一文描述：
+
+      代数——名称上研究的似乎是数，在我看来，主要研究的是运算规则。一门代数，其实都是从某种
+      具体的运算体系中抽象出一些基本规则，建立一个公理体系，然后在这基础上进行研究。一个集合
+      再加上一套运算规则，就构成一个代数结构。在主要的代数结构中，最简单的是群(Group)——它只有一种符合结合率的可逆运算，通常叫“乘法”。如果，这种运算也符合交换率，那么就叫
+      阿贝尔群(Abelian Group)。如果有两种运算，一种叫加法，满足交换率和结合率，一种叫乘法，
+      满足结合率，它们之间满足分配率，这种丰富一点的结构叫做环(Ring)，如果环上的乘法满足交换率，
+      就叫可交换环(Commutative Ring)。如果，一个环的加法和乘法具有了所有的良好性质，那么就
+      成为一个域(Field)。基于域，我们可以建立一种新的结构，能进行加法和数乘，就构成了线性代数
+      (Linear algebra)。
+
+      代数的好处在于，它只关心运算规则的演绎，而不管参与运算的对象。只要定义恰当，完全可以让一只
+      猫乘一只狗得到一头猪:-)。基于抽象运算规则得到的所有定理完全可以运用于上面说的猫狗乘法。
+      当然，在实际运用中，我们还是希望用它干点有意义的事情。学过抽象代数的都知道，基于几条最
+      简单的规则，比如结合律，就能导出非常多的重要结论——这些结论可以应用到一切满足这些简单规则
+      的地方——这是代数的威力所在，我们不再需要为每一个具体领域重新建立这么多的定理。
+
+   拓扑学是研究拓扑空间（Topological space）的数学分支，即研究几何图形变化的学问。它有一个
+   更形象的名称是“橡皮几何学”，假设将三角形的橡皮捏成正方形，什么变化了？什么没变呢？欧氏几何中
+   有一条定理（Euler's Formula）：一个多面体（polyhedron）顶点与边数、面数的差恒为 2
+   （vertices - edges + faces = 2），公式表示：
+
+      𝒗 - 𝑒 + 𝑓 = 2
+
+   1872 年 Klein 于爱尔兰根纲领（Erlanger Programme）中所述：几何是研究在某种运动群下不变的性质。
+
+   广义拓扑学是探求同类事物的共性所在的学问，即一种宏观的归纳推理（inductive reasoning）。
+   拓扑学将数学分析从一维的实数轴推广到一般空间，这也是现代分析的抽象基础。
+
+   拓扑学把极限的概念推广到一般的拓扑空间，并引入微分结构，在流形上的分析之上发展出微分几何。
+   在微积分里面，极限之后我们有微分、求导、积分。这些东西也可以推广到拓扑空间，在拓扑学的基础上
+   建立起微分几何。从教学上说，微分几何的教材，有两种不同的类型，一种是建立在古典微机分的基础上
+   的“古典微分几何”，主要是关于二维和三维空间中的一些几何量的计算，比如曲率。还有一种是建立在
+   现代拓扑学的基础上，这里姑且称为“现代微分几何”（核心概念是“流形”），在拓扑空间的基础上加了
+   一套可以进行微分运算的结构。除了推广微积分的概念以外，还引入了很多新概念：tangent space, 
+   cotangent space, push forward, pull back, fibre bundle, flow, immersion, 
+   submersion 等等。
+
+   近些年，流形在 machine learning 似乎相当时髦。但是，坦率地说，要弄懂一些基本的流形算法，
+   甚至“创造”一些流形算法，并不需要多少微分几何的基础。对我的研究来说，微分几何最重要的应用就是
+   建立在它之上的另外一个分支：李群、李代数——这是数学中两大家族分析和代数的一个漂亮的联姻。分析和
+   代数的另外一处重要的结合则是泛函分析，以及在其基础上的调和分析。
+
+
+   现代数学的基础是集合论，研究对象就不再是数和形这两大传统、经典的研究领域，而是空间（spaces）
+   和流形（manifold）。“流形”，是对“多重、多样、繁复”这个意义的变相直译。它们都能用集合和映射的
+   概念统一起来，已很难区分哪些属于数的范畴，哪些属于形的范畴。
+
+   现代数学建立在集合论这个共同的基础上，集合论中有一些基本的概念，如前面介绍过的集合，还有
+   关系、函数、等价等，作为数学各个分支的共同语言。同时又因不同分支的需要引入了许多数学结构
+   （Mathematical Structures/Objects），常见的结构有：序（Order）、代数结构、
+   拓扑（Topology）、模（module）、格（Lattice）、测度（Measure）、度量（Metric）/几何、
+   等价关系、范畴（Category）、微分结构等。
+
+   上世纪中期盛极一时的法国布尔巴基学派（结构主义）曾提出数学的三种基本结构：
+
+      1. 代数结构：由集合及其上的运算组成，如群、环、域、模、线性空间等。
+      2. 序结构：由集合及其上的序关系组成，如偏序集、全序集、良序集。
+      3. 拓扑结构：由集合及其上的拓扑组成，如拓扑空间、度量空间、流形、紧致集等。
+
+   The Bourbaki school 将 mathematical structures 分为三类：Order structures，
+   Algebraic structures，Topological structures，他们都基于 set theory，更高阶的
+   数学结构基本上可以归为这三种基本类型的组合。
+
+   使用同一套语言（集合论）的现代代数学的强大所在：只要证明了一个关于某个代数结构的一般的事实，
+   就再也没有必要在每一次与这个结构的特例相遇时候，再去分别指明一次这个事实。这个抽象的途径使得
+   我们能在看来完全不相同的背景下，看出很重要的相似之处。
+
+   集合论中最基本的概念：集合（set），关系（relation），函数（function），等价（equivalence）
+   在其他数学分支的语言中几乎必然存在的。
+
+   从初等代数语言切换到基于集合的抽象代数语言，基本概念被进一步泛化（Generization of relation）
+   为等价关系，这个泛化过程发生在整个数学历史进程中。不同的记号（notation）意味着不同的思维方式、
+   抽象层次，可以表示为以下这个数值大小比较的具体例子来说明：从具体含义的数字抽象为使用代数符号
+   表示具体的数字，再从具体的 > 大于比较符号抽象为一个可以表示任意二元运算关系的符号（⫐）：
+   ::
+
+       2 > 1  ==>  a > b  ==>  a ⫐ b 
+      ───┬───     ───┬───     ───┬─── 
+         │           │           │    
+         │           │           └─Stage 3: 运算符号抽象表达（binary operation）
+         │           └─Stage 2: 代数（Algebraic）
+         └─Stage 1: 算术（arithmetic）
+
+   等价关系满足：（1）自反性（reflexivity），（2）对称性（symmetry）（3）传递性（transitivity）。
+
+   相关代数结构及其泛化对象的对照如下：
+
+      *  初等代数中的数延伸为集合，即从主要研究对象由数这种初始的数学结构转变为集合结构。
+      *  加减乘除运算抽象为二元运算 * (binary operation)，与集合一起构成群（Group）代数结构。
+      *  群代数中将数字 0 和 1 抽象为单位元（identity elements），分别为加法、剩法单位元。
+      *  负数抽象为逆元素（inverse element），加法、乘法中，a 的逆元素分别是 -a 和其倒数 a⁻¹。
+      *  开集、闭集(Open/Closed Set) 对应代数中的开区间、闭区间（open/closed interval）。
+      *  最小的范畴（拥有 0 个对象的范畴）对应空集合 ∅。最小范畴没有对象，自然也就没有态射。
+
+      ===========================   ========================================
+      Set theory                    Category theory
+      ===========================   ========================================
+      membership relation           -
+      sets                          categories
+      elements                      objects
+      -                             morphisms
+      functions                     functors
+      equations between elements    isomorphisms between objects
+      equations between sets        equivalences between categories
+      equations between functions   natural transformations between functors
+      ===========================   ========================================
+
+   数据表来自 `nLab - category theory <https://ncatlab.org/nlab/show/category+theory>`__
+
+   在抽象代数中，同构（isomorphism）指的是一个保持结构的双射（既是单射又是满射）。在更一般的
+   范畴论语言中，同构是指：一个态射，且存在另一个态射，使得两者的复合是一个恒等态射。也就是存在
+   对应的逆元（inverse element），这体现了等价关系的对称性（symmetry），使用 ≈ 符号表示。
+
+   纯数学家研究的是不同的抽象结构，但如果把不同的数学结构，如群（Group）、偏序（Partial）、
+   拓扑空间等，进行进一步的抽象，研究结构之上的结构，这就是范畴（Category theory）。
+   若再度抽象，就得到了函子（functor），再往上就是自然变换（natural transformation）。
+   范畴论还可以继续研究抽象的抽象，直至无穷。
+
+   The Joy of Abstraction - An Exploration of Math, Category Theory, and Life
+   by Eugenia Cheng
+
+   《抽象乐趣》一书是非常好的一本范畴论入门书，它从具象出发，演绎出范畴论所涉及的各个抽象概念。
+   以下是此此书整理的一张等价关系表（Equivalence relations）：
+   ::
+
+      9.2 Equivalence relations 
+
+      Finally here’s a table summing up how we regard equivalence relations as
+      categories. These are deep ideas and might be difficult at first. Note the 
+      “mis-match” between what counts as data, structure and properties on each side.
+
+                  equivalence
+                    relation                     category
+      =========== =============  ============  =============  ==========
+         DATA        objects       ------->       objects
+      STRUCTURE     relations      ------->       arrows         DATA
+      =========== =============  ============  =============  ==========
+                   reflexivity     ------->     identities
+      PROPERTIES    symmetry       ------->      inverses      STRUCTURE
+                  transitivity     ------->     composition
+      =========== =============  ============  =============  ==========
+                                               unit laws
+                                               associativity  PROPERTIES
+
+   范畴论是高度抽象的理论，脱胎自群论（Group theory）、拓扑学（Topology）等数学分支的研究需要。
+   范畴论（category theory）又被称为为数学中的数学，抽象中的抽象、抽象废话（abstract nonsense）。
+
+   须知道范畴论引入了小范畴（small category）和大范畴（large category）两个概念，原因是不能
+   构造所有集合的集合，因为罗素悖论问题，集合论需要约束自含集合的定义。小范畴：对象是一个集合的范畴。
+   如果一个小范畴的对象的同构是一个集合，则称基本小（essentially small）范畴，显然小范畴总是基本小的。
+
+   以下使用自然语言定义范畴论中的基本概念：
+
+   **范畴（category）是一种包含对象及对象之间使用箭头关联的代数结构。**
+
+   **态射（morphism）是在数学中是指两个数学结构之间保持结构的一种映射。**
+
+   **函子（functor）是范畴到范畴、态射到态射、对象到对象的映射，包括单位态射与复合态射。**
+
+   应该把函子看作态射的映射——这个观点在 Haskell 的 ``fmap`` （Functor）类型的定义中得到强调。
+   当然，函子也映射对象（态射的两个端点），否则就没法谈论保持复合。范畴中的对象说明了哪些态射对
+   可以复合（composition）。其中一个态射的终点必须等于另一个态射的起点——如果它们能复合。所以如果
+   要把态射的复合映射为提升后的态射的复合，就很大程度上被决定了端点（对象）的映射。
+
+   态射（morphism）是范畴中的一个基本概念，它是集合上的映射的推广。范畴论中使用函子来描述
+   各种范畴间的关系，即函子（functor）是范畴间的态射：函子是描述了从某范畴 C 的对象映射到
+   某范畴 D 中的对象，把范畴 C 中的态射映到范畴 D 中的态射。
+
+   范畴论最大的特点就是将范畴中的对象的细节忽略掉，将对象看成一个点，通过态射来描述一个
+   对象是什么。而态射又是可组合的，可组合性是范畴论中一个非常重要的性质，经常在构造数据
+   类型和解决问题时用到。数学上使用 ∘ （composition）符号表示组合，Haskell 语言中使用
+   句点（.）表示。
+
+   数学上使用从 域 到 陪域 的箭头来表示态射，例如 f: X -> Y 表示态射 f 的域为 X，陪域为 Y。
    所有从 X 到 Y 的态射集合记为 homC(X,Y) 或者 hom(X,Y)。也有写作 MorC(X,Y) 或 Mor (X,Y)。
+   Haskell 中的类型系统中有 Arrows 类型来描述态射的箭头符号。注意，态射表达式中的箭头符号
+   代表的是关于两对象间存在的某种关系，这是态射表达式的重点。态射可以看作是函数的提升，态射是比函数
+   更泛化的映射。
+
+   范畴的正式定义如下，包含 2 类对象、2 种运算和 2 条运算规则，原文引用自斯坦福哲学百科文档：：
+   ::
+
+
+1.域运算：给每个态射指定范畴中一个对象。
+2.陪域运算：给每个态射指定范畴中一个对象。
+态射经常用从其域到其陪域的箭头来表示，例如若一个态射f域为X而陪域为Y，它记为f:X→Y。所有从X到Y的态射集合记为homC(X,Y)或者hom(X,Y)。（有些作者采用MorC(X,Y)或Mor(X,Y)）。
+3.复合运算：对于<f:X→Y,g:Y→Z>，指定（或gf和fg）。态射的复合经常采用交换图表来表示。
+4.单位运算：对于每个对象X，指定一个态射idX:X→X，称为X上的单位态射。
+
+      态射必须满足两条运算规则：
+
+         *  单位律（unit law）：对于每个对象 X，存在一个恒等态射 
+            idₓ : X → X 使得对于每个态射 f : M → N 有 idₘ ∘ f = f = f ∘ idₙ
+         *  结合律（associativity）：h ∘ (g ∘ f) = (h ∘ g) ∘ f 存在于任何操作有定义的时候。
+
+      单位律也有称为幺元律、幺律。恒等态射也称为单位态射（identity morphisms），是数学中众多
+      单位元的一个。单位元的特点就是：任何对象与之运算保持这个对象不变。
+
+   态射常用状态转换图表示，以下展示了范畴论的态射转换图的抽象表达与具象表达。左侧对应的是具象化
+   态射转换图。蓝色箭头、符号表示态射本身（即范畴对象间的映射关系），红色大写字母表示范畴（对象集合），
+   范畴 𝔸 可以具象化为一个班级的学生，范畴 𝔹 是年龄，范畴 ℂ 是布尔值。𝔸 通过 Age 态射映射为 𝔹，
+   再通过 ≥ 18　映射为 ℂ。通过组合（composition）态射，≥ 18 ∘ Age，𝔸 直接映射为 ℂ。这里没有
+   标明单位元，只需要知道存在这样的 id，它与其它对象运算，即经过单位态射映射又回到这个对象的自身。
+   在计算机编程语言领域，它就如同 self 关键字一样。面向对象编程中的多态（polymorphisms）可以
+   看作是态射概念的延伸。
+
+   甚至具象化为更简单的形式，𝔸 为数字 1，𝔹 为数字 2，ℂ 为数字 4，而它们之间的态射匀为 ``2 的乘方``。
+   这就将高度抽象的范畴转换回到初等代数，当然这并非是设计范畴这种高度抽象的数学结构的本意。
+
+   .. figure:: ./pictures/category_concretization.svg
+
+      `An Introduction to Category Theory, Abstraction and Algebra <https://www.bilibili.com/video/BV1LP411W7Ab>`__
+
+
+                           ┌─────────┐
+                           │Allliccce│
+                           └────┬────┘
+                                │──────┐
+                                │      │
+                                │<<<───┘
+                                │
+                           ┌────┴────┐
+                           │Allliccce│
+                           └─────────┘
+
+
+
+   
+
+   单位态射（identity morphisms）或者
+
+   函子可以解释为 小范畴（small category) 内的 态射。
+
+   集合范畴可以找到对位的描述，objects 对应 sets，morphisms 对应 functions，这可以
+   降低范畴的抽象程度，帮助理解范畴这一抽象概念。
+
+   *  同态 homomorphism
+      意义：提供了一种简化研究对象结构但是保留了原图邻接关系的一种方法.
+
+      定义：给定图 G,H
+      ，若存在映射 f:V(G)→V(H)
+       使得 uv∈E(G)
+       可以推出 f(u)f(v)∈E(H)
+      ，则称 G
+       同态于 H
+      ，记为 G→H
+      ，也称 G
+       是 H
+      -可着色的（图 H
+       的任意一种正常着色可以给出图 G
+       的一种正常着色）.
+
+      上面 f
+       只是映射，可能不是单射（好几个萝卜放到一个坑里了），也可以不是满射（有的坑里没有萝卜）.
+
+   *  同构 isomorphism
+      若 f
+       是双射，则称 G
+       同构于 H
+      . 此时两个图有相等数目的顶点和边.
+
+      图 G
+       的中心 core 是 G
+       的一个极小子图 H
+       且满足 G→H
+      . 在同构意义下，任意图 G
+       只有一个 core.
+
+   *  同胚 homeomorphism
+      定义：给定图 G,H
+      ，若 G
+       的某个细分图同构于 H
+       的某个细分图（subdivision，边上添加2度点），则称 G
+       和 H
+       同胚.
 
    单子（Monad）是范畴论中的一个基本概念，单子又称为三子（triple），单子是自函子范畴上的一个"幺半群"，
    范畴 C 到自身的函子称为该范畴的自函子 (endofunctor)。恒等函子（identity functor）
@@ -372,6 +1212,7 @@ The differences between GHC and the report can be found
 
       On Some Aspects of The Theory of Monads - Carsen Berger
       https://math.uchicago.edu/~may/VIGRE/VIGRE2011/REUPapers/Berger.pdf
+
 
 
    函数式编程中常见的构造是「函子」（functor），Haskell 里的 ``Maybe`` 是个很好的例子，
@@ -424,7 +1265,8 @@ The differences between GHC and the report can be found
 
    转换为 currying 形式后的 add_curried(n) 只接收一个参数，它内部使用了 JavaScript 箭头
    函数来简化表达式，这个函数内部判断在没传入参数的情况下才输出 sum 值，功能上和原函数有些出入。
-   这种输入一个值，对输出一个值的形式就是 functor 的典型行为。
+   并且，也不太符合 Haskell 的惰性求值（Lazy Evaluation）。但是，这种输入一个值，输出一个
+   对应值的形式就是 functor 的典型行为。
 
    当一个接收一个参数 a 并返回一个 b，这个函数签名就用 a -> b 表示。函子
 
@@ -1209,13 +2051,14 @@ The differences between GHC and the report can be found
       .. rubric:: ` <#Function-Composition>`__ Function Composition
          :name: Function-Composition
 
-         使用 ``.`` 函数可以复合多个函数，只需要在要复合的函数之间使用它，它的类型是：
+         数学语言使用 ∘ 符号表示复合函数，即将多个函数复合得到一个函数，比如 (f∘g)(x) 表示 f(g(x))。
+         Haskell 中使用 ``.`` 函数复合多个函数，只需要在要复合的函数之间使用它，它的类型是：
 
          (.) :: (b -> c) -> (a -> b) -> a -> c
 
          定义是：
 
-         f . g = \\x -> f (g x)
+            f . g = \\x -> f (g x)
 
          但是函数复合的优先级要比函数执行低，比如：
 
@@ -3141,7 +3984,7 @@ The differences between GHC and the report can be found
       | $$
 
       其中$x_i$的类型是$f\\
-      t_i$，⨍ 是应用函子（看作上下文）。而函数$g$的类型是：
+      t_i$，𝑓 是应用函子（看作上下文）。而函数$g$的类型是：
 
       | $$
       | t_1\\to t_2\\to\\cdots\\to t_n\\to t
@@ -4408,7 +5251,7 @@ The differences between GHC and the report can be found
       .. rubric:: ` <#Category>`__ Category
          :name: Category
 
-      Haskell中的Category将一般的函数推广到了普遍的态射上，它在 ``Control.Category`` 模块中，定义是：
+      Haskell 中的 Category 将一般的函数推广到了普遍的态射上，它在 ``Control.Category`` 模块中，定义是：
 
       .. container:: float highlight haskell
       ::
@@ -4682,7 +5525,7 @@ The differences between GHC and the report can be found
       -  一个类 ob(C)：其中元素称为 **对象（objects）**
       -  一个类 hom(C)：其中元素称为 **态射（morphisms）** （或 **箭号（arrows）** ）：
          每个态射连接了两个对象：源对象（source object）、目标对象（target object）。
-         如果 ⨍ 是从源对象 A 到目标对象 B (A, B ∈ ob(C) 的态射，那么记为 ⨍: A -> B
+         如果 𝑓 是从源对象 A 到目标对象 B (A, B ∈ ob(C) 的态射，那么记为 𝑓: A -> B
       -  一个二元运算，称为态射 **复合（composition）** ：
          两个态射 g: A -> B、f: B -> C 的复合记为 f∘g : A -> C
          Haskell 和大部分数学理论中都是从右向左计算，即 f∘g 中是先计算 g: A -> B 再计算 f: B -> C
@@ -4705,13 +5548,13 @@ The differences between GHC and the report can be found
       每个范畴都需要满足三条定律：
 
       #. 态射复合需要满足 **结合律（associativity）** ：
+      
          $$f\\circ (g\\circ h) = (f\\circ g)\\circ h$$
+
       #. 范畴在复合操作下是 **闭合的（closed）** ：
-         *  如果范畴 C 中存在态射$f : B\\to C$、$g
-            : A\\to B$，那么范畴 C 中也一定存在态射$h
+         *  如果范畴 C 中存在态射$f : B\\to C$、$g : A\\to B$，那么范畴 C 中也一定存在态射$h
          : A\\to C$，且$h=f\\circ g$
-      #. 每个对象都需要有 **单位态射（identity
-         morphisms）** ：
+      #. 每个对象都需要有 **单位态射（identity morphisms）** ：
          *  对于范畴 C 中的对象$A$，一定存在单位态射$\\mathrm{id}_A
             : A\\to A$，且对于每个态射$g : A\\to B$，一定有：
          $$g\\circ\\mathrm{id}_A = \\mathrm{id}_B\\circ g =

@@ -511,6 +511,7 @@ SDK Manager 命令行工具参考：
 # 🚩 AVDs - Android Virtual Devices
 - AVDs - Android Virtual Devices https://developer.android.google.cn/studio/command-line/avdmanager
 
+
 AVDs - Android Virtual Devices 是官方提供的模拟器，有了它，即使手头上没有 Android 设备，也一可以开发应用。借助 AVD，您可以定义要在 Android 模拟器中模拟的 Android 手机、Wear OS 手表或 Android TV 设备的特性。
 
 只需要下载好官方提供的 Android 系统镜像，并设置好虚拟设备即可以运行真实的 Android 系统。
@@ -531,6 +532,9 @@ avdmanager 工具在 Android SDK 工具软件包（25.3.0 及更高版本）中�
 
 命令参考 avdmanager：
 
+```sh
+    $ avdmanager --help 
+
     Usage:
           avdmanager [global options] [action] [action options]
           Global options:
@@ -547,6 +551,7 @@ avdmanager 工具在 Android SDK 工具软件包（25.3.0 及更高版本）中�
     - create avd          : Creates a new Android Virtual Device.
     -   move avd          : Moves or renames an Android Virtual Device.
     - delete avd          : Deletes an Android Virtual Device.
+```
 
 一般说 Android SDK 版本，就是指 Android SDK Platform 的版本，即安装目录中 platforms 文件夹中安装的 SDK 版本。
 
@@ -623,7 +628,7 @@ avdmanager 工具在 Android SDK 工具软件包（25.3.0 及更高版本）中�
 
 创建 AVD，注意要先下载好系统映像文件，然后在 Package 参数中指定。
 
-如果没有映像文件则会提示错误，如当前系统只有一个 Android 28 x86 系统映像，但命令行中指定的是 x86_64：
+如果没有映像文件则会提示错误，并提示已经下载的可用镜像文件。镜像文件路径对应 --package 参数值。分号分隔的是各个目录名称。如当前系统只有一个 Android 28 x86 系统映像，但命令行中指定的是 x86_64：
 
     $ avdmanager create avd --name "Galaxy-Nexus" --tag google_apis --package "system-images;android-28;google_apis;x86_64"
 
@@ -659,7 +664,8 @@ avdmanager 工具在 Android SDK 工具软件包（25.3.0 及更高版本）中�
 
 命令使用参考：
 
-    $ avdmanager create avd
+```sh
+    $ avdmanager --help create avd 
 
     Usage:
           avdmanager [global options] create avd [action options]
@@ -687,6 +693,7 @@ avdmanager 工具在 Android SDK 工具软件包（25.3.0 及更高版本）中�
                      ABI if the platform has only one ABI for its system images.
       -d --device  : The optional device definition to use. Can be a device index
                      or id.
+```
 
 ## AVD Network
 - Send Emulator console commands https://developer.android.google.cn/studio/run/emulator-console
@@ -2780,6 +2787,10 @@ Displays log information on the command-line screen. If you do not set this opti
 ## adb shell input 
 - https://stackoverflow.com/questions/13850192/how-to-lock-android-screen-via-adb
 - adb shell input keyevent code https://www.cnblogs.com/chengchengla1990/p/4515108.html
+- Interaction in Android https://source.android.google.cn/docs/core/interaction
+- The Magic Mask for Android https://github.com/topjohnwu/Magisk
+- KernelISU https://github.com/tiann/KernelSU
+- Espresso Testing framework https://developer.android.google.cn/training/testing/espresso
 
 Android 系统输入事件模拟命令：
 

@@ -986,7 +986,7 @@ typewriter font:
 
 “Holes” in program fragments representing arbitrary pieces of Haskell
 code are written in italics, as in
-if e\ :sub:`1`\  then e\ :sub:`2`\  else e\ :sub:`3`. Generally the
+if e\ :sub:`1` then e\ :sub:`2` else e\ :sub:`3`. Generally the
 italicized names are mnemonic, such as e for expressions, d for
 declarations, t for types, etc.
 
@@ -1078,7 +1078,7 @@ These notational conventions are used for presenting syntax:
    | .. container:: td11              | .. container:: td11              |
    |                                  |                                  |
    |                                  |    choice                        |
-   | pat\ :sub:`1`\  \| pat\ :sub:`2` |                                  |
+   | pat\ :sub:`1` \| pat\ :sub:`2` |                                  |
    +----------------------------------+----------------------------------+
    | .. container:: td11              | .. container:: td11              |
    |                                  |                                  |
@@ -1106,7 +1106,7 @@ having the form:
    .. container:: tabular
 
       ======== = ========================================================
-      nonterm  → alt\ :sub:`1`\  \| alt\ :sub:`2`\  \| … \| alt\ :sub:`n`
+      nonterm  → alt\ :sub:`1` \| alt\ :sub:`2` \| … \| alt\ :sub:`n`
       ======== = ========================================================
 
 Care must be taken in distinguishing metalogical syntax such as \| and
@@ -1165,7 +1165,7 @@ new versions of Unicode as they are made available.
       +-------------+----+-------------------------------------------------+
       | uniWhite    | →  | any Unicode character defined as whitespace     |
       +-------------+----+-------------------------------------------------+
-      | comment     | →  | dashes [ any\ :sub:`⟨symbol⟩`\  {any} ] newline |
+      | comment     | →  | dashes [ any\ :sub:`⟨symbol⟩` {any} ] newline |
       +-------------+----+-------------------------------------------------+
       | dashes      | →  | -- {-}                                          |
       +-------------+----+-------------------------------------------------+
@@ -1181,7 +1181,7 @@ new versions of Unicode as they are made available.
       +-------------+----+-------------------------------------------------+
       | any         | →  | graphic \| space \| tab                         |
       +-------------+----+-------------------------------------------------+
-      | graphic     | →  | small \                                         |
+      | graphic     | →  | small                                         |
       |             |    | | large \| symbol \| digit \| special \| " \| ' |
       +-------------+----+-------------------------------------------------+
       | small       | →  | ascSmall \| uniSmall \| \_                      |
@@ -1311,7 +1311,7 @@ use “\_foo” for a parameter that they expect to be unused.
    .. container:: tabular
 
       +-------------+---+--------------------------------------------------+
-      | varsym      | → | ( symbol\ :sub:`⟨:⟩`\  {symbol} )\               |
+      | varsym      | → | ( symbol\ :sub:`⟨:⟩` {symbol} )              |
       |             |   | :sub:`⟨reservedop \| dashes⟩`                    |
       +-------------+---+--------------------------------------------------+
       | consym      | → | ( : {symbol})\ :sub:`⟨reservedop⟩`               |
@@ -1419,14 +1419,14 @@ definition of + in the Prelude (Section `4.4.2 <#xs4.4.2>`__).
 
       ========= == =================================
       integer   →  decimal
-      \         \| 0o octal \| 0O octal
-      \         \| 0x hexadecimal \| 0X hexadecimal
+              \| 0o octal \| 0O octal
+              \| 0x hexadecimal \| 0X hexadecimal
                    
-      \            
+                 
       float     →  decimal . decimal [exponent]
-      \         \| decimal exponent
+              \| decimal exponent
                    
-      \            
+                 
       exponent  →  (e \| E) [+ \| -] decimal
       ========= == =================================
 
@@ -1453,7 +1453,7 @@ The typing of numeric literals is discussed in Section `6.4.1 <#xs6.4.1>`__.
       |          |    | \| space \| escape\ :sub:`⟨\\&⟩`\ ) '              |
       +----------+----+----------------------------------------------------+
       | string   | →  | " {graphic                                         |
-      |          |    | \ :sub:`⟨" \| \\⟩`\  \| space \| escape \| gap} "  |
+      |          |    | \ :sub:`⟨" \| \\⟩` \| space \| escape \| gap} "  |
       +----------+----+----------------------------------------------------+
       | escape   | →  | \\ ( charesc                                       |
       |          |    |  \| ascii \| decimal \| o octal \| x hexadecimal ) |
@@ -1475,7 +1475,7 @@ The typing of numeric literals is discussed in Section `6.4.1 <#xs6.4.1>`__.
       +----------+----+----------------------------------------------------+
       | cntrl    | →  | ascLarge \| @ \| [ \| \\ \| ] \| ^ \| \_           |
       +----------+----+----------------------------------------------------+
-      | gap      | →  | \\ whitechar {whitechar} \\                        |
+      | gap      | →  | \\ whitechar {whitechar} \                       |
       +----------+----+----------------------------------------------------+
 
 Character literals are written between single quotes, as in 'a', and
@@ -1516,7 +1516,7 @@ the start of the next. For example,
    .. container:: verbatim
       :name: verbatim-2
 
-      "Here is a backslant \\\\ as well as \\137, \\  
+      "Here is a backslant \\\\ as well as \\137, \ 
           \\a numeric escape character, and \\^X, a control character."
 
 String literals are actually abbreviations for lists of characters (see
@@ -1698,8 +1698,8 @@ used, and (if it is in scope) what it is bound to.
       +----------+----+-------------------------+-------------------------+
       |          | \| | lexp                    |                         |
       +----------+----+-------------------------+-------------------------+
-      | lexp     | →  | \\ apat\ :sub:`1`\  …   |                         |
-      |          |    | apat\ :sub:`n`\  -> exp |  (lambda abstraction, n |
+      | lexp     | →  | \\ apat\ :sub:`1` …   |                         |
+      |          |    | apat\ :sub:`n` -> exp |  (lambda abstraction, n |
       |          |    |                         | ≥ 1)                    |
       +----------+----+-------------------------+-------------------------+
       |          | \| | let decls in exp        |     (let expression)    |
@@ -1726,32 +1726,32 @@ used, and (if it is in scope) what it is bound to.
       |          | \| | ( exp )                 |     (pa                 |
       |          |    |                         | renthesized expression) |
       +----------+----+-------------------------+-------------------------+
-      |          | \| | ( exp\ :sub:`1`\        |     (tuple, k ≥ 2)      |
-      |          |    | , … , exp\ :sub:`k`\  ) |                         |
+      |          | \| | ( exp\ :sub:`1`       |     (tuple, k ≥ 2)      |
+      |          |    | , … , exp\ :sub:`k` ) |                         |
       +----------+----+-------------------------+-------------------------+
-      |          | \| | [ exp\ :sub:`1`\        |     (list, k ≥ 1)       |
-      |          |    | , … , exp\ :sub:`k`\  ] |                         |
+      |          | \| | [ exp\ :sub:`1`       |     (list, k ≥ 1)       |
+      |          |    | , … , exp\ :sub:`k` ] |                         |
       +----------+----+-------------------------+-------------------------+
       |          | \| | [ exp\ :sub:`1          |                         |
-      |          |    | `\  [, exp\ :sub:`2`\ ] |   (arithmetic sequence) |
+      |          |    | ` [, exp\ :sub:`2`\ ] |   (arithmetic sequence) |
       |          |    |  .. [exp\ :sub:`3`\ ] ] |                         |
       +----------+----+-------------------------+-------------------------+
       |          | \| | [ ex                    |                         |
-      |          |    | p \| qual\ :sub:`1`\  , |  (list comprehension, n |
-      |          |    |  … , qual\ :sub:`n`\  ] | ≥ 1)                    |
+      |          |    | p \| qual\ :sub:`1` , |  (list comprehension, n |
+      |          |    |  … , qual\ :sub:`n` ] | ≥ 1)                    |
       +----------+----+-------------------------+-------------------------+
       |          | \| | ( infixexp qop )        |     (left section)      |
       +----------+----+-------------------------+-------------------------+
-      |          | \| | ( qop\                  |     (right section)     |
-      |          |    | :sub:`⟨-⟩`\  infixexp ) |                         |
+      |          | \| | ( qop                 |     (right section)     |
+      |          |    | :sub:`⟨-⟩` infixexp ) |                         |
       +----------+----+-------------------------+-------------------------+
       |          | \| | qcon                    |     (                   |
-      |          |    |  { fbind\ :sub:`1`\  ,  | labeled construction, n |
-      |          |    | … , fbind\ :sub:`n`\  } | ≥ 0)                    |
+      |          |    |  { fbind\ :sub:`1` ,  | labeled construction, n |
+      |          |    | … , fbind\ :sub:`n` } | ≥ 0)                    |
       +----------+----+-------------------------+-------------------------+
-      |          | \| | aexp\ :sub:`⟨qcon⟩`\    |     (labeled update, n  |
-      |          |    |  { fbind\ :sub:`1`\  ,  | ≥  1)                   |
-      |          |    | … , fbind\ :sub:`n`\  } |                         |
+      |          | \| | aexp\ :sub:`⟨qcon⟩`   |     (labeled update, n  |
+      |          |    |  { fbind\ :sub:`1` ,  | ≥  1)                   |
+      |          |    | … , fbind\ :sub:`n` } |                         |
       +----------+----+-------------------------+-------------------------+
 
 Expressions involving infix operators are disambiguated by the
@@ -1759,10 +1759,10 @@ operator’s fixity (see Section `4.4.2 <#xs4.4.2>`__). Consecutive
 unparenthesized operators with the same precedence must both be either
 left or right associative to avoid a syntax error. Given an
 unparenthesized expression
-“x qop\ :sup:`(a,i)`\  y qop\ :sup:`(b,j)`\  z” (where qop\ :sup:`(a,i)`
+“x qop\ :sup:`(a,i)` y qop\ :sup:`(b,j)` z” (where qop\ :sup:`(a,i)`
 means an operator with associativity a and precedence i), parentheses
-must be added around either “xqop\ :sup:`(a,i)`\  y” or
-“y qop\ :sup:`(b,j)`\  z” when i = j unless a = b = l or a = b =  r.
+must be added around either “xqop\ :sup:`(a,i)` y” or
+“y qop\ :sup:`(b,j)` z” when i = j unless a = b = l or a = b =  r.
 
 An example algorithm for resolving expressions involving infix operators
 is given in Section `10.6 <#xs10.6>`__.
@@ -1839,8 +1839,8 @@ information when an error occurs.
 
       ===== == ======== ==========================
       aexp  →  qvar         (variable)
-      \     \| gcon         (general constructor)
-      \     \| literal  
+          \| gcon         (general constructor)
+          \| literal  
       ===== == ======== ==========================
 
 .. container:: flushleft
@@ -1934,17 +1934,17 @@ value of type Rational (that is, Ratio Integer).
       | fexp  | → | [fexp] aexp               |                           |
       |       |   |                           |    (function application) |
       +-------+---+---------------------------+---------------------------+
-      | lexp  | → | \\ apat\ :sub:`1`\        |                           |
-      |       |   | … apat\ :sub:`n`\  -> exp |    (lambda abstraction, n |
+      | lexp  | → | \\ apat\ :sub:`1`       |                           |
+      |       |   | … apat\ :sub:`n` -> exp |    (lambda abstraction, n |
       |       |   |                           | ≥ 1)                      |
       +-------+---+---------------------------+---------------------------+
 
-Function application is written e\ :sub:`1`\  e\ :sub:`2`. Application
+Function application is written e\ :sub:`1` e\ :sub:`2`. Application
 associates to the left, so the parentheses may be omitted in (f x) y.
 Because e\ :sub:`1` could be a data constructor, partial applications of
 data constructors are allowed.
 
-Lambda abstractions are written \\ p\ :sub:`1`\  … p\ :sub:`n`\  -> e,
+Lambda abstractions are written \\ p\ :sub:`1` … p\ :sub:`n` -> e,
 where the p\ :sub:`i` are patterns. An expression such as \\x:xs->x is
 syntactically incorrect; it may legally be written as \\(x:xs)->x.
 
@@ -1964,8 +1964,8 @@ in the set.
             .. container:: tabular
 
                +-------------------------------+---+-------------------------------+
-               | \\ p\ :s                      | = | \\ x\ :sub:`1`\  … x\ :sub:`n |
-               | ub:`1`\  … p\ :sub:`n`\  -> e |   | `\  -> case (x\ :sub:`1`\ , … |
+               | \\ p\ :s                      | = | \\ x\ :sub:`1` … x\ :sub:`n |
+               | ub:`1` … p\ :sub:`n` -> e |   | ` -> case (x\ :sub:`1`\ , … |
                |                               |   | , x\ :sub:`n`\ ) of (p\ :sub: |
                |                               |   | `1`\ , …, p\ :sub:`n`\ ) -> e |
                +-------------------------------+---+-------------------------------+
@@ -1987,12 +1987,12 @@ if the pattern fails to match, then the result is ⊥.
 
       ======== == ================= =========================
       infixexp →  lexp qop infixexp 
-      \        \| - infixexp            (prefix negation)
-      \        \| lexp              
+             \| - infixexp            (prefix negation)
+             \| lexp              
       qop      →  qvarop \| qconop      (qualified operator)
       ======== == ================= =========================
 
-The form e\ :sub:`1`\  qop e\ :sub:`2` is the infix application of
+The form e\ :sub:`1` qop e\ :sub:`2` is the infix application of
 binary operator qop to expressions e\ :sub:`1` and e\ :sub:`2`.
 
 The special form -e denotes prefix negation, the only prefix operator in
@@ -2022,7 +2022,7 @@ write e1(-e2) for the alternative parsing. Similarly, (-) is syntax for
             .. container:: tabular
 
                ============================ = ==============================
-               e\ :sub:`1`\  op e\ :sub:`2` = (op) e\ :sub:`1`\  e\ :sub:`2`
+               e\ :sub:`1` op e\ :sub:`2` = (op) e\ :sub:`1` e\ :sub:`2`
                -e                           = negate (e)
                ============================ = ==============================
 
@@ -2037,7 +2037,7 @@ write e1(-e2) for the alternative parsing. Similarly, (-) is syntax for
 
       ===== == ============================== ====================
       aexp  →  ( infixexp qop )                   (left section)
-      \     \| ( qop\ :sub:`⟨-⟩`\  infixexp )     (right section)
+          \| ( qop\ :sub:`⟨-⟩` infixexp )     (right section)
       ===== == ============================== ====================
 
 Sections are written as ( op e ) or ( e op ), where op is a binary
@@ -2126,7 +2126,7 @@ expression (+ (- exp)) can serve the same purpose.
       ===== = ================================
 
 A conditional expression has the form 
-if e\ :sub:`1`\  then e\ :sub:`2`\  else e\ :sub:`3` and returns the
+if e\ :sub:`1` then e\ :sub:`2` else e\ :sub:`3` and returns the
 value of e\ :sub:`2` if the value of e\ :sub:`1` is True, e\ :sub:`3` if
 e\ :sub:`1` is False, and ⊥ otherwise.
 
@@ -2143,9 +2143,9 @@ e\ :sub:`1` is False, and ⊥ otherwise.
             .. container:: tabular
 
                +-------------------------------+---+-------------------------------+
-               | if e\ :sub:`1`\  then e       | = | case e\ :sub:`                |
-               | \ :sub:`2`\  else e\ :sub:`3` |   | 1`\  of { True -> e\ :sub:`2` |
-               |                               |   | \  ; False -> e\ :sub:`3`\  } |
+               | if e\ :sub:`1` then e       | = | case e\ :sub:`                |
+               | \ :sub:`2` else e\ :sub:`3` |   | 1` of { True -> e\ :sub:`2` |
+               |                               |   |  ; False -> e\ :sub:`3` } |
                +-------------------------------+---+-------------------------------+
 
          where True and False are the two nullary constructors from the
@@ -2164,11 +2164,11 @@ e\ :sub:`1` is False, and ⊥ otherwise.
    .. container:: tabular
 
       ========= == ========================================= ============
-      infixexp  →  exp\ :sub:`1`\  qop exp\ :sub:`2`         
-      aexp      →  [ exp\ :sub:`1`\  , … , exp\ :sub:`k`\  ]     (k ≥ 1)
-      \         \| gcon                                      
+      infixexp  →  exp\ :sub:`1` qop exp\ :sub:`2`         
+      aexp      →  [ exp\ :sub:`1` , … , exp\ :sub:`k` ]     (k ≥ 1)
+              \| gcon                                      
       gcon      →  []                                        
-      \         \| qcon                                      
+              \| qcon                                      
       qcon      →  ( gconsym )                               
       qop       →  qconop                                    
       qconop    →  gconsym                                   
@@ -2195,9 +2195,9 @@ Section `9.1 <#xs9.1>`__).
             .. container:: tabular
 
                +-------------------------------+---+-------------------------------+
-               | [e\                           | = | e                             |
-               | :sub:`1`\ , …, e\ :sub:`k`\ ] |   | \ :sub:`1`\  : (e\ :sub:`2`\  |
-               |                               |   |  : ( … (e\ :sub:`k`\  : []))) |
+               | [e                          | = | e                             |
+               | :sub:`1`\ , …, e\ :sub:`k`\ ] |   | \ :sub:`1` : (e\ :sub:`2` |
+               |                               |   |  : ( … (e\ :sub:`k` : []))) |
                +-------------------------------+---+-------------------------------+
 
          where : and [] are constructors for lists, as defined in the
@@ -2222,11 +2222,11 @@ redefined. It is a right-associative operator, with precedence level 5
    .. container:: tabular
 
       ===== == ========================================= ============
-      aexp  →  ( exp\ :sub:`1`\  , … , exp\ :sub:`k`\  )     (k ≥ 2)
-      \     \| qcon                                      
+      aexp  →  ( exp\ :sub:`1` , … , exp\ :sub:`k` )     (k ≥ 2)
+          \| qcon                                      
       qcon  →  (,{,})                                    
                                                          
-      \                                                  
+                                                       
       ===== == ========================================= ============
 
 Tuples are written (e\ :sub:`1`\ , …, e\ :sub:`k`\ ), and may be of
@@ -2261,7 +2261,7 @@ Chapter `9 <#xs9>`__).
 
       ===== == =======
       aexp  →  gcon
-      \     \| ( exp )
+          \| ( exp )
       gcon  →  ()
       ===== == =======
 
@@ -2289,10 +2289,10 @@ tuple” (see Section `6.1.5 <#xs6.1.5>`__).
    .. container:: tabular
 
       ===== = ============================================================
-      aexp  → [ exp\ :sub:`1`\  [, exp\ :sub:`2`\ ] .. [exp\ :sub:`3`\ ] ]
+      aexp  → [ exp\ :sub:`1` [, exp\ :sub:`2`\ ] .. [exp\ :sub:`3`\ ] ]
       ===== = ============================================================
 
-The arithmetic sequence [e\ :sub:`1`\ , e\ :sub:`2`\  .. e\ :sub:`3`\ ]
+The arithmetic sequence [e\ :sub:`1`\ , e\ :sub:`2` .. e\ :sub:`3`\ ]
 denotes a list of values of type t, where each of the e\ :sub:`i` has
 type t, and t is an instance of class Enum.
 
@@ -2311,14 +2311,14 @@ type t, and t is an instance of class Enum.
                +-------------------------------+---+-------------------------------+
                | [ e\ :sub:`1`\ .. ]           | = | enumFrom e\ :sub:`1`          |
                +-------------------------------+---+-------------------------------+
-               | [ e\                          | = | enumFromThen e\ :sub:`1`      |
+               | [ e                         | = | enumFromThen e\ :sub:`1`      |
                |  :sub:`1`\ ,e\ :sub:`2`\ .. ] |   | e\ :sub:`2`                   |
                +-------------------------------+---+-------------------------------+
                | [ e                           | = | enumFromTo e\ :sub:`1`        |
-               | \ :sub:`1`\ ..e\ :sub:`3`\  ] |   | e\ :sub:`3`                   |
+               | \ :sub:`1`\ ..e\ :sub:`3` ] |   | e\ :sub:`3`                   |
                +-------------------------------+---+-------------------------------+
                | [ e\ :sub:`1`\ ,e             | = | enumFromThenTo e\ :sub:`1`    |
-               | \ :sub:`2`\ ..e\ :sub:`3`\  ] |   | e\ :sub:`2` e\ :sub:`3`       |
+               | \ :sub:`2`\ ..e\ :sub:`3` ] |   | e\ :sub:`2` e\ :sub:`3`       |
                +-------------------------------+---+-------------------------------+
 
          where enumFrom, enumFromThen, enumFromTo, and enumFromThenTo
@@ -2341,8 +2341,8 @@ which Prelude types are in Enum and their semantics.
 
       +-------+----+--------------------------+--------------------------+
       | aexp  | →  | [                        |                          |
-      |       |    | exp \| qual\ :sub:`1`\   |   (list comprehension, n |
-      |       |    | , … , qual\ :sub:`n`\  ] | ≥ 1)                     |
+      |       |    | exp \| qual\ :sub:`1`  |   (list comprehension, n |
+      |       |    | , … , qual\ :sub:`n` ] | ≥ 1)                     |
       +-------+----+--------------------------+--------------------------+
       | qual  | →  | pat <- exp               |     (generator)          |
       +-------+----+--------------------------+--------------------------+
@@ -2352,7 +2352,7 @@ which Prelude types are in Enum and their semantics.
       +-------+----+--------------------------+--------------------------+
 
 A list comprehension has the form 
-[ e \| q\ :sub:`1`\ , …, q\ :sub:`n`\  ],n ≥ 1, where the q\ :sub:`i`
+[ e \| q\ :sub:`1`\ , …, q\ :sub:`n` ],n ≥ 1, where the q\ :sub:`i`
 qualifiers are either
 
 -  generators of the form p <- e, where p is a pattern (see
@@ -2409,8 +2409,8 @@ example:
                [  e \| q ]             = [  e \| q, True ]
                [  e \| b,  Q  ]        = if b then [  e \| Q ] else []
                [  e \| p <- l,  Q ]    = let ok p = [  e \| Q ]
-               \                             ok \_ = []
-               \                         in concatMap ok  l
+                                           ok \_ = []
+                                       in concatMap ok  l
                [  e \| let decls,  Q ] = let decls in [  e \| Q ]
                ======================= = =============================
 
@@ -2439,7 +2439,7 @@ bound and are thus monomorphic (see Section
       ===== = =================
 
 Let expressions have the general form 
-let { d\ :sub:`1`\  ; … ; d\ :sub:`n`\  } in e, and introduce a nested,
+let { d\ :sub:`1` ; … ; d\ :sub:`n` } in e, and introduce a nested,
 lexically-scoped, mutually-recursive list of declarations (let is often
 called letrec in other languages). The scope of the declarations is the
 expression e and the right hand side of the declarations. Declarations
@@ -2462,10 +2462,10 @@ does not cause an execution-time error until x or y is evaluated.
       .. container:: minipage
 
          Translation: The dynamic semantics of the expression
-         let { d\ :sub:`1`\  ; … ; d\ :sub:`n`\  } in e\ :sub:`0` are
+         let { d\ :sub:`1` ; … ; d\ :sub:`n` } in e\ :sub:`0` are
          captured by this translation: After removing all type
          signatures, each declaration d\ :sub:`i` is translated into an
-         equation of the form p\ :sub:`i`\  = e\ :sub:`i`, where
+         equation of the form p\ :sub:`i` = e\ :sub:`i`, where
          p\ :sub:`i` and e\ :sub:`i` are patterns and expressions
          respectively, using the translation in
          Section `4.4.3 <#xs4.4.3>`__. Once done,
@@ -2478,14 +2478,14 @@ does not cause an execution-time error until x or y is evaluated.
 
                +-------------------------------+---+-------------------------------+
                | let {                         | = | let (~p\ :sub:`1`\ , ...      |
-               | p\ :sub:`1`\ =e\ :sub:`1`\ ;  |   | ,~p\                          |
+               | p\ :sub:`1`\ =e\ :sub:`1`\ ;  |   | ,~p                         |
                | ...                           |   | :sub:`n`\ ) = (e\ :sub:`1`\ , |
-               | ; p\                          |   | ... ,e\ :sub:`n`\ ) in        |
+               | ; p                         |   | ... ,e\ :sub:`n`\ ) in        |
                |  :sub:`n`\ =e\ :sub:`n`\ } in |   | e\ :sub:`0`                   |
                | e\ :sub:`0`                   |   |                               |
                +-------------------------------+---+-------------------------------+
                | let p = e\ :sub:`1`  in       | = | case e\ :s                    |
-               | e\ :sub:`0`                   |   | ub:`1`\  of ~p -> e\ :sub:`0` |
+               | e\ :sub:`0`                   |   | ub:`1` of ~p -> e\ :sub:`0` |
                +-------------------------------+---+-------------------------------+
                |                               |   | where no variable in p        |
                |                               |   | appears free in e\ :sub:`1`   |
@@ -2514,7 +2514,7 @@ does not cause an execution-time error until x or y is evaluated.
       +--------+----+------------------------------------------+--------------------------+
       | lexp   | →  | case exp of { alts }                     |                          |
       +--------+----+------------------------------------------+--------------------------+
-      | alts   | →  | alt\ :sub:`1`\  ; … ; alt\ :sub:`n`      |     (n ≥ 1)              |
+      | alts   | →  | alt\ :sub:`1` ; … ; alt\ :sub:`n`      |     (n ≥ 1)              |
       +--------+----+------------------------------------------+--------------------------+
       | alt    | →  | pat -> exp [where decls]                 |                          |
       +--------+----+------------------------------------------+--------------------------+
@@ -2534,7 +2534,7 @@ does not cause an execution-time error until x or y is evaluated.
       +--------+----+------------------------------------------+--------------------------+
 
 A case expression has the general form 
-case e of { p\ :sub:`1`\  match\ :sub:`1`\  ; … ; p\ :sub:`n`\  match\ :sub:`n`\  }
+case e of { p\ :sub:`1` match\ :sub:`1` ; … ; p\ :sub:`n` match\ :sub:`n` }
 where each match\ :sub:`i` is of the general form
 
 .. container:: array
@@ -2558,7 +2558,7 @@ where each match\ :sub:`i` is of the general form
 
 (Notice that in the syntax rule for guards, the “\|” is a terminal
 symbol, not the syntactic metasymbol for alternation.) Each alternative
-p\ :sub:`i`\  match\ :sub:`i` consists of a pattern p\ :sub:`i` and its
+p\ :sub:`i` match\ :sub:`i` consists of a pattern p\ :sub:`i` and its
 matches, match\ :sub:`i`. Each match in turn consists of a sequence of
 pairs of guards gs\ :sub:`ij` and bodies e\ :sub:`ij` (expressions),
 followed by optional bindings (decls\ :sub:`i`) that scope over all of
@@ -2658,8 +2658,8 @@ contains an infixexp not an exp.
       +--------+----+--------------------------+------------------------+
       | lexp   | →  | do { stmts }             |     (do expression)    |
       +--------+----+--------------------------+------------------------+
-      | stmts  | →  | stmt\ :sub:`1`\  …       |     (n ≥ 0)            |
-      |        |    | stmt\ :sub:`n`\  exp [;] |                        |
+      | stmts  | →  | stmt\ :sub:`1` …       |     (n ≥ 0)            |
+      |        |    | stmt\ :sub:`n` exp [;] |                        |
       +--------+----+--------------------------+------------------------+
       | stmt   | →  | exp ;                    |                        |
       +--------+----+--------------------------+------------------------+
@@ -2711,10 +2711,10 @@ to be written in a more traditional way as:
                do {e}                = e
                do {e;stmts}          = e >> do {stmts}
                do {p <- e; stmts}    = let ok p = do {stmts}
-               \                           ok \_ = fail "..."
-               \                         in e >>= ok
+                                         ok \_ = fail "..."
+                                       in e >>= ok
                do {let decls; stmts} = let decls in do {stmts}
-               \                       
+                                     
                ===================== = =======================
 
          The ellipsis "..." stands for a compiler-generated error
@@ -2790,15 +2790,15 @@ with ordinary variables.
             .. container:: tabular
 
                +-----+---+----------------------------------------------------------+
-               | f x | = | case x of { C\ :sub:`1`\  p\ :sub:`11`\  … p\ :sub:`1k`  |
+               | f x | = | case x of { C\ :sub:`1` p\ :sub:`11` … p\ :sub:`1k`  |
                |     |   |  ->  e\ :sub:`1` ;… ;                                    |
-               |     |   | C\ :sub:`n`\  p\ :sub:`n1`\  … p\ :sub:`nk`  ->          |
+               |     |   | C\ :sub:`n` p\ :sub:`n1` … p\ :sub:`nk`  ->          |
                |     |   | e\ :sub:`n` }                                            |
                +-----+---+----------------------------------------------------------+
                |     |   |                                                          |
                +-----+---+----------------------------------------------------------+
 
-         where C\ :sub:`1`\  … C\ :sub:`n` are all the constructors of
+         where C\ :sub:`1` … C\ :sub:`n` are all the constructors of
          the datatype containing a field labeled with f, p\ :sub:`ij` is
          y when f labels the jth component of C\ :sub:`i` or \_
          otherwise, and e\ :sub:`i` is y when some field in C\ :sub:`i`
@@ -2815,8 +2815,8 @@ with ordinary variables.
 
       +--------+---+--------------------------+--------------------------+
       | aexp   | → | qc                       |                          |
-      |        |   | on { fbind\ :sub:`1`\  , | (labeled construction, n |
-      |        |   |  … , fbind\ :sub:`n`\  } | ≥ 0)                     |
+      |        |   | on { fbind\ :sub:`1` , | (labeled construction, n |
+      |        |   |  … , fbind\ :sub:`n` } | ≥ 0)                     |
       +--------+---+--------------------------+--------------------------+
       | fbind  | → | qvar = exp               |                          |
       +--------+---+--------------------------+--------------------------+
@@ -2839,7 +2839,7 @@ subject to the following constraints:
 
 The expression F {}, where F is a data constructor, is legal whether or
 not F was declared with record syntax (provided F has no strict fields —
-see the fourth bullet above); it denotes F ⊥\ :sub:`1`\  … ⊥\ :sub:`n`,
+see the fourth bullet above); it denotes F ⊥\ :sub:`1` … ⊥\ :sub:`n`,
 where n is the arity of F.
 
 .. container:: center
@@ -2855,23 +2855,23 @@ where n is the arity of F.
             .. container:: tabular
 
                +----------+---+-----------------------------------------------------+
-               | C { bs } | = | C (pick\ :sub:`1`\ :sup:`C`\  bs und                |
-               |          |   | efined) … (pick\ :sub:`k`\ :sup:`C`\  bs undefined) |
+               | C { bs } | = | C (pick\ :sub:`1`\ :sup:`C` bs und                |
+               |          |   | efined) … (pick\ :sub:`k`\ :sup:`C` bs undefined) |
                +----------+---+-----------------------------------------------------+
                |          |   |                                                     |
                +----------+---+-----------------------------------------------------+
 
          where k is the arity of C.
 
-         The auxiliary function pick\ :sub:`i`\ :sup:`C`\  bs d is
+         The auxiliary function pick\ :sub:`i`\ :sup:`C` bs d is
          defined as follows:
 
          .. container:: quote
 
             If the ith component of a constructor C has the field label
             f, and if f = v appears in the binding list bs, then
-            pick\ :sub:`i`\ :sup:`C`\  bs d is v. Otherwise,
-            pick\ :sub:`i`\ :sup:`C`\  bs d is the default value d.
+            pick\ :sub:`i`\ :sup:`C` bs d is v. Otherwise,
+            pick\ :sub:`i`\ :sup:`C` bs d is the default value d.
 
 .. _xs3.15.3:
 
@@ -2884,8 +2884,8 @@ where n is the arity of F.
 
       +-------+---+---------------------------+---------------------------+
       | aexp  | → | aexp\ :sub:`⟨qcon         |     (labeled update, n ≥  |
-      |       |   | ⟩`\  { fbind\ :sub:`1`\   | 1)                        |
-      |       |   | , … , fbind\ :sub:`n`\  } |                           |
+      |       |   | ⟩` { fbind\ :sub:`1`  | 1)                        |
+      |       |   | , … , fbind\ :sub:`n` } |                           |
       +-------+---+---------------------------+---------------------------+
 
 Values belonging to a datatype with field labels may be 
@@ -2916,20 +2916,20 @@ restricted in the following ways:
                | e { bs } | = | case e of                                           |
                +----------+---+-----------------------------------------------------+
                |          |   |                                                     |
-               |          |   |        C\ :sub:`1`\  v\ :sub:`1`\  … v\ :sub:`k\ 1` |
+               |          |   |        C\ :sub:`1` v\ :sub:`1` … v\ :sub:`k\ 1` |
                |          |   | ->                                                  |
-               |          |   | C\ :sub:`1`\  (pick\ :sub:`1                        |
-               |          |   | `\ :sup:`C\ 1`\  bs v\ :sub:`1`\ ) … (pick\ :sub:`k |
-               |          |   | 1`\ :sup:`C\ 1`\  bs v :sub:`k\ 1`\ )               |
+               |          |   | C\ :sub:`1` (pick\ :sub:`1                        |
+               |          |   | `\ :sup:`C\ 1` bs v\ :sub:`1`\ ) … (pick\ :sub:`k |
+               |          |   | 1`\ :sup:`C\ 1` bs v :sub:`k\ 1`\ )               |
                +----------+---+-----------------------------------------------------+
                |          |   |              ...                                    |
                +----------+---+-----------------------------------------------------+
                |          |   |                                                     |
-               |          |   |        C\ :sub:`j`\  v\ :sub:`1`\  … v\ :sub:`k\ j` |
+               |          |   |        C\ :sub:`j` v\ :sub:`1` … v\ :sub:`k\ j` |
                |          |   | ->                                                  |
-               |          |   | C\ :sub:`j`\  (pick\ :sub:`1                        |
-               |          |   | `\ :sup:`C\ j`\  bs v\ :sub:`1`\ ) … (pick\ :sub:`k |
-               |          |   | j`\ :sup:`C\ j`\  bs v :sub:`k\ j`\ )               |
+               |          |   | C\ :sub:`j` (pick\ :sub:`1                        |
+               |          |   | `\ :sup:`C\ j` bs v\ :sub:`1`\ ) … (pick\ :sub:`k |
+               |          |   | j`\ :sup:`C\ j` bs v :sub:`k\ j`\ )               |
                +----------+---+-----------------------------------------------------+
                |          |   |         \_ -> error "Update error"                  |
                +----------+---+-----------------------------------------------------+
@@ -2960,9 +2960,9 @@ Here are some examples using labeled fields:
    C1 {f1 = 3}                     C1 3 undefined
    C2 {f1 = 1, f4 = 'A', f3 = 'B'} C2 1 'B' 'A'
    x {f1 = 1}                      case x of C1 \_ f2    -> C1 1 f2
-   \                                         C2 \_ f3 f4 -> C2 1 f3 f4
+                                           C2 \_ f3 f4 -> C2 1 f3 f4
    --------------                  --------------
-   \                               
+                                 
    =============================== ===================================
 
 The field f1 is common to both constructors in T. This example
@@ -3050,8 +3050,8 @@ Patterns have this syntax:
       +-------+----+--------------------------+--------------------------+
       |       | \| | gcon                     |     (arity gcon  =  0)   |
       +-------+----+--------------------------+--------------------------+
-      |       | \| | qcon { fpat\ :sub:`1`\   | (labeled pattern, k ≥ 0) |
-      |       |    | , … , fpat\ :sub:`k`\  } |                          |
+      |       | \| | qcon { fpat\ :sub:`1`  | (labeled pattern, k ≥ 0) |
+      |       |    | , … , fpat\ :sub:`k` } |                          |
       +-------+----+--------------------------+--------------------------+
       |       | \| | literal                  |                          |
       +-------+----+--------------------------+--------------------------+
@@ -3060,11 +3060,11 @@ Patterns have this syntax:
       |       | \| | ( pat )                  |                          |
       |       |    |                          |  (parenthesized pattern) |
       +-------+----+--------------------------+--------------------------+
-      |       | \| | ( pat\ :sub:`1`\         |  (tuple pattern, k ≥ 2)  |
-      |       |    |  , … , pat\ :sub:`k`\  ) |                          |
+      |       | \| | ( pat\ :sub:`1`        |  (tuple pattern, k ≥ 2)  |
+      |       |    |  , … , pat\ :sub:`k` ) |                          |
       +-------+----+--------------------------+--------------------------+
-      |       | \| | [ pat\ :sub:`1`\         |  (list pattern, k ≥ 1)   |
-      |       |    |  , … , pat\ :sub:`k`\  ] |                          |
+      |       | \| | [ pat\ :sub:`1`        |  (list pattern, k ≥ 1)   |
+      |       |    |  , … , pat\ :sub:`k` ] |                          |
       +-------+----+--------------------------+--------------------------+
       |       | \| | ~ apat                   |                          |
       |       |    |                          |    (irrefutable pattern) |
@@ -3163,16 +3163,16 @@ according to the following rules:
    That is, constructors associated with newtype serve only to change
    the type of a value.
 
-#. Matching the pattern con pat\ :sub:`1`\  … pat\ :sub:`n` against a
+#. Matching the pattern con pat\ :sub:`1` … pat\ :sub:`n` against a
    value, where con is a constructor defined by data, depends on the
    value:
 
-   -  If the value is of the form con v\ :sub:`1`\  … v\ :sub:`n`,
+   -  If the value is of the form con v\ :sub:`1` … v\ :sub:`n`,
       sub-patterns are matched left-to-right against the components of
       the data value; if all matches succeed, the overall match
       succeeds; the first to fail or diverge causes the overall match to
       fail or diverge, respectively.
-   -  If the value is of the form con′ v\ :sub:`1`\  … v\ :sub:`m`,
+   -  If the value is of the form con′ v\ :sub:`1` … v\ :sub:`m`,
       where con is a different constructor to con′, the match fails.
    -  If the value is ⊥, the match diverges.
 
@@ -3230,7 +3230,7 @@ Here are some examples:
       +-------------------------------+
       | (\\ ~(x,y) -> 0) ⊥    ⇒    0  |
       +-------------------------------+
-      | (\\  (x,y) -> 0) ⊥    ⇒    ⊥  |
+      | (\ (x,y) -> 0) ⊥    ⇒    ⊥  |
       +-------------------------------+
 
    .. container:: tabular
@@ -3252,7 +3252,7 @@ Here are some examples:
    .. container:: tabular
 
       +---------------------------------------+
-      | (\\  (x:xs) -> x:x:xs) ⊥   ⇒   ⊥      |
+      | (\ (x:xs) -> x:x:xs) ⊥   ⇒   ⊥      |
       +---------------------------------------+
       | (\\ ~(x:xs) -> x:x:xs) ⊥   ⇒   ⊥:⊥:⊥  |
       +---------------------------------------+
@@ -3273,9 +3273,9 @@ Here are some examples:
    .. container:: tabular
 
       +----------------------------------------+
-      | (\\  (N True) -> True) ⊥     ⇒    ⊥    |
+      | (\ (N True) -> True) ⊥     ⇒    ⊥    |
       +----------------------------------------+
-      | (\\  (D True) -> True) ⊥     ⇒    ⊥    |
+      | (\ (D True) -> True) ⊥     ⇒    ⊥    |
       +----------------------------------------+
       | (\\ ~(D True) -> True) ⊥     ⇒    True |
       +----------------------------------------+
@@ -3334,30 +3334,30 @@ code.
                |      | where v is a new variable                                    |
                +------+--------------------------------------------------------------+
                | (b)  | case  v of {  p                                              |
-               |      | :sub:`1`\                                                    |
-               |      |   match\ :sub:`1`\ ;  … ; p\ :sub:`n`\   match\ :sub:`n`\  } |
+               |      | :sub:`1`                                                   |
+               |      |   match\ :sub:`1`\ ;  … ; p\ :sub:`n`  match\ :sub:`n` } |
                +------+--------------------------------------------------------------+
-               |      | =  case v of { p\ :sub:`1`\   match\ :sub:`1`\  ;            |
+               |      | =  case v of { p\ :sub:`1`  match\ :sub:`1` ;            |
                +------+--------------------------------------------------------------+
                |      |                 \_  -> … case v of {                         |
                +------+--------------------------------------------------------------+
                |      |                                                              |
-               |      |                           p\ :sub:`n`\   match\ :sub:`n`\  ; |
+               |      |                           p\ :sub:`n`  match\ :sub:`n` ; |
                +------+--------------------------------------------------------------+
                |      |                            \_  -> error "No match" }…}       |
                +------+--------------------------------------------------------------+
                |      |  where each match\ :sub:`i` has the form:                    |
                +------+--------------------------------------------------------------+
                |      |   \| gs\ :sub:`i,1`                                          |
-               |      |  -> e\ :sub:`i,1`\  ; … ; \| gs\ :sub:                       |
-               |      | `i,m\ i`\  -> e\ :sub:`i,m\ i`\  where { decls\ :sub:`i`\  } |
+               |      |  -> e\ :sub:`i,1` ; … ; \| gs\ :sub:                       |
+               |      | `i,m\ i` -> e\ :sub:`i,m\ i` where { decls\ :sub:`i` } |
                +------+--------------------------------------------------------------+
                |      |                                                              |
                +------+--------------------------------------------------------------+
-               | (c)  | case v of { p \| gs\ :sub:`1`\  -> e\ :sub:`1`\  ; …         |
+               | (c)  | case v of { p \| gs\ :sub:`1` -> e\ :sub:`1` ; …         |
                +------+--------------------------------------------------------------+
                |      |                                                              |
-               |      |           \| gs\ :sub:`n`\  -> e\ :sub:`n`\  where { decls } |
+               |      |           \| gs\ :sub:`n` -> e\ :sub:`n` where { decls } |
                +------+--------------------------------------------------------------+
                |      |             \_     -> e′ }                                   |
                +------+--------------------------------------------------------------+
@@ -3369,12 +3369,12 @@ code.
                +------+--------------------------------------------------------------+
                |      |           case () of {                                       |
                +------+--------------------------------------------------------------+
-               |      |             () \| gs\ :sub:`1`\  -> e\ :sub:`1`\ ;           |
+               |      |             () \| gs\ :sub:`1` -> e\ :sub:`1`\ ;           |
                +------+--------------------------------------------------------------+
                |      |             \_ -> … case () of {                             |
                +------+--------------------------------------------------------------+
                |      |                                                              |
-               |      |                       () \| gs\ :sub:`n`\  -> e\ :sub:`n`\ ; |
+               |      |                       () \| gs\ :sub:`n` -> e\ :sub:`n`\ ; |
                +------+--------------------------------------------------------------+
                |      |                        \_  -> y } … }                        |
                +------+--------------------------------------------------------------+
@@ -3387,7 +3387,7 @@ code.
                | (d)  | case v of { ~p -> e; \_ -> e′ }                              |
                +------+--------------------------------------------------------------+
                |      | = (\\x\ :sub:`1` … x\ :sub:`n` -> e ) (case v of { p->       |
-               |      | x\ :sub:`1`\  })… (case v of { p -> x\ :sub:`n`\ })          |
+               |      | x\ :sub:`1` })… (case v of { p -> x\ :sub:`n`\ })          |
                +------+--------------------------------------------------------------+
                |      | where x\ :sub:`1`\ ,…,x\ :sub:`n` are all the variables in p |
                +------+--------------------------------------------------------------+
@@ -3417,15 +3417,15 @@ code.
             .. container:: tabular
 
                +------+--------------------------------------------------------------+
-               | (g)  | case v of { K p\ :sub:`1`\ …p\ :sub:`n`\  -> e; \_ -> e′ }   |
+               | (g)  | case v of { K p\ :sub:`1`\ …p\ :sub:`n` -> e; \_ -> e′ }   |
                +------+--------------------------------------------------------------+
                |      | = case v of {                                                |
                +------+--------------------------------------------------------------+
                |      |                                                              |
-               |      |     K x\ :sub:`1`\ …x\ :sub:`n`\  -> case x\ :sub:`1`\  of { |
+               |      |     K x\ :sub:`1`\ …x\ :sub:`n` -> case x\ :sub:`1` of { |
                +------+--------------------------------------------------------------+
-               |      |                     p\ :sub:`1`\  ->                         |
-               |      |  … case x\ :sub:`n`\  of { p\ :sub:`n`\  -> e ; \_ -> e′ } … |
+               |      |                     p\ :sub:`1` ->                         |
+               |      |  … case x\ :sub:`n` of { p\ :sub:`n` -> e ; \_ -> e′ } … |
                +------+--------------------------------------------------------------+
                |      |                     \_  -> e′ }                              |
                +------+--------------------------------------------------------------+
@@ -3491,7 +3491,7 @@ code.
                +------+--------------------------------------------------------------+
                |      | = case  v  of {                                              |
                +------+--------------------------------------------------------------+
-               |      |      K p\ :sub:`1`\  … p\ :sub:`n`  ->  e ; \_ ->  e′ }      |
+               |      |      K p\ :sub:`1` … p\ :sub:`n`  ->  e ; \_ ->  e′ }      |
                +------+--------------------------------------------------------------+
                |      | where p\ :sub:`i` is p if f labels the ith component of K,   |
                |      | \_ otherwise                                                 |
@@ -3502,26 +3502,26 @@ code.
                +------+--------------------------------------------------------------+
                |      |      K \_… \_ ->  e ; \_ ->  e′ }                            |
                +------+--------------------------------------------------------------+
-               | (p)  | case (K′ e\ :sub:`1`\  … e\ :sub:`m`\                        |
-               |      | ) of { K x\ :sub:`1`\  … x\ :sub:`n`\  -> e; \_ -> e′ } = e′ |
+               | (p)  | case (K′ e\ :sub:`1` … e\ :sub:`m`                       |
+               |      | ) of { K x\ :sub:`1` … x\ :sub:`n` -> e; \_ -> e′ } = e′ |
                +------+--------------------------------------------------------------+
                |      | where K and K′ are distinct data constructors of arity n and |
                |      | m, respectively                                              |
                +------+--------------------------------------------------------------+
                |      |                                                              |
                +------+--------------------------------------------------------------+
-               | (q)  | case (K e\ :sub:`1`\  … e\ :sub:                             |
-               |      | `n`\ ) of { K x\ :sub:`1`\  … x\ :sub:`n`\  -> e; \_ -> e′ } |
+               | (q)  | case (K e\ :sub:`1` … e\ :sub:                             |
+               |      | `n`\ ) of { K x\ :sub:`1` … x\ :sub:`n` -> e; \_ -> e′ } |
                +------+--------------------------------------------------------------+
-               |      | = (\\x\                                                      |
-               |      | :sub:`1`\  … x\ :sub:`n`\  -> e) e\ :sub:`1`\  … e\ :sub:`n` |
+               |      | = (\\x                                                     |
+               |      | :sub:`1` … x\ :sub:`n` -> e) e\ :sub:`1` … e\ :sub:`n` |
                +------+--------------------------------------------------------------+
                |      | where K is a data constructor of arity n                     |
                +------+--------------------------------------------------------------+
                |      |                                                              |
                +------+--------------------------------------------------------------+
                | (r)  | cas                                                          |
-               |      | e ⊥ of { K x\ :sub:`1`\  … x\ :sub:`n`\  -> e; \_ -> e′ } =  |
+               |      | e ⊥ of { K x\ :sub:`1` … x\ :sub:`n` -> e; \_ -> e′ } =  |
                |      | ⊥                                                            |
                +------+--------------------------------------------------------------+
                |      | where K is a data constructor of arity n                     |
@@ -3546,23 +3546,23 @@ code.
             .. container:: tabular
 
                ==== ===================================================================
-               (s)  case () of { () \| g\ :sub:`1`\ , …, g\ :sub:`n`\  -> e; \_ -> e′ }
-               \    = case () of {
-               \        () \| g\ :sub:`1`\  -> … case () of {
-               \                       () \| g\ :sub:`n`\  -> e;
-               \                       \_ -> e′ } …
-               \        \_ -> e′ }
-               \    where y is a new variable
+               (s)  case () of { () \| g\ :sub:`1`\ , …, g\ :sub:`n` -> e; \_ -> e′ }
+                  = case () of {
+                      () \| g\ :sub:`1` -> … case () of {
+                                     () \| g\ :sub:`n` -> e;
+                                     \_ -> e′ } …
+                      \_ -> e′ }
+                  where y is a new variable
                      
-               (t)  case () of { () \| p <- e\ :sub:`0`\  -> e; \_ -> e′ }
-               \    = case e\ :sub:`0`\  of { p -> e; \_ -> e′ }
+               (t)  case () of { () \| p <- e\ :sub:`0` -> e; \_ -> e′ }
+                  = case e\ :sub:`0` of { p -> e; \_ -> e′ }
                (u)  case () of { () \| let decls -> e; \_ -> e′ }
-               \    = let decls in e
+                  = let decls in e
                      
-               (v)  case () of { () \| e\ :sub:`0`\  -> e; \_ -> e′ }
-               \    = if e\ :sub:`0`\  then e else e′
+               (v)  case () of { () \| e\ :sub:`0` -> e; \_ -> e′ }
+                  = if e\ :sub:`0` then e else e′
                      
-               \    
+                  
                ==== ===================================================================
 
    .. container:: caption
@@ -3618,7 +3618,7 @@ Haskell declarations.
       +-----------+----+------------------------+------------------------+
       |           | \| | { topdecls }           |                        |
       +-----------+----+------------------------+------------------------+
-      | topdecls  | →  | topdecl\ :sub:`1`\  ;  |     (n ≥ 1)            |
+      | topdecls  | →  | topdecl\ :sub:`1` ;  |     (n ≥ 1)            |
       |           |    |  … ; topdecl\ :sub:`n` |                        |
       +-----------+----+------------------------+------------------------+
       | topdecl   | →  | type simpletype = type |                        |
@@ -3640,31 +3640,31 @@ Haskell declarations.
       |           |    | ls inst [where idecls] |                        |
       +-----------+----+------------------------+------------------------+
       |           | \| | defau                  |       (n ≥ 0)          |
-      |           |    | lt (type\ :sub:`1`\  , |                        |
+      |           |    | lt (type\ :sub:`1` , |                        |
       |           |    |  … , type\ :sub:`n`\ ) |                        |
       +-----------+----+------------------------+------------------------+
       |           | \| | foreign fdecl          |                        |
       +-----------+----+------------------------+------------------------+
       |           | \| | decl                   |                        |
       +-----------+----+------------------------+------------------------+
-      | decls     | →  | { decl\ :sub:`1`\  ;   |     (n ≥ 0)            |
-      |           |    | … ; decl\ :sub:`n`\  } |                        |
+      | decls     | →  | { decl\ :sub:`1` ;   |     (n ≥ 0)            |
+      |           |    | … ; decl\ :sub:`n` } |                        |
       +-----------+----+------------------------+------------------------+
       | decl      | →  | gendecl                |                        |
       +-----------+----+------------------------+------------------------+
       |           | \| | (funlhs \| pat) rhs    |                        |
       +-----------+----+------------------------+------------------------+
       | cdecls    | →  | {                      |     (n ≥ 0)            |
-      |           |    |  cdecl\ :sub:`1`\  ; … |                        |
-      |           |    |  ; cdecl\ :sub:`n`\  } |                        |
+      |           |    |  cdecl\ :sub:`1` ; … |                        |
+      |           |    |  ; cdecl\ :sub:`n` } |                        |
       +-----------+----+------------------------+------------------------+
       | cdecl     | →  | gendecl                |                        |
       +-----------+----+------------------------+------------------------+
       |           | \| | (funlhs \| var) rhs    |                        |
       +-----------+----+------------------------+------------------------+
       | idecls    | →  | {                      |     (n ≥ 0)            |
-      |           |    |  idecl\ :sub:`1`\  ; … |                        |
-      |           |    |  ; idecl\ :sub:`n`\  } |                        |
+      |           |    |  idecl\ :sub:`1` ; … |                        |
+      |           |    |  ; idecl\ :sub:`n` } |                        |
       +-----------+----+------------------------+------------------------+
       | idecl     | →  | (funlhs \| var) rhs    |                        |
       +-----------+----+------------------------+------------------------+
@@ -3680,10 +3680,10 @@ Haskell declarations.
       |           |    |                        |    (empty declaration) |
       +-----------+----+------------------------+------------------------+
       | ops       | →  | op\ :sub:`1            |     (n ≥ 1)            |
-      |           |    | `\  , … , op\ :sub:`n` |                        |
+      |           |    | ` , … , op\ :sub:`n` |                        |
       +-----------+----+------------------------+------------------------+
       | vars      | →  | var\ :sub:`1`          |     (n ≥ 1)            |
-      |           |    | \  , … , var\ :sub:`n` |                        |
+      |           |    |  , … , var\ :sub:`n` |                        |
       +-----------+----+------------------------+------------------------+
       | fixity    | →  | inf                    |                        |
       |           |    | ixl \| infixr \| infix |                        |
@@ -3813,8 +3813,8 @@ Section `4.6 <#xs4.6>`__.
       +---------+----+-------------------------+-------------------------+
       |         | \| | tyvar                   |                         |
       +---------+----+-------------------------+-------------------------+
-      |         | \| | ( type\ :sub:`1`\  ,    |     (tuple type, k ≥ 2) |
-      |         |    |  … , type\ :sub:`k`\  ) |                         |
+      |         | \| | ( type\ :sub:`1` ,    |     (tuple type, k ≥ 2) |
+      |         |    |  … , type\ :sub:`k` ) |                         |
       +---------+----+-------------------------+-------------------------+
       |         | \| | [ type ]                |     (list type)         |
       +---------+----+-------------------------+-------------------------+
@@ -3872,7 +3872,7 @@ The main forms of type expression are as follows:
 
 #. Type application. If t\ :sub:`1` is a type of kind κ\ :sub:`1` →
    κ\ :sub:`2` and t\ :sub:`2` is a type of kind κ\ :sub:`1`, then
-   t\ :sub:`1`\  t\ :sub:`2` is a type expression of kind κ\ :sub:`2`.
+   t\ :sub:`1` t\ :sub:`2` is a type expression of kind κ\ :sub:`2`.
 
 #. A parenthesized type, having form (t), is identical to the type t.
 
@@ -3887,13 +3887,13 @@ classes.
 Special syntax is provided to allow certain type expressions to be
 written in a more traditional style:
 
-#. A function type has the form t\ :sub:`1`\  -> t\ :sub:`2`, which is
-   equivalent to the type (->) t\ :sub:`1`\  t\ :sub:`2`. Function
+#. A function type has the form t\ :sub:`1` -> t\ :sub:`2`, which is
+   equivalent to the type (->) t\ :sub:`1` t\ :sub:`2`. Function
    arrows associate to the right. For example, Int -> Int -> Float means
    Int -> (Int -> Float).
 #. A tuple type has the form (t\ :sub:`1`\ , … , t\ :sub:`k`\ ) where k
    ≥ 2, which is equivalent to the type
-   (,…,) t\ :sub:`1`\  … t\ :sub:`k` where there are k−1 commas between
+   (,…,) t\ :sub:`1` … t\ :sub:`k` where there are k−1 commas between
    the parenthesis. It denotes the type of k-tuples with the first
    component of type t\ :sub:`1`, the second component of type
    t\ :sub:`2`, and so on (see
@@ -3917,9 +3917,9 @@ is the same as the equivalent user-defined algebraic data types.
 
 Notice that expressions and types have a consistent syntax. If
 t\ :sub:`i` is the type of expression or pattern e\ :sub:`i`, then the
-expressions (\\ e\ :sub:`1`\  -> e\ :sub:`2`\ ), [e\ :sub:`1`\ ], and
+expressions (\\ e\ :sub:`1` -> e\ :sub:`2`\ ), [e\ :sub:`1`\ ], and
 (e\ :sub:`1`\ ,e\ :sub:`2`\ ) have the types
-(t\ :sub:`1`\  -> t\ :sub:`2`\ ), [t\ :sub:`1`\ ], and
+(t\ :sub:`1` -> t\ :sub:`2`\ ), [t\ :sub:`1`\ ], and
 (t\ :sub:`1`\ ,t\ :sub:`2`\ ), respectively.
 
 With one exception (that of the distinguished type variable in a class
@@ -3946,12 +3946,12 @@ the scope of the ∀ extends as far to the right as possible; for example,
       | context  | →  | class                              |              |
       +----------+----+------------------------------------+--------------+
       |          | \| | ( class\ :s                        |     (n ≥ 0)  |
-      |          |    | ub:`1`\  , … , class\ :sub:`n`\  ) |              |
+      |          |    | ub:`1` , … , class\ :sub:`n` ) |              |
       +----------+----+------------------------------------+--------------+
       | class    | →  | qtycls tyvar                       |              |
       +----------+----+------------------------------------+--------------+
       |          | \| | qtycls ( tyvar atype               |     (n ≥ 1)  |
-      |          |    | \ :sub:`1`\  … atype\ :sub:`n`\  ) |              |
+      |          |    | \ :sub:`1` … atype\ :sub:`n` ) |              |
       +----------+----+------------------------------------+--------------+
       | qtycls   | →  | [ modid . ] tycls                  |              |
       +----------+----+------------------------------------+--------------+
@@ -3964,7 +3964,7 @@ A class assertion has form qtycls tyvar, and indicates the membership of
 the type tyvar in the class qtycls. A class identifier begins with an
 uppercase letter. A context consists of zero or more class assertions,
 and has the general form
-( C\ :sub:`1`\  u\ :sub:`1`\ , …, C\ :sub:`n`\  u\ :sub:`n`\  ) where
+( C\ :sub:`1` u\ :sub:`1`\ , …, C\ :sub:`n` u\ :sub:`n` ) where
 C\ :sub:`1`\ , …, C\ :sub:`n` are class identifiers, and each of the
 u\ :sub:`1`\ , …, u\ :sub:`n` is either a type variable, or the
 application of type variable to one or more types. The outer parentheses
@@ -4022,8 +4022,8 @@ Section `4.3.4 <#xs4.3.4>`__). Therefore, explicit typings
 Sections `3.16 <#xs3.16>`__
 and `4.4.1 <#xs4.4.1>`__).
 
-The type ∀ u. cx\ :sub:`1`\   ⇒  t\ :sub:`1` is more general than the
-type ∀ w. cx\ :sub:`2`\   ⇒  t\ :sub:`2` if and only if there is a
+The type ∀ u. cx\ :sub:`1`  ⇒  t\ :sub:`1` is more general than the
+type ∀ w. cx\ :sub:`2`  ⇒  t\ :sub:`2` if and only if there is a
 substitution S whose domain is u such that:
 
 -  t\ :sub:`2` is identical to S(t\ :sub:`1`\ ).
@@ -4073,14 +4073,14 @@ module.
       |             |    | = constrs] [deriving] |                       |
       +-------------+----+-----------------------+-----------------------+
       | simpletype  | →  | tycon tyvar\ :sub:`1  |     (k ≥ 0)           |
-      |             |    | `\  … tyvar\ :sub:`k` |                       |
+      |             |    | ` … tyvar\ :sub:`k` |                       |
       +-------------+----+-----------------------+-----------------------+
       | constrs     | →  | c                     |     (n ≥ 1)           |
-      |             |    | onstr\ :sub:`1`\  \|  |                       |
+      |             |    | onstr\ :sub:`1` \|  |                       |
       |             |    | … \| constr\ :sub:`n` |                       |
       +-------------+----+-----------------------+-----------------------+
       | constr      | →  | con [                 |     (arity con  =     |
-      |             |    | !] atype\ :sub:`1`\   |  k, k ≥ 0)            |
+      |             |    | !] atype\ :sub:`1`  |  k, k ≥ 0)            |
       |             |    | … [!] atype\ :sub:`k` |                       |
       +-------------+----+-----------------------+-----------------------+
       |             | \| | (                     |     (infix conop)     |
@@ -4088,8 +4088,8 @@ module.
       |             |    | op (btype \| ! atype) |                       |
       +-------------+----+-----------------------+-----------------------+
       |             | \| | con { fielddecl       |     (n ≥ 0)           |
-      |             |    | \ :sub:`1`\  , … , fi |                       |
-      |             |    | elddecl\ :sub:`n`\  } |                       |
+      |             |    | \ :sub:`1` , … , fi |                       |
+      |             |    | elddecl\ :sub:`n` } |                       |
       +-------------+----+-----------------------+-----------------------+
       | fielddecl   | →  | vars                  |                       |
       |             |    |  :: (type \| ! atype) |                       |
@@ -4107,16 +4107,16 @@ constructor application has higher precedence than infix constructor
 application (thus a : Foo a parses as a : (Foo a)).
 
 An algebraic datatype declaration has the form: 
-data cx => T u\ :sub:`1`\  … u\ :sub:`k`\  = K\ :sub:`1`\  t\ :sub:`11`\  … t\ :sub:`1k\ 1`\  \| \ |⋅⋅⋅|\  \| K\ :sub:`n`\  t\ :sub:`n1`\  … t\ :sub:`nk\ n`
+data cx => T u\ :sub:`1` … u\ :sub:`k` = K\ :sub:`1` t\ :sub:`11` … t\ :sub:`1k\ 1` \| \ ⋅⋅⋅ \| K\ :sub:`n` t\ :sub:`n1` … t\ :sub:`nk\ n`
 where cx is a context. This declaration introduces a new type
 constructor T with zero or more constituent data constructors
 K\ :sub:`1`\ , …, K\ :sub:`n`. In this Report, the unqualified term
 “constructor” always means “data constructor”.
 
-The types of the data constructors are given by: K\ :sub:`i`\   ::
- ∀ u\ :sub:`1`\  … u\ :sub:`k`\ .  cx\ :sub:`i`\   ⇒  t\ :sub:`i1`\   →
- \ |image1|\   →  t\ :sub:`ik\ i`\   →
- (T u\ :sub:`1`\  … u\ :sub:`k`\ ) where cx\ :sub:`i` is the largest
+The types of the data constructors are given by: K\ :sub:`i`  ::
+ ∀ u\ :sub:`1` … u\ :sub:`k`\ .  cx\ :sub:`i`  ⇒  t\ :sub:`i1`  →
+ …  →  t\ :sub:`ik\ i`  →
+ (T u\ :sub:`1` … u\ :sub:`k`\ ) where cx\ :sub:`i` is the largest
 subset of cx that constrains only those type variables free in the types
 t\ :sub:`i1`\ , …, t\ :sub:`ik\ i`. The type variables u\ :sub:`1`
 through u\ :sub:`k` must be distinct and may appear in cx and the
@@ -4230,10 +4230,10 @@ argument types of a data declaration.
       .. container:: minipage
 
          Translation: A declaration of the form
-         data cx => T u\ :sub:`1`\  … u\ :sub:`k`\  = … \| K s\ :sub:`1`\  … s\ :sub:`n`\  \| …
+         data cx => T u\ :sub:`1` … u\ :sub:`k` = … \| K s\ :sub:`1` … s\ :sub:`n` \| …
          where each s\ :sub:`i` is either of the form !t\ :sub:`i` or
          t\ :sub:`i`, replaces every occurrence of K in an expression by
-         (\\ x\ :sub:`1`\  … x\ :sub:`n`\  -> ( ((K op\ :sub:`1`\  x\ :sub:`1`\ ) op\ :sub:`2`\  x\ :sub:`2`\ ) … ) op\ :sub:`n`\  x\ :sub:`n`\ )
+         (\\ x\ :sub:`1` … x\ :sub:`n` -> ( ((K op\ :sub:`1` x\ :sub:`1`\ ) op\ :sub:`2` x\ :sub:`2`\ ) … ) op\ :sub:`n` x\ :sub:`n`\ )
          where op\ :sub:`i` is the non-strict apply function $ if
          s\ :sub:`i` is of the form t\ :sub:`i`, and op\ :sub:`i` is the
          strict apply function $! (see
@@ -4252,13 +4252,13 @@ argument types of a data declaration.
 
       =========== = ========================================= ============
       topdecl     → type simpletype = type                    
-      simpletype  → tycon tyvar\ :sub:`1`\  … tyvar\ :sub:`k`     (k ≥ 0)
+      simpletype  → tycon tyvar\ :sub:`1` … tyvar\ :sub:`k`     (k ≥ 0)
       =========== = ========================================= ============
 
 A type synonym declaration introduces a new type that is equivalent to
-an old type. It has the form type T u\ :sub:`1`\  … u\ :sub:`k`\  = t
+an old type. It has the form type T u\ :sub:`1` … u\ :sub:`k` = t
 which introduces a new type constructor, T . The type
-(T t\ :sub:`1`\  …t\ :sub:`k`\ ) is equivalent to the type
+(T t\ :sub:`1` …t\ :sub:`k`\ ) is equivalent to the type
 t[t\ :sub:`1`\ ∕u\ :sub:`1`\ , …, t\ :sub:`k`\ ∕u\ :sub:`k`\ ]. The type
 variables u\ :sub:`1` through u\ :sub:`k` must be distinct and are
 scoped only over t; it is a static error for any other type variable to
@@ -4327,19 +4327,19 @@ declaration (Section `4.3.2 <#xs4.3.2>`__).
       |             | \| | con { var :: type }             |              |
       +-------------+----+---------------------------------+--------------+
       | simpletype  | →  | tycon tyva                      |     (k ≥ 0)  |
-      |             |    | r\ :sub:`1`\  … tyvar\ :sub:`k` |              |
+      |             |    | r\ :sub:`1` … tyvar\ :sub:`k` |              |
       +-------------+----+---------------------------------+--------------+
 
 A declaration of the form 
-newtype cx => T u\ :sub:`1`\  … u\ :sub:`k`\  = N t introduces a new
+newtype cx => T u\ :sub:`1` … u\ :sub:`k` = N t introduces a new
 type whose representation is the same as an existing type. The type
 (T u\ :sub:`1`\ … u\ :sub:`k`\ ) renames the datatype t. It differs from
 a type synonym in that it creates a distinct type that must be
 explicitly coerced to or from the original type. Also, unlike type
 synonyms, newtype may be used to define recursive types. The constructor
 N in an expression coerces a value from type t to type
-(T u\ :sub:`1`\  … u\ :sub:`k`\ ). Using N in a pattern coerces a value
-from type (T u\ :sub:`1`\  … u\ :sub:`k`\ ) to type t. These coercions
+(T u\ :sub:`1` … u\ :sub:`k`\ ). Using N in a pattern coerces a value
+from type (T u\ :sub:`1` … u\ :sub:`k`\ ) to type t. These coercions
 may be implemented without execution time overhead; newtype does not
 change the underlying representation of an object.
 
@@ -4420,13 +4420,13 @@ brings into scope both a constructor and a de-constructor:
       +--------------+----+--------------------------------+--------------+
       | scontext     | →  | simpleclass                    |              |
       +--------------+----+--------------------------------+--------------+
-      |              | \| | ( simpleclass\ :sub:`1`\  ,    |     (n ≥ 0)  |
-      |              |    |  … , simpleclass\ :sub:`n`\  ) |              |
+      |              | \| | ( simpleclass\ :sub:`1` ,    |     (n ≥ 0)  |
+      |              |    |  … , simpleclass\ :sub:`n` ) |              |
       +--------------+----+--------------------------------+--------------+
       | simpleclass  | →  | qtycls tyvar                   |              |
       +--------------+----+--------------------------------+--------------+
       | cdecls       | →  | { cdecl\ :sub:`                |     (n ≥ 0)  |
-      |              |    | 1`\  ; … ; cdecl\ :sub:`n`\  } |              |
+      |              |    | 1` ; … ; cdecl\ :sub:`n` } |              |
       +--------------+----+--------------------------------+--------------+
       | cdecl        | →  | gendecl                        |              |
       +--------------+----+--------------------------------+--------------+
@@ -4459,7 +4459,7 @@ declarations:
    scope extends outside the class declaration. The class methods of a
    class declaration are precisely the v\ :sub:`i` for which there is an
    explicit type signature
-   v\ :sub:`i`\  :: cx\ :sub:`i`\  => t\ :sub:`i` in cdecls. Class
+   v\ :sub:`i` :: cx\ :sub:`i` => t\ :sub:`i` in cdecls. Class
    methods share the top level namespace with variable bindings and
    field names; they must not conflict with other top level bindings in
    scope. That is, a class method can not have the same name as a top
@@ -4542,19 +4542,19 @@ explicitly with no where part.
       +----------+----+-------------------------+-------------------------+
       |          | \| | (                       |     (k ≥                |
       |          |    | gtycon tyvar\ :sub:`1`\ | 0, tyvars  distinct)    |
-      |          |    |   … tyvar\ :sub:`k`\  ) |                         |
+      |          |    |   … tyvar\ :sub:`k` ) |                         |
       +----------+----+-------------------------+-------------------------+
-      |          | \| | ( tyvar\ :sub:`1`\  ,   |     (k ≥                |
-      |          |    | … , tyvar\ :sub:`k`\  ) | 2, tyvars  distinct)    |
+      |          | \| | ( tyvar\ :sub:`1` ,   |     (k ≥                |
+      |          |    | … , tyvar\ :sub:`k` ) | 2, tyvars  distinct)    |
       +----------+----+-------------------------+-------------------------+
       |          | \| | [ tyvar ]               |                         |
       +----------+----+-------------------------+-------------------------+
-      |          | \| | ( tyvar\ :sub:`1`\      |     (tyvar              |
-      |          |    |  -> tyvar\ :sub:`2`\  ) | \ :sub:`1`\   and tyvar |
-      |          |    |                         | \ :sub:`2`\   distinct) |
+      |          | \| | ( tyvar\ :sub:`1`     |     (tyvar              |
+      |          |    |  -> tyvar\ :sub:`2` ) | \ :sub:`1`  and tyvar |
+      |          |    |                         | \ :sub:`2`  distinct) |
       +----------+----+-------------------------+-------------------------+
-      | idecls   | →  | { idecl\ :sub:`1`\  ;   |     (n ≥ 0)             |
-      |          |    | … ; idecl\ :sub:`n`\  } |                         |
+      | idecls   | →  | { idecl\ :sub:`1` ;   |     (n ≥ 0)             |
+      |          |    | … ; idecl\ :sub:`n` } |                         |
       +----------+----+-------------------------+-------------------------+
       | idecl    | →  | (funlhs \| var) rhs     |                         |
       +----------+----+-------------------------+-------------------------+
@@ -4564,8 +4564,8 @@ explicitly with no where part.
 An instance declaration introduces an instance of a class. Let
 class cx => C u where { cbody } be a class declaration. The general form
 of the corresponding instance declaration is:
-instance cx′ => C (T u\ :sub:`1`\  … u\ :sub:`k`\ ) where { d } where k
-≥ 0. The type (T u\ :sub:`1`\  … u\ :sub:`k`\ ) must take the form of a
+instance cx′ => C (T u\ :sub:`1` … u\ :sub:`k`\ ) where { d } where k
+≥ 0. The type (T u\ :sub:`1` … u\ :sub:`k`\ ) must take the form of a
 type constructor T applied to simple type variables
 u\ :sub:`1`\ , … u\ :sub:`k`; furthermore, T must not be a type synonym,
 and the u\ :sub:`i` must all be distinct.
@@ -4623,7 +4623,7 @@ restrictions:
    using kind inference as described in Section `4.6 <#xs4.6>`__.
 
 -  Assume that the type variables in the instance type
-   (T u\ :sub:`1`\  … u\ :sub:`k`\ ) satisfy the constraints in the
+   (T u\ :sub:`1` … u\ :sub:`k`\ ) satisfy the constraints in the
    instance context cx′. Under this assumption, the following two
    conditions must also be satisfied:
 
@@ -4727,7 +4727,7 @@ form: deriving ().
    .. container:: tabular
 
       +----------+---+---------------------------------------------------+--------------+
-      | topdecl  | → | default (type\ :sub:`1`\  , … , type\ :sub:`n`\ ) |     (n ≥ 0)  |
+      | topdecl  | → | default (type\ :sub:`1` , … , type\ :sub:`n`\ ) |     (n ≥ 0)  |
       +----------+---+---------------------------------------------------+--------------+
 
 A problem inherent with Haskell-style overloading is the possibility of
@@ -4797,7 +4797,7 @@ description of encodeFloat and exponent.)
 
 Ambiguities in the class Num are most common, so Haskell provides
 another way to resolve them—with a default declaration:
-default (t\ :sub:`1`\  , … , t\ :sub:`n`\ ) where n ≥ 0, and each
+default (t\ :sub:`1` , … , t\ :sub:`n`\ ) where n ≥ 0, and each
 t\ :sub:`i` must be a type for which Num t\ :sub:`i` holds. In
 situations where an ambiguous type is discovered, an ambiguous type
 variable, v, is defaultable if:
@@ -4849,13 +4849,13 @@ including the top level of a module.
 
       ======== = ================================== ============
       gendecl  → vars :: [context =>] type          
-      vars     → var\ :sub:`1`\  , …, var\ :sub:`n`     (n ≥ 1)
+      vars     → var\ :sub:`1` , …, var\ :sub:`n`     (n ≥ 1)
       ======== = ================================== ============
 
 A type signature specifies types for variables, possibly with respect to
 a context. A type signature has the form:
-v\ :sub:`1`\ , …, v\ :sub:`n`\  :: cx => t which is equivalent to
-asserting v\ :sub:`i`\  :: cx => t for each i from 1 to n. Each
+v\ :sub:`1`\ , …, v\ :sub:`n` :: cx => t which is equivalent to
+asserting v\ :sub:`i` :: cx => t for each i from 1 to n. Each
 v\ :sub:`i` must have a value binding in the same declaration list that
 contains the type signature; i.e. it is invalid to give a type signature
 for a variable bound in an outer scope. Moreover, it is invalid to give
@@ -4957,7 +4957,7 @@ general type signature, T a -> a.
       ======== = ================================= ============
       gendecl  → fixity [integer] ops              
       fixity   → infixl \| infixr \| infix         
-      ops      → op\ :sub:`1`\  , … , op\ :sub:`n`     (n ≥ 1)
+      ops      → op\ :sub:`1` , … , op\ :sub:`n`     (n ≥ 1)
       op       → varop \| conop                    
       ======== = ================================= ============
 
@@ -5108,13 +5108,13 @@ form of a function binding for variable x is:
    =================== ================================ ===================
    .. container:: td11 .. container:: td11              .. container:: td11
                                                         
-      x                   p\ :sub:`11`\  … p\ :sub:`1k`    match\ :sub:`1`
+      x                   p\ :sub:`11` … p\ :sub:`1k`    match\ :sub:`1`
    .. container:: td11                                  
                                                         
       …                                                 
    .. container:: td11 .. container:: td11              .. container:: td11
                                                         
-      x                   p\ :sub:`n1`\  … p\ :sub:`nk`    match\ :sub:`n`
+      x                   p\ :sub:`n1` … p\ :sub:`nk`    match\ :sub:`n`
    =================== ================================ ===================
 
 where each p\ :sub:`ij` is a pattern, and where each match\ :sub:`i` is
@@ -5125,7 +5125,7 @@ of the general form:
    +------------------------------------------------+
    | .. container:: td11                            |
    |                                                |
-   |    = e\ :sub:`i`\  where { decls\ :sub:`i`\  } |
+   |    = e\ :sub:`i` where { decls\ :sub:`i` } |
    +------------------------------------------------+
 
 or
@@ -5146,7 +5146,7 @@ or
                                                             
                              .. container:: multicolumn     
                                                             
-                                where { decls\ :sub:`i`\  } 
+                                where { decls\ :sub:`i` } 
    ====================== =================================
 
 and where n ≥ 1, 1 ≤ i ≤ n, m\ :sub:`i` ≥ 1. The former is treated as
@@ -5157,7 +5157,7 @@ shorthand for a particular case of the latter, namely:
    +--------------------------------------------------------+
    | .. container:: td11                                    |
    |                                                        |
-   |    \| True = e\ :sub:`i`\  where { decls\ :sub:`i`\  } |
+   |    \| True = e\ :sub:`i` where { decls\ :sub:`i` } |
    +--------------------------------------------------------+
 
 Note that all clauses defining a function must be contiguous, and the
@@ -5206,7 +5206,7 @@ not a valid pattern.
          Translation: The general binding form for functions is
          semantically equivalent to the equation (i.e. simple pattern
          binding):
-         x = \\ x\ :sub:`1`\  … x\ :sub:`k`\  -> case (x\ :sub:`1`\ , …, x\ :sub:`k`\ ) of
+         x = \\ x\ :sub:`1` … x\ :sub:`k` -> case (x\ :sub:`1`\ , …, x\ :sub:`k`\ ) of
 
          .. container:: array
 
@@ -5285,12 +5285,12 @@ binding is:
             | .. container:: td11 | .. container:: td11 | .. container:: td11    |
             |                     |                     |                        |
             |                     |                     |      () \| gs\ :su     |
-            |                     |                     | b:`1`\  -> e\ :sub:`1` |
+            |                     |                     | b:`1` -> e\ :sub:`1` |
             +---------------------+---------------------+------------------------+
             | .. container:: td11 | .. container:: td11 | .. container:: td11    |
             |                     |                     |                        |
             |                     |                     |         \| gs\ :su     |
-            |                     |                     | b:`2`\  -> e\ :sub:`2` |
+            |                     |                     | b:`2` -> e\ :sub:`2` |
             +---------------------+---------------------+------------------------+
             | .. container:: td11 | .. container:: td11 | .. container:: td11    |
             |                     |                     |                        |
@@ -5299,7 +5299,7 @@ binding is:
             | .. container:: td11 | .. container:: td11 | .. container:: td11    |
             |                     |                     |                        |
             |                     |                     |         \| gs\ :su     |
-            |                     |                     | b:`m`\  -> e\ :sub:`m` |
+            |                     |                     | b:`m` -> e\ :sub:`m` |
             +---------------------+---------------------+------------------------+
             | .. container:: td11 | .. container:: td11 | .. container:: td11    |
             |                     |                     |                        |
@@ -5827,9 +5827,9 @@ This is important because it ensures that each constructor and class are
 used consistently with the same kind whenever they are in scope.
 
 
-.. |⋅⋅⋅| image:: haskell0x.png
+.. |⋅⋅⋅| image:: https://www.haskell.org/onlinereport/haskell2010/haskell0x.png
    :class: cdots
-.. |image1| image:: haskell1x.png
+.. |image1| image:: https://www.haskell.org/onlinereport/haskell2010/haskell1x.png
    :class: cdots
 
 .. _xs5:
@@ -5937,14 +5937,14 @@ Chapter `4 <#xs4>`__).
 
       ========= == =========================================== ============
       module    →  module modid [exports] where body           
-      \         \| body                                        
+              \| body                                        
       body      →  { impdecls ; topdecls }                     
-      \         \| { impdecls }                                
-      \         \| { topdecls }                                
+              \| { impdecls }                                
+              \| { topdecls }                                
                                                                
-      \                                                        
-      impdecls  →  impdecl\ :sub:`1`\  ; … ; impdecl\ :sub:`n`     (n ≥ 1)
-      topdecls  →  topdecl\ :sub:`1`\  ; … ; topdecl\ :sub:`n`     (n ≥ 1)
+                                                             
+      impdecls  →  impdecl\ :sub:`1` ; … ; impdecl\ :sub:`n`     (n ≥ 1)
+      topdecls  →  topdecl\ :sub:`1` ; … ; topdecl\ :sub:`n`     (n ≥ 1)
       ========= == =========================================== ============
 
 A module begins with a header: the keyword module, the module name, and
@@ -5971,8 +5971,8 @@ module.
    .. container:: tabular
 
       +----------+----+------------------------------------+--------------+
-      | exports  | →  | ( export\ :sub:`1`\                |     (n ≥ 0)  |
-      |          |    |   , … , export\ :sub:`n`\  [ , ] ) |              |
+      | exports  | →  | ( export\ :sub:`1`               |     (n ≥ 0)  |
+      |          |    |   , … , export\ :sub:`n` [ , ] ) |              |
       +----------+----+------------------------------------+--------------+
       |          |    |                                    |              |
       +----------+----+------------------------------------+--------------+
@@ -5981,10 +5981,10 @@ module.
       | export   | →  | qvar                               |              |
       +----------+----+------------------------------------+--------------+
       |          | \| | qtycon [(..) \| ( cname\ :su       |     (n ≥ 0)  |
-      |          |    | b:`1`\  , … , cname\ :sub:`n`\  )] |              |
+      |          |    | b:`1` , … , cname\ :sub:`n` )] |              |
       +----------+----+------------------------------------+--------------+
       |          | \| | qtycls [(..) \| ( var\ :           |     (n ≥ 0)  |
-      |          |    | sub:`1`\  , … , var\ :sub:`n`\  )] |              |
+      |          |    | sub:`1` , … , var\ :sub:`n` )] |              |
       +----------+----+------------------------------------+--------------+
       |          | \| | module modid                       |              |
       +----------+----+------------------------------------+--------------+
@@ -6142,22 +6142,22 @@ different entities).
       |          | \| |                         |     (empty declaration) |
       +----------+----+-------------------------+-------------------------+
       | impspec  | →  | ( impor                 |     (n ≥ 0)             |
-      |          |    | t\ :sub:`1`\  , … , imp |                         |
-      |          |    | ort\ :sub:`n`\  [ , ] ) |                         |
+      |          |    | t\ :sub:`1` , … , imp |                         |
+      |          |    | ort\ :sub:`n` [ , ] ) |                         |
       +----------+----+-------------------------+-------------------------+
       |          | \| | hiding ( impor          |     (n ≥ 0)             |
-      |          |    | t\ :sub:`1`\  , … , imp |                         |
-      |          |    | ort\ :sub:`n`\  [ , ] ) |                         |
+      |          |    | t\ :sub:`1` , … , imp |                         |
+      |          |    | ort\ :sub:`n` [ , ] ) |                         |
       +----------+----+-------------------------+-------------------------+
       | import   | →  | var                     |                         |
       +----------+----+-------------------------+-------------------------+
       |          | \| | tycon [ (..) \|         |     (n ≥ 0)             |
-      |          |    | ( cname\ :sub:`1`\  , … |                         |
-      |          |    |  , cname\ :sub:`n`\  )] |                         |
+      |          |    | ( cname\ :sub:`1` , … |                         |
+      |          |    |  , cname\ :sub:`n` )] |                         |
       +----------+----+-------------------------+-------------------------+
       |          | \| | tycls [(..)             |     (n ≥ 0)             |
-      |          |    |  \| ( var\ :sub:`1`\  , |                         |
-      |          |    |  … , var\ :sub:`n`\  )] |                         |
+      |          |    |  \| ( var\ :sub:`1` , |                         |
+      |          |    |  … , var\ :sub:`n` )] |                         |
       +----------+----+-------------------------+-------------------------+
       | cname    | →  | var \| con              |                         |
       +----------+----+-------------------------+-------------------------+
@@ -6199,7 +6199,7 @@ following three ways:
    imported.
 
 #. Entities can be excluded by using the form
-   hiding(import\ :sub:`1`\  , … , import\ :sub:`n` ), which specifies
+   hiding(import\ :sub:`1` , … , import\ :sub:`n` ), which specifies
    that all entities exported by the named module should be imported
    except for those named in the list. Data constructors may be named
    directly in hiding lists without being prefixed by the associated
@@ -6338,7 +6338,7 @@ import statement:
       import A as B(x)              x, B.x
       import qualified A as B       B.x, B.y
       --------------                --------------
-      \                             
+                                  
       ============================= ========================
 
 In all cases, all instance declarations in scope in module A are
@@ -6982,7 +6982,10 @@ classes.
 
 .. container:: figure
 
-   | |PIC|
+   .. |PIC| image:: https://www.haskell.org/onlinereport/haskell2010/haskell2x.png
+      :class: graphics
+      :width: 3.98152in
+      :height: 5.17208in
 
    .. container:: caption
 
@@ -7228,20 +7231,20 @@ following meaning:
 
 -  The sequence enumFrom e\ :sub:`1` is the list
    [e\ :sub:`1`\ ,e\ :sub:`1` + 1,e\ :sub:`1` + 2,…].
--  The sequence enumFromThen e\ :sub:`1`\  e\ :sub:`2` is the list
+-  The sequence enumFromThen e\ :sub:`1` e\ :sub:`2` is the list
    [e\ :sub:`1`\ ,e\ :sub:`1` + i,e\ :sub:`1` + 2i,…], where the
    increment, i, is e\ :sub:`2` − e\ :sub:`1`. The increment may be zero
    or negative. If the increment is zero, all the list elements are the
    same.
--  The sequence enumFromTo e\ :sub:`1`\  e\ :sub:`3` is the list
+-  The sequence enumFromTo e\ :sub:`1` e\ :sub:`3` is the list
    [e\ :sub:`1`\ ,e\ :sub:`1` + 1,e\ :sub:`1` + 2,…e\ :sub:`3`\ ]. The
-   list is empty if e\ :sub:`1`\   >  e\ :sub:`3`.
--  The sequence enumFromThenTo e\ :sub:`1`\  e\ :sub:`2`\  e\ :sub:`3`
+   list is empty if e\ :sub:`1`  >  e\ :sub:`3`.
+-  The sequence enumFromThenTo e\ :sub:`1` e\ :sub:`2` e\ :sub:`3`
    is the list [e\ :sub:`1`\ ,e\ :sub:`1` + i,e\ :sub:`1` +
    2i,…e\ :sub:`3`\ ], where the increment, i, is e\ :sub:`2` −
    e\ :sub:`1`. If the increment is positive or zero, the list
    terminates when the next element would be greater than e\ :sub:`3`;
-   the list is empty if e\ :sub:`1`\   >  e\ :sub:`3`. If the increment
+   the list is empty if e\ :sub:`1`  >  e\ :sub:`3`. If the increment
    is negative, the list terminates when the next element would be less
    than e\ :sub:`3`; the list is empty if e1  <  e\ :sub:`3`.
 
@@ -7418,7 +7421,7 @@ Prelude class RealFloat.
 
 The standard numeric types are listed in Table `6.1 <#xs121>`__.
 The finite-precision integer type Int covers at least the range [  −
- 2\ :sup:`29`\ , 2\ :sup:`29`\   −  1]. As Int is an instance of the
+ 2\ :sup:`29`\ , 2\ :sup:`29`  −  1]. As Int is an instance of the
 Bounded class, maxBound and minBound can be used to determine the exact
 Int range defined by an implementation. Float is implementation-defined;
 it is desirable that this type be at least equal in range and precision
@@ -7780,10 +7783,7 @@ Also available are the following coercion functions:
       realToFrac   :: (Real a, Fractional b) => a -> b
 
 
-.. |PIC| image:: haskell2x.png
-   :class: graphics
-   :width: 3.98152in
-   :height: 5.17208in
+
 
 .. _xs7:
 
@@ -8222,7 +8222,7 @@ The syntax of foreign declarations is as follows:
       |           | \| | export callco          |     (expose variable)  |
       |           |    | nv expent var :: ftype |                        |
       +-----------+----+------------------------+------------------------+
-      | callconv  | →  | ccall \                |                        |
+      | callconv  | →  | ccall                |                        |
       |           |    | | stdcall \| cplusplus |   (calling convention) |
       +-----------+----+------------------------+------------------------+
       |           | \| | jvm \| dotnet          |                        |
@@ -8367,17 +8367,17 @@ Foreign types are produced according to the following grammar:
 
       ======= == ========================================== ==============
       ftype   →  frtype                                     
-      \       \| fatype  →  ftype                           
+            \| fatype  →  ftype                           
       frtype  →  fatype                                     
-      \       \| ()                                         
-      fatype  →  qtycon atype\ :sub:`1`\  … atype\ :sub:`k`     (k  ≥  0)
+            \| ()                                         
+      fatype  →  qtycon atype\ :sub:`1` … atype\ :sub:`k`     (k  ≥  0)
       ======= == ========================================== ==============
 
 A foreign type is the Haskell type of an external entity. Only a subset
 of Haskell’s types are permissible as foreign types, as only a
 restricted set of types can be canonically transferred between the
 Haskell context and an external context. A foreign type has the form
-at\ :sub:`1`\  -> \ |⋅⋅⋅|\  -> at\ :sub:`n`\  -> rt where n ≥ 0. It
+at\ :sub:`1` -> \ ⋅⋅⋅ -> at\ :sub:`n` -> rt where n ≥ 0. It
 implies that the arity of the external entity is n.
 
 External functions are strict in all arguments.
@@ -8389,12 +8389,12 @@ fatype must be marshallable foreign types; that is, either
 
 -  a type synonym that expands to a marshallable foreign type,
 
--  a type T t′\ :sub:`1`\  … t′\ :sub:`n` where T is defined by a
+-  a type T t′\ :sub:`1` … t′\ :sub:`n` where T is defined by a
    newtype declaration
 
    .. container:: quote
 
-      newtype T a\ :sub:`1`\  … a\ :sub:`n`\  = N t
+      newtype T a\ :sub:`1` … a\ :sub:`n` = N t
 
    and
 
@@ -8420,12 +8420,12 @@ must be a marshallable foreign result type; that is, either
 
 -  a type synonym that expands to marshallable foreign result type,
 
--  a type T t′\ :sub:`1`\  … t′\ :sub:`n` where T is defined by a
+-  a type T t′\ :sub:`1` … t′\ :sub:`n` where T is defined by a
    newtype declaration
 
    .. container:: quote
 
-      newtype T a\ :sub:`1`\  … a\ :sub:`n`\  = N t
+      newtype T a\ :sub:`1` … a\ :sub:`n` = N t
 
    and
 
@@ -9303,7 +9303,7 @@ counterparts of the Haskell functions freeStablePtr and
 freeHaskellFunPtr.
 
 
-.. |⋅⋅⋅| image:: haskell3x.png
+.. |⋅⋅⋅| image:: https://www.haskell.org/onlinereport/haskell2010/haskell3x.png
    :class: cdots
 
 .. _xs9:
@@ -11204,7 +11204,7 @@ These notational conventions are used for presenting syntax:
    | .. container:: td11              | .. container:: td11              |
    |                                  |                                  |
    |                                  |    choice                        |
-   | pat\ :sub:`1`\  \| pat\ :sub:`2` |                                  |
+   | pat\ :sub:`1` \| pat\ :sub:`2` |                                  |
    +----------------------------------+----------------------------------+
    | .. container:: td11              | .. container:: td11              |
    |                                  |                                  |
@@ -11229,7 +11229,7 @@ BNF-like syntax is used throughout, with productions having the form:
    .. container:: tabular
 
       ======== = ========================================================
-      nonterm  → alt\ :sub:`1`\  \| alt\ :sub:`2`\  \| … \| alt\ :sub:`n`
+      nonterm  → alt\ :sub:`1` \| alt\ :sub:`2` \| … \| alt\ :sub:`n`
       ======== = ========================================================
 
 In both the lexical and the context-free syntax, there are some
@@ -11285,7 +11285,7 @@ extend to the right as far as possible.
       +-------------+----+-------------------------------------------------+
       | uniWhite    | →  | any Unicode character defined as whitespace     |
       +-------------+----+-------------------------------------------------+
-      | comment     | →  | dashes [ any\ :sub:`⟨symbol⟩`\  {any} ] newline |
+      | comment     | →  | dashes [ any\ :sub:`⟨symbol⟩` {any} ] newline |
       +-------------+----+-------------------------------------------------+
       | dashes      | →  | -- {-}                                          |
       +-------------+----+-------------------------------------------------+
@@ -11302,7 +11302,7 @@ extend to the right as far as possible.
       +-------------+----+-------------------------------------------------+
       | any         | →  | graphic \| space \| tab                         |
       +-------------+----+-------------------------------------------------+
-      | graphic     | →  | small \                                         |
+      | graphic     | →  | small                                         |
       |             |    | | large \| symbol \| digit \| special \| " \| ' |
       +-------------+----+-------------------------------------------------+
       | small       | →  | ascSmall \| uniSmall \| \_                      |
@@ -11345,7 +11345,7 @@ extend to the right as far as possible.
       +--------------+-------+---------------------+---------------------+
       | varid        | →     | (small              |                     |
       |              |       |  {small \| large    |                     |
-      |              |       |  \| digit \| ' })\  |                     |
+      |              |       |  \| digit \| ' }) |                     |
       |              |       | :sub:`⟨reservedid⟩` |                     |
       +--------------+-------+---------------------+---------------------+
       | conid        | →     | large {small \| la  |                     |
@@ -11368,11 +11368,11 @@ extend to the right as far as possible.
       |              |       | type \| where \| \_ |                     |
       +--------------+-------+---------------------+---------------------+
       | varsym       | →     | ( symbo             |                     |
-      |              |       | l\ :sub:`⟨:⟩`\  {sy |                     |
+      |              |       | l\ :sub:`⟨:⟩` {sy |                     |
       |              |       | mbol} )\ :sub:`⟨res |                     |
       |              |       | ervedop \| dashes⟩` |                     |
       +--------------+-------+---------------------+---------------------+
-      | consym       | →     | ( : {symbol})\      |                     |
+      | consym       | →     | ( : {symbol})     |                     |
       |              |       | :sub:`⟨reservedop⟩` |                     |
       +--------------+-------+---------------------+---------------------+
       | reservedop   | →     | ..                  |                     |
@@ -11428,14 +11428,14 @@ extend to the right as far as possible.
       | exponent     | →     | (e \|               |                     |
       |              |       | E) [+ \| -] decimal |                     |
       +--------------+-------+---------------------+---------------------+
-      | char         | →     | ' (graphic\         |                     |
-      |              |       |  :sub:`⟨' \| \\⟩`\  |                     |
+      | char         | →     | ' (graphic        |                     |
+      |              |       |  :sub:`⟨' \| \\⟩` |                     |
       |              |       |  \| space \| escape |                     |
       |              |       | \ :sub:`⟨\\&⟩`\ ) ' |                     |
       +--------------+-------+---------------------+---------------------+
       | string       | →     | "                   |                     |
       |              |       | {graphic\ :sub:`⟨"  |                     |
-      |              |       | \| \\⟩`\  \| space  |                     |
+      |              |       | \| \\⟩` \| space  |                     |
       |              |       | \| escape \| gap} " |                     |
       +--------------+-------+---------------------+---------------------+
       | escape       | →     | \\ (                |                     |
@@ -11513,7 +11513,7 @@ is:
          .. container:: verbatim
             :name: verbatim-342
 
-              f = ("Hello \\  
+              f = ("Hello \ 
                       \\Bill", "Jake")
 
       There is no < n > inserted before the \\Bill, because it is not
@@ -11846,22 +11846,22 @@ these two styles in the same file.
       |              | \| | { topdecls }          |                       |
       +--------------+----+-----------------------+-----------------------+
       | impdecls     | →  | i                     |     (n ≥ 1)           |
-      |              |    | mpdecl\ :sub:`1`\  ;  |                       |
+      |              |    | mpdecl\ :sub:`1` ;  |                       |
       |              |    | … ; impdecl\ :sub:`n` |                       |
       +--------------+----+-----------------------+-----------------------+
       | exports      | →  | ( export\ :           |     (n ≥ 0)           |
-      |              |    | sub:`1`\  , … , expor |                       |
-      |              |    | t\ :sub:`n`\  [ , ] ) |                       |
+      |              |    | sub:`1` , … , expor |                       |
+      |              |    | t\ :sub:`n` [ , ] ) |                       |
       +--------------+----+-----------------------+-----------------------+
       | export       | →  | qvar                  |                       |
       +--------------+----+-----------------------+-----------------------+
       |              | \| | qtycon [(..) \| ( cn  |     (n ≥ 0)           |
-      |              |    | ame\ :sub:`1`\  , … , |                       |
-      |              |    |  cname\ :sub:`n`\  )] |                       |
+      |              |    | ame\ :sub:`1` , … , |                       |
+      |              |    |  cname\ :sub:`n` )] |                       |
       +--------------+----+-----------------------+-----------------------+
       |              | \| | qtycls [(..) \| (     |     (n ≥ 0)           |
-      |              |    | qvar\ :sub:`1`\  , …  |                       |
-      |              |    | , qvar\ :sub:`n`\  )] |                       |
+      |              |    | qvar\ :sub:`1` , …  |                       |
+      |              |    | , qvar\ :sub:`n` )] |                       |
       +--------------+----+-----------------------+-----------------------+
       |              | \| | module modid          |                       |
       +--------------+----+-----------------------+-----------------------+
@@ -11873,27 +11873,27 @@ these two styles in the same file.
       |              |    |                       |   (empty declaration) |
       +--------------+----+-----------------------+-----------------------+
       | impspec      | →  | ( import\ :           |     (n ≥ 0)           |
-      |              |    | sub:`1`\  , … , impor |                       |
-      |              |    | t\ :sub:`n`\  [ , ] ) |                       |
+      |              |    | sub:`1` , … , impor |                       |
+      |              |    | t\ :sub:`n` [ , ] ) |                       |
       +--------------+----+-----------------------+-----------------------+
       |              | \| | hiding ( import\ :    |     (n ≥ 0)           |
-      |              |    | sub:`1`\  , … , impor |                       |
-      |              |    | t\ :sub:`n`\  [ , ] ) |                       |
+      |              |    | sub:`1` , … , impor |                       |
+      |              |    | t\ :sub:`n` [ , ] ) |                       |
       +--------------+----+-----------------------+-----------------------+
       | import       | →  | var                   |                       |
       +--------------+----+-----------------------+-----------------------+
       |              | \| | tycon [ (..) \| ( cn  |     (n ≥ 0)           |
-      |              |    | ame\ :sub:`1`\  , … , |                       |
-      |              |    |  cname\ :sub:`n`\  )] |                       |
+      |              |    | ame\ :sub:`1` , … , |                       |
+      |              |    |  cname\ :sub:`n` )] |                       |
       +--------------+----+-----------------------+-----------------------+
       |              | \| | tycls [(..) \|        |     (n ≥ 0)           |
-      |              |    | ( var\ :sub:`1`\  , … |                       |
-      |              |    |  , var\ :sub:`n`\  )] |                       |
+      |              |    | ( var\ :sub:`1` , … |                       |
+      |              |    |  , var\ :sub:`n` )] |                       |
       +--------------+----+-----------------------+-----------------------+
       | cname        | →  | var \| con            |                       |
       +--------------+----+-----------------------+-----------------------+
       | topdecls     | →  | t                     |     (n ≥ 0)           |
-      |              |    | opdecl\ :sub:`1`\  ;  |                       |
+      |              |    | opdecl\ :sub:`1` ;  |                       |
       |              |    | … ; topdecl\ :sub:`n` |                       |
       +--------------+----+-----------------------+-----------------------+
       | topdecl      | →  | t                     |                       |
@@ -11916,7 +11916,7 @@ these two styles in the same file.
       |              |    | s inst [where idecls] |                       |
       +--------------+----+-----------------------+-----------------------+
       |              | \| | default               |     (n ≥ 0)           |
-      |              |    |  (type\ :sub:`1`\  ,  |                       |
+      |              |    |  (type\ :sub:`1` ,  |                       |
       |              |    | … , type\ :sub:`n`\ ) |                       |
       +--------------+----+-----------------------+-----------------------+
       |              | \| | foreign fdecl         |                       |
@@ -11924,24 +11924,24 @@ these two styles in the same file.
       |              | \| | decl                  |                       |
       +--------------+----+-----------------------+-----------------------+
       | decls        | →  | {                     |     (n ≥ 0)           |
-      |              |    |  decl\ :sub:`1`\  ; … |                       |
-      |              |    |  ; decl\ :sub:`n`\  } |                       |
+      |              |    |  decl\ :sub:`1` ; … |                       |
+      |              |    |  ; decl\ :sub:`n` } |                       |
       +--------------+----+-----------------------+-----------------------+
       | decl         | →  | gendecl               |                       |
       +--------------+----+-----------------------+-----------------------+
       |              | \| | (funlhs \| pat) rhs   |                       |
       +--------------+----+-----------------------+-----------------------+
       | cdecls       | →  | { c                   |     (n ≥ 0)           |
-      |              |    | decl\ :sub:`1`\  ; …  |                       |
-      |              |    | ; cdecl\ :sub:`n`\  } |                       |
+      |              |    | decl\ :sub:`1` ; …  |                       |
+      |              |    | ; cdecl\ :sub:`n` } |                       |
       +--------------+----+-----------------------+-----------------------+
       | cdecl        | →  | gendecl               |                       |
       +--------------+----+-----------------------+-----------------------+
       |              | \| | (funlhs \| var) rhs   |                       |
       +--------------+----+-----------------------+-----------------------+
       | idecls       | →  | { i                   |     (n ≥ 0)           |
-      |              |    | decl\ :sub:`1`\  ; …  |                       |
-      |              |    | ; idecl\ :sub:`n`\  } |                       |
+      |              |    | decl\ :sub:`1` ; …  |                       |
+      |              |    | ; idecl\ :sub:`n` } |                       |
       +--------------+----+-----------------------+-----------------------+
       | idecl        | →  | (funlhs \| var) rhs   |                       |
       +--------------+----+-----------------------+-----------------------+
@@ -11957,10 +11957,10 @@ these two styles in the same file.
       |              |    |                       |   (empty declaration) |
       +--------------+----+-----------------------+-----------------------+
       | ops          | →  | op\ :sub:`1`          |     (n ≥ 1)           |
-      |              |    | \  , … , op\ :sub:`n` |                       |
+      |              |    |  , … , op\ :sub:`n` |                       |
       +--------------+----+-----------------------+-----------------------+
       | vars         | →  | var\ :sub:`1`         |     (n ≥ 1)           |
-      |              |    | \  , …, var\ :sub:`n` |                       |
+      |              |    |  , …, var\ :sub:`n` |                       |
       +--------------+----+-----------------------+-----------------------+
       | fixity       | →  | infi                  |                       |
       |              |    | xl \| infixr \| infix |                       |
@@ -11975,8 +11975,8 @@ these two styles in the same file.
       |              | \| | tyvar                 |                       |
       +--------------+----+-----------------------+-----------------------+
       |              | \| | (                     |     (tuple type, k ≥  |
-      |              |    |  type\ :sub:`1`\  , … | 2)                    |
-      |              |    |  , type\ :sub:`k`\  ) |                       |
+      |              |    |  type\ :sub:`1` , … | 2)                    |
+      |              |    |  , type\ :sub:`k` ) |                       |
       +--------------+----+-----------------------+-----------------------+
       |              | \| | [ type ]              |     (list type)       |
       +--------------+----+-----------------------+-----------------------+
@@ -11999,32 +11999,32 @@ these two styles in the same file.
       | context      | →  | class                 |                       |
       +--------------+----+-----------------------+-----------------------+
       |              | \| | ( c                   |     (n ≥ 0)           |
-      |              |    | lass\ :sub:`1`\  , …  |                       |
-      |              |    | , class\ :sub:`n`\  ) |                       |
+      |              |    | lass\ :sub:`1` , …  |                       |
+      |              |    | , class\ :sub:`n` ) |                       |
       +--------------+----+-----------------------+-----------------------+
       | class        | →  | qtycls tyvar          |                       |
       +--------------+----+-----------------------+-----------------------+
       |              | \| | qtycls ( tyv          |     (n ≥ 1)           |
-      |              |    | ar atype\ :sub:`1`\   |                       |
-      |              |    | … atype\ :sub:`n`\  ) |                       |
+      |              |    | ar atype\ :sub:`1`  |                       |
+      |              |    | … atype\ :sub:`n` ) |                       |
       +--------------+----+-----------------------+-----------------------+
       | scontext     | →  | simpleclass           |                       |
       +--------------+----+-----------------------+-----------------------+
-      |              | \| | ( simpleclass\        |     (n ≥ 0)           |
-      |              |    | :sub:`1`\  , … , simp |                       |
-      |              |    | leclass\ :sub:`n`\  ) |                       |
+      |              | \| | ( simpleclass       |     (n ≥ 0)           |
+      |              |    | :sub:`1` , … , simp |                       |
+      |              |    | leclass\ :sub:`n` ) |                       |
       +--------------+----+-----------------------+-----------------------+
       | simpleclass  | →  | qtycls tyvar          |                       |
       +--------------+----+-----------------------+-----------------------+
       | simpletype   | →  | tycon tyvar\ :sub:`1  |     (k ≥ 0)           |
-      |              |    | `\  … tyvar\ :sub:`k` |                       |
+      |              |    | ` … tyvar\ :sub:`k` |                       |
       +--------------+----+-----------------------+-----------------------+
       | constrs      | →  | c                     |     (n ≥ 1)           |
-      |              |    | onstr\ :sub:`1`\  \|  |                       |
+      |              |    | onstr\ :sub:`1` \|  |                       |
       |              |    | … \| constr\ :sub:`n` |                       |
       +--------------+----+-----------------------+-----------------------+
       | constr       | →  | con [                 |     (arity con  =     |
-      |              |    | !] atype\ :sub:`1`\   |  k, k ≥ 0)            |
+      |              |    | !] atype\ :sub:`1`  |  k, k ≥ 0)            |
       |              |    | … [!] atype\ :sub:`k` |                       |
       +--------------+----+-----------------------+-----------------------+
       |              | \| | (                     |     (infix conop)     |
@@ -12032,8 +12032,8 @@ these two styles in the same file.
       |              |    | op (btype \| ! atype) |                       |
       +--------------+----+-----------------------+-----------------------+
       |              | \| | con { fielddecl       |     (n ≥ 0)           |
-      |              |    | \ :sub:`1`\  , … , fi |                       |
-      |              |    | elddecl\ :sub:`n`\  } |                       |
+      |              |    | \ :sub:`1` , … , fi |                       |
+      |              |    | elddecl\ :sub:`n` } |                       |
       +--------------+----+-----------------------+-----------------------+
       | newconstr    | →  | con atype             |                       |
       +--------------+----+-----------------------+-----------------------+
@@ -12052,18 +12052,18 @@ these two styles in the same file.
       | inst         | →  | gtycon                |                       |
       +--------------+----+-----------------------+-----------------------+
       |              | \| | ( gtyc                |     (k ≥              |
-      |              |    | on tyvar\ :sub:`1`\   | 0, tyvars distinct)   |
-      |              |    | … tyvar\ :sub:`k`\  ) |                       |
+      |              |    | on tyvar\ :sub:`1`  | 0, tyvars distinct)   |
+      |              |    | … tyvar\ :sub:`k` ) |                       |
       +--------------+----+-----------------------+-----------------------+
       |              | \| | ( t                   |     (k ≥              |
-      |              |    | yvar\ :sub:`1`\  , …  | 2, tyvars distinct)   |
-      |              |    | , tyvar\ :sub:`k`\  ) |                       |
+      |              |    | yvar\ :sub:`1` , …  | 2, tyvars distinct)   |
+      |              |    | , tyvar\ :sub:`k` ) |                       |
       +--------------+----+-----------------------+-----------------------+
       |              | \| | [ tyvar ]             |                       |
       +--------------+----+-----------------------+-----------------------+
-      |              | \| | ( tyvar\ :sub:`1`\  - |     tyvar\            |
-      |              |    | > tyvar\ :sub:`2`\  ) |  :sub:`1`\  and tyvar |
-      |              |    |                       | \ :sub:`2`\  distinct |
+      |              | \| | ( tyvar\ :sub:`1` - |     tyvar           |
+      |              |    | > tyvar\ :sub:`2` ) |  :sub:`1` and tyvar |
+      |              |    |                       | \ :sub:`2` distinct |
       +--------------+----+-----------------------+-----------------------+
       | fdecl        | →  | im                    |     (define variable) |
       |              |    | port callconv [safety |                       |
@@ -12095,7 +12095,7 @@ these two styles in the same file.
       |              | \| | ()                    |                       |
       +--------------+----+-----------------------+-----------------------+
       | fatype       | →  | qtycon atype\ :sub:`1 |     (k  ≥  0)         |
-      |              |    | `\  … atype\ :sub:`k` |                       |
+      |              |    | ` … atype\ :sub:`k` |                       |
       +--------------+----+-----------------------+-----------------------+
       | funlhs       | →  | var apat { apat }     |                       |
       +--------------+----+-----------------------+-----------------------+
@@ -12110,7 +12110,7 @@ these two styles in the same file.
       +--------------+----+-----------------------+-----------------------+
       | gdrhs        | →  | guards = exp [gdrhs]  |                       |
       +--------------+----+-----------------------+-----------------------+
-      | guards       | →  | \| guard\ :sub:`1`\   |     (n ≥ 1)           |
+      | guards       | →  | \| guard\ :sub:`1`  |     (n ≥ 1)           |
       |              |    |  , …, guard\ :sub:`n` |                       |
       +--------------+----+-----------------------+-----------------------+
       | guard        | →  | pat <- infixexp       |     (pattern guard)   |
@@ -12132,9 +12132,9 @@ these two styles in the same file.
       +--------------+----+-----------------------+-----------------------+
       |              | \| | lexp                  |                       |
       +--------------+----+-----------------------+-----------------------+
-      | lexp         | →  | \\                    |     (                 |
-      |              |    | apat\ :sub:`1`\  … ap | lambda abstraction, n |
-      |              |    | at\ :sub:`n`\  -> exp | ≥ 1)                  |
+      | lexp         | →  | \                   |     (                 |
+      |              |    | apat\ :sub:`1` … ap | lambda abstraction, n |
+      |              |    | at\ :sub:`n` -> exp | ≥ 1)                  |
       +--------------+----+-----------------------+-----------------------+
       |              | \| | let decls in exp      |     (let expression)  |
       +--------------+----+-----------------------+-----------------------+
@@ -12160,33 +12160,33 @@ these two styles in the same file.
       |              | \| | ( exp )               |   (parenthesized      |
       |              |    |                       |  expression)          |
       +--------------+----+-----------------------+-----------------------+
-      |              | \| | ( exp\ :sub:`1`\  ,   |     (tuple, k ≥ 2)    |
-      |              |    | … , exp\ :sub:`k`\  ) |                       |
+      |              | \| | ( exp\ :sub:`1` ,   |     (tuple, k ≥ 2)    |
+      |              |    | … , exp\ :sub:`k` ) |                       |
       +--------------+----+-----------------------+-----------------------+
-      |              | \| | [ exp\ :sub:`1`\  ,   |     (list, k ≥ 1)     |
-      |              |    | … , exp\ :sub:`k`\  ] |                       |
+      |              | \| | [ exp\ :sub:`1` ,   |     (list, k ≥ 1)     |
+      |              |    | … , exp\ :sub:`k` ] |                       |
       +--------------+----+-----------------------+-----------------------+
-      |              | \| | [ exp\ :sub:`1`\      |                       |
+      |              | \| | [ exp\ :sub:`1`     |                       |
       |              |    | [, exp\ :sub:`2`\ ] . | (arithmetic sequence) |
       |              |    | . [exp\ :sub:`3`\ ] ] |                       |
       +--------------+----+-----------------------+-----------------------+
       |              | \| | [ exp \|              |     (                 |
-      |              |    |  qual\ :sub:`1`\  , … | list comprehension, n |
-      |              |    |  , qual\ :sub:`n`\  ] | ≥ 1)                  |
+      |              |    |  qual\ :sub:`1` , … | list comprehension, n |
+      |              |    |  , qual\ :sub:`n` ] | ≥ 1)                  |
       +--------------+----+-----------------------+-----------------------+
       |              | \| | ( infixexp qop )      |     (left section)    |
       +--------------+----+-----------------------+-----------------------+
       |              | \| | ( qop\ :s             |     (right section)   |
-      |              |    | ub:`⟨-⟩`\  infixexp ) |                       |
+      |              |    | ub:`⟨-⟩` infixexp ) |                       |
       +--------------+----+-----------------------+-----------------------+
       |              | \| | qcon { f              |     (labeled          |
-      |              |    | bind\ :sub:`1`\  , …  |  construction, n ≥ 0) |
-      |              |    | , fbind\ :sub:`n`\  } |                       |
+      |              |    | bind\ :sub:`1` , …  |  construction, n ≥ 0) |
+      |              |    | , fbind\ :sub:`n` } |                       |
       +--------------+----+-----------------------+-----------------------+
       |              | \| | aexp                  |                       |
-      |              |    | \ :sub:`⟨qcon⟩`\  { f |   (labeled update, n  |
-      |              |    | bind\ :sub:`1`\  , …  | ≥  1)                 |
-      |              |    | , fbind\ :sub:`n`\  } |                       |
+      |              |    | \ :sub:`⟨qcon⟩` { f |   (labeled update, n  |
+      |              |    | bind\ :sub:`1` , …  | ≥  1)                 |
+      |              |    | , fbind\ :sub:`n` } |                       |
       +--------------+----+-----------------------+-----------------------+
       | qual         | →  | pat <- exp            |     (generator)       |
       +--------------+----+-----------------------+-----------------------+
@@ -12195,7 +12195,7 @@ these two styles in the same file.
       +--------------+----+-----------------------+-----------------------+
       |              | \| | exp                   |     (guard)           |
       +--------------+----+-----------------------+-----------------------+
-      | alts         | →  | alt\ :sub:`1`\        |     (n ≥ 1)           |
+      | alts         | →  | alt\ :sub:`1`       |     (n ≥ 1)           |
       |              |    |   ; … ; alt\ :sub:`n` |                       |
       +--------------+----+-----------------------+-----------------------+
       | alt          | →  | pat                   |                       |
@@ -12211,8 +12211,8 @@ these two styles in the same file.
       |              |    | ards -> exp [ gdpat ] |                       |
       +--------------+----+-----------------------+-----------------------+
       | stmts        | →  | s                     |     (n ≥ 0)           |
-      |              |    | tmt\ :sub:`1`\  … stm |                       |
-      |              |    | t\ :sub:`n`\  exp [;] |                       |
+      |              |    | tmt\ :sub:`1` … stm |                       |
+      |              |    | t\ :sub:`n` exp [;] |                       |
       +--------------+----+-----------------------+-----------------------+
       | stmt         | →  | exp ;                 |                       |
       +--------------+----+-----------------------+-----------------------+
@@ -12235,7 +12235,7 @@ these two styles in the same file.
       |              |    |                       |    (negative literal) |
       +--------------+----+-----------------------+-----------------------+
       |              | \| | gcon apat\ :sub:`     |     (arity gcon  =    |
-      |              |    | 1`\  … apat\ :sub:`k` |  k, k ≥ 1)            |
+      |              |    | 1` … apat\ :sub:`k` |  k, k ≥ 1)            |
       +--------------+----+-----------------------+-----------------------+
       | apat         | →  | var [ @ apat]         |     (as pattern)      |
       +--------------+----+-----------------------+-----------------------+
@@ -12243,8 +12243,8 @@ these two styles in the same file.
       |              |    |                       |  0)                   |
       +--------------+----+-----------------------+-----------------------+
       |              | \| | qcon {                |                       |
-      |              |    |  fpat\ :sub:`1`\  , … |   (labeled pattern, k |
-      |              |    |  , fpat\ :sub:`k`\  } | ≥ 0)                  |
+      |              |    |  fpat\ :sub:`1` , … |   (labeled pattern, k |
+      |              |    |  , fpat\ :sub:`k` } | ≥ 0)                  |
       +--------------+----+-----------------------+-----------------------+
       |              | \| | literal               |                       |
       +--------------+----+-----------------------+-----------------------+
@@ -12253,11 +12253,11 @@ these two styles in the same file.
       |              | \| | ( pat )               |     (p                |
       |              |    |                       | arenthesized pattern) |
       +--------------+----+-----------------------+-----------------------+
-      |              | \| | ( pat\ :sub:`1`\  ,   |     (tuple pattern, k |
-      |              |    | … , pat\ :sub:`k`\  ) | ≥ 2)                  |
+      |              | \| | ( pat\ :sub:`1` ,   |     (tuple pattern, k |
+      |              |    | … , pat\ :sub:`k` ) | ≥ 2)                  |
       +--------------+----+-----------------------+-----------------------+
-      |              | \| | [ pat\ :sub:`1`\  ,   |     (list pattern, k  |
-      |              |    | … , pat\ :sub:`k`\  ] | ≥ 1)                  |
+      |              | \| | [ pat\ :sub:`1` ,   |     (list pattern, k  |
+      |              |    | … , pat\ :sub:`k` ] | ≥ 1)                  |
       +--------------+----+-----------------------+-----------------------+
       |              | \| | ~ apat                |                       |
       |              |    |                       | (irrefutable pattern) |
@@ -12453,11 +12453,11 @@ If T is an algebraic datatype declared by:
    | .. container:: td11  | .. container:: td11 | .. container:: td11  |
    |                      |                     |                      |
    |                      |    =                |    K\ :sub:`1`       |
-   | data cx => T u\ :sub |                     | \  t\ :sub:`11`\  …  |
-   | :`1`\  … u\ :sub:`k` |                     | t\ :sub:`1k\ 1`\  \| |
-   |                      |                     |  \ |⋅⋅⋅|\  \| K\ :su |
-   |                      |                     | b:`n`\  t\ :sub:`n1` |
-   |                      |                     | \  … t\ :sub:`nk\ n` |
+   | data cx => T u\ :sub |                     |  t\ :sub:`11` …  |
+   | :`1` … u\ :sub:`k` |                     | t\ :sub:`1k\ 1` \| |
+   |                      |                     |  \ ⋅⋅⋅ \| K\ :su |
+   |                      |                     | b:`n` t\ :sub:`n1` |
+   |                      |                     |  … t\ :sub:`nk\ n` |
    +----------------------+---------------------+----------------------+
    | .. container:: td11  | .. container:: td11 | .. container:: td11  |
    |                      |                     |                      |
@@ -12476,7 +12476,7 @@ instance declaration is possible for a class C if these conditions hold:
    constructors must be nullary) or have only one constructor.
 #. If C is Enum, the type must be an enumeration.
 #. There must be no explicit instance declaration elsewhere in the
-   program that makes T u\ :sub:`1`\  … u\ :sub:`k` an instance of C.
+   program that makes T u\ :sub:`1` … u\ :sub:`k` an instance of C.
 #. If the data declaration has no constructors (i.e. when n = 0), then
    no classes are derivable (i.e. m = 0)
 
@@ -12484,14 +12484,14 @@ For the purposes of derived instances, a newtype declaration is treated
 as a data declaration with a single constructor.
 
 If the deriving form is present, an instance declaration is
-automatically generated for T u\ :sub:`1`\  … u\ :sub:`k` over each
+automatically generated for T u\ :sub:`1` … u\ :sub:`k` over each
 class C\ :sub:`i`. If the derived instance declaration is impossible for
 any of the C\ :sub:`i` then a static error results. If no derived
 instances are required, the deriving form may be omitted or the form
 deriving () may be used.
 
 Each derived instance declaration will have the form: 
-instance (cx, cx′) => C\ :sub:`i`\  (T u\ :sub:`1`\  … u\ :sub:`k`\ ) where { d }
+instance (cx, cx′) => C\ :sub:`i` (T u\ :sub:`1` … u\ :sub:`k`\ ) where { d }
 where d is derived automatically depending on C\ :sub:`i` and the data
 type declaration for T (as will be described in the remainder of this
 section).
@@ -12811,7 +12811,7 @@ Figure `6.1 <#xs11>`__.
 --------------
 
 
-.. |⋅⋅⋅| image:: haskell4x.png
+.. |⋅⋅⋅| image:: https://www.haskell.org/onlinereport/haskell2010/haskell4x.png
    :class: cdots
 
 .. _xs12:
@@ -12860,8 +12860,8 @@ simple expressions. This may be prevented by the NOINLINE pragma.
    .. container:: tabular
 
       +-------+---+----------------------------------------+--------------+
-      | decl  | → | {-# SPECIALIZE spec\                   |     (k ≥ 1)  |
-      |       |   |  :sub:`1`\  , … , spec\ :sub:`k`\  #-} |              |
+      | decl  | → | {-# SPECIALIZE spec                  |     (k ≥ 1)  |
+      |       |   |  :sub:`1` , … , spec\ :sub:`k` #-} |              |
       +-------+---+----------------------------------------+--------------+
       | spec  | → | vars  ::  type                         |              |
       +-------+---+----------------------------------------+--------------+
@@ -13766,7 +13766,7 @@ order.
    ->  (i, i)        bounds of the array
    ->  [(i, a)]      association list
    ->  Array i e     
-   \                 
+                   
    === ============= =====================
 
 The accumArray function deals with repeated indices in the association
@@ -14640,7 +14640,7 @@ isAscii and isLower.
    \|  Surrogate             Cs: Other, Surrogate
    \|  PrivateUse            Co: Other, Private Use
    \|  NotAssigned           Cn: Other, Not Assigned
-   \                         
+                           
    === ===================== ==============================
 
 Unicode General Categories (column 2 of the UnicodeData table) in the
@@ -17068,7 +17068,7 @@ Chapter 21 Data.Maybe
    === ========
    =   Nothing  
    \|  Just a   
-   \            
+              
    === ========
 
 The Maybe type encapsulates an optional value. A value of type Maybe a
@@ -17821,7 +17821,7 @@ errno.
 
    == ===========
    =  Errno CInt  
-   \              
+                
    == ===========
 
 Haskell representation for errno values. The implementation is
@@ -17989,7 +17989,7 @@ Reset the current thread’s errno value to eOK.
    ->  Maybe Handle  optional handle associated with the error
    ->  Maybe String  optional filename associated with the error
    ->  IOError       
-   \                 
+                   
    === ============= ===========================================
 
 Construct an IOError based on the given Errno value. The optional
@@ -18006,7 +18006,7 @@ information can be used to improve the accuracy of error messages.
    === ======= =========================================
    ::  String  textual description of the error location
    ->  IO a    
-   \           
+             
    === ======= =========================================
 
 Throw an IOError corresponding to the current value of getErrno.
@@ -21245,7 +21245,7 @@ Chapter 38 Numeric
    ->  Int          the precedence of the enclosing context
    ->  a            the value to show
    ->  ShowS        
-   \                
+                  
    === ============ ========================================
 
 Converts a possibly-negative Real value to a string.
@@ -21843,7 +21843,7 @@ This operation may fail with:
    \|  WriteMode      
    \|  AppendMode     
    \|  ReadWriteMode  
-   \                  
+                    
    === ==============
 
 See System.IO.openFile 

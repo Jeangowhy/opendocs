@@ -33,7 +33,7 @@ if (import.meta.main) {
     }
   }
 }
-
+Deno.exit(0)
 /**
  * Usage of CLI:
  * 

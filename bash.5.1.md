@@ -187,6 +187,60 @@ Appendix D [Indexes]
                                                               [Contents] [Index]
 
 
+## //⚡ Sublime Text build config
+
+Sublime Text 脚本配置参考（ShellScript.sublime-build）：
+
+```json
+{
+    "shell_cmd": "./$file_name",
+    "windows": {
+        // Try to run via MSYS2 shell on Windows
+        "shell_cmd": "bash -c \"./$file_name\"",
+    },
+
+    "working_dir": "$file_path",
+    "encoding": "utf8",
+
+    "selector" : "source.haskell, source.shell, source.ts, source.js, source.python, text.asciidoc, text.html.markdown, text.restructuredtext, source.powershell",
+    "word_wrap": false,
+    "quiet": true,
+
+    "variants" : [
+        {
+            "name":"Bash with Shebang [GBK]",
+            "encoding":"gbk",
+            "cmd": {
+                "shell_cmd": "bash -c \"./$file_name\"",
+            },
+        },
+        {
+            "name":"Bash with Shebang [UTF8]",
+            "encoding":"utf8",
+            "cmd": {
+                "shell_cmd": "bash -c \"./$file_name\"",
+            },
+        },
+        {
+            "name":"PowerShell [GBK]",
+            "encoding":"gbk",
+            "cmd": {
+                "shell_cmd": "powershell.exe -noprofile -ExecutionPolicy Bypass -file $file",
+            },
+        },
+        {
+            "name":"PowerShell [UTF8]",
+            "encoding":"utf8",
+            "cmd": {
+                "shell_cmd": "powershell.exe -noprofile -ExecutionPolicy Bypass -file $file",
+            },
+        },
+    ],
+}
+```
+
+
+
 ## //⚡ Exm: Unix shebang (bash script)
 1. https://handwiki.org/wiki/Shebang_(Unix)
 2. https://www.talisman.org/~erlkonig/documents/dennis-ritchie-and-hash-bang.shtml
@@ -358,6 +412,11 @@ reg_bash_4_shebang()
     REG QUERY   'HKCR\*\shell\Open with bash...' -s
     REG QUERY   'HKCR\Directory\shell\bash' -s
     REG QUERY   'HKCR\Directory\Background\shell\bash' -s
+
+    vim='C:\\msys64\\usr\\bin\\vim.exe'
+    # REG ADD     'HKCR\*\shell\Open with VIM...' -f
+    REG ADD     'HKCR\*\shell\Open with VIM...\command' -f -ve -t REG_SZ -d "$vim '%1'"
+    REG ADD     'HKCR\*\shell\Open with VIM...\command' -f -v "Icon" -t REG_SZ -d "$vim"
 }
 ```
 

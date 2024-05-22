@@ -708,6 +708,160 @@ Line 2
 Line 1
 ```
 
+## PowerShell 环境中使用
+
+PowerShell Error Category
+
+    {Category}: ({TargetName}:{TargetType}):[{Activity}], {Reason}
+
+PowerShell supports redirection of the following output streams.
+
+| Stream # |      Description       | Introduced in  |    Write Cmdlet     |
+| -------- | ---------------------- | -------------- | ------------------- |
+| 1        | **Success** Stream     | PowerShell 2.0 | `Write-Output`      |
+| 2        | **Error** Stream       | PowerShell 2.0 | `Write-Error`       |
+| 3        | **Warning** Stream     | PowerShell 3.0 | `Write-Warning`     |
+| 4        | **Verbose** Stream     | PowerShell 3.0 | `Write-Verbose`     |
+| 5        | **Debug** Stream       | PowerShell 3.0 | `Write-Debug`       |
+| 6        | **Information** Stream | PowerShell 5.0 | `Write-Information`, `Write-Host` |
+| *        | All Streams            | PowerShell 3.0 |                     |
+
+There is also a **Progress** stream in PowerShell, but it doesn't support
+redirection.
+
+> [!IMPORTANT]
+> The **Success** and **Error** streams are similar to the stdout and stderr
+> streams of other shells. However, stdin isn't connected to the PowerShell
+> pipeline for input.
+
+PowerShell redirection operators
+
+The PowerShell redirection operators are as follows, where `n` represents
+the stream number. The **Success** stream ( `1` ) is the default if no stream
+is specified.
+
+| Operator |                         Description                         | Syntax |
+| -------- | ----------------------------------------------------------- | ------ |
+| `>`      | Send specified stream to a file.                            | `n>`   |
+| `>>`     | **Append** specified stream to a file.                      | `n>>`  |
+| `>&1`    | _Redirects_ the specified stream to the **Success** stream. | `n>&1` |
+
+
+PowerShell 中使用 sed 工具出现的异常现象，同样的命令不同的输出：
+
+```sh
+    # Powershell
+    $ printf "bad\napple" | sed -n "1{p;p}"
+    bad
+    bad
+    apple
+
+    # Bash
+    $ printf "bad\napple" | sed -n "1{p;p}"
+    bad
+    bad
+```
+
+当拼接多行字段串时，如果是来自 stderr 的空行会被替换成 RemoteException，未知如何触发此行为：
+
+```sh
+#!/usr/bin/env powershell.exe
+
+pushd "C:\android-sdk\cmdline-tools\latest\bin"
+
+$out = (./sdkmanager.bat --help 2>&1)
+
+# $out = $(.\sdkmanager.bat --help)
+# $out.getType() 
+
+# The line above cause error: 不能对 Null 值表达式调用方法。
+# $out is Null, sdkmanager print help via stderr, so stdout is empty.
+# 
+# 所在位置 C:\dl\pl\win.ps1:4 字符: 1
+# +     $out.getType()
+# +     ~~~~~~~~~~~~~~
+#     + CategoryInfo          : InvalidOperation: (:) []，RuntimeException
+#     + FullyQualifiedErrorId : InvokeMethodOnNull
+
+# join empty line in stderr with System.Management.Automation.RemoteException
+# (bash -c 'echo bad >&2; echo >&2; echo apple >&2' 2>&1 ) -join " ==> "
+
+try {
+    # This line below redirects stderr (#2) to stdout (#1)
+    $out = ( .\sdkmanager.bat --help 2>&1 )
+    $out -join " `n" | sed -n '/Usage/,/version/p'
+    # $out.getType() # System.Array
+    # $out | Get-Member | Format-Table 
+    # throw "TriggerException"
+} catch {
+    echo "Error: $_"
+}
+```
+
+使用 bash 执行脚本则完全没有这种问题：
+
+```sh
+#!/usr/bin/env bash
+
+cat > /c/vcpkg/sdkmanager <<EOF
+'C:\android-sdk\cmdline-tools\latest\bin\sdkmanager.bat' \$*
+EOF
+cat > /c/vcpkg/avdmanager <<EOF
+'C:\android-sdk\cmdline-tools\latest\bin\avdmanager.bat' \$*
+EOF
+
+sdkmanager --help 2>&1 | sed -n '1,/version/p'
+```
+
+Sublime Text 脚本配置参考（ShellScript.sublime-build）：
+
+```json
+{
+    "shell_cmd": "./$file_name",
+    "windows": {
+        // Try to run via MSYS2 shell on Windows
+        "shell_cmd": "bash -c \"./$file_name\"",
+    },
+
+    "working_dir": "$file_path",
+    "encoding": "utf8",
+
+    "selector" : "source.haskell, source.shell, source.ts, source.js, source.python, text.asciidoc, text.html.markdown, text.restructuredtext, source.powershell",
+    "word_wrap": false,
+    "quiet": true,
+
+    "variants" : [
+        {
+            "name":"Bash with Shebang [GBK]",
+            "encoding":"gbk",
+            "cmd": {
+                "shell_cmd": "bash -c \"./$file_name\"",
+            },
+        },
+        {
+            "name":"Bash with Shebang [UTF8]",
+            "encoding":"utf8",
+            "cmd": {
+                "shell_cmd": "bash -c \"./$file_name\"",
+            },
+        },
+        {
+            "name":"PowerShell [GBK]",
+            "encoding":"gbk",
+            "cmd": {
+                "shell_cmd": "powershell.exe -noprofile -ExecutionPolicy Bypass -file $file",
+            },
+        },
+        {
+            "name":"PowerShell [UTF8]",
+            "encoding":"utf8",
+            "cmd": {
+                "shell_cmd": "powershell.exe -noprofile -ExecutionPolicy Bypass -file $file",
+            },
+        },
+    ],
+}
+```
 
 
 _______________________________________________________________________

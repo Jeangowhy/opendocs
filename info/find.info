@@ -197,6 +197,7 @@ information about the files it found.  It is run like this:
 Here is a typical use of 'find'.  This example prints the names of all
 files in the directory tree rooted in '/usr/src' whose name ends with
 '.c' and that are larger than 100 KiB.
+
      find /usr/src -name '*.c' -size +100k -print
 
    Notice that the wildcard must be enclosed in quotes in order to
@@ -212,6 +213,7 @@ This example prints the names of all files in the default file name
 database whose name ends with 'Makefile' or 'makefile'.  Which file
 names are stored in the database depends on how the system administrator
 ran 'updatedb'.
+
      locate '*[Mm]akefile'
 
    The name 'xargs', pronounced EX-args, means "combine arguments."

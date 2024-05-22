@@ -8,6 +8,9 @@
 - Mastering Linux Kernel Development https://2lib.org/book/3424622/c4b3d7
 - Linux kernel networking: implementation and theory https://2lib.org/book/2330811/101752
 - Linux Driver Development for Embedded Processors https://2lib.org/book/5325784/29ef3d
+- The Linux Kernel https://github.com/torvalds/linux
+- The Linux Kernel documentation https://www.kernel.org/doc/html/latest/index.html
+- The Linux Kernel documentation https://github.com/torvalds/linux/blob/master/Documentation/index.rst
 
 Understanding the Linux Kernel, Third Edition 以 Linux 2.6 版本作为参考，这是一个相当复杂的系统，从 Linux 1.0 版本开始只有 561 个文件，到 Linux 2.6.26 版本已经包含 24,248 个文件，解压缩后有 257MB，到最新的稳定版本 Linux 5.12 解压后近 1GB。所以，研究内核要有相当明确的目的性，否则将会迷失在代码丛林中。
 

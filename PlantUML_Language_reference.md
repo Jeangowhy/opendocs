@@ -199,8 +199,9 @@ Windows 系统上执行，使用 `%PLANTUML%` 获取环境变量。如果是 Lin
                 "PLANTUML": "C:/jdk-14.0.2/jars/plantuml.1.2018.1.jar",
                 "PLANTUML": "C:/jdk-14.0.2/jars/plantuml-1.2024.3.jar",
                 "PLANTUML": "C:/jdk-14.0.2/jars/plantuml-lgpl-1.2024.3.jar",
-                "TMPPNG": "/c/dl/tmp.png",
-                "TMPUML": "/c/dl/tmp.uml",
+                "TMPPNG": "/tmp/tmp.png",
+                "TMPSVG": "/tmp/tmp.svg",
+                "TMPUML": "/tmp/tmp.uml",
             },
         "windows": { },
        "variants": [
@@ -223,6 +224,10 @@ Windows 系统上执行，使用 `%PLANTUML%` 获取环境变量。如果是 Lin
             {
                "name": "PlantUML to PNG",
                "shell_cmd": "bash -c \"echo cat | java -jar '%PLANTUML%' -png -pipe > %TMPPNG% <<<$(pwsh -c 'Get-Clipboard') && start %TMPPNG%\""
+            },
+            {
+               "name": "PlantUML to SVG",
+               "shell_cmd": "bash -c \"echo cat | java -jar '%PLANTUML%' -svg -pipe > %TMPSVG% <<<$(pwsh -c 'Get-Clipboard') && start %TMPSVG%\""
             },
        ]
 }

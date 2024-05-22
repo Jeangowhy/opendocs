@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Copyright 2017 mathsisfun.com -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="739.3"
+   height="214.5"
+   version="1.1"
+   id="svg2"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="function-mapping.svg">
+  <metadata
+     id="metadata247">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="745"
+     id="namedview245"
+     showgrid="false"
+     inkscape:zoom="0.90693901"
+     inkscape:cx="369.64999"
+     inkscape:cy="107.25"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g9" />
+  <defs
+     id="defs4">
+    <marker
+       id="id1"
+       style="overflow:visible;"
+       orient="auto">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="stroke:black; stroke-width:1pt;"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path7" />
+    </marker>
+  </defs>
+  <g
+     transform="translate(-285.205,-651.586)"
+     id="g9">
+    <g
+       transform="translate(-8.01912)"
+       id="g11">
+      <g
+         transform="matrix(0.265,0,0,0.265,618.88,634.856)"
+         id="g13">
+        <g
+           style="color:black; overflow:visible; fill:#729fcf; stroke:black; stroke-width:36.3;"
+           id="g15">
+          <g
+             id="g17">
+            <circle
+               cx="-199.1"
+               cy="520.6"
+               r="167.991"
+               transform="matrix(0.082649,0,0,0.082649,-602.318,148.064)"
+               id="circle19" />
+            <circle
+               cx="-199.1"
+               cy="520.6"
+               r="167.991"
+               transform="matrix(0.082649,0,0,0.082649,-602.318,238.08)"
+               id="circle21" />
+            <circle
+               cx="-199.1"
+               cy="520.6"
+               r="167.991"
+               transform="matrix(0.082649,0,0,0.082649,-602.318,328.097)"
+               id="circle23" />
+            <circle
+               cx="-199.1"
+               cy="520.6"
+               r="167.991"
+               transform="matrix(0.082649,0,0,0.082649,-602.318,508.13)"
+               id="circle25" />
+            <circle
+               cx="-199.1"
+               cy="520.6"
+               r="167.991"
+               transform="matrix(0.082649,0,0,0.082649,-602.318,418.113)"
+               id="circle27" />
+          </g>
+        </g>
+        <g
+           style="color:black; overflow:visible; fill:#fce94f; stroke:black; stroke-width:36.3;"
+           id="g29">
+          <g
+             id="g31">
+            <circle
+               cx="-199.1"
+               cy="520.6"
+               r="167.991"
+               transform="matrix(0.082649,0,0,0.082649,-290.702,148.064)"
+               id="circle33" />
+            <circle
+               cx="-199.1"
+               cy="520.6"
+               r="167.991"
+               transform="matrix(0.082649,0,0,0.082649,-290.702,238.08)"
+               id="circle35" />
+            <circle
+               cx="-199.1"
+               cy="520.6"
+               r="167.991"
+               transform="matrix(0.082649,0,0,0.082649,-290.702,328.097)"
+               id="circle37" />
+            <circle
+               cx="-199.1"
+               cy="520.6"
+               r="167.991"
+               transform="matrix(0.082649,0,0,0.082649,-290.702,508.13)"
+               id="circle39" />
+            <circle
+               cx="-199.1"
+               cy="520.6"
+               r="167.991"
+               transform="matrix(0.082649,0,0,0.082649,-290.702,418.113)"
+               id="circle41" />
+          </g>
+        </g>
+        <g
+           style="marker-end:url(#id1); fill:none; fill-opacity:0.75; stroke:black; stroke-width:3;"
+           id="g43">
+          <g
+             id="g45">
+            <path
+               d="m -593.7,278.6 258.9,-84.1"
+               id="path47" />
+            <path
+               d="m -589.4,200.1 251.8,75.4"
+               id="path49" />
+            <path
+               d="m -590.3,372.2 259.2,-0.6"
+               id="path51" />
+            <path
+               d="m -589.3,458.5 258.6,-74.1"
+               id="path53" />
+            <path
+               d="m -596.1,546.7 262.5,-74.8"
+               id="path55" />
+          </g>
+        </g>
+      </g>
+      <text
+         x="455.5"
+         y="669.9"
+         style="font-family:'Comic Sans MS'; text-align:center; text-anchor:middle; font-size:23.9px; color:black; overflow:visible; fill:#729fcf; stroke-width:0.27px;"
+         id="text57">A</text>
+      <text
+         x="536"
+         y="670.3"
+         style="font-family:'Comic Sans MS'; text-align:center; text-anchor:middle; font-size:23.9px; color:black; overflow:visible; fill:#fdea4f; stroke-width:0.27px;"
+         id="text59">B</text>
+    </g>
+    <g
+       transform="translate(-9.42175)"
+       id="g61">
+      <circle
+         cx="610.1"
+         cy="685.5"
+         r="3.67934"
+         style="color:black; overflow:visible; fill:#729fcf; stroke:black; stroke-width:0.8;"
+         id="circle63" />
+      <circle
+         cx="610.1"
+         cy="709.4"
+         r="3.67934"
+         style="color:black; overflow:visible; fill:#729fcf; stroke:black; stroke-width:0.8;"
+         id="circle65" />
+      <circle
+         cx="610.1"
+         cy="733.2"
+         r="3.67934"
+         style="color:black; overflow:visible; fill:#729fcf; stroke:black; stroke-width:0.8;"
+         id="circle67" />
+      <circle
+         cx="610.1"
+         cy="757.1"
+         r="3.67934"
+         style="color:black; overflow:visible; fill:#729fcf; stroke:black; stroke-width:0.8;"
+         id="circle69" />
+      <g
+         style="color:black; overflow:visible; fill:#fce94f; stroke:black; stroke-width:0.8;"
+         id="g71">
+        <g
+           id="g73">
+          <circle
+             cx="692.7"
+             cy="685.5"
+             r="3.67934"
+             id="circle75" />
+          <circle
+             cx="692.7"
+             cy="709.4"
+             r="3.67934"
+             id="circle77" />
+          <circle
+             cx="692.7"
+             cy="733.2"
+             r="3.67934"
+             id="circle79" />
+          <circle
+             cx="692.7"
+             cy="780.9"
+             r="3.67934"
+             id="circle81" />
+          <circle
+             cx="692.7"
+             cy="757.1"
+             r="3.67934"
+             id="circle83" />
+        </g>
+      </g>
+      <path
+         style="marker-end:url(#id1); fill:none; stroke:black; stroke-width:0.8;"
+         d="m 616.7,708.7 68.6,-22.3"
+         id="path85" />
+      <path
+         style="marker-end:url(#id1); fill:none; stroke:black; stroke-width:0.8;"
+         d="m 617.9,687.9 66.7,20"
+         id="path87" />
+      <path
+         style="marker-end:url(#id1); fill:none; stroke:black; stroke-width:0.8;"
+         d="m 617.7,733.5 68.7,-0.2"
+         id="path89" />
+      <path
+         style="marker-end:url(#id1); fill:none; stroke:black; stroke-width:0.8;"
+         d="m 617.9,756.4 66.3,0"
+         id="path91" />
+      <text
+         x="610.5"
+         y="669.9"
+         style="font-family:'Comic Sans MS'; text-align:center; text-anchor:middle; font-size:23.9px; color:black; overflow:visible; fill:#729fd0; stroke-width:0.27px;"
+         id="text93">A</text>
+      <text
+         x="692.8"
+         y="670.3"
+         style="font-family:'Comic Sans MS'; text-align:center; text-anchor:middle; font-size:23.9px; color:black; overflow:visible; fill:#fdea4f; stroke-width:0.27px;"
+         id="text95">B</text>
+    </g>
+    <g
+       transform="translate(-6.16089)"
+       id="g97">
+      <g
+         style="color:black; overflow:visible; fill:#729fcf; stroke:black; stroke-width:0.8;"
+         id="g99">
+        <g
+           id="g101">
+          <circle
+             cx="762.1"
+             cy="685.5"
+             r="3.67934"
+             id="circle103" />
+          <circle
+             cx="762.1"
+             cy="709.4"
+             r="3.67934"
+             id="circle105" />
+          <circle
+             cx="762.1"
+             cy="733.2"
+             r="3.67934"
+             id="circle107" />
+          <circle
+             cx="762.1"
+             cy="780.9"
+             r="3.67934"
+             id="circle109" />
+          <circle
+             cx="762.1"
+             cy="757.1"
+             r="3.67934"
+             id="circle111" />
+        </g>
+      </g>
+      <circle
+         cx="844.7"
+         cy="685.5"
+         r="3.67934"
+         style="color:black; overflow:visible; fill:#fce94f; stroke:black; stroke-width:0.8;"
+         id="circle113" />
+      <circle
+         cx="844.7"
+         cy="709.4"
+         r="3.67934"
+         style="color:black; overflow:visible; fill:#fce94f; stroke:black; stroke-width:0.8;"
+         id="circle115" />
+      <circle
+         cx="844.7"
+         cy="733.2"
+         r="3.67934"
+         style="color:black; overflow:visible; fill:#fce94f; stroke:black; stroke-width:0.8;"
+         id="circle117" />
+      <circle
+         cx="844.7"
+         cy="757.1"
+         r="3.67934"
+         style="color:black; overflow:visible; fill:#fce94f; stroke:black; stroke-width:0.8;"
+         id="circle119" />
+      <g
+         style="marker-end:url(#id1); fill:none; stroke:black; stroke-width:0.8;"
+         id="g121">
+        <g
+           id="g123">
+          <path
+             d="m 768.8,708.7 68.6,-22.3"
+             id="path125" />
+          <path
+             d="m 769.9,687.9 66.7,20"
+             id="path127" />
+          <path
+             d="m 769.7,733.5 68.7,-0.2"
+             id="path129" />
+          <path
+             d="m 769.9,756.4 68.5,-19.6"
+             id="path131" />
+          <path
+             d="m 768.1,779.7 69.6,-19.8"
+             id="path133" />
+        </g>
+      </g>
+      <text
+         x="762.9"
+         y="669.9"
+         style="font-family:'Comic Sans MS'; text-align:center; text-anchor:middle; font-size:23.9px; color:black; overflow:visible; fill:#729fd0; stroke-width:0.27px;"
+         id="text135">A</text>
+      <text
+         x="843"
+         y="670.3"
+         style="font-family:'Comic Sans MS'; text-align:center; text-anchor:middle; font-size:23.9px; color:black; overflow:visible; fill:#fdea4f; stroke-width:0.27px;"
+         id="text137">B</text>
+    </g>
+    <g
+       id="g139">
+      <g
+         style="color:black; overflow:visible; fill:#729fcf; stroke:black; stroke-width:0.8;"
+         id="g141">
+        <g
+           id="g143">
+          <circle
+             cx="911"
+             cy="685.5"
+             r="3.67934"
+             id="circle145" />
+          <circle
+             cx="911"
+             cy="709.4"
+             r="3.67934"
+             id="circle147" />
+          <circle
+             cx="911"
+             cy="733.2"
+             r="3.67934"
+             id="circle149" />
+          <circle
+             cx="911"
+             cy="780.9"
+             r="3.67934"
+             id="circle151" />
+          <circle
+             cx="911"
+             cy="757.1"
+             r="3.67934"
+             id="circle153" />
+        </g>
+      </g>
+      <g
+         style="color:black; overflow:visible; fill:#fce94f; stroke:black; stroke-width:0.8;"
+         id="g155">
+        <g
+           id="g157">
+          <circle
+             cx="993.5"
+             cy="685.5"
+             r="3.67934"
+             id="circle159" />
+          <circle
+             cx="993.5"
+             cy="709.4"
+             r="3.67934"
+             id="circle161" />
+          <circle
+             cx="993.5"
+             cy="733.2"
+             r="3.67934"
+             id="circle163" />
+          <circle
+             cx="993.5"
+             cy="780.9"
+             r="3.67934"
+             id="circle165" />
+          <circle
+             cx="993.5"
+             cy="757.1"
+             r="3.67934"
+             id="circle167" />
+        </g>
+      </g>
+      <g
+         style="marker-end:url(#id1); fill:none; fill-opacity:0.75; stroke:black; stroke-width:0.8;"
+         id="g169">
+        <g
+           id="g171">
+          <path
+             d="m 917.6,708.7 68.6,-22.3"
+             id="path173" />
+          <path
+             d="m 918.7,687.9 66.7,20"
+             id="path175" />
+          <path
+             d="m 917.6,737 68.4,39.7"
+             id="path177" />
+          <path
+             d="m 918.8,756.4 68.5,-19.6"
+             id="path179" />
+          <path
+             d="m 917,779.7 69.6,-19.8"
+             id="path181" />
+        </g>
+      </g>
+      <text
+         x="911.5"
+         y="669.9"
+         style="font-family:'Comic Sans MS'; text-align:center; text-anchor:middle; font-size:23.9px; color:black; overflow:visible; fill:#729fd0; stroke-width:0.27px;"
+         id="text183">A</text>
+      <text
+         x="991.2"
+         y="670.3"
+         style="font-family:'Comic Sans MS'; text-align:center; text-anchor:middle; font-size:23.9px; color:black; overflow:visible; fill:#fdea4f; stroke-width:0.27px;"
+         id="text185">B</text>
+    </g>
+    <text
+       x="487.70001"
+       y="814.5"
+       style="font-size:18.70000076px;font-family:'Comic Sans MS';text-align:center;text-anchor:middle;overflow:visible;fill:#204a87;stroke-width:0.27000001px"
+       id="text187">一般</text>
+    <text
+       x="641.79999"
+       y="814.5"
+       style="font-size:18.70000076px;font-family:'Comic Sans MS';text-align:center;text-anchor:middle;overflow:visible;fill:#204a87;stroke-width:0.27000001px"
+       id="text189">单射</text>
+    <text
+       x="796"
+       y="814.5"
+       style="font-size:18.70000076px;font-family:'Comic Sans MS';text-align:center;text-anchor:middle;overflow:visible;fill:#204a87;stroke-width:0.27000001px"
+       id="text191">满射</text>
+    <text
+       x="950.29999"
+       y="814.5"
+       style="font-size:18.70000076px;font-family:'Comic Sans MS';text-align:center;text-anchor:middle;overflow:visible;fill:#204a87;stroke-width:0.27000001px"
+       id="text193">双射</text>
+    <text
+       x="332.39999"
+       y="812.40002"
+       style="font-size:18.70000076px;font-family:'Comic Sans MS';text-align:center;text-anchor:middle;overflow:visible;fill:#204a87;stroke-width:0.27000001px"
+       id="text195">不是</text>
+    <g
+       transform="translate(-14)"
+       id="g197">
+      <circle
+         cx="306.3"
+         cy="685.1"
+         r="3.67934"
+         style="color:black; overflow:visible; fill:#729fcf; stroke:black; stroke-width:0.8;"
+         id="circle199" />
+      <circle
+         cx="306.3"
+         cy="708.9"
+         r="3.67934"
+         style="color:black; overflow:visible; fill:#729fcf; stroke:black; stroke-width:0.8;"
+         id="circle201" />
+      <circle
+         cx="306.3"
+         cy="732.8"
+         r="3.67934"
+         style="color:black; overflow:visible; fill:#729fcf; stroke:black; stroke-width:0.8;"
+         id="circle203" />
+      <circle
+         cx="388.9"
+         cy="685.1"
+         r="3.67934"
+         style="color:black; overflow:visible; fill:#fce94f; stroke:black; stroke-width:0.8;"
+         id="circle205" />
+      <circle
+         cx="388.9"
+         cy="708.9"
+         r="3.67934"
+         style="color:black; overflow:visible; fill:#fce94f; stroke:black; stroke-width:0.8;"
+         id="circle207" />
+      <circle
+         cx="388.9"
+         cy="732.8"
+         r="3.67934"
+         style="color:black; overflow:visible; fill:#fce94f; stroke:black; stroke-width:0.8;"
+         id="circle209" />
+      <circle
+         cx="388.9"
+         cy="756.6"
+         r="3.67934"
+         style="color:black; overflow:visible; fill:#fce94f; stroke:black; stroke-width:0.8;"
+         id="circle211" />
+      <path
+         style="marker-end:url(#id1); fill:none; stroke:black; stroke-width:0.8;"
+         d="m 312,686.8 74.6,-1"
+         id="path213" />
+      <path
+         style="marker-end:url(#id1); fill:none; stroke:black; stroke-width:0.8;"
+         d="m 312.7,686.9 71.6,20.8"
+         id="path215" />
+      <path
+         style="marker-end:url(#id1); fill:none; stroke:black; stroke-width:0.8;"
+         d="m 312.4,734.3 71.5,18.8"
+         id="path217" />
+      <text
+         x="306.9"
+         y="669.4"
+         style="font-family:'Comic Sans MS'; text-align:center; text-anchor:middle; font-size:23.9px; color:black; overflow:visible; fill:#729fcf; stroke-width:0.27px;"
+         id="text219">A</text>
+      <text
+         x="387.4"
+         y="669.9"
+         style="font-family:'Comic Sans MS'; text-align:center; text-anchor:middle; font-size:23.9px; color:black; overflow:visible; fill:#fdea4f; stroke-width:0.27px;"
+         id="text221">B</text>
+      <path
+         style="marker-end:url(#id1); fill:none; stroke:black; stroke-width:0.8;"
+         d="m 309.4,710.3 74.8,21.9"
+         id="path223" />
+    </g>
+    <text
+       x="486.89999"
+       y="835.40002"
+       style="font-size:18.70000076px;font-family:'Comic Sans MS';text-align:center;text-anchor:middle;overflow:visible;fill:#204a87;stroke-width:0.27000001px"
+       id="text225">函数</text>
+    <text
+       x="641.70001"
+       y="834.5"
+       style="font-size:14.69999981px;font-family:'Comic Sans MS';text-align:center;text-anchor:middle;overflow:visible;fill:#204a87;stroke-width:0.27000001px"
+       id="text227">非满射</text>
+    <text
+       x="796.29999"
+       y="834.5"
+       style="font-size:14.69999981px;font-family:'Comic Sans MS';text-align:center;text-anchor:middle;overflow:visible;fill:#204a87;stroke-width:0.27000001px"
+       id="text229">(非单射)</text>
+    <text
+       x="950.79999"
+       y="834.5"
+       style="font-size:14.69999981px;font-family:'Comic Sans MS';text-align:center;text-anchor:middle;overflow:visible;fill:#204a87;stroke-width:0.27000001px"
+       id="text231">（单射及满射）</text>
+    <text
+       x="332.29999"
+       y="833.29999"
+       style="font-size:18.70000076px;font-family:'Comic Sans MS';text-align:center;text-anchor:middle;overflow:visible;fill:#204a87;stroke-width:0.27000001px"
+       id="text233">函数</text>
+    <text
+       x="344.70001"
+       y="861.90002"
+       style="color:#000000;font-style:italic;font-size:14.69999981px;font-family:'Comic Sans MS';text-align:center;text-anchor:middle;overflow:visible;fill:#ff9900;stroke-width:1px"
+       id="text235">A有多于一个B值</text>
+    <text
+       x="641.79999"
+       y="861.90002"
+       style="color:#000000;font-style:italic;font-size:14.69999981px;font-family:'Comic Sans MS';text-align:center;text-anchor:middle;overflow:visible;fill:#ff9900;stroke-width:1px"
+       id="text237">B不能有多于一个A值</text>
+    <text
+       x="796.5"
+       y="861.90002"
+       style="color:#000000;font-style:italic;font-size:14.69999981px;font-family:'Comic Sans MS';text-align:center;text-anchor:middle;overflow:visible;fill:#ff9900;stroke-width:1px"
+       id="text239">所有B都有A值</text>
+    <text
+       x="950.70001"
+       y="861.90002"
+       style="color:#000000;font-style:italic;font-size:14.69999981px;font-family:'Comic Sans MS';text-align:center;text-anchor:middle;overflow:visible;fill:#ff9900;stroke-width:1px"
+       id="text241">A 完美对应B</text>
+    <text
+       x="487.20001"
+       y="861.90002"
+       style="color:#000000;font-style:italic;font-size:14.69999981px;font-family:'Comic Sans MS';text-align:center;text-anchor:middle;overflow:visible;fill:#ff9900;stroke-width:1px"
+       id="text243">B有多于一个A值</text>
+  </g>
+</svg>

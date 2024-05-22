@@ -38,7 +38,10 @@ SVG：使用几何逻辑绘图，比如使用 `<line>` 标签绘制直线， `<r
 CSG - Constructive Solid Geometry 是指通过一系列基本几何的基本运算来定义新的几何。
 
 Fractals（分形）是一个自相似的程序，通过重复自己的一个部分并不断递归、丰富细节，局部一点就像整体。
-分形（Fractal）一词，是 芒德勃罗 创造出来的，其原意具有不规则、支离破碎等意义。
+分形（Fractal）一词，是 芒德勃罗 创造出来的，其原意具有不规则、支离破碎等意义。自然界存在普遍的
+分形现象，花椰菜呈现出高度的这种自相似性，涉及七个或更多“相同”芽的复制，这在罗马花椰菜上最为显眼：
+
+![罗马花椰菜分形](https://pics0.baidu.com/feed/1ad5ad6eddc451da0910e4d21df89a6ed0163237.jpeg)
 
 SVG 绘画形式中，定义了一个用于呈现图像的画布对象（Canvas），SVG 绘图指令就在画布上绘制图形元素。
 其内部使用 ViewPort 和 ViewBox 两个概念完成绘画空间与屏幕图像空间的映射。因为 SVG 画布是一个
@@ -1063,7 +1066,7 @@ SVG 动画专有属性详情参考 SVG 1.2 Tiny - Attributes to control the timi
     *   _offset-value_，典型的时间值（Clock-value），指定延时的时间，比如 3s 延时 3 秒开始播放动画。
     *   _syncbase-value_ 基本同步事件，Id-value "." ( "begin" | "end")，ID 引用其它动画标签。
     *   _event-value_ 通过其它动画标签的事件间接触发，( Id-value "." )? ( event-ref )，参考上面的列表。
-    *   _repeat-value_ 通过其它动画重复次数触发，( Id-value "." )? "repeat(" [<integer>] ")"。
+    *   _repeat-value_ 通过其它动画重复次数触发，( Id-value "." )? "repeat(" [integer] ")"。
     *   _accessKey-value_ 通过访问键触发，比如 `accessKey(s)` 表示按下 s 键播放，浏览器不一定支持。
     *   "indefinite" 通过 `ElementTimeControl` 接口提供的方法启动，或者 Hyperlink-based timing。
         参考 SMIL 2.1 Timing and Synchronization: Hyperlinks and timing。
@@ -1321,6 +1324,29 @@ SVG 动画标签 calcMode 属性用于控制插值算法，四种插值控制方
 </svg>
 ```
 
+由于 `animateMotion` 设计作为对象的坐标操纵动画，所以没有、也不可以使用 `attributeName`
+和 `attributeType` 属性指定目标对象的动画属性。说实话，这种设计实在是落后，基于路径的动画
+是可以设计成通用的 Graph Motion。如果要以对象的坐标之外的属性做循环动画，那么就需要使用多个
+`animate` 来实现，并且需要衔接起止状态。通过指定 begin 的触发条件，可以上多个动画相互触发。
+以下示例，a1 用来操纵 s1 坐标，它不能对其它属性进行操作。a2 和 a3 组合成循环动画，前者让
+s1 高度增加，后者让 s1 高度减小，它们的动画播放结束事件又作为对方的启动条件：
+
+![Animate Chains](animate_chains.svg)
+
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="600" height="260"
+     xmlns="http://www.w3.org/2000/svg">
+    <rect id="s1" x="0" y="0" width="100" height="50" fill="red" />
+    <circle cx="50" cy="65" r="50" fill="blue" />
+    <animateMotion id="a1" href="#s1" path="M0 0 L0 20 L0 0"
+                    dur="1s" begin="0" repeatCount="indefinite"  />
+    <animate id="a2" href="#s1" attributeName="height" from="20" to="50"
+             dur="1s" begin="0; a3.endEvent" repeatCount="1" fill="freeze" />
+    <animate id="a3" href="#s1" attributeName="height" from="50" to="20"
+             dur="1s" begin="a2.endEvent" repeatCount="1" fill="freeze" />
+</svg>
+```
 
 SVG Layouts
 ---------------

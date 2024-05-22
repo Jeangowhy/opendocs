@@ -1,3 +1,50 @@
+#!/usr/bin/env bash
+
+du -d 2 'C:\Users\OCEAN\.gradle\caches' | sort -n |subl -
+exit
+
+'C:\android-sdk\build-tools\34.0.0\llvm-rs-cc' --help
+html='C:\android-sdk\docs\docs-24_r01\reference\android\R.attr.html'
+pandoc -r html "$html" -t rst --wrap=preserve --columns=120 --list-table=true -o "$html.rst"
+
+du -hd 1 "C:\android-sdk\docs\docs-24_r01"
+
+
+while read it; do
+	url="$it?hl=en"
+	echo "::$url" >> /pl/out.html
+	curl "$url" \
+	| sed -n '/devsite-article-body/,/Last updated/p' \
+	| pandoc -r html -t rst --columns=80 --list-table=true >> /pl/out.html
+done <<EOF
+https://developer.android.google.cn/studio/write
+https://developer.android.google.cn/studio/projects/templates
+https://developer.android.google.cn/studio/write/sample-code
+https://developer.android.google.cn/studio/write/create-java-class
+https://developer.android.google.cn/studio/projects/add-app-module
+https://developer.android.google.cn/studio/write/java8-support
+https://developer.android.google.cn/studio/write/java8-support-table
+https://developer.android.google.cn/studio/write/add-resources
+https://developer.android.google.cn/jetpack/compose/tooling/previews
+https://developer.android.google.cn/studio/write/layout-editor
+https://developer.android.google.cn/studio/write/motion-editor
+https://developer.android.google.cn/studio/write/resource-manager
+https://developer.android.google.cn/studio/write/vector-asset-studio
+https://developer.android.google.cn/studio/write/create-app-icons
+https://developer.android.google.cn/studio/write/draw9patch
+https://developer.android.google.cn/studio/write/convert-webp
+https://developer.android.google.cn/studio/write/translations-editor
+https://developer.android.google.cn/studio/write/app-link-indexing
+https://developer.android.google.cn/studio/write/firebase
+https://developer.android.google.cn/studio/write/lint
+https://developer.android.google.cn/studio/write/annotations
+https://developer.android.google.cn/studio/write/tool-attributes
+EOF
+exit
+https://plugins.jetbrains.com/docs/intellij/welcome.html
+
+url=https://devdoc.net/android/Android-r15/guide/topics/fundamentals/activities.html
+curl "$url" | sed -n '/h1/,/Go to top/p' | pandoc -r html -t rst --list-table=true > /pl/out.html ; exit
 
 # 🚩 Book Ref
 
@@ -5070,23 +5117,25 @@ Gradle 官方开源代码中包含非常完整的文档源文件，毕竟是作�
 2. https://docs.gradle.org/current/userguide/img/task-dag-examples.png
 
 典型的 Gradle 构建流程包含如下步骤：
-1. Initialization
-1.1. Detects the settings file.
-1.2. Evaluates the settings file to determine projects and subprojects.
-1.3. Creates a Project instance for every project.
-2. Configuration
-2.1. Evaluates the build scripts of every project participating in the build.
-2.2. Creates a task graph for requested tasks.
-3. Execution
-3.1. Schedules and executes each of the selected tasks in the order of their dependencies.
+
+-	1. Initialization
+-	1.1. Detects the settings file.
+-	1.2. Evaluates the settings file to determine projects and subprojects.
+-	1.3. Creates a Project instance for every project.
+-	2. Configuration
+-	2.1. Evaluates the build scripts of every project participating in the build.
+-	2.2. Creates a task graph for requested tasks.
+-	3. Execution
+-	3.1. Schedules and executes each of the selected tasks in the order of their dependencies.
 
 可以使用 Groovy 或者 Kotlin 脚本作为构建规则配置文件 build.gradle(.kts)，推荐效率更快的 Groovy 脚本。Gradle 构建系统中有三类脚本，脚本中可以使用的全局对象参考 Gradle DSLs and API 文档。
 
 |  Type of script | Delegates to instance of | File name
-|-----------------|--------------------------|
+|-----------------|--------------------------|-------------------
 | Build script    | Project                  | build.gradle
 | Init script     | Gradle                   | init.gradle
 | Settings script | Settings                 | gradle.properties
+
 1. https://docs.gradle.org/current/userguide/groovy_build_script_primer.html
 2. https://docs.gradle.org/current/userguide/tutorial_using_tasks.html
 3. https://docs.gradle.org/current/dsl/index.html
@@ -7193,6 +7242,108 @@ Table 4.3-A. Interpretation of field descriptors
 - [JDI - Java Debug Interface](https://www.ibm.com/developerworks/cn/java/j-lo-jdi)
 - [JavaTM Platform Debugger Architecture (JPDA)](https://docs.oracle.com/javase/6/docs/technotes/guides/jpda/index.html)
 - [Spring Boot引起的“堆外内存泄漏”排查及经验总结](https://tech.meituan.com/2019/01/03/spring-boot-native-memory-leak.html)
+
+Java 命令行参考：
+
+	Usage: java [options] <mainclass> [args...]
+	           (to execute a class)
+	   or  java [options] -jar <jarfile> [args...]
+	           (to execute a jar file)
+	   or  java [options] -m <module>[/<mainclass>] [args...]
+	       java [options] --module <module>[/<mainclass>] [args...]
+	           (to execute the main class in a module)
+	   or  java [options] <sourcefile> [args]
+	           (to execute a single source-file program)
+
+	 Arguments following the main class, source file, -jar <jarfile>,
+	 -m or --module <module>/<mainclass> are passed as the arguments to
+	 main class.
+
+	 where options include:
+
+	    -cp <class search path of directories and zip/jar files>
+	    -classpath <class search path of directories and zip/jar files>
+	    --class-path <class search path of directories and zip/jar files>
+	                  A ; separated list of directories, JAR archives,
+	                  and ZIP archives to search for class files.
+	    -p <module path>
+	    --module-path <module path>...
+	                  A ; separated list of directories, each directory
+	                  is a directory of modules.
+	    --upgrade-module-path <module path>...
+	                  A ; separated list of directories, each directory
+	                  is a directory of modules that replace upgradeable
+	                  modules in the runtime image
+	    --add-modules <module name>[,<module name>...]
+	                  root modules to resolve in addition to the initial module.
+	                  <module name> can also be ALL-DEFAULT, ALL-SYSTEM,
+	                  ALL-MODULE-PATH.
+	    --enable-native-access <module name>[,<module name>...]
+	                  modules that are permitted to perform restricted native operations.
+	                  <module name> can also be ALL-UNNAMED.
+	    --list-modules
+	                  list observable modules and exit
+	    -d <module name>
+	    --describe-module <module name>
+	                  describe a module and exit
+	    --dry-run     create VM and load main class but do not execute main method.
+	                  The --dry-run option may be useful for validating the
+	                  command-line options such as the module system configuration.
+	    --validate-modules
+	                  validate all modules and exit
+	                  The --validate-modules option may be useful for finding
+	                  conflicts and other errors with modules on the module path.
+	    -D<name>=<value>
+	                  set a system property
+	    -verbose:[class|module|gc|jni]
+	                  enable verbose output for the given subsystem
+	    -version      print product version to the error stream and exit
+	    --version     print product version to the output stream and exit
+	    -showversion  print product version to the error stream and continue
+	    --show-version
+	                  print product version to the output stream and continue
+	    --show-module-resolution
+	                  show module resolution output during startup
+	    -? -h -help
+	                  print this help message to the error stream
+	    --help        print this help message to the output stream
+	    -X            print help on extra options to the error stream
+	    --help-extra  print help on extra options to the output stream
+	    -ea[:<packagename>...|:<classname>]
+	    -enableassertions[:<packagename>...|:<classname>]
+	                  enable assertions with specified granularity
+	    -da[:<packagename>...|:<classname>]
+	    -disableassertions[:<packagename>...|:<classname>]
+	                  disable assertions with specified granularity
+	    -esa | -enablesystemassertions
+	                  enable system assertions
+	    -dsa | -disablesystemassertions
+	                  disable system assertions
+	    -agentlib:<libname>[=<options>]
+	                  load native agent library <libname>, e.g. -agentlib:jdwp
+	                  see also -agentlib:jdwp=help
+	    -agentpath:<pathname>[=<options>]
+	                  load native agent library by full pathname
+	    -javaagent:<jarpath>[=<options>]
+	                  load Java programming language agent, see java.lang.instrument
+	    -splash:<imagepath>
+	                  show splash screen with specified image
+	                  HiDPI scaled images are automatically supported and used
+	                  if available. The unscaled image filename, e.g. image.ext,
+	                  should always be passed as the argument to the -splash option.
+	                  The most appropriate scaled image provided will be picked up
+	                  automatically.
+	                  See the SplashScreen API documentation for more information
+	    @argument files
+	                  one or more argument files containing options
+	    -disable-@files
+	                  prevent further argument file expansion
+	    --enable-preview
+	                  allow classes to depend on preview features of this release
+	To specify an argument for a long option, you can use --<name>=<value> or
+	--<name> <value>.
+
+
 
 对给定的一个 Java 源代码文件，可以在命令行进行编译生成 .class 类文件，然后再执行：
 

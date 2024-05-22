@@ -42,7 +42,16 @@ pandoc --to=markdown "$man" >> $out; subl $out
 # New-Item -Type SymbolicLink -Target "$pandoc" -Path /vcpkg/pandoc.exe
 ```
 
-Pandoc 不能处理任意的 HTML 格式，但是可以处理其自身生成的 HTML 格式。
+Pandoc 处理任意 HTML 页面时，如果 Table 内容超长，生成的文档（md 或者 rst）格式可能不适合阅读，
+可以使用 rst 格式提供的 list-table 语法支持，将长表格转换为列表形式表达：
+
+```sh
+pandoc -r html https://markdown.com.cn/basic-syntax/images.html -t rst --list-table=true
+```
+
+reStructuredText (rst) 文档格式是比 Markdown 拥有更全面语法的文本文档格式，配合官方的
+docutils (Python 模型) 工具可以进行多种格式的转换。也可以使用 Sphinx 工具制作 Web 文档网站。
+https://www.sphinx-doc.org/en/master/usage/quickstart.html
 
 markmon 提供了一个 Web 服务器，默认端口为 3000。其 Web 前端基于 Socket.IO 框架提供了
 Websocket 通信，并通过它来实现实现预览所需要的通信： 
@@ -58,7 +67,7 @@ markmon --projectdir . --command 'python -m markdown2' --view 'start http://loca
 # subl "$(dirs=($(whereis markmon)); dirname $(dirname ${dirs[1]}))/markmon"
 ```
 
-通过 marKmon 命令行指定要监视的文件（README.md），并且指定命令（-command）在文件改动时执行它，
+通过 markmon 命令行指定要监视的文件（README.md），并且指定命令（-command）在文件改动时执行它，
 进行格式转换，Web 服务器会将更新消息通过 Websocket 通知前面页面，并刷新页面（会自滚动到变更位置）。
 
 Markmon 安装包未自动添加全局命令的入口，可以手动向 Nodejs 全局模块目录 node_modules\.bin
