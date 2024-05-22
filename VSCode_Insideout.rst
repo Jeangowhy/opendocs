@@ -710,10 +710,10 @@ JavaFX GUI with Gradle and Kotlin LSP
    ======================== ======================= =========== ============
    Configuration name       Role                    Consumable?  Resolvable?
    ======================== ======================= =========== ============
-   ``compileClasspath``     编译时支持库的类路径              no         yes
-   ``runtimeClasspath``     运行时支持库的类路径              no         yes
-   ``testCompileClasspath`` 测试用例编译时支持库的类路径          no         yes
-   ``testRuntimeClasspath`` 测试用例运行时支持库的类路径          no         yes
+   ``compileClasspath``     编译时支持库的类路径              no           yes
+   ``runtimeClasspath``     运行时支持库的类路径              no           yes
+   ``testCompileClasspath`` 测试用例编译时支持库的类路径          no           yes
+   ``testRuntimeClasspath`` 测试用例运行时支持库的类路径          no           yes
    ======================== ======================= =========== ============
 
    *  ``compile`` 已在 Gradle 7.0 中移除，原表示编译时和打包时都需要的依赖。
@@ -925,25 +925,25 @@ JavaFX GUI with Gradle and Kotlin LSP
    Gradle 初始化命令是创建项目基本目录结构的快速且便利的方法，初始化命令可以创建多种项目，
    项目类型由 `Build Init Plugin`__ 提供，以下是内建初始化插件（Build init types）：
    
-   +--------------------------+------------------+
-   | Type                     | Description      |
-   +==========================+==================+
-   | ``pom-maven-conversion`` | Converts an existing Apache Maven build to Gradle |
-   | ``basic``                | A basic, empty, Gradle build |
-   | ``java-application``     | A command-line application implemented in Java |
-   | ``java-gradle-plugin``   | A Gradle plugin implemented in Java |
-   | ``java-library``         | A Java library |
-   | ``kotlin-application``   | A command-line application implemented in Kotlin/JVM |
-   | ``kotlin-gradle-plugin`` | A Gradle plugin implemented in Kotlin/JVM |
-   | ``kotlin-library``       | A Kotlin/JVM library |
-   | ``groovy-application``   | A command-line application implemented in Groovy |
-   | ``groovy-gradle-plugin`` | A Gradle plugin implemented in Groovy |
-   | ``groovy-library``       | A Groovy library |
-   | ``scala-application``    | A Scala application |
-   | ``scala-library``        | A Scala library |
-   | ``cpp-application``      | A command-line application implemented in C++ |
-   | ``cpp-library``          | A C++ library    |
-   +--------------------------+------------------+
+   =========================== ==================
+    Type                       Description      
+   =========================== ==================
+   ``pom-maven-conversion``    Converts an existing Apache Maven build to Gradle
+   ``basic``                   A basic, empty, Gradle build
+   ``java-application``        A command-line application implemented in Java
+   ``java-gradle-plugin``      A Gradle plugin implemented in Java
+   ``java-library``            A Java library
+   ``kotlin-application``      A command-line application implemented in Kotlin/JVM
+   ``kotlin-gradle-plugin``    A Gradle plugin implemented in Kotlin/JVM
+   ``kotlin-library``          A Kotlin/JVM library
+   ``groovy-application``      A command-line application implemented in Groovy
+   ``groovy-gradle-plugin``    A Gradle plugin implemented in Groovy
+   ``groovy-library``          A Groovy library
+   ``scala-application``       A Scala application
+   ``scala-library``           A Scala library
+   ``cpp-application``         A command-line application implemented in C++
+   ``cpp-library``             A C++ library
+   =========================== ==================
 
    .. code-block:: sh
 
@@ -1193,7 +1193,9 @@ JavaFX GUI with Gradle and Kotlin LSP
    也许还有 JDK 模块化和 JavaFX 文档或示范工程 https://github.dev/openjfx/samples 。
 
    JDK 8U302 不再捆绑 JavaFX，但是 JDK 8U201 仍然捆绑 ``jre/lib/ext/jfxrt.jar``。
-   使用以下程序测试，JDK 8U201 捆绑的 JavaFX 构架，或者下载最新的版，配合使用最新 JDK：
+   使用以下程序测试，JDK 8U201 捆绑的 JavaFX 构架，或者下载最新的版，配合使用最新 JDK。
+   此代码不依赖 FXML 文档，直接通过代码组建一个简单的窗体。JavaFX 构架的顶级容器是 ``Stage``
+   对象，它对应的是操作系统中的窗口，通过 new Stage 实例就可以创建多个窗口。
 
    .. code-block:: bash
 
@@ -1249,8 +1251,9 @@ JavaFX GUI with Gradle and Kotlin LSP
       error: package javafx.application does not exist
 
    这里假定项目使用 Kotlin 作为配置脚本语言，模块及构建脚本配置参考如下，根据使用到的依赖调整。
-   JDK 自带模块生成工具 `jlink`__，Gradle 项目对应有插件 `org.beryx.jlink`__。启用插件，
+   JDK 自带模块生成工具 `jlink`__ ，Gradle 项目对应有插件 `org.beryx.jlink`__ 。启用插件，
    并配置入口模块。
+
    .. _jlink: https://docs.oracle.com/en/java/javase/15/docs/specs/man/jlink.html
    .. _org.beryx.jlink: https://badass-jlink-plugin.beryx.org/releases/latest/
 
@@ -1511,34 +1514,34 @@ Debugging and Debuginfo
 
    .. code-block:: bash
 
-                                         +-----------------+
-                                         |  Node Program   |
-                                         +---------+-------+
-                                                   ^
-                                                   |
-      +-----------------+                +---------+-------+
-      |  Chrome Devtool |                | Node.js Debugger|
-      +--------+--------+                +---------+-------+
-               |                                   ^
-               |                                   |
-             CRDP                                 V8DP
-               |      +-------------------+        |
-               +----->+   node inspector  +--------+
-                      +-------------------+
+                                            +-----------------+
+                                            |  Node Program   |
+                                            +---------+-------+
+                                                      ^
+                                                      |
+         +-----------------+                +---------+-------+
+         |  Chrome Devtool |                | Node.js Debugger|
+         +--------+--------+                +---------+-------+
+                  |                                   ^
+                  |                                   |
+                CRDP                                 V8DP
+                  |      +-------------------+        |
+                  +----->+   node inspector  +--------+
+                         +-------------------+
 
-      CRDP: Chrome Remote Debugging Protocol
-      V8DP: V8 Debugging Protocol
+         CRDP: Chrome Remote Debugging Protocol
+         V8DP: V8 Debugging Protocol
 
 
-      +-----------------+        +----------------+
-      |                 |        |                |
-      |      IDE        |        |  Node Program  |
-      |      +----------+---+    |           +----+------+
-      +------| Debug Client |    +-----------+  Debugger |
-             +----------+---+                +-----+-----+
-                        |                          ^
-                        |            CRDP          |
-                        +--------------------------+
+         +-----------------+        +----------------+
+         |                 |        |                |
+         |      IDE        |        |  Node Program  |
+         |      +----------+---+    |           +----+------+
+         +------| Debug Client |    +-----------+  Debugger |
+                +----------+---+                +-----+-----+
+                           |                          ^
+                           |            CRDP          |
+                           +--------------------------+
 
    实现一个 Debug Client 其实成本挺高的，需要吃透所有的调试协议（V8 Debugging Protocol），
    包含了几十个指令，每个指令都需要进行通讯适配和 UI 适配，这还只是一种语言，如果你的 IDE 面向
