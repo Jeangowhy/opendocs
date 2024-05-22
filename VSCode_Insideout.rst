@@ -228,14 +228,14 @@ Tasks and Debug
 
    以下是配置文件中使用到的占位符号格式：
 
-   +-------+-------------+
-   | Token | Description |
-   +=======+=============+
+   +---------------------------------------+-------------+
+   | Token                                 | Description |
+   +=======================================+=============+
    | ``${workspaceFolder}``                | The selected workspace folder path. |
    | ``${config:some.setting.identifier}`` | The value of any configuration setting. |
    | ``${env:Name}``                       | The value of an environment variable. |
    | ``${command:commandID}``              | The string return value of a command. |
-   +-------+-------------+
+   +---------------------------------------+-------------+
 
    完整变量列表参考 `Visual Studio Code Variables Reference`__ 或插件扩展 `Extension Guides`__。
 
