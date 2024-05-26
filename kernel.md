@@ -1365,7 +1365,7 @@ ld: warning: section `.bss' type changed to PROGBITS
 + mk obj/kern/kernel.img
 ```
 
-根据编译脚本定义，有以下几个和 QEMU 相关的命令，nox 后缀表示不使用 x 图形界面。pre-qemu 会执行 gdbinit 生成默认的 GDB 高度配置文件，可以通过 `gdb -n -x .gdbinit` 或者 `make dbg` 执行调试器：
+根据编译脚本定义，有以下几个和 QEMU 相关的命令，nox 后缀表示不使用 x 图形界面。pre-qemu 会执行 gdbinit 生成默认的 GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit` 或者 `make dbg` 执行调试器：
 
 ```sh
 make pre-qemu
@@ -2653,7 +2653,7 @@ int cprintf(const char *fmt, ...)
     unsigned int i = 0x00646c72;
     cprintf("H%x Wo%s", 57616, &i);
 
-根据格式化字符串，参数列表必需提供两个参数，一上数值，一个字符串。而第二参数 i 定义的类型是无符号整数，传入后将被当作字符串处理。根据 Intel CPU 采用的 Little-Endian 字节序，i 中高位的一个字节的零值将会被当作 C 语言字符串的 null 结束标记。如果是大端序，这个条件就不成立，即字符串无 null 结束标志，C 语言处理时就会有越界问题。所以，57616 转换 Hex 表示就是 "e110"，而 0x72 0x6c 0x64 对应 "rld"，结果就是 "He110 Worlds"。
+根据格式化字符串，参数列表必需提供两个参数，一上数值，一个字符串。而第二参数 i 定义的类型是无符号整数，传入后将被当作字符串处理。根据 Intel CPU 采用的 Little-Endian 字节序，i 中高位的一个字节的零值将会被当作 C 语言字符串的 null 结束标记。如果是大端序，这个条件就不成立，即字符串无 null 结束标志，C 语言处理时就会有越界问题。所以，57616 转换 Hex 表示就是 "e110"，而 0x72 0x6c 0x64 对应 "rld"，结果就是 "He110 World"。
 
 如果，你的系统安装了 Node.js 或 Deno 这样的开发工具，可以很方便地使用 JavaScript 对这些数据进行转换：
 

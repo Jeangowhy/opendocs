@@ -2365,6 +2365,3849 @@ Module grammar 参考：
 而协程提供的是这样的一种编程能力：让函数可以被主动地中断执行。
 
 
+# 🚩/CPL TOC - C reference - en.cppreference.com
+- https://en.cppreference.com/w/c
+
+Doc convertion by Pandoc:
+
+    #!/usr/bin/env bash
+
+    pandoc -tmarkdown -rhtml https://en.cppreference.com/w/c --list-table=true
+
+-  [Language](https://en.cppreference.com/w/c/language)
+-  [Headers](https://en.cppreference.com/w/c/header)
+-  [Type support](https://en.cppreference.com/w/c/types)
+-  [Program utilities](https://en.cppreference.com/w/c/program)
+-  [Variadic function support](https://en.cppreference.com/w/c/variadic)
+-  [Error handling](https://en.cppreference.com/w/c/error)
+-  [Dynamic memory management](https://en.cppreference.com/w/c/memory)
+-  [Strings library](https://en.cppreference.com/w/c/string)
+-  [Algorithms](https://en.cppreference.com/w/c/algorithm)
+-  [Numerics](https://en.cppreference.com/w/c/numeric)
+-  [Date and time utilities](https://en.cppreference.com/w/c/chrono)
+-  [Input/output support](https://en.cppreference.com/w/c/io)
+-  [Localization support](https://en.cppreference.com/w/c/locale)
+-  [Concurrency support](https://en.cppreference.com/w/c/thread) [(C11)]
+-  [Technical Specifications](https://en.cppreference.com/w/c/experimental)
+-  [Symbol index](https://en.cppreference.com/w/c/symbol_index)
+
+- C89,
+- [C95](https://en.cppreference.com/w/c/95),
+- [C99](https://en.cppreference.com/w/c/99),
+- [C11](https://en.cppreference.com/w/c/11),
+- [C17](https://en.cppreference.com/w/c/17),
+- [C23](https://en.cppreference.com/w/c/23)
+- [Compiler support](https://en.cppreference.com/w/c/compiler_support)
+- [C99](https://en.cppreference.com/w/c/compiler_support/99),
+- [C23](https://en.cppreference.com/w/c/compiler_support/23)
+
+
+- [Language](https://en.cppreference.com/w/c/language)
+- [Basicconcepts](https://en.cppreference.com/w/c/language/basic_concepts)
+- [Keywords](https://en.cppreference.com/w/c/keyword)
+- [Preprocessor](https://en.cppreference.com/w/c/preprocessor)
+- [Expressions](https://en.cppreference.com/w/c/language/expressions)
+- [Declaration](https://en.cppreference.com/w/c/language/declarations)
+- [Initialization](https://en.cppreference.com/w/c/language/initialization)
+- [Functions](https://en.cppreference.com/w/c/language/functions)
+- [Statements](https://en.cppreference.com/w/c/language/statements)
+- [Headers](https://en.cppreference.com/w/c/header)
+
+- [Typesupport](https://en.cppreference.com/w/c/types)
+- * [Programutilities](https://en.cppreference.com/w/c/program)
+- * [Variadicfunctions](https://en.cppreference.com/w/c/variadic)
+- * [Diagnosticslibrary](https://en.cppreference.com/w/c/error)
+- * [Dynamic memorymanagement](https://en.cppreference.com/w/c/memory)
+- * [Stringslibrary](https://en.cppreference.com/w/c/string)
+- * * Null-terminatedstrings: 
+- * * [byte](https://en.cppreference.com/w/c/string/byte)
+- * * [multibyte](https://en.cppreference.com/w/c/string/multibyte)
+- * * [wide](https://en.cppreference.com/w/c/string/wide)
+- [Algorithmslibrary](https://en.cppreference.com/w/c/algorithm)
+- [Numericslibrary](https://en.cppreference.com/w/c/numeric)
+- * [Common mathematical functions](https://en.cppreference.com/w/c/numeric/math)
+- * [Floating-point environment](https://en.cppreference.com/w/c/numeric/fenv) [(C99)]
+- * [Pseudo-random number generation](https://en.cppreference.com/w/c/numeric/random)
+- * [Complex number arithmetic](https://en.cppreference.com/w/c/numeric/complex) [(C99)]
+- [Type-generic math](https://en.cppreference.com/w/c/numeric/tgmath) [(C99)]
+- * [Date and time library](https://en.cppreference.com/w/c/chrono)
+- * [Localization library](https://en.cppreference.com/w/c/locale)
+- * [Input/output library](https://en.cppreference.com/w/c/io)
+- * [Concurrency support library](https://en.cppreference.com/w/c/thread) [(C11)]
+
+*  [Technical specifications](https://en.cppreference.com/w/c/experimental)
+*  [Dynamic memoryextensions](https://en.cppreference.com/w/c/experimental/dynamic) [(dynamic memory TR)]
+*  [Floating-point extensions, Part1](https://en.cppreference.com/w/c/experimental/fpext1) [(FP Ext 1 TS)]
+*  [Floating-point extensions, Part4](https://en.cppreference.com/w/c/experimental/fpext4) [(FP Ext 4 TS)]
+
+*  [External Links - Useful resources](https://en.cppreference.com/w/c/links)
+*  [Non-ANSI/ISO Libraries](https://en.cppreference.com/w/c/links/libs)
+*  [Index](https://en.cppreference.com/w/c/index)
+*  [Symbol Index](https://en.cppreference.com/w/c/symbol_index)
+
+
+## /CPL1. C Language
+-  [Language](https://en.cppreference.com/w/c/language)
+
+This is a reference of the core C language constructs.
+
+- [Basic concepts](https://en.cppreference.com/w/c/language/basic_concepts)
+
+- * [Comments](https://en.cppreference.com/w/c/comment)
+- * [ASCII chart](https://en.cppreference.com/w/c/language/ascii)
+- * [Character sets and encodings](https://en.cppreference.com/w/c/language/charset)
+- * [Translation phases](https://en.cppreference.com/w/c/language/translation_phases)
+- * [Punctuation](https://en.cppreference.com/w/c/language/punctuators)
+- * [Identifier](https://en.cppreference.com/w/c/language/identifier)
+- * [Scope](https://en.cppreference.com/w/c/language/scope)
+- * [Lifetime](https://en.cppreference.com/w/c/language/lifetime)
+- * [Lookup and Name Spaces](https://en.cppreference.com/w/c/language/name_space)
+- * [Type](https://en.cppreference.com/w/c/language/type)
+- * [Arithmetic types](https://en.cppreference.com/w/c/language/arithmetic_types)
+- * [Objects and Alignment](https://en.cppreference.com/w/c/language/object)
+- * [The ``main`` function](https://en.cppreference.com/w/c/language/main_function)
+- * [As-if rule](https://en.cppreference.com/w/c/language/as_if)
+- * [Undefined behavior](https://en.cppreference.com/w/c/language/behavior)
+- * [Memory model and Data races](https://en.cppreference.com/w/c/language/memory_model)
+
+- [Keywords](https://en.cppreference.com/w/c/keyword)
+
+- [Preprocessor](https://en.cppreference.com/w/c/preprocessor)
+
+- * [#if - #ifdef - #ifndef - #elif](https://en.cppreference.com/w/c/preprocessor/conditional)
+- * [#elifdef - #elifndef](https://en.cppreference.com/w/c/preprocessor/conditional) (C23)
+- * [#define - # - ##](https://en.cppreference.com/w/c/preprocessor/replace)
+- * [``#include``](https://en.cppreference.com/w/c/preprocessor/include)
+- * [``#pragma``](https://en.cppreference.com/w/c/preprocessor/impl)
+- * [``#line``](https://en.cppreference.com/w/c/preprocessor/line)
+- * [``#error``](https://en.cppreference.com/w/c/preprocessor/error)
+- * [``#warning``](https://en.cppreference.com/w/c/preprocessor/error) (C23)
+- * [``#embed``](https://en.cppreference.com/w/c/preprocessor/embed) (C23)
+
+- [Statements](https://en.cppreference.com/w/c/language/statements)
+
+- * [``if``](https://en.cppreference.com/w/c/language/if)
+- * [``switch``](https://en.cppreference.com/w/c/language/switch)
+- * [``for``](https://en.cppreference.com/w/c/language/for)
+- * [``while``](https://en.cppreference.com/w/c/language/while)
+- * [``do``-``while``](https://en.cppreference.com/w/c/language/do)
+- * [``continue``](https://en.cppreference.com/w/c/language/continue)
+- * [``break``](https://en.cppreference.com/w/c/language/break)
+- * [``goto``](https://en.cppreference.com/w/c/language/goto)
+- * [``return``](https://en.cppreference.com/w/c/language/return)
+
+- [Expressions](https://en.cppreference.com/w/c/language/expressions)
+
+- * [Value categories](https://en.cppreference.com/w/c/language/value_category)
+- * [Evaluation order and sequencing](https://en.cppreference.com/w/c/language/eval_order)
+- * [Constants and literals](https://en.cppreference.com/w/c/language/expressions#Constants_and_literals)
+- * [Integer constants](https://en.cppreference.com/w/c/language/integer_constant)
+- * [Floating constants](https://en.cppreference.com/w/c/language/floating_constant)
+- * [Character constants](https://en.cppreference.com/w/c/language/character_constant)
+- * [``true``/``false``](https://en.cppreference.com/w/c/language/bool_constant) (C23)
+- * [``nullptr``](https://en.cppreference.com/w/c/language/nullptr) (C23)
+- * [String literals](https://en.cppreference.com/w/c/language/string_literal)
+- * [Compound literals](https://en.cppreference.com/w/c/language/compound_literal) (C99)
+- * [Constant expressions](https://en.cppreference.com/w/c/language/constant_expression)
+- * [Implicit conversions](https://en.cppreference.com/w/c/language/conversion)
+- * [Operators](https://en.cppreference.com/w/c/language/expressions#Operators)
+- * [Member access and indirection](https://en.cppreference.com/w/c/language/operator_member_access)
+- * [Logical](https://en.cppreference.com/w/c/language/operator_logical)
+- * [Comparison](https://en.cppreference.com/w/c/language/operator_comparison)
+- * [Arithmetic](https://en.cppreference.com/w/c/language/operator_arithmetic)
+- * [Assignment](https://en.cppreference.com/w/c/language/operator_assignment)
+- * [Increment and Decrement](https://en.cppreference.com/w/c/language/operator_incdec)
+- * [Call, Comma, Ternary](https://en.cppreference.com/w/c/language/operator_other)
+- * [``sizeof``](https://en.cppreference.com/w/c/language/sizeof)
+- * [``_Alignof``](https://en.cppreference.com/w/c/language/_Alignof) (C11)
+- * [Cast operators](https://en.cppreference.com/w/c/language/cast)
+- * [Operator precedence](https://en.cppreference.com/w/c/language/operator_precedence)
+- * [Generic selection](https://en.cppreference.com/w/c/language/generic) (C11)
+
+- [Initialization](https://en.cppreference.com/w/c/language/initialization)
+
+- * [Scalar](https://en.cppreference.com/w/c/language/scalar_initialization)
+- * [Array](https://en.cppreference.com/w/c/language/array_initialization)
+- * [Structure/Union](https://en.cppreference.com/w/c/language/struct_initialization)
+    
+- [Declarations](https://en.cppreference.com/w/c/language/declarations)
+
+- * [Pointers](https://en.cppreference.com/w/c/language/pointer)
+- * [Arrays](https://en.cppreference.com/w/c/language/array)
+- * [Enumerations](https://en.cppreference.com/w/c/language/enum)
+- * [Storage duration and Linkage](https://en.cppreference.com/w/c/language/storage_duration)
+- * [``const``](https://en.cppreference.com/w/c/language/const)
+- * [``volatile``](https://en.cppreference.com/w/c/language/volatile)
+- * [``restrict``](https://en.cppreference.com/w/c/language/restrict) (C99)
+- * [``struct``](https://en.cppreference.com/w/c/language/struct)
+- * [``union``](https://en.cppreference.com/w/c/language/union)
+- * [Bit-fields](https://en.cppreference.com/w/c/language/bit_field)
+- * [``_Alignas``](https://en.cppreference.com/w/c/language/_Alignas) (C11)
+- * [``typedef``](https://en.cppreference.com/w/c/language/typedef)
+- * [``_Static_assert``](https://en.cppreference.com/w/c/language/_Static_assert) (C11)
+- * [Atomic types](https://en.cppreference.com/w/c/language/atomic) (C11)
+- * [External and tentative definitions](https://en.cppreference.com/w/c/language/extern)
+- * [Attributes](https://en.cppreference.com/w/c/language/attributes) (C23)
+
+- [Functions](https://en.cppreference.com/w/c/language/functions)
+
+- * [Function declaration](https://en.cppreference.com/w/c/language/function_declaration)
+- * [Function definition](https://en.cppreference.com/w/c/language/function_definition)
+- * [``inline``](https://en.cppreference.com/w/c/language/inline) (C99)
+- * [``_Noreturn``](https://en.cppreference.com/w/c/language/_Noreturn) (C11)(deprecated in C23)
+- * [Variadic arguments](https://en.cppreference.com/w/c/language/variadic)
+
+- **Miscellaneous**
+
+- * [History of C](https://en.cppreference.com/w/c/language/history)
+- * [Conformance](https://en.cppreference.com/w/c/language/conformance)
+- * [Inline assembly](https://en.cppreference.com/w/c/language/asm)
+- * [Signal handling](https://en.cppreference.com/w/c/language/signal)
+- * [Analyzability](https://en.cppreference.com/w/c/language/analyzability) (C11)
+
+
+## /CPL2. Headers
+-  [Headers](https://en.cppreference.com/w/c/header)
+
+**Standard Library headers**
+
+The interface of C standard library is defined by the
+following collection of headers.
+
+  - [`<assert.h>`] [Conditionally compiled macro that compares its argument to zero](https://en.cppreference.com/w/c/error)
+  - [`<complex.h>`] (since C99)  [Complex number arithmetic](https://en.cppreference.com/w/c/numeric/complex)
+  - [`<ctype.h>`] [Functions to determine the type contained in character data](https://en.cppreference.com/w/c/string/byte)
+  - [`<errno.h>`] [Macros reporting error conditions](https://en.cppreference.com/w/c/error)
+  - [`<fenv.h>`] (since C99) [Floating-point environment](https://en.cppreference.com/w/c/numeric/fenv)
+  - [`<float.h>`] [Limits of floating-point types](https://en.cppreference.com/w/c/types/limits#Limits_of_floating-point_types)
+  - [`<inttypes.h>`] (since C99)  [Format conversion of integer types](https://en.cppreference.com/w/c/types/integer)
+  - [`<iso646.h>`] (since C95)  [Alternative operator spellings](https://en.cppreference.com/w/c/language/operator_alternative)
+  - [`<limits.h>`] [Ranges of integer types](https://en.cppreference.com/w/c/types/limits)
+  - [`<locale.h>`] [Localization utilities](https://en.cppreference.com/w/c/locale)
+  - [`<math.h>`] [Common mathematics functions](https://en.cppreference.com/w/c/numeric/math)
+  - [`<setjmp.h>`] [Nonlocal jumps](https://en.cppreference.com/w/c/program)
+  - [`<signal.h>`] [Signal handling](https://en.cppreference.com/w/c/program)
+  - [`<stdalign.h>`] (since C11)  [`alignas` and [`alignof`](https://en.cppreference.com/w/c/types) convenience macros
+  - [`<stdarg.h>`] [Variable arguments](https://en.cppreference.com/w/c/variadic)
+  - [`<stdatomic.h>`] (since C11)  [Atomic operations](https://en.cppreference.com/w/c/thread#Atomic_operations)
+  - `<stdbit.h>` (since C23)  Macros to work with the byte and bit representations of types
+  - [`<stdbool.h>`] (since C99)  [Macros for boolean type](https://en.cppreference.com/w/c/types)
+  - `<stdckdint.h>` (since C23)  macros for performing checked integer arithmetic
+  - [`<stddef.h>`] [Common macro definitions](https://en.cppreference.com/w/c/types)
+  - [`<stdint.h>`] (since C99)  [Fixed-width integer types](https://en.cppreference.com/w/c/types/integer)
+  - [`<stdio.h>`] [Input/output](https://en.cppreference.com/w/c/io)
+  - [`<stdlib.h>`](https://en.cppreference.com/w/c/program)
+  - * General utilities: 
+  - * * [memory management](https://en.cppreference.com/w/c/memory), 
+  - * * [program utilities](https://en.cppreference.com/w/c/program), 
+  - * * [string conversions](https://en.cppreference.com/w/c/string), 
+  - * * [random numbers](https://en.cppreference.com/w/c/numeric/random),
+  - * * [algorithms](https://en.cppreference.com/w/c/algorithm)
+  - [`<stdnoreturn.h>`] (since C11) [`noreturn`](https://en.cppreference.com/w/c/language/_Noreturn) convenience macro
+  - [`<string.h>`] [String handling](https://en.cppreference.com/w/c/string/byte)
+  - [`<tgmath.h>`] (since C99) [Type-generic math](https://en.cppreference.com/w/c/numeric/tgmath) (macros wrapping math.h and complex.h)
+  - [`<threads.h>`] (since C11) [Thread library](https://en.cppreference.com/w/c/thread)
+  - [`<time.h>`] [Time/date utilities](https://en.cppreference.com/w/c/chrono)
+  - [`<uchar.h>`] (since C11) [UTF-16 and UTF-32 character utilities](https://en.cppreference.com/w/c/string/multibyte)
+  - [`<wchar.h>`] (since C95) [Extended multibyte and wide character utilities](https://en.cppreference.com/w/c/string/wide)
+  - [`<wctype.h>`] (since C95) [Functions to determine the type contained in wide character data](https://en.cppreference.com/w/c/string/wide)
+
+
+References
+
+  -  C23 standard (ISO/IEC 9899:2023):      -  7.1.2 Standard headers
+  -  C17 standard (ISO/IEC 9899:2018):      -  7.1.2 Standard headers (p: 131-132)
+  -  C11 standard (ISO/IEC 9899:2011):      -  7.1.2 Standard headers (p: 181-182)
+  -  C99 standard (ISO/IEC 9899:1999):      -  7.1.2 Standard headers (p: 165)
+  -  C89/C90 standard (ISO/IEC 9899:1990):  -  4.1.2 Standard headers
+
+
+## /CPL3. Type support
+-  [Type support](https://en.cppreference.com/w/c/types)
+
+**Type support**
+
+  [See also [type system overview](https://en.cppreference.com/w/c/language/types) and
+  [arithmetic types defined by the language](https://en.cppreference.com/w/c/language/arithmetic_types).
+
+  -  [1 Basic types](#Basic_types)
+
+    -  [1.1 Additional basic types and convenience [macros](#Additional_basic_types_and_convenience_macros)
+    -  [1.2 Fixed width integer types (since C99)](#Fixed_width_integer_types_.28since_C99.29)
+    -  [1.3 Numeric limits](#Numeric_limits)
+
+  -  [2 Notes](#Notes)
+  -  [3 Example](#Example)
+  -  [4 References](#References)
+
+
+Basic types
+
+
+  Additional basic types and convenience macros
+
+  - Defined in header `<stddef.h>`
+
+      [`size_t`](https://en.cppreference.com/w/c/types/size_t)
+      - unsigned integer type returned by the
+         [`sizeof`](https://en.cppreference.com/w/c/language/sizeof) operator (typedef)
+
+      [`ptrdiff_t`](https://en.cppreference.com/w/c/types/ptrdiff_t)
+      - signed integer type returned when subtracting two pointers (typedef)
+
+      [`nullptr_t`](https://en.cppreference.com/w/c/types/nullptr_t) (C23)
+      - the type of the predefined null pointer constant
+        [`nullptr`](https://en.cppreference.com/w/c/language/nullptr) (typedef)
+
+      [`NULL`](https://en.cppreference.com/w/c/types/NULL)
+      - implementation-defined null pointer constant (macro constant)
+
+      [`max_align_t`](https://en.cppreference.com/w/c/types/max_align_t) (C11)
+      - a type with alignment requirement as great as any
+        other scalar type (typedef)
+
+      [`offsetof`](https://en.cppreference.com/w/c/types/offsetof)
+      - byte offset from the beginning of a struct type to specified member
+        (function macro)
+
+  - Defined in header `<stdbool.h>`
+
+      `bool` (C99)(removed in C23)
+      - convenience macro, expands to
+        [`_Bool`](https://en.cppreference.com/w/c/keyword/_Bool) (keyword macro)
+
+      `true` (C99)(removed in C23)
+      - expands to integer constant `1` (macro constant)
+
+      `fals` (C99)(removed in C23)
+      - expands to integer constant `0` (macro constant)
+
+      `__bool_true_false_are_define` (C99)(deprecated in C23)
+      - expands to integer constant `1` (macro constant)
+
+  - Defined in header `<stdalign.h>`
+
+      `alignas` (C11)(removed in C23)
+      - convenience macro, expands to keyword
+        [`_Alignas`](https://en.cppreference.com/w/c/keyword/_Alignas)
+        (keyword macro)
+
+      `aligno` (C11)(removed in C23)
+      - convenience macro, expands to keyword
+        [`_Alignof`](https://en.cppreference.com/w/c/keyword/_Alignof)
+        (keyword macro)
+
+      `__alignas_is_define` (C11)(removed in C23)
+      - expands to integer constant `1`
+        (macro constant)
+
+      `__alignof_is_define` (C11)(removed in C23)
+      - expands to integer constant `1`
+        (macro constant)
+
+  - Defined in header `<stdnoreturn.h>`
+
+      `noreturn` (C11)(deprecated in C23)
+      - convenience macro, expands to
+        [`_Noreturn`](https://en.cppreference.com/w/c/keyword/_Noreturn)
+        (keyword macro)
+
+
+[Fixed width integer types](https://en.cppreference.com/w/c/types/integer) (since C99)
+
+
+[Numeric limits](https://en.cppreference.com/w/c/types/limits)
+
+
+Notes
+
+  - The type of `true` and `false` is int rather than `_Bool`.
+
+     A program may undefine and perhaps then redefine the macros `bool`, 
+     `true` and `false`. However, such ability is a deprecated feature.
+
+  - (since C99) (until C23)
+
+  - The type of `true` and `false` is `bool`. It is unspecified whether any 
+    of `bool`, `_Bool`, `true`, or `false` is implemented as a predefined macro.
+
+     If `bool`, `true`, or `false` (but not `_Bool`) is defined as a 
+     predefined macro, a program may undefine and perhaps redefine it.
+
+  - (since C23)
+
+
+Example
+
+```cpp
+    #include <stdio.h>
+    #include <stdbool.h>
+    #include <stdalign.h>
+
+    int main(void)
+    {
+        printf("%d %d %dn", true && false, true || false, !false);
+        printf("%d %dn", true ^ true, true + true);
+        printf("%zun", alignof(short));
+    }
+```
+
+Possible output:
+
+      0 1 1
+      0 2
+      2
+
+
+References
+
+  -  C17 standard (ISO/IEC 9899:2018):
+  -  7.15 Alignment `<stdalign.h>` (p: 196)
+  -  7.18 Boolean type and values `<stdbool.h>` (p: 210)
+  -  7.19 Common definitions `<stddef.h>` (p: 211)
+  -  7.23 `_Noreturn` `<stdnoreturn.h>` (p: 263)
+  -  7.31.9 Boolean type and values `<stdbool.h>` (p: 332)
+
+  -  C11 standard (ISO/IEC 9899:2011):
+  -  7.15 Alignment `<stdalign.h>` (p: 268)
+  -  7.18 Boolean type and values `<stdbool.h>` (p: 287)
+  -  7.19 Common definitions `<stddef.h>` (p: 288)
+  -  7.23 `_Noreturn` `<stdnoreturn.h>` (p: 361)
+  -  7.31.9 Boolean type and values `<stdbool.h>` (p: 456)
+
+  -  C99 standard (ISO/IEC 9899:1999):
+  -  7.18 Boolean type and values `<stdbool.h>` (p: 253)
+  -  7.19 Common definitions `<stddef.h>` (p: 254)
+  -  7.26.7 Boolean type and values `<stdbool.h>` (p: 401)
+
+  -  C89/C90 standard (ISO/IEC 9899:1990):
+  -  4.1.5 Common definitions `<stddef.h>`
+
+
+## /CPL4. Program utilities
+-  [Program utilities](https://en.cppreference.com/w/c/program)
+
+Program support utilities
+
+  -  [1 Program termination](#Program_termination)
+  -  [2 Unreachable control flow](#Unreachable_control_flow)
+  -  [3 Communicating with the environment](#Communicating_with_the_environment)
+  -  [4 Signals](#Signals)
+  -  [4.1 Signal types](#Signal_types)
+  -  [5 Non-local jumps](#Non-local_jumps)
+  -  [5.1 Types](#Types)
+  -  [6 References](#References)
+  -  [7 See also](#See_also)
+
+The following functions manage program termination and resources cleanup.
+
+
+Defined in header `<stdlib.h>`
+
+  - [`abort`](https://en.cppreference.com/w/c/program/abort)
+      - causes abnormal program termination (without cleaning up) (function)
+
+  - [`exit`](https://en.cppreference.com/w/c/program/exit)
+      - causes normal program termination with cleaning up (function)
+
+  - [`quick_exit`](https://en.cppreference.com/w/c/program/quick_exit) (C11)
+      - causes normal program termination without completely cleaning up (function)
+
+  - [`_Exit`](https://en.cppreference.com/w/c/program/_Exit) (C99)
+      - causes normal program termination without cleaning up (function)
+
+  - [`atexit`](https://en.cppreference.com/w/c/program/atexit)
+      - registers a function to be called on
+         `exit()`](https://en.cppreference.com/w/c/program/exit) invocation (function)
+
+  - [`at_quick_exit`](https://en.cppreference.com/w/c/program/at_quick_exit) (C11)
+      - registers a function to be called on ``quick_exit`` invocation (function)
+
+  - [`EXIT_SUCCESSEXIT_FAILURE`](https://en.cppreference.com/w/c/program/EXIT_status)
+      - indicates program execution execution status (macro constant)
+
+
+Unreachable control flow
+
+Defined in header `<stddef.h>`
+
+  - [`unreachable`](https://en.cppreference.com/w/c/program/unreachable) (C23)
+      - marks unreachable point of execution (function macro)
+
+
+Communicating with the environment
+
+Defined in header `<stdlib.h>`
+
+  - [`system`](https://en.cppreference.com/w/c/program/system)
+      - calls the host environment's command processor (function)
+
+  - [`getenvgetenv_s`](https://en.cppreference.com/w/c/program/getenv) (C11)
+      - access to the list of environment variables (function)
+
+
+Signals
+
+Several functions and macro constants for signal management are provided.
+
+Defined in header `<signal.h>`
+
+  - [`signal`](https://en.cppreference.com/w/c/program/signal)
+      - sets a signal handler for particular signal (function)
+
+  - [`raise`](https://en.cppreference.com/w/c/program/raise)
+      - runs the signal handler for particular signal (function)
+
+  - [`sig_atomic_t`](https://en.cppreference.com/w/c/program/sig_atomic_t)
+      - the integer type that can be accessed as an atomic
+         entity from an asynchronous signal handler (typedef)
+
+  - [`SIG_DFLSIG_IGN`](https://en.cppreference.com/w/c/program/SIG_strategies)
+      - defines signal handling strategies (macro constant)
+
+  - [`SIG_ERR`](https://en.cppreference.com/w/c/program/SIG_ERR)
+      - error was encountered (macro constant)
+
+  - `SIGABRT SIGFPE SIGILL SIGINT SIGSEGV SIGTERM`](https://en.cppreference.com/w/c/program/SIG_types)
+      - defines signal types (macro constant)
+
+
+Non-local jumps
+
+Defined in header `<setjmp.h>`
+
+
+  - [`setjmp`](https://en.cppreference.com/w/c/program/setjmp)
+        - saves the context (function macro)
+
+  - [`longjmp`](https://en.cppreference.com/w/c/program/longjmp)
+        - jumps to specified location (function)
+
+Types
+
+  - [`jmp_buf`](https://en.cppreference.com/w/c/program/jmp_buf)
+        - execution context type (typedef)
+
+
+References
+
+-  C17 standard (ISO/IEC 9899:2018):
+-   * 7.13 Nonlocal jumps `<setjmp.h>` (p: 191-192)
+-   * 7.14 Signal handling `<signal.h>` (p: 193-195)
+-   * 7.22 General utilities `<stdlib.h>` (p: 248-262)
+-   * 7.31.7 Signal handling `<signal.h>` (p: 332)
+-   * 7.31.12 General utilities `<stdlib.h>` (p: 333)
+-  C11 standard (ISO/IEC 9899:2011):
+-   * 7.13 Nonlocal jumps `<setjmp.h>` (p: 262-264)
+-   * 7.14 Signal handling `<signal.h>` (p: 265-267)
+-   * 7.22 General utilities `<stdlib.h>` (p: 340-360)
+-   * 7.31.7 Signal handling `<signal.h>` (p: 455)
+-   * 7.31.12 General utilities `<stdlib.h>` (p: 456)
+-  C99 standard (ISO/IEC 9899:1999):
+-   * 7.13 Nonlocal jumps `<setjmp.h>` (p: 243-245)
+-   * 7.14 Signal handling `<signal.h>` (p: 246-248)
+-   * 7.20 General utilities `<stdlib.h>` (p: 306-324)
+-   * 7.26.6 Signal handling `<signal.h>` (p: 401)
+-   * 7.26.10 General utilities `<stdlib.h>` (p: 402)
+-  C89/C90 standard (ISO/IEC 9899:1990):
+-   * 4.6 NON-LOCAL JUMPS `<setjmp.h>`
+-   * 4.7 SIGNAL HANDLING `<signal.h>`
+-   * 4.10 GENERAL UTILITIES `<stdlib.h>`
+-   * 4.13.5 Signal handling `<signal.h>`
+-   * 7.13.7 General utilities `<stdlib.h>`
+
+
+## /CPL5. Variadic function support
+-  [Variadic function support](https://en.cppreference.com/w/c/variadic)
+
+**Variadic functions**
+
+Variadic functions are functions (e.g. [`printf`](https://en.cppreference.com/w/c/io/fprintf))
+which take a variable number of arguments.
+
+The declaration of a variadic function uses an ellipsis as
+the last parameter, e.g. int [`printf`](http://en.cppreference.com/w/c/io/fprintf) 
+(const char\* format, ...);.
+See [`variadic arguments](https://en.cppreference.com/w/c/language/variadic) 
+for additional detail on the syntax and automatic argument conversions.
+
+Accessing the variadic arguments from the function body uses
+the following library facilities:
+
+-  [1 Macros](#Macros)
+-  [2 Type](#Type)
+-  [3 Example](#Example)
+-  [4 References](#References)
+-  [5 See also](#See_also)
+
+
+**Macros**
+
+Defined in header `<stdarg.h>`
+
+
+  - [`va_start`](https://en.cppreference.com/w/c/variadic/va_start)
+      - enables access to variadic function arguments (function macro)
+
+  - [`va_arg`](https://en.cppreference.com/w/c/variadic/va_arg)
+      - accesses the next variadic function argument (function macro)
+
+  - [`va_copy`](https://en.cppreference.com/w/c/variadic/va_copy) (C99)
+      - makes a copy of the variadic function arguments (function macro)
+
+  - [`va_end`](https://en.cppreference.com/w/c/variadic/va_end)
+      - ends traversal of the variadic function arguments (function macro)
+
+
+Type
+
+  - [`va_list`](https://en.cppreference.com/w/c/variadic/va_list)
+      - holds the information needed by `va_start`, `va_arg`,
+         `va_end`, and `va_copy` (typedef)
+
+Example
+
+Print values of different types.
+
+```c
+    #include <stdio.h>
+    #include <stdarg.h>
+    
+    void simple_printf(const char* fmt, ...)
+    {
+        va_list args;
+        va_start(args, fmt);
+    
+        while (*fmt != '\0') {
+            if (*fmt == 'd') {
+                int i = va_arg(args, int);
+                printf("%d\n", i);
+            } else if (*fmt == 'c') {
+                // A 'char' variable will be promoted to 'int'
+                // A character literal in C is already 'int' by itself
+                int c = va_arg(args, int);
+                printf("%c\n", c);
+            } else if (*fmt == 'f') {
+                double d = va_arg(args, double);
+                printf("%f\n", d);
+            }
+            ++fmt;
+        }
+    
+        va_end(args);
+    }
+    
+    int main(void)
+    {
+        simple_printf("dcff", 3, 'a', 1.999, 42.5); 
+    }
+```
+
+    Output:
+            3
+            a
+            1.999000
+            42.50000
+
+
+References
+
+  -  C11 standard (ISO/IEC 9899:2011):
+  -  *  7.16 Variable arguments `<stdarg.h>` (p: 269-272)
+  -  C99 standard (ISO/IEC 9899:1999):
+  -  *  7.15 Variable arguments `<stdarg.h>` (p: 249-252)
+  -  C89/C90 standard (ISO/IEC 9899:1990):
+  -  *  4.8 VARIABLE ARGUMENTS `<stdarg.h>`
+
+
+## /CPL6. Error handling
+-  [Error handling](https://en.cppreference.com/w/c/error)
+
+
+**Error handling**
+
+  -  [1 Error numbers](#Error_numbers)
+
+    - [`Error codes`](https://en.cppreference.com/w/c/error/errno_macros)
+      [`errno`](https://en.cppreference.com/w/c/error/errno)
+
+  -  [2 Assertions](#Assertions)
+
+    - [`assert`](https://en.cppreference.com/w/c/error/assert)
+    - [`static_assert`](https://en.cppreference.com/w/c/error/static_assert) (C11) (removed in C23)
+
+  -  [3 Bounds checking](#Bounds_checking)
+
+    - [`set_constraint_handler_s`](https://en.cppreference.com/w/c/error/set_constraint_handler_s) (C11) 
+    - [`abort_handler_s`](https://en.cppreference.com/w/c/error/abort_handler_s) (C11)
+    - [`ignore_handler_s`](https://en.cppreference.com/w/c/error/ignore_handler_s) (C11)
+
+  -  [4 Notes](#Notes)
+  -  [5 References](#References)
+  -  [6 See also](#See_also)
+
+
+Error numbers
+
+  - Defined in header `<errno.h>`
+
+    `errno](https://en.cppreference.com/w/c/error/errno)
+      - macro which expands to POSIX-compatible thread-local
+         error number variable (macro variable)
+
+    `E2BIG, EACCES, ..., EXDEV](https://en.cppreference.com/w/c/error/errno_macros)
+            - macros for standard POSIX-compatible error
+               conditions (macro constant)
+
+Assertions
+
+  - Defined in header `<assert.h>`
+
+    `assert](https://en.cppreference.com/w/c/error/assert)
+      - aborts the program if the user-specified condition
+         is not true. May be disabled for release builds (function macro)
+
+   `static_assert](https://en.cppreference.com/w/c/error/static_assert) (C11)(removed in C23)
+      - issues a compile-time diagnostic if the value of a
+         constant expression is false (keyword macro)
+
+Bounds checking
+
+  The standard library provides bounds-checked
+  versions of some existing functions
+  ([`gets_s`](https://en.cppreference.com/w/c/io/gets),
+  [`fopen_s`](https://en.cppreference.com/w/c/io/fopen),
+  [`printf_s`](https://en.cppreference.com/w/c/io/fprintf),
+  [`strcpy_s`](https://en.cppreference.com/w/c/string/byte/strcpy),
+  [`wcscpy_s`](https://en.cppreference.com/w/c/string/wide/wcscpy),
+  [`mbstowcs_s`](https://en.cppreference.com/w/c/string/multibyte/mbstowcs),
+  [`qsort_s`](https://en.cppreference.com/w/c/algorithm/qsort),
+  [`getenv_s`](https://en.cppreference.com/w/c/program/getenv), etc). 
+  This functionality is *optional* and is only available
+  if `__STDC_LIB_EXT1__` is defined. The following
+  macros and functions support this functionality.
+
+  - Defined in header `<errno.h>`
+  - Defined in header `<stdio.h>`
+
+      `errno_t` (C11)
+       - a typedef for the type int, used to
+          self-document functions that return
+          [`errno`](https://en.cppreference.com/w/c/error/errno) values (typedef)
+
+  - Defined in header `<stddef.h>`
+  - Defined in header `<stdio.h>`
+  - Defined in header `<stdlib.h>`
+  - Defined in header `<string.h>`
+  - Defined in header `<time.h>`
+  - Defined in header `<wchar.h>`
+
+      `rsize_t` (C11)
+       - a typedef for the same type as
+          [`size_t`](https://en.cppreference.com/w/c/types/size_t), used to
+          self-document functions that range-check
+          their parameters at runtime (typedef)
+
+  - Defined in header `<stdint.h>`
+
+      `RSIZE_MAX` (C11)
+       - largest acceptable size for bounds-checked functions, 
+          expands to either constant or variable which may change at runtime 
+          (e.g. as the currently allocated memory size changes) (macro variable)
+
+  - Defined in header `<stdlib.h>`
+
+    [`set_constraint_handler_s`](https://en.cppreference.com/w/c/error/set_constraint_handler_s) (C11)
+     - set the error callback for bounds-checked functions (function)
+
+    [`abort_handler_s`](https://en.cppreference.com/w/c/error/abort_handler_s) (C11)
+     - abort callback for the bounds-checked functions (function)
+
+    [`ignore_handler_s`](https://en.cppreference.com/w/c/error/ignore_handler_s) (C11)
+     - ignore callback for the bounds-checked functions (function)
+
+       Note: implementations of bounds-checked functions
+       are available as open-source libraries 
+       [`Safe C`](https://github.com/rurban/safeclib/) and
+       [`Slibc`](https://code.google.com/archive/p/slibc/),
+       and as part of Watcom C. There is also an
+       incompatible set of bounds-checked functions
+       available in Visual Studio.
+
+Notes
+
+  Since C23,
+  [`static_assert`](https://en.cppreference.com/w/c/language/_Static_assert) is
+  itself a keyword, which may also be a predefined macro, so
+  `<assert.h>` no longer provides it.
+
+References
+
+  -  C11 standard (ISO/IEC 9899:2011):
+  -  * 7.2 Diagnostics `<assert.h>` (p: 186-187)
+  -  * 7.5 Errors `<errno.h>` (p: 205)
+  -  * 7.19 Common definitions `<stddef.h>` (p: 288)
+  -  * 7.20 Integer types `<stdint.h>` (p: 289-295)
+  -  * 7.21 Input/output `<stdio.h>` (p: 296-339)
+  -  * 7.22 General utilities `<stdlib.h>` (p: 340-360)
+  -  * K.3.1.3 Use of errno (p: 584)
+  -  * K.3.2/2 errno_t (p: 585)
+  -  * K.3.3/2 rsize_t (p: 585)
+  -  * K.3.4/2 RSIZE_MAX (p: 585)
+  -  * 7.31.3 Errors `<errno.h>` (p: 455)
+  -  * 7.31.10 Integer types `<stdint.h>` (p: 456)
+  -  * 7.31.11 Input/output `<stdio.h>` (p: 456)
+  -  * 7.31.12 General utilities `<stdlib.h>` (p: 456)
+
+  -  C99 standard (ISO/IEC 9899:1999):
+  -  *  7.2 Diagnostics `<assert.h>` (p: 169)
+  -  *  7.5 Errors `<errno.h>` (p: 186)
+  -  *  7.26.3 Errors `<errno.h>` (p: 401)
+  -  *  7.26.8 Integer types `<stdint.h>` (p: 401)
+  -  *  7.26.9 Input/output `<stdio.h>` (p: 402)
+  -  *  7.26.10 General utilities `<stdlib.h>` (p: 402)
+
+  -  C89/C90 standard (ISO/IEC 9899:1990):
+  -  *  4.2 DIAGNOSTICS `<assert.h>`
+  -  *  4.1.3 Errors `<errno.h>`
+  -  *  4.13.1 Errors `<errno.h>`
+  -  *  4.13.6 Input/output `<stdio.h>`
+  -  *  4.13.7 General utilities `<stdlib.h>`
+
+
+See also
+
+[`math_errhandling MATH_ERRNO MATH_ERREXCEPT`](https://en.cppreference.com/w/c/numeric/math/math_errhandling) (C99)(C99)(C99)
+  - defines the error handling mechanism used by
+    the common mathematical functions (macro constant)
+
+
+## /CPL7. Dynamic memory management
+-  [Dynamic memory management](https://en.cppreference.com/w/c/memory)
+
+**Dynamic memory management**
+
+Functions
+
+  - Defined in header `<stdlib.h>`
+
+      [`malloc`](https://en.cppreference.com/w/c/memory/malloc)
+      - allocates memory (function)
+
+      [`calloc`](https://en.cppreference.com/w/c/memory/calloc)
+      - allocates and zeroes memory (function)
+
+      [`realloc`](https://en.cppreference.com/w/c/memory/realloc)
+      - expands previously allocated memory block (function)
+
+      [`free`](https://en.cppreference.com/w/c/memory/free)
+      - deallocates previously allocated memory (function)
+
+      [`free_sized`](https://en.cppreference.com/w/c/memory/free_sized) (C23)
+      - deallocates previously allocated sized memory (function)
+
+      [`free_aligned_sized`](https://en.cppreference.com/w/c/memory/free_aligned_sized) (C23)
+      - deallocates previously allocated sized and aligned memory (function)
+
+      [`aligned_alloc`](https://en.cppreference.com/w/c/memory/aligned_alloc) (C11)
+      - allocates aligned memory (function)
+
+
+## /CPL8. Strings library
+-  [Strings library](https://en.cppreference.com/w/c/string)
+
+**Strings library**
+
+  [Null-terminated byte string management](https://en.cppreference.com/w/c/string/byte)
+
+  [Null-terminated multibyte string management](https://en.cppreference.com/w/c/string/multibyte)
+
+  [Null-terminated wide string management](https://en.cppreference.com/w/c/string/wide)
+
+
+## /CPL9. Algorithms
+-  [Algorithms](https://en.cppreference.com/w/c/algorithm)
+
+**Algorithms**
+
+  - Defined in header `<stdlib.h>`
+
+    [`qsortqsort_s`](https://en.cppreference.com/w/c/algorithm/qsort) (C11)
+    - sorts a range of elements with unspecified type (function)
+
+    [`bsearchbsearch_s`](https://en.cppreference.com/w/c/algorithm/bsearch) (C11)
+    - searches an array for an element of unspecified type (function)
+
+References
+
+  -  C11 standard (ISO/IEC 9899:2011):
+
+  -  7.22.5 Searching and sorting utilities (p: 354-356)
+  -  K.3.6.3 Searching and sorting utilities (p: 607-609)
+
+  -  C99 standard (ISO/IEC 9899:1999):
+  -  7.20.5 Searching and sorting utilities (p: 318-319)
+
+  -  C89/C90 standard (ISO/IEC 9899:1990):
+  -  4.10.5 Searching and sorting utilities
+
+
+## /CPL10. Numerics
+-  [Numerics](https://en.cppreference.com/w/c/numeric)
+
+
+**Numerics**
+
+The C numerics library includes common mathematical
+functions and types, as well as support for random number
+generation.
+
+  -  [1 Common mathematical functions](#Common_mathematical_functions)
+  -  [2 Floating-point environment](#Floating-point_environment)
+  -  [3 Pseudo-random number generation](#Pseudo-random_number_generation)
+  -  [4 Complex number arithmetic](#Complex_number_arithmetic)
+  -  [5 Type-generic math](#Type-generic_math)
+
+  - [Common mathematical functions](https://en.cppreference.com/w/c/numeric/math)
+
+      The header `math.h` provides standard C library
+      mathematical functions such as
+      [`fabs`](https://en.cppreference.com/w/c/numeric/math/fabs),
+      [`sqrt`](https://en.cppreference.com/w/c/numeric/math/sqrt), and
+      [`sin`](https://en.cppreference.com/w/c/numeric/math/sin).
+
+
+  - [Floating-point environment](https://en.cppreference.com/w/c/numeric/fenv)
+
+      The header `fenv.h` defines flags and functions related
+      to exceptional floating-point state,
+      such as overflow and division by zero.
+
+
+  - [Pseudo-random number generation](https://en.cppreference.com/w/c/numeric/random)
+
+      The header `stdlib.h` also includes C-style random number
+      generation via [`srand`](https://en.cppreference.com/w/c/numeric/random/srand) and
+      [`rand`](https://en.cppreference.com/w/c/numeric/random/rand).
+
+
+  - [Complex number arithmetic](https://en.cppreference.com/w/c/numeric/complex)
+
+      The header `complex.h` provides types and functions about
+      [complex numbers](https://en.cppreference.com/w/c/numeric/complex).
+
+
+  - [Type-generic math](https://en.cppreference.com/w/c/numeric/tgmath)
+
+      The header `tgmath.h` provides some macros for a function
+      which names XXX:
+
+      -  real function:
+
+      -  `float` variant `XXXf`
+      -  `double` variant `XXX`
+      -  `long double` variant `XXXl`
+
+      -  complex function:
+
+      -  `float` variant `cXXXf`
+      -  `double` variant `cXXX`
+      -  `long double` variant `cXXXl`
+
+
+## /CPL11. Date and time utilities
+-  [Date and time utilities](https://en.cppreference.com/w/c/chrono)
+
+
+**Date and time utilities**
+
+  -  [1 Functions](#Functions)
+
+    -  [1.1 Time manipulation](#Time_manipulation)
+    -  [1.2 Format conversions](#Format_conversions)
+
+  -  [2 Constants](#Constants)
+  -  [3 Types](#Types)
+  -  [4 References](#References)
+  -  [5 See also](#See_also)
+
+Functions
+
+  - Defined in header `<time.h>`
+
+      [`difftime`](https://en.cppreference.com/w/c/chrono/difftime)
+      - computes the difference between times (function)
+
+      [`time`](https://en.cppreference.com/w/c/chrono/time)
+      - returns the current calendar time of the system as
+         time since epoch (function)
+
+      [`clock`](https://en.cppreference.com/w/c/chrono/clock)
+      - returns raw processor clock time since the program
+         is started (function)
+
+      [`timespec_get`](https://en.cppreference.com/w/c/chrono/timespec_get) (C11)
+      - returns the calendar time in seconds and nanoseconds
+         based on a given time base (function)
+
+      [`timespec_getres`](https://en.cppreference.com/w/c/chrono/timespec_getres) (C23)
+      - returns the resolution of calendar time based on a
+         given time base (function)
+
+Format conversions
+
+  - Defined in header `<time.h>`
+
+      [`asctimeasctime_s`](https://en.cppreference.com/w/c/chrono/asctime) (deprecated in C23) (C11)
+      - converts a [`tm`](https://en.cppreference.com/w/c/chrono/tm) object to a
+         textual representation (function)
+
+      [`ctimectime_s`](https://en.cppreference.com/w/c/chrono/ctime) (deprecated in C23) (C11)
+      - converts a [`time_t`](https://en.cppreference.com/w/c/chrono/time_t) object to
+         a textual representation (function)
+
+      [`strftime`](https://en.cppreference.com/w/c/chrono/strftime)
+      - converts a [`tm`](https://en.cppreference.com/w/c/chrono/tm) object to custom
+         textual representation (function)
+
+  - Defined in header `<wchar.h>`
+
+      [`wcsftime`](https://en.cppreference.com/w/c/chrono/wcsftime) (C95)
+      - converts a [`tm`](https://en.cppreference.com/w/c/chrono/tm) object to custom
+         wide string textual representation (function)
+
+  - Defined in header `<time.h>`
+
+      [`gmtimegmtime_rgmtime_s`](https://en.cppreference.com/w/c/chrono/gmtime) (C23) (C11)
+      - converts time since epoch to calendar time expressed
+         as Coordinated Universal Time (UTC) (function)
+
+      [`localtime localtime_r localtime_s`](https://en.cppreference.com/w/c/chrono/localtime) (C23) (C11)
+      - converts time since epoch to calendar time expressed as local time (function)
+
+      [`mktime`](https://en.cppreference.com/w/c/chrono/mktime)
+      - converts calendar time to time since epoch (function)
+
+Constants
+
+  - Defined in header `<time.h>`
+
+      [`CLOCKS_PER_SEC`](https://en.cppreference.com/w/c/chrono/CLOCKS_PER_SEC)
+      - number of processor clock ticks per second (macro constant)
+
+Types
+
+  - Defined in header `<time.h>`
+
+      [`tm`](https://en.cppreference.com/w/c/chrono/tm) 
+      - calendar time type
+
+      [`time_t`](https://en.cppreference.com/w/c/chrono/time_t)
+      - calendar time since epoch type (typedef)
+
+      [`clock_t`](https://en.cppreference.com/w/c/chrono/clock_t)
+      - processor time since era type (typedef)
+
+      [`timespec`](https://en.cppreference.com/w/c/chrono/timespec) (C11) 
+      - time in seconds and nanoseconds
+
+References
+
+  -  C17 standard (ISO/IEC 9899:2018):
+  -  7.27 Date and time `<time.h>` (p: 284-291)
+  -  7.29.5.1 The wcsftime function (p: 320-321)
+  -  7.31.14 Date and time `<time.h>` (p: 333)
+
+  -  C11 standard (ISO/IEC 9899:2011):
+  -  7.27 Date and time `<time.h>` (p: 388-397)
+  -  7.29.5.1 The wcsftime function (p: 439-440)
+  -  7.31.14 Date and time `<time.h>` (p: 456)
+
+  -  C99 standard (ISO/IEC 9899:1999):
+  -  7.23 Date and time `<time.h>` (p: 338-347)
+  -  7.24.5.1 The wcsftime function (p: 385-386)
+
+  -  C89/C90 standard (ISO/IEC 9899:1990):
+  -  4.12 DATE AND TIME `<time.h>`
+
+
+## /CPL12. Input/output support
+-  [Input/output support](https://en.cppreference.com/w/c/io)
+
+**File input/output**
+
+  The `<stdio.h>` header provides generic file operation
+  support and supplies functions with narrow character
+  input/output capabilities.
+
+  The [`<wchar.h>`](https://en.cppreference.com/w/c/string/wide) header supplies
+  functions with wide character input/output capabilities.
+
+  I/O streams are denoted by objects of type `FILE`
+  that can only be accessed and manipulated through pointers of type `FILE *`.
+  Each stream is associated with an external physical device 
+  (file, standard input stream, printer, serial port, etc).
+
+   -  [1 Types](#Types)
+   -  [2 Predefined standard streams](#Predefined_standard_streams)
+   -  [3 Functions](#Functions)
+
+      -  [3.1 File access](#File_access)
+      -  [3.2 Direct input/output](#Direct_input.2Foutput)
+      -  [3.3 Unformatted input/output](#Unformatted_input.2Foutput)
+
+         -  [3.3.1 Narrow character](#Narrow_character)
+         -  [3.3.2 Wide character](#Wide_character)
+
+      -  [3.4 Formatted input/output](#Formatted_input.2Foutput)
+
+         -  [3.4.1 Narrow character](#Narrow_character_2)
+         -  [3.4.2 Wide character](#Wide_character_2)
+
+      -  [3.5 File positioning](#File_positioning)
+      -  [3.6 Error handling](#Error_handling)
+      -  [3.7 Operations on files](#Operations_on_files)
+
+   -  [4 Macro constants](#Macro_constants)
+   -  [5 References](#References)
+
+Types
+
+  - Defined in header `<stdio.h>`
+
+      - [`FILE`](https://en.cppreference.com/w/c/io/FILE)
+        - object type, capable of holding all information
+           needed to control a C I/O stream (typedef)
+
+      - [`fpos_t`](https://en.cppreference.com/w/c/io/fpos_t)
+        - non-array complete object type, capable of uniquely
+           specifying a position and multibyte parser state in a file (typedef)
+
+Predefined standard streams
+
+  - Defined in header `<stdio.h>`
+
+      - [`stdin` `stdout` `stderr`](https://en.cppreference.com/w/c/io/std_streams)
+        - expression of type `FILE *` associated with the *input* stream
+          expression of type `FILE *` associated with the *output* stream
+          expression of type `FILE *` associated with the *error output* stream (macro constant)
+
+Functions
+
+  **File access**
+
+  - Defined in header `<stdio.h>`
+
+      - [`fopenfopen_s`](https://en.cppreference.com/w/c/io/fopen) (C11)
+        - opens a file (function)
+
+      - [`freopenfreopen_s`](https://en.cppreference.com/w/c/io/freopen) (C11)
+        - open an existing stream with a different name (function)
+
+      - [`fclose`](https://en.cppreference.com/w/c/io/fclose)
+        - closes a file (function)
+
+      - [`fflush`](https://en.cppreference.com/w/c/io/fflush)
+        - synchronizes an output stream with the actual file (function)
+
+      - [`setbuf`](https://en.cppreference.com/w/c/io/setbuf)
+        - sets the buffer for a file stream (function)
+
+      - [`setvbuf`](https://en.cppreference.com/w/c/io/setvbuf)
+        - sets the buffer and its size for a file stream (function)
+
+  - Defined in header `<wchar.h>`
+
+      - [`fwide`](https://en.cppreference.com/w/c/io/fwide) (C95)
+        - switches a file stream between wide character I/O
+           and narrow character I/O (function)
+
+  - Direct input/output
+
+  - Defined in header `<stdio.h>`
+
+      - [`fread`](https://en.cppreference.com/w/c/io/fread)
+        - reads from a file (function)
+
+      - [`fwrite`](https://en.cppreference.com/w/c/io/fwrite)
+        - writes to a file (function)
+
+  - Unformatted input/output
+
+  **Narrow character**
+
+  - Defined in header `<stdio.h>`
+
+      - [`fgetcgetc`](https://en.cppreference.com/w/c/io/fgetc)
+        - gets a character from a file stream (function)
+
+      - [`fgets`](https://en.cppreference.com/w/c/io/fgets)
+        - gets a character string from a file stream (function)
+
+      - [`fputcputc`](https://en.cppreference.com/w/c/io/fputc)
+        - writes a character to a file stream (function)
+
+      - [`fputs`](https://en.cppreference.com/w/c/io/fputs)
+        - writes a character string to a file stream (function)
+
+      - [`getchar`](https://en.cppreference.com/w/c/io/getchar)
+        - reads a character from `stdin` (function)
+
+      - [`getsgets_s`](https://en.cppreference.com/w/c/io/gets) (removed in C11)(C11)
+        - reads a character string from `stdin` (function)
+
+      - [`putchar`](https://en.cppreference.com/w/c/io/putchar)
+        - writes a character to `stdout` (function)
+
+      - [`puts`](https://en.cppreference.com/w/c/io/puts)
+        - writes a character string to
+           [`stdout`](https://en.cppreference.com/w/c/io/std_streams) (function)
+
+      - [`ungetc`](https://en.cppreference.com/w/c/io/ungetc)
+        - puts a character back into a file stream (function)
+
+  **Wide character**
+
+  - Defined in header `<wchar.h>`
+
+      - [`fgetwcgetwc`](https://en.cppreference.com/w/c/io/fgetwc) (C95)
+        - gets a wide character from a file stream (function)
+
+      - [`fgetws`](https://en.cppreference.com/w/c/io/fgetws) (C95)
+        - gets a wide string from a file stream (function)
+
+      - [`fputwcputwc`](https://en.cppreference.com/w/c/io/fputwc) (C95)
+        - writes a wide character to a file stream (function)
+
+      - [`fputws`](https://en.cppreference.com/w/c/io/fputws) (C95)
+        - writes a wide string to a file stream (function)
+
+      - [`getwchar`](https://en.cppreference.com/w/c/io/getwchar) (C95)
+        - reads a wide character from `stdin` (function)
+
+      - [`putwchar`](https://en.cppreference.com/w/c/io/putwchar) (C95)
+        - writes a wide character to
+           [`stdout`](https://en.cppreference.com/w/c/io/std_streams) (function)
+
+      - [`ungetwc`](https://en.cppreference.com/w/c/io/ungetwc) (C95)
+        - puts a wide character back into a file stream (function)
+
+  - Formatted input/output
+
+  **Narrow character**
+
+  - Defined in header `<stdio.h>`
+
+      - [`scanf`
+         `fscanfs`
+         `scanfs`
+         `canf_s`
+         `fscanf_s`
+         `sscanf_s`
+         ](https://en.cppreference.com/w/c/io/fscanf) (C11)(C11)(C11)
+        - reads formatted input from `stdin`, a file stream or a
+           buffer (function)
+
+      - [`vscanf`
+         `vfscanf`
+         `vsscanf`
+         `vscanf_s`
+         `vfscanf_s`
+         `vsscanf_s`
+         ](https://en.cppreference.com/w/c/io/vfscanf) (C99)(C99)(C99)(C11)(C11)(C11)
+        - reads formatted input from `stdin`, a file stream or a
+           buffer using variable argument list (function)
+
+      - [`printf`
+        `fprintfs`
+        `printfs`
+        `nprintf`
+        `printf_s`
+        `fprintf_s`
+        `sprintf_s`
+        `snprintf_s`
+         ](https://en.cppreference.com/w/c/io/fprintf) (C99)(C11)(C11)(C11)(C11)
+        - prints formatted output to `stdout`, a file stream or
+           a buffer (function)
+
+      - [`vprintf`
+        `vfprintf`
+        `vsprintf`
+        `vsnprintf`
+        `vprintf_s`
+        `vfprintf_s`
+        `vsprintf_s`
+        `vsnprintf_s`
+         ](https://en.cppreference.com/w/c/io/vfprintf) (C99)(C11)(C11)(C11)(C11)
+        - prints formatted output to `stdout`, a file stream or
+           a buffer using variable argument list (function)
+
+  **Wide character**
+
+  - Defined in header `<wchar.h>`
+
+      - [`wscanf` 
+        `fwscanf`
+        `swscanf`
+        `wscanf_s`
+        `fwscanf_s`
+        `swscanf_s`](https://en.cppreference.com/w/c/io/fwscanf) (C95)(C95)(C95)(C11)(C11)(C11)
+        - reads formatted wide character input from `stdin`, a file stream or a
+           buffer (function)
+
+      - [`vwscanf`
+         `vfwscanf`
+         `vswscanf`
+         `vwscanf_s`
+         `vfwscanf_s`
+         `vswscanf_s`](https://en.cppreference.com/w/c/io/vfwscanf) (C99)(C99)(C99)(C11)(C11)(C11)
+        - reads formatted wide character input from `stdin`, a file stream
+           or a buffer using variable argument list (function)
+
+      - [`wprintf`
+         `fwprintf`
+         `swprintf`
+         `wprintf_s`
+         `fwprintf_s`
+         `swprintf_s`
+         `snwprintf_s`](https://en.cppreference.com/w/c/io/fwprintf) (C95)(C95)(C95)(C11)(C11)(C11)(C11)
+        - prints formatted wide character output to `stdout`, a file stream or
+           a buffer (function)
+
+      - [`vwprintf`
+         `vfwprintf`
+         `vswprintf`
+         `vwprintf_s`
+         `vfwprintf_s`
+         `vswprintf_s`
+         `vsnwprintf_s`](https://en.cppreference.com/w/c/io/vfwprintf) (C95)(C95)(C95)(C11)(C11)(C11)(C11)
+        - prints formatted wide character output to `stdout`, a file stream
+           or a buffer using variable argument list (function)
+
+  - File positioning
+
+  - Defined in header `<stdio.h>`
+
+      - [`ftell`](https://en.cppreference.com/w/c/io/ftell)
+        - returns the current file position indicator (function)
+
+      - [`fgetpos`](https://en.cppreference.com/w/c/io/fgetpos)
+        - gets the file position indicator (function)
+
+      - [`fseek`](https://en.cppreference.com/w/c/io/fseek)
+        - moves the file position indicator to a specific
+           location in a file (function)
+
+      - [`fsetpos`](https://en.cppreference.com/w/c/io/fsetpos)
+        - moves the file position indicator to a specific
+           location in a file (function)
+
+      - [`rewind`](https://en.cppreference.com/w/c/io/rewind)
+        - moves the file position indicator to the beginning
+           in a file (function)
+
+  - Error handling
+
+  - Defined in header `<stdio.h>`
+
+      - [`clearerr`](https://en.cppreference.com/w/c/io/clearerr)
+        - clears errors (function)
+
+      - [`feof`](https://en.cppreference.com/w/c/io/feof)
+        - checks for the end-of-file (function)
+
+      - [`ferror`](https://en.cppreference.com/w/c/io/ferror)
+        - checks for a file error (function)
+
+      - [`perror`](https://en.cppreference.com/w/c/io/perror)
+        - displays a character string corresponding of the
+           current error to `stderr` (function)
+
+  - Operations on files
+
+  - Defined in header `<stdio.h>`
+
+      - [`remove`](https://en.cppreference.com/w/c/io/remove)
+        - erases a file (function)
+
+      - [`rename`](https://en.cppreference.com/w/c/io/rename)
+        - renames a file (function)
+
+      - [`tmpfile`
+         `tmpfile_s`](https://en.cppreference.com/w/c/io/tmpfile) (C11)
+        - returns a pointer to a temporary file (function)
+
+      - [`tmpnam`
+         `tmpnam_s`](https://en.cppreference.com/w/c/io/tmpnam) (C11)
+        - returns a unique filename (function)
+
+Macro constants
+
+  - Defined in header `<stdio.h>`
+
+      - `EOF`
+        - integer constant expression of type int and negative value
+           (macro constant)
+
+      - `FOPEN_MAX`
+        - maximum number of files that can be open simultaneously
+           (macro constant)
+
+      - `FILENAME_MAX`
+        - size needed for an array of char to hold the longest supported file name
+           (macro constant)
+
+      - `BUFSIZ`
+        - size of the buffer used by [`setbuf`](https://en.cppreference.com/w/c/io/setbuf)
+           (macro constant)
+
+      - `_IOFBF` - argument to `setvbuf` indicating fully buffered I/O
+      - `_IOLBF` - argument to `setvbuf` indicating line buffered I/O
+      - `_IONBF` - argument to `setvbuf` indicating unbuffered I/O
+           (macro constant)
+
+      - `SEEK_SET` - argument to `fseek` indicating seeking from beginning of the file
+      - `SEEK_CUR` - argument to `fseek` indicating seeking from the current file position
+      - `SEEK_END` - argument to `fseek` indicating seeking from end of the file
+           (macro constant)
+
+      
+
+      - `TMP_MAX`  -  maximum number of unique filenames that can be
+           generated by [`tmpnam`](https://en.cppreference.com/w/c/io/tmpnam)
+
+      - `TMP_MAX_S` (C11)  -  maximum number of unique filenames that can be
+           generated by tmpnam_s (macro constant)
+
+      - `L_tmpnam` `L_tmpnam_s` (C11)
+
+        - size needed for an array of char to hold the result
+           of [`tmpnam`](https://en.cppreference.com/w/c/io/tmpnam)
+           size needed for an array of char to hold the result
+           of tmpnam_s (macro constant)
+
+References
+
+   -  C23 standard (ISO/IEC 9899:2023):
+   -  7.21 Input/output `<stdio.h>` (p: TBD)
+   -  7.29 Extended multibyte and wide character utilities `<wchar.h>` (p: TBD)
+   -  7.31.11 Input/output `<stdio.h>` (p: TBD)
+   -  7.31.16 Extended multibyte and wide character utilities `<wchar.h>` (p: TBD)
+   -  K.3.5 Input/output `<stdio.h>` (p: TBD)
+
+   -  C17 standard (ISO/IEC 9899:2018):
+   -  7.21 Input/output `<stdio.h>` (p: TBD)
+   -  7.29 Extended multibyte and wide character utilities `<wchar.h>` (p: TBD)
+   -  7.31.11 Input/output `<stdio.h>` (p: TBD)
+   -  7.31.16 Extended multibyte and wide character utilities `<wchar.h>` (p: TBD)
+   -  K.3.5 Input/output `<stdio.h>` (p: TBD)
+
+   -  C11 standard (ISO/IEC 9899:2011):
+   -  7.21 Input/output `<stdio.h>` (p: 296-339)
+   -  7.29 Extended multibyte and wide character utilities `<wchar.h>` (p: 402-446)
+   -  7.31.11 Input/output `<stdio.h>` (p: 456)
+   -  7.31.16 Extended multibyte and wide character utilities `<wchar.h>` (p: 456)
+   -  K.3.5 Input/output `<stdio.h>` (p: 586-603)
+
+   -  C99 standard (ISO/IEC 9899:1999):
+   -  7.19 Input/output `<stdio.h>` (p: 262-305)
+   -  7.24 Extended multibyte and wide character utilities `<wchar.h>` (p: 348-392)
+   -  7.26.9 Input/output `<stdio.h>` (p: 402)
+   -  7.26.12 Extended multibyte and wide character utilities `<wchar.h>` (p: 402)
+
+   -  C89/C90 standard (ISO/IEC 9899:1990):
+   -  4.9 INPUT/OUTPUT `<stdio.h>`
+   -  4.13.6 Input/output `<stdio.h>`
+
+
+## /CPL13. Localization support
+-  [Localization support](https://en.cppreference.com/w/c/locale)
+
+**Localization support**
+
+  - Defined in header `<locale.h>`
+
+      [`setlocale`](http://en.cppreference.com/w/c/locale/setlocale)
+      - gets and sets the current C locale (function)
+
+      [`localeconv`](http://en.cppreference.com/w/c/locale/localeconv)
+      - queries numeric and monetary formatting details of
+        the current locale (function)
+
+      [`lconv`](http://en.cppreference.com/w/c/locale/lconv)
+      - formatting details, returned by
+
+      [`localeconv`](http://en.cppreference.com/w/c/locale/localeconv) (struct)
+
+  Locale categories
+
+      [`LC_ALLL`
+       `C_COLLATEL`
+       `C_CTYPEL`
+       `C_MONETARYL`
+       `C_NUMERICL`
+       `C_TIME`](http://en.cppreference.com/w/c/locale/LC_categories)
+      - locale categories for `setlocale` (macro constant)
+
+References
+
+-  C11 standard (ISO/IEC 9899:2011):
+-  7.11 Localization `<locale.h>` (p: 223-230)
+-  7.31.6 Localization `<locale.h>` (p: 455)
+
+-  C99 standard (ISO/IEC 9899:1999):
+-  7.11 Localization `<locale.h>` (p: 204-211)
+-  7.26.5 Localization `<locale.h>` (p: 401)
+
+-  C89/C90 standard (ISO/IEC 9899:1990):
+-  4.4 LOCALIZATION `<locale.h>`
+-  4.13.3 Localization `<locale.h>`
+
+
+## /CPL14. Concurrency support
+-  [Concurrency support](https://en.cppreference.com/w/c/thread) [(C11)]
+
+**Concurrency support library**
+
+  C includes built-in support for threads, atomic operations,
+  mutual exclusion, condition variables, and thread-specific
+  storages.
+
+  These features are optionally provided:
+
+  -  if the macro constant `_STDC_NO_THREADS__` is defined
+     by the compiler, the header `<threads.h>` and all of
+     the names provided in it are not provided;
+  -  if the macro constant `__STDC_NO_ATOMICS__` is defined
+     by the compiler, the header
+     [`<stdatomic.h>`](http://en.cppreference.com/w/c/thread#Atomic_operations)
+     and all of the names provided in it are not provided.
+
+  See also [`_Atomic`](http://en.cppreference.com/w/c/language/atomic) type specifier and qualifier.
+
+  -  [1 Threads](#Threads)
+  -  [2 Atomic operations](#Atomic_operations)
+
+    -  [2.1 Operations on atomic types](#Operations_on_atomic_types)
+    -  [2.2 Flag type and operations](#Flag_type_and_operations)
+    -  [2.3 Initialization](#Initialization)
+    -  [2.4 Memory synchronization ordering](#Memory_synchronization_ordering)
+    -  [2.5 Convenience type aliases](#Convenience_type_aliases)
+
+  -  [3 Mutual exclusion](#Mutual_exclusion)
+
+    -  [3.1 Call once](#Call_once)
+
+  -  [4 Condition variables](#Condition_variables)
+  -  [5 Thread-local storage](#Thread-local_storage)
+  -  [6 Reserved identifiers](#Reserved_identifiers)
+  -  [7 References](#References)
+  -  [8 See also](#See_also)
+  -  [9 External links](#External_links)
+
+
+Threads
+
+
+  - Defined in header `<threads.h>`
+
+      **`thrd_t`**
+      - implementation-defined complete object type identifying a thread
+
+      [`thrd_create`](http://en.cppreference.com/w/c/thread/thrd_create) (C11)
+      - creates a thread (function)
+
+      [`thrd_equal`](http://en.cppreference.com/w/c/thread/thrd_equal) (C11)
+      - checks if two identifiers refer to the same thread (function)
+
+      [`thrd_current`](http://en.cppreference.com/w/c/thread/thrd_current) (C11)
+      - obtains the current thread identifier (function)
+
+      [`thrd_sleep`](http://en.cppreference.com/w/c/thread/thrd_sleep) (C11)
+      - suspends execution of the calling thread for the
+        given period of time (function)
+
+      [`thrd_yield`](http://en.cppreference.com/w/c/thread/thrd_yield) (C11)
+      - yields the current time slice (function)
+
+      [`thrd_exit`](http://en.cppreference.com/w/c/thread/thrd_exit) (C11)
+      - terminates the calling thread (function)
+
+      [`thrd_detach`](http://en.cppreference.com/w/c/thread/thrd_detach) (C11)
+      - detaches a thread (function)
+
+      [`thrd_join`](http://en.cppreference.com/w/c/thread/thrd_join) (C11)
+      - blocks until a thread terminates (function)
+
+      [`thrd_successthrd_timedoutthrd_busythrd_nomemthrd_error`](http://en.cppreference.com/w/c/thread/thrd_errors) (C11)
+      - indicates a thread error status (constant)
+
+      `thrd_start_t` (C11)
+      - a typedef of the function pointer type `int(*) (void*)`, 
+        used by `thrd_create` (typedef)
+
+Atomic operations
+
+  - Defined in header `<stdatomic.h>`
+
+      Operations on atomic types
+
+      [`ATOMIC_BOOL_LOCK_FREE`
+       `ATOMIC_CHAR_LOCK_FREE`
+       `ATOMIC_CHAR16_T_LOCK_FREE`
+       `ATOMIC_CHAR32_T_LOCK_FREE`
+       `ATOMIC_WCHAR_T_LOCK_FREE`
+       `ATOMIC_SHORT_LOCK_FREE`
+       `ATOMIC_INT_LOCK_FREE`
+       `ATOMIC_LONG_LOCK_FREE`
+       `ATOMIC_LLONG_LOCK_FREE`
+       `ATOMIC_POINTER_LOCK_FREE`
+      ](http://en.cppreference.com/w/c/atomic/ATOMIC_LOCK_FREE_consts>`__ (C11)
+      - indicates that the given atomic type is lock-free (macro constant)
+
+      [`atomic_is_lock_free`](http://en.cppreference.com/w/c/atomic/atomic_is_lock_free) (C11)
+      - indicates whether the atomic object is lock-free (function)
+
+      [`atomic_storeatomic_store_explicit`](http://en.cppreference.com/w/c/atomic/atomic_store) (C11)
+      - stores a value in an atomic object (function)
+
+      [`atomic_loadatomic_load_explicit`](http://en.cppreference.com/w/c/atomic/atomic_load) (C11)
+      - reads a value from an atomic object (function)
+
+      [`atomic_exchangeatomic_exchange_explicit`](http://en.cppreference.com/w/c/atomic/atomic_exchange) (C11)
+      - swaps a value with the value of an atomic object (function)
+
+      [`atomic_compare_exchange_strongatomic_compare_exchange_strong_explicitatomic_compare_exchange_weakatomic_compare_exchange_weak_explicit </w/c/atomic/atomic_compare_exchange>`__ (C11)
+      - swaps a value with an atomic object if the old value
+        is what is expected, otherwise reads the old value (function)
+
+      [`atomic_fetch_addatomic_fetch_add_explicit`](http://en.cppreference.com/w/c/atomic/atomic_fetch_add) (C11)
+      - atomic addition (function)
+
+      [`atomic_fetch_subatomic_fetch_sub_explicit`](http://en.cppreference.com/w/c/atomic/atomic_fetch_sub) (C11)
+      - atomic subtraction (function)
+
+      [`atomic_fetch_oratomic_fetch_or_explicit`](http://en.cppreference.com/w/c/atomic/atomic_fetch_or) (C11)
+      - atomic bitwise OR (function)
+
+      [`atomic_fetch_xoratomic_fetch_xor_explicit`](http://en.cppreference.com/w/c/atomic/atomic_fetch_xor) (C11)
+      - atomic bitwise exclusive OR (function)
+
+      [`atomic_fetch_andatomic_fetch_and_explicit`](http://en.cppreference.com/w/c/atomic/atomic_fetch_and) (C11)
+      - atomic bitwise AND (function)
+
+      Flag type and operations
+
+
+      [`atomic_flag`](http://en.cppreference.com/w/c/atomic/atomic_flag) (C11)
+      - lock-free atomic boolean flag
+
+      [`atomic_flag_test_and_setatomic_flag_test_and_set_explicit`](http://en.cppreference.com/w/c/atomic/atomic_flag_test_and_set) (C11)
+      - sets an atomic_flag to true and returns the old value (function)
+
+      [`atomic_flag_clearatomic_flag_clear_explicit`](http://en.cppreference.com/w/c/atomic/atomic_flag_clear) (C11)
+      - sets an atomic_flag to false (function)
+
+      Initialization
+
+
+      [`atomic_init`](http://en.cppreference.com/w/c/atomic/atomic_init) (C11)
+      - initializes an existing atomic object (function)
+
+      [`ATOMIC_VAR_INIT`](http://en.cppreference.com/w/c/atomic/ATOMIC_VAR_INIT) (C11)(deprecated in C17)(removed in C23)
+      - initializes a new atomic object (function macro)
+
+      [`ATOMIC_FLAG_INIT`](http://en.cppreference.com/w/c/atomic/ATOMIC_FLAG_INIT) (C11)
+      - initializes a new `atomic_flag` (macro constant)
+
+  Memory synchronization ordering
+
+      [`memory_order`](http://en.cppreference.com/w/c/atomic/memory_order) (C11)
+      - defines memory ordering constraints (enum)
+
+      [`kill_dependency`](http://en.cppreference.com/w/c/atomic/kill_dependency) (C11)
+      - breaks a dependency chain for `memory_order_consume` (function macro)
+
+      [`atomic_thread_fence`](http://en.cppreference.com/w/c/atomic/atomic_thread_fence) (C11)
+      - generic memory order-dependent fence synchronization primitive (function)
+
+      [`atomic_signal_fence`](http://en.cppreference.com/w/c/atomic/atomic_signal_fence) (C11)
+      - fence between a thread and a signal handler executed in the same thread (function)
+
+    Convenience type aliases
+
+    |-------------------------------|------------------------------|
+    |          Typedef name         |        Full type name        |
+    |-------------------------------|------------------------------|
+    | `atomic_bool` (C11)           | `_Atomic _Bool`              |
+    | `atomic_char` (C11)           | `_Atomic char`               |
+    | `atomic_schar` (C11)          | `_Atomic signed char`        |
+    | `atomic_uchar` (C11)          | `_Atomic unsigned char`      |
+    | `atomic_short` (C11)          | `_Atomic short`              |
+    | `atomic_ushort` (C11)         | `_Atomic unsigned short`     |
+    | `atomic_int` (C11)            | `_Atomic int`                |
+    | `atomic_uint` (C11)           | `_Atomic unsigned int`       |
+    | `atomic_long` (C11)           | `_Atomic long`               |
+    | `atomic_ulong` (C11)          | `_Atomic unsigned long`      |
+    | `atomic_llong` (C11)          | `_Atomic long long`          |
+    | `atomic_ullong` (C11)         | `_Atomic unsigned long long` |
+    | `atomic_char8_t` (C23)        | `_Atomic char8_t`            |
+    | `atomic_char16_t` (C11)       | `_Atomic char16_t`           |
+    | `atomic_char32_t` (C11)       | `_Atomic char32_t`           |
+    | `atomic_wchar_t` (C11)        | `_Atomic wchar_t`            |
+    | `atomic_int_least8_t` (C11)   | `_Atomic int_least8_t`       |
+    | `atomic_uint_least8_t` (C11)  | `_Atomic uint_least8_t`      |
+    | `atomic_int_least16_t` (C11)  | `_Atomic int_least16_t`      |
+    | `atomic_uint_least16_t` (C11) | `_Atomic uint_least16_t`     |
+    | `atomic_int_least32_t` (C11)  | `_Atomic int_least32_t`      |
+    | `atomic_uint_least32_t` (C11) | `_Atomic uint_least32_t`     |
+    | `atomic_int_least64_t` (C11)  | `_Atomic int_least64_t`      |
+    | `atomic_uint_least64_t` (C11) | `_Atomic uint_least64_t`     |
+    | `atomic_int_fast8_t` (C11)    | `_Atomic int_fast8_t`        |
+    | `atomic_uint_fast8_t` (C11)   | `_Atomic uint_fast8_t`       |
+    | `atomic_int_fast16_t` (C11)   | `_Atomic int_fast16_t`       |
+    | `atomic_uint_fast16_t` (C11)  | `_Atomic uint_fast16_t`      |
+    | `atomic_int_fast32_t` (C11)   | `_Atomic int_fast32_t`       |
+    | `atomic_uint_fast32_t` (C11)  | `_Atomic uint_fast32_t`      |
+    | `atomic_int_fast64_t` (C11)   | `_Atomic int_fast64_t`       |
+    | `atomic_uint_fast64_t` (C11)  | `_Atomic uint_fast64_t`      |
+    | `atomic_intptr_t` (C11)       | `_Atomic intptr_t`           |
+    | `atomic_uintptr_t` (C11)      | `_Atomic uintptr_t`          |
+    | `atomic_size_t` (C11)         | `_Atomic size_t`             |
+    | `atomic_ptrdiff_t` (C11)      | `_Atomic ptrdiff_t`          |
+    | `atomic_intmax_t` (C11)       | `_Atomic intmax_t`           |
+    | `atomic_uintmax_t` (C11)      | `_Atomic uintmax_t`          |
+    |-------------------------------|------------------------------|
+
+  Mutual exclusion              
+
+  - Defined in header `<threads.h>`
+
+      **`mtx_t`**
+      - mutex identifier
+
+      [`mtx_init`](http://en.cppreference.com/w/c/thread/mtx_init) (C11)
+      - creates a mutex (function)
+
+      [`mtx_lock`](http://en.cppreference.com/w/c/thread/mtx_lock) (C11)
+      - blocks until locks a mutex (function)
+
+      [`mtx_timedlock`](http://en.cppreference.com/w/c/thread/mtx_timedlock) (C11)
+      - blocks until locks a mutex or times out (function)
+
+      [`mtx_trylock`](http://en.cppreference.com/w/c/thread/mtx_trylock) (C11)
+      - locks a mutex or returns without blocking if already locked (function)
+
+      [`mtx_unlock`](http://en.cppreference.com/w/c/thread/mtx_unlock) (C11)
+      - unlocks a mutex (function)
+
+      [`mtx_destroy`](http://en.cppreference.com/w/c/thread/mtx_destroy) (C11)
+      - destroys a mutex (function)
+
+      [`mtx_plainmtx_recursivemtx_timed`](http://en.cppreference.com/w/c/thread/mtx_types) (C11)(C11)(C11)
+      - defines the type of a mutex (enum)
+
+      Call once
+
+      [`call_once`](http://en.cppreference.com/w/c/thread/call_once) (C11)
+      - calls a function exactly once (function)
+
+
+Condition variables
+
+  - Defined in header `<threads.h>`
+
+      **`cnd_t`**
+      - condition variable identifier
+
+      [`cnd_init`](http://en.cppreference.com/w/c/thread/cnd_init) (C11)
+      - creates a condition variable (function)
+
+      [`cnd_signal`](http://en.cppreference.com/w/c/thread/cnd_signal) (C11)
+      - unblocks one thread blocked on a condition variable (function)
+
+      [`cnd_broadcast`](http://en.cppreference.com/w/c/thread/cnd_broadcast) (C11)
+      - unblocks all threads blocked on a condition variable (function)
+
+      [`cnd_wait`](http://en.cppreference.com/w/c/thread/cnd_wait) (C11)
+      - blocks on a condition variable (function)
+
+      [`cnd_timedwait`](http://en.cppreference.com/w/c/thread/cnd_timedwait) (C11)
+      - blocks on a condition variable, with a timeout (function)
+
+      [`cnd_destroy`](http://en.cppreference.com/w/c/thread/cnd_destroy) (C11)
+      - destroys a condition variable (function)
+
+
+Thread-local storage
+
+  - Defined in header `<threads.h>`
+
+      [`thread_local`](http://en.cppreference.com/w/c/thread/thread_local) (C11)(removed in C23)
+      - convenience macro for storage-class specifier `_Thread_local` (keyword macro)
+
+      **`tss_t`**
+      - thread-specific storage pointer
+
+      [`TSS_DTOR_ITERATIONS`](http://en.cppreference.com/w/c/thread/TSS_DTOR_ITERATIONS) (C11)
+      - maximum number of times destructors are called
+        (macro constant)
+
+      **`tss_dtor_t`** (C11)
+      - function pointer type `void(*)(void*)`, used for TSS destructor
+        (typedef)
+
+      [`tss_create`](http://en.cppreference.com/w/c/thread/tss_create) (C11)
+      - creates thread-specific storage pointer with a given
+        destructor (function)
+
+      [`tss_get`](http://en.cppreference.com/w/c/thread/tss_get) (C11)
+      - reads from thread-specific storage (function)
+
+      [`tss_set`](http://en.cppreference.com/w/c/thread/tss_set) (C11)
+      - write to thread-specific storage (function)
+
+      [`tss_delete`](http://en.cppreference.com/w/c/thread/tss_delete) (C11)
+      - releases the resources held by a given
+        thread-specific pointer (function)
+
+Reserved identifiers
+
+  In future revisions of the C standard:
+
+  -  function names, type names, and enumeration constants
+     that begin with either `cnd_`, `mtx_`, `thrd_`, or
+     `tss_`, and a lowercase letter may be added to the
+     declarations in the `<threads.h>` header;
+
+  -  macros that begin with `ATOMIC_` and an uppercase
+     letter may be added to the macros defined in the
+     `<stdatomic.h>` header;
+
+  -  typedef names that begin with either `atomic_` or
+     `memory_`, and a lowercase letter may be added to the
+     declarations in the `<stdatomic.h>` header;
+
+  -  enumeration constants that begin with `memory_order_`
+     and a lowercase letter may be added to the definition of
+     the `memory_order` type in the `<stdatomic.h>` header;
+
+  -  function names that begin with `atomic_` and a
+     lowercase letter may be added to the declarations in the
+     `<stdatomic.h>` header.
+
+  Identifiers reserved for functions names are always
+  potentially (since C23) reserved for use as identifiers with
+  external linkage, while other identifiers list here are
+  potentially (since C23) reserved when `<stdatomic.h>` is included.
+
+  Declaring, defining, or #undefing such an identifier results
+  in undefined behavior if it is provided by the standard or
+  implementation(since C23). Portable programs should not use
+  those identifiers.
+
+
+References
+
+  -  C23 standard (ISO/IEC 9899:2023):
+  -  7.17 Atomics `<stdatomic.h>` (p: TBD)
+  -  7.26 Threads `<threads.h>` (p: TBD)
+  -  7.31.8 Atomics `<stdatomic.h>` (p: TBD)
+  -  7.31.15 Threads `<threads.h>` (p: TBD)
+
+  -  C17 standard (ISO/IEC 9899:2018):
+  -  7.17 Atomics `<stdatomic.h>` (p: 200-209)
+  -  7.26 Threads `<threads.h>` (p: 274-283)
+  -  7.31.8 Atomics `<stdatomic.h>` (p: 332)
+  -  7.31.15 Threads `<threads.h>` (p: 333)
+
+  -  C11 standard (ISO/IEC 9899:2011):
+  -  7.17 Atomics `<stdatomic.h>` (p: 273-286)
+  -  7.26 Threads `<threads.h>` (p: 376-387)
+  -  7.31.8 Atomics `<stdatomic.h>` (p: 455-456)
+  -  7.31.15 Threads `<threads.h>` (p: 456)
+
+External links
+
+- [GNU GCC Libc Manual: ISO C Mutexes](https://www.gnu.org/software/libc/manual/html_node/ISO-C-Mutexes.html)
+
+
+## /CPL15. Technical Specifications
+-  [Technical Specifications](https://en.cppreference.com/w/c/experimental)
+
+**Technical Specifications**
+
+  - Extensions for embedded processors
+  - Dynamic memory extensions
+  - Floating-point extensions part 1: Binary
+  - Floating-point extensions part 4: Supplementary
+
+  The C standards committee publishes experimental C language
+  and library extensions for future standardization.
+
+  Note: until 2012, these publications used the TR (technical
+  report) format. Since 2012 ISO procedure changed to use the
+  TS (technical specification) format.
+
+  | ISO number | Name | Status | links |
+  |------------|------|--------|-------|
+  |            |      |        |       |
+
+   - 
+
+      - ISO/IEC TR 19769:2004
+      - Extensions to support new character data types
+      - Published (`ISO
+        [store](https://www.iso.org/standard/33907.html))
+         | Final draft: [N1040](https://open-std.org/JTC1/SC22/WG14/www/docs/n1040.pdf) (2003-11-07)
+         | ✔Merged into C11.
+      - 
+   - 
+
+      - ISO/IEC TR 24731-1:2007
+      - Bounds-checking interfaces
+      - Published (`ISO
+        [store](https://www.iso.org/standard/38841.html))
+         | Final draft: [N1225](https://open-std.org/JTC1/SC22/WG14/www/docs/n1225.pdf) (2007-03-28)
+         | ✔Merged into C11.
+      - 
+   - 
+
+      - ISO/IEC TR 18037:2008
+      - Extensions to support embedded processors
+      - Published (`ISO
+        [store](https://www.iso.org/standard/51126.html))
+         Final draft: [N1169](https://open-std.org/JTC1/SC22/WG14/www/docs/n1169.pdf) (2006-04-04)
+      - 
+   - 
+
+      - ISO/IEC TR 24732:2009
+      - Extensions to support decimal floating-point
+         arithmetic
+      - Published (`ISO
+        [store](https://www.iso.org/standard/38842.html))
+         | Final draft: [N1312](https://open-std.org/JTC1/SC22/WG14/www/docs/n1312.pdf) (2008-05-16)
+         | Superseded by TS 18661-2:2015
+      - 
+   - 
+
+      - ISO/IEC 24747:2009
+      - Extensions to support mathematical special functions
+      - Published (`ISO
+        [store](https://www.iso.org/standard/38857.html))
+         Draft: [N1182](https://open-std.org/JTC1/SC22/WG14/www/docs/n1182.pdf) (2006-08-02)
+      - 
+   - 
+
+      - ISO/IEC TR 24731-2:2010
+      - Extensions to support dynamic allocation functions
+      - Published 2010-11-24 (`ISO
+        [store](https://www.iso.org/standard/51678.html))
+         Draft: [N1388](https://open-std.org/JTC1/SC22/WG14/www/docs/n1388.pdf) (2009-06-01)
+      - [dynamic](https://en.cppreference.com/w/c/experimental/dynamic)
+   - 
+
+      - ISO/IEC TS 17961:2013
+      - Secure coding rules
+      - Published 2013-11-15 (`ISO
+        [store](https://www.iso.org/standard/61134.html))
+         | Draft: [N1718](https://open-std.org/JTC1/SC22/WG14/www/docs/n1718.pdf) (2013-05-30)
+         | TC1 published 2016-08-09 (`ISO
+          [store](https://www.iso.org/standard/72086.html))
+      - 
+   - 
+
+      - ISO/IEC TS 18661-1:2014
+      - Floating-point extensions: Binary floating-point arithmetic
+      - Published 2014-07-21 (`ISO[store](https://www.iso.org/standard/63146.html))
+         Draft: [N1778](https://open-std.org/JTC1/SC22/WG14/www/docs/n1778.pdf) (2013-11-05).
+         C2x draft: [N2314](https://open-std.org/JTC1/SC22/WG14/www/docs/n2314.pdf) (2018-11-12)
+
+         ✔Merged into C23.
+      - [fpext1](https://en.cppreference.com/w/c/experimental/fpext1)
+   - 
+
+      - ISO/IEC TS
+         18661-2:2015
+      - Floating-point extensions: Decimal floating-point
+         arithmetic
+      - Published 2015-02-11, Revised 2015-05-18 (`ISO
+        [store](https://www.iso.org/standard/68882.html)).
+         C2x draft: [N2341](https://open-std.org/JTC1/SC22/WG14/www/docs/n2341.pdf) (2019-02-26)
+
+         ✔Merged into C23.
+      - 
+   - 
+
+      - ISO/IEC TS
+         18661-3:2015
+      - Floating-point extensions: Interchange and extended
+         types
+      - Published 2015-10-06 (`ISO
+        [store](https://www.iso.org/standard/65615.html)).
+         Draft: [N1945](https://open-std.org/JTC1/SC22/WG14/www/docs/n1945.pdf) (2015-06-10).
+         C2x draft: [N2601](https://open-std.org/JTC1/SC22/WG14/www/docs/n2601.pdf) (2020-10-15)
+
+         ✔Merged into C23.
+      - 
+   - 
+
+      - ISO/IEC TS
+         18661-4:2015
+      - Floating-point extensions: Supplementary functions
+      - Published 2015-10-06 (`ISO
+        [store](https://www.iso.org/standard/65616.html)).
+         Draft: [N1950](https://open-std.org/JTC1/SC22/WG14/www/docs/n1950.pdf) (2015-06-10).
+         C2x draft: [N2401](https://open-std.org/JTC1/SC22/WG14/www/docs/n2401.pdf) (2019-06-23)
+
+         ✔Partially merged into C23.
+      - [fpext4](https://en.cppreference.com/w/c/experimental/fpext4)
+   - 
+
+      - ISO/IEC TS 18661-5:2016
+      - Floating-point extensions: Supplementary attributes
+      - Published 2016-08-11 (`ISO
+        [store](https://www.iso.org/standard/65617.html))
+         Draft: [N2004](https://open-std.org/JTC1/SC22/WG14/www/docs/n2004.pdf) (2016-03-07)
+      - 
+   - 
+
+      - ISO/IEC TR 24772-3:2020
+      - Vulnerability descriptions for the programming
+         language C
+      - Published 2020-05-20 (`ISO
+        [store](https://www.iso.org/standard/71093.html))
+         Draft: [N2169](https://open-std.org/JTC1/SC22/WG14/www/docs/n2169.pdf) (2017-04-07)
+      - 
+   - 
+
+      - 
+      - Transactional Memory TS
+      - Early draft: [N1961](https://open-std.org/JTC1/SC22/WG14/www/docs/n1961.pdf) (2015-09-23)
+      - 
+   - 
+
+      - ISO/IEC TS
+         17961:xxxx
+      - Secure coding rules part 2
+      - Early development, estimated publication 2023,
+         possibly as an IS rather than TS
+      - 
+   - 
+
+      - ISO/IEC CD TS 6010
+      - A Provenance-aware Memory Object Model for C
+      - Draft: [N3226](https://open-std.org/JTC1/SC22/WG14/www/docs/n3226.pdf) (2024-03-24)
+      - 
+   - 
+
+      - ISO/IEC TS 21938-1
+      - Parallel extensions part 1: Thread-based parallelism
+      - Early draft: [N2170](https://open-std.org/JTC1/SC22/WG14/www/docs/n2170.pdf) (2017-09-21)
+         ×(Abandoned)
+      - 
+   - 
+
+      - 
+      - Parallel extensions part 2: Vector-based parallelism
+      - Early partial draft: [N2081](https://open-std.org/JTC1/SC22/WG14/www/docs/n2081.htm) (2016-09-15) ×(Abandoned)
+      - 
+
+
+## /CPL16. Symbol index
+-  [Symbol index](https://en.cppreference.com/w/c/symbol_index)
+
+**Symbol index**
+
+  This page tries to list all the symbols that are available
+  from the *Standard Library*. The symbols are written as follows:
+
+-  Function names with `()`.
+  -  [Generic](https://en.cppreference.com/w/c/language/generic) function names 
+     (e.g., [atomics](https://en.cppreference.com/w/c/atomic)) marked with (generic).
+
+  [Macro symbols](https://en.cppreference.com/w/c/symbol_index/macro) 
+  are listed in a separated page.
+
+  -  [1.1 Macros](#Macros)
+  -  [1.2 _ (underscore)](#INDEX_UNDERSCORE)
+  -  [1.3 A](#INDEX_A)
+  -  [1.4 B](#INDEX_B)
+  -  [1.5 C](#INDEX_C)
+  -  [1.6 D](#INDEX_D)
+  -  [1.7 E](#INDEX_E)
+  -  [1.8 F](#INDEX_F)
+  -  [1.9 G](#INDEX_G)
+  -  [1.10 H](#INDEX_H)
+  -  [1.11 I](#INDEX_I)
+  -  [1.12 J](#INDEX_J)
+  -  [1.13 L](#INDEX_L)
+  -  [1.14 M](#INDEX_M)
+  -  [1.15 N](#INDEX_N)
+  -  [1.16 O](#INDEX_O)
+  -  [1.17 P](#INDEX_P)
+  -  [1.18 Q](#INDEX_Q)
+  -  [1.19 R](#INDEX_R)
+  -  [1.20 S](#INDEX_S)
+  -  [1.21 T](#INDEX_T)
+  -  [1.22 U](#INDEX_U)
+  -  [1.23 V](#INDEX_V)
+  -  [1.24 W](#INDEX_W)
+
+[Macros](https://en.cppreference.com/w/c/symbol_index/macro)
+
+INDEX_UNDERSCORE
+
+  | [`_Exit()`](https://en.cppreference.com/w/c/program/_Exit) (since C99)
+
+INDEX_A
+
+  | [`abort()`](https://en.cppreference.com/w/c/program/abort)
+  | [`abort_handler_s()`](https://en.cppreference.com/w/c/error/abort_handler_s) (since C11)
+  | [`abs()`](https://en.cppreference.com/w/c/numeric/math/abs)
+  | [`acos()`](https://en.cppreference.com/w/c/numeric/math/acos)
+  | [`acosf()`](https://en.cppreference.com/w/c/numeric/math/acos) (since C99)
+  | [`acosh()`](https://en.cppreference.com/w/c/numeric/math/acosh) (since C99)
+  | [`acoshf()`](https://en.cppreference.com/w/c/numeric/math/acosh) (since C99)
+  | [`acoshl()`](https://en.cppreference.com/w/c/numeric/math/acosh) (since C99)
+  | [`acosl()`](https://en.cppreference.com/w/c/numeric/math/acos) (since C99)
+  | [`aligned_alloc()`](https://en.cppreference.com/w/c/memory/aligned_alloc) (since C11)
+  | [`asctime()`](https://en.cppreference.com/w/c/chrono/asctime) (deprecated in C23)
+  | [`asctime_s()`](https://en.cppreference.com/w/c/chrono/asctime) (since C11)
+  | [`asin()`](https://en.cppreference.com/w/c/numeric/math/asin)
+  | [`asinf()`](https://en.cppreference.com/w/c/numeric/math/asin) (since C99)
+  | [`asinh()`](https://en.cppreference.com/w/c/numeric/math/asinh) (since C99)
+  | [`asinhf()`](https://en.cppreference.com/w/c/numeric/math/asinh) (since C99)
+  | [`asinhl()`](https://en.cppreference.com/w/c/numeric/math/asinh) (since C99)
+  | [`asinl()`](https://en.cppreference.com/w/c/numeric/math/asin) (since C99)
+  | [`at_quick_exit()`](https://en.cppreference.com/w/c/program/at_quick_exit) (since C11)
+  | [`atan()`](https://en.cppreference.com/w/c/numeric/math/atan)
+  | [`atan2()`](https://en.cppreference.com/w/c/numeric/math/atan2)
+  | [`atan2f()`](https://en.cppreference.com/w/c/numeric/math/atan2) (since C99)
+  | [`atan2l()`](https://en.cppreference.com/w/c/numeric/math/atan2) (since C99)
+  | [`atanf()`](https://en.cppreference.com/w/c/numeric/math/atan) (since C99)
+  | [`atanh()`](https://en.cppreference.com/w/c/numeric/math/atanh) (since C99)
+  | [`atanhf()`](https://en.cppreference.com/w/c/numeric/math/atanh) (since C99)
+  | [`atanhl()`](https://en.cppreference.com/w/c/numeric/math/atanh) (since C99)
+  | [`atanl()`](https://en.cppreference.com/w/c/numeric/math/atan) (since C99)
+  | [`atexit()`](https://en.cppreference.com/w/c/program/atexit)
+  | [`atof()`](https://en.cppreference.com/w/c/string/byte/atof)
+  | [`atoi()`](https://en.cppreference.com/w/c/string/byte/atoi)
+  | [`atol()`](https://en.cppreference.com/w/c/string/byte/atoi)
+  | [`atoll()`](https://en.cppreference.com/w/c/string/byte/atoi) (since C99)
+
+
+  - `atomic_` `type`
+
+      | [`atomic_bool`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_char`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_char16_t`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_char32_t`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_int`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_int_fast16_t`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_int_fast32_t`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_int_fast64_t`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_int_fast8_t`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_int_least16_t`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_int_least32_t`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_int_least64_t`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_int_least8_t`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_intmax_t`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_intptr_t`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_llong`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_long`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_ptrdiff_t`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_schar`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_short`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_size_t`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_uchar`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_uint`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_uint_fast16_t`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_uint_fast32_t`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_uint_fast64_t`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_uint_fast8_t`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_uint_least16_t`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_uint_least32_t`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_uint_least64_t`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_uint_least8_t`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_uintmax_t`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_uintptr_t`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_ullong`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_ulong`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_ushort`](https://en.cppreference.com/w/c/thread) (since C11)
+      | [`atomic_wchar_t`](https://en.cppreference.com/w/c/thread) (since C11)
+
+  | [`atomic_compare_exchange_strong()`](https://en.cppreference.com/w/c/atomic/atomic_compare_exchange)
+              (generic) (since C11)
+  | [`atomic_compare_exchange_strong_explicit()`](https://en.cppreference.com/w/c/atomic/atomic_compare_exchange)
+              (generic) (since C11)
+  | [`atomic_compare_exchange_weak()`](https://en.cppreference.com/w/c/atomic/atomic_compare_exchange)
+              (generic) (since C11)
+  | [`atomic_compare_exchange_weak_explicit()`](https://en.cppreference.com/w/c/atomic/atomic_compare_exchange)
+              (generic) (since C11)
+  | [`atomic_exchange()`](https://en.cppreference.com/w/c/atomic/atomic_exchange)
+              (generic) (since C11)
+  | [`atomic_exchange_explicit()`](https://en.cppreference.com/w/c/atomic/atomic_exchange)
+              (generic) (since C11)
+  | [`atomic_fetch_add()`](https://en.cppreference.com/w/c/atomic/atomic_fetch_add)
+              (generic) (since C11)
+  | [`atomic_fetch_add_explicit()`](https://en.cppreference.com/w/c/atomic/atomic_fetch_add)
+              (generic) (since C11)
+  | [`atomic_fetch_and()`](https://en.cppreference.com/w/c/atomic/atomic_fetch_and)
+              (generic) (since C11)
+  | [`atomic_fetch_and_explicit()`](https://en.cppreference.com/w/c/atomic/atomic_fetch_and)
+              (generic) (since C11)
+  | [`atomic_fetch_or()`](https://en.cppreference.com/w/c/atomic/atomic_fetch_or)
+              (generic) (since C11)
+  | [`atomic_fetch_or_explicit()`](https://en.cppreference.com/w/c/atomic/atomic_fetch_or)
+              (generic) (since C11)
+  | [`atomic_fetch_sub()`](https://en.cppreference.com/w/c/atomic/atomic_fetch_sub)
+              (generic) (since C11)
+  | [`atomic_fetch_sub_explicit()`](https://en.cppreference.com/w/c/atomic/atomic_fetch_sub)
+              (generic) (since C11)
+  | [`atomic_fetch_xor()`](https://en.cppreference.com/w/c/atomic/atomic_fetch_xor)
+              (generic) (since C11)
+  | [`atomic_fetch_xor_explicit()`](https://en.cppreference.com/w/c/atomic/atomic_fetch_xor)
+              (generic) (since C11)
+  | [`atomic_flag`](https://en.cppreference.com/w/c/atomic/atomic_flag) (since C11)
+  | [`atomic_flag_clear()`](https://en.cppreference.com/w/c/atomic/atomic_flag_clear) (since C11)
+  | [`atomic_flag_clear_explicit()`](https://en.cppreference.com/w/c/atomic/atomic_flag_clear) (since C11)
+  | [`atomic_flag_test_and_set()`](https://en.cppreference.com/w/c/atomic/atomic_flag_test_and_set) (since C11)
+  | [`atomic_flag_test_and_set_explicit()`](https://en.cppreference.com/w/c/atomic/atomic_flag_test_and_set) (since C11)
+  | [`atomic_init()`](https://en.cppreference.com/w/c/atomic/atomic_init) (generic)
+              (since C11)
+  | [`atomic_is_lock_free()`](https://en.cppreference.com/w/c/atomic/atomic_is_lock_free)
+              (generic) (since C11)
+  | [`atomic_load()`](https://en.cppreference.com/w/c/atomic/atomic_load) (generic)
+              (since C11)
+  | [`atomic_load_explicit()`](https://en.cppreference.com/w/c/atomic/atomic_load)
+              (generic) (since C11)
+  | [`atomic_signal_fence()`](https://en.cppreference.com/w/c/atomic/atomic_signal_fence) (since C11)
+  | [`atomic_store()`](https://en.cppreference.com/w/c/atomic/atomic_store)
+              (generic) (since C11)
+  | [`atomic_store_explicit()`](https://en.cppreference.com/w/c/atomic/atomic_store)
+              (generic) (since C11)
+  | [`atomic_thread_fence()`](https://en.cppreference.com/w/c/atomic/atomic_thread_fence) (since C11)
+
+INDEX_B
+
+  | [`bsearch()`](https://en.cppreference.com/w/c/algorithm/bsearch)
+  | [`bsearch_s()`](https://en.cppreference.com/w/c/algorithm/bsearch) (since C11)
+  | [`btowc()`](https://en.cppreference.com/w/c/string/multibyte/btowc) (since C95)
+
+INDEX_C
+
+  | [`c16rtomb()`](https://en.cppreference.com/w/c/string/multibyte/c16rtomb) (since C11)
+  | [`c32rtomb()`](https://en.cppreference.com/w/c/string/multibyte/c32rtomb) (since C11)
+  | [`cabs()`](https://en.cppreference.com/w/c/numeric/complex/cabs) (since C99)
+  | [`cabsf()`](https://en.cppreference.com/w/c/numeric/complex/cabs) (since C99)
+  | [`cabsl()`](https://en.cppreference.com/w/c/numeric/complex/cabs) (since C99)
+  | [`cacos()`](https://en.cppreference.com/w/c/numeric/complex/cacos) (since C99)
+  | [`cacosf()`](https://en.cppreference.com/w/c/numeric/complex/cacos) (since C99)
+  | [`cacosh()`](https://en.cppreference.com/w/c/numeric/complex/cacosh) (since C99)
+  | [`cacoshf()`](https://en.cppreference.com/w/c/numeric/complex/cacosh) (since C99)
+  | [`cacoshl()`](https://en.cppreference.com/w/c/numeric/complex/cacosh) (since C99)
+  | [`cacosl()`](https://en.cppreference.com/w/c/numeric/complex/cacos) (since C99)
+  | [`call_once()`](https://en.cppreference.com/w/c/thread/call_once) (since C11)
+  | [`calloc()`](https://en.cppreference.com/w/c/memory/calloc)
+  | [`carg()`](https://en.cppreference.com/w/c/numeric/complex/carg) (since C99)
+  | [`cargf()`](https://en.cppreference.com/w/c/numeric/complex/carg) (since C99)
+  | [`cargl()`](https://en.cppreference.com/w/c/numeric/complex/carg) (since C99)
+  | [`casin()`](https://en.cppreference.com/w/c/numeric/complex/casin) (since C99)
+  | [`casinf()`](https://en.cppreference.com/w/c/numeric/complex/casin) (since C99)
+  | [`casinh()`](https://en.cppreference.com/w/c/numeric/complex/casinh) (since C99)
+  | [`casinhf()`](https://en.cppreference.com/w/c/numeric/complex/casinh) (since C99)
+  | [`casinhl()`](https://en.cppreference.com/w/c/numeric/complex/casinh) (since C99)
+  | [`casinl()`](https://en.cppreference.com/w/c/numeric/complex/casin) (since C99)
+  | [`catan()`](https://en.cppreference.com/w/c/numeric/complex/catan) (since C99)
+  | [`catanf()`](https://en.cppreference.com/w/c/numeric/complex/catan) (since C99)
+  | [`catanh()`](https://en.cppreference.com/w/c/numeric/complex/catanh) (since C99)
+  | [`catanhf()`](https://en.cppreference.com/w/c/numeric/complex/catanh) (since C99)
+  | [`catanhl()`](https://en.cppreference.com/w/c/numeric/complex/catanh) (since C99)
+  | [`catanl()`](https://en.cppreference.com/w/c/numeric/complex/catan) (since C99)
+  | [`cbrt()`](https://en.cppreference.com/w/c/numeric/math/cbrt) (since C99)
+  | [`cbrtf()`](https://en.cppreference.com/w/c/numeric/math/cbrt) (since C99)
+  | [`cbrtl()`](https://en.cppreference.com/w/c/numeric/math/cbrt) (since C99)
+  | [`ccos()`](https://en.cppreference.com/w/c/numeric/complex/ccos) (since C99)
+  | [`ccosf()`](https://en.cppreference.com/w/c/numeric/complex/ccos) (since C99)
+  | [`ccosh()`](https://en.cppreference.com/w/c/numeric/complex/ccosh) (since C99)
+  | [`ccoshf()`](https://en.cppreference.com/w/c/numeric/complex/ccosh) (since C99)
+  | [`ccoshl()`](https://en.cppreference.com/w/c/numeric/complex/ccosh) (since C99)
+  | [`ccosl()`](https://en.cppreference.com/w/c/numeric/complex/ccos) (since C99)
+  | [`ceil()`](https://en.cppreference.com/w/c/numeric/math/ceil)
+  | [`ceilf()`](https://en.cppreference.com/w/c/numeric/math/ceil) (since C99)
+  | [`ceill()`](https://en.cppreference.com/w/c/numeric/math/ceil) (since C99)
+  | [`cexp()`](https://en.cppreference.com/w/c/numeric/complex/cexp) (since C99)
+  | [`cexpf()`](https://en.cppreference.com/w/c/numeric/complex/cexp) (since C99)
+  | [`cexpl()`](https://en.cppreference.com/w/c/numeric/complex/cexp) (since C99)
+  | [`char16_t`](https://en.cppreference.com/w/c/string/multibyte/char16_t) (since C11)
+  | [`char32_t`](https://en.cppreference.com/w/c/string/multibyte/char32_t) (since C11)
+  | [`cimag()`](https://en.cppreference.com/w/c/numeric/complex/cimag) (since C99)
+  | [`cimagf()`](https://en.cppreference.com/w/c/numeric/complex/cimag) (since C99)
+  | [`cimagl()`](https://en.cppreference.com/w/c/numeric/complex/cimag) (since C99)
+  | [`clearerr()`](https://en.cppreference.com/w/c/io/clearerr)
+  | [`clock()`](https://en.cppreference.com/w/c/chrono/clock)
+  | [`clock_t`](https://en.cppreference.com/w/c/chrono/clock_t)
+  | [`clog()`](https://en.cppreference.com/w/c/numeric/complex/clog) (since C99)
+  | [`clogf()`](https://en.cppreference.com/w/c/numeric/complex/clog) (since C99)
+  | [`clogl()`](https://en.cppreference.com/w/c/numeric/complex/clog) (since C99)
+  | [`cnd_broadcast()`](https://en.cppreference.com/w/c/thread/cnd_broadcast) (since C11)
+  | [`cnd_destroy()`](https://en.cppreference.com/w/c/thread/cnd_destroy) (since C11)
+  | [`cnd_init()`](https://en.cppreference.com/w/c/thread/cnd_init) (since C11)
+  | [`cnd_signal()`](https://en.cppreference.com/w/c/thread/cnd_signal) (since C11)
+  | [`cnd_t`](https://en.cppreference.com/w/c/thread) (since C11)
+  | [`cnd_timedwait()`](https://en.cppreference.com/w/c/thread/cnd_timedwait) (since C11)
+  | [`cnd_wait()`](https://en.cppreference.com/w/c/thread/cnd_wait) (since C11)
+  | [`conj()`](https://en.cppreference.com/w/c/numeric/complex/conj) (since C99)
+  | [`conjf()`](https://en.cppreference.com/w/c/numeric/complex/conj) (since C99)
+  | [`conjl()`](https://en.cppreference.com/w/c/numeric/complex/conj) (since C99)
+  | [`constraint_handler_t`](https://en.cppreference.com/w/c/error/set_constraint_handler_s) (since C11)
+  | [`copysign()`](https://en.cppreference.com/w/c/numeric/math/copysign) (since C99)
+  | [`copysignf()`](https://en.cppreference.com/w/c/numeric/math/copysign) (since C99)
+  | [`copysignl()`](https://en.cppreference.com/w/c/numeric/math/copysign) (since C99)
+  | [`cos()`](https://en.cppreference.com/w/c/numeric/math/cos)
+  | [`cosf()`](https://en.cppreference.com/w/c/numeric/math/cos) (since C99)
+  | [`cosh()`](https://en.cppreference.com/w/c/numeric/math/cosh)
+  | [`coshf()`](https://en.cppreference.com/w/c/numeric/math/cosh) (since C99)
+  | [`coshl()`](https://en.cppreference.com/w/c/numeric/math/cosh) (since C99)
+  | [`cosl()`](https://en.cppreference.com/w/c/numeric/math/cos) (since C99)
+  | [`cpow()`](https://en.cppreference.com/w/c/numeric/complex/cpow) (since C99)
+  | [`cpowf()`](https://en.cppreference.com/w/c/numeric/complex/cpow) (since C99)
+  | [`cpowl()`](https://en.cppreference.com/w/c/numeric/complex/cpow) (since C99)
+  | [`cproj()`](https://en.cppreference.com/w/c/numeric/complex/cproj) (since C99)
+  | [`cprojf()`](https://en.cppreference.com/w/c/numeric/complex/cproj) (since C99)
+  | [`cprojl()`](https://en.cppreference.com/w/c/numeric/complex/cproj) (since C99)
+  | [`creal()`](https://en.cppreference.com/w/c/numeric/complex/creal) (since C99)
+  | [`crealf()`](https://en.cppreference.com/w/c/numeric/complex/creal) (since C99)
+  | [`creall()`](https://en.cppreference.com/w/c/numeric/complex/creal) (since C99)
+  | [`csin()`](https://en.cppreference.com/w/c/numeric/complex/csin) (since C99)
+  | [`csinf()`](https://en.cppreference.com/w/c/numeric/complex/csin) (since C99)
+  | [`csinh()`](https://en.cppreference.com/w/c/numeric/complex/csinh) (since C99)
+  | [`csinhf()`](https://en.cppreference.com/w/c/numeric/complex/csinh) (since C99)
+  | [`csinhl()`](https://en.cppreference.com/w/c/numeric/complex/csinh) (since C99)
+  | [`csinl()`](https://en.cppreference.com/w/c/numeric/complex/csin) (since C99)
+  | [`csqrt()`](https://en.cppreference.com/w/c/numeric/complex/csqrt) (since C99)
+  | [`csqrtf()`](https://en.cppreference.com/w/c/numeric/complex/csqrt) (since C99)
+  | [`csqrtl()`](https://en.cppreference.com/w/c/numeric/complex/csqrt) (since C99)
+  | [`ctan()`](https://en.cppreference.com/w/c/numeric/complex/ctan) (since C99)
+  | [`ctanf()`](https://en.cppreference.com/w/c/numeric/complex/ctan) (since C99)
+  | [`ctanh()`](https://en.cppreference.com/w/c/numeric/complex/ctanh) (since C99)
+  | [`ctanhf()`](https://en.cppreference.com/w/c/numeric/complex/ctanh) (since C99)
+  | [`ctanhl()`](https://en.cppreference.com/w/c/numeric/complex/ctanh) (since C99)
+  | [`ctanl()`](https://en.cppreference.com/w/c/numeric/complex/ctan) (since C99)
+  | [`ctime()`](https://en.cppreference.com/w/c/chrono/ctime) (deprecated in C23)
+  | [`ctime_s()`](https://en.cppreference.com/w/c/chrono/ctime) (since C11)
+
+INDEX_D
+
+  | [`difftime()`](https://en.cppreference.com/w/c/chrono/difftime)
+  | [`div()`](https://en.cppreference.com/w/c/numeric/math/div)
+  | [`div_t`](https://en.cppreference.com/w/c/numeric/math/div)
+  | [`double_t`](https://en.cppreference.com/w/c/numeric/math/float_t) (since C99)
+
+INDEX_E
+
+  | [`erf()`](https://en.cppreference.com/w/c/numeric/math/erf) (since C99)
+  | [`erfc()`](https://en.cppreference.com/w/c/numeric/math/erfc) (since C99)
+  | [`erfcf()`](https://en.cppreference.com/w/c/numeric/math/erfc) (since C99)
+  | [`erfcl()`](https://en.cppreference.com/w/c/numeric/math/erfc) (since C99)
+  | [`erff()`](https://en.cppreference.com/w/c/numeric/math/erf) (since C99)
+  | [`erfl()`](https://en.cppreference.com/w/c/numeric/math/erf) (since C99)
+  | [`errno_t`](https://en.cppreference.com/w/c/error) (since C11)
+  | [`exit()`](https://en.cppreference.com/w/c/program/exit)
+  | [`exp()`](https://en.cppreference.com/w/c/numeric/math/exp)
+  | [`exp2()`](https://en.cppreference.com/w/c/numeric/math/exp2) (since C99)
+  | [`exp2f()`](https://en.cppreference.com/w/c/numeric/math/exp2) (since C99)
+  | [`exp2l()`](https://en.cppreference.com/w/c/numeric/math/exp2) (since C99)
+  | [`expf()`](https://en.cppreference.com/w/c/numeric/math/exp) (since C99)
+  | [`expl()`](https://en.cppreference.com/w/c/numeric/math/exp) (since C99)
+  | [`expm1()`](https://en.cppreference.com/w/c/numeric/math/expm1) (since C99)
+  | [`expm1f()`](https://en.cppreference.com/w/c/numeric/math/expm1) (since C99)
+  | [`expm1l()`](https://en.cppreference.com/w/c/numeric/math/expm1) (since C99)
+
+INDEX_F
+
+  | [`fabs()`](https://en.cppreference.com/w/c/numeric/math/fabs)
+  | [`fabsf()`](https://en.cppreference.com/w/c/numeric/math/fabs) (since C99)
+  | [`fabsl()`](https://en.cppreference.com/w/c/numeric/math/fabs) (since C99)
+  | [`fclose()`](https://en.cppreference.com/w/c/io/fclose)
+  | [`fdim()`](https://en.cppreference.com/w/c/numeric/math/fdim) (since C99)
+  | [`fdimf()`](https://en.cppreference.com/w/c/numeric/math/fdim) (since C99)
+  | [`fdiml()`](https://en.cppreference.com/w/c/numeric/math/fdim) (since C99)
+  | [`feclearexcept()`](https://en.cppreference.com/w/c/numeric/fenv/feclearexcept) (since C99)
+  | [`fegetenv()`](https://en.cppreference.com/w/c/numeric/fenv/feenv) (since C99)
+  | [`fegetexceptflag()`](https://en.cppreference.com/w/c/numeric/fenv/feexceptflag) (since C99)
+  | [`fegetround()`](https://en.cppreference.com/w/c/numeric/fenv/feround) (since C99)
+  | [`feholdexcept()`](https://en.cppreference.com/w/c/numeric/fenv/feholdexcept) (since C99)
+  | [`fenv_t`](https://en.cppreference.com/w/c/numeric/fenv) (since C99)
+  | [`feof()`](https://en.cppreference.com/w/c/io/feof)
+  | [`feraiseexcept()`](https://en.cppreference.com/w/c/numeric/fenv/feraiseexcept) (since C99)
+  | [`ferror()`](https://en.cppreference.com/w/c/io/ferror)
+  | [`fesetenv()`](https://en.cppreference.com/w/c/numeric/fenv/feenv) (since C99)
+  | [`fesetexceptflag()`](https://en.cppreference.com/w/c/numeric/fenv/feexceptflag) (since C99)
+  | [`fesetround()`](https://en.cppreference.com/w/c/numeric/fenv/feround) (since C99)
+  | [`fetestexcept()`](https://en.cppreference.com/w/c/numeric/fenv/fetestexcept) (since C99)
+  | [`feupdateenv()`](https://en.cppreference.com/w/c/numeric/fenv/feupdateenv) (since C99)
+  | [`fexcept_t`](https://en.cppreference.com/w/c/numeric/fenv) (since C99)
+  | [`fflush()`](https://en.cppreference.com/w/c/io/fflush)
+  | [`fgetc()`](https://en.cppreference.com/w/c/io/fgetc)
+  | [`fgetpos()`](https://en.cppreference.com/w/c/io/fgetpos)
+  | [`fgets()`](https://en.cppreference.com/w/c/io/fgets)
+  | [`fgetwc()`](https://en.cppreference.com/w/c/io/fgetwc) (since C95)
+  | [`fgetws()`](https://en.cppreference.com/w/c/io/fgetws) (since C95)
+  | [`FILE`](https://en.cppreference.com/w/c/io/FILE)
+  | [`float_t`](https://en.cppreference.com/w/c/numeric/math/float_t) (since C99)
+  | [`floor()`](https://en.cppreference.com/w/c/numeric/math/floor)
+  | [`floorf()`](https://en.cppreference.com/w/c/numeric/math/floor) (since C99)
+  | [`floorl()`](https://en.cppreference.com/w/c/numeric/math/floor) (since C99)
+  | [`fma()`](https://en.cppreference.com/w/c/numeric/math/fma) (since C99)
+  | [`fmaf()`](https://en.cppreference.com/w/c/numeric/math/fma) (since C99)
+  | [`fmal()`](https://en.cppreference.com/w/c/numeric/math/fma) (since C99)
+  | [`fmax()`](https://en.cppreference.com/w/c/numeric/math/fmax) (since C99)
+  | [`fmaxf()`](https://en.cppreference.com/w/c/numeric/math/fmax) (since C99)
+  | [`fmaxl()`](https://en.cppreference.com/w/c/numeric/math/fmax) (since C99)
+  | [`fmin()`](https://en.cppreference.com/w/c/numeric/math/fmin) (since C99)
+  | [`fminf()`](https://en.cppreference.com/w/c/numeric/math/fmin) (since C99)
+  | [`fminl()`](https://en.cppreference.com/w/c/numeric/math/fmin) (since C99)
+  | [`fmod()`](https://en.cppreference.com/w/c/numeric/math/fmod)
+  | [`fmodf()`](https://en.cppreference.com/w/c/numeric/math/fmod) (since C99)
+  | [`fmodl()`](https://en.cppreference.com/w/c/numeric/math/fmod) (since C99)
+  | [`fopen()`](https://en.cppreference.com/w/c/io/fopen)
+  | [`fopen_s()`](https://en.cppreference.com/w/c/io/fopen) (since C11)
+  | [`fpos_t`](https://en.cppreference.com/w/c/io/fpos_t)
+  | [`fprintf()`](https://en.cppreference.com/w/c/io/fprintf)
+  | [`fprintf_s()`](https://en.cppreference.com/w/c/io/fprintf) (since C11)
+  | [`fputc()`](https://en.cppreference.com/w/c/io/fputc)
+  | [`fputs()`](https://en.cppreference.com/w/c/io/fputs)
+  | [`fputwc()`](https://en.cppreference.com/w/c/io/fputwc) (since C95)
+  | [`fputws()`](https://en.cppreference.com/w/c/io/fputws) (since C95)
+  | [`fread()`](https://en.cppreference.com/w/c/io/fread)
+  | [`free()`](https://en.cppreference.com/w/c/memory/free)
+  | [`freopen()`](https://en.cppreference.com/w/c/io/freopen)
+  | [`freopen_s()`](https://en.cppreference.com/w/c/io/freopen) (since C11)
+  | [`frexp()`](https://en.cppreference.com/w/c/numeric/math/frexp)
+  | [`frexpf()`](https://en.cppreference.com/w/c/numeric/math/frexp) (since C99)
+  | [`frexpl()`](https://en.cppreference.com/w/c/numeric/math/frexp) (since C99)
+  | [`fscanf()`](https://en.cppreference.com/w/c/io/fscanf)
+  | [`fscanf_s()`](https://en.cppreference.com/w/c/io/fscanf) (since C11)
+  | [`fseek()`](https://en.cppreference.com/w/c/io/fseek)
+  | [`fsetpos()`](https://en.cppreference.com/w/c/io/fsetpos)
+  | [`ftell()`](https://en.cppreference.com/w/c/io/ftell)
+  | [`fwide()`](https://en.cppreference.com/w/c/io/fwide) (since C95)
+  | [`fwprintf()`](https://en.cppreference.com/w/c/io/fwprintf) (since C95)
+  | [`fwprintf_s()`](https://en.cppreference.com/w/c/io/fwprintf) (since C11)
+  | [`fwrite()`](https://en.cppreference.com/w/c/io/fwrite)
+  | [`fwscanf()`](https://en.cppreference.com/w/c/io/fwscanf) (since C95)
+  | [`fwscanf_s()`](https://en.cppreference.com/w/c/io/fwscanf) (since C11)
+
+INDEX_G
+
+  | [`getc()`](https://en.cppreference.com/w/c/io/fgetc)
+  | [`getchar()`](https://en.cppreference.com/w/c/io/getchar)
+  | [`getenv()`](https://en.cppreference.com/w/c/program/getenv)
+  | [`getenv_s()`](https://en.cppreference.com/w/c/program/getenv) (since C11)
+  | [`gets()`](https://en.cppreference.com/w/c/io/gets) (removed in C11)
+  | [`gets_s()`](https://en.cppreference.com/w/c/io/gets) (since C11)
+  | [`getwc()`](https://en.cppreference.com/w/c/io/fgetwc) (since C95)
+  | [`getwchar()`](https://en.cppreference.com/w/c/io/getwchar) (since C95)
+  | [`gmtime()`](https://en.cppreference.com/w/c/chrono/gmtime)
+  | [`gmtime_r()`](https://en.cppreference.com/w/c/chrono/gmtime) (since C23)
+  | [`gmtime_s()`](https://en.cppreference.com/w/c/chrono/gmtime) (since C11)
+
+INDEX_H
+
+  | [`hypot()`](https://en.cppreference.com/w/c/numeric/math/hypot) (since C99)
+  | [`hypotf()`](https://en.cppreference.com/w/c/numeric/math/hypot) (since C99)
+  | [`hypotl()`](https://en.cppreference.com/w/c/numeric/math/hypot) (since C99)
+
+INDEX_I
+
+  | [`ignore_handler_s()`](https://en.cppreference.com/w/c/error/ignore_handler_s) (since C11)
+  | [`ilogb()`](https://en.cppreference.com/w/c/numeric/math/ilogb) (since C99)
+  | [`ilogbf()`](https://en.cppreference.com/w/c/numeric/math/ilogb) (since C99)
+  | [`ilogbl()`](https://en.cppreference.com/w/c/numeric/math/ilogb) (since C99)
+  | [`imaxabs()`](https://en.cppreference.com/w/c/numeric/math/abs) (since C99)
+  | [`imaxdiv()`](https://en.cppreference.com/w/c/numeric/math/div) (since C99)
+  | [`imaxdiv_t`](https://en.cppreference.com/w/c/numeric/math/div) (since C99)
+
+  - `int` `width` `_t`
+
+      | [`int_fast16_t`](https://en.cppreference.com/w/c/types/integer) (since C99)
+      | [`int_fast32_t`](https://en.cppreference.com/w/c/types/integer) (since C99)
+      | [`int_fast64_t`](https://en.cppreference.com/w/c/types/integer) (since C99)
+      | [`int_fast8_t`](https://en.cppreference.com/w/c/types/integer) (since C99)
+      | [`int_least16_t`](https://en.cppreference.com/w/c/types/integer) (since C99)
+      | [`int_least32_t`](https://en.cppreference.com/w/c/types/integer) (since C99)
+      | [`int_least64_t`](https://en.cppreference.com/w/c/types/integer) (since C99)
+      | [`int_least8_t`](https://en.cppreference.com/w/c/types/integer) (since C99)
+      | [`int16_t`](https://en.cppreference.com/w/c/types/integer) (since C99)
+      | [`int32_t`](https://en.cppreference.com/w/c/types/integer) (since C99)
+      | [`int64_t`](https://en.cppreference.com/w/c/types/integer) (since C99)
+      | [`int8_t`](https://en.cppreference.com/w/c/types/integer) (since C99)
+      | [`intmax_t`](https://en.cppreference.com/w/c/types/integer) (since C99)
+      | [`intptr_t`](https://en.cppreference.com/w/c/types/integer) (since C99)
+
+  | [`isalnum()`](https://en.cppreference.com/w/c/string/byte/isalnum)
+  | [`isalpha()`](https://en.cppreference.com/w/c/string/byte/isalpha)
+  | [`isblank()`](https://en.cppreference.com/w/c/string/byte/isblank) (since C99)
+  | [`iscntrl()`](https://en.cppreference.com/w/c/string/byte/iscntrl)
+  | [`isdigit()`](https://en.cppreference.com/w/c/string/byte/isdigit)
+  | [`isgraph()`](https://en.cppreference.com/w/c/string/byte/isgraph)
+  | [`islower()`](https://en.cppreference.com/w/c/string/byte/islower)
+  | [`isprint()`](https://en.cppreference.com/w/c/string/byte/isprint)
+  | [`ispunct()`](https://en.cppreference.com/w/c/string/byte/ispunct)
+  | [`isspace()`](https://en.cppreference.com/w/c/string/byte/isspace)
+  | [`isupper()`](https://en.cppreference.com/w/c/string/byte/isupper)
+  | [`iswalnum()`](https://en.cppreference.com/w/c/string/wide/iswalnum) (since C95)
+  | [`iswalpha()`](https://en.cppreference.com/w/c/string/wide/iswalpha) (since C95)
+  | [`iswblank()`](https://en.cppreference.com/w/c/string/wide/iswblank) (since C99)
+  | [`iswcntrl()`](https://en.cppreference.com/w/c/string/wide/iswcntrl) (since C95)
+  | [`iswctype()`](https://en.cppreference.com/w/c/string/wide/iswctype) (since C95)
+  | [`iswdigit()`](https://en.cppreference.com/w/c/string/wide/iswdigit) (since C95)
+  | [`iswgraph()`](https://en.cppreference.com/w/c/string/wide/iswgraph) (since C95)
+  | [`iswlower()`](https://en.cppreference.com/w/c/string/wide/iswlower) (since C95)
+  | [`iswprint()`](https://en.cppreference.com/w/c/string/wide/iswprint) (since C95)
+  | [`iswpunct()`](https://en.cppreference.com/w/c/string/wide/iswpunct) (since C95)
+  | [`iswspace()`](https://en.cppreference.com/w/c/string/wide/iswspace) (since C95)
+  | [`iswupper()`](https://en.cppreference.com/w/c/string/wide/iswupper) (since C95)
+  | [`iswxdigit()`](https://en.cppreference.com/w/c/string/wide/iswxdigit) (since C95)
+  | [`isxdigit()`](https://en.cppreference.com/w/c/string/byte/isxdigit)
+
+INDEX_J
+
+  | [`jmp_buf`](https://en.cppreference.com/w/c/program/jmp_buf)
+
+INDEX_L
+
+  | [`labs()`](https://en.cppreference.com/w/c/numeric/math/abs)
+  | [`lconv`](https://en.cppreference.com/w/c/locale/lconv)
+  | [`ldexp()`](https://en.cppreference.com/w/c/numeric/math/ldexp)
+  | [`ldexpf()`](https://en.cppreference.com/w/c/numeric/math/ldexp) (since C99)
+  | [`ldexpl()`](https://en.cppreference.com/w/c/numeric/math/ldexp) (since C99)
+  | [`ldiv()`](https://en.cppreference.com/w/c/numeric/math/div)
+  | [`ldiv_t`](https://en.cppreference.com/w/c/numeric/math/div)
+  | [`lgamma()`](https://en.cppreference.com/w/c/numeric/math/lgamma) (since C99)
+  | [`lgammaf()`](https://en.cppreference.com/w/c/numeric/math/lgamma) (since C99)
+  | [`lgammal()`](https://en.cppreference.com/w/c/numeric/math/lgamma) (since C99)
+  | [`llabs()`](https://en.cppreference.com/w/c/numeric/math/abs) (since C99)
+  | [`lldiv()`](https://en.cppreference.com/w/c/numeric/math/div) (since C99)
+  | [`lldiv_t`](https://en.cppreference.com/w/c/numeric/math/div) (since C99)
+  | [`llrint()`](https://en.cppreference.com/w/c/numeric/math/rint) (since C99)
+  | [`llrintf()`](https://en.cppreference.com/w/c/numeric/math/rint) (since C99)
+  | [`llrintl()`](https://en.cppreference.com/w/c/numeric/math/rint) (since C99)
+  | [`llround()`](https://en.cppreference.com/w/c/numeric/math/round) (since C99)
+  | [`llroundf()`](https://en.cppreference.com/w/c/numeric/math/round) (since C99)
+  | [`llroundl()`](https://en.cppreference.com/w/c/numeric/math/round) (since C99)
+  | [`localeconv()`](https://en.cppreference.com/w/c/locale/localeconv)
+  | [`localtime()`](https://en.cppreference.com/w/c/chrono/localtime)
+  | [`localtime_r()`](https://en.cppreference.com/w/c/chrono/localtime) (since C23)
+  | [`localtime_s()`](https://en.cppreference.com/w/c/chrono/localtime) (since C11)
+  | [`log()`](https://en.cppreference.com/w/c/numeric/math/log)
+  | [`log10()`](https://en.cppreference.com/w/c/numeric/math/log10)
+  | [`log10f()`](https://en.cppreference.com/w/c/numeric/math/log10) (since C99)
+  | [`log10l()`](https://en.cppreference.com/w/c/numeric/math/log10) (since C99)
+  | [`log1p()`](https://en.cppreference.com/w/c/numeric/math/log1p) (since C99)
+  | [`log1pf()`](https://en.cppreference.com/w/c/numeric/math/log1p) (since C99)
+  | [`log1pl()`](https://en.cppreference.com/w/c/numeric/math/log1p) (since C99)
+  | [`log2()`](https://en.cppreference.com/w/c/numeric/math/log2) (since C99)
+  | [`log2f()`](https://en.cppreference.com/w/c/numeric/math/log2) (since C99)
+  | [`log2l()`](https://en.cppreference.com/w/c/numeric/math/log2) (since C99)
+  | [`logb()`](https://en.cppreference.com/w/c/numeric/math/logb) (since C99)
+  | [`logbf()`](https://en.cppreference.com/w/c/numeric/math/logb) (since C99)
+  | [`logbl()`](https://en.cppreference.com/w/c/numeric/math/logb) (since C99)
+  | [`logf()`](https://en.cppreference.com/w/c/numeric/math/log) (since C99)
+  | [`logl()`](https://en.cppreference.com/w/c/numeric/math/log) (since C99)
+  | [`longjmp()`](https://en.cppreference.com/w/c/program/longjmp)
+  | [`lrint()`](https://en.cppreference.com/w/c/numeric/math/rint) (since C99)
+  | [`lrintf()`](https://en.cppreference.com/w/c/numeric/math/rint) (since C99)
+  | [`lrintl()`](https://en.cppreference.com/w/c/numeric/math/rint) (since C99)
+  | [`lround()`](https://en.cppreference.com/w/c/numeric/math/round) (since C99)
+  | [`lroundf()`](https://en.cppreference.com/w/c/numeric/math/round) (since C99)
+  | [`lroundl()`](https://en.cppreference.com/w/c/numeric/math/round) (since C99)
+
+INDEX_M
+
+  | [`malloc()`](https://en.cppreference.com/w/c/memory/malloc)
+  | [`max_align_t`](https://en.cppreference.com/w/c/types/max_align_t) (since C11)
+  | [`mblen()`](https://en.cppreference.com/w/c/string/multibyte/mblen)
+  | [`mbrlen()`](https://en.cppreference.com/w/c/string/multibyte/mbrlen) (since C95)
+  | [`mbrtoc16()`](https://en.cppreference.com/w/c/string/multibyte/mbrtoc16) (since C11)
+  | [`mbrtoc32()`](https://en.cppreference.com/w/c/string/multibyte/mbrtoc32) (since C11)
+  | [`mbrtowc()`](https://en.cppreference.com/w/c/string/multibyte/mbrtowc) (since C95)
+  | [`mbsinit()`](https://en.cppreference.com/w/c/string/multibyte/mbsinit) (since C95)
+  | [`mbsrtowcs()`](https://en.cppreference.com/w/c/string/multibyte/mbsrtowcs) (since C95)
+  | [`mbsrtowcs_s()`](https://en.cppreference.com/w/c/string/multibyte/mbsrtowcs) (since C11)
+  | [`mbstate_t`](https://en.cppreference.com/w/c/string/multibyte/mbstate_t) (since C95)
+  | [`mbstowcs()`](https://en.cppreference.com/w/c/string/multibyte/mbstowcs) (since C95)
+  | [`mbstowcs_s()`](https://en.cppreference.com/w/c/string/multibyte/mbstowcs) (since C11)
+  | [`mbtowc()`](https://en.cppreference.com/w/c/string/multibyte/mbtowc)
+  | [`memccpy()`](https://en.cppreference.com/w/c/string/byte/memccpy) (since C23)
+  | [`memchr()`](https://en.cppreference.com/w/c/string/byte/memchr)
+  | [`memcmp()`](https://en.cppreference.com/w/c/string/byte/memcmp)
+  | [`memcpy()`](https://en.cppreference.com/w/c/string/byte/memcpy)
+  | [`memcpy_s()`](https://en.cppreference.com/w/c/string/byte/memcpy) (since C11)
+  | [`memmove()`](https://en.cppreference.com/w/c/string/byte/memmove)
+  | [`memmove_s()`](https://en.cppreference.com/w/c/string/byte/memmove) (since C11)
+  | [`memory_order`](https://en.cppreference.com/w/c/atomic/memory_order) (since C11)
+  | [`memory_order_acq_rel`](https://en.cppreference.com/w/c/atomic/memory_order) (since C11)
+  | [`memory_order_acquire`](https://en.cppreference.com/w/c/atomic/memory_order) (since C11)
+  | [`memory_order_consume`](https://en.cppreference.com/w/c/atomic/memory_order) (since C11)
+  | [`memory_order_relaxed`](https://en.cppreference.com/w/c/atomic/memory_order) (since C11)
+  | [`memory_order_release`](https://en.cppreference.com/w/c/atomic/memory_order) (since C11)
+  | [`memory_order_seq_cst`](https://en.cppreference.com/w/c/atomic/memory_order) (since C11)
+  | [`memset()`](https://en.cppreference.com/w/c/string/byte/memset)
+  | [`memset_s()`](https://en.cppreference.com/w/c/string/byte/memset) (since C11)
+  | [`mktime()`](https://en.cppreference.com/w/c/chrono/mktime)
+  | [`modf()`](https://en.cppreference.com/w/c/numeric/math/modf)
+  | [`modff()`](https://en.cppreference.com/w/c/numeric/math/modf) (since C99)
+  | [`modfl()`](https://en.cppreference.com/w/c/numeric/math/modf) (since C99)
+  | [`mtx_destroy()`](https://en.cppreference.com/w/c/thread/mtx_destroy) (since C11)
+  | [`mtx_init()`](https://en.cppreference.com/w/c/thread/mtx_init) (since C11)
+  | [`mtx_lock()`](https://en.cppreference.com/w/c/thread/mtx_lock) (since C11)
+  | [`mtx_plain`](https://en.cppreference.com/w/c/thread/mtx_types) (since C11)
+  | [`mtx_recursive`](https://en.cppreference.com/w/c/thread/mtx_types) (since C11)
+  | [`mtx_t`](https://en.cppreference.com/w/c/thread) (since C11)
+  | [`mtx_timed`](https://en.cppreference.com/w/c/thread/mtx_types) (since C11)
+  | [`mtx_timedlock()`](https://en.cppreference.com/w/c/thread/mtx_timedlock) (since C11)
+  | [`mtx_trylock()`](https://en.cppreference.com/w/c/thread/mtx_trylock) (since C11)
+  | [`mtx_unlock()`](https://en.cppreference.com/w/c/thread/mtx_unlock) (since C11)
+
+INDEX_N
+
+  | [`nan()`](https://en.cppreference.com/w/c/numeric/math/nan) (since C99)
+  | [`nanf()`](https://en.cppreference.com/w/c/numeric/math/nan) (since C99)
+  | [`nanl()`](https://en.cppreference.com/w/c/numeric/math/nan) (since C99)
+  | [`nearbyint()`](https://en.cppreference.com/w/c/numeric/math/nearbyint) (since C99)
+  | [`nearbyintf()`](https://en.cppreference.com/w/c/numeric/math/nearbyint) (since C99)
+  | [`nearbyintl()`](https://en.cppreference.com/w/c/numeric/math/nearbyint) (since C99)
+  | [`nextafter()`](https://en.cppreference.com/w/c/numeric/math/nextafter) (since C99)
+  | [`nextafterf()`](https://en.cppreference.com/w/c/numeric/math/nextafter) (since C99)
+  | [`nextafterl()`](https://en.cppreference.com/w/c/numeric/math/nextafter) (since C99)
+  | [`nexttoward()`](https://en.cppreference.com/w/c/numeric/math/nexttoward) (since C99)
+  | [`nexttowardf()`](https://en.cppreference.com/w/c/numeric/math/nexttoward) (since C99)
+  | [`nexttowardl()`](https://en.cppreference.com/w/c/numeric/math/nexttoward) (since C99)
+
+INDEX_O
+
+  | [`once_flag`](https://en.cppreference.com/w/c/thread/call_once) (since C11)
+
+INDEX_P
+
+  | [`perror()`](https://en.cppreference.com/w/c/io/perror)
+  | [`pow()`](https://en.cppreference.com/w/c/numeric/math/pow)
+  | [`powf()`](https://en.cppreference.com/w/c/numeric/math/pow) (since C99)
+  | [`powl()`](https://en.cppreference.com/w/c/numeric/math/pow) (since C99)
+  | [`printf()`](https://en.cppreference.com/w/c/io/fprintf)
+  | [`printf_s()`](https://en.cppreference.com/w/c/io/fprintf) (since C11)
+  | [`ptrdiff_t`](https://en.cppreference.com/w/c/types/ptrdiff_t)
+  | [`putc()`](https://en.cppreference.com/w/c/io/fputc)
+  | [`putchar()`](https://en.cppreference.com/w/c/io/putchar)
+  | [`puts()`](https://en.cppreference.com/w/c/io/puts)
+  | [`putwc()`](https://en.cppreference.com/w/c/io/fputwc) (since C95)
+  | [`putwchar()`](https://en.cppreference.com/w/c/io/putwchar) (since C95)
+
+INDEX_Q
+
+  | [`qsort()`](https://en.cppreference.com/w/c/algorithm/qsort)
+  | [`qsort_s()`](https://en.cppreference.com/w/c/algorithm/qsort) (since C11)
+  | [`quick_exit()`](https://en.cppreference.com/w/c/program/quick_exit) (since C11)
+
+INDEX_R
+
+  | [`raise()`](https://en.cppreference.com/w/c/program/raise)
+  | [`rand()`](https://en.cppreference.com/w/c/numeric/random/rand)
+  | [`realloc()`](https://en.cppreference.com/w/c/memory/realloc)
+  | [`remainder()`](https://en.cppreference.com/w/c/numeric/math/remainder) (since C99)
+  | [`remainderf()`](https://en.cppreference.com/w/c/numeric/math/remainder) (since C99)
+  | [`remainderl()`](https://en.cppreference.com/w/c/numeric/math/remainder) (since C99)
+  | [`remove()`](https://en.cppreference.com/w/c/io/remove)
+  | [`remquo()`](https://en.cppreference.com/w/c/numeric/math/remquo) (since C99)
+  | [`remquof()`](https://en.cppreference.com/w/c/numeric/math/remquo) (since C99)
+  | [`remquol()`](https://en.cppreference.com/w/c/numeric/math/remquo) (since C99)
+  | [`rename()`](https://en.cppreference.com/w/c/io/rename)
+  | [`rewind()`](https://en.cppreference.com/w/c/io/rewind)
+  | [`rint()`](https://en.cppreference.com/w/c/numeric/math/rint) (since C99)
+  | [`rintf()`](https://en.cppreference.com/w/c/numeric/math/rint) (since C99)
+  | [`rintl()`](https://en.cppreference.com/w/c/numeric/math/rint) (since C99)
+  | [`round()`](https://en.cppreference.com/w/c/numeric/math/round) (since C99)
+  | [`roundf()`](https://en.cppreference.com/w/c/numeric/math/round) (since C99)
+  | [`roundl()`](https://en.cppreference.com/w/c/numeric/math/round) (since C99)
+  | [`rsize_t`](https://en.cppreference.com/w/c/error) (since C11)
+
+INDEX_S
+
+  | [`scalbln()`](https://en.cppreference.com/w/c/numeric/math/scalbn) (since C99)
+  | [`scalblnf()`](https://en.cppreference.com/w/c/numeric/math/scalbn) (since C99)
+  | [`scalblnl()`](https://en.cppreference.com/w/c/numeric/math/scalbn) (since C99)
+  | [`scalbn()`](https://en.cppreference.com/w/c/numeric/math/scalbn) (since C99)
+  | [`scalbnf()`](https://en.cppreference.com/w/c/numeric/math/scalbn) (since C99)
+  | [`scalbnl()`](https://en.cppreference.com/w/c/numeric/math/scalbn) (since C99)
+  | [`scanf()`](https://en.cppreference.com/w/c/io/fscanf)
+  | [`scanf_s()`](https://en.cppreference.com/w/c/io/fscanf) (since C11)
+  | [`set_constraint_handler_s()`](https://en.cppreference.com/w/c/error/set_constraint_handler_s) (since C11)
+  | [`setbuf()`](https://en.cppreference.com/w/c/io/setbuf)
+  | [`setlocale()`](https://en.cppreference.com/w/c/locale/setlocale)
+  | [`setvbuf()`](https://en.cppreference.com/w/c/io/setvbuf)
+  | [`sig_atomic_t`](https://en.cppreference.com/w/c/program/sig_atomic_t)
+  | [`signal()`](https://en.cppreference.com/w/c/program/signal)
+  | [`sin()`](https://en.cppreference.com/w/c/numeric/math/sin)
+  | [`sinf()`](https://en.cppreference.com/w/c/numeric/math/sin) (since C99)
+  | [`sinh()`](https://en.cppreference.com/w/c/numeric/math/sinh)
+  | [`sinhf()`](https://en.cppreference.com/w/c/numeric/math/sinh) (since C99)
+  | [`sinhl()`](https://en.cppreference.com/w/c/numeric/math/sinh) (since C99)
+  | [`sinl()`](https://en.cppreference.com/w/c/numeric/math/sin) (since C99)
+  | [`size_t`](https://en.cppreference.com/w/c/types/size_t)
+  | [`snprintf()`](https://en.cppreference.com/w/c/io/fprintf) (since C99)
+  | [`snprintf_s()`](https://en.cppreference.com/w/c/io/fprintf) (since C11)
+  | [`snwprintf_s()`](https://en.cppreference.com/w/c/io/fwprintf) (since C11)
+  | [`sprintf()`](https://en.cppreference.com/w/c/io/fprintf)
+  | [`sprintf_s()`](https://en.cppreference.com/w/c/io/fprintf) (since C11)
+  | [`sqrt()`](https://en.cppreference.com/w/c/numeric/math/sqrt)
+  | [`sqrtf()`](https://en.cppreference.com/w/c/numeric/math/sqrt) (since C99)
+  | [`sqrtl()`](https://en.cppreference.com/w/c/numeric/math/sqrt) (since C99)
+  | [`srand()`](https://en.cppreference.com/w/c/numeric/random/srand)
+  | [`sscanf()`](https://en.cppreference.com/w/c/io/fscanf)
+  | [`sscanf_s()`](https://en.cppreference.com/w/c/io/fscanf) (since C11)
+  | [`strcat()`](https://en.cppreference.com/w/c/string/byte/strcat)
+  | [`strcat_s()`](https://en.cppreference.com/w/c/string/byte/strcat) (since C11)
+  | [`strchr()`](https://en.cppreference.com/w/c/string/byte/strchr)
+  | [`strcmp()`](https://en.cppreference.com/w/c/string/byte/strcmp)
+  | [`strcoll()`](https://en.cppreference.com/w/c/string/byte/strcoll)
+  | [`strcpy()`](https://en.cppreference.com/w/c/string/byte/strcpy)
+  | [`strcpy_s()`](https://en.cppreference.com/w/c/string/byte/strcpy) (since C11)
+  | [`strcspn()`](https://en.cppreference.com/w/c/string/byte/strcspn)
+  | [`strdup()`](https://en.cppreference.com/w/c/string/byte/strdup) (since C23)
+  | [`strerror()`](https://en.cppreference.com/w/c/string/byte/strerror)
+  | [`strerror_s()`](https://en.cppreference.com/w/c/string/byte/strerror) (since C11)
+  | [`strerrorlen_s()`](https://en.cppreference.com/w/c/string/byte/strerror) (since C11)
+  | [`strftime()`](https://en.cppreference.com/w/c/chrono/strftime)
+  | [`strlen()`](https://en.cppreference.com/w/c/string/byte/strlen)
+  | [`strncat()`](https://en.cppreference.com/w/c/string/byte/strncat)
+  | [`strncat_s()`](https://en.cppreference.com/w/c/string/byte/strncat) (since C11)
+  | [`strncmp()`](https://en.cppreference.com/w/c/string/byte/strncmp)
+  | [`strncpy()`](https://en.cppreference.com/w/c/string/byte/strncpy)
+  | [`strncpy_s()`](https://en.cppreference.com/w/c/string/byte/strncpy) (since C11)
+  | [`strndup()`](https://en.cppreference.com/w/c/string/byte/strndup) (since C23)
+  | [`strnlen_s()`](https://en.cppreference.com/w/c/string/byte/strlen) (since C11)
+  | [`strpbrk()`](https://en.cppreference.com/w/c/string/byte/strpbrk)
+  | [`strrchr()`](https://en.cppreference.com/w/c/string/byte/strrchr)
+  | [`strspn()`](https://en.cppreference.com/w/c/string/byte/strspn)
+  | [`strstr()`](https://en.cppreference.com/w/c/string/byte/strstr)
+  | [`strtod()`](https://en.cppreference.com/w/c/string/byte/strtof)
+  | [`strtof()`](https://en.cppreference.com/w/c/string/byte/strtof) (since C99)
+  | [`strtoimax()`](https://en.cppreference.com/w/c/string/byte/strtoimax) (since C99)
+  | [`strtok()`](https://en.cppreference.com/w/c/string/byte/strtok)
+  | [`strtok_s()`](https://en.cppreference.com/w/c/string/byte/strtok) (since C11)
+  | [`strtol()`](https://en.cppreference.com/w/c/string/byte/strtol)
+  | [`strtold()`](https://en.cppreference.com/w/c/string/byte/strtof)
+  | [`strtoll()`](https://en.cppreference.com/w/c/string/byte/strtol) (since C99)
+  | [`strtoul()`](https://en.cppreference.com/w/c/string/byte/strtoul)
+  | [`strtoull()`](https://en.cppreference.com/w/c/string/byte/strtoul) (since C99)
+  | [`strtoumax()`](https://en.cppreference.com/w/c/string/byte/strtoimax) (since C99)
+  | [`strxfrm()`](https://en.cppreference.com/w/c/string/byte/strxfrm)
+  | [`swprintf()`](https://en.cppreference.com/w/c/io/fwprintf) (since C95)
+  | [`swprintf_s()`](https://en.cppreference.com/w/c/io/fwprintf) (since C11)
+  | [`swscanf()`](https://en.cppreference.com/w/c/io/fwscanf) (since C95)
+  | [`swscanf_s()`](https://en.cppreference.com/w/c/io/fwscanf) (since C11)
+  | [`system()`](https://en.cppreference.com/w/c/program/system)
+
+INDEX_T
+
+  | [`tan()`](https://en.cppreference.com/w/c/numeric/math/tan)
+  | [`tanf()`](https://en.cppreference.com/w/c/numeric/math/tan) (since C99)
+  | [`tanh()`](https://en.cppreference.com/w/c/numeric/math/tanh) (since C99)
+  | [`tanhf()`](https://en.cppreference.com/w/c/numeric/math/tanh) (since C99)
+  | [`tanhl()`](https://en.cppreference.com/w/c/numeric/math/tanh) (since C99)
+  | [`tanl()`](https://en.cppreference.com/w/c/numeric/math/tan) (since C99)
+  | [`tgamma()`](https://en.cppreference.com/w/c/numeric/math/tgamma) (since C99)
+  | [`tgammaf()`](https://en.cppreference.com/w/c/numeric/math/tgamma) (since C99)
+  | [`tgammal()`](https://en.cppreference.com/w/c/numeric/math/tgamma) (since C99)
+  | [`thrd_busy`](https://en.cppreference.com/w/c/thread/thrd_errors) (since C11)
+  | [`thrd_create()`](https://en.cppreference.com/w/c/thread/thrd_create) (since C11)
+  | [`thrd_current()`](https://en.cppreference.com/w/c/thread/thrd_current) (since C11)
+  | [`thrd_detach()`](https://en.cppreference.com/w/c/thread/thrd_detach) (since C11)
+  | [`thrd_equal()`](https://en.cppreference.com/w/c/thread/thrd_equal) (since C11)
+  | [`thrd_error`](https://en.cppreference.com/w/c/thread/thrd_errors) (since C11)
+  | [`thrd_exit()`](https://en.cppreference.com/w/c/thread/thrd_exit) (since C11)
+  | [`thrd_join()`](https://en.cppreference.com/w/c/thread/thrd_join) (since C11)
+  | [`thrd_nomem`](https://en.cppreference.com/w/c/thread/thrd_errors) (since C11)
+  | [`thrd_sleep()`](https://en.cppreference.com/w/c/thread/thrd_sleep) (since C11)
+  | [`thrd_start_t`](https://en.cppreference.com/w/c/thread) (since C11)
+  | [`thrd_success`](https://en.cppreference.com/w/c/thread/thrd_errors) (since C11)
+  | [`thrd_t`](https://en.cppreference.com/w/c/thread) (since C11)
+  | [`thrd_timedout`](https://en.cppreference.com/w/c/thread/thrd_errors) (since C11)
+  | [`thrd_yield()`](https://en.cppreference.com/w/c/thread/thrd_yield) (since C11)
+  | [`time()`](https://en.cppreference.com/w/c/chrono/time)
+  | [`time_t`](https://en.cppreference.com/w/c/chrono)
+  | [`timespec`](https://en.cppreference.com/w/c/chrono/timespec) (since C11)
+  | [`timespec_get()`](https://en.cppreference.com/w/c/chrono/timespec_get) (since C11)
+  | [`timespec_getres()`](https://en.cppreference.com/w/c/chrono/timespec_getres) (since C23)
+  | [`tm`](https://en.cppreference.com/w/c/chrono/tm)
+  | [`tmpfile()`](https://en.cppreference.com/w/c/io/tmpfile)
+  | [`tmpfile_s()`](https://en.cppreference.com/w/c/io/tmpfile) (since C11)
+  | [`tmpnam()`](https://en.cppreference.com/w/c/io/tmpnam)
+  | [`tmpnam_s()`](https://en.cppreference.com/w/c/io/tmpnam) (since C11)
+  | [`tolower()`](https://en.cppreference.com/w/c/string/byte/tolower)
+  | [`toupper()`](https://en.cppreference.com/w/c/string/byte/toupper)
+  | [`towctrans()`](https://en.cppreference.com/w/c/string/wide/towctrans) (since C95)
+  | [`towlower()`](https://en.cppreference.com/w/c/string/wide/towlower) (since C95)
+  | [`towupper()`](https://en.cppreference.com/w/c/string/wide/towupper) (since C95)
+  | [`trunc()`](https://en.cppreference.com/w/c/numeric/math/trunc) (since C99)
+  | [`truncf()`](https://en.cppreference.com/w/c/numeric/math/trunc) (since C99)
+  | [`truncl()`](https://en.cppreference.com/w/c/numeric/math/trunc) (since C99)
+  | [`tss_create()`](https://en.cppreference.com/w/c/thread/tss_create) (since C11)
+  | [`tss_delete()`](https://en.cppreference.com/w/c/thread/tss_delete) (since C11)
+  | [`tss_dtor_t`](https://en.cppreference.com/w/c/thread) (since C11)
+  | [`tss_get()`](https://en.cppreference.com/w/c/thread/tss_get) (since C11)
+  | [`tss_set()`](https://en.cppreference.com/w/c/thread/tss_set) (since C11)
+  | [`tss_t`](https://en.cppreference.com/w/c/thread) (since C11)
+
+INDEX_U
+
+  - `uint` `width` `_t`
+
+      | [`uint_fast16_t`](https://en.cppreference.com/w/c/types/integer) (since C99)
+      | [`uint_fast32_t`](https://en.cppreference.com/w/c/types/integer) (since C99)
+      | [`uint_fast64_t`](https://en.cppreference.com/w/c/types/integer) (since C99)
+      | [`uint_fast8_t`](https://en.cppreference.com/w/c/types/integer) (since C99)
+      | [`uint_least16_t`](https://en.cppreference.com/w/c/types/integer) (since C99)
+      | [`uint_least32_t`](https://en.cppreference.com/w/c/types/integer) (since C99)
+      | [`uint_least64_t`](https://en.cppreference.com/w/c/types/integer) (since C99)
+      | [`uint_least8_t`](https://en.cppreference.com/w/c/types/integer) (since C99)
+      | [`uint16_t`](https://en.cppreference.com/w/c/types/integer) (since C99)
+      | [`uint32_t`](https://en.cppreference.com/w/c/types/integer) (since C99)
+      | [`uint64_t`](https://en.cppreference.com/w/c/types/integer) (since C99)
+      | [`uint8_t`](https://en.cppreference.com/w/c/types/integer) (since C99)
+      | [`uintmax_t`](https://en.cppreference.com/w/c/types/integer) (since C99)
+      | [`uintptr_t`](https://en.cppreference.com/w/c/types/integer) (since C99)
+
+  | [`ungetc()`](https://en.cppreference.com/w/c/io/ungetc)
+  | [`ungetwc()`](https://en.cppreference.com/w/c/io/ungetwc) (since C95)
+
+INDEX_V
+
+  | [`vfprintf()`](https://en.cppreference.com/w/c/io/vfprintf)
+  | [`vfprintf_s()`](https://en.cppreference.com/w/c/io/vfprintf) (since C11)
+  | [`vfscanf()`](https://en.cppreference.com/w/c/io/vfscanf) (since C99)
+  | [`vfscanf_s()`](https://en.cppreference.com/w/c/io/vfscanf) (since C11)
+  | [`vfwprintf()`](https://en.cppreference.com/w/c/io/vfwprintf) (since C95)
+  | [`vfwprintf_s()`](https://en.cppreference.com/w/c/io/vfwprintf) (since C11)
+  | [`vfwscanf()`](https://en.cppreference.com/w/c/io/vfwscanf) (since C99)
+  | [`vfwscanf_s()`](https://en.cppreference.com/w/c/io/vfwscanf) (since C11)
+  | [`vprintf()`](https://en.cppreference.com/w/c/io/vfprintf)
+  | [`vprintf_s()`](https://en.cppreference.com/w/c/io/vfprintf) (since C11)
+  | [`vscanf()`](https://en.cppreference.com/w/c/io/vfscanf) (since C99)
+  | [`vscanf_s()`](https://en.cppreference.com/w/c/io/vfscanf) (since C11)
+  | [`vsnprintf()`](https://en.cppreference.com/w/c/io/vfprintf) (since C99)
+  | [`vsnprintf_s()`](https://en.cppreference.com/w/c/io/vfprintf) (since C11)
+  | [`vsnwprintf_s()`](https://en.cppreference.com/w/c/io/vfwprintf) (since C11)
+  | [`vsprintf()`](https://en.cppreference.com/w/c/io/vfprintf)
+  | [`vsprintf_s()`](https://en.cppreference.com/w/c/io/vfprintf) (since C11)
+  | [`vsscanf()`](https://en.cppreference.com/w/c/io/vfscanf) (since C99)
+  | [`vsscanf_s()`](https://en.cppreference.com/w/c/io/vfscanf) (since C11)
+  | [`vswprintf()`](https://en.cppreference.com/w/c/io/vfwprintf) (since C95)
+  | [`vswprintf_s()`](https://en.cppreference.com/w/c/io/vfwprintf) (since C11)
+  | [`vswscanf()`](https://en.cppreference.com/w/c/io/vfwscanf) (since C99)
+  | [`vswscanf_s()`](https://en.cppreference.com/w/c/io/vfwscanf) (since C11)
+  | [`vwprintf()`](https://en.cppreference.com/w/c/io/vfwprintf) (since C95)
+  | [`vwprintf_s()`](https://en.cppreference.com/w/c/io/vfwprintf) (since C11)
+  | [`vwscanf()`](https://en.cppreference.com/w/c/io/vfwscanf) (since C99)
+  | [`vwscanf_s()`](https://en.cppreference.com/w/c/io/vfwscanf) (since C11)
+
+INDEX_W
+
+  | [`wchar_t`](https://en.cppreference.com/w/c/string/wide)
+  | [`wcrtomb()`](https://en.cppreference.com/w/c/string/multibyte/wcrtomb) (since C95)
+  | [`wcrtomb_s()`](https://en.cppreference.com/w/c/string/multibyte/wcrtomb) (since C11)
+  | [`wcscat()`](https://en.cppreference.com/w/c/string/wide/wcscat) (since C95)
+  | [`wcscat_s()`](https://en.cppreference.com/w/c/string/wide/wcscat) (since C11)
+  | [`wcschr()`](https://en.cppreference.com/w/c/string/wide/wcschr) (since C95)
+  | [`wcscmp()`](https://en.cppreference.com/w/c/string/wide/wcscmp) (since C95)
+  | [`wcscoll()`](https://en.cppreference.com/w/c/string/wide/wcscoll) (since C95)
+  | [`wcscpy()`](https://en.cppreference.com/w/c/string/wide/wcscpy) (since C95)
+  | [`wcscpy_s()`](https://en.cppreference.com/w/c/string/wide/wcscpy) (since C11)
+  | [`wcscspn()`](https://en.cppreference.com/w/c/string/wide/wcscspn) (since C95)
+  | [`wcsftime()`](https://en.cppreference.com/w/c/chrono/wcsftime) (since C95)
+  | [`wcslen()`](https://en.cppreference.com/w/c/string/wide/wcslen) (since C95)
+  | [`wcsncat()`](https://en.cppreference.com/w/c/string/wide/wcsncat) (since C95)
+  | [`wcsncat_s()`](https://en.cppreference.com/w/c/string/wide/wcsncat) (since C11)
+  | [`wcsncmp()`](https://en.cppreference.com/w/c/string/wide/wcsncmp) (since C95)
+  | [`wcsncpy()`](https://en.cppreference.com/w/c/string/wide/wcsncpy) (since C95)
+  | [`wcsncpy_s()`](https://en.cppreference.com/w/c/string/wide/wcsncpy) (since C11)
+  | [`wcsnlen_s()`](https://en.cppreference.com/w/c/string/wide/wcslen) (since C11)
+  | [`wcspbrk()`](https://en.cppreference.com/w/c/string/wide/wcspbrk) (since C95)
+  | [`wcsrchr()`](https://en.cppreference.com/w/c/string/wide/wcsrchr) (since C95)
+  | [`wcsrtombs()`](https://en.cppreference.com/w/c/string/multibyte/wcsrtombs) (since C95)
+  | [`wcsrtombs_s()`](https://en.cppreference.com/w/c/string/multibyte/wcsrtombs) (since C11)
+  | [`wcsspn()`](https://en.cppreference.com/w/c/string/wide/wcsspn) (since C95)
+  | [`wcsstr()`](https://en.cppreference.com/w/c/string/wide/wcsstr) (since C95)
+  | [`wcstod()`](https://en.cppreference.com/w/c/string/wide/wcstof) (since C95)
+  | [`wcstof()`](https://en.cppreference.com/w/c/string/wide/wcstof) (since C99)
+  | [`wcstoimax()`](https://en.cppreference.com/w/c/string/wide/wcstoimax) (since C99)
+  | [`wcstok()`](https://en.cppreference.com/w/c/string/wide/wcstok) (since C95)
+  | [`wcstok_s()`](https://en.cppreference.com/w/c/string/wide/wcstok) (since C11)
+  | [`wcstol()`](https://en.cppreference.com/w/c/string/wide/wcstol) (since C95)
+  | [`wcstold()`](https://en.cppreference.com/w/c/string/wide/wcstof) (since C99)
+  | [`wcstoll()`](https://en.cppreference.com/w/c/string/wide/wcstol) (since C99)
+  | [`wcstombs()`](https://en.cppreference.com/w/c/string/multibyte/wcstombs)
+  | [`wcstombs_s()`](https://en.cppreference.com/w/c/string/multibyte/wcstombs) (since C11)
+  | [`wcstoul()`](https://en.cppreference.com/w/c/string/wide/wcstoul) (since C95)
+  | [`wcstoull()`](https://en.cppreference.com/w/c/string/wide/wcstoul) (since C99)
+  | [`wcstoumax()`](https://en.cppreference.com/w/c/string/wide/wcstoimax) (since C99)
+  | [`wcsxfrm()`](https://en.cppreference.com/w/c/string/wide/wcsxfrm) (since C95)
+  | [`wctob()`](https://en.cppreference.com/w/c/string/multibyte/wctob) (since C95)
+  | [`wctomb()`](https://en.cppreference.com/w/c/string/multibyte/wctomb)
+  | [`wctomb_s()`](https://en.cppreference.com/w/c/string/multibyte/wctomb) (since C11)
+  | [`wctrans()`](https://en.cppreference.com/w/c/string/wide/wctrans) (since C95)
+  | [`wctrans_t`](https://en.cppreference.com/w/c/string/wide) (since C95)
+  | [`wctype()`](https://en.cppreference.com/w/c/string/wide/wctype) (since C95)
+  | [`wctype_t`](https://en.cppreference.com/w/c/string/wide) (since C95)
+  | [`wint_t`](https://en.cppreference.com/w/c/string/wide) (since C95)
+  | [`wmemchr()`](https://en.cppreference.com/w/c/string/wide/wmemchr) (since C95)
+  | [`wmemcmp()`](https://en.cppreference.com/w/c/string/wide/wmemcmp) (since C95)
+  | [`wmemcpy()`](https://en.cppreference.com/w/c/string/wide/wmemcpy) (since C95)
+  | [`wmemcpy_s()`](https://en.cppreference.com/w/c/string/wide/wmemcpy) (since C11)
+  | [`wmemmove()`](https://en.cppreference.com/w/c/string/wide/wmemmove) (since C95)
+  | [`wmemmove_s()`](https://en.cppreference.com/w/c/string/wide/wmemmove) (since C11)
+  | [`wmemset()`](https://en.cppreference.com/w/c/string/wide/wmemset) (since C95)
+  | [`wprintf()`](https://en.cppreference.com/w/c/io/fwprintf) (since C95)
+  | [`wprintf_s()`](https://en.cppreference.com/w/c/io/fwprintf) (since C11)
+  | [`wscanf()`](https://en.cppreference.com/w/c/io/fwscanf) (since C95)
+  | [`wscanf_s()`](https://en.cppreference.com/w/c/io/fwscanf) (since C11)
+
+
+
+
+# 🚩 CPP TOC - C++ Reference en.cppreference.com
+- https://en.cppreference.com/w/cpp
+- [C++ 98/11/14 manual pages for Linux/MacOS](https://github.dev/aitjcize/cppman)
+- [C++ 98/11/14/17/20 manual pages for Linux](https://github.dev/jeaye/stdman)
+
+从 C++98 到 C++23，未来还有 C++26，C++ 标准经历了哪些历史变革？
+
+1. C++98  - ISO/IEC 14882:1998
+
+    20 世纪 80 年代末，Bjarne Stroustrup 和 Margaret A. Ellis 撰写了著名的
+    《注释 C++ 参考手册》（简称 ARM）。
+
+    当时，ARM 根据独立的 C++ 实现定义了 C++ 的功能；并且，ARM 为第一个 C++ 标准奠定了基础。
+
+    C++98 主要特性包括：
+
+    - 模板 (Templates)
+    - 容器 (Containers)、算法（Algorithm）标准模板库（STL）
+    - 字符串 (Strings)
+    - IO 流 (I/O Streams)
+
+2. C++03 - ISO/IEC 14882:2003
+
+    在 C++ 03（14882：2003）中，修正了一些微小的技术，但在社区中仍被称为传统 C++。
+
+3. TR1
+
+    2005 年，令人兴奋的事发生了。Technical Report 1（简称 TR1）推出，是由 C++ 标准化委员会
+    成员建立的 boost 项目，推动现代 C++ 向前迈出一大步，也为后续 C++11 的出现奠定了基础。
+
+    具体来讲，TR1 有 13 个库，这些库也成为了下个 C++ 版本的一部分，分别是：
+
+    - 正则表达式库；
+    - 随机数库；
+    - 智能指针（如，std::shared_ptr）；
+    - 哈希表；
+
+4. C++11 - ISO/IEC 14882:2011
+
+    https://en.cppreference.com/w/cpp/11
+
+    C++11 被称为现代 C++，它的许多特性从根本上改变了 C++ 的编程方式。C++11 引入 TR1 组件，
+    还有移动语义、完美转发、可变模板或 constexpr 等特性。
+
+    随着 C++11 的到来，还引入了内存模型作为基础的线程模型以及线程 API。
+
+5. C++14 - ISO/IEC 14882:2014
+
+    C++14 引入了读写锁（Reader-writer Lock）、泛化 lambda 和泛化 constexpr 函数。
+
+    C++14 是一个小型 C++ 标准，相对之前的 11 并没有太大改动，或者说更像 C++11 标准基础上的
+    查漏补缺。C++14 之后，还有 17、20、23，所以，C++14 更像个过渡版本。
+
+6. C++17 - ISO/IEC 14882:2017
+
+    https://en.cppreference.com/w/cpp/17
+
+    C++ 17 有两个突出的特性：并行的 STL 和标准化的文件系统。大约 80 个 STL 算法可使用执行策略执行。
+
+    这意味着，调用 std::sort 可以在 C++ 中实现对容器 vec 并行排序的提示。此外，你还可以按顺序
+    进行指定排序或向量化。
+
+    就像 C++11 一样，boost 对 C++17 也产生了重大的影响，从 boost 中获得了文件系统以及 3 种
+    新的数据类型：
+
+    - std::optional 可选类型，比其它实现方式更简洁高效，例如复杂的 `std::pair<T,bool>`。
+    - std::variant 可变类型，表示一个类型安全的 `union`，它在任意时刻保有其可选类型之一的值。
+    - std::any 任意类型，一个类型安全容器，可以放置单个任何可拷贝构造类型。比 `void*` 更加安全。。
+
+7. C++20 - ISO/IEC 14882:2020
+
+    https://en.cppreference.com/w/cpp/20
+
+    C++ 20 的革新从根本上改变了编写 C++ 的方式，程度不亚于 C++11，特别是以下四个重要特性：
+
+    - Ranges（范围库），能够直接在容器上表达算法、使用管道符组合算法，并将它们应用于无限数据流。；
+    - Coroutines（协程），是协作任务、事件循环、无限数据流或管道的基础，使异步编程在 C++ 中成为主流。
+    - Concepts（概念）；
+    - Modules（模块），克服头文件的限制，不再需要预处理器，将拥有更快的构建速度和更简单的依赖包构建方式；
+
+    凡是涉及 STL 的错误都不堪入目，因为 STL 中有复杂的层次关系，在错误信息中都会暴露出来。
+    其次太多的类和函数的名字使用双下划线开头，一般人看得不习惯。
+
+    Concepts 配合 `requires` 关键字将改变我们对模板的思考和编程方式，是有效模板参数的语义类别。
+    Concepts 让你能够直接在类型系统中表达你的意图。如果出了什么问题，你会收到简洁的错误信息。
+
+8. C++23 - ISO/IEC 14882:2023
+
+    https://en.cppreference.com/w/cpp/23
+
+    2023 年 7 月，C++23 已完成更新，并进入了最终投票阶段。它最初于 2017 年 6 月正式发布。
+    它的主要特性包括：模板参数捕获、可变参数模板等。同时，它还引入了一些新的核心语言特性，如，
+    UTF-8 字符串字面量、更多的类型别名和 using 声明等。
+
+    此外，C++23 还引入了一些新特性，如，简化的工作线程支持、原子操作、普通指针改进、区域性和
+    字符编码，以及新的可以按程度进行编辑的 Strings 操作。
+
+    C++23 中引入了 this 推导，使 C++ 轻松实现复杂技术。模块化特性实现 import std 导入标准库，
+    或者在 std::print 和 std::println 中应用 C++20 的格式字符串。
+
+    此外，在 C++23 中，开发者将获得扁平化关联容器。这些容器平衡了时间和空间复杂度。std::flap_map
+    可取代 std::map，而 std::optional 的接口将扩展为单子接口。
+
+- [Compiler support](https://en.cppreference.com/w/cpp/compiler_support)
+- [Freestanding and hosted](https://en.cppreference.com/w/cpp/freestanding)
+- [Language](https://en.cppreference.com/w/cpp/language) -
+- [Standard library](https://en.cppreference.com/w/cpp/standard_library)
+- [Standard library headers](https://en.cppreference.com/w/cpp/header)
+- [Named requirements](https://en.cppreference.com/w/cpp/named_req)
+- [Feature test macros](https://en.cppreference.com/w/cpp/feature_test) (C++20)
+- [Language support library](https://en.cppreference.com/w/cpp/utility#Language_support)
+- [Concepts library](https://en.cppreference.com/w/cpp/concepts) (C++20)
+- [Metaprogramming library](https://en.cppreference.com/w/cpp/meta) (C++11)
+- [Diagnostics library](https://en.cppreference.com/w/cpp/error)
+- [General utilities library](https://en.cppreference.com/w/cpp/utility)
+- [Strings library](https://en.cppreference.com/w/cpp/string) -
+- [Iterators library](https://en.cppreference.com/w/cpp/iterator)
+- [Ranges library](https://en.cppreference.com/w/cpp/ranges) (C++20)
+- [Algorithms library](https://en.cppreference.com/w/cpp/algorithm)
+- [Numerics library](https://en.cppreference.com/w/cpp/numeric) -
+- [Localizations library](https://en.cppreference.com/w/cpp/locale)
+- [Input/output library](https://en.cppreference.com/w/cpp/io) -
+- [Filesystem library](https://en.cppreference.com/w/cpp/filesystem)
+- [Regular expressions library](https://en.cppreference.com/w/cpp/regex) (C++11)
+- [Concurrency support library](https://en.cppreference.com/w/cpp/thread) (C++11)
+- [Technical specifications](https://en.cppreference.com/w/cpp/experimental)
+- [Symbols index](https://en.cppreference.com/w/cpp/symbol_index)
+- [External libraries](https://en.cppreference.com/w/cpp/links/libs)
+
+
+-  [C++11](https://en.cppreference.com/w/cpp/11), 
+   [C++14](https://en.cppreference.com/w/cpp/14),
+   [C++17](https://en.cppreference.com/w/cpp/17),
+   [C++20](https://en.cppreference.com/w/cpp/20),
+   [C++23](https://en.cppreference.com/w/cpp/23),
+   [C++26](https://en.cppreference.com/w/cpp/26)  
+
+-  [Compiler support](https://en.cppreference.com/w/cpp/compiler_support)
+   [C++11](https://en.cppreference.com/w/cpp/compiler_support/11),
+   [C++14](https://en.cppreference.com/w/cpp/compiler_support/14),
+   [C++17](https://en.cppreference.com/w/cpp/compiler_support/17),
+   [C++20](https://en.cppreference.com/w/cpp/compiler_support/20),
+   [C++23](https://en.cppreference.com/w/cpp/compiler_support/23),
+   [C++26](https://en.cppreference.com/w/cpp/compiler_support/26)
+
+- [Language](https://en.cppreference.com/w/cpp/language)
+
+    | [Keywords](https://en.cppreference.com/w/cpp/keyword) 
+    |     [Preprocessor](https://en.cppreference.com/w/cpp/preprocessor)
+    | [ASCII chart](https://en.cppreference.com/w/cpp/language/ascii)
+    | [Basic concepts](https://en.cppreference.com/w/cpp/language/basic_concepts)
+    |     [Comments](https://en.cppreference.com/w/cpp/comment)
+    |     [Names](https://en.cppreference.com/w/cpp/language/identifiers) 
+    |     ([lookup](https://en.cppreference.com/w/cpp/language/lookup))
+    |     [Types](https://en.cppreference.com/w/cpp/language/type) 
+    |     ([fundamental types](https://en.cppreference.com/w/cpp/language/types))
+    |     [The `main` function](https://en.cppreference.com/w/cpp/language/main_function)
+    | [Expressions](https://en.cppreference.com/w/cpp/language/expressions)
+    |     [Value categories](https://en.cppreference.com/w/cpp/language/value_category)
+    |     [Evaluation order](https://en.cppreference.com/w/cpp/language/eval_order)
+    |     [Operators](https://en.cppreference.com/w/cpp/language/expressions#Operators) 
+    |     ([precedence](https://en.cppreference.com/w/cpp/language/operator_precedence))
+    |     [Conversions](https://en.cppreference.com/w/cpp/language/expressions#Conversions) 
+    |     [Literals](https://en.cppreference.com/w/cpp/language/expressions#Literals)
+    | [Statements](https://en.cppreference.com/w/cpp/language/statements)
+    |     [`if`](https://en.cppreference.com/w/cpp/language/if) 
+    |     [`switch`](https://en.cppreference.com/w/cpp/language/switch)
+    |     [`for`](https://en.cppreference.com/w/cpp/language/for) 
+    |     [range-`for`](https://en.cppreference.com/w/cpp/language/range-for) (C++11)
+    |     [`while`](https://en.cppreference.com/w/cpp/language/while) 
+    |     [`do`-`while`](https://en.cppreference.com/w/cpp/language/do)
+    | [Declarations](https://en.cppreference.com/w/cpp/language/declarations) 
+    |     [Initialization](https://en.cppreference.com/w/cpp/language/initialization)
+    | [Functions](https://en.cppreference.com/w/cpp/language/functions) 
+    |     [Overloading](https://en.cppreference.com/w/cpp/language/overload_resolution)
+    | [Classes](https://en.cppreference.com/w/cpp/language/classes) 
+    |     ([unions](https://en.cppreference.com/w/cpp/language/union))
+    | [Templates](https://en.cppreference.com/w/cpp/language/templates) 
+    |     [Exceptions](https://en.cppreference.com/w/cpp/language/exceptions)
+    | [Freestanding implementations](https://en.cppreference.com/w/cpp/freestanding)
+
+- [Standard library](https://en.cppreference.com/w/cpp/standard_library)
+  ([headers](https://en.cppreference.com/w/cpp/header))
+
+- [Named requirements](https://en.cppreference.com/w/cpp/named_req)
+
+- [Feature test macros](https://en.cppreference.com/w/cpp/feature_test) (C++20)
+
+- [Language support library](https://en.cppreference.com/w/cpp/utility#Language_support)
+
+    | [Program utilities](https://en.cppreference.com/w/cpp/utility/program)
+    | [`source_location`](https://en.cppreference.com/w/cpp/utility/source_location) (C++20)
+    | [Coroutine support](https://en.cppreference.com/w/cpp/coroutine) (C++20)
+    | [Three-way comparison](https://en.cppreference.com/w/cpp/utility#Three-way_comparison) (C++20)
+    | [Type support](https://en.cppreference.com/w/cpp/types)
+    | [`numeric_limits`](https://en.cppreference.com/w/cpp/types/numeric_limits) 
+    |     [`type_info`](https://en.cppreference.com/w/cpp/types/type_info)
+    | [`initializer_list`](https://en.cppreference.com/w/cpp/utility/initializer_list) (C++11)
+
+- [Concepts library](https://en.cppreference.com/w/cpp/concepts) (C++20)
+
+- [Diagnostics library](https://en.cppreference.com/w/cpp/error)
+
+    | [`exception`](https://en.cppreference.com/w/cpp/error/exception) 
+    | − [System error](https://en.cppreference.com/w/cpp/error#System_error)
+    | [`basic_stacktrace`](https://en.cppreference.com/w/cpp/utility/basic_stacktrace) (C++23)
+
+- [Memory management library](https://en.cppreference.com/w/cpp/memory)
+
+    | [`unique_ptr`](https://en.cppreference.com/w/cpp/memory/unique_ptr) (C++11)
+    | [`shared_ptr`](https://en.cppreference.com/w/cpp/memory/shared_ptr) (C++11)
+    | [`weak_ptr`](https://en.cppreference.com/w/cpp/memory/weak_ptr) (C++11)
+    | [Memory resources](https://en.cppreference.com/w/cpp/memory#Memory_resources) (C++17)
+    | [Allocators](https://en.cppreference.com/w/cpp/memory#Allocators) 
+    | − [Low level management](https://en.cppreference.com/w/cpp/memory/new)
+
+- [Metaprogramming library](https://en.cppreference.com/w/cpp/meta) (C++11)
+
+    | [Type traits](https://en.cppreference.com/w/cpp/meta#Type_traits) 
+    | − [`ratio`](https://en.cppreference.com/w/cpp/numeric/ratio)
+    | [`integer_sequence`](https://en.cppreference.com/w/cpp/utility/integer_sequence) (C++14)
+
+- [General utilities library](https://en.cppreference.com/w/cpp/utility#General-purpose_utilities)
+
+    | [Function objects](https://en.cppreference.com/w/cpp/utility/functional) 
+    | − [`hash`](https://en.cppreference.com/w/cpp/utility/hash) (C++11)
+    | [Swap](https://en.cppreference.com/w/cpp/utility#Swap) 
+    | − [Type operations](https://en.cppreference.com/w/cpp/utility#Type_operations) (C++11)
+    | [Integer comparison](https://en.cppreference.com/w/cpp/utility#Integer_comparison_functions) (C++20)
+    | [`pair`](https://en.cppreference.com/w/cpp/utility/pair) 
+    | − [`tuple`](https://en.cppreference.com/w/cpp/utility/tuple) (C++11)
+    | [`optional`](https://en.cppreference.com/w/cpp/utility/optional) (C++17)
+    | [`expected`](https://en.cppreference.com/w/cpp/utility/expected) (C++23)
+    | [`variant`](https://en.cppreference.com/w/cpp/utility/variant) (C++17) 
+    | − [`any`](https://en.cppreference.com/w/cpp/utility/any) (C++17)
+    | [String conversions](https://en.cppreference.com/w/cpp/utility#Elementary_string_conversions) (C++17)
+    | [Formatting](https://en.cppreference.com/w/cpp/utility/format) (C++20)
+    | [`bitset`](https://en.cppreference.com/w/cpp/utility/bitset) 
+    | − [Bit manipulation](https://en.cppreference.com/w/cpp/numeric#Bit_manipulation) (C++20)
+    | [Debugging support](https://en.cppreference.com/w/cpp/utility#Debugging_support) (C++26)
+
+- [Strings library](https://en.cppreference.com/w/cpp/string)
+
+    | [`basic_string`](https://en.cppreference.com/w/cpp/string/basic_string) 
+    | − [`char_traits`](https://en.cppreference.com/w/cpp/string/char_traits)
+    | [`basic_string_view`](https://en.cppreference.com/w/cpp/string/basic_string_view) (C++17)
+    | [Null-terminated strings](https://en.cppreference.com/w/cpp/string#Null-terminated_strings):
+    | [byte](https://en.cppreference.com/w/cpp/string/byte) 
+    | − [multibyte](https://en.cppreference.com/w/cpp/string/multibyte) 
+    | − [wide](https://en.cppreference.com/w/cpp/string/wide)
+
+- [Containers library](https://en.cppreference.com/w/cpp/container)
+
+    | [`vector`](https://en.cppreference.com/w/cpp/container/vector) 
+    | − [`deque`](https://en.cppreference.com/w/cpp/container/deque) 
+    | − [`array`](https://en.cppreference.com/w/cpp/container/array) (C++11)
+    | [`list`](https://en.cppreference.com/w/cpp/container/list) 
+    | − [`forward_list`](https://en.cppreference.com/w/cpp/container/forward_list) (C++11)
+    | [`map`](https://en.cppreference.com/w/cpp/container/map) 
+    | − [`multimap`](https://en.cppreference.com/w/cpp/container/multimap) 
+    | − [`set`](https://en.cppreference.com/w/cpp/container/set) 
+    | − [`multiset`](https://en.cppreference.com/w/cpp/container/multiset)
+    | [`unordered_map`](https://en.cppreference.com/w/cpp/container/unordered_map) (C++11)
+    | [`unordered_multimap`](https://en.cppreference.com/w/cpp/container/unordered_multimap) (C++11)
+    | [`unordered_set`](https://en.cppreference.com/w/cpp/container/unordered_set) (C++11)
+    | [`unordered_multiset`](https://en.cppreference.com/w/cpp/container/unordered_multiset) (C++11)
+    | [Container adaptors](https://en.cppreference.com/w/cpp/container#Container_adaptors)
+    | [`span`](https://en.cppreference.com/w/cpp/container/span) (C++20) 
+    | − [`mdspan`](https://en.cppreference.com/w/cpp/container/mdspan) (C++23)
+
+- [Iterators library](https://en.cppreference.com/w/cpp/iterator)
+
+   [Ranges library](https://en.cppreference.com/w/cpp/ranges) (C++20)
+
+- [Algorithms library](https://en.cppreference.com/w/cpp/algorithm)
+
+    | [Execution policies](https://en.cppreference.com/w/cpp/algorithm#Execution_policies) (C++17)
+    | [Constrained algorithms](https://en.cppreference.com/w/cpp/algorithm/ranges) (C++20)
+
+- [Numerics library](https://en.cppreference.com/w/cpp/numeric)
+
+    | [Common math functions](https://en.cppreference.com/w/cpp/numeric/math)
+    | [Mathematical special functions](https://en.cppreference.com/w/cpp/numeric/special_functions) (C++17)
+    | [Mathematical constants](https://en.cppreference.com/w/cpp/numeric/constants) (C++20)
+    | [Basic linear algebra algorithms](https://en.cppreference.com/w/cpp/numeric/linalg) (C++26)
+    | [Numeric algorithms](https://en.cppreference.com/w/cpp/numeric#Numeric_algorithms)
+    | [Pseudo-random number generation](https://en.cppreference.com/w/cpp/numeric/random)
+    | [Floating-point environment](https://en.cppreference.com/w/cpp/numeric/fenv) (C++11)
+    | [`complex`](https://en.cppreference.com/w/cpp/numeric/complex) 
+    | − [`valarray`](https://en.cppreference.com/w/cpp/numeric/valarray)
+
+- [Date and time library](https://en.cppreference.com/w/cpp/chrono)
+
+    [Calendar](https://en.cppreference.com/w/cpp/chrono#Calendar) (C++20) 
+    | − [Time zone](https://en.cppreference.com/w/cpp/chrono#Time_zone) (C++20)
+
+- [Localization library](https://en.cppreference.com/w/cpp/locale)
+
+    | [`locale`](https://en.cppreference.com/w/cpp/locale/locale) 
+    | − [Character classification](https://en.cppreference.com/w/cpp/locale#Character_classification_and_conversion)
+    | [`text_encoding`](https://en.cppreference.com/mwiki/index.php?title=cpp/locale/text_encoding&action=edit&redlink=1) (C++26)
+
+- [Input/output library](https://en.cppreference.com/w/cpp/io)
+
+    | [Print functions](https://en.cppreference.com/w/cpp/io#Print_functions) (C++23)
+    | [Stream-based I/O](https://en.cppreference.com/w/cpp/io#Stream-based_I.2FO) 
+    | − [I/O manipulators](https://en.cppreference.com/w/cpp/io/manip)
+    | [`basic_istream`](https://en.cppreference.com/w/cpp/io/basic_istream) 
+    | − [`basic_ostream`](https://en.cppreference.com/w/cpp/io/basic_ostream)
+    | [Synchronized output](https://en.cppreference.com/w/cpp/io#Synchronized_output) (C++20)
+    | [File systems](https://en.cppreference.com/w/cpp/filesystem) (C++17)
+
+- [Regular expressions library](https://en.cppreference.com/w/cpp/regex) (C++11)
+
+    | [`basic_regex`](https://en.cppreference.com/w/cpp/regex/basic_regex) 
+    | − [Algorithms](https://en.cppreference.com/w/cpp/regex#Algorithms)
+    | [Default regular expression grammar](https://en.cppreference.com/w/cpp/regex/ecmascript)
+
+- [Concurrency support library](https://en.cppreference.com/w/cpp/thread) (C++11)
+
+    | [`thread`](https://en.cppreference.com/w/cpp/thread/thread) 
+    | − [`jthread`](https://en.cppreference.com/w/cpp/thread/jthread) (C++20)
+    | [`atomic`](https://en.cppreference.com/w/cpp/atomic/atomic) 
+    | − [`atomic_flag`](https://en.cppreference.com/w/cpp/atomic/atomic_flag)
+    | [`atomic_ref`](https://en.cppreference.com/w/cpp/atomic/atomic_ref) (C++20) 
+    | − [`memory_order`](https://en.cppreference.com/w/cpp/atomic/memory_order)
+    | [Mutual exclusion](https://en.cppreference.com/w/cpp/thread#Mutual_exclusion) 
+    | − [Semaphores](https://en.cppreference.com/w/cpp/thread#Semaphores) (C++20)
+    | [Condition variables](https://en.cppreference.com/w/cpp/thread#Condition_variables) 
+    | − [Futures](https://en.cppreference.com/w/cpp/thread#Futures)
+    | [`latch`](https://en.cppreference.com/w/cpp/thread/latch) (C++20) 
+    | − [`barrier`](https://en.cppreference.com/w/cpp/thread/barrier) (C++20)
+    | [Safe Reclamation](https://en.cppreference.com/w/cpp/thread#Safe_Reclamation) (C++26)
+
+[Technical specifications](https://en.cppreference.com/w/cpp/experimental)
+
+  - [Standard library extensions](https://en.cppreference.com/w/cpp/experimental/lib_extensions)  (library fundamentals TS)
+
+      [`resource_adaptor`](https://en.cppreference.com/w/cpp/experimental/resource_adaptor) 
+      | − [`invocation_type`](https://en.cppreference.com/w/cpp/experimental/invocation_type)
+
+  - [Standard library extensions v2](https://en.cppreference.com/w/cpp/experimental/lib_extensions_2)  (library fundamentals TS v2)
+
+      | [`propagate_const`](https://en.cppreference.com/w/cpp/experimental/propagate_const) 
+      | − [`ostream_joiner`](https://en.cppreference.com/w/cpp/experimental/ostream_joiner) 
+      | − [`randint`](https://en.cppreference.com/w/cpp/experimental/randint)
+      | [`observer_ptr`](https://en.cppreference.com/w/cpp/experimental/observer_ptr) 
+      | − [Detection idiom](https://en.cppreference.com/w/cpp/experimental/is_detected)
+
+  - [Standard library extensions v3](https://en.cppreference.com/w/cpp/experimental/lib_extensions_3)  (library fundamentals TS v3)
+
+      [`scope_exit`](https://en.cppreference.com/w/cpp/experimental/scope_exit) 
+      | − [`scope_fail`](https://en.cppreference.com/w/cpp/experimental/scope_fail) 
+      | − [`scope_success`](https://en.cppreference.com/w/cpp/experimental/scope_success) 
+      | − [`unique_resource`](https://en.cppreference.com/w/cpp/experimental/unique_resource)
+
+  - [Parallelism library extensions v2](https://en.cppreference.com/w/cpp/experimental/parallelism_2)  (parallelism TS v2)
+
+      [`simd`](https://en.cppreference.com/w/cpp/experimental/simd)
+
+     |   [Concurrency library extensions](https://en.cppreference.com/w/cpp/experimental/concurrency)  (concurrency TS)
+     |   [Transactional Memory](https://en.cppreference.com/w/cpp/language/transactional_memory)  (TM TS)
+     |   [Reflection](https://en.cppreference.com/w/cpp/experimental/reflect)  (reflection TS)
+
+
+External Links
+
+  - [External Links](https://en.cppreference.com/w/cpp/links)  
+  −  [Non-ANSI/ISO Libraries](https://en.cppreference.com/w/cpp/links/libs)  
+  −  [Index](https://en.cppreference.com/w/cpp/index)  
+  −  [std Symbol Index](https://en.cppreference.com/w/cpp/symbol_index)
+
+
+## /CPP1. C++ Language
+-  [Language](https://en.cppreference.com/w/cpp/language)
+
+**C++ language**
+
+This is a reference of the core C++ language constructs.
+
+
+-  [Basic concepts](https://en.cppreference.com/w/cpp/language/basic_concepts)
+
+    | [Comments](https://en.cppreference.com/w/cpp/comment)
+    | [ASCII chart](https://en.cppreference.com/w/cpp/language/ascii)
+    | [Punctuation](https://en.cppreference.com/w/cpp/language/punctuators)
+    | [Names and identifiers](https://en.cppreference.com/w/cpp/language/identifiers)
+    | [Types](https://en.cppreference.com/w/cpp/language/type) 
+        – [Fundamental types](https://en.cppreference.com/w/cpp/language/types)
+    | [Object](https://en.cppreference.com/w/cpp/language/object) 
+        – [Scope](https://en.cppreference.com/w/cpp/language/scope) 
+        – [Lifetime](https://en.cppreference.com/w/cpp/language/lifetime)
+    | [Definitions and ODR](https://en.cppreference.com/w/cpp/language/definition)
+    | [Name lookup](https://en.cppreference.com/w/cpp/language/lookup)
+    |     [qualified](https://en.cppreference.com/w/cpp/language/qualified_lookup)
+        – [unqualified](https://en.cppreference.com/w/cpp/language/unqualified_lookup)
+      (`ADL](https://en.cppreference.com/w/cpp/language/adl))
+    | [As-if rule](https://en.cppreference.com/w/cpp/language/as_if)
+    | [Undefined behavior (UB)](https://en.cppreference.com/w/cpp/language/ub)
+    | [Memory](https://en.cppreference.com/w/cpp/language/memory_model) 
+        – [Multithread](https://en.cppreference.com/w/cpp/language/multithread) (C++11)
+    | [Character sets and encodings](https://en.cppreference.com/w/cpp/language/charset)
+    | [Phases of translation](https://en.cppreference.com/w/cpp/language/translation_phases)
+    | [The `main` function](https://en.cppreference.com/w/cpp/language/main_function)
+    | [Modules](https://en.cppreference.com/w/cpp/language/modules) (C++20)
+
+- [Keywords](https://en.cppreference.com/w/cpp/keyword)
+
+- [Preprocessor](https://en.cppreference.com/w/cpp/preprocessor)
+
+    | [`#if` - `#ifdef` - `#ifndef` - `#elif`](https://en.cppreference.com/w/cpp/preprocessor/conditional)
+    | [`#elifdef` - `#elifndef`](https://en.cppreference.com/w/cpp/preprocessor/conditional) (C++23)
+    | [`#define` - `#` - `##`](https://en.cppreference.com/w/cpp/preprocessor/replace)
+    | [`#include`](https://en.cppreference.com/w/cpp/preprocessor/include)
+      - [`#pragma`](https://en.cppreference.com/w/cpp/preprocessor/impl)
+    | [`#line`](https://en.cppreference.com/w/cpp/preprocessor/line) -
+      [`#error`](https://en.cppreference.com/w/cpp/preprocessor/error)
+    | [`#warning`](https://en.cppreference.com/w/cpp/preprocessor/error) (C++23)
+
+- [Expressions](https://en.cppreference.com/w/cpp/language/expressions)
+
+    | [Value categories](https://en.cppreference.com/w/cpp/language/value_category)
+    | [Evaluation order](https://en.cppreference.com/w/cpp/language/eval_order)
+    | [Constant expressions](https://en.cppreference.com/w/cpp/language/constant_expression)
+    | [Operators](https://en.cppreference.com/w/cpp/language/expressions#Operators)
+    |     [assignment](https://en.cppreference.com/w/cpp/language/operator_assignment)
+        – [arithmetic](https://en.cppreference.com/w/cpp/language/operator_arithmetic)
+    |     [increment and
+      decrement](https://en.cppreference.com/w/cpp/language/operator_incdec)
+    |     [logical](https://en.cppreference.com/w/cpp/language/operator_logical)
+        – [comparison](https://en.cppreference.com/w/cpp/language/operator_comparison)
+    |     [member
+      access](https://en.cppreference.com/w/cpp/language/operator_member_access)
+    |     [call, comma, ternary](https://en.cppreference.com/w/cpp/language/operator_other)
+    |     [`sizeof`](https://en.cppreference.com/w/cpp/language/sizeof) 
+        – [`alignof`](https://en.cppreference.com/w/cpp/language/alignof) (C++11)
+    |     [`new`](https://en.cppreference.com/w/cpp/language/new) 
+        – [`delete`](https://en.cppreference.com/w/cpp/language/delete) 
+        – [`typeid`](https://en.cppreference.com/w/cpp/language/typeid)
+    |     [alternative representation](https://en.cppreference.com/w/cpp/language/operator_alternative)
+    | [Default comparisons](https://en.cppreference.com/w/cpp/language/default_comparisons) (C++20)
+    | [Operator precedence](https://en.cppreference.com/w/cpp/language/operator_precedence)
+    | [Conversions](https://en.cppreference.com/w/cpp/language/expressions#Conversions)
+    |     [implicit](https://en.cppreference.com/w/cpp/language/implicit_conversion)
+        – [explicit](https://en.cppreference.com/w/cpp/language/explicit_cast)
+    |     [user-defined](https://en.cppreference.com/w/cpp/language/cast_operator)
+    |     [Usual arithmetic
+      conversions](https://en.cppreference.com/w/cpp/language/usual_arithmetic_conversions)
+    |     [`static_cast`](https://en.cppreference.com/w/cpp/language/static_cast)
+        – [`dynamic_cast`](https://en.cppreference.com/w/cpp/language/dynamic_cast)
+    |     [`const_cast`](https://en.cppreference.com/w/cpp/language/const_cast)
+    |     [`reinterpret_cast`](https://en.cppreference.com/w/cpp/language/reinterpret_cast)
+    | [Literals](https://en.cppreference.com/w/cpp/language/expressions#Literals)
+      ([Escape sequences](https://en.cppreference.com/w/cpp/language/escape))
+    |     [boolean](https://en.cppreference.com/w/cpp/language/bool_literal)
+        – [integer](https://en.cppreference.com/w/cpp/language/integer_literal)
+        – [floating](https://en.cppreference.com/w/cpp/language/floating_literal)
+    |     [character](https://en.cppreference.com/w/cpp/language/character_literal)
+        – [string](https://en.cppreference.com/w/cpp/language/string_literal)
+    |     [`nullptr`](https://en.cppreference.com/w/cpp/language/nullptr) (C++11)
+    |     [user-defined (UDL)](https://en.cppreference.com/w/cpp/language/user_literal) (C++11)
+
+-  [Declarations](https://en.cppreference.com/w/cpp/language/declarations)
+
+    | [Conflicting declarations](https://en.cppreference.com/w/cpp/language/conflicting_declarations)
+    | [Storage duration and linkage](https://en.cppreference.com/w/cpp/language/storage_duration)
+    | [Translation-unit-local](https://en.cppreference.com/w/cpp/language/tu_local) (C++20)
+    | [Language linkage](https://en.cppreference.com/w/cpp/language/language_linkage)
+    | [Namespace declaration](https://en.cppreference.com/w/cpp/language/namespace)
+    | [Namespace alias](https://en.cppreference.com/w/cpp/language/namespace_alias)
+    | [References](https://en.cppreference.com/w/cpp/language/reference) 
+        – [Pointers](https://en.cppreference.com/w/cpp/language/pointer) 
+        – [Arrays](https://en.cppreference.com/w/cpp/language/array)
+    | [Structured bindings](https://en.cppreference.com/w/cpp/language/structured_binding) (C++17)
+    | [Enumerations and enumerators](https://en.cppreference.com/w/cpp/language/enum)
+    | [`inline` specifier](https://en.cppreference.com/w/cpp/language/inline)
+    | [Inline assembly](https://en.cppreference.com/w/cpp/language/asm)
+    | [`const`/`volatile`](https://en.cppreference.com/w/cpp/language/cv)
+    | [`constexpr`](https://en.cppreference.com/w/cpp/language/constexpr) (C++11)
+    | [`consteval`](https://en.cppreference.com/w/cpp/language/consteval) (C++20)
+    | [`constinit`](https://en.cppreference.com/w/cpp/language/constinit) (C++20)
+    | [`decltype`](https://en.cppreference.com/w/cpp/language/decltype) (C++11)
+    | [`auto`](https://en.cppreference.com/w/cpp/language/auto) (C++11)
+    | [`typedef`](https://en.cppreference.com/w/cpp/language/typedef) 
+      - [Type alias](https://en.cppreference.com/w/cpp/language/type_alias) (C++11)
+    | [Elaborated type specifiers](https://en.cppreference.com/w/cpp/language/elaborated_type_specifier)
+    | [Attributes](https://en.cppreference.com/w/cpp/language/attributes) (C++11)
+    | [`alignas`](https://en.cppreference.com/w/cpp/language/alignas) (C++11)
+    | [`static_assert`](https://en.cppreference.com/w/cpp/language/static_assert) (C++11)
+
+- [Initialization](https://en.cppreference.com/w/cpp/language/initialization)
+
+    | [Default-initialization](https://en.cppreference.com/w/cpp/language/default_initialization)
+    | [Value-initialization](https://en.cppreference.com/w/cpp/language/value_initialization)
+    | [Copy-initialization](https://en.cppreference.com/w/cpp/language/copy_initialization)
+    | [Direct-initialization](https://en.cppreference.com/w/cpp/language/direct_initialization)
+    | [Aggregate initialization](https://en.cppreference.com/w/cpp/language/aggregate_initialization)
+    | [List-initialization](https://en.cppreference.com/w/cpp/language/list_initialization) (C++11)
+    | [Reference initialization](https://en.cppreference.com/w/cpp/language/reference_initialization)
+    | [Static non-local initialization](https://en.cppreference.com/w/cpp/language/initialization#Non-local_variables)
+    |     [zero](https://en.cppreference.com/w/cpp/language/zero_initialization)
+        – [constant](https://en.cppreference.com/w/cpp/language/constant_initialization)
+    | [Dynamic non-local initialization](https://en.cppreference.com/w/cpp/language/initialization#Non-local_variables)
+    |     [ordered](https://en.cppreference.com/w/cpp/language/initialization#Non-local_variables)
+        – [unordered](https://en.cppreference.com/w/cpp/language/initialization#Non-local_variables)
+    | [Copy elision (RVO)](https://en.cppreference.com/w/cpp/language/copy_elision)
+
+- [Functions](https://en.cppreference.com/w/cpp/language/functions)
+
+    | [Function declaration](https://en.cppreference.com/w/cpp/language/function)
+    | [Default arguments](https://en.cppreference.com/w/cpp/language/default_arguments)
+    | [Variadic arguments](https://en.cppreference.com/w/cpp/language/variadic_arguments)
+    | [Lambda expression](https://en.cppreference.com/w/cpp/language/lambda) (C++11)
+    | [Overload resolution](https://en.cppreference.com/w/cpp/language/overload_resolution)
+    | [Operator overloading](https://en.cppreference.com/w/cpp/language/operators)
+    | [Address of an overload set](https://en.cppreference.com/w/cpp/language/overloaded_address)
+    | [Coroutines](https://en.cppreference.com/w/cpp/language/coroutines) (C++20)
+
+- [Statements](https://en.cppreference.com/w/cpp/language/statements)
+
+    | [`if`](https://en.cppreference.com/w/cpp/language/if) 
+        – [`switch`](https://en.cppreference.com/w/cpp/language/switch)
+    | [`for`](https://en.cppreference.com/w/cpp/language/for) 
+        – [range-`for`](https://en.cppreference.com/w/cpp/language/range-for) (C++11)
+    | [`while`](https://en.cppreference.com/w/cpp/language/while) 
+        – [`do`-`while`](https://en.cppreference.com/w/cpp/language/do)
+    | [`continue`](https://en.cppreference.com/w/cpp/language/continue) 
+        – [`break`](https://en.cppreference.com/w/cpp/language/break)
+    | [`goto`](https://en.cppreference.com/w/cpp/language/goto) 
+        – [`return`](https://en.cppreference.com/w/cpp/language/return)
+    | [`synchronized`/`atomic`](https://en.cppreference.com/w/cpp/language/transactional_memory) (TM TS)
+-  [Classes](https://en.cppreference.com/w/cpp/language/classes)
+
+    | [Class types](https://en.cppreference.com/w/cpp/language/class) 
+        – [Union types](https://en.cppreference.com/w/cpp/language/union)
+    | [injected-class-name](https://en.cppreference.com/w/cpp/language/injected-class-name)
+    | [Data members](https://en.cppreference.com/w/cpp/language/data_members) 
+        – [Bit-fields](https://en.cppreference.com/w/cpp/language/bit_field)
+    | [Member functions](https://en.cppreference.com/w/cpp/language/member_functions)
+        – [The `this` pointer](https://en.cppreference.com/w/cpp/language/this)
+    | [Static members](https://en.cppreference.com/w/cpp/language/static) 
+        – [Nested classes](https://en.cppreference.com/w/cpp/language/nested_types)
+    | [Derived class](https://en.cppreference.com/w/cpp/language/derived_class) 
+        – [`using`-declaration](https://en.cppreference.com/w/cpp/language/using_declaration)
+    | [Empty base optimization (EBO)](https://en.cppreference.com/w/cpp/language/ebo)
+    | [Virtual function](https://en.cppreference.com/w/cpp/language/virtual)
+        – [Abstract class (ABC)](https://en.cppreference.com/w/cpp/language/abstract_class)
+    | [`override`](https://en.cppreference.com/w/cpp/language/override) (C++11) 
+        – [`final`](https://en.cppreference.com/w/cpp/language/final) (C++11)
+    | [Member access](https://en.cppreference.com/w/cpp/language/access) 
+        – [`friend`](https://en.cppreference.com/w/cpp/language/friend)
+    | [Constructors and member initializer lists](https://en.cppreference.com/w/cpp/language/constructor)
+    | [Default constructor](https://en.cppreference.com/w/cpp/language/default_constructor)
+        – [Destructor](https://en.cppreference.com/w/cpp/language/destructor)
+    | [Copy constructor](https://en.cppreference.com/w/cpp/language/copy_constructor)
+        – [Copy assignment](https://en.cppreference.com/w/cpp/language/copy_assignment)
+    | [Move constructor](https://en.cppreference.com/w/cpp/language/move_constructor) (C++11)
+    | [Move assignment](https://en.cppreference.com/w/cpp/language/move_assignment) (C++11)
+    | [Converting constructor](https://en.cppreference.com/w/cpp/language/converting_constructor)
+    | [`explicit` specifier](https://en.cppreference.com/w/cpp/language/explicit)
+
+- [Templates](https://en.cppreference.com/w/cpp/language/templates)
+
+    | [Template parameters and arguments](https://en.cppreference.com/w/cpp/language/template_parameters)
+    | [Class template](https://en.cppreference.com/w/cpp/language/class_template) 
+        – [Function template](https://en.cppreference.com/w/cpp/language/function_template)
+    | [Variable template](https://en.cppreference.com/w/cpp/language/variable_template) (C++14)
+    | [Class member template](https://en.cppreference.com/w/cpp/language/member_template)
+    | Template argument deduction
+    |     [function](https://en.cppreference.com/w/cpp/language/template_argument_deduction)
+        – [class](https://en.cppreference.com/w/cpp/language/class_template_argument_deduction) (C++17)
+    | [Explicit specialization](https://en.cppreference.com/w/cpp/language/template_specialization)
+        – [Partial specialization](https://en.cppreference.com/w/cpp/language/partial_specialization)
+    | [Parameter packs](https://en.cppreference.com/w/cpp/language/parameter_pack) (C++11)
+    | [`sizeof...`](https://en.cppreference.com/w/cpp/language/sizeof...) (C++11)
+    | [Fold expressions](https://en.cppreference.com/w/cpp/language/fold) (C++17)
+    | [Pack indexing](https://en.cppreference.com/w/cpp/language/pack_indexing) (C++26)
+    | [Dependent names](https://en.cppreference.com/w/cpp/language/dependent_name) 
+        - [SFINAE](https://en.cppreference.com/w/cpp/language/sfinae)
+    | [Constraints and concepts](https://en.cppreference.com/w/cpp/language/constraints) (C++20)
+    | [Requires expression](https://en.cppreference.com/w/cpp/language/requires) (C++20)
+
+- [Exceptions](https://en.cppreference.com/w/cpp/language/exceptions)
+
+    | [`throw`-expression](https://en.cppreference.com/w/cpp/language/throw)
+    | 【`try`-`catch` block](https://en.cppreference.com/w/cpp/language/try_catch)
+    | [Function-`try`-block](https://en.cppreference.com/w/cpp/language/function-try-block)
+    | Exception specification
+    |     [`noexcept` specification](https://en.cppreference.com/w/cpp/language/noexcept_spec) (C++11)
+    |     [Dynamic specification](https://en.cppreference.com/w/cpp/language/except_spec) (until C++17) (deprecated C++11)
+    | [`noexcept` operator](https://en.cppreference.com/w/cpp/language/noexcept) (C++11)
+
+- **Miscellaneous**
+
+    | [History of C++](https://en.cppreference.com/w/cpp/language/history)
+    | [Extending the namespace std](https://en.cppreference.com/w/cpp/language/extending_std)
+    | [Acronyms](https://en.cppreference.com/w/cpp/language/acronyms):
+      [CPO](https://en.cppreference.com/w/cpp/ranges/cpo),
+      [IFNDR](https://en.cppreference.com/w/cpp/language/ndr),
+      [NDR](https://en.cppreference.com/w/cpp/language/ndr),
+      [NTBS](https://en.cppreference.com/w/cpp/string/byte),
+    | [NTTP](https://en.cppreference.com/w/cpp/language/template_parameters#Non-type_template_parameter),
+      [RAO](https://en.cppreference.com/w/cpp/ranges#Range_adaptor_objects),
+      [SOCCC](https://en.cppreference.com/w/cpp/memory/allocator_traits/select_on_container_copy_construction),
+      [TMP](https://en.cppreference.com/w/cpp/language/template_metaprogramming),
+      [TU](https://en.cppreference.com/w/cpp/language/translation_phases#Phase_8)
+
+- **Idioms**
+
+    | [Curiously Recurring Template Pattern (CRTP)](https://en.cppreference.com/w/cpp/language/crtp)
+    | [Pointer to implementation (PIMPL)](https://en.cppreference.com/w/cpp/language/pimpl)
+    | [Resource acquisition is initialization (RAII)](https://en.cppreference.com/w/cpp/language/raii)
+    | [Rule of three/five/zero](https://en.cppreference.com/w/cpp/language/rule_of_three)
+    | [Zero-overhead principle](https://en.cppreference.com/w/cpp/language/Zero-overhead_principle)
+
+
+# 🚩 C Standard Library header
+- [The GNU C Library](https://www.gnu.org/software/libc/manual/html_mono/libc.html)
+- https://www.runoob.com/cprogramming/c-macro-errno.html
+
+C 语言是一种通用的、面向过程式的计算机程序设计语言。1972 年，为了移植与开发 UNIX 操作系统，
+丹尼斯·里奇在贝尔电话实验室设计开发了 C 语言。以下这些 C 标准库就是基石：
+
+    |---------------|--------------|-------------|------------|
+    | C98 headers                                             |
+    | <assert.h>    | <limits.h>   | <stdarg.h>  | <string.h> |
+    | <ctype.h>     | <locale.h>   | <stddef.h>  | <time.h>   |
+    | <errno.h>     | <math.h>     | <stdio.h>   | <wchar.h>  |
+    | <float.h>     | <setjmp.h>   | <stdlib.h>  | <wctype.h> |
+    | <iso646.h>    | <signal.h>   |             |            |
+    |---------------|--------------|-------------|------------|
+    | Headers added in C11                                    |
+    | <complex.h>   | <inttypes.h> | <stdbool.h> | <tgmath.h> |
+    | <fenv.h>      | <stdalign.h> | <stdint.h>  | <uchar.h>  |
+    | <stdatomic.h> |              |             |            |
+    |---------------|--------------|-------------|------------|
+
+C98 headers
+
+- [cassert.h](https://en.cppreference.com/w/cpp/header/cassert)
+- [climits.h](https://en.cppreference.com/w/cpp/header/climits)
+- [cstdarg.h](https://en.cppreference.com/w/cpp/header/cstdarg)
+- [cstring.h](https://en.cppreference.com/w/cpp/header/cstring)
+- [cctype.h](https://en.cppreference.com/w/cpp/header/cctype)
+- [clocale.h](https://en.cppreference.com/w/cpp/header/clocale)
+- [cstddef.h](https://en.cppreference.com/w/cpp/header/cstddef)
+- [ctime.h](https://en.cppreference.com/w/cpp/header/ctime)
+- [cerrno.h](https://en.cppreference.com/w/cpp/header/cerrno)
+- [cmath.h](https://en.cppreference.com/w/cpp/header/cmath)
+- [cstdio.h](https://en.cppreference.com/w/cpp/header/cstdio)
+- [cwchar.h](https://en.cppreference.com/w/cpp/header/cwchar)
+- [cfloat.h](https://en.cppreference.com/w/cpp/header/cfloat)
+- [csetjmp.h](https://en.cppreference.com/w/cpp/header/csetjmp)
+- [cstdlib.h](https://en.cppreference.com/w/cpp/header/cstdlib)
+- [cwctype.h](https://en.cppreference.com/w/cpp/header/cwctype)
+- [ciso646.h](https://en.cppreference.com/w/cpp/header/ciso646)
+- [csignal.h](https://en.cppreference.com/w/cpp/header/csignal)
+
+C-style headers added in C++11
+
+- [ccomplex.h](https://en.cppreference.com/w/cpp/header/ccomplex)
+- [cinttypes.h](https://en.cppreference.com/w/cpp/header/cinttypes)
+- [cstdbool.h](https://en.cppreference.com/w/cpp/header/cstdbool)
+- [ctgmath.h](https://en.cppreference.com/w/cpp/header/ctgmath)
+- [cfenv.h](https://en.cppreference.com/w/cpp/header/cfenv)
+- [cstdalign.h](https://en.cppreference.com/w/cpp/header/cstdalign)
+- [cstdint.h](https://en.cppreference.com/w/cpp/header/cstdint)
+- [cuchar.h](https://en.cppreference.com/w/cpp/header/cuchar)
+
+Headers added in C11
+
+- [stdatomic.h](https://en.cppreference.com/w/c/thread#Atomic_operations)
+
+| 头文件           | 功能            |
+| :----------   | :----------   |
+|`<assert.h>`   | 条件编译宏及断言比较 |
+|`<complex.h>`  | (since C99) 复数算法 |
+|`<ctype.h>`    | 字符类型检测函数，如判断变量是不是标点符号 ispunct(int) |
+|`<errno.h>`    | 错误报告宏，如将错误宏号码转换成错误信息字符串 strerror(errno)  |
+|`<fenv.h>`     | (since C99) 浮点数环境控制函数  |
+|`<float.h>`    | 与浮点值相关的平台依赖常量。 |
+|`<inttypes.h>` | (since C99) Format conversion of integer types  |
+|`<iso646.h>`   | (since C95) Alternative operator spellings  |
+|`<limits.h>`   | 基础类型的大小，和极限值  |
+|`<locale.h>`   | 本地化工具，从发展的眼光看，UTF8 成为事实上的通用工具  |
+|`<math.h>`     | 通用数学函数  |
+|`<setjmp.h>`   | 非本地跳转 Nonlocal jumps |
+|`<signal.h>`   | 信号量处理  |
+|`<stdalign.h>` | (since C11) alignas and alignof convenience macros  |
+|`<stdarg.h>`   | 参数变量宏  |
+|`<stdatomic.h>`| (since C11) 原子类型 Atomic types  |
+|`<stdbool.h>`  | (since C99) 布尔类型 Boolean type  |
+|`<stddef.h>`   | 通用宏，如 NULL、size_t  |
+|`<stdint.h>`   | (since C99) 定宽整数 |
+|`<stdio.h>`    | 标准输入输出 Input/output  |
+|`<stdlib.h>`   | 通用工具库，内存管理、程序工具、字符串转换、随机数等 |
+|`<stdnoreturn.h>`| (since C11) noreturn 宏定义  |
+|`<string.h>`   | C 风格 Null-terminated 字符串处理  |
+|`<tgmath.h>`   | (since C99) Type-generic math (macros wrapping math.h and complex.h)  |
+|`<threads.h>`  | (since C11) 线程库  |
+|`<time.h>`     | 日期时间工具  |
+|`<uchar.h>`    | (since C11) UTF-16、UTF-32 字符工具 |
+|`<wchar.h>`    | (since C95) 多字节宽度字符工具 |
+|`<wctype.h>`   | (since C95) 宽字符类型与映射工具 |
+
+可以从以下位置获取 The GNU C Library (glibc)，只建议有需要才去翻：
+
+    # http://www.gnu.org/software/libc/
+    git clone git://sourceware.org/git/glibc.git
+    cd glibc
+    git checkout --track -b glibc-2_11-branch origin/release/2.11/master
+
+MSVC 编译器也提供源代码，标准库代码在 VC 安装目录 \VC\crt\src。
+
+偶尔看看恶心的肠子肚子有利于看透美女的本质！
+
+
+# 🚩 C++ Standard Library header
+- https://en.cppreference.com/w/cpp/standard_library
+
+C++ library headers
+
+    |-------------------------------------------------------------------------------------------|
+    | C++98 library headers                                                                     |
+    | <algorithm>    | <iomanip>            | <list>     | <queue>            | <string>        |
+    | <bitset>       | <ios>                | <locale>   | <set>              | <strstream>     |
+    | <complex>      | <iosfwd>             | <map>      | <sstream>          | <typeinfo>      |
+    | <deque>        | <iostream>           | <memory>   | <stack>            | <utility>       |
+    | <exception>    | <istream>            | <new>      | <stdexcept>        | <valarray>      |
+    | <fstream>      | <iterator>           | <numeric>  | <streambuf>        | <vector>        |
+    | <functional>   | <limits>             | <ostream>  |                    |                 |
+    |-------------------------------------------------------------------------------------------|
+    | Headers added in C++11                                                                    |
+    | <array>        | <condition_variable> | <mutex>    | <scoped_allocator> | <type_traits>   |
+    | <atomic>       | <forward_list>       | <random>   | <system_error>     | <typeindex>     |
+    | <chrono>       | <future>             | <ratio>    | <thread>           | <unordered_map> |
+    | <codecvt>      | <initializer_list>   | <regex>    | <tuple>            | <unordered_set> |
+    |-------------------------------------------------------------------------------------------|
+    | Headers added in C++14                                                                    |
+    | <shared_mutex> |                      |            |                    |                 |
+    |-------------------------------------------------------------------------------------------|
+    | Headers added in C++17                                                                    |
+    | <any>          | <filesystem>         | <optional> | <string_view>      | <variant>       |
+    | <execution>    | <memory_resource>    |            |                    |                 |
+    |-------------------------------------------------------------------------------------------|
+    | Headers added in C++20                                                                    |
+    | <barrier>      | <concepts>           | <latch>    | <semaphore>        | <stop_token>    |
+    | <bit>          | <coroutine>          | <numbers>  | <source_location>  | <syncstream>    |
+    | <charconv>     | <format>             | <ranges>   | <span>             | <version>       |
+    | <compare>      |                      |            |                    |                 |
+    |-------------------------------------------------------------------------------------------|
+    | Headers added in C++23                                                                    |
+    | <expected>     | <flat_set>           | <mdspan>   | <spanstream>       | <stdfloat>      |
+    | <flat_map>     | <generator>          | <print>    | <stacktrace>       |                 |
+    |-------------------------------------------------------------------------------------------|
+
+C++ headers for C library facilities
+
+    |-------------------------------------------------------------------------------------------|
+    | C++98 headers for C library facilities                                                    |
+    | <cassert>      | <clocale>            | <cstdarg>  | <cstring>          |                 |
+    | <cctype>       | <cmath>              | <cstddef>  | <ctime>            |                 |
+    | <cerrno>       | <csetjmp>            | <cstdio>   | <cwchar>           |                 |
+    | <cfloat>       | <csignal>            | <cstdlib>  | <cwctype>          |                 |
+    | <climits>      |                      |            |                    |                 |
+    |-------------------------------------------------------------------------------------------|
+    | Headers add in C++11                                                                      |
+    | <cfenv>        | <cinttypes>          | <cstdint>  | <cuchar>           |                 |
+    |-------------------------------------------------------------------------------------------|
+
+C++ headers deprecated (Since C++14)
+
+    |-------------------------------------------------------------------------------------------|
+    | Headers added in C++11, deprecated in C++17, and removed in C++20                         |
+    | <ccomplex>     | <cstdalign>          | <cstdbool> | <ctgmath>          |                 |
+    |-------------------------------------------------------------------------------------------|
+
+C++ headers removed
+
+    |-------------------------------------------------------------------------------------------|
+    | Headers removed in C++20                                                                  |
+    | <ciso646>      |                      |            |                    |                 |
+    |-------------------------------------------------------------------------------------------|
+    | Headers removed in C++26                                                                  |
+    | <strstream>    |                      |            |                    |                 |
+    |-------------------------------------------------------------------------------------------|
+
+
+C++ library headers
+
+- [*algorithm*](https://en.cppreference.com/w/cpp/header/algorithm)
+- [*iomanip*](https://en.cppreference.com/w/cpp/header/iomanip)
+- [*list*](https://en.cppreference.com/w/cpp/header/list)
+- [*queue*](https://en.cppreference.com/w/cpp/header/queue)
+- [*string*](https://en.cppreference.com/w/cpp/header/string)
+- [*bitset*](https://en.cppreference.com/w/cpp/header/bitset)
+- [*ios*](https://en.cppreference.com/w/cpp/header/ios)
+- [*locale*](https://en.cppreference.com/w/cpp/header/locale)
+- [*set*](https://en.cppreference.com/w/cpp/header/set)
+- [*strstream*](https://en.cppreference.com/w/cpp/header/strstream)
+- [*complex*](https://en.cppreference.com/w/cpp/header/complex)
+- [*iosfwd*](https://en.cppreference.com/w/cpp/header/iosfwd)
+- [*map*](https://en.cppreference.com/w/cpp/header/map)
+- [*sstream*](https://en.cppreference.com/w/cpp/header/sstream)
+- [*typeinfo*](https://en.cppreference.com/w/cpp/header/typeinfo)
+- [*deque*](https://en.cppreference.com/w/cpp/header/deque)
+- [*iostream*](https://en.cppreference.com/w/cpp/header/iostream)
+- [*memory*](https://en.cppreference.com/w/cpp/header/memory)
+- [*stack*](https://en.cppreference.com/w/cpp/header/stack)
+- [*utility*](https://en.cppreference.com/w/cpp/header/utility)
+- [*exception*](https://en.cppreference.com/w/cpp/header/exception)
+- [*istream*](https://en.cppreference.com/w/cpp/header/istream)
+- [*new*](https://en.cppreference.com/w/cpp/header/new)
+- [*stdexcept*](https://en.cppreference.com/w/cpp/header/stdexcept)
+- [*valarray*](https://en.cppreference.com/w/cpp/header/valarray)
+- [*fstream*](https://en.cppreference.com/w/cpp/header/fstream)
+- [*iterator*](https://en.cppreference.com/w/cpp/header/iterator)
+- [*numeric*](https://en.cppreference.com/w/cpp/header/numeric)
+- [*streambuf*](https://en.cppreference.com/w/cpp/header/streambuf)
+- [*vector*](https://en.cppreference.com/w/cpp/header/vector)
+- [*functional*](https://en.cppreference.com/w/cpp/header/functional)
+- [*limits*](https://en.cppreference.com/w/cpp/header/limits)
+- [*ostream*](https://en.cppreference.com/w/cpp/header/ostream)
+
+Headers added in C++11
+
+- [*array*](https://en.cppreference.com/w/cpp/header/array)
+- [*condition_variable*](https://en.cppreference.com/w/cpp/header/condition_variable)
+- [*mutex*](https://en.cppreference.com/w/cpp/header/mutex)
+- [*scoped_allocator*](https://en.cppreference.com/w/cpp/header/scoped_allocator)
+- [*type_traits*](https://en.cppreference.com/w/cpp/header/type_traits)
+- [*atomic*](https://en.cppreference.com/w/cpp/header/atomic)
+- [*forward_list*](https://en.cppreference.com/w/cpp/header/forward_list)
+- [*random*](https://en.cppreference.com/w/cpp/header/random)
+- [*system_error*](https://en.cppreference.com/w/cpp/header/system_error)
+- [*typeindex*](https://en.cppreference.com/w/cpp/header/typeindex)
+- [*chrono*](https://en.cppreference.com/w/cpp/header/chrono)
+- [*future*](https://en.cppreference.com/w/cpp/header/future)
+- [*ratio*](https://en.cppreference.com/w/cpp/header/ratio)
+- [*thread*](https://en.cppreference.com/w/cpp/header/thread)
+- [*unordered_map*](https://en.cppreference.com/w/cpp/header/unordered_map)
+- [*codecvt*](https://en.cppreference.com/w/cpp/header/codecvt)
+- [*initializer_list*](https://en.cppreference.com/w/cpp/header/initializer_list)
+- [*regex*](https://en.cppreference.com/w/cpp/header/regex)
+- [*tuple*](https://en.cppreference.com/w/cpp/header/tuple)
+- [*unordered_set*](https://en.cppreference.com/w/cpp/header/unordered_set)
+
+Headers added in C++14
+
+- [*shared_mutex*](https://en.cppreference.com/w/cpp/header/shared_mutex)
+
+Headers added in C++17
+
+- [*any*](https://en.cppreference.com/w/cpp/header/any)
+- [*filesystem*](https://en.cppreference.com/w/cpp/header/filesystem)
+- [*optional*](https://en.cppreference.com/w/cpp/header/optional)
+- [*string_view*](https://en.cppreference.com/w/cpp/header/string_view)
+- [*variant*](https://en.cppreference.com/w/cpp/header/variant)
+- [*execution*](https://en.cppreference.com/w/cpp/header/execution)
+- [*memory_resource*](https://en.cppreference.com/w/cpp/header/memory_resource)
+
+Headers added in C++20
+
+- [*barrier*](https://en.cppreference.com/w/cpp/header/barrier)
+- [*concepts*](https://en.cppreference.com/w/cpp/header/concepts)
+- [*latch*](https://en.cppreference.com/w/cpp/header/latch)
+- [*semaphore*](https://en.cppreference.com/w/cpp/header/semaphore)
+- [*stop_token*](https://en.cppreference.com/w/cpp/header/stop_token)
+- [*bit*](https://en.cppreference.com/w/cpp/header/bit)
+- [*coroutine*](https://en.cppreference.com/w/cpp/header/coroutine)
+- [*numbers*](https://en.cppreference.com/w/cpp/header/numbers)
+- [*source_location*](https://en.cppreference.com/w/cpp/header/source_location)
+- [*syncstream*](https://en.cppreference.com/w/cpp/header/syncstream)
+- [*charconv*](https://en.cppreference.com/w/cpp/header/charconv)
+- [*format*](https://en.cppreference.com/w/cpp/header/format)
+- [*ranges*](https://en.cppreference.com/w/cpp/header/ranges)
+- [*span*](https://en.cppreference.com/w/cpp/header/span)
+- [*version*](https://en.cppreference.com/w/cpp/header/version)
+- [*compare*](https://en.cppreference.com/w/cpp/header/compare)
+
+Headers added in C++23
+
+- [*expected*](https://en.cppreference.com/w/cpp/header/expected)
+- [*flat_set*](https://en.cppreference.com/w/cpp/header/flat_set)
+- [*mdspan*](https://en.cppreference.com/w/cpp/header/mdspan)
+- [*spanstream*](https://en.cppreference.com/w/cpp/header/spanstream)
+- [*stdfloat*](https://en.cppreference.com/w/cpp/header/stdfloat)
+- [*flat_map*](https://en.cppreference.com/w/cpp/header/flat_map)
+- [*generator*](https://en.cppreference.com/w/cpp/header/generator)
+- [*print*](https://en.cppreference.com/w/cpp/header/print)
+- [*stacktrace*](https://en.cppreference.com/w/cpp/header/stacktrace)
+
+C++ headers for C library facilities
+
+- [*cassert*](https://en.cppreference.com/w/cpp/header/cassert)
+- [*clocale*](https://en.cppreference.com/w/cpp/header/clocale)
+- [*cstdarg*](https://en.cppreference.com/w/cpp/header/cstdarg)
+- [*cstring*](https://en.cppreference.com/w/cpp/header/cstring)
+- [*cctype*](https://en.cppreference.com/w/cpp/header/cctype)
+- [*cmath*](https://en.cppreference.com/w/cpp/header/cmath)
+- [*cstddef*](https://en.cppreference.com/w/cpp/header/cstddef)
+- [*ctime*](https://en.cppreference.com/w/cpp/header/ctime)
+- [*cerrno*](https://en.cppreference.com/w/cpp/header/cerrno)
+- [*csetjmp*](https://en.cppreference.com/w/cpp/header/csetjmp)
+- [*cstdio*](https://en.cppreference.com/w/cpp/header/cstdio)
+- [*cwchar*](https://en.cppreference.com/w/cpp/header/cwchar)
+- [*cfloat*](https://en.cppreference.com/w/cpp/header/cfloat)
+- [*csignal*](https://en.cppreference.com/w/cpp/header/csignal)
+- [*cstdlib*](https://en.cppreference.com/w/cpp/header/cstdlib)
+- [*cwctype*](https://en.cppreference.com/w/cpp/header/cwctype)
+- [*climits*](https://en.cppreference.com/w/cpp/header/climits)
+
+Headers removed in C++20
+
+- [*ciso646*](https://en.cppreference.com/w/cpp/header/ciso646)
+
+Headers added in C++11
+
+- [*cfenv*](https://en.cppreference.com/w/cpp/header/cfenv)
+- [*cinttypes*](https://en.cppreference.com/w/cpp/header/cinttypes)
+- [*cstdint*](https://en.cppreference.com/w/cpp/header/cstdint)
+- [*cuchar*](https://en.cppreference.com/w/cpp/header/cuchar)
+
+Headers added in C++11, deprecated in C++17, and removed in C++20
+
+- [*ccomplex*](https://en.cppreference.com/w/cpp/header/ccomplex)
+- [*cstdalign*](https://en.cppreference.com/w/cpp/header/cstdalign)
+- [*cstdbool*](https://en.cppreference.com/w/cpp/header/cstdbool)
+- [*ctgmath*](https://en.cppreference.com/w/cpp/header/ctgmath)
+
 
 # =🚩 Declarations & Definitions 声明、初始化
 - 前端要以正确的姿势学习编译原理(https://zhuanlan.zhihu.com/p/36301857)
@@ -2887,306 +6730,6 @@ volatile 的作用是“告诉编译器，是随时可能发生变化的，每�
 
 
 
-
-
-# =🚩 C Standard Library header
-- [The GNU C Library](https://www.gnu.org/software/libc/manual/html_mono/libc.html)
-- https://www.runoob.com/cprogramming/c-macro-errno.html
-
-C 语言是一种通用的、面向过程式的计算机程序设计语言。1972 年，为了移植与开发 UNIX 操作系统，
-丹尼斯·里奇在贝尔电话实验室设计开发了 C 语言。以下这些 C 标准库就是基石：
-
-|---------------|--------------|-------------|------------|
-|   C headers                                             |
-| <assert.h>    | <limits.h>   | <stdarg.h>  | <string.h> |
-| <ctype.h>     | <locale.h>   | <stddef.h>  | <time.h>   |
-| <errno.h>     | <math.h>     | <stdio.h>   | <wchar.h>  |
-| <float.h>     | <setjmp.h>   | <stdlib.h>  | <wctype.h> |
-| <iso646.h>    | <signal.h>   |             |            |
-|---------------|--------------|-------------|------------|
-| Headers added in C++11                                  |
-| <complex.h>   | <inttypes.h> | <stdbool.h> | <tgmath.h> |
-| <fenv.h>      | <stdalign.h> | <stdint.h>  | <uchar.h>  |
-|---------------|--------------|-------------|------------|
-| Headers added in C++23                                  |
-| <stdatomic.h> |              |             |            |
-|---------------|--------------|-------------|------------|
-
-C headers
-
-- [cassert.h](https://en.cppreference.com/w/cpp/header/cassert)
-- [climits.h](https://en.cppreference.com/w/cpp/header/climits)
-- [cstdarg.h](https://en.cppreference.com/w/cpp/header/cstdarg)
-- [cstring.h](https://en.cppreference.com/w/cpp/header/cstring)
-- [cctype.h](https://en.cppreference.com/w/cpp/header/cctype)
-- [clocale.h](https://en.cppreference.com/w/cpp/header/clocale)
-- [cstddef.h](https://en.cppreference.com/w/cpp/header/cstddef)
-- [ctime.h](https://en.cppreference.com/w/cpp/header/ctime)
-- [cerrno.h](https://en.cppreference.com/w/cpp/header/cerrno)
-- [cmath.h](https://en.cppreference.com/w/cpp/header/cmath)
-- [cstdio.h](https://en.cppreference.com/w/cpp/header/cstdio)
-- [cwchar.h](https://en.cppreference.com/w/cpp/header/cwchar)
-- [cfloat.h](https://en.cppreference.com/w/cpp/header/cfloat)
-- [csetjmp.h](https://en.cppreference.com/w/cpp/header/csetjmp)
-- [cstdlib.h](https://en.cppreference.com/w/cpp/header/cstdlib)
-- [cwctype.h](https://en.cppreference.com/w/cpp/header/cwctype)
-- [ciso646.h](https://en.cppreference.com/w/cpp/header/ciso646)
-- [csignal.h](https://en.cppreference.com/w/cpp/header/csignal)
-
-Headers added in C++11
-
-- [ccomplex.h](https://en.cppreference.com/w/cpp/header/ccomplex)
-- [cinttypes.h](https://en.cppreference.com/w/cpp/header/cinttypes)
-- [cstdbool.h](https://en.cppreference.com/w/cpp/header/cstdbool)
-- [ctgmath.h](https://en.cppreference.com/w/cpp/header/ctgmath)
-- [cfenv.h](https://en.cppreference.com/w/cpp/header/cfenv)
-- [cstdalign.h](https://en.cppreference.com/w/cpp/header/cstdalign)
-- [cstdint.h](https://en.cppreference.com/w/cpp/header/cstdint)
-- [cuchar.h](https://en.cppreference.com/w/cpp/header/cuchar)
-
-Headers added in C++23
-
-- [stdatomic.h](https://en.cppreference.com/w/cpp/header/stdatomic.h)
-
-| 头文件           | 功能            |
-| :----------   | :----------   |
-|`<assert.h>`   | 条件编译宏及断言比较 |
-|`<complex.h>`  | (since C99) 复数算法 |
-|`<ctype.h>`    | 字符类型检测函数，如判断变量是不是标点符号 ispunct(int) |
-|`<errno.h>`    | 错误报告宏，如将错误宏号码转换成错误信息字符串 strerror(errno)  |
-|`<fenv.h>`     | (since C99) 浮点数环境控制函数  |
-|`<float.h>`    | 与浮点值相关的平台依赖常量。 |
-|`<inttypes.h>` | (since C99) Format conversion of integer types  |
-|`<iso646.h>`   | (since C95) Alternative operator spellings  |
-|`<limits.h>`   | 基础类型的大小，和极限值  |
-|`<locale.h>`   | 本地化工具，从发展的眼光看，UTF8 成为事实上的通用工具  |
-|`<math.h>`     | 通用数学函数  |
-|`<setjmp.h>`   | 非本地跳转 Nonlocal jumps |
-|`<signal.h>`   | 信号量处理  |
-|`<stdalign.h>` | (since C11) alignas and alignof convenience macros  |
-|`<stdarg.h>`   | 参数变量宏  |
-|`<stdatomic.h>`| (since C11) 原子类型 Atomic types  |
-|`<stdbool.h>`  | (since C99) 布尔类型 Boolean type  |
-|`<stddef.h>`   | 通用宏，如 NULL、size_t  |
-|`<stdint.h>`   | (since C99) 定宽整数 |
-|`<stdio.h>`    | 标准输入输出 Input/output  |
-|`<stdlib.h>`   | 通用工具库，内存管理、程序工具、字符串转换、随机数等 |
-|`<stdnoreturn.h>`| (since C11) noreturn 宏定义  |
-|`<string.h>`   | C 风格 Null-terminated 字符串处理  |
-|`<tgmath.h>`   | (since C99) Type-generic math (macros wrapping math.h and complex.h)  |
-|`<threads.h>`  | (since C11) 线程库  |
-|`<time.h>`     | 日期时间工具  |
-|`<uchar.h>`    | (since C11) UTF-16、UTF-32 字符工具 |
-|`<wchar.h>`    | (since C95) 多字节宽度字符工具 |
-|`<wctype.h>`   | (since C95) 宽字符类型与映射工具 |
-
-可以从以下位置获取 The GNU C Library (glibc)，只建议有需要才去翻：
-
-    # http://www.gnu.org/software/libc/
-    git clone git://sourceware.org/git/glibc.git
-    cd glibc
-    git checkout --track -b glibc-2_11-branch origin/release/2.11/master
-
-MSVC 编译器也提供源代码，标准库代码在 VC 安装目录 \VC\crt\src。
-
-偶尔看看恶心的肠子肚子有利于看透美女的本质！
-
-
-# =🚩 C++ Standard Library header
-- https://en.cppreference.com/w/cpp/standard_library
-
-
-| C++ library headers                                                                       |
-|-------------------------------------------------------------------------------------------|
-| <algorithm>    | <iomanip>            | <list>     | <queue>            | <string>        |
-| <bitset>       | <ios>                | <locale>   | <set>              | <strstream>     |
-| <complex>      | <iosfwd>             | <map>      | <sstream>          | <typeinfo>      |
-| <deque>        | <iostream>           | <memory>   | <stack>            | <utility>       |
-| <exception>    | <istream>            | <new>      | <stdexcept>        | <valarray>      |
-| <fstream>      | <iterator>           | <numeric>  | <streambuf>        | <vector>        |
-| <functional>   | <limits>             | <ostream>  |                    |                 |
-|-------------------------------------------------------------------------------------------|
-| Headers added in C++11                                                                    |
-| <array>        | <condition_variable> | <mutex>    | <scoped_allocator> | <type_traits>   |
-| <atomic>       | <forward_list>       | <random>   | <system_error>     | <typeindex>     |
-| <chrono>       | <future>             | <ratio>    | <thread>           | <unordered_map> |
-| <codecvt>      | <initializer_list>   | <regex>    | <tuple>            | <unordered_set> |
-|-------------------------------------------------------------------------------------------|
-| Headers added in C++14                                                                    |
-| <shared_mutex> |                      |            |                    |                 |
-|-------------------------------------------------------------------------------------------|
-| Headers added in C++17                                                                    |
-| <any>          | <filesystem>         | <optional> | <string_view>      | <variant>       |
-| <execution>    | <memory_resource>    |            |                    |                 |
-|-------------------------------------------------------------------------------------------|
-| Headers added in C++20                                                                    |
-| <barrier>      | <concepts>           | <latch>    | <semaphore>        | <stop_token>    |
-| <bit>          | <coroutine>          | <numbers>  | <source_location>  | <syncstream>    |
-| <charconv>     | <format>             | <ranges>   | <span>             | <version>       |
-| <compare>      |                      |            |                    |                 |
-|-------------------------------------------------------------------------------------------|
-| Headers added in C++23                                                                    |
-| <expected>     | <flat_set>           | <mdspan>   | <spanstream>       | <stdfloat>      |
-| <flat_map>     | <generator>          | <print>    | <stacktrace>       |                 |
-|-------------------------------------------------------------------------------------------|
-| C++ headers for C library facilities                                                      |
-| <cassert>      | <clocale>            | <cstdarg>  | <cstring>          |                 |
-| <cctype>       | <cmath>              | <cstddef>  | <ctime>            |                 |
-| <cerrno>       | <csetjmp>            | <cstdio>   | <cwchar>           |                 |
-| <cfloat>       | <csignal>            | <cstdlib>  | <cwctype>          |                 |
-| <climits>      |                      |            |                    |                 |
-|-------------------------------------------------------------------------------------------|
-| Headers removed in C++20                                                                  |
-| <ciso646>      |                      |            |                    |                 |
-|-------------------------------------------------------------------------------------------|
-| Headers add in C++11                                                                      |
-| <cfenv>        | <cinttypes>          | <cstdint>  | <cuchar>           |                 |
-|-------------------------------------------------------------------------------------------|
-| Headers added in C++11, deprecated in C++17, and removed in C++20                         |
-| <ccomplex>     | <cstdalign>          | <cstdbool> | <ctgmath>          |                 |
-
-
-C++ library headers
-
-- [*algorithm*](https://en.cppreference.com/w/cpp/header/algorithm)
-- [*iomanip*](https://en.cppreference.com/w/cpp/header/iomanip)
-- [*list*](https://en.cppreference.com/w/cpp/header/list)
-- [*queue*](https://en.cppreference.com/w/cpp/header/queue)
-- [*string*](https://en.cppreference.com/w/cpp/header/string)
-- [*bitset*](https://en.cppreference.com/w/cpp/header/bitset)
-- [*ios*](https://en.cppreference.com/w/cpp/header/ios)
-- [*locale*](https://en.cppreference.com/w/cpp/header/locale)
-- [*set*](https://en.cppreference.com/w/cpp/header/set)
-- [*strstream*](https://en.cppreference.com/w/cpp/header/strstream)
-- [*complex*](https://en.cppreference.com/w/cpp/header/complex)
-- [*iosfwd*](https://en.cppreference.com/w/cpp/header/iosfwd)
-- [*map*](https://en.cppreference.com/w/cpp/header/map)
-- [*sstream*](https://en.cppreference.com/w/cpp/header/sstream)
-- [*typeinfo*](https://en.cppreference.com/w/cpp/header/typeinfo)
-- [*deque*](https://en.cppreference.com/w/cpp/header/deque)
-- [*iostream*](https://en.cppreference.com/w/cpp/header/iostream)
-- [*memory*](https://en.cppreference.com/w/cpp/header/memory)
-- [*stack*](https://en.cppreference.com/w/cpp/header/stack)
-- [*utility*](https://en.cppreference.com/w/cpp/header/utility)
-- [*exception*](https://en.cppreference.com/w/cpp/header/exception)
-- [*istream*](https://en.cppreference.com/w/cpp/header/istream)
-- [*new*](https://en.cppreference.com/w/cpp/header/new)
-- [*stdexcept*](https://en.cppreference.com/w/cpp/header/stdexcept)
-- [*valarray*](https://en.cppreference.com/w/cpp/header/valarray)
-- [*fstream*](https://en.cppreference.com/w/cpp/header/fstream)
-- [*iterator*](https://en.cppreference.com/w/cpp/header/iterator)
-- [*numeric*](https://en.cppreference.com/w/cpp/header/numeric)
-- [*streambuf*](https://en.cppreference.com/w/cpp/header/streambuf)
-- [*vector*](https://en.cppreference.com/w/cpp/header/vector)
-- [*functional*](https://en.cppreference.com/w/cpp/header/functional)
-- [*limits*](https://en.cppreference.com/w/cpp/header/limits)
-- [*ostream*](https://en.cppreference.com/w/cpp/header/ostream)
-
-Headers added in C++11
-
-- [*array*](https://en.cppreference.com/w/cpp/header/array)
-- [*condition_variable*](https://en.cppreference.com/w/cpp/header/condition_variable)
-- [*mutex*](https://en.cppreference.com/w/cpp/header/mutex)
-- [*scoped_allocator*](https://en.cppreference.com/w/cpp/header/scoped_allocator)
-- [*type_traits*](https://en.cppreference.com/w/cpp/header/type_traits)
-- [*atomic*](https://en.cppreference.com/w/cpp/header/atomic)
-- [*forward_list*](https://en.cppreference.com/w/cpp/header/forward_list)
-- [*random*](https://en.cppreference.com/w/cpp/header/random)
-- [*system_error*](https://en.cppreference.com/w/cpp/header/system_error)
-- [*typeindex*](https://en.cppreference.com/w/cpp/header/typeindex)
-- [*chrono*](https://en.cppreference.com/w/cpp/header/chrono)
-- [*future*](https://en.cppreference.com/w/cpp/header/future)
-- [*ratio*](https://en.cppreference.com/w/cpp/header/ratio)
-- [*thread*](https://en.cppreference.com/w/cpp/header/thread)
-- [*unordered_map*](https://en.cppreference.com/w/cpp/header/unordered_map)
-- [*codecvt*](https://en.cppreference.com/w/cpp/header/codecvt)
-- [*initializer_list*](https://en.cppreference.com/w/cpp/header/initializer_list)
-- [*regex*](https://en.cppreference.com/w/cpp/header/regex)
-- [*tuple*](https://en.cppreference.com/w/cpp/header/tuple)
-- [*unordered_set*](https://en.cppreference.com/w/cpp/header/unordered_set)
-
-Headers added in C++14
-
-- [*shared_mutex*](https://en.cppreference.com/w/cpp/header/shared_mutex)
-
-Headers added in C++17
-
-- [*any*](https://en.cppreference.com/w/cpp/header/any)
-- [*filesystem*](https://en.cppreference.com/w/cpp/header/filesystem)
-- [*optional*](https://en.cppreference.com/w/cpp/header/optional)
-- [*string_view*](https://en.cppreference.com/w/cpp/header/string_view)
-- [*variant*](https://en.cppreference.com/w/cpp/header/variant)
-- [*execution*](https://en.cppreference.com/w/cpp/header/execution)
-- [*memory_resource*](https://en.cppreference.com/w/cpp/header/memory_resource)
-
-Headers added in C++20
-
-- [*barrier*](https://en.cppreference.com/w/cpp/header/barrier)
-- [*concepts*](https://en.cppreference.com/w/cpp/header/concepts)
-- [*latch*](https://en.cppreference.com/w/cpp/header/latch)
-- [*semaphore*](https://en.cppreference.com/w/cpp/header/semaphore)
-- [*stop_token*](https://en.cppreference.com/w/cpp/header/stop_token)
-- [*bit*](https://en.cppreference.com/w/cpp/header/bit)
-- [*coroutine*](https://en.cppreference.com/w/cpp/header/coroutine)
-- [*numbers*](https://en.cppreference.com/w/cpp/header/numbers)
-- [*source_location*](https://en.cppreference.com/w/cpp/header/source_location)
-- [*syncstream*](https://en.cppreference.com/w/cpp/header/syncstream)
-- [*charconv*](https://en.cppreference.com/w/cpp/header/charconv)
-- [*format*](https://en.cppreference.com/w/cpp/header/format)
-- [*ranges*](https://en.cppreference.com/w/cpp/header/ranges)
-- [*span*](https://en.cppreference.com/w/cpp/header/span)
-- [*version*](https://en.cppreference.com/w/cpp/header/version)
-- [*compare*](https://en.cppreference.com/w/cpp/header/compare)
-
-Headers added in C++23
-
-- [*expected*](https://en.cppreference.com/w/cpp/header/expected)
-- [*flat_set*](https://en.cppreference.com/w/cpp/header/flat_set)
-- [*mdspan*](https://en.cppreference.com/w/cpp/header/mdspan)
-- [*spanstream*](https://en.cppreference.com/w/cpp/header/spanstream)
-- [*stdfloat*](https://en.cppreference.com/w/cpp/header/stdfloat)
-- [*flat_map*](https://en.cppreference.com/w/cpp/header/flat_map)
-- [*generator*](https://en.cppreference.com/w/cpp/header/generator)
-- [*print*](https://en.cppreference.com/w/cpp/header/print)
-- [*stacktrace*](https://en.cppreference.com/w/cpp/header/stacktrace)
-
-C++ headers for C library facilities
-
-- [*cassert*](https://en.cppreference.com/w/cpp/header/cassert)
-- [*clocale*](https://en.cppreference.com/w/cpp/header/clocale)
-- [*cstdarg*](https://en.cppreference.com/w/cpp/header/cstdarg)
-- [*cstring*](https://en.cppreference.com/w/cpp/header/cstring)
-- [*cctype*](https://en.cppreference.com/w/cpp/header/cctype)
-- [*cmath*](https://en.cppreference.com/w/cpp/header/cmath)
-- [*cstddef*](https://en.cppreference.com/w/cpp/header/cstddef)
-- [*ctime*](https://en.cppreference.com/w/cpp/header/ctime)
-- [*cerrno*](https://en.cppreference.com/w/cpp/header/cerrno)
-- [*csetjmp*](https://en.cppreference.com/w/cpp/header/csetjmp)
-- [*cstdio*](https://en.cppreference.com/w/cpp/header/cstdio)
-- [*cwchar*](https://en.cppreference.com/w/cpp/header/cwchar)
-- [*cfloat*](https://en.cppreference.com/w/cpp/header/cfloat)
-- [*csignal*](https://en.cppreference.com/w/cpp/header/csignal)
-- [*cstdlib*](https://en.cppreference.com/w/cpp/header/cstdlib)
-- [*cwctype*](https://en.cppreference.com/w/cpp/header/cwctype)
-- [*climits*](https://en.cppreference.com/w/cpp/header/climits)
-
-Headers removed in C++20
-
-- [*ciso646*](https://en.cppreference.com/w/cpp/header/ciso646)
-
-Headers added in C++11
-
-- [*cfenv*](https://en.cppreference.com/w/cpp/header/cfenv)
-- [*cinttypes*](https://en.cppreference.com/w/cpp/header/cinttypes)
-- [*cstdint*](https://en.cppreference.com/w/cpp/header/cstdint)
-- [*cuchar*](https://en.cppreference.com/w/cpp/header/cuchar)
-
-Headers added in C++11, deprecated in C++17, and removed in C++20
-
-- [*ccomplex*](https://en.cppreference.com/w/cpp/header/ccomplex)
-- [*cstdalign*](https://en.cppreference.com/w/cpp/header/cstdalign)
-- [*cstdbool*](https://en.cppreference.com/w/cpp/header/cstdbool)
-- [*ctgmath*](https://en.cppreference.com/w/cpp/header/ctgmath)
 
 
 # =🚩 va_list Variable Argument lists

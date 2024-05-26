@@ -11,17 +11,26 @@
 > SQLite - Small. Fast. Reliable. Choose any three.
 
 
-SQLite 是一个数据库软件，但与绝大部分数据库系统拥有完全不同的运行方式。大部分数据库（MySQL、SQL Server、PostgreSQL或Oracle）系统是 Client/Server 的架构，客户端通过特定的协议比如 JDBC/ODBC 与数据库服务器通信，数据库服务器通过监听某个 Socket 端口去接收客户端的查询请求，之后将结果返回给客户端。
+SQLite 是一个数据库软件，但与绝大部分数据库系统拥有完全不同的运行方式。大部分数据库（MySQL、SQL Server、
+PostgreSQL 或 Oracle）系统是 Client/Server 的架构，客户端通过特定的协议比如 JDBC/ODBC 
+与数据库服务器通信，数据库服务器通过监听某个 Socket 端口去接收客户端的查询请求，之后将结果返回给客户端。
 
-与其他数据库网络通信的方式相比，SQLite是一个库，它是通过 In-Process 的方式来与应用程序通信的。当应用程序发出查询请求时，这些请求是通过函数调用的方式在与应用程序相同的线程内执行的。SQLite 的数据库也是存放在磁盘上的单个文件。
+与其他数据库网络通信的方式相比，SQLite是一个库，它是通过 In-Process 的方式来与应用程序通信的。
+当应用程序发出查询请求时，这些请求是通过函数调用的方式在与应用程序相同的线程内执行的。SQLite 
+数据库也是存放在磁盘上的单个文件。
 
-作者 Dwayne Richard Hipp 是一个完美主义者，为了能自由的开发 SQLite，他编写了底层的存储引擎、Parser、源码托管工具 Fossil，除了 C 编译器和一些底层库如 libc 外，Richard 几乎从零构建了 SQLite 所依赖的库或工具。
+作者 Dwayne Richard Hipp 是一个完美主义者，为了能自由的开发 SQLite，他编写了底层的存储引擎、
+Parser、源码托管工具 Fossil，除了 C 编译器和一些底层库如 libc 外，Richard 几乎从零构建了 
+SQLite 所依赖的库或工具。
 
 1. The Althttpd Webserver https://sqlite.org/althttpd/file?name=althttpd.md
 2. Fossil Distributed VCS http://www.fossil-scm.org/
 3. sqlite3 WebAssembly https://sqlite.org/wasm/doc/trunk/index.md
 
-The core SQLite project releases only "vanilla JS" distributions which are independent of any given developer-side toolchain. However, a community-maintained npm-based distribution of the SQLite3 WASM components can be found at @sqlite.org/sqlite-wasm.
+The core SQLite project releases only "vanilla JS" distributions which are 
+independent of any given developer-side toolchain. However, a community-maintained 
+npm-based distribution of the SQLite3 WASM components can be found at 
+@sqlite.org/sqlite-wasm.
 
 1. https://www.npmjs.com/package/@sqlite.org/sqlite-wasm
 2. https://deno.land/x/sqlite
@@ -33,9 +42,13 @@ It can be installed from a command-line shell using:
 $ npm install @sqlite.org/sqlite-wasm
 ```
 
-SQLite 官网的说法，保守估计，在任何每天点击量少于10万的网站上，SQLite 都不会是其访问的瓶颈。多个进程可以同时打开同一个数据库，多个进程可以同时执行 SELECT，但是，在任何时候，只有一个进程可以对数据库进行更改。
+SQLite 官网的说法，保守估计，在任何每天点击量少于10万的网站上，SQLite 都不会是其访问的瓶颈。
+多个进程可以同时打开同一个数据库，多个进程可以同时执行 SELECT，但是，在任何时候，只有一个进程
+可以对数据库进行更改。
 
-SQLite 适合于高查询、低写入类型地网站，如果一个网站有非常多地写操作，那SQLite就不再适合它了。SQLite支持无限数量的同时读取，但是在任何时候都只允许一个写入，虽然可以排队，但是无法应对网站高并发的要求。除了网站，依赖网络来传输数据的B/S架构的桌面应用程序和移动应用程序也在此列。
+SQLite 适合于高查询、低写入类型地网站，如果一个网站有非常多地写操作，那SQLite就不再适合它了。
+SQLite 支持无限数量的同时读取，但是在任何时候都只允许一个写入，虽然可以排队，但是无法应对网站
+高并发的要求。除了网站，依赖网络来传输数据的B/S架构的桌面应用程序和移动应用程序也在此列。
 
 SQLite 官网说明数据库的大小限制在 140TB，对于更大型的数据，将其进行分布式存储无疑是更好的选择。
 
@@ -43,327 +56,4010 @@ SQLite 官网说明数据库的大小限制在 140TB，对于更大型的数据�
 
 ## TOC01. ▼ Document Lists And Indexes
 
-1. Alphabetical Listing Of All Documents  
-   https://www.sqlite.org/doclist.html              [doclist_html]
-2. Website Keyword Index  
-   https://www.sqlite.org/keyword_index.html        [keyword_index_html]
-3. Permuted Title Index  
-   https://www.sqlite.org/sitemap.html             [sitemap_html]
+- S01. Alphabetical Listing Of All Documents  
+   https://www.sqlite.org/doclist.html                            [doclist_html]
+
+- S02. Website Keyword Index  
+   https://www.sqlite.org/keyword_index.html                [keyword_index_html]
+
+- S03. Permuted Title Index  
+   https://www.sqlite.org/sitemap.html                            [sitemap_html]
 
 ## TOC02. ▼ Overview Documents
 
-4. About SQLite  
-   https://www.sqlite.org/about.html               [about_html]
-   → A high-level overview of what SQLite is and why you might be interested in using it.
-5. Appropriate Uses For SQLite  
-   https://www.sqlite.org/whentouse.html           [whentouse_html]
-   → This document describes situations where SQLite is an appropriate database engine to use versus situations where a client/server database engine might be a better choice.
-6. Distinctive Features  
-   https://www.sqlite.org/different.html           [different_html]
-   → This document enumerates and describes some of the features of SQLite that make it different from other SQL database engines.
-7. Quirks of SQLite  
-   https://www.sqlite.org/quirks.html              [quirks_html]
-   → This document is a short list of some unusual features of SQLite that tend to cause misunderstandings and confusion. The list includes both deliberate innovations and "misfeatures" that are retained only for backwards compatibility.
-8. How SQLite Is Tested  
-   https://www.sqlite.org/testing.html             [testing_html]
-   → The reliability and robustness of SQLite is achieved in large part by thorough and careful testing. This document identifies the many tests that occur before every release of SQLite.
-9. Copyright  
-   https://www.sqlite.org/copyright.html            [copyright_html]
-   → SQLite is in the public domain. This document describes what that means and the implications for contributors.
-10. Frequently Asked Questions  
-   https://www.sqlite.org/faq.html                [faq_html]
+- S04. About SQLite  
+   https://www.sqlite.org/about.html                                [about_html]
+   → A high-level overview of what SQLite is and why you might be interested in 
+   using it.
+
+- S05. Appropriate Uses For SQLite  
+   https://www.sqlite.org/whentouse.html                        [whentouse_html]
+   → This document describes situations where SQLite is an appropriate database 
+   engine to use versus situations where a client/server database engine might 
+   be a better choice.
+
+- S06. Distinctive Features  
+   https://www.sqlite.org/different.html                        [different_html]
+   → This document enumerates and describes some of the features of SQLite that 
+   make it different from other SQL database engines.
+
+- S07. Quirks of SQLite  
+   https://www.sqlite.org/quirks.html                              [quirks_html]
+   → This document is a short list of some unusual features of SQLite that tend 
+   to cause misunderstandings and confusion. The list includes both deliberate
+   innovations and "misfeatures" that are retained only for backwards compatibility.
+
+- S08. How SQLite Is Tested  
+   https://www.sqlite.org/testing.html                            [testing_html]
+   → The reliability and robustness of SQLite is achieved in large part by thorough
+   and careful testing. This document identifies the many tests that occur before
+   every release of SQLite.
+
+- S09. Copyright  
+   https://www.sqlite.org/copyright.html                        [copyright_html]
+   → SQLite is in the public domain. This document describes what that means and
+   the implications for contributors.
+
+- S10. Frequently Asked Questions  
+   https://www.sqlite.org/faq.html                                    [faq_html]
    → The title of the document says all...
-11. Books About SQLite  
-   https://www.sqlite.org/books.html               [books_html]
+
+- S11. Books About SQLite  
+   https://www.sqlite.org/books.html                                [books_html]
    → A list of independently written books about SQLite.
 
 ## TOC03. ▼ Programming Interfaces
 
-12. SQLite In 5 Minutes Or Less  
-   https://www.sqlite.org/quickstart.html           [quickstart_html]
+- S12. SQLite In 5 Minutes Or Less  
+   https://www.sqlite.org/quickstart.html                      [quickstart_html]
    → A very quick introduction to programming with SQLite.
-13. Introduction to the C/C++ API  
-   https://www.sqlite.org/cintro.html              [cintro_html]
-   → This document introduces the C/C++ API. Users should read this document before the C/C++ API Reference Guide linked below.
-14. How To Compile SQLite  
-   https://www.sqlite.org/howtocompile.html          [howtocompile_html]
-   → Instructions and hints for compiling SQLite C code and integrating that code with your own application.
-15. C/C++ API Reference  
-   https://www.sqlite.org/c3ref/intro.html          [c3ref_intro_html]
+
+- S13. Introduction to the C/C++ API  
+   https://www.sqlite.org/cintro.html                              [cintro_html]
+   → This document introduces the C/C++ API. Users should read this document before
+   the C/C++ API Reference Guide linked below.
+
+- S14. How To Compile SQLite  
+   https://www.sqlite.org/howtocompile.html                  [howtocompile_html]
+   → Instructions and hints for compiling SQLite C code and integrating that code 
+   with your own application.
+
+- S15. C/C++ API Reference  
+   https://www.sqlite.org/c3ref/intro.html                    [c3ref_intro_html]
    → This document describes each API function separately.
-16. Result and Error Codes  
-   https://www.sqlite.org/rescode.html             [rescode_html]
-   → A description of the meanings of the numeric result codes returned by various C/C++ interfaces.
-17. SQL Syntax  
-   https://www.sqlite.org/lang.html               [lang_html]
+
+- S16. Result and Error Codes  
+   https://www.sqlite.org/rescode.html                            [rescode_html]
+   → A description of the meanings of the numeric result codes returned by various 
+   C/C++ interfaces.
+
+- S17. SQL Syntax  
+   https://www.sqlite.org/lang.html                                  [lang_html]
    → This document describes the SQL language that is understood by SQLite.
-18. Pragma commands  
-   https://www.sqlite.org/pragma.html              [pragma_html]
-   → This document describes SQLite performance tuning options and other special purpose database commands.
-19. Core SQL Functions  
-   https://www.sqlite.org/lang_corefunc.html        [lang_corefunc_html]
+
+- S18. Pragma commands  
+   https://www.sqlite.org/pragma.html                              [pragma_html]
+   → This document describes SQLite performance tuning options and other special 
+   purpose database commands.
+
+- S19. Core SQL Functions  
+   https://www.sqlite.org/lang_corefunc.html                [lang_corefunc_html]
    → General-purpose built-in scalar SQL functions.
-20. Aggregate SQL Functions  
-   https://www.sqlite.org/lang_aggfunc.html         [lang_aggfunc_html]
+
+- S20. Aggregate SQL Functions  
+   https://www.sqlite.org/lang_aggfunc.html                  [lang_aggfunc_html]
    → General-purpose built-in aggregate SQL functions.
-21. Date and Time SQL Functions  
-   https://www.sqlite.org/lang_datefunc.html        [lang_datefunc_html]
+
+- S21. Date and Time SQL Functions  
+   https://www.sqlite.org/lang_datefunc.html                [lang_datefunc_html]
    → SQL functions for manipulating dates and times.
-22. Window Functions  
-   https://www.sqlite.org/windowfunctions.html       [windowfunctions_html]
+
+- S22. Window Functions  
+   https://www.sqlite.org/windowfunctions.html            [windowfunctions_html]
    → SQL Window functions.
-23. Generated Columns  
-   https://www.sqlite.org/gencol.html              [gencol_html]
+
+- S23. Generated Columns  
+   https://www.sqlite.org/gencol.html                              [gencol_html]
    → Stored and virtual columns in table definitions.
-24. System.Data.SQLite  
+
+- S24. System.Data.SQLite  
    http://system.data.sqlite.org/
    → C#/.NET bindings for SQLite
-25. Tcl API  
-   https://www.sqlite.org/tclsqlite.html             [tclsqlite_html]
+
+- S25. Tcl API  
+   https://www.sqlite.org/tclsqlite.html                        [tclsqlite_html]
    → A description of the TCL interface bindings for SQLite.
-26. DataTypes  
-   https://www.sqlite.org/datatype3.html           [datatype3_html]
-   → SQLite version 3 introduces the concept of manifest typing, where the type of a value is associated with the value itself, not the column that it is stored in. This page describes data typing for SQLite version 3 in further detail.
+
+- S26. DataTypes  
+   https://www.sqlite.org/datatype3.html                        [datatype3_html]
+   → SQLite version 3 introduces the concept of manifest typing, where the type 
+   of a value is associated with the value itself, not the column that it is 
+   stored in. This page describes data typing for SQLite version 3 in further detail.
 
 ## TOC04. ▼ Extensions
 
-27. Json1 - JSON Integration  
-   https://www.sqlite.org/json1.html               [json1_html]
+- S27. Json1 - JSON Integration  
+   https://www.sqlite.org/json1.html                                [json1_html]
    → SQL functions for creating, parsing, and querying JSON content.
-28. FTS5 - Full Text Search  
-   https://www.sqlite.org/fts5.html               [fts5_html]
+
+- S28. FTS5 - Full Text Search  
+   https://www.sqlite.org/fts5.html                                  [fts5_html]
    → A description of the SQLite Full Text Search (FTS5) extension.
-29. FTS3 - Full Text Search  
-   https://www.sqlite.org/fts3.html               [fts3_html]
+
+- S29. FTS3 - Full Text Search  
+   https://www.sqlite.org/fts3.html                                  [fts3_html]
    → A description of the SQLite Full Text Search (FTS3) extension.
-30. R-Tree Module  
-   https://www.sqlite.org/rtree.html               [rtree_html]
-   → A description of the SQLite R-Tree extension. An R-Tree is a specialized data structure that supports fast multi-dimensional range queries often used in geospatial systems.
-31. Sessions  
-   https://www.sqlite.org/sessionintro.html          [sessionintro_html]
-   → The Sessions extension allows change to an SQLite database to be captured in a compact file which can be reverted on the original database (to implement "undo") or transferred and applied to another similar database.
-32. Run-Time Loadable Extensions  
-   https://www.sqlite.org/loadext.html             [loadext_html]
-   → A general overview on how run-time loadable extensions work, how they are compiled, and how developers can create their own run-time loadable extensions for SQLite.
-33. SQLite Android Bindings  
+
+- S30. R-Tree Module  
+   https://www.sqlite.org/rtree.html                                [rtree_html]
+   → A description of the SQLite R-Tree extension. An R-Tree is a specialized 
+   data structure that supports fast multi-dimensional range queries often used 
+   in geospatial systems.
+
+- S31. Sessions  
+   https://www.sqlite.org/sessionintro.html                  [sessionintro_html]
+   → The Sessions extension allows change to an SQLite database to be captured 
+   in a compact file which can be reverted on the original database (to implement
+   "undo") or transferred and applied to another similar database.
+
+- S32. Run-Time Loadable Extensions  
+   https://www.sqlite.org/loadext.html                            [loadext_html]
+   → A general overview on how run-time loadable extensions work, how they are 
+   compiled, and how developers can create their own run-time loadable extensions 
+   for SQLite.
+
+- S33. SQLite Android Bindings  
    http://sqlite.org/android/
-   → Information on how to deploy your own private copy of SQLite on Android, bypassing the built-in SQLite, but using the same Java interface.
-34. Dbstat Virtual Table  
-   https://www.sqlite.org/dbstat.html              [dbstat_html]
-   → The DBSTAT virtual table reports on the sizes and geometries of tables storing content in an SQLite database, and is the basis for the [sqlite3_analyzer] utility program.
-35. Csv Virtual Table  
-   https://www.sqlite.org/csv.html                [csv_html]
-   → The CSV virtual table allows SQLite to directly read and query [https://www.ietf.org/rfc/rfc4180.txt|RFC 4180] formatted files.
-36. Carray  
-   https://www.sqlite.org/carray.html              [carray_html]
-   → CARRAY is a [table-valued function] that allows C-language arrays to be used in SQL queries.
-37. generate_series  
-   https://www.sqlite.org/series.html              [series_html]
+   → Information on how to deploy your own private copy of SQLite on Android, 
+   bypassing the built-in SQLite, but using the same Java interface.
+
+- S34. Dbstat Virtual Table  
+   https://www.sqlite.org/dbstat.html                              [dbstat_html]
+   → The DBSTAT virtual table reports on the sizes and geometries of tables storing 
+   content in an SQLite database, and is the basis for the [sqlite3_analyzer] 
+   utility program.
+
+- S35. Csv Virtual Table  
+   https://www.sqlite.org/csv.html                                    [csv_html]
+   → The CSV virtual table allows SQLite to directly read and query 
+   https://www.ietf.org/rfc/rfc4180.txt formatted files.
+
+- S36. Carray  
+   https://www.sqlite.org/carray.html                              [carray_html]
+   → CARRAY is a [table-valued function] that allows C-language arrays to be used 
+   in SQL queries.
+
+- S37. generate_series  
+   https://www.sqlite.org/series.html                              [series_html]
    → A description of the generate_series() [table-valued function].
-38. Spellfix1  
-   https://www.sqlite.org/spellfix1.html            [spellfix1_html]
-   → The spellfix1 extension is an experiment in doing spelling correction for [full-text search].
+
+- S38. Spellfix1  
+   https://www.sqlite.org/spellfix1.html                        [spellfix1_html]
+   → The spellfix1 extension is an experiment in doing spelling correction for 
+   [full-text search].
 
 ## TOC05. ▼ Features
 
-39. 8+3 Filenames  
-   https://www.sqlite.org/shortnames.html           [shortnames_html]
+- S39. 8+3 Filenames  
+   https://www.sqlite.org/shortnames.html                      [shortnames_html]
    → How to make SQLite work on filesystems that only support 8+3 filenames.
-40. Autoincrement  
-   https://www.sqlite.org/autoinc.html             [autoinc_html]
-   → A description of the AUTOINCREMENT keyword in SQLite, what it does, why it is sometimes useful, and why it should be avoided if not strictly necessary.
-41. Backup API  
-   https://www.sqlite.org/backup.html              [backup_html]
-   → The [sqlite3_backup_init | online-backup interface] can be used to copy content from a disk file into an in-memory database or vice versa and it can make a hot backup of a live database. This application note gives examples of how.
-42. Error and Warning Log  
-   https://www.sqlite.org/errlog.html              [errlog_html]
-   → SQLite supports an "error and warning log" design to capture information about suspicious and/or error events during operation. Embedded applications are encouraged to enable the error and warning log to help with debugging application problems that arise in the field. This document explains how to do that.
-43. Foreign Key Support  
-   https://www.sqlite.org/foreignkeys.html          [foreignkeys_html]
-   → This document describes the support for foreign key constraints introduced in version 3.6.19.
-44. Indexes On Expressions  
-   https://www.sqlite.org/expridx.html             [expridx_html]
+
+- S40. Autoincrement  
+   https://www.sqlite.org/autoinc.html                            [autoinc_html]
+   → A description of the AUTOINCREMENT keyword in SQLite, what it does, why it 
+   is sometimes useful, and why it should be avoided if not strictly necessary.
+
+- S41. Backup API  
+   https://www.sqlite.org/backup.html                              [backup_html]
+   → The [sqlite3_backup_init | online-backup interface] can be used to copy content 
+   from a disk file into an in-memory database or vice versa and it can make a hot 
+   backup of a live database. This application note gives examples of how.
+
+- S42. Error and Warning Log  
+   https://www.sqlite.org/errlog.html                              [errlog_html]
+   → SQLite supports an "error and warning log" design to capture information 
+   about suspicious and/or error events during operation. Embedded applications 
+   are encouraged to enable the error and warning log to help with debugging 
+   application problems that arise in the field. This document explains how to do that.
+
+- S43. Foreign Key Support  
+   https://www.sqlite.org/foreignkeys.html                    [foreignkeys_html]
+   → This document describes the support for foreign key constraints introduced 
+   in version 3.6.19.
+
+- S44. Indexes On Expressions  
+   https://www.sqlite.org/expridx.html                            [expridx_html]
    → Notes on how to create indexes on expressions instead of just individual columns.
-45. Internal versus External Blob Storage  
+
+- S45. Internal versus External Blob Storage  
    https://www.sqlite.org/intern-v-extern-blob.html  [intern_v_extern_blob_html]
-   → Should you store large BLOBs directly in the database, or store them in files and just record the filename in the database? This document seeks to shed light on that question.
-46. Limits In SQLite  
-   https://www.sqlite.org/limits.html              [limits_html]
-   → This document describes limitations of SQLite (the maximum length of a string or blob, the maximum size of a database, the maximum number of tables in a database, etc.) and how these limits can be altered at compile-time and run-time.
-47. Memory-Mapped I/O  
-   https://www.sqlite.org/mmap.html               [mmap_html]
-   → SQLite supports memory-mapped I/O. Learn how to enable memory-mapped I/O and about the various advantages and disadvantages to using memory-mapped I/O in this document.
-48. Multi-threaded Programs and SQLite  
-   https://www.sqlite.org/threadsafe.html           [threadsafe_html]
-   → SQLite is safe to use in multi-threaded programs. This document provides the details and hints on how to maximize performance.
-49. Null Handling  
-   https://www.sqlite.org/nulls.html               [nulls_html]
-   → Different SQL database engines handle NULLs in different ways. The SQL standards are ambiguous. This (circa 2003) document describes how SQLite handles NULLs in comparison with other SQL database engines.
-50. Partial Indexes  
-   https://www.sqlite.org/partialindex.html          [partialindex_html]
-   → A partial index is an index that only covers a subset of the rows in a table. Learn how to use partial indexes in SQLite from this document.
-51. Shared Cache Mode  
-   https://www.sqlite.org/sharedcache.html          [sharedcache_html]
-   → Version 3.3.0 and later supports the ability for two or more database connections to share the same page and schema cache. This feature is useful for certain specialized applications.
-52. Unlock Notify  
-   https://www.sqlite.org/unlock_notify.html         [unlock_notify_html]
-   → The "unlock notify" feature can be used in conjunction with [shared cache mode] to more efficiently manage resource conflict (database table locks).
-53. URI Filenames  
-   https://www.sqlite.org/uri.html                [uri_html]
-   → The names of database files can be specified using either an ordinary filename or a URI. Using URI filenames provides additional capabilities, as this document describes.
-54. WITHOUT ROWID Tables  
-   https://www.sqlite.org/withoutrowid.html         [withoutrowid_html]
-   → The WITHOUT ROWID optimization is a option that can sometimes result in smaller and faster databases.
-55. Write-Ahead Log (WAL) Mode  
-   https://www.sqlite.org/wal.html                [wal_html]
-   → Transaction control using a write-ahead log offers more concurrency and is often faster than the default rollback transactions. This document explains how to use WAL mode for improved performance.
+   → Should you store large BLOBs directly in the database, or store them in files 
+   and just record the filename in the database? This document seeks to shed light 
+   on that question.
+
+- S46. Limits In SQLite  
+   https://www.sqlite.org/limits.html                              [limits_html]
+   → This document describes limitations of SQLite (the maximum length of a string 
+   or blob, the maximum size of a database, the maximum number of tables in a 
+   database, etc.) and how these limits can be altered at compile-time and run-time.
+
+- S47. Memory-Mapped I/O  
+   https://www.sqlite.org/mmap.html                                  [mmap_html]
+   → SQLite supports memory-mapped I/O. Learn how to enable memory-mapped I/O 
+   and about the various advantages and disadvantages to using memory-mapped I/O 
+   in this document.
+
+- S48. Multi-threaded Programs and SQLite  
+   https://www.sqlite.org/threadsafe.html                      [threadsafe_html]
+   → SQLite is safe to use in multi-threaded programs. This document provides t
+   he details and hints on how to maximize performance.
+
+- S49. Null Handling  
+   https://www.sqlite.org/nulls.html                                [nulls_html]
+   → Different SQL database engines handle NULLs in different ways. The SQL 
+   standards are ambiguous. This (circa 2003) document describes how SQLite handles 
+   NULLs in comparison with other SQL database engines.
+
+- S50. Partial Indexes  
+   https://www.sqlite.org/partialindex.html                  [partialindex_html]
+   → A partial index is an index that only covers a subset of the rows in a table. 
+   Learn how to use partial indexes in SQLite from this document.
+
+- S51. Shared Cache Mode  
+   https://www.sqlite.org/sharedcache.html                    [sharedcache_html]
+   → Version 3.3.0 and later supports the ability for two or more database 
+   connections to share the same page and schema cache. This feature is useful 
+   for certain specialized applications.
+
+- S52. Unlock Notify  
+   https://www.sqlite.org/unlock_notify.html                [unlock_notify_html]
+   → The "unlock notify" feature can be used in conjunction with [shared cache mode] 
+   to more efficiently manage resource conflict (database table locks).
+
+- S53. URI Filenames  
+   https://www.sqlite.org/uri.html                                    [uri_html]
+   → The names of database files can be specified using either an ordinary filename 
+   or a URI. Using URI filenames provides additional capabilities, as this document 
+   describes.
+
+- S54. WITHOUT ROWID Tables  
+   https://www.sqlite.org/withoutrowid.html                  [withoutrowid_html]
+   → The WITHOUT ROWID optimization is a option that can sometimes result in smaller 
+   and faster databases.
+
+- S55. Write-Ahead Log (WAL) Mode  
+   https://www.sqlite.org/wal.html                                    [wal_html]
+   → Transaction control using a write-ahead log offers more concurrency and is 
+   often faster than the default rollback transactions. This document explains how 
+   to use WAL mode for improved performance.
 
 ## TOC06. ▼ Tools
 
-56. Command-Line Shell (sqlite3.exe)  
-   https://www.sqlite.org/cli.html                 [cli_html]
-   → Notes on using the "sqlite3.exe" command-line interface that can be used to create, modify, and query arbitrary SQLite database files.
-57. SQLite Database Analyzer (sqlite3_analyzer.exe)  
-   https://www.sqlite.org/sqlanalyze.html           [sqlanalyze_html]
-   → This stand-alone program reads an SQLite database and outputs a file showing the space used by each table and index and other statistics. Built using the [dbstat virtual table].
-58. RBU  
-   https://www.sqlite.org/rbu.html                [rbu_html]
-   → The "Resumable Bulk Update" utility program allows a batch of changes to be applied to a remote database running on embedded hardware in a way that is resumeable and does not interrupt ongoing operation.
-59. SQLite Database Diff (sqldiff.exe)  
-   https://www.sqlite.org/sqldiff.html             [sqldiff_html]
-   → This stand-alone program compares two SQLite database files and outputs the SQL needed to convert one into the other.
-60. Database Hash (dbhash.exe)  
-   https://www.sqlite.org/dbhash.html              [dbhash_html]
+- S56. Command-Line Shell (sqlite3.exe)  
+   https://www.sqlite.org/cli.html                                    [cli_html]
+   → Notes on using the "sqlite3.exe" command-line interface that can be used to 
+   create, modify, and query arbitrary SQLite database files.
+
+- S57. SQLite Database Analyzer (sqlite3_analyzer.exe)  
+   https://www.sqlite.org/sqlanalyze.html                      [sqlanalyze_html]
+   → This stand-alone program reads an SQLite database and outputs a file showing 
+   the space used by each table and index and other statistics. Built using the 
+   [dbstat virtual table].
+
+- S58. RBU  
+   https://www.sqlite.org/rbu.html                                    [rbu_html]
+   → The "Resumable Bulk Update" utility program allows a batch of changes to be 
+   applied to a remote database running on embedded hardware in a way that is 
+   resumeable and does not interrupt ongoing operation.
+
+- S59. SQLite Database Diff (sqldiff.exe)  
+   https://www.sqlite.org/sqldiff.html                            [sqldiff_html]
+   → This stand-alone program compares two SQLite database files and outputs the 
+   SQL needed to convert one into the other.
+
+- S60. Database Hash (dbhash.exe)  
+   https://www.sqlite.org/dbhash.html                              [dbhash_html]
    → This program demonstrates how to compute a hash over the content of an SQLite database.
-61. The Fossil Version Control System
-   http://www.fossil-scm.org/                   [fossil]
-   → The Fossil Version Control System is a distributed VCS designed specifically to support SQLite development. Fossil uses SQLite as for storage.
-62. SQLite Archiver (sqlar.exe)  
+
+- S61. The Fossil Version Control System
+   http://www.fossil-scm.org/                                           [fossil]
+   → The Fossil Version Control System is a distributed VCS designed specifically 
+   to support SQLite development. Fossil uses SQLite as for storage.
+
+- S62. SQLite Archiver (sqlar.exe)  
    http://www.sqlite.org/sqlar/
    → A ZIP-like archive program that uses SQLite for storage.
 
 ## TOC07. ▼ Advocacy
 
-63. SQLite As An Application File Format  
-   https://www.sqlite.org/appfileformat.html         [appfileformat_html]
-   → This article advocates using SQLite as an application file format in place of XML or JSON or a "pile-of-file".
-64. Well Known Users  
-   https://www.sqlite.org/famous.html             [famous_html]
-   → This page lists a small subset of the many thousands of devices and application programs that make use of SQLite.
-65. 35% Faster Than The Filesystem  
-   https://www.sqlite.org/fasterthanfs.html         [fasterthanfs_html]
-   → This article points out that reading blobs out of an SQLite database is often faster than reading the same blobs from individual files in the filesystem.
+- S63. SQLite As An Application File Format  
+   https://www.sqlite.org/appfileformat.html                [appfileformat_html]
+   → This article advocates using SQLite as an application file format in place 
+   of XML or JSON or a "pile-of-file".
+
+- S64. Well Known Users  
+   https://www.sqlite.org/famous.html                              [famous_html]
+   → This page lists a small subset of the many thousands of devices and application 
+   programs that make use of SQLite.
+
+- S65. 35% Faster Than The Filesystem  
+   https://www.sqlite.org/fasterthanfs.html                  [fasterthanfs_html]
+   → This article points out that reading blobs out of an SQLite database is often 
+   faster than reading the same blobs from individual files in the filesystem.
 
 ## TOC08. ▼ Technical and Design Documentation
 
-66. How Database Corruption Can Occur  
-   https://www.sqlite.org/howtocorrupt.html          [howtocorrupt_html]
-   → SQLite is highly resistant to database corruption. But application, OS, and hardware bugs can still result in corrupt database files. This article describes many of the ways that SQLite database files can go corrupt.
-67. Temporary Files Used By SQLite  
-   https://www.sqlite.org/tempfiles.html            [tempfiles_html]
-   → SQLite can potentially use many different temporary files when processing certain SQL statements. This document describes the many kinds of temporary files that SQLite uses and offers suggestions for avoiding them on systems where creating a temporary file is an expensive operation.
-68. In-Memory Databases  
-   https://www.sqlite.org/inmemorydb.html          [inmemorydb_html]
-   → SQLite normally stores content in a disk file. However, it can also be used as an in-memory database engine. This document explains how.
-69. How SQLite Implements Atomic Commit  
-   https://www.sqlite.org/atomiccommit.html         [atomiccommit_html]
-   → A description of the logic within SQLite that implements transactions with atomic commit, even in the face of power failures.
-70. Dynamic Memory Allocation in SQLite  
-   https://www.sqlite.org/malloc.html              [malloc_html]
-   → SQLite has a sophisticated memory allocation subsystem that can be configured and customized to meet memory usage requirements of the application and that is robust against out-of-memory conditions and leak-free. This document provides the details.
-71. Customizing And Porting SQLite  
-   https://www.sqlite.org/custombuild.html          [custombuild_html]
-   → This document explains how to customize the build of SQLite and how to port SQLite to new platforms.
-72. Locking And Concurrency In SQLite Version 3  
-   https://www.sqlite.org/lockingv3.html            [lockingv3_html]
-   → A description of how the new locking code in version 3 increases concurrency and decreases the problem of writer starvation.
-73. Isolation In SQLite  
-   https://www.sqlite.org/isolation.html             [isolation_html]
-   → When we say that SQLite transactions are "serializable" what exactly does that mean? How and when are changes made visible within the same database connection and to other database connections?
-74. Overview Of The Optimizer  
-   https://www.sqlite.org/optoverview.html          [optoverview_html]
-   → A quick overview of the various query optimizations that are attempted by the SQLite code generator.
-75. The Next-Generation Query Planner  
-   https://www.sqlite.org/queryplanner-ng.html      [queryplanner_ng_html]
-   → Additional information about the SQLite query planner, and in particular the redesign of the query planner that occurred for version 3.8.0.
-76. Architecture  
-   https://www.sqlite.org/arch.html               [arch_html]
-   → An architectural overview of the SQLite library, useful for those who want to hack the code.
-77. VDBE Opcodes  
-   https://www.sqlite.org/opcode.html              [opcode_html]
-   → This document is an automatically generated description of the various opcodes that the VDBE understands. Programmers can use this document as a reference to better understand the output of EXPLAIN listings from SQLite.
-78. Virtual Filesystem  
-   https://www.sqlite.org/vfs.html                [vfs_html]
-   → The "VFS" object is the interface between the SQLite core and the underlying operating system. Learn more about how the VFS object works and how to create new VFS objects from this article.
-79. Virtual Tables  
-   https://www.sqlite.org/vtab.html                [vtab_html]
-   → This article describes the virtual table mechanism and API in SQLite and how it can be used to add new capabilities to the core SQLite library.
-80. SQLite File Format  
-   https://www.sqlite.org/fileformat2.html          [fileformat2_html]
-   → A description of the format used for SQLite database and journal files, and other details required to create software to read and write SQLite databases without using SQLite.
-81. Compilation Options  
-   https://www.sqlite.org/compile.html             [compile_html]
-   → This document describes the compile time options that may be set to modify the default behavior of the library or omit optional features in order to reduce binary size.
-82. Android Bindings for SQLite  
+- S66. How Database Corruption Can Occur  
+   https://www.sqlite.org/howtocorrupt.html                  [howtocorrupt_html]
+   → SQLite is highly resistant to database corruption. But application, OS, and 
+   hardware bugs can still result in corrupt database files. This article describes 
+   many of the ways that SQLite database files can go corrupt.
+
+- S67. Temporary Files Used By SQLite  
+   https://www.sqlite.org/tempfiles.html                        [tempfiles_html]
+   → SQLite can potentially use many different temporary files when processing certain 
+   SQL statements. This document describes the many kinds of temporary files that 
+   SQLite uses and offers suggestions for avoiding them on systems where creating a 
+   temporary file is an expensive operation.
+
+- S68. In-Memory Databases  
+   https://www.sqlite.org/inmemorydb.html                      [inmemorydb_html]
+   → SQLite normally stores content in a disk file. However, it can also be used as 
+   an in-memory database engine. This document explains how.
+
+- S69. How SQLite Implements Atomic Commit  
+   https://www.sqlite.org/atomiccommit.html                  [atomiccommit_html]
+   → A description of the logic within SQLite that implements transactions with 
+   atomic commit, even in the face of power failures.
+
+- S70. Dynamic Memory Allocation in SQLite  
+   https://www.sqlite.org/malloc.html                              [malloc_html]
+   → SQLite has a sophisticated memory allocation subsystem that can be configured 
+   and customized to meet memory usage requirements of the application and that is 
+   robust against out-of-memory conditions and leak-free. This document provides 
+   the details.
+
+- S71. Customizing And Porting SQLite  
+   https://www.sqlite.org/custombuild.html                    [custombuild_html]
+   → This document explains how to customize the build of SQLite and how to port 
+   SQLite to new platforms.
+
+- S72. Locking And Concurrency In SQLite Version 3  
+   https://www.sqlite.org/lockingv3.html                        [lockingv3_html]
+   → A description of how the new locking code in version 3 increases concurrency 
+   and decreases the problem of writer starvation.
+
+- S73. Isolation In SQLite  
+   https://www.sqlite.org/isolation.html                        [isolation_html]
+   → When we say that SQLite transactions are "serializable" what exactly does 
+   that mean? How and when are changes made visible within the same database 
+   connection and to other database connections?
+
+- S74. Overview Of The Optimizer  
+   https://www.sqlite.org/optoverview.html                    [optoverview_html]
+   → A quick overview of the various query optimizations that are attempted by 
+   the SQLite code generator.
+
+- S75. The Next-Generation Query Planner  
+   https://www.sqlite.org/queryplanner-ng.html            [queryplanner_ng_html]
+   → Additional information about the SQLite query planner, and in particular the 
+   redesign of the query planner that occurred for version 3.8.0.
+
+- S76. Architecture  
+   https://www.sqlite.org/arch.html                                  [arch_html]
+   → An architectural overview of the SQLite library, useful for those who want 
+   to hack the code.
+
+- S77. VDBE Opcodes  
+   https://www.sqlite.org/opcode.html                              [opcode_html]
+   → This document is an automatically generated description of the various opcodes 
+   that the VDBE understands. Programmers can use this document as a reference to 
+   better understand the output of EXPLAIN listings from SQLite.
+
+- S78. Virtual Filesystem  
+   https://www.sqlite.org/vfs.html                                    [vfs_html]
+   → The "VFS" object is the interface between the SQLite core and the underlying 
+   operating system. Learn more about how the VFS object works and how to create 
+   new VFS objects from this article.
+
+- S79. Virtual Tables  
+   https://www.sqlite.org/vtab.html                                  [vtab_html]
+   → This article describes the virtual table mechanism and API in SQLite and how 
+   it can be used to add new capabilities to the core SQLite library.
+
+- S80. SQLite File Format  
+   https://www.sqlite.org/fileformat2.html                    [fileformat2_html]
+   → A description of the format used for SQLite database and journal files, and 
+   other details required to create software to read and write SQLite databases 
+   without using SQLite.
+
+- S81. Compilation Options  
+   https://www.sqlite.org/compile.html                            [compile_html]
+   → This document describes the compile time options that may be set to modify 
+   the default behavior of the library or omit optional features in order to 
+   reduce binary size.
+
+- S82. Android Bindings for SQLite  
    https://sqlite.org/android/
-   → A description of how to compile your own SQLite for Android (bypassing the SQLite that is built into Android) together with code and makefiles.
-83. Debugging Hints  
-   https://www.sqlite.org/debugging.html           [debugging_html]
-   → A list of tricks and techniques used to trace, examine, and understand the operation of the core SQLite library.
+   → A description of how to compile your own SQLite for Android (bypassing the 
+   SQLite that is built into Android) together with code and makefiles.
+
+- S83. Debugging Hints  
+   https://www.sqlite.org/debugging.html                        [debugging_html]
+   → A list of tricks and techniques used to trace, examine, and understand the 
+   operation of the core SQLite library.
 
 ## TOC09. ▼ Upgrading SQLite, Backwards Compatibility
 
-84. Moving From SQLite 3.5 to 3.6  
-   https://www.sqlite.org/35to36.html             [35to36_html]
+- S84. Moving From SQLite 3.5 to 3.6  
+   https://www.sqlite.org/35to36.html                              [35to36_html]
    → A document describing the differences between SQLite version 3.5.9 and 3.6.0.
-85. Moving From SQLite 3.4 to 3.5  
-   https://www.sqlite.org/34to35.html             [34to35_html]
+
+- S85. Moving From SQLite 3.4 to 3.5  
+   https://www.sqlite.org/34to35.html                              [34to35_html]
    → A document describing the differences between SQLite version 3.4.2 and 3.5.0.
-86. Release History  
-   https://www.sqlite.org/changes.html             [changes_html]
+
+- S86. Release History  
+   https://www.sqlite.org/changes.html                            [changes_html]
    → A chronology of SQLite releases going back to version 1.0.0
-87. Backwards Compatibility  
-   https://www.sqlite.org/formatchng.html          [formatchng_html]
-   → This document details all of the incompatible changes to the SQLite file format that have occurred since version 1.0.0.
-88. Private Branches  
-   https://www.sqlite.org/privatebranch.html         [privatebranch_html]
-   → This document suggests procedures for maintaining a private branch or fork of SQLite and keeping that branch or fork in sync with the public SQLite source tree.
+
+- S87. Backwards Compatibility  
+   https://www.sqlite.org/formatchng.html                      [formatchng_html]
+   → This document details all of the incompatible changes to the SQLite file format 
+   that have occurred since version 1.0.0.
+
+- S88. Private Branches  
+   https://www.sqlite.org/privatebranch.html                [privatebranch_html]
+   → This document suggests procedures for maintaining a private branch or fork 
+   of SQLite and keeping that branch or fork in sync with the public SQLite source tree.
 
 ## TOC10. ▼ Obsolete Documents
 
-89. Asynchronous IO Mode  
-   https://www.sqlite.org/asyncvfs.html            [asyncvfs_html]
-   → This page describes the asynchronous IO extension developed alongside SQLite. Using asynchronous IO can cause SQLite to appear more responsive by delegating database writes to a background thread. NB: This extension is deprecated. [WAL mode] is recommended as a replacement.
-90. Version 2 C/C++ API  
-   https://www.sqlite.org/c_interface.html          [c_interface_html]
+- S89. Asynchronous IO Mode  
+   https://www.sqlite.org/asyncvfs.html                          [asyncvfs_html]
+   → This page describes the asynchronous IO extension developed alongside SQLite. 
+   Using asynchronous IO can cause SQLite to appear more responsive by delegating 
+   database writes to a background thread. NB: This extension is deprecated. [WAL mode] 
+   is recommended as a replacement.
+
+- S90. Version 2 C/C++ API  
+   https://www.sqlite.org/c_interface.html                    [c_interface_html]
    → A description of the C/C++ interface bindings for SQLite through version 2.8
-91. Version 2 DataTypes  
-   https://www.sqlite.org/datatypes.html            [datatypes_html]
-   → A description of how SQLite version 2 handles SQL datatypes. Short summary: Everything is a string.
-92. VDBE Tutorial  
-   https://www.sqlite.org/vdbe.html               [vdbe_html]
-   → The VDBE is the subsystem within SQLite that does the actual work of executing SQL statements. This page describes the principles of operation for the VDBE in SQLite version 2.7. This is essential reading for anyone who want to modify the SQLite sources.
-93. SQLite Version 3  
-   https://www.sqlite.org/version3.html            [version3_html]
+
+- S91. Version 2 DataTypes  
+   https://www.sqlite.org/datatypes.html                        [datatypes_html]
+   → A description of how SQLite version 2 handles SQL datatypes. Short summary: 
+   Everything is a string.
+
+- S92. VDBE Tutorial  
+   https://www.sqlite.org/vdbe.html                                  [vdbe_html]
+   → The VDBE is the subsystem within SQLite that does the actual work of executing 
+   SQL statements. This page describes the principles of operation for the VDBE 
+   in SQLite version 2.7. This is essential reading for anyone who want to modify 
+   the SQLite sources.
+
+- S93. SQLite Version 3  
+   https://www.sqlite.org/version3.html                          [version3_html]
    → A summary of the changes between SQLite version 2.8 and SQLite version 3.0.
-94. Version 3 C/C++ API  
-   https://www.sqlite.org/capi3.html               [capi3_html]
-   → A summary of the API related changes between SQLite version 2.8 and SQLite version 3.0.
-95. Speed Comparison  
-   https://www.sqlite.org/speed.html               [speed_html]
+
+- S94. Version 3 C/C++ API  
+   https://www.sqlite.org/capi3.html                                [capi3_html]
+   → A summary of the API related changes between SQLite version 2.8 and SQLite 
+   version 3.0.
+
+- S95. Speed Comparison  
+   https://www.sqlite.org/speed.html                                [speed_html]
    → The speed of version 2.7.6 of SQLite is compared against PostgreSQL and MySQL.
 
 
 
-# 🍀 /17. SQL Syntax  
-   https://www.sqlite.org/lang.html               *lang_html*
+# 🍀 /S01. Alphabetical Listing Of All Documents  
+   https://www.sqlite.org/doclist.html                            *doclist_html*
+
+See Also:
+
+-  [Categorical Document List](https://www.sqlite.org/docs.html)
+-  [Books About SQLite](https://www.sqlite.org/books.html)
+-  [Permuted Title Index](https://www.sqlite.org/sitemap.html)
+-  [Website Keyword Index](https://www.sqlite.org/keyword_index.html)
+
+#. [D001. 35% Faster Than The Filesystem](https://www.sqlite.org/fasterthanfs.html)
+#. [D002. 8+3 Filenames](https://www.sqlite.org/shortnames.html)
+#. [D003. About SQLite](https://www.sqlite.org/about.html)
+#. [D004. Alphabetical List Of SQLite Documents](https://www.sqlite.org/doclist.html)
+#. [D005. ALTER TABLE](https://www.sqlite.org/lang_altertable.html)
+#. [D006. An Asynchronous I/O Module For SQLite](https://www.sqlite.org/asyncvfs.html)
+#. [D007. An Introduction To The SQLite C/C++ Interface](https://www.sqlite.org/cintro.html)
+#. [D008. ANALYZE](https://www.sqlite.org/lang_analyze.html)
+#. [D009. Android Bindings](https://www.sqlite.org/https://sqlite.org/android/)
+#. [D010. Application-Defined SQL Functions](https://www.sqlite.org/appfunc.html)
+#. [D011. Appropriate Uses For SQLite](https://www.sqlite.org/whentouse.html)
+#. [D012. Architecture of SQLite](https://www.sqlite.org/arch.html)
+#. [D013. Atomic Commit In SQLite](https://www.sqlite.org/atomiccommit.html)
+#. [D014. ATTACH DATABASE](https://www.sqlite.org/lang_attach.html)
+#. [D015. Automatic Undo/Redo With SQLite](https://www.sqlite.org/undoredo.html)
+#. [D016. Benefits of SQLite As A File Format](https://www.sqlite.org/aff_short.html)
+#. [D017. Books About SQLite](https://www.sqlite.org/books.html)
+#. [D018. Built-in Aggregate Functions](https://www.sqlite.org/lang_aggfunc.html)
+#. [D019. Built-In Mathematical SQL Functions](https://www.sqlite.org/lang_mathfunc.html)
+#. [D020. Built-In Scalar SQL Functions](https://www.sqlite.org/lang_corefunc.html)
+#. [D021. C/C++ Interface For SQLite Version 3](https://www.sqlite.org/capi3ref.html)
+#. [D022. C/C++ Interface For SQLite Version 3 (old)](https://www.sqlite.org/capi3.html)
+#. [D023. Change in Default Page Size in SQLite Version 3.12.0](https://www.sqlite.org/pgszchng2016.html)
+#. [D024. Clustered Indexes and the WITHOUT ROWID Optimization](https://www.sqlite.org/withoutrowid.html)
+#. [D025. Command Line Shell For SQLite](https://www.sqlite.org/cli.html)
+#. [D026. Compile-time Options](https://www.sqlite.org/compile.html)
+#. [D027. Constraint Conflict Resolution in SQLite](https://www.sqlite.org/conflict.html)
+#. [D028. CREATE INDEX](https://www.sqlite.org/lang_createindex.html)
+#. [D029. CREATE TABLE](https://www.sqlite.org/lang_createtable.html)
+#. [D030. CREATE TRIGGER](https://www.sqlite.org/lang_createtrigger.html)
+#. [D031. CREATE VIEW](https://www.sqlite.org/lang_createview.html)
+#. [D032. CREATE VIRTUAL TABLE](https://www.sqlite.org/lang_createvtab.html)
+#. [D033. Custom Builds Of SQLite](https://www.sqlite.org/custombuild.html)
+#. [D034. Database File Format](https://www.sqlite.org/fileformat2.html)
+#. [D035. Database Object Name Resolution](https://www.sqlite.org/lang_naming.html)
+#. [D036. Datatypes In SQLite](https://www.sqlite.org/datatype3.html)
+#. [D037. Datatypes In SQLite version 2](https://www.sqlite.org/datatypes.html)
+#. [D038. Date And Time Functions](https://www.sqlite.org/lang_datefunc.html)
+#. [D039. Defense Against The Dark Arts](https://www.sqlite.org/security.html)
+#. [D040. DELETE](https://www.sqlite.org/lang_delete.html)
+#. [D041. DETACH](https://www.sqlite.org/lang_detach.html)
+#. [D042. Deterministic SQL Functions](https://www.sqlite.org/deterministic.html)
+#. [D043. Distinctive Features Of SQLite](https://www.sqlite.org/different.html)
+#. [D044. DROP INDEX](https://www.sqlite.org/lang_dropindex.html)
+#. [D045. DROP TABLE](https://www.sqlite.org/lang_droptable.html)
+#. [D046. DROP TRIGGER](https://www.sqlite.org/lang_droptrigger.html)
+#. [D047. DROP VIEW](https://www.sqlite.org/lang_dropview.html)
+#. [D048. Dynamic Memory Allocation In SQLite](https://www.sqlite.org/malloc.html)
+#. [D049. EXPLAIN](https://www.sqlite.org/lang_explain.html)
+#. [D050. EXPLAIN QUERY PLAN](https://www.sqlite.org/eqp.html)
+#. [D051. Features Of SQLite](https://www.sqlite.org/features.html)
+#. [D052. File Format Changes in SQLite](https://www.sqlite.org/formatchng.html)
+#. [D053. File Locking And Concurrency In SQLite Version 3](https://www.sqlite.org/lockingv3.html)
+#. [D054. Floating Point Numbers](https://www.sqlite.org/floatingpoint.html)
+#. [D055. Full-Featured SQL](https://www.sqlite.org/fullsql.html)
+#. [D056. Generated Columns](https://www.sqlite.org/gencol.html)
+#. [D057. High Reliability](https://www.sqlite.org/hirely.html)
+#. [D058. Hints for Debugging SQLite](https://www.sqlite.org/debugging.html)
+#. [D059. History Of SQLite Releases](https://www.sqlite.org/chronology.html)
+#. [D060. How SQLite Is Tested](https://www.sqlite.org/testing.html)
+#. [D061. How SQLite Works](https://www.sqlite.org/howitworks.html)
+#. [D062. How To Compile SQLite](https://www.sqlite.org/howtocompile.html)
+#. [D063. How To Corrupt An SQLite Database File](https://www.sqlite.org/howtocorrupt.html)
+#. [D064. How To Download Canonical SQLite Source Code](https://www.sqlite.org/getthecode.html)
+#. [D065. Implementation Limits For SQLite](https://www.sqlite.org/limits.html)
+#. [D066. Imposter Tables](https://www.sqlite.org/imposter.html)
+#. [D067. In-Memory Databases](https://www.sqlite.org/inmemorydb.html)
+#. [D068. Indexes On Expressions](https://www.sqlite.org/expridx.html)
+#. [D069. INSERT](https://www.sqlite.org/lang_insert.html)
+#. [D070. Internal Versus External BLOBs](https://www.sqlite.org/intern-v-extern-blob.html)
+#. [D071. Invalid UTF Policy](https://www.sqlite.org/invalidutf.html)
+#. [D072. Isolation In SQLite](https://www.sqlite.org/isolation.html)
+#. [D073. JSON Functions And Operators](https://www.sqlite.org/json1.html)
+#. [D074. List of SQLite Syntax Diagrams](https://www.sqlite.org/syntax.html)
+#. [D075. List Of Virtual Tables](https://www.sqlite.org/vtablist.html)
+#. [D076. LoC Recommended Storage Format](https://www.sqlite.org/locrsf.html)
+#. [D077. Long Term Support](https://www.sqlite.org/lts.html)
+#. [D078. Maintaining Private Branches Of SQLite](https://www.sqlite.org/privatebranch.html)
+#. [D079. Many Small Queries Are Efficient In SQLite](https://www.sqlite.org/np1queryprob.html)
+#. [D080. Measuring and Reducing CPU Usage in SQLite](https://www.sqlite.org/cpu.html)
+#. [D081. Memory-Mapped I/O](https://www.sqlite.org/mmap.html)
+#. [D082. Most Widely Deployed SQL Database Engine](https://www.sqlite.org/mostdeployed.html)
+#. [D083. NUL Characters In Strings](https://www.sqlite.org/nulinstr.html)
+#. [D084. NULL Handling in SQLite](https://www.sqlite.org/nulls.html)
+#. [D085. Partial Indexes](https://www.sqlite.org/partialindex.html)
+#. [D086. Pointer Passing Interfaces](https://www.sqlite.org/bindptr.html)
+#. [D087. Powersafe Overwrite](https://www.sqlite.org/psow.html)
+#. [D088. Pragma statements supported by SQLite](https://www.sqlite.org/pragma.html)
+#. [D089. Profiling SQL Queries](https://www.sqlite.org/profile.html)
+#. [D090. Quality Management](https://www.sqlite.org/qmplan.html)
+#. [D091. Query Language Understood by SQLite](https://www.sqlite.org/lang.html)
+#. [D092. Query Planning](https://www.sqlite.org/queryplanner.html)
+#. [D093. Quirks, Caveats, and Gotchas In SQLite](https://www.sqlite.org/quirks.html)
+#. [D094. Recent SQLite News](https://www.sqlite.org/news.html)
+#. [D095. Recovering Data From A Corrupt SQLite Database](https://www.sqlite.org/recovery.html)
+#. [D096. REINDEX](https://www.sqlite.org/lang_reindex.html)
+#. [D097. Release History Of SQLite](https://www.sqlite.org/changes.html)
+#. [D098. REPLACE](https://www.sqlite.org/lang_replace.html)
+#. [D099. Result and Error Codes](https://www.sqlite.org/rescode.html)
+#. [D100. RETURNING](https://www.sqlite.org/lang_returning.html)
+#. [D101. Row Values](https://www.sqlite.org/rowvalue.html)
+#. [D102. Rowid Tables](https://www.sqlite.org/rowidtable.html)
+#. [D103. Run-Time Loadable Extensions](https://www.sqlite.org/loadext.html)
+#. [D104. Savepoints](https://www.sqlite.org/lang_savepoint.html)
+#. [D105. SELECT](https://www.sqlite.org/lang_select.html)
+#. [D106. SQL Comment Syntax](https://www.sqlite.org/lang_comment.html)
+#. [D107. SQL Features That SQLite Does Not Implement](https://www.sqlite.org/omitted.html)
+#. [D108. SQL Language Expressions](https://www.sqlite.org/lang_expr.html)
+#. [D109. sqldiff.exe: Database Difference Utility](https://www.sqlite.org/sqldiff.html)
+#. [D110. SQLite Archive Files](https://www.sqlite.org/sqlar.html)
+#. [D111. SQLite Archiver (sqlar.exe)](https://www.sqlite.org/https://sqlite.org/sqlar/)
+#. [D112. SQLite As An Application File Format](https://www.sqlite.org/appfileformat.html)
+#. [D113. SQLite Autoincrement](https://www.sqlite.org/autoinc.html)
+#. [D114. SQLite Backup API](https://www.sqlite.org/backup.html)
+#. [D115. SQLite Changes From Version 3.4.2 To 3.5.0](https://www.sqlite.org/34to35.html)
+#. [D116. SQLite Changes From Version 3.5.9 To 3.6.0](https://www.sqlite.org/35to36.html)
+#. [D117. SQLite Consortium](https://www.sqlite.org/consortium.html)
+#. [D118. SQLite Copyright](https://www.sqlite.org/copyright.html)
+#. [D119. SQLite Database Speed Comparison](https://www.sqlite.org/speed.html)
+#. [D120. SQLite Developers](https://www.sqlite.org/crew.html)
+#. [D121. SQLite Documentation](https://www.sqlite.org/docs.html)
+#. [D122. SQLite Download Page](https://www.sqlite.org/download.html)
+#. [D123. SQLite Foreign Key Support](https://www.sqlite.org/foreignkeys.html)
+#. [D124. SQLite Frequently Asked Questions](https://www.sqlite.org/faq.html)
+#. [D125. SQLite FTS3 and FTS4 Extensions](https://www.sqlite.org/fts3.html)
+#. [D126. SQLite FTS5 Extension](https://www.sqlite.org/fts5.html)
+#. [D127. SQLite Home Page](https://www.sqlite.org/index.html)
+#. [D128. SQLite In 5 Minutes Or Less](https://www.sqlite.org/quickstart.html)
+#. [D129. SQLite is a Self Contained System](https://www.sqlite.org/selfcontained.html)
+#. [D130. SQLite Is Serverless](https://www.sqlite.org/serverless.html)
+#. [D131. SQLite Is Transactional](https://www.sqlite.org/transactional.html)
+#. [D132. SQLite Keywords](https://www.sqlite.org/lang_keywords.html)
+#. [D133. SQLite Library Footprint](https://www.sqlite.org/footprint.html)
+#. [D134. SQLite Older News](https://www.sqlite.org/oldnews.html)
+#. [D135. SQLite Over a Network, Caveats and Considerations](https://www.sqlite.org/useovernet.html)
+#. [D136. SQLite Pro Support](https://www.sqlite.org/prosupport.html)
+#. [D137. SQLite Requirements](https://www.sqlite.org/requirements.html)
+#. [D138. SQLite Session Module C/C++ Interface](https://www.sqlite.org/session.html)
+#. [D139. SQLite Shared-Cache Mode](https://www.sqlite.org/sharedcache.html)
+#. [D140. SQLite Site Map](https://www.sqlite.org/sitemap.html)
+#. [D141. SQLite Support Options](https://www.sqlite.org/support.html)
+#. [D142. SQLite Unlock-Notify API](https://www.sqlite.org/unlock_notify.html)
+#. [D143. SQLite Version 3 Overview](https://www.sqlite.org/version3.html)
+#. [D144. SQLite's Built-in printf()](https://www.sqlite.org/printf.html)
+#. [D145. SQLite: Single File Database](https://www.sqlite.org/onefile.html)
+#. [D146. STRICT Tables](https://www.sqlite.org/stricttables.html)
+#. [D147. Swarmvtab Virtual Table](https://www.sqlite.org/swarmvtab.html)
+#. [D148. Syntax Diagrams For SQLite](https://www.sqlite.org/syntaxdiagrams.html)
+#. [D149. System.Data.SQLite](https://www.sqlite.org/https://system.data.sqlite.org/)
+#. [D150. Temporary Files Used By SQLite](https://www.sqlite.org/tempfiles.html)
+#. [D151. TH3](https://www.sqlite.org/th3.html)
+#. [D152. The Advantages Of Flexible Typing](https://www.sqlite.org/flextypegood.html)
+#. [D153. The Bytecode() And Tables_Used() Table-Valued Functions](https://www.sqlite.org/bytecodevtab.html)
+#. [D154. The C language interface to SQLite Version 2](https://www.sqlite.org/c_interface.html)
+#. [D155. The Carray() Table-Valued Function](https://www.sqlite.org/carray.html)
+#. [D156. The Checksum VFS Shim](https://www.sqlite.org/cksumvfs.html)
+#. [D157. The COMPLETION() Table-Valued Function](https://www.sqlite.org/completion.html)
+#. [D158. The CSV Virtual Table](https://www.sqlite.org/csv.html)
+#. [D159. The dbhash.exe Utility Program](https://www.sqlite.org/dbhash.html)
+#. [D160. The DBSTAT Virtual Table](https://www.sqlite.org/dbstat.html)
+#. [D161. The Error And Warning Log](https://www.sqlite.org/errlog.html)
+#. [D162. The Fossil Version Control System](https://www.sqlite.org/https://www.fossil-scm.org/)
+#. [D163. The generate_series Table-Valued Function](https://www.sqlite.org/series.html)
+#. [D164. The Geopoly Interface To The SQLite R*Tree Module](https://www.sqlite.org/geopoly.html)
+#. [D165. The INDEXED BY Clause](https://www.sqlite.org/lang_indexedby.html)
+#. [D166. The Lemon LALR(1) Parser Generator](https://www.sqlite.org/lemon.html)
+#. [D167. The Next-Generation Query Planner](https://www.sqlite.org/queryplanner-ng.html)
+#. [D168. The ON CONFLICT Clause](https://www.sqlite.org/lang_conflict.html)
+#. [D169. The RBU Extension](https://www.sqlite.org/rbu.html)
+#. [D170. The Schema Table](https://www.sqlite.org/schematab.html)
+#. [D171. The Session Extension](https://www.sqlite.org/sessionintro.html)
+#. [D172. The Spellfix1 Virtual Table](https://www.sqlite.org/spellfix1.html)
+#. [D173. The SQLite Amalgamation](https://www.sqlite.org/amalgamation.html)
+#. [D174. The SQLite Bytecode Engine](https://www.sqlite.org/opcode.html)
+#. [D175. The SQLite OS Interface or "VFS"](https://www.sqlite.org/vfs.html)
+#. [D176. The SQLite Query Optimizer Overview](https://www.sqlite.org/optoverview.html)
+#. [D177. The SQLite R*Tree Module](https://www.sqlite.org/rtree.html)
+#. [D178. The SQLite Zipfile Module](https://www.sqlite.org/zipfile.html)
+#. [D179. The sqlite3_analyzer.exe Utility Program](https://www.sqlite.org/sqlanalyze.html)
+#. [D180. The SQLITE_DBPAGE Virtual Table](https://www.sqlite.org/dbpage.html)
+#. [D181. The SQLITE_MEMSTAT Virtual Table](https://www.sqlite.org/memstat.html)
+#. [D182. The SQLITE_STMT Virtual Table](https://www.sqlite.org/stmt.html)
+#. [D183. The Tcl interface to the SQLite library](https://www.sqlite.org/tclsqlite.html)
+#. [D184. The UINT Collating Sequence](https://www.sqlite.org/uintcseq.html)
+#. [D185. The UNION Virtual Table](https://www.sqlite.org/unionvtab.html)
+#. [D186. The Use Of assert() In SQLite](https://www.sqlite.org/assert.html)
+#. [D187. The Virtual Database Engine of SQLite](https://www.sqlite.org/vdbe.html)
+#. [D188. The Virtual Table Mechanism Of SQLite](https://www.sqlite.org/vtab.html)
+#. [D189. The WITH Clause](https://www.sqlite.org/lang_with.html)
+#. [D190. Transaction](https://www.sqlite.org/lang_transaction.html)
+#. [D191. Uniform Resource Identifiers](https://www.sqlite.org/uri.html)
+#. [D192. UPDATE](https://www.sqlite.org/lang_update.html)
+#. [D193. UPSERT](https://www.sqlite.org/lang_upsert.html)
+#. [D194. Using SQLite In Multi-Threaded Applications](https://www.sqlite.org/threadsafe.html)
+#. [D195. VACUUM](https://www.sqlite.org/lang_vacuum.html)
+#. [D196. Version Numbers in SQLite](https://www.sqlite.org/versionnumbers.html)
+#. [D197. Vulnerabilities](https://www.sqlite.org/cves.html)
+#. [D198. WAL-mode File Format](https://www.sqlite.org/walformat.html)
+#. [D199. Website Keyword Index](https://www.sqlite.org/keyword_index.html)
+#. [D200. Well-Known Users Of SQLite](https://www.sqlite.org/famous.html)
+#. [D201. What If OpenDocument Used SQLite?](https://www.sqlite.org/affcase1.html)
+#. [D202. Why Is SQLite Coded In C](https://www.sqlite.org/whyc.html)
+#. [D203. Why SQLite Does Not Use Git](https://www.sqlite.org/whynotgit.html)
+#. [D204. Why SQLite Uses Bytecode](https://www.sqlite.org/whybytecode.html)
+#. [D205. Window Functions](https://www.sqlite.org/windowfunctions.html)
+#. [D206. Write-Ahead Logging](https://www.sqlite.org/wal.html)
+#. [D207. Zero-Configuration](https://www.sqlite.org/zeroconf.html)
+
+## 🐣 D170. The Schema Table
+   [D170. The Schema Table](https://www.sqlite.org/schematab.html)
+
+Example:
+
+```sh
+   # https://github.com/aitjcize/cppman/blob/master/cppman/lib/index.db
+   sqlite3 /c/dl/index.db .tables \
+      "pragma table_info('cplusplus.com');" \
+      "SELECT sql FROM sqlite_schema WHERE name = 'cplusplus.com';" \
+      "SELECT count(*) FROM 'cplusplus.com';" \
+      "SELECT count(*) FROM 'cppreference.com';" \
+      "SELECT id,title,url FROM 'cplusplus.com' LIMIT 0,10;" \
+      "SELECT id,title,url FROM 'cppreference.com' WHERE title LIKE '%Concepts%';" \
+      .exit
+```
+
+[1. Introduction](#introduction)
+[2. Alternative Names](#alternative_names)
+[3. Interpretation Of The Schema Table](#interpretation_of_the_schema_table)
+[4. Creation and Modification Of The Schema Table](#creation_and_modification_of_the_schema_table)
+
+### 1. Introduction
+
+   Every SQLite database contains a single "schema table" that stores
+   the schema for that database. The schema for a database is a
+   description of all of the other tables, indexes, triggers, and views
+   that are contained within the database. The schema table looks like
+   this:
+
+         CREATE TABLE sqlite_schema(
+           type text,
+           name text,
+           tbl_name text,
+           rootpage integer,
+           sql text
+         );
+
+   The sqlite_schema table contains one row for each table, index, view,
+   and trigger (collectively "objects") in the schema, except there is
+   no entry for the sqlite_schema table itself. See the [schema
+   storage](https://www.sqlite.org/fileformat2.html#ffschema) subsection of the [file
+   format](https://www.sqlite.org/fileformat2.html) documentation for additional information
+   on how SQLite uses the sqlite_schema table internally.
+
+### 2. Alternative Names
+
+   The schema table can always be referenced using the name
+   "sqlite_schema", especially if qualifed by the schema name like
+   "main.sqlite_schema" or "temp.sqlite_schema". But for historical
+   compatibility, some alternative names are also recognized, including:
+
+   #. sqlite_master
+   #. sqlite_temp_schema
+   #. sqlite_temp_master
+
+   Alternatives (2) and (3) only work for the TEMP database associated
+   with each database connection, but alternative (1) works anywhere.
+   For historical reasons, callbacks from the
+   [sqlite3_set_authorizer()](https://www.sqlite.org/c3ref/set_authorizer.html) interface
+   always refer to the schema table using names (1) or (3).
+
+### 3. Interpretation Of The Schema Table
+
+   The meanings of the fields of the schema table are as follows:
+
+  - **type**
+      The sqlite_schema.type column will be one of the following text
+      strings: 'table', 'index', 'view', or 'trigger' according to the
+      type of object defined. The 'table' string is used for both
+      ordinary and [virtual tables](https://www.sqlite.org/vtab.html).
+
+  - **name**
+      The sqlite_schema.name column will hold the name of the object.
+      [UNIQUE](https://www.sqlite.org/lang_createtable.html#uniqueconst) and [PRIMARY
+      KEY](https://www.sqlite.org/lang_createtable.html#primkeyconst) constraints on tables
+      cause SQLite to create [internal
+      indexes](https://www.sqlite.org/fileformat2.html#intschema) with names of the form
+      "sqlite_autoindex_TABLE_N" where TABLE is replaced by the name of
+      the table that contains the constraint and N is an integer
+      beginning with 1 and increasing by one with each constraint seen
+      in the table definition. In a [WITHOUT
+      ROWID](https://www.sqlite.org/withoutrowid.html) table, there is no sqlite_schema
+      entry for the PRIMARY KEY, but the "sqlite_autoindex_TABLE_N" name
+      is set aside for the PRIMARY KEY as if the sqlite_schema entry did
+      exist. This will affect the numbering of subsequent UNIQUE
+      constraints. The "sqlite_autoindex_TABLE_N" name is never
+      allocated for an [INTEGER PRIMARY
+      KEY](https://www.sqlite.org/lang_createtable.html#rowid), either in rowid tables or
+      WITHOUT ROWID tables.
+
+  - **tbl_name**
+      The sqlite_schema.tbl_name column holds the name of a table or
+      view that the object is associated with. For a table or view, the
+      tbl_name column is a copy of the name column. For an index, the
+      tbl_name is the name of the table that is indexed. For a trigger,
+      the tbl_name column stores the name of the table or view that
+      causes the trigger to fire.
+
+  - **rootpage**
+      The sqlite_schema.rootpage column stores the page number of the
+      root b-tree page for tables and indexes. For rows that define
+      views, triggers, and virtual tables, the rootpage column is 0 or
+      NULL.
+
+  - **sql**
+      The sqlite_schema.sql column stores SQL text that describes the
+      object. This SQL text is a 
+          [CREATE TABLE](https://www.sqlite.org/lang_createtable.html), 
+          [CREATE VIRTUAL TABLE](https://www.sqlite.org/lang_createvtab.html), 
+          [CREATE INDEX](https://www.sqlite.org/lang_createindex.html), 
+          [CREATE VIEW](https://www.sqlite.org/lang_createview.html), or 
+          [CREATE TRIGGER](https://www.sqlite.org/lang_createtrigger.html) statement that if evaluated
+      against the database file when it is the main database of a
+      [database connection](https://www.sqlite.org/c3ref/sqlite3.html) would recreate the
+      object. The text is usually a copy of the original statement used
+      to create the object but with normalizations applied so that the
+      text conforms to the following rules:
+
+      -  The CREATE, TABLE, VIEW, TRIGGER, and INDEX keywords at the
+         beginning of the statement are converted to all upper case
+         letters.
+      -  The TEMP or TEMPORARY keyword is removed if it occurs after the
+         initial CREATE keyword.
+      -  Any database name qualifier that occurs prior to the name of
+         the object being created is removed.
+      -  Leading spaces are removed.
+      -  All spaces following the first two keywords are converted into
+         a single space.
+
+      The text in the sqlite_schema.sql column is a copy of the original
+      CREATE statement text that created the object, except normalized
+      as described above and as modified by subsequent [ALTER
+      TABLE](https://www.sqlite.org/lang_altertable.html) statements. The sqlite_schema.sql
+      is NULL for the [internal indexes](https://www.sqlite.org/fileformat2.html#intschema)
+      that are automatically created by
+      [UNIQUE](https://www.sqlite.org/lang_createtable.html#uniqueconst) or [PRIMARY
+      KEY](https://www.sqlite.org/lang_createtable.html#primkeyconst) constraints.
+
+### 4. Creation and Modification Of The Schema Table
+
+   SQLite creates the schema table upon database creation and modifies
+   its content as SQLite users submit DDL statements for execution.
+   There is no need for users to modify it under normal circumstances,
+   and they bear the risk of [database corruption](https://www.sqlite.org/howtocorrupt.html#cfgerr) if they do modify it.
+
+   *This page last modified on* [2023-06-16 10:11:06](https://sqlite.org/docsrc/honeypot) *UTC*
+
+
+# 🍀 /S02. Website Keyword Index  
+   https://www.sqlite.org/keyword_index.html                *keyword_index_html*
+
+
+Other Documentation Indexes:
+
+-  [Categorical Document List](https://www.sqlite.org/docs.html)
+-  [Books About SQLite](https://www.sqlite.org/books.html)
+-  [Alphabetical List Of Documents](https://www.sqlite.org/doclist.html)
+-  [Permuted Document Title Index](https://www.sqlite.org/sitemap.html)
+
+
+Keyword Index
+
+-  [%q](https://www.sqlite.org/printf.html#percentq)
+-  [%w](https://www.sqlite.org/printf.html#percentw)
+-  [%z](https://www.sqlite.org/printf.html#percentz)
+-  [35% Faster Than The Filesystem](https://www.sqlite.org/fasterthanfs.html)
+-  [3rd-party fuzzers](https://www.sqlite.org/testing.html#3pfuzz)
+-  [about 200 SQL statements per webpage](https://www.sqlite.org/np1queryprob.html)
+-  [abs() SQL function](https://www.sqlite.org/lang_corefunc.html#abs)
+-  [ACID](https://www.sqlite.org/transactional.html)
+-  [acos() SQL function](https://www.sqlite.org/lang_mathfunc.html#acos)
+-  [acosh() SQL function](https://www.sqlite.org/lang_mathfunc.html#acosh)
+-  [add column](https://www.sqlite.org/lang_altertable.html#altertabaddcol)
+-  [Adding to Zip](https://www.sqlite.org/zipfile.html#adding_entries_to_a_zip_archive)
+-  [advanced](https://www.sqlite.org/swarmvtab.html#advanced_usage)
+-  [advantages of WAL-mode](https://www.sqlite.org/wal.html#advantages)
+-  [affinity](https://www.sqlite.org/datatype3.html#affinity)
+-  [affinity in compound VIEWs](https://www.sqlite.org/datatype3.html#affcompoundview)
+-  [Affinity Of Expressions](https://www.sqlite.org/datatype3.html#expraff)
+-  [AFL](https://www.sqlite.org/testing.html#aflfuzz)
+-  [Aggregate Functions](https://www.sqlite.org/lang_aggfunc.html)
+-  [aggregate JSON SQL functions](https://www.sqlite.org/json1.html#jgroupobjectb)
+-  [aggregate SQL functions](https://www.sqlite.org/lang_aggfunc.html)
+-  [aggregate window functions](https://www.sqlite.org/windowfunctions.html#aggwinfunc)
+-  [aggregate-function-invocation](https://www.sqlite.org/syntax/aggregate-function-invocation.html)
+-  [aggregate-function-invocation syntax diagram](https://www.sqlite.org/syntax/aggregate-function-invocation.html)
+-  [alphabetical listing of documents](https://www.sqlite.org/doclist.html)
+-  [ALTER](https://www.sqlite.org/lang_altertable.html)
+-  [ALTER TABLE](https://www.sqlite.org/lang_altertable.html)
+-  [ALTER TABLE ADD COLUMN](https://www.sqlite.org/lang_altertable.html#altertabaddcol)
+-  [ALTER TABLE DROP COLUMN](https://www.sqlite.org/lang_altertable.html#altertabdropcol)
+-  [ALTER TABLE RENAME](https://www.sqlite.org/lang_altertable.html#altertabrename)
+-  [ALTER TABLE RENAME COLUMN](https://www.sqlite.org/lang_altertable.html#altertabmvcol)
+-  [ALTER TABLE RENAME documentation](https://www.sqlite.org/lang_altertable.html#altertabrename)
+-  [alter-table-stmt](https://www.sqlite.org/syntax/alter-table-stmt.html)
+-  [alter-table-stmt syntax diagram](https://www.sqlite.org/syntax/alter-table-stmt.html)
+-  [amalgamation](https://www.sqlite.org/amalgamation.html)
+-  [amalgamation tarball](https://www.sqlite.org/download.html#amalgtarball)
+-  [ambiguous dates](https://www.sqlite.org/lang_datefunc.html#dtambg)
+-  [American Fuzzy Lop fuzzer](https://www.sqlite.org/testing.html#aflfuzz)
+-  [analysis_limit pragma](https://www.sqlite.org/pragma.html#pragma_analysis_limit)
+-  [analyze-stmt](https://www.sqlite.org/syntax/analyze-stmt.html)
+-  [analyze-stmt syntax diagram](https://www.sqlite.org/syntax/analyze-stmt.html)
+-  [Application File Format](https://www.sqlite.org/appfileformat.html)
+-  [application file-format](https://www.sqlite.org/appfileformat.html)
+-  [Application ID](https://www.sqlite.org/fileformat2.html#appid)
+-  [application-defined function attacks](https://www.sqlite.org/appfunc.html#sec)
+-  [application-defined SQL function](https://www.sqlite.org/appfunc.html)
+-  [application-defined window functions](https://www.sqlite.org/windowfunctions.html#udfwinfunc)
+-  [application_id pragma](https://www.sqlite.org/pragma.html#pragma_application_id)
+-  [appreciate the freedom](https://www.sqlite.org/flextypegood.html)
+-  [Appropriate Uses For SQLite](https://www.sqlite.org/whentouse.html)
+-  [approximate ANALYZE](https://www.sqlite.org/lang_analyze.html#approx)
+-  [Approximate ANALYZE For Large Databases](https://www.sqlite.org/lang_analyze.html#approx)
+-  [.archive command](https://www.sqlite.org/cli.html#sqlar)
+-  [asin() SQL function](https://www.sqlite.org/lang_mathfunc.html#asin)
+-  [asinh() SQL function](https://www.sqlite.org/lang_mathfunc.html#asinh)
+-  [asynchronous I/O backend](https://www.sqlite.org/asyncvfs.html)
+-  [asynchronous VFS](https://www.sqlite.org/asyncvfs.html)
+-  [atan() SQL function](https://www.sqlite.org/lang_mathfunc.html#atan)
+-  [atan2() SQL function](https://www.sqlite.org/lang_mathfunc.html#atan2)
+-  [atanh() SQL function](https://www.sqlite.org/lang_mathfunc.html#atanh)
+-  [atomic commit](https://www.sqlite.org/atomiccommit.html)
+-  [attach](https://www.sqlite.org/lang_attach.html)
+-  [ATTACH DATABASE](https://www.sqlite.org/lang_attach.html)
+-  [attach-stmt](https://www.sqlite.org/syntax/attach-stmt.html)
+-  [attach-stmt syntax diagram](https://www.sqlite.org/syntax/attach-stmt.html)
+-  [attached](https://www.sqlite.org/lang_attach.html)
+-  [attack resistance](https://www.sqlite.org/security.html)
+-  [authorizer callback](https://www.sqlite.org/c3ref/set_authorizer.html)
+-  [authorizer method](https://www.sqlite.org/tclsqlite.html#authorizer)
+-  [auto modifier](https://www.sqlite.org/lang_datefunc.html#automod)
+-  [auto_vacuum pragma](https://www.sqlite.org/pragma.html#pragma_auto_vacuum)
+-  [autocommit mode](https://www.sqlite.org/c3ref/get_autocommit.html)
+-  [AUTOINCREMENT](https://www.sqlite.org/autoinc.html)
+-  [automated undo/redo stack](https://www.sqlite.org/undoredo.html)
+-  [automatic indexes](https://www.sqlite.org/optoverview.html#autoindex)
+-  [automatic indexing](https://www.sqlite.org/optoverview.html#autoindex)
+-  [automatic_index pragma](https://www.sqlite.org/pragma.html#pragma_automatic_index)
+-  [automatically running ANALYZE](https://www.sqlite.org/lang_analyze.html#autoanalyze)
+-  ["automerge" command](https://www.sqlite.org/fts3.html#*fts4automergecmd)
+-  [auxiliary columns](https://www.sqlite.org/rtree.html#auxcol)
+-  [auxiliary columns in r-tree tables](https://www.sqlite.org/rtree.html#auxcol)
+-  [auxiliary function mapping](https://www.sqlite.org/fts5.html#sorting_by_auxiliary_function_results)
+-  [avg() aggregate function](https://www.sqlite.org/lang_aggfunc.html#avg)
+-  [avoiding large WAL files](https://www.sqlite.org/wal.html#bigwal)
+-  [B*-Trees](https://www.sqlite.org/fileformat2.html#btree)
+-  [B-tree](https://www.sqlite.org/fileformat2.html#btree)
+-  [backup API](https://www.sqlite.org/backup.html)
+-  [backup method](https://www.sqlite.org/tclsqlite.html#backup)
+-  [bare aggregate terms](https://www.sqlite.org/lang_select.html#bareagg)
+-  [base64() SQL function](https://www.sqlite.org/cli.html#base64)
+-  [base85() SQL function](https://www.sqlite.org/cli.html#base85)
+-  [bcvtab](https://www.sqlite.org/bytecodevtab.html)
+-  [BEGIN](https://www.sqlite.org/lang_transaction.html)
+-  [BEGIN EXCLUSIVE](https://www.sqlite.org/lang_transaction.html#immediate)
+-  [BEGIN IMMEDIATE](https://www.sqlite.org/lang_transaction.html#immediate)
+-  [begin-stmt](https://www.sqlite.org/syntax/begin-stmt.html)
+-  [begin-stmt syntax diagram](https://www.sqlite.org/syntax/begin-stmt.html)
+-  [benefits of using WITHOUT ROWID](https://www.sqlite.org/withoutrowid.html#bene)
+-  [BETWEEN](https://www.sqlite.org/lang_expr.html#between)
+-  [BINARY collating function](https://www.sqlite.org/datatype3.html#collation)
+-  [binary operators](https://www.sqlite.org/lang_expr.html#binaryops)
+-  [bind_fallback method](https://www.sqlite.org/tclsqlite.html#bind_fallback)
+-  [BLOB handle](https://www.sqlite.org/c3ref/blob.html)
+-  [BLOB I/O performance](https://www.sqlite.org/intern-v-extern-blob.html)
+-  [block sorting](https://www.sqlite.org/queryplanner.html#partialsort)
+-  [books about SQLite](https://www.sqlite.org/books.html)
+-  [boolean datatype](https://www.sqlite.org/datatype3.html#boolean)
+-  [boolean expression](https://www.sqlite.org/lang_expr.html#booleanexpr)
+-  [bound parameter](https://www.sqlite.org/lang_expr.html#varparam)
+-  [bugs](https://www.sqlite.org/fts3.html#limitations)
+-  [build product names](https://www.sqlite.org/download.html#encoding)
+-  [building a DLL](https://www.sqlite.org/howtocompile.html#dll)
+-  [building the amalgamation](https://www.sqlite.org/howtocompile.html#amal)
+-  [built-in memory allocators](https://www.sqlite.org/malloc.html#altalloc)
+-  [built-in printf()](https://www.sqlite.org/printf.html)
+-  [built-in SQL math functions](https://www.sqlite.org/lang_mathfunc.html)
+-  [built-in window functions](https://www.sqlite.org/windowfunctions.html#builtins)
+-  [built-ins](https://www.sqlite.org/windowfunctions.html#builtins)
+-  [builtin window functions](https://www.sqlite.org/windowfunctions.html#biwinfunc)
+-  [busy handler](https://www.sqlite.org/c3ref/busy_handler.html)
+-  [busy method](https://www.sqlite.org/tclsqlite.html#busy)
+-  [busy-handler callback](https://www.sqlite.org/c3ref/busy_handler.html)
+-  [busy_timeout pragma](https://www.sqlite.org/pragma.html#pragma_busy_timeout)
+-  [byte-order determination rules](https://www.sqlite.org/c3ref/bind_blob.html#byteorderdeterminationrules)
+-  [bytecode](https://www.sqlite.org/opcode.html)
+-  [bytecode and tables_used virtual tables](https://www.sqlite.org/bytecodevtab.html)
+-  [bytecode engine](https://www.sqlite.org/opcode.html)
+-  [bytecode virtual table](https://www.sqlite.org/bytecodevtab.html)
+-  [C-API function list](https://www.sqlite.org/c3ref/funclist.html)
+-  [C-language Interface](https://www.sqlite.org/c3ref/intro.html)
+-  [cache method](https://www.sqlite.org/tclsqlite.html#cache)
+-  ["cache" query parameter](https://www.sqlite.org/uri.html#uricache)
+-  [cache_size pragma](https://www.sqlite.org/pragma.html#pragma_cache_size)
+-  [cache_spill pragma](https://www.sqlite.org/pragma.html#pragma_cache_spill)
+-  [canonical source code](https://www.sqlite.org/getthecode.html)
+-  [carray](https://www.sqlite.org/carray.html)
+-  [carray() table-valued function](https://www.sqlite.org/carray.html)
+-  [CASE expression](https://www.sqlite.org/lang_expr.html#case)
+-  [case_sensitive_like pragma](https://www.sqlite.org/pragma.html#pragma_case_sensitive_like)
+-  [CAST](https://www.sqlite.org/lang_expr.html#castexpr)
+-  [CAST expression](https://www.sqlite.org/lang_expr.html#castexpr)
+-  [CAST operator](https://www.sqlite.org/lang_expr.html#castexpr)
+-  [categorical listing of SQLite documents](https://www.sqlite.org/docs.html)
+-  [ceil](https://www.sqlite.org/lang_mathfunc.html#ceil)
+-  [ceiling](https://www.sqlite.org/lang_mathfunc.html#ceil)
+-  [cell format summary](https://www.sqlite.org/fileformat2.html#cellformat)
+-  [cell payload](https://www.sqlite.org/fileformat2.html#cell_payload)
+-  [cell_size_check pragma](https://www.sqlite.org/pragma.html#pragma_cell_size_check)
+-  [cfgerrors*](https://www.sqlite.org/howtocorrupt.html#cfgerr)
+-  [change counter](https://www.sqlite.org/fileformat2.html#chngctr)
+-  [changes method](https://www.sqlite.org/tclsqlite.html#changes)
+-  [changes() SQL function](https://www.sqlite.org/lang_corefunc.html#changes)
+-  [changeset](https://www.sqlite.org/sessionintro.html#changeset)
+-  [char() SQL function](https://www.sqlite.org/lang_corefunc.html#char)
+-  [CHECK](https://www.sqlite.org/lang_createtable.html#ckconst)
+-  [CHECK constraint](https://www.sqlite.org/lang_createtable.html#ckconst)
+-  [checklist](https://www.sqlite.org/testing.html#cklist)
+-  [checkpoint](https://www.sqlite.org/wal.html#ckpt)
+-  [checkpoint mode](https://www.sqlite.org/c3ref/c_checkpoint_full.html)
+-  [checkpoint_fullfsync pragma](https://www.sqlite.org/pragma.html#pragma_checkpoint_fullfsync)
+-  [checkpointed](https://www.sqlite.org/wal.html#ckpt)
+-  [checkpointing](https://www.sqlite.org/wal.html#ckpt)
+-  [checksum VFS](https://www.sqlite.org/cksumvfs.html)
+-  [checksum VFS shim](https://www.sqlite.org/cksumvfs.html)
+-  [child key](https://www.sqlite.org/foreignkeys.html#parentchild)
+-  [child table](https://www.sqlite.org/foreignkeys.html#parentchild)
+-  [chronology](https://www.sqlite.org/chronology.html)
+-  [cksumvfs](https://www.sqlite.org/cksumvfs.html)
+-  [CLI](https://www.sqlite.org/cli.html)
+-  [clone the entire repository](https://www.sqlite.org/getthecode.html#clone)
+-  [close method](https://www.sqlite.org/tclsqlite.html#close)
+-  [Clustered indexes](https://www.sqlite.org/withoutrowid.html)
+-  [co-routines](https://www.sqlite.org/optoverview.html#coroutines)
+-  [coalesce() SQL function](https://www.sqlite.org/lang_corefunc.html#coalesce)
+-  [Code of Conduct](https://www.sqlite.org/codeofconduct.html)
+-  [Code of Ethics](https://www.sqlite.org/codeofethics.html)
+-  [Code of Ethics of the Project Founder](https://www.sqlite.org/codeofethics.html)
+-  [code repositories](https://www.sqlite.org/download.html#srctree)
+-  [COLLATE](https://www.sqlite.org/lang_createindex.html#collidx)
+-  [COLLATE clause](https://www.sqlite.org/lang_createtable.html#collateclause)
+-  [COLLATE constraint](https://www.sqlite.org/lang_createtable.html#collateclause)
+-  [collate method](https://www.sqlite.org/tclsqlite.html#collate)
+-  [COLLATE operator](https://www.sqlite.org/lang_expr.html#collateop)
+-  [collating function](https://www.sqlite.org/datatype3.html#collation)
+-  [collation_list pragma](https://www.sqlite.org/pragma.html#pragma_collation_list)
+-  [collation_needed method](https://www.sqlite.org/tclsqlite.html#collation_needed)
+-  [column access functions](https://www.sqlite.org/c3ref/column_blob.html)
+-  [column affinity](https://www.sqlite.org/datatype3.html#affinity)
+-  [column definition](https://www.sqlite.org/lang_createtable.html#tablecoldef)
+-  [column-constraint](https://www.sqlite.org/syntax/column-constraint.html)
+-  [column-constraint syntax diagram](https://www.sqlite.org/syntax/column-constraint.html)
+-  [column-def](https://www.sqlite.org/syntax/column-def.html)
+-  [column-def syntax diagram](https://www.sqlite.org/syntax/column-def.html)
+-  [column-name-list](https://www.sqlite.org/syntax/column-name-list.html)
+-  [column-name-list syntax diagram](https://www.sqlite.org/syntax/column-name-list.html)
+-  [columnar output modes](https://www.sqlite.org/cli.html#clmnr)
+-  [colUsed field](https://www.sqlite.org/vtab.html#colUsed)
+-  [comma option](https://www.sqlite.org/printf.html#comma)
+-  [Command Line Interface](https://www.sqlite.org/cli.html)
+-  [command-line interface](https://www.sqlite.org/cli.html)
+-  [command-line options](https://www.sqlite.org/cli.html#clopts)
+-  [command-line shell](https://www.sqlite.org/cli.html)
+-  [commands](https://www.sqlite.org/fts3.html#commands)
+-  [comment](https://www.sqlite.org/lang_comment.html)
+-  [comment-syntax](https://www.sqlite.org/syntax/comment-syntax.html)
+-  [comment-syntax syntax diagram](https://www.sqlite.org/syntax/comment-syntax.html)
+-  [COMMIT](https://www.sqlite.org/lang_transaction.html)
+-  [commit-stmt](https://www.sqlite.org/syntax/commit-stmt.html)
+-  [commit-stmt syntax diagram](https://www.sqlite.org/syntax/commit-stmt.html)
+-  [commit_hook method](https://www.sqlite.org/tclsqlite.html#commit_hook)
+-  [common table expressions](https://www.sqlite.org/lang_with.html)
+-  [common-table-expression](https://www.sqlite.org/syntax/common-table-expression.html)
+-  [common-table-expression syntax diagram](https://www.sqlite.org/syntax/common-table-expression.html)
+-  [comparison affinity rules](https://www.sqlite.org/datatype3.html#compaff)
+-  [comparison expressions](https://www.sqlite.org/datatype3.html#comparisons)
+-  [comparison with fts4](https://www.sqlite.org/fts5.html#appendix_a)
+-  [compilation](https://www.sqlite.org/swarmvtab.html#compiling_and_using_swarmvtab)
+-  [compile fts](https://www.sqlite.org/fts3.html#compiling_and_enabling_fts3_and_fts4)
+-  [compile loadable extensions](https://www.sqlite.org/loadext.html#build)
+-  [compile-time options](https://www.sqlite.org/compile.html)
+-  [compile_options pragma](https://www.sqlite.org/pragma.html#pragma_compile_options)
+-  [Compiling Loadable Extensions](https://www.sqlite.org/loadext.html#build)
+-  [compiling the CLI](https://www.sqlite.org/howtocompile.html#cli)
+-  [compiling the TCL interface](https://www.sqlite.org/howtocompile.html#tcl)
+-  [complete list of SQLite releases](https://www.sqlite.org/changes.html)
+-  [complete method](https://www.sqlite.org/tclsqlite.html#complete)
+-  [COMPLETION](https://www.sqlite.org/completion.html)
+-  [COMPLETION extension](https://www.sqlite.org/completion.html)
+-  [COMPLETION table-valued function](https://www.sqlite.org/completion.html)
+-  [compound query](https://www.sqlite.org/lang_select.html#compound)
+-  [compound select](https://www.sqlite.org/lang_select.html#compound)
+-  [compound-operator](https://www.sqlite.org/syntax/compound-operator.html)
+-  [compound-operator syntax diagram](https://www.sqlite.org/syntax/compound-operator.html)
+-  [compound-select-stmt](https://www.sqlite.org/syntax/compound-select-stmt.html)
+-  [compound-select-stmt syntax diagram](https://www.sqlite.org/syntax/compound-select-stmt.html)
+-  [compressed FTS4 content](https://www.sqlite.org/fts3.html#*fts4compression)
+-  [compute the Mandelbrot set](https://www.sqlite.org/lang_with.html#mandelbrot)
+-  [computed columns](https://www.sqlite.org/gencol.html)
+-  [concat() SQL function](https://www.sqlite.org/lang_corefunc.html#concat)
+-  [concat_ws() SQL function](https://www.sqlite.org/lang_corefunc.html#concat_ws)
+-  [config method](https://www.sqlite.org/tclsqlite.html#config)
+-  [configurable edit distances](https://www.sqlite.org/spellfix1.html#configeditdist)
+-  [configuration option](https://www.sqlite.org/c3ref/c_config_covering_index_scan.html)
+-  [conflict clause](https://www.sqlite.org/lang_conflict.html)
+-  [conflict resolution algorithm](https://www.sqlite.org/lang_conflict.html)
+-  [conflict resolution mode](https://www.sqlite.org/c3ref/c_fail.html)
+-  [conflict-clause](https://www.sqlite.org/syntax/conflict-clause.html)
+-  [conflict-clause syntax diagram](https://www.sqlite.org/syntax/conflict-clause.html)
+-  [.connection](https://www.sqlite.org/cli.html#dotconn)
+-  [constant-propagation optimization](https://www.sqlite.org/optoverview.html#constprop)
+-  [contentless fts4 tables](https://www.sqlite.org/fts3.html#_contentless_fts4_tables_)
+-  [contentless-delete](https://www.sqlite.org/fts5.html#clssdeltab)
+-  [copy method](https://www.sqlite.org/tclsqlite.html#copy)
+-  [copyright](https://www.sqlite.org/copyright.html)
+-  [Core Functions](https://www.sqlite.org/lang_corefunc.html)
+-  [core URI query parameters](https://www.sqlite.org/c3ref/open.html#coreuriqueryparameters)
+-  [correlated subqueries](https://www.sqlite.org/lang_expr.html#cosub)
+-  [cos() SQL function](https://www.sqlite.org/lang_mathfunc.html#cos)
+-  [cosh() SQL function](https://www.sqlite.org/lang_mathfunc.html#cosh)
+-  [count() aggregate function](https://www.sqlite.org/lang_aggfunc.html#count)
+-  [count_changes pragma](https://www.sqlite.org/pragma.html#pragma_count_changes)
+-  [coverage testing vs. fuzz testing](https://www.sqlite.org/testing.html#tension)
+-  [covering index](https://www.sqlite.org/queryplanner.html#covidx)
+-  [covering indexes](https://www.sqlite.org/queryplanner.html#covidx)
+-  [covering indices](https://www.sqlite.org/queryplanner.html#covidx)
+-  [CPU cycles used](https://www.sqlite.org/cpu.html)
+-  [CPU performance measurement](https://www.sqlite.org/cpu.html)
+-  [CREATE INDEX](https://www.sqlite.org/lang_createindex.html)
+-  [CREATE TABLE](https://www.sqlite.org/lang_createtable.html)
+-  [CREATE TABLE AS](https://www.sqlite.org/lang_createtable.html#createtabas)
+-  [CREATE TRIGGER](https://www.sqlite.org/lang_createtrigger.html)
+-  [CREATE VIEW](https://www.sqlite.org/lang_createview.html)
+-  [CREATE VIRTUAL TABLE](https://www.sqlite.org/lang_createvtab.html)
+-  [create-index-stmt](https://www.sqlite.org/syntax/create-index-stmt.html)
+-  [create-index-stmt syntax diagram](https://www.sqlite.org/syntax/create-index-stmt.html)
+-  [create-table-stmt](https://www.sqlite.org/syntax/create-table-stmt.html)
+-  [create-table-stmt syntax diagram](https://www.sqlite.org/syntax/create-table-stmt.html)
+-  [create-trigger-stmt](https://www.sqlite.org/syntax/create-trigger-stmt.html)
+-  [create-trigger-stmt syntax diagram](https://www.sqlite.org/syntax/create-trigger-stmt.html)
+-  [create-view-stmt](https://www.sqlite.org/syntax/create-view-stmt.html)
+-  [create-view-stmt syntax diagram](https://www.sqlite.org/syntax/create-view-stmt.html)
+-  [create-virtual-table-stmt](https://www.sqlite.org/syntax/create-virtual-table-stmt.html)
+-  [create-virtual-table-stmt syntax diagram](https://www.sqlite.org/syntax/create-virtual-table-stmt.html)
+-  [crew](https://www.sqlite.org/crew.html)
+-  [CROSS JOIN](https://www.sqlite.org/optoverview.html#crossjoin)
+-  [csv](https://www.sqlite.org/csv.html)
+-  [CSV export](https://www.sqlite.org/cli.html#csvout)
+-  [CSV import](https://www.sqlite.org/cli.html#csv)
+-  [CSV virtual table](https://www.sqlite.org/csv.html)
+-  [cte-table-name](https://www.sqlite.org/syntax/cte-table-name.html)
+-  [cte-table-name syntax diagram](https://www.sqlite.org/syntax/cte-table-name.html)
+-  [custom auxiliary functions](https://www.sqlite.org/fts5.html#custom_auxiliary_functions_api_reference)
+-  [custom auxiliary overview](https://www.sqlite.org/fts5.html#custom_auxiliary_functions_api_overview)
+-  [custom builds](https://www.sqlite.org/custombuild.html)
+-  [custom r-tree queries](https://www.sqlite.org/rtree.html#customquery)
+-  [custom SQL function](https://www.sqlite.org/appfunc.html)
+-  [custom tokenizers](https://www.sqlite.org/fts5.html#custom_tokenizers)
+-  [custom virtual tables](https://www.sqlite.org/vtab.html#customvtab)
+-  [CVEs](https://www.sqlite.org/cves.html)
+-  [Dan Kennedy](https://www.sqlite.org/crew.html#dan)
+-  [data container](https://www.sqlite.org/whentouse.html#container)
+-  [data transfer format](https://www.sqlite.org/whentouse.html#wireproto)
+-  [data_store_directory pragma](https://www.sqlite.org/pragma.html#pragma_data_store_directory)
+-  [data_version pragma](https://www.sqlite.org/pragma.html#pragma_data_version)
+-  [database as container object](https://www.sqlite.org/sqlar.html#dbasobj)
+-  [database as object](https://www.sqlite.org/sqlar.html#dbasobj)
+-  [database connection](https://www.sqlite.org/c3ref/sqlite3.html)
+-  [database corruption caused by inconsistent use of 8+3 filenames](https://www.sqlite.org/shortnames.html#db83corrupt)
+-  [database filename aliasing](https://www.sqlite.org/howtocorrupt.html#alias)
+-  [database header](https://www.sqlite.org/fileformat2.html#database_header)
+-  [database_list pragma](https://www.sqlite.org/pragma.html#pragma_database_list)
+-  [.databases](https://www.sqlite.org/cli.html#dotdatabases)
+-  [.databases command](https://www.sqlite.org/cli.html#dotdatabases)
+-  [datatype](https://www.sqlite.org/datatype3.html)
+-  [date and time datatype](https://www.sqlite.org/datatype3.html#datetime)
+-  [date and time functions](https://www.sqlite.org/lang_datefunc.html)
+-  [date()](https://www.sqlite.org/lang_datefunc.html#dttm)
+-  [date() SQL function](https://www.sqlite.org/lang_datefunc.html#dttm)
+-  [date/time modifiers](https://www.sqlite.org/lang_datefunc.html#dtmods)
+-  [date/time special case](https://www.sqlite.org/deterministic.html#dtexception)
+-  [datetime()](https://www.sqlite.org/lang_datefunc.html#dttm)
+-  [datetime() SQL function](https://www.sqlite.org/lang_datefunc.html#dttm)
+-  [dbghints](https://www.sqlite.org/debugging.html)
+-  [dbhash](https://www.sqlite.org/dbhash.html)
+-  [dbhash.exe](https://www.sqlite.org/dbhash.html)
+-  [dbsqlfuzz](https://www.sqlite.org/testing.html#dbsqlfuzz)
+-  [dbstat](https://www.sqlite.org/dbstat.html)
+-  [DBSTAT aggregated mode](https://www.sqlite.org/dbstat.html#dbstatagg)
+-  [dbstat virtual table](https://www.sqlite.org/dbstat.html)
+-  [debugging hints](https://www.sqlite.org/debugging.html)
+-  [debugging memory allocator](https://www.sqlite.org/malloc.html#memdebug)
+-  [decimal extension](https://www.sqlite.org/floatingpoint.html#decext)
+-  [decision checklist](https://www.sqlite.org/whentouse.html#dbcklst)
+-  [DEFAULT clauses](https://www.sqlite.org/lang_createtable.html#dfltval)
+-  [default column value](https://www.sqlite.org/lang_createtable.html#dfltval)
+-  [default memory allocator](https://www.sqlite.org/malloc.html#defaultalloc)
+-  [default value](https://www.sqlite.org/lang_createtable.html#dfltval)
+-  [default_cache_size pragma](https://www.sqlite.org/pragma.html#pragma_default_cache_size)
+-  [defense against dark arts](https://www.sqlite.org/security.html)
+-  [defense against the dark arts](https://www.sqlite.org/security.html)
+-  [defensive code](https://www.sqlite.org/testing.html#defcode)
+-  [defer_foreign_keys pragma](https://www.sqlite.org/pragma.html#pragma_defer_foreign_keys)
+-  [degrees() SQL function](https://www.sqlite.org/lang_mathfunc.html#degrees)
+-  [delete-stmt](https://www.sqlite.org/syntax/delete-stmt.html)
+-  [delete-stmt syntax diagram](https://www.sqlite.org/syntax/delete-stmt.html)
+-  [delete-stmt-limited](https://www.sqlite.org/syntax/delete-stmt-limited.html)
+-  [delete-stmt-limited syntax diagram](https://www.sqlite.org/syntax/delete-stmt-limited.html)
+-  [deletemerge](https://www.sqlite.org/fts5.html#the_deletemerge_configuration_option)
+-  [deleting a hot journal](https://www.sqlite.org/howtocorrupt.html#delhotjrnl)
+-  [deprecated](https://www.sqlite.org/c3ref/experimental.html)
+-  [DESC](https://www.sqlite.org/lang_createindex.html#descidx)
+-  [descending index](https://www.sqlite.org/lang_createindex.html#descidx)
+-  [descending indexes](https://www.sqlite.org/lang_createindex.html#descidx)
+-  [descending indices](https://www.sqlite.org/lang_createindex.html#descidx)
+-  [deserialize method](https://www.sqlite.org/tclsqlite.html#deserialize)
+-  [DETACH DATABASE](https://www.sqlite.org/lang_detach.html)
+-  [detach-stmt](https://www.sqlite.org/syntax/detach-stmt.html)
+-  [detach-stmt syntax diagram](https://www.sqlite.org/syntax/detach-stmt.html)
+-  [deterministic function](https://www.sqlite.org/deterministic.html)
+-  [deterministic SQL functions](https://www.sqlite.org/deterministic.html)
+-  [-DHAVE_FDATASYNC](https://www.sqlite.org/compile.html#fdatasync)
+-  [-DHAVE_GMTIME_R](https://www.sqlite.org/compile.html#gmtime_r)
+-  [-DHAVE_ISNAN](https://www.sqlite.org/compile.html#isnan)
+-  [-DHAVE_LOCALTIME_R](https://www.sqlite.org/compile.html#localtime_r)
+-  [-DHAVE_LOCALTIME_S](https://www.sqlite.org/compile.html#localtime_s)
+-  [-DHAVE_MALLOC_USABLE_SIZE](https://www.sqlite.org/compile.html#malloc_usable_size)
+-  [-DHAVE_SQLITE_CONFIG_H](https://www.sqlite.org/compile.html#sqlite_config_h)
+-  [-DHAVE_STRCHRNUL](https://www.sqlite.org/compile.html#strchrnul)
+-  [-DHAVE_UTIME](https://www.sqlite.org/compile.html#utime)
+-  [DISTINCT](https://www.sqlite.org/lang_select.html#distinct)
+-  [documents by category](https://www.sqlite.org/docs.html)
+-  [dot-commands](https://www.sqlite.org/cli.html#dotcmd)
+-  [double-quoted string literal](https://www.sqlite.org/quirks.html#dblquote)
+-  [double-quoted string misfeature](https://www.sqlite.org/quirks.html#dblquote)
+-  [download page](https://www.sqlite.org/download.html)
+-  [drop column](https://www.sqlite.org/lang_altertable.html#altertabdropcol)
+-  [DROP INDEX](https://www.sqlite.org/lang_dropindex.html)
+-  [DROP TABLE](https://www.sqlite.org/lang_droptable.html)
+-  [DROP TRIGGER](https://www.sqlite.org/lang_droptrigger.html)
+-  [DROP VIEW](https://www.sqlite.org/lang_dropview.html)
+-  [drop-index-stmt](https://www.sqlite.org/syntax/drop-index-stmt.html)
+-  [drop-index-stmt syntax diagram](https://www.sqlite.org/syntax/drop-index-stmt.html)
+-  [drop-table-stmt](https://www.sqlite.org/syntax/drop-table-stmt.html)
+-  [drop-table-stmt syntax diagram](https://www.sqlite.org/syntax/drop-table-stmt.html)
+-  [drop-trigger-stmt](https://www.sqlite.org/syntax/drop-trigger-stmt.html)
+-  [drop-trigger-stmt syntax diagram](https://www.sqlite.org/syntax/drop-trigger-stmt.html)
+-  [drop-view-stmt](https://www.sqlite.org/syntax/drop-view-stmt.html)
+-  [drop-view-stmt syntax diagram](https://www.sqlite.org/syntax/drop-view-stmt.html)
+-  [-DSQLITE_4_BYTE_ALIGNED_MALLOC](https://www.sqlite.org/compile.html#4_byte_aligned_malloc)
+-  [-DSQLITE_ALLOW_COVERING_INDEX_SCAN](https://www.sqlite.org/compile.html#allow_covering_index_scan)
+-  [-DSQLITE_ALLOW_URI_AUTHORITY](https://www.sqlite.org/compile.html#allow_uri_authority)
+-  [-DSQLITE_API](https://www.sqlite.org/compile.html#api)
+-  [-DSQLITE_APICALL](https://www.sqlite.org/compile.html#apicall)
+-  [-DSQLITE_BYTEORDER](https://www.sqlite.org/compile.html#byteorder)
+-  [-DSQLITE_CALLBACK](https://www.sqlite.org/compile.html#callback)
+-  [-DSQLITE_CASE_SENSITIVE_LIKE](https://www.sqlite.org/compile.html#case_sensitive_like)
+-  [-DSQLITE_CDECL](https://www.sqlite.org/compile.html#cdecl)
+-  [-DSQLITE_DEBUG](https://www.sqlite.org/compile.html#debug)
+-  [-DSQLITE_DEFAULT_AUTOMATIC_INDEX](https://www.sqlite.org/compile.html#default_automatic_index)
+-  [-DSQLITE_DEFAULT_AUTOVACUUM](https://www.sqlite.org/compile.html#default_autovacuum)
+-  [-DSQLITE_DEFAULT_CACHE_SIZE](https://www.sqlite.org/compile.html#default_cache_size)
+-  [-DSQLITE_DEFAULT_FILE_FORMAT](https://www.sqlite.org/compile.html#default_file_format)
+-  [-DSQLITE_DEFAULT_FILE_PERMISSIONS](https://www.sqlite.org/compile.html#default_file_permissions)
+-  [-DSQLITE_DEFAULT_FOREIGN_KEYS](https://www.sqlite.org/compile.html#default_foreign_keys)
+-  [-DSQLITE_DEFAULT_JOURNAL_SIZE_LIMIT](https://www.sqlite.org/compile.html#default_journal_size_limit)
+-  [-DSQLITE_DEFAULT_LOCKING_MODE](https://www.sqlite.org/compile.html#default_locking_mode)
+-  [-DSQLITE_DEFAULT_LOOKASIDE](https://www.sqlite.org/compile.html#default_lookaside)
+-  [-DSQLITE_DEFAULT_MEMSTATUS](https://www.sqlite.org/compile.html#default_memstatus)
+-  [-DSQLITE_DEFAULT_MMAP_SIZE](https://www.sqlite.org/compile.html#default_mmap_size)
+-  [-DSQLITE_DEFAULT_PAGE_SIZE](https://www.sqlite.org/compile.html#default_page_size)
+-  [-DSQLITE_DEFAULT_PCACHE_INITSZ](https://www.sqlite.org/compile.html#default_pcache_initsz)
+-  [-DSQLITE_DEFAULT_SYNCHRONOUS](https://www.sqlite.org/compile.html#default_synchronous)
+-  [-DSQLITE_DEFAULT_WAL_AUTOCHECKPOINT](https://www.sqlite.org/compile.html#default_wal_autocheckpoint)
+-  [-DSQLITE_DEFAULT_WAL_SYNCHRONOUS](https://www.sqlite.org/compile.html#default_wal_synchronous)
+-  [-DSQLITE_DEFAULT_WORKER_THREADS](https://www.sqlite.org/compile.html#default_worker_threads)
+-  [-DSQLITE_DIRECT_OVERFLOW_READ](https://www.sqlite.org/compile.html#direct_overflow_read)
+-  [-DSQLITE_DISABLE_DIRSYNC](https://www.sqlite.org/compile.html#disable_dirsync)
+-  [-DSQLITE_DISABLE_FTS3_UNICODE](https://www.sqlite.org/compile.html#disable_fts3_unicode)
+-  [-DSQLITE_DISABLE_FTS4_DEFERRED](https://www.sqlite.org/compile.html#disable_fts4_deferred)
+-  [-DSQLITE_DISABLE_INTRINSIC](https://www.sqlite.org/compile.html#disable_intrinsic)
+-  [-DSQLITE_DISABLE_LFS](https://www.sqlite.org/compile.html#disable_lfs)
+-  [-DSQLITE_DISABLE_PAGECACHE_OVERFLOW_STATS](https://www.sqlite.org/compile.html#disable_pagecache_overflow_stats)
+-  [-DSQLITE_DQS](https://www.sqlite.org/compile.html#dqs)
+-  [-DSQLITE_ENABLE_8_3_NAMES](https://www.sqlite.org/compile.html#enable_8_3_names)
+-  [-DSQLITE_ENABLE_API_ARMOR](https://www.sqlite.org/compile.html#enable_api_armor)
+-  [-DSQLITE_ENABLE_ATOMIC_WRITE](https://www.sqlite.org/compile.html#enable_atomic_write)
+-  [-DSQLITE_ENABLE_BATCH_ATOMIC_WRITE](https://www.sqlite.org/compile.html#enable_batch_atomic_write)
+-  [-DSQLITE_ENABLE_BYTECODE_VTAB](https://www.sqlite.org/compile.html#enable_bytecode_vtab)
+-  [-DSQLITE_ENABLE_COLUMN_METADATA](https://www.sqlite.org/compile.html#enable_column_metadata)
+-  [-DSQLITE_ENABLE_DBPAGE_VTAB](https://www.sqlite.org/compile.html#enable_dbpage_vtab)
+-  [-DSQLITE_ENABLE_DBSTAT_VTAB](https://www.sqlite.org/compile.html#enable_dbstat_vtab)
+-  [-DSQLITE_ENABLE_DESERIALIZE](https://www.sqlite.org/compile.html#enable_deserialize)
+-  [-DSQLITE_ENABLE_EXPLAIN_COMMENTS](https://www.sqlite.org/compile.html#enable_explain_comments)
+-  [-DSQLITE_ENABLE_FTS3](https://www.sqlite.org/compile.html#enable_fts3)
+-  [-DSQLITE_ENABLE_FTS3_PARENTHESIS](https://www.sqlite.org/compile.html#enable_fts3_parenthesis)
+-  [-DSQLITE_ENABLE_FTS3_TOKENIZER](https://www.sqlite.org/compile.html#enable_fts3_tokenizer)
+-  [-DSQLITE_ENABLE_FTS4](https://www.sqlite.org/compile.html#enable_fts4)
+-  [-DSQLITE_ENABLE_FTS5](https://www.sqlite.org/compile.html#enable_fts5)
+-  [-DSQLITE_ENABLE_GEOPOLY](https://www.sqlite.org/compile.html#enable_geopoly)
+-  [-DSQLITE_ENABLE_HIDDEN_COLUMNS](https://www.sqlite.org/compile.html#enable_hidden_columns)
+-  [-DSQLITE_ENABLE_ICU](https://www.sqlite.org/compile.html#enable_icu)
+-  [-DSQLITE_ENABLE_IOTRACE](https://www.sqlite.org/compile.html#enable_iotrace)
+-  [-DSQLITE_ENABLE_JSON1](https://www.sqlite.org/compile.html#enable_json1)
+-  [-DSQLITE_ENABLE_LOCKING_STYLE](https://www.sqlite.org/compile.html#enable_locking_style)
+-  [-DSQLITE_ENABLE_MATH_FUNCTIONS](https://www.sqlite.org/compile.html#enable_math_functions)
+-  [-DSQLITE_ENABLE_MEMORY_MANAGEMENT](https://www.sqlite.org/compile.html#enable_memory_management)
+-  [-DSQLITE_ENABLE_MEMSYS3](https://www.sqlite.org/compile.html#enable_memsys3)
+-  [-DSQLITE_ENABLE_MEMSYS5](https://www.sqlite.org/compile.html#enable_memsys5)
+-  [-DSQLITE_ENABLE_NORMALIZE](https://www.sqlite.org/compile.html#enable_normalize)
+-  [-DSQLITE_ENABLE_NULL_TRIM](https://www.sqlite.org/compile.html#enable_null_trim)
+-  [-DSQLITE_ENABLE_OFFSET_SQL_FUNC](https://www.sqlite.org/compile.html#enable_offset_sql_func)
+-  [-DSQLITE_ENABLE_PREUPDATE_HOOK](https://www.sqlite.org/compile.html#enable_preupdate_hook)
+-  [-DSQLITE_ENABLE_QPSG](https://www.sqlite.org/compile.html#enable_qpsg)
+-  [-DSQLITE_ENABLE_RBU](https://www.sqlite.org/compile.html#enable_rbu)
+-  [-DSQLITE_ENABLE_RTREE](https://www.sqlite.org/compile.html#enable_rtree)
+-  [-DSQLITE_ENABLE_SESSION](https://www.sqlite.org/compile.html#enable_session)
+-  [-DSQLITE_ENABLE_SNAPSHOT](https://www.sqlite.org/compile.html#enable_snapshot)
+-  [-DSQLITE_ENABLE_SORTER_REFERENCES](https://www.sqlite.org/compile.html#enable_sorter_references)
+-  [-DSQLITE_ENABLE_SQLLOG](https://www.sqlite.org/compile.html#enable_sqllog)
+-  [-DSQLITE_ENABLE_STAT2](https://www.sqlite.org/compile.html#enable_stat2)
+-  [-DSQLITE_ENABLE_STAT3](https://www.sqlite.org/compile.html#enable_stat3)
+-  [-DSQLITE_ENABLE_STAT4](https://www.sqlite.org/compile.html#enable_stat4)
+-  [-DSQLITE_ENABLE_STMT_SCANSTATUS](https://www.sqlite.org/compile.html#enable_stmt_scanstatus)
+-  [-DSQLITE_ENABLE_STMTVTAB](https://www.sqlite.org/compile.html#enable_stmtvtab)
+-  [-DSQLITE_ENABLE_TREE_EXPLAIN](https://www.sqlite.org/compile.html#enable_tree_explain)
+-  [-DSQLITE_ENABLE_UNKNOWN_SQL_FUNCTION](https://www.sqlite.org/compile.html#enable_unknown_sql_function)
+-  [-DSQLITE_ENABLE_UNLOCK_NOTIFY](https://www.sqlite.org/compile.html#enable_unlock_notify)
+-  [-DSQLITE_ENABLE_UPDATE_DELETE_LIMIT](https://www.sqlite.org/compile.html#enable_update_delete_limit)
+-  [-DSQLITE_EXTERN](https://www.sqlite.org/compile.html#extern)
+-  [-DSQLITE_EXTRA_DURABLE](https://www.sqlite.org/compile.html#extra_durable)
+-  [-DSQLITE_FTS3_MAX_EXPR_DEPTH](https://www.sqlite.org/compile.html#fts3_max_expr_depth)
+-  [-DSQLITE_HAVE_ISNAN](https://www.sqlite.org/compile.html#have_isnan)
+-  [-DSQLITE_HAVE_ZLIB](https://www.sqlite.org/compile.html#have_zlib)
+-  [-DSQLITE_INTROSPECTION_PRAGMAS](https://www.sqlite.org/compile.html#introspection_pragmas)
+-  [-DSQLITE_JSON_MAX_DEPTH](https://www.sqlite.org/compile.html#json_max_depth)
+-  [-DSQLITE_LIKE_DOESNT_MATCH_BLOBS](https://www.sqlite.org/compile.html#like_doesnt_match_blobs)
+-  [-DSQLITE_MAX_ALLOCATION_SIZE](https://www.sqlite.org/compile.html#max_allocation_size)
+-  [-DSQLITE_MAX_MEMORY](https://www.sqlite.org/compile.html#max_memory)
+-  [-DSQLITE_MAX_MMAP_SIZE](https://www.sqlite.org/compile.html#max_mmap_size)
+-  [-DSQLITE_MAX_SCHEMA_RETRY](https://www.sqlite.org/compile.html#max_schema_retry)
+-  [-DSQLITE_MAX_WORKER_THREADS](https://www.sqlite.org/compile.html#max_worker_threads)
+-  [-DSQLITE_MEMDB_DEFAULT_MAXSIZE](https://www.sqlite.org/compile.html#memdb_default_maxsize)
+-  [-DSQLITE_MEMDEBUG](https://www.sqlite.org/compile.html#memdebug)
+-  [-DSQLITE_MINIMUM_FILE_DESCRIPTOR](https://www.sqlite.org/compile.html#minimum_file_descriptor)
+-  [-DSQLITE_OMIT_ALTERTABLE](https://www.sqlite.org/compile.html#omit_altertable)
+-  [-DSQLITE_OMIT_ANALYZE](https://www.sqlite.org/compile.html#omit_analyze)
+-  [-DSQLITE_OMIT_ATTACH](https://www.sqlite.org/compile.html#omit_attach)
+-  [-DSQLITE_OMIT_AUTHORIZATION](https://www.sqlite.org/compile.html#omit_authorization)
+-  [-DSQLITE_OMIT_AUTOINCREMENT](https://www.sqlite.org/compile.html#omit_autoincrement)
+-  [-DSQLITE_OMIT_AUTOINIT](https://www.sqlite.org/compile.html#omit_autoinit)
+-  [-DSQLITE_OMIT_AUTOMATIC_INDEX](https://www.sqlite.org/compile.html#omit_automatic_index)
+-  [-DSQLITE_OMIT_AUTORESET](https://www.sqlite.org/compile.html#omit_autoreset)
+-  [-DSQLITE_OMIT_AUTOVACUUM](https://www.sqlite.org/compile.html#omit_autovacuum)
+-  [-DSQLITE_OMIT_BETWEEN_OPTIMIZATION](https://www.sqlite.org/compile.html#omit_between_optimization)
+-  [-DSQLITE_OMIT_BLOB_LITERAL](https://www.sqlite.org/compile.html#omit_blob_literal)
+-  [-DSQLITE_OMIT_BTREECOUNT](https://www.sqlite.org/compile.html#omit_btreecount)
+-  [-DSQLITE_OMIT_BUILTIN_TEST](https://www.sqlite.org/compile.html#omit_builtin_test)
+-  [-DSQLITE_OMIT_CASE_SENSITIVE_LIKE_PRAGMA](https://www.sqlite.org/compile.html#omit_case_sensitive_like_pragma)
+-  [-DSQLITE_OMIT_CAST](https://www.sqlite.org/compile.html#omit_cast)
+-  [-DSQLITE_OMIT_CHECK](https://www.sqlite.org/compile.html#omit_check)
+-  [-DSQLITE_OMIT_COMPILEOPTION_DIAGS](https://www.sqlite.org/compile.html#omit_compileoption_diags)
+-  [-DSQLITE_OMIT_COMPLETE](https://www.sqlite.org/compile.html#omit_complete)
+-  [-DSQLITE_OMIT_COMPOUND_SELECT](https://www.sqlite.org/compile.html#omit_compound_select)
+-  [-DSQLITE_OMIT_CTE](https://www.sqlite.org/compile.html#omit_cte)
+-  [-DSQLITE_OMIT_DATETIME_FUNCS](https://www.sqlite.org/compile.html#omit_datetime_funcs)
+-  [-DSQLITE_OMIT_DECLTYPE](https://www.sqlite.org/compile.html#omit_decltype)
+-  [-DSQLITE_OMIT_DEPRECATED](https://www.sqlite.org/compile.html#omit_deprecated)
+-  [-DSQLITE_OMIT_DESERIALIZE](https://www.sqlite.org/compile.html#omit_deserialize)
+-  [-DSQLITE_OMIT_DISKIO](https://www.sqlite.org/compile.html#omit_diskio)
+-  [-DSQLITE_OMIT_EXPLAIN](https://www.sqlite.org/compile.html#omit_explain)
+-  [-DSQLITE_OMIT_FLAG_PRAGMAS](https://www.sqlite.org/compile.html#omit_flag_pragmas)
+-  [-DSQLITE_OMIT_FLOATING_POINT](https://www.sqlite.org/compile.html#omit_floating_point)
+-  [-DSQLITE_OMIT_FOREIGN_KEY](https://www.sqlite.org/compile.html#omit_foreign_key)
+-  [-DSQLITE_OMIT_GENERATED_COLUMNS](https://www.sqlite.org/compile.html#omit_generated_columns)
+-  [-DSQLITE_OMIT_GET_TABLE](https://www.sqlite.org/compile.html#omit_get_table)
+-  [-DSQLITE_OMIT_HEX_INTEGER](https://www.sqlite.org/compile.html#omit_hex_integer)
+-  [-DSQLITE_OMIT_INCRBLOB](https://www.sqlite.org/compile.html#omit_incrblob)
+-  [-DSQLITE_OMIT_INTEGRITY_CHECK](https://www.sqlite.org/compile.html#omit_integrity_check)
+-  [-DSQLITE_OMIT_INTROSPECTION_PRAGMAS](https://www.sqlite.org/compile.html#omit_introspection_pragmas)
+-  [-DSQLITE_OMIT_JSON](https://www.sqlite.org/compile.html#omit_json)
+-  [-DSQLITE_OMIT_LIKE_OPTIMIZATION](https://www.sqlite.org/compile.html#omit_like_optimization)
+-  [-DSQLITE_OMIT_LOAD_EXTENSION](https://www.sqlite.org/compile.html#omit_load_extension)
+-  [-DSQLITE_OMIT_LOCALTIME](https://www.sqlite.org/compile.html#omit_localtime)
+-  [-DSQLITE_OMIT_LOOKASIDE](https://www.sqlite.org/compile.html#omit_lookaside)
+-  [-DSQLITE_OMIT_MEMORYDB](https://www.sqlite.org/compile.html#omit_memorydb)
+-  [-DSQLITE_OMIT_OR_OPTIMIZATION](https://www.sqlite.org/compile.html#omit_or_optimization)
+-  [-DSQLITE_OMIT_PAGER_PRAGMAS](https://www.sqlite.org/compile.html#omit_pager_pragmas)
+-  [-DSQLITE_OMIT_PRAGMA](https://www.sqlite.org/compile.html#omit_pragma)
+-  [-DSQLITE_OMIT_PROGRESS_CALLBACK](https://www.sqlite.org/compile.html#omit_progress_callback)
+-  [-DSQLITE_OMIT_QUICKBALANCE](https://www.sqlite.org/compile.html#omit_quickbalance)
+-  [-DSQLITE_OMIT_REINDEX](https://www.sqlite.org/compile.html#omit_reindex)
+-  [-DSQLITE_OMIT_SCHEMA_PRAGMAS](https://www.sqlite.org/compile.html#omit_schema_pragmas)
+-  [-DSQLITE_OMIT_SCHEMA_VERSION_PRAGMAS](https://www.sqlite.org/compile.html#omit_schema_version_pragmas)
+-  [-DSQLITE_OMIT_SHARED_CACHE](https://www.sqlite.org/compile.html#omit_shared_cache)
+-  [-DSQLITE_OMIT_SUBQUERY](https://www.sqlite.org/compile.html#omit_subquery)
+-  [-DSQLITE_OMIT_TCL_VARIABLE](https://www.sqlite.org/compile.html#omit_tcl_variable)
+-  [-DSQLITE_OMIT_TEMPDB](https://www.sqlite.org/compile.html#omit_tempdb)
+-  [-DSQLITE_OMIT_TRACE](https://www.sqlite.org/compile.html#omit_trace)
+-  [-DSQLITE_OMIT_TRIGGER](https://www.sqlite.org/compile.html#omit_trigger)
+-  [-DSQLITE_OMIT_TRUNCATE_OPTIMIZATION](https://www.sqlite.org/compile.html#omit_truncate_optimization)
+-  [-DSQLITE_OMIT_UTF16](https://www.sqlite.org/compile.html#omit_utf16)
+-  [-DSQLITE_OMIT_VACUUM](https://www.sqlite.org/compile.html#omit_vacuum)
+-  [-DSQLITE_OMIT_VIEW](https://www.sqlite.org/compile.html#omit_view)
+-  [-DSQLITE_OMIT_VIRTUALTABLE](https://www.sqlite.org/compile.html#omit_virtualtable)
+-  [-DSQLITE_OMIT_WAL](https://www.sqlite.org/compile.html#omit_wal)
+-  [-DSQLITE_OMIT_WINDOWFUNC](https://www.sqlite.org/compile.html#omit_windowfunc)
+-  [-DSQLITE_OMIT_WSD](https://www.sqlite.org/compile.html#omit_wsd)
+-  [-DSQLITE_OMIT_XFER_OPT](https://www.sqlite.org/compile.html#omit_xfer_opt)
+-  [-DSQLITE_OS_OTHER](https://www.sqlite.org/compile.html#os_other)
+-  [-DSQLITE_POWERSAFE_OVERWRITE](https://www.sqlite.org/compile.html#powersafe_overwrite)
+-  [-DSQLITE_PRINTF_PRECISION_LIMIT](https://www.sqlite.org/compile.html#printf_precision_limit)
+-  [-DSQLITE_QUERY_PLANNER_LIMIT](https://www.sqlite.org/compile.html#query_planner_limit)
+-  [-DSQLITE_QUERY_PLANNER_LIMIT_INCR](https://www.sqlite.org/compile.html#query_planner_limit_incr)
+-  [-DSQLITE_REVERSE_UNORDERED_SELECTS](https://www.sqlite.org/compile.html#reverse_unordered_selects)
+-  [-DSQLITE_RTREE_INT_ONLY](https://www.sqlite.org/compile.html#rtree_int_only)
+-  [-DSQLITE_SECURE_DELETE](https://www.sqlite.org/compile.html#secure_delete)
+-  [-DSQLITE_SORTER_PMASZ](https://www.sqlite.org/compile.html#sorter_pmasz)
+-  [-DSQLITE_SOUNDEX](https://www.sqlite.org/compile.html#soundex)
+-  [-DSQLITE_STDCALL](https://www.sqlite.org/compile.html#stdcall)
+-  [-DSQLITE_STMTJRNL_SPILL](https://www.sqlite.org/compile.html#stmtjrnl_spill)
+-  [-DSQLITE_STRICT_SUBTYPE](https://www.sqlite.org/compile.html#strict_subtype)
+-  [-DSQLITE_SYSAPI](https://www.sqlite.org/compile.html#sysapi)
+-  [-DSQLITE_TCLAPI](https://www.sqlite.org/compile.html#tclapi)
+-  [-DSQLITE_TEMP_STORE](https://www.sqlite.org/compile.html#temp_store)
+-  [-DSQLITE_THREADSAFE](https://www.sqlite.org/compile.html#threadsafe)
+-  [-DSQLITE_TRACE_SIZE_LIMIT](https://www.sqlite.org/compile.html#trace_size_limit)
+-  [-DSQLITE_TRUSTED_SCHEMA](https://www.sqlite.org/compile.html#trusted_schema)
+-  [-DSQLITE_UNTESTABLE](https://www.sqlite.org/compile.html#untestable)
+-  [-DSQLITE_USE_ALLOCA](https://www.sqlite.org/compile.html#use_alloca)
+-  [-DSQLITE_USE_FCNTL_TRACE](https://www.sqlite.org/compile.html#use_fcntl_trace)
+-  [-DSQLITE_USE_SEH](https://www.sqlite.org/compile.html#use_seh)
+-  [-DSQLITE_USE_URI](https://www.sqlite.org/compile.html#use_uri)
+-  [-DSQLITE_WIN32_HEAP_CREATE](https://www.sqlite.org/compile.html#win32_heap_create)
+-  [-DSQLITE_WIN32_MALLOC](https://www.sqlite.org/compile.html#win32_malloc)
+-  [-DSQLITE_WIN32_MALLOC_VALIDATE](https://www.sqlite.org/compile.html#win32_malloc_validate)
+-  [-DSQLITE_ZERO_MALLOC](https://www.sqlite.org/compile.html#zero_malloc)
+-  [.dump](https://www.sqlite.org/cli.html#dump)
+-  [dynamic string](https://www.sqlite.org/c3ref/str.html)
+-  [dynamic typing](https://www.sqlite.org/datatype3.html)
+-  [edit() SQL function](https://www.sqlite.org/cli.html#editfunc)
+-  [editdist3](https://www.sqlite.org/spellfix1.html#editdist3)
+-  [embedded](https://www.sqlite.org/serverless.html)
+-  [empty_result_callbacks pragma](https://www.sqlite.org/pragma.html#pragma_empty_result_callbacks)
+-  [enable_load_extension method](https://www.sqlite.org/tclsqlite.html#enable_load_extension)
+-  [encoding pragma](https://www.sqlite.org/pragma.html#pragma_encoding)
+-  [enhanced query syntax](https://www.sqlite.org/fts3.html#_set_operations_using_the_enhanced_query_syntax)
+-  [eponymous virtual table](https://www.sqlite.org/vtab.html#epovtab)
+-  [eponymous-only virtual table](https://www.sqlite.org/vtab.html#epoonlyvtab)
+-  [errlog](https://www.sqlite.org/errlog.html)
+-  [error code](https://www.sqlite.org/rescode.html)
+-  [error log](https://www.sqlite.org/errlog.html)
+-  [errorcode method](https://www.sqlite.org/tclsqlite.html#errorcode)
+-  [ESCAPE](https://www.sqlite.org/lang_expr.html#like)
+-  [eval method](https://www.sqlite.org/tclsqlite.html#eval)
+-  [.excel](https://www.sqlite.org/cli.html#dotexcel)
+-  [exclude clause](https://www.sqlite.org/windowfunctions.html#wexcls)
+-  [exclusive locking mode](https://www.sqlite.org/pragma.html#pragma_locking_mode)
+-  [exists method](https://www.sqlite.org/tclsqlite.html#exists)
+-  [EXISTS operator](https://www.sqlite.org/lang_expr.html#exists_op)
+-  [exp() SQL function](https://www.sqlite.org/lang_mathfunc.html#exp)
+-  [experimental](https://www.sqlite.org/c3ref/experimental.html)
+-  [experimental memory allocators](https://www.sqlite.org/malloc.html#memsysx)
+-  [.expert command](https://www.sqlite.org/cli.html#expert)
+-  [explain query plan](https://www.sqlite.org/eqp.html)
+-  [export to excel](https://www.sqlite.org/cli.html#exexcel*)
+-  [export to TSV](https://www.sqlite.org/cli.html#extsv*)
+-  [expr](https://www.sqlite.org/syntax/expr.html)
+-  [expr syntax diagram](https://www.sqlite.org/syntax/expr.html)
+-  [expression affinity](https://www.sqlite.org/datatype3.html#expraff)
+-  [expression index](https://www.sqlite.org/expridx.html)
+-  [expression indexes](https://www.sqlite.org/expridx.html)
+-  [expression syntax](https://www.sqlite.org/lang_expr.html)
+-  [extended error code](https://www.sqlite.org/rescode.html#extrc)
+-  [extended result code](https://www.sqlite.org/rescode.html#extrc)
+-  [extended result code definitions](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [Extending FTS5](https://www.sqlite.org/fts5.html#extending_fts5)
+-  [extension loading](https://www.sqlite.org/loadext.html)
+-  [external content fts4 tables](https://www.sqlite.org/fts3.html#_external_content_fts4_tables_)
+-  [extract](https://www.sqlite.org/lang_expr.html#extract)
+-  [factored-select-stmt](https://www.sqlite.org/syntax/factored-select-stmt.html)
+-  [factored-select-stmt syntax diagram](https://www.sqlite.org/syntax/factored-select-stmt.html)
+-  [faster than the filesystem](https://www.sqlite.org/fasterthanfs.html)
+-  [file control](https://www.sqlite.org/c3ref/file_control.html)
+-  [file control opcode](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html)
+-  [file format](https://www.sqlite.org/fileformat2.html)
+-  [file format version numbers](https://www.sqlite.org/fileformat2.html#vnums)
+-  [file I/O functions](https://www.sqlite.org/cli.html#fileio)
+-  [file locking and concurrency control](https://www.sqlite.org/lockingv3.html)
+-  [file locking states](https://www.sqlite.org/lockingv3.html#locking)
+-  [file-format benefits](https://www.sqlite.org/aff_short.html)
+-  [filesystem corruption](https://www.sqlite.org/howtocorrupt.html#fscorruption)
+-  [FILTER clause on aggregate functions](https://www.sqlite.org/lang_aggfunc.html#aggfilter)
+-  [filter-clause](https://www.sqlite.org/syntax/filter-clause.html)
+-  [filter-clause syntax diagram](https://www.sqlite.org/syntax/filter-clause.html)
+-  [flattened](https://www.sqlite.org/optoverview.html#flattening)
+-  [flattening optimization](https://www.sqlite.org/optoverview.html#flattening)
+-  [flexible type system](https://www.sqlite.org/datatype3.html)
+-  [Flexible typing is a feature](https://www.sqlite.org/flextypegood.html)
+-  [floor() SQL function](https://www.sqlite.org/lang_mathfunc.html#floor)
+-  [footprint](https://www.sqlite.org/footprint.html)
+-  [foreign key actions](https://www.sqlite.org/foreignkeys.html#fk_actions)
+-  [foreign key constraint](https://www.sqlite.org/foreignkeys.html)
+-  [foreign key constraints are enabled](https://www.sqlite.org/foreignkeys.html#fk_enable)
+-  [foreign-key-clause](https://www.sqlite.org/syntax/foreign-key-clause.html)
+-  [foreign-key-clause syntax diagram](https://www.sqlite.org/syntax/foreign-key-clause.html)
+-  [foreign_key_check pragma](https://www.sqlite.org/pragma.html#pragma_foreign_key_check)
+-  [foreign_key_list pragma](https://www.sqlite.org/pragma.html#pragma_foreign_key_list)
+-  [foreign_keys pragma](https://www.sqlite.org/pragma.html#pragma_foreign_keys)
+-  [format() SQL function](https://www.sqlite.org/lang_corefunc.html#format)
+-  [forum](https://www.sqlite.org/support.html#fx)
+-  [frame boundary](https://www.sqlite.org/windowfunctions.html#frameboundary)
+-  [frame specification](https://www.sqlite.org/windowfunctions.html#framespec)
+-  [frame type](https://www.sqlite.org/windowfunctions.html#frametype)
+-  [frame-spec](https://www.sqlite.org/syntax/frame-spec.html)
+-  [frame-spec syntax diagram](https://www.sqlite.org/syntax/frame-spec.html)
+-  [frames](https://www.sqlite.org/windowfunctions.html#framespec)
+-  [free-page list](https://www.sqlite.org/fileformat2.html#freelist)
+-  [freelist](https://www.sqlite.org/fileformat2.html#freelist)
+-  [freelist_count pragma](https://www.sqlite.org/pragma.html#pragma_freelist_count)
+-  [FROM clause](https://www.sqlite.org/lang_select.html#fromclause)
+-  [FTS auxiliary functions](https://www.sqlite.org/fts3.html#snippet)
+-  [FTS hidden column](https://www.sqlite.org/fts3.html#hiddencol)
+-  [FTS MATCH](https://www.sqlite.org/fts3.html#full_text_index_queries)
+-  [FTS shadow tables](https://www.sqlite.org/fts3.html#*shadowtab)
+-  [fts3_tokenizer](https://www.sqlite.org/fts3.html#f3tknzr)
+-  [fts3tokenize](https://www.sqlite.org/fts3.html#fts3tok)
+-  [fts3tokenize virtual table](https://www.sqlite.org/fts3.html#fts3tok)
+-  [FTS4](https://www.sqlite.org/fts3.html#fts4)
+-  [FTS4 "automerge" command](https://www.sqlite.org/fts3.html#*fts4automergecmd)
+-  [FTS4 "integrity-check" command](https://www.sqlite.org/fts3.html#*fts4ickcmd)
+-  [FTS4 "merge" command](https://www.sqlite.org/fts3.html#*fts4mergecmd)
+-  [FTS4 "optimize" command](https://www.sqlite.org/fts3.html#*fts4optcmd)
+-  [FTS4 "rebuild" command](https://www.sqlite.org/fts3.html#*fts4rebuidcmd)
+-  [FTS4 commands](https://www.sqlite.org/fts3.html#*cmds)
+-  [fts4 compress option](https://www.sqlite.org/fts3.html#the_compress_and_uncompress_options)
+-  [FTS4 content option](https://www.sqlite.org/fts3.html#*fts4content)
+-  [FTS4 languageid option](https://www.sqlite.org/fts3.html#*fts4languageid)
+-  [FTS4 matchinfo option](https://www.sqlite.org/fts3.html#fts4matchinfo)
+-  [FTS4 notindexed option](https://www.sqlite.org/fts3.html#fts4notindexed)
+-  [FTS4 options](https://www.sqlite.org/fts3.html#fts4_options)
+-  [FTS4 order option](https://www.sqlite.org/fts3.html#fts4order)
+-  [FTS4 prefix option](https://www.sqlite.org/fts3.html#fts4prefix)
+-  [fts4aux](https://www.sqlite.org/fts3.html#fts4aux)
+-  [fts4aux languageid column](https://www.sqlite.org/fts3.html#f4alid)
+-  [FTS5 automerge option](https://www.sqlite.org/fts5.html#the_automerge_configuration_option)
+-  [FTS5 auxiliary functions](https://www.sqlite.org/fts5.html#_auxiliary_functions_)
+-  [FTS5 bm25](https://www.sqlite.org/fts5.html#the_bm25_function)
+-  [FTS5 boolean operators](https://www.sqlite.org/fts5.html#fts5_boolean_operators)
+-  [FTS5 building](https://www.sqlite.org/fts5.html#compiling_and_using_fts5)
+-  [FTS5 column filters](https://www.sqlite.org/fts5.html#fts5_column_filters)
+-  [FTS5 columnsize option](https://www.sqlite.org/fts5.html#the_columnsize_option)
+-  [FTS5 content option](https://www.sqlite.org/fts5.html#external_content_and_contentless_tables)
+-  [FTS5 contentless tables](https://www.sqlite.org/fts5.html#contentless_tables)
+-  [FTS5 contentless-delete tables](https://www.sqlite.org/fts5.html#contentless_delete_tables)
+-  [FTS5 CREATE TABLE Options](https://www.sqlite.org/fts5.html#fts5_table_creation_and_initialization)
+-  [FTS5 custom auxiliary functions](https://www.sqlite.org/fts5.html#custom_auxiliary_functions)
+-  [FTS5 delete command](https://www.sqlite.org/fts5.html#the_delete_command)
+-  [FTS5 delete-all command](https://www.sqlite.org/fts5.html#the_delete_all_command)
+-  [FTS5 detail option](https://www.sqlite.org/fts5.html#the_detail_option)
+-  [FTS5 external content pitfalls](https://www.sqlite.org/fts5.html#external_content_table_pitfalls)
+-  [FTS5 external content tables](https://www.sqlite.org/fts5.html#external_content_tables)
+-  [FTS5 highlight](https://www.sqlite.org/fts5.html#the_highlight_function)
+-  [FTS5 initial token](https://www.sqlite.org/fts5.html#carrotq)
+-  [FTS5 initial token queries](https://www.sqlite.org/fts5.html#fts5_initial_token_queries)
+-  [FTS5 merge command](https://www.sqlite.org/fts5.html#the_merge_command)
+-  [FTS5 NEAR queries](https://www.sqlite.org/fts5.html#fts5_near_queries)
+-  [FTS5 optimize command](https://www.sqlite.org/fts5.html#the_optimize_command)
+-  [FTS5 pgsz option](https://www.sqlite.org/fts5.html#the_pgsz_configuration_option)
+-  [FTS5 Phrases](https://www.sqlite.org/fts5.html#fts5_phrases)
+-  [FTS5 prefix indexes](https://www.sqlite.org/fts5.html#prefix_indexes)
+-  [FTS5 prefix queries](https://www.sqlite.org/fts5.html#fts5_prefix_queries)
+-  [FTS5 query syntax](https://www.sqlite.org/fts5.html#full_text_query_syntax)
+-  [FTS5 rank configuration option](https://www.sqlite.org/fts5.html#the_rank_configuration_option)
+-  [FTS5 rebuild command](https://www.sqlite.org/fts5.html#the_rebuild_command)
+-  [FTS5 secure-delete command](https://www.sqlite.org/fts5.html#the_secure_delete_configuration_option)
+-  [fts5 shadow tables](https://www.sqlite.org/fts5.html#fts5shadowtables)
+-  [FTS5 snippet](https://www.sqlite.org/fts5.html#the_snippet_function)
+-  [FTS5 Strings](https://www.sqlite.org/fts5.html#fts5_strings)
+-  [fts5 technical differences](https://www.sqlite.org/fts5.html#_summary_of_technical_differences_)
+-  [FTS5 tokendata option](https://www.sqlite.org/fts5.html#the_tokendata_option)
+-  [FTS5 tokenizers](https://www.sqlite.org/fts5.html#tokenizers)
+-  [FTS5 usermerge option](https://www.sqlite.org/fts5.html#the_usermerge_configuration_option)
+-  [fts5vocab](https://www.sqlite.org/fts5.html#the_fts5vocab_virtual_table_module)
+-  [FULL JOIN](https://www.sqlite.org/lang_select.html#fulljoin)
+-  [FULL OUTER JOIN](https://www.sqlite.org/lang_select.html#fulljoin)
+-  [Full-featured SQL](https://www.sqlite.org/fullsql.html)
+-  [full-text search](https://www.sqlite.org/fts3.html)
+-  [full_column_names pragma](https://www.sqlite.org/pragma.html#pragma_full_column_names)
+-  [fullfsync pragma](https://www.sqlite.org/pragma.html#pragma_fullfsync)
+-  [.fullschema](https://www.sqlite.org/cli.html#fullschema)
+-  [function creation routines](https://www.sqlite.org/c3ref/create_function.html)
+-  [function method](https://www.sqlite.org/tclsqlite.html#function)
+-  [function-arguments](https://www.sqlite.org/syntax/function-arguments.html)
+-  [function-arguments syntax diagram](https://www.sqlite.org/syntax/function-arguments.html)
+-  [function_list pragma](https://www.sqlite.org/pragma.html#pragma_function_list)
+-  [functions within expressions](https://www.sqlite.org/lang_expr.html#*funcinexpr)
+-  [fuzz testing](https://www.sqlite.org/testing.html#fuzztesting)
+-  [fuzzcheck](https://www.sqlite.org/testing.html#fuzzcheck)
+-  [generalized ALTER TABLE procedure](https://www.sqlite.org/lang_altertable.html#otheralter)
+-  [generate_series](https://www.sqlite.org/series.html)
+-  [generated column](https://www.sqlite.org/gencol.html)
+-  [geopoly](https://www.sqlite.org/geopoly.html)
+-  [Geopoly extension](https://www.sqlite.org/geopoly.html)
+-  [Geopoly module](https://www.sqlite.org/geopoly.html)
+-  [geopoly_area](https://www.sqlite.org/geopoly.html#garea)
+-  [geopoly_bbox](https://www.sqlite.org/geopoly.html#gbbox)
+-  [geopoly_blob](https://www.sqlite.org/geopoly.html#gblob)
+-  [geopoly_ccw](https://www.sqlite.org/geopoly.html#ccw)
+-  [geopoly_contains_point](https://www.sqlite.org/geopoly.html#gpoint)
+-  [geopoly_group_bbox](https://www.sqlite.org/geopoly.html#gbbox)
+-  [geopoly_json](https://www.sqlite.org/geopoly.html#gjson)
+-  [geopoly_overlap](https://www.sqlite.org/geopoly.html#goverlap)
+-  [geopoly_regular](https://www.sqlite.org/geopoly.html#regpoly)
+-  [geopoly_svg](https://www.sqlite.org/geopoly.html#gsvg)
+-  [geopoly_within](https://www.sqlite.org/geopoly.html#gwithin)
+-  [geopoly_xform](https://www.sqlite.org/geopoly.html#xform)
+-  [get the canonical source code](https://www.sqlite.org/getthecode.html)
+-  [glob() SQL function](https://www.sqlite.org/lang_corefunc.html#glob)
+-  [GROUP BY](https://www.sqlite.org/lang_select.html#resultset)
+-  [GROUP BY clause](https://www.sqlite.org/lang_select.html#resultset)
+-  [group_concat() aggregate function](https://www.sqlite.org/lang_aggfunc.html#group_concat)
+-  [GROUPS frames](https://www.sqlite.org/windowfunctions.html#grouptype)
+-  [hard_heap_limit pragma](https://www.sqlite.org/pragma.html#pragma_hard_heap_limit)
+-  [hash join](https://www.sqlite.org/optoverview.html#hashjoin)
+-  [HAVE_FDATASYNC](https://www.sqlite.org/compile.html#fdatasync)
+-  [HAVE_GMTIME_R](https://www.sqlite.org/compile.html#gmtime_r)
+-  [HAVE_ISNAN](https://www.sqlite.org/compile.html#isnan)
+-  [HAVE_LOCALTIME_R](https://www.sqlite.org/compile.html#localtime_r)
+-  [HAVE_LOCALTIME_S](https://www.sqlite.org/compile.html#localtime_s)
+-  [HAVE_MALLOC_USABLE_SIZE](https://www.sqlite.org/compile.html#malloc_usable_size)
+-  [HAVE_SQLITE_CONFIG_H](https://www.sqlite.org/compile.html#sqlite_config_h)
+-  [HAVE_STRCHRNUL](https://www.sqlite.org/compile.html#strchrnul)
+-  [HAVE_UTIME](https://www.sqlite.org/compile.html#utime)
+-  [HAVING](https://www.sqlite.org/lang_select.html#resultset)
+-  [HAVING clause](https://www.sqlite.org/lang_select.html#resultset)
+-  [hazards of upgrading to the NGQP](https://www.sqlite.org/queryplanner-ng.html#hazards)
+-  [hex() SQL function](https://www.sqlite.org/lang_corefunc.html#hex)
+-  [hexadecimal integer literals](https://www.sqlite.org/lang_expr.html#hexint)
+-  [hexadecimal integers](https://www.sqlite.org/lang_expr.html#hexint)
+-  [hidden column](https://www.sqlite.org/vtab.html#hiddencol)
+-  [high-reliability](https://www.sqlite.org/hirely.html)
+-  [Hipp](https://www.sqlite.org/crew.html)
+-  [host parameter](https://www.sqlite.org/c3ref/bind_blob.html)
+-  [host parameter name](https://www.sqlite.org/c3ref/bind_blob.html)
+-  [hot journal](https://www.sqlite.org/fileformat2.html#hotjrnl)
+-  [hot journal files](https://www.sqlite.org/fileformat2.html#hotjrnl)
+-  [how collation is determined](https://www.sqlite.org/datatype3.html#colrules)
+-  [How SQL Works](https://www.sqlite.org/howitworks.html)
+-  [How SQLite Works](https://www.sqlite.org/howitworks.html)
+-  [how to compile](https://www.sqlite.org/howtocompile.html)
+-  [How To Compile SQLite](https://www.sqlite.org/howtocompile.html)
+-  [how to corrupt](https://www.sqlite.org/howtocorrupt.html)
+-  [how to corrupt a database](https://www.sqlite.org/useovernet.html)
+-  [How To Corrupt Your Database Files](https://www.sqlite.org/lockingv3.html#how_to_corrupt)
+-  [how vacuum works](https://www.sqlite.org/lang_vacuum.html#howvacuumworks)
+-  [IEEE 754 floating point values are approximations](https://www.sqlite.org/floatingpoint.html#fpapprox)
+-  [ieee754 extension](https://www.sqlite.org/floatingpoint.html#ieee754ext)
+-  [ieee754() function](https://www.sqlite.org/floatingpoint.html#ieee754)
+-  [ieee754_exponent() function](https://www.sqlite.org/floatingpoint.html#ieee754m)
+-  [ieee754_from_blob() function](https://www.sqlite.org/floatingpoint.html#ieee754b)
+-  [ieee754_mantissa() function](https://www.sqlite.org/floatingpoint.html#ieee754m)
+-  [ieee754_to_blob() function](https://www.sqlite.org/floatingpoint.html#ieee754b)
+-  [ifnull() SQL function](https://www.sqlite.org/lang_corefunc.html#ifnull)
+-  [ignore_check_constraints pragma](https://www.sqlite.org/pragma.html#pragma_ignore_check_constraints)
+-  [iif() SQL function](https://www.sqlite.org/lang_corefunc.html#iif)
+-  ["immutable" query parameter](https://www.sqlite.org/uri.html#uriimmutable)
+-  [.import](https://www.sqlite.org/cli.html#csv)
+-  [.import command](https://www.sqlite.org/cli.html#csv)
+-  [.imposter dot-command](https://www.sqlite.org/imposter.html#dotimposter)
+-  [imposter tables](https://www.sqlite.org/imposter.html)
+-  [IN operator](https://www.sqlite.org/lang_expr.html#in_op)
+-  [in-header database size](https://www.sqlite.org/fileformat2.html#filesize)
+-  [in-memory database](https://www.sqlite.org/inmemorydb.html)
+-  [in-memory shared cache database](https://www.sqlite.org/inmemorydb.html#sharedmemdb)
+-  [in-memory shared-cache](https://www.sqlite.org/sharedcache.html#inmemsharedcache)
+-  [incrblob method](https://www.sqlite.org/tclsqlite.html#incrblob)
+-  [increase in the default page size](https://www.sqlite.org/pgszchng2016.html)
+-  [incremental_vacuum pragma](https://www.sqlite.org/pragma.html#pragma_incremental_vacuum)
+-  [index b-tree](https://www.sqlite.org/fileformat2.html#btypes)
+-  [index_info pragma](https://www.sqlite.org/pragma.html#pragma_index_info)
+-  [index_list pragma](https://www.sqlite.org/pragma.html#pragma_index_list)
+-  [index_xinfo pragma](https://www.sqlite.org/pragma.html#pragma_index_xinfo)
+-  [INDEXED BY](https://www.sqlite.org/lang_indexedby.html)
+-  [indexed expression](https://www.sqlite.org/expridx.html)
+-  [indexed-column](https://www.sqlite.org/syntax/indexed-column.html)
+-  [indexed-column syntax diagram](https://www.sqlite.org/syntax/indexed-column.html)
+-  [Indexes](https://www.sqlite.org/lang_createindex.html)
+-  [indexes on expressions](https://www.sqlite.org/expridx.html)
+-  [indexing](https://www.sqlite.org/queryplanner.html)
+-  [indexing tutorial](https://www.sqlite.org/queryplanner.html)
+-  [--insert option](https://www.sqlite.org/cli.html#arinsup)
+-  [insert-stmt](https://www.sqlite.org/syntax/insert-stmt.html)
+-  [insert-stmt syntax diagram](https://www.sqlite.org/syntax/insert-stmt.html)
+-  [INSTEAD OF](https://www.sqlite.org/lang_createtrigger.html#instead_of_trigger)
+-  [INSTEAD OF trigger](https://www.sqlite.org/lang_createtrigger.html#instead_of_trigger)
+-  [instr() SQL function](https://www.sqlite.org/lang_corefunc.html#instr)
+-  [INTEGER PRIMARY KEY](https://www.sqlite.org/lang_createtable.html#rowid)
+-  [integer-valued r-trees](https://www.sqlite.org/rtree.html#intrtree)
+-  [integrity_check pragma](https://www.sqlite.org/pragma.html#pragma_integrity_check)
+-  [internal index](https://www.sqlite.org/fileformat2.html#intschema)
+-  [internal indexes](https://www.sqlite.org/fileformat2.html#intschema)
+-  [internal schema object](https://www.sqlite.org/fileformat2.html#intschema)
+-  [internal table](https://www.sqlite.org/fileformat2.html#intschema)
+-  [Internal Versus External BLOBs](https://www.sqlite.org/intern-v-extern-blob.html)
+-  [interrupt method](https://www.sqlite.org/tclsqlite.html#interrupt)
+-  [invalid UTF](https://www.sqlite.org/invalidutf.html)
+-  [IS DISTINCT FROM](https://www.sqlite.org/lang_expr.html#isdf)
+-  [IS NOT DISTINCT FROM](https://www.sqlite.org/lang_expr.html#isdf)
+-  [IS NOT operator](https://www.sqlite.org/lang_expr.html#isisnot)
+-  [IS operator](https://www.sqlite.org/lang_expr.html#isisnot)
+-  [isolation](https://www.sqlite.org/isolation.html)
+-  [jfuzz](https://www.sqlite.org/testing.html#dbsqlfuzz)
+-  [join order](https://www.sqlite.org/optoverview.html#joins)
+-  [join-clause](https://www.sqlite.org/syntax/join-clause.html)
+-  [join-clause syntax diagram](https://www.sqlite.org/syntax/join-clause.html)
+-  [join-constraint](https://www.sqlite.org/syntax/join-constraint.html)
+-  [join-constraint syntax diagram](https://www.sqlite.org/syntax/join-constraint.html)
+-  [join-operator](https://www.sqlite.org/syntax/join-operator.html)
+-  [join-operator syntax diagram](https://www.sqlite.org/syntax/join-operator.html)
+-  [journal_mode pragma](https://www.sqlite.org/pragma.html#pragma_journal_mode)
+-  [journal_size_limit pragma](https://www.sqlite.org/pragma.html#pragma_journal_size_limit)
+-  [json](https://www.sqlite.org/json1.html#jmini)
+-  [JSON BLOB input bug](https://www.sqlite.org/json1.html#jblobbug)
+-  [JSON function path arguments](https://www.sqlite.org/json1.html#jsonpath)
+-  [JSON paths](https://www.sqlite.org/json1.html#jsonpath)
+-  [json SQL function](https://www.sqlite.org/json1.html#jmini)
+-  [json1](https://www.sqlite.org/json1.html)
+-  [JSON5](https://www.sqlite.org/json1.html#json5)
+-  [JSON5 extensions](https://www.sqlite.org/json1.html#json5)
+-  [json_array](https://www.sqlite.org/json1.html#jarray)
+-  [json_array SQL function](https://www.sqlite.org/json1.html#jarray)
+-  [json_array_length](https://www.sqlite.org/json1.html#jarraylen)
+-  [json_array_length SQL function](https://www.sqlite.org/json1.html#jarraylen)
+-  [json_each](https://www.sqlite.org/json1.html#jeach)
+-  [json_each table-valued function](https://www.sqlite.org/json1.html#jeach)
+-  [json_error_position](https://www.sqlite.org/json1.html#jerr)
+-  [json_error_position SQL function](https://www.sqlite.org/json1.html#jerr)
+-  [json_extract](https://www.sqlite.org/json1.html#jex)
+-  [json_extract SQL function](https://www.sqlite.org/json1.html#jex)
+-  [json_group_array](https://www.sqlite.org/json1.html#jgrouparray)
+-  [json_group_array SQL function](https://www.sqlite.org/json1.html#jgrouparray)
+-  [json_group_object](https://www.sqlite.org/json1.html#jgroupobject)
+-  [json_group_object SQL function](https://www.sqlite.org/json1.html#jgroupobject)
+-  [json_insert](https://www.sqlite.org/json1.html#jins)
+-  [json_insert SQL function](https://www.sqlite.org/json1.html#jins)
+-  [json_object](https://www.sqlite.org/json1.html#jobj)
+-  [json_object SQL function](https://www.sqlite.org/json1.html#jobj)
+-  [json_patch](https://www.sqlite.org/json1.html#jpatch)
+-  [json_patch SQL function](https://www.sqlite.org/json1.html#jpatch)
+-  [json_pretty](https://www.sqlite.org/json1.html#jpretty)
+-  [json_pretty SQL function](https://www.sqlite.org/json1.html#jpretty)
+-  [json_quote](https://www.sqlite.org/json1.html#jquote)
+-  [json_quote SQL function](https://www.sqlite.org/json1.html#jquote)
+-  [json_remove](https://www.sqlite.org/json1.html#jrm)
+-  [json_remove SQL function](https://www.sqlite.org/json1.html#jrm)
+-  [json_replace](https://www.sqlite.org/json1.html#jrepl)
+-  [json_replace SQL function](https://www.sqlite.org/json1.html#jrepl)
+-  [json_set](https://www.sqlite.org/json1.html#jset)
+-  [json_set SQL function](https://www.sqlite.org/json1.html#jset)
+-  [json_tree](https://www.sqlite.org/json1.html#jtree)
+-  [json_tree table-valued function](https://www.sqlite.org/json1.html#jtree)
+-  [json_type](https://www.sqlite.org/json1.html#jtype)
+-  [json_type SQL function](https://www.sqlite.org/json1.html#jtype)
+-  [json_valid](https://www.sqlite.org/json1.html#jvalid)
+-  [json_valid SQL function](https://www.sqlite.org/json1.html#jvalid)
+-  [JSONB](https://www.sqlite.org/json1.html#jsonbx)
+-  [jsonb SQL function](https://www.sqlite.org/json1.html#jminib)
+-  [jsonb_array](https://www.sqlite.org/json1.html#jarrayb)
+-  [jsonb_array SQL function](https://www.sqlite.org/json1.html#jarrayb)
+-  [jsonb_extract](https://www.sqlite.org/json1.html#jexb)
+-  [jsonb_extract SQL function](https://www.sqlite.org/json1.html#jexb)
+-  [jsonb_group_array](https://www.sqlite.org/json1.html#jgrouparrayb)
+-  [jsonb_group_array SQL function](https://www.sqlite.org/json1.html#jgrouparrayb)
+-  [jsonb_group_object](https://www.sqlite.org/json1.html#jgroupobjectb)
+-  [jsonb_group_object SQL function](https://www.sqlite.org/json1.html#jgroupobjectb)
+-  [jsonb_insert](https://www.sqlite.org/json1.html#jinsb)
+-  [jsonb_insert SQL function](https://www.sqlite.org/json1.html#jinsb)
+-  [jsonb_object](https://www.sqlite.org/json1.html#jobjb)
+-  [jsonb_object SQL function](https://www.sqlite.org/json1.html#jobjb)
+-  [jsonb_patch](https://www.sqlite.org/json1.html#jpatchb)
+-  [jsonb_patch SQL function](https://www.sqlite.org/json1.html#jpatchb)
+-  [jsonb_remove](https://www.sqlite.org/json1.html#jrmb)
+-  [jsonb_remove SQL function](https://www.sqlite.org/json1.html#jrmb)
+-  [jsonb_replace](https://www.sqlite.org/json1.html#jreplb)
+-  [jsonb_replace SQL function](https://www.sqlite.org/json1.html#jreplb)
+-  [jsonb_set](https://www.sqlite.org/json1.html#jsetb)
+-  [jsonb_set SQL function](https://www.sqlite.org/json1.html#jsetb)
+-  [julianday modifier](https://www.sqlite.org/lang_datefunc.html#jdmod)
+-  [julianday()](https://www.sqlite.org/lang_datefunc.html#jlndy)
+-  [julianday() SQL function](https://www.sqlite.org/lang_datefunc.html#jlndy)
+-  [Kennedy](https://www.sqlite.org/crew.html)
+-  [keyword index](https://www.sqlite.org/keyword_index.html)
+-  [keywords](https://www.sqlite.org/lang_keywords.html)
+-  [languageid](https://www.sqlite.org/fts3.html#*fts4languageid)
+-  [large WAL files](https://www.sqlite.org/wal.html#bigwal)
+-  [last_insert_rowid method](https://www.sqlite.org/tclsqlite.html#last_insert_rowid)
+-  [last_insert_rowid() SQL function](https://www.sqlite.org/lang_corefunc.html#last_insert_rowid)
+-  [LEFT JOIN strength reduction optimization](https://www.sqlite.org/optoverview.html#leftjoinreduction)
+-  [legacy_alter_table pragma](https://www.sqlite.org/pragma.html#pragma_legacy_alter_table)
+-  [legacy_file_format pragma](https://www.sqlite.org/pragma.html#pragma_legacy_file_format)
+-  [Lemon](https://www.sqlite.org/lemon.html)
+-  [Lemon LALR parser generator](https://www.sqlite.org/lemon.html)
+-  [Lemon parser generator](https://www.sqlite.org/lemon.html)
+-  [length() SQL function](https://www.sqlite.org/lang_corefunc.html#length)
+-  [library size](https://www.sqlite.org/footprint.html)
+-  [license](https://www.sqlite.org/copyright.html)
+-  [LIKE optimization](https://www.sqlite.org/optoverview.html#like_opt)
+-  [like() SQL function](https://www.sqlite.org/lang_corefunc.html#like)
+-  [likelihood() SQL function](https://www.sqlite.org/lang_corefunc.html#likelihood)
+-  [likely() SQL function](https://www.sqlite.org/lang_corefunc.html#likely)
+-  [LIMIT](https://www.sqlite.org/lang_select.html#limitoffset)
+-  [limit category](https://www.sqlite.org/c3ref/c_limit_attached.html)
+-  [list of current bytecodes](https://www.sqlite.org/opcode.html#codes)
+-  [list of virtual tables](https://www.sqlite.org/vtablist.html)
+-  [literal value](https://www.sqlite.org/lang_expr.html#litvalue)
+-  [literal-value](https://www.sqlite.org/syntax/literal-value.html)
+-  [literal-value syntax diagram](https://www.sqlite.org/syntax/literal-value.html)
+-  [ln() SQL function](https://www.sqlite.org/lang_mathfunc.html#ln)
+-  [.load command](https://www.sqlite.org/cli.html#dotload)
+-  [load_extension() SQL function](https://www.sqlite.org/lang_corefunc.html#load_extension)
+-  [loadable extension](https://www.sqlite.org/loadext.html)
+-  [loadext](https://www.sqlite.org/loadext.html)
+-  [localtime modifier](https://www.sqlite.org/lang_datefunc.html#localtime)
+-  [lock-byte page](https://www.sqlite.org/fileformat2.html#lockbyte)
+-  [locking_mode pragma](https://www.sqlite.org/pragma.html#pragma_locking_mode)
+-  [log](https://www.sqlite.org/lang_mathfunc.html#log)
+-  [log10](https://www.sqlite.org/lang_mathfunc.html#log)
+-  [log2() SQL function](https://www.sqlite.org/lang_mathfunc.html#log2)
+-  [long term support](https://www.sqlite.org/lts.html)
+-  [lookaside](https://www.sqlite.org/malloc.html#lookaside)
+-  [lookaside buffer](https://www.sqlite.org/malloc.html#lookaside)
+-  [lookaside memory](https://www.sqlite.org/malloc.html#lookaside)
+-  [lookaside memory allocator](https://www.sqlite.org/malloc.html#lookaside)
+-  [low-dependency](https://www.sqlite.org/selfcontained.html)
+-  [lower() SQL function](https://www.sqlite.org/lang_corefunc.html#lower)
+-  [ltrim() SQL function](https://www.sqlite.org/lang_corefunc.html#ltrim)
+-  [mailing lists](https://www.sqlite.org/support.html#mailinglists)
+-  [managing SQLite Archives from the command-line](https://www.sqlite.org/sqlar.html#cltools)
+-  [Manual Control Of Query Plans Using CROSS JOIN](https://www.sqlite.org/optoverview.html#crossjoin)
+-  [Manual Control Of Query Plans Using SQLITE_STAT Tables](https://www.sqlite.org/optoverview.html#manctrl)
+-  [master journal](https://www.sqlite.org/tempfiles.html#superjrnl)
+-  [MATCH](https://www.sqlite.org/lang_expr.html#match)
+-  [matchinfo](https://www.sqlite.org/fts3.html#matchinfo)
+-  [matchinfo b flag](https://www.sqlite.org/fts3.html#matchinfo-b)
+-  [matchinfo x flag](https://www.sqlite.org/fts3.html#matchinfo-x)
+-  [matchinfo y flag](https://www.sqlite.org/fts3.html#matchinfo-y)
+-  [materialization hints](https://www.sqlite.org/lang_with.html#mathint)
+-  [MATERIALIZED](https://www.sqlite.org/lang_with.html#mathint)
+-  [Math Functions](https://www.sqlite.org/lang_mathfunc.html)
+-  [max() aggregate function](https://www.sqlite.org/lang_aggfunc.html#max_agg)
+-  [max() SQL function](https://www.sqlite.org/lang_corefunc.html#max_scalar)
+-  [max_page_count pragma](https://www.sqlite.org/pragma.html#pragma_max_page_count)
+-  [maxopen parameter](https://www.sqlite.org/swarmvtab.html#the_maxopen_parameter)
+-  [MC/DC testing](https://www.sqlite.org/testing.html#mcdc)
+-  [memory](https://www.sqlite.org/inmemorydb.html)
+-  [memory allocation](https://www.sqlite.org/malloc.html)
+-  [memory statistics](https://www.sqlite.org/malloc.html#memstatus)
+-  [memory-mapped I/O](https://www.sqlite.org/mmap.html)
+-  ["merge" command](https://www.sqlite.org/fts3.html#*fts4mergecmd)
+-  [microoptimizations](https://www.sqlite.org/cpu.html#microopt)
+-  [min() aggregate function](https://www.sqlite.org/lang_aggfunc.html#min_agg)
+-  [min() SQL function](https://www.sqlite.org/lang_corefunc.html#min_scalar)
+-  [min/max optimization](https://www.sqlite.org/optoverview.html#minmax)
+-  [missing callback](https://www.sqlite.org/swarmvtab.html#the_missing_callback)
+-  [mmap](https://www.sqlite.org/mmap.html)
+-  [mmap_size pragma](https://www.sqlite.org/pragma.html#pragma_mmap_size)
+-  [mod() SQL function](https://www.sqlite.org/lang_mathfunc.html#mod)
+-  [.mode](https://www.sqlite.org/cli.html#dotmode)
+-  [.mode quote](https://www.sqlite.org/cli.html#dotmodequote)
+-  ["mode" query parameter](https://www.sqlite.org/uri.html#urimode)
+-  [modeof](https://www.sqlite.org/uri.html#urimodeof)
+-  ["modeof" query parameter](https://www.sqlite.org/uri.html#urimodeof)
+-  [modifiers](https://www.sqlite.org/lang_datefunc.html#dtmods)
+-  [module_list pragma](https://www.sqlite.org/pragma.html#pragma_module_list)
+-  [most used](https://www.sqlite.org/mostdeployed.html)
+-  [most widely deployed](https://www.sqlite.org/mostdeployed.html)
+-  [most widely used](https://www.sqlite.org/mostdeployed.html)
+-  [mutation test script](https://www.sqlite.org/th3.html#muttest)
+-  [mutation testing](https://www.sqlite.org/testing.html#mutationtests)
+-  [mxFrame](https://www.sqlite.org/walformat.html#mxframe)
+-  [nBackfill](https://www.sqlite.org/walformat.html#nbackfill)
+-  [NEAR queries](https://www.sqlite.org/fts3.html#near)
+-  [network filesystem use](https://www.sqlite.org/useovernet.html)
+-  [next generation query planner](https://www.sqlite.org/queryplanner-ng.html)
+-  [NGQP](https://www.sqlite.org/queryplanner-ng.html)
+-  [NOCASE collating function](https://www.sqlite.org/datatype3.html#collation)
+-  ["nolock" query parameter](https://www.sqlite.org/uri.html#urinolock)
+-  [non-deterministic functions](https://www.sqlite.org/deterministic.html)
+-  [non-standard SELECT syntax](https://www.sqlite.org/lang_select.html#nonstd)
+-  [NOT EXISTS operator](https://www.sqlite.org/lang_expr.html#exists_op)
+-  [NOT IN operator](https://www.sqlite.org/lang_expr.html#in_op)
+-  [NOT INDEXED](https://www.sqlite.org/lang_indexedby.html)
+-  [NOT MATERIALIZED](https://www.sqlite.org/lang_with.html#mathint)
+-  [NOT NULL](https://www.sqlite.org/lang_createtable.html#notnullconst)
+-  [NOT NULL constraint](https://www.sqlite.org/lang_createtable.html#notnullconst)
+-  [not open-contributin](https://www.sqlite.org/copyright.html#notopencontrib)
+-  [NUL characters in strings](https://www.sqlite.org/nulinstr.html)
+-  [nullif() SQL function](https://www.sqlite.org/lang_corefunc.html#nullif)
+-  [NULLS FIRST](https://www.sqlite.org/lang_select.html#nullslast)
+-  [NULLS LAST](https://www.sqlite.org/lang_select.html#nullslast)
+-  [nullvalue method](https://www.sqlite.org/tclsqlite.html#nullvalue)
+-  [numeric literals](https://www.sqlite.org/lang_expr.html#litvalue)
+-  [numeric-literal](https://www.sqlite.org/syntax/numeric-literal.html)
+-  [numeric-literal syntax diagram](https://www.sqlite.org/syntax/numeric-literal.html)
+-  [object resolution](https://www.sqlite.org/lang_naming.html)
+-  [octet_length() SQL function](https://www.sqlite.org/lang_corefunc.html#octet_length)
+-  [OFFSET](https://www.sqlite.org/lang_select.html#limitoffset)
+-  [omit-left-join optimization](https://www.sqlite.org/optoverview.html#omitnoopjoin)
+-  [omit-outer-join optimization](https://www.sqlite.org/optoverview.html#omitnoopjoin)
+-  [omitfeatures](https://www.sqlite.org/compile.html#omitfeatures)
+-  [ON CONFLICT](https://www.sqlite.org/lang_conflict.html)
+-  [ON CONFLICT clause](https://www.sqlite.org/lang_conflict.html)
+-  [on-disk format](https://www.sqlite.org/fileformat2.html)
+-  [.once](https://www.sqlite.org/cli.html#dotoutput)
+-  [onecolumn method](https://www.sqlite.org/tclsqlite.html#onecolumn)
+-  [opcode definitions](https://www.sqlite.org/opcode.html#codes)
+-  [opcodes](https://www.sqlite.org/opcode.html)
+-  [.open](https://www.sqlite.org/cli.html#dotopen)
+-  [.open command](https://www.sqlite.org/cli.html#dotopen)
+-  [OPEN_EXRESCODE](https://www.sqlite.org/c3ref/open.html#openexrescode)
+-  [OPEN_NOFOLLOW](https://www.sqlite.org/c3ref/open.html#opennofollow)
+-  [openclose callback](https://www.sqlite.org/swarmvtab.html#the_openclose_callback)
+-  [OpenOffice case study](https://www.sqlite.org/affcase1.html)
+-  [optimize pragma](https://www.sqlite.org/pragma.html#pragma_optimize)
+-  ["optimize" command](https://www.sqlite.org/fts3.html#*fts4optcmd)
+-  [optimizer](https://www.sqlite.org/optoverview.html)
+-  [or optimization](https://www.sqlite.org/optoverview.html#or_opt)
+-  [or-connected-terms](https://www.sqlite.org/queryplanner.html#or_in_where)
+-  [order by](https://www.sqlite.org/lang_select.html#orderby)
+-  [ORDER BY clause in aggregate functions](https://www.sqlite.org/lang_aggfunc.html#aggorderby)
+-  [orderByConsumed](https://www.sqlite.org/vtab.html#obc)
+-  [ordering-term](https://www.sqlite.org/syntax/ordering-term.html)
+-  [ordering-term syntax diagram](https://www.sqlite.org/syntax/ordering-term.html)
+-  [ordinary common table expressions](https://www.sqlite.org/lang_with.html#ordinarycte)
+-  [OS backend](https://www.sqlite.org/vfs.html)
+-  [OSS Fuzz](https://www.sqlite.org/testing.html#ossfuzz)
+-  [OUTER JOIN strength reduction](https://www.sqlite.org/optoverview.html#leftjoinreduction)
+-  [OUTER JOIN strength reduction optimization](https://www.sqlite.org/optoverview.html#leftjoinreduction)
+-  [.output](https://www.sqlite.org/cli.html#dotoutput)
+-  [output mode](https://www.sqlite.org/cli.html#dotmode)
+-  [over-clause](https://www.sqlite.org/syntax/over-clause.html)
+-  [over-clause syntax diagram](https://www.sqlite.org/syntax/over-clause.html)
+-  [overflow page](https://www.sqlite.org/fileformat2.html#ovflpgs)
+-  [page cache](https://www.sqlite.org/c3ref/pcache_methods2.html)
+-  [page_count pragma](https://www.sqlite.org/pragma.html#pragma_page_count)
+-  [page_size pragma](https://www.sqlite.org/pragma.html#pragma_page_size)
+-  [pagecache memory allocator](https://www.sqlite.org/malloc.html#pagecache)
+-  [parameter](https://www.sqlite.org/lang_expr.html#varparam)
+-  [parameter binding](https://www.sqlite.org/c3ref/bind_blob.html)
+-  [.parameter command](https://www.sqlite.org/cli.html#param)
+-  [parent key](https://www.sqlite.org/foreignkeys.html#parentchild)
+-  [parent table](https://www.sqlite.org/foreignkeys.html#parentchild)
+-  [parser_trace pragma](https://www.sqlite.org/pragma.html#pragma_parser_trace)
+-  [partial index](https://www.sqlite.org/partialindex.html)
+-  [partial indexes](https://www.sqlite.org/partialindex.html)
+-  [partial indices](https://www.sqlite.org/partialindex.html)
+-  [partial sorting by index](https://www.sqlite.org/queryplanner.html#partialsort)
+-  [partition](https://www.sqlite.org/windowfunctions.html#ptxn)
+-  [patchset](https://www.sqlite.org/sessionintro.html#changeset)
+-  [permuted index](https://www.sqlite.org/sitemap.html)
+-  [persistent journal mode](https://www.sqlite.org/pragma.html#pragma_journal_mode)
+-  [persistent loadable extensions](https://www.sqlite.org/loadext.html#persist)
+-  [phrase queries](https://www.sqlite.org/fts3.html#phrase)
+-  [pi() SQL function](https://www.sqlite.org/lang_mathfunc.html#pi)
+-  [pointer leak](https://www.sqlite.org/bindptr.html#ptrleak)
+-  [pointer passing interface](https://www.sqlite.org/bindptr.html)
+-  [pointer types](https://www.sqlite.org/bindptr.html#ptrtyp)
+-  [pointer value](https://www.sqlite.org/bindptr.html)
+-  [porting SQLite](https://www.sqlite.org/custombuild.html)
+-  [pow() SQL function](https://www.sqlite.org/lang_mathfunc.html#pow)
+-  [power-safe](https://www.sqlite.org/transactional.html)
+-  [power-safe transactions](https://www.sqlite.org/transactional.html)
+-  [powersafe overwrite](https://www.sqlite.org/psow.html)
+-  [PRAGMA](https://www.sqlite.org/pragma.html#syntax)
+-  [PRAGMA analysis_limit](https://www.sqlite.org/pragma.html#pragma_analysis_limit)
+-  [PRAGMA application_id](https://www.sqlite.org/pragma.html#pragma_application_id)
+-  [PRAGMA auto_vacuum](https://www.sqlite.org/pragma.html#pragma_auto_vacuum)
+-  [PRAGMA automatic_index](https://www.sqlite.org/pragma.html#pragma_automatic_index)
+-  [PRAGMA busy_timeout](https://www.sqlite.org/pragma.html#pragma_busy_timeout)
+-  [PRAGMA cache_size](https://www.sqlite.org/pragma.html#pragma_cache_size)
+-  [PRAGMA cache_spill](https://www.sqlite.org/pragma.html#pragma_cache_spill)
+-  [PRAGMA case_sensitive_like](https://www.sqlite.org/pragma.html#pragma_case_sensitive_like)
+-  [PRAGMA cell_size_check](https://www.sqlite.org/pragma.html#pragma_cell_size_check)
+-  [PRAGMA checkpoint_fullfsync](https://www.sqlite.org/pragma.html#pragma_checkpoint_fullfsync)
+-  [PRAGMA collation_list](https://www.sqlite.org/pragma.html#pragma_collation_list)
+-  [PRAGMA compile_options](https://www.sqlite.org/pragma.html#pragma_compile_options)
+-  [PRAGMA count_changes](https://www.sqlite.org/pragma.html#pragma_count_changes)
+-  [PRAGMA data_store_directory](https://www.sqlite.org/pragma.html#pragma_data_store_directory)
+-  [PRAGMA data_version](https://www.sqlite.org/pragma.html#pragma_data_version)
+-  [PRAGMA database_list](https://www.sqlite.org/pragma.html#pragma_database_list)
+-  [PRAGMA default_cache_size](https://www.sqlite.org/pragma.html#pragma_default_cache_size)
+-  [PRAGMA defer_foreign_keys](https://www.sqlite.org/pragma.html#pragma_defer_foreign_keys)
+-  [PRAGMA empty_result_callbacks](https://www.sqlite.org/pragma.html#pragma_empty_result_callbacks)
+-  [PRAGMA encoding](https://www.sqlite.org/pragma.html#pragma_encoding)
+-  [PRAGMA foreign_key_check](https://www.sqlite.org/pragma.html#pragma_foreign_key_check)
+-  [PRAGMA foreign_key_list](https://www.sqlite.org/pragma.html#pragma_foreign_key_list)
+-  [PRAGMA foreign_keys](https://www.sqlite.org/pragma.html#pragma_foreign_keys)
+-  [PRAGMA freelist_count](https://www.sqlite.org/pragma.html#pragma_freelist_count)
+-  [PRAGMA full_column_names](https://www.sqlite.org/pragma.html#pragma_full_column_names)
+-  [PRAGMA fullfsync](https://www.sqlite.org/pragma.html#pragma_fullfsync)
+-  [PRAGMA function](https://www.sqlite.org/pragma.html#pragfunc)
+-  [PRAGMA function_list](https://www.sqlite.org/pragma.html#pragma_function_list)
+-  [PRAGMA hard_heap_limit](https://www.sqlite.org/pragma.html#pragma_hard_heap_limit)
+-  [PRAGMA ignore_check_constraints](https://www.sqlite.org/pragma.html#pragma_ignore_check_constraints)
+-  [PRAGMA incremental_vacuum](https://www.sqlite.org/pragma.html#pragma_incremental_vacuum)
+-  [PRAGMA index_info](https://www.sqlite.org/pragma.html#pragma_index_info)
+-  [PRAGMA index_list](https://www.sqlite.org/pragma.html#pragma_index_list)
+-  [PRAGMA index_xinfo](https://www.sqlite.org/pragma.html#pragma_index_xinfo)
+-  [PRAGMA integrity_check](https://www.sqlite.org/pragma.html#pragma_integrity_check)
+-  [PRAGMA journal_mode](https://www.sqlite.org/pragma.html#pragma_journal_mode)
+-  [PRAGMA journal_size_limit](https://www.sqlite.org/pragma.html#pragma_journal_size_limit)
+-  [PRAGMA legacy_alter_table](https://www.sqlite.org/pragma.html#pragma_legacy_alter_table)
+-  [PRAGMA legacy_file_format](https://www.sqlite.org/pragma.html#pragma_legacy_file_format)
+-  [pragma list](https://www.sqlite.org/pragma.html#toc)
+-  [PRAGMA locking_mode](https://www.sqlite.org/pragma.html#pragma_locking_mode)
+-  [PRAGMA max_page_count](https://www.sqlite.org/pragma.html#pragma_max_page_count)
+-  [PRAGMA mmap_size](https://www.sqlite.org/pragma.html#pragma_mmap_size)
+-  [PRAGMA module_list](https://www.sqlite.org/pragma.html#pragma_module_list)
+-  [PRAGMA optimize](https://www.sqlite.org/pragma.html#pragma_optimize)
+-  [PRAGMA page_count](https://www.sqlite.org/pragma.html#pragma_page_count)
+-  [PRAGMA page_size](https://www.sqlite.org/pragma.html#pragma_page_size)
+-  [PRAGMA parser_trace](https://www.sqlite.org/pragma.html#pragma_parser_trace)
+-  [PRAGMA pragma_list](https://www.sqlite.org/pragma.html#pragma_pragma_list)
+-  [PRAGMA query_only](https://www.sqlite.org/pragma.html#pragma_query_only)
+-  [PRAGMA quick_check](https://www.sqlite.org/pragma.html#pragma_quick_check)
+-  [PRAGMA read_uncommitted](https://www.sqlite.org/pragma.html#pragma_read_uncommitted)
+-  [PRAGMA recursive_triggers](https://www.sqlite.org/pragma.html#pragma_recursive_triggers)
+-  [PRAGMA reverse_unordered_selects](https://www.sqlite.org/pragma.html#pragma_reverse_unordered_selects)
+-  [PRAGMA schema_version](https://www.sqlite.org/pragma.html#pragma_schema_version)
+-  [PRAGMA secure_delete](https://www.sqlite.org/pragma.html#pragma_secure_delete)
+-  [PRAGMA short_column_names](https://www.sqlite.org/pragma.html#pragma_short_column_names)
+-  [PRAGMA shrink_memory](https://www.sqlite.org/pragma.html#pragma_shrink_memory)
+-  [PRAGMA soft_heap_limit](https://www.sqlite.org/pragma.html#pragma_soft_heap_limit)
+-  [PRAGMA stats](https://www.sqlite.org/pragma.html#pragma_stats)
+-  [PRAGMA synchronous](https://www.sqlite.org/pragma.html#pragma_synchronous)
+-  [PRAGMA table_info](https://www.sqlite.org/pragma.html#pragma_table_info)
+-  [PRAGMA table_list](https://www.sqlite.org/pragma.html#pragma_table_list)
+-  [PRAGMA table_xinfo](https://www.sqlite.org/pragma.html#pragma_table_xinfo)
+-  [PRAGMA temp_store](https://www.sqlite.org/pragma.html#pragma_temp_store)
+-  [PRAGMA temp_store_directory](https://www.sqlite.org/pragma.html#pragma_temp_store_directory)
+-  [PRAGMA threads](https://www.sqlite.org/pragma.html#pragma_threads)
+-  [PRAGMA trusted_schema](https://www.sqlite.org/pragma.html#pragma_trusted_schema)
+-  [PRAGMA user_version](https://www.sqlite.org/pragma.html#pragma_user_version)
+-  [PRAGMA vdbe_addoptrace](https://www.sqlite.org/pragma.html#pragma_vdbe_addoptrace)
+-  [PRAGMA vdbe_debug](https://www.sqlite.org/pragma.html#pragma_vdbe_debug)
+-  [PRAGMA vdbe_listing](https://www.sqlite.org/pragma.html#pragma_vdbe_listing)
+-  [PRAGMA vdbe_trace](https://www.sqlite.org/pragma.html#pragma_vdbe_trace)
+-  [PRAGMA wal_autocheckpoint](https://www.sqlite.org/pragma.html#pragma_wal_autocheckpoint)
+-  [PRAGMA wal_checkpoint](https://www.sqlite.org/pragma.html#pragma_wal_checkpoint)
+-  [PRAGMA writable_schema](https://www.sqlite.org/pragma.html#pragma_writable_schema)
+-  [pragma-stmt](https://www.sqlite.org/syntax/pragma-stmt.html)
+-  [pragma-stmt syntax diagram](https://www.sqlite.org/syntax/pragma-stmt.html)
+-  [pragma-value](https://www.sqlite.org/syntax/pragma-value.html)
+-  [pragma-value syntax diagram](https://www.sqlite.org/syntax/pragma-value.html)
+-  [pragma_list pragma](https://www.sqlite.org/pragma.html#pragma_pragma_list)
+-  [precompiled amalgamation tarballs](https://www.sqlite.org/amalgamation.html#amalgtarball)
+-  [prefix queries](https://www.sqlite.org/fts3.html#termprefix)
+-  [prefix query](https://www.sqlite.org/fts3.html#termprefix)
+-  [prepared statement](https://www.sqlite.org/c3ref/stmt.html)
+-  [preupdate method](https://www.sqlite.org/tclsqlite.html#preupdate)
+-  [PRIMARY KEY](https://www.sqlite.org/lang_createtable.html#primkeyconst)
+-  [PRIMARY KEY constraint](https://www.sqlite.org/lang_createtable.html#primkeyconst)
+-  [primary versus extended result codes](https://www.sqlite.org/rescode.html#pve)
+-  [printf() SQL function](https://www.sqlite.org/lang_corefunc.html#printf)
+-  [prior releases](https://www.sqlite.org/chronology.html)
+-  [private branches](https://www.sqlite.org/privatebranch.html)
+-  [professional support](https://www.sqlite.org/prosupport.html)
+-  [profile method](https://www.sqlite.org/tclsqlite.html#profile)
+-  [Programming Loadable Extensions](https://www.sqlite.org/loadext.html#write)
+-  [progress method](https://www.sqlite.org/tclsqlite.html#progress)
+-  [protected sqlite3_value](https://www.sqlite.org/c3ref/value.html)
+-  [PSOW](https://www.sqlite.org/psow.html)
+-  ["psow" query parameter](https://www.sqlite.org/uri.html#uripsow)
+-  [public-domain](https://www.sqlite.org/copyright.html)
+-  [push-down optimization](https://www.sqlite.org/optoverview.html#pushdown)
+-  [qbox](https://www.sqlite.org/cli.html#qbox)
+-  [qbox output mode](https://www.sqlite.org/cli.html#qbox)
+-  [QPSG](https://www.sqlite.org/queryplanner-ng.html#qpstab)
+-  [qualified-table-name](https://www.sqlite.org/syntax/qualified-table-name.html)
+-  [qualified-table-name syntax diagram](https://www.sqlite.org/syntax/qualified-table-name.html)
+-  [queries against graphs](https://www.sqlite.org/lang_with.html#rcex3)
+-  [query flattener](https://www.sqlite.org/optoverview.html#flattening)
+-  [query parameters with special meaning to SQLite](https://www.sqlite.org/uri.html#coreqp)
+-  [query planner](https://www.sqlite.org/optoverview.html)
+-  [query planner checklist](https://www.sqlite.org/queryplanner-ng.html#howtofix)
+-  [query planner stability guarantee](https://www.sqlite.org/queryplanner-ng.html#qpstab)
+-  [query-time index](https://www.sqlite.org/optoverview.html#autoindex)
+-  [Query-time indexes](https://www.sqlite.org/optoverview.html#autoindex)
+-  [query-time indexing](https://www.sqlite.org/optoverview.html#autoindex)
+-  [query_only pragma](https://www.sqlite.org/pragma.html#pragma_query_only)
+-  [Quick Start Guide](https://www.sqlite.org/quickstart.html)
+-  [quick_check pragma](https://www.sqlite.org/pragma.html#pragma_quick_check)
+-  [Quirks](https://www.sqlite.org/quirks.html)
+-  [quote() SQL function](https://www.sqlite.org/lang_corefunc.html#quote)
+-  [R-Tree extension](https://www.sqlite.org/rtree.html)
+-  [R-Trees](https://www.sqlite.org/rtree.html)
+-  [radians() SQL function](https://www.sqlite.org/lang_mathfunc.html#radians)
+-  [RAISE function](https://www.sqlite.org/lang_createtrigger.html#raise)
+-  [raise-function](https://www.sqlite.org/syntax/raise-function.html)
+-  [raise-function syntax diagram](https://www.sqlite.org/syntax/raise-function.html)
+-  [random() SQL function](https://www.sqlite.org/lang_corefunc.html#random)
+-  [randomblob() SQL function](https://www.sqlite.org/lang_corefunc.html#randomblob)
+-  [RANGE frames](https://www.sqlite.org/windowfunctions.html#rangetype)
+-  [RANGE n FOLLOWING](https://www.sqlite.org/windowfunctions.html#exprrange)
+-  [RANGE n PRECEDING](https://www.sqlite.org/windowfunctions.html#exprrange)
+-  [range query optimization](https://www.sqlite.org/optoverview.html#rangequery)
+-  [RBU](https://www.sqlite.org/rbu.html)
+-  [RBU Database Contents](https://www.sqlite.org/rbu.html#database_contents)
+-  [RBU Database Tables](https://www.sqlite.org/rbu.html#database_tables)
+-  [RBU extension](https://www.sqlite.org/rbu.html)
+-  [RBU FTS3/4 Tables](https://www.sqlite.org/rbu.html#fts4_tables)
+-  [RBU Update](https://www.sqlite.org/rbu.html#rbu_updates)
+-  [RBU Vacuum](https://www.sqlite.org/rbu.html#rbu_vacuum)
+-  [.read](https://www.sqlite.org/cli.html#dotread)
+-  [read-only WAL databases](https://www.sqlite.org/wal.html#readonly)
+-  [read_uncommitted pragma](https://www.sqlite.org/pragma.html#pragma_read_uncommitted)
+-  [reading and writing an rtree at the same time](https://www.sqlite.org/rtree.html#readwrite)
+-  ["rebuild" command](https://www.sqlite.org/fts3.html#*fts4rebuidcmd)
+-  [recent CVEs](https://www.sqlite.org/cves.html#cvetab)
+-  [recommended by the US Library of Congress](https://www.sqlite.org/locrsf.html)
+-  [recommended compile-time option](https://www.sqlite.org/compile.html#rcmd)
+-  [recommended storage format](https://www.sqlite.org/locrsf.html)
+-  [Recommended usage patterns for ANALYZE](https://www.sqlite.org/lang_analyze.html#req)
+-  [record format](https://www.sqlite.org/fileformat2.html#record_format)
+-  [.recover dot-command](https://www.sqlite.org/cli.html#recover)
+-  [recovery](https://www.sqlite.org/walformat.html#recovery)
+-  [recovery extension](https://www.sqlite.org/recovery.html)
+-  [recursive common table expression](https://www.sqlite.org/lang_with.html#recursivecte)
+-  [recursive query](https://www.sqlite.org/lang_with.html#recursivecte)
+-  [recursive-cte](https://www.sqlite.org/syntax/recursive-cte.html)
+-  [recursive-cte syntax diagram](https://www.sqlite.org/syntax/recursive-cte.html)
+-  [recursive_triggers pragma](https://www.sqlite.org/pragma.html#pragma_recursive_triggers)
+-  [REGEXP](https://www.sqlite.org/lang_expr.html#regexp)
+-  [reindex-stmt](https://www.sqlite.org/syntax/reindex-stmt.html)
+-  [reindex-stmt syntax diagram](https://www.sqlite.org/syntax/reindex-stmt.html)
+-  [RELEASE](https://www.sqlite.org/lang_savepoint.html)
+-  [release history](https://www.sqlite.org/changes.html)
+-  [release testing checklists](https://www.sqlite.org/testing.html#cklist)
+-  [release-stmt](https://www.sqlite.org/syntax/release-stmt.html)
+-  [release-stmt syntax diagram](https://www.sqlite.org/syntax/release-stmt.html)
+-  [relfootprint](https://www.sqlite.org/footprint.html)
+-  [rename column](https://www.sqlite.org/lang_altertable.html#altertabmvcol)
+-  [rename table](https://www.sqlite.org/lang_altertable.html#altertabrename)
+-  [replace() SQL function](https://www.sqlite.org/lang_corefunc.html#replace)
+-  [reported vulnerabilities](https://www.sqlite.org/cves.html)
+-  [reserve bytes](https://www.sqlite.org/fileformat2.html#resbyte)
+-  [reset the WAL](https://www.sqlite.org/fileformat2.html#walreset)
+-  [restore method](https://www.sqlite.org/tclsqlite.html#restore)
+-  [result code](https://www.sqlite.org/rescode.html)
+-  [result code definitions](https://www.sqlite.org/c3ref/c_abort.html)
+-  [result-column](https://www.sqlite.org/syntax/result-column.html)
+-  [result-column syntax diagram](https://www.sqlite.org/syntax/result-column.html)
+-  [result-set expressions](https://www.sqlite.org/lang_select.html#resultset)
+-  [RETURNING clause](https://www.sqlite.org/lang_returning.html)
+-  [returning-clause](https://www.sqlite.org/syntax/returning-clause.html)
+-  [returning-clause syntax diagram](https://www.sqlite.org/syntax/returning-clause.html)
+-  [reverse_unordered_selects pragma](https://www.sqlite.org/pragma.html#pragma_reverse_unordered_selects)
+-  [RIGHT and FULL OUTER JOIN](https://www.sqlite.org/lang_select.html#rjoin)
+-  [RIGHT JOIN](https://www.sqlite.org/lang_select.html#rjoin)
+-  [Robson proof](https://www.sqlite.org/malloc.html#nofrag)
+-  [ROLLBACK](https://www.sqlite.org/lang_transaction.html)
+-  [rollback journal](https://www.sqlite.org/lockingv3.html#rollback)
+-  [rollback journal format](https://www.sqlite.org/fileformat2.html#rollbackjournal)
+-  [rollback-stmt](https://www.sqlite.org/syntax/rollback-stmt.html)
+-  [rollback-stmt syntax diagram](https://www.sqlite.org/syntax/rollback-stmt.html)
+-  [rollback_hook method](https://www.sqlite.org/tclsqlite.html#rollback_hook)
+-  [round() SQL function](https://www.sqlite.org/lang_corefunc.html#round)
+-  [row value](https://www.sqlite.org/rowvalue.html)
+-  [row value IN operator](https://www.sqlite.org/rowvalue.html#rvinop)
+-  [ROWID](https://www.sqlite.org/lang_createtable.html#rowid)
+-  [rowid table](https://www.sqlite.org/rowidtable.html)
+-  [rowvalue](https://www.sqlite.org/rowvalue.html)
+-  [rtree shadow tables](https://www.sqlite.org/rtree.html#xshadow)
+-  [rtreecheck()](https://www.sqlite.org/rtree.html#rtreecheck)
+-  [RTRIM collating function](https://www.sqlite.org/datatype3.html#collation)
+-  [rtrim() SQL function](https://www.sqlite.org/lang_corefunc.html#rtrim)
+-  [rules for determining column affinity](https://www.sqlite.org/datatype3.html#affname)
+-  [rules for determining column affinity in VIEWs](https://www.sqlite.org/datatype3.html#affview)
+-  [Run-Time Loadable Extensions](https://www.sqlite.org/loadext.html)
+-  [running ANALYZE via PRAGMA optimize](https://www.sqlite.org/lang_analyze.html#pragopt)
+-  [safe command-line option](https://www.sqlite.org/cli.html#safemode)
+-  [--safe command-line option](https://www.sqlite.org/cli.html#safemode)
+-  [SAVEPOINT bug](https://www.sqlite.org/howtocorrupt.html#svptbug)
+-  [savepoint-stmt](https://www.sqlite.org/syntax/savepoint-stmt.html)
+-  [savepoint-stmt syntax diagram](https://www.sqlite.org/syntax/savepoint-stmt.html)
+-  [Scalar Functions](https://www.sqlite.org/lang_corefunc.html)
+-  [scan status flags](https://www.sqlite.org/c3ref/c_scanstat_complex.html)
+-  [scanstatus options](https://www.sqlite.org/c3ref/c_scanstat_est.html)
+-  [.schema](https://www.sqlite.org/cli.html#dschema)
+-  [schema format](https://www.sqlite.org/fileformat2.html#schemaformat)
+-  [schema format number](https://www.sqlite.org/fileformat2.html#schemaformat)
+-  [schema storage](https://www.sqlite.org/fileformat2.html#ffschema)
+-  [schema_version pragma](https://www.sqlite.org/pragma.html#pragma_schema_version)
+-  [search application tips](https://www.sqlite.org/fts3.html#appendix_a)
+-  [second edition file format document](https://www.sqlite.org/fileformat2.html)
+-  [secure_delete pragma](https://www.sqlite.org/pragma.html#pragma_secure_delete)
+-  [security](https://www.sqlite.org/security.html)
+-  [segment btree](https://www.sqlite.org/fts3.html#data_structures)
+-  [select](https://www.sqlite.org/lang_select.html)
+-  [SELECT query](https://www.sqlite.org/lang_select.html)
+-  [SELECT statement](https://www.sqlite.org/lang_select.html)
+-  [select-core](https://www.sqlite.org/syntax/select-core.html)
+-  [select-core syntax diagram](https://www.sqlite.org/syntax/select-core.html)
+-  [select-stmt](https://www.sqlite.org/syntax/select-stmt.html)
+-  [select-stmt syntax diagram](https://www.sqlite.org/syntax/select-stmt.html)
+-  [self-contained](https://www.sqlite.org/selfcontained.html)
+-  [.selftest dot-command](https://www.sqlite.org/cli.html#selftest)
+-  [separating a database from its journal](https://www.sqlite.org/howtocorrupt.html#roguejrnl)
+-  [serial type](https://www.sqlite.org/fileformat2.html#serialtype)
+-  [serialize method](https://www.sqlite.org/tclsqlite.html#serialize)
+-  [series](https://www.sqlite.org/series.html)
+-  [server-side database](https://www.sqlite.org/whentouse.html#serversidedb)
+-  [serverless](https://www.sqlite.org/serverless.html)
+-  [session](https://www.sqlite.org/sessionintro.html)
+-  [session extension](https://www.sqlite.org/sessionintro.html)
+-  [Session Extension C-language Interface](https://www.sqlite.org/session/intro.html)
+-  [Session Module C-API function list](https://www.sqlite.org/session/funclist.html)
+-  [.sha3sum dot-command](https://www.sqlite.org/cli.html#sha3sum)
+-  [shadow table](https://www.sqlite.org/vtab.html#xshadowname)
+-  [shadowtabs](https://www.sqlite.org/fts3.html#shadow_tables)
+-  [shared cache](https://www.sqlite.org/sharedcache.html)
+-  [shared cache mode](https://www.sqlite.org/sharedcache.html)
+-  [shims](https://www.sqlite.org/vfs.html#shim)
+-  ["shm" file](https://www.sqlite.org/walformat.html#shm)
+-  [short filenames](https://www.sqlite.org/shortnames.html)
+-  [short_column_names pragma](https://www.sqlite.org/pragma.html#pragma_short_column_names)
+-  [shrink_memory pragma](https://www.sqlite.org/pragma.html#pragma_shrink_memory)
+-  [sign() SQL function](https://www.sqlite.org/lang_corefunc.html#sign)
+-  [signed-number](https://www.sqlite.org/syntax/signed-number.html)
+-  [signed-number syntax diagram](https://www.sqlite.org/syntax/signed-number.html)
+-  [simple fts queries](https://www.sqlite.org/fts3.html#simple_fts_queries)
+-  [simple SELECT](https://www.sqlite.org/lang_select.html#simpleselect)
+-  [simple-function-invocation](https://www.sqlite.org/syntax/simple-function-invocation.html)
+-  [simple-function-invocation syntax diagram](https://www.sqlite.org/syntax/simple-function-invocation.html)
+-  [simple-select-stmt](https://www.sqlite.org/syntax/simple-select-stmt.html)
+-  [simple-select-stmt syntax diagram](https://www.sqlite.org/syntax/simple-select-stmt.html)
+-  [sin() SQL function](https://www.sqlite.org/lang_mathfunc.html#sin)
+-  [single-argument carray](https://www.sqlite.org/carray.html#onearg)
+-  [sinh() SQL function](https://www.sqlite.org/lang_mathfunc.html#sinh)
+-  [skip-scan](https://www.sqlite.org/optoverview.html#skipscan)
+-  [skip-scan optimization](https://www.sqlite.org/optoverview.html#skipscan)
+-  [SLT](https://www.sqlite.org/testing.html#slt)
+-  [snapshot](https://www.sqlite.org/c3ref/snapshot.html)
+-  [snippet](https://www.sqlite.org/fts3.html#snippet)
+-  [soft_heap_limit pragma](https://www.sqlite.org/pragma.html#pragma_soft_heap_limit)
+-  [solve Sudoku puzzles](https://www.sqlite.org/lang_with.html#sudoku)
+-  [sort order](https://www.sqlite.org/datatype3.html#sortorder)
+-  [sorting](https://www.sqlite.org/queryplanner.html#sorting)
+-  [sorting subsets of the result](https://www.sqlite.org/optoverview.html#partsort)
+-  [soundex() SQL function](https://www.sqlite.org/lang_corefunc.html#soundex)
+-  [spellfix1](https://www.sqlite.org/spellfix1.html)
+-  [split amalgamation](https://www.sqlite.org/amalgamation.html#amal32k)
+-  [SQL Archive](https://www.sqlite.org/sqlar.html)
+-  [SQL fuzzing](https://www.sqlite.org/testing.html#fuzztesting)
+-  [SQL Logic Tests](https://www.sqlite.org/testing.html#slt)
+-  [SQL parameter](https://www.sqlite.org/c3ref/bind_blob.html)
+-  [SQL statement compiler](https://www.sqlite.org/c3ref/prepare.html)
+-  [sql-stmt](https://www.sqlite.org/syntax/sql-stmt.html)
+-  [sql-stmt syntax diagram](https://www.sqlite.org/syntax/sql-stmt.html)
+-  [sql-stmt-list](https://www.sqlite.org/syntax/sql-stmt-list.html)
+-  [sql-stmt-list syntax diagram](https://www.sqlite.org/syntax/sql-stmt-list.html)
+-  [SQLAR](https://www.sqlite.org/sqlar.html)
+-  [sqldiff](https://www.sqlite.org/sqldiff.html)
+-  [sqldiff --rbu](https://www.sqlite.org/rbu.html#sqldiff)
+-  [sqldiff.exe](https://www.sqlite.org/sqldiff.html)
+-  [SQLite amalgamation source file](https://www.sqlite.org/amalgamation.html)
+-  [SQLite Archive](https://www.sqlite.org/sqlar.html)
+-  [SQLite Archive files](https://www.sqlite.org/sqlar.html)
+-  [SQLite Archive format](https://www.sqlite.org/sqlar.html)
+-  [SQLite Archive smaller than ZIP](https://www.sqlite.org/affcase1.html#smaller)
+-  [SQLite Consortium](https://www.sqlite.org/consortium.html)
+-  [SQLite database file format](https://www.sqlite.org/fileformat2.html)
+-  [SQLite extension](https://www.sqlite.org/loadext.html)
+-  [SQLite Keywords](https://www.sqlite.org/lang_keywords.html)
+-  [SQLite query planner](https://www.sqlite.org/optoverview.html)
+-  [SQLite Shared-Cache Mode](https://www.sqlite.org/sharedcache.html)
+-  [SQLite source code repositories](https://www.sqlite.org/download.html#srctree)
+-  [sqlite3](https://www.sqlite.org/c3ref/sqlite3.html)
+-  [sqlite3.exe](https://www.sqlite.org/cli.html)
+-  [sqlite3.exe command-line shell](https://www.sqlite.org/cli.html)
+-  [sqlite3_aggregate_context](https://www.sqlite.org/c3ref/aggregate_context.html)
+-  [sqlite3_aggregate_count](https://www.sqlite.org/c3ref/aggregate_count.html)
+-  [sqlite3_analyzer](https://www.sqlite.org/sqlanalyze.html)
+-  [sqlite3_analyzer.exe](https://www.sqlite.org/sqlanalyze.html)
+-  [sqlite3_api_routines](https://www.sqlite.org/c3ref/api_routines.html)
+-  [sqlite3_auto_extension](https://www.sqlite.org/c3ref/auto_extension.html)
+-  [sqlite3_autovacuum_pages](https://www.sqlite.org/c3ref/autovacuum_pages.html)
+-  [sqlite3_backup](https://www.sqlite.org/c3ref/backup.html)
+-  [sqlite3_backup_finish()](https://www.sqlite.org/c3ref/backup_finish.html#sqlite3backupfinish)
+-  [sqlite3_backup_init()](https://www.sqlite.org/c3ref/backup_finish.html#sqlite3backupinit)
+-  [sqlite3_backup_pagecount()](https://www.sqlite.org/c3ref/backup_finish.html#sqlite3backuppagecount)
+-  [sqlite3_backup_remaining()](https://www.sqlite.org/c3ref/backup_finish.html#sqlite3backupremaining)
+-  [sqlite3_backup_step()](https://www.sqlite.org/c3ref/backup_finish.html#sqlite3backupstep)
+-  [sqlite3_bind_blob](https://www.sqlite.org/c3ref/bind_blob.html)
+-  [sqlite3_bind_blob64](https://www.sqlite.org/c3ref/bind_blob.html)
+-  [sqlite3_bind_double](https://www.sqlite.org/c3ref/bind_blob.html)
+-  [sqlite3_bind_int](https://www.sqlite.org/c3ref/bind_blob.html)
+-  [sqlite3_bind_int64](https://www.sqlite.org/c3ref/bind_blob.html)
+-  [sqlite3_bind_null](https://www.sqlite.org/c3ref/bind_blob.html)
+-  [sqlite3_bind_parameter_count](https://www.sqlite.org/c3ref/bind_parameter_count.html)
+-  [sqlite3_bind_parameter_index](https://www.sqlite.org/c3ref/bind_parameter_index.html)
+-  [sqlite3_bind_parameter_name](https://www.sqlite.org/c3ref/bind_parameter_name.html)
+-  [sqlite3_bind_pointer](https://www.sqlite.org/c3ref/bind_blob.html)
+-  [sqlite3_bind_text](https://www.sqlite.org/c3ref/bind_blob.html)
+-  [sqlite3_bind_text16](https://www.sqlite.org/c3ref/bind_blob.html)
+-  [sqlite3_bind_text64](https://www.sqlite.org/c3ref/bind_blob.html)
+-  [sqlite3_bind_value](https://www.sqlite.org/c3ref/bind_blob.html)
+-  [sqlite3_bind_zeroblob](https://www.sqlite.org/c3ref/bind_blob.html)
+-  [sqlite3_bind_zeroblob64](https://www.sqlite.org/c3ref/bind_blob.html)
+-  [sqlite3_blob](https://www.sqlite.org/c3ref/blob.html)
+-  [sqlite3_blob_bytes](https://www.sqlite.org/c3ref/blob_bytes.html)
+-  [sqlite3_blob_close](https://www.sqlite.org/c3ref/blob_close.html)
+-  [sqlite3_blob_open](https://www.sqlite.org/c3ref/blob_open.html)
+-  [sqlite3_blob_read](https://www.sqlite.org/c3ref/blob_read.html)
+-  [sqlite3_blob_reopen](https://www.sqlite.org/c3ref/blob_reopen.html)
+-  [sqlite3_blob_write](https://www.sqlite.org/c3ref/blob_write.html)
+-  [sqlite3_busy_handler](https://www.sqlite.org/c3ref/busy_handler.html)
+-  [sqlite3_busy_timeout](https://www.sqlite.org/c3ref/busy_timeout.html)
+-  [sqlite3_cancel_auto_extension](https://www.sqlite.org/c3ref/cancel_auto_extension.html)
+-  [sqlite3_carray_bind](https://www.sqlite.org/carray.html#onearg)
+-  [sqlite3_changegroup](https://www.sqlite.org/session/changegroup.html)
+-  [sqlite3_changes](https://www.sqlite.org/c3ref/changes.html)
+-  [sqlite3_changes64](https://www.sqlite.org/c3ref/changes.html)
+-  [sqlite3_changeset_iter](https://www.sqlite.org/session/changeset_iter.html)
+-  [sqlite3_clear_bindings](https://www.sqlite.org/c3ref/clear_bindings.html)
+-  [sqlite3_close](https://www.sqlite.org/c3ref/close.html)
+-  [sqlite3_close_v2](https://www.sqlite.org/c3ref/close.html)
+-  [sqlite3_collation_needed](https://www.sqlite.org/c3ref/collation_needed.html)
+-  [sqlite3_collation_needed16](https://www.sqlite.org/c3ref/collation_needed.html)
+-  [sqlite3_column_blob](https://www.sqlite.org/c3ref/column_blob.html)
+-  [sqlite3_column_bytes](https://www.sqlite.org/c3ref/column_blob.html)
+-  [sqlite3_column_bytes16](https://www.sqlite.org/c3ref/column_blob.html)
+-  [sqlite3_column_count](https://www.sqlite.org/c3ref/column_count.html)
+-  [sqlite3_column_database_name](https://www.sqlite.org/c3ref/column_database_name.html)
+-  [sqlite3_column_database_name16](https://www.sqlite.org/c3ref/column_database_name.html)
+-  [sqlite3_column_decltype](https://www.sqlite.org/c3ref/column_decltype.html)
+-  [sqlite3_column_decltype16](https://www.sqlite.org/c3ref/column_decltype.html)
+-  [sqlite3_column_double](https://www.sqlite.org/c3ref/column_blob.html)
+-  [sqlite3_column_int](https://www.sqlite.org/c3ref/column_blob.html)
+-  [sqlite3_column_int64](https://www.sqlite.org/c3ref/column_blob.html)
+-  [sqlite3_column_name](https://www.sqlite.org/c3ref/column_name.html)
+-  [sqlite3_column_name16](https://www.sqlite.org/c3ref/column_name.html)
+-  [sqlite3_column_origin_name](https://www.sqlite.org/c3ref/column_database_name.html)
+-  [sqlite3_column_origin_name16](https://www.sqlite.org/c3ref/column_database_name.html)
+-  [sqlite3_column_table_name](https://www.sqlite.org/c3ref/column_database_name.html)
+-  [sqlite3_column_table_name16](https://www.sqlite.org/c3ref/column_database_name.html)
+-  [sqlite3_column_text](https://www.sqlite.org/c3ref/column_blob.html)
+-  [sqlite3_column_text16](https://www.sqlite.org/c3ref/column_blob.html)
+-  [sqlite3_column_type](https://www.sqlite.org/c3ref/column_blob.html)
+-  [sqlite3_column_value](https://www.sqlite.org/c3ref/column_blob.html)
+-  [sqlite3_commit_hook](https://www.sqlite.org/c3ref/commit_hook.html)
+-  [sqlite3_compileoption_get](https://www.sqlite.org/c3ref/compileoption_get.html)
+-  [sqlite3_compileoption_used](https://www.sqlite.org/c3ref/compileoption_get.html)
+-  [sqlite3_complete](https://www.sqlite.org/c3ref/complete.html)
+-  [sqlite3_complete16](https://www.sqlite.org/c3ref/complete.html)
+-  [sqlite3_config](https://www.sqlite.org/c3ref/config.html)
+-  [sqlite3_context](https://www.sqlite.org/c3ref/context.html)
+-  [sqlite3_context_db_handle](https://www.sqlite.org/c3ref/context_db_handle.html)
+-  [sqlite3_create_collation](https://www.sqlite.org/c3ref/create_collation.html)
+-  [sqlite3_create_collation16](https://www.sqlite.org/c3ref/create_collation.html)
+-  [sqlite3_create_collation_v2](https://www.sqlite.org/c3ref/create_collation.html)
+-  [sqlite3_create_filename](https://www.sqlite.org/c3ref/create_filename.html)
+-  [sqlite3_create_function](https://www.sqlite.org/c3ref/create_function.html)
+-  [sqlite3_create_function16](https://www.sqlite.org/c3ref/create_function.html)
+-  [sqlite3_create_function_v2](https://www.sqlite.org/c3ref/create_function.html)
+-  [sqlite3_create_module](https://www.sqlite.org/c3ref/create_module.html)
+-  [sqlite3_create_module_v2](https://www.sqlite.org/c3ref/create_module.html)
+-  [sqlite3_create_window_function](https://www.sqlite.org/c3ref/create_function.html)
+-  [sqlite3_data_count](https://www.sqlite.org/c3ref/data_count.html)
+-  [sqlite3_data_directory](https://www.sqlite.org/c3ref/data_directory.html)
+-  [sqlite3_database_file_object](https://www.sqlite.org/c3ref/database_file_object.html)
+-  [sqlite3_db_cacheflush](https://www.sqlite.org/c3ref/db_cacheflush.html)
+-  [sqlite3_db_config](https://www.sqlite.org/c3ref/db_config.html)
+-  [sqlite3_db_filename](https://www.sqlite.org/c3ref/db_filename.html)
+-  [sqlite3_db_handle](https://www.sqlite.org/c3ref/db_handle.html)
+-  [sqlite3_db_mutex](https://www.sqlite.org/c3ref/db_mutex.html)
+-  [sqlite3_db_name](https://www.sqlite.org/c3ref/db_name.html)
+-  [sqlite3_db_readonly](https://www.sqlite.org/c3ref/db_readonly.html)
+-  [sqlite3_db_release_memory](https://www.sqlite.org/c3ref/db_release_memory.html)
+-  [sqlite3_db_status](https://www.sqlite.org/c3ref/db_status.html)
+-  [sqlite3_declare_vtab](https://www.sqlite.org/c3ref/declare_vtab.html)
+-  [sqlite3_deserialize](https://www.sqlite.org/c3ref/deserialize.html)
+-  [sqlite3_drop_modules](https://www.sqlite.org/c3ref/drop_modules.html)
+-  [sqlite3_enable_load_extension](https://www.sqlite.org/c3ref/enable_load_extension.html)
+-  [sqlite3_enable_shared_cache](https://www.sqlite.org/c3ref/enable_shared_cache.html)
+-  [sqlite3_errcode](https://www.sqlite.org/c3ref/errcode.html)
+-  [sqlite3_errmsg](https://www.sqlite.org/c3ref/errcode.html)
+-  [sqlite3_errmsg16](https://www.sqlite.org/c3ref/errcode.html)
+-  [sqlite3_error_offset](https://www.sqlite.org/c3ref/errcode.html)
+-  [sqlite3_errstr](https://www.sqlite.org/c3ref/errcode.html)
+-  [sqlite3_exec](https://www.sqlite.org/c3ref/exec.html)
+-  [sqlite3_expanded_sql](https://www.sqlite.org/c3ref/expanded_sql.html)
+-  [sqlite3_expired](https://www.sqlite.org/c3ref/aggregate_count.html)
+-  [sqlite3_extended_errcode](https://www.sqlite.org/c3ref/errcode.html)
+-  [sqlite3_extended_result_codes](https://www.sqlite.org/c3ref/extended_result_codes.html)
+-  [sqlite3_file](https://www.sqlite.org/c3ref/file.html)
+-  [sqlite3_file_control](https://www.sqlite.org/c3ref/file_control.html)
+-  [sqlite3_filename](https://www.sqlite.org/c3ref/filename.html)
+-  [sqlite3_filename_database](https://www.sqlite.org/c3ref/filename_database.html)
+-  [sqlite3_filename_journal](https://www.sqlite.org/c3ref/filename_database.html)
+-  [sqlite3_filename_wal](https://www.sqlite.org/c3ref/filename_database.html)
+-  [sqlite3_finalize](https://www.sqlite.org/c3ref/finalize.html)
+-  [sqlite3_free](https://www.sqlite.org/c3ref/free.html)
+-  [sqlite3_free_filename](https://www.sqlite.org/c3ref/create_filename.html)
+-  [sqlite3_free_table](https://www.sqlite.org/c3ref/free_table.html)
+-  [sqlite3_get_autocommit](https://www.sqlite.org/c3ref/get_autocommit.html)
+-  [sqlite3_get_auxdata](https://www.sqlite.org/c3ref/get_auxdata.html)
+-  [sqlite3_get_clientdata](https://www.sqlite.org/c3ref/get_clientdata.html)
+-  [sqlite3_get_table](https://www.sqlite.org/c3ref/free_table.html)
+-  [sqlite3_global_recover](https://www.sqlite.org/c3ref/aggregate_count.html)
+-  [sqlite3_hard_heap_limit64](https://www.sqlite.org/c3ref/hard_heap_limit64.html)
+-  [sqlite3_index_info](https://www.sqlite.org/c3ref/index_info.html)
+-  [sqlite3_initialize](https://www.sqlite.org/c3ref/initialize.html)
+-  [sqlite3_int64](https://www.sqlite.org/c3ref/int64.html)
+-  [sqlite3_interrupt](https://www.sqlite.org/c3ref/interrupt.html)
+-  [sqlite3_io_methods](https://www.sqlite.org/c3ref/io_methods.html)
+-  [sqlite3_is_interrupted](https://www.sqlite.org/c3ref/interrupt.html)
+-  [sqlite3_keyword_check](https://www.sqlite.org/c3ref/keyword_check.html)
+-  [sqlite3_keyword_count](https://www.sqlite.org/c3ref/keyword_check.html)
+-  [sqlite3_keyword_name](https://www.sqlite.org/c3ref/keyword_check.html)
+-  [sqlite3_last_insert_rowid](https://www.sqlite.org/c3ref/last_insert_rowid.html)
+-  [sqlite3_libversion](https://www.sqlite.org/c3ref/libversion.html)
+-  [sqlite3_libversion_number](https://www.sqlite.org/c3ref/libversion.html)
+-  [sqlite3_limit](https://www.sqlite.org/c3ref/limit.html)
+-  [sqlite3_load_extension](https://www.sqlite.org/c3ref/load_extension.html)
+-  [sqlite3_log](https://www.sqlite.org/c3ref/log.html)
+-  [sqlite3_malloc](https://www.sqlite.org/c3ref/free.html)
+-  [sqlite3_malloc64](https://www.sqlite.org/c3ref/free.html)
+-  [sqlite3_mem_methods](https://www.sqlite.org/c3ref/mem_methods.html)
+-  [sqlite3_memory_alarm](https://www.sqlite.org/c3ref/aggregate_count.html)
+-  [sqlite3_memory_highwater](https://www.sqlite.org/c3ref/memory_highwater.html)
+-  [sqlite3_memory_used](https://www.sqlite.org/c3ref/memory_highwater.html)
+-  [sqlite3_module](https://www.sqlite.org/c3ref/module.html)
+-  [sqlite3_module.xBegin](https://www.sqlite.org/vtab.html#xBegin)
+-  [sqlite3_module.xBestIndex](https://www.sqlite.org/vtab.html#xbestindex)
+-  [sqlite3_module.xClose](https://www.sqlite.org/vtab.html#xclose)
+-  [sqlite3_module.xColumn](https://www.sqlite.org/vtab.html#xcolumn)
+-  [sqlite3_module.xCommit](https://www.sqlite.org/vtab.html#xcommit)
+-  [sqlite3_module.xConnect](https://www.sqlite.org/vtab.html#xconnect)
+-  [sqlite3_module.xCreate](https://www.sqlite.org/vtab.html#xcreate)
+-  [sqlite3_module.xDisconnect](https://www.sqlite.org/vtab.html#xdisconnect)
+-  [sqlite3_module.xEof](https://www.sqlite.org/vtab.html#xeof)
+-  [sqlite3_module.xFilter](https://www.sqlite.org/vtab.html#xfilter)
+-  [sqlite3_module.xFindFunction](https://www.sqlite.org/vtab.html#xfindfunction)
+-  [sqlite3_module.xIntegrity](https://www.sqlite.org/vtab.html#xintegrity)
+-  [sqlite3_module.xNext](https://www.sqlite.org/vtab.html#xnext)
+-  [sqlite3_module.xOpen](https://www.sqlite.org/vtab.html#xopen)
+-  [sqlite3_module.xRename](https://www.sqlite.org/vtab.html#xrename)
+-  [sqlite3_module.xRollback](https://www.sqlite.org/vtab.html#xrollback)
+-  [sqlite3_module.xRowid](https://www.sqlite.org/vtab.html#xrowid)
+-  [sqlite3_module.xSavepoint](https://www.sqlite.org/vtab.html#xsavepoint)
+-  [sqlite3_module.xShadowName](https://www.sqlite.org/vtab.html#xshadowname)
+-  [sqlite3_module.xSync](https://www.sqlite.org/vtab.html#xsync)
+-  [sqlite3_module.xUpdate](https://www.sqlite.org/vtab.html#xupdate)
+-  [sqlite3_mprintf](https://www.sqlite.org/c3ref/mprintf.html)
+-  [sqlite3_msize](https://www.sqlite.org/c3ref/free.html)
+-  [sqlite3_mutex](https://www.sqlite.org/c3ref/mutex.html)
+-  [sqlite3_mutex_alloc](https://www.sqlite.org/c3ref/mutex_alloc.html)
+-  [sqlite3_mutex_enter](https://www.sqlite.org/c3ref/mutex_alloc.html)
+-  [sqlite3_mutex_free](https://www.sqlite.org/c3ref/mutex_alloc.html)
+-  [sqlite3_mutex_held](https://www.sqlite.org/c3ref/mutex_held.html)
+-  [sqlite3_mutex_leave](https://www.sqlite.org/c3ref/mutex_alloc.html)
+-  [sqlite3_mutex_methods](https://www.sqlite.org/c3ref/mutex_methods.html)
+-  [sqlite3_mutex_notheld](https://www.sqlite.org/c3ref/mutex_held.html)
+-  [sqlite3_mutex_try](https://www.sqlite.org/c3ref/mutex_alloc.html)
+-  [sqlite3_next_stmt](https://www.sqlite.org/c3ref/next_stmt.html)
+-  [sqlite3_normalized_sql](https://www.sqlite.org/c3ref/expanded_sql.html)
+-  [sqlite3_open](https://www.sqlite.org/c3ref/open.html)
+-  [sqlite3_open16](https://www.sqlite.org/c3ref/open.html)
+-  [sqlite3_open_v2](https://www.sqlite.org/c3ref/open.html)
+-  [sqlite3_os_end](https://www.sqlite.org/c3ref/initialize.html)
+-  [sqlite3_os_init](https://www.sqlite.org/c3ref/initialize.html)
+-  [sqlite3_overload_function](https://www.sqlite.org/c3ref/overload_function.html)
+-  [sqlite3_pcache](https://www.sqlite.org/c3ref/pcache.html)
+-  [sqlite3_pcache_methods2](https://www.sqlite.org/c3ref/pcache_methods2.html)
+-  [sqlite3_pcache_page](https://www.sqlite.org/c3ref/pcache_page.html)
+-  [sqlite3_prepare](https://www.sqlite.org/c3ref/prepare.html)
+-  [sqlite3_prepare16](https://www.sqlite.org/c3ref/prepare.html)
+-  [sqlite3_prepare16_v2](https://www.sqlite.org/c3ref/prepare.html)
+-  [sqlite3_prepare16_v3](https://www.sqlite.org/c3ref/prepare.html)
+-  [sqlite3_prepare_v2](https://www.sqlite.org/c3ref/prepare.html)
+-  [sqlite3_prepare_v3](https://www.sqlite.org/c3ref/prepare.html)
+-  [sqlite3_preupdate_blobwrite](https://www.sqlite.org/c3ref/preupdate_blobwrite.html)
+-  [sqlite3_preupdate_count](https://www.sqlite.org/c3ref/preupdate_blobwrite.html)
+-  [sqlite3_preupdate_depth](https://www.sqlite.org/c3ref/preupdate_blobwrite.html)
+-  [sqlite3_preupdate_hook](https://www.sqlite.org/c3ref/preupdate_blobwrite.html)
+-  [sqlite3_preupdate_new](https://www.sqlite.org/c3ref/preupdate_blobwrite.html)
+-  [sqlite3_preupdate_old](https://www.sqlite.org/c3ref/preupdate_blobwrite.html)
+-  [sqlite3_profile](https://www.sqlite.org/c3ref/profile.html)
+-  [sqlite3_progress_handler](https://www.sqlite.org/c3ref/progress_handler.html)
+-  [sqlite3_randomness](https://www.sqlite.org/c3ref/randomness.html)
+-  [sqlite3_realloc](https://www.sqlite.org/c3ref/free.html)
+-  [sqlite3_realloc64](https://www.sqlite.org/c3ref/free.html)
+-  [sqlite3_rebaser](https://www.sqlite.org/session/rebaser.html)
+-  [sqlite3_release_memory](https://www.sqlite.org/c3ref/release_memory.html)
+-  [sqlite3_reset](https://www.sqlite.org/c3ref/reset.html)
+-  [sqlite3_reset_auto_extension](https://www.sqlite.org/c3ref/reset_auto_extension.html)
+-  [sqlite3_result_blob](https://www.sqlite.org/c3ref/result_blob.html)
+-  [sqlite3_result_blob64](https://www.sqlite.org/c3ref/result_blob.html)
+-  [sqlite3_result_double](https://www.sqlite.org/c3ref/result_blob.html)
+-  [sqlite3_result_error](https://www.sqlite.org/c3ref/result_blob.html)
+-  [sqlite3_result_error16](https://www.sqlite.org/c3ref/result_blob.html)
+-  [sqlite3_result_error_code](https://www.sqlite.org/c3ref/result_blob.html)
+-  [sqlite3_result_error_nomem](https://www.sqlite.org/c3ref/result_blob.html)
+-  [sqlite3_result_error_toobig](https://www.sqlite.org/c3ref/result_blob.html)
+-  [sqlite3_result_int](https://www.sqlite.org/c3ref/result_blob.html)
+-  [sqlite3_result_int64](https://www.sqlite.org/c3ref/result_blob.html)
+-  [sqlite3_result_null](https://www.sqlite.org/c3ref/result_blob.html)
+-  [sqlite3_result_pointer](https://www.sqlite.org/c3ref/result_blob.html)
+-  [sqlite3_result_subtype](https://www.sqlite.org/c3ref/result_subtype.html)
+-  [sqlite3_result_text](https://www.sqlite.org/c3ref/result_blob.html)
+-  [sqlite3_result_text16](https://www.sqlite.org/c3ref/result_blob.html)
+-  [sqlite3_result_text16be](https://www.sqlite.org/c3ref/result_blob.html)
+-  [sqlite3_result_text16le](https://www.sqlite.org/c3ref/result_blob.html)
+-  [sqlite3_result_text64](https://www.sqlite.org/c3ref/result_blob.html)
+-  [sqlite3_result_value](https://www.sqlite.org/c3ref/result_blob.html)
+-  [sqlite3_result_zeroblob](https://www.sqlite.org/c3ref/result_blob.html)
+-  [sqlite3_result_zeroblob64](https://www.sqlite.org/c3ref/result_blob.html)
+-  [sqlite3_rollback_hook](https://www.sqlite.org/c3ref/commit_hook.html)
+-  [sqlite3_rtree_query_callback](https://www.sqlite.org/rtree.html#xquery)
+-  [sqlite3_serialize](https://www.sqlite.org/c3ref/serialize.html)
+-  [sqlite3_session](https://www.sqlite.org/session/session.html)
+-  [sqlite3_set_authorizer](https://www.sqlite.org/c3ref/set_authorizer.html)
+-  [sqlite3_set_auxdata](https://www.sqlite.org/c3ref/get_auxdata.html)
+-  [sqlite3_set_clientdata](https://www.sqlite.org/c3ref/get_clientdata.html)
+-  [sqlite3_set_last_insert_rowid](https://www.sqlite.org/c3ref/set_last_insert_rowid.html)
+-  [sqlite3_shutdown](https://www.sqlite.org/c3ref/initialize.html)
+-  [sqlite3_sleep](https://www.sqlite.org/c3ref/sleep.html)
+-  [sqlite3_snapshot](https://www.sqlite.org/c3ref/snapshot.html)
+-  [sqlite3_snapshot_cmp](https://www.sqlite.org/c3ref/snapshot_cmp.html)
+-  [sqlite3_snapshot_free](https://www.sqlite.org/c3ref/snapshot_free.html)
+-  [sqlite3_snapshot_get](https://www.sqlite.org/c3ref/snapshot_get.html)
+-  [sqlite3_snapshot_open](https://www.sqlite.org/c3ref/snapshot_open.html)
+-  [sqlite3_snapshot_recover](https://www.sqlite.org/c3ref/snapshot_recover.html)
+-  [sqlite3_snprintf](https://www.sqlite.org/c3ref/mprintf.html)
+-  [sqlite3_soft_heap_limit](https://www.sqlite.org/c3ref/soft_heap_limit.html)
+-  [sqlite3_soft_heap_limit64](https://www.sqlite.org/c3ref/hard_heap_limit64.html)
+-  [sqlite3_sourceid](https://www.sqlite.org/c3ref/libversion.html)
+-  [sqlite3_sql](https://www.sqlite.org/c3ref/expanded_sql.html)
+-  [sqlite3_status](https://www.sqlite.org/c3ref/status.html)
+-  [sqlite3_status64](https://www.sqlite.org/c3ref/status.html)
+-  [sqlite3_step](https://www.sqlite.org/c3ref/step.html)
+-  [sqlite3_stmt](https://www.sqlite.org/c3ref/stmt.html)
+-  [sqlite3_stmt_busy](https://www.sqlite.org/c3ref/stmt_busy.html)
+-  [sqlite3_stmt_explain](https://www.sqlite.org/c3ref/stmt_explain.html)
+-  [sqlite3_stmt_isexplain](https://www.sqlite.org/c3ref/stmt_isexplain.html)
+-  [sqlite3_stmt_readonly](https://www.sqlite.org/c3ref/stmt_readonly.html)
+-  [sqlite3_stmt_scanstatus](https://www.sqlite.org/c3ref/stmt_scanstatus.html)
+-  [sqlite3_stmt_scanstatus_reset](https://www.sqlite.org/c3ref/stmt_scanstatus_reset.html)
+-  [sqlite3_stmt_scanstatus_v2](https://www.sqlite.org/c3ref/stmt_scanstatus.html)
+-  [sqlite3_stmt_status](https://www.sqlite.org/c3ref/stmt_status.html)
+-  [sqlite3_str](https://www.sqlite.org/c3ref/str.html)
+-  [sqlite3_str_append](https://www.sqlite.org/c3ref/str_append.html)
+-  [sqlite3_str_appendall](https://www.sqlite.org/c3ref/str_append.html)
+-  [sqlite3_str_appendchar](https://www.sqlite.org/c3ref/str_append.html)
+-  [sqlite3_str_appendf](https://www.sqlite.org/c3ref/str_append.html)
+-  [sqlite3_str_errcode](https://www.sqlite.org/c3ref/str_errcode.html)
+-  [sqlite3_str_finish](https://www.sqlite.org/c3ref/str_finish.html)
+-  [sqlite3_str_length](https://www.sqlite.org/c3ref/str_errcode.html)
+-  [sqlite3_str_new](https://www.sqlite.org/c3ref/str_new.html)
+-  [sqlite3_str_reset](https://www.sqlite.org/c3ref/str_append.html)
+-  [sqlite3_str_value](https://www.sqlite.org/c3ref/str_errcode.html)
+-  [sqlite3_str_vappendf](https://www.sqlite.org/c3ref/str_append.html)
+-  [sqlite3_strglob](https://www.sqlite.org/c3ref/strglob.html)
+-  [sqlite3_stricmp](https://www.sqlite.org/c3ref/stricmp.html)
+-  [sqlite3_strlike](https://www.sqlite.org/c3ref/strlike.html)
+-  [sqlite3_strnicmp](https://www.sqlite.org/c3ref/stricmp.html)
+-  [sqlite3_system_errno](https://www.sqlite.org/c3ref/system_errno.html)
+-  [sqlite3_table_column_metadata](https://www.sqlite.org/c3ref/table_column_metadata.html)
+-  [sqlite3_temp_directory](https://www.sqlite.org/c3ref/temp_directory.html)
+-  [sqlite3_test_control](https://www.sqlite.org/c3ref/test_control.html)
+-  [sqlite3_thread_cleanup](https://www.sqlite.org/c3ref/aggregate_count.html)
+-  [sqlite3_threadsafe](https://www.sqlite.org/c3ref/threadsafe.html)
+-  [sqlite3_total_changes](https://www.sqlite.org/c3ref/total_changes.html)
+-  [sqlite3_total_changes64](https://www.sqlite.org/c3ref/total_changes.html)
+-  [sqlite3_trace](https://www.sqlite.org/c3ref/profile.html)
+-  [sqlite3_trace_v2](https://www.sqlite.org/c3ref/trace_v2.html)
+-  [sqlite3_transfer_bindings](https://www.sqlite.org/c3ref/aggregate_count.html)
+-  [sqlite3_txn_state](https://www.sqlite.org/c3ref/txn_state.html)
+-  [sqlite3_uint64](https://www.sqlite.org/c3ref/int64.html)
+-  [sqlite3_unlock_notify](https://www.sqlite.org/c3ref/unlock_notify.html)
+-  [sqlite3_update_hook](https://www.sqlite.org/c3ref/update_hook.html)
+-  [sqlite3_uri_boolean](https://www.sqlite.org/c3ref/uri_boolean.html)
+-  [sqlite3_uri_int64](https://www.sqlite.org/c3ref/uri_boolean.html)
+-  [sqlite3_uri_key](https://www.sqlite.org/c3ref/uri_boolean.html)
+-  [sqlite3_uri_parameter](https://www.sqlite.org/c3ref/uri_boolean.html)
+-  [sqlite3_user_data](https://www.sqlite.org/c3ref/user_data.html)
+-  [sqlite3_value](https://www.sqlite.org/c3ref/value.html)
+-  [sqlite3_value_blob](https://www.sqlite.org/c3ref/value_blob.html)
+-  [sqlite3_value_bytes](https://www.sqlite.org/c3ref/value_blob.html)
+-  [sqlite3_value_bytes16](https://www.sqlite.org/c3ref/value_blob.html)
+-  [sqlite3_value_double](https://www.sqlite.org/c3ref/value_blob.html)
+-  [sqlite3_value_dup](https://www.sqlite.org/c3ref/value_dup.html)
+-  [sqlite3_value_encoding](https://www.sqlite.org/c3ref/value_encoding.html)
+-  [sqlite3_value_free](https://www.sqlite.org/c3ref/value_dup.html)
+-  [sqlite3_value_frombind](https://www.sqlite.org/c3ref/value_blob.html)
+-  [sqlite3_value_int](https://www.sqlite.org/c3ref/value_blob.html)
+-  [sqlite3_value_int64](https://www.sqlite.org/c3ref/value_blob.html)
+-  [sqlite3_value_nochange](https://www.sqlite.org/c3ref/value_blob.html)
+-  [sqlite3_value_numeric_type](https://www.sqlite.org/c3ref/value_blob.html)
+-  [sqlite3_value_pointer](https://www.sqlite.org/c3ref/value_blob.html)
+-  [sqlite3_value_subtype](https://www.sqlite.org/c3ref/value_subtype.html)
+-  [sqlite3_value_text](https://www.sqlite.org/c3ref/value_blob.html)
+-  [sqlite3_value_text16](https://www.sqlite.org/c3ref/value_blob.html)
+-  [sqlite3_value_text16be](https://www.sqlite.org/c3ref/value_blob.html)
+-  [sqlite3_value_text16le](https://www.sqlite.org/c3ref/value_blob.html)
+-  [sqlite3_value_type](https://www.sqlite.org/c3ref/value_blob.html)
+-  [sqlite3_version](https://www.sqlite.org/c3ref/libversion.html)
+-  [sqlite3_vfs](https://www.sqlite.org/c3ref/vfs.html)
+-  [sqlite3_vfs.xAccess](https://www.sqlite.org/c3ref/vfs.html#sqlite3vfsxaccess)
+-  [sqlite3_vfs.xOpen](https://www.sqlite.org/c3ref/vfs.html#sqlite3vfsxopen)
+-  [sqlite3_vfs_find](https://www.sqlite.org/c3ref/vfs_find.html)
+-  [sqlite3_vfs_register](https://www.sqlite.org/c3ref/vfs_find.html)
+-  [sqlite3_vfs_unregister](https://www.sqlite.org/c3ref/vfs_find.html)
+-  [sqlite3_vmprintf](https://www.sqlite.org/c3ref/mprintf.html)
+-  [sqlite3_vsnprintf](https://www.sqlite.org/c3ref/mprintf.html)
+-  [sqlite3_vtab](https://www.sqlite.org/c3ref/vtab.html)
+-  [sqlite3_vtab_collation](https://www.sqlite.org/c3ref/vtab_collation.html)
+-  [sqlite3_vtab_config](https://www.sqlite.org/c3ref/vtab_config.html)
+-  [sqlite3_vtab_cursor](https://www.sqlite.org/c3ref/vtab_cursor.html)
+-  [sqlite3_vtab_distinct](https://www.sqlite.org/c3ref/vtab_distinct.html)
+-  [sqlite3_vtab_in](https://www.sqlite.org/c3ref/vtab_in.html)
+-  [sqlite3_vtab_in_first](https://www.sqlite.org/c3ref/vtab_in_first.html)
+-  [sqlite3_vtab_in_next](https://www.sqlite.org/c3ref/vtab_in_first.html)
+-  [sqlite3_vtab_nochange](https://www.sqlite.org/c3ref/vtab_nochange.html)
+-  [sqlite3_vtab_on_conflict](https://www.sqlite.org/c3ref/vtab_on_conflict.html)
+-  [sqlite3_vtab_rhs_value](https://www.sqlite.org/c3ref/vtab_rhs_value.html)
+-  [sqlite3_wal_autocheckpoint](https://www.sqlite.org/c3ref/wal_autocheckpoint.html)
+-  [sqlite3_wal_checkpoint](https://www.sqlite.org/c3ref/wal_checkpoint.html)
+-  [sqlite3_wal_checkpoint_v2](https://www.sqlite.org/c3ref/wal_checkpoint_v2.html)
+-  [sqlite3_wal_hook](https://www.sqlite.org/c3ref/wal_hook.html)
+-  [sqlite3_win32_set_directory](https://www.sqlite.org/c3ref/win32_set_directory.html)
+-  [sqlite3_win32_set_directory16](https://www.sqlite.org/c3ref/win32_set_directory.html)
+-  [sqlite3_win32_set_directory8](https://www.sqlite.org/c3ref/win32_set_directory.html)
+-  [sqlite3changegroup_add](https://www.sqlite.org/session/sqlite3changegroup_add.html)
+-  [sqlite3changegroup_add_change](https://www.sqlite.org/session/sqlite3changegroup_add_change.html)
+-  [sqlite3changegroup_add_strm](https://www.sqlite.org/session/sqlite3changegroup_add_strm.html)
+-  [sqlite3changegroup_delete](https://www.sqlite.org/session/sqlite3changegroup_delete.html)
+-  [sqlite3changegroup_new](https://www.sqlite.org/session/sqlite3changegroup_new.html)
+-  [sqlite3changegroup_output](https://www.sqlite.org/session/sqlite3changegroup_output.html)
+-  [sqlite3changegroup_output_strm](https://www.sqlite.org/session/sqlite3changegroup_add_strm.html)
+-  [sqlite3changegroup_schema](https://www.sqlite.org/session/sqlite3changegroup_schema.html)
+-  [sqlite3changeset_apply](https://www.sqlite.org/session/sqlite3changeset_apply.html)
+-  [sqlite3changeset_apply_strm](https://www.sqlite.org/session/sqlite3changegroup_add_strm.html)
+-  [sqlite3changeset_apply_v2](https://www.sqlite.org/session/sqlite3changeset_apply.html)
+-  [sqlite3changeset_apply_v2_strm](https://www.sqlite.org/session/sqlite3changegroup_add_strm.html)
+-  [sqlite3changeset_concat](https://www.sqlite.org/session/sqlite3changeset_concat.html)
+-  [sqlite3changeset_concat_strm](https://www.sqlite.org/session/sqlite3changegroup_add_strm.html)
+-  [sqlite3changeset_conflict](https://www.sqlite.org/session/sqlite3changeset_conflict.html)
+-  [sqlite3changeset_finalize](https://www.sqlite.org/session/sqlite3changeset_finalize.html)
+-  [sqlite3changeset_fk_conflicts](https://www.sqlite.org/session/sqlite3changeset_fk_conflicts.html)
+-  [sqlite3changeset_invert](https://www.sqlite.org/session/sqlite3changeset_invert.html)
+-  [sqlite3changeset_invert_strm](https://www.sqlite.org/session/sqlite3changegroup_add_strm.html)
+-  [sqlite3changeset_new](https://www.sqlite.org/session/sqlite3changeset_new.html)
+-  [sqlite3changeset_next](https://www.sqlite.org/session/sqlite3changeset_next.html)
+-  [sqlite3changeset_old](https://www.sqlite.org/session/sqlite3changeset_old.html)
+-  [sqlite3changeset_op](https://www.sqlite.org/session/sqlite3changeset_op.html)
+-  [sqlite3changeset_pk](https://www.sqlite.org/session/sqlite3changeset_pk.html)
+-  [sqlite3changeset_start](https://www.sqlite.org/session/sqlite3changeset_start.html)
+-  [sqlite3changeset_start_strm](https://www.sqlite.org/session/sqlite3changegroup_add_strm.html)
+-  [sqlite3changeset_start_v2](https://www.sqlite.org/session/sqlite3changeset_start.html)
+-  [sqlite3changeset_start_v2_strm](https://www.sqlite.org/session/sqlite3changegroup_add_strm.html)
+-  [sqlite3changeset_upgrade](https://www.sqlite.org/session/sqlite3changeset_upgrade.html)
+-  [sqlite3rebaser_configure](https://www.sqlite.org/session/sqlite3rebaser_configure.html)
+-  [sqlite3rebaser_create](https://www.sqlite.org/session/sqlite3rebaser_create.html)
+-  [sqlite3rebaser_delete](https://www.sqlite.org/session/sqlite3rebaser_delete.html)
+-  [sqlite3rebaser_rebase](https://www.sqlite.org/session/sqlite3rebaser_rebase.html)
+-  [sqlite3rebaser_rebase_strm](https://www.sqlite.org/session/sqlite3changegroup_add_strm.html)
+-  [sqlite3session_attach](https://www.sqlite.org/session/sqlite3session_attach.html)
+-  [sqlite3session_changeset](https://www.sqlite.org/session/sqlite3session_changeset.html)
+-  [sqlite3session_changeset_size](https://www.sqlite.org/session/sqlite3session_changeset_size.html)
+-  [sqlite3session_changeset_strm](https://www.sqlite.org/session/sqlite3changegroup_add_strm.html)
+-  [sqlite3session_config](https://www.sqlite.org/session/sqlite3session_config.html)
+-  [sqlite3session_create](https://www.sqlite.org/session/sqlite3session_create.html)
+-  [sqlite3session_delete](https://www.sqlite.org/session/sqlite3session_delete.html)
+-  [sqlite3session_diff](https://www.sqlite.org/session/sqlite3session_diff.html)
+-  [sqlite3session_enable](https://www.sqlite.org/session/sqlite3session_enable.html)
+-  [sqlite3session_indirect](https://www.sqlite.org/session/sqlite3session_indirect.html)
+-  [sqlite3session_isempty](https://www.sqlite.org/session/sqlite3session_isempty.html)
+-  [sqlite3session_memory_used](https://www.sqlite.org/session/sqlite3session_memory_used.html)
+-  [sqlite3session_object_config](https://www.sqlite.org/session/sqlite3session_object_config.html)
+-  [sqlite3session_patchset](https://www.sqlite.org/session/sqlite3session_patchset.html)
+-  [sqlite3session_patchset_strm](https://www.sqlite.org/session/sqlite3changegroup_add_strm.html)
+-  [sqlite3session_table_filter](https://www.sqlite.org/session/sqlite3session_table_filter.html)
+-  [SQLITE_4_BYTE_ALIGNED_MALLOC](https://www.sqlite.org/compile.html#4_byte_aligned_malloc)
+-  [SQLITE_ABORT](https://www.sqlite.org/c3ref/c_abort.html)
+-  [SQLITE_ABORT_ROLLBACK](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_ACCESS_EXISTS](https://www.sqlite.org/c3ref/c_access_exists.html)
+-  [SQLITE_ACCESS_READ](https://www.sqlite.org/c3ref/c_access_exists.html)
+-  [SQLITE_ACCESS_READWRITE](https://www.sqlite.org/c3ref/c_access_exists.html)
+-  [SQLITE_ALLOW_COVERING_INDEX_SCAN](https://www.sqlite.org/compile.html#allow_covering_index_scan)
+-  [SQLITE_ALLOW_URI_AUTHORITY](https://www.sqlite.org/compile.html#allow_uri_authority)
+-  [SQLITE_ALTER_TABLE](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_ANALYZE](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_ANY](https://www.sqlite.org/c3ref/c_any.html)
+-  [SQLITE_API](https://www.sqlite.org/compile.html#api)
+-  [SQLITE_APICALL](https://www.sqlite.org/compile.html#apicall)
+-  [SQLITE_ATTACH](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_AUTH](https://www.sqlite.org/c3ref/c_abort.html)
+-  [SQLITE_AUTH_USER](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_BLOB](https://www.sqlite.org/c3ref/c_blob.html)
+-  [SQLITE_BUSY](https://www.sqlite.org/c3ref/c_abort.html)
+-  [SQLITE_BUSY_RECOVERY](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_BUSY_SNAPSHOT](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_BUSY_TIMEOUT](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_BYTEORDER](https://www.sqlite.org/compile.html#byteorder)
+-  [SQLITE_CALLBACK](https://www.sqlite.org/compile.html#callback)
+-  [SQLITE_CANTOPEN](https://www.sqlite.org/c3ref/c_abort.html)
+-  [SQLITE_CANTOPEN_CONVPATH](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_CANTOPEN_DIRTYWAL](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_CANTOPEN_FULLPATH](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_CANTOPEN_ISDIR](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_CANTOPEN_NOTEMPDIR](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_CANTOPEN_SYMLINK](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_CASE_SENSITIVE_LIKE](https://www.sqlite.org/compile.html#case_sensitive_like)
+-  [SQLITE_CDECL](https://www.sqlite.org/compile.html#cdecl)
+-  [SQLITE_CHANGESET_ABORT](https://www.sqlite.org/session/c_changeset_abort.html)
+-  [SQLITE_CHANGESET_CONFLICT](https://www.sqlite.org/session/c_changeset_conflict.html)
+-  [SQLITE_CHANGESET_CONSTRAINT](https://www.sqlite.org/session/c_changeset_conflict.html)
+-  [SQLITE_CHANGESET_DATA](https://www.sqlite.org/session/c_changeset_conflict.html)
+-  [SQLITE_CHANGESET_FOREIGN_KEY](https://www.sqlite.org/session/c_changeset_conflict.html)
+-  [SQLITE_CHANGESET_NOTFOUND](https://www.sqlite.org/session/c_changeset_conflict.html)
+-  [SQLITE_CHANGESET_OMIT](https://www.sqlite.org/session/c_changeset_abort.html)
+-  [SQLITE_CHANGESET_REPLACE](https://www.sqlite.org/session/c_changeset_abort.html)
+-  [SQLITE_CHANGESETAPPLY_FKNOACTION](https://www.sqlite.org/session/c_changesetapply_fknoaction.html)
+-  [SQLITE_CHANGESETAPPLY_IGNORENOOP](https://www.sqlite.org/session/c_changesetapply_fknoaction.html)
+-  [SQLITE_CHANGESETAPPLY_INVERT](https://www.sqlite.org/session/c_changesetapply_fknoaction.html)
+-  [SQLITE_CHANGESETAPPLY_NOSAVEPOINT](https://www.sqlite.org/session/c_changesetapply_fknoaction.html)
+-  [SQLITE_CHANGESETSTART_INVERT](https://www.sqlite.org/session/c_changesetstart_invert.html)
+-  [SQLITE_CHECKPOINT_FULL](https://www.sqlite.org/c3ref/c_checkpoint_full.html)
+-  [SQLITE_CHECKPOINT_PASSIVE](https://www.sqlite.org/c3ref/c_checkpoint_full.html)
+-  [SQLITE_CHECKPOINT_RESTART](https://www.sqlite.org/c3ref/c_checkpoint_full.html)
+-  [SQLITE_CHECKPOINT_TRUNCATE](https://www.sqlite.org/c3ref/c_checkpoint_full.html)
+-  [sqlite_compileoption_get() SQL function](https://www.sqlite.org/lang_corefunc.html#sqlite_compileoption_get)
+-  [sqlite_compileoption_used() SQL function](https://www.sqlite.org/lang_corefunc.html#sqlite_compileoption_used)
+-  [SQLITE_CONFIG_COVERING_INDEX_SCAN](https://www.sqlite.org/c3ref/c_config_covering_index_scan.html#sqliteconfigcoveringindexscan)
+-  [SQLITE_CONFIG_GETMALLOC](https://www.sqlite.org/c3ref/c_config_covering_index_scan.html#sqliteconfiggetmalloc)
+-  [SQLITE_CONFIG_GETMUTEX](https://www.sqlite.org/c3ref/c_config_covering_index_scan.html#sqliteconfiggetmutex)
+-  [SQLITE_CONFIG_GETPCACHE](https://www.sqlite.org/c3ref/c_config_covering_index_scan.html#sqliteconfiggetpcache)
+-  [SQLITE_CONFIG_GETPCACHE2](https://www.sqlite.org/c3ref/c_config_covering_index_scan.html#sqliteconfiggetpcache2)
+-  [SQLITE_CONFIG_HEAP](https://www.sqlite.org/c3ref/c_config_covering_index_scan.html#sqliteconfigheap)
+-  [SQLITE_CONFIG_LOG](https://www.sqlite.org/c3ref/c_config_covering_index_scan.html#sqliteconfiglog)
+-  [SQLITE_CONFIG_LOOKASIDE](https://www.sqlite.org/c3ref/c_config_covering_index_scan.html#sqliteconfiglookaside)
+-  [SQLITE_CONFIG_MALLOC](https://www.sqlite.org/c3ref/c_config_covering_index_scan.html#sqliteconfigmalloc)
+-  [SQLITE_CONFIG_MEMDB_MAXSIZE](https://www.sqlite.org/c3ref/c_config_covering_index_scan.html#sqliteconfigmemdbmaxsize)
+-  [SQLITE_CONFIG_MEMSTATUS](https://www.sqlite.org/c3ref/c_config_covering_index_scan.html#sqliteconfigmemstatus)
+-  [SQLITE_CONFIG_MMAP_SIZE](https://www.sqlite.org/c3ref/c_config_covering_index_scan.html#sqliteconfigmmapsize)
+-  [SQLITE_CONFIG_MULTITHREAD](https://www.sqlite.org/c3ref/c_config_covering_index_scan.html#sqliteconfigmultithread)
+-  [SQLITE_CONFIG_MUTEX](https://www.sqlite.org/c3ref/c_config_covering_index_scan.html#sqliteconfigmutex)
+-  [SQLITE_CONFIG_PAGECACHE](https://www.sqlite.org/c3ref/c_config_covering_index_scan.html#sqliteconfigpagecache)
+-  [SQLITE_CONFIG_PCACHE](https://www.sqlite.org/c3ref/c_config_covering_index_scan.html#sqliteconfigpcache)
+-  [SQLITE_CONFIG_PCACHE2](https://www.sqlite.org/c3ref/c_config_covering_index_scan.html#sqliteconfigpcache2)
+-  [SQLITE_CONFIG_PCACHE_HDRSZ](https://www.sqlite.org/c3ref/c_config_covering_index_scan.html#sqliteconfigpcachehdrsz)
+-  [SQLITE_CONFIG_PMASZ](https://www.sqlite.org/c3ref/c_config_covering_index_scan.html#sqliteconfigpmasz)
+-  [SQLITE_CONFIG_ROWID_IN_VIEW](https://www.sqlite.org/c3ref/c_config_covering_index_scan.html#sqliteconfigrowidinview)
+-  [SQLITE_CONFIG_SCRATCH](https://www.sqlite.org/c3ref/c_config_covering_index_scan.html#sqliteconfigscratch)
+-  [SQLITE_CONFIG_SERIALIZED](https://www.sqlite.org/c3ref/c_config_covering_index_scan.html#sqliteconfigserialized)
+-  [SQLITE_CONFIG_SINGLETHREAD](https://www.sqlite.org/c3ref/c_config_covering_index_scan.html#sqliteconfigsinglethread)
+-  [SQLITE_CONFIG_SMALL_MALLOC](https://www.sqlite.org/c3ref/c_config_covering_index_scan.html#sqliteconfigsmallmalloc)
+-  [SQLITE_CONFIG_SORTERREF_SIZE](https://www.sqlite.org/c3ref/c_config_covering_index_scan.html#sqliteconfigsorterrefsize)
+-  [SQLITE_CONFIG_SQLLOG](https://www.sqlite.org/c3ref/c_config_covering_index_scan.html#sqliteconfigsqllog)
+-  [SQLITE_CONFIG_STMTJRNL_SPILL](https://www.sqlite.org/c3ref/c_config_covering_index_scan.html#sqliteconfigstmtjrnlspill)
+-  [SQLITE_CONFIG_URI](https://www.sqlite.org/c3ref/c_config_covering_index_scan.html#sqliteconfiguri)
+-  [SQLITE_CONFIG_WIN32_HEAPSIZE](https://www.sqlite.org/c3ref/c_config_covering_index_scan.html#sqliteconfigwin32heapsize)
+-  [SQLITE_CONSTRAINT](https://www.sqlite.org/c3ref/c_abort.html)
+-  [SQLITE_CONSTRAINT_CHECK](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_CONSTRAINT_COMMITHOOK](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_CONSTRAINT_DATATYPE](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_CONSTRAINT_FOREIGNKEY](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_CONSTRAINT_FUNCTION](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_CONSTRAINT_NOTNULL](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_CONSTRAINT_PINNED](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_CONSTRAINT_PRIMARYKEY](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_CONSTRAINT_ROWID](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_CONSTRAINT_TRIGGER](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_CONSTRAINT_UNIQUE](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_CONSTRAINT_VTAB](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_COPY](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_CORRUPT](https://www.sqlite.org/c3ref/c_abort.html)
+-  [SQLITE_CORRUPT_INDEX](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_CORRUPT_SEQUENCE](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_CORRUPT_VTAB](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_CREATE_INDEX](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_CREATE_TABLE](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_CREATE_TEMP_INDEX](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_CREATE_TEMP_TABLE](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_CREATE_TEMP_TRIGGER](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_CREATE_TEMP_VIEW](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_CREATE_TRIGGER](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_CREATE_VIEW](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_CREATE_VTABLE](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_DBCONFIG_DEFENSIVE](https://www.sqlite.org/c3ref/c_dbconfig_defensive.html#sqlitedbconfigdefensive)
+-  [SQLITE_DBCONFIG_DQS_DDL](https://www.sqlite.org/c3ref/c_dbconfig_defensive.html#sqlitedbconfigdqsddl)
+-  [SQLITE_DBCONFIG_DQS_DML](https://www.sqlite.org/c3ref/c_dbconfig_defensive.html#sqlitedbconfigdqsdml)
+-  [SQLITE_DBCONFIG_ENABLE_FKEY](https://www.sqlite.org/c3ref/c_dbconfig_defensive.html#sqlitedbconfigenablefkey)
+-  [SQLITE_DBCONFIG_ENABLE_FTS3_TOKENIZER](https://www.sqlite.org/c3ref/c_dbconfig_defensive.html#sqlitedbconfigenablefts3tokenizer)
+-  [SQLITE_DBCONFIG_ENABLE_LOAD_EXTENSION](https://www.sqlite.org/c3ref/c_dbconfig_defensive.html#sqlitedbconfigenableloadextension)
+-  [SQLITE_DBCONFIG_ENABLE_QPSG](https://www.sqlite.org/c3ref/c_dbconfig_defensive.html#sqlitedbconfigenableqpsg)
+-  [SQLITE_DBCONFIG_ENABLE_TRIGGER](https://www.sqlite.org/c3ref/c_dbconfig_defensive.html#sqlitedbconfigenabletrigger)
+-  [SQLITE_DBCONFIG_ENABLE_VIEW](https://www.sqlite.org/c3ref/c_dbconfig_defensive.html#sqlitedbconfigenableview)
+-  [SQLITE_DBCONFIG_LEGACY_ALTER_TABLE](https://www.sqlite.org/c3ref/c_dbconfig_defensive.html#sqlitedbconfiglegacyaltertable)
+-  [SQLITE_DBCONFIG_LEGACY_FILE_FORMAT](https://www.sqlite.org/c3ref/c_dbconfig_defensive.html#sqlitedbconfiglegacyfileformat)
+-  [SQLITE_DBCONFIG_LOOKASIDE](https://www.sqlite.org/c3ref/c_dbconfig_defensive.html#sqlitedbconfiglookaside)
+-  [SQLITE_DBCONFIG_MAINDBNAME](https://www.sqlite.org/c3ref/c_dbconfig_defensive.html#sqlitedbconfigmaindbname)
+-  [SQLITE_DBCONFIG_MAX](https://www.sqlite.org/c3ref/c_dbconfig_defensive.html)
+-  [SQLITE_DBCONFIG_NO_CKPT_ON_CLOSE](https://www.sqlite.org/c3ref/c_dbconfig_defensive.html#sqlitedbconfignockptonclose)
+-  [SQLITE_DBCONFIG_RESET_DATABASE](https://www.sqlite.org/c3ref/c_dbconfig_defensive.html#sqlitedbconfigresetdatabase)
+-  [SQLITE_DBCONFIG_REVERSE_SCANORDER](https://www.sqlite.org/c3ref/c_dbconfig_defensive.html#sqlitedbconfigreversescanorder)
+-  [SQLITE_DBCONFIG_STMT_SCANSTATUS](https://www.sqlite.org/c3ref/c_dbconfig_defensive.html#sqlitedbconfigstmtscanstatus)
+-  [SQLITE_DBCONFIG_TRIGGER_EQP](https://www.sqlite.org/c3ref/c_dbconfig_defensive.html#sqlitedbconfigtriggereqp)
+-  [SQLITE_DBCONFIG_TRUSTED_SCHEMA](https://www.sqlite.org/c3ref/c_dbconfig_defensive.html#sqlitedbconfigtrustedschema)
+-  [SQLITE_DBCONFIG_WRITABLE_SCHEMA](https://www.sqlite.org/c3ref/c_dbconfig_defensive.html#sqlitedbconfigwritableschema)
+-  [sqlite_dbpage](https://www.sqlite.org/dbpage.html)
+-  [SQLITE_DBPAGE virtual table](https://www.sqlite.org/dbpage.html)
+-  [SQLITE_DBSTATUS options](https://www.sqlite.org/c3ref/c_dbstatus_options.html)
+-  [SQLITE_DBSTATUS_CACHE_HIT](https://www.sqlite.org/c3ref/c_dbstatus_options.html#sqlitedbstatuscachehit)
+-  [SQLITE_DBSTATUS_CACHE_MISS](https://www.sqlite.org/c3ref/c_dbstatus_options.html#sqlitedbstatuscachemiss)
+-  [SQLITE_DBSTATUS_CACHE_SPILL](https://www.sqlite.org/c3ref/c_dbstatus_options.html#sqlitedbstatuscachespill)
+-  [SQLITE_DBSTATUS_CACHE_USED](https://www.sqlite.org/c3ref/c_dbstatus_options.html#sqlitedbstatuscacheused)
+-  [SQLITE_DBSTATUS_CACHE_USED_SHARED](https://www.sqlite.org/c3ref/c_dbstatus_options.html#sqlitedbstatuscacheusedshared)
+-  [SQLITE_DBSTATUS_CACHE_WRITE](https://www.sqlite.org/c3ref/c_dbstatus_options.html#sqlitedbstatuscachewrite)
+-  [SQLITE_DBSTATUS_DEFERRED_FKS](https://www.sqlite.org/c3ref/c_dbstatus_options.html#sqlitedbstatusdeferredfks)
+-  [SQLITE_DBSTATUS_LOOKASIDE_HIT](https://www.sqlite.org/c3ref/c_dbstatus_options.html#sqlitedbstatuslookasidehit)
+-  [SQLITE_DBSTATUS_LOOKASIDE_MISS_FULL](https://www.sqlite.org/c3ref/c_dbstatus_options.html#sqlitedbstatuslookasidemissfull)
+-  [SQLITE_DBSTATUS_LOOKASIDE_MISS_SIZE](https://www.sqlite.org/c3ref/c_dbstatus_options.html#sqlitedbstatuslookasidemisssize)
+-  [SQLITE_DBSTATUS_LOOKASIDE_USED](https://www.sqlite.org/c3ref/c_dbstatus_options.html#sqlitedbstatuslookasideused)
+-  [SQLITE_DBSTATUS_MAX](https://www.sqlite.org/c3ref/c_dbstatus_options.html)
+-  [SQLITE_DBSTATUS_SCHEMA_USED](https://www.sqlite.org/c3ref/c_dbstatus_options.html#sqlitedbstatusschemaused)
+-  [SQLITE_DBSTATUS_STMT_USED](https://www.sqlite.org/c3ref/c_dbstatus_options.html#sqlitedbstatusstmtused)
+-  [SQLITE_DEBUG](https://www.sqlite.org/compile.html#debug)
+-  [SQLITE_DEFAULT_AUTOMATIC_INDEX](https://www.sqlite.org/compile.html#default_automatic_index)
+-  [SQLITE_DEFAULT_AUTOVACUUM](https://www.sqlite.org/compile.html#default_autovacuum)
+-  [SQLITE_DEFAULT_CACHE_SIZE](https://www.sqlite.org/compile.html#default_cache_size)
+-  [SQLITE_DEFAULT_FILE_FORMAT](https://www.sqlite.org/compile.html#default_file_format)
+-  [SQLITE_DEFAULT_FILE_PERMISSIONS](https://www.sqlite.org/compile.html#default_file_permissions)
+-  [SQLITE_DEFAULT_FOREIGN_KEYS](https://www.sqlite.org/compile.html#default_foreign_keys)
+-  [SQLITE_DEFAULT_JOURNAL_SIZE_LIMIT](https://www.sqlite.org/compile.html#default_journal_size_limit)
+-  [SQLITE_DEFAULT_LOCKING_MODE](https://www.sqlite.org/compile.html#default_locking_mode)
+-  [SQLITE_DEFAULT_LOOKASIDE](https://www.sqlite.org/compile.html#default_lookaside)
+-  [SQLITE_DEFAULT_MEMSTATUS](https://www.sqlite.org/compile.html#default_memstatus)
+-  [SQLITE_DEFAULT_MMAP_SIZE](https://www.sqlite.org/compile.html#default_mmap_size)
+-  [SQLITE_DEFAULT_PAGE_SIZE](https://www.sqlite.org/compile.html#default_page_size)
+-  [SQLITE_DEFAULT_PCACHE_INITSZ](https://www.sqlite.org/compile.html#default_pcache_initsz)
+-  [SQLITE_DEFAULT_SYNCHRONOUS](https://www.sqlite.org/compile.html#default_synchronous)
+-  [SQLITE_DEFAULT_WAL_AUTOCHECKPOINT](https://www.sqlite.org/compile.html#default_wal_autocheckpoint)
+-  [SQLITE_DEFAULT_WAL_SYNCHRONOUS](https://www.sqlite.org/compile.html#default_wal_synchronous)
+-  [SQLITE_DEFAULT_WORKER_THREADS](https://www.sqlite.org/compile.html#default_worker_threads)
+-  [SQLITE_DELETE](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_DENY](https://www.sqlite.org/c3ref/c_deny.html)
+-  [SQLITE_DESERIALIZE_FREEONCLOSE](https://www.sqlite.org/c3ref/c_deserialize_freeonclose.html)
+-  [SQLITE_DESERIALIZE_READONLY](https://www.sqlite.org/c3ref/c_deserialize_freeonclose.html)
+-  [SQLITE_DESERIALIZE_RESIZEABLE](https://www.sqlite.org/c3ref/c_deserialize_freeonclose.html)
+-  [SQLITE_DETACH](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_DETERMINISTIC](https://www.sqlite.org/c3ref/c_deterministic.html#sqlitedeterministic)
+-  [SQLITE_DIRECT_OVERFLOW_READ](https://www.sqlite.org/compile.html#direct_overflow_read)
+-  [SQLITE_DIRECTONLY](https://www.sqlite.org/c3ref/c_deterministic.html#sqlitedirectonly)
+-  [SQLITE_DISABLE_DIRSYNC](https://www.sqlite.org/compile.html#disable_dirsync)
+-  [SQLITE_DISABLE_FTS3_UNICODE](https://www.sqlite.org/compile.html#disable_fts3_unicode)
+-  [SQLITE_DISABLE_FTS4_DEFERRED](https://www.sqlite.org/compile.html#disable_fts4_deferred)
+-  [SQLITE_DISABLE_INTRINSIC](https://www.sqlite.org/compile.html#disable_intrinsic)
+-  [SQLITE_DISABLE_LFS](https://www.sqlite.org/compile.html#disable_lfs)
+-  [SQLITE_DISABLE_PAGECACHE_OVERFLOW_STATS](https://www.sqlite.org/compile.html#disable_pagecache_overflow_stats)
+-  [SQLITE_DONE](https://www.sqlite.org/c3ref/c_abort.html)
+-  [SQLITE_DQS](https://www.sqlite.org/compile.html#dqs)
+-  [SQLITE_DROP_INDEX](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_DROP_TABLE](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_DROP_TEMP_INDEX](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_DROP_TEMP_TABLE](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_DROP_TEMP_TRIGGER](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_DROP_TEMP_VIEW](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_DROP_TRIGGER](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_DROP_VIEW](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_DROP_VTABLE](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_EMPTY](https://www.sqlite.org/c3ref/c_abort.html)
+-  [SQLITE_ENABLE_8_3_NAMES](https://www.sqlite.org/compile.html#enable_8_3_names)
+-  [SQLITE_ENABLE_API_ARMOR](https://www.sqlite.org/compile.html#enable_api_armor)
+-  [SQLITE_ENABLE_ATOMIC_WRITE](https://www.sqlite.org/compile.html#enable_atomic_write)
+-  [SQLITE_ENABLE_BATCH_ATOMIC_WRITE](https://www.sqlite.org/compile.html#enable_batch_atomic_write)
+-  [SQLITE_ENABLE_BYTECODE_VTAB](https://www.sqlite.org/compile.html#enable_bytecode_vtab)
+-  [SQLITE_ENABLE_COLUMN_METADATA](https://www.sqlite.org/compile.html#enable_column_metadata)
+-  [SQLITE_ENABLE_DBPAGE_VTAB](https://www.sqlite.org/compile.html#enable_dbpage_vtab)
+-  [SQLITE_ENABLE_DBSTAT_VTAB](https://www.sqlite.org/compile.html#enable_dbstat_vtab)
+-  [SQLITE_ENABLE_DESERIALIZE](https://www.sqlite.org/compile.html#enable_deserialize)
+-  [SQLITE_ENABLE_EXPLAIN_COMMENTS](https://www.sqlite.org/compile.html#enable_explain_comments)
+-  [SQLITE_ENABLE_FTS3](https://www.sqlite.org/compile.html#enable_fts3)
+-  [SQLITE_ENABLE_FTS3_PARENTHESIS](https://www.sqlite.org/compile.html#enable_fts3_parenthesis)
+-  [SQLITE_ENABLE_FTS3_TOKENIZER](https://www.sqlite.org/compile.html#enable_fts3_tokenizer)
+-  [SQLITE_ENABLE_FTS4](https://www.sqlite.org/compile.html#enable_fts4)
+-  [SQLITE_ENABLE_FTS5](https://www.sqlite.org/compile.html#enable_fts5)
+-  [SQLITE_ENABLE_GEOPOLY](https://www.sqlite.org/compile.html#enable_geopoly)
+-  [SQLITE_ENABLE_HIDDEN_COLUMNS](https://www.sqlite.org/compile.html#enable_hidden_columns)
+-  [SQLITE_ENABLE_ICU](https://www.sqlite.org/compile.html#enable_icu)
+-  [SQLITE_ENABLE_IOTRACE](https://www.sqlite.org/compile.html#enable_iotrace)
+-  [SQLITE_ENABLE_JSON1](https://www.sqlite.org/compile.html#enable_json1)
+-  [SQLITE_ENABLE_LOCKING_STYLE](https://www.sqlite.org/compile.html#enable_locking_style)
+-  [SQLITE_ENABLE_MATH_FUNCTIONS](https://www.sqlite.org/compile.html#enable_math_functions)
+-  [SQLITE_ENABLE_MEMORY_MANAGEMENT](https://www.sqlite.org/compile.html#enable_memory_management)
+-  [SQLITE_ENABLE_MEMSYS3](https://www.sqlite.org/compile.html#enable_memsys3)
+-  [SQLITE_ENABLE_MEMSYS5](https://www.sqlite.org/compile.html#enable_memsys5)
+-  [SQLITE_ENABLE_NORMALIZE](https://www.sqlite.org/compile.html#enable_normalize)
+-  [SQLITE_ENABLE_NULL_TRIM](https://www.sqlite.org/compile.html#enable_null_trim)
+-  [SQLITE_ENABLE_OFFSET_SQL_FUNC](https://www.sqlite.org/compile.html#enable_offset_sql_func)
+-  [SQLITE_ENABLE_PREUPDATE_HOOK](https://www.sqlite.org/compile.html#enable_preupdate_hook)
+-  [SQLITE_ENABLE_QPSG](https://www.sqlite.org/compile.html#enable_qpsg)
+-  [SQLITE_ENABLE_RBU](https://www.sqlite.org/compile.html#enable_rbu)
+-  [SQLITE_ENABLE_RTREE](https://www.sqlite.org/compile.html#enable_rtree)
+-  [SQLITE_ENABLE_SESSION](https://www.sqlite.org/compile.html#enable_session)
+-  [SQLITE_ENABLE_SNAPSHOT](https://www.sqlite.org/compile.html#enable_snapshot)
+-  [SQLITE_ENABLE_SORTER_REFERENCES](https://www.sqlite.org/compile.html#enable_sorter_references)
+-  [SQLITE_ENABLE_SQLLOG](https://www.sqlite.org/compile.html#enable_sqllog)
+-  [SQLITE_ENABLE_STAT2](https://www.sqlite.org/compile.html#enable_stat2)
+-  [SQLITE_ENABLE_STAT3](https://www.sqlite.org/compile.html#enable_stat3)
+-  [SQLITE_ENABLE_STAT4](https://www.sqlite.org/compile.html#enable_stat4)
+-  [SQLITE_ENABLE_STMT_SCANSTATUS](https://www.sqlite.org/compile.html#enable_stmt_scanstatus)
+-  [SQLITE_ENABLE_STMTVTAB](https://www.sqlite.org/compile.html#enable_stmtvtab)
+-  [SQLITE_ENABLE_TREE_EXPLAIN](https://www.sqlite.org/compile.html#enable_tree_explain)
+-  [SQLITE_ENABLE_UNKNOWN_SQL_FUNCTION](https://www.sqlite.org/compile.html#enable_unknown_sql_function)
+-  [SQLITE_ENABLE_UNLOCK_NOTIFY](https://www.sqlite.org/compile.html#enable_unlock_notify)
+-  [SQLITE_ENABLE_UPDATE_DELETE_LIMIT](https://www.sqlite.org/compile.html#enable_update_delete_limit)
+-  [SQLITE_ERROR](https://www.sqlite.org/c3ref/c_abort.html)
+-  [SQLITE_ERROR_MISSING_COLLSEQ](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_ERROR_RETRY](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_ERROR_SNAPSHOT](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_EXTERN](https://www.sqlite.org/compile.html#extern)
+-  [SQLITE_EXTRA_DURABLE](https://www.sqlite.org/compile.html#extra_durable)
+-  [SQLITE_FAIL](https://www.sqlite.org/c3ref/c_fail.html)
+-  [SQLITE_FCNTL_BEGIN_ATOMIC_WRITE](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntlbeginatomicwrite)
+-  [SQLITE_FCNTL_BUSYHANDLER](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntlbusyhandler)
+-  [SQLITE_FCNTL_CHUNK_SIZE](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntlchunksize)
+-  [SQLITE_FCNTL_CKPT_DONE](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntlckptdone)
+-  [SQLITE_FCNTL_CKPT_START](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntlckptstart)
+-  [SQLITE_FCNTL_CKSM_FILE](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntlcksmfile)
+-  [SQLITE_FCNTL_COMMIT_ATOMIC_WRITE](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntlcommitatomicwrite)
+-  [SQLITE_FCNTL_COMMIT_PHASETWO](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntlcommitphasetwo)
+-  [SQLITE_FCNTL_DATA_VERSION](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntldataversion)
+-  [SQLITE_FCNTL_EXTERNAL_READER](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntlexternalreader)
+-  [SQLITE_FCNTL_FILE_POINTER](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntlfilepointer)
+-  [SQLITE_FCNTL_GET_LOCKPROXYFILE](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html)
+-  [SQLITE_FCNTL_HAS_MOVED](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntlhasmoved)
+-  [SQLITE_FCNTL_JOURNAL_POINTER](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntljournalpointer)
+-  [SQLITE_FCNTL_LAST_ERRNO](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html)
+-  [SQLITE_FCNTL_LOCK_TIMEOUT](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntllocktimeout)
+-  [SQLITE_FCNTL_LOCKSTATE](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntllockstate)
+-  [SQLITE_FCNTL_MMAP_SIZE](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntlmmapsize)
+-  [SQLITE_FCNTL_OVERWRITE](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntloverwrite)
+-  [SQLITE_FCNTL_PDB](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html)
+-  [SQLITE_FCNTL_PERSIST_WAL](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntlpersistwal)
+-  [SQLITE_FCNTL_POWERSAFE_OVERWRITE](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntlpowersafeoverwrite)
+-  [SQLITE_FCNTL_PRAGMA](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntlpragma)
+-  [SQLITE_FCNTL_RBU](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntlrbu)
+-  [SQLITE_FCNTL_RESERVE_BYTES](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html)
+-  [SQLITE_FCNTL_RESET_CACHE](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntlresetcache)
+-  [SQLITE_FCNTL_ROLLBACK_ATOMIC_WRITE](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntlrollbackatomicwrite)
+-  [SQLITE_FCNTL_SET_LOCKPROXYFILE](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html)
+-  [SQLITE_FCNTL_SIZE_HINT](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntlsizehint)
+-  [SQLITE_FCNTL_SIZE_LIMIT](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntlsizelimit)
+-  [SQLITE_FCNTL_SYNC](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntlsync)
+-  [SQLITE_FCNTL_SYNC_OMITTED](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntlsyncomitted)
+-  [SQLITE_FCNTL_TEMPFILENAME](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntltempfilename)
+-  [SQLITE_FCNTL_TRACE](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntltrace)
+-  [SQLITE_FCNTL_VFS_POINTER](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntlvfspointer)
+-  [SQLITE_FCNTL_VFSNAME](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntlvfsname)
+-  [SQLITE_FCNTL_WAL_BLOCK](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntlwalblock)
+-  [SQLITE_FCNTL_WIN32_AV_RETRY](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntlwin32avretry)
+-  [SQLITE_FCNTL_WIN32_GET_HANDLE](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntlwin32gethandle)
+-  [SQLITE_FCNTL_WIN32_SET_HANDLE](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntlwin32sethandle)
+-  [SQLITE_FCNTL_ZIPVFS](https://www.sqlite.org/c3ref/c_fcntl_begin_atomic_write.html#sqlitefcntlzipvfs)
+-  [SQLITE_FLOAT](https://www.sqlite.org/c3ref/c_blob.html)
+-  [SQLITE_FORMAT](https://www.sqlite.org/c3ref/c_abort.html)
+-  [SQLITE_FTS3_MAX_EXPR_DEPTH](https://www.sqlite.org/compile.html#fts3_max_expr_depth)
+-  [SQLITE_FULL](https://www.sqlite.org/c3ref/c_abort.html)
+-  [SQLITE_FUNCTION](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_HAVE_ISNAN](https://www.sqlite.org/compile.html#have_isnan)
+-  [SQLITE_HAVE_ZLIB](https://www.sqlite.org/compile.html#have_zlib)
+-  [SQLITE_IGNORE](https://www.sqlite.org/c3ref/c_deny.html)
+-  [SQLITE_INDEX_CONSTRAINT_EQ](https://www.sqlite.org/c3ref/c_index_constraint_eq.html)
+-  [SQLITE_INDEX_CONSTRAINT_FUNCTION](https://www.sqlite.org/c3ref/c_index_constraint_eq.html)
+-  [SQLITE_INDEX_CONSTRAINT_GE](https://www.sqlite.org/c3ref/c_index_constraint_eq.html)
+-  [SQLITE_INDEX_CONSTRAINT_GLOB](https://www.sqlite.org/c3ref/c_index_constraint_eq.html)
+-  [SQLITE_INDEX_CONSTRAINT_GT](https://www.sqlite.org/c3ref/c_index_constraint_eq.html)
+-  [SQLITE_INDEX_CONSTRAINT_IS](https://www.sqlite.org/c3ref/c_index_constraint_eq.html)
+-  [SQLITE_INDEX_CONSTRAINT_ISNOT](https://www.sqlite.org/c3ref/c_index_constraint_eq.html)
+-  [SQLITE_INDEX_CONSTRAINT_ISNOTNULL](https://www.sqlite.org/c3ref/c_index_constraint_eq.html)
+-  [SQLITE_INDEX_CONSTRAINT_ISNULL](https://www.sqlite.org/c3ref/c_index_constraint_eq.html)
+-  [SQLITE_INDEX_CONSTRAINT_LE](https://www.sqlite.org/c3ref/c_index_constraint_eq.html)
+-  [SQLITE_INDEX_CONSTRAINT_LIKE](https://www.sqlite.org/c3ref/c_index_constraint_eq.html)
+-  [SQLITE_INDEX_CONSTRAINT_LIMIT](https://www.sqlite.org/c3ref/c_index_constraint_eq.html)
+-  [SQLITE_INDEX_CONSTRAINT_LT](https://www.sqlite.org/c3ref/c_index_constraint_eq.html)
+-  [SQLITE_INDEX_CONSTRAINT_MATCH](https://www.sqlite.org/c3ref/c_index_constraint_eq.html)
+-  [SQLITE_INDEX_CONSTRAINT_NE](https://www.sqlite.org/c3ref/c_index_constraint_eq.html)
+-  [SQLITE_INDEX_CONSTRAINT_OFFSET](https://www.sqlite.org/c3ref/c_index_constraint_eq.html)
+-  [SQLITE_INDEX_CONSTRAINT_REGEXP](https://www.sqlite.org/c3ref/c_index_constraint_eq.html)
+-  [SQLITE_INDEX_SCAN_UNIQUE](https://www.sqlite.org/c3ref/c_index_scan_unique.html)
+-  [SQLITE_INNOCUOUS](https://www.sqlite.org/c3ref/c_deterministic.html#sqliteinnocuous)
+-  [SQLITE_INSERT](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [sqlite_int64](https://www.sqlite.org/c3ref/int64.html)
+-  [SQLITE_INTEGER](https://www.sqlite.org/c3ref/c_blob.html)
+-  [SQLITE_INTERNAL](https://www.sqlite.org/c3ref/c_abort.html)
+-  [SQLITE_INTERRUPT](https://www.sqlite.org/c3ref/c_abort.html)
+-  [SQLITE_INTROSPECTION_PRAGMAS](https://www.sqlite.org/compile.html#introspection_pragmas)
+-  [SQLITE_IOCAP_ATOMIC](https://www.sqlite.org/c3ref/c_iocap_atomic.html)
+-  [SQLITE_IOCAP_ATOMIC16K](https://www.sqlite.org/c3ref/c_iocap_atomic.html)
+-  [SQLITE_IOCAP_ATOMIC1K](https://www.sqlite.org/c3ref/c_iocap_atomic.html)
+-  [SQLITE_IOCAP_ATOMIC2K](https://www.sqlite.org/c3ref/c_iocap_atomic.html)
+-  [SQLITE_IOCAP_ATOMIC32K](https://www.sqlite.org/c3ref/c_iocap_atomic.html)
+-  [SQLITE_IOCAP_ATOMIC4K](https://www.sqlite.org/c3ref/c_iocap_atomic.html)
+-  [SQLITE_IOCAP_ATOMIC512](https://www.sqlite.org/c3ref/c_iocap_atomic.html)
+-  [SQLITE_IOCAP_ATOMIC64K](https://www.sqlite.org/c3ref/c_iocap_atomic.html)
+-  [SQLITE_IOCAP_ATOMIC8K](https://www.sqlite.org/c3ref/c_iocap_atomic.html)
+-  [SQLITE_IOCAP_BATCH_ATOMIC](https://www.sqlite.org/c3ref/c_iocap_atomic.html)
+-  [SQLITE_IOCAP_IMMUTABLE](https://www.sqlite.org/c3ref/c_iocap_atomic.html)
+-  [SQLITE_IOCAP_POWERSAFE_OVERWRITE](https://www.sqlite.org/c3ref/c_iocap_atomic.html)
+-  [SQLITE_IOCAP_SAFE_APPEND](https://www.sqlite.org/c3ref/c_iocap_atomic.html)
+-  [SQLITE_IOCAP_SEQUENTIAL](https://www.sqlite.org/c3ref/c_iocap_atomic.html)
+-  [SQLITE_IOCAP_UNDELETABLE_WHEN_OPEN](https://www.sqlite.org/c3ref/c_iocap_atomic.html)
+-  [SQLITE_IOERR](https://www.sqlite.org/c3ref/c_abort.html)
+-  [SQLITE_IOERR_ACCESS](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_AUTH](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_BEGIN_ATOMIC](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_BLOCKED](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_CHECKRESERVEDLOCK](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_CLOSE](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_COMMIT_ATOMIC](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_CONVPATH](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_CORRUPTFS](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_DATA](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_DELETE](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_DELETE_NOENT](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_DIR_CLOSE](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_DIR_FSYNC](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_FSTAT](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_FSYNC](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_GETTEMPPATH](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_IN_PAGE](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_LOCK](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_MMAP](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_NOMEM](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_RDLOCK](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_READ](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_ROLLBACK_ATOMIC](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_SEEK](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_SHMLOCK](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_SHMMAP](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_SHMOPEN](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_SHMSIZE](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_SHORT_READ](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_TRUNCATE](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_UNLOCK](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_VNODE](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_IOERR_WRITE](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_JSON_MAX_DEPTH](https://www.sqlite.org/compile.html#json_max_depth)
+-  [SQLITE_LIKE_DOESNT_MATCH_BLOBS](https://www.sqlite.org/compile.html#like_doesnt_match_blobs)
+-  [SQLITE_LIMIT_ATTACHED](https://www.sqlite.org/c3ref/c_limit_attached.html#sqlitelimitattached)
+-  [SQLITE_LIMIT_COLUMN](https://www.sqlite.org/c3ref/c_limit_attached.html#sqlitelimitcolumn)
+-  [SQLITE_LIMIT_COMPOUND_SELECT](https://www.sqlite.org/c3ref/c_limit_attached.html#sqlitelimitcompoundselect)
+-  [SQLITE_LIMIT_EXPR_DEPTH](https://www.sqlite.org/c3ref/c_limit_attached.html#sqlitelimitexprdepth)
+-  [SQLITE_LIMIT_FUNCTION_ARG](https://www.sqlite.org/c3ref/c_limit_attached.html#sqlitelimitfunctionarg)
+-  [SQLITE_LIMIT_LENGTH](https://www.sqlite.org/c3ref/c_limit_attached.html#sqlitelimitlength)
+-  [SQLITE_LIMIT_LIKE_PATTERN_LENGTH](https://www.sqlite.org/c3ref/c_limit_attached.html#sqlitelimitlikepatternlength)
+-  [SQLITE_LIMIT_SQL_LENGTH](https://www.sqlite.org/c3ref/c_limit_attached.html#sqlitelimitsqllength)
+-  [SQLITE_LIMIT_TRIGGER_DEPTH](https://www.sqlite.org/c3ref/c_limit_attached.html#sqlitelimittriggerdepth)
+-  [SQLITE_LIMIT_VARIABLE_NUMBER](https://www.sqlite.org/c3ref/c_limit_attached.html#sqlitelimitvariablenumber)
+-  [SQLITE_LIMIT_VDBE_OP](https://www.sqlite.org/c3ref/c_limit_attached.html#sqlitelimitvdbeop)
+-  [SQLITE_LIMIT_WORKER_THREADS](https://www.sqlite.org/c3ref/c_limit_attached.html#sqlitelimitworkerthreads)
+-  [SQLITE_LOCK_EXCLUSIVE](https://www.sqlite.org/c3ref/c_lock_exclusive.html)
+-  [SQLITE_LOCK_NONE](https://www.sqlite.org/c3ref/c_lock_exclusive.html)
+-  [SQLITE_LOCK_PENDING](https://www.sqlite.org/c3ref/c_lock_exclusive.html)
+-  [SQLITE_LOCK_RESERVED](https://www.sqlite.org/c3ref/c_lock_exclusive.html)
+-  [SQLITE_LOCK_SHARED](https://www.sqlite.org/c3ref/c_lock_exclusive.html)
+-  [SQLITE_LOCKED](https://www.sqlite.org/c3ref/c_abort.html)
+-  [SQLITE_LOCKED_SHAREDCACHE](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_LOCKED_VTAB](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [sqlite_master table](https://www.sqlite.org/schematab.html)
+-  [SQLITE_MAX_ALLOCATION_SIZE](https://www.sqlite.org/compile.html#max_allocation_size)
+-  [SQLITE_MAX_ATTACHED](https://www.sqlite.org/limits.html#max_attached)
+-  [SQLITE_MAX_COLUMN](https://www.sqlite.org/limits.html#max_column)
+-  [SQLITE_MAX_COMPOUND_SELECT](https://www.sqlite.org/limits.html#max_compound_select)
+-  [SQLITE_MAX_EXPR_DEPTH](https://www.sqlite.org/limits.html#max_expr_depth)
+-  [SQLITE_MAX_FUNCTION_ARG](https://www.sqlite.org/limits.html#max_function_arg)
+-  [SQLITE_MAX_LENGTH](https://www.sqlite.org/limits.html#max_length)
+-  [SQLITE_MAX_LIKE_PATTERN_LENGTH](https://www.sqlite.org/limits.html#max_like_pattern_length)
+-  [SQLITE_MAX_MEMORY](https://www.sqlite.org/compile.html#max_memory)
+-  [SQLITE_MAX_MMAP_SIZE](https://www.sqlite.org/compile.html#max_mmap_size)
+-  [SQLITE_MAX_PAGE_COUNT](https://www.sqlite.org/limits.html#max_page_count)
+-  [SQLITE_MAX_SCHEMA_RETRY](https://www.sqlite.org/compile.html#max_schema_retry)
+-  [SQLITE_MAX_SQL_LENGTH](https://www.sqlite.org/limits.html#max_sql_length)
+-  [SQLITE_MAX_TRIGGER_DEPTH](https://www.sqlite.org/limits.html#max_trigger_depth)
+-  [SQLITE_MAX_VARIABLE_NUMBER](https://www.sqlite.org/limits.html#max_variable_number)
+-  [SQLITE_MAX_WORKER_THREADS](https://www.sqlite.org/compile.html#max_worker_threads)
+-  [SQLITE_MEMDB_DEFAULT_MAXSIZE](https://www.sqlite.org/compile.html#memdb_default_maxsize)
+-  [SQLITE_MEMDEBUG](https://www.sqlite.org/compile.html#memdebug)
+-  [sqlite_memstat](https://www.sqlite.org/memstat.html)
+-  [SQLITE_MEMSTAT virtual table](https://www.sqlite.org/memstat.html)
+-  [SQLITE_MINIMUM_FILE_DESCRIPTOR](https://www.sqlite.org/compile.html#minimum_file_descriptor)
+-  [SQLITE_MISMATCH](https://www.sqlite.org/c3ref/c_abort.html)
+-  [SQLITE_MISUSE](https://www.sqlite.org/c3ref/c_abort.html)
+-  [SQLITE_MUTEX_FAST](https://www.sqlite.org/c3ref/c_mutex_fast.html)
+-  [SQLITE_MUTEX_RECURSIVE](https://www.sqlite.org/c3ref/c_mutex_fast.html)
+-  [SQLITE_MUTEX_STATIC_APP1](https://www.sqlite.org/c3ref/c_mutex_fast.html)
+-  [SQLITE_MUTEX_STATIC_APP2](https://www.sqlite.org/c3ref/c_mutex_fast.html)
+-  [SQLITE_MUTEX_STATIC_APP3](https://www.sqlite.org/c3ref/c_mutex_fast.html)
+-  [SQLITE_MUTEX_STATIC_LRU](https://www.sqlite.org/c3ref/c_mutex_fast.html)
+-  [SQLITE_MUTEX_STATIC_LRU2](https://www.sqlite.org/c3ref/c_mutex_fast.html)
+-  [SQLITE_MUTEX_STATIC_MAIN](https://www.sqlite.org/c3ref/c_mutex_fast.html)
+-  [SQLITE_MUTEX_STATIC_MEM](https://www.sqlite.org/c3ref/c_mutex_fast.html)
+-  [SQLITE_MUTEX_STATIC_MEM2](https://www.sqlite.org/c3ref/c_mutex_fast.html)
+-  [SQLITE_MUTEX_STATIC_OPEN](https://www.sqlite.org/c3ref/c_mutex_fast.html)
+-  [SQLITE_MUTEX_STATIC_PMEM](https://www.sqlite.org/c3ref/c_mutex_fast.html)
+-  [SQLITE_MUTEX_STATIC_PRNG](https://www.sqlite.org/c3ref/c_mutex_fast.html)
+-  [SQLITE_MUTEX_STATIC_VFS1](https://www.sqlite.org/c3ref/c_mutex_fast.html)
+-  [SQLITE_MUTEX_STATIC_VFS2](https://www.sqlite.org/c3ref/c_mutex_fast.html)
+-  [SQLITE_MUTEX_STATIC_VFS3](https://www.sqlite.org/c3ref/c_mutex_fast.html)
+-  [SQLITE_NOLFS](https://www.sqlite.org/c3ref/c_abort.html)
+-  [SQLITE_NOMEM](https://www.sqlite.org/c3ref/c_abort.html)
+-  [SQLITE_NOTADB](https://www.sqlite.org/c3ref/c_abort.html)
+-  [SQLITE_NOTFOUND](https://www.sqlite.org/c3ref/c_abort.html)
+-  [SQLITE_NOTICE](https://www.sqlite.org/c3ref/c_abort.html)
+-  [SQLITE_NOTICE_RBU](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_NOTICE_RECOVER_ROLLBACK](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_NOTICE_RECOVER_WAL](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_NULL](https://www.sqlite.org/c3ref/c_blob.html)
+-  [sqlite_offset() SQL function](https://www.sqlite.org/lang_corefunc.html#sqlite_offset)
+-  [SQLITE_OK](https://www.sqlite.org/c3ref/c_abort.html)
+-  [SQLITE_OK_LOAD_PERMANENTLY](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_OK_SYMLINK](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_OMIT_ALTERTABLE](https://www.sqlite.org/compile.html#omit_altertable)
+-  [SQLITE_OMIT_ANALYZE](https://www.sqlite.org/compile.html#omit_analyze)
+-  [SQLITE_OMIT_ATTACH](https://www.sqlite.org/compile.html#omit_attach)
+-  [SQLITE_OMIT_AUTHORIZATION](https://www.sqlite.org/compile.html#omit_authorization)
+-  [SQLITE_OMIT_AUTOINCREMENT](https://www.sqlite.org/compile.html#omit_autoincrement)
+-  [SQLITE_OMIT_AUTOINIT](https://www.sqlite.org/compile.html#omit_autoinit)
+-  [SQLITE_OMIT_AUTOMATIC_INDEX](https://www.sqlite.org/compile.html#omit_automatic_index)
+-  [SQLITE_OMIT_AUTORESET](https://www.sqlite.org/compile.html#omit_autoreset)
+-  [SQLITE_OMIT_AUTOVACUUM](https://www.sqlite.org/compile.html#omit_autovacuum)
+-  [SQLITE_OMIT_BETWEEN_OPTIMIZATION](https://www.sqlite.org/compile.html#omit_between_optimization)
+-  [SQLITE_OMIT_BLOB_LITERAL](https://www.sqlite.org/compile.html#omit_blob_literal)
+-  [SQLITE_OMIT_BTREECOUNT](https://www.sqlite.org/compile.html#omit_btreecount)
+-  [SQLITE_OMIT_BUILTIN_TEST](https://www.sqlite.org/compile.html#omit_builtin_test)
+-  [SQLITE_OMIT_CASE_SENSITIVE_LIKE_PRAGMA](https://www.sqlite.org/compile.html#omit_case_sensitive_like_pragma)
+-  [SQLITE_OMIT_CAST](https://www.sqlite.org/compile.html#omit_cast)
+-  [SQLITE_OMIT_CHECK](https://www.sqlite.org/compile.html#omit_check)
+-  [SQLITE_OMIT_COMPILEOPTION_DIAGS](https://www.sqlite.org/compile.html#omit_compileoption_diags)
+-  [SQLITE_OMIT_COMPLETE](https://www.sqlite.org/compile.html#omit_complete)
+-  [SQLITE_OMIT_COMPOUND_SELECT](https://www.sqlite.org/compile.html#omit_compound_select)
+-  [SQLITE_OMIT_CTE](https://www.sqlite.org/compile.html#omit_cte)
+-  [SQLITE_OMIT_DATETIME_FUNCS](https://www.sqlite.org/compile.html#omit_datetime_funcs)
+-  [SQLITE_OMIT_DECLTYPE](https://www.sqlite.org/compile.html#omit_decltype)
+-  [SQLITE_OMIT_DEPRECATED](https://www.sqlite.org/compile.html#omit_deprecated)
+-  [SQLITE_OMIT_DESERIALIZE](https://www.sqlite.org/compile.html#omit_deserialize)
+-  [SQLITE_OMIT_DISKIO](https://www.sqlite.org/compile.html#omit_diskio)
+-  [SQLITE_OMIT_EXPLAIN](https://www.sqlite.org/compile.html#omit_explain)
+-  [SQLITE_OMIT_FLAG_PRAGMAS](https://www.sqlite.org/compile.html#omit_flag_pragmas)
+-  [SQLITE_OMIT_FLOATING_POINT](https://www.sqlite.org/compile.html#omit_floating_point)
+-  [SQLITE_OMIT_FOREIGN_KEY](https://www.sqlite.org/compile.html#omit_foreign_key)
+-  [SQLITE_OMIT_GENERATED_COLUMNS](https://www.sqlite.org/compile.html#omit_generated_columns)
+-  [SQLITE_OMIT_GET_TABLE](https://www.sqlite.org/compile.html#omit_get_table)
+-  [SQLITE_OMIT_HEX_INTEGER](https://www.sqlite.org/compile.html#omit_hex_integer)
+-  [SQLITE_OMIT_INCRBLOB](https://www.sqlite.org/compile.html#omit_incrblob)
+-  [SQLITE_OMIT_INTEGRITY_CHECK](https://www.sqlite.org/compile.html#omit_integrity_check)
+-  [SQLITE_OMIT_INTROSPECTION_PRAGMAS](https://www.sqlite.org/compile.html#omit_introspection_pragmas)
+-  [SQLITE_OMIT_JSON](https://www.sqlite.org/compile.html#omit_json)
+-  [SQLITE_OMIT_LIKE_OPTIMIZATION](https://www.sqlite.org/compile.html#omit_like_optimization)
+-  [SQLITE_OMIT_LOAD_EXTENSION](https://www.sqlite.org/compile.html#omit_load_extension)
+-  [SQLITE_OMIT_LOCALTIME](https://www.sqlite.org/compile.html#omit_localtime)
+-  [SQLITE_OMIT_LOOKASIDE](https://www.sqlite.org/compile.html#omit_lookaside)
+-  [SQLITE_OMIT_MEMORYDB](https://www.sqlite.org/compile.html#omit_memorydb)
+-  [SQLITE_OMIT_OR_OPTIMIZATION](https://www.sqlite.org/compile.html#omit_or_optimization)
+-  [SQLITE_OMIT_PAGER_PRAGMAS](https://www.sqlite.org/compile.html#omit_pager_pragmas)
+-  [SQLITE_OMIT_PRAGMA](https://www.sqlite.org/compile.html#omit_pragma)
+-  [SQLITE_OMIT_PROGRESS_CALLBACK](https://www.sqlite.org/compile.html#omit_progress_callback)
+-  [SQLITE_OMIT_QUICKBALANCE](https://www.sqlite.org/compile.html#omit_quickbalance)
+-  [SQLITE_OMIT_REINDEX](https://www.sqlite.org/compile.html#omit_reindex)
+-  [SQLITE_OMIT_SCHEMA_PRAGMAS](https://www.sqlite.org/compile.html#omit_schema_pragmas)
+-  [SQLITE_OMIT_SCHEMA_VERSION_PRAGMAS](https://www.sqlite.org/compile.html#omit_schema_version_pragmas)
+-  [SQLITE_OMIT_SHARED_CACHE](https://www.sqlite.org/compile.html#omit_shared_cache)
+-  [SQLITE_OMIT_SUBQUERY](https://www.sqlite.org/compile.html#omit_subquery)
+-  [SQLITE_OMIT_TCL_VARIABLE](https://www.sqlite.org/compile.html#omit_tcl_variable)
+-  [SQLITE_OMIT_TEMPDB](https://www.sqlite.org/compile.html#omit_tempdb)
+-  [SQLITE_OMIT_TRACE](https://www.sqlite.org/compile.html#omit_trace)
+-  [SQLITE_OMIT_TRIGGER](https://www.sqlite.org/compile.html#omit_trigger)
+-  [SQLITE_OMIT_TRUNCATE_OPTIMIZATION](https://www.sqlite.org/compile.html#omit_truncate_optimization)
+-  [SQLITE_OMIT_UTF16](https://www.sqlite.org/compile.html#omit_utf16)
+-  [SQLITE_OMIT_VACUUM](https://www.sqlite.org/compile.html#omit_vacuum)
+-  [SQLITE_OMIT_VIEW](https://www.sqlite.org/compile.html#omit_view)
+-  [SQLITE_OMIT_VIRTUALTABLE](https://www.sqlite.org/compile.html#omit_virtualtable)
+-  [SQLITE_OMIT_WAL](https://www.sqlite.org/compile.html#omit_wal)
+-  [SQLITE_OMIT_WINDOWFUNC](https://www.sqlite.org/compile.html#omit_windowfunc)
+-  [SQLITE_OMIT_WSD](https://www.sqlite.org/compile.html#omit_wsd)
+-  [SQLITE_OMIT_XFER_OPT](https://www.sqlite.org/compile.html#omit_xfer_opt)
+-  [SQLITE_OPEN_AUTOPROXY](https://www.sqlite.org/c3ref/c_open_autoproxy.html)
+-  [SQLITE_OPEN_CREATE](https://www.sqlite.org/c3ref/c_open_autoproxy.html)
+-  [SQLITE_OPEN_DELETEONCLOSE](https://www.sqlite.org/c3ref/c_open_autoproxy.html)
+-  [SQLITE_OPEN_EXCLUSIVE](https://www.sqlite.org/c3ref/c_open_autoproxy.html)
+-  [SQLITE_OPEN_EXRESCODE](https://www.sqlite.org/c3ref/c_open_autoproxy.html)
+-  [SQLITE_OPEN_FULLMUTEX](https://www.sqlite.org/c3ref/c_open_autoproxy.html)
+-  [SQLITE_OPEN_MAIN_DB](https://www.sqlite.org/c3ref/c_open_autoproxy.html)
+-  [SQLITE_OPEN_MAIN_JOURNAL](https://www.sqlite.org/c3ref/c_open_autoproxy.html)
+-  [SQLITE_OPEN_MEMORY](https://www.sqlite.org/c3ref/c_open_autoproxy.html)
+-  [SQLITE_OPEN_NOFOLLOW](https://www.sqlite.org/c3ref/c_open_autoproxy.html)
+-  [SQLITE_OPEN_NOMUTEX](https://www.sqlite.org/c3ref/c_open_autoproxy.html)
+-  [SQLITE_OPEN_PRIVATECACHE](https://www.sqlite.org/c3ref/c_open_autoproxy.html)
+-  [SQLITE_OPEN_READONLY](https://www.sqlite.org/c3ref/c_open_autoproxy.html)
+-  [SQLITE_OPEN_READWRITE](https://www.sqlite.org/c3ref/c_open_autoproxy.html)
+-  [SQLITE_OPEN_SHAREDCACHE](https://www.sqlite.org/c3ref/c_open_autoproxy.html)
+-  [SQLITE_OPEN_SUBJOURNAL](https://www.sqlite.org/c3ref/c_open_autoproxy.html)
+-  [SQLITE_OPEN_SUPER_JOURNAL](https://www.sqlite.org/c3ref/c_open_autoproxy.html)
+-  [SQLITE_OPEN_TEMP_DB](https://www.sqlite.org/c3ref/c_open_autoproxy.html)
+-  [SQLITE_OPEN_TEMP_JOURNAL](https://www.sqlite.org/c3ref/c_open_autoproxy.html)
+-  [SQLITE_OPEN_TRANSIENT_DB](https://www.sqlite.org/c3ref/c_open_autoproxy.html)
+-  [SQLITE_OPEN_URI](https://www.sqlite.org/c3ref/c_open_autoproxy.html)
+-  [SQLITE_OPEN_WAL](https://www.sqlite.org/c3ref/c_open_autoproxy.html)
+-  [SQLITE_OS_OTHER](https://www.sqlite.org/compile.html#os_other)
+-  [SQLITE_PERM](https://www.sqlite.org/c3ref/c_abort.html)
+-  [SQLITE_POWERSAFE_OVERWRITE](https://www.sqlite.org/compile.html#powersafe_overwrite)
+-  [SQLITE_PRAGMA](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_PREPARE_NO_VTAB](https://www.sqlite.org/c3ref/c_prepare_normalize.html#sqlitepreparenovtab)
+-  [SQLITE_PREPARE_NORMALIZE](https://www.sqlite.org/c3ref/c_prepare_normalize.html#sqlitepreparenormalize)
+-  [SQLITE_PREPARE_PERSISTENT](https://www.sqlite.org/c3ref/c_prepare_normalize.html#sqlitepreparepersistent)
+-  [SQLITE_PRINTF_PRECISION_LIMIT](https://www.sqlite.org/compile.html#printf_precision_limit)
+-  [SQLITE_PROTOCOL](https://www.sqlite.org/c3ref/c_abort.html)
+-  [SQLITE_QUERY_PLANNER_LIMIT](https://www.sqlite.org/compile.html#query_planner_limit)
+-  [SQLITE_QUERY_PLANNER_LIMIT_INCR](https://www.sqlite.org/compile.html#query_planner_limit_incr)
+-  [SQLITE_RANGE](https://www.sqlite.org/c3ref/c_abort.html)
+-  [SQLITE_READ](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_READONLY](https://www.sqlite.org/c3ref/c_abort.html)
+-  [SQLITE_READONLY_CANTINIT](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_READONLY_CANTLOCK](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_READONLY_DBMOVED](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_READONLY_DIRECTORY](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_READONLY_RECOVERY](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_READONLY_ROLLBACK](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_RECURSIVE](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_REINDEX](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_REPLACE](https://www.sqlite.org/c3ref/c_fail.html)
+-  [SQLITE_RESULT_SUBTYPE](https://www.sqlite.org/c3ref/c_deterministic.html#sqliteresultsubtype)
+-  [SQLITE_REVERSE_UNORDERED_SELECTS](https://www.sqlite.org/compile.html#reverse_unordered_selects)
+-  [SQLITE_ROLLBACK](https://www.sqlite.org/c3ref/c_fail.html)
+-  [SQLITE_ROW](https://www.sqlite.org/c3ref/c_abort.html)
+-  [SQLITE_RTREE_INT_ONLY](https://www.sqlite.org/compile.html#rtree_int_only)
+-  [SQLITE_SAVEPOINT](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_SCANSTAT_COMPLEX](https://www.sqlite.org/c3ref/c_scanstat_complex.html)
+-  [SQLITE_SCANSTAT_EST](https://www.sqlite.org/c3ref/c_scanstat_est.html#sqlitescanstatest)
+-  [SQLITE_SCANSTAT_EXPLAIN](https://www.sqlite.org/c3ref/c_scanstat_est.html#sqlitescanstatexplain)
+-  [SQLITE_SCANSTAT_NAME](https://www.sqlite.org/c3ref/c_scanstat_est.html#sqlitescanstatname)
+-  [SQLITE_SCANSTAT_NCYCLE](https://www.sqlite.org/c3ref/c_scanstat_est.html#sqlitescanstatncycle)
+-  [SQLITE_SCANSTAT_NLOOP](https://www.sqlite.org/c3ref/c_scanstat_est.html#sqlitescanstatnloop)
+-  [SQLITE_SCANSTAT_NVISIT](https://www.sqlite.org/c3ref/c_scanstat_est.html#sqlitescanstatnvisit)
+-  [SQLITE_SCANSTAT_PARENTID](https://www.sqlite.org/c3ref/c_scanstat_est.html#sqlitescanstatparentid)
+-  [SQLITE_SCANSTAT_SELECTID](https://www.sqlite.org/c3ref/c_scanstat_est.html#sqlitescanstatselectid)
+-  [SQLITE_SCHEMA](https://www.sqlite.org/c3ref/c_abort.html)
+-  [sqlite_schema table](https://www.sqlite.org/schematab.html)
+-  [SQLITE_SECURE_DELETE](https://www.sqlite.org/compile.html#secure_delete)
+-  [SQLITE_SELECT](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [sqlite_sequence](https://www.sqlite.org/fileformat2.html#seqtab)
+-  [SQLITE_SERIALIZE_NOCOPY](https://www.sqlite.org/c3ref/c_serialize_nocopy.html)
+-  [SQLITE_SESSION_CONFIG_STRMSIZE](https://www.sqlite.org/session/c_session_config_strmsize.html)
+-  [SQLITE_SESSION_OBJCONFIG_ROWID](https://www.sqlite.org/session/c_session_objconfig_rowid.html)
+-  [SQLITE_SESSION_OBJCONFIG_SIZE](https://www.sqlite.org/session/c_session_objconfig_rowid.html)
+-  [SQLITE_SHM_EXCLUSIVE](https://www.sqlite.org/c3ref/c_shm_exclusive.html)
+-  [SQLITE_SHM_LOCK](https://www.sqlite.org/c3ref/c_shm_exclusive.html)
+-  [SQLITE_SHM_NLOCK](https://www.sqlite.org/c3ref/c_shm_nlock.html)
+-  [SQLITE_SHM_SHARED](https://www.sqlite.org/c3ref/c_shm_exclusive.html)
+-  [SQLITE_SHM_UNLOCK](https://www.sqlite.org/c3ref/c_shm_exclusive.html)
+-  [SQLITE_SORTER_PMASZ](https://www.sqlite.org/compile.html#sorter_pmasz)
+-  [SQLITE_SOUNDEX](https://www.sqlite.org/compile.html#soundex)
+-  [SQLITE_SOURCE_ID](https://www.sqlite.org/c3ref/c_source_id.html)
+-  [sqlite_source_id() SQL function](https://www.sqlite.org/lang_corefunc.html#sqlite_source_id)
+-  [sqlite_stat1](https://www.sqlite.org/fileformat2.html#stat1tab)
+-  [sqlite_stat2](https://www.sqlite.org/fileformat2.html#stat2tab)
+-  [sqlite_stat3](https://www.sqlite.org/fileformat2.html#stat3tab)
+-  [sqlite_stat4](https://www.sqlite.org/fileformat2.html#stat4tab)
+-  [SQLITE_STATIC](https://www.sqlite.org/c3ref/c_static.html)
+-  [SQLITE_STATUS_MALLOC_COUNT](https://www.sqlite.org/c3ref/c_status_malloc_count.html#sqlitestatusmalloccount)
+-  [SQLITE_STATUS_MALLOC_SIZE](https://www.sqlite.org/c3ref/c_status_malloc_count.html#sqlitestatusmallocsize)
+-  [SQLITE_STATUS_MEMORY_USED](https://www.sqlite.org/c3ref/c_status_malloc_count.html#sqlitestatusmemoryused)
+-  [SQLITE_STATUS_PAGECACHE_OVERFLOW](https://www.sqlite.org/c3ref/c_status_malloc_count.html#sqlitestatuspagecacheoverflow)
+-  [SQLITE_STATUS_PAGECACHE_SIZE](https://www.sqlite.org/c3ref/c_status_malloc_count.html#sqlitestatuspagecachesize)
+-  [SQLITE_STATUS_PAGECACHE_USED](https://www.sqlite.org/c3ref/c_status_malloc_count.html#sqlitestatuspagecacheused)
+-  [SQLITE_STATUS_PARSER_STACK](https://www.sqlite.org/c3ref/c_status_malloc_count.html#sqlitestatusparserstack)
+-  [SQLITE_STATUS_SCRATCH_OVERFLOW](https://www.sqlite.org/c3ref/c_status_malloc_count.html#sqlitestatusscratchoverflow)
+-  [SQLITE_STATUS_SCRATCH_SIZE](https://www.sqlite.org/c3ref/c_status_malloc_count.html#sqlitestatusscratchsize)
+-  [SQLITE_STATUS_SCRATCH_USED](https://www.sqlite.org/c3ref/c_status_malloc_count.html#sqlitestatusscratchused)
+-  [SQLITE_STDCALL](https://www.sqlite.org/compile.html#stdcall)
+-  [sqlite_stmt](https://www.sqlite.org/stmt.html)
+-  [SQLITE_STMT virtual table](https://www.sqlite.org/stmt.html)
+-  [SQLITE_STMTJRNL_SPILL](https://www.sqlite.org/compile.html#stmtjrnl_spill)
+-  [SQLITE_STMTSTATUS counter](https://www.sqlite.org/c3ref/c_stmtstatus_counter.html)
+-  [SQLITE_STMTSTATUS_AUTOINDEX](https://www.sqlite.org/c3ref/c_stmtstatus_counter.html#sqlitestmtstatusautoindex)
+-  [SQLITE_STMTSTATUS_FILTER HIT](https://www.sqlite.org/c3ref/c_stmtstatus_counter.html#sqlitestmtstatusfilterhit)
+-  [SQLITE_STMTSTATUS_FILTER_HIT](https://www.sqlite.org/c3ref/c_stmtstatus_counter.html)
+-  [SQLITE_STMTSTATUS_FILTER_MISS](https://www.sqlite.org/c3ref/c_stmtstatus_counter.html#sqlitestmtstatusfiltermiss)
+-  [SQLITE_STMTSTATUS_FULLSCAN_STEP](https://www.sqlite.org/c3ref/c_stmtstatus_counter.html#sqlitestmtstatusfullscanstep)
+-  [SQLITE_STMTSTATUS_MEMUSED](https://www.sqlite.org/c3ref/c_stmtstatus_counter.html#sqlitestmtstatusmemused)
+-  [SQLITE_STMTSTATUS_REPREPARE](https://www.sqlite.org/c3ref/c_stmtstatus_counter.html#sqlitestmtstatusreprepare)
+-  [SQLITE_STMTSTATUS_RUN](https://www.sqlite.org/c3ref/c_stmtstatus_counter.html#sqlitestmtstatusrun)
+-  [SQLITE_STMTSTATUS_SORT](https://www.sqlite.org/c3ref/c_stmtstatus_counter.html#sqlitestmtstatussort)
+-  [SQLITE_STMTSTATUS_VM_STEP](https://www.sqlite.org/c3ref/c_stmtstatus_counter.html#sqlitestmtstatusvmstep)
+-  [SQLITE_STRICT_SUBTYPE](https://www.sqlite.org/compile.html#strict_subtype)
+-  [SQLITE_SUBTYPE](https://www.sqlite.org/c3ref/c_deterministic.html#sqlitesubtype)
+-  [SQLITE_SYNC_DATAONLY](https://www.sqlite.org/c3ref/c_sync_dataonly.html)
+-  [SQLITE_SYNC_FULL](https://www.sqlite.org/c3ref/c_sync_dataonly.html)
+-  [SQLITE_SYNC_NORMAL](https://www.sqlite.org/c3ref/c_sync_dataonly.html)
+-  [SQLITE_SYSAPI](https://www.sqlite.org/compile.html#sysapi)
+-  [SQLITE_TCLAPI](https://www.sqlite.org/compile.html#tclapi)
+-  [sqlite_temp_schema](https://www.sqlite.org/schematab.html)
+-  [SQLITE_TEMP_STORE](https://www.sqlite.org/compile.html#temp_store)
+-  [SQLITE_TESTCTRL_ALWAYS](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_ASSERT](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_BENIGN_MALLOC_HOOKS](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_BITVEC_TEST](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_BYTEORDER](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_EXPLAIN_STMT](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_EXTRA_SCHEMA_CHECKS](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_FAULT_INSTALL](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_FIRST](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_FK_NO_ACTION](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_IMPOSTER](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_INTERNAL_FUNCTIONS](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_ISINIT](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_ISKEYWORD](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_JSON_SELFCHECK](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_LAST](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_LOCALTIME_FAULT](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_LOGEST](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_NEVER_CORRUPT](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_ONCE_RESET_THRESHOLD](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_OPTIMIZATIONS](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_PARSER_COVERAGE](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_PENDING_BYTE](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_PRNG_RESET](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_PRNG_RESTORE](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_PRNG_SAVE](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_PRNG_SEED](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_RESERVE](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_RESULT_INTREAL](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_SCRATCHMALLOC](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_SEEK_COUNT](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_SORTER_MMAP](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_TRACEFLAGS](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_TUNE](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_USELONGDOUBLE](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TESTCTRL_VDBE_COVERAGE](https://www.sqlite.org/c3ref/c_testctrl_always.html)
+-  [SQLITE_TEXT](https://www.sqlite.org/c3ref/c_blob.html)
+-  [SQLITE_THREADSAFE](https://www.sqlite.org/compile.html#threadsafe)
+-  [SQLITE_TOOBIG](https://www.sqlite.org/c3ref/c_abort.html)
+-  [SQLITE_TRACE](https://www.sqlite.org/c3ref/c_trace.html)
+-  [SQLITE_TRACE_CLOSE](https://www.sqlite.org/c3ref/c_trace.html#sqlitetraceclose)
+-  [SQLITE_TRACE_PROFILE](https://www.sqlite.org/c3ref/c_trace.html#sqlitetraceprofile)
+-  [SQLITE_TRACE_ROW](https://www.sqlite.org/c3ref/c_trace.html#sqlitetracerow)
+-  [SQLITE_TRACE_SIZE_LIMIT](https://www.sqlite.org/compile.html#trace_size_limit)
+-  [SQLITE_TRACE_STMT](https://www.sqlite.org/c3ref/c_trace.html#sqlitetracestmt)
+-  [SQLITE_TRANSACTION](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_TRANSIENT](https://www.sqlite.org/c3ref/c_static.html)
+-  [SQLITE_TRUSTED_SCHEMA](https://www.sqlite.org/compile.html#trusted_schema)
+-  [SQLITE_TXN_NONE](https://www.sqlite.org/c3ref/c_txn_none.html#sqlitetxnnone)
+-  [SQLITE_TXN_READ](https://www.sqlite.org/c3ref/c_txn_none.html#sqlitetxnread)
+-  [SQLITE_TXN_WRITE](https://www.sqlite.org/c3ref/c_txn_none.html#sqlitetxnwrite)
+-  [sqlite_uint64](https://www.sqlite.org/c3ref/int64.html)
+-  [SQLITE_UNTESTABLE](https://www.sqlite.org/compile.html#untestable)
+-  [SQLITE_UPDATE](https://www.sqlite.org/c3ref/c_alter_table.html)
+-  [SQLITE_USE_ALLOCA](https://www.sqlite.org/compile.html#use_alloca)
+-  [SQLITE_USE_FCNTL_TRACE](https://www.sqlite.org/compile.html#use_fcntl_trace)
+-  [SQLITE_USE_SEH](https://www.sqlite.org/compile.html#use_seh)
+-  [SQLITE_USE_URI](https://www.sqlite.org/compile.html#use_uri)
+-  [SQLITE_UTF16](https://www.sqlite.org/c3ref/c_any.html)
+-  [SQLITE_UTF16_ALIGNED](https://www.sqlite.org/c3ref/c_any.html)
+-  [SQLITE_UTF16BE](https://www.sqlite.org/c3ref/c_any.html)
+-  [SQLITE_UTF16LE](https://www.sqlite.org/c3ref/c_any.html)
+-  [SQLITE_UTF8](https://www.sqlite.org/c3ref/c_any.html)
+-  [SQLITE_VERSION](https://www.sqlite.org/c3ref/c_source_id.html)
+-  [sqlite_version() SQL function](https://www.sqlite.org/lang_corefunc.html#sqlite_version)
+-  [SQLITE_VERSION_NUMBER](https://www.sqlite.org/c3ref/c_source_id.html)
+-  [SQLITE_VTAB_CONSTRAINT_SUPPORT](https://www.sqlite.org/c3ref/c_vtab_constraint_support.html#sqlitevtabconstraintsupport)
+-  [SQLITE_VTAB_DIRECTONLY](https://www.sqlite.org/c3ref/c_vtab_constraint_support.html#sqlitevtabdirectonly)
+-  [SQLITE_VTAB_INNOCUOUS](https://www.sqlite.org/c3ref/c_vtab_constraint_support.html#sqlitevtabinnocuous)
+-  [SQLITE_VTAB_USES_ALL_SCHEMAS](https://www.sqlite.org/c3ref/c_vtab_constraint_support.html#sqlitevtabusesallschemas)
+-  [SQLITE_WARNING](https://www.sqlite.org/c3ref/c_abort.html)
+-  [SQLITE_WARNING_AUTOINDEX](https://www.sqlite.org/c3ref/c_abort_rollback.html)
+-  [SQLITE_WIN32_DATA_DIRECTORY_TYPE](https://www.sqlite.org/c3ref/c_win32_data_directory_type.html)
+-  [SQLITE_WIN32_HEAP_CREATE](https://www.sqlite.org/compile.html#win32_heap_create)
+-  [SQLITE_WIN32_MALLOC](https://www.sqlite.org/compile.html#win32_malloc)
+-  [SQLITE_WIN32_MALLOC_VALIDATE](https://www.sqlite.org/compile.html#win32_malloc_validate)
+-  [SQLITE_WIN32_TEMP_DIRECTORY_TYPE](https://www.sqlite.org/c3ref/c_win32_data_directory_type.html)
+-  [SQLITE_ZERO_MALLOC](https://www.sqlite.org/compile.html#zero_malloc)
+-  [sqrt() SQL function](https://www.sqlite.org/lang_mathfunc.html#sqrt)
+-  [stale file descriptor](https://www.sqlite.org/howtocorrupt.html#stalefd)
+-  [standard query parameters](https://www.sqlite.org/uri.html#coreqp)
+-  [statement journal](https://www.sqlite.org/tempfiles.html#stmtjrnl)
+-  [static ANALYZE results](https://www.sqlite.org/lang_analyze.html#statanal)
+-  [statically linked extensions](https://www.sqlite.org/loadext.html#statext)
+-  [stats pragma](https://www.sqlite.org/pragma.html#pragma_stats)
+-  [status method](https://www.sqlite.org/tclsqlite.html#status)
+-  [status parameters](https://www.sqlite.org/c3ref/c_status_malloc_count.html)
+-  [storage class](https://www.sqlite.org/datatype3.html#storageclasses)
+-  [strategies](https://www.sqlite.org/queryplanner.html#searching)
+-  [strftime()](https://www.sqlite.org/lang_datefunc.html#strftm)
+-  [strftime() SQL function](https://www.sqlite.org/lang_datefunc.html#strftm)
+-  [STRICT](https://www.sqlite.org/stricttables.html)
+-  [STRICT table](https://www.sqlite.org/stricttables.html)
+-  [strict type checking](https://www.sqlite.org/stricttables.html)
+-  [string_agg](https://www.sqlite.org/lang_aggfunc.html#group_concat)
+-  [string_agg() aggregate function](https://www.sqlite.org/lang_aggfunc.html#group_concat)
+-  [subprograms](https://www.sqlite.org/opcode.html#subprog)
+-  [Subqueries](https://www.sqlite.org/lang_expr.html#subq)
+-  [subquery co-routines](https://www.sqlite.org/optoverview.html#coroutines)
+-  [subsec modifier](https://www.sqlite.org/lang_datefunc.html#subsec)
+-  [subsecond modifier](https://www.sqlite.org/lang_datefunc.html#subsec)
+-  [substr() SQL function](https://www.sqlite.org/lang_corefunc.html#substr)
+-  [sum() aggregate function](https://www.sqlite.org/lang_aggfunc.html#sumunc)
+-  [super-journal](https://www.sqlite.org/tempfiles.html#superjrnl)
+-  [swarmvtab](https://www.sqlite.org/swarmvtab.html#overview)
+-  [swarmvtab context](https://www.sqlite.org/swarmvtab.html#component_table_context_values)
+-  [synchronous pragma](https://www.sqlite.org/pragma.html#pragma_synchronous)
+-  [syntax diagrams](https://www.sqlite.org/syntaxdiagrams.html)
+-  [table b-tree](https://www.sqlite.org/fileformat2.html#btypes)
+-  [table data format](https://www.sqlite.org/fileformat2.html##sqltab)
+-  [table-constraint](https://www.sqlite.org/syntax/table-constraint.html)
+-  [table-constraint syntax diagram](https://www.sqlite.org/syntax/table-constraint.html)
+-  [table-options](https://www.sqlite.org/syntax/table-options.html)
+-  [table-options syntax diagram](https://www.sqlite.org/syntax/table-options.html)
+-  [table-or-subquery](https://www.sqlite.org/syntax/table-or-subquery.html)
+-  [table-or-subquery syntax diagram](https://www.sqlite.org/syntax/table-or-subquery.html)
+-  [table-valued function](https://www.sqlite.org/vtab.html#tabfunc2)
+-  [table-valued functions in the FROM clause](https://www.sqlite.org/lang_select.html#tabfunc1)
+-  [table_info pragma](https://www.sqlite.org/pragma.html#pragma_table_info)
+-  [table_list pragma](https://www.sqlite.org/pragma.html#pragma_table_list)
+-  [table_xinfo pragma](https://www.sqlite.org/pragma.html#pragma_table_xinfo)
+-  [.tables](https://www.sqlite.org/cli.html#dtables)
+-  [tables_used virtual table](https://www.sqlite.org/bytecodevtab.html)
+-  [tan() SQL function](https://www.sqlite.org/lang_mathfunc.html#tan)
+-  [tanh() SQL function](https://www.sqlite.org/lang_mathfunc.html#tanh)
+-  [Tcl extension](https://www.sqlite.org/tclsqlite.html)
+-  [TCL Interface](https://www.sqlite.org/tclsqlite.html)
+-  [TCL interface authorizer method](https://www.sqlite.org/tclsqlite.html#authorizer)
+-  [TCL interface backup method](https://www.sqlite.org/tclsqlite.html#backup)
+-  [TCL interface bind_fallback method](https://www.sqlite.org/tclsqlite.html#bind_fallback)
+-  [TCL interface busy method](https://www.sqlite.org/tclsqlite.html#busy)
+-  [TCL interface cache method](https://www.sqlite.org/tclsqlite.html#cache)
+-  [TCL interface changes method](https://www.sqlite.org/tclsqlite.html#changes)
+-  [TCL interface close method](https://www.sqlite.org/tclsqlite.html#close)
+-  [TCL interface collate method](https://www.sqlite.org/tclsqlite.html#collate)
+-  [TCL interface collation_needed method](https://www.sqlite.org/tclsqlite.html#collation_needed)
+-  [TCL interface commit_hook method](https://www.sqlite.org/tclsqlite.html#commit_hook)
+-  [TCL interface complete method](https://www.sqlite.org/tclsqlite.html#complete)
+-  [TCL interface config method](https://www.sqlite.org/tclsqlite.html#config)
+-  [TCL interface copy method](https://www.sqlite.org/tclsqlite.html#copy)
+-  [TCL interface deserialize method](https://www.sqlite.org/tclsqlite.html#deserialize)
+-  [TCL interface enable_load_extension method](https://www.sqlite.org/tclsqlite.html#enable_load_extension)
+-  [TCL interface errorcode method](https://www.sqlite.org/tclsqlite.html#errorcode)
+-  [TCL interface eval method](https://www.sqlite.org/tclsqlite.html#eval)
+-  [TCL interface exists method](https://www.sqlite.org/tclsqlite.html#exists)
+-  [TCL interface function method](https://www.sqlite.org/tclsqlite.html#function)
+-  [TCL interface incrblob method](https://www.sqlite.org/tclsqlite.html#incrblob)
+-  [TCL interface interrupt method](https://www.sqlite.org/tclsqlite.html#interrupt)
+-  [TCL interface last_insert_rowid method](https://www.sqlite.org/tclsqlite.html#last_insert_rowid)
+-  [TCL interface nullvalue method](https://www.sqlite.org/tclsqlite.html#nullvalue)
+-  [TCL interface onecolumn method](https://www.sqlite.org/tclsqlite.html#onecolumn)
+-  [TCL interface preupdate method](https://www.sqlite.org/tclsqlite.html#preupdate)
+-  [TCL interface profile method](https://www.sqlite.org/tclsqlite.html#profile)
+-  [TCL interface progress method](https://www.sqlite.org/tclsqlite.html#progress)
+-  [TCL interface restore method](https://www.sqlite.org/tclsqlite.html#restore)
+-  [TCL interface rollback_hook method](https://www.sqlite.org/tclsqlite.html#rollback_hook)
+-  [TCL interface serialize method](https://www.sqlite.org/tclsqlite.html#serialize)
+-  [TCL interface status method](https://www.sqlite.org/tclsqlite.html#status)
+-  [TCL interface timeout method](https://www.sqlite.org/tclsqlite.html#timeout)
+-  [TCL interface total_changes method](https://www.sqlite.org/tclsqlite.html#total_changes)
+-  [TCL interface trace method](https://www.sqlite.org/tclsqlite.html#trace)
+-  [TCL interface trace_v2 method](https://www.sqlite.org/tclsqlite.html#trace_v2)
+-  [TCL interface transaction method](https://www.sqlite.org/tclsqlite.html#transaction)
+-  [TCL interface unlock_notify method](https://www.sqlite.org/tclsqlite.html#unlock_notify)
+-  [TCL interface update_hook method](https://www.sqlite.org/tclsqlite.html#update_hook)
+-  [TCL interface version method](https://www.sqlite.org/tclsqlite.html#version)
+-  [TCL interface wal_hook method](https://www.sqlite.org/tclsqlite.html#wal_hook)
+-  [TCL test suite](https://www.sqlite.org/testing.html#tcl)
+-  [TCL variable substitution](https://www.sqlite.org/tclsqlite.html#varsubst)
+-  [TEA tarball](https://www.sqlite.org/download.html#amalgtarball)
+-  [TEMP triggers on non-TEMP tables](https://www.sqlite.org/lang_createtrigger.html#temptrig)
+-  [temp_store pragma](https://www.sqlite.org/pragma.html#pragma_temp_store)
+-  [temp_store_directory pragma](https://www.sqlite.org/pragma.html#pragma_temp_store_directory)
+-  [temporary databases](https://www.sqlite.org/inmemorydb.html#temp_db)
+-  [temporary directory search algorithm](https://www.sqlite.org/tempfiles.html#tempdir)
+-  [temporary disk files](https://www.sqlite.org/tempfiles.html)
+-  [temporary tables](https://www.sqlite.org/inmemorydb.html#temp_db)
+-  [test coverage](https://www.sqlite.org/testing.html#coverage)
+-  [test harness](https://www.sqlite.org/testing.html#harnesses)
+-  [test suite](https://www.sqlite.org/testing.html)
+-  [testcase macros](https://www.sqlite.org/testing.html#testcase)
+-  [testing](https://www.sqlite.org/testing.html)
+-  [text encoding](https://www.sqlite.org/fileformat2.html#enc)
+-  [TH3](https://www.sqlite.org/th3.html)
+-  [the -> and ->> operators](https://www.sqlite.org/json1.html#jptr)
+-  [the -> operator](https://www.sqlite.org/json1.html#jptr)
+-  [the .fullschema dot-command](https://www.sqlite.org/cli.html#fullschema)
+-  [the amalgamation](https://www.sqlite.org/amalgamation.html)
+-  [the ext3 barrier problem](https://www.sqlite.org/lockingv3.html#ext3-barrier-problem)
+-  [The Fossil NGQP Upgrade Case Study](https://www.sqlite.org/queryplanner-ng.html#fossilcasestudy)
+-  [the json1 extension](https://www.sqlite.org/json1.html)
+-  [the SQLITE_DBPAGE extension](https://www.sqlite.org/dbpage.html)
+-  [the SQLITE_MEMSTAT extension](https://www.sqlite.org/memstat.html)
+-  [the SQLITE_STMT extension](https://www.sqlite.org/stmt.html)
+-  [The Use Of assert() In SQLite](https://www.sqlite.org/assert.html)
+-  [the xCachesize() page cache method](https://www.sqlite.org/c3ref/pcache_methods2.html#thexcachesizepagecachemethod)
+-  [the xCreate() page cache methods](https://www.sqlite.org/c3ref/pcache_methods2.html#thexcreatepagecachemethods)
+-  [the xDestroy() page cache method](https://www.sqlite.org/c3ref/pcache_methods2.html#thexdestroypagecachemethod)
+-  [the xFetch() page cache methods](https://www.sqlite.org/c3ref/pcache_methods2.html#thexfetchpagecachemethods)
+-  [the xInit() page cache method](https://www.sqlite.org/c3ref/pcache_methods2.html#thexinitpagecachemethod)
+-  [the xPagecount() page cache methods](https://www.sqlite.org/c3ref/pcache_methods2.html#thexpagecountpagecachemethods)
+-  [the xRekey() page cache methods](https://www.sqlite.org/c3ref/pcache_methods2.html#thexrekeypagecachemethods)
+-  [the xShrink() page cache method](https://www.sqlite.org/c3ref/pcache_methods2.html#thexshrinkpagecachemethod)
+-  [the xShutdown() page cache method](https://www.sqlite.org/c3ref/pcache_methods2.html#thexshutdownpagecachemethod)
+-  [the xUnpin() page cache method](https://www.sqlite.org/c3ref/pcache_methods2.html#thexunpinpagecachemethod)
+-  [Things That Can Go Wrong](https://www.sqlite.org/atomiccommit.html#sect_9_0)
+-  [threading mode](https://www.sqlite.org/threadsafe.html)
+-  [threads pragma](https://www.sqlite.org/pragma.html#pragma_threads)
+-  [three test harnesses](https://www.sqlite.org/testing.html#harnesses)
+-  [time shift modifiers](https://www.sqlite.org/lang_datefunc.html#tmshf)
+-  [time value](https://www.sqlite.org/lang_datefunc.html#tmval)
+-  [time()](https://www.sqlite.org/lang_datefunc.html#dttm)
+-  [time() SQL function](https://www.sqlite.org/lang_datefunc.html#dttm)
+-  [time-value](https://www.sqlite.org/lang_datefunc.html#tmval)
+-  [timediff()](https://www.sqlite.org/lang_datefunc.html#tmdif)
+-  [timediff() SQL function](https://www.sqlite.org/lang_datefunc.html#tmdif)
+-  [timeout method](https://www.sqlite.org/tclsqlite.html#timeout)
+-  [tokenizer](https://www.sqlite.org/fts3.html#tokenizer)
+-  [torn page](https://www.sqlite.org/psow.html#tornpage)
+-  [total() aggregate function](https://www.sqlite.org/lang_aggfunc.html#sumunc)
+-  [total_changes method](https://www.sqlite.org/tclsqlite.html#total_changes)
+-  [total_changes() SQL function](https://www.sqlite.org/lang_corefunc.html#total_changes)
+-  [trace method](https://www.sqlite.org/tclsqlite.html#trace)
+-  [trace_v2 method](https://www.sqlite.org/tclsqlite.html#trace_v2)
+-  [transaction](https://www.sqlite.org/lang_transaction.html)
+-  [transaction method](https://www.sqlite.org/tclsqlite.html#transaction)
+-  [transaction state](https://www.sqlite.org/c3ref/c_txn_none.html)
+-  [transactional](https://www.sqlite.org/transactional.html)
+-  [treats the CROSS JOIN operator specially](https://www.sqlite.org/lang_select.html#crossjoin)
+-  [trigger](https://www.sqlite.org/lang_createtrigger.html)
+-  [trigram indexes](https://www.sqlite.org/fts5.html#trigramidx)
+-  [trigram tokenizer](https://www.sqlite.org/fts5.html#trigramidx)
+-  [trim() SQL function](https://www.sqlite.org/lang_corefunc.html#trim)
+-  [trunc() SQL function](https://www.sqlite.org/lang_mathfunc.html#trunc)
+-  [truncate optimization](https://www.sqlite.org/lang_delete.html#truncateopt)
+-  [trusted_schema pragma](https://www.sqlite.org/pragma.html#pragma_trusted_schema)
+-  [type affinity](https://www.sqlite.org/datatype3.html#affinity)
+-  [type-name](https://www.sqlite.org/syntax/type-name.html)
+-  [type-name syntax diagram](https://www.sqlite.org/syntax/type-name.html)
+-  [typeof() SQL function](https://www.sqlite.org/lang_corefunc.html#typeof)
+-  [UINT](https://www.sqlite.org/uintcseq.html)
+-  [UINT collating sequence](https://www.sqlite.org/uintcseq.html)
+-  [undefined BEFORE trigger behavior](https://www.sqlite.org/lang_createtrigger.html#undef_before)
+-  [undo/redo](https://www.sqlite.org/undoredo.html)
+-  [unhex() SQL function](https://www.sqlite.org/lang_corefunc.html#unhex)
+-  [unicode() SQL function](https://www.sqlite.org/lang_corefunc.html#unicode)
+-  [unicode61](https://www.sqlite.org/fts3.html#unicode61)
+-  [Uniform Resource Identifier](https://www.sqlite.org/uri.html)
+-  [unindexed](https://www.sqlite.org/fts5.html#the_unindexed_column_option)
+-  [UNION virtual table](https://www.sqlite.org/unionvtab.html)
+-  [union-vtab](https://www.sqlite.org/unionvtab.html)
+-  [unionvtab](https://www.sqlite.org/unionvtab.html)
+-  [UNIQUE](https://www.sqlite.org/lang_createtable.html#uniqueconst)
+-  [unique constraint](https://www.sqlite.org/lang_createtable.html#uniqueconst)
+-  [unique index](https://www.sqlite.org/lang_createindex.html#uniqueidx)
+-  [unixepoch modifier](https://www.sqlite.org/lang_datefunc.html#jdmod)
+-  [unixepoch()](https://www.sqlite.org/lang_datefunc.html#uepch)
+-  [unixepoch() function](https://www.sqlite.org/lang_datefunc.html#uepch)
+-  [unixepoch() SQL function](https://www.sqlite.org/lang_datefunc.html#uepch)
+-  [unlikely() SQL function](https://www.sqlite.org/lang_corefunc.html#unlikely)
+-  [unlink corruption](https://www.sqlite.org/howtocorrupt.html#unlink)
+-  [unlinked database files](https://www.sqlite.org/howtocorrupt.html#unlink)
+-  [unlock_notify method](https://www.sqlite.org/tclsqlite.html#unlock_notify)
+-  [unprotected sqlite3_value](https://www.sqlite.org/c3ref/value.html)
+-  [unsafe-testing command-line option](https://www.sqlite.org/cli.html#testing_mode)
+-  [--unsafe-testing command-line option](https://www.sqlite.org/cli.html#testing_mode)
+-  [untrusted database files](https://www.sqlite.org/security.html#baddb)
+-  [UPDATE](https://www.sqlite.org/lang_update.html)
+-  [UPDATE FROM](https://www.sqlite.org/lang_update.html#upfrom)
+-  [--update option](https://www.sqlite.org/cli.html#arinsup)
+-  [UPDATE trigger](https://www.sqlite.org/lang_createtrigger.html)
+-  [update-stmt](https://www.sqlite.org/syntax/update-stmt.html)
+-  [update-stmt syntax diagram](https://www.sqlite.org/syntax/update-stmt.html)
+-  [update-stmt-limited](https://www.sqlite.org/syntax/update-stmt-limited.html)
+-  [update-stmt-limited syntax diagram](https://www.sqlite.org/syntax/update-stmt-limited.html)
+-  [update_hook method](https://www.sqlite.org/tclsqlite.html#update_hook)
+-  [upper() SQL function](https://www.sqlite.org/lang_corefunc.html#upper)
+-  [upsert clause](https://www.sqlite.org/lang_upsert.html)
+-  [UPSERT parsing ambiguity](https://www.sqlite.org/lang_upsert.html#parseambig)
+-  [upsert-clause](https://www.sqlite.org/syntax/upsert-clause.html)
+-  [upsert-clause syntax diagram](https://www.sqlite.org/syntax/upsert-clause.html)
+-  [URI](https://www.sqlite.org/uri.html)
+-  [URI filename](https://www.sqlite.org/uri.html)
+-  [URI filename examples](https://www.sqlite.org/c3ref/open.html#urifilenameexamples)
+-  [URI filenames in sqlite3_open()](https://www.sqlite.org/c3ref/open.html#urifilenamesinsqlite3open)
+-  [URI query parameters](https://www.sqlite.org/uri.html#coreqp)
+-  [usable size](https://www.sqlite.org/fileformat2.html#usable_size)
+-  [use of shared cache mode is discouraged](https://www.sqlite.org/sharedcache.html#dontuse)
+-  [user-defined window functions](https://www.sqlite.org/windowfunctions.html#udfwinfunc)
+-  [user_version pragma](https://www.sqlite.org/pragma.html#pragma_user_version)
+-  [using SQLite for websites](https://www.sqlite.org/whentouse.html#website)
+-  [Using the SQLite Online Backup API](https://www.sqlite.org/backup.html)
+-  [Using the SQLite Unlock Notification Feature](https://www.sqlite.org/unlock_notify.html)
+-  ['utc' and 'localtime' modifiers](https://www.sqlite.org/lang_datefunc.html#localtime)
+-  ['utc' modifier](https://www.sqlite.org/lang_datefunc.html#localtime)
+-  [vacuum](https://www.sqlite.org/lang_vacuum.html)
+-  [VACUUM INTO](https://www.sqlite.org/lang_vacuum.html#vacuuminto)
+-  [vacuum-stmt](https://www.sqlite.org/syntax/vacuum-stmt.html)
+-  [vacuum-stmt syntax diagram](https://www.sqlite.org/syntax/vacuum-stmt.html)
+-  [value argument](https://www.sqlite.org/json1.html#varg)
+-  [VALUES](https://www.sqlite.org/lang_select.html#values)
+-  [VALUES clause](https://www.sqlite.org/lang_select.html#values)
+-  [variable-length integer](https://www.sqlite.org/fileformat2.html#varint)
+-  [varint](https://www.sqlite.org/fileformat2.html#varint)
+-  [VDBE](https://www.sqlite.org/opcode.html)
+-  [vdbe_addoptrace pragma](https://www.sqlite.org/pragma.html#pragma_vdbe_addoptrace)
+-  [vdbe_debug pragma](https://www.sqlite.org/pragma.html#pragma_vdbe_debug)
+-  [vdbe_listing pragma](https://www.sqlite.org/pragma.html#pragma_vdbe_listing)
+-  [vdbe_trace pragma](https://www.sqlite.org/pragma.html#pragma_vdbe_trace)
+-  [vectors](https://www.sqlite.org/rowvalue.html)
+-  [Version 3.0.0](https://www.sqlite.org/releaselog/3_0_0.html)
+-  [Version 3.0.1](https://www.sqlite.org/releaselog/3_0_1.html)
+-  [Version 3.0.2](https://www.sqlite.org/releaselog/3_0_2.html)
+-  [Version 3.0.3](https://www.sqlite.org/releaselog/3_0_3.html)
+-  [Version 3.0.4](https://www.sqlite.org/releaselog/3_0_4.html)
+-  [Version 3.0.5](https://www.sqlite.org/releaselog/3_0_5.html)
+-  [Version 3.0.6](https://www.sqlite.org/releaselog/3_0_6.html)
+-  [Version 3.0.7](https://www.sqlite.org/releaselog/3_0_7.html)
+-  [Version 3.0.8](https://www.sqlite.org/releaselog/3_0_8.html)
+-  [Version 3.1.0](https://www.sqlite.org/releaselog/3_1_0.html)
+-  [Version 3.1.1](https://www.sqlite.org/releaselog/3_1_1.html)
+-  [Version 3.1.2](https://www.sqlite.org/releaselog/3_1_2.html)
+-  [Version 3.1.3](https://www.sqlite.org/releaselog/3_1_3.html)
+-  [Version 3.1.4](https://www.sqlite.org/releaselog/3_1_4.html)
+-  [Version 3.1.5](https://www.sqlite.org/releaselog/3_1_5.html)
+-  [Version 3.1.6](https://www.sqlite.org/releaselog/3_1_6.html)
+-  [Version 3.10.0](https://www.sqlite.org/releaselog/3_10_0.html)
+-  [Version 3.10.1](https://www.sqlite.org/releaselog/3_10_1.html)
+-  [Version 3.10.2](https://www.sqlite.org/releaselog/3_10_2.html)
+-  [Version 3.11.0](https://www.sqlite.org/releaselog/3_11_0.html)
+-  [Version 3.11.1](https://www.sqlite.org/releaselog/3_11_1.html)
+-  [Version 3.12.0](https://www.sqlite.org/releaselog/3_12_0.html)
+-  [version 3.12.0 page size change](https://www.sqlite.org/pgszchng2016.html)
+-  [Version 3.12.1](https://www.sqlite.org/releaselog/3_12_1.html)
+-  [Version 3.12.2](https://www.sqlite.org/releaselog/3_12_2.html)
+-  [Version 3.13.0](https://www.sqlite.org/releaselog/3_13_0.html)
+-  [Version 3.13.0.0](https://www.sqlite.org/releaselog/3_13_0.html)
+-  [Version 3.14](https://www.sqlite.org/releaselog/3_14.html)
+-  [Version 3.14.0](https://www.sqlite.org/releaselog/3_14.html)
+-  [Version 3.14.1](https://www.sqlite.org/releaselog/3_14_1.html)
+-  [Version 3.14.2](https://www.sqlite.org/releaselog/3_14_2.html)
+-  [Version 3.15.0](https://www.sqlite.org/releaselog/3_15_0.html)
+-  [Version 3.15.1](https://www.sqlite.org/releaselog/3_15_1.html)
+-  [Version 3.15.2](https://www.sqlite.org/releaselog/3_15_2.html)
+-  [Version 3.16.0](https://www.sqlite.org/releaselog/3_16_0.html)
+-  [Version 3.16.1](https://www.sqlite.org/releaselog/3_16_1.html)
+-  [Version 3.16.2](https://www.sqlite.org/releaselog/3_16_2.html)
+-  [Version 3.17.0](https://www.sqlite.org/releaselog/3_17_0.html)
+-  [Version 3.18.0](https://www.sqlite.org/releaselog/3_18_0.html)
+-  [Version 3.18.1](https://www.sqlite.org/releaselog/3_18_1.html)
+-  [Version 3.18.2](https://www.sqlite.org/releaselog/3_18_2.html)
+-  [Version 3.19.0](https://www.sqlite.org/releaselog/3_19_0.html)
+-  [Version 3.19.1](https://www.sqlite.org/releaselog/3_19_1.html)
+-  [Version 3.19.2](https://www.sqlite.org/releaselog/3_19_2.html)
+-  [Version 3.19.3](https://www.sqlite.org/releaselog/3_19_3.html)
+-  [Version 3.2.0](https://www.sqlite.org/releaselog/3_2_0.html)
+-  [Version 3.2.1](https://www.sqlite.org/releaselog/3_2_1.html)
+-  [Version 3.2.2](https://www.sqlite.org/releaselog/3_2_2.html)
+-  [Version 3.2.3](https://www.sqlite.org/releaselog/3_2_3.html)
+-  [Version 3.2.4](https://www.sqlite.org/releaselog/3_2_4.html)
+-  [Version 3.2.5](https://www.sqlite.org/releaselog/3_2_5.html)
+-  [Version 3.2.6](https://www.sqlite.org/releaselog/3_2_6.html)
+-  [Version 3.2.7](https://www.sqlite.org/releaselog/3_2_7.html)
+-  [Version 3.2.8](https://www.sqlite.org/releaselog/3_2_8.html)
+-  [Version 3.20.0](https://www.sqlite.org/releaselog/3_20_0.html)
+-  [Version 3.20.1](https://www.sqlite.org/releaselog/3_20_1.html)
+-  [Version 3.21.0](https://www.sqlite.org/releaselog/3_21_0.html)
+-  [Version 3.22.0](https://www.sqlite.org/releaselog/3_22_0.html)
+-  [Version 3.23.0](https://www.sqlite.org/releaselog/3_23_0.html)
+-  [Version 3.23.0.0](https://www.sqlite.org/releaselog/3_23_0.html)
+-  [Version 3.23.1](https://www.sqlite.org/releaselog/3_23_1.html)
+-  [Version 3.23.1.0](https://www.sqlite.org/releaselog/3_23_1.html)
+-  [Version 3.24.0](https://www.sqlite.org/releaselog/3_24_0.html)
+-  [Version 3.25.0](https://www.sqlite.org/releaselog/3_25_0.html)
+-  [Version 3.25.1](https://www.sqlite.org/releaselog/3_25_1.html)
+-  [Version 3.25.2](https://www.sqlite.org/releaselog/3_25_2.html)
+-  [Version 3.25.3](https://www.sqlite.org/releaselog/3_25_3.html)
+-  [Version 3.26.0](https://www.sqlite.org/releaselog/3_26_0.html)
+-  [Version 3.27.0](https://www.sqlite.org/releaselog/3_27_0.html)
+-  [Version 3.27.1](https://www.sqlite.org/releaselog/3_27_1.html)
+-  [Version 3.27.2](https://www.sqlite.org/releaselog/3_27_2.html)
+-  [Version 3.28.0](https://www.sqlite.org/releaselog/3_28_0.html)
+-  [Version 3.29.0](https://www.sqlite.org/releaselog/3_29_0.html)
+-  [Version 3.3.0](https://www.sqlite.org/releaselog/3_3_0.html)
+-  [Version 3.3.0.0](https://www.sqlite.org/releaselog/3_3_0.html)
+-  [Version 3.3.1](https://www.sqlite.org/releaselog/3_3_1.html)
+-  [Version 3.3.1.0](https://www.sqlite.org/releaselog/3_3_1.html)
+-  [Version 3.3.10](https://www.sqlite.org/releaselog/3_3_10.html)
+-  [Version 3.3.10.0](https://www.sqlite.org/releaselog/3_3_10.html)
+-  [Version 3.3.11](https://www.sqlite.org/releaselog/3_3_11.html)
+-  [Version 3.3.11.0](https://www.sqlite.org/releaselog/3_3_11.html)
+-  [Version 3.3.12](https://www.sqlite.org/releaselog/3_3_12.html)
+-  [Version 3.3.12.0](https://www.sqlite.org/releaselog/3_3_12.html)
+-  [Version 3.3.13](https://www.sqlite.org/releaselog/3_3_13.html)
+-  [Version 3.3.13.0](https://www.sqlite.org/releaselog/3_3_13.html)
+-  [Version 3.3.14](https://www.sqlite.org/releaselog/3_3_14.html)
+-  [Version 3.3.14.0](https://www.sqlite.org/releaselog/3_3_14.html)
+-  [Version 3.3.15](https://www.sqlite.org/releaselog/3_3_15.html)
+-  [Version 3.3.15.0](https://www.sqlite.org/releaselog/3_3_15.html)
+-  [Version 3.3.16](https://www.sqlite.org/releaselog/3_3_16.html)
+-  [Version 3.3.16.0](https://www.sqlite.org/releaselog/3_3_16.html)
+-  [Version 3.3.17](https://www.sqlite.org/releaselog/3_3_17.html)
+-  [Version 3.3.17.0](https://www.sqlite.org/releaselog/3_3_17.html)
+-  [Version 3.3.2](https://www.sqlite.org/releaselog/3_3_2.html)
+-  [Version 3.3.2.0](https://www.sqlite.org/releaselog/3_3_2.html)
+-  [Version 3.3.3](https://www.sqlite.org/releaselog/3_3_3.html)
+-  [Version 3.3.3.0](https://www.sqlite.org/releaselog/3_3_3.html)
+-  [Version 3.3.4](https://www.sqlite.org/releaselog/3_3_4.html)
+-  [Version 3.3.4.0](https://www.sqlite.org/releaselog/3_3_4.html)
+-  [Version 3.3.5](https://www.sqlite.org/releaselog/3_3_5.html)
+-  [Version 3.3.5.0](https://www.sqlite.org/releaselog/3_3_5.html)
+-  [Version 3.3.6](https://www.sqlite.org/releaselog/3_3_6.html)
+-  [Version 3.3.6.0](https://www.sqlite.org/releaselog/3_3_6.html)
+-  [Version 3.3.7](https://www.sqlite.org/releaselog/3_3_7.html)
+-  [Version 3.3.7.0](https://www.sqlite.org/releaselog/3_3_7.html)
+-  [Version 3.3.8](https://www.sqlite.org/releaselog/3_3_8.html)
+-  [Version 3.3.8.0](https://www.sqlite.org/releaselog/3_3_8.html)
+-  [Version 3.3.9](https://www.sqlite.org/releaselog/3_3_9.html)
+-  [Version 3.3.9.0](https://www.sqlite.org/releaselog/3_3_9.html)
+-  [Version 3.30.0](https://www.sqlite.org/releaselog/3_30_0.html)
+-  [Version 3.30.1](https://www.sqlite.org/releaselog/3_30_1.html)
+-  [Version 3.31.0](https://www.sqlite.org/releaselog/3_31_0.html)
+-  [Version 3.31.1](https://www.sqlite.org/releaselog/3_31_1.html)
+-  [Version 3.32.0](https://www.sqlite.org/releaselog/3_32_0.html)
+-  [Version 3.32.1](https://www.sqlite.org/releaselog/3_32_1.html)
+-  [Version 3.32.2](https://www.sqlite.org/releaselog/3_32_2.html)
+-  [Version 3.32.3](https://www.sqlite.org/releaselog/3_32_3.html)
+-  [Version 3.33.0](https://www.sqlite.org/releaselog/3_33_0.html)
+-  [Version 3.33.0.0](https://www.sqlite.org/releaselog/3_33_0.html)
+-  [Version 3.34.0](https://www.sqlite.org/releaselog/3_34_0.html)
+-  [Version 3.34.1](https://www.sqlite.org/releaselog/3_34_1.html)
+-  [Version 3.35.0](https://www.sqlite.org/releaselog/3_35_0.html)
+-  [Version 3.35.1](https://www.sqlite.org/releaselog/3_35_1.html)
+-  [Version 3.35.2](https://www.sqlite.org/releaselog/3_35_2.html)
+-  [Version 3.35.3](https://www.sqlite.org/releaselog/3_35_3.html)
+-  [Version 3.35.4](https://www.sqlite.org/releaselog/3_35_4.html)
+-  [Version 3.35.5](https://www.sqlite.org/releaselog/3_35_5.html)
+-  [Version 3.36.0](https://www.sqlite.org/releaselog/3_36_0.html)
+-  [Version 3.37.0](https://www.sqlite.org/releaselog/3_37_0.html)
+-  [Version 3.37.1](https://www.sqlite.org/releaselog/3_37_1.html)
+-  [Version 3.37.2](https://www.sqlite.org/releaselog/3_37_2.html)
+-  [Version 3.38.0](https://www.sqlite.org/releaselog/3_38_0.html)
+-  [Version 3.38.1](https://www.sqlite.org/releaselog/3_38_1.html)
+-  [Version 3.38.2](https://www.sqlite.org/releaselog/3_38_2.html)
+-  [Version 3.38.3](https://www.sqlite.org/releaselog/3_38_3.html)
+-  [Version 3.38.4](https://www.sqlite.org/releaselog/3_38_4.html)
+-  [Version 3.38.5](https://www.sqlite.org/releaselog/3_38_5.html)
+-  [Version 3.39.0](https://www.sqlite.org/releaselog/3_39_0.html)
+-  [Version 3.39.1](https://www.sqlite.org/releaselog/3_39_1.html)
+-  [Version 3.39.2](https://www.sqlite.org/releaselog/3_39_2.html)
+-  [Version 3.39.3](https://www.sqlite.org/releaselog/3_39_3.html)
+-  [Version 3.39.4](https://www.sqlite.org/releaselog/3_39_4.html)
+-  [Version 3.4.0](https://www.sqlite.org/releaselog/3_4_0.html)
+-  [Version 3.4.1](https://www.sqlite.org/releaselog/3_4_1.html)
+-  [Version 3.4.2](https://www.sqlite.org/releaselog/3_4_2.html)
+-  [Version 3.40.0](https://www.sqlite.org/releaselog/3_40_0.html)
+-  [Version 3.40.1](https://www.sqlite.org/releaselog/3_40_1.html)
+-  [Version 3.41.0](https://www.sqlite.org/releaselog/3_41_0.html)
+-  [Version 3.41.1](https://www.sqlite.org/releaselog/3_41_1.html)
+-  [Version 3.41.2](https://www.sqlite.org/releaselog/3_41_2.html)
+-  [Version 3.42.0](https://www.sqlite.org/releaselog/3_42_0.html)
+-  [Version 3.43.0](https://www.sqlite.org/releaselog/3_43_0.html)
+-  [Version 3.43.0.0](https://www.sqlite.org/releaselog/3_43_0.html)
+-  [Version 3.43.1](https://www.sqlite.org/releaselog/3_43_1.html)
+-  [Version 3.43.1.0](https://www.sqlite.org/releaselog/3_43_1.html)
+-  [Version 3.43.2](https://www.sqlite.org/releaselog/3_43_2.html)
+-  [Version 3.43.2.0](https://www.sqlite.org/releaselog/3_43_2.html)
+-  [Version 3.44.0](https://www.sqlite.org/releaselog/3_44_0.html)
+-  [Version 3.44.1](https://www.sqlite.org/releaselog/3_44_1.html)
+-  [Version 3.44.2](https://www.sqlite.org/releaselog/3_44_2.html)
+-  [Version 3.45.0](https://www.sqlite.org/releaselog/3_45_0.html)
+-  [Version 3.45.1](https://www.sqlite.org/releaselog/3_45_1.html)
+-  [Version 3.45.2](https://www.sqlite.org/releaselog/3_45_2.html)
+-  [Version 3.45.3](https://www.sqlite.org/releaselog/3_45_3.html)
+-  [Version 3.46.0](https://www.sqlite.org/releaselog/3_46_0.html)
+-  [Version 3.5.0](https://www.sqlite.org/releaselog/3_5_0.html)
+-  [Version 3.5.1](https://www.sqlite.org/releaselog/3_5_1.html)
+-  [Version 3.5.2](https://www.sqlite.org/releaselog/3_5_2.html)
+-  [Version 3.5.3](https://www.sqlite.org/releaselog/3_5_3.html)
+-  [Version 3.5.4](https://www.sqlite.org/releaselog/3_5_4.html)
+-  [Version 3.5.5](https://www.sqlite.org/releaselog/3_5_5.html)
+-  [Version 3.5.6](https://www.sqlite.org/releaselog/3_5_6.html)
+-  [Version 3.5.7](https://www.sqlite.org/releaselog/3_5_7.html)
+-  [Version 3.5.8](https://www.sqlite.org/releaselog/3_5_8.html)
+-  [Version 3.5.9](https://www.sqlite.org/releaselog/3_5_9.html)
+-  [Version 3.6.0](https://www.sqlite.org/releaselog/3_6_0.html)
+-  [Version 3.6.1](https://www.sqlite.org/releaselog/3_6_1.html)
+-  [Version 3.6.10](https://www.sqlite.org/releaselog/3_6_10.html)
+-  [Version 3.6.11](https://www.sqlite.org/releaselog/3_6_11.html)
+-  [Version 3.6.12](https://www.sqlite.org/releaselog/3_6_12.html)
+-  [Version 3.6.13](https://www.sqlite.org/releaselog/3_6_13.html)
+-  [Version 3.6.14](https://www.sqlite.org/releaselog/3_6_14.html)
+-  [Version 3.6.14.1](https://www.sqlite.org/releaselog/3_6_14_1.html)
+-  [Version 3.6.14.2](https://www.sqlite.org/releaselog/3_6_14_2.html)
+-  [Version 3.6.15](https://www.sqlite.org/releaselog/3_6_15.html)
+-  [Version 3.6.16](https://www.sqlite.org/releaselog/3_6_16.html)
+-  [Version 3.6.16.1](https://www.sqlite.org/releaselog/3_6_16_1.html)
+-  [Version 3.6.17](https://www.sqlite.org/releaselog/3_6_17.html)
+-  [Version 3.6.18](https://www.sqlite.org/releaselog/3_6_18.html)
+-  [Version 3.6.19](https://www.sqlite.org/releaselog/3_6_19.html)
+-  [Version 3.6.2](https://www.sqlite.org/releaselog/3_6_2.html)
+-  [Version 3.6.20](https://www.sqlite.org/releaselog/3_6_20.html)
+-  [Version 3.6.21](https://www.sqlite.org/releaselog/3_6_21.html)
+-  [Version 3.6.22](https://www.sqlite.org/releaselog/3_6_22.html)
+-  [Version 3.6.23](https://www.sqlite.org/releaselog/3_6_23.html)
+-  [Version 3.6.23.1](https://www.sqlite.org/releaselog/3_6_23_1.html)
+-  [Version 3.6.23.1.0](https://www.sqlite.org/releaselog/3_6_23_1.html)
+-  [Version 3.6.3](https://www.sqlite.org/releaselog/3_6_3.html)
+-  [Version 3.6.4](https://www.sqlite.org/releaselog/3_6_4.html)
+-  [Version 3.6.5](https://www.sqlite.org/releaselog/3_6_5.html)
+-  [Version 3.6.6](https://www.sqlite.org/releaselog/3_6_6.html)
+-  [Version 3.6.6.1](https://www.sqlite.org/releaselog/3_6_6_1.html)
+-  [Version 3.6.6.2](https://www.sqlite.org/releaselog/3_6_6_2.html)
+-  [Version 3.6.7](https://www.sqlite.org/releaselog/3_6_7.html)
+-  [Version 3.6.8](https://www.sqlite.org/releaselog/3_6_8.html)
+-  [Version 3.6.9](https://www.sqlite.org/releaselog/3_6_9.html)
+-  [Version 3.7.0](https://www.sqlite.org/releaselog/3_7_0.html)
+-  [Version 3.7.0.1](https://www.sqlite.org/releaselog/3_7_0_1.html)
+-  [Version 3.7.1](https://www.sqlite.org/releaselog/3_7_1.html)
+-  [Version 3.7.10](https://www.sqlite.org/releaselog/3_7_10.html)
+-  [Version 3.7.11](https://www.sqlite.org/releaselog/3_7_11.html)
+-  [Version 3.7.12](https://www.sqlite.org/releaselog/3_7_12.html)
+-  [Version 3.7.12.1](https://www.sqlite.org/releaselog/3_7_12_1.html)
+-  [Version 3.7.13](https://www.sqlite.org/releaselog/3_7_13.html)
+-  [Version 3.7.14](https://www.sqlite.org/releaselog/3_7_14.html)
+-  [Version 3.7.14.1](https://www.sqlite.org/releaselog/3_7_14_1.html)
+-  [Version 3.7.15](https://www.sqlite.org/releaselog/3_7_15.html)
+-  [Version 3.7.15.1](https://www.sqlite.org/releaselog/3_7_15_1.html)
+-  [Version 3.7.15.2](https://www.sqlite.org/releaselog/3_7_15_2.html)
+-  [Version 3.7.16](https://www.sqlite.org/releaselog/3_7_16.html)
+-  [Version 3.7.16.1](https://www.sqlite.org/releaselog/3_7_16_1.html)
+-  [Version 3.7.16.2](https://www.sqlite.org/releaselog/3_7_16_2.html)
+-  [Version 3.7.17](https://www.sqlite.org/releaselog/3_7_17.html)
+-  [Version 3.7.2](https://www.sqlite.org/releaselog/3_7_2.html)
+-  [Version 3.7.3](https://www.sqlite.org/releaselog/3_7_3.html)
+-  [Version 3.7.4](https://www.sqlite.org/releaselog/3_7_4.html)
+-  [Version 3.7.5](https://www.sqlite.org/releaselog/3_7_5.html)
+-  [Version 3.7.6](https://www.sqlite.org/releaselog/3_7_6.html)
+-  [Version 3.7.6.1](https://www.sqlite.org/releaselog/3_7_6_1.html)
+-  [Version 3.7.6.2](https://www.sqlite.org/releaselog/3_7_6_2.html)
+-  [Version 3.7.6.3](https://www.sqlite.org/releaselog/3_7_6_3.html)
+-  [Version 3.7.7](https://www.sqlite.org/releaselog/3_7_7.html)
+-  [Version 3.7.7.1](https://www.sqlite.org/releaselog/3_7_7_1.html)
+-  [Version 3.7.8](https://www.sqlite.org/releaselog/3_7_8.html)
+-  [Version 3.7.9](https://www.sqlite.org/releaselog/3_7_9.html)
+-  [Version 3.8.0](https://www.sqlite.org/releaselog/3_8_0.html)
+-  [Version 3.8.0.1](https://www.sqlite.org/releaselog/3_8_0_1.html)
+-  [Version 3.8.0.2](https://www.sqlite.org/releaselog/3_8_0_2.html)
+-  [Version 3.8.1](https://www.sqlite.org/releaselog/3_8_1.html)
+-  [Version 3.8.10](https://www.sqlite.org/releaselog/3_8_10.html)
+-  [Version 3.8.10.1](https://www.sqlite.org/releaselog/3_8_10_1.html)
+-  [Version 3.8.10.2](https://www.sqlite.org/releaselog/3_8_10_2.html)
+-  [Version 3.8.11](https://www.sqlite.org/releaselog/3_8_11.html)
+-  [Version 3.8.11.1](https://www.sqlite.org/releaselog/3_8_11_1.html)
+-  [Version 3.8.2](https://www.sqlite.org/releaselog/3_8_2.html)
+-  [Version 3.8.3](https://www.sqlite.org/releaselog/3_8_3.html)
+-  [Version 3.8.3.1](https://www.sqlite.org/releaselog/3_8_3_1.html)
+-  [Version 3.8.3.1.0](https://www.sqlite.org/releaselog/3_8_3_1.html)
+-  [Version 3.8.4](https://www.sqlite.org/releaselog/3_8_4.html)
+-  [Version 3.8.4.1](https://www.sqlite.org/releaselog/3_8_4_1.html)
+-  [Version 3.8.4.2](https://www.sqlite.org/releaselog/3_8_4_2.html)
+-  [Version 3.8.4.3](https://www.sqlite.org/releaselog/3_8_4_3.html)
+-  [Version 3.8.5](https://www.sqlite.org/releaselog/3_8_5.html)
+-  [Version 3.8.6](https://www.sqlite.org/releaselog/3_8_6.html)
+-  [Version 3.8.7](https://www.sqlite.org/releaselog/3_8_7.html)
+-  [Version 3.8.7.1](https://www.sqlite.org/releaselog/3_8_7_1.html)
+-  [Version 3.8.7.2](https://www.sqlite.org/releaselog/3_8_7_2.html)
+-  [Version 3.8.7.3](https://www.sqlite.org/releaselog/3_8_7_3.html)
+-  [Version 3.8.7.4](https://www.sqlite.org/releaselog/3_8_7_4.html)
+-  [Version 3.8.8](https://www.sqlite.org/releaselog/3_8_8.html)
+-  [Version 3.8.8.1](https://www.sqlite.org/releaselog/3_8_8_1.html)
+-  [Version 3.8.8.2](https://www.sqlite.org/releaselog/3_8_8_2.html)
+-  [Version 3.8.8.3](https://www.sqlite.org/releaselog/3_8_8_3.html)
+-  [Version 3.8.9](https://www.sqlite.org/releaselog/3_8_9.html)
+-  [Version 3.9.0](https://www.sqlite.org/releaselog/3_9_0.html)
+-  [Version 3.9.1](https://www.sqlite.org/releaselog/3_9_1.html)
+-  [Version 3.9.2](https://www.sqlite.org/releaselog/3_9_2.html)
+-  [Version 3.9.3](https://www.sqlite.org/releaselog/3_9_3.html)
+-  [version method](https://www.sqlite.org/tclsqlite.html#version)
+-  [version numbering conventions](https://www.sqlite.org/versionnumbers.html)
+-  [version-valid-for number](https://www.sqlite.org/fileformat2.html#validfor)
+-  [VFS](https://www.sqlite.org/vfs.html)
+-  [VFS shim](https://www.sqlite.org/vfs.html#shim)
+-  ["vfs" query parameter](https://www.sqlite.org/uri.html#urivfs)
+-  [VFSes](https://www.sqlite.org/vfs.html)
+-  [view](https://www.sqlite.org/lang_createview.html)
+-  [virtual machine](https://www.sqlite.org/opcode.html)
+-  [virtual machine instructions](https://www.sqlite.org/opcode.html)
+-  [virtual table](https://www.sqlite.org/vtab.html)
+-  [virtual table configuration option](https://www.sqlite.org/c3ref/c_vtab_constraint_support.html)
+-  [virtual table cursor](https://www.sqlite.org/c3ref/vtab_cursor.html)
+-  [virtual table list](https://www.sqlite.org/vtablist.html)
+-  [virtual table module](https://www.sqlite.org/c3ref/module.html)
+-  [vulnerabilities](https://www.sqlite.org/cves.html)
+-  [WAL](https://www.sqlite.org/wal.html)
+-  [WAL backwards compatibility](https://www.sqlite.org/wal.html#bkwrds)
+-  [WAL checksum algorithm](https://www.sqlite.org/fileformat2.html#walcksm)
+-  [WAL concurrency](https://www.sqlite.org/wal.html#concurrency)
+-  [WAL file](https://www.sqlite.org/wal.html#walfile)
+-  [WAL file format](https://www.sqlite.org/fileformat2.html#walformat)
+-  [WAL format](https://www.sqlite.org/fileformat2.html#walformat)
+-  [WAL mode](https://www.sqlite.org/wal.html)
+-  [WAL read algorithm](https://www.sqlite.org/fileformat2.html#walread)
+-  [WAL reset](https://www.sqlite.org/fileformat2.html#walreset)
+-  [WAL without shared memory](https://www.sqlite.org/wal.html#noshm)
+-  [wal-index](https://www.sqlite.org/walformat.html#shm)
+-  [WAL-index File Format](https://www.sqlite.org/walformat.html#walidxfmt)
+-  [WAL-index format](https://www.sqlite.org/walformat.html#walidxfmt)
+-  [WAL-mode crash recovery](https://www.sqlite.org/walformat.html#recovery)
+-  [WAL-mode File Format](https://www.sqlite.org/walformat.html)
+-  [WAL-mode locks](https://www.sqlite.org/walformat.html#locks)
+-  [WAL-mode read blocking](https://www.sqlite.org/wal.html#busy)
+-  [wal_autocheckpoint pragma](https://www.sqlite.org/pragma.html#pragma_wal_autocheckpoint)
+-  [wal_checkpoint pragma](https://www.sqlite.org/pragma.html#pragma_wal_checkpoint)
+-  [wal_hook method](https://www.sqlite.org/tclsqlite.html#wal_hook)
+-  [Warranty of Title](https://www.sqlite.org/copyright.html#warrantyoftitle)
+-  [What If OpenOffice Used SQLite](https://www.sqlite.org/affcase1.html)
+-  [when to use WITHOUT ROWID](https://www.sqlite.org/withoutrowid.html#wtu)
+-  [WHERE clause](https://www.sqlite.org/lang_select.html#whereclause)
+-  [WHERE-clause push-down optimization](https://www.sqlite.org/optoverview.html#pushdown)
+-  [why ALTER TABLE is so difficult](https://www.sqlite.org/lang_altertable.html#altertableishard)
+-  [Why SQLite Uses Bytecode](https://www.sqlite.org/whybytecode.html)
+-  [Win32 native memory allocator](https://www.sqlite.org/malloc.html#win32heap)
+-  [window chaining](https://www.sqlite.org/windowfunctions.html#wchaining)
+-  [window function](https://www.sqlite.org/windowfunctions.html)
+-  [window-defn](https://www.sqlite.org/syntax/window-defn.html)
+-  [window-defn syntax diagram](https://www.sqlite.org/syntax/window-defn.html)
+-  [window-function-invocation](https://www.sqlite.org/syntax/window-function-invocation.html)
+-  [window-function-invocation syntax diagram](https://www.sqlite.org/syntax/window-function-invocation.html)
+-  [WITH clause](https://www.sqlite.org/lang_with.html)
+-  [with-clause](https://www.sqlite.org/syntax/with-clause.html)
+-  [with-clause syntax diagram](https://www.sqlite.org/syntax/with-clause.html)
+-  [WITHOUT rowid](https://www.sqlite.org/withoutrowid.html)
+-  [WITHOUT ROWID virtual table](https://www.sqlite.org/vtab.html#worid)
+-  [wrapping text](https://www.sqlite.org/cli.html#wrap1)
+-  [writable_schema pragma](https://www.sqlite.org/pragma.html#pragma_writable_schema)
+-  [write-ahead log](https://www.sqlite.org/wal.html)
+-  [writer starvation](https://www.sqlite.org/lockingv3.html#writer_starvation)
+-  [xBegin](https://www.sqlite.org/vtab.html#xBegin)
+-  [xBestIndex](https://www.sqlite.org/vtab.html#xbestindex)
+-  [xColumn](https://www.sqlite.org/vtab.html#xcolumn)
+-  [xCommit](https://www.sqlite.org/vtab.html#xcommit)
+-  [xConnect](https://www.sqlite.org/vtab.html#xconnect)
+-  [xCreate](https://www.sqlite.org/vtab.html#xcreate)
+-  [xDestroy](https://www.sqlite.org/vtab.html#sqlite3_module.xDestroy)
+-  [xDisconnect](https://www.sqlite.org/vtab.html#xdisconnect)
+-  [xEof](https://www.sqlite.org/vtab.html#xeof)
+-  [xFilter](https://www.sqlite.org/vtab.html#xfilter)
+-  [xFindFunction](https://www.sqlite.org/vtab.html#xfindfunction)
+-  [xIntegrity](https://www.sqlite.org/vtab.html#xintegrity)
+-  [xIntegrity method](https://www.sqlite.org/vtab.html#xintegrity)
+-  [xNext](https://www.sqlite.org/vtab.html#xnext)
+-  [xQueryFunc R*Tree callback](https://www.sqlite.org/rtree.html#xquery)
+-  [xRelease](https://www.sqlite.org/vtab.html#xsavepoint)
+-  [xRename](https://www.sqlite.org/vtab.html#xrename)
+-  [xRollback](https://www.sqlite.org/vtab.html#xrollback)
+-  [xRollbackTo](https://www.sqlite.org/vtab.html#xsavepoint)
+-  [xRowid](https://www.sqlite.org/vtab.html#xrowid)
+-  [xSavepoint](https://www.sqlite.org/vtab.html#xsavepoint)
+-  [xShadowName](https://www.sqlite.org/vtab.html#xshadowname)
+-  [xUpdate](https://www.sqlite.org/vtab.html#xupdate)
+-  [YYSTACKDEPTH](https://www.sqlite.org/compile.html#yystackdepth)
+-  [YYTRACKMAXSTACKDEPTH](https://www.sqlite.org/compile.html#yytrackmaxstackdepth)
+-  [zero-configuration](https://www.sqlite.org/zeroconf.html)
+-  [zero-malloc memory allocator](https://www.sqlite.org/malloc.html#memsys5)
+-  [zeroblob() SQL function](https://www.sqlite.org/lang_corefunc.html#zeroblob)
+-  [ZIP file as database](https://www.sqlite.org/cli.html#zipdb)
+-  [zipfile](https://www.sqlite.org/zipfile.html)
+-  [Zipfile virtual table](https://www.sqlite.org/zipfile.html)
+
+
+# 🍀 /S17. SQL Syntax  
+   https://www.sqlite.org/lang.html                                  *lang_html*
 
 
 SQL As Understood By SQLite
 
 SQLite understands most of the standard SQL language. But it does 
-[omit some features](https://www.sqlite.org/omitted.html) while at the same time adding 
-a few features of its own. This document attempts to describe precisely 
+[omit some features](https://www.sqlite.org/omitted.html) while at the same time 
+adding a few features of its own. This document attempts to describe precisely
 what parts of the SQL language SQLite does and does not support. 
 A list of [SQL keywords](https://www.sqlite.org/lang_keywords.html) is also provided. 
 The SQL language syntax is described by [syntax diagrams](https://www.sqlite.org/syntaxdiagrams.html).
@@ -418,7 +4114,8 @@ The routines
 [sqlite3_prepare16_v2()](https://www.sqlite.org/c3ref/prepare.html), 
 [sqlite3_exec()](https://www.sqlite.org/c3ref/exec.html), and 
 [sqlite3_get_table()](https://www.sqlite.org/c3ref/free_table.html) 
-accept an SQL statement list (sql-stmt-list) which is a semicolon-separated list of statements.
+accept an SQL statement list (sql-stmt-list) which is a semicolon-separated 
+list of statements.
 
 **[sql-stmt-list:](https://www.sqlite.org/syntax/sql-stmt-list.html)**
 
@@ -595,34 +4292,637 @@ and in the middle of other SQL statements. Comments do not nest.
 
 
 ## 🐣 Expression
-https://www.sqlite.org/lang_expr.html        *expression*
+https://www.sqlite.org/lang_expr.html                               *expression*
 
 
 
-# 🍀 /18. Pragma commands  
-   https://www.sqlite.org/pragma.html              *pragma_html*
+# 🍀 /S18. Pragma commands  
+   https://www.sqlite.org/pragma.html                              *pragma_html*
 
 
-# 🍀 /19. Core SQL Functions  
-   https://www.sqlite.org/lang_corefunc.html        *lang_corefunc_html*
+# 🍀 /S19. Core SQL Functions  
+   https://www.sqlite.org/lang_corefunc.html                *lang_corefunc_html*
+
+Built-In Scalar SQL Functions
+
+## 🐣 1. Overview
+
+   The core functions shown below are available by default. 
+   [Date & Time functions](https://www.sqlite.org/lang_datefunc.html),
+   [aggregate functions](https://www.sqlite.org/lang_aggfunc.html),
+   [window functions](https://www.sqlite.org/windowfunctions.html),
+   [math functions](https://www.sqlite.org/lang_mathfunc.html), and
+   [JSON functions](https://www.sqlite.org/json1.html) are documented separately. 
+   An application may define additional functions written in C and added to the
+   database engine using the
+   [sqlite3_create_function()](https://www.sqlite.org/c3ref/create_function.html) API.
+
+   [simple-function-invocation:](https://www.sqlite.org/syntax/simple-function-invocation.html)
 
 
-# 🍀 /20. Aggregate SQL Functions  
-   https://www.sqlite.org/lang_aggfunc.html         *lang_aggfunc_html*
+   See the [functions within expressions](https://www.sqlite.org/lang_expr.html#*funcinexpr)
+   documentation for more information about how SQL function invocations
+   fit into the context of an SQL expression.
+
+## 🐣 2. List Of Core Functions
+
+  -  [abs(X)](https://www.sqlite.org/lang_corefunc.html#abs)
+  -  [changes()](https://www.sqlite.org/lang_corefunc.html#changes)
+  -  [char(X1,X2,...,XN)](https://www.sqlite.org/lang_corefunc.html#char)
+  -  [coalesce(X,Y,...)](https://www.sqlite.org/lang_corefunc.html#coalesce)
+  -  [concat(X,...)](https://www.sqlite.org/lang_corefunc.html#concat)
+  -  [concat_ws(SEP,X,...)](https://www.sqlite.org/lang_corefunc.html#concat_ws)
+  -  [format(FORMAT,...)](https://www.sqlite.org/lang_corefunc.html#format)
+  -  [glob(X,Y)](https://www.sqlite.org/lang_corefunc.html#glob)
+  -  [hex(X)](https://www.sqlite.org/lang_corefunc.html#hex)
+  -  [ifnull(X,Y)](https://www.sqlite.org/lang_corefunc.html#ifnull)
+  -  [iif(X,Y,Z)](https://www.sqlite.org/lang_corefunc.html#iif)
+  -  [instr(X,Y)](https://www.sqlite.org/lang_corefunc.html#instr)
+  -  [last_insert_rowid()](https://www.sqlite.org/lang_corefunc.html#last_insert_rowid)
+  -  [length(X)](https://www.sqlite.org/lang_corefunc.html#length)
+  -  [like(X,Y)](https://www.sqlite.org/lang_corefunc.html#like)
+  -  [like(X,Y,Z)](https://www.sqlite.org/lang_corefunc.html#like)
+  -  [likelihood(X,Y)](https://www.sqlite.org/lang_corefunc.html#likelihood)
+  -  [likely(X)](https://www.sqlite.org/lang_corefunc.html#likely)
+  -  [load_extension(X)](https://www.sqlite.org/lang_corefunc.html#load_extension)
+  -  [load_extension(X,Y)](https://www.sqlite.org/lang_corefunc.html#load_extension)
+  -  [lower(X)](https://www.sqlite.org/lang_corefunc.html#lower)
+  -  [ltrim(X)](https://www.sqlite.org/lang_corefunc.html#ltrim)
+  -  [ltrim(X,Y)](https://www.sqlite.org/lang_corefunc.html#ltrim)
+  -  [max(X,Y,...)](https://www.sqlite.org/lang_corefunc.html#max_scalar)
+  -  [min(X,Y,...)](https://www.sqlite.org/lang_corefunc.html#min_scalar)
+  -  [nullif(X,Y)](https://www.sqlite.org/lang_corefunc.html#nullif)
+  -  [octet_length(X)](https://www.sqlite.org/lang_corefunc.html#octet_length)
+  -  [printf(FORMAT,...)](https://www.sqlite.org/lang_corefunc.html#printf)
+  -  [quote(X)](https://www.sqlite.org/lang_corefunc.html#quote)
+  -  [random()](https://www.sqlite.org/lang_corefunc.html#random)
+  -  [randomblob(N)](https://www.sqlite.org/lang_corefunc.html#randomblob)
+  -  [replace(X,Y,Z)](https://www.sqlite.org/lang_corefunc.html#replace)
+  -  [round(X)](https://www.sqlite.org/lang_corefunc.html#round)
+  -  [round(X,Y)](https://www.sqlite.org/lang_corefunc.html#round)
+  -  [rtrim(X)](https://www.sqlite.org/lang_corefunc.html#rtrim)
+  -  [rtrim(X,Y)](https://www.sqlite.org/lang_corefunc.html#rtrim)
+  -  [sign(X)](https://www.sqlite.org/lang_corefunc.html#sign)
+  -  [soundex(X)](https://www.sqlite.org/lang_corefunc.html#soundex)
+  -  [sqlite_compileoption_get(N)](https://www.sqlite.org/lang_corefunc.html#sqlite_compileoption_get)
+  -  [sqlite_compileoption_used(X)](https://www.sqlite.org/lang_corefunc.html#sqlite_compileoption_used)
+  -  [sqlite_offset(X)](https://www.sqlite.org/lang_corefunc.html#sqlite_offset)
+  -  [sqlite_source_id()](https://www.sqlite.org/lang_corefunc.html#sqlite_source_id)
+  -  [sqlite_version()](https://www.sqlite.org/lang_corefunc.html#sqlite_version)
+  -  [substr(X,Y)](https://www.sqlite.org/lang_corefunc.html#substr)
+  -  [substr(X,Y,Z)](https://www.sqlite.org/lang_corefunc.html#substr)
+  -  [substring(X,Y)](https://www.sqlite.org/lang_corefunc.html#substr)
+  -  [substring(X,Y,Z)](https://www.sqlite.org/lang_corefunc.html#substr)
+  -  [total_changes()](https://www.sqlite.org/lang_corefunc.html#total_changes)
+  -  [trim(X)](https://www.sqlite.org/lang_corefunc.html#trim)
+  -  [trim(X,Y)](https://www.sqlite.org/lang_corefunc.html#trim)
+  -  [typeof(X)](https://www.sqlite.org/lang_corefunc.html#typeof)
+  -  [unhex(X)](https://www.sqlite.org/lang_corefunc.html#unhex)
+  -  [unhex(X,Y)](https://www.sqlite.org/lang_corefunc.html#unhex)
+  -  [unicode(X)](https://www.sqlite.org/lang_corefunc.html#unicode)
+  -  [unlikely(X)](https://www.sqlite.org/lang_corefunc.html#unlikely)
+  -  [upper(X)](https://www.sqlite.org/lang_corefunc.html#upper)
+  -  [zeroblob(N)](https://www.sqlite.org/lang_corefunc.html#zeroblob)
+
+## 🐣 3. Descriptions of built-in scalar SQL functions
+
+-  **abs(X)**
+
+   The abs(X) function returns the absolute value of the numeric
+   argument X. Abs(X) returns NULL if X is NULL. Abs(X) returns 0.0 if X
+   is a string or blob that cannot be converted to a numeric value. If X
+   is the integer -9223372036854775808 then abs(X) throws an integer
+   overflow error since there is no equivalent positive 64-bit two
+   complement value.
+
+-  **changes()**
+
+   The changes() function returns the number of database rows that were
+   changed or inserted or deleted by the most recently completed INSERT,
+   DELETE, or UPDATE statement, exclusive of statements in lower-level
+   triggers. The changes() SQL function is a wrapper around the
+   [sqlite3_changes64()](https://www.sqlite.org/c3ref/changes.html) C/C++ function and hence
+   follows the same rules for counting changes.
+
+-  **char(X1,X2,...,XN)**
+
+   The char(X1,X2,...,XN) function returns a string composed of
+   characters having the unicode code point values of integers X1
+   through XN, respectively.
+
+-  **coalesce(X,Y,...)**
+
+   The coalesce() function returns a copy of its first non-NULL
+   argument, or NULL if all arguments are NULL. Coalesce() must have at
+   least 2 arguments.
+
+-  **concat(X,...)**
+
+   The concat(...) function returns a string which is the concatenation
+   of the string representation of all of its non-NULL arguments. If all
+   arguments are NULL, then concat() returns an empty string.
+
+-  **concat_ws(SEP,X,...)**
+
+   The concat_ws(SEP,...) function returns a string that is the
+   concatenation of all non-null arguments beyond the first argument,
+   using the text value of the first argument as a separator. If the
+   first argument is NULL, then concat_ws() returns NULL. If all
+   arguments other than the first are NULL, then concat_ws() returns an
+   empty string.
+
+-  **format(FORMAT,...)**
+
+   The format(FORMAT,...) SQL function works like the
+   [sqlite3_mprintf()](https://www.sqlite.org/c3ref/mprintf.html) C-language function and
+   the printf() function from the standard C library. The first argument
+   is a format string that specifies how to construct the output string
+   using values taken from subsequent arguments. If the FORMAT argument
+   is missing or NULL then the result is NULL. The %n format is silently
+   ignored and does not consume an argument. The %p format is an alias
+   for %X. The %z format is interchangeable with %s. If there are too
+   few arguments in the argument list, missing arguments are assumed to
+   have a NULL value, which is translated into 0 or 0.0 for numeric
+   formats or an empty string for %s. See the [built-in
+   printf()](https://www.sqlite.org/printf.html) documentation for additional information.
+
+-  **glob(X,Y)**
+
+   The glob(X,Y) function is equivalent to the expression "**Y GLOB
+   X**". Note that the X and Y arguments are reversed in the glob()
+   function relative to the infix [GLOB](https://www.sqlite.org/lang_expr.html#glob)
+   operator. Y is the string and X is the pattern. So, for example, the
+   following expressions are equivalent:
+
+        name GLOB '*helium*'
+        glob('*helium*',name)
+           
+
+   If the [sqlite3_create_function()](https://www.sqlite.org/c3ref/create_function.html)
+   interface is used to override the glob(X,Y) function with an
+   alternative implementation then the [GLOB](https://www.sqlite.org/lang_expr.html#glob)
+   operator will invoke the alternative implementation.
+
+-  **hex(X)**
+
+   The hex() function interprets its argument as a BLOB and returns a
+   string which is the upper-case hexadecimal rendering of the content
+   of that blob.
+
+   If the argument *X* in "hex(*X*)" is an integer or floating point
+   number, then "interprets its argument as a BLOB" means that the
+   binary number is first converted into a UTF8 text representation,
+   then that text is interpreted as a BLOB. Hence, "hex(12345678)"
+   renders as "3132333435363738" not the binary representation of the
+   integer value "0000000000BC614E".
+
+   See also: [unhex()](https://www.sqlite.org/lang_corefunc.html#unhex)
+
+-  **ifnull(X,Y)**
+
+   The ifnull() function returns a copy of its first non-NULL argument,
+   or NULL if both arguments are NULL. Ifnull() must have exactly 2
+   arguments. The ifnull() function is equivalent to
+   [coalesce()](https://www.sqlite.org/lang_corefunc.html#coalesce) with two arguments.
+
+-  **iif(X,Y,Z)**
+
+   The iif(X,Y,Z) function returns the value Y if X is true, and Z
+   otherwise. The iif(X,Y,Z) function is logically equivalent to and
+   generates the same [bytecode](https://www.sqlite.org/opcode.html) as the [CASE
+   expression](https://www.sqlite.org/lang_expr.html#case) "CASE WHEN X THEN Y ELSE Z END".
+
+-  **instr(X,Y)**
+
+   The instr(X,Y) function finds the first occurrence of string Y within
+   string X and returns the number of prior characters plus 1, or 0 if Y
+   is nowhere found within X. Or, if X and Y are both BLOBs, then
+   instr(X,Y) returns one more than the number bytes prior to the first
+   occurrence of Y, or 0 if Y does not occur anywhere within X. If both
+   arguments X and Y to instr(X,Y) are non-NULL and are not BLOBs then
+   both are interpreted as strings. If either X or Y are NULL in
+   instr(X,Y) then the result is NULL.
+
+-  **last_insert_rowid()**
+
+   The last_insert_rowid() function returns the
+   [ROWID](https://www.sqlite.org/lang_createtable.html#rowid) of the last row insert from
+   the database connection which invoked the function. The
+   last_insert_rowid() SQL function is a wrapper around the
+   [sqlite3_last_insert_rowid()](https://www.sqlite.org/c3ref/last_insert_rowid.html) C/C++
+   interface function.
+
+-  **length(X)**
+
+   For a string value X, the length(X) function returns the number of
+   characters (not bytes) in X prior to the first NUL character. Since
+   SQLite strings do not normally contain NUL characters, the length(X)
+   function will usually return the total number of characters in the
+   string X. For a blob value X, length(X) returns the number of bytes
+   in the blob. If X is NULL then length(X) is NULL. If X is numeric
+   then length(X) returns the length of a string representation of X.
+
+   Note that for strings, the length(X) function returns the *character*
+   length of the string, not the byte length. The character length is
+   the number of characters in the string. The character length is
+   always different from the byte length for UTF-16 strings, and can be
+   different from the byte length for UTF-8 strings if the string
+   contains multi-byte characters. Use the
+   [octet_length()](https://www.sqlite.org/lang_corefunc.html#octet_length) function to find
+   the byte length of a string.
+
+   For BLOB values, length(X) always returns the byte-length of the
+   BLOB.
+
+   For string values, length(X) must read the entire string into memory
+   in order to compute the character length. But for BLOB values, that
+   is not necessary as SQLite knows how many bytes are in the BLOB.
+   Hence, for multi-megabyte values, the length(X) function is usually
+   much faster for BLOBs than for strings, since it does not need to
+   load the value into memory.
+
+-  **like(X,Y)
+   like(X,Y,Z)**
+
+   The like() function is used to implement the "**Y LIKE X [ESCAPE
+   Z]**" expression. If the optional ESCAPE clause is present, then the
+   like() function is invoked with three arguments. Otherwise, it is
+   invoked with two arguments only. Note that the X and Y parameters are
+   reversed in the like() function relative to the infix
+   [LIKE](https://www.sqlite.org/lang_expr.html#like) operator. X is the pattern and Y is
+   the string to match against that pattern. Hence, the following
+   expressions are equivalent:
+
+        name LIKE '%neon%'
+        like('%neon%',name)
+           
+
+   The [sqlite3_create_function()](https://www.sqlite.org/c3ref/create_function.html)
+   interface can be used to override the like() function and thereby
+   change the operation of the [LIKE](https://www.sqlite.org/lang_expr.html#like) operator.
+   When overriding the like() function, it may be important to override
+   both the two and three argument versions of the like() function.
+   Otherwise, different code may be called to implement the
+   [LIKE](https://www.sqlite.org/lang_expr.html#like) operator depending on whether or not
+   an ESCAPE clause was specified.
+
+-  **likelihood(X,Y)**
+
+   The likelihood(X,Y) function returns argument X unchanged. The value
+   Y in likelihood(X,Y) must be a floating point constant between 0.0
+   and 1.0, inclusive. The likelihood(X) function is a no-op that the
+   code generator optimizes away so that it consumes no CPU cycles
+   during run-time (that is, during calls to
+   [sqlite3_step()](https://www.sqlite.org/c3ref/step.html)). The purpose of the
+   likelihood(X,Y) function is to provide a hint to the query planner
+   that the argument X is a boolean that is true with a probability of
+   approximately Y. The [unlikely(X)](https://www.sqlite.org/lang_corefunc.html#unlikely)
+   function is short-hand for likelihood(X,0.0625). The
+   [likely(X)](https://www.sqlite.org/lang_corefunc.html#likely) function is short-hand for
+   likelihood(X,0.9375).
+
+-  **likely(X)**
+
+   The likely(X) function returns the argument X unchanged. The
+   likely(X) function is a no-op that the code generator optimizes away
+   so that it consumes no CPU cycles at run-time (that is, during calls
+   to [sqlite3_step()](https://www.sqlite.org/c3ref/step.html)). The purpose of the
+   likely(X) function is to provide a hint to the query planner that the
+   argument X is a boolean value that is usually true. The likely(X)
+   function is equivalent to
+   [likelihood](https://www.sqlite.org/lang_corefunc.html#likelihood)(X,0.9375). See also:
+   [unlikely(X)](https://www.sqlite.org/lang_corefunc.html#unlikely).
+
+-  **load_extension(X)
+   load_extension(X,Y)**
+
+   The load_extension(X,Y) function loads [SQLite
+   extensions](https://www.sqlite.org/loadext.html) out of the shared library file named X
+   using the entry point Y. The result of load_extension() is always a
+   NULL. If Y is omitted then the default entry point name is used. The
+   load_extension() function raises an exception if the extension fails
+   to load or initialize correctly.
+
+   The load_extension() function will fail if the extension attempts to
+   modify or delete an SQL function or collating sequence. The extension
+   can add new functions or collating sequences, but cannot modify or
+   delete existing functions or collating sequences because those
+   functions and/or collating sequences might be used elsewhere in the
+   currently running SQL statement. To load an extension that changes or
+   deletes functions or collating sequences, use the
+   [sqlite3_load_extension()](https://www.sqlite.org/c3ref/load_extension.html) C-language
+   API.
+
+   For security reasons, extension loading is disabled by default and
+   must be enabled by a prior call to
+   [sqlite3_enable_load_extension()](https://www.sqlite.org/c3ref/enable_load_extension.html).
+
+-  **lower(X)**
+
+   The lower(X) function returns a copy of string X with all ASCII
+   characters converted to lower case. The default built-in lower()
+   function works for ASCII characters only. To do case conversions on
+   non-ASCII characters, load the ICU extension.
+
+-  **ltrim(X)
+   ltrim(X,Y)**
+
+   The ltrim(X,Y) function returns a string formed by removing any and
+   all characters that appear in Y from the left side of X. If the Y
+   argument is omitted, ltrim(X) removes spaces from the left side of X.
+
+-  **max(X,Y,...)**
+
+   The multi-argument max() function returns the argument with the
+   maximum value, or return NULL if any argument is NULL. The
+   multi-argument max() function searches its arguments from left to
+   right for an argument that defines a collating function and uses that
+   collating function for all string comparisons. If none of the
+   arguments to max() define a collating function, then the BINARY
+   collating function is used. Note that **max()** is a simple function
+   when it has 2 or more arguments but operates as an [aggregate
+   function](https://www.sqlite.org/lang_aggfunc.html#max_agg) if given only a single
+   argument.
+
+-  **min(X,Y,...)**
+
+   The multi-argument min() function returns the argument with the
+   minimum value. The multi-argument min() function searches its
+   arguments from left to right for an argument that defines a collating
+   function and uses that collating function for all string comparisons.
+   If none of the arguments to min() define a collating function, then
+   the BINARY collating function is used. Note that **min()** is a
+   simple function when it has 2 or more arguments but operates as an
+   [aggregate function](https://www.sqlite.org/lang_aggfunc.html#min_agg) if given only a
+   single argument.
+
+-  **nullif(X,Y)**
+
+   The nullif(X,Y) function returns its first argument if the arguments
+   are different and NULL if the arguments are the same. The nullif(X,Y)
+   function searches its arguments from left to right for an argument
+   that defines a collating function and uses that collating function
+   for all string comparisons. If neither argument to nullif() defines a
+   collating function then the BINARY collating function is used.
+
+-  **octet_length(X)**
+
+   The octet_length(X) function returns the number of bytes in the
+   encoding of text string X. If X is NULL then octet_length(X) returns
+   NULL. If X is a BLOB value, then octet_length(X) is the same as
+   [length(X)](https://www.sqlite.org/lang_corefunc.html#length). If X is a numeric value,
+   then octet_length(X) returns the number of bytes in a text rendering
+   of that number.
+
+   Because octet_length(X) returns the number of bytes in X, not the
+   number of characters, the value returned depends on the database
+   encoding. The octet_length() function can return different answers
+   for the same input string if the database encoding is UTF16 instead
+   of UTF8.
+
+   If argument X is a table column and the value is of type text or
+   blob, then octet_length(X) avoids reading the content of X from disk,
+   as the byte length can be computed from metadata. Thus,
+   octet_length(X) is efficient even if X is a column containing a
+   multi-megabyte text or blob value.
+
+-  **printf(FORMAT,...)**
+
+   The printf() SQL function is an alias for the [format() SQL
+   function](https://www.sqlite.org/lang_corefunc.html#format). The format() SQL function
+   was originally named printf(). But the name was later changed to
+   format() for compatibility with other database engines. The printf()
+   name is retained as an alias so as not to break legacy code.
+
+-  **quote(X)**
+
+   The quote(X) function returns the text of an SQL literal which is the
+   value of its argument suitable for inclusion into an SQL statement.
+   Strings are surrounded by single-quotes with escapes on interior
+   quotes as needed. BLOBs are encoded as hexadecimal literals. Strings
+   with embedded NUL characters cannot be represented as string literals
+   in SQL and hence the returned string literal is truncated prior to
+   the first NUL.
+
+-  **random()**
+
+   The random() function returns a pseudo-random integer between
+   -9223372036854775808 and +9223372036854775807.
+
+-  **randomblob(N)**
+
+   The randomblob(N) function return an N-byte blob containing
+   pseudo-random bytes. If N is less than 1 then a 1-byte random blob is
+   returned.
+
+   Hint: applications can generate globally unique identifiers using
+   this function together with [hex()](https://www.sqlite.org/lang_corefunc.html#hex) and/or
+   [lower()](https://www.sqlite.org/lang_corefunc.html#lower) like this:
+
+      hex(randomblob(16))
+      lower(hex(randomblob(16)))
+
+-  **replace(X,Y,Z)**
+
+   The replace(X,Y,Z) function returns a string formed by substituting
+   string Z for every occurrence of string Y in string X. The
+   [BINARY](https://www.sqlite.org/datatype3.html#collation) collating sequence is used for
+   comparisons. If Y is an empty string then return X unchanged. If Z is
+   not initially a string, it is cast to a UTF-8 string prior to
+   processing.
+
+-  **round(X)
+   round(X,Y)**
+
+   The round(X,Y) function returns a floating-point value X rounded to Y
+   digits to the right of the decimal point. If the Y argument is
+   omitted or negative, it is taken to be 0.
+
+-  **rtrim(X)
+   rtrim(X,Y)**
+
+   The rtrim(X,Y) function returns a string formed by removing any and
+   all characters that appear in Y from the right side of X. If the Y
+   argument is omitted, rtrim(X) removes spaces from the right side of
+   X.
+
+-  **sign(X)**
+
+   The sign(X) function returns -1, 0, or +1 if the argument X is a
+   numeric value that is negative, zero, or positive, respectively. If
+   the argument to sign(X) is NULL or is a string or blob that cannot be
+   losslessly converted into a number, then sign(X) returns NULL.
+
+-  **soundex(X)**
+
+   The soundex(X) function returns a string that is the soundex encoding
+   of the string X. The string "?000" is returned if the argument is
+   NULL or contains no ASCII alphabetic characters. This function is
+   omitted from SQLite by default. It is only available if the
+   [SQLITE_SOUNDEX](https://www.sqlite.org/compile.html#soundex) compile-time option is used
+   when SQLite is built.
+
+-  **sqlite_compileoption_get(N)**
+
+   The sqlite_compileoption_get() SQL function is a wrapper around the
+   [sqlite3_compileoption_get()](https://www.sqlite.org/c3ref/compileoption_get.html) C/C++
+   function. This routine returns the N-th compile-time option used to
+   build SQLite or NULL if N is out of range. See also the
+   [compile_options pragma](https://www.sqlite.org/pragma.html#pragma_compile_options).
+
+-  **sqlite_compileoption_used(X)**
+
+   The sqlite_compileoption_used() SQL function is a wrapper around the
+   [sqlite3_compileoption_used()](https://www.sqlite.org/c3ref/compileoption_get.html) C/C++
+   function. When the argument X to sqlite_compileoption_used(X) is a
+   string which is the name of a compile-time option, this routine
+   returns true (1) or false (0) depending on whether or not that option
+   was used during the build.
+
+-  **sqlite_offset(X)**
+
+   The sqlite_offset(X) function returns the byte offset in the database
+   file for the beginning of the record from which value would be read.
+   If X is not a column in an ordinary table, then sqlite_offset(X)
+   returns NULL. The value returned by sqlite_offset(X) might reference
+   either the original table or an index, depending on the query. If the
+   value X would normally be extracted from an index, the
+   sqlite_offset(X) returns the offset to the corresponding index
+   record. If the value X would be extracted from the original table,
+   then sqlite_offset(X) returns the offset to the table record.
+
+   The sqlite_offset(X) SQL function is only available if SQLite is
+   built using the
+   [-DSQLITE_ENABLE_OFFSET_SQL_FUNC](https://www.sqlite.org/compile.html#enable_offset_sql_func)
+   compile-time option.
+
+-  **sqlite_source_id()**
+
+   The sqlite_source_id() function returns a string that identifies the
+   specific version of the source code that was used to build the SQLite
+   library. The string returned by sqlite_source_id() is the date and
+   time that the source code was checked in followed by the SHA3-256
+   hash for that check-in. This function is an SQL wrapper around the
+   [sqlite3_sourceid()](https://www.sqlite.org/c3ref/libversion.html) C interface.
+
+-  **sqlite_version()**
+
+   The sqlite_version() function returns the version string for the
+   SQLite library that is running. This function is an SQL wrapper
+   around the [sqlite3_libversion()](https://www.sqlite.org/c3ref/libversion.html)
+   C-interface.
+
+-  **substr(X,Y,Z)
+   substr(X,Y)
+   substring(X,Y,Z)
+   substring(X,Y)**
+
+   The substr(X,Y,Z) function returns a substring of input string X that
+   begins with the Y-th character and which is Z characters long. If Z
+   is omitted then substr(X,Y) returns all characters through the end of
+   the string X beginning with the Y-th. The left-most character of X is
+   number 1. If Y is negative then the first character of the substring
+   is found by counting from the right rather than the left. If Z is
+   negative then the abs(Z) characters preceding the Y-th character are
+   returned. If X is a string then characters indices refer to actual
+   UTF-8 characters. If X is a BLOB then the indices refer to bytes.
+
+   "substring()" is an alias for "substr()" beginning with SQLite
+   version 3.34.
+
+-  **total_changes()**
+
+   The total_changes() function returns the number of row changes caused
+   by INSERT, UPDATE or DELETE statements since the current database
+   connection was opened. This function is a wrapper around the
+   [sqlite3_total_changes64()](https://www.sqlite.org/c3ref/total_changes.html) C/C++
+   interface.
+
+-  **trim(X)
+   trim(X,Y)**
+
+   The trim(X,Y) function returns a string formed by removing any and
+   all characters that appear in Y from both ends of X. If the Y
+   argument is omitted, trim(X) removes spaces from both ends of X.
+
+-  **typeof(X)**
+
+   The typeof(X) function returns a string that indicates the
+   [datatype](https://www.sqlite.org/datatype3.html) of the expression X: "null", "integer",
+   "real", "text", or "blob".
+
+-  **unhex(X)
+   unhex(X,Y)**
+
+   The unhex(X,Y) function returns a BLOB value which is the decoding of
+   the hexadecimal string X. If X contains any characters that are not
+   hexadecimal digits and which are not in Y, then unhex(X,Y) returns
+   NULL. If Y is omitted, it is understood to be an empty string and
+   hence X must be a pure hexadecimal string. All hexadecimal digits in
+   X must occur in pairs, with both digits of each pair beginning
+   immediately adjacent to one another, or else unhex(X,Y) returns NULL.
+   If either parameter X or Y is NULL, then unhex(X,Y) returns NULL. The
+   X input may contain an arbitrary mix of upper and lower case
+   hexadecimal digits. Hexadecimal digits in Y have no affect on the
+   translation of X. Only characters in Y that are not hexadecimal
+   digits are ignored in X.
+
+   See also: [hex()](https://www.sqlite.org/lang_corefunc.html#hex)
+
+-  **unicode(X)**
+
+   The unicode(X) function returns the numeric unicode code point
+   corresponding to the first character of the string X. If the argument
+   to unicode(X) is not a string then the result is undefined.
+
+-  **unlikely(X)**
+
+   The unlikely(X) function returns the argument X unchanged. The
+   unlikely(X) function is a no-op that the code generator optimizes
+   away so that it consumes no CPU cycles at run-time (that is, during
+   calls to [sqlite3_step()](https://www.sqlite.org/c3ref/step.html)). The purpose of the
+   unlikely(X) function is to provide a hint to the query planner that
+   the argument X is a boolean value that is usually not true. The
+   unlikely(X) function is equivalent to
+   [likelihood](https://www.sqlite.org/lang_corefunc.html#likelihood)(X, 0.0625).
+
+-  **upper(X)**
+
+   The upper(X) function returns a copy of input string X in which all
+   lower-case ASCII characters are converted to their upper-case
+   equivalent.
+
+-  **zeroblob(N)**
+
+   The zeroblob(N) function returns a BLOB consisting of N bytes of
+   0x00. SQLite manages these zeroblobs very efficiently. Zeroblobs can
+   be used to reserve space for a BLOB that is later written using
+   [incremental BLOB I/O](https://www.sqlite.org/c3ref/blob_open.html). This SQL function is
+   implemented using the
+   [sqlite3_result_zeroblob()](https://www.sqlite.org/c3ref/result_blob.html) routine from
+   the C/C++ interface.
+
+   *This page last modified on* [2023-12-05 14:43:20](https://www.sqlite.org/https://sqlite.org/docsrc/honeypot) *UTC*
 
 
-# 🍀 /21. Date and Time SQL Functions  
-   https://www.sqlite.org/lang_datefunc.html        *lang_datefunc_html*
+# 🍀 /S20. Aggregate SQL Functions  
+   https://www.sqlite.org/lang_aggfunc.html                  *lang_aggfunc_html*
 
 
-# 🍀 /22. Window Functions  
-   https://www.sqlite.org/windowfunctions.html       *windowfunctions_html*
+# 🍀 /S21. Date and Time SQL Functions  
+   https://www.sqlite.org/lang_datefunc.html                *lang_datefunc_html*
 
-# 🍀 /22. Math functions
-   https://www.sqlite.org/lang_mathfunc.html
 
-# 🍀 /22. JSON functions
-   https://www.sqlite.org/json1.html                 *jsonfunctions*
+# 🍀 /S22. Window Functions  
+   https://www.sqlite.org/windowfunctions.html            *windowfunctions_html*
+
+
+# 🍀 /S22. Math functions
+   https://www.sqlite.org/lang_mathfunc.html                *lang_mathfunc_html*
+
+
+# 🍀 /S22. JSON functions
+   https://www.sqlite.org/json1.html                             *jsonfunctions*
 
 Database script db_init.sql for Testing:
 
@@ -1565,99 +5865,54 @@ in its '$.partlist'.
 
 
 
-# 🍀 /56. Command-Line Shell (sqlite3.exe) 
-                                   *cli_html*  *command-line shell*
+# 🍀 /S56. Command-Line Shell (sqlite3.exe) 
+   https://www.sqlite.org/cli.html              *cli_html*  *command-line shell*
 
-01. Getting Started
-                                                  [getting_started]
-02. Double-click Startup On Windows
-                                      [double_click_startup_on_windows]
-03. Special commands to sqlite3 (dot-commands)
-                            [special_commands_to_sqlite3_dot_commands_]
-04. Rules for "dot-commands", SQL and More
-                                [rules_for_dot_commands_sql_and_more]
-04.1. Line Structure
-                                                  [line_structure]
-04.2. Dot-command arguments
-                                           [dot_command_arguments]
-04.3. Dot-command execution
-                                            [dot_command_execution]
-05. Changing Output Formats
-                                            [changing_output_formats]
-06. Querying the database schema
-                                        [querying_the_database_schema]
-07. Opening Database Files
-                                            [opening_database_files]
-08. Redirecting I/O
-                                                  [redirecting_i_o]
-08.1. Writing results to a file
-                                          [writing_results_to_a_file]
-08.2. Reading SQL from a file
-                                           [reading_sql_from_a_file]
-08.3. File I/O Functions
-                                               [file_i_o_functions]
-08.4. The edit() SQL function
-                                             [the_edit_sql_function]
-08.5. Importing files as CSV or other formats
-                              [importing_files_as_csv_or_other_formats]
-08.6. Export to CSV
-                                                   [export_to_csv]
-09. Accessing ZIP Archives As Database Files
-                                [accessing_zip_archives_as_database_files]
-09.1. How ZIP archive access is implemented
-                                [how_zip_archive_access_is_implemented]
-10. Converting An Entire Database To A Text File
-                            [converting_an_entire_database_to_a_text_file]
-11. Recover Data From a Corrupted Database
-                                [recover_data_from_a_corrupted_database]
-12. Loading Extensions
-                                                [loading_extensions]
-13. Cryptographic Hashes Of Database Content
-                              [cryptographic_hashes_of_database_content]
-14. Database Content Self-Tests
-                                        [database_content_self_tests]
-15. SQLite Archive Support
-                                              [sqlite_archive_support]
-15.1. SQLite Archive Create Command 
-                                     [_sqlite_archive_create_command_]
-15.2. SQLite Archive Extract Command 
-                                    [_sqlite_archive_extract_command_]
-15.3. SQLite Archive List Command 
-                                      [_sqlite_archive_list_command_]
-15.4. SQLite Archive Insert And Update Commands 
-                           [_sqlite_archive_insert_and_update_commands_]
-15.5. SQLite Archive Remove Command 
-                                    [_sqlite_archive_remove_command_]
-15.6. Operations On ZIP Archives 
-                                       [_operations_on_zip_archives_]
-15.7. SQL Used To Implement SQLite Archive Operations 
-                        [_sql_used_to_implement_sqlite_archive_operations_]
-16. SQL Parameters
-                                                  [sql_parameters]
-17. Index Recommendations (SQLite Expert)
-                                  [index_recommendations_sqlite_expert_]
-18. Working With Multiple Database Connections
-                              [working_with_multiple_database_connections]
-19. Miscellaneous Extension Features
-                                    [miscellaneous_extension_features]
-20. Other Dot Commands
-                                              [other_dot_commands]
-21. Using sqlite3 in a shell script
-                                      [using_sqlite3_in_a_shell_script]
-22. Marking The End Of An SQL Statement
-                                [marking_the_end_of_an_sql_statement]
-23. Command-line Options
-                                              [command_line_options]
-23.1. The --safe command-line option
-                                       [the_safe_command_line_option]
-23.2. The --unsafe-testing command-line option
-                               [the_unsafe_testing_command_line_option]
-23.3. The --utf8 command-line option
-                                      [the_utf8_command_line_option]
-24. Compiling the sqlite3 program from sources
-                            [compiling_the_sqlite3_program_from_sources]
-24.1. Do-It-Yourself Builds 
-                                           [_do_it_yourself_builds_]
+01. Getting Started                                              [getting_started]
+02. Double-click Startup On Windows              [double_click_startup_on_windows]
+03. Special commands to sqlite3 (dot-commands) [special_commands_to_sqlite3_dot_commands_]
+04. Rules for "dot-commands", SQL and More   [rules_for_dot_commands_sql_and_more]
+04.1. Line Structure                                              [line_structure]
+04.2. Dot-command arguments                                [dot_command_arguments]
+04.3. Dot-command execution                                [dot_command_execution]
+05. Changing Output Formats                              [changing_output_formats]
+06. Querying the database schema                    [querying_the_database_schema]
+07. Opening Database Files                                [opening_database_files]
+08. Redirecting I/O                                              [redirecting_i_o]
+08.1. Writing results to a file                        [writing_results_to_a_file]
+08.2. Reading SQL from a file                            [reading_sql_from_a_file]
+08.3. File I/O Functions                                      [file_i_o_functions]
+08.4. The edit() SQL function                              [the_edit_sql_function]
+08.5. Importing files as CSV or other formats [importing_files_as_csv_or_other_formats]
+08.6. Export to CSV                                                [export_to_csv]
+09. Accessing ZIP Archives As Database Files [accessing_zip_archives_as_database_files]
+09.1. How ZIP archive access is implemented [how_zip_archive_access_is_implemented]
+10. Converting An Entire Database To A Text File [converting_an_entire_database_to_a_text_file]
+11. Recover Data From a Corrupted Database [recover_data_from_a_corrupted_database]
+12. Loading Extensions                                        [loading_extensions]
+13. Cryptographic Hashes Of Database Content [cryptographic_hashes_of_database_content]
+14. Database Content Self-Tests                      [database_content_self_tests]
+15. SQLite Archive Support                                [sqlite_archive_support]
+15.1. SQLite Archive Create Command              [_sqlite_archive_create_command_]
+15.2. SQLite Archive Extract Command            [_sqlite_archive_extract_command_]
+15.3. SQLite Archive List Command                  [_sqlite_archive_list_command_]
+15.4. SQLite Archive Insert And Update Commands [_sqlite_archive_insert_and_update_commands_]
+15.5. SQLite Archive Remove Command              [_sqlite_archive_remove_command_]
+15.6. Operations On ZIP Archives                    [_operations_on_zip_archives_]
+15.7. SQL Used To Implement SQLite Archive Operations [_sql_used_to_implement_sqlite_archive_operations_]
+16. SQL Parameters                                                [sql_parameters]
+17. Index Recommendations (SQLite Expert)   [index_recommendations_sqlite_expert_]
+18. Working With Multiple Database Connections [working_with_multiple_database_connections]
+19. Miscellaneous Extension Features            [miscellaneous_extension_features]
+20. Other Dot Commands                                        [other_dot_commands]
+21. Using sqlite3 in a shell script              [using_sqlite3_in_a_shell_script]
+22. Marking The End Of An SQL Statement      [marking_the_end_of_an_sql_statement]
+23. Command-line Options                                    [command_line_options]
+23.1. The --safe command-line option                [the_safe_command_line_option]
+23.2. The --unsafe-testing command-line option [the_unsafe_testing_command_line_option]
+23.3. The --utf8 command-line option                [the_utf8_command_line_option]
+24. Compiling the sqlite3 program from sources [compiling_the_sqlite3_program_from_sources]
+24.1. Do-It-Yourself Builds                              [_do_it_yourself_builds_]
 
 ## 🐣 01. Getting Started
                                                   *getting_started*
@@ -1927,7 +6182,8 @@ The arguments passed to dot-commands are parsed from the command tail,
 The dot-commands
 are interpreted by the sqlite3.exe command-line program, not by
 SQLite itself.  So none of the dot-commands will work as an argument
-to SQLite interfaces such as <a href="c3ref/prepare.html">sqlite3_prepare()</a> or <a href="c3ref/exec.html">sqlite3_exec()</a>.
+to SQLite interfaces such as <a href="c3ref/prepare.html">sqlite3_prepare()</a> 
+or <a href="c3ref/exec.html">sqlite3_exec()</a>.
 
 <a name="dotmode"></a>
 
@@ -3156,7 +7412,8 @@ as text.
 Because such initial evaluation may or may not fail depending upon
 the VALUE content, the reliable way to get a text value is to enclose it
 with single-quotes protected from the above-described command-tail parsing.
-For example, (unless one intends a value of -1365):<br>
+For example, (unless one intends a value of -1365):
+
 ```sql
 .parameter init
 .parameter set @phoneNumber "'202-456-1111'"
@@ -3594,9 +7851,8 @@ provide a full-featured command-line shell:
     https://www.sqlite.org/howtocompile.html#enable_fts5
 
 
-# 🍀 /57. SQLite Database Analyzer (sqlite3_analyzer.exe)
-                                                *sqlanalyze_html*
-https://www.sqlite.org/sqlanalyze.html
+# 🍀 /S57. SQLite Database Analyzer (sqlite3_analyzer.exe)
+   https://www.sqlite.org/sqlanalyze.html                      *sqlanalyze_html*
 
 
 The sqlite3_analyzer.exe binary is a command-line utility program that measures 
@@ -4980,38 +9236,24 @@ The following is sqlite3_analyzer output for an example places.sqlite database u
 
 
 
-# 🍀 /61. The Fossil Version Control System
-                                                         *fossil*
-7. https://www.fossil-scm.org/home/doc/trunk/www/quickstart.wiki
+# 🍀 /S61. The Fossil Version Control System
+   https://www.fossil-scm.org/home/doc/trunk/www/quickstart.wiki        *fossil*
+   http://www.fossil-scm.org/
 
-01. Installing
-                                                         [install]
-02. General Work Flow
-                                                       [workflow]
-03. Starting A New Project
-                                                           [new]
-04. Cloning An Existing Repository
-                                                          [clone]
-05. Importing From Another Version Control System
-                                                         [import]
-06. Checking Out A Local Tree
-                                                        [checkout]
-07. Making and Committing Changes
-                                                        [changes]
-08. Naming of Files, Checkins, and Branches
-                                                         [naming]
-09. Configuring Your Local Repository
-                                                         [config]
-10. Sharing Changes
-                                                        [sharing]
-11. Branching And Merging
-                                                         [branch]
-12. Setting Up A Server
-                                                         [server]
-13. HTTP Proxies
-                                                          [proxy]
-14. Other Resources
-                                                          [links]
+01. Installing                                                         [install]
+02. General Work Flow                                                 [workflow]
+03. Starting A New Project                                                 [new]
+04. Cloning An Existing Repository                                       [clone]
+05. Importing From Another Version Control System                       [import]
+06. Checking Out A Local Tree                                         [checkout]
+07. Making and Committing Changes                                      [changes]
+08. Naming of Files, Checkins, and Branches                             [naming]
+09. Configuring Your Local Repository                                   [config]
+10. Sharing Changes                                                    [sharing]
+11. Branching And Merging                                               [branch]
+12. Setting Up A Server                                                 [server]
+13. HTTP Proxies                                                         [proxy]
+14. Other Resources                                                      [links]
 
 Fossil Quick Start
 
@@ -5821,34 +10063,34 @@ The sqlite3.wasm.pstack namespace exposes the following...
 Compilation Options
 SQLITE_... compilation options used in this build of sqlite3.wasm...
 
-ATOMIC_INTRINSICS = 1             ENABLE_STMTVTAB = true
-COMPILER = "clang-17.0.0"         ENABLE_UNKNOWN_SQL_FUNCTION = true
-DEFAULT_AUTOVACUUM = true         MALLOC_SOFT_LIMIT = 1024
-DEFAULT_CACHE_SIZE = -16384       MAX_ATTACHED = 10
-DEFAULT_FILE_FORMAT = 4           MAX_COLUMN = 2000
-DEFAULT_JOURNAL_SIZE_LIMIT = -1   MAX_COMPOUND_SELECT = 500
-DEFAULT_MMAP_SIZE = 0             MAX_DEFAULT_PAGE_SIZE = 8192
-DEFAULT_PAGE_SIZE = 8192          MAX_EXPR_DEPTH = 1000
-DEFAULT_PCACHE_INITSZ = 20        MAX_FUNCTION_ARG = 127
-DEFAULT_RECURSIVE_TRIGGERS = true MAX_LENGTH = 1000000000
-DEFAULT_SECTOR_SIZE = 4096        MAX_LIKE_PATTERN_LENGTH = 50000
-DEFAULT_SYNCHRONOUS = 2           MAX_MMAP_SIZE = 0
-DEFAULT_WAL_AUTOCHECKPOINT = 1000 MAX_PAGE_COUNT = 1073741823
-DEFAULT_WAL_SYNCHRONOUS = 2       MAX_PAGE_SIZE = 65536
-DEFAULT_WORKER_THREADS = 0        MAX_SQL_LENGTH = 1000000000
-DQS = 0                           MAX_TRIGGER_DEPTH = 1000
-ENABLE_BYTECODE_VTAB = true       MAX_VARIABLE_NUMBER = 32766
-ENABLE_DBPAGE_VTAB = true         MAX_VDBE_OP = 250000000
-ENABLE_DBSTAT_VTAB = true         MAX_WORKER_THREADS = 0
-ENABLE_EXPLAIN_COMMENTS = true    MUTEX_OMIT = true
-ENABLE_FTS3 = true                OMIT_DEPRECATED = true
-ENABLE_FTS4 = true                OMIT_LOAD_EXTENSION = true
-ENABLE_FTS5 = true                OMIT_SHARED_CACHE = true
-ENABLE_MATH_FUNCTIONS = true      OMIT_UTF16 = true
-ENABLE_OFFSET_SQL_FUNC = true     SYSTEM_MALLOC = true
-ENABLE_PREUPDATE_HOOK = true      TEMP_STORE = 2
-ENABLE_RTREE = true               THREADSAFE = 0
-ENABLE_SESSION = true             USE_URI = true
+      ATOMIC_INTRINSICS = 1             ENABLE_STMTVTAB = true
+      COMPILER = "clang-17.0.0"         ENABLE_UNKNOWN_SQL_FUNCTION = true
+      DEFAULT_AUTOVACUUM = true         MALLOC_SOFT_LIMIT = 1024
+      DEFAULT_CACHE_SIZE = -16384       MAX_ATTACHED = 10
+      DEFAULT_FILE_FORMAT = 4           MAX_COLUMN = 2000
+      DEFAULT_JOURNAL_SIZE_LIMIT = -1   MAX_COMPOUND_SELECT = 500
+      DEFAULT_MMAP_SIZE = 0             MAX_DEFAULT_PAGE_SIZE = 8192
+      DEFAULT_PAGE_SIZE = 8192          MAX_EXPR_DEPTH = 1000
+      DEFAULT_PCACHE_INITSZ = 20        MAX_FUNCTION_ARG = 127
+      DEFAULT_RECURSIVE_TRIGGERS = true MAX_LENGTH = 1000000000
+      DEFAULT_SECTOR_SIZE = 4096        MAX_LIKE_PATTERN_LENGTH = 50000
+      DEFAULT_SYNCHRONOUS = 2           MAX_MMAP_SIZE = 0
+      DEFAULT_WAL_AUTOCHECKPOINT = 1000 MAX_PAGE_COUNT = 1073741823
+      DEFAULT_WAL_SYNCHRONOUS = 2       MAX_PAGE_SIZE = 65536
+      DEFAULT_WORKER_THREADS = 0        MAX_SQL_LENGTH = 1000000000
+      DQS = 0                           MAX_TRIGGER_DEPTH = 1000
+      ENABLE_BYTECODE_VTAB = true       MAX_VARIABLE_NUMBER = 32766
+      ENABLE_DBPAGE_VTAB = true         MAX_VDBE_OP = 250000000
+      ENABLE_DBSTAT_VTAB = true         MAX_WORKER_THREADS = 0
+      ENABLE_EXPLAIN_COMMENTS = true    MUTEX_OMIT = true
+      ENABLE_FTS3 = true                OMIT_DEPRECATED = true
+      ENABLE_FTS4 = true                OMIT_LOAD_EXTENSION = true
+      ENABLE_FTS5 = true                OMIT_SHARED_CACHE = true
+      ENABLE_MATH_FUNCTIONS = true      OMIT_UTF16 = true
+      ENABLE_OFFSET_SQL_FUNC = true     SYSTEM_MALLOC = true
+      ENABLE_PREUPDATE_HOOK = true      TEMP_STORE = 2
+      ENABLE_RTREE = true               THREADSAFE = 0
+      ENABLE_SESSION = true             USE_URI = true
 
 
 ## 🐣 Cookbook
