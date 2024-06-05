@@ -191,7 +191,113 @@ REF: Bash manual 3.5 Shell Expansions - 3.5.3 Shell Parameter Expansion
         - 'privacy.md'
         - 'contact.md'
         - "codeofconduct.md"
-    
+
+# MinTTY Terminal Emulator
+
+Linux 系统 shell 环境配置脚本路径：
+
+    Location        Profile Level        Priority Notes
+    =============== ==================== ======== ==============================
+    /etc/profile    System-wide profile  1        config with /etc/profile.d
+    /etc/bashrc     Every-User profile   2        -
+    ~/.bash_profile Current-User profile 3        only execute when user login
+    ~/.bash_rc      Current-User profile 4        execute when shell start
+
+MSYS2 提供了以下 MinTTY 终端模拟器用于执行平台初始化，它们对应 msys2_shell.cmd 脚本的功能：
+
+*   clang32.exe
+*   clang64.exe
+*   clangarm64.exe
+*   mingw32.exe
+*   mingw64.exe
+*   msys2.exe
+*   ucrt64.exe
+
+这些入口程序就等价于 mintty + MSYS2 平台配置，运行它们就相当于运行 mintty (默认设置的终端)，
+并配置平台参数，如可执行命令所在的子目录。它们没有使用帮助，但是可以直接给传递要运行的程序以及参数。
+MinTTY 本身就是一个支持 shebang 的脚本执行器：
+
+```sh
+  msys2 .\opendocs.sh
+  msys2 bash -login -i
+  msys2 vim .\vim_flavor.md
+  mintty vim .\vim_flavor.md
+```
+
+这些 shell 环境本身就是 bash 运行环境，也可以另外安装 bash 解释器，但是另外安装的解释器可能
+出现无法使用 Unicode 符号的问题，比如使用 vim 无法查看 Unicode 表情符号。另外 msys2_shell
+脚本设置的初始环境也不支持 Unicode 表情符号，还会弹出终端窗口，可以使用以下参数来避免弹窗：
+
+    msys2_shell.cmd -defterm -here -no-start -ucrt64
+
+注意，以上这些 [mintty](https://mintty.github.io/) 入口程序有个问题：不会执行用户主目录下的
+默认 bash 配置脚本，只执行 /etc/profile 配置脚本。可以在此添加用户配置信息，比如 PATH 搜索路径，
+增加 USER_PATH 变量，并将此变量添加到 PATH 路径列表中运行导出：
+
+```sh
+echo "bash runtime config [msys2]: /etc/profile"
+
+USER_PATH="C:\\ProgramData\\chocolatey\\bin:/c/vcpkg"
+
+
+unset MINGW_MOUNT_POINT
+. '/etc/msystem'
+case "${MSYSTEM}" in
+MINGW*|CLANG*|UCRT*)
+  ...
+  PATH="${USER_PATH}:${MINGW_MOUNT_POINT}/bin:${MSYS2_PATH}${ORIGINAL_PATH:+:${ORIGINAL_PATH}}"
+  ...
+  ;;
+*)
+  PATH="${USER_PATH}:${MSYS2_PATH}:/opt/bin${ORIGINAL_PATH:+:${ORIGINAL_PATH}}"
+  PKG_CONFIG_PATH="/usr/lib/pkgconfig:/usr/share/pkgconfig:/lib/pkgconfig"
+esac
+
+...
+export PATH MANPATH INFOPATH PKG_CONFIG_PATH ...
+```
+
+MSYS2 以上自带的环境入口程序确实可以支持 Unicode 符号，并且 MinTTY 终端模拟器提供更丰富的设置，
+包括终端窗口的透明。[MinTTY](https://mintty.github.io/) 是开源终端模拟器，广泛应用于 MSYS2、
+Cygwin，Git bash 以及 WSL 等系统环境中。支持图形显示以及 Sixel 图形库。
+
+MinTTY 以其轻量级的设计和高性能著称，使用 Windows API 实现原生的图形渲染。其特点是：
+
+*  现代界面：全新的窗口样式，支持透明度调整、多色彩方案，并能很好地适应高 DPI 显示器。
+*  快速响应：优化的 I/O 处理使其在处理大量数据流时表现优异，无卡顿感。
+*  Unicode 支持：能够完美呈现各种语言的字符，无论是在 ASCII 还是非 ASCII 环境下。
+*  低资源占用：与其他终端相比，MinTTY 对系统资源的需求更低，运行更加流畅。
+
+MinTTY 3.5.1 文档显示开始支持标签栏，这样方便使用多个终端窗口，使用 −−tabbar 启用终端标签。
+如果这样，MinTTY 将比 Windows Terminal 还好用，更加有吸引力。
+
+但是在当前的 MinTTY 3.6.4 (x86_64-pc-msys2) 版本上，运行会闪退。还有一个选择是：ConEmu-Maximus5，
+这个终端模拟器可以吸附系统进程到 Tab 标签页。
+
+Bash 作为通用脚本解释器，它可以在 Linux/Windows 环境下很好地执行自动化任务，它有多种运行方式：
+
+* Invoked as an interactive login shell, or with --login
+* Invoked as an interactive non-login shell
+* Invoked non-interactively
+* Invoked with name sh
+
+所谓登录（--login）即让脚本解释器在启动时就加载解释器登录配置脚本（.bash_profile），此配置脚本
+可以在多个位置存放： `~/.bash_profile`, `~/.bash_login`, `~/.profile`。同时，在退出时
+还会执行 `~/.bash_logout` 配置脚本。如果不使用登录参数，则加载 Bash 解释器时不执行登录配置脚本，
+但是会加载默认运行配置 `~/.bashrc`，可以使用 --norc 参数禁用它，或使用 --rcfile 指定其它配置。
+
+所谓交互（interactive shell）即可以与用户进行输入/输出数据交互的脚本运行环境，这是默认执行状态，
+除非使用 -s 参数让 Bash 进入静默模式，此时用户不能参与脚本的交互，脚本解释器执行完指定脚本后退出。
+
+为了整合 MinTTY 支持 Unicode 的特性，以及 Vim 高速处理文件的优点，可以在 Windows 系统上使用
+脚本添加以下注册表选项，这样就可以直接在文件浏览器中使用右键菜单来执行 Vim 打开文件：
+
+```sh
+    vim='C:\\msys64\\usr\\bin\\mintty.exe C:\\msys64\\usr\\bin\\vim.exe'
+    # REG ADD     'HKCR\*\shell\Open with VIM...' -f
+    REG ADD     'HKCR\*\shell\Open with VIM...\command' -f -ve -t REG_SZ -d "$vim '%1'"
+    REG ADD     'HKCR\*\shell\Open with VIM...\command' -f -v "Icon" -t REG_SZ -d "$vim"
+```
 
 
 /. index.md

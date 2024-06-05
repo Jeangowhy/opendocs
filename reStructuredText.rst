@@ -127,6 +127,8 @@
 
     \n[=-~.+^'`*]{3,}\n
 
+Section headers symbols is non-alphanumeric characters: ``= - ` : ' " ~ ^ _ * + # < >``
+
 例如，以下是不同级别标题语法参考: 
 
 ========================

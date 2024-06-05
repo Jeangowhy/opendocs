@@ -382,9 +382,9 @@ reg_bash_4_shebang()
     # ROOTKEY  [ HKLM | HKCU | HKCR | HKU | HKCC ]
     # REG EXPORT 'HKCR\.sh' out.reg -reg:64 -y; subl out.reg
 
-    bsh='C:\\msys64\\usr\\bin\\bash.exe'
-    cmd="\"$bsh\" -c \"echo bash with shebang...; sleep 0.1; '%1'\""
-    cmdb="\"$bsh\" -c \"cd '%V'; bash -i <<< 'exec </dev/tty;'\""
+    bsh='C:\\msys64\\usr\\bin\\mintty.exe C:\\msys64\\usr\\bin\\bash.exe'
+    cmd="$bsh -c \"echo bash with shebang...; sleep 0.1; '%1'\""
+    cmdb="$bsh -c \"cd '%V'; bash -i <<< 'exec </dev/tty;'\""
 
     # REG DELETE  'HKCR\*\shell\Open with bash'
     # REG DELETE  'HKCR\Directory\shell\bash'
@@ -413,7 +413,7 @@ reg_bash_4_shebang()
     REG QUERY   'HKCR\Directory\shell\bash' -s
     REG QUERY   'HKCR\Directory\Background\shell\bash' -s
 
-    vim='C:\\msys64\\usr\\bin\\vim.exe'
+    vim='C:\\msys64\\usr\\bin\\mintty.exe C:\\msys64\\usr\\bin\\vim.exe'
     # REG ADD     'HKCR\*\shell\Open with VIM...' -f
     REG ADD     'HKCR\*\shell\Open with VIM...\command' -f -ve -t REG_SZ -d "$vim '%1'"
     REG ADD     'HKCR\*\shell\Open with VIM...\command' -f -v "Icon" -t REG_SZ -d "$vim"

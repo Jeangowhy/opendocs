@@ -1,4 +1,339 @@
 
+/TOC
+====
+
+*  ``/🟡Fuzzy Finder and Digital Library                             `` [S01]_
+*  ``/🟡Visual Studio Code                                           `` [S02]_
+*  ``/🟡Tasks and Debug                                              `` [S03]_
+*  ``/🟡Script and Terminal                                          `` [S04]_
+*  ``/🟡JavaFX GUI with Gradle and Kotlin LSP                        `` [S05]_
+*  ``| | Maven Project                                                 `` [S06]_
+*  ``| | Gradle Project                                                `` [S07]_
+*  ``| | VS Code with Gradle and Kotlin                                `` [S08]_
+*  ``| | Gradle Project Init                                           `` [S09]_
+*  ``| | JavaFX GUI Framework                                          `` [S10]_
+*  ``| | Java Module Project                                           `` [S11]_
+*  ``/🟡Debugging and Debuginfo                                      `` [S12]_
+*  ``/🟡VS Code Remote Development                                   `` [S13]_
+*  ``/🟡LLVM Clang and Clangd (C/C++ LSP)                            `` [S14]_
+*  ``/🟡VS Code Extensions                                           `` [S15]_
+*  ``/🟡VS Code and Android                                          `` [S16]_
+
+
+.. _S01: #S01
+
+/🟡Fuzzy Finder and Digital Library
+===================================
+
+   [!TIP]
+   当前流行的操作系统都有文件浏览器，但是对于一个工作于电脑屏幕前的人来说，GUI 就是花哨的代名。
+   事实上 GUI 并不能提升效率，反而在没有合理的设计的前提下，GUI 带来的是广泛低能效的灾难。
+   人类的记天然具有模糊特征，记忆中的事件不是绝对精确的。混沌、模糊是记忆的基本状态，在使用计算机
+   系统时，这些基本特性体现在多方面：比如找文件、找文件夹，或者翻查菜单找某种功能操作等等，都是
+   因为 GUI 的设计不合理造成的困境。社区开发了一款模糊信息搜索工具（`fuzzy finder`__），
+   通过它可以将计算机系统中的文件、文件夹、文件数据按模糊的记忆进行过滤。安装它之后，并将其添加到
+   环境变量的 PATH 中以方便直接执行，这样就可以使用 fzf 命令进行信息过滤。文件系统的过滤是
+   最基本用法，比如在 Windows 系统上打开文件浏览器，并在地址栏输入 fzf 执行它，程序会弹出
+   文件列表，按记忆输入模糊的内容片段，fzf 就会将最匹配的文件过滤出来，但是回车确认后并不能
+   打开相应的文件。因为它默认只是打印用户选中的那一条数据。
+
+   Windows 提供外壳扩展程序（Shell Extension）可以用来扩展文件浏览器的功能，比如 QTTabBar
+   这款工具就可以提供 Tabs 页面标签式的文件夹打开方式，这种功能 Windows 11 才提供！！！！
+   Windows 文件浏览器地址栏可以输入路径、或者运行可程序，也可以运行脚本，系统会根据注册表中
+   记录的脚本文件类型来调用解释器，但也仅限如此操作。Windows 文件浏览器不能作为脚本执行器来
+   执行脚本。但是可以使用脚本解释器程序的功能来间接执行现场编写的脚本，比如安装 MSYS2 提供的
+   bash 脚本解释器后，就可以在 Windows 文件浏览器地址栏中输入以下命令：
+
+   .. code-block:: bash
+
+      bash -c "whoami; echo $PWD; sleep 3"
+
+   这里的现场脚本就会打印 whoami 命令查询到的用户账户名称、当前工作目录，再暂停 3 秒后退出。
+   Windows 文件浏览器的地址栏几乎就是唯一的可以让用户从键盘输入的 UI 控件，这样的设计不能
+   说不十分糟糕！
+
+   脚本解释器再配合 fzf 工具就可以实现浏览器从未想过要提供给用户的功能，比如 VS Code 插件
+   安装在 $USERPROFILE/.vscode/extensions 目录中，想要多众多插件目录找一个是比较费事，
+   偏偏 Windows 自动的搜索功能不是给人用的，本机 search 服务也一直处于禁用状态。Bash 提供
+   非常便利的 command expansion 功能，简单说就是一个命令可以将另一命令的输出扩展为自己的
+   输入数据。比如 ``start $(fzf)`` 或者 ``start `fzf``` 就可以利用 Windows 提供的 
+   start 命令打开 fzf 过滤出来的文件。又如 ``start `ls | fzf``` 就可以用来打开当前位置
+   下的子目录。配合其它程序，就可以实现不同的功能。比如查看 Microsoft C/C++ 插件的目录，
+   就可以使用以下命令，并输入模糊的 cpp 这样的关键字就可以找到：
+
+   .. code-block:: bash
+
+      start `find $USERPROFILE/.vscode/extensions -maxdepth 1 -type d | fzf`
+
+   Microsoft C/C++ 插件（ms-vscode.cpptools）块头大，大小取决于使用，基本安装 200MB+。
+   它包含了多家软件厂商提供的工具，包括编译器革新框架领跑者 LLVM 提供的代码格式化与整理工具：
+
+   .. code-block:: bash
+
+      ../bin/cpptools-srv.exe
+      ../bin/cpptools.exe
+      ../debugAdapters/bin/createdump.exe
+      ../debugAdapters/bin/OpenDebugAD7.exe
+      ../debugAdapters/bin/WindowsDebugLauncher.exe
+      ../debugAdapters/vsdbg/bin/Remote Debugger/x86/msvsmon.exe
+      ../debugAdapters/vsdbg/bin/vsdbg.exe
+      ../debugAdapters/vsdbg/bin/VsDebugConsole.exe
+      ../LLVM/bin/clang-format.exe
+      ../LLVM/bin/clang-tidy.exe
+
+   要执行某个程序，借助 command expansion 以及 find 工具，按以下命令行操作，如果要给待
+   执行的程序传递参数，就可以写在圆括号后面（--help）。Sublime Text 提供了一个 subl 命令
+   行工具，它可以接收命令的 stdout 以及借助编辑器编辑它再输出给其它命令作为 stdin 使用。
+   以下第二条命令，find 程序将找到的 exe 文件路径输出给 Sublime Text 进行编辑，当完成
+   编辑并直接关闭文件，subl 命令就会将编辑后的内容返回给命令行。以上的插件程序列表就是通过
+   这个 subl 命令行进行编辑的：
+
+   .. code-block:: bash
+
+      $(find .. -path '*/*.exe' | fzf) --help
+      $(find .. -path '*/*.exe' | subl -) --help
+
+   或者使用 VS Code 与 Sublime Text 打开工程目录：
+
+   .. code-block:: bash
+
+      code $(ls.exe -d ../projects | fzf)
+      subl $(ls.exe -d ../projects | fzf)
+
+   Fuzzy finder 本身提供非常丰富的可配置参数，但是掌握如何与 bash 及命令工具配合使用已经
+   可以解决大多数文件系统相关的需求。继上一篇： `论 《Intel 80386 CPU 编程手册》与私有电子图书馆建造 <mcu/Intel_80386_manual.md>`__
+   缺失了 Fuzzy Finder 工具的内容，现在补上这一个工具后，那么个人电子图书的基本构建就已经
+   非常完善了：
+
+   *  Find 命令提供文档目录数据；
+   *  Fuzzy Finder 过滤目标文件（一级索引）；
+   *  Markdown 或者 reStructuredText 文档提供内容目录结构（二级索引）；
+   *  Vim、VS Cocde 或者 Sublime Text 作为浏览工具，通过正则搜索快速地跳转于目录于内容之间；
+
+   以上这套工具基本都是开源的，除了 Sublime Text 是闭源商业软件。并且 Fuzzy Finder 还可以
+   与 sed awk 等编辑工具配合用于文件目录条目查找、并且利用 Vim 打开并跳转到指定行号。实现这个
+   便利的个人电子图书馆，只需要稍许的付出，制作文档的目录索引，同时大脑中建立关键字的模糊印象。
+   缩进是文档中最易得，并且最容易使用脚本处理的文档章节段落分区组织形式，reStructuredText 文档
+   大量使用缩进来表现文档的章节段落。
+
+   .. code-block:: bash
+
+      subl `find . -name '*.md' | fzf `
+
+   这里使用了三个命令：
+
+   find 查找命令，在当前目录（.） 查找指定 ``*.md`` 名称匹配规则的文件，这里需要引用包括
+   文件名称规则，因为这里包含模式匹配，如果没有引号，* 这个符号就会被 bash 当作文件名进行扩展。
+
+   获取到文件列表后，传递给 fzf 进行模糊查找、过滤，最后将结果通过 bash 的命令替代扩展返回给 subl
+   命令。bash 命令替代有两种形式，反引号或 $() 包括要进行替代的命令。
+
+   利用 nl fzf sed 等命令来定位 Markdown 标题行号（# 号标题），然后使用 vim 等编辑工具
+   打开文档，同时定位、跳转到指定行号：
+
+   .. code-block:: bash
+
+      filter_title='/^ \+[0-9]\+\s/{s/^ *[0-9]\+\s#/\0/p}'
+      filter_line='s/^ \+\([0-9]\+\).*/\1/p'
+      file=`find . -name '*.md' | fzf`
+      line=`nl -ba "$file" | sed -n "$filter_title" | fzf | sed -n "`` [S]_filter_line"`
+      subl "$file:$line"
+      vim "$file" +$line
+      # nl a "$file"| xxd | head -n 10 | subl -
+
+   GNU coreutils 工具包提供了一个 nl: Number lines 工具，可以用它来给文件内容加行号。注意，
+   行号前导的对齐用的空格，而添加的行号后面跟着一个 TAB 符号。可以使用 xxd 显示它们编码值 0x09。
+   使用 sed 进行匹配时，不能使用空格来匹配制表符号，而应该使用 ``\s`` 来匹配这类空白符号。
+
+   注意，nl (Number lines) 命令和 ln（link symbol）完全是不同的命令。nl 命令编写行号有多种
+   风格，-ba 表示所有行都加行号（all），即使是空行（blank）。
+
+   对于文档编辑，可能经常需要对一些内容进行列表编号，VS Code 本身没有这样的功能，但是可以利用
+   多点编辑功能以及 GNU Coreutils 工具集，或者 Bash 脚本功能，比如序号生成就可以使用花括号
+   展开（3.5.1 Brace Expansion），还可以利用 Windows 平台下的 ``clip`` 命令将生成的编号
+   复制到剪贴板中备用：
+
+   .. code-block:: bash
+
+      $ printf "%s\n" {01..03}
+       01
+       02
+       03
+
+      $ printf "%s\n" {01..09..3}
+       01
+       04
+       07
+
+   为了方便使用，使用函数将零散的脚本组织起来，像以下这样就可以直接调用这个脚本来快速打开文档，
+   并且跳转到目录条目对应的内容中。另外，vim 本身就可以很方便地执行 shell 命令，这样就可以
+   在 vim 中直接调用脚本中的函数并打开文档，比如 ``:!echo hello shell``。尽管，vim 在
+   多个进程中打开同一个文件时会给出警告（编辑缓冲区冲突问题），但是对于浏览文档，可以选择只读
+   模式（read-only）打开。Sublime Text 提供的 subl 命令也可以做类似的事，并且它有一点改进
+   的功能是会自动处理检测到已经打开文件的窗口，如题再次打开同一个文件时就会复用这个窗口（进程）：
+
+   .. code-block:: bash
+
+      #!/usr/bin/env bash
+
+      doc_view="vim"
+      if ! [[ -z $DOC_VIEW ]]; then
+          doc_view=$DOC_VIEW
+      fi
+
+      function opendocs()
+      {
+          doc=`find 'c:\opendocs\' | fzf`
+          if [[ $? == 0 ]]; then
+              doc_jump "$doc"
+          fi
+      }
+
+      function doc_jump()
+      {
+          file=$1
+          local fl='s/^ \+\([0-9]\+\).*/\1/p'
+          local ft='/^ \+[0-9]\+\s\w/{p}'
+          #  "Filter for Markdown Title"
+          if [[ $file =~ ".md" ]]; then
+              ft='/^ \+[0-9]\+\s#/{p}'
+          fi
+
+          local line=`nl -ba "$file" | sed -n "$ft" | fzf | sed -n "$fl"`
+
+          if [[ -z "$line" ]]; then
+              line="1"
+          fi
+          echo "$doc_view [$?] $file @$line"
+
+          if [[ $? == 0 ]]; then
+              if [[ "$doc_view" == "vim" ]]; then
+                  "$doc_view" "$file" +$line
+              elif [[ "$doc_view" == "subl" ]]; then
+                  "$doc_view" "$file:$line"
+              else
+                  echo "Unknown doc viewer [$?]: $doc_view"
+              fi
+          fi
+      }
+
+      if [[ -z $1 ]]; then
+          opendocs
+      else
+          doc_jump "$1"
+      fi
+
+   MSYS2 提供了 MinTTY 终端模拟器用于执行平台初始化，它们对应 msys2_shell.cmd 脚本的功能。
+   这些入口程序就等价于 mintty + MSYS2 平台配置，运行它们就相当于运行 `mintty` (默认设置的终端)，
+   并配置平台参数，包括可执行命令所在子目录。它们没有使用帮助，但是可以直接给传递要运行的程序以及参数，
+   MinTTY 本身就是一个支持 shebang 的脚本执行器。
+
+   .. code-block:: bash
+
+      msys2 .\opendocs.sh
+      msys2 bash -login -i .\opendocs.sh
+
+      msys2  vim .\vim_flavor.md
+      mintty vim .\vim_flavor.md
+
+   这些 shell 环境本身就是 bash 运行环境，也可以另外安装 bash 解释器，但是另外安装的解释器可能
+   出现无法使用 Unicode 符号的问题，比如使用 vim 无法查看 Unicode 表情符号。另外 msys2_shell
+   脚本设置的初始环境也不支持 Unicode 表情符号，还会弹出终端窗口，可以使用以下参数来避免弹窗：
+
+      msys2_shell.cmd -defterm -here -no-start -ucrt64
+
+   MSYS2 自带的环境入口程序（MinTTY）确实可以支持 Unicode 符号，并且 MinTTY 终端模拟器提供
+   更丰富的设置，包括终端窗口的透明。 `MinTTY <https://mintty.github.io/>`__ 开源终端模拟器
+   广泛应用于 MSYS2、Cygwin，Git bash 以及 WSL 等系统环境中。支持图形显示以及 Sixel 图形库。
+
+   MinTTY 以其轻量级的设计和高性能著称，使用 Windows API 实现原生的图形渲染。其特点是：
+
+   *  现代界面：全新的窗口样式，支持透明度调整、多色彩方案，并能很好地适应高 DPI 显示器。
+   *  快速响应：优化的 I/O 处理使其在处理大量数据流时表现优异，无卡顿感。
+   *  Unicode 支持：能够完美呈现各种语言的字符，无论是在 ASCII 还是非 ASCII 环境下。
+   *  低资源占用：与其他终端相比，MinTTY 对系统资源的需求更低，运行更加流畅。
+
+   MinTTY 3.5.1 文档显示开始支持标签栏，这样方便使用多个终端窗口，使用 −−tabbar 启用终端标签。
+   如果这样，MinTTY 将比 Windows Terminal 还好用，更加有吸引力。
+
+   但是在当前的 MinTTY 3.6.4 (x86_64-pc-msys2) 版本上，运行会闪退。还有一个选择是 `ConEmu`，
+   这个终端模拟器可以吸附系统进程到 Tab 标签页，但是性能和 Windows Terminal 同水平，欠佳！
+   
+   MSYS2 提供的 MinTTY 终端模拟器入口程序只用于执行 MSYS2 平台初始化，不会执行用户主目录下的
+   默认 bash 配置脚本，只执行 `/etc/profile` 配置脚本。可以在此添加用户配置信息，比如 PATH 
+   搜索路径，需要增加的路径变量添加到脚本中 PATH 路径列表中导出。
+
+   Linux 系统 shell 环境配置脚本路径参考：
+
+      =============== ==================== ======== ==============================
+      Location        Profile Level        Priority Notes
+      =============== ==================== ======== ==============================
+      /etc/profile    System-wide profile  1        config with /etc/profile.d
+      /etc/bashrc     Every-User profile   2        -
+      ~/.bash_profile Current-User profile 3        only execute when user login
+      ~/.bash_rc      Current-User profile 4        execute when shell start
+      =============== ==================== ======== ==============================
+
+   Bash 作为通用脚本解释器，它可以在 Linux/Windows 环境下很好地执行自动化任务，它有多种运行方式：
+
+   * Invoked as an interactive login shell, or with --login
+   * Invoked as an interactive non-login shell
+   * Invoked non-interactively
+   * Invoked with name sh
+
+   所谓登录（--login）即让脚本解释器在启动时就加载解释器登录配置脚本（.bash_profile），此配置脚本
+   可以在多个位置存放： `~/.bash_profile`, `~/.bash_login`, `~/.profile`。同时，在退出时
+   还会执行 `~/.bash_logout` 配置脚本。如果不使用登录参数，则加载 Bash 解释器时不执行登录配置脚本，
+   但是会加载默认运行配置 `~/.bashrc`，可以使用 --norc 参数禁用它，或使用 --rcfile 指定其它配置。
+
+   所谓交互（interactive shell）即可以与用户进行输入/输出数据交互的脚本运行环境，这是默认执行状态，
+   除非使用 -s 参数让 Bash 进入静默模式，此时用户不能参与脚本的交互，脚本解释器执行完指定脚本后退出。
+
+   为了整合 MinTTY 支持 Unicode 的特性，以及 Vim 高速处理文件的优点，可以在 Windows 系统上使用
+   脚本添加以下注册表选项，这样就可以直接在文件浏览器中使用右键菜单来执行 Vim 打开文件。同时还可以
+   设置 MinTTY 环境下运行 Bash 脚本解释器，这样就可以支持 Unicode，很好地进行中文符号处理。甚至
+   可以为电子图书馆制作一个入口脚本，但是这已经不是必要的操作，使用 Windows 系统的运行功能直接调用
+   ``mintty`` 命令执行相应的脚本即可：
+
+   .. code-block:: bash
+
+      vim='C:\\msys64\\usr\\bin\\mintty.exe C:\\msys64\\usr\\bin\\vim.exe'
+      # REG ADD     'HKCR\*\shell\Open with VIM...' -f
+      REG ADD     'HKCR\*\shell\Open with VIM...\command' -f -ve -t REG_SZ -d "$vim '%1'"
+      REG ADD     'HKCR\*\shell\Open with VIM...\command' -f -v "Icon" -t REG_SZ -d "$vim"
+
+      bsh='C:\\msys64\\usr\\bin\\mintty.exe C:\\msys64\\usr\\bin\\bash.exe'
+      cmd="$bsh -c \"echo bash with shebang...; sleep 0.1; '%1'\""
+      cmdb="$bsh -c \"cd '%V'; bash -i <<< 'exec </dev/tty;'\""
+
+      # REG DELETE  'HKCR\*\shell\Open with bash'
+      # REG DELETE  'HKCR\Directory\shell\bash'
+      # REG DELETE  'HKCR\Directory\Background\shell\bash'
+
+      REG ADD     'HKCR\.sh' -f -ve -t REG_SZ -d ".sh_auto_file"
+      REG ADD     'HKCR\.sh_auto_file\shell\open\command' -f -ve -t REG_SZ -d "$cmd"
+      REG QUERY   'HKCR\.sh' -s
+      REG QUERY   'HKCR\.sh_auto_file' -s
+
+      # REG ADD     'HKCR\*\shell\Open with bash...' -f
+      REG ADD     'HKCR\*\shell\Open with bash...\command' -f -ve -t REG_SZ -d "$cmd"
+      REG ADD     'HKCR\*\shell\Open with bash...\command' -f -v "Icon" -t REG_SZ -d "$bsh"
+
+      # REG ADD     'HKCR\Directory\shell\bash' -f
+      REG ADD     'HKCR\Directory\shell\bash' -f -ve -t REG_SZ -d "⚡ Open with bash..."
+      REG ADD     'HKCR\Directory\shell\bash' -f -v "Icon" -t REG_SZ -d "$bsh"
+      REG ADD     'HKCR\Directory\shell\bash\command' -f -ve -t REG_SZ -d "$cmdb"
+
+      # REG ADD     'HKCR\Directory\Background\shell\bash' -f
+      REG ADD     'HKCR\Directory\Background\shell\bash' -f -ve -t REG_SZ -d "⚡ Open with bash..."
+      REG ADD     'HKCR\Directory\Background\shell\bash' -f -v "Icon" -t REG_SZ -d "$bsh"
+      REG ADD     'HKCR\Directory\Background\shell\bash\command' -f -ve -t REG_SZ -d "$bsh"
+
+
+.. _fuzzy finder: https://github.com/junegunn/fzf
+
+
+.. _S02: #S02
 
 /🟡Visual Studio Code
 ======================
@@ -30,6 +365,10 @@
    - `Monaco - The Editor of the Web <https://github.com/Microsoft/monaco-editor>`__
    - `Monaco Editor Samples <https://github.com/microsoft/monaco-editor-samples>`__
    - `Monaco Editor <https://microsoft.github.io/monaco-editor/>`__
+
+   摩纳哥 (Monaco) 是人类史上人均 GDP 最高的国家，2022 年数据 24.09 万美元是中国的 18 倍多！
+   是新加坡的 3 倍，是香港的 5 倍。Monaco 特点：国小、税低、富人聚集。VS Code 编辑器代号剑指
+   Monaco 似乎有点美国味。
 
    VS Code 使用纯 DOM 操作，为了保证 UI 响应速度，没有采用现有的 UI 库，大部分 UI 采用
    绝对尺寸，简单粗暴的避免大面积 UI 的联动刷新。
@@ -138,12 +477,12 @@
    -  ``Latex Sympy Calculator`` 计算文档中的 LaTeX 数学公式，并生成 = 号右侧部分。
    -  ``Emmet`` 这是一个程序化结构语言（XML/HTML）代码生成工具，几乎所有流行编辑器中都有它。
    -  ``Markdown Preview`` 为文本文档（markdown）提供实时预览。
-      ``reStructuredText`` 文件格式还没有好用的插件，只有 rst 语法支持。
+      ``reStructuredText`` 文件格式还没有好用的插件，但是安装 rst 语法支持就足够用了，
+      VS Code 会在编辑器顶部以面包屑形式展示层级化、可交互的目录结构。
 
    Sublime Text 有一个非常实用的命令，Split selection into lines 可以将选区拆分成行选区。
-   VS Code 也有类似功能，命令名称叫 Add Cursors to Line Ends。但是这两个支持多选区的工具
-   都没有提供正则选区功能，看来我在 Sublime Text 上开发的 `RegularSelection`__ 插件将要再造
-   一个供 VS Code 环境使用。
+   VS Code 也有类似功能，命令名称叫 Add Cursors to Line Ends。这两个支持多选区的工具都有
+   正则选区功能（``Alt+Enter``），使用正则表达式就可以选中匹配的目标字符串，然后进行批量处理。
 
 .. _draw.io: https://app.diagrams.net/
 .. _mxGraph: https://jgraph.github.io/mxgraph/
@@ -193,7 +532,7 @@
    - ``Alt+F11`` Terminal View: Toggle Maximized Panel
    - ``Ctrl+K, Z`` Zen Mode 修禅模式，最大化简化 UI 元素降低干扰因素
 
-   各种 VS Code 使用技巧参考文档：`Visual Studio Code Tips and Tricks`__
+   VS Code 官方也提供了使用技巧参考文档：`Visual Studio Code Tips and Tricks`__
 
 .. _Integrated Terminal Performance Improvements: https://code.visualstudio.com/blogs/2017/10/03/terminal-renderer
 .. _Visual Studio Code Tips and Tricks: https://code.visualstudio.com/docs/getstarted/tips-and-tricks
@@ -214,6 +553,41 @@
 
    VS Code 与 Github 版本托管或者 git 版管理工具集成，提供更容易的访问的版本管理图形化操作。
    `VS Code Speech`__ 插件提供语音输入功能，可以和 GitHub Copilot Chat 进行 AI 交流操作。
+
+   基于 Intellij IDE 定制的 Android Studio 可以设置版权模板，方便在大工程中添加版权信息，
+   VS Code 也可以使用 Configure User Snippets 定义版本代码片段来快捷插入版本信息。创建
+   一个全局代码片段（global snippets file...），然后 VS Code 给出模板文件方便修改：
+
+   *  使用 $1, $2 ... 等等作为制表跳转位置占位符号（tab stops）并且可以设置默认值，如：${1:label}；
+   *  使用 $1, $2 ... 等等也可以用于复制占位符号所设置默认值的内容到指定位置；
+   *  使用 $0 作为最终光标位置，也就是按 Tab 键轮番跳转占位符号之后最终的光标位置；
+   *  "scope" 设置 IntelliSense 启用此代码片段的语言标识符，例如 "javascript,typescript,cpp,c"；
+   *  "prefix" 设置触发代码片段的关键字，在代码文件中输入这个字符串就可以触发自动完成以插入版权信息。
+
+   .. code-block:: json
+
+      {
+         "Insert copyright": {
+            "scope": "javascript,typescript,cpp,c",
+            "prefix": "copyright",
+            "body": [
+               "/**",
+               " * @file ${1:g000}",
+               " * @author Jenago (jimbowhy@foxmail.com)",
+               " * @brief  ${2:Kernel Programming Tutorials - Programming C and C++}",
+               " * @version ${3:0.1}",
+               " * @date Sat May 25 08:20:55 CST 2024",
+               " * @ref https://en.cppreference.com/w/c/language/basic_concepts",
+               " * @ref https://en.cppreference.com/w/cpp/language/basic_concepts",
+               " * ",
+               " * @copyright Copyright (c) 2024",
+               " * ",
+               " */",
+               "$3"
+            ],
+            "description": "Insert basic copyright information"
+         }
+      }
 
    VS Code 提供了 Screen Reader 优化模式，减少界面干扰，这种模式下，如果代码有问题，就会使用
    声音提示（audio cue signals），默认是拨竹片音效，可以在 Accessibility 配置面板修改配置。
@@ -252,8 +626,10 @@
 
    果然，开源是未来！开源有未来！开源拥抱未来！
 
+.. _S03: #S03
+
 /🟡Tasks and Debug
-******************
+==================
 
    VS Code 作为开源编辑器软件中拥有最佳调试体验的一员，它内置了 Node.js 运行时，提供调试
    JavaScript 或者 TypeScript 的能力，以及其它转译成它们的语言。同时也可以通过安装相应的
@@ -263,8 +639,8 @@
    这些功能对应 .vscode 缓存文件夹中保存的两个配置文件 ``tasks.json`` 和 ``launch.json``，
    它们分别对应 Run 菜单和 Terminal 菜单的功能，千万不要将它们搞混，它们分别是：
 
-   - 任务系统，``tasks.json``，编写用于构建程序脚本任务，参考 `Integrate with External Tools via Tasks`__；
-   - 调试系统，``launch.json``，用于调试、运行项目编译好的程序，包括脚本程序，参考 `VS Code Debugers Launch`__；
+   - 任务系统， ``tasks.json``，编写用于构建程序脚本任务，参考 `Integrate with External Tools via Tasks`__；
+   - 调试系统， ``launch.json``，用于调试、运行项目编译好的程序，包括脚本程序，参考 `VS Code Debugers Launch`__；
 
    VS Code 它们涉及到的功能分开菜单呈现，不仅是因为它们有不同的目标取向，更多的是需要 VS Code
    提供不同的逻辑功能支持。即使是运行同样的命令，通过任务系统运行、与通过调试系统运行，VS Code 会
@@ -274,7 +650,7 @@
    插件实现了相应的命令。语法上也类似，比如，``${workspaceFolder}"`` 表示工作空间所在目录路径，
    而命令调用侧是 ``${command:AskForProgramName}"``，这里假设配置属性 ``type`` 指定插件
    或 VS Code 实现了这样的命令。还可以引用系统环境变量，并且 VS Code 提供了配置面板来添加
-   自定义的环境变量，配置面板定位符：``terminal.integrated.env``。
+   自定义的环境变量，配置面板定位符： ``terminal.integrated.env``。
 
    以下是配置文件中支持的的占位符号格式：
 
@@ -288,7 +664,9 @@
    ``${input:variableID}``               User input variable.
    ===================================== =======================================
 
-   VS Code 支持三种形式的用户输入变量，tasks.json 文件 "inputs" 字段用于设置变量类型参数：
+   VS Code 支持三种形式的用户输入变量，tasks.json 或者 launch.json 配置文件 "inputs" 字段
+   用于设置变量类型参数。但是用户变量每次执行任务时都需要重新输入，没有记忆功能，两个配置文件之间
+   也不能共享同一个用户输入变量：
 
    1. **promptString**: Shows an input box to get a string from the user.
 
@@ -390,7 +768,7 @@
    以上是任务系统的基本使用方式，通常需要掌握大量的命令行工具的使用，包括不仅限于编译器，GCC、Rust、
    Clang 等等；脚本解释器，Node、Deno、Python 等等；Shell 脚本解释器，Bash、PowerShell 等等；
    项目构建自动化工具：Make、Ninja、CMake、Meson、Maven、Gradle 等等；众多的命令行工具，比如
-   Linux Coreutils 套件。
+   GNU Coreutils 套件。
 
    总结来说，VS Code 任务系统的配置主要涉及任务类型（type）、命令（command）、命令行参数（args）。
    任务名称（label）也是比较重要的一个属性，因为 VS Code 设计的任务是可以有依赖关系的。也就是
@@ -706,9 +1084,10 @@
           ]
       }
 
+.. _S04: #S04
 
 /🟡Script and Terminal
-**********************
+======================
 
    VS Code 集成的终端（Terminal）功能非常强大，支持 Unicode 符号，使用 Canvas 绘图获得高
    性能，另外为以下 shell 提供易于使用的命令行体验：
@@ -884,9 +1263,10 @@
    当然，用好这套任务系统，开发任务也相当便利，配合自定义的脚本（started）可以实现很多功能，完全
    可以省掉好多 “Useless Plugin”。
 
+.. _S05: #S05
 
 /🟡JavaFX GUI with Gradle and Kotlin LSP
-****************************************
+========================================
 
    本小节涉及以下主题内容：
 
@@ -899,6 +1279,7 @@
    图形构架，还会涉及 Gradle 项目配置文件使用到的 Groovy 或 Kotlin 脚本。
 
    Java + Kotlin 混合语言 Gradle JavaFX 项目模板： https://github.com/jimboyeah/demo/tree/hi_javafx
+.. _S06: #S06
 
 Maven Project
 ---------------
@@ -968,6 +1349,7 @@ Maven Project
 .. _Apache Maven Compiler Plugin: https://maven.apache.org/plugins/maven-compiler-plugin/
 .. _Exec Maven Plugin: https://www.mojohaus.org/exec-maven-plugin/
 .. _javafx-gradle-plugin: https://github.com/openjfx/javafx-gradle-plugin
+.. _S07: #S07
 
 Gradle Project
 ---------------
@@ -1125,6 +1507,7 @@ Gradle Project
    启动脚本负责配置 Gradle Wrapper 运行环境，包括下载包装程序配置文件中指定的 Gradle 二进制
    程序包，所有下载到的 Gradle 会保存在用户主目录下的子目录内： %USERPROFILE%/.gradle 。
 
+.. _S08: #S08
 
 VS Code with Gradle and Kotlin
 ------------------------------
@@ -1403,6 +1786,7 @@ VS Code with Gradle and Kotlin
 
       du -hd 4 "$USERPROFILE\.gradle\caches" | sort -h
 
+.. _S09: #S09
 
 Gradle Project Init
 -------------------
@@ -1673,6 +2057,7 @@ Gradle Project Init
       }
 
       mainClassName = 'HelloFX'
+.. _S10: #S10
 
 JavaFX GUI Framework
 ---------------------
@@ -2046,6 +2431,7 @@ JavaFX GUI Framework
       1980-02-01 00:00:00 .....          475          306  kotlin\jvm\internal\Intrinsics$Kotlin.class
       1980-02-01 00:00:00 .....         9086         3612  kotlin\jvm\internal\Intrinsics.class
 
+.. _S11: #S11
 
 Java Module Project
 --------------------
@@ -2620,9 +3006,10 @@ Java Module Project
       }
 
 
+.. _S12: #S12
 
 /🟡Debugging and Debuginfo
-**************************
+==========================
 
    Sep 9, 1947 CE: World’s First Computer Bug
 
@@ -2752,13 +3139,40 @@ Java Module Project
    的工作流程中，收集、提供的调试信息比 ``-O0`` 这种简单禁用优化选项来得丰富。
 
    编译器生成的可执行程序可以使用编译器套件附带的一些辅助工具检测包含的信息：
-   ``ldd`` 命令查看可执行程序依赖的动态库。
-   ``readelf`` 检查 Linux 可执行程序格式（ELF）的文件信息。
-   ``objdump`` 查看生成的目标文件包含的信息，包括反汇编、符号定义、符号重定位等。
-   ``nm`` 命令列表可执行程序文件中的符号定义。
+
+   *  ``ldd`` 命令查看可执行程序依赖的动态库。
+   *  ``readelf`` 检查 Linux 可执行程序格式（ELF）的文件信息。
+   *  ``objdump`` 查看生成的目标文件包含的信息，包括反汇编、符号定义、符号重定位等。
+   *  ``nm`` 命令列表可执行程序文件中的符号定义。
+
+   参考文档： GNU Binutils https://www.gnu.org/software/binutils/
 
    输出的文件格式信息如果包含为 ``elf32-i386``，这表示运行于 i386 架构上的 Linux 可执行文件。
    如果是 ``elf64-x86-64`` 表示使用的是 x86_64 架构运行的代码，表明使用的编译器是 64-bit 版本。
+   
+   调试符号信息可以保存在独立文件中，分离调试信息后，可执行程序中有两种基本的关联调试符号文件的方法：
+   
+   *  通过 "debug link" 指向调试符号信息文件，文件名称通常是 EXECUTABLE.debug 这样的格式。
+   *  通过 "build ID" 序列编号关联高度符号信息文件，参考：Debugging Information in Separate Files
+
+   将调试符号与主程序文件分离，好处是可以大大压缩可执行文件的尺寸，而且调试符号有专用文件也方便
+   后续的调试工作。GCC 编译器在构建程序的过程中，就可以使用配套工具抽离调试符号，并保存到专用文件。
+   生成发布版本时，与调试符号文件关联起来：
+
+   .. code-block:: bash
+
+      # Build a libraries
+      cmake -D CMAKE_BUILD_TYPE=Debug ..
+      make
+
+      # Make debug symbol files
+      objcopy --only-keep-debug libmy_library.so libmy_library.so.debug
+
+      # Make Release
+      strip libmy_library.so -o libmy_library.so.release
+      objcopy --add-gnu-debuglink=libmy_library.so.debug libmy_library.so.release
+      cp libmy_library.so.release libmy_library.so
+
 
    有了调试符号，调试器就可以将指令与原始代码关联起来，程序断点也可以按原代码行来设置，比如以下
    直接在 gdb 环境使用 ``b main`` 命令在程序入口函数设置一个断点。又如 ``b -line 20`` 将
@@ -2826,9 +3240,144 @@ Java Module Project
    而 clang 编译输出的可执行程序没包含 DWARF 调试信息。尝试通过 ``clang --verbose`` 获取
    编译细节，发现 Windows 系统上它调用的是 MSVC 编译作为后端，没有生成 DWARF 信息就不奇怪。
 
+   当调试目标程序需要读取输入数据，VS Code 并没有为所有调试器提供支持，但有以下方式实现：
+   参考文档： `Redirect input/output to/from the debug target <https://code.visualstudio.com/docs/editor/debugging>`__
+
+   *  设置 "externalConsole": true, 使用外部控制台手动输入程序需要的数据；
+   *  使用 "request": "launch", 调试方式，在控制台中执行程序，并且让程序为调试器提供 attach 的机会；
+   *  如果调试器支持集成终端 (Integrated Terminal)，配置文件 args 参数可以使用 "<" 或 ">" 进行 I/O 重定向。
+   
+   以下 launch.json 配置仅供参考，在集成终端使用 "<" 重定向输入 stdin 为外部文件（"in.txt"）：
+
+   .. code-block:: json
+
+      {
+        "name": "launch program that reads a file from stdin",
+        "type": "node",
+        "request": "launch",
+        "program": "program.js",
+        "console": "integratedTerminal",
+        "args": ["<", "in.txt"]
+      }
+
+   `C++ Primer 5th Edition <http://www.informit.com/title/0321714113>`__ 提供的
+   示范代码就大量使用 std::cin 来输入参数，这种情况下就需要使用重定向等方法来向程序输入数据，
+   配置文件中的 args 指定的参数只能通过 main 入口函数接收。如果调试器支持 VS Code 集成终端，
+   那么就可以很方便地解决外部数据输入问题。
+
+   对于全平台通用的 GDB 调试器，它本身提供的 ``run`` 命令就像 shell 一样支持重定向输入、输出，
+   参考手册 4.6 `Your Program's Input and Output`_：
+
+   .. code-block:: bash
+
+      (gdb) help run
+      run, r
+      Start debugged program.
+      You may specify arguments to give it.
+      Args may include "*", or "[...]"; they are expanded using the
+      shell that will start the program (specified by the "$SHELL" environment
+      variable).  Input and output redirection with ">", "<", or ">>"
+      are also allowed.
+
+   GDB 功能非常强大，本身就可以当作 shell 脚本解释器使用，进入调试器字符界面（TUI），也可以很
+   方便地执行 shell 命令，根据手册（2.3 Shell Commands）所述，使用 ``shell`` 命令或者简写
+   ``!`` 就可以执行外部程序。GDB 支持 ``set args`` 给调试目标程序设置参数，也可以在命令行中
+   使用 ``-ex`` 执行设置：
+   
+   ::
+      
+      set args [Arguments]
+      show args
+   
+   比如以下 C++ 程序：
+
+   .. code-block:: cpp
+
+      #include <iostream>
+      int main(int argc, char *argv[]) 
+      {
+         std::cout << "Hello C++!" << std::endl;
+         for (int it = 0; it < argc; it ++)
+            std::cout << it << ": " << argv[it] << std::endl;
+         return 0;
+      }
+
+   可以直接在 shell 中执行 ``g++`` 编译命令，也可以进入 gdb 界面后再执行编译命令：
+
+   .. code-block:: bash
+
+      $ gdb -ex 'set args -path /pl/C++_Primer < data/add_item' hello
+      ...
+      (gdb) show args
+      Argument list to give program being debugged when it is started is "-path /pl/C++_Primer < data/add_item".
+      (gdb) !g++ -g -o hello 1/main_only.cc
+      (gdb) file hello
+      Load new symbol table from "hello"? (y or n) y
+      Reading symbols from hello...
+      (gdb) run
+      Starting program: /cpp/hello -path /pl/C++_Primer < data/add_item
+      [New Thread 15388.0xec4]
+      Hello C++!
+      0: /cpp/hello
+      1: -path
+      2: /pl/C++_Primer
+      3: <
+      4: data/add_item
+
+   注意：GDB 以上实现的重定向功能在 Linux 正常工作，但是在 Windows 系统下，包括 MSYS2 环境下
+   可能能无法正常工作。特别是 PowerShell，它本身就无法使用 "<" 符号进行输入重定向。可以考虑使用
+   WSL 环境中运行 Linux，或者直接使用 Linux 系统。
+
+   GDB 支持多种功能扩展方式 `Extending GDB`_，支持多种脚本进行自动化，本身集成 Python 脚本
+   解释器，可以使用 ``show configuration`` 命令查看当前 gdb 是否在编译时启用脚本模块支持。
+   最基本的是 GDB 命令脚本（GDB Command Files），调试器初始化时会执行 .gdbinit 脚本，可以
+   在初始化脚本中编写任意的 GDB 调试器命令，一般用来设置调试环境。初始化脚本可以在当前工作目录，
+   或者用户主目录下。如果调试环境完全可信，可在初始化脚本中添加 ``set auto-load safe-path /``
+   以完全启用脚本自动加载机制。或者使用 ``add-auto-load-safe-path`` 单独添加可依赖的脚本路径。
+   当前目录下的 .gdbinit 脚本也需要在用户主目录下的初始化脚本设置为可依赖的路径才能自动加载。
+
+   GDB 加载目标文件时（object file），会自动搜索与目标文件配置的脚本以实现自定义调试自动化。
+   比如，使用 ``file`` 命令加载待调试程序或者程序需要加载共享库，GDB 有多种方式查找 Python
+   脚本：objfile-gdb.py 脚本文件（对象文件名后加 ``-gdb.py`` 后缀）或者查找 ELF 或 COFF
+   可执行程序中的包含的 ``.debug_gdb_scripts`` 调试信息段落。可使用 ``info auto-load`` 
+   命令查看当前已经自动加载的脚本，至少有以下四种自动加载脚本：
+
+      *  GDB scripts
+      *  Guile scripts
+      *  Local gdbinit
+      *  Python scripts
+
+   默认设置下，GDB 调试脚本分离保存在专用目录下（"$debugdir:$datadir/auto-load"）。其中
+   占位符号 $debugdir 和 $datadir 会分别被替换为 DEBUG-FILE-DIRECTORY 和 DATA-DIRECTORY。
+   可以使用 ``show debug-file-directory`` 这样的命令查看 GDB 环境变量设置。
+
+   可以使用 ``(gdb) python print(gdb.PYTHONDIR)`` 命令打印 Python gdb 模块的所在路径，
+   并将路径添加到 VS Code Pylance 插件的额外解释路径中：Python › Analysis: Extra Paths，
+   以获得 LSP 自动提示功能。例如，以下脚本演示了 ``file hello`` 命令在加载调试目标程序时，
+   自动加载了对应的 ``hello-dbg.py`` 脚本，并打印出目标文件（objfile）的路径信息：
+
+   .. code-block:: python
+
+      import gdb
+
+      print("auto load: ", gdb.PYTHONDIR, gdb.current_objfile())
+
+   .. code-block:: bash
+
+      (gdb) file hello
+      Load new symbol table from "hello"? (y or n) y
+      Reading symbols from hello...
+      auto load:  /usr/share/gdb/python <gdb.Objfile filename=/cpp/hello>
+
+   脚本接口中提供了 STDOUT 和 STDERR 等标准文件的访问，但是不能使用 STDIN。
+
+.. _Extending GDB: https://sourceware.org/gdb/current/onlinedocs/gdb#Extending-GDB
+.. _Your Program’s Input and Output: https://sourceware.org/gdb/current/onlinedocs/gdb
+
+.. _S13: #S13
 
 /🟡VS Code Remote Development
-*****************************
+=============================
 
    远程开发是远程办公利器，通过 VS Code 提供的远程开发环境还可以配合 Microsft WSL 插件，
    连接到 Windows 10 WSL 子系统上进行 Linux Kernel 系统的开发。
@@ -2859,7 +3408,14 @@ Java Module Project
    VS Code Web 运行时也需要 VS Code Server，会自动下载安装并保存为 ``code-tunnel`` 命令文件。
    新版本 VS Code 提供的 Forward Port 功能就是基于 P2P 内网穿透技术提供的功能，让本地 Web
    服务暴露到互联网。所以，理论上，只要有自己的内网穿透工具访问远程主机上的 Web 服务，就可以不
-   使用 VS Code Server，现在已经有第三方同魔改版（韭菜收割版） `Code Server`__。
+   使用 VS Code Server，现在已经有第三方服务器版本（韭菜收割版） `Code Server`__。此工具当前 
+   没有提供 Windows 安装包，但可以使用 Node 平台进行安装：
+
+   .. code-block:: bash
+
+      npm install --global code-server
+      code-server
+      # Now visit http://127.0.0.1:8080. Your password is in ~/.config/code-server/config.yaml
 
    使用 ``code tunnel`` 命令创建隧道后，就可以使用各种 Remote Tunnels 命令查看隧道及连接。
    国内网络有可能连接 Tunnels 服务器时超时，从而导致隧道创建失败。尽管此服务器可能通过 ping 测试：
@@ -2938,74 +3494,6 @@ Java Module Project
    使用相同的登陆账号访问本地主机提供的 VS Code 开发环境。
 
 
-      [!TIP]
-      当前流行的操作系统都有文件浏览器，但是对于一个工作于电脑屏幕前的人来说，GUI 就是花哨的代名。
-      事实上 GUI 并不能提升效率，反而在没有合理的设计的前提下，GUI 带来的是广泛低能效的灾难。
-      人类的记天然具有模糊特征，记忆中的事件不是绝对精确的。混沌、模糊是记忆的基本状态，在使用计算机
-      系统时，这些基本特性体现在多方面：比如找文件、找文件夹，或者翻查菜单找某种功能操作等等，都是
-      因为 GUI 的设计不合理造成的困境。社区开发了一款模糊信息搜索工具（`fuzzy finder`__），
-      通过它可以将计算机系统中的文件、文件夹、文件数据按模糊的记忆进行过滤。安装它之后，并将其添加到
-      环境变量的 PATH 中以方便直接执行，这样就可以使用 fzf 命令进行信息过滤。文件系统的过滤是
-      最基本用法，比如在 Windows 系统上打开文件浏览器，并在地址栏输入 fzf 执行它，程序会弹出
-      文件列表，按记忆输入模糊的内容片段，fzf 就会将最匹配的文件过滤出来，但是回车确认后并不能
-      打开相应的文件。因为它默认只是打印用户选中的那一条数据。
-
-      Windows 提供外壳扩展程序（Shell Extension）可以用来扩展文件浏览器的功能，比如 QTTabBar
-      这款工具就可以提供 Tabs 页面标签式的文件夹打开方式，这种功能 Windows 11 才提供！！！！
-      Windows 文件浏览器地址栏可以输入路径、或者运行可程序，也可以运行脚本，系统会根据注册表中
-      记录的脚本文件类型来调用解释器，但也仅限如此操作。Windows 文件浏览器不能作为脚本执行器来
-      执行脚本。但是可以使用脚本解释器程序的功能来间接执行现场编写的脚本，比如安装 MSYS2 提供的
-      bash 脚本解释器后，就可以在 Windows 文件浏览器地址栏中输入以下命令：
-
-         bash -c "whoami; echo $PWD; sleep 3"
-
-      这里的现场脚本就会打印 whoami 命令查询到的用户账户名称、当前工作目录，再暂停 3 秒后退出。
-      Windows 文件浏览器的地址栏几乎就是唯一的可以让用户从键盘输入的 UI 控件，这样的设计不能
-      说不十分糟糕！
-
-      脚本解释器再配合 fzf 工具就可以实现浏览器从未想过要提供给用户的功能，比如 VS Code 插件
-      安装在 $USERPROFILE/.vscode/extensions 目录中，想要多众多插件目录找一个是比较费事，
-      偏偏 Windows 自动的搜索功能不是给人用的，本机 search 服务也一直处于禁用状态。Bash 提供
-      非常便利的 command expansion 功能，简单说就是一个命令可以将另一命令的输出扩展为自己的
-      输入数据。比如，``start $(fzf)`` 或者 ``start `fzf``` 就可以利用 Windows 提供的 
-      start 命令打开 fzf 过滤出来的文件。又如 ``start `ls | fzf``` 就可以用来打开当前位置
-      下的子目录。配合其它程序，就可以实现不同的功能。比如查看 Microsoft C/C++ 插件的目录，
-      就可以使用以下命令，并输入模糊的 cpp 这样的关键字就可以找到：
-
-         start `find $USERPROFILE/.vscode/extensions -maxdepth 1 -type d | fzf`
-
-      Microsoft C/C++ 插件（ms-vscode.cpptools）块头大，大小取决于使用，基本安装 200MB+。
-      它包含了多家软件厂商提供的工具，包括编译器革新框架领跑者 LLVM 提供的代码格式化与整理工具：
-
-         ../bin/cpptools-srv.exe
-         ../bin/cpptools.exe
-         ../debugAdapters/bin/createdump.exe
-         ../debugAdapters/bin/OpenDebugAD7.exe
-         ../debugAdapters/bin/WindowsDebugLauncher.exe
-         ../debugAdapters/vsdbg/bin/Remote Debugger/x86/msvsmon.exe
-         ../debugAdapters/vsdbg/bin/vsdbg.exe
-         ../debugAdapters/vsdbg/bin/VsDebugConsole.exe
-         ../LLVM/bin/clang-format.exe
-         ../LLVM/bin/clang-tidy.exe
-
-      要执行某个程序，借助 command expansion 以及 find 工具，按以下命令行操作，如果要给待
-      执行的程序传递参数，就可以写在圆括号后面（--help）。Sublime Text 提供了一个 subl 命令
-      行工具，它可以接收命令的 stdout 以及借助编辑器编辑它再输出给其它命令作为 stdin 使用。
-      以下第二条命令，find 程序将找到的 exe 文件路径输出给 Sublime Text 进行编辑，当完成
-      编辑并直接关闭文件，subl 命令就会将编辑后的内容返回给命令行。以上的插件程序列表就是通过
-      这个 subl 命令行进行编辑的：
-
-         $(find .. -path '*/*.exe' | fzf) --help
-         $(find .. -path '*/*.exe' | subl -) --help
-
-      或者使用 VS Code 与 Sublime Text 打开工程目录：
-
-         code $(ls.exe -d ../projects | fzf)
-         subl $(ls.exe -d ../projects | fzf)
-
-      Fuzzy finder 本身提供非常丰富的可配置参数，但是掌握如何与 bash 及命令工具配合使用已经
-      可以解决大多数文件系统相关的需求。
-
 .. _Code Server: https://github.com/coder/code-server
 .. _Visual Studio Code Server License: https://aka.ms/vscode-server-license
 .. _Visual Studio Code Server: https://code.visualstudio.com/docs/remote/vscode-server
@@ -3014,11 +3502,11 @@ Java Module Project
 .. _The Linux Kernel documentation: https://www.kernel.org/doc/html/latest/
 .. _Remote Development Extension Pack: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack
 .. _VS Code Remote Development: https://code.visualstudio.com/docs/remote/remote-overview
-.. _fuzzy finder: https://github.com/junegunn/fzf
 
+.. _S14: #S14
 
 /🟡LLVM Clang and Clangd (C/C++ LSP)
-************************************
+====================================
 
    VS Code 与 Sublime Text 都是轻量级编辑器，当然后者自研的图形渲染系统比 Electron 更轻量，
    占用内存也更少。但是 VS Code 集成的调用功能更全面、更优秀，适配多种调试协议。即使调试 shell 
@@ -3064,19 +3552,38 @@ Java Module Project
    是否成功，关闭并重启 Microsoft C/C++ 插件可以使 IntelliSense_ 服务重启，并打印类似
    以下信息供参考：
 
-   For C++ source files, IntelliSenseMode was changed from 
-      "windows-gcc-x86" to "windows-msvc-x86" based on compiler args and querying compilerPath: "cl.exe"
-   [5/25/2024, 2:09:28 AM] IntelliSenseMode was changed because it didn't match the detected compiler.  
-      Consider setting "compilerPath" instead.  
-      Set "compilerPath" to "" to disable detection of system includes and defines.
+   .. code-block::bash
 
-   [5/25/2024, 2:14:32 AM] For C++ source files, IntelliSenseMode was changed from 
-      "windows-gcc-x86" to "linux-gcc-x86" based on compiler args and querying compilerPath: "c:/msys64/usr/bin/gcc.exe"
-   [5/25/2024, 2:14:32 AM] For C source files, IntelliSenseMode was changed from 
-      "windows-gcc-x86" to "linux-gcc-x86" based on compiler args and querying compilerPath: "c:/msys64/usr/bin/gcc.exe"
+      For C++ source files, IntelliSenseMode was changed from 
+         "windows-gcc-x86" to "windows-msvc-x86" based on compiler args and querying compilerPath: "cl.exe"
+      [5/25/2024, 2:09:28 AM] IntelliSenseMode was changed because it didn't match the detected compiler.  
+         Consider setting "compilerPath" instead.  
+         Set "compilerPath" to "" to disable detection of system includes and defines.
+
+      [5/25/2024, 2:14:32 AM] For C++ source files, IntelliSenseMode was changed from 
+         "windows-gcc-x86" to "linux-gcc-x86" based on compiler args and querying compilerPath: "c:/msys64/usr/bin/gcc.exe"
+      [5/25/2024, 2:14:32 AM] For C source files, IntelliSenseMode was changed from 
+         "windows-gcc-x86" to "linux-gcc-x86" based on compiler args and querying compilerPath: "c:/msys64/usr/bin/gcc.exe"
 
    启用 IntelliSense_ 智能提示后，就可以主动使用 Trigger Suggest (Ctrl + Space) 触发提示。
    另一种智能方案是使用基于大语言模型 AI 问答技术的 `GitHub Copilot`__ 插件，它需要登录使用。
+
+   使用 C++20 规范编程时，例如 ``std::format`` 这样的新类型可能没有自动提示，IntelliSense
+   默认没有启用 C++ 规范，可以在 VS Code 全局配置（settings.json）或者 c_cpp_properties.json
+   配置中设置规范标准版本。可以在配置面板中搜索 `CPP Standard` 进行设置：
+
+   .. code-block:: json
+
+      {
+         "C_Cpp.default.intelliSenseMode": "gcc-x86",
+         "C_Cpp.default.compilerPath": "c:/msys64/usr/bin/gcc.exe",
+         "C_Cpp.intelliSenseEngineFallback": "enabled",
+         "C_Cpp.default.includePath": [
+            "C:\\msys64\\mingw64\\include\\c++\\13.2.0\\"
+         ],
+         "C_Cpp.default.cppStandard": "c++20",
+         "C_Cpp.default.cStandard": "c17",
+      }
 
    设置好之后，就可以使用指定的编译器及代码库来编程，比如 Windows 上使用 MSYS2 移植平台来编程。
    还可以安装 Microsft WSL 插件，同时在 Windows 10 系统上安装 Linux 子系统，就可以通过远程
@@ -3111,7 +3618,7 @@ Java Module Project
    GLib 2.0 可以看作 C 语言的 STL。此开源库原本是 GTK+ 和 GNOME 图形框架的一个部分，后来独立
    作为一个基本库维护，GLib 提供了常用的数据结构类型，宏函数，字符串工具，文件处理工具，等等。
 
-   The GNU C Libraray (glibc) 是 Linux 系统下的 C 语言运行时，程序底层会执行这个代码库。
+   The GNU C Library (glibc) 是 Linux 系统下的 C 语言运行时，程序底层会执行这个代码库。
    VS Code C/C++ 插件在调试程序时，可以点击 CALL STACK 面板查看运行时动态库文件所关联的源代码，
    代码路径是构建时输出的目录，比如：
 
@@ -3147,23 +3654,6 @@ Java Module Project
       >> New-Item -Type SymbolicLink -Target "$T" -Path "$P"
 
    不要总是编译巨人的代码库，电费很贵时间更贵。可以使用源代码是最好的礼物，You can fucking code.
-   将调试符号与主程序文件分离，好处是可以大大压缩可执行文件的尺寸，而且调试符号有专用文件也方便
-   后续的调试工作。GCC 编译器在构建程序的过程中，就可以使用配套工具抽离调试符号，并保存到专用文件。
-   生成发布版本时，与调试符号文件关联起来：
-
-   .. code-block:: bash
-
-      # Build a libraries
-      cmake -D CMAKE_BUILD_TYPE=Debug ..
-      make
-
-      # Make debug symbol files
-      objcopy --only-keep-debug libmy_library.so libmy_library.so.debug
-
-      # Make Release
-      strip libmy_library.so -o libmy_library.so.release
-      objcopy --add-gnu-debuglink=libmy_library.so.debug libmy_library.so.release
-      cp libmy_library.so.release libmy_library.so
 
    在使用 vsdbg 调试器的过程中，还会产生 PCH (precompiled headers) 信息文件缓存目录中，
    路径可以在设置面板中查询 Intelli Sense Cache Path，默认位置如下：
@@ -3403,32 +3893,19 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
    * ORC 实时编译技术文档： `ORC Design and Implementation`__
    * 编译器研发者 CPU 构架信息参考： `Architecture & Platform Information for Compiler Writers`__
 
-   .. _Fabrice Bellard: https://www.bellard.org/
-   .. _Chris Lattner: https://www.nondot.org/sabre/
-   .. _LLVM Getting Started: https://llvm.org/docs/GettingStartedTutorials.html
-   .. _ORC Design and Implementation: https://llvm.org/docs/ORCv2.html
-   .. _configuration files: https://clang.llvm.org/docs/UsersManual.html
-   .. _Assembling a Complete Toolchain: https://clang.llvm.org/docs/Toolchain.html
-   .. _Mojo: https://www.modular.com/max/mojo
-   .. _Crafting Interpreters by Robert Nystrom: https://www.craftinginterpreters.com
-   .. _Operating Systems - Three Easy Pieces: https://pages.cs.wisc.edu/~remzi/OSTEP/
-   .. _LLVM on github.dev: https://github.dev/llvm/llvm-project
-   .. _LLVM on vscode.dev: https://vscode.dev/github/llvm/llvm-project
-   .. _Architecture & Platform Information for Compiler Writers: https://llvm.org/docs/CompilerWriterInfo.html
-   .. _CMU 15-745 Fall '23 Projects: https://www.cs.cmu.edu/~15745/projects.html
-
-   --gcc-install-dir=<arg>
-   Use GCC installation in the specified directory. The directory ends with path components like ‘lib{,32,64}/gcc{,-cross}/$triple/$version’. Note: executables (e.g. ld) used by the compiler are not overridden by the selected GCC installation
-
-   --gcc-toolchain=<arg>
-   Specify a directory where Clang can find ‘include’ and ‘lib{,32,64}/gcc{,-cross}/$triple/$version’. Clang will use the GCC installation with the largest version
-
-clang --verbose --gcc-install-dir=C:\msys64\usr\lib\gcc\x86_64-pc-msys\13.2.0 -gdwarf-2 -g3 .\k0001.c -o .build\k0003.exe
-
-clang --verbose -gdwarf-2 -g3 .\k0001.c --gcc-toolchain=C:\msys64\usr\lib\gcc\x86_64-pc-msys\13.2.0 -o .build\k0003.exe
-
-clang++ --verbose -gdwarf-2 -g3 .\k0001.c --gcc-toolchain=C:\msys64\usr\lib\gcc\x86_64-pc-msys\13.2.0 -o .build\k0003.exe
-clang++ --verbose -gdwarf-2 -g3 .\k0001.c -o .build\k0003.exe
+.. _Fabrice Bellard: https://www.bellard.org/
+.. _Chris Lattner: https://www.nondot.org/sabre/
+.. _LLVM Getting Started: https://llvm.org/docs/GettingStartedTutorials.html
+.. _ORC Design and Implementation: https://llvm.org/docs/ORCv2.html
+.. _configuration files: https://clang.llvm.org/docs/UsersManual.html
+.. _Assembling a Complete Toolchain: https://clang.llvm.org/docs/Toolchain.html
+.. _Mojo: https://www.modular.com/max/mojo
+.. _Crafting Interpreters by Robert Nystrom: https://www.craftinginterpreters.com
+.. _Operating Systems - Three Easy Pieces: https://pages.cs.wisc.edu/~remzi/OSTEP/
+.. _LLVM on github.dev: https://github.dev/llvm/llvm-project
+.. _LLVM on vscode.dev: https://vscode.dev/github/llvm/llvm-project
+.. _Architecture & Platform Information for Compiler Writers: https://llvm.org/docs/CompilerWriterInfo.html
+.. _CMU 15-745 Fall '23 Projects: https://www.cs.cmu.edu/~15745/projects.html
 
    编译工作涉及一套工具链（toolchain），这套工具各自独立负责一个工序，包括编译（compile），
    链接库文件（link libraries）和生成归档（archives）等等。GCC 工具链包含 cc1 和 cc1plus，
@@ -3493,9 +3970,9 @@ clang++ --verbose -gdwarf-2 -g3 .\k0001.c -o .build\k0003.exe
       cmake -S . -B .build/Debug -DCMAKE_BUILD_TYPE=Debug -G Ninja
       cmake --build .build/Debug --verbose
 
-   .. _CMake Generator: https://cmake.org/cmake/help/latest/manual/cmake-generators.7.html
-
-.. container:: section
+.. _CMake Generator: https://cmake.org/cmake/help/latest/manual/cmake-generators.7.html
+.. _CMakeCCompilerABI: https://github.com/Kitware/CMake/blob/master/Modules/CMakeCCompilerABI.c
+.. _CMakeCXXCompilerABI: https://github.com/Kitware/CMake/blob/master/Modules/CMakeCXXCompilerABI.cpp
 
    CMake 提供一个 ``CMAKE_BUILD_TYPE`` 变量用来配置构建类型，它也是配置编译优化选项的变量：
 
@@ -3513,7 +3990,161 @@ clang++ --verbose -gdwarf-2 -g3 .\k0001.c -o .build\k0003.exe
    **MinSizeRel**              For Size      No         No         When disk space matters
    =========================== ============= ========== ========== ==========================
 
+   CMake 在初始化时，CMakeTestCCompiler.cmake 模块会对系统中可用的编译器进行检测，并尝试用
+   ``try_compile`` 命令调用编译器来编译检测程序（CMakeCCompilerABI_ CMakeCXXCompilerABI_）
+   以确认编译器 ABI 兼容性。过程出现错误通常都与编译器的安装、环境配置等有关。如果，要分析问题根源，
+   就需要了解编译程序的工作流程及步骤。
 
+   CMake 还会使用 `CMakeCCompilerId` 或者 `CMakeCXXCompilerId` 检测程序以确定编译器厂商，
+   如果在项目中混入并编译这些代码，则会导致多得 main 函数冲突：
+
+      cmakecxxcompilerid.cpp:514: multiple definition of `main';
+
+   比如，以下这种错误显示测试程序的链接步骤失败：
+
+   .. code-block:: bash
+
+      [2/2] Linking C executable cmTC_b5137.exe
+      FAILED: cmTC_b5137.exe 
+      cmd.exe /C "cd . && C:\msys64\usr\bin\gcc.exe  \
+               -v CMakeFiles/cmTC_b5137.dir/CMakeCCompilerABI.c.obj \
+               -o cmTC_b5137.exe -Wl,--out-implib,libcmTC_b5137.dll.a \
+               -Wl,--major-image-version,0,--minor-image-version,0   && cd ."
+      系统找不到指定的路径。
+
+   控制台输出的信息“系统找不到指定的路径”是一个非常抽象的描述，究竟是什么系统找不到什么的路径呢？
+   这只能靠经验来猜测，如果是 cmd.exe 路径找不到，输出的信息应该是 shell 程序的错误信息格式。
+   如果是 gcc 编译器找不到头文件，那么就不应该是在链接阶段报错；如果是链接程序找不到库文件，显然
+   是极有可能的情况。Winows 系统上使用 MSYS2 环境，gcc 编译器会用到一系列 Windows API 共享库，
+   缺失/误删这些文件都有可能导致链接失败：
+
+      -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+
+   可以手动执行编译器以确认这些依赖库文件是否存在：
+
+   .. code-block:: bash
+
+      gcc -std=c17 -o .build/g0002 .\src\k0000.c -ladvapi32 
+
+   编译器，严格来说是 gcc 编译驱动器（driver）可以向底层的汇编程序、预处理器、链接程序传递一系列
+   参数，使用以下选项实现，前面输出的错误信息中 --out-implib 就是给链接程序传递的参数：
+
+   .. code-block:: bash
+      
+      -Wa,<options>            Pass comma-separated <options> on to the assembler.
+      -Wp,<options>            Pass comma-separated <options> on to the preprocessor.
+      -Wl,<options>            Pass comma-separated <options> on to the linker.
+
+   以上编译命令中出现的 libcmTC_xxx 就是测试程序产生的一个链接库文件，它应该可以在编译器前面的
+   工作中产生，日志文件中也应该有记录。如果没有这个库，那么可能是构建工具出现了什么问题面导致的问题。
+   可以检查 CMakeFiles/CMakeError.log 日志文件，这里提供更丰富的信息供分析问题的根源，比如，
+   程序目标平台（Target）、编译器版本，头文件搜索路径、库文件路径等信息：
+
+   .. code-block:: bash
+
+      Target: x86_64-pc-msys
+      ...
+      GNU C17 (GCC) version 13.2.0 (x86_64-pc-msys)
+      	compiled by GNU C version 13.2.0, GMP version 6.3.0, MPFR version 4.2.1, MPC version 1.3.1, isl version isl-0.26-GMP
+      ...
+      #include "..." search starts here:
+      #include <...> search starts here:
+      /usr/lib/gcc/x86_64-pc-msys/13.2.0/include
+      /usr/lib/gcc/x86_64-pc-msys/13.2.0/include-fixed
+      /usr/include
+      /usr/include/w32api
+      End of search list.
+      ...
+      LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-msys/13.2.0/:/usr/x86_64-pc-msys/lib/:/usr/:/usr/lib/
+
+   以上问题就是在 Ninja 1.11.1 中出现的链接库缺失问题，libcmTC_xxx 其实是测试程序的工程名。
+   但未知何种原因，Ninja 脚本中会将其作为链接库使用。CMake 支持多种 Generator，除了 Ninja，
+   还可以切换其它自动构建工具试试，比如以下几种都和 GNU Make 比较搭配：
+
+   .. code-block:: bash
+
+      cmake -S . -B .build/a -G "Ninja"
+      cmake -S . -B .build/a -G "Unix Makefiles"
+      cmake -S . -B .build/a -G "MSYS Makefiles"
+      cmake -S . -B .build/a -G "MinGW Makefiles"
+   
+   GNU Make 使用命令名称是 make。 `MinGW Make` 或者 `NMake` 各自有独特的构建工具命令名称，
+   可以设置 CMAKE_MAKE_PROGRAM 指向正确的构建工具命令，比如 Mingw32-make，以免 CMake 提示
+   找不到构建工具可用。
+
+   可以尝试在 Linux (Ubuntu 20) 环境下测试 CMake，看是系统环境还是 CMakeFiles.txt 脚本问题。
+   Ubuntu 20 系统软件仓库中目前似乎最高版本只有 GCC 9.4.0，只支持到 c++2a 草案，GCC 13 则较好地
+   支持 c++20 标准规范，使用 `gcc -v --help | grep "std="` 命令查询规范支持列表。Ubuntu 
+   系统使用 GCC 13 支持 C++20 规范有多个选择：升级到最新 Ubuntu 版本，或者编译 GCC 源代码安装。
+   最轻松的是选择可信的第三方软件源 (PPA - Personal Package Archive)，GCC 安装命令参考如下：
+
+   .. code-block:: bash
+
+      sudo apt update
+      sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+      sudo apt-get install build-essential gcc gcc-13 g++-13
+
+      sudo apt list | grep "build-essential"
+      sudo apt upgrade "build-essential"
+      sudo apt search "build-essential"
+
+      $ g++-13 --version
+      g++-13 (Ubuntu 13.1.0-8ubuntu1~20.04.2) 13.1.0
+
+   使用国内 PPA 源服务器可提升下载速度方法，修改 /etc/apt/sources.list.d 目录下面的代理地址
+   设置，更改为中科大代理 PPA 地址。需要管理员权限，可以使用 ``sudo vim`` 命令。修改后的配置
+   内容参考如下所示：
+
+   .. code-block:: bash
+
+      deb https://launchpad.proxy.ustclug.org/ubuntu-toolchain-r/test/ubuntu/ jammy main
+      # deb https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu/ jammy main
+      # deb-src https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu/ jammy main
+
+   不过，切换软件源后，可能因为 Ubuntu 20.04 依赖问题没解决好导致不能安装 GCC 13：
+
+      Depends: libisl23 (>= 0.15) but it is not installable
+
+   CMake 脚本中不认 c++2a 这样的规范，只能使用 c++17 或者 c++20 这样的规范，构建脚本会向编译器
+   传递 -std=gnu++2a 这样的参数：
+
+   .. code-block:: bash
+
+      set(CMAKE_CXX_COMPILER g++-13)
+      set(CMAKE_C_COMPILER   gcc-13)
+
+      if (CMAKE_SYSTEM_NAME MATCHES "Linux")
+         set(CMAKE_CXX_STANDARD 20)
+      else()
+         set(CMAKE_CXX_STANDARD 23)
+      endif()
+
+      project(hi_kernel C CXX)
+      cmake_minimum_required(VERSION 3.0)
+
+      # set(CMAKE_LIBRARY_PATH "c:/msys64/usr/lib/w32api/")
+      # link_directories("c:/msys64/usr/lib/w32api/")
+
+      add_executable(k0000 src/k0000.c)
+      add_executable(k0001 src/k0001-generic-errors.c)
+
+      add_executable(g0001 src/g0001-diff-ccpp.cpp)
+      add_executable(g0002 src/g0002.cpp)
+
+
+   CMake 各版本对 C++ 规范的支持度：
+
+      ============ ============= ============
+      CXX_STANDARD CMake Version C++ Standard
+      ============ ============= ============
+      98           3.1           C++98
+      11           3.1           C++11
+      14           3.1           C++14
+      17           3.8           C++17
+      20           3.12          C++20
+      23           3.20          C++23
+      26           3.25          C++26
+      ============ ============= ============
 
    以下是 tasks.json 任务配置参考，包含 CMake 任务 Debug 和 Realease 两套配置，以及直接脚本
    调用编译器编译程序，注意任务 ``label``，它在其它依赖它的子任务中 ``dependsOn`` 用作引用，
@@ -3628,9 +4259,10 @@ clang++ --verbose -gdwarf-2 -g3 .\k0001.c -o .build\k0003.exe
           ]
       }
 
+.. _S15: #S15
 
 /🟡VS Code Extensions
-*********************
+=====================
 
    VS Code 本身使用 TypeScript 脚本语言和 Node.js 构建实现，并提供良好的插件扩展机制，通过
    开发自己的插件扩展可以进一步定制 VS Code，官方文档提供大量插件案列及文档材料。以下是插件扩展
@@ -3757,9 +4389,10 @@ clang++ --verbose -gdwarf-2 -g3 .\k0001.c -o .build\k0003.exe
 
    `List of Chromium Command Line Switches <https://peter.sh/experiments/chromium-command-line-switches/>`__
 
+.. _S16: #S16
 
 /🟡VS Code and Android
-**********************
+======================
 
    VS Code 创建 Android 项目，需要根据使用需求安装以下一些插件：
 
