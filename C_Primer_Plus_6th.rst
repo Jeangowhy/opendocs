@@ -1,4 +1,7 @@
 ﻿
+C Primer Plus Sixth Edition
+===========================
+
 .. figure:: https://m.media-amazon.com/images/I/71ubmvbhDYL._AC_UF1000,1000_QL80_.jpg
 
    C Primer Plus Sixth Edition
@@ -119,843 +122,843 @@
 /TOC - Contents at a Glance
 ===========================
 
-   *  Preface                                                            [Pxxvii]
-   *  1 Getting Ready                                                     [P0001]
-   *  2 Introducing C                                                     [P0027]
-   *  3 Data and C                                                        [P0055]
-   *  4 Character Strings and Formatted Input/Output                      [P0099]
-   *  5 Operators, Expressions, and Statements                            [P0143]
-   *  6 C Control Statements: Looping                                     [P0189]
-   *  7 C Control Statements: Branching and Jumps                         [P0245]
-   *  8 Character Input/Output and Input Validation                       [P0299]
-   *  9 Functions                                                         [P0335]
-   *  10 Arrays and Pointers                                              [P0383]
-   *  11 Character Strings and String Functions                           [P0441]
-   *  12 Storage Classes, Linkage, and Memory Management                  [P0511]
-   *  13 File Input/Output                                                [P0565]
-   *  14 Structures and Other Data Forms                                  [P0601]
-   *  15 Bit Fiddling                                                     [P0673]
-   *  16 The C Preprocessor and the C Library                             [P0711]
-   *  17 Advanced Data Representation                                     [P0773]
+   *  ``Preface                                                      `` [Pxxvii]_
+   *  ``1 Getting Ready                                               `` [P0001]_
+   *  ``2 Introducing C                                               `` [P0027]_
+   *  ``3 Data and C                                                  `` [P0055]_
+   *  ``4 Character Strings and Formatted Input/Output                `` [P0099]_
+   *  ``5 Operators, Expressions, and Statements                      `` [P0143]_
+   *  ``6 C Control Statements: Looping                               `` [P0189]_
+   *  ``7 C Control Statements: Branching and Jumps                   `` [P0245]_
+   *  ``8 Character Input/Output and Input Validation                 `` [P0299]_
+   *  ``9 Functions                                                   `` [P0335]_
+   *  ``10 Arrays and Pointers                                        `` [P0383]_
+   *  ``11 Character Strings and String Functions                     `` [P0441]_
+   *  ``12 Storage Classes, Linkage, and Memory Management            `` [P0511]_
+   *  ``13 File Input/Output                                          `` [P0565]_
+   *  ``14 Structures and Other Data Forms                            `` [P0601]_
+   *  ``15 Bit Fiddling                                               `` [P0673]_
+   *  ``16 The C Preprocessor and the C Library                       `` [P0711]_
+   *  ``17 Advanced Data Representation                               `` [P0773]_
    *  Appendixes
-   *  A Answers to the Review Questions                                   [P0861]
-   *  B Reference Section                                                 [P0905]
-   *  Index                                                               [P1005]
+   *  ``A Answers to the Review Questions                             `` [P0861]_
+   *  ``B Reference Section                                           `` [P0905]_
+   *  ``Index                                                         `` [P1005]_
 
 /TOC - Table of Contents
 ========================
 
-   *  Preface                                                            [Pxxvii]
+   *  ``Preface                                                       `` [Pxxvii]_
 
 /TOC01 Getting Ready
 --------------------
 
-   * C01 Getting Ready                                                    [P0001]
-   *  Whence C?                                                           [P0001]
-   *  Why C?                                                              [P0002]
-   *  | Design Features                                                     [P0002]
-   *  | Efficiency                                                          [P0003]
-   *  | Portability                                                         [P0003]
-   *  | Power and Flexibility                                               [P0003]
-   *  | Programmer Oriented                                                 [P0003]
-   *  | Shortcomings                                                        [P0004]
-   *  Whither C?                                                          [P0004]
-   *  What Computers Do                                                   [P0005]
-   *  High-level Computer Languages and Compilers                         [P0006]
-   *  Language Standards                                                  [P0007]
-   *  | The First ANSI/ISO C Standard                                       [P0008]
-   *  | The C99 Standard                                                    [P0008]
-   *  | The C11 Standard                                                    [P0009]
-   *  Using C: Seven Steps                                                [P0009]
-   *  | Step 1: Define the Program Objectives                               [P0010]
-   *  | Step 2: Design the Program                                          [P0010]
-   *  | Step 3: Write the Code                                              [P0011]
-   *  | Step 4: Compile                                                     [P0011]
-   *  | Step 5: Run the Program                                             [P0012]
-   *  | Step 6: Test and Debug the Program                                  [P0012]
-   *  | Step 7: Maintain and Modify the Program                             [P0013]
-   *  | Commentary                                                          [P0013]
-   *  Programming Mechanics                                               [P0013]
-   *  | Object Code Files, Executable Files, and Libraries                  [P0014]
-   *  | Unix System                                                         [P0016]
-   *  | The GNU Compiler Collection and the LLVM Project                    [P0018]
-   *  | Linux Systems                                                       [P0018]
-   *  | Command-Line Compilers for the PC                                   [P0019]
-   *  | Integrated Development Environments (Windows)                       [P0019]
-   *  | The Windows/Linux Option                                            [P0021]
-   *  | C on the Macintosh                                                  [P0021]
-   *  How This Book Is Organized                                          [P0022]
-   *  Conventions Used in This Book                                       [P0022]
-   *  | Typeface                                                            [P0022]
-   *  | Program Output                                                      [P0023]
-   *  | Special Elements                                                    [P0024]
-   *  Summary                                                             [P0024]
-   *  Review Questions                                                    [P0025]
-   *  Programming Exercise                                                [P0025]
+   * ``C01 Getting Ready                                                   `` [P0001]_
+   * ``Whence C?                                                          `` [P0001]_
+   * ``Why C?                                                             `` [P0002]_
+   * ``| Design Features                                                    `` [P0002]_
+   * ``| Efficiency                                                         `` [P0003]_
+   * ``| Portability                                                        `` [P0003]_
+   * ``| Power and Flexibility                                              `` [P0003]_
+   * ``| Programmer Oriented                                                `` [P0003]_
+   * ``| Shortcomings                                                       `` [P0004]_
+   * ``Whither C?                                                         `` [P0004]_
+   * ``What Computers Do                                                  `` [P0005]_
+   * ``High-level Computer Languages and Compilers                        `` [P0006]_
+   * ``Language Standards                                                 `` [P0007]_
+   * ``| The First ANSI/ISO C Standard                                      `` [P0008]_
+   * ``| The C99 Standard                                                   `` [P0008]_
+   * ``| The C11 Standard                                                   `` [P0009]_
+   * ``Using C: Seven Steps                                               `` [P0009]_
+   * ``| Step 1: Define the Program Objectives                              `` [P0010]_
+   * ``| Step 2: Design the Program                                         `` [P0010]_
+   * ``| Step 3: Write the Code                                             `` [P0011]_
+   * ``| Step 4: Compile                                                    `` [P0011]_
+   * ``| Step 5: Run the Program                                            `` [P0012]_
+   * ``| Step 6: Test and Debug the Program                                 `` [P0012]_
+   * ``| Step 7: Maintain and Modify the Program                            `` [P0013]_
+   * ``| Commentary                                                         `` [P0013]_
+   * ``Programming Mechanics                                              `` [P0013]_
+   * ``| Object Code Files, Executable Files, and Libraries                 `` [P0014]_
+   * ``| Unix System                                                        `` [P0016]_
+   * ``| The GNU Compiler Collection and the LLVM Project                   `` [P0018]_
+   * ``| Linux Systems                                                      `` [P0018]_
+   * ``| Command-Line Compilers for the PC                                  `` [P0019]_
+   * ``| Integrated Development Environments (Windows)                      `` [P0019]_
+   * ``| The Windows/Linux Option                                           `` [P0021]_
+   * ``| C on the Macintosh                                                 `` [P0021]_
+   * ``How This Book Is Organized                                         `` [P0022]_
+   * ``Conventions Used in This Book                                      `` [P0022]_
+   * ``| Typeface                                                           `` [P0022]_
+   * ``| Program Output                                                     `` [P0023]_
+   * ``| Special Elements                                                   `` [P0024]_
+   * ``Summary                                                            `` [P0024]_
+   * ``Review Questions                                                   `` [P0025]_
+   * ``Programming Exercise                                               `` [P0025]_
 
 /TOC02 Introducing C
 --------------------
 
-   * C02 Introducing C                                                    [P0027]
-   *  A Simple Example of C                                               [P0027]
-   *  The Example Explained                                               [P0028]
-   *  | Pass 1: Quick Synopsis                                              [P0030]
-   *  | Pass 2: Program Details                                             [P0031]
-   *  The Structure of a Simple Program                                   [P0040]
-   *  Tips on Making Your Programs Readable                               [P0041]
-   *  Taking Another Step in Using C                                      [P0042]
-   *  | Documentation                                                       [P0043]
-   *  | Multiple Declarations                                               [P0043]
-   *  | Multiplication                                                      [P0043]
-   *  | Printing Multiple Values                                            [P0043]
-   *  While You’re at It—Multiple Functions                               [P0044]
-   *  Introducing Debugging                                               [P0046]
-   *  | Syntax Errors                                                       [P0046]
-   *  | Semantic Errors                                                     [P0047]
-   *  | Program State                                                       [P0049]
-   *  Keywords and Reserved Identifiers                                   [P0049]
-   *  Key Concepts                                                        [P0050]
-   *  Summary                                                             [P0051]
-   *  Review Questions                                                    [P0051]
-   *  Programming Exercises                                               [P0053]
+   * ``C02 Introducing C                                                   `` [P0027]_
+   * ``A Simple Example of C                                              `` [P0027]_
+   * ``The Example Explained                                              `` [P0028]_
+   * ``| Pass 1: Quick Synopsis                                             `` [P0030]_
+   * ``| Pass 2: Program Details                                            `` [P0031]_
+   * ``The Structure of a Simple Program                                  `` [P0040]_
+   * ``Tips on Making Your Programs Readable                              `` [P0041]_
+   * ``Taking Another Step in Using C                                     `` [P0042]_
+   * ``| Documentation                                                      `` [P0043]_
+   * ``| Multiple Declarations                                              `` [P0043]_
+   * ``| Multiplication                                                     `` [P0043]_
+   * ``| Printing Multiple Values                                           `` [P0043]_
+   * ``While You’re at It—Multiple Functions                              `` [P0044]_
+   * ``Introducing Debugging                                              `` [P0046]_
+   * ``| Syntax Errors                                                      `` [P0046]_
+   * ``| Semantic Errors                                                    `` [P0047]_
+   * ``| Program State                                                      `` [P0049]_
+   * ``Keywords and Reserved Identifiers                                  `` [P0049]_
+   * ``Key Concepts                                                       `` [P0050]_
+   * ``Summary                                                            `` [P0051]_
+   * ``Review Questions                                                   `` [P0051]_
+   * ``Programming Exercises                                              `` [P0053]_
 
 /TOC03 Data and C
 -----------------
 
-   * C03 Data and C                                                       [P0055]
-   *  A Sample Program                                                    [P0055]
-   *  | What’s New in This Program?                                         [P0057]
-   *  Data Variables and Constants                                        [P0059]
-   *  Data: Data-Type Keywords                                            [P0059]
-   *  | Integer Versus Floating-Point Types                                 [P0060]
+   * ``C03 Data and C                                                      `` [P0055]_
+   * ``A Sample Program                                                   `` [P0055]_
+   * ``| What’s New in This Program?                                        `` [P0057]_
+   * ``Data Variables and Constants                                       `` [P0059]_
+   * ``Data: Data-Type Keywords                                           `` [P0059]_
+   * ``| Integer Versus Floating-Point Types                                `` [P0060]_
    
    ..   ptg11524036
 
    :sup:`Pviii` Contents
 
-   *  | The Integer                                                         [P0061]
-   *  | The Floating-Point Number                                           [P0061]
-   *  Basic C Data Types                                                  [P0062]
-   *  | The int Type                                                        [P0062]
-   *  | Other Integer Types                                                 [P0066]
-   *  | Using Characters: Type char                                         [P0071]
-   *  | The _Bool Type                                                      [P0077]
-   *  | Portable Types: stdint.h and inttypes.h                             [P0077]
-   *  | Types float , double , and long double                              [P0079]
-   *  | Complex and Imaginary Types                                         [P0085]
-   *  | Beyond the Basic Types                                              [P0085]
-   *  | Type Sizes                                                          [P0087]
-   *  Using Data Types                                                    [P0088]
-   *  Arguments and Pitfalls                                              [P0089]
-   *  One More Example: Escape Sequences                                  [P0091]
-   *  | What Happens When the Program Runs                                  [P0091]
-   *  | Flushing the Output                                                 [P0092]
-   *  Key Concepts                                                        [P0093]
-   *  Summary                                                             [P0093]
-   *  Review Questions                                                    [P0094]
-   *  Programming Exercises                                               [P0097]
+   * ``| The Integer                                                        `` [P0061]_
+   * ``| The Floating-Point Number                                          `` [P0061]_
+   * ``Basic C Data Types                                                 `` [P0062]_
+   * ``| The int Type                                                       `` [P0062]_
+   * ``| Other Integer Types                                                `` [P0066]_
+   * ``| Using Characters: Type char                                        `` [P0071]_
+   * ``| The _Bool Type                                                     `` [P0077]_
+   * ``| Portable Types: stdint.h and inttypes.h                            `` [P0077]_
+   * ``| Types float , double , and long double                             `` [P0079]_
+   * ``| Complex and Imaginary Types                                        `` [P0085]_
+   * ``| Beyond the Basic Types                                             `` [P0085]_
+   * ``| Type Sizes                                                         `` [P0087]_
+   * ``Using Data Types                                                   `` [P0088]_
+   * ``Arguments and Pitfalls                                             `` [P0089]_
+   * ``One More Example: Escape Sequences                                 `` [P0091]_
+   * ``| What Happens When the Program Runs                                 `` [P0091]_
+   * ``| Flushing the Output                                                `` [P0092]_
+   * ``Key Concepts                                                       `` [P0093]_
+   * ``Summary                                                            `` [P0093]_
+   * ``Review Questions                                                   `` [P0094]_
+   * ``Programming Exercises                                              `` [P0097]_
 
 /TOC04 Character Strings and Formatted Input/Output
 ---------------------------------------------------
 
-   * C04 Character Strings and Formatted Input/Output                     [P0099]
-   *  Introductory Program                                                [P0099]
-   *  Character Strings: An Introduction                                  [P0101]
-   *  | Type char Arrays and the Null Character                             [P0101]
-   *  | Using Strings                                                       [P0102]
-   *  | The strlen() Function                                               [P0103]
-   *  Constants and the C Preprocessor                                    [P0106]
-   *  | The const Modifier                                                  [P0109]
-   *  | Manifest Constants on the Job                                       [P0109]
-   *  Exploring and Exploiting printf() and scanf()                       [P0112]
-   *  | The printf() Function                                               [P0112]
-   *  | Using printf()                                                      [P0113]
-   *  | Conversion Specification Modifiers for printf()                     [P0115]
-   *  | What Does a Conversion Specification Convert?                       [P0122]
-   *  | Using scanf()                                                       [P0128]
+   * ``C04 Character Strings and Formatted Input/Output                    `` [P0099]_
+   * ``Introductory Program                                               `` [P0099]_
+   * ``Character Strings: An Introduction                                 `` [P0101]_
+   * ``| Type char Arrays and the Null Character                            `` [P0101]_
+   * ``| Using Strings                                                      `` [P0102]_
+   * ``| The strlen() Function                                              `` [P0103]_
+   * ``Constants and the C Preprocessor                                   `` [P0106]_
+   * ``| The const Modifier                                                 `` [P0109]_
+   * ``| Manifest Constants on the Job                                      `` [P0109]_
+   * ``Exploring and Exploiting printf() and scanf()                      `` [P0112]_
+   * ``| The printf() Function                                              `` [P0112]_
+   * ``| Using printf()                                                     `` [P0113]_
+   * ``| Conversion Specification Modifiers for printf()                    `` [P0115]_
+   * ``| What Does a Conversion Specification Convert?                      `` [P0122]_
+   * ``| Using scanf()                                                      `` [P0128]_
    
    ..   ptg11524036
 
-   :sup:`Pix` Contents
+.. _Pix:
 
-   *  | The * Modifier with printf() and scanf()                            [P0133]
-   *  | Usage Tips for printf()                                             [P0135]
-   *  Key Concepts                                                        [P0136]
-   *  Summary                                                             [P0137]
-   *  Review Questions                                                    [P0138]
-   *  Programming Exercises                                               [P0140]
+   * ``| The * Modifier with printf() and scanf()                           `` [P0133]_
+   * ``| Usage Tips for printf()                                            `` [P0135]_
+   * ``Key Concepts                                                       `` [P0136]_
+   * ``Summary                                                            `` [P0137]_
+   * ``Review Questions                                                   `` [P0138]_
+   * ``Programming Exercises                                              `` [P0140]_
 
 /TOC05 Operators, Expressions, and Statements
 ---------------------------------------------
 
-   * C05 Operators, Expressions, and Statements                           [P0143]
-   *  Introducing Loops                                                   [P0144]
-   *  Fundamental Operators                                               [P0146]
-   *  | Assignment Operator: =                                              [P0146]
-   *  | Addition Operator: +                                                [P0149]
-   *  | Subtraction Operator: –                                             [P0149]
-   *  | Sign Operators: – and +                                             [P0150]
-   *  | Multiplication Operator: *                                          [P0151]
-   *  | Division Operator: /                                                [P0153]
-   *  | Operator Precedence                                                 [P0154]
-   *  | Precedence and the Order of Evaluation                              [P0156]
-   *  Some Additional Operators                                           [P0157]
-   *  | The sizeof Operator and the size_t Type                             [P0158]
-   *  | Modulus Operator: %                                                 [P0159]
-   *  | Increment and Decrement Operators: ++ and --                        [P0160]
-   *  | Decrementing: --                                                    [P0164]
-   *  | Precedence                                                          [P0165]
-   *  | Don’t Be Too Clever                                                 [P0166]
-   *  Expressions and Statements                                          [P0167]
-   *  | Expressions                                                         [P0167]
-   *  | Statements                                                          [P0168]
-   *  | Compound Statements (Blocks)                                        [P0171]
-   *  Type Conversions                                                    [P0174]
-   *  | The Cast Operator                                                   [P0176]
-   *  Function with Arguments                                             [P0177]
-   *  A Sample Program                                                    [P0180]
-   *  Key Concepts                                                        [P0182]
-   *  Summary                                                             [P0182]
-   *  Review Questions                                                    [P0183]
-   *  Programming Exercises                                               [P0187]
+   * ``C05 Operators, Expressions, and Statements                          `` [P0143]_
+   * ``Introducing Loops                                                  `` [P0144]_
+   * ``Fundamental Operators                                              `` [P0146]_
+   * ``| Assignment Operator: =                                             `` [P0146]_
+   * ``| Addition Operator: +                                               `` [P0149]_
+   * ``| Subtraction Operator: –                                            `` [P0149]_
+   * ``| Sign Operators: – and +                                            `` [P0150]_
+   * ``| Multiplication Operator: *                                         `` [P0151]_
+   * ``| Division Operator: /                                               `` [P0153]_
+   * ``| Operator Precedence                                                `` [P0154]_
+   * ``| Precedence and the Order of Evaluation                             `` [P0156]_
+   * ``Some Additional Operators                                          `` [P0157]_
+   * ``| The sizeof Operator and the size_t Type                            `` [P0158]_
+   * ``| Modulus Operator: %                                                `` [P0159]_
+   * ``| Increment and Decrement Operators: ++ and --                       `` [P0160]_
+   * ``| Decrementing: --                                                   `` [P0164]_
+   * ``| Precedence                                                         `` [P0165]_
+   * ``| Don’t Be Too Clever                                                `` [P0166]_
+   * ``Expressions and Statements                                         `` [P0167]_
+   * ``| Expressions                                                        `` [P0167]_
+   * ``| Statements                                                         `` [P0168]_
+   * ``| Compound Statements (Blocks)                                       `` [P0171]_
+   * ``Type Conversions                                                   `` [P0174]_
+   * ``| The Cast Operator                                                  `` [P0176]_
+   * ``Function with Arguments                                            `` [P0177]_
+   * ``A Sample Program                                                   `` [P0180]_
+   * ``Key Concepts                                                       `` [P0182]_
+   * ``Summary                                                            `` [P0182]_
+   * ``Review Questions                                                   `` [P0183]_
+   * ``Programming Exercises                                              `` [P0187]_
    
    ..   ptg11524036
 
-   :sup:`Px` Contents
+.. _Px:
 
 /TOC06 C Control Statements: Looping
 ------------------------------------
 
-   * C06 C Control Statements: Looping                                    [P0189]
-   *  Revisiting the while Loop                                           [P0190]
-   *  | Program Comments                                                    [P0191]
-   *  | C-Style Reading Loop                                                [P0192]
-   *  The while Statement                                                 [P0193]
-   *  | Terminating a while Loop                                            [P0194]
-   *  | When a Loop Terminates                                              [P0194]
-   *  | while : An Entry-Condition Loop                                     [P0195]
-   *  | Syntax Points                                                       [P0195]
-   *  Which Is Bigger: Using Relational Operators and Expressions         [P0197]
-   *  | What Is Truth?                                                      [P0199]
-   *  | What Else Is True?                                                  [P0200]
-   *  | Troubles with Truth                                                 [P0201]
-   *  | The New _Bool Type                                                  [P0203]
-   *  | Precedence of Relational Operators                                  [P0205]
-   *  Indefinite Loops and Counting Loops                                 [P0207]
-   *  The for Loop                                                        [P0208]
-   *  | Using for for Flexibility                                           [P0210]
-   *  More Assignment Operators: +=, -=, \*=, /=, %=                      [P0215]
-   *  The Comma Operator                                                  [P0215]
-   *  | Zeno Meets the for Loop                                             [P0218]
-   *  An Exit-Condition Loop: do while                                    [P0220]
-   *  Which Loop?                                                         [P0223]
-   *  Nested Loops                                                        [P0224]
-   *  | Program Discussion                                                  [P0225]
-   *  | A Nested Variation                                                  [P0225]
-   *  Introducing Arrays                                                  [P0226]
-   *  | Using a for Loop with an Array                                      [P0228]
-   *  A Loop Example Using a Function Return Value                        [P0230]
-   *  | Program Discussion                                                  [P0232]
-   *  | Using Functions with Return Values                                  [P0233]
-   *  Key Concepts                                                        [P0234]
-   *  Summary                                                             [P0235]
-   *  Review Questions                                                    [P0236]
-   *  Programming Exercises                                               [P0241]
+   * ``C06 C Control Statements: Looping                                   `` [P0189]_
+   * ``Revisiting the while Loop                                          `` [P0190]_
+   * ``| Program Comments                                                   `` [P0191]_
+   * ``| C-Style Reading Loop                                               `` [P0192]_
+   * ``The while Statement                                                `` [P0193]_
+   * ``| Terminating a while Loop                                           `` [P0194]_
+   * ``| When a Loop Terminates                                             `` [P0194]_
+   * ``| while : An Entry-Condition Loop                                    `` [P0195]_
+   * ``| Syntax Points                                                      `` [P0195]_
+   * ``Which Is Bigger: Using Relational Operators and Expressions        `` [P0197]_
+   * ``| What Is Truth?                                                     `` [P0199]_
+   * ``| What Else Is True?                                                 `` [P0200]_
+   * ``| Troubles with Truth                                                `` [P0201]_
+   * ``| The New _Bool Type                                                 `` [P0203]_
+   * ``| Precedence of Relational Operators                                 `` [P0205]_
+   * ``Indefinite Loops and Counting Loops                                `` [P0207]_
+   * ``The for Loop                                                       `` [P0208]_
+   * ``| Using for for Flexibility                                          `` [P0210]_
+   * ``More Assignment Operators: +=, -=, \*=, /=, %=                     `` [P0215]_
+   * ``The Comma Operator                                                 `` [P0215]_
+   * ``| Zeno Meets the for Loop                                            `` [P0218]_
+   * ``An Exit-Condition Loop: do while                                   `` [P0220]_
+   * ``Which Loop?                                                        `` [P0223]_
+   * ``Nested Loops                                                       `` [P0224]_
+   * ``| Program Discussion                                                 `` [P0225]_
+   * ``| A Nested Variation                                                 `` [P0225]_
+   * ``Introducing Arrays                                                 `` [P0226]_
+   * ``| Using a for Loop with an Array                                     `` [P0228]_
+   * ``A Loop Example Using a Function Return Value                       `` [P0230]_
+   * ``| Program Discussion                                                 `` [P0232]_
+   * ``| Using Functions with Return Values                                 `` [P0233]_
+   * ``Key Concepts                                                       `` [P0234]_
+   * ``Summary                                                            `` [P0235]_
+   * ``Review Questions                                                   `` [P0236]_
+   * ``Programming Exercises                                              `` [P0241]_
    
    ..   ptg11524036
 
-   :sup:`Pxi` Contents
+.. _Pxi:
 
 /TOC07 C Control Statements: Branching and Jumps
 ------------------------------------------------
 
-   * C07 C Control Statements: Branching and Jumps                        [P0245]
-   *  The if Statement                                                    [P0246]
-   *  Adding else to the if Statement                                     [P0248]
-   *  | Another Example: Introducing getchar() and putchar()                [P0250]
-   *  | The ctype.h Family of Character Functions                           [P0252]
-   *  | Multiple Choice else if                                             [P0254]
-   *  | Pairing else with if                                                [P0257]
-   *  | More Nested ifs                                                     [P0259]
-   *  Let’s Get Logical                                                   [P0263]
-   *  | Alternate Spellings: The iso646.h Header File                       [P0265]
-   *  | Precedence                                                          [P0265]
-   *  | Order of Evaluation                                                 [P0266]
-   *  | Ranges                                                              [P0267]
-   *  A Word-Count Program                                                [P0268]
-   *  The Conditional Operator: ?:                                        [P0271]
-   *  Loop Aids: continue and break                                       [P0274]
-   *  | The continue Statement                                              [P0274]
-   *  | The break Statement                                                 [P0277]
-   *  Multiple Choice: switch and break                                   [P0280]
-   *  | Using the switch Statement                                          [P0281]
-   *  | Reading Only the First Character of a Line                          [P0283]
-   *  | Multiple Labels                                                     [P0284]
-   *  | switch and if else                                                  [P0286]
-   *  The goto Statement                                                  [P0287]
-   *  | Avoiding goto                                                       [P0287]
-   *  Key Concepts                                                        [P0291]
-   *  Summary                                                             [P0291]
-   *  Review Questions                                                    [P0292]
-   *  Programming Exercises                                               [P0296]
+   * ``C07 C Control Statements: Branching and Jumps                       `` [P0245]_
+   * ``The if Statement                                                   `` [P0246]_
+   * ``Adding else to the if Statement                                    `` [P0248]_
+   * ``| Another Example: Introducing getchar() and putchar()               `` [P0250]_
+   * ``| The ctype.h Family of Character Functions                          `` [P0252]_
+   * ``| Multiple Choice else if                                            `` [P0254]_
+   * ``| Pairing else with if                                               `` [P0257]_
+   * ``| More Nested ifs                                                    `` [P0259]_
+   * ``Let’s Get Logical                                                  `` [P0263]_
+   * ``| Alternate Spellings: The iso646.h Header File                      `` [P0265]_
+   * ``| Precedence                                                         `` [P0265]_
+   * ``| Order of Evaluation                                                `` [P0266]_
+   * ``| Ranges                                                             `` [P0267]_
+   * ``A Word-Count Program                                               `` [P0268]_
+   * ``The Conditional Operator: ?:                                       `` [P0271]_
+   * ``Loop Aids: continue and break                                      `` [P0274]_
+   * ``| The continue Statement                                             `` [P0274]_
+   * ``| The break Statement                                                `` [P0277]_
+   * ``Multiple Choice: switch and break                                  `` [P0280]_
+   * ``| Using the switch Statement                                         `` [P0281]_
+   * ``| Reading Only the First Character of a Line                         `` [P0283]_
+   * ``| Multiple Labels                                                    `` [P0284]_
+   * ``| switch and if else                                                 `` [P0286]_
+   * ``The goto Statement                                                 `` [P0287]_
+   * ``| Avoiding goto                                                      `` [P0287]_
+   * ``Key Concepts                                                       `` [P0291]_
+   * ``Summary                                                            `` [P0291]_
+   * ``Review Questions                                                   `` [P0292]_
+   * ``Programming Exercises                                              `` [P0296]_
 
 /TOC08 Character Input/Output and Input Validation
 --------------------------------------------------
 
-   * C08 Character Input/Output and Input Validation                      [P0299]
-   *  Single-Character I/O: getchar() and putchar()                       [P0300]
-   *  Buffers                                                             [P0301]
-   *  Terminating Keyboard Input                                          [P0302]
-   *  | Files, Streams, and Keyboard Input                                  [P0303]
-   *  | The End of File                                                     [P0304]
-   *  Redirection and Files                                               [P0307]
+   * ``C08 Character Input/Output and Input Validation                     `` [P0299]_
+   * ``Single-Character I/O: getchar() and putchar()                      `` [P0300]_
+   * ``Buffers                                                            `` [P0301]_
+   * ``Terminating Keyboard Input                                         `` [P0302]_
+   * ``| Files, Streams, and Keyboard Input                                 `` [P0303]_
+   * ``| The End of File                                                    `` [P0304]_
+   * ``Redirection and Files                                              `` [P0307]_
    
    ..   ptg11524036
 
-   :sup:`Pxii` Contents
+.. _Pxii:
 
-   *  | Unix, Linux, and Windows Command Prompt Redirection                 [P0307]
-   *  Creating a Friendlier User Interface                                [P0312]
-   *  | Working with Buffered Input                                         [P0312]
-   *  | Mixing Numeric and Character Input                                  [P0314]
-   *  Input Validation                                                    [P0317]
-   *  | Analyzing the Program                                               [P0322]
-   *  | The Input Stream and Numbers                                        [P0323]
-   *  Menu Browsing                                                       [P0324]
-   *  | Tasks                                                               [P0324]
-   *  | Toward a Smoother Execution                                         [P0325]
-   *  | Mixing Character and Numeric Input                                  [P0327]
-   *  Key Concepts                                                        [P0330]
-   *  Summary                                                             [P0331]
-   *  Review Questions                                                    [P0331]
-   *  Programming Exercises                                               [P0332]
+   * ``| Unix, Linux, and Windows Command Prompt Redirection                `` [P0307]_
+   * ``Creating a Friendlier User Interface                               `` [P0312]_
+   * ``| Working with Buffered Input                                        `` [P0312]_
+   * ``| Mixing Numeric and Character Input                                 `` [P0314]_
+   * ``Input Validation                                                   `` [P0317]_
+   * ``| Analyzing the Program                                              `` [P0322]_
+   * ``| The Input Stream and Numbers                                       `` [P0323]_
+   * ``Menu Browsing                                                      `` [P0324]_
+   * ``| Tasks                                                              `` [P0324]_
+   * ``| Toward a Smoother Execution                                        `` [P0325]_
+   * ``| Mixing Character and Numeric Input                                 `` [P0327]_
+   * ``Key Concepts                                                       `` [P0330]_
+   * ``Summary                                                            `` [P0331]_
+   * ``Review Questions                                                   `` [P0331]_
+   * ``Programming Exercises                                              `` [P0332]_
 
 /TOC09 Functions
 ----------------
 
-   * C09 Functions                                                        [P0335]
-   *  Reviewing Functions                                                 [P0335]
-   *  | Creating and Using a Simple Function                                [P0337]
-   *  | Analyzing the Program                                               [P0338]
-   *  | Function Arguments                                                  [P0340]
-   *  | Defining a Function with an Argument: Formal Parameters             [P0342]
-   *  | Prototyping a Function with Arguments                               [P0343]
-   *  | Calling a Function with an Argument: Actual Arguments               [P0343]
-   *  | The Black-Box Viewpoint                                             [P0345]
-   *  | Returning a Value from a Function with return                       [P0345]
-   *  | Function Types                                                      [P0348]
-   *  ANSI C Function Prototyping                                         [P0349]
-   *  | The Problem                                                         [P0350]
-   *  | The ANSI C Solution                                                 [P0351]
-   *  | No Arguments and Unspecified Arguments                              [P0352]
-   *  | Hooray for Prototypes                                               [P0353]
-   *  Recursion                                                           [P0353]
-   *  | Recursion Revealed                                                  [P0354]
-   *  | Recursion Fundamentals                                              [P0355]
-   *  | Tail Recursion                                                      [P0356]
-   *  | Recursion and Reversal                                              [P0358]
+   * ``C09 Functions                                                       `` [P0335]_
+   * ``Reviewing Functions                                                `` [P0335]_
+   * ``| Creating and Using a Simple Function                               `` [P0337]_
+   * ``| Analyzing the Program                                              `` [P0338]_
+   * ``| Function Arguments                                                 `` [P0340]_
+   * ``| Defining a Function with an Argument: Formal Parameters            `` [P0342]_
+   * ``| Prototyping a Function with Arguments                              `` [P0343]_
+   * ``| Calling a Function with an Argument: Actual Arguments              `` [P0343]_
+   * ``| The Black-Box Viewpoint                                            `` [P0345]_
+   * ``| Returning a Value from a Function with return                      `` [P0345]_
+   * ``| Function Types                                                     `` [P0348]_
+   * ``ANSI C Function Prototyping                                        `` [P0349]_
+   * ``| The Problem                                                        `` [P0350]_
+   * ``| The ANSI C Solution                                                `` [P0351]_
+   * ``| No Arguments and Unspecified Arguments                             `` [P0352]_
+   * ``| Hooray for Prototypes                                              `` [P0353]_
+   * ``Recursion                                                          `` [P0353]_
+   * ``| Recursion Revealed                                                 `` [P0354]_
+   * ``| Recursion Fundamentals                                             `` [P0355]_
+   * ``| Tail Recursion                                                     `` [P0356]_
+   * ``| Recursion and Reversal                                             `` [P0358]_
    
    ..   ptg11524036
 
-   :sup:`Pxiii` Contents
+.. _Pxiii:
 
-   *  | Recursion Pros and Cons                                             [P0360]
-   *  Compiling Programs with Two or More Source Code Files               [P0361]
-   *  | Unix                                                                [P0362]
-   *  | Linux                                                               [P0362]
-   *  | DOS Command-Line Compilers                                          [P0362]
-   *  | Windows and Apple IDE Compilers                                     [P0362]
-   *  | Using Header Files                                                  [P0363]
-   *  Finding Addresses: The & Operator                                   [P0367]
-   *  Altering Variables in the Calling Function                          [P0369]
-   *  Pointers: A First Look                                              [P0371]
-   *  | The Indirection Operator: *                                         [P0371]
-   *  | Declaring Pointers                                                  [P0372]
-   *  | Using Pointers to Communicate Between Functions                     [P0373]
-   *  Key Concepts                                                        [P0378]
-   *  Summary                                                             [P0378]
-   *  Review Questions                                                    [P0379]
-   *  Programming Exercises                                               [P0380]
+   * ``| Recursion Pros and Cons                                            `` [P0360]_
+   * ``Compiling Programs with Two or More Source Code Files              `` [P0361]_
+   * ``| Unix                                                               `` [P0362]_
+   * ``| Linux                                                              `` [P0362]_
+   * ``| DOS Command-Line Compilers                                         `` [P0362]_
+   * ``| Windows and Apple IDE Compilers                                    `` [P0362]_
+   * ``| Using Header Files                                                 `` [P0363]_
+   * ``Finding Addresses: The & Operator                                  `` [P0367]_
+   * ``Altering Variables in the Calling Function                         `` [P0369]_
+   * ``Pointers: A First Look                                             `` [P0371]_
+   * ``| The Indirection Operator: *                                        `` [P0371]_
+   * ``| Declaring Pointers                                                 `` [P0372]_
+   * ``| Using Pointers to Communicate Between Functions                    `` [P0373]_
+   * ``Key Concepts                                                       `` [P0378]_
+   * ``Summary                                                            `` [P0378]_
+   * ``Review Questions                                                   `` [P0379]_
+   * ``Programming Exercises                                              `` [P0380]_
 
 /TOC10 Arrays and Pointers
 --------------------------
 
-   * C10 Arrays and Pointers                                              [P0383]
-   *  Arrays                                                              [P0383]
-   *  | Initialization                                                      [P0384]
-   *  | Designated Initializers (C99)                                       [P0388]
-   *  | Assigning Array Values                                              [P0390]
-   *  | Array Bounds                                                        [P0390]
-   *  | Specifying an Array Size                                            [P0392]
-   *  Multidimensional Arrays                                             [P0393]
-   *  | Initializing a Two-Dimensional Array                                [P0397]
-   *  | More Dimensions                                                     [P0398]
-   *  Pointers and Arrays                                                 [P0398]
-   *  Functions, Arrays, and Pointers                                     [P0401]
-   *  | Using Pointer Parameters                                            [P0404]
-   *  | Comment: Pointers and Arrays                                        [P0407]
-   *  Pointer Operations                                                  [P0407]
-   *  Protecting Array Contents                                           [P0412]
-   *  | Using const with Formal Parameters                                  [P0413]
-   *  | More About const                                                    [P0415]
+   * ``C10 Arrays and Pointers                                             `` [P0383]_
+   * ``Arrays                                                             `` [P0383]_
+   * ``| Initialization                                                     `` [P0384]_
+   * ``| Designated Initializers (C99)                                      `` [P0388]_
+   * ``| Assigning Array Values                                             `` [P0390]_
+   * ``| Array Bounds                                                       `` [P0390]_
+   * ``| Specifying an Array Size                                           `` [P0392]_
+   * ``Multidimensional Arrays                                            `` [P0393]_
+   * ``| Initializing a Two-Dimensional Array                               `` [P0397]_
+   * ``| More Dimensions                                                    `` [P0398]_
+   * ``Pointers and Arrays                                                `` [P0398]_
+   * ``Functions, Arrays, and Pointers                                    `` [P0401]_
+   * ``| Using Pointer Parameters                                           `` [P0404]_
+   * ``| Comment: Pointers and Arrays                                       `` [P0407]_
+   * ``Pointer Operations                                                 `` [P0407]_
+   * ``Protecting Array Contents                                          `` [P0412]_
+   * ``| Using const with Formal Parameters                                 `` [P0413]_
+   * ``| More About const                                                   `` [P0415]_
    
    ..   ptg11524036
 
-   :sup:`Pxiv` Contents
+.. _Pxiv:
 
-   *  Pointers and Multidimensional Arrays                                [P0417]
-   *  | Pointers to Multidimensional Arrays                                 [P0420]
-   *  | Pointer Compatibility                                               [P0421]
-   *  | Functions and Multidimensional Arrays                               [P0423]
-   *  Variable-Length Arrays (VLAs)                                       [P0427]
-   *  Compound Literals                                                   [P0431]
-   *  Key Concepts                                                        [P0434]
-   *  Summary                                                             [P0435]
-   *  Review Questions                                                    [P0436]
-   *  Programming Exercises                                               [P0439]
+   * ``Pointers and Multidimensional Arrays                               `` [P0417]_
+   * ``| Pointers to Multidimensional Arrays                                `` [P0420]_
+   * ``| Pointer Compatibility                                              `` [P0421]_
+   * ``| Functions and Multidimensional Arrays                              `` [P0423]_
+   * ``Variable-Length Arrays (VLAs)                                      `` [P0427]_
+   * ``Compound Literals                                                  `` [P0431]_
+   * ``Key Concepts                                                       `` [P0434]_
+   * ``Summary                                                            `` [P0435]_
+   * ``Review Questions                                                   `` [P0436]_
+   * ``Programming Exercises                                              `` [P0439]_
 
 /TOC11 Character Strings and String Functions
 ---------------------------------------------
 
-   * C11 Character Strings and String Functions                           [P0441]
-   *  Representing Strings and String I/O                                 [P0441]
-   *  | Defining Strings Within a Program                                   [P0442]
-   *  | Pointers and Strings                                                [P0451]
-   *  String Input                                                        [P0453]
-   *  | Creating Space                                                      [P0453]
-   *  | The Unfortunate gets() Function                                     [P0453]
-   *  | The Alternatives to gets()                                          [P0455]
-   *  | The scanf() Function                                                [P0462]
-   *  String Output                                                       [P0464]
-   *  | The puts() Function                                                 [P0464]
-   *  | The fputs() Function                                                [P0465]
-   *  | The printf() Function                                               [P0466]
-   *  The Do-It-Yourself Option                                           [P0466]
-   *  String Functions                                                    [P0469]
-   *  | The strlen() Function                                               [P0469]
-   *  | The strcat() Function                                               [P0471]
-   *  | The strncat() Function                                              [P0473]
-   *  | The strcmp() Function                                               [P0475]
-   *  | The strcpy() and strncpy() Functions                                [P0482]
-   *  | The sprintf() Function                                              [P0487]
-   *  | Other String Functions                                              [P0489]
-   *  A String Example: Sorting Strings                                   [P0491]
-   *  | Sorting Pointers Instead of Strings                                 [P0493]
-   *  | The Selection Sort Algorithm                                        [P0494]
+   * ``C11 Character Strings and String Functions                          `` [P0441]_
+   * ``Representing Strings and String I/O                                `` [P0441]_
+   * ``| Defining Strings Within a Program                                  `` [P0442]_
+   * ``| Pointers and Strings                                               `` [P0451]_
+   * ``String Input                                                       `` [P0453]_
+   * ``| Creating Space                                                     `` [P0453]_
+   * ``| The Unfortunate gets() Function                                    `` [P0453]_
+   * ``| The Alternatives to gets()                                         `` [P0455]_
+   * ``| The scanf() Function                                               `` [P0462]_
+   * ``String Output                                                      `` [P0464]_
+   * ``| The puts() Function                                                `` [P0464]_
+   * ``| The fputs() Function                                               `` [P0465]_
+   * ``| The printf() Function                                              `` [P0466]_
+   * ``The Do-It-Yourself Option                                          `` [P0466]_
+   * ``String Functions                                                   `` [P0469]_
+   * ``| The strlen() Function                                              `` [P0469]_
+   * ``| The strcat() Function                                              `` [P0471]_
+   * ``| The strncat() Function                                             `` [P0473]_
+   * ``| The strcmp() Function                                              `` [P0475]_
+   * ``| The strcpy() and strncpy() Functions                               `` [P0482]_
+   * ``| The sprintf() Function                                             `` [P0487]_
+   * ``| Other String Functions                                             `` [P0489]_
+   * ``A String Example: Sorting Strings                                  `` [P0491]_
+   * ``| Sorting Pointers Instead of Strings                                `` [P0493]_
+   * ``| The Selection Sort Algorithm                                       `` [P0494]_
    
    ..   ptg11524036
 
-   :sup:`Pxv` Contents
+.. _Pxv:
 
-   *  The ctype.h Character Functions and Strings                         [P0495]
-   *  Command-Line Arguments                                              [P0497]
-   *  | Command-Line Arguments in Integrated Environments                   [P0500]
-   *  | Command-Line Arguments with the Macintosh                           [P0500]
-   *  String-to-Number Conversions                                        [P0500]
-   *  Key Concepts                                                        [P0504]
-   *  Summary                                                             [P0504]
-   *  Review Questions                                                    [P0505]
-   *  Programming Exercises                                               [P0508]
+   * ``The ctype.h Character Functions and Strings                        `` [P0495]_
+   * ``Command-Line Arguments                                             `` [P0497]_
+   * ``| Command-Line Arguments in Integrated Environments                  `` [P0500]_
+   * ``| Command-Line Arguments with the Macintosh                          `` [P0500]_
+   * ``String-to-Number Conversions                                       `` [P0500]_
+   * ``Key Concepts                                                       `` [P0504]_
+   * ``Summary                                                            `` [P0504]_
+   * ``Review Questions                                                   `` [P0505]_
+   * ``Programming Exercises                                              `` [P0508]_
 
 /TOC12 Storage Classes, Linkage, and Memory Management
 ------------------------------------------------------
 
-   * C12 Storage Classes, Linkage, and Memory Management                  [P0511]
-   *  Storage Classes                                                     [P0511]
-   *  | Scope                                                               [P0513]
-   *  | Linkage                                                             [P0515]
-   *  | Storage Duration                                                    [P0516]
-   *  | Automatic Variables                                                 [P0518]
-   *  | Register Variables                                                  [P0522]
-   *  | Static Variables with Block Scope                                   [P0522]
-   *  | Static Variables with External Linkage                              [P0524]
-   *  | Static Variables with Internal Linkage                              [P0529]
-   *  | Multiple Files                                                      [P0530]
-   *  | Storage-Class Specifier Roundup                                     [P0530]
-   *  | Storage Classes and Functions                                       [P0533]
-   *  | Which Storage Class?                                                [P0534]
-   *  A Random-Number Function and a Static Variable                      [P0534]
-   *  Roll ’Em                                                            [P0538]
-   *  Allocated Memory: malloc() and free()                               [P0543]
-   *  | The Importance of free()                                            [P0547]
-   *  | The calloc() Function                                               [P0548]
-   *  | Dynamic Memory Allocation and Variable-Length Arrays                [P0548]
-   *  | Storage Classes and Dynamic Memory Allocation                       [P0549]
-   *  ANSI C Type Qualifiers                                              [P0551]
-   *  | The const Type Qualifier                                            [P0552]
-   *  | The volatile Type Qualifier                                         [P0554]
-   *  | The restrict Type Qualifier                                         [P0555]
-   *  | The _Atomic Type Qualifier (C11)                                    [P0556]
-   *  | New Places for Old Keywords                                         [P0557]
+   * ``C12 Storage Classes, Linkage, and Memory Management                 `` [P0511]_
+   * ``Storage Classes                                                    `` [P0511]_
+   * ``| Scope                                                              `` [P0513]_
+   * ``| Linkage                                                            `` [P0515]_
+   * ``| Storage Duration                                                   `` [P0516]_
+   * ``| Automatic Variables                                                `` [P0518]_
+   * ``| Register Variables                                                 `` [P0522]_
+   * ``| Static Variables with Block Scope                                  `` [P0522]_
+   * ``| Static Variables with External Linkage                             `` [P0524]_
+   * ``| Static Variables with Internal Linkage                             `` [P0529]_
+   * ``| Multiple Files                                                     `` [P0530]_
+   * ``| Storage-Class Specifier Roundup                                    `` [P0530]_
+   * ``| Storage Classes and Functions                                      `` [P0533]_
+   * ``| Which Storage Class?                                               `` [P0534]_
+   * ``A Random-Number Function and a Static Variable                     `` [P0534]_
+   * ``Roll ’Em                                                           `` [P0538]_
+   * ``Allocated Memory: malloc() and free()                              `` [P0543]_
+   * ``| The Importance of free()                                           `` [P0547]_
+   * ``| The calloc() Function                                              `` [P0548]_
+   * ``| Dynamic Memory Allocation and Variable-Length Arrays               `` [P0548]_
+   * ``| Storage Classes and Dynamic Memory Allocation                      `` [P0549]_
+   * ``ANSI C Type Qualifiers                                             `` [P0551]_
+   * ``| The const Type Qualifier                                           `` [P0552]_
+   * ``| The volatile Type Qualifier                                        `` [P0554]_
+   * ``| The restrict Type Qualifier                                        `` [P0555]_
+   * ``| The _Atomic Type Qualifier (C11)                                   `` [P0556]_
+   * ``| New Places for Old Keywords                                        `` [P0557]_
    
    ..   ptg11524036
 
-   :sup:`Pxvi` Contents
+.. _Pxvi:
 
-   *  Key Concepts                                                        [P0558]
-   *  Summary                                                             [P0558]
-   *  Review Questions                                                    [P0559]
-   *  Programming Exercises                                               [P0561]
+   * ``Key Concepts                                                       `` [P0558]_
+   * ``Summary                                                            `` [P0558]_
+   * ``Review Questions                                                   `` [P0559]_
+   * ``Programming Exercises                                              `` [P0561]_
 
 /TOC13 File Input/Output
 ------------------------
 
-   * C13 File Input/Output                                                [P0565]
-   *  Communicating with Files                                            [P0565]
-   *  | What Is a File?                                                     [P0566]
-   *  | The Text Mode and the Binary Mode                                   [P0566]
-   *  | Levels of I/O                                                       [P0568]
-   *  | Standard Files                                                      [P0568]
-   *  Standard I/O                                                        [P0568]
-   *  | Checking for Command-Line Arguments                                 [P0569]
-   *  | The fopen() Function                                                [P0570]
-   *  | The getc() and putc() Functions                                     [P0572]
-   *  | End-of-File                                                         [P0572]
-   *  | The fclose() Function                                               [P0574]
-   *  | Pointers to the Standard Files                                      [P0574]
-   *  A Simple-Minded File-Condensing Program                             [P0574]
-   *  | File I/O: fprintf() , fscanf() , fgets() , and fputs()              [P0576]
-   *  | The fprintf() and fscanf() Functions                                [P0576]
-   *  | The fgets() and fputs() Functions                                   [P0578]
-   *  Adventures in Random Access: fseek() and ftell()                    [P0579]
-   *  | How fseek() and ftell() Work                                        [P0580]
-   *  | Binary Versus Text Mode                                             [P0582]
-   *  | Portability                                                         [P0582]
-   *  | The fgetpos() and fsetpos() Functions                               [P0583]
-   *  Behind the Scenes with Standard I/O                                 [P0583]
-   *  Other Standard I/O Functions                                        [P0584]
-   *  | The int ungetc(int c, FILE \*fp) Function                           [P0585]
-   *  | The int fflush() Function                                           [P0585]
-   *  | The int setvbuf() Function                                          [P0585]
-   *  | Binary I/O: fread() and fwrite()                                    [P0586]
-   *  | The size_t fwrite() Function                                        [P0588]
-   *  | The size_t fread() Function                                         [P0588]
-   *  | The int feof(FILE \*fp) and int ferror(FILE \*fp) Functions         [P0589]
-   *  | An fread() and fwrite() Example                                     [P0589]
+   * ``C13 File Input/Output                                               `` [P0565]_
+   * ``Communicating with Files                                           `` [P0565]_
+   * ``| What Is a File?                                                    `` [P0566]_
+   * ``| The Text Mode and the Binary Mode                                  `` [P0566]_
+   * ``| Levels of I/O                                                      `` [P0568]_
+   * ``| Standard Files                                                     `` [P0568]_
+   * ``Standard I/O                                                       `` [P0568]_
+   * ``| Checking for Command-Line Arguments                                `` [P0569]_
+   * ``| The fopen() Function                                               `` [P0570]_
+   * ``| The getc() and putc() Functions                                    `` [P0572]_
+   * ``| End-of-File                                                        `` [P0572]_
+   * ``| The fclose() Function                                              `` [P0574]_
+   * ``| Pointers to the Standard Files                                     `` [P0574]_
+   * ``A Simple-Minded File-Condensing Program                            `` [P0574]_
+   * ``| File I/O: fprintf() , fscanf() , fgets() , and fputs()             `` [P0576]_
+   * ``| The fprintf() and fscanf() Functions                               `` [P0576]_
+   * ``| The fgets() and fputs() Functions                                  `` [P0578]_
+   * ``Adventures in Random Access: fseek() and ftell()                   `` [P0579]_
+   * ``| How fseek() and ftell() Work                                       `` [P0580]_
+   * ``| Binary Versus Text Mode                                            `` [P0582]_
+   * ``| Portability                                                        `` [P0582]_
+   * ``| The fgetpos() and fsetpos() Functions                              `` [P0583]_
+   * ``Behind the Scenes with Standard I/O                                `` [P0583]_
+   * ``Other Standard I/O Functions                                       `` [P0584]_
+   * ``| The int ungetc(int c, FILE \*fp) Function                          `` [P0585]_
+   * ``| The int fflush() Function                                          `` [P0585]_
+   * ``| The int setvbuf() Function                                         `` [P0585]_
+   * ``| Binary I/O: fread() and fwrite()                                   `` [P0586]_
+   * ``| The size_t fwrite() Function                                       `` [P0588]_
+   * ``| The size_t fread() Function                                        `` [P0588]_
+   * ``| The int feof(FILE \*fp) and int ferror(FILE \*fp) Functions        `` [P0589]_
+   * ``| An fread() and fwrite() Example                                    `` [P0589]_
    
    ..   ptg11524036
 
-   :sup:`Pxvii` Contents
+.. _Pxvii:
 
-   *  | Random Access with Binary I/O                                       [P0593]
-   *  Key Concepts                                                        [P0594]
-   *  Summary                                                             [P0595]
-   *  Review Questions                                                    [P0596]
-   *  Programming Exercises                                               [P0598]
+   * ``| Random Access with Binary I/O                                      `` [P0593]_
+   * ``Key Concepts                                                       `` [P0594]_
+   * ``Summary                                                            `` [P0595]_
+   * ``Review Questions                                                   `` [P0596]_
+   * ``Programming Exercises                                              `` [P0598]_
 
 /TOC14 Structures and Other Data Forms
 --------------------------------------
 
-   * C14 Structures and Other Data Forms                                  [P0601]
-   *  Sample Problem: Creating an Inventory of Books                      [P0601]
-   *  Setting Up the Structure Declaration                                [P0604]
-   *  Defining a Structure Variable                                       [P0604]
-   *  | Initializing a Structure                                            [P0606]
-   *  | Gaining Access to Structure Members                                 [P0607]
-   *  | Initializers for Structures                                         [P0607]
-   *  Arrays of Structures                                                [P0608]
-   *  | Declaring an Array of Structures                                    [P0611]
-   *  | Identifying Members of an Array of Structures                       [P0612]
-   *  | Program Discussion                                                  [P0612]
-   *  Nested Structures                                                   [P0613]
-   *  Pointers to Structures                                              [P0615]
-   *  | Declaring and Initializing a Structure Pointer                      [P0617]
-   *  | Member Access by Pointer                                            [P0617]
-   *  Telling Functions About Structures                                  [P0618]
-   *  | Passing Structure Members                                           [P0618]
-   *  | Using the Structure Address                                         [P0619]
-   *  | Passing a Structure as an Argument                                  [P0621]
-   *  | More on Structure Features                                          [P0622]
-   *  | Structures or Pointer to Structures?                                [P0626]
-   *  | Character Arrays or Character Pointers in a Structure               [P0627]
-   *  | Structure, Pointers, and malloc()                                   [P0628]
-   *  | Compound Literals and Structures (C99)                              [P0631]
-   *  | Flexible Array Members (C99)                                        [P0633]
-   *  | Anonymous Structures (C11)                                          [P0636]
-   *  | Functions Using an Array of Structures                              [P0637]
-   *  Saving the Structure Contents in a File                             [P0639]
-   *  | A Structure-Saving Example                                          [P0640]
-   *  | Program Points                                                      [P0643]
-   *  Structures: What Next?                                              [P0644]
+   * ``C14 Structures and Other Data Forms                                 `` [P0601]_
+   * ``Sample Problem: Creating an Inventory of Books                     `` [P0601]_
+   * ``Setting Up the Structure Declaration                               `` [P0604]_
+   * ``Defining a Structure Variable                                      `` [P0604]_
+   * ``| Initializing a Structure                                           `` [P0606]_
+   * ``| Gaining Access to Structure Members                                `` [P0607]_
+   * ``| Initializers for Structures                                        `` [P0607]_
+   * ``Arrays of Structures                                               `` [P0608]_
+   * ``| Declaring an Array of Structures                                   `` [P0611]_
+   * ``| Identifying Members of an Array of Structures                      `` [P0612]_
+   * ``| Program Discussion                                                 `` [P0612]_
+   * ``Nested Structures                                                  `` [P0613]_
+   * ``Pointers to Structures                                             `` [P0615]_
+   * ``| Declaring and Initializing a Structure Pointer                     `` [P0617]_
+   * ``| Member Access by Pointer                                           `` [P0617]_
+   * ``Telling Functions About Structures                                 `` [P0618]_
+   * ``| Passing Structure Members                                          `` [P0618]_
+   * ``| Using the Structure Address                                        `` [P0619]_
+   * ``| Passing a Structure as an Argument                                 `` [P0621]_
+   * ``| More on Structure Features                                         `` [P0622]_
+   * ``| Structures or Pointer to Structures?                               `` [P0626]_
+   * ``| Character Arrays or Character Pointers in a Structure              `` [P0627]_
+   * ``| Structure, Pointers, and malloc()                                  `` [P0628]_
+   * ``| Compound Literals and Structures (C99)                             `` [P0631]_
+   * ``| Flexible Array Members (C99)                                       `` [P0633]_
+   * ``| Anonymous Structures (C11)                                         `` [P0636]_
+   * ``| Functions Using an Array of Structures                             `` [P0637]_
+   * ``Saving the Structure Contents in a File                            `` [P0639]_
+   * ``| A Structure-Saving Example                                         `` [P0640]_
+   * ``| Program Points                                                     `` [P0643]_
+   * ``Structures: What Next?                                             `` [P0644]_
    
    ..   ptg11524036
 
-   :sup:`Pxviii` Contents
+.. _Pxviii:
 
-   *  Unions: A Quick Look                                                [P0645]
-   *  | Using Unions                                                        [P0646]
-   *  | Anonymous Unions (C11)                                              [P0647]
-   *  Enumerated Types                                                    [P0649]
-   *  | enum Constants                                                      [P0649]
-   *  | Default Values                                                      [P0650]
-   *  | Assigned Values                                                     [P0650]
-   *  | enum Usage                                                          [P0650]
-   *  | Shared Namespaces                                                   [P0652]
-   *  typedef : A Quick Look                                              [P0653]
-   *  Fancy Declarations                                                  [P0655]
-   *  Functions and Pointers                                              [P0657]
-   *  Key Concepts                                                        [P0665]
-   *  Summary                                                             [P0665]
-   *  Review Questions                                                    [P0666]
-   *  Programming Exercises                                               [P0669]
+   * ``Unions: A Quick Look                                               `` [P0645]_
+   * ``| Using Unions                                                       `` [P0646]_
+   * ``| Anonymous Unions (C11)                                             `` [P0647]_
+   * ``Enumerated Types                                                   `` [P0649]_
+   * ``| enum Constants                                                     `` [P0649]_
+   * ``| Default Values                                                     `` [P0650]_
+   * ``| Assigned Values                                                    `` [P0650]_
+   * ``| enum Usage                                                         `` [P0650]_
+   * ``| Shared Namespaces                                                  `` [P0652]_
+   * ``typedef : A Quick Look                                             `` [P0653]_
+   * ``Fancy Declarations                                                 `` [P0655]_
+   * ``Functions and Pointers                                             `` [P0657]_
+   * ``Key Concepts                                                       `` [P0665]_
+   * ``Summary                                                            `` [P0665]_
+   * ``Review Questions                                                   `` [P0666]_
+   * ``Programming Exercises                                              `` [P0669]_
 
 /TOC15 Bit Fiddling
 -------------------
 
-   * C15 Bit Fiddling                                                     [P0673]
-   *  Binary Numbers, Bits, and Bytes                                     [P0674]
-   *  | Binary Integers                                                     [P0674]
-   *  | Signed Integers                                                     [P0675]
-   *  | Binary Floating Point                                               [P0676]
-   *  Other Number Bases                                                  [P0676]
-   *  | Octal                                                               [P0677]
-   *  | Hexadecimal                                                         [P0677]
-   *  C’s Bitwise Operators                                               [P0678]
-   *  | Bitwise Logical Operators                                           [P0678]
-   *  | Usage: Masks                                                        [P0680]
-   *  | Usage: Turning Bits On (Setting Bits)                               [P0681]
-   *  | Usage: Turning Bits Off (Clearing Bits)                             [P0682]
-   *  | Usage: Toggling Bits                                                [P0683]
-   *  | Usage: Checking the Value of a Bit                                  [P0683]
-   *  | Bitwise Shift Operators                                             [P0684]
-   *  | Programming Example                                                 [P0685]
-   *  | Another Example                                                     [P0688]
-   *  Bit Fields                                                          [P0690]
-   *  | Bit-Field Example                                                   [P0692]
+   * ``C15 Bit Fiddling                                                    `` [P0673]_
+   * ``Binary Numbers, Bits, and Bytes                                    `` [P0674]_
+   * ``| Binary Integers                                                    `` [P0674]_
+   * ``| Signed Integers                                                    `` [P0675]_
+   * ``| Binary Floating Point                                              `` [P0676]_
+   * ``Other Number Bases                                                 `` [P0676]_
+   * ``| Octal                                                              `` [P0677]_
+   * ``| Hexadecimal                                                        `` [P0677]_
+   * ``C’s Bitwise Operators                                              `` [P0678]_
+   * ``| Bitwise Logical Operators                                          `` [P0678]_
+   * ``| Usage: Masks                                                       `` [P0680]_
+   * ``| Usage: Turning Bits On (Setting Bits)                              `` [P0681]_
+   * ``| Usage: Turning Bits Off (Clearing Bits)                            `` [P0682]_
+   * ``| Usage: Toggling Bits                                               `` [P0683]_
+   * ``| Usage: Checking the Value of a Bit                                 `` [P0683]_
+   * ``| Bitwise Shift Operators                                            `` [P0684]_
+   * ``| Programming Example                                                `` [P0685]_
+   * ``| Another Example                                                    `` [P0688]_
+   * ``Bit Fields                                                         `` [P0690]_
+   * ``| Bit-Field Example                                                  `` [P0692]_
    
    ..   ptg11524036
 
-   :sup:`Pxix` Contents
+.. _Pxix:
 
-   *  | Bit Fields and Bitwise Operators                                    [P0696]
-   *  Alignment Features (C11)                                            [P0703]
-   *  Key Concepts                                                        [P0705]
-   *  Summary                                                             [P0706]
-   *  Review Questions                                                    [P0706]
-   *  Programming Exercises                                               [P0708]
+   * ``| Bit Fields and Bitwise Operators                                   `` [P0696]_
+   * ``Alignment Features (C11)                                           `` [P0703]_
+   * ``Key Concepts                                                       `` [P0705]_
+   * ``Summary                                                            `` [P0706]_
+   * ``Review Questions                                                   `` [P0706]_
+   * ``Programming Exercises                                              `` [P0708]_
 
 /TOC16 The C Preprocessor and the C Library
 -------------------------------------------
 
-   * C16 The C Preprocessor and the C Library                             [P0711]
-   *  First Steps in Translating a Program                                [P0712]
-   *  Manifest Constants: #define                                         [P0713]
-   *  | Tokens                                                              [P0717]
-   *  | Redefining Constants                                                [P0717]
-   *  Using Arguments with #define                                        [P0718]
-   *  | Creating Strings from Macro Arguments: The # Operator               [P0721]
-   *  | Preprocessor Glue: The ## Operator                                  [P0722]
-   *  | Variadic Macros: ... and __VA_ARGS__                                [P0723]
-   *  Macro or Function?                                                  [P0725]
-   *  File Inclusion: #include                                            [P0726]
-   *  | Header Files: An Example                                            [P0727]
-   *  | Uses for Header Files                                               [P0729]
-   *  Other Directives                                                    [P0730]
-   *  | The #undef Directive                                                [P0731]
-   *  | Being Defined—The C Preprocessor Perspective                        [P0731]
-   *  | Conditional Compilation                                             [P0731]
-   *  | Predefined Macros                                                   [P0737]
-   *  | #line and #error                                                    [P0738]
-   *  | #pragma                                                             [P0739]
-   *  | Generic Selection (C11)                                             [P0740]
-   *  Inline Functions (C99)                                              [P0741]
-   *  _Noreturn Functions (C11)                                           [P0744]
-   *  The C Library                                                       [P0744]
-   *  | Gaining Access to the C Library                                     [P0745]
-   *  | Using the Library Descriptions                                      [P0746]
-   *  The Math Library                                                    [P0747]
-   *  | A Little Trigonometry                                               [P0748]
-   *  | Type Variants                                                       [P0750]
-   *  | The tgmath.h Library (C99)                                          [P0752]
+   * ``C16 The C Preprocessor and the C Library                            `` [P0711]_
+   * ``First Steps in Translating a Program                               `` [P0712]_
+   * ``Manifest Constants: #define                                        `` [P0713]_
+   * ``| Tokens                                                             `` [P0717]_
+   * ``| Redefining Constants                                               `` [P0717]_
+   * ``Using Arguments with #define                                       `` [P0718]_
+   * ``| Creating Strings from Macro Arguments: The # Operator              `` [P0721]_
+   * ``| Preprocessor Glue: The ## Operator                                 `` [P0722]_
+   * ``| Variadic Macros: ... and __VA_ARGS__                               `` [P0723]_
+   * ``Macro or Function?                                                 `` [P0725]_
+   * ``File Inclusion: #include                                           `` [P0726]_
+   * ``| Header Files: An Example                                           `` [P0727]_
+   * ``| Uses for Header Files                                              `` [P0729]_
+   * ``Other Directives                                                   `` [P0730]_
+   * ``| The #undef Directive                                               `` [P0731]_
+   * ``| Being Defined—The C Preprocessor Perspective                       `` [P0731]_
+   * ``| Conditional Compilation                                            `` [P0731]_
+   * ``| Predefined Macros                                                  `` [P0737]_
+   * ``| #line and #error                                                   `` [P0738]_
+   * ``| #pragma                                                            `` [P0739]_
+   * ``| Generic Selection (C11)                                            `` [P0740]_
+   * ``Inline Functions (C99)                                             `` [P0741]_
+   * ``_Noreturn Functions (C11)                                          `` [P0744]_
+   * ``The C Library                                                      `` [P0744]_
+   * ``| Gaining Access to the C Library                                    `` [P0745]_
+   * ``| Using the Library Descriptions                                     `` [P0746]_
+   * ``The Math Library                                                   `` [P0747]_
+   * ``| A Little Trigonometry                                              `` [P0748]_
+   * ``| Type Variants                                                      `` [P0750]_
+   * ``| The tgmath.h Library (C99)                                         `` [P0752]_
    
    ..   ptg11524036
 
-   :sup:`Pxx` Contents
+.. _Pxx:
 
-   *  The General Utilities Library                                       [P0753]
-   *  | The exit() and atexit() Functions                                   [P0753]
-   *  | The qsort() Function                                                [P0755]
-   *  The Assert Library                                                  [P0760]
-   *  | Using assert                                                        [P0760]
-   *  | _Static_asse| rt (C11)                                                [P0762]
-   *  memcpy() and memmove() from the string.h Library                    [P0763]
-   *  Variable Arguments: stdarg.h                                        [P0765]
-   *  Key Concepts                                                        [P0768]
-   *  Summary                                                             [P0768]
-   *  Review Questions                                                    [P0768]
-   *  Programming Exercises                                               [P0770]
+   * ``The General Utilities Library                                      `` [P0753]_
+   * ``| The exit() and atexit() Functions                                  `` [P0753]_
+   * ``| The qsort() Function                                               `` [P0755]_
+   * ``The Assert Library                                                 `` [P0760]_
+   * ``| Using assert                                                       `` [P0760]_
+   * ``| _Static_asse| rt (C11)                                               `` [P0762]_
+   * ``memcpy() and memmove() from the string.h Library                   `` [P0763]_
+   * ``Variable Arguments: stdarg.h                                       `` [P0765]_
+   * ``Key Concepts                                                       `` [P0768]_
+   * ``Summary                                                            `` [P0768]_
+   * ``Review Questions                                                   `` [P0768]_
+   * ``Programming Exercises                                              `` [P0770]_
 
 /TOC17 Advanced Data Representation
 -----------------------------------
 
-   * C17 Advanced Data Representation                                     [P0773]
-   *  Exploring Data Representation                                       [P0774]
-   *  Beyond the Array to the Linked List                                 [P0777]
-   *  | Using a Linked List                                                 [P0781]
-   *  | Afterthoughts                                                       [P0786]
-   *  Abstract Data Types (ADTs)                                          [P0786]
-   *  | Getting Abstract                                                    [P0788]
-   *  | Building an Interface                                               [P0789]
-   *  | Using the Interface                                                 [P0793]
-   *  | Implementing the Interface                                          [P0796]
-   *  Getting Queued with an ADT                                          [P0804]
-   *  | Defining the Queue Abstract Data Type                               [P0804]
-   *  | Defining an Interface                                               [P0805]
-   *  | Implementing the Interface Data Representation                      [P0806]
-   *  | Testing the Queue                                                   [P0815]
-   *  Simulating with a Queue                                             [P0818]
-   *  The Linked List Versus the Array                                    [P0824]
-   *  Binary Search Trees                                                 [P0828]
-   *  | A Binary Tree ADT                                                   [P0829]
-   *  | The Binary Search Tree Interface                                    [P0830]
-   *  | The Binary Tree Implementation                                      [P0833]
-   *  | Trying the Tree                                                     [P0849]
-   *  | Tree Thoughts                                                       [P0854]
+   * ``C17 Advanced Data Representation                                    `` [P0773]_
+   * ``Exploring Data Representation                                      `` [P0774]_
+   * ``Beyond the Array to the Linked List                                `` [P0777]_
+   * ``| Using a Linked List                                                `` [P0781]_
+   * ``| Afterthoughts                                                      `` [P0786]_
+   * ``Abstract Data Types (ADTs)                                         `` [P0786]_
+   * ``| Getting Abstract                                                   `` [P0788]_
+   * ``| Building an Interface                                              `` [P0789]_
+   * ``| Using the Interface                                                `` [P0793]_
+   * ``| Implementing the Interface                                         `` [P0796]_
+   * ``Getting Queued with an ADT                                         `` [P0804]_
+   * ``| Defining the Queue Abstract Data Type                              `` [P0804]_
+   * ``| Defining an Interface                                              `` [P0805]_
+   * ``| Implementing the Interface Data Representation                     `` [P0806]_
+   * ``| Testing the Queue                                                  `` [P0815]_
+   * ``Simulating with a Queue                                            `` [P0818]_
+   * ``The Linked List Versus the Array                                   `` [P0824]_
+   * ``Binary Search Trees                                                `` [P0828]_
+   * ``| A Binary Tree ADT                                                  `` [P0829]_
+   * ``| The Binary Search Tree Interface                                   `` [P0830]_
+   * ``| The Binary Tree Implementation                                     `` [P0833]_
+   * ``| Trying the Tree                                                    `` [P0849]_
+   * ``| Tree Thoughts                                                      `` [P0854]_
    
    ..   ptg11524036
 
-   :sup:`Pxxi` Contents
+.. _Pxxi:
 
-   *  Other Directions                                                    [P0856]
-   *  Key Concepts                                                        [P0856]
-   *  Summary                                                             [P0857]
-   *  Review Questions                                                    [P0857]
-   *  Programming Exercises                                               [P0858]
+   * ``Other Directions                                                   `` [P0856]_
+   * ``Key Concepts                                                       `` [P0856]_
+   * ``Summary                                                            `` [P0857]_
+   * ``Review Questions                                                   `` [P0857]_
+   * ``Programming Exercises                                              `` [P0858]_
 
 /TOCA Answers to the Review Questions
 -------------------------------------
 
-   *  A Answers to the Review Questions                                   [P0861]
-   *  | Answers to Review Questions for Chapter 1                           [P0861]
-   *  | Answers to Review Questions for Chapter 2                           [P0862]
-   *  | Answers to Review Questions for Chapter 3                           [P0863]
-   *  | Answers to Review Questions for Chapter 4                           [P0866]
-   *  | Answers to Review Questions for Chapter 5                           [P0869]
-   *  | Answers to Review Questions for Chapter 6                           [P0872]
-   *  | Answers to Review Questions for Chapter 7                           [P0876]
-   *  | Answers to Review Questions for Chapter 8                           [P0879]
-   *  | Answers to Review Questions for Chapter 9                           [P0881]
-   *  | Answers to Review Questions for Chapter 10                          [P0883]
-   *  | Answers to Review Questions for Chapter 11                          [P0886]
-   *  | Answers to Review Questions for Chapter 12                          [P0890]
-   *  | Answers to Review Questions for Chapter 13                          [P0891]
-   *  | Answers to Review Questions for Chapter 14                          [P0894]
-   *  | Answers to Review Questions for Chapter 15                          [P0898]
-   *  | Answers to Review Questions for Chapter 16                          [P0899]
-   *  | Answers to Review Questions for Chapter 17                          [P0901]
+   * ``A Answers to the Review Questions                                  `` [P0861]_
+   * ``| Answers to Review Questions for Chapter 1                          `` [P0861]_
+   * ``| Answers to Review Questions for Chapter 2                          `` [P0862]_
+   * ``| Answers to Review Questions for Chapter 3                          `` [P0863]_
+   * ``| Answers to Review Questions for Chapter 4                          `` [P0866]_
+   * ``| Answers to Review Questions for Chapter 5                          `` [P0869]_
+   * ``| Answers to Review Questions for Chapter 6                          `` [P0872]_
+   * ``| Answers to Review Questions for Chapter 7                          `` [P0876]_
+   * ``| Answers to Review Questions for Chapter 8                          `` [P0879]_
+   * ``| Answers to Review Questions for Chapter 9                          `` [P0881]_
+   * ``| Answers to Review Questions for Chapter 10                         `` [P0883]_
+   * ``| Answers to Review Questions for Chapter 11                         `` [P0886]_
+   * ``| Answers to Review Questions for Chapter 12                         `` [P0890]_
+   * ``| Answers to Review Questions for Chapter 13                         `` [P0891]_
+   * ``| Answers to Review Questions for Chapter 14                         `` [P0894]_
+   * ``| Answers to Review Questions for Chapter 15                         `` [P0898]_
+   * ``| Answers to Review Questions for Chapter 16                         `` [P0899]_
+   * ``| Answers to Review Questions for Chapter 17                         `` [P0901]_
 
 /TOCB Reference Section
 -----------------------
 
-   *  B Reference Section                                                 [P0905]
-   *  Section I: Additional Reading                                       [P0905]
-   *  | Online Resources                                                    [P0905]
-   *  | C Language Books                                                    [P0907]
-   *  | Programming Books                                                   [P0907]
-   *  | Reference Books                                                     [P0908]
-   *  | C++ Books                                                           [P0908]
-   *  Section II: C Operators                                             [P0908]
-   *  | Arithmetic Operators                                                [P0909]
-   *  | Relational Operators                                                [P0910]
-   *  | Assignment Operators                                                [P0910]
-   *  | Logical Operators                                                   [P0911]
+   * ``B Reference Section                                                `` [P0905]_
+   * ``Section I: Additional Reading                                      `` [P0905]_
+   * ``| Online Resources                                                   `` [P0905]_
+   * ``| C Language Books                                                   `` [P0907]_
+   * ``| Programming Books                                                  `` [P0907]_
+   * ``| Reference Books                                                    `` [P0908]_
+   * ``| C++ Books                                                          `` [P0908]_
+   * ``Section II: C Operators                                            `` [P0908]_
+   * ``| Arithmetic Operators                                               `` [P0909]_
+   * ``| Relational Operators                                               `` [P0910]_
+   * ``| Assignment Operators                                               `` [P0910]_
+   * ``| Logical Operators                                                  `` [P0911]_
    
    ..   ptg11524036
 
-   :sup:`Pxxii` Contents
+.. _Pxxii:
 
-   *  | The Conditional Operator                                            [P0911]
-   *  | Pointer-Related Operators                                           [P0912]
-   *  | Sign Operators                                                      [P0912]
-   *  | Structure and Union Operators                                       [P0912]
-   *  | Bitwise Operators                                                   [P0913]
-   *  | Miscellaneous Operators                                             [P0914]
-   *  Section III: Basic Types and Storage Classes                        [P0915]
-   *  | Summary: The Basic Data Types                                       [P0915]
-   *  | Summary: How to Declare a Simple Variable                           [P0917]
-   *  | Summary: Qualifiers                                                 [P0919]
-   *  Section IV: Expressions, Statements, and Program Flow               [P0920]
-   *  | Summary: Expressions and Statements                                 [P0920]
-   *  | Summary: The while Statement                                        [P0921]
-   *  | Summary: The for Statement                                          [P0921]
-   *  | Summary: The do while Statement                                     [P0922]
-   *  | Summary: Using if Statements for Making Choices                     [P0923]
-   *  | Summary: Multiple Choice with switch                                [P0924]
-   *  | Summary: Program Jumps                                              [P0925]
-   *  Section V: The Standard ANSI C Library with C99 and C11 Additions   [P0926]
-   *  | Diagnostics: assert.h                                               [P0926]
-   *  | Complex Numbers: complex.h (C99)                                    [P0927]
-   *  | Character Handling: ctype.h                                         [P0929]
-   *  | Error Reporting: errno.h                                            [P0930]
-   *  | Floating-Point Environment: fenv.h (C99)                            [P0930]
-   *  | Floating-point Characteristics: float.h                             [P0933]
-   *  | Format Conversion of Integer Types: inttypes.h (C99)                [P0935]
-   *  | Alternative Spellings: iso646.h                                     [P0936]
-   *  | Localization: locale.h                                              [P0936]
-   *  | Math Library: math.h                                                [P0939]
-   *  | Non-Local Jumps: setjmp.h                                           [P0945]
-   *  | Signal Handling: signal.h                                           [P0945]
-   *  | Alignment: stdalign.h (C11)                                         [P0946]
-   *  | Variable Arguments: stdarg.h                                        [P0947]
-   *  | Atomics Support: stdatomic.h (C11)                                  [P0948]
-   *  | Boolean Support: stdbool.h (C99)                                    [P0948]
-   *  | Common Definitions: stddef.h                                        [P0948]
-   *  | Integer Types: stdint.h                                             [P0949]
+   * ``| The Conditional Operator                                           `` [P0911]_
+   * ``| Pointer-Related Operators                                          `` [P0912]_
+   * ``| Sign Operators                                                     `` [P0912]_
+   * ``| Structure and Union Operators                                      `` [P0912]_
+   * ``| Bitwise Operators                                                  `` [P0913]_
+   * ``| Miscellaneous Operators                                            `` [P0914]_
+   * ``Section III: Basic Types and Storage Classes                       `` [P0915]_
+   * ``| Summary: The Basic Data Types                                      `` [P0915]_
+   * ``| Summary: How to Declare a Simple Variable                          `` [P0917]_
+   * ``| Summary: Qualifiers                                                `` [P0919]_
+   * ``Section IV: Expressions, Statements, and Program Flow              `` [P0920]_
+   * ``| Summary: Expressions and Statements                                `` [P0920]_
+   * ``| Summary: The while Statement                                       `` [P0921]_
+   * ``| Summary: The for Statement                                         `` [P0921]_
+   * ``| Summary: The do while Statement                                    `` [P0922]_
+   * ``| Summary: Using if Statements for Making Choices                    `` [P0923]_
+   * ``| Summary: Multiple Choice with switch                               `` [P0924]_
+   * ``| Summary: Program Jumps                                             `` [P0925]_
+   * ``Section V: The Standard ANSI C Library with C99 and C11 Additions  `` [P0926]_
+   * ``| Diagnostics: assert.h                                              `` [P0926]_
+   * ``| Complex Numbers: complex.h (C99)                                   `` [P0927]_
+   * ``| Character Handling: ctype.h                                        `` [P0929]_
+   * ``| Error Reporting: errno.h                                           `` [P0930]_
+   * ``| Floating-Point Environment: fenv.h (C99)                           `` [P0930]_
+   * ``| Floating-point Characteristics: float.h                            `` [P0933]_
+   * ``| Format Conversion of Integer Types: inttypes.h (C99)               `` [P0935]_
+   * ``| Alternative Spellings: iso646.h                                    `` [P0936]_
+   * ``| Localization: locale.h                                             `` [P0936]_
+   * ``| Math Library: math.h                                               `` [P0939]_
+   * ``| Non-Local Jumps: setjmp.h                                          `` [P0945]_
+   * ``| Signal Handling: signal.h                                          `` [P0945]_
+   * ``| Alignment: stdalign.h (C11)                                        `` [P0946]_
+   * ``| Variable Arguments: stdarg.h                                       `` [P0947]_
+   * ``| Atomics Support: stdatomic.h (C11)                                 `` [P0948]_
+   * ``| Boolean Support: stdbool.h (C99)                                   `` [P0948]_
+   * ``| Common Definitions: stddef.h                                       `` [P0948]_
+   * ``| Integer Types: stdint.h                                            `` [P0949]_
    
    ..   ptg11524036
 
-   :sup:`Pxxiii` Contents
+.. _Pxxiii:
 
-   *  | Standard I/O Library: stdio.h                                       [P0953]
-   *  | General Utilities: stdlib.h                                         [P0956]
-   *  | _Noreturn : stdnoreturn.h                                           [P0962]
-   *  | String Handling: string.h                                           [P0962]
-   *  | Type-Generic Math: tgmath.h (C99)                                   [P0965]
-   *  | Threads: threads.h (C11)                                            [P0967]
-   *  | Date and Time: time.h                                               [P0967]
-   *  | Unicode Utilities: uchar.h (C11)                                    [P0971]
-   *  | Extended Multibyte and Wide-Character Utilities: wchar.h (C99)      [P0972]
-   *  | Wide Character Classification and Mapping Utilities: wctype.h (C99) [P0978]
-   *  Section VI: Extended Integer Types                                  [P0980]
-   *  | Exact-Width Types                                                   [P0981]
-   *  | Minimum-Width Types                                                 [P0982]
-   *  | Fastest Minimum-Width Types                                         [P0983]
-   *  | Maximum-Width Types                                                 [P0983]
-   *  | Integers That Can Hold Pointer Values                               [P0984]
-   *  | Extended Integer Constants                                          [P0984]
-   *  Section VII: Expanded Character Support                             [P0984]
-   *  | Trigraph Sequences                                                  [P0984]
-   *  | Digraphs                                                            [P0985]
-   *  | Alternative Spellings: iso646.h                                     [P0986]
-   *  | Multibyte Characters                                                [P0986]
-   *  | Universal Character Names (UCNs)                                    [P0987]
-   *  | Wide Characters                                                     [P0988]
-   *  | Wide Characters and Multibyte Characters                            [P0989]
-   *  Section VIII: C99/C11 Numeric Computational Enhancements            [P0990]
-   *  | The IEC Floating-Point Standard                                     [P0990]
-   *  | The fenv.h Header File                                              [P0994]
-   *  | The STDC FP_CONTRACT Pragma                                         [P0995]
-   *  | Additions to the math.h Library                                     [P0995]
-   *  | Support for Complex Numbers                                         [P0996]
-   *  Section IX: Differences Between C and C++                           [P0998]
-   *  | Function Prototypes                                                 [P0999]
-   *  | char Constants                                                      [P1000]
-   *  | The const Modifier                                                  [P1000]
-   *  | Structures and Unions                                               [P1001]
-   *  | Enumerations                                                        [P1002]
+   * ``| Standard I/O Library: stdio.h                                      `` [P0953]_
+   * ``| General Utilities: stdlib.h                                        `` [P0956]_
+   * ``| _Noreturn : stdnoreturn.h                                          `` [P0962]_
+   * ``| String Handling: string.h                                          `` [P0962]_
+   * ``| Type-Generic Math: tgmath.h (C99)                                  `` [P0965]_
+   * ``| Threads: threads.h (C11)                                           `` [P0967]_
+   * ``| Date and Time: time.h                                              `` [P0967]_
+   * ``| Unicode Utilities: uchar.h (C11)                                   `` [P0971]_
+   * ``| Extended Multibyte and Wide-Character Utilities: wchar.h (C99)     `` [P0972]_
+   * ``| Wide Character Classification and Mapping Utilities: wctype.h (C99)`` [P0978]_
+   * ``Section VI: Extended Integer Types                                 `` [P0980]_
+   * ``| Exact-Width Types                                                  `` [P0981]_
+   * ``| Minimum-Width Types                                                `` [P0982]_
+   * ``| Fastest Minimum-Width Types                                        `` [P0983]_
+   * ``| Maximum-Width Types                                                `` [P0983]_
+   * ``| Integers That Can Hold Pointer Values                              `` [P0984]_
+   * ``| Extended Integer Constants                                         `` [P0984]_
+   * ``Section VII: Expanded Character Support                            `` [P0984]_
+   * ``| Trigraph Sequences                                                 `` [P0984]_
+   * ``| Digraphs                                                           `` [P0985]_
+   * ``| Alternative Spellings: iso646.h                                    `` [P0986]_
+   * ``| Multibyte Characters                                               `` [P0986]_
+   * ``| Universal Character Names (UCNs)                                   `` [P0987]_
+   * ``| Wide Characters                                                    `` [P0988]_
+   * ``| Wide Characters and Multibyte Characters                           `` [P0989]_
+   * ``Section VIII: C99/C11 Numeric Computational Enhancements           `` [P0990]_
+   * ``| The IEC Floating-Point Standard                                    `` [P0990]_
+   * ``| The fenv.h Header File                                             `` [P0994]_
+   * ``| The STDC FP_CONTRACT Pragma                                        `` [P0995]_
+   * ``| Additions to the math.h Library                                    `` [P0995]_
+   * ``| Support for Complex Numbers                                        `` [P0996]_
+   * ``Section IX: Differences Between C and C++                          `` [P0998]_
+   * ``| Function Prototypes                                                `` [P0999]_
+   * ``| char Constants                                                     `` [P1000]_
+   * ``| The const Modifier                                                 `` [P1000]_
+   * ``| Structures and Unions                                              `` [P1001]_
+   * ``| Enumerations                                                       `` [P1002]_
    
    ..   ptg11524036
 
-   :sup:`Pxxiv` Contents
+.. _Pxxiv:
 
-   *  | Pointer-to- void                                                    [P1002]
-   *  | Boolean Types                                                       [P1003]
-   *  | Alternative Spellings                                               [P1003]
-   *  | Wide-Character Support                                              [P1003]
-   *  | Complex Types                                                       [P1003]
-   *  | Inline Functions                                                    [P1003]
-   *  | C99/11 Features Not Found in C++11                                  [P1004]
-   *  Index                                                                 [P1005]
+   * ``| Pointer-to- void                                                   `` [P1002]_
+   * ``| Boolean Types                                                      `` [P1003]_
+   * ``| Alternative Spellings                                              `` [P1003]_
+   * ``| Wide-Character Support                                             `` [P1003]_
+   * ``| Complex Types                                                      `` [P1003]_
+   * ``| Inline Functions                                                   `` [P1003]_
+   * ``| C99/11 Features Not Found in C++11                                 `` [P1004]_
+   * ``Index                                                                `` [P1005]_
 
 
 /Dedication
@@ -1009,7 +1012,7 @@
 
    ..   ptg11524036
 
-   :sup:`Pxxvii`
+.. _Pxxvii:
 
 /Preface
 ========
@@ -1063,7 +1066,7 @@ Approach and Goals
 
    ..   ptg11524036
 
-   :sup:`P0001`
+.. _P0001:
 
 /C01👊 Getting Ready
 =======================
@@ -1105,7 +1108,7 @@ Whence C?
 
    ..   ptg11524036
 
-   :sup:`P0002` Chapter 1 Getting Ready
+.. _P0002:
 
 Why C?
 ------
@@ -1132,7 +1135,7 @@ Design Features
 
    ..   ptg11524036
 
-   :sup:`P0003` Why C?
+.. _P0003:
 
 
 Efficiency
@@ -1189,7 +1192,7 @@ Programmer Oriented
 
    ..   ptg11524036
 
-   :sup:`P0004` Chapter 1 Getting Ready
+.. _P0004:
 
    Also, most C implementations have a large library of useful C functions. These functions deal
    with many needs that a programmer commonly faces.
@@ -1241,7 +1244,7 @@ Whither C?
 
    ..   ptg11524036
 
-   :sup:`P0005` What Computers Do
+.. _P0005:
 
    In short, C is one of the most important programming languages and will continue to be so. If
    you want a job writing software, one of the first questions you should be able to answer yes to
@@ -1285,7 +1288,7 @@ What Computers Do
 
    ..   ptg11524036
 
-   :sup:`P0006` Chapter 1 Getting Ready
+.. _P0006:
 
    The life of a CPU, at least in this simplistic account, is quite simple. It fetches an instruction
    from memory and executes it. It fetches the next instruction from memory and executes it,
@@ -1336,7 +1339,7 @@ High-level Computer Languages and Compilers
 
    ..   ptg11524036
 
-   :sup:`P0007` Language Standards
+.. _P0007:
 
       total = mine + yours;
 
@@ -1387,7 +1390,7 @@ Language Standards
 
    ..   ptg11524036
 
-   :sup:`P0008` Chapter 1 Getting Ready
+.. _P0008:
 
    At first, there was no official standard for C. Instead, the first edition of The C Programming
    Language by Brian Kernighan and Dennis Ritchie (1978) became the accepted standard, usually
@@ -1446,7 +1449,7 @@ The C99 Standard
 
    ..   ptg11524036
 
-   :sup:`P0009` Using C: Seven Steps
+.. _P0009:
 
    These three points—internationalization, correction of deficiencies, and improvement of
    computational usefulness—were the main change-oriented goals. The remaining plans for
@@ -1492,7 +1495,7 @@ Using C: Seven Steps
 
    ..   ptg11524036
 
-   :sup:`P0010` Chapter 1 Getting Ready
+.. _P0010:
 
    graphical interface–oriented language, such as Visual Basic, or if you have no background at
    all, you need to learn how to compile. We’ll look at that process soon, and you’ll see that it is
@@ -1541,7 +1544,7 @@ Step 2: Design the Program
 
    ..   ptg11524036
 
-   :sup:`P0011` Using C: Seven Steps
+.. _P0011:
 
    You also need to decide how to represent the data in the program and, possibly, in auxiliary
    files, as well as which methods to use to process the data. When you first learn programming
@@ -1595,7 +1598,7 @@ Step 4: Compile
 
    ..   ptg11524036
 
-   :sup:`P0012` Chapter 1 Getting Ready
+.. _P0012:
 
    Recall that the compiler is a program whose job is to convert source code into executable code.
    Executable code is code in the native language, or machine language , of your computer. This
@@ -1646,7 +1649,7 @@ Step 6: Test and Debug the Program
 
    ..   ptg11524036
 
-   :sup:`P0013` Programming Mechanics
+.. _P0013:
 
 
 Step 7: Maintain and Modify the Program
@@ -1701,7 +1704,7 @@ Programming Mechanics
 
    ..   ptg11524036
 
-   :sup:`P0014` Chapter 1 Getting Ready
+.. _P0014:
 
    the file end in .c (for example, ``wordcount.c`` and ``budget.c`` ). The part of the name before the
    period is called the basename , and the part after the period is called the extension . Therefore,
@@ -1761,7 +1764,7 @@ Object Code Files, Executable Files, and Libraries
 
    ..   ptg11524036
 
-   :sup:`P0015` Programming Mechanics
+.. _P0015:
 
    The second missing element is the code for ``library routines``. Nearly all C programs make use
    of routines (called ``functions`` ) that are part of the standard C library. For example, ``concrete.c``
@@ -1806,7 +1809,7 @@ Object Code Files, Executable Files, and Libraries
 
    ..   ptg11524036
 
-   :sup:`P0016` Chapter 1 Getting Ready
+.. _P0016:
 
    On some systems, you must run the compile and link programs separately. On other systems,
    the compiler starts the linker automatically, so you have to give only the compile command.
@@ -1862,7 +1865,7 @@ Compiling on a Unix System
 
    ..   ptg11524036
 
-   :sup:`P0017` Programming Mechanics
+.. _P0017:
 
    alias for that compiler. So you still can proceed with the same command, even though it may
    invoke different compilers on different systems.
@@ -1920,7 +1923,7 @@ Compiling on a Unix System
 
    ..   ptg11524036
 
-   :sup:`P0018` Chapter 1 Getting Ready
+.. _P0018:
 
    What about the object code? The cc compiler creates an object code file having the same
    basename as the source code, but with an .o extension. In our example, the object code file
@@ -1980,7 +1983,7 @@ Linux Systems
 
    ..   ptg11524036
 
-   :sup:`P0019` Programming Mechanics
+.. _P0019:
 
    Note that installing GCC may be optional when installing Linux, so you (or someone) might
    have to install GCC if it wasn’t installed earlier. Typically, the installation makes ``cc`` an alias for
@@ -2037,7 +2040,7 @@ Integrated Development Environments (Windows)
 
    ..   ptg11524036
 
-   :sup:`P0020` Chapter 1 Getting Ready
+.. _P0020:
 
    The Windows IDEs can be a little intimidating at first because they offer a variety of targets —
    that is, a variety of environments in which the program will be used. For example, they might
@@ -2088,7 +2091,7 @@ Integrated Development Environments (Windows)
 
    ..   ptg11524036
 
-   :sup:`P0021` Programming Mechanics
+.. _P0021:
 
 
    Although the various IDEs have many broad principles in common, the details vary from
@@ -2146,7 +2149,7 @@ C on the Macintosh
 
    ..   ptg11524036
 
-   :sup:`P0022` Chapter 1 Getting Ready
+.. _P0022:
 
 How This Book Is Organized
 --------------------------
@@ -2204,7 +2207,7 @@ Typeface
 
    ..   ptg11524036
 
-   :sup:`P0023` Conventions Used in This Book
+.. _P0023:
 
 Program Output
 ``````````````
@@ -2261,7 +2264,7 @@ Your System—What You Need
 
    ..   ptg11524036
 
-   :sup:`P0024` Chapter 1 Getting Ready
+.. _P0024:
 
    Most compiler vendors offer special pricing to students and educators, so if you fall into that
    category, check the vendor websites.
@@ -2284,8 +2287,9 @@ Special Elements
 
 .. CAUTION::
 
-   Caution
-   A caution alerts you to potential pitfalls.
+   .. Caution::
+
+      A caution alerts you to potential pitfalls.
 
 .. Note::
 
@@ -2308,7 +2312,7 @@ C01 Summary
 
    ..   ptg11524036
 
-   :sup:`P0025` Programming Exercise
+.. _P0025:
 
 C01 Review Questions
 --------------------
@@ -2345,7 +2349,7 @@ C01 Programming Exercise
 
 
 
-   :sup:`P0027`
+.. _P0027:
 
 /C02👊 Introducing C
 ========================
@@ -2389,7 +2393,7 @@ A Simple Example of C
 
    ..   ptg11524036
 
-   :sup:`P0028` Chapter 2 Introducing C
+.. _P0028:
 
 
    Listing 2.1 The first.c Program
@@ -2452,7 +2456,7 @@ The Example Explained
 
    ..   ptg11524036
 
-   :sup:`P0029` The Example Explained
+.. _P0029:
 
    Figure 2.1 summarizes the parts of a C program; it includes more elements than our first
    example uses.
@@ -2492,7 +2496,7 @@ The Example Explained
 
    ..   ptg11524036
 
-   :sup:`P0030` Chapter 2 Introducing C
+.. _P0030:
 
    Pass 1: Quick Synopsis
    This section presents each line from the program followed by a short description; the next
@@ -2532,7 +2536,7 @@ The Example Explained
 
    ..   ptg11524036
 
-   :sup:`P0031` The Example Explained
+.. _P0031:
 
    The last use of printf() prints the value of num (which is 1 ) embedded in the phrase in
    quotes. The %d instructs the computer where and in what form to print the value of num .
@@ -2572,7 +2576,7 @@ The Example Explained
 
    ..   ptg11524036
 
-   :sup:`P0032` Chapter 2 Introducing C
+.. _P0032:
 
    it is best not to rely on that. Each time this book uses library functions, it will use the include
    files specified by the ANSI/ISO standard for those functions.
@@ -2613,7 +2617,7 @@ The Example Explained
 
    ..   ptg11524036
 
-   :sup:`P0033` The Example Explained
+.. _P0033:
 
    standard form, and you won’t run into problems if you move a program from one compiler to
    another.
@@ -2655,7 +2659,7 @@ The Example Explained
 
    ..   ptg11524036
 
-   :sup:`P0034` Chapter 2 Introducing C
+.. _P0034:
 
    Now the compiler pairs the /* in the first line with the */ in the fourth line, making all four
    lines into one comment, including the line that was supposed to be part of the code. Because
@@ -2697,7 +2701,7 @@ The Example Explained
 
    ..   ptg11524036
 
-   :sup:`P0035` The Example Explained
+.. _P0035:
 
    In C, all variables must be declared before they are used. This means that you have to provide
    lists of all the variables you use in a program and that you have to show which data type each
@@ -2739,7 +2743,7 @@ The Example Explained
 
    ..   ptg11524036
 
-   :sup:`P0036` Chapter 2 Introducing C
+.. _P0036:
 
    Name Choice
    You should use meaningful names (or identifiers) for variables (such as sheep_count instead of
@@ -2779,7 +2783,7 @@ The Example Explained
 
    ..   ptg11524036
 
-   :sup:`P0037` The Example Explained
+.. _P0037:
 
    Four Good Reasons to Declare Variables
    Some older languages, such as the original forms of FORTRAN and BASIC, allow you to use
@@ -2826,7 +2830,7 @@ The Example Explained
 
    ..   ptg11524036
 
-   :sup:`P0038` Chapter 2 Introducing C
+.. _P0038:
 
    space in computer memory for the variable num , and the assignment line stores a value in that
    location. You can assign num a different value later, if you want; that is why num is termed a
@@ -2858,7 +2862,7 @@ The Example Explained
 
    ..   ptg11524036
 
-   :sup:`P0039` The Example Explained
+.. _P0039:
 
    This first printf() line is an example of how you call or invoke a function in C. You need type
    only the name of the function, placing the desired argument(s) within the parentheses. When
@@ -2897,7 +2901,7 @@ The Example Explained
 
    ..   ptg11524036
 
-   :sup:`P0040` Chapter 2 Introducing C
+.. _P0040:
 
    Return Statement
    return 0;
@@ -2937,7 +2941,7 @@ The Structure of a Simple Program
 
    ..   ptg11524036
 
-   :sup:`P0041` Tips on Making Your Programs Readable
+.. _P0041:
 
 
    int main(void)
@@ -2983,7 +2987,7 @@ Tips on Making Your Programs Readable
 
    ..   ptg11524036
 
-   :sup:`P0042` Chapter 2 Introducing C
+.. _P0042:
 
    The semicolons tell the compiler where one statement ends and the next begins, but the
    program logic is much clearer if you follow the conventions used in this chapter’s example (see
@@ -3032,7 +3036,7 @@ Taking Another Step in Using C
 
    ..   ptg11524036
 
-   :sup:`P0043` Taking Another Step in Using C
+.. _P0043:
 
    What’s new? The code provides a program description, declares multiple variables, does some
    multiplication, and prints the values of two variables. Let’s examine these points in more detail.
@@ -3067,7 +3071,7 @@ Taking Another Step in Using C
 
    ..   ptg11524036
 
-   :sup:`P0044` Chapter 2 Introducing C
+.. _P0044:
 
    list. Note that the list of variables to be printed comes at the tail end of the statement after the
    quoted part. Also note that each item is separated from the others by a comma.
@@ -3116,7 +3120,7 @@ While You’re at It—Multiple Functions
 
    ..   ptg11524036
 
-   :sup:`P0045` While You’re at It—Multiple Functions
+.. _P0045:
 
    The C90 standard added prototypes, and older compilers might not recognize them. (We’ll tell
    you what to do when using such compilers in a moment.) A prototype declares to the compiler
@@ -3156,7 +3160,7 @@ While You’re at It—Multiple Functions
 
    ..   ptg11524036
 
-   :sup:`P0046` Chapter 2 Introducing C
+.. _P0046:
 
 
 Introducing Debugging
@@ -3218,7 +3222,7 @@ Introducing Debugging
 
    ..   ptg11524036
 
-   :sup:`P0047` Introducing Debugging
+.. _P0047:
 
    How do you detect syntax errors? First, before compiling, you can look through the source
    code and see whether you spot anything obvious. Second, you can examine errors found by the
@@ -3268,7 +3272,7 @@ Introducing Debugging
 
    ..   ptg11524036
 
-   :sup:`P0048` Chapter 2 Introducing C
+.. _P0048:
 
 
    return 0;
@@ -3320,7 +3324,7 @@ Introducing Debugging
 
    ..   ptg11524036
 
-   :sup:`P0049` Keywords and Reserved Identifiers
+.. _P0049:
 
    Program State
    By tracing the program step-by-step manually, keeping track of each variable, you monitor the
@@ -3363,7 +3367,7 @@ Keywords and Reserved Identifiers
 
    ..   ptg11524036
 
-   :sup:`P0050` Chapter 2 Introducing C
+.. _P0050:
 
    ISO C Keywords
    do long union _Noreturn
@@ -3404,7 +3408,7 @@ C02 Key Concepts
 
    ..   ptg11524036
 
-   :sup:`P0051` Review Questions
+.. _P0051:
 
 
 C02 Summary
@@ -3448,7 +3452,7 @@ C02 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0052` Chapter 2 Introducing C
+.. _P0052:
 
    5. Assuming that each of the following examples is part of a complete program, what will
    each one print?
@@ -3490,7 +3494,7 @@ C02 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0053` Programming Exercises
+.. _P0053:
 
    y = x + y; /* line 8 */
    x = x*y; /* line 9 */
@@ -3528,7 +3532,7 @@ C02 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0054` Chapter 2 Introducing C
+.. _P0054:
 
    5. Write a program that produces the following output:
    Brazil, Russia, India, China
@@ -3559,7 +3563,7 @@ C02 Programming Exercises
    three
    done!
 
-   :sup:`P0055`
+.. _P0055:
 
 /C03👊 Data and C
 =====================
@@ -3600,7 +3604,7 @@ A Sample Program
 
    ..   ptg11524036
 
-   :sup:`P0056` Chapter 3 Data and C
+.. _P0056:
 
    and running the source code shown in Listing 3.1 . To save time, you can omit typing the
    comments.
@@ -3651,7 +3655,7 @@ A Sample Program
 
    ..   ptg11524036
 
-   :sup:`P0057` A Sample Program
+.. _P0057:
 
    finished typing your response. The program expects you to enter a number, such as 156 , not
    words, such as too much . Entering letters rather than digits causes problems that require an if
@@ -3695,7 +3699,7 @@ A Sample Program
 
    ..   ptg11524036
 
-   :sup:`P0058` Chapter 3 Data and C
+.. _P0058:
 
    assign the input value to the variable named weight . The scanf() function uses the &
    notation to indicate where it can find the weight variable. The next chapter discusses &
@@ -3743,7 +3747,7 @@ A Sample Program
 
    ..   ptg11524036
 
-   :sup:`P0059` Data: Data-Type Keywords
+.. _P0059:
 
 
 Data Variables and Constants
@@ -3788,7 +3792,7 @@ Data: Data-Type Keywords
 
    ..   ptg11524036
 
-   :sup:`P0060` Chapter 3 Data and C
+.. _P0060:
 
    designates the type used for letters of the alphabet and for other characters, such as # , $ , % , and
     * . The char type also can be used to represent small integers. Next, float , double , and the
@@ -3829,7 +3833,7 @@ Data: Data-Type Keywords
 
    ..   ptg11524036
 
-   :sup:`P0061` Data: Data-Type Keywords
+.. _P0061:
 
    The Integer
    An integer is a number with no fractional part. In C, an integer is never written with a decimal
@@ -3872,7 +3876,7 @@ Data: Data-Type Keywords
 
    ..   ptg11524036
 
-   :sup:`P0062` Chapter 3 Data and C
+.. _P0062:
 
 
    ■  Because there is an infinite number of real numbers in any range—for example, in the
@@ -3918,7 +3922,7 @@ Basic C Data Types
 
    ..   ptg11524036
 
-   :sup:`P0063` Basic C Data Types
+.. _P0063:
 
    Declaring an int Variable
    As you saw in Chapter 2 , “Introducing C,” the keyword int is used to declare the basic integer
@@ -3952,7 +3956,7 @@ Basic C Data Types
 
    ..   ptg11524036
 
-   :sup:`P0064` Chapter 3 Data and C
+.. _P0064:
 
 
    2
@@ -3998,7 +4002,7 @@ Basic C Data Types
 
    ..   ptg11524036
 
-   :sup:`P0065` Basic C Data Types
+.. _P0065:
 
    printf("Doing it wrong: ");
    printf("%d minus %d is %d\n", ten ); // forgot 2 arguments
@@ -4042,7 +4046,7 @@ Basic C Data Types
 
    ..   ptg11524036
 
-   :sup:`P0066` Chapter 3 Data and C
+.. _P0066:
 
    0x10 , and the number is stored exactly the same way in each case—in the binary code used
    internally by computers.
@@ -4088,7 +4092,7 @@ Basic C Data Types
 
    ..   ptg11524036
 
-   :sup:`P0067` Basic C Data Types
+.. _P0067:
 
 
    ■  The type short int or, more briefly, short may use less storage than int , thus saving
@@ -4138,7 +4142,7 @@ Basic C Data Types
 
    ..   ptg11524036
 
-   :sup:`P0068` Chapter 3 Data and C
+.. _P0068:
 
    The most common practice today on personal computers is to set up long long as 64 bits,
    long as 32 bits, short as 16 bits, and int as either 16 bits or 32 bits, depending on the
@@ -4184,7 +4188,7 @@ Basic C Data Types
 
    ..   ptg11524036
 
-   :sup:`P0069` Basic C Data Types
+.. _P0069:
 
    printf("%u %u %u\n", j, j+1, j+2);
 
@@ -4224,7 +4228,7 @@ Basic C Data Types
 
    ..   ptg11524036
 
-   :sup:`P0070` Chapter 3 Data and C
+.. _P0070:
 
    Printing short , long , long long , and unsigned Types
    To print an unsigned int number, use the %u notation. To print a long value, use the %ld
@@ -4275,7 +4279,7 @@ Basic C Data Types
 
    ..   ptg11524036
 
-   :sup:`P0071` Basic C Data Types
+.. _P0071:
 
    this property in more detail.) So if you tell printf() that the number is unsigned, it prints one
    value, and if you tell it that the same number is signed, it prints the other value. This behavior
@@ -4319,7 +4323,7 @@ Basic C Data Types
 
    ..   ptg11524036
 
-   :sup:`P0072` Chapter 3 Data and C
+.. _P0072:
 
    Many character sets have many more than 127 or even 255 values. For example, there is the
    Japanese kanji character set. The commercial Unicode initiative has created a system to represent 
@@ -4359,7 +4363,7 @@ Basic C Data Types
 
    ..   ptg11524036
 
-   :sup:`P0073` Basic C Data Types
+.. _P0073:
 
    system is using ASCII code. Using 'A' instead of 65 produces code that works on any system.
    Therefore, it’s much better to use character constants than numeric code values.
@@ -4397,7 +4401,7 @@ Basic C Data Types
 
    ..   ptg11524036
 
-   :sup:`P0074` Chapter 3 Data and C
+.. _P0074:
 
    Sequence Meaning
     \" Double quote ( " ).
@@ -4437,7 +4441,7 @@ Basic C Data Types
 
    ..   ptg11524036
 
-   :sup:`P0075` Basic C Data Types
+.. _P0075:
 
    The final two forms ( \0oo and \xhh ) are special representations of the ASCII code. To represent
    a character by its octal ASCII code, precede it with a backslash ( \ ) and enclose the whole thing
@@ -4479,7 +4483,7 @@ Basic C Data Types
 
    ..   ptg11524036
 
-   :sup:`P0076` Chapter 3 Data and C
+.. _P0076:
 
 
    ■  When should I use the ASCII code, and when should I use the escape sequences? If you have
@@ -4530,7 +4534,7 @@ Basic C Data Types
 
    ..   ptg11524036
 
-   :sup:`P0077` Basic C Data Types
+.. _P0077:
 
 
    storage (ASCII code)
@@ -4568,7 +4572,7 @@ Basic C Data Types
 
    ..   ptg11524036
 
-   :sup:`P0078` Chapter 3 Data and C
+.. _P0078:
 
    signed integer. The header file on a system that uses a 32-bit int could define int32_t as an
    alias for int . A different system, one with a 16-bit int and a 32-bit long , could define the
@@ -4619,7 +4623,7 @@ Basic C Data Types
 
    ..   ptg11524036
 
-   :sup:`P0079` Basic C Data Types
+.. _P0079:
 
    {
    int32_t me32; // me32 a 32-bit signed variable
@@ -4660,7 +4664,7 @@ Basic C Data Types
 
    ..   ptg11524036
 
-   :sup:`P0080` Chapter 3 Data and C
+.. _P0080:
 
    representation is similar to scientific notation , a system used by scientists to express very large
    and very small numbers. Let’s take a look.
@@ -4692,7 +4696,7 @@ Basic C Data Types
 
    ..   ptg11524036
 
-   :sup:`P0081` Basic C Data Types
+.. _P0081:
 
    C also has a double (for double precision) floating-point type. The double type has the same
    minimum range requirements as float , but it extends the minimum number of significant
@@ -4733,7 +4737,7 @@ Basic C Data Types
 
    ..   ptg11524036
 
-   :sup:`P0082` Chapter 3 Data and C
+.. _P0082:
 
    By default, the compiler assumes floating-point constants are double precision. Suppose, for
    example, that some is a float variable and that you have the following statement:
@@ -4782,7 +4786,7 @@ Basic C Data Types
 
    ..   ptg11524036
 
-   :sup:`P0083` Basic C Data Types
+.. _P0083:
 
    printf("%f can be written %e\n", abet, abet);
    printf("%Lf can be written %Le\n", dip, dip);
@@ -4825,7 +4829,7 @@ Basic C Data Types
 
    ..   ptg11524036
 
-   :sup:`P0084` Chapter 3 Data and C
+.. _P0084:
 
    in excess of 1. In such cases, the function returns the NaN value, which printf() displays as
    nan , NaN , or something similar.
@@ -4869,7 +4873,7 @@ Basic C Data Types
 
    ..   ptg11524036
 
-   :sup:`P0085` Basic C Data Types
+.. _P0085:
 
    Complex and Imaginary Types
    Many computations in science and engineering use complex and imaginary numbers. C99
@@ -4910,7 +4914,7 @@ Basic C Data Types
 
    ..   ptg11524036
 
-   :sup:`P0086` Chapter 3 Data and C
+.. _P0086:
 
    Summary: The Basic Data Types
    Keywords:
@@ -4962,7 +4966,7 @@ Basic C Data Types
 
    ..   ptg11524036
 
-   :sup:`P0087` Basic C Data Types
+.. _P0087:
 
 
    ■  long double — A (possibly) even larger unit for holding floating-point numbers. It may
@@ -5013,7 +5017,7 @@ Basic C Data Types
 
    ..   ptg11524036
 
-   :sup:`P0088` Chapter 3 Data and C
+.. _P0088:
 
    printf("Type int has a size of %zd bytes.\n", sizeof(int));
    printf("Type char has a size of %zd bytes.\n", sizeof(char));
@@ -5058,7 +5062,7 @@ Using Data Types
 
    ..   ptg11524036
 
-   :sup:`P0089` Arguments and Pitfalls
+.. _P0089:
 
    C is more forgiving about type mismatches than, say, Pascal. C compilers allow the second
    initialization, but they might complain, particularly if you have activated a higher warning
@@ -5102,7 +5106,7 @@ Arguments and Pitfalls
 
    ..   ptg11524036
 
-   :sup:`P0090` Chapter 3 Data and C
+.. _P0090:
 
    Your responsibility as a programmer is to make sure that the number of format specifications
    matches the number of additional arguments and that the specifier type matches the value
@@ -5152,7 +5156,7 @@ Arguments and Pitfalls
 
    ..   ptg11524036
 
-   :sup:`P0091` One More Example: Escape Sequences
+.. _P0091:
 
    the expected number of values or if it prints unexpected values, check to see whether you’ve
    used the correct number of printf() arguments.
@@ -5202,7 +5206,7 @@ One More Example: Escape Sequences
 
    ..   ptg11524036
 
-   :sup:`P0092` Chapter 3 Data and C
+.. _P0092:
 
    The space between the colon and the dollar sign is there because the string in the second
    printf() statement starts with a space. The effect of the seven backspace characters is to move
@@ -5244,7 +5248,7 @@ One More Example: Escape Sequences
 
    ..   ptg11524036
 
-   :sup:`P0093` Summary
+.. _P0093:
 
    scanf("%f", &salary);
    This code works whether or not impending input flushes the buffer. However, it also puts the
@@ -5291,7 +5295,7 @@ C03 Summary
 
    ..   ptg11524036
 
-   :sup:`P0094` Chapter 3 Data and C
+.. _P0094:
 
    imaginary types by using the keywords _Complex and _Imaginary in conjunction with the
    floating-type keywords. For example, there would be a double _Complex type and a float
@@ -5330,7 +5334,7 @@ C03 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0095` Review Questions
+.. _P0095:
 
    d. 0XAA
    e. 2.0e30
@@ -5367,7 +5371,7 @@ C03 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0096` Chapter 3 Data and C
+.. _P0096:
 
    f. 20.0f
    g. 0x44
@@ -5400,7 +5404,7 @@ C03 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0097` Programming Exercises
+.. _P0097:
 
 
 C03 Programming Exercises
@@ -5449,7 +5453,7 @@ C03 Programming Exercises
 
 
 
-   :sup:`P0099`
+.. _P0099:
 
 /C04👊 Character Strings and Formatted Input/Output
 =====================================================
@@ -5472,9 +5476,10 @@ C03 Programming Exercises
 
    ■  The C preprocessor’s #define directive and ANSI C’s const modifier for creating
    symbolic constants
+
    This chapter concentrates on input and output. You’ll add personality to your programs by
    making them interactive and using character strings. You will also take a more detailed look at
-   those two handy C input/output functions, printf() and scanf() . With these two functions,
+   those two handy C input/output functions, `printf()` and `scanf()` . With these two functions,
    you have the program tools you need to communicate with users and to format output to meet
    your needs and tastes. Finally, you’ll take a quick look at an important C facility, the C preprocessor, 
    and learn how to define and use symbolic constants.
@@ -5488,7 +5493,7 @@ Introductory Program
 
    ..   ptg11524036
 
-   :sup:`P0100` Chapter 4 Character Strings and Formatted Input/Output
+.. _P0100:
 
 
    Listing 4.1 The talkback.c Program
@@ -5497,39 +5502,44 @@ Introductory Program
 
    .. code-block:: cpp
 
-   // talkback.c -- nosy, informative program
-   #include <stdio.h>
-   #include <string.h> // for strlen() prototype
-   #define DENSITY 62.4 // human density in lbs per cu ft
-   int main()
-   {
-   float weight, volume;
-   int size, letters;
-   char name[40]; // name is an array of 40 chars
+      // talkback.c -- nosy, informative program
+      #include <stdio.h>
+      #include <string.h> // for strlen() prototype
+      #define DENSITY 62.4 // human density in lbs per cu ft
+      int main()
+      {
+         float weight, volume;
+         int size, letters;
+         char name[40]; // name is an array of 40 chars
 
-   printf("Hi! What's your first name?\n");
-   scanf("%s", name);
-   printf("%s, what's your weight in pounds?\n", name);
-   scanf("%f", &weight);
-   size = sizeof name;
-   letters = strlen(name);
-   volume = weight / DENSITY;
-   printf("Well, %s, your volume is %2.2f cubic feet.\n",
-   name, volume);
-   printf("Also, your first name has %d letters,\n",
-   letters);
-   printf("and we have %d bytes to store it.\n", size);
+         printf("Hi! What's your first name?\n");
+         scanf("%s", name);
+         printf("%s, what's your weight in pounds?\n", name);
+         scanf("%f", &weight);
+         size = sizeof name;
+         letters = strlen(name);
+         volume = weight / DENSITY;
+         printf("Well, %s, your volume is %2.2f cubic feet.\n",
+         name, volume);
+         printf("Also, your first name has %d letters,\n",
+         letters);
+         printf("and we have %d bytes to store it.\n", size);
 
-   return 0;
-   }
+         return 0;
+      }
+
    Running talkback.c produces results such as the following:
-   Hi! What's your first name?
-   Christine
-   Christine, what's your weight in pounds?
-   154
-   Well, Christine, your volume is 2.47 cubic feet.
-   Also, your first name has 9 letters,
-   and we have 40 bytes to store it.
+
+   .. code-block:: bash
+
+      Hi! What's your first name?
+      Christine
+      Christine, what's your weight in pounds?
+      154
+      Well, Christine, your volume is 2.47 cubic feet.
+      Also, your first name has 9 letters,
+      and we have 40 bytes to store it.
+
    Here are the main new features of this program:
 
    ■  It uses an array to hold a character string . Here, someone’s name is read into the array,
@@ -5537,72 +5547,97 @@ Introductory Program
    single character value.
 
    ■  It uses the %s conversion specification to handle the input and output of the string. Note
-   that name , unlike weight , does not use the & prefix when used with scanf() . (As you’ll
-   see later, both &weight and name are addresses.)
+   that name , unlike weight , does not use the & prefix when used with `scanf()` . (As you’ll
+   see later, both `&weight` and name are addresses.)
 
    ..   ptg11524036
 
-   :sup:`P0101` Character Strings: An Introduction
+.. _P0101:
 
 
    ■  It uses the C preprocessor to define the symbolic constant DENSITY to represent the value
    62.4 .
 
    ■  It uses the C function strlen() to find the length of a string.
+
    The C approach might seem a little complex compared with the input/output of, say, BASIC.
    However, this complexity buys a finer control of I/O and greater program efficiency, and it’s
    surprisingly easy once you get used to it.
+
    Let’s investigate these new ideas.
 
 Character Strings: An Introduction
 ----------------------------------
 
    A character string is a series of one or more characters. Here is an example of a string:
-   "Zing went the strings of my heart!"
+
+      "Zing went the strings of my heart!"
+
    The double quotation marks are not part of the string. They inform the compiler that they
    enclose a string, just as single quotation marks identify a character.
-   Type char Arrays and the Null Character
+
+Type char Arrays and the Null Character
+
    C has no special variable type for strings. Instead, strings are stored in an array of type char .
    Characters in a string are stored in adjacent memory cells, one character per cell, and an array
    consists of adjacent memory locations, so placing a string in an array is quite natural (see
    Figure 4.1 ).
 
-   Z i n w e e n t t s t o f m h e a r t ! \0 y r i n s g h g
-   each cell is one byte null character
-   Figure 4.1 A string in an array.
-   Note that Figure 4.1 shows the character \0 in the last array position. This is the null character 
-   , and C uses it to mark the end of a string. The null character is not the digit zero; it is the
-   nonprinting character whose ASCII code value (or equivalent) is 0 . Strings in C are always
+   .. code-block:: bash
+
+      ╭─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬──╮
+      │Z│i│n│g│ │w│e│n│t│ │t│h│e│ │o│f│ │s│t│r│i│n│g│s│ │o│f│ │m│y│ │h│e│a│r│t│!│\0│
+      ╰─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴──╯
+               ╰──── each cell is one byte                     null character ───╯
+
+      Figure 4.1 A string in an array.
+
+   Note that Figure 4.1 shows the character `\0` in the last array position. This is the null 
+   character, and C uses it to mark the end of a string. The null character is not the digit zero; 
+   it is the nonprinting character whose ASCII code value (or equivalent) is 0 . Strings in C are always
    stored with this terminating null character. The presence of the null character means that the
    array must have at least one more cell than the number of characters to be stored. So when the
    preceding program said it had 40 bytes to store the string, that meant it could hold up to 39
    characters in addition to the null character.
+
    Now just what is an array? You can think of an array as several memory cells in a row. If you
    prefer more formal language, an array is an ordered sequence of data elements of one type. This
    example creates an array of 40 memory cells, or elements , each of which can store one
    char -type value by using this declaration:
-   char name[40];
+
+   .. code-block:: cpp
+
+      char name[40];
 
    ..   ptg11524036
 
-   :sup:`P0102` Chapter 4 Character Strings and Formatted Input/Output
+.. _P0102:
 
    The brackets after name identify it as an array. The 40 within the brackets indicates the number
    of elements in the array. The char identifies the type of each element (see Figure 4.2 ).
 
-   name
-   type char
-   allocate 5 bytes
-   char name[5];
-   ch
-   type char
-   allocate 1 byte
-   char ch;
-   Figure 4.2 Declaring a variable versus declaring an array.
+   .. code-block:: bash
+      
+               allocate 1 byte   type char
+                      char ch;     ╭──╮
+                                   │  │
+                                   ╰──╯
+                                    ch
+
+                                   type char
+               allocate 5 bytes  ╭─┬─┬─┬─┬─┬─╮
+                  char name[5];  │ │ │ │ │ │ │
+                                 ╰─┴─┴─┴─┴─┴─╯
+                                     name
+
+      Figure 4.2 Declaring a variable versus declaring an array.
+
    Using a character string is beginning to sound complicated! You have to create an array, place
-   the characters of a string into an array, one by one, and remember to add \0 at the end.
+   the characters of a string into an array, one by one, and remember to add `\0` at the end.
    Fortunately, the computer can take care of most of the details itself.
-   Using Strings
+
+Using Strings
+
    Try the program in Listing 4.2 to see how easy it really is to use strings.
 
    Listing 4.2 The praise1.c Program
@@ -5611,60 +5646,74 @@ Character Strings: An Introduction
 
    .. code-block:: cpp
 
-   /* praise1.c -- uses an assortment of strings */
-   #include <stdio.h>
-   #define PRAISE "You are an extraordinary being."
-   int main(void)
-   {
-   char name[40];
+      /* praise1.c -- uses an assortment of strings */
+      #include <stdio.h>
+      #define PRAISE "You are an extraordinary being."
+      int main(void)
+      {
+         char name[40];
 
-   printf("What's your name? ");
-   scanf("%s", name);
-   printf("Hello, %s. %s\n", name, PRAISE);
+         printf("What's your name? ");
+         scanf("%s", name);
+         printf("Hello, %s. %s\n", name, PRAISE);
 
-   return 0;
-   }
+         return 0;
+      }
 
    ..   ptg11524036
 
-   :sup:`P0103` Character Strings: An Introduction
+.. _P0103:
 
-   The %s tells printf() to print a string. The %s appears twice because the program prints
-   two strings: the one stored in the name array and the one represented by PRAISE . Running
-   praise1.c should produce an output similar to this:
-   What's your name? Angela Plains
-   Hello, Angela. You are an extraordinary being.
+   The %s tells `printf()` to print a string. The %s appears twice because the program prints
+   two strings: the one stored in the name array and the one represented by `PRAISE` . Running
+   `praise1.`c should produce an output similar to this:
+
+   .. code-block:: bash
+
+      What's your name? Angela Plains
+      Hello, Angela. You are an extraordinary being.
+
    You do not have to put the null character into the name array yourself. That task is done for
-   you by scanf() when it reads the input. Nor do you include a null character in the character
-   string constant PRAISE . We’ll explain the #define statement soon; for now, simply note that
-   the double quotation marks that enclose the text following PRAISE identify the text as a string.
+   you by `scanf()` when it reads the input. Nor do you include a null character in the character
+   string constant `PRAISE` . We’ll explain the #define statement soon; for now, simply note that
+   the double quotation marks that enclose the text following `PRAISE` identify the text as a string.
    The compiler takes care of putting in the null character.
-   Note (and this is important) that scanf() just reads Angela Plains’s first name. After scanf()
+
+   Note (and this is important) that `scanf()` just reads Angela Plains’s first name. After `scanf()`
    starts to read input, it stops reading at the first whitespace (blank, tab, or newline) it encounters.
    Therefore, it stops scanning for name when it reaches the blank between Angela and Plains .
-   In general, scanf() is used with %s to read only a single word, not a whole phrase, as a string.
-   C has other input-reading functions, such as fgets() , for handling general strings. Later chapters 
+   In general, `scanf()` is used with %s to read only a single word, not a whole phrase, as a string.
+   C has other input-reading functions, such as `fgets()` , for handling general strings. Later chapters 
    will explore string functions more fully.
-   Strings Versus Characters
+
+Strings Versus Characters
+
    The string constant "x" is not the same as the character constant 'x' . One difference is that
     'x' is a basic type ( char ), but "x" is a derived type, an array of char . A second difference is
    that "x" really consists of two characters, 'x' and '\0' , the null character (see Figure 4.3 ).
 
-   'x' the character
-   "x" the string
-   x
-   x \0
-   null character ends string
-   Figure 4.3 The character 'x' and the string "x".
-   The strlen() Function
+   .. code-block:: bash
+
+                                    ╭─╮
+                 'x' the character  │x│
+                                    ╰─╯
+                                    ╭─╮──╮
+                 "x" the string     │x│\0│
+                                    ╰─╯──╯
+         null character ends string ───╯
+
+      Figure 4.3 The character 'x' and the string "x".
+
+The strlen() Function
+
    The previous chapter unleashed the sizeof operator, which gives the size of things in bytes.
-   The strlen() function gives the length of a string in characters. Because it takes one byte to
+   The `strlen()` function gives the length of a string in characters. Because it takes one byte to
    hold one character, you might suppose that both would give the same result when applied to a
    string, but they don’t. Add a few lines to the example, as shown in Listing 4.3 , and see why.
 
    ..   ptg11524036
 
-   :sup:`P0104` Chapter 4 Character Strings and Formatted Input/Output
+.. _P0104:
 
 
    Listing 4.3 The praise2.c Program
@@ -5673,88 +5722,106 @@ Character Strings: An Introduction
 
    .. code-block:: cpp
 
-   /* praise2.c */
-   // try the %u or %lu specifiers if your implementation
-   // does not recognize the %zd specifier
-   #include <stdio.h>
-   #include <string.h> /* provides strlen() prototype */
-   #define PRAISE "You are an extraordinary being."
-   int main(void)
-   {
-   char name[40];
+      /* praise2.c */
+      // try the %u or %lu specifiers if your implementation
+      // does not recognize the %zd specifier
+      #include <stdio.h>
+      #include <string.h> /* provides strlen() prototype */
+      #define PRAISE "You are an extraordinary being."
+      int main(void)
+      {
+         char name[40];
 
-   printf("What's your name? ");
-   scanf("%s", name);
-   printf("Hello, %s. %s\n", name, PRAISE);
-   printf("Your name of %zd letters occupies %zd memory cells.\n",
-   strlen(name), sizeof name);
-   printf("The phrase of praise has %zd letters ",
-   strlen(PRAISE));
-   printf("and occupies %zd memory cells.\n", sizeof PRAISE);
+         printf("What's your name? ");
+         scanf("%s", name);
+         printf("Hello, %s. %s\n", name, PRAISE);
+         printf("Your name of %zd letters occupies %zd memory cells.\n",
+         strlen(name), sizeof name);
+         printf("The phrase of praise has %zd letters ",
+         strlen(PRAISE));
+         printf("and occupies %zd memory cells.\n", sizeof PRAISE);
 
-   return 0;
-   }
+         return 0;
+      }
+
    If you are using a pre-ANSI C compiler, you might have to remove the following line:
-   #include <string.h>
-   The string.h file contains function prototypes for several string-related functions, including
-   strlen() . Chapter 11 , “Character Strings and String Functions,” discusses this header file more
-   fully. (By the way, some pre-ANSI Unix systems use strings.h instead of string.h to contain
+
+      #include <string.h>
+
+   The `string.h` file contains function prototypes for several string-related functions, including
+   `strlen()` . Chapter 11 , “Character Strings and String Functions,” discusses this header file more
+   fully. (By the way, some pre-ANSI Unix systems use strings.h instead of `string.h` to contain
    declarations for string functions.)
+
    More generally, C divides the C function library into families of related functions and provides
-   a header file for each family. For example, printf() and scanf() belong to a family of standard 
-   input and output functions and use the stdio.h header file. The strlen() function joins
+   a header file for each family. For example, `printf()` and `scanf()` belong to a family of standard 
+   input and output functions and use the stdio.h header file. The `strlen()` function joins
    several other string-related functions, such as functions to copy strings and to search through
-   strings, in a family served by the string.h header.
-   Notice that Listing 4.3 uses two methods to handle long printf() statements. The first
-   method spreads one printf() statement over two lines. (You can break a line between arguments 
+   strings, in a family served by the `string.h` header.
+
+   Notice that Listing 4.3 uses two methods to handle long `printf()` statements. The first
+   method spreads one `printf()` statement over two lines. (You can break a line between arguments 
    to printf( ) but not in the middle of a string—that is, not between the quotation
-   marks.) The second method uses two printf() statements to print just one line. The newline
+   marks.) The second method uses two `printf()` statements to print just one line. The newline
    character ( \n ) appears only in the second statement. Running the program could produce the
    following interchange:
-   What's your name? Serendipity Chance
-   Hello, Serendipity. You are an extraordinary being.
+
+   .. code-block:: bash
+
+      What's your name? Serendipity Chance
+      Hello, Serendipity. You are an extraordinary being.
+      Your name of 11 letters occupies 40 memory cells.
+      The phrase of praise has 31 letters and occupies 32 memory cells.
 
    ..   ptg11524036
 
-   :sup:`P0105` Character Strings: An Introduction
+.. _P0105:
 
-   Your name of 11 letters occupies 40 memory cells.
-   The phrase of praise has 31 letters and occupies 32 memory cells.
    See what happens. The array name has 40 memory cells, and that is what the sizeof operator 
    reports. Only the first 11 cells are needed to hold Serendipity, however, and that is what
-   strlen() reports. The twelfth cell in the array name contains the null character, and its presence 
-   tells strlen() when to stop counting. Figure 4.4 illustrates this concept with a shorter
+   `strlen()` reports. The twelfth cell in the array name contains the null character, and its presence 
+   tells `strlen()` when to stop counting. Figure 4.4 illustrates this concept with a shorter
    string.
 
-   5 characters
-   terminating null character
-   garbage (in general)
-   T u f f y \0
-   Figure 4.4 The strlen() function knows when to stop.
-   When you get to PRAISE , you find that strlen() again gives you the exact number of characters 
-   (including spaces and punctuation) in the string. The sizeof operator gives you a
+   .. code-block:: bash
+
+                    ╭───── terminating null character
+         ╭─┬─┬─┬─┬─┬──┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─╮
+         │T│u│f│f│y│\0│ │ │ │ │ │ │ │ │ │ │ │ │...│
+         ╰─┴─┴─┴─┴─┴──┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─╯
+          ╰───┬───╯    ╰────────────┬────────────╯
+         5 characters            garbage (in general)
+
+      Figure 4.4 The strlen() function knows when to stop.
+
+   When you get to PRAISE , you find that `strlen()` again gives you the exact number of characters 
+   (including spaces and punctuation) in the string. The ``sizeof`` operator gives you a
    number one larger because it also counts the invisible null character used to end the string. The
    program didn’t tell the computer how much memory to set aside to store the phrase. It had to
    count the number of characters between the double quotes itself.
+
    As mentioned in Chapter 3 , “Data and C,” the C99 and C11 standards use a %zd specifier for
-   the type used by the sizeof operator. This also applies for type returned by strlen() . For
-   earlier versions of C you need to know the actual type returned by sizeof and strlen() ; typically 
+   the type used by the ``sizeof`` operator. This also applies for type returned by `strlen()` . For
+   earlier versions of C you need to know the actual type returned by ``sizeof`` and `strlen()` ; typically 
    that would be unsigned or unsigned long .
-   One other point: The preceding chapter used sizeof with parentheses, but this example
+
+   One other point: The preceding chapter used ``sizeof`` with parentheses, but this example
    doesn’t. Whether you use parentheses depends on whether you want the size of a type or the
    size of a particular quantity. Parentheses are required for types but are optional for particular
-   quantities. That is, you would use sizeof(char) or sizeof(float) but can use sizeof name
-   or sizeof 6.28 . However, it is all right to use parentheses in these cases, too, as in sizeof
+   quantities. That is, you would use `sizeof(char)` or `sizeof(float)` but can use ``sizeof`` name
+   or ``sizeof`` 6.28 . However, it is all right to use parentheses in these cases, too, as in ``sizeof``
    (6.28) .
-   The last example used strlen() and sizeof for the rather trivial purpose of satisfying a user’s
-   potential curiosity. Actually, however, strlen() and sizeof are important programming
+
+   The last example used `strlen()` and ``sizeof`` for the rather trivial purpose of satisfying a user’s
+   potential curiosity. Actually, however, `strlen()` and ``sizeof`` are important programming
    tools. For example, strlen() is useful in all sorts of character-string programs, as you’ll see in
    Chapter 11 .
+
    Let’s move on to the #define statement.
 
    ..   ptg11524036
 
-   :sup:`P0106` Chapter 4 Character Strings and Formatted Input/Output
+.. _P0106:
 
 
 Constants and the C Preprocessor
@@ -5762,87 +5829,121 @@ Constants and the C Preprocessor
 
    Sometimes you need to use a constant in a program. For example, you could give the circumference 
    of a circle as follows:
-   circumference = 3.14159 * diameter;
+
+   .. code-block:: cpp
+
+      circumference = 3.14159 * diameter;
+
    Here, the constant 3.14159 represents the world-famous constant pi (π). To use a constant,
    just type in the actual value, as in the example. However, there are good reasons to use a
    symbolic constant instead. That is, you could use a statement such as the following and have the
    computer substitute in the actual value later:
-   circumference = pi * diameter;
+
+   .. code-block:: cpp
+
+      circumference = pi * diameter;
+
    Why is it better to use a symbolic constant? First, a name tells you more than a number does.
    Compare the following two statements:
-   owed = 0.015 * housevalue;
-   owed = taxrate * housevalue;
+
+   .. code-block:: cpp
+
+      owed = 0.015 * housevalue;
+      owed = taxrate * housevalue;
+
    If you read through a long program, the meaning of the second version is plainer.
    Also, suppose you have used a constant in several places, and it becomes necessary to change
    its value. After all, tax rates do change. Then you only need to alter the definition of the
    symbolic constant, rather than find and change every occurrence of the constant in the
    program.
+
    Okay, how do you set up a symbolic constant? One way is to declare a variable and set it equal
    to the desired constant. You could write this:
-   float taxrate;
-   taxrate = 0.015;
+
+   .. code-block:: cpp
+
+      float taxrate;
+      taxrate = 0.015;
+
    This provides a symbolic name, but taxrate is a variable, so your program might change its
    value accidentally. Fortunately, C has a couple better ideas.
+
    The original better idea is the C preprocessor. In Chapter 2 , “Introducing C,” you saw how the
    preprocessor uses #include to incorporate information from another file. The preprocessor
    also lets you define constants. Just add a line like the following at the top of the file containing
    your program:
-   #define TAXRATE 0.015
+
+   .. code-block:: cpp
+
+      #define TAXRATE 0.015
+
    When your program is compiled, the value 0.015 will be substituted everywhere you have used
    TAXRATE . This is called a compile-time substitution . By the time you run the program, all the
-   substitutions have already been made (see Figure 4.5 ). Such defined constants are often termed
-   manifest constants .
+   substitutions have already been made (see Figure 4.5 ). Such defined constants are often `termed
+   manifest constants` .
 
    ..   ptg11524036
 
-   :sup:`P0107` Constants and the C Preprocessor
+.. _P0107:
 
 
-   what you type
-   preprocessor
-   at work
-   #define TAXRATE 0.015
-   int main(void)
-   {
-   •
-   •
-   •
-   bill=TAXRATE * sum;
-   {
-   •
-   •
-   •
-   }
-   int main(void)
-   {
-   •
-   •
-   •
-   bill=0.015 * sum;
-   •
-   •
-   •
-   }
-   COMPILER
-   Figure 4.5 What you type versus what is compiled.
+   .. code-block:: cpp
+
+      // what you type
+      ╭─────────────────────────────────────────────────────╮
+      │ #define TAXRATE 0.015
+      │ int main(void)
+      │ {
+      │ •
+      │ •
+      │ •
+      │ bill=TAXRATE * sum;
+      │ •
+      │ •
+      │ •
+      }
+      ╰─────────────────────────────────────────────────────╯
+      // preprocessor at work
+      ╭─────────────────────────────────────────────────────╮
+      │ int main(void)
+      │ {
+      │ •
+      │ •
+      │ •
+      │ bill=0.015 * sum;
+      │ •
+      │ •
+      │ •
+      ╰─────────────────────────────────────────────────────╯
+      ╭─────────────────────────────────────────────────────╮
+      │                       COMPILER                      │
+      ╰─────────────────────────────────────────────────────╯
+
+      Figure 4.5 What you type versus what is compiled.
 
    ..   ptg11524036
 
-   :sup:`P0108` Chapter 4 Character Strings and Formatted Input/Output
+.. _P0108:
 
-   Note the format. First comes #define . Next comes the symbolic name ( TAXRATE ) for the
+   Note the format. First comes #define . Next comes the symbolic name ( `TAXRATE` ) for the
    constant and then the value ( 0.015 ) for the constant. (Note that this construction does not use
    the = sign.) So the general form is as follows:
-   #define NAME value
+
+   .. code-block:: cpp
+
+      #define NAME value
+
    You would substitute the symbolic name of your choice for NAME and the appropriate value
    for value . No semicolon is used because this is a substitution mechanism handled by the
-   preprocessor, not a C statement. Why is TAXRATE capitalized? It is a sensible C tradition to type
+   preprocessor, not a C statement. Why is `TAXRATE` capitalized? It is a sensible C tradition to type
    constants in uppercase. Then, when you encounter one in the depths of a program, you know
    immediately that it is a constant, not a variable. Capitalizing constants is just another technique 
    to make programs more readable. Your programs will still work if you don’t capitalize the
    constants, but capitalizing them is a reasonable habit to cultivate.
-   Other, less common, naming conventions include prefixing a name with a c_ or k_ to indicate
-   a constant, producing names such as c_level or k_line .
+
+   Other, less common, naming conventions include prefixing a name with a `c_` or `k_` to indicate
+   a constant, producing names such as `c_level` or `k_line` .
+
    The names you use for symbolic constants must satisfy the same rules that the names of variables 
    do. You can use uppercase and lowercase letters, digits, and the underscore character. The
    first character cannot be a digit. Listing 4.4 shows a simple example.
@@ -5853,130 +5954,167 @@ Constants and the C Preprocessor
 
    .. code-block:: cpp
 
-   /* pizza.c -- uses defined constants in a pizza context */
-   #include <stdio.h>
-   #define PI 3.14159
-   int main(void)
-   {
-   float area, circum, radius;
+      /* pizza.c -- uses defined constants in a pizza context */
+      #include <stdio.h>
+      #define PI 3.14159
+      int main(void)
+      {
+         float area, circum, radius;
 
-   printf("What is the radius of your pizza?\n");
-   scanf("%f", &radius);
-   area = PI * radius * radius;
-   circum = 2.0 * PI *radius;
-   printf("Your basic pizza parameters are as follows:\n");
-   printf("circumference = %1.2f, area = %1.2f\n", circum,
-   area);
-   return 0;
-   }
-   The %1.2f in the printf() statement causes the printout to be rounded to two decimal places.
+         printf("What is the radius of your pizza?\n");
+         scanf("%f", &radius);
+         area = PI * radius * radius;
+         circum = 2.0 * PI *radius;
+         printf("Your basic pizza parameters are as follows:\n");
+         printf("circumference = %1.2f, area = %1.2f\n", circum,
+         area);
+         return 0;
+      }
+
+   The %1.2f in the `printf()` statement causes the printout to be rounded to two decimal places.
    Of course, this program may not reflect your major pizza concerns, but it does fill a small niche
    in the world of pizza programs. Here is a sample run:
-   What is the radius of your pizza?
-   6.0
-   Your basic pizza parameters are as follows:
-   circumference = 37.70, area = 113.10
+
+   .. code-block:: cpp
+
+      What is the radius of your pizza?
+      6.0
+      Your basic pizza parameters are as follows:
+      circumference = 37.70, area = 113.10
 
    ..   ptg11524036
 
-   :sup:`P0109` Constants and the C Preprocessor
+.. _P0109:
 
-   The #define statement can be used for character and string constants, too. Just use single
+   The ``#define`` statement can be used for character and string constants, too. Just use single
    quotes for the former and double quotes for the latter. The following examples are valid:
-   #define BEEP '\a'
-   #define TEE 'T'
-   #define ESC '\033'
-   #define OOPS "Now you have done it!"
+
+   .. code-block:: cpp
+
+      #define BEEP '\a'
+      #define TEE 'T'
+      #define ESC '\033'
+      #define OOPS "Now you have done it!"
+
    Remember that everything following the symbolic name is substituted for it. Don’t make this
    common error:
-   /* the following is wrong */
-   #define TOES = 20
-   If you do this, TOES is replaced by = 20 , not just 20 . In that case, a statement such as
-   digits = fingers + TOES;
-   is converted to the following misrepresentation:
-   digits = fingers + = 20;
-   The const Modifier
+
+   .. code-block:: cpp
+
+      /* the following is wrong */
+      #define TOES = 20
+
+   If you do this, `TOES` is replaced by = 20 , not just 20 . In that case, a statement such as
+
+   .. code-block:: cpp
+
+      digits = fingers + TOES;
+      // is converted to the following misrepresentation:
+      digits = fingers + = 20;
+
+The const Modifier
+
    C90 added a second way to create symbolic constants—using the const keyword to convert a
    declaration for a variable into a declaration for a constant:
-   const int MONTHS = 12; // MONTHS a symbolic constant for 12
-   This makes MONTHS into a read-only value. That is, you can display MONTHS and use it in
-   calculations, but you cannot alter the value of MONTHS . This newer approach is more flexible 
-   than using #define ; it lets you declare a type, and it allows better control over which
+
+   .. code-block:: cpp
+
+      const int MONTHS = 12; // MONTHS a symbolic constant for 12
+
+   This makes `MONTHS` into a read-only value. That is, you can display `MONTHS` and use it in
+   calculations, but you cannot alter the value of `MONTHS` . This newer approach is more flexible 
+   than using `#define` ; it lets you declare a type, and it allows better control over which
    parts of a program can use the constant. Chapter 12 , “Storage Classes, Linkage, and Memory
    Management,” discusses this and other uses of const .
+
    Actually, C has yet a third way to create symbolic constants, and that is the enum facility
    discussed in Chapter 14 , “Structures and Other Data Forms.”
-   Manifest Constants on the Job
+
+Manifest Constants on the Job
+
    The C header files limits.h and float.h supply detailed information about the size limits of
    integer types and floating types, respectively. Each file defines a series of manifest constants
    that apply to your implementation. For instance, the limits.h file contains lines similar to the
    following:
-   #define INT_MAX +32767
-   #define INT_MIN -32768
+
+   .. code-block:: cpp
+
+      #define INT_MAX +32767
+      #define INT_MIN -32768
 
    ..   ptg11524036
 
-   :sup:`P0110` Chapter 4 Character Strings and Formatted Input/Output
+.. _P0110:
 
    These constants represent the largest and smallest possible values for the int type. If your
    system uses a 32-bit int , the file would provide different values for these symbolic constants.
    The file defines minimum and maximum values for all the integer types. If you include the
    limits.h file, you can use code such as the following:
-   printf("Maximum int value on this system = %d\n", INT_MAX);
-   If your system uses a 4-byte int , the limits.h file that comes with that system would provide
-   definitions for INT_MAX and INT_MIN that match the limits of a 4-byte int . Table 4.1 lists some
-   of the constants found in limits.h .
-   Table 4.1 Some Symbolic Constants from limits.h
-   Symbolic Constant Represents
-   CHAR_BIT Number of bits in a char
-   CHAR_MAX Maximum char value
-   CHAR_MIN Minimum char value
-   SCHAR_MAX Maximum signed char value
-   SCHAR_MIN Minimum signed char value
-   UCHAR_MAX Maximum unsigned char value
-   SHRT_MAX Maximum short value
-   SHRT_MIN Minimum short value
-   USHRT_MAX Maximum unsigned short value
-   INT_MAX Maximum int value
-   INT_MIN Minimum int value
-   UINT_MAX Maximum unsigned int value
-   LONG_MAX Maximum long value
-   LONG_MIN Minimum long value
-   ULONG_MAX Maximum unsigned long value
-   LLONG_MAX Maximum long long value
-   LLONG_MIN Minimum long long value
-   ULLONG_MAX Maximum unsigned long long value
-   Similarly, the float.h file defines constants such as FLT_DIG and DBL_DIG , which represent
-   the number of significant figures supported by the float type and the double type. Table 4.2
-   lists some of the constants found in float.h . (You can use a text editor to open and inspect
-
-   ..   ptg11524036
-
-   :sup:`P0111` Constants and the C Preprocessor
-
-   the float.h header file your system uses.) This example relates to the float type. Equivalent
-   constants are defined for types double and long double , with DBL and LDBL substituted for
-   FLT in the name. (The table assumes the system represents floating-point numbers in terms of
-   powers of 2.)
-   Table 4.2 Some Symbolic Constants from float.h
-   Symbolic Constant Represents
-   FLT_MANT_DIG Number of bits in the mantissa of a float
-   FLT_DIG Minimum number of significant decimal digits for a float
-   FLT_MIN_10_EXP Minimum base-10 negative exponent for a float with a full set of
-   significant figures
-   FLT_MAX_10_EXP Maximum base-10 positive exponent for a float
-   FLT_MIN Minimum value for a positive float retaining full precision
-   FLT_MAX Maximum value for a positive float
-   FLT_EPSILON Difference between 1.00 and the least float value greater than
-   1.00
-
-   Listing 4.5 illustrates using data from float.h and limits.h . (Note that a compiler that
-
---------------------------------------------------------------------------------
 
    .. code-block:: cpp
 
-   doesn’t fully support the C99 standard might not accept the LLONG_MIN identifier.)
+      printf("Maximum int value on this system = %d\n", INT_MAX);
+
+   If your system uses a 4-byte int , the limits.h file that comes with that system would provide
+   definitions for ``INT_MAX`` and ``INT_MIN`` that match the limits of a 4-byte int . Table 4.1 lists some
+   of the constants found in limits.h .
+
+   Table 4.1 Some Symbolic Constants from limits.h
+   
+   =========== =================================
+   Symbolic    Constant Represents
+   =========== =================================
+   CHAR_BIT    Number of bits in a char
+   CHAR_MAX    Maximum char value
+   CHAR_MIN    Minimum char value
+   SCHAR_MAX   Maximum signed char value
+   SCHAR_MIN   Minimum signed char value
+   UCHAR_MAX   Maximum unsigned char value
+   SHRT_MAX    Maximum short value
+   SHRT_MIN    Minimum short value
+   USHRT_MAX   Maximum unsigned short value
+   INT_MAX     Maximum int value
+   INT_MIN     Minimum int value
+   UINT_MAX    Maximum unsigned int value
+   LONG_MAX    Maximum long value
+   LONG_MIN    Minimum long value
+   ULONG_MAX   Maximum unsigned long value
+   LLONG_MAX   Maximum long long value
+   LLONG_MIN   Minimum long long value
+   ULLONG_MAX  Maximum unsigned long long value
+   =========== =================================
+
+   Similarly, the ``float.h`` file defines constants such as `FLT_DIG` and `DBL_DIG` , which represent
+   the number of significant figures supported by the float type and the double type. Table 4.2
+   lists some of the constants found in ``float.h`` . (You can use a text editor to open and inspect
+
+   ..   ptg11524036
+
+.. _P0111:
+
+   the ``float.h`` header file your system uses.) This example relates to the float type. Equivalent
+   constants are defined for types double and long double , with `DBL` and `LDBL` substituted for
+   FLT in the name. (The table assumes the system represents floating-point numbers in terms of
+   powers of 2.)
+
+   Table 4.2 Some Symbolic Constants from float.h
+
+   ============== ========================================================
+   Symbolic       Constant Represents
+   ============== ========================================================
+   FLT_MANT_DIG   Number of bits in the mantissa of a float
+   FLT_DIG        Minimum number of significant decimal digits for a float
+   FLT_MIN_10_EXP Minimum base-10 negative exponent for a float with a full 
+                  set of significant figures
+   FLT_MAX_10_EXP Maximum base-10 positive exponent for a float
+   FLT_MIN        Minimum value for a positive float retaining full precision
+   FLT_MAX        Maximum value for a positive float
+   FLT_EPSILON    Difference between 1.00 and the least float value greater 
+                  than 1.00
+   ============== ========================================================
+
+   Listing 4.5 illustrates using data from float.h and `limits.h` . (Note that a compiler that
+   doesn’t fully support the C99 standard might not accept the `LLONG_MIN` identifier.)
 
    Listing 4.5 The defines.c Program
 
@@ -5984,98 +6122,105 @@ Constants and the C Preprocessor
 
    .. code-block:: cpp
 
-   // defines.c -- uses defined constants from limit.h and float.
-   #include <stdio.h>
-   #include <limits.h> // integer limits
-   #include <float.h> // floating-point limits
-   int main(void)
-   {
-   printf("Some number limits for this system:\n");
-   printf("Biggest int: %d\n", INT_MAX);
-   printf("Smallest long long: %lld\n", LLONG_MIN);
-   printf("One byte = %d bits on this system.\n", CHAR_BIT);
-   printf("Largest double: %e\n", DBL_MAX);
-   printf("Smallest normal float: %e\n", FLT_MIN);
-   printf("float precision = %d digits\n", FLT_DIG);
-   printf("float epsilon = %e\n", FLT_EPSILON);
+      // defines.c -- uses defined constants from limit.h and float.
+      #include <stdio.h>
+      #include <limits.h> // integer limits
+      #include <float.h> // floating-point limits
+      int main(void)
+      {
+         printf("Some number limits for this system:\n");
+         printf("Biggest int: %d\n", INT_MAX);
+         printf("Smallest long long: %lld\n", LLONG_MIN);
+         printf("One byte = %d bits on this system.\n", CHAR_BIT);
+         printf("Largest double: %e\n", DBL_MAX);
+         printf("Smallest normal float: %e\n", FLT_MIN);
+         printf("float precision = %d digits\n", FLT_DIG);
+         printf("float epsilon = %e\n", FLT_EPSILON);
 
-   return 0;
-   }
+         return 0;
+      }
 
    ..   ptg11524036
 
-   :sup:`P0112` Chapter 4 Character Strings and Formatted Input/Output
+.. _P0112:
 
    Here is the sample output:
-   Some number limits for this system:
-   Biggest int: 2147483647
-   Smallest long long: -9223372036854775808
-   One byte = 8 bits on this system.
-   Largest double: 1.797693e+308
-   Smallest normal float: 1.175494e-38
-   float precision = 6 digits
-   float epsilon = 1.192093e-07
+
+   .. code-block:: bash
+
+      Some number limits for this system:
+      Biggest int: 2147483647
+      Smallest long long: -9223372036854775808
+      One byte = 8 bits on this system.
+      Largest double: 1.797693e+308
+      Smallest normal float: 1.175494e-38
+      float precision = 6 digits
+      float epsilon = 1.192093e-07
+
    The C preprocessor is a useful, helpful tool, so take advantage of it when you can. We’ll show
    you more applications as you move along through this book.
 
 Exploring and Exploiting printf() and scanf()
 ---------------------------------------------
 
-   The functions printf() and scanf() enable you to communicate with a program. They are
+   The functions `printf()` and `scanf()` enable you to communicate with a program. They are
    called input/output functions , or I/O functions for short. They are not the only I/O functions
    you can use with C, but they are the most versatile. Historically, these functions, like all other
    functions in the C library, were not part of the definition of C. C originally left the implementation 
    of I/O up to the compiler writers; this made it possible to better match I/O to specific
    machines. In the interests of compatibility, various implementations all came with versions
-   of scanf() and printf() . However, there were occasional discrepancies between implementations. 
+   of `scanf()` and `printf()` . However, there were occasional discrepancies between implementations. 
    The C90 and C99 standards describe standard versions of these functions, and we’ll
    follow that standard.
-   Although printf() is an output function and scanf() is an input function, both work much
+
+   Although `printf()` is an output function and `scanf()` is an input function, both work much
    the same, each using a control string and a list of arguments. We will show you how these
-   work, first with printf() and then with scanf() .
-   The printf() Function
-   The instructions you give printf() when you ask it to print a variable depend on the variable
+   work, first with `printf()` and then with `scanf()` .
+
+The printf() Function
+
+   The instructions you give `printf()` when you ask it to print a variable depend on the variable
    type. For example, we have used the %d notation when printing an integer and the %c notation 
    when printing a character. These notations are called conversion specifications because they
    specify how the data is to be converted into displayable form. We’ll list the conversion specifications 
-   that the ANSI C standard provides for printf() and then show how to use the more
+   that the ANSI C standard provides for `printf()` and then show how to use the more
    common ones. Table 4.3 presents the conversion specifiers and the type of output they cause to
    be printed.
-   Table 4.3 Conversion Specifiers and the Resulting Printed Output
-   Conversion Output Specification
-    %a Floating-point number, hexadecimal digits and p-notation (C99/C11).
-    %A Floating-point number, hexadecimal digits and P-notation (C99/C11).
 
    ..   ptg11524036
 
-   :sup:`P0113` Exploring and Exploiting printf() and scanf()
+.. _P0113:
 
+
+   Table 4.3 Conversion Specifiers and the Resulting Printed Output
+
+   ========== ======================================================
    Conversion Output Specification
-    %c Single character.
-    %d Signed decimal integer.
-    %e Floating-point number, e-notation.
-    %E Floating-point number, e-notation.
-    %f Floating-point number, decimal notation.
-    %g Use %f or %e , depending on the value. The %e style is used if the exponent is
-   less than −4 or greater than or equal to the precision.
-    %G Use %f or %E , depending on the value. The %E style is used if the exponent is
-   less than −4 or greater than or equal to the precision.
-    %i Signed decimal integer (same as %d ).
-    %o Unsigned octal integer.
-    %p A pointer.
-    %s Character string.
-    %u Unsigned decimal integer.
-    %x Unsigned hexadecimal integer, using hex digits 0f .
-    %X Unsigned hexadecimal integer, using hex digits 0F .
-    %% Prints a percent sign.
-   Using printf()
+   ========== ======================================================
+          %a    Floating-point number, hexadecimal digits and p-notation (C99/C11).
+          %A    Floating-point number, hexadecimal digits and P-notation (C99/C11).
+          %c    Single character.
+          %d    Signed decimal integer.
+          %e    Floating-point number, e-notation.
+          %E    Floating-point number, e-notation.
+          %f    Floating-point number, decimal notation.
+          %g    Use %f or %e , depending on the value. The %e style is used if the exponent is
+                less than −4 or greater than or equal to the precision.
+          %G    Use %f or %E , depending on the value. The %E style is used if the exponent is
+                less than −4 or greater than or equal to the precision.
+          %i    Signed decimal integer (same as %d ).
+          %o    Unsigned octal integer.
+          %p    A pointer.
+          %s    Character string.
+          %u    Unsigned decimal integer.
+          %x    Unsigned hexadecimal integer, using hex digits 0f .
+          %X    Unsigned hexadecimal integer, using hex digits 0F .
+          %%    Prints a percent sign.
+    ========== ======================================================
+
+Using printf()
 
    Listing 4.6 contains a program that uses some of the conversion specifications.
-
---------------------------------------------------------------------------------
-
-   .. code-block:: cpp
-
 
    Listing 4.6 The printout.c Program
 
@@ -6083,51 +6228,70 @@ Exploring and Exploiting printf() and scanf()
 
    .. code-block:: cpp
 
-   /* printout.c -- uses conversion specifiers */
-   #include <stdio.h>
-   #define PI 3.141593
-   int main(void)
-   {
-   int number = 7;
-   float pies = 12.75;
-   int cost = 7800;
+      /* printout.c -- uses conversion specifiers */
+      #include <stdio.h>
+      #define PI 3.141593
+      int main(void)
+      {
+         int number = 7;
+         float pies = 12.75;
+         int cost = 7800;
 
-   printf("The %d contestants ate %f berry pies.\n", number,
-   pies);
-   printf("The value of pi is %f.\n", PI);
+         printf("The %d contestants ate %f berry pies.\n", number, pies);
+         printf("The value of pi is %f.\n", PI);
+         printf("Farewell! thou art too dear for my possessing,\n");
+         printf("%c%d\n", '$', 2 * cost);
+
+         return 0;
+      }
 
    ..   ptg11524036
 
-   :sup:`P0114` Chapter 4 Character Strings and Formatted Input/Output
+.. _P0114:
 
-   printf("Farewell! thou art too dear for my possessing,\n");
-   printf("%c%d\n", '$', 2 * cost);
-
-   return 0;
-   }
    The output, of course, is
-   The 7 contestants ate 12.750000 berry pies.
-   The value of pi is 3.141593.
-   Farewell! thou art too dear for my possessing,
-   $15600
+
+   .. code-block:: cpp
+
+      The 7 contestants ate 12.750000 berry pies.
+      The value of pi is 3.141593.
+      Farewell! thou art too dear for my possessing,
+      $15600
+
    This is the format for using printf() :
-   printf( Control-string , item1 , item2 ,...);
+
+   .. code-block:: cpp
+
+      printf( Control-string , item1 , item2 ,...);
+
    Item1 , item2 , and so on, are the items to be printed. They can be variables or constants, or
    even expressions that are evaluated first before the value is printed. Control-string is a character 
    string describing how the items are to be printed. As mentioned in Chapter 3 , the control
    string should contain a conversion specifier for each item to be printed. For example, consider
    the following statement:
-   printf("The %d contestants ate %f berry pies.\n", number,
-   pies);
+
+   .. code-block:: cpp
+
+      printf("The %d contestants ate %f berry pies.\n", number, pies);
+
    Control-string is the phrase enclosed in double quotes. This particular control string
    contains two conversion specifiers corresponding to number and pies —the two items to be
-   displayed. Figure 4.6 shows another example of a printf() statement.
+   displayed. Figure 4.6 shows another example of a `printf()` statement.
 
-   variable list control statement
-   printf( "You look great in %s\n" , color );
-   Figure 4.6 Arguments for printf().
+   .. code-block:: cpp
+
+      printf( "You look great in %s\n" , color );
+              ╰──────────┬──────────╯   ╰──┬──╯
+                 control statement     variable list 
+
+      Figure 4.6 Arguments for printf().
+
    Here is another line from the example:
-   printf("The value of pi is %f.\n", PI);
+
+   .. code-block:: cpp
+
+      printf("The value of pi is %f.\n", PI);
+
    This time, the list of items has just one member—the symbolic constant PI .
    As you can see in Figure 4.7 , Control-string contains two distinct forms of information:
 
@@ -6137,141 +6301,195 @@ Exploring and Exploiting printf() and scanf()
 
    ..   ptg11524036
 
-   :sup:`P0115` Exploring and Exploiting printf() and scanf()
+.. _P0115:
 
-   Caution
-   Don’t forget to use one conversion specification for each item in the list following
-   Control-string . Woe unto you should you forget this basic requirement! Don’t do the
-   following:
-   printf("The score was Squids %d, Slugs %d.\n", score1);
-   Here, there is no value for the second %d . The result of this faux pas depends on your system,
-   but at best you will get partial nonsense.
+   .. Caution::
 
-   literal characters literal characters
-   conversion specifications
-   "The value of pi is %f. \n"
-   Figure 4.7 Anatomy of a control string.
+      Don’t forget to use one conversion specification for each item in the list following
+      Control-string . Woe unto you should you forget this basic requirement! Don’t do the
+      following:
+
+      .. code-block:: cpp
+
+         printf("The score was Squids %d, Slugs %d.\n", score1);
+
+      Here, there is no value for the second %d . The result of this faux pas depends on your system,
+      but at best you will get partial nonsense.
+
+
+   .. code-block:: cpp
+
+      "The value of pi is %f. \n"
+      ╰────────┬────────╯╰┬╯╰─┬─╯
+               │          │   │
+      literal characters  │ literal characters
+                          │
+               conversion specifications
+
+      Figure 4.7 Anatomy of a control string.
+
    If you want to print only a phrase, you don’t need any conversion specifications. If you just
    want to print data, you can dispense with the running commentary. Each of the following
    statements from Listing 4.6 is quite acceptable:
-   printf("Farewell! thou art too dear for my possessing,\n");
-   printf("%c%d\n", '$', 2 * cost);
+
+   .. code-block:: cpp
+
+      printf("Farewell! thou art too dear for my possessing,\n");
+      printf("%c%d\n", '$', 2 * cost);
+
    In the second statement, note that the first item on the print list was a character constant
    rather than a variable and that the second item is a multiplication. This illustrates that
-   printf() uses values, be they variables, constants, or expressions.
-   Because the printf() function uses the % symbol to identify the conversion specifications,
+   `printf()` uses values, be they variables, constants, or expressions.
+
+   Because the `printf()` function uses the % symbol to identify the conversion specifications,
    there is a slight problem if you want to print the % sign itself. If you simply use a lone % sign,
    the compiler thinks you have bungled a conversion specification. The way out is simple—just
    use two % symbols, as shown here:
-   pc = 2*6;
-   printf("Only %d%% of Sally's gribbles were edible.\n", pc);
+
+   .. code-block:: cpp
+
+      pc = 2*6;
+      printf("Only %d%% of Sally's gribbles were edible.\n", pc);
+
    The following output would result:
-   Only 12% of Sally's gribbles were edible.
-   Conversion Specification Modifiers for printf()
+
+   .. code-block:: bash
+
+      Only 12% of Sally's gribbles were edible.
+
+Conversion Specification Modifiers for printf()
+
    You can modify a basic conversion specification by inserting modifiers between the % and the
    defining conversion character. Tables 4.4 and 4.5 list the characters you can place there legally.
-   If you use more than one modifier, they should be in the same order as they appear in Table
+   If you use more than one modifier, they should be in the same order as they appear in Table 4.4 .
 
    ..   ptg11524036
 
-   :sup:`P0116` Chapter 4 Character Strings and Formatted Input/Output
+.. _P0116:
 
-   4.4 . Not all combinations are possible. The table reflects the C99 additions; your implementation 
+   Not all combinations are possible. The table reflects the C99 additions; your implementation 
    may not support all the options shown here.
+
    Table 4.4 The printf() Modifiers
-   Modifier Meaning
-   flag The five flags ( - , + , space, # , and 0 ) are described in Table 4.5 . Zero or more
-   flags may be present.
-   Example: "%-10d".
-   digit(s) The minimum field width. A wider field will be used if the printed number or string
-   won’t fit in the field.
-   Example: "%4d".
-   .digit(s) Precision. For %e , %E , and %f conversions, the number of digits to be printed to
-   the right of the decimal. For %g and %G conversions, the maximum number of
-   significant digits. For %s conversions, the maximum number of characters to be
-   printed. For integer conversions, the minimum number of digits to appear; leading
-   zeros are used if necessary to meet this minimum. Using only . implies a following 
-   zero, so %.f is the same as %.0f .
-   Example: "%5.2f" prints a float in a field five characters wide with two digits
-   after the decimal point.
-   h Used with an integer conversion specifier to indicate a short int or unsigned
-   short int value.
-   Examples: "%hu" , "%hx" , and "%6.4hd".
-   hh Used with an integer conversion specifier to indicate a signed char or
-   unsigned char value.
-   Examples: "%hhu" , "%hhx" , and "%6.4hhd".
-   j Used with an integer conversion specifier to indicate an intmax_t or uintmax_t
-   value; these are types defined in stdint.h .
-   Examples: "%jd" and "%8jX".
-   l Used with an integer conversion specifier to indicate a long int or unsigned
-   long int .
-   Examples: "%ld" and "%8lu".
-   ll Used with an integer conversion specifier to indicate a long long int or
-   unsigned long long int . (C99).
-   Examples: "%lld" and "%8llu".
-   L Used with a floating-point conversion specifier to indicate a long double value.
-   Examples: "%Lf" and "%10.4Le".
+
+   =========== =============================================================
+   Modifier    Meaning
+   =========== =============================================================
+   flag        The five flags ( - , + , space, # , and 0 ) are described in Table 4.5 . 
+               Zero or more flags may be present. 
+               Example: "%-10d".
+
+   digit(s)    The minimum field width. A wider field will be used if the printed 
+               number or string won’t fit in the field.
+               Example: "%4d".
+
+   .digit(s)   Precision. For %e , %E , and %f conversions, the number of digits to be printed to
+               the right of the decimal. For %g and %G conversions, the maximum number of
+               significant digits. For %s conversions, the maximum number of characters to be
+               printed. For integer conversions, the minimum number of digits to appear; leading
+               zeros are used if necessary to meet this minimum. Using only . implies a following 
+               zero, so %.f is the same as %.0f .
+               Example: "%5.2f" prints a float in a field five characters wide with two digits
+               after the decimal point.
+
+   h           Used with an integer conversion specifier to indicate a ``short int`` or 
+               ``unsigned short int`` value.
+               Examples: "%hu" , "%hx" , and "%6.4hd".
+
+   hh          Used with an integer conversion specifier to indicate a ``signed char`` or
+               ``unsigned char`` value.
+               Examples: "%hhu" , "%hhx" , and "%6.4hhd".
+
+   j           Used with an integer conversion specifier to indicate an ``intmax_t`` or ``uintmax_t``
+               value; these are types defined in stdint.h .
+               Examples: "%jd" and "%8jX".
+
+   l           Used with an integer conversion specifier to indicate a ``long int`` or 
+               ``unsigned long int`` .
+               Examples: "%ld" and "%8lu".
+
+   ll          Used with an integer conversion specifier to indicate a ``long long int`` or
+               ``unsigned long long int`` . (C99).
+               Examples: "%lld" and "%8llu".
+
+   L           Used with a floating-point conversion specifier to indicate a ``long double`` value.
+               Examples: "%Lf" and "%10.4Le".
+
+   t           Used with an integer conversion specifier to indicate a ``ptrdiff_t`` value. This is
+               the type corresponding to the difference between two pointers. (C99).
+               Examples: "%td" and "%12ti".
+
+   z           Used with an integer conversion specifier to indicate a ``size_t`` value. This is the
+               type returned by sizeof . (C99).
+               Examples: "%zd" and "%12zx".
+   =========== =============================================================
 
    ..   ptg11524036
 
-   :sup:`P0117` Exploring and Exploiting printf() and scanf()
+.. _P0117:
 
-   Modifier Meaning
-   t Used with an integer conversion specifier to indicate a ptrdiff_t value. This is
-   the type corresponding to the difference between two pointers. (C99).
-   Examples: "%td" and "%12ti".
-   z Used with an integer conversion specifier to indicate a size_t value. This is the
-   type returned by sizeof . (C99).
-   Examples: "%zd" and "%12zx".
+
    Note Type Portability
-   The sizeof operator, recall, returns the size, in bytes, of a type or value. This should be some
-   form of integer, but the standard only provides that it should be an unsigned integer. Thus it
-   could be unsigned int , unsigned long , or even unsigned long long . So, if you were
-   to use printf() to display a sizeof expression, you might use %u on one system, %lu one
-   another, and %llu on a third. This means you would need to research the correct usage for
-   your system and that you might need to alter your program if you move it to a different system.
-   Well, it would have meant that except that C provides help to make the type more portable.
-   First, the stddef.h header file (included when you include stdio.h ) defines size_t to be
-   whatever the type your system uses for sizeof ; this is called the underlying type. Second,
-   printf() uses the z modifier to indicate the corresponding type for printing. Similarly, C
-   defines the ptrdiff_t type and t modifier to indicate whatever underlying signed integer type
-   the system used for the difference between two addresses.
+
+      The sizeof operator, recall, returns the size, in bytes, of a type or value. This should be some
+      form of integer, but the standard only provides that it should be an unsigned integer. Thus it
+      could be ``unsigned int`` , ``unsigned long`` , or even ``unsigned long long`` . So, if you were
+      to use `printf()` to display a sizeof expression, you might use %u on one system, %lu one
+      another, and %llu on a third. This means you would need to research the correct usage for
+      your system and that you might need to alter your program if you move it to a different system.
+      Well, it would have meant that except that C provides help to make the type more portable.
+      First, the stddef.h header file (included when you include `stdio.h` ) defines ``size_t`` to be
+      whatever the type your system uses for sizeof ; this is called the underlying type. Second,
+      `printf()` uses the z modifier to indicate the corresponding type for printing. Similarly, C
+      defines the ``ptrdiff_t`` type and t modifier to indicate whatever underlying signed integer type
+      the system used for the difference between two addresses.
+
    Note Conversion of float Arguments
-   There are conversion specifiers to print the floating types double and long double . However,
-   there is no specifier for float . The reason is that float values were automatically converted
-   to type double before being used in an expression or as an argument under K&R C. ANSI C (or
-   later), in general, does not automatically convert float to double . To protect the enormous
-   number of existing programs that assume float arguments are converted to double , however,
-   all float arguments to printf() —as well as to any other C function not using an explicit prototype—are 
-   still automatically converted to double . Therefore, under either K&R C or ANSI C,
-   no special conversion specifier is needed for displaying type float .
-   Table 4.5 The printf() Flags
-   Flag Meaning
-    - The item is left-justified; that is, it is printed beginning at the left of the field.
-   Example: "%-20s".
+
+      There are conversion specifiers to print the floating types double and long double . However,
+      there is no specifier for float . The reason is that float values were automatically converted
+      to type double before being used in an expression or as an argument under K&R C. ANSI C (or
+      later), in general, does not automatically convert float to double . To protect the enormous
+      number of existing programs that assume float arguments are converted to double , however,
+      all float arguments to `printf()` —as well as to any other C function not using an explicit 
+      prototype—are still automatically converted to double . Therefore, under either K&R C or ANSI C,
+      no special conversion specifier is needed for displaying type float .
+
 
    ..   ptg11524036
 
-   :sup:`P0118` Chapter 4 Character Strings and Formatted Input/Output
+.. _P0118:
 
-   Flag Meaning
-    + Signed values are displayed with a plus sign, if positive, and with a minus sign, if
-   negative.
-   Example: "%+6.2f".
+   Table 4.5 The `printf()` Flags
+   ===== ===========================================================
+   Flag  Meaning
+   ===== ===========================================================
+    -    The item is left-justified; that is, it is printed beginning at the left of the field.
+         Example: "%-20s".
+
+    +    Signed values are displayed with a plus sign, if positive, and with a minus sign, 
+         if negative.
+         Example: "%+6.2f".
+
    space Signed values are displayed with a leading space (but no sign) if positive and with
-   a minus sign if negative. A + flag overrides a space.
-   Example: "% 6.2f".
-    # Use an alternative form for the conversion specification. Produces an initial 0
-   for the %o form and an initial 0x or 0X for the %x or %X form, respectively. For
-   all floating-point forms, # guarantees that a decimal-point character is printed,
-   even if no digits follow. For %g and %G forms, it prevents trailing zeros from being
-   removed.
-   Examples: "%#o" , "%#8.0f" , and "%+#10.3E".
-   0 For numeric forms, pad the field width with leading zeros instead of with spaces.
-   This flag is ignored if a - flag is present or if, for an integer form, a precision is
-   specified.
-   Examples: "%010d" and "%08.3f".
-   Examples Using Modifiers and Flags
+         a minus sign if negative. A + flag overrides a space.
+         Example: "% 6.2f".
+
+    #    Use an alternative form for the conversion specification. Produces an initial 0
+         for the %o form and an initial 0x or 0X for the %x or %X form, respectively. For
+         all floating-point forms, # guarantees that a decimal-point character is printed,
+         even if no digits follow. For %g and %G forms, it prevents trailing zeros from being
+         removed.
+         Examples: "%#o" , "%#8.0f" , and "%+#10.3E".
+
+   0     For numeric forms, pad the field width with leading zeros instead of with spaces.
+         This flag is ignored if a - flag is present or if, for an integer form, a precision is
+         specified.
+         Examples: "%010d" and "%08.3f".
+   ===== ===========================================================
+
+Examples Using Modifiers and Flags
+
    Let’s put these modifiers to work, beginning with a look at the effect of the field width modifier
    on printing an integer. Consider the program in Listing 4.7 .
 
@@ -6281,35 +6499,33 @@ Exploring and Exploiting printf() and scanf()
 
    .. code-block:: cpp
 
-   /* width.c -- field widths */
-   #include <stdio.h>
-   #define PAGES 959
-   int main(void)
-   {
-   printf("*%d*\n", PAGES);
-   printf("*%2d*\n", PAGES);
-   printf("*%10d*\n", PAGES);
-   printf("*%-10d*\n", PAGES);
+      /* width.c -- field widths */
+      #include <stdio.h>
+      #define PAGES 959
+      int main(void)
+      {
+         printf("*%d*\n", PAGES);
+         printf("*%2d*\n", PAGES);
+         printf("*%10d*\n", PAGES);
+         printf("*%-10d*\n", PAGES);
 
-   return 0;
-   }
+         return 0;
+      }
 
    Listing 4.7 prints the same quantity four times using four different conversion specifications. It
-
---------------------------------------------------------------------------------
-
-   .. code-block:: cpp
-
    uses an asterisk ( * ) to show you where each field begins and ends. The output looks as follows:
+
+   .. code-block:: bash
+
+      *959*
+      *959*
+      *     959*
+      *959     *
 
    ..   ptg11524036
 
-   :sup:`P0119` Exploring and Exploiting printf() and scanf()
+.. _P0119:
 
-   *959*
-   *959*
-   * 959*
-   *959 *
    The first conversion specification is %d with no modifiers. It produces a field with the same
    width as the integer being printed. This is the default option; that is, it’s what’s printed if you
    don’t give further instructions. The second conversion specification is %2d . This should produce
@@ -6328,50 +6544,57 @@ Exploring and Exploiting printf() and scanf()
 
    .. code-block:: cpp
 
-   // floats.c -- some floating-point combinations
-   #include <stdio.h>
+      // floats.c -- some floating-point combinations
+      #include <stdio.h>
 
-   int main(void)
-   {
-   const double RENT = 3852.99; // const-style constant
+      int main(void)
+      {
+      const double RENT = 3852.99; // const-style constant
 
-   printf("*%f*\n", RENT);
-   printf("*%e*\n", RENT);
-   printf("*%4.2f*\n", RENT);
-   printf("*%3.1f*\n", RENT);
-   printf("*%10.3f*\n", RENT);
-   printf("*%10.3E*\n", RENT);
-   printf("*%+4.2f*\n", RENT);
-   printf("*%010.2f*\n", RENT);
+      printf("*%f*\n", RENT);
+      printf("*%e*\n", RENT);
+      printf("*%4.2f*\n", RENT);
+      printf("*%3.1f*\n", RENT);
+      printf("*%10.3f*\n", RENT);
+      printf("*%10.3E*\n", RENT);
+      printf("*%+4.2f*\n", RENT);
+      printf("*%010.2f*\n", RENT);
 
-   return 0;
-   }
+      return 0;
+      }
+
    This time, the program uses the keyword const to create a symbolic constant. The output is
-   *3852.990000*
-   *3.852990e+03*
-   *3852.99*
-   *3853.0*
-   * 3852.990*
-   * 3.853E+03*
+
+   .. code-block:: bash
+
+      *3852.990000*
+      *3.852990e+03*
+      *3852.99*
+      *3853.0*
+      *  3852.990*
+      * 3.853E+03*
+      *+3852.99*
+      *0003852.99*
 
    ..   ptg11524036
 
-   :sup:`P0120` Chapter 4 Character Strings and Formatted Input/Output
+.. _P0120:
 
-   *+3852.99*
-   *0003852.99*
    The example begins with the default version, %f . In this case, there are two defaults—the field
    width and the number of digits to the right of the decimal. The second default is six digits, and
    the field width is whatever it takes to hold the number.
+
    Next is the default for %e . It prints one digit to the left of the decimal point and six places to
    the right. We’re getting a lot of digits! The cure is to specify the number of decimal places to
    the right of the decimal, and the next four examples in this segment do that. Notice how the
    fourth and the sixth examples cause the output to be rounded off. Also, the sixth example uses
    E instead of e .
+
    Finally, the + flag causes the result to be printed with its algebraic sign, which is a plus sign in
    this case, and the 0 flag produces leading zeros to pad the result to the full field width. Note
    that in the specifier %010.2f , the first 0 is a flag, and the remaining digits before the period
    ( 10 ) specify the field width.
+
    You can modify the RENT value to see how variously sized values are printed. Listing 4.9
    demonstrates a few more combinations.
 
@@ -6381,22 +6604,28 @@ Exploring and Exploiting printf() and scanf()
 
    .. code-block:: cpp
 
-   /* flags.c -- illustrates some formatting flags */
-   #include <stdio.h>
-   int main(void)
-   {
-   printf("%x %X %#x\n", 31, 31, 31);
-   printf("**%d**% d**% d**\n", 42, 42, -42);
-   printf("**%5d**%5.3d**%05d**%05.3d**\n", 6, 6, 6, 6);
+      /* flags.c -- illustrates some formatting flags */
+      #include <stdio.h>
+      int main(void)
+      {
+         printf("%x %X %#x\n", 31, 31, 31);
+         printf("**%d**% d**% d**\n", 42, 42, -42);
+         printf("**%5d**%5.3d**%05d**%05.3d**\n", 6, 6, 6, 6);
 
-   return 0;
-   }
+         return 0;
+      }
+
    The output looks as follows:
-   1f 1F 0x1f
-   **42** 42**-42**
-   ** 6** 006**00006** 006**
+
+   .. code-block:: cpp
+
+      1f 1F 0x1f
+      **42** 42**-42**
+      **    6**  006**00006**  006**
+
    First, 1f is the hex equivalent of 31. The x specifier yields 1f , and the X specifier yields 1F .
    Using the # flag provides an initial 0x .
+
    The second line of output illustrates how using a space in the specifier produces a leading space
    for positive values, but not for negative values. This can produce a pleasing output because
    positive and negative values with the same number of significant digits are printed with the
@@ -6404,7 +6633,7 @@ Exploring and Exploiting printf() and scanf()
 
    ..   ptg11524036
 
-   :sup:`P0121` Exploring and Exploiting printf() and scanf()
+.. _P0121:
 
    The third line illustrates how using a precision specifier ( %5.3d ) with an integer form produces
    enough leading zeros to pad the number to the minimum value of digits (three, in this case).
@@ -6418,57 +6647,77 @@ Exploring and Exploiting printf() and scanf()
 
    .. code-block:: cpp
 
-   /* stringf.c -- string formatting */
-   #include <stdio.h>
-   #define BLURB "Authentic imitation!"
-   int main(void)
-   {
-   printf("[%2s]\n", BLURB);
-   printf("[%24s]\n", BLURB);
-   printf("[%24.5s]\n", BLURB);
-   printf("[%-24.5s]\n", BLURB);
+      /* stringf.c -- string formatting */
+      #include <stdio.h>
+      #define BLURB "Authentic imitation!"
+      int main(void)
+      {
+         printf("[%2s]\n", BLURB);
+         printf("[%24s]\n", BLURB);
+         printf("[%24.5s]\n", BLURB);
+         printf("[%-24.5s]\n", BLURB);
 
-   return 0;
-   }
+         return 0;
+      }
+
    Here is the output:
-   [Authentic imitation!]
-   [ Authentic imitation!]
-   [ Authe]
-   [Authe ]
+
+   .. code-block:: bash
+
+      [Authentic imitation!]
+      [    Authentic imitation!]
+      [                   Authe]
+      [Authe                   ]
+
    Notice how, for the %2s specification, the field is expanded to contain all the characters in the
    string. Also notice how the precision specification limits the number of characters printed. The
-    .5 in the format specifier tells printf() to print just five characters. Again, the - modifier
+    .5 in the format specifier tells `printf()` to print just five characters. Again, the - modifier
    left-justifies the text.
-   Using What You Just Learned
+
+Using What You Just Learned
+
    Okay, you’ve seen some examples. Now, how would you set up a statement to print something
    having the following form?
-   The NAME family just may be $XXX.XX dollars richer!
+
+   .. code-block:: bash
+
+      The NAME family just may be $XXX.XX dollars richer!
+
    Here, NAME and XXX.XX represent values that will be supplied by variables in the program—say,
    name[40] and cash .
+
    One solution is
-   printf("The %s family just may be $%.2f richer!\n",name,cash);
+
+   .. code-block:: cpp
+
+      printf("The %s family just may be $%.2f richer!\n",name,cash);
 
    ..   ptg11524036
 
-   :sup:`P0122` Chapter 4 Character Strings and Formatted Input/Output
+.. _P0122:
 
-   What Does a Conversion Specification Convert?
+What Does a Conversion Specification Convert?
+
    Let’s take a closer look at what a conversion specification converts. It converts a value stored
    in the computer in some binary format to a series of characters (a string) to be displayed. For
    example, the number 76 may be stored internally as binary 01001100. The %d conversion specifier 
    converts this to the characters 7 and 6 , displaying 76 . The %x conversion converts the same
    value ( 01001100 ) to the hexadecimal representation 4c . The %c converts the same value to the
    character representation L .
+
    The term conversion is probably somewhat misleading because it might suggest that the original
    value is replaced with a converted value. Conversion specifications are really translation specifications; 
    %d means “translate the given value to a decimal integer text representation and print
    the representation.”
-   Mismatched Conversions
+
+Mismatched Conversions
+
    Naturally, you should match the conversion specification to the type of value being printed.
    Often, you have choices. For instance, if you want to print a type int value, you can use %d ,
     %x, or %o . All these specifiers assume that you are printing a type int value; they merely
    provide different representations of the value. Similarly, you can use %f , %e , or %g to represent
    a type double value.
+
    What if you mismatch the conversion specification to the type? You’ve seen in the preceding
    chapter that mismatches can cause problems. This is a very important point to keep in mind,
    so Listing 4.11 shows some more examples of mismatches within the integer family.
@@ -6479,34 +6728,36 @@ Exploring and Exploiting printf() and scanf()
 
    .. code-block:: cpp
 
-   /* intconv.c -- some mismatched integer conversions */
-   #include <stdio.h>
-   #define PAGES 336
-   #define WORDS 65618
-   int main(void)
-   {
-   short num = PAGES;
-   short mnum = -PAGES;
+      /* intconv.c -- some mismatched integer conversions */
+      #include <stdio.h>
+      #define PAGES 336
+      #define WORDS 65618
+      int main(void)
+      {
+         short num = PAGES;
+         short mnum = -PAGES;
 
-   printf("num as short and unsigned short: %hd %hu\n", num,
-   num);
-   printf("-num as short and unsigned short: %hd %hu\n", mnum,
-   mnum);
-   printf("num as int and char: %d %c\n", num, num);
-   printf("WORDS as int, short, and char: %d %hd %c\n",
-   WORDS, WORDS, WORDS);
-   return 0;
-   }
+         printf("num as short and unsigned short: %hd %hu\n", num, num);
+         printf("-num as short and unsigned short: %hd %hu\n", mnum, mnum);
+         printf("num as int and char: %d %c\n", num, num);
+         printf("WORDS as int, short, and char: %d %hd %c\n",
+                  WORDS, WORDS, WORDS);
+         return 0;
+      }
 
    ..   ptg11524036
 
-   :sup:`P0123` Exploring and Exploiting printf() and scanf()
+.. _P0123:
 
    Our system produces the following results:
-   num as short and unsigned short: 336 336
-   -num as short and unsigned short: -336 65200
-   num as int and char: 336 P
-   WORDS as int, short, and char: 65618 82 R
+
+   .. code-block:: bash
+
+      num as short and unsigned short: 336 336
+      -num as short and unsigned short: -336 65200
+      num as int and char: 336 P
+      WORDS as int, short, and char: 65618 82 R
+
    Looking at the first line, you can see that both %hd and %hu produce 336 as output for the variable 
    num ; no problem there. On the second line, the %u (unsigned) version of mnum came out
    as 65200 , however, not as the 336 you might have expected; this results from the way that
@@ -6519,6 +6770,7 @@ Exploring and Exploiting printf() and scanf()
    can be interpreted as two different values. Not all systems use this method to represent negative
    integers. Nonetheless, there is a moral: Don’t expect a %u conversion to simply strip the sign
    from a number.
+
    The third line shows what happens if you try to convert a value greater than 255 to a character. 
    On this system, a short int is 2 bytes and a char is 1 byte. When printf() prints
    336 using %c , it looks at only 1 byte out of the 2 used to hold 336. This truncation (see Figure
@@ -6527,11 +6779,17 @@ Exploring and Exploiting printf() and scanf()
    say that the number is interpreted modulo 256 , which means using the remainder when the
    number is divided by 256.
 
-   80 in binary ASCII 'P'
-   336 in binary
-   0 1 0 1 0 0 0 0
-   1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0
-   Figure 4.8 Reading 336 as a character.
+   .. code-block:: bash
+                                     ╭───────────────╮
+      80 in binary ASCII 'P'         │0│1│0│1│0│0│0│0│
+                                     ╰───────────────╯
+                                      │ │ │ │ │ │ │ │
+                     ╭───────────────────────────────╮
+      336 in binary  │0│0│0│0│0│0│0│1│0│1│0│1│0│0│0│0│
+                     ╰───────────────────────────────╯
+
+      Figure 4.8 Reading 336 as a character.
+
    Finally, we tried printing an integer (65618) larger than the maximum short int (32767)
    allowed on our system. Again, the computer does its modulo thing. The number 65618,
    because of its size, is stored as a 4-byte int value on our system. When we print it using the
@@ -6543,7 +6801,7 @@ Exploring and Exploiting printf() and scanf()
 
    ..   ptg11524036
 
-   :sup:`P0124` Chapter 4 Character Strings and Formatted Input/Output
+.. _P0124:
 
    When you start mixing integer and floating types, the results are more bizarre. Consider, for
    example, Listing 4.12 .
@@ -6554,95 +6812,118 @@ Exploring and Exploiting printf() and scanf()
 
    .. code-block:: cpp
 
-   /* floatcnv.c -- mismatched floating-point conversions */
-   #include <stdio.h>
-   int main(void)
-   {
-   float n1 = 3.0;
-   double n2 = 3.0;
-   long n3 = 2000000000;
-   long n4 = 1234567890;
+      /* floatcnv.c -- mismatched floating-point conversions */
+      #include <stdio.h>
+      int main(void)
+      {
+         float n1 = 3.0;
+         double n2 = 3.0;
+         long n3 = 2000000000;
+         long n4 = 1234567890;
 
-   printf("%.1e %.1e %.1e %.1e\n", n1, n2, n3, n4);
-   printf("%ld %ld\n", n3, n4);
-   printf("%ld %ld %ld %ld\n", n1, n2, n3, n4);
+         printf("%.1e %.1e %.1e %.1e\n", n1, n2, n3, n4);
+         printf("%ld %ld\n", n3, n4);
+         printf("%ld %ld %ld %ld\n", n1, n2, n3, n4);
 
-   return 0;
-   }
+         return 0;
+      }
+
    On one system, Listing 4.12 produces the following output:
-   3.0e+00 3.0e+00 3.1e+46 1.7e+266
-   2000000000 1234567890
-   0 1074266112 0 1074266112
+
+   .. code-block:: bash
+
+      3.0e+00 3.0e+00 3.1e+46 1.7e+266
+      2000000000 1234567890
+      0 1074266112 0 1074266112
+
    The first line of output shows that using a %e specifier does not convert an integer to a floatingpoint 
    number. Consider, for example, what happens when you try to print n3 (type long ) using
-   the %e specifier. First, the %e specifier causes printf() to expect a type double value, which
-   is an 8-byte value on this system. When printf() looks at n3 , which is a 4-byte value on this
+   the %e specifier. First, the %e specifier causes `printf()` to expect a type ``double`` value, which
+   is an 8-byte value on this system. When `printf()` looks at n3 , which is a 4-byte value on this
    system, it also looks at the adjacent 4 bytes. Therefore, it looks at an 8-byte unit in which the
    actual n3 is embedded. Second, it interprets the bits in this unit as a floating-point number. Some
    bits, for example, would be interpreted as an exponent. So even if n3 had the correct number of
    bits, they would be interpreted differently under %e than under %ld . The net result is nonsense.
-   The first line also illustrates what we mentioned earlier—that float is converted to double
-   when used as arguments to printf() . On this system, float is 4 bytes, but n1 was expanded
-   to 8 bytes so that printf() would display it correctly.
-   The second line of output shows that printf() can print n3 and n4 correctly if the correct
+   The first line also illustrates what we mentioned earlier—that float is converted to ``double``
+   when used as arguments to `printf()` . On this system, float is 4 bytes, but n1 was expanded
+   to 8 bytes so that `printf()` would display it correctly.
+
+   The second line of output shows that `printf()` can print n3 and n4 correctly if the correct
    specifier is used.
+
    The third line of output shows that even the correct specifier can produce phony results if the
-   printf() statement has mismatches elsewhere. As you might expect, trying to print a floatingpoint 
+   `printf()` statement has mismatches elsewhere. As you might expect, trying to print a floatingpoint 
    value with an %ld specifier fails, but here, trying to print a type long using %ld fails! The
    problem lies in how C passes information to a function. The exact details of this failure are implementation 
    dependent, but the sidebar “Passing Arguments” discusses a representative system.
 
    ..   ptg11524036
 
-   :sup:`P0125` Exploring and Exploiting printf() and scanf()
+.. _P0125:
 
-   Passing Arguments
+Passing Arguments
+
    The mechanics of argument passing depend on the implementation. This is how argument
    passing works on one system. The function call looks as follows:
-   printf("%ld %ld %ld %ld\n", n1, n2, n3, n4);
+
+   .. code-block:: cpp
+
+      printf("%ld %ld %ld %ld\n", n1, n2, n3, n4);
+
    This call tells the computer to hand over the values of the variables n1 , n2 , n3 , and n4 to the
    computer. Here’s one common way that’s accomplished. The program places the values in
    an area of memory called the stack . When the computer puts these values on the stack, it is
    guided by the types of the variables, not by the conversion specifiers. Consequently, for n1 , it
    places 8 bytes on the stack ( float is converted to double ). Similarly, it places 8 more bytes
-   for n2 , followed by 4 bytes each for n3 and n4 . Then control shifts to the printf() function.
+   for n2 , followed by 4 bytes each for n3 and n4 . Then control shifts to the ``printf()`` function.
    This function reads the values off the stack but, when it does so, it reads them according to
-   the conversion specifiers. The %ld specifier indicates that printf() should read 4 bytes, so
-   printf() reads the first 4 bytes in the stack as its first value. This is just the first half of n1 ,
+   the conversion specifiers. The %ld specifier indicates that ``printf()`` should read 4 bytes, so
+   ``printf()`` reads the first 4 bytes in the stack as its first value. This is just the first half of n1 ,
    and it is interpreted as a long integer. The next %ld specifier reads 4 more bytes; this is just
    the second half of n1 and is interpreted as a second long integer (see Figure 4.9 ). Similarly,
    the third and fourth instances of %ld cause the first and second halves of n2 to be read and
    to be interpreted as two more long integers, so although we have the correct specifiers for n3
-   and n4 , printf() is reading the wrong bytes.
+   and n4 , ``printf()`` is reading the wrong bytes.
 
-   Arguments n1 and n2 placed
-   on stack as type double values,
-   n3 and n4 as type long
-   printf() removes
-   values from stack as
-   type long
-   float n1; /* passed as type double */
-   double n2;
-   long n3, n4;
-   ...
-   printf("%ld %1d %ld %ld\n", n1, n2, n3, n4);
-   n4
-   8 bytes
-   4 bytes
-   %ld
-   %ld
-   %ld
-   %ld
-   n3
-   n2
-   n1
-   Figure 4.9 Passing arguments.
+
+   .. code-block:: cpp
+
+      float n1; /* passed as type double */
+      double n2;
+      long n3, n4;
+      ...
+      printf("%ld %1d %ld %ld\n", n1, n2, n3, n4);
+
+                        ╭─────╮ ──╮
+                        │     │   │
+                    ╭── ╭─────╮   ├─── 8 bytes
+          4 bytes ──┤   │     │   │
+                    ╰── ╭─────╮ ──╯
+                        │     │ <───── n4
+                        ╭─────╮
+                        │     │ <───── n3
+                        ╭─────╮
+               %ld <─── │     │
+                        ╭─────╮ <───── n2
+               %ld <─── │     │
+                        ╭─────╮
+               %ld <─── │     │
+                        ╭─────╮ <───── n1
+               %ld <─── │     │
+                        ╭─────╮              Arguments n1 and n2 placed
+                        │     │              on stack as type double values,
+                        ╰─────╯              n3 and n4 as type long
+      printf() removes
+      values from stack as type long
+
+                     Figure 4.9 Passing arguments.
 
    ..   ptg11524036
 
-   :sup:`P0126` Chapter 4 Character Strings and Formatted Input/Output
+.. _P0126:
 
-   The Return Value of printf()
+The Return Value of printf()
+
    As mentioned in Chapter 2 , a C function generally has a return value. This is a value that the
    function computes and returns to the calling program. For example, the C library contains a
    sqrt() function that takes a number as an argument and returns its square root. The return
@@ -6664,46 +6945,60 @@ Exploring and Exploiting printf() and scanf()
 
    .. code-block:: cpp
 
-   /* prntval.c -- finding printf()'s return value */
-   #include <stdio.h>
-   int main(void)
-   {
-   int bph2o = 212;
-   int rv;
+      /* prntval.c -- finding printf()'s return value */
+      #include <stdio.h>
+      int main(void)
+      {
+         int bph2o = 212;
+         int rv;
 
-   rv = printf("%d F is water's boiling point.\n", bph2o);
-   printf("The printf() function printed %d characters.\n",
-   rv);
-   return 0;
-   }
+         rv = printf("%d F is water's boiling point.\n", bph2o);
+         printf("The printf() function printed %d characters.\n", rv);
+         return 0;
+      }
+
    The output is as follows:
-   212 F is water's boiling point.
-   The printf() function printed 32 characters.
-   First, the program used the form rv = printf(...); to assign the return value to rv . This
+
+   .. code-block:: bash
+
+      212 F is water's boiling point.
+      The printf() function printed 32 characters.
+
+   First, the program used the form `rv = printf(...);` to assign the return value to rv . This
    statement therefore performs two tasks: printing information and assigning a value to a variable. 
    Second, note that the count includes all the printed characters, including the spaces and
    the unseen newline character.
-   Printing Long Strings
-   Occasionally, printf() statements are too long to put on one line. Because C ignores
+
+Printing Long Strings
+
+   Occasionally, `printf()` statements are too long to put on one line. Because C ignores
    whitespace (spaces, tabs, newlines) except when used to separate elements, you can spread
 
    ..   ptg11524036
 
-   :sup:`P0127` Exploring and Exploiting printf() and scanf()
+.. _P0127:
 
    a statement over several lines, as long as you put your line breaks between elements. For
    example, Listing 4.13 used two lines for a statement.
-   printf("The printf() function printed %d characters.\n",
-   rv);
+
+   .. code-block:: cpp
+
+      printf("The printf() function printed %d characters.\n", rv);
+
    The line is broken between the comma element and rv . To show a reader that the line was
    being continued, the example indents the rv . C ignores the extra spaces.
    However, you cannot break a quoted string in the middle. Suppose you try something like the
    following:
-   printf("The printf() function printed %d
-   characters.\n", rv);
+
+   .. code-block:: cpp
+
+      printf("The printf() function printed %d
+      characters.\n", rv);
+
    C will complain that you have an illegal character in a string constant. You can use \n in a
    string to symbolize the newline character, but you can’t have the actual newline character
    generated by the Enter (or Return) key in a string.
+
    If you do have to split a string, you have three choices, as shown in Listing 4.14 .
 
    Listing 4.14 The longstrg.c Program
@@ -6712,71 +7007,79 @@ Exploring and Exploiting printf() and scanf()
 
    .. code-block:: cpp
 
-   /* longstrg.c –– printing long strings */
-   #include <stdio.h>
-   int main(void)
-   {
-   printf("Here's one way to print a ");
-   printf("long string.\n");
-   printf("Here's another way to print a \
-   long string.\n");
-   printf("Here's the newest way to print a "
-   "long string.\n"); /* ANSI C */
-   return 0;
-   }
+      /* longstrg.c –– printing long strings */
+      #include <stdio.h>
+      int main(void)
+      {
+         printf("Here's one way to print a ");
+         printf("long string.\n");
+         printf("Here's another way to print a \
+         long string.\n");
+         printf("Here's the newest way to print a "
+         "long string.\n"); /* ANSI C */
+         return 0;
+      }
+
    Here is the output:
-   Here's one way to print a long string.
-   Here's another way to print a long string.
-   Here's the newest way to print a long string.
+
+   .. code-block:: bash
+
+      Here's one way to print a long string.
+      Here's another way to print a long string.
+      Here's the newest way to print a long string.
+
    Method 1 is to use more than one printf() statement. Because the first string printed doesn’t
    end with a \n character, the second string continues where the first ends.
+
    Method 2 is to terminate the end of the first line with a backslash/return combination. This
    causes the text onscreen to start a new line without a newline character being included in the
    string. The effect is to continue the string over to the next line. However, the next line has to
 
    ..   ptg11524036
 
-   :sup:`P0128` Chapter 4 Character Strings and Formatted Input/Output
+.. _P0128:
 
    start at the far left, as shown. If you indent that line, say, five spaces, those five spaces become
    part of the string.
+
    Method 3, which ANSI C introduced, is string concatenation. If you follow one quoted string
    constant with another, separated only by whitespace, C treats the combination as a single
    string, so the following three forms are equivalent:
-   printf("Hello, young lovers, wherever you are.");
-   printf("Hello, young " "lovers" ", wherever you are.");
-   printf("Hello, young lovers"
-   ", wherever you are.");
+
+   .. code-block:: cpp
+
+      printf("Hello, young lovers, wherever you are.");
+      printf("Hello, young " "lovers" ", wherever you are.");
+      printf("Hello, young lovers" ", wherever you are.");
+
    With all these methods, you should include any required spaces in the strings: "young"
    "lovers" becomes "younglovers" , but the combination "young " "lovers" is "young
    lovers" .
-   Using scanf()
-   Now let’s go from output to input and examine the scanf() function. The C library contains
-   several input functions, and scanf() is the most general of them, because it can read a variety
+
+Using scanf()
+
+   Now let’s go from output to input and examine the `scanf()` function. The C library contains
+   several input functions, and `scanf()` is the most general of them, because it can read a variety
    of formats. Of course, input from the keyboard is text because the keys generate text characters:
    letters, digits, and punctuation. When you want to enter, say, the integer 2014, you type the
    characters 2 0 1 and 4 . If you want to store that as a numerical value rather than as a string,
    your program has to convert the string character-by-character to a numerical value; that is what
-   scanf() does! It converts string input into various forms: integers, floating-point numbers,
-   characters, and C strings. It is the inverse of printf() , which converts integers, floating-point
+   `scanf()` does! It converts string input into various forms: integers, floating-point numbers,
+   characters, and C strings. It is the inverse of `printf()` , which converts integers, floating-point
    numbers, characters, and C strings to text that is to be displayed onscreen.
-   Like printf() , scanf() uses a control string followed by a list of arguments. The control
+
+   Like `printf()` , `scanf()` uses a control string followed by a list of arguments. The control
    string indicates the destination data types for the input stream of characters. The chief difference 
-   is in the argument list. The printf() function uses variable names, constants, and expressions. 
-   The scanf() function uses pointers to variables. Fortunately, you don’t have to know
+   is in the argument list. The `printf()` function uses variable names, constants, and expressions. 
+   The `scanf()` function uses pointers to variables. Fortunately, you don’t have to know
    anything about pointers to use the function. Just remember these simple rules:
 
-   ■  If you use scanf() to read a value for one of the basic variable types we’ve discussed,
+   ■  If you use `scanf()` to read a value for one of the basic variable types we’ve discussed,
    precede the variable name with an & .
 
-   ■  If you use scanf() to read a string into a character array, don’t use an & .
+   ■  If you use `scanf()` to read a string into a character array, don’t use an & .
 
    Listing 4.15 presents a short program illustrating these rules.
-
---------------------------------------------------------------------------------
-
-   .. code-block:: cpp
-
 
    Listing 4.15 The input.c Program
 
@@ -6784,111 +7087,132 @@ Exploring and Exploiting printf() and scanf()
 
    .. code-block:: cpp
 
-   // input.c -- when to use &
-   #include <stdio.h>
-   int main(void)
-   {
-   int age; // variable
+      // input.c -- when to use &
+      #include <stdio.h>
+      int main(void)
+      {
+         int age; // variable
+         float assets; // variable
+         char pet[30]; // string
+
+         printf("Enter your age, assets, and favorite pet.\n");
+         scanf("%d %f", &age, &assets); // use the & here
+         scanf("%s", pet); // no & for char array
+         printf("%d $%.2f %s\n", age, assets, pet);
+
+         return 0;
+      }
 
    ..   ptg11524036
 
-   :sup:`P0129` Exploring and Exploiting printf() and scanf()
+.. _P0129:
 
-   float assets; // variable
-   char pet[30]; // string
-
-   printf("Enter your age, assets, and favorite pet.\n");
-   scanf("%d %f", &age, &assets); // use the & here
-   scanf("%s", pet); // no & for char array
-   printf("%d $%.2f %s\n", age, assets, pet);
-
-   return 0;
-   }
    Here is a sample exchange:
-   Enter your age, assets, and favorite pet.
-   38
-   92360.88 llama
-   38 $92360.88 llama
+
+   .. code-block:: bash
+
+      Enter your age, assets, and favorite pet.
+      38
+      92360.88 llama
+      38 $92360.88 llama
+
    The scanf() function uses whitespace (newlines, tabs, and spaces) to decide how to divide the
    input into separate fields. It matches up consecutive conversion specifications to consecutive
    fields, skipping over the whitespace in between. Note how this sample run spread the input
    over two lines. You could just as well have used one or five lines, as long as you had at least
    one newline, space, or tab between each entry:
-   Enter your age, assets, and favorite pet.
-   42
 
-   2121.45
+   .. code-block:: bash
 
-   guppy
-   42 $2121.45 guppy
+      Enter your age, assets, and favorite pet.
+      42
+
+      2121.45
+
+      guppy
+      42 $2121.45 guppy
+
    The only exception to this is the %c specification, which reads the very next character, even if
    that character is whitespace. We’ll return to this topic in a moment.
+
    The scanf() function uses pretty much the same set of conversion-specification characters as
    printf() does. The main difference is that printf() uses %f , %e , %E , %g , and %G for both type
    float and type double , whereas scanf() uses them just for type float , requiring the l modifier 
    for double . Table 4.6 lists the main conversion specifiers as described in the C99 standard.
-   Table 4.6 ANSI C Conversion Specifiers for scanf()
-   Conversion Specifier Meaning
-    %c Interpret input as a character.
-    %d Interpret input as a signed decimal integer.
+
 
    ..   ptg11524036
 
-   :sup:`P0130` Chapter 4 Character Strings and Formatted Input/Output
+.. _P0130:
 
-   Conversion Specifier Meaning
-    %e , %f , %g , %a Interpret input as a floating-point number ( %a is C99).
-    %E , %F , %G , %A Interpret input as a floating-point number ( %A is C99).
-    %i Interpret input as a signed decimal integer.
-    %o Interpret input as a signed octal integer.
-    %p Interpret input as a pointer (an address).
-    %s Interpret input as a string. Input begins with the first non-whitespace
-   character and includes everything up to the next whitespace character.
-    %u Interpret input as an unsigned decimal integer.
-    %x , %X Interpret input as a signed hexadecimal integer.
+   Table 4.6 ANSI C Conversion Specifiers for scanf()
+   
+   =============== ===============================================
+   Conversion      Specifier Meaning
+   =============== ===============================================
+    %c             Interpret input as a character.
+    %d             Interpret input as a signed decimal integer.
+    %e, %f, %g, %a Interpret input as a floating-point number ( %a is C99).
+    %E, %F, %G, %A Interpret input as a floating-point number ( %A is C99).
+    %i             Interpret input as a signed decimal integer.
+    %o             Interpret input as a signed octal integer.
+    %p             Interpret input as a pointer (an address).
+    %s             Interpret input as a string. Input begins with the first non-whitespace
+                   character and includes everything up to the next whitespace character.
+    %u             Interpret input as an unsigned decimal integer.
+    %x, %X         Interpret input as a signed hexadecimal integer.
+   =============== ===============================================
+
    You also can use modifiers in the conversion specifiers shown in Table 4.6 . The modifiers go
    between the percent sign and the conversion letter. If you use more than one in a specifier,
    they should appear in the same order as shown in Table 4.7 .
+
    Table 4.7 Conversion Modifiers for scanf()
-   Modifier Meaning
-    * Suppress assignment (see text).
-   Example: "%*d".
-   digit(s) Maximum field width. Input stops when the maximum field width is reached or
-   when the first whitespace character is encountered, whichever comes first.
-   Example: "%10s".
-   hh Read an integer as a signed char or unsigned char .
-   Examples: "%hhd" "%hhu".
-   ll Read an integer as a long long or unsigned long long (C99) .
-   Examples: "%lld" "%llu".
-   h , l , or L "%hd" and "%hi" indicate that the value will be stored in a short int . "%ho" ,
-    "%hx" , and "%hu" indicate that the value will be stored in an unsigned short
-   int . "%ld" and "%li" indicate that the value will be stored in a long . "%lo" ,
-    "%lx" , and "%lu" indicate that the value will be stored in unsigned long .
-    "%le" , "%lf" , and "%lg" indicate that the value will be stored in type double .
-   Using L instead of l with e , f , and g indicates that the value will be stored in
-   type long double . In the absence of these modifiers, d , i , o , and x indicate
-   type int , and e , f , and g indicate type float .
+
+   =========== ===================================================
+   Modifier    Meaning
+   =========== ===================================================
+    *          Suppress assignment (see text).
+               Example: "%*d".
+   digit(s)    Maximum field width. Input stops when the maximum field width is reached or
+               when the first whitespace character is encountered, whichever comes first.
+               Example: "%10s".
+   hh          Read an integer as a signed char or unsigned char .
+               Examples: "%hhd" "%hhu".
+   ll          Read an integer as a long long or unsigned long long (C99) .
+               Examples: "%lld" "%llu".
+   h, l, or L  "%hd" and "%hi" indicate that the value will be stored in a short int . "%ho" ,
+               "%hx" , and "%hu" indicate that the value will be stored in an unsigned short
+               int . "%ld" and "%li" indicate that the value will be stored in a long . "%lo" ,
+               "%lx" , and "%lu" indicate that the value will be stored in unsigned long .
+               "%le" , "%lf" , and "%lg" indicate that the value will be stored in type double .
+               Using L instead of l with e , f , and g indicates that the value will be stored in
+               type long double . In the absence of these modifiers, d , i , o , and x indicate
+               type int , and e , f , and g indicate type float .
+   j           When followed by an integer specifier, indicates using the intmax_t or
+               uintmax_t type (C99).
+               Examples: "%jd" "%ju".
+   z           When followed by an integer specifier, indicates using the type returned by
+               sizeof (C99).
+               Examples: "%zd" "%zo".
+   t           When followed by an integer specifier, indicates using the type used to represent
+               the difference between two pointers (C99).
+               Examples: "%td" "%tx".
+   =========== ===================================================
 
    ..   ptg11524036
 
-   :sup:`P0131` Exploring and Exploiting printf() and scanf()
+.. _P0131:
 
-   Modifier Meaning
-   j When followed by an integer specifier, indicates using the intmax_t or
-   uintmax_t type (C99).
-   Examples: "%jd" "%ju".
-   z When followed by an integer specifier, indicates using the type returned by
-   sizeof (C99).
-   Examples: "%zd" "%zo".
-   t When followed by an integer specifier, indicates using the type used to represent
-   the difference between two pointers (C99).
-   Examples: "%td" "%tx".
+
    As you can see, using conversion specifiers can be involved, and these tables have omitted
    some of the features. The omitted features primarily facilitate reading selected data from highly
    formatted sources, such as punched cards or other data records. Because this book uses scanf()
    primarily as a convenient means for feeding data to a program interactively, it won’t discuss
    the more esoteric features.
-   The scanf() View of Input
+
+The scanf() View of Input
+
    Let’s look in more detail at how scanf() reads input. Suppose you use a %d specifier to read
    an integer. The scanf() function begins reading input a character at a time. It skips over
    whitespace characters (spaces, tabs, and newlines) until it finds a non-whitespace character. 
@@ -6900,8 +7224,10 @@ Exploring and Exploiting printf() and scanf()
    that the next time the program goes to read input, it starts at the previously rejected, nondigit
    character. Finally, scanf() computes the numerical value corresponding to the digits (and
    possible sign) it read and places that value in the specified variable.
+
    If you use a field width, scanf() halts at the field end or at the first whitespace, whichever
    comes first.
+
    What if the first non-whitespace character is, say, an A instead of a digit? Then scanf()
    stops right there and places the A (or whatever) back in the input. No value is assigned to the
    specified variable, and the next time the program reads input, it starts at the A again. If your
@@ -6911,13 +7237,14 @@ Exploring and Exploiting printf() and scanf()
 
    ..   ptg11524036
 
-   :sup:`P0132` Chapter 4 Character Strings and Formatted Input/Output
+.. _P0132:
 
    Reading input using the other numeric specifiers works much the same as the %d case. The
    main difference is that scanf() may recognize more characters as being part of the number.
    For instance, the %x specifier requires that scanf() recognize the hexadecimal digits a–f and
    A–F. Floating-point specifiers require scanf() to recognize decimal points, e-notation, and the
    new p-notation.
+
    If you use an %s specifier, any character other than whitespace is acceptable, so scanf() skips
    whitespace to the first non-whitespace character and then saves up non-whitespace characters
    until hitting whitespace again. This means that %s results in scanf() reading a single word—
@@ -6926,9 +7253,11 @@ Exploring and Exploiting printf() and scanf()
    scanf() read more than one word for one %s specifier. A final point: When scanf() places
    the string in the designated array, it adds the terminating '\0' to make the array contents a C
    string.
+
    If you use a %c specifier, all input characters are fair game. If the next input character is a
    space or a newline, a space or a newline is assigned to the indicated variable; whitespace is not
    skipped.
+
    Actually, scanf() is not the most commonly used input function in C. It is featured here
    because of its versatility (it can read all the different data types), but C has several other input
    functions, such as getchar() and fgets() , that are better suited for specific tasks, such as
@@ -6936,34 +7265,52 @@ Exploring and Exploiting printf() and scanf()
    functions in Chapter 7 , “C Control Statements: Branching and Jumps”; Chapter 11 , “Character
    Strings and String Functions”; and Chapter 13 , “File Input/Output.” In the meantime, if you
    need an integer, decimal fraction, a character, or a string, you can use scanf() .
-   Regular Characters in the Format String
+
+Regular Characters in the Format String
+
    The scanf() function does enable you to place ordinary characters in the format string.
    Ordinary characters other than the space character must be matched exactly by the input
    string. For example, suppose you accidentally place a comma between two specifiers:
-   scanf("%d,%d", &n, &m);
+
+   .. code-block:: cpp
+
+      scanf("%d,%d", &n, &m);
+
    The scanf() function interprets this to mean that you will type a number, type a comma, and
    then type a second number. That is, you would have to enter two integers as follows:
-   88,121
+
+      88,121
+
    Because the comma comes immediately after the %d in the format string, you would have to
    type it immediately after the 88 . However, because scanf() skips over whitespace preceding an
    integer, you could type a space or newline after the comma when entering the input. That is,
-   88, 121
-   and
-   88,
-   121
+
+   .. code-block:: bash
+
+      88, 121
+      # and
+      88,
+      121
 
    ..   ptg11524036
 
-   :sup:`P0133` Exploring and Exploiting printf() and scanf()
+.. _P0133:
 
    also would be accepted.
+
    A space in the format string means to skip over any whitespace before the next input item. For
    instance, the statement
-   scanf("%d ,%d", &n, &m);
+
+      scanf("%d ,%d", &n, &m);
+
    would accept any of the following input lines:
-   88,121
-   88 ,121
-   88 , 121
+
+   .. code-block:: bash
+
+      88,121
+      88 ,121
+      88 , 121
+
    Note that the concept of “any whitespace” includes the special cases of no whitespace.
    Except for %c , the specifiers automatically skip over whitespace preceding an input value, so
    scanf("%d%d", &n, &m) behaves the same as scanf("%d %d", &n, &m) . For %c , adding a
@@ -6971,7 +7318,9 @@ Exploring and Exploiting printf() and scanf()
    a space in the format string, scanf() does skip to the first non-whitespace character. That is,
    the command scanf("%c", &ch) reads the first character encountered in input, and scanf("
    %c", &ch) reads the first non-whitespace character encountered.
-   The scanf() Return Value
+
+The scanf() Return Value
+
    The scanf() function returns the number of items that it successfully reads. If it reads no
    items, which happens if you type a nonnumeric string when it expects a number, scanf()
    returns the value 0 . It returns EOF when it detects the condition known as “end of file.” ( EOF is
@@ -6979,7 +7328,9 @@ Exploring and Exploiting printf() and scanf()
     –1 .) We’ll discuss end of file in Chapter 6 , “C Control Statements: Looping,” and make use of
    scanf() ’s return value later in the book. After you learn about if statements and while statements, 
    you can use the scanf() return value to detect and handle mismatched input.
-   The * Modifier with printf() and scanf()
+
+The * Modifier with printf() and scanf()
+
    Both printf() and scanf() can use the * modifier to modify the meaning of a specifier, but
    they do so in dissimilar fashions. First, let’s see what the * modifier can do for printf() .
    Suppose that you don’t want to commit yourself to a field width in advance but rather you
@@ -6995,43 +7346,48 @@ Exploring and Exploiting printf() and scanf()
 
    .. code-block:: cpp
 
-   /* varwid.c -- uses variable-width output field */
-   #include <stdio.h>
+      /* varwid.c -- uses variable-width output field */
+      #include <stdio.h>
+      int main(void)
+      {
+         unsigned width, precision;
+         int number = 256;
+         double weight = 242.5;
+
+         printf("Enter a field width:\n");
+         scanf("%d", &width);
+         printf("The number is :%*d:\n", width, number);
+         printf("Now enter a width and a precision:\n");
+         scanf("%d %d", &width, &precision);
+         printf("Weight = %*.*f\n", width, precision, weight);
+         printf("Done!\n");
+
+         return 0;
+      }
 
    ..   ptg11524036
 
-   :sup:`P0134` Chapter 4 Character Strings and Formatted Input/Output
+.. _P0134:
 
-   int main(void)
-   {
-   unsigned width, precision;
-   int number = 256;
-   double weight = 242.5;
-
-   printf("Enter a field width:\n");
-   scanf("%d", &width);
-   printf("The number is :%*d:\n", width, number);
-   printf("Now enter a width and a precision:\n");
-   scanf("%d %d", &width, &precision);
-   printf("Weight = %*.*f\n", width, precision, weight);
-   printf("Done!\n");
-
-   return 0;
-   }
    The variable width provides the field width , and number is the number to be printed.
    Because the * precedes the d in the specifier, width comes before number in printf() ’s argument 
    list. Similarly, width and precision provide the formatting information for printing
    weight . Here is a sample run:
-   Enter a field width:
-   6
-   The number is : 256:
-   Now enter a width and a precision:
-   8 3
-   Weight = 242.500
-   Done!
+
+   .. code-block:: bash
+
+      Enter a field width:
+      6
+      The number is : 256:
+      Now enter a width and a precision:
+      8 3
+      Weight = 242.500
+      Done!
+
    Here, the reply to the first question was 6 , so 6 was the field width used. Similarly, the second
    reply produced a width of 8 with 3 digits to the right of the decimal. More generally, a program
    could decide on values for these variables after looking at the value of weight .
+
    The * serves quite a different purpose for scanf() . When placed between the % and the specifier 
    letter, it causes that function to skip over corresponding input. Listing 4.17 provides an
    example.
@@ -7042,63 +7398,95 @@ Exploring and Exploiting printf() and scanf()
 
    .. code-block:: cpp
 
-   /* skiptwo.c -- skips over first two integers of input */
-   #include <stdio.h>
-   int main(void)
-   {
-   int n;
+      /* skiptwo.c -- skips over first two integers of input */
+      #include <stdio.h>
+      int main(void)
+      {
+         int n;
 
-   printf("Please enter three integers:\n");
+         printf("Please enter three integers:\n");
+         scanf("%*d %*d %d", &n);
+         printf("The last integer was %d\n", n);
+
+         return 0;
+      }
 
    ..   ptg11524036
 
-   :sup:`P0135` Exploring and Exploiting printf() and scanf()
+.. _P0135:
 
-   scanf("%*d %*d %d", &n);
-   printf("The last integer was %d\n", n);
-
-   return 0;
-   }
    The scanf() instruction in Listing 4.17 says, “Skip two integers and copy the third into n .”
    Here is a sample run:
-   Please enter three integers:
-   2013 2014 2015
-   The last integer was 2015
+
+   .. code-block:: bash
+
+      Please enter three integers:
+      2013 2014 2015
+      The last integer was 2015
+
    This skipping facility is useful if, for example, a program needs to read a particular column of a
    file that has data arranged in uniform columns.
-   Usage Tips for printf()
+
+Usage Tips for printf()
+
    Specifying fixed field widths is useful when you want to print columns of data. Because the
    default field width is just the width of the number, the repeated use of, say,
-   printf("%d %d %d\n", val1, val2, val3);
+
+      printf("%d %d %d\n", val1, val2, val3);
+
    produces ragged columns if the numbers in a column have different sizes. For example, the
    output could look like the following:
-   12 234 1222
-   4 5 23
-   22334 2322 10001
+
+   .. code-block:: bash
+
+      12 234 1222
+      4 5 23
+      22334 2322 10001
+
    (This assumes that the value of the variables has been changed between print statements.)
    The output can be cleaned up by using a sufficiently large fixed field width. For example, using
-   printf("%9d %9d %9d\n", val1, val2, val3);
+
+      printf("%9d %9d %9d\n", val1, val2, val3);
+
    yields the following:
-   12 234 1222
-   4 5 23
-   22334 2322 10001
+
+   .. code-block:: cpp
+
+         12       234       1222
+          4         5         23
+      22334      2322      10001
+
    Leaving a blank between one conversion specification and the next ensures that one number
    never runs into the next, even if it overflows its own field. This is so because the regular characters 
    in the control string, including spaces, are printed.
+
    On the other hand, if a number is to be embedded in a phrase, it is often convenient to specify
    a field as small or smaller than the expected number width. This makes the number fit in
    without unnecessary blanks. For example,
 
    ..   ptg11524036
 
-   :sup:`P0136` Chapter 4 Character Strings and Formatted Input/Output
+.. _P0136:
 
-   printf("Count Beppo ran %.2f miles in 3 hours.\n", distance);
+
+   .. code-block:: cpp
+
+      printf("Count Beppo ran %.2f miles in 3 hours.\n", distance);
+
    might produce
-   Count Beppo ran 10.22 miles in 3 hours.
+
+   .. code-block:: cpp
+
+      Count Beppo ran 10.22 miles in 3 hours.
+
    Changing the conversion specification to %10.2f would give you the following:
-   Count Beppo ran 10.22 miles in 3 hours.
-   Locale Choices
+
+   .. code-block:: cpp
+
+      Count Beppo ran      10.22 miles in 3 hours.
+
+Locale Choices
+
    The United States and many other parts of the world use a period to separate the integer part
    of a decimal value from the fractional part, as in 3.14159. But many other parts of the world
    use a comma instead, as in 3,14159. You may have noticed that the printf() and scanf()
@@ -7109,7 +7497,11 @@ Exploring and Exploiting printf() and scanf()
    the local convention (a comma, in this case) when displaying and reading floating-point values.
    Also, once you specified that environment, you would use the comma convention for numbers
    appearing in your code:
-   double pi = 3,14159; // Netherlands locale
+
+   .. code-block:: cpp
+
+      double pi = 3,14159; // Netherlands locale
+
    The C standard requires but two locales: "C" and "" . By default, programs use the "C" locale
    which, basically, is U.S. usage. The "" locale stands for a local locale in use on your system.
    In principle, it could be the same as the "C" locale. In practice, operating systems such as
@@ -7125,37 +7517,42 @@ C04 Key Concepts
    a string in a character array, which consists of adjacent bytes in memory. Character strings,
    whether expressed as a character constant or stored in a character array, are terminated by a
    hidden character called the null character.
+
    It’s a good idea to represent numerical constants in a program symbolically, either by using
-    #define or the keyword const . Symbolic constants make a program more readable and easier
+    ``#define`` or the keyword const . Symbolic constants make a program more readable and easier
    to maintain and modify.
-   The standard C input and output functions scanf() and printf() use a system in which
+
+   The standard C input and output functions ``scanf()`` and ``printf()`` use a system in which
    you have to match type specifiers in the first argument to values in the subsequent arguments.
    Matching, say, an int specifier such as %d to a float value produces odd results. You have to
 
    ..   ptg11524036
 
-   :sup:`P0137` Summary
+.. _P0137:
 
    exert care to match the number and type of specifiers to the rest of the function arguments. For
-   scanf() , remember to prefix variables’ names with the address operator ( & ).
-   Whitespace characters (tabs, spaces, and newlines) play a critical role in how scanf() views
-   input. Except when in the %c mode (which reads just the next character), scanf() skips over
+   `scanf()` , remember to prefix variables’ names with the address operator ( & ).
+   
+   Whitespace characters (tabs, spaces, and newlines) play a critical role in how `scanf()` views
+   input. Except when in the %c mode (which reads just the next character), `scanf()` skips over
    whitespace characters to the first non-whitespace character when reading input. It then keeps
    reading characters either until encountering whitespace or until encountering a character that
    doesn’t fit the type being read. Let’s consider what happens if we feed the identical input line
-   to several different scanf() input modes. Start with the following input line:
-   -13.45e12# 0
-   First, suppose we use the %d mode; scanf() would read the three characters ( −13 ) and stop
-   at the period, leaving the period as the next input character. scanf() then would convert
+   to several different `scanf()` input modes. Start with the following input line:
+
+      -13.45e12# 0
+      
+   First, suppose we use the %d mode; `scanf()` would read the three characters ( −13 ) and stop
+   at the period, leaving the period as the next input character. `scanf()` then would convert
    the character sequence −13 into the corresponding integer value and store that value in the
-   destination int variable. Next, reading the same line in the %f mode, scanf() would read the
+   destination int variable. Next, reading the same line in the %f mode, `scanf()` would read the
     −13.45E12 characters and stop at the # symbol, leaving it as the next input character. It then
    would convert the character sequence −13.45E12 into the corresponding floating-point value
    and store that value in the destination float variable. Reading the same line in the %s mode,
-   scanf() would read −13.45E12# , stopping at the space, leaving it as the next input character.
+   `scanf()` would read −13.45E12# , stopping at the space, leaving it as the next input character.
    It then would store the character codes for these 10 characters into the destination character
    array, appending a null character at the end. Finally, reading the same line using the %c specifier, 
-   scanf() would read and store the first character, in this case a space.
+   `scanf()` would read and store the first character, in this case a space.
 
 C04 Summary
 -----------
@@ -7164,14 +7561,19 @@ C04 Summary
    characters terminated by the null character, which is the character whose ASCII code is 0.
    Strings can be stored in character arrays. An array is a series of items, or elements, all of the
    same type. To declare an array called name that has 30 elements of type char , do the following:
-   char name[30];
+
+      char name[30];
+
    Be sure to allot a number of elements sufficient to hold the entire string, including the null
    character.
+
    String constants are represented by enclosing the string in double quotes: "This is an
    example of a string" .
+
    The strlen() function (declared in the string.h header file) can be used to find the length of
    a string (not counting the terminating null character). The scanf() function, when used with
    the %s specifier, can be used to read in single-word strings.
+
    The C preprocessor searches a source code program for preprocessor directives, which begin
    with the # symbol, and acts upon them before the program is compiled. The #include directive 
    causes the processor to add the contents of another file to your file at the location of
@@ -7179,11 +7581,12 @@ C04 Summary
 
    ..   ptg11524036
 
-   :sup:`P0138` Chapter 4 Character Strings and Formatted Input/Output
+.. _P0138:
 
    representations for constants. The limits.h and float.h header files use #define to define a
    set of constants representing various properties of integer and floating-point types. You also can
    use the const modifier to create symbolic constants.
+
    The printf() and scanf() functions provide versatile support for input and output. Each uses
    a control string containing embedded conversion specifiers to indicate the number and type
    of data items to be read or printed. Also, you can use the conversion specifiers to control the
@@ -7193,147 +7596,199 @@ C04 Review Questions
 --------------------
 
    You’ll find answers to the review questions in Appendix A , “Answers to the Review Questions.”
+
    1. Run Listing 4.1 again, but this time give your first and last name when it asks you for
    your first name. What happens? Why?
+
    2. Assuming that each of the following examples is part of a complete program, what will
    each one print?
-   a.
-   printf("He sold the painting for $%2.2f.\n", 2.345e2);
-   b.
-   printf("%c%c%c\n", 'H', 105, '\41');
-   c.
-   #define Q "His Hamlet was funny without being vulgar."
-   printf("%s\nhas %d characters.\n", Q, strlen(Q));
-   d.
-   printf("Is %2.2e the same as %2.2f?\n", 1201.0, 1201.0);
+
+   .. code-block:: cpp
+
+      // a.
+      printf("He sold the painting for $%2.2f.\n", 2.345e2);
+      // b.
+      printf("%c%c%c\n", 'H', 105, '\41');
+      // c.
+      #define Q "His Hamlet was funny without being vulgar."
+      printf("%s\nhas %d characters.\n", Q, strlen(Q));
+      // d.
+      printf("Is %2.2e the same as %2.2f?\n", 1201.0, 1201.0);
+
    3. In Question 2c, what changes could you make so that string Q is printed out enclosed in
    double quotation marks?
+
    4. It’s find the error time!
-   define B booboo
-   define X 10
-   main(int)
-   {
-   int age;
-   char name;
+
+   .. code-block:: cpp
+
+      define B booboo
+      define X 10
+      main(int)
+      {
+         int age;
+         char name;
+         printf("Please enter your first name.");
+         scanf("%s", name);
+         printf("All right, %c, what's your age?\n", name);
+         scanf("%f", age);
+         xp = age + X;
+         printf("That's a %s! You must be at least %d.\n", B, xp);
+         rerun 0;
+      }
 
    ..   ptg11524036
 
-   :sup:`P0139` Review Questions
+.. _P0139:
 
 
-   printf("Please enter your first name.");
-   scanf("%s", name);
-   printf("All right, %c, what's your age?\n", name);
-   scanf("%f", age);
-   xp = age + X;
-   printf("That's a %s! You must be at least %d.\n", B, xp);
-   rerun 0;
-   }
    5. Suppose a program starts as follows:
-   #define BOOK "War and Peace"
-   int main(void)
-   {
-   float cost =12.99;
-   float percent = 80.0;
-   Construct a printf() statement that uses BOOK , cost , and percent to print the
+
+   .. code-block:: cpp
+
+      #define BOOK "War and Peace"
+      int main(void)
+      {
+         float cost =12.99;
+         float percent = 80.0;
+
+   Construct a printf() statement that uses `BOOK` , `cost` , and percent to print the
    following:
-   This copy of "War and Peace" sells for $12.99.
-   That is 80% of list.
+
+   .. code-block:: bash
+
+      This copy of "War and Peace" sells for $12.99.
+      That is 80% of list.
+
    6. What conversion specification would you use to print each of the following?
-   a. A decimal integer with a field width equal to the number of digits
-   b. A hexadecimal integer in the form 8A in a field width of 4
-   c. A floating-point number in the form 232.346 with a field width of 10
-   d. A floating-point number in the form 2.33e+002 with a field width of 12
-   e. A string left-justified in a field of width 30
+
+      a. A decimal integer with a field width equal to the number of digits
+      b. A hexadecimal integer in the form 8A in a field width of 4
+      c. A floating-point number in the form 232.346 with a field width of 10
+      d. A floating-point number in the form 2.33e+002 with a field width of 12
+      e. A string left-justified in a field of width 30
+
    7. Which conversion specification would you use to print each of the following?
-   a. An unsigned long integer in a field width of 15
-   b. A hexadecimal integer in the form 0x8a in a field width of 4
-   c. A floating-point number in the form 2.33E+02 that is left-justified in a field width
-   of 12
-   d. A floating-point number in the form +232.346 in a field width of 10
-   e. The first eight characters of a string in a field eight characters wide
+
+      a. An unsigned long integer in a field width of 15
+      b. A hexadecimal integer in the form 0x8a in a field width of 4
+      c. A floating-point number in the form 2.33E+02 that is left-justified in a field width
+      of 12
+      d. A floating-point number in the form +232.346 in a field width of 10
+      e. The first eight characters of a string in a field eight characters wide
 
    ..   ptg11524036
 
-   :sup:`P0140` Chapter 4 Character Strings and Formatted Input/Output
+.. _P0140:
 
    8. What conversion specification would you use to print each of the following?
-   a. A decimal integer having a minimum of four digits in a field width of 6
-   b. An octal integer in a field whose width will be given in the argument list
-   c. A character in a field width of 2
-   d. A floating-point number in the form +3.13 in a field width equal to the number of
-   characters in the number
-   e. The first five characters in a string left-justified in a field of width 7
+
+      a. A decimal integer having a minimum of four digits in a field width of 6
+      b. An octal integer in a field whose width will be given in the argument list
+      c. A character in a field width of 2
+      d. A floating-point number in the form +3.13 in a field width equal to the number of
+      characters in the number
+      e. The first five characters in a string left-justified in a field of width 7
+
    9. For each of the following input lines, provide a scanf() statement to read it. Also
    declare any variables or arrays used in the statement.
-   a. 101
-   b. 22.32 8.34E−09
-   c. linguini
-   d. catch 22
-   e. catch 22 (but skip over catch)
+
+      a. 101
+      b. 22.32 8.34E−09
+      c. linguini
+      d. catch 22
+      e. catch 22 (but skip over catch)
+
    10. What is whitespace?
+
    11. What’s wrong with the following statement and how can you fix it?
-   printf("The double type is %z bytes..\n", sizeof (double));
+
+   .. code-block:: cpp
+
+      printf("The double type is %z bytes..\n", sizeof (double));
+
    12. Suppose that you would rather use parentheses than braces in your programs. How well
    would the following work?
-   #define ( {
-   #define ) }
+
+   .. code-block:: cpp
+
+      #define ( {
+      #define ) }
 
 C04 Programming Exercises
 -------------------------
 
    1. Write a program that asks for your first name, your last name, and then prints the names
    in the format last, first .
+
    2. Write a program that requests your first name and does the following with it:
-   a. Prints it enclosed in double quotation marks
-   b. Prints it in a field 20 characters wide, with the whole field in quotes and the name
-   at the right end of the field
+
+      a. Prints it enclosed in double quotation marks
+      b. Prints it in a field 20 characters wide, with the whole field in quotes and the name
+      at the right end of the field
 
    ..   ptg11524036
 
-   :sup:`P0141` Programming Exercises
+.. _P0141:
 
-   c. Prints it at the left end of a field 20 characters wide, with the whole field enclosed
-   in quotes
-   d. Prints it in a field three characters wider than the name
+      c. Prints it at the left end of a field 20 characters wide, with the whole field enclosed
+      in quotes
+      d. Prints it in a field three characters wider than the name
+
    3. Write a program that reads in a floating-point number and prints it first in decimal-point
    notation and then in exponential notation. Have the output use the following formats
    (the number of digits shown in the exponent may be different for your system):
-   a. The input is 21.3 or 2.1e+001 .
-   b. The input is +21.290 or 2.129E+001 .
+
+      a. The input is 21.3 or 2.1e+001 .
+      b. The input is +21.290 or 2.129E+001 .
+
    4. Write a program that requests your height in inches and your name, and then displays
    the information in the following form:
    Dabney, you are 6.208 feet tall
    Use type float , and use / for division. If you prefer, request the height in centimeters
    and display it in meters.
+
    5. Write a program that requests the download speed in megabits per second (Mbs) and
    the size of a file in megabytes (MB). The program should calculate the download time
    for the file. Note that in this context one byte is eight bits. Use type float , and use /
    for division. The program should report all three values (download speed, file size, and
    download time) showing two digits to the right of the decimal point, as in the following:
-   At 18.12 megabits per second, a file of 2.20 megabytes
-   downloads in 0.97 seconds.
+
+   .. code-block:: cpp
+
+      At 18.12 megabits per second, a file of 2.20 megabytes
+      downloads in 0.97 seconds.
+
    6. Write a program that requests the user’s first name and then the user’s last name. Have
    it print the entered names on one line and the number of letters in each name on the
    following line. Align each letter count with the end of the corresponding name, as in the
    following:
-   Melissa Honeybee
-   7 8
+
+   .. code-block:: bash
+
+      Melissa Honeybee
+            7        8
+
    Next, have it print the same information, but with the counts aligned with the beginning
    of each name.
-   Melissa Honeybee
-   7 8
+
+   .. code-block:: cpp
+
+      Melissa Honeybee
+      7       8
+
    7. Write a program that sets a type double variable to 1.0/3.0 and a type float variable
    to 1.0/3.0. Display each result three times—once showing four digits to the right of the
    decimal, once showing 12 digits to the right of the decimal, and once showing 16 digits
 
    ..   ptg11524036
 
-   :sup:`P0142` Chapter 4 Character Strings and Formatted Input/Output
+.. _P0142:
 
    to the right of the decimal. Also have the program include float.h and display the
    values of FLT_DIG and DBL_DIG . Are the displayed values of 1.0/3.0 consistent with these
    values?
+
    8. Write a program that asks the user to enter the number of miles traveled and the number
    of gallons of gasoline consumed. It should then calculate and display the miles-per-gallon
    value, showing one place to the right of the decimal. Next, using the fact that one gallon
@@ -7344,7 +7799,7 @@ C04 Programming Exercises
    whereas the European scheme measures the amount of fuel per distance (lower is better).
    Use symbolic constants (using const or #define ) for the two conversion factors.
 
-   :sup:`P0143`
+.. _P0143:
 
 /C05👊 Operators, Expressions, and Statements
 ===============================================
@@ -7367,10 +7822,12 @@ C04 Programming Exercises
    ■  Compound statements, automatic type conversions, and type casts
 
    ■  How to write functions that use arguments
+
    Now that you’ve looked at ways to represent data, let’s explore ways to process data. C offers a
    wealth of operations for that purpose. You can do arithmetic, compare values, modify variables,
    combine relationships logically, and more. Let’s start with basic arithmetic—addition, subtraction, 
    multiplication, and division.
+
    Another aspect of processing data is organizing your programs so that they take the right steps
    in the right order. C has several language features to help you with that task. One of these
    features is the loop, and in this chapter you get a first look at it. A loop enables you to repeat
@@ -7378,18 +7835,13 @@ C04 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0144` Chapter 5 Operators, Expressions, and Statements
+.. _P0144:
 
 
 Introducing Loops
 -----------------
 
    Listing 5.1 shows a sample program that does a little arithmetic to calculate the length in
-
---------------------------------------------------------------------------------
-
-   .. code-block:: cpp
-
    inches of a foot that wears a U. S. size 9 (men’s) shoe. To enhance your appreciation of loops,
    this first version illustrates the limitations of programming without using a loop.
 
@@ -7399,24 +7851,29 @@ Introducing Loops
 
    .. code-block:: cpp
 
-   /* shoes1.c -- converts a shoe size to inches */
-   #include <stdio.h>
-   #define ADJUST 7.31 // one kind of symbolic constant
-   int main(void)
-   {
-   const double SCALE = 0.333; // another kind of symbolic constant
-   double shoe, foot;
+      /* shoes1.c -- converts a shoe size to inches */
+      #include <stdio.h>
+      #define ADJUST 7.31 // one kind of symbolic constant
+      int main(void)
+      {
+      const double SCALE = 0.333; // another kind of symbolic constant
+      double shoe, foot;
 
-   shoe = 9.0;
-   foot = SCALE * shoe + ADJUST;
-   printf("Shoe size (men's) foot length\n");
-   printf("%10.1f %15.2f inches\n", shoe, foot);
+      shoe = 9.0;
+      foot = SCALE * shoe + ADJUST;
+      printf("Shoe size (men's) foot length\n");
+      printf("%10.1f %15.2f inches\n", shoe, foot);
 
-   return 0;
-   }
+      return 0;
+      }
+
    Here is the output:
-   Shoe size (men's) foot length
-   9.0 10.31 inches
+
+   .. code-block:: bash
+
+      Shoe size (men's) foot length
+      9.0 10.31 inches
+
    The program demonstrates two ways to create symbolic constants, and it uses multiplication
    and addition. It takes your shoe size (if you wear a size 9) and tells you how long your foot is in
    inches. “But,” you say, “I could solve this problem by hand (or with a calculator) more quickly
@@ -7447,7 +7904,7 @@ Introducing Loops
 
    ..   ptg11524036
 
-   :sup:`P0145` Introducing Loops
+.. _P0145:
 
    int main(void)
    {
@@ -7492,7 +7949,7 @@ Introducing Loops
 
    ..   ptg11524036
 
-   :sup:`P0146` Chapter 5 Operators, Expressions, and Statements
+.. _P0146:
 
    At this point, the program returns to the while portion to check the condition. Why at this
    point? Because the next line is a closing brace ( } ), and the code uses a set of braces ( {} ) to mark
@@ -7536,7 +7993,7 @@ Fundamental Operators
 
    ..   ptg11524036
 
-   :sup:`P0147` Fundamental Operators
+.. _P0147:
 
    As mathematics, this statement makes no sense. If you add 1 to a finite number, the result isn’t
    “equal to” the number you started with, but as a computer assignment statement, it is perfectly
@@ -7579,7 +8036,7 @@ Fundamental Operators
 
    ..   ptg11524036
 
-   :sup:`P0148` Chapter 5 Operators, Expressions, and Statements
+.. _P0148:
 
    And C added the term modifiable lvalue to identify an object whose value can be changed.
    Therefore, the left side of an assignment operator should be a modifiable lvalue.
@@ -7628,7 +8085,7 @@ Fundamental Operators
 
    ..   ptg11524036
 
-   :sup:`P0149` Fundamental Operators
+.. _P0149:
 
    int jane, tarzan, cheeta;
 
@@ -7665,7 +8122,7 @@ Fundamental Operators
 
    ..   ptg11524036
 
-   :sup:`P0150` Chapter 5 Operators, Expressions, and Statements
+.. _P0150:
 
    The + and – operators are termed binary , or dyadic, operators, meaning that they require two
    operands.
@@ -7699,7 +8156,7 @@ Fundamental Operators
 
    ..   ptg11524036
 
-   :sup:`P0151` Fundamental Operators
+.. _P0151:
 
    Multiplication Operator: *
    Multiplication is indicated by the * symbol. The statement
@@ -7753,7 +8210,7 @@ Fundamental Operators
 
    ..   ptg11524036
 
-   :sup:`P0152` Chapter 5 Operators, Expressions, and Statements
+.. _P0152:
 
    int main(void)
    {
@@ -7800,7 +8257,7 @@ Fundamental Operators
 
    ..   ptg11524036
 
-   :sup:`P0153` Fundamental Operators
+.. _P0153:
 
    The haul has exceeded the total world annual output! If you want to see what happens by the
    64th square, you will have to run the program yourself.
@@ -7853,7 +8310,7 @@ Fundamental Operators
 
    ..   ptg11524036
 
-   :sup:`P0154` Chapter 5 Operators, Expressions, and Statements
+.. _P0154:
 
    Notice how integer division does not round to the nearest integer, but always truncates (that
    is, discards the entire fractional part). When you mixed integers with floating point, the answer
@@ -7896,7 +8353,7 @@ Fundamental Operators
 
    ..   ptg11524036
 
-   :sup:`P0155` Fundamental Operators
+.. _P0155:
 
    360.0 / SCALE Then the second * or / in the expression
    25.0 + 180 Finally (because SCALE is 2.0 ), the first + or - in the expression, to yield
@@ -7940,7 +8397,7 @@ Fundamental Operators
 
    ..   ptg11524036
 
-   :sup:`P0156` Chapter 5 Operators, Expressions, and Statements
+.. _P0156:
 
    Operators Associativity
     + - (binary) Left to right
@@ -7975,7 +8432,7 @@ Fundamental Operators
 
       ..   ptg11524036
 
-      :sup:`P0157` Some Additional Operators
+   .. _P0157:
 
 
    Listing 5.7 The rules.c Program
@@ -8026,7 +8483,7 @@ Some Additional Operators
 
    ..   ptg11524036
 
-   :sup:`P0158` Chapter 5 Operators, Expressions, and Statements
+.. _P0158:
 
    The sizeof Operator and the size_t Type
    You saw the sizeof operator in Chapter 3 , “Data and C.” To review, the sizeof operator
@@ -8073,7 +8530,7 @@ Some Additional Operators
 
    ..   ptg11524036
 
-   :sup:`P0159` Some Additional Operators
+.. _P0159:
 
    Modulus Operator: %
    The modulus operator is used in integer arithmetic. It gives the remainder that results when the
@@ -8131,7 +8588,7 @@ Some Additional Operators
 
    ..   ptg11524036
 
-   :sup:`P0160` Chapter 5 Operators, Expressions, and Statements
+.. _P0160:
 
    154
    154 seconds is 2 minutes, 34 seconds.
@@ -8184,7 +8641,7 @@ Some Additional Operators
 
    ..   ptg11524036
 
-   :sup:`P0161` Some Additional Operators
+.. _P0161:
 
    int ultra = 0, super = 0;
 
@@ -8229,7 +8686,7 @@ Some Additional Operators
 
    ..   ptg11524036
 
-   :sup:`P0162` Chapter 5 Operators, Expressions, and Statements
+.. _P0162:
 
    Here you have combined the incrementing process and the while comparison into one expression. 
    This type of construction is so common in C that it merits a closer look.
@@ -8275,7 +8732,7 @@ Some Additional Operators
 
    ..   ptg11524036
 
-   :sup:`P0163` Some Additional Operators
+.. _P0163:
 
 
    Listing 5.11 The post_pre.c Program
@@ -8323,7 +8780,7 @@ Some Additional Operators
 
    ..   ptg11524036
 
-   :sup:`P0164` Chapter 5 Operators, Expressions, and Statements
+.. _P0164:
 
    Perhaps an even wiser policy is to avoid code in which it makes a difference whether you use
    the prefix or postfix form. For example, instead of
@@ -8372,7 +8829,7 @@ Some Additional Operators
 
    ..   ptg11524036
 
-   :sup:`P0165` Some Additional Operators
+.. _P0165:
 
    "%d bottles of spring water!\n", count, count);
    printf("Take one down and pass it around,\n");
@@ -8412,7 +8869,7 @@ Some Additional Operators
 
    ..   ptg11524036
 
-   :sup:`P0166` Chapter 5 Operators, Expressions, and Statements
+.. _P0166:
 
    What value does nextnum get? Substituting in values yields
    nextnum = (2 + 3)*6 = 5*6 = 30
@@ -8451,7 +8908,7 @@ Some Additional Operators
 
    ..   ptg11524036
 
-   :sup:`P0167` Expressions and Statements
+.. _P0167:
 
    Yet another troublesome case is this:
    n = 3;
@@ -8494,7 +8951,7 @@ Expressions and Statements
 
    ..   ptg11524036
 
-   :sup:`P0168` Chapter 5 Operators, Expressions, and Statements
+.. _P0168:
 
    As you can see, the operands can be constants, variables, or combinations of the two. Some
    expressions are combinations of smaller expressions, called subexpressions . For example, c/d is a
@@ -8531,7 +8988,7 @@ Expressions and Statements
 
    ..   ptg11524036
 
-   :sup:`P0169` Expressions and Statements
+.. _P0169:
 
    8;
    3 + 4;
@@ -8579,7 +9036,7 @@ Expressions and Statements
 
    ..   ptg11524036
 
-   :sup:`P0170` Chapter 5 Operators, Expressions, and Statements
+.. _P0170:
 
    followed by a semicolon. Note that this particular while statement includes an assignment
    statement within it. An assignment statement is an example of an expression statement.
@@ -8616,7 +9073,7 @@ Expressions and Statements
 
    ..   ptg11524036
 
-   :sup:`P0171` Expressions and Statements
+.. _P0171:
 
    increment and decrement operators, like the assignment operator, have side effects and are
    used primarily because of their side effects.
@@ -8658,7 +9115,7 @@ Expressions and Statements
 
    ..   ptg11524036
 
-   :sup:`P0172` Chapter 5 Operators, Expressions, and Statements
+.. _P0172:
 
    index = 0;
    while (index++ < 10)
@@ -8697,7 +9154,7 @@ Expressions and Statements
 
    ..   ptg11524036
 
-   :sup:`P0173` Expressions and Statements
+.. _P0173:
 
    Tip Style Tips
    Look again at the two while fragments and notice how an indentation marks off the body of
@@ -8740,7 +9197,7 @@ Expressions and Statements
 
    ..   ptg11524036
 
-   :sup:`P0174` Chapter 5 Operators, Expressions, and Statements
+.. _P0174:
 
 
 Type Conversions
@@ -8786,7 +9243,7 @@ Type Conversions
 
    ..   ptg11524036
 
-   :sup:`P0175` Type Conversions
+.. _P0175:
 
    2. If the destination type is a signed integer and the assigned value is an integer, the result
    is implementation-dependent.
@@ -8843,7 +9300,7 @@ Type Conversions
 
    ..   ptg11524036
 
-   :sup:`P0176` Chapter 5 Operators, Expressions, and Statements
+.. _P0176:
 
 
    ■  Lines 11 and 14 — The character variable 'C' is converted to the integer 67 , which is
@@ -8890,7 +9347,7 @@ Type Conversions
 
    ..   ptg11524036
 
-   :sup:`P0177` Function with Arguments
+.. _P0177:
 
    Summary: Operating in C
    Here are the operators we have discussed so far:
@@ -8935,7 +9392,7 @@ Function with Arguments
 
    ..   ptg11524036
 
-   :sup:`P0178` Chapter 5 Operators, Expressions, and Statements
+.. _P0178:
 
 
    Listing 5.15 The pound.c Program
@@ -8986,7 +9443,7 @@ Function with Arguments
 
    ..   ptg11524036
 
-   :sup:`P0179` Function with Arguments
+.. _P0179:
 
    Note Arguments Versus Parameters
    Although the terms argument and parameter often have been used interchangeably, the C99
@@ -9030,7 +9487,7 @@ Function with Arguments
 
    ..   ptg11524036
 
-   :sup:`P0180` Chapter 5 Operators, Expressions, and Statements
+.. _P0180:
 
    which doesn’t really help much. The program will still run, but it won’t behave correctly. You
    could fix it by using an explicit type cast in the function call:
@@ -9089,7 +9546,7 @@ A Sample Program
 
    ..   ptg11524036
 
-   :sup:`P0181` A Sample Program
+.. _P0181:
 
    rate = distm / time * S_PER_H;
    // time/distance = time per mile
@@ -9138,7 +9595,7 @@ A Sample Program
 
    ..   ptg11524036
 
-   :sup:`P0182` Chapter 5 Operators, Expressions, and Statements
+.. _P0182:
 
 
 C05 Key Concepts
@@ -9187,7 +9644,7 @@ C05 Summary
 
    ..   ptg11524036
 
-   :sup:`P0183` Review Questions
+.. _P0183:
 
    When you define a function that takes an argument, you declare a variable , or formal argument ,
    in the function definition. Then the value passed in a function call is assigned to this variable,
@@ -9226,7 +9683,7 @@ C05 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0184` Chapter 5 Operators, Expressions, and Statements
+.. _P0184:
 
    printf("That's all, folks!\n");
    return;
@@ -9271,7 +9728,7 @@ C05 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0185` Review Questions
+.. _P0185:
 
    7. What will the following program print?
    #include <stdio.h>
@@ -9313,7 +9770,7 @@ C05 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0186` Chapter 5 Operators, Expressions, and Statements
+.. _P0186:
 
    printf("%4d\n",x);
    printf("%4d\n",x);
@@ -9353,7 +9810,7 @@ C05 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0187` Programming Exercises
+.. _P0187:
 
 
 C05 Programming Exercises
@@ -9397,7 +9854,7 @@ C05 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0188` Chapter 5 Operators, Expressions, and Statements
+.. _P0188:
 
    7. Write a program that requests a type double number and prints the value of the number
    cubed. Use a function of your own design to cube the value and print it. The main()
@@ -9433,7 +9890,7 @@ C05 Programming Exercises
     == operator tests for equality, so you can use it to compare the return value of scanf()
    with 1 .
 
-   :sup:`P0189`
+.. _P0189:
 
 /C06👊 C Control Statements: Looping
 ======================================
@@ -9471,7 +9928,7 @@ C05 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0190` Chapter 6 C Control Statements: Looping
+.. _P0190:
 
 
    ■  Executing a sequence of statements
@@ -9526,7 +9983,7 @@ Revisiting the while Loop
 
    ..   ptg11524036
 
-   :sup:`P0191` Revisiting the while Loop
+.. _P0191:
 
 
    Listing 6.1 uses type long to allow for larger numbers. For consistency, the program initializes
@@ -9576,7 +10033,7 @@ Revisiting the while Loop
 
    ..   ptg11524036
 
-   :sup:`P0192` Chapter 6 C Control Statements: Looping
+.. _P0192:
 
    such as –3 or 0 , as input. Instead, you could add new code to the loop, such as asking “Do you
    wish to continue? <y/n>” at each cycle, and then test to see whether the user entered y . This is
@@ -9627,7 +10084,7 @@ Revisiting the while Loop
 
    ..   ptg11524036
 
-   :sup:`P0193` The while Statement
+.. _P0193:
 
    can be replaced by the following:
    while (scanf("%ld", &num) == 1)
@@ -9668,7 +10125,7 @@ The while Statement
 
    ..   ptg11524036
 
-   :sup:`P0194` Chapter 6 C Control Statements: Looping
+.. _P0194:
 
    Terminating a while Loop
    Here is a crucial point about while loops: When you construct a while loop, it must include
@@ -9718,7 +10175,7 @@ The while Statement
 
    ..   ptg11524036
 
-   :sup:`P0195` The while Statement
+.. _P0195:
 
    Running Listing 6.2 produces the following output:
    n = 5
@@ -9770,7 +10227,7 @@ The while Statement
 
    ..   ptg11524036
 
-   :sup:`P0196` Chapter 6 C Control Statements: Looping
+.. _P0196:
 
    printf("n is %d\n", n);
    n++;
@@ -9831,7 +10288,7 @@ The while Statement
 
    ..   ptg11524036
 
-   :sup:`P0197` Which Is Bigger: Using Relational Operators and Expressions
+.. _P0197:
 
    As we said earlier, the loop ends with the first statement, simple or compound, following the
    test condition. Because there is a semicolon immediately after the test condition on line 7, the
@@ -9870,7 +10327,7 @@ Which Is Bigger: Using Relational Operators and Expressions
 
    ..   ptg11524036
 
-   :sup:`P0198` Chapter 6 C Control Statements: Looping
+.. _P0198:
 
    The relational operators are used to form the relational expressions used in while statements
    and in other C statements that we’ll discuss later. These statements check to see whether the
@@ -9923,7 +10380,7 @@ Which Is Bigger: Using Relational Operators and Expressions
 
    ..   ptg11524036
 
-   :sup:`P0199` Which Is Bigger: Using Relational Operators and Expressions
+.. _P0199:
 
    while (fabs(response - ANSWER) > 0.0001)
    {
@@ -9969,7 +10426,7 @@ Which Is Bigger: Using Relational Operators and Expressions
 
    ..   ptg11524036
 
-   :sup:`P0200` Chapter 6 C Control Statements: Looping
+.. _P0200:
 
 
    Listing 6.6 assigns the values of two relational expressions to two variables. Being straightforward, 
@@ -10024,7 +10481,7 @@ Which Is Bigger: Using Relational Operators and Expressions
 
    ..   ptg11524036
 
-   :sup:`P0201` Which Is Bigger: Using Relational Operators and Expressions
+.. _P0201:
 
    -2 is true
    -1 is true
@@ -10074,7 +10531,7 @@ Which Is Bigger: Using Relational Operators and Expressions
 
    ..   ptg11524036
 
-   :sup:`P0202` Chapter 6 C Control Statements: Looping
+.. _P0202:
 
    printf("Those integers sum to %ld.\n", sum);
 
@@ -10122,7 +10579,7 @@ Which Is Bigger: Using Relational Operators and Expressions
 
    ..   ptg11524036
 
-   :sup:`P0203` Which Is Bigger: Using Relational Operators and Expressions
+.. _P0203:
 
    Be careful about using the correct operator. A compiler will let you use the wrong form, yielding 
    results other than what you expect. (However, so many people have misused = so often
@@ -10160,7 +10617,7 @@ Which Is Bigger: Using Relational Operators and Expressions
 
    ..   ptg11524036
 
-   :sup:`P0204` Chapter 6 C Control Statements: Looping
+.. _P0204:
 
 
    Listing 6.9 fixes the test condition in Listing 6.8 and replaces the int variable status with the
@@ -10215,7 +10672,7 @@ Which Is Bigger: Using Relational Operators and Expressions
 
    ..   ptg11524036
 
-   :sup:`P0205` Which Is Bigger: Using Relational Operators and Expressions
+.. _P0205:
 
    Precedence of Relational Operators
    The precedence of the relational operators is less than that of the arithmetic operators, including 
@@ -10248,7 +10705,7 @@ Which Is Bigger: Using Relational Operators and Expressions
 
    ..   ptg11524036
 
-   :sup:`P0206` Chapter 6 C Control Statements: Looping
+.. _P0206:
 
    Table 6.2 Operator Precedence
    Operators (From High to Low Precedence) Associativity
@@ -10284,7 +10741,7 @@ Which Is Bigger: Using Relational Operators and Expressions
 
    ..   ptg11524036
 
-   :sup:`P0207` Indefinite Loops and Counting Loops
+.. _P0207:
 
    Summary: Relational Operators and Expressions
    Relational Operators:
@@ -10334,7 +10791,7 @@ Indefinite Loops and Counting Loops
 
    ..   ptg11524036
 
-   :sup:`P0208` Chapter 6 C Control Statements: Looping
+.. _P0208:
 
 
    return 0;
@@ -10383,7 +10840,7 @@ The for Loop
 
    ..   ptg11524036
 
-   :sup:`P0209` The for Loop
+.. _P0209:
 
    starts. The second expression is the test condition; it is evaluated before each potential execution 
    of a loop. When the expression is false (when count is greater than NUMBER ), the loop is
@@ -10436,7 +10893,7 @@ The for Loop
 
    ..   ptg11524036
 
-   :sup:`P0210` Chapter 6 C Control Statements: Looping
+.. _P0210:
 
 
    Listing 6.12 prints the integers 1 through 6 and their cubes.
@@ -10476,7 +10933,11 @@ The for Loop
    printf("We have ignition!\n");
    return 0;
    }
+
    Here is the output:
+
+   .. code-block:: bash
+
    5 seconds!
    4 seconds!
    3 seconds!
@@ -10486,7 +10947,7 @@ The for Loop
 
    ..   ptg11524036
 
-   :sup:`P0211` The for Loop
+.. _P0211:
 
 
    ■  You can count by twos, tens, and so on, if you want:
@@ -10535,7 +10996,7 @@ The for Loop
 
    ..   ptg11524036
 
-   :sup:`P0212` Chapter 6 C Control Statements: Looping
+.. _P0212:
 
    with
    for (num = 1; num*num*num <= 216; num++)
@@ -10583,7 +11044,7 @@ The for Loop
 
    ..   ptg11524036
 
-   :sup:`P0213` The for Loop
+.. _P0213:
 
    4 70
    5 75
@@ -10607,7 +11068,11 @@ The for Loop
    printf("n = %d; ans = %d.\n", n, ans);
    return 0;
    }
+
    Here is the output:
+
+   .. code-block:: bash
+
    n = 3; ans = 54.
    The loop keeps the value of n at 3. The variable ans starts with the value 2, and then
    increases to 6 and 18 and obtains a final value of 54. (The value 18 is less than 25, so the
@@ -10631,7 +11096,7 @@ The for Loop
 
    ..   ptg11524036
 
-   :sup:`P0214` Chapter 6 C Control Statements: Looping
+.. _P0214:
 
    printf("That's the one I want!\n");
    return 0;
@@ -10674,7 +11139,7 @@ The for Loop
 
    ..   ptg11524036
 
-   :sup:`P0215` The Comma Operator
+.. _P0215:
 
    Example:
    for (n = 0; n < 10 ; n++)
@@ -10721,7 +11186,7 @@ The Comma Operator
 
    ..   ptg11524036
 
-   :sup:`P0216` Chapter 6 C Control Statements: Looping
+.. _P0216:
 
 
    Listing 6.13 The postage.c Program
@@ -10769,7 +11234,7 @@ The Comma Operator
 
    ..   ptg11524036
 
-   :sup:`P0217` The Comma Operator
+.. _P0217:
 
    The comma operator is not restricted to for loops, but that’s where it is most often used. The
    operator has two further properties. First, it guarantees that the expressions it separates are evaluated 
@@ -10809,7 +11274,7 @@ The Comma Operator
 
    ..   ptg11524036
 
-   :sup:`P0218` Chapter 6 C Control Statements: Looping
+.. _P0218:
 
    are separators, not comma operators.
    Summary: The New Operators
@@ -10847,7 +11312,7 @@ The Comma Operator
 
    ..   ptg11524036
 
-   :sup:`P0219` The Comma Operator
+.. _P0219:
 
    end. We doubt, however, that Zeno would have volunteered to be a target on the strength of
    this argument.
@@ -10899,7 +11364,7 @@ The Comma Operator
 
    ..   ptg11524036
 
-   :sup:`P0220` Chapter 6 C Control Statements: Looping
+.. _P0220:
 
    time = 1.998047 when terms = 10.
    time = 1.999023 when terms = 11.
@@ -10938,7 +11403,7 @@ An Exit-Condition Loop: do while
 
    ..   ptg11524036
 
-   :sup:`P0221` An Exit-Condition Loop: do while
+.. _P0221:
 
 
    Listing 6.15 The do_while.c Program
@@ -10996,7 +11461,7 @@ An Exit-Condition Loop: do while
 
    ..   ptg11524036
 
-   :sup:`P0222` Chapter 6 C Control Statements: Looping
+.. _P0222:
 
    printf("To enter the triskaidekaphobia therapy club,\n");
    printf("please enter the secret code number: ");
@@ -11035,7 +11500,7 @@ An Exit-Condition Loop: do while
 
    ..   ptg11524036
 
-   :sup:`P0223` Which Loop?
+.. _P0223:
 
    Avoid a do while structure of the type shown in the following pseudocode:
    do
@@ -11077,7 +11542,7 @@ Which Loop?
 
    ..   ptg11524036
 
-   :sup:`P0224` Chapter 6 C Control Statements: Looping
+.. _P0224:
 
    Assume that you need an entry-condition loop. Should it be a for or a while ? This is partly a
    matter of taste, because what you can do with one, you can do with the other. To make a for
@@ -11125,7 +11590,7 @@ Nested Loops
 
    ..   ptg11524036
 
-   :sup:`P0225` Nested Loops
+.. _P0225:
 
    int row;
    char ch;
@@ -11167,7 +11632,7 @@ Nested Loops
 
    ..   ptg11524036
 
-   :sup:`P0226` Chapter 6 C Control Statements: Looping
+.. _P0226:
 
 
    Listing 6.18 The rows2.c Program
@@ -11219,7 +11684,7 @@ Introducing Arrays
 
    ..   ptg11524036
 
-   :sup:`P0227` Introducing Arrays
+.. _P0227:
 
    announces that debts is an array with 20 elements, each of which can hold a type float
    value. The first element of the array is called debts[0] , the second element is called debts[1] ,
@@ -11255,7 +11720,7 @@ Introducing Arrays
 
    ..   ptg11524036
 
-   :sup:`P0228` Chapter 6 C Control Statements: Looping
+.. _P0228:
 
    The numbers used to identify the array elements are called subscripts , indices , or offsets . The
    subscripts must be integers, and, as mentioned, the subscripting begins with 0. The array
@@ -11302,7 +11767,7 @@ Introducing Arrays
 
    ..   ptg11524036
 
-   :sup:`P0229` Introducing Arrays
+.. _P0229:
 
    for (index = 0; index < SIZE; index++)
    sum += score[index]; // add them up
@@ -11346,7 +11811,7 @@ Introducing Arrays
 
    ..   ptg11524036
 
-   :sup:`P0230` Chapter 6 C Control Statements: Looping
+.. _P0230:
 
    Third, a good practice is to have a program repeat or “echo” the values it has just read in. This
    helps ensure that the program is processing the data you think it is.
@@ -11390,7 +11855,7 @@ A Loop Example Using a Function Return Value
 
    ..   ptg11524036
 
-   :sup:`P0231` A Loop Example Using a Function Return Value
+.. _P0231:
 
    For example, we can do this:
    double power(double n, int p) // returns a double
@@ -11442,7 +11907,7 @@ A Loop Example Using a Function Return Value
 
    ..   ptg11524036
 
-   :sup:`P0232` Chapter 6 C Control Statements: Looping
+.. _P0232:
 
    xpow = power(x,exp); // function call
    printf("%.3g to the power %d is %.5g\n", x, exp, xpow);
@@ -11486,7 +11951,7 @@ A Loop Example Using a Function Return Value
 
    ..   ptg11524036
 
-   :sup:`P0233` A Loop Example Using a Function Return Value
+.. _P0233:
 
    Now let’s look at the function-related matters. The power() function appears three times in
    this program. The first appearance is this:
@@ -11527,7 +11992,7 @@ A Loop Example Using a Function Return Value
 
    ..   ptg11524036
 
-   :sup:`P0234` Chapter 6 C Control Statements: Looping
+.. _P0234:
 
    omit the forward declaration because the compiler will know all about power() before reaching 
    main() . However, that is not standard C style. Because main() usually provides the overall
@@ -11569,7 +12034,7 @@ C06 Key Concepts
 
    ..   ptg11524036
 
-   :sup:`P0235` Summary
+.. _P0235:
 
 
 C06 Summary
@@ -11610,7 +12075,7 @@ C06 Summary
 
    ..   ptg11524036
 
-   :sup:`P0236` Chapter 6 C Control Statements: Looping
+.. _P0236:
 
 
 C06 Review Questions
@@ -11651,7 +12116,7 @@ C06 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0237` Review Questions
+.. _P0237:
 
    printf("\n"); /* line 11 */
    } /* line 12 */
@@ -11692,7 +12157,7 @@ C06 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0238` Chapter 6 C Control Statements: Looping
+.. _P0238:
 
    int main(void)
    {
@@ -11738,7 +12203,7 @@ C06 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0239` Review Questions
+.. _P0239:
 
    {
    char ch;
@@ -11786,7 +12251,7 @@ C06 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0240` Chapter 6 C Control Statements: Looping
+.. _P0240:
 
    10. Consider the following declaration:
    double mint[10];
@@ -11827,7 +12292,7 @@ C06 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0241` Programming Excercises
+.. _P0241:
 
    for(k = 1, printf("%d: Hi!\n", k); printf("k = %d\n",k),
    k*k < 26; k+=2, printf("Now k is %d\n", k) )
@@ -11869,7 +12334,7 @@ C06 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0242` Chapter 6 C Control Statements: Looping
+.. _P0242:
 
    If your system doesn’t encode letters in numeric order, see the suggestion in
    programming exercise 3.
@@ -11909,7 +12374,7 @@ C06 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0243` Programming Exercises
+.. _P0243:
 
    11. Write a program that reads eight integers into an array and then prints them in reverse
    order.
@@ -11949,7 +12414,7 @@ C06 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0244` Chapter 6 C Control Statements: Looping
+.. _P0244:
 
    17. Chuckie Lucky won a million dollars (after taxes), which he places in an account that
    earns 8% a year. On the last day of each year, Chuckie withdraws $100,000. Write a
@@ -11964,7 +12429,7 @@ C06 Programming Exercises
    a cohesive social group in which each member knows every other member and how they
    relate to one another. Its approximate value is 150.
 
-   :sup:`P0245`
+.. _P0245:
 
 /C07👊 C Control Statements: Branching and Jumps
 =================================================
@@ -12007,7 +12472,7 @@ C06 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0246` Chapter 7 C Control Statements: Branching and Jumps
+.. _P0246:
 
 
 The if Statement
@@ -12057,7 +12522,7 @@ The if Statement
 
    ..   ptg11524036
 
-   :sup:`P0247` The if Statement
+.. _P0247:
 
    12 5 -2.5 0 6 8 -3 -10 5 10 q
    10 days total: 30.0% were below freezing.
@@ -12101,7 +12566,7 @@ The if Statement
 
    ..   ptg11524036
 
-   :sup:`P0248` Chapter 7 C Control Statements: Branching and Jumps
+.. _P0248:
 
    { // compound statement
    joecash++;
@@ -12146,7 +12611,7 @@ Adding else to the if Statement
 
    ..   ptg11524036
 
-   :sup:`P0249` Adding else to the if Statement
+.. _P0249:
 
    if (x > 0)
    printf("Incrementing x:\n");
@@ -12181,7 +12646,7 @@ Adding else to the if Statement
 
    ..   ptg11524036
 
-   :sup:`P0250` Chapter 7 C Control Statements: Branching and Jumps
+.. _P0250:
 
    Another Example: Introducing getchar() and putchar()
    Most of the examples so far have used numeric input. To give you practice with other types,
@@ -12229,7 +12694,7 @@ Adding else to the if Statement
 
    ..   ptg11524036
 
-   :sup:`P0251` Adding else to the if Statement
+.. _P0251:
 
    if (ch == SPACE) // leave the space
    putchar(ch); // character unchanged
@@ -12271,7 +12736,7 @@ Adding else to the if Statement
 
    ..   ptg11524036
 
-   :sup:`P0252` Chapter 7 C Control Statements: Branching and Jumps
+.. _P0252:
 
    while (
    (ch = getchar()) // assign a value to ch
@@ -12312,7 +12777,7 @@ Adding else to the if Statement
 
    ..   ptg11524036
 
-   :sup:`P0253` Adding else to the if Statement
+.. _P0253:
 
 
    Listing 7.3 The cypher2.c Program
@@ -12359,7 +12824,7 @@ Adding else to the if Statement
 
    ..   ptg11524036
 
-   :sup:`P0254` Chapter 7 C Control Statements: Branching and Jumps
+.. _P0254:
 
    Name True If the Argument Is
    isblank() A standard blank character (space, horizontal tab, or newline) or any additional
@@ -12393,7 +12858,7 @@ Adding else to the if Statement
 
    ..   ptg11524036
 
-   :sup:`P0255` Adding else to the if Statement
+.. _P0255:
 
    If you worry about your energy management, you might want to prepare a program to calculate 
    your energy costs. The program in Listing 7.4 is a first step in that direction.
@@ -12445,7 +12910,7 @@ Adding else to the if Statement
 
    ..   ptg11524036
 
-   :sup:`P0256` Chapter 7 C Control Statements: Branching and Jumps
+.. _P0256:
 
 
    Listing 7.4 uses symbolic constants for the rates so that the constants are conveniently gathered 
@@ -12497,7 +12962,7 @@ Adding else to the if Statement
 
    ..   ptg11524036
 
-   :sup:`P0257` Adding else to the if Statement
+.. _P0257:
 
    You can string together as many else if statements as you need (within compiler limits, of
    course), as illustrated by this fragment:
@@ -12536,7 +13001,7 @@ Adding else to the if Statement
 
    ..   ptg11524036
 
-   :sup:`P0258` Chapter 7 C Control Statements: Branching and Jumps
+.. _P0258:
 
 
    else goes with the most
@@ -12575,7 +13040,7 @@ Adding else to the if Statement
 
    ..   ptg11524036
 
-   :sup:`P0259` Adding else to the if Statement
+.. _P0259:
 
    Number Response
    5 Sorry, you lose a turn!
@@ -12615,7 +13080,7 @@ Adding else to the if Statement
 
    ..   ptg11524036
 
-   :sup:`P0260` Chapter 7 C Control Statements: Branching and Jumps
+.. _P0260:
 
    (in reverse order) that you already found. Instead of running the loop to 143, you can stop after
    reaching 12. That saves a lot of cycles!
@@ -12661,7 +13126,7 @@ Adding else to the if Statement
 
    ..   ptg11524036
 
-   :sup:`P0261` Adding else to the if Statement
+.. _P0261:
 
    Traditionally, C has used the int type for flags, but the new _Bool type matches the requirements 
    perfectly. Furthermore, by including the stdbool.h header file, you can use bool
@@ -12721,7 +13186,7 @@ Adding else to the if Statement
 
    ..   ptg11524036
 
-   :sup:`P0262` Chapter 7 C Control Statements: Branching and Jumps
+.. _P0262:
 
    Note that the program uses the comma operator in the for loop control expression to enable
    you to initialize isPrime to true for each new input number.
@@ -12764,7 +13229,7 @@ Adding else to the if Statement
 
    ..   ptg11524036
 
-   :sup:`P0263` Let’s Get Logical
+.. _P0263:
 
    If the expression is true, statement1 is executed. Otherwise, statement2 is executed.
    Form 3:
@@ -12816,7 +13281,7 @@ Let’s Get Logical
 
    ..   ptg11524036
 
-   :sup:`P0264` Chapter 7 C Control Statements: Branching and Jumps
+.. _P0264:
 
    {
    if (ch != '"' && ch != '\'')
@@ -12856,7 +13321,7 @@ Let’s Get Logical
 
    ..   ptg11524036
 
-   :sup:`P0265` Let’s Get Logical
+.. _P0265:
 
    The last expression, incidentally, is equivalent to the following:
    4 <= 7
@@ -12892,7 +13357,7 @@ Let’s Get Logical
 
    ..   ptg11524036
 
-   :sup:`P0266` Chapter 7 C Control Statements: Branching and Jumps
+.. _P0266:
 
    would be interpreted as
    ((a > b) && (b > c)) || (b > d)
@@ -12932,7 +13397,7 @@ Let’s Get Logical
 
    ..   ptg11524036
 
-   :sup:`P0267` Let’s Get Logical
+.. _P0267:
 
    Summary: Logical Operators and Expressions
    Logical Operators:
@@ -12968,7 +13433,7 @@ Let’s Get Logical
 
    ..   ptg11524036
 
-   :sup:`P0268` Chapter 7 C Control Statements: Branching and Jumps
+.. _P0268:
 
    The subexpression 90 <= range either has the value 1 (for true) or 0 (for false). Either value is
    less than 100, so the whole expression is always true, regardless of the value of range . So use
@@ -13012,7 +13477,7 @@ A Word-Count Program
 
    ..   ptg11524036
 
-   :sup:`P0269` A Word-Count Program
+.. _P0269:
 
    common in text. In Chapter 8 , “Character Input/Output and Input Validation,” we’ll present a
    better solution that also allows the program to be used with text files as well as keyboard input.
@@ -13056,7 +13521,7 @@ A Word-Count Program
 
    ..   ptg11524036
 
-   :sup:`P0270` Chapter 7 C Control Statements: Branching and Jumps
+.. _P0270:
 
    instead of
    if (inword == true)
@@ -13113,7 +13578,7 @@ A Word-Count Program
 
    ..   ptg11524036
 
-   :sup:`P0271` The Conditional Operator: ?:
+.. _P0271:
 
    if (isspace(c) && inword)
    inword = false; // reached end of word
@@ -13158,7 +13623,7 @@ The Conditional Operator: ?:
 
    ..   ptg11524036
 
-   :sup:`P0272` Chapter 7 C Control Statements: Branching and Jumps
+.. _P0272:
 
    with two operands are called binary operators. In that tradition, operators with three operands
    are called ternary operators, and the conditional operator is C’s only example in that category.
@@ -13206,7 +13671,7 @@ The Conditional Operator: ?:
 
    ..   ptg11524036
 
-   :sup:`P0273` The Conditional Operator: ?:
+.. _P0273:
 
    int sq_feet;
    int cans;
@@ -13247,7 +13712,7 @@ The Conditional Operator: ?:
 
    ..   ptg11524036
 
-   :sup:`P0274` Chapter 7 C Control Statements: Branching and Jumps
+.. _P0274:
 
    Summary: The Conditional Operator
    The Conditional Operator:
@@ -13295,7 +13760,7 @@ Loop Aids: continue and break
 
    ..   ptg11524036
 
-   :sup:`P0275` Loop Aids: continue and break
+.. _P0275:
 
    float max = MIN;
 
@@ -13343,7 +13808,7 @@ Loop Aids: continue and break
 
    ..   ptg11524036
 
-   :sup:`P0276` Chapter 7 C Control Statements: Branching and Jumps
+.. _P0276:
 
    /* statements */
    }
@@ -13385,7 +13850,7 @@ Loop Aids: continue and break
 
    ..   ptg11524036
 
-   :sup:`P0277` Loop Aids: continue and break
+.. _P0277:
 
    continue;
    putchar(ch);
@@ -13434,7 +13899,7 @@ Loop Aids: continue and break
 
    ..   ptg11524036
 
-   :sup:`P0278` Chapter 7 C Control Statements: Branching and Jumps
+.. _P0278:
 
    {
    printf("Length = %0.2f:\n", length);
@@ -13469,7 +13934,7 @@ Loop Aids: continue and break
 
    ..   ptg11524036
 
-   :sup:`P0279` Loop Aids: continue and break
+.. _P0279:
 
    You could have controlled the loop this way:
    while (scanf("%f %f", &length, &width) == 2)
@@ -13511,7 +13976,7 @@ Loop Aids: continue and break
 
    ..   ptg11524036
 
-   :sup:`P0280` Chapter 7 C Control Statements: Branching and Jumps
+.. _P0280:
 
 
 Multiple Choice: switch and break
@@ -13568,7 +14033,7 @@ Multiple Choice: switch and break
 
    ..   ptg11524036
 
-   :sup:`P0281` Multiple Choice: switch and break
+.. _P0281:
 
    default :
    printf("That's a stumper!\n");
@@ -13613,7 +14078,7 @@ Multiple Choice: switch and break
 
    ..   ptg11524036
 
-   :sup:`P0282` Chapter 7 C Control Statements: Branching and Jumps
+.. _P0282:
 
    What about the break statement? It causes the program to break out of the switch and skip to
    the next statement after the switch (see Figure 7.4 ). Without the break statement, every statement 
@@ -13655,7 +14120,7 @@ Multiple Choice: switch and break
 
    ..   ptg11524036
 
-   :sup:`P0283` Multiple Choice: switch and break
+.. _P0283:
 
    All the statements from case 'd' : to the end of the switch were executed.
    Incidentally, a break statement works with loops and with switch , but continue works just
@@ -13698,7 +14163,7 @@ Multiple Choice: switch and break
 
    ..   ptg11524036
 
-   :sup:`P0284` Chapter 7 C Control Statements: Branching and Jumps
+.. _P0284:
 
    Multiple Labels
    You can use multiple case labels for a given statement, as shown in Listing 7.12 .
@@ -13750,7 +14215,7 @@ Multiple Choice: switch and break
 
    ..   ptg11524036
 
-   :sup:`P0285` Multiple Choice: switch and break
+.. _P0285:
 
    If ch is, say, the letter i , the switch statement goes to the location labeled case 'i' : .
    Because there is no break associated with that label, program flow goes to the next statement,
@@ -13791,7 +14256,7 @@ Multiple Choice: switch and break
 
    ..   ptg11524036
 
-   :sup:`P0286` Chapter 7 C Control Statements: Branching and Jumps
+.. _P0286:
 
    Summary: Multiple Choice with switch
    Keyword:
@@ -13833,7 +14298,7 @@ Multiple Choice: switch and break
 
    ..   ptg11524036
 
-   :sup:`P0287` The goto Statement
+.. _P0287:
 
    Unhappily, covering this range with a switch would involve setting up case labels for each
    integer from 3 to 999. However, if you can use a switch , your program often runs a little faster
@@ -13878,7 +14343,7 @@ The goto Statement
 
    ..   ptg11524036
 
-   :sup:`P0288` Chapter 7 C Control Statements: Branching and Jumps
+.. _P0288:
 
    }
    bill = cost * flag;
@@ -13926,7 +14391,7 @@ The goto Statement
 
    ..   ptg11524036
 
-   :sup:`P0289` The goto Statement
+.. _P0289:
 
    There is a use of goto tolerated by many C practitioners—getting out of a nested set of loops if
    trouble shows up (a single break gets you out of the innermost loop only):
@@ -13972,7 +14437,7 @@ The goto Statement
 
    ..   ptg11524036
 
-   :sup:`P0290` Chapter 7 C Control Statements: Branching and Jumps
+.. _P0290:
 
    break;
    case 5: printf("That's a fair choice.\n");
@@ -14013,7 +14478,7 @@ The goto Statement
 
    ..   ptg11524036
 
-   :sup:`P0291` Summary
+.. _P0291:
 
 
 C07 Key Concepts
@@ -14060,7 +14525,7 @@ C07 Summary
 
    ..   ptg11524036
 
-   :sup:`P0292` Chapter 7 C Control Statements: Branching and Jumps
+.. _P0292:
 
    The conditional operator ( ? : ) creates an expression that, in many cases, provides a more
    compact alternative to an if else statement.
@@ -14102,7 +14567,7 @@ C07 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0293` Review Questions
+.. _P0293:
 
    else if (height < 72 && > 64) /* 9 */
    printf("You are tall for your weight.\n"); /* 10 */
@@ -14145,7 +14610,7 @@ C07 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0294` Chapter 7 C Control Statements: Branching and Jumps
+.. _P0294:
 
    {
    int i = 0;
@@ -14190,7 +14655,7 @@ C07 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0295` Review Questions
+.. _P0295:
 
    while (age++ <= 65)
    {
@@ -14233,7 +14698,7 @@ C07 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0296` Chapter 7 C Control Statements: Branching and Jumps
+.. _P0296:
 
 
 C07 Programming Exercises
@@ -14273,7 +14738,7 @@ C07 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0297` Programming Exercises
+.. _P0297:
 
    8. Modify assumption a. in exercise 7 so that the program presents a menu of pay rates
    from which to choose. Use a switch to select the pay rate. The beginning of a run
@@ -14315,7 +14780,7 @@ C07 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0298` Chapter 7 C Control Statements: Branching and Jumps
+.. _P0298:
 
    should compute the total charges, the discount, if any, the shipping charges, and the
    grand total. The program then should display all the purchase information: the cost per
@@ -14323,7 +14788,7 @@ C07 Programming Exercises
    of the order, the discount (if there is one), the shipping charge, and the grand total of all
    the charges.
 
-   :sup:`P0299`
+.. _P0299:
 
 /C08👊 Character Input/Output and Input Validation
 ====================================================
@@ -14360,7 +14825,7 @@ C07 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0300` Chapter 8 Character Input/Output and Input Validation
+.. _P0300:
 
    be moved easily from one system to another. They also generalize to programs using files for
    input and output.
@@ -14409,7 +14874,7 @@ Single-Character I/O: getchar() and putchar()
 
    ..   ptg11524036
 
-   :sup:`P0301` Buffers
+.. _P0301:
 
    After watching this program run, you might wonder why you must type a whole line before
    the input is echoed. You might also wonder if there is a better way to terminate input. Using
@@ -14451,7 +14916,7 @@ Buffers
 
    ..   ptg11524036
 
-   :sup:`P0302` Chapter 8 Character Input/Output and Input Validation
+.. _P0302:
 
    The reason ANSI C settled on buffered input as the standard is that some computer designs
    don’t permit unbuffered input. If your particular computer does allow unbuffered input,
@@ -14496,7 +14961,7 @@ Terminating Keyboard Input
 
    ..   ptg11524036
 
-   :sup:`P0303` Terminating Keyboard Input
+.. _P0303:
 
    Files, Streams, and Keyboard Input
    A file is an area of memory in which information is stored. Normally, a file is kept in some sort
@@ -14542,7 +15007,7 @@ Terminating Keyboard Input
 
    ..   ptg11524036
 
-   :sup:`P0304` Chapter 8 Character Input/Output and Input Validation
+.. _P0304:
 
    that it knows where to stop reading. Therefore, C input functions come equipped with a builtin, 
    end-of-file detector. Because keyboard input is treated like a file, you should be able to use
@@ -14583,7 +15048,7 @@ Terminating Keyboard Input
 
    ..   ptg11524036
 
-   :sup:`P0305` Terminating Keyboard Input
+.. _P0305:
 
    Some systems may define EOF to be a value other than -1 , but the definition is always different
    from a return value produced by a legitimate input character. If you include the stdio.h file
@@ -14635,7 +15100,7 @@ Terminating Keyboard Input
 
    ..   ptg11524036
 
-   :sup:`P0306` Chapter 8 Character Input/Output and Input Validation
+.. _P0306:
 
 
    ■  The fact that ch is an integer doesn’t faze putchar() . It still prints the character
@@ -14680,7 +15145,7 @@ Terminating Keyboard Input
 
    ..   ptg11524036
 
-   :sup:`P0307` Redirection and Files
+.. _P0307:
 
 
 Redirection and Files
@@ -14726,7 +15191,7 @@ Redirection and Files
 
    ..   ptg11524036
 
-   :sup:`P0308` Chapter 8 Character Input/Output and Input Validation
+.. _P0308:
 
    The program runs as described earlier, taking its input from the keyboard. Now suppose you
    want to use the program on a text file called words . A text file is one containing text—that is,
@@ -14768,7 +15233,7 @@ Redirection and Files
 
    ..   ptg11524036
 
-   :sup:`P0309` Redirection and Files
+.. _P0309:
 
    (Unix) or Ctrl+Z (DOS) at the beginning of a line. Try it. If you can’t think of anything to type,
    just imitate the next example. In it, we use the $ Unix prompt. Remember to end each line by
@@ -14811,7 +15276,7 @@ Redirection and Files
 
    ..   ptg11524036
 
-   :sup:`P0310` Chapter 8 Character Input/Output and Input Validation
+.. _P0310:
 
 
    ■  Input cannot be taken from more than one file, nor can output be directed to more than
@@ -14855,7 +15320,7 @@ Redirection and Files
 
    ..   ptg11524036
 
-   :sup:`P0311` Redirection and Files
+.. _P0311:
 
 
    Listing 8.3 The file_eof.c Program
@@ -14906,7 +15371,7 @@ Redirection and Files
 
    ..   ptg11524036
 
-   :sup:`P0312` Chapter 8 Character Input/Output and Input Validation
+.. _P0312:
 
 
 Creating a Friendlier User Interface
@@ -14959,7 +15424,7 @@ Creating a Friendlier User Interface
 
    ..   ptg11524036
 
-   :sup:`P0313` Creating a Friendlier User Interface
+.. _P0313:
 
    Well, then, is it 3?
    n
@@ -15003,7 +15468,7 @@ Creating a Friendlier User Interface
 
    ..   ptg11524036
 
-   :sup:`P0314` Chapter 8 Character Input/Output and Input Validation
+.. _P0314:
 
    Then change the loop to this:
    while ((response = getchar()) != 'y') /* get response */
@@ -15048,7 +15513,7 @@ Creating a Friendlier User Interface
 
    ..   ptg11524036
 
-   :sup:`P0315` Creating a Friendlier User Interface
+.. _P0315:
 
 
    Listing 8.5 The showchar1.c Program
@@ -15102,7 +15567,7 @@ Creating a Friendlier User Interface
 
    ..   ptg11524036
 
-   :sup:`P0316` Chapter 8 Character Input/Output and Input Validation
+.. _P0316:
 
    Enter another character and two integers;
    Enter a newline to quit.
@@ -15155,7 +15620,7 @@ Creating a Friendlier User Interface
 
    ..   ptg11524036
 
-   :sup:`P0317` Input Validation
+.. _P0317:
 
    int row, col;
 
@@ -15202,7 +15667,7 @@ Input Validation
 
    ..   ptg11524036
 
-   :sup:`P0318` Chapter 8 Character Input/Output and Input Validation
+.. _P0318:
 
    {
    // process n
@@ -15247,7 +15712,7 @@ Input Validation
 
    ..   ptg11524036
 
-   :sup:`P0319` Input Validation
+.. _P0319:
 
    offending input character-by-character. Note that this function chooses to discard all the
    remaining input on the line. Other possible choices are to discard just the next character or
@@ -15299,7 +15764,7 @@ Input Validation
 
    ..   ptg11524036
 
-   :sup:`P0320` Chapter 8 Character Input/Output and Input Validation
+.. _P0320:
 
 
    Listing 8.7 The checking.c Program
@@ -15356,7 +15821,7 @@ Input Validation
 
    ..   ptg11524036
 
-   :sup:`P0321` Input Validation
+.. _P0321:
 
    }
    printf("Done.\n");
@@ -15408,7 +15873,7 @@ Input Validation
 
    ..   ptg11524036
 
-   :sup:`P0322` Chapter 8 Character Input/Output and Input Validation
+.. _P0322:
 
    }
    if (begin > high || end > high)
@@ -15454,7 +15919,7 @@ Input Validation
 
    ..   ptg11524036
 
-   :sup:`P0323` Input Validation
+.. _P0323:
 
    stop = get_long();
    while (start !=0 || stop != 0)
@@ -15498,7 +15963,7 @@ Input Validation
 
    ..   ptg11524036
 
-   :sup:`P0324` Chapter 8 Character Input/Output and Input Validation
+.. _P0324:
 
    the numeric value 42.0, expresses that value in the internal floating-point representation, and
    stores the result in a float variable.
@@ -15541,7 +16006,7 @@ Menu Browsing
 
    ..   ptg11524036
 
-   :sup:`P0325` Menu Browsing
+.. _P0325:
 
    Toward a Smoother Execution
    The goals of program smoothness (smoothness when processing correct input and smoothness 
@@ -15589,7 +16054,7 @@ Menu Browsing
 
    ..   ptg11524036
 
-   :sup:`P0326` Chapter 8 Character Input/Output and Input Validation
+.. _P0326:
 
    And here is a simple, but awkward, implementation:
    char get_choice(void)
@@ -15638,7 +16103,7 @@ Menu Browsing
 
    ..   ptg11524036
 
-   :sup:`P0327` Menu Browsing
+.. _P0327:
 
    ch = getchar(); /* read next character */
    while (getchar() != '\n')
@@ -15682,7 +16147,7 @@ Menu Browsing
 
    ..   ptg11524036
 
-   :sup:`P0328` Chapter 8 Character Input/Output and Input Validation
+.. _P0328:
 
 
    Listing 8.8 The menuette.c Program
@@ -15739,7 +16204,7 @@ Menu Browsing
 
    ..   ptg11524036
 
-   :sup:`P0329` Menu Browsing
+.. _P0329:
 
 
    printf("Enter the letter of your choice:\n");
@@ -15789,7 +16254,7 @@ Menu Browsing
 
    ..   ptg11524036
 
-   :sup:`P0330` Chapter 8 Character Input/Output and Input Validation
+.. _P0330:
 
    Buy low, sell high.
    Enter the letter of your choice:
@@ -15835,7 +16300,7 @@ C08 Key Concepts
 
    ..   ptg11524036
 
-   :sup:`P0331` Review Questions
+.. _P0331:
 
 
 C08 Summary
@@ -15878,7 +16343,7 @@ C08 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0332` Chapter 8 Character Input/Output and Input Validation
+.. _P0332:
 
    4. Given the program and files in question 3, which of the following are valid commands?
    a. essayct <essay
@@ -15915,7 +16380,7 @@ C08 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0333` Programming Exercises
+.. _P0333:
 
    2. Write a program that reads input as a stream of characters until encountering EOF . Have
    the program print each input character and its ASCII decimal value. Note that characters
@@ -15957,7 +16422,7 @@ C08 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0334` Chapter 8 Character Input/Output and Input Validation
+.. _P0334:
 
    Enter the operation of your choice:
    a. add s. subtract
@@ -15985,7 +16450,7 @@ C08 Programming Exercises
    q
    Bye.
 
-   :sup:`P0335`
+.. _P0335:
 
 /C09👊 Functions
 ====================
@@ -16028,7 +16493,7 @@ Reviewing Functions
 
    ..   ptg11524036
 
-   :sup:`P0336` Chapter 9 Functions
+.. _P0336:
 
    Why should you use functions? For one, they save you from repetitious programming. If you
    have to do a certain task several times in a program, you only need to write an appropriate
@@ -16077,7 +16542,7 @@ Reviewing Functions
 
    ..   ptg11524036
 
-   :sup:`P0337` Reviewing Functions
+.. _P0337:
 
    your memory on these points, we will begin with a very simple example and then bring in
    more features until you have the full story.
@@ -16129,7 +16594,7 @@ Reviewing Functions
 
    ..   ptg11524036
 
-   :sup:`P0338` Chapter 9 Functions
+.. _P0338:
 
    Analyzing the Program
    Here are several major points to note about this program:
@@ -16176,7 +16641,7 @@ Reviewing Functions
 
    ..   ptg11524036
 
-   :sup:`P0339` Reviewing Functions
+.. _P0339:
 
 
    each function may "call"
@@ -16211,7 +16676,7 @@ Reviewing Functions
 
    ..   ptg11524036
 
-   :sup:`P0340` Chapter 9 Functions
+.. _P0340:
 
 
    ■  The variable count in starbar() is a local variable. This means it is known only to
@@ -16256,7 +16721,7 @@ Reviewing Functions
 
    ..   ptg11524036
 
-   :sup:`P0341` Reviewing Functions
+.. _P0341:
 
    should print that, just as starbar() did earlier. What about spaces for centering GIGATHINK,
    INC ? GIGATHINK, INC. is 15 spaces wide, so in the first version, there were 25 spaces following
@@ -16311,7 +16776,7 @@ Reviewing Functions
 
    ..   ptg11524036
 
-   :sup:`P0342` Chapter 9 Functions
+.. _P0342:
 
    void show_n_char(char ch, int num)
    {
@@ -16352,7 +16817,7 @@ Reviewing Functions
 
    ..   ptg11524036
 
-   :sup:`P0343` Reviewing Functions
+.. _P0343:
 
    void dibs(x, y, z)
    int x, y, z; /* valid */
@@ -16391,7 +16856,7 @@ Reviewing Functions
 
    ..   ptg11524036
 
-   :sup:`P0344` Chapter 9 Functions
+.. _P0344:
 
    The long expression forming the second actual argument is evaluated to 10 . Then the value
    10 is assigned to the variable num . The function neither knows nor cares whether that number
@@ -16434,7 +16899,7 @@ Reviewing Functions
 
    ..   ptg11524036
 
-   :sup:`P0345` Reviewing Functions
+.. _P0345:
 
    The Black-Box Viewpoint
    Taking a black-box viewpoint of show_n_char() , the input is the character to be displayed and
@@ -16491,7 +16956,7 @@ Reviewing Functions
 
    ..   ptg11524036
 
-   :sup:`P0346` Chapter 9 Functions
+.. _P0346:
 
 
    int imin(int n,int m)
@@ -16536,7 +17001,7 @@ Reviewing Functions
 
    ..   ptg11524036
 
-   :sup:`P0347` Reviewing Functions
+.. _P0347:
 
    The return value can be supplied by any expression, not just a variable. For example, you can
    shorten the program to the following:
@@ -16581,7 +17046,7 @@ Reviewing Functions
 
    ..   ptg11524036
 
-   :sup:`P0348` Chapter 9 Functions
+.. _P0348:
 
    {
    if (n < m)
@@ -16623,7 +17088,7 @@ Reviewing Functions
 
    ..   ptg11524036
 
-   :sup:`P0349` ANSI C Function Prototyping
+.. _P0349:
 
    The second line establishes that imin is the name of a function that has two int parameters
    and returns a type int value. Now the compiler will know how to treat imin() when it appears
@@ -16664,7 +17129,7 @@ ANSI C Function Prototyping
 
    ..   ptg11524036
 
-   :sup:`P0350` Chapter 9 Functions
+.. _P0350:
 
    The Problem
    Let’s look at some examples involving imax() , a close relation to imin() . Listing 9.4 shows a
@@ -16714,7 +17179,7 @@ ANSI C Function Prototyping
 
    ..   ptg11524036
 
-   :sup:`P0351` ANSI C Function Prototyping
+.. _P0351:
 
    argument.) On our system, that’s two 64-bit values, so 128 bits of data are placed on the stack.
    When imax() reads two int s from the stack, it reads the first 64 bits on the stack because, on
@@ -16763,7 +17228,7 @@ ANSI C Function Prototyping
 
    ..   ptg11524036
 
-   :sup:`P0352` Chapter 9 Functions
+.. _P0352:
 
    When we tried to compile Listing 9.5 , our compiler gave an error message stating that the call
    to imax() had too few parameters.
@@ -16800,7 +17265,7 @@ ANSI C Function Prototyping
 
    ..   ptg11524036
 
-   :sup:`P0353` Recursion
+.. _P0353:
 
    This prototype says that the first argument is a string ( Chapter 11 , “Character Strings and String
    Functions,” elucidates that point) and that there may be further arguments of an unspecified
@@ -16843,7 +17308,7 @@ Recursion
 
    ..   ptg11524036
 
-   :sup:`P0354` Chapter 9 Functions
+.. _P0354:
 
    Recursion Revealed
    To see what’s involved, let’s look at an example. The function main() in Listing 9.6 calls the
@@ -16895,7 +17360,7 @@ Recursion
 
    ..   ptg11524036
 
-   :sup:`P0355` Recursion
+.. _P0355:
 
    Level 2 call to be assigned the value 2 , so print statement #1 prints Level 2 . Similarly, the
    next two calls lead to printing Level 3 and Level 4 .
@@ -16944,7 +17409,7 @@ Recursion
 
    ..   ptg11524036
 
-   :sup:`P0356` Chapter 9 Functions
+.. _P0356:
 
    Second, each function call is balanced with a return. When program flow reaches the return at
    the end of the last recursion level, control passes to the previous recursion level. The program
@@ -16993,7 +17458,7 @@ Recursion
 
    ..   ptg11524036
 
-   :sup:`P0357` Recursion
+.. _P0357:
 
    long rfact(int n);
    int main(void)
@@ -17045,7 +17510,7 @@ Recursion
 
    ..   ptg11524036
 
-   :sup:`P0358` Chapter 9 Functions
+.. _P0358:
 
    The test driver program limits input to the integers 0–12. It turns out that 12! is slightly under
    half a billion, which makes 13! much larger than long on our system. To go beyond 12! , you
@@ -17090,7 +17555,7 @@ Recursion
 
    ..   ptg11524036
 
-   :sup:`P0359` Recursion
+.. _P0359:
 
    You need a method, or algorithm . How can you, say, find the binary equivalent of 5? Well, odd
    numbers must have a binary representation ending in 1. Even numbers end in 0, so you can
@@ -17144,7 +17609,7 @@ Recursion
 
    ..   ptg11524036
 
-   :sup:`P0360` Chapter 9 Functions
+.. _P0360:
 
    r = n % 2;
    if (n >= 2)
@@ -17188,7 +17653,7 @@ Recursion
 
    ..   ptg11524036
 
-   :sup:`P0361` Compiling Programs with Two or More Source Code Files
+.. _P0361:
 
    First, the recursive strength: Recursion supplies a simple definition. If we name the function
    Fibonacci() , Fibonacci(n ) should return 1 if n is 1 or 2, and it should return the sum
@@ -17232,7 +17697,7 @@ Compiling Programs with Two or More Source Code Files
 
    ..   ptg11524036
 
-   :sup:`P0362` Chapter 9 Functions
+.. _P0362:
 
    Unix
    This assumes the Unix system has the Unix C compiler cc installed. (The original cc has
@@ -17270,7 +17735,7 @@ Compiling Programs with Two or More Source Code Files
 
    ..   ptg11524036
 
-   :sup:`P0363` Compiling Programs with Two or More Source Code Files
+.. _P0363:
 
    to run one-file programs. For multiple-file programs, find the menu command that lets you add
    a source code file to a project. You should make sure all your source code files (the ones with
@@ -17320,7 +17785,7 @@ Compiling Programs with Two or More Source Code Files
 
    ..   ptg11524036
 
-   :sup:`P0364` Chapter 9 Functions
+.. _P0364:
 
    #include "hotel.h" /* defines constants, declares functions */
 
@@ -17375,7 +17840,7 @@ Compiling Programs with Two or More Source Code Files
 
    ..   ptg11524036
 
-   :sup:`P0365` Compiling Programs with Two or More Source Code Files
+.. _P0365:
 
    printf("%s%s\n", STARS, STARS);
    while ((status = scanf("%d", &code)) != 1 ||
@@ -17416,7 +17881,7 @@ Compiling Programs with Two or More Source Code Files
 
    ..   ptg11524036
 
-   :sup:`P0366` Chapter 9 Functions
+.. _P0366:
 
 
    Listing 9.11 The hotel.h Header File
@@ -17479,7 +17944,7 @@ Compiling Programs with Two or More Source Code Files
 
    ..   ptg11524036
 
-   :sup:`P0367` Finding Addresses: The & Operator
+.. _P0367:
 
 
    Incidentally, the program itself has some interesting features. In particular, the menu() and
@@ -17544,7 +18009,7 @@ Finding Addresses: The & Operator
 
    ..   ptg11524036
 
-   :sup:`P0368` Chapter 9 Functions
+.. _P0368:
 
    printf("In main(), pooh = %d and &pooh = %p\n",
    pooh, &pooh);
@@ -17595,7 +18060,7 @@ Finding Addresses: The & Operator
 
    ..   ptg11524036
 
-   :sup:`P0369` Altering Variables in the Calling Function
+.. _P0369:
 
 
 Altering Variables in the Calling Function
@@ -17655,7 +18120,7 @@ Altering Variables in the Calling Function
 
    ..   ptg11524036
 
-   :sup:`P0370` Chapter 9 Functions
+.. _P0370:
 
    Running the program gives these results:
    Originally x = 5 and y = 10.
@@ -17706,7 +18171,7 @@ Altering Variables in the Calling Function
 
    ..   ptg11524036
 
-   :sup:`P0371` Pointers: A First Look
+.. _P0371:
 
    return(u);
    and then change the call in main() to this:
@@ -17746,7 +18211,7 @@ Pointers: A First Look
 
    ..   ptg11524036
 
-   :sup:`P0372` Chapter 9 Functions
+.. _P0372:
 
    Using the address and indirection operators is a rather indirect way of accomplishing this
    result, hence the name “indirection operator.”
@@ -17785,7 +18250,7 @@ Pointers: A First Look
 
    ..   ptg11524036
 
-   :sup:`P0373` Pointers: A First Look
+.. _P0373:
 
 
    G 7776 1942 2.015x10 30 q
@@ -17844,7 +18309,7 @@ Pointers: A First Look
 
    ..   ptg11524036
 
-   :sup:`P0374` Chapter 9 Functions
+.. _P0374:
 
 
    printf("Originally x = %d and y = %d.\n", x, y);
@@ -17886,7 +18351,7 @@ Pointers: A First Look
 
    ..   ptg11524036
 
-   :sup:`P0375` Pointers: A First Look
+.. _P0375:
 
    Similarly, to assign the value of y to x , use
    *u = *v;
@@ -17926,7 +18391,7 @@ Pointers: A First Look
 
    ..   ptg11524036
 
-   :sup:`P0376` Chapter 9 Functions
+.. _P0376:
 
    Variables: Names, Addresses, and Values
    The preceding discussion of pointers has hinged on the relationships between the names,
@@ -17970,7 +18435,7 @@ Pointers: A First Look
 
    ..   ptg11524036
 
-   :sup:`P0377` Pointers: A First Look
+.. _P0377:
 
    Summary: Functions
    Form:
@@ -18014,7 +18479,7 @@ Pointers: A First Look
 
    ..   ptg11524036
 
-   :sup:`P0378` Chapter 9 Functions
+.. _P0378:
 
 
 
@@ -18062,7 +18527,7 @@ C09 Summary
 
    ..   ptg11524036
 
-   :sup:`P0379` Summary
+.. _P0379:
 
 
 C09 Review Questions
@@ -18100,7 +18565,7 @@ C09 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0380` Chapter 9 Functions
+.. _P0380:
 
    8. Write a function that returns the largest of three integer arguments.
    9. Given the following output:
@@ -18141,7 +18606,7 @@ C09 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0381` Summary
+.. _P0381:
 
    6. Write and test a function that takes the addresses of three double variables as arguments
    and that moves the value of the smallest variable into the first variable, the middle value
@@ -18178,7 +18643,7 @@ C09 Programming Exercises
 
 
 
-   :sup:`P0383`
+.. _P0383:
 
 /C10👊 Arrays and Pointers
 ==============================
@@ -18220,7 +18685,7 @@ Arrays
 
    ..   ptg11524036
 
-   :sup:`P0384` Chapter 10 Arrays and Pointers
+.. _P0384:
 
    {
    float candy[365]; /* array of 365 floats */
@@ -18265,7 +18730,7 @@ Arrays
 
    ..   ptg11524036
 
-   :sup:`P0385` Arrays
+.. _P0385:
 
 
    Listing 10.1 The day_mon1.c Program
@@ -18317,7 +18782,7 @@ Arrays
 
    ..   ptg11524036
 
-   :sup:`P0386` Chapter 10 Arrays and Pointers
+.. _P0386:
 
    This makes the program treat each element in the array as a constant. Just as with regular
    variables, you should use the declaration to initialize const data because once it’s declared
@@ -18368,7 +18833,7 @@ Arrays
 
    ..   ptg11524036
 
-   :sup:`P0387` Arrays
+.. _P0387:
 
    The number of items in the list should match the size of the array. But what if you count
    wrong? Let’s try the last example again, as shown in Listing 10.3 , with a list that is two too
@@ -18425,7 +18890,7 @@ Arrays
 
    ..   ptg11524036
 
-   :sup:`P0388` Chapter 10 Arrays and Pointers
+.. _P0388:
 
 
    for (index = 0; index < sizeof days / sizeof days[0]; index++)
@@ -18470,7 +18935,7 @@ Arrays
 
    ..   ptg11524036
 
-   :sup:`P0389` Arrays
+.. _P0389:
 
    With C99, you can use an index in brackets in the initialization list to specify a particular
    element:
@@ -18520,7 +18985,7 @@ Arrays
 
    ..   ptg11524036
 
-   :sup:`P0390` Chapter 10 Arrays and Pointers
+.. _P0390:
 
    Suppose you don’t specify the array size?
    int stuff[] = {1, [6] = 23}; // what happens?
@@ -18564,7 +19029,7 @@ Arrays
 
    ..   ptg11524036
 
-   :sup:`P0391` Arrays
+.. _P0391:
 
    Then it’s your responsibility to make sure the program uses indices only in the range 0 through
    19, because the compiler isn’t required to check for you. (However, some compilers will warn
@@ -18618,7 +19083,7 @@ Arrays
 
    ..   ptg11524036
 
-   :sup:`P0392` Chapter 10 Arrays and Pointers
+.. _P0392:
 
    address of arr[-1]: 0x7fff5fbff8cc
    address of arr[4]: 0x7fff5fbff8e0
@@ -18661,7 +19126,7 @@ Arrays
 
    ..   ptg11524036
 
-   :sup:`P0393` Multidimensional Arrays
+.. _P0393:
 
    expression is one formed from integer constants. For this purpose, a sizeof expression is
    considered an integer constant, but (unlike the case in C++) a const value isn’t. Also, the value
@@ -18706,7 +19171,7 @@ Multidimensional Arrays
 
    ..   ptg11524036
 
-   :sup:`P0394` Chapter 10 Arrays and Pointers
+.. _P0394:
 
    It tells us that rain is an array with five elements. But what is each of those elements? Now
    look at the remaining part of the declaration (now in bold):
@@ -18744,7 +19209,7 @@ Multidimensional Arrays
 
    ..   ptg11524036
 
-   :sup:`P0395` Multidimensional Arrays
+.. _P0395:
 
 
    Listing 10.7 The rain.c Program
@@ -18799,9 +19264,12 @@ Multidimensional Arrays
 
    ..   ptg11524036
 
-   :sup:`P0396` Chapter 10 Arrays and Pointers
+.. _P0396:
 
    Here is the output:
+
+   .. code-block:: bash
+
    YEAR RAINFALL (inches)
    2010 32.4
    2011 37.9
@@ -18842,7 +19310,7 @@ Multidimensional Arrays
 
    ..   ptg11524036
 
-   :sup:`P0397` Multidimensional Arrays
+.. _P0397:
 
    Initializing a Two-Dimensional Array
    Initializing a two-dimensional array builds on the technique for initializing a one-dimensional
@@ -18886,7 +19354,7 @@ Multidimensional Arrays
 
    ..   ptg11524036
 
-   :sup:`P0398` Chapter 10 Arrays and Pointers
+.. _P0398:
 
    Because the rain array holds data that should not be modified, the program uses the const
    modifier when declaring the array.
@@ -18926,7 +19394,7 @@ Pointers and Arrays
 
    ..   ptg11524036
 
-   :sup:`P0399` Pointers and Arrays
+.. _P0399:
 
 
    Listing 10.8 The pnt_add.c Program
@@ -18977,7 +19445,7 @@ Pointers and Arrays
 
    ..   ptg11524036
 
-   :sup:`P0400` Chapter 10 Arrays and Pointers
+.. _P0400:
 
 
    pti + 2
@@ -19019,7 +19487,7 @@ Pointers and Arrays
 
    ..   ptg11524036
 
-   :sup:`P0401` Functions, Arrays, and Pointers
+.. _P0401:
 
    Incidentally, don’t confuse *(dates+2) with *dates+2 . The indirection operator ( * ) binds
    more tightly (that is, has higher precedence) than + , so the latter means (*dates)+2 :
@@ -19070,7 +19538,7 @@ Functions, Arrays, and Pointers
 
    ..   ptg11524036
 
-   :sup:`P0402` Chapter 10 Arrays and Pointers
+.. _P0402:
 
    What would the prototype be? Remember, the name of an array is the address of its first
    element, so the actual argument marbles , being the address of an int , should be assigned to a
@@ -19114,7 +19582,7 @@ Functions, Arrays, and Pointers
 
    ..   ptg11524036
 
-   :sup:`P0403` Functions, Arrays, and Pointers
+.. _P0403:
 
    The form int * ar always means that ar is type pointer-to- int . The form int ar[] also
    means that ar is type pointer-to- int , but only when used to declare formal parameters. The
@@ -19170,7 +19638,7 @@ Functions, Arrays, and Pointers
 
    ..   ptg11524036
 
-   :sup:`P0404` Chapter 10 Arrays and Pointers
+.. _P0404:
 
    int marbles[SIZE] = {20,10,5,39,4,16,19,26,31,20};
    long answer;
@@ -19216,7 +19684,7 @@ Functions, Arrays, and Pointers
 
    ..   ptg11524036
 
-   :sup:`P0405` Functions, Arrays, and Pointers
+.. _P0405:
 
    index to indicate which element in the array to access, the function can alter the value of the
    pointer itself, making it point to each array element in turn.
@@ -19267,7 +19735,7 @@ Functions, Arrays, and Pointers
 
    ..   ptg11524036
 
-   :sup:`P0406` Chapter 10 Arrays and Pointers
+.. _P0406:
 
    The sump() function, however, uses a second pointer to end the loop:
    while (start < end)
@@ -19316,7 +19784,7 @@ Functions, Arrays, and Pointers
 
    ..   ptg11524036
 
-   :sup:`P0407` Pointer Operations
+.. _P0407:
 
    p3 = moredata;
    printf(" *p1 = %d, *p2 = %d, *p3 = %d\n",
@@ -19360,7 +19828,7 @@ Pointer Operations
 
    ..   ptg11524036
 
-   :sup:`P0408` Chapter 10 Arrays and Pointers
+.. _P0408:
 
    compiler doesn’t support the %p specifier, try %u or perhaps %lu for printing the addresses. If it
    doesn’t support the %td specifier, used for address differences, try %d or perhaps %ld .)
@@ -19421,7 +19889,7 @@ Pointer Operations
 
    ..   ptg11524036
 
-   :sup:`P0409` Pointer Operations
+.. _P0409:
 
    ptr3, ptr3 - 2);
 
@@ -19471,7 +19939,7 @@ Pointer Operations
 
    ..   ptg11524036
 
-   :sup:`P0410` Chapter 10 Arrays and Pointers
+.. _P0410:
 
 
    ■  Adding an integer to a pointer— You can use the + operator to add an integer to a
@@ -19525,7 +19993,7 @@ Pointer Operations
 
    ..   ptg11524036
 
-   :sup:`P0411` Pointer Operations
+.. _P0411:
 
    operators. Also note that both ptr1 and ptr2 wind up pointing to the same element,
    urn[1] , before they get reset.
@@ -19570,7 +20038,7 @@ Pointer Operations
 
    ..   ptg11524036
 
-   :sup:`P0412` Chapter 10 Arrays and Pointers
+.. _P0412:
 
    Given
    int urn[3];
@@ -19612,7 +20080,7 @@ Protecting Array Contents
 
    ..   ptg11524036
 
-   :sup:`P0413` Protecting Array Contents
+.. _P0413:
 
    Therefore, the function call
    add_to(prices, 100, 2.50);
@@ -19656,7 +20124,7 @@ Protecting Array Contents
 
    ..   ptg11524036
 
-   :sup:`P0414` Chapter 10 Arrays and Pointers
+.. _P0414:
 
    It’s important to understand that using const this way does not require that the original array
    be constant; it just says that the function has to treat the array as though it were constant. Using
@@ -19711,13 +20179,17 @@ Protecting Array Contents
 
    ..   ptg11524036
 
-   :sup:`P0415` Protecting Array Contents
+.. _P0415:
 
 
    for (i = 0; i < n; i++)
    ar[i] *= mult;
    }
+
    Here is the output:
+
+   .. code-block:: bash
+
    The original dip array:
    20.000 17.660 8.200 15.300 22.220
    The dip array after calling mult_array():
@@ -19755,7 +20227,7 @@ Protecting Array Contents
 
    ..   ptg11524036
 
-   :sup:`P0416` Chapter 10 Arrays and Pointers
+.. _P0416:
 
    you can still use rates to change values. Also, note that you can make pd point somewhere
    else:
@@ -19796,7 +20268,7 @@ Protecting Array Contents
 
    ..   ptg11524036
 
-   :sup:`P0417` Pointers and Multidimensional Arrays
+.. _P0417:
 
    There are more possible uses of const . For example, you can declare and initialize a pointer so
    that it can’t be made to point elsewhere. The trick is the placement of the keyword const :
@@ -19844,7 +20316,7 @@ Pointers and Multidimensional Arrays
 
    ..   ptg11524036
 
-   :sup:`P0418` Chapter 10 Arrays and Pointers
+.. _P0418:
 
    in zippo[0][0] , an int value. Similarly, *zippo represents the value of its first element,
    zippo[0] , but zippo[0] itself is the address of an int . It’s the address &zippo[0][0] ,
@@ -19894,7 +20366,7 @@ Pointers and Multidimensional Arrays
 
    ..   ptg11524036
 
-   :sup:`P0419` Pointers and Multidimensional Arrays
+.. _P0419:
 
    **zippo = 2
    zippo[1][2] = 3
@@ -19931,7 +20403,7 @@ Pointers and Multidimensional Arrays
 
    ..   ptg11524036
 
-   :sup:`P0420` Chapter 10 Arrays and Pointers
+.. _P0420:
 
 
    *zippo
@@ -19999,7 +20471,7 @@ Pointers and Multidimensional Arrays
 
    ..   ptg11524036
 
-   :sup:`P0421` Pointers and Multidimensional Arrays
+.. _P0421:
 
    pz, pz + 1);
    printf("pz[0] = %p, pz[0] + 1 = %p\n",
@@ -20042,7 +20514,7 @@ Pointers and Multidimensional Arrays
 
    ..   ptg11524036
 
-   :sup:`P0422` Chapter 10 Arrays and Pointers
+.. _P0422:
 
    These restrictions extend to more complex types. Suppose we have the following declarations:
    int * pt;
@@ -20085,7 +20557,7 @@ Pointers and Multidimensional Arrays
 
    ..   ptg11524036
 
-   :sup:`P0423` Pointers and Multidimensional Arrays
+.. _P0423:
 
    But such assignments no longer are safe when you go to two levels of indirection. For instance,
    you could do something like this:
@@ -20126,7 +20598,7 @@ Pointers and Multidimensional Arrays
 
    ..   ptg11524036
 
-   :sup:`P0424` Chapter 10 Arrays and Pointers
+.. _P0424:
 
    Remember, if junk is a two-dimensional array, junk[i] is a one-dimensional array, which you
    can visualize as being one row of the two-dimensional array. Here, the sum() function calculates 
@@ -20178,7 +20650,7 @@ Pointers and Multidimensional Arrays
 
    ..   ptg11524036
 
-   :sup:`P0425` Pointers and Multidimensional Arrays
+.. _P0425:
 
    }
 
@@ -20227,9 +20699,12 @@ Pointers and Multidimensional Arrays
 
    ..   ptg11524036
 
-   :sup:`P0426` Chapter 10 Arrays and Pointers
+.. _P0426:
 
    Here is the output:
+
+   .. code-block:: bash
+
    row 0: sum = 20
    row 1: sum = 24
    row 2: sum = 36
@@ -20269,7 +20744,7 @@ Pointers and Multidimensional Arrays
 
    ..   ptg11524036
 
-   :sup:`P0427` Variable-Length Arrays (VLAs)
+.. _P0427:
 
    In general, to declare a pointer corresponding to an N -dimensional array, you must supply
    values for all but the leftmost set of brackets:
@@ -20313,7 +20788,7 @@ Variable-Length Arrays (VLAs)
 
    ..   ptg11524036
 
-   :sup:`P0428` Chapter 10 Arrays and Pointers
+.. _P0428:
 
    If you really want to create a single function that will work with any size two-dimensional
    array, you can, but it’s awkward to do. (You have to pass the array as a one-dimensional array
@@ -20353,7 +20828,7 @@ Variable-Length Arrays (VLAs)
 
    ..   ptg11524036
 
-   :sup:`P0429` Variable-Length Arrays (VLAs)
+.. _P0429:
 
    Second, here’s how to define the function:
    int sum2d(int rows, int cols, int ar[rows][cols])
@@ -20407,7 +20882,7 @@ Variable-Length Arrays (VLAs)
 
    ..   ptg11524036
 
-   :sup:`P0430` Chapter 10 Arrays and Pointers
+.. _P0430:
 
 
    for (i = 0; i < rs; i++)
@@ -20442,7 +20917,11 @@ Variable-Length Arrays (VLAs)
 
    return tot;
    }
+
    Here is the output:
+
+   .. code-block:: bash
+
    3x5 array
    Sum of all elements = 80
    2x6 array
@@ -20455,7 +20934,7 @@ Variable-Length Arrays (VLAs)
 
    ..   ptg11524036
 
-   :sup:`P0431` Compound Literals
+.. _P0431:
 
    has the ability to modify the array passed as an argument. The following snippet points out
    when a pointer is declared and when an actual array is declared:
@@ -20500,7 +20979,7 @@ Compound Literals
 
    ..   ptg11524036
 
-   :sup:`P0432` Chapter 10 Arrays and Pointers
+.. _P0432:
 
    to an array constant. C99 changed that with the addition of compound literals . Literals are
    constants that aren’t symbolic. For example, 5 is a type int literal, 81.3 is a type double
@@ -20542,7 +21021,7 @@ Compound Literals
 
    ..   ptg11524036
 
-   :sup:`P0433` Compound Literals
+.. _P0433:
 
    Here, the type is int [2][4] , a 2×4 array of int s.
 
@@ -20603,7 +21082,7 @@ Compound Literals
 
    ..   ptg11524036
 
-   :sup:`P0434` Chapter 10 Arrays and Pointers
+.. _P0434:
 
    for (r = 0; r < rows; r++)
    for (c = 0; c < COLS; c++)
@@ -20647,7 +21126,7 @@ C10 Key Concepts
 
    ..   ptg11524036
 
-   :sup:`P0435` Key Concepts
+.. _P0435:
 
 
 C10 Summary
@@ -20693,7 +21172,7 @@ C10 Summary
 
    ..   ptg11524036
 
-   :sup:`P0436` Chapter 10 Arrays and Pointers
+.. _P0436:
 
    void display(double ar[][12], int rows);
    ...
@@ -20736,7 +21215,7 @@ C10 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0437` Review Questions
+.. _P0437:
 
    b.
    int * ptr;
@@ -20774,7 +21253,7 @@ C10 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0438` Chapter 10 Arrays and Pointers
+.. _P0438:
 
    9. What is the index range for a 10-element array?
    10. Suppose you have these declarations:
@@ -20811,7 +21290,7 @@ C10 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0439` Programming Exercises
+.. _P0439:
 
 
 C10 Programming Exercises
@@ -20853,7 +21332,7 @@ C10 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0440` Chapter 10 Arrays and Pointers
+.. _P0440:
 
    not be altered; just choose the right actual arguments. (The actual arguments need not be
    an array name and array size. They only have to be the address of an array element and a
@@ -20889,7 +21368,7 @@ C10 Programming Exercises
    performing tasks “c” and “d” should return the answer to the calling program.
    14. Do Programming Exercise 13, but use variable-length array function parameters.
 
-   :sup:`P0441`
+.. _P0441:
 
 /C11👊 Character Strings and String Functions
 ===============================================
@@ -20926,7 +21405,7 @@ Representing Strings and String I/O
 
    ..   ptg11524036
 
-   :sup:`P0442` Chapter 11 Character Strings and String Functions
+.. _P0442:
 
 
    Listing 11.1 The strings1.c Program
@@ -20976,7 +21455,7 @@ Representing Strings and String I/O
 
    ..   ptg11524036
 
-   :sup:`P0443` Representing Strings and String I/O
+.. _P0443:
 
    Recall that, beginning with the ANSI C standard, C concatenates string literals if they are separated 
    by nothing or by whitespace. For example,
@@ -21019,7 +21498,7 @@ Representing Strings and String I/O
 
    ..   ptg11524036
 
-   :sup:`P0444` Chapter 11 Character Strings and String Functions
+.. _P0444:
 
    Character String Arrays and Initialization
    When you define a character string array, you must let the compiler know how much space
@@ -21057,7 +21536,7 @@ Representing Strings and String I/O
 
    ..   ptg11524036
 
-   :sup:`P0445` Representing Strings and String I/O
+.. _P0445:
 
    int n = 8;
    char cookies[1]; // valid
@@ -21099,7 +21578,7 @@ Representing Strings and String I/O
 
    ..   ptg11524036
 
-   :sup:`P0446` Chapter 11 Character Strings and String Functions
+.. _P0446:
 
    initially points to the first character of the string, but the value can be changed. Therefore, you
    can use the increment operator. For instance, ++pt1 would point to the second character ( o ).
@@ -21149,7 +21628,7 @@ Representing Strings and String I/O
 
    ..   ptg11524036
 
-   :sup:`P0447` Representing Strings and String I/O
+.. _P0447:
 
    different, but this particular compiler even uses a different number of bits to represent the two
    kinds of memory.
@@ -21189,7 +21668,7 @@ Representing Strings and String I/O
 
    ..   ptg11524036
 
-   :sup:`P0448` Chapter 11 Character Strings and String Functions
+.. _P0448:
 
    This produces the following output:
    I love Millie!
@@ -21227,7 +21706,7 @@ Representing Strings and String I/O
 
    ..   ptg11524036
 
-   :sup:`P0449` Representing Strings and String I/O
+.. _P0449:
 
    affect all uses of the string, so statements printing the string literal "Klingon" would actually
    display "Flingon" :
@@ -21276,14 +21755,18 @@ Representing Strings and String I/O
 
    ..   ptg11524036
 
-   :sup:`P0450` Chapter 11 Character Strings and String Functions
+.. _P0450:
 
    printf("\nsizeof mytalents: %zd, sizeof yourtalents: %zd\n",
    sizeof(mytalents), sizeof(yourtalents));
 
    return 0;
    }
+
    Here is the output:
+
+   .. code-block:: bash
+
    Let's compare talents.
    My Talents Your Talents
    Adding numbers swiftly Walking in a straight line
@@ -21316,7 +21799,7 @@ Representing Strings and String I/O
 
    ..   ptg11524036
 
-   :sup:`P0451` Representing Strings and String I/O
+.. _P0451:
 
 
    char fruit1[3][7]=
@@ -21350,7 +21833,7 @@ Representing Strings and String I/O
 
    ..   ptg11524036
 
-   :sup:`P0452` Chapter 11 Character Strings and String Functions
+.. _P0452:
 
 
    Listing 11.5 The p_and_s.c Program
@@ -21401,7 +21884,7 @@ Representing Strings and String I/O
 
    ..   ptg11524036
 
-   :sup:`P0453` String Input
+.. _P0453:
 
 
 String Input
@@ -21449,7 +21932,7 @@ String Input
 
    ..   ptg11524036
 
-   :sup:`P0454` Chapter 11 Character Strings and String Functions
+.. _P0454:
 
    #define STLEN 81
    int main(void)
@@ -21494,7 +21977,7 @@ String Input
 
    ..   ptg11524036
 
-   :sup:`P0455` String Input
+.. _P0455:
 
    If the input string is too long, you get buffer overflow , meaning the excess characters overflow
    the designated target. The extra characters might just go into unused memory and cause no
@@ -21535,7 +22018,7 @@ String Input
 
    ..   ptg11524036
 
-   :sup:`P0456` Chapter 11 Character Strings and String Functions
+.. _P0456:
 
    The fgets() Function (and fputs() )
    The fgets() function meets the possible overflow problem by taking a second argument
@@ -21589,7 +22072,7 @@ String Input
 
    ..   ptg11524036
 
-   :sup:`P0457` String Input
+.. _P0457:
 
    Your string twice (puts(), then fputs()):
    apple pie
@@ -21639,7 +22122,7 @@ String Input
 
    ..   ptg11524036
 
-   :sup:`P0458` Chapter 11 Character Strings and String Functions
+.. _P0458:
 
    Here’s a sample run:
    Enter strings (empty line to quit):
@@ -21688,7 +22171,7 @@ String Input
 
    ..   ptg11524036
 
-   :sup:`P0459` String Input
+.. _P0459:
 
 
    Listing 11.9 The fgets3.c Program
@@ -21740,7 +22223,7 @@ String Input
 
    ..   ptg11524036
 
-   :sup:`P0460` Chapter 11 Character Strings and String Functions
+.. _P0460:
 
    lines either.
    lines eit
@@ -21784,7 +22267,7 @@ String Input
 
    ..   ptg11524036
 
-   :sup:`P0461` String Input
+.. _P0461:
 
    What if the input line doesn’t fit? Then gets() isn’t safe; it can corrupt your data and compromise 
    security. The gets_s() function is safe, but, if you don’t want the program to abort or
@@ -21840,7 +22323,7 @@ String Input
 
    ..   ptg11524036
 
-   :sup:`P0462` Chapter 11 Character Strings and String Functions
+.. _P0462:
 
    Perhaps you are wondering what’s the rationale for discarding the rest of a too-long line. The
    problem is that if the remainder of the line is left in place, it becomes the input for the next
@@ -21898,7 +22381,7 @@ String Input
 
    ..   ptg11524036
 
-   :sup:`P0463` String Input
+.. _P0463:
 
    int main(void)
    {
@@ -21940,7 +22423,7 @@ String Input
 
    ..   ptg11524036
 
-   :sup:`P0464` Chapter 11 Character Strings and String Functions
+.. _P0464:
 
 
 String Output
@@ -21997,7 +22480,7 @@ String Output
 
    ..   ptg11524036
 
-   :sup:`P0465` String Output
+.. _P0465:
 
    str2+4 points to the memory cell containing the 'i' of "pointer" , and the printing starts
    there.
@@ -22047,7 +22530,7 @@ String Output
 
    ..   ptg11524036
 
-   :sup:`P0466` Chapter 11 Character Strings and String Functions
+.. _P0466:
 
    char line[81];
    while (gets(line)) // same as while (gets(line) != NULL)
@@ -22088,7 +22571,7 @@ The Do-It-Yourself Option
 
    ..   ptg11524036
 
-   :sup:`P0467` The Do-It-Yourself Option
+.. _P0467:
 
    and putchar() . Suppose you want a function like puts() that doesn’t automatically add a
    newline. Listing 11.14 shows one way to create it.
@@ -22138,7 +22621,7 @@ The Do-It-Yourself Option
 
    ..   ptg11524036
 
-   :sup:`P0468` Chapter 11 Character Strings and String Functions
+.. _P0468:
 
    Suppose you want a function like puts() that also tells you how many characters are printed.
    As Listing 11.15 demonstrates, it’s easy to add that feature.
@@ -22200,7 +22683,7 @@ The Do-It-Yourself Option
 
    ..   ptg11524036
 
-   :sup:`P0469` String Functions
+.. _P0469:
 
    {
    while (*string) /* same as *string != '\0' */
@@ -22246,7 +22729,7 @@ String Functions
 
    ..   ptg11524036
 
-   :sup:`P0470` Chapter 11 Character Strings and String Functions
+.. _P0470:
 
    This function does change the string, so the function header doesn’t use const in declaring the
    formal parameter string .
@@ -22295,7 +22778,7 @@ String Functions
 
    ..   ptg11524036
 
-   :sup:`P0471` String Functions
+.. _P0471:
 
    The expression mesg + 39 is the address of mesq[39] , which is a space character. So puts()
    displays that character and keeps going until it runs into the original null character. Figure 11.4
@@ -22335,7 +22818,7 @@ The strcat() Function
 
    ..   ptg11524036
 
-   :sup:`P0472` Chapter 11 Character Strings and String Functions
+.. _P0472:
 
 
    Listing 11.18 The str_cat.c Program
@@ -22390,7 +22873,7 @@ The strcat() Function
 
    ..   ptg11524036
 
-   :sup:`P0473` String Functions
+.. _P0473:
 
    This is a sample output:
    What is your favorite flower?
@@ -22441,7 +22924,7 @@ The strcat() Function
 
    ..   ptg11524036
 
-   :sup:`P0474` Chapter 11 Character Strings and String Functions
+.. _P0474:
 
    s_gets(bug, BUGSIZE);
    available = BUGSIZE - strlen(bug) - 1;
@@ -22485,7 +22968,7 @@ The strcat() Function
 
    ..   ptg11524036
 
-   :sup:`P0475` String Functions
+.. _P0475:
 
    The strcmp() Function
    Suppose you want to compare someone’s response to a stored string, as shown in Listing 11.20 .
@@ -22539,7 +23022,7 @@ The strcat() Function
 
    ..   ptg11524036
 
-   :sup:`P0476` Chapter 11 Character Strings and String Functions
+.. _P0476:
 
    As nice as this program might look, it will not work correctly. ANSWER and try really are pointers, 
    so the comparison try != ANSWER doesn’t check to see whether the two strings are the
@@ -22594,7 +23077,7 @@ The strcat() Function
 
    ..   ptg11524036
 
-   :sup:`P0477` String Functions
+.. _P0477:
 
    while (st[i] != '\n' && st[i] != '\0')
    i++;
@@ -22645,7 +23128,7 @@ The strcat() Function
 
    ..   ptg11524036
 
-   :sup:`P0478` Chapter 11 Character Strings and String Functions
+.. _P0478:
 
 
    printf("strcmp(\"B\", \"A\") is ");
@@ -22692,7 +23175,7 @@ The strcat() Function
 
    ..   ptg11524036
 
-   :sup:`P0479` String Functions
+.. _P0479:
 
    the null character is the very first character in the ASCII sequence, s comes after it, and the
    function returns a positive value.
@@ -22750,7 +23233,7 @@ The strcat() Function
 
    ..   ptg11524036
 
-   :sup:`P0480` Chapter 11 Character Strings and String Functions
+.. _P0480:
 
    strcmp(input[ct],STOP) != 0)
    {
@@ -22794,7 +23277,7 @@ The strcat() Function
 
    ..   ptg11524036
 
-   :sup:`P0481` String Functions
+.. _P0481:
 
    The strncmp() Variation
    The strcmp() function compares strings until it finds corresponding characters that differ,
@@ -22835,7 +23318,11 @@ The strcat() Function
 
    return 0;
    }
+
    Here is the output:
+
+   .. code-block:: bash
+
    Found: astronomy
    Found: astrophysics
    Found: astrophobia
@@ -22843,7 +23330,7 @@ The strcat() Function
 
    ..   ptg11524036
 
-   :sup:`P0482` Chapter 11 Character Strings and String Functions
+.. _P0482:
 
    The strcpy() and strncpy() Functions
    We’ve said that if pts1 and pts2 are both pointers to strings, the expression
@@ -22897,7 +23384,7 @@ The strcat() Function
 
    ..   ptg11524036
 
-   :sup:`P0483` String Functions
+.. _P0483:
 
    char * ret_val;
    int i = 0;
@@ -22942,7 +23429,7 @@ The strcat() Function
 
    ..   ptg11524036
 
-   :sup:`P0484` Chapter 11 Character Strings and String Functions
+.. _P0484:
 
    called the source . You can remember the order of the arguments by noting that it is the same as
    the order in an assignment statement (the target string is on the left):
@@ -22998,14 +23485,18 @@ The strcat() Function
 
    ..   ptg11524036
 
-   :sup:`P0485` String Functions
+.. _P0485:
 
    puts(copy);
    puts(ps);
 
    return 0;
    }
+
    Here is the output:
+
+   .. code-block:: bash
+
    beast
    Be the best that you can be.
    Be the beast
@@ -23034,7 +23525,7 @@ The strcat() Function
 
    ..   ptg11524036
 
-   :sup:`P0486` Chapter 11 Character Strings and String Functions
+.. _P0486:
 
 
    Listing 11.27 The copy3.c Program
@@ -23091,7 +23582,7 @@ The strcat() Function
 
    ..   ptg11524036
 
-   :sup:`P0487` String Functions
+.. _P0487:
 
    else // must have words[i] == '\0'
    while (getchar() != '\n')
@@ -23133,7 +23624,7 @@ The strcat() Function
 
    ..   ptg11524036
 
-   :sup:`P0488` Chapter 11 Character Strings and String Functions
+.. _P0488:
 
 
    Listing 11.28 uses sprintf() to combine three items (two strings and a number) into a single
@@ -23196,7 +23687,7 @@ The strcat() Function
 
    ..   ptg11524036
 
-   :sup:`P0489` String Functions
+.. _P0489:
 
    Here’s a sample run:
    Enter your first name:
@@ -23245,7 +23736,7 @@ The strcat() Function
 
    ..   ptg11524036
 
-   :sup:`P0490` Chapter 11 Character Strings and String Functions
+.. _P0490:
 
 
    ■  char *strchr(const char * s, int c);
@@ -23289,7 +23780,7 @@ The strcat() Function
 
    ..   ptg11524036
 
-   :sup:`P0491` A String Example: Sorting Strings
+.. _P0491:
 
    Let’s look at a simple use of one of these functions. Earlier we saw that fgets() , when it
    reads a line of input, stores the newline in the destination string. Our s_gets() function used
@@ -23339,7 +23830,7 @@ A String Example: Sorting Strings
 
    ..   ptg11524036
 
-   :sup:`P0492` Chapter 11 Character Strings and String Functions
+.. _P0492:
 
    char input[LIM][SIZE]; /* array to store input */
    char *ptstr[LIM]; /* array of pointer variables */
@@ -23389,7 +23880,7 @@ A String Example: Sorting Strings
 
    ..   ptg11524036
 
-   :sup:`P0493` A String Example: Sorting Strings
+.. _P0493:
 
    while (st[i] != '\n' && st[i] != '\0')
    i++;
@@ -23430,7 +23921,7 @@ A String Example: Sorting Strings
 
    ..   ptg11524036
 
-   :sup:`P0494` Chapter 11 Character Strings and String Functions
+.. _P0494:
 
 
    before sorting:
@@ -23467,7 +23958,7 @@ A String Example: Sorting Strings
 
    ..   ptg11524036
 
-   :sup:`P0495` The ctype.h Character Functions and Strings
+.. _P0495:
 
    Now let’s take a more detailed look at the selection sort. Here is an outline in pseudocode:
    for n = first to n = next-to-last element,
@@ -23518,7 +24009,7 @@ The ctype.h Character Functions and Strings
 
    ..   ptg11524036
 
-   :sup:`P0496` Chapter 11 Character Strings and String Functions
+.. _P0496:
 
    #include <ctype.h>
    #define LIMIT 81
@@ -23567,7 +24058,7 @@ The ctype.h Character Functions and Strings
 
    ..   ptg11524036
 
-   :sup:`P0497` Command-Line Arguments
+.. _P0497:
 
    The while (*str ) loop processes each character in the string pointed to by str until the null
    character is reached. At that point, the value of *str becomes 0 (the code for the null character), 
@@ -23610,7 +24101,7 @@ Command-Line Arguments
 
    ..   ptg11524036
 
-   :sup:`P0498` Chapter 11 Character Strings and String Functions
+.. _P0498:
 
    A C program can read those additional items for its own use (see Figure 11.7 ).
 
@@ -23659,7 +24150,7 @@ Command-Line Arguments
 
    ..   ptg11524036
 
-   :sup:`P0499` Command-Line Arguments
+.. _P0499:
 
    The command line has 3 arguments:
    1: Resistance
@@ -23700,7 +24191,7 @@ Command-Line Arguments
 
    ..   ptg11524036
 
-   :sup:`P0500` Chapter 11 Character Strings and String Functions
+.. _P0500:
 
    Command-Line Arguments in Integrated Environments
    Integrated Windows environments, such as Apple’s Xcode, Microsoft Visual C++, and
@@ -23750,7 +24241,7 @@ String-to-Number Conversions
 
    ..   ptg11524036
 
-   :sup:`P0501` String-to-Number Conversions
+.. _P0501:
 
    {
    int i, times;
@@ -23795,7 +24286,7 @@ String-to-Number Conversions
 
    ..   ptg11524036
 
-   :sup:`P0502` Chapter 11 Character Strings and String Functions
+.. _P0502:
 
    Let’s look at an example involving strtol( ). Its prototype is as follows:
    long strtol(const char * restrict nptr, char ** restrict endptr, int base);
@@ -23849,7 +24340,7 @@ String-to-Number Conversions
 
    ..   ptg11524036
 
-   :sup:`P0503` String-to-Number Conversions
+.. _P0503:
 
    i++;
    if (st[i] == '\n')
@@ -23891,7 +24382,7 @@ String-to-Number Conversions
 
    ..   ptg11524036
 
-   :sup:`P0504` Chapter 11 Character Strings and String Functions
+.. _P0504:
 
 
 C11 Key Concepts
@@ -23940,7 +24431,7 @@ C11 Summary
 
    ..   ptg11524036
 
-   :sup:`P0505` Review Questions
+.. _P0505:
 
    The atoi() , atol() , and atof() functions convert string representations of numbers to type
    int , long , and double forms, respectively. The strtol() , strtoul() , and strtod() functions 
@@ -23985,7 +24476,7 @@ C11 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0506` Chapter 11 Character Strings and String Functions
+.. _P0506:
 
    puts(ptr);
    return 0;
@@ -24028,7 +24519,7 @@ C11 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0507` Review Questions
+.. _P0507:
 
    e. What would be printed if *--pc were replaced with *pc-- ?
    f. What do the two while expressions test for?
@@ -24072,7 +24563,7 @@ C11 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0508` Chapter 11 Character Strings and String Functions
+.. _P0508:
 
    char *ps;
    int i = 0;
@@ -24114,7 +24605,7 @@ C11 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0509` Programming Exercises
+.. _P0509:
 
    3. Design and test a function that reads the first word from a line of input into an array and
    discards the rest of the line. It should skip over leading whitespace. Define a word as a
@@ -24154,7 +24645,7 @@ C11 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0510` Chapter 11 Character Strings and String Functions
+.. _P0510:
 
    in ASCII collating sequence, print the strings in order of increasing length, print the
    strings in order of the length of the first word in the string, and quit. Have the menu
@@ -24179,7 +24670,7 @@ C11 Programming Exercises
    Also, if there are no command-line arguments, let the program behave as if the –p
    argument had been used.
 
-   :sup:`P0511`
+.. _P0511:
 
 /C12👊 Storage Classes, Linkage, and Memory Management
 ========================================================
@@ -24215,7 +24706,7 @@ Storage Classes
 
    ..   ptg11524036
 
-   :sup:`P0512` Chapter 12 Storage Classes, Linkage, and Memory Management
+.. _P0512:
 
    objects, whose definitions encompass both data and permissible operations on the data; C is
    not an object-oriented programming language.)
@@ -24259,7 +24750,7 @@ Storage Classes
 
    ..   ptg11524036
 
-   :sup:`P0513` Storage Classes
+.. _P0513:
 
    different combinations of scope, linkage, and storage duration. You can have identifiers that
    can be shared over several files of source code, identifiers that can be used by any function in
@@ -24305,7 +24796,7 @@ Storage Classes
 
    ..   ptg11524036
 
-   :sup:`P0514` Chapter 12 Storage Classes, Linkage, and Memory Management
+.. _P0514:
 
    return patrick;
    }
@@ -24348,7 +24839,7 @@ Storage Classes
 
    ..   ptg11524036
 
-   :sup:`P0515` Storage Classes
+.. _P0515:
 
 
    void critic(void)
@@ -24389,7 +24880,7 @@ Storage Classes
 
    ..   ptg11524036
 
-   :sup:`P0516` Chapter 12 Storage Classes, Linkage, and Memory Management
+.. _P0516:
 
    int giants = 5; // file scope, external linkage
    static int dodgers = 3; // file scope, internal linkage
@@ -24433,7 +24924,7 @@ Storage Classes
 
    ..   ptg11524036
 
-   :sup:`P0517` Storage Classes
+.. _P0517:
 
    for (index = 0; index < number; index++)
    puts("They don't make them the way they used to.\n");
@@ -24480,7 +24971,7 @@ Storage Classes
 
    ..   ptg11524036
 
-   :sup:`P0518` Chapter 12 Storage Classes, Linkage, and Memory Management
+.. _P0518:
 
    Automatic Variables
    A variable belonging to the automatic storage class has automatic storage duration, block scope,
@@ -24525,7 +25016,7 @@ Storage Classes
 
    ..   ptg11524036
 
-   :sup:`P0519` Storage Classes
+.. _P0519:
 
    variables n and m , being defined in the function head and in the outer block, are in scope for
    the whole function and exist until the function terminates.
@@ -24576,7 +25067,7 @@ Storage Classes
 
    ..   ptg11524036
 
-   :sup:`P0520` Chapter 12 Storage Classes, Linkage, and Memory Management
+.. _P0520:
 
    printf() statement. It is located after the first inner block, and it displays the original x value,
    showing that the original x variable never went away and never got changed.
@@ -24632,7 +25123,7 @@ Storage Classes
 
    ..   ptg11524036
 
-   :sup:`P0521` Storage Classes
+.. _P0521:
 
    printf(" loop 2: n = %d at %p\n", n, &n);
    n++;
@@ -24674,7 +25165,7 @@ Storage Classes
 
    ..   ptg11524036
 
-   :sup:`P0522` Chapter 12 Storage Classes, Linkage, and Memory Management
+.. _P0522:
 
    int repid;
    int tents = 5;
@@ -24715,7 +25206,7 @@ Storage Classes
 
    ..   ptg11524036
 
-   :sup:`P0523` Storage Classes
+.. _P0523:
 
    the same scope as automatic variables, but they don’t vanish when the containing function
    ends its job. That is, such variables have block scope, no linkage, but static storage duration.
@@ -24773,7 +25264,7 @@ Storage Classes
 
    ..   ptg11524036
 
-   :sup:`P0524` Chapter 12 Storage Classes, Linkage, and Memory Management
+.. _P0524:
 
    trystat() is called, but stay is initialized just once, when trystat() is compiled. Static variables 
    are initialized to zero if you don’t explicitly initialize them to some other value.
@@ -24817,7 +25308,7 @@ Storage Classes
 
    ..   ptg11524036
 
-   :sup:`P0525` Storage Classes
+.. _P0525:
 
    {
    ...
@@ -24862,7 +25353,7 @@ Storage Classes
 
    ..   ptg11524036
 
-   :sup:`P0526` Chapter 12 Storage Classes, Linkage, and Memory Management
+.. _P0526:
 
    Example 2 has one external variable, Hocus , known to both functions. This time, magic()
    knows it by default.
@@ -24906,7 +25397,7 @@ Storage Classes
 
    ..   ptg11524036
 
-   :sup:`P0527` Storage Classes
+.. _P0527:
 
    Initializing External Variables
    Like automatic variables, external variables can be initialized explicitly. Unlike automatic variables, 
@@ -24958,7 +25449,7 @@ Storage Classes
 
    ..   ptg11524036
 
-   :sup:`P0528` Chapter 12 Storage Classes, Linkage, and Memory Management
+.. _P0528:
 
    Here is some sample output:
    How many pounds to a firkin of butter?
@@ -25001,7 +25492,7 @@ Storage Classes
 
    ..   ptg11524036
 
-   :sup:`P0529` Storage Classes
+.. _P0529:
 
    Here, tern is declared twice. The first declaration causes storage to be set aside for the variable. 
    It constitutes a definition of the variable. The second declaration merely tells the compiler
@@ -25043,7 +25534,7 @@ Storage Classes
 
    ..   ptg11524036
 
-   :sup:`P0530` Chapter 12 Storage Classes, Linkage, and Memory Management
+.. _P0530:
 
    int traveler = 1; // external linkage
    static int stayhome = 1; // internal linkage
@@ -25084,7 +25575,7 @@ Storage Classes
 
    ..   ptg11524036
 
-   :sup:`P0531` Storage Classes
+.. _P0531:
 
    The register specifier also can be used only with variables of block scope. It puts a variable
    into the register storage class, which amounts to a request to minimize the access time for that
@@ -25129,7 +25620,7 @@ Storage Classes
 
    ..   ptg11524036
 
-   :sup:`P0532` Chapter 12 Storage Classes, Linkage, and Memory Management
+.. _P0532:
 
 
    Listing 12.5 The parta.c File
@@ -25190,7 +25681,7 @@ Storage Classes
 
    ..   ptg11524036
 
-   :sup:`P0533` Storage Classes
+.. _P0533:
 
 
    if (k <= 0)
@@ -25237,7 +25728,7 @@ Storage Classes
 
    ..   ptg11524036
 
-   :sup:`P0534` Chapter 12 Storage Classes, Linkage, and Memory Management
+.. _P0534:
 
    double gamma(double); /* external by default */
    static double beta(int, int);
@@ -25282,7 +25773,7 @@ A Random-Number Function and a Static Variable
 
    ..   ptg11524036
 
-   :sup:`P0535` A Random-Number Function and a Static Variable
+.. _P0535:
 
    are not known for their spontaneity), but the numbers are spread pretty uniformly over the
    possible range of values.
@@ -25339,7 +25830,7 @@ A Random-Number Function and a Static Variable
 
    ..   ptg11524036
 
-   :sup:`P0536` Chapter 12 Storage Classes, Linkage, and Memory Management
+.. _P0536:
 
    Here’s another chance to practice using multiple files. Use one file for Listing 12.7 and one for
    Listing 12.8 . The extern keyword reminds you that rand0() is defined in a separate file, but
@@ -25387,7 +25878,7 @@ A Random-Number Function and a Static Variable
 
    ..   ptg11524036
 
-   :sup:`P0537` A Random-Number Function and a Static Variable
+.. _P0537:
 
    Notice that next is a file-scope static variable with internal linkage. That means it can be used
    by both rand1() and srand1() , but not by functions in other files. To test these functions, use
@@ -25440,7 +25931,7 @@ A Random-Number Function and a Static Variable
 
    ..   ptg11524036
 
-   :sup:`P0538` Chapter 12 Storage Classes, Linkage, and Memory Management
+.. _P0538:
 
    Please enter next seed (q to quit):
    q
@@ -25483,7 +25974,7 @@ Roll ’Em
 
    ..   ptg11524036
 
-   :sup:`P0539` Roll ’Em
+.. _P0539:
 
    2. Add 1. The new number is in the range 1 through 6.
    3. To generalize, just replace the number 6 in step 1 by the number of sides.
@@ -25535,7 +26026,7 @@ Roll ’Em
 
    ..   ptg11524036
 
-   :sup:`P0540` Chapter 12 Storage Classes, Linkage, and Memory Management
+.. _P0540:
 
    if (dice < 1)
    {
@@ -25584,7 +26075,7 @@ Roll ’Em
 
    ..   ptg11524036
 
-   :sup:`P0541` Roll ’Em
+.. _P0541:
 
    This is fine. You can have only one defining declaration of a variable. But the declaration with
    extern is a reference declaration, and you can have as many of those as you want.
@@ -25645,7 +26136,7 @@ Roll ’Em
 
    ..   ptg11524036
 
-   :sup:`P0542` Chapter 12 Storage Classes, Linkage, and Memory Management
+.. _P0542:
 
 
    printf("GOOD FORTUNE TO YOU!\n");
@@ -25692,7 +26183,7 @@ Roll ’Em
 
    ..   ptg11524036
 
-   :sup:`P0543` Allocated Memory: malloc() and free()
+.. _P0543:
 
    How many sides and how many dice?
    6 3
@@ -25738,7 +26229,7 @@ Allocated Memory: malloc() and free()
 
    ..   ptg11524036
 
-   :sup:`P0544` Chapter 12 Storage Classes, Linkage, and Memory Management
+.. _P0544:
 
    but assigning a pointer-to- void value to a pointer of another type is not considered a type
    clash. If malloc() fails to find the required space, it returns the null pointer.
@@ -25783,7 +26274,7 @@ Allocated Memory: malloc() and free()
 
    ..   ptg11524036
 
-   :sup:`P0545` Allocated Memory: malloc() and free()
+.. _P0545:
 
    can be reused. The argument to free() should be a pointer to a block of memory allocated by
    malloc() ; you can’t use free() to free memory allocated by other means, such as declaring an
@@ -25838,7 +26329,7 @@ Allocated Memory: malloc() and free()
 
    ..   ptg11524036
 
-   :sup:`P0546` Chapter 12 Storage Classes, Linkage, and Memory Management
+.. _P0546:
 
    if (i % 7 == 6)
    putchar('\n');
@@ -25882,7 +26373,7 @@ Allocated Memory: malloc() and free()
 
    ..   ptg11524036
 
-   :sup:`P0547` Allocated Memory: malloc() and free()
+.. _P0547:
 
    Note the free() function near the end of the program. It frees memory allocated by malloc() .
    The free() function frees only the block of memory to which its argument points. Some operating 
@@ -25926,7 +26417,7 @@ Allocated Memory: malloc() and free()
 
    ..   ptg11524036
 
-   :sup:`P0548` Chapter 12 Storage Classes, Linkage, and Memory Management
+.. _P0548:
 
    But the loop executes 1,000 times, so by the time the loop finishes, 16,000,000 bytes of
    memory have been removed from the memory pool. In fact, the program may have run out of
@@ -25968,7 +26459,7 @@ Allocated Memory: malloc() and free()
 
    ..   ptg11524036
 
-   :sup:`P0549` Allocated Memory: malloc() and free()
+.. _P0549:
 
    ...
    }
@@ -26010,7 +26501,7 @@ Allocated Memory: malloc() and free()
 
    ..   ptg11524036
 
-   :sup:`P0550` Chapter 12 Storage Classes, Linkage, and Memory Management
+.. _P0550:
 
    The amount of memory needed for the static duration storage classes is known at compile time,
    and the data stored in this section is available as long as the program runs. Each variable of
@@ -26063,7 +26554,7 @@ Allocated Memory: malloc() and free()
 
    ..   ptg11524036
 
-   :sup:`P0551` ANSI C Type Qualifiers
+.. _P0551:
 
    printf(" %s at %p\n", pcg, pcg);
    printf(" %s at %p\n", auto_string, auto_string);
@@ -26105,7 +26596,7 @@ ANSI C Type Qualifiers
 
    ..   ptg11524036
 
-   :sup:`P0552` Chapter 12 Storage Classes, Linkage, and Memory Management
+.. _P0552:
 
    The const Type Qualifier
    Chapter 4 , “Character Strings and Formatted Input/Output,” and Chapter 10 , “Arrays and
@@ -26143,7 +26634,7 @@ ANSI C Type Qualifiers
 
    ..   ptg11524036
 
-   :sup:`P0553` ANSI C Type Qualifiers
+.. _P0553:
 
    of the * makes the data constant; and a const to the right of the * makes the pointer itself
    constant.
@@ -26185,7 +26676,7 @@ ANSI C Type Qualifiers
 
    ..   ptg11524036
 
-   :sup:`P0554` Chapter 12 Storage Classes, Linkage, and Memory Management
+.. _P0554:
 
    The second approach is to place the constants in an include file. Here, you must take the additional 
    step of using the static external storage class:
@@ -26228,7 +26719,7 @@ ANSI C Type Qualifiers
 
    ..   ptg11524036
 
-   :sup:`P0555` ANSI C Type Qualifiers
+.. _P0555:
 
    val1 = x;
    /* some code not using x */
@@ -26272,7 +26763,7 @@ ANSI C Type Qualifiers
 
    ..   ptg11524036
 
-   :sup:`P0556` Chapter 12 Storage Classes, Linkage, and Memory Management
+.. _P0556:
 
    Knowing that restar is the sole initial means of access to the block of data it points to, the
    compiler can replace the two statements involving restar with a single statement having the
@@ -26314,7 +26805,7 @@ ANSI C Type Qualifiers
 
    ..   ptg11524036
 
-   :sup:`P0557` ANSI C Type Qualifiers
+.. _P0557:
 
    int hogs; // regular declaration
    hogs = 12; // regular assignment
@@ -26352,7 +26843,7 @@ ANSI C Type Qualifiers
 
    ..   ptg11524036
 
-   :sup:`P0558` Chapter 12 Storage Classes, Linkage, and Memory Management
+.. _P0558:
 
 
 C12 Key Concepts
@@ -26403,7 +26894,7 @@ C12 Summary
 
    ..   ptg11524036
 
-   :sup:`P0559` Review Questions
+.. _P0559:
 
    a variable as a register variable is a hint to the compiler to provide the fastest access
    possible. Its value, if uninitialized, is not undetermined.
@@ -26447,7 +26938,7 @@ C12 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0560` Chapter 12 Storage Classes, Linkage, and Memory Management
+.. _P0560:
 
    6. Consider this code fragment:
    int * p1 = (int *) malloc(100 * sizeof(int));
@@ -26493,7 +26984,7 @@ C12 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0561` Programming Exercises
+.. _P0561:
 
    first();
    printf("color in main() is %c\n", color);
@@ -26538,7 +27029,7 @@ C12 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0562` Chapter 12 Storage Classes, Linkage, and Memory Management
+.. _P0562:
 
    int mode;
 
@@ -26585,7 +27076,7 @@ C12 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0563` Programming Exercises
+.. _P0563:
 
    user to enter a mode, and so on. You’ll have to come up with a different set of function
    calls, however.
@@ -26628,7 +27119,7 @@ C12 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0564` Chapter 12 Storage Classes, Linkage, and Memory Management
+.. _P0564:
 
    pa = make_array(size, value);
    if (pa)
@@ -26668,7 +27159,7 @@ C12 Programming Exercises
    this
    exercise
 
-   :sup:`P0565`
+.. _P0565:
 
 /C13👊 File Input/Output
 ==========================
@@ -26705,7 +27196,7 @@ Communicating with Files
 
    ..   ptg11524036
 
-   :sup:`P0566` Chapter 13 File Input/Output
+.. _P0566:
 
    your interactive prompts are redirected into bklist . Not only does this put unwanted text into
    bklist , it prevents you from seeing the questions you are supposed to answer.
@@ -26747,7 +27238,7 @@ Communicating with Files
 
    ..   ptg11524036
 
-   :sup:`P0567` Communicating with Files
+.. _P0567:
 
    padding each line with null characters, if necessary, to make the length come out right. Or a
    system might encode the length of each line at the beginning of each line.
@@ -26791,7 +27282,7 @@ Communicating with Files
 
    ..   ptg11524036
 
-   :sup:`P0568` Chapter 13 File Input/Output
+.. _P0568:
 
    Although C provides for both a binary view and a text view, these views can be implemented
    identically. As mentioned, because Unix uses just one file structure, both views are the same for
@@ -26842,7 +27333,7 @@ Standard I/O
 
    ..   ptg11524036
 
-   :sup:`P0569` Standard I/O
+.. _P0569:
 
    in the file. We’ll discuss the features of Listing 13.1 in the next several sections. (This program
    uses command-line arguments. If you’re a Windows user, you might have to run the program
@@ -26894,7 +27385,7 @@ Standard I/O
 
    ..   ptg11524036
 
-   :sup:`P0570` Chapter 13 File Input/Output
+.. _P0570:
 
    the name of the program. Using argv[0] instead of the program name explicitly causes the
    error message to change automatically if you change the name of the executable file. This
@@ -26935,7 +27426,7 @@ Standard I/O
 
    ..   ptg11524036
 
-   :sup:`P0571` Standard I/O
+.. _P0571:
 
    Mode String Meaning
     "a" Open a text file for writing, appending to the end of an existing file, or creating 
@@ -26980,7 +27471,7 @@ Standard I/O
 
    ..   ptg11524036
 
-   :sup:`P0572` Chapter 13 File Input/Output
+.. _P0572:
 
    object is an example of a C structure, a topic we discuss in Chapter 14 , “Structures and Other
    Data Forms.”)
@@ -27025,7 +27516,7 @@ Standard I/O
 
    ..   ptg11524036
 
-   :sup:`P0573` Standard I/O
+.. _P0573:
 
    functions), a program should attempt the first read before entering the body of the loop. So the
    following design is good:
@@ -27070,7 +27561,7 @@ Standard I/O
 
    ..   ptg11524036
 
-   :sup:`P0574` Chapter 13 File Input/Output
+.. _P0574:
 
    The fclose() Function
    The fclose(fp) function closes the file identified by fp , flushing buffers as needed. For a
@@ -27116,7 +27607,7 @@ A Simple-Minded File-Condensing Program
 
    ..   ptg11524036
 
-   :sup:`P0575` A Simple-Minded File-Condensing Program
+.. _P0575:
 
    #include <string.h>
 
@@ -27165,7 +27656,7 @@ A Simple-Minded File-Condensing Program
 
    ..   ptg11524036
 
-   :sup:`P0576` Chapter 13 File Input/Output
+.. _P0576:
 
    The command would be as follows:
    reducto eddy
@@ -27205,7 +27696,7 @@ A Simple-Minded File-Condensing Program
 
    ..   ptg11524036
 
-   :sup:`P0577` File I/O: fprintf(), fscanf(), fgets(), and fputs()
+.. _P0577:
 
    fprintf() . Listing 13.3 illustrates both of these file I/O functions, along with the rewind()
    function.
@@ -27258,7 +27749,7 @@ A Simple-Minded File-Condensing Program
 
    ..   ptg11524036
 
-   :sup:`P0578` Chapter 13 File Input/Output
+.. _P0578:
 
    Here’s a sample run from a Unix environment (the executable program has been renamed
    addaword ):
@@ -27303,7 +27794,7 @@ A Simple-Minded File-Condensing Program
 
    ..   ptg11524036
 
-   :sup:`P0579` Adventures in Random Access: fseek() and ftell()
+.. _P0579:
 
    the maximum number of characters plus the null character. If fgets() reads in a whole line
    before running into the character limit, it places the newline character, marking the end of the
@@ -27356,7 +27847,7 @@ Adventures in Random Access: fseek() and ftell()
 
    ..   ptg11524036
 
-   :sup:`P0580` Chapter 13 File Input/Output
+.. _P0580:
 
    fseek(fp, 0L, SEEK_END); /* go to end of file */
    last = ftell(fp);
@@ -27400,7 +27891,7 @@ Adventures in Random Access: fseek() and ftell()
 
    ..   ptg11524036
 
-   :sup:`P0581` Adventures in Random Access: fseek() and ftell()
+.. _P0581:
 
    The third argument is the mode, and it identifies the starting point. Since the ANSI standard,
    the stdio.h header file specifies the following manifest constants for the mode:
@@ -27439,7 +27930,7 @@ Adventures in Random Access: fseek() and ftell()
 
    ..   ptg11524036
 
-   :sup:`P0582` Chapter 13 File Input/Output
+.. _P0582:
 
    fseek(fp, -count, SEEK_END); /* go backward */
    ch = getc(fp);
@@ -27482,7 +27973,7 @@ Adventures in Random Access: fseek() and ftell()
 
    ..   ptg11524036
 
-   :sup:`P0583` Behind the Scenes with Standard I/O
+.. _P0583:
 
 
    ■  In the text mode, the only calls to fseek() that are guaranteed to work are these:
@@ -27522,7 +28013,7 @@ Behind the Scenes with Standard I/O
 
    ..   ptg11524036
 
-   :sup:`P0584` Chapter 13 File Input/Output
+.. _P0584:
 
    Normally, the first step in using standard I/O is to use fopen() to open a file. (Recall, however,
    that the stdin , stdout , and stderr files are opened automatically.) The fopen() function
@@ -27568,7 +28059,7 @@ Other Standard I/O Functions
 
    ..   ptg11524036
 
-   :sup:`P0585` Other Standard I/O Functions
+.. _P0585:
 
    The int ungetc(int c, FILE *fp) Function
    The int ungetc() function pushes the character specified by c back onto the input stream.
@@ -27599,7 +28090,7 @@ Other Standard I/O Functions
 
    ..   ptg11524036
 
-   :sup:`P0586` Chapter 13 File Input/Output
+.. _P0586:
 
    The setvbuf() function sets up an alternative buffer to be used by the standard I/O functions.
    It is called after the file has been opened and before any other operations have been performed
@@ -27643,7 +28134,7 @@ Other Standard I/O Functions
 
    ..   ptg11524036
 
-   :sup:`P0587` Other Standard I/O Functions
+.. _P0587:
 
 
    int num = 12345;
@@ -27670,7 +28161,7 @@ Other Standard I/O Functions
 
    ..   ptg11524036
 
-   :sup:`P0588` Chapter 13 File Input/Output
+.. _P0588:
 
    The size_t fwrite() Function
    The prototype for fwrite() is this:
@@ -27710,7 +28201,7 @@ Other Standard I/O Functions
 
    ..   ptg11524036
 
-   :sup:`P0589` Other Standard I/O Functions
+.. _P0589:
 
    double earnings[10];
    fread(earnings, sizeof (double), 10, fp);
@@ -27752,7 +28243,7 @@ Other Standard I/O Functions
 
    ..   ptg11524036
 
-   :sup:`P0590` Chapter 13 File Input/Output
+.. _P0590:
 
    For a grand finale, the program rewinds the append file to the beginning and displays the
    contents.
@@ -27807,7 +28298,7 @@ Other Standard I/O Functions
 
    ..   ptg11524036
 
-   :sup:`P0591` Other Standard I/O Functions
+.. _P0591:
 
    fputs("Can't create input buffer\n",stderr);
    continue;
@@ -27859,7 +28350,7 @@ Other Standard I/O Functions
 
    ..   ptg11524036
 
-   :sup:`P0592` Chapter 13 File Input/Output
+.. _P0592:
 
    else
    while (getchar() != '\n')
@@ -27898,7 +28389,7 @@ Other Standard I/O Functions
 
    ..   ptg11524036
 
-   :sup:`P0593` Other Standard I/O Functions
+.. _P0593:
 
    Random Access with Binary I/O
    Random access is most often used with binary files written using binary I/O, so let’s look at a
@@ -27953,7 +28444,7 @@ Other Standard I/O Functions
 
    ..   ptg11524036
 
-   :sup:`P0594` Chapter 13 File Input/Output
+.. _P0594:
 
    printf("The value there is %f.\n", value);
    printf("Next index (out of range to quit):\n");
@@ -27999,7 +28490,7 @@ C13 Key Concepts
 
    ..   ptg11524036
 
-   :sup:`P0595` Summary
+.. _P0595:
 
    How C interprets an input stream or output stream of bytes depends on which input/output
    functions you use. A program can read and store the bytes unaltered, or it can interpret the
@@ -28045,7 +28536,7 @@ C13 Summary
 
    ..   ptg11524036
 
-   :sup:`P0596` Chapter 13 File Input/Output
+.. _P0596:
 
    ANSI C provides two file-opening modes: binary and text. When a file is opened in binary
    mode, it can be read byte-for-byte. When a file is opened in text mode, its contents may be
@@ -28092,7 +28583,7 @@ C13 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0597` Review Questions
+.. _P0597:
 
    putchar(ch);
    fclose (fp);
@@ -28132,7 +28623,7 @@ C13 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0598` Chapter 13 File Input/Output
+.. _P0598:
 
    b. What is the difference between saving the character S by using putc() and saving
    it by using fwrite() ?
@@ -28179,7 +28670,7 @@ C13 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0599` Programming Exercises
+.. _P0599:
 
    8. Write a program that takes as command-line arguments a character and zero or more
    filenames. If no arguments follow the character, have the program read the standard
@@ -28241,7 +28732,7 @@ C13 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0600` Chapter 13 File Input/Output
+.. _P0600:
 
    For one particular choice of output characters, the output looks like this:
    ::
@@ -28277,7 +28768,7 @@ C13 Programming Exercises
    values. You should round the average to the nearest integer value. Note that the points
    along the boundaries have fewer than four neighbors, so they require special handling.
 
-   :sup:`P0601`
+.. _P0601:
 
 /C14👊 Structures and Other Data Forms
 ========================================
@@ -28320,7 +28811,7 @@ Sample Problem: Creating an Inventory of Books
 
    ..   ptg11524036
 
-   :sup:`P0602` Chapter 14 Structures and Other Data Forms
+.. _P0602:
 
 
    Gwen needs a data form, then, that can contain both strings and numbers and somehow keep
@@ -28335,7 +28826,7 @@ Sample Problem: Creating an Inventory of Books
 
    ..   ptg11524036
 
-   :sup:`P0603` Sample Problem: Creating an Inventory of Books
+.. _P0603:
 
    Listing 14.1 The book.c Program
 
@@ -28420,7 +28911,7 @@ Sample Problem: Creating an Inventory of Books
 
    ..   ptg11524036
 
-   :sup:`P0604` Chapter 14 Structures and Other Data Forms
+.. _P0604:
 
 
 Setting Up the Structure Declaration
@@ -28483,7 +28974,7 @@ Defining a Structure Variable
 
    ..   ptg11524036
 
-   :sup:`P0605` Defining a Structure Variable
+.. _P0605:
 
    Seeing this instruction, the compiler creates the variable library . Using the book template,
    the compiler allots space for a char array of MAXTITL elements, for a char array of MAXAUTL
@@ -28534,7 +29025,7 @@ Defining a Structure Variable
 
    ..   ptg11524036
 
-   :sup:`P0606` Chapter 14 Structures and Other Data Forms
+.. _P0606:
 
    In other words, the process of declaring a structure and the process of defining a structure variable 
    can be combined into one step. Combining the declaration and the variable definitions, as
@@ -28595,7 +29086,7 @@ Initializing a Structure
 
    ..   ptg11524036
 
-   :sup:`P0607` Defining a Structure Variable
+.. _P0607:
 
 Gaining Access to Structure Members
 ```````````````````````````````````
@@ -28654,7 +29145,7 @@ Initializers for Structures
 
    ..   ptg11524036
 
-   :sup:`P0608` Chapter 14 Structures and Other Data Forms
+.. _P0608:
 
    Just as with arrays, a regular initializer following a designated initializer provides a value for the
    member following the designated member. Also, the last value supplied for a particular member
@@ -28697,7 +29188,7 @@ Structures and Memory
 
    ..   ptg11524036
 
-   :sup:`P0609` Arrays of Structures
+.. _P0609:
 
    Listing 14.2 The manybook.c Program
 
@@ -28773,7 +29264,7 @@ Structures and Memory
 
    ..   ptg11524036
 
-   :sup:`P0610` Chapter 14 Structures and Other Data Forms
+.. _P0610:
 
    .. NOTE::
 
@@ -28830,7 +29321,7 @@ Structures and Memory
 
    ..   ptg11524036
 
-   :sup:`P0611` Arrays of Structures
+.. _P0611:
 
    First, we’ll describe how to declare arrays of structures and how to access individual members.
    Then we will highlight two aspects of the program.
@@ -28876,7 +29367,7 @@ Declaring an Array of Structures
 
    ..   ptg11524036
 
-   :sup:`P0612` Chapter 14 Structures and Other Data Forms
+.. _P0612:
 
 Identifying Members of an Array of Structures
 `````````````````````````````````````````````
@@ -28940,7 +29431,7 @@ Program Discussion
 
    ..   ptg11524036
 
-   :sup:`P0613` Nested Structures
+.. _P0613:
 
    Then the program has these lines:
 
@@ -28983,7 +29474,7 @@ Nested Structures
 
    ..   ptg11524036
 
-   :sup:`P0614` Chapter 14 Structures and Other Data Forms
+.. _P0614:
 
 
    Listing 14.3 The friend.c Program
@@ -29045,7 +29536,7 @@ Nested Structures
    
    Here is the output:
 
-   ::
+   .. code-block:: bash
 
       Dear Ewen,
 
@@ -29059,7 +29550,7 @@ Nested Structures
 
    ..   ptg11524036
 
-   :sup:`P0615` Pointers to Structures
+.. _P0615:
 
    First, note how the nested structure is set up in the structure declaration. It is simply declared,
    just as an int variable would be:
@@ -29102,7 +29593,7 @@ Pointers to Structures
 
    ..   ptg11524036
 
-   :sup:`P0616` Chapter 14 Structures and Other Data Forms
+.. _P0616:
 
 
    Listing 14.4 The friends.c Program
@@ -29169,7 +29660,7 @@ Pointers to Structures
 
    ..   ptg11524036
 
-   :sup:`P0617` Pointers to Structures
+.. _P0617:
 
 Declaring and Initializing a Structure Pointer
 ``````````````````````````````````````````````
@@ -29233,7 +29724,7 @@ Member Access by Pointer
 
    ..   ptg11524036
 
-   :sup:`P0618` Chapter 14 Structures and Other Data Forms
+.. _P0618:
 
    The second method for specifying the value of a structure member follows from this sequence:
    If ``him == &fellow[0]`` , then ``*him == fellow[0]`` because & and * are reciprocal operators.
@@ -29278,7 +29769,7 @@ Passing Structure Members
 
    ..   ptg11524036
 
-   :sup:`P0619` Telling Functions About Structures
+.. _P0619:
 
 
    Listing 14.5 The funds1.c Program
@@ -29349,7 +29840,7 @@ Using the Structure Address
 
    ..   ptg11524036
 
-   :sup:`P0620` Chapter 14 Structures and Other Data Forms
+.. _P0620:
 
 
    Listing 14.6 The funds2.c Program
@@ -29409,7 +29900,7 @@ Using the Structure Address
 
    ..   ptg11524036
 
-   :sup:`P0621` Telling Functions About Structures
+.. _P0621:
 
 Passing a Structure as an Argument
 ``````````````````````````````````
@@ -29464,7 +29955,7 @@ Passing a Structure as an Argument
 
    ..   ptg11524036
 
-   :sup:`P0622` Chapter 14 Structures and Other Data Forms
+.. _P0622:
 
    We replaced money , which was a pointer to struct funds , with moolah , which is a struct
    funds variable. When ``sum()`` is called, an automatic variable called moolah is created according
@@ -29509,7 +30000,7 @@ More on Structure Features
 
    ..   ptg11524036
 
-   :sup:`P0623` Telling Functions About Structures
+.. _P0623:
 
 
    Listing 14.8 The names1.c Program
@@ -29585,7 +30076,7 @@ More on Structure Features
 
    ..   ptg11524036
 
-   :sup:`P0624` Chapter 14 Structures and Other Data Forms
+.. _P0624:
 
    Compiling and running the program produces results like the following:
 
@@ -29627,7 +30118,7 @@ More on Structure Features
 
    ..   ptg11524036
 
-   :sup:`P0625` Telling Functions About Structures
+.. _P0625:
 
 
    Listing 14.9 The names2.c Program
@@ -29707,7 +30198,7 @@ More on Structure Features
 
    ..   ptg11524036
 
-   :sup:`P0626` Chapter 14 Structures and Other Data Forms
+.. _P0626:
 
    This version produces the same final result as the preceding one, but it proceeds in a different
    manner. Each of the three functions creates its own copy of person , so this program uses four
@@ -29744,7 +30235,7 @@ Structures or Pointer to Structures?
 
    ..   ptg11524036
 
-   :sup:`P0627` Telling Functions About Structures
+.. _P0627:
 
    One advantage of passing structures as arguments is that the function works with copies of the
    original data, which is safer than working with the original data. Also, the programming style
@@ -29812,7 +30303,7 @@ Character Arrays or Character Pointers in a Structure
 
    ..   ptg11524036
 
-   :sup:`P0628` Chapter 14 Structures and Other Data Forms
+.. _P0628:
 
    The answer is that you can, but you might get into trouble unless you understand the implications. 
    Consider the following code:
@@ -29859,7 +30350,7 @@ Character Arrays or Character Pointers in a Structure
 
    ..   ptg11524036
 
-   :sup:`P0629` Telling Functions About Structures
+.. _P0629:
 
 Structure, Pointers, and malloc()
 `````````````````````````````````
@@ -29914,7 +30405,7 @@ Structure, Pointers, and malloc()
 
    ..   ptg11524036
 
-   :sup:`P0630` Chapter 14 Structures and Other Data Forms
+.. _P0630:
 
 
    Listing 14.10 The names3.c Program
@@ -30005,7 +30496,7 @@ Structure, Pointers, and malloc()
 
    ..   ptg11524036
 
-   :sup:`P0631` Telling Functions About Structures
+.. _P0631:
 
 
    Here is some sample output:
@@ -30033,7 +30524,7 @@ Compound Literals and Structures (C99)
 
    ..   ptg11524036
 
-   :sup:`P0632` Chapter 14 Structures and Other Data Forms
+.. _P0632:
 
 
    Listing 14.11 shows an example using compound literals to provide two alternative values for
@@ -30082,7 +30573,7 @@ Compound Literals and Structures (C99)
 
    ..   ptg11524036
 
-   :sup:`P0633` Telling Functions About Structures
+.. _P0633:
 
 
    You also can use compound literals as arguments to functions. If the function expects a structure, 
@@ -30157,7 +30648,7 @@ Flexible Array Members (C99)
 
    ..   ptg11524036
 
-   :sup:`P0634` Chapter 14 Structures and Other Data Forms
+.. _P0634:
 
    If you declare a variable of type struct flex , you can’t use scores for anything, because no
    memory space is set-aside for it. In fact, it’s not intended that you ever declare variables of the
@@ -30249,7 +30740,7 @@ Flexible Array Members (C99)
 
    ..   ptg11524036
 
-   :sup:`P0635` Telling Functions About Structures
+.. _P0635:
 
    Here is the output:
 
@@ -30274,7 +30765,7 @@ Flexible Array Members (C99)
 
    ..   ptg11524036
 
-   :sup:`P0636` Chapter 14 Structures and Other Data Forms
+.. _P0636:
 
    Second, don’t use this sort of structure with functions that pass structures by value. The reason
    is the same; passing an argument by value is like assignment. Instead, use functions that pass
@@ -30341,7 +30832,7 @@ Anonymous Structures (C11)
 
    ..   ptg11524036
 
-   :sup:`P0637` Telling Functions About Structures
+.. _P0637:
 
    Of course, you could simply have made first and last direct members of person and eliminated 
    nested structures. The anonymous feature becomes more useful with nested unions,
@@ -30411,7 +30902,7 @@ Functions Using an Array of Structures
 
    ..   ptg11524036
 
-   :sup:`P0638` Chapter 14 Structures and Other Data Forms
+.. _P0638:
 
    The output is this:
 
@@ -30452,7 +30943,7 @@ Functions Using an Array of Structures
 
    ..   ptg11524036
 
-   :sup:`P0639` Saving the Structure Contents in a File
+.. _P0639:
 
 
 Saving the Structure Contents in a File
@@ -30510,7 +31001,7 @@ Saving the Structure Contents in a File
 
    ..   ptg11524036
 
-   :sup:`P0640` Chapter 14 Structures and Other Data Forms
+.. _P0640:
 
 A Structure-Saving Example
 ``````````````````````````
@@ -30523,7 +31014,7 @@ A Structure-Saving Example
 
    ..   ptg11524036
 
-   :sup:`P0641` Saving the Structure Contents in a File
+.. _P0641:
 
 
    Listing 14.14 The booksave.c Program
@@ -30629,7 +31120,7 @@ A Structure-Saving Example
 
    ..   ptg11524036
 
-   :sup:`P0642` Chapter 14 Structures and Other Data Forms
+.. _P0642:
 
    We’ll look at a couple of sample runs and then discuss the main programming points.
 
@@ -30675,7 +31166,7 @@ A Structure-Saving Example
 
    ..   ptg11524036
 
-   :sup:`P0643` Saving the Structure Contents in a File
+.. _P0643:
 
    Running the booksave.c program again would show all three books as current file records.
    Program Points
@@ -30720,7 +31211,7 @@ A Structure-Saving Example
 
    ..   ptg11524036
 
-   :sup:`P0644` Chapter 14 Structures and Other Data Forms
+.. _P0644:
 
    Another approach is to use variably sized records. To facilitate reading such records from a
    file, each record can begin with a numerical field specifying the record size. This is a bit more
@@ -30774,7 +31265,7 @@ Structures: What Next?
 
    ..   ptg11524036
 
-   :sup:`P0645` Unions: A Quick Look
+.. _P0645:
 
    That’s our final word on structures for this chapter, but we will present examples of linked
    structures in Chapter 17 . Next, we’ll look at three other C features for dealing with data:
@@ -30833,7 +31324,7 @@ Unions: A Quick Look
 
    ..   ptg11524036
 
-   :sup:`P0646` Chapter 14 Structures and Other Data Forms
+.. _P0646:
 
 Using Unions
 ````````````
@@ -30876,7 +31367,7 @@ Using Unions
 
    ..   ptg11524036
 
-   :sup:`P0647` Unions: A Quick Look
+.. _P0647:
 
 
    Then you can do something along the following lines:
@@ -30945,7 +31436,7 @@ Anonymous Unions (C11)
 
    ..   ptg11524036
 
-   :sup:`P0648` Chapter 14 Structures and Other Data Forms
+.. _P0648:
 
    .. container:: block
 
@@ -31009,7 +31500,7 @@ Anonymous Unions (C11)
 
    ..   ptg11524036
 
-   :sup:`P0649` Enumerated Types
+.. _P0649:
 
 
 Enumerated Types
@@ -31057,16 +31548,20 @@ enum Constants
    Just what are blue and red ? Technically, they are type int constants. For example, given the
    preceding enumeration declaration, you can try this:
 
-   ::
+   .. code-block:: cpp
 
       printf("red = %d, orange = %d\n", red, orange);
-      Here is the output:
+
+   Here is the output:
+
+   .. code-block:: bash
+
       red = 0, orange = 1
    
 
    ..   ptg11524036
 
-   :sup:`P0650` Chapter 14 Structures and Other Data Forms
+.. _P0650:
 
    What has happened is that red has become a named constant representing the integer 0.
    Similarly, the other identifiers are named constants representing the integers 1 through 5.
@@ -31122,7 +31617,7 @@ enum Usage
 
    ..   ptg11524036
 
-   :sup:`P0651` Enumerated Types
+.. _P0651:
 
 
    Listing 14.15 The enum.c Program
@@ -31205,7 +31700,7 @@ enum Usage
 
    ..   ptg11524036
 
-   :sup:`P0652` Chapter 14 Structures and Other Data Forms
+.. _P0652:
 
    The code breaks out of the for loop if the input string matches one of the strings pointed to
    by the members of the colors array. If the loop finds a matching color, the program then uses
@@ -31229,7 +31724,7 @@ enum Usage
 
    ..   ptg11524036
 
-   :sup:`P0653` typedef: A Quick Look
+.. _P0653:
 
 
 Shared Namespaces
@@ -31298,7 +31793,7 @@ typedef : A Quick Look
 
    ..   ptg11524036
 
-   :sup:`P0654` Chapter 14 Structures and Other Data Forms
+.. _P0654:
 
    of specificity is that the C standards committee feels that no one choice is likely to be the best
    choice for every computer platform. So they make up a new type name, such as time_t , and
@@ -31370,7 +31865,7 @@ typedef : A Quick Look
 
    ..   ptg11524036
 
-   :sup:`P0655` Fancy Declarations
+.. _P0655:
 
    You can omit a tag when using typedef to name a structure type:
 
@@ -31427,7 +31922,7 @@ Fancy Declarations
 
    ..   ptg11524036
 
-   :sup:`P0656` Chapter 14 Structures and Other Data Forms
+.. _P0656:
 
    C enables you to use more than one modifier at a time, and that enables you to create a variety
    of types, as shown in the following examples:
@@ -31514,7 +32009,7 @@ Fancy Declarations
 
    ..   ptg11524036
 
-   :sup:`P0657` Functions and Pointers
+.. _P0657:
 
 
 Functions and Pointers
@@ -31548,7 +32043,7 @@ Functions and Pointers
 
    ..   ptg11524036
 
-   :sup:`P0658` Chapter 14 Structures and Other Data Forms
+.. _P0658:
 
    The type for the ``ToUpper()`` function is “function with char \* parameter and return type
    void .” To declare a pointer called ``pf`` to this function type, do this:
@@ -31614,7 +32109,7 @@ Functions and Pointers
 
    ..   ptg11524036
 
-   :sup:`P0659` Functions and Pointers
+.. _P0659:
 
    Each approach sounds sensible. Here is the first approach: Because pf points to the ToUpper
    function, ``*pf`` is the ToUpper function, so the expression ``(*pf)(mis)`` is the same as
@@ -31671,7 +32166,7 @@ Functions and Pointers
 
    ..   ptg11524036
 
-   :sup:`P0660` Chapter 14 Structures and Other Data Forms
+.. _P0660:
 
    The first passes the address of the ``sqrt()`` function, and presumably ``function1()`` will use that
    function in its code. The second statement initially calls the ``sqrt()`` function, evaluates it, and
@@ -31682,7 +32177,7 @@ Functions and Pointers
 
    ..   ptg11524036
 
-   :sup:`P0661` Functions and Pointers
+.. _P0661:
 
 
    Listing 14.16 The func_ptr.c Program
@@ -31823,7 +32318,7 @@ Functions and Pointers
 
    ..   ptg11524036
 
-   :sup:`P0662` Chapter 14 Structures and Other Data Forms
+.. _P0662:
 
    Here is a sample run:
 
@@ -31854,7 +32349,7 @@ Functions and Pointers
 
    ..   ptg11524036
 
-   :sup:`P0663` Functions and Pointers
+.. _P0663:
 
 
    Note that the ToUpper() , ToLower( ), Transpose( ), and Dummy() functions all have the same
@@ -31892,7 +32387,7 @@ Functions and Pointers
 
    ..   ptg11524036
 
-   :sup:`P0664` Chapter 14 Structures and Other Data Forms
+.. _P0664:
 
    You can’t have an array of functions, but you can have an array of function pointers.
    You’ve now seen all four ways in which a function name can be used: in defining a function,
@@ -31952,7 +32447,7 @@ Functions and Pointers
 
    ..   ptg11524036
 
-   :sup:`P0665` Summary
+.. _P0665:
 
 
 C14 Key Concepts
@@ -32004,7 +32499,7 @@ C14 Summary
 
    ..   ptg11524036
 
-   :sup:`P0666` Chapter 14 Structures and Other Data Forms
+.. _P0666:
 
 
    Unions use the same syntax as structures. However, with unions, the members share a common
@@ -32076,7 +32571,7 @@ C14 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0667` Review Questions
+.. _P0667:
 
    3. Devise a structure template that will hold the name of a month, a three-letter
       abbreviation for the month, the number of days in the month, and the month number.
@@ -32147,7 +32642,7 @@ C14 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0668` Chapter 14 Structures and Other Data Forms
+.. _P0668:
 
    8. Consider the following declarations:
 
@@ -32182,7 +32677,7 @@ C14 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0669` Programming Exercises
+.. _P0669:
 
    9. Define a structure template suitable for holding the following items: the name of an
       automobile, its horsepower, its EPA city-driving MPG rating, its wheelbase, and its year.
@@ -32220,7 +32715,7 @@ C14 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0670` Chapter 14 Structures and Other Data Forms
+.. _P0670:
 
 
 C14 Programming Exercises
@@ -32282,7 +32777,7 @@ C14 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0671` Key Concepts
+.. _P0671:
 
    6. A text file holds information about a softball team. Each line has data arranged as
       follows:
@@ -32326,7 +32821,7 @@ C14 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0672` Chapter 14 Structures and Other Data Forms
+.. _P0672:
 
 
    8. The Colossus Airlines fleet consists of one plane with a seating capacity of 12. It makes
@@ -32380,7 +32875,7 @@ C14 Programming Exercises
       library and two suitable functions of your own devising as arguments to successive calls
       of the transform() function.
 
-   :sup:`P0673`
+.. _P0673:
 
 /C15👊 Bit Fiddling
 =======================
@@ -32415,7 +32910,7 @@ C14 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0674` Chapter 15 Bit Fiddling
+.. _P0674:
 
 
 Binary Numbers, Bits, and Bytes
@@ -32457,7 +32952,7 @@ Binary Numbers, Bits, and Bytes
 
    ..   ptg11524036
 
-   :sup:`P0675` Binary Numbers, Bits, and Bytes
+.. _P0675:
 
 
    0 1 0 0 1 0 0 1
@@ -32499,7 +32994,7 @@ Binary Numbers, Bits, and Bytes
 
    ..   ptg11524036
 
-   :sup:`P0676` Chapter 15 Bit Fiddling
+.. _P0676:
 
    The simplest method for reversing the sign of a two’s-complement binary number is to invert
    each bit (convert 0s to 1s and 1s to 0s) and then add 1. Because 1 is 00000001, –1 is 11111110
@@ -32540,7 +33035,7 @@ Other Number Bases
 
    ..   ptg11524036
 
-   :sup:`P0677` Other Number Bases
+.. _P0677:
 
    Octal
    Octal refers to a base 8 system. In this system, the different places in a number represent powers
@@ -32580,7 +33075,7 @@ Other Number Bases
 
    ..   ptg11524036
 
-   :sup:`P0678` Chapter 15 Bit Fiddling
+.. _P0678:
 
    Table 15.2 shows the correspondence. For example, the hex value 0xC2 translates to 11000010.
    Going the other direction, the binary value 11010101 can be viewed as 1101 0101, which translates 
@@ -32623,7 +33118,7 @@ C’s Bitwise Operators
 
    ..   ptg11524036
 
-   :sup:`P0679` C’s Bitwise Operators
+.. _P0679:
 
    One’s Complement, or Bitwise Negation: ~
    The unary operator ~ changes each 1 to a 0 and each 0 to a 1, as in the following example:
@@ -32661,7 +33156,7 @@ C’s Bitwise Operators
 
    ..   ptg11524036
 
-   :sup:`P0680` Chapter 15 Bit Fiddling
+.. _P0680:
 
    The reason is that all bit positions but bit 6 have the value 1 in one or the other operand (or
    both).
@@ -32697,7 +33192,7 @@ C’s Bitwise Operators
 
    ..   ptg11524036
 
-   :sup:`P0681` C’s Bitwise Operators
+.. _P0681:
 
    Extending the analogy, you can think of the 0s in the mask as being opaque and the 1s as
    being transparent. The expression flags & MASK is like covering the flags bit pattern with
@@ -32730,7 +33225,7 @@ C’s Bitwise Operators
 
    ..   ptg11524036
 
-   :sup:`P0682` Chapter 15 Bit Fiddling
+.. _P0682:
 
    sets bit number 1 in flags to 1 and leaves all the other bits unchanged. This follows because
    any bit combined with 0 by using the | operator is itself, and any bit combined with 1 by
@@ -32766,7 +33261,7 @@ C’s Bitwise Operators
 
    ..   ptg11524036
 
-   :sup:`P0683` C’s Bitwise Operators
+.. _P0683:
 
    You can use this short form instead:
    flags &= ~MASK;
@@ -32803,7 +33298,7 @@ C’s Bitwise Operators
 
    ..   ptg11524036
 
-   :sup:`P0684` Chapter 15 Bit Fiddling
+.. _P0684:
 
    To avoid information peeking around the edges, a bit mask should be at least as wide as the
    value it’s masking.
@@ -32842,7 +33337,7 @@ C’s Bitwise Operators
 
    ..   ptg11524036
 
-   :sup:`P0685` C’s Bitwise Operators
+.. _P0685:
 
    The right-shift assignment operator ( >>= ) shifts the bits in the left-hand variable to the right by
    the indicated number of places, as shown here:
@@ -32880,7 +33375,7 @@ C’s Bitwise Operators
 
    ..   ptg11524036
 
-   :sup:`P0686` Chapter 15 Bit Fiddling
+.. _P0686:
 
 
    Listing 15.1 The binbit.c Program
@@ -32937,7 +33432,7 @@ C’s Bitwise Operators
 
    ..   ptg11524036
 
-   :sup:`P0687` C’s Bitwise Operators
+.. _P0687:
 
    if(++i % 4 == 0 && str[i])
    putchar(' ');
@@ -32988,7 +33483,7 @@ C’s Bitwise Operators
 
    ..   ptg11524036
 
-   :sup:`P0688` Chapter 15 Bit Fiddling
+.. _P0688:
 
    Another Example
    Let’s work through one more example. The goal this time is to write a function that inverts the
@@ -33040,7 +33535,7 @@ C’s Bitwise Operators
 
    ..   ptg11524036
 
-   :sup:`P0689` C’s Bitwise Operators
+.. _P0689:
 
    while (scanf("%d", &number) == 1)
    {
@@ -33092,7 +33587,7 @@ C’s Bitwise Operators
 
    ..   ptg11524036
 
-   :sup:`P0690` Chapter 15 Bit Fiddling
+.. _P0690:
 
    {
    mask |= bitval;
@@ -33137,7 +33632,7 @@ Bit Fields
 
    ..   ptg11524036
 
-   :sup:`P0691` Bit Fields
+.. _P0691:
 
    Because each of these particular fields is just 1 bit, 1 and 0 are the only values you can use for
    assignment. The variable prnt is stored in an int -sized memory cell, but only 4 bits are used in
@@ -33179,7 +33674,7 @@ Bit Fields
 
    ..   ptg11524036
 
-   :sup:`P0692` Chapter 15 Bit Fiddling
+.. _P0692:
 
    One important machine dependency is the order in which fields are placed into an int . On
    some machines, the order is left to right; on others, it is right to left. Also, machines differ
@@ -33227,7 +33722,7 @@ Bit Fields
 
    ..   ptg11524036
 
-   :sup:`P0693` Bit Fields
+.. _P0693:
 
    You can use a value of 1 for the opaque member to indicate that the box is opaque and a 0
    value to indicate transparency. You can do the same for the show_border member. For colors,
@@ -33261,105 +33756,110 @@ Bit Fields
    primary colors. For example, magenta consists of the blue bit and the red bit being on, so it can
    be represented by the combination BLUE | RED .
 
+   ..   ptg11524036
+
+.. _P0694:
+
+
    Listing 15.3 The fields.c Program
 
 --------------------------------------------------------------------------------
 
    .. code-block:: cpp
 
-   /* fields.c -- define and use fields */
-   #include <stdio.h>
-   #include <stdbool.h> //C99, defines bool, true, false
+      /* fields.c -- define and use fields */
+      #include <stdio.h>
+      #include <stdbool.h> //C99, defines bool, true, false
 
-   /* line styles */
-   #define SOLID 0
-   #define DOTTED 1
-   #define DASHED 2
-   /* primary colors */
-   #define BLUE 4
+      /* line styles */
+      #define SOLID 0
+      #define DOTTED 1
+      #define DASHED 2
+      /* primary colors */
+      #define BLUE 4
+      #define GREEN 2
+      #define RED 1
+      /* mixed colors */
+      #define BLACK 0
+      #define YELLOW (RED | GREEN)
+      #define MAGENTA (RED | BLUE)
+      #define CYAN (GREEN | BLUE)
+      #define WHITE (RED | GREEN | BLUE)
+
+      const char * colors[8] = {"black", "red", "green", "yellow",
+      "blue", "magenta", "cyan", "white"};
+
+      struct box_props {
+         bool opaque : 1; // or unsigned int (pre C99)
+         unsigned int fill_color : 3;
+         unsigned int : 4;
+         bool show_border : 1; // or unsigned int (pre C99)
+         unsigned int border_color : 3;
+         unsigned int border_style : 2;
+         unsigned int : 2;
+      };
+
+      void show_settings(const struct box_props * pb);
+
+      int main(void)
+      {
+         /* create and initialize box_props structure */
+         struct box_props box = {true, YELLOW , true, GREEN, DASHED};
+
+         printf("Original box settings:\n");
+         show_settings(&box);
+
+         box.opaque = false;
+         box.fill_color = WHITE;
+         box.border_color = MAGENTA;
+         box.border_style = SOLID;
+         printf("\nModified box settings:\n");
+         show_settings(&box);
+
+         return 0;
+      }
+
+      void show_settings(const struct box_props * pb)
+      {
+         printf("Box is %s.\n",
+         pb->opaque == true ? "opaque": "transparent");
+         printf("The fill color is %s.\n", colors[pb->fill_color]);
+
+         printf("Border %s.\n",
+         pb->show_border == true ? "shown" : "not shown");
+         printf("The border color is %s.\n", colors[pb->border_color]);
+         printf ("The border style is ");
+         switch(pb->border_style)
+         {
+            case SOLID : printf("solid.\n"); break;
+            case DOTTED : printf("dotted.\n"); break;
+            case DASHED : printf("dashed.\n"); break;
+            default : printf("unknown type.\n");
+         }
+      }
 
    ..   ptg11524036
 
-   :sup:`P0694` Chapter 15 Bit Fiddling
+.. _P0695:
 
-   #define GREEN 2
-   #define RED 1
-   /* mixed colors */
-   #define BLACK 0
-   #define YELLOW (RED | GREEN)
-   #define MAGENTA (RED | BLUE)
-   #define CYAN (GREEN | BLUE)
-   #define WHITE (RED | GREEN | BLUE)
-
-   const char * colors[8] = {"black", "red", "green", "yellow",
-   "blue", "magenta", "cyan", "white"};
-
-   struct box_props {
-   bool opaque : 1; // or unsigned int (pre C99)
-   unsigned int fill_color : 3;
-   unsigned int : 4;
-   bool show_border : 1; // or unsigned int (pre C99)
-   unsigned int border_color : 3;
-   unsigned int border_style : 2;
-   unsigned int : 2;
-   };
-
-   void show_settings(const struct box_props * pb);
-
-   int main(void)
-   {
-   /* create and initialize box_props structure */
-   struct box_props box = {true, YELLOW , true, GREEN, DASHED};
-
-   printf("Original box settings:\n");
-   show_settings(&box);
-
-   box.opaque = false;
-   box.fill_color = WHITE;
-   box.border_color = MAGENTA;
-   box.border_style = SOLID;
-   printf("\nModified box settings:\n");
-   show_settings(&box);
-
-   return 0;
-   }
-
-   void show_settings(const struct box_props * pb)
-   {
-   printf("Box is %s.\n",
-   pb->opaque == true ? "opaque": "transparent");
-   printf("The fill color is %s.\n", colors[pb->fill_color]);
-
-   ..   ptg11524036
-
-   :sup:`P0695` Bit Fields
-
-   printf("Border %s.\n",
-   pb->show_border == true ? "shown" : "not shown");
-   printf("The border color is %s.\n", colors[pb->border_color]);
-   printf ("The border style is ");
-   switch(pb->border_style)
-   {
-   case SOLID : printf("solid.\n"); break;
-   case DOTTED : printf("dotted.\n"); break;
-   case DASHED : printf("dashed.\n"); break;
-   default : printf("unknown type.\n");
-   }
-   }
    Here is the output:
-   Original box settings:
-   Box is opaque.
-   The fill color is yellow.
-   Border shown.
-   The border color is green.
-   The border style is dashed.
 
-   Modified box settings:
-   Box is transparent.
-   The fill color is white.
-   Border shown.
-   The border color is magenta.
-   The border style is solid.
+   .. code-block:: bash
+
+      Original box settings:
+      Box is opaque.
+      The fill color is yellow.
+      Border shown.
+      The border color is green.
+      The border style is dashed.
+
+      Modified box settings:
+      Box is transparent.
+      The fill color is white.
+      Border shown.
+      The border color is magenta.
+      The border style is solid.
+
    There are some points to note. First, you can initialize a bit-field structure by using the same
    syntax regular structures use:
    struct box_props box = {YES, YELLOW , YES, GREEN, DASHED};
@@ -33375,7 +33875,7 @@ Bit Fields
 
    ..   ptg11524036
 
-   :sup:`P0696` Chapter 15 Bit Fiddling
+.. _P0696:
 
    Bit Fields and Bitwise Operators
    Bit fields and bitwise operators are two alternative approaches to the same type of programming 
@@ -33420,7 +33920,7 @@ Bit Fields
 
    ..   ptg11524036
 
-   :sup:`P0697` Bit Fields
+.. _P0697:
 
 
    Listing 15.4 The dualview.c Program
@@ -33477,7 +33977,7 @@ Bit Fields
 
    ..   ptg11524036
 
-   :sup:`P0698` Chapter 15 Bit Fiddling
+.. _P0698:
 
    #define FILL_MASK 0xE
    #define BORDER 0x100
@@ -33529,7 +34029,7 @@ Bit Fields
 
    ..   ptg11524036
 
-   :sup:`P0699` Bit Fields
+.. _P0699:
 
    box.us_view |= (FILL_BLUE | FILL_GREEN); /* reset fill */
    box.us_view ^= OPAQUE; /* toggle opacity */
@@ -33581,7 +34081,7 @@ Bit Fields
 
    ..   ptg11524036
 
-   :sup:`P0700` Chapter 15 Bit Fiddling
+.. _P0700:
 
    default : printf("unknown type.\n");
    }
@@ -33601,7 +34101,11 @@ Bit Fields
 
    return ps;
    }
+
    Here is the output:
+
+   .. code-block:: bash
+
    Original box settings:
    Box is opaque.
    The fill color is yellow.
@@ -33631,7 +34135,7 @@ Bit Fields
 
    ..   ptg11524036
 
-   :sup:`P0701` Bit Fields
+.. _P0701:
 
    The border style is dotted.
    The border color is yellow.
@@ -33673,7 +34177,7 @@ Bit Fields
 
    ..   ptg11524036
 
-   :sup:`P0702` Chapter 15 Bit Fiddling
+.. _P0702:
 
    resulting in the color white. The simplest way around this problem is to turn all the color bits
    off first, before setting the new values. That is why the program uses the following code:
@@ -33697,8 +34201,9 @@ Bit Fields
    rightmost position in the value (bits 0–2) and then combine this value with a mask of 07 so
    that all bits but the rightmost three are turned off. Then what is left is in the range 0–7 and can
    be used as an index for the colors array.
-   Caution
-   The correspondence between bit fields and bit positions is implementation dependent. For
+   .. Caution::
+
+      The correspondence between bit fields and bit positions is implementation dependent. For
    example, running Listing 15.4 on an old Macintosh PowerPC produced the following output:
    Original box settings:
    Box is opaque.
@@ -33716,7 +34221,7 @@ Bit Fields
 
    ..   ptg11524036
 
-   :sup:`P0703` Alignment Features (C11)
+.. _P0703:
 
    bits are 10110000101010000000000000000000
 
@@ -33762,7 +34267,7 @@ Alignment Features (C11)
 
    ..   ptg11524036
 
-   :sup:`P0704` Chapter 15 Bit Fiddling
+.. _P0704:
 
    alignment values are termed stricter or stronger than smaller ones, while smaller ones are termed
    weaker .
@@ -33820,7 +34325,7 @@ Alignment Features (C11)
 
    ..   ptg11524036
 
-   :sup:`P0705` Key Concepts
+.. _P0705:
 
    Here is a sample output:
    char alignment: 1
@@ -33860,7 +34365,7 @@ C15 Key Concepts
 
    ..   ptg11524036
 
-   :sup:`P0706` Chapter 15 Bit Fiddling
+.. _P0706:
 
 
 C15 Summary
@@ -33903,7 +34408,7 @@ C15 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0707` Review Questions
+.. _P0707:
 
    2. Convert the following binary values to decimal, octal, and hexadecimal:
    a. 00010101
@@ -33937,7 +34442,7 @@ C15 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0708` Chapter 15 Bit Fiddling
+.. _P0708:
 
    with
    while (bits-- > 0)
@@ -33976,7 +34481,7 @@ C15 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0709` Programming Exercises
+.. _P0709:
 
    4. Write a function that takes two int arguments: a value and a bit position. Have the
    function return 1 if that particular bit position is 1, and have it return 0 otherwise. Test
@@ -34021,7 +34526,7 @@ C15 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0710` Chapter 15 Bit Fiddling
+.. _P0710:
 
    f)change font s)change size a)change alignment
    b)toggle bold i)toggle italic u)toggle underline
@@ -34042,7 +34547,7 @@ C15 Programming Exercises
    long variable to hold the font information and use the bitwise operators instead of bit
    members to manage the information.
 
-   :sup:`P0711`
+.. _P0711:
 
 /C16👊 The C Preprocessor and the C Library
 =============================================
@@ -34079,7 +34584,7 @@ C15 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0712` Chapter 16 The C Preprocessor and the C Library
+.. _P0712:
 
    standard C library, and details how these functions work. We’ll explore the C preprocessor and
    the C library in this chapter, beginning with the preprocessor.
@@ -34122,7 +34627,7 @@ First Steps in Translating a Program
 
    ..   ptg11524036
 
-   :sup:`P0713` Manifest Constants: #define
+.. _P0713:
 
    Also, an implementation may choose to replace each sequence of whitespace characters (other
    than a newline) with a single space. Finally, the program is ready for the preprocessing phase,
@@ -34176,7 +34681,7 @@ Manifest Constants: #define
 
    ..   ptg11524036
 
-   :sup:`P0714` Chapter 16 The C Preprocessor and the C Library
+.. _P0714:
 
    Each #define line (logical line, that is) has three parts. The first part is the #define directive
    itself. The second part is your chosen abbreviation, known as a macro . Some macros, like these
@@ -34214,7 +34719,7 @@ Manifest Constants: #define
 
    ..   ptg11524036
 
-   :sup:`P0715` Manifest Constants: #define
+.. _P0715:
 
    whole C expression. Note, though, that this is a constant string; PX will print only a variable
    named x .
@@ -34252,7 +34757,7 @@ Manifest Constants: #define
 
    ..   ptg11524036
 
-   :sup:`P0716` Chapter 16 The C Preprocessor and the C Library
+.. _P0716:
 
    #define OW "Consistency is the last refuge of the unimagina\
    tive. - Oscar Wilde"
@@ -34291,7 +34796,7 @@ Manifest Constants: #define
 
    ..   ptg11524036
 
-   :sup:`P0717` Manifest Constants: #define
+.. _P0717:
 
    Let’s look at the “not required to be valid” comments. In C, the array size for nonautomatic
    arrays is supposed to be an integer constant expression, meaning that it’s a combination of
@@ -34331,7 +34836,7 @@ Manifest Constants: #define
 
    ..   ptg11524036
 
-   :sup:`P0718` Chapter 16 The C Preprocessor and the C Library
+.. _P0718:
 
    Having the same definition means the bodies must have the same tokens in the same order.
    Therefore, these two definitions agree:
@@ -34369,7 +34874,7 @@ Using Arguments with #define
 
    ..   ptg11524036
 
-   :sup:`P0719` Using Arguments with #define
+.. _P0719:
 
 
    Listing 16.2 The mac_arg.c Program
@@ -34422,7 +34927,7 @@ Using Arguments with #define
 
    ..   ptg11524036
 
-   :sup:`P0720` Chapter 16 The C Preprocessor and the C Library
+.. _P0720:
 
    Evaluating SQUARE(x+2): The result is 17.
    Evaluating 100/SQUARE(2): The result is 100.
@@ -34462,7 +34967,7 @@ Using Arguments with #define
 
    ..   ptg11524036
 
-   :sup:`P0721` Using Arguments with #define
+.. _P0721:
 
    The lesson here is to use as many parentheses as necessary to ensure that operations and associations 
    are done in the right order.
@@ -34504,7 +35009,7 @@ Using Arguments with #define
 
    ..   ptg11524036
 
-   :sup:`P0722` Chapter 16 The C Preprocessor and the C Library
+.. _P0722:
 
 
    Listing 16.3 The subst.c Program
@@ -34555,7 +35060,7 @@ Using Arguments with #define
 
    ..   ptg11524036
 
-   :sup:`P0723` Using Arguments with #define
+.. _P0723:
 
 
    Listing 16.4 The glue.c Program
@@ -34604,7 +35109,7 @@ Using Arguments with #define
 
    ..   ptg11524036
 
-   :sup:`P0724` Chapter 16 The C Preprocessor and the C Library
+.. _P0724:
 
    For the first invocation, _ _VA_ARGS _ _ expands to one argument:
    "Howdy"
@@ -34657,7 +35162,7 @@ Using Arguments with #define
 
    ..   ptg11524036
 
-   :sup:`P0725` Macro or Function?
+.. _P0725:
 
 Macro or Function?
 ------------------
@@ -34704,7 +35209,7 @@ Macro or Function?
 
    ..   ptg11524036
 
-   :sup:`P0726` Chapter 16 The C Preprocessor and the C Library
+.. _P0726:
 
    Suppose you have developed some macro functions you like. Do you have to retype them each
    time you write a new program? Not if you remember the #include directive, reviewed in the
@@ -34746,7 +35251,7 @@ File Inclusion: #include
 
    ..   ptg11524036
 
-   :sup:`P0727` File Inclusion: #include
+.. _P0727:
 
    Including a large header file doesn’t necessarily add much to the size of your program. The
    content of header files, for the most part, is information used by the compiler to generate the
@@ -34799,7 +35304,7 @@ File Inclusion: #include
 
    ..   ptg11524036
 
-   :sup:`P0728` Chapter 16 The C Preprocessor and the C Library
+.. _P0728:
 
 
    Listing 16.7 The name_st.c Source File
@@ -34859,7 +35364,7 @@ File Inclusion: #include
 
    ..   ptg11524036
 
-   :sup:`P0729` File Inclusion: #include
+.. _P0729:
 
    // remember to link with names_st.c
 
@@ -34907,7 +35412,7 @@ File Inclusion: #include
 
    ..   ptg11524036
 
-   :sup:`P0730` Chapter 16 The C Preprocessor and the C Library
+.. _P0730:
 
 
    ■  Type definitions— You might recall that the standard I/O functions use a pointer-toFILE 
@@ -34952,7 +35457,7 @@ Other Directives
 
    ..   ptg11524036
 
-   :sup:`P0731` Other Directives
+.. _P0731:
 
    The #undef Directive
    The #undef directive “undefines” a given #define . That is, suppose you have this definition:
@@ -34992,7 +35497,7 @@ Other Directives
 
    ..   ptg11524036
 
-   :sup:`P0732` Chapter 16 The C Preprocessor and the C Library
+.. _P0732:
 
    The #ifdef , #else , and #endif Directives
    A short example will clarify what conditional compilation does. Consider the following:
@@ -35049,7 +35554,7 @@ Other Directives
 
    ..   ptg11524036
 
-   :sup:`P0733` Other Directives
+.. _P0733:
 
    {
    total += 2*i*i + 1;
@@ -35092,7 +35597,7 @@ Other Directives
 
    ..   ptg11524036
 
-   :sup:`P0734` Chapter 16 The C Preprocessor and the C Library
+.. _P0734:
 
    Here’s another use. Suppose we place the line
    #include "arrays.h"
@@ -35135,7 +35640,7 @@ Other Directives
 
    ..   ptg11524036
 
-   :sup:`P0735` Other Directives
+.. _P0735:
 
 
    Listing 16.10 The names.h Header File
@@ -35193,7 +35698,7 @@ Other Directives
 
    ..   ptg11524036
 
-   :sup:`P0736` Chapter 16 The C Preprocessor and the C Library
+.. _P0736:
 
    The #if and #elif Directives
    The #if directive is more like the regular C if . It is followed by a constant integer expression
@@ -35234,7 +35739,7 @@ Other Directives
 
    ..   ptg11524036
 
-   :sup:`P0737` Other Directives
+.. _P0737:
 
    One use for these conditional compilation features is to make a program more portable. By
    changing a few key definitions at the beginning of a file, you can set up different values and
@@ -35284,7 +35789,7 @@ Other Directives
 
    ..   ptg11524036
 
-   :sup:`P0738` Chapter 16 The C Preprocessor and the C Library
+.. _P0738:
 
    printf("The date is %s.\n", _ _ DATE_ _ );
    printf("The time is %s.\n", _ _ TIME_ _ );
@@ -35327,7 +35832,7 @@ Other Directives
 
    ..   ptg11524036
 
-   :sup:`P0739` Other Directives
+.. _P0739:
 
    $ gcc newish.c
    newish.c:14:2: error: #error Not C11
@@ -35365,7 +35870,7 @@ Other Directives
 
    ..   ptg11524036
 
-   :sup:`P0740` Chapter 16 The C Preprocessor and the C Library
+.. _P0740:
 
    becomes
    #pragma use_bool "true "false
@@ -35405,7 +35910,7 @@ Other Directives
 
    ..   ptg11524036
 
-   :sup:`P0741` Inline Functions (C99)
+.. _P0741:
 
 
    Listing 16.13 The predef.c Program
@@ -35435,7 +35940,11 @@ Other Directives
    printf("%s\n", MYTYPE(&d)); // &d is type int *
    return 0;
    }
+
    Here is the output:
+
+   .. code-block:: bash
+
    int
    double
    other
@@ -35458,7 +35967,7 @@ Inline Functions (C99)
 
    ..   ptg11524036
 
-   :sup:`P0742` Chapter 16 The C Preprocessor and the C Library
+.. _P0742:
 
    exactly), added another approach, inline functions . From the name, you might expect that an
    inline function replaces a function call with inline code, but you would be misled. What the
@@ -35506,7 +36015,7 @@ Inline Functions (C99)
 
    ..   ptg11524036
 
-   :sup:`P0743` Inline Functions (C99)
+.. _P0743:
 
    Because an inline function doesn’t have a separate block of code set aside for it, you can’t take
    its address. (Actually, you can take the address, but then the compiler will generate a non-inline
@@ -35553,7 +36062,7 @@ Inline Functions (C99)
 
    ..   ptg11524036
 
-   :sup:`P0744` Chapter 16 The C Preprocessor and the C Library
+.. _P0744:
 
    ...
 
@@ -35598,7 +36107,7 @@ The C Library
 
    ..   ptg11524036
 
-   :sup:`P0745` The C Library
+.. _P0745:
 
    largely based on the de facto standard. Recognizing the expanded C universe, the committee 
    then sought to redefine the library so that it could be implemented on a wide variety of
@@ -35638,7 +36147,7 @@ The C Library
 
    ..   ptg11524036
 
-   :sup:`P0746` Chapter 16 The C Preprocessor and the C Library
+.. _P0746:
 
    find the function code. Clearly, we can’t go through all the specifics for all systems, but these
    discussions should alert you to what you should look for.
@@ -35679,7 +36188,7 @@ The C Library
 
    ..   ptg11524036
 
-   :sup:`P0747` The Math Library
+.. _P0747:
 
    First, it uses the new prototype format. Second, it changes some types. The size_t type is
    defined as the unsigned integer type that the sizeof operator returns. Usually, it is either
@@ -35722,7 +36231,7 @@ The Math Library
 
    ..   ptg11524036
 
-   :sup:`P0748` Chapter 16 The C Preprocessor and the C Library
+.. _P0748:
 
    Prototype Description
    double log(double x) Returns the natural logarithm of x
@@ -35762,7 +36271,7 @@ The Math Library
 
    ..   ptg11524036
 
-   :sup:`P0749` The Math Library
+.. _P0749:
 
 
    Listing 16.14 The rect_pol.c Program
@@ -35821,7 +36330,7 @@ The Math Library
 
    ..   ptg11524036
 
-   :sup:`P0750` Chapter 16 The C Preprocessor and the C Library
+.. _P0750:
 
    Here’s a sample run:
    Enter x and y coordinates; enter q to quit:
@@ -35868,7 +36377,7 @@ The Math Library
 
    ..   ptg11524036
 
-   :sup:`P0751` The Math Library
+.. _P0751:
 
    #include <math.h>
    #define RAD_TO_DEG (180/(4 * atanl(1)))
@@ -35906,7 +36415,11 @@ The Math Library
 
    return 0;
    }
+
    Here is the output:
+
+   .. code-block:: bash
+
    6.70820379257202148
    6.70820393249936942
    6.70820393249936909
@@ -35917,7 +36430,7 @@ The Math Library
 
    ..   ptg11524036
 
-   :sup:`P0752` Chapter 16 The C Preprocessor and the C Library
+.. _P0752:
 
    A point of interest is how to get a macro using _Generic to act like a function. The definition
    for SIN() takes perhaps the more obvious approach: Each labeled value is a function call, so
@@ -35961,7 +36474,7 @@ The Math Library
 
    ..   ptg11524036
 
-   :sup:`P0753` The General Utilities Library
+.. _P0753:
 
 
 The General Utilities Library
@@ -36016,7 +36529,7 @@ The General Utilities Library
 
    ..   ptg11524036
 
-   :sup:`P0754` Chapter 16 The C Preprocessor and the C Library
+.. _P0754:
 
    puts("SeeSaw Software!");
    }
@@ -36057,7 +36570,7 @@ The General Utilities Library
 
    ..   ptg11524036
 
-   :sup:`P0755` The General Utilities Library
+.. _P0755:
 
    The functions registered by atexit() should, like sign_off() and too_bad() , be type void
    functions taking no arguments. Typically, they would perform housekeeping tasks, such as
@@ -36098,7 +36611,7 @@ The General Utilities Library
 
    ..   ptg11524036
 
-   :sup:`P0756` Chapter 16 The C Preprocessor and the C Library
+.. _P0756:
 
    Finally, qsort() requires a pointer to the function to be used to determine the sorting
    order. The comparison function should take two arguments: pointers to the two items being
@@ -36157,7 +36670,7 @@ The General Utilities Library
 
    ..   ptg11524036
 
-   :sup:`P0757` The General Utilities Library
+.. _P0757:
 
    ar[index] = (double)rand()/((double) rand() + 0.1);
    }
@@ -36207,7 +36720,7 @@ The General Utilities Library
 
    ..   ptg11524036
 
-   :sup:`P0758` Chapter 16 The C Preprocessor and the C Library
+.. _P0758:
 
    1.1406 1.1943 1.3034 1.6044 1.6058 1.6183
    1.6475 1.7931 1.9973 2.1577 2.2426 2.4332
@@ -36247,7 +36760,7 @@ The General Utilities Library
 
    ..   ptg11524036
 
-   :sup:`P0759` The General Utilities Library
+.. _P0759:
 
    /* sort by increasing value */
    int mycomp(const void * p1, const void * p2)
@@ -36289,7 +36802,7 @@ The General Utilities Library
 
    ..   ptg11524036
 
-   :sup:`P0760` Chapter 16 The C Preprocessor and the C Library
+.. _P0760:
 
    Here, comp is the name of the comparison function. What should this function look like?
    Suppose you want to sort by last name, then by first name. You could write the function this
@@ -36338,7 +36851,7 @@ The Assert Library
 
    ..   ptg11524036
 
-   :sup:`P0761` The Assert Library
+.. _P0761:
 
 
    Listing 16.18 The assert.c Program
@@ -36389,7 +36902,7 @@ The Assert Library
 
    ..   ptg11524036
 
-   :sup:`P0762` Chapter 16 The C Preprocessor and the C Library
+.. _P0762:
 
    The assert() approach has several advantages, however. It identifies the file automatically. It
    identifies the line number where the problem occurs automatically. Finally, there’s a mechanism 
@@ -36437,7 +36950,7 @@ The Assert Library
 
    ..   ptg11524036
 
-   :sup:`P0763` memcpy() and memmove() from the string.h Library
+.. _P0763:
 
    The requirement that the first argument to _Static_assert be an integer constant expression
    guarantees that it can be evaluated during compilation. (Recall that sizeof expressions count
@@ -36484,7 +36997,7 @@ The Assert Library
 
    ..   ptg11524036
 
-   :sup:`P0764` Chapter 16 The C Preprocessor and the C Library
+.. _P0764:
 
 
    Listing 16.20 The mems.c Program
@@ -36539,9 +37052,12 @@ The Assert Library
 
    ..   ptg11524036
 
-   :sup:`P0765` Variable Arguments: stdarg.h
+.. _P0765:
 
    Here is the output:
+
+   .. code-block:: bash
+
    memcpy() used:
    values (original data):
    1 2 3 4 5 6 7 8 9 10
@@ -36583,7 +37099,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0766` Chapter 16 The C Preprocessor and the C Library
+.. _P0766:
 
    The rightmost parameter (the one just before the ellipses) plays a special role; the standard uses
    the term parmN as a name to use in discussion. In the preceding examples, parmN would be n
@@ -36626,7 +37142,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0767` Variable Arguments: stdarg.h
+.. _P0767:
 
    Because va_arg() doesn’t provide a way to back up to previous arguments, it may be useful
    to preserve a copy of the va_list type variable. C99 has added a macro for that purpose. It’s
@@ -36685,7 +37201,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0768` Chapter 16 The C Preprocessor and the C Library
+.. _P0768:
 
    double tot = 0;
    int i;
@@ -36697,7 +37213,11 @@ Variable Arguments: stdarg.h
 
    return tot;
    }
+
    Here is the output:
+
+   .. code-block:: bash
+
    return value for sum(3, 1.1, 2.5, 13.3): 16.9
    return value for sum(6, 1.1, 2.1, 13.1, 4.1, 5.1, 6.1): 31.6
    If you check the arithmetic, you’ll find that sum() did add three numbers to the first function
@@ -36731,7 +37251,7 @@ C16 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0769` Review Questions
+.. _P0769:
 
    a.
    #define FPM 5280 /* feet per mile */
@@ -36765,7 +37285,7 @@ C16 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0770` Chapter 16 The C Preprocessor and the C Library
+.. _P0770:
 
    7. Define a macro that prints the name, value, and address of an int variable in the
    following format:
@@ -36804,7 +37324,7 @@ C16 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0771` Programming Exercises
+.. _P0771:
 
    2. The harmonic mean of two numbers is obtained by taking the inverses of the two
    numbers, averaging them, and taking the inverse of the result. Use a #define directive
@@ -36839,7 +37359,7 @@ C16 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0772` Chapter 16 The C Preprocessor and the C Library
+.. _P0772:
 
    then runs a loop until that amount of time has passed. Write a simple program that tests
    the function.
@@ -36881,7 +37401,7 @@ C16 Programming Exercises
    to the first element, and so on. Complete the program by providing the code for show_
    array() and new_d_array() .
 
-   :sup:`P0773`
+.. _P0773:
 
 /C17👊 Advanced Data Representation
 =======================================
@@ -36919,7 +37439,7 @@ C16 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0774` Chapter 17 Advanced Data Representation
+.. _P0774:
 
    the two types have different sets of valid operations. You can multiply one integer by another,
    for example, but you can’t multiply a pointer by a pointer. You can use the * operator to dereference 
@@ -36965,7 +37485,7 @@ Exploring Data Representation
 
    ..   ptg11524036
 
-   :sup:`P0775` Exploring Data Representation
+.. _P0775:
 
    Let’s tackle a particular case of representing data. Suppose you want to write a program that
    enables you to enter a list of all the movies (including videotapes, DVDs, and Blu-ray) you’ve
@@ -37026,7 +37546,7 @@ Exploring Data Representation
 
    ..   ptg11524036
 
-   :sup:`P0776` Chapter 17 Advanced Data Representation
+.. _P0776:
 
    printf("Bye!\n");
 
@@ -37074,7 +37594,7 @@ Exploring Data Representation
 
    ..   ptg11524036
 
-   :sup:`P0777` Beyond the Array to the Linked List
+.. _P0777:
 
    ...
    int n, i;
@@ -37113,7 +37633,7 @@ Beyond the Array to the Linked List
 
    ..   ptg11524036
 
-   :sup:`P0778` Chapter 17 Advanced Data Representation
+.. _P0778:
 
    One solution, which we won’t use, is to create a large array of pointers and assign values to the
    pointers, one by one, as new structures are allocated:
@@ -37148,7 +37668,7 @@ Beyond the Array to the Linked List
 
    ..   ptg11524036
 
-   :sup:`P0779` Beyond the Array to the Linked List
+.. _P0779:
 
    There’s a better way. Each time you use malloc() to allocate space for a new structure, you
    can also allocate space for a new pointer. “But,” you say, “then I need another pointer to keep
@@ -37192,7 +37712,7 @@ Beyond the Array to the Linked List
 
    ..   ptg11524036
 
-   :sup:`P0780` Chapter 17 Advanced Data Representation
+.. _P0780:
 
    Now suppose the user enters a second movie and rating—for example, Midnight in Paris
    and 8 . The program allocates space for a second film structure, storing the address of the new
@@ -37222,7 +37742,7 @@ Beyond the Array to the Linked List
 
    ..   ptg11524036
 
-   :sup:`P0781` Beyond the Array to the Linked List
+.. _P0781:
 
    Using a Linked List
    Now that you have a picture of how a linked list works, let’s implement it. Listing 17.2 modifies 
@@ -37269,7 +37789,7 @@ Beyond the Array to the Linked List
 
    ..   ptg11524036
 
-   :sup:`P0782` Chapter 17 Advanced Data Representation
+.. _P0782:
 
    struct film * next; /* points to next struct in list */
    };
@@ -37321,7 +37841,7 @@ Beyond the Array to the Linked List
 
    ..   ptg11524036
 
-   :sup:`P0783` Beyond the Array to the Linked List
+.. _P0783:
 
    current = current->next;
    }
@@ -37364,7 +37884,7 @@ Beyond the Array to the Linked List
 
    ..   ptg11524036
 
-   :sup:`P0784` Chapter 17 Advanced Data Representation
+.. _P0784:
 
    You can use that fact to terminate the printing. Here’s all the code films2.c uses to display
    the list:
@@ -37403,7 +37923,7 @@ Beyond the Array to the Linked List
 
    ..   ptg11524036
 
-   :sup:`P0785` Beyond the Array to the Linked List
+.. _P0785:
 
    should copy the film title from the input array to the title member, and you should get a
    value for the rating member. The following code does these things:
@@ -37448,7 +37968,7 @@ Beyond the Array to the Linked List
 
    ..   ptg11524036
 
-   :sup:`P0786` Chapter 17 Advanced Data Representation
+.. _P0786:
 
    {
    free(current);
@@ -37494,7 +38014,7 @@ Abstract Data Types (ADTs)
 
    ..   ptg11524036
 
-   :sup:`P0787` Abstract Data Types (ADTs)
+.. _P0787:
 
    therefore, shares the properties of integers. The allowed arithmetic operations are changing
    the sign, adding two int s, subtracting two int s, multiplying two int s, dividing one int by
@@ -37538,7 +38058,7 @@ Abstract Data Types (ADTs)
 
    ..   ptg11524036
 
-   :sup:`P0788` Chapter 17 Advanced Data Representation
+.. _P0788:
 
    Getting Abstract
    Basically, all you need for the movie project is a list of items. Each item contains a movie name
@@ -37590,7 +38110,7 @@ Abstract Data Types (ADTs)
 
    ..   ptg11524036
 
-   :sup:`P0789` Abstract Data Types (ADTs)
+.. _P0789:
 
    Determine number of items in the list.
    Add item to end of list.
@@ -37632,7 +38152,7 @@ Abstract Data Types (ADTs)
 
    ..   ptg11524036
 
-   :sup:`P0790` Chapter 17 Advanced Data Representation
+.. _P0790:
 
    Node the type name for a struct node structure. Finally, to manage a linked list, we need a
    pointer to its beginning, and we’ve used typedef to make List the name for a pointer of this
@@ -37673,7 +38193,7 @@ Abstract Data Types (ADTs)
 
    ..   ptg11524036
 
-   :sup:`P0791` Abstract Data Types (ADTs)
+.. _P0791:
 
    /* postconditions: the list is initialized to empty */
    void InitializeList(List * plist);
@@ -37729,7 +38249,7 @@ Abstract Data Types (ADTs)
 
    ..   ptg11524036
 
-   :sup:`P0792` Chapter 17 Advanced Data Representation
+.. _P0792:
 
 
    /* general type definitions */
@@ -37781,7 +38301,7 @@ Abstract Data Types (ADTs)
 
    ..   ptg11524036
 
-   :sup:`P0793` Abstract Data Types (ADTs)
+.. _P0793:
 
    /* pfun points to a function that takes an */
    /* Item argument and has no return value */
@@ -37826,7 +38346,7 @@ Abstract Data Types (ADTs)
 
    ..   ptg11524036
 
-   :sup:`P0794` Chapter 17 Advanced Data Representation
+.. _P0794:
 
    Initialize the list to empty.
    While the list isn't full and while there's more input:
@@ -37880,7 +38400,7 @@ Abstract Data Types (ADTs)
 
    ..   ptg11524036
 
-   :sup:`P0795` Abstract Data Types (ADTs)
+.. _P0795:
 
    fprintf(stderr,"Problem allocating memory\n");
    break;
@@ -37932,7 +38452,7 @@ Abstract Data Types (ADTs)
 
    ..   ptg11524036
 
-   :sup:`P0796` Chapter 17 Advanced Data Representation
+.. _P0796:
 
    continue; // dispose of rest of line
    }
@@ -37988,7 +38508,7 @@ Abstract Data Types (ADTs)
 
    ..   ptg11524036
 
-   :sup:`P0797` Abstract Data Types (ADTs)
+.. _P0797:
 
    /* returns true if list is full */
    bool ListIsFull(const List * plist)
@@ -38038,7 +38558,7 @@ Abstract Data Types (ADTs)
 
    ..   ptg11524036
 
-   :sup:`P0798` Chapter 17 Advanced Data Representation
+.. _P0798:
 
    *plist = pnew; /* pnew at head of list */
    else
@@ -38086,7 +38606,7 @@ Abstract Data Types (ADTs)
 
    ..   ptg11524036
 
-   :sup:`P0799` Abstract Data Types (ADTs)
+.. _P0799:
 
    Program Notes
    The list.c file has many interesting points. For one, it illustrates when you might use functions 
@@ -38139,7 +38659,7 @@ Abstract Data Types (ADTs)
 
    ..   ptg11524036
 
-   :sup:`P0800` Chapter 17 Advanced Data Representation
+.. _P0800:
 
    The InitializeList() function initializes a list to empty. In our implementation, that means
    setting a type List variable to NULL . As mentioned earlier, this requires passing a pointer to the
@@ -38187,7 +38707,7 @@ Abstract Data Types (ADTs)
 
    ..   ptg11524036
 
-   :sup:`P0801` Abstract Data Types (ADTs)
+.. _P0801:
 
    scan = scan->next; /* find end of list */
    scan->next = pnew; /* add pnew to end */
@@ -38232,7 +38752,7 @@ Abstract Data Types (ADTs)
 
    ..   ptg11524036
 
-   :sup:`P0802` Chapter 17 Advanced Data Representation
+.. _P0802:
 
    Node * psave;
 
@@ -38281,7 +38801,7 @@ Abstract Data Types (ADTs)
 
    ..   ptg11524036
 
-   :sup:`P0803` Abstract Data Types (ADTs)
+.. _P0803:
 
    to the tasks. That is, it talks about creating a list and adding items to the list, not about calling
    memory functions or resetting pointers. In short, Listing 17.4 expresses the program in terms of
@@ -38327,7 +38847,7 @@ Abstract Data Types (ADTs)
 
    ..   ptg11524036
 
-   :sup:`P0804` Chapter 17 Advanced Data Representation
+.. _P0804:
 
    int items; /* number of items in list */
    } List;
@@ -38369,7 +38889,7 @@ Getting Queued with an ADT
 
    ..   ptg11524036
 
-   :sup:`P0805` Getting Queued with an ADT
+.. _P0805:
 
    Defining an Interface
    The interface definition will go into a file called queue.h . We’ll use C’s typedef facility to
@@ -38410,7 +38930,7 @@ Getting Queued with an ADT
 
    ..   ptg11524036
 
-   :sup:`P0806` Chapter 17 Advanced Data Representation
+.. _P0806:
 
    The only argument that should be needed for a function to empty the queue is the queue’s
    address, suggesting this prototype:
@@ -38445,7 +38965,7 @@ Getting Queued with an ADT
 
    ..   ptg11524036
 
-   :sup:`P0807` Getting Queued with an ADT
+.. _P0807:
 
 
    Four folks in a queue
@@ -38485,7 +39005,7 @@ Getting Queued with an ADT
 
    ..   ptg11524036
 
-   :sup:`P0808` Chapter 17 Advanced Data Representation
+.. _P0808:
 
    For the queue, you need to keep track of the front and rear items. You can use pointers to do
    this. Also, you can use a counter to keep track of the number of items in a queue. Thus, the
@@ -38523,7 +39043,7 @@ Getting Queued with an ADT
 
    ..   ptg11524036
 
-   :sup:`P0809` Getting Queued with an ADT
+.. _P0809:
 
    int items; /* number of items in queue */
    } Queue;
@@ -38577,7 +39097,7 @@ Getting Queued with an ADT
 
    ..   ptg11524036
 
-   :sup:`P0810` Chapter 17 Advanced Data Representation
+.. _P0810:
 
    /* precondition: pq points to previously initialized queue */
    /* postcondition: returns True if queue is full, else False */
@@ -38626,7 +39146,7 @@ Getting Queued with an ADT
 
    ..   ptg11524036
 
-   :sup:`P0811` Getting Queued with an ADT
+.. _P0811:
 
    void InitializeQueue(Queue * pq)
    {
@@ -38670,7 +39190,7 @@ Getting Queued with an ADT
 
    ..   ptg11524036
 
-   :sup:`P0812` Chapter 17 Advanced Data Representation
+.. _P0812:
 
    if (QueueIsFull(pq))
    return false;
@@ -38715,7 +39235,7 @@ Getting Queued with an ADT
 
    ..   ptg11524036
 
-   :sup:`P0813` Getting Queued with an ADT
+.. _P0813:
 
    free(pt);
    pq->items--;
@@ -38770,7 +39290,7 @@ Getting Queued with an ADT
 
    ..   ptg11524036
 
-   :sup:`P0814` Chapter 17 Advanced Data Representation
+.. _P0814:
 
    static void CopyToItem(Node * pn, Item * pi);
 
@@ -38822,7 +39342,7 @@ Getting Queued with an ADT
 
    ..   ptg11524036
 
-   :sup:`P0815` Getting Queued with an ADT
+.. _P0815:
 
    bool DeQueue(Item * pitem, Queue * pq)
    {
@@ -38870,7 +39390,7 @@ Getting Queued with an ADT
 
    ..   ptg11524036
 
-   :sup:`P0816` Chapter 17 Advanced Data Representation
+.. _P0816:
 
    Remember, too, that you have to link queue.c and use_q.c .
 
@@ -38926,7 +39446,7 @@ Getting Queued with an ADT
 
    ..   ptg11524036
 
-   :sup:`P0817` Getting Queued with an ADT
+.. _P0817:
 
    EmptyTheQueue(&line);
    puts("Bye!");
@@ -38973,7 +39493,7 @@ Getting Queued with an ADT
 
    ..   ptg11524036
 
-   :sup:`P0818` Chapter 17 Advanced Data Representation
+.. _P0818:
 
 
 Simulating with a Queue
@@ -39021,7 +39541,7 @@ Simulating with a Queue
 
    ..   ptg11524036
 
-   :sup:`P0819` Simulating with a Queue
+.. _P0819:
 
    The core code can look like this, with each cycle corresponding to one minute of activity:
    for (cycle = 0; cycle < cyclelimit; cycle++)
@@ -39076,7 +39596,7 @@ Simulating with a Queue
 
    ..   ptg11524036
 
-   :sup:`P0820` Chapter 17 Advanced Data Representation
+.. _P0820:
 
    Think of how much messier and more obscure this code would look if it were sprinkled with
    malloc() and free() functions and pointers to nodes. Having the queue package enables you
@@ -39135,7 +39655,7 @@ Simulating with a Queue
 
    ..   ptg11524036
 
-   :sup:`P0821` Simulating with a Queue
+.. _P0821:
 
    puts("Case Study: Sigmund Lander's Advice Booth");
    puts("Enter the number of simulation hours:");
@@ -39187,7 +39707,7 @@ Simulating with a Queue
 
    ..   ptg11524036
 
-   :sup:`P0822` Chapter 17 Advanced Data Representation
+.. _P0822:
 
 
    return 0;
@@ -39237,7 +39757,7 @@ Simulating with a Queue
 
    ..   ptg11524036
 
-   :sup:`P0823` Simulating with a Queue
+.. _P0823:
 
    Case Study: Sigmund Lander's Advice Booth
    Enter the number of simulation hours:
@@ -39287,7 +39807,7 @@ Simulating with a Queue
 
    ..   ptg11524036
 
-   :sup:`P0824` Chapter 17 Advanced Data Representation
+.. _P0824:
 
    Case Study: Sigmund Lander's Advice Booth
    Enter the number of simulation hours:
@@ -39334,7 +39854,7 @@ The Linked List Versus the Array
 
    ..   ptg11524036
 
-   :sup:`P0825` The Linked List Versus the Array
+.. _P0825:
 
 
    make room by shifting items
@@ -39365,7 +39885,7 @@ The Linked List Versus the Array
 
    ..   ptg11524036
 
-   :sup:`P0826` Chapter 17 Advanced Data Representation
+.. _P0826:
 
    Next, consider how to access the members of a list. With an array, you can use the array index
    to access any element immediately. This is called random access . With a linked list, you have
@@ -39412,7 +39932,7 @@ The Linked List Versus the Array
 
    ..   ptg11524036
 
-   :sup:`P0827` The Linked List Versus the Array
+.. _P0827:
 
    choice must be in the range 0–48, so the next guess would be (0 + 48) / 2, or 24. If element 24
    were too early in the alphabet, the next guess would be (25 + 48) / 2, or 36. This is where the
@@ -39464,7 +39984,7 @@ The Linked List Versus the Array
 
    ..   ptg11524036
 
-   :sup:`P0828` Chapter 17 Advanced Data Representation
+.. _P0828:
 
    You can see, then, that the choice of data type depends on the problem. If the situation calls
    for a list that is continuously resized with frequent insertions and deletions but that isn’t
@@ -39506,7 +40026,7 @@ Binary Search Trees
 
    ..   ptg11524036
 
-   :sup:`P0829` Binary Search Trees
+.. _P0829:
 
    Each node in the binary search tree is itself the root of the nodes descending from it, making
    the node and its descendants a subtree . In Figure 17.12 , for example, the nodes containing the
@@ -39549,7 +40069,7 @@ Binary Search Trees
 
    ..   ptg11524036
 
-   :sup:`P0830` Chapter 17 Advanced Data Representation
+.. _P0830:
 
    Determining the number of items in the tree.
    Adding an item to the tree.
@@ -39597,7 +40117,7 @@ Binary Search Trees
 
    ..   ptg11524036
 
-   :sup:`P0831` Binary Search Trees
+.. _P0831:
 
    #ifndef _TREE_H_
    #define _TREE_H_
@@ -39649,7 +40169,7 @@ Binary Search Trees
 
    ..   ptg11524036
 
-   :sup:`P0832` Chapter 17 Advanced Data Representation
+.. _P0832:
 
    /* postconditions: function returns number of items in */
    /* tree */
@@ -39697,7 +40217,7 @@ Binary Search Trees
 
    ..   ptg11524036
 
-   :sup:`P0833` Binary Search Trees
+.. _P0833:
 
    The Binary Tree Implementation
    Next, proceed to the task of implementing the splendid functions outlined in tree.h . The
@@ -39745,7 +40265,7 @@ Binary Search Trees
 
    ..   ptg11524036
 
-   :sup:`P0834` Chapter 17 Advanced Data Representation
+.. _P0834:
 
 
    return true; /* successful return */
@@ -39792,7 +40312,7 @@ Binary Search Trees
 
    ..   ptg11524036
 
-   :sup:`P0835` Binary Search Trees
+.. _P0835:
 
    series of function calls ends when a left or right subtree is empty—that is, when root->left or
    root->right is NULL . Keep in mind that root is a pointer to the top of the current subtree, so
@@ -39841,7 +40361,7 @@ Binary Search Trees
 
    ..   ptg11524036
 
-   :sup:`P0836` Chapter 17 Advanced Data Representation
+.. _P0836:
 
    return true;
    else
@@ -39884,7 +40404,7 @@ Binary Search Trees
 
    ..   ptg11524036
 
-   :sup:`P0837` Binary Search Trees
+.. _P0837:
 
    look.parent = look.child;
    look.child = look.child->left;
@@ -39922,7 +40442,7 @@ Binary Search Trees
 
    ..   ptg11524036
 
-   :sup:`P0838` Chapter 17 Advanced Data Representation
+.. _P0838:
 
 
    data
@@ -39990,7 +40510,7 @@ Binary Search Trees
 
    ..   ptg11524036
 
-   :sup:`P0839` Binary Search Trees
+.. _P0839:
 
    The final case is deleting a node with two subtrees. One subtree, say the left, can be attached
    to where the deleted node was formerly attached. But where should the remaining subtree go?
@@ -40016,7 +40536,7 @@ Binary Search Trees
 
    ..   ptg11524036
 
-   :sup:`P0840` Chapter 17 Advanced Data Representation
+.. _P0840:
 
    Deleting a Node
    Now you can begin to plan the necessary functions, separating the job into two tasks. One is
@@ -40064,7 +40584,7 @@ Binary Search Trees
 
    ..   ptg11524036
 
-   :sup:`P0841` Binary Search Trees
+.. _P0841:
 
    This function explicitly handles three cases: a node with no left child, a node with no right
    child, and a node with two children. A node with no children can be considered a special case
@@ -40110,7 +40630,7 @@ Binary Search Trees
 
    ..   ptg11524036
 
-   :sup:`P0842` Chapter 17 Advanced Data Representation
+.. _P0842:
 
    returning false . If the Item is found, the function handles three cases. First, a NULL value for
    look.parent means the item was found in the root node. In this case, there is no parent node
@@ -40154,7 +40674,7 @@ Binary Search Trees
 
    ..   ptg11524036
 
-   :sup:`P0843` Binary Search Trees
+.. _P0843:
 
    Emptying the Tree
    Emptying the tree is basically the same process as traversing it. That is, the code needs to visit
@@ -40212,7 +40732,7 @@ Binary Search Trees
 
    ..   ptg11524036
 
-   :sup:`P0844` Chapter 17 Advanced Data Representation
+.. _P0844:
 
    } Pair;
 
@@ -40264,7 +40784,7 @@ Binary Search Trees
 
    ..   ptg11524036
 
-   :sup:`P0845` Binary Search Trees
+.. _P0845:
 
    return false; /* early return */
    }
@@ -40316,7 +40836,7 @@ Binary Search Trees
 
    ..   ptg11524036
 
-   :sup:`P0846` Chapter 17 Advanced Data Representation
+.. _P0846:
 
 
    void Traverse (const Tree * ptree, void (* pfun)(Item item))
@@ -40368,7 +40888,7 @@ Binary Search Trees
 
    ..   ptg11524036
 
-   :sup:`P0847` Binary Search Trees
+.. _P0847:
 
    else
    AddNode(new_node, root->left);/* else process subtree*/
@@ -40420,7 +40940,7 @@ Binary Search Trees
 
    ..   ptg11524036
 
-   :sup:`P0848` Chapter 17 Advanced Data Representation
+.. _P0848:
 
    if (new_node != NULL)
    {
@@ -40472,7 +40992,7 @@ Binary Search Trees
 
    ..   ptg11524036
 
-   :sup:`P0849` Binary Search Trees
+.. _P0849:
 
    free(temp);
    }
@@ -40524,7 +41044,7 @@ Binary Search Trees
 
    ..   ptg11524036
 
-   :sup:`P0850` Chapter 17 Advanced Data Representation
+.. _P0850:
 
 
    int main(void)
@@ -40576,7 +41096,7 @@ Binary Search Trees
 
    ..   ptg11524036
 
-   :sup:`P0851` Binary Search Trees
+.. _P0851:
 
    else
    break;
@@ -40628,7 +41148,7 @@ Binary Search Trees
 
    ..   ptg11524036
 
-   :sup:`P0852` Chapter 17 Advanced Data Representation
+.. _P0852:
 
    puts("No entries!");
    return; /* quit function if tree is empty */
@@ -40680,7 +41200,7 @@ Binary Search Trees
 
    ..   ptg11524036
 
-   :sup:`P0853` Binary Search Trees
+.. _P0853:
 
    }
 
@@ -40730,7 +41250,7 @@ Binary Search Trees
 
    ..   ptg11524036
 
-   :sup:`P0854` Chapter 17 Advanced Data Representation
+.. _P0854:
 
    q) quit
    a
@@ -40778,7 +41298,7 @@ Binary Search Trees
 
    ..   ptg11524036
 
-   :sup:`P0855` Binary Search Trees
+.. _P0855:
 
    You might want a binary search tree that does allow duplicate items. Suppose, for example,
    that you wanted to analyze some text by tracking how many times each word in the text
@@ -40815,7 +41335,7 @@ Binary Search Trees
 
    ..   ptg11524036
 
-   :sup:`P0856` Chapter 17 Advanced Data Representation
+.. _P0856:
 
    Tip Add-On Libraries
    You’ve probably concluded that implementing an ADT such as a linked list or a tree is hard
@@ -40862,7 +41382,7 @@ C17 Key Concepts
 
    ..   ptg11524036
 
-   :sup:`P0857` Review Questions
+.. _P0857:
 
    that correspond to the allowed operations. The second step is implementing the interface. In C,
    you can do this with a source code file that supplies the function definitions corresponding to
@@ -40902,7 +41422,7 @@ C17 Review Questions
 
    ..   ptg11524036
 
-   :sup:`P0858` Chapter 17 Advanced Data Representation
+.. _P0858:
 
    7. Suppose a program constructs a binary search tree of words, using the algorithm
    developed in this chapter. Draw four trees, one for each of the following word entry
@@ -40941,7 +41461,7 @@ C17 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0859` Programming Exercises
+.. _P0859:
 
    5. Write a program that lets you input a string. The program then should push the
    characters of the string onto a stack, one by one (see review question 5), and then pop
@@ -40975,7 +41495,7 @@ C17 Programming Exercises
 
    ..   ptg11524036
 
-   :sup:`P0861`
+.. _P0861:
 
 /Appendix A
 ===========
@@ -41007,7 +41527,7 @@ Answers to Review Questions for Chapter 1
 
    ..   ptg11524036
 
-   :sup:`P0862` Appendix A Answers to the Review Questions
+.. _P0862:
 
  
 Answers to Review Questions for Chapter 2
@@ -41047,7 +41567,7 @@ Answers to Review Questions for Chapter 2
 
    ..   ptg11524036
 
-   :sup:`P0863` Answers to Review Questions for Chapter P3
+.. _P0863:
 
    (Note that there is no space after the period. You could have had a space by using "
    Have instead of "Have .)
@@ -41088,7 +41608,7 @@ Answers to Review Questions for Chapter 3
 
    ..   ptg11524036
 
-   :sup:`P0864` Appendix A Answers to the Review Questions
+.. _P0864:
 
    3. To get exactly 32 bits, you could use int32_t , provided it was defined for your system.
    To get the smallest type that could store at least 32 bits, use int_least32_t . And to get
@@ -41127,7 +41647,7 @@ Answers to Review Questions for Chapter 3
 
    ..   ptg11524036
 
-   :sup:`P0865` Answers to Review Questions for Chapter P3
+.. _P0865:
 
    printf("You owe $%f plus $%f in taxes for a total of $%f.\n", g, tax, h);
    return 0;
@@ -41164,7 +41684,7 @@ Answers to Review Questions for Chapter 3
 
    ..   ptg11524036
 
-   :sup:`P0866` Appendix A Answers to the Review Questions
+.. _P0866:
 
    10. Line 0: Should have #include <stdio.h> .
    Line 1: Use /* and */ or else //
@@ -41204,7 +41724,7 @@ Answers to Review Questions for Chapter 4
 
    ..   ptg11524036
 
-   :sup:`P0867` Answers to Review Questions for Chapter P4
+.. _P0867:
 
     (Note: The first character is a character constant, the second is a decimal integer
    converted to a character, and the third is an ASCII representation, in octal, of a
@@ -41247,7 +41767,7 @@ Answers to Review Questions for Chapter 4
 
    ..   ptg11524036
 
-   :sup:`P0868` Appendix A Answers to the Review Questions
+.. _P0868:
 
    c. %-12.2E
    d. %+10.3f
@@ -41287,7 +41807,7 @@ Answers to Review Questions for Chapter 4
 
    ..   ptg11524036
 
-   :sup:`P0869` Answers to Review Questions for Chapter P5
+.. _P0869:
 
    #define ( {
    #define ) }
@@ -41328,7 +41848,7 @@ Answers to Review Questions for Chapter 5
 
    ..   ptg11524036
 
-   :sup:`P0870` Appendix A Answers to the Review Questions
+.. _P0870:
 
    Line 7 : Because 1 and i are both integers, the result of the division will be 1 when i is 1 ,
    and 0 for all larger values. Using n = 1.0/i; would cause i to be converted to floating
@@ -41372,7 +41892,7 @@ Answers to Review Questions for Chapter 5
 
    ..   ptg11524036
 
-   :sup:`P0871` Answers to Review Questions for Chapter P5
+.. _P0871:
 
    The first time through, the scanf() outside the loop is used. Thereafter, the scanf()
    at the end of the loop (and hence just before the loop begins again) is used. This is a
@@ -41414,7 +41934,7 @@ Answers to Review Questions for Chapter 5
 
    ..   ptg11524036
 
-   :sup:`P0872` Appendix A Answers to the Review Questions
+.. _P0872:
 
    b.
    101
@@ -41454,7 +41974,7 @@ Answers to Review Questions for Chapter 6
 
    ..   ptg11524036
 
-   :sup:`P0873` Answers to Review Questions for Chapter P6
+.. _P0873:
 
    4. a. scanf("%d", &x) == 1
    b. x != 5
@@ -41497,7 +42017,7 @@ Answers to Review Questions for Chapter 6
 
    ..   ptg11524036
 
-   :sup:`P0874` Appendix A Answers to the Review Questions
+.. _P0874:
 
    return 0;
    }
@@ -41537,7 +42057,7 @@ Answers to Review Questions for Chapter 6
 
    ..   ptg11524036
 
-   :sup:`P0875` Answers to Review Questions for Chapter P6
+.. _P0875:
 
    10. a. mint
    b. 10 elements
@@ -41582,7 +42102,7 @@ Answers to Review Questions for Chapter 6
 
    ..   ptg11524036
 
-   :sup:`P0876` Appendix A Answers to the Review Questions
+.. _P0876:
 
  
 Answers to Review Questions for Chapter 7
@@ -41626,7 +42146,7 @@ Answers to Review Questions for Chapter 7
 
    ..   ptg11524036
 
-   :sup:`P0877` Answers to Review Questions for Chapter P7
+.. _P0877:
 
    printf("your height in inches.\n");
    scanf("%d %d", &weight, &height);
@@ -41669,7 +42189,7 @@ Answers to Review Questions for Chapter 7
 
    ..   ptg11524036
 
-   :sup:`P0878` Appendix A Answers to the Review Questions
+.. _P0878:
 
    (true or false), and this value is checked to see whether it is equal to or greater than the
    numeric code for 'z' . Neither 0 nor 1 satisfies that test, so the whole expression always
@@ -41713,7 +42233,7 @@ Answers to Review Questions for Chapter 7
 
    ..   ptg11524036
 
-   :sup:`P0879` Answers to Review Questions for Chapter P8
+.. _P0879:
 
    Step 3
    c
@@ -41761,7 +42281,7 @@ Answers to Review Questions for Chapter 8
 
    ..   ptg11524036
 
-   :sup:`P0880` Appendix A Answers to the Review Questions
+.. _P0880:
 
    2. a. Display the H character.
    b. Sound the alert if the system uses ASCII.
@@ -41801,7 +42321,7 @@ Answers to Review Questions for Chapter 8
 
    ..   ptg11524036
 
-   :sup:`P0881` Answers to Review Questions for Chapter P9
+.. _P0881:
 
  
 Answers to Review Questions for Chapter 9
@@ -41842,7 +42362,7 @@ Answers to Review Questions for Chapter 9
 
    ..   ptg11524036
 
-   :sup:`P0882` Appendix A Answers to the Review Questions
+.. _P0882:
 
    or
    void alter(int * pa, int * pb)
@@ -41889,7 +42409,7 @@ Answers to Review Questions for Chapter 9
 
    ..   ptg11524036
 
-   :sup:`P0883` Answers to Review Questions for Chapter P10
+.. _P0883:
 
    }
 
@@ -41934,7 +42454,7 @@ Answers to Review Questions for Chapter 10
 
    ..   ptg11524036
 
-   :sup:`P0884` Appendix A Answers to the Review Questions
+.. _P0884:
 
    a. 12 and 16.
    b. 12 and 14 (just the 12 goes in the first row because of the braces).
@@ -41973,7 +42493,7 @@ Answers to Review Questions for Chapter 10
 
    ..   ptg11524036
 
-   :sup:`P0885` Answers to Review Questions for Chapter P10
+.. _P0885:
 
    Invalid; rootbeer is not a float .
    c. rootbeer = value;
@@ -42011,7 +42531,7 @@ Answers to Review Questions for Chapter 10
 
    ..   ptg11524036
 
-   :sup:`P0886` Appendix A Answers to the Review Questions
+.. _P0886:
 
  
 Answers to Review Questions for Chapter 11
@@ -42055,7 +42575,7 @@ Answers to Review Questions for Chapter 11
 
    ..   ptg11524036
 
-   :sup:`P0887` Answers to Review Questions for Chapter P11
+.. _P0887:
 
    g. After the first while loop, pc points to the null character. Upon entering the
    second loop, it is made to point to the storage location before the null character
@@ -42100,7 +42620,7 @@ Answers to Review Questions for Chapter 11
 
    ..   ptg11524036
 
-   :sup:`P0888` Appendix A Answers to the Review Questions
+.. _P0888:
 
    *st = '\0';
    else
@@ -42147,7 +42667,7 @@ Answers to Review Questions for Chapter 11
 
    ..   ptg11524036
 
-   :sup:`P0889` Answers to Review Questions for Chapter P11
+.. _P0889:
 
    string++; /* stops at first blank or null */
    if (*string == '\0')
@@ -42195,7 +42715,7 @@ Answers to Review Questions for Chapter 11
 
    ..   ptg11524036
 
-   :sup:`P0890` Appendix A Answers to the Review Questions
+.. _P0890:
 
 
    return 0;
@@ -42243,7 +42763,7 @@ Answers to Review Questions for Chapter 12
 
    ..   ptg11524036
 
-   :sup:`P0891` Answers to Review Questions for Chapter P13
+.. _P0891:
 
    6. Both allocate an array of 100 int values. The statement using calloc() additionally sets
    each element to 0.
@@ -42289,7 +42809,7 @@ Answers to Review Questions for Chapter 13
 
    ..   ptg11524036
 
-   :sup:`P0892` Appendix A Answers to the Review Questions
+.. _P0892:
 
    fp = fopen("gelatin", "w");
    for (k = 0; k < 30; k++)
@@ -42335,7 +42855,7 @@ Answers to Review Questions for Chapter 13
 
    ..   ptg11524036
 
-   :sup:`P0893` Answers to Review Questions for Chapter P13
+.. _P0893:
 
    exit(EXIT_FAILURE);
    }
@@ -42385,7 +42905,7 @@ Answers to Review Questions for Chapter 13
 
    ..   ptg11524036
 
-   :sup:`P0894` Appendix A Answers to the Review Questions
+.. _P0894:
 
    int has_ch(char ch, const char * line)
    {
@@ -42429,7 +42949,7 @@ Answers to Review Questions for Chapter 14
 
    ..   ptg11524036
 
-   :sup:`P0895` Answers to Review Questions for Chapter P14
+.. _P0895:
 
 
    3.
@@ -42507,7 +43027,7 @@ Answers to Review Questions for Chapter 14
 
    ..   ptg11524036
 
-   :sup:`P0896` Appendix A Answers to the Review Questions
+.. _P0896:
 
    7. a.
 
@@ -42552,7 +43072,7 @@ Answers to Review Questions for Chapter 14
 
    ..   ptg11524036
 
-   :sup:`P0897` Answers to Review Questions for Chapter P14
+.. _P0897:
 
 
    ::
@@ -42616,7 +43136,7 @@ Answers to Review Questions for Chapter 14
 
    ..   ptg11524036
 
-   :sup:`P0898` Appendix A Answers to the Review Questions
+.. _P0898:
 
    13.
 
@@ -42660,7 +43180,7 @@ Answers to Review Questions for Chapter 15
 
    ..   ptg11524036
 
-   :sup:`P0899` Answers to Review Questions for Chapter P16
+.. _P0899:
 
    f. 1 (true or true is true)
    g. 40
@@ -42704,7 +43224,7 @@ Answers to Review Questions for Chapter 16
 
    ..   ptg11524036
 
-   :sup:`P0900` Appendix A Answers to the Review Questions
+.. _P0900:
 
    3. #define MIN(X,Y) ( (X) < (Y) ? (X) : (Y) )
    4. #define EVEN_GT(X,Y) ( (X) > (Y) && (X) % 2 == 0 ? 1 : 0 )
@@ -42742,7 +43262,7 @@ Answers to Review Questions for Chapter 16
 
    ..   ptg11524036
 
-   :sup:`P0901` Answers to Review Questions for Chapter P17
+.. _P0901:
 
    11. Here’s one possibility:
    #define BOOL(X) _Generic((X), _Bool : "boolean", default : "not boolean")
@@ -42786,7 +43306,7 @@ Answers to Review Questions for Chapter 17
 
    ..   ptg11524036
 
-   :sup:`P0902` Appendix A Answers to the Review Questions
+.. _P0902:
 
    3. An ADT is an abstract data type , a formal definition of the properties of a type and of the
    operations that can be performed with the type. An ADT should be expressed in general
@@ -42829,7 +43349,7 @@ Answers to Review Questions for Chapter 17
 
    ..   ptg11524036
 
-   :sup:`P0903` Answers to Review Questions for Chapter P17
+.. _P0903:
 
    int top; /* index of first empty slot */
    } Stack;
@@ -42876,7 +43396,7 @@ Answers to Review Questions for Chapter 17
 
    ..   ptg11524036
 
-   :sup:`P0904` Appendix A Answers to the Review Questions
+.. _P0904:
 
    7. See Figure A.1 .
 
@@ -42943,7 +43463,7 @@ Answers to Review Questions for Chapter 17
 
    ..   ptg11524036
 
-   :sup:`P0905`
+.. _P0905:
 
 /Appendix B
 ===========
@@ -42988,7 +43508,7 @@ Section I: Additional Reading
 
    ..   ptg11524036
 
-   :sup:`P0906` Appendix B Reference Section
+.. _P0906:
 
    However, its coverage mainly is just through C89.
    If you have questions about the C library, you can get information from the following site:
@@ -43024,7 +43544,7 @@ Section I: Additional Reading
 
    ..   ptg11524036
 
-   :sup:`P0907` Section I: Additional Reading
+.. _P0907:
 
    C Language Books
    Feuer, Alan R. The C Puzzle Book, Revised Printing. Upper Saddle River, NJ: Addison-Wesley
@@ -43061,7 +43581,7 @@ Section I: Additional Reading
 
    ..   ptg11524036
 
-   :sup:`P0908` Appendix B Reference Section
+.. _P0908:
 
    Reference Books
    Harbison, Samuel P. and Steele, Guy L. C: A Reference Manual, Fifth Edition . Englewood Cliffs,
@@ -43102,7 +43622,7 @@ Section II: C Operators
 
    ..   ptg11524036
 
-   :sup:`P0909` Section II: C Operators
+.. _P0909:
 
    Operators (from High to Low Precedence) Associativity
    sizeof_Alignof (type) (all unary) R-L
@@ -43138,7 +43658,7 @@ Section II: C Operators
 
    ..   ptg11524036
 
-   :sup:`P0910` Appendix B Reference Section
+.. _P0910:
 
    Relational Operators
    Each of the following operators compares the value at its left to the value at its right:
@@ -43174,7 +43694,7 @@ Section II: C Operators
 
    ..   ptg11524036
 
-   :sup:`P0911` Section II: C Operators
+.. _P0911:
 
     >>= assigns L–H >> R–H to the L–H quantity and places the result in the L-H variable.
     <<= assigns L–H << R–H to the L–H quantity and places the result in the L-H variable.
@@ -43205,7 +43725,7 @@ Section II: C Operators
 
    ..   ptg11524036
 
-   :sup:`P0912` Appendix B Reference Section
+.. _P0912:
 
    Examples
     ( 5 > 3 ) ? 1 : 2 has the value 1 .
@@ -43238,7 +43758,7 @@ Section II: C Operators
 
    ..   ptg11524036
 
-   :sup:`P0913` Section II: C Operators
+.. _P0913:
 
    Example
    struct {
@@ -43278,7 +43798,7 @@ Section II: C Operators
 
    ..   ptg11524036
 
-   :sup:`P0914` Appendix B Reference Section
+.. _P0914:
 
     >> is right-shift and produces a value obtained by shifting the bits of the left-hand operand to
    the right by the number of places given by the right-hand operand. For unsigned integers, the
@@ -43311,7 +43831,7 @@ Section II: C Operators
 
    ..   ptg11524036
 
-   :sup:`P0915` Section III: Basic Types and Storage Classes
+.. _P0915:
 
 
 Section III: Basic Types and Storage Classes
@@ -43350,7 +43870,7 @@ Section III: Basic Types and Storage Classes
 
    ..   ptg11524036
 
-   :sup:`P0916` Appendix B Reference Section
+.. _P0916:
 
    Boolean Type (C99)
    The C99 Boolean type is _Bool . It’s an unsigned integer type that can hold one of two values: 0
@@ -43389,7 +43909,7 @@ Section III: Basic Types and Storage Classes
 
    ..   ptg11524036
 
-   :sup:`P0917` Section III: Basic Types and Storage Classes
+.. _P0917:
 
    Complex numbers can be initialized using real numbers and the value I , defined in complex.h
    and representing i , the square root of −1:
@@ -43429,7 +43949,7 @@ Section III: Basic Types and Storage Classes
 
    ..   ptg11524036
 
-   :sup:`P0918` Appendix B Reference Section
+.. _P0918:
 
    C11 has added a new storage class qualifier: _Thread_local . An object declared with this
    qualifier has thread storage duration, meaning it persists for the lifetime of the thread in which
@@ -43486,7 +44006,7 @@ Section III: Basic Types and Storage Classes
 
    ..   ptg11524036
 
-   :sup:`P0919` Section III: Basic Types and Storage Classes
+.. _P0919:
 
    Summary: Qualifiers
    Keywords
@@ -43522,7 +44042,7 @@ Section III: Basic Types and Storage Classes
 
    ..   ptg11524036
 
-   :sup:`P0920` Appendix B Reference Section
+.. _P0920:
 
    and the equivalent prototype
    void supple(int pi[const]);
@@ -43563,7 +44083,7 @@ Section IV: Expressions, Statements, and Program Flow
 
    ..   ptg11524036
 
-   :sup:`P0921` Section IV: Expressions, Statements, and Program Flow
+.. _P0921:
 
    Summary: The while Statement
    Keyword
@@ -43600,7 +44120,7 @@ Section IV: Expressions, Statements, and Program Flow
 
    ..   ptg11524036
 
-   :sup:`P0922` Appendix B Reference Section
+.. _P0922:
 
    is never traversed. The statement part of the form can be a simple statement or a compound
    statement.
@@ -43636,7 +44156,7 @@ Section IV: Expressions, Statements, and Program Flow
 
    ..   ptg11524036
 
-   :sup:`P0923` Section IV: Expressions, Statements, and Program Flow
+.. _P0923:
 
    Summary: Using if Statements for Making Choices
    Keywords
@@ -43676,7 +44196,7 @@ Section IV: Expressions, Statements, and Program Flow
 
    ..   ptg11524036
 
-   :sup:`P0924` Appendix B Reference Section
+.. _P0924:
 
    Summary: Multiple Choice with switch
    Keyword
@@ -43719,7 +44239,7 @@ Section IV: Expressions, Statements, and Program Flow
 
    ..   ptg11524036
 
-   :sup:`P0925` Section IV: Expressions, Statements, and Program Flow
+.. _P0925:
 
    default : printf("Have a nice day.\n");
    }
@@ -43757,7 +44277,7 @@ Section IV: Expressions, Statements, and Program Flow
 
    ..   ptg11524036
 
-   :sup:`P0926` Appendix B Reference Section
+.. _P0926:
 
    chcount++;
    }
@@ -43792,7 +44312,7 @@ Section V: The Standard ANSI C Library with C99 and C11 Additions
 
    ..   ptg11524036
 
-   :sup:`P0927` Section V: The Standard ANSI C Library with C99 and C11 Additions
+.. _P0927:
 
    Table RS.V.1 Diagnostic Macro
    Prototype Description
@@ -43827,7 +44347,7 @@ Section V: The Standard ANSI C Library with C99 and C11 Additions
 
    ..   ptg11524036
 
-   :sup:`P0928` Appendix B Reference Section
+.. _P0928:
 
    The STDC CX_LIMITED_RANGE pragma can be used to indicate whether the usual mathematical
    formulas can be used (the on setting) or if special attention has to be paid for extreme values
@@ -43867,7 +44387,7 @@ Section V: The Standard ANSI C Library with C99 and C11 Additions
 
    ..   ptg11524036
 
-   :sup:`P0929` Section V: The Standard ANSI C Library with C99 and C11 Additions
+.. _P0929:
 
    Prototype Description
    double carg(double complex z); Returns the phase angle (or argument), in
@@ -43902,7 +44422,7 @@ Section V: The Standard ANSI C Library with C99 and C11 Additions
 
    ..   ptg11524036
 
-   :sup:`P0930` Appendix B Reference Section
+.. _P0930:
 
    Prototype Description
    int isspace(int c); Returns true if c is a whitespace character: space, newline, form
@@ -43939,7 +44459,7 @@ Section V: The Standard ANSI C Library with C99 and C11 Additions
 
    ..   ptg11524036
 
-   :sup:`P0931` Section V: The Standard ANSI C Library with C99 and C11 Additions
+.. _P0931:
 
    functions that interact with the environment. The header also provides a pragma for enabling
    or disabling access to the floating-point environment.
@@ -43974,7 +44494,7 @@ Section V: The Standard ANSI C Library with C99 and C11 Additions
 
    ..   ptg11524036
 
-   :sup:`P0932` Appendix B Reference Section
+.. _P0932:
 
    Macro Represents
    FE_UPWARD Rounds upward
@@ -44018,7 +44538,7 @@ Section V: The Standard ANSI C Library with C99 and C11 Additions
 
    ..   ptg11524036
 
-   :sup:`P0933` Section V: The Standard ANSI C Library with C99 and C11 Additions
+.. _P0933:
 
    Prototype Description
    void feupdateenv
@@ -44061,7 +44581,7 @@ Section V: The Standard ANSI C Library with C99 and C11 Additions
 
    ..   ptg11524036
 
-   :sup:`P0934` Appendix B Reference Section
+.. _P0934:
 
    Macro Represents
    DBL_DECIMAL_DIG Number of decimal digits for a double that can be converted from base
@@ -44103,7 +44623,7 @@ Section V: The Standard ANSI C Library with C99 and C11 Additions
 
    ..   ptg11524036
 
-   :sup:`P0935` Section V: The Standard ANSI C Library with C99 and C11 Additions
+.. _P0935:
 
    Macro Represents
    FLT_MAX Maximum representable finite float value (at least 1E+37)
@@ -44141,7 +44661,7 @@ Section V: The Standard ANSI C Library with C99 and C11 Additions
 
    ..   ptg11524036
 
-   :sup:`P0936` Appendix B Reference Section
+.. _P0936:
 
    Prototype Description
    intmax_t strtoimax(const char *
@@ -44182,7 +44702,7 @@ Section V: The Standard ANSI C Library with C99 and C11 Additions
 
    ..   ptg11524036
 
-   :sup:`P0937` Section V: The Standard ANSI C Library with C99 and C11 Additions
+.. _P0937:
 
    Table RS.V.12 Localization Functions
    Prototype Description
@@ -44217,7 +44737,7 @@ Section V: The Standard ANSI C Library with C99 and C11 Additions
 
    ..   ptg11524036
 
-   :sup:`P0938` Appendix B Reference Section
+.. _P0938:
 
    Table RS.V.14 lists the required members of a struct lconv structure.
    Table RS.V.14 Required struct lconv Members
@@ -44256,7 +44776,7 @@ Section V: The Standard ANSI C Library with C99 and C11 Additions
 
    ..   ptg11524036
 
-   :sup:`P0939` Section V: The Standard ANSI C Library with C99 and C11 Additions
+.. _P0939:
 
    Macro Description
    char p_sign_posn Set to a value indicating the positioning of a positive_sign
@@ -44297,7 +44817,7 @@ Section V: The Standard ANSI C Library with C99 and C11 Additions
 
    ..   ptg11524036
 
-   :sup:`P0940` Appendix B Reference Section
+.. _P0940:
 
    Table RS.V.15 The math.h Macros
    Macro Description
@@ -44337,7 +44857,7 @@ Section V: The Standard ANSI C Library with C99 and C11 Additions
 
    ..   ptg11524036
 
-   :sup:`P0941` Section V: The Standard ANSI C Library with C99 and C11 Additions
+.. _P0941:
 
    The math functions typically work with type double values. C99 has added float and long
    double versions of these functions, which are indicated by adding an f suffix and an l suffix,
@@ -44377,7 +44897,7 @@ Section V: The Standard ANSI C Library with C99 and C11 Additions
 
    ..   ptg11524036
 
-   :sup:`P0942` Appendix B Reference Section
+.. _P0942:
 
    Prototype Description
    double tanh(double x); Returns the hyperbolic tangent of x .
@@ -44421,7 +44941,7 @@ Section V: The Standard ANSI C Library with C99 and C11 Additions
 
    ..   ptg11524036
 
-   :sup:`P0943` Section V: The Standard ANSI C Library with C99 and C11 Additions
+.. _P0943:
 
    Prototype Description
    double floor(double x); Returns the largest integral value not greater than x .
@@ -44472,7 +44992,7 @@ Section V: The Standard ANSI C Library with C99 and C11 Additions
 
    ..   ptg11524036
 
-   :sup:`P0944` Appendix B Reference Section
+.. _P0944:
 
    Prototype Description
    double nan(const char *tagp); Returns the type double representation of a
@@ -44536,7 +45056,7 @@ Section V: The Standard ANSI C Library with C99 and C11 Additions
 
    ..   ptg11524036
 
-   :sup:`P0945` Section V: The Standard ANSI C Library with C99 and C11 Additions
+.. _P0945:
 
    Non-Local Jumps: setjmp.h
    The setjmp.h header file enables you to bypass the usual function-call, function-return
@@ -44576,7 +45096,7 @@ Section V: The Standard ANSI C Library with C99 and C11 Additions
 
    ..   ptg11524036
 
-   :sup:`P0946` Appendix B Reference Section
+.. _P0946:
 
    The signal() function takes as its second argument a pointer to a void function that takes an
    int argument. It also returns a pointer of the same type. A function invoked in response to a
@@ -44611,7 +45131,7 @@ Section V: The Standard ANSI C Library with C99 and C11 Additions
 
    ..   ptg11524036
 
-   :sup:`P0947` Section V: The Standard ANSI C Library with C99 and C11 Additions
+.. _P0947:
 
    Table RS.V.21 stdalign.h Macros
    Macro Description
@@ -44663,7 +45183,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0948` Appendix B Reference Section
+.. _P0948:
 
    Atomics Support: stdatomic.h (C11)
    This header file, along with threads.h , provides support for concurrent programming. This
@@ -44699,7 +45219,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0949` Section V: The Standard ANSI C Library with C99 and C11 Additions
+.. _P0949:
 
    Table RS.V.25 The stddef.h Macros
    Macro Description
@@ -44739,7 +45259,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0950` Appendix B Reference Section
+.. _P0950:
 
    typedef Name Properties
    int64_t 64 bits signed
@@ -44772,7 +45292,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0951` Section V: The Standard ANSI C Library with C99 and C11 Additions
+.. _P0951:
 
    typedef Name Properties
    int_fast32_t At least 32 bits signed
@@ -44805,7 +45325,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0952` Appendix B Reference Section
+.. _P0952:
 
    for the int32_t type is INT32_MIN , and the largest value for the uint_fast16_t type is
    UINT_FAST16_MAX . Table RS.V.31 summarizes these constants, with N standing for the number
@@ -44852,7 +45372,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0953` Section V: The Standard ANSI C Library with C99 and C11 Additions
+.. _P0953:
 
    Constant Identifier Meaning
    WCHAR_MIN Minimum value of the wchar_t type
@@ -44888,7 +45408,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0954` Appendix B Reference Section
+.. _P0954:
 
    Prototype Description
    char * fgets(char *
@@ -44943,7 +45463,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0955` Section V: The Standard ANSI C Library with C99 and C11 Additions
+.. _P0955:
 
    Prototype Description
    int printf(const char *
@@ -44995,7 +45515,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0956` Appendix B Reference Section
+.. _P0956:
 
    Prototype Description
    int vsnprintf(char *
@@ -45036,7 +45556,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0957` Section V: The Standard ANSI C Library with C99 and C11 Additions
+.. _P0957:
 
    Table RS.V.35 Constants Defined in stdlib.h
    Type Description
@@ -45087,7 +45607,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0958` Appendix B Reference Section
+.. _P0958:
 
    Prototype Description
    long double
@@ -45153,7 +45673,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0959` Section V: The Standard ANSI C Library with C99 and C11 Additions
+.. _P0959:
 
    Prototype Description
    void free(void
@@ -45214,7 +45734,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0960` Appendix B Reference Section
+.. _P0960:
 
    Prototype Description
    char *getenv(const
@@ -45279,7 +45799,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0961` Section V: The Standard ANSI C Library with C99 and C11 Additions
+.. _P0961:
 
    Prototype Description
    long labs(int n); Returns the absolute value of n ; the return value may be undefined if n
@@ -45341,7 +45861,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0962` Appendix B Reference Section
+.. _P0962:
 
    Prototype Description
    size_t wcstombs
@@ -45399,7 +45919,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0963` Section V: The Standard ANSI C Library with C99 and C11 Additions
+.. _P0963:
 
    Prototype Description
    char *strcat(char *
@@ -45468,7 +45988,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0964` Appendix B Reference Section
+.. _P0964:
 
    Prototype Description
    char *strchr(const
@@ -45531,7 +46051,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0965` Section V: The Standard ANSI C Library with C99 and C11 Additions
+.. _P0965:
 
    int main(void)
    {
@@ -45548,7 +46068,11 @@ Variable Arguments: stdarg.h
    }
    return 0;
    }
+
    Here is the output:
+
+   .. code-block:: bash
+
    C is too#much
    fun!
    C
@@ -45577,7 +46101,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0966` Appendix B Reference Section
+.. _P0966:
 
    fy = sin(fx); // expands to fy = sinf(fx)
    cly = sin(clx); // expands to cly = csinl(clyx)
@@ -45611,7 +46135,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0967` Section V: The Standard ANSI C Library with C99 and C11 Additions
+.. _P0967:
 
    Threads: threads.h (C11)
    This header file, along with stdatomic.h , provides support for concurrent programming. This
@@ -45645,7 +46169,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0968` Appendix B Reference Section
+.. _P0968:
 
    Table RS.V.41 Members of a struct tm Structure
    Member Description
@@ -45688,7 +46212,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0969` Section V: The Standard ANSI C Library with C99 and C11 Additions
+.. _P0969:
 
    Prototype Description
    int timespec_get(struct
@@ -45744,7 +46268,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0970` Appendix B Reference Section
+.. _P0970:
 
    Format Specifier Replaced By
     %d Day of the month as a decimal number (01–31)
@@ -45782,7 +46306,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0971` Section V: The Standard ANSI C Library with C99 and C11 Additions
+.. _P0971:
 
    Format Specifier Replaced By
     %z Offset from UTC in ISO 8601 format (“–800” meaning eight hours behind
@@ -45820,7 +46344,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0972` Appendix B Reference Section
+.. _P0972:
 
    Prototype Description
    size_t c16rtomb(char * restrict s,
@@ -45862,7 +46386,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0973` Section V: The Standard ANSI C Library with C99 and C11 Additions
+.. _P0973:
 
    The header file also defines some macros, as shown in Table RS.V.47 .
    Table RS.V.47 Macros Defined in wchar.h
@@ -45898,7 +46422,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0974` Appendix B Reference Section
+.. _P0974:
 
    Function Prototype
    int wscanf(const wchar_t * restrict format, ...);
@@ -45934,7 +46458,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0975` Section V: The Standard ANSI C Library with C99 and C11 Additions
+.. _P0975:
 
    Function Prototype
    long long int wcstoll(const wchar_t * restrict nptr, wchar_t ** restrict
@@ -45972,7 +46496,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0976` Appendix B Reference Section
+.. _P0976:
 
    The header file also declares a one-time function modeled on the strftime() function from
    the time.h header file:
@@ -46028,7 +46552,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0977` Section V: The Standard ANSI C Library with C99 and C11 Additions
+.. _P0977:
 
    Prototype Description
    size_t wcrtomb(char *
@@ -46078,7 +46602,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0978` Appendix B Reference Section
+.. _P0978:
 
    Prototype Description
    size_t wcsrtombs(char *
@@ -46124,7 +46648,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0979` Section V: The Standard ANSI C Library with C99 and C11 Additions
+.. _P0979:
 
    The character classifications in this library return true (nonzero) if the wide-character argument 
    satisfies the conditions described by the function. In general, the wide-character function
@@ -46166,7 +46690,7 @@ Variable Arguments: stdarg.h
 
    ..   ptg11524036
 
-   :sup:`P0980` Appendix B Reference Section
+.. _P0980:
 
    The valid arguments for wctype() consist of the names of the wide-character classification
    functions stripped of the isw prefix and expressed as strings. For example, wctype("alpha")
@@ -46219,7 +46743,7 @@ Section VI: Extended Integer Types
 
    ..   ptg11524036
 
-   :sup:`P0981` Section VI: Extended Integer Types
+.. _P0981:
 
    header file, which provides the actual type definitions. The formatting macros are strings that
    can be concatenated with other strings to produce the proper formatting directions.
@@ -46258,7 +46782,7 @@ Section VI: Extended Integer Types
 
    ..   ptg11524036
 
-   :sup:`P0982` Appendix B Reference Section
+.. _P0982:
 
    Table RS.VI.1 Exact-Width Types
    Type Name printf()
@@ -46299,7 +46823,7 @@ Section VI: Extended Integer Types
 
    ..   ptg11524036
 
-   :sup:`P0983` Section VI: Extended Integer Types
+.. _P0983:
 
    Fastest Minimum-Width Types
    For a particular system, some integer representations can be faster than others. For example,
@@ -46337,7 +46861,7 @@ Section VI: Extended Integer Types
 
    ..   ptg11524036
 
-   :sup:`P0984` Appendix B Reference Section
+.. _P0984:
 
    Integers That Can Hold Pointer Values
    The inttypes.h header file (via the included stdint.h header file) defines two integer types,
@@ -46376,7 +46900,7 @@ Section VII: Expanded Character Support
 
    ..   ptg11524036
 
-   :sup:`P0985` Section VII: Expanded Character Support
+.. _P0985:
 
    Table RS.VII.1 Trigraph Sequences
    Trigraph Symbol Trigraph Symbol Trigraph Symbol
@@ -46414,7 +46938,7 @@ Section VII: Expanded Character Support
 
    ..   ptg11524036
 
-   :sup:`P0986` Appendix B Reference Section
+.. _P0986:
 
    Unlike trigraphs, digraphs within a quoted string have no special meaning. Thus,
    %:include <stdio.h>
@@ -46455,7 +46979,7 @@ Section VII: Expanded Character Support
 
    ..   ptg11524036
 
-   :sup:`P0987` Section VII: Expanded Character Support
+.. _P0987:
 
    An implementation may provide an extended character set that allows you, for example, to
    enter keyboard characters not corresponding to the basic character set. These can be used in
@@ -46498,7 +47022,7 @@ Section VII: Expanded Character Support
 
    ..   ptg11524036
 
-   :sup:`P0988` Appendix B Reference Section
+.. _P0988:
 
    If your system implements UCNs and includes the desired characters in the extended character
    set, UCNs can be used in strings, character constants, and identifiers:
@@ -46540,7 +47064,7 @@ Section VII: Expanded Character Support
 
    ..   ptg11524036
 
-   :sup:`P0989` Section VII: Expanded Character Support
+.. _P0989:
 
    control string and they deal with input and output streams of wide characters. For example, the
    following displays information as a sequence of wide characters:
@@ -46582,7 +47106,7 @@ Section VII: Expanded Character Support
 
    ..   ptg11524036
 
-   :sup:`P0990` Appendix B Reference Section
+.. _P0990:
 
    characters don’t have a shift state. A file of multibyte characters would be read into an ordinary
    array of char using the standard input functions; a file of wide characters would be read into a
@@ -46628,7 +47152,7 @@ Section VIII: C99/C11 Numeric Computational Enhancements
 
    ..   ptg11524036
 
-   :sup:`P0991` Section VIII: C99/C11 Numeric Computational Enhancements
+.. _P0991:
 
    Here are the meanings of the various components:
    s is the sign (±1).
@@ -46668,7 +47192,7 @@ Section VIII: C99/C11 Numeric Computational Enhancements
 
    ..   ptg11524036
 
-   :sup:`P0992` Appendix B Reference Section
+.. _P0992:
 
    exponent = 3, significand = .31841 (.31841E3)
    exponent = 4, significand = .03184 (.03184E4)
@@ -46704,7 +47228,7 @@ Section VIII: C99/C11 Numeric Computational Enhancements
 
    ..   ptg11524036
 
-   :sup:`P0993` Section VIII: C99/C11 Numeric Computational Enhancements
+.. _P0993:
 
    1 evaluate operations and constants of type float and double to the range and precision 
    of the double type, and evaluate long double operations and constants to the
@@ -46741,7 +47265,7 @@ Section VIII: C99/C11 Numeric Computational Enhancements
 
    ..   ptg11524036
 
-   :sup:`P0994` Appendix B Reference Section
+.. _P0994:
 
    The fraction 8/10, or 4/5, can be represented exactly base 10. But most computer systems will
    store the result in base 2, and, in that base, 4/5 is an infinitely repeating fraction:
@@ -46780,7 +47304,7 @@ Section VIII: C99/C11 Numeric Computational Enhancements
 
    ..   ptg11524036
 
-   :sup:`P0995` Section VIII: C99/C11 Numeric Computational Enhancements
+.. _P0995:
 
    This restores the default state for the compiler, which is implementation dependent.
    This facility is important for those involved in critical floating-point calculations, but of limited
@@ -46820,7 +47344,7 @@ Section VIII: C99/C11 Numeric Computational Enhancements
 
    ..   ptg11524036
 
-   :sup:`P0996` Appendix B Reference Section
+.. _P0996:
 
    In addition to these functions, the math library defines several constants and functions related
    to classifying numbers and rounding them. For example, a value can be classified as being infinite, 
@@ -46865,7 +47389,7 @@ Section VIII: C99/C11 Numeric Computational Enhancements
 
    ..   ptg11524036
 
-   :sup:`P0997` Section VIII: C99/C11 Numeric Computational Enhancements
+.. _P0997:
 
 
    ■  float _Imaginary
@@ -46911,7 +47435,7 @@ Section VIII: C99/C11 Numeric Computational Enhancements
 
    ..   ptg11524036
 
-   :sup:`P0998` Appendix B Reference Section
+.. _P0998:
 
    scanf("%lf", &re);
    printf("Enter the imaginary part of a complex number: ");
@@ -46961,7 +47485,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P0999` Section IX: Differences Between C and C++
+.. _P0999:
 
    and not C, you need to know about these differences. Although they affect very few of the
    examples in this book, the differences can cause some instances of valid C code to lead to error
@@ -47004,7 +47528,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1000` Appendix B Reference Section
+.. _P1000:
 
    char Constants
    C treats char constants as type int , and C++ treats them as type char . For instance, consider
@@ -47045,7 +47569,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1001` Section IX: Differences Between C and C++
+.. _P1001:
 
    const double PI = 3.14159;
    is equivalent to the C declaration
@@ -47087,7 +47611,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1002` Appendix B Reference Section
+.. _P1002:
 
    struct duo y = { 2, 4};
    printf ("%f\n", duo); /* ok in C, not in C++ */
@@ -47128,7 +47652,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1003` Section IX: Differences Between C and C++
+.. _P1003:
 
    int * pi;
    void * pv;
@@ -47166,7 +47690,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1004` Appendix B Reference Section
+.. _P1004:
 
    C99/11 Features Not Found in C++11
    Although C traditionally is more or less a subset of C++, the C99 standard adds several features
@@ -47192,7 +47716,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1005`
+.. _P1005:
 
 /Index
 ======
@@ -47229,7 +47753,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1006` == (equality) operator
+.. _P1006:
 
    == (equality) operator, 191
    ++ (increment) operator, 160 - 166
@@ -47306,7 +47830,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1007` arrays
+.. _P1007:
 
    const, 552 - 554
    formal parameters, 557
@@ -47384,7 +47908,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1008` arrays
+.. _P1008:
 
    structures, 607 - 608
    character arrays, 627 - 628
@@ -47462,7 +47986,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1009` braces
+.. _P1009:
 
    book inventory sample, 601 - 602
    arrays of structures, functions, 637 - 638
@@ -47538,7 +48062,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1010` brackets
+.. _P1010:
 
    brackets ([ ]), 102
    arrays, 384
@@ -47615,7 +48139,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1011` compiling
+.. _P1011:
 
    compilers, 19
    redirection, 310
@@ -47694,7 +48218,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1012` compiling
+.. _P1012:
 
    Unix and, 16 - 18
    Unix systems, multiple source code
@@ -47770,7 +48294,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1013` directives
+.. _P1013:
 
    parameters, 403
    pointers, 544
@@ -47849,7 +48373,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1014` directives
+.. _P1014:
 
    #if, 736 - 737
    #ifdef, 732 - 733
@@ -47925,7 +48449,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1015` first.c program
+.. _P1015:
 
    file inclusion
    C library, 745
@@ -48001,7 +48525,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1016` first.c program
+.. _P1016:
 
    name choices, 36
    return statement, 40
@@ -48078,7 +48602,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1017` functions
+.. _P1017:
 
    fsetpos( ), 583
    ftell( ), 579 - 582
@@ -48157,7 +48681,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1018` functions
+.. _P1018:
 
    ListItemCount( ), 800 - 801
    versus macros, 725 - 726
@@ -48236,7 +48760,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1019` hotel.h
+.. _P1019:
 
    generic selection, 740 - 741
    getc( ) function, 572
@@ -48307,7 +48831,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1020` IDE
+.. _P1020:
 
    I
    IDE (integrated development environments), 
@@ -48384,7 +48908,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1021` itobs( ) function
+.. _P1021:
 
    inword flag, 269 - 270
    I/O (input/output)
@@ -48461,7 +48985,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1022` jove editor
+.. _P1022:
 
    J
    jove editor, 16
@@ -48536,7 +49060,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1023` Macintosh
+.. _P1023:
 
    logical operators, 264 , 911
    alternative spellings, 265
@@ -48611,7 +49135,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1024` macros
+.. _P1024:
 
    macros
    arguments, strings from, 721 - 722
@@ -48689,7 +49213,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1025` operators
+.. _P1025:
 
    number input, mixing with character, 314 317 
    , 327 - 330
@@ -48764,7 +49288,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1026` operators
+.. _P1026:
 
    > (redirection), 308
    arithmetic, 908
@@ -48842,7 +49366,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1027` precedence of operators
+.. _P1027:
 
    function communication, 373 - 375
    function pointers, 657
@@ -48922,7 +49446,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1028` predefined macros
+.. _P1028:
 
    predefined macros, 737 - 740
    prefix, 163 - 164
@@ -48998,7 +49522,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1029` return values
+.. _P1029:
 
    reversal and, 358 - 360
    statements, 356
@@ -49073,7 +49597,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1030` return values
+.. _P1030:
 
    return values
    functions, 233 - 234
@@ -49150,7 +49674,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1031` statements
+.. _P1031:
 
    standard files (I/O), 568
    pointers to, 574
@@ -49227,7 +49751,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1032` statements
+.. _P1032:
 
    side effects, 170 - 171
    switch, 280 - 283 , 291
@@ -49305,7 +49829,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1033` structures
+.. _P1033:
 
    strncat( ) function, 473 - 474 , 489
    strncmp( ) function, 489
@@ -49383,7 +49907,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1034` structures
+.. _P1034:
 
    operator, 617 - 618
    operators, 647
@@ -49459,7 +49983,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1035` va_list type variable
+.. _P1035:
 
    templates, tags and, 645
    uses, 646 - 647
@@ -49533,7 +50057,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1036` values
+.. _P1036:
 
    values
    arrays, assigning, 390
@@ -49609,7 +50133,7 @@ Section IX: Differences Between C and C++
 
    ..   ptg11524036
 
-   :sup:`P1037` zippo2.c program
+.. _P1037:
 
    width.c program, 116 - 119
    Win32 Console Application, 20

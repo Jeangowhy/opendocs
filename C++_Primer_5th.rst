@@ -79,6 +79,44 @@
 
    Third printing, February 2013
 
+读者引导：
+
+   C++ Primer 和 C++ Primer Plus 是两种风格完全不同的 C++ 入门教材，可以混着看。
+
+   C++ Primer，这本书的交叉引用非常完善，目录还设置有 New Features in C++11，跳转非常快捷。
+   Plus 则啰嗦点，会用一堆内容说明知识点，可能更适合完全没有编程基础的读者，但目录索引组织显然有问题。
+
+   没有什么书规定要先哪本再哪本，只要可以吸收到作者所说的内容，就是适合目前状态的书。如果吸收不到内容，
+   那就不适合目前的状态（知识水平），就应该换一本书。当然，有大量的烂书不值一看，特别是中文更是重灾区。
+
+/TOC - At a Glance
+==================
+
+*  ``Chapter 1 Getting Started ······································`` [P0001]_
+*  ``Part I The Basics ··············································`` [P0029]_
+*  ``Chapter 2 Variables and Basic Types ····························`` [P0031]_
+*  ``Chapter 3 Strings, Vectors, and Arrays ·························`` [P0081]_
+*  ``Chapter 4 Expressions ··········································`` [P0133]_
+*  ``Chapter 5 Statements ···········································`` [P0171]_
+*  ``Chapter 6 Functions ············································`` [P0201]_
+*  ``Chapter 7 Classes ··············································`` [P0253]_
+*  ``Part II The C++ Library ········································`` [P0007]_
+*  ``Chapter 8 The IO Library ·······································`` [P0309]_
+*  ``Chapter 9 Sequential Containers ································`` [P0325]_
+*  ``Chapter 10 Generic Algorithms ··································`` [P0375]_
+*  ``Chapter 11 Associative Containers ······························`` [P0419]_
+*  ``Chapter 12 Dynamic Memory ······································`` [P0449]_
+*  ``Part III Tools for Class Authors ·······························`` [P0093]_
+*  ``Chapter 13 Copy Control ········································`` [P0495]_
+*  ``Chapter 14 Overloaded Operations and Conversions ···············`` [P0551]_
+*  ``Chapter 15 Object-Oriented Programming ·························`` [P0591]_
+*  ``Chapter 16 Templates and Generic Programming ···················`` [P0651]_
+*  ``Part IV Advanced Topics ········································`` [P0015]_
+*  ``Chapter 17 SpecializedLibrary Facilities ·······················`` [P0717]_
+*  ``Chapter 18 Tools for Large Programs ····························`` [P0771]_
+*  ``Chapter 19 SpecializedTools and Techniques ·····················`` [P0819]_
+*  ``Appendix A The Library ·········································`` [P0865]_
+*  ``Index ··························································`` [P0887]_
 
 /TOC - Contents
 ===============
@@ -558,6 +596,107 @@
 *  ``A.3.2 Random Number Engines ····································`` [P0884]_
 *  ``Index ··························································`` [P0887]_
 
+
+/TOC - Tables
+=============
+
+*  ``Table 2.1: C++: Arithmetic Types ........................................`` [P0032]_
+*  ``Table 2.2: Specifying the Type of a Literal .............................`` [P0040]_
+*  ``Table 2.3: C++ Keywords .................................................`` [P0047]_
+*  ``Table 2.4: C++ Alternative Operator Names ...............................`` [P0047]_
+*  ``Table 3.1: Ways to Initialize a string ..................................`` [P0085]_
+*  ``Table 3.2: string Operations ............................................`` [P0086]_
+*  ``Table 3.3: cctype Functions .............................................`` [P0092]_
+*  ``Table 3.4: Ways to Initialize a vector ..................................`` [P0099]_
+*  ``Table 3.5: vector Operations ............................................`` [P0103]_
+*  ``Table 3.6: Standard Container Iterator Operations .......................`` [P0107]_
+*  ``Table 3.7: Operations Supported by vector and string Iterators ..........`` [P0111]_
+*  ``Table 3.8: C-Style Character String Functions ...........................`` [P0122]_
+*  ``Table 4.1: Arithmetic Operators (Left Associative) ......................`` [P0139]_
+*  ``Table 4.2: Logical and Relational Operators .............................`` [P0142]_
+*  ``Table 4.3: Bitwise Operators (Left Associative) .........................`` [P0153]_
+*  ``Table 4.4: Operator Precedence ..........................................`` [P0167]_
+*  ``Table 5.1: Standard Exception Classes Defined in <stdexcept> ............`` [P0197]_
+*  ``Table 6.1: Operations on initializer_lists ..............................`` [P0220]_
+*  ``Table 8.1: IO Library Types and Headers .................................`` [P0310]_
+*  ``Table 8.2: IO Library Condition State ...................................`` [P0313]_
+*  ``Table 8.3: fstream-Specific Operations ..................................`` [P0316]_
+*  ``Table 8.4: File Modes ...................................................`` [P0319]_
+*  ``Table 8.5: stringstream-SpecificOperations ..............................`` [P0321]_
+*  ``Table 9.1: Sequential Container Types ...................................`` [P0326]_
+*  ``Table 9.2: Container Operations .........................................`` [P0330]_
+*  ``Table 9.3: Defining and Initializing Containers .........................`` [P0335]_
+*  ``Table 9.4: Container Assignment Operations ..............................`` [P0338]_
+*  ``Table 9.5: Operations That Add Elements to a Sequential Container .......`` [P0343]_
+*  ``Table 9.6: Operations to Access Elements in a Sequential Container ......`` [P0347]_
+*  ``Table 9.7: erase Operations on Sequential Containers ....................`` [P0349]_
+*  ``Table 9.8: Operations to Insert or Remove Elements in a forward_list ....`` [P0351]_
+*  ``Table 9.9: Sequential Container Size Operations .........................`` [P0352]_
+*  ``Table 9.10: Container Size Management ...................................`` [P0357]_
+*  ``Table 9.11: Additional Ways to Construct strings ........................`` [P0360]_
+*  ``Table 9.12: Substring Operation .........................................`` [P0361]_
+*  ``Table 9.13: Operations to Modify strings ................................`` [P0363]_
+*  ``Table 9.14: string Search Operations ....................................`` [P0365]_
+*  ``Table 9.15: Possible Arguments to s.compare .............................`` [P0367]_
+*  ``Table 9.16: Conversions between strings and Numbers .....................`` [P0368]_
+*  ``Table 9.17: Operations and Types Common to the Container Adaptors .......`` [P0369]_
+*  ``Table 9.18: Stack Operations in Addition to Those in Table 9.1 ..........`` [P0370]_
+*  ``Table 9.19: queue, priority_queue Operations in Addition to Table 9.1 ...`` [P0371]_
+*  ``Table 10.1: Lambda Capture List .........................................`` [P0395]_
+*  ``Table 10.2: Insert Iterator Operations ..................................`` [P0402]_
+*  ``Table 10.3: istream_iterator Operations .................................`` [P0404]_
+*  ``Table 10.4: ostream_iterator Operations .................................`` [P0405]_
+*  ``Table 10.5: Iterator Categories .........................................`` [P0410]_
+*  ``Table 10.6: Algorithms That are Members of list and forward_list ........`` [P0415]_
+*  ``Table 10.7: Arguments to the list and forward_list splice Members .......`` [P0416]_
+*  ``Table 11.1: Associative Container Types .................................`` [P0420]_
+*  ``Table 11.2: Operations on pairs .........................................`` [P0427]_
+*  ``Table 11.3: Associative Container Additional Type Aliases ...............`` [P0429]_
+*  ``Table 11.4: Associative Container insert Operations .....................`` [P0432]_
+*  ``Table 11.5: Removing Elements from an Associative Container .............`` [P0435]_
+*  ``Table 11.6: Subscript Operation for map and unordered_map ...............`` [P0436]_
+*  ``Table 11.7: Operations to Find Elements in an Associative Container .....`` [P0438]_
+*  ``Table 11.8: Unordered Container Management Operations ...................`` [P0445]_
+*  ``Table 12.1: Operations Common to shared_ptr and unique_ptr ..............`` [P0452]_
+*  ``Table 12.2: Operations Specific to shared_ptr ...........................`` [P0453]_
+*  ``Table 12.3: Other Ways to Define and Change shared_ptrs .................`` [P0465]_
+*  ``Table 12.4: unique_ptr Operations (See Also Table 12.1 (p. [P0452]_) ....`` [P0470]_
+*  ``Table 12.5: weak_ptrs ...................................................`` [P0473]_
+*  ``Table 12.6: unique_ptrs to Arrays .......................................`` [P0480]_
+*  ``Table 12.7: Standard allocator Class and Customized Algorithms ..........`` [P0482]_
+*  ``Table 12.8: allocator Algorithms ........................................`` [P0483]_
+*  ``Table 14.1: Operators ...................................................`` [P0553]_
+*  ``Table 14.2: Library Function Objects ....................................`` [P0575]_
+*  ``Table 14.3: Operations on function ......................................`` [P0579]_
+*  ``Table 15.1: Recap: Query Program Design .................................`` [P0640]_
+*  ``Table 16.1: Standard Type Transformation Templates ......................`` [P0685]_
+*  ``Table 17.1: Operations on tuples ........................................`` [P0719]_
+*  ``Table 17.2: Ways to Initialize a bitset .................................`` [P0724]_
+*  ``Table 17.3: bitset Operations ...........................................`` [P0726]_
+*  ``Table 17.4: Regular Expression Library Components .......................`` [P0729]_
+*  ``Table 17.5: Arguments to regex_search and regex_match ...................`` [P0730]_
+*  ``Table 17.6: regex (and wregex) Operations ...............................`` [P0731]_
+*  ``Table 17.7: Regular Expression Error Conditions .........................`` [P0732]_
+*  ``Table 17.8: Regular Expression Library Classes ..........................`` [P0733]_
+*  ``Table 17.9: sregex_iterator Operations ..................................`` [P0736]_
+*  ``Table 17.10: smatch Operations ..........................................`` [P0737]_
+*  ``Table 17.11: Submatch Operations ........................................`` [P0741]_
+*  ``Table 17.12: Regular Expression Replace Operations ......................`` [P0742]_
+*  ``Table 17.13: Match Flags ................................................`` [P0744]_
+*  ``Table 17.14: Random Number Library Components ...........................`` [P0745]_
+*  ``Table 17.15: Random Number Engine Operations ............................`` [P0747]_
+*  ``Table 17.16: Distribution Operations ....................................`` [P0750]_
+*  ``Table 17.17: Manipulators Defined in iostream ...........................`` [P0757]_
+*  ``Table 17.18: Manipulators Defined in iomanip ............................`` [P0760]_
+*  ``Table 17.19: Single-Byte Low-Level IO Operations ........................`` [P0761]_
+*  ``Table 17.20: Multi-Byte Low-Level IO Operations .........................`` [P0763]_
+*  ``Table 17.21: Seek and Tell Functions ....................................`` [P0765]_
+*  ``Table 18.1: Virtual Functions in the ZooAnimal/Endangered Classes .......`` [P0807]_
+*  ``Table 19.1: Operations on type_info .....................................`` [P0831]_
+
+.. ptg11539634 blank
+.. _Pxxiv:
+
    ::
 
                                        ❖
@@ -585,6 +724,8 @@
 
                                        ❖
 
+/TOC - New Features in C++11
+============================
 
 *  ``2.1.1 long long Type ···········································`` [P0033]_
 *  ``2.2.1 List Initialization ······································`` [P0043]_
@@ -11510,8 +11651,8 @@ Old-Style Casts
    R    delete         deallocate object        delete expr             [P0460]_
    R    delete[]       deallocate array         delete[] expr           [P0460]_
    R    noexcept       can expr throw           noexcept ( expr )       [P0780]_
-   L    -> *           ptr to member select     ptr-> * ptr_to_member   [P0837]_
-   L    . *            ptr to member select     obj. * ptr_to_member    [P0837]_
+   L    ->*            ptr to member select     ptr-> * ptr_to_member   [P0837]_
+   L    .*             ptr to member select     obj. * ptr_to_member    [P0837]_
    L    *              multiply                 expr * expr             [P0139]_
    L    /              divide                   expr / expr             [P0139]_
    L    %              modulo (remainder)       expr % expr             [P0139]_
@@ -13653,7 +13794,7 @@ Functions Are Exited during the Search for a Handler
    how to overload functions and how the compiler selects the matching 
    version for a particular call from several overloaded functions.
    The chapter closes by describing pointers to functions.
-   
+
 
 .. ptg11539634 202 Functions
 .. _P0202:
@@ -13666,7 +13807,7 @@ Functions Are Exited during the Search for a Handler
 /6.1👋 Function Basics
 -----------------------
 
-   A function definition typically consists of a return type, a name, a list of zero or
+   A function definition typically consists of a `return type`, a name, a list of zero or
    more parameters, and a body. The parameters are specified in a comma-separated
    list enclosed in parentheses. The actions that the function performs are specified
    in a statement block (§ 5.1, p. [P0173]_), referred to as the **function body**.
@@ -13749,7 +13890,7 @@ Parameters and Arguments
    the first parameter, the second argument initializes the second parameter,
    and so on. Although we know which argument initializes which parameter, we
    have no guarantees about the order in which arguments are evaluated (§ 4.1.3, p. [P0137]_).
-   The compiler is freeto evaluatethe arguments in whatever order it prefers.
+   The compiler is free to evaluate the arguments in whatever order it prefers.
 
    The type of each argument must match the corresponding parameter in the
    same way that the type of any initializer must match the type of the object it initializes. 
@@ -18140,7 +18281,7 @@ mutable Data Members
 .. ptg11539634 274 Classes
 .. _P0274:
 
-   Amutabledatamemberis neverconst,even when it is a memberof a const
+   A mutabled at a member is never const, even when it is a member of a const
    object. Accordingly, a const member function may change a ``mutable`` member. 
    As an example, we'll give `Screen` a ``mutable`` member named access_ctr,
    which we'll use to track how often each `Screen` member function is called:
@@ -18211,7 +18352,7 @@ Initializers for Data Members of Class Type
       Exercise 7.25: Can `Screen` safely rely on the default versions of copy and assignment? 
       If so, why? If not, why not?
 
-      Exercise 7.26: Define Sales_data::avg_price as an inline function.
+      Exercise 7.26: Define `Sales_data::avg_price` as an inline function.
 
 /7.3.2 Functions That Return * this
 ````````````````````````````````````
@@ -18332,13 +18473,13 @@ Overloading Based on const
 .. ptg11539634 Section 7.3 Additional Class Features 277
 .. _P0277:
 
-   Asin anyothercontext, whenone membercallsanother thethispointeris passed
-   implicitly. Thus, when display calls do_display, its own this pointer is implicitly 
-   passed to do_display. When the nonconst version of display calls
-   do_display,its this pointer is implicitly converted from a pointer to nonconst
+   As in any other context, when one member calls another the ``this`` pointer is passed
+   implicitly. Thus, when display calls `do_display`, its own ``this`` pointer is implicitly 
+   passed to `do_display`. When the nonconst version of display calls
+   `do_display`, its this pointer is implicitly converted from a pointer to nonconst
    to a pointer to const (§ 4.11.2, p. [P0162]_).
 
-   When do_display completes, the display functions each return the object
+   When `do_display` completes, the display functions each return the object
    on which they execute by dereferencing this. In the nonconst version, this
    points to a nonconst object, so that version of display returns an ordinary
    (nonconst) reference; the const member returns a reference to const.
@@ -20249,27 +20390,30 @@ static Members Can Be Used in Ways Ordinary Members Can't
    in depth, there are core facilities that the library defines that every
    C++ programmer should be comfortable using. We cover these core
    facilities in this part.
+
    We'll start by covering the basic IO library facilities in Chapter 8.
    Beyond using the library to read and write streams associated with
    the console window, the library defines types that let us read and
    write named files and do in-memory IO to strings.
+
    Central to the library are a number of container classes and a family 
    of generic algorithms that let us write programs that are succinct
-   and efficient. The library worries about bookkeeping details—in particular, 
+   and efficient. The library worries about book keeping details—in particular, 
    taking care of memory management—so that our programs
    can worry about the actual problems we need to solve.
-   In Chapter 3 we introduced the vector container type. We'll
-   learn more about vector in Chapter 9, which will cover the other
+
+   In Chapter 3 we introduced the ``vector`` container type. We'll
+   learn more about ``vector`` in Chapter 9, which will cover the other
    sequential container types as well. We'll also cover more operations
-   provided by the string type. We can think of a string as a special
-   kind of container that contains only characters. The string type
-   
+   provided by the ``string`` type. We can think of a ``string`` as a special
+   kind of container that contains only characters. The ``string`` type
+   supports many, but not all, of the container operations.
 
 .. ptg11539634 308
 .. _P0308:
 
-   supports many, but not all, of the container operations.
-   Chapter10introducesthe genericalgorithms. Thealgorithms typically 
+
+   Chapter 10 introduces the generic algorithms. The algorithms typically 
    operate on a range of elements in a sequential container or
    other sequence. The algorithms library offers efficient implementations 
    of various classical algorithms, such as sorting and searching,
@@ -20278,11 +20422,13 @@ static Members Can Be Used in Ways Ordinary Members Can't
    which looks for a given element; and so on. The algorithms are
    generic in two ways: They can be applied to different kinds of sequences, 
    and those sequences may contain elements of most types.
+
    The library also provides several associative containers, which are
    the topic of Chapter 11. Elements in an associative container are
    accessed by key. The associative containers share many operations
    with the sequential containers and also define operations that are
    specific to the associative containers.
+
    This part concludes with Chapter 12, which looks at language and
    library facilities for managing dynamic memory. This chapter covers 
    one of the most important new library classes, which are standardized 
@@ -20308,8 +20454,9 @@ static Members Can Be Used in Ways Ordinary Members Can't
    The C++ language does not deal directly with input and output. Instead, 
    IO is handled by a family of types defined in the standard
    library. These types support IO to and from devices such as files and
-   console windows. Additional types allow in-memory IOto and from
+   console windows. Additional types allow in-memory IO to and from
    strings.
+
    The IO library defines operations to read and write values of the
    built-in types. In addition, classes, such as string, typically define
    similar IO operations to work on objects of their class type as well.
@@ -20318,23 +20465,55 @@ static Members Can Be Used in Ways Ordinary Members Can't
    how we can write our own input and output operators, and Chapter 
    17 will cover how to control formatting and how to perform random 
    access on files.
-   
+
+   IO 是一个程序最基本的功能，通过 IO 编程接口，程序在运行时既可以与操作系统进行文件读写、控制台
+   中接收用户输入或打印内容，还可以通过操作系统提供的文件重定向功能，将控制台的标准输入（stdin）和
+   标准输出（stdout）或者标准错误（stderr）等文件定向到磁盘文件。C++ IO 标准库是流式编程模型：
+
+   .. code-block:: bash
+
+                                    ╭===========╮
+                                    | ios_base  |
+                                    ╰=====^=====╯
+                                          |
+                                    ╭===========╮
+                  ╭---------------> | basic_ios | <---------------╮
+                  |                 ╰=====^=====╯                 |
+                  |                       |                       |
+         ╭================╮      ╭================╮      ╭================╮
+         | basic_istream  |      | basic_iostream |      | basic_ostream  |
+         ╰=======^========╯      ╰=======^========╯      ╰=======^========╯
+                 |                       |                       |
+      ╭=====================╮   ╭=====================╮   ╭=====================╮
+      | basic_ifstream      |   | basic_fstream       |   | basic_ofstream      |
+      ╰=====================╯   ╰=====================╯   ╰=====================╯
+      ╭=====================╮   ╭=====================╮   ╭=====================╮
+      | basic_istringstream |   | basic_stringstream  |   | basic_ostringstream |
+      ╰=====================╯   ╰=====================╯   ╰=====================╯
 
 .. ptg11539634 310 The IO Library
 .. _P0310:
 
    Our programs have already used many IO library facilities. Indeed, we introduced 
    most of these facilities in § 1.2 (p. [P0005]_):
-   • istream (input stream) type, which provides input operations
-   • ostream (output stream) type, which provides output operations
-   • cin, an istream object that reads the standard input
-   • cout, an ostream object that writes to the standard output
-   • cerr, an ostream object, typically used for program error messages, that
+
+   • ``istream`` (input stream) type, which provides input operations
+
+   • ``ostream`` (output stream) type, which provides output operations
+
+   • ``cin``, an ``istream`` object that reads the standard input
+
+   • ``cout``, an ``ostream`` object that writes to the standard output
+
+   • ``cerr``, an ``ostream`` object, typically used for program error messages, that
    writes to the standard error
-   • The >> operator, which is used to read input from an istream object
-   • The << operator, which is used to write output to an ostream object
-   • The getline function (§ 3.2.2, p. [P0087]_), which reads a line of input from a
-   given istream into a given string
+
+   • The `>> operator`, which is used to read input from an ``istream`` object
+
+   • The `<< operator`, which is used to write output to an ``ostream`` object
+
+   • The ``getline`` function (§ 3.2.2, p. [P0087]_), which reads a line of input from a
+   given ``istream`` into a given string
 
 /8.1👋 The IO Classes
 ----------------------
@@ -20345,66 +20524,82 @@ static Members Can Be Used in Ways Ordinary Members Can't
    need to read or write named files. Moreover, it can be convenient to use IO operations 
    to process the characters in a string. Applications also may have to read
    and write languages that require wide-character support.
+
    To support these different kinds of IO processing, the library defines a collection 
    of IO types in addition to the istream and ostream types that we have
    already used. These types, which are listed in Table 8.1, are defined in three separate 
-   headers: iostream defines the basic types used to read from and write
-   to a stream, fstream defines the types used to read and write named files, and
-   sstream defines the types used to read and write in-memory strings.
+   headers: ``iostream`` defines the basic types used to read from and write
+   to a ``stream``, ``fstream`` defines the types used to read and write named files, and
+   ``sstream`` defines the types used to read and write in-memory strings.
+
    Table 8.1: IO Library Types and Headers
-   Header Type
+
+   ======== =====================================================
+   Header   Type
+   ======== =====================================================
    iostream istream, wistream reads from a stream
-   ostream, wostream writes to a stream
-   iostream, wiostream reads and writes a stream
-   fstream ifstream, wifstream reads from a file
-   ofstream, wofstream writes to a file
-   fstream, wfstream reads and writes a file
-   sstream istringstream, wistringstream reads from a string
-   ostringstream, wostringstream writes to a string
-   stringstream, wstringstream reads and writes a string
+            ostream, wostream writes to a stream
+            iostream, wiostream reads and writes a stream
+
+   fstream  ifstream, wifstream reads from a file
+            ofstream, wofstream writes to a file
+            fstream, wfstream reads and writes a file
+
+   sstream  istringstream, wistringstream reads from a string
+            ostringstream, wostringstream writes to a string
+            stringstream, wstringstream reads and writes a string
+   ======== =====================================================
 
 .. ptg11539634 Section 8.1 The IO Classes 311
 .. _P0311:
 
    To support languages that use wide characters, the library defines a set of types
-   and objects that manipulate wchar_t data (§ 2.1.1, p. [P0032]_). The names of the widecharacter 
-   versions begin with a w. For example, wcin, wcout, and wcerr are
+   and objects that manipulate ``wchar_t`` data (§ 2.1.1, p. [P0032]_). The names of the widecharacter 
+   versions begin with a w. For example, wcin, wcout, and ``wcerr`` are
    the wide-character objects that correspond to cin, cout, and cerr, respectively.
    The wide-character types and objects are defined in the same header as the plain
-   char types. For example, the fstream header defines both the ifstream and
-   wifstream types.
-   Relationships among the IO Types
+   char types. For example, the ``fstream`` header defines both the ``ifstream`` and
+   ``wifstream`` types.
+
+Relationships among the IO Types
+
    Conceptually, neither the kind of device nor the character size affects the IO operations 
    we want to perform. For example, we'd like to use >> to read data regardless
    of whether we're reading a console window, a disk file, or a string. Similarly,
    we'd like to use that operator regardless of whether the characters we read fit in a
-   char or require a wchar_t.
-   The library lets us ignore the differencesamong these differentkinds of streams
+   char or require a ``wchar_t``.
+
+   The library lets us ignore the differences among these different kinds of streams
    by using inheritance. As with templates (§ 3.3, p. [P0096]_), we can use classes related
    by inheritance without understanding the details of how inheritance works. We'll
    cover how C++ supports inheritance in Chapter 15 and in § 18.3 (p. [P0802]_).
    Briefly, inheritance lets us say that a particular class inherits from another class.
    Ordinarily, we can use an object of an inherited class as if it were an object of the
    same type as the class from which it inherits.
-   The types ifstream and istringstream inherit from istream. Thus, we
-   can use objects of type ifstream or istringstream as if they were istream
+
+   The types ``ifstream`` and ``istringstream`` inherit from ``istream``. Thus, we
+   can use objects of type ``ifstream`` or ``istringstream`` as if they were ``istream``
    objects. We can use objects of these types in the same ways as we have used cin.
-   For example, we can call getline on an ifstream or istringstream object,
-   and we can use the >> to read data from an ifstream or istringstream. Simithetypes 
-   larly,thetypes ofstreamandostringstreaminherit fromostream. Therefore,
+   For example, we can call getline on an ``ifstream`` or ``istringstream`` object,
+   and we can use the >> to read data from an ``ifstream`` or ``istringstream``. Similarly, 
+   the types ``ofstream`` and ``ostringstream`` inherit from ``ostream``. Therefore,
    we can use objects of these types in the same ways that we have used cout.
-   Everythingthatwecoverin theremainderofthis sectionappliesequally
-   to plain streams, file streams, and string streams and to the char or
+   Everything that we cover in the remainder of this section applies equally
+   to `plain streams`, `file streams`, and `string streams` and to the char or
    wide-character stream versions.
 
 /8.1.1 No Copy or Assign for IO Objects
 ````````````````````````````````````````
 
    As we saw in § 7.1.3 (p. [P0261]_), we cannot copy or assign objects of the IO types:
-   ofstream out1, out2;
-   out1 = out2; // error: cannot assign stream objects
-   ofstream print(ofstream); // error: can't initialize the ofstream parameter
-   out2 = print(out2); // error: cannot copy stream objects
+
+   .. code-block:: cpp
+
+      ofstream out1, out2;
+      out1 = out2; // error: cannot assign stream objects
+      ofstream print(ofstream); // error: can't initialize the ofstream parameter
+      out2 = print(out2); // error: cannot copy stream objects
+
    Because we can't copy the IO types, we cannot have a parameter or return type
    that is one of the stream types (§ 6.2.1, p. [P0209]_). Functions that do IO typically pass
    and return the stream through references. Reading or writing an IO object changes
@@ -20421,9 +20616,14 @@ static Members Can Be Used in Ways Ordinary Members Can't
    others occur deep within the system and are beyond the scope of a program to
    correct. The IO classes define functions and flags, listed in Table 8.2, that let us
    access and manipulate the condition state of a stream.
+
    As an example of an IO error, consider the following code:
-   int ival;
-   cin >> ival;
+
+   .. code-block:: cpp
+
+      int ival;
+      cin >> ival;
+
    If we enter Boo on the standard input, the read will fail. The input operator expected 
    to read an int but got the character B instead. As a result, cin will be put
    in an error state. Similarly, cin will be in an error state if we enter an end-of-file.
@@ -20432,23 +20632,31 @@ static Members Can Be Used in Ways Ordinary Members Can't
    a stream might be in an error state, code ordinarily should check whether a stream
    is okay before attempting to use it. The easiest way to determine the state of a
    stream object is to use that object as a condition:
-   while (cin >> word)
-   // ok: read operation successful ...
+
+   .. code-block:: cpp
+
+      while (cin >> word)
+      // ok: read operation successful ...
+
    The while condition checks the state of the stream returned from the >> expression. 
    If that input operation succeeds, the state remains valid and the condition
    will succeed.
-   Interrogating the State of a Stream
+
+Interrogating the State of a Stream
+
    Using a stream as a condition tells us only whether the stream is valid. It does
    not tell us what happened. Sometimes we also need to know why the stream is
    invalid. For example, what we do after hitting end-of-file is likely to differ from
    what we'd do if we encounter an error on the IO device.
-   TheIOlibrarydefinesamachine-dependentintegraltypenamed iostatethat
+
+   The IO library defines a machine-dependent integral type named ``iostate`` that
    it uses to convey information about the state of a stream. This type is used as a
    collection of bits, in the same way that we used the quiz1 variablein § 4.8 (p. [P0154]_).
-   The IO classes define four constexpr values (§ 2.4.4, p. [P0065]_) of type iostate that
+   The IO classes define four constexpr values (§ 2.4.4, p. [P0065]_) of type ``iostate`` that
    represent particular bit patterns. These values are used to indicate particular kinds
    of IO conditions. They can be used with the bitwise operators (§ 4.8, p. [P0152]_) to test
    or set multiple flags in one operation.
+
    The badbit indicates a system-level failure, such as an unrecoverable read or
    write error. It is usually not possible to use astream once badbithas been set. The
    failbit is set after a recoverable error, such as reading a character when numeric
@@ -20457,50 +20665,61 @@ static Members Can Be Used in Ways Ordinary Members Can't
    which is guaranteed to have the value 0, indicates no failures on the stream. If
    any of badbit, failbit, or eofbit are set, then a condition that evaluates that
    stream will fail.
+
    The library also defines a set of functions to interrogate the state of these flags.
    The good operation returns true if none of the error bits is set. The bad, fail,
-
-.. ptg11539634 Section 8.1 The IO Classes 313
-.. _P0313:
-
-   Table 8.2: IO Library Condition State
-   strm::iostate strm is one of the IO types listed in Table 8.1 (p. [P0310]_). iostate is a
-   machine-dependent integral type that represents the condition state
-   of a stream.
-   strm::badbit strm::iostate value used to indicate that a stream is corrupted.
-   strm::failbit strm::iostate value used to indicate that an IO operation failed.
-   strm::eofbit strm::iostate value used to indicate that a stream hit end-of-file.
-   strm::goodbit strm::iostate value used to indicate that a stream is not in an
-   error state. This value is guaranteed to be zero.
-   s.eof() true if eofbit in the stream s is set.
-   s.fail() true if failbit or badbit in the stream s is set.
-   s.bad() true if badbit in the stream s is set.
-   s.good() true if the stream s is in a valid state.
-   s.clear() Reset all condition values in the stream s to valid state.
-   Returns void.
-   s.clear(flags) Reset the condition of s to flags. Type of flags is
-   strm::iostate. Returns void.
-   s.setstate(flags) Adds specified condition(s) to s. Type of flags is strm::iostate.
-   Returns void.
-   s.rdstate() Returns current condition of s as a strm::iostate value.
    and eof operations return true when the corresponding bit is on. In addition,
    fail returns true if bad is set. By implication, the right way to determine the
    overall state of a stream is to use either good or fail. Indeed, the code that is executed 
    when we use a stream as a condition is equivalent to calling !fail(). The
    eof and bad operations reveal only whether those specific errors have occurred.
-   Managing the Condition State
+
+.. ptg11539634 Section 8.1 The IO Classes 313
+.. _P0313:
+
+   Table 8.2: IO Library Condition State
+
+   ================= ========================================================
+   strm::iostate     strm is one of the IO types listed in Table 8.1 (p. [P0310]_). 
+                     iostate is a machine-dependent integral type that represents 
+                     the condition state of a stream.
+   strm::badbit      `strm::iostate` value used to indicate that a stream is corrupted.
+   strm::failbit     `strm::iostate` value used to indicate that an IO operation failed.
+   strm::eofbit      `strm::iostate` value used to indicate that a stream hit end-of-file.
+   strm::goodbit     `strm::iostate` value used to indicate that a stream is not in an
+                     error state. This value is guaranteed to be zero.
+   s.eof()           true if eofbit in the stream s is set.
+   s.fail()          true if failbit or badbit in the stream s is set.
+   s.bad()           true if badbit in the stream s is set.
+   s.good()          true if the stream s is in a valid state.
+   s.clear()         Reset all condition values in the stream s to valid state.
+                     Returns ``void``.
+   s.clear(flags)    Reset the condition of s to flags. Type of flags is
+                     `strm::iostate`. Returns ``void``.
+   s.setstate(flags) Adds specified condition(s) to s. Type of flags is `strm::iostate`.
+                     Returns ``void``.
+   s.rdstate()       Returns current condition of s as a `strm::iostate` value.
+   ================= ========================================================
+
+Managing the Condition State
+
    The rdstate member returns an iostate value that corresponds to the current
    state of the stream. The setstate operation turns on the given condition bit(s) to
    indicate that a problem occurred. The clear member is overloaded (§ 6.4, p. [P0230]_):
    One version takes no arguments and a second version takes a single argument of
    type iostate.
+
    Theversion of clearthattakes no argumentsturns offall thefailurebits. After
    clear(), a call to good returns true. We might use these members as follows:
-   // remember the current state of cin
-   auto old_state = cin.rdstate(); // remember the current state of cin
-   cin.clear(); // make cin valid
-   process_input(cin); // use cin
-   cin.setstate(old_state); // now reset cin to its old state
+
+   .. code-block:: cpp
+
+      // remember the current state of cin
+      auto old_state = cin.rdstate(); // remember the current state of cin
+      cin.clear(); // make cin valid
+      process_input(cin); // use cin
+      cin.setstate(old_state); // now reset cin to its old state
+
    The version of clear that takes an argument expects an iostate value that
    represents the new state of the stream. To turn off a single condition, we use the
    rdstate member and the bitwise operators to produce the desired new state.
@@ -20510,91 +20729,125 @@ static Members Can Be Used in Ways Ordinary Members Can't
 
    For example, the following turns off failbit and badbit but leaves eofbit
    untouched:
-   // turns off failbit and badbit but all other bits unchanged
-   cin.clear(cin.rdstate() & ~cin.failbit & ~cin.badbit);
 
-Exercises Section 8.1.2
+   .. code-block:: cpp
 
-   Exercise 8.1: Write a function that takes and returns an istream&. The function
-   should read the stream until it hits end-of-file. The function should print what it reads
-   to the standard output. Reset the stream so that it is valid before returning the stream.
+      // turns off failbit and badbit but all other bits unchanged
+      cin.clear(cin.rdstate() & ~cin.failbit & ~cin.badbit);
 
-   Exercise 8.2: Test your function by calling it, passing cin as an argument.
+   Exercises Section 8.1.2
 
-   Exercise 8.3: What causes the following while to terminate?
-   while (cin >> i) / * ...
-   * /
+      Exercise 8.1: Write a function that takes and returns an istream&. The function
+      should read the stream until it hits end-of-file. The function should print what it reads
+      to the standard output. Reset the stream so that it is valid before returning the stream.
+
+      Exercise 8.2: Test your function by calling it, passing cin as an argument.
+
+      Exercise 8.3: What causes the following while to terminate?
+
+      .. code-block:: cpp
+
+         while (cin >> i) /* ... */
 
 /8.1.3 Managing the Output Buffer
 ``````````````````````````````````
 
    Each output stream manages a buffer, which it uses to hold the data that the program 
    reads and writes. For example, when the following code is executed
-   os << "please enter a value: ";
+
+   .. code-block:: cpp
+
+      os << "please enter a value: ";
+
    the literalstring might be printedimmediately, orthe operating system might store
    the data in a buffer to be printed later. Using a buffer allows the operating system
    to combine several output operations from our program into a single system-level
    write. Because writing to a device can be time-consuming, letting the operating
    system combine several output operations into a single write can provide an important 
    performance boost.
+
    There are several conditions that cause the buffer to be flushed—that is, to be
    written—to the actual output device or file:
+
    • The program completes normally. All output buffers are flushed as part of
    the return from main.
+
    • At some indeterminate time, the buffer can become full, in which case it will
    be flushed before writing the next value.
+
    • We can flush the buffer explicitly using a manipulator such as endl (§ 1.2, p. [P0007]_).
    
    • We can use the unitbuf manipulator to set the stream's internal state to
    empty the buffer after each output operation. By default, unitbuf is set for
    cerr, so that writes to cerr are flushed immediately.
+
    • An output stream might be tied to another stream. In this case, the output
    stream is flushed whenever the stream to which it is tied is read or written.
+
    By default, cin and cerr are both tied to cout. Hence, reading cin or
    writing to cerr flushes the buffer in cout.
 
 .. ptg11539634 Section 8.1 The IO Classes 315
 .. _P0315:
 
-   Flushing the Output Buffer
+Flushing the Output Buffer
+
    Our programs have already used the endl manipulator, which ends the current
    line and flushes the buffer. There are two other similar manipulators: flush and
    ends. flush flushes the stream but adds no characters to the output; ends inserts
    a null character into the buffer and then flushes it:
-   cout << "hi!" << endl; // writes hi and a newline, then flushes the buffer
-   cout << "hi!" << flush; // writes hi , then flushes the buffer; adds no data
-   cout << "hi!" << ends; // writes hi and a null, then flushes the buffer
-   The unitbuf Manipulator
+
+   .. code-block:: cpp
+
+      cout << "hi!" << endl; // writes hi and a newline, then flushes the buffer
+      cout << "hi!" << flush; // writes hi , then flushes the buffer; adds no data
+      cout << "hi!" << ends; // writes hi and a null, then flushes the buffer
+
+The unitbuf Manipulator
+
    If we want to flush after every output, we can use the unitbuf manipulator.
    This manipulator tells the stream to do a flush after every subsequent write.
    The nounitbuf manipulator restores the stream to use normal, system-managed
    buffer flushing:
-   cout << unitbuf; // all writes will be flushed immediately
-   // any output is flushed immediately, no buffering
-   cout << nounitbuf; // returns to normal buffering
+
+   .. code-block:: cpp
+
+      cout << unitbuf; // all writes will be flushed immediately
+      // any output is flushed immediately, no buffering
+      cout << nounitbuf; // returns to normal buffering
+
    .. Caution::
 
-   Caution : Buffers are Not Flushed if the Program Crashes
-   
-   Outputbuffersarenotflushediftheprogramterminatesabnormally. Whenaprogram
-   crashes, it is likely that data the program wrote may be sitting in an output buffer
-   waiting to be printed.
-   When you debug a program that has crashed, it is essential to make sure that any
-   output you think should have been written was actually flushed. Countless hours of
-   programmer time have been wasted tracking through code that appeared not to have
-   executed when in fact the buffer had not been flushed and the output was pending
-   when the program crashed.
+      Caution : Buffers are Not Flushed if the Program Crashes
+      
+      Output buffers are not flushed if the program terminates abnormally. When a program
+      crashes, it is likely that data the program wrote may be sitting in an output buffer
+      waiting to be printed.
+
+      When you debug a program that has crashed, it is essential to make sure that any
+      output you think should have been written was actually flushed. Countless hours of
+      programmer time have been wasted tracking through code that appeared not to have
+      executed when in fact the buffer had not been flushed and the output was pending
+      when the program crashed.
 
 Tying Input and Output Streams Together
 
    When an input stream is tied to an output stream, any attempt to read the input
    stream will first flush the buffer associated with the output stream. The library ties
    cout to cin, so the statement
-   cin >> ival;
+
+   .. code-block:: cpp
+
+      cin >> ival;
+
    causes the buffer associated with cout to be flushed.
-   Interactive systems usually should tie their input stream to their output
-   stream. Doing so means that all output, which might include prompts
-   to the user, will be written before attempting to read the input.
+
+   .. Note::
+
+      Interactive systems usually should tie their input stream to their output
+      stream. Doing so means that all output, which might include prompts
+      to the user, will be written before attempting to read the input.
+
    There are two overloaded (§ 6.4, p. [P0230]_) versions of tie: One version takes no
    argument and returns a pointer to the output stream, if any, to which this object
    is currently tied. The function returns the null pointer if the stream is not tied.
@@ -20602,17 +20855,19 @@ Tying Input and Output Streams Together
 .. ptg11539634 316 The IO Library
 .. _P0316:
 
-   The second version of tie takes a pointer to an ostream and ties itself to that
-   ostream. That is, x.tie(&o) ties the stream x to the output stream o.
-   We can tie either an istream or an ostream object to another ostream:
-   cin.tie(&cout); // illustration only: the library ties cin and cout for us
-   // old_tie points to the stream (if any) currently tied to cin
-   ostream
-   * old_tie = cin.tie(nullptr); //
-   cin is no longer tied
-   // ties cin and cerr ; not a good idea because cin should be tied to cout
-   cin.tie(&cerr); // reading cin flushes cerr , not cout
-   cin.tie(old_tie); // reestablish normal tie between cin and cout
+   The second version of tie takes a pointer to an ``ostream`` and ties itself to that
+   ``ostream``. That is, x.tie(&o) ties the stream x to the output stream o.
+   We can tie either an istream or an ``ostream`` object to another ``ostream``:
+
+   .. code-block:: cpp
+
+      cin.tie(&cout); // illustration only: the library ties cin and cout for us
+      // old_tie points to the stream (if any) currently tied to cin
+      ostream * old_tie = cin.tie(nullptr); // cin is no longer tied
+      // ties cin and cerr ; not a good idea because cin should be tied to cout
+      cin.tie(&cerr); // reading cin flushes cerr , not cout
+      cin.tie(old_tie); // reestablish normal tie between cin and cout
+
    To tie a given stream to a new output stream, we pass tie a pointer to the new
    stream. To untie the stream completely, we pass a null pointer. Each stream can be
    tied to at most one stream at a time. However, multiple streams can tie themselves
@@ -20625,6 +20880,7 @@ Tying Input and Output Streams Together
    from a given file, ofstream to write to a given file, and fstream, which reads
    and writes a given file. In § 17.5.3 (p. [P0763]_) we'll describe how to use the same file
    for both input and output.
+
    These types provide the same operations as those we have previously used on
    the objects cin and cout. In particular, we can use the IO operators (<< and >>)
    to read and write files, we can use getline (§ 3.2.2, p. [P0087]_) to read an ifstream,
@@ -20633,22 +20889,28 @@ Tying Input and Output Streams Together
    types defined in fstream add members to manage the file associated with the
    stream. These operations, listed in Table 8.3, can be called on objects of fstream,
    ifstream, or ofstream but not on the other IO types.
+
    Table 8.3: fstream-Specific Operations
-   fstream fstrm; Creates an unbound file stream. fstream is one of the types
-   defined in the fstream header.
-   fstream fstrm(s); Creates an fstream and opens the file named s. s can have type
-   string or can be a pointer to a C-style character string
-   (§ 3.5.4, p. [P0122]_). These constructors are explicit (§ 7.5.4, p. [P0296]_).
-   The default file mode depends on the type of fstream.
+   ======================= =================================================
+   fstream fstrm;          Creates an unbound file stream. fstream is one of the types
+                           defined in the fstream header.
+
+   fstream fstrm(s);       Creates an fstream and opens the file named s. s can have type
+                           string or can be a pointer to a C-style character string
+                           (§ 3.5.4, p. [P0122]_). These constructors are explicit (§ 7.5.4, p. [P0296]_).
+                           The default file mode depends on the type of fstream.
+
    fstream fstrm(s, mode); Like the previous constructor, but opens s in the given mode.
-   fstrm.open(s)
-   fstrm.open(s, mode)
-   Opens the file named by the s and binds that file to fstrm. s
-   can be a string or a pointer to a C-style character string. The
-   default file mode depends on the type of fstream. Returns void.
-   fstrm.close() Closes the file to which fstrm is bound. Returns void.
-   fstrm.is_open() Returns a bool indicating whether the file associated with
-   fstrm was successfully opened and has not been closed.
+
+   fstrm.open(s)           Opens the file named by the s and binds that file to fstrm. s
+   fstrm.open(s, mode)     can be a string or a pointer to a C-style character string. The
+                           default file mode depends on the type of fstream. Returns void.
+
+   fstrm.close()           Closes the file to which fstrm is bound. Returns void.
+
+   fstrm.is_open()         Returns a bool indicating whether the file associated with
+                           fstrm was successfully opened and has not been closed.
+   ======================= =================================================
 
 .. ptg11539634 Section 8.2 File Input and Output 317
 .. _P0317:
@@ -20663,131 +20925,176 @@ Tying Input and Output Streams Together
    the given file and open it for reading or writing as appropriate.
    When we create a file stream, we can (optionally) provide a file name. When
    we supply a file name, open is called automatically:
-   ifstream in(ifile); // construct an ifstream and open the given file
-   ofstream out; // output file stream that is not associated with any file
+
+   .. code-block:: cpp
+
+      ifstream in(ifile); // construct an ifstream and open the given file
+      ofstream out; // output file stream that is not associated with any file
+
    This code defines in as an input stream that is initialized to read from the file
    named by the string argument ifile. It defines out as an output stream that
    is not yet associated with a file. With the new standard, file names can be either
    library strings or C-style character arrays (§ 3.5.4, p. [P0122]_). Previous versions of
    the library allowed only C-style character arrays.
-   Using an fstream in Place of an iostream&
+
+Using an fstream in Place of an iostream&
+
    As we noted in § 8.1 (p. [P0311]_), we can use an object of an inherited type in places
    where an object of the original type is expected. This fact means that functions that
    are written to take a reference (or pointer) to one of the iostream types can be
-   called on behalf of the corresponding fstream (or sstream) type. That is, if we
+   called on behalf of the corresponding ``fstream`` (or sstream) type. That is, if we
    have a function that takes an ostream&, we can call that function passing it an
-   ofstream object, and similarly for istream& and ifstream.
+   ``ofstream`` object, and similarly for istream& and ``ifstream``.
+
    For example, we can use the read and print functions from § 7.1.3 (p. [P0261]_) to
    read from and write to named files. In this example, we'll assume that the names
    of the input and output files are passed as arguments to main (§ 6.2.5, p. [P0218]_):
-   ifstream input(argv[1]); // open the file of sales transactions
-   ofstream output(argv[2]); // open the output file
-   Sales_data total; // variable to hold the running sum
-   if (read(input, total)) { // read the first transaction
-   Sales_data trans; // variable to hold data for the next transaction
-   while(read(input, trans)) { // read the remaining transactions
-   if (total.isbn() == trans.isbn()) // check isbn s
-   total.combine(trans); // update the running total
-   else {
-   print(output, total) << endl; // print the results
-   total = trans; // process the next book
-   }
-   }
-   print(output, total) << endl; // print the last transaction
-   } else // there was no input
-   cerr << "No data?!" << endl;
+
+   .. code-block:: cpp
+
+      ifstream input(argv[1]); // open the file of sales transactions
+      ofstream output(argv[2]); // open the output file
+      Sales_data total; // variable to hold the running sum
+      if (read(input, total)) { // read the first transaction
+         Sales_data trans; // variable to hold data for the next transaction
+         while(read(input, trans)) { // read the remaining transactions
+            if (total.isbn() == trans.isbn()) // check isbn s
+               total.combine(trans); // update the running total
+            else {
+               print(output, total) << endl; // print the results
+               total = trans; // process the next book
+            }
+         }
+         print(output, total) << endl; // print the last transaction
+      } else // there was no input
+         cerr << "No data?!" << endl;
+
    Aside from using named files, this code is nearly identical to the version of the addition 
    program on page 255. The important part is the calls to read and to print.
-   We can pass our fstream objects to these functions even though the parameters
-   to those functions are defined as istream& and ostream&, respectively.
+   We can pass our `fstream` objects to these functions even though the parameters
+   to those functions are defined as `istream&` and `ostream&`, respectively.
 
 .. ptg11539634 318 The IO Library
 .. _P0318:
 
-   The open and close Members
+The open and close Members
+
    When we define an empty file stream object, we can subsequently associate that
    object with a file by calling open:
-   ifstream in(ifile); // construct an ifstream and open the given file
-   ofstream out; // output file stream that is not associated with any file
-   out.open(ifile + ".copy"); // open the specified file
+
+   .. code-block:: cpp
+
+      ifstream in(ifile); // construct an ifstream and open the given file
+      ofstream out; // output file stream that is not associated with any file
+      out.open(ifile + ".copy"); // open the specified file
+
    If a call to open fails, failbit is set (§ 8.1.2, p. [P0312]_). Because a call to open
    might fail, it is usually a good idea to verify that the open succeeded:
-   if (out) // check that the open succeeded
-   // the open succeeded, so we can use the file
+
+   .. code-block:: cpp
+
+      if (out) // check that the open succeeded
+      // the open succeeded, so we can use the file
+
    This condition is similar to those we've used on cin. If the open fails, this condition 
    will fail and we will not attempt to use out.
+
    Once a file stream has been opened, it remains associated with the specified
    file. Indeed, calling open on a file stream that is already open will fail and set
    failbit. Subsequent attempts to use that file stream will fail. To associate a file
    stream with a different file, we must first close the existing file. Once the file is
    closed, we can open a new one:
-   in.close(); // close the file
-   in.open(ifile + "2"); // open another file
+
+   .. code-block:: cpp
+
+      in.close(); // close the file
+      in.open(ifile + "2"); // open another file
+
    If the open succeeds, then open sets the stream's state so that good() is true.
-   Automatic Construction and Destruction
+
+Automatic Construction and Destruction
+
    Consider a program whose main function takes a list of files it should process
    (§ 6.2.5, p. [P0218]_). Such a program might have a loop like the following:
-   // for each file passed to the program
-   for (auto p = argv + 1; p != argv + argc; ++p) {
-   ifstream input( * p); // create input and open the file
-   if (input) { // if the file is ok, ‘‘process'' this file
-   process(input);
-   } else
-   cerr << "couldn't open: " + string( * p);
-   } // input goes out of scope and is destroyed on each iteration
-   Each iteration constructs a new ifstream object named input and opens it to
+
+   .. code-block:: cpp
+
+      // for each file passed to the program
+      for (auto p = argv + 1; p != argv + argc; ++p) {
+         ifstream input( * p); // create input and open the file
+         if (input) { // if the file is ok, ‘‘process'' this file
+            process(input);
+         } else
+            cerr << "couldn't open: " + string( * p);
+      } // input goes out of scope and is destroyed on each iteration
+
+   Each iteration constructs a new ``ifstream`` object named input and opens it to
    read the given file. As usual, we check that the open succeeded. If so, we pass
    that file to a function that will read and process the input. If not, we print an error
    message and continue.
+
    Because input is defined inside the block that forms the for body, it is created
-   and destroyed on each iteration (§ 6.1.1, p. [P0205]_). When an fstream object goes
+   and destroyed on each iteration (§ 6.1.1, p. [P0205]_). When an ``fstream`` object goes
    out of scope, the file it is bound to is automatically closed. On the next iteration,
    input is created anew.
-   When an fstream object is destroyed, close is called automatically.
+
+   When an ``fstream`` object is destroyed, close is called automatically.
 
 .. ptg11539634 Section 8.2 File Input and Output 319
 .. _P0319:
 
 
-Exercises Section 8.2.1
+   Exercises Section 8.2.1
 
-   Exercise 8.4: Write a function to open a file for input and read its contents into a
-   vector of strings, storing each line as a separate element in the vector.
+      Exercise 8.4: Write a function to open a file for input and read its contents into a
+      vector of strings, storing each line as a separate element in the vector.
 
-   Exercise 8.5: Rewrite the previous program to store each word in a separate element.
+      Exercise 8.5: Rewrite the previous program to store each word in a separate element.
 
-   Exercise 8.6: Rewrite the bookstore program from § 7.1.1 (p. [P0256]_) to read its transactions 
-   from a file. Pass the name of the file as an argument to main (§ 6.2.5, p. [P0218]_).
+      Exercise 8.6: Rewrite the bookstore program from § 7.1.1 (p. [P0256]_) to read its transactions 
+      from a file. Pass the name of the file as an argument to main (§ 6.2.5, p. [P0218]_).
 
 /8.2.2 File Modes
 ``````````````````
 
    Each stream has an associated file mode that represents how the file may be used.
    Table 8.4 lists the file modes and their meanings.
+
    Table 8.4: File Modes
-   in Open for input
-   out Open for output
-   app Seek to the end before every write
-   ate Seek to the end immediately after the open
-   trunc Truncate the file
+
+   ====== ===========================================
+   in     Open for input
+   out    Open for output
+   app    Seek to the end before every write
+   ate    Seek to the end immediately after the open
+   trunc  Truncate the file
    binary Do IO operations in binary mode
+   ====== ===========================================
+
    We can supply a file mode whenever we open a file—either when we call open
    or when we indirectly open the file when we initialize a stream from a file name.
    The modes that we can specify have the following restrictions:
-   • out may be set only for an ofstream or fstream object.
-   • in may be set only for an ifstream or fstream object.
-   • trunc may be set only when out is also specified.
-   • app mode may be specified so long as trunc is not. If app is specified, the
-   fileis alwaysopenedinoutputmode, evenifoutwasnot explicitlyspecified.
-   • By default, a file opened in out mode is truncated even if we do not specify
-   trunc. To preserve the contents of a file opened with out, either we must
-   also specify app, in which case we can write only at the end of the file, or we
+
+   • ``out`` may be set only for an ``ofstream`` or ``fstream`` object.
+
+   • ``in`` may be set only for an ``ifstream`` or ``fstream`` object.
+
+   • ``trunc`` may be set only when ``out`` is also specified.
+
+   • ``app`` mode may be specified so long as ``trunc`` is not. If app is specified, the
+   file is always opened in output mode, even if ``out`` was not explicitly specified.
+
+   • By default, a file opened in ``out`` mode is truncated even if we do not specify
+   ``trunc``. To preserve the contents of a file opened with ``out``, either we must
+   also specify ``app``, in which case we can write only at the end of the file, or we
    must also specify in, in which case the file is open for both input and output
    (§ 17.5.3 (p. [P0763]_) will cover using the same file for input and output).
-   • The ate and binary modes may be specified on any file stream object type
+
+   • The ``ate`` and ``binary`` modes may be specified on any file stream object type
    and in combination with any other file modes.
+
    Each file stream type defines a default file mode that is used whenever we do
-   not otherwise specify a mode. Files associated with an ifstream are opened in
+   not otherwise specify a mode. Files associated with an ``ifstream`` are opened in
    in mode; files associated with an ofstream are opened in out mode; and files
    associated with an fstream are opened with both in and out modes.
 
@@ -20799,40 +21106,53 @@ Opening a File in out Mode Discards Existing Data
 
    By default, when we open an ofstream, the contents of the file are discarded. The
    only way to prevent an ostream from emptying the given file is to specify app:
-   // file1 is truncated in each of these cases
-   ofstream out("file1"); // out and trunc are implicit
-   ofstream out2("file1", ofstream::out); // trunc is implicit
-   ofstream out3("file1", ofstream::out | ofstream::trunc);
-   // to preserve the file's contents, we must explicitly specify app mode
-   ofstream app("file2", ofstream::app); // out is implicit
-   ofstream app2("file2", ofstream::out | ofstream::app);
-   The only way to preserve the existing data in a file opened by an
-   ofstream is to specify app or in mode explicitly.
+
+   .. code-block:: cpp
+
+      // file1 is truncated in each of these cases
+      ofstream out("file1"); // out and trunc are implicit
+      ofstream out2("file1", ofstream::out); // trunc is implicit
+      ofstream out3("file1", ofstream::out | ofstream::trunc);
+      // to preserve the file's contents, we must explicitly specify app mode
+      ofstream app("file2", ofstream::app); // out is implicit
+      ofstream app2("file2", ofstream::out | ofstream::app);
+
+   .. Warning::
+
+      The only way to preserve the existing data in a file opened by an
+      ``ofstream`` is to specify app or in mode explicitly.
 
 File Mode Is Determined Each Time open Is Called
 
    The file mode of a given stream may change each time a file is opened.
-   ofstream out; // no file mode is set
-   out.open("scratchpad"); // mode implicitly out and trunc
-   out.close(); // close out so we can use it for a different file
-   out.open("precious", ofstream::app); // mode is out and app
-   out.close();
+
+   .. code-block:: cpp
+
+      ofstream out; // no file mode is set
+      out.open("scratchpad"); // mode implicitly out and trunc
+      out.close(); // close out so we can use it for a different file
+      out.open("precious", ofstream::app); // mode is out and app
+      out.close();
+
    The first call to open does not specify an output mode explicitly; this file is implicitly 
    opened in out mode. As usual, out implies trunc. Therefore, the file named
-   scratchpad in the current directory will be truncated. When we open the file
-   named precious, we ask for append mode. Any data in the file remains, and all
+   `scratchpad` in the current directory will be truncated. When we open the file
+   named `precious`, we ask for `append` mode. Any data in the file remains, and all
    writes are done at the end of the file.
-   Any time open is called, the file mode is set, either explicitly or implicitly. 
-   Whenever a mode is not specified, the default value is used.
 
-Exercises Section 8.2.2
+   .. Note::
 
-   Exercise 8.7: Revise the bookstore program from the previous section to write its output 
-   to a file. Pass the name of that file as a second argument to main.
+      Any time open is called, the file mode is set, either explicitly or implicitly. 
+      Whenever a mode is not specified, the default value is used.
 
-   Exercise 8.8: Revise the program from the previous exercise to append its output to
-   its given file. Run the program on the same output file at least twice to ensure that the
-   data are preserved.
+   Exercises Section 8.2.2
+
+      Exercise 8.7: Revise the bookstore program from the previous section to write its output 
+      to a file. Pass the name of that file as a second argument to main.
+
+      Exercise 8.8: Revise the program from the previous exercise to append its output to
+      its given file. Run the program on the same output file at least twice to ensure that the
+      data are preserved.
 
 .. ptg11539634 Section 8.3 string Streams 321
 .. _P0321:
@@ -20841,95 +21161,117 @@ Exercises Section 8.2.2
 /8.3👋 string Streams
 ----------------------
 
-   The sstream header defines three types to support in-memory IO; these types
+   The ``sstream`` header defines three types to support in-memory IO; these types
    read from or write to a string as if the string were an IO stream.
-   Theistringstreamtypereadsastring,ostringstreamwritesastring,
-   and stringstream reads and writes the string. Like the fstream types, the
-   typesdefinedin sstreaminherit fromthe typeswe haveusedfromthe iostream
-   header. In addition to the operations they inherit, the types defined in sstream
+
+   The ``istringstream`` type reads a string, ``ostringstream`` writes a string,
+   and ``stringstream`` reads and writes the string. Like the fstream types, the
+   types defined in ``sstream`` inherit from the types we have used from the ``iostream``
+   header. In addition to the operations they inherit, the types defined in ``sstream``
    add members to manage the string associated with the stream. These operations
-   are listed in Table 8.5. They may be called on stringstream objects but not on
+   are listed in Table 8.5. They may be called on ``stringstream`` objects but not on
    the other IO types.
-   Note that although fstream and sstream share the interface to iostream,
+
+   Note that although fstream and ``sstream`` share the interface to ``iostream``,
    they have no other interrelationship. In particular, we cannot use open and close
-   on a stringstream, nor can we use str on an fstream.
-   Table 8.5: stringstream-SpecificOperations
-   sstream strm; strm is an unbound stringstream. sstream is one of the types
-   defined in the sstream header.
-   sstream strm(s); strm is an sstream that holds a copy of the string s. This constructor
-   is explicit (§ 7.5.4, p. [P0296]_).
-   strm.str() Returns a copy of the string that strm holds.
-   strm.str(s) Copies the string s into strm. Returns void.
+   on a ``stringstream``, nor can we use str on an fstream.
+
+   Table 8.5: ``stringstream``-SpecificOperations
+
+   ================= ====================================================
+   sstream strm;     strm is an unbound ``stringstream``. ``sstream`` is one of
+                     the types defined in the ``sstream`` header.
+   sstream strm(s);  strm is an ``sstream`` that holds a copy of the string s. 
+                     This constructor is explicit (§ 7.5.4, p. [P0296]_).
+   strm.str()        Returns a copy of the string that strm holds.
+   strm.str(s)       Copies the string s into strm. Returns void.
+   ================= ====================================================
 
 /8.3.1 Using an istringstream
 ``````````````````````````````
 
-   An istringstream is often used when we have some work to do on an entire
+   An ``istringstream`` is often used when we have some work to do on an entire
    line, and other work to do with individual words within a line.
+
    As one example, assume we have a file that lists people and their associated
    phone numbers. Some people have only one number, but others have several—a
    home phone, work phone, cell number, and so on. Our input file might look like
    the following:
-   morgan 2015552368 8625550123
-   drew 9735550130
-   lee 6095550132 2015550175 8005550000
+
+   .. code-block:: cpp
+
+      morgan 2015552368 8625550123
+      drew 9735550130
+      lee 6095550132 2015550175 8005550000
+
    Each record in this file starts with a name, which is followed by one or more phone
    numbers. We'll start by defining a simple class to represent our input data:
-   // members are public by default; see § 7.2 (p. [P0268]_)
-   struct PersonInfo {
-   string name;
-   vector<string> phones;
-   };
-   Objects of type PersonInfo will have one member that represents the person's
+
+   .. code-block:: cpp
+
+      // members are public by default; see § 7.2 (p. [P0268]_)
+      struct PersonInfo {
+         string name;
+         vector<string> phones;
+      };
+
+   Objects of type `PersonInfo` will have one member that represents the person's
    name and a vector holding a varying number of associated phone numbers.
 
 .. ptg11539634 322 The IO Library
 .. _P0322:
 
-   Our program will read the data file and build up a vector of PersonInfo.
-   Each element in the vector will correspond to one record in the file. We'll process 
+   Our program will read the data file and build up a ``vector`` of `PersonInfo`.
+   Each element in the ``vector`` will correspond to one record in the file. We'll process 
    the input in a loop that reads a record and then extracts the name and phone
    numbers for each person:
-   string line, word; // will hold a line and word from input, respectively
-   vector<PersonInfo> people; // will hold all the records from the input
-   // read the input a line at a time until cin hits end-of-file (or another error)
-   while (getline(cin, line)) {
-   PersonInfo info; // create an object to hold this record's data
-   istringstream record(line); // bind record to the line we just read
-   record >> info.name; // read the name
-   while (record >> word) // read the phone numbers
-   info.phones.push_back(word); // and store them
-   people.push_back(info); // append this record to people
-   }
-   Here we use getline to read an entire record from the standard input. If the call
-   to getline succeeds, then line holds a record from the input file. Inside the
-   while we define a local PersonInfo object to hold data from the current record.
-   Next we bind an istringstream to the line that we just read. We can now
-   usethe input operatoron thatistringstreamto readeachelement inthe current
+
+   .. code-block:: cpp
+
+      string line, word; // will hold a line and word from input, respectively
+      vector<PersonInfo> people; // will hold all the records from the input
+      // read the input a line at a time until cin hits end-of-file (or another error)
+      while (getline(cin, line)) {
+         PersonInfo info; // create an object to hold this record's data
+         istringstream record(line); // bind record to the line we just read
+         record >> info.name; // read the name
+         while (record >> word) // read the phone numbers
+            info.phones.push_back(word); // and store them
+         people.push_back(info); // append this record to people
+      }
+
+   Here we use ``getline`` to read an entire record from the standard input. If the call
+   to ``getline`` succeeds, then line holds a record from the input file. Inside the
+   while we define a local `PersonInfo` object to hold data from the current record.
+
+   Next we bind an ``istringstream`` to the line that we just read. We can now
+   use the input operator on that ``istringstream`` to read each element in the current
    record. We first read the name followed by a while loop that will read the phone
    numbers for that person.
+
    The inner while ends when we've read all the data in line. This loop works
    analogously to others we've written to read cin. The difference is that this loop
    reads data from a string rather than from the standard input. When the string
    has been completely read, “end-of-file”is signaled and the next input operation on
    record will fail.
-   We end the outer while loop by appending the PersonInfo we just processed 
+
+   We end the outer while loop by appending the `PersonInfo` we just processed 
    to the vector. The outer while continues until we hit end-of-file on cin.
 
-Exercises Section 8.3.1
+   Exercises Section 8.3.1
 
-   Exercise 8.9: Use the function you wrote for the first exercisein § 8.1.2 (p. [P0314]_) to print
-   the contents of an istringstream object.
+      Exercise 8.9: Use the function you wrote for the first exercisein § 8.1.2 
+      (p. [P0314]_) to print the contents of an ``istringstream`` object.
 
-   Exercise 8.10: Write a program to store each line from a file in a vector<string>.
-   Now use an istringstreamto read each element fromthe vector a wordat a time.
+      Exercise 8.10: Write a program to store each line from a file in a `vector<string>`.
+      Now use an ``istringstream``to read each element from the ``vector`` a word at a time.
 
-   Exercise 8.11: The program in this section defined its istringstream object inside
-   the outer while loop. What changes would you need to make if record were defined
-   outside that loop? Rewrite the program, moving the definition of record outside the
-   while, and see whether you thought of all the changes that are needed.
+      Exercise 8.11: The program in this section defined its ``istringstream`` object inside
+      the outer while loop. What changes would you need to make if record were defined
+      outside that loop? Rewrite the program, moving the definition of record outside the
+      while, and see whether you thought of all the changes that are needed.
 
-   Exercise 8.12: Why didn't we use in-class initializers in PersonInfo?
+      Exercise 8.12: Why didn't we use in-class initializers in `PersonInfo`?
 
 .. ptg11539634 Section 8.3 string Streams 323
 .. _P0323:
@@ -20945,38 +21287,43 @@ Exercises Section 8.3.1
    numbers. If a person has any invalid numbers, we won't put them in the new file.
    Instead, we'll write an error message containing the person's name and a list of
    their invalid numbers.
-   Becausewedon't wanttoinclude anydataforapersonwith aninvalidnumber,
+
+   Because we don't want to include any data for a person with an invalid number,
    we can't produce the output until we've seen and validated all their numbers. We
    can, however, “write” the output to an in-memory ostringstream:
-   for (const auto &entry : people) { // for each entry in people
-   ostringstream formatted, badNums; // objects created on each loop
-   for (const auto &nums : entry.phones) { // for each number
-   if (!valid(nums)) {
-   badNums << " " << nums; // string in badNums
-   } else
-   // ‘‘writes'' to formatted 's string
-   formatted << " " << format(nums);
-   }
-   if (badNums.str().empty()) // there were no bad numbers
-   os << entry.name << " " // print the name
-   << formatted.str() << endl; // and reformatted numbers
-   else // otherwise, print the name and bad numbers
-   cerr << "input error: " << entry.name
-   << " invalid number(s) " << badNums.str() << endl;
-   }
+
+   .. code-block:: cpp
+
+      for (const auto &entry : people) { // for each entry in people
+         ostringstream formatted, badNums; // objects created on each loop
+         for (const auto &nums : entry.phones) { // for each number
+            if (!valid(nums)) {
+               badNums << " " << nums; // string in badNums
+            } else
+               // ‘‘writes'' to formatted 's string
+               formatted << " " << format(nums);
+         }
+         if (badNums.str().empty()) // there were no bad numbers
+            os << entry.name << " " // print the name
+         << formatted.str() << endl; // and reformatted numbers
+         else // otherwise, print the name and bad numbers
+         cerr << "input error: " << entry.name
+         << " invalid number(s) " << badNums.str() << endl;
+      }
+
    In this program, we've assumed two functions, valid and format, that validate 
    and reformat phone numbers, respectively. The interesting part of the program 
-   is the use of the string streams formatted and badNums. We use the normal 
+   is the use of the string streams formatted and `badNums`. We use the normal 
    output operator (<<) to write to these objects. But, these “writes” are really
    string manipulations. They add characters to the strings inside formatted
-   and badNums, respectively.
+   and `badNums`, respectively.
 
-Exercises Section 8.3.2
+   Exercises Section 8.3.2
 
-   Exercise 8.13: Rewrite the phone number program from this section to read from a
-   named file rather than from cin.
+      Exercise 8.13: Rewrite the phone number program from this section to read from a
+      named file rather than from ``cin``.
 
-   Exercise 8.14: Why did we declare entry and nums as const auto &?
+      Exercise 8.14: Why did we declare entry and nums as `const auto &`?
 
 .. ptg11539634 324 Defined Terms
 .. _P0324:
@@ -20985,14 +21332,19 @@ Exercises Section 8.3.2
 -----------------------
 
    C++ uses library classes to handle stream-oriented input and output:
-   • The iostream classes handle IO to console
-   • The fstream classes handle IO to named files
-   • The stringstream classes do IO to in-memory strings
-   The fstream and stringstream classes are related by inheritance to the
-   iostream classes. The input classes inherit from istream and the output classes
-   from ostream. Thus, operations that can be performed on an istream object can
-   also be performed on either an ifstream or an istringstream. Similarly for
-   the output classes, which inherit from ostream.
+
+   • The ``iostream`` classes handle IO to console
+
+   • The ``fstream`` classes handle IO to named files
+
+   • The ``stringstream`` classes do IO to in-memory strings
+
+   The ``fstream`` and ``stringstream`` classes are related by inheritance to the
+   ``iostream`` classes. The input classes inherit from ``istream`` and the output classes
+   from ``ostream``. Thus, operations that can be performed on an ``istream`` object can
+   also be performed on either an ``ifstream`` or an ``istringstream``. Similarly for
+   the output classes, which inherit from ``ostream``.
+
    Each IO object maintains a set of condition states that indicate whether IO can
    be done through this object. If an error is encountered—such as hitting end-of-file
    on an input stream—then the object's state will be such that no further input can
@@ -21002,13 +21354,15 @@ Exercises Section 8.3.2
 /08.👋 Defined Terms
 ---------------------
 
-   condition state Flags and associated functions 
+   ``condition state`` Flags and associated functions 
    usable by any of the stream classes
    that indicate whether a given stream is usable.
-   file mode Flags defined by the fstream
+
+   ``file mode`` Flags defined by the fstream
    classes that are specified when opening a
    file and control how a file can be used.
-   file stream Stream object that reads or
+
+   ``file stream`` Stream object that reads or
    writes a named file. In addition to the
    normal iostream operations, file streams
    also define open and close members. The
@@ -21018,27 +21372,33 @@ Exercises Section 8.3.2
    close member closes the file to which the
    stream is attached. It must be called before
    another file can be opened.
-   fstream File stream that reads and writes
+
+   ``fstream`` File stream that reads and writes
    to the same file. By default fstreams are
    opened with in and out mode set.
-   ifstream File stream that reads an input
+
+   ``ifstream`` File stream that reads an input
    file. By default ifstreamsare opened with
    in mode set.
-   inheritance Programming feature that lets
+
+   ``inheritance`` Programming feature that lets
    a type inherit the interface of another
    type. The ifstream and istringstream
    classes inherit from istream and the
    ofstream and ostringstream classes
    inherit from ostream. Chapter 15 covers
    inheritance.
-   istringstream String stream that reads a
+
+   ``istringstream`` String stream that reads a
    given string.
    ofstream File stream that writes to an output 
    file. By default, ofstreams are opened
    with out mode set.
-   ostringstream String stream that writes to
+
+   ``ostringstream`` String stream that writes to
    a given string.
-   string stream Stream object that reads or
+
+   ``string stream`` Stream object that reads or
    writes a string. In addition to the normal 
    iostream operations, string streams
    define an overloaded member named str.
@@ -21046,7 +21406,8 @@ Exercises Section 8.3.2
    string to which the string stream is attached. 
    Calling it with a string attaches
    the string stream to a copy of that string.
-   stringstream String stream that reads and
+
+   ``stringstream`` String stream that reads and
    writes to a given string.
 
 .. ptg11539634
@@ -21074,27 +21435,71 @@ Exercises Section 8.3.2
    whose position depends on a key associated with each element. 
    We'll cover operations specific to the associative containers in
    Chapter 11.
+
    The container classes share a common interface, which each of the
    containers extends in its own way. This common interface makes the
    library easier to learn; what we learn about one kind of container
    applies to another. Each kind of container offers a different set of
    performance and functionality trade-offs.
-   
+
+   C++ 标准库设计了两类数据容器对象：Sequential Containers，Associative Containers。
+   序列化容器基于数组、链表等数据结构，一般提供快速的随机访问，但增删操作效率较低。而关联容器
+   基于树状数据结构，则很好地弥补了序列容器的缺点，通过索引函数、哈希函数快速访问、修改数据。
+   关联容器能实现能快速查找（O(log n) 复杂度）的有序数据结构。C++11 新增无序关联容器，提供
+   快速查找（平均 O(1)，最坏情况 O(n) 的复杂度）的无序（散列）数据结构。
+
+   因为向量列表（vector）是基于弹性调整大小的数组实现，这是线性内存空间，所以只能实现快速的
+   随机访问，但是插入、删除元素效率低。相比原生的数组（array）增加了动态内存分配管理的实现。
+   可以通过学习数据结构与算法来加深这一系列数据容器对象的设计思维。以下示意图表仅供参考：
+
+   .. code-block:: bash
+
+         Sequential Containers          Associative Containers
+
+         Array                         Set/Multiset  ╭───╮
+         ╭──┬──┬──┬──┬──┬──┬──┬──╮                   │   │
+         │  │  │  │  │  │  │  │  │                   ╰───╯
+         ╰──┴──┴──┴──┴──┴──┴──┴──╯            ╭───╮    │    ╭───╮
+                                              │   │────┴────│   │
+         Vector                               ╰───╯         ╰───╯
+         ╭──┬──┬──┬──┬──┬──┬──┬──╮        ╭───╮ │ ╭───╮ ╭───╮ │ ╭───╮
+         │  │  │  │  │  │  │  │·─> end    │   │─┴─│   │ │   │─┴─│   │
+         ╰──┴──┴──┴──┴──┴──┴──┴──╯        ╰───╯   ╰───╯ ╰───╯   ╰───╯
+
+         Deque
+         ╭──┬──┬──┬──┬──┬──┬──┬──╮
+         <─·│  │  │  │  │  │  │  │
+         ╰──┴──┴──┴──┴──┴──┴──┴──╯
+                                 
+         List                           Map/Multimap  ╭─┬─╮
+         ╭──┬──┬──┬──┬──┬──┬──┬──╮                    │ │ │
+         │<─────────────────────>│                    ╰─┴─╯
+         ╰──┴──┴──┴──┴──┴──┴──┴──╯             ╭─┬─╮    │    ╭─┬─╮
+                                               │ │ │────┴────│ │ │
+         Forward_list                          ╰─┴─╯         ╰─┴─╯
+         ╭──┬──┬──┬──┬──┬──┬──┬──╮         ╭─┬─╮ │ ╭─┬─╮ ╭─┬─╮ │ ╭─┬─╮
+         │──────────────────────>│         │ │ │─┴─│ │ │ │ │ │─┴─│ │ │
+         ╰──┴──┴──┴──┴──┴──┴──┴──╯         ╰─┴─╯   ╰─┴─╯ ╰─┴─╯   ╰─┴─╯
+
 
 .. ptg11539634 326 Sequential Containers
 .. _P0326:
 
-   A container holds a collection of objects of a specified type. The sequential
+   A `container` holds a collection of objects of a specified type. The sequential
    containers let the programmer control the order in which the elements are stored
    and accessed. That order does not depend on the values of the elements. Instead,
    the order corresponds to the position at which elements are put into the container.
    By contrast, the ordered and unordered associative containers, which we cover in
    Chapter 11, store their elements based on the value of a key.
+
    The library also provides three container adaptors, each of which adapts a container 
    type by defining a different interface to the container's operations. We cover
    the adaptors at the end of this chapter.
-   This chapter builds on the material covered in § 3.2, § 3.3, and § 3.4. We
-   assume that the reader is familiar with the material covered there.
+
+   .. Note::
+
+      This chapter builds on the material covered in § 3.2, § 3.3, and § 3.4. We
+      assume that the reader is familiar with the material covered there.
 
 /9.1👋 Overview of the Sequential Containers
 ---------------------------------------------
@@ -21102,28 +21507,36 @@ Exercises Section 8.3.2
    The sequential containers, which are listed in Table 9.1, all provide fast sequential
    access to their elements. However, these containers offer different performance
    trade-offs relative to
+
    • The costs to add or delete elements to the container
+
    • The costs to perform nonsequential access to elements of the container
+
    Table 9.1: Sequential Container Types
-   vector Flexible-size array. Supports fast random access.
-   Inserting or deleting elements other than at the back may be slow.
-   deque Double-ended queue. Supports fast random access.
-   Fast insert/delete at front or back.
-   list Doubly linked list. Supports only bidirectional sequential access.
-   Fast insert/delete at any point in the list.
+
+   ============ ======================================================
+   vector       Flexible-size array. Supports fast random access.
+                Inserting or deleting elements other than at the back may be slow.
+   deque        Double-ended queue. Supports fast random access.
+                Fast insert/delete at front or back.
+   list         Doubly linked list. Supports only bidirectional sequential access.
+                Fast insert/delete at any point in the list.
    forward_list Singly linked list. Supports only sequential access in one direction.
-   Fast insert/delete at any point in the list.
-   array Fixed-size array. Supports fast random access.
-   Cannot add or remove elements.
-   string A specialized container, similar to vector, that contains characters.
-   Fast random access. Fast insert/delete at the back.
+                Fast insert/delete at any point in the list.
+   array        Fixed-size array. Supports fast random access.
+                Cannot add or remove elements.
+   string       A specialized container, similar to vector, that contains characters.
+                Fast random access. Fast insert/delete at the back.
+   ============ ======================================================
+
    With the exception of array, which is a fixed-size container, the containers
-   provideefficient, flexiblememory management. Wecanaddandremoveelements,
+   provide efficient, flexible memory management. We can add and remove elements,
    growing and shrinking the size of the container. The strategies that the containers
    use for storing their elements have inherent, and sometimes significant, impact
    on the efficiency of these operations. In some cases, these strategies also affect
    whether a particular container supplies a particular operation.
-   For example, string and vector hold their elements in contiguous memory.
+
+   For example, ``string`` and ``vector`` hold their elements in contiguous memory.
    Because elements are contiguous, it is fast to compute the address of an element
 
 .. ptg11539634 Section 9.1 Overview of the Sequential Containers 327
@@ -21134,41 +21547,55 @@ Exercises Section 8.3.2
    have to be moved to maintain contiguity. Moreover, adding an element can sometimes 
    require that additional storage be allocated. In that case, every element must
    be moved into the new storage.
-   The list and forward_list containers are designed to make it fast to add
+
+   The ``list`` and ``forward_list`` containers are designed to make it fast to add
    or remove an element anywhere in the container. In exchange, these types do not
    support random access to elements: We can access an element only by iterating
    through the container. Moreover, the memory overhead for these containers is
-   often substantial, when compared to vector, deque, and array.
-   A deque is a more complicated data structure. Like string and vector,
-   deque supports fast random access. As with string and vector, adding or removing 
-   elements in the middle of a deque is a (potentially) expensive operation.
-   However, adding or removing elements at either end of the deque is a fast operation, 
-   comparable to adding an element to a list or forward_list.
-   The forward_list and array types were added by the new standard. An
-   array is a safer, easier-to-use alternative to built-in arrays. Like built-in arrays,
-   library arrays have fixed size. As a result, array does not support operations
-   to add and remove elements or to resize the container. A forward_list is intended 
-   to be comparable to the best handwritten, singly linked list. Consequently,
-   forward_list does not have the size operation because storing or computing
-   its size would entail overhead compared to a handwritten list. For the other containers, 
+   often substantial, when compared to ``vector``, ``deque``, and ``array``.
+
+   A ``deque`` is a more complicated data structure. Like ``string`` and ``vector``,
+   ``deque`` supports fast random access. As with ``string`` and ``vector``, adding or removing 
+   elements in the middle of a ``deque`` is a (potentially) expensive operation.
+   However, adding or removing elements at either end of the ``deque`` is a fast operation, 
+   comparable to adding an element to a ``list`` or ``forward_list``.
+
+   The ``forward_list`` and ``array`` types were added by the new standard. An
+   ``array`` is a safer, easier-to-use alternative to built-in arrays. Like built-in arrays,
+   library arrays have fixed size. As a result, ``array`` does not support operations
+   to add and remove elements or to resize the container. A ``forward_list`` is intended 
+   to be comparable to the best handwritten, `singly linked list`. Consequently,
+   ``forward_list`` does not have the size operation because storing or computing
+   its size would entail overhead compared to a handwritten ``list``. For the other containers, 
    size is guaranteed to be a fast, constant-time operation.
-   For reasons we'll explain in § 13.6 (p. [P0531]_), the new library containers
-   are dramatically faster than in previous releases. The library containers
-   almost certainly perform as well as (and usually better than) even the
-   most carefully crafted alternatives. Modern C++ programs should use
-   the library containers rather than more primitive structures like arrays.
+
+   .. Note::
+
+      For reasons we'll explain in § 13.6 (p. [P0531]_), the new library containers
+      are dramatically faster than in previous releases. The library containers
+      almost certainly perform as well as (and usually better than) even the
+      most carefully crafted alternatives. Modern C++ programs should use
+      the library containers rather than more primitive structures like arrays.
 
 Deciding Which Sequential Container to Use
 
-   Ordinarily, it is best to use vector unless there is a good reason to
-   prefer another container.
+   .. Tip::
+
+      Ordinarily, it is best to use ``vector`` unless there is a good reason to
+      prefer another container.
+
    There are a few rules of thumb that apply to selecting which container to use:
-   • Unless you have a reason to use another container, use a vector.
-   • Ifyour programhas lots of small elements and spaceoverheadmatters, don't
-   use list or forward_list.
-   • Ifthe programrequiresrandomaccesstoelements, use avectoror adeque.
+
+   • Unless you have a reason to use another container, use a ``vector``.
+
+   • Ifyour programhas lots of small elements and space overhead matters, don't
+   use ``list`` or ``forward_list``.
+
+   • Ifthe programrequiresrandomaccesstoelements, use a ``vector`` or ``adeque``.
+
    • If the program needs to insert or delete elements in the middle of the container, 
-   use a list or forward_list.
+   use a ``list`` or ``forward_list``.
+
    • If the program needs to insert or delete elements at the front and the back,
    but not in the middle, use a deque.
 
@@ -21177,44 +21604,56 @@ Deciding Which Sequential Container to Use
 
    • If the program needs to insert elements in the middle of the container only
    while reading input, and subsequently needs random access to the elements:
+
    – First, decide whether you actually need to add elements in the middle
-   of a container. It is often easier to append to a vector and then call
+   of a container. It is often easier to append to a ``vector`` and then call
    the library sort function (which we shall cover in § 10.2.3 (p. [P0384]_)) to
    reorder the container when you're done with input.
-   – If you must insert into the middle, consider using a list for the input
-   phase. Once the input is complete, copy the list into a vector.
+
+   – If you must insert into the middle, consider using a ``list`` for the input
+   phase. Once the input is complete, copy the ``list`` into a ``vector``.
+
    What if the program needs random access and needs to insert and delete elements 
    in the middle of the container? This decision will dependon the relativecost
-   of accessing the elements in a list or forward_list versus the cost of inserting
-   or deleting elements in a vector or deque. In general, the predominant operation 
+   of accessing the elements in a ``list`` or ``forward_list`` versus the cost of inserting
+   or deleting elements in a ``vector`` or deque. In general, the predominant operation 
    of the application (whether it does more access or more insertion or deletion)
    will determine the choice of container type. In such cases, performance testing the
    application using both containers will probably be necessary.
-   If you're not surewhich container to use, write your code so that it uses
-   only operations common to both vectors and lists: Use iterators,
-   not subscripts, and avoid random access to elements. That way it will
-   be easy to use either a vector or a list as necessary.
 
-Exercises Section 9.1
+   .. Tip::
 
-   Exercise 9.1: Which is the most appropriate—a vector, a deque, or a list—for the
-   following program tasks? Explain the rationale for your choice. If there is no reason to
-   prefer one or another container, explain why not.
-   (a) Read a fixed number of words, inserting them in the container alphabetically
-   as they are entered. We'll see in the next chapter that associative containers are better
-   suited to this problem.
-   (b) Read an unknown number of words. Always insert new words at the back.
-   Remove the next value from the front.
-   (c) Read an unknown number of integers from a file. Sort the numbers and then
-   print them to standard output.
+      If you're not surewhich container to use, write your code so that it uses
+      only operations common to both `vectors` and `lists`: Use iterators,
+      not subscripts, and avoid random access to elements. That way it will
+      be easy to use either a ``vector`` or a ``list`` as necessary.
+
+   Exercises Section 9.1
+
+      Exercise 9.1: Which is the most appropriate—a ``vector``, a ``deque``, or a list—for the
+      following program tasks? Explain the rationale for your choice. If there is no reason to
+      prefer one or another container, explain why not.
+
+      (a) Read a fixed number of words, inserting them in the container alphabetically
+      as they are entered. We'll see in the next chapter that associative containers are better
+      suited to this problem.
+
+      (b) Read an unknown number of words. Always insert new words at the back.
+      Remove the next value from the front.
+
+      (c) Read an unknown number of integers from a file. Sort the numbers and then
+      print them to standard output.
 
 /9.2👋 Container Library Overview
 ----------------------------------
 
    The operations on the container types form a kind of hierarchy:
+
    • Some operations (Table 9.2 (p. [P0330]_)) are provided by all container types.
+
    • Other operations are specific to the sequential (Table 9.3 (p. [P0335]_)), the associative 
    (Table 11.7 (p. [P0438]_)), or the unordered (Table 11.8 (p. [P0445]_)) containers.
+
    • Still others are common to only a smaller subset of the containers.
 
 .. ptg11539634 Section 9.2 Container Library Overview 329
@@ -21223,13 +21662,17 @@ Exercises Section 9.1
    In this section, we'll cover aspects common to all of the containers. The remainder
    of this chapter will then focus solely on sequential containers; we'll cover operations 
    specific to the associative containers in Chapter 11.
+
    In general, each container is defined in a header file with the same name as the
    type. That is, deque is in the deque header, list in the list header, and so on.
    The containers are class templates (§ 3.3, p. [P0096]_). As with vectors, we must supply
    additional information to generate a particular container type. For most, but not
    all, of the containers, the information we must supply is the element type:
-   list<Sales_data> // list that holds Sales_data objects
-   deque<double> // deque that holds double s
+
+   .. code-block:: cpp
+
+      list<Sales_data> // list that holds Sales_data objects
+      deque<double> // deque that holds double s
 
 Constraints on Types That a Container Can Hold
 
@@ -21237,74 +21680,105 @@ Constraints on Types That a Container Can Hold
    particular,we candefine acontainer whose element typeis itselfanother container.
    We define such containers exactly as we do any other container type: We specify
    the element type (which in this case is a container type) inside angle brackets:
-   vector<vector<string>> lines; // vector of vector s
+
+   .. code-block:: cpp
+
+      vector<vector<string>> lines; // vector of vector s
+
    Here lines is a vector whose elements are vectors of strings.
-   Older compilers may require a space between the angle brackets, for
-   example, vector<vector<string> >.
+
+   .. Note::
+      
+      Older compilers may require a space between the angle brackets, for
+      example, `vector<vector<string>>`.
+
    Although we can store almost any type in a container, some container operations 
    impose requirements of their own on the element type. We can define a container 
    for a type that does not support an operation-specific requirement, but we
    can use an operation only if the element type meets that operation's requirements.
+
    As an example, the sequential container constructor that takes a size argument
    (§ 3.3.1, p. [P0098]_) uses the element type's default constructor. Some classes do not
    have a default constructor. We can define a container that holds objects of such
    types, but we cannot construct such containers using only an element count:
-   // assume noDefault is a type without a default constructor
-   vector<noDefault> v1(10, init); // ok: element initializer supplied
-   vector<noDefault> v2(10); // error: must supply an element initializer
+
+   .. code-block:: cpp
+
+      // assume noDefault is a type without a default constructor
+      vector<noDefault> v1(10, init); // ok: element initializer supplied
+      vector<noDefault> v2(10); // error: must supply an element initializer
+
    As we describe the container operations, we'll note the additional constraints, if
    any, that each container operation places on the element type.
 
-Exercises Section 9.2
+   Exercises Section 9.2
 
-   Exercise 9.2: Define a list that holds elements that are deques that hold ints.
+      Exercise 9.2: Define a list that holds elements that are ``deques`` that hold ints.
 
 .. ptg11539634 330 Sequential Containers
 .. _P0330:
 
    Table 9.2: Container Operations
-   Type Aliases
-   iterator Type of the iterator for this container type
-   const_iterator Iterator type that can read but not change its elements
-   size_type Unsigned integral type big enough to hold the size of
-   the largest possible container of this container type
-   difference_type Signed integral type big enough to hold the
-   distance between two iterators
-   value_type Element type
-   reference Element's lvalue type; synonym for value_type&
-   const_reference Element's const lvalue type (i.e., const value_type&)
-   Construction
-   C c; Default constructor, empty container (array; see p. 336)
-   C c1(c2); Construct c1 as a copy of c2
-   C c(b, e); Copy elements from the range denoted by iterators b and e;
-   (not valid for array)
-   C c{a,b,c...}; List initialize c
-   Assignment and swap
-   c1 = c2 Replace elements in c1 with those in c2
-   c1 = {a,b,c...} Replace elements in c1 with those in the list (not valid for array)
-   a.swap(b) Swap elements in a with those in b
-   swap(a, b) Equivalent to a.swap(b)
-   Size
-   c.size() Number of elements in c (not valid for forward_list)
-   c.max_size() Maximum number of elements c can hold
-   c.empty() false if c has any elements, true otherwise
-   Add/Remove Elements (not valid for array )
-   Note: the interface to these operations varies by container type
-   c.insert(args) Copy element(s) as specified by args into c
-   c.emplace(inits) Use inits to construct an element in c
-   c.erase(args) Remove element(s) specified by args
-   c.clear() Remove all elements from c; returns void
-   Equality and Relational Operators
-   ==, != Equality valid for all container types
-   <, <=, >, >= Relationals (not valid for unordered associative containers)
-   Obtain Iterators
-   c.begin(), c.end() Return iterator to the first, one past the last element in c
-   c.cbegin(), c.cend() Return const_iterator
-   Additional Members of Reversible Containers (not valid for forward_list)
-   reverse_iterator Iterator that addresses elements in reverse order
-   const_reverse_iterator Reverse iterator that cannot write the elements
-   c.rbegin(), c.rend() Return iterator to the last, one past the first element in c
-   c.crbegin(), c.crend() Return const_reverse_iterator
+
+   .. code-block:: bash
+      
+      Type Aliases
+      ==========================================================================
+      iterator          Type of the iterator for this container type
+      const_iterator    Iterator type that can read but not change its elements
+      size_type         Unsigned integral type big enough to hold the size of
+                        the largest possible container of this container type
+      difference_type   Signed integral type big enough to hold the
+                        distance between two iterators
+      value_type        Element type
+      reference         Element's lvalue type; synonym for value_type&
+      const_reference   Element's const lvalue type (i.e., const value_type&)
+
+      Construction
+      ==========================================================================
+      C c;              Default constructor, empty container (array; see p. 336)
+      C c1(c2);         Construct c1 as a copy of c2
+      C c(b, e);        Copy elements from the range denoted by iterators b and e;
+                        (not valid for array)
+      C c{a,b,c...};    List initialize c
+      
+      Assignment and swap
+      ==========================================================================
+      c1 = c2           Replace elements in c1 with those in c2
+      c1 = {a,b,c...}   Replace elements in c1 with those in the list (not valid for array)
+      a.swap(b)         Swap elements in a with those in b
+      swap(a, b)        Equivalent to a.swap(b)
+
+      Size
+      ==========================================================================
+      c.size()          Number of elements in c (not valid for forward_list)
+      c.max_size()      Maximum number of elements c can hold
+      c.empty()         false if c has any elements, true otherwise
+
+      Add/Remove Elements (not valid for array )
+      Note: the interface to these operations varies by container type
+      ==========================================================================
+      c.insert(args)    Copy element(s) as specified by args into c
+      c.emplace(inits)  Use inits to construct an element in c
+      c.erase(args)     Remove element(s) specified by args
+      c.clear()         Remove all elements from c; returns void
+
+      Equality and Relational Operators
+      ==========================================================================
+      ==, !=            Equality valid for all container types
+      <, <=, >, >=      Relationals (not valid for unordered associative containers)
+
+      Obtain Iterators
+      ==========================================================================
+      c.begin(), c.end()      Return iterator to the first, one past the last element in c
+      c.cbegin(), c.cend()    Return const_iterator
+
+      Additional Members of Reversible Containers (not valid for forward_list)
+      ==========================================================================
+      reverse_iterator        Iterator that addresses elements in reverse order
+      const_reverse_iterator  Reverse iterator that cannot write the elements
+      c.rbegin(), c.rend()    Return iterator to the last, one past the first element in c
+      c.crbegin(), c.crend()  Return const_reverse_iterator
 
 .. ptg11539634 Section 9.2 Container Library Overview 331
 .. _P0331:
@@ -21319,87 +21793,115 @@ Exercises Section 9.2
    types let us access an element from a container, and they all do so by providing the
    dereference operator. Similarly, the iterators for the library containers all define
    the increment operator to move from one element to the next.
+
    With one exception, the container iterators support all the operations listed in
-   Table 3.6 (p. [P0107]_). The exception is that the forward_list iterators do not support 
+   Table 3.6 (p. [P0107]_). The exception is that the ``forward_list`` iterators do not support 
    the decrement (--) operator. The iterator arithmetic operations listed in Table 
    3.7 (p. [P0111]_) apply only to iterators for string, vector, deque, and array.
    We cannot use these operations on iterators for any of the other container types.
-   Iterator Ranges
-   The concept of an iterator range is fundamental to the standard library.
-   An iterator range is denoted by a pair of iterators each of which refers to an element, 
-   or to one past the last element, in the same container. These two iterators,
-   often referred to as begin and end—or (somewhat misleadingly) as first and
+
+Iterator Ranges
+
+   .. Note::
+
+      The concept of an iterator range is fundamental to the standard library.
+
+   An `iterator range` is denoted by a pair of iterators each of which refers to an element, 
+   or to one past the `last` element, in the same container. These two iterators,
+   often referred to as `begin` and `end`—or (somewhat misleadingly) as `first` and
    last—mark a range of elements from the container.
-   The name last, although commonly used, is a bit misleading, because the
+
+   The name `last`, although commonly used, is a bit misleading, because the
    second iterator never refers to the last element of the range. Instead, it refers to
    a point one past the last element. The elements in the range include the element
-   denoted by first and every element from first up to but not including last.
-   This element range is called a left-inclusive interval. The standard mathematical 
+   denoted by `first` and every element from `first` up to but not including last.
+
+   This element range is called a `left-inclusive interval`. The standard mathematical 
    notation for such a range is
-   [ begin, end )
+
+   .. code-block:: cpp
+
+      [ begin, end )
+
    indicating that the range begins with begin and ends with, but does not include,
-   end. The iterators begin and end must refer to the same container. The iterator 
-   end may be equal to begin but must not refer to an element before the one
+   `end`. The iterators `begin` and `end` must refer to the same container. The iterator 
+   `end` may be equal to `begin` but must not refer to an element before the one
    denoted by begin.
 
    .. Note::
 
       Requirements on Iterators Forming an Iterator Range
 
-   Two iterators, begin and end, form an iterator range, if
-   • They refer to elements of, or one past the end of, the same container, and
-   • It is possible to reach end by repeatedly incrementing begin. In other words,
-   end must not precede begin.
-   The compiler cannot enforce these requirements. It is up to us to ensure
-   that our programs follow these conventions.
+      Two iterators, `begin` and `end`, form an iterator range, if
+
+      • They refer to elements of, or one past the `end` of, the same container, and
+
+      • It is possible to reach `end` by repeatedly incrementing `begin`. In other words,
+      `end` must not precede `begin`.
+
+      .. Warning::
+
+         The compiler cannot enforce these requirements. It is up to us to ensure
+         that our programs follow these conventions.
 
 .. ptg11539634 332 Sequential Containers
 .. _P0332:
 
-   Programming Implications of Using Left-Inclusive Ranges
+Programming Implications of Using Left-Inclusive Ranges
+
    The library uses left-inclusive ranges because such ranges have three convenient
-   properties. Assuming begin and end denote a valid iterator range, then
-   • If begin equals end, the range is empty
-   • If begin is not equal to end, there is at least one element in the range, and
-   begin refers to the first element in that range
-   • We can increment begin some number of times until begin == end
+   properties. Assuming `begin` and `end` denote a valid iterator range, then
+
+   • If `begin` equals `end`, the range is empty
+
+   • If `begin` is not equal to `end`, there is at least one element in the range, and
+   `begin` refers to the first element in that range
+
+   • We can increment `begin` some number of times until `begin == end`
+
    These properties mean that we can safely write loops such as the following to
    process a range of elements:
-   while (begin != end) {
-   * begin = val;
-   // ok: range isn't empty so begin denotes an element
-   ++begin; // advance the iterator to get the next element
-   }
-   Given that begin and end form a valid iterator range, we know that if begin
-   == end, then the range is empty. In this case, we exit the loop. If the range
-   is nonempty, we know that begin refers to an element in this nonempty range.
+
+   .. code-block:: cpp
+
+      while (begin != end) {
+         * begin = val;
+         // ok: range isn't empty so begin denotes an element
+         ++begin; // advance the iterator to get the next element
+      }
+
+   Given that `begin` and `end` form a valid iterator range, we know that if `begin`
+   == `end`, then the range is empty. In this case, we exit the loop. If the range
+   is nonempty, we know that `begin` refers to an element in this nonempty range.
    Therefore, inside the body of the while, we know that it is safe to dereference
-   begin because begin must refer to an element. Finally, because the loop body
-   increments begin, we also know the loop will eventually terminate.
+   `begin` because `begin` must refer to an element. Finally, because the loop body
+   increments `begin`, we also know the loop will eventually terminate.
 
-Exercises Section 9.2.1
+   Exercises Section 9.2.1
 
-   Exercise 9.3: What are the constraints on the iterators that form iterator ranges?
+      Exercise 9.3: What are the constraints on the iterators that form iterator ranges?
 
-   Exercise 9.4: Write a function that takes a pair of iterators to a vector<int> and an
-   int value. Look for that value in the range and return a bool indicating whether it
-   was found.
+      Exercise 9.4: Write a function that takes a pair of iterators to a `vector<int>` and an
+      `int` value. Look for that value in the range and return a bool indicating whether it
+      was found.
 
-   Exercise 9.5: Rewrite the previous program to return an iterator to the requested element. 
-   Note that the program must handle the case where the element is not found.
+      Exercise 9.5: Rewrite the previous program to return an iterator to the requested element. 
+      Note that the program must handle the case where the element is not found.
 
-   Exercise 9.6: What is wrong with the following program? How might you correct it?
-   list<int> lst1;
-   list<int>::iterator iter1 = lst1.begin(),
-   iter2 = lst1.end();
-   while (iter1 < iter2) / * ...
-   * /
+      Exercise 9.6: What is wrong with the following program? How might you correct it?
+
+      .. code-block:: cpp
+
+         list<int> lst1;
+         list<int>::iterator iter1 = lst1.begin(),
+         iter2 = lst1.end();
+         while (iter1 < iter2) /* ... */
 
 /9.2.2 Container Type Members
 ``````````````````````````````
 
    Each container defines several types, shown in Table 9.2 (p. [P0330]_). We have already 
-   used three of these container-defined types: size_type (§ 3.2.2, p. [P0088]_),
+   used three of these container-defined types: ``size_type`` (§ 3.2.2, p. [P0088]_),
    iterator, and const_iterator (§ 3.4.1, p. [P0108]_).
 
 .. ptg11539634 Section 9.2 Container Library Overview 333
@@ -21410,45 +21912,55 @@ Exercises Section 9.2.1
    a container and inverts the meaning of the iterator operations. For example, saying
    ++ on a reverse iterator yields the previous element. We'll have more to say about
    reverse iterators in § 10.4.3 (p. [P0407]_).
+
    The remaining type aliases let us use the type of the elements stored in a container 
    without knowing what that type is. If we need the element type, we refer 
    to the container's value_type. If we need a reference to that type, we use
    reference or const_reference. These element-related type aliases are most
    useful in generic programs, which we'll cover in Chapter 16.
+
    To use one of these types, we must name the class of which they are a member:
-   // iter is the iterator type defined by list<string>
-   list<string>::iterator iter;
-   // count is the difference_type type defined by vector<int>
-   vector<int>::difference_type count;
+
+   .. code-block:: cpp
+
+      // iter is the iterator type defined by list<string>
+      list<string>::iterator iter;
+      // count is the difference_type type defined by vector<int>
+      vector<int>::difference_type count;
+
    These declarations use the scope operator (§ 1.2, p. [P0008]_) to say that we want the
-   iterator member of the list<string> class and the difference_type defined 
-   by vector<int>, respectively.
+   iterator member of the `list<string>` class and the `difference_type` defined 
+   by `vector<int>`, respectively.
 
-Exercises Section 9.2.2
+   Exercises Section 9.2.2
 
-   Exercise 9.7: What type should be used as the index into a vector of ints?
+      Exercise 9.7: What type should be used as the index into a vector of ints?
 
-   Exercise 9.8: What type should be used to read elements in a list of strings? To
-   write them?
+      Exercise 9.8: What type should be used to read elements in a list of strings? To
+      write them?
 
 /9.2.3 begin and end Members
 `````````````````````````````
 
-   The begin and end operations (§ 3.4.1, p. [P0106]_) yield iterators that refer to the first
-   and one past the last element in the container. These iterators are most often used
+   The ``begin`` and ``end`` operations (§ 3.4.1, p. [P0106]_) yield iterators that refer to 
+   the first and one past the last element in the container. These iterators are most often used
    to form an iterator range that encompasses all the elements in the container.
    As shown in Table 9.2 (p. [P0330]_), there are several versions of begin and end:
    The versions with an r return reverseiterators (which we cover in § 10.4.3(p.407)).
    Those that start with a c return the const version of the related iterator:
-   list<string> a = {"Milton", "Shakespeare", "Austen"};
-   auto it1 = a.begin(); // list<string>::iterator
-   auto it2 = a.rbegin(); // list<string>::reverse_iterator
-   auto it3 = a.cbegin(); // list<string>::const_iterator
-   auto it4 = a.crbegin();// list<string>::const_reverse_iterator
-   The functions that do not begin with a c are overloaded. That is, there are actually
-   two members named begin. One is a const member (§ 7.1.2, p. [P0258]_) that returns 
-   the container's const_iterator type. The other is nonconst and returns
-   the container's iterator type. Similarly for rbegin, end, and rend. When we
+
+   .. code-block:: cpp
+
+      list<string> a = {"Milton", "Shakespeare", "Austen"};
+      auto it1 = a.begin(); // list<string>::iterator
+      auto it2 = a.rbegin(); // list<string>::reverse_iterator
+      auto it3 = a.cbegin(); // list<string>::const_iterator
+      auto it4 = a.crbegin();// list<string>::const_reverse_iterator
+
+   The functions that do not ``begin`` with a c are overloaded. That is, there are actually
+   two members named ``begin``. One is a const member (§ 7.1.2, p. [P0258]_) that returns 
+   the container's ``const_iterator`` type. The other is nonconst and returns
+   the container's iterator type. Similarly for ``rbegin``, ``end``, and ``rend``. When we
 
 .. ptg11539634 334 Sequential Containers
 .. _P0334:
@@ -21456,30 +21968,41 @@ Exercises Section 9.2.2
    call one of these members on a nonconst object, we get the version that returns
    iterator. We get a const version of the iterators only when we call these functions 
    on a const object. As with pointers and referencesto const, we can convert
-   a plain iterator to the corresponding const_iterator, but not vice versa.
+   a plain iterator to the corresponding ``const_iterator``, but not vice versa.
+
    The c versions were introduced by the new standard to support using auto
    with begin and end functions (§ 2.5.2, p. [P0068]_). In the past, we had no choice but to
    say which type of iterator we want:
-   // type is explicitly specified
-   list<string>::iterator it5 = a.begin();
-   list<string>::const_iterator it6 = a.begin();
-   // iterator or const_iterator depending on a 's type of a
-   auto it7 = a.begin(); // const_iterator only if a is const
-   auto it8 = a.cbegin(); // it8 is const_iterator
+
+   .. code-block:: cpp
+
+      // type is explicitly specified
+      list<string>::iterator it5 = a.begin();
+      list<string>::const_iterator it6 = a.begin();
+      // iterator or const_iterator depending on a 's type of a
+      auto it7 = a.begin(); // const_iterator only if a is const
+      auto it8 = a.cbegin(); // it8 is const_iterator
+
    When we use auto with begin or end, the iterator type we get depends on the
    container type. How we intend to use the iterator is irrelevant. The c versions let
-   us get a const_iterator regardless of the type of the container.
-   When write access is not needed, use cbegin and cend.
+   us get a `const_iterator` regardless of the type of the container.
 
-Exercises Section 9.2.3
+   .. Tip::
 
-   Exercise 9.9: What is the difference between the begin and cbegin functions?
+      When write access is not needed, use cbegin and cend.
 
-   Exercise 9.10: What are the types of the following four objects?
-   vector<int> v1;
-   const vector<int> v2;
-   auto it1 = v1.begin(), it2 = v2.begin();
-   auto it3 = v1.cbegin(), it4 = v2.cbegin();
+   Exercises Section 9.2.3
+
+      Exercise 9.9: What is the difference between the begin and cbegin functions?
+
+      Exercise 9.10: What are the types of the following four objects?
+
+      .. code-block:: cpp
+
+         vector<int> v1;
+         const vector<int> v2;
+         auto it1 = v1.begin(), it2 = v2.begin();
+         auto it3 = v1.cbegin(), it4 = v2.cbegin();
 
 /9.2.4 Defining and Initializing a Container
 `````````````````````````````````````````````
@@ -21494,96 +22017,136 @@ Initializing a Container as a Copy of Another Container
    There are two ways to create a new container as a copy of another one: We can
    directly copy the container, or (excepting array) we can copy a range of elements
    denoted by a pair of iterators.
+
    To create a container as a copy of another container, the container and element
    types must match. When we pass iterators, there is no requirement that the container 
    types be identical. Moreover, the element types in the new and original
+   containers can differ as long as it is possible to convert (§ 4.11, p. [P0159]_) the elements
+   we're copying to the element type of the container we are initializing:
 
 .. ptg11539634 Section 9.2 Container Library Overview 335
 .. _P0335:
 
    Table 9.3: Defining and Initializing Containers
-   C c; Default constructor. If C is array, then the elements in c are
-   default-initialized; otherwise c is empty.
-   C c1(c2)
-   C c1 = c2
-   c1 is a copy of c2. c1 and c2 must have the same type (i.e., they must be
-   the same container type and hold the same element type; for array must
-   also have the same size).
-   C c{a,b,c...}
-   C c = {a,b,c...}
-   c is a copy of the elements in the initializer list. Type of elements in the
-   list must be compatible with the element type of C. For array, the list
-   must have same number or fewer elements than the size of the array,
-   any missing elements are value-initialized (§ 3.3.1, p. [P0098]_).
-   C c(b, e) c is a copy of the elements in the range denoted by iterators b and e.
-   Type of the elements must be compatible with the element type of C.
-   (Not valid for array.)
+
+   ================= =======================================================
+   C c;              Default constructor. If C is array, then the elements in c are
+                     default-initialized; otherwise c is empty.
+   C c1(c2)          c1 is a copy of c2. c1 and c2 must have the same type (i.e., they must be
+   C c1 = c2         the same container type and hold the same element type; for array must
+                     also have the same size).
+   C c{a,b,c...}     c is a copy of the elements in the initializer list. Type of elements in the
+   C c = {a,b,c...}  list must be compatible with the element type of C. For array, the list
+                     must have same number or fewer elements than the size of the array,
+                     any missing elements are value-initialized (§ 3.3.1, p. [P0098]_).
+   C c(b, e)         c is a copy of the elements in the range denoted by iterators b and e.
+                     Type of the elements must be compatible with the element type of C.
+                     (Not valid for array.)
+   ================= =======================================================
+
    Constructors that take a size are valid for sequential containers (not including array) only
-   C seq(n) seq has n value-initialized elements; this constructor is explicit (§ 7.5.4, p. [P0296]_).
-   (Not valid for string.)
-   C seq(n,t) seq has n elements with value t.
-   containers can differ as long as it is possible to convert (§ 4.11, p. [P0159]_) the elements
-   we're copying to the element type of the container we are initializing:
-   // each container has three elements, initialized from the given initializers
-   list<string> authors = {"Milton", "Shakespeare", "Austen"};
-   vector<const char * > articles = {"a", "an", "the"};
-   list<string> list2(authors); // ok: types match
-   deque<string> authList(authors); // error: container types don't match
-   vector<string> words(articles); // error: element types must match
-   // ok: converts const char * elements to string
-   forward_list<string> words(articles.begin(), articles.end());
-   When we initialize a container as a copy of another container, the container 
-   type and element type of both containers must be identical.
-   Theconstructor thattakes two iteratorsuses them to denote arangeof elements
+
+   ================= =======================================================
+   C seq(n)          seq has n value-initialized elements; this constructor is explicit 
+                     (§ 7.5.4, p. [P0296]_). (Not valid for string.)
+   C seq(n,t)        seq has n elements with value t.
+   ================= =======================================================
+
+   .. code-block:: cpp
+
+      // each container has three elements, initialized from the given initializers
+      list<string> authors = {"Milton", "Shakespeare", "Austen"};
+      vector<const char * > articles = {"a", "an", "the"};
+      list<string> list2(authors); // ok: types match
+      deque<string> authList(authors); // error: container types don't match
+      vector<string> words(articles); // error: element types must match
+      // ok: converts const char * elements to string
+      forward_list<string> words(articles.begin(), articles.end());
+
+   .. Note::
+
+      When we initialize a container as a copy of another container, the container 
+      type and element type of both containers must be identical.
+
+   The constructor that takes two iterators uses them to denote a range of elements
    that we want to copy. As usual, the iterators mark the first and one past the last
    element to be copied. The new container has the same size as the number of elements 
    in the range. Each element in the new container is initialized by the value
    of the corresponding element in the range.
+
    Because the iterators denote a range, we can use this constructor to copy a
    subsequence of a container. For example, assuming it is an iterator denoting an
    element in authors, we can write
-   // copies up to but not including the element denoted by it
-   deque<string> authList(authors.begin(), it);
+
+   .. code-block:: cpp
+
+      // copies up to but not including the element denoted by it
+      deque<string> authList(authors.begin(), it);
 
 .. ptg11539634 336 Sequential Containers
 .. _P0336:
 
-   List Initialization
+List Initialization
+
    Under the new standard, we can list initialize (§ 3.3.1, p. [P0098]_) a container:
-   // each container has three elements, initialized from the given initializers
-   list<string> authors = {"Milton", "Shakespeare", "Austen"};
-   vector<const char * > articles = {"a", "an", "the"};
+
+   .. code-block:: cpp
+
+      // each container has three elements, initialized from the given initializers
+      list<string> authors = {"Milton", "Shakespeare", "Austen"};
+      vector<const char * > articles = {"a", "an", "the"};
+
    When we do so, we explicitly specify values for each element in the container. For
    types other than array, the initializer list also implicitly specifies the size of the
    container: The container will have as many elements as there are initializers.
-   Sequential Container Size-Related Constructors
+
+Sequential Container Size-Related Constructors
+
    In addition to the constructors that sequential containers have in common with
    associative containers, we can also initialize the sequential containers (other than
    array) from a size and an (optional) element initializer. If we do not supply an
    element initializer, the library creates a value-initialized one for us § 3.3.1 (p. [P0098]_):
-   vector<int> ivec(10, -1); // ten int elements, each initialized to -1
-   list<string> svec(10, "hi!"); // ten string s; each element is "hi!"
-   forward_list<int> ivec(10); // ten elements, each initialized to 0
-   deque<string> svec(10); // ten elements, each an empty string
+
+   .. code-block:: cpp
+
+      vector<int> ivec(10, -1);     // ten int elements, each initialized to -1
+      list<string> svec(10, "hi!"); // ten string s; each element is "hi!"
+      forward_list<int> ivec(10);   // ten elements, each initialized to 0
+      deque<string> svec(10);       // ten elements, each an empty string
+
    We can use the constructor that takes a size argument if the element type is
    a built-in type or a class type that has a default constructor (§ 9.2, p. [P0329]_). If the
    element type does not have a default constructor, then we must specify an explicit
    element initializer along with the size.
-   The constructors that take a size are valid only for sequential containers;
-   they are not supported for the associative containers.
-   Library arrays Have Fixed Size
+
+   .. Note::
+
+      The constructors that take a size are valid only for sequential containers;
+      they are not supported for the associative containers.
+
+Library arrays Have Fixed Size
+
    Just as the size of a built-in array is part of its type, the size of a library array is
    part of its type. When we define an array, in addition to specifying the element
    type, we also specify the container size:
-   array<int, 42> // type is: array that holds 42 int s
-   array<string, 10> // type is: array that holds 10 string s
+
+   .. code-block:: cpp
+
+      array<int, 42> // type is: array that holds 42 int s
+      array<string, 10> // type is: array that holds 10 string s
+
    To use an array type we must specify both the element type and the size:
-   array<int, 10>::size_type i; // array type includes element type and size
-   array<int>::size_type j; // error: array<int> is not a type
+
+   .. code-block:: cpp
+
+      array<int, 10>::size_type i; // array type includes element type and size
+      array<int>::size_type j; // error: array<int> is not a type
+
    Because the size is part of the array's type, array does not support the normal
    container constructors. Those constructors, implicitly or explicitly, determine the
-   sizeof thecontainer. It would beredundant(atbest)anderror-proneto allow users
+   ``sizeof`` the container. It would be redundant (atbest) and error-prone to allow users
    to pass a size argument to an array constructor.
+
    The fixed-size nature of arrays also affects the behavior of the constructors
    that array does define. Unlike the other containers, a default-constructed array
 
@@ -21597,29 +22160,37 @@ Initializing a Container as a Copy of Another Container
    initializers are used for the first elements and any remaining elements are value
    initialized (§ 3.3.1, p. [P0098]_). In both cases, if the element type is a class type, the class
    must have a default constructor in order to permit value initialization:
-   array<int, 10> ia1; // ten default-initialized int s
-   array<int, 10> ia2 = {0,1,2,3,4,5,6,7,8,9}; // list initialization
-   array<int, 10> ia3 = {42}; // ia3[0] is 42 , remaining elements are 0
+
+   .. code-block:: cpp
+
+      array<int, 10> ia1; // ten default-initialized int s
+      array<int, 10> ia2 = {0,1,2,3,4,5,6,7,8,9}; // list initialization
+      array<int, 10> ia3 = {42}; // ia3[0] is 42 , remaining elements are 0
+
    It is worth noting that although we cannot copy or assign objects of built-in
    array types (§ 3.5.1, p. [P0114]_), there is no such restriction on array:
-   int digs[10] = {0,1,2,3,4,5,6,7,8,9};
-   int cpy[10] = digs; // error: no copy or assignment for built-in arrays
-   array<int, 10> digits = {0,1,2,3,4,5,6,7,8,9};
-   array<int, 10> copy = digits; // ok: so long as array types match
+
+   .. code-block:: cpp
+
+      int digs[10] = {0,1,2,3,4,5,6,7,8,9};
+      int cpy[10] = digs; // error: no copy or assignment for built-in arrays
+      array<int, 10> digits = {0,1,2,3,4,5,6,7,8,9};
+      array<int, 10> copy = digits; // ok: so long as array types match
+
    As with any container, the initializer must have the same type as the container we
    are creating. For arrays, the element type and the size must be the same, because
    the size of an array is part of its type.
 
-Exercises Section 9.2.4
+   Exercises Section 9.2.4
 
-   Exercise 9.11: Show an example of each of the six ways to create and initialize a
-   vector. Explain what values each vector contains.
+      Exercise 9.11: Show an example of each of the six ways to create and initialize a
+      vector. Explain what values each vector contains.
 
-   Exercise 9.12: Explain the differences between the constructor that takes a container
-   to copy and the constructor that takes two iterators.
+      Exercise 9.12: Explain the differences between the constructor that takes a container
+      to copy and the constructor that takes two iterators.
 
-   Exercise 9.13: How would you initialize a vector<double> from a list<int>?
-   From a vector<int>? Write code to check your answers.
+      Exercise 9.13: How would you initialize a vector<double> from a list<int>?
+      From a vector<int>? Write code to check your answers.
 
 /9.2.5 Assignment and swap
 ```````````````````````````
@@ -21627,8 +22198,12 @@ Exercises Section 9.2.4
    The assignment-related operators, listed in Table 9.4 (overleaf) act on the entire
    container. The assignment operator replaces the entire range of elements in the
    left-hand container with copies of the elements from the right-hand operand:
-   c1 = c2; // replace the contents of c1 with a copy of the elements in c2
-   c1 = {a,b,c}; // after the assignment c1 has size 3
+
+   .. code-block:: cpp
+
+      c1 = c2; // replace the contents of c1 with a copy of the elements in c2
+      c1 = {a,b,c}; // after the assignment c1 has size 3
+
    After the first assignment, the left- and right-hand containers are equal. If the
    containers had been of unequal size, after the assignment both containers would
    have the size of the right-hand operand. After the second assignment, the size of
@@ -21639,84 +22214,122 @@ Exercises Section 9.2.4
 
    Unlike built-in arrays, the library array type does allow assignment. The leftand 
    right-hand operands must have the same type:
-   array<int, 10> a1 = {0,1,2,3,4,5,6,7,8,9};
-   array<int, 10> a2 = {0}; // elements all have value 0
-   a1 = a2; // replaces elements in a1
-   a2 = {0}; // error: cannot assign to an array from a braced list
+
+   .. code-block:: cpp
+
+      array<int, 10> a1 = {0,1,2,3,4,5,6,7,8,9};
+      array<int, 10> a2 = {0}; // elements all have value 0
+      a1 = a2; // replaces elements in a1
+      a2 = {0}; // error: cannot assign to an array from a braced list
+
    Because the size of the right-hand operand might differ from the size of the lefthand 
    operand, the array type does not support assign and it does not allow
    assignment from a braced list of values.
+
    Table 9.4: Container Assignment Operations
-   c1 = c2 Replace the elements in c1 with copies of the elements in c2. c1 and c2
-   must be the same type.
+
+   ============== =============================================================
+   c1 = c2        Replace the elements in c1 with copies of the elements in c2. c1 and c2
+                  must be the same type.
    c = {a,b,c...} Replace the elements in c1 with copies of the elements in the initializer
-   list. (Not valid for array.)
-   swap(c1, c2)
-   c1.swap(c2)
-   Exchanges elements in c1 with those in c2. c1 and c2 must be the same
-   type. swap is usually much faster than copying elements from c2 to c1.
+                  list. (Not valid for array.)
+   swap(c1, c2)   Exchanges elements in c1 with those in c2. c1 and c2 must be the same
+   c1.swap(c2)    type. swap is usually much faster than copying elements from c2 to c1.
+   ============== =============================================================
+
    assign operations not valid for associative containers or array
-   seq.assign(b,e) Replaces elements in seq with those in the range denoted by iterators
-   b and e. The iterators b and e must not refer to elements in seq.
-   seq.assign(il) Replaces the elements in seq with those in the initializer list il.
-   seq.assign(n,t) Replaces the elements in seq with n elements with value t.
-   Assignment related operations invalidate iterators, references, and pointers into the
-   left-hand container. Aside from string they remain valid after a swap, and (excepting 
-   arrays) the containers to which they refer are swapped.
-   Using assign (Sequential Containers Only)
+
+   ================= ==========================================================
+   seq.assign(b,e)   Replaces elements in seq with those in the range denoted by iterators
+                     b and e. The iterators b and e must not refer to elements in seq.
+   seq.assign(il)    Replaces the elements in seq with those in the initializer list il.
+   seq.assign(n,t)   Replaces the elements in seq with n elements with value t.
+   ================= ==========================================================
+
+   .. Warning::
+
+      Assignment related operations invalidate iterators, references, and pointers into the
+      left-hand container. Aside from string they remain valid after a swap, and (excepting 
+      arrays) the containers to which they refer are swapped.
+
+Using assign (Sequential Containers Only)
+
    The assignment operator requires that the left-hand and right-hand operands have
    the same type. It copies all the elements from the right-hand operand into the lefthand 
    operand. The sequential containers (except array) also define a member
-   named assign that lets us assign from a different but compatible type, or assign
-   from a subsequence of a container. The assignoperation replacesall the elements
+   named ``assign`` that lets us assign from a different but compatible type, or assign
+   from a subsequence of a container. The ``assign`` operation replaces all the elements
    in the left-hand container with (copies of) the elements specified by its arguments.
-   For example, we canuse assignto assign a rangeof char * valuesfrom avector
+   For example, we can use ``assign`` to assign a rangeof char * values from a vector
    into a list of string:
-   list<string> names;
-   vector<const char * > oldstyle;
-   names = oldstyle; // error: container types don't match
-   // ok: can convert from const char * to string
-   names.assign(oldstyle.cbegin(), oldstyle.cend());
+
+   .. code-block:: cpp
+
+      list<string> names;
+      vector<const char * > oldstyle;
+      names = oldstyle; // error: container types don't match
+      // ok: can convert from const char * to string
+      names.assign(oldstyle.cbegin(), oldstyle.cend());
 
 .. ptg11539634 Section 9.2 Container Library Overview 339
 .. _P0339:
 
-   The call to assign replaces the elements in names with copies of the elements
-   in the range denoted by the iterators. The arguments to assign determine how
+   The call to ``assign`` replaces the elements in names with copies of the elements
+   in the range denoted by the iterators. The arguments to ``assign`` determine how
    many elements and what values the container will have.
-   Because the existing elements are replaced, the iterators passed to
-   assign must not refer to the container on which assign is called.
-   A second version of assign takes an integral value and an element value. It
+
+   .. Warning::
+
+      Because the existing elements are replaced, the iterators passed to
+      ``assign`` must not refer to the container on which ``assign`` is called.
+
+   A second version of ``assign`` takes an integral value and an element value. It
    replaces the elements in the container with the specified number of elements, each
    of which has the specified element value:
-   // equivalent to slist1.clear();
-   // followed by slist1.insert(slist1.begin(), 10, "Hiya!");
-   list<string> slist1(1); // one element, which is the empty string
-   slist1.assign(10, "Hiya!"); // ten elements; each one is Hiya!
-   Using swap
-   The swap operation exchanges the contents of two containers of the same type.
-   After the call to swap, the elements in the two containers are interchanged:
-   vector<string> svec1(10); // vector with ten elements
-   vector<string> svec2(24); // vector with 24 elements
-   swap(svec1, svec2);
-   After the swap, svec1 contains 24 string elements and svec2 contains ten.
+
+   .. code-block:: cpp
+
+      // equivalent to slist1.clear();
+      // followed by slist1.insert(slist1.begin(), 10, "Hiya!");
+      list<string> slist1(1); // one element, which is the empty string
+      slist1.assign(10, "Hiya!"); // ten elements; each one is Hiya!
+
+Using swap
+
+   The ``swap`` operation exchanges the contents of two containers of the same type.
+   After the call to ``swap``, the elements in the two containers are interchanged:
+
+   .. code-block:: cpp
+
+      vector<string> svec1(10); // vector with ten elements
+      vector<string> svec2(24); // vector with 24 elements
+      swap(svec1, svec2);
+
+   After the ``swap``, svec1 contains 24 string elements and svec2 contains ten.
    With the exception of arrays, swapping two containers is guaranteed to be fast—
    the elements themselves are not swapped; internal data structures are swapped.
-   Excepting array, swap does not copy, delete, or insert any elements
-   and is guaranteed to run in constant time.
-   Thefactthatelementsarenotmovedmeans that,with theexceptionofstring,
+
+   .. Note::
+
+      Excepting array, ``swap`` does not copy, delete, or insert any elements
+      and is guaranteed to run in constant time.
+
+   The fact that elements are not moved means that, with the exception of ``string``,
    iterators, references, and pointers into the containers are not invalidated. They refer 
-   to the same elements as they did before the swap. However, after the swap,
-   those elements are in a different container. For example, had iter denoted the
-   string at position svec1[3] before the swap, it will denote the element at position 
-   svec2[3] after the swap. Differently from the containers, a call to swap on a
+   to the same elements as they did before the swap. However, after the ``swap``,
+   those elements are in a different container. For example, had ``iter`` denoted the
+   ``string`` at position `svec1[3]` before the swap, it will denote the element at position 
+   `svec2[3]` after the swap. Differently from the containers, a call to swap on a
    string may invalidate iterators, references and pointers.
-   Unlike how swapbehaves for the other containers, swapping two arrays does
+
+   Unlike how swap behaves for the other containers, swapping two arrays does
    exchange the elements. As a result, swapping two arrays requires time proportional 
    to the number of elements in the array.
+
    After the swap, pointers, references, and iterators remain bound to the same
    element they denoted before the swap. Of course, the value of that element has
    been swapped with the corresponding element in the other array.
+
    In the new library, the containers offer both a member and nonmember version
    of swap. Earlier versions of the library defined only the member version of swap.
    The nonmember swap is of most importance in generic programs. As a matter of
@@ -21726,20 +22339,20 @@ Exercises Section 9.2.4
 .. _P0340:
 
 
-Exercises Section 9.2.5
+   Exercises Section 9.2.5
 
-   Exercise 9.14: Write a program to assign the elements from a list of char * pointers
-   to C-style character strings to a vector of strings.
+      Exercise 9.14: Write a program to assign the elements from a ``list`` of `char *` pointers
+      to C-style character strings to a ``vector`` of strings.
 
 /9.2.6 Container Size Operations
 `````````````````````````````````
 
    With one exception, the container types have three size-related operations. The
-   size member (§ 3.2.2, p. [P0087]_) returns the number of elements in the container;
-   empty returns a bool that is true if size is zero and false otherwise; and
-   max_size returns a number that is greater than or equal to the number of elements 
+   `size` member (§ 3.2.2, p. [P0087]_) returns the number of elements in the container;
+   empty returns a `bool` that is `true` if `size` is zero and `false` otherwise; and
+   `max_size` returns a number that is greater than or equal to the number of elements 
    a container of that type can contain. For reasons we'll explain in the next
-   section, forward_list provides max_size and empty, but not size.
+   section, `forward_list` provides `max_size` and empty, but not `size`.
 
 /9.2.7 Relational Operators
 ````````````````````````````
@@ -21748,26 +22361,34 @@ Exercises Section 9.2.5
    except the unordered associative containers also support the relational operators 
    (>, >=, <, <=). The right- and left-hand operands must be the same kind
    of container and must hold elements of the same type. That is, we can compare 
-   a vector<int> only with another vector<int>. We cannot compare a
-   vector<int> with a list<int> or a vector<double>.
+   a `vector<int>` only with another `vector<int>`. We cannot compare a
+   `vector<int>` with a `list<int>` or a `vector<double>`.
+
    Comparing two containers performs a pairwise comparison of the elements.
    These operators work similarly to the string relationals (§ 3.2.2, p. [P0088]_):
+
    • If both containers are the same size and all the elements are equal, then the
    two containers are equal; otherwise, they are unequal.
+
    • If the containers have different sizes but every element of the smaller one is
    equal to the corresponding element of the larger one, then the smaller one is
    less than the other.
-   • Ifneither containeris aninitialsubsequence oftheother, then thecomparison
+
+   • If neither containeris an initial subsequence of the other, then the comparison
    depends on comparing the first unequal elements.
+
    The following examples illustrate how these operators work:
-   vector<int> v1 = { 1, 3, 5, 7, 9, 12 };
-   vector<int> v2 = { 1, 3, 9 };
-   vector<int> v3 = { 1, 3, 5, 7 };
-   vector<int> v4 = { 1, 3, 5, 7, 9, 12 };
-   v1 < v2 // true ; v1 and v2 differ at element [2] : v1[2] is less than v2[2]
-   v1 < v3 // false ; all elements are equal, but v3 has fewer of them;
-   v1 == v4 // true ; each element is equal and v1 and v4 have the same size()
-   v1 == v2 // false ; v2 has fewer elements than v1
+
+   .. code-block:: cpp
+
+      vector<int> v1 = { 1, 3, 5, 7, 9, 12 };
+      vector<int> v2 = { 1, 3, 9 };
+      vector<int> v3 = { 1, 3, 5, 7 };
+      vector<int> v4 = { 1, 3, 5, 7, 9, 12 };
+      v1 < v2  // true ; v1 and v2 differ at element [2] : v1[2] is less than v2[2]
+      v1 < v3  // false ; all elements are equal, but v3 has fewer of them;
+      v1 == v4 // true ; each element is equal and v1 and v4 have the same size()
+      v1 == v2 // false ; v2 has fewer elements than v1
 
 .. ptg11539634 Section 9.3 Sequential Container Operations 341
 .. _P0341:
@@ -21775,27 +22396,34 @@ Exercises Section 9.2.5
 
 Relational Operators Use Their Element's Relational Operator
 
-   We can use a relational operator to compare two containers only if the
-   appropriate comparison operator is defined for the element type.
+   .. Note::
+
+      We can use a relational operator to compare two containers only if the
+      appropriate comparison operator is defined for the element type.
+
    The container equality operators use the element's == operator, and the relational
    operators use the element's < operator. If the element type doesn't support the
    required operator, then we cannot use the corresponding operations on containers
-   holding that type. For example, the Sales_data type that we defined in Chapter 
+   holding that type. For example, the `Sales_data` type that we defined in Chapter 
    7 does not define either the == or the < operation. Therefore, we cannot compare 
-   two containers that hold Sales_data elements:
-   vector<Sales_data> storeA, storeB;
-   if (storeA < storeB) // error: Sales_data has no less-than operator
+   two containers that hold `Sales_data` elements:
 
-Exercises Section 9.2.7
+   .. code-block:: cpp
 
-   Exercise 9.15: Write a program to determine whether two vector<int>s are equal.
+      vector<Sales_data> storeA, storeB;
+      if (storeA < storeB) // error: Sales_data has no less-than operator
 
-   Exercise 9.16: Repeat the previous program, but compare elements in a list<int>
-   to a vector<int>.
+   Exercises Section 9.2.7
 
-   Exercise 9.17: Assuming c1 and c2 are containers, what (if any) constraints does the
-   following usage place on the types of c1 and c2?
-   if (c1 < c2)
+      Exercise 9.15: Write a program to determine whether two ``vector<int>``s are equal.
+
+      Exercise 9.16: Repeat the previous program, but compare elements in a list<int>
+      to a ``vector<int>``.
+
+      Exercise 9.17: Assuming c1 and c2 are containers, what (if any) constraints does the
+      following usage place on the types of c1 and c2?
+
+         if (c1 < c2)
 
 /9.3👋 Sequential Container Operations
 ---------------------------------------
@@ -21813,6 +22441,7 @@ Exercises Section 9.2.7
    We can add or remove elements dynamically changing the size of the container 
    at run time. Table 9.5 (p. [P0343]_) lists the operations that add elements to a
    (nonarray) sequential container.
+
    When we use these operations, we must remember that the containers use
    different strategies for allocating elements and that these strategies affect performance. 
    Adding elements anywhere but at the end of a vector or string, or
@@ -21824,44 +22453,61 @@ Exercises Section 9.2.7
    Moreover, adding elements to a vector or a string may cause the entire object 
    to be reallocated. Reallocating an object requires allocating new memory and
    moving elements from the old space to the new.
-   Using push_back
-   In § 3.3.2 (p. [P0100]_) we saw that push_back appends an element to the back of
-   a vector. Aside from array and forward_list, every sequential container
-   (including the string type) supports push_back.
+
+Using push_back
+
+   In § 3.3.2 (p. [P0100]_) we saw that ``push_back`` appends an element to the back of
+   a ``vector``. Aside from array and forward_list, every sequential container
+   (including the string type) supports ``push_back``.
+
    As an example, the following loop reads one string at a time into word:
-   // read from standard input, putting each word onto the end of container
-   string word;
-   while (cin >> word)
-   container.push_back(word);
-   The call to push_backcreatesa new element at the end of container,increasing
+
+   .. code-block:: cpp
+
+      // read from standard input, putting each word onto the end of container
+      string word;
+      while (cin >> word)
+      container.push_back(word);
+
+   The call to `push_back` creates a new element at the end of container, increasing
    the size of container by 1. The value of that element is a copy of word. The
-   type of container can be any of list, vector, or deque.
-   Because string is just a container of characters, we can use push_back to
+   type of container can be any of ``list``, ``vector``, or ``deque``.
+
+   Because string is just a container of characters, we can use `push_back` to
    add characters to the end of the string:
-   void pluralize(size_t cnt, string &word)
-   {
-   if (cnt > 1)
-   word.push_back('s'); // same as word += 's'
-   }
+
+   .. code-block:: cpp
+
+      void pluralize(size_t cnt, string &word)
+      {
+         if (cnt > 1)
+            word.push_back('s'); // same as word += 's'
+      }
 
    .. Note::
 
       Key Concept : Container Elements Are Copies
 
-   When we use an object to initialize a container, or insert an object into a container, a
-   copy of that object's value is placed in the container, not the object itself. Just as when
-   we pass an object to a nonreference parameter (§ 6.2.1, p. [P0209]_), there is no relationship
-   between the element in the container and the object from which that value originated.
-   Subsequent changes to the element in the container have no effect on the original
-   object, and vice versa.
-   Using push_front
+      When we use an object to initialize a container, or insert an object into a container, a
+      copy of that object's value is placed in the container, not the object itself. Just as when
+      we pass an object to a nonreference parameter (§ 6.2.1, p. [P0209]_), there is no relationship
+      between the element in the container and the object from which that value originated.
+      Subsequent changes to the element in the container have no effect on the original
+      object, and vice versa.
+
+Using push_front
+
    In addition to push_back, the list, forward_list,and deque containers support 
-   an analogous operation named push_front. This operation inserts a new
+   an analogous operation named ``push_front``. This operation inserts a new
    element at the front of the container:
-   list<int> ilist;
-   // add elements to the start of ilist
-   for (size_t ix = 0; ix != 4; ++ix)
-   ilist.push_front(ix);
+
+   .. code-block:: cpp
+
+      list<int> ilist;
+      // add elements to the start of ilist
+      for (size_t ix = 0; ix != 4; ++ix)
+         ilist.push_front(ix);
+
    This loop adds the elements 0, 1, 2, 3 to the beginning of ilist. Each element
    is inserted at the new beginning of the list. That is, when we insert 1, it goes in
 
@@ -21871,51 +22517,61 @@ Exercises Section 9.2.7
    front of 0, and 2 in front of 1, and so forth. Thus, the elements added in a loop
    such as this one wind up in reverse order. After executing this loop, ilist holds
    the sequence 3,2,1,0.
-   Note that deque, which like vector offers fast random access to its elements,
-   provides the push_frontmember even though vectordoes not. A dequeguarantees 
+
+   Note that ``deque``, which like ``vector`` offers fast random access to its elements,
+   provides the `push_front` member even though ``vector`` does not. A ``deque`` guarantees 
    constant-time insert and delete of elements at the beginning and end of the
-   container. As with vector, inserting elements other than at the front or back of a
-   deque is a potentially expensive operation.
+   container. As with ``vector``, inserting elements other than at the front or back of a
+   ``deque`` is a potentially expensive operation.
+
    Table 9.5: Operations That Add Elements to a Sequential Container
+
    These operations change the size of the container; they are not supported by array.
-   forward_list has special versions of insert and emplace; see § 9.3.4 (p. [P0350]_).
-   push_back and emplace_back not valid for forward_list.
-   push_front and emplace_front not valid for vector or string.
-   c.push_back(t)
-   c.emplace_back(args)
-   Creates an element with value t or constructed from args at the
-   end of c. Returns void.
-   c.push_front(t)
-   c.emplace_front(args)
-   Creates an element with value t or constructed from args on the
-   front of c. Returns void.
-   c.insert(p,t)
-   c.emplace(p, args)
-   Creates an element with value t or constructed from args before
-   the element denoted by iterator p. Returns an iterator referring
-   to the element that was added.
-   c.insert(p,n,t) Inserts n elements with value t before the element denoted by
-   iterator p. Returns an iterator to the first element inserted; if n is
-   zero, returns p.
-   c.insert(p,b,e) Inserts the elements from the range denoted by iterators b and e
-   before the element denoted by iterator p. b and e may not refer
-   to elements in c. Returns an iterator to the first element inserted;
-   if the range is empty, returns p.
-   c.insert(p,il) il is a braced list of element values. Inserts the given values
-   before the element denoted by the iterator p. Returns an iterator
-   to the first inserted element; if the list is empty returns p.
-   Adding elements to a vector, string, or deque potentially invalidates all existing
-   iterators, references, and pointers into the container.
+   ``forward_list`` has special versions of insert and emplace; see § 9.3.4 (p. [P0350]_).
+   ``push_back`` and ``emplace_back`` not valid for ``forward_list``.
+   ``push_front`` and ``emplace_front`` not valid for ``vector`` or ``string``.
+  
+   ====================== ===================================================
+   c.push_back(t)          Creates an element with value t or constructed from args at the
+   c.emplace_back(args)    end of c. Returns void.
+
+   c.push_front(t)         Creates an element with value t or constructed from args on the
+   c.emplace_front(args)   front of c. Returns void.
+
+   c.insert(p,t)           Creates an element with value t or constructed from args before
+
+   c.emplace(p, args)      the element denoted by iterator p. Returns an iterator referring
+                           to the element that was added.
+
+   c.insert(p,n,t)         Inserts n elements with value t before the element denoted by
+                           iterator p. Returns an iterator to the first element inserted; if n is
+                           zero, returns p.
+
+   c.insert(p,b,e)         Inserts the elements from the range denoted by iterators b and e
+                           before the element denoted by iterator p. b and e may not refer
+                           to elements in c. Returns an iterator to the first element inserted;
+                           if the range is empty, returns p.
+
+   c.insert(p,il)           il is a braced list of element values. Inserts the given values
+                           before the element denoted by the iterator p. Returns an iterator
+                           to the first inserted element; if the list is empty returns p.
+   ====================== ===================================================
+
+   .. Warning::
+
+      Adding elements to a vector, string, or deque potentially invalidates all existing
+      iterators, references, and pointers into the container.
 
 Adding Elements at a Specified Point in the Container
 
-   The push_back and push_front operations provide convenient ways to insert
+   The ``push_back`` and ``push_front`` operations provide convenient ways to ``insert``
    a single element at the end or beginning of a sequential container. More generally, 
-   the insert members let us insert zero or more elements at any point in the
-   container. The insert members are supported for vector, deque, list, and
-   string. forward_list provides specialized versions of these members that
+   the ``insert`` members let us ``insert`` zero or more elements at any point in the
+   container. The ``insert`` members are supported for ``vector``, ``deque``, ``list``, and
+   ``string``. ``forward_list`` provides specialized versions of these members that
    we'll cover in § 9.3.4 (p. [P0350]_).
-   Eachof theinsertfunctions takesan iteratorasits first argument. The iterator
+
+   Eachof the ``insert`` functions takes an iterator as its first argument. The iterator
    indicates where in the container to put the element(s). It can refer to any position
    in the container, including one past the end of the container. Because the iterator
 
@@ -21925,40 +22581,62 @@ Adding Elements at a Specified Point in the Container
    might refer to a nonexistent element off the end of the container, and because it is
    useful to have a way to insert elements at the beginning of a container, element(s)
    are inserted before the position denoted by the iterator. For example, this statement
-   slist.insert(iter, "Hello!"); // insert "Hello!" just before iter
+
+   .. code-block:: cpp
+
+      slist.insert(iter, "Hello!"); // insert "Hello!" just before iter
+
    inserts a string with value "Hello" just before the element denoted by iter.
-   Even though some containers do not have a push_front operation, there is
+   Even though some containers do not have a ``push_front`` operation, there is
    no similar constraint on insert. We can insert elements at the beginning of a
-   container without worrying about whether the container has push_front:
-   vector<string> svec;
-   list<string> slist;
-   // equivalent to calling slist.push_front("Hello!");
-   slist.insert(slist.begin(), "Hello!");
-   // no push_front on vector but we can insert before begin()
-   // warning: inserting anywhere but at the end of a vector might be slow
-   svec.insert(svec.begin(), "Hello!");
-   It is legal to insert anywhere in a vector, deque, or string. However,
-   doing so can be an expensive operation.
-   Inserting a Range of Elements
+   container without worrying about whether the container has ``push_front``:
+
+   .. code-block:: cpp
+
+      vector<string> svec;
+      list<string> slist;
+      // equivalent to calling slist.push_front("Hello!");
+      slist.insert(slist.begin(), "Hello!");
+      // no push_front on vector but we can insert before begin()
+      // warning: inserting anywhere but at the end of a vector might be slow
+      svec.insert(svec.begin(), "Hello!");
+
+   .. Warning::
+
+      It is legal to insert anywhere in a ``vector``, ``deque``, or ``string``. However,
+      doing so can be an expensive operation.
+
+Inserting a Range of Elements
+
    The arguments to insert that appear after the initial iterator argument are analogous 
    to the container constructors that take the same parameters. The version
    that takes an element count and a value adds the specified number of identical
    elements before the given position:
-   svec.insert(svec.end(), 10, "Anna");
+
+   .. code-block:: cpp
+
+      svec.insert(svec.end(), 10, "Anna");
+
    This code inserts ten elements at the end of svec and initializes each of those
    elements to the string "Anna".
+
    The versions of insert that take a pair of iterators or an initializer list insert
    the elements from the given range before the given position:
-   vector<string> v = {"quasi", "simba", "frollo", "scar"};
-   // insert the last two elements of v at the beginning of slist
-   slist.insert(slist.begin(), v.end() - 2, v.end());
-   slist.insert(slist.end(), {"these", "words", "will",
-   "go", "at", "the", "end"});
-   // run-time error: iterators denoting the range to copy from
-   // must not refer to the same container as the one we are changing
-   slist.insert(slist.begin(), slist.begin(), slist.end());
-   When wepassapairof iterators,those iteratorsmaynot refertothe samecontainer
+
+   .. code-block:: cpp
+
+      vector<string> v = {"quasi", "simba", "frollo", "scar"};
+      // insert the last two elements of v at the beginning of slist
+      slist.insert(slist.begin(), v.end() - 2, v.end());
+      slist.insert(slist.end(), {"these", "words", "will",
+      "go", "at", "the", "end"});
+      // run-time error: iterators denoting the range to copy from
+      // must not refer to the same container as the one we are changing
+      slist.insert(slist.begin(), slist.begin(), slist.end());
+
+   When we pass a pair of iterators, those iterators may not referto the same container
    as the one to which we are adding elements.
+
    Under the new standard, the versions of insert that take a count or a range
    return an iterator to the first element that was inserted. (In prior versions of the
    library, these operations returned void.) If the range is empty, no elements are
@@ -21967,146 +22645,182 @@ Adding Elements at a Specified Point in the Container
 .. ptg11539634 Section 9.3 Sequential Container Operations 345
 .. _P0345:
 
-   Using the Return from insert
+Using the Return from insert
+
    We can use the value returned by insert to repeatedly insert elements at a specified 
    position in the container:
-   list<string> lst;
-   auto iter = lst.begin();
-   while (cin >> word)
-   iter = lst.insert(iter, word); // same as calling push_front
-   It is important to understand how this loop operates—in particular, to
-   understand why the loop is equivalent to calling push_front.
-   Beforethe loop, weinitialize iterto lst.begin(). The firstcall to inserttakes
-   the string we just read and puts it in front of the element denoted by iter.
-   The value returned by insert is an iterator referring to this new element. We
-   assign that iterator to iter and repeat the while, reading another word. As long
-   as there are words to insert, each trip through the while inserts a new element
-   ahead of iter and reassigns to iter the location of the newly inserted element.
+
+   .. code-block:: cpp
+
+      list<string> lst;
+      auto iter = lst.begin();
+      while (cin >> word)
+         iter = lst.insert(iter, word); // same as calling push_front
+
+   .. Note::
+
+      It is important to understand how this loop operates—in particular, to
+      understand why the loop is equivalent to calling push_front.
+
+   Beforethe loop, weinitialize iterto `lst.begin()`. The first call to ``insert`` takes
+   the ``string`` we just read and puts it in front of the element denoted by iter.
+   The value returned by ``insert`` is an iterator referring to this new element. We
+   assign that iterator to `iter` and repeat the ``while``, reading another word. As long
+   as there are words to insert, each trip through the ``while`` inserts a new element
+   ahead of `iter` and reassigns to iter the location of the newly inserted element.
    That element is the (new) first element. Thus, each iteration inserts an element
-   ahead of the first element in the list.
-   Using the Emplace Operations
-   The new standard introduced three new members—emplace_front, emplace,
-   and emplace_back—that construct rather than copy elements. These operations
-   correspond to the push_front, insert, and push_back operations in that they
+   ahead of the first element in the ``list``.
+
+Using the Emplace Operations
+
+   The new standard introduced three new members—`emplace_front`, `emplace`,
+   and `emplace_back`—that construct rather than copy elements. These operations
+   correspond to the ``push_front``, ``insert``, and ``push_back`` operations in that they
    let us put an element at the front of the container, in front of a given position, or at
    the back of the container, respectively.
+
    When we call a push or insert member, we pass objects of the element type
    and those objects are copied into the container. When we call an emplace member,
    we pass arguments to a constructor for the element type. The emplace members
    use those arguments to construct an element directly in space managed by the
-   container. For example, assuming c holds Sales_data (§ 7.1.4, p. [P0264]_) elements:
-   // construct a Sales_data object at the end of c
-   // uses the three-argument Sales_data constructor
-   c.emplace_back("978-0590353403", 25, 15.99);
-   // error: there is no version of push_back that takes three arguments
-   c.push_back("978-0590353403", 25, 15.99);
-   // ok: we create a temporary Sales_data object to pass to push_back
-   c.push_back(Sales_data("978-0590353403", 25, 15.99));
-   The call to emplace_back and the second call to push_back both create new
-   Sales_data objects. In the call to emplace_back, that object is created directly
-   in space managed by the container. The call to push_back creates a local temporary 
+   container. For example, assuming c holds `Sales_data` (§ 7.1.4, p. [P0264]_) elements:
+
+   .. code-block:: cpp
+
+      // construct a Sales_data object at the end of c
+      // uses the three-argument Sales_data constructor
+      c.emplace_back("978-0590353403", 25, 15.99);
+      // error: there is no version of push_back that takes three arguments
+      c.push_back("978-0590353403", 25, 15.99);
+      // ok: we create a temporary Sales_data object to pass to push_back
+      c.push_back(Sales_data("978-0590353403", 25, 15.99));
+
+   The call to emplace_back and the second call to ``push_back`` both create new
+   `Sales_data` objects. In the call to ``emplace_back``, that object is created directly
+   in space managed by the container. The call to ``push_back`` creates a local temporary 
    object that is pushed onto the container.
+
    The arguments to an emplace function vary depending on the element type.
    The arguments must match a constructor for the element type:
 
 .. ptg11539634 346 Sequential Containers
 .. _P0346:
 
-   // iter refers to an element in c , which holds Sales_data elements
-   c.emplace_back(); // uses the Sales_data default constructor
-   c.emplace(iter, "999-999999999"); // uses Sales_data(string)
-   // uses the Sales_data constructor that takes an ISBN, a count, and a price
-   c.emplace_front("978-0590353403", 25, 15.99);
+
+   .. code-block:: cpp
+
+      // iter refers to an element in c , which holds Sales_data elements
+      c.emplace_back(); // uses the Sales_data default constructor
+      c.emplace(iter, "999-999999999"); // uses Sales_data(string)
+      // uses the Sales_data constructor that takes an ISBN, a count, and a price
+      c.emplace_front("978-0590353403", 25, 15.99);
+
    The emplace functions construct elements in the container. The arguments 
    to these functions must match a constructor for the element type.
 
-Exercises Section 9.3.1
+   Exercises Section 9.3.1
 
-   Exercise 9.18: Writeaprogramtoreadasequenceofstringsfromthe standardinput
-   into a deque. Use iterators to write a loop to print the elements in the deque.
+      Exercise 9.18: Write a program to read a sequence of strings from the standard input
+      into a ``deque``. Use iterators to write a loop to print the elements in the ``deque``.
 
-   Exercise 9.19: Rewrite the program from the previous exercise to use a list. List the
-   changes you needed to make.
+      Exercise 9.19: Rewrite the program from the previous exercise to use a list. List the
+      changes you needed to make.
 
-   Exercise 9.20: Write a programto copy elements froma list<int>into two deques.
-   The even-valued elements should go into one deque and the odd ones into the other.
+      Exercise 9.20: Write a programto copy elements froma `list<int>` into two `deques`.
+      The even-valued elements should go into one ``deque`` and the odd ones into the other.
 
-   Exercise 9.21: Explain how the loop from page 345 that used the return from insert
-   to add elements to a list would work if we inserted into a vector instead.
+      Exercise 9.21: Explain how the loop from page 345 that used the return from `insert`
+      to add elements to a list would work if we inserted into a ``vector`` instead.
 
-   Exercise 9.22: Assuming iv is a vector of ints, what is wrong with the following
-   program? How might you correct the problem(s)?
-   vector<int>::iterator iter = iv.begin(),
-   mid = iv.begin() + iv.size()/2;
-   while (iter != mid)
-   if ( * iter == some_val)
-   iv.insert(iter, 2
-   *
-   some_val);
+      Exercise 9.22: Assuming `iv` is a ``vector`` of ints, what is wrong with the following
+      program? How might you correct the problem(s)?
+
+      .. code-block:: cpp
+
+         vector<int>::iterator iter = iv.begin(),
+         mid = iv.begin() + iv.size()/2;
+         while (iter != mid)
+         if ( * iter == some_val)
+         iv.insert(iter, 2 * some_val);
 
 /9.3.2 Accessing Elements
 ``````````````````````````
 
    Table 9.6 lists the operations we can use to access elements in a sequential container. 
    The access operations are undefined if the container has no elements.
+
    Each sequential container, including array, has a front member, and all except 
-   forward_list also have a back member. These operations return a reference 
+   ``forward_list`` also have a back member. These operations return a reference 
    to the first and last element, respectively:
-   // check that there are elements before dereferencing an iterator or calling front or back
-   if (!c.empty()) {
-   // val and val2 are copies of the value of the first element in c
-   auto val =
-   * c.begin(), val2 = c.front();
-   // val3 and val4 are copies of the of the last element in c
-   auto last = c.end();
-   auto val3 =
-   * (--last); //
-   can't decrement forward_list iterators
-   auto val4 = c.back(); // not supported by forward_list
-   }
+
+   .. code-block:: cpp
+
+      // check that there are elements before dereferencing an iterator or calling front or back
+      if (!c.empty()) {
+         // val and val2 are copies of the value of the first element in c
+         auto val = * c.begin(), val2 = c.front();
+         // val3 and val4 are copies of the of the last element in c
+         auto last = c.end();
+         auto val3 = * (--last); // can't decrement forward_list iterators
+         auto val4 = c.back(); // not supported by forward_list
+      }
 
 .. ptg11539634 Section 9.3 Sequential Container Operations 347
 .. _P0347:
 
    This program obtains references to the first and last elements in c in two different
-   ways. The direct approach is to call front or back. Indirectly, we can obtain a
+   ways. The direct approach is to call ``front`` or ``back``. Indirectly, we can obtain a
    reference to the same element by dereferencing the iterator returned by begin or
    decrementing and then dereferencing the iterator returned by end.
+
    Two things are noteworthy in this program: The end iterator refers to the
    (nonexistent) element one past the end of the container. To fetch the last element
    we must first decrement that iterator. The other important point is that before calling 
-   front or back (or dereferencing the iterators from begin or end), we check
+   ``front`` or ``back`` (or dereferencing the iterators from ``begin`` or ``end``), we check
    that c isn't empty. If the container were empty, the operations inside the if would
    be undefined.
+
    Table 9.6: Operations to Access Elements in a Sequential Container
-   at and subscript operator valid only for string, vector, deque, and array.
-   back not valid for forward_list.
-   c.back() Returns a reference to the last element in c. Undefined if c is empty.
-   c.front() Returns a reference to the first element in c. Undefined if c is empty.
-   c[n] Returns a reference to the element indexed by the unsigned integral value n.
-   Undefined if n >= c.size().
-   c.at(n) Returns a reference to the element indexed by n. If the index is out of range,
-   throws an out_of_range exception.
-   Calling front or back on an empty container, like using a subscript that is out of
-   range, is a serious programming error.
+   at and subscript operator valid only for ``string``, ``vector``, ``deque``, and ``array``.
+   ``back`` not valid for ``forward_list``.
+   
+   =========== ==============================================================
+   c.back()    Returns a reference to the last element in c. Undefined if c is empty.
+   c.front()   Returns a reference to the first element in c. Undefined if c is empty.
+   c[n]        Returns a reference to the element indexed by the unsigned integral value n.
+               Undefined if n >= c.size().
+   c.at(n)     Returns a reference to the element indexed by n. If the index is out of range,
+               throws an ``out_of_range`` exception.
+   =========== ==============================================================
+
+   .. Warning::
+
+      Calling ``front`` or ``back`` on an empty container, like using a subscript that is out of
+      range, is a serious programming error.
 
 The Access Members Return References
 
-   The members that access elements in a container (i.e., front, back, subscript, and
-   at) return references. If the container is a const object, the return is a reference to
+   The members that access elements in a container (i.e., `front`, `back`, `subscript`, and
+   `at`) return references. If the container is a const object, the return is a reference to
    const. If the container is not const, the return is an ordinary reference that we
    can use to change the value of the fetched element:
-   if (!c.empty()) {
-   c.front() = 42; // assigns 42 to the first element in c
-   auto &v = c.back(); // get a reference to the last element
-   v = 1024; // changes the element in c
-   auto v2 = c.back(); // v2 is not a reference; it's a copy of c.back()
-   v2 = 0; // no change to the element in c
-   }
+
+   .. code-block:: cpp
+
+      if (!c.empty()) {
+         c.front() = 42; // assigns 42 to the first element in c
+         auto &v = c.back(); // get a reference to the last element
+         v = 1024; // changes the element in c
+         auto v2 = c.back(); // v2 is not a reference; it's a copy of c.back()
+         v2 = 0; // no change to the element in c
+      }
+
    As usual, if we use auto to store the return from one of these functions and we
    want to use that variable to change the element, we must remember to define our
    variable as a reference type.
-   Subscripting and Safe Random Access
+
+Subscripting and Safe Random Access
+
    The containers that provide fast random access (string, vector, deque, and
    array) also provide the subscript operator (§ 3.3.3, p. [P0102]_). As we've seen, the
 
@@ -22119,82 +22833,116 @@ The Access Members Return References
    the index is valid; the subscript operator does not check whether the index is in
    range. Using an out-of-range value for an index is a serious programming error,
    but one that the compiler will not detect.
+
    If we want to ensure that our index is valid, we can use the at member instead.
    The at member acts like the subscript operator, but if the index is invalid, at
-   throws an out_of_range exception (§ 5.6, p. [P0193]_):
-   vector<string> svec; // empty vector
-   cout << svec[0]; // run-time error: there are no elements in svec !
-   cout << svec.at(0); // throws an out_of_range exception
+   throws an ``out_of_range`` exception (§ 5.6, p. [P0193]_):
 
-Exercises Section 9.3.2
+   .. code-block:: cpp
 
-   Exercise 9.23: In the first program in this section on page 346, what would the values
-   of val, val2, val3, and val4 be if c.size() is 1?
+      vector<string> svec; // empty vector
+      cout << svec[0];     // run-time error: there are no elements in svec !
+      cout << svec.at(0);  // throws an out_of_range exception
 
-   Exercise 9.24: Write a program that fetches the first element in a vector using at,
-   the subscript operator, front, and begin. Test your program on an empty vector.
+   Exercises Section 9.3.2
+
+      Exercise 9.23: In the first program in this section on page 346, what would the values
+      of val, val2, val3, and val4 be if c.size() is 1?
+
+      Exercise 9.24: Write a program that fetches the first element in a vector using at,
+      the subscript operator, front, and begin. Test your program on an empty vector.
 
 /9.3.3 Erasing Elements
 ````````````````````````
 
    Just as there are several ways to add elements to a (nonarray) container there are
    also several ways to remove elements. These members are listed in Table 9.7.
-   The members that remove elements do not check their argument(s). The
-   programmer must ensure that element(s) exist before removing them.
-   The pop_front and pop_back Members
-   The pop_front and pop_back functions remove the first and last elements, respectively. 
-   Just as there is no push_front for vector and string, there is
-   also no pop_front for those types. Similarly, forward_list does not have
-   pop_back. Like the element access members, we may not use a pop operation
+
+   .. Warning::
+
+      The members that remove elements do not check their argument(s). The
+      programmer must ensure that element(s) exist before removing them.
+
+The pop_front and pop_back Members
+
+   The ``pop_front`` and ``pop_back`` functions remove the first and last elements, respectively. 
+   Just as there is no ``push_front`` for ``vector`` and ``string``, there is
+   also no ``pop_front`` for those types. Similarly, ``forward_list`` does not have
+   ``pop_back``. Like the element access members, we may not use a pop operation
    on an empty container.
+
    These operations return void. If you need the value you are about to pop, you
    must store that value before doing the pop:
-   while (!ilist.empty()) {
-   process(ilist.front()); // do something with the current top of ilist
-   ilist.pop_front(); // done; remove the first element
-   }
+
+   .. code-block:: cpp
+
+      while (!ilist.empty()) {
+         process(ilist.front()); // do something with the current top of ilist
+         ilist.pop_front(); // done; remove the first element
+      }
 
 .. ptg11539634 Section 9.3 Sequential Container Operations 349
 .. _P0349:
 
    Table 9.7: erase Operations on Sequential Containers
+
    These operations change the size of the container and so are not supported by array.
-   forward_list has a special version of erase; see § 9.3.4 (p. [P0350]_).
-   pop_back not valid for forward_list; pop_front not valid for vector and string.
-   c.pop_back() Removes last element in c. Undefined if c is empty. Returns void.
-   c.pop_front() Removes first element in c. Undefined if c is empty. Returns void.
-   c.erase(p) Removes the element denoted by the iterator p and returns an iterator to
-   the element after the one deleted or the off-the-end iterator if p denotes
-   the last element. Undefined if p is the off-the-end iterator.
-   c.erase(b,e) Removes the range of elements denoted by the iterators b and e. Returns
-   an iterator to the element after the last one that was deleted, or an
-   off-the-end iterator if e is itself an off-the-end iterator.
-   c.clear() Removes all the elements in c. Returns void.
-   Removing elements anywhere but the beginning or end of a deque invalidates all
+   ``forward_list`` has a special version of erase; see § 9.3.4 (p. [P0350]_).
+   ``pop_back`` not valid for ``forward_list``; ``pop_front`` not valid for ``vector`` and ``string``.
+
+   ============== ====================================================
+   c.pop_back()   Removes last element in c. Undefined if c is empty. Returns void.
+   c.pop_front()  Removes first element in c. Undefined if c is empty. Returns void.
+
+   c.erase(p)     Removes the element denoted by the iterator p and returns an iterator to
+                  the element after the one deleted or the off-the-end iterator if p denotes
+                  the last element. Undefined if p is the off-the-end iterator.
+
+   c.erase(b,e)   Removes the range of elements denoted by the iterators b and e. Returns
+                  an iterator to the element after the last one that was deleted, or an
+                  off-the-end iterator if e is itself an off-the-end iterator.
+
+   c.clear()      Removes all the elements in c. Returns void.
+   ============== ====================================================
+
+   Removing elements anywhere but the beginning or ``end`` of a ``deque`` invalidates all
    iterators, references, and pointers. Iterators, references, and pointers to elements after
-   the erasure point in a vector or string are invalidated.
-   Removing an Element from within the Container
-   The erase members remove element(s) at a specified point in the container. We
-   candeleteasingle elementdenotedbyaniteratoror arangeofelements markedby
-   a pair of iterators. Both forms of erase return an iterator referring to the location
+   the erasure point in a ``vector`` or ``string`` are invalidated.
+
+Removing an Element from within the Container
+
+   The `erase` members remove element(s) at a specified point in the container. We
+   can delete a single element denoted by an iteratoror a range of elements marked by
+   a pair of iterators. Both forms of `erase` return an iterator referring to the location
    after the (last) element that was removed. That is, if j is the element following i,
-   then erase(i) will return an iterator referring to j.
+   then `erase(i)` will return an iterator referring to j.
+
    As an example, the following loop erases the odd elements in a list:
-   list<int> lst = {0,1,2,3,4,5,6,7,8,9};
-   auto it = lst.begin();
-   while (it != lst.end())
-   if ( * it % 2) // if the element is odd
-   it = lst.erase(it); // erase this element
-   else
-   ++it;
+
+   .. code-block:: cpp
+
+      list<int> lst = {0,1,2,3,4,5,6,7,8,9};
+      auto it = lst.begin();
+      while (it != lst.end())
+         if ( * it % 2) // if the element is odd
+            it = lst.erase(it); // erase this element
+         else
+            ++it;
+
    On each iteration, we check whether the current element is odd. If so, we erase
    that element, setting it to denote the element after the one we erased. If * it is
    even, we increment it so we'll look at the next element on the next iteration.
-   Removing Multiple Elements
+
+Removing Multiple Elements
+
    The iterator-pair version of erase lets us delete a range of elements:
-   // delete the range of elements between two iterators
-   // returns an iterator to the element just after the last removed element
-   elem1 = slist.erase(elem1, elem2); // after the call elem1 == elem2
+
+   .. code-block:: cpp
+
+      // delete the range of elements between two iterators
+      // returns an iterator to the element just after the last removed element
+      elem1 = slist.erase(elem1, elem2); // after the call elem1 == elem2
+
    The iterator elem1 refers to the first element we want to erase, and elem2 refers
    to one past the last element we want to remove.
 
@@ -22203,19 +22951,25 @@ Exercises Section 9.3.2
 
    To delete all the elements in a container, we can either call clear or pass the
    iterators from begin and end to erase:
-   slist.clear(); // delete all the elements within the container
-   slist.erase(slist.begin(), slist.end()); // equivalent
 
-Exercises Section 9.3.3
+   .. code-block:: cpp
 
-   Exercise 9.25: In the program on page 349 that erased a range of elements, what happens 
-   if elem1 and elem2 are equal? What if elem2 or both elem1 and elem2 are the
-   off-the-end iterator?
+      slist.clear(); // delete all the elements within the container
+      slist.erase(slist.begin(), slist.end()); // equivalent
 
-   Exercise 9.26: Using the following definition of ia, copy ia into a vector and into a
-   list. Use the single-iterator form of erase to remove the elements with odd values
-   from your list and the even values from your vector.
-   int ia[] = { 0, 1, 1, 2, 3, 5, 8, 13, 21, 55, 89 };
+   Exercises Section 9.3.3
+
+      Exercise 9.25: In the program on page 349 that erased a range of elements, what happens 
+      if `elem1` and `elem2` are equal? What if `elem2` or both `elem1` and `elem2` are the
+      off-the-end iterator?
+
+      Exercise 9.26: Using the following definition of `ia`, copy `ia` into a ``vector`` and into a
+      ``list``. Use the single-iterator form of erase to remove the elements with odd values
+      from your ``list`` and the even values from your ``vector``.
+
+      .. code-block:: cpp
+
+         int ia[] = { 0, 1, 1, 2, 3, 5, 8, 13, 21, 55, 89 };
 
 /9.3.4 Specialized forward_list Operations
 ```````````````````````````````````````````
@@ -22223,106 +22977,108 @@ Exercises Section 9.3.3
    To understand why forward_list has special versions of the operations to add
    and remove elements, consider what must happen when we remove an element
    from a singly linked list. As illustrated in Figure 9.1, removing an element changes
-   the links in the sequence. In this case, removing elem 3 changes elem 2 ; elem 2 had
-   pointed to elem 3 , but after we remove elem 3 , elem 2 points to elem 4 .
-   Figure 9.1: forward_list SpecializedOperations
-   elem 1
-   -elem 
-   2
-   -elem 
-   3
-   -elem 
-   4
-   Removing elem 3 changes the value of elem 2
-   elem 1
-   -elem 
-   2
-   -elem 
-   4
+   the links in the sequence. In this case, removing `elem_3` changes `elem_2` ; `elem_2` had
+   pointed to `elem_3` , but after we remove `elem_3` , `elem_2` points to `elem_4` .
+
+   Figure 9.1: forward_list Specialized Operations
+
+   .. code-block:: bash
+
+      ╭────────╮   ╭────────╮   ╭────────╮   ╭────────╮
+      │ elem_1 │──>│ elem_2 │──>│ elem_3 │──>│ elem_4 │
+      ╰────────╯   ╰────────╯   ╰────────╯   ╰────────╯
+      Removing elem_3 changes the value of elem_2
+      ╭────────╮   ╭────────╮                ╭────────╮
+      │ elem_1 │──>│ elem_2 │───>───>───>───>│ elem_4 │
+      ╰────────╯   ╰────────╯                ╰────────╯
+
    When we add or remove an element, the element before the one we added or
-   removed has a differentsuccessor. To add or remove an element, we need access to
-   its predecessor in order to update that element's links. However, forward_list
+   removed has a different successor. To add or remove an element, we need access to
+   its predecessor in order to update that element's links. However, ``forward_list``
    is a singly linked list. In a singly linked list there is no easy way to get to an
    element's predecessor. For this reason, the operations to add or remove elements
-   in a forward_listoperate by changing the element after the given element. That
+   in a ``forward_list`` operate by changing the element after the given element. That
    way, we always have access to the elements that are affected by the change.
+
    Because these operations behave differently from the operations on the other
-   containers, forward_listdoes not define insert, emplace, or erase. Instead
-   it defines members (listed in Table 9.8) named insert_after, emplace_after,
+   containers, ``forward_list`` does not define insert, emplace, or erase. Instead
+   it defines members (listed in Table 9.8) named ``insert_after``, ``emplace_after``,
 
 .. ptg11539634 Section 9.3 Sequential Container Operations 351
 .. _P0351:
 
-   and erase_after. For example, in our illustration, to remove elem 3 , we'd call
-   erase_after on an iterator that denoted elem 2 . To support these operations,
-   forward_listalso definesbefore_begin,which returnsan off-the-beginning
+   and ``erase_after``. For example, in our illustration, to remove `elem_3` , we'd call
+   ``erase_after`` on an iterator that denoted `elem_2` . To support these operations,
+   ``forward_list``also defines `before_begin`, which returns an off-the-beginning
    iterator. This iterator lets us add or remove elements “after” the nonexistent element 
    before the first one in the list.
+
    Table 9.8: Operations to Insert or Remove Elements in a forward_list
-   lst.before_begin()
-   lst.cbefore_begin()
-   Iterator denoting the nonexistent element just before the beginning 
-   of the list. This iterator may not be dereferenced.
-   cbefore_begin() returns a const_iterator.
-   lst.insert_after(p,t)
-   lst.insert_after(p,n,t)
-   lst.insert_after(p,b,e)
-   lst.insert_after(p,il)
-   Inserts element(s) after the one denoted by iterator p. t is an
-   object, n is a count, b and e are iterators denoting a range (b
-   and e must not refer to lst), and il is a braced list. Returns
-   an iterator to the last inserted element. If the range is empty,
-   returns p. Undefined if p is the off-the-end iterator.
-   emplace_after(p, args) Uses args to construct an element after the one denoted by
-   iterator p. Returns an iterator to the new element.
-   Undefined if p is the off-the-end iterator.
-   lst.erase_after(p)
-   lst.erase_after(b,e)
-   Removes the element after the one denoted by iterator p or
-   the range of elements from the one after the iterator b up to
-   butnotincluding the onedenoted bye. Returns aniteratorto
-   the element after the one deleted, or the off-the-end iterator
-   if there is no such element. Undefined if p denotes the last
-   element in lst or is the off-the-end iterator.
-   When we add or remove elements in a forward_list, we have to keep track
+
+   ======================= ===================================================
+   lst.before_begin()      Iterator denoting the nonexistent element just before the beginning 
+   lst.cbefore_begin()     of the list. This iterator may not be dereferenced.
+                           cbefore_begin() returns a const_iterator.
+   lst.insert_after(p,t)   Inserts element(s) after the one denoted by iterator p. t is an
+   lst.insert_after(p,n,t) object, n is a count, b and e are iterators denoting a range (b
+   lst.insert_after(p,b,e) and e must not refer to lst), and il is a braced list. Returns
+   lst.insert_after(p,il)  an iterator to the last inserted element. If the range is empty,
+                           returns p. Undefined if p is the off-the-end iterator.
+   emplace_after(p, args)  Uses args to construct an element after the one denoted by
+                           iterator p. Returns an iterator to the new element.
+                           Undefined if p is the off-the-end iterator.
+   lst.erase_after(p)      Removes the element after the one denoted by iterator p or
+   lst.erase_after(b,e)    the range of elements from the one after the iterator b up to
+                           butnotincluding the onedenoted bye. Returns aniteratorto
+                           the element after the one deleted, or the off-the-end iterator
+                           if there is no such element. Undefined if p denotes the last
+                           element in lst or is the off-the-end iterator.
+   ======================= ===================================================
+
+   When we add or remove elements in a `forward_list`, we have to keep track
    of two iterators—one to the element we're checking and one to that element's predecessor. 
    As an example, we'll rewrite the loop from page 349 that removed the
-   odd-valued elements from a list to use a forward_list:
-   forward_list<int> flst = {0,1,2,3,4,5,6,7,8,9};
-   auto prev = flst.before_begin(); // denotes element "off the start" of flst
-   auto curr = flst.begin(); // denotes the first element in flst
-   while (curr != flst.end()) { // while there are still elements to process
-   if ( * curr % 2) // if the element is odd
-   curr = flst.erase_after(prev); // erase it and move curr
-   else {
-   prev = curr; // move the iterators to denote the next
-   ++curr; // element and one before the next element
-   }
-   }
-   Here, curr denotes the element we're checking, and prev denotes the element
+   odd-valued elements from a list to use a `forward_list`:
+
+   .. code-block:: cpp
+
+      forward_list<int> flst = {0,1,2,3,4,5,6,7,8,9};
+      auto prev = flst.before_begin(); // denotes element "off the start" of flst
+      auto curr = flst.begin(); // denotes the first element in flst
+      while (curr != flst.end()) { // while there are still elements to process
+         if ( * curr % 2) // if the element is odd
+            curr = flst.erase_after(prev); // erase it and move curr
+         else {
+            prev = curr; // move the iterators to denote the next
+            ++curr; // element and one before the next element
+         }
+      }
+
+   Here, curr denotes the element we're checking, and `prev` denotes the element
    before curr. We call begin to initialize curr, so that the first iteration checks
-   whether the first element is even or odd. We initialize prev from before_begin,
+   whether the first element is even or odd. We initialize `prev` from ``before_begin``,
    which returns an iterator to the nonexistent element just before curr.
-   When we find an oddelement, we passprevto erase_after. This call erases
-   the element after the one denoted by prev; that is, it erases the element denoted
+
+   When we find an odd element, we pass `prev` to ``erase_after``. This call erases
+   the element after the one denoted by `prev`; that is, it erases the element denoted
 
 .. ptg11539634 352 Sequential Containers
 .. _P0352:
 
-   by curr. We reset curr to the return from erase_after, which makes curr
-   denote the next element in the sequence and we leave prev unchanged; prev still
-   denotes the element before the (new) value of curr. If the element denoted by
-   curr is not odd, then we have to move both iterators, which we do in the else.
+   by `curr`. We reset `curr` to the return from ``erase_after``, which makes `curr`
+   denote the next element in the sequence and we leave `prev` unchanged; `prev` still
+   denotes the element before the (new) value of `curr`. If the element denoted by
+   `curr` is not odd, then we have to move both iterators, which we do in the else.
 
-Exercises Section 9.3.4
+   Exercises Section 9.3.4
 
-   Exercise 9.27: Write a program to find and remove the odd-valued elements in a
-   forward_list<int>.
+      Exercise 9.27: Write a program to find and remove the odd-valued elements in a
+      `forward_list<int>`.
 
-   Exercise 9.28: Write a function that takes a forward_list<string> and two additional 
-   string arguments. The function should find the first string and insert the
-   second immediately following the first. If the first string is not found, then insert the
-   second string at the end of the list.
+      Exercise 9.28: Write a function that takes a `forward_list<string>` and two additional 
+      string arguments. The function should find the first string and insert the
+      second immediately following the first. If the first string is not found, then insert the
+      second string at the end of the list.
 
 /9.3.5 Resizing a Container
 ````````````````````````````
@@ -22331,35 +23087,46 @@ Exercises Section 9.3.4
    make a container larger or smaller. If the current size is greater than the requested
    size, elements are deleted from the back of the container; if the current size is less
    than the new size, elements are added to the back of the container:
-   list<int> ilist(10, 42); // ten int s: each has value 42
-   ilist.resize(15); // adds five elements of value 0 to the back of ilist
-   ilist.resize(25, -1); // adds ten elements of value -1 to the back of ilist
-   ilist.resize(5); // erases 20 elements from the back of ilist
+
+   .. code-block:: cpp
+
+      list<int> ilist(10, 42); // ten int s: each has value 42
+      ilist.resize(15); // adds five elements of value 0 to the back of ilist
+      ilist.resize(25, -1); // adds ten elements of value -1 to the back of ilist
+      ilist.resize(5); // erases 20 elements from the back of ilist
+
    The resize operation takes an optional element-value argument that it uses to
    initialize any elements that are added to the container. If this argument is absent,
    added elements are value initialized (§ 3.3.1, p. [P0098]_). If the container holds elements
    of a class type and resize adds elements, we must supply an initializer or the
    element type must have a default constructor.
+
    Table 9.9: Sequential Container Size Operations
-   resize not valid for array.
-   c.resize(n) Resize c so that it has n elements. If n < c.size(), the excess elements
-   are discarded. If new elements must be added, they are value initialized.
-   c.resize(n,t) Resize c to have n elements. Any elements added have value t.
-   If resize shrinks the container, then iterators, references, and pointers to the deleted
-   elements are invalidated; resize on a vector, string, or deque potentially invalidates 
-   all iterators, pointers, and references.
+   ``resize`` not valid for array.
+
+   ============= ==========================================================
+   c.resize(n)    Resize c so that it has n elements. If n < c.size(), the excess elements
+                  are discarded. If new elements must be added, they are value initialized.
+   c.resize(n,t)  Resize c to have n elements. Any elements added have value t.
+   ============= ==========================================================
+
+   .. Warning::
+
+      If resize shrinks the container, then iterators, references, and pointers to the deleted
+      elements are invalidated; resize on a ``vector``, ``string``, or ``deque`` potentially invalidates 
+      all iterators, pointers, and references.
 
 .. ptg11539634 Section 9.3 Sequential Container Operations 353
 .. _P0353:
 
 
-Exercises Section 9.3.5
+   Exercises Section 9.3.5
 
-   Exercise 9.29: Given that vec holds 25 elements, what does vec.resize(100) do?
-   What if we next wrote vec.resize(10)?
+      Exercise 9.29: Given that `vec` holds 25 elements, what does `vec.resize(100)` do?
+      What if we next wrote `vec.resize(10)`?
 
-   Exercise 9.30: What, if any, restrictions does using the version of resize that takes a
-   single argument place on the element type?
+      Exercise 9.30: What, if any, restrictions does using the version of `resize` that takes a
+      single argument place on the element type?
 
 /9.3.6 Container Operations May Invalidate Iterators
 `````````````````````````````````````````````````````
@@ -22369,31 +23136,42 @@ Exercises Section 9.3.5
    iterator is one that no longer denotes an element. Using an invalidated pointer,
    reference, or iterator is a serious programming error that is likely to lead to the
    same kinds of problems as using an uninitialized pointer (§ 2.3.2, p. [P0054]_).
+
    After an operation that adds elements to a container
-   • Iterators, pointers, and references to a vector or string are invalid if the
+
+   • Iterators, pointers, and references to a ``vector`` or string are invalid if the
    container was reallocated. If no reallocation happens, indirect references to
    elements before the insertion remain valid; those to elements after the insertion 
    are invalid.
-   • Iterators, pointers, and references to a deque are invalid if we add elements
+
+   • Iterators, pointers, and references to a ``deque`` are invalid if we add elements
    anywhere but at the front or back. If we add at the front or back, iterators are
    invalidated, but references and pointers to existing elements are not.
+
    • Iterators, pointers, and references (including the off-the-end and the beforebeginning 
-   the-beginning iterators) to a list or forward_list remain valid,
+   the-beginning iterators) to a ``list`` or ``forward_list`` remain valid,
+
    It should not be surprising that when we remove elements from a container,
    iterators, pointers, and references to the removed elements are invalidated. After
    all, those elements have been destroyed. After we remove an element,
+
    • All other iterators, references, or pointers (including the off-the-end and the
-   before-the-beginning iterators) to a list or forward_list remain valid.
-   • All other iterators, references, or pointers to a deque are invalidated if the
-   removedelements areanywherebutthe frontor back. Ifwe removeelements
+   before-the-beginning iterators) to a ``list`` or ``forward_list`` remain valid.
+
+   • All other iterators, references, or pointers to a ``deque`` are invalidated if the
+   removed elements are any where but the front or back. If we remove elements
    at the back of the deque, the off-the-end iterator is invalidated but other
    iterators, references, and pointers are unaffected; they are also unaffected if
    we remove from the front.
-   • All other iterators, references, or pointers to a vector or string remain
+
+   • All other iterators, references, or pointers to a ``vector`` or ``string`` remain
    valid for elements before the removal point. Note: The off-the-end iterator is
    always invalidated when we remove elements.
-   It is a serious run-time error to use an iterator, pointer, or reference that
-   has been invalidated.
+
+   .. Warning::
+
+      It is a serious run-time error to use an iterator, pointer, or reference that
+      has been invalidated.
 
 .. ptg11539634 354 Sequential Containers
 .. _P0354:
@@ -22403,34 +23181,40 @@ Exercises Section 9.3.5
 
       Advice : Managing Iterators
 
-   When you use an iterator (or a reference or pointer to a container element), it is a good
-   idea to minimize the part of the program during which an iterator must stay valid.
-   Because code that adds or removes elements to a container can invalidate iterators, 
-   you need to ensure that the iterator is repositioned, as appropriate, after each
-   operation that changes the container. This advice is especially important for vector,
-   string, and deque.
+      When you use an iterator (or a reference or pointer to a container element), it is a good
+      idea to minimize the part of the program during which an iterator must stay valid.
+
+      Because code that adds or removes elements to a container can invalidate iterators, 
+      you need to ensure that the iterator is repositioned, as appropriate, after each
+      operation that changes the container. This advice is especially important for vector,
+      string, and deque.
 
 Writing Loops That Change a Container
 
-   Loops that add or remove elements of a vector, string, or deque must cater to
+   Loops that add or remove elements of a ``vector``, ``string``, or ``deque`` must cater to
    the fact that iterators, references, or pointers might be invalidated. The program
-   must ensure that the iterator, reference,or pointer is refreshedon each trip through
-   the loop. Refreshing an iterator is easy if the loop calls insert or erase. Those
+   must ensure that the iterator, reference, or pointer is refreshed on each trip through
+   the loop. Refreshing an iterator is easy if the loop calls ``insert`` or ``erase``. Those
    operations return iterators, which we can use to reset the iterator:
-   // silly loop to remove even-valued elements and insert a duplicate of odd-valued elements
-   vector<int> vi = {0,1,2,3,4,5,6,7,8,9};
-   auto iter = vi.begin(); // call begin , not cbegin because we're changing vi
-   while (iter != vi.end()) {
-   if ( * iter % 2) {
-   iter = vi.insert(iter, * iter); // duplicate the current element
-   iter += 2; // advance past this element and the one inserted before it
-   } else
-   iter = vi.erase(iter); // remove even elements
-   // don't advance the iterator; iter denotes the element after the one we erased
-   }
+
+   .. code-block:: cpp
+
+      // silly loop to remove even-valued elements and insert a duplicate of odd-valued elements
+      vector<int> vi = {0,1,2,3,4,5,6,7,8,9};
+      auto iter = vi.begin(); // call begin , not cbegin because we're changing vi
+      while (iter != vi.end()) {
+         if ( * iter % 2) {
+            iter = vi.insert(iter, * iter); // duplicate the current element
+            iter += 2; // advance past this element and the one inserted before it
+         } else
+            iter = vi.erase(iter); // remove even elements
+            // don't advance the iterator; iter denotes the element after the one we erased
+      }
+
    This program removes the even-valued elements and duplicates each odd-valued
    one. We refresh the iterator after both the insert and the erase because either
    operation can invalidate the iterator.
+
    After the call to erase, there is no need to increment the iterator, because the
    iterator returned from erase denotes the next element in the sequence. After the
    call to insert, we increment the iterator twice. Remember, insert inserts before
@@ -22438,12 +23222,15 @@ Writing Loops That Change a Container
    calling insert, iter denotes the (newly added) element in front of the one we
    are processing. We add two to skip over the element we added and the one we just
    processed. Doing so positions the iterator on the next, unprocessed element.
-   Avoid Storing the Iterator Returned from end
-   When we add or remove elements in a vector or string, or add elements or
-   remove any but the first element in a deque, the iterator returned by end is always
+
+Avoid Storing the Iterator Returned from end
+
+   When we add or remove elements in a ``vector`` or ``string``, or add elements or
+   remove any but the first element in a ``deque``, the iterator returned by end is always
    invalidated. Thus, loops that add or remove elements should always call end
    rather than use a stored copy. Partly for this reason, C++ standard libraries are
-   usually implemented so that calling end() is a very fast operation.
+   usually implemented so that calling `end()` is a very fast operation.
+
    As an example, consider a loop that processes each element and adds a new
    element following the original. We want the loop to ignore the added elements,
 
@@ -22452,229 +23239,317 @@ Writing Loops That Change a Container
 
    and to process only the original elements. After each insertion, we'll position the
    iterator to denote the next original element. If we attempt to “optimize” the loop,
-   by storing the iterator returned by end(), we'll have a disaster:
-   // disaster: the behavior of this loop is undefined
-   auto begin = v.begin(),
-   end = v.end(); // bad idea, saving the value of the end iterator
-   while (begin != end) {
-   // do some processing
-   // insert the new value and reassign begin , which otherwise would be invalid
-   ++begin; // advance begin because we want to insert after this element
-   begin = v.insert(begin, 42); // insert the new value
-   ++begin; // advance begin past the element we just added
-   }
+   by storing the iterator returned by `end(),` we'll have a disaster:
+
+   .. code-block:: cpp
+
+      // disaster: the behavior of this loop is undefined
+      auto begin = v.begin(),
+      end = v.end(); // bad idea, saving the value of the end iterator
+      while (begin != end) {
+         // do some processing
+         // insert the new value and reassign begin , which otherwise would be invalid
+         ++begin; // advance begin because we want to insert after this element
+         begin = v.insert(begin, 42); // insert the new value
+         ++begin; // advance begin past the element we just added
+      }
+
    The behavior of this code is undefined. On many implementations, we'll get an
    infinite loop. The problem is that we stored the value returned by the end operation 
    in a local variable named end. In the body of the loop, we added an element.
    Adding an element invalidates the iterator stored in end. That iterator neither
    refers to an element in v nor any longer refers to one past the last element in v.
-   Don't cache the iterator returned from end() in loops that insert or
-   delete elements in a deque, string, or vector.
+
+   .. Tip::
+
+      Don't cache the iterator returned from `end()` in loops that insert or
+      delete elements in a ``deque``, ``string``, or ``vector``.
+   
    Rather than storing the end() iterator, we must recompute it after each insertion:
-   // safer: recalculate end on each trip whenever the loop adds/erases elements
-   while (begin != v.end()) {
-   // do some processing
-   ++begin; // advance begin because we want to insert after this element
-   begin = v.insert(begin, 42); // insert the new value
-   ++begin; // advance begin past the element we just added
-   }
+
+   .. code-block:: cpp
+
+      // safer: recalculate end on each trip whenever the loop adds/erases elements
+      while (begin != v.end()) {
+         // do some processing
+         ++begin; // advance begin because we want to insert after this element
+         begin = v.insert(begin, 42); // insert the new value
+         ++begin; // advance begin past the element we just added
+      }
 
 /9.4👋 How a vector Grows
 --------------------------
 
-   To support fast random access, vector elements are stored contiguously—each
+   To support fast random access, ``vector`` elements are stored contiguously—each
    element is adjacent to the previous element. Ordinarily, we should not care about
    how a library type is implemented; all we should care about is how to use it. However, 
-   in the case of vectors and strings, part of the implementation leaks into
+   in the case of `vectors` and `strings`, part of the implementation leaks into
    its interface.
+
    Given that elements arecontiguous, and that the sizeof the container is flexible,
-   consider what must happen when we add an element to a vector or a string: If
+   consider what must happen when we add an element to a ``vector`` or a ``string``: If
    there is no room for the new element, the container can't just addan element somewhere 
    else in memory—the elements must be contiguous. Instead, the container
    must allocate new memory to hold the existing elements plus the new one, move
    the elements from the old location into the new space, add the new element, and
-   deallocatethe old memory. If vectordid this memory allocation and deallocation
+   deallocate the old memory. If ``vector`` did this memory allocation and deallocation
    each time we added an element, performance would be unacceptably slow.
 
 .. ptg11539634 356 Sequential Containers
 .. _P0356:
 
 
-Exercises Section 9.3.6
+   Exercises Section 9.3.6
 
-   Exercise 9.31: The program on page 354 to remove even-valued elements and duplicate 
-   odd ones will not work on a list or forward_list. Why? Revise the program
-   so that it works on these types as well.
+      Exercise 9.31: The program on page 354 to remove even-valued elements and duplicate 
+      odd ones will not work on a list or forward_list. Why? Revise the program
+      so that it works on these types as well.
 
-   Exercise 9.32: In the program onpage 354 would it be legal to write the call to insert
-   as follows? If not, why not?
-   iter = vi.insert(iter,
-   * iter++);
+      Exercise 9.32: In the program onpage 354 would it be legal to write the call to insert
+      as follows? If not, why not?
 
-   Exercise 9.33: In the final example in this section what would happen if we did not
-   assign the result of insert to begin? Write a program that omits this assignment to
-   see if your expectation was correct.
+      .. code-block:: cpp
 
-   Exercise 9.34: Assuming vi is a container of ints that includes even and odd values,
-   predict the behavior of the following loop. After you've analyzed this loop, write a
-   program to test whether your expectations were correct.
-   iter = vi.begin();
-   while (iter != vi.end())
-   if ( * iter % 2)
-   iter = vi.insert(iter, * iter);
-   ++iter;
+         iter = vi.insert(iter, * iter++);
+
+      Exercise 9.33: In the final example in this section what would happen if we did not
+      assign the result of insert to begin? Write a program that omits this assignment to
+      see if your expectation was correct.
+
+      Exercise 9.34: Assuming vi is a container of ints that includes even and odd values,
+      predict the behavior of the following loop. After you've analyzed this loop, write a
+      program to test whether your expectations were correct.
+
+      .. code-block:: cpp
+
+         iter = vi.begin();
+         while (iter != vi.end())
+            if ( * iter % 2)
+               iter = vi.insert(iter, * iter);
+            ++iter;
+
    To avoid these costs, library implementors use allocation strategies that reduce
    the number of times the container is reallocated. When they have to get new
-   memory, vectorand stringimplementations typically allocate capacitybeyond
-   what is immediately needed. The container holds this storage in reserve and uses
+   memory, ``vector`` and ``string`` implementations typically allocate capacity beyond
+   what is immediately needed. The container holds this storage in ``reserve`` and uses
    it to allocate new elements as they are added. Thus, there is no need to reallocate
    the container for each new element.
+
    This allocation strategy is dramatically more efficient than reallocating the container 
    each time an element is added. In fact, its performance is good enough that
-   in practice a vector usually grows more efficiently than a list or a deque, even
-   though the vector has to move all of its elements each time it reallocates memory.
-   Members to Manage Capacity
+   in practice a ``vector`` usually grows more efficiently than a list or a deque, even
+   though the ``vector`` has to move all of its elements each time it reallocates memory.
+
+Members to Manage Capacity
+
    The vector and string types provide members, described in Table 9.10, that let
-   us interactwith the memory-allocation partofthe implementation. The capacity
-   operationtells ushow manyelements thecontainercanhold beforeitmust allocate
-   more space. The reserve operation lets us tell the container how many elements
+   us interact with the memory-allocation partofthe implementation. The ``capacity``
+   operation tells us how many elements the container can hold before it must allocate
+   more space. The ``reserve`` operation lets us tell the container how many elements
    it should be prepared to hold.
-   reserve does not change the number of elements in the container; it
-   affects only how much memory the vector preallocates.
-   A call to reserve changes the capacity of the vector only if the requested
+
+   .. Note::
+
+      ``reserve`` does not change the number of elements in the container; it
+      affects only how much memory the ``vector`` preallocates.
+
+   A call to ``reserve`` changes the capacity of the ``vector`` only if the requested
    space exceeds the current capacity. If the requested size is greater than the current
 
 .. ptg11539634 Section 9.4 How a vector Grows 357
 .. _P0357:
 
-   capacity, reserve allocates at least as much as (and may allocate more than) the
+   capacity, ``reserve`` allocates at least as much as (and may allocate more than) the
    requested amount.
-   If the requested size is less than or equal to the existing capacity, reserve does
-   nothing. In particular, calling reserve with a size smaller than capacity does
-   not cause the container to give back memory. Thus, after calling reserve, the
-   capacity will be greater than or equal to the argument passed to reserve.
-   As a result, a call to reserve will never reduce the amount of space that the
+
+   If the requested size is less than or equal to the existing capacity, ``reserve`` does
+   nothing. In particular, calling ``reserve`` with a size smaller than capacity does
+   not cause the container to give back memory. Thus, after calling ``reserve``, the
+   capacity will be greater than or equal to the argument passed to ``reserve``.
+   As a result, a call to ``reserve`` will never reduce the amount of space that the
    container uses. Similarly, the resize members (§ 9.3.5, p. [P0352]_) change only the
    number of elements in the container, not its capacity. We cannot use resize to
-   reduce the memory a container holds in reserve.
-   Under the new library, we can call shrink_to_fit to ask a deque, vector,
+   reduce the memory a container holds in ``reserve``.
+
+   Under the new library, we can call ``shrink_to_fit`` to ask a deque, vector,
    or string to return unneeded memory. This function indicates that we no longer
    need any excess capacity. However, the implementation is free to ignore this request. 
-   There is no guarantee that a call to shrink_to_fit will return memory.
+   There is no guarantee that a call to ``shrink_to_fit`` will return memory.
+
    Table 9.10: Container Size Management
-   shrink_to_fit valid only for vector, string, and deque.
-   capacity and reserve valid only for vector and string.
+
+   ``shrink_to_fit`` valid only for vector, string, and deque.
+   ``capacity`` and ``reserve`` valid only for vector and string.
+
+   ================= ====================================================
    c.shrink_to_fit() Request to reduce capacity() to equal size().
-   c.capacity() Number of elements c can have before reallocation is necessary.
-   c.reserve(n) Allocate space for at least n elements.
-   capacity and size
+   c.capacity()      Number of elements c can have before reallocation is necessary.
+   c.reserve(n)      Allocate space for at least n elements.
+   ================= ====================================================
+
+capacity and size
+
    It is important to understand the difference between capacity and size. The
    size of a container is the number of elements it already holds; its capacity is
    how many elements it can hold before more space must be allocated.
+
    The following code illustrates the interaction between size and capacity:
-   vector<int> ivec;
-   // size should be zero; capacity is implementation defined
-   cout << "ivec: size: " << ivec.size()
-   << " capacity: " << ivec.capacity() << endl;
-   // give ivec 24 elements
-   for (vector<int>::size_type ix = 0; ix != 24; ++ix)
-   ivec.push_back(ix);
-   // size should be 24; capacity will be >= 24 and is implementation defined
-   cout << "ivec: size: " << ivec.size()
-   << " capacity: " << ivec.capacity() << endl;
+
+   .. code-block:: cpp
+
+      vector<int> ivec;
+      // size should be zero; capacity is implementation defined
+      cout << "ivec: size: " << ivec.size()
+      << " capacity: " << ivec.capacity() << endl;
+
+      // give ivec 24 elements
+      for (vector<int>::size_type ix = 0; ix != 24; ++ix)
+         ivec.push_back(ix);
+
+      // size should be 24; capacity will be >= 24 and is implementation defined
+      cout << "ivec: size: " << ivec.size()
+      << " capacity: " << ivec.capacity() << endl;
+
    When run on our system, this code produces the following output:
-   ivec: size: 0 capacity: 0
-   ivec: size: 24 capacity: 32
+
+   .. code-block:: bash
+
+      ivec: size: 0 capacity: 0
+      ivec: size: 24 capacity: 32
 
 .. ptg11539634 358 Sequential Containers
 .. _P0358:
 
-   We know that the size of an empty vector is zero, and evidently our library
-   also sets the capacity of an empty vector to zero. When we add elements to
-   the vector, we know that the size is the same as the number of elements we've
-   added. The capacity must be at least as large as size but can be larger. The
+   We know that the `size` of an empty ``vector`` is zero, and evidently our library
+   also sets the `capacity` of an empty `vector` to zero. When we add elements to
+   the ``vector``, we know that the `size` is the same as the number of elements we've
+   added. The capacity must be at least as large as `size` but can be larger. The
    details of how much excess capacity is allocated vary by implementations of the
    library. Under this implementation, adding 24 elements one at a time results in a
-   capacity of 32.
+   `capacity` of 32.
+
    Visually we can think of the current state of ivec as
-   0 1 2 ... 23 reserved capacity
-   ivec.size()
-   6
-   ivec.capacity()
-   6
+
+   .. code-block:: bash
+
+         ╭───┬───┬───┬───┬───┬───┬───┬───┬───┬───╮
+         │ 0 │ 1 │ 2 │...│ 23│ reserved capacity │
+         ╰───┴───┴───┴───┴───┴───┴───┴───┴───┴───╯
+                              A                    A
+                              │                    │
+                        ivec.size()          ivec.capacity()
+
    We can now reserve some additional space:
-   ivec.reserve(50); // sets capacity to at least 50; might be more
-   // size should be 24; capacity will be >= 50 and is implementation defined
-   cout << "ivec: size: " << ivec.size()
-   << " capacity: " << ivec.capacity() << endl;
-   Here,the output indicates that the call toreserveallocatedexactlyas much space
+
+   .. code-block:: cpp
+
+      ivec.reserve(50); // sets capacity to at least 50; might be more
+      // size should be 24; capacity will be >= 50 and is implementation defined
+      cout << "ivec: size: " << ivec.size()
+      << " capacity: " << ivec.capacity() << endl;
+
+   Here, the output indicates that the call to reserve allocated exactly as much space
    as we requested:
-   ivec: size: 24 capacity: 50
+
+   .. code-block:: bash
+
+      ivec: size: 24 capacity: 50
+   
    We might next use up that reserved capacity as follows:
-   // add elements to use up the excess capacity
-   while (ivec.size() != ivec.capacity())
-   ivec.push_back(0);
-   // capacity should be unchanged and size and capacity are now equal
-   cout << "ivec: size: " << ivec.size()
-   << " capacity: " << ivec.capacity() << endl;
+
+   .. code-block:: cpp
+
+      // add elements to use up the excess capacity
+      while (ivec.size() != ivec.capacity())
+         ivec.push_back(0);
+      // capacity should be unchanged and size and capacity are now equal
+      cout << "ivec: size: " << ivec.size()
+      << " capacity: " << ivec.capacity() << endl;
+
    The output indicates that at this point we've used up the reserved capacity, and
    size and capacity are equal:
-   ivec: size: 50 capacity: 50
+
+   .. code-block:: bash
+
+      ivec: size: 50 capacity: 50
+
    Because we used only reserved capacity, there is no need for the vector to do
    any allocation. In fact, as long as no operation exceeds the vector's capacity, the
    vector must not reallocate its elements.
-   If we now add another element, the vector will have to reallocate itself:
-   ivec.push_back(42); // add one more element
-   // size should be 51; capacity will be >= 51 and is implementation defined
-   cout << "ivec: size: " << ivec.size()
-   << " capacity: " << ivec.capacity() << endl;
+
+   If we now add another element, the ``vector`` will have to reallocate itself:
+
+   .. code-block:: cpp
+
+      ivec.push_back(42); // add one more element
+      // size should be 51; capacity will be >= 51 and is implementation defined
+      cout << "ivec: size: " << ivec.size()
+      << " capacity: " << ivec.capacity() << endl;
+
    The output from this portion of the program
 
 .. ptg11539634 Section 9.4 How a vector Grows 359
 .. _P0359:
 
-   ivec: size: 51 capacity: 100
+
+   .. code-block:: bash
+
+      ivec: size: 51 capacity: 100
+
    indicates that this vector implementation appears to follow a strategy of doubling 
    the current capacity each time it has to allocate new storage.
-   We can call shrink_to_fit to ask that memory beyond what is needed for
+
+   We can call ``shrink_to_fit`` to ask that memory beyond what is needed for
    the current size be returned to the system:
-   ivec.shrink_to_fit(); // ask for the memory to be returned
-   // size should be unchanged; capacity is implementation defined
-   cout << "ivec: size: " << ivec.size()
-   << " capacity: " << ivec.capacity() << endl;
-   Calling shrink_to_fit is only a request; there is no guarantee that the library
+
+   .. code-block:: cpp
+
+      ivec.shrink_to_fit(); // ask for the memory to be returned
+      // size should be unchanged; capacity is implementation defined
+      cout << "ivec: size: " << ivec.size()
+      << " capacity: " << ivec.capacity() << endl;
+
+   Calling ``shrink_to_fit`` is only a request; there is no guarantee that the library
    will return the memory.
-   Each vector implementation can choose its own allocation strategy.
-   However, it must not allocate new memory until it is forced to do so.
-   A vector may be reallocated only when the user performs an insert operation
+
+   .. Note::
+
+      Each ``vector`` implementation can choose its own allocation strategy.
+      However, it must not allocate new memory until it is forced to do so.
+
+   A ``vector`` may be reallocated only when the user performs an insert operation
    when the size equals capacity or by a call to resize or reserve with a value
    that exceeds the current capacity. How much memory is allocated beyond the
    specified amount is up to the implementation.
+
    Every implementation is required to follow a strategy that ensures that it is
-   efficient to use push_back to add elements to a vector. Technically speaking,
-   the execution time of creating an n-element vector by calling push_backn times
-   on an initially empty vector must never be more than a constant multiple of n.
+   efficient to use `push_back` to add elements to a ``vector``. Technically speaking,
+   the execution time of creating an n-element ``vector`` by calling `push_back` n times
+   on an initially empty ``vector`` must never be more than a constant multiple of n.
 
-Exercises Section 9.4
+   Exercises Section 9.4
 
-   Exercise 9.35: Explain the difference between a vector's capacity and its size.
+      Exercise 9.35: Explain the difference between a vector's capacity and its size.
 
-   Exercise 9.36: Can a container have a capacity less than its size?
+      Exercise 9.36: Can a container have a capacity less than its size?
 
-   Exercise 9.37: Why don't list or array have a capacity member?
+      Exercise 9.37: Why don't list or array have a capacity member?
 
-   Exercise 9.38: Write a program to explore how vectors grow in the library you use.
+      Exercise 9.38: Write a program to explore how vectors grow in the library you use.
 
-   Exercise 9.39: Explain what the following program fragment does:
-   vector<string> svec;
-   svec.reserve(1024);
-   string word;
-   while (cin >> word)
-   svec.push_back(word);
-   svec.resize(svec.size()+svec.size()/2);
+      Exercise 9.39: Explain what the following program fragment does:
 
-   Exercise 9.40: If the program in the previous exercise reads 256 words, what is its
-   likely capacity after it is resized? What if it reads 512? 1,000? 1,048?
+      .. code-block:: cpp
+
+         vector<string> svec;
+         svec.reserve(1024);
+         string word;
+         while (cin >> word)
+         svec.push_back(word);
+         svec.resize(svec.size()+svec.size()/2);
+
+      Exercise 9.40: If the program in the previous exercise reads 256 words, what is its
+      likely capacity after it is resized? What if it reads 512? 1,000? 1,048?
 
 .. ptg11539634 360 Sequential Containers
 .. _P0360:
@@ -22683,11 +23558,12 @@ Exercises Section 9.4
 /9.5👋 Additional string Operations
 ------------------------------------
 
-   The string type provides a number of additional operations beyond those common 
+   The ``string`` type provides a number of additional operations beyond those common 
    to the sequential containers. For the most part, these additional operations
-   either support the close interaction between the string class and C-style character 
+   either support the close interaction between the ``string`` class and C-style character 
    arrays, or they add versions that let us use indices in place of iterators.
-   The string library defines a great number of functions. Fortunately, these
+
+   The ``string`` library defines a great number of functions. Fortunately, these
    functions use repeated patterns. Given the number of functions supported, this
    section can be mind-numbing on first reading; so readers might want to skim it.
    Once you know what kinds of operations are available, you can return for the
@@ -22699,32 +23575,41 @@ Exercises Section 9.4
    In addition to the constructors we covered in § 3.2.1 (p. [P0084]_) and to the constructors
    that string shares with the other sequential containers (Tables 9.3 (p. [P0335]_)) the
    string type supports three more constructors that are described in Table 9.11.
+   
    Table 9.11: Additional Ways to Construct strings
-   n, len2 and pos2 are all unsigned values
-   string s(cp, n); s is a copy of the first n characters in the array to which
-   cp points. That array must have at least n characters.
-   string s(s2, pos2); s is a copy of the characters in the string s2 starting at
-   the index pos2. Undefined if pos2 > s2.size().
-   string s(s2, pos2, len2); s is a copy of len2 characters from s2 starting at the
-   index pos2. Undefined if pos2 > s2.size().
-   Regardless of the value of len2, copies at most
-   s2.size() - pos2 characters.
-   The constructors that take a string or a const char * take additional (optional) 
+   `n`, `len2` and `pos2` are all unsigned values
+
+   ========================== ===============================================
+   string s(cp, n);           s is a copy of the first n characters in the array to which
+                              cp points. That array must have at least n characters.
+
+   string s(s2, pos2);        s is a copy of the characters in the string s2 starting at
+                              the index pos2. Undefined if `pos2 > s2.size()`.
+
+   string s(s2, pos2, len2);  s is a copy of len2 characters from s2 starting at the
+                              index pos2. Undefined if `pos2 > s2.size()`.
+                              Regardless of the value of `len2`, copies at most
+                              `s2.size() - pos2` characters.
+   ========================== ===============================================
+
+   The constructors that take a string or a `const char *` take additional (optional) 
    arguments that let us specify how many characters to copy. When we pass
    a string, we can also specify the index of where to start the copy:
-   const char
-   * cp = "Hello World!!!"; //
-   null-terminated array
-   char noNull[] = {'H', 'i'}; // not null terminated
-   string s1(cp); // copy up to the null in cp ; s1 == "Hello World!!!"
-   string s2(noNull,2); // copy two characters from no_null ; s2 == "Hi"
-   string s3(noNull); // undefined: noNull not null terminated
-   string s4(cp + 6, 5);// copy 5 characters starting at cp[6] ; s4 == "World"
-   string s5(s1, 6, 5); // copy 5 characters starting at s1[6] ; s5 == "World"
-   string s6(s1, 6); // copy from s1[6] to end of s1 ; s6 == "World!!!"
-   string s7(s1,6,20); // ok, copies only to end of s1 ; s7 == "World!!!"
-   string s8(s1, 16); // throws an out_of_range exception
-   Ordinarily when we create a string from a const char * , the array to which
+
+   .. code-block:: cpp
+
+      const char * cp = "Hello World!!!"; // null-terminated array
+      char noNull[] = {'H', 'i'}; // not null terminated
+      string s1(cp); // copy up to the null in cp ; s1 == "Hello World!!!"
+      string s2(noNull,2); // copy two characters from no_null ; s2 == "Hi"
+      string s3(noNull); // undefined: noNull not null terminated
+      string s4(cp + 6, 5);// copy 5 characters starting at cp[6] ; s4 == "World"
+      string s5(s1, 6, 5); // copy 5 characters starting at s1[6] ; s5 == "World"
+      string s6(s1, 6); // copy from s1[6] to end of s1 ; s6 == "World!!!"
+      string s7(s1,6,20); // ok, copies only to end of s1 ; s7 == "World!!!"
+      string s8(s1, 16); // throws an out_of_range exception
+
+   Ordinarily when we create a string from a `const char *` , the array to which
    the pointer points must be null terminated; characters are copied up to the null. If
 
 .. ptg11539634 Section 9.5 Additional string Operations 361
@@ -22733,42 +23618,53 @@ Exercises Section 9.4
    we also pass a count, the array does not have to be null terminated. If we do not
    pass a count and there is no null, or if the given count is greater than the size of the
    array, the operation is undefined.
+
    When we copy from a string, we can supply an optional starting position
    and a count. The starting position must be less than or equal to the size of the
    given string. If the position is greater than the size, then the constructor throws
-   an out_of_range exception (§ 5.6, p. [P0193]_). When we pass a count, that many
+   an `out_of_range` exception (§ 5.6, p. [P0193]_). When we pass a count, that many
    characters are copied, starting from the given position. Regardless of how many
    characters we ask for, the library copies up to the size of the string, but not more.
-   The substr Operation
+
+The substr Operation
+
    The substr operation (described in Table 9.12) returns a string that is a copy
    of part or all of the original string. We can pass substr an optional starting
    position and count:
-   string s("hello world");
-   string s2 = s.substr(0, 5); // s2 = hello
-   string s3 = s.substr(6); // s3 = world
-   string s4 = s.substr(6, 11); // s3 = world
-   string s5 = s.substr(12); // throws an out_of_range exception
-   The substr function throws an out_of_range exception (§ 5.6, p. [P0193]_) if the
+
+   .. code-block:: cpp
+
+      string s("hello world");
+      string s2 = s.substr(0, 5); // s2 = hello
+      string s3 = s.substr(6); // s3 = world
+      string s4 = s.substr(6, 11); // s3 = world
+      string s5 = s.substr(12); // throws an out_of_range exception
+
+   The substr function throws an `out_of_range` exception (§ 5.6, p. [P0193]_) if the
    position exceeds the size of the string. If the position plus the count is greater
    than the size, the count is adjusted to copy only up to the end of the string.
+
    Table 9.12: Substring Operation
-   s.substr(pos, n) Return a string containing n characters from s starting at pos.
-   pos defaults to 0. n defaults to a value that causes the library to copy
-   all the characters in s starting from pos.
 
-Exercises Section 9.5.1
+   ================ =======================================================
+   s.substr(pos, n)  Return a ``string`` containing n characters from s starting at `pos`.
+                     `pos` defaults to 0. n defaults to a value that causes the library to copy
+                     all the characters in s starting from `pos`.
+   ================ =======================================================
 
-   Exercise 9.41: Write a program that initializes a string from a vector<char>.
+   Exercises Section 9.5.1
 
-   Exercise 9.42: Given that you want to read a character at a time into a string, and
-   you know that you need to read at least 100 characters, how might you improve the
-   performance of your program?
+      Exercise 9.41: Write a program that initializes a ``string`` from a `vector<char>`.
+
+      Exercise 9.42: Given that you want to read a character at a time into a string, and
+      you know that you need to read at least 100 characters, how might you improve the
+      performance of your program?
 
 /9.5.2 Other Ways to Change a string
 `````````````````````````````````````
 
-   The string type supports the sequential container assignment operators and the
-   assign, insert, and erase operations (§ 9.2.5, p. [P0337]_, § 9.3.1, p. [P0342]_, 
+   The ``string`` type supports the sequential container assignment operators and the
+   ``assign``, ``insert``, and ``erase`` operations (§ 9.2.5, p. [P0337]_, § 9.3.1, p. [P0342]_, 
    and § 9.3.3, p. [P0348]_). It also defines additional versions of insert and erase.
 
 .. ptg11539634 362 Sequential Containers
@@ -22777,182 +23673,257 @@ Exercises Section 9.5.1
    In addition to the versions of insert and erase that take iterators, string
    provides versions that take an index. The index indicates the starting element to
    erase or the position before which to insert the given values:
-   s.insert(s.size(), 5, '!'); // insert five exclamation points at the end of s
-   s.erase(s.size() - 5, 5); // erase the last five characters from s
+
+   .. code-block:: cpp
+
+      s.insert(s.size(), 5, '!'); // insert five exclamation points at the end of s
+      s.erase(s.size() - 5, 5); // erase the last five characters from s
+
    The string library also provides versions of insert and assign that take Cstyle 
    character arrays. For example, we can use a null-terminated character array
    as the value to insert or assign into a string:
-   const char
-   * cp = "Stately, plump Buck";
-   s.assign(cp, 7); // s == "Stately"
-   s.insert(s.size(), cp + 7); // s == "Stately, plump Buck"
+
+   .. code-block:: cpp
+
+      const char * cp = "Stately, plump Buck";
+      s.assign(cp, 7);            // s == "Stately"
+      s.insert(s.size(), cp + 7); // s == "Stately, plump Buck"
+
    Herewe first replacethe contents of s by calling assign. The characterswe assign
    into s are the seven characters starting with the one pointed to by cp. The number
    of characters we request must be less than or equal to the number of characters
    (excluding the null terminator) in the array to which cp points.
+
    When we call insert on s, we say that we want to insert the characters before
    the (nonexistent) element at s[size()]. In this case, we copy characters starting
    seven characters past cp up to the terminating null.
+
    We can also specify the characters to insert or assign as coming from another 
    string or substring thereof:
-   string s = "some string", s2 = "some other string";
-   s.insert(0, s2); // insert a copy of s2 before position 0 in s
-   // insert s2.size() characters from s2 starting at s2[0] before s[0]
-   s.insert(0, s2, 0, s2.size());
-   The append and replace Functions
+
+   .. code-block:: cpp
+
+      string s = "some string", s2 = "some other string";
+      s.insert(0, s2); // insert a copy of s2 before position 0 in s
+      // insert s2.size() characters from s2 starting at s2[0] before s[0]
+      s.insert(0, s2, 0, s2.size());
+
+The append and replace Functions
+
    The string class defines two additional members, append and replace, that
    can change the contents of a string. Table 9.13 summarizes these functions. The
    append operation is a shorthand way of inserting at the end:
-   string s("C++ Primer"), s2 = s; // initialize s and s2 to "C++ Primer"
-   s.insert(s.size(), " 4th Ed."); // s == "C++ Primer 4th Ed."
-   s2.append(" 4th Ed."); // equivalent: appends " 4th Ed." to s2 ; s == s2
+
+   .. code-block:: cpp
+
+      string s("C++ Primer"), s2 = s; // initialize s and s2 to "C++ Primer"
+      s.insert(s.size(), " 4th Ed."); // s == "C++ Primer 4th Ed."
+      s2.append(" 4th Ed."); // equivalent: appends " 4th Ed." to s2 ; s == s2
+
    The replace operations are a shorthand way of calling erase and insert:
-   // equivalent way to replace "4th" by "5th"
-   s.erase(11, 3); // s == "C++ Primer Ed."
-   s.insert(11, "5th"); // s == "C++ Primer 5th Ed."
-   // starting at position 11, erase three characters and then insert "5th"
-   s2.replace(11, 3, "5th"); // equivalent: s == s2
+
+   .. code-block:: cpp
+
+      // equivalent way to replace "4th" by "5th"
+      s.erase(11, 3); // s == "C++ Primer Ed."
+      s.insert(11, "5th"); // s == "C++ Primer 5th Ed."
+      // starting at position 11, erase three characters and then insert "5th"
+      s2.replace(11, 3, "5th"); // equivalent: s == s2
+
    In the call to replace, the text we inserted happens to be the same size as the text
    we removed. We can insert a larger or smaller string:
-   s.replace(11, 3, "Fifth"); // s == "C++ Primer Fifth Ed."
+
+   .. code-block:: cpp
+
+      s.replace(11, 3, "Fifth"); // s == "C++ Primer Fifth Ed."
+
    In this call we remove three characters but insert five in their place.
 
 .. ptg11539634 Section 9.5 Additional string Operations 363
 .. _P0363:
 
    Table 9.13: Operations to Modify strings
-   s.insert(pos, args) Insert characters specified by args before pos. pos can be an index
-   or an iterator. Versions taking an index return a reference to s;
-   those taking an iterator return an iterator denoting the first
-   inserted character.
-   s.erase(pos, len) Remove len characters starting at position pos. If len is
-   omitted, removes characters from pos to the end of the s.
-   Returns a reference to s.
-   s.assign(args) Replace characters in s according to args. Returns a reference to s.
-   s.append(args) Append args to s. Returns a reference to s.
-   s.replace(range, args) Remove range of characters from s and replace them with the
-   characters formed by args. range is either an index and a length or
-   a pair of iterators into s. Returns a reference to s.
-   args can be one of the following; append and assign can use all forms
-   str must be distinct from s and the iterators b and e may not refer to s
-   str The string str.
-   str, pos, len Up to len characters from str starting at pos.
-   cp, len Up to len characters from the character array pointed to by cp.
-   cp Null-terminated array pointed to by pointer cp.
-   n, c n copies of character c.
-   b, e Characters in the range formed by iterators b and e.
-   initializer list Comma-separated list of characters enclosed in braces.
+
+   ======================= =================================================
+   s.insert(pos, args)     Insert characters specified by args before pos. pos can be an index
+                           or an iterator. Versions taking an index return a reference to s;
+                           those taking an iterator return an iterator denoting the first
+                           inserted character.
+   s.erase(pos, len)       Remove len characters starting at position pos. If len is
+                           omitted, removes characters from pos to the end of the s.
+                           Returns a reference to s.
+   s.assign(args)          Replace characters in s according to args. Returns a reference to s.
+   s.append(args)          Append args to s. Returns a reference to s.
+   s.replace(range, args)  Remove range of characters from s and replace them with the
+                           characters formed by args. range is either an index and a length or
+                           a pair of iterators into s. Returns a reference to s.
+   ======================= =================================================
+
+   `args` can be one of the following; append and assign can use all forms
+   `str` must be distinct from s and the iterators b and e may not refer to s
+
+   ================= ===================================================
+   str               The string str.
+   str, pos, len     Up to len characters from str starting at pos.
+   cp, len           Up to len characters from the character array pointed to by cp.
+   cp                Null-terminated array pointed to by pointer cp.
+   n, c              n copies of character c.
+   b, e              Characters in the range formed by iterators b and e.
+   initializer list  Comma-separated list of characters enclosed in braces.
+   ================= ===================================================
+
    args for replace and insert depend on how range or pos is specified.
-   replace replace insert insert args can be
-   (pos,len,args) (b,e,args) (pos,args) (iter,args)
-   yes yes yes no str
-   yes no yes no str, pos, len
-   yes yes yes no cp, len
-   yes yes no no cp
-   yes yes yes yes n, c
-   no yes no yes b2, e2
-   no yes no yes initializer list
+
+   .. code-block:: bash
+
+      ============== ========== ========== =========== =================
+      replace        replace    insert     insert      args can be
+      (pos,len,args) (b,e,args) (pos,args) (iter,args)
+      ============== ========== ========== =========== =================
+      yes            yes         yes        no         str
+      yes            no          yes        no         str, pos, len
+      yes            yes         yes        no         cp, len
+      yes            yes         no         no         cp
+      yes            yes         yes        yes        n, c
+      no             yes         no         yes        b2, e2
+      no             yes         no         yes        initializer list
+      ============== ========== ========== =========== =================
 
 The Many Overloaded Ways to Change a string
 
-   The append, assign, insert, and replace functions listed Table 9.13 have several 
-   overloaded versions. The arguments to these functions vary as to how we
-   specify what characters to add and what part of the string to change. Fortunately, 
+   The ``append``, ``assign``, ``insert``, and ``replace`` functions listed Table 9.13 
+   have several overloaded versions. The arguments to these functions vary as to how we
+   specify what characters to add and what part of the ``string`` to change. Fortunately, 
    these functions share a common interface.
-   The assign and append functions have no need to specify what part of the
-   string is changed: assign always replaces the entire contents of the string
-   and append always adds to the end of the string.
-   The replace functions provide two ways to specify the range of characters to
+
+   The ``assign`` and ``append`` functions have no need to specify what part of the
+   ``string`` is changed: ``assign`` always replaces the entire contents of the ``string``
+   and ``append`` always adds to the end of the ``string``.
+
+   The ``replace`` functions provide two ways to specify the range of characters to
    remove. We can specify that range by a position and a length, or with an iterator
 
 .. ptg11539634 364 Sequential Containers
 .. _P0364:
 
-   range. The insert functions give us two ways to specify the insertion point: with
+   range. The ``insert`` functions give us two ways to specify the insertion point: with
    either an index or an iterator. In each case, the new element(s) are inserted in front
    of the given index or iterator.
-   There are several ways to specify the characters to add to the string. The
-   new characterscanbe takenfromanother string,fromacharacterpointer, froma
-   brace-enclosedlist of characters,or asacharacterandacount. When the characters
-   come from a string or a character pointer, we can pass additional arguments to
+
+   There are several ways to specify the characters to add to the ``string``. The
+   new characters can be taken from another ``string``, from a character pointer, from a
+   brace-enclosed list of characters, or as a character and a count. When the characters
+   come from a ``string`` or a character pointer, we can pass additional arguments to
    control whether we copy some or all of the characters from the argument.
+
    Not every function supports every version of these arguments. For example,
-   there is no version of insert that takes an index and an initializer list. Similarly,
+   there is no version of ``insert`` that takes an index and an initializer list. Similarly,
    if we want to specify the insertion point using an iterator, then we cannot pass a
    character pointer as the source for the new characters.
 
-Exercises Section 9.5.2
+   Exercises Section 9.5.2
 
-   Exercise 9.43: Write a function that takes three strings, s, oldVal, and newVal.
-   Using iterators, and the insert and erase functions replace all instances of oldVal
-   that appear in s by newVal. Test your function by using it to replace common abbreviations, 
-   such as “tho” by ”though” and ”thru” by “through”.
+      Exercise 9.43: Write a function that takes three strings, s, `oldVal`, and `newVal`.
+      Using iterators, and the ``insert`` and ``erase`` functions replace all instances of `oldVal`
+      that appear in s by `newVal`. Test your function by using it to replace common abbreviations, 
+      such as “tho” by ”though” and ”thru” by “through”.
 
-   Exercise 9.44: Rewrite the previous function using an index and replace.
+      Exercise 9.44: Rewrite the previous function using an index and replace.
 
-   Exercise 9.45: Write a funtion that takes a string representinga name and two other
-   strings representing a prefix, such as “Mr.” or “Ms.” and a suffix, such as “Jr.” or
-   “III”. Using iterators and the insert and append functions, generate and return a
-   new string with the suffix and prefix added to the given name.
+      Exercise 9.45: Write a funtion that takes a string representinga name and two other
+      strings representing a prefix, such as “Mr.” or “Ms.” and a suffix, such as “Jr.” or
+      “III”. Using iterators and the insert and append functions, generate and return a
+      new string with the suffix and prefix added to the given name.
 
-   Exercise 9.46: Rewrite the previous exercise using a position and length to manage
-   the strings. This time use only the insert function.
+      Exercise 9.46: Rewrite the previous exercise using a position and length to manage
+      the strings. This time use only the insert function.
 
 /9.5.3 string Search Operations
 ````````````````````````````````
 
    The string class provides six different search functions, each of which has four
    overloaded versions. Table 9.14 describes the search members and their arguments. 
-   Each of these search operations returns a string::size_typevalue that
+   Each of these search operations returns a `string::size_typevalue` that
    is the index of where the match occurred. If there is no match, the function returns
-   a staticmember (§ 7.6,p. [P0300]_)named string::npos. The librarydefines npos
-   as a const string::size_type initialized with the value -1. Because npos is
-   an unsigned type, this initializer means npos is equal to the largest possible size
+   a static member (§ 7.6,p. [P0300]_) named `string::npos`. The library defines `npos`
+   as a const `string::size_type` initialized with the value -1. Because `npos` is
+   an ``unsigned`` type, this initializer means `npos` is equal to the largest possible size
    any string could have (§ 2.1.2, p. [P0035]_).
-   The string search functions return string::size_type, which is
-   an unsigned type. As a result, it is a bad idea to use an int, or other
-   signed type, to hold the return from these functions (§ 2.1.2, p. [P0036]_).
+
+   .. Warning::
+
+      The ``string`` search functions return `string::size_type`, which is
+      an ``unsigned`` type. As a result, it is a bad idea to use an ``int``, or other
+      signed type, to hold the return from these functions (§ 2.1.2, p. [P0036]_).
+
    The find function does the simplest search. It looks for its argument and returns 
    the index of the first match that is found, or npos if there is no match:
 
 .. ptg11539634 Section 9.5 Additional string Operations 365
 .. _P0365:
 
-   string name("AnnaBelle");
-   auto pos1 = name.find("Anna"); // pos1 == 0
+
+   .. code-block:: cpp
+
+      string name("AnnaBelle");
+      auto pos1 = name.find("Anna"); // pos1 == 0
+
    returns 0, the index at which the substring "Anna" is found in "AnnaBelle".
    Searching (and other string operations) are case sensitive. When we look for
    a value in the string, case matters:
-   string lowercase("annabelle");
-   pos1 = lowercase.find("Anna"); // pos1 == npos
+
+   .. code-block:: cpp
+
+      string lowercase("annabelle");
+      pos1 = lowercase.find("Anna"); // pos1 == npos
+
    This code will set pos1 to npos because Anna does not match anna.
+
    A slightly more complicated problem requires finding a match to any character
    in the search string. For example, the following locates the first digit within name:
-   string numbers("0123456789"), name("r2d2");
-   // returns 1 , i.e., the index of the first digit in name
-   auto pos = name.find_first_of(numbers);
-   Instead of looking for a match, we might call find_first_not_of to find the
+
+   .. code-block:: cpp
+
+      string numbers("0123456789"), name("r2d2");
+      // returns 1 , i.e., the index of the first digit in name
+      auto pos = name.find_first_of(numbers);
+
+   Instead of looking for a match, we might call `find_first_not_of` to find the
    first position that is not in the search argument. For example, to find the first nonnumeric 
    character of a string, we can write
-   string dept("03714p3");
-   // returns 5 , which is the index to the character 'p'
-   auto pos = dept.find_first_not_of(numbers);
+
+   .. code-block:: cpp
+
+      string dept("03714p3");
+      // returns 5 , which is the index to the character 'p'
+      auto pos = dept.find_first_not_of(numbers);
+
    Table 9.14: string Search Operations
+
    Search operations return the index of the desired character or npos if not found
-   s.find(args) Find the first occurrence of args in s.
-   s.rfind(args) Find the last occurrence of args in s.
-   s.find_first_of(args) Find the first occurrence of any character from args in s.
-   s.find_last_of(args) Find the last occurrence of any character from args in s.
-   s.find_first_not_of(args) Find the first character in s that is not in args.
-   s.find_last_not_of(args) Find the last character in s that is not in args.
+
+   ========================== ===========================================
+   s.find(args)               Find the first occurrence of args in s.
+   s.rfind(args)              Find the last occurrence of args in s.
+   s.find_first_of(args)      Find the first occurrence of any character from args in s.
+   s.find_last_of(args)       Find the last occurrence of any character from args in s.
+   s.find_first_not_of(args)  Find the first character in s that is not in args.
+   s.find_last_not_of(args)   Find the last character in s that is not in args.
+   ========================== ===========================================
+
    args must be one of
-   c, pos Look for the character c starting at position pos in s. pos defaults to 0.
-   s2, pos Look for the string s2 starting at position pos in s. pos defaults to 0.
-   cp, pos Look for the C-style null-terminated string pointed to by the pointer cp. Start
-   looking at position pos in s. pos defaults to 0.
-   cp, pos, n Look for the first n characters in the array pointed to by the pointer cp. Start
-   looking at position pos in s. No default for pos or n.
-   Specifying Where to Start the Search
+
+   ============ =========================================================
+   c, pos       Look for the character c starting at position pos in s. pos defaults to 0.
+   s2, pos      Look for the string s2 starting at position pos in s. pos defaults to 0.
+   cp, pos      Look for the C-style null-terminated string pointed to by the pointer cp. Start
+                looking at position pos in s. pos defaults to 0.
+   cp, pos, n   Look for the first n characters in the array pointed to by the pointer cp. Start
+                looking at position pos in s. No default for pos or n.
+   ============ =========================================================
+
+Specifying Where to Start the Search
+
    We can pass an optional starting position to the find operations. This optional
    argument indicates the position from which to start the search. By default, that
    position is set to zero. One common programming pattern uses this optional argument 
@@ -22961,45 +23932,60 @@ Exercises Section 9.5.2
 .. ptg11539634 366 Sequential Containers
 .. _P0366:
 
-   string::size_type pos = 0;
-   // each iteration finds the next number in name
-   while ((pos = name.find_first_of(numbers, pos))
-   != string::npos) {
-   cout << "found number at index: " << pos
-   << " element is " << name[pos] << endl;
-   ++pos; // move to the next character
-   }
-   Thecondition inthewhileresetsposto theindexofthefirstnumberencountered,
-   starting from the current value of pos. So long as find_first_ofreturns a valid
-   index, we print the current result and increment pos.
-   Had we neglected to increment pos, the loop would never terminate. To see
+
+   .. code-block:: cpp
+
+      string::size_type pos = 0;
+      // each iteration finds the next number in name
+      while ((pos = name.find_first_of(numbers, pos))
+         != string::npos) {
+         cout << "found number at index: " << pos
+         << " element is " << name[pos] << endl;
+         ++pos; // move to the next character
+      }
+
+   The condition in the while resets `pos` to the index of the first number encountered,
+   starting from the current value of `pos`. So long as `find_first_of` returns a valid
+   index, we print the current result and increment `pos`.
+
+   Had we neglected to increment `pos`, the loop would never terminate. To see
    why, consider what would happen if we didn't do the increment. On the second
-   trip through the loop we start looking at the character indexed by pos. That character 
-   would be a number, so find_first_of would (repeatedly) returns pos!
-   Searching Backward
-   The find operations we've used so far execute left to right. The library provides
+   trip through the loop we start looking at the character indexed by `pos`. That character 
+   would be a number, so `find_first_of` would (repeatedly) returns `pos`!
+
+Searching Backward
+
+   The ``find`` operations we've used so far execute left to right. The library provides
    analogous operations that search from right to left. The rfind member searches
    for the last—that is, right-most—occurrence of the indicated substring:
-   string river("Mississippi");
-   auto first_pos = river.find("is"); // returns 1
-   auto last_pos = river.rfind("is"); // returns 4
-   find returns an index of 1, indicating the start of the first "is", while rfind
+
+   .. code-block:: cpp
+
+      string river("Mississippi");
+      auto first_pos = river.find("is"); // returns 1
+      auto last_pos = river.rfind("is"); // returns 4
+
+   ``find`` returns an index of 1, indicating the start of the first "is", while ``rfind``
    returns an index of 4, indicating the start of the last occurrence of "is".
-   Similarly, the find_last functions behave like the find_first functions,
+
+   Similarly, the ``find_last`` functions behave like the ``find_first`` functions,
    except that they return the last match rather than the first:
-   • find_last_of searches for the last character that matches any element of
+
+   • `find_last_of` searches for the last character that matches any element of
    the search string.
-   • find_last_not_of searches for the last character that does not match any
-   element of the search string.
-   Eachof these operations takes anoptional second argumentindicating the position
-   within the string to begin searching.
+
+   • `find_last_not_of` searches for the last character that does not match any
+   element of the search ``string``.
+
+   Each of these operations takes an optional second argument indicating the position
+   within the ``string`` to begin searching.
 
 /9.5.4 The compare Functions
 `````````````````````````````
 
-   In addition to the relationaloperators (§ 3.2.2,p. [P0088]_), the stringlibrary providesa
-   set of compare functions that are similar to the C library strcmp function (§ 3.5.4, p. [P0122]_).
-   Like strcmp, s.compare returns zero or a positive or negative value
+   In addition to the relational operators (§ 3.2.2,p. [P0088]_), the ``string`` library provides a
+   set of compare functions that are similar to the C library `strcmp` function (§ 3.5.4, p. [P0122]_).
+   Like `strcmp`, `s.compare` returns zero or a positive or negative value
    depending on whether s is equal to, greater than, or less than the string formed
    from the given arguments.
 
@@ -23007,192 +23993,231 @@ Exercises Section 9.5.2
 .. _P0367:
 
 
-Exercises Section 9.5.3
+   Exercises Section 9.5.3
 
-   Exercise 9.47: Write a programthat finds each numericcharacter and then each alphabetic 
-   character in the string "ab2c3d7R4E6". Write two versions of the program.
-   The first should use find_first_of, and the second find_first_not_of.
+      Exercise 9.47: Write a programthat finds each numeric character and then each alphabetic 
+      character in the string "ab2c3d7R4E6". Write two versions of the program.
+      The first should use `find_first_of`, and the second `find_first_not_of`.
 
-   Exercise 9.48: Given the definitions of name and numbers on page 365, what does
-   numbers.find(name) return?
+      Exercise 9.48: Given the definitions of name and numbers on page 365, what does
+      `numbers.find(name)` return?
 
-   Exercise 9.49: A letter has an ascender if, as with d or f, part of the letter extends
-   above the middle of the line. A letter has a descender if, as with p or g, part of the
-   letter extends below the line. Write a program that reads a file containing words and
-   reports the longest word that contains neither ascenders nor descenders.
-   As shown in Table 9.15, there are six versions of compare. The arguments vary
-   based on whether we are comparing two strings or a string and a character
-   array. In both cases, we might compare the entire string or a portion thereof.
+      Exercise 9.49: A letter has an ascender if, as with d or f, part of the letter extends
+      above the middle of the line. A letter has a descender if, as with p or g, part of the
+      letter extends below the line. Write a program that reads a file containing words and
+      reports the longest word that contains neither ascenders nor descenders.
+
+   As shown in Table 9.15, there are six versions of `compare`. The arguments vary
+   based on whether we are comparing two strings or a `string` and a character
+   array. In both cases, we might `compare` the entire string or a portion thereof.
+
    Table 9.15: Possible Arguments to s.compare
-   s2 Compare s to s2.
-   pos1, n1, s2 Compares n1 characters starting at pos1 from s to s2.
-   pos1, n1, s2, pos2, n2 Compares n1 characters starting at pos1 from s to the n2
-   characters starting at pos2 in s2.
-   cp Compares s to the null-terminated array pointed to by cp.
-   pos1, n1, cp Compares n1 characters starting at pos1 from s to cp.
-   pos1, n1, cp, n2 Compares n1 characters starting at pos1 from s to n2 characters
-   starting from the pointer cp.
+
+   ==================== ====================================================
+   s2                   Compare s to s2.
+   pos1, n1, s2         Compares n1 characters starting at pos1 from s to s2.
+   pos1, n1, s2, pos2,  n2 Compares n1 characters starting at pos1 from s to the n2
+                        characters starting at pos2 in s2.
+   cp                   Compares s to the null-terminated array pointed to by cp.
+   pos1, n1, cp         Compares n1 characters starting at pos1 from s to cp.
+   pos1, n1, cp, n2     Compares n1 characters starting at pos1 from s to n2 characters
+                        starting from the pointer cp.
+   ==================== ====================================================
 
 /9.5.5 Numeric Conversions
 ```````````````````````````
 
    Strings often contain characters that represent numbers. For example, we represent 
-   the numeric value 15 as a string with two characters, the character '1'
+   the numeric value 15 as a ``string`` with two characters, the character '1'
    followed by the character '5'. In general, the character representation of a number 
-   differs from its numeric value. The numeric value 15 stored in a 16-bit short
+   differs from its numeric value. The numeric value 15 stored in a 16-bit ``short``
    has the bit pattern 0000000000001111, whereas the character string "15" represented 
    as two Latin-1 chars has the bit pattern 0011000100110101. The first
    byte represents the character '1' which has the octal value 061, and the second
    byte represents '5', which in Latin-1 is octal 065.
+
    The new standard introduced several functions that convert between numeric
    data and library strings:
-   int i = 42;
-   string s = to_string(i); // converts the int i to its character representation
-   double d = stod(s); // converts the string s to floating-point
+
+   .. code-block:: cpp
+
+      int i = 42;
+      string s = to_string(i); // converts the int i to its character representation
+      double d = stod(s); // converts the string s to floating-point
 
 .. ptg11539634 368 Sequential Containers
 .. _P0368:
 
    Table 9.16: Conversions between strings and Numbers
-   to_string(val); Overloaded functions returning the string representation of val.
-   val can be any arithmetic type (§ 2.1.1, p. [P0032]_). There are versions of
-   to_string for each floating-point type and integral type that is int
-   or larger. Small integral types are promoted (§ 4.11.1, p. [P0160]_) as usual.
-   stoi(s, p, b)
-   stol(s, p, b)
-   stoul(s, p, b)
-   stoll(s, p, b)
-   stoull(s, p, b)
-   Return the initial substring of s that has numeric content as an int,
-   long, unsigned long, long long, unsigned long long, respectively. 
-   b indicates the numeric base to use for the conversion; b defaults
-   to 10. p is a pointer to a size_t in which to put the index of the first
-   nonnumeric character in s; p defaults to 0, in which case the function
-   does not store the index.
-   stof(s, p)
-   stod(s, p)
-   stold(s, p)
-   Return the initial numeric substring in s as a float, double, or long
-   double, respectively. p has the same behavior as described for the integer 
-   conversions.
-   Here we call to_string to convert 42 to its corresponding string representation 
-   and then call stod to convert that string to floating-point.
+
+   ================= ========================================================
+   to_string(val);   Overloaded functions returning the ``string`` representation of `val`.
+                     `val` can be any arithmetic type (§ 2.1.1, p. [P0032]_). There are versions of
+                     ``to_string`` for each floating-point type and integral type that is int
+                     or larger. Small integral types are promoted (§ 4.11.1, p. [P0160]_) as usual.
+   stoi(s, p, b)     Return the initial substring of s that has numeric content as an ``int``,
+   stol(s, p, b)     ``long``, ``unsigned long``, ``long long``, ``unsigned long long``, respectively. 
+   stoul(s, p, b)    b indicates the numeric base to use for the conversion; b defaults
+   stoll(s, p, b)    to 10. p is a pointer to a ``size_t`` in which to put the index of the first
+   stoull(s, p, b)   nonnumeric character in s; p defaults to 0, in which case the function
+                     does not store the index.
+   stof(s, p)        Return the initial numeric substring in s as a ``float``, ``double``, or
+   stod(s, p)        ``long double``, respectively. p has the same behavior as described for
+   stold(s, p)       the integer  conversions.
+   ================= ========================================================
+
+   Here we call ``to_string`` to convert 42 to its corresponding string representation 
+   and then call ``stod`` to convert that string to floating-point.
+
    The first non-whitespace character in the string we convert to numeric value
    must be a character that can appear in a number:
-   string s2 = "pi = 3.14";
-   // convert the first substring in s that starts with a digit, d = 3.14
-   d = stod(s2.substr(s2.find_first_of("+-.0123456789")));
+
+   .. code-block:: cpp
+
+      string s2 = "pi = 3.14";
+      // convert the first substring in s that starts with a digit, d = 3.14
+      d = stod(s2.substr(s2.find_first_of("+-.0123456789")));
+
    In this call to stod, we call find_first_of (§ 9.5.3, p. [P0364]_) to get the position
    of the first character in s that could be part of a number. We pass the substring
    of s starting at that position to stod. The stod function reads the string it is
    given until it finds a character that cannot be part of a number. It then converts the
-   character representation of the number it found into the corresponding doubleprecision 
+   character representation of the number it found into the corresponding double precision 
    floating-point value.
+
    The first non-whitespace character in the string must be a sign (+ or -) or
    a digit. The string can begin with 0x or 0X to indicate hexadecimal. For the
    functions that convert to floating-point the string may also start with a decimal
    point (.) and may contain an e or E to designate the exponent. For the functions
    that convert to integral type, depending on the base, the string can contain alphabetic 
    characters corresponding to numbers beyond the digit 9.
-   If the string can't be converted to a number, These functions throw an
-   invalid_argument exception (§ 5.6, p. [P0193]_). If the conversion generates 
-   a value that can't be represented, they throw out_of_range.
+
+   .. Note::
+
+      If the string can't be converted to a number, These functions throw an
+      invalid_argument exception (§ 5.6, p. [P0193]_). If the conversion generates 
+      a value that can't be represented, they throw `out_of_range`.
+
+   Exercises Section 9.5.5
+
+      Exercise 9.50: Write a program to process a `vector<string>`s whose elements represent 
+      integral values. Produce the sum of all the elements in that vector. Change
+      the program so that it sums of strings that represent floating-point values.
+
+      Exercise 9.51: Write a class that has three unsigned members representing year,
+      month, and day. Write a constructor that takes a string representing a date. Your
+      constructor should handle a variety of date formats, such as January 1, 1900, 1/1/1900,
+      Jan 1, 1900, and so on.
 
 /9.6👋 Container Adaptors
 --------------------------
 
    In addition to the sequential containers, the library defines three sequential container 
-   adaptors: stack, queue, and priority_queue. An adaptor is a general
+   adaptors: ``stack``, ``queue``, and ``priority_queue``. An adaptor is a general
 
 .. ptg11539634 Section 9.6 Container Adaptors 369
 .. _P0369:
 
-
-Exercises Section 9.5.5
-
-   Exercise 9.50: Write a program to process a vector<string>s whose elements represent 
-   integral values. Produce the sum of all the elements in that vector. Change
-   the program so that it sums of strings that represent floating-point values.
-
-   Exercise 9.51: Write a class that has three unsigned members representing year,
-   month, and day. Write a constructor that takes a string representing a date. Your
-   constructor should handle a variety of date formats, such as January 1, 1900, 1/1/1900,
-   Jan 1, 1900, and so on.
    concept in the library. There are container, iterator, and function adaptors. Essentially, 
-   an adaptoris a mechanism formaking one thing act like another. Acontainer
+   an adaptoris a mechanism formaking one thing act like another. A container
    adaptor takes an existing container type and makes it act like a different type. For
    example, the stack adaptor takes a sequential container (other than array or
-   forward_list) and makes it operate as if it were a stack. Table 9.17 lists the
+   ``forward_list``) and makes it operate as if it were a stack. Table 9.17 lists the
    operations and types that are common to all the container adaptors.
+
    Table 9.17: Operations and Types Common to the Container Adaptors
-   size_type Type large enough to hold the size of the largest object of this type.
-   value_type Element type.
-   container_type Type of the underlying container on which the adaptor is implemented.
-   A a; Create a new empty adaptor named a.
-   A a(c); Create a new adaptor named a with a copy of the container c.
+   ``size_type`` Type large enough to hold the size of the largest object of this type.
+
+   ==================== ========================================================
+   value_type           Element type.
+   container_type       Type of the underlying container on which the adaptor is implemented.
+   A a;                 Create a new empty adaptor named a.
+   A a(c);              Create a new adaptor named a with a copy of the container c.
    relational operators Each adaptor supports all the relational operators: ==, !=, <, <=, >, >=.
-   These operators return the result of comparing the underlying
-   containers.
-   a.empty() false if a has any elements, true otherwise.
-   a.size() Number of elements in a.
-   swap(a, b)
-   a.swap(b)
-   Swaps the contents of a and b; a and b must have the same type, including 
-   the type of the container on which they are implemented.
-   Defining an Adaptor
-   Each adaptor defines two constructors: the default constructor that creates an
-   empty object, andaconstructor that takes acontainer andinitializes the adaptorby
-   copying the given container. For example, assuming that deq is a deque<int>,
+                        hese operators return the result of comparing the underlying containers.
+   a.empty()            ``false`` if a has any elements, ``true`` otherwise.
+   a.size()             umber of elements in a.
+   swap(a, b)           waps the contents of a and b; a and b must have the same type, including 
+   a.swap(b)            he type of the container on which they are implemented.
+   ==================== ========================================================
+
+Defining an Adaptor
+
+   Each adaptor defines two constructors: the `default constructor` that creates an
+   empty object, and a constructor that takes a container and initializes the adaptor by
+   copying the given container. For example, assuming that deq is a `deque<int>`,
    we can use deq to initialize a new stack as follows:
-   stack<int> stk(deq); // copies elements from deq into stk
+
+   .. code-block:: cpp
+
+      stack<int> stk(deq); // copies elements from deq into stk
+
    By default both stack and queue are implemented in terms of deque, and
-   a priority_queue is implemented on a vector. We can override the default
+   a ``priority_queue`` is implemented on a vector. We can override the default
    container type by naming a sequential container as a second type argument when
    we create the adaptor:
 
 .. ptg11539634 370 Sequential Containers
 .. _P0370:
 
-   // empty stack implemented on top of vector
-   stack<string, vector<string>> str_stk;
-   // str_stk2 is implemented on top of vector and initially holds a copy of svec
-   stack<string, vector<string>> str_stk2(svec);
+
+   .. code-block:: cpp
+
+      // empty stack implemented on top of vector
+      stack<string, vector<string>> str_stk;
+      // str_stk2 is implemented on top of vector and initially holds a copy of svec
+      stack<string, vector<string>> str_stk2(svec);
+
    There are constraints on which containers can be used for a given adaptor. All of
    the adaptors require the ability to add and remove elements. As a result, they cannot 
-   be built on an array. Similarly, we cannot use forward_list, because all
+   be built on an ``array``. Similarly, we cannot use ``forward_list``, because all
    of the adaptors require operations that add, remove, or access the last element in
-   the container. A stack requires only push_back, pop_back, and back operations, 
-   so we can use any of the remaining container types for a stack. The queue
-   adaptor requires back, push_back, front, and push_front, so it can be built
-   on a list or deque but not on a vector. A priority_queue requires random
-   access in addition to the front, push_back, and pop_back operations; it can be
+   the container. A ``stack`` requires only ``push_back``, ``pop_back``, and ``back`` operations, 
+   so we can use any of the remaining container types for a stack. The ``queue``
+   adaptor requires ``back``, ``push_back``, ``front``, and ``push_front``, so it can be built
+   on a list or deque but not on a vector. A ``priority_queue`` requires random
+   access in addition to the ``front``, ``push_back``, and ``pop_back`` operations; it can be
    built on a vector or a deque but not on a list.
-   Stack Adaptor
+
+Stack Adaptor
+
    The stack type is defined in the stack header. The operations provided by a
    stack are listed in Table 9.18. The following program illustrates the use of stack:
-   stack<int> intStack; // empty stack
-   // fill up the stack
-   for (size_t ix = 0; ix != 10; ++ix)
-   intStack.push(ix); // intStack holds 0 ... 9 inclusive
-   while (!intStack.empty()) { // while there are still values in intStack
-   int value = intStack.top();
-   // code that uses value
-   intStack.pop(); // pop the top element, and repeat
-   }
-   The declaration
-   stack<int> intStack; // empty stack
-   defines intStack to be an empty stack that holds integer elements. The for
+
+   .. code-block:: cpp
+
+      stack<int> intStack; // empty stack
+      // fill up the stack
+      for (size_t ix = 0; ix != 10; ++ix)
+         intStack.push(ix); // intStack holds 0 ... 9 inclusive
+      while (!intStack.empty()) { // while there are still values in intStack
+         int value = intStack.top();
+         // code that uses value
+         intStack.pop(); // pop the top element, and repeat
+      }
+
+The declaration
+
+
+   .. code-block:: cpp
+
+      stack<int> intStack; // empty stack
+
+   defines `intStack` to be an empty stack that holds integer elements. The for
    loop adds ten elements, initializing each to the next integer in sequence starting
    from zero. The while loop iterates through the entire stack, examining the top
    value and popping it from the stack until the stack is empty.
+
    Table 9.18: Stack Operations in Addition to Those in Table 9.17
-   Uses deque by default; can be implemented on a list or vector as well.
-   s.pop() Removes, but does not return, the top element from the stack.
-   s.push(item)
-   s.emplace(args)
-   Creates a new top element on the stack by copying or moving item, or
-   by constructing the element from args.
-   s.top() Returns, but does not remove, the top element on the stack.
+   Uses ``deque`` by default; can be implemented on a list or vector as well.
+
+   ================ ==========================================================
+   s.pop()           Removes, but does not return, the top element from the stack.
+   s.push(item)      Creates a new top element on the stack by copying or moving item, or
+   s.emplace(args)   by constructing the element from args.
+   s.top()           Returns, but does not remove, the top element on the stack.
+   ================ ==========================================================
+
 
 .. ptg11539634 Section 9.6 Container Adaptors 371
 .. _P0371:
@@ -23200,37 +24225,45 @@ Exercises Section 9.5.5
    Each container adaptor defines its own operations in terms of operations provided 
    by the underlying container type. We can use only the adaptor operations
    and cannot use the operations of the underlying container type. For example,
-   intStack.push(ix); // intStack holds 0 ... 9 inclusive
-   calls push_back on the deque object on which intStack is based. Although
-   stack is implemented by using a deque, we have no direct access to the deque
-   operations. We cannot call push_back on a stack; instead, we must use the
-   stack operation named push.
-   The Queue Adaptors
-   The queue and priority_queue adaptors are defined in the queue header. Table 
+
+   .. code-block:: cpp
+
+      intStack.push(ix); // intStack holds 0 ... 9 inclusive
+
+   calls `push_back` on the deque object on which `intStack` is based. Although
+   ``stack`` is implemented by using a deque, we have no direct access to the deque
+   operations. We cannot call `push_back` on a ``stack``; instead, we must use the
+   ``stack`` operation named push.
+
+The Queue Adaptors
+
+   The queue and ``priority_queue`` adaptors are defined in the queue header. Table 
    9.19 lists the operations supported by these types.
-   Table 9.19: queue, priority_queue Operations in Addition to Table 9.17
-   By default queue uses deque and priority_queue uses vector;
-   queue can use a list or vector as well, priority_queue can use a deque.
-   q.pop() Removes, but does not return, the front element or highest-priority
-   element from the queue or priority_queue, respectively.
-   q.front()
-   q.back()
-   Returns, but does not remove, the front or back element of q.
-   Valid only for queue
-   q.top() Returns, but does not remove, the highest-priority element.
-   Valid only for priority_queue.
-   q.push(item)
-   q.emplace(args)
-   Create an element with value item or constructed from args at the end
-   of the queue or in its appropriate position in priority_queue.
-   The library queue uses a first-in, first-out (FIFO) storage and retrieval policy.
-   Objects entering the queue are placed in the back and objects leaving the queue are
+
+   Table 9.19: queue, ``priority_queue`` Operations in Addition to Table 9.17
+   By default ``queue`` uses ``deque`` and ``priority_queue`` uses ``vector``;
+   ``queue`` can use a ``list`` or ``vector`` as well, ``priority_queue`` can use a ``deque``.
+
+   ================= ========================================================
+   q.pop()           Removes, but does not return, the front element or highest-priority
+                     element from the ``queue`` or ``priority_queue``, respectively.
+   q.front()         Returns, but does not remove, the front or back element of q.
+   q.back()          Valid only for ``queue``
+   q.top()           Returns, but does not remove, the highest-priority element.
+                     Valid only for ``priority_queue``.
+   q.push(item)      Create an element with value item or constructed from args at the end
+   q.emplace(args)   of the ``queue`` or in its appropriate position in ``priority_queue``.
+   ================= ========================================================
+
+   The library ``queue`` uses a first-in, first-out (FIFO) storage and retrieval policy.
+   Objects entering the ``queue`` are placed in the back and objects leaving the ``queue`` are
    removed from the front. A restaurant that seats people in the order in which they
-   arrive is an example of a FIFO queue.
-   A priority_queue lets us establish a priority among the elements held in
-   the queue. Newly added elements are placed ahead of all the elements with a
+   arrive is an example of a FIFO ``queue``.
+
+   A ``priority_queue`` lets us establish a priority among the elements held in
+   the ``queue``. Newly added elements are placed ahead of all the elements with a
    lower priority. A restaurant that seats people according to their reservation time,
-   regardless of when they arrive, is an example of a priority queue. By default, the
+   regardless of when they arrive, is an example of a priority ``queue``. By default, the
    library uses the < operator on the element type to determine relative priorities.
    We'll learn how to override this default in § 11.2.2 (p. [P0425]_).
 
@@ -23252,17 +24285,20 @@ Exercises Section 9.6
    containers share a common, standardized interface: If two sequential containers
    offer a particular operation, then the operation has the same interface and meaning 
    for both containers.
+
    All the containers (except array) provide efficient dynamic memory management. 
    We may add elements to the container without worrying about where to
-   store the elements. The container itself manages its storage. Both vector and
-   string provide more detailed control over memory management through their
+   store the elements. The container itself manages its storage. Both ``vector`` and
+   ``string`` provide more detailed control over memory management through their
    reserve and capacity members.
+
    For the most part, the containers define surprisingly few operations. Containers 
    define constructors, operations to add or remove elements, operations to determine 
    the size of the container, and operations to return iterators to particular
    elements. Other useful operations, such as sorting or searching, are defined not
    by the container types but by the standard algorithms, which we shall cover in
    Chapter 10.
+
    When we use container operations that add or remove elements, it is essential
    to remember that these operations can invalidate iterators, pointers, or references
    to elements in the container. Many operations that invalidate an iterator, such as
@@ -23274,40 +24310,46 @@ Exercises Section 9.6
 /09.👋 Defined Terms
 ---------------------
 
-   adaptor Library type, function, or iterator 
+   ``adaptor`` Library type, function, or iterator 
    that, given a type, function, or iterator, 
    makes it act like another. There are
    three sequential container adaptors: stack,
    queue, and priority_queue. Each adaptor 
    defines a new interface on top of an underlying 
    sequential container type.
-   array Fixed-size sequential container. To
+
+   ``array`` Fixed-size sequential container. To
    define an array, we must give the size in
    addition to specifying the element type. Elements 
    inanarraycan beaccessedby their
    positional index. Supports fast random access 
    to elements.
-   begin Container operation that returns an
+
+   ``begin`` Container operation that returns an
    iterator referring to the first element in the
    container, if there is one, or the off-the-end
    iterator if the container is empty. Whether
    the returned iterator is const depends on
    the type of the container.
-   cbegin Container operation that returns a
+
+   ``cbegin`` Container operation that returns a
    const_iterator referring to the first element 
    in the container, if there is one, or the
    off-the-end iteratorif the container isempty.
-   cend Container operation that returns a
+
+   ``cend`` Container operation that returns a
    const_iterator referring to the (nonexistent) 
    element one past the end of the container.
-   container Type that holds a collection of
+
+   ``container`` Type that holds a collection of
    objects of a given type. Each library container 
    type is a template type. To define a
    container, we must specify the type of the
    elements stored in the container. With the
    exception of array, the library containers
    are variable-size.
-   deque Sequential container. Elements in a
+
+   ``deque`` Sequential container. Elements in a
    deque can be accessed by their positional
 
 .. ptg11539634 Defined Terms 373
@@ -23319,12 +24361,14 @@ Exercises Section 9.6
    at the front of the container as well as at the
    back and does not relocate elements as a result 
    of insertions or deletions at either end.
-   end Container operation that returns an iterator 
+
+   ``end`` Container operation that returns an iterator 
    referring to the (nonexistent) element
    one past the end of the container. Whether
    the returned iterator is const depends on
    the type of the container.
-   forward_list Sequential container that represents 
+
+   ``forward_list`` Sequential container that represents 
    a singly linked list. Elements in a
    forward_list may be accessed only sequentially; 
    starting from a given element,
@@ -23341,7 +24385,8 @@ Exercises Section 9.6
    remain valid when new elements
    are added. When an element is removed,
    only the iterators to that element are invalidated.
-   iterator range Range of elements denoted
+
+   ``iterator range`` Range of elements denoted
    by a pair of iterators. The first iterator denotes 
    the first element in the sequence, and
    the second iterator denotes one past the last
@@ -23353,12 +24398,14 @@ Exercises Section 9.6
    by repeatedly incrementing the first iterator. 
    By incrementing the iterator, each element 
    in the sequence can be processed.
-   left-inclusive interval A range of values
+
+   ``left-inclusive interval`` A range of values
    that includes its first element but not its last.
    Typically denoted as [i, j), meaning the
    sequence starting at and including i up to
    but excluding j.
-   list Sequential container representing a
+
+   ``list`` Sequential container representing a
    doubly linked list. Elements in a list may
    be accessed only sequentially; starting from
    a given element, we can get to another element 
@@ -23370,16 +24417,19 @@ Exercises Section 9.6
    new elements are added. When an element
    is removed, only the iterators to that element 
    are invalidated.
-   off-the-beginning iterator Iterator denoting 
+
+   ``off-the-beginning iterator`` Iterator denoting 
    the (nonexistent) element just before
    the beginning of a forward_list. Returned 
    from the forward_list member
    before_begin. Like the end() iterator, it
    may not be dereferenced.
-   off-the-end iterator Iterator that denotes
+
+   ``off-the-end iterator`` Iterator that denotes
    one past the last element in the range. Commonly 
    referred to as the “end iterator”.
-   priority_queue Adaptor for the sequential
+
+   ``priority_queue`` Adaptor for the sequential
    containers that yields a queue in which elements 
    are inserted, not at the end but according 
    to a specified priority level. By default, 
@@ -23389,14 +24439,17 @@ Exercises Section 9.6
    that yields a type that lets us add elements 
    to the back and remove elements
    from the front.
-   sequential container Type that holds an
+
+   ``sequential container`` Type that holds an
    orderedcollectionof objects of a singletype.
    Elements in a sequential container are accessed 
    by position.
-   stack Adaptor for the sequential containers 
+
+   ``stack`` Adaptor for the sequential containers 
    that yields a type that lets us add and
    remove elements from one end only.
-   vector Sequential container. Elements in
+
+   ``vector`` Sequential container. Elements in
    a vector can be accessed by their positional 
    index. Supports fast random access
    to elements. We can efficiently add or remove 
@@ -23440,8 +24493,8 @@ Exercises Section 9.6
 .. ptg11539634
 .. _P0375:
 
-/Chapter 10👊 Genericalgorithms
-================================
+/Chapter 10👊 Generic algorithms
+=================================
 
    CONTENTS [TOC10]_
 
@@ -23459,9 +24512,21 @@ Exercises Section 9.6
    provides a set of algorithms, most of which are independent of any
    particular container type. These algorithms are generic: They operate
    on different types of containers and on elements of various types.
-   Thegenericalgorithms, and amore detailedlook atiterators, form
+
+   The generic algorithms, and a more detailed look at iterators, form
    the subject matter of this chapter.
-   
+
+   本章是泛型编程相关内容，主要是讲解 C++ 泛型算法库。所谓泛型（Gerneric Type）就是类型的泛化，
+   可以理解为类型约束条件的扩展，不再受某种具体类型的约束。C++ 发展比较早，泛型编程起源于模板机制
+   （Templates）。C++ STL - Standard Template Library 标准模板库就是 C++ 泛型编程基础。
+   C++ STL 模板库原作者是 Alexander Stepanov，他被誉为 STL 标准模板库之父，于 1950 年出生
+   于前苏联的莫斯科，他曾在莫斯科大学研究数学，此后一直致力于计算机语言和泛型库研究。20 世纪 70 年代，
+   Stepanov 开始考虑，在保证效率的前提下，是否能将算法从诸多具体应用之中抽象出来？并在随后的十数年
+   时间中不断地开发并完善了模板库，并最终于 1998 年成为 ANSI/ISO C++ 标准正式定案。
+
+   由于C++ 泛型算法库有 100 多个库函数用于操作序列容器，所以本章主要是讲解函数的参数规律，以及
+   五类迭代器的使用： `input`, `output`, `forward`, `bidirectional`, `random access`，
+   其它泛型函数需要自行查规范文档或编程手册进行学习。
 
 .. ptg11539634 376 Generic Algorithms
 .. _P0376:
@@ -23469,67 +24534,90 @@ Exercises Section 9.6
    The sequential containers define few operations: For the most part, we can
    add and remove elements, access the first or last element, determine whether a
    container is empty, and obtain iterators to the first or one past the last element.
+
    We can imagine many other useful operations one might want to do: We might
    want to find a particular element, replace or remove a particular value, reorder the
    container elements, and so on.
+
    Rather than define each of these operations as members of each container type,
    the standard library defines a set of generic algorithms: “algorithms” because
    they implement common classical algorithms such as sorting and searching, and
    “generic” because they operate on elements of differing type and across multiple 
-   container types—not only library types such as vector or list, but also the
-   built-in array type—and, as we shall see, over other kinds of sequences as well.
+   container types—not only library types such as ``vector`` or ``list``, but also the
+   built-in `array` type—and, as we shall see, over other kinds of sequences as well.
 
 /10.1👋 Overview
 -----------------
 
-   Most of the algorithms are defined in the algorithm header. The library also
-   definesasetofgenericnumericalgorithms thataredefinedin thenumericheader.
+   Most of the algorithms are defined in the ``algorithm`` header. The library also
+   defines a set of generic numeric algorithms that are defined in the ``numeric`` header.
+
    In general, the algorithms do not work directlyon a container. Instead, they operate 
    by traversing a range of elements bounded by two iterators (§ 9.2.1, p. [P0331]_).
    Typically, as the algorithm traverses the range, it does something with each element. 
-   For example, suppose we have a vector of ints and we want to know if
-   that vector holds a particular value. The easiest way to answer this question is
+   For example, suppose we have a ``vector`` of ints and we want to know if
+   that ``vector`` holds a particular value. The easiest way to answer this question is
    to call the library find algorithm:
-   int val = 42; // value we'll look for
-   // result will denote the element we want if it's in vec , or vec.cend() if not
-   auto result = find(vec.cbegin(), vec.cend(), val);
-   // report the result
-   cout << "The value " << val
-   << (result == vec.cend()
-   ? " is not present" : " is present") << endl;
-   The first two arguments to find are iterators denoting a range of elements, and
-   the third argument is a value. find compares each element in the given range to
+
+   .. code-block:: cpp
+
+      int val = 42; // value we'll look for
+      // result will denote the element we want if it's in vec , or vec.cend() if not
+      auto result = find(vec.cbegin(), vec.cend(), val);
+      // report the result
+      cout << "The value " << val
+           << (result == vec.cend()
+               ? " is not present" : " is present") << endl;
+
+   The first two arguments to ``find`` are iterators denoting a range of elements, and
+   the third argument is a value. ``find`` compares each element in the given range to
    the given value. It returns an iterator to the first element that is equal to that value.
-   If there is no match, find returns its second iterator to indicate failure. Thus, we
+   If there is no match, ``find`` returns its second iterator to indicate failure. Thus, we
    can determine whether the element was found by comparing the return value with
    the second iterator argument. We do this test in the output statement, which uses
    the conditional operator (§ 4.7, p. [P0151]_) to report whether the value was found.
-   Becausefindoperatesin terms of iterators, we canuse the same findfunction
+
+   Because ``find`` operates in terms of iterators, we canuse the same ``find`` function
    to look for values in any type of container. For example, we can use find to look
    for a value in a list of strings:
-   string val = "a value"; // value we'll look for
-   // this call to find looks through string elements in a list
-   auto result = find(lst.cbegin(), lst.cend(), val);
+
+   .. code-block:: cpp
+
+      string val = "a value"; // value we'll look for
+      // this call to find looks through string elements in a list
+      auto result = find(lst.cbegin(), lst.cend(), val);
+
    Similarly, because pointers act like iterators on built-in arrays, we can use find to
    look in an array:
 
 .. ptg11539634 Section 10.1 Overview 377
 .. _P0377:
 
-   int ia[] = {27, 210, 12, 47, 109, 83};
-   int val = 83;
-   int * result = find(begin(ia), end(ia), val);
+
+   .. code-block:: cpp
+
+      int ia[] = {27, 210, 12, 47, 109, 83};
+      int val = 83;
+      int * result = find(begin(ia), end(ia), val);
+
    Here we use the library begin and end functions (§ 3.5.3, p. [P0118]_) to pass a pointer
    to the first and one past the last elements in ia.
-   Wecan also look in asubrangeof the sequence by passing iterators(or pointers)
+
+   We can also look in a subrange of the sequence by passing iterators (or pointers)
    to the first and one past the last element of that subrange. For example, this call
    looks for a match in the elements ia[1], ia[2], and ia[3]:
-   // search the elements starting from ia[1] up to but not including ia[4]
-   auto result = find(ia + 1, ia + 4, val);
-   How the Algorithms Work
+
+   .. code-block:: cpp
+
+      // search the elements starting from ia[1] up to but not including ia[4]
+      auto result = find(ia + 1, ia + 4, val);
+
+How the Algorithms Work
+
    To see how the algorithms can be used on varying types of containers, let's look
    a bit more closely at find. Its job is to find a particular element in an unsorted
    sequence of elements. Conceptually, we can list the steps find must take:
+
    1. It accesses the first element in the sequence.
    2. It compares that element to the value we want.
    3. If this element matches the one we want, find returns a value that identifies
@@ -23539,18 +24627,23 @@ Exercises Section 9.6
    6. If find gets to the end of the sequence, it needs to return a value indicating
    that the element was not found. This value and the one returned from step 3
    must have compatible types.
+
    None of these operations depends on the type of the container that holds the elements. 
    So long as there is an iterator that can be used to access the elements, find
    doesn't depend in any way on the container type (or even whether the elements
    are stored in a container).
-   Iterators Make the Algorithms Container Independent, ...
+
+Iterators Make the Algorithms Container Independent, ...
+
    All but the second step in the find function can be handled by iterator operations:
    The iterator dereference operator gives access to an element's value; if a matching
    element is found, find can return an iterator to that element; the iterator increment 
    operator moves to the next element; the “off-the-end” iterator will indicate
    when find has reached the end of its given sequence; and find can return the
    off-the-end iterator (§ 9.2.1, p. [P0331]_) to indicate that the given value wasn't found.
-   ...But Algorithms Do Depend on Element-Type Operations
+
+...But Algorithms Do Depend on Element-Type Operations
+
    Although iterators make the algorithms container independent, most of the algorithms 
    use one (or more) operation(s) on the element type. For example, step 2,
    uses the element type's == operator to compare each element to the given value.
@@ -23562,45 +24655,48 @@ Exercises Section 9.6
    we'll see, most algorithms provide a way for us to supply our own operation to
    use in place of the default operator.
 
-Exercises Section 10.1
+   Exercises Section 10.1
 
-   Exercise 10.1: The algorithm header defines a function named count that, like
-   find, takes a pair of iterators and a value. count returns a count of how often that
-   value appears. Read a sequence of ints into a vector and print the count of how
-   many elements have a given value.
+      Exercise 10.1: The ``algorithm`` header defines a function named ``count`` that, like
+      ``find``, takes a pair of iterators and a value. ``count`` returns a count of how often that
+      value appears. Read a sequence of ints into a vector and print the count of how
+      many elements have a given value.
 
-   Exercise 10.2: Repeat the previous program, but read values into a list of strings.
+      Exercise 10.2: Repeat the previous program, but read values into a list of strings.
 
    .. Note::
 
       Key Concept : Algorithms Never Execute Container Operations
 
-   The generic algorithms do not themselves execute container operations. They operate
-   solely in terms of iterators and iterator operations. The fact that the algorithms operate 
-   in terms of iterators and not container operations has a perhaps surprising but
-   essential implication: Algorithms never change the size of the underlying container.
-   Algorithms may change the values of the elements stored in the container, and they
-   may move elements around within the container. They do not, however, ever add or
-   remove elements directly.
-   As we'll see in § 10.4.1 (p. [P0401]_), there is a special class of iterator, the inserters,
-   that do more than traverse the sequence to which they are bound. When we assign to
-   these iterators, they execute insert operations on the underlying container. When an
-   algorithmoperates on one ofthese iterators, the iterator may have the effect of adding
-   elements to the container. The algorithm itself, however, never does so.
+      The generic algorithms do not themselves execute container operations. They operate
+      solely in terms of iterators and iterator operations. The fact that the algorithms operate 
+      in terms of iterators and not container operations has a perhaps surprising but
+      essential implication: Algorithms never change the size of the underlying container.
+      Algorithms may change the values of the elements stored in the container, and they
+      may move elements around within the container. They do not, however, ever add or
+      remove elements directly.
+
+      As we'll see in § 10.4.1 (p. [P0401]_), there is a special class of iterator, the inserters,
+      that do more than traverse the sequence to which they are bound. When we assign to
+      these iterators, they execute insert operations on the underlying container. When an
+      algorithmoperates on one ofthese iterators, the iterator may have the effect of adding
+      elements to the container. The algorithm itself, however, never does so.
 
 /10.2👋 A First Look at the Algorithms
 ---------------------------------------
 
-   Thelibraryprovidesmorethan100algorithms. Fortunately, likethe containers, the
+   The library provides more than 100 algorithms. Fortunately, like the containers, the
    algorithms have a consistent architecture. Understanding this architecture makes
    learning and using the algorithms easier than memorizing all 100+ of them. In
    this chapter, we'll illustrate how to use the algorithms, and describe the unifying
    principles that characterize them. Appendix A lists all the algorithms classified by
    how they operate.
+
    With only a few exceptions, the algorithms operate over a range of elements.
    We'll refer to this range as the “input range.” The algorithms that take an input
    range alwaysuse their first two parametersto denote that range. These parameters
    are iterators denoting the first and one past the last elements to process.
+
    Although most algorithms are similar in that they operate over an input range,
    they differ in how they use the elements in that range. The most basic way to
    understand the algorithms is to know whether they read elements, write elements,
@@ -23616,38 +24712,56 @@ Exercises Section 10.1
    A number of the algorithms read, but never write to, the elements in their input
    range. The find function is one such algorithm, as is the count function we used
    in the exercises for § 10.1 (p. [P0378]_).
-   Another read-onlyalgorithm isaccumulate,which is defined in the numeric
-   header. The accumulate function takes three arguments. The first two specify a
-   range of elements to sum. The third is an initial value for the sum. Assuming vec
+
+   Another read-only algorithm is ``accumulate``, which is defined in the ``numeric``
+   header. The ``accumulate`` function takes three arguments. The first two specify a
+   range of elements to sum. The third is an initial value for the sum. Assuming `vec`
    is a sequence of integers, the following
-   // sum the elements in vec starting the summation with the value 0
-   int sum = accumulate(vec.cbegin(), vec.cend(), 0);
-   sets sum equal to the sum of the elements in vec, using 0 as the starting point for
+
+   .. code-block:: cpp
+
+      // sum the elements in vec starting the summation with the value 0
+      int sum = accumulate(vec.cbegin(), vec.cend(), 0);
+
+   sets sum equal to the sum of the elements in `vec`, using 0 as the starting point for
    the summation.
+
    The type of the third argument to accumulate determines which addition 
    operator is used and is the type that accumulate returns.
-   Algorithms and Element Types
+
+Algorithms and Element Types
+
    The fact that accumulate uses its third argument as the starting point for the
    summation has an important implication: It must be possible to add the element
    type to the type of the sum. That is, the elements in the sequence must match or
    be convertible to the type of the third argument. In this example, the elements in
-   vec might be ints, or they might be double, or long long, or any other type
-   that can be added to an int.
+   vec might be `ints`, or they might be `double`, or `long long`, or any other type
+   that can be added to an `int`.
+
    As another example, because string has a + operator, we can concatenate the
    elements of a vector of strings by calling accumulate:
-   string sum = accumulate(v.cbegin(), v.cend(), string(""));
+
+   .. code-block:: cpp
+
+      string sum = accumulate(v.cbegin(), v.cend(), string(""));
+
    This call concatenates each element in v onto a string that starts out as the empty
    string. Note that we explicitly create a string as the third parameter. Passing the
    empty string as a string literal would be a compile-time error:
-   // error: no + on const char *
-   string sum = accumulate(v.cbegin(), v.cend(), "");
+
+   .. code-block:: cpp
+
+      // error: no + on const char *
+      string sum = accumulate(v.cbegin(), v.cend(), "");
+
    Had we passed a string literal, the type of the object used to hold the sum would
-   be const char * . That type determines which + operator is used. Because there is
-   no + operator for type const char * , this call will not compile.
-   Ordinarily it is best to use cbegin() and cend() (§ 9.2.3, p. [P0334]_) with
+   be `const char *` . That type determines which + operator is used. Because there is
+   no + operator for type `const char *` , this call will not compile.
+
+   Ordinarily it is best to use `cbegin()` and `cend()` (§ 9.2.3, p. [P0334]_) with
    algorithms that read, but do not write, the elements. However, if you
    plan to use the iterator returned by the algorithm to change an eles 
-   ment's value, then you need to pass begin() and end().
+   ment's value, then you need to pass `begin()` and `end()`.
 
 .. ptg11539634 380 Generic Algorithms
 .. _P0380:
@@ -23655,34 +24769,41 @@ Exercises Section 10.1
 
 Algorithms That Operate on Two Sequences
 
-   Another read-only algorithm is equal, which lets us determine whether two sequences 
+   Another read-only algorithm is ``equal``, which lets us determine whether two sequences 
    hold the same values. It compares each element from the first sequence
    to the corresponding element in the second. It returns true if the corresponding
-   elements are equal, false otherwise. The algorithm takes three iterators: The first
+   elements are ``equal``, false otherwise. The algorithm takes three iterators: The first
    two (as usual) denote the range of elements in the first sequence; the third denotes
    the first element in the second sequence:
-   // roster2 should have at least as many elements as roster1
-   equal(roster1.cbegin(), roster1.cend(), roster2.cbegin());
-   Because equal operates in terms of iterators, we can call equal to compare elements 
+
+   .. code-block:: cpp
+
+      // roster2 should have at least as many elements as roster1
+      equal(roster1.cbegin(), roster1.cend(), roster2.cbegin());
+
+   Because ``equal`` operates in terms of iterators, we can call ``equal`` to compare elements 
    in containers of different types. Moreover, the element types also need not
    be the same so long as we can use == to compare the element types. For example,
-   roster1 could be a vector<string> and roster2 a list<const char * >.
-   However, equal makes one critically important assumption: It assumes that
+   roster1 could be a `vector<string>` and roster2 a `list<const char * >`.
+   However, ``equal`` makes one critically important assumption: It assumes that
    the second sequence is at least as big as the first. This algorithm potentially looks
    at every element in the first sequence. It assumes that there is a corresponding
    element for each of those elements in the second sequence.
-   Algorithms that take a single iterator denoting a second sequence assume
-   that the second sequence is at least as large at the first.
 
-Exercises Section 10.2.1
+   .. Warning::
 
-   Exercise 10.3: Use accumulate to sum the elements in a vector<int>.
+      Algorithms that take a single iterator denoting a second sequence assume
+      that the second sequence is at least as large at the first.
 
-   Exercise 10.4: Assuming v is a vector<double>, what, if anything, is wrong with
-   calling accumulate(v.cbegin(), v.cend(), 0)?
+   Exercises Section 10.2.1
 
-   Exercise 10.5: In the call to equal on rosters, what would happen if both rosters held
-   C-style strings, rather than library strings?
+      Exercise 10.3: Use accumulate to sum the elements in a `vector<int>`.
+
+      Exercise 10.4: Assuming v is a `vector<double>`, what, if anything, is wrong with
+      calling `accumulate(v.cbegin(), v.cend(), 0)`?
+
+      Exercise 10.5: In the call to `equal` on `rosters`, what would happen if both rosters held
+      C-style strings, rather than library strings?
 
 /10.2.2 Algorithms That Write Container Elements
 `````````````````````````````````````````````````
@@ -23692,10 +24813,12 @@ Exercises Section 10.2.1
    into which the algorithm writes is at least as large as the number of elements we
    ask the algorithm to write. Remember, algorithms do not perform container operations, 
    so they have no way themselves to change the size of a container.
+
    Some algorithms write to elements in the input range itself. These algorithms
    are not inherently dangerous because they write only as many elements as are in
    the specified range.
-   Asoneexample, thefillalgorithm takesapairofiteratorsthatdenote arange
+
+   As one example, the ``fill`` algorithm takes a pair of iterators that denote a range
    and a third argument that is a value. fill assigns the given value to each element
    in the input sequence:
 
@@ -23707,29 +24830,36 @@ Exercises Section 10.2.1
 
       Key Concept : Iterator Arguments
 
-   Some algorithms read elements from two sequences. The elements that constitute
-   these sequences can be stored in different kinds of containers. For example, the first
-   sequence might be stored in a vector and the second might be in a list, a deque,
-   a built-in array, or some other sequence. Moreover, the element types in the two sequences 
-   are not required to match exactly. What is required is that we be able to
-   compare elements from the two sequences. For example, in the equal algorithm, the
-   element types need not be identical, but we do have to be able to use == to compare
-   elements from the two sequences.
-   Algorithms that operate on two sequences differ as to how we pass the second sequence. 
-   Some algorithms, such as equal, take three iterators: The first two denote the
-   range of the first sequence, and the third iterator denotes the first element in the second 
-   sequence. Others take four iterators: The first two denote the range of elements
-   in the first sequence, and the second two denote the range for the second sequence.
-   Algorithms that use a single iterator to denote the second sequence assume that
-   the second sequence is at least as large as the first. It is up to us to ensure that the
-   algorithm will not attempt to access a nonexistent element in the second sequence.
-   For example, the equal algorithm potentially compares every element from its first
-   sequence to an element in the second. If the second sequence is a subset of the first,
-   then our program has a serious error—equal will attempt to access elements beyond
-   the end of the second sequence.
-   fill(vec.begin(), vec.end(), 0); // reset each element to 0
-   // set a subsequence of the container to 10
-   fill(vec.begin(), vec.begin() + vec.size()/2, 10);
+      Some algorithms read elements from two sequences. The elements that constitute
+      these sequences can be stored in different kinds of containers. For example, the first
+      sequence might be stored in a vector and the second might be in a list, a deque,
+      a built-in array, or some other sequence. Moreover, the element types in the two sequences 
+      are not required to match exactly. What is required is that we be able to
+      compare elements from the two sequences. For example, in the ``equal`` algorithm, the
+      element types need not be identical, but we do have to be able to use == to compare
+      elements from the two sequences.
+
+      Algorithms that operate on two sequences differ as to how we pass the second sequence. 
+      Some algorithms, such as ``equal``, take three iterators: The first two denote the
+      range of the first sequence, and the third iterator denotes the first element in the second 
+      sequence. Others take four iterators: The first two denote the range of elements
+      in the first sequence, and the second two denote the range for the second sequence.
+
+      Algorithms that use a single iterator to denote the second sequence assume that
+      the second sequence is at least as large as the first. It is up to us to ensure that the
+      algorithm will not attempt to access a nonexistent element in the second sequence.
+      For example, the ``equal`` algorithm potentially compares every element from its first
+      sequence to an element in the second. If the second sequence is a subset of the first,
+      then our program has a serious error — ``equal`` will attempt to access elements beyond
+      the end of the second sequence.
+
+
+   .. code-block:: cpp
+
+      fill(vec.begin(), vec.end(), 0); // reset each element to 0
+      // set a subsequence of the container to 10
+      fill(vec.begin(), vec.begin() + vec.size()/2, 10);
+
    Because fill writes to its given input sequence, so long as we pass a valid input
    sequence, the writes will be safe.
 
@@ -23737,17 +24867,25 @@ Algorithms Do Not Check Write Operations
 
    Some algorithms take an iterator that denotes a separate destination. These algorithms 
    assign new values to the elements of a sequence starting at the element denoted 
-   by the destination iterator. For example, the fill_n function takes a single
+   by the destination iterator. For example, the ``fill_n`` function takes a single
    iterator, a count, and a value. It assigns the given value to the specified number of
-   elements starting at the element denoted to by the iterator. We might use fill_n
+   elements starting at the element denoted to by the iterator. We might use ``fill_n``
    to assign a new value to the elements in a vector:
-   vector<int> vec; // empty vector
-   // use vec giving it various values
-   fill_n(vec.begin(), vec.size(), 0); // reset all the elements of vec to 0
-   The fill_n function assumes that it is safe to write the specified number of
+
+   .. code-block:: cpp
+
+      vector<int> vec; // empty vector
+      // use vec giving it various values
+      fill_n(vec.begin(), vec.size(), 0); // reset all the elements of vec to 0
+
+   The ``fill_n`` function assumes that it is safe to write the specified number of
    elements. That is, for a call of the form
-   fill_n(dest, n, val)
-   fill_n assumes that dest refers to an element and that there are at least n elements 
+
+   .. code-block:: cpp
+
+      fill_n(dest, n, val)
+
+   ``fill_n`` assumes that dest refers to an element and that there are at least n elements 
    in the sequence starting from dest.
 
 .. ptg11539634 382 Generic Algorithms
@@ -23755,14 +24893,20 @@ Algorithms Do Not Check Write Operations
 
    It is a fairly common beginner mistake to call fill_n (or similar algorithms
    that write to elements) on a container that has no elements:
-   vector<int> vec; // empty vector
-   // disaster: attempts to write to ten (nonexistent) elements in vec
-   fill_n(vec.begin(), 10, 0);
-   This call to fill_n is a disaster. We specified that ten elements should be written,
+
+   .. code-block:: cpp
+
+      vector<int> vec; // empty vector
+      // disaster: attempts to write to ten (nonexistent) elements in vec
+      fill_n(vec.begin(), 10, 0);
+
+   This call to ``fill_n`` is a disaster. We specified that ten elements should be written,
    but there are no such elements—vec is empty. The result is undefined.
    Algorithms that write to a destination iterator assume the destination is
    large enough to hold the number of elements being written.
-   Introducing back_inserter
+
+Introducing back_inserter
+
    One way to ensure that an algorithm has enough elements to hold the output is
    to use an insert iterator. An insert iterator is an iterator that adds elements to a
    container. Ordinarily, when we assign to a container element through an iterator,
@@ -23770,24 +24914,35 @@ Algorithms Do Not Check Write Operations
    iterator, a new element equal to the right-hand value is added to the container.
    We'll have more to say about insert iterators in § 10.4.1 (p. [P0401]_). However, in
    order to illustrate how to use algorithms that write to a container, we will use
-   back_inserter, which is a function defined in the iterator header.
-   back_inserter takes a reference to a container and returns an insert iterator
+   ``back_inserter``, which is a function defined in the iterator header.
+
+   ``back_inserter`` takes a reference to a container and returns an insert iterator
    bound to that container. When we assign through that iterator, the assignment
    calls push_back to add an element with the given value to the container:
-   vector<int> vec; // empty vector
-   auto it = back_inserter(vec); // assigning through it adds elements to vec
-   * it = 42;
-   // vec now has one element with value 42
+
+   .. code-block:: cpp
+
+      vector<int> vec; // empty vector
+      auto it = back_inserter(vec); // assigning through it adds elements to vec
+      * it = 42;
+      // vec now has one element with value 42
+
    We frequently use back_inserter to create an iterator to use as the destination
    of an algorithm. For example:
-   vector<int> vec; // empty vector
-   // ok: back_inserter creates an insert iterator that adds elements to vec
-   fill_n(back_inserter(vec), 10, 0); // appends ten elements to vec
+
+   .. code-block:: cpp
+
+      vector<int> vec; // empty vector
+      // ok: back_inserter creates an insert iterator that adds elements to vec
+      fill_n(back_inserter(vec), 10, 0); // appends ten elements to vec
+
    On each iteration, fill_n assigns to an element in the given sequence. Because
-   we passed an iterator returned by back_inserter, each assignment will call
+   we passed an iterator returned by ``back_inserter``, each assignment will call
    push_back on vec. As a result, this call to fill_n adds ten elements to the
    end of vec, each of which has the value 0.
-   Copy Algorithms
+
+Copy Algorithms
+
    The copy algorithm is another example of an algorithm that writes to the elements
    of an output sequence denoted by a destination iterator. This algorithm takes three
    iterators. The first two denote an input range; the third denotes the beginning of
@@ -23799,32 +24954,47 @@ Algorithms Do Not Check Write Operations
 .. _P0383:
 
    As one example, we can use copy to copy one built-in array to another:
-   int a1[] = {0,1,2,3,4,5,6,7,8,9};
-   int a2[sizeof(a1)/sizeof( * a1)]; // a2 has the same size as a1
-   // ret points just past the last element copied into a2
-   auto ret = copy(begin(a1), end(a1), a2); // copy a1 into a2
-   Here we define an array named a2 and use sizeof to ensure that a2 has as many
-   elements as the array a1 (§ 4.9, p. [P0157]_). We then call copy to copy a1 into a2. After
-   the call to copy, the elements in both arrays have the same values.
-   The value returned by copy is the (incremented) value of its destination iterator. 
-   That is, ret will point just past the last element copied into a2.
+
+   .. code-block:: cpp
+
+      int a1[] = {0,1,2,3,4,5,6,7,8,9};
+      int a2[sizeof(a1)/sizeof( * a1)]; // a2 has the same size as a1
+      // ret points just past the last element copied into a2
+      auto ret = copy(begin(a1), end(a1), a2); // copy a1 into a2
+
+   Here we define an array named `a2` and use ``sizeof`` to ensure that `a2` has as many
+   elements as the array a1 (§ 4.9, p. [P0157]_). We then call ``copy`` to copy `a1` into `a2`. After
+   the call to ``copy``, the elements in both arrays have the same values.
+
+   The value returned by ``copy`` is the (incremented) value of its destination iterator. 
+   That is, ret will point just past the last element copied into `a2`.
+
    Several algorithms provide so-called “copying” versions. These algorithms
    compute new element values, but instead of putting them back into their input
    sequence, the algorithms create a new sequence to contain the results.
+
    For example, the replace algorithm reads a sequence and replaces every instance 
    of a given value with another value. This algorithm takes four parameters:
    two iterators denoting the input range, and two values. It replaces each element
    that is equal to the first value with the second:
-   // replace any element with the value 0 with 42
-   replace(ilst.begin(), ilst.end(), 0, 42);
+
+   .. code-block:: cpp
+
+      // replace any element with the value 0 with 42
+      replace(ilst.begin(), ilst.end(), 0, 42);
+
    This call replaces all instances of 0 by 42. If we want to leave the original sequence
-   unchanged, we can call replace_copy. That algorithm takes a third iterator argument 
+   unchanged, we can call ``replace_copy``. That algorithm takes a third iterator argument 
    denoting a destination in which to write the adjusted sequence:
-   // use back_inserter to grow destination as needed
-   replace_copy(ilst.cbegin(), ilst.cend(),
-   back_inserter(ivec), 0, 42);
-   After this call, ilst is unchanged, and ivec contains a copy of ilst with the
-   exception that every element in ilst with the value 0 has the value 42 in ivec.
+
+   .. code-block:: cpp
+
+      // use back_inserter to grow destination as needed
+      replace_copy(ilst.cbegin(), ilst.cend(),
+      back_inserter(ivec), 0, 42);
+
+   After this call, `ilst` is unchanged, and `ivec` contains a copy of ``ilst`` with the
+   exception that every element in `ilst` with the value 0 has the value 42 in `ivec`.
 
 /10.2.3 Algorithms That Reorder Container Elements
 ```````````````````````````````````````````````````
@@ -23832,58 +25002,84 @@ Algorithms Do Not Check Write Operations
    Some algorithms rearrange the order of elements within a container. An obvious
    example of such an algorithm is sort. A call to sort arranges the elements in the
    input range into sorted order using the element type's < operator.
+
    As an example, suppose we want to analyze the words used in a set of chils 
-   dren's stories. We'll assume that we have a vector that holds the text of several
-   stories. We'd like to reduce this vector so that each word appears only once,
+   dren's stories. We'll assume that we have a ``vector`` that holds the text of several
+   stories. We'd like to reduce this ``vector`` so that each word appears only once,
    regardless of how many times that word appears in any of the given stories.
    For purposes of illustration, we'll use the following simple story as our input:
-   the quick red fox jumps over the slow red turtle
-   Given this input, our program should produce the following vector:
-   fox jumps over quick red slow the turtle
+
+      the quick red fox jumps over the slow red turtle
+
+   Given this input, our program should produce the following ``vector``:
+
+   .. code-block:: bash
+
+         ╭─────┬───────┬──────┬───────┬─────┬──────┬─────┬────────╮
+         │ fox │ jumps │ over │ quick │ red │ slow │ the │ turtle │
+         ╰─────┴───────┴──────┴───────┴─────┴──────┴─────┴────────╯
 
 .. ptg11539634 384 Generic Algorithms
 .. _P0384:
 
 
-Exercises Section 10.2.2
+   Exercises Section 10.2.2
 
-   Exercise 10.6: Using fill_n, write a program to set a sequence of int values to 0.
+      Exercise 10.6: Using fill_n, write a program to set a sequence of int values to 0.
 
-   Exercise 10.7: Determine if there are any errors in the following programs and, if so,
-   correct the error(s):
-   (a) vector<int> vec; list<int> lst; int i;
-   while (cin >> i)
-   lst.push_back(i);
-   copy(lst.cbegin(), lst.cend(), vec.begin());
-   (b) vector<int> vec;
-   vec.reserve(10); // reserve is covered in § 9.4 (p. [P0356]_)
-   fill_n(vec.begin(), 10, 0);
+      Exercise 10.7: Determine if there are any errors in the following programs and, if so,
+      correct the error(s):
 
-   Exercise 10.8: We said that algorithms do not change the size of the containers over
-   which they operate. Why doesn't the use of back_inserter invalidate this claim?
-   Eliminating Duplicates
+      .. code-block:: cpp
+
+         (a) vector<int> vec; list<int> lst; int i;
+            while (cin >> i)
+               lst.push_back(i);
+            copy(lst.cbegin(), lst.cend(), vec.begin());
+
+         (b) vector<int> vec;
+            vec.reserve(10); // reserve is covered in § 9.4 (p. [P0356]_)
+            fill_n(vec.begin(), 10, 0);
+
+      Exercise 10.8: We said that algorithms do not change the size of the containers over
+      which they operate. Why doesn't the use of `back_inserter` invalidate this claim?
+
+Eliminating Duplicates
+
    To eliminate the duplicated words, we will first sort the vector so that duplicated
    words appear adjacent to each other. Once the vector is sorted, we can use another 
    library algorithm, named unique, to reorder the vector so that the unique
    elements appear in the first part of the vector. Because algorithms cannot do
    container operations, we'll use the erase member of vector to actually remove
    the elements:
-   void elimDups(vector<string> &words)
-   {
-   // sort words alphabetically so we can find the duplicates
-   sort(words.begin(), words.end());
-   // unique reorders the input range so that each word appears once in the
-   // front portion of the range and returns an iterator one past the unique range
-   auto end_unique = unique(words.begin(), words.end());
-   // erase uses a vector operation to remove the nonunique elements
-   words.erase(end_unique, words.end());
-   }
+
+   .. code-block:: cpp
+
+      void elimDups(vector<string> &words)
+      {
+         // sort words alphabetically so we can find the duplicates
+         sort(words.begin(), words.end());
+         // unique reorders the input range so that each word appears once in the
+         // front portion of the range and returns an iterator one past the unique range
+         auto end_unique = unique(words.begin(), words.end());
+         // erase uses a vector operation to remove the nonunique elements
+         words.erase(end_unique, words.end());
+      }
+
    The sort algorithm takes two iterators denoting the range of elements to sort. In
    this call, we sort the entire vector. After the call to sort, words is ordered as
-   fox jumps over quick red red slow the the turtle
+
+   .. code-block:: bash
+
+         ╭─────┬───────┬──────┬───────┬─────┬─────┬──────┬─────┬─────┬────────╮
+         │ fox │ jumps │ over │ quick │ red │ red │ slow │ the │ the │ turtle │
+         ╰─────┴───────┴──────┴───────┴─────┴─────┴──────┴─────┴─────┴────────╯
+
    Note that the words red and the appear twice.
-   Using unique
-   Once words is sorted, we want to keep only one copy of each word. The unique
+
+Using unique
+
+   Once `words` is sorted, we want to keep only one copy of each word. The `unique`
    algorithm rearranges the input range to “eliminate” adjacent duplicated entries,
 
 .. ptg11539634 Section 10.3 Customizing Operations 385
@@ -23891,39 +25087,48 @@ Exercises Section 10.2.2
 
    and returns an iterator that denotes the end of the range of the unique values.
    After the call to unique, the vector holds
-   fox jumps over quick red slow the turtle ??? ???
-   end_unique
-   6
-   (one past the last unique element)
+
+   .. code-block:: bash
+
+         ╭─────┬───────┬──────┬───────┬─────┬──────┬─────┬────────┬─────┬─────╮
+         │ fox │ jumps │ over │ quick │ red │ slow │ the │ turtle │ ??? │ ??? │
+         ╰─────┴───────┴──────┴───────┴─────┴──────┴─────┴────────┴┬────┴─────╯
+                                                                   ╰── end_unique
+                                                (one past the last unique element)
+
    The size of words is unchanged; it still has ten elements. The order of those elements 
    is changed—the adjacent duplicates have been “removed.” We put remove
    in quotes because unique doesn't remove any elements. Instead, it overwrites adjacent 
    duplicates so that the unique elements appear at the front of the sequence.
    The iterator returned by unique denotes one past the last unique element. The
    elements beyond that point still exist, but we don't know what values they have.
-   The library algorithms operate on iterators, not containers. Therefore,
-   an algorithm cannot (directly) add or remove elements.
+
+   .. Tip::
+
+      The library algorithms operate on iterators, not containers. Therefore,
+      an algorithm cannot (directly) add or remove elements.
 
 Using Container Operations to Remove Elements
 
-   To actuallyremovetheunused elements, we must useacontainer operation, which
-   we do in the call to erase (§ 9.3.3, p. [P0349]_). We erase the range of elements from the
-   one to which end_uniquerefers through the end of words. After this call, words
+   To actually remove theunused elements, we must useacontainer operation, which
+   we do in the call to ``erase`` (§ 9.3.3, p. [P0349]_). We erase the range of elements from the
+   one to which ``end_unique`` refers through the end of words. After this call, words
    contains the eight unique words from the input.
-   It is worth noting that this call to erase would be safe even if words has no
-   duplicated words. In that case, unique would return words.end(). Both arguments 
-   to erase would have the same value: words.end(). The fact that the
-   iterators are equal would mean that the range passed to erase would be empty.
+
+   It is worth noting that this call to ``erase`` would be safe even if words has no
+   duplicated words. In that case, ``unique`` would return `words.end()`. Both arguments 
+   to ``erase`` would have the same value: `words.end()`. The fact that the
+   iterators are equal would mean that the range passed to ``erase`` would be empty.
    Erasing an empty range has no effect, so our program is correct even if the input
    has no duplicates.
 
-Exercises Section 10.2.3
+   Exercises Section 10.2.3
 
-   Exercise 10.9: Implement your own version of elimDups. Test your program by
-   printing the vector after you read the input, after the call to unique, and after the
-   call to erase.
+      Exercise 10.9: Implement your own version of elimDups. Test your program by
+      printing the vector after you read the input, after the call to ``unique``, and after the
+      call to ``erase``.
 
-   Exercise 10.10: Why do you think the algorithms don't change the size of containers?
+      Exercise 10.10: Why do you think the algorithms don't change the size of containers?
 
 /10.3👋 Customizing Operations
 -------------------------------
@@ -23936,7 +25141,7 @@ Exercises Section 10.2.3
 .. ptg11539634 386 Generic Algorithms
 .. _P0386:
 
-   For example, the sort algorithm uses the element type's < operator. However,
+   For example, the ``sort`` algorithm uses the element type's < operator. However,
    we might want to sort a sequence into a different order from that defined by <, or
    our sequence might have elements of a type (such as Sales_data) that does not
    have a < operator. In both cases, we need to override the default behavior of sort.
@@ -23949,35 +25154,45 @@ Exercises Section 10.2.3
    ordered by their size, and then alphabetically within each size. To reorder the
    vector by length, we'll use a second, overloaded version of sort. This version
    of sort takes a third argument that is a predicate.
-   Predicates
+
+Predicates
+
    A predicate is an expression that can be called and that returns a value that can
    be used as a condition. The predicates used by library algorithms are either unary
    predicates (meaning they have a single parameter) or binary predicates (meaning 
    they have two parameters). The algorithms that take predicates call the given
    predicate on the elements in the input range. As a result, it must be possible to
    convert the element type to the parameter type of the predicate.
+
    The version of sort that takes a binary predicate uses the given predicate in
    place of < to compare elements. The predicates that we supply to sort must meet
    the requirements that we'll describe in § 11.2.2 (p. [P0425]_). For now, what we need to
    know is that the operation must define a consistent order for all possible elements
-   in the input sequence. Our isShorterfunction from § 6.2.2(p. [P0211]_)is an example
-   of a function that meets these requirements, so we can pass isShorter to sort.
+   in the input sequence. Our `isShorter` function from § 6.2.2(p. [P0211]_) is an example
+   of a function that meets these requirements, so we can pass `isShorter` to sort.
    Doing so will reorder the elements by size:
-   // comparison function to be used to sort by word length
-   bool isShorter(const string &s1, const string &s2)
-   {
-   return s1.size() < s2.size();
-   }
-   // sort on word length, shortest to longest
-   sort(words.begin(), words.end(), isShorter);
+
+   .. code-block:: cpp
+
+      // comparison function to be used to sort by word length
+      bool isShorter(const string &s1, const string &s2)
+      {
+         return s1.size() < s2.size();
+      }
+      // sort on word length, shortest to longest
+      sort(words.begin(), words.end(), isShorter);
+
    If words contains the same data as in § 10.2.3 (p. [P0384]_), this call would reorder
    words so that all the words of length 3 appear before words of length 4, which in
    turn are followed by words of length 5, and so on.
-   Sorting Algorithms
-   When we sort wordsby size, we also want to maintain alphabeticorderamong the
+
+Sorting Algorithms
+
+   When we sort words by size, we also want to maintain alphabetic order among the
    elements that have the same length. To keep the words of the same length in alphabetical 
-   order we can use the stable_sort algorithm. A stable sort maintains
+   order we can use the `stable_sort` algorithm. A stable sort maintains
    the original order among equal elements.
+
    Ordinarily, we don't care about the relative order of equal elements in a sorted
    sequence. After all, they're equal. However, in this case, we have defined “equal”
 
@@ -23985,14 +25200,18 @@ Exercises Section 10.2.3
 .. _P0387:
 
    to mean “have the same length.” Elements that have the same length still differ
-   from one another when we view their contents. By calling stable_sort, we can
+   from one another when we view their contents. By calling `stable_sort`, we can
    maintain alphabetical order among those elements that have the same length:
-   elimDups(words); // put words in alphabetical order and remove duplicates
-   // resort by length, maintaining alphabetical order among words of the same length
-   stable_sort(words.begin(), words.end(), isShorter);
-   for (const auto &s : words) // no need to copy the string s
-   cout << s << " "; // print each element separated by a space
-   cout << endl;
+
+   .. code-block:: cpp
+
+      elimDups(words); // put words in alphabetical order and remove duplicates
+      // resort by length, maintaining alphabetical order among words of the same length
+      stable_sort(words.begin(), words.end(), isShorter);
+      for (const auto &s : words) // no need to copy the string s
+      cout << s << " "; // print each element separated by a space
+      cout << endl;
+
    Assuming words was in alphabetical order before this call, after the call, words
    will be sorted by element size, and the words of each length remain in alphabetical
    order. If we run this code on our original vector, the output will be
@@ -24000,20 +25219,20 @@ Exercises Section 10.2.3
 
 Exercises Section 10.3.1
 
-   Exercise 10.11: Write a program that uses stable_sort and isShorter to sort a
-   vector passed to your version of elimDups. Print the vector to verify that your
+   Exercise 10.11: Write a program that uses `stable_sort` and `isShorter` to sort a
+   ``vector`` passed to your version of elimDups. Print the ``vector`` to verify that your
    program is correct.
 
    Exercise 10.12: Write a function named compareIsbn that compares the isbn()
-   members of two Sales_data objects. Use that function to sort a vector that holds
-   Sales_data objects.
+   members of two `Sales_data` objects. Use that function to sort a ``vector`` that holds
+   `Sales_data` objects.
 
-   Exercise 10.13: The librarydefines an algorithm named partitionthat takes a predicate 
-   and partitions the container so that values for which the predicate is true appear
+   Exercise 10.13: The library defines an algorithm named ``partition`` that takes a predicate 
+   and partitions the container so that values for which the predicate is ``true`` appear
    in the first part and those for which the predicate is false appear in the second part.
    The algorithm returns an iterator just past the last element for which the predicate
-   returned true. Write a function that takes a string and returns a bool indicating
-   whether the string has five characters or more. Use that function to partition words.
+   returned ``true``. Write a function that takes a ``string`` and returns a ``bool`` indicating
+   whether the ``string`` has five characters or more. Use that function to partition words.
    Print the elements that have five or more characters.
 
 /10.3.2 Lambda Expressions
@@ -24026,289 +25245,386 @@ Exercises Section 10.3.1
    forthe lastexercisein theprevioussection hadto hard-wirethesize5into the predicate 
    used to partition the sequence. It would be move useful to be able to partition
    a sequence without having to write a separate predicate for every possible size.
+
    As a related example, we'll revise our program from § 10.3.1 (p. [P0387]_) to report
    how many words are of a given size or greater. We'll also change the output so
    that it prints only the words of the given length or greater.
-   A sketch of this function, which we'll name biggies, is as follows:
+
+   A sketch of this function, which we'll name `biggies`, is as follows:
 
 .. ptg11539634 388 Generic Algorithms
 .. _P0388:
 
-   void biggies(vector<string> &words,
-   vector<string>::size_type sz)
-   {
-   elimDups(words); // put words in alphabetical order and remove duplicates
-   // resort by length, maintaining alphabetical order among words of the same length
-   stable_sort(words.begin(), words.end(), isShorter);
-   // get an iterator to the first element whose size() is >= sz
-   // compute the number of elements with size >= sz
-   // print words of the given size or longer, each one followed by a space
-   }
+
+   .. code-block:: cpp
+
+      void biggies(vector<string> &words, vector<string>::size_type sz)
+      {
+         elimDups(words); // put words in alphabetical order and remove duplicates
+         // resort by length, maintaining alphabetical order among words of the same length
+         stable_sort(words.begin(), words.end(), isShorter);
+         // get an iterator to the first element whose size() is >= sz
+         // compute the number of elements with size >= sz
+         // print words of the given size or longer, each one followed by a space
+      }
+
    Our new problem is to find the first element in the vector that has the given
    size. Once we know that element, we can use its position to compute how many
    elements have that size or greater.
+
    We can use the library find_if algorithm to find an element that has a particular 
    size. Like find(§10.1,p. 376),the find_ifalgorithm takes a pairof iterators
    denoting a range. Unlike find, the third argument to find_if is a predicate. The
    find_if algorithm calls the given predicate on each element in the input range.
    It returns the first element for which the predicate returns a nonzero value, or its
    end iterator if no such element is found.
-   Itwouldbeeasyto writeafunction thattakesastringandasizeandreturnsa
-   bool indicating whether the size of a given string is greater than the given size.
+
+   It would be easy to write a function that takes a ``string`` and a `size` and returns a
+   ``bool`` indicating whether the size of a given string is greater than the given size.
    However, find_if takes a unary predicate—any function we pass to find_if
    must have exactly one parameterthat can be called with an element from the input
    sequence. There is no way to pass a second argument representing the size. To
    solve this partof our problemwe'll needto use some additional language facilities.
-   Introducing Lambdas
-   We can pass any kind of callable object to an algorithm. An object or expression
-   is callable if we can apply the call operator (§ 1.5.2, p. [P0023]_) to it. That is, if e is a
-   callable expression, we can write e(args) where args is a comma-separated list
+
+Introducing Lambdas
+
+   We can pass any kind of `callable` object to an algorithm. An object or expression
+   is `callable` if we can apply the ``call`` operator (§ 1.5.2, p. [P0023]_) to it. That is, if e is a
+   `callable` expression, we can write e(args) where args is a comma-separated list
    of zero or more arguments.
-   The only callables we've used so far are functions and function pointers (§ 6.7, p. [P0247]_).
-   There are two other kinds of callables: classes that overload the functioncall 
+
+   The only `callables` we've used so far are functions and function pointers (§ 6.7, p. [P0247]_).
+   There are two other kinds of `callables`: classes that overload the function call 
    operator, which we'll cover in § 14.8 (p. [P0571]_), and lambda expressions.
-   A lambda expression represents a callable unit of code. It can be thought of
+   A lambda expression represents a `callable` unit of code. It can be thought of
    as an unnamed, inline function. Like any function, a lambda has a return type, a
    parameter list, and a function body. Unlike a function, lambdas may be defined
    inside a function. A lamba expression has the form
-   [capture list](parameter list) -> return type { function body }
+
+   .. code-block:: cpp
+
+      [capture list](parameter list) -> return type { function body }
+
    where capture list is an (often empty) list of local variables defined in the enclosing
    function; return type, parameter list, and function body are the same as in any ordinary 
    function. However, unlike ordinary functions, a lambda must use a trailing
    return (§ 6.3.3, p. [P0229]_) to specify its return type.
+
    We can omit either or both of the parameter list and return type but must always 
    include the capture list and function body:
 
 .. ptg11539634 Section 10.3 Customizing Operations 389
 .. _P0389:
 
-   auto f = [] { return 42; };
+
+   .. code-block:: cpp
+
+      auto f = [] { return 42; };
+
    Here, we've defined f as a callable object that takes no arguments and returns 42.
    We call a lambda the same way we call a function by using the call operator:
-   cout << f() << endl; // prints 42
+
+   .. code-block:: cpp
+
+      cout << f() << endl; // prints 42
+
    Omitting the parentheses and the parameter list in a lambda is equivalent to
    specifying an empty parameter list. Hence, when we call f, the argument list is
    empty. If we omit the return type, the lambda has an inferred return type that
    depends on the code in the function body. If the function body is just a return
    statement, the return type is inferred from the type of the expression that is returned. 
    Otherwise, the return type is void.
-   Lambdas with function bodies that contain anything other than a single
-   return statement that do not specify a return type return void.
-   Passing Arguments to a Lambda
+
+   .. Note::
+
+      Lambdas with function bodies that contain anything other than a single
+      return statement that do not specify a return type return void.
+
+Passing Arguments to a Lambda
+
    As with an ordinary function call, the arguments in a call to a lambda are used to
    initialize the lambda's parameters. As usual, the argument and parameter types
    must match. Unlike ordinary functions, a lambda may not have default arguments
    (§ 6.5.1, p. [P0236]_). Therefore, a call to a lambda always has as many arguments as the
    lambda has parameters. Once the parameters are initialized, the function body
    executes.
+
    As an example of a lambda that takes arguments, we can write a lambda that
-   behaves like our isShorter function:
-   [](const string &a, const string &b)
-   { return a.size() < b.size();}
+   behaves like our `isShorter` function:
+
+   .. code-block:: cpp
+
+      [](const string &a, const string &b)
+         { return a.size() < b.size();}
+
    The empty capture list indicates that this lambda will not use any local variables
    from the surrounding function. The lambda's parameters, like the parameters
-   to isShorter, are references to const string. Again like isShorter, the
-   lambda's function body compares its parameters' size()s and returns a bool
+   to `isShorter`, are references to const string. Again like `isShorter`, the
+   lambda's function body compares its parameters' `size()`s and returns a bool
    that depends on the relative sizes of the given arguments.
+
    We can rewrite our call to stable_sort to use this lambda as follows:
-   // sort words by size, but maintain alphabetical order for words of the same size
-   stable_sort(words.begin(), words.end(),
-   [](const string &a, const string &b)
-   { return a.size() < b.size();});
-   When stable_sortneeds to compare two elements, it will call the given lambda
+
+   .. code-block:: cpp
+
+      // sort words by size, but maintain alphabetical order for words of the same size
+      stable_sort(words.begin(), words.end(),
+         [](const string &a, const string &b)
+            { return a.size() < b.size();});
+
+   When `stable_sort` needs to compare two elements, it will call the given lambda
    expression.
-   Using the Capture List
+
+Using the Capture List
+
    We're now ready to solve our original problem, which is to write a callable expression 
-   that we can pass to find_if. We want an expression that will compare the
+   that we can pass to `find_if`. We want an expression that will compare the
 
 .. ptg11539634 390 Generic Algorithms
 .. _P0390:
 
    length of each string in the input sequence with the value of the sz parameter
    in the biggies function.
+
    Although a lambda may appear inside a function, it can use variables local
    to that function only if it specifies which variables it intends to use. A lambda
    specifies the variables it will use by including those local variables in its capture
    list. The capture list directs the lambda to include information needed to access
    those variables within the lambda itself.
-   In this case, our lambda will capture sz and will have a single string parameter. 
+
+   In this case, our lambda will capture `sz` and will have a single string parameter. 
    The body of our lambda will compare the given string's size with the
-   captured value of sz:
-   [sz](const string &a)
-   { return a.size() >= sz; };
+   captured value of `sz`:
+
+   .. code-block:: cpp
+
+      [sz](const string &a)
+         { return a.size() >= sz; };
+
    Inside the [] that begins a lambda we can provide a comma-separated list of
    names defined in the surrounding function.
-   Because this lambda captures sz, the body of the lambda may use sz. The
+
+   Because this lambda captures `sz`, the body of the lambda may use `sz`. The
    lambda does not capture words, and so has no access to that variable. Had we
    given our lambda an empty capture list, our code would not compile:
-   // error: sz not captured
-   [](const string &a)
-   { return a.size() >= sz; };
-   A lambda may use a variablelocal to its surrounding function only if the
-   lambda captures that variable in its capture list.
-   Calling find_if
+
+   .. code-block:: cpp
+
+      // error: sz not captured
+      [](const string &a)
+         { return a.size() >= sz; };
+
+   .. Note::
+
+      A lambda may use a variablelocal to its surrounding function only if the
+      lambda captures that variable in its capture list.
+
+Calling find_if
+
    Using this lambda, we can find the first element whose size is at least as big as sz:
-   // get an iterator to the first element whose size() is >= sz
-   auto wc = find_if(words.begin(), words.end(),
-   [sz](const string &a)
-   { return a.size() >= sz; });
+
+   .. code-block:: cpp
+
+      // get an iterator to the first element whose size() is >= sz
+      auto wc = find_if(words.begin(), words.end(),
+         [sz](const string &a)
+            { return a.size() >= sz; });
+
    The call to find_if returns an iterator to the first element that is at least as long
    as the given sz, or a copy of words.end() if no such element exists.
+
    We can use the iterator returned from find_if to compute how many elements 
    appear between that iterator and the end of words (§ 3.4.2, p. [P0111]_):
-   // compute the number of elements with size >= sz
-   auto count = words.end() - wc;
-   cout << count << " " << make_plural(count, "word", "s")
-   << " of length " << sz << " or longer" << endl;
+
+   .. code-block:: cpp
+
+      // compute the number of elements with size >= sz
+      auto count = words.end() - wc;
+      cout << count << " " << make_plural(count, "word", "s")
+           << " of length " << sz << " or longer" << endl;
+
    Our output statement calls make_plural (§ 6.3.2, p. [P0224]_) to print word or words,
    depending on whether that size is equal to 1.
 
 .. ptg11539634 Section 10.3 Customizing Operations 391
 .. _P0391:
 
-   The for_each Algorithm
+The for_each Algorithm
+
    The last part of our problem is to print the elements in words that have length sz
-   or greater. To do so, we'll use the for_each algorithm. This algorithm takes a
+   or greater. To do so, we'll use the ``for_each`` algorithm. This algorithm takes a
    callable object and calls that object on each element in the input range:
-   // print words of the given size or longer, each one followed by a space
-   for_each(wc, words.end(),
-   [](const string &s){cout << s << " ";});
-   cout << endl;
-   The capture list in this lambda is empty, yet the body uses two names: its own
+
+   .. code-block:: cpp
+
+      // print words of the given size or longer, each one followed by a space
+      for_each(wc, words.end(), [](const string &s){cout << s << " ";});
+      cout << endl;
+
+   The `capture list` in this lambda is empty, yet the body uses two names: its own
    parameter, named s, and cout.
-   The capture list is empty, because we use the capture list only for (nonstatic)
+
+   The `capture list` is empty, because we use the `capture list` only for (nonstatic)
    variables defined in the surrounding function. A lambda can use names that are
    defined outside the function in which the lambda appears. In this case, cout is not
    a name defined locally in biggies; that name is defined in the iostream header.
    So long as the iostream header is included in the scope in which biggies appears, 
    our lambda can use cout.
-   Thecapturelist isusedforlocalnonstaticvariablesonly; lambdascan
+
+   The `capture list` is used for local nonstatic variables only; lambda scan
    use local statics and variables declared outside the function directly.
-   Putting It All Together
+
+Putting It All Together
+
    Now that we've looked at the program in detail, here is the program as a whole:
-   void biggies(vector<string> &words,
-   vector<string>::size_type sz)
-   {
-   elimDups(words); // put words in alphabetical order and remove duplicates
-   // sort words by size, but maintain alphabetical order for words of the same size
-   stable_sort(words.begin(), words.end(),
-   [](const string &a, const string &b)
-   { return a.size() < b.size();});
-   // get an iterator to the first element whose size() is >= sz
-   auto wc = find_if(words.begin(), words.end(),
-   [sz](const string &a)
-   { return a.size() >= sz; });
-   // compute the number of elements with size >= sz
-   auto count = words.end() - wc;
-   cout << count << " " << make_plural(count, "word", "s")
-   << " of length " << sz << " or longer" << endl;
-   // print words of the given size or longer, each one followed by a space
-   for_each(wc, words.end(),
-   [](const string &s){cout << s << " ";});
-   cout << endl;
-   }
+
+   .. code-block:: cpp
+
+      void biggies(vector<string> &words,
+      vector<string>::size_type sz)
+      {
+         elimDups(words); // put words in alphabetical order and remove duplicates
+         // sort words by size, but maintain alphabetical order for words of the same size
+         stable_sort(words.begin(), words.end(),
+            [](const string &a, const string &b)
+               { return a.size() < b.size();});
+         // get an iterator to the first element whose size() is >= sz
+         auto wc = find_if(words.begin(), words.end(),
+            [sz](const string &a)
+               { return a.size() >= sz; });
+         // compute the number of elements with size >= sz
+         auto count = words.end() - wc;
+         cout << count << " " << make_plural(count, "word", "s")
+              << " of length " << sz << " or longer" << endl;
+         // print words of the given size or longer, each one followed by a space
+         for_each(wc, words.end(),
+            [](const string &s){cout << s << " ";});
+         cout << endl;
+      }
 
 .. ptg11539634 392 Generic Algorithms
 .. _P0392:
 
 
-Exercises Section 10.3.2
+   Exercises Section 10.3.2
 
-   Exercise 10.14: Write a lambda that takes two ints and returns their sum.
+      Exercise 10.14: Write a ``lambda`` that takes two ints and returns their sum.
 
-   Exercise 10.15: Write a lambda that captures an int from its enclosing function and
-   takes an int parameter. The lambda should return the sum of the captured int and
-   the int parameter.
+      Exercise 10.15: Write a ``lambda`` that captures an int from its enclosing function and
+      takes an int parameter. The ``lambda`` should return the sum of the captured int and
+      the int parameter.
 
-   Exercise 10.16: Write your own version of the biggies function using lambdas.
+      Exercise 10.16: Write your own version of the `biggies` function using lambdas.
 
-   Exercise 10.17: Rewrite exercise 10.12 from § 10.3.1 (p. [P0387]_) to use a lambda in the call
-   to sort instead of the compareIsbn function.
+      Exercise 10.17: Rewrite exercise 10.12 from § 10.3.1 (p. [P0387]_) to use a ``lambda`` in the call
+      to sort instead of the compareIsbn function.
 
-   Exercise 10.18: Rewrite biggies to use partition instead of find_if. We described 
-   the partition algorithm in exercise 10.13 in § 10.3.1 (p. [P0387]_).
+      Exercise 10.18: Rewrite `biggies` to use partition instead of find_if. We described 
+      the partition algorithm in exercise 10.13 in § 10.3.1 (p. [P0387]_).
 
-   Exercise 10.19: Rewrite the previous exercise to use stable_partition, which like
-   stable_sort maintains the original element order in the paritioned sequence.
+      Exercise 10.19: Rewrite the previous exercise to use `stable_partition`, which like
+      stable_sort maintains the original element order in the paritioned sequence.
 
 /10.3.3 Lambda Captures and Returns
 ````````````````````````````````````
 
-   When we define a lambda, the compiler generates anew (unnamed) class type that
+   When we define a ``lambda``, the compiler generates a new (unnamed) class type that
    corresponds to that lambda. We'll see how these classes are generated in § 14.8.1
-   (p. [P0572]_). For now, what's useful to understand is that when we pass a lambda to a
+   (p. [P0572]_). For now, what's useful to understand is that when we pass a ``lambda`` to a
    function, we are defining both a new type and an object of that type: The argument
-   is an unnamed object of this compiler-generatedclass type. Similarly, when we use
-   auto to define a variable initialized by a lambda, we are defining an object of the
-   type generated from that lambda.
-   By default, the class generated from a lambda contains a data member corresponding 
-   to the variables captured by the lambda. Like the data members of any
-   class, the datamembersof alambdaareinitializedwhen alambdaobjectis created.
-   Capture by Value
+   is an `unnamed object` of this compiler-generated class type. Similarly, when we use
+   ``auto`` to define a variable initialized by a ``lambda``, we are defining an object of the
+   type generated from that ``lambda``.
+
+   By default, the class generated from a ``lambda`` contains a data member corresponding 
+   to the variables captured by the ``lambda``. Like the data members of any
+   class, the data members of a ``lambda`` are initialized when a ``lambda`` object is created.
+
+Capture by Value
+
    Similar to parameter passing, we can capture variables by value or by reference.
    Table 10.1 (p. [P0395]_) covers the various ways we can form a capture list. So far,
    our lambdas have captured variables by value. As with a parameter passed by
    value, it must be possible to copy such variables. Unlike parameters, the value of
-   a captured variable is copied when the lambda is created, not when it is called:
-   void fcn1()
-   {
-   size_t v1 = 42; // local variable
-   // copies v1 into the callable object named f
-   auto f = [v1] { return v1; };
-   v1 = 0;
-   auto j = f(); // j is 42 ; f stored a copy of v1 when we created it
-   }
-   Because the value is copied when the lambda is created, subsequent changes to a
-   captured variable have no effect on the corresponding value inside the lambda.
+   a captured variable is copied when the ``lambda`` is created, not when it is called:
+
+   .. code-block:: cpp
+
+      void fcn1()
+      {
+         size_t v1 = 42; // local variable
+         // copies v1 into the callable object named f
+         auto f = [v1] { return v1; };
+         v1 = 0;
+         auto j = f(); // j is 42 ; f stored a copy of v1 when we created it
+      }
+
+   Because the value is copied when the ``lambda`` is created, subsequent changes to a
+   captured variable have no effect on the corresponding value inside the ``lambda``.
 
 .. ptg11539634 Section 10.3 Customizing Operations 393
 .. _P0393:
 
-   Capture by Reference
+Capture by Reference
+
    We can also define lambdas that capture variables by reference. For example:
-   void fcn2()
-   {
-   size_t v1 = 42; // local variable
-   // the object f2 contains a reference to v1
-   auto f2 = [&v1] { return v1; };
-   v1 = 0;
-   auto j = f2(); // j is 0 ; f2 refers to v1 ; it doesn't store it
-   }
-   The & before v1 indicates that v1 should be captured as a reference. A variable
+
+   .. code-block:: cpp
+
+      void fcn2()
+      {
+         size_t v1 = 42; // local variable
+         // the object f2 contains a reference to v1
+         auto f2 = [&v1] { return v1; };
+         v1 = 0;
+         auto j = f2(); // j is 0 ; f2 refers to v1 ; it doesn't store it
+      }
+
+   The & before `v1` indicates that `v1` should be captured as a reference. A variable
    captured by reference acts like any other reference. When we use the variable
-   inside the lambda body, we are using the object to which that reference is bound.
-   In this case, when the lambda returns v1, it returns the value of the object to which
-   v1 refers.
+   inside the ``lambda`` body, we are using the object to which that reference is bound.
+   In this case, when the ``lambda`` returns `v1`, it returns the value of the object to which
+   `v1` refers.
+
    Reference captures have the same problems and restrictions as reference returns 
    (§ 6.3.2, p. [P0225]_). If we capture a variable by reference, we must be certain
-   that the referenced object exists at the time the lambda is executed. The variables
-   captured by a lambda are local variables. These variables cease to exist once the
-   function completes. If it is possible for a lambda to be executed after the function
+   that the referenced object exists at the time the ``lambda`` is executed. The variables
+   captured by a ``lambda`` are local variables. These variables cease to exist once the
+   function completes. If it is possible for a ``lambda`` to be executed after the function
    finishes, the local variables to which the capture refers no longer exist.
+
    Reference captures are sometimes necessary. For example, we might want our
    biggies function to take a reference to an ostream on which to write and a
    character to use as the separator:
-   void biggies(vector<string> &words,
-   vector<string>::size_type sz,
-   ostream &os = cout, char c = ' ')
-   {
-   // code to reorder words as before
-   // statement to print count revised to print to os
-   for_each(words.begin(), words.end(),
-   [&os, c](const string &s) { os << s << c; });
-   }
+
+   .. code-block:: cpp
+
+      void biggies(vector<string> &words,
+         vector<string>::size_type sz, ostream &os = cout, char c = ' ')
+      {
+         // code to reorder words as before
+         // statement to print count revised to print to os
+         for_each(words.begin(), words.end(),
+            [&os, c](const string &s) { os << s << c; });
+      }
+
    We cannot copy ostream objects (§ 8.1.1, p. [P0311]_); the only way to capture os is by
    reference (or through a pointer to os).
-   When we pass a lambda to a function, as in this call to for_each, the lambda
+
+   When we pass a lambda to a function, as in this call to ``for_each``, the lambda
    executes immediately. Capturing os by reference is fine, because the variables in
-   biggies exist while for_each is running.
-   Wecanalso returnalambdafromafunction. Thefunctionmight directlyreturn
+   biggies exist while ``for_each`` is running.
+
+   We can also return a lambda from a function. The function might directly return
    a callable object or the function might return an object of a class that has a callable
    object as a data member. If the function returns a lambda, then—for the same
    reasons that a function must not return a referenceto a local variable—that lambda
    must not contain reference captures.
-   When we capture a variable by reference, we must ensure that the variable 
-   exists at the time that the lambda executes.
+
+   .. Warning::
+
+      When we capture a variable by reference, we must ensure that the variable 
+      exists at the time that the ``lambda`` executes.
 
 .. ptg11539634 394 Generic Algorithms
 .. _P0394:
@@ -24318,48 +25634,60 @@ Exercises Section 10.3.2
 
       Advice : Keep Your Lambda Captures Simple
 
-   A lambda capture stores information between the time the lambda is created (i.e.,
-   when the code that defines the lambda is executed) and the time (or times) the lambda
-   itself is executed. It is the programmer's responsibility to ensure that whatever information 
-   is captured has the intended meaning each time the lambda is executed.
-   Capturing an ordinary variable—an int, a string, or other nonpointer type—
-   by value is usually straightforward. In this case, we only need to care whether the
-   variable has the value we need when we capture it.
-   If we capture a pointer or iterator, or capture a variable by reference, we must ensure 
-   that the object bound to that iterator, pointer, or reference still exists, whenever
-   the lambda executes. Moreover, we need to ensure that the object has the intended
-   value. Code that executes between when the lambda is created and when it executes
-   might change the value of the object to which the lambda capture points (or refers).
-   The value of the object at the time the pointer (or reference) was captured might have
-   been what we wanted. The value of that object when the lambda executes might be
-   quite different.
-   As a rule, we can avoid potential problems with captures by minimizing the data
-   we capture. Moreover, if possible, avoid capturing pointers or references.
-   Implicit Captures
+      A ``lambda`` capture stores information between the time the ``lambda`` is created (i.e.,
+      when the code that defines the ``lambda`` is executed) and the time (or times) the ``lambda``
+      itself is executed. It is the programmer's responsibility to ensure that whatever information 
+      is captured has the intended meaning each time the ``lambda`` is executed.
+
+      Capturing an ordinary variable—an ``int``, a ``string``, or other nonpointer type—
+      by value is usually straightforward. In this case, we only need to care whether the
+      variable has the value we need when we capture it.
+
+      If we capture a pointer or iterator, or capture a variable by reference, we must ensure 
+      that the object bound to that iterator, pointer, or reference still exists, whenever
+      the ``lambda`` executes. Moreover, we need to ensure that the object has the intended
+      value. Code that executes between when the ``lambda`` is created and when it executes
+      might change the value of the object to which the ``lambda`` capture points (or refers).
+      The value of the object at the time the pointer (or reference) was captured might have
+      been what we wanted. The value of that object when the ``lambda`` executes might be
+      quite different.
+
+      As a rule, we can avoid potential problems with captures by minimizing the data
+      we capture. Moreover, if possible, avoid capturing pointers or references.
+
+Implicit Captures
+
    Rather than explicitly listing the variables we want to use from the enclosing function, 
    we can let the compiler infer which variables we use from the code in the
    lambda's body. To direct the compiler to infer the capture list, we use an & or =
    in the capture list. The & tells the compiler to capture by reference, and the = says
    the values are captured by value. For example, we can rewrite the lambda that we
    passed to find_if as
-   // sz implicitly captured by value
-   wc = find_if(words.begin(), words.end(),
-   [=](const string &s)
-   { return s.size() >= sz; });
+
+   .. code-block:: cpp
+
+      // sz implicitly captured by value
+      wc = find_if(words.begin(), words.end(),
+      [=](const string &s)
+      { return s.size() >= sz; });
+
    If we want to capture some variables by value and others by reference, we can
    mix implicit and explicit captures:
-   void biggies(vector<string> &words,
-   vector<string>::size_type sz,
-   ostream &os = cout, char c = ' ')
-   {
-   // other processing as before
-   // os implicitly captured by reference; c explicitly captured by value
-   for_each(words.begin(), words.end(),
-   [&, c](const string &s) { os << s << c; });
-   // os explicitly captured by reference; c implicitly captured by value
-   for_each(words.begin(), words.end(),
-   [=, &os](const string &s) { os << s << c; });
-   }
+
+   .. code-block:: cpp
+
+      void biggies(vector<string> &words,
+      vector<string>::size_type sz,
+      ostream &os = cout, char c = ' ')
+      {
+         // other processing as before
+         // os implicitly captured by reference; c explicitly captured by value
+         for_each(words.begin(), words.end(),
+            [&, c](const string &s) { os << s << c; });
+         // os explicitly captured by reference; c implicitly captured by value
+         for_each(words.begin(), words.end(),
+            [=, &os](const string &s) { os << s << c; });
+      }
 
 .. ptg11539634 Section 10.3 Customizing Operations 395
 .. _P0395:
@@ -24367,90 +25695,121 @@ Exercises Section 10.3.2
    When we mix implicit and explicit captures, the first item in the capture list must
    be an & or =. That symbol sets the default capture mode as by reference or by
    value, respectively.
+
    When we mix implicit and explicit captures, the explicitly captured variables
    must usethe alternateform. Thatis, if the implicit captureis by reference(using &),
    then the explicitly named variables must be captured by value; hence their names
    may not be preceded by an &. Alternatively, if the implicit capture is by value
    (using =), then the explicitly named variables must be precededby an & to indicate
    that they are to be captured by reference.
+
    Table 10.1: Lambda Capture List
-   [] Empty capture list. The lambda may not use variables from the enclosing
-   function. A lamba may use local variables only if it captures them.
-   [names] names is a comma-separated list of names local to the enclosing function.
-   By default, variables in the capture list are copied. A name preceded by &
-   is captured by reference.
-   [&] Implicit by reference capture list. Entities from the enclosing function
-   used in the lambda body are used by reference.
-   [=] Implicit by value capture list. Entities from the enclosing function used in
-   the lambda body are copied into the lambda body.
-   [&, identifier_list] identifier_list is a comma-separated list of zero or more variables from the
-   enclosing function. These variables are captured by value; any implicitly
-   captured variables are captured by reference. The names in identifier_list
-   must not be preceded by an &.
-   [=, reference_list] Variables included in the reference_list are captured by reference; any
-   implicitly captured variables are captured by value. The names in
-   reference_list may not include this and must be preceded by an &.
-   Mutable Lambdas
+
+   ===================== ======================================================
+   []                    Empty capture list. The lambda may not use variables from the enclosing
+                         function. A lamba may use local variables only if it captures them.
+   [names]               names is a comma-separated list of names local to the enclosing function.
+                         By default, variables in the capture list are copied. A name preceded by &
+                         is captured by reference.
+   [&]                   Implicit by reference capture list. Entities from the enclosing function
+                         used in the lambda body are used by reference.
+   [=]                   Implicit by value capture list. Entities from the enclosing function used in
+                         the lambda body are copied into the lambda body.
+   [&, identifier_list]  `identifier_list` is a comma-separated list of zero or more variables from the
+                         enclosing function. These variables are captured by value; any implicitly
+                         captured variables are captured by reference. The names in `identifier_list`
+                         must not be preceded by an &.
+   [=, reference_list]   Variables included in the `reference_list` are captured by reference; any
+                         implicitly captured variables are captured by value. The names in
+                         `reference_list` may not include this and must be preceded by an &.
+   ===================== ======================================================
+
+Mutable Lambdas
+
    By default, a lambda may not change the value of a variable that it copies by value.
    If we want to be able to change the value of a captured variable, we must follow
    the parameter list with the keyword mutable. Lambdas that are mutable may not
    omit the parameter list:
-   void fcn3()
-   {
-   size_t v1 = 42; // local variable
-   // f can change the value of the variables it captures
-   auto f = [v1] () mutable { return ++v1; };
-   v1 = 0;
-   auto j = f(); // j is 43
-   }
+
+   .. code-block:: cpp
+
+      void fcn3()
+      {
+         size_t v1 = 42; // local variable
+         // f can change the value of the variables it captures
+         auto f = [v1] () mutable { return ++v1; };
+         v1 = 0;
+         auto j = f(); // j is 43
+      }
+
    Whether a variable captured by reference can be changed (as usual) depends
    only on whether that reference refers to a const or nonconst type:
 
 .. ptg11539634 396 Generic Algorithms
 .. _P0396:
 
-   void fcn4()
-   {
-   size_t v1 = 42; // local variable
-   // v1 is a reference to a non const variable
-   // we can change that variable through the reference inside f2
-   auto f2 = [&v1] { return ++v1; };
-   v1 = 0;
-   auto j = f2(); // j is 1
-   }
-   Specifying the Lambda Return Type
+
+   .. code-block:: cpp
+
+      void fcn4()
+      {
+         size_t v1 = 42; // local variable
+         // v1 is a reference to a non const variable
+         // we can change that variable through the reference inside f2
+         auto f2 = [&v1] { return ++v1; };
+         v1 = 0;
+         auto j = f2(); // j is 1
+      }
+
+Specifying the Lambda Return Type
+
    The lambdas we've written so far contain only a single return statement. As a
    result, we haven't had to specify the return type. By default, if a lambda body
    contains any statements other than a return, that lambda is assumed to return
    void. Like other functions that return void, lambdas inferred to return void
    may not return a value.
+
    As a simple example, we might use the library transform algorithm and a
    lambda to replace each negative value in a sequence with its absolute value:
-   transform(vi.begin(), vi.end(), vi.begin(),
-   [](int i) { return i < 0 ? -i : i; });
-   The transformfunction takes threeiteratorsand acallable. Thefirst two iterators
+
+   .. code-block:: cpp
+
+      transform(vi.begin(), vi.end(), vi.begin(),
+         [](int i) { return i < 0 ? -i : i; });
+
+   The transform function takes three iterators and acallable. The first two iterators
    denote an input sequence and the third is a destination. The algorithm calls the
    given callable on each element in the input sequence and writes the result to the
    destination. As in this call, the destination iterator can be the same as the iterator
    denoting the start of the input. When the input iterator and the destination iterator
    are the same, transform replaces each element in the input range with the result
    of calling the callable on that element.
+
    In this call, we passed a lambda that returns the absolute value of its parameter.
    The lambda body is a single return statement that returns the result of a conditional 
    expression. We need not specify the return type, because that type can be
    inferred from the type of the conditional operator.
+
    However, if we write the seemingly equivalent programusing an if statement,
    our code won't compile:
-   // error: cannot deduce the return type for the lambda
-   transform(vi.begin(), vi.end(), vi.begin(),
-   [](int i) { if (i < 0) return -i; else return i; });
+
+   .. code-block:: cpp
+
+      // error: cannot deduce the return type for the lambda
+      transform(vi.begin(), vi.end(), vi.begin(),
+         [](int i) { if (i < 0) return -i; else return i; });
+
    This version of our lambda infers the return type as void but we returned a value.
    When we need to define a return type for a lambda, we must use a trailing
    return type (§ 6.3.3, p. [P0229]_):
-   transform(vi.begin(), vi.end(), vi.begin(),
-   [](int i) -> int
-   { if (i < 0) return -i; else return i; });
-   In this case, the fourth argument to transformis a lambdawith an empty capture
+
+   .. code-block:: cpp
+
+      transform(vi.begin(), vi.end(), vi.begin(),
+      [](int i) -> int
+         { if (i < 0) return -i; else return i; });
+
+   In this case, the fourth argument to transformis a lambda with an empty capture
    list, which takes a single parameterof type int and returnsa value of type int. Its
    function body is an if statement that returns the absolute value of its parameter.
 
@@ -24458,47 +25817,55 @@ Exercises Section 10.3.2
 .. _P0397:
 
 
-Exercises Section 10.3.3
+   Exercises Section 10.3.3
 
-   Exercise 10.20: The library defines an algorithm named count_if. Like find_if,
-   this function takes a pair of iterators denoting an input range and a predicate that it
-   applies to each element in the given range. count_if returns a count of how often the
-   predicate is true. Use count_if to rewrite the portion of our program that counted
-   how many words are greater than length 6.
+      Exercise 10.20: The library defines an algorithm named `count_if`. Like `find_if`,
+      this function takes a pair of iterators denoting an input range and a predicate that it
+      applies to each element in the given range. `count_if` returns a count of how often the
+      predicate is true. Use `count_if` to rewrite the portion of our program that counted
+      how many words are greater than length 6.
 
-   Exercise 10.21: Write a lambda that captures a local int variable and decrements that
-   variable until it reaches 0. Once the variable is 0 additional calls should no longer
-   decrement the variable. The lambda should return a bool that indicates whether the
-   captured variable is 0.
+      Exercise 10.21: Write a ``lambda`` that captures a local int variable and decrements that
+      variable until it reaches 0. Once the variable is 0 additional calls should no longer
+      decrement the variable. The ``lambda`` should return a bool that indicates whether the
+      captured variable is 0.
 
 /10.3.4 Binding Arguments
 ``````````````````````````
 
-   Lambda expressions are most useful for simple operations that we do not need to
+   ``Lambda`` expressions are most useful for simple operations that we do not need to
    use in more than one or two places. If we need to do the same operation in many
-   places, we should usually define a function rather than writing the same lambda
+   places, we should usually define a function rather than writing the same ``lambda``
    expression multiple times. Similarly, if an operation requires many statements, it
    is ordinarily better to use a function.
-   It is usually straightforward to use a function in place of a lambda that has an
-   empty capture list. As we've seen, we can use either a lambda or our isShorter
-   function to orderthe vectoron wordlength. Similarly, it would be easyto replace
-   thelambdathatprintedthecontents ofourvectorbywriting afunction thattakes
+
+   It is usually straightforward to use a function in place of a ``lambda`` that has an
+   empty capture list. As we've seen, we can use either a ``lambda`` or our isShorter
+   function to order the vector on word length. Similarly, it would be easy to replace
+   the ``lambda`` that printed the contents of our vector by writing a function that takes
    a string and prints the given string to the standard output.
-   However, it is not so easy to write a function to replace a lambda that captures
-   local variables. For example, the lambda that we used in the call to find_if
+
+   However, it is not so easy to write a function to replace a ``lambda`` that captures
+   local variables. For example, the ``lambda`` that we used in the call to `find_if`
    compared a string with a given size. We can easily write a function to do the
    same work:
-   bool check_size(const string &s, string::size_type sz)
-   {
-   return s.size() >= sz;
-   }
-   However, we can't use this function as an argument to find_if. As we've seen,
-   find_if takes a unary predicate, so the callable passed to find_if must take a
-   single argument. The lambda that biggies passed to find_if used its capture
-   list to store sz. In order to use check_size in place of that lambda, we have to
+
+   .. code-block:: cpp
+
+      bool check_size(const string &s, string::size_type sz)
+      {
+         return s.size() >= sz;
+      }
+
+   However, we can't use this function as an argument to `find_if`. As we've seen,
+   `find_if` takes a unary predicate, so the callable passed to `find_if` must take a
+   single argument. The ``lambda`` that biggies passed to `find_if` used its capture
+   list to store sz. In order to use `check_size` in place of that ``lambda``, we have to
    figure out how to pass an argument to the sz parameter.
-   The Library bind Function
-   We can solve the problem of passing a size argument to check_size by using a
+
+The Library bind Function
+
+   We can solve the problem of passing a size argument to `check_size` by using a
    new library function named bind, which is defined in the functional header.
    The bind function can be thought of as a general-purpose function adaptor (§ 9.6, p. [P0368]_).
    It takes a callable object and generates a new callable that “adapts” the
@@ -24508,155 +25875,233 @@ Exercises Section 10.3.3
 .. _P0398:
 
    The general form of a call to bind is:
-   auto newCallable = bind(callable, arg_list);
-   where newCallable is itself a callable object and arg_list is a comma-separated list of
+
+   .. code-block:: cpp
+
+      auto newCallable = bind(callable, arg_list);
+
+   where `newCallable` is itself a callable object and `arg_list` is a comma-separated list of
    arguments that correspond to the parameters of the given callable. That is, when
-   we call newCallable, newCallable calls callable, passing the arguments in arg_list.
-   The arguments in arg_list may include names of the form _n, where n is an
-   integer. These arguments are “placeholders” representing the parameters of newCallable. 
-   They stand “in place of” the arguments that will be passed to newCallable.
+   we call `newCallable`, `newCallable` calls callable, passing the arguments in `arg_list`.
+   The arguments in `arg_list` may include names of the form _n, where n is an
+   integer. These arguments are “placeholders” representing the parameters of `newCallable`. 
+   They stand “in place of” the arguments that will be passed to `newCallable`.
    The number n is the position of the parameter in the generated callable: _1 is the
-   first parameter in newCallable, _2 is the second, and so forth.
-   Binding the sz Parameter of check_size
-   As a simple example, we'll use bind to generate an object that calls check_size
+   first parameter in `newCallable`, _2 is the second, and so forth.
+
+Binding the sz Parameter of `check_size`
+
+   As a simple example, we'll use bind to generate an object that calls `check_size`
    with a fixed value for its size parameter as follows:
-   // check6 is a callable object that takes one argument of type string
-   // and calls check_size on its given string and the value 6
-   auto check6 = bind(check_size, _1, 6);
-   This call to bind has only one placeholder, which means that check6 takes a
-   single argument. The placeholder appears first in arg_list, which means that the
-   parameter in check6 corresponds to the first parameter of check_size. That
-   parameter is a const string&, which means that the parameter in check6 is
-   also a const string&. Thus, a call to check6 must pass an argument of type
-   string, which check6 will pass as the first argument to check_size.
-   The second argument in arg_list (i.e., the third argument to bind) is the value
-   6. That value is bound to the second parameter of check_size. Whenever we
-   call check6, it will pass 6 as the second argument to check_size:
-   string s = "hello";
-   bool b1 = check6(s); // check6(s) calls check_size(s, 6)
-   Using bind, we can replace our original lambda-based call to find_if
-   auto wc = find_if(words.begin(), words.end(),
-   [sz](const string &a)
+
+   .. code-block:: cpp
+
+      // check6 is a callable object that takes one argument of type string
+      // and calls check_size on its given string and the value 6
+      auto check6 = bind(check_size, _1, 6);
+
+   This call to bind has only one placeholder, which means that `check6` takes a
+   single argument. The placeholder appears first in `arg_list`, which means that the
+   parameter in `check6` corresponds to the first parameter of `check_size`. That
+   parameter is a const string&, which means that the parameter in `check6` is
+   also a const string&. Thus, a call to `check6` must pass an argument of type
+   string, which `check6` will pass as the first argument to `check_size`.
+
+   The second argument in `arg_list` (i.e., the third argument to bind) is the value
+   6. That value is bound to the second parameter of `check_size`. Whenever we
+   call `check6`, it will pass 6 as the second argument to `check_size`:
+
+   .. code-block:: cpp
+
+      string s = "hello";
+      bool b1 = check6(s); // check6(s) calls check_size(s, 6)
+
+   Using bind, we can replace our original lambda-based call to `find_if`
+
+   .. code-block:: cpp
+
+      auto wc = find_if(words.begin(), words.end(),
+         [sz](const string &a)
+
    with a version that uses check_size:
-   auto wc = find_if(words.begin(), words.end(),
-   bind(check_size, _1, sz));
+
+   .. code-block:: cpp
+
+      auto wc = find_if(words.begin(), words.end(),
+         bind(check_size, _1, sz));
+
    This call to bind generates a callable object that binds the second argument of
-   check_size to the value of sz. When find_if calls this object on the strings
+   check_size to the value of sz. When `find_if` calls this object on the strings
    in words those calls will in turn call check_size passing the given string and
-   sz. So, find_if (effectively) will call check_size on each string in the input
+   sz. So, `find_if` (effectively) will call check_size on each string in the input
    range and compare the size of that string to sz.
 
 .. ptg11539634 Section 10.3 Customizing Operations 399
 .. _P0399:
 
-   Using placeholders Names
-   The _n names are defined in a namespace named placeholders. That namespace 
-   is itself defined inside the std namespace (§ 3.1, p. [P0082]_). To use these names,
+Using placeholders Names
+
+   The _n names are defined in a namespace named ``placeholders``. That namespace 
+   is itself defined inside the ``std`` namespace (§ 3.1, p. [P0082]_). To use these names,
    we must supply the names of both namespaces. As with our other examples, our
    calls to bind assume the existence of appropriate using declarations. For example, 
    the using declaration for _1 is
-   using std::placeholders::_1;
+
+   .. code-block:: cpp
+
+      using std::placeholders::_1;
+
    This declaration says we're using the name _1, which is defined in the namespace
-   placeholders, which is itself defined in the namespace std.
+   ``placeholders``, which is itself defined in the namespace ``std``.
+
    We must provide a separate using declaration for each placeholder name that
    we use. Writing such declarations can be tedious and error-prone. Rather than
    separately declaring each placeholder, we can use a different form of using that
    we will cover in more detail in § 18.2.2 (p. [P0793]_). This form:
-   using namespace namespace_name;
+
+   .. code-block:: cpp
+
+      using namespace namespace_name;
+
    says that we want to make all the names from namespace_name accessible to our
    program. For example:
-   using namespace std::placeholders;
-   makes all the names defined by placeholders usable. Like the bind function,
-   the placeholders namespace is defined in the functional header.
-   Arguments to bind
+
+   .. code-block:: cpp
+
+      using namespace std::placeholders;
+
+   makes all the names defined by ``placeholders`` usable. Like the bind function,
+   the ``placeholders`` namespace is defined in the functional header.
+
+Arguments to bind
+
    As we've seen, we can use bind to fix the value of a parameter. More generally,
    we can use bind to bind or rearrange the parameters in the given callable. For
    example, assuming f is a callable object that has five parameters, the following
    call to bind:
-   // g is a callable object that takes two arguments
-   auto g = bind(f, a, b, _2, c, _1);
-   generatesanewcallablethattakestwo arguments,representedbytheplaceholders
+
+   .. code-block:: cpp
+
+      // g is a callable object that takes two arguments
+      auto g = bind(f, a, b, _2, c, _1);
+
+   generates a new callable that takes two arguments, represented by the ``placeholders``
    _2 and _1. The new callable will pass its own arguments as the third and fifth
    arguments to f. The first, second, and fourth arguments to f are bound to the
    given values, a, b, and c, respectively.
-   The arguments to g are bound positionally to the placeholders. That is, the first
+
+   The arguments to g are bound positionally to the ``placeholders``. That is, the first
    argument to g is bound to _1, and the second argument is bound to _2. Thus,
    when we call g, the first argument to g will be passed as the last argument to f;
    the second argument to g will be passed as f's third argument. In effect, this call
    to bind maps
-   g(_1, _2)
-   to
-   f(a, b, _2, c, _1)
+
+   .. code-block:: cpp
+
+      g(_1, _2)
+      // to
+      f(a, b, _2, c, _1)
+
    That is, calling g calls f using g's arguments for the placeholders along with the
    bound arguments, a, b, and c. For example, calling g(X, Y) calls
-   f(a, b, Y, c, X)
+
+   .. code-block:: cpp
+
+      f(a, b, Y, c, X)
 
 .. ptg11539634 400 Generic Algorithms
 .. _P0400:
 
-   Using to bind to Reorder Parameters
-   As a more concrete example of using bind to reorderarguments, we can use bind
-   to invert the meaning of isShorter by writing
-   // sort on word length, shortest to longest
-   sort(words.begin(), words.end(), isShorter);
-   // sort on word length, longest to shortest
-   sort(words.begin(), words.end(), bind(isShorter, _2, _1));
+Using to bind to Reorder Parameters
+
+   As a more concrete example of using ``bind`` to reorder arguments, we can use ``bind``
+   to invert the meaning of `isShorter` by writing
+
+   .. code-block:: cpp
+
+      // sort on word length, shortest to longest
+      sort(words.begin(), words.end(), isShorter);
+      // sort on word length, longest to shortest
+      sort(words.begin(), words.end(), bind(isShorter, _2, _1));
+
    In the first call, when sort needs to compare two elements, A and B, it will call
-   isShorter(A, B). In the second call to sort, the arguments to isShorter are
+   `isShorter(A, B)`. In the second call to sort, the arguments to `isShorter` are
    swapped. In this case, when sort compares elements, it will be as if sort called
-   isShorter(B, A).
-   Binding Reference Parameters
+   `isShorter(B, A)`.
+
+Binding Reference Parameters
+
    By default, the arguments to bind that are not placeholders are copied into the
    callable object that bind returns. However, as with lambdas, sometimes we have
    arguments that we want to bind but that we want to pass by referenceor we might
    want to bind an argument that has a type that we cannot copy.
+
    For example, to replace the lambda that captured an ostream by reference:
-   // os is a local variable referring to an output stream
-   // c is a local variable of type char
-   for_each(words.begin(), words.end(),
-   [&os, c](const string &s) { os << s << c; });
+
+   .. code-block:: cpp
+
+      // os is a local variable referring to an output stream
+      // c is a local variable of type char
+      for_each(words.begin(), words.end(),
+         [&os, c](const string &s) { os << s << c; });
+
    We can easily write a function to do the same job:
-   ostream &print(ostream &os, const string &s, char c)
-   {
-   return os << s << c;
-   }
+
+   .. code-block:: cpp
+
+      ostream &print(ostream &os, const string &s, char c)
+      {
+         return os << s << c;
+      }
+
    However, we can't use bind directly to replace the capture of os:
-   // error: cannot copy os
-   for_each(words.begin(), words.end(), bind(print, os, _1, ' '));
+
+   .. code-block:: cpp
+
+      // error: cannot copy os
+      for_each(words.begin(), words.end(), bind(print, os, _1, ' '));
+
    because bind copies its arguments and we cannot copy an ostream. If we want
    to pass an object to bind without copying it, we must use the libraryref function:
-   for_each(words.begin(), words.end(),
-   bind(print, ref(os), _1, ' '));
+
+   .. code-block:: cpp
+
+      for_each(words.begin(), words.end(),
+         bind(print, ref(os), _1, ' '));
+
    The ref function returns an object that contains the given reference and that is
    itself copyable. There is also a cref function that generates a class that holds a
-   reference to const. Like bind, the ref and cref functions are defined in the
+   reference to ``const``. Like bind, the ref and cref functions are defined in the
    functional header.
 
 .. ptg11539634 Section 10.4 Revisiting Iterators 401
 .. _P0401:
 
-   B ACKWARD C OMPATIBILITY : B INDING A RGUMENTS
-   Older versions of C++ provided a much more limited, yet more complicated, set of
-   facilities to bind arguments to functions. The library defined two functions named
-   bind1st and bind2nd. Like bind, these functions take a function and generate a
-   new callable object that calls the given function with one of its parameters bound to
-   a given value. However, these functions can bind only the first or second parameter,
-   respectively. Because they are of much more limited utility, they have been deprecated
-   in the new standard. A deprecated feature is one that may not be supported in future
-   releases. Modern C++ programs should use bind.
+   .. Note::
 
-Exercises Section 10.3.4
+      Backward Compatibility : Binding Arguments
 
-   Exercise 10.22: Rewrite the program to count words of size 6 or less using functions
-   in place of the lambdas.
+      Older versions of C++ provided a much more limited, yet more complicated, set of
+      facilities to bind arguments to functions. The library defined two functions named
+      `bind1st` and `bind2nd`. Like ``bind``, these functions take a function and generate a
+      new callable object that calls the given function with one of its parameters bound to
+      a given value. However, these functions can bind only the first or second parameter,
+      respectively. Because they are of much more limited utility, they have been deprecated
+      in the new standard. A deprecated feature is one that may not be supported in future
+      releases. Modern C++ programs should use ``bind``.
 
-   Exercise 10.23: How many arguments does bind take?
+   Exercises Section 10.3.4
 
-   Exercise 10.24: Use bind and check_size to find the first element in a vector of
-   ints that has a value greater than the length of a specified string value.
+      Exercise 10.22: Rewrite the program to count words of size 6 or less using functions
+      in place of the lambdas.
 
-   Exercise 10.25: In the exercises for § 10.3.2 (p. [P0392]_) you wrote a version of biggies
-   that uses partition. Rewrite that function to use check_size and bind.
+      Exercise 10.23: How many arguments does ``bind`` take?
+
+      Exercise 10.24: Use bind and `check_size` to find the first element in a vector of
+      ints that has a value greater than the length of a specified string value.
+
+      Exercise 10.25: In the exercises for § 10.3.2 (p. [P0392]_) you wrote a version of biggies
+      that uses partition. Rewrite that function to use `check_size` and bind.
 
 /10.4👋 Revisiting Iterators
 -----------------------------
@@ -24664,13 +26109,17 @@ Exercises Section 10.3.4
    In addition to the iterators that are defined for each of the containers, the library
    defines several additional kinds of iterators in the iterator header. These iterators 
    include
-   • Insert iterators: These iterators are bound to a container and can be used to
+
+   • **Insert iterators**: These iterators are bound to a container and can be used to
    insert elements into the container.
-   • Stream iterators: These iterators are bound to input or output streams and
+
+   • **Stream iterators**: These iterators are bound to input or output streams and
    can be used to iterate through the associated IO stream.
-   • Reverse iterators: These iterators move backward, rather than forward. The
-   library containers, other than forward_list, have reverse iterators.
-   • Move iterators: These special-purpose iterators move rather than copy their
+
+   • **Reverse iterators**: These iterators move backward, rather than forward. The
+   library containers, other than ``forward_list``, have reverse iterators.
+
+   • **Move iterators**: These special-purpose iterators move rather than copy their
    elements. We'll cover move iterators in § 13.6.2 (p. [P0543]_).
 
 /10.4.1 Insert Iterators
@@ -24679,7 +26128,7 @@ Exercises Section 10.3.4
    An inserter is an iterator adaptor (§ 9.6, p. [P0368]_) that takes a container and yields
    an iterator that adds elements to the specified container. When we assign a value
    through an insert iterator, the iterator calls a container operation to add an element
-   ataspecifiedposition in thegivencontainer. Theoperationstheseiteratorssupport
+   at a specified position in the given container. The operations these iterators support
    are listed in Table 10.2 (overleaf).
 
 .. ptg11539634 402 Generic Algorithms
@@ -24687,184 +26136,250 @@ Exercises Section 10.3.4
 
    There are three kinds of inserters. Each differs from the others as to where
    elements are inserted:
+
    • back_inserter (§ 10.2.2, p. [P0382]_) creates an iterator that uses push_back.
+
    • front_inserter creates an iterator that uses push_front.
+
    • insertercreatesan iterator that uses insert. This function takes a second
    argument, which must be an iterator into the given container. Elements are
    inserted ahead of the element denoted by the given iterator.
-   We can use front_inserter only if the container has push_front.
-   Similarly, we can use back_inserter only if it has push_back.
+
+   .. Note::
+
+      We can use front_inserter only if the container has push_front.
+      Similarly, we can use back_inserter only if it has push_back.
+
    Table 10.2: Insert Iterator Operations
-   it = t Inserts the value t at the current position denoted by it. Depending on
-   the kind of insert iterator, and assuming c is the container to which it is
-   bound, calls c.push_back(t), c.push_front(t), or
-   c.insert(t, p), where p is the iterator position given to inserter.
-   * it, ++it, it++
-   These operations exist but do nothing to it. Each operator returns it.
+
+   ================= ========================================================
+   it = t            Inserts the value t at the current position denoted by it. Depending on
+                     the kind of insert iterator, and assuming c is the container to which it is
+                     bound, calls c.push_back(t), c.push_front(t), or
+                     c.insert(t, p), where p is the iterator position given to inserter.
+   * it, ++it, it++  These operations exist but do nothing to it. Each operator returns it.
+   ================= ========================================================
+
    It is important to understand that when we call inserter(c, iter), we get
    an iterator that, when used successively, inserts elements ahead of the element
    originally denoted by iter. That is, if it is an iterator generated by inserter,
    then an assignment such as
-   * it = val;
-   behaves as
-   it = c.insert(it, val); // it points to the newly added element
-   ++it; // increment it so that it denotes the same element as before
-   The iterator generated by front_inserter behaves quite differently from
-   the one created by inserter. When we use front_inserter, elements are
-   alwaysinsertedaheadofthe thenfirst elementin thecontainer. Evenifthe position
+
+   .. code-block:: cpp
+
+      * it = val;
+      // behaves as
+      it = c.insert(it, val); // it points to the newly added element
+      ++it; // increment it so that it denotes the same element as before
+
+   The iterator generated by `front_inserter` behaves quite differently from
+   the one created by inserter. When we use `front_inserter`, elements are
+   always inserted ahead of the :then: first element in the container. Even if the position
    we pass to inserter initially denotes the first element, as soon as we insert an
    element in front of that element, that element is no longer the one at the beginning
    of the container:
-   list<int> lst = {1,2,3,4};
-   list<int> lst2, lst3; // empty lists
-   // after copy completes, lst2 contains 4 3 2 1
-   copy(lst.cbegin(), lst.cend(), front_inserter(lst2));
-   // after copy completes, lst3 contains 1 2 3 4
-   copy(lst.cbegin(), lst.cend(), inserter(lst3, lst3.begin()));
-   When we call front_inserter(c), we get an insert iterator that successively
-   calls push_front. As each element is inserted, it becomes the new first element
-   in c. Therefore, front_inserter yields an iterator that reverses the order of the
-   sequence that it inserts; inserter and back_inserter don't.
+
+   .. code-block:: cpp
+
+      list<int> lst = {1,2,3,4};
+      list<int> lst2, lst3; // empty lists
+      // after copy completes, lst2 contains 4 3 2 1
+      copy(lst.cbegin(), lst.cend(), front_inserter(lst2));
+      // after copy completes, lst3 contains 1 2 3 4
+      copy(lst.cbegin(), lst.cend(), inserter(lst3, lst3.begin()));
+
+   When we call `front_inserter(c)`, we get an insert iterator that successively
+   calls `push_front`. As each element is inserted, it becomes the new first element
+   in c. Therefore, `front_inserter` yields an iterator that reverses the order of the
+   sequence that it inserts; inserter and `back_inserter` don't.
 
 .. ptg11539634 Section 10.4 Revisiting Iterators 403
 .. _P0403:
 
 
-Exercises Section 10.4.1
+   Exercises Section 10.4.1
 
-   Exercise 10.26: Explain the differences among the three kinds of insert iterators.
+      Exercise 10.26: Explain the differences among the three kinds of insert iterators.
 
-   Exercise 10.27: In addition to unique (§ 10.2.3, p. [P0384]_), the library defines function
-   named unique_copy that takes a third iterator denoting a destination into which
-   to copy the unique elements. Write a program that uses unique_copy to copy the
-   unique elements from a vector into an initially empty list.
+      Exercise 10.27: In addition to unique (§ 10.2.3, p. [P0384]_), the library defines function
+      named `unique_copy` that takes a third iterator denoting a destination into which
+      to copy the unique elements. Write a program that uses `unique_copy` to copy the
+      unique elements from a ``vector`` into an initially empty list.
 
-   Exercise 10.28: Copy a vector that holds the values from 1 to 9 inclusive, into three
-   other containers. Use an inserter, a back_inserter, and a front_inserter,
-   respectivlyto addelementstothesecontainers. Predicthowthe outputsequencevaries
-   by the kind of inserter and verify your predictions by running your programs.
+      Exercise 10.28: Copy a ``vector`` that holds the values from 1 to 9 inclusive, into three
+      other containers. Use an `inserter`, a `back_inserter`, and a `front_inserter`,
+      respectivly to add elements to these containers. Predict how the output sequence varies
+      by the kind of inserter and verify your predictions by running your programs.
 
 /10.4.2 iostream Iterators
 ```````````````````````````
 
    Even though the iostream types are not containers, there are iterators that can
-   be used with objects of the IO types (§ 8.1, p. [P0310]_). An istream_iterator (Table 
+   be used with objects of the IO types (§ 8.1, p. [P0310]_). An ``istream_iterator`` (Table 
    10.3 (overleaf)) reads an input stream, and an ostream_iterator(Table 10.4
    (p. [P0405]_)) writes an output stream. These iterators treat their corresponding stream
    as a sequence of elements of a specified type. Using a stream iterator, we can use
    the generic algorithms to read data from or write data to stream objects.
-   Operations on istream_iterators
+
+Operations on istream_iterators
+
    When we create a stream iterator, we must specify the type of objects that the
-   iterator will read or write. An istream_iterator uses >> to read a stream.
-   Therefore, the type that an istream_iterator reads must have an input operator 
-   defined. When we create an istream_iterator, we can bind it to a stream.
+   iterator will read or write. An ``istream_iterator`` uses >> to read a stream.
+   Therefore, the type that an ``istream_iterator`` reads must have an input operator 
+   defined. When we create an ``istream_iterator``, we can bind it to a stream.
    Alternatively, we can default initialize the iterator, which creates an iterator that
    we can use as the off-the-end value.
-   istream_iterator<int> int_it(cin); // reads int s from cin
-   istream_iterator<int> int_eof; // end iterator value
-   ifstream in("afile");
-   istream_iterator<string> str_it(in); // reads string s from "afile"
+
+   .. code-block:: cpp
+
+      istream_iterator<int> int_it(cin); // reads int s from cin
+      istream_iterator<int> int_eof; // end iterator value
+      ifstream in("afile");
+      istream_iterator<string> str_it(in); // reads string s from "afile"
+
    As an example, we can use an istream_iterator to read the standard input
    into a vector:
-   istream_iterator<int> in_iter(cin); // read ints from cin
-   istream_iterator<int> eof; // istream ‘‘end'' iterator
+
+   .. code-block:: cpp
+
+      istream_iterator<int> in_iter(cin); // read ints from cin
+      istream_iterator<int> eof; // istream ‘‘end'' iterator
+
    while (in_iter != eof) // while there's valid input to read
-   // postfix increment reads the stream and returns the old value of the iterator
-   // we dereference that iterator to get the previous value read from the stream
-   vec.push_back( * in_iter++);
-   This loop reads ints from cin, storing what was read in vec. On each iteration,
-   the loop checks whether in_iter is the same as eof. That iterator was defined
-   as the empty istream_iterator, which is used as the end iterator. An iterator
+
+   .. code-block:: cpp
+
+      // postfix increment reads the stream and returns the old value of the iterator
+      // we dereference that iterator to get the previous value read from the stream
+      vec.push_back( * in_iter++);
+
+   This loop reads ints from ``cin``, storing what was read in vec. On each iteration,
+   the loop checks whether ``in_iter`` is the same as eof. That iterator was defined
+   as the empty ``istream_iterator``, which is used as the end iterator. An iterator
 
 .. ptg11539634 404 Generic Algorithms
 .. _P0404:
 
    bound to a stream is equal to the end iterator once its associated stream hits endfile 
    of-file or encounters an IO error.
-   Thehardestpartofthis programistheargumenttopush_back,which usesthe
-   dereferenceandpostfix incrementoperators. This expressionworks just like others
-   we've written that combined dereferencewith postfix increment (§4.5, p. 148). The
+
+   The hardest part of this program is the argument to ``push_back``, which uses the
+   dereference and postfix increment operators. This expression works just like others
+   we've written that combined dereference with postfix increment (§4.5, p. 148). The
    postfix increment advances the stream by reading the next value but returns the
    old value of the iterator. That old value contains the previous value read from the
    stream. We dereference that iterator to obtain that value.
+
    What is more useful is that we can rewrite this program as
-   istream_iterator<int> in_iter(cin), eof; // read int s from cin
-   vector<int> vec(in_iter, eof); // construct vec from an iterator range
+
+   .. code-block:: cpp
+
+      istream_iterator<int> in_iter(cin), eof; // read int s from cin
+      vector<int> vec(in_iter, eof); // construct vec from an iterator range
+
    Here we construct vec from a pair of iterators that denote a range of elements.
    Those iterators are istream_iterators, which means that the range is obtained
    by reading the associated stream. This constructor reads cin until it hits end-offile 
    or encounters an input that is not an int. The elements that are read are used
    to construct vec.
+
    Table 10.3: istream_iterator Operations
-   istream_iterator<T> in(is); in reads values of type T from input stream is.
-   istream_iterator<T> end; Off-the-end iterator for an istream_iterator that
-   reads values of type T.
-   in1 == in2
-   in1 != in2
-   in1 and in2 must read the same type. They are equal if they are both the
-   end value or are bound to the same input stream.
-   * in
-   Returns the value read from the stream.
-   in->mem Synonym for ( * in).mem.
-   ++in, in++ Reads the next value from the input stream using the >> operator for the
-   element type. As usual, the prefix version returns a reference to the
-   incremented iterator. The postfix version returns the old value.
-   Using Stream Iterators with the Algorithms
-   Becausealgorithms operatein terms of iteratoroperations, and the streamiterators
+
+   ==================== =======================================================
+   istream_iterator<T>  in(is); in reads values of type T from input stream is.
+   istream_iterator<T>  end; Off-the-end iterator for an istream_iterator that
+                        reads values of type T.
+   in1 == in2           in1 and in2 must read the same type. They are equal if they are both the
+   in1 != in2           end value or are bound to the same input stream.
+   * in                 Returns the value read from the stream.
+   in->mem              Synonym for ( * in).mem.
+   ++in, in++           Reads the next value from the input stream using the >> operator for the
+                        element type. As usual, the prefix version returns a reference to the
+                        incremented iterator. The postfix version returns the old value.
+   ==================== =======================================================
+
+Using Stream Iterators with the Algorithms
+
+   Because algorithms operatein terms of iterator operations, and the stream iterators
    support at least some iterator operations, we can use stream iterators with at least
    some of the algorithms. We'll see in § 10.5.1 (p. [P0410]_) how to tell which algorithms
    can be used with the stream iterators. As one example, we can call accumulate
-   with a pair of istream_iterators:
-   istream_iterator<int> in(cin), eof;
-   cout << accumulate(in, eof, 0) << endl;
+   with a pair of `istream_iterators`:
+
+   .. code-block:: cpp
+
+      istream_iterator<int> in(cin), eof;
+      cout << accumulate(in, eof, 0) << endl;
+
    This call will generate the sum of values read from the standard input. If the input
    to this program is
-   23 109 45 89 6 34 12 90 34 23 56 23 8 89 23
+
+   .. code-block:: bash
+
+      23 109 45 89 6 34 12 90 34 23 56 23 8 89 23
+
    then the output will be 664.
 
 .. ptg11539634 Section 10.4 Revisiting Iterators 405
 .. _P0405:
 
-   istream_iterators Are Permitted to Use Lazy Evaluation
-   When we bind an istream_iterator to a stream, we are not guaranteed that
+istream_iterators Are Permitted to Use Lazy Evaluation
+
+   When we bind an ``istream_iterator`` to a stream, we are not guaranteed that
    it will read the stream immediately. The implementation is permitted to delay
    reading the stream until we use the iterator. We are guaranteed that before we
    dereference the iterator for the first time, the stream will have been read. For most
    programs, whether the read is immediate or delayed makes no difference. However, 
-   if we create an istream_iterator that we destroy without using or if we
+   if we create an ``istream_iterator`` that we destroy without using or if we
    are synchronizing reads to the same stream from two different objects, then we
    might care a great deal when the read happens.
-   Operations on ostream_iterators
-   An ostream_iterator can be defined for any type that has an output operator
-   (the << operator). When we create an ostream_iterator, we may (optionally)
+
+Operations on ostream_iterators
+
+   An ``ostream_iterator`` can be defined for any type that has an output operator
+   (the << operator). When we create an ``ostream_iterator``, we may (optionally)
    provide a second argument that specifies a character string to print following each
    element. That string must be a C-style character string (i.e., a string literal or a
-   pointer to a null-terminated array). We must bind an ostream_iterator to a
-   specific stream. There is no empty or off-the-end ostream_iterator.
+   pointer to a null-terminated array). We must bind an ``ostream_iterator`` to a
+   specific stream. There is no empty or off-the-end ``ostream_iterator``.
+
    Table 10.4: ostream_iterator Operations
-   ostream_iterator<T> out(os); out writes values of type T to output stream os.
-   ostream_iterator<T> out(os, d); out writes values of type T followed by d to
-   output stream os. d points to a null-terminated
-   character array.
-   out = val Writes val to the ostream to which out is bound using the << operator.
-   val must have a type that is compatible with the type that out can write.
+
+   =============================== ===========================================
+   ostream_iterator<T> out(os);     out writes values of type T to output stream os.
+   ostream_iterator<T> out(os, d);  out writes values of type T followed by d to
+                                    output stream os. d points to a null-terminated
+                                    character array.
+
+   out = val                        Writes val to the ostream to which out is bound using the << operator.
+                                    val must have a type that is compatible with the type that out can write.
+
    * out, ++out,
-   out++
-   These operations exist but do nothing to out. Each operator returns out.
+   out++                            These operations exist but do nothing to out. Each operator returns out.
+   =============================== ===========================================
+
    We can use an ostream_iterator to write a sequence of values:
-   ostream_iterator<int> out_iter(cout, " ");
-   for (auto e : vec)
-   * out_iter++ = e;
-   // the assignment writes this element to cout
-   cout << endl;
+
+   .. code-block:: cpp
+
+      ostream_iterator<int> out_iter(cout, " ");
+      for (auto e : vec)
+      * out_iter++ = e;
+      // the assignment writes this element to cout
+      cout << endl;
+
    This program writes each element from vec onto cout following each element
-   with a space. Each time we assign a value to out_iter, the write is committed.
+   with a space. Each time we assign a value to `out_iter`, the write is committed.
    It is worth noting that we can omit the dereference and the increment when we
-   assign to out_iter. That is, we can write this loop equivalently as
-   for (auto e : vec)
-   out_iter = e; // the assignment writes this element to cout
-   cout << endl;
-   The * and ++ operators do nothing on an ostream_iterator, so omitting them
+   assign to `out_iter`. That is, we can write this loop equivalently as
+
+   .. code-block:: cpp
+
+      for (auto e : vec)
+      out_iter = e; // the assignment writes this element to cout
+      cout << endl;
+
+   The * and ++ operators do nothing on an ``ostream_iterator``, so omitting them
    has no effect on our program. However, we prefer to write the loop as first presented. 
    That loop uses the iterator consistently with how we use other iterator
 
@@ -24873,10 +26388,14 @@ Exercises Section 10.4.1
 
    types. We can easily change this loop to execute on another iterator type. Moreover, 
    the behavior of this loop will be clearer to readers of our code.
+
    Rather than writing the loop ourselves, we can more easily print the elements
    in vec by calling copy:
-   copy(vec.begin(), vec.end(), out_iter);
-   cout << endl;
+
+   .. code-block:: cpp
+
+      copy(vec.begin(), vec.end(), out_iter);
+      cout << endl;
 
 Using Stream Iterators with Class Types
 
@@ -24884,39 +26403,43 @@ Using Stream Iterators with Class Types
    (>>). Similarly, we can define an ostream_iterator so long as the type has an
    output operator (<<). Because Sales_item has both input and output operators,
    we can use IO iterators to rewrite the bookstore program from § 1.6 (p. [P0024]_):
-   istream_iterator<Sales_item> item_iter(cin), eof;
-   ostream_iterator<Sales_item> out_iter(cout, "\n");
-   // store the first transaction in sum and read the next record
-   Sales_item sum =
-   * item_iter++;
-   while (item_iter != eof) {
-   // if the current transaction (which is stored in item_iter ) has the same ISBN
-   if (item_iter->isbn() == sum.isbn())
-   sum +=
-   * item_iter++; //
-   add it to sum and read the next transaction
-   else {
-   out_iter = sum; // write the current sum
-   sum =
-   * item_iter++;
-   // read the next transaction
-   }
-   }
-   out_iter = sum; // remember to print the last set of records
-   This program uses item_iter to read Sales_item transactions from cin. It
-   uses out_iter to write the resulting sums to cout, following each output with a
-   newline. Having defined our iterators, we use item_iter to initialize sum with
+
+   .. code-block:: cpp
+
+      istream_iterator<Sales_item> item_iter(cin), eof;
+      ostream_iterator<Sales_item> out_iter(cout, "\n");
+      // store the first transaction in sum and read the next record
+      Sales_item sum = * item_iter++;
+      while (item_iter != eof) {
+         // if the current transaction (which is stored in item_iter ) has the same ISBN
+         if (item_iter->isbn() == sum.isbn())
+            sum += * item_iter++; // add it to sum and read the next transaction
+         else {
+            out_iter = sum; // write the current sum
+            sum = * item_iter++;
+            // read the next transaction
+         }
+      }
+      out_iter = sum; // remember to print the last set of records
+
+   This program uses `item_iter` to read `Sales_item` transactions from cin. It
+   uses `out_iter` to write the resulting sums to cout, following each output with a
+   newline. Having defined our iterators, we use `item_iter` to initialize sum with
    the value of the first transaction:
-   // store the first transaction in sum and read the next record
-   Sales_item sum =
-   * item_iter++;
-   Here, we dereference the result of the postfix increment on item_iter. This expression 
+
+   .. code-block:: cpp
+
+      // store the first transaction in sum and read the next record
+      Sales_item sum = * item_iter++;
+
+   Here, we dereference the result of the postfix increment on `item_iter`. This expression 
    reads the next transaction, and initializes sum from the value previously
-   stored in item_iter.
+   stored in `item_iter`.
+
    The while loop executes until we hit end-of-file on cin. Inside the while,
    we check whether sum and the record we just read refer to the same book. If
-   so, we add the most recently read Sales_item into sum. If the ISBN s differ, we
-   assign sum to out_iter, which prints the current value of sum followed by a
+   so, we add the most recently read `Sales_item` into sum. If the ISBN s differ, we
+   assign sum to `out_iter`, which prints the current value of sum followed by a
    newline. Having printed the sum for the previous book, we assign sum a copy of
    the most recently read transaction and increment the iterator, which reads the next
    transaction. The loop continues until an error or end-of-file is encountered. Before
@@ -24926,27 +26449,27 @@ Using Stream Iterators with Class Types
 .. _P0407:
 
 
-Exercises Section 10.4.2
+   Exercises Section 10.4.2
 
-   Exercise 10.29: Writeaprogramusingstreamiteratorsto reada textfileinto avector
-   of strings.
+      Exercise 10.29: Writeaprogramusingstreamiteratorsto reada textfileinto avector
+      of strings.
 
-   Exercise 10.30: Use stream iterators, sort, and copy to read a sequence of integers
-   from the standard input, sort them, and then write them back to the standard output.
+      Exercise 10.30: Use stream iterators, sort, and copy to read a sequence of integers
+      from the standard input, sort them, and then write them back to the standard output.
 
-   Exercise 10.31: Update the program from the previous exercise so that it prints only
-   the unique elements. Your program should use unqiue_copy (§ 10.4.1, p. [P0403]_).
+      Exercise 10.31: Update the program from the previous exercise so that it prints only
+      the unique elements. Your program should use unqiue_copy (§ 10.4.1, p. [P0403]_).
 
-   Exercise 10.32: Rewrite the bookstore problem from § 1.6 (p. [P0024]_) using a vector to
-   hold the transactions and various algorithms to do the processing. Use sort with
-   your compareIsbnfunction from § 10.3.1 (p. [P0387]_) to arrange the transactions in order,
-   and then use find and accumulate to do the sum.
+      Exercise 10.32: Rewrite the bookstore problem from § 1.6 (p. [P0024]_) using a vector to
+      hold the transactions and various algorithms to do the processing. Use sort with
+      your compareIsbnfunction from § 10.3.1 (p. [P0387]_) to arrange the transactions in order,
+      and then use find and accumulate to do the sum.
 
-   Exercise 10.33: Write a program that takes the names of an input file and two output
-   files. The input file should hold integers. Using an istream_iterator read the
-   input file. Using ostream_iterators, write the odd numbers into the first output
-   file. Each value should be followed by a space. Write the even numbers into the second
-   file. Each of these values should be placed on a separate line.
+      Exercise 10.33: Write a program that takes the names of an input file and two output
+      files. The input file should hold integers. Using an istream_iterator read the
+      input file. Using ostream_iterators, write the odd numbers into the first output
+      file. Each value should be followed by a space. Write the even numbers into the second
+      file. Each of these values should be placed on a separate line.
 
 /10.4.3 Reverse Iterators
 ``````````````````````````
@@ -24955,83 +26478,106 @@ Exercises Section 10.4.2
    element toward the first. A reverse iterator inverts the meaning of increment (and
    decrement). Incrementing (++it) a reverse iterator moves the iterator to the previous 
    element; derementing (--it) moves the iterator to the next element.
-   The containers, aside from forward_list, all have reverse iterators. We obtain 
-   a reverse iterator by calling the rbegin, rend, crbegin, and crend members. 
+
+   The containers, aside from ``forward_list``, all have reverse iterators. We obtain 
+   a reverse iterator by calling the ``rbegin``, ``rend``, ``crbegin``, and crend members. 
    These members return reverse iterators to the last element in the container
    and one “past” (i.e., one before) the beginning of the container. As with ordinary
-   iterators, there are both const and nonconst reverse iterators.
+   iterators, there are both ``const`` and `nonconst` reverse iterators.
+
    Figure 10.1 illustrates the relationship between these four iterators on a hypothetical 
    vector named vec.
+
    Figure 10.1: Comparing begin/cend and rbegin/crend Iterators
-   ... ...
-   vec.crbegin()
-   6
-   ? vec.crend()
-   6
-   vec.cend()
-   ?
-   vec.cbegin()
-   ?
-   -As 
-   an example, the following loop prints the elements of vec in reverse order:
+
+   .. code-block:: bash
+
+           ╭─── vec.crbegin() ─────────────────────> vec.cend() ───╮
+         ╭─v─┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───╮ v
+         │   │...│   │   │   │   │   │   │   │   │   │   │...│   │
+       A ╰───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───╯
+       ╰── vec.crend() <──────────────────────────────── vec.cbegin()
+
+   As an example, the following loop prints the elements of vec in reverse order:
 
 .. ptg11539634 408 Generic Algorithms
 .. _P0408:
 
-   vector<int> vec = {0,1,2,3,4,5,6,7,8,9};
-   // reverse iterator of vector from back to front
-   for (auto r_iter = vec.crbegin(); // binds r_iter to the last element
-   r_iter != vec.crend(); // crend refers 1 before 1st element
-   ++r_iter) // decrements the iterator one element
-   cout <<
-   * r_iter << endl;
-   // prints 9 , 8 , 7 , ... 0
+
+   .. code-block:: cpp
+
+      vector<int> vec = {0,1,2,3,4,5,6,7,8,9};
+      // reverse iterator of vector from back to front
+      for (auto r_iter = vec.crbegin(); // binds r_iter to the last element
+         r_iter != vec.crend(); // crend refers 1 before 1st element
+         ++r_iter) // decrements the iterator one element
+         cout << * r_iter << endl;
+      // prints 9 , 8 , 7 , ... 0
+
    Although it may seem confusing to have the meaning of the increment and
    decrement operators reversed, doing so lets us use the algorithms transparently to
    process a container forward or backward. For example, we can sort our vector
    in descending order by passing sort a pair of reverse iterators:
-   sort(vec.begin(), vec.end()); // sorts vec in ‘‘normal'' order
-   // sorts in reverse: puts the smallest element at the end of vec
-   sort(vec.rbegin(), vec.rend());
+
+   .. code-block:: cpp
+
+      sort(vec.begin(), vec.end()); // sorts vec in ‘‘normal'' order
+      // sorts in reverse: puts the smallest element at the end of vec
+      sort(vec.rbegin(), vec.rend());
 
 Reverse Iterators Require Decrement Operators
 
    Not surprisingly, we can define a reverse iterator only from an iterator that supports 
    -- as well as ++. After all, the purpose of a reverse iterator is to move
-   the iterator backward through the sequence. Aside from forward_list, the iterators 
+   the iterator backward through the sequence. Aside from ``forward_list``, the iterators 
    on the standard containers all support decrement as well as increment.
    However, the stream iterators do not, because it is not possible to move backward
    through a stream. Therefore, it is not possible to create a reverse iterator from a
-   forward_list or a stream iterator.
+   ``forward_list`` or a stream iterator.
 
 Relationship between Reverse Iterators and Other Iterators
 
    Suppose we have a string named line that contains a comma-separated list of
    words, and we want to print the first word in line. Using find, this task is easy:
-   // find the first element in a comma-separated list
-   auto comma = find(line.cbegin(), line.cend(), ',');
-   cout << string(line.cbegin(), comma) << endl;
+
+   .. code-block:: cpp
+
+      // find the first element in a comma-separated list
+      auto comma = find(line.cbegin(), line.cend(), ',');
+      cout << string(line.cbegin(), comma) << endl;
+
    If there is a comma in line, then comma refers to that comma; otherwise it is
-   line.cend(). When we print the string from line.cbegin() to comma, we
+   `line.cend()`. When we print the string from `line.cbegin()` to comma, we
    print characters up to the comma, or the entire string if there is no comma.
    If we wanted the last word, we can use reverse iterators instead:
-   // find the last element in a comma-separated list
-   auto rcomma = find(line.crbegin(), line.crend(), ',');
+
+   .. code-block:: cpp
+
+      // find the last element in a comma-separated list
+      auto rcomma = find(line.crbegin(), line.crend(), ',');
+
    Because we pass crbegin() and crend(), this call starts with the last character
    in line and searches backward. When find completes, if there is a comma, then
    rcommarefersto the lastcomma in line—thatis, itrefersto thefirst comma found
    in the backward search. If there is no comma, then rcomma is line.crend().
+
    The interesting part comes when we try to print the word we found. The seemingly 
    obvious way
-   // WRONG: will generate the word in reverse order
-   cout << string(line.crbegin(), rcomma) << endl;
+
+   .. code-block:: cpp
+
+      // WRONG: will generate the word in reverse order
+      cout << string(line.crbegin(), rcomma) << endl;
 
 .. ptg11539634 Section 10.4 Revisiting Iterators 409
 .. _P0409:
 
    generates bogus output. For example, had our input been
-   FIRST,MIDDLE,LAST
+
+      FIRST,MIDDLE,LAST
+
    then this statement would print TSAL!
+
    Figure 10.2 illustrates the problem: We are using reverse iterators, which process 
    the string backward. Therefore, our output statement prints from crbegin
    backward through line. Instead, we want to print from rcomma forward to the
@@ -25040,54 +26586,58 @@ Relationship between Reverse Iterators and Other Iterators
    What we need to do is transform rcomma back into an ordinary iterator that will
    go forward through line. We can do so by calling the reverse_iterator's
    base member, which gives us its corresponding ordinary iterator:
-   // ok: get a forward iterator and read to the end of line
-   cout << string(rcomma.base(), line.cend()) << endl;
+
+   .. code-block:: cpp
+
+      // ok: get a forward iterator and read to the end of line
+      cout << string(rcomma.base(), line.cend()) << endl;
+
    Given the same preceding input, this statement prints LAST as expected.
+
    Figure 10.2: Relationship between Reverse and Ordinary Iterators
-   F I R S T , M I D D L E , L A S T
-   comma
-   ?
-   cbegin()
-   ? -   
-   rcomma
-   6
-   crbegin()
-   6
-   ?
-   rcomma.base()
-   ?
-   cend()
-   ? -The 
-   objects shown in Figure 10.2 illustrate the relationship between ordinary
+
+   .. code-block:: bash
+
+       ╭── cbegin()          ╭── comma       rcomma.base() ──╮     end() ──╮
+       v ───────────────────>v                               v             v
+         F   I   R   S   T   ,   M   I   D   D   L   E   ,   L   A   S   T
+                                                         ^<────────────────^
+                                                rcomma ──╯     crbegin() ──╯
+
+   The objects shown in Figure 10.2 illustrate the relationship between ordinary
    and reverse iterators. For example, rcomma and rcomma.base() refer to different 
    elements, as do line.crbegin() and line.cend(). These differences are
    needed to ensure that the range of elements, whether processed forward or backward, 
    is the same.
+
    Technically speaking, the relationship between normal and reverse iterators
    accommodates the properties of a left-inclusive range (§ 9.2.1, p. [P0331]_). The point
-   is that[line.crbegin(), rcomma)and[rcomma.base(), line.cend())
+   is that[line.crbegin(), rcomma) and [rcomma.base(), line.cend())
    refer to the same elements in line. In order for that to happen, rcomma and
    rcomma.base() must yield adjacent positions, rather than the same position, as
    must crbegin() and cend().
-   The fact that reverse iterators are intended to represent ranges and that
-   these ranges are asymmetric has an important consequence: When we
-   initialize or assign a reverse iterator from a plain iterator, the resulting
-   iterator does not refer to the same element as the original.
+
+   .. Note::
+
+      The fact that reverse iterators are intended to represent ranges and that
+      these ranges are asymmetric has an important consequence: When we
+      initialize or assign a reverse iterator from a plain iterator, the resulting
+      iterator does not refer to the same element as the original.
 
 .. ptg11539634 410 Generic Algorithms
 .. _P0410:
 
 
-Exercises Section 10.4.3
+   Exercises Section 10.4.3
 
-   Exercise 10.34: Use reverse_iterators to print a vector in reverse order.
+      Exercise 10.34: Use reverse_iterators to print a vector in reverse order.
 
-   Exercise 10.35: Now print the elements in reverse order using ordinary iterators.
+      Exercise 10.35: Now print the elements in reverse order using ordinary iterators.
 
-   Exercise 10.36: Use find to find the last element in a list of ints with value 0.
+      Exercise 10.36: Use find to find the last element in a list of ints with value 0.
 
-   Exercise 10.37: Given a vector that has ten elements, copy the elements from positions 
-   3 through 7 in reverse order to a list.
+      Exercise 10.37: Given a vector that has ten elements, copy the elements from positions 
+      3 through 7 in reverse order to a list.
 
 /10.5👋 Structure of Generic Algorithms
 ----------------------------------------
@@ -25099,17 +26649,23 @@ Exercises Section 10.4.3
    randomly access elements. The iterator operations required by the algorithms are
    grouped into five iterator categories listed in Table 10.5. Each algorithm specifies
    what kind of iterator must be supplied for each of its iterator parameters.
+
    A second way is to classify the algorithms (as we did in the beginning of this
    chapter) is by whether they read, write, or reorder the elements in the sequence.
    Appendix A covers all the algorithms according to this classification.
+
    The algorithms also share a set of parameter-passing conventions and a set of
    naming conventions, which we shall cover after looking at iterator categories.
+
    Table 10.5: Iterator Categories
-   Input iterator Read, but not write; single-pass, increment only
-   Output iterator Write, but not read; single-pass, increment only
-   Forward iterator Read and write; multi-pass, increment only
+
+   ====================== ====================================================
+   Input iterator         Read, but not write; single-pass, increment only
+   Output iterator        Write, but not read; single-pass, increment only
+   Forward iterator       Read and write; multi-pass, increment only
    Bidirectional iterator Read and write; multi-pass, increment and decrement
    Random-access iterator Read and write; multi-pass, full iterator arithmetic
+   ====================== ====================================================
 
 /10.5.1 The Five Iterator Categories
 `````````````````````````````````````
@@ -25119,86 +26675,108 @@ Exercises Section 10.4.3
    of iterators. For example, ostream_iterators have only increment, dereference, 
    and assignment. Iterators on vector, strings, and deques support these
    operations and the decrement, relational, and arithmetic operators.
-   Iteratorsarecategorizedbythe operationsthey provideandthecategoriesform
+
+   Iterators are categorized by the operations they provide and the categories form
    a sort of hierarchy. With the exception of output iterators, an iterator of a higher
    category provides all the operations of the iterators of a lower categories.
-   The standardspecifies the minimum category for each iteratorparameterof the
+
+   The standard specifies the minimum category for each iterator parameter of the
 
 .. ptg11539634 Section 10.5 Structure of Generic Algorithms 411
 .. _P0411:
 
-   generic and numeric algorithms. For example, find—which implements a onepass, 
+   generic and numeric algorithms. For example, ``find``—which implements a onepass, 
    read-only traversal over a sequence—minimally requires an input iterator.
-   The replacefunction requiresa pairof iterators thatareatleast forwarditerators.
-   Similarly, replace_copy requires forward iterators for its first two iterators. Its
+   The ``replace`` function requiresa pairof iterators thatareatleast forwarditerators.
+   Similarly, ``replace_copy`` requires forward iterators for its first two iterators. Its
    third iterator, which represents a destination, must be at least an output iterator,
    and so on. For each parameter, the iterator must be at least as powerful as the
    stipulated minimum. Passing an iterator of a lesser power is an error.
-   Many compilers will not complain when we pass the wrong category of
-   iterator to an algorithm.
-   The Iterator Categories
-   Input iterators: can read elements in a sequence. An input iterator must provide
+
+   .. Warning::
+
+      Many compilers will not complain when we pass the wrong category of
+      iterator to an algorithm.
+
+The Iterator Categories
+
+   **Input iterators**: can read elements in a sequence. An input iterator must provide
+
    • Equality and inequality operators (==, !=) to compare two iterators
+
    • Prefix and postfix increment (++) to advance the iterator
+
    • Dereference operator ( * ) to read an element; dereference may appear only on
    the right-hand side of an assignment
+
    • The arrow operator (->) as a synonym for ( * it).member—that is, dereference 
    the iterator and fetch a member from the underlying object
+
    Input iterators may be used only sequentially. We are guaranteed that * it++ is
    valid, but incrementing an input iterator may invalidate all other iterators into the
    stream. As a result, there is no guarantee that we can save the state of an input
    iterator and examine an element through that saved iterator. Input iterators, therefore, 
-   may be used only for single-pass algorithms. The find and accumulate
-   algorithms require input iterators; istream_iterators are input iterators.
-   Output iterators: can be thought of as having complementary functionality to input 
+   may be used only for single-pass algorithms. The ``find`` and ``accumulate``
+   algorithms require input iterators; `istream_iterators` are input iterators.
+
+   **Output iterators**: can be thought of as having complementary functionality to input 
    iterators; they write rather than read elements. Output iterators must provide
+
    • Prefix and postfix increment (++) to advance the iterator
+
    • Dereference ( * ), which may appear only as the left-hand side of an assignment 
-   (Assigning to a dereferenced output iterator writes to the underlying
-   element.)
-   Wemayassignto agivenvalueofanoutputiteratoronly once. Likeinput iterators,
+   (Assigning to a dereferenced output iterator writes to the underlying element.)
+
+   We may assign to a given value of an output iterator only once. Like input iterators,
    output iterators may be used only for single-pass algorithms. Iterators used as
    a destination are typically output iterators. For example, the third parameter to
    copy is an output iterator. The ostream_iterator type is an output iterator.
-   Forward iterators: can readand write a given sequence. They move in only one direction 
+
+   **Forward iterators**: can readand write a given sequence. They move in only one direction 
    through the sequence. Forward iterators support all the operations of both
    input iterators and output iterators. Moreover, they can read or write the same element 
    multiple times. Therefore, we can use the saved state of a forward iterator.
    Hence, algorithms that use forward iterators may make multiple passes through
-   the sequence. The replace algorithm requires a forward iterator; iterators on
-   forward_list are forward iterators.
+   the sequence. The ``replace`` algorithm requires a forward iterator; iterators on
+   ``forward_list`` are forward iterators.
 
 .. ptg11539634 412 Generic Algorithms
 .. _P0412:
 
-   Bidirectionaliterators: canreadandwrite asequence forwardor backward. In addition 
+   **Bidirectional iterators**: can read and write asequence forward or backward. In addition 
    to supporting all the operations of a forward iterator, a bidirectional iterator
    also supports the prefix and postfix decrement (--) operators. The reverse algorithm 
    requires bidirectional iterators, and aside from forward_list, the library
    containers supply iterators that meet the requirements for a bidirectional iterator.
-   Random-access iterators: provide constant-time access to any position in the sequence. 
+
+   **Random-access iterators**: provide constant-time access to any position in the sequence. 
    These iterators support all the functionality of bidirectional iterators. In
    addition, random-access iterators support the operations from Table 3.7 (p. [P0111]_):
+
    • The relational operators (<, <=, >, and >=) to compare the relative positions
    of two iterators.
+
    • Addition and subtraction operators (+, +=, -, and -=) on an iterator and an
    integral value. The result is the iterator advanced (or retreated) the integral
    number of elements within the sequence.
+
    • The subtraction operator (-) when applied to two iterators, which yields the
    distance between two iterators.
+
    • The subscript operator (iter[n]) as a synonym for * (iter + n).
+
    The sort algorithms require random-access iterators. Iterators for array, deque,
    string, and vector are random-access iterators, as are pointers when used to
    access elements of a built-in array.
 
-Exercises Section 10.5.1
+   Exercises Section 10.5.1
 
-   Exercise 10.38: List the five iterator categories and the operations that each supports.
+      Exercise 10.38: List the five iterator categories and the operations that each supports.
 
-   Exercise 10.39: What kind of iterator does a list have? What about a vector?
+      Exercise 10.39: What kind of iterator does a list have? What about a vector?
 
-   Exercise 10.40: What kinds of iterators do you think copy requires? What about
-   reverse or unique?
+      Exercise 10.40: What kinds of iterators do you think copy requires? What about
+      reverse or unique?
 
 /10.5.2 Algorithm Parameter Patterns
 `````````````````````````````````````
@@ -25208,10 +26786,14 @@ Exercises Section 10.5.1
    algorithms—by knowing what the parameters mean, you can concentrate on understanding 
    the operation the algorithm performs. Most of the algorithms have
    one of the following four forms:
-   alg(beg, end, other args);
-   alg(beg, end, dest, other args);
-   alg(beg, end, beg2, other args);
-   alg(beg, end, beg2, end2, other args);
+
+   .. code-block:: cpp
+
+      alg(beg, end, other args);
+      alg(beg, end, dest, other args);
+      alg(beg, end, beg2, other args);
+      alg(beg, end, beg2, end2, other args);
+
    where alg is the name of the algorithm, and beg and end denote the input range
    on which the algorithm operates. Although nearly all algorithms take an input
 
@@ -25222,31 +26804,42 @@ Exercises Section 10.5.1
    The common ones listed here—dest, beg2, and end2—are all iterators. When
    used, these iteratorsfill similar roles. Inaddition to these iteratorparameters,some
    algorithms take additional, noniterator parameters that are algorithm specific.
-   Algorithms with a Single Destination Iterator
+
+Algorithms with a Single Destination Iterator
+
    A dest parameter is an iterator that denotes a destination in which the algorithm
    can write its output. Algorithms assume that it is safe to write as many elements as
    needed.
+
    Algorithms that write to an output iterator assume the destination is
    large enough to hold the output.
-   Ifdestisaniteratorthatrefersdirectlyto acontainer, thenthe algorithm writes
+
+   If destis an iterator that refers directly to a container, then the algorithm writes
    its output to existing elements within the container. More commonly, dest is
    bound to an insert iterator (§ 10.4.1, p. [P0401]_) or an ostream_iterator (§ 10.4.2, p. [P0403]_).
    An insert iterator adds new elements to the container, thereby ensuring
    that there is enough space. An ostream_iterator writes to an output stream,
    again presenting no problem regardless of how many elements are written.
-   Algorithms with a Second Input Sequence
-   Algorithms that take either beg2 alone or beg2 and end2 use those iterators to
+
+Algorithms with a Second Input Sequence
+
+   Algorithms that take either `beg2` alone or `beg2` and `end2` use those iterators to
    denote a second input range. These algorithms typically use the elements from the
    second range in combination with the input range to perform a computation.
-   When an algorithm takes both beg2 and end2, these iterators denote a second
+
+   When an algorithm takes both `beg2` and `end2`, these iterators denote a second
    range. Such algorithms take two completely specified ranges: the input range
-   denoted by [beg, end), and a second input range denoted by [beg2, end2).
-   Algorithms that take only beg2 (and not end2) treat beg2 as the first element
+   denoted by [beg, end), and a second input range denoted by [`beg2`, `end2`).
+
+   Algorithms that take only `beg2` (and not `end2`) treat `beg2` as the first element
    in a second input range. The end of this range is not specified. Instead, these
-   algorithms assume that the range starting at beg2 is at least as large as the one
-   denoted by beg, end.
-   Algorithms that take beg2 alone assume that the sequence beginning at
-   beg2 is as large as the range denoted by beg and end.
+   algorithms assume that the range starting at `beg2` is at least as large as the one
+   denoted by `beg`, `end`.
+
+   .. Warning::
+
+      Algorithms that take `beg2` alone assume that the sequence beginning at
+      `beg2` is as large as the range denoted by beg and end.
 
 /10.5.3 Algorithm Naming Conventions
 `````````````````````````````````````
@@ -25266,22 +26859,33 @@ Some Algorithms Use Overloading to Pass a Predicate
 
    uses the element type's operator to compare elements; the second takes an extra
    parameter that is a predicate to use in place of < or ==:
-   unique(beg, end); // uses the == operator to compare the elements
-   unique(beg, end, comp); // uses comp to compare the elements
+
+   .. code-block:: cpp
+
+      unique(beg, end); // uses the == operator to compare the elements
+      unique(beg, end, comp); // uses comp to compare the elements
+
    Both calls reorder the given sequence by removing adjacent duplicated elements.
    The first uses the element type's == operator to check for duplicates; the second
    calls comp to decide whether two elements are equal. Because the two versions of
    the function differ as to the number of arguments, there is no possible ambiguity
    (§ 6.4, p. [P0233]_) as to which function is being called.
-   Algorithms with _if Versions
+
+Algorithms with _if Versions
+
    Algorithms that take an element value typically have a second named (not overloaded) 
    version that takes a predicate (§ 10.3.1, p. [P0386]_) in place of the value. The
    algorithms that take a predicate have the suffix _if appended:
-   find(beg, end, val); // find the first instance of val in the input range
-   find_if(beg, end, pred); // find the first instance for which pred is true
+
+   .. code-block:: cpp
+
+      find(beg, end, val); // find the first instance of val in the input range
+      find_if(beg, end, pred); // find the first instance for which pred is true
+
    These algorithms both find the first instance of a specific element in the input
    range. Thefindalgorithm looks foraspecific value; thefind_ifalgorithm looks
    for a value for which pred returns a nonzero value.
+
    These algorithms provide a named version rather than an overloaded one because 
    both versions of the algorithm take the same number of arguments. Overloading 
    ambiguities would therefore be possible, albeit rare. To avoid any possible
@@ -25289,20 +26893,28 @@ Some Algorithms Use Overloading to Pass a Predicate
 
 Distinguishing Versions That Copy from Those That Do Not
 
-   By default, algorithms that rearrangeelements write the rearrangedelements back
+   By default, algorithms that rearrange elements write the rearranged elements back
    into the given input range. These algorithms provide a second version that writes
    to a specified output destination. As we've seen, algorithms that write to a destination 
    append _copy to their names (§ 10.2.2, p. [P0383]_):
-   reverse(beg, end); // reverse the elements in the input range
-   reverse_copy(beg, end, dest);// copy elements in reverse order into dest
+
+   .. code-block:: cpp
+
+      reverse(beg, end); // reverse the elements in the input range
+      reverse_copy(beg, end, dest);// copy elements in reverse order into dest
+
    Some algorithms provide both _copy and _if versions. These versions take a
    destination iterator and a predicate:
-   // removes the odd elements from v1
-   remove_if(v1.begin(), v1.end(),
-   [](int i) { return i % 2; });
-   // copies only the even elements from v1 into v2 ; v1 is unchanged
-   remove_copy_if(v1.begin(), v1.end(), back_inserter(v2),
-   [](int i) { return i % 2; });
+
+   .. code-block:: cpp
+
+      // removes the odd elements from v1
+      remove_if(v1.begin(), v1.end(),
+         [](int i) { return i % 2; });
+      // copies only the even elements from v1 into v2 ; v1 is unchanged
+      remove_copy_if(v1.begin(), v1.end(), back_inserter(v2),
+         [](int i) { return i % 2; });
+
    Both calls use a lambda (§ 10.3.2, p. [P0388]_) to determine whether an element is odd.
    In the first case, we remove the odd elements from the input sequence itself. In the
    second, we copy the non-odd (aka even) elements from the input range into v2.
@@ -25311,22 +26923,25 @@ Distinguishing Versions That Copy from Those That Do Not
 .. _P0415:
 
 
-Exercises Section 10.5.3
+   Exercises Section 10.5.3
 
-   Exercise 10.41: Based only on the algorithm and argument names, describe the operation 
-   that the each of the following library algorithms performs:
-   replace(beg, end, old_val, new_val);
-   replace_if(beg, end, pred, new_val);
-   replace_copy(beg, end, dest, old_val, new_val);
-   replace_copy_if(beg, end, dest, pred, new_val);
+      Exercise 10.41: Based only on the algorithm and argument names, describe the operation 
+      that the each of the following library algorithms performs:
+
+      .. code-block:: cpp
+
+         replace(beg, end, old_val, new_val);
+         replace_if(beg, end, pred, new_val);
+         replace_copy(beg, end, dest, old_val, new_val);
+         replace_copy_if(beg, end, dest, pred, new_val);
 
 /10.6👋 Container-Specific Algorithms
 --------------------------------------
 
-   Unlike the other containers, list and forward_list define several algorithms
+   Unlike the other containers, list and ``forward_list`` define several algorithms
    as members. In particular, the list types define their own versions of sort, merge,
    remove, reverse, and unique. The generic version of sort requires randomaccess 
-   iterators. As a result, sort cannot be used with list and forward_list
+   iterators. As a result, sort cannot be used with list and ``forward_list``
    because these types offer bidirectional and forward iterators, respectively.
    The generic versions of the other algorithms that the list types define can be
    used with lists, but at a cost in performance. These algorithms swap elements in
@@ -25334,69 +26949,82 @@ Exercises Section 10.5.3
    elements rather than swapping the values of those elements. As a result, the listspecific 
    versions of these algorithms can achieve much better performance than
    the corresponding generic versions.
+
    These list-specific operations are described in Table 10.6. Generic algorithms
    not listed in the table that take appropriate iterators execute equally efficiently on
-   lists and forward_listss as on other containers.
-   The list member versions should be used in preference to the generic
-   algorithms for lists and forward_lists.
-   Table 10.6: Algorithms That are Members of list and forward_list
+   lists and ``forward_lists``s as on other containers.
+
+   .. Tip::
+
+      The list member versions should be used in preference to the generic
+      algorithms for lists and ``forward_lists``.
+
+   Table 10.6: Algorithms That are Members of list and ``forward_list``
    These operations return void.
-   lst.merge(lst2)
-   lst.merge(lst2, comp)
-   Merges elements from lst2 onto lst. Both lst and lst2
-   must be sorted. Elements are removed from lst2. After the
-   merge, lst2 is empty. The first version uses the < operator;
-   the second version uses the given comparison operation.
-   lst.remove(val)
-   lst.remove_if(pred)
-   Calls erase to remove each element that is == to the given
-   value or for which the given unary predicate succeeds.
-   lst.reverse() Reverses the order of the elements in lst.
+
+   ====================== =====================================================
+   lst.merge(lst2)         Merges elements from lst2 onto lst. Both lst and lst2
+   lst.merge(lst2, comp)   must be sorted. Elements are removed from lst2. After the
+                           merge, lst2 is empty. The first version uses the < operator;
+                           the second version uses the given comparison operation.
+
+   lst.remove(val)         Calls erase to remove each element that is == to the given
+   lst.remove_if(pred)     value or for which the given unary predicate succeeds.
+
+   lst.reverse()           Reverses the order of the elements in lst.
+
    lst.sort()
-   lst.sort(comp)
-   Sorts the elements of lst using < or the given comparison operation.
-   lst.unique()
-   lst.unique(pred)
-   Calls erase to remove consecutive copies of the same value.
-   The first version uses ==; the second uses the given binary
-   predicate.
+   lst.sort(comp)          Sorts the elements of lst using < or the given comparison operation.
+
+   lst.unique()            Calls erase to remove consecutive copies of the same value.
+   lst.unique(pred)        The first version uses ==; the second uses the given binary
+                           predicate.
+   ====================== =====================================================
 
 .. ptg11539634 416 Generic Algorithms
 .. _P0416:
 
-   The splice Members
+The splice Members
+
    The list types also define a splice algorithm, which is described in Table 10.7.
    This algorithm is particular to list data structures. Hence a generic version of this
    algorithm is not needed.
+
    Table 10.7: Arguments to the list and forward_list splice Members
    lst.splice(args) or flst.splice_after(args)
-   (p, lst2) p is an iterator to an element in lst or an iterator just before an element
-   in flst. Moves all the element(s) from lst2 into lst just before p or
-   into flst just after p. Removes the element(s) from lst2. lst2 must
-   have the same type as lst or flst and may not be the same list.
-   (p, lst2, p2) p2 is a valid iterator into lst2. Moves the element denoted by p2 into
-   lst or moves the element just after p2 into flst. lst2 can be the
-   same list as lst or flst.
-   (p, lst2, b, e) b and e must denote a valid range in lst2. Moves the elements in the
-   given range from lst2. lst2 and lst (or flst) can be the same list
-   but p must not denote an element in the given range.
-   The List-Specific Operations Do Change the Containers
+
+   ================= =====================================================
+   (p, lst2)         p is an iterator to an element in lst or an iterator just before an element
+                     in flst. Moves all the element(s) from lst2 into lst just before p or
+                     into flst just after p. Removes the element(s) from lst2. lst2 must
+                     have the same type as lst or flst and may not be the same list.
+   (p, lst2, p2)     p2 is a valid iterator into lst2. Moves the element denoted by p2 into
+                     lst or moves the element just after p2 into flst. lst2 can be the
+                     same list as lst or flst.
+   (p, lst2, b, e)   b and e must denote a valid range in lst2. Moves the elements in the
+                     given range from lst2. lst2 and lst (or flst) can be the same list
+                     but p must not denote an element in the given range.
+   ================= =====================================================
+
+The List-Specific Operations Do Change the Containers
+
    Most of the list-specific algorithms are similar—but not identical—to their generic
    counterparts. However, a crucially important difference between the list-specific
    and the generic versions is that the list versions change the underlying container.
    For example, the list version of remove removes the indicated elements. The list
-   version of unique removes the second and subsequent duplicate elements.
-   Similarly, merge and splice aredestructive on their arguments. For example,
-   the generic version of merge writes the merged sequence to a given destination
-   iterator; the two input sequences are unchanged. The list merge function destroys
-   the given list—elements are removed from the argument list as they are merged
-   into the object on which merge was called. After a merge, the elements from both
+   version of `unique` removes the second and subsequent duplicate elements.
+
+   Similarly, `merge` and `splice` aredestructive on their arguments. For example,
+   the generic version of `merge` writes the `merge`d sequence to a given destination
+   iterator; the two input sequences are unchanged. The list `merge` function destroys
+   the given list—elements are removed from the argument list as they are `merge`d
+   into the object on which `merge` was called. After a `merge`, the elements from both
    lists continue to exist, but they are all elements of the same list.
 
-Exercises Section 10.6
+   Exercises Section 10.6
 
-   Exercise 10.42: Reimplement the program that eliminated duplicate words that we
-   wrote in § 10.2.3 (p. [P0383]_) to use a list instead of a vector.
+      Exercise 10.42: Reimplement the program that eliminated duplicate words that we
+      wrote in § 10.2.3 (p. [P0383]_) to use a list instead of a vector.
 
 .. ptg11539634 Defined Terms 417
 .. _P0417:
@@ -25411,10 +27039,12 @@ Exercises Section 10.6
    take as their first two arguments a pair of iterators denoting a range of elements. 
    Additional iterator arguments might include an output iterator denoting a
    destination, or another iterator or iterator pair denoting a second input sequence.
-   Iteratorsarecategorizedinto oneoffivecategoriesdependingon theoperations
-   they support. The iterator categories are input, output, forward, bidirectional, and
-   random access. An iterator belongs to a particular category if it supports the operations 
+
+   Iterators are categorized into one of five categories depending on the operations
+   they support. The iterator categories are `input`, `output`, `forward`, `bidirectional`, and
+   `random access`. An iterator belongs to a particular category if it supports the operations 
    required for that iterator category.
+
    Just as iterators are categorized by their operations, iterator parameters to the
    algorithms are categorizedby the iterator operations they require. Algorithms that
    only read their sequences require only input iterator operations. Those that write
@@ -25422,45 +27052,55 @@ Exercises Section 10.6
    Algorithms never directly change the size of the sequences on which they operate. 
    They may copy elements from one position to another but cannot directly add
    or remove elements.
+
    Although algorithms cannot add elements to a sequence, an insert iterator may
    do so. An insert iterator is bound to a container. When we assign a value of the
    container's element type to an insert iterator, the iterator adds the given element
    to the container.
-   The forward_list and list containers define their own versions of some of
+
+   The ``forward_list`` and list containers define their own versions of some of
    the generic algorithms. Unlike the generic algorithms, these list-specific versions
    modify the given lists.
 
 /10.👋 Defined Terms
 ---------------------
 
-   back_inserter Iterator adaptor that takes a
+
+   ``back_inserter`` Iterator adaptor that takes a
    referenceto a container and generates an insert 
    iterator that uses push_back to add elements 
    to the specified container.
-   bidirectional iterator Same operations as
+
+   ``bidirectional iterator`` Same operations as
    forward iterators plus the ability to use -=to 
    move backward through the sequence.
    binary predicate Predicate that has two
    parameters.
-   bind Library function that binds one or
+
+   ``bind`` Library function that binds one or
    more arguments to a callable expression.
    bind is defined in the functionalheader.
-   callable object Object that can appear as
+
+   ``callable object`` Object that can appear as
    the left-hand operand of the call operator.
    Pointers to functions, lambdas, and objects
    of a class that defines an overloaded function 
    call operator are all callable objects.
-   capture list Portion of a lambda expression 
+
+   ``capture list`` Portion of a lambda expression 
    that specifies which variables from the
    surrounding context the lambda expression
    may access.
-   cref Library function that returns a copyable 
+
+   ``cref`` Library function that returns a copyable 
    object that holds a reference to a const
    object of a type that cannot be copied.
-   forward iterator Iterator that can read and
+
+   ``forward iterator`` Iterator that can read and
    write elements but is not required to support 
    --.
-   front_inserter Iterator adaptor that, given
+
+   ``front_inserter`` Iterator adaptor that, given
    a container, generates an insert iterator that
 
 .. ptg11539634 418 Defined Terms
@@ -25468,20 +27108,26 @@ Exercises Section 10.6
 
    uses push_front to add elements to the
    beginning of that container.
-   generic algorithms Type-independent algorithms.
-   input iterator Iterator that can read, but
+
+   ``generic algorithms`` Type-independent algorithms.
+
+   ``input iterator`` Iterator that can read, but
    not write, elements of a sequence.
-   insert iterator Iterator adaptor that generates 
+
+   ``insert iterator`` Iterator adaptor that generates 
    an iterator that uses a container operation 
    to add elements to a given container.
-   inserter Iterator adaptor that takes an iterator 
+
+   ``inserter`` Iterator adaptor that takes an iterator 
    and a reference to a container and generates 
    an insert iterator that uses insert to
    add elements just ahead of the element referred 
    to by the given iterator.
-   istream_iterator Stream iterator that reads
+
+   ``istream_iterator`` Stream iterator that reads
    an input stream.
-   iterator categories Conceptual organization 
+
+   ``iterator categories`` Conceptual organization 
    of iterators based on the operations
    that an iterator supports. Iterator categories
    form a hierarchy, in which the more powerful 
@@ -25498,7 +27144,8 @@ Exercises Section 10.6
    that require random-access iterators 
    can be used only on iterators that support 
    random-access operations.
-   lambda expression Callable unit of code.
+
+   ``lambda expression`` Callable unit of code.
    Alambda is somewhat likean unnamed, inline 
    function. A lambda starts with a capture 
    list, which allows the lambda to access
@@ -25510,13 +27157,16 @@ Exercises Section 10.6
    the return type is inferred from the type of
    the object that is returned. Otherwise, an
    omitted return type defaults to void.
-   move iterator Iterator adaptor that generates 
+
+   ``move iterator`` Iterator adaptor that generates 
    an iterator that moves elements instead
    of copying them. Move iterators are covered 
    in Chapter 13.
-   ostream_iterator Iterator that writes to an
+
+   ``ostream_iterator`` Iterator that writes to an
    output stream.
-   output iterator Iterator that can write, but
+
+   ``output iterator`` Iterator that can write, but
    not necessarily read, elements.
    predicate Function that returns a type that
    can be converted to bool. Often used
@@ -25524,21 +27174,26 @@ Exercises Section 10.6
    Predicates used by the library are either
    unary (taking one argument) or binary (taking 
    two).
-   random-access iterator Same operations
+
+   ``random-access iterator`` Same operations
    as bidirectional iterators plus the relational
    operators to compare iterator values, and
    the subscript operator and arithmetic operations 
    on iterators, thus supporting random
    access to elements.
-   ref Library function that generates a copyable 
+
+   ``ref`` Library function that generates a copyable 
    object from a reference to an object of a
    type that cannot be copied.
-   reverse iterator Iterator that moves backward 
+
+   ``reverse iterator`` Iterator that moves backward 
    through a sequence. These iterators
    exchange the meaning of ++ and --.
-   stream iterator Iterator that can be bound
+
+   ``stream iterator`` Iterator that can be bound
    to a stream.
-   unary predicate Predicate that has one parameter.
+
+   ``unary predicate`` Predicate that has one parameter.
 
 .. ptg11539634
 .. _P0419:
@@ -25560,90 +27215,114 @@ Exercises Section 10.6
    and retrieved by a key. In contrast, elements in a sequential container 
    are stored and accessed sequentially by their position in the
    container.
+
    Although the associative containers share much of the behavior of
    the sequential containers, they differ from the sequential containers
    in ways that reflect the use of keys.
-   
+
+   本章内容涉及树状数据结构算法设计，以及 hash 函数算法，应该阅读算法理论基础后才能更好地掌握
+   集合（set）以及映射（map）两类最基础的数据结构算法。
 
 .. ptg11539634 420 Associative Containers
 .. _P0420:
 
    Associative containers support efficient lookup and retrieval by a key. The
-   two primary associative-container types are map and set. The elements in a map
-   are key–value pairs: The key serves as an index into the map, and the value represents 
-   the data associated with that index. A set element contains only a key; a
-   set supports efficient queries as to whether a given key is present. We might use
-   a set to hold words that we want to ignore during some kind of text processing.
-   A dictionary would be a good use for a map: The word would be the key, and its
+   two primary associative-container types are ``map`` and ``set``. The elements in a ``map``
+   are key–value pairs: The key serves as an index into the ``map``, and the value represents 
+   the data associated with that index. A ``set`` element contains only a key; a
+   ``set`` supports efficient queries as to whether a given key is present. We might use
+   a ``set`` to hold words that we want to ignore during some kind of text processing.
+   A dictionary would be a good use for a ``map``: The word would be the key, and its
    definition would be the value.
+
    The library provides eight associative containers, listed in Table 11.1. These
-   eight differ along three dimensions: Each container is (1) a set or a map, (2) requires 
+   eight differ along three dimensions: Each container is (1) a ``set`` or a ``map``, (2) requires 
    unique keys or allows multiple keys, and (3) stores the elements in order
    or not. The containers that allow multiple keys include the word multi; those
    that do not keep their keys ordered start with the word unordered. Hence an
-   unordered_multi_set is a set that allows multiple keys whose elements are
-   not stored in order, whereas a set has unique keys that are stored in order. The
+   ``unordered_multi_set`` is a ``set`` that allows multiple keys whose elements are
+   not stored in order, whereas a ``set`` has unique keys that are stored in order. The
    unordered containers use a hash function to organize their elements. We'll have
    more to say about the hash function in § 11.4 (p. [P0444]_).
-   The map and multimap types are defined in the map header; the set and
-   multiset types are in the set header; and the unordered containers are in the
-   unordered_map and unordered_set headers.
+
+   The ``map`` and ``multimap`` types are defined in the ``map`` header; the ``set`` and
+   multiset types are in the ``set`` header; and the unordered containers are in the
+   ``unordered_map`` and ``unordered_set`` headers.
+
    Table 11.1: Associative Container Types
+
    Elements Ordered by Key
-   map Associative array; holds key–value pairs
-   set Container in which the key is the value
-   multimap map in which a key can appear multiple times
-   multiset set in which a key can appear multiple times
+
+   ================== ============================================
+   map                Associative array; holds key–value pairs
+   set                Container in which the key is the value
+   multimap           map in which a key can appear multiple times
+   multiset           set in which a key can appear multiple times
+   ================== ============================================
+
    Unordered Collections
-   unordered_map map organized by a hash function
-   unordered_set set organized by a hash function
+
+   ================== ============================================
+   unordered_map      map organized by a hash function
+   unordered_set      set organized by a hash function
    unordered_multimap Hashed map; keys can appear multiple times
    unordered_multiset Hashed set; keys can appear multiple times
+   ================== ============================================
 
 /11.1👋 Using an Associative Container
 ---------------------------------------
 
-   Although most programmers are familiar with data structures such as vectors
-   and lists, many have never used an associative data structure. Before we look at
+   Although most programmers are familiar with data structures such as `vectors`
+   and `lists`, many have never used an associative data structure. Before we look at
    the details of how the library supports these types, it will be helpful to start with
    examples of how we can use these containers.
-   A map is a collection of key–value pairs. For example, each pair might contain
+
+   A ``map`` is a collection of key–value pairs. For example, each pair might contain
    a person's name as a key and a phone number as its value. We speak of such a data
-   structure as “mapping names to phone numbers.” The map type is often referred
-   to as an associative array. An associative array is like a “normal” array except
-   that its subscripts don't have to be integers. Values in a map are found by a key
+   structure as “mapping names to phone numbers.” The ``map`` type is often referred
+   to as an `associative array`. An `associative array` is like a “normal” array except
+   that its subscripts don't have to be integers. Values in a ``map`` are found by a key
 
 .. ptg11539634 Section 11.1 Using an Associative Container 421
 .. _P0421:
 
    rather than by their position. Given a map of names to phone numbers, we'd use a
    person's name as a subscript to fetch that person's phone number.
+
    In contrast, a set is simply a collection of keys. A set is most useful when
    we simply want to know whether a value is present. For example, a business
    might define a set named bad_checks to hold the names of individuals who
    have written bad checks. Before accepting a check, that business would query
    bad_checks to see whether the customer's name was present.
-   Using a map
+
+Using a map
+
    A classic example that relies on associative arrays is a word-counting program:
-   // count the number of times each word occurs in the input
-   map<string, size_t> word_count; // empty map from string to size_t
-   string word;
-   while (cin >> word)
-   ++word_count[word]; // fetch and increment the counter for word
-   for (const auto &w : word_count) // for each element in the map
-   // print the results
-   cout << w.first << " occurs " << w.second
-   << ((w.second > 1) ? " times" : " time") << endl;
+
+   .. code-block:: cpp
+
+      // count the number of times each word occurs in the input
+      map<string, size_t> word_count; // empty map from string to size_t
+      string word;
+      while (cin >> word)
+         ++word_count[word]; // fetch and increment the counter for word
+      for (const auto &w : word_count) // for each element in the map
+         // print the results
+         cout << w.first << " occurs " << w.second
+              << ((w.second > 1) ? " times" : " time") << endl;
+
    This program reads its input and reports how often each word appears.
+
    Like the sequential containers, the associative containers are templates (§ 3.3, p. [P0096]_).
    To define a map, we must specify both the key and value types. In this
    program, the map stores elements in which the keys are strings and the values
-   are size_ts (§ 3.5.2, p. [P0116]_). When we subscript word_count, we use a string
-   asthe subscript, andwegetbackthe size_tcounterassociatedwith thatstring.
+   are ``size_t``s (§ 3.5.2, p. [P0116]_). When we subscript word_count, we use a string
+   as the subscript, and we get back the ``size_t`` counter associated with that string.
    The while loop reads the standard input one word at a time. It uses each word
-   to subscript word_count. If word is not alreadyin the map, the subscript operator
+   to subscript word_count. If word is not already in the map, the subscript operator
    creates a new element whose key is word and whose value is 0. Regardless of
    whether the element had to be created, we increment the value.
+
    Once we've read all the input, the range for (§ 3.2.3, p. [P0091]_) iterates through
    the map, printing each word and the corresponding counter. When we fetch an
    element from a map, we get an object of type pair, which we'll describe in § 11.2.3
@@ -25651,60 +27330,77 @@ Exercises Section 10.6
    named first and second. The pairs used by map have a first member that
    is the key and a second member that is the corresponding value. Thus, the effect
    of the output statement is to print each word and its associated counter.
+
    If we ran this program on the text of the first paragraph in this section, our
    output would be
-   Although occurs 1 time
-   Before occurs 1 time
-   an occurs 1 time
-   and occurs 1 time
-   ...
+
+   .. code-block:: bash
+
+      Although occurs 1 time
+      Before occurs 1 time
+      an occurs 1 time
+      and occurs 1 time
+      ...
 
 .. ptg11539634 422 Associative Containers
 .. _P0422:
 
-   Using a set
+Using a set
+
    A logical extension to our program is to ignore common words like “the,” “and,”
    “or,” and so on. We'll use a set to hold the words we want to ignore and count
    only those words that are not in this set:
-   // count the number of times each word occurs in the input
-   map<string, size_t> word_count; // empty map from string to size_t
-   set<string> exclude = {"The", "But", "And", "Or", "An", "A",
-   "the", "but", "and", "or", "an", "a"};
-   string word;
-   while (cin >> word)
-   // count only words that are not in exclude
-   if (exclude.find(word) == exclude.end())
-   ++word_count[word]; // fetch and increment the counter for word
+
+   .. code-block:: cpp
+
+      // count the number of times each word occurs in the input
+      map<string, size_t> word_count; // empty map from string to size_t
+      set<string> exclude = {"The", "But", "And", "Or", "An", "A",
+      "the", "but", "and", "or", "an", "a"};
+      string word;
+      while (cin >> word)
+      // count only words that are not in exclude
+      if (exclude.find(word) == exclude.end())
+      ++word_count[word]; // fetch and increment the counter for word
+
    Like the other containers, set is a template. To define a set, we specify the type
    of its elements, which in this case are strings. As with the sequential containers,
    we can list initialize (§ 9.2.4, p. [P0336]_) the elements of an associative container. Our
    exclude set holds the 12 words we want to ignore.
+
    The important difference between this program and the previous program is
    that before counting each word, we check whether the word is in the exclusion set.
    We do this check in the if:
-   // count only words that are not in exclude
-   if (exclude.find(word) == exclude.end())
+
+   .. code-block:: cpp
+
+      // count only words that are not in exclude
+      if (exclude.find(word) == exclude.end())
+
    The call to findreturns an iterator. If the given key is in the set, the iterator refers
    to that key. If the element is not found, find returns the off-the-end iterator. In
    this version, we update the counter for word only if word is not in exclude.
    If we run this version on the same input as before, our output would be
-   Although occurs 1 time
-   Before occurs 1 time
-   are occurs 1 time
-   as occurs 1 time
-   ...
 
-Exercises Section 11.1
+   .. code-block:: cpp
 
-   Exercise 11.1: Describe the differences between a map and a vector.
+      Although occurs 1 time
+      Before occurs 1 time
+      are occurs 1 time
+      as occurs 1 time
+      ...
 
-   Exercise 11.2: Give an example of when each of list, vector, deque, map, and set
-   might be most useful.
+   Exercises Section 11.1
 
-   Exercise 11.3: Write your own version of the word-counting program.
+      Exercise 11.1: Describe the differences between a ``map`` and a ``vector``.
 
-   Exercise 11.4: Extend your program to ignore case and punctuation. For example,
-   “example.” “example,” and “Example” should all increment the same counter.
+      Exercise 11.2: Give an example of when each of ``list``, ``vector``, ``deque``, ``map``, and ``set``
+      might be most useful.
+
+      Exercise 11.3: Write your own version of the word-counting program.
+
+      Exercise 11.4: Extend your program to ignore case and punctuation. For example,
+      “example.” “example,” and “Example” should all increment the same counter.
 
 .. ptg11539634 Section 11.2 Overview of the Associative Containers 423
 .. _P0423:
@@ -25716,15 +27412,17 @@ Exercises Section 11.1
    Associative containers (both ordered and unordered) support the general container 
    operations covered in § 9.2 (p. [P0328]_) and listed in Table 9.2 (p. [P0330]_). The
    associative containers do not support the sequential-container position-specific operations, 
-   such as push_front or back. Because the elements are stored based on
+   such as ``push_front`` or ``back``. Because the elements are stored based on
    their keys, these operations would be meaningless for the associative containers.
    Moreover, the associative containers do not support the constructors or insert operations 
    that take an element value and a count.
+
    In addition to the operations they share with the sequential containers, the associative 
    containers provide some operations (Table 11.7 (p. [P0438]_)) and type aliases
    (Table 11.3 (p. [P0429]_)) that the sequential containers do not. In addition, the unordered 
    containers provide operations for tuning their hash performance, which
    we'll cover in § 11.4 (p. [P0444]_).
+
    The associative container iterators are bidirectional (§ 10.5.1, p. [P0410]_).
 
 /11.2.1 Defining an Associative Container
@@ -25737,25 +27435,34 @@ Exercises Section 11.1
    container as a copy of another container of the same type or from a range of
    values, so long as those values can be converted to the type of the container. Under
    the new standard, we can also list initialize the elements:
-   map<string, size_t> word_count; // empty
-   // list initialization
-   set<string> exclude = {"the", "but", "and", "or", "an", "a",
-   "The", "But", "And", "Or", "An", "A"};
-   // three elements; authors maps last name to first
-   map<string, string> authors = { {"Joyce", "James"},
-   {"Austen", "Jane"},
-   {"Dickens", "Charles"} };
+
+   .. code-block:: cpp
+
+      map<string, size_t> word_count; // empty
+      // list initialization
+      set<string> exclude = {"the", "but", "and", "or", "an", "a",
+         "The", "But", "And", "Or", "An", "A"};
+      // three elements; authors maps last name to first
+      map<string, string> authors = { {"Joyce", "James"},
+         {"Austen", "Jane"},
+         {"Dickens", "Charles"} };
+
    As usual, the initializers must be convertible to the type in the container. For set,
    the element type is the key type.
-   When we initialize a map, we have to supply both the key and the value. We
-   wrap each key–value pair inside curly braces:
-   {key, value}
-   to indicate that the items together form one element in the map. The key is the first
+
+   When we initialize a ``map``, we have to supply both the `key` and the `value`. We
+   wrap each `key–value pair` inside curly braces:
+
+      {key, value}
+
+   to indicate that the items together form one element in the ``map``. The key is the first
    element in each pair, and the value is the second. Thus, authors maps last names
    to first names, and is initialized with three elements.
-   Initializing a multimap or multiset
-   The keys in a map or a set must be unique; there can be only one element with
-   a given key. The multimap and multiset containers have no such restriction;
+
+Initializing a multimap or multiset
+
+   The keys in a ``map`` or a ``set`` must be unique; there can be only one element with
+   a given key. The ``multimap`` and ``multiset`` containers have no such restriction;
 
 .. ptg11539634 424 Associative Containers
 .. _P0424:
@@ -25767,43 +27474,47 @@ Exercises Section 11.1
    unique keys and those that have multiple keys. First, we'll create a vector of
    ints named ivec that has 20 elements: two copies of each of the integers from 0
    through 9 inclusive. We'll use that vector to initialize a set and a multiset:
-   // define a vector with 20 elements, holding two copies of each number from 0 to 9
-   vector<int> ivec;
-   for (vector<int>::size_type i = 0; i != 10; ++i) {
-   ivec.push_back(i);
-   ivec.push_back(i); // duplicate copies of each number
-   }
-   // iset holds unique elements from ivec ; miset holds all 20 elements
-   set<int> iset(ivec.cbegin(), ivec.cend());
-   multiset<int> miset(ivec.cbegin(), ivec.cend());
-   cout << ivec.size() << endl; // prints 20
-   cout << iset.size() << endl; // prints 10
-   cout << miset.size() << endl; // prints 20
+
+   .. code-block:: cpp
+
+      // define a vector with 20 elements, holding two copies of each number from 0 to 9
+      vector<int> ivec;
+      for (vector<int>::size_type i = 0; i != 10; ++i) {
+         ivec.push_back(i);
+         ivec.push_back(i); // duplicate copies of each number
+      }
+      // iset holds unique elements from ivec ; miset holds all 20 elements
+      set<int> iset(ivec.cbegin(), ivec.cend());
+      multiset<int> miset(ivec.cbegin(), ivec.cend());
+      cout << ivec.size() << endl; // prints 20
+      cout << iset.size() << endl; // prints 10
+      cout << miset.size() << endl; // prints 20
+
    Even though we initialized iset from the entire ivec container, iset has only
    ten elements: one for each distinct element in ivec. On the other hand, miset has
    20 elements, the same as the number of elements in ivec.
 
-Exercises Section 11.2.1
+   Exercises Section 11.2.1
 
-   Exercise 11.5: Explain the difference between a map and a set. When might you use
-   one or the other?
+      Exercise 11.5: Explain the difference between a ``map`` and a ``set``. When might you use
+      one or the other?
 
-   Exercise 11.6: Explain the differencebetween a set and a list. When might youuse
-   one or the other?
+      Exercise 11.6: Explain the difference between a ``set`` and a ``list``. When might youuse
+      one or the other?
 
-   Exercise 11.7: Define a map for which the key is the family's last name and the value
-   is a vector of the children's names. Write code to add new families and to add new
-   children to an existing family.
+      Exercise 11.7: Define a ``map`` for which the key is the family's last name and the value
+      is a vector of the children's names. Write code to add new families and to add new
+      children to an existing family.
 
-   Exercise 11.8: Write a program that stores the excluded words in a vector instead of
-   in a set. What are the advantages to using a set?
+      Exercise 11.8: Write a program that stores the excluded words in a vector instead of
+      in a set. What are the advantages to using a set?
 
 /11.2.2 Requirements on Key Type
 `````````````````````````````````
 
    The associative containers place constraints on the type that is used as a key. We'll
    cover the requirements for keys in the unordered containers in § 11.4 (p. [P0445]_). For
-   the orderedcontainers—map, multimap,set, andmultiset—thekey type must
+   the ordered containers— ``map``, ``multimap``,``set``, and ``multiset``—the key type must
    define a way to compare the elements. By default, the library uses the < operator
    for the key type to compare the keys. In the set types, the key is the element type;
 
@@ -25812,28 +27523,40 @@ Exercises Section 11.2.1
 
    in the map types, the key is the first type. Thus, the key type for word_count in
    § 11.1 (p. [P0421]_) is string. Similarly, the key type for exclude is string.
-   Callable objects passed to a sort algorithm (§ 10.3.1, p. [P0386]_) must meet
-   the same requirements as do the keys in an associative container.
-   Key Types for Ordered Containers
-   Just as we can provide our own comparison operation to an algorithm (§ 10.3, p. [P0385]_)
-   , we can also supply our own operation to use in place of the < operator
+
+   .. Note::
+
+      Callable objects passed to a sort algorithm (§ 10.3.1, p. [P0386]_) must meet
+      the same requirements as do the keys in an associative container.
+
+Key Types for Ordered Containers
+
+   Just as we can provide our own comparison operation to an algorithm (§ 10.3, p. [P0385]_), 
+   we can also supply our own operation to use in place of the < operator
    on keys. The specified operation must define a strict weak ordering over the key
    type. We can think of a strict weak ordering as “less than,” although our function
    might use a more complicated procedure. However we define it, the comparison
    function must have the following properties:
-   • Two keys cannot both be “less than” each other; if k1 is “less than” k2, then
-   k2 must never be “less than” k1.
-   • If k1 is “less than” k2 and k2 is “less than” k3, then k1 must be “less than”
-   k3.
+
+   • Two keys cannot both be “less than” each other; if `k1` is “less than” `k2`, then
+   `k2` must never be “less than” `k1`.
+
+   • If `k1` is “less than” `k2` and `k2` is “less than” k3, then `k1` must be “less than”
+   `k3`.
+
    • If there are two keys, and neither key is “less than” the other, then we'll
-   say that those keys are “equivalent.” If k1 is “equivalent” to k2 and k2 is
-   “equivalent” to k3, then k1 must be “equivalent” to k3.
+   say that those keys are “equivalent.” If `k1` is “equivalent” to `k2` and `k2` is
+   “equivalent” to `k3`, then `k1` must be “equivalent” to `k3`.
+
    If two keys are equivalent (i.e., if neither is “less than” the other), the container
    treats them as equal. When used as a key to a map, there will be only one element
    associated with those keys, and either key can be used to access the corresponding
    value.
-   In practice, what's important is that a type that defines a < operator that
-   “behaves normally” can be used as a key.
+
+   .. Note::
+
+      In practice, what's important is that a type that defines a < operator that
+      “behaves normally” can be used as a key.
 
 Using a Comparison Function for the Key Type
 
@@ -25842,63 +27565,77 @@ Using a Comparison Function for the Key Type
    that operation when we define the type of an associative container. The operation
    type is specified following the element type inside the angle brackets that we use
    to say which type of container we are defining.
+
    Each type inside the angle brackets is just that, a type. We supply a particular
    comparison operation (that must have the same type as we specified inside the
    angle brackets) as a constructor argument when we create a container.
-   For example, we can't directly define a multiset of Sales_data because
-   Sales_data doesn't have a < operator. However, we can use the compareIsbn
+
+   For example, we can't directly define a multiset of `Sales_data` because
+   `Sales_data` doesn't have a < operator. However, we can use the `compareIsbn`
    function from the exercises in § 10.3.1(p. [P0387]_) to define a multiset. That function
-   defines a strict weak ordering based on their ISBN s of two given Sales_data
-   objects. The compareIsbn function should look something like
+   defines a strict weak ordering based on their ISBN s of two given `Sales_data`
+   objects. The `compareIsbn` function should look something like
 
 .. ptg11539634 426 Associative Containers
 .. _P0426:
 
-   bool compareIsbn(const Sales_data &lhs, const Sales_data &rhs)
-   {
-   return lhs.isbn() < rhs.isbn();
-   }
+
+   .. code-block:: cpp
+
+      bool compareIsbn(const Sales_data &lhs, const Sales_data &rhs)
+      {
+         return lhs.isbn() < rhs.isbn();
+      }
+
    To use our own operation, we must define the multiset with two types: the
-   key type, Sales_data, and the comparison type, which is a function pointer type
-   (§ 6.7, p. [P0247]_)that can point to compareIsbn. When we define objects of this type,
+   key type, `Sales_data`, and the comparison type, which is a function pointer type
+   (§ 6.7, p. [P0247]_)that can point to `compareIsbn`. When we define objects of this type,
    we supply a pointer to the operation we intend to use. In this case, we supply a
-   pointer to compareIsbn:
-   // bookstore can have several transactions with the same ISBN
-   // elements in bookstore will be in ISBN order
-   multiset<Sales_data, decltype(compareIsbn) * >
-   bookstore(compareIsbn);
+   pointer to `compareIsbn`:
+
+   .. code-block:: cpp
+
+      // bookstore can have several transactions with the same ISBN
+      // elements in bookstore will be in ISBN order
+      multiset<Sales_data, decltype(compareIsbn) * >
+         bookstore(compareIsbn);
+
    Here, we use decltype to specify the type of our operation, remembering that
    when we use decltype to form a function pointer, we must add a * to indicate
    that we're using a pointer to the given function type (§ 6.7, p. [P0250]_). We initialize 
-   bookstore from compareIsbn, which means that when we add elements
-   to bookstore, those elements will be ordered by calling compareIsbn. That is,
+   bookstore from `compareIsbn`, which means that when we add elements
+   to bookstore, those elements will be ordered by calling `compareIsbn`. That is,
    the elements in bookstore will be ordered by their ISBN members. We can write
-   compareIsbn instead of &compareIsbn as the constructor argument because
+   `compareIsbn` instead of `&compareIsbn` as the constructor argument because
    when we use the name of a function, it is automatically converted into a pointer if
-   needed (§ 6.7,p. [P0248]_). We could have written &compareIsbnwith the same effect.
+   needed (§ 6.7,p. [P0248]_). We could have written `&compareIsbn`with the same effect.
 
-Exercises Section 11.2.2
+   Exercises Section 11.2.2
 
-   Exercise 11.9: Define a map that associates words with a list of line numbers on
-   which the word might occur.
+      Exercise 11.9: Define a ``map`` that associates words with a ``list`` of line numbers on
+      which the word might occur.
 
-   Exercise 11.10: Could we define a map from vector<int>::iterator to int?
-   What about from list<int>::iterator to int? In each case, if not, why not?
+      Exercise 11.10: Could we define a ``map`` from `vector<int>::iterator` to `int`?
+      What about from `list<int>::iterator` to `int`? In each case, if not, why not?
 
-   Exercise 11.11: Redefine bookstore without using decltype.
+      Exercise 11.11: Redefine bookstore without using decltype.
 
 /11.2.3 The pair Type
 ``````````````````````
 
    Before we look at the operations on associative containers, we need to know about
-   the library type named pair, which is defined in the utility header.
-   A pair holds two data members. Like the containers, pair is a template from
-   which we generatespecific types. We must supply two type names when we create
-   a pair. The data members of the pair have the corresponding types. There is no
+   the library type named ``pair``, which is defined in the utility header.
+
+   A ``pair`` holds two data members. Like the containers, ``pair`` is a template from
+   which we generate specific types. We must supply two type names when we create
+   a ``pair``. The data members of the ``pair`` have the corresponding types. There is no
    requirement that the two types be the same:
-   pair<string, string> anon; // holds two string s
-   pair<string, size_t> word_count; // holds a string and an size_t
-   pair<string, vector<int>> line; // holds string and vector<int>
+
+   .. code-block:: cpp
+
+      pair<string, string> anon; // holds two string s
+      pair<string, size_t> word_count; // holds a string and an size_t
+      pair<string, vector<int>> line; // holds string and vector<int>
 
 .. ptg11539634 Section 11.2 Overview of the Associative Containers 427
 .. _P0427:
@@ -25907,79 +27644,104 @@ Exercises Section 11.2.2
    Thus, anon is a pair of two empty strings, and line holds an empty string
    and an empty vector. The size_t value in word_count gets the value 0, and
    the string member is initialized to the empty string.
+
    We can also provide initializers for each member:
-   pair<string, string> author{"James", "Joyce"};
-   createsapairnamed author,initializedwith the values"James"and "Joyce".
+
+   .. code-block:: cpp
+
+      pair<string, string> author{"James", "Joyce"};
+
+   creates a ``pair`` named `author`, initialized with the values "James" and "Joyce".
+
    Table 11.2: Operations on pairs
-   pair<T1, T2> p; p is a pair with value initialized (§ 3.3.1, p. [P0098]_)
-   members of types T1 and T2, respectively.
-   pair<T1, T2> p(v1, v2); p is a pair with types T1 and T2; the first and
-   second members are initialized from v1 and v2,
-   respectively.
+
+   ========================== ===============================================
+   pair<T1, T2> p;            p is a pair with value initialized (§ 3.3.1, p. [P0098]_)
+                              members of types T1 and T2, respectively.
+   pair<T1, T2> p(v1, v2);    p is a pair with types T1 and T2; the first and
+                              second members are initialized from v1 and v2, respectively.
    pair<T1, T2> p = {v1, v2}; Equivalent to p(v1, v2).
-   make_pair(v1, v2) Returns a pair initialized from v1 and v2. The type of the pair is
-   inferred from the types of v1 and v2.
-   p.first Returns the (public) data member of p named first.
-   p.second Returns the (public) data member of p named second.
-   p1 relop p2 Relational operators (<, >, <=, >=). Relational operators are defined
-   as dictionary ordering: For example, p1 < p2 is true if p1.first <
-   p2.first or if !(p2.first < p1.first) && p1.second <
-   p2.second. Uses the element's < operator.
-   p1 == p2
-   p1 != p2
-   Two pairs are equal if their first and second members are respectively 
-   equal. Uses the element's == operator.
-   Unlikeother librarytypes, thedatamembersof pairarepublic(§7.2,p.268).
-   These members are named first and second, respectively. We access these
+   make_pair(v1, v2)          Returns a pair initialized from v1 and v2. The type of the pair is
+                              inferred from the types of v1 and v2.
+   p.first                    Returns the (public) data member of p named first.
+   p.second                   Returns the (public) data member of p named second.
+   p1 relop p2                Relational operators (<, >, <=, >=). Relational operators are defined
+                              as dictionary ordering: For example, p1 < p2 is true if p1.first <
+                              p2.first or if !(p2.first < p1.first) && p1.second <
+                              p2.second. Uses the element's < operator.
+   p1 == p2                   Two pairs are equal if their first and second members are respectively 
+   p1 != p2                   equal. Uses the element's == operator.
+   ========================== ===============================================
+
+   Unlike other library types, the data members of pair are public (§7.2,p.268).
+   These members are named ``first`` and ``second``, respectively. We access these
    members using the normal member access notation (§ 1.5.2, p. [P0023]_), as, for example,
    we did in the output statement of our word-counting program on page 421:
-   // print the results
-   cout << w.first << " occurs " << w.second
-   << ((w.second > 1) ? " times" : " time") << endl;
+
+   .. code-block:: cpp
+
+      // print the results
+      cout << w.first << " occurs " << w.second
+           << ((w.second > 1) ? " times" : " time") << endl;
+
    Here, w is a reference to an element in a map. Elements in a map are pairs. In this
    statement we print the first member of the element, which is the key, followed
    by the second member, which is the counter. The library defines only a limited
    number of operations on pairs, which are listed in Table 11.2.
-   A Function to Create pair Objects
+
+A Function to Create pair Objects
+
    Imagine we have a function that needs to return a pair. Under the new standard
    we can list initialize the return value (§ 6.3.2, p. [P0226]_):
 
 .. ptg11539634 428 Associative Containers
 .. _P0428:
 
-   pair<string, int>
-   process(vector<string> &v)
-   {
-   // process v
-   if (!v.empty())
-   return {v.back(), v.back().size()}; // list initialize
-   else
-   return pair<string, int>(); // explicitly constructed return value
-   }
-   If v isn't empty, we return a pair composed of the last string in v and the size
-   of that string. Otherwise, we explicitly construct and return an empty pair.
+
+   .. code-block:: cpp
+
+      pair<string, int>
+      process(vector<string> &v)
+      {
+         // process v
+         if (!v.empty())
+            return {v.back(), v.back().size()}; // list initialize
+         else
+            return pair<string, int>(); // explicitly constructed return value
+      }
+
+   If v isn't empty, we return a ``pair`` composed of the last string in v and the size
+   of that string. Otherwise, we explicitly construct and return an empty ``pair``.
+
    Under earlier versions of C++, we couldn't use braced initializers to return a
-   type like pair. Instead, we might have written both returns to explicitly construct
+   type like ``pair``. Instead, we might have written both returns to explicitly construct
    the return value:
-   if (!v.empty())
-   return pair<string, int>(v.back(), v.back().size());
-   Alternatively, we could have used make_pair to generate a new pair of the appropriate 
+
+   .. code-block:: cpp
+
+      if (!v.empty())
+      return pair<string, int>(v.back(), v.back().size());
+
+   Alternatively, we could have used ``make_pair`` to generate a new ``pair`` of the appropriate 
    type from its two arguments:
-   if (!v.empty())
-   return make_pair(v.back(), v.back().size());
 
-Exercises Section 11.2.3
+   .. code-block:: cpp
 
-   Exercise 11.12: Writeaprogramto readasequenceofstringsand ints,storingeach
-   into a pair. Store the pairs in a vector.
+      if (!v.empty())
+      return make_pair(v.back(), v.back().size());
 
-   Exercise 11.13: There are at least three ways to create the pairs in the program for
-   the previous exercise. Write three versions of that program, creating the pairs in each
-   way. Explain which form you think is easiest to write and understand, and why.
+   Exercises Section 11.2.3
 
-   Exercise 11.14: Extend the map of children to their family name that you wrote for the
-   exercises in § 11.2.1 (p. [P0424]_) by having the vector store a pair that holds a child's
-   name and birthday.
+      Exercise 11.12: Write a program to read a sequence of `strings` and `ints`, storing each
+      into a ``pair``. Store the `pairs` in a ``vector``.
+
+      Exercise 11.13: There are at least three ways to create the `pairs` in the program for
+      the previous exercise. Write three versions of that program, creating the `pairs` in each
+      way. Explain which form you think is easiest to write and understand, and why.
+
+      Exercise 11.14: Extend the map of children to their family name that you wrote for the
+      exercises in § 11.2.1 (p. [P0424]_) by having the ``vector`` store a `pair` that holds a child's
+      `name` and `birthday`.
 
 /11.3👋 Operations on Associative Containers
 ---------------------------------------------
@@ -25987,8 +27749,9 @@ Exercises Section 11.2.3
    In addition to the types listed in Table 9.2 (p. [P0330]_), the associative containers define
    the types listed in Table 11.3. These types represent the container's key and value
    types.
-   Forthesettypes, thekey_typeandthevalue_typearethesame; thevalues
-   held in a set are the keys. In a map, the elements are key–value pairs. That is,
+
+   For the ``set`` types, the `key_type` and the `value_type` are the same; the values
+   held in a ``set`` are the keys. In a map, the elements are `key–value pairs`. That is,
    each element is a pair object containing a key and a associated value. Because we
    cannot change an element's key, the key part of these pairs is const:
 
@@ -25996,19 +27759,28 @@ Exercises Section 11.2.3
 .. _P0429:
 
    Table 11.3: Associative Container Additional Type Aliases
-   key_type Type of the key for this container type
-   mapped_type Type associated with each key; map types only
-   value_type For sets, same as the key_type
-   For maps, pair<const key_type, mapped_type>
-   set<string>::value_type v1; // v1 is a string
-   set<string>::key_type v2; // v2 is a string
-   map<string, int>::value_type v3; // v3 is a pair<const string, int>
-   map<string, int>::key_type v4; // v4 is a string
-   map<string, int>::mapped_type v5; // v5 is an int
+
+   ============== ================================================
+   key_type       Type of the key for this container type
+   mapped_type    Type associated with each key; map types only
+   value_type     For sets, same as the key_type
+                  For maps, pair<const key_type, mapped_type>
+   ============== ================================================
+
+
+   .. code-block:: cpp
+
+      set<string>::value_type v1; // v1 is a string
+      set<string>::key_type v2; // v2 is a string
+      map<string, int>::value_type v3; // v3 is a pair<const string, int>
+      map<string, int>::key_type v4; // v4 is a string
+      map<string, int>::mapped_type v5; // v5 is an int
+
    As with the sequential containers (§ 9.2.2, p. [P0332]_), we use the scope operator to
-   fetch a type member—for example, map<string, int>::key_type.
-   Only the map types (unordered_map, unordered_multimap, multimap,
-   and map) define mapped_type.
+   fetch a type member—for example, `map<string, int>::key_type`.
+
+   Only the ``map`` types (``unordered_map``, ``unordered_multimap``, ``multimap``,
+   and ``map``) define ``mapped_type``.
 
 /11.3.1 Associative Container Iterators
 ````````````````````````````````````````
@@ -26016,71 +27788,92 @@ Exercises Section 11.2.3
    When we dereference an iterator, we get a reference to a value of the container's
    value_type. In the case of map, the value_type is a pair in which first
    holds the const key and second holds the value:
-   // get an iterator to an element in word_count
-   auto map_it = word_count.begin();
-   //
-   * map_it is a reference to a pair<const string, size_t> object
-   cout << map_it->first; // prints the key for this element
-   cout << " " << map_it->second; // prints the value of the element
-   map_it->first = "new key"; // error: key is const
-   ++map_it->second; // ok: we can change the value through an iterator
-   It is essential to remember that the value_type of a map is a pair and
-   that we can change the value but not the key member of that pair.
-   Iterators for sets Are const
+
+   .. code-block:: cpp
+
+      // get an iterator to an element in word_count
+      auto map_it = word_count.begin();
+      //
+      * map_it is a reference to a pair<const string, size_t> object
+      cout << map_it->first; // prints the key for this element
+      cout << " " << map_it->second; // prints the value of the element
+      map_it->first = "new key"; // error: key is const
+      ++map_it->second; // ok: we can change the value through an iterator
+
+   .. Note::
+
+      It is essential to remember that the value_type of a map is a pair and
+      that we can change the value but not the key member of that pair.
+
+Iterators for sets Are const
+
    Although the set types define both the iterator and const_iterator types,
    both types of iterators give us read-only access to the elements in the set. Just as
    we cannot change the key part of a map element, the keys in a set are also const.
    We can use a set iterator to read, but not write, an element's value:
-   set<int> iset = {0,1,2,3,4,5,6,7,8,9};
-   set<int>::iterator set_it = iset.begin();
-   if (set_it != iset.end()) {
-   * set_it = 42;
-   // error: keys in a set are read-only
-   cout <<
-   * set_it << endl; //
-   ok: can read the key
-   }
+
+   .. code-block:: cpp
+
+      set<int> iset = {0,1,2,3,4,5,6,7,8,9};
+      set<int>::iterator set_it = iset.begin();
+      if (set_it != iset.end()) {
+         * set_it = 42;
+         // error: keys in a set are read-only
+         cout << * set_it << endl; // ok: can read the key
+      }
 
 .. ptg11539634 430 Associative Containers
 .. _P0430:
 
-   Iterating across an Associative Container
+Iterating across an Associative Container
+
    The map and set types provide all the begin and end operations from Table 9.2
    (p. [P0330]_). As usual, we can use these functions to obtain iterators that we can use
    to traverse the container. For example, we can rewrite the loop that printed the
    results in our word-counting program on page 421 as follows:
-   // get an iterator positioned on the first element
-   auto map_it = word_count.cbegin();
-   // compare the current iterator to the off-the-end iterator
-   while (map_it != word_count.cend()) {
-   // dereference the iterator to print the element key--value pairs
-   cout << map_it->first << " occurs "
-   << map_it->second << " times" << endl;
-   ++map_it; // increment the iterator to denote the next element
-   }
+
+   .. code-block:: cpp
+
+      // get an iterator positioned on the first element
+      auto map_it = word_count.cbegin();
+      // compare the current iterator to the off-the-end iterator
+      while (map_it != word_count.cend()) {
+         // dereference the iterator to print the element key--value pairs
+         cout << map_it->first << " occurs "
+              << map_it->second << " times" << endl;
+         ++map_it; // increment the iterator to denote the next element
+      }
+
    The while condition and increment for the iterator in this loop look a lot like
    the programs we wrote that printed the contents of a vector or a string. We
-   initialize an iterator, map_it, to refer to the first element in word_count. As long
+   initialize an iterator, `map_it`, to refer to the first element in `word_count`. As long
    as the iterator is not equal to the end value, we print the current element and
-   then increment the iterator. The output statement dereferences map_it to get the
-   members of pair but is otherwise the same as the one in our original program.
-   The output of this program is in alphabetical order. When we use an
-   iterator to traverse a map, multimap, set, or multiset, the iterators
-   yield elements in ascending key order.
-   Associative Containers and Algorithms
+   then increment the iterator. The output statement dereferences `map_it` to get the
+   members of ``pair`` but is otherwise the same as the one in our original program.
+
+   .. Note::
+
+      The output of this program is in alphabetical order. When we use an
+      iterator to traverse a ``map``, ``multimap``, ``set``, or ``multiset``, the iterators
+      yield elements in ascending key order.
+
+Associative Containers and Algorithms
+
    In general, we do not use the generic algorithms (Chapter 10) with the associative
-   containers. The fact that the keys areconst means that we cannot pass associative
+   containers. The fact that the keys are ``const`` means that we cannot pass associative
    container iterators to algorithms that write to or reorder container elements. Such
-   algorithms need towrite to theelements. Theelements in the settypesareconst,
-   and those in maps are pairs whose first element is const.
+   algorithms need to write to the elements. The elements in the ``set`` types are ``const``,
+   and those in `maps` are `pairs` whose first element is ``const``.
+
    Associative containers can be used with the algorithms that read elements.
    However, many of these algorithms search the sequence. Because elements in an
    associative container can be found (quickly) by their key, it is almost always a bad
    idea to use a generic search algorithm. For example, as we'll see in § 11.3.5(p. [P0436]_),
-   the associative containers define a member named find, which directly fetches
-   the element with a given key. We could use the generic find algorithm to look for
+   the associative containers define a member named `find`, which directly fetches
+   the element with a given key. We could use the generic `find` algorithm to look for
    an element, but that algorithm does a sequential search. It is much faster to use the
-   find member defined by the container than to call the generic version.
+   `find` member defined by the container than to call the generic version.
+
    In practice, if we do so at all, we use an associative container with the algorithms 
    either as the source sequence or as a destination. For example, we might
    use the generic copy algorithm to copy the elements from an associative container
@@ -26092,27 +27885,30 @@ Exercises Section 11.2.3
 .. _P0431:
 
 
-Exercises Section 11.3.1
+   Exercises Section 11.3.1
 
-   Exercise 11.15: What are the mapped_type, key_type, and value_type of a map
-   from int to vector<int>?
+      Exercise 11.15: What are the `mapped_type`, `key_type`, and `value_type` of a ``map``
+      from int to `vector<int>`?
 
-   Exercise 11.16: Using a map iterator write an expression that assigns a value to an
-   element.
+      Exercise 11.16: Using a ``map`` iterator write an expression that assigns a value to an
+      element.
 
-   Exercise 11.17: Assuming c is a multiset of strings and v is a vector of
-   strings, explain the following calls. Indicate whether each call is legal:
-   copy(v.begin(), v.end(), inserter(c, c.end()));
-   copy(v.begin(), v.end(), back_inserter(c));
-   copy(c.begin(), c.end(), inserter(v, v.end()));
-   copy(c.begin(), c.end(), back_inserter(v));
+      Exercise 11.17: Assuming c is a multiset of strings and v is a vector of
+      strings, explain the following calls. Indicate whether each call is legal:
 
-   Exercise 11.18: Write the type of map_it from the loop on page 430 without using
-   auto or decltype.
+      .. code-block:: cpp
 
-   Exercise 11.19: Define a variable that you initialize by calling begin() on the
-   multiset named bookstore from § 11.2.2 (p. [P0425]_). Write the variable's type without
-   using auto or decltype.
+         copy(v.begin(), v.end(), inserter(c, c.end()));
+         copy(v.begin(), v.end(), back_inserter(c));
+         copy(c.begin(), c.end(), inserter(v, v.end()));
+         copy(c.begin(), c.end(), back_inserter(v));
+
+      Exercise 11.18: Write the type of `map_it` from the loop on page 430 without using
+      auto or decltype.
+
+      Exercise 11.19: Define a variable that you initialize by calling `begin()` on the
+      multiset named bookstore from § 11.2.2 (p. [P0425]_). Write the variable's type without
+      using auto or decltype.
 
 /11.3.2 Adding Elements
 ````````````````````````
@@ -26120,22 +27916,32 @@ Exercises Section 11.3.1
    The insert members (Table 11.4 (overleaf)) add one element or a range of elements. 
    Because map and set (and the corresponding unordered types) contain
    unique keys, inserting an element that is already present has no effect:
-   vector<int> ivec = {2,4,6,8,2,4,6,8}; // ivec has eight elements
-   set<int> set2; // empty set
-   set2.insert(ivec.cbegin(), ivec.cend()); // set2 has four elements
-   set2.insert({1,3,5,7,1,3,5,7}); // set2 now has eight elements
+
+   .. code-block:: cpp
+
+      vector<int> ivec = {2,4,6,8,2,4,6,8}; // ivec has eight elements
+      set<int> set2; // empty set
+      set2.insert(ivec.cbegin(), ivec.cend()); // set2 has four elements
+      set2.insert({1,3,5,7,1,3,5,7}); // set2 now has eight elements
+
    The versions of insert that take a pair of iterators or an initializer list work similarly 
    to the corresponding constructors (§ 11.2.1, p. [P0423]_)—only the first element
    with a given key is inserted.
-   Adding Elements to a map
+
+Adding Elements to a map
+
    When we insert into a map, we must remember that the element type is a pair.
    Often, we don't have a pair object that we want to insert. Instead, we create a
    pair in the argument list to insert:
-   // four ways to add word to word_count
-   word_count.insert({word, 1});
-   word_count.insert(make_pair(word, 1));
-   word_count.insert(pair<string, size_t>(word, 1));
-   word_count.insert(map<string, size_t>::value_type(word, 1));
+
+   .. code-block:: cpp
+
+      // four ways to add word to word_count
+      word_count.insert({word, 1});
+      word_count.insert(make_pair(word, 1));
+      word_count.insert(pair<string, size_t>(word, 1));
+      word_count.insert(map<string, size_t>::value_type(word, 1));
+
    As we've seen, under the new standard the easiest way to create a pair is to use
    brace initialization inside the argument list. Alternatively, we can call make_pair
 
@@ -26143,120 +27949,151 @@ Exercises Section 11.3.1
 .. _P0432:
 
    or explicitly construct the pair. The argument in the last call to insert:
-   map<string, size_t>::value_type(s, 1)
+
+   .. code-block:: cpp
+
+      map<string, size_t>::value_type(s, 1)
+
    constructs a new object of the appropriate pair type to insert into the map.
+   
    Table 11.4: Associative Container insert Operations
-   c.insert(v)
-   c.emplace(args)
-   v value_type object; args are used to construct an element.
-   For map and set, the element is inserted (or constructed) only if an
-   element with the given key is not already in c. Returns a pair containing 
-   an iterator referring to the element with the given key and a
-   bool indicating whether the element was inserted.
-   For multimap and multiset, inserts (or constructs) the given element 
-   and returns an iterator to the new element.
-   c.insert(b, e)
-   c.insert(il)
-   b and e are iterators that denote a range of c::value_type values;
-   il is a braced list of such values. Returns void.
-   For map and set, inserts the elements with keys that are not already
-   inc. Formultimapand multisetinserts, each elementinthe range.
-   c.insert(p, v)
-   c.emplace(p, args)
-   Like insert(v) (or emplace(args)), but uses iterator p as a hint
-   for where to begin the search for where the new element should be
-   stored. Returns an iterator to the element with the given key.
-   Testing the Return from insert
-   The value returned by insert (or emplace) depends on the container type and
+
+   ================== ======================================================
+   c.insert(v)        v value_type object; args are used to construct an element.
+   c.emplace(args)    For map and set, the element is inserted (or constructed) only if an
+                      element with the given key is not already in c. Returns a pair containing 
+                      an iterator referring to the element with the given key and a
+                      bool indicating whether the element was inserted.
+                      For multimap and multiset, inserts (or constructs) the given element 
+                      and returns an iterator to the new element.
+   c.insert(b, e)     b and e are iterators that denote a range of c::value_type values;
+   c.insert(il)       il is a braced list of such values. Returns void.
+                      For map and set, inserts the elements with keys that are not already
+                      inc. Formultimapand multisetinserts, each elementinthe range.
+   c.insert(p, v)     Like insert(v) (or emplace(args)), but uses iterator p as a hint
+   c.emplace(p, args) for where to begin the search for where the new element should be
+                      stored. Returns an iterator to the element with the given key.
+   ================== ======================================================
+
+Testing the Return from insert
+
+   The value returned by `insert` (or `emplace`) depends on the container type and
    the parameters. For the containers that have unique keys, the versions of insert
-   and emplace that add a single element return a pair that lets us know whether
-   the insertion happened. The first member of the pair is an iterator to the element 
-   with the given key; the second is a bool indicating whether that element
-   was inserted, or was already there. If the key is already in the container, then
+   and `emplace` that add a single element return a ``pair`` that lets us know whether
+   the insertion happened. The first member of the ``pair`` is an iterator to the element 
+   with the given `key`; the second is a bool indicating whether that element
+   was inserted, or was already there. If the `key` is already in the container, then
    insert does nothing, and the bool portion of the return value is false. If the
-   key isn't present, then the element is inserted and the bool is true.
+   `key` isn't present, then the element is inserted and the bool is true.
    As an example, we'll rewrite our word-counting program to use insert:
-   // more verbose way to count number of times each word occurs in the input
-   map<string, size_t> word_count; // empty map from string to size_t
-   string word;
-   while (cin >> word) {
-   // inserts an element with key equal to word and value 1 ;
-   // if word is already in word_count , insert does nothing
-   auto ret = word_count.insert({word, 1});
-   if (!ret.second) // word was already in word_count
-   ++ret.first->second; // increment the counter
-   }
+
+   .. code-block:: cpp
+
+      // more verbose way to count number of times each word occurs in the input
+      map<string, size_t> word_count; // empty map from string to size_t
+      string word;
+      while (cin >> word) {
+         // inserts an element with key equal to word and value 1 ;
+         // if word is already in word_count , insert does nothing
+         auto ret = word_count.insert({word, 1});
+         if (!ret.second) // word was already in word_count
+            ++ret.first->second; // increment the counter
+      }
+
    For each word, we attempt to insert it with a value 1. If word is already in
    the map, then nothing happens. In particular, the counter associated with word is
 
 .. ptg11539634 Section 11.3 Operations on Associative Containers 433
 .. _P0433:
 
-   unchanged. If word is not already in the map, then that string is added to the
-   map and its counter value is set to 1.
-   The if test examines the bool part of the return value. If that value is false,
+   unchanged. If word is not already in the ``map``, then that string is added to the
+   ``map`` and its counter value is set to 1.
+
+   The if test examines the ``bool`` part of the return value. If that value is ``false``,
    then the insertion didn't happen. In this case, word was already in word_count,
    so we must increment the value associated with that element.
-   Unwinding the Syntax
+
+Unwinding the Syntax
+
    The statement that increments the counter in this version of the word-counting
    program can be hard to understand. It will be easier to understand that expression
    by first parenthesizing it to reflect the precedence (§ 4.1.2, p. [P0136]_) of the operators:
-   ++((ret.first)->second); // equivalent expression
+
+   .. code-block:: cpp
+
+      ++((ret.first)->second); // equivalent expression
+
    Explaining this expression step by step:
-   ret holds the value returned by insert, which is a pair.
-   ret.first is the first member of that pair, which is a map iterator referring 
+
+   *  ``ret holds`` the value returned by insert, which is a pair.
+   *  ``ret.first`` is the first member of that pair, which is a map iterator referring 
    to the element with the given key.
-   ret.first-> dereferences that iterator to fetch that element. Elements in
+   *  ``ret.first->`` dereferences that iterator to fetch that element. Elements in
    the map are also pairs.
-   ret.first->second is the value part of the map element pair.
-   ++ret.first->second increments that value.
+   *  ``ret.first->second`` is the value part of the map element pair.
+   *  ``++ret.first->second`` increments that value.
+
    Putting it back together, the increment statement fetches the iterator for the element 
    with the key word and increments the counter associated with the key we
    tried to insert.
+
    For readersusing an older compiler or readingcode that predatesthe new standard, 
    declaring and initializing ret is also somewhat tricky:
-   pair<map<string, size_t>::iterator, bool> ret =
-   word_count.insert(make_pair(word, 1));
-   It should be easy to see that we're defining a pair and that the second type of the
-   pair is bool. The first type of that pair is a bit harder to understand. It is the
-   iterator type defined by the map<string, size_t> type.
-   Adding Elements to multiset or multimap
+
+   .. code-block:: cpp
+
+      pair<map<string, size_t>::iterator, bool> ret =
+         word_count.insert(make_pair(word, 1));
+
+   It should be easy to see that we're defining a ``pair`` and that the second type of the
+   ``pair`` is ``bool``. The first type of that ``pair`` is a bit harder to understand. It is the
+   iterator type defined by the `map<string, size_t>` type.
+
+Adding Elements to multiset or multimap
+
    Our word-counting program depends on the fact that a given key can occur only
    once. That way, there is only one counter associated with any given word. Sometimes, 
    we want to be able to add additional elements with the same key. For example, 
    we might want to map authors to titles of the books they have written. In
-   this case, there might be multiple entries for each author, so we'd use a multimap
-   rather than a map. Because keys in a multi container need not be unique, insert
+   this case, there might be multiple entries for each author, so we'd use a ``multimap``
+   rather than a ``map``. Because keys in a multi container need not be ``unique``, ``insert``
    on these types always inserts an element:
 
 .. ptg11539634 434 Associative Containers
 .. _P0434:
 
-   multimap<string, string> authors;
-   // adds the first element with the key Barth, John
-   authors.insert({"Barth, John", "Sot-Weed Factor"});
-   // ok: adds the second element with the key Barth, John
-   authors.insert({"Barth, John", "Lost in the Funhouse"});
+
+   .. code-block:: cpp
+
+      multimap<string, string> authors;
+      // adds the first element with the key Barth, John
+      authors.insert({"Barth, John", "Sot-Weed Factor"});
+      // ok: adds the second element with the key Barth, John
+      authors.insert({"Barth, John", "Lost in the Funhouse"});
+
    For the containers that allow multiple keys, the insert operation that takes a
    single element returns an iterator to the new element. There is no need to return a
-   bool, because insert always adds a new element in these types.
+   ``bool``, because insert always adds a new element in these types.
 
-Exercises Section 11.3.2
+   Exercises Section 11.3.2
 
-   Exercise 11.20: Rewrite the word-counting program from § 11.1 (p. [P0421]_) to use
-   insert instead of subscripting. Which program do you think is easier to write and
-   read? Explain your reasoning.
+      Exercise 11.20: Rewrite the word-counting program from § 11.1 (p. [P0421]_) to use
+      `insert` instead of subscripting. Which program do you think is easier to write and
+      read? Explain your reasoning.
 
-   Exercise 11.21: Assuming word_count is a map from string to size_t and word
-   is a string, explain the following loop:
-   while (cin >> word)
-   ++word_count.insert({word, 0}).first->second;
+      Exercise 11.21: Assuming ``word_count`` is a map from string to size_t and word
+      is a string, explain the following loop:
 
-   Exercise 11.22: Given a map<string, vector<int>>, write the types used as an
-   argument and as the return value for the version of insert that inserts one element.
+      .. code-block:: cpp
 
-   Exercise 11.23: Rewrite the map that stored vectors of children's names with a key
-   that is the family last name for the exercises in § 11.2.1 (p. [P0424]_) to use a multimap.
+         while (cin >> word)
+            ++word_count.insert({word, 0}).first->second;
+
+      Exercise 11.22: Given a `map<string, vector<int>>`, write the types used as an
+      argument and as the return value for the version of `insert` that inserts one element.
+
+      Exercise 11.23: Rewrite the map that stored vectors of children's names with a key
+      that is the family last name for the exercises in § 11.2.1 (p. [P0424]_) to use a `multimap`.
 
 /11.3.3 Erasing Elements
 `````````````````````````
@@ -26264,16 +28101,21 @@ Exercises Section 11.3.2
    The associative containers define three versions of erase, which are described
    in Table 11.5. As with the sequential containers, we can erase one element or a
    range of elements by passing erase an iterator or an iterator pair. These versions
-   of erasearesimilar to the corresponding operations on sequential containers: The
+   of erase are similar to the corresponding operations on sequential containers: The
    indicated element(s) are removed and the function returns void.
+
    The associative containers supply an additional erase operation that takes a
-   key_type argument. This version removes all the elements, if any, with the given
+   `key_type` argument. This version removes all the elements, if any, with the given
    key and returns a count of how many elements were removed. We can use this
-   version to remove a specific word from word_count before printing the results:
-   // erase on a key returns the number of elements removed
-   if (word_count.erase(removal_word))
-   cout << "ok: " << removal_word << " removed\n";
-   else cout << "oops: " << removal_word << " not found!\n";
+   version to remove a specific word from `word_count` before printing the results:
+
+   .. code-block:: cpp
+
+      // erase on a key returns the number of elements removed
+      if (word_count.erase(removal_word))
+      cout << "ok: " << removal_word << " removed\n";
+      else cout << "oops: " << removal_word << " not found!\n";
+
    For the containers with unique keys, the return from erase is always either zero
    or one. If the return value is zero, then the element we wanted to erase was not in
    the container.
@@ -26283,16 +28125,24 @@ Exercises Section 11.3.2
 
    For types that allow multiple keys, the number of elements removed could be
    greater than one:
-   auto cnt = authors.erase("Barth, John");
+
+   .. code-block:: cpp
+
+      auto cnt = authors.erase("Barth, John");
+
    If authors is the multimap we created in § 11.3.2 (p. [P0434]_), then cnt will be 2.
+
    Table 11.5: Removing Elements from an Associative Container
-   c.erase(k) Removes every element with key k from c. Returns size_type
-   indicating the number of elements removed.
-   c.erase(p) Removes the element denoted by the iterator p from c. p must refer to an
-   actual element in c; it must not be equal to c.end(). Returns an iterator
-   to the element after p or c.end() if p denotes the last element in c.
-   c.erase(b, e) Removes the elements in the range denoted by the iterator pair b, e.
-   Returns e.
+
+   ============= =============================================================
+   c.erase(k)     Removes every element with key k from c. Returns size_type
+                  indicating the number of elements removed.
+   c.erase(p)     Removes the element denoted by the iterator p from c. p must refer to an
+                  actual element in c; it must not be equal to c.end(). Returns an iterator
+                  to the element after p or c.end() if p denotes the last element in c.
+   c.erase(b, e)  Removes the elements in the range denoted by the iterator pair b, e.
+                  Returns e.
+   ============= =============================================================
 
 /11.3.4 Subscripting a map
 ```````````````````````````
@@ -26304,56 +28154,103 @@ Exercises Section 11.3.2
    of “fetching the value associated with a key” is meaningless. We cannot subscript
    a multimap or an unordered_multimap because there may be more than one
    value associated with a given key.
+
    Like the other subscript operators we've used, the map subscript takes an index
    (that is, a key) and fetches the value associated with that key. However, unlike
    other subscript operators, if the key is not already present, a new element is created
    and inserted into the map for that key. The associated value is value initialized
    (§ 3.3.1, p. [P0098]_).
+
    For example, when we write
-   map <string, size_t> word_count; // empty map
-   // insert a value-initialized element with key Anna ; then assign 1 to its value
-   word_count["Anna"] = 1;
+
+   .. code-block:: cpp
+
+      map <string, size_t> word_count; // empty map
+      // insert a value-initialized element with key Anna ; then assign 1 to its value
+      word_count["Anna"] = 1;
+
    the following steps take place:
-   • word_count is searched for the element whose key is Anna. The element is
+
+   • `word_count` is searched for the element whose key is Anna. The element is
    not found.
-   • A new key–value pair is inserted into word_count. The key is a const
+
+   • A new `key–value pair` is inserted into `word_count`. The key is a const
    string holding Anna. The value is value initialized, meaning in this case
    that the value is 0.
+
    • The newly inserted element is fetched and is given the value 1.
 
 .. ptg11539634 436 Associative Containers
 .. _P0436:
 
    Because the subscript operator might insert an element, we may use subscript only
-   on a map that is not const.
-   Subscripting a map behaves quite differently from subscripting an array
-   or vector: Using a key that is not already present adds an element with
-   that key to the map.
-   Table 11.6: Subscript Operation for map and unordered_map
-   c[k] Returns the element with key k; if k is not in c, adds a new, value-initialized
-   element with key k.
-   c.at(k) Checked access to the element with key k; throws an out_of_range
-   exception (§ 5.6, p. [P0193]_) if k is not in c.
+   on a ``map`` that is not const.
+
+   .. Note::
+
+      Subscripting a ``map`` behaves quite differently from subscripting an ``array``
+      or ``vector``: Using a key that is not already present adds an element with
+      that key to the ``map``.
+
+   Table 11.6: Subscript Operation for ``map`` and ``unordered_map``
+
+   ======== =============================================================
+   c[k]     Returns the element with key k; if k is not in c, adds a new, value-initialized
+            element with key k.
+   c.at(k)  Checked access to the element with key k; throws an out_of_range
+            exception (§ 5.6, p. [P0193]_) if k is not in c.
+   ======== =============================================================
 
 Using the Value Returned from a Subscript Operation
 
    Another way in which the map subscript differs from other subscript operators
    we've used is its return type. Ordinarily, the type returned by dereferencing an
    iterator and the type returned by the subscript operator are the same. Not so for
-   maps: when we subscript a map, we get a mapped_type object; when we dereference 
-   a map iterator, we get a value_type object (§ 11.3, p. [P0428]_).
-   In common with other subscripts, the map subscript operator returns an lvalue
-   (§ 4.1.1, p. [P0135]_). Because the return is an lvalue, we can read or write the element:
-   cout << word_count["Anna"]; // fetch the element indexed by Anna ; prints 1
-   ++word_count["Anna"]; // fetch the element and add 1 to it
-   cout << word_count["Anna"]; // fetch the element and print it; prints 2
-   Unlike vector or string, the type returned by the map subscript operator 
-   differs from the type obtained by dereferencing a map iterator.
+   maps: when we subscript a map, we get a `mapped_type` object; when we dereference 
+   a map iterator, we get a `value_type` object (§ 11.3, p. [P0428]_).
+
+   In common with other subscripts, the map subscript operator returns an `lvalue`
+   (§ 4.1.1, p. [P0135]_). Because the return is an `lvalue`, we can read or write the element:
+
+   .. code-block:: cpp
+
+      cout << word_count["Anna"]; // fetch the element indexed by Anna ; prints 1
+      ++word_count["Anna"]; // fetch the element and add 1 to it
+      cout << word_count["Anna"]; // fetch the element and print it; prints 2
+
+   .. Note::
+
+      Unlike ``vector`` or ``string``, the type returned by the ``map`` subscript operator 
+      differs from the type obtained by dereferencing a ``map`` iterator.
+
    The fact that the subscript operator adds an element if it is not already in the
-   map allows us to write surprisingly succinct programs such as the loop inside our
+   ``map`` allows us to write surprisingly succinct programs such as the loop inside our
    word-counting program (§ 11.1, p. [P0421]_). On the other hand, sometimes we only
    want to know whether an element is present and do not want to add the element if
    it is not. In such cases, we must not use the subscript operator.
+
+
+   Exercises Section 11.3.4
+
+      Exercise 11.24: What does the following program do?
+
+      .. code-block:: cpp
+
+         map<int, int> m;
+         m[0] = 1;
+
+      Exercise 11.25: Contrast the following program with the one in the previous exercise
+
+      .. code-block:: cpp
+
+         vector<int> v;
+         v[0] = 1;
+
+      Exercise 11.26: What type can be used to subscript a ``map``? What type does the subscript 
+      operator return? Give a concrete example—that is, define a ``map`` and then write
+      the types that can be used to subscript the ``map`` and the type that would be returned
+      from the subscript operator.
+   
 
 /11.3.5 Accessing Elements
 ```````````````````````````
@@ -26368,43 +28265,39 @@ Using the Value Returned from a Subscript Operation
 .. ptg11539634 Section 11.3 Operations on Associative Containers 437
 .. _P0437:
 
-
-Exercises Section 11.3.4
-
-   Exercise 11.24: What does the following program do?
-   map<int, int> m;
-   m[0] = 1;
-
-   Exercise 11.25: Contrast the following program with the one in the previous exercise
-   vector<int> v;
-   v[0] = 1;
-
-   Exercise 11.26: What type can be used to subscript a map? What type does the subscript 
-   operator return? Give a concrete example—that is, define a map and then write
-   the types that can be used to subscript the map and the type that would be returned
-   from the subscript operator.
    is present, it still has to count how many elements have the same key. If we don't
    need the count, it's best to use find:
-   set<int> iset = {0,1,2,3,4,5,6,7,8,9};
-   iset.find(1); // returns an iterator that refers to the element with key == 1
-   iset.find(11); // returns the iterator == iset.end()
-   iset.count(1); // returns 1
-   iset.count(11); // returns 0
-   Using find Instead of Subscript for maps
-   For the map and unordered_map types, the subscript operator provides the simplest 
+
+   .. code-block:: cpp
+
+      set<int> iset = {0,1,2,3,4,5,6,7,8,9};
+      iset.find(1); // returns an iterator that refers to the element with key == 1
+      iset.find(11); // returns the iterator == iset.end()
+      iset.count(1); // returns 1
+      iset.count(11); // returns 0
+
+Using find Instead of Subscript for maps
+
+   For the ``map`` and ``unordered_map`` types, the subscript operator provides the simplest 
    method of retrieving a value. However, as we've just seen, using a subscript
-   has an important side effect: If that key is not already in the map, then subscript
+   has an important side effect: If that key is not already in the ``map``, then subscript
    inserts an element with that key. Whether this behavior is correct depends on our
    expectations. Our word-counting programs relied on the fact that using a nonexistent 
    key as a subscript inserts an element with that key and value 0.
+
    Sometimes, we want to know if an element with a given key is present without
-   changing the map. We cannot use the subscript operator to determine whether an
+   changing the ``map``. We cannot use the subscript operator to determine whether an
    element is present, because the subscript operator inserts a new element if the key
    is not already there. In such cases, we should use find:
-   if (word_count.find("foobar") == word_count.end())
-   cout << "foobar is not in the map" << endl;
-   Finding Elements in a multimap or multiset
-   Finding anelement inanassociativecontainerthat requiresunique keysis asimple
+
+   .. code-block:: cpp
+
+      if (word_count.find("foobar") == word_count.end())
+      cout << "foobar is not in the map" << endl;
+
+Finding Elements in a multimap or multiset
+
+   Finding an element in an associative container that requires unique keys is a simple
    matter—the element is or is not in the container. For the containers that allow
    multiple keys, the process is more complicated: There may be many elements with
    the given key. When a multimap or multiset has multiple elements of a given
@@ -26414,43 +28307,56 @@ Exercises Section 11.3.4
 .. _P0438:
 
    Table 11.7: Operations to Find Elements in an Associative Container
-   lower_bound and upper_bound not valid for the unordered containers.
-   Subscript and at operations only for map and unordered_map that are not const.
-   c.find(k) Returns an iterator to the (first) element with key k, or the off-the-end
-   iterator if k is not in the container.
-   c.count(k) Returns the number of elements with key k. For the containers with
-   unique keys, the result is always zero or one.
-   c.lower_bound(k) Returns an iterator to the first element with key not less than k.
-   c.upper_bound(k) Returns an iterator to the first element with key greater than k.
-   c.equal_range(k) Returns a pair of iterators denoting the elements with key k. If k is
-   not present, both members are c.end().
+   ``lower_bound`` and ``upper_bound`` not valid for the unordered containers.
+   Subscript and at operations only for ``map`` and ``unordered_map`` that are not ``const``.
+
+   ================ =======================================================
+   c.find(k)         Returns an iterator to the (first) element with key k, or the off-the-end
+                     iterator if k is not in the container.
+   c.count(k)        Returns the number of elements with key k. For the containers with
+                     unique keys, the result is always zero or one.
+   c.lower_bound(k)  Returns an iterator to the first element with key not less than k.
+   c.upper_bound(k)  Returns an iterator to the first element with key greater than k.
+   c.equal_range(k)  Returns a pair of iterators denoting the elements with key k. If k is
+                     not present, both members are c.end().
+   ================ =======================================================
+
    For example, given our map from author to titles, we might want to print all
    the books by a particularauthor. We can solve this problem in threedifferentways.
    The most obvious way uses find and count:
-   string search_item("Alain de Botton"); // author we'll look for
-   auto entries = authors.count(search_item); // number of elements
-   auto iter = authors.find(search_item); // first entry for this author
-   // loop through the number of entries there are for this author
-   while(entries) {
-   cout << iter->second << endl; // print each title
-   ++iter; // advance to the next title
-   --entries; // keep track of how many we've printed
-   }
+
+   .. code-block:: cpp
+
+      string search_item("Alain de Botton"); // author we'll look for
+      auto entries = authors.count(search_item); // number of elements
+      auto iter = authors.find(search_item); // first entry for this author
+      // loop through the number of entries there are for this author
+      while(entries) {
+         cout << iter->second << endl; // print each title
+         ++iter; // advance to the next title
+         --entries; // keep track of how many we've printed
+      }
+
    We start by determining how many entries there are for the author by calling
-   count and getting an iterator to the first element with this key by calling find.
+   count and getting an iterator to the first element with this key by calling ``find``.
    The number of iterations of the for loop depends on the number returned from
    count. In particular, if the count was zero, then the loop is never executed.
-   We are guaranteed that iterating across a multimap or multiset returns 
-   all the elements with a given key in sequence.
-   A Different, Iterator-Oriented Solution
-   Alternatively, we can solve our problem using lower_bound and upper_bound.
+
+   .. Note::
+
+      We are guaranteed that iterating across a multimap or multiset returns 
+      all the elements with a given key in sequence.
+
+A Different, Iterator-Oriented Solution
+
+   Alternatively, we can solve our problem using ``lower_bound`` and ``upper_bound``.
    Each of these operations take a key and returns an iterator. If the key is in the
-   container, the iterator returned from lower_bound will refer to the first instance
-   of that key and the iterator returned by upper_bound will refer just after the last
-   instance of the key. If the element is not in the multimap, then lower_bound
-   and upper_bound will return equal iterators; both will refer to the point at which
-   the key can be inserted without disrupting the order. Thus, calling lower_bound
-   and upper_bound on the same key yields an iterator range (§ 9.2.1, p. [P0331]_) that
+   container, the iterator returned from ``lower_bound`` will refer to the first instance
+   of that key and the iterator returned by ``upper_bound`` will refer just after the last
+   instance of the key. If the element is not in the multimap, then ``lower_bound``
+   and ``upper_bound`` will return equal iterators; both will refer to the point at which
+   the key can be inserted without disrupting the order. Thus, calling ``lower_bound``
+   and ``upper_bound`` on the same key yields an iterator range (§ 9.2.1, p. [P0331]_) that
    denotes all the elements with that key.
 
 .. ptg11539634 Section 11.3 Operations on Associative Containers 439
@@ -26460,44 +28366,58 @@ Exercises Section 11.3.4
    iterator for the container itself. If the element we're looking for has the largest key
    in the container, then upper_bound on that key returns the off-the-end iterator. If
    the key is not present and is larger than any key in the container, then the return
-   from lower_bound will also be the off-the-end iterator.
-   The iterator returned from lower_bound may or may not refer to an
+   from ``lower_bound`` will also be the off-the-end iterator.
+
+   The iterator returned from ``lower_bound`` may or may not refer to an
    element with the given key. If the key is not in the container, then
-   lower_bound refers to the first point at which this key can be inserted
+   ``lower_bound`` refers to the first point at which this key can be inserted
    while preserving the element order within the container.
+
    Using these operations, we can rewrite our program as follows:
-   // definitions of authors and search_item as above
-   // beg and end denote the range of elements for this author
-   for (auto beg = authors.lower_bound(search_item),
-   end = authors.upper_bound(search_item);
-   beg != end; ++beg)
-   cout << beg->second << endl; // print each title
+
+   .. code-block:: cpp
+
+      // definitions of authors and search_item as above
+      // beg and end denote the range of elements for this author
+      for (auto beg = authors.lower_bound(search_item),
+      end = authors.upper_bound(search_item);
+      beg != end; ++beg)
+      cout << beg->second << endl; // print each title
+
    This program does the same work as the previous one that used count and find
-   but accomplishes its task more directly. The call to lower_bound positions beg
-   so that it refers to the first element matching search_item if there is one. If there
+   but accomplishes its task more directly. The call to ``lower_bound`` positions beg
+   so that it refers to the first element matching ``search_item`` if there is one. If there
    is no such element, then beg refers to the first element with a key larger than
-   search_item, which could be the off-the-end iterator. The call to upper_bound
+   ``search_item``, which could be the off-the-end iterator. The call to ``upper_bound``
    sets end to refer to the element just beyond the last element with the given key.
    These operations say nothing about whether the key is present. The important
    point is that the return values act like an iterator range (§ 9.2.1, p. [P0331]_).
-   If there is no element for this key, then lower_bound and upper_bound will
+
+   If there is no element for this key, then ``lower_bound`` and ``upper_bound`` will
    be equal. Both will refer to the point at which this key can be inserted while maintaining 
    the container order.
+
    Assuming there are elements with this key, beg will refer to the first such element. 
    We can increment beg to traverse the elements with this key. The iterator in
    end will signal when we've seen all the elements. When beg equals end, we have
    seen every element with this key.
+
    Because these iterators form a range, we can use a for loop to traverse that
    range. The loop is executed zero or more times and prints the entries, if any, for
    the given author. If there areno elements, then beg and end areequal and the loop
    is never executed. Otherwise, we know that the increment to beg will eventually
    reach end and that in the process we will print each record associated with this
    author.
-   If lower_bound and upper_bound return the same iterator, then the
-   given key is not in the container.
-   The equal_range Function
+
+   .. Note::
+
+      If ``lower_bound`` and ``upper_bound`` return the same iterator, then the
+      given key is not in the container.
+
+The equal_range Function
+
    The remaining way to solve this problem is the most directof the three approaches:
-   Instead of calling upper_bound and lower_bound, we can call equal_range.
+   Instead of calling ``upper_bound`` and ``lower_bound``, we can call ``equal_range``.
 
 .. ptg11539634 440 Associative Containers
 .. _P0440:
@@ -26506,45 +28426,49 @@ Exercises Section 11.3.4
    the first iterator refers to the first instance of the key and the second iterator refers
    one past the last instance of the key. If no matching element is found, then both the
    first and second iterators refer to the position where this key can be inserted.
-   We can use equal_range to modify our program once again:
-   // definitions of authors and search_item as above
-   // pos holds iterators that denote the range of elements for this key
-   for (auto pos = authors.equal_range(search_item);
-   pos.first != pos.second; ++pos.first)
-   cout << pos.first->second << endl; // print each title
-   This program is essentially identical to the previous one that used upper_bound
-   and lower_bound. Instead of using local variables, beg and end, to hold the iterator 
-   range, we use the pair returned by equal_range. The first member
-   of that pair holds the same iterator as lower_bound would have returned and
-   second holds the iterator upper_bound would have returned. Thus, in this program 
+   We can use ``equal_range`` to modify our program once again:
+
+   .. code-block:: cpp
+
+      // definitions of authors and search_item as above
+      // pos holds iterators that denote the range of elements for this key
+      for (auto pos = authors.equal_range(search_item);
+      pos.first != pos.second; ++pos.first)
+      cout << pos.first->second << endl; // print each title
+
+   This program is essentially identical to the previous one that used ``upper_bound``
+   and ``lower_bound``. Instead of using local variables, beg and end, to hold the iterator 
+   range, we use the pair returned by ``equal_range``. The first member
+   of that pair holds the same iterator as ``lower_bound`` would have returned and
+   second holds the iterator ``upper_bound`` would have returned. Thus, in this program 
    pos.first is equivalent to beg, and pos.second is equivalent to end.
 
-Exercises Section 11.3.5
+   Exercises Section 11.3.5
 
-   Exercise 11.27: What kinds of problems would you use count to solve? When might
-   you use find instead?
+      Exercise 11.27: What kinds of problems would you use count to solve? When might
+      you use find instead?
 
-   Exercise 11.28: Define and initialize a variable to hold the result of calling find on a
-   map from string to vector of int.
+      Exercise 11.28: Define and initialize a variable to hold the result of calling find on a
+      map from string to ``vector`` of ``int``.
 
-   Exercise 11.29: What do upper_bound, lower_bound, and equal_range return
-   when you pass them a key that is not in the container?
+      Exercise 11.29: What do ``upper_bound``, ``lower_bound``, and ``equal_range`` return
+      when you pass them a key that is not in the container?
 
-   Exercise 11.30: Explain the meaning of the operand pos.first->second used in
-   the output expression of the final program in this section.
+      Exercise 11.30: Explain the meaning of the operand `pos.first->second` used in
+      the output expression of the final program in this section.
 
-   Exercise 11.31: Write a program that defines a multimap of authors and their works.
-   Use find to find an element in the multimap and erase that element. Be sure your
-   program works correctly if the element you look for is not in the map.
+      Exercise 11.31: Write a program that defines a ``multimap`` of authors and their works.
+      Use find to find an element in the ``multimap`` and erase that element. Be sure your
+      program works correctly if the element you look for is not in the ``map``.
 
-   Exercise 11.32: Using the multimap from the previous exercise, write a program to
-   print the list of authors and their works alphabetically.
+      Exercise 11.32: Using the ``multimap`` from the previous exercise, write a program to
+      print the list of authors and their works alphabetically.
 
 /11.3.6 A Word Transformation Map
 ``````````````````````````````````
 
    We'll close this section with a program to illustrate creating, searching, and iterating 
-   across a map. We'll write a program that, given one string, transforms it into
+   across a ``map``. We'll write a program that, given one string, transforms it into
    another. The input to our program is two files. The first file contains rules that we
    will use to transform the text in the second file. Each rule consists of a word that
    might be in the input file and a phrase to use in its place. The idea is that whenever 
@@ -26555,50 +28479,67 @@ Exercises Section 11.3.5
 .. _P0441:
 
    If the contents of the word-transformation file are
-   brb be right back
-   k okay?
-   y why
-   r are
-   u you
-   pic picture
-   thk thanks!
-   l8r later
+
+   .. code-block:: bash
+
+      brb be right back
+      k okay?
+      y why
+      r are
+      u you
+      pic picture
+      thk thanks!
+      l8r later
+
    and the text we are given to transform is
-   where r u
-   y dont u send me a pic
-   k thk l8r
+
+   .. code-block:: cpp
+
+      where r u
+      y dont u send me a pic
+      k thk l8r
+
    then the program should generate the following output:
-   where are you
-   why dont you send me a picture
-   okay? thanks! later
-   The Word Transformation Program
-   Our solution will use three functions. The word_transform function will manage 
-   the overall processing. It will take two ifstream arguments: The first will
+
+   .. code-block:: cpp
+
+      where are you
+      why dont you send me a picture
+      okay? thanks! later
+
+The Word Transformation Program
+
+   Our solution will use three functions. The `word_transform` function will manage 
+   the overall processing. It will take two ``ifstream`` arguments: The first will
    be bound to the word-transformation file and the second to the file of text we're to
-   transform. The buildMap function will read the file of transformation rules and
+   transform. The `buildMap` function will read the file of transformation rules and
    create a map from each word to its transformation. The transform function will
    take a string and return the transformation if there is one.
-   We'll start by defining the word_transform function. The important parts
-   are the calls to buildMap and transform:
-   void word_transform(ifstream &map_file, ifstream &input)
-   {
-   auto trans_map = buildMap(map_file); // store the transformations
-   string text; // hold each line from the input
-   while (getline(input, text)) { // read a line of input
-   istringstream stream(text); // read each word
-   string word;
-   bool firstword = true; // controls whether a space is printed
-   while (stream >> word) {
-   if (firstword)
-   firstword = false;
-   else
-   cout << " "; // print a space between words
-   // transform returns its first argument or its transformation
-   cout << transform(word, trans_map); // print the output
-   }
-   cout << endl; // done with this line of input
-   }
-   }
+
+   We'll start by defining the `word_transform` function. The important parts
+   are the calls to `buildMap` and transform:
+
+   .. code-block:: cpp
+
+      void word_transform(ifstream &map_file, ifstream &input)
+      {
+         auto trans_map = buildMap(map_file); // store the transformations
+         string text; // hold each line from the input
+         while (getline(input, text)) { // read a line of input
+            istringstream stream(text); // read each word
+            string word;
+            bool firstword = true; // controls whether a space is printed
+            while (stream >> word) {
+               if (firstword)
+                  firstword = false;
+               else
+                  cout << " "; // print a space between words
+                  // transform returns its first argument or its transformation
+                  cout << transform(word, trans_map); // print the output
+            }
+            cout << endl; // done with this line of input
+         }
+      }
 
 .. ptg11539634 442 Associative Containers
 .. _P0442:
@@ -26613,35 +28554,44 @@ Exercises Section 11.3.5
    whether to print a space. The call to transform obtains the word to print. The
    value returned from transform is either the original string in word or its corresponding 
    transformation from trans_map.
-   Building the Transformation Map
+
+Building the Transformation Map
+
    The buildMap function reads its given file and builds the transformation map.
-   map<string, string> buildMap(ifstream &map_file)
-   {
-   map<string, string> trans_map; // holds the transformations
-   string key; // a word to transform
-   string value; // phrase to use instead
-   // read the first word into key and the rest of the line into value
-   while (map_file >> key && getline(map_file, value))
-   if (value.size() > 1) // check that there is a transformation
-   trans_map[key] = value.substr(1); // skip leading space
-   else
-   throw runtime_error("no rule for " + key);
-   return trans_map;
-   }
-   Each line in map_file corresponds to a rule. Each rule is a word followed by a
+
+   .. code-block:: cpp
+
+      map<string, string> buildMap(ifstream &map_file)
+      {
+         map<string, string> trans_map; // holds the transformations
+         string key; // a word to transform
+         string value; // phrase to use instead
+         // read the first word into key and the rest of the line into value
+         while (map_file >> key && getline(map_file, value))
+            if (value.size() > 1) // check that there is a transformation
+               trans_map[key] = value.substr(1); // skip leading space
+            else
+               throw runtime_error("no rule for " + key);
+         return trans_map;
+      }
+
+   Each line in `map_file` corresponds to a rule. Each rule is a word followed by a
    phrase, which might contain multiple words. We use >> to read the word that we
-   will transform into key and call getline to read the rest of the line into value.
-   Because getline does not skip leading spaces (§ 3.2.2, p. [P0087]_), we need to skip
+   will transform into key and call ``getline`` to read the rest of the line into value.
+   Because ``getline`` does not skip leading spaces (§ 3.2.2, p. [P0087]_), we need to skip
    the space between the word and its corresponding rule. Before we store the transformation, 
    we check that we got more than one character. If so, we call substr
    (§ 9.5.1, p. [P0361]_) to skip the space that separated the transformation phrase from its
-   corresponding word and store that substring in trans_map,
+   corresponding word and store that substring in `trans_map`,
+
    Note that we use the subscript operator to add the key–value pairs. Implicitly, 
    we are ignoring what should happen if a word appears more than once in
    our transformation file. If a word does appear multiple times, our loops will
-   put the last corresponding phrase into trans_map. When the while concludes,
-   trans_map contains the data that we need to transform the input.
-   Generating a Transformation
+   put the last corresponding phrase into `trans_map`. When the while concludes,
+   `trans_map` contains the data that we need to transform the input.
+
+Generating a Transformation
+
    The transform function does the actual transformation. Its parameters are references 
    to the string to transform and to the transformation map. If the given
    string is in the map, transform returns the corresponding transformation. If
@@ -26650,38 +28600,46 @@ Exercises Section 11.3.5
 .. ptg11539634 Section 11.4 The Unordered Containers 443
 .. _P0443:
 
-   const string &
-   transform(const string &s, const map<string, string> &m)
-   {
-   // the actual map work; this part is the heart of the program
-   auto map_it = m.find(s);
-   // if this word is in the transformation map
-   if (map_it != m.cend())
-   return map_it->second; // use the replacement word
-   else
-   return s; // otherwise return the original unchanged
-   }
-   We start by calling find to determine whether the given string is in the map. If
-   it is, then find returns an iterator to the corresponding element. Otherwise, find
-   returns the off-the-end iterator. If the element is found, we dereferencethe iterator,
-   obtaining a pair that holds the key and value for that element (§ 11.3, p. [P0428]_). We
-   return the second member, which is the transformation to use in place of s.
 
-Exercises Section 11.3.6
+   .. code-block:: cpp
 
-   Exercise 11.33: Implement your own version of the word-transformation program.
+      const string &
+      transform(const string &s, const map<string, string> &m)
+      {
+         // the actual map work; this part is the heart of the program
+         auto map_it = m.find(s);
+         // if this word is in the transformation map
+         if (map_it != m.cend())
+            return map_it->second; // use the replacement word
+         else
+            return s; // otherwise return the original unchanged
+      }
 
-   Exercise 11.34: What would happen if we used the subscriptoperator instead of find
-   in the transform function?
+   We start by calling ``find`` to determine whether the given ``string`` is in the ``map``. If
+   it is, then ``find`` returns an iterator to the corresponding element. Otherwise, ``find``
+   returns the off-the-end iterator. If the element is found, we dereference the iterator,
+   obtaining a ``pair`` that holds the key and value for that element (§ 11.3, p. [P0428]_). We
+   return the ``second`` member, which is the transformation to use in place of s.
 
-   Exercise 11.35: In buildMap, what effect, if any, would there be from rewriting
-   trans_map[key] = value.substr(1);
-   as trans_map.insert({key, value.substr(1)})?
+   Exercises Section 11.3.6
 
-   Exercise 11.36: Our program does no checking on the validity of either input file. In
-   particular, it assumes that the rules in the transformation file are all sensible. What
-   would happen if a line in that file has a key, one space, and then the end of the line?
-   Predict the behavior and then check it against your version of the program.
+      Exercise 11.33: Implement your own version of the word-transformation program.
+
+      Exercise 11.34: What would happen if we used the subscript operator instead of find
+      in the transform function?
+
+      Exercise 11.35: In `buildMap`, what effect, if any, would there be from rewriting
+
+      .. code-block:: cpp
+
+         trans_map[key] = value.substr(1);
+
+      as trans_map.insert({key, value.substr(1)})?
+
+      Exercise 11.36: Our program does no checking on the validity of either input file. In
+      particular, it assumes that the rules in the transformation file are all sensible. What
+      would happen if a line in that file has a key, one space, and then the end of the line?
+      Predict the behavior and then check it against your version of the program.
 
 /11.4👋 The Unordered Containers
 ---------------------------------
@@ -26689,9 +28647,10 @@ Exercises Section 11.3.6
    The new standard defines four unordered associative containers. Rather than
    using a comparison operation to organize their elements, these containers use a
    hash function and the key type's == operator. An unordered container is most
-   usefulwhenwehaveakeytypeforwhich thereisno obviousorderingrelationship
+   useful when we have a key type for which there is no obvious ordering relationship
    among the elements. These containers are also useful for applications in which the
    cost of maintaining the elements in order is prohibitive.
+
    Although hashing gives better average case performance in principle, achieving 
    good results in practice often requires a fair bit of performance testing and
    tweaking. As a result, it is usually easier (and often yields better performance) to
@@ -26700,43 +28659,58 @@ Exercises Section 11.3.6
 .. ptg11539634 444 Associative Containers
 .. _P0444:
 
-   Use an unordered container if the key type is inherently unordered or
-   if performance testing reveals problems that hashing might solve.
-   Using an Unordered Container
-   Aside from operations that manage the hashing, the unordered containers provide
+   .. Tip::
+
+      Use an unordered container if the key type is inherently unordered or
+      if performance testing reveals problems that hashing might solve.
+
+Using an Unordered Container
+
+   Aside from operations that manage the hashing, the `unordered` containers provide
    the same operations (find, insert, and so on) as the ordered containers. That
-   means that the operations we've used on map and set apply to unordered_map
-   and unordered_set as well. Similarly for the unordered versions of the containers 
+   means that the operations we've used on map and set apply to ``unordered_map``
+   and ``unordered_set`` as well. Similarly for the `unordered` versions of the containers 
    that allow multiple keys.
-   As a result, we can usually use an unordered container in place of the corresponding 
+
+   As a result, we can usually use an `unordered` container in place of the corresponding 
    ordered container, and vice versa. However, because the elements are
-   not stored in order, the output of a program that uses an unordered container will
+   not stored in order, the output of a program that uses an `unordered` container will
    (ordinarily) differ from the same program using an ordered container.
    For example, we can rewrite our original word-counting program from § 11.1
-   (p. [P0421]_) to use an unordered_map:
-   // count occurrences, but the words won't be in alphabetical order
-   unordered_map<string, size_t> word_count;
-   string word;
-   while (cin >> word)
-   ++word_count[word]; // fetch and increment the counter for word
-   for (const auto &w : word_count) // for each element in the map
-   // print the results
-   cout << w.first << " occurs " << w.second
-   << ((w.second > 1) ? " times" : " time") << endl;
-   The type of word_count is the only difference between this program and our
+   (p. [P0421]_) to use an `unordered_map`:
+
+   .. code-block:: cpp
+
+      // count occurrences, but the words won't be in alphabetical order
+      unordered_map<string, size_t> word_count;
+      string word;
+      while (cin >> word)
+         ++word_count[word]; // fetch and increment the counter for word
+      for (const auto &w : word_count) // for each element in the map
+         // print the results
+         cout << w.first << " occurs " << w.second
+              << ((w.second > 1) ? " times" : " time") << endl;
+
+   The type of `word_count` is the only difference between this program and our
    original. If we run this version on the same input as our original program,
-   containers. occurs 1 time
-   use occurs 1 time
-   can occurs 1 time
-   examples occurs 1 time
-   ...
+
+   .. code-block:: bash
+
+      containers. occurs 1 time
+      use occurs 1 time
+      can occurs 1 time
+      examples occurs 1 time
+      ...
+
    we'll obtain the same count for each word in the input. However, the output is
    unlikely to be in alphabetical order.
-   Managing the Buckets
+
+Managing the Buckets
+
    The unordered containers are organized as a collection of buckets, each of which
-   holds zeroormoreelements. Thesecontainersuse ahash functionto mapelements
+   holds zero or more elements. These containers use a hash function to map elements
    to buckets. To access an element, the container first computes the element's hash
-   code, which tells which bucket to search. Thecontainer puts allofits elements with
+   code, which tells which bucket to search. The container puts all of its elements with
    a given hash value into the same bucket. If the container allows multiple elements
    with a given key, all the elements with the same key will be in the same bucket. As
    a result, the performance of an unordered container depends on the quality of its
@@ -26745,48 +28719,63 @@ Exercises Section 11.3.6
 .. ptg11539634 Section 11.4 The Unordered Containers 445
 .. _P0445:
 
-   Thehash function must always yield the sameresultwhen calledwith the same
+   The hash function must always yield the same result when called with the same
    argument. Ideally, the hash function also maps each particular value to a unique
    bucket. However, a hash function is allowed to map elements with differing keys
    to the same bucket. When a bucket holds several elements, those elements are
    searched sequentially to find the one we want. Typically, computing an element's
    hash code and finding its bucket is a fast operation. However, if the bucket has
    many elements, many comparisons may be needed to find a particular element.
+
    The unordered containers provide a set of functions, listed in Table 11.8, that
    let us manage the buckets. These members let us inquire about the state of the
    container and force the container to reorganize itself as needed.
+
    Table 11.8: Unordered Container Management Operations
+
    Bucket Interface
-   c.bucket_count() Number of buckets in use.
-   c.max_bucket_count() Largest number of buckets this container can hold.
-   c.bucket_size(n) Number of elements in the nth bucket.
-   c.bucket(k) Bucket in which elements with key k would be found.
+
+   ====================== ===================================================
+   c.bucket_count()        Number of buckets in use.
+   c.max_bucket_count()    Largest number of buckets this container can hold.
+   c.bucket_size(n)        Number of elements in the nth bucket.
+   c.bucket(k)             Bucket in which elements with key k would be found.
+   ====================== ===================================================
+   
    Bucket Iteration
-   local_iterator Iterator type that can access elements in a bucket.
-   const_local_iterator const version of the bucket iterator.
-   c.begin(n), c.end(n) Iterator to the first, one past the last element in bucket n.
-   c.cbegin(n), c.cend(n) Returns const_local_iterator.
+
+   ====================== ===================================================
+   local_iterator          Iterator type that can access elements in a bucket.
+   const_local_iterator    const version of the bucket iterator.
+   c.begin(n), c.end(n)    Iterator to the first, one past the last element in bucket n.
+   c.cbegin(n), c.cend(n)  Returns const_local_iterator.
+   ====================== ===================================================
+
    Hash Policy
-   c.load_factor() Average number of elements per bucket. Returns float.
-   c.max_load_factor() Average bucket size that c tries to maintain. c adds buckets
-   to keep load_factor <= max_load_factor. Returns float.
-   c.rehash(n) Reorganize storage so that bucket_count >= n and
-   and bucket_count > size/max_load_factor.
-   c.reserve(n) Reorganize so that c can hold n elements without a rehash.
+
+   ====================== ===================================================
+   c.load_factor()         Average number of elements per bucket. Returns float.
+   c.max_load_factor()     Average bucket size that c tries to maintain. c adds buckets
+                           to keep load_factor <= max_load_factor. Returns float.
+   c.rehash(n)             Reorganize storage so that bucket_count >= n and
+                           and bucket_count > size/max_load_factor.
+   c.reserve(n)            Reorganize so that c can hold n elements without a rehash.
+   ====================== ===================================================
 
 Requirements on Key Type for Unordered Containers
 
    By default, the unordered containers use the == operator on the key type to compare 
-   elements. They also use an object of type hash<key_type> to generate the
+   elements. They also use an object of type `hash<key_type>` to generate the
    hash code for each element. The library supplies versions of the hash template
    for the built-in types, including pointers. It also defines hash for some of the library 
    types, including strings and the smart pointer types that we will describe
-   in Chapter 12. Thus, we can directly define unorderedcontainers whose key is one
+   in Chapter 12. Thus, we can directly define unordered containers whose key is one
    of the built-in types (including pointer types), or a string, or a smart pointer.
-   However,wecannot directlydefineanunorderedcontainer thatusesaourown
+   However, we can not directly define an unordered container that uses a our own
    class types for its key type. Unlike the containers, we cannot use the hash template
    directly. Instead, we must supply our own version of the hash template. We'll see
    how to do so in § 16.5 (p. [P0709]_).
+
    Instead of using the default hash, we can use a strategy similar to the one
    we used to override the default comparison operation on keys for the ordered
 
@@ -26796,37 +28785,50 @@ Requirements on Key Type for Unordered Containers
    containers (§ 11.2.2, p. [P0425]_). To use Sales_data as the key, we'll need to supply
    functions to replace both the == operator and to calculate a hash code. We'll start
    by defining these functions:
-   size_t hasher(const Sales_data &sd)
-   {
-   return hash<string>()(sd.isbn());
-   }
-   bool eqOp(const Sales_data &lhs, const Sales_data &rhs)
-   {
-   return lhs.isbn() == rhs.isbn();
-   }
-   Ourhasherfunction usesanobjectofthelibraryhashofstringtypeto generate
-   a hash code from the ISBN member. Similarly, the eqOp funciton compares two
-   Sales_data objects by comparing their ISBN s.
-   We can use these functions to define an unordered_multiset as follows
-   using SD_multiset = unordered_multiset<Sales_data,
-   decltype(hasher) * , decltype(eqOp) * >;
-   // arguments are the bucket size and pointers to the hash function and equality operator
-   SD_multiset bookstore(42, hasher, eqOp);
-   To simplify the declaration of bookstorewe first define a type alias (§ 2.5.1,p. [P0067]_)
-   for an unordered_multisetwhose hash and equality operations have the same
-   types as our hasher and eqOp functions. Using that type, we define bookstore
-   passing pointers to the functions we want bookstore to use.
+
+   .. code-block:: cpp
+
+      size_t hasher(const Sales_data &sd)
+      {
+         return hash<string>()(sd.isbn());
+      }
+      bool eqOp(const Sales_data &lhs, const Sales_data &rhs)
+      {
+         return lhs.isbn() == rhs.isbn();
+      }
+
+   Our `hasher` function uses an object of the library ``hash`` of ``string`` type to generate
+   a hash code from the ISBN member. Similarly, the `eqOp` funciton compares two
+   `Sales_data` objects by comparing their ISBN s.
+
+   We can use these functions to define an ``unordered_multiset`` as follows
+
+   .. code-block:: cpp
+
+      using SD_multiset = unordered_multiset<Sales_data,
+                                    decltype(hasher) * , decltype(eqOp) * >;
+      // arguments are the bucket size and pointers to the hash function and equality operator
+      SD_multiset bookstore(42, hasher, eqOp);
+
+   To simplify the declaration of `bookstore` we first define a type alias (§ 2.5.1,p. [P0067]_)
+   for an ``unordered_multiset`` whose hash and equality operations have the same
+   types as our `hasher` and `eqOp` functions. Using that type, we define `bookstore`
+   passing pointers to the functions we want `bookstore` to use.
+
    If our class has its own == operator we can override just the hash function:
-   // use FooHash to generate the hash code; Foo must have an == operator
-   unordered_set<Foo, decltype(FooHash) * > fooSet(10, FooHash);
 
-Exercises Section 11.4
+   .. code-block:: cpp
 
-   Exercise 11.37: Whatarethe advantages ofanunorderedcontainer as comparedtothe
-   ordered version of that container? What are the advantages of the ordered version?
+      // use FooHash to generate the hash code; Foo must have an == operator
+      unordered_set<Foo, decltype(FooHash) * > fooSet(10, FooHash);
 
-   Exercise 11.38: Rewrite the word-counting (§ 11.1, p. [P0421]_) and word-transformation
-   (§ 11.3.6, p. [P0440]_) programs to use an unordered_map.
+   Exercises Section 11.4
+
+      Exercise 11.37: What are the advantages of an unordered container as compared to the
+      ordered version of that container? What are the advantages of the ordered version?
+
+      Exercise 11.38: Rewrite the word-counting (§ 11.1, p. [P0421]_) and word-transformation
+      (§ 11.3.6, p. [P0440]_) programs to use an `unordered_map`.
 
 .. ptg11539634 Defined Terms 447
 .. _P0447:
@@ -26837,23 +28839,31 @@ Exercises Section 11.4
    The associative containers support efficient lookup and retrieval of elements by
    key. The use of a key distinguishes the associative containers from the sequential
    containers, in which elements are accessed positionally.
+
    There are eight associative containers, each of which
-   • Is a map or a set. a map stores key–value pairs; a set stores only keys.
+
+   • Is a ``map`` or a ``set``. a ``map`` stores key–value pairs; a ``set`` stores only keys.
+
    • Requires unique keys or not.
+
    • Keeps keys in order or not.
+
    Ordered containers use a comparison function to order the elements by key. By
    default, the comparison is the < operator on the keys. Unordered containers use
-   the key type's == operator and an object of type hash<key_type> to organize
+   the key type's == operator and an object of type `hash<key_type>` to organize
    their elements.
+
    Containers with nonunique keys include the word multi in their names; those
-   that use hashing start with the word unordered. A setis an orderedcollection in
-   which eachkeymayappearonly once; anunordered_multisetis anunordered
+   that use hashing start with the word `unordered`. A setis an ordered collection in
+   which each key may appear only once; an ``unordered_multiset`` is an unordered
    collection of keys in which the keys can appear multiple times.
+
    The associative containers share many operations with the sequential containers. 
    However, the associative containers define some new operations and redefine
    the meaning or return types of some operations common to both the sequential
    and associative containers. The differences in the operations reflect the use of keys
    in associative containers.
+
    Iterators for the ordered containers access elements in order by key. Elements
    with the same key are stored adjacent to one another in both the ordered and unordered 
    containers.
@@ -26861,28 +28871,34 @@ Exercises Section 11.4
 /11.👋 Defined Terms
 ---------------------
 
-   associative array Array whose elements
+
+   ``associative array`` Array whose elements
    are indexed by key rather than positionally.
    We say that the array maps a key to its associated 
    value.
-   associative container Type that holds a
+
+   ``associative container`` Type that holds a
    collection of objects that supports efficient
    lookup by key.
-   hash Special library template that the unordered 
+
+   ``hash`` Special library template that the unordered 
    containers use to manage the position 
    of their elements.
-   hash function Function that maps values
+
+   ``hash function`` Function that maps values
    of a given type to integral (size_t) values.
    Equal values must map to equal integers;
    unequal values should map to unequal integers 
    where possible.
-   key_type Type defined by the associative
+
+   ``key_type`` Type defined by the associative
    containers that is the type for the keys used
    to store and retrieve values. For a map,
    key_type is the type used to index the
    map. Forset, key_typeand value_type
    are the same.
-   map Associative container type that defines 
+
+   ``map`` Associative container type that defines 
    an associative array. Like vector,
    map is a class template. A map, however,
    is defined with two types: the type of the
@@ -26896,31 +28912,38 @@ Exercises Section 11.4
 .. ptg11539634 448 Defined Terms
 .. _P0448:
 
-   mapped_type Type defined by map types
+
+   ``mapped_type`` Type defined by map types
    that is the type of the values associated with
    the keys in the map.
-   multimap Associative container similar to
+
+   ``multimap`` Associative container similar to
    map except that in a multimap, a given key
    may appear more than once. multimap
    does not support subscripting.
-   multiset Associative container type that
+
+   ``multiset`` Associative container type that
    holds keys. In a multiset, a given key
    may appear more than once.
-   pair Type that holds two public data
+
+   ``pair`` Type that holds two public data
    members named first and second. The
    pair type is a template type that takes two
    type parameters that are used as the types
    of these members.
-   set Associative container that holds keys.
+
+   ``set`` Associative container that holds keys.
    In a set, a givenkey may appear only once.
-   strict weak ordering Relationship among
+
+   ``strict weak ordering`` Relationship among
    the keys used in an associative container. In
    a strict weak ordering, it is possible to compare 
    any two values and determine which
    of the two is less than the other. If neither
    value is lessthan the other, then the two values 
    are considered equal.
-   unordered container Associative containers 
+
+   ``unordered container`` Associative containers 
    that use hashing rather than a comparison 
    operation on keys to store and access elements. 
    The performance of these containers 
@@ -26928,27 +28951,33 @@ Exercises Section 11.4
    unordered_map Container with elements
    that are key–value pairs, permits only one
    element per key.
-   unordered_multimap Container with elements 
+
+   ``unordered_multimap`` Container with elements 
    that are key–value pairs, allows multiple 
    elements per key.
-   unordered_multiset Container that stores
+
+   ``unordered_multiset`` Container that stores
    keys, allows multiple elements per key.
-   unordered_set Container that stores keys,
+
+   ``unordered_set`` Container that stores keys,
    permits only one element per key.
-   value_type Type of the element stored in
+
+   ``value_type`` Type of the element stored in
    a container. For set and multiset,
    value_type and key_type are the same.
    For map and multimap, this type is a pair
    whose first member has type const
    key_type and whose second member has
    type mapped_type.
-   * operator Dereference operator.
+
+   ``* operator`` Dereference operator.
    When
    applied to a map, set, multimap, or
    multiset iterator * yields a value_type.
    Note, that for map and multimap, the
    value_type is a pair.
-   [ ] operator Subscript operator. Defined
+
+   ``[ ] operator`` Subscript operator. Defined
    only for nonconst obejcts of type map and
    unordered_map. For the map types, []
    takes an index that must be a key_type (or
@@ -29691,6 +31720,7 @@ Printing the Results
    static, and mutable members. In this part, we'll extend our coverage 
    of classes by looking at copy control, overloaded operators,
    inheritance, and templates.
+
    As we've seen, in C++ classes define constructors to control what
    happens when objects of the class type are initialized. Classes also
    control whathappenswhenobjects are copied, assigned, moved, and
@@ -29699,10 +31729,12 @@ Printing the Results
    Chapter 13 covers these topics. This chapter also covers
    two important concepts introduced by the new standard: rvalue references 
    and move operations.
+
    Chapter 14 looks at operator overloading, which allows operands
    of class types to be used with the built-in operators. Operator overloading 
    is one of the ways whereby C++ lets us create new types that
    are as intuitive to use as are the built-in types.
+
    Among the operators that a class can overload is the funtion call
    operator. We can “call” objects of such classes just as if they were
    
@@ -29717,25 +31749,30 @@ Printing the Results
    conversions from objects of class type. The compiler applies
    these conversions in the same contexts—and for the same reasons—
    as it does with conversions among the built-in types.
-   The last two chapters in this part cover how C++ supports objectoriented 
+
+   The last two chapters in this part cover how C++ supports object oriented 
    and generic programming.
+
    Chapter 15 covers inheritance and dynamic binding. Along with
    data abstraction, inheritance and dynamic binding are fundamental 
    to object-oriented programming. Inheritance makes it easier for
-   us to define related types and dynamic binding lets us write typeindepenent 
+   us to define related types and dynamic binding lets us write type indepenent 
    code that can ignore the differences among types that
    are related by inheritance.
+
    Chapter 16 covers function and class templates. Templates let us
    write generic classes and functions that are type-independent. A
    number of new template-related features were introduced by the
    new standard: variadic templates, template type aliases, and new
    ways to control instantiation.
+
    Writing our own object-oriented or generic types requires a fairly
    good understanding of C++. Fortunately, we can use object-oriented
    and generic types without understanding the details of how to build
    them. For example, the standard library usesthe facilitieswe'll study
    in Chapters 15 and 16 extensively, and we've used the library types
-   andalgorithms withoutneedingtoknowhowtheyareimplemented.
+   and algorithms without needing to know how they are implemented.
+
    Readers, therefore, should understand that Part III covers fairly
    advancedtopics. Writingtemplatesorobject-oriented classesrequires
    a good understanding of the basics of C++ and a good grasp of how
@@ -29762,6 +31799,7 @@ Printing the Results
    the operations that objects of that type can perform. In that chapter,
    we also learned that classes can define constructors, which control
    what happens when objects of the class type are created.
+
    In this chapter we'll learn how classes can control what happens
    when objects of the class type are copied, assigned, moved, or destroyed. 
    Classes control these actions through special member functions: 
@@ -37429,33 +39467,35 @@ Exercises Section 15.9.4
    *  ``Defined Terms ·············································`` [P0713]_
 
    Both object-oriented programming (OOP) and generic programming
-   dealwith typesthatare notknown atthetime the program iswritten.
+   deal with types that are not known at the time the program is written.
    The distinction between the two is that OOP dealswith types that are
-   notknown until run time, whereasingenericprogramming thetypes
+   not known until run time, where as in generic programming the types
    become known during compilation.
+
    The containers, iterators, and algorithms described in Part II are
    all examples of generic programming. When we write a generic program, 
    we write the code in a way that is independent of any particular 
    type. When we use a generic program, we supply the type(s) or
    value(s) on which that instance of the program will operate.
+
    For example, the library provides a single, generic definition of
    each container, such as vector. We can use that generic definition to
    define many different types of vectors, each of which differs from
    the others as to the type of elements the vector contains.
-   Templates are the foundation of generic programming. We can
-   use and have used templates without understanding how they are
-   defined. In this chapter we'll see how to define our own templates.
-   
+
+   `Templates` are the foundation of generic programming. We can
+   use and have used `templates` without understanding how they are
+   defined. In this chapter we'll see how to define our own `templates`.
 
 .. ptg11539634 652 Templates and Generic Programming
 .. _P0652:
 
-   Templates are the foundation for generic programming in C++. A template is a
+   `Templates` are the foundation for generic programming in C++. A template is a
    blueprint or formula for creating classes or functions. When we use a generic type,
    such as vector, or a generic function, such as find, we supply the information
    needed to transform that blueprint into a specific class or function. That transformation 
    happens during compilation. In Chapter 3 and Part II we learned how to
-   use templates. In this chapter we'll learn how to define them.
+   use `templates`. In this chapter we'll learn how to define them.
 
 /16.1👋 Defining a Template
 ----------------------------
@@ -37464,21 +39504,26 @@ Exercises Section 15.9.4
    whether the first is less than, equal to, or greater than the second. In practice,
    we'd want to define several such functions, each of which will compare values of
    a given type. Our first attempt might be to define several overloaded functions:
-   // returns 0 if the values are equal, -1 if v1 is smaller, 1 if v2 is smaller
-   int compare(const string &v1, const string &v2)
-   {
-   if (v1 < v2) return -1;
-   if (v2 < v1) return 1;
-   return 0;
-   }
-   int compare(const double &v1, const double &v2)
-   {
-   if (v1 < v2) return -1;
-   if (v2 < v1) return 1;
-   return 0;
-   }
+
+   .. code-block:: cpp
+
+      // returns 0 if the values are equal, -1 if v1 is smaller, 1 if v2 is smaller
+      int compare(const string &v1, const string &v2)
+      {
+         if (v1 < v2) return -1;
+         if (v2 < v1) return 1;
+         return 0;
+      }
+      int compare(const double &v1, const double &v2)
+      {
+         if (v1 < v2) return -1;
+         if (v2 < v1) return 1;
+         return 0;
+      }
+
    These functions are nearly identical: The only difference between them is the type
    of their parameters. The function body is the same in each function.
+
    Having to repeat the body of the function for each type that we compare is
    tedious and error-prone. More importantly, we need to know when we write the
    program all the types that we might ever want to compare. This strategy cannot
@@ -37490,13 +39535,16 @@ Exercises Section 15.9.4
    Rather than defining a new function for each type, we can define a function template. 
    A function template is a formula from which we can generate type-specific
    versions of that function. The template version of compare looks like
-   template <typename T>
-   int compare(const T &v1, const T &v2)
-   {
-   if (v1 < v2) return -1;
-   if (v2 < v1) return 1;
-   return 0;
-   }
+
+   .. code-block:: cpp
+
+      template <typename T>
+      int compare(const T &v1, const T &v2)
+      {
+         if (v1 < v2) return -1;
+         if (v2 < v1) return 1;
+         return 0;
+      }
 
 .. ptg11539634 Section 16.1 Defining a Template 653
 .. _P0653:
@@ -37504,6 +39552,7 @@ Exercises Section 15.9.4
    A template definition starts with the keyword template followed by a template
    parameter list, which is a comma-separated list of one or more template parameters 
    bracketed by the less-than (<) and greater-than (>) tokens.
+
    In a template definition, the template parameter list cannot be empty.
    Thetemplate parameterlist actsmuch like afunction parameterlist. Afunction
    parameter list defines local variable(s) of a specified type but does not say how to
@@ -40608,8 +42657,8 @@ Exercises Section 16.5
 
    The library constitutes nearly two-thirds of the text of the new standard. Although 
    we cannot cover every library facility in depth, there remain a few library
-   facilities that are likely to be of use in many applications: tuples, bitsets, regularexpressions, 
-   andrandomnumbers. We'llalso look atsome additionalIO library
+   facilities that are likely to be of use in many applications: tuples, bitsets, 
+   regularexpressions, and random numbers. We'll also look at some additional IO library
    capabilities: format control, unformatted IO, and random access.
 
 /17.1👋 The tuple Type
@@ -43181,7 +45230,7 @@ Exercises Section 17.5.3
 .. ptg11539634
 .. _P0771:
 
-/Chapter 18👊 Tools For Largep Rograms
+/Chapter 18👊 Tools for Large Programs
 =======================================
 
    CONTENTS [TOC18]_
@@ -43210,9 +45259,11 @@ Exercises Section 17.5.3
    Large-scale programming places greater demands on programming languages 
    than do the needs of systems that can be developed by small teams of
    programmers. Among the needs that distinguish large-scale applications are
-   • The ability to handle errors across independently developed subsystems
-   • The ability to use libraries developed more or less independently
-   • The ability to model more complicated application concepts
+
+   * The ability to handle errors across independently developed subsystems
+   * The ability to use libraries developed more or less independently
+   * The ability to model more complicated application concepts
+
    This chapter looks at three featuresin C++ that are aimed at these needs: exception
    handling, namespaces, and multiple inheritance.
 
@@ -43225,6 +45276,7 @@ Exercises Section 17.5.3
    detect a problem and can pass the job of resolving that problem to another part of
    the program. The detecting part need not know anything about the handling part,
    and vice versa.
+
    In § 5.6 (p. [P0193]_) we introduced the basic concepts and mechanics of using exceptions. 
    In this section we'll expand our coverage of these basics. Effective use
    of exception handling requires understanding what happens when an exception
@@ -43240,14 +45292,18 @@ Exercises Section 17.5.3
    that matches the type of the thrown object. The type and contents of that object
    allow the throwing part of the program to inform the handling part about what
    went wrong.
+
    When a throw is executed, the statement(s) following the throw are not executed. 
    Instead, control is transferred from the throw to the matching catch. That
    catch might be local to the same function or might be in a function that directly or
    indirectly called the function in which the exception occurred. The fact that control
    passes from one location to another has two important implications:
+
    • Functions along the call chain may be prematurely exited.
+
    • When a handler is entered, objects createdalong the call chain will have been
    destroyed.
+
    Because the statements following a throw are not executed, a throw is like a
    return: It is usually part of a conditional statement or is the last (or only) statement 
    in a function.
@@ -43255,7 +45311,8 @@ Exercises Section 17.5.3
 .. ptg11539634 Section 18.1 Exception Handling 773
 .. _P0773:
 
-   Stack Unwinding
+Stack Unwinding
+
    When an exception is thrown, execution of the current function is suspended and
    the search for a matching catch clause begins. If the throw appears inside a try
    block, the catch clauses associated with that try are examined. If a matching
@@ -43263,6 +45320,7 @@ Exercises Section 17.5.3
    itself nested inside another try, the searchcontinues through the catchclauses of
    the enclosing trys. If no matching catch is found, the current function is exited,
    and the search continues in the calling function.
+
    Ifthe callto the function that threwis in a tryblock, then the catchclauses associated 
    with that try are examined. If a matching catch is found, the exception
    is handled. Otherwise, if that try was nested, the catch clauses of the enclosing
@@ -43271,15 +45329,18 @@ Exercises Section 17.5.3
    This process, known as stack unwinding, continues up the chain of nested
    function calls until a catch clause for the exception is found, or the main function
    itself is exited without having found a matching catch.
+
    Assuming a matching catch is found, that catch is entered, and the program
    continues by executing the code inside that catch. When the catch completes,
    execution continues at thepoint immediatelyafterthelastcatchclauseassociated
    with that try block.
+
    If no matching catch is found, the program is exited. Exceptions are intended
    for events that prevent the program from continuing normally. Therefore, once
    an exception is raised, it cannot remain unhandled. If no matching catch is
    found, the program calls the library terminate function. As its name implies,
    terminate stops execution of the program.
+
    An exception that is not caught terminates the program.
 
 Objects Are Automatically Destroyed during Stack Unwinding
@@ -43288,14 +45349,16 @@ Objects Are Automatically Destroyed during Stack Unwinding
    general, these blocks will have created local objects. Ordinarily, local objects are
    destroyed when the block in which they are created is exited. Stack unwinding
    is no exception. When a block is exited during stack unwinding, the compiler
-   guaranteesthat objects createdin thatblock areproperlydestroyed. Ifalocal object
+   guarantees that objects created in that block are properly destroyed. If a local object
    is of class type, the destructor for that object is called automatically. As usual, the
    compiler does no work to destroy objects of built-in type.
-   Ifan exception occursin aconstructor, then the object underconstruction might
+
+   If an exception occurs in a constructor, then the object under construction might
    be only partially constructed. Some of its members might have been initialized,
    but others might not have been initialized before the exception occurred. Even
    if the object is only partially constructed, we are guaranteed that the constructed
    members will be properly destroyed.
+
    Similarly, an exception might occur during initialization of the elements of an
    array or a library container type. Again, we are guaranteed that the elements (if
    any) that were constructed before the exception occurred will be destroyed.
@@ -43303,7 +45366,8 @@ Objects Are Automatically Destroyed during Stack Unwinding
 .. ptg11539634 774 Tools for Large Programs
 .. _P0774:
 
-   Destructors and Exceptions
+Destructors and Exceptions
+
    The fact that destructors are run—but code inside a function that frees a resource
    may be bypassed—affects how we structure our programs. As we saw in § 12.1.4
    (p. [P0467]_),if a block allocates a resource,and an exception occurs before the code that
@@ -43311,6 +45375,7 @@ Objects Are Automatically Destroyed during Stack Unwinding
    hand, resources allocated by an object of class type generally will be freed by their
    destructor. By using classes to control resourceallocation, we ensure that resources
    are properly freed, whether a function ends normally or via an exception.
+
    The fact that destructors are run during stack unwinding affects how we write
    destructors. During stack unwinding, an exception has been raised but is not yet
    handled. If a new exception is thrown during stack unwinding and not caught
@@ -43319,32 +45384,39 @@ Objects Are Automatically Destroyed during Stack Unwinding
    itself does not handle. That is, if a destructor does an operation that might
    throw, it should wrap that operation in a try block and handle it locally to the
    destructor.
+
    In practice,becausedestructors freeresources,it is unlikely thatthey will throw
    exceptions. All of the standard library types guarantee that their destructors will
    not raise an exception.
+
    During stack unwinding, destructors are run on local objects of class
    type. Because destructors are run automatically, they should not throw.
    If, during stack unwinding, a destructor throws an exception that it does
    not also catch, the program will be terminated.
-   The Exception Object
+
+The Exception Object
+
    The compiler uses the thrown expression to copy initialize (§ 13.1.1, p. [P0497]_) a special 
-   object known as the exception object. As a result, the expression in a throw
+   object known as the ``exception`` object. As a result, the expression in a throw
    must have a complete type (§ 7.3.3, p. [P0278]_). Moreover, if the expression has class
    type, that class must have an accessible destructor and an accessible copy or move
    constructor. If the expression has an array or function type, the expression is converted 
    to its corresponding pointer type.
-   The exception object resides in space, managed by the compiler, that is guaranteed 
-   to be accessible to whatever catch is invoked. The exception object is
-   destroyed after the exception is completely handled.
-   As we've seen, when an exception is thrown, blocks along the call chain are
+
+   The ``exception`` object resides in space, managed by the compiler, that is guaranteed 
+   to be accessible to whatever catch is invoked. The ``exception`` object is
+   destroyed after the ``exception`` is completely handled.
+
+   As we've seen, when an ``exception`` is thrown, blocks along the call chain are
    exited until a matching handler is found. When a block is exited, the memory
    used by the local objects in that block is freed. As a result, it is almost certainly an
    error to throw a pointer to a local object. It is an error for the same reasons that it
    is an error to return a pointer to a local object (§ 6.3.2, p. [P0225]_) from a function. If
    the pointer points to an object in a block that is exited before the catch, then that
    local object will have been destroyed before the catch.
+
    When we throw an expression, the static, compile-time type (§ 15.2.3, p. [P0601]_) of
-   that expression determines the type of the exception object. This point is essential
+   that expression determines the type of the ``exception`` object. This point is essential
    to keep in mind, because many applications throw expressions whose type comes
 
 .. ptg11539634 Section 18.1 Exception Handling 775
@@ -43356,28 +45428,31 @@ Objects Are Automatically Destroyed during Stack Unwinding
    Throwing a pointer requires that the object to which the pointer points
    exist wherever the corresponding handler resides.
 
-Exercises Section 18.1.1
+   Exercises Section 18.1.1
 
-   Exercise 18.1: What is the type of the exception object in the following throws?
-   (a) range_error r("error"); (b) exception
-   * p = &r;
-   throw r; throw
-   * p;
-   What would happen if the throw in (b) were written as throw p?
+      Exercise 18.1: What is the type of the exception object in the following throws?
 
-   Exercise 18.2: Explain what happens if an exception occurs at the indicated point:
-   void exercise(int * b, int
-   * e)
-   {
-   vector<int> v(b, e);
-   int
-   * p = new int[v.size()];
-   ifstream in("ints");
-   // exception occurs here
-   }
+      .. code-block:: cpp
+      
+         (a) range_error r("error");            (b) exception * p = &r;
+             throw r;                               throw * p;
 
-   Exercise 18.3: There are two ways to make the previous code work correctly if an
-   exception is thrown. Describe them and implement them.
+      What would happen if the ``throw`` in (b) were written as `throw p`?
+
+      Exercise 18.2: Explain what happens if an exception occurs at the indicated point:
+
+      .. code-block:: cpp
+
+         void exercise(int * b, int * e)
+         {
+            vector<int> v(b, e);
+            int * p = new int[v.size()];
+            ifstream in("ints");
+            // exception occurs here
+         }
+
+      Exercise 18.3: There are two ways to make the previous code work correctly if an
+      exception is thrown. Describe them and implement them.
 
 /18.1.2 Catching an Exception
 ``````````````````````````````
@@ -43385,9 +45460,11 @@ Exercises Section 18.1.1
    The exception declaration in a catch clause looks like a function parameter list
    with exactly one parameter. As in a parameter list, we can omit the name of the
    catch parameter if the catch has no need to access the thrown expression.
+
    The type of the declaration determines what kinds of exceptions the handler
    can catch. The type must be a complete type (§ 7.3.3, p. [P0278]_). The type can be an
    lvalue reference but may not be an rvalue reference (§ 13.6.1, p. [P0532]_).
+
    When a catch is entered, the parameter in its exception declaration is initialized 
    by the exception object. As with function parameters, if the catch parameter
    has a nonreference type, then the parameter in the catch is a copy of the exception 
@@ -43395,6 +45472,7 @@ Exercises Section 18.1.1
    copy, not to the exception object itself. If the parameter has a reference type, then
    like any reference parameter, the catch parameter is just another name for the
    exception object. Changes made to the parameter are made to the exception object.
+
    Also like a function parameter, a catch parameter that has a base-class type
    can beinitialized by an exception object that has atype derivedfromthe parameter
    type. If the catch parameter has a nonreference type, then the exception object
@@ -43406,17 +45484,22 @@ Exercises Section 18.1.1
    passed to an ordinary function by value. On the other hand, if the parameter is a
    reference to a base-class type, then the parameter is bound to the exception object
    in the usual way.
-   Again, as with a function parameter,the static type of the exception declaration
+
+   Again, as with a function parameter, the static type of the exception declaration
    determines the actions that the catch may perform. If the catch parameter has
    a base-class type, then the catch cannot use any members that are unique to the
    derived type.
+
    Ordinarily, a catch that takes an exception of a type related by inheritance 
    ought to define its parameter as a reference.
-   Finding a Matching Handler
+
+Finding a Matching Handler
+
    During the search for a matching catch, the catch that is found is not necessarily
    the one that matches the exception best. Instead, the selected catch is the first one
    that matches the exception at all. As a consequence, in a list of catch clauses, the
    most specialized catch must appear first.
+
    Because catch clauses are matched in the order in which they appear, programs 
    that use exceptions from an inheritance hierarchy must order their catch
    clauses so that handlers for a derived type occur before a catch for its base type.
@@ -43424,22 +45507,31 @@ Exercises Section 18.1.1
    much more restrictive than the rules used for matching arguments with parameter 
    types. Most conversions are not allowed—the types of the exception and the
    catch declaration must match exactly with only a few possible differences:
+
    • Conversions from nonconst to const are allowed. That is, a throw of a
    nonconst object can match a catch specified to take a reference to const.
+
    • Conversions from derived type to base type are allowed.
+
    • An array is converted to a pointer to the type of the array; a function is converted 
    to the appropriate pointer to function type.
+
    No other conversions areallowed to match acatch. In particular,neither the standard 
    arithmetic conversions nor conversions defined for class types are permitted.
    Multiple catch clauses with types related by inheritance must be ordered 
    from most derived type to least derived.
-   Rethrow
+
+Rethrow
+
    Sometimes a single catch cannot completely handle an exception. After some
    corrective actions, a catch may decide that the exception must be handled by a
    function further up the call chain. A catch passes its exception out to another
    catch by rethrowing the exception. A rethrow is a throw that is not followed by
    an expression:
-   throw;
+
+   .. code-block:: cpp
+
+      throw;
 
 .. ptg11539634 Section 18.1 Exception Handling 777
 .. _P0777:
@@ -43447,39 +45539,51 @@ Exercises Section 18.1.1
    An empty throw can appear only in a catch or in a function called (directly or
    indirectly) from a catch. If an empty throw is encountered when a handler is not
    active, terminate is called.
+
    A rethrow does not specify an expression; the (current) exception object is
    passed up the chain.
+
    In general, a catch might change the contents of its parameter. If, after changing 
    its parameter, the catch rethrows the exception, then those changes will be
    propagated only if the catch's exception declaration is a reference:
-   catch (my_error &eObj) { // specifier is a reference type
-   eObj.status = errCodes::severeErr; // modifies the exception object
-   throw; // the status member of the exception object is severeErr
-   } catch (other_error eObj) { // specifier is a nonreference type
-   eObj.status = errCodes::badErr; // modifies the local copy only
-   throw; // the status member of the exception object is unchanged
-   }
-   The Catch-All Handler
+
+   .. code-block:: cpp
+
+      catch (my_error &eObj) { // specifier is a reference type
+         eObj.status = errCodes::severeErr; // modifies the exception object
+         throw; // the status member of the exception object is severeErr
+      } catch (other_error eObj) { // specifier is a nonreference type
+         eObj.status = errCodes::badErr; // modifies the local copy only
+         throw; // the status member of the exception object is unchanged
+      }
+
+The Catch-All Handler
+
    Sometimes we want to catch any exception that might occur, regardless of type.
    Catching every possible exception can be a problem: Sometimes we don't know
    what types might be thrown. Even when we do know all the types, it may be
    tedious to provide a specific catch clause for every possible exception. To catch
    all exceptions, we use an ellipsis for the exception declaration. Such handlers,
-   sometimes known as catch-all handlers, have the form catch(...). A catch-all
+   sometimes known as catch-all handlers, have the form `catch(...).` A catch-all
    clause matches any type of exception.
-   A catch(...) is often used in combination with a rethrow expression. The
+
+   A `catch(...)` is often used in combination with a rethrow expression. The
    catch does whatever local work can be done and then rethrows the exception:
-   void manip() {
-   try {
-   // actions that cause an exception to be thrown
-   }
-   catch (...) {
-   // work to partially handle the exception
-   throw;
-   }
-   }
-   A catch(...) clause can be used by itself or as one of several catch clauses.
-   If a catch(...) is used in combination with other catch clauses, it
+
+   .. code-block:: cpp
+
+      void manip() {
+         try {
+            // actions that cause an exception to be thrown
+         }
+         catch (...) {
+            // work to partially handle the exception
+            throw;
+         }
+      }
+
+   A `catch(...)` clause can be used by itself or as one of several catch clauses.
+   If a `catch(...)` is used in combination with other catch clauses, it
    must be last. Any catch that follows a catch-all can never be matched.
 
 /18.1.3 Function try Blocks and Constructors
@@ -43493,49 +45597,65 @@ Exercises Section 18.1.1
 .. _P0778:
 
 
-Exercises Section 18.1.2
+   Exercises Section 18.1.2
 
-   Exercise 18.4: Looking ahead to the inheritance hierarchy in Figure 18.1 (p. [P0783]_), explain 
-   what's wrong with the following try block. Correct it.
-   try {
-   // use of the C++ standard library
-   } catch(exception) {
-   // ...
-   } catch(const runtime_error &re) {
-   // ...
-   } catch(overflow_error eobj) { / * ...
-   * / }
+      Exercise 18.4: Looking ahead to the inheritance hierarchy in Figure 18.1 (p. [P0783]_), explain 
+      what's wrong with the following try block. Correct it.
 
-   Exercise 18.5: Modify the following main function to catch any of the exception types
-   shown in Figure 18.1 (p. [P0783]_):
-   int main() {
-   // use of the C++ standard library
-   }
-   The handlers should print the error message associated with the exception before calling 
-   abort (defined in the header cstdlib) to terminate main.
+      .. code-block:: cpp
 
-   Exercise 18.6: Given the following exception types and catch clauses, write a throw
-   expression that creates an exception object that can be caught by each catch clause:
-   (a) class exceptionType { };
-   catch(exceptionType * pet) { }
-   (b) catch(...) { }
-   (c) typedef int EXCPTYPE;
-   catch(EXCPTYPE) { }
+         try {
+            // use of the C++ standard library
+         } catch(exception) {
+            // ...
+         } catch(const runtime_error &re) {
+            // ...
+         } catch(overflow_error eobj) { /* ... */ }
+
+      Exercise 18.5: Modify the following main function to catch any of the exception types
+      shown in Figure 18.1 (p. [P0783]_):
+
+      .. code-block:: cpp
+
+         int main() {
+            // use of the C++ standard library
+         }
+
+      The handlers should print the error message associated with the exception before calling 
+      ``abort`` (defined in the header ``cstdlib``) to terminate main.
+
+      Exercise 18.6: Given the following exception types and catch clauses, write a throw
+      expression that creates an exception object that can be caught by each catch clause:
+
+      .. code-block:: cpp
+
+         (a) class exceptionType { };
+            catch(exceptionType * pet) { }
+
+         (b) catch(...) { }
+
+         (c) typedef int EXCPTYPE;
+            catch(EXCPTYPE) { }
+
    the constructor body can't handle an exception thrown by a constructor initializer
    because a try block inside the constructor body would not yet be in effect when
    the exception is thrown.
+
    To handle an exception from a constructor initializer, we must write the constructor 
-   as a function try block. A function try block lets us associate a group
+   as a **function try block**. A function try block lets us associate a group
    of catch clauses with the initialization phase of a constructor (or the destruction
    phase of a destructor) as well as with the constructor's (or destructor's) function
    body. As an example, we might wrap the Blob constructors (§ 16.1.2, p. [P0662]_) in a
    function try block:
-   template <typename T>
-   Blob<T>::Blob(std::initializer_list<T> il) try :
-   data(std::make_shared<std::vector<T>>(il)) {
-   / * empty body
-   * /
-   } catch(const std::bad_alloc &e) { handle_out_of_memory(e); }
+
+   .. code-block:: cpp
+
+      template <typename T>
+      Blob<T>::Blob(std::initializer_list<T> il) try :
+         data(std::make_shared<std::vector<T>>(il)) {
+         /* empty body */
+      } catch(const std::bad_alloc &e) { handle_out_of_memory(e); }
+
    Notice that the keyword try appears before the colon that begins the constructor
    initializer list and before the curly brace that forms the (in this case empty) constructor 
    function body. The catch associated with this try can be used to handle
@@ -43545,19 +45665,21 @@ Exercises Section 18.1.2
 
    exceptions thrown either from within the member initialization list or from within
    the constructor body.
+
    It is worth noting that an exception can happen while initializing the construcs 
    tor's parameters. Such exceptions are not part of the function try block. The
    function try block handles only exceptions that occur once the constructor begins
    executing. As with any other function call, if an exception occurs during parameter 
    initialization, that exception is part of the calling expression and is handled in
    the caller's context.
+
    The only way for a constructor to handle an exception from a constructor 
    initializer is to write the constructor as a function try block.
 
-Exercises Section 18.1.3
+   Exercises Section 18.1.3
 
-   Exercise 18.7: Define yourBloband BlobPtrclassesfromChapter 16tousefunction
-   try blocks for their constructors.
+      Exercise 18.7: Define your `Blob` and `BlobPtr` classes from Chapter 16 to use function
+      try blocks for their constructors.
 
 /18.1.4 The noexcept Exception Specification
 `````````````````````````````````````````````
@@ -43567,20 +45689,28 @@ Exercises Section 18.1.3
    of writing code that calls that function. Moreover, if the compiler knows that no
    exceptions will be thrown, it can (sometimes) perform optimizations that must be
    suppressed if code might throw.
+
    Under the new standard, a function can specify that it does not throw exceptions 
    by providing a noexcept specification. The keyword noexcept following
    the function parameter list indicates that the function won't throw:
-   void recoup(int) noexcept; // won't throw
-   void alloc(int); // might throw
+
+   .. code-block:: cpp
+
+      void recoup(int) noexcept; // won't throw
+      void alloc(int); // might throw
+
    These declarations say that recoup will not throw any exceptions and that alloc
    might. We say that recoup has a nonthrowing specification.
+
    The noexcept specifier must appear on all of the declarations and the corresponding 
    definition of a function or on none of them. The specifier precedes a
    trailing return (§ 6.3.3, p. [P0229]_). We may also specify noexcept on the declaration 
    and definition of a function pointer. It may not appear in a typedef or type
    alias. In a member function the noexcept specifier follows any const or reference 
    qualifiers, and it precedes final, override, or = 0 on a virtual function.
-   Violating the Exception Specification
+
+Violating the Exception Specification
+
    It is important to understand that the compiler does not check the noexcept specification 
    at compile time. In fact, the compiler is not permitted to reject a function
    with a noexcept specifier merely because it contains a throw or calls a function
@@ -43589,43 +45719,67 @@ Exercises Section 18.1.3
 .. ptg11539634 780 Tools for Large Programs
 .. _P0780:
 
-   // this function will compile, even though it clearly violates its exception specification
-   void f() noexcept // promises not to throw any exception
-   {
-   throw exception(); // violates the exception specification
-   }
+
+   .. code-block:: cpp
+
+      // this function will compile, even though it clearly violates its exception specification
+      void f() noexcept // promises not to throw any exception
+      {
+         throw exception(); // violates the exception specification
+      }
+
    As a result, it is possible that a function that claims it will not throw will in fact
    throw. If a noexcept function does throw, terminate is called, thereby enforcing 
    the promise not to throw at run time. It is unspecified whether the stack is
    unwound. As a result, noexcept should be used in two cases: if we are confident
    that the function won't throw, and/or if we don't know what we'd do to handle
    the error anyway.
+
    Specifying that a function won't throw effectively promises the callers of the
    nonthrowing function that they will never need to deal with exceptions. Either
    the function won't throw, or the whole program will terminate; the caller escapes
    responsibility either way.
-   The compiler in general cannot, and does not, verify exception specifications 
-   at compile time.
-   B ACKWARD C OMPATIBILITY : E XCEPTION S PECIFICATIONS
-   Earlier versions of C++ had a more elaborate scheme of exception specifications that
-   allowed us to specify the types of exceptions that a function might throw. A function
-   can specifythekeywordthrowfollowedbyaparenthesized list oftypesthat thefunction 
-   might throw. The throw specifier appeared in the same place as the noexcept
-   specifier does in the current language.
-   This approach was never widely used and has been deprecated in the current standard. 
-   Although these more elaborate specifiers have been deprecated, there is one use
-   ofthe old scheme that isin widespread use. A functionthat is designated by throw()
-   promises not to throw any exceptions:
-   void recoup(int) noexcept; // recoup doesn't throw
-   void recoup(int) throw(); // equivalent declaration
-   These declarations of recoup both say that recoup won't throw.
-   Arguments to the noexcept Specification
+
+   .. Warning::
+
+      The compiler in general cannot, and does not, verify exception specifications 
+      at compile time.
+
+   .. Note:: 
+
+      Backward Compatibility : Exception Specfications
+
+      Earlier versions of C++ had a more elaborate scheme of exception specifications that
+      allowed us to specify the types of exceptions that a function might throw. A function
+      can specifythekeywordthrowfollowedbyaparenthesized list oftypesthat thefunction 
+      might throw. The throw specifier appeared in the same place as the noexcept
+      specifier does in the current language.
+
+      This approach was never widely used and has been deprecated in the current standard. 
+      Although these more elaborate specifiers have been deprecated, there is one use
+      ofthe old scheme that isin widespread use. A functionthat is designated by throw()
+      promises not to throw any exceptions:
+
+      .. code-block:: cpp
+
+         void recoup(int) noexcept; // recoup doesn't throw
+         void recoup(int) throw(); // equivalent declaration
+
+      These declarations of recoup both say that recoup won't throw.
+
+Arguments to the noexcept Specification
+
    The noexcept specifier takes an optional argument that must be convertible to
    bool: If the argument is true, then the function won't throw; if the argument is
    false, then the function might throw:
-   void recoup(int) noexcept(true); // recoup won't throw
-   void alloc(int) noexcept(false); // alloc can throw
-   The noexcept Operator
+
+   .. code-block:: cpp
+
+      void recoup(int) noexcept(true); // recoup won't throw
+      void alloc(int) noexcept(false); // alloc can throw
+
+The noexcept Operator
+
    Arguments to the noexcept specifier are often composed using the noexcept
    operator. The noexcept operator is a unary operator that returns a bool rvalue
 
@@ -43635,52 +45789,78 @@ Exercises Section 18.1.3
    constant expression that indicates whether a given expression might throw. Like
    sizeof (§ 4.9, p. [P0156]_), noexcept does not evaluate its operand.
    For example, this expression yields true:
-   noexcept(recoup(i)) // true if calling recoup can't throw, false otherwise
+
+   .. code-block:: cpp
+
+      noexcept(recoup(i)) // true if calling recoup can't throw, false otherwise
+
    because we declared recoup with a noexcept specifier. More generally,
-   noexcept(e)
-   is true if all the functions called by e have nonthrowing specifications and e itself
-   does not contain a throw. Otherwise, noexcept(e) returns false.
+
+   .. code-block:: cpp
+
+      noexcept(e)
+
+   is ``true`` if all the functions called by e have nonthrowing specifications and e itself
+   does not contain a throw. Otherwise, `noexcept(e)` returns ``false``.
+
    We can use the noexcept operator to form an exception specifier as follows:
-   void f() noexcept(noexcept(g())); // f has same exception specifier as g
+
+   .. code-block:: cpp
+
+      void f() noexcept(noexcept(g())); // f has same exception specifier as g
+
    If the function g promises not to throw, then f also is nonthrowing. If g has no
    exception specifier, or has an exception specifier that allows exceptions, then f
    also might throw.
-   noexcept has two meanings: It is an exception specifier when it follows 
-   a function's parameter list, and it is an operator that is often used
-   as the bool argument to a noexcept exception specifier.
-   Exception Specifications and Pointers, Virtuals, and Copy Control
+
+   .. Note::
+
+      noexcept has two meanings: It is an exception specifier when it follows 
+      a function's parameter list, and it is an operator that is often used
+      as the bool argument to a noexcept exception specifier.
+
+Exception Specifications and Pointers, Virtuals, and Copy Control
+
    Although the noexcept specifier is not part of a function's type, whether a function 
    has an exception specification affects the use of that function.
+
    A pointer to function and the function to which that pointer points must have
    compatible specifications. That is, if we declare a pointer that has a nonthrowing
    exception specification, we can use that pointer only to point to similarly qualified
    functions. A pointer that specifies (explicitly or implicitly) that it might throw can
    point to any function, even if that function includes a promise not to throw:
-   // both recoup and pf1 promise not to throw
-   void ( * pf1)(int) noexcept = recoup;
-   // ok: recoup won't throw; it doesn't matter that pf2 might
-   void ( * pf2)(int) = recoup;
-   pf1 = alloc; // error: alloc might throw but pf1 said it wouldn't
-   pf2 = alloc; // ok: both pf2 and alloc might throw
+
+   .. code-block:: cpp
+
+      // both recoup and pf1 promise not to throw
+      void ( * pf1)(int) noexcept = recoup;
+      // ok: recoup won't throw; it doesn't matter that pf2 might
+      void ( * pf2)(int) = recoup;
+      pf1 = alloc; // error: alloc might throw but pf1 said it wouldn't
+      pf2 = alloc; // ok: both pf2 and alloc might throw
+
    If a virtual function includes a promise not to throw, the inherited virtuals must
    also promise not to throw. On the other hand, if the base allows exceptions, it is
    okay for the derived functions to be more restrictive and promise not to throw:
-   class Base {
-   public:
-   virtual double f1(double) noexcept; // doesn't throw
-   virtual int f2() noexcept(false); // can throw
-   virtual void f3(); // can throw
-   };
+
+   .. code-block:: cpp
+
+      class Base {
+      public:
+         virtual double f1(double) noexcept; // doesn't throw
+         virtual int f2() noexcept(false); // can throw
+         virtual void f3(); // can throw
+      };
+      class Derived : public Base {
+      public:
+         double f1(double); // error: Base::f1 promises not to throw
+         int f2() noexcept(false); // ok: same specification as Base::f2
+         void f3() noexcept; // ok: Derived f3 is more restrictive
+      };
 
 .. ptg11539634 782 Tools for Large Programs
 .. _P0782:
 
-   class Derived : public Base {
-   public:
-   double f1(double); // error: Base::f1 promises not to throw
-   int f2() noexcept(false); // ok: same specification as Base::f2
-   void f3() noexcept; // ok: Derived f3 is more restrictive
-   };
    When the compiler synthesizes the copy-control members, it generates an exception 
    specification for the synthesized member. If all the corresponding operation 
    for all the members and base classes promise not to throw, then the synthesized 
@@ -43690,30 +45870,34 @@ Exercises Section 18.1.3
    compiler synthesizes one for us. The compiler generates the same specification as
    it would have generated had it synthesized the destructor for that class.
 
-Exercises Section 18.1.4
+   Exercises Section 18.1.4
 
-   Exercise 18.8: Review the classes you've written and add appropriate exception specifications 
-   to their constructors and destructors. If you think one of your destructors
-   might throw, change the code so that it cannot throw.
+      Exercise 18.8: Review the classes you've written and add appropriate exception specifications 
+      to their constructors and destructors. If you think one of your destructors
+      might throw, change the code so that it cannot throw.
 
 /18.1.5 Exception Class Hierarchies
 ````````````````````````````````````
 
    The standard-library exception classes (§ 5.6.3, p. [P0197]_) form the inheritance hierarchy 
    (Chapter 15) as shown in Figure 18.1.
+
    The only operations that the exception types define are the copy constructor, 
    copy-assignment operator, a virtual destructor, and a virtual member named
-   what. The what function returns a const char * that points to a null-terminated
+   ``what``. The ``what`` function returns a `const char *` that points to a null-terminated
    character array, and is guaranteed not to throw any exceptions.
+
    The exception,bad_cast, and bad_allocclasses also define adefault constructor. 
-   The runtime_error and logic_error classes do not have a default
-   constructor but dohave constructors thattake aC-style characterstring or a library
+   The ``runtime_error`` and ``logic_error`` classes do not have a default
+   constructor but dohave constructors that take a C-style characterstring or a library
    string argument. Those arguments are intended to give additional information
    about the error. In these classes, what returns the message used to initialize the
    exception object. Because what is virtual, if we catch a reference to the base-type,
    a call to the what function will execute the version appropriate to the dynamic
    type of the exception object.
-   Exception Classes for a Bookstore Application
+
+Exception Classes for a Bookstore Application
+
    Applications often extend the exception hierarchy by defining classes derived
    from exception (or from one of the library classes derived from exception).
    These application-specific classes represent exceptional conditions specific to the
@@ -43723,123 +45907,77 @@ Exercises Section 18.1.4
 .. _P0783:
 
    Figure 18.1: Standard exception Class Hierarchy
-   ?
-   ?
-   ?
-   ?
-   exception
-   ? ? ? ?
-   ? ?
-   X
-   X
-   X
-   X
-   X
-   X
-   ? ?
-   ? ?
-   ?
-   ?
-   Z
-   Z
-   Z
-   Z
-   Z
-   Z ?
-   ?
-   ?
-   ?
-   bad_alloc
-   ?
-   ?
-   ?
-   ?
-   bad_cast
-   ?
-   ?
-   ?
-   ?
-   logic_error
-   ?
-   ?
-   ?
-   ?
-   domain_error
-   ?
-   ?
-   ?
-   ?
-   invalid_argument
-   ?
-   ?
-   ?
-   ?
-   out_of_range
-   ?
-   ?
-   ?
-   ?
-   length_error
-   ?
-   ?
-   ?
-   ?
-   runtime_error
-   ?
-   ?
-   ?
-   ?
-   overflow_error
-   ?
-   ?
-   ?
-   ?
-   underflow_error
-   ?
-   ?
-   ?
-   ?
-   range_error
+
+   .. code-block:: 
+
+                                 ╭─────────────╮
+                ╭────────────────│  exception  │───────────────╮
+                │                ╰─────────────╯               │
+         ╭─────────────╮                │               ╭─────────────╮
+         │   bad_cast  │     ╭──────────┴─────────╮     │  bad_alloc  │
+         ╰─────────────╯     │                    │     ╰─────────────╯
+                     ╭───────────────╮    ╭───────────────╮
+                     │ runtime_error │    │  logic_error  │
+                     ╰───────────────╯    ╰───────────────╯
+         ╭─────────────────╮    │                │     ╭──────────────────╮
+         │ overflow_error  │────╯                ╰─────│ domain_error     │
+         ╰─────────────────╯    │                │     ╰──────────────────╯
+         ╭─────────────────╮    │                │     ╭──────────────────╮
+         │ underflow_error │────╯                ╰─────│ invalid_argument │
+         ╰─────────────────╯    │                │     ╰──────────────────╯
+         ╭─────────────────╮    │                │     ╭──────────────────╮
+         │ range_error     │────╯                ╰─────│ out_of_range     │
+         ╰─────────────────╯                     │     ╰──────────────────╯
+                                                 │     ╭──────────────────╮
+                                                 ╰─────│ length_error     │
+                                                       ╰──────────────────╯
+
    If we were building a real bookstore application, our classes would have been
    much morecomplicatedthantheones presentedin this Primer. One suchcomplexity 
    would be how these classes handled exceptions. In fact, we probably would
    have defined our own hierarchy of exceptions to represent application-specific
    problems. Our design might include classes such as
-   // hypothetical exception classes for a bookstore application
-   class out_of_stock: public std::runtime_error {
-   public:
-   explicit out_of_stock(const std::string &s):
-   std::runtime_error(s) { }
-   };
-   class isbn_mismatch: public std::logic_error {
-   public:
-   explicit isbn_mismatch(const std::string &s):
-   std::logic_error(s) { }
-   isbn_mismatch(const std::string &s,
-   const std::string &lhs, const std::string &rhs):
-   std::logic_error(s), left(lhs), right(rhs) { }
-   const std::string left, right;
-   };
+
+   .. code-block:: cpp
+
+      // hypothetical exception classes for a bookstore application
+      class out_of_stock: public std::runtime_error {
+      public:
+         explicit out_of_stock(const std::string &s):
+            std::runtime_error(s) { }
+      };
+      class isbn_mismatch: public std::logic_error {
+      public:
+         explicit isbn_mismatch(const std::string &s):
+            std::logic_error(s) { }
+         isbn_mismatch(const std::string &s,
+            const std::string &lhs, const std::string &rhs):
+            std::logic_error(s), left(lhs), right(rhs) { }
+         const std::string left, right;
+      };
+
    Our application-specific exception types inherit them from the standard exception
    classes. As with any hierarchy, we can think of the exception classes as being
 
 .. ptg11539634 784 Tools for Large Programs
 .. _P0784:
 
-   organizedintolayers. Asthehierarchybecomesdeeper,eachlayerbecomesamore
+   organized into layers. As the hierarchy becomes deeper, each layer becomes a more
    specific exception. For example, the first and most general layer of the hierarchy
    is represented by class exception. All we know when we catch an object of type
    exception is that something has gone wrong.
+
    The second layer specializes exception into two broad categories: run-time
    or logic errors. Run-time errors represent things that can be detected only when
    the program is executing. Logic errors are, in principle, errors that we could have
    detected in our application.
-   Ourbookstore exceptionclassesfurtherrefinethesecategories. Theclassnamed
-   out_of_stock represents something, particular to our application, that can go
+
+   Our bookstore exception classes further refine these categories. The class named
+   `out_of_stock` represents something, particular to our application, that can go
    wrong at run time. It would be used to signal that an order cannot be fulfilled. The
-   class isbn_mismatch represents a more particular form of logic_error. In
+   class `isbn_mismatch` represents a more particular form of ``logic_error``. In
    principle, a program could prevent and handle this error by comparing the results
-   of isbn() on the objects.
+   of `isbn()` on the objects.
 
 Using Our Own Exception Types
 
@@ -43848,47 +45986,53 @@ Using Our Own Exception Types
    and another part catches and handles the indicated problem. As an example, we
    might define the compound addition operator for our Sales_data class to throw
    an error of type isbn_mismatch if it detected that the ISBN s didn't match:
-   // throws an exception if both objects do not refer to the same book
-   Sales_data&
-   Sales_data::operator+=(const Sales_data& rhs)
-   {
-   if (isbn() != rhs.isbn())
-   throw isbn_mismatch("wrong isbns", isbn(), rhs.isbn());
-   units_sold += rhs.units_sold;
-   revenue += rhs.revenue;
-   return
-   * this;
-   }
+
+   .. code-block:: cpp
+
+      // throws an exception if both objects do not refer to the same book
+      Sales_data&
+      Sales_data::operator+=(const Sales_data& rhs)
+      {
+         if (isbn() != rhs.isbn())
+            throw isbn_mismatch("wrong isbns", isbn(), rhs.isbn());
+         units_sold += rhs.units_sold;
+         revenue += rhs.revenue;
+         return * this;
+      }
+
    Code that uses the compound addition operator (or ordinary addition operator,
    which itself uses the compound addition operator) can detect this error, write an
    appropriate error message, and continue:
-   // use the hypothetical bookstore exceptions
-   Sales_data item1, item2, sum;
-   while (cin >> item1 >> item2) { // read two transactions
-   try {
-   sum = item1 + item2; // calculate their sum
-   // use sum
-   } catch (const isbn_mismatch &e) {
-   cerr << e.what() << ": left isbn(" << e.left
-   << ") right isbn(" << e.right << ")" << endl;
-   }
-   }
+
+   .. code-block:: cpp
+
+      // use the hypothetical bookstore exceptions
+      Sales_data item1, item2, sum;
+      while (cin >> item1 >> item2) { // read two transactions
+         try {
+            sum = item1 + item2; // calculate their sum
+            // use sum
+         } catch (const isbn_mismatch &e) {
+            cerr << e.what() << ": left isbn(" << e.left
+            << ") right isbn(" << e.right << ")" << endl;
+         }
+      }
 
 .. ptg11539634 Section 18.2 Namespaces 785
 .. _P0785:
 
 
-Exercises Section 18.1.5
+   Exercises Section 18.1.5
 
-   Exercise 18.9: Define the bookstore exception classes described in this section and
-   rewrite your Sales_data compound assigment operator to throw an exception.
+      Exercise 18.9: Define the bookstore exception classes described in this section and
+      rewrite your `Sales_data` compound assigment operator to throw an exception.
 
-   Exercise 18.10: Write a program that uses the Sales_data addition operator on objects 
-   that have differing ISBN s. Write two versions of the program: one that handles the
-   exception and one that does not. Compare the behavior of the programs so that you
-   become familiar with what happens when an uncaught exception occurs.
+      Exercise 18.10: Write a program that uses the `Sales_data` addition operator on objects 
+      that have differing ISBNs. Write two versions of the program: one that handles the
+      exception and one that does not. Compare the behavior of the programs so that you
+      become familiar with what happens when an uncaught exception occurs.
 
-   Exercise 18.11: Why is it important that the what function doesn't throw?
+      Exercise 18.11: Why is it important that the what function doesn't throw?
 
 /18.2👋 Namespaces
 -------------------
@@ -43898,14 +46042,20 @@ Exercises Section 18.1.5
    templates. When an application uses libraries from many different vendors, it is
    almost inevitable that some of these names will clash. Libraries that put names
    into the global namespace are said to cause namespace pollution.
+
    Traditionally, programmers avoided namespace pollution by using very long
    names for the global entities they defined. Those names often contained a prefix
    indicating which library defined the name:
-   class cplusplus_primer_Query { ... };
-   string cplusplus_primer_make_plural(size_t, string&);
+
+   .. code-block:: cpp
+
+      class cplusplus_primer_Query { ... };
+      string cplusplus_primer_make_plural(size_t, string&);
+
    This solution is far from ideal: It can be cumbersome for programmers to write
    and read programs that use such long names.
-   Namespacesprovide a much more controlled mechanism for preventing name
+
+   Namespaces provide a much more controlled mechanism for preventing name
    collisions. Namespaces partition the global namespace. A namespace is a scope.
    By defining a library's names inside a namespace, library authors (and users) can
    avoid the limitations inherent in global names.
@@ -43913,61 +46063,80 @@ Exercises Section 18.1.5
 /18.2.1 Namespace Definitions
 ``````````````````````````````
 
-   A namespace definition begins with the keyword namespace followed by the
+   A ``namespace`` definition begins with the keyword ``namespace`` followed by the
    namespace name. Following the namespace name is a sequence of declarations
    and definitions delimited by curly braces. Any declaration that can appear at
    global scope can be put into a namespace: classes, variables (with their initializations), 
    functions (with their definitions), templates, and other namespaces:
-   namespace cplusplus_primer {
-   class Sales_data { / * ...
-   * /};
-   Sales_data operator+(const Sales_data&,
-   const Sales_data&);
-   class Query { / * ...
-   * / };
-   class Query_base { / * ...
-   * /};
-   } // like blocks, namespaces do not end with a semicolon
+
+   .. code-block:: cpp
+
+      namespace cplusplus_primer {
+         class Sales_data { /* ... */};
+         Sales_data operator+(const Sales_data&, const Sales_data&);
+         class Query { /* ... */ };
+         class Query_base { /* ... */};
+      } // like blocks, namespaces do not end with a semicolon
 
 .. ptg11539634 786 Tools for Large Programs
 .. _P0786:
 
    This code defines a namespace named cplusplus_primer with four members:
    three classes and an overloaded + operator.
+
    As with any name, a namespace name must be unique within the scope in
    which the namespace is defined. Namespaces may be defined at global scope or
    inside another namespace. They may not be defined inside a function or a class.
-   A namespace scope does not end with a semicolon.
-   Each Namespace Is a Scope
+
+   .. Note::
+
+      A namespace scope does not end with a semicolon.
+
+Each Namespace Is a Scope
+
    As is the case for any scope, each name in a namespace must refer to a unique
    entity within that namespace. Because different namespaces introduce different
    scopes, different namespaces may have members with the same name.
+
    Names defined in a namespace may be accessed directly by other members of
    the namespace, including scopes nested within those members. Code outside the
    namespace must indicate the namespace in which the name is defined:
-   cplusplus_primer::Query q =
-   cplusplus_primer::Query("hello");
+   .. code-block:: cpp
+
+      cplusplus_primer::Query q =
+      cplusplus_primer::Query("hello");
+
    If another namespace (say, AddisonWesley) also provides a Query class and
    we want to use that class instead of the one defined in cplusplus_primer, we
    can do so by modifying our code as follows:
-   AddisonWesley::Query q = AddisonWesley::Query("hello");
-   Namespaces Can Be Discontiguous
+   .. code-block:: cpp
+
+      AddisonWesley::Query q = AddisonWesley::Query("hello");
+
+Namespaces Can Be Discontiguous
+
    As we saw in § 16.5 (p. [P0709]_), unlike other scopes, a namespace can be defined in
    several parts. Writing a namespace definition:
-   namespace nsp {
-   // declarations
-   }
+   .. code-block:: cpp
+
+      namespace nsp {
+      // declarations
+      }
+
    either defines a new namespace named nsp or adds to an existing one. If the name
    nsp does not referto a previously defined namespace, then a new namespace with
    that name is created. Otherwise, this definition opens an existing namespace and
    adds declarations to that already existing namespace.
+
    The fact that namespace definitions can be discontiguous lets us compose a
    namespace from separate interface and implementation files. Thus, a namespace
    can be organized in the same way that we manage our own class and function
    definitions:
+
    • Namespace members that define classes, and declarations for the functions
    and objects that are part of the class interface, can be put into header files.
    These headers can be included by files that use those namespace members.
+
    • The definitions of namespace members can be put in separate source files.
 
 .. ptg11539634 Section 18.2 Namespaces 787
@@ -43979,43 +46148,53 @@ Exercises Section 18.1.5
    defined in a namespace. By separating the interface and implementation, we can
    ensure that the functions and other names we need are defined only once, but the
    same declaration will be seen whenever the entity is used.
+
    Namespaces that define multiple, unrelated types should use separate
    files to represent each type (or each collection of related types) that the
    namespace defines.
-   Defining the Primer Namespace
+
+Defining the Primer Namespace
+
    Using this strategy for separating interface and implementation, we might define
-   the cplusplus_primer library in several separate files. The declarations for
-   Sales_data and its related functions would be placed in Sales_data.h, those
-   for the Query classes of Chapter 15 in Query.h, and so on. The corresponding
-   implementation files would be in files such as Sales_data.cc and Query.cc:
-   // ---- Sales_data.h ---=// 
-   #include s should appear before opening the namespace
-   #include <string>
-   namespace cplusplus_primer {
-   class Sales_data { / * ...
-   * /};
-   Sales_data operator+(const Sales_data&,
-   const Sales_data&);
-   // declarations for the remaining functions in the Sales_data interface
-   }
-   // ---- Sales_data.cc ---=// 
-   be sure any #include s appear before opening the namespace
-   #include "Sales_data.h"
-   namespace cplusplus_primer {
-   // definitions for Sales_data members and overloaded operators
-   }
+   the `cplusplus_primer` library in several separate files. The declarations for
+   `Sales_data` and its related functions would be placed in `Sales_data.h`, those
+   for the `Query` classes of Chapter 15 in `Query.h`, and so on. The corresponding
+   implementation files would be in files such as `Sales_data.cc` and `Query.cc`:
+
+   .. code-block:: cpp
+
+      // ---- Sales_data.h ---=// 
+      // #includes should appear before opening the namespace
+      #include <string>
+      namespace cplusplus_primer {
+      class Sales_data { /* ... */};
+         Sales_data operator+(const Sales_data&,
+         const Sales_data&);
+         // declarations for the remaining functions in the Sales_data interface
+      }
+      // ---- Sales_data.cc ---=// 
+      // be sure any #includes appear before opening the namespace
+      #include "Sales_data.h"
+      namespace cplusplus_primer {
+      // definitions for Sales_data members and overloaded operators
+      }
+
    A program using our library would include whichever headers it needed. The
-   names in those headers are defined inside the cplusplus_primer namespace:
-   // ---- user.cc ---=// 
-   names in the Sales_data.h header are in the cplusplus_primer namespace
-   #include "Sales_data.h"
-   int main()
-   {
-   using cplusplus_primer::Sales_data;
-   Sales_data trans1, trans2;
-   // ...
-   return 0;
-   }
+   names in those headers are defined inside the `cplusplus_primer` namespace:
+
+   .. code-block:: cpp
+
+      // ---- user.cc ---=// 
+      // names in the Sales_data.h header are in the cplusplus_primer namespace
+      #include "Sales_data.h"
+      int main()
+      {
+         using cplusplus_primer::Sales_data;
+         Sales_data trans1, trans2;
+         // ...
+         return 0;
+      }
+
    This program organization gives the developers and the users of our library
    the needed modularity. Each class is still organized into its own interface and
 
@@ -44024,46 +46203,58 @@ Exercises Section 18.1.5
 
    implementation files. A user of one class need not compile names related to the
    others. We can hide the implementations from our users, while allowing the files
-   Sales_data.ccand user.ccto be compiled and linked into one program without 
+   `Sales_data.cc` and `user.cc` to be compiled and linked into one program without 
    causing any compile-time or link-time errors. Developers of the library can
    work independently on the implementation of each type.
+
    It is worth noting that ordinarily, we do not put a #include inside the namespace. 
    If we did, we would be attempting to define all the names in that header
-   as members of the enclosing namespace. For example, if our Sales_data.h file
-   opened the cplusplus_primer before including the string header our program 
+   as members of the enclosing namespace. For example, if our `Sales_data.h` file
+   opened the `cplusplus_primer` before including the string header our program 
    would be in error. It would be attempting to define the std namespace
-   nested inside cplusplus_primer.
-   Defining Namespace Members
+   nested inside `cplusplus_primer`.
+
+Defining Namespace Members
+
    Assuming the appropriate declarations are in scope, code inside a namespace may
    use the short form for names defined in the same (or in an enclosing) namespace:
-   #include "Sales_data.h"
-   namespace cplusplus_primer { // reopen cplusplus_primer
-   // members defined inside the namespace may use unqualified names
-   std::istream&
-   operator>>(std::istream& in, Sales_data& s) { / * ...
-   * /}
-   }
+
+   .. code-block:: cpp
+
+      #include "Sales_data.h"
+      namespace cplusplus_primer { // reopen cplusplus_primer
+      // members defined inside the namespace may use unqualified names
+         std::istream&
+         operator>>(std::istream& in, Sales_data& s) { /* ... */}
+      }
+
    It is also possible to define a namespace member outside its namespace definition. 
    The namespace declaration of the name must be in scope, and the definition
    must specify the namespace to which the name belongs:
-   // namespace members defined outside the namespace must use qualified names
-   cplusplus_primer::Sales_data
-   cplusplus_primer::operator+(const Sales_data& lhs,
-   const Sales_data& rhs)
-   {
-   Sales_data ret(lhs);
-   // ...
-   }
+
+   .. code-block:: cpp
+
+      // namespace members defined outside the namespace must use qualified names
+      cplusplus_primer::Sales_data
+      cplusplus_primer::operator+(const Sales_data& lhs,
+      const Sales_data& rhs)
+      {
+         Sales_data ret(lhs);
+         // ...
+      }
+
    As with class members defined outside a class, once the fully qualified name is
-   seen, we arein the scope of the namespace. Inside the cplusplus_primernamespace, 
+   seen, we arein the scope of the namespace. Inside the `cplusplus_primernamespace`, 
    we can use other namespace member names without qualification. Thus,
-   even though Sales_data is a member of the cplusplus_primer namespace,
+   even though Sales_data is a member of the `cplusplus_primer` namespace,
    we can use its unqualified name to define the parameters in this function.
    Although a namespace member can be defined outside its namespace, such
    definitions must appear in an enclosing namespace. That is, we can define the
-   Sales_dataoperator+inside the cplusplus_primernamespaceor at global
+   `Sales_dataoperator` + inside the `cplusplus_primernamespace` or at global
    scope. We cannot define this operator in an unrelated namespace.
-   Template Specializations
+
+Template Specializations
+
    Template specializations must be defined in the same namespace that contains the
    original template (§ 16.5, p. [P0709]_). As with any other namespace name, so long as
 
@@ -44072,51 +46263,58 @@ Exercises Section 18.1.5
 
    we have declaredthe specialization inside the namespace, we can define it outside
    the namespace:
-   // we must declare the specialization as a member of std
-   namespace std {
-   template <> struct hash<Sales_data>;
-   }
-   // having added the declaration for the specialization to std
-   // we can define the specialization outside the std namespace
-   template <> struct std::hash<Sales_data>
-   {
-   size_t operator()(const Sales_data& s) const
-   { return hash<string>()(s.bookNo) ^
-   hash<unsigned>()(s.units_sold) ^
-   hash<double>()(s.revenue); }
-   // other members as before
-   };
-   The Global Namespace
+
+   .. code-block:: cpp
+
+      // we must declare the specialization as a member of std
+      namespace std {
+         template <> struct hash<Sales_data>;
+      }
+      // having added the declaration for the specialization to std
+      // we can define the specialization outside the std namespace
+      template <> struct std::hash<Sales_data>
+      {
+         size_t operator()(const Sales_data& s) const
+         {  return hash<string>()(s.bookNo) ^
+            hash<unsigned>()(s.units_sold) ^
+            hash<double>()(s.revenue); }
+         // other members as before
+      };
+
+The Global Namespace
+
    Names defined at global scope (i.e., names declared outside any class, function,
    or namespace) are defined inside the global namespace. The global namespace is
    implicitly declared and exists in every program. Each file that defines entities at
    global scope (implicitly) adds those names to the global namespace.
+
    The scope operator can be used to refer to members of the global namespace.
    Because the global namespace is implicit, it does not have a name; the notation
-   ::member_name
-   refers to a member of the global namespace.
-   Nested Namespaces
+   `::member_name` refers to a member of the global namespace.
+
+Nested Namespaces
+
    A nested namespace is a namespace defined inside another namespace:
-   namespace cplusplus_primer {
-   // first nested namespace: defines the Query portion of the library
-   namespace QueryLib {
-   class Query { / * ...
-   * /
-   };
-   Query operator&(const Query&, const Query&);
-   // ...
-   }
-   // second nested namespace: defines the Sales_data portion of the library
-   namespace Bookstore {
-   class Quote { / * ...
-   * / };
-   class Disc_quote : public Quote { / * ...
-   * / };
-   // ...
-   }
-   }
+
+   .. code-block:: cpp
+
+      namespace cplusplus_primer {
+         // first nested namespace: defines the Query portion of the library
+         namespace QueryLib {
+            class Query { /* ... */ };
+            Query operator&(const Query&, const Query&);
+            // ...
+         }
+         // second nested namespace: defines the Sales_data portion of the library
+         namespace Bookstore {
+            class Quote { /* ... */ };
+            class Disc_quote : public Quote { /* ... */ };
+            // ...
+         }
+      }
+
    The cplusplus_primer namespace now contains two nested namespaces: the
-   namespaces named QueryLib and Bookstore.
+   namespaces named `QueryLib` and Bookstore.
 
 .. ptg11539634 790 Tools for Large Programs
 .. _P0790:
@@ -44124,92 +46322,121 @@ Exercises Section 18.1.5
    A nested namespace is a nested scope—its scope is nested within the namespace 
    that contains it. Nested namespace names follow the normal rules: Names
    declared in an inner namespace hide declarations of the same name in an outer
-   namespace. Namesdefinedinsideanestednamespacearelocaltothatinnernamespace. 
+   namespace. Names defined inside a nested namespace are local to that inner namespace. 
    Code in the outer parts of the enclosing namespace may refer to a name in
    a nested namespace only through its qualified name: For example, the name of the
-   class declared in the nested namespace QueryLib is
-   cplusplus_primer::QueryLib::Query
-   Inline Namespaces
+   class declared in the nested namespace `QueryLib` is
+
+   .. code-block:: cpp
+
+      cplusplus_primer::QueryLib::Query
+
+Inline Namespaces
+
    The new standard introduced a new kind of nested namespace, an inline namespace. 
    Unlike ordinary nested namespaces, names in an inline namespace can be
    used as if they were direct members of the enclosing namespace. That is, we need
    not qualify names from an inline namespace by their namespace name. We can
    access them using only the name of the enclosing namespace.
+
    An inline namespace is defined by preceding the keyword namespace with
    the keyword inline:
-   inline namespace FifthEd {
-   // namespace for the code from the Primer Fifth Edition
-   }
-   namespace FifthEd { // implicitly inline
-   class Query_base { / * ...
-   * /};
-   // other Query -related declarations
-   }
+
+   .. code-block:: cpp
+
+      inline namespace FifthEd {
+         // namespace for the code from the Primer Fifth Edition
+      }
+      namespace FifthEd { // implicitly inline
+         class Query_base { /* ... */};
+         // other Query -related declarations
+      }
+
    The keyword must appear on the first definition of the namespace. If the namespace 
    is later reopened, the keyword inline need not be, but may be, repeated.
    Inline namespaces are often used when code changes from one release of an
    application to the next. For example, we can put all the code from the current
    edition of the Primer into an inline namespace. Code for previous versions would
    be in non-inlined namespaces:
-   namespace FourthEd {
-   class Item_base { / * ...
-   * /};
-   class Query_base { / * ...
-   * /};
-   // other code from the Fourth Edition
-   }
-   Theoverallcplusplus_primernamespacewouldincludethedefinitions ofboth
+
+   .. code-block:: cpp
+
+      namespace FourthEd {
+         class Item_base { /* ... */};
+         class Query_base { /* ... */};
+         // other code from the Fourth Edition
+      }
+
+   The overall `cplusplus_primer` namespace would include the definitions of both
    namespaces. For example, assuming that each namespace was defined in a header
-   with the corresponding name, we'd define cplusplus_primer as follows:
-   namespace cplusplus_primer {
-   #include "FifthEd.h"
-   #include "FourthEd.h"
-   }
+   with the corresponding name, we'd define `cplusplus_primer` as follows:
+
+   .. code-block:: cpp
+
+      namespace cplusplus_primer {
+         #include "FifthEd.h"
+         #include "FourthEd.h"
+      }
 
 .. ptg11539634 Section 18.2 Namespaces 791
 .. _P0791:
 
-   Because FifthEd is inline, code that refers to cplusplus_primer::will get the
+   Because FifthEd is inline, code that refers to `cplusplus_primer::` will get the
    version from that namespace. If we want the earlier edition code, we can access it
    as we would any other nested namespace, by using the names of all the enclosing
-   namespaces: for example, cplusplus_primer::FourthEd::Query_base.
-   Unnamed Namespaces
-   An unnamed namespace is the keyword namespace followed immediately by
+   namespaces: for example, `cplusplus_primer::FourthEd::Query_base`.
+
+Unnamed Namespaces
+
+   An `unnamed namespace` is the keyword namespace followed immediately by
    a block of declarations delimited by curly braces. Variables defined in an unnamed 
    namespace have static lifetime: They are created before their first use and
    destroyed when the program ends.
+
    An unnamed namespace may be discontiguous within a given file but does not
    span files. Each file has its own unnamed namespace. If two files contain unnamed
    namespaces, those namespaces are unrelated. Both unnamed namespaces can define 
    the same name; those definitions would refer to different entities. If a header
    defines an unnamed namespace, the names in that namespace define different entities 
    local to each file that includes the header.
-   Unlike other namespaces, an unnamed namespace is local to a particular 
-   file and never spans multiple files.
+
+   .. Note::
+
+      Unlike other namespaces, an unnamed namespace is local to a particular 
+      file and never spans multiple files.
+
    Names defined in an unnamed namespace are used directly; after all, there is
    no namespace name with which to qualify them. It is not possible to use the scope
    operator to refer to members of unnamed namespaces.
+
    Names defined in an unnamed namespace are in the same scope as the scope
    at which the namespace is defined. If an unnamed namespace is defined at the
    outermost scope in the file, then names in the unnamed namespace must differ
    from names defined at global scope:
-   int i; // global declaration for i
-   namespace {
-   int i;
-   }
-   // ambiguous: defined globally and in an unnested, unnamed namespace
-   i = 10;
+
+   .. code-block:: cpp
+
+      int i; // global declaration for i
+      namespace {
+         int i;
+      }
+      // ambiguous: defined globally and in an unnested, unnamed namespace
+      i = 10;
+
    In all other ways, the members of an unnamed namespace are normal program
    entities. An unnamed namespace, like any other namespace, may be nested inside
    another namespace. If the unnamed namespace is nested, then names in it are
    accessed in the normal way, using the enclosing namespace name(s):
-   namespace local {
-   namespace {
-   int i;
-   }
-   }
-   // ok: i defined in a nested unnamed namespace is distinct from global i
-   local::i = 42;
+
+   .. code-block:: cpp
+
+      namespace local {
+         namespace {
+            int i;
+         }
+      }
+      // ok: i defined in a nested unnamed namespace is distinct from global i
+      local::i = 42;
 
 .. ptg11539634 792 Tools for Large Programs
 .. _P0792:
@@ -44219,34 +46446,35 @@ Exercises Section 18.1.5
 
       Unnamed Namespaces Replace File Statics
 
-   Prior to the introductionof namespaces, programs declared names as static to make
-   them local to a file. The use of file statics is inherited from C. In C, a global entity
-   declared static is invisible outside the file in which it is declared.
-   The use of file static declarations is deprecated by the C++ standard. File
-   statics should be avoided and unnamed namespaces used instead.
+      Prior to the introduction of namespaces, programs declared names as static to make
+      them local to a file. The use of file statics is inherited from C. In C, a global entity
+      declared static is invisible outside the file in which it is declared.
+      The use of file static declarations is deprecated by the C++ standard. File
+      statics should be avoided and unnamed namespaces used instead.
 
-Exercises Section 18.2.1
+   Exercises Section 18.2.1
 
-   Exercise 18.12: Organize the programs you have written to answer the questions in
-   each chapter into their own namespaces. That is, namespace chapter15 would contain 
-   code for the Query programs and chapter10 would contain the TextQuery
-   code. Using this structure, compile the Query code examples.
+      Exercise 18.12: Organize the programs you have written to answer the questions in
+      each chapter into their own namespaces. That is, namespace chapter15 would contain 
+      code for the Query programs and chapter10 would contain the TextQuery
+      code. Using this structure, compile the Query code examples.
 
-   Exercise 18.13: When might you use an unnamed namespace?
+      Exercise 18.13: When might you use an unnamed namespace?
 
-   Exercise 18.14: Suppose we have the following declaration of the operator * that is
-   a member of the nested namespace mathLib::MatrixLib:
-   namespace mathLib {
-   namespace MatrixLib {
-   class matrix { / * ...
-   * /
-   };
-   matrix operator *
-   (const matrix &, const matrix &);
-   // ...
-   }
-   }
-   How would you declare this operator in global scope?
+      Exercise 18.14: Suppose we have the following declaration of the operator * that is
+      a member of the nested namespace mathLib::MatrixLib:
+
+      .. code-block:: cpp
+
+         namespace mathLib {
+            namespace MatrixLib {
+               class matrix { /* ... */ };
+               matrix operator * (const matrix &, const matrix &);
+               // ...
+            }
+         }
+
+      How would you declare this operator in global scope?
 
 /18.2.2 Using Namespace Members
 ````````````````````````````````
@@ -44256,13 +46484,21 @@ Exercises Section 18.2.1
    are ways to make it easier to use namespace members. Our programs have used
    one of these ways, using declarations (§ 3.1, p. [P0082]_). The others, namespace aliases
    and using directives, will be described in this section.
-   Namespace Aliases
-   A namespace alias can be used to associate a shorter synonym with a namespace
+
+Namespace Aliases
+
+   A `namespace alias` can be used to associate a shorter synonym with a namespace
    name. For example, a long namespace name such as
-   namespace cplusplus_primer { / * ...
-   * / };
+
+   .. code-block:: cpp
+
+      namespace cplusplus_primer { /* ... */ };
+
    can be associated with a shorter synonym as follows:
-   namespace primer = cplusplus_primer;
+
+   .. code-block:: cpp
+
+      namespace primer = cplusplus_primer;
 
 .. ptg11539634 Section 18.2 Namespaces 793
 .. _P0793:
@@ -44271,37 +46507,55 @@ Exercises Section 18.2.1
    the alias name, followed by the = sign, followed by the original namespace name
    and a semicolon. It is an error if the original namespace name has not alreadybeen
    defined as a namespace.
+
    A namespace alias can also refer to a nested namespace:
-   namespace Qlib = cplusplus_primer::QueryLib;
-   Qlib::Query q;
+
+   .. code-block:: cpp
+
+      namespace Qlib = cplusplus_primer::QueryLib;
+      Qlib::Query q;
+
    A namespace can have many synonyms, or aliases. All the aliases and
    the original namespace name can be used interchangeably.
-   using Declarations: A Recap
+
+using Declarations: A Recap
+
    A using declaration introduces only one namespace member at a time. It allows
    us to be very specific regarding which names are used in our programs.
+
    Names introduced in a using declaration obey normal scope rules: They are
    visible from the point of the using declaration to the end of the scope in which
    the declaration appears. Entities with the same name defined in an outer scope are
    hidden. The unqualified name may be used only within the scope in which it is
    declared and in scopes nested within that scope. Once the scope ends, the fully
    qualified name must be used.
+
    A using declaration can appear in global, local, namespace, or class scope. In
    class scope, such declarationsmay only referto abaseclass member(§15.5,p.615).
-   using Directives
-   A using directive, like a using declaration, allows us to use the unqualified form
-   ofanamespacename. Unlike ausingdeclaration,weretainnocontrol overwhich
+
+using Directives
+
+   A `using directive`, like a using declaration, allows us to use the unqualified form
+   of a namespace name. Unlike a using declaration, we retain no control over which
    names are made visible—they all are.
+
    A using directive begins with the keyword using, followed by the keyword
    namespace, followed by a namespace name. It is an error if the name is not a
    previously defined namespace name. A using directive may appear in global,
    local, or namespace scope. It may not appear in a class scope.
+
    These directives make all the names from a specific namespace visible without
    qualification. The short form names can be used from the point of the using
    directive to the end of the scope in which the using directive appears.
-   Providing a using directive for namespaces, such as std, that our application 
-   does not control reintroduces all the name collision problems
-   inherent in using multiple libraries.
-   using Directives and Scope
+
+   .. Warning::
+
+      Providing a using directive for namespaces, such as std, that our application 
+      does not control reintroduces all the name collision problems
+      inherent in using multiple libraries.
+
+using Directives and Scope
+
    The scope of names introduced by a using directive is more complicated than the
    scope of names in using declarations. As we've seen, a using declaration puts
    the name in the same scope as that of the using declaration itself. It is as if the
@@ -44313,6 +46567,7 @@ Exercises Section 18.2.1
    A using directive does not declare local aliases. Rather, it has the effect of
    lifting the namespace members into the nearest scope that contains both the namespace 
    itself and the using directive.
+
    This difference in scope between a using declaration and a using directive
    stems directly from how these two facilities work. In the case of a using declaration, 
    we are simply making name directly accessible in the local scope. In contrast,
@@ -44320,40 +46575,50 @@ Exercises Section 18.2.1
    a namespace might include definitions that cannot appear in a local scope. As a
    consequence, a using directive is treated as if it appeared in the nearest enclosing
    namespace scope.
+
    In the simplest case, assume we have a namespace A and a function f, both
    defined at global scope. If f has a using directive for A, then in f it will be as if
    the names in A appeared in the global scope prior to the definition of f:
-   // namespace A and function f are defined at global scope
-   namespace A {
-   int i, j;
-   }
-   void f()
-   {
-   using namespace A; // injects the names from A into the global scope
-   cout << i
-   *
-   j << endl; // uses i and j from namespace A
-   // ...
-   }
-   using Directives Example
+
+   .. code-block:: cpp
+
+      // namespace A and function f are defined at global scope
+      namespace A {
+      int i, j;
+      }
+      void f()
+      {
+      using namespace A; // injects the names from A into the global scope
+      cout << i
+      *
+      j << endl; // uses i and j from namespace A
+      // ...
+      }
+
+using Directives Example
+
    Let's look at an example:
-   namespace blip {
-   int i = 16, j = 15, k = 23;
-   // other declarations
-   }
-   int j = 0; // ok: j inside blip is hidden inside a namespace
-   void manip()
-   {
-   // using directive; the names in blip are ‘‘added'' to the global scope
-   using namespace blip; // clash between ::j and blip::j
-   // detected only if j is used
-   ++i; // sets blip::i to 17
-   ++j; // error ambiguous: global j or blip::j ?
-   ++::j; // ok: sets global j to 1
-   ++blip::j; // ok: sets blip::j to 16
-   int k = 97; // local k hides blip::k
-   ++k; // sets local k to 98
-   }
+
+   .. code-block:: cpp
+
+      namespace blip {
+         int i = 16, j = 15, k = 23;
+         // other declarations
+      }
+      int j = 0; // ok: j inside blip is hidden inside a namespace
+      void manip()
+      {
+         // using directive; the names in blip are ‘‘added'' to the global scope
+         using namespace blip; // clash between ::j and blip::j
+                               // detected only if j is used
+         ++i;        // sets blip::i to 17
+         ++j;        // error ambiguous: global j or blip::j ?
+         ++::j;      // ok: sets global j to 1
+         ++blip::j;  // ok: sets blip::j to 16
+         int k = 97; // local k hides blip::k
+         ++k;        // sets local k to 98
+      }
+
    The using directive in manip makes all the names in blip directly accessible;
    code inside manipcan referto the names of these members, using their short form.
 
@@ -44363,76 +46628,91 @@ Exercises Section 18.2.1
    The members of blip appear as if they were defined in the scope in which
    both blip and manip are defined. Assuming manip is defined at global scope,
    then the members of blip appear as if they were declared in global scope.
-   Whenanamespaceisinjectedinto anenclosing scope, itis possible fornames in
+
+   When a namespace is injected into an enclosing scope, it is possible for names in
    the namespace to conflict with other names defined in that (enclosing) scope. For
    example, inside manip, the blip member j conflicts with the global object named
    j. Such conflicts are permitted, but to use the name, we must explicitly indicate
    which version is wanted. Any unqualified use of j within manip is ambiguous.
+
    To use a name such as j, we must use the scope operator to indicate which
    name is wanted. We would write ::j to obtain the variable defined in global
    scope. To use the j defined in blip, we must use its qualified name, blip::j.
-   Becausethe names arein differentscopes, local declarations within manip may
+
+   Because the names are in different scopes, local declarations within manip may
    hide some of the namespace member names. The local variable k hides the namespace 
-   member blip::k. Referring to k within manip is not ambiguous; it refers
+   member `blip::k`. Referring to k within manip is not ambiguous; it refers
    to the local variable k.
-   Headers and using Declarations or Directives
+
+Headers and using Declarations or Directives
+
    A header that has a using directive or declaration at its top-level scope injects
    names into every file that includes the header. Ordinarily, headers should define
    only the names that are part of its interface, not names used in its own implementation. 
    As a result, header files should not contain using directives or using
    declarations except inside functions or namespaces (§ 3.1, p. [P0083]_).
+
    .. Caution::
 
-   Caution : Avoid USING Directives
-   
-   using directives, which inject all the names from a namespace, are deceptively simple 
-   to use: With only a single statement, all the member names of a namespace are
-   suddenly visible. Although this approach may seem simple, it can introduce its own
-   problems. If an application uses many libraries, and if the names within these libraries 
-   are made visible with using directives, then we are back to square one, and
-   the global namespace pollution problem reappears.
-   Moreover, it is possible that a working program will fail to compile when a new
-   versionofthelibraryisintroduced. Thisproblemcanarise ifanewversionintroduces
-   a name that conflicts with a name that the application is using.
-   Another problem is that ambiguity errors caused by using directives are detected
-   only at the point of use. This late detection means that conflicts can arise long after
-   introducing a particular library. If the program begins using a new part of the library,
-   previously undetected collisions may arise.
-   Rather than relying on a using directive, it is better to use a using declaration for
-   each namespace name used in the program. Doing so reduces the number of names
-   injected into the namespace. Ambiguity errors caused by using declarations are detected 
-   at the point of declaration, not use, and so are easier to find and fix.
-   One place where using directives are useful is in the implementation
-   files of the namespace itself.
+      Caution : Avoid USING Directives
+      
+      using directives, which inject all the names from a namespace, are deceptively simple 
+      to use: With only a single statement, all the member names of a namespace are
+      suddenly visible. Although this approach may seem simple, it can introduce its own
+      problems. If an application uses many libraries, and if the names within these libraries 
+      are made visible with using directives, then we are back to square one, and
+      the global namespace pollution problem reappears.
+
+      Moreover, it is possible that a working program will fail to compile when a new
+      versionofthelibraryisintroduced. Thisproblemcanarise ifanewversionintroduces
+      a name that conflicts with a name that the application is using.
+
+      Another problem is that ambiguity errors caused by using directives are detected
+      only at the point of use. This late detection means that conflicts can arise long after
+      introducing a particular library. If the program begins using a new part of the library,
+      previously undetected collisions may arise.
+
+      Rather than relying on a using directive, it is better to use a using declaration for
+      each namespace name used in the program. Doing so reduces the number of names
+      injected into the namespace. Ambiguity errors caused by using declarations are detected 
+      at the point of declaration, not use, and so are easier to find and fix.
+
+      .. Tip::
+
+         One place where using directives are useful is in the implementation
+         files of the namespace itself.
 
 .. ptg11539634 796 Tools for Large Programs
 .. _P0796:
 
 
-Exercises Section 18.2.2
+   Exercises Section 18.2.2
 
-   Exercise 18.15: Explain the differences between using declarations and directives.
+      Exercise 18.15: Explain the differences between using declarations and directives.
 
-   Exercise 18.16: Explain the following code assuming using declarations for all the
-   members of namespace Exercise are located at the location labeled position 1. What
-   if they appear at position 2 instead? Now answer the same question but replace the
-   using declarations with a using directive for namespace Exercise.
-   namespace Exercise {
-   int ivar = 0;
-   double dvar = 0;
-   const int limit = 1000;
-   }
-   int ivar = 0;
-   // position 1
-   void manip() {
-   // position 2
-   double dvar = 3.1416;
-   int iobj = limit + 1;
-   ++ivar;
-   ++::ivar;
-   }
+      Exercise 18.16: Explain the following code assuming using declarations for all the
+      members of namespace Exercise are located at the location labeled position 1. What
+      if they appear at position 2 instead? Now answer the same question but replace the
+      using declarations with a using directive for namespace Exercise.
 
-   Exercise 18.17: Write code to test your answers to the previous question.
+      .. code-block:: cpp
+
+         namespace Exercise {
+            int ivar = 0;
+            double dvar = 0;
+            const int limit = 1000;
+         }
+         int ivar = 0;
+         // position 1
+         void manip() {
+            // position 2
+            double dvar = 3.1416;
+            int iobj = limit + 1;
+            ++ivar;
+            ++::ivar;
+         }
+
+      Exercise 18.17: Write code to test your answers to the previous question.
 
 /18.2.3 Classes, Namespaces, and Scope
 ```````````````````````````````````````
@@ -44442,22 +46722,25 @@ Exercises Section 18.2.2
    be one or more nested namespaces, ending in the all-encompassing global namespace. 
    Only names that have been declared before the point of use that are in
    blocks that are still open are considered:
-   namespace A {
-   int i;
-   namespace B {
-   int i; // hides A::i within B
-   int j;
-   int f1()
-   {
-   int j; // j is local to f1 and hides A::B::j
-   return i; // returns B::i
-   }
-   } // namespace B is closed and names in it are no longer visible
-   int f2() {
-   return j; // error: j is not defined
-   }
-   int j = i; // initialized from A::i
-   }
+
+   .. code-block:: cpp
+
+      namespace A {
+         int i;
+         namespace B {
+            int i; // hides A::i within B
+            int j;
+            int f1()
+            {
+               int j; // j is local to f1 and hides A::B::j
+               return i; // returns B::i
+            }
+         } // namespace B is closed and names in it are no longer visible
+         int f2() {
+            return j; // error: j is not defined
+         }
+         int j = i; // initialized from A::i
+      }
 
 .. ptg11539634 Section 18.2 Namespaces 797
 .. _P0797:
@@ -44466,43 +46749,60 @@ Exercises Section 18.2.2
    When anameisused byamemberfunction, look forthatname inthe memberfirst,
    then within theclass(including baseclasses), thenlook in theenclosing scopes, one
    or more of which might be a namespace:
-   namespace A {
-   int i;
-   int k;
-   class C1 {
-   public:
-   C1(): i(0), j(0) { } // ok: initializes C1::i and C1::j
-   int f1() { return k; } // returns A::k
-   int f2() { return h; } // error: h is not defined
-   int f3();
-   private:
-   int i; // hides A::i within C1
-   int j;
-   };
-   int h = i; // initialized from A::i
-   }
-   // member f3 is defined outside class C1 and outside namespace A
-   int A::C1::f3() { return h; } // ok: returns A::h
+
+   .. code-block:: cpp
+
+      namespace A {
+         int i;
+         int k;
+         class C1 {
+         public:
+            C1(): i(0), j(0) { } // ok: initializes C1::i and C1::j
+            int f1() { return k; } // returns A::k
+            int f2() { return h; } // error: h is not defined
+            int f3();
+         private:
+            int i; // hides A::i within C1
+            int j;
+         };
+         int h = i; // initialized from A::i
+      }
+      // member f3 is defined outside class C1 and outside namespace A
+      int A::C1::f3() { return h; } // ok: returns A::h
+
    With the exception of member function definitions that appear inside the class
    body (§ 7.4.1,p. [P0283]_), scopes are always searched upward; names must be declared
    before they can be used. Hence, the return in f2 will not compile. It attempts to
    reference the name h from namespace A, but h has not yet been defined. Had that
    name been defined in A before the definition of C1, the use of h would be legal.
    Similarly, the use of h inside f3 is okay, because f3 is defined after A::h.
-   The order in which scopes are examined to find a name can be inferred
-   from the qualified name of a function. The qualified name indicates, in
-   reverse order, the scopes that are searched.
-   The qualifiers A::C1::f3 indicate the reverse order in which the class scopes
+
+   .. Tip::
+
+      The order in which scopes are examined to find a name can be inferred
+      from the qualified name of a function. The qualified name indicates, in
+      reverse order, the scopes that are searched.
+
+   The qualifiers `A::C1::f3` indicate the reverse order in which the class scopes
    and namespace scopes are to be searched. The first scope searched is that of the
    function f3. Then the class scope of its enclosing class C1 is searched. The scope
    of the namespace A is searched last before the scope containing the definition of f3
    is examined.
-   Argument-Dependent Lookup and Parameters of Class Type
+
+Argument-Dependent Lookup and Parameters of Class Type
+
    Consider the following simple program:
-   std::string s;
-   std::cin >> s;
+
+   .. code-block:: cpp
+
+      std::string s;
+      std::cin >> s;
+
    As we know, this call is equivalent to (§ 14.1, p. [P0553]_):
-   operator>>(std::cin, s);
+
+   .. code-block:: cpp
+
+      operator>>(std::cin, s);
 
 .. ptg11539634 798 Tools for Large Programs
 .. _P0798:
@@ -44510,11 +46810,13 @@ Exercises Section 18.2.2
    This operator>> function is defined by the string library, which in turn is defined 
    in the std namespace. Yet we can we call operator>> without an std::
    qualifier and without a using declaration.
+
    We can directly access the output operator because there is an important exception 
    to the rule that names defined in a namespace are hidden. When we pass an
    object of a class type to a function, the compiler searches the namespace in which
    the argument's class is defined in addition to the normal scope lookup. This exception 
    also applies for calls that pass pointers or references to a class type.
+
    In this example, when the compiler sees the “call” to operator>>, it looks
    for a matching function in the current scope, including the scopes enclosing the
    output statement. In addition, because the >> expression has parameters of class
@@ -44522,29 +46824,42 @@ Exercises Section 18.2.2
    are defined. Thus, for this call, the compiler looks in the std namespace, which
    defines the istream and string types. When it searches std, the compiler finds
    the string output operator function.
+
    This exception in the lookup rules allows nonmember functions that are conceptually 
    part of the interface to a class to be used without requiring a separate
    using declaration. In the absence of this exception to the lookup rules, either we
    would have to provide an appropriate using declaration for the output operator:
-   using std::operator>>; // needed to allow cin >> s
+
+   .. code-block:: cpp
+
+      using std::operator>>; // needed to allow cin >> s
+
    or we would have to use the function-call notation in order to include the namespace 
    qualifer:
-   std::operator>>(std::cin, s); // ok: explicitly use std::>>
+
+   .. code-block:: cpp
+
+      std::operator>>(std::cin, s); // ok: explicitly use std::>>
+
    There would be no way to use operator syntax. Either of these declarations is
    awkward and would make simple uses of the IO library more complicated.
-   Lookup and std::move and std::forward
+
+Lookup and std::move and std::forward
+
    Many, perhaps even most, C++ programmers never have to think about argumentdependent 
    lookup. Ordinarily, if an application defines a name that is also defined
    in the library, one of two things is true: Either normal overloading determines
    (correctly) whether a particular call is intended for the application version or the
    one from the library, or the application never intends to use the library function.
-   Nowconsider thelibrarymoveandforwardfunctions. Both ofthesefunctions
+
+   Now consider the library ``move`` and ``forward`` functions. Both of these functions
    are template functions, and the library defines versions of them that have a single
    rvalue reference function parameter. As we've seen, in a function template, an
    rvalue reference parameter can match any type (§ 16.2.6, p. [P0690]_). If our application
    defines a function named move that takes a single parameter, then—no matter
    what type the parameter has—the application's version of move will collide with
    the library version. Similarly for forward.
+
    As a result, name collisions with move (and forward) are more likely than
    collisions with other library functions. In addition, because move and forwarddo
    very specialized type manipulations, the chances that an application specifically
@@ -44557,45 +46872,58 @@ Exercises Section 18.2.2
    explains why we suggest always using the fully qualified versions of these names
    (§ 12.1.5, p. [P0470]_). So long as we write std::move rather than move, we know that
    we will get the version from the standard library.
-   Friend Declarations and Argument-Dependent Lookup
+
+Friend Declarations and Argument-Dependent Lookup
+
    Recall that when a class declares a friend, the friend declaration does not make the
    friend visible (§ 7.2.1, p. [P0270]_). However, an otherwise undeclared class or function
    that is first named in a friend declaration is assumed to be a member of the closest 
    enclosing namespace. The combination of this rule and argument-dependent
    lookup can lead to surprises:
-   namespace A {
-   class C {
-   // two friends; neither is declared apart from a friend declaration
-   // these functions implicitly are members of namespace A
-   friend void f2(); // won't be found, unless otherwise declared
-   friend void f(const C&); // found by argument-dependent lookup
-   };
-   }
+
+   .. code-block:: cpp
+
+      namespace A {
+         class C {
+            // two friends; neither is declared apart from a friend declaration
+            // these functions implicitly are members of namespace A
+            friend void f2(); // won't be found, unless otherwise declared
+            friend void f(const C&); // found by argument-dependent lookup
+         };
+      }
+
    Here, both f and f2 are members of namespace A. Through argument-dependent
    lookup, we can call f even if there is no additional declaration for f:
-   int main()
-   {
-   A::C cobj;
-   f(cobj); // ok: finds A::f through the friend declaration in A::C
-   f2(); // error: A::f2 not declared
-   }
+
+   .. code-block:: cpp
+
+      int main()
+      {
+         A::C cobj;
+         f(cobj); // ok: finds A::f through the friend declaration in A::C
+         f2(); // error: A::f2 not declared
+      }
+
    Because f takes an argument of a class type, and f is implicitly declared in the
    same namespace as C, f is found when called. Because f2 has no parameter, it will
    not be found.
 
-Exercises Section 18.2.3
+   Exercises Section 18.2.3
 
-   Exercise 18.18: Given the following typical definition of swap § 13.3 (p. [P0517]_), determine 
-   which version of swap is used if mem1 is a string. What if mem1 is an int?
-   Explain how name lookup works in both cases.
-   void swap(T v1, T v2)
-   {
-   using std::swap;
-   swap(v1.mem1, v2.mem1);
-   // swap remaining members of type T
-   }
+      Exercise 18.18: Given the following typical definition of swap § 13.3 (p. [P0517]_), 
+      determine which version of swap is used if mem1 is a string. What if mem1 is an int?
+      Explain how name lookup works in both cases.
 
-   Exercise 18.19: What if the call to swap was std::swap(v1.mem1, v2.mem1)?
+      .. code-block:: cpp
+
+         void swap(T v1, T v2)
+         {
+            using std::swap;
+            swap(v1.mem1, v2.mem1);
+            // swap remaining members of type T
+         }
+
+      Exercise 18.19: What if the call to swap was std::swap(v1.mem1, v2.mem1)?
 
 .. ptg11539634 800 Tools for Large Programs
 .. _P0800:
@@ -44607,7 +46935,9 @@ Exercises Section 18.2.3
    Namespaces have two impacts on function matching (§ 6.4, p. [P0233]_). One of these
    should be obvious: A using declaration or directive can add functions to the candidate 
    set. The other is much more subtle.
-   Argument-Dependent Lookup and Overloading
+
+Argument-Dependent Lookup and Overloading
+
    As we saw in the previous section, name lookup for functions that have class-type
    arguments includes the namespace in which each argument's class is defined. This
    rule also impacts how we determine the candidate set. Each namespace that defines 
@@ -44615,34 +46945,43 @@ Exercises Section 18.2.3
    for candidate functions. Any functions in those namespaces that have the same
    name as the called function are added to the candidate set. These functions are
    added even though they otherwise are not visible at the point of the call:
-   namespace NS {
-   class Quote { / * ...
-   * / };
-   void display(const Quote&) { / * ...
-   * / }
-   }
-   // Bulk_item 's base class is declared in namespace NS
-   class Bulk_item : public NS::Quote { / * ...
-   * / };
-   int main() {
-   Bulk_item book1;
-   display(book1);
-   return 0;
-   }
-   The argument we passed to display has class type Bulk_item. The candidate
+
+   .. code-block:: cpp
+
+      namespace NS {
+         class Quote { /* ... */ };
+         void display(const Quote&) { /* ... */ }
+      }
+      // Bulk_item 's base class is declared in namespace NS
+      class Bulk_item : public NS::Quote { /* ... */ };
+
+      int main() {
+         Bulk_item book1;
+         display(book1);
+         return 0;
+      }
+
+   The argument we passed to display has class type `Bulk_item`. The candidate
    functions for the call to display are not only the functions with declarations
    that are in scope where display is called, but also the functions in the namespace 
-   where Bulk_item and its base class, Quote, are declared. The function
+   where `Bulk_item` and its base class, Quote, are declared. The function
    display(const Quote&) declared in namespace NS is added to the set of candidate 
    functions.
-   Overloading and using Declarations
+
+Overloading and using Declarations
+
    To understand the interaction between using declarations and overloading, it is
    important to remember that a using declaration declares a name, not a specific
    function (§ 15.6, p. [P0621]_):
-   using NS::print(int); // error: cannot specify a parameter list
-   using NS::print; // ok: using declarations specify names only
+
+   .. code-block:: cpp
+
+      using NS::print(int); // error: cannot specify a parameter list
+      using NS::print; // ok: using declarations specify names only
+
    When we write a using declaration for a function, all the versions of that function
    are brought into the current scope.
+
    A using declaration incorporates all versions to ensure that the interface of
    the namespace is not violated. The author of a library provided different functions
    for a reason. Allowing users to selectively ignore some but not all of the functions
@@ -44659,79 +46998,93 @@ Exercises Section 18.2.3
    the same name with the same parameterlist, then the usingdeclarationis in error.
    Otherwise, the using declaration defines additional overloaded instances of the
    given name. The effect is to increase the set of candidate functions.
-   Overloading and using Directives
+
+Overloading and using Directives
+
    A using directive lifts the namespace members into the enclosing scope. If a
    namespacefunction hasthesamenameasafunction declaredin thescopeatwhich
    the namespace is placed, then the namespace member is added to the overload set:
-   namespace libs_R_us {
-   extern void print(int);
-   extern void print(double);
-   }
-   // ordinary declaration
-   void print(const std::string &);
-   // this using directive adds names to the candidate set for calls to print :
-   using namespace libs_R_us;
-   // the candidates for calls to print at this point in the program are:
-   // print(int) from libs_R_us
-   // print(double) from libs_R_us
-   // print(const std::string &) declared explicitly
-   void fooBar(int ival)
-   {
-   print("Value: "); // calls global print(const string &)
-   print(ival); // calls libs_R_us::print(int)
-   }
+
+   .. code-block:: cpp
+
+      namespace libs_R_us {
+         extern void print(int);
+         extern void print(double);
+      }
+      // ordinary declaration
+      void print(const std::string &);
+      // this using directive adds names to the candidate set for calls to print :
+      using namespace libs_R_us;
+      // the candidates for calls to print at this point in the program are:
+      // print(int) from libs_R_us
+      // print(double) from libs_R_us
+      // print(const std::string &) declared explicitly
+      void fooBar(int ival)
+      {
+         print("Value: "); // calls global print(const string &)
+         print(ival); // calls libs_R_us::print(int)
+      }
+
    Differently from how using declarations work, it is not an error if a using directive 
    introduces a function that has the same parameters as an existing function.
    As with other conflicts generated by using directives, there is no problem unless
    we try to call the function without specifying whether we want the one from the
    namespace or from the current scope.
-   Overloading across Multiple using Directives
+
+Overloading across Multiple using Directives
+
    If many using directives are present, then the names from each namespace become 
    part of the candidate set:
-   namespace AW {
-   int print(int);
-   }
-   namespace Primer {
-   double print(double);
-   }
+
+   .. code-block:: cpp
+
+      namespace AW {
+         int print(int);
+      }
+      namespace Primer {
+         double print(double);
+      }
+      // using directives create an overload set of functions from different namespaces
+      using namespace AW;
+      using namespace Primer;
+      long double print(long double);
+      int main() {
+         print(1); // calls AW::print(int)
+         print(3.1); // calls Primer::print(double)
+         return 0;
+      }
 
 .. ptg11539634 802 Tools for Large Programs
 .. _P0802:
 
-   // using directives create an overload set of functions from different namespaces
-   using namespace AW;
-   using namespace Primer;
-   long double print(long double);
-   int main() {
-   print(1); // calls AW::print(int)
-   print(3.1); // calls Primer::print(double)
-   return 0;
-   }
    The overload set for the function print in global scope contains the functions
    print(int), print(double),and print(long double). These functions are
    all part of the overload set considered for the function calls in main, even though
    these functions were originally declared in different namespace scopes.
 
-Exercises Section 18.2.4
+   Exercises Section 18.2.4
 
-   Exercise 18.20: In the following code, determine which function, if any, matches the
-   call to compute. List the candidate and viable functions. What type conversions, if
-   any, are applied to the argument to match the parameter in each viable function?
-   namespace primerLib {
-   void compute();
-   void compute(const void
-   * );
-   }
-   using primerLib::compute;
-   void compute(int);
-   void compute(double, double = 3.4);
-   void compute(char * , char * = 0);
-   void f()
-   {
-   compute(0);
-   }
-   What would happen if the using declaration were located in main before the call to
-   compute? Answer the same questions as before.
+      Exercise 18.20: In the following code, determine which function, if any, matches the
+      call to compute. List the candidate and viable functions. What type conversions, if
+      any, are applied to the argument to match the parameter in each viable function?
+
+      .. code-block:: cpp
+
+         namespace primerLib {
+            void compute();
+            void compute(const void * );
+         }
+         using primerLib::compute;
+         void compute(int);
+         void compute(double, double = 3.4);
+         void compute(char * , char * = 0);
+         void f()
+         {
+            compute(0);
+         }
+
+      What would happen if the using declaration were located in main before the call to
+      compute? Answer the same questions as before.
 
 /18.3👋 Multiple and Virtual Inheritance
 -----------------------------------------
@@ -44740,6 +47093,7 @@ Exercises Section 18.2.4
    base class (§ 15.2.2, p. [P0600]_). A multiply derived class inherits the properties of all
    its parents. Although simple in concept, the details of intertwining multiple base
    classes can present tricky design-level and implementation-level problems.
+
    To explore multiple inheritance, we'll use a pedagogical example of a zoo animal 
    hierarchy. Our zoo animals exist at different levels of abstraction. There are
    the individual animals, distinguished by their names, such as Ling-ling, Mowgli,
@@ -44751,9 +47105,11 @@ Exercises Section 18.2.4
    panda. Species, in turn, are members of families. A giant panda is a member of
    the bear family. Each family, in turn, is a member of the animal kingdom—in this
    case, the more limited kingdom of a particular zoo.
+
    We'll define an abstract ZooAnimal class to hold information that is common
    to all the zoo animals and provides the most general interface. The Bear class will
    contain information that is unique to the Bear family, and so on.
+
    In addition to the ZooAnimal classes, our application will contain auxiliary
    classes that encapsulate various abstractions such as endangered animals. In our
    implementation of a Panda class, for example, a Panda is multiply derived from
@@ -44763,12 +47119,16 @@ Exercises Section 18.2.4
 `````````````````````````````
 
    The derivation list in a derived class can contain more than one base class:
-   class Bear : public ZooAnimal {
-   class Panda : public Bear, public Endangered { / * ...
-   * / };
+
+   .. code-block:: cpp
+
+      class Bear : public ZooAnimal {
+      class Panda : public Bear, public Endangered { /* ... */ };
+
    Each base class has an optional access specifier (§ 15.5, p. [P0612]_). As usual, if the
    access specifier is omitted, the specifier defaults to privateif the classkeyword
    is used and to public if struct is used (§ 15.5, p. [P0616]_).
+
    As with single inheritance, the derivation list may include only classes that
    have been defined and that were not defined as final (§ 15.2.2, p. [P0600]_). There is
    no language-imposed limit on the number of base classes from which a class can
@@ -44778,35 +47138,28 @@ Multiply Derived Classes Inherit State from Each Base Class
 
    Under multiple inheritance, an object of a derived class contains a subobject for
    each of its base classes (§ 15.2.2, p. [P0597]_). For example, as illustrated in Figure 18.2,
-   a Panda object has a Bear part (which itself contains a ZooAnimal part), an
-   Endangeredclasspart,andthe nonstaticdatamembers, if any,declaredwithin
-   the Panda class.
+   a Panda object has a `Bear` part (which itself contains a `ZooAnimal` part), an
+   `Endangered` class part, and the nonstatic data members, if any, declared within
+   the `Panda` class.
+
    Figure 18.2: Conceptual Structure of a Panda Object
-   Panda
-   object
-   ⎧
-   ⎪
-   ⎨
-   ⎪
-   ⎩
-   Bear
-   subpart
-   ⎧
-   ⎪
-   ⎨
-   ⎪
-   ⎩
-   ZooAnimal
-   members
-   Bear
-   members
-   Endangered
-   subpart
-   ?
-   Endangered
-   members
-   Panda
-   members
+
+   .. code-block:: 
+
+             ⎧                    ╭────────────────╮
+             ⎪              ⎧     │ ZooAnimal      │
+             ⎪      Bear    ⎪     │ members        │
+             ⎪      subpart ⎨     ╭────────────────╮
+             ⎪              ⎪     │ Bear           │
+      Panda  ⎪              ⎩     │ members        │
+      object ⎨                    ╭────────────────╮
+             ⎪              ⎧     │ Endangered     │
+             ⎪   Endangered ⎪     │ members        │
+             ⎪   subpart    ⎨     ╭────────────────╮
+             ⎪              ⎪     │ Panda          │
+             ⎪              ⎩     │ members        │
+             ⎩                    ╰────────────────╯
+
 
 .. ptg11539634 804 Tools for Large Programs
 .. _P0804:
@@ -44817,59 +47170,79 @@ Derived Constructors Initialize All Base Classes
    Constructing an object of derived type constructs and initializes all its base subobjects. 
    As is the case for inheriting from a single base class (§ 15.2.2, p. [P0598]_), a
    derived type's constructor initializer may initialize only its direct base classes:
-   // explicitly initialize both base classes
-   Panda::Panda(std::string name, bool onExhibit)
-   : Bear(name, onExhibit, "Panda"),
-   Endangered(Endangered::critical) { }
-   // implicitly uses the Bear default constructor to initialize the Bear subobject
-   Panda::Panda()
-   : Endangered(Endangered::critical) { }
+
+   .. code-block:: cpp
+
+      // explicitly initialize both base classes
+      Panda::Panda(std::string name, bool onExhibit)
+         : Bear(name, onExhibit, "Panda"),
+         Endangered(Endangered::critical) { }
+      // implicitly uses the Bear default constructor to initialize the Bear subobject
+      Panda::Panda()
+         : Endangered(Endangered::critical) { }
+
    Theconstructor initializerlistmaypassargumentstoeachofthedirectbaseclasses.
    Theorderin which baseclassesareconstructeddependson theorderin which they
    appear in the class derivation list. The order in which they appear in the constructor 
    initializer list is irrelevant. A Panda object is initialized as follows:
+
    • ZooAnimal, the ultimate base class up the hierarchy from Panda's first direct 
    base class, Bear, is initialized first.
+
    • Bear, the first direct base class, is initialized next.
+
    • Endangered, the second direct base, is initialized next.
+
    • Panda, the most derived part, is initialized last.
-   Inherited Constructors and Multiple Inheritance
+
+Inherited Constructors and Multiple Inheritance (C++11)
+
    Under the new standard, a derived class can inherit its constructors from one or
-   more of its base classes (§ 15.7.4, p. [P0628]_). It is an error to inherit the same constructor 
-   (i.e., one with the same parameter list) from more than one base class:
-   struct Base1 {
-   Base1() = default;
-   Base1(const std::string&);
-   Base1(std::shared_ptr<int>);
-   };
-   struct Base2 {
-   Base2() = default;
-   Base2(const std::string&);
-   Base2(int);
-   };
-   // error: D1 attempts to inherit D1::D1(const string&) from both base classes
-   struct D1: public Base1, public Base2 {
-   using Base1::Base1; // inherit constructors from Base1
-   using Base2::Base2; // inherit constructors from Base2
-   };
+   more of its base classes (§ 15.7.4, p. [P0628]_). It is an error to inherit the same 
+   constructor (i.e., one with the same parameter list) from more than one base class:
+
+   .. code-block:: cpp
+
+      struct Base1 {
+         Base1() = default;
+         Base1(const std::string&);
+         Base1(std::shared_ptr<int>);
+      };
+      struct Base2 {
+         Base2() = default;
+         Base2(const std::string&);
+         Base2(int);
+      };
+      // error: D1 attempts to inherit D1::D1(const string&) from both base classes
+      struct D1: public Base1, public Base2 {
+         using Base1::Base1; // inherit constructors from Base1
+         using Base2::Base2; // inherit constructors from Base2
+      };
+
    A class that inherits the same constructor from more than one base class must
    define its own version of that constructor:
 
 .. ptg11539634 Section 18.3 Multiple and Virtual Inheritance 805
 .. _P0805:
 
-   struct D2: public Base1, public Base2 {
-   using Base1::Base1; // inherit constructors from Base1
-   using Base2::Base2; // inherit constructors from Base2
-   // D2 must define its own constructor that takes a string
-   D2(const string &s): Base1(s), Base2(s) { }
-   D2() = default; // needed once D2 defines its own constructor
-   };
-   Destructors and Multiple Inheritance
+
+   .. code-block:: cpp
+
+      struct D2: public Base1, public Base2 {
+         using Base1::Base1; // inherit constructors from Base1
+         using Base2::Base2; // inherit constructors from Base2
+         // D2 must define its own constructor that takes a string
+         D2(const string &s): Base1(s), Base2(s) { }
+         D2() = default; // needed once D2 defines its own constructor
+      };
+
+Destructors and Multiple Inheritance
+
    As usual, the destructor in a derived class is responsible for cleaning up resources
    allocated by that class only—the members and all the base class(es) of the derived
    class are automatically destroyed. The synthesized destructor has an empty function 
    body.
+
    Destructors are always invoked in the reverse order from which the constructors 
    are run. In our example, the order in which the destructors are called is
    ~ Panda, ~ Endangered, ~ Bear, ~ ZooAnimal.
@@ -44883,19 +47256,53 @@ Copy and Move Operations for Multiply Derived Classes
    synthesized versions of these members. In the synthesized copy-control members,
    each base class is implicitly constructed, assigned, or destroyed, using the corresponding 
    member from that base class.
+
    For example, assuming that Panda uses the synthesized members, then the
-   initialization of ling_ling:
-   Panda ying_yang("ying_yang");
-   Panda ling_ling = ying_yang; // uses the copy constructor
+   initialization of `ling_ling`:
+
+   .. code-block:: cpp
+
+      Panda ying_yang("ying_yang");
+      Panda ling_ling = ying_yang; // uses the copy constructor
+
    will invoke the Bear copy constructor, which in turn runs the ZooAnimal copy
    constructor before executing the Bear copy constructor. Once the Bear portion
    of ling_ling is constructed, the Endangered copy constructor is run to create
    that part of the object. Finally, the Panda copy constructor is run. Similarly, for the
    synthesized move constructor.
+
    The synthesized copy-assignment operator behaves similarly to the copy constructor. 
    It assigns the Bear (and through Bear, the ZooAnimal) parts of the
    object first. Next, it assigns the Endangered part, and finally the Panda part.
    Move assignment behaves similarly.
+
+   Exercises Section 18.3.1
+
+      Exercise 18.21: Explain the following declarations. Identify any that are in error and
+      explain why they are incorrect:
+
+      .. code-block:: cpp
+
+         (a) class CADVehicle : public CAD, Vehicle { ... };
+         (b) class DblList: public List, public List { ... };
+         (c) class iostream: public istream, public ostream { ... };
+
+      Exercise 18.22: Given the following class hierarchy, in which each class defines a default 
+      constructor:
+
+      .. code-block:: cpp
+
+         class A { ... };
+         class B : public A { ... };
+         class C : public B { ... };
+         class X { ... };
+         class Y { ... };
+         class Z : public X, public Y { ... };
+         class MI : public C, public Z { ... };
+
+      what is the order of constructor execution for the following definition?
+
+         MI mi;
 
 /18.3.2 Conversions and Multiple Base Classes
 ``````````````````````````````````````````````
@@ -44909,88 +47316,89 @@ Copy and Move Operations for Multiply Derived Classes
 .. _P0806:
 
 
-Exercises Section 18.3.1
-
-   Exercise 18.21: Explain the following declarations. Identify any that are in error and
-   explain why they are incorrect:
-   (a) class CADVehicle : public CAD, Vehicle { ... };
-   (b) class DblList: public List, public List { ... };
-   (c) class iostream: public istream, public ostream { ... };
-
-   Exercise 18.22: Given the following class hierarchy, in which each class defines a default 
-   constructor:
-   class A { ... };
-   class B : public A { ... };
-   class C : public B { ... };
-   class X { ... };
-   class Y { ... };
-   class Z : public X, public Y { ... };
-   class MI : public C, public Z { ... };
-   what is the order of constructor execution for the following definition?
-   MI mi;
    refer to a derived object. For example, a pointer or reference to ZooAnimal, Bear,
    or Endangered can be bound to a Panda object:
-   // operations that take references to base classes of type Panda
-   void print(const Bear&);
-   void highlight(const Endangered&);
-   ostream& operator<<(ostream&, const ZooAnimal&);
-   Panda ying_yang("ying_yang");
-   print(ying_yang); // passes Panda to a reference to Bear
-   highlight(ying_yang); // passes Panda to a reference to Endangered
-   cout << ying_yang << endl; // passes Panda to a reference to ZooAnimal
+
+   .. code-block:: cpp
+
+      // operations that take references to base classes of type Panda
+      void print(const Bear&);
+      void highlight(const Endangered&);
+      ostream& operator<<(ostream&, const ZooAnimal&);
+      Panda ying_yang("ying_yang");
+      print(ying_yang); // passes Panda to a reference to Bear
+      highlight(ying_yang); // passes Panda to a reference to Endangered
+      cout << ying_yang << endl; // passes Panda to a reference to ZooAnimal
+
    The compiler makes no attempt to distinguish between base classes in terms
    of a derived-class conversion. Converting to each base class is equally good. For
    example, if there was an overloaded version of print:
-   void print(const Bear&);
-   void print(const Endangered&);
+
+   .. code-block:: cpp
+
+      void print(const Bear&);
+      void print(const Endangered&);
+
    an unqualified call to print with a Panda object would be a compile-time error:
-   Panda ying_yang("ying_yang");
-   print(ying_yang); // error: ambiguous
+
+   .. code-block:: cpp
+
+      Panda ying_yang("ying_yang");
+      print(ying_yang); // error: ambiguous
 
 Lookup Based on Type of Pointer or Reference
 
    As with single inheritance, the static type of the object, pointer, or reference determines 
-   which members we can use (§ 15.6, p. [P0617]_). If we use a ZooAnimal pointer,
+   which members we can use (§ 15.6, p. [P0617]_). If we use a `ZooAnimal` pointer,
 
 .. ptg11539634 Section 18.3 Multiple and Virtual Inheritance 807
 .. _P0807:
 
    only the operations defined in that class are usable. The Bear-specific, Pandaspecific, 
    and Endangered portions of the Panda interface are invisible. Similarly,
-   aBearpointeror referenceknows only aboutthe BearandZooAnimalmembers;
+   a `Bear` pointer or reference knows only about the `Bear` and `ZooAnimal` members;
    an Endangered pointer or reference is limited to the Endangered members.
+
    As an example, consider the following calls, which assume that our classes
    define the virtual functions listed in Table 18.1:
-   Bear
-   * pb = new Panda("ying_yang");
-   pb->print(); // ok: Panda::print()
-   pb->cuddle(); // error: not part of the Bear interface
-   pb->highlight(); // error: not part of the Bear interface
-   delete pb; // ok: Panda::~Panda()
+
+   .. code-block:: cpp
+
+      Bear * pb = new Panda("ying_yang");
+      pb->print(); // ok: Panda::print()
+      pb->cuddle(); // error: not part of the Bear interface
+      pb->highlight(); // error: not part of the Bear interface
+      delete pb; // ok: Panda::~Panda()
+
    When a Panda is used via an Endangered pointer or reference, the Pandaspecific 
    and Bear portions of the Panda interface are invisible:
-   Endangered
-   * pe = new Panda("ying_yang");
-   pe->print(); // ok: Panda::print()
-   pe->toes(); // error: not part of the Endangered interface
-   pe->cuddle(); // error: not part of the Endangered interface
-   pe->highlight(); // ok: Panda::highlight()
-   delete pe; // ok: Panda::~Panda()
+
+   .. code-block:: cpp
+
+      Endangered * pe = new Panda("ying_yang");
+      pe->print(); // ok: Panda::print()
+      pe->toes(); // error: not part of the Endangered interface
+      pe->cuddle(); // error: not part of the Endangered interface
+      pe->highlight(); // ok: Panda::highlight()
+      delete pe; // ok: Panda::~Panda()
+
    Table 18.1: Virtual Functions in the ZooAnimal/Endangered Classes
 
-Function Class Defining Own Version
-
-   print ZooAnimal::ZooAnimal
-   Bear::Bear
-   Endangered::Endangered
-   Panda::Panda
-   highlight Endangered::Endangered
-   Panda::Panda
-   toes Bear::Bear
-   Panda::Panda
-   cuddle Panda::Panda
-   destructor ZooAnimal::ZooAnimal
-   Endangered::Endangered
+   ============= =================================
+   Function      Class Defining Own Version
+   ============= =================================
+   print         ZooAnimal::ZooAnimal
+                 Bear::Bear
+                 Endangered::Endangered
+                 Panda::Panda
+   highlight     Endangered::Endangered
+                 Panda::Panda
+   toes          Bear::Bear
+                 Panda::Panda
+   cuddle        Panda::Panda
+   destructor    ZooAnimal::ZooAnimal
+                 Endangered::Endangered
+   ============= =================================
 
 /18.3.3 Class Scope under Multiple Inheritance
 ```````````````````````````````````````````````
@@ -44999,6 +47407,7 @@ Function Class Defining Own Version
    its direct and indirect base classes (§ 15.6, p. [P0617]_). Lookup happens by searching
    up the inheritance hierarchy until the given name is found. Names defined in a
    derived class hide uses of that name inside a base.
+
    Under multiple inheritance, this same lookup happens simultaneously among
    all the direct base classes. If a name is found through more than one base class,
    then use of that name is ambiguous.
@@ -45007,62 +47416,71 @@ Function Class Defining Own Version
 .. _P0808:
 
 
-Exercises Section 18.3.2
+   Exercises Section 18.3.2
 
-   Exercise 18.23: Using the hierarchy in exercise18.22 along with class D defined below,
-   and assuming each class defines a default constructor, which, if any, of the following
-   conversions are not permitted?
-   class D : public X, public C { ... };
-   D
-   * pd = new D;
-   (a) X
-   * px = pd;
-   (b) A
-   * pa = pd;
-   (c) B
-   * pb = pd;
-   (d) C
-   * pc = pd;
+      Exercise 18.23: Using the hierarchy in exercise18.22 along with class D defined below,
+      and assuming each class defines a default constructor, which, if any, of the following
+      conversions are not permitted?
 
-   Exercise 18.24: On page 807 we presented a series of calls made through a Bear
-   pointer that pointed to a Panda object. Explain each call assuming we used a
-   ZooAnimal pointer pointing to a Panda object instead.
+      .. code-block:: cpp
 
-   Exercise 18.25: Assume we have two base classes, Base1 and Base2, each of which
-   defines a virtual member named print and a virtual destructor. From these base
-   classes we derive the following classes, each of which redefines the print function:
-   class D1 : public Base1 { / * ...
-   * / };
-   class D2 : public Base2 { / * ...
-   * / };
-   class MI : public D1, public D2 { / * ...
-   * / };
-   Using the following pointers, determine which function is used in each call:
-   Base1
-   * pb1 = new MI;
-   Base2
-   * pb2 = new MI;
-   D1
-   * pd1 = new MI;
-   D2
-   * pd2 = new MI;
-   (a) pb1->print(); (b) pd1->print(); (c) pd2->print();
-   (d) delete pb2; (e) delete pd1; (f) delete pd2;
+         class D : public X, public C { ... };
+         D * pd = new D;
+
+         (a) X * px = pd;
+         (b) A * pa = pd;
+         (c) B * pb = pd;
+         (d) C * pc = pd;
+
+      Exercise 18.24: On page 807 we presented a series of calls made through a Bear
+      pointer that pointed to a Panda object. Explain each call assuming we used a
+      ZooAnimal pointer pointing to a Panda object instead.
+
+      Exercise 18.25: Assume we have two base classes, Base1 and Base2, each of which
+      defines a virtual member named print and a virtual destructor. From these base
+      classes we derive the following classes, each of which redefines the print function:
+
+      .. code-block:: cpp
+
+         class D1 : public Base1 { /* ... */ };
+         class D2 : public Base2 { /* ... */ };
+         class MI : public D1, public D2 { /* ... */ };
+
+      Using the following pointers, determine which function is used in each call:
+
+      .. code-block:: cpp
+
+         Base1 * pb1 = new MI;
+         Base2 * pb2 = new MI;
+         D1 * pd1 = new MI;
+         D2 * pd2 = new MI;
+
+         (a) pb1->print();       (b) pd1->print();       (c) pd2->print();
+         (d) delete pb2;         (e) delete pd1;         (f) delete pd2;
+
    In our example, if we use a name through a Panda object, pointer, or reference,
-   both the Endangered and the Bear/ZooAnimal subtrees are examined in parallel. 
+   both the `Endangered` and the `Bear/ZooAnimal` subtrees are examined in parallel. 
    If the name is found in more than one subtree, then the use of the name is
    ambiguous. It is perfectly legal for a class to inherit multiple members with the
    same name. However, if we want to use that name, we must specify which version
    we want to use.
-   When a class has multiple base classes, it is possible for that derived
-   class to inherit a member with the same name from two or more of its
-   base classes. Unqualified uses of that name are ambiguous.
-   For example, if both ZooAnimal and Endangered define a member named
-   max_weight, and Panda does not define that member, this call is an error:
-   double d = ying_yang.max_weight();
+
+   .. Warning::
+
+      When a class has multiple base classes, it is possible for that derived
+      class to inherit a member with the same name from two or more of its
+      base classes. Unqualified uses of that name are ambiguous.
+
+   For example, if both `ZooAnimal` and `Endangered` define a member named
+   `max_weight`, and Panda does not define that member, this call is an error:
+
+   .. code-block:: cpp
+
+      double d = ying_yang.max_weight();
+
    The derivation of Panda, which results in Panda having two members named
-   max_weight, is perfectly legal. The derivation generates a potential ambiguity.
-   That ambiguity is avoided if no Panda object ever calls max_weight. The error
+   `max_weight`, is perfectly legal. The derivation generates a potential ambiguity.
+   That ambiguity is avoided if no Panda object ever calls `max_weight`. The error
 
 .. ptg11539634 Section 18.3 Multiple and Virtual Inheritance 809
 .. _P0809:
@@ -45076,75 +47494,97 @@ Exercises Section 18.3.2
    error even if the max_weight function were private in one class and public or
    protected in the other. Finally, if max_weight were defined in Bear and not in
    ZooAnimal, the call would still be in error.
+
    As always, name lookup happens before type checking (§ 6.4.1, p. [P0234]_). When
    the compiler finds max_weight in two different scopes, it generates an error noting 
    that the call is ambiguous.
-   Thebestwaytoavoidpotential ambiguitiesistodefineaversionofthefunction
+
+   The best way to avoid potential ambiguities is to define a version of the function
    in the derived class that resolves the ambiguity. For example, we should give our
    Panda class a max_weight function that resolves the ambiguity:
-   double Panda::max_weight() const
-   {
-   return std::max(ZooAnimal::max_weight(),
-   Endangered::max_weight());
-   }
 
-Exercises Section 18.3.3
+   .. code-block:: cpp
 
-   Exercise 18.26: Giventhe hierarchyin the box onpage810, why isthe followingcall to
-   print an error? Revise MI to allow this call to print to compile and execute correctly.
-   MI mi;
-   mi.print(42);
+      double Panda::max_weight() const
+      {
+         return std::max(ZooAnimal::max_weight(),
+         Endangered::max_weight());
+      }
 
-   Exercise 18.27: Giventhe class hierarchy in the box on page 810 and assuming we add
-   a function named foo to MI as follows:
-   int ival;
-   double dval;
-   void MI::foo(double cval)
-   {
-   int dval;
-   // exercise questions occur here
-   }
-   (a) List all the names visible from within MI::foo.
-   (b) Are any names visible from more than one base class?
-   (c) Assign to the local instance of dval the sum of the dval member of Base1
-   and the dval member of Derived.
-   (d) Assign the value of the last element in MI::dvec to Base2::fval.
-   (e) Assign cval from Base1 to the first character in sval from Derived.
+   Exercises Section 18.3.3
+
+      Exercise 18.26: Giventhe hierarchyin the box onpage810, why isthe followingcall to
+      print an error? Revise MI to allow this call to print to compile and execute correctly.
+
+      .. code-block:: cpp
+
+         MI mi;
+         mi.print(42);
+
+      Exercise 18.27: Giventhe class hierarchy in the box on page 810 and assuming we add
+      a function named foo to MI as follows:
+
+      .. code-block:: cpp
+
+         int ival;
+         double dval;
+         void MI::foo(double cval)
+         {
+            int dval;
+            // exercise questions occur here
+         }
+
+      (a) List all the names visible from within MI::foo.
+
+      (b) Are any names visible from more than one base class?
+
+      (c) Assign to the local instance of dval the sum of the dval member of Base1
+      and the dval member of Derived.
+
+      (d) Assign the value of the last element in MI::dvec to Base2::fval.
+
+      (e) Assign cval from Base1 to the first character in sval from Derived.
 
 .. ptg11539634 810 Tools for Large Programs
 .. _P0810:
 
-   C ODE FOR E XERCISES TO S ECTION 18.3.3
-   struct Base1 {
-   void print(int) const; // public by default
-   protected:
-   int ival;
-   double dval;
-   char cval;
-   private:
-   int
-   * id;
-   };
-   struct Base2 {
-   void print(double) const; // public by default
-   protected:
-   double fval;
-   private:
-   double dval;
-   };
-   struct Derived : public Base1 {
-   void print(std::string) const; // public by default
-   protected:
-   std::string sval;
-   double dval;
-   };
-   struct MI : public Derived, public Base2 {
-   void print(std::vector<double>); // public by default
-   protected:
-   int
-   * ival;
-   std::vector<double> dvec;
-   };
+   .. Note::
+
+      Code for Exercise to Section 18.3.3
+
+      .. code-block:: cpp
+
+         struct Base1 {
+            void print(int) const; // public by default
+         protected:
+            int ival;
+            double dval;
+            char cval;
+         private:
+            int * id;
+         };
+
+         struct Base2 {
+            void print(double) const; // public by default
+         protected:
+            double fval;
+         private:
+            double dval;
+         };
+
+         struct Derived : public Base1 {
+            void print(std::string) const; // public by default
+         protected:
+            std::string sval;
+            double dval;
+         };
+
+         struct MI : public Derived, public Base2 {
+            void print(std::vector<double>); // public by default
+         protected:
+            int * ival;
+            std::vector<double> dvec;
+         };
 
 /18.3.4 Virtual Inheritance
 ````````````````````````````
@@ -45153,145 +47593,137 @@ Exercises Section 18.3.3
    than once, a class can inherit from the same base class more than once. It might
    inherit the same base indirectly from two of its own direct base classes, or it might
    inherit a particular class directly and indirectly through another of its base classes.
-   As an example, the IO library istream and ostream classes each inherit from
+
+   As an example, the IO library ``istream`` and ``ostream`` classes each inherit from
    a common abstract base class named basic_ios. That class holds the stream's
-   buffer and manages the stream's condition state. The class iostream, which
-   can both read and write to a stream, inherits directly from both istream and
-   ostream. Because both types inherit from basic_ios, iostream inherits that
-   base class twice, once through istream and once through ostream.
+   buffer and manages the stream's condition state. The class ``iostream``, which
+   can both read and write to a stream, inherits directly from both ``istream`` and
+   ``ostream``. Because both types inherit from ``basic_ios``, ``iostream`` inherits that
+   base class twice, once through ``istream`` and once through ``ostream``.
+
    By default, a derived object contains a separate subpart corresponding to each
    class in its derivation chain. If the same base class appears more than once in the
    derivation, then the derived object will have more than one subobject of that type.
-   This default doesn't work for a class such as iostream. An iostream object
+   This default doesn't work for a class such as ``iostream``. An ``iostream`` object
 
 .. ptg11539634 Section 18.3 Multiple and Virtual Inheritance 811
 .. _P0811:
 
    wants to use the same buffer for both reading and writing, and it wants its condition 
-   state to reflect both input and output operations. If an iostream object has
-   two copies of its basic_ios class, this sharing isn't possible.
+   state to reflect both input and output operations. If an ``iostream`` object has
+   two copies of its ``basic_ios`` class, this sharing isn't possible.
+
    In C++ we solve this kind of problem by using virtual inheritance. Virtual
    inheritance lets a class specify that it is willing to share its base class. The shared
-   base-classsubobject is calleda virtualbaseclass. Regardlessofhow often thesame
+   base-class subobject is calleda virtual base class. Regardless of how often the same
    virtual base appears in an inheritance hierarchy, the derived object contains only
    one, shared subobject for that virtual base class.
-   A Different Panda Class
+
+A Different Panda Class
+
    In the past, there was some debate as to whether panda belongs to the raccoon
    or the bear family. To reflect this debate, we can change Panda to inherit from
-   both Bear and Raccoon. To avoid giving Panda two ZooAnimal base parts,
-   we'll define Bear and Raccoon to inherit virtually from ZooAnimal. Figure 18.3
+   both Bear and `Raccoon`. To avoid giving Panda two ZooAnimal base parts,
+   we'll define Bear and `Raccoon` to inherit virtually from ZooAnimal. Figure 18.3
    illustrates our new hierarchy.
+
    Looking at our new hierarchy, we'll notice a nonintuitive aspect of virtual inheritance. 
    The virtual derivation has to be made before the need for it appears. For
    example, in our classes, the need for virtual inheritance arises only when we define 
-   Panda. However, if Bear and Raccoon had not specified virtual on their
+   `Panda`. However, if `Bear` and `Raccoon` had not specified ``virtual`` on their
    derivation from ZooAnimal,the designer of the Panda class would be out of luck.
+
    In practice, the requirement that an intermediate base class specify its inheritance 
    as virtual rarely causes any problems. Ordinarily, a class hierarchy that
    uses virtual inheritance is designed at one time either by one individual or by a
    single project design group. It is exceedingly rare for a class to be developed independently 
    that needs a virtual base in one of its base classes and in which the
    developer of the new base class cannot change the existing hierarchy.
-   Virtual derivation affects the classes that subsequently derive from a
-   class with a virtual base; it doesn't affect the derived class itself.
+
+   .. Note::
+
+      Virtual derivation affects the classes that subsequently derive from a
+      class with a virtual base; it doesn't affect the derived class itself.
+
    Figure 18.3: Virtual Inheritance Panda Hierarchy
-   ?
-   ?
-   ?
-   ?
-   ZooAnimal
-   ?
-   ?
-   ?
-   ?
-   Endangered
-   ?
-   ?
-   ?
-   ?
-   Bear
-   ? ?
-   ? ?
-   ?
-   ?
-   (virtual)
-   ?
-   ?
-   ?
-   ?
-   Raccoon
-   Q
-   Q
-   Q
-   Q
-   Q
-   Q
-   (virtual)
-   ?
-   ?
-   ?
-   ?
-   Panda
-   H
-   H
-   H
-   H
-   H
-   H
-   H
-   H
-   ? ?
-   ? ?
-   ? ?
-   ?
-   ?
+
+   .. code-block:: cpp
+
+         ╭────────────────╮
+         │ ZooAnimal      │──────────╮
+         ╰───────┬────────╯          │
+               │ (virtual)         │ (virtual) 
+         ╭────────────────╮  ╭────────────────╮  ╭────────────────╮
+         │ Bear           │  │ Raccoon        │  │ Endangered     │
+         ╰───────┬────────╯  ╰───────┬────────╯  ╰───────┬────────╯
+               ╰───────────────────┴───────────────────╯
+                                    │
+                           ╭───────┴────────╮
+                           │ Panda          │
+                           ╰────────────────╯
+
 
 .. ptg11539634 812 Tools for Large Programs
 .. _P0812:
 
-   Using a Virtual Base Class
+Using a Virtual Base Class
+
    We specify that a base class is virtual by including the keyword virtual in the
    derivation list:
-   // the order of the keywords public and virtual is not significant
-   class Raccoon : public virtual ZooAnimal { / * ...
-   * / };
-   class Bear : virtual public ZooAnimal { / * ...
-   * / };
+
+   .. code-block:: cpp
+
+      // the order of the keywords public and virtual is not significant
+      class Raccoon : public virtual ZooAnimal { /* ... */ };
+      class Bear : virtual public ZooAnimal { /* ... */ };
+
    Here we've made ZooAnimal a virtual base class of both Bear and Raccoon.
    The virtual specifier states a willingness to share a single instance of the
    named base class within a subsequently derived class. There are no special constraints 
    on a class used as a virtual base class.
+
    We do nothing special to inherit from a class that has a virtual base:
-   class Panda : public Bear,
-   public Raccoon, public Endangered {
-   };
-   HerePandainheritsZooAnimalthrough bothitsRaccoonandBearbaseclasses.
-   However, because those classes inherited virtually from ZooAnimal, Panda has
-   only one ZooAnimal base subpart.
+
+   .. code-block:: cpp
+
+      class Panda : public Bear,
+         public Raccoon, public Endangered {
+      };
+
+   Here `Panda` inherits `ZooAnimal` through both its `Raccoon` and `Bearbase` classes.
+   However, because those classes inherited virtually from `ZooAnimal`, `Panda` has
+   only one `ZooAnimal` base subpart.
 
 Normal Conversions to Base Are Supported
 
    An object of a derived class can be manipulated (as usual) through a pointer or
    a reference to an accessible base-class type regardless of whether the base class is
    virtual. For example, all of the following Panda base-class conversions are legal:
-   void dance(const Bear&);
-   void rummage(const Raccoon&);
-   ostream& operator<<(ostream&, const ZooAnimal&);
-   Panda ying_yang;
-   dance(ying_yang); // ok: passes Panda object as a Bear
-   rummage(ying_yang); // ok: passes Panda object as a Raccoon
-   cout << ying_yang; // ok: passes Panda object as a ZooAnimal
-   Visibility of Virtual Base-Class Members
+
+   .. code-block:: cpp
+
+      void dance(const Bear&);
+      void rummage(const Raccoon&);
+      ostream& operator<<(ostream&, const ZooAnimal&);
+      Panda ying_yang;
+      dance(ying_yang); // ok: passes Panda object as a Bear
+      rummage(ying_yang); // ok: passes Panda object as a Raccoon
+      cout << ying_yang; // ok: passes Panda object as a ZooAnimal
+
+Visibility of Virtual Base-Class Members
+
    Because there is only one shared subobject corresponding to each shared virtual
    base, members in that base can be accessed directly and unambiguously. Moreover, 
    if a member from the virtual base is overridden along only one derivation
    path, then that overridden member can still be accessed directly. If the member is
    overridden by more than one base, then the derived class generally must define its
    own version as well.
+
    For example, assume class B defines a member named x; class D1 inherits virtually 
    from B as does class D2; and class D inherits from D1 and D2. From the scope
    of D, x is visible through both of its base classes. If we use x through a D object,
    there are three possibilities:
+
    • If x is not defined in either D1 or D2 it will be resolved as a member in B;
    there is no ambiguity. A D object contains only one instance of x.
 
@@ -45301,45 +47733,54 @@ Normal Conversions to Base Are Supported
    • If x is a member of B and also a member in one, but not both, of D1 and
    D2, there is again no ambiguity—the version in the derived class is given
    precedence over the shared virtual base class, B.
+
    • If x is defined in both D1 and D2, then direct access to that member is ambiguous.
    As in a nonvirtual multiple inheritance hierarchy, ambiguities of this sort are best
    resolved by the derived class providing its own instance of that member.
 
-Exercises Section 18.3.4
+   Exercises Section 18.3.4
 
-   Exercise 18.28: Given the following class hierarchy, which inherited members can be
-   accessed without qualification from within the VMI class? Which requirequalification?
-   Explain your reasoning.
-   struct Base {
-   void bar(int); // public by default
-   protected:
-   int ival;
-   };
-   struct Derived1 : virtual public Base {
-   void bar(char); // public by default
-   void foo(char);
-   protected:
-   char cval;
-   };
-   struct Derived2 : virtual public Base {
-   void foo(int); // public by default
-   protected:
-   int ival;
-   char cval;
-   };
-   class VMI : public Derived1, public Derived2 { };
+      Exercise 18.28: Given the following class hierarchy, which inherited members can be
+      accessed without qualification from within the VMI class? Which require qualification?
+      Explain your reasoning.
+
+      .. code-block:: cpp
+
+         struct Base {
+            void bar(int); // public by default
+         protected:
+            int ival;
+         };
+
+         struct Derived1 : virtual public Base {
+            void bar(char); // public by default
+            void foo(char);
+         protected:
+            char cval;
+         };
+
+         struct Derived2 : virtual public Base {
+            void foo(int); // public by default
+         protected:
+            int ival;
+            char cval;
+         };
+
+         class VMI : public Derived1, public Derived2 { };
 
 /18.3.5 Constructors and Virtual Inheritance
 `````````````````````````````````````````````
 
    In a virtual derivation, the virtual base is initialized by the most derived constructor. 
    In our example, when we create a Panda object, the Panda constructor alone
-   controls how the ZooAnimal base class is initialized.
+   controls how the `ZooAnimal` base class is initialized.
+
    To understand this rule, consider what would happen if normal initialization
    rules applied. In that case, a virtual base class might be initialized more than once.
    It would be initialized along each inheritance path that contains that virtual base.
-   In our ZooAnimal example, if normal initialization rules applied, both Bear and
-   Raccoon would initialize the ZooAnimal part of a Panda object.
+   In our `ZooAnimal` example, if normal initialization rules applied, both Bear and
+   Raccoon would initialize the `ZooAnimal` part of a Panda object.
+
    Of course, each class in the hierarchy might at some point be the “most derived” 
    object. As long as we can create independent objects of a type derived from
 
@@ -45349,20 +47790,27 @@ Exercises Section 18.3.4
    a virtual base, the constructors in that class must initialize its virtual base. For example, 
    in our hierarchy, when a Bear (or a Raccoon) object is created, there is no
    further derived type involved. In this case, the Bear (or Raccoon) constructors
-   directly initialize their ZooAnimal base as usual:
-   Bear::Bear(std::string name, bool onExhibit):
-   ZooAnimal(name, onExhibit, "Bear") { }
-   Raccoon::Raccoon(std::string name, bool onExhibit)
-   : ZooAnimal(name, onExhibit, "Raccoon") { }
+   directly initialize their `ZooAnimal` base as usual:
+
+   .. code-block:: cpp
+
+      Bear::Bear(std::string name, bool onExhibit):
+         ZooAnimal(name, onExhibit, "Bear") { }
+      Raccoon::Raccoon(std::string name, bool onExhibit)
+         : ZooAnimal(name, onExhibit, "Raccoon") { }
+
    When a Panda is created, it is the most derived type and controls initialization
-   of the shared ZooAnimal base. Even though ZooAnimal is not a direct base of
-   Panda, the Panda constructor initializes ZooAnimal:
-   Panda::Panda(std::string name, bool onExhibit)
-   : ZooAnimal(name, onExhibit, "Panda"),
-   Bear(name, onExhibit),
-   Raccoon(name, onExhibit),
-   Endangered(Endangered::critical),
-   sleeping_flag(false) { }
+   of the shared `ZooAnimal` base. Even though `ZooAnimal` is not a direct base of
+   Panda, the Panda constructor initializes `ZooAnimal`:
+
+   .. code-block:: cpp
+
+      Panda::Panda(std::string name, bool onExhibit)
+         : ZooAnimal(name, onExhibit, "Panda"),
+      Bear(name, onExhibit),
+      Raccoon(name, onExhibit),
+      Endangered(Endangered::critical),
+      sleeping_flag(false) { }
 
 How a Virtually Inherited Object Is Constructed
 
@@ -45371,19 +47819,31 @@ How a Virtually Inherited Object Is Constructed
    initializers provided in the constructor for the most derived class. Once the virtual
    base subparts of the object areconstructed, the directbase subparts areconstructed
    in the order in which they appear in the derivation list.
-   For example, when a Panda object is created:
-   • The (virtual base class) ZooAnimal part is constructed first, using the initializers 
-   specified in the Panda constructor initializer list.
-   • The Bear part is constructed next.
-   • The Raccoon part is constructed next.
-   • The third direct base, Endangered, is constructed next.
-   • Finally, the Panda part is constructed.
-   If the Panda constructor does not explicitly initialize the ZooAnimal base
-   class, then the ZooAnimaldefaultconstructor is used. If ZooAnimaldoesn't have
+
+   For example, when a `Panda` object is created:
+
+   • The (virtual base class) `ZooAnimal` part is constructed first, using the initializers 
+   specified in the `Panda` constructor initializer list.
+
+   • The `Bear` part is constructed next.
+
+   • The `Raccoon` part is constructed next.
+
+   • The third direct base, `Endangered`, is constructed next.
+
+   • Finally, the `Panda` part is constructed.
+
+   If the `Panda` constructor does not explicitly initialize the `ZooAnimal` base
+   class, then the `ZooAnimal` default constructor is used. If `ZooAnimal` doesn't have
    a default constructor, then the code is in error.
-   Virtual base classes are always constructed prior to nonvirtual base
-   classes regardless of where they appear in the inheritance hierarchy.
-   Constructor and Destructor Order
+
+   .. Note::
+
+      Virtual base classes are always constructed prior to nonvirtual base
+      classes regardless of where they appear in the inheritance hierarchy.
+
+Constructor and Destructor Order
+
    A class can have more than one virtual base class. In that case, the virtual subobjects 
    are constructed in left-to-right order as they appear in the derivation list. For
 
@@ -45393,57 +47853,65 @@ How a Virtually Inherited Object Is Constructed
    example, in the following whimsical TeddyBear derivation, there are two virtual
    base classes: ToyAnimal, a direct virtual base, and ZooAnimal, which is a virtual
    base class of Bear:
-   class Character { / * ...
-   * / };
-   class BookCharacter : public Character { / * ...
-   * / };
-   class ToyAnimal { / * ...
-   * / };
-   class TeddyBear : public BookCharacter,
-   public Bear, public virtual ToyAnimal
-   { / * ...
-   * / };
+
+   .. code-block:: cpp
+
+      class Character { /* ... */ };
+      class BookCharacter : public Character { /* ... */ };
+      class ToyAnimal { /* ... */ };
+      class TeddyBear : public BookCharacter,
+                        public Bear, 
+                        public virtual ToyAnimal { /* ... */ };
+
    The direct base classes are examined in declaration order to determine whether
    there are any virtual base classes. If so, the virtual bases are constructed first,
    followed by the nonvirtual base-class constructors in declaration order. Thus, to
    create a TeddyBear, the constructors are invoked in the following order:
-   ZooAnimal(); // Bear 's virtual base class
-   ToyAnimal(); // direct virtual base class
-   Character(); // indirect base class of first nonvirtual base class
-   BookCharacter(); // first direct nonvirtual base class
-   Bear(); // second direct nonvirtual base class
-   TeddyBear(); // most derived class
+
+   .. code-block:: cpp
+
+      ZooAnimal(); // Bear 's virtual base class
+      ToyAnimal(); // direct virtual base class
+      Character(); // indirect base class of first nonvirtual base class
+      BookCharacter(); // first direct nonvirtual base class
+      Bear(); // second direct nonvirtual base class
+      TeddyBear(); // most derived class
+
    The same order is used in the synthesized copy and move constructors, and
    members are assigned in this order in the synthesized assignment operators. As
    usual, an object is destroyed in reverse order from which it was constructed. The
-   TeddyBear part will be destroyed first and the ZooAnimal part last.
+   `TeddyBear` part will be destroyed first and the `ZooAnimal` part last.
 
-Exercises Section 18.3.5
+   Exercises Section 18.3.5
 
-   Exercise 18.29: Given the following class hierarchy:
-   class Class { ... };
-   class Base : public Class { ... };
-   class D1 : virtual public Base { ... };
-   class D2 : virtual public Base { ... };
-   class MI : public D1, public D2 { ... };
-   class Final : public MI, public Class { ... };
-   (a) In what order are constructors and destructors run on a Final object?
-   (b) A Final object has how many Base parts? How many Class parts?
-   (c) Which of the following assignments is a compile-time error?
-   Base
-   * pb;
-   Class
-   * pc;
-   MI
-   * pmi;
-   D2
-   * pd2;
-   (a) pb = new Class; (b) pc = new Final;
-   (c) pmi = pb; (d) pd2 = pmi;
+      Exercise 18.29: Given the following class hierarchy:
 
-   Exercise 18.30: Define a default constructor, a copy constructor, and a constructor that
-   has an int parameter in Base. Define the same three constructors in each derived
-   class. Each constructor should use its argument to initialize its Base part.
+      .. code-block:: cpp
+
+         class Class { ... };
+         class Base : public Class { ... };
+         class D1 : virtual public Base { ... };
+         class D2 : virtual public Base { ... };
+         class MI : public D1, public D2 { ... };
+         class Final : public MI, public Class { ... };
+
+      (a) In what order are constructors and destructors run on a `Final` object?
+      (b) A `Final` object has how many Base parts? How many `Class` parts?
+      (c) Which of the following assignments is a compile-time error?
+
+      .. code-block:: cpp
+
+         Base * pb;
+         Class * pc;
+         MI * pmi;
+         D2 * pd2;
+
+         (a) pb = new Class;        (b) pc = new Final;
+         (c) pmi = pb;              (d) pd2 = pmi;
+
+      Exercise 18.30: Define a default constructor, a copy constructor, and a constructor that
+      has an int parameter in Base. Define the same three constructors in each derived
+      class. Each constructor should use its argument to initialize its Base part.
 
 .. ptg11539634 816 Defined Terms
 .. _P0816:
@@ -45451,25 +47919,29 @@ Exercises Section 18.3.5
 /18.👋 Chapter Summary
 -----------------------
 
-   C++ is usedto solve awide rangeof problems—fromthose solvablein afewhours'
+   C++ is used to solve a wide range of problems—from those solvable in a few hours'
    time to those that take years of development by large teams. Some features in C++
    are most applicable in the context of large-scale problems: exception handling,
    namespaces, and multiple or virtual inheritance.
+
    Exception handling lets us separate the error-detection part of the program
    from the error-handling part. When an exception is thrown, the current executing
    function is suspended and a search is started to find the nearest matching catch
    clause. Local variables defined inside functions that are exited while searching for
    a catch clause are destroyed as part of handling the exception.
+
    Namespaces are a mechanism for managing large, complicated applications
    built from code produced by independent suppliers. A namespace is a scope in
    which objects, types, functions, templates, and other namespaces may be defined.
-   The standard library is defined inside the namespace named std.
+   The standard library is defined inside the namespace named ``std``.
+
    Conceptually, multiple inheritance is a simple notion: A derived class may inherit 
-   from more than one direct base class. The derived object consists of the derivedpartand 
-   abasepartcontributed by eachof its baseclasses. Although conceptually 
+   from more than one direct base class. The derived object consists of the derived part and 
+   a base part contributed by each of its base classes. Although conceptually 
    simple, the details can be more complicated. In particular, inheriting from
    multiple base classes introduces new possibilities for name collisions and resulting
    ambiguous references to names from the base part of an object.
+
    When a class inherits directly from more than one base class, it is possible that
    those classes may themselves share another base class. In such cases, the intermediate 
    classes can opt to make their inheritance virtual, which states a willingness
@@ -45480,7 +47952,7 @@ Exercises Section 18.3.5
 /18.👋 Defined Terms
 ---------------------
 
-   catch-all A catch clause in which the exception 
+   ``catch-all`` A catch clause in which the exception 
    declaration is (...). A catch-all
    clause catches an exception of any type. It
    istypicallyusedto catch anexceptionthat is
@@ -45488,14 +47960,16 @@ Exercises Section 18.3.5
    The exception is then rethrown to another
    part of the program to deal with the underlying 
    cause of the problem.
-   catch clause Part of the programthat handles 
+
+   ``catch clause`` Part of the programthat handles 
    an exception. A catch clause consists 
    of the keyword catch followed by an
    exception declaration and a block of statements. 
    The code inside a catch does whatever 
    is necessary to handle an exception of
    the type defined in its exception declaration.
-   constructor order Under nonvirtual inheritance, 
+
+   ``constructor order`` Under nonvirtual inheritance, 
    base classesareconstructed inthe
    order in which they are named in the class
    derivation list. Under virtual inheritance,
@@ -45507,7 +47981,8 @@ Exercises Section 18.3.5
    base; constructor initializers for that base
    that appear in the intermediate base classes
    are ignored.
-   exception declaration catch clause declaration 
+
+   ``exception declaration`` catch clause declaration 
    that specifies the type of exception
    that the catch can handle. The declaration 
    acts like a parameter list, whose single 
@@ -45519,7 +47994,8 @@ Exercises Section 18.3.5
    object. If the exception specifier is a nonreference 
    type, then the exception object is
    copied to the catch.
-   exception handling Language-level support 
+
+   ``exception handling`` Language-level support 
    for managing run-time anomalies. One
    independently developed section of code
    can detect and “raise” an exception that another 
@@ -45528,7 +48004,8 @@ Exercises Section 18.3.5
    part of the program throws an exception;
    the error-handling part handles the exception 
    in a catch clause of a try block.
-   exception object Object used to communicate 
+
+   ``exception object`` Object used to communicate 
    between the throw and catch sides
    of an exception. The object is created at
    the point of the throw and is a copy of the
@@ -45536,14 +48013,16 @@ Exercises Section 18.3.5
    until the last handler for the exception
    completes. Thetypeoftheobject isthe static
    type of the thrown expression.
-   file static Name local to a file that is declared 
+
+   ``file static`` Name local to a file that is declared 
    with the static keyword. In C
    and pre-Standard versions of C++, file statics 
    were used to declare objects that could
    be used in a single file only. File statics are
    deprecated in C++, having been superseded
    by the use of unnamed namespaces.
-   function try block Used to catch exceptions 
+
+   ``function try block`` Used to catch exceptions 
    from a constructor initializer. The
    keyword try appears before the colon that
    starts the constructor initializer list (or before 
@@ -45554,16 +48033,20 @@ Exercises Section 18.3.5
    global namespace The (implicit) namespace 
    in each program that holds all global
    definitions.
-   handler Synonym for a catch clause.
-   inline namespace Members of a namespace 
+
+   ``handler`` Synonym for a catch clause.
+
+   ``inline namespace`` Members of a namespace 
    designated as inline can be used as
    if they were members of an enclosing namespace.
-   multiple inheritance Classwith morethan
+
+   ``multiple inheritance`` Class with more than
    one direct base class. The derived class inherits 
    the members of all its base classes. A
    separate access specifier may be provided
    for each base class.
-   namespace Mechanism for gathering all
+
+   ``namespace`` Mechanism for gathering all
    the names defined by a library or other
    collection of programs into a single scope.
    Unlike other scopes in C++, a namespace
@@ -45571,20 +48054,25 @@ Exercises Section 18.3.5
    namepsace may be opened and closed and
    reopened again in disparate parts of the
    program.
-   namespace alias Mechanism for defining
+
+   ``namespace alias`` Mechanism for defining
    a synonym for a given namespace:
-   namespace N1 = N;
+
+      namespace N1 = N;
+
    defines N1 as another name for the namespace 
    named N. Anamespace can have multiple 
    aliases; the namespace name or any of
    its aliases may be used interchangeably.
-   namespace pollution Occurs when all the
+
+   ``namespace pollution`` Occurs when all the
    names of classes and functions are placed in
    the global namespace. Large programs that
    use code written by multiple independent
    parties often encounter collisions among
    names if these names are global.
-   noexcept operator Operator that returns
+
+   ``noexcept operator`` Operator that returns
    a bool indicating whether a given expression 
    might throw an exception. The expression 
    is unevaluated. The result is a constant 
@@ -45592,7 +48080,8 @@ Exercises Section 18.3.5
    not contain a throw and calls
    only functions designated as nonthrowing;
    otherwise the result is false.
-   noexcept specification Keyword used to
+
+   ``noexcept specification`` Keyword used to
    indicate whether a function throws. When
    noexcept follows a function's parameter 
    list, it may be optionally followed by
@@ -45606,14 +48095,15 @@ Exercises Section 18.3.5
 .. ptg11539634 818 Defined Terms
 .. _P0818:
 
-   nonthrowing specification An exception
+   ``nonthrowing specification`` An exception
    specification that promises that a function
    won't throw. If a nonthrowing functions
    does throw, terminate is called. Nonthrowing 
    specifiers are noexcept without
    an argument or with an argument that evaluates 
    as true and throw().
-   raise Often used as a synonym for throw.
+
+   ``raise`` Often used as a synonym for throw.
    C++ programmers speak of “throwing” or
    “raising” an exception interchangably.
    rethrow A throw that does not specify an
@@ -45622,22 +48112,26 @@ Exercises Section 18.3.5
    directly or indirectly from a catch. Its effect 
    is to rethrow the exception object that it
    received.
-   stack unwinding The processwhereby the
+
+   ``stack unwinding`` The process whereby the
    functions are exited in the search for a
    catch. Local objects constructed before the
    exception are destroyed before entering the
    corresponding catch.
-   terminate Library function that is called if
+
+   ``terminate`` Library function that is called if
    an exception is not caught or if an exception 
    occurs while a handler is in process.
    terminate ends the program.
-   throw e Expression that interrupts the current 
+
+   ``throw e`` Expression that interrupts the current 
    execution path. Each throw transfers 
    control to the nearest enclosing catch
    clause that can handle the type of exception
    that is thrown. The expression e is copied
    into the exception object.
-   try block Block of statements enclosed by
+
+   ``try block`` Block of statements enclosed by
    the keyword try and one or more catch
    clauses. If the code inside the try block
    raises an exception and one of the catch
@@ -45646,43 +48140,53 @@ Exercises Section 18.3.5
    catch. Otherwise, the exception is passed
    out of the try to a catchfurther up the call
    chain.
-   unnamed namespace Namespace that is
+
+   ``unnamed namespace`` Namespace that is
    defined without a name. Names defined
    in an unnamed namespace may be accessed
    directly without use of the scope operator. 
    Each file has its own unique unnamed
    namespace. Names in an unnamed namespace 
    are not visible outside that file.
-   using declaration Mechanism to inject a
+
+   ``using declaration`` Mechanism to inject a
    single name from a namespace into the current 
    scope:
-   using std::cout;
+
+      using std::cout;
+
    makes the name cout from the namespace 
    std available in the current scope.
    The name cout can subseuquently be used
    without the std:: qualifier.
-   using directive Declaration of the form
-   using NS;
+
+   ``using directive`` Declaration of the form
+
+      using NS;
+
    makes all the names in the namespace
    named NS available in the nearest scope
    containing both the usingdirectiveand the
    namespace itself.
-   virtual base class Base class that specifies
+
+   ``virtual base class`` Base class that specifies
    virtual in its own derivation list. A virtual 
    base part occurs only once in a derived
    object even if the same class appears as a
-   virtual base morethan once inthe hierarchy.
+   virtual base more than once in the hierarchy.
    In nonvirtual inheritance a constructor may
    initialize only its directbase class(es). When
    a class is inherited virtually, that class is initialized 
    by the most derived class, which
-   thereforeshould include an initializer forall
+   therefore should include an initializer for all
    of its virtual parent(s).
-   virtual inheritance Form of multiple inheritance 
+
+   ``virtual inheritance`` Form of multiple inheritance 
    in which derived classes share a
    single copy of a base that is included in the
    hierarchy more than once.
-   :: operator Scope operator. Used to access 
+
+   ``:: operator`` Scope operator. Used to access 
    names from a namespace or a class.
 
 .. ptg11539634

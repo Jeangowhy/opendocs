@@ -250,8 +250,14 @@ Getting Started Linux kernel Programming
    为了编写这件文档，我又翻了一下 Just for Fun 中文版，里面提到：
 
       看起来比尔.盖茨并不理解这点。可能他现在被他自己在 1976 年所提出的一个令人不愉快的
-      带修辞的问题所困惑：“你所需要做的一件事，就是防止别人写也好的软件。谁能够毫无报
+      带修辞的问题所困惑：“你所需要做的一件事，就是防止别人写好用的软件。谁能够毫无报
       酬地做一项专业工作呢？”他在公开源代码程序员们写的一封信中再次提出了这一观点。
+
+      It seems that Bill Gates doesn’t understand this. Is it possible that he’s 
+      now embarrassed by an off-putting rhetorical question he asked in 1976? 
+      “One thing you do is prevent good software from being written. Who can 
+      afford to do professional work for nothing?” he wrote in a letter to open
+      source programmers.
 
    这就是为何，我更喜欢开源的动力。开源，我好喜欢！❤💻👊
 
