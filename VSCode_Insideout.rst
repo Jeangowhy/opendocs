@@ -31,7 +31,7 @@
    事实上 GUI 并不能提升效率，反而在没有合理的设计的前提下，GUI 带来的是广泛低能效的灾难。
    人类的记天然具有模糊特征，记忆中的事件不是绝对精确的。混沌、模糊是记忆的基本状态，在使用计算机
    系统时，这些基本特性体现在多方面：比如找文件、找文件夹，或者翻查菜单找某种功能操作等等，都是
-   因为 GUI 的设计不合理造成的困境。社区开发了一款模糊信息搜索工具（`fuzzy finder`_），
+   因为 GUI 的设计不合理造成的困境。社区开发了一款模糊信息搜索工具（ `fuzzy finder`_ ），
    通过它可以将计算机系统中的文件、文件夹、文件数据按模糊的记忆进行过滤。安装它之后，并将其添加到
    环境变量的 PATH 中以方便直接执行，这样就可以使用 fzf 命令进行信息过滤。文件系统的过滤是
    最基本用法，比如在 Windows 系统上打开文件浏览器，并在地址栏输入 fzf 执行它，程序会弹出
@@ -408,8 +408,8 @@
 
    VS Code 版本系统有两种版本（Stable 和 Insiders）、两种形式（Web 和本地运行）：
 
-   - `Code Stable Edition`__，稳定版（蓝版），提供的功能经过深思熟虑、开发周期较长、较稳定的发布版本。
-   - `Code Insiders Edition`__，探索者版（绿版），每日构建，提供最新功能和改进。
+   - `Code Stable Edition`_，稳定版（蓝版），提供的功能经过深思熟虑、开发周期较长、较稳定的发布版本。
+   - `Code Insiders Edition`_，探索者版（绿版），每日构建，提供最新功能和改进。
    
    两种版本有各自独立专用的插件安装目录和缓存目录：
 
@@ -420,12 +420,12 @@
    Cache Dir   "%APPDATA%\Code"         "%APPDATA%\Code - Insiders"
    ==========  =======================  ================================
 
-   以上是本地运行的 VS Code，还有第二种运行形式：`Code Web`__，网页版或者称云端运行，它是部署
+   以上是本地运行的 VS Code，还有第二种运行形式： `Code Web`_，网页版或者称云端运行，它是部署
    在云服务器上的稳定版本，以 Web 在线运行形式呈现，包括 vscode.dev 和 github.dev 等等，
    使用它们可以浏览、编辑远程项目（Open Remote Repository），包括浏览 github 上的项目。
 
    因为浏览器是有安全限制的，Web 应用在未授权的前提下禁止访问本地文件。那么 VS Code Web 版是
-   如何做好开本地文件夹的？这要归于 HTML5 新增的 `File System API`__。尽管 VS Code Web
+   如何做好开本地文件夹的？这要归于 HTML5 新增的 `File System API`_。尽管 VS Code Web
    可以打开本地项目，但是受限于浏览器的安全环境和脚本运行时能力，许多功能也受限不能使用，部分插件
    也不支持，shell 脚本不能在线执行。因为有文件系统 API 的支持，VS Code Web 不仅可以打开本地
    项目，还可以下载 github 项目的某些文件或文件夹，这一点比起只能克隆分支的 git 命令要方便。
@@ -441,7 +441,7 @@
       =============================  =========================================
 
    Code Web 存在的理由当然不止于此，它才是未来的开发环境的未来：远程在线开发。当前可以安装使用
-   `Github Codespace`__，基于云即时开发环境、容器虚拟技术提供用于开发的通用语言、工具和实用程序。
+   `Github Codespace`_，基于云即时开发环境、容器虚拟技术提供用于开发的通用语言、工具和实用程序。
    Code Web 远程开发可以免去安装 IDE，直接登录 Web 连接开发环境。代码空间（Codespace）生命周期
    从创建代码空间时开始，到删除代码空间时结束。 中间可以断开连接并重新连接到活动代码空间，而不会
    影响其正在运行的进程。 可以停止并重新启动代码空间，而不会丢失对项目所做的更改。这种云开发将提升
@@ -461,8 +461,8 @@
    VS Code 有许多非常有创意的扩展：
 
    -  ``Live Share`` 实现运程协作编程而无需同步工程、环境配置。
-      `Introducing Visual Studio Live Share`__
-   -  `Port Forwarding`__ 通过内置 `Dev Tunnels`__ 实现本地端口转发、内网穿透，向互联网
+      `Introducing Visual Studio Live Share`_
+   -  `Port Forwarding`_ 通过内置 `Dev Tunnels`_ 实现本地端口转发、内网穿透，向互联网
       暴露本地 Web 服务。可以使用 ``devtunnel echo`` 命令启动一个用于测试的回响服务器。
       其它免费的内网穿透工具：CloudFlare Tunnel。
    -  ``MetaJump`` 文件内快速跳转，``Alt+/`` 激活，输入目标位置可能出现的一个关键字符，
@@ -473,7 +473,7 @@
       当然可以使用 code 命令，或者 File: Open Recent，Recent Directory 打开最近的目录。
    -  推荐 `draw.io`_ 绘图工具，Draw.io VS Code Integration，提供了丰富基础图形，
       制作思维导图也很方便，插件提供了箭头连接跟随功能，移动图形也会同时更新连接的箭头线条。
-      插件基于 `mxGraph`__ 提供交互图形制作的能力，并且使用体验比 Inkscape 更佳。
+      插件基于 `mxGraph`_ 提供交互图形制作的能力，并且使用体验比 Inkscape 更佳。
       打开 \*.drawio, \*.drawio.svg, \*.drawio.png 文件进入图形界面。
    -  ``Latex Sympy Calculator`` 计算文档中的 LaTeX 数学公式，并生成 = 号右侧部分。
    -  ``Emmet`` 这是一个程序化结构语言（XML/HTML）代码生成工具，几乎所有流行编辑器中都有它。
@@ -517,7 +517,7 @@
    3. **Link**: The underline when hovering over links.
    4. **Cursor**: The terminal's cursor.
 
-   参考官方 blogs 文章 `Integrated Terminal Performance Improvements`__
+   参考官方 blogs 文章 `Integrated Terminal Performance Improvements`_
 
    视图的切换也非常方便，比如 SideBar 与编辑区的切换操作：
 
@@ -533,7 +533,7 @@
    - ``Alt+F11`` Terminal View: Toggle Maximized Panel
    - ``Ctrl+K, Z`` Zen Mode 修禅模式，最大化简化 UI 元素降低干扰因素
 
-   VS Code 官方也提供了使用技巧参考文档：`Visual Studio Code Tips and Tricks`__
+   VS Code 官方也提供了使用技巧参考文档： `Visual Studio Code Tips and Tricks`_
 
 .. _Integrated Terminal Performance Improvements: https://code.visualstudio.com/blogs/2017/10/03/terminal-renderer
 .. _Visual Studio Code Tips and Tricks: https://code.visualstudio.com/docs/getstarted/tips-and-tricks
@@ -553,7 +553,7 @@
    差异区域。使用上、下箭头可以快速在各个差异位置跳转。
 
    VS Code 与 Github 版本托管或者 git 版管理工具集成，提供更容易的访问的版本管理图形化操作。
-   `VS Code Speech`__ 插件提供语音输入功能，可以和 GitHub Copilot Chat 进行 AI 交流操作。
+   `VS Code Speech`_ 插件提供语音输入功能，可以和 GitHub Copilot Chat 进行 AI 交流操作。
 
    基于 Intellij IDE 定制的 Android Studio 可以设置版权模板，方便在大工程中添加版权信息，
    VS Code 也可以使用 Configure User Snippets 定义版本代码片段来快捷插入版本信息。创建
@@ -640,8 +640,8 @@
    这些功能对应 .vscode 缓存文件夹中保存的两个配置文件 ``tasks.json`` 和 ``launch.json``，
    它们分别对应 Run 菜单和 Terminal 菜单的功能，千万不要将它们搞混，它们分别是：
 
-   - 任务系统， ``tasks.json``，编写用于构建程序脚本任务，参考 `Integrate with External Tools via Tasks`__；
-   - 调试系统， ``launch.json``，用于调试、运行项目编译好的程序，包括脚本程序，参考 `VS Code Debugers Launch`__；
+   - 任务系统， ``tasks.json``，编写用于构建程序脚本任务，参考 `Integrate with External Tools via Tasks`_；
+   - 调试系统， ``launch.json``，用于调试、运行项目编译好的程序，包括脚本程序，参考 `VS Code Debugers Launch`_；
 
    VS Code 它们涉及到的功能分开菜单呈现，不仅是因为它们有不同的目标取向，更多的是需要 VS Code
    提供不同的逻辑功能支持。即使是运行同样的命令，通过任务系统运行、与通过调试系统运行，VS Code 会
@@ -741,7 +741,7 @@
    内置变量总是指定任务所在的工程文件，或者说保存任务配置文件的 .vscode 所在目录。Sublime Text
    侧会根据当前项目的目录顺序，并以目录列表中的首个目录作为项目路径。
 
-   完整变量列表参考 `Visual Studio Code Variables Reference`__ 或插件扩展 `Extension Guides`__。
+   完整变量列表参考 `Visual Studio Code Variables Reference`_ 或插件扩展 `Extension Guides`_。
 
    .. _Integrate with External Tools via Tasks: https://code.visualstudio.com/docs/editor/tasks
    .. _VS Code Debugers Launch: https://code.visualstudio.com/docs/editor/debugging
@@ -755,7 +755,7 @@
    - Run task 运行 ``tasks.json`` 配置文件中的设置任务；
    - Run build task (Ctrl+Shift+B) 运行构建任务，Build Task 是任务的一种，用于构建项目；
    - Run active file 运行当前活动的脚本文件，根据脚本类型使用相应的解释器；
-   - Run selected text 使用默认配置的 `Terminal Profiles`__ 终端运行选中的脚本块（忽略脚本文件类型）。
+   - Run selected text 使用默认配置的 `Terminal Profiles`_ 终端运行选中的脚本块（忽略脚本文件类型）。
 
    脚本任务主要目标是为构建项目服务的，它们会以终端命令的形式执行各种构建任务。VS Code 提供常用
    的构建工具的配置，点击 Terminal -> Configure Tasks... 就会弹出备选任务列表，上面提供的
@@ -791,9 +791,9 @@
    VS Code 使用，比如实现点击错误跳转到相应代码文件。快捷键与任务绑定，还可以方便地实现外部工具
    的定义（External Tools）。
 
-   VS Code 使用 TypeScript 开发，源代码提供了类型定义文件 `VS Code Types Declaration`__，
-   v1.80 导出的公开接口有 260 涉及整个应用框架的方方面，参考 `Source Code Organization`__。
-   `VS Code API`__ 文档内容根据类型声明文件中的 JSDOC 注解生成，可以直接在 VS Code 查看
+   VS Code 使用 TypeScript 开发，源代码提供了类型定义文件 `VS Code Types Declaration`_，
+   v1.80 导出的公开接口有 260 涉及整个应用框架的方方面，参考 `Source Code Organization`_。
+   `VS Code API`_ 文档内容根据类型声明文件中的 JSDOC 注解生成，可以直接在 VS Code 查看
    类型声明源文件，它提供更便利的符号跳转功能。
 
    ==========================  ================
@@ -900,8 +900,8 @@
    （cmd）的方式实现。
 
    错误消息定义是 ``ENOTTY``： The ioctl is not supported by the file descriptor.
-   参考 The Kernel Documentation `ioctl based interfaces`__，`Generic Error Codes`__，
-   和源代码 `ioctl.h`__。参考书：Linux Kernel Development。
+   参考 The Kernel Documentation `ioctl based interfaces`_， `Generic Error Codes`_，
+   和源代码 `ioctl.h`_。参考书：Linux Kernel Development。
 
    .. _Generic Error Codes: https://github.com/torvalds/linux/blob/master/Documentation/userspace-api/media/gen-errors.rst
    .. _ioctl based interfaces: https://www.kernel.org/doc/html/latest/driver-api/ioctl.html
@@ -1146,7 +1146,7 @@
    智能提示信息，但是这个插件有点大块头 300MB 级别，隔壁 Kotlin 编译也差不多这么大。
 
    Windows 系统中，运行当前活动的脚本文件，默认：PowerShell 运行于 VS Code 集成终端窗口。
-   如果是 Bash，则会使用外部程序（External）形式运行脚本。`Terminal Profiles`__ 配置不同
+   如果是 Bash，则会使用外部程序（External）形式运行脚本。`Terminal Profiles`_ 配置不同
    操作系统下的脚本运行时所使用的软件终端，此外还有 VS Code 通过检测系统环境获释的终端。可以
    为不同的操作系统指定默认的终端 Profiles 配置：
 
@@ -1164,7 +1164,7 @@
 
 
    以下配置文件为 Windows 系统提供了多个 Shell 程序，并设置 MSYS2 提供的 bash 为默认值。
-   `Terminal Profiles`__ 是 VS Code 中设置可用终端类型的配置文件，它有两种检测形式，直接使用
+   `Terminal Profiles`_ 是 VS Code 中设置可用终端类型的配置文件，它有两种检测形式，直接使用
    路径（path）指定 Shell 程序，或者使用（source）指定，目前支持 "PowerShell" 和 "Git Bash"。
 
    .. code-block:: josn
@@ -1293,13 +1293,13 @@ Maven Project
 
    VS Code 上开发 JavaFX 图形编程项目操作步骤：
    
-   * 安装 Java 语言插件包： `Extension Pack for Java`__
+   * 安装 Java 语言插件包： `Extension Pack for Java`_
    * 执行命令创建 JavaFX 项目： ``Maven: New Project...``，如果列表没有显示可点击 ``Find More``。
    * 命令面板中运行 ``Maven: Execute Commands...`` 或者直接运行终端命令 ``mvn test`` 进行测试。
 
 .. _Extension Pack for Java: https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack
 
-   Maven 可使用 `Exec Maven Plugin`__ 插件运行程序，但直接使用 Java 执行 jar 程序包更直接：
+   Maven 可使用 `Exec Maven Plugin`_ 插件运行程序，但直接使用 Java 执行 jar 程序包更直接：
 
       java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App
 
@@ -1321,7 +1321,7 @@ Maven Project
 
    JDK 1.8 (JDK 8) 运行时基础类库位于 rt.jar 文件包内，JDK 9 引入模块化机制（modules），
    JDK 11 开始使用模块文件替代旧系统的 JAR 映像，Maven 更新又跟不上 JDK 更新节奏，导致在新
-   环境中出现找不到基础类库的问题。参考文档 `Oracle JDK 22 Migration Guide`__。
+   环境中出现找不到基础类库的问题。参考文档 `Oracle JDK 22 Migration Guide`_。
 
    JDK 9 是模块机制与 JAR 映像机制的过度期，如果 JAR 包根目录下有 module-info.class 文件，
    则是一个已经包含了模块化信息的模块。模块信息类（module-info.class）中可以指定模块名字和版本，
@@ -1329,7 +1329,7 @@ Maven Project
    ModulePath 的概念，和 ClassPath 指定 JAR 类似，不过 ModulePath 中的 JAR 包或 Jmod
    文件被当作 Module 来处理，而 ClassPath 指定 JAR 包，无论是否模块化都作为传统 JAR 包处理。
 
-   JDK 11 开始，JavaFX 剥离作为独立维护的项目，参考 JavaFX 文档 `JavaFX docs`__。
+   JDK 11 开始，JavaFX 剥离作为独立维护的项目，参考 JavaFX 文档 `JavaFX docs`_。
 
    JDK 17 相比 JDK 1.8，即使相比 JDK 11 也有较大的变动，麻烦的是编译器又不给出变更提示信息。
    解决方法可以是修改 JAVA_HOME 环境变量指向包含 JRE 的目录。可以修改项目配置文件的编译插件配置，
@@ -1379,7 +1379,7 @@ Gradle Project
    https://docs.gradle.org/current/dsl/org.gradle.api.plugins.JavaPluginConvention.html
 
    可使用 Groovy 或者 Kotlin 脚本作为构建规则配置文件：build.gradle(.kts)。Gradle 构建
-   系统中有三类脚本，脚本中可以使用的全局对象参考 `Gradle DSLs and API`__ 文档。
+   系统中有三类脚本，脚本中可以使用的全局对象参考 `Gradle DSLs and API`_ 文档。
 
    +-----------------+--------------------------+--------------------+
    |  Type of script | Delegates to instance of |     File name      |
@@ -1393,7 +1393,7 @@ Gradle Project
    Gradle 脚本中的 Tasks。当一个构建脚本（build.gradle）更新后，Gradle 就需要重新生成
    Task Graphs，根据其依赖关系、更新状态来决定要执行什么构建任务。
 
-   Gradle 为了加速构建任务，使用 `Gradle Daemon`__ 守护进程常驻内存，作为后台进程运行，实时
+   Gradle 为了加速构建任务，使用 `Gradle Daemon`_ 守护进程常驻内存，作为后台进程运行，实时
    与用户交互，以避免重复执行启动降低效率。守护进程默认启用，``--daemon`` 和 ``--no-daemon``
    命令行参数可以切换状态，并使用 ``--stop`` 关闭守护进程。使用守护进程的一大原因是 Gradle 在
    Java 虚拟机（JVM）上运行并使用多个支持库，初始化时间较长。Gradle 守护进程通过以下功能解决了
@@ -1417,9 +1417,9 @@ Gradle Project
 
    参考官方文档：
 
-   *  Running Gradle Builds - Core Concepts - `Gradle Basics`__
-   *  Authoring Gradle Builds - Learning the Basics - `Gradle Build Lifecycle`__
-   *  Optimizing Build Performance - `Gradle Daemon`__
+   *  Running Gradle Builds - Core Concepts - `Gradle Basics`_
+   *  Authoring Gradle Builds - Learning the Basics - `Gradle Build Lifecycle`_
+   *  Optimizing Build Performance - `Gradle Daemon`_
 
 .. _Gradle Basics: https://docs.gradle.org/current/userguide/gradle_basics.html
 .. _Gradle Build Lifecycle: https://docs.gradle.org/current/userguide/build_lifecycle.html
@@ -1446,8 +1446,8 @@ Gradle Project
    不会添加到编译和运行时的类路径。
 
    执行 ``./gradlew build`` 命令时，Gradle 就会按配置的依赖仓库下载文件并应用到项目中。
-   依赖配置代码片段自行在 `Maven Repository`__ 查询，构建脚本中的依赖类型及关系参考 Gradle
-   插件文档 `The Java Library Plugin`__，主要是依赖声明与用户自定义配置：
+   依赖配置代码片段自行在 `Maven Repository`_ 查询，构建脚本中的依赖类型及关系参考 Gradle
+   插件文档 `The Java Library Plugin`_，主要是依赖声明与用户自定义配置：
 
    Java Library plugin - configurations used to declare dependencies
 
@@ -1547,14 +1547,14 @@ VS Code with Gradle and Kotlin
          //configurations("implementation", "testImplementation")
       }
 
-   使用 Kotlin 语言编程，可选安装 Kotlin_ 智能提示插件和 `Kotlin Language`__ 语法支持插件。
-   LSP 服务依赖于 `Kotlin Language Server`__，调试器依赖于 `Kotlin Debug Adapter`__。
+   使用 Kotlin 语言编程，可选安装 Kotlin_ 智能提示插件和 `Kotlin Language`_ 语法支持插件。
+   LSP 服务依赖于 `Kotlin Language Server`_，调试器依赖于 `Kotlin Debug Adapter`_。
    VS Code 安装插件后就可以添加调试配置（"type": "kotlin"）。
 
    如果安装了 Android Studio，那么就只可以使用它的插件目录下自带的 Kotlin 编译器，将编译器
    kotlinc 所在目录添加了环境变量搜索目录列表中。
 
-   `Kotlin Language Server`__ 目前在 Sublime Text 4169 配置正常可用，但是 VS Code 
+   `Kotlin Language Server`_ 目前在 Sublime Text 4169 配置正常可用，但是 VS Code 
    上配置就难以成功获得 LSP 智能提示服务，Output 面板也没用调试信息供分析。也没有提供日志，
    甚至命令行的帮助信息都不给，只能看 Main.kt 源代码：
 
@@ -1579,7 +1579,7 @@ VS Code with Gradle and Kotlin
       }
 
    尝试改用 TCP 连接方式提供 LSP 服务，禁用插件并重新启用后，Output 面板终于出现了 Kotlin 
-   调试信息输出，LSP 服务也终于正常工作。这似乎在运行一次调试、自动下载 `Kotlin Debug Adapter`__ 
+   调试信息输出，LSP 服务也终于正常工作。这似乎在运行一次调试、自动下载 `Kotlin Debug Adapter`_ 
    之后发生的。
 
    在执行 Java 应用调试时，极有可能遇到框架组件缺失的问题，DEBUG CONSOLE 面板查看调试消息：
@@ -1679,7 +1679,7 @@ VS Code with Gradle and Kotlin
       22      March 2024         66    45 .. 66
       ======= ================== ===== ================
 
-   参考 JVM 规范文档 `JVM Spec Chapter 4. The class File Format`__
+   参考 JVM 规范文档 `JVM Spec Chapter 4. The class File Format`_
 
 .. _JVM Spec Chapter 4. The class File Format: https://docs.oracle.com/javase/specs/jvms/se22/html/jvms-4.html
 .. _Gradle DSLs and API: https://docs.gradle.org/current/kotlin-dsl/index.html
@@ -1688,7 +1688,7 @@ VS Code with Gradle and Kotlin
 .. _Kotlin Debug Adapter: https://github.com/fwcd/kotlin-debug-adapter
 .. _Kotlin Language: https://marketplace.visualstudio.com/items?itemName=mathiasfrohlich.Kotlin
 
-   LSP 智能提示服务需要先下载 `Kotlin Language Server`__，然后在打开设置面板，搜索定位到
+   LSP 智能提示服务需要先下载 `Kotlin Language Server`_，然后在打开设置面板，搜索定位到
    kotlin.languageServer.path，并指定 LSP 客户端的启动脚本。要为 Gradle 配置脚本启用智能
    提示支持，需要配置插件启用以下配置项，重启插件后，打开 kts 脚本就可以看到底部状态栏提示建立索引
    （Kotlin: Indexing）。Gradle Kotlin DSL 脚本支持目前还是体验性功能，并不一定可用：
@@ -1724,7 +1724,7 @@ VS Code with Gradle and Kotlin
       org.gradle.java.installations.fromEnv=JDK8,JRE17
       org.gradle.java.installations.paths=/custom/path/jdk1.8,/shared/jre11
 
-   文档参考 `JVM languages and frameworks`__ and Java Toolchains `Toolchains for JVM projects`__
+   文档参考 `JVM languages and frameworks`_ and Java Toolchains `Toolchains for JVM projects`_
 
 .. _JVM languages and frameworks: https://docs.gradle.org/current/userguide/java_plugin.html
 .. _Toolchains for JVM projects: https://docs.gradle.org/current/userguide/toolchains.html
@@ -1807,10 +1807,10 @@ Gradle Project Init
 
    Gradle 命令行与工程初始化参考：
 
-   * Running Gradle Builds - `Initializing the Project`__
-   * Authoring Gradle Builds - `Multi-Project Build Basics`__
-   * Reference - `Command-Line Interface Reference`__
-   * Reference - `Build Init Plugin`__
+   * Running Gradle Builds - `Initializing the Project`_
+   * Authoring Gradle Builds - `Multi-Project Build Basics`_
+   * Reference - `Command-Line Interface Reference`_
+   * Reference - `Build Init Plugin`_
 
 .. _Initializing the Project: https://docs.gradle.org/current/userguide/part1_gradle_init.html
 .. _Multi-Project Build Basics: https://docs.gradle.org/8.7/userguide/intro_multi_project_builds.html
@@ -1818,7 +1818,7 @@ Gradle Project Init
 .. _Build Init Plugin: https://docs.gradle.org/8.7/userguide/build_init_plugin.html
 
    Gradle 初始化命令是创建项目基本目录结构的快速且便利的方法，初始化命令可以创建多种项目，
-   项目类型由 `Build Init Plugin`__ 提供，以下是内建初始化插件（Build init types）：
+   项目类型由 `Build Init Plugin`_ 提供，以下是内建初始化插件（Build init types）：
    
    =========================== ==================
     Type                       Description      
@@ -1900,7 +1900,7 @@ Gradle Project Init
    顶层项目的名称会记录在全局配置文件（rootProject）属性中，子项目名称则和使用 include 方法
    包含的目录名称一致。执行 Gradle 任务时，可用子项目作为前缀（``:app:run``）来限制任务范围。
    Gradle 没有命令直接往项目添加子模块，但可以使用初始化命令在子目录下创建项目，然后使用 API
-   `Settings`__ 将项目内的 app 代码文件夹当作子模块包含进顶层项目，子项目对应的路径则通过
+   `Settings`_ 将项目内的 app 代码文件夹当作子模块包含进顶层项目，子项目对应的路径则通过
    ``project`` 方法指定：
 
    .. code-block:: kotlin
@@ -1935,7 +1935,7 @@ Gradle Project Init
       include("app")
 
    Gradle 7.0 引入新的管理依赖方式 Version Catalogs，此功能在最新 Gradle 版本已经稳定可用。
-   参考文档：Working with Dependencies - Controlling Transitives - `Sharing Versions`__
+   参考文档：Working with Dependencies - Controlling Transitives - `Sharing Versions`_
 
 .. _Sharing Versions: https://docs.gradle.org/current/userguide/platforms.html
 .. _Settings: https://docs.gradle.org/current/dsl/org.gradle.api.initialization.Settings.html
@@ -2090,7 +2090,7 @@ JavaFX GUI Framework
    添加模块信息，使项目类型变成 Java Modules (JPMS) 。以及相当设置构建脚本中的依赖引用。因为
    项目使用 Kotlin，既需要配置 JavaFX，又需要配置 Kotlin 语言。构建 Java 模块又需要依赖
    Kotlin 标准模块，整个项目开发体验真的是烂透了！大概项目结构如此复杂的设计就是为了多卖周边。
-   也因此需要翻看至少两份文档：`Kotlin Build Tools - Gradle`__ 文档和 Gradle 文档，
+   也因此需要翻看至少两份文档： `Kotlin Build Tools - Gradle`_ 文档和 Gradle 文档，
    也许还有 JDK 模块化和 JavaFX 文档或示范工程 https://github.dev/openjfx/samples 。
 
    JDK 8U302 不再捆绑 JavaFX，但是 JDK 8U201 仍然捆绑 ``jre/lib/ext/jfxrt.jar``。
@@ -2299,10 +2299,10 @@ JavaFX GUI Framework
 
    可视化设计工具及教程文档参考：
 
-   *  `Scene Builder`__ and `Scene Builder Wiki`__
-   *  `Getting Started with JavaFX`__ 
-   *  `JavaFX Tutorial`__ by akob Jenkov
-   *  `FXGL - JavaFX Game Library`__
+   *  `Scene Builder`_ and `Scene Builder Wiki`_
+   *  `Getting Started with JavaFX`_ 
+   *  `JavaFX Tutorial`_ by akob Jenkov
+   *  `FXGL - JavaFX Game Library`_
 
 .. _Getting Started with JavaFX: https://docs.oracle.com/javase/8/javafx/get-started-tutorial/index.html
 .. _JavaFX Tutorial: https://jenkov.com/tutorials/javafx/index.html
@@ -2418,7 +2418,7 @@ JavaFX GUI Framework
           ...
       Caused by: java.lang.ClassNotFoundException: kotlin.jvm.internal.Intrinsics
 
-   `Intrinsics`__ 是 Kotlin 内部类，可以在编译器附带的标准库或者在 Gradle 缓存文件中找到。
+   `Intrinsics`_ 是 Kotlin 内部类，可以在编译器附带的标准库或者在 Gradle 缓存文件中找到。
    **注意，要求和类文件使用的 Kotlin 编译器同版本捆绑的标准库，如果版本不一致也会导致以上错误。**
 
    .. _Intrinsics: https://vscode.dev/github/JetBrains/kotlin/blob/master/libraries/stdlib/jvm/runtime/kotlin/jvm/internal/Intrinsics.java
@@ -2501,7 +2501,7 @@ Java Module Project
 .. _Tutorials of Modules: https://dev.java/learn/modules/
 
    这里假定项目使用 Kotlin 作为配置脚本语言，模块及构建脚本配置参考如下，根据使用到的依赖调整。
-   JDK 自带模块生成工具 `jlink`__ ，Gradle 项目对应有插件 `org.beryx.jlink`__ 。启用插件，
+   JDK 自带模块生成工具 `jlink`_ ，Gradle 项目对应有插件 `org.beryx.jlink`_ 。启用插件，
    并配置入口模块。
 
    以下是 Java 模块信息文件，``src/main/java/module-info.java``，注意代码文件存放的位置，
@@ -3048,7 +3048,7 @@ Java Module Project
    调试信息是提升调试体验的有效手段，通过编译器、解释器收集到与源代码相关的一些要点信息，比如
    数据类型、变量值、源代码位置以及变量符号位置等等，位置信息可以包括源代码文件路径、行号、列号。
 
-   Node.js 或浏览器环境中的 JavaScript 脚本调试可以使用 `Chrome DevTools Protocol`__。
+   Node.js 或浏览器环境中的 JavaScript 脚本调试可以使用 `Chrome DevTools Protocol`_。
    编辑器要实现 Debug Client 部分，以及 Debug Client 与 IDE 的视图进行联动，就可以实现
    基于图形操作的的可视化调试工具。
 
@@ -3087,7 +3087,7 @@ Java Module Project
    包含了几十个指令，每个指令都需要进行通讯适配和 UI 适配，这还只是一种语言，如果你的 IDE 面向
    多种语言，就需要适配多种调试协议，不同协议的差异可能还挺大的，这些工作完全会让你崩溃。
 
-   `Debug Adapter Protocol (DAP)`__ 的出现，编辑器中集成调试器功能就只需要按统一的接口规范
+   `Debug Adapter Protocol (DAP)`_ 的出现，编辑器中集成调试器功能就只需要按统一的接口规范
    实现 Debug Adapters，调试器只要遵循同样的规范，编辑器只要遵循同样的规范，它们就可以互通使用，
    而不是重复造轮子。无论是 Sublime Text 还是 VS Code，VIM，Emacs 等等。
 
@@ -3129,9 +3129,9 @@ Java Module Project
    Stabs (symbol table strings) 成为主流的调试信息格式。 使用 GCC 或者 LLVM 系列编译器
    可以很方便生成 DWARF 调试信息。
 
-   根据 `gdb 13.2`__ 文档，GCC 当前支持 '-gdwarf-3' 和 '-gdwarf-4'。
+   根据 `gdb 13.2`_ 文档，GCC 当前支持 '-gdwarf-3' 和 '-gdwarf-4'。
 
-   根据 `GCC`__ 手册所述，可以使用 ``gcc -Q --help=optimizers``  命令查看所有优化相关参数。
+   根据 `GCC`_ 手册所述，可以使用 ``gcc -Q --help=optimizers``  命令查看所有优化相关参数。
    仅指定 ``-g`` 标志，大多数编译器不会在调试信息中包含有关预处理器宏的信息。 如果使用 DWARF 
    调试格式，并指定选项 ``-g3``，则 GCC 3.1 及更高版本编译会提供宏信息。
 
@@ -3389,14 +3389,14 @@ Java Module Project
    远程开发是远程办公利器，通过 VS Code 提供的远程开发环境还可以配合 Microsft WSL 插件，
    连接到 Windows 10 WSL 子系统上进行 Linux Kernel 系统的开发。
 
-   `VS Code Remote Development`__ 原理构架图如下：
+   `VS Code Remote Development`_ 原理构架图如下：
 
    .. figure:: https://code.visualstudio.com/assets/docs/remote/wsl/architecture-wsl.png
       :target: https://code.visualstudio.com/docs/remote/remote-overview
 
       基于 WSL 的远程开发原理构架图
 
-   VS Code 支持四种形式的远程开发，安装 `Remote Development Extension Pack`__ 插件包
+   VS Code 支持四种形式的远程开发，安装 `Remote Development Extension Pack`_ 插件包
    即可以获得相应的支持：
 
    *  ``Remote SSH`` - 通过 SSH 隧道连接任意远程服务器主机或虚拟机，支持安装好 OpenSSH 的主机构架包括：
@@ -3405,17 +3405,17 @@ Java Module Project
    *  ``Dev Containers`` - 连接到容器虚拟环境中，以使用单独的工具链或基于容器的应用进程；
    *  ``WSL`` - 连接到本地 Windows 10 系统上的 Windows Subsystem for Linux (WSL)；
 
-   远程开发使用到 `Visual Studio Code Server`__，这是安装在远程主机上的服务端，此服务器需要
+   远程开发使用到 `Visual Studio Code Server`_，这是安装在远程主机上的服务端，此服务器需要
    许可证。VS Code 提供通过 ``tunnel`` 命令行参数创建与服务器建立连接的 Remote Tunnels，
    也可以下载专用的 VS Code CLI 版本。隧道的创建是 P2P 网络的内网穿透，需要借助透网协调服务器、
    Session Traversal Utilities for NAT (STUN) 协议等等完成内网与内网之间的联接。另外，
    VS Code 提供 ``serve-web`` 命令行参数启动一个 Web Server，这是提供 VS Code Web 运行
    环境，与上面提到的 VS Code Server 是不同的软件。VS Code Web 只是在本地启用 Web UI 服务，
-   VS Code Server 则是向远程开发提供服务器，它需要 `Visual Studio Code Server License`__。
+   VS Code Server 则是向远程开发提供服务器，它需要 `Visual Studio Code Server License`_。
    VS Code Web 运行时也需要 VS Code Server，会自动下载安装并保存为 ``code-tunnel`` 命令文件。
    新版本 VS Code 提供的 Forward Port 功能就是基于 P2P 内网穿透技术提供的功能，让本地 Web
    服务暴露到互联网。所以，理论上，只要有自己的内网穿透工具访问远程主机上的 Web 服务，就可以不
-   使用 VS Code Server，现在已经有第三方服务器版本（韭菜收割版） `Code Server`__。此工具当前 
+   使用 VS Code Server，现在已经有第三方服务器版本（韭菜收割版） `Code Server`_。此工具当前 
    没有提供 Windows 安装包，但可以使用 Node 平台进行安装：
 
    .. code-block:: bash
@@ -3479,8 +3479,8 @@ Java Module Project
       729M    /home/jeango/.vscode-server/
 
    成功连接并打开目录、文件后，可以使用 Close Remote Connection 命令断开连接。
-   有了 WSL 开发环境就可以很好地研究 `Linux Kernel`__ 代码了，官方代码仓库本身包含了一份
-   开发者文档 `The Linux Kernel documentation`__，开发者可以先读 `Kernel README`__。
+   有了 WSL 开发环境就可以很好地研究 `Linux Kernel`_ 代码了，官方代码仓库本身包含了一份
+   开发者文档 `The Linux Kernel documentation`_，开发者可以先读 `Kernel README`_。
 
    最后，总结一下基于 VSCode Remote Tunnel 远程开发的优劣：
 
@@ -3517,7 +3517,7 @@ Java Module Project
 
    VS Code 与 Sublime Text 都是轻量级编辑器，当然后者自研的图形渲染系统比 Electron 更轻量，
    占用内存也更少。但是 VS Code 集成的调用功能更全面、更优秀，适配多种调试协议。即使调试 shell 
-   脚本也不在话下，只需要安装有相应的调试器即可以。并且，基于 `Language Server Protocol`__(LSP_)
+   脚本也不在话下，只需要安装有相应的调试器即可以。并且，基于 `Language Server Protocol`_(LSP_)
    的智能语言提示功能也更流畅，而 Sbublime Text 虽然也有 LSP 插件，但是配置过程比较繁琐。
 
    VS Code 支持多种语言的调试工作，Rust 这种底层语言也支持。首先安装 Rust 官方 rust-analyzer
@@ -3525,8 +3525,8 @@ Java Module Project
    管理工具。VS Code 支持自动检测 cargo 任务，在命令面板中就可以执行 Rust 程序的构建、运行等等。
    调试器可以使用 C/C++ 调试器，安装以下任意一个扩展，取决于操作系统类型：
 
-   *  Windows ： Microsoft `C/C++ Extension`__
-   *  OS X / Linux ： `CodeLLDB Extension`__
+   *  Windows ： Microsoft `C/C++ Extension`_
+   *  OS X / Linux ： `CodeLLDB Extension`_
 
    三大系统上可用的调试器如下，GDB 是通用的开源调试器：
 
@@ -3534,8 +3534,8 @@ Java Module Project
    *  macOS: LLDB or GDB
    *  Windows: the Visual Studio Windows Debugger or GDB (using Cygwin or MinGW)
 
-   `The LLDB Debugger`__ 调试器作为 LLVM 编译套件中的 GDB “架构升级版”，功能更加强大。
-   基于 LLDB 之上开发的 `CodeLLDB`__ 主要为 C++ 和 Rust 语言提供调试服务。兼容调试信息的
+   `The LLDB Debugger`_ 调试器作为 LLVM 编译套件中的 GDB “架构升级版”，功能更加强大。
+   基于 LLDB 之上开发的 `CodeLLDB`_ 主要为 C++ 和 Rust 语言提供调试服务。兼容调试信息的
    语言包括： Ada, Fortran, Kotlin Native, Nim, Objective-C, Pascal, Swift, Zig。
    CodeLLDB 可以通过 WSL2 工作在 Winows 10 或者 Windows 11 系统上。支持 CPU 构架包括：
    AArch64, ARM, AVR, MSP430, RISCV, X86 等等。
@@ -3545,8 +3545,8 @@ Java Module Project
 
    `C#`_ 作为 VS Code 同源项目，自然是提供大力度的支持，可以使用以下扩展：
 
-   *  .NET debugging - see the `C# Dev Kit`__ debugging.
-   *  Mono debugging - see the `Mono Debug`__ extension.
+   *  .NET debugging - see the `C# Dev Kit`_ debugging.
+   *  Mono debugging - see the `Mono Debug`_ extension.
 
    为了程序开始就进入中断，可以配置 launch.json 打开 "stopAtEntry": true。另外，如果代码
    文件中行首不能通过点击切换断点状态，可以修改配置：debug.allowBreakpointsEverywhere。
@@ -3573,7 +3573,7 @@ Java Module Project
          "windows-gcc-x86" to "linux-gcc-x86" based on compiler args and querying compilerPath: "c:/msys64/usr/bin/gcc.exe"
 
    启用 IntelliSense_ 智能提示后，就可以主动使用 Trigger Suggest (Ctrl + Space) 触发提示。
-   另一种智能方案是使用基于大语言模型 AI 问答技术的 `GitHub Copilot`__ 插件，它需要登录使用。
+   另一种智能方案是使用基于大语言模型 AI 问答技术的 `GitHub Copilot`_ 插件，它需要登录使用。
 
    使用 C++20 规范编程时，例如 ``std::format`` 这样的新类型可能没有自动提示，IntelliSense
    默认没有启用 C++ 规范，可以在 VS Code 全局配置（settings.json）或者 c_cpp_properties.json
@@ -3687,7 +3687,7 @@ Java Module Project
    熟悉各种调试器的配置选项，可以手动逐项填写调试器配置。VS Code 安装及启用的插件不同，所提供的
    可用调试器类型也不同。
 
-   VS Code 提供的 C/C++ 项目配置文件如下，具体选项参考 `Configure C/C++ debugging`__。 
+   VS Code 提供的 C/C++ 项目配置文件如下，具体选项参考 `Configure C/C++ debugging`_。 
 
    *  ``tasks.json`` (compiler build settings)
    *  ``launch.json`` (debugger settings)
@@ -3809,7 +3809,7 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
    Fortran、Ada、D 和 Go 等等。但是由于早期编译器架构设计不合理，导致整个编译体系非常复杂。
 
    LLVM (Low Level Virtual Machine) 作者是 UIUC（伊利诺伊大学厄巴纳香槟分校）博士生
-   `Chris Lattner`__ ，读博期间不断地研究探索关于编译器的未知领域，发表了一篇又一篇的论文。
+   `Chris Lattner`_ ，读博期间不断地研究探索关于编译器的未知领域，发表了一篇又一篇的论文。
    他在硕士毕业论文里提出了一套完整的在编译时、链接时、运行时甚至是在闲置时优化程序的编译思想，
    直接奠定了 LLVM 的基础。LLVM 在他念博士时更加成熟，使用 GCC 作为前端来对用户程序进行语义
    分析产生 IF（Intermidiate Format），然后 LLVM 使用分析结果完成代码优化和生成。
@@ -3840,10 +3840,10 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
    了解目标机器的知识。这大大降低了编译器的开发难度，使更多的开发人员可以参与进来。就凭这一构架，
    LLVM 就可以统领计算机编译器江湖！
 
-   `Chris Lattner`__ 和法国 `Fabrice Bellard`__ 都殿堂级的人类高质量程天才序员。
+   `Chris Lattner`_ 和法国 `Fabrice Bellard`_ 都殿堂级的人类高质量程天才序员。
    他们的作品，LLVM、QEMU、FFMPEG 足以改变人类历史。
 
-   `Chris Lattner`__ 成立了一家 ModularAI 公司，并实现用于 AI 编程的 `Mojo`__ 编程语言，
+   `Chris Lattner`_ 成立了一家 ModularAI 公司，并实现用于 AI 编程的 `Mojo`_ 编程语言，
    它是 Python 超集，但速度快几千倍，因为充分利用了现代多核心 CPU 的算力并行处理工作。拥有像
    Rust 一样的所有权概念（Ownership and borrowing）以及 Lifecycles and lifetimes。
 
@@ -3894,11 +3894,11 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
 
    LLVM 提供 ORC JIT APIs，即是按需编译（On-Request Compilation），最新版本 ORC v2。
 
-   * 卡内基梅隆大学现代编译器架构优化课程（2019 讲义可访问） `CMU 15-745 Fall '23 Projects`__
-   * LLVM 教程文档： `LLVM Getting Started`__, `configuration files`__
-   * LLVM 源代码阅读： `LLVM on github.dev`__, `LLVM on vscode.dev`__
-   * ORC 实时编译技术文档： `ORC Design and Implementation`__
-   * 编译器研发者 CPU 构架信息参考： `Architecture & Platform Information for Compiler Writers`__
+   * 卡内基梅隆大学现代编译器架构优化课程（2019 讲义可访问） `CMU 15-745 Fall '23 Projects`_
+   * LLVM 教程文档： `LLVM Getting Started`_, `configuration files`_
+   * LLVM 源代码阅读： `LLVM on github.dev`_, `LLVM on vscode.dev`_
+   * ORC 实时编译技术文档： `ORC Design and Implementation`_
+   * 编译器研发者 CPU 构架信息参考： `Architecture & Platform Information for Compiler Writers`_
 
 .. _Fabrice Bellard: https://www.bellard.org/
 .. _Chris Lattner: https://www.nondot.org/sabre/
@@ -3970,7 +3970,7 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
    CMake 构建项目分为两步：生成构建脚本（Ninja、Makefile 等等）或工程文件（MSVC 项目等），
    然后根据生成的脚本或工程执行构建。执行前一个步骤的程序称为生成器（Generator），CMake 提供
    多种生成器。编译时设置 --verbose 参数可以查看 CMake 调用什么编译以及使用了什么编译参数。
-   参考 `CMake Generator`__。
+   参考 `CMake Generator`_。
 
    .. code-block:: sh
 
