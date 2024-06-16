@@ -264,6 +264,310 @@ Getting Started Linux kernel Programming
    What are you parepared to do?
 
 
+/Hello Device Driver
+====================
+
+   以下将通过创建一个 hello driver 驱动程序来演示 Linux 驱动程序模块结构及开发环境配置。
+   项目目录结构如下：
+
+   .. code-block:: bash
+
+      $ tree ../src
+      ../src
+      ├── Makefile
+      └── k0100_hello_driver.c
+
+   Linux 1.2 开发，内核代码使用模块化形式组织，三种驱动程序也是模块化的：
+
+   *  ``Character devices`` 字符设备，此类设备包含字符流数据；
+   *  ``Block devices`` 块设备，此类设备通常包含一个文件系统；
+   *  ``Network interfaces`` 网络接口驱动，此类设备用于 Linux 主机之间的通信；
+
+   可将模块分为：内部模块（in-tree module）、外部模块（out-of-tree module），依据模块代码
+   编写与编译时的位置决定，在内核代码树外部编写并构建的模块就是外部模块。Linux 2.6 相对 2.4，
+   可装载模块加载过程存在巨大差异，Linux 2.6 中可装载模块在内核中完成连接。其他一些变化大致如下：
+
+   *  模块后缀名及装载工具：后缀名由原先的 .o 变成 .ko（kernel object）。
+      使用了新的装卸载工具集 module-init-tools，重新设计了 insmod 和 rmmod 工具。
+      模块的构建过程改变巨大，Linux 2.6 中代码先被编译成 .o 文件，再链接生成 .ko 文件，
+      构建过程会生成如 ``<module>.mod.c``、 ``<module>.mod.o`` 等文件。
+
+   *  模块信息的附加过程：Linux 2.6 模块的信息附加在构建时生成的 ``<module>.mod.c`` 代码文件中。
+      Linux 2.4 则在模块加载时附加模块信息，使用 insmod 工具完成模块的加载以及模块信息的附加。
+
+   *  模块的标记选项：针对管理模块的选项做了一些调整，如取消用于标记模块使用状态的 ``can_unload`` 标记，
+      添加了 ``CONFIG_MODULE_UNLOAD`` 用于标记禁止模块卸载。还修改了一些接口函数，如模块的引用计数。
+
+   Linux 内核本身采用宏内核（Monolithic kernel）组织形式，它除了将微内核（Microkernel）基础
+   功能（内存管理、进程管理、CPU 调度）编译为内核映像，还将文件系统、设备管理等等功能编译到内核映像，
+   这种结构可以提高内核的运行效率，缺点是扩展内核时，需要重新编译内核。Linux 1.2 引入可装载模块
+   （Loadable Kernel Module），可以缓解内核扩展不便问题，Linux 内核中越来越多的功能被模块化。
+   由于可装载模块相对内核有着易维护，易调试的特点。可装载模块还为内核节省了内存空间。模块一般在真正
+   需要时才被加载，这可以提升内核加载速度。根据模块作用，可装载模块可分三大类型：设备驱动、文件系统
+   和系统调用。注意，是从用户空间加载可装载模块到内核空间，但并非是用户空间的程序，而是内核代码片段。
+
+   Linux 内核的构建工作由 ``make`` 及配套的 Makefile 脚本和 Kconfig 配置文件完成。这套配置
+   需要依照 `Kernel Build System`_ 所述的规则进行编写与配置。以下是内核参考文档链接：
+
+   *  `Kconfig Language`_
+   *  `Kconfig macro language`_
+   *  `Kbuild`_
+   *  `Configuration targets and editors`_
+   *  `Linux Kernel Makefiles`_
+   *  `Building External Modules`_
+   *  `Exporting kernel headers for use by userspace`_
+   *  `Recursion issues`_
+   *  `Reproducible builds`_
+   *  `GCC plugin infrastructure`_
+   *  `Building Linux with Clang/LLVM`_
+
+.. _Kconfig Language: https://www.kernel.org/doc/html/latest/kbuild/kconfig-language.html
+.. _Kconfig macro language: https://www.kernel.org/doc/html/latest/kbuild/kconfig-macro-language.html
+.. _Kbuild: https://www.kernel.org/doc/html/latest/kbuild/kbuild.html
+.. _Configuration targets and editors: https://www.kernel.org/doc/html/latest/kbuild/kconfig.html
+.. _Linux Kernel Makefiles: https://www.kernel.org/doc/html/latest/kbuild/makefiles.html
+.. _Building External Modules: https://www.kernel.org/doc/html/latest/kbuild/modules.html
+.. _Exporting kernel headers for use by userspace: https://www.kernel.org/doc/html/latest/kbuild/headers_install.html
+.. _Recursion issues: https://www.kernel.org/doc/html/latest/kbuild/issues.html
+.. _Reproducible builds: https://www.kernel.org/doc/html/latest/kbuild/reproducible-builds.html
+.. _GCC plugin infrastructure: https://www.kernel.org/doc/html/latest/kbuild/gcc-plugins.html
+.. _Building Linux with Clang/LLVM: https://www.kernel.org/doc/html/latest/kbuild/llvm.html
+
+
+   Linux 为模块化提供了一系列命令工具，参考如下：
+
+   ============== ======================================
+   ``lsmod``      模块列表命令，list modules；
+   ``modinfo``    模块信息查询命令；
+   ``insmod``     模块加载命令，install module；
+   ``rmmod``      模块移除命令，remove module；
+   ``dmesg``      内核日志工具，查看和控制内核环形缓冲区；
+   ``modprobe``   加载或移除模块，自动利用 depmod 创建的依赖关系处理依赖模块；
+   ``depmod``     生成模块的依赖和映射关系；
+   ============== ======================================
+
+   Linux 驱动开发的第一步就是配置开发环境，包括安装 GCC 等编译器套件，以及安装 Linux 源代码，
+   因为需要引用源代码中的头文件。Windows 环境下可以使用 WSL Ubuntu，源代码安装命令参考如下：
+
+   .. code-block:: bash
+
+      $ sudo apt update
+      $ sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+      $ sudo apt-get install build-essential gcc gcc-13 g++-13
+      $ sudo apt-get install libc6-dev-i386
+
+      $ gcc --version
+      gcc (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0
+
+      $ g++-13 --version
+      g++-13 (Ubuntu 13.1.0-8ubuntu1~20.04.2) 13.1.0
+
+      $ sudo apt search linux-source
+      $ sudo apt install linux-source
+      $ sudo apt install linux-headers-generic
+      # linux-source-5.4.0/focal-updates,focal-security 5.4.0-182.202 all
+      # Linux kernel source for version 5.4.0 with Ubuntu patches
+
+      $ sudo tar --bzip2 -xf linux-source-5.4.0.tar.bz2
+
+      git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+
+   除了使用 apt 管理工具安装源代码，还可以手动克隆内核代码仓库，源代码默认安装目录是 ``/usr/src``。
+   下载代码压缩包后，直接使用 ``tar`` 命令解压 bz2 压缩包。如果不需要重新构建内核，也可以只安装
+   头文件，Linux kernel headers (linux-headers)。当前系统的发行版本号可以通过 `uname -r`
+   命令查看。通常依赖需要安装相应的软件开发包，例如， ``gnu/stubs-32.h`` 头文件属于 C 运行时
+   ，libc6 32-bit 版本，64-bit Ubuntu 系统默认不安装。
+   
+   Windows 系统可以使用管道访问内核代码： ``\\wsl$\Ubuntu-20.04\usr\src``。使用 VS Code
+   开发工具，先安装 C/C++ 插件，再将源代码目录添加到 ``c_cpp_properties.json`` 配置文件中：
+
+   .. code-block:: json
+
+      {
+         "version": 4,
+         "enableConfigurationSquiggles": true,
+         "env": {},
+         "configurations": [
+            {
+                  "name": "GCC",
+                  "cStandard": "c17",
+                  "cppStandard": "c++20",
+                  "includePath": [
+                     "/usr/include/x86_64-linux-gnu",
+                     "/usr/src/linux-source-5.4.0/include",
+                     "/usr/src/linux-source-5.4.0/arch/x86/include",
+                     "/usr/src/linux-source-5.4.0/arch/x86/include/uapi",
+                     "/usr/src/linux-source-5.4.0/arch/ia64/include",
+                     "/usr/src/linux-source-5.4.0/arch/ia64/include/uapi"
+                  ]
+            }
+         ]
+      }
+
+   根据所依赖的头文件添加路径，部分模块内部的头文件可以通过 `find` 命令查找头文件所在的子目录。
+   对于硬件依赖的头文件，根据目标 CPU 构架平台来选择要引用的文件：
+
+   .. code-block:: bash
+
+      $ find -path '*/asm/types.h'
+      ./arch/s390/include/uapi/asm/types.h
+      ./arch/powerpc/include/uapi/asm/types.h
+      ./arch/powerpc/include/asm/types.h
+      ./arch/parisc/include/uapi/asm/types.h
+      ./arch/sh/include/uapi/asm/types.h
+      ./arch/sh/include/asm/types.h
+      ./arch/xtensa/include/uapi/asm/types.h
+      ./arch/ia64/include/uapi/asm/types.h
+      ./arch/ia64/include/asm/types.h
+      ./arch/arm/include/uapi/asm/types.h
+      ./arch/mips/include/uapi/asm/types.h
+      ./arch/mips/include/asm/types.h
+      ./arch/alpha/include/uapi/asm/types.h
+      ./arch/alpha/include/asm/types.h
+
+   驱动模块的开发阶段，一般是将模块编译成 .ko 文件以进行动态加载，而不必将驱动程序编译到内核映射内。
+   使用以下命令可以将模块加载到内核，相对而言， ``modprobe`` 要比 ``insmod`` 更加智能，它会检查
+   并自动处理模块的依赖，而 ``insmod`` 出现依赖问题时仅仅提示安装失败。使用 ``printk`` 打印的
+   内核消息可以使用 ``dmdesg`` 命令查看，日内核志文件默认存放路径在 ``/var/log``。
+
+   如果要将驱动编译到内核映像，就需要按照内核源代码组织结构创建 ``Kconfig`` 配置，并添加用户
+   驱动模块到内核代码树，然后再执行 ``menuconfig`` 配置脚本时，就可以选择是否要编译用户驱动模块。
+   使用 ``make menuconfig`` 进入 Linux 源代码模块管理工程 TUI 菜单界面，内核功能模块的裁剪
+   就需要通过这些配置文件设置。内核配置文件是树状关系结构，kernel source tree，这些配置决定某一
+   模块是否需要编译到内核映像中。配置文件按照 `Kconfig Language`_ 脚本语言规则进行编写。
+
+   编译驱动模块，需要使用内核提供的构建脚本，脚本默认位于 /lib 模块目录下，它是 /usr/lib 目录的
+   符号链接，可以使用 ``tree -L 1 /`` 查看根目录下的目录链接信息。安装 linux-headers 软件包时
+   会自动设置内核模块构建脚本。Windows WSL 环境下，使用 `uname -r` 命令可以获取当前系统的发行
+   版本号，但是它包含 WSL 专有的后缀，与安装包的版本号可能不一致。以下 Makefile 脚本供参考，
+   其中硬编码版本号以避免 WSL 环境版本号问题。也可以在运行 ``make`` 命令指定 Linux 内核目录。
+   因为脚本中使用了 ``pwd`` 来获取当前工作目录，所以在执行构建命令前，需要进入驱动模块所在目录。
+   注意脚本中的 ``obj-m``，这里是 `Linux Kernel Makefiles`_ 内核模块的标准定义语法。
+
+   .. code-block:: bash
+
+      obj-m := k0100_hello_driver.o
+
+      # KERNELDIR ?= /lib/modules/$(shell uname -r)/build
+      KERNELDIR ?= /lib/modules/5.4.0-186-generic/build
+
+      all default: modules
+      install: modules_install
+
+      modules modules_install help clean:
+         $(MAKE) -C $(KERNELDIR) M=$(shell pwd) $@
+
+      test:
+         modinfo k0100_hello_driver.ko 
+         sudo insmod  k0100_hello_driver.ko
+         rmmod   k0100_hello_driver.ko
+         dmesg | grep "Hello\|Goodby"
+         lsmod
+
+   执行 ``make`` 命令构建驱动模块，构建工具会进入 -C 参数指定内核目录，并将模块路径信息通过 M
+   变量传递给内核 Makefile 脚本，包含构建类型 ``modules``，由内核脚本负责执行驱动模块的构建：
+
+   .. code-block:: bash
+
+      $ KERNELDIR=/usr/src/linux-headers-5.4.0-186-generic make
+      make -C /usr/src/linux-headers-5.4.0-186-generic M=/mnt/c/dl/pl/hi_cpp/src modules
+      make[1]: Entering directory '/usr/src/linux-headers-5.4.0-186-generic'
+      CC [M]  /mnt/c/dl/pl/hi_cpp/src/k0100_hello_driver.o
+      Building modules, stage 2.
+      MODPOST 1 modules
+      CC [M]  /mnt/c/dl/pl/hi_cpp/src/k0100_hello_driver.mod.o
+      LD [M]  /mnt/c/dl/pl/hi_cpp/src/k0100_hello_driver.ko
+      make[1]: Leaving directory '/usr/src/linux-headers-5.4.0-186-generic'
+
+   注意，驱动模块需要在内核空间（kernel space）中执行，用户空间权限不足以完成驱动程序执行的操作。
+   另外，如果构建使用的头文件版本与主机版本不一致时，就不能加载驱动模拟进行测试，这种情况在 WSL 
+   环境中常见，因为 WSL 是定制版本，与上游 Linux 版本不一样。构建模块时，内核版本等信息会内嵌到
+   模块程序映像的 ``.modinfo`` 段落中：
+
+   .. code-block:: bash
+
+      insmod: ERROR: could not insert module xxx.ko: Operation not permitted
+      insmod: ERROR: could not insert module xxx.ko: Invalid module format
+
+   Linux 对可装载模块采取了两层验证：模块的 CRC 值校验和 vermagic 的检查。其中模块 CRC 校验
+   针对模块（内核）导出符号，是一种简单的 ABI（Application Binary Interface）一致性检查。
+   使用 ``dmesg`` 可以查询模块加载失败的原因，以下显示驱动模块没有通过 CRC 值校验，即模块布局
+   (module_layout) 的 CRC 值与当前内核中的不符。而模块 vermagic，即 Version Magic String
+   则保存模块编译时的内核版本、厂商标识，以及 SMP、CPU 架构等配置信息，版本与主机不符也将终止加载。
+   内核中模块版本校验相关的函数的调用包括 ``setup_load_info`` 和 ``check_modinfo``。
+
+   .. code-block:: bash
+
+      $ dmesg | grep k0100
+      [  940.447501] k0100_hello_driver: disagrees about version of symbol module_layout
+
+   编译驱动模块时会生成 ``<module>.mod.c``，它包含了使用 ``MODULE_INFO`` 宏定义的模块信息
+   配置代码，也包括 vermagic 和内核函数地址映射。驱动模块源代码与生成的信息配置代码一起编译链接
+   得到一个 ko 内核对象文件。生成的模块信息代码在 ``modversion_info`` 结构体中保存了 CRC。
+
+   除了使用 ``modinfo`` 命令，还可以使用 ``objdump`` 工具来查看模块 ``.modinfo`` 段落中
+   包含的模块信息：
+
+      $ objdump --section=.modinfo -s k0100_hello_driver.mod.o
+
+   须指出的是 Linux 2.6 的内核源码树与 2.4 的不同，2.6 的内核源码树中还需存在一些目标文件及工具，
+   如 scripts/mod/modpost 等。
+
+   如果确认系统的内核版本与编译版本差异不大，可以使用 ``find`` 命令查找关键字 UTS_RELEASE, 
+   将宏定义的版本号修改为 WSL 系统内核版本，再重新编译驱动模块，这样就可以通过 magic 版本校验。
+   ``UTS_RELEASE`` 通常会在如下头文件中定义：
+
+   *  ``include/linux/vermagic.h``
+   *  ``include/generated/utsrelease.h``
+
+   如果要构建源代码，则可以修改 Makefile 脚本中包含的版本号信息。内核代码树的顶层 Makefile 脚本
+   文件包含了内核版本的信息，且该信息经编译后保存在生成的头文件 include/generated/utsrelease.h。
+
+
+   使用 WSL 源代码进行开发参考以下配置：
+
+   .. code-block:: bash
+
+      # 1. 下载内核代码
+      git clone --depth=1 https://github.com/microsoft/WSL2-Linux-Kernel
+      git clone --depth=1 -b linux-msft-wsl-5.10.y  git@github.com:microsoft/WSL2-Linux-Kernel /usr/src/`uname -r`
+
+      # 2. 编译和安装
+      cd WSL2-Linux-Kernel
+      LOCALVERSION= make KCONFIG_CONFIG=Microsoft/config-wsl -j8
+      sudo LOCALVERSION= make KCONFIG_CONFIG=Microsoft/config-wsl modules_install -j8
+
+      # 3. 安装 headers
+      sudo make headers_install ARCH=x86_64 INSTALL_HDR_PATH=/usr
+
+   以下是用于测试的 Linux 驱动模块（k0100_hello_driver.c）：
+
+   .. code-block:: cpp
+
+      #include <linux/kernel.h>
+      #include <linux/init.h>
+      #include <linux/module.h>
+      MODULE_LICENSE("MIT");
+
+      static int hello_init(void)
+      {
+         printk(KERN_ALERT "Hello, device driver module!\n");
+         return 0;
+      }
+
+      static void hello_exit(void)
+      {
+         printk(KERN_ALERT "Goodbye, cruel world!\n");
+      }
+
+      module_init(hello_init);
+      module_exit(hello_exit);
+
+.. _Makefile: https://github.com/PacktPublishing/Linux-Device-Driver-Development-Second-Edition/blob/main/Chapter02/Makefile
+.. _WSL: https://github.com/microsoft/WSL2-Linux-Kernel/
+.. _Linux 内核可装载模块的版本检查机制: https://www.cnblogs.com/sinferwu/p/12598820.html
+
+
 /G0001 Manual Pages and Vim
 ===========================
 

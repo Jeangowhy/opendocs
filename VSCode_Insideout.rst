@@ -18,6 +18,7 @@
 *  ``/🟡LLVM Clang and Clangd (C/C++ LSP)                            `` [S14]_
 *  ``/🟡VS Code Extensions                                           `` [S15]_
 *  ``/🟡VS Code and Android                                          `` [S16]_
+*  ``/🟡Jetpack Compose UI                                           `` [S17]_
 
 
 .. _S01: #S01
@@ -1262,6 +1263,12 @@
    这种绑定 Task 的快捷键有个小问题：Task 是工程中定义的，不是全局的任务，切换工程就要重新配置。
    当然，用好这套任务系统，开发任务也相当便利，配合自定义的脚本（started）可以实现很多功能，完全
    可以省掉好多 “Useless Plugin”。
+
+
+   命令行有一个自动运行功能，安装某些软件后如果设置了 AutoRun 就可能导致控制台出现错误信息。卸载
+   软件后，如果还遗留以下注册表项目，那么打开控制台时，就会出现一条「系统找不到指定的路径」错误提示。
+
+      计算机\HKEY_CURRENT_USER\Software\Microsoft\Command Processor\AutoRun
 
 .. _S05: #S05
 
@@ -4394,6 +4401,8 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
 /🟡VS Code and Android
 ======================
 
+   项目模板参考： https://github.com/jimboyeah/demo/tree/android_with_vscode
+   
    VS Code 创建 Android 项目，需要根据使用需求安装以下一些插件：
 
    - Java Extension Pack，此插件包含有 6 个插件：
@@ -4406,11 +4415,21 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
       -  **Maven for Java by Microsoft** - Manage Maven projects, execute goals, 
          generate project from archetype, improve user experience for Java developers.
    - Android Extension Pack，此插件包提供 Android SDK、Gradle 等集成支持、支持布局预览等。
+      - **Android for VS Code** 插件（adelphes）提供应用调试功能。
+      - **Android Full Support** 插件提供应用项目模板创建等功能，自带 Kotlin LSP 和 SDK 工具，似乎没什么用。
+      - **Android ADB WLAN** 插件提供无线连接操作，可以直接使用 adb 命令进行连接。
+      - **Android Studio Logcat** 插件提供 adb 日志查询界面，需要熟悉 logcat 过滤器的使用。
    - **Kotlin Language**，此插件提供 Kotlin 语言的支持，如果需要使用可以考虑安装。
-   - **Kotlin** Kotlin IDE for Visual Studio Code. Smart code completion, linting, 
-      debugging, formatting and more for Kotlin in VSCode using the 
-      `Kotlin language server <https://github.com/fwcd/kotlin-language-server>`__
-      and the `Kotlin debug adapter <https://github.com/fwcd/kotlin-debug-adapter>`__.
+   - **Kotlin** Kotlin IDE for Visual Studio Code，依赖以下两个插件，提供代码智能提示、调试等功能。
+      - `Kotlin language server <https://github.com/fwcd/kotlin-language-server>`__
+      - `Kotlin debug adapter <https://github.com/fwcd/kotlin-debug-adapter>`__
+
+   Android 应用可以使用 Flutter UI 框架进行开发，此框架使用 Dart 脚本语言，安装相应的插件支持。
+   安装 Gradle 集成可能会占用较多资源，如果熟悉 gradle 命令行，可以选择不安装此插件。安装好插件，
+   需要用户在配置页面设置以下配置项：
+   
+   *  JAVA SDK 下载安装。
+   *  Android SDK Tools 配置（Sdk Location），默认使用 ``${ANDROID_SDK_ROOT}`` 环境变量，可以指定 SDK 路径。
 
    Kotlin 插件提供的开发环境需要 JetBrains Runtime (JBR)，这是一个基于 OpenJDK 的跨平台的
    (Windows, Mac OS X, Linux) JCEF 框架运行时，作为 JetBrains IDE 全线产品的基础构成。
@@ -4437,7 +4456,660 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
    - rendering HTML content
    - previewing generated HTML (e.g., from Markdown)
 
-   `JCEF - Java Chromium Embedded Framework <https://intellij-sdk-docs-cn.github.io/intellij/sdk/docs/reference_guide/jcef.html>`__
-   `JBR with JCEF <https://github.com/JetBrains/JetBrainsRuntime>`__
-   `The Chromium Projects <https://www.chromium.org/Home/>`__
+   - `JCEF - Java Chromium Embedded Framework <https://intellij-sdk-docs-cn.github.io/intellij/sdk/docs/reference_guide/jcef.html>`__
+   - `JBR with JCEF <https://github.com/JetBrains/JetBrainsRuntime>`__
+   - `The Chromium Projects <https://www.chromium.org/Home/>`__
 
+   开发 Android 应用程序必需有软件开发工具包: Android SDK (Software Development Kit)。
+   现在的 Android Studio 包含了 SDK 安装功能，通过其工具菜单就可以安装 SDK 各个组件。在早期
+   提供的 SDK 安装包中包含了 Android SDK tools，它包含的工具和最新的 Command Line Tools
+   工具包基本一致，就是多了一个可以用于命令行创建工程模板的 ``android`` 脚本，以及模拟器命令等。
+   这个脚本主要用于手动管理 SDK, AVD, 以及项目管理，但是最新命令行工具包中不再提供这个脚本工具。
+   并且最新的 Android SDK Tools 提供的脚本也不再支持项目管理功能，推荐使用 Android Sutio。
+   也就是使用 Intellj IDEA 环境中的 ``Android`` 插件进行项目管理操作。如果要使用命令行创建
+   项目，可以使用老版本 SDK，比如 Android SDK r24.4.1 就提供支持。使用以下命令创建一个新的
+   Android 10 项目（API Level 29），根据需要修改项目名称和 Android API Level。脚本默认
+   使用 Ant 作为自动化构建工具，可以使用 ``-g -v 8.2`` 这样的参数指定 Gradle 构建工具，
+   以及适配的 Gradle Android plugin 版本：
+
+   .. code-block:: bash
+
+      android create project -n hi_app -t android-29 -p . -k org.example.hi_app -a hi_app
+      # Action "create project":
+      #   Creates a new Android project.
+      #     Options:
+      #     -n --name          : Project name.
+      #     -p --path          : The new project's directory. [required]
+      #     -a --activity      : Name of the default Activity that is created. [required]
+      #     -k --package       : Android package name for the application. [required]
+      #     -t --target        : Target ID of the new project. [required]
+      #     -g --gradle        : Use gradle template.
+      #     -v --gradle-version: Gradle Android plugin version.
+
+   目前最新的 `Gradle Android plugin`_ 版本是 8.6，它的兼容性如下：
+
+   ================  ===============  ===============  ======================
+   Components        Minimum version  Default version  Notes
+   ================  ===============  ===============  ======================
+   Gradle            8.6              8.6              To learn more, see updating Gradle.
+   SDK Build Tools   34.0.0           34.0.0           Install or configure SDK Build Tools.
+   NDK               N/A              26.1.10909125    Install or configure a different version of the NDK.
+   JDK               17               17               To learn more, see setting the JDK version.
+   ================  ===============  ===============  ======================
+
+.. _Gradle Android plugin: https://developer.android.google.cn/build/releases/past-releases/agp-8-4-0-release-notes
+
+   使用 VS Code 开发应用，熟悉 `Android SDK <Android_Studio.rst>`__ 提供的开发工具很有必要，
+   主要工具包括 cmdline-tools 工具包，以及平台工具，platform-tools 和 build-tools：
+   
+   *  SDK 管理工具（sdkmanager），用于安装 SDK 组件。
+      比如 ``sdkmanager --install cmdline-tools;latest platform-tools``
+   *  模拟器管理工具（avdmanager），用于创建基于 Qemu 的模拟器，以便使用软件进行模拟仿真。
+   *  调试桥（ADB）：用于 USB 或无线连接手机，安装管理应用、调试日志的查询、执行各种命令。
+
+   安卓开发工具安装及工具构建流程文档：
+
+   *  命令行工具包（Android Command Line Tools） https://developer.android.google.cn/studio
+   *  Android SDK Tools 下载 https://www.androiddevtools.cn/
+   *  `Android SDK r24.4.1 <https://dl.google.com/android/android-sdk_r24.4.1-windows.zip>`__
+   *  `Android SDK 命令行工具 <https://developer.android.google.cn/tools>`__
+   *  `Understand the Android build system <https://developer.android.google.cn/build>`__
+   *  `Build your app from the command line <https://developer.android.google.cn/build/building-cmdline>`__
+
+   Android Studio 默认使用 Gradle 作为项目管理工具，创建 Android 项目有多种方法：
+
+   * 使用 Android Studio 创建项目模板；
+   * 使用 Android Samples 示范代码中的项目；
+   * 使用 Android SDK Tools 提供的 ``android`` 脚本创建项目；
+
+   项目创建后，会提供一系列 Gradle 任务，使用 ``./gradlew help tasks`` 查询可用任务。
+
+   ========================== ============================================
+   ./gradlew projects         显示当前工程中包含的项目；
+   ./gradlew build            构建当前工程中包含的项目；
+   ./gradlew installDebug     - Installs the Debug build.
+   installDebugAndroidTest    - Installs the android (on device) tests for the Debug build.
+   uninstallAll               - Uninstall all applications.
+   uninstallDebug             - Uninstalls the Debug build.
+   uninstallDebugAndroidTest  - Uninstalls the android (on device) tests for the Debug build.
+   uninstallRelease           - Uninstalls the Release build.
+   ========================== ============================================
+
+   项目创建完成后，根据需要修改项目配置文件（build.gradle），添加依赖项或者修改构建选项。执行
+   Gradle 构建任务，比如 ``./gradlew installDebug`` 就可以将构建好的 apk 程序包安装到
+   已经连接的手机上。或者，安装到已启动模拟器中，如果没有连接真机。
+
+   安装了 Android for VS Code 插件，在配置调试器时，就可以通过 Go -> Add Configuration...
+   创建配置文件，并且使用调试器的备选列表中由插件提供的 ``Android`` 选项，就可以自动添加以下配置，
+   包含了直接运行并调试 App（launch 方法），以及附加调试方式（attach）以调试手机当前运行中的进程。
+   可以根据需要以下 launch.json 配置文件：
+
+   .. code-block:: cpp
+
+      {
+         // Use IntelliSense to learn about possible attributes.
+         // Hover to view descriptions of existing attributes.
+         // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+         "version": "0.2.0",
+         "configurations": [
+            {
+                  "type": "android",
+                  "request": "launch",
+                  "name": "Android launch",
+                  "appSrcRoot": "${workspaceRoot}/app/src/main",
+                  "apkFile": "${workspaceRoot}/app/build/outputs/apk/debug/app-debug.apk",
+                  "adbPort": 5037
+            },
+            {
+                  "type": "android",
+                  "request": "attach",
+                  "name": "Android attach",
+                  "appSrcRoot": "${workspaceRoot}/app/src/main",
+                  "adbPort": 5037,
+                  "processId": "${command:PickAndroidProcess}"
+            }
+         ]
+      }
+
+   注意，项目模板创建日期是 2013 年，如果需要使用新版本的 Gradle 就需要考虑配置脚本语法及插件版本
+   的适配问题。根据需要修改 gradle\wrapper\gradle-wrapper.properties 配置文件：
+
+   .. code-block:: bash
+
+      #Wed Apr 10 15:27:10 PDT 2013
+      distributionBase=GRADLE_USER_HOME
+      distributionPath=wrapper/dists
+      zipStoreBase=GRADLE_USER_HOME
+      zipStorePath=wrapper/dists
+      distributionUrl=http\://services.gradle.org/distributions/gradle-1.12-all.zip
+      #distributionUrl=https\://services.gradle.org/distributions/gradle-8.7-bin.zip
+
+   模板使用的是 Java 语言，当时 Kotlin 才发布不到两年，如果使用 kotlin 编程就需要变更项目结构：
+
+   .. code-block::
+
+      ├── build.gradle
+      ├── gradle
+      │   └── wrapper
+      │       ├── gradle-wrapper.jar
+      │       └── gradle-wrapper.properties
+      ├── gradlew
+      ├── gradlew.bat
+      ├── local.properties
+      └── src
+         ├── androidTest
+         │   └── java
+         └── main
+            ├── AndroidManifest.xml
+            ├── java
+            └── res
+
+   由于版本较旧，AndroidManifest.xml 中的配置也需要进行更新，比如 Activity 就需要显式导出，
+   需要添加 ``android:exported="true"``。旧版本直接在 manifest 节点的 package 属性声明
+   程序包名，新版本不支持此属性，直接忽略此值。
+
+   新版本的 Gradle 使用的项目目录结构如下，App 应用使用单独子目录管理，并在项目根目录下的配置
+   文件中（settings.gradle.kts）使用 ``include(":app")`` 指令包含进入项目树。
+
+   .. code-block::
+
+      ├── app
+      │   ├── build.gradle.kts
+      │   ├── libs
+      │   ├── proguard-rules.pro
+      │   └── src
+      │       ├── androidTest
+      │       ├── main
+      │       │   ├── AndroidManifest.xml
+      │       │   ├── java
+      │       │   └── res
+      │       └── test
+      │           └── java
+      ├── build.gradle.kts
+      ├── gradle
+      │   └── wrapper
+      │       ├── gradle-wrapper.jar
+      │       └── gradle-wrapper.properties
+      ├── gradle.properties
+      ├── gradlew
+      ├── gradlew.bat
+      ├── local.properties
+      └── settings.gradle.kts
+
+   以下是 Gradle 旧版本的与新版本的配置差别对比：
+
+   .. code-block:: cpp
+
+      // build.gradle（groovy）
+      buildscript {
+          repositories {
+              mavenCentral()
+          }
+          dependencies {
+              classpath 'com.android.tools.build:gradle:7.4'
+          }
+      }
+      apply plugin: 'android'
+
+      android {
+          compileSdkVersion 'android-34'
+          buildToolsVersion '34.0.0'
+
+          buildTypes {
+              release {
+                  runProguard false
+                  proguardFile getDefaultProguardFile('proguard-android.txt')
+              }
+          }
+      }
+
+   .. code-block:: cpp
+
+      // build.gradle.kts （kotlin） 
+      // Top-level build file where you can add configuration options common to all sub-projects/modules.
+      plugins {
+         id("com.android.application") version "8.2.0" apply false
+         id("org.jetbrains.kotlin.android") version "2.0.0-RC2" apply false
+      }
+
+   新版本 Gradle 项目根目录的构建配置只有几行，是因为将应用的构建移动到了 app 子目录下。
+   App 应用构建配置脚本（app/build.gradle.kts）参考如下：
+
+   .. code-block:: bash
+
+      plugins {
+         id("com.android.application")
+         id("org.jetbrains.kotlin.android")
+      }
+
+      android {
+         namespace = "org.example.hi_app"
+         compileSdk = 34
+
+         defaultConfig {
+            applicationId = "org.example.hi_app"
+            minSdk = 29
+            targetSdk = 34
+            versionCode = 1
+            versionName = "1.0"
+
+            testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+         }
+
+         buildTypes {
+            release {
+                  isMinifyEnabled = false
+                  proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            }
+         }
+         compileOptions {
+            sourceCompatibility = JavaVersion.VERSION_1_8
+            targetCompatibility = JavaVersion.VERSION_1_8
+         }
+         kotlinOptions {
+            jvmTarget = "1.8"
+         }
+         buildFeatures {
+            viewBinding = true
+         }
+      }
+
+      dependencies {
+         implementation("androidx.core:core-ktx:1.10.1")
+         implementation("androidx.appcompat:appcompat:1.6.1")
+         implementation("com.google.android.material:material:1.9.0")
+         implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+         implementation("androidx.navigation:navigation-fragment-ktx:2.6.0")
+         implementation("androidx.navigation:navigation-ui-ktx:2.6.0")
+         testImplementation("junit:junit:4.13.2")
+         androidTestImplementation("androidx.test.ext:junit:1.1.5")
+         androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+      }
+
+   早期项目模板未包含 gradle.properties 和 settings.gradle.kts 等配置文件，以下供参考：
+
+   .. code-block:: bash
+
+      # gradle.properties
+
+      # Project-wide Gradle settings.
+      # IDE (e.g. Android Studio) users:
+      # Gradle settings configured through the IDE *will override*
+      # any settings specified in this file.
+      # For more details on how to configure your build environment visit
+      # http://www.gradle.org/docs/current/userguide/build_environment.html
+      # Specifies the JVM arguments used for the daemon process.
+      # The setting is particularly useful for tweaking memory settings.
+      org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8
+      # When configured, Gradle will run in incubating parallel mode.
+      # This option should only be used with decoupled projects. More details, visit
+      # http://www.gradle.org/docs/current/userguide/multi_project_builds.html#sec:decoupled_projects
+      # org.gradle.parallel=true
+      # AndroidX package structure to make it clearer which packages are bundled with the
+      # Android operating system, and which are packaged with your app's APK
+      # https://developer.android.com/topic/libraries/support-library/androidx-rn
+      android.useAndroidX=true
+      # Kotlin code style for this project: "official" or "obsolete":
+      kotlin.code.style=official
+      # Enables namespacing of each library's R class so that its R class includes only the
+      # resources declared in the library itself and none from the library's dependencies,
+      # thereby reducing the size of the R class for that library
+      android.nonTransitiveRClass=true
+
+   .. code-block:: cpp
+
+      // settings.gradle.kts
+
+      pluginManagement {
+         repositories {
+            google()
+            mavenCentral()
+            gradlePluginPortal()
+         }
+      }
+      dependencyResolutionManagement {
+         repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+         repositories {
+            google()
+            mavenCentral()
+         }
+      }
+
+      rootProject.name = "My Application"
+      include(":app")
+
+   ProGuard rules（proguard-rules.pro）为 Androi R8 工具（压缩，混淆，优化）设置规则。
+   Android Gradle Plugin 3.4.0 或更高版本使用。R8 和 Proguard 相比，能够更快地缩减代码，
+   同时改善输出大小，R8 默认处于启用状态。R8 普通模式可以兼容 Proguard，完全模式（fullMode）
+   会启用一些额外的优化，这个时候可能需要一些其它 ProGuard 规则以避免运行时问题。可以在项目的
+   gradle.properties 配置文件中设置以下选项来禁用 R8，或者启用启用完全模式：
+
+   *  android.enableR8=false
+   *  android.enableR8.fullMode=true
+
+   .. code-block:: bash
+
+      # Add project specific ProGuard rules here.
+      # You can control the set of applied configuration files using the
+      # proguardFiles setting in build.gradle.
+      #
+      # For more details, see
+      #   http://developer.android.com/guide/developing/tools/proguard.html
+
+      # If your project uses WebView with JS, uncomment the following
+      # and specify the fully qualified class name to the JavaScript interface
+      # class:
+      #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+      #   public *;
+      #}
+
+      # Uncomment this to preserve the line number information for
+      # debugging stack traces.
+      #-keepattributes SourceFile,LineNumberTable
+
+      # If you keep the line number information, uncomment this to
+      # hide the original source file name.
+      #-renamesourcefileattribute SourceFile
+
+
+.. _S17: #S17
+
+/🟡Jetpack Compose UI
+======================
+
+   Android 系统目前主推 Jetpack Compose，此 UI 框架使用声明式函数构建简单的界面组件。
+   需要掌握可组合函数、基本布局以及 Material Design、列表和动画在 Compose 中的工作原理。
+   Jetpack Compose 是用于构建原生 Android UI 的现代工具包。使用更少的代码，强大的工具和
+   更直观的 Kotlin API，简化并加速 Android 应用上的 UI 开发。
+
+   传统 Android 应用需要使用 Java/Kotlin 代码编写 Activity，或者在 XML 中编写布局代码。
+   声明式的 Jetpack Compose 框架完全抛弃传统的复杂方式，用一种类似搭积木的风格来编写 UI 代码。
+   函数可以返回 UI 组件实例，这样的函数可以使用 ``@Composable`` 标注，当作 UI 组件进行组合。
+   这种风格的 UI 开发体验和 React Web UI 构架非常相似。
+
+   Jetpack Compose 完全基于 Kotlin 语言，但可以与 Java 编程语言完全互操作，并且可以直接
+   访问所有 Android 和 Jetpack API。但是，Jetpack Compose 本身不支持 Java 语言。
+
+   Android 原生的 UI 代码设计存在一些问题，一个重要的原因是 View.java 这个类实在是太大了，
+   有太多的代码，它大到你甚至无法在 Githubs 上直接查看该文件，因为它实际上包含了 30000 行代码。
+   对于一个代码文件来说，这很疯狂，应用开发所使用的几乎每一个 Android UI 组件都需要继承于 View。
+
+
+   继前面的内内容，为了简化，主程序代码只完成布局配置文件（layout.xml）的加载，没有涉及其它功能：
+
+   .. code-block:: java
+
+      package org.example.hi_app;
+
+      import android.app.Activity;
+      import android.os.Bundle;
+
+      public class hi_app extends Activity
+      {
+         /** Called when the activity is first created. */
+         @Override
+         public void onCreate(Bundle savedInstanceState)
+         {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.main);
+         }
+      }
+
+   配套的布局文件 app\src\main\res\layout\main.xml 内容参考：
+
+   .. code-block:: xml
+
+      <?xml version="1.0" encoding="utf-8"?>
+      <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+         android:orientation="vertical"
+         android:layout_width="fill_parent"
+         android:layout_height="fill_parent"
+         >
+      <TextView
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:text="Hello World, hi_app"
+         />
+      </LinearLayout>
+
+
+   使用 Kotlin 语言改造 App 入口类，新语言最大的好处就是让代码更整洁，入口类名称有变动，
+   需要相应更新 AndroidManifest.xml 清单文件中的设置：
+
+   .. code-block:: kotlin
+
+      package org.example.hi_app
+
+      import android.app.Activity
+      import android.os.Bundle
+      import androidx.appcompat.app.AppCompatActivity
+
+      class hi_app_kt : Activity()
+      {
+         /** Called when the activity is first created. 
+         */
+         override
+         fun onCreate(savedInstanceState: Bundle?)
+         {
+            super.onCreate(savedInstanceState)
+            setContentView(R.layout.main)
+         }
+      }
+
+   API 22 提供的 ``AppCompatActivity`` 入口类，它本用来替代 ``ActionBarActivity``，提供
+   Material Design 风格控件支持。也就是说，如果使用它来加载布局配置文件，就需要设置相应的
+   ActionBar，否则 App 会在解释布局时出错而导致闪退。
+
+   Android Studio 中创建 Compose 项目非常便捷，只需新建一个 Empty Activity 项目模板，
+   然后设置使用 Kotlin 语言，以及使用 API level 21+ 即可支持 Jetpack Cmompose 框架。
+   现有项目中引入 Compose 框架，可以修改 build.gradle.kt 配置脚本中设置：
+
+   .. code-block:: kotlin
+
+      android {
+         buildFeatures {
+            compose = true
+         }
+
+         composeOptions {
+            kotlinCompilerExtensionVersion = "1.5.13"
+         }
+      }
+      dependencies {
+         // implementation(projects.shared)
+         implementation(libs.compose.ui)
+         implementation(libs.compose.ui.tooling.preview)
+         implementation(libs.compose.material3)
+         implementation(libs.androidx.activity.compose)
+         debugImplementation(libs.compose.ui.tooling)
+      }
+
+   另外，以上配置脚本还需要配合以下集中式依赖声明（gradle/libs.versions.toml）：
+
+   .. code-block:: toml
+
+      [versions]
+      agp = "8.4.0"
+      kotlin = "1.9.20"
+      compose = "1.5.4"
+      compose-compiler = "1.5.4"
+      compose-material3 = "1.1.2"
+      androidx-activityCompose = "1.8.0"
+
+      [libraries]
+      kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+      androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
+      compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
+      compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
+      compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
+      compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
+      compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
+
+      [plugins]
+      androidApplication = { id = "com.android.application", version.ref = "agp" }
+      androidLibrary = { id = "com.android.library", version.ref = "agp" }
+      kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+      kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+      kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
+
+   Kotlin 作为一个以跨平台开发为目标的开发平台，它可以同一个项目中同时开发 Android 和 iOS 应用，
+   这种情况下，通常需要将共享代码使用一个 shared 模块（选择这个名称更符合语意），然后在项目根目录
+   下的设置（settings.gradle.kts）中使用 ``include(":shared")`` 指令将其包含到项目树中。
+   然后，在各个平台代码项目中，作为 implementation 方式引用这个共享代码模块。
+
+   Kotlin 跨平台项目 (multiplatform projects) 中才可以使用 ``expect`` 和 ``actual``
+   声明表达式，以引入底层 API，参考 KMP 文档 `Kotlin Multiplatform`_。例如，以下代码声明了
+   底层的 ``getPlatform()`` 方法，它返回平台类型名称：
+
+   .. code-block:: kotlin
+
+      interface Platform {
+         val name: String
+      }
+
+      expect fun getPlatform(): Platform
+   
+   目前，多平台项目需要使用在线 `Kotlin Multiplatform wizard`_ 创建项目模板，Android Sutdio
+   也是如此，参考官方文档 `Create your multiplatform project`_。
+
+   注意，Compose 对 Kotlin 编译器版本有要求，Compose Compiler Gradle plugin 版本配置。
+   如果 build.gradle 脚本中使用的版本不兼容，则会有版本错误提示信息，根据所提示版本号修改
+   build.gradle 中配置的版本。
+
+   如果没有配置好 Compose 框架模块运行时依赖，执行构建任务时，就会提示类似以下的错误信息：
+
+      The Compose Compiler requires the Compose Runtime to be on the class path, 
+      but none could be found. The compose compiler plugin you are using (version 1.5.13) 
+      expects a minimum runtime version of 1.0.0.
+
+   .. code-block:: kotlin
+
+      // Top-level build file where you can add configuration options common to all sub-projects/modules.
+      plugins {
+         id("com.android.application") version "8.2.0" apply false
+         id("org.jetbrains.kotlin.android") version "1.9.23" apply false
+      }
+
+   另外，使用 Gradle 构建时，可能会和 Kotlin 插件有次，它可能会加载到临时生成的资源程序包（R.jar），
+   这会导致在构建过程中无法删除，从而提示: 另一个程序正在使用此文件，进程无法访问。可以停用插件再
+   执行构建任务。可以使用 ``jps`` 命令查询 JVM 进程号，进程名称为 MainKt，然后使用 ``taskkill``
+   结束进程。Linux 系统中可以使用 ``ps`` 以及 ``kill -s SIGINT pid`` 命令。
+
+.. _Develop UI for Android: https://developer.android.google.cn/develop/ui
+.. _Developer guides - App architecture: https://developer.android.google.cn/topic/architecture/intro
+.. _Jetpack Compose Quick start: https://developer.android.google.cn/develop/ui/compose/setup
+.. _Kotlin Multiplatform: https://kotlinlang.org/docs/multiplatform.html
+.. _Kotlin Multiplatform wizard: https://kmp.jetbrains.com/
+.. _Create your multiplatform project: https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-create-first-app.html
+
+   使用 Compose 框架后的主程序代码参考如下，注意入口类更名为 MainActivity，需要同步清单文件。
+
+   Compose 框架参考文档：
+
+   - `Jetpack Compose Quick start`_
+   - `Developer guides - App architecture`_
+
+   ``app\src\main\kotlin\org\example\hi_app\hi_app.kt``
+
+   .. code-block:: kotlin
+
+      package org.example.hi_app
+
+      import android.os.Bundle
+      import androidx.activity.ComponentActivity
+      import androidx.activity.compose.setContent
+      import androidx.compose.foundation.layout.fillMaxSize
+      import androidx.compose.material3.*
+      import androidx.compose.runtime.Composable
+      import androidx.compose.ui.Modifier
+      import androidx.compose.ui.tooling.preview.Preview
+
+
+      class MainActivity : ComponentActivity() {
+         override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            setContent {
+                  Hi_Theme {
+                     Surface(
+                        modifier = Modifier.fillMaxSize(),
+                        color = MaterialTheme.colorScheme.background
+                     ) {
+                        GreetingView("Hi!")
+                     }
+                  }
+            }
+         }
+      }
+
+      @Composable
+      fun GreetingView(text: String) {
+         Text(text = text)
+      }
+
+      @Preview
+      @Composable
+      fun DefaultPreview() {
+         Hi_Theme {
+            GreetingView("Hello, Android!")
+         }
+      }
+
+   ``app\src\main\kotlin\org\example\hi_app\Hi_Theme.kt``
+
+   .. code-block:: kotlin
+
+      package org.example.hi_app
+
+      import androidx.compose.foundation.isSystemInDarkTheme
+      import androidx.compose.foundation.shape.RoundedCornerShape
+      import androidx.compose.material3.MaterialTheme
+      import androidx.compose.material3.Shapes
+      import androidx.compose.material3.Typography
+      import androidx.compose.material3.darkColorScheme
+      import androidx.compose.material3.lightColorScheme
+      import androidx.compose.runtime.Composable
+      import androidx.compose.ui.graphics.Color
+      import androidx.compose.ui.text.TextStyle
+      import androidx.compose.ui.text.font.FontFamily
+      import androidx.compose.ui.text.font.FontWeight
+      import androidx.compose.ui.unit.dp
+      import androidx.compose.ui.unit.sp
+
+      @Composable
+      fun Hi_Theme (
+         darkTheme: Boolean = isSystemInDarkTheme(),
+         content: @Composable () -> Unit
+      ) {
+         val colors = if (darkTheme) {
+            darkColorScheme(
+                  primary = Color(0xFFBB86FC),
+                  secondary = Color(0xFF03DAC5),
+                  tertiary = Color(0xFF3700B3)
+            )
+         } else {
+            lightColorScheme(
+                  primary = Color(0xFF6200EE),
+                  secondary = Color(0xFF03DAC5),
+                  tertiary = Color(0xFF3700B3)
+            )
+         }
+         val typography = Typography(
+            bodyMedium = TextStyle(
+                  fontFamily = FontFamily.Default,
+                  fontWeight = FontWeight.Normal,
+                  fontSize = 16.sp
+            )
+         )
+         val shapes = Shapes(
+            small = RoundedCornerShape(4.dp),
+            medium = RoundedCornerShape(4.dp),
+            large = RoundedCornerShape(0.dp)
+         )
+
+         MaterialTheme(
+            colorScheme = colors,
+            typography = typography,
+            shapes = shapes,
+            content = content
+         )
+      }

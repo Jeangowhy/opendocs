@@ -1585,6 +1585,7 @@ Notes: Make sure that your host is still connected to the same Wi-Fi network you
 
 Wifi 连接操作相当于在手机上执行以下设置：
 
+```bash
     # 设置 usb 连接调试
     # setprop service.adb.tcp.port -1
     # 设置 tcpip 连接调试
@@ -1593,6 +1594,7 @@ Wifi 连接操作相当于在手机上执行以下设置：
     # 重启 adb 服务
     stop adbd
     start adbd
+```
 
 如果有 Root 权限，可以直接在手机上执行命令设置，如 JuiceSSH 工具可以执行命令，这样就可以不用通过 USB 初始设置。 
 

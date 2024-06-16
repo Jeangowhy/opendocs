@@ -101,6 +101,7 @@
      fill="#ff0000"
      transform="translate(150,150)"
      style="display:inline">
+     <text x="-8" y="90" fill="black" font-size="1">先天太极八卦图</text>
     <g
        id="g41"
        inkscape:label="太极两仪"
@@ -187,7 +188,7 @@
     <g
        id="g15"
        inkscape:label="左离"
-       transform="matrix(0,1.5165877,-0.92165899,0,-143.63169,-48.72038)">
+       transform="translate(-105 50)rotate(-90 0 0)scale(1.5, 1.0)">
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-opacity:1;stroke:none;stroke-width:0.24053"
@@ -203,7 +204,7 @@
     <g
        id="g16"
        inkscape:label="右坎"
-       transform="matrix(0,-1.5165877,0.91743119,0,138.92406,47.836496)"
+       transform="translate(110 -40)rotate(90 0 0)scale(1.5, 1.0)"
        style="display:inline">
       <text
          xml:space="preserve"
@@ -294,8 +295,14 @@
      id="g23"
      inkscape:label="unicode"
      fill="#ff0000"
-     transform="translate(493.50707,149.90453)"
+     transform="translate(480,149)"
      style="display:inline">
+     <text x="-8" y="90" fill="black" font-size="1">后天八卦图</text>
+     <!-- 
+     后天八卦图调整
+      ☰ 乾 1 ⇉ ☶ 艮 4 ⇉ ☳ 震 6 ⇉ ☲ 离 7 ⇉ ☰ 乾 1；
+      ☷ 坤 5 ⇉ ☴ 巽 2 ⇉ ☱ 兑 8 ⇉ ☵ 坎 5 ⇉ ☷ 坤 5；
+      -->
     <g
        id="g8"
        inkscape:label="太极两仪"
@@ -347,7 +354,7 @@
     </g>
     <g
        id="g9"
-       inkscape:label="天乾"
+       inkscape:label="离"
        transform="matrix(1.5094261,0.00489275,-0.00297381,0.91742637,-69.763317,-100.28904)"
        inkscape:transform-center-y="-120.46314"
        inkscape:transform-center-x="-0.39047882">
@@ -361,11 +368,11 @@
            sodipodi:role="line"
            id="tspan8"
            x="14.431818"
-           y="0">☰</tspan></text>
+           y="0">☲</tspan></text>
     </g>
     <g
        id="g10"
-       inkscape:label="地坤"
+       inkscape:label="坎"
        transform="matrix(1.1428575,0,0,0.91743144,-36.571441,142.26423)">
       <text
          xml:space="preserve"
@@ -379,12 +386,12 @@
            id="tspan9"
            style="font-size:73.5514px;stroke-width:0.276427"
            x="-8.9312325"
-           y="-1.5235522e-05">☷</tspan></text>
+           y="-1.5235522e-05">☵</tspan></text>
     </g>
     <g
        id="g11"
-       inkscape:label="左离"
-       transform="matrix(0,1.5165877,-0.92165899,0,-143.63169,-48.72038)">
+       inkscape:label="震"
+       transform="translate(-105 50)rotate(-90 0 0)scale(1.5, 1.0)">
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-opacity:1;stroke:none;stroke-width:0.24053"
@@ -395,13 +402,13 @@
            sodipodi:role="line"
            id="tspan10"
            x="0"
-           y="0">☲</tspan></text>
+           y="0">☳</tspan></text>
     </g>
     <g
        id="g12"
-       inkscape:label="右坎"
+       inkscape:label="兑"
        style="display:inline"
-       transform="matrix(0,-1.5165877,0.91743119,0,138.92406,47.836496)">
+       transform="translate(110 -40)rotate(90 0 0)scale(1.5, 1.0)">
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-opacity:1;stroke:none;stroke-width:0.336129"
@@ -412,11 +419,11 @@
            sodipodi:role="line"
            id="tspan11"
            x="0"
-           y="5.1509037">☵</tspan></text>
+           y="5.1509037">☱</tspan></text>
     </g>
     <g
        id="g17"
-       inkscape:label="兑"
+       inkscape:label="巽"
        style="display:inline"
        transform="matrix(1.0606602,-1.0606602,0.70710679,0.70710678,-113.03338,-45.958716)">
       <text
@@ -429,11 +436,11 @@
            sodipodi:role="line"
            id="tspan12"
            x="0"
-           y="0">☱</tspan></text>
+           y="0">☴</tspan></text>
     </g>
     <g
        id="g18"
-       inkscape:label="巽"
+       inkscape:label="坤"
        style="display:inline"
        transform="matrix(1.0606602,1.0606601,-0.70710677,0.70710679,45.151127,-113.84096)"
        inkscape:transform-center-x="-95.823457"
@@ -448,11 +455,11 @@
            sodipodi:role="line"
            id="tspan17"
            x="0"
-           y="0">☴</tspan></text>
+           y="0">☷</tspan></text>
     </g>
     <g
        id="g19"
-       inkscape:label="艮"
+       inkscape:label="乾"
        style="display:inline"
        transform="matrix(-1.0606601,1.0606603,-0.70710679,-0.70710677,115.22641,48.773485)">
       <text
@@ -465,11 +472,11 @@
            sodipodi:role="line"
            id="tspan18"
            x="0"
-           y="0">☶</tspan></text>
+           y="0">☰</tspan></text>
     </g>
     <g
        id="g22"
-       inkscape:label="震"
+       inkscape:label="艮"
        style="display:inline"
        transform="matrix(-1.0606601,1.0606603,-0.70710679,-0.70710677,115.22641,48.773485)">
       <text
@@ -483,7 +490,7 @@
            sodipodi:role="line"
            id="tspan22"
            x="46.279198"
-           y="-165.41879">☳</tspan></text>
+           y="-165.41879">☶</tspan></text>
     </g>
   </g>
 </svg>

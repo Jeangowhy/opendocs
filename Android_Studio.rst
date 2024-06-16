@@ -23,7 +23,7 @@
    的智能提示功能，接近 4GB 体量。内存占用方面比 VS Code 更大，更是不能和 Sublime Text 比，
    CPU 占用也更高，流畅度稍有不足。
 
-   .. _Fleet: https://www.jetbrains.com/fleet/
+.. _Fleet: https://www.jetbrains.com/fleet/
    
    .. figure:: https://segmentfault.com/img/remote/1460000041083798
 
@@ -50,7 +50,8 @@
    接受文本和图像输入。依托 AI 技术的对话式体验，可通过回答 Android 开发查询帮助您提高效率。
    如需启动 Gemini_，依次点击 View > Tool Windows > Gemini_。然后，登录您的 Google 帐号，
    如果您尚未登录。因为登录问题，国内网络暂时不能使用。
-   .. _Gemini: https://developer.android.google.cn/studio/releases?hl=zh-cn
+
+.. _Gemini: https://developer.android.google.cn/studio/releases?hl=zh-cn
 
    Android Studio 默认会自动保存文件的修改，可以配置定期或在切换文件时自动保存正在编辑的文件。
    File -> Setting -> Appearance & Behavior -> System Settings -> Auto Save，
@@ -91,10 +92,11 @@
    Copyright 列表中，设置合适的 Scope，比如给脚本文件使用的版权就选择 Scratch and Console。
    还可以在 Formatting 中设置具体文件类型如何处理版权信息内容。
 
+.. _Copyright Profiles: https://www.jetbrains.com/help/idea/copyright-profiles.html
+
    完成以上设置后，执行 Code -> Gernerate -> Copyright 还可能没有生成任何版权内容，这功能
    就太让人操碎心了。还不如使用 GNU Coreutils 工具包，find 命令查找要添加版权的文件，sed 命令
    读取版权文件并插入。正所谓，如无必要，勿增实体！
-   .. _Copyright Profiles: https://www.jetbrains.com/help/idea/copyright-profiles.html
 
    Android Studio 提供的 Markdown 实时预览与编辑支持，但是还没有支持 reStructuredText。
 
@@ -127,10 +129,11 @@
    配合 Goto Class 跳转功能就可以查看任意 Android 构架的源代码文档。还可以设置、添加工程模块，
    File -> Project Structure -> Modules，支持创建 Android 或 NDK，Java 或 Kotlin 模块，
    还可以导入 Gradle 或 Eclipse 工程。也可以在 Dependecies 面板中添加依赖的库。
-   .. _Reader Mode: https://www.jetbrains.com/help/idea/reader-mode.html
 
    `Vim Emulation`_ 是模拟 Vim 编辑，此编辑器拥有强大的键盘操作能力，Emacs 编辑器是同类产品。
-   .. _Vim Emulation: https://www.jetbrains.com/help/idea/vim-emulation.html
+
+.. _Reader Mode: https://www.jetbrains.com/help/idea/reader-mode.html
+.. _Vim Emulation: https://www.jetbrains.com/help/idea/vim-emulation.html
 
    Emmet_ 是一个用于快速软件 XML/HTML 标签结构的辅助工具，只要按语法输入模板字符串，就可以
    扩展生成 XML/HTML 标签层级结构。先配置启用 Editor -> Emmet（Enable XML/HTML Emmet），
@@ -153,9 +156,9 @@
           </ul>
       </div>
 
-   .. _Emmet: https://www.jetbrains.com/help/idea/settings-emmet.html
+.. _Emmet: https://www.jetbrains.com/help/idea/settings-emmet.html
 
-   .. _Emmet documentation: https://docs.emmet.io/abbreviations/
+.. _Emmet documentation: https://docs.emmet.io/abbreviations/
 
    Android Studio 定制版只是众多 IDEA 定制版本之一，相当于社区版叠加 Android 扩展插件，
    功能上与 IntelliJ IDEA Ultimate 差别，毕竟功能重叠越多，越会降低官方旗舰版本的竞争力。
@@ -218,13 +221,24 @@
    -  local components (like projects), built from sources
    -  external components, published to repositories
 
-Gradle 如何组织缓存目录 CacheableTransform jars-9 transforms-2 transforms-4 transforms-3
+   Gradle 缓存目录包含多个子目录用于管理不同的依赖构件：
 
-   Artifact
+   .. code-block:: bash
 
-翻译为：构件、工件。 代表的是一个领域对象，它包含了一个要被发布的文件，和它怎样被发布的信息。（如一个 jar 文件和它的 pom 文件。）
+      jdks                 保存项目中依赖的 JDK；
+      wrapper              保存项目中 gradle-wrapper.properties 指定 Gradle 版本安装包；
+      daemon               保存守护进程产生的日志；
+      caches/8.7           保存 Gradle DSL 脚本产生的临时文件，数字代表版本号；
+      caches\jars-9
+      caches\modules-2\files-2.1
+      caches\transforms-2
+      caches\transforms-4
+      caches\transforms-3
 
-files-2.1的目录组织（jar/aar都下载到这里）
+   Artifact（构件、工件）代表的是一个领域对象，它包含了一个要被发布的文件，和它怎样被发布的信息。
+   如一个 jar 文件和它的 pom 文件。
+
+   files-2.1 目录用于保存下载到的依赖包，jar/aar 都下载到这里。
 
    .. code-block:: bash
 
@@ -402,17 +416,17 @@ Android OS 源代码包括三部分：
    并且镜像按其适用的 CPU 构架命名，比如名称中包含 Intel x86 或 ARM EABI。系统镜像名称包含
    Google APIs 表示其支持访问 Google Play 服务，名称包含 Google Play 表示带有 Google Play Store。
 
-   .. _Android API Level 24: https://mirrors.cloud.tencent.com/AndroidSDK/docs-24_r01.zip
-   .. _Android Support Library: https://emanual.github.io/Android-docs/tools/support-library/index.html
-   .. _Android Interface Definition Language (AIDL): https://source.android.google.cn/docs/core/architecture/aidl
-   .. _Android SDK Command-line Tools: https://developer.android.google.cn/tools
-   .. _Android SDK Platform-Tools: https://developer.android.google.cn/tools/releases/platform-tools
-   .. _Android SDK Platform: https://developer.android.google.cn/tools/releases/platforms
-   .. _Android SDK Build-Tools: https://developer.android.google.cn/tools/releases/build-tools
-   .. _qemu-img: https://www.qemu.org/docs/master/tools/qemu-img.html
-   .. _sdkmanager: https://developer.android.google.cn/tools/sdkmanager
-   .. _avdmanager: https://developer.android.google.cn/tools/avdmanager
-   .. _mksdcard: https://devdoc.net/android/Android-r15/guide/developing/tools/mksdcard.html
+.. _Android API Level 24: https://mirrors.cloud.tencent.com/AndroidSDK/docs-24_r01.zip
+.. _Android Support Library: https://emanual.github.io/Android-docs/tools/support-library/index.html
+.. _Android Interface Definition Language (AIDL): https://source.android.google.cn/docs/core/architecture/aidl
+.. _Android SDK Command-line Tools: https://developer.android.google.cn/tools
+.. _Android SDK Platform-Tools: https://developer.android.google.cn/tools/releases/platform-tools
+.. _Android SDK Platform: https://developer.android.google.cn/tools/releases/platforms
+.. _Android SDK Build-Tools: https://developer.android.google.cn/tools/releases/build-tools
+.. _qemu-img: https://www.qemu.org/docs/master/tools/qemu-img.html
+.. _sdkmanager: https://developer.android.google.cn/tools/sdkmanager
+.. _avdmanager: https://developer.android.google.cn/tools/avdmanager
+.. _mksdcard: https://devdoc.net/android/Android-r15/guide/developing/tools/mksdcard.html
 
    官方网站 `Android Developer`__ 在国内访问受限，解决方法是使用镜像网站。Android Studio
    本身也配置了一个可用的服务器，`dl.google.com`__，但未提供目录索引页面，不能手动下载安装包，
@@ -421,8 +435,8 @@ Android OS 源代码包括三部分：
    - 腾讯： https://mirrors.cloud.tencent.com/AndroidSDK/
    - 阿里： https://mirrors.aliyun.com/android.googlesource.com/
 
-   .. _Android Developer: https://developer.android.com/sdk/index.html
-   .. _dl.google.com: https://dl.google.com/
+.. _Android Developer: https://developer.android.com/sdk/index.html
+.. _dl.google.com: https://dl.google.com/
 
    以下是 Android Studio 默认使用的 SDK 索引数据文件：
 
@@ -548,6 +562,8 @@ Android OS 源代码包括三部分：
    由于 Android 4.4 (API 19) 属于比较旧的系统，只有 32-bit 的镜像，要么换适合的模拟器，要么使用
    更新的系统镜像以适用 x86-64 平台的模拟器：
 
+   .. code-block:: bash
+
       INFO    | Android emulator version 34.2.13.0 (build_id 11772612) (CL:N/A)
       DEBUG   | Current emulator version 34.2.13 is the same as the required version 34.2.13.
       INFO    | Found AVD name 'MyAVD'
@@ -581,7 +597,7 @@ Android OS 源代码包括三部分：
    可以在 SDK Manager -> SDK Tools 安装加速驱动 hypervisor driver，根据开发主机的硬件
    差异，此驱动不一定能成功安装。
 
-   .. _Emulator hypervisor: https://developer.android.google.cn/studio/run/emulator-acceleration
+.. _Emulator hypervisor: https://developer.android.google.cn/studio/run/emulator-acceleration
 
    **SDK Manager** 配置面板提供 Android SDK 安装功能，点击 Tools -> SDK Manager 菜单或者：
    File -> Settings -> Android SDK -> Android SDK Location -> Edit
@@ -623,7 +639,7 @@ Android OS 源代码包括三部分：
       *  **minSdkVersion** 指示应用可运行的最小 SDK 版本号。
       *  **compileSdkVersion** 指示当前开发环境中用于编译的 SDK 版本号。
 
-   .. _sdk-versions: https://developer.android.google.cn/ndk/guides/sdk-versions
+.. _sdk-versions: https://developer.android.google.cn/ndk/guides/sdk-versions
 
    **minSdkVersion** 决定了应用能否运行于指定的系统版本上，如果开发时使用了特定 SDK 版本引入
    的功能，那么这个 **minSdkVersion** 值就不能小于此版本号。比如，小米 8 手机使用 Android 10
@@ -666,8 +682,8 @@ Android OS 源代码包括三部分：
    还可以进行扩展。代码还内嵌着色器程序，因此这个程序涉及 C/C++/Java/Kotlin/GLSL 等多种语言，
    最好还掌握 OpenGL 或者 Vulkan 图形编程接口。
 
-   .. _GameActivity: https://developer.android.google.cn/games/agdk/game-activity
-   .. _NativeActivity: https://developer.android.google.cn/reference/android/app/NativeActivity
+.. _GameActivity: https://developer.android.google.cn/games/agdk/game-activity
+.. _NativeActivity: https://developer.android.google.cn/reference/android/app/NativeActivity
 
    开发 Native 应用时，可能出现调用器不能正常连接手机，导致手机弹出消息：Waiting For Debugger。
    也可能存在运行的多个手机模拟器在调试并且没有正常关闭，可以查看 5037 端口有没有在联接。也可以使用
@@ -822,7 +838,7 @@ Android Studio 使用 Tools -> SDK Manager 查看 Androi API 版本号对应关�
    在创建虚拟机时，就需要参考 `Codenames, tags, and build numbers`__ 来确定需要使用的
    虚拟机镜像文件。因为 Device Manager 面板中是根据设备的硬件规格来选择虚拟机镜像文件的。
 
-   .. _Codenames, tags, and build numbers: https://source.android.google.cn/docs/setup/reference/build-numbers
+.. _Codenames, tags, and build numbers: https://source.android.google.cn/docs/setup/reference/build-numbers
 
 .. container::
 
@@ -1270,9 +1286,9 @@ Java API Framework 也叫做 Application Framework，Android 应用开发必需�
    构架 Jetpack_ 的组成部分，包含最新的 Compose 组件，新旧版本的命令空间也作了变更。
    Jetpack AndroidX 源代码： `Android Jetpack <https://github.com/androidx/androidx>`__
 
-   .. _support library: https://developer.android.google.cn/topic/libraries/support-library/packages.html
-   .. _AndroidX: https://developer.android.google.cn/topic/libraries/support-library
-   .. _Jetpack: https://developer.android.google.cn/jetpack/androidx
+.. _support library: https://developer.android.google.cn/topic/libraries/support-library/packages.html
+.. _AndroidX: https://developer.android.google.cn/topic/libraries/support-library
+.. _Jetpack: https://developer.android.google.cn/jetpack/androidx
 
 .. container:: 
 
@@ -1397,18 +1413,18 @@ Shell Scripting
    或者简单易用的 grep_ 字符串过滤命令，又或者强大又复杂的 VIM 编辑器，还网络工具 curl_ 等等。
    Windows 系统要使用 Linux 套件，可以安装 MSYS2_，系统开发可以使用 GCC_ LLVM_ 编译器套件。
 
-   .. _Coreutils: https://www.gnu.org/software/coreutils/coreutils.html
-   .. _sed: https://www.gnu.org/software/sed/
-   .. _awk: https://www.gnu.org/software/gawk/
-   .. _grep: https://www.gnu.org/software/grep/
-   .. _curl: https://curl.se/download.html
+.. _Coreutils: https://www.gnu.org/software/coreutils/coreutils.html
+.. _sed: https://www.gnu.org/software/sed/
+.. _awk: https://www.gnu.org/software/gawk/
+.. _grep: https://www.gnu.org/software/grep/
+.. _curl: https://curl.se/download.html
 
-   .. _MSYS2: https://www.msys2.org/
-      :alt: Software Distribution and Building Platform for Windows
-   .. _LLVM: https://llvm.org
-      :alt: The LLVM Compiler Infrastructure Project
-   .. _GCC: https://gcc.gnu.org
-      :alt: GCC, the GNU Compiler Collection
+.. _MSYS2: https://www.msys2.org/
+   :alt: Software Distribution and Building Platform for Windows
+.. _LLVM: https://llvm.org
+   :alt: The LLVM Compiler Infrastructure Project
+.. _GCC: https://gcc.gnu.org
+   :alt: GCC, the GNU Compiler Collection
 
    脚本也环境也是用来处理文档的工具，格式转换专用工具有 `Pandoc <https://pandoc.org>`__，
    reStructuredText 格式文档有专用的 `Docutils 0.21.1 <https://docutils.sourceforge.io>`__。
@@ -1427,8 +1443,8 @@ Shell Scripting
 
    官方文档资料较完善，另外这里是一份“读过”的手册，`Bash 5.1`__，里面有非常基础的一些知识点示范。
 
-   .. _Bash: https://www.gnu.org/software/bash/
-   .. _Bash 5.1: https://github.com/Jeangowhy/opendocs/tree/main/bash.5.1.md
+.. _Bash: https://www.gnu.org/software/bash/
+.. _Bash 5.1: https://github.com/Jeangowhy/opendocs/tree/main/bash.5.1.md
 
    JetBrains IDE 将从 2024.1 版 IDE 开始在新 UI 中提供 New Terminal (Beta) 测试版本。
    可以在偏好设置启用它：Settings -> Preferences | Tools | Terminal | Enable New Terminal
@@ -1482,29 +1498,35 @@ Logcat and Crash troubleshot
 
       Figure 2. Using the Energy Profiler to find a wake lock.
 
-   新版本 Android Studio 提供 Profile & Debug APK 功能，用于调试现在的 APK 程序包，。
+   新版本 Android Studio 提供 File -> Profile & Debug APK 功能，用于调试 APK 程序包。
+   注意，只有在清单文件中启用 ``extractNativeLibs="true" `` 才能调试 C/C++ 代码。正常情况下
+   release 包不允许调试，让 apk 可调试，一般有两种方法：编译打包前设置清单文件 AndroidManifest.xml，
+   或者使用 apktool 工具反编译 apk，修改 AndroidManifest.xml 文件后再重签名二次打包：
 
-File -> Profile & Debug APK
-extractNativeLibs="true" 
-Attach Sources
+   .. code-block:: xml
 
-No symbol directories found - please check your native debug configuration
+      <application android:debuggable="true" 
+                  android:extractNativeLibs=["true" | "false"]
+         />
 
-Android Studio 默认解析smali文件的插件是Smali Support，这个插件不支持断点，所以我们需要自己手动下载支持断点的smali解析插件：smalidea
-正常情况下release包是不允许调试的，所以必须先让apk可调试，一般有两种方法：
+   *  `Debug pre-built APKs <https://developer.android.google.cn/studio/debug/apk-debugger>`__
+   *  `Profile and debug pre-built APKs <https://developer.android.google.cn/studio/debug/apk-analyzer>`__
 
-1. 使用 apktool 工具反编译apk，修改 AndroidManifest.xml 文件，然后再重签名二次打包：
+   启动调试器后，如果提示缺失调试符号，可以设置调试配置，使用 Attach Sources 附加源代码，如果有的话：
 
-   <application android:debuggable="true" 
-                android:extractNativeLibs=["true" | "false"]
-      />
+   .. code-block:: 
+   
+      No symbol directories found - please check your native debug configuration
 
-下载完smalidea-0.0.5.zip之后，我们在Android Studio中依次点击File -> Settting -> Plugins ->小齿轮 -> Install Plugins from Disk,从我们本地磁盘中选择我们下载好的smalidea-0.0.5.zip，点击“OK”就导入进来了，导入成功之后，会提示让你重启一下Android Studio, 使得smalidea插件生效
+   Android Studio 默认解析 smali 文件的插件是 Smali Support，这个插件不支持断点。可以使用
+   支持断点的 smali 解析插件：smalidea_。下载 `smalidea-0.0.5.zip`_，然后在 Android Studio
+   中依次点击 File -> Settting -> Plugins -> 小齿轮 -> Install Plugins from Disk，
+   安装本地插件，从本地磁盘中选择下载好的 smalidea-0.0.5.zip，点击“OK”就可以完成插件的安装，
+   然后会提示重启 Android Studio, 以使 smalidea 插件生效。
 
-   .. _: https://bitbucket.org/JesusFreke/smalidea/downloads/smalidea-0.06.zip
-   .. _: https://github.com/JesusFreke/smalidea
-   `Debug pre-built APKs <https://developer.android.google.cn/studio/debug/apk-debugger>`__
-   `Profile and debug pre-built APKs <https://developer.android.google.cn/studio/debug/apk-analyzer>`__
+.. _smalidea-0.0.5.zip: https://bitbucket.org/JesusFreke/smalidea/downloads/smalidea-0.06.zip
+.. _smalidea: https://github.com/JesusFreke/smalidea
+
 
    应用开发最常遇的问题是闪退或崩溃（Crash）、无响应（Application Not Responding）。
    程序正常运行中，可能会出现未捕获到的异常，这就会造成崩溃。常见 Crash 异常包括：
@@ -1565,9 +1587,9 @@ Android Studio 默认解析smali文件的插件是Smali Support，这个插件�
 
       pause
 
-   .. _locat: https://developer.android.google.cn/tools/logcat?hl=en 
-   .. _Locat Window: https://developer.android.google.cn/studio/debug/logcat
-      :alt: View logs with Logcat
+.. _locat: https://developer.android.google.cn/tools/logcat?hl=en 
+.. _Locat Window: https://developer.android.google.cn/studio/debug/logcat
+   :alt: View logs with Logcat
 
    Android 开发者选项中选择调试应用的列表里选择要调试的应用，然后把“等待调试器”开关打开。还可以
    使用 ``set-debug-app -w package`` 命令来设置被调试程序，-w 选项就是让 App 等待调试器。

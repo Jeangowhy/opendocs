@@ -3000,7 +3000,7 @@ What Is a Member Function?
    std::cout denotes the name cout from
    the namespace std.
 
-   ``= operator`` Assigns the value of the righthand 
+   ``= operator`` Assigns the value of the right-hand 
    operand to the object denoted by the
    left-hand operand.
 
@@ -6800,7 +6800,7 @@ Assignment for strings
 
 Adding Two strings
 
-   Adding two strings yields a new string that is the concatenation of the lefthand 
+   Adding two strings yields a new string that is the concatenation of the left-hand 
    followed by the right-hand operand. That is, when we use the plus operator
    (+) on strings, the result is a new string whose charactersare a copy of those in
    the left-hand operand followed by those from the right-hand operand. The compound 
@@ -9573,8 +9573,8 @@ Type Aliases Simplify Pointers to Multidimensional Arrays
    left-hand operand is true.
 
    ``|| operator`` Logical OR operator. Yields
-   true if either operand is true. The righthand 
-   operand is evaluated only if the lefthand 
+   true if either operand is true. The right-hand 
+   operand is evaluated only if the left-hand 
    operand is false.
 
 .. ptg11539634
@@ -10029,7 +10029,7 @@ Order of Evaluation, Precedence, and Associativity
 .. _P0141:
 
    The % operator, known as the “remainder” or the “modulus” operator, computes 
-   the remainder that results from dividing the left-hand operand by the righthand 
+   the remainder that results from dividing the left-hand operand by the right-hand 
    operand. The operands to % must have integral type:
 
    .. code-block:: cpp
@@ -10714,7 +10714,7 @@ Nesting Conditional Operations
 
    The conditional operator is right associative, meaning (as usual) that the operands 
    group right to left. Associativity accounts for the fact that the right-hand
-   conditional—the one that compares `grade` to 60—forms the `: branch` of the lefthand 
+   conditional—the one that compares `grade` to 60—forms the `: branch` of the left-hand 
    conditional expression.
 
    Nested conditionals quickly become unreadable. It's a good idea to nest
@@ -11900,8 +11900,8 @@ Old-Style Casts
    otherwise, the bit is 0.
 
    `|| operator` Logical OR operator. Yields
-   true if either operand is true. The righthand 
-   operand is evaluated only if the lefthand 
+   true if either operand is true. The right-hand 
+   operand is evaluated only if the left-hand 
    operand is false.
 
    `| operator` Bitwise OR operator. Generates
@@ -11933,10 +11933,10 @@ Old-Style Casts
    `<< operator` The left-shift operator. Shifts
    bits in a (possibly promoted) copy of the
    value of the left-hand operand to the left.
-   Shifts as many bits as indicated by the righthand 
+   Shifts as many bits as indicated by the right-hand 
    operand. The right-hand operand
    must be zero or positive and strictly less
-   than the number of bits in the result. Lefthand 
+   than the number of bits in the result. Left-hand 
    operand should be unsigned; if the
    left-hand operand is signed, it is undefined 
    if a shift causes a different bit to shift
@@ -22222,7 +22222,7 @@ Library arrays Have Fixed Size
       a1 = a2; // replaces elements in a1
       a2 = {0}; // error: cannot assign to an array from a braced list
 
-   Because the size of the right-hand operand might differ from the size of the lefthand 
+   Because the size of the right-hand operand might differ from the size of the left-hand 
    operand, the array type does not support assign and it does not allow
    assignment from a braced list of values.
 
@@ -22255,7 +22255,7 @@ Library arrays Have Fixed Size
 Using assign (Sequential Containers Only)
 
    The assignment operator requires that the left-hand and right-hand operands have
-   the same type. It copies all the elements from the right-hand operand into the lefthand 
+   the same type. It copies all the elements from the right-hand operand into the left-hand 
    operand. The sequential containers (except array) also define a member
    named ``assign`` that lets us assign from a different but compatible type, or assign
    from a subsequence of a container. The ``assign`` operation replaces all the elements
@@ -31716,19 +31716,19 @@ Printing the Results
    coverage of how classes are defined. That chapter covered
    topics fundamental to any use of classes: class scope, data hiding,
    and constructors. It also introduced various important class features:
-   member functions, the implicit this pointer, friends, and const,
-   static, and mutable members. In this part, we'll extend our coverage 
+   `member functions`, the implicit ``this`` pointer, `friends`, and ``const``,
+   ``static``, and ``mutable`` members. In this part, we'll extend our coverage 
    of classes by looking at copy control, overloaded operators,
    inheritance, and templates.
 
    As we've seen, in C++ classes define constructors to control what
    happens when objects of the class type are initialized. Classes also
-   control whathappenswhenobjects are copied, assigned, moved, and
-   destroyed. In this respect, C++ differs from other languages, many
+   control what happens when objects are `copied`, `assigned`, `moved`, and
+   `destroyed`. In this respect, C++ differs from other languages, many
    of which do not give class designers the ability to control these operations. 
    Chapter 13 covers these topics. This chapter also covers
-   two important concepts introduced by the new standard: rvalue references 
-   and move operations.
+   two important concepts introduced by the new standard: `rvalue references` 
+   and `move operations`.
 
    Chapter 14 looks at operator overloading, which allows operands
    of class types to be used with the built-in operators. Operator overloading 
@@ -31744,6 +31744,7 @@ Printing the Results
 
    functions. We'll also look at new library facilities that make it easy to
    use different types of callable objects in a uniform way.
+
    This chapter concludes by looking at another special kind of class
    member function—conversion operators. These operators define implicit 
    conversions from objects of class type. The compiler applies
@@ -31769,12 +31770,12 @@ Printing the Results
    Writing our own object-oriented or generic types requires a fairly
    good understanding of C++. Fortunately, we can use object-oriented
    and generic types without understanding the details of how to build
-   them. For example, the standard library usesthe facilitieswe'll study
+   them. For example, the standard library uses the facilities we'll study
    in Chapters 15 and 16 extensively, and we've used the library types
    and algorithms without needing to know how they are implemented.
 
    Readers, therefore, should understand that Part III covers fairly
-   advancedtopics. Writingtemplatesorobject-oriented classesrequires
+   advanced topics. Writing templates or object-oriented classes requires
    a good understanding of the basics of C++ and a good grasp of how
    to define more basic classes.
 
@@ -31811,20 +31812,29 @@ Printing the Results
 .. _P0496:
 
    When we define a class, we specify—explicitly or implicitly—what happens 
-   when objects of that class type are copied, moved, assigned, and destroyed.
-   A class controls these operations by defining five special member functions: copy
-   constructor, copy-assignment operator, move constructor, move-assignment operator, 
-   and destructor. The copy and move constructors define what happens
+   when objects of that class type are `copied`, `moved`, `assigned`, and `destroyed`.
+
+   A class controls these operations by defining five special member functions: 
+
+   *  copy constructor, 
+   *  copy-assignment operator, 
+   *  move constructor, 
+   *  move-assignment operator, 
+   *  and destructor. 
+   
+   The copy and move constructors define what happens
    when an object is initialized from another object of the same type. The copy- and
    move-assignment operators define what happens when we assign an object of a
    class type to another object of that same class type. The destructor defines what
    happens when an object of the type ceases to exist. Collectively, we'll refer to these
    operations as copy control.
+
    If a class does not define all of the copy-control members, the compiler automatically 
    defines the missing operations. As a result, many classes can ignore copy
    control (§ 7.1.5, p. [P0267]_). However, for some classes, relying on the default definitions 
    leads to disaster. Frequently, the hardest part of implementing copy-control
    operations is recognizing when we need to define them in the first place.
+
    Copy control is an essential part of defining any C++ class. Programmers 
    new to C++ are often confused by having to define what happens
    when objects are copied, moved, assigned, or destroyed. This confusion
@@ -31844,61 +31854,78 @@ Printing the Results
 
    A constructor is the copy constructor if its first parameter is a reference to the class
    type and any additional parameters have default values:
-   class Foo {
-   public:
-   Foo(); // default constructor
-   Foo(const Foo&); // copy constructor
-   // ...
-   };
-   For reasons we'll explain shortly, the first parametermust be a referencetype. That
-   parameter is almost always a reference to const, although we can define the copy
-   constructor to take a reference to nonconst. The copy constructor is used implicitly 
+
+   .. code-block:: cpp
+
+      class Foo {
+      public:
+         Foo();           // default constructor
+         Foo(const Foo&); // copy constructor
+         // ...
+      };
+
+   For reasons we'll explain shortly, the first parameter must be a reference type. That
+   parameter is almost always a reference to ``const``, although we can define the copy
+   constructor to take a reference to `nonconst`. The copy constructor is used implicitly 
    in several circumstances. Hence, the copy constructor usually should not be
    explicit (§ 7.5.4, p. [P0296]_).
 
 .. ptg11539634 Section 13.1 Copy, Assign, and Destroy 497
 .. _P0497:
 
-   The Synthesized Copy Constructor
+The Synthesized Copy Constructor
+
    When we do not define a copy constructor for a class, the compiler synthesizes
    one for us. Unlike the synthesized default constructor (§ 7.1.4, p. [P0262]_), a copy
    constructor is synthesized even if we define other constructors.
+
    As we'll see in § 13.1.6 (p. [P0508]_), the synthesized copy constructor for some
    classes prevents us from copying objects of that class type. Otherwise, the synthesized 
    copy constructor memberwise copies the members of its argument into the
-   object being created(§7.1.5,p.267). The compilercopies eachnonstaticmember
+   object being created (§7.1.5,p.267). The compiler copies each nonstatic member
    in turn from the given object into the one being created.
+
    The type of each member determines how that member is copied: Members
    of class type are copied by the copy constructor for that class; members of built-in
-   typearecopieddirectly. Although wecannotdirectlycopyanarray(§3.5.1,p.114),
+   type are copied directly. Although we cannot directly copy an array (§3.5.1,p.114),
    the synthesized copy constructor copies members of array type by copying each
    element. Elements of class type arecopied byusing the elements' copy constructor.
-   As an example, the synthesized copy constructor for our Sales_data class is
+
+   As an example, the synthesized copy constructor for our `Sales_data` class is
    equivalent to:
-   class Sales_data {
-   public:
-   // other members and constructors as before
-   // declaration equivalent to the synthesized copy constructor
-   Sales_data(const Sales_data&);
-   private:
-   std::string bookNo;
-   int units_sold = 0;
-   double revenue = 0.0;
-   };
-   // equivalent to the copy constructor that would be synthesized for Sales_data
-   Sales_data::Sales_data(const Sales_data &orig):
-   bookNo(orig.bookNo), // uses the string copy constructor
-   units_sold(orig.units_sold), // copies orig.units_sold
-   revenue(orig.revenue) // copies orig.revenue
-   { } // empty body
-   Copy Initialization
+
+   .. code-block:: cpp
+
+      class Sales_data {
+      public:
+         // other members and constructors as before
+         // declaration equivalent to the synthesized copy constructor
+         Sales_data(const Sales_data&);
+      private:
+         std::string bookNo;
+         int units_sold = 0;
+         double revenue = 0.0;
+      };
+      // equivalent to the copy constructor that would be synthesized for Sales_data
+      Sales_data::Sales_data(const Sales_data &orig):
+         bookNo(orig.bookNo),         // uses the string copy constructor
+         units_sold(orig.units_sold), // copies orig.units_sold
+         revenue(orig.revenue)        // copies orig.revenue
+         { } // empty body
+
+Copy Initialization
+
    We are now in a position to fully understand the differences between direct initialization 
    and copy initialization (§ 3.2.1, p. [P0084]_):
-   string dots(10, '.'); // direct initialization
-   string s(dots); // direct initialization
-   string s2 = dots; // copy initialization
-   string null_book = "9-999-99999-9"; // copy initialization
-   string nines = string(100, '9'); // copy initialization
+
+   .. code-block:: cpp
+
+      string dots(10, '.'); // direct initialization
+      string s(dots); // direct initialization
+      string s2 = dots; // copy initialization
+      string null_book = "9-999-99999-9"; // copy initialization
+      string nines = string(100, '9'); // copy initialization
+
    When we use direct initialization, we areasking the compiler to use ordinary function 
    matching (§ 6.4, p. [P0233]_) to select the constructor that best matches the arguments 
    we provide. When we use copy initialization, we are asking the compiler
@@ -31913,38 +31940,52 @@ Printing the Results
    uses the move constructor instead of the copy constructor. For now, what's
    useful to know is when copy initialization happens and that copy initialization
    requires either the copy constructor or the move constructor.
+
    Copy initialization happens not only when we define variables using an =, but
    also when we
+
    • Pass an object as an argument to a parameter of nonreference type
+
    • Return an object from a function that has a nonreference return type
+
    • Brace initialize the elements in an array or the members of an aggregate class
    (§ 7.5.5, p. [P0298]_)
+
    Some class types also use copy initialization for the objects they allocate. For example, 
    the library containers copy initialize their elements when we initialize the container, 
    or when we call an insert or push member (§ 9.3.1, p. [P0342]_). By contrast,
    elements created by an emplace member are direct initialized (§ 9.3.1, p. [P0345]_).
-   Parameters and Return Values
+
+Parameters and Return Values
+
    During a function call, parameters that have a nonreference type are copy initialized 
    (§ 6.2.1, p. [P0209]_). Similarly, when a function has a nonreference return type, the
    return value is used to copy initialize the result of the call operator at the call site
    (§ 6.3.2, p. [P0224]_).
+
    The fact that the copy constructor is used to initialize nonreference parameters
    of class type explains why the copy constructor's own parameter must be a reference. 
-   If that parameterwere not a reference,then the call would never succeed—to
+   If that parameter were not a reference,then the call would never succeed—to
    call the copy constructor, we'd need to use the copy constructor to copy the argument, 
    but to copy the argument, we'd need to call the copy constructor, and so on
    indefinitely.
-   Constraints on Copy Initialization
+
+Constraints on Copy Initialization
+
    As we've seen, whether we use copy or direct initialization matters if we use an
    initializer that requires conversion by an explicit constructor (§ 7.5.4, p. [P0296]_):
-   vector<int> v1(10); // ok: direct initialization
-   vector<int> v2 = 10; // error: constructor that takes a size is explicit
-   void f(vector<int>); // f 's parameter is copy initialized
-   f(10); // error: can't use an explicit constructor to copy an argument
-   f(vector<int>(10)); // ok: directly construct a temporary vector from an int
-   Directly initializing v1 is fine, but the seemingly equivalent copy initialization of
-   v2 is an error, because the vector constructor that takes a single size parameter
-   is explicit. For the same reasons that we cannot copy initialize v2, we cannot
+
+   .. code-block:: cpp
+
+      vector<int> v1(10);  // ok: direct initialization
+      vector<int> v2 = 10; // error: constructor that takes a size is explicit
+      void f(vector<int>); // f 's parameter is copy initialized
+      f(10); // error: can't use an explicit constructor to copy an argument
+      f(vector<int>(10)); // ok: directly construct a temporary vector from an int
+
+   Directly initializing `v1` is fine, but the seemingly equivalent copy initialization of
+   `v2` is an error, because the vector constructor that takes a single size parameter
+   is explicit. For the same reasons that we cannot copy initialize `v2`, we cannot
    implicitly use an explicit constructor when we pass an argument or return a
    value from a function. If we want to use an explicit constructor, we must do so
    explicitly, as in the last line of the example above.
@@ -31958,48 +31999,62 @@ The Compiler Can Bypass the Copy Constructor
    During copy initialization, the compiler is permitted (but not obligated) to skip
    the copy/move constructor and create the object directly. That is, the compiler is
    permitted to rewrite
-   string null_book = "9-999-99999-9"; // copy initialization
+
+   .. code-block:: cpp
+
+      string null_book = "9-999-99999-9"; // copy initialization
+
    into
-   string null_book("9-999-99999-9"); // compiler omits the copy constructor
+
+   .. code-block:: cpp
+
+      string null_book("9-999-99999-9"); // compiler omits the copy constructor
+
    However, even if the compiler omits the call to the copy/move constructor, the
    copy/move constructor must exist and must be accessible (e.g., not private) at
    that point in the program.
 
-Exercises Section 13.1.1
+   Exercises Section 13.1.1
 
-   Exercise 13.1: What is a copy constructor? When is it used?
+      Exercise 13.1: What is a copy constructor? When is it used?
 
-   Exercise 13.2: Explain why the following declaration is illegal:
-   Sales_data::Sales_data(Sales_data rhs);
+      Exercise 13.2: Explain why the following declaration is illegal:
 
-   Exercise 13.3: What happens when wecopyaStrBlob? What aboutStrBlobPtrs?
+      .. code-block:: cpp
 
-   Exercise 13.4: Assuming Point is a class type with a public copy constructor, identify 
-   each use of the copy constructor in this program fragment:
-   Point global;
-   Point foo_bar(Point arg)
-   {
-   Point local = arg,
-   * heap = new Point(global);
-   * heap = local;
-   Point pa[ 4 ] = { local,
-   * heap };
-   return
-   * heap;
-   }
+         Sales_data::Sales_data(Sales_data rhs);
 
-   Exercise 13.5: Given the following sketch of a class, write a copy constructor that
-   copies all the members. Your constructor should dynamically allocate a new string
-   (§ 12.1.2, p. [P0458]_) and copy the object to which ps points, rather than copying ps itself.
-   class HasPtr {
-   public:
-   HasPtr(const std::string &s = std::string()):
-   ps(new std::string(s)), i(0) { }
-   private:
-   std::string
-   * ps;
-   int i;
-   };
+      Exercise 13.3: What happens when we copy a `StrBlob`? What about StrBlobPtrs?
+
+      Exercise 13.4: Assuming Point is a class type with a public copy constructor, identify 
+      each use of the copy constructor in this program fragment:
+
+      .. code-block:: cpp
+
+         Point global;
+         Point foo_bar(Point arg)
+         {
+            Point local = arg,
+            * heap = new Point(global);
+            * heap = local;
+            Point pa[ 4 ] = { local, * heap };
+            return * heap;
+         }
+
+      Exercise 13.5: Given the following sketch of a class, write a copy constructor that
+      copies all the members. Your constructor should dynamically allocate a new string
+      (§ 12.1.2, p. [P0458]_) and copy the object to which ps points, rather than copying ps itself.
+
+      .. code-block:: cpp
+
+         class HasPtr {
+         public:
+            HasPtr(const std::string &s = std::string()):
+            ps(new std::string(s)), i(0) { }
+         private:
+            std::string * ps;
+            int i;
+         };
 
 .. ptg11539634 500 Copy Control
 .. _P0500:
@@ -32010,39 +32065,57 @@ Exercises Section 13.1.1
 
    Just as a class controls how objects of that class are initialized, it also controls how
    objects of its class are assigned:
-   Sales_data trans, accum;
-   trans = accum; // uses the Sales_data copy-assignment operator
-   Aswith thecopy constructor, thecompiler synthesizes acopy-assignment operator
+
+   .. code-block:: cpp
+
+      Sales_data trans, accum;
+      trans = accum; // uses the Sales_data copy-assignment operator
+
+   As with the copy constructor, the compiler synthesizes a copy-assignment operator
    if the class does not define its own.
-   Introducing Overloaded Assignment
+
+Introducing Overloaded Assignment
+
    Before we look at the synthesized assignment operator, we need to know a bit
-   about overloaded operators, which we cover in detail in Chapter 14.
+   about `overloaded operators`, which we cover in detail in Chapter 14.
+
    Overloaded operators are functions that have the name operator followed
    by the symbol for the operator being defined. Hence, the assignment operator is a
-   function named operator=. Like any other function, an operator function has a
+   function named ``operator=``. Like any other function, an operator function has a
    return type and a parameter list.
+
    The parameters in an overloaded operator represent the operands of the operator. 
    Some operators, assignment among them, must be defined as member functions. 
    When an operator is a member function, the left-hand operand is bound to
-   the implicit this parameter (§ 7.1.2, p. [P0257]_). The right-hand operand in a binary
+   the implicit ``this`` parameter (§ 7.1.2, p. [P0257]_). The right-hand operand in a binary
    operator, such as assignment, is passed as an explicit parameter.
+
    The copy-assignment operator takes an argument of the same type as the class:
-   class Foo {
-   public:
-   Foo& operator=(const Foo&); // assignment operator
-   // ...
-   };
+
+   .. code-block:: cpp
+
+      class Foo {
+      public:
+         Foo& operator=(const Foo&); // assignment operator
+         // ...
+      };
+
    To be consistent with assignment for the built-in types (§ 4.4, p. [P0145]_), assignment
    operators usually return a reference to their left-hand operand. It is also worth
    noting that the library generally requires that types stored in a container have assignment 
    operators that return a reference to the left-hand operand.
-   Assignment operators ordinarily should return a referenceto their lefthand 
-   operand.
-   The Synthesized Copy-Assignment Operator
-   Just as it does for the copy constructor, the compiler generates a synthesizedcopyassignmentoperator 
-   for a class if the class does not define its own. Analogously to
+
+   .. Tip::
+
+      Assignment operators ordinarily should return a referenceto their left-hand 
+      operand.
+
+The Synthesized Copy-Assignment Operator
+
+   Just as it does for the copy constructor, the compiler generates a synthesized 
+   copy-assignment operator for a class if the class does not define its own. Analogously to
    the copy constructor, for some classes the synthesized copy-assignment operator
-   disallows assignment (§ 13.1.6, p. [P0508]_). Otherwise, it assigns each nonstatic
+   disallows assignment (§ 13.1.6, p. [P0508]_). Otherwise, it assigns each `nonstatic`
    member of the right-hand object to the corresponding member of the left-hand
    object using the copy-assignment operator for the type of that member. Array
    members are assigned by assigning each element of the array. The synthesized
@@ -32051,49 +32124,57 @@ Exercises Section 13.1.1
 .. ptg11539634 Section 13.1 Copy, Assign, and Destroy 501
 .. _P0501:
 
-   As an example, the following is equivalent to the synthesized Sales_data
+   As an example, the following is equivalent to the synthesized `Sales_data`
    copy-assignment operator:
-   // equivalent to the synthesized copy-assignment operator
-   Sales_data&
-   Sales_data::operator=(const Sales_data &rhs)
-   {
-   bookNo = rhs.bookNo; // calls the string::operator=
-   units_sold = rhs.units_sold; // uses the built-in int assignment
-   revenue = rhs.revenue; // uses the built-in double assignment
-   return
-   * this;
-   // return a reference to this object
-   }
 
-Exercises Section 13.1.2
+   .. code-block:: cpp
 
-   Exercise 13.6: What is a copy-assignment operator? When is this operator used?
-   What does the synthesized copy-assignment operator do? When is it synthesized?
+      // equivalent to the synthesized copy-assignment operator
+      Sales_data&
+      Sales_data::operator=(const Sales_data &rhs)
+      {
+         bookNo = rhs.bookNo; // calls the string::operator=
+         units_sold = rhs.units_sold; // uses the built-in int assignment
+         revenue = rhs.revenue; // uses the built-in double assignment
+         return * this; // return a reference to this object
+      }
 
-   Exercise 13.7: What happens when we assign one StrBlob to another? What about
-   StrBlobPtrs?
+   Exercises Section 13.1.2
 
-   Exercise 13.8: Write the assignment operator for the HasPtr class from exercise 13.5
-   in § 13.1.1 (p. [P0499]_). As with the copy constructor, your assignment operator should
-   copy the object to which ps points.
+      Exercise 13.6: What is a copy-assignment operator? When is this operator used?
+      What does the synthesized copy-assignment operator do? When is it synthesized?
+
+      Exercise 13.7: What happens when we assign one `StrBlob` to another? What about
+      StrBlobPtrs?
+
+      Exercise 13.8: Write the assignment operator for the `HasPtr` class from exercise 13.5
+      in § 13.1.1 (p. [P0499]_). As with the copy constructor, your assignment operator should
+      copy the object to which ps points.
 
 /13.1.3 The Destructor
 ```````````````````````
 
    The destructor operates inversely to the constructors: Constructors initialize the
-   nonstatic data members of an object and may do other work; destructors do
+   `nonstatic` data members of an object and may do other work; destructors do
    whatever work is needed to free the resources used by an object and destroy the
-   nonstatic data members of the object.
+   `nonstatic` data members of the object.
+
    The destructor is a member function with the name of the class prefixed by a
    tilde (~). It has no return value and takes no parameters:
-   class Foo {
-   public:
-   ~Foo(); // destructor
-   // ...
-   };
+
+   .. code-block:: cpp
+
+      class Foo {
+      public:
+      ~Foo(); // destructor
+              // ...
+      };
+
    Because it takes no parameters, it cannot be overloaded. There is always only one
    destructor for a given class.
-   What a Destructor Does
+
+What a Destructor Does
+
    Just as a constructor has an initialization part and a function body (§ 7.5.1, p. [P0288]_),
    a destructor has a function body and a destruction part. In a constructor, members
    are initialized before the function body is executed, and members are initialized
@@ -32104,128 +32185,160 @@ Exercises Section 13.1.2
    in the same order as they appear in the class. In a destructor, the function body
    is executed first and then the members are destroyed. Members are destroyed in
    reverse order from the order in which they were initialized.
+
    The function body of a destructor does whatever operations the class designer
    wishes to have executed subsequent to the last use of an object. Typically, the
    destructor frees resources an object allocated during its lifetime.
+
    In a destructor, there is nothing akin to the constructor initializer list to control
    how members are destroyed; the destruction part is implicit. What happens when
    a member is destroyed depends on the type of the member. Members of class type
    are destroyed by running the member's own destructor. The built-in types do not
    have destructors, so nothing is done to destroy members of built-in type.
+
    The implicit destruction of a member of built-in pointer type does not
    delete the object to which that pointer points.
+
    Unlike ordinary pointers, the smart pointers (§ 12.1.1, p. [P0452]_) are class types and
    have destructors. As a result, unlike ordinary pointers, members that are smart
    pointers are automatically destroyed during the destruction phase.
-   When a Destructor Is Called
+
+When a Destructor Is Called
+
    The destructor is used automatically whenever an object of its type is destroyed:
+
    • Variables are destroyed when they go out of scope.
+
    • Members of an object are destroyed when the object of which they are a part
    is destroyed.
+
    • Elements in a container—whether a library container or an array—are destroyed 
    when the container is destroyed.
+
    • Dynamically allocated objects are destroyed when the delete operator is
    applied to a pointer to the object (§ 12.1.2, p. [P0460]_).
+
    • Temporary objects are destroyed at the end of the full expression in which
    the temporary was created.
-   Becausedestructorsarerun automatically,ourprogramscanallocateresourcesand
+
+   Because destructors are run automatically, our programs can allocate resources and
    (usually) not worry about when those resources are released.
-   For example, the following fragment defines four Sales_data objects:
-   { // new scope
-   // p and p2 point to dynamically allocated objects
-   Sales_data
-   * p = new Sales_data;
-   // p is a built-in pointer
-   auto p2 = make_shared<Sales_data>(); // p2 is a shared_ptr
-   Sales_data item( * p); // copy constructor copies * p into item
-   vector<Sales_data> vec; // local object
-   vec.push_back( * p2); // copies the object to which p2 points
-   delete p; // destructor called on the object pointed to by p
-   } // exit local scope; destructor called on item , p2 , and vec
-   // destroying p2 decrements its use count; if the count goes to 0, the object is freed
-   // destroying vec destroys the elements in vec
+
+   For example, the following fragment defines four `Sales_data` objects:
+
+   .. code-block:: cpp
+
+      {  // new scope
+         // p and p2 point to dynamically allocated objects
+         Sales_data * p = new Sales_data;     // p is a built-in pointer
+         auto p2 = make_shared<Sales_data>(); // p2 is a shared_ptr
+         Sales_data item( * p);  // copy constructor copies * p into item
+         vector<Sales_data> vec; // local object
+         vec.push_back( * p2);   // copies the object to which p2 points
+         delete p; // destructor called on the object pointed to by p
+      } // exit local scope; destructor called on item , p2 , and vec
+      // destroying p2 decrements its use count; if the count goes to 0, the object is freed
+      // destroying vec destroys the elements in vec
 
 .. ptg11539634 Section 13.1 Copy, Assign, and Destroy 503
 .. _P0503:
 
    Each of these objects contains a string member, which allocates dynamic memory 
-   to contain the characters in its bookNo member. However, the only memory
+   to contain the characters in its `bookNo` member. However, the only memory
    our code has to manage directly is the object we directly allocated. Our code directly 
    frees only the dynamically allocated object bound to p.
-   The other Sales_data objects are automatically destroyed when they go out
-   of scope. When the block ends, vec, p2, and item all go out of scope, which
-   means that the vector, shared_ptr, and Sales_data destructors will be run
-   on those objects, respectively. The vector destructor will destroy the element we
-   pushed onto vec. The shared_ptr destructor will decrement the referencecount
-   of the object to which p2 points. In this example, that count will go to zero, so the
-   shared_ptr destructor will delete the Sales_data object that p2 allocated.
-   In all cases, the Sales_data destructor implicitly destroys the bookNo member. 
-   Destroying bookNoruns thestringdestructor, which freesthememory used
+
+   The other `Sales_data` objects are automatically destroyed when they go out
+   of scope. When the block ends, `vec`, `p2`, and item all go out of scope, which
+   means that the ``vector``, ``shared_ptr``, and `Sales_data` destructors will be run
+   on those objects, respectively. The ``vector`` destructor will destroy the element we
+   pushed onto `vec`. The ``shared_ptr`` destructor will decrement the referencecount
+   of the object to which `p2` points. In this example, that count will go to zero, so the
+   ``shared_ptr`` destructor will delete the `Sales_data` object that `p2` allocated.
+
+   In all cases, the `Sales_data` destructor implicitly destroys the `bookNo` member. 
+   Destroying `bookNo` runs thestringdestructor, which freesthememory used
    to store the ISBN .
+
    The destructor is not run when a reference or a pointer to an object goes
    out of scope.
-   The Synthesized Destructor
-   The compiler defines a synthesizeddestructorfor any class that does not define its
+
+The Synthesized Destructor
+
+   The compiler defines a synthesized destructor for any class that does not define its
    own destructor. As with the copy constructor and the copy-assignment operator,
    for some classes, the synthesized destructor is defined to disallow objects of the
    type from being destroyed (§ 13.1.6, p. [P0508]_). Otherwise, the synthesized destructor
    has an empty function body.
+
    For example, the synthesized Sales_data destructor is equivalent to:
-   class Sales_data {
-   public:
-   // no work to do other than destroying the members, which happens automatically
-   ~Sales_data() { }
-   // other members as before
-   };
-   The members areautomatically destroyedafterthe (empty) destructor body is run.
+
+   .. code-block:: cpp
+
+      class Sales_data {
+      public:
+         // no work to do other than destroying the members, which happens automatically
+         ~Sales_data() { }
+         // other members as before
+      };
+
+   The members areautomatically destroyed after the (empty) destructor body is run.
    In particular, the string destructor will be run to free the memory used by the
-   bookNo member.
+   `bookNo` member.
+
    It is important to realize that the destructor body does not directly destroy the
    members themselves. Members are destroyed as part of the implicit destruction
    phase that follows the destructor body. A destructor body executes in addition to
    the memberwise destruction that takes place as part of destroying an object.
 
+   Exercises Section 13.1.3
+
+      Exercise 13.9: What is a destructor? What does the synthesized destructor do? When
+      is a destructor synthesized?
+
+      Exercise 13.10: What happens when a StrBlob object is destroyed? What about a
+      StrBlobPtr?
+
+      Exercise 13.11: Add a destructor to your HasPtr class from the previous exercises.
+
+      Exercise 13.12: How many destructor calls occur in the following code fragment?
+
+      .. code-block:: cpp
+
+         bool fcn(const Sales_data
+         * trans, Sales_data accum)
+         {
+            Sales_data item1( * trans), item2(accum);
+            return item1.isbn() != item2.isbn();
+         }
+
+      Exercise 13.13: A good way to understand copy-control members and constructors is
+      to define a simple class with these members in which each member prints its name:
+
+      .. code-block:: cpp
+
+         struct X {
+            X() {std::cout << "X()" << std::endl;}
+            X(const X&) {std::cout << "X(const X&)" << std::endl;}
+         };
+
+      Add the copy-assignment operator and destructor to X and write a program using X
+      objects in various ways: Pass them as nonreference and reference parameters; dynamically 
+      allocate them; put them in containers; and so forth. Study the output until you
+      are certain you understand when and why each copy-control member is used. As you
+      read the output, remember that the compiler can omit calls to the copy constructor.
+
 /13.1.4 The Rule of Three/Five
 ```````````````````````````````
 
-   As we've seen, there arethreebasic operations to control copies of class objects: the
-   copy constructor, copy-assignment operator,anddestructor. Moreover,as we'llsee
+   As we've seen, there are three basic operations to control copies of class objects: the
+   `copy constructor`, `copy-assignment operator`, and `destructor`. Moreover, as we'll see
    in § 13.6 (p. [P0531]_), under the new standard, a class can also define a move constructor 
    and move-assignment operator.
 
 .. ptg11539634 504 Copy Control
 .. _P0504:
 
-
-Exercises Section 13.1.3
-
-   Exercise 13.9: What is a destructor? What does the synthesized destructor do? When
-   is a destructor synthesized?
-
-   Exercise 13.10: What happens when a StrBlob object is destroyed? What about a
-   StrBlobPtr?
-
-   Exercise 13.11: Add a destructor to your HasPtr class from the previous exercises.
-
-   Exercise 13.12: How many destructor calls occur in the following code fragment?
-   bool fcn(const Sales_data
-   * trans, Sales_data accum)
-   {
-   Sales_data item1( * trans), item2(accum);
-   return item1.isbn() != item2.isbn();
-   }
-
-   Exercise 13.13: A good way to understand copy-control members and constructors is
-   to define a simple class with these members in which each member prints its name:
-   struct X {
-   X() {std::cout << "X()" << std::endl;}
-   X(const X&) {std::cout << "X(const X&)" << std::endl;}
-   };
-   Add the copy-assignment operator and destructor to X and write a program using X
-   objects in various ways: Pass them as nonreference and reference parameters; dynamically 
-   allocate them; put them in containers; and so forth. Study the output until you
-   are certain you understand when and why each copy-control member is used. As you
-   read the output, remember that the compiler can omit calls to the copy constructor.
    There is no requirement that we define all of these operations: We can define
    one or two of them without having to define all of them. However, ordinarily
    these operations should be thought of as a unit. In general, it is unusual to need
@@ -32238,53 +32351,73 @@ Classes That Need Destructors Need Copy and Assignment
    destructor. Often, the need for a destructor is more obvious than the need for the
    copy constructor or assignment operator. If the class needs a destructor, it almost
    surely needs a copy constructor and copy-assignment operator as well.
-   TheHasPtrclassthat we haveusedin the exercisesis agood example(§13.1.1,
-   p. 499). That class allocates dynamic memory in its constructor. The synthesized
-   destructor will not delete a data member that is a pointer. Therefore, this class
+
+   The `HasPtr` class that we have used in the exercises is a good example (§13.1.1, p. [P0499]_). 
+   That class allocates dynamic memory in its constructor. The synthesized
+   destructor will not ``delete`` a data member that is a pointer. Therefore, this class
    needs to define a destructor to free the memory allocated by its constructor.
-   What may be less clear—but what our rule of thumb tells us—is that HasPtr
+
+   What may be less clear—but what our rule of thumb tells us—is that `HasPtr`
    also needs a copy constructor and copy-assignment operator.
 
 .. ptg11539634 Section 13.1 Copy, Assign, and Destroy 505
 .. _P0505:
 
-   Consider what would happen if we gave HasPtr a destructor but used the
+   Consider what would happen if we gave `HasPtr` a destructor but used the
    synthesized versions of the copy constructor and copy-assignment operator:
-   class HasPtr {
-   public:
-   HasPtr(const std::string &s = std::string()):
-   ps(new std::string(s)), i(0) { }
-   ~HasPtr() { delete ps; }
-   // WRONG: HasPtr needs a copy constructor and copy-assignment operator
-   // other members as before
-   };
+
+   .. code-block:: cpp
+
+      class HasPtr {
+      public:
+         HasPtr(const std::string &s = std::string()):
+            ps(new std::string(s)), i(0) { }
+         ~HasPtr() { delete ps; }
+         // WRONG: HasPtr needs a copy constructor and copy-assignment operator
+         // other members as before
+      };
+
    In this version of the class, the memory allocated in the constructor will be freed
-   when a HasPtr object is destroyed. Unfortunately, we have introduced a serious
+   when a `HasPtr` object is destroyed. Unfortunately, we have introduced a serious
    bug! This version of the class uses the synthesized versions of copy and assignment. 
-   Those functions copy the pointer member, meaning that multiple HasPtr
+   Those functions copy the pointer member, meaning that multiple `HasPtr`
    objects may be pointing to the same memory:
-   HasPtr f(HasPtr hp) // HasPtr passed by value, so it is copied
-   {
-   HasPtr ret = hp; // copies the given HasPtr
-   // process ret
-   return ret; // ret and hp are destroyed
-   }
-   When f returns, both hp and ret are destroyed and the HasPtr destructor is run
+
+   .. code-block:: cpp
+
+      HasPtr f(HasPtr hp) // HasPtr passed by value, so it is copied
+      {
+         HasPtr ret = hp; // copies the given HasPtr
+         // process ret
+         return ret; // ret and hp are destroyed
+      }
+
+   When f returns, both `hp` and `ret` are destroyed and the HasPtr destructor is run
    on each of these objects. That destructor will delete the pointer member in ret
-   and in hp. But these objects contain the same pointer value. This code will delete
+   and in `hp`. But these objects contain the same pointer value. This code will delete
    that pointer twice, which is an error (§ 12.1.2, p. [P0462]_). What happens is undefined.
    In addition, the caller of f may still be using the object that was passed to f:
-   HasPtr p("some values");
-   f(p); // when f completes, the memory to which p.ps points is freed
-   HasPtr q(p); // now both p and q point to invalid memory!
+
+   .. code-block:: cpp
+
+      HasPtr p("some values");
+      f(p);        // when f completes, the memory to which p.ps points is freed
+      HasPtr q(p); // now both p and q point to invalid memory!
+
    The memory to which p (and q) points is no longer valid. It was returned to the
-   system when hp (or ret!) was destroyed.
-   If a class needs a destructor, it almost surely also needs the copyassignment 
-   operator and a copy constructor.
-   Classes That Need Copy Need Assignment, and Vice Versa
-   Although many classesneed to define allof (ornone of)the copy-control members,
+   system when `hp` (or `ret`!) was destroyed.
+
+   .. Tip::
+
+      If a class needs a destructor, it almost surely also needs the copy-assignment 
+      operator and a copy constructor.
+
+Classes That Need Copy Need Assignment, and Vice Versa
+
+   Although many classes need to define all of (ornone of) the copy-control members,
    some classes have work that needs to be done to copy or assign objects but has no
    need for the destructor.
+
    As an example, consider a class that gives each object its own, unique serial
    number. Such a class would need a copy constructor to generate a new, distinct
    serial number for the object being created. That constructor would copy all the
@@ -32295,65 +32428,84 @@ Classes That Need Destructors Need Copy and Assignment
 
    copy-assignment operator to avoid assigning to the serial number of the left-hand
    object. However, this class would have no need for a destructor.
+
    This example gives rise to a second rule of thumb: If a class needs a copy constructor, 
    it almost surely needs a copy-assignment operator. And vice versa—if
    the class needs an assignment operator, it almost surely needs a copy constructor
    as well. Nevertheless, needing either the copy constructor or the copy-assignment
    operator does not (necessarily) indicate the need for a destructor.
 
-Exercises Section 13.1.4
+   Exercises Section 13.1.4
 
-   Exercise 13.14: Assume that numbered is a class with a default constructor that generates 
-   a unique serial number for each object, which is stored in a data member named
-   mysn. Assuming numbered uses the synthesized copy-control members and given
-   the following function:
-   void f (numbered s) { cout << s.mysn << endl; }
-   what output does the following code produce?
-   numbered a, b = a, c = b;
-   f(a); f(b); f(c);
+      Exercise 13.14: Assume that `numbered` is a class with a default constructor that generates 
+      a unique serial number for each object, which is stored in a data member named
+      `mysn`. Assuming `numbered` uses the synthesized copy-control members and given
+      the following function:
 
-   Exercise 13.15: Assume numbered has a copy constructor that generates a new serial
-   number. Does that change the output of the calls in the previous exercise? If so, why?
-   What output gets generated?
+      .. code-block:: cpp
 
-   Exercise 13.16: What if the parameter in f were const numbered&? Does that
-   change the output? If so, why? What output gets generated?
+         void f (numbered s) { cout << s.mysn << endl; }
 
-   Exercise 13.17: Write versions of numbered and f corresponding to the previous
-   three exercises and check whether you correctly predicted the output.
+      what output does the following code produce?
+
+      .. code-block:: cpp
+
+            numbered a, b = a, c = b;
+            f(a); f(b); f(c);
+
+      Exercise 13.15: Assume numbered has a copy constructor that generates a new serial
+      number. Does that change the output of the calls in the previous exercise? If so, why?
+      What output gets generated?
+
+      Exercise 13.16: What if the parameter in f were const numbered&? Does that
+      change the output? If so, why? What output gets generated?
+
+      Exercise 13.17: Write versions of numbered and f corresponding to the previous
+      three exercises and check whether you correctly predicted the output.
 
 /13.1.5 Using = default
 ````````````````````````
 
    We can explicitly ask the compiler to generate the synthesized versions of the
    copy-control members by defining them as = default (§ 7.1.4, p. [P0264]_):
-   class Sales_data {
-   public:
-   // copy control; use defaults
-   Sales_data() = default;
-   Sales_data(const Sales_data&) = default;
-   Sales_data& operator=(const Sales_data &);
-   ~Sales_data() = default;
-   // other members as before
-   };
-   Sales_data& Sales_data::operator=(const Sales_data&) = default;
-   When we specify = default on the declaration of the member inside the class
+
+   .. code-block:: cpp
+
+      class Sales_data {
+      public:
+         // copy control; use defaults
+         Sales_data() = default;
+         Sales_data(const Sales_data&) = default;
+         Sales_data& operator=(const Sales_data &);
+         ~Sales_data() = default;
+         // other members as before
+      };
+
+      Sales_data& Sales_data::operator=(const Sales_data&) = default;
+
+   When we specify ``= default`` on the declaration of the member inside the class
    body, the synthesized function is implicitly inline (just as is any other member
 
 .. ptg11539634 Section 13.1 Copy, Assign, and Destroy 507
 .. _P0507:
 
    function defined in the body of the class). If we do not want the synthesized member 
-   to be an inline function, we can specify = default on the member's definition,
+   to be an inline function, we can specify ``= default`` on the member's definition,
    as we do in the definition of the copy-assignment operator.
-   We can use = default only on member functions that have a synthesized 
-   version (i.e., the default constructor or a copy-control member).
+
+   .. Note::
+
+      We can use ``= default`` only on member functions that have a synthesized 
+      version (i.e., the default constructor or a copy-control member).
 
 /13.1.6 Preventing Copies
 ``````````````````````````
 
-   Most classes should define—either implicitly or explicitly—the default
-   and copy constructors and the copy-assignment operator.
+   .. Tip::
+
+      Most classes should define—either implicitly or explicitly—the default
+      and copy constructors and the copy-assignment operator.
+
    Although most classes should (and generally do) define a copy constructor and a
    copy-assignment operator, for some classes, there really is no sensible meaning for
    these operations. In such cases, the class must be defined so as to prevent copies or
@@ -32362,28 +32514,36 @@ Exercises Section 13.1.4
    might seem that we could prevent copies by not defining the copy-control members. 
    However, this strategy doesn't work: If our class doesn't define these operations, 
    the compiler will synthesize them.
-   Defining a Function as Deleted
+
+Defining a Function as Deleted
+
    Under the new standard, we can prevent copies by defining the copy constructor
-   and copy-assignment operator as deleted functions. A deleted function is one
+   and copy-assignment operator as **deleted functions**. A deleted function is one
    that is declared but may not be used in any other way. We indicate that we want
-   to define a function as deleted by following its parameter list with = delete:
-   struct NoCopy {
-   NoCopy() = default; // use the synthesized default constructor
-   NoCopy(const NoCopy&) = delete; // no copy
-   NoCopy &operator=(const NoCopy&) = delete; // no assignment
-   ~NoCopy() = default; // use the synthesized destructor
-   // other members
-   };
-   The = delete signals to the compiler (and to readers of our code) that we are
+   to define a function as deleted by following its parameter list with ``= delete``:
+
+   .. code-block:: cpp
+
+      struct NoCopy {
+         NoCopy() = default; // use the synthesized default constructor
+         NoCopy(const NoCopy&) = delete; // no copy
+         NoCopy &operator=(const NoCopy&) = delete; // no assignment
+         ~NoCopy() = default; // use the synthesized destructor
+         // other members
+      };
+
+   The ``= delete`` signals to the compiler (and to readers of our code) that we are
    intentionally not defining these members.
-   Unlike = default, = delete must appear on the first declaration of a deleted
+
+   Unlike ``= default``, ``= delete`` must appear on the first declaration of a deleted
    function. This difference follows logically from the meaning of these declarations.
    A defaulted member affects only what code the compiler generates; hence the
-   = defaultis not neededuntil the compiler generatescode. On the other hand, the
+   ``= default`` is not needed until the compiler generates code. On the other hand, the
    compiler needs to know that a function is deleted in order to prohibit operations
    that attempt to use it.
-   Also unlike = default, we can specify = delete on any function (we can
-   use = default only on the default constructor or a copy-control member that
+
+   Also unlike ``= default``, we can specify ``= delete`` on any function (we can
+   use ``= default`` only on the default constructor or a copy-control member that
    the compiler can synthesize). Although the primary use of deleted functions is to
 
 .. ptg11539634 508 Copy Control
@@ -32401,54 +32561,68 @@ The Destructor Should Not be a Deleted Member
    whose type has a deleted destructor. If a member has a deleted destructor, then
    that member cannot be destroyed. If a member can't be destroyed, the object as a
    whole can't be destroyed.
+
    Although we cannot definevariablesor membersof such types, we candynamically 
    allocate objects with a deleted destructor. However, we cannot free them:
-   struct NoDtor {
-   NoDtor() = default; // use the synthesized default constructor
-   ~NoDtor() = delete; // we can't destroy objects of type NoDtor
-   };
-   NoDtor nd; // error: NoDtor destructor is deleted
-   NoDtor
-   * p = new NoDtor();
-   // ok: but we can't delete p
-   delete p; // error: NoDtor destructor is deleted
-   It is not possible to define an object or delete a pointer to a dynamically
-   allocated object of a type with a deleted destructor.
-   The Copy-Control Members May Be Synthesized as Deleted
+
+   .. code-block:: cpp
+
+      struct NoDtor {
+         NoDtor() = default; // use the synthesized default constructor
+         ~NoDtor() = delete; // we can't destroy objects of type NoDtor
+      };
+      NoDtor nd; // error: NoDtor destructor is deleted
+      NoDtor * p = new NoDtor(); // ok: but we can't delete p
+      delete p; // error: NoDtor destructor is deleted
+
+   .. Warning::
+
+      It is not possible to define an object or delete a pointer to a dynamically
+      allocated object of a type with a deleted destructor.
+
+The Copy-Control Members May Be Synthesized as Deleted
+
    As we've seen, if we do not define the copy-control members, the compiler defines
    them for us. Similarly, if a class defines no constructors, the compiler synthesizes
-   a default constructor for that class (§ 7.1.4, p. [P0262]_). For some classes, the compiler
-   defines these synthesized members as deleted functions:
+   a `default constructor` for that class (§ 7.1.4, p. [P0262]_). For some classes, the compiler
+   defines these synthesized members as `deleted functions`:
+
    • The synthesized destructor is defined as deleted if the class has a member
-   whose own destructor is deleted or is inaccessible (e.g., private).
-   • Thesynthesized copyconstructor is definedasdeletedif theclass hasamember 
-   whose own copy constructor is deleted or inaccessible. It is also deleted
-   if the class has a member with a deleted or inaccessible destructor.
+   whose own destructor is `deleted` or is `inaccessible` (e.g., ``private``).
+
+   • The synthesized copy constructor is defined as deleted if the class has a member 
+   whose own copy constructor is `deleted` or `inaccessible`. It is also deleted
+   if the class has a member with a `deleted` or `inaccessible destructor`.
+
    • The synthesized copy-assignment operator is defined as deleted if a member
    has a deleted or inaccessible copy-assignment operator, or if the class has a
-   const or reference member.
+   `const` or `reference member`.
+
    • The synthesized default constructor is defined as deleted if the class has a
-   member with a deleted or inaccessible destructor; or has a reference member 
+   member with a `deleted` or `inaccessible destructor`; or has a `reference member` 
    that does not have an in-class initializer (§ 2.6.1, p. [P0073]_); or has a const
-   member whose type does not explicitly define a default constructor and that
+   member whose type does not explicitly define a `default constructor` and that
    member does not have an in-class initializer.
 
 .. ptg11539634 Section 13.1 Copy, Assign, and Destroy 509
 .. _P0509:
 
-   In essence, these rules mean that if a class has adatamember that cannot be default
+   In essence, these rules mean that if a class has a data member that cannot be default
    constructed, copied, assigned, or destroyed, then the corresponding member will
    be a deleted function.
-   It may be surprising that a member that has a deleted or inaccessible destructor
+
+   It may be surprising that a member that has a `deleted` or `inaccessible destructor`
    causes the synthesized default and copy constructors to be defined as deleted. The
    reason for this rule is that without it, we could create objects that we could not
    destroy.
+
    It should not be surprising that the compiler will not synthesize a default constructor 
-   for a class with a reference member or a const member that cannot be
-   default constructed. Nor should it be surprising that a class with a const member 
+   for a class with a `reference member` or a `const member` that cannot be
+   default constructed. Nor should it be surprising that a class with a `const member` 
    cannot use the synthesized copy-assignment operator: After all, that operator
    attempts to assign to every member. It is not possible to assign a new value to a
    const object.
+
    Although we can assign a new value to a reference, doing so changes the value
    of the object to which the reference refers. If the copy-assignment operator were
    synthesized for such classes, the left-hand operand would continue to refer to the
@@ -32456,59 +32630,73 @@ The Destructor Should Not be a Deleted Member
    as the right-hand operand. Because this behavior is unlikely to be desired, the synthesized 
    copy-assignment operator is defined as deleted if the class has a reference
    member.
+
    We'll see in § 13.6.2 (p. [P0539]_), § 15.7.2 (p. [P0624]_), and § 19.6 (p. [P0849]_) that there are
    other aspects of a class that can cause its copy members to be defined as deleted.
-   In essence, the copy-control members are synthesized as deleted when
-   it is impossible to copy, assign, or destroy a member of the class.
-   private Copy Control
+
+   .. Note::
+
+      In essence, the copy-control members are synthesized as deleted when
+      it is impossible to copy, assign, or destroy a member of the class.
+
+private Copy Control
+
    Prior to the new standard, classes prevented copies by declaring their copy constructor 
    and copy-assignment operator as private:
-   class PrivateCopy {
-   // no access specifier; following members are private by default; see § 7.2 (p. [P0268]_)
-   // copy control is private and so is inaccessible to ordinary user code
-   PrivateCopy(const PrivateCopy&);
-   PrivateCopy &operator=(const PrivateCopy&);
-   // other members
-   public:
-   PrivateCopy() = default; // use the synthesized default constructor
-   ~PrivateCopy(); // users can define objects of this type but not copy them
-   };
-   Because the destructor is public, users will be able to define PrivateCopy objects. 
+
+   .. code-block:: cpp
+
+      class PrivateCopy {
+         // no access specifier; following members are private by default; see § 7.2 (p. [P0268]_)
+         // copy control is private and so is inaccessible to ordinary user code
+         PrivateCopy(const PrivateCopy&);
+         PrivateCopy &operator=(const PrivateCopy&);
+         // other members
+      public:
+         PrivateCopy() = default; // use the synthesized default constructor
+         ~PrivateCopy(); // users can define objects of this type but not copy them
+      };
+
+   Because the destructor is public, users will be able to define `PrivateCopy` objects. 
    However, because the copy constructor and copy-assignment operator are
-   private, user code will not be able to copy such objects. However, friends and
+   ``private``, user code will not be able to copy such objects. However, friends and
    members of the class can still make copies. To prevent copies by friends and members, 
-   we declare these members as private but do not define them.
+   we declare these members as ``private`` but do not define them.
+
    With one exception, which we'll cover in § 15.2.1 (p. [P0594]_), it is legal to declare,
    but not define, a member function (§ 6.1.2, p. [P0206]_). An attempt to use an undefined
 
 .. ptg11539634 510 Copy Control
 .. _P0510:
 
-   member results in a link-time failure. By declaring (but not defining) a private
+   member results in a link-time failure. By declaring (but not defining) a ``private``
    copy constructor, we can forestall any attempt to copy an object of the class type:
    User code that tries to make a copy will be flagged as an error at compile time;
    copies made in member functions or friends will result in an error at link time.
-   Classes that want to prevent copying should define their copy constructor 
-   and copy-assignment operators using = delete rather than
-   making those members private.
 
-Exercises Section 13.1.6
+   .. Tip::
 
-   Exercise 13.18: Define an Employee class that contains an employee name and a
-   unique employee identifier. Give the class a default constructor and a constructor that
-   takes a string representing the employee's name. Each constructor should generate
-   a unique ID by incrementing a static data member.
+      Classes that want to prevent copying should define their copy constructor 
+      and copy-assignment operators using ``= delete`` rather than
+      making those members ``private``.
 
-   Exercise 13.19: Does your Employee class need to define its own versions of the
-   copy-control members? If so, why? If not, why not? Implement whatever copy-control
-   members you think Employee needs.
+   Exercises Section 13.1.6
 
-   Exercise 13.20: Explain what happens when we copy, assign, or destroy objects of our
-   TextQuery and QueryResult classes from § 12.3 (p. [P0484]_).
+      Exercise 13.18: Define an `Employee` class that contains an employee name and a
+      unique employee identifier. Give the class a default constructor and a constructor that
+      takes a string representing the employee's name. Each constructor should generate
+      a unique ID by incrementing a ``static`` data member.
 
-   Exercise 13.21: Do you think the TextQuery and QueryResult classes need to define 
-   their own versions of the copy-control members? If so, why? If not, why not?
-   Implement whichever copy-control operations you think these classes require.
+      Exercise 13.19: Does your `Employee` class need to define its own versions of the
+      copy-control members? If so, why? If not, why not? Implement whatever copy-control
+      members you think `Employee` needs.
+
+      Exercise 13.20: Explain what happens when we copy, assign, or destroy objects of our
+      `TextQuery` and `QueryResult` classes from § 12.3 (p. [P0484]_).
+
+      Exercise 13.21: Do you think the `TextQuery` and `QueryResult` classes need to define 
+      their own versions of the copy-control members? If so, why? If not, why not?
+      Implement whichever copy-control operations you think these classes require.
 
 /13.2👋 Copy Control and Resource Management
 ---------------------------------------------
@@ -32518,77 +32706,91 @@ Exercises Section 13.1.6
    destructors to free the resources allocated by the object. Once a class needs a destructor, 
    it almost surely needs a copy constructor and copy-assignment operator
    as well.
+
    In order to define these members, we first have to decide what copying an
    object of our type will mean. In general, we have two choices: We can define the
    copy operations to make the class behave like a value or like a pointer.
+
    Classes that behave like values have their own state. When we copy a valuelike
    object, the copy and the original are independent of each other. Changes made to
    the copy have no effect on the original, and vice versa.
+
    Classes that act like pointers share state. When we copy objects of such classes,
    the copy and the original use the same underlying data. Changes made to the copy
    also change the original, and vice versa.
+
    Of the library classes we've used, the library containers and string class have
-   valuelike behavior. Not surprisingly, the shared_ptr class provides pointerlike 
-   behavior, as does our StrBlob class (§ 12.1.1, p. [P0456]_). The IO types and
+   valuelike behavior. Not surprisingly, the ``shared_ptr`` class provides pointer like 
+   behavior, as does our `StrBlob` class (§ 12.1.1, p. [P0456]_). The IO types and
 
 .. ptg11539634 Section 13.2 Copy Control and Resource Management 511
 .. _P0511:
 
-   unique_ptr do not allow copying or assignment, so they provide neither valuelike 
+   ``unique_ptr`` do not allow copying or assignment, so they provide neither valuelike 
    nor pointerlike behavior.
+
    To illustrate these two approaches, we'll define the copy-control members for
-   the HasPtr class used in the exercises. First, we'll make the class act like a value;
+   the `HasPtr` class used in the exercises. First, we'll make the class act like a value;
    then we'll reimplement the class making it behave like a pointer.
-   Our HasPtr class has two members, an int and a pointer to string. Ordinarily, 
+
+   Our `HasPtr` class has two members, an int and a pointer to string. Ordinarily, 
    classes copy members of built-in type (other than pointers) directly; such
    members are values and hence ordinarily ought to behave like values. What we
-   do when we copy the pointer member determines whether a class like HasPtr has
+   do when we copy the pointer member determines whether a class like `HasPtr` has
    valuelike or pointerlike behavior.
 
-Exercises Section 13.2
+   Exercises Section 13.2
 
-   Exercise 13.22: Assume that we want HasPtr to behave like a value. That is, each
-   object should have its own copy of the string to which the objects point. We'll show
-   the definitions of the copy-control members in the next section. However, you already
-   know everything you need to know to implement these members. Write the HasPtr
-   copy constructor and copy-assignment operator before reading on.
+      Exercise 13.22: Assume that we want `HasPtr` to behave like a value. That is, each
+      object should have its own copy of the string to which the objects point. We'll show
+      the definitions of the copy-control members in the next section. However, you already
+      know everything you need to know to implement these members. Write the `HasPtr`
+      copy constructor and copy-assignment operator before reading on.
 
 /13.2.1 Classes That Act Like Values
 `````````````````````````````````````
 
    To provide valuelike behavior, each object has to have its own copy of the resource
-   that the class manages. That means each HasPtr object must have its own copy of
-   the string to which ps points. To implement valuelike behavior HasPtr needs
+   that the class manages. That means each `HasPtr` object must have its own copy of
+   the string to which ps points. To implement valuelike behavior `HasPtr` needs
+
    • A copy constructor that copies the string, not just the pointer
+
    • A destructor to free the string
+
    • A copy-assignment operator to free the object's existing string and copy
    the string from its right-hand operand
-   The valuelike version of HasPtr is
-   class HasPtr {
-   public:
-   HasPtr(const std::string &s = std::string()):
-   ps(new std::string(s)), i(0) { }
-   // each HasPtr has its own copy of the string to which ps points
-   HasPtr(const HasPtr &p):
-   ps(new std::string( * p.ps)), i(p.i) { }
-   HasPtr& operator=(const HasPtr &);
-   ~HasPtr() { delete ps; }
-   private:
-   std::string
-   * ps;
-   int i;
-   };
+
+   The valuelike version of `HasPtr` is
+
+   .. code-block:: cpp
+
+      class HasPtr {
+      public:
+         HasPtr(const std::string &s = std::string()):
+            ps(new std::string(s)), i(0) { }
+         // each HasPtr has its own copy of the string to which ps points
+         HasPtr(const HasPtr &p):
+            ps(new std::string( * p.ps)), i(p.i) { }
+         HasPtr& operator=(const HasPtr &);
+         ~HasPtr() { delete ps; }
+      private:
+         std::string * ps;
+         int i;
+      };
 
 .. ptg11539634 512 Copy Control
 .. _P0512:
 
    Our class is simple enough that we've defined all but the assignment operator in
-   the class body. The first constructor takes an (optional) string argument. That
-   constructor dynamically allocates its own copy of that stringandstores a pointer
+   the class body. The first constructor takes an (optional) ``string`` argument. That
+   constructor dynamically allocates its own copy of that ``string`` and stores a pointer
    to that string in ps. The copy constructor also allocates its own, separate copy
    of the string. The destructor frees the memory allocated in its constructors by
    executing delete on the pointer member, ps.
-   Valuelike Copy-Assignment Operator
+
+Valuelike Copy-Assignment Operator
+
    Assignment operators typically combine the actions of the destructor and the copy
    constructor. Like the destructor, assignment destroys the left-hand operand's resources. 
    Like the copy constructor, assignment copies data from the right-hand
@@ -32600,151 +32802,185 @@ Exercises Section 13.2
    exception happen—by first copying the right-hand side. After the copy is made,
    we'll free the left-hand side and update the pointer to point to the newly allocated
    string:
-   HasPtr& HasPtr::operator=(const HasPtr &rhs)
-   {
-   auto newp = new string( * rhs.ps); // copy the underlying string
-   delete ps; // free the old memory
-   ps = newp; // copy data from rhs into this object
-   i = rhs.i;
-   return
-   * this;
-   // return this object
-   }
+
+   .. code-block:: cpp
+
+      HasPtr& HasPtr::operator=(const HasPtr &rhs)
+      {
+         auto newp = new string( * rhs.ps); // copy the underlying string
+         delete ps; // free the old memory
+         ps = newp; // copy data from rhs into this object
+         i = rhs.i;
+         return * this; // return this object
+      }
+
    In this assignment operator, we quite clearly first do the work of the constructor:
    The initializer of newp is identical to the initializer of ps in HasPtr's copy constructor. 
    As in the destructor, we next delete the string to which ps currently
    points. What remains is to copy the pointer to the newly allocated string and the
-   int value from rhs into this object.
+   int value from `rhs` into this object.
 
    .. Note::
 
       Key Concept : Assignment Operators
 
-   There are two points to keep in mind when you write an assignment operator:
-   • Assignment operators must work correctly if an object is assigned to itself.
-   • Mostassignment operatorsshare workwiththedestructorandcopyconstructor.
-   A goodpattern to use when you write an assignment operator is to first copy the righthand 
-   operand into a local temporary. After the copy is done, it is safe to destroy the
-   existing members of the left-hand operand. Once the left-hand operand is destroyed,
-   copy the data from the temporary into the members of the left-hand operand.
-   To illustrate the importance of guardingagainst self-assignment, consider what
+      There are two points to keep in mind when you write an assignment operator:
+
+      • Assignment operators must work correctly if an object is assigned to itself.
+
+      • Most assignment operators share work with the destructor and copy constructor.
+
+      A goodpattern to use when you write an assignment operator is to first copy the right-hand 
+      operand into a local temporary. After the copy is done, it is safe to destroy the
+      existing members of the left-hand operand. Once the left-hand operand is destroyed,
+      copy the data from the temporary into the members of the left-hand operand.
+
+   To illustrate the importance of guarding against self-assignment, consider what
    would happen if we wrote the assignment operator as
 
 .. ptg11539634 Section 13.2 Copy Control and Resource Management 513
 .. _P0513:
 
-   // WRONG way to write an assignment operator!
-   HasPtr&
-   HasPtr::operator=(const HasPtr &rhs)
-   {
-   delete ps; // frees the string to which this object points
-   // if rhs and * this are the same object, we're copying from deleted memory!
-   ps = new string( * (rhs.ps));
-   i = rhs.i;
-   return
-   * this;
-   }
-   If rhs and this object are the same object, deleting ps frees the string to which
-   both * this and rhs point. When we attempt to copy * (rhs.ps) in the new
+
+   .. code-block:: cpp
+
+      // WRONG way to write an assignment operator!
+      HasPtr&
+      HasPtr::operator=(const HasPtr &rhs)
+      {
+         delete ps; // frees the string to which this object points
+         // if rhs and * this are the same object, we're copying from deleted memory!
+         ps = new string( * (rhs.ps));
+         i = rhs.i;
+         return * this;
+      }
+
+   If `rhs` and ``this`` object are the same object, deleting `ps` frees the string to which
+   both `* this` and `rhs` point. When we attempt to copy `* (rhs.ps)` in the new
    expression, that pointer points to invalid memory. What happens is undefined.
-   It is crucially important for assignment operators to work correctly, even
-   when an object is assigned to itself. A good way to do so is to copy the
-   right-hand operand before destroying the left-hand operand.
 
-Exercises Section 13.2.1
+   .. Warning::
 
-   Exercise 13.23: Compare the copy-control members that you wrote for the solutions
-   to the previous section's exercises to the code presented here. Be sure you understand
-   the differences, if any, between your code and ours.
+      It is crucially important for assignment operators to work correctly, even
+      when an object is assigned to itself. A good way to do so is to copy the
+      right-hand operand before destroying the left-hand operand.
 
-   Exercise 13.24: What would happen if the version of HasPtr in this section didn't
-   define a destructor? What if HasPtr didn't define the copy constructor?
+   Exercises Section 13.2.1
 
-   Exercise 13.25: Assume we want to define a versionof StrBlob that acts like a value.
-   Also assume that we want to continue to use a shared_ptr so that our StrBlobPtr
-   class can still use a weak_ptr to the vector. Your revised class will need a copy
-   constructor and copy-assignmentoperatorbutwillnot needadestructor. Explainwhat
-   the copy constructor and copy-assignment operators must do. Explain why the class
-   does not need a destructor.
+      Exercise 13.23: Compare the copy-control members that you wrote for the solutions
+      to the previous section's exercises to the code presented here. Be sure you understand
+      the differences, if any, between your code and ours.
 
-   Exercise 13.26: Write your own version of the StrBlob class described in the previous 
-   exercise.
+      Exercise 13.24: What would happen if the version of `HasPtr` in this section didn't
+      define a destructor? What if `HasPtr` didn't define the copy constructor?
+
+      Exercise 13.25: Assume we want to define a versionof `StrBlob` that acts like a value.
+      Also assume that we want to continue to use a ``shared_ptr`` so that our `StrBlobPtr`
+      class can still use a ``weak_ptr`` to the ``vector``. Your revised class will need a copy
+      constructor and copy-assignment operator but will not need a destructor. Explain what
+      the copy constructor and copy-assignment operators must do. Explain why the class
+      does not need a destructor.
+
+      Exercise 13.26: Write your own version of the StrBlob class described in the previous 
+      exercise.
 
 /13.2.2 Defining Classes That Act Like Pointers
 ````````````````````````````````````````````````
 
-   For our HasPtr class to act like a pointer, we need the copy constructor and copyassignment 
-   operator to copy the pointer member, not the string to which that
+   For our `HasPtr` class to act like a pointer, we need the copy constructor and copy-assignment 
+   operator to copy the pointer member, not the ``string`` to which that
    pointer points. Our class will still need its own destructor to free the memory
-   allocated by the constructor that takes a string (§ 13.1.4, p. [P0504]_). In this case,
-   though, the destructor cannot unilaterally free its associated string. It can do so
-   only when the last HasPtr pointing to that string goes away.
-   The easiest way to make a class act like a pointer is to use shared_ptrs to
-   manage the resources in the class. Copying (or assigning) a shared_ptr copies
+   allocated by the constructor that takes a ``string`` (§ 13.1.4, p. [P0504]_). In this case,
+   though, the destructor cannot unilaterally free its associated ``string``. It can do so
+   only when the last `HasPtr` pointing to that ``string`` goes away.
+
+   The easiest way to make a class act like a pointer is to use `shared_ptrs` to
+   manage the resources in the class. Copying (or assigning) a ``shared_ptr`` copies
 
 .. ptg11539634 514 Copy Control
 .. _P0514:
 
-   (assigns) the pointer to which the shared_ptr points. The shared_ptr class
+   (assigns) the pointer to which the ``shared_ptr`` points. The ``shared_ptr`` class
    itself keeps track of how many users are sharing the pointed-to object. When there
-   are no more users, the shared_ptr class takes care of freeing the resource.
+   are no more users, the ``shared_ptr`` class takes care of freeing the resource.
+
    However, sometimes we want to manage a resource directly. In such cases, it
    can be useful to use a reference count (§ 12.1.1, p. [P0452]_). To show how reference
-   counting works, we'll redefine HasPtr to provide pointerlike behavior, but we
+   counting works, we'll redefine `HasPtr` to provide pointerlike behavior, but we
    will do our own reference counting.
-   Reference Counts
+
+Reference Counts
+
+   C++ 与 Java 等语言不同，没有自动的内存管理机制，C++ 程序需要自己处理内存的回收工作。而引用
+   计数器（Reference Counts）是一种最基本的内存管理方法，区别于 Java 中使用基于生命周期的
+   分代内存管理，引用计数器具有结构简单的特点，其缺点是难以处理循环引用问题。CPython 代码中也是
+   使用引用计数器实现 Python 脚本对象的内存管理。
+
    Reference counting works as follows:
+
    • In addition to initializing the object, each constructor (other than the copy
    constructor) creates a counter. This counter will keep track of how many
    objects share state with the object we are creating. When we create an object,
    there is only one such object, so we initialize the counter to 1.
+
    • The copy constructor does not allocate a new counter; instead, it copies the
    datamembers of its given object, including the counter. The copy constructor
    increments this shared counter, indicating that there is another user of that
    object's state.
+
    • The destructor decrements the counter, indicating that there is one less user
    of the shared state. If the count goes to zero, the destructor deletes that state.
+
    • The copy-assignment operator increments the right-hand operand's counter
    and decrements the counter of the left-hand operand. If the counter for the
    left-hand operand goes to zero, there are no more users. In this case, the
    copy-assignment operator must destroy the state of the left-hand operand.
+
    The only wrinkle is deciding where to put the reference count. The counter
-   cannot be a direct member of a HasPtr object. To see why, consider what happens
+   cannot be a direct member of a `HasPtr` object. To see why, consider what happens
    in the following example:
-   HasPtr p1("Hiya!");
-   HasPtr p2(p1); // p1 and p2 point to the same string
-   HasPtr p3(p1); // p1 , p2 , and p3 all point to the same string
+
+   .. code-block:: cpp
+
+      HasPtr p1("Hiya!");
+      HasPtr p2(p1); // p1 and p2 point to the same string
+      HasPtr p3(p1); // p1 , p2 , and p3 all point to the same string
+
    If the reference count is stored in each object, how can we update it correctly when
-   p3 is created? We could increment the count in p1 and copy that count into p3,
-   but how would we update the counter in p2?
+   `p3` is created? We could increment the count in `p1` and copy that count into `p3`,
+   but how would we update the counter in `p2`?
+
    One way to solve this problem is to store the counter in dynamic memory.
    When we create an object, we'll also allocate a new counter. When we copy or
    assign an object, we'll copy the pointer to the counter. That way the copy and the
    original will point to the same counter.
-   Defining a Reference-Counted Class
-   Using areferencecount, we canwrite the pointerlike version of HasPtrasfollows:
+
+Defining a Reference-Counted Class
+
+   Using a reference count, we can write the pointerlike version of `HasPtr` as follows:
 
 .. ptg11539634 Section 13.2 Copy Control and Resource Management 515
 .. _P0515:
 
-   class HasPtr {
-   public:
-   // constructor allocates a new string and a new counter, which it sets to 1
-   HasPtr(const std::string &s = std::string()):
-   ps(new std::string(s)), i(0), use(new std::size_t(1)) {}
-   // copy constructor copies all three data members and increments the counter
-   HasPtr(const HasPtr &p):
-   ps(p.ps), i(p.i), use(p.use) { ++ * use; }
-   HasPtr& operator=(const HasPtr&);
-   ~HasPtr();
-   private:
-   std::string
-   * ps;
-   int i;
-   std::size_t
-   * use;
-   // member to keep track of how many objects share * ps
-   };
+   .. code-block:: cpp
+
+      class HasPtr {
+      public:
+         // constructor allocates a new string and a new counter, which it sets to 1
+         HasPtr(const std::string &s = std::string()):
+            ps(new std::string(s)), i(0), use(new std::size_t(1)) {}
+         // copy constructor copies all three data members and increments the counter
+         HasPtr(const HasPtr &p):
+            ps(p.ps), i(p.i), use(p.use) { ++ * use; }
+         HasPtr& operator=(const HasPtr&);
+         ~HasPtr();
+      private:
+         std::string * ps;
+         int i;
+         std::size_t * use;
+         // member to keep track of how many objects share * ps
+      };
+
    Here, we've added a new data member named use that will keep track of how
    many objects share the same string. The constructor that takes a string allocates 
    this counter and initializes it to 1, indicating that there is one user of this
@@ -32752,29 +32988,36 @@ Exercises Section 13.2.1
 
 Pointerlike Copy Members “Fiddle” the Reference Count
 
-   When we copy or assign a HasPtr object, we want the copy and the original to
-   point to the same string. That is, when we copy a HasPtr, we'll copy ps itself,
+   When we copy or assign a `HasPtr` object, we want the copy and the original to
+   point to the same string. That is, when we copy a `HasPtr`, we'll copy ps itself,
    not the string to which ps points. When we make a copy, we also increment the
    counter associated with that string.
+
    The copy constructor (which we defined inside the class) copies all three members 
-   from its given HasPtr. This constructor also increments the use member,
-   indicating that there is another user for the string to which ps and p.ps point.
-   The destructor cannot unconditionally delete ps—there might be other objects 
+   from its given `HasPtr`. This constructor also increments the use member,
+   indicating that there is another user for the string to which `ps` and `p.ps` point.
+
+   The destructor cannot unconditionally delete `ps`—there might be other objects 
    pointing to that memory. Instead, the destructor decrements the reference
    count, indicating that one less object shares the string. If the counter goes to
-   zero, then the destructor frees the memory to which both ps and use point:
-   HasPtr::~HasPtr()
-   {
-   if (-- * use == 0) { // if the reference count goes to 0
-   delete ps; // delete the string
-   delete use; // and the counter
-   }
-   }
+   zero, then the destructor frees the memory to which both `ps` and use point:
+
+   .. code-block:: cpp
+
+      HasPtr::~HasPtr()
+      {
+         if (-- * use == 0) { // if the reference count goes to 0
+            delete ps; // delete the string
+            delete use; // and the counter
+         }
+      }
+
    The copy-assignment operator, as usual, does the work common to the copy
    constructor and to the destructor. That is, the assignment operator must increment 
    the counter of the right-hand operand (i.e., the work of the copy constructor)
    and decrement the counter of the left-hand operand, deleting the memory used if
    appropriate (i.e., the work of the destructor).
+
    Also, as usual, the operator must handle self-assignment. We do so by incrementing 
    the count in rhs before decrementing the count in the left-hand object.
 
@@ -32783,20 +33026,21 @@ Pointerlike Copy Members “Fiddle” the Reference Count
 
    That way if both objects are the same, the counter will have been incremented before 
    we check to see if ps (and use) should be deleted:
-   HasPtr& HasPtr::operator=(const HasPtr &rhs)
-   {
-   ++ * rhs.use; // increment the use count of the right-hand operand
-   if (-- * use == 0) { // then decrement this object's counter
-   delete ps; // if no other users
-   delete use; // free this object's allocated members
-   }
-   ps = rhs.ps; // copy data from rhs into this object
-   i = rhs.i;
-   use = rhs.use;
-   return
-   * this;
-   // return this object
-   }
+
+   .. code-block:: cpp
+
+      HasPtr& HasPtr::operator=(const HasPtr &rhs)
+      {
+         ++ * rhs.use; // increment the use count of the right-hand operand
+         if (-- * use == 0) { // then decrement this object's counter
+            delete ps; // if no other users
+            delete use; // free this object's allocated members
+         }
+         ps = rhs.ps; // copy data from rhs into this object
+         i = rhs.i;
+         use = rhs.use;
+         return * this; // return this object
+      }
 
 Exercises Section 13.2.2
 
@@ -32804,169 +33048,208 @@ Exercises Section 13.2.2
 
    Exercise 13.28: Given the following classes, implement a default constructor and the
    necessary copy-control members.
-   (a) class TreeNode { (b) class BinStrTree {
-   private: private:
-   std::string value; TreeNode
-   * root;
-   int count; };
-   TreeNode
-   * left;
-   TreeNode
-   * right;
-   };
+
+   .. code-block:: cpp
+
+      (a) class TreeNode {                (b) class BinStrTree {
+          private:                            private:
+                                                   TreeNode * root;
+            std::string value;                };
+            int count; 
+            TreeNode * left;
+            TreeNode * right;
+          };
 
 /13.3👋 Swap
 -------------
 
    In addition to defining the copy-control members, classes that manage resources
-   often also define a function named swap (§ 9.2.5, p. [P0339]_). Defining swap is particularly 
+   often also define a function named `swap` (§ 9.2.5, p. [P0339]_). Defining `swap` is particularly 
    important for classes that we plan to use with algorithms that reorder
-   elements (§ 10.2.3, p. [P0383]_). Such algorithms call swap whenever they need to exchange 
+   elements (§ 10.2.3, p. [P0383]_). Such algorithms call `swap` whenever they need to exchange 
    two elements.
-   If a class defines its own swap, then the algorithm uses that class-specific version. 
-   Otherwise, it uses the swap function defined by the library. Although, as
-   usual, we don't know how swap is implemented, conceptually it's easy to see that
+
+   If a class defines its own `swap`, then the algorithm uses that class-specific version. 
+   Otherwise, it uses the `swap` function defined by the library. Although, as
+   usual, we don't know how `swap` is implemented, conceptually it's easy to see that
    swapping two objects involves a copy and two assignments. For example, code
-   to swap two objects of our valuelike HasPtr class (§ 13.2.1, p. [P0511]_) might look
+   to swap two objects of our valuelike `HasPtr` class (§ 13.2.1, p. [P0511]_) might look
    something like:
-   HasPtr temp = v1; // make a temporary copy of the value of v1
-   v1 = v2; // assign the value of v2 to v1
-   v2 = temp; // assign the saved value of v1 to v2
+
+   .. code-block:: cpp
+
+      HasPtr temp = v1; // make a temporary copy of the value of v1
+      v1 = v2;          // assign the value of v2 to v1
+      v2 = temp;        // assign the saved value of v1 to v2
 
 .. ptg11539634 Section 13.3 Swap 517
 .. _P0517:
 
-   This code copies the string that was originally in v1 twice—once when the
-   HasPtr copy constructor copies v1 into temp and again when the assignment
-   operator assigns temp to v2. It also copies the string that was originally in v2
-   when it assigns v2 to v1. As we've seen, copying a valuelike HasPtr allocates a
-   new string and copies the string to which the HasPtr points.
+   This code copies the string that was originally in `v1` twice—once when the
+   `HasPtr` copy constructor copies `v1` into temp and again when the assignment
+   operator assigns temp to `v2`. It also copies the string that was originally in `v2`
+   when it assigns `v2` to v1. As we've seen, copying a valuelike `HasPtr` allocates a
+   new string and copies the string to which the `HasPtr` points.
+
    In principle, none of this memory allocation is necessary. Rather than allocating
    new copies of the string, we'd like swap to swap the pointers. That is, we'd like
-   swapping two HasPtrs to execute as:
-   string
-   * temp = v1.ps; //
-   make a temporary copy of the pointer in v1.ps
-   v1.ps = v2.ps; // assign the pointer in v2.ps to v1.ps
-   v2.ps = temp; // assign the saved pointer in v1.ps to v2.ps
-   Writing Our Own swap Function
-   We can override the default behavior of swap by defining a version of swap that
-   operates on our class. The typical implementation of swap is:
-   class HasPtr {
-   friend void swap(HasPtr&, HasPtr&);
-   // other members as in § 13.2.1 (p. [P0511]_)
-   };
-   inline
-   void swap(HasPtr &lhs, HasPtr &rhs)
-   {
-   using std::swap;
-   swap(lhs.ps, rhs.ps); // swap the pointers, not the string data
-   swap(lhs.i, rhs.i); // swap the int members
-   }
-   We start by declaring swap as a friend to give it access to HasPtr's (private)
-   data members. Because swap exists to optimize our code, we've defined swap as
-   an inline function (§ 6.5.2, p. [P0238]_). The body of swap calls swap on each of the
+   swapping two `HasPtrs` to execute as:
+
+   .. code-block:: cpp
+
+      string * temp = v1.ps; // make a temporary copy of the pointer in v1.ps
+      v1.ps = v2.ps; // assign the pointer in v2.ps to v1.ps
+      v2.ps = temp;  // assign the saved pointer in v1.ps to v2.ps
+
+Writing Our Own swap Function
+
+   We can override the default behavior of `swap` by defining a version of `swap` that
+   operates on our class. The typical implementation of `swap` is:
+
+   .. code-block:: cpp
+
+      class HasPtr {
+         friend void swap(HasPtr&, HasPtr&);
+         // other members as in § 13.2.1 (p. [P0511]_)
+      };
+      inline
+      void swap(HasPtr &lhs, HasPtr &rhs)
+      {
+         using std::swap;
+         swap(lhs.ps, rhs.ps); // swap the pointers, not the string data
+         swap(lhs.i, rhs.i); // swap the int members
+      }
+
+   We start by declaring `swap` as a friend to give it access to HasPtr's (private)
+   data members. Because `swap` exists to optimize our code, we've defined `swap` as
+   an inline function (§ 6.5.2, p. [P0238]_). The body of `swap` calls `swap` on each of the
    data members of the given object. In this case, we first swap the pointers and then
-   the int members of the objects bound to rhs and lhs.
-   Unlike the copy-control members, swap is never necessary. However,
-   defining swap can be an important optimization for classes that allocate
-   resources.
-   swap Functions Should Call swap, Not std::swap
+   the int members of the objects bound to `rhs` and `lhs`.
+
+   .. Note::
+
+      Unlike the copy-control members, `swap` is never necessary. However,
+      defining `swap` can be an important optimization for classes that allocate
+      resources.
+
+swap Functions Should Call swap, Not std::swap
+
    There is one important subtlety in this code: Although it doesn't matter in this
-   particular case, it is essential that swap functions call swap and not std::swap.
-   In the HasPtr function, the data members have built-in types. There is no typespecific 
-   version of swap for the built-in types. In this case, these calls will invoke
-   the library std::swap.
-   However, if a class has a member that has its own type-specific swap function,
-   calling std::swap would be a mistake. For example, assume we had another
-   class named Foo that has a member named h, which has type HasPtr. If we did
+   particular case, it is essential that `swap` functions call `swap` and not ``std::swap``.
+   In the `HasPtr` function, the data members have built-in types. There is no typespecific 
+   version of `swap` for the built-in types. In this case, these calls will invoke
+   the library ``std::swap``.
+
+   However, if a class has a member that has its own type-specific `swap` function,
+   calling ``std::swap`` would be a mistake. For example, assume we had another
+   class named Foo that has a member named h, which has type `HasPtr`. If we did
 
 .. ptg11539634 518 Copy Control
 .. _P0518:
 
-   not write a Foo version of swap, then the library version of swap would be used.
-   As we've alreadyseen, the library swap makes unnecessary copies of the strings
-   managed by HasPtr.
-   We can avoid these copies by writing a swap function for Foo. However, if we
-   wrote the Foo version of swap as:
-   void swap(Foo &lhs, Foo &rhs)
-   {
-   // WRONG: this function uses the library version of swap , not the HasPtr version
-   std::swap(lhs.h, rhs.h);
-   // swap other members of type Foo
-   }
+   not write a Foo version of `swap`, then the library version of `swap` would be used.
+   As we've already seen, the library `swap` makes unnecessary copies of the strings
+   managed by `HasPtr`.
+
+   We can avoid these copies by writing a `swap` function for Foo. However, if we
+   wrote the Foo version of `swap` as:
+
+   .. code-block:: cpp
+
+      void swap(Foo &lhs, Foo &rhs)
+      {
+         // WRONG: this function uses the library version of swap , not the HasPtr version
+         std::swap(lhs.h, rhs.h);
+         // swap other members of type Foo
+      }
+
    this code would compile and execute. However, there would be no performance
-   difference between this code and simply using the default version of swap. The
-   problem is that we've explicitly requested the library version of swap. However,
-   we don't want the version in std; we want the one defined for HasPtr objects.
-   The right way to write this swap function is:
-   void swap(Foo &lhs, Foo &rhs)
-   {
-   using std::swap;
-   swap(lhs.h, rhs.h); // uses the HasPtr version of swap
-   // swap other members of type Foo
-   }
-   Each call to swap must be unqualified. That is, each call should be to swap, not
-   std::swap. For reasons we'll explain in § 16.3 (p. [P0697]_), if there is a type-specific
-   version of swap, that version will be a better match than the one defined in std.
-   As a result, if there is a type-specific version of swap, calls to swap will match that
+   difference between this code and simply using the default version of `swap`. The
+   problem is that we've explicitly requested the library version of `swap`. However,
+   we don't want the version in ``std``; we want the one defined for `HasPtr` objects.
+
+   The right way to write this `swap` function is:
+
+   .. code-block:: cpp
+
+      void swap(Foo &lhs, Foo &rhs)
+      {
+         using std::swap;
+         swap(lhs.h, rhs.h); // uses the HasPtr version of swap
+         // swap other members of type Foo
+      }
+
+   Each call to `swap` must be unqualified. That is, each call should be to `swap`, not
+   `std::swap`. For reasons we'll explain in § 16.3 (p. [P0697]_), if there is a type-specific
+   version of `swap`, that version will be a better match than the one defined in ``std``.
+   As a result, if there is a type-specific version of `swap`, calls to `swap` will match that
    type-specific version. If there is no type-specific version, then—assuming there is
-   a using declaration for swap in scope—calls to swap will use the version in std.
-   Very carefulreaders may wonder why the using declaration inside swap does
-   not hide the declarations for the HasPtr version of swap (§ 6.4.1, p. [P0234]_). We'll
+   a ``using`` declaration for `swap` in scope—calls to `swap` will use the version in ``std``.
+
+   Very careful readers may wonder why the ``using`` declaration inside `swap` does
+   not hide the declarations for the `HasPtr` version of `swap` (§ 6.4.1, p. [P0234]_). We'll
    explain the reasons for why this code works in § 18.2.3 (p. [P0798]_).
-   Using swap in Assignment Operators
-   Classes that defineswap often useswap to define their assignment operator. These
-   operators use a technique known as copy and swap. This technique swaps the lefthand 
+
+Using swap in Assignment Operators
+
+   Classes that define `swap` often use `swap` to define their assignment operator. These
+   operators use a technique known as **copy and swap**. This technique swaps the left-hand 
    operand with a copy of the right-hand operand:
-   // note rhs is passed by value, which means the HasPtr copy constructor
-   // copies the string in the right-hand operand into rhs
-   HasPtr& HasPtr::operator=(HasPtr rhs)
-   {
-   // swap the contents of the left-hand operand with the local variable rhs
-   swap( * this, rhs); // rhs now points to the memory this object had used
-   return
-   * this;
-   // rhs is destroyed, which delete s the pointer in rhs
-   }
+
+   .. code-block:: cpp
+
+      // note rhs is passed by value, which means the HasPtr copy constructor
+      // copies the string in the right-hand operand into rhs
+      HasPtr& HasPtr::operator=(HasPtr rhs)
+      {
+         // swap the contents of the left-hand operand with the local variable rhs
+         swap( * this, rhs); // rhs now points to the memory this object had used
+         return * this;      // rhs is destroyed, which delete s the pointer in rhs
+      }
 
 .. ptg11539634 Section 13.4 A Copy-Control Example 519
 .. _P0519:
 
-   Inthis version oftheassignment operator, theparameteris not areference. Instead,
-   we pass the right-hand operand by value. Thus, rhs is a copy of the right-hand
-   operand. Copying a HasPtr allocates a new copy of that object's string.
-   In the body of the assignment operator, we call swap, which swaps the data
-   members of rhs with those in * this. This call puts the pointer that had been in
-   the left-hand operand into rhs, and puts the pointer that was in rhs into * this.
-   Thus, after the swap, the pointer member in * this points to the newly allocated
+   In this version of the assignment operator, the parameter is not a reference. Instead,
+   we pass the right-hand operand by value. Thus, `rhs` is a copy of the right-hand
+   operand. Copying a `HasPtr` allocates a new copy of that object's string.
+
+   In the body of the assignment operator, we call `swap`, which swaps the data
+   members of `rhs` with those in `* this`. This call puts the pointer that had been in
+   the left-hand operand into `rhs`, and puts the pointer that was in `rhs` into `* this`.
+   Thus, after the `swap`, the pointer member in `* this` points to the newly allocated
    string that is a copy of the right-hand operand.
-   When the assignment operator finishes, rhs is destroyed and the HasPtr destructor 
-   is run. That destructor deletes the memory to which rhs now points,
+
+   When the assignment operator finishes, `rhs` is destroyed and the `HasPtr` destructor 
+   is run. That destructor deletes the memory to which `rhs` now points,
    thus freeing the memory to which the left-hand operand had pointed.
+
    The interesting thing about this technique is that it automatically handles self
    assignment and is automatically exception safe. By copying the right-hand operand 
    before changing the left-hand operand, it handles self assignment in the same
    was as we did in our original assignment operator (§ 13.2.1, p. [P0512]_). It manages
    exception safety in the same way as the original definition as well. The only code
-   that might throw is the new expression inside the copy constructor. If an exception
+   that might throw is the ``new`` expression inside the copy constructor. If an exception
    occurs, it will happen before we have changed the left-hand operand.
-   Assignment operators that use copy and swap are automatically exception 
-   safe and correctly handle self-assignment.
 
-Exercises Section 13.3
+   .. Tip::
 
-   Exercise 13.29: Explain why the calls to swap inside swap(HasPtr&, HasPtr&) do
-   not cause a recursion loop.
+      Assignment operators that use copy and swap are automatically exception 
+      safe and correctly handle self-assignment.
 
-   Exercise 13.30: Write and test a swap function for your valuelike version of HasPtr.
-   Give your swap a print statement that notes when it is executed.
+   Exercises Section 13.3
 
-   Exercise 13.31: Give your class a < operator and define a vector of HasPtrs. Give
-   that vector some elements and then sort the vector. Note when swap is called.
+      Exercise 13.29: Explain why the calls to `swap` inside `swap(HasPtr&, HasPtr&)` do
+      not cause a recursion loop.
 
-   Exercise 13.32: Wouldthe pointerlikeversionofHasPtrbenefit fromdefininga swap
-   function? If so, what is the benefit? If not, why not?
+      Exercise 13.30: Write and test a `swap` function for your valuelike version of `HasPtr`.
+      Give your `swap` a print statement that notes when it is executed.
+
+      Exercise 13.31: Give your class a < operator and define a ``vector`` of `HasPtrs`. Give
+      that ``vector`` some elements and then sort the ``vector``. Note when `swap` is called.
+
+      Exercise 13.32: Would the pointer like version of `HasPtr` benefit from defining a `swap`
+      function? If so, what is the benefit? If not, why not?
 
 /13.4👋 A Copy-Control Example
 -------------------------------
@@ -32975,249 +33258,310 @@ Exercises Section 13.3
    management is not the only reason why a class might need to define these
    members. Some classes have bookkeeping or other actions that the copy-control
    members must perform.
+
    As an example of a class that needs copy control in order to do some bookkeeping, 
    we'll sketch out two classes that might be used in a mail-handling application.
-   These classes, Message and Folder, represent, respectively, email (or other kinds
+   These classes, `Message` and `Folder`, represent, respectively, email (or other kinds
 
 .. ptg11539634 520 Copy Control
 .. _P0520:
 
-   of) messages, and directoriesin which amessage might appear. Each Messagecan
+   of) messages, and directories in which a message might appear. Each `Message` can
    appear in multiple Folders. However, there will be only one copy of the contents
-   of any given Message. That way, if the contents of a Message are changed, those
-   changes will appear when we view that Message from any of its Folders.
-   To keep track of which Messages are in which Folders, each Message will
+   of any given `Message`. That way, if the contents of a `Message` are changed, those
+   changes will appear when we view that `Message` from any of its Folders.
+
+   To keep track of which `Messages` are in which Folders, each `Message` will
    store a set of pointers to the Folders in which it appears, and each Folder will
    contain a set of pointers to its Messages. Figure 13.1 illustrates this design.
+
    Figure 13.1: Message and Folder Class Design
-   Folder
-   ? -   
-   ?
-   ?
-   ? ?
-   Message
-   message text
-   ? ?
-   ? ?
-   ?
-   Message
-   message text
-   ?
-   6
-   Our Message class will provide save and remove operations to add or remove 
-   a Message from a specified Folder. To create a new Message, we will
-   specify the contents of the message but no Folder. To put a Message in a particular 
-   Folder, we must call save.
-   When wecopy aMessage,the copy andtheoriginal will bedistinct Messages,
-   but both Messages should appear in the same set of Folders. Thus, copying a
-   Message will copy the contents and the set of Folder pointers. It must also add
-   a pointer to the newly created Message to each of those Folders.
-   When we destroy a Message, that Message no longer exists. Therefore, destroying 
-   a Message must remove pointers to that Message from the Folders
-   that had contained that Message.
-   When we assign one Message to another, we'll replace the contents of the
-   left-hand Message with those in the right-hand side. We must also update the
-   set of Folders, removing the left-hand Message from its previous Folders and
-   adding that Message to the Folders in which the right-hand Message appears.
+
+   .. code-block:: bash
+
+                                                 Message
+                  Folder                   ╭─────────────────╮
+            ╭──┬──┬──┬──┬──┬──╮            │   message text  │
+            │  │  │  │  │  │  │     ╭─────>├──┬──┬──┬──┬──┬──┤
+            ╰^^┴──┴──┴──┴──┴──╯     │      │  │  │  │  │  │  │
+             ││              ╰──────╯      ╰──┴──┴──┴──┴──┴──╯
+             │╰──────────────────────────────────────────╯
+             ││                                  Message
+             ││                            ╭─────────────────╮
+             ││                            │   message text  │
+             │╰───────────────────────────>├──┬──┬──┬──┬──┬──┤
+             ╰──────────────────────────── │  │  │  │  │  │  │
+                                           ╰──┴──┴──┴──┴──┴──╯
+
+   Our `Message` class will provide `save` and `remove` operations to add or remove 
+   a `Message` from a specified `Folder`. To create a new `Message`, we will
+   specify the contents of the message but no `Folder`. To put a `Message` in a particular 
+   `Folder`, we must call save.
+
+   When we copy a `Message`, the copy and the original will be distinct `Messages`,
+   but both `Message`s should appear in the same set of `Folders`. Thus, copying a
+   `Message` will copy the contents and the set of `Folder` pointers. It must also add
+   a pointer to the newly created `Message` to each of those `Folders`.
+
+   When we destroy a `Message`, that `Message` no longer exists. Therefore, destroying 
+   a `Message` must remove pointers to that `Message` from the `Folders`
+   that had contained that `Message`.
+
+   When we assign one `Message` to another, we'll replace the contents of the
+   left-hand `Message` with those in the right-hand side. We must also update the
+   set of `Folders`, removing the left-hand `Message` from its previous Folders and
+   adding that `Message` to the `Folders` in which the right-hand `Message` appears.
+
    Looking at this list of operations, we can see that both the destructor and the
-   copy-assignment operator have to remove this Message from the Folders that
+   copy-assignment operator have to remove this `Message` from the `Folders` that
    point to it. Similarly, both the copy constructor and the copy-assignment operator
-   add a Message to a given list of Folders. We'll define a pair of private utility
+   add a `Message` to a given list of `Folders`. We'll define a pair of ``private`` utility
    functions to do these tasks.
-   The copy-assignment operator often does the same work as is needed
-   in the copy constructor and destructor. In such cases, the common
-   work should be put in private utility functions.
+
+   .. Tip::
+
+      The copy-assignment operator often does the same work as is needed
+      in the copy constructor and destructor. In such cases, the common
+      work should be put in ``private`` utility functions.
 
 .. ptg11539634 Section 13.4 A Copy-Control Example 521
 .. _P0521:
 
-   The Folder class will need analogous copy control members to add or remove
+   The `Folder` class will need analogous copy control members to add or remove
    itself from the Messages it stores.
-   We'll leave the design and implementation of the Folder class as an exercise.
-   However, we'll assume that the Folder class has members named addMsg and
-   remMsg that do whatever work is need to add or remove this Message, respectively, 
-   from the set of messages in the given Folder.
-   The Message Class
+
+   We'll leave the design and implementation of the `Folder` class as an exercise.
+   However, we'll assume that the `Folder` class has members named `addMsg` and
+   `remMsg` that do whatever work is need to add or remove this Message, respectively, 
+   from the set of messages in the given `Folder`.
+
+The Message Class
+
    Given this design, we can write our Message class as follows:
-   class Message {
-   friend class Folder;
-   public:
-   // folders is implicitly initialized to the empty set
-   explicit Message(const std::string &str = ""):
-   contents(str) { }
-   // copy control to manage pointers to this Message
-   Message(const Message&); // copy constructor
-   Message& operator=(const Message&); // copy assignment
-   ~Message(); // destructor
-   // add/remove this Message from the specified Folder 's set of messages
-   void save(Folder&);
-   void remove(Folder&);
-   private:
-   std::string contents; // actual message text
-   std::set<Folder * > folders; // Folder s that have this Message
-   // utility functions used by copy constructor, assignment, and destructor
-   // add this Message to the Folder s that point to the parameter
-   void add_to_Folders(const Message&);
-   // remove this Message from every Folder in folders
-   void remove_from_Folders();
-   };
+
+   .. code-block:: cpp
+
+      class Message {
+      friend class Folder;
+      public:
+         // folders is implicitly initialized to the empty set
+         explicit Message(const std::string &str = ""):
+         contents(str) { }
+         // copy control to manage pointers to this Message
+         Message(const Message&); // copy constructor
+         Message& operator=(const Message&); // copy assignment
+         ~Message(); // destructor
+         // add/remove this Message from the specified Folder 's set of messages
+         void save(Folder&);
+         void remove(Folder&);
+      private:
+         std::string contents; // actual message text
+         std::set<Folder * > folders; // Folder s that have this Message
+         // utility functions used by copy constructor, assignment, and destructor
+         // add this Message to the Folder s that point to the parameter
+         void add_to_Folders(const Message&);
+         // remove this Message from every Folder in folders
+         void remove_from_Folders();
+      };
+
    The class defines two data members: contents, to store the message text, and
-   folders, to store pointers to the Folders in which this Message appears. The
+   folders, to store pointers to the `Folders` in which this `Message` appears. The
    constructor that takes a string copies the given string into contents and (implicitly) 
    initializes folders to the empty set. Because this constructor has a default 
-   argument, it is also the Message default constructor (§ 7.5.1, p. [P0290]_).
-   The save and remove Members
-   Asidefromcopycontrol, the Messageclasshasonly twopublicmembers: save,
-   which puts the Message in the given Folder, and remove, which takes it out:
-   void Message::save(Folder &f)
-   {
-   folders.insert(&f); // add the given Folder to our list of Folder s
-   f.addMsg(this); // add this Message to f 's set of Message s
-   }
+   argument, it is also the `Message` default constructor (§ 7.5.1, p. [P0290]_).
+
+The save and remove Members
+
+   Asidefromcopycontrol, the `Message` class has only two public members: `save`,
+   which puts the `Message` in the given Folder, and `remove`, which takes it out:
+
+   .. code-block:: cpp
+
+      void Message::save(Folder &f)
+      {
+         folders.insert(&f); // add the given Folder to our list of Folder s
+         f.addMsg(this); // add this Message to f 's set of Message s
+      }
+
+      void Message::remove(Folder &f)
+      {
+         folders.erase(&f); // take the given Folder out of our list of Folder s
+         f.remMsg(this); // remove this Message to f 's set of Message s
+      }
 
 .. ptg11539634 522 Copy Control
 .. _P0522:
 
-   void Message::remove(Folder &f)
-   {
-   folders.erase(&f); // take the given Folder out of our list of Folder s
-   f.remMsg(this); // remove this Message to f 's set of Message s
-   }
-   To save (or remove) a Message requires updating the folders member of the
-   Message. When we save a Message, we store a pointer to the given Folder;
-   when we remove a Message, we remove that pointer.
-   These operations must also update the given Folder. Updating a Folder is
-   a job that the Folder class controls through its addMsg and remMsg members,
-   which will add or remove a pointer to a given Message, respectively.
-   Copy Control for the Message Class
-   When we copy a Message, the copy should appear in the same Folders as the
-   original Message. As a result, we must traverse the set of Folder pointers
-   adding a pointer to the new Message to each Folder that points to the original 
-   Message. Both the copy constructor and the copy-assignment operator will
+   To save (or remove) a `Message` requires updating the folders member of the
+   `Message`. When we save a `Message`, we store a pointer to the given `Folder`;
+   when we remove a `Message`, we remove that pointer.
+
+   These operations must also update the given `Folder`. Updating a `Folder` is
+   a job that the `Folder` class controls through its `addMsg` and `remMsg` members,
+   which will add or remove a pointer to a given `Message`, respectively.
+
+Copy Control for the Message Class
+
+   When we copy a `Message`, the copy should appear in the same `Folders` as the
+   original `Message`. As a result, we must traverse the set of `Folder` pointers
+   adding a pointer to the new `Message` to each `Folder` that points to the original 
+   `Message`. Both the copy constructor and the copy-assignment operator will
    need to do this work, so we'll define a function to do this common processing:
-   // add this Message to Folder s that point to m
-   void Message::add_to_Folders(const Message &m)
-   {
-   for (auto f : m.folders) // for each Folder that holds m
-   f->addMsg(this); // add a pointer to this Message to that Folder
-   }
-   Here we call addMsg on each Folder in m.folders. The addMsg function will
-   add a pointer to this Message to that Folder.
-   The Message copy constructor copies the data members of the given object:
-   Message::Message(const Message &m):
-   contents(m.contents), folders(m.folders)
-   {
-   add_to_Folders(m); // add this Message to the Folder s that point to m
-   }
-   and calls add_to_Folders to add a pointer to the newly created Message to
-   each Folder that contains the original Message.
-   The Message Destructor
-   When a Message is destroyed, we must remove this Message from the Folders
+
+   .. code-block:: cpp
+
+      // add this Message to Folder s that point to m
+      void Message::add_to_Folders(const Message &m)
+      {
+         for (auto f : m.folders) // for each Folder that holds m
+         f->addMsg(this); // add a pointer to this Message to that Folder
+      }
+
+   Here we call `addMsg` on each `Folder` in `m.folders`. The `addMsg` function will
+   add a pointer to this `Message` to that `Folder`.
+
+   The `Message` copy constructor copies the data members of the given object:
+
+   .. code-block:: cpp
+
+      Message::Message(const Message &m):
+      contents(m.contents), folders(m.folders)
+      {
+         add_to_Folders(m); // add this Message to the Folder s that point to m
+      }
+
+   and calls add_to_Folders to add a pointer to the newly created `Message` to
+   each Folder that contains the original `Message`.
+
+The Message Destructor
+
+   When a `Message` is destroyed, we must remove this `Message` from the Folders
    that point to it. This work is shared with the copy-assignment operator, so we'll
    define a common function to do it:
-   void Message::remove_from_Folders()
-   {
-   for (auto f : folders) // for each pointer in folders
-   f->remMsg(this); // remove this Message from that Folder
-   folders.clear(); // no Folder points to this Message
-   }
+
+   .. code-block:: cpp
+
+      void Message::remove_from_Folders()
+      {
+         for (auto f : folders) // for each pointer in folders
+            f->remMsg(this); // remove this Message from that Folder
+         folders.clear(); // no Folder points to this Message
+      }
 
 .. ptg11539634 Section 13.4 A Copy-Control Example 523
 .. _P0523:
 
-   The implementation of the remove_from_Folders function is similar to that of
-   add_to_Folders, except that it uses remMsg to remove the current Message.
-   Given the remove_from_Folders function, writing the destructor is trivial:
-   Message::~Message()
-   {
-   remove_from_Folders();
-   }
-   The call to remove_from_Folders ensures that no Folder has a pointer to the
+   The implementation of the `remove_from_Folders` function is similar to that of
+   `add_to_Folders`, except that it uses remMsg to remove the current Message.
+   Given the `remove_from_Folders` function, writing the destructor is trivial:
+
+   .. code-block:: cpp
+
+      Message::~Message()
+      {
+         remove_from_Folders();
+      }
+
+   The call to `remove_from_Folders` ensures that no Folder has a pointer to the
    Message we are destroying. The compiler automatically invokes the string destructor 
    to free contents and the set destructor to clean up the memory used by
    those members.
-   Message Copy-Assignment Operator
+
+Message Copy-Assignment Operator
+
    In common with most assignment operators, our Folder copy-assignment operator 
    must do the work of the copy constructor and the destructor. As usual, it is
-   crucial that we structure our code to execute correctly even if the left- and righthand 
+   crucial that we structure our code to execute correctly even if the left- and right-hand 
    operands happen to be the same object.
+
    In this case, we protect against self-assignment by removing pointers to this
    Message from the folders of the left-hand operand before inserting pointers in
    the folders in the right-hand operand:
-   Message& Message::operator=(const Message &rhs)
-   {
-   // handle self-assignment by removing pointers before inserting them
-   remove_from_Folders(); // update existing Folder s
-   contents = rhs.contents; // copy message contents from rhs
-   folders = rhs.folders; // copy Folder pointers from rhs
-   add_to_Folders(rhs); // add this Message to those Folder s
-   return
-   * this;
-   }
+
+   .. code-block:: cpp
+
+      Message& Message::operator=(const Message &rhs)
+      {
+         // handle self-assignment by removing pointers before inserting them
+         remove_from_Folders(); // update existing Folder s
+         contents = rhs.contents; // copy message contents from rhs
+         folders = rhs.folders; // copy Folder pointers from rhs
+         add_to_Folders(rhs); // add this Message to those Folder s
+         return * this;
+      }
+
    If the left- and right-hand operands are the same object, then they have the same
-   address. Hadwe calledremove_from_foldersaftercalling add_to_folders,
+   address. Hadwe called `remove_from_folders` after calling `add_to_folders`,
    we would have removed this Message from all of its corresponding Folders.
-   A swap Function for Message
-   The library defines versions of swap for both string and set (§ 9.2.5, p. [P0339]_). As
-   a result, our Message class will benefit from defining its own version of swap. By
-   defining a Message-specific version of swap, we can avoid extraneous copies of
+
+A swap Function for Message
+
+   The library defines versions of `swap` for both string and set (§ 9.2.5, p. [P0339]_). As
+   a result, our Message class will benefit from defining its own version of `swap`. By
+   defining a Message-specific version of `swap`, we can avoid extraneous copies of
    the contents and folders members.
-   However, our swap function must also manage the Folder pointers that point
-   to the swapped Messages. After a call such as swap(m1, m2), the Folders that
+
+   However, our `swap` function must also manage the Folder pointers that point
+   to the swapped Messages. After a call such as `swap(m1, m2)`, the Folders that
    had pointed to m1 must now point to m2, and vice versa.
+
    We'll manage the Folder pointers by making two passes through each of the
    folders members. The first pass will remove the Messages from their respective
-   Folders. We'll next call swap to swap the data members. We'll make the second
+   Folders. We'll next call `swap` to swap the data members. We'll make the second
    pass through folders this time adding pointers to the swapped Messages:
 
 .. ptg11539634 524 Copy Control
 .. _P0524:
 
-   void swap(Message &lhs, Message &rhs)
-   {
-   using std::swap; // not strictly needed in this case, but good habit
-   // remove pointers to each Message from their (original) respective Folder s
-   for (auto f: lhs.folders)
-   f->remMsg(&lhs);
-   for (auto f: rhs.folders)
-   f->remMsg(&rhs);
-   // swap the contents and Folder pointer set s
-   swap(lhs.folders, rhs.folders); // uses swap(set&, set&)
-   swap(lhs.contents, rhs.contents); // swap(string&, string&)
-   // add pointers to each Message to their (new) respective Folder s
-   for (auto f: lhs.folders)
-   f->addMsg(&lhs);
-   for (auto f: rhs.folders)
-   f->addMsg(&rhs);
-   }
 
-Exercises Section 13.4
+   .. code-block:: cpp
 
-   Exercise 13.33: Why is the parameter to the save and remove members of Message
-   a Folder&? Why didn't we define that parameter as Folder? Or const Folder&?
+      void swap(Message &lhs, Message &rhs)
+      {
+         using std::swap; // not strictly needed in this case, but good habit
+         // remove pointers to each Message from their (original) respective Folder s
+         for (auto f: lhs.folders)
+            f->remMsg(&lhs);
+         for (auto f: rhs.folders)
+            f->remMsg(&rhs);
+         // swap the contents and Folder pointer set s
+         swap(lhs.folders, rhs.folders);   // uses swap(set&, set&)
+         swap(lhs.contents, rhs.contents); // swap(string&, string&)
+         // add pointers to each Message to their (new) respective Folder s
+         for (auto f: lhs.folders)
+            f->addMsg(&lhs);
+         for (auto f: rhs.folders)
+            f->addMsg(&rhs);
+      }
 
-   Exercise 13.34: Write the Message class as described in this section.
+   Exercises Section 13.4
 
-   Exercise 13.35: What would happen if Message used the synthesized versions of the
-   copy-control members?
+      Exercise 13.33: Why is the parameter to the `save` and `remove` members of `Message`
+      a `Folder&`? Why didn't we define that parameter as `Folder`? Or `const Folder&`?
 
-   Exercise 13.36: Design and implement the corresponding Folder class. That class
-   should hold a set that points to the Messages in that Folder.
+      Exercise 13.34: Write the `Message` class as described in this section.
 
-   Exercise 13.37: Add members to the Message class to insert or remove a given
-   Folder * into folders. These members are analogous to Folder's addMsg and
-   remMsg operations.
+      Exercise 13.35: What would happen if `Message` used the synthesized versions of the
+      copy-control members?
 
-   Exercise 13.38: We did not use copy and swap to define the Message assignment
-   operator. Why do you suppose this is so?
+      Exercise 13.36: Design and implement the corresponding `Folder` class. That class
+      should hold a set that points to the `Messages` in that `Folder`.
+
+      Exercise 13.37: Add members to the `Message` class to insert or remove a given
+      `Folder *` into folders. These members are analogous to Folder's `addMsg` and
+      `remMsg` operations.
+
+      Exercise 13.38: We did not use copy and swap to define the `Message` assignment
+      operator. Why do you suppose this is so?
 
 /13.5👋 Classes That Manage Dynamic Memory
 -------------------------------------------
 
    Some classes need to allocate a varying amount of storage at run time. Such classes
    often can (and if they can, generally should) use a library container to hold their
-   data. For example, our StrBlob class uses a vector to manage the underlying
+   data. For example, our `StrBlob` class uses a vector to manage the underlying
    storage for its elements.
+
    However, this strategy does not work for every class; some classes need to do
    their own allocation. Such classes generally must define their own copy-control
    members to manage the memory they allocate.
@@ -33228,7 +33572,9 @@ Exercises Section 13.4
    As an example, we'll implement a simplification of the library vector class.
    Among the simplifications we'll make is that our class will not be a template. Instead, 
    our class will hold strings. Thus, we'll call our class StrVec.
-   StrVec Class Design
+
+StrVec Class Design
+
    Recallthat the vectorclass storesits elements in contiguous storage. To obtain acceptable 
    performance, vector preallocates enough storage to hold more elements
    than are needed (§ 9.4, p. [P0355]_). Each vector member that adds elements checks
@@ -33236,103 +33582,125 @@ Exercises Section 13.4
    an object in the next available spot. If there isn't space left, then the vector is
    reallocated: The vector obtains new space, moves the existing elements into that
    space, frees the old space, and adds the new element.
+
    We'll use a similar strategy in our StrVec class. We'll use an allocator to
    obtainrawmemory (§12.2.2,p.481). Becausethememory anallocatorallocates
    is unconstructed, we'll use the allocator'sconstructmember to createobjects
    in that space when we need to add an element. Similarly, when we remove an
    element, we'll use the destroy member to destroy the element.
+
    Each StrVec will have three pointers into the space it uses for its elements:
+
    • elements, which points to the first element in the allocated memory
+
    • first_free, which points just after the last actual element
+
    • cap, which points just past the end of the allocated memory
+
    Figure 13.2 illustrates the meaning of these pointers.
+
    Figure 13.2: StrVec Memory Allocation Strategy
-   elements
-   6
-   0 1 2 3 4 unconstructed elements
-   first_free
-   6
-   cap
-   6
-   In addition to these pointers, StrVec will have a static data member named
-   alloc that is an allocator<string>. The alloc member will allocate the
-   memory used by a StrVec. Our class will also have four utility functions:
-   • alloc_n_copy will allocate space and copy a given range of elements.
-   • free will destroy the constructed elements and deallocate the space.
-   • chk_n_allocwill ensurethatthereis roomtoaddatleastonemoreelement
-   to the StrVec. If there isn't room for another element, chk_n_alloc will
+
+   .. code-block:: cpp
+
+         ╭───┬───┬───┬───┬───┬────────────────────────────────╮
+         │ 0 │ 1 │ 2 │ 3 │ 4 │ unconstructed elements         │
+         ╰───┴───┴───┴───┴───┴────────────────────────────────╯
+         │                     │                              │
+         ╰───> elements        ╰───> first_free       cap <───╯
+
+   In addition to these pointers, `StrVec` will have a static data member named
+   alloc that is an `allocator<string>`. The alloc member will allocate the
+   memory used by a `StrVec`. Our class will also have four utility functions:
+
+   • `alloc_n_copy` will allocate space and copy a given range of elements.
+
+   • `free` will destroy the constructed elements and deallocate the space.
+
+   • `chk_n_alloc` will ensure that there is room to add at least one more element
+   to the `StrVec`. If there isn't room for another element, `chk_n_alloc` will
    call reallocate to get more space.
-   • reallocate will reallocate the StrVec when it runs out of space.
+
+   • `reallocate` will reallocate the `StrVec` when it runs out of space.
+
    Although our focus is on the implementation, we'll also define a few members
    from vector's interface.
 
 .. ptg11539634 526 Copy Control
 .. _P0526:
 
-   StrVec Class Definition
+StrVec Class Definition
+
    Having sketched the implementation, we can now define our StrVec class:
-   // simplified implementation of the memory allocation strategy for a vector -like class
-   class StrVec {
-   public:
-   StrVec(): // the allocator member is default initialized
-   elements(nullptr), first_free(nullptr), cap(nullptr) { }
-   StrVec(const StrVec&); // copy constructor
-   StrVec &operator=(const StrVec&); // copy assignment
-   ~StrVec(); // destructor
-   void push_back(const std::string&); // copy the element
-   size_t size() const { return first_free - elements; }
-   size_t capacity() const { return cap - elements; }
-   std::string
-   * begin() const { return elements; }
-   std::string
-   * end() const { return first_free; }
-   // ...
-   private:
-   static std::allocator<std::string> alloc; // allocates the elements
-   void chk_n_alloc() // used by functions that add elements to a StrVec
-   { if (size() == capacity()) reallocate(); }
-   // utilities used by the copy constructor, assignment operator, and destructor
-   std::pair<std::string * , std::string * > alloc_n_copy
-   (const std::string * , const std::string * );
-   void free(); // destroy the elements and free the space
-   void reallocate(); // get more space and copy the existing elements
-   std::string
-   * elements;
-   // pointer to the first element in the array
-   std::string
-   * first_free; //
-   pointer to the first free element in the array
-   std::string
-   * cap;
-   // pointer to one past the end of the array
-   };
-   // alloc must be defined in the StrVec implmentation file
-   allocator<string> StrVec::alloc;
+
+   .. code-block:: cpp
+
+      // simplified implementation of the memory allocation strategy for a vector -like class
+      class StrVec {
+      public:
+         StrVec(): // the allocator member is default initialized
+         elements(nullptr), first_free(nullptr), cap(nullptr) { }
+         StrVec(const StrVec&); // copy constructor
+         StrVec &operator=(const StrVec&); // copy assignment
+         ~StrVec(); // destructor
+         void push_back(const std::string&); // copy the element
+         size_t size() const { return first_free - elements; }
+         size_t capacity() const { return cap - elements; }
+         std::string * begin() const { return elements; }
+         std::string * end() const { return first_free; }
+         // ...
+      private:
+         static std::allocator<std::string> alloc; // allocates the elements
+         void chk_n_alloc() // used by functions that add elements to a StrVec
+            { if (size() == capacity()) reallocate(); }
+         // utilities used by the copy constructor, assignment operator, and destructor
+         std::pair<std::string * , std::string * > alloc_n_copy
+            (const std::string * , const std::string * );
+         void free(); // destroy the elements and free the space
+         void reallocate(); // get more space and copy the existing elements
+         std::string * elements; // pointer to the first element in the array
+         std::string * first_free; // pointer to the first free element in the array
+         std::string * cap; // pointer to one past the end of the array
+      };
+
+      // alloc must be defined in the StrVec implmentation file
+      allocator<string> StrVec::alloc;
+
    The class body defines several of its members:
-   • The default constructor (implicitly) default initializes alloc and (explicitly)
-   initializes the pointers to nullptr, indicating that there are no elements.
-   • The size member returns the number of elements actually in use, which is
-   equal to first_free - elements.
-   • The capacity member returns the number of elements that the StrVeccan
-   hold, which is equal to cap - elements.
-   • The chk_n_alloc causes the StrVec to be reallocated when there is no
-   room to add another element, which happens when cap == first_free.
-   • The begin and end members return pointers to the first (i.e., elements)
-   and one past the last constructed element (i.e., first_free), respectively.
+
+   • The default constructor (implicitly) default initializes `alloc` and (explicitly)
+   initializes the pointers to `nullptr`, indicating that there are no elements.
+
+   • The `size` member returns the number of elements actually in use, which is
+   equal to `first_free - elements`.
+
+   • The `capacity` member returns the number of elements that the `StrVec` can
+   hold, which is equal to `cap - elements`.
+
+   • The `chk_n_alloc` causes the `StrVec` to be reallocated when there is no
+   room to add another element, which happens when `cap == first_free`.
+
+   • The `begin` and `end` members return pointers to the first (i.e., elements)
+   and one past the last constructed element (i.e., `first_free`), respectively.
 
 .. ptg11539634 Section 13.5 Classes That Manage Dynamic Memory 527
 .. _P0527:
 
-   Using construct
-   The push_back function calls chk_n_alloc to ensure that there is room for an
-   element. When chk_n_alloc returns, push_back knows that there is room for
+Using construct
+
+   The `push_back` function calls `chk_n_alloc` to ensure that there is room for an
+   element. When `chk_n_alloc` returns, `push_back` knows that there is room for
    the new element. It asks its alloc member to construct a new last element:
-   void StrVec::push_back(const string& s)
-   {
-   chk_n_alloc(); // ensure that there is room for another element
-   // construct a copy of s in the element to which first_free points
-   alloc.construct(first_free++, s);
-   }
+
+   .. code-block:: cpp
+
+      void StrVec::push_back(const string& s)
+      {
+         chk_n_alloc(); // ensure that there is room for another element
+         // construct a copy of s in the element to which first_free points
+         alloc.construct(first_free++, s);
+      }
+
    When we use anallocator,we must rememberthat the memory is unconstructed
    (§ 12.2.2, p. [P0482]_). To use this raw memory we must call construct, which will
    construct an object in that memory. The first argument to construct must be a
@@ -33340,29 +33708,36 @@ Exercises Section 13.4
    arguments determine which constructor to use to construct the object that will go
    in that space. In this case, there is only one additional argument. That argument
    has type string, so this call uses the string copy constructor.
-   It is worth noting that the call to construct also increments first_free to
+
+   It is worth noting that the call to construct also increments ``first_free`` to
    indicate that a new element has been constructed. It uses the postfix increment
-   (§ 4.5, p. [P0147]_), so this call constructs an object in the current value of first_free
-   and increments first_free to point to the next, unconstructed element.
-   The alloc_n_copy Member
-   The alloc_n_copy member is called when we copy or assign a StrVec. Our
+   (§ 4.5, p. [P0147]_), so this call constructs an object in the current value of ``first_free``
+   and increments ``first_free`` to point to the next, unconstructed element.
+
+The alloc_n_copy Member
+
+   The ``alloc_n_copy`` member is called when we copy or assign a StrVec. Our
    StrVec class, like vector, will have valuelike behavior (§ 13.2.1, p. [P0511]_); when
    we copy or assign a StrVec, we have to allocate independent memory and copy
    the elements from the original to the new StrVec.
-   The alloc_n_copy member will allocate enough storage to hold its given
+
+   The ``alloc_n_copy`` member will allocate enough storage to hold its given
    range of elements, and will copy those elements into the newly allocated space.
    This function returns a pair (§ 11.2.3, p. [P0426]_) of pointers, pointing to the beginning 
    of the new space and just past the last element it copied:
-   pair<string * , string * >
-   StrVec::alloc_n_copy(const string
-   * b, const string * e)
-   {
-   // allocate space to hold as many elements as are in the range
-   auto data = alloc.allocate(e - b);
-   // initialize and return a pair constructed from data and
-   // the value returned by uninitialized_copy
-   return {data, uninitialized_copy(b, e, data)};
-   }
+
+   .. code-block:: cpp
+
+      pair<string * , string * >
+      StrVec::alloc_n_copy(const string * b, const string * e)
+      {
+         // allocate space to hold as many elements as are in the range
+         auto data = alloc.allocate(e - b);
+         // initialize and return a pair constructed from data and
+         // the value returned by uninitialized_copy
+         return {data, uninitialized_copy(b, e, data)};
+      }
+
    alloc_n_copy calculates how much space to allocate by subtracting the pointer
    to the first element from the pointer one past the last. Having allocated memory,
    the function next has to construct copies of the given elements in that space.
@@ -33375,44 +33750,60 @@ Exercises Section 13.4
    allocatedmemory; the secondis the valuereturnedfromuninitialized_copy
    (§ 12.2.2, p. [P0483]_). That value will be pointer positioned one element past the last
    constructed element.
-   The free Member
+
+The free Member
+
    The free member must destroy the elements and then deallocate the space this
    StrVec allocated. The for loop calls the allocator member destroy in reverse 
    order, starting with the last constructed element and finishing with the first:
-   void StrVec::free()
-   {
-   // may not pass deallocate a 0 pointer; if elements is 0, there's no work to do
-   if (elements) {
-   // destroy the old elements in reverse order
-   for (auto p = first_free; p != elements; / * empty
-   * /)
-   alloc.destroy(--p);
-   alloc.deallocate(elements, cap - elements);
-   }
-   }
+
+   .. code-block:: cpp
+
+      void StrVec::free()
+      {
+         // may not pass deallocate a 0 pointer; if elements is 0, there's no work to do
+         if (elements) {
+            // destroy the old elements in reverse order
+            for (auto p = first_free; p != elements; /* empty */)
+               alloc.destroy(--p);
+            alloc.deallocate(elements, cap - elements);
+         }
+      }
+
    The destroy function runs the string destructor. The string destructor frees
    whatever storage was allocated by the strings themselves.
+
    Once the elements have been destroyed, we free the space that this StrVec
    allocated by calling deallocate. The pointer we pass to deallocate must be
    one that was previously generatedby acall to allocate. Therefore,we first check
    that elements is not null before calling deallocate.
-   Copy-Control Members
-   Given our alloc_n_copy and free members, the copy-control members of our
-   class are straightforward. The copy constructor calls alloc_n_copy:
-   StrVec::StrVec(const StrVec &s)
-   {
-   // call alloc_n_copy to allocate exactly as many elements as in s
-   auto newdata = alloc_n_copy(s.begin(), s.end());
-   elements = newdata.first;
-   first_free = cap = newdata.second;
-   }
+
+Copy-Control Members
+
+   Given our ``alloc_n_copy`` and free members, the copy-control members of our
+   class are straightforward. The copy constructor calls ``alloc_n_copy``:
+
+   .. code-block:: cpp
+
+      StrVec::StrVec(const StrVec &s)
+      {
+      // call alloc_n_copy to allocate exactly as many elements as in s
+      auto newdata = alloc_n_copy(s.begin(), s.end());
+      elements = newdata.first;
+      first_free = cap = newdata.second;
+      }
+
    and assigns the results from that call to the data members. The return value from
-   alloc_n_copy is a pair of pointers. The first pointer points to the first constructed 
+   ``alloc_n_copy`` is a pair of pointers. The first pointer points to the first constructed 
    element and the second points just past the last constructed element. Because 
-   alloc_n_copy allocates space for exactly as many elements as it is given,
+   ``alloc_n_copy`` allocates space for exactly as many elements as it is given,
    cap also points just past the last constructed element.
    The destructor calls free:
-   StrVec::~StrVec() { free(); }
+
+   .. code-block:: cpp
+
+      StrVec::~StrVec() { free(); }
+
    The copy-assignment operator calls alloc_n_copy before freeing its existing elements. 
    By doing so it protects against self-assignment:
 
@@ -33947,7 +34338,7 @@ Exercises Section 13.6.1
    an lvalue. Hence, this assignment uses the copy-assignment operator.
    In the second assignment, we assign from the result of a call to getVec. That
    expression is an rvalue. In this case, both assignment operators are viable—we
-   can bind the result of getVec to either operator's parameter. Calling the copyassignment 
+   can bind the result of getVec to either operator's parameter. Calling the copy-assignment 
    operator requires a conversion to const, whereas StrVec&& is an
    exact match. Hence, the second assignment uses the move-assignment operator.
 
@@ -33978,7 +34369,7 @@ Exercises Section 13.6.1
    It will copy the given object and leave that original object in a valid state.
    Indeed, the copy constructor won't even change the value of the original object.
    If a class has a usable copy constructor and no move constructor, objects 
-   will be “moved” by the copy constructor. Similarly for the copyassignment 
+   will be “moved” by the copy constructor. Similarly for the copy-assignment 
    operator and move-assignment.
    Copy-and-Swap Assignment Operators and Move
    The version of our HasPtr class that defined a copy-and-swap assignment operator 
@@ -34422,7 +34813,7 @@ Exercises Section 13.6.3
 ---------------------
 
    copy and swap Technique for writing assignment 
-   operators by copying the righthand 
+   operators by copying the right-hand 
    operand followed by a call to swap to
    exchange the copy with the left-hand operand.
    copy-assignment operator Version of the
@@ -34486,7 +34877,7 @@ Exercises Section 13.6.3
    by copying or moving the corresponding
    member from the given object; the copy- or
    move-assignment operators copy-assign or
-   move-assign each member from the righthand 
+   move-assign each member from the right-hand 
    object to the left. Members of builtin 
    or compound type are initialized or assigned 
    directly. Members of class type are
@@ -34548,7 +34939,7 @@ Exercises Section 13.6.3
    for classes that do not explicitly define assignment 
    operators. Unless it is defined
    as deleted, a synthesized assignment operator 
-   memberwise assigns (moves) the righthand 
+   memberwise assigns (moves) the right-hand 
    operand to the left.
    synthesized copy/move constructor A
    versionof the copyormoveconstructor that
@@ -41655,43 +42046,64 @@ Exercises Section 16.2.7
 .. ptg11539634 Section 16.3 Overloading and Templates 697
 .. _P0697:
 
-   Multiple Viable Templates
+Multiple Viable Templates
+
    As another example, consider the following call:
-   const string
-   * sp = &s;
-   cout << debug_rep(sp) << endl;
+
+   .. code-block:: cpp
+
+      const string * sp = &s;
+      cout << debug_rep(sp) << endl;
+
    Here both templates are viable and both provide an exact match:
-   • debug_rep(const string * &), the instantiation of the first version of the
-   template with T bound to const string *
-   • debug_rep(const string * ), the instantiation of the second version of
-   the template with T bound to const string
+
+   • `debug_rep(const string * &)`, the instantiation of the first version of the
+   template with T bound to `const string *`
+
+   • `debug_rep(const string * )`, the instantiation of the second version of
+   the template with T bound to `const string`
+
    In this case, normal function matching can't distinguish between these two calls.
    We might expect this call to be ambiguous. However, due to the special rule for
-   overloaded function templates, this call resolves to debug_rep(T * ), which is the
+   overloaded function templates, this call resolves to `debug_rep(T * )`, which is the
    more specialized template.
+
    The reason for this rule is that without it, there would be no way to call the
-   pointer version of debug_rep on a pointer to const. The problem is that the
-   template debug_rep(const T&) can be called on essentially any type, including
-   pointer types. That template is more general than debug_rep(T * ), which can be
-   called only on pointer types. Without this rule, calls that passed pointers to const
+   pointer version of `debug_rep` on a pointer to ``const``. The problem is that the
+   template `debug_rep(const T&)` can be called on essentially any type, including
+   pointer types. That template is more general than `debug_rep(T * )`, which can be
+   called only on pointer types. Without this rule, calls that passed pointers to `const`
    would always be ambiguous.
+
    When there are several overloaded templates that provide an equally
    good match for a call, the most specialized version is preferred.
-   Nontemplate and Template Overloads
+
+Nontemplate and Template Overloads
+
    For ournextexample,we'll defineanordinarynontemplate versionof debug_rep
    to print strings inside double quotes:
-   // print string s inside double quotes
-   string debug_rep(const string &s)
-   {
-   return '"' + s + '"';
-   }
+
+   .. code-block:: cpp
+
+      // print string s inside double quotes
+      string debug_rep(const string &s)
+      {
+         return '"' + s + '"';
+      }
+
    Now, when we call debug_rep on a string,
-   string s("hi");
-   cout << debug_rep(s) << endl;
+
+   .. code-block:: cpp
+
+      string s("hi");
+      cout << debug_rep(s) << endl;
+
    there are two equally good viable functions:
-   • debug_rep<string>(const string&), the first template with T bound
+
+   • `debug_rep<string>(const string&)`, the first template with T bound
    to string
-   • debug_rep(const string&), the ordinary, nontemplate function
+
+   • `debug_rep(const string&)`, the ordinary, nontemplate function
 
 .. ptg11539634 698 Templates and Generic Programming
 .. _P0698:
@@ -50226,7 +50638,7 @@ Managing Union Members That Require Copy Control
          return * this;
       }
 
-   If the ``union`` in the left-hand operand holds a string, but the ``union`` in the righthand 
+   If the ``union`` in the left-hand operand holds a string, but the ``union`` in the right-hand 
    does not, then we have to first free the old string before assigning a new
    value to the ``union`` member. If both `unions` hold a string, we can use the normal
    string assignment operator to do the copy. Otherwise, we call copyUnion to do
