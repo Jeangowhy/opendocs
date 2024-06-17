@@ -87,7 +87,7 @@
    另外，Presentation Mode 可以将 Android Studio 作为幻灯片一样展示，通过放大视图模拟
    大屏幕的幻灯片展示。还可以创建版权信息模块，并使用右键菜单添加到对应 Scope 的文件类中：
    Gernerate -> Copyright。需要先给不同的文件创建或者指定版本模板，否则执行此菜单功能会提示：
-   No Copyright Available。设置：Editor -> Copyright -> `Copyright Profiles`__
+   No Copyright Available。设置：Editor -> Copyright -> `Copyright Profiles`_
    向此面板添加版权模板，并指定版本模板适用的文件范围（Scope），并将设置好的版权模板添加到
    Copyright 列表中，设置合适的 Scope，比如给脚本文件使用的版权就选择 Scratch and Console。
    还可以在 Formatting 中设置具体文件类型如何处理版权信息内容。
@@ -138,7 +138,7 @@
    Emmet_ 是一个用于快速软件 XML/HTML 标签结构的辅助工具，只要按语法输入模板字符串，就可以
    扩展生成 XML/HTML 标签层级结构。先配置启用 Editor -> Emmet（Enable XML/HTML Emmet），
    还可以启用模板预览（Enable abbreviation preview），在输入 Emmet 模板时就会悬窗显示
-   当前模板扩展后内容。语法参考文档 `Emmet documentation`__。
+   当前模板扩展后内容。语法参考文档 `Emmet documentation`_。
 
    例如，输入模板 ``#page>div.logo+ul#navigation>li*5>a{Item $}``，按快捷键 Tab 就会
    将 abbreviation syntax 生成如下扩展内容：
@@ -168,10 +168,10 @@
    中轻量级 OpenHarmony。HarmonyOS Next 如何发展，暂时未知。
 
    Android Studio 已经提供应用布局 XML 可视化设计。另外，也可以使用 IntelliJ IDEA 开发
-   Java Swing GUI 应用，至少有两个选择：使用内置的 `Swing GUI Designer`__，或者使用
+   Java Swing GUI 应用，至少有两个选择：使用内置的 `Swing GUI Designer`_，或者使用
    第三方插件 JFormDesigner 设计基于 XML 配置的 GUI 应用。每个表单（form）都可以单独运行、
    预览，只需要打开 form 文件，占击右键菜单的 Preview 运行 GUI 表单。另外，推荐使用 JavaFX
-   图形框架来开发 GUI 应用，Intellij IDEA 集成了 JavaFX `Scene Builder`__，只需要启用
+   图形框架来开发 GUI 应用，Intellij IDEA 集成了 JavaFX `Scene Builder`_，只需要启用
    内置的 JavaFX_ 插件即可： New Project -> JavaFX -> JavaFX FXML Application
    另外，JavaFX Runtime for Plugins 插件可以为其它插件提供 JavaFX APIs 开发图形界面。
 
@@ -384,30 +384,30 @@ Android OS 源代码包括三部分：
 
    各个 SDK 功能及安装目录说明如下：
    
-   -  `Android SDK Platform-Tools`__ 和 `SDK Platform Libraries`__ 依赖库通常一起安装。
+   -  `Android SDK Platform-Tools`_ 和 `SDK Platform Libraries`_ 依赖库通常一起安装。
       平台工具包提供了一个最重要的工具：Android Debug Bridge (ADB)，它用于向 Android 系统
       安装 APP 以及其它调试功能。包含设备的连接、日志的获取、发送 APK 安装包以及运行 APP。
-   -  `Android SDK Build-Tools`__ APK 构建、编译器工具套件，包括：
+   -  `Android SDK Build-Tools`_ APK 构建、编译器工具套件，包括：
       硬件底层的抽象接口语言 `Android Interface Definition Language (AIDL)`__。
       资源打包工具 AAPT (Android Asset Packaging Tool) 。
       `LLD - The LLVM Linker <https://lld.llvm.org/>`__, 
       `Renderscript source compiler <https://developer.android.google.cn/guide/topics/renderscript/compute>`__。
-   -  `Android SDK Command-line Tools`__ 是一组额外的命令行工具，包括：
+   -  `Android SDK Command-line Tools`_ 是一组额外的命令行工具，包括：
       用于 SDK 安装管理的 sdkmanager，和虚拟机管理的 avdmanager，它们都是 JAR 程序，通过脚本调用。
    -  Android Emulator 是模拟器（QEMU），需要搭配 Android OS 系统镜像文件（Images）一起使用。包含：
       - **emulator**：Android Emulator，用于加载 QEMU 实现的各种 CPU 构架的模拟器。
-      - `qemu-img`__：虚拟磁盘工具，QEMU disk image utility。
-      - `mksdcard`__： FAT32 虚拟 SDCARD 镜像文件创建工具。
+      - `qemu-img`_：虚拟磁盘工具，QEMU disk image utility。
+      - `mksdcard`_： FAT32 虚拟 SDCARD 镜像文件创建工具。
    -  Android NDK 只在需要基于 C/C++ 开发应用时使用。
-   -  `CMake`__ 项目自动化构建工具。
-   -  `Android Support Library`__ 是向后兼容（兼容旧版本）的 Android framework APIs 的补充。
-   -  `Android Google APIs`__ 附加的 Google Maps, Google Drive 等开发接口。
+   -  `CMake`_ 项目自动化构建工具。
+   -  `Android Support Library`_ 是向后兼容（兼容旧版本）的 Android framework APIs 的补充。
+   -  `Android Google APIs`_ 附加的 Google Maps, Google Drive 等开发接口。
 
    RenderScript APIs 是高性能图形脚本编程接口，允许您编写高性能图形渲染和原始计算代码，其中的
    图形概念和 OpenGL 类似。Android SDK API Level 11 (Android 3.0, Honeycomb) 系统引入。
 
    Android Studio 通过 Android Framework Sources 分析，以及 Reader Mode，可以完全取代
-   帮助文档。镜像网站可以到的 Android 离线文件最高只有 `Android API Level 24`__。另外一个
+   帮助文档。镜像网站可以到的 Android 离线文件最高只有 `Android API Level 24`_。另外一个
    版本包含两个分卷 Android API Level 22 (CodeName=MNC)。由于离线文档中 HTML 会请求受限
    资源，导致加载非常缓慢。可以使用镜像网站提供的文件，也可以像本文档一样，使用 panddoc 等工具
    转换为 reStructuredText 或者 Markdown 等文件阅读的格式。
@@ -428,8 +428,8 @@ Android OS 源代码包括三部分：
 .. _avdmanager: https://developer.android.google.cn/tools/avdmanager
 .. _mksdcard: https://devdoc.net/android/Android-r15/guide/developing/tools/mksdcard.html
 
-   官方网站 `Android Developer`__ 在国内访问受限，解决方法是使用镜像网站。Android Studio
-   本身也配置了一个可用的服务器，`dl.google.com`__，但未提供目录索引页面，不能手动下载安装包，
+   官方网站 `Android Developer`_ 在国内访问受限，解决方法是使用镜像网站。Android Studio
+   本身也配置了一个可用的服务器，`dl.google.com`_，但未提供目录索引页面，不能手动下载安装包，
    除非有相应的链接。为保障安装包的下载，Android SDK -> SDK Update Sites 添加以下镜像服务器：
 
    - 腾讯： https://mirrors.cloud.tencent.com/AndroidSDK/
@@ -445,6 +445,8 @@ Android OS 源代码包括三部分：
    - `Android Desktop System Images <https://dl.google.com/android/repository/sys-img/android-desktop/sys-img2-3.xml>`__
    - `Android Repository   <https://dl.google.com/android/repository/repository2-3.xml>`__
    - `Android Repository v2   <https://dl.google.com/android/repository/repository2-2.xml>`__
+   - `Android SDK Platforms   <https://dl.google.com/android/repository/repository-10.xml>`__
+   - `Android NDKs   <https://dl.google.com/android/repository/repository-11.xml>`__
    - `Android System Images   <https://dl.google.com/android/repository/sys-img/android/sys-img2-3.xml>`__
    - `Android TV System Images   <https://dl.google.com/android/repository/sys-img/android-tv/sys-img2-3.xml>`__
    - `Android Wear System Images <https://dl.google.com/android/repository/sys-img/android-wear/sys-img2-3.xml>`__
@@ -462,7 +464,7 @@ Android OS 源代码包括三部分：
    - `Tablet Google API with Playstore System Images  <https://dl.google.com/android/repository/sys-img/google_playstore_tablet/sys-img2-3.xml>`__
 
    未安装有 Android Studio 或想直接使用命令行工具下载安装 Android SDK/NDK 等开发环境组件，
-   可以先下载好 `Android SDK Command-line Tools`__ 命令行工具，此起步工具包含有 SDK 安装
+   可以先下载好 `Android SDK Command-line Tools`_ 命令行工具，此起步工具包含有 SDK 安装
    管理工具和 AVD 虚拟机设备管理工具。使用 ``sdkmanager --list`` 查看当前安装好的组件，此命令
    会罗列 Installed packages 和可安装组件（Available Packages）。列表中的列（Path）是用于
    确定 Web 服务器资源的 URL 地址的关键信息。安装时就将其传递给 ``sdkmanager --install Path``
@@ -588,7 +590,7 @@ Android OS 源代码包括三部分：
    -  Graphics acceleration for improved screen rendering
    -  Virtual machine (VM) acceleration for improved execution speed
 
-   Windows 系统下有三种利用硬件提升虚拟机性能的 `Emulator hypervisor`__：
+   Windows 系统下有三种利用硬件提升虚拟机性能的 `Emulator hypervisor`_：
 
    - The Android Emulator hypervisor driver (AEHD)
    - The Windows Hypervisor Platform (WHPX)
@@ -835,7 +837,7 @@ Android Studio 使用 Tools -> SDK Manager 查看 Androi API 版本号对应关�
    Android 1.0                 1                BASE                   
    ==========================  ===============  =======================
 
-   在创建虚拟机时，就需要参考 `Codenames, tags, and build numbers`__ 来确定需要使用的
+   在创建虚拟机时，就需要参考 `Codenames, tags, and build numbers`_ 来确定需要使用的
    虚拟机镜像文件。因为 Device Manager 面板中是根据设备的硬件规格来选择虚拟机镜像文件的。
 
 .. _Codenames, tags, and build numbers: https://source.android.google.cn/docs/setup/reference/build-numbers
@@ -1282,7 +1284,7 @@ Java API Framework 也叫做 Application Framework，Android 应用开发必需�
    提供了便利。取代 ActionBarActivity，支持 ActionBar 功能，同时推荐使用 ToolBar。
 
    Android 发布过 4v, 7v, 13v 等支援库包（Support Library Packages），还会发布相应的修订版。
-   Android 9.0 (API level 28) 开始 `support library`__ 更名为 AndroidX_，作为现代 UI 
+   Android 9.0 (API level 28) 开始 `support library`_ 更名为 AndroidX_，作为现代 UI 
    构架 Jetpack_ 的组成部分，包含最新的 Compose 组件，新旧版本的命令空间也作了变更。
    Jetpack AndroidX 源代码： `Android Jetpack <https://github.com/androidx/androidx>`__
 
@@ -1441,7 +1443,7 @@ Shell Scripting
    5. indexed arrays of unlimited size,
    6. integer arithmetic in any base from two to sixty-four.
 
-   官方文档资料较完善，另外这里是一份“读过”的手册，`Bash 5.1`__，里面有非常基础的一些知识点示范。
+   官方文档资料较完善，另外这里是一份“读过”的手册，`Bash 5.1`_，里面有非常基础的一些知识点示范。
 
 .. _Bash: https://www.gnu.org/software/bash/
 .. _Bash 5.1: https://github.com/Jeangowhy/opendocs/tree/main/bash.5.1.md
@@ -1699,7 +1701,7 @@ GUI Application
 
       Project needs to be converted to androidx.* dependencies
 
-   Flutter 文档 `AndroidX migration`__ 所述，可以向配置文件 android/gradle.properties 
+   Flutter 文档 `AndroidX migration`_ 所述，可以向配置文件 android/gradle.properties 
    或 .android/gradle.properties 添加下述代码，并点击 Sync Now 同步 gradle 配置就可以。
    也可以使用 Global Properties，即配置在项目根目录下，但是这种操作适用于 Android Studio：
 
@@ -1743,7 +1745,7 @@ GUI Application
 
    IntelliJ IDEA 2024.1.1 (Community Edition) 创建 JavaFX 项目模块时可能出现无法
    创建模块的问题，可能原因是选择的 SDK 版本过高，比如选用 OpenJDK 14，可以尝试降低版本
-   `JDK 1.8`__ (Java SE Development Kit 8) 使用 JDK 内置的 JavaFX 构架来解决问题。
+   `JDK 1.8`_ (Java SE Development Kit 8) 使用 JDK 内置的 JavaFX 构架来解决问题。
    但是 Intellij IDEA 需要 JDK 11 以上支持 JavaFX 项目。
 
       New Module
@@ -1766,7 +1768,7 @@ GUI Application
    相关的各个配置项参考如下：
 
    -  添加 JavaFX 依赖库（lib 目录）：Project Structure → Libraries → “+” → “Java”
-   -  配置 `Scene Builder`__ 程序以编辑 fxml 文件：File -> Settings... -> Language & Framework -> JavaFX -> Path to Scene Builder
+   -  配置 `Scene Builder`_ 程序以编辑 fxml 文件：File -> Settings... -> Language & Framework -> JavaFX -> Path to Scene Builder
    -  配置 JVM 参数以正确引用 JavaFX runtime，解析 fxml 用户界面。编辑项目配置，引用依赖到的库：
       Run -> Edit Configurations -> Application -> Modify options -> Add VM options
 
@@ -1779,7 +1781,7 @@ GUI Application
 
    设置 --module-path 目的是让 JVM 找到库文件所在目录，设置 --add-modules 是指明引用的模块。
    如果使用 Java 9 模块，即 JavaFX jmods，那么就只需要指定 --module-path 即可。
-   参考项目配置文档 `JavaFX docs`__。
+   参考项目配置文档 `JavaFX docs`_。
 
 
    注意，Intellij IDEA 的模块相当于 Eclipse 工作空间（Workspace）下包含的 Project，
@@ -1901,7 +1903,7 @@ GUI Application
    Java 8 集成 JavaFX 框架，但是 Java 9 引入模块概念，模块（Jigsaw）使用 jmods 文件。
    JavaFX 将剥离出来作为单独进行维护。JDK 11 开始，JavaFX 正式从 JDK 中分离出来作为独立模块。
    也就是说从 JDK 11 开始，Java Fx 作为第三方依赖库引入，不再是 JDK 内置模块。Java 9 。
-   Gradle 或者 Maven 项目配置请参考文档 `JavaFX docs`__。
+   Gradle 或者 Maven 项目配置请参考文档 `JavaFX docs`_。
 
    Java 9 模块特性参考 Bruce Eckel 编写的 On Java 8 一书，8.5 New Feature: Modules。
 
@@ -2573,7 +2575,7 @@ Anti-virus program and build performance
                    2nd generation Intel Core or 
                    newer, or AMD CPU with 
                    support for a Windows 
-                   `Hypervisor Framework`__.
+                   `Hypervisor Framework`_.
 
    Disk space      8 GB (IDE, Android SDK,        Solid state drive with 16 GB or more
                    Emulator)

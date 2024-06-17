@@ -3239,7 +3239,7 @@ Kotlin 的类定义语法与 Java 有很大的不同，除了使用 `object` 或
 Kotlin 类型构造器分主、次两个级别：
 
 1. ➊ A class in Kotlin has a _primary constructor_ and 
-2. ➋ possibly one or more _secondary constructors_. The primary constructor
+2. ➋ possibly one or more _secondary constructors_.
 
 主构造器就是紧跟类名称后，或者成员列表后的 `constructor`，次要构造函数则定义在类体内。在不需要对构建器使用标注或 visibility modifiers，这种情况下可以省略 `constructor` 关键字，此时主构造器只剩下类型参数列表。
 

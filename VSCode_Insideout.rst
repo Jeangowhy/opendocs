@@ -441,7 +441,7 @@
       =============================  =========================================
 
    Code Web 存在的理由当然不止于此，它才是未来的开发环境的未来：远程在线开发。当前可以安装使用
-   `Github Codespace`_，基于云即时开发环境、容器虚拟技术提供用于开发的通用语言、工具和实用程序。
+   `Github Codespaces`_，基于云即时开发环境、容器虚拟技术提供用于开发的通用语言、工具和实用程序。
    Code Web 远程开发可以免去安装 IDE，直接登录 Web 连接开发环境。代码空间（Codespace）生命周期
    从创建代码空间时开始，到删除代码空间时结束。 中间可以断开连接并重新连接到活动代码空间，而不会
    影响其正在运行的进程。 可以停止并重新启动代码空间，而不会丢失对项目所做的更改。这种云开发将提升
@@ -4467,7 +4467,7 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
    这个脚本主要用于手动管理 SDK, AVD, 以及项目管理，但是最新命令行工具包中不再提供这个脚本工具。
    并且最新的 Android SDK Tools 提供的脚本也不再支持项目管理功能，推荐使用 Android Sutio。
    也就是使用 Intellj IDEA 环境中的 ``Android`` 插件进行项目管理操作。如果要使用命令行创建
-   项目，可以使用老版本 SDK，比如 Android SDK r24.4.1 就提供支持。使用以下命令创建一个新的
+   项目，可以使用老版本 SDK，比如 Android SDK r24.4.1 或者 r25.2.5。使用以下命令创建一个
    Android 10 项目（API Level 29），根据需要修改项目名称和 Android API Level。脚本默认
    使用 Ant 作为自动化构建工具，可以使用 ``-g -v 8.2`` 这样的参数指定 Gradle 构建工具，
    以及适配的 Gradle Android plugin 版本：
@@ -4512,6 +4512,9 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
    *  命令行工具包（Android Command Line Tools） https://developer.android.google.cn/studio
    *  Android SDK Tools 下载 https://www.androiddevtools.cn/
    *  `Android SDK r24.4.1 <https://dl.google.com/android/android-sdk_r24.4.1-windows.zip>`__
+   *  `Android SDK Tools r25.2.5 <https://dl.google.com/android/repository/tools_r25.2.5-windows.zip>`__
+   *  `Android SDK samples-23_r02 <https://dl.google.com/android/repository/samples-23_r02.zip >`__
+   *  `Android SDK 手动下载安装 <https://mirrors.cloud.tencent.com/AndroidSDK/>`__
    *  `Android SDK 命令行工具 <https://developer.android.google.cn/tools>`__
    *  `Understand the Android build system <https://developer.android.google.cn/build>`__
    *  `Build your app from the command line <https://developer.android.google.cn/build/building-cmdline>`__
@@ -4542,7 +4545,9 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
    安装了 Android for VS Code 插件，在配置调试器时，就可以通过 Go -> Add Configuration...
    创建配置文件，并且使用调试器的备选列表中由插件提供的 ``Android`` 选项，就可以自动添加以下配置，
    包含了直接运行并调试 App（launch 方法），以及附加调试方式（attach）以调试手机当前运行中的进程。
-   可以根据需要以下 launch.json 配置文件：
+   可以根据需要以下 ``launch.json`` 配置文件，比如连接多设备，可以添加 "targetDevice" 以选择调试。
+   为了方便执行构建、安装 apk 的流程，可以将构建任务作为运行调试器在前置任务（preLaunchTask），
+   并且向 ``tasks.json`` 添加命令调用 gradle 执行构建任务：
 
    .. code-block:: cpp
 
@@ -4558,6 +4563,8 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
                   "name": "Android launch",
                   "appSrcRoot": "${workspaceRoot}/app/src/main",
                   "apkFile": "${workspaceRoot}/app/build/outputs/apk/debug/app-debug.apk",
+                  // "targetDevice": "${command:PickAndroidDevice}",
+                  "preLaunchTask": "gradle build",
                   "adbPort": 5037
             },
             {
@@ -4566,7 +4573,30 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
                   "name": "Android attach",
                   "appSrcRoot": "${workspaceRoot}/app/src/main",
                   "adbPort": 5037,
+                  "preLaunchTask": "gradle build",
                   "processId": "${command:PickAndroidProcess}"
+            }
+         ]
+      }
+
+   .. code-block:: cpp
+
+      {
+         // See https://go.microsoft.com/fwlink/?LinkId=733558
+         // for the documentation about the tasks.json format
+         "version": "2.0.0",
+         "tasks": [
+            {
+                  "label": "gradle build",
+                  "type": "shell",
+                  "problemMatcher": [],
+                  "command": "./gradlew build"
+            },
+            {
+                  "label": "gradle installDebug",
+                  "type": "shell",
+                  "problemMatcher": [],
+                  "command": "./gradlew installDebug"
             }
          ]
       }
@@ -4583,6 +4613,23 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
       zipStorePath=wrapper/dists
       distributionUrl=http\://services.gradle.org/distributions/gradle-1.12-all.zip
       #distributionUrl=https\://services.gradle.org/distributions/gradle-8.7-bin.zip
+   
+   模板中的测试代码使用的也是过时的 ``android.test.ActivityInstrumentationTestCase2``，
+   API level 24 已被弃用。应使用 Android Testing Support Library 编写测试代码。应该改用
+   ``ActivityTestRule`` 或者更新的 ``ActivityScenario``。
+
+   AndroidX Test API 进一步优化应用的测试，使用 Guava 团队提供的 Truth 创建更容易读懂的断言。
+   在构建测试的验证步骤（或 then 步骤）时，可以使用此库来代替基于 JUnit 或 Hamcrest 的断言。
+   通常，可以使用 Truth Library 来表达某个对象具有特定属性，使用的短语包含您要测试的条件，例如：
+
+   *  ``assertThat(object).hasFlags(FLAGS)``
+   *  ``assertThat(object).doesNotHaveFlags(FLAGS)``
+   *  ``assertThat(intent).hasData(URI)``
+   *  ``assertThat(extras).string(string_key).equals(EXPECTED)``
+
+.. _Fundamentals of testing Android apps: https://developer.android.google.cn/training/testing/fundamentals
+.. _Advanced Android in Kotlin 05.1:Testing Basics: https://developer.android.google.cn/codelabs/advanced-android-kotlin-training-testing-basics
+.. _Advanced Android Testing: https://vscode.dev/github/google-developer-training/advanced-android-testing
 
    模板使用的是 Java 语言，当时 Kotlin 才发布不到两年，如果使用 kotlin 编程就需要变更项目结构：
 
@@ -4817,6 +4864,8 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
 /🟡Jetpack Compose UI
 ======================
 
+   官方示范工程： `Now In Android <https://vscode.dev/github/android/nowinandroid/tree/main/docs>`__
+
    Android 系统目前主推 Jetpack Compose，此 UI 框架使用声明式函数构建简单的界面组件。
    需要掌握可组合函数、基本布局以及 Material Design、列表和动画在 Compose 中的工作原理。
    Jetpack Compose 是用于构建原生 Android UI 的现代工具包。使用更少的代码，强大的工具和
@@ -4824,16 +4873,123 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
 
    传统 Android 应用需要使用 Java/Kotlin 代码编写 Activity，或者在 XML 中编写布局代码。
    声明式的 Jetpack Compose 框架完全抛弃传统的复杂方式，用一种类似搭积木的风格来编写 UI 代码。
-   函数可以返回 UI 组件实例，这样的函数可以使用 ``@Composable`` 标注，当作 UI 组件进行组合。
-   这种风格的 UI 开发体验和 React Web UI 构架非常相似。
+   “可组合函数”构造出 UI 组件实例，这样的函数可以使用 ``@Composable`` 标注，构造出的 UI 组件
+   经过 Kotlin 编译器组合，并最终得到用户界面。Compose 中的可组合函数其实就是高阶函数。这种 UI
+   开发体验和 React Web UI 构架非常相似。
 
    Jetpack Compose 完全基于 Kotlin 语言，但可以与 Java 编程语言完全互操作，并且可以直接
    访问所有 Android 和 Jetpack API。但是，Jetpack Compose 本身不支持 Java 语言。
+   参考： `Kotlin for Java developers <https://developer.android.google.cn/kotlin/interop>`__
+
+   Kotlin 作为一个比 Java 更现代的，同样基于 JVM 的编程语言，它的 lambda 表达式和 Groovy
+   脚本一样方便。以下代码片断演示了 Kitlin 与 Java 代码的互调用（Java 调用 Kotlin）：
+
+   .. code-block:: kotlin
+
+      // Consider this Kotlin definition:
+
+      fun interface GreeterCallback {
+          fun greetName(String name)
+      }
+
+      fun sayHi(greeter: GreeterCallback) = /* … */
+
+      // When invoked from Kotlin:
+      sayHi { println("Hello, $it!") }
+
+      // When invoked from Java:
+      sayHi(name -> System.out.println("Hello, " + name + "!"));
+
+   通过以上代码片断对比，Kotlin 代码明显更加简洁，它连只有一个参数的 lambda 表达式也作了简化，
+   使用隐式参数 ``it`` 语法糖，这样就不用显式声明这个参数，也就不用额外编写参数列表，直接使用
+   花括号包裹 lambda 函数体即可。由于 Kotlin 省略分号，因此换行很重要。这对于 C/C++ 用户有个
+   小问题是，这对花括号很容易被误读成代码块。
+   参考： `Kotlin Coding conventions <https://kotlinlang.org/docs/coding-conventions.html>`__
+
+   =================================   ========================================
+   Java                                Kotlin
+   =================================   ========================================
+   ``final`` object                    ``val`` object
+   ``equals()``                        ==
+   ==                                  ===
+   Class that just holds data          ``data`` class
+   Initialization in the constructor   Initialization in the ``init`` block
+   ``static`` fields and functions     fields and functions declared in a ``companion object``
+   Singleton class                     ``object``
+   =================================   ========================================
+
+   Compose 框架中，UI 组件通常使用可组合函数定义，这种函数可以理解为 ``@Composable (Input) -> Unit``，
+   即输入的是数据，但输出值却不是通常意义的函数返回值，而是一个行为：插入 UI 元素到视图树中的注册动作。
+   Kotlin ``Unit`` 和 Java ``void`` 非常像似，从一般语义上讲它们是等价物：没有返回值。但是，
+   它们真正的区别在于，``void`` 是真的表示什么都不返回；``Unit`` 却是一个真实存在的类型：
+
+   .. code-block:: kotlin
+
+      public object Unit {
+         override fun toString() = "kotlin.Unit"
+      }
+
+   也就是说 Kotlin 所有函数都有返回值，即便是一般意义上的无返回值也是返回一个 ``Unit`` 对象。
+   它是一个 ``object``，也就是 Kotlin 里的单例类型或者说单例对象。当一个函数的返回值类型是
+   ``Unit`` 的时候，Kotlin 会自动给它添加 return 返回一个 ``Unit`` 类型的对象。Kotlin
+   语言这样设计的意义就在于，使用 ``Unit`` 去掉了无返回值的函数的特殊性，从而统一了函数形式。
+   去除有返回值和无返回值的函数的本质区别，这样很多事做起来就会更简单。这种语言特性在现代编程
+   语言中均有体现：TypeScript 中的“永不返回”类型 ``Never``；Rust 中的“不可计算”类型 ``!``；
+   等等。
+
+   相比其它早期的编程语言，Kotlin 还有更多“奇怪”的语法，比如以下摘自 Android 官方文档的代码片段：
+   `Bottom sheets <https://developer.android.google.cn/develop/ui/compose/components/bottom-sheets>`__
+
+   .. code:: prettyprint
+
+      val sheetState = rememberModalBottomSheetState()
+      val scope = rememberCoroutineScope()
+      var showBottomSheet by remember { mutableStateOf(false) }
+      Scaffold(
+          floatingActionButton = {
+              ExtendedFloatingActionButton(
+                  text = { Text("Show bottom sheet") },
+                  icon = { Icon(Icons.Filled.Add, contentDescription = "") },
+                  onClick = {
+                      showBottomSheet = true
+                  }
+              )
+          }
+      ) { contentPadding ->
+          // Screen content
+
+          if (showBottomSheet) {
+              ModalBottomSheet(
+                  onDismissRequest = {
+                      showBottomSheet = false
+                  },
+                  sheetState = sheetState
+              ) {
+                  // Sheet content
+                  Button(onClick = {
+                      scope.launch { sheetState.hide() }.invokeOnCompletion {
+                          if (!sheetState.isVisible) {
+                              showBottomSheet = false
+                          }
+                      }
+                  }) {
+                      Text("Hide bottom sheet")
+                  }
+              }
+          }
+      }
+
+   调用 ``Scaffold`` 组合函数不仅用了圆括号，后面还接了一对花括号，以 C/C++ 语法来看，这些代码
+   就像是在定义一个函数，因为真的是太象了。但是 Kotlin 的函数是使用 ``fun`` 关键字定义的。以上
+   这种函数调用语法之所以显得奇怪，是因为 Kotlin 语法设计首要目标是让代码更整洁、简练，后面的花括号
+   其实就是一个 lambda 表达式，它是 ``Scaffold`` 函数的最后一个参数，跟在圆括号后面就有函数的错觉。
+   Kotlin 只有函数参数中最后的一个参数为 lambda 时才能在传递 lambda 表达时写在圆括号后面。
+   
+   Kotlin 与 Compose 联系如此密切，以至 Google 采用作为 Modern Android 首推开发语言及 UI 框架。
 
    Android 原生的 UI 代码设计存在一些问题，一个重要的原因是 View.java 这个类实在是太大了，
    有太多的代码，它大到你甚至无法在 Githubs 上直接查看该文件，因为它实际上包含了 30000 行代码。
    对于一个代码文件来说，这很疯狂，应用开发所使用的几乎每一个 Android UI 组件都需要继承于 View。
-
 
    继前面的内内容，为了简化，主程序代码只完成布局配置文件（layout.xml）的加载，没有涉及其它功能：
 
@@ -4855,7 +5011,7 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
          }
       }
 
-   配套的布局文件 app\src\main\res\layout\main.xml 内容参考：
+   配套的布局文件 ``app\src\main\res\layout\main.xml`` 内容参考：
 
    .. code-block:: xml
 
@@ -4871,7 +5027,6 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
          android:text="Hello World, hi_app"
          />
       </LinearLayout>
-
 
    使用 Kotlin 语言改造 App 入口类，新语言最大的好处就是让代码更整洁，入口类名称有变动，
    需要相应更新 AndroidManifest.xml 清单文件中的设置：
@@ -4900,6 +5055,72 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
    Material Design 风格控件支持。也就是说，如果使用它来加载布局配置文件，就需要设置相应的
    ActionBar，否则 App 会在解释布局时出错而导致闪退。
 
+   除了 JetBrains 官方文档，Goodle Android 官方文档也提供了以下 Kotlin 教程：
+   `Kotlin Bootcamp for Programmers`_。
+
+   In the Kotlin Bootcamp for Programmers course, you learn the basics of
+   Kotlin as you create various small programs in IntelliJ IDEA.
+
+   This course is geared towards programmers who know an object-oriented language
+   such as Java or C++. If you're familiar with C#, some of the
+   features of Kotlin will be familiar.
+
+   *  `Lesson 1`_: Get started
+
+      In Lesson 1, you learn how to work with the Kotlin REPL (Read-Eval-Print Loop)
+      interactive shell, and you practice using the basic syntax of Kotlin code.
+
+   *  `Lesson 2`_: Kotlin basics
+
+      In Lesson 2, you learn how to use Kotlin data types, operators, and variables,
+      and how to work with booleans and conditions. You explore the difference between
+      nullable and non-nullable variables, and you practice using arrays, lists, and
+      loops in Kotlin.
+
+   *  `Lesson 3`_: Functions
+
+      In Lesson 3, you learn how to create a program with a ``main()`` function and
+      arguments in IntelliJ IDEA. You create small programs as you learn about
+      default values, compact functions, list filters, basic lambdas, and
+      higher-order functions.
+
+   *  `Lesson 4`_: Classes and objects
+
+      In Lesson 4, you learn about classes, objects, and inheritance in Kotlin.
+      You create small programs as you learn about abstract classes, interfaces,
+      and interface delegation.
+
+   *  `Lesson 5.1`_: Extensions
+
+      In Lesson 5.1, you learn about collections, constants, and extension functions in
+      Kotlin. You create small programs as you learn about pairs, triples, lists, and
+      hash maps for storing data, and implement extension functions to add
+      functionality to existing classes.
+
+   *  `Lesson 5.2`_: Generics
+
+      In Lesson 5.2, you learn about generic classes, methods, and functions in Kotlin.
+      You create a type hierarchy, make classes more flexible by making them
+      generic, and extend their functionality with generic methods and functions.
+
+   *  `Lesson 6`_: Functional manipulation
+
+      In Lesson 6, you learn about annotations, labeled breaks, and Single Abstract
+      Methods (SAMs). You also review lambdas and higher-order functions. You then create and
+      use lambdas and higher-order functions, and learn about higher-order
+      functions in the Kotlin Standard Library.
+
+
+.. _Kotlin Bootcamp for Programmers: https://developer.android.google.cn/courses/kotlin-bootcamp/overview
+.. _Lesson 1: Get started: https:codelabs.developers.google.cn/codelabs/kotlin-bootcamp-introduction
+.. _Lesson 2: Kotlin basics: https://codelabs.developers.google.cn/codelabs/kotlin-bootcamp-basics
+.. _Lesson 3: Functions: https://codelabs.developers.google.cn/codelabs/kotlin-bootcamp-functions
+.. _Lesson 4: Classes and objects: https://codelabs.developers.google.cn/codelabs/kotlin-bootcamp-classes
+.. _Lesson 5.1: Extensions: https://codelabs.developers.google.cn/codelabs/kotlin-bootcamp-extensions
+.. _Lesson 5.2: Generics: https://codelabs.developers.google.cn/codelabs/kotlin-bootcamp-generics
+.. _Lesson 6: Functional manipulation: https://codelabs.developers.google.cn/codelabs/kotlin-bootcamp-sams
+
+
    Android Studio 中创建 Compose 项目非常便捷，只需新建一个 Empty Activity 项目模板，
    然后设置使用 Kotlin 语言，以及使用 API level 21+ 即可支持 Jetpack Cmompose 框架。
    现有项目中引入 Compose 框架，可以修改 build.gradle.kt 配置脚本中设置：
@@ -4914,7 +5135,12 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
          composeOptions {
             kotlinCompilerExtensionVersion = "1.5.13"
          }
+
+         defaultConfig {
+            minSdk = 21
+         }
       }
+
       dependencies {
          // implementation(projects.shared)
          implementation(libs.compose.ui)
@@ -4995,19 +5221,130 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
    执行构建任务。可以使用 ``jps`` 命令查询 JVM 进程号，进程名称为 MainKt，然后使用 ``taskkill``
    结束进程。Linux 系统中可以使用 ``ps`` 以及 ``kill -s SIGINT pid`` 命令。
 
-.. _Develop UI for Android: https://developer.android.google.cn/develop/ui
-.. _Developer guides - App architecture: https://developer.android.google.cn/topic/architecture/intro
-.. _Jetpack Compose Quick start: https://developer.android.google.cn/develop/ui/compose/setup
 .. _Kotlin Multiplatform: https://kotlinlang.org/docs/multiplatform.html
 .. _Kotlin Multiplatform wizard: https://kmp.jetbrains.com/
 .. _Create your multiplatform project: https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-create-first-app.html
 
    使用 Compose 框架后的主程序代码参考如下，注意入口类更名为 MainActivity，需要同步清单文件。
+   代码中的 ``Text`` 和 ``Surface`` 以及 ``MaterialTheme`` 都是 Compose UI 组件，通过
+   ``@Composable`` 标注的可组合函数，它们返回的 UI 控件实例可以直接交给 ``setContent`` 方法
+   设置根到视图并渲染得到用户界面。另外， ``@Preview`` 注解提供一个预览机制，IDE 可以让开发者在
+   不运行 App 的前提下预览 UI 渲染的效果。Android Studio 环境中，只需要打开代码文件，并切换为
+   Split 或者 Design 视图即可以看到组件的预览效果。
 
-   Compose 框架参考文档：
+   Compose 中的入口类还是 ``Activity``，只不过使用 ``androidx.activity.ComponentActivity``
+   进行了重新包装，以提供可组合函数的支持。和原生 ``Activity`` 不同的是，原先 ``onCreate`` 方法中的
+   ``setContentView`` 方法包装起来了，取而代之的是 Kotlin 扩展方法： ``setContent``，也就是
+   这个方法中的参数接收可组合函数： ``@Composable () -> Unit``。入口类涉及以下三个代码文件：
+
+   *  androidx\\core\\app\\ComponentActivity.java
+   *  androidx\\activity\\ComponentActivity.java
+   *  androidx\\activity\\compose\\ComponentActivity.kt
+
+   另一个不同点在继承入口类时，使用了圆括号： ``class MainActivity : ComponentActivity()``。
+   Kotlin 这种“怪异”的表达和语言设计有关，因为父类有主构造函数，子类必须在主构造函数中初始化它。
+   Kotlin 类形定义语法中有两种构造函数：主构造函数和二级构造函数。构造函数都使用 ``constructor``
+   关键字声明，主构造函数直接声明在类名称后面，而二级构造函数声明在主构建函数体内。如果主要构造函数
+   没有任何注释或可见性修饰符，则可以省略 ``constructor`` 关键字，这种情况下类名跟着圆括号，看着
+   就像是在定义一个函数，但圆括号中的是类成员列表。Kotlin 中的所有类都有一个公共的父类 ``Any``。
+
+   .. code-block:: kotlin
+
+      class Person (val name: String) 
+      {
+         val children: MutableList<Person> = mutableListOf()
+         constructor (name: String, parent: Person) : this(name) 
+         {
+            parent.children.add(this)
+         }
+      }
+
+   Java 编程中，注解编程机制可用于向程序切面插入代码。Kotlin 语言也同样提供了注解解析工具 KAPT
+    (Kotlin Annotation Processing Tool)。KAPT 内部实际上基于 APT 工作，但是 APT 只能处理 
+   Java 注解，因此需要先生成 APT 可解析的 stub (Java代码)，这拖慢了 Kotlin 的整体编译速度。
+
+   ``@Composeble`` 注解就可以将函数转化成 Composeble 函数，同时 Composeble 函数也只能在
+   Composeble 函数中运行。这看起来似乎跟协程底层实现有相似之处。可组合函数并不是通过注解处理器
+   （KAPT）处理的，因为注解处理器只能生成注解对象对应的代码，不能修改代码。而可组合函数需要修改代码，通过
+   KCP（Kotlin Compiler Plugin）编译插件，可以将它类比为 KAPT + transform 机制，既可以
+   生成代码，也可以修改代码。支持跨平台，包括 Android 开发。
+
+   Kotlin 协程 ``suspend`` 关键字和 ``@Composable`` 类似，都会在编译源代码时进行类型修改，
+   协程函数会添加一个 ``Continuation<*>`` 类型的参数，可组合函数则会添加一个 ``Composer``
+   类型参数。
+
+   简单来说，Kotlin 编译过程就是将源码编译成字节码的过程，KCP 则在编译过程中提供 Hook 时机，
+   期间可解析 AST、修改字节码产物等，以实现可组合函数的符号解析、字节码生成等。
+   
+   为了解决 KAPT 低效率问题，官方提供了最新的 KSP (Kotlin Symbol Processing) 来取代 KAPT，
+   KSP 可以直接解析 Kotlin 源代码中的注解，这样就可以实现高达 2x 的性能提升。
+
+.. _Migrate from kapt to KSP: https://developer.android.google.cn/build/migrate-to-ksp
+.. _AndroidX Compose compiler 1.6.21: https://github.com/androidx/androidx/tree/compose-compiler-1.6.21/compose
+.. _Develop UI for Android: https://developer.android.google.cn/develop/ui
+.. _Developer guides - App architecture: https://developer.android.google.cn/topic/architecture/intro
+.. _Jetpack Compose Quick start: https://developer.android.google.cn/develop/ui/compose/setup
+.. _Material 3: https://m3.material.io/get-started
+
+   可组合函数中可以构造任意 UI 组件，使用条件语句就可以让 UI 组件在适合条件下渲染。这种条件控制
+   的渲染并非像 Web 那样通过临时设置显示、隐藏属性来实现，而是真正从 UI 组件树中移除、添加组件。
+   在没有使用布局组件（layout component）的情况下，UI 组件会重叠在一起，相互遮挡，后面的组件
+   会覆盖前面注册的组件。使用布局组件包装其它 UI 组件，就可以获得相应的组件布局排版，例如最基本的
+   ``Column`` 或 ``Row`` 就可以将组件按列、按行排列，避免重叠在一起。为了方便设置 App 的基本
+   界面构架，Material Design 提供了一个 ``Scaffold``，它代表了用户屏幕空间的布局，功能类似
+   ``Surface`` 这样的组件。
+
+   ``Color`` 对象表示界面的颜色，提供了多个构造函数，可以传递颜色分量（包含透明通道），或者直接
+   传递一个表示色值的整形数值（ARGB color int）。颜色分量包括 red、green、blue、alpha，以及
+   色彩空间（ColorSpace），Compose 支持常用的色彩空间，色值使用以下三种模型形式：
+
+   *  ColorSpace.Model.Rgb - 分量取值范围 8 bits [0,255]
+   *  ColorSpace.Model.Xyz - 分量取值范围 16 bits [-65504.0, 65504.0]，透明通道是 10 bits [0..1023]
+   *  ColorSpace.Model.Lab - 分量取值范围同上
+
+   另外，还提供了几个常用色值常量：
+
+   .. code-block:: kotlin
+
+      companion object {
+         @Stable  val Black       = Color(0xFF000000)
+         @Stable  val DarkGray    = Color(0xFF444444)
+         @Stable  val Gray        = Color(0xFF888888)
+         @Stable  val LightGray   = Color(0xFFCCCCCC)
+         @Stable  val White       = Color(0xFFFFFFFF)
+         @Stable  val Red         = Color(0xFFFF0000)
+         @Stable  val Green       = Color(0xFF00FF00)
+         @Stable  val Blue        = Color(0xFF0000FF)
+         @Stable  val Yellow      = Color(0xFFFFFF00)
+         @Stable  val Cyan        = Color(0xFF00FFFF)
+         @Stable  val Magenta     = Color(0xFFFF00FF)
+         @Stable  val Transparent = Color(0x00000000)
+      }
+   
+   `Material 3`_` 是下一代应用设计规范，实现方案有 Flutter，Jetpack Compose 等等。规范中
+   定义了一些基本的色彩角色概念（ `color roles <https://m3.material.io/styles/color/roles>`__ ）：
+
+   *  ``Surface`` – A role used for backgrounds and large, low-emphasis areas of the screen.
+   *  ``Primary``, ``Secondary``, ``Tertiary`` – Accent color roles used to emphasize or de-emphasize foreground elements.
+   *  ``Container`` – Roles used as a fill color for foreground elements like buttons. 
+      They should not be used for text or icons.
+   *  ``On`` – Roles starting with this term indicate a color for text or icons on top of its paired parent color.
+      For example, ``on primary`` is used for text and icons against the ``primary`` fill color.
+   *  ``Variant`` – Roles ending with this term offer a lower emphasis alternative to its non-variant pair. 
+      For example, ``outline variant`` is a less emphasized version of the ``outline`` color.
+
+   配色使用简约的三色方案，此外还有系统默认 UI 元素色彩，比如在 Android 亮色主题配置下，暗背景，
+   亮文字。配合三个主题色，就可以满足大量设计场景，又不至于使颜色过于复杂。
+
+   主题色彩配置好，就可以通过 ``MaterialTheme`` 对象将色彩应用到 UI 组件上，设置 color 属性。
+   通过主题配色，可以让应用界面拥有更统一的设计效果。包装系统底层的 ``isSystemInDarkTheme()`` 
+   方法会根据 Android 系统设置的主题色调，返回一个布尔值指示当前系统是否使用深色调。
+
+   Compose 框架参考文档及源代码仓库：
 
    - `Jetpack Compose Quick start`_
    - `Developer guides - App architecture`_
+   - `AndroidX Compose compiler 1.6.21`_
 
    ``app\src\main\kotlin\org\example\hi_app\hi_app.kt``
 
@@ -5018,9 +5355,12 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
       import android.os.Bundle
       import androidx.activity.ComponentActivity
       import androidx.activity.compose.setContent
+      import androidx.compose.foundation.layout.Column
+      import androidx.compose.foundation.layout.Row
       import androidx.compose.foundation.layout.fillMaxSize
       import androidx.compose.material3.*
       import androidx.compose.runtime.Composable
+      import androidx.compose.ui.graphics.Color
       import androidx.compose.ui.Modifier
       import androidx.compose.ui.tooling.preview.Preview
 
@@ -5034,7 +5374,10 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
                         modifier = Modifier.fillMaxSize(),
                         color = MaterialTheme.colorScheme.background
                      ) {
-                        GreetingView("Hi!")
+                        Row {
+                           GreetingView("Hi!")
+                           GreetingView("> R.string.app_name = ${getString(R.string.app_name)}")
+                        }
                      }
                   }
             }
@@ -5042,8 +5385,11 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
       }
 
       @Composable
-      fun GreetingView(text: String) {
-         Text(text = text)
+      fun GreetingView(text: String, color: Color = MaterialTheme.colorScheme.primary ) {
+         Column {
+            Text(text = "Column", color = color )
+            Text(text = text,     color = color )
+         }
       }
 
       @Preview

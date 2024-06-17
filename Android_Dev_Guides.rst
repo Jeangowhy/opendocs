@@ -2920,6 +2920,11 @@ Last updated 2023-06-05 UTC.
 
 Last updated 2023-10-10 UTC.
 
+
+/💛 App resources
+=================
+
+
 /Overview: App resources overview
 =================================
 
@@ -12902,6 +12907,9 @@ Last updated 2023-05-04 UTC.
 Last updated 2024-01-03 UTC.
 
 
+/💛 App manifest file
+========================
+
 /Overview: App manifest overview
 ================================
 
@@ -21082,8 +21090,9 @@ Last updated 2024-04-29 UTC.
 Last updated 2024-04-11 UTC.
 
 
-/App architecture
-=================
+
+/💛 App architecture
+=====================
 
 .. container:: devsite-article-body clearfix
 

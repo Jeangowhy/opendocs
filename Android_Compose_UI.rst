@@ -1,6 +1,6 @@
 
 /TOC 💛 Jetpack Compose libraries
-================================
+==================================
 
 .. container:: devsite-doc-set-nav-row
 
@@ -13,7 +13,7 @@
 
 .. container:: devsite-mobile-nav-bottom
 
-   -  Introduction
+   -  👊 Introduction
 
       -  `Documentation <https://developer.android.google.cn/develop/ui/compose/documentation>`__
       -  `Why Compose <https://developer.android.google.cn/develop/ui/compose/why-adopt>`__
@@ -26,7 +26,7 @@
          -  `Using the Bill of Materials <https://developer.android.google.cn/develop/ui/compose/bom>`__
          -  `BOM to library version mapping <https://developer.android.google.cn/develop/ui/compose/bom/bom-mapping>`__
 
-   -  UI architecture
+   -  👊 UI architecture
 
       -  `Lifecycle <https://developer.android.google.cn/develop/ui/compose/lifecycle>`__
       -  `Side-effects <https://developer.android.google.cn/develop/ui/compose/side-effects>`__
@@ -43,7 +43,7 @@
       -  `CompositionLocal <https://developer.android.google.cn/develop/ui/compose/compositionlocal>`__
       -  `Navigation <https://developer.android.google.cn/develop/ui/compose/navigation>`__
 
-   -  Develop your app's layout
+   -  👊 Develop your app's layout
 
       -  `Overview <https://developer.android.google.cn/develop/ui/compose/layouts>`__
       -  `Layout basics <https://developer.android.google.cn/develop/ui/compose/layouts/basics>`__
@@ -64,7 +64,7 @@
       -  `Intrinsic measurements <https://developer.android.google.cn/develop/ui/compose/layouts/intrinsic-measurements>`__
       -  `ConstraintLayout <https://developer.android.google.cn/develop/ui/compose/layouts/constraintlayout>`__
 
-   -  Components
+   -  👊 Components
 
       -  `Overview <https://developer.android.google.cn/develop/ui/compose/components>`__
       -  `Scaffold <https://developer.android.google.cn/develop/ui/compose/components/scaffold>`__
@@ -83,7 +83,7 @@
       -  `Lists and grids <https://developer.android.google.cn/develop/ui/compose/lists>`__
       -  `Resources <https://developer.android.google.cn/develop/ui/compose/resources>`__
 
-   -  Theming
+   -  👊 Theming
 
       -  `Overview <https://developer.android.google.cn/develop/ui/compose/designsystems>`__
       -  `Material Design 3 <https://developer.android.google.cn/develop/ui/compose/designsystems/material3>`__
@@ -93,7 +93,7 @@
       -  `Anatomy of a theme <https://developer.android.google.cn/develop/ui/compose/designsystems/anatomy>`__
       -  `Migrating XML themes to Compose <https://developer.android.google.cn/develop/ui/compose/designsystems/views-to-compose>`__
 
-   -  Text and typography
+   -  👊 Text and typography
 
       -  `Overview <https://developer.android.google.cn/develop/ui/compose/text>`__
 
@@ -109,7 +109,7 @@
       -  `Work with fonts <https://developer.android.google.cn/develop/ui/compose/text/fonts>`__
       -  `Display emoji <https://developer.android.google.cn/develop/ui/compose/text/emoji>`__
 
-   -  Images and graphics
+   -  👊 Images and graphics
 
       -  `Overview <https://developer.android.google.cn/develop/ui/compose/graphics>`__
 
@@ -130,7 +130,7 @@
          -  `Brush <https://developer.android.google.cn/develop/ui/compose/graphics/draw/brush>`__
          -  `Shapes <https://developer.android.google.cn/develop/ui/compose/graphics/draw/shapes>`__
 
-   -  Animation
+   -  👊 Animation
 
       -  `Overview <https://developer.android.google.cn/develop/ui/compose/animation/introduction>`__
       -  `Choose an animation API <https://developer.android.google.cn/develop/ui/compose/animation/choose-api>`__
@@ -153,7 +153,7 @@
       -  `Tools <https://developer.android.google.cn/develop/ui/compose/animation/tooling>`__
       -  `Additional resources <https://developer.android.google.cn/develop/ui/compose/animation/resources>`__
 
-   -  Accessibility
+   -  👊 Accessibility
 
       -  `Overview <https://developer.android.google.cn/develop/ui/compose/accessibility>`__
       -  `Key steps <https://developer.android.google.cn/develop/ui/compose/accessibility/key-steps>`__
@@ -161,7 +161,7 @@
       -  `Control traversal order <https://developer.android.google.cn/develop/ui/compose/accessibility/traversal>`__
       -  `Testing <https://developer.android.google.cn/develop/ui/compose/accessibility/testing>`__
 
-   -  Touch and input
+   -  👊 Touch and input
 
       -  `Overview <https://developer.android.google.cn/develop/ui/compose/touch-input>`__
 
@@ -191,7 +191,7 @@
          -  `Handling interactions <https://developer.android.google.cn/develop/ui/compose/touch-input/user-interactions/handling-interactions>`__
          -  `Migrate to Indication and Ripple APIs <https://developer.android.google.cn/develop/ui/compose/touch-input/user-interactions/migrate-indication-ripple>`__
 
-   -  Performance
+   -  👊 Performance
 
       -  `Overview <https://developer.android.google.cn/develop/ui/compose/performance>`__
       -  `Phases <https://developer.android.google.cn/develop/ui/compose/performance/phases>`__
@@ -206,12 +206,12 @@
       -  `Tools <https://developer.android.google.cn/develop/ui/compose/performance/tooling>`__
       -  `Best practices <https://developer.android.google.cn/develop/ui/compose/performance/bestpractices>`__
 
-   -  Style guidelines
+   -  👊 Style guidelines
 
       -  `Compose API guidelines <https://developer.android.google.cn/develop/ui/compose/api-guidelines>`__
       -  `Kotlin for Compose <https://developer.android.google.cn/develop/ui/compose/kotlin>`__
 
-   -  UI testing
+   -  👊 UI testing
 
       -  `Overview <https://developer.android.google.cn/develop/ui/compose/testing>`__
       -  `Cheatsheet <https://developer.android.google.cn/develop/ui/compose/testing/testing-cheatsheet>`__
@@ -222,7 +222,7 @@
       -  `Common patterns <https://developer.android.google.cn/develop/ui/compose/testing/common-patterns>`__
       -  `Debug tests <https://developer.android.google.cn/develop/ui/compose/testing/debug>`__
 
-   -  Migrate to Compose
+   -  👊 Migrate to Compose
 
       -  `Overview <https://developer.android.google.cn/develop/ui/compose/migrate>`__
       -  `Migration strategy <https://developer.android.google.cn/develop/ui/compose/migrate/strategy>`__
@@ -244,7 +244,7 @@
       -  `Compose and other libraries <https://developer.android.google.cn/develop/ui/compose/libraries>`__
       -  `Compare Compose and View metrics <https://developer.android.google.cn/develop/ui/compose/migrate/compare-metrics>`__
 
-   -  Tools
+   -  👊 Tools
 
       -  `Overview <https://developer.android.google.cn/develop/ui/compose/tooling>`__
 
@@ -315,13 +315,13 @@
 
          -  `Releases <https://developer.android.google.cn/develop/ui/compose/tooling/relay/releases>`__
 
-   -  Leverage system capabilities
+   -  👊 Leverage system capabilities
 
       -  `Window Insets <https://developer.android.google.cn/develop/ui/compose/layouts/insets>`__
       -  `Cutouts <https://developer.android.google.cn/develop/ui/compose/system/cutouts>`__
       -  `Picture-in-picture <https://developer.android.google.cn/develop/ui/compose/system/picture-in-picture>`__
 
-   -  Create widgets
+   -  👊 Create widgets
 
       -  `Overview <https://developer.android.google.cn/develop/ui/compose/glance>`__
       -  `Glance setup <https://developer.android.google.cn/develop/ui/compose/glance/setup>`__
@@ -579,6 +579,9 @@
 
 Last updated 2024-05-03 UTC.
 
+
+/👊Part: Introduction
+=====================
 
 /Why Compose
 ============
@@ -1746,6 +1749,11 @@ Last updated 2024-05-03 UTC.
       =======================================================  ============
 
 Last updated 2024-05-03 UTC.
+
+
+/👊Part: UI architecture
+========================
+
 
 /Lifecycle
 ==========
@@ -6578,6 +6586,10 @@ Last updated 2024-05-03 UTC.
    -  `Where to hoist state  <#state-hoisting>`__
 
 Last updated 2024-05-03 UTC.
+
+
+/👊Part: Develop your app's layout
+==================================
 
 /Overview: Develop your app's layout
 ====================================
@@ -14059,6 +14071,9 @@ Last updated 2024-05-03 UTC.
 .. |Shows a button and a text element arranged in a ConstraintLayout| image:: https://developer.android.google.cn/static/develop/ui/compose/images/layout-button-text.png
    :width: 200px
 
+/👊Part: Components
+===================
+
 /Overview: Components
 =====================
 
@@ -18071,6 +18086,10 @@ Last updated 2024-05-03 UTC.
    -  `Custom design systems in Compose  <#custom>`__
 
 Last updated 2024-05-03 UTC.
+
+
+/👊Part: Themeing
+=================
 
 /Overview: Theming
 ==================
@@ -22213,6 +22232,10 @@ Last updated 2024-03-25 UTC.
 
 Last updated 2024-05-03 UTC.
 
+
+/👊Part: Text and typography
+============================
+
 /Overview: Text and typography
 ==============================
 
@@ -24530,6 +24553,10 @@ Last updated 2024-05-03 UTC.
    -  `Scroll  <#scroll>`__
 
 Last updated 2024-05-03 UTC.
+
+
+/👊Part: Images and graphics
+============================
 
 /Overview: Images and graphics
 ==============================
@@ -28397,6 +28424,10 @@ Last updated 2024-05-03 UTC.
 
 Last updated 2024-05-03 UTC.
 
+
+/👊Part: Animation
+==================
+
 /Overview: Animation
 ====================
 
@@ -32129,6 +32160,10 @@ Last updated 2024-03-25 UTC.
    :width: 700px
    :target: https://developer.android.google.cn/static/develop/ui/compose/images/compose_animation_cheat_sheet.png
 
+
+/👊Part: Accessibility
+======================
+
 /Overview: Accessibility
 ========================
 
@@ -33424,6 +33459,10 @@ Last updated 2024-04-15 UTC.
       principles and tools for Android accessibility
 
 Last updated 2024-04-15 UTC.
+
+
+/👊Part: Touch and input
+========================
 
 /Overview: Touch and input
 ==========================
@@ -37877,6 +37916,10 @@ Last updated 2024-03-25 UTC.
 
 Last updated 2024-03-25 UTC.
 
+
+/👊Part: Performance
+====================
+
 /Overview: Performance
 ======================
 
@@ -39891,6 +39934,10 @@ Last updated 2024-05-03 UTC.
 
 Last updated 2024-05-03 UTC.
 
+
+/👊Part: UI Testing
+===================
+
 /Overview: UI testing
 =====================
 
@@ -40966,6 +41013,10 @@ Last updated 2024-05-03 UTC.
       testing.
 
 Last updated 2024-05-03 UTC.
+
+
+/👊Part: Migrate to Compose
+===========================
 
 /Overview: Migrate to Compose
 =============================
@@ -44161,6 +44212,10 @@ Last updated 2024-05-03 UTC.
 
 Last updated 2024-05-03 UTC.
 
+
+/👊Part: Tools
+==============
+
 /Overview: Tools
 ================
 
@@ -45716,6 +45771,7 @@ Last updated 2024-05-03 UTC.
    it, and any requests you have. You can send us feedback via `the issue tracker <https://issuetracker.google.com/issues/new?component=898851&template=1458540>`__.
 
 Last updated 2024-05-03 UTC.
+
 
 /Overview: Relay designer and developer tooling
 ===============================================
@@ -47887,6 +47943,7 @@ Last updated 2024-03-25 UTC.
 Last updated 2024-03-25 UTC.
 
 .. |Make Project button| image:: https://developer.android.google.cn/static/develop/ui/compose/tooling/relay/images/common/make-project.png
+
 
 /Overview: Relay workflow
 =========================
@@ -50859,6 +50916,9 @@ Last updated 2024-03-25 UTC.
 
 Last updated 2024-04-30 UTC.
 
+/👊Part: Leverage system capabilities
+=====================================
+
 /Window Insets
 ==============
 
@@ -52187,6 +52247,10 @@ Last updated 2024-05-03 UTC.
       more information.
 
 Last updated 2024-03-25 UTC.
+
+
+/👊Part: Create widgets
+=======================
 
 /Overview: Create widgets
 =========================
