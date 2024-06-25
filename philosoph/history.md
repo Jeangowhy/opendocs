@@ -98,9 +98,11 @@ On the Exposition of Words' Meaning by Comparison between Zuo Zhuan and Records 
 甲骨文出现在我国夏商文明时代，出现的年代是公元前约1300年，比上述文明要晚2000-3000年。
 
 ## 世界各国人均 GDP (美元)排名数据
+
 [林毅夫：百年未有之大变局与新结构经济学](https://www.nsd.pku.edu.cn/sylm/gd/515344.htm)
 pandoc -trst -rhtml https://www.kylc.com/stats/global/yearly_overview/g_gdp_per_capita.html --wrap=preserve --columns=120
 
+```
    | 排名  | 国家/地区          | 所在洲  年份       人均GDP(美元计)
    ============================================================
    | 1   | 摩纳哥             | 欧洲  2022     24.09万 (240,862)
@@ -309,23 +311,25 @@ pandoc -trst -rhtml https://www.kylc.com/stats/global/yearly_overview/g_gdp_per_
    | 204 | 叙利亚             | 亚洲  2021     420
    | 205 | 阿富汗             | 亚洲  2021     355
    | 206 | 布隆迪             | 非洲  2022     259
+```
 
 ## 服饰历史
-服装简史：中国风从留仙裙到旗袍每件都那么美 http://www.xixik.com/content/fe2b922b8ab8875c
-中国历代女子服饰变迁 http://img1.xixik.com/cimg/074/xixik_8e803149d081cc94.jpeg
-1910-2010 百年变迁，中国校服的青春之美 https://www.bilibili.com/video/BV1WL411x79E/
-如何入门&深入学习汉服相关知识？服饰｜妆容｜纹样｜美学 https://www.bilibili.com/list/3201874
-【史图馆】中国历代疆域变化新版合集 秦汉篇 https://www.bilibili.com/video/BV1Zz4y1Q7Fy/
-【上海工程技术大学】 中国历代服饰赏析 https://www.bilibili.com/video/BV1hW411L7sz/
-二〇二〇·中國裝束復原秀現場視頻 https://www.bilibili.com/video/BV13J4117752/
-李芽：中国古代服饰综述 https://www.bilibili.com/video/BV16S4y1g78G/ 
-棉布的生产过程 https://www.bilibili.com/video/BV1KU4y1M7oZ/
-广州中大国际轻纺城街拍 https://www.bilibili.com/video/BV1pJ411Q7e2/8d
-面料学习的基础知识 https://www.bilibili.com/video/BV1Sg411A71R/
-伟大的制造 第一季 https://www.bilibili.com/bangumi/play/ep260357
-重新认识“白蛇传” https://www.bilibili.com/read/cv14658169
-重新认识“白蛇传” https://www.bilibili.com/video/BV1b5411f7Tu/
-绫、罗、绸、缎、丝、帛、锦、绢的区别是什么？ https://www.zhihu.com/question/20163752
+
+*   服装简史：中国风从留仙裙到旗袍每件都那么美 http://www.xixik.com/content/fe2b922b8ab8875c
+*   中国历代女子服饰变迁 http://img1.xixik.com/cimg/074/xixik_8e803149d081cc94.jpeg
+*   1910-2010 百年变迁，中国校服的青春之美 https://www.bilibili.com/video/BV1WL411x79E/
+*   如何入门&深入学习汉服相关知识？服饰｜妆容｜纹样｜美学 https://www.bilibili.com/list/3201874
+*   【史图馆】中国历代疆域变化新版合集 秦汉篇 https://www.bilibili.com/video/BV1Zz4y1Q7Fy/
+*   【上海工程技术大学】 中国历代服饰赏析 https://www.bilibili.com/video/BV1hW411L7sz/
+*   二〇二〇·中國裝束復原秀現場視頻 https://www.bilibili.com/video/BV13J4117752/
+*   李芽：中国古代服饰综述 https://www.bilibili.com/video/BV16S4y1g78G/ 
+*   棉布的生产过程 https://www.bilibili.com/video/BV1KU4y1M7oZ/
+*   广州中大国际轻纺城街拍 https://www.bilibili.com/video/BV1pJ411Q7e2/8d
+*   面料学习的基础知识 https://www.bilibili.com/video/BV1Sg411A71R/
+*   伟大的制造 第一季 https://www.bilibili.com/bangumi/play/ep260357
+*   重新认识“白蛇传” https://www.bilibili.com/read/cv14658169
+*   重新认识“白蛇传” https://www.bilibili.com/video/BV1b5411f7Tu/
+*   绫、罗、绸、缎、丝、帛、锦、绢的区别是什么？ https://www.zhihu.com/question/20163752
 
 棉花价格 15000 元/吨，制成棉布 100 元/千克。
 

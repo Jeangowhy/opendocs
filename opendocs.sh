@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+basedir=$(dirname "$(echo "$0" | sed -e 's,\\,/,g')")
 
 doc_view="vim"
 if ! [[ -z $DOC_VIEW ]]; then
@@ -7,7 +8,7 @@ fi
 
 function opendocs()
 {
-    doc=`find 'c:\opendocs\' | fzf`
+    doc=`find "$basedir/" | fzf`
     if [[ $? == 0 ]]; then
         doc_jump "$doc"
     fi

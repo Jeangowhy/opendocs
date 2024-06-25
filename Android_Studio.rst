@@ -230,7 +230,7 @@
       daemon               保存守护进程产生的日志；
       caches/8.7           保存 Gradle DSL 脚本产生的临时文件，数字代表版本号；
       caches\jars-9
-      caches\modules-2\files-2.1
+      caches\modules-2\files-2.1 可执行命令工具，比如 Kotlin 编译器等
       caches\transforms-2
       caches\transforms-4
       caches\transforms-3
@@ -840,6 +840,22 @@ Android Studio 使用 Tools -> SDK Manager 查看 Androi API 版本号对应关�
    在创建虚拟机时，就需要参考 `Codenames, tags, and build numbers`_ 来确定需要使用的
    虚拟机镜像文件。因为 Device Manager 面板中是根据设备的硬件规格来选择虚拟机镜像文件的。
 
+   在调试 Android 应用时，如果需要调试器在源代码级别调试，就需要使用 SDK 管理工具安装设备或者
+   模拟器运行的 Android 系统版本号对应的源代码。以下命令可以查询 adb 连接设备的系统信息：
+
+   .. code:: bash
+
+      $ adb shell wm density                        # Physical density: 440
+      $ adb shell getprop ro.build.version.sdk      # 29
+      $ adb shell getprop ro.build.version.release  # 10
+      $ adb shell getprop ro.product.brand          # Xiaomi
+      $ adb shell getprop ro.product.model          # MI 8
+      $ adb shell getprop | grep ro.product.cpu
+      # [ro.product.cpu.abi]: [arm64-v8a]
+      # [ro.product.cpu.abilist]: [arm64-v8a,armeabi-v7a,armeabi]
+      # [ro.product.cpu.abilist32]: [armeabi-v7a,armeabi]
+      # [ro.product.cpu.abilist64]: [arm64-v8a]
+
 .. _Codenames, tags, and build numbers: https://source.android.google.cn/docs/setup/reference/build-numbers
 
 .. container::
@@ -942,6 +958,24 @@ Java API Framework 也叫做 Application Framework，Android 应用开发必需�
       https://developer.android.google.cn/guide/components/images/activity_lifecycle.png
 
       **Figure 1.** A simplified illustration of the activity lifecycle.
+
+   .. Note::
+
+      注：在应用启动前或者销毁后，Activity 都处于 Nonexistent 状态。执行应用， ``onCreate()``
+      生命周期函数被 Android 程程加载器调用，进入 started 状态，此时已经渲染可见的用户界面。
+      当切换到其它应用时，执行 ``onResume()`` 让当前应用处于后台。从其它应用切换回来时，执行
+      ``onPause()`` 生命周期函数。要用户结束应用，或者因为内存不足，其它更高优先级的应用需要
+      更多内存时，应用的 ``onStop()`` 生命一周期函数被执行，进入销毁流程。
+
+      现代 Android 开发使用 Jetpack Compose 框架，组件接管经典的 Activity 生命周期。
+      参考文档或者代码： 
+
+      * `The activity lifecycle <https://developer.android.google.cn/guide/components/activities/activity-lifecycle.html>`__
+      * `Handling Lifecycles with Lifecycle-Aware Components <https://developer.android.google.cn/topic/libraries/architecture/lifecycle>`__
+      * `Codelabs Android Lifecycle-aware components <https://developer.android.google.cn/codelabs/android-lifecycles>`__
+      * Android Lifecycle-aware Components Codelab https://github.dev/android/codelab-android-lifecycles
+      * Android Sunflower with Compose https://github.dev/android/sunflower
+      * Samples for Android Architecture Components https://github.com/android/architecture-components-samples
 
 .. container:: basic-ui
 
@@ -2148,7 +2182,7 @@ Anti-virus program and build performance
       -  Debug your code
 
          -  `Get started debugging your code <https://developer.android.google.cn/studio/debug>`__
-         -  `Configure developer options <https://developer.android.google.cn/studio/debug/dev-options>`__
+         -  `Configure on-device developer options <https://developer.android.google.cn/studio/debug/dev-options>`__
          -  `Write and view logs <https://developer.android.google.cn/studio/debug/logcat>`__
 
          -  Analyze and address crash issues
@@ -27406,8 +27440,8 @@ Last updated 2024-05-03 UTC.
 .. |image-watchpoint-icon_2-2_2x| image:: https://developer.android.google.cn/static/studio/images/debug/watchpoint-icon_2-2_2x.png
    :class: inline-icon
 
-/Configure developer options
-============================
+/Configure on-device developer options
+======================================
 
 .. https://developer.android.google.cn/studio/debug/dev-options?hl=en
 
@@ -27433,37 +27467,17 @@ Last updated 2024-05-03 UTC.
 
       **Table 1.** Device settings location for the **Build number** option
 
-      .. list-table::
-         :header-rows: 1
-
-         - 
-
-            - Device
-            - Setting
-         - 
-
-            - Google Pixel
-            - **Settings** > **About phone** > **Build number**
-         - 
-
-            - Samsung Galaxy S8 and later
-            - **Settings** > **About phone** > **Software information** >
-               **Build number**
-         - 
-
-            - LG G6 and later
-            - **Settings** > **About phone** > **Software info** > **Build
-               number**
-         - 
-
-            - HTC U11 and later
-            - **Settings** > **About** > **Software information** > **More** >
-               **Build number** *or* **Settings** > **System** > **About phone**
-               > **Software information** > **More** > **Build number**
-         - 
-
-            - OnePlus 5T and later
-            - **Settings** > **About phone** > **Build number**
+      =========================== ==============================================
+      Device                      Setting
+      =========================== ==============================================
+      Google Pixel                - Settings -> About phone -> Build number
+      Samsung Galaxy S8 and later - Settings -> About phone -> Software information -> Build number
+      LG G6 and later             - Settings -> About phone -> Software info -> Build number
+      HTC U11 and later           - Settings -> About -> Software information -> More -> Build number 
+                                    or 
+                                  - Settings -> System -> About phone -> Software information -> More -> Build number
+      OnePlus 5T and later        - Settings -> About phone -> Build number
+      =========================== ==============================================
 
    #. Tap the **Build Number** option seven times until you see the message
       ``You are now a developer!`` This enables developer options on your

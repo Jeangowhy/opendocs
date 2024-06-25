@@ -1,50 +1,3 @@
-#!/usr/bin/env bash
-
-du -d 2 'C:\Users\OCEAN\.gradle\caches' | sort -n |subl -
-exit
-
-'C:\android-sdk\build-tools\34.0.0\llvm-rs-cc' --help
-html='C:\android-sdk\docs\docs-24_r01\reference\android\R.attr.html'
-pandoc -r html "$html" -t rst --wrap=preserve --columns=120 --list-table=true -o "$html.rst"
-
-du -hd 1 "C:\android-sdk\docs\docs-24_r01"
-
-
-while read it; do
-	url="$it?hl=en"
-	echo "::$url" >> /pl/out.html
-	curl "$url" \
-	| sed -n '/devsite-article-body/,/Last updated/p' \
-	| pandoc -r html -t rst --columns=80 --list-table=true >> /pl/out.html
-done <<EOF
-https://developer.android.google.cn/studio/write
-https://developer.android.google.cn/studio/projects/templates
-https://developer.android.google.cn/studio/write/sample-code
-https://developer.android.google.cn/studio/write/create-java-class
-https://developer.android.google.cn/studio/projects/add-app-module
-https://developer.android.google.cn/studio/write/java8-support
-https://developer.android.google.cn/studio/write/java8-support-table
-https://developer.android.google.cn/studio/write/add-resources
-https://developer.android.google.cn/jetpack/compose/tooling/previews
-https://developer.android.google.cn/studio/write/layout-editor
-https://developer.android.google.cn/studio/write/motion-editor
-https://developer.android.google.cn/studio/write/resource-manager
-https://developer.android.google.cn/studio/write/vector-asset-studio
-https://developer.android.google.cn/studio/write/create-app-icons
-https://developer.android.google.cn/studio/write/draw9patch
-https://developer.android.google.cn/studio/write/convert-webp
-https://developer.android.google.cn/studio/write/translations-editor
-https://developer.android.google.cn/studio/write/app-link-indexing
-https://developer.android.google.cn/studio/write/firebase
-https://developer.android.google.cn/studio/write/lint
-https://developer.android.google.cn/studio/write/annotations
-https://developer.android.google.cn/studio/write/tool-attributes
-EOF
-exit
-https://plugins.jetbrains.com/docs/intellij/welcome.html
-
-url=https://devdoc.net/android/Android-r15/guide/topics/fundamentals/activities.html
-curl "$url" | sed -n '/h1/,/Go to top/p' | pandoc -r html -t rst --list-table=true > /pl/out.html ; exit
 
 # 🚩 Book Ref
 
@@ -1147,38 +1100,6 @@ org.springframework spring  [2.5.6, 5.3.30]
 5 Grape module versions cached
 
 commons-logging-1.1.1.jar
-```
-
-以下是 IntelliJ IDEA 中设置的 Kotlin REPL 命令行（实验性功能），直接调用 K2JVMCompiler  编译器，使用 XML 格式进行数据交互：
-
-```sh
-cat > argfile_kotlin_repl << EOF
--classpath
-C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/kotlin-compiler.jar;\
-C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/kotlin-stdlib.jar;\
-C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/kotlin-reflect.jar;\
-C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/kotlin-script-runtime.jar;\
-C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/trove4j.jar;\
-C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/kotlin-daemon.jar;\
-C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/kotlin-scripting-compiler.jar;\
-C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/kotlin-scripting-compiler-impl.jar;\
-C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/kotlin-scripting-common.jar;\
-C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/kotlin-scripting-jvm.jar;\
-C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/annotations-13.0.jar;
-org.jetbrains.kotlin.cli.jvm.K2JVMCompiler
--cp
-build/classes/production/My_Application;build/classes/test/My_Application
--jvm-target
-1.8
--kotlin-home
-"C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc"
-EOF
-java -Dkotlin.repl.ideMode=true -Dfile.encoding=UTF-8 @argfile_kotlin_repl
-<?xml version="1.0" encoding="UTF-8"?><output type="INITIAL_PROMPT">Welcome to Kotlin version 1.9.0-release-358 (JRE 17.0.8+9-LTS-211)#n</output>
-<?xml version="1.0" encoding="UTF-8"?><output type="INITIAL_PROMPT">Type :help for help, :quit for quit#n</output>
-<?xml version="1.0" encoding="UTF-8"?><output type="INTERNAL_ERROR">print("ABC")</output>
-<?xml version="1.0" encoding="UTF-8"?><output type="USER_OUTPUT">ABC</output>
-<?xml version="1.0" encoding="UTF-8"?><output type="SUCCESS">#n</output>
 ```
 
 使用 java 和 javap 命令查询类文件来源、以及其所使用的 JDK 主版本号：
@@ -4184,6 +4105,122 @@ Kotlin 有三种代码文件类型：
 2. `.kts` 扩展名表示 Kotlin 脚本文件，Gradle 项目管理中使用 build.gradle(.kts)；
 3. `.ktm` 扩展名表示 Kotlin 模块文件；
 
+直到目前 Kotlin 1.9.24 版本，脚本特性还是实验性功能 (Experimental)，编译器对脚本的处理行为
+会不断变更。Kotlin 脚本目前主要作为特定领域语言 Gradle Kotlin DSL，作为 Gradle 项目配置脚本。
+脚本文件中的代码等同于基本代码文件中 ``main()`` 函数中代码。因为 Kotlin 编译器会将脚本编译成 
+JVM 可执行的字节码，同时兼容 Java 程序，所以 Kotlin 脚本中又可以编写 Java 互操作程序：
+
+```bash
+#!/usr/bin/env -S kotlinc -script
+
+import java.io.File
+import java.io.FileFilter
+
+val files = File("./")
+var id = 1
+
+files.listFiles()?.forEach {
+    println("${id++} ${it.absolutePath}")
+}
+
+files.listFiles() {
+    it -> it.path.endsWith("awt.dll") }?.forEach {
+        println("${it.toURI()}") }
+
+fun main() = println("Hello Kotlin Scripting!")
+
+main()
+```
+
+使用 ``kotlin some.kts`` 或者 ``kotlinc -script some.kts`` 都可以执行脚本文件。
+Kotlin 脚本应用项目结构有两部分：
+
+* ``Script definition`` – 一组设置、配置参数用于确定脚本如何被识别、处理、编译、执行。
+* ``Scripting host`` – 根据脚本定义配置编译、执行 Kotlin 脚本的程序。
+
+Kotlin Conf'19 交流会中 Rodrigo Oliveira 演讲了 [Implementing the Gradle Kotlin DSL](https://kotlinconf.com/2019/talks/video/2019/126701/)。
+官方文档提供的教程演示了如何创建一个 Kotlin 脚本项目，该项目使用 Maven 依赖项执行任意 Kotlin 代码。
+参考官方示范项目： https://github.dev/Kotlin/kotlin-script-examples/tree/master/jvm/basic/jvm-maven-deps
+
+Java 程序可以使用 class-path 参数向编译器或 JVM 传递依赖库的路径：
+
+```java
+package org.example;
+
+import javafx.application.Application;
+
+public class App {
+
+    public static void main(String[] args) {
+        System.out.println("hello javafx");
+    }
+}
+```
+
+```bash
+$ javac -cp 'c:\javafx-sdk-17.0.11\lib\javafx.graphics.jar' org/example/App.java
+$ java -cp 'c:\javafx-sdk-17.0.11\lib\javafx.graphics.jar' org.example.App
+Hello World!
+
+JAVA_OPTS="-cp 'c:\javafx-sdk-17.0.11\lib\javafx.graphics.jar'" 
+kotlinc -script AppKts/main.kts
+```
+
+但是 Kotlin 脚本就不能使用这种方式，尽管 kotlinc 脚本中可以设置 JAVA_OPTS 变量向 JVM 传递参数。
+
+Kotlin 是现代的编程语言，包含了为简化表达的语法设计，大大降低的 Java 这种冗长代码的带来的低效率。
+同时，又因为简化表达的语法设计，阅读者需要掌握有一定的语法基础才能更好地阅读 Kotlin 代码，因为这
+种代码简化建立在一套新的设计哲学之上。Kotlin 和 TypeScript 都是现代的编程语言，许多方面都有相似
+之处，比如扩展方法机制，它们拥有更统一的类型设计，拥有更现代化的操作符号。比如 null 类型设计，变量
+可以声明为 nullable 类型，即可以保存 null 的类型，比如 ``var f: File?``。以上代码中的 ``?.``
+操作符号（safe call）就是对 nullable 类型的返回值进行判断，确保在返回有效数据时才继续执行成员方法。
+以上代码中，还展示了 Kotlin lambda 的经典用法，省略参数的简化表达，比如 forEach 和 listFiles
+接收的参数，注意它们是方法调用，前者省略了圆括号。这种 lambda 语法形式中直接使用了简化的表达，因为
+只有一个参数，可以使用隐式参数 ``it`` 表达，并且省略 lambda 参数列表。另外，lambda 作为其它方法的
+最后一个参数，将其编写在函数调用操作符号（圆括号）之后，这种语法称为 ``trailing lambda``。
+
+执行 ``kotlin`` REPL 环境并使用 ``:load`` 加载脚本时，注意脚本的文件编码，支持 UTF8，但不支持
+UTF16，而 Android Studio 中运行脚本时同时支持 UTF16 脚本文件编码。
+
+由于直接使用命令行启动编译器时间消耗较大，Android Studio (Intellij IDEA) 集成环境中则是提供
+实时的 Kotlin 脚本解析功能，同时拥有流畅的智能完成提示功能，编写好脚本直接点击运行按钮就直接运行，
+而不必每次都加载解释器。
+
+以下是 IntelliJ IDEA 中设置的 Kotlin REPL 命令行（实验性功能），直接调用 K2JVMCompiler 编译器，
+使用 XML 格式作为 IPC 数据交互格式：
+
+```sh
+cat > argfile_kotlin_repl << EOF
+-classpath
+C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/kotlin-compiler.jar;\
+C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/kotlin-stdlib.jar;\
+C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/kotlin-reflect.jar;\
+C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/kotlin-script-runtime.jar;\
+C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/trove4j.jar;\
+C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/kotlin-daemon.jar;\
+C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/kotlin-scripting-compiler.jar;\
+C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/kotlin-scripting-compiler-impl.jar;\
+C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/kotlin-scripting-common.jar;\
+C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/kotlin-scripting-jvm.jar;\
+C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/annotations-13.0.jar;
+org.jetbrains.kotlin.cli.jvm.K2JVMCompiler
+-cp
+build/classes/production/My_Application;build/classes/test/My_Application
+-jvm-target
+1.8
+-kotlin-home
+"C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc"
+EOF
+java -Dkotlin.repl.ideMode=true -Dfile.encoding=UTF-8 @argfile_kotlin_repl
+<?xml version="1.0" encoding="UTF-8"?><output type="INITIAL_PROMPT">Welcome to Kotlin version 1.9.0-release-358 (JRE 17.0.8+9-LTS-211)#n</output>
+<?xml version="1.0" encoding="UTF-8"?><output type="INITIAL_PROMPT">Type :help for help, :quit for quit#n</output>
+<?xml version="1.0" encoding="UTF-8"?><output type="INTERNAL_ERROR">print("ABC")</output>
+<?xml version="1.0" encoding="UTF-8"?><output type="USER_OUTPUT">ABC</output>
+<?xml version="1.0" encoding="UTF-8"?><output type="SUCCESS">#n</output>
+```
+
+旧版本编译器默认会像编译基本代码文件一样编译脚本文件，以下是 hello.kt 代码文件的编译演示：
+
 ```java ,kotlin
 import kotlin.collections.listOf
 
@@ -4207,7 +4244,7 @@ kotlinc hello.kts -d hello
 kotlinc -script hello.kts
 ```
 
-使用原生编译器生成可执行程序，Kotlin 会根据系统差异下载所需的依赖文件，例如 WIndows 平台的会下载 Msys2 或者 LLVM 编译器等等工具，即使已经安装，还是会下载一份保存到用户主目录下的 .konan/dependencies 子目录下。编译得到的可执行程序文件容量较大，即使只有一条 print 函数调用语句，也需要占用 MB 级别容量。
+使用原生编译器生成可执行程序，Kotlin 会根据系统差异下载所需的依赖文件，例如 Windows 平台的会下载 Msys2 或者 LLVM 编译器等等工具，即使已经安装，还是会下载一份保存到用户主目录下的 .konan/dependencies 子目录下。编译得到的可执行程序文件容量较大，即使只有一条 print 函数调用语句，也需要占用 MB 级别容量。
 
 尝试使用 kotlinc-native 编译 kts 脚本文件，虽然使用相同代码，但是编译脚本文件就会导致编译器前端触发异常，类型声明分析失败：
 

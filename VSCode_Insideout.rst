@@ -1378,6 +1378,18 @@ Gradle Project
 
    https://docs.gradle.org/current/dsl/org.gradle.api.plugins.JavaPluginConvention.html
 
+   解决 Gradle 频繁变更导致的兼容性问题，最简单的方法使用原工程使用的 Gradle 版本，或者按照
+   官方文档给出的版本迁移指导修改配置脚本：
+   `Upgrading your build from Gradle 7.x to 8.0 <https://docs.gradle.org/current/userguide/upgrading_version_7.html>`__
+   
+   Gradle 版本迁移并不是件轻松的事，有些问题文档是没有直接答案的，因为问题可能是由于使用了基于
+   旧版本的插件导致的。比如 ``IncrementalTaskInputs`` 将在第 8.0 中删除。原先的 @TaskAction
+   标注将不能应用于 IncrementalTask.taskAction$gradle_core，改用用 org.gradle.work.InputChanges 代替。
+
+      Cannot use @TaskAction annotation on method IncrementalTask.taskAction$gradle_core() 
+         because interface org.gradle.api.tasks.incremental.IncrementalTaskInputs 
+         is not a valid parameter to an action method.
+
    可使用 Groovy 或者 Kotlin 脚本作为构建规则配置文件：build.gradle(.kts)。Gradle 构建
    系统中有三类脚本，脚本中可以使用的全局对象参考 `Gradle DSLs and API`_ 文档。
 
@@ -4414,15 +4426,32 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
       -  **IntelliCode by Microsoft** - AI-assisted development
       -  **Maven for Java by Microsoft** - Manage Maven projects, execute goals, 
          generate project from archetype, improve user experience for Java developers.
+
    - Android Extension Pack，此插件包提供 Android SDK、Gradle 等集成支持、支持布局预览等。
       - **Android for VS Code** 插件（adelphes）提供应用调试功能。
       - **Android Full Support** 插件提供应用项目模板创建等功能，自带 Kotlin LSP 和 SDK 工具，似乎没什么用。
       - **Android ADB WLAN** 插件提供无线连接操作，可以直接使用 adb 命令进行连接。
       - **Android Studio Logcat** 插件提供 adb 日志查询界面，需要熟悉 logcat 过滤器的使用。
+
    - **Kotlin Language**，此插件提供 Kotlin 语言的支持，如果需要使用可以考虑安装。
    - **Kotlin** Kotlin IDE for Visual Studio Code，依赖以下两个插件，提供代码智能提示、调试等功能。
       - `Kotlin language server <https://github.com/fwcd/kotlin-language-server>`__
       - `Kotlin debug adapter <https://github.com/fwcd/kotlin-debug-adapter>`__
+
+   Android 团队为 Gradle 项目管理提供了 AGP 插件（Android Gradle plugin）：
+
+   *  ``com.android.application`` 插件提供 Gradle 任务用于构建 apk；
+      https://developer.android.google.cn/build/releases/gradle-plugin
+
+   *  ``com.android.library`` 插件提供 Gradle 任务构建 Android Library;
+      https://developer.android.google.cn/studio/projects/android-library
+
+   .. image:: https://developer.android.google.cn/static/images/build/android-sdks.png
+      :target: https://developer.android.google.cn/build?hl=en
+
+   按照 Android 应用开发的流程，使用 Android Sudio 或者 VS Code 作为开发工具，没有根本的区别。
+   只不过 Android Studio 作为官方的开发集成环境，它提供了默认的配套环境，也提供了更完善的功能支持。
+   VS Code 环境配置则需要用户在熟悉 Android SDK 开发组件的前提自行配置。
 
    Android 应用可以使用 Flutter UI 框架进行开发，此框架使用 Dart 脚本语言，安装相应的插件支持。
    安装 Gradle 集成可能会占用较多资源，如果熟悉 gradle 命令行，可以选择不安装此插件。安装好插件，
@@ -4430,6 +4459,156 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
    
    *  JAVA SDK 下载安装。
    *  Android SDK Tools 配置（Sdk Location），默认使用 ``${ANDROID_SDK_ROOT}`` 环境变量，可以指定 SDK 路径。
+
+   使用 VS Code 开发 Android App 只是一个可选项，Android Studio 作为官方开发平台（IDE），拥有
+   更丰富特性，包括更智能的类型提示，可视化设计，包括矢量图形的支持，这些功能都是 VS Code 环境缺失的。
+   Android 5.0 (API 21)开始引入矢量图支持，矢量图的常用格式是 SVG，Android 引入了自己的 XML
+   格式，使用 ``<vector>`` 节点来表示 ``VectorDrawable`` 矢量图形。
+   `Vector drawables overview <https://developer.android.google.cn/develop/ui/views/graphics/vector-drawable-resources>`__
+   
+   Android 5.0 之前只支持位图，默认格式是 png。但是 Android 设备分辨率的多样性，导致位图素材
+   需要适配不同的屏幕尺寸，而矢量图可无损缩放的特性很好地解决了屏幕适配问题。因此，Android 5.0 
+   版本之后，如果采用矢量图形，就不再需要做位图适配。
+
+   可以将所有矢量图形文件（xml）保存到 Drawable 资源目录下。也可以创建一个 ``mipmap-anydpi``
+   资源目录，将矢量图形应用到所有屏幕尺寸。工程资源目录下的 mipmap 子目录一般都是像素图像需要根据
+   屏幕像素工艺密度来做适配，官方文档 Support different pixel densities 配图很好地说明了
+   两个不同密度参数的屏幕，显示同样的 ``dp`` 单位的字符时所占据的物理像素数量的差别：
+
+   .. figure:: https://developer.android.google.cn/static/images/screens_support/densities-phone_2x.png
+      :target: https://developer.android.google.cn/training/multiscreen/screendensities
+
+      Screen compatibility overview
+
+
+   **Table 1.** Configuration qualifiers for different pixel densities.
+
+   ================= =====================================================
+   Density qualifier Description
+   ================= =====================================================
+   ``ldpi``          (~120 dpi)  Resources for low-density screens.
+   ``mdpi``          (~160 dpi)  Resources for medium-density screens. (baseline density)
+   ``hdpi``          (~240 dpi)  Resources for high-density screens.
+   ``xhdpi``         (~320 dpi)  Resources for extra-high-density screens.
+   ``xxhdpi``        (~480 dpi)  Resources for extra-extra-high-density screens.
+   ``xxxhdpi``       (~640 dpi)  Resources for extra-extra-extra-high-density uses.
+   ``nodpi``         Resources for all densities. These are density-independent resources.
+   ``tvdpi``         Resources for screens somewhere between mdpi and hdpi; approximately ~213 dpi.
+   ================= =====================================================
+
+   像素与“密素”的计算关系是 ``px = dp * (dpi / 160)``，应用中使用倍率计算与像素之间的转换关系，
+   ``DisplayMetrics.density`` = densityDpi / 160。标准工艺下，16px = 16dp = 2.5 mm
+   （1 英寸 = 2.54 厘米）。
+
+   比如一个大小为 48x48 像素的图形适配尺寸如下，使相同的资源文件名称，但是存放到不同密度名称的目录下：
+
+   ======= ======== =========== =========== ===================================
+   36x36   (0.75x)  (~120 dpi)  (ldpi)      for low density 
+   48x48   (1.0x)   (~160 dpi)  (mdpi)      for medium density 
+   64x64   (1.33x)  (~213 dpi)  (tvdpi)     for televisions screen 
+   72x72   (1.5x)   (~240 dpi)  (hdpi)      for high density 
+   96x96   (2.0x)   (~320 dpi)  (xhdpi)     for extra-high density 
+   144x144 (3.0x)   (~480 dpi)  (xxhdpi)    for extra-extra-high density 
+   192x192 (4.0x)   (~640 dpi)  (xxxhdpi)   for extra-extra-extra-high density 
+   ======= ======== =========== =========== ===================================
+
+   Android Studio 文件菜可创建矢量图形或者位图资源：File --> New --> Vector Asset/Image Asset。
+   支持 SVG 与 PSD 格式的转换。但是不支持 SVG 矢量图中的动画，转换为 Android 专用的 XML 格式保存，
+   矢量路径信息保存到 ``<vector>`` 节点内。Android Studio 中的 ``android`` 插件目录下包含
+   一些基础的图形，比如矢量头像（avatar_1.xml ... avtar_16.xml），也包含了一系列风景背景图
+   （scenic）。创建新项目时，选择 `Responsive Views Activity` 模板就会包含这些矢量图形资源。
+
+   Android VectorDrawable 使用的 XML 标签虽然与 SVG 有所不同，但是路径中包含的矢量数据格式
+   是兼容的，只需要修改节点的名称和属性名称就可以相互转换：
+
+   .. code:: xml
+
+      <!-- Android VectorDrawable -->
+      <!-- https://github.dev/android/compose-samples/blob/main/Owl/app/src/main/res/drawable/ic_grain.xml -->
+      <?xml version="1.0" encoding="utf-8"?>
+      <vector
+         xmlns:android="http://schemas.android.com/apk/res/android"
+         android:width="24dp"
+         android:height="24dp"
+         android:viewportWidth="24"
+         android:viewportHeight="24">
+         <path android:fillColor="#FF000000" android:pathData="M16.5,3c-1.74,0 ... z" />
+      </vector>
+
+      <!-- SVG -->
+      <?xml version='1.0' encoding='ascii'?>
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1920" height="1080">
+         <path fillColor="#FF000000" d="M16.5,3c-1.74,0 ... z" />
+      </svg>
+
+   虽然，VS Code 缺失这些图形设计方面的功能支持，但是使用 Jetpack Compose 这样的声明式图形框架
+   作为开发 App 开发工具，这是现代 Android 开发环境，完全可以抛弃掉旧式 Android 图形界面的设计。
+
+   Red Hat 提供的 Java LSP 智能提示功能基于 Eclipse™ JDT Language Server 实现，但是对
+   Android Gradle 工程导入支持只是体验性功能，不能提供良好的 AndroidX 类库的智能提示。插件
+   对 Android 项目支持配置项：Java › Jdt › Ls › Android Support。
+
+   Android 作为一个基于 Linux 内核深度定制的移动操作系统，涉及众多领域的知识，这里有一份开发者
+   学习路线图供参考： 
+   
+   *  `Android Developer Step by step guide to becoming an Android developer in 2024 <https://roadmap.sh/android>`__
+   *  `Android Roadmap [SVG] <https://github.com/Jeangowhy/opendocs/blob/main/pictures/android_roadmap.svg>`__
+
+   使用 Kotlin 作为 Android 应用开发语言，就需要在 Gradle 等自动化构建工具中配置好编译器插件。
+   注意，虽然插件本身占用空间不大，但是不同的插件版本对应使用的 Kotlin 编译器版本也不同，如果频繁
+   切换版本，则会下载多个版本的 Kotlin 编译器和标准库，同时还可能依赖不同版本的 Android SDK
+   组件占用大量空间。并且，不同的版本的编译器搭配的开发框架及其它配套相关依赖也可能有版本兼容要求，
+   比如 Japack Compose 的版本兼容关系：
+
+   *  `Compatibility and versions <https://github.dev/JetBrains/kotlin-multiplatform-dev-docs/blob/master/topics/compose/compose-compatibility-and-versioning.md>`__
+   *  `Compose to Kotlin Compatibility Map <https://developer.android.google.cn/jetpack/androidx/releases/compose-kotlin>`__
+
+   | Compose Multiplatform | Jetpack Compose | Jetpack Compose Material3 | Kotlin |
+   |-----------------------|-----------------|---------------------------|--------|
+   | [1.6.11]              | 1.6.7           | 1.2.1                     | 1.9.24 |
+   | [1.6.10]              | 1.6.7           | 1.2.1                     | 1.9.24 |
+   | [1.6.2]               | 1.6.4           | 1.2.1                     | 1.9.24 |
+   | [1.6.1]               | 1.6.3           | 1.2.1                     | 1.9.24 |
+   | [1.6.0]               | 1.6.1           | 1.2.0                     | 1.9.24 |
+   | [1.5.12]              | 1.5.4           | 1.1.2                     | 1.9.23 |
+   | [1.5.11]              | 1.5.4           | 1.1.2                     | 1.9.22 |
+   | [1.5.10]              | 1.5.4           | 1.1.2                     | 1.9.22 |
+   | [1.5.1]               | 1.5.0           | 1.1.1                     | 1.9.0  |
+   | [1.5.0]               | 1.5.0           | 1.1.1                     | 1.9.0  |
+   | [1.4.3]               | 1.4.3           | 1.0.1                     | 1.8.10 |
+   | [1.4.1]               | 1.4.3           | 1.0.1                     | 1.8.0  |
+   | [1.4.0]               | 1.4.0           | 1.0.1                     | 1.8.0  |
+   | [1.3.1]               | 1.3.3           | 1.0.1                     | 1.7.10 |
+   | [1.3.0]               | 1.3.3           | 1.0.1                     | 1.7.10 |
+   | [1.2.1]               | 1.2.1           | 1.0.0-alpha14             | 1.7.0  |
+   | [1.2.0]               | 1.2.1           | 1.0.0-alpha14             | 1.7.0  |
+   | [1.1.1]               | 1.1.0           | 1.0.0-alpha05             | 1.6.10 |
+   | [1.1.0]               | 1.1.0           | 1.0.0-alpha05             | 1.6.10 |
+   | [1.0.1]               | 1.1.0-beta02    | 1.0.0-alpha03             | 1.5.21 |
+   | [1.0.0]               | 1.1.0-beta02    | 1.0.0-alpha03             | 1.5.10 |
+
+   .. code-block:: bash
+
+      # \.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin
+      $ pushd $USERPROFILE/.gradle/caches; tree -fL 4 | grep kotlin | vim -; popd
+
+   .. code-block:: kotlin
+
+      plugins {
+         id("com.android.application") version "8.1.2" apply false
+         id("com.android.library") version "8.1.2" apply false
+         id("org.jetbrains.kotlin.android") version "1.9.10" apply false
+      }
+
+      android {
+         ...
+         buildFeatures {
+            compose = true
+         }
+         composeOptions {
+            kotlinCompilerExtensionVersion = "1.5.13"
+         }
+      }
 
    Kotlin 插件提供的开发环境需要 JetBrains Runtime (JBR)，这是一个基于 OpenJDK 的跨平台的
    (Windows, Mac OS X, Linux) JCEF 框架运行时，作为 JetBrains IDE 全线产品的基础构成。
@@ -4542,6 +4721,30 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
    Gradle 构建任务，比如 ``./gradlew installDebug`` 就可以将构建好的 apk 程序包安装到
    已经连接的手机上。或者，安装到已启动模拟器中，如果没有连接真机。
 
+   Android 应用开发过程中，自动化测试阶段包含两种测试：逻辑测试和实验测试，它些测试与代码目录组织
+   关系对应如下：
+   `Write automated tests <https://developer.android.google.cn/codelabs/basic-android-kotlin-compose-write-automated-tests>`__
+
+   ==============  ======================  ===========================  =======
+   business logic  local tests             module/src/test/java         JVM
+   UI logic        instrumentation tests   module/src/androidTest/java  Android
+   ==============  ======================  ===========================  =======
+
+   业务逻辑上的测试就是一般的单元测试，直接在 JVM 环境上运行程序的部分（最小单元）代码，并根据其
+   功能逻辑编写测试单元。UI 界面测试 ``Instrumentation`` 测量仪器
+
+   `Test your app <https://developer.android.google.cn/studio/test>`__
+   When you run an instrumentation test on Android, the test code is actually built into its
+   own Android Application Package (APK) like a regular Android app. An APK is a compressed
+   file that contains all the code and necessary files to run the app on a device or emulator.
+   The test APK is installed on the device or emulator along with the regular app APK. The
+   test APK then runs its tests against the app APK.
+instrumentation can load both a test package and the application under test into the same process. Since the application components and their tests are in the same process, the tests can invoke methods in the components, and modify and examine fields in the components.
+
+翻译过来
+
+Instrumentation可以把测试包和目标测试应用加载到同一个进程中运行。既然各个控件和测试代码都运行在同一个进程中了，测试代码当然就可以调用这些控件的方法了，同时修改和验证这些控件的一些数据
+
    安装了 Android for VS Code 插件，在配置调试器时，就可以通过 Go -> Add Configuration...
    创建配置文件，并且使用调试器的备选列表中由插件提供的 ``Android`` 选项，就可以自动添加以下配置，
    包含了直接运行并调试 App（launch 方法），以及附加调试方式（attach）以调试手机当前运行中的进程。
@@ -4587,6 +4790,13 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
          "version": "2.0.0",
          "tasks": [
             {
+                  "label": "Android Test",
+                  "type": "shell",
+                  "problemMatcher": [],
+                  "command": "./gradlew",
+                  "args": ["compileDebugAndroidTestSources"],
+            },
+            {
                   "label": "gradle build",
                   "type": "shell",
                   "problemMatcher": [],
@@ -4613,14 +4823,15 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
       zipStorePath=wrapper/dists
       distributionUrl=http\://services.gradle.org/distributions/gradle-1.12-all.zip
       #distributionUrl=https\://services.gradle.org/distributions/gradle-8.7-bin.zip
-   
+
    模板中的测试代码使用的也是过时的 ``android.test.ActivityInstrumentationTestCase2``，
    API level 24 已被弃用。应使用 Android Testing Support Library 编写测试代码。应该改用
-   ``ActivityTestRule`` 或者更新的 ``ActivityScenario``。
+   ``ActivityTestRule`` 或者更新的 ``ActivityScenario``。使用 `Espresso`_ 测试 UI 控件。
 
    AndroidX Test API 进一步优化应用的测试，使用 Guava 团队提供的 Truth 创建更容易读懂的断言。
    在构建测试的验证步骤（或 then 步骤）时，可以使用此库来代替基于 JUnit 或 Hamcrest 的断言。
-   通常，可以使用 Truth Library 来表达某个对象具有特定属性，使用的短语包含您要测试的条件，例如：
+   使用 Truth Library (``com.google.common.truth.Truth``) 来表达某个对象具有特定属性，
+   短语包含要测试的条件，例如：
 
    *  ``assertThat(object).hasFlags(FLAGS)``
    *  ``assertThat(object).doesNotHaveFlags(FLAGS)``
@@ -4630,6 +4841,8 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
 .. _Fundamentals of testing Android apps: https://developer.android.google.cn/training/testing/fundamentals
 .. _Advanced Android in Kotlin 05.1:Testing Basics: https://developer.android.google.cn/codelabs/advanced-android-kotlin-training-testing-basics
 .. _Advanced Android Testing: https://vscode.dev/github/google-developer-training/advanced-android-testing
+.. _Testing cheatsheet: https://developer.android.google.cn/develop/ui/compose/testing/testing-cheatsheet
+.. _Espresso: https://developer.android.google.cn/training/testing/espresso
 
    模板使用的是 Java 语言，当时 Kotlin 才发布不到两年，如果使用 kotlin 编程就需要变更项目结构：
 
@@ -4864,7 +5077,12 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
 /🟡Jetpack Compose UI
 ======================
 
-   官方示范工程： `Now In Android <https://vscode.dev/github/android/nowinandroid/tree/main/docs>`__
+   Android Jetpack Compose 官方示范工程： 
+
+   *  `Now In Android <https://vscode.dev/github/android/nowinandroid/tree/main/docs>`__
+   *  `Jetpack Compose samples <https://github.com/android/compose-samples/tree/main>`__
+   *  `Jetpack Compose Codelabs <https://github.com/android/codelab-android-compose>`__
+   *  `Android UI Testig Samples <https://github.com/android/testing-samples>`__
 
    Android 系统目前主推 Jetpack Compose，此 UI 框架使用声明式函数构建简单的界面组件。
    需要掌握可组合函数、基本布局以及 Material Design、列表和动画在 Compose 中的工作原理。
@@ -4903,7 +5121,11 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
    通过以上代码片断对比，Kotlin 代码明显更加简洁，它连只有一个参数的 lambda 表达式也作了简化，
    使用隐式参数 ``it`` 语法糖，这样就不用显式声明这个参数，也就不用额外编写参数列表，直接使用
    花括号包裹 lambda 函数体即可。由于 Kotlin 省略分号，因此换行很重要。这对于 C/C++ 用户有个
-   小问题是，这对花括号很容易被误读成代码块。
+   小问题是，这对花括号很容易被误读成代码块。此代码风格设计便于实现 Single Abstract Method (SAM)。
+   以上代码中，还展示了 Kotlin lambda 的经典用法，省略参数的简化表达，函数调用时接收的 lambda 简化，
+   注意，sayHi {...} 是方法调用，只是省略了圆括号。这种 lambda 语法形式中直接使用了简化的表达，因为
+   只有一个参数，可以使用隐式参数 ``it`` 表达，并且省略 lambda 参数列表。另外，lambda 作为其它方法的
+   最后一个参数，将其编写在函数调用操作符号（圆括号）之后，这种语法称为 ``trailing lambda``。
    参考： `Kotlin Coding conventions <https://kotlinlang.org/docs/coding-conventions.html>`__
 
    =================================   ========================================
@@ -5291,8 +5513,15 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
    在没有使用布局组件（layout component）的情况下，UI 组件会重叠在一起，相互遮挡，后面的组件
    会覆盖前面注册的组件。使用布局组件包装其它 UI 组件，就可以获得相应的组件布局排版，例如最基本的
    ``Column`` 或 ``Row`` 就可以将组件按列、按行排列，避免重叠在一起。为了方便设置 App 的基本
-   界面构架，Material Design 提供了一个 ``Scaffold``，它代表了用户屏幕空间的布局，功能类似
-   ``Surface`` 这样的组件。
+   界面构架，Material Design 提供了一个 ``Scaffold``，它代表了用户屏幕空间的布局，语义上类似
+   ``Surface`` 这样的组件。Scaffold 实现了 Material Design 的基本视图界面结构，即主界面
+   脚手架，包含侧边应用栏、底部导航栏、导航栏的自动布局。经常搭配 ``TopAppBar`` 顶部导航栏、
+   ``BottomNavigation`` 底部导航栏等组合方法使用。
+
+   为了提升渲染效率，Compose UI 默认只允许对一个 UI 组件进行一次测量，这样的约定下，子元素不会
+   重复进行测量，大量节省了渲染时间消耗。就像在传统 ``View`` 系统中，当 ``LinearLayout`` 等
+   基础布局无法满足需求时，可以通过重写 measure 与 layout 来达成你的期望。Compose 沿用了这一理念，
+   在一些场景下如果 Compose 内置组件可能无法满足你的需求，可以尝试定制测量与布局。
 
    ``Color`` 对象表示界面的颜色，提供了多个构造函数，可以传递颜色分量（包含透明通道），或者直接
    传递一个表示色值的整形数值（ARGB color int）。颜色分量包括 red、green、blue、alpha，以及

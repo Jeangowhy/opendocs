@@ -1,94 +1,92 @@
 
 
 /TOC 💛 Android OS core topics
-=============================
+===============================
 
 .. container:: 
 
-   .. container:: 
+   |Android Open Source Project|
 
-      |Android Open Source Project|
 
-   .. container:: 
+   `Docs <https://source.android.google.cn/docs>`__
 
-      `Docs <https://source.android.google.cn/docs>`__
+      -  What's new?
 
-         -  What's new?
+      -  `Release notes <https://source.android.google.cn/docs/whatsnew/release-notes>`__
+      -  `Latest security bulletins <https://source.android.google.cn/docs/whatsnew/latest-security-bulletins>`__
+      -  `Latest Compatibility Definition Document (CDD) <https://source.android.google.cn/docs/whatsnew/latest-cdd>`__
+      -  `Site updates <https://source.android.google.cn/docs/whatsnew/site-updates>`__
 
-         -  `Release notes <https://source.android.google.cn/docs/whatsnew/release-notes>`__
-         -  `Latest security bulletins <https://source.android.google.cn/docs/whatsnew/latest-security-bulletins>`__
-         -  `Latest Compatibility Definition Document (CDD) <https://source.android.google.cn/docs/whatsnew/latest-cdd>`__
-         -  `Site updates <https://source.android.google.cn/docs/whatsnew/site-updates>`__
+      -  Getting Started
 
-         -  Getting Started
+      -  `About <https://source.android.google.cn/docs/setup/about>`__
+      -  `Start <https://source.android.google.cn/docs/setup/start>`__
+      -  `Download <https://source.android.google.cn/docs/setup/download>`__
+      -  `Build <https://source.android.google.cn/docs/setup/build>`__
+      -  `Test <https://source.android.google.cn/docs/setup/test>`__
+      -  `Create <https://source.android.google.cn/docs/setup/create/coding-tasks>`__
+      -  `Contribute <https://source.android.google.cn/docs/setup/contribute>`__
+      -  `Community <https://source.android.google.cn/docs/setup/community/cofc>`__
+      -  `Tools, build, and related reference <https://source.android.google.cn/docs/setup/reference>`__
 
-         -  `About <https://source.android.google.cn/docs/setup/about>`__
-         -  `Start <https://source.android.google.cn/docs/setup/start>`__
-         -  `Download <https://source.android.google.cn/docs/setup/download>`__
-         -  `Build <https://source.android.google.cn/docs/setup/build>`__
-         -  `Test <https://source.android.google.cn/docs/setup/test>`__
-         -  `Create <https://source.android.google.cn/docs/setup/create/coding-tasks>`__
-         -  `Contribute <https://source.android.google.cn/docs/setup/contribute>`__
-         -  `Community <https://source.android.google.cn/docs/setup/community/cofc>`__
-         -  `Tools, build, and related reference <https://source.android.google.cn/docs/setup/reference>`__
+      -  Security
 
-         -  Security
+      -  `Overview <https://source.android.google.cn/docs/security/overview>`__
+      -  `Bulletins <https://source.android.google.cn/docs/security/bulletin>`__
+      -  `Features <https://source.android.google.cn/docs/security/features>`__
+      -  `Testing <https://source.android.google.cn/docs/security/test/fuzz-sanitize>`__
+      -  `Best Practices <https://source.android.google.cn/docs/security/best-practices>`__
 
-         -  `Overview <https://source.android.google.cn/docs/security/overview>`__
-         -  `Bulletins <https://source.android.google.cn/docs/security/bulletin>`__
-         -  `Features <https://source.android.google.cn/docs/security/features>`__
-         -  `Testing <https://source.android.google.cn/docs/security/test/fuzz-sanitize>`__
-         -  `Best Practices <https://source.android.google.cn/docs/security/best-practices>`__
+      -  Core Topics
 
-         -  Core Topics
+      -  `Architecture <https://source.android.google.cn/docs/core/architecture>`__
+      -  `Audio <https://source.android.google.cn/docs/core/audio>`__
+      -  `Camera <https://source.android.google.cn/docs/core/camera>`__
+      -  `Connectivity <https://source.android.google.cn/docs/core/connect>`__
+      -  `Data <https://source.android.google.cn/docs/core/data>`__
+      -  `Display <https://source.android.google.cn/docs/core/display>`__
+      -  `Fonts <https://source.android.google.cn/docs/core/fonts/custom-font-fallback>`__
+      -  `Graphics <https://source.android.google.cn/docs/core/graphics>`__
+      -  `Interaction <https://source.android.google.cn/docs/core/interaction>`__
+      -  `Media <https://source.android.google.cn/docs/core/media>`__
+      -  `Performance <https://source.android.google.cn/docs/core/perf>`__
+      -  `Permissions <https://source.android.google.cn/docs/core/permissions>`__
+      -  `Power <https://source.android.google.cn/docs/core/power>`__
+      -  `Runtime <https://source.android.google.cn/docs/core/runtime>`__
+      -  `Settings <https://source.android.google.cn/docs/core/settings>`__
+      -  `Storage <https://source.android.google.cn/docs/core/storage>`__
+      -  `Tests <https://source.android.google.cn/docs/core/tests>`__
+      -  `Updates <https://source.android.google.cn/docs/core/ota>`__
+      -  `Virtualization <https://source.android.google.cn/docs/core/virtualization>`__
 
-         -  `Architecture <https://source.android.google.cn/docs/core/architecture>`__
-         -  `Audio <https://source.android.google.cn/docs/core/audio>`__
-         -  `Camera <https://source.android.google.cn/docs/core/camera>`__
-         -  `Connectivity <https://source.android.google.cn/docs/core/connect>`__
-         -  `Data <https://source.android.google.cn/docs/core/data>`__
-         -  `Display <https://source.android.google.cn/docs/core/display>`__
-         -  `Fonts <https://source.android.google.cn/docs/core/fonts/custom-font-fallback>`__
-         -  `Graphics <https://source.android.google.cn/docs/core/graphics>`__
-         -  `Interaction <https://source.android.google.cn/docs/core/interaction>`__
-         -  `Media <https://source.android.google.cn/docs/core/media>`__
-         -  `Performance <https://source.android.google.cn/docs/core/perf>`__
-         -  `Permissions <https://source.android.google.cn/docs/core/permissions>`__
-         -  `Power <https://source.android.google.cn/docs/core/power>`__
-         -  `Runtime <https://source.android.google.cn/docs/core/runtime>`__
-         -  `Settings <https://source.android.google.cn/docs/core/settings>`__
-         -  `Storage <https://source.android.google.cn/docs/core/storage>`__
-         -  `Tests <https://source.android.google.cn/docs/core/tests>`__
-         -  `Updates <https://source.android.google.cn/docs/core/ota>`__
-         -  `Virtualization <https://source.android.google.cn/docs/core/virtualization>`__
+      -  Compatibility
 
-         -  Compatibility
+      -  `Compatibility Definition Document (CDD) <https://source.android.google.cn/docs/compatibility/cdd>`__
+      -  `Compatibility Test Suite (CTS) <https://source.android.google.cn/docs/compatibility/cts>`__
 
-         -  `Compatibility Definition Document (CDD) <https://source.android.google.cn/docs/compatibility/cdd>`__
-         -  `Compatibility Test Suite (CTS) <https://source.android.google.cn/docs/compatibility/cts>`__
+      -  Android Devices
 
-         -  Android Devices
+      -  `Cuttlefish <https://source.android.google.cn/docs/devices/cuttlefish>`__
+      -  `Enterprise <https://source.android.google.cn/docs/devices/admin>`__
+      -  `TV <https://source.android.google.cn/docs/devices/tv>`__
 
-         -  `Cuttlefish <https://source.android.google.cn/docs/devices/cuttlefish>`__
-         -  `Enterprise <https://source.android.google.cn/docs/devices/admin>`__
-         -  `TV <https://source.android.google.cn/docs/devices/tv>`__
+      -  Automotive
 
-         -  Automotive
+      -  `Get Started <https://source.android.google.cn/docs/automotive/start/what_automotive>`__
+      -  `Guidelines for Development <https://source.android.google.cn/docs/automotive/guidelines>`__
+      -  `Development Tools <https://source.android.google.cn/docs/automotive/dev-tools>`__
+      -  `Testing Tools and Infrastructure <https://source.android.google.cn/docs/automotive/tools>`__
+      -  `Release Details <https://source.android.google.cn/docs/automotive/start/releases>`__
 
-         -  `Get Started <https://source.android.google.cn/docs/automotive/start/what_automotive>`__
-         -  `Guidelines for Development <https://source.android.google.cn/docs/automotive/guidelines>`__
-         -  `Development Tools <https://source.android.google.cn/docs/automotive/dev-tools>`__
-         -  `Testing Tools and Infrastructure <https://source.android.google.cn/docs/automotive/tools>`__
-         -  `Release Details <https://source.android.google.cn/docs/automotive/start/releases>`__
+      -  Reference
 
-         -  Reference
+      -  `HIDL <https://source.android.google.cn/reference/hidl>`__
+      -  `HAL <https://source.android.google.cn/reference/hal>`__
+      -  `Trade Federation <https://source.android.google.cn/reference/tradefed/classes>`__
+      -  `Security Test Suite <https://source.android.google.cn/reference/sts/classes>`__
 
-         -  `HIDL <https://source.android.google.cn/reference/hidl>`__
-         -  `HAL <https://source.android.google.cn/reference/hal>`__
-         -  `Trade Federation <https://source.android.google.cn/reference/tradefed/classes>`__
-         -  `Security Test Suite <https://source.android.google.cn/reference/sts/classes>`__
+   `GO TO CODE ➚ <https://cs.android.com/android/platform/superproject/main>`__
 
-      `GO TO CODE ➚ <https://cs.android.com/android/platform/superproject/main>`__
 
 .. container:: 
 
@@ -1254,38 +1252,37 @@
    -  `Use cases <https://source.android.google.cn/docs/core/virtualization/usecases>`__
 
 
--  .. rubric:: Build
-      :name: build
+.. container:: 
 
-   -  `Android repository <https://android.googlesource.com>`__
-   -  `Requirements <https://source.android.google.cn/source/requirements>`__
-   -  `Downloading <https://source.android.google.cn/source/downloading>`__
-   -  `Preview binaries <https://developers.google.com/android/blobs-preview/>`__
-   -  `Factory images <https://developers.google.com/android/images/>`__
-   -  `Driver binaries <https://developers.google.com/android/drivers/>`__
-   -  `GitHub <https://android.github.io>`__
+   Build
 
--  .. rubric:: Connect
-      :name: connect
+      -  `Android repository <https://android.googlesource.com>`__
+      -  `Requirements <https://source.android.google.cn/source/requirements>`__
+      -  `Downloading <https://source.android.google.cn/source/downloading>`__
+      -  `Preview binaries <https://developers.google.com/android/blobs-preview/>`__
+      -  `Factory images <https://developers.google.com/android/images/>`__
+      -  `Driver binaries <https://developers.google.com/android/drivers/>`__
+      -  `GitHub <https://android.github.io>`__
 
-   -  `@Android on Twitter <https://twitter.com/Android/>`__
-   -  `@AndroidDev on Twitter <https://twitter.com/AndroidDev/>`__
-   -  `Android Blog <https://blog.google/products/android/>`__
-   -  `Google Security Blog <https://security.googleblog.com>`__
-   -  `Platform on Google Groups <https://groups.google.com/forum/?fromgroups#!forum/android-platform/>`__
-   -  `Building on Google Groups <https://groups.google.com/forum/?fromgroups#!forum/android-building/>`__
-   -  `Porting on Google Groups <https://groups.google.com/forum/?fromgroups#!forum/android-porting/>`__
+   Connect
 
--  .. rubric:: Get help
-      :name: get-help
+      -  `@Android on Twitter <https://twitter.com/Android/>`__
+      -  `@AndroidDev on Twitter <https://twitter.com/AndroidDev/>`__
+      -  `Android Blog <https://blog.google/products/android/>`__
+      -  `Google Security Blog <https://security.googleblog.com>`__
+      -  `Platform on Google Groups <https://groups.google.com/forum/?fromgroups#!forum/android-platform/>`__
+      -  `Building on Google Groups <https://groups.google.com/forum/?fromgroups#!forum/android-building/>`__
+      -  `Porting on Google Groups <https://groups.google.com/forum/?fromgroups#!forum/android-porting/>`__
 
-   -  `Android Help Center <https://support.google.com/android/>`__
-   -  `Pixel Help Center <https://support.google.com/pixelphone/>`__
-   -  `Nexus Help Center <https://support.google.com/nexus/>`__
-   -  `www.android.com <https://www.android.com>`__
-   -  `Google Mobile Services <https://www.android.com/gms/>`__
-   -  `Stack Overflow <https://stackoverflow.com/questions/tagged/android-source/>`__
-   -  `Issue Tracker <https://issuetracker.google.com/issues?q=status:open%20componentid:190923>`__
+   Get help
+
+      -  `Android Help Center <https://support.google.com/android/>`__
+      -  `Pixel Help Center <https://support.google.com/pixelphone/>`__
+      -  `Nexus Help Center <https://support.google.com/nexus/>`__
+      -  `www.android.com <https://www.android.com>`__
+      -  `Google Mobile Services <https://www.android.com/gms/>`__
+      -  `Stack Overflow <https://stackoverflow.com/questions/tagged/android-source/>`__
+      -  `Issue Tracker <https://issuetracker.google.com/issues?q=status:open%20componentid:190923>`__
 
 
 /Overview: Android OS core Overview
@@ -1298,386 +1295,184 @@
    -  `Core Topics <https://source.android.google.cn/docs/core>`__
 
 
-.. container:: 
+Android OS core topics
 
-   .. container:: 
+      From the basic building blocks of an Android device to the more intricate,
+      advanced features, learn about all the ways you can customize the Android
+      OS.
 
       .. figure::
          https://developer.android.google.cn/images/cluster-illustrations/play-webinar-16-9.svg
 
-   .. container:: 
 
-      .. container:: 
+Basics
 
-         .. rubric:: Android OS core topics
-            :name: android-os-core-topics
-            :class: hide-from-toc no-link
-
-         .. container:: 
-
-            From the basic building blocks of an Android device to the more intricate,
-            advanced features, learn about all the ways you can customize the Android
-            OS.
-
-.. container::
-
-   .. container:: 
-
-      .. rubric:: Basics
-         :name: basics
-
-      .. container:: 
-
-         Learn more about the foundational elements of the Android OS.
+   Learn more about the foundational elements of the Android OS.
 
 
-.. container:: 
+   .. container:: system architecture
 
-   .. container::
-
-      .. container:: 
-
-         system architecture
-
-      .. rubric:: `Architecture <https://source.android.google.cn/docs/core/architecture>`__
-         :name: architecture
-         :class: hide-from-toc no-link
-
-      .. container:: 
+      `Architecture <https://source.android.google.cn/docs/core/architecture>`__
 
          Read about the Android system architecture and each of its constituent
          pieces.
 
 
-   .. container:: 
+   .. container:: connectivity
 
-      .. container:: 
-
-         connectivity
-
-      .. rubric:: `Connect
-         devices <https://source.android.google.cn/docs/core/connect>`__
-         :name: connect-devices
-         :class: hide-from-toc no-link
-
-      .. container:: 
+      `Connect devices <https://source.android.google.cn/docs/core/connect>`__
 
          Explore Android connectivity protocols, including Bluetooth, NFC, Wi-Fi.
 
 
-   .. container:: 
+   .. container:: power
 
-      .. container:: 
-
-         power
-
-      .. rubric:: `Power
-         profiles <https://source.android.google.cn/docs/core/power>`__
-         :name: power-profiles
-         :class: hide-from-toc no-link
-
-      .. container:: 
+      `Power profiles <https://source.android.google.cn/docs/core/power>`__
 
          See battery profiles and power utilization strategies available in Android.
 
 
-   .. container:: 
+   .. container:: interaction
 
-      .. container:: 
-
-         interaction
-
-      .. rubric:: `Inputs and
-         sensors <https://source.android.google.cn/docs/core/interaction>`__
-         :name: inputs-and-sensors
-         :class: hide-from-toc no-link
-
-      .. container:: 
+      `Inputs and sensors <https://source.android.google.cn/docs/core/interaction>`__
 
          Explore how Android processes user inputs from input devices and sensors.
 
 
-   .. container:: 
+   .. container:: camera
 
-      .. container:: 
-
-         camera
-
-      .. rubric:: `Camera <https://source.android.google.cn/docs/core/camera>`__
-         :name: camera
-         :class: hide-from-toc no-link
-
-      .. container:: 
+      `Camera <https://source.android.google.cn/docs/core/camera>`__
 
          Build an abstraction layer to receive and process camera input on an Android
          device.
 
 
-   .. container:: 
+   .. container:: settings
 
-      .. container:: 
-
-         settings
-
-      .. rubric:: `Custom
-         settings <https://source.android.google.cn/docs/core/settings>`__
-         :name: custom-settings
-         :class: hide-from-toc no-link
-
-      .. container:: 
+      `Custom settings <https://source.android.google.cn/docs/core/settings>`__
 
          Implement and customize the OS settings to give users options.
 
 
-   .. container:: 
+   .. container:: fonts
 
-      .. container:: 
-
-         fonts
-
-      .. rubric:: `Fonts <https://source.android.google.cn/docs/core/fonts/custom-font-fallback>`__
-         :name: fonts
-         :class: hide-from-toc no-link
-
-      .. container:: 
+      `Fonts <https://source.android.google.cn/docs/core/fonts/custom-font-fallback>`__
 
          Install and customize fonts.
 
-.. container::
 
-   .. container:: 
+Media and display
 
-      |image-microphone-console|
+   |image-microphone-console|
 
-   .. container:: 
+      Learn more about graphics, audio, and the Android display.
 
-      .. rubric:: Media and display
-         :name: media-and-display
 
-      .. container:: 
+   .. container:: audio
 
-         Learn more about graphics, audio, and the Android display.
-
-   .. container:: 
-
-      .. container:: 
-
-         audio
-
-      .. rubric:: `Audio in
-         Android <https://source.android.google.cn/docs/core/audio>`__
-         :name: audio-in-android
-         :class: hide-from-toc no-link
-
-      .. container:: 
+      `Audio in Android <https://source.android.google.cn/docs/core/audio>`__
 
          Android's audio Hardware Abstraction Layer (HAL) connects audio-specific
          framework APIs to the audio driver and hardware.
 
-   .. container:: 
 
-      .. container:: 
+   .. container:: display
 
-         display
-
-      .. rubric:: `Display
-         features <https://source.android.google.cn/docs/core/display>`__
-         :name: display-features
-         :class: hide-from-toc no-link
-
-      .. container:: 
+      `Display features <https://source.android.google.cn/docs/core/display>`__
 
          Learn about different features available for the Android display, from app
          shortcuts to Night Light.
 
-   .. container:: 
 
-      .. container:: 
+   .. container:: graphics
 
-         graphics
-
-      .. rubric:: `Graphics <https://source.android.google.cn/docs/core/graphics>`__
-         :name: graphics
-         :class: hide-from-toc no-link
-
-      .. container:: 
+      `Graphics <https://source.android.google.cn/docs/core/graphics>`__
 
          Android offers a variety of graphics rendering APIs for 2D and 3D that
          interact with graphics drivers.
 
-   .. container:: 
 
-      .. container:: 
+   .. container:: media
 
-         media
-
-      .. rubric:: `Media
-         playback <https://source.android.google.cn/docs/core/media>`__
-         :name: media-playback
-         :class: hide-from-toc no-link
-
-      .. container:: 
+      `Media playback <https://source.android.google.cn/docs/core/media>`__
 
          Learn about the Android multimedia framework and how applications interact
          with it.
 
 
-.. container::
+System health
 
-   .. container:: 
+   |image-increased-productivity|
 
-      |image-increased-productivity|
+   Optimize performance, keep the Android OS up to date, and ensure quality through
+   thorough testing.
 
-   .. container:: 
+   .. container:: performance
 
-      .. rubric:: System health
-         :name: system-health
-
-      .. container:: 
-
-         Optimize performance, keep the Android OS up to date, and ensure quality through
-         thorough testing.
-
-   .. container:: 
-
-      .. container:: 
-
-         performance
-
-      .. rubric:: `Performance
-         optimization <https://source.android.google.cn/docs/core/perf>`__
-         :name: performance-optimization
-         :class: hide-from-toc no-link
-
-      .. container:: 
+      `Performance optimization <https://source.android.google.cn/docs/core/perf>`__
 
          Improve system health and performance.
 
-   .. container:: 
+   .. container:: runtime
 
-      .. container:: 
-
-         runtime
-
-      .. rubric:: `Android Runtime
-         (ART) <https://source.android.google.cn/docs/core/runtime>`__
-         :name: android-runtime-art
-         :class: hide-from-toc no-link
-
-      .. container:: 
+      `Android Runtime (ART) <https://source.android.google.cn/docs/core/runtime>`__
 
          Android Runtime (ART) can improve app performance and simplify debugging.
 
-   .. container:: 
+   .. container:: updates
 
-      .. container:: 
-
-         updates
-
-      .. rubric:: `Optimize system
-         updates <https://source.android.google.cn/docs/core/ota>`__
-         :name: optimize-system-updates
-         :class: hide-from-toc no-link
-
-      .. container:: 
+      `Optimize system updates <https://source.android.google.cn/docs/core/ota>`__
 
          Configure system updates, including over-the-air (OTA) updates and A/B tests
          for updates.
 
-   .. container:: 
+   .. container:: tests
 
-      .. container:: 
-
-         tests
-
-      .. rubric:: `Develop and design
-         tests <https://source.android.google.cn/docs/core/tests>`__
-         :name: develop-and-design-tests
-         :class: hide-from-toc no-link
-
-      .. container:: 
+      `Develop and design tests <https://source.android.google.cn/docs/core/tests>`__
 
          Android offers various tools and test suites to effectively, efficiently,
          and thoroughly test the Android platform.
 
 
-.. container::
 
-   .. container:: 
+Data storage and access
 
-      |image-handle-data|
+   |image-handle-data|
 
-   .. container:: 
+   Android offers robust data usage, storage, and access control features.
 
-      .. rubric:: Data storage and access
-         :name: data-storage-and-access
+   .. container:: data
 
-      .. container:: 
+      `Data use <https://source.android.google.cn/docs/core/data>`__
 
-         Android offers robust data usage, storage, and access control features.
+         Android offers a variety of options to track and understand data usage.
 
-      .. container:: 
 
-         .. container:: 
+   .. container:: storage
 
-            data
-
-         .. rubric:: `Data use <https://source.android.google.cn/docs/core/data>`__
-            :name: data-use
-            :class: hide-from-toc no-link
-
-         .. container:: 
-
-            Android offers a variety of options to track and understand data usage.
-
-   .. container::
-
-      .. container:: 
-
-         storage
-
-      .. rubric:: `Data
-         storage <https://source.android.google.cn/docs/core/storage>`__
-         :name: data-storage
-         :class: hide-from-toc no-link
-
-      .. container:: 
+      `Data storage <https://source.android.google.cn/docs/core/storage>`__
 
          Android devices support traditional, on-device storage in addition to
          portable storage options.
 
-      .. container:: 
 
-         .. container:: 
+   .. container:: permissions
 
-            permissions
+      `Access permissions <https://source.android.google.cn/docs/core/permissions>`__
 
-         .. rubric:: `Access
-            permissions <https://source.android.google.cn/docs/core/permissions>`__
-            :name: access-permissions
-            :class: hide-from-toc no-link
+         Android access configurations limit an app’s access to sensitive data.
 
-         .. container:: 
 
-            Android access configurations limit an app’s access to sensitive data.
+   .. container:: data
 
-      .. container:: 
+      `Virtualization <https://source.android.google.cn/docs/core/virtualization>`__
 
-         .. container:: 
-
-            data
-
-         .. rubric:: `Virtualization <https://source.android.google.cn/docs/core/virtualization>`__
-            :name: virtualization
-            :class: hide-from-toc no-link
-
-         .. container:: 
-
-            Execute code in a secure and private execution environment.
+         Execute code in a secure and private execution environment.
 
 
 Content and code samples on this page are subject to the licenses described in the 
-`Content License <https://source.android.google.cn/license>`__. Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its
+`Content License <https://source.android.google.cn/license>`__. 
+Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its
 affiliates.
 
 Last updated 2023-12-06 UTC.

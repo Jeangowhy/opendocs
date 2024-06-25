@@ -1,0 +1,1247 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="82 196 1335 3031" style="font-family: balsamiq">
+    <g class="clickable-group" data-group-id="102-design-architecture:observer-pattern:rxkotlin">
+        <rect x="221.35" y="1772.35" width="78.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="229" y="1801.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>RxKotlin</tspan>
+        </text>
+    </g>
+    <path
+        d="M300.9103936783732 2689.570362190507Q300.88799696776414 2763.5997858315236 300.9103936783732 2856.3549860552603"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="undefined"></path>
+    <path
+        d="M176.91039367837323 2581.5665489034222Q176.88679403765877 2659.5721020723417 176.91039367837323 2757.3091956073717"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path
+        d="M509.9103936783732 2582.5665489034222Q509.89739869833784 2625.5197708759288 509.9103936783732 2679.338029999953"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path
+        d="M275.41122252187506 2678.570362190507Q533.9428979178924 2678.648577835481 857.8702788984618 2678.570362190507"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="undefined"></path>
+    <path
+        d="M1095.1935138345475 2837.579052349316Q1076.8158824538116 2747.3038908792846 981.1424685782072 2697.5152923149635"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path
+        d="M1099.5732818763022 2778.5025775369513Q1063.0832209313237 2706.996805378613 971.1424685782072 2687.5152923149635"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path
+        d="M1101.5732818763022 2726.5025775369513Q1056.2665678369292 2685.2796851257185 979.6488259672134 2681.844387388959"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path
+        d="M1101.5732818763022 2670.5025775369513Q1052.0629068239518 2669.8246269126034 990.0284078646772 2669.0089349259574"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path
+        d="M827.2432560808523 2550.9704183033386Q783.8918633589135 2549.549084366178 764.8633018948069 2519.780441210316"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path
+        d="M822.9900773863493 2563.729954386848Q784.2408429774382 2562.8898412601866 759.1923969688028 2580.74266916486"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path
+        d="M909.9103936783732 2426.570362190507Q909.8760478597579 2540.096013387792 909.9103936783732 2682.338029999953"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="undefined"></path>
+    <path
+        d="M1099.5845033641895 2586.803431369406Q1047.149564160795 2483.866889536702 945.148477610792 2443.1779274187465"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path
+        d="M1093.4070623340535 2534.295182613251Q1054.8229168780063 2464.927257810464 971.4026019888696 2447.8110081913487"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path
+        d="M1101.4732490502658 2479.931834066356Q1061.4977849086758 2445.4561043382423 988.3905648217433 2437.0004863886106"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path
+        d="M1161.4732490502658 2424.931834066356Q1083.2855991251633 2424.0037188698443 985.3197308932175 2422.894129635264"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path
+        d="M420.7224311149612 2312.532540888742Q349.8464243039073 2329.3794293458814 316.98265357976527 2400.42318574495"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path
+        d="M452.4206964729377 2311.091710645198Q359.89746136173693 2350.2818429224308 316.98265357976527 2453.733904756092"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path
+        d="M399.1099774617954 2306.7692199145645Q355.64857785946504 2309.7433404793533 307.9116761536017 2342.931834066356"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path
+        d="M416.3750139149488 2290.931834066356Q368.2322163680682 2290.9172690427267 307.9116761536017 2290.931834066356"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path
+        d="M482.9103936783732 2091.570362190507Q482.86535551766156 2240.4381641428545 482.9103936783732 2426.96214471464"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="undefined"></path>
+    <path
+        d="M405.43615480023936 2098.687493084116Q356.68673342164993 2118.4447626823853 312.40799599333513 2190.3271719088275"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path
+        d="M408.21311476462455 2091.745093173153Q342.48226693634575 2089.002965270853 313.79647597552776 2138.953412567701"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path
+        d="M408.3750139149488 2080.931834066356Q360.2322163680682 2080.9172690427267 299.9116761536017 2080.931834066356"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path d="M912.5 2188.0254049727496Q912.5277729064329 2096.225662950357 912.5 1981.205134179732"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path d="M942.5 1848.2413325002185Q942.5131648128713 1804.7267501037788 942.5 1750.205134179732"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path d="M873.5 1848.2413325002185Q873.5131648128713 1804.7267501037788 873.5 1750.205134179732"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path d="M803.5 1848.2413325002185Q803.5131648128713 1804.7267501037788 803.5 1750.205134179732"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path d="M728.5 1848.2413325002185Q728.5131648128713 1804.7267501037788 728.5 1750.205134179732"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path
+        d="M346.3750139149488 1902.9318340663556Q321.3506544896272 1902.9242632477722 289.99637189758494 1902.9318340663556"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path
+        d="M345.3750139149488 1850.9318340663556Q320.3506544896272 1850.9242632477722 288.99637189758494 1850.9318340663556"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path
+        d="M709.4732490502658 1743.9318340663556Q632.4733857950631 1743.9085386850134 535.9963718975849 1743.9318340663556"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path
+        d="M923.4311168831074 1755.5703621905066Q1055.6511910349486 1755.6103637816557 1221.316393441796 1755.5703621905066"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="undefined"></path>
+    <path
+        d="M924.4311168831074 1737.5703621905066Q1056.6511910349486 1737.6103637816557 1222.316393441796 1737.5703621905066"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="undefined"></path>
+    <path
+        d="M924.4311168831074 1345.5703621905066Q1056.6511910349486 1345.6103637816557 1222.316393441796 1345.5703621905066"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="undefined"></path>
+    <path
+        d="M545.4732490502658 1345.9318340663556Q492.0079773898881 1345.9156587922805 425.01864079957693 1345.9318340663556"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path
+        d="M913.5 1344.0486227624374Q913.5210032156465 1274.6252160819486 913.5 1187.6411269164234"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path
+        d="M959.2566351527045 1180.9225637894026Q1072.7458059892674 1180.7463453814617 1130.2258624669669 1251.4812925222727"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path
+        d="M958.6135337821827 1172.7811720125328Q1078.1224266311992 1168.39822379036 1125.5120652080102 1198.56224597262"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path d="M959 1164Q1034.1572336468257 1165.1161764167873 1139 1144.5703621905066" fill="none"
+        stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+        stroke-dasharray="0.8 12"></path>
+    <path
+        d="M816.4311168831074 1057.5703621905066Q816.3956590169784 1174.77174228991 816.4311168831074 1321.619265111838"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="undefined"></path>
+    <path
+        d="M856.4311168831074 1047.5703621905066Q1018.6933991674697 1047.6194526899371 1222 1047.5703621905066"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="undefined"></path>
+    <path
+        d="M816.5 1559.4745080988664Q816.5273718112919 1469.0005340713071 816.5 1355.6411269164234"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path
+        d="M745.0924161096584 1345.9318340663556Q704.6681915091698 1345.9196042040192 654.0186407995769 1345.9318340663556"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path d="M959 1156Q1062.6424681883311 1151.2252133838215 1125.9396597259233 1088.65345698488"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path
+        d="M427.6000756625948 1216.989918238306Q355.24570934009313 1212.4469311112218 322.50083828601714 1262.8953322648572"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path
+        d="M426.3920384513697 1190.4130995913554Q357.0377027564905 1197.0265341598024 320.084763863567 1149.3398344097045"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path
+        d="M445.7206338309702 1203.7015089148308Q386.5888076578495 1204.3306264205985 312.5 1205.159183785738"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path d="M722 1066Q638.6293153333702 1107.654753384264 601.5574340789991 1209.741694970956"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path d="M714.5 1035Q643.5026877934819 1033.6520888548741 596.5 990" fill="none"
+        stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+        stroke-dasharray="0.8 12"></path>
+    <path d="M710 1066Q639.2512810975508 1087.2703826546588 596.5 1162" fill="none"
+        stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+        stroke-dasharray="0.8 12"></path>
+    <path d="M709 1056Q635.9378757719917 1062.2103173409894 600 1111" fill="none"
+        stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+        stroke-dasharray="0.8 12"></path>
+    <path d="M726.5 1047Q658.1449216362859 1047.8670448779828 572.5 1049" fill="none"
+        stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+        stroke-dasharray="0.8 12"></path>
+    <path d="M444.5 1000Q366.7324820955749 1018.4375654174643 320.5 1091" fill="none"
+        stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+        stroke-dasharray="0.8 12"></path>
+    <path d="M455.5 997Q374.50589835268977 988.4376936483328 315.5 1038.159183785738" fill="none"
+        stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+        stroke-dasharray="0.8 12"></path>
+    <path d="M445.5 984Q386.4658764013857 985.3843829663246 312.5 987.1591837857379" fill="none"
+        stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+        stroke-dasharray="0.8 12"></path>
+    <path d="M535.5 854Q469.72745783055115 762.9754201191794 358.5 710" fill="none"
+        stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+        stroke-dasharray="0.8 12"></path>
+    <path d="M1222.5 823Q1222.4697109739764 923.1164491661854 1222.5 1048.557399957998" fill="none"
+        stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+        stroke-dasharray="undefined"></path>
+    <path d="M1232.5 765Q1232.4930171683416 788.0808448652585 1232.5 817" fill="none"
+        stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+        stroke-dasharray="0.8 12"></path>
+    <g class="clickable-group" data-group-id="101-version-control:github">
+        <rect x="1179.35" y="724.35" width="137.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="1221" y="754" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>GitHub</tspan>
+        </text>
+        <g>
+            <circle cx="1315" cy="746" r="10" fill="rgb(255,255,255)"></circle>
+            <circle cx="1315" cy="746" r="10" fill="rgb(153,0,255)"></circle>
+            <path d="M1309.5 746L1313.5 750 1320 743.5" fill="none" stroke="#fff" stroke-width="3.5"
+                stroke-linecap="round" stroke-linejoin="round"></path>
+        </g>
+    </g>
+    <path d="M1091.5 767Q1091.4930171683416 790.0808448652585 1091.5 819" fill="none"
+        stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+        stroke-dasharray="0.8 12"></path>
+    <path d="M536.5 797Q468.814391824806 733.9980994694928 370.5 709" fill="none"
+        stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+        stroke-dasharray="0.8 12"></path>
+    <path d="M538.5 747Q472.91211444642204 714.810302175185 373.5 707" fill="none"
+        stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+        stroke-dasharray="0.8 12"></path>
+    <path d="M540.5 582Q475.31801909425593 652.9806303912561 363.5 673" fill="none"
+        stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+        stroke-dasharray="0.8 12"></path>
+    <path d="M540.5 639Q483.64323260084626 673.7123490132445 371.5 680" fill="none"
+        stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+        stroke-dasharray="0.8 12"></path>
+    <path d="M557.5 693Q476.7169086863708 693.4194224904502 375.5 694" fill="none"
+        stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+        stroke-dasharray="0.8 12"></path>
+    <path d="M296.5 486.5703621905065Q296.4407225221175 682.5043812137412 296.5 928" fill="none"
+        stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+        stroke-dasharray="undefined"></path>
+    <path
+        d="M296.517169446523 486.5703621905065Q488.0361747162817 486.6283039591466 728 486.5703621905065"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="undefined"></path>
+    <path d="M1049 540Q996.5817192928748 506.4447804600394 885 497" fill="none"
+        stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+        stroke-dasharray="0.8 12"></path>
+    <path d="M1070.3333333333335 486.1591837857379Q989.8467088041347 484.7325904972726 889 483"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <text x="670" y="356" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+        font-size="32px">
+        <tspan>Android Developer</tspan>
+    </text>
+    <g>
+        <rect x="1040.35" y="242.35" width="370.3" height="148.3" rx="2" fill="rgb(255,255,255)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="1057" y="279.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="18px">
+            <tspan>Find the detailed version of this roadmap</tspan>
+        </text>
+        <g class="clickable-group" data-group-id="ext_link:roadmap.sh">
+            <rect x="1058.35" y="330.35" width="336.3" height="44.3" rx="2" fill="rgb(65,53,214)"
+                fill-opacity="1" stroke="rgb(65,53,214)" stroke-width="2.7"></rect>
+            <text x="1149" y="360" fill="rgb(255,255,255)" font-style="normal" font-weight="normal"
+                font-size="18px">
+                <tspan>https://roadmap.sh</tspan>
+            </text>
+        </g>
+        <text x="1057" y="308.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="18px">
+            <tspan>Along with resources and more roadmaps</tspan>
+        </text>
+    </g>
+    <path d="M805 233Q804.9900415173787 265.91647339024644 805 307.1591837857379" fill="none"
+        stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+        stroke-dasharray="0.8 12"></path>
+    <path d="M805 386Q804.9873005977104 427.9762280494307 805 480.5703621905065" fill="none"
+        stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+        stroke-dasharray="undefined"></path>
+    <g class="clickable-group" data-group-id="100-pick-a-language">
+        <rect x="703.35" y="463.35" width="201.3" height="47.3" rx="2" fill="rgb(255,255,0)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="739" y="494" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Pick a Language</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="100-pick-a-language:kotlin">
+        <rect x="1043.35" y="462.35" width="117.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="1080" y="491.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Kotlin</tspan>
+        </text>
+        <g>
+            <circle cx="1159" cy="484" r="10" fill="rgb(255,255,255)"></circle>
+            <circle cx="1159" cy="484" r="10" fill="rgb(153,0,255)"></circle>
+            <path d="M1153.5 484L1157.5 488 1164 481.5" fill="none" stroke="#fff" stroke-width="3.5"
+                stroke-linecap="round" stroke-linejoin="round"></path>
+        </g>
+    </g>
+    <g class="clickable-group" data-group-id="101-pick-a-language:java">
+        <rect x="1043.35" y="514.35" width="117.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="1084" y="543.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Java</tspan>
+        </text>
+        <g>
+            <circle cx="1159" cy="535" r="10" fill="rgb(255,255,255)"></circle>
+            <circle cx="1159" cy="535" r="10" fill="rgb(56,118,29)"></circle>
+            <path d="M1153.5 535L1157.5 539 1164 532.5" fill="none" stroke="#fff" stroke-width="3.5"
+                stroke-linecap="round" stroke-linejoin="round"></path>
+        </g>
+    </g>
+    <g class="clickable-group" data-group-id="101-the-fundamentals">
+        <rect x="191.35" y="666.35" width="201.3" height="47.3" rx="2" fill="rgb(255,255,0)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="220" y="696.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>The Fundamentals</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="100-the-fundamentals:development-ide">
+        <rect x="533.35" y="564.35" width="324.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="628" y="593.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Development IDE</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="101-the-fundamentals:basics-of-kotlin">
+        <rect x="533.35" y="616.35" width="324.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="637" y="645.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Basics of Kotlin</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="102-the-fundamentals:basics-of-oop">
+        <rect x="533.35" y="668.35" width="324.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="640" y="698" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Basics of OOP</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="103-the-fundamentals:datastructures-and-algorithms">
+        <rect x="533.35" y="720.35" width="324.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="578" y="750" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>DataStructures and Algorithms</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="104-the-fundamentals:using-gradle">
+        <rect x="533.35" y="772.35" width="324.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="575" y="802" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>What is and how to use Gradle?</tspan>
+        </text>
+    </g>
+    <path
+        d="M296.517169446523 929.5703621905066Q694.4321912998439 929.6907465884004 1193 929.5703621905066"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="undefined"></path>
+    <path d="M1194.5 826.5Q1194.4863700497435 871.5520337273797 1194.5 928" fill="none"
+        stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+        stroke-dasharray="undefined"></path>
+    <g class="clickable-group" data-group-id="102-version-control">
+        <rect x="1049.35" y="801.35" width="267.3" height="47.3" rx="2" fill="rgb(255,255,0)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="1090" y="832" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Version Control Systems</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="100-version-control:git">
+        <rect x="1049.35" y="726.35" width="84.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="1081" y="756" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Git</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="102-version-control:bitbucket">
+        <rect x="1179.35" y="673.35" width="137.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="1210" y="702.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>BitBucket</tspan>
+        </text>
+        <g>
+            <circle cx="1315" cy="695" r="10" fill="rgb(255,255,255)"></circle>
+            <circle cx="1315" cy="695" r="10" fill="rgb(56,118,29)"></circle>
+            <path d="M1309.5 695L1313.5 699 1320 692.5" fill="none" stroke="#fff" stroke-width="3.5"
+                stroke-linecap="round" stroke-linejoin="round"></path>
+        </g>
+    </g>
+    <g class="clickable-group" data-group-id="103-version-control:gitlab">
+        <rect x="1179.35" y="621.35" width="137.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="1222" y="651" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>GitLab</tspan>
+        </text>
+        <g>
+            <circle cx="1314" cy="644" r="10" fill="rgb(255,255,255)"></circle>
+            <circle cx="1314" cy="644" r="10" fill="rgb(56,118,29)"></circle>
+            <path d="M1308.5 644L1312.5 648 1319 641.5" fill="none" stroke="#fff" stroke-width="3.5"
+                stroke-linecap="round" stroke-linejoin="round"></path>
+        </g>
+    </g>
+    <g class="clickable-group" data-group-id="103-design-architecture:architectural-patterns:mvc">
+        <rect x="913.35" y="1828.35" width="62.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="926" y="1858" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>MVC</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="102-design-architecture:architectural-patterns:mvp">
+        <rect x="844.35" y="1828.35" width="61.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="857" y="1858" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>MVP</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="101-design-architecture:architectural-patterns:mvvm">
+        <rect x="766.35" y="1828.35" width="72.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="779" y="1858" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>MVVM</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="100-design-architecture:architectural-patterns:mvi">
+        <rect x="699.35" y="1828.35" width="59.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="714" y="1858" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>MVI</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="105-the-fundamentals:hello-world-app">
+        <rect x="533.35" y="824.35" width="324.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="576" y="854" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Create a basic Hello World App</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="103-app-components">
+        <rect x="695.35" y="1023.35" width="267.3" height="47.3" rx="2" fill="rgb(255,255,0)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="762" y="1054" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>App Components</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="100-app-components:activity">
+        <rect x="421.35" y="970.35" width="184.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="487" y="1000" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Activity</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="100-app-components:activity:activity-lifecycle">
+        <rect x="132.35" y="963.35" width="194.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="168" y="993" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Activity Lifecycle</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="101-app-components:activity:state-changes">
+        <rect x="132.35" y="1014.35" width="194.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="173" y="1043.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>State Changes</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="102-app-components:activity:tasks-backstack">
+        <rect x="132.35" y="1065.35" width="194.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="149" y="1094.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Tasks and Backstack</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="101-app-components:services">
+        <rect x="421.35" y="1023.35" width="184.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="480" y="1052.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Services</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="102-app-components:content-provider">
+        <rect x="421.35" y="1075.35" width="184.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="449" y="1105" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Content Provider</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="103-app-components:broadcast-receiver">
+        <rect x="421.35" y="1127.35" width="184.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="437" y="1156.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Broadcast Receiver</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="104-app-components:intent">
+        <rect x="421.35" y="1180.35" width="184.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="491" y="1209.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Intent</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="100-app-components:intent:implicit-intents">
+        <rect x="132.35" y="1130.35" width="194.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="173" y="1159.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Implicit Intents</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="101-app-components:intent:explicit-intents">
+        <rect x="132.35" y="1181.35" width="194.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="173" y="1210.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Explicit Intents</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="102-app-components:intent:intent-filters">
+        <rect x="132.35" y="1232.35" width="194.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="181" y="1261.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Intent Filters</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="104-interface-and-navigation">
+        <rect x="695.35" y="1321.35" width="267.3" height="47.3" rx="2" fill="rgb(255,255,0)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="733" y="1351" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Interface and Navigation</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="100-interface-and-navigation:layouts:frame">
+        <rect x="1125.35" y="1069.35" width="184.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="1193" y="1098.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Frame</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="101-interface-and-navigation:layouts:linear">
+        <rect x="1125.35" y="1122.35" width="184.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="1193" y="1151.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Linear</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="102-interface-and-navigation:layouts:relative">
+        <rect x="1125.35" y="1174.35" width="184.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="1186" y="1203.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Relative</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="103-interface-and-navigation:layouts:constraint">
+        <rect x="1125.35" y="1226.35" width="184.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="1178" y="1255.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Constraint</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="100-interface-and-navigation:elements:text-view">
+        <rect x="134.35" y="1323.35" width="155.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="177" y="1353" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>TextView</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="101-interface-and-navigation:elements:edit-text">
+        <rect x="134.35" y="1375.35" width="155.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="181" y="1404.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>EditText</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="102-interface-and-navigation:elements:buttons">
+        <rect x="134.35" y="1428.35" width="155.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="182" y="1457.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Buttons</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="103-interface-and-navigation:elements:image-view">
+        <rect x="134.35" y="1480.35" width="155.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="169" y="1510" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>ImageView</tspan>
+        </text>
+    </g>
+    <text x="885" y="1172.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+        font-size="17px">
+        <tspan>Layouts</tspan>
+    </text>
+    <g class="clickable-group" data-group-id="104-interface-and-navigation:elements:list-view">
+        <rect x="134.35" y="1533.35" width="155.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="180" y="1563" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>ListView</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="104-interface-and-navigation:layouts:recycle-view">
+        <rect x="1124.35" y="1278.35" width="185.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="1168" y="1308" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>RecycleView</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="106-interface-and-navigation:elements:fragments">
+        <rect x="296.35" y="1324.35" width="153.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="331" y="1353.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Fragments</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="107-interface-and-navigation:elements:dialogs">
+        <rect x="296.35" y="1377.35" width="153.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="344" y="1406.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Dialogs</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="108-interface-and-navigation:elements:toast">
+        <rect x="296.35" y="1429.35" width="153.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="352" y="1458.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Toast</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="109-interface-and-navigation:elements:bottom-sheet">
+        <rect x="296.35" y="1482.35" width="153.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="320" y="1511.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Bottom Sheet</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="110-interface-and-navigation:elements:drawer">
+        <rect x="296.35" y="1536.35" width="153.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="345" y="1565.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Drawer</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="105-interface-and-navigation:elements:tabs">
+        <rect x="134.35" y="1587.35" width="155.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="193" y="1616.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Tabs</tspan>
+        </text>
+    </g>
+    <text x="563" y="1352.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+        font-size="17px">
+        <tspan>Elements</tspan>
+    </text>
+    <g class="clickable-group" data-group-id="101-interface-and-navigation:app-shortcuts">
+        <rect x="688.35" y="1536.35" width="259.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="764" y="1566" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>App Shortcuts</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="111-interface-and-navigation:elements:animations">
+        <rect x="295.35" y="1589.35" width="154.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="330" y="1619" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Animations</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="100-interface-and-navigation:jetpack-compose">
+        <rect x="688.35" y="1446.35" width="259.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="748" y="1475.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Jetpack Compose</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="102-interface-and-navigation:navigation-components">
+        <rect x="689.35" y="1589.35" width="259.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="726" y="1619" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Navigation Components</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="105-design-architecture">
+        <rect x="689.35" y="1721.35" width="303.3" height="47.3" rx="2" fill="rgb(255,255,0)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="714" y="1751" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Architecture and Design Patterns</tspan>
+        </text>
+    </g>
+    <path d="M1222.5 1348Q1222.4476674000614 1520.9786252411998 1222.5 1737.7122728848433"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="undefined"></path>
+    <g class="clickable-group" data-group-id="100-design-architecture:repository-pattern">
+        <rect x="340.35" y="1723.35" width="240.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="389" y="1753" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Repository Pattern</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="101-design-architecture:builder-pattern">
+        <rect x="340.35" y="1775.35" width="240.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="403" y="1805" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Builder Pattern</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="104-design-architecture:factory-pattern">
+        <rect x="339.35" y="1932.35" width="240.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="401" y="1962" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Factory Pattern</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="102-design-architecture:observer-pattern">
+        <rect x="339.35" y="1828.35" width="240.3" height="46.3" rx="2" fill="rgb(255,255,0)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="394" y="1858" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Observer Pattern</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="103-design-architecture:dependency-injection">
+        <rect x="339.35" y="1880.35" width="240.3" height="46.3" rx="2" fill="rgb(255,255,0)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="376" y="1909.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Dependency Injection</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="100-design-architecture:observer-pattern:flow">
+        <rect x="131.35" y="1720.35" width="167.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="197" y="1749.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Flow</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="101-design-architecture:observer-pattern:rxjava">
+        <rect x="131.35" y="1772.35" width="82.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="145" y="1801.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>RxJava</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="103-design-architecture:observer-pattern:livedata">
+        <rect x="130.35" y="1824.35" width="168.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="181" y="1853.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>LiveData</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="100-design-architecture:dependency-injection:dagger">
+        <rect x="130.35" y="1881.35" width="168.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="186" y="1910.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Dagger</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="101-design-architecture:dependency-injection:hilt">
+        <rect x="130.35" y="1933.35" width="84.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="160" y="1962.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Hilt</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="103-design-architecture:dependency-injection:kodein">
+        <rect x="130.35" y="1985.35" width="168.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="188" y="2014.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Kodein</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="102-design-architecture:dependency-injection:koin">
+        <rect x="220.35" y="1933.35" width="77.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="242" y="1962.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Koin</tspan>
+        </text>
+    </g>
+    <text x="750" y="1905" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+        font-size="17px">
+        <tspan>Architectural Patterns</tspan>
+    </text>
+    <path d="M1221.5 1757Q1221.4562872611843 1901.4867916891324 1221.5 2082.521583447058"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="undefined"></path>
+    <path
+        d="M492.9103936783732 2081.570362190507Q816.222429821895 2081.668176353495 1221.316393441796 2081.570362190507"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="undefined"></path>
+    <g class="clickable-group" data-group-id="106-storage">
+        <rect x="823.35" y="2058.35" width="181.3" height="47.3" rx="2" fill="rgb(255,255,0)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="883" y="2087.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Storage</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="100-storage:shared-preferences">
+        <rect x="821.35" y="1959.35" width="184.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="837" y="1989" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Shared Preferences</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="101-storage:datastore">
+        <rect x="821.35" y="2157.35" width="184.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="875" y="2186.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>DataStore</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="102-storage:room">
+        <rect x="821.35" y="2210.35" width="184.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="851" y="2239.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Room Database</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="103-storage:file-system">
+        <rect x="821.35" y="2263.35" width="184.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="870" y="2292.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>File System</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="107-network">
+        <rect x="394.35" y="2058.35" width="181.3" height="47.3" rx="2" fill="rgb(255,255,0)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="454" y="2088" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Network</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="100-network:retrofit">
+        <rect x="137.35" y="2058.35" width="184.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="201" y="2087.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Retrofit</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="101-network:okhttp">
+        <rect x="137.35" y="2112.35" width="184.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="202" y="2141.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>OkHttp</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="102-network:apollo-android">
+        <rect x="137.35" y="2164.35" width="184.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="174" y="2194" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Apollo-Android</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="108-asynchronism">
+        <rect x="394.35" y="2268.35" width="181.3" height="47.3" rx="2" fill="rgb(255,255,0)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="432" y="2298" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Asynchronism</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="100-asynchronism:coroutines">
+        <rect x="137.35" y="2268.35" width="184.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="188" y="2297.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Coroutines</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="101-asynchronism:threads">
+        <rect x="137.35" y="2320.35" width="184.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="198" y="2349.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Threads</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="102-asynchronism:rxjava">
+        <rect x="137.35" y="2373.35" width="76.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="148" y="2402.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>RxJava</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="103-asynchronism:rxkotlin">
+        <rect x="220.35" y="2373.35" width="102.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="240" y="2402.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>RxKotlin</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="104-asynchronism:work-manager">
+        <rect x="138.35" y="2426.35" width="184.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="175" y="2456" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>WorkManager</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="100-common-services:firebase">
+        <rect x="1091.35" y="2131.35" width="206.3" height="317.3" rx="2" fill="rgb(255,255,255)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="1160" y="2429.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Firebase</tspan>
+        </text>
+    </g>
+    <path
+        d="M482.9103936783732 2427.570362190507Q691.5079168256732 2427.6334708590593 952.8702788984618 2427.570362190507"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="undefined"></path>
+    <g class="clickable-group" data-group-id="109-common-services">
+        <rect x="818.35" y="2402.35" width="181.3" height="47.3" rx="2" fill="rgb(255,255,0)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="840" y="2431.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Common Services</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="100-common-services:firebase:authentication">
+        <rect x="1102.35" y="2143.35" width="184.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="1139" y="2173" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Authentication</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="101-common-services:firebase:crashlytics">
+        <rect x="1102.35" y="2195.35" width="184.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="1153" y="2224.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Crashlytics</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="102-common-services:firebase:remote-config">
+        <rect x="1102.35" y="2246.35" width="184.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="1137" y="2275.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Remote Config</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="103-common-services:firebase:cloud-messaging">
+        <rect x="1102.35" y="2297.35" width="184.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="1128" y="2326.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Cloud Messaging</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="104-common-services:firebase:fire-store">
+        <rect x="1102.35" y="2349.35" width="184.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="1159" y="2378.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>FireStore</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="101-common-services:google-admob">
+        <rect x="1092.35" y="2457.35" width="205.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="1138" y="2487" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Google AdMob</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="102-common-services:google-play-services">
+        <rect x="1092.35" y="2510.35" width="205.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="1114" y="2540" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Google Play Services</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="103-common-services:google-maps">
+        <rect x="1092.35" y="2562.35" width="205.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="1143" y="2592" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Google Maps</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="110-linting">
+        <rect x="818.35" y="2528.35" width="181.3" height="47.3" rx="2" fill="rgb(255,255,0)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="887" y="2557.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Linting</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="100-linting:ktlint">
+        <rect x="659.35" y="2500.35" width="109.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="694" y="2529.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Ktlint</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="101-linting:detekt">
+        <rect x="659.35" y="2552.35" width="109.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="688" y="2581.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Detekt</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="111-debugging">
+        <rect x="818.35" y="2655.35" width="181.3" height="47.3" rx="2" fill="rgb(255,255,0)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="866" y="2684.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Debugging</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="100-debugging:timber">
+        <rect x="1092.35" y="2647.35" width="205.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="1168" y="2676.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Timber</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="101-debugging:leak-canary">
+        <rect x="1092.35" y="2702.35" width="205.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="1146" y="2731.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Leak Canary</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="102-debugging:chucker">
+        <rect x="1092.35" y="2754.35" width="205.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="1162" y="2783.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Chucker</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="103-debugging:jetpack-benchmark">
+        <rect x="1092.35" y="2807.35" width="205.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="1123" y="2836.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Jetpack Benchmark</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="112-testing">
+        <rect x="443.35" y="2655.35" width="132.3" height="47.3" rx="2" fill="rgb(255,255,0)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="482" y="2684.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Testing</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="101-testing:junit">
+        <rect x="443.35" y="2575.35" width="132.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="489" y="2604.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>JUnit</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="100-testing:espresso">
+        <rect x="443.35" y="2522.35" width="132.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="474" y="2551.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Espresso</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="113-distribution">
+        <rect x="138.35" y="2655.35" width="184.3" height="47.3" rx="2" fill="rgb(255,255,0)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="187" y="2684.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Distribution</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="102-distribution:signed-apk">
+        <rect x="138.35" y="2727.35" width="126.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="155" y="2757" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Signed APK</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="100-distribution:google-playstore">
+        <rect x="138.35" y="2576.35" width="184.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="165" y="2606" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Google Playstore</tspan>
+        </text>
+    </g>
+    <g class="clickable-group" data-group-id="101-distribution:firebase-distribution">
+        <rect x="138.35" y="2524.35" width="184.3" height="46.3" rx="2" fill="rgb(255,229,153)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="151" y="2553.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="17px">
+            <tspan>Firebase Distribution</tspan>
+        </text>
+    </g>
+    <path
+        d="M303.41122252187506 2855.570362190507Q490.370778488904 2855.6269245526682 724.6218396825562 2855.570362190507"
+        fill="none" stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="undefined"></path>
+    <path d="M726.5 2856Q726.4829137560682 2912.4763644331074 726.5 2983.2384510907577" fill="none"
+        stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+        stroke-dasharray="undefined"></path>
+    <text x="626" y="3032" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+        font-size="28px">
+        <tspan>Keep Learning</tspan>
+    </text>
+    <path d="M724.5 3062Q724.4863359115511 3107.164873097214 724.5 3163.7542215098983" fill="none"
+        stroke="rgb(43,120,228)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+        stroke-dasharray="0.8 12"></path>
+    <g>
+        <rect x="152.35" y="242.35" width="350.3" height="157.3" rx="2" fill="rgb(255,255,255)"
+            fill-opacity="1" stroke="rgb(0,0,0)" stroke-width="2.7"></rect>
+        <text x="178" y="288.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+            font-size="20px">
+            <tspan>Relevant Roadmaps</tspan>
+        </text>
+        <g class="clickable-group" data-group-id="ext_link:roadmap.sh/react-native">
+            <text x="213" y="329.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+                font-size="18px">
+                <tspan>React Native Roadmap</tspan>
+            </text>
+            <g>
+                <circle cx="190" cy="323" r="10" fill="rgb(255,255,255)"></circle>
+                <circle cx="190" cy="323" r="10" fill="rgb(153,153,153)"></circle>
+                <path d="M184.5 323L188.5 327 195 320.5" fill="none" stroke="#fff"
+                    stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+        </g>
+        <g class="clickable-group" data-group-id="ext_link:roadmap.sh/flutter">
+            <text x="213" y="364.5" fill="rgb(0,0,0)" font-style="normal" font-weight="normal"
+                font-size="18px">
+                <tspan>Flutter Roadmap</tspan>
+            </text>
+            <g>
+                <circle cx="190" cy="358" r="10" fill="rgb(255,255,255)"></circle>
+                <circle cx="190" cy="358" r="10" fill="rgb(153,153,153)"></circle>
+                <path d="M184.5 358L188.5 362 195 355.5" fill="none" stroke="#fff"
+                    stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+        </g>
+    </g>
+    <path
+        d="M854.5784149280623 201.15918378573792Q809.9354381636736 201.14567759073944 754 201.15918378573792"
+        fill="none" stroke="rgb(255,255,255)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path
+        d="M779.5784149280623 3221.1591837857377Q734.9354381636736 3221.145677590739 679 3221.1591837857377"
+        fill="none" stroke="rgb(255,255,255)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+    <path
+        d="M187.57841492806233 930.1591837857379Q142.9354381636736 930.1456775907394 87 930.1591837857379"
+        fill="none" stroke="rgb(255,255,255)" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" stroke-dasharray="0.8 12"></path>
+</svg>

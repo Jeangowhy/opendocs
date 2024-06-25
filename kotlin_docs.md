@@ -1,5 +1,11 @@
 # 📜TOC Kotlin docs
 
+*   https://kotlinlang.org/docs/home.html
+*   https://github.com/JetBrains/kotlin-web-site/edit/master/docs/topics/getting-started.md
+
+*   https://www.jetbrains.com/help/kotlin-multiplatform-dev
+*   https://github.dev/JetBrains/kotlin-multiplatform-dev-docs/edit/master/topics/overview/supported-platforms.md
+
 Latest stable version: v1.9.10
 
 1. [Get started with Kotlin](getting-started.md)

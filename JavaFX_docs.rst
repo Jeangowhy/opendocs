@@ -13324,7 +13324,7 @@
 
                      // CssMetaData from StyleablePropertyFactory
                      private static final CssMetaData<MY_CTRL, Color> COLOR =
-                         FACTORY.createColorCssMetaData("-color", s -> s.color, Color.RED, false); 
+                         FACTORY.createColorCssMetaData("-color", s -> s.color, Color.RED, false);
 
                      // Return all CssMetadata information from StyleablePropertyFactory
                      public static List<CssMetaData<? extends Styleable, ?>> getClassCssMetaData() {

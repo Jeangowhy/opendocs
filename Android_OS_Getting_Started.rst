@@ -32,9 +32,10 @@
    历史记录，其中包括对源代码的更改以及更改时间。
 
    Google 使用 repo_ 脚本作为源代码控制工具（Source control workflow），
-   另外，Chromium 项目也如此，这是 Google 的习惯。命令参考文档：`Repo command reference`__
-   .. _repo: https://source.android.google.cn/docs/setup/create/coding-tasks
-   .. _Repo command reference: https://source.android.google.cn/docs/setup/reference/repo
+   另外，Chromium 项目也如此，这是 Google 的习惯。命令参考文档： `Repo command reference`_
+
+.. _repo: https://source.android.google.cn/docs/setup/create/coding-tasks
+.. _Repo command reference: https://source.android.google.cn/docs/setup/reference/repo
 
    https://gerrit.googlesource.com/git-repo/+/HEAD/README.md
 
