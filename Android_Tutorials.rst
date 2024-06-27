@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 curl \
-   https://docs.gradle.org/current/userguide/migrating_from_groovy_to_kotlin_dsl.html \
-| sed -n '/class="chapter"/,/feedback-container/p' \
+   https://developer.android.google.cn/codelabs/basic-android-kotlin-training-activities-intents?hl=zh-cn \
+| sed -n '/devsite-page-title/,/Except as otherwise noted/p' \
 | pandoc --column=90 -trst -rhtml >/dl/pl/out.rst ;
 
 exit
+| sed -n '/class="chapter"/,/feedback-container/p' \
 | sed -n '/devsite-article/,/devsite-footer/p' \
-| sed -n '/devsite-page-title/,/Except as otherwise noted/p' \
 
 
 
@@ -2244,6 +2244,730 @@ Congratulations
    apps. `Continue to learn more about Android architecture components at developer.android.com. <https://developer.android.google.cn/topic/libraries/architecture/index.html>`__
 
    *All rights reserved. Java is a registered trademark of Oracle and/or its affiliates.*
+
+
+🚀 activity 和 intent
+======================
+
+https://developer.android.google.cn/codelabs/basic-android-kotlin-training-activities-intents?hl=zh-cn
+
+
+1. 简介
+-------
+
+
+   **注意：** 本 Codelab 已过时，我们不再进行维护。如需了解最新的推荐做法，请改为学习
+   `Android 之 Compose 开发基础课程。 <https://developer.android.google.cn/courses/android-basics-compose/course?hl=zh-cn>`__
+
+   到目前为止，您所处理的应用只有一个 activity。实际上，许多 Android 应用都需要多个
+   activity，并在它们之间进行导航。
+
+   在此 Codelab 中，您将构建一个字典应用，使其使用多个 activity、通过 intent 在各 activity
+   之间导航，并向其他应用传递数据。
+
+
+前提条件
+
+
+   您应该能够：
+
+   -  在 Android Studio 中导航到某个项目。
+   -  在 Android Studio 中使用和添加 XML 资源。
+   -  替换和实现现有类中的方法。
+   -  创建 Kotlin 类的实例、访问类属性以及调用方法。
+   -  如需详细了解特定类，请参阅 `developer.android.com <https://developer.android.google.cn?hl=zh-cn>`__。
+
+
+学习内容
+
+
+   如何执行以下操作：
+
+   -  使用显式 intent 导航到特定 activity。
+   -  使用隐式 intent 导航到其他应用中的内容。
+   -  添加菜单选项以向应用栏中添加按钮。
+
+
+构建内容
+
+
+   -  修改字典应用，通过使用 intent 和添加选项菜单的方式实现屏幕之间的导航。
+
+
+所需条件
+
+
+   -  一台安装了 Android Studio 的计算机。
+
+
+2. 起始代码
+-----------
+
+
+   在接下来的几个步骤中，您将针对 Words 应用执行相关操作。Words 应用是一个简单的字典应用，
+   其中包含字母列表、每个字母对应的单词，还能够在浏览器中查找每个单词的含义。
+
+   ====================== ====================== ======================
+   |7edb0777b033c159.png| |c465ef280fe3792a.png| |8ad271362c0a113b.png|
+   ====================== ====================== ======================
+
+   这其中涉及的内容甚多，但不用担心，您不必构建完整的应用，只需要了解 intent。
+   相反，我们为您提供了项目的不完整版本，也叫入门级项目。
+
+   尽管所有屏幕均已实现，但您目前还不能从一个屏幕导航到另一个屏幕。您的任务是使用 intent
+   让整个项目能够正常运行，但无需从头开始构建所有内容。
+
+
+下载此 Codelab 的起始代码
+
+
+   此 Codelab 提供了起始代码，供您使用此 Codelab
+   中所教的功能对其进行扩展。起始代码可能包含您在之前的 Codelab
+   中已经熟悉的代码，也可能包含您不熟悉的代码，您可以在后续 Codelab 中了解相关信息。
+
+   如果您从 GitHub 下载起始代码，那么请注意，文件夹名称为 ``android-basics-kotlin-words-app-starter``。
+   在 Android Studio 中打开项目时，请选择此文件夹。
+
+   **起始代码网址** ： https://github.com/google-developer-training/android-basics-kotlin-words-app/tree/starter
+
+   **包含起始代码的分支名称** ： ``starter``
+
+   如果您熟悉 Git 命令，请注意，起始代码位于名为“starter”的分支中。克隆代码库后，请查看
+   ``origin/starter`` 分支中的代码。如果您之前从未使用过 Git 命令，请按照以下步骤从 GitHub
+   下载代码。
+
+   1. 进入为此项目提供的 GitHub 代码库页面。
+   2. 验证分支名称是否与此 Codelab
+      中指定的分支名称一致。例如，在以下屏幕截图中，分支名称为 **main** 。
+
+   |1e4c0d2c081a8fd2.png|
+
+   3. 在项目的 GitHub 页面上，点击 **Code** 按钮，以打开一个弹出式窗口。
+
+   |1debcf330fd04c7b.png|
+
+   4. 在弹出式窗口中，点击 **Download ZIP** 按钮，将项目保存到计算机上。等待下载完成。
+   5. 在计算机上找到该文件（很可能在 **Downloads** 文件夹中）。
+   6. 双击 ZIP 文件进行解压缩。系统将创建一个包含项目文件的新文件夹。
+
+
+在 Android Studio 中打开项目
+
+
+   1. 启动 Android Studio。
+   2. 在 **Welcome to Android Studio** 窗口中，点击 **Open** 。
+
+   |d8e9dbdeafe9038a.png|
+
+   注意：如果 Android Studio 已经打开，则改为依次选择 **File** > **Open** 菜单选项。
+
+   |8d1fda7396afe8e5.png|
+
+   3. 在文件浏览器中，前往解压缩的项目文件夹所在的位置（很可能在 **Downloads** 文件夹中）。
+   4. 双击该项目文件夹。
+   5. 等待 Android Studio 打开项目。
+   6. 点击 **Run** 按钮 |8de56cba7583251f.png| 以构建并运行应用。请确保该应用按预期构建。
+
+
+3. Words 应用概览
+-----------------
+
+
+   在继续之前，请花点时间熟悉一下项目。您应该已经熟悉了上一单元介绍的所有概念。目前，该应用由两个
+   activity 组成，每个 activity 均包含一个 recycler 视图和一个适配器。
+
+   |61af34429128695e.png|
+
+   具体而言，您将处理以下文件：
+
+   1. ``LetterAdapter`` 由 ``MainActivity`` 中的 ``RecyclerView``
+      使用。每个字母都是一个具有 ``onClickListener``
+      的按钮，该监听器目前为空。您将在此监听器中处理按下按钮的操作，以导航到
+      ``DetailActivity`` 。
+   2. ``WordAdapter`` 由 ``DetailActivity`` 中的 ``RecyclerView``
+      使用，以显示单词列表。尽管您还无法导航到此屏幕，但要知道，每个单词还有一个相应的具有
+      ``onClickListener``
+      的按钮。您将在此监听器中添加能够导航到浏览器的代码，以便显示相应单词的定义。
+   3. ``MainActivity``
+      也需要进行一些更改。在此，您将通过实现选项菜单来显示按钮，从而使用户能够在列表和网格布局之间进行切换。
+
+   |ce3474dba2a9c1c8.png|
+
+   熟悉到目前为止的项目之后，请继续下一部分，您将了解 intent。
+
+
+4. intent 简介
+--------------
+
+
+   现在，您已设置好初始项目，接下来我们讨论一下 intent，以及如何在应用中使用它们。
+
+   intent 是用于表示要执行的某些操作的对象。intent 最常见（但肯定不是唯一）的用途是启动
+   activity。intent 分为两种类型： **隐式** 和 **显式** 。 **显式 intent**
+   非常具体，使用这类 intent 时您知道要启动的具体 activity，通常是您自己应用中的屏幕。
+
+   **隐式 intent** 更抽象一些，您可以通过这类 intent 告知系统要执行的操作类型 （例如打开链接、
+   撰写电子邮件或拨打电话），系统则负责确定如何执行相应请求。在操作过程中，您可能已经见过这两类
+   intent，但自己并不知道。通常情况下，如果要显示自己应用中的 activity，您可以使用显式 intent。
+
+   ====================== ======================
+   |7edb0777b033c159.png| |c465ef280fe3792a.png|
+   ====================== ======================
+
+   但是，对于不一定涉及当前应用的操作（例如，您发现了一个有趣的 Android 文档页面，想与好友分享），
+   则应使用 **隐式 intent** 。您可能会看到如下所示的菜单，询问使用哪个应用来分享页面。
+
+   |e9c77033d9224170.png|
+
+   您可以使用显式 intent 来执行操作或显示自己应用中的屏幕，并对整个流程负责。隐式 intent
+   一般用来执行涉及其他应用的操作，并依赖系统来确定最终结果。您将在 Words 应用中使用这两类
+   intent。
+
+   |702236c6e2276f91.png|
+
+
+5. 设置显式 intent
+------------------
+
+
+   现在，您可以实现自己的首个 intent
+   了。在第一个屏幕上，当用户点按某个字母时，系统应将他们转到包含单词列表的第二个屏幕。 ``DetailActivity``
+   已经实现，因此您现在只需要使用一个 intent 来启动它即可。因为应用明确知道应启动哪个
+   activity，所以应使用显式 intent。
+
+   只需简单几步，即可创建和使用 intent：
+
+   1. 打开 ``LetterAdapter.kt`` 并向下滚动到
+      ``onBindViewHolder()`` 。在用于设置按钮文本的代码行下方，为 ``holder.button`` 设置
+      ``onClickListener`` 。
+
+   .. code:: prettyprint
+
+      holder.button.setOnClickListener {
+
+      }
+
+   2. 然后，获取对 ``context`` 的引用。
+
+   .. code:: prettyprint
+
+      val context = holder.itemView.context
+
+   3. 创建一个 ``Intent`` ，并传入 context 以及目标 activity 的类名称。
+
+   .. code:: prettyprint
+
+      val intent = Intent(context, DetailActivity::class.java)
+
+   您想要显示的 activity 的名称是使用 ``DetailActivity::class.java`` 指定的。实际的
+   ``DetailActivity`` 对象会在后台创建。
+
+   4. 调用 ``putExtra`` 方法，并传入“letter”作为第一个参数，传入按钮文本作为第二个参数。
+
+   .. code:: prettyprint
+
+      intent.putExtra("letter", holder.button.text.toString())
+
+   什么是 extra？请记住，intent 只是一组指令，目前还没有目标 activity 的实例。而 extra
+   是一段数据（例如一个数字或一个字符串），系统会为其指定名称，以便日后检索。这类似于在调用函数时
+   传递参数。由于 ``DetailActivity`` 可以针对任何字母显示，您需要告知它显示哪个字母。
+
+   此外，您觉得为什么需要调用 ``toString()`` ？按钮文本已经是字符串了，对吗？
+
+   在某种程度上，是的。它实际上是 ``CharSequence`` 类型，被称为“接口”。目前，您不需要了解有关 Kotlin
+   接口的任何内容，只要知道通过这种方式可以确保某种类型（例如字符串）会实现特定函数和属性就行。您可以将
+   ``CharSequence`` 视为一种更通用的表示方式，代表一种类似于字符串的类。按钮的 ``text``
+   属性可以是字符串，也可以是同样为 ``CharSequence`` 的任何对象。不过， ``putExtra()``
+   方法可以接受 ``String`` ，而不仅仅是任何 ``CharSequence`` ，因此需要调用 ``toString()`` 。
+
+   5. 对 context 对象调用 ``startActivity()`` 方法，并传入 ``intent`` 。
+
+   .. code:: prettyprint
+
+      context.startActivity(intent)
+
+   现在，运行应用并尝试点按某个字母。系统会显示详情屏幕！但是，无论用户点按哪个字母，详情屏幕
+   始终会显示字母 A 对应的单词。您仍需要在详情 activity 中执行一些操作，以便它针对作为 
+   ``intent`` extra 传递的任意字母显示相应单词。
+
+
+6. 设置 DetailActivity
+----------------------
+
+
+   您刚刚创建了您的首个显式 intent！现在，来处理详情屏幕。
+
+   在 ``DetailActivity`` 的 ``onCreate`` 方法中，在对 ``setContentView``
+   的调用之后，将硬编码的字母替换为用于获取从 ``intent`` 传入的 ``letterId`` 的代码。
+
+   .. code:: prettyprint
+
+      val letterId = intent?.extras?.getString("letter").toString()
+
+   此处涉及的内容较多，因此我们逐一了解各个部分：
+
+   首先， ``intent`` 属性来自哪里？它不是 ``DetailActivity`` 的属性，相反，它可以是任意
+   activity 的属性。它会保留对用于启动相应 activity 的 intent 的引用。
+
+   extra 属性为 ``Bundle`` 类型，您可能已经猜到，它提供了一种访问传入相应 intent 的所有
+   extra 的方式。
+
+   这两种属性都使用问号进行了标记。这是为什么？原因在于， ``intent`` 和 ``extras``
+   属性可为 null，这意味着它们可能有值，也可能没有值。有时，您可能希望某个变量为
+   ``null`` 。实际上， ``intent`` 属性可能并不是 ``Intent`` （如果 activity 不是通过
+   intent 启动），extra 属性也可能并不是 ``Bundle`` ，而是一个名为 ``null`` 的值。在
+   Kotlin 中， ``null`` 表示没有值。相应对象可能已存在，也可能为 ``null`` 。如果您的应用
+   尝试在 ``null`` 对象上访问属性或调用函数，应用将会崩溃。为了安全地访问此值，可以在名称后
+   添加“ ``?`` ”。如果 ``intent`` 为 ``null`` ，您的应用甚至不会尝试访问 extra 属性；
+   如果 ``extras`` 为 null，您的代码甚至不会尝试调用 ``getString()`` 。
+
+   如何知道哪些属性需要添加问号以确保其为 null
+   时的安全性？您可以根据类型名称后跟的是问号还是感叹号来判断。
+
+   |b43155b06a5556e.png|
+
+   最后要注意的是，实际的字母是使用 ``getString`` 检索的，它会返回
+   ``String?`` ，因此系统会调用 ``toString()`` 以确保结果是一个 ``String`` ，而不是
+   ``null`` 。
+
+   现在，当您运行应用并转到详情屏幕时，应该会看到每个字母对应的单词列表。
+
+   |c465ef280fe3792a.png|
+
+
+清理
+
+
+   执行 intent 的代码和检索所选字母的代码都将 ``extra``
+   的名称硬编码成了“letter”。尽管此方法适用于此类小型示例，但对于需要跟踪更多 intent extra
+   的大型应用来说，这并非最佳方法。
+
+   虽然您可以只创建一个名为“letter”的常量，但当您向应用添加更多 intent extra
+   时，代码可能会变得比较庞杂。另外，您应该将此常量放入哪个类呢？请记住，该字符串会同时用于
+   ``DetailActivity`` 和
+   ``MainActivity`` 。您需要一种方法来定义常量，使其能在多个类中使用，同时保持代码的条理性。
+
+   幸运的是，Kotlin 中有一种便捷的功能叫 `伴生对象 <https://kotlinlang.org/docs/reference/object-declarations.html>`__ ，
+   可用来分离常量，使它们无需特定类实例即可使用。伴生对象与其他对象类似，例如某个类的实例。
+   但是，在程序使用期间，只会有一个伴生对象实例存在，正因为如此，这有时被称为 `单例模式 <https://en.wikipedia.org/wiki/Singleton_pattern>`__ 。
+   虽然在此 Codelab 之外有大量关于单例模式的用例，但现在，您需要使用伴生对象这种方法来整理常量，
+   使它们可从 ``DetailActivity`` 外部访问。首先，您将使用伴生对象来重构“letter”extra 的代码。
+
+   1. 在 ``DetailActivity`` 中 ``onCreate`` 的上方，添加以下代码：
+
+   .. code:: prettyprint
+
+      companion object {
+
+      }
+
+   请注意，这类似于定义类，只不过您使用的是 ``object`` 关键字。此外还有关键字
+   ``companion`` ，这意味着它与 ``DetailActivity``
+   类相关联，我们无需为其提供单独的类型名称。
+
+   2. 在大括号内，针对 letter 常量添加一个属性。
+
+   .. code:: prettyprint
+
+      const val LETTER = "letter"
+
+   3. 如需使用新的常量，请更新 ``onCreate()`` 中的硬编码字母调用，如下所示：
+
+   .. code:: prettyprint
+
+      val letterId = intent?.extras?.getString(LETTER).toString()
+
+   再次提醒，请注意，您可以照常使用点表示法引用该常量，但它属于 ``DetailActivity`` 。
+
+   4. 切换到 ``LetterAdapter`` ，然后修改对 ``putExtra`` 的调用，以使用新常量。
+
+   .. code:: prettyprint
+
+      intent.putExtra(DetailActivity.LETTER, holder.button.text.toString())
+
+   设置完毕！通过重构，您让自己的代码更易于阅读，且更易于维护。如果此常量或者您添加的任何其他
+   常量需要更改，您只需在一个位置进行更改即可。
+
+   如需详细了解伴生对象，请参阅有关 `对象表达式和声明 <https://kotlinlang.org/docs/reference/object-declarations.html>`__ 
+   的 Kotlin 文档。
+
+
+7. 设置隐式 intent
+------------------
+
+
+   在大多数情况下，您显示的都是自己应用中的特定 activity。不过，在某些情况下，您可能并不知道
+   需要启动哪个 activity 或哪个应用。在我们的详情屏幕上，每个单词都是一个按钮，点击后都将显示
+   该单词的用户定义。
+
+   在我们的示例中，您将使用 Google 搜索提供的字典功能。不过，您需要启动设备的浏览器来显示
+   搜索页面，而不是向应用添加新的 activity。
+
+   因此，您可能需要一个 intent，用来在 Chrome（Android 上的默认浏览器）中加载相应页面，对吗？
+
+   不一定。
+
+   有些用户可能更喜欢第三方浏览器。或者，用户的手机上附带制造商预安装的浏览器。也可能他们安装了
+   Google 搜索应用，甚至是第三方字典应用。
+
+   您无法确定用户安装了哪些应用，也无法假设他们可能希望以哪种方式查单词。这是一个完美示例，说明了
+   何时应使用隐式 intent。您的应用向系统提供相关信息，说明应执行何种操作，然后由系统确定如何
+   执行该操作，并根据需要提示用户提供任何其他信息。
+
+   执行以下操作，创建隐式 intent：
+
+   1. 对于此应用，您将在 Google 搜索中搜索相应单词。第一个搜索结果将是该单词的字典定义。
+      由于每次搜索都会使用相同的基准网址，最好将其定义为自己的常量。在 ``DetailActivity`` 中，
+      修改伴生对象以添加新的常量 ``SEARCH_PREFIX`` 。这便是 Google 搜索的基准网址。
+
+   .. code:: prettyprint
+
+      companion object {
+         const val LETTER = "letter"
+         const val SEARCH_PREFIX = "https://www.google.com/search?q="
+      }
+
+   2. 然后，打开 ``WordAdapter`` ，并在 ``onBindViewHolder()`` 方法中对按钮调用
+      ``setOnClickListener()`` 。首先，为搜索查询创建一个 ``Uri`` 。当调用 ``parse()``
+      以从某个 ``String`` 创建 ``Uri`` 时，您需要使用字符串格式，以便将单词附加到
+      ``SEARCH_PREFIX`` 。
+
+   .. code:: prettyprint
+
+      holder.button.setOnClickListener {
+          val queryUrl: Uri = Uri.parse("${DetailActivity.SEARCH_PREFIX}${item}")
+      }
+
+   URI， Uniform Resource Identifier，表示统一资源标识符。您可能已经知道，URL
+   （Uniform Resource Locator，表示统一资源定位符）是指向某个网页的字符串。URI 是一个
+   更为宽泛的格式术语。所有 URL 都是 URI，但并非所有 URI 都是 URL。其他 URI
+   （例如，电话号码对应的地址）可能会以 ``tel:`` 开头，但会被视为 URN
+   （Uniform Resource Name，表示统一资源名称）。用于表示这两种数据的数据类型被称为 ``URI`` 。
+
+   |828cef3fdcfdaed.png|
+
+   请注意，此处没有引用您自己应用中的任何 activity。您只是提供一个
+   ``URI`` ，并未指明其最终的使用方式。
+
+   2. 定义 ``queryUrl`` 后，初始化新的 ``intent`` 对象：
+
+   .. code:: prettyprint
+
+      val intent = Intent(Intent.ACTION_VIEW, queryUrl)
+
+   您将 ``Intent.ACTION_VIEW`` 与 ``URI`` 一同传入，而不是传入 context 和 activity。
+
+   ``ACTION_VIEW`` 是一个通用 intent，可以接受
+   URI（在本例中为网址）。然后，系统就会知道应通过在用户的网络浏览器中打开该 URI 来处理此
+   intent。一些其他 intent 类型包括：
+
+   -  ``CATEGORY_APP_MAPS`` - 启动地图应用
+   -  ``CATEGORY_APP_EMAIL`` - 启动电子邮件应用
+   -  ``CATEGORY_APP_GALLERY`` - 启动图库（相册）应用
+   -  ``ACTION_SET_ALARM`` - 在后台设置闹钟
+   -  ``ACTION_DIAL`` - 拨打电话
+
+   如需了解详情，请访问有关一些 `常用 intent 的文档。 <https://developer.android.google.cn/guide/components/intents-common?hl=zh-cn>`__
+
+   3. 最后，即使您不启动应用中的任何特定 activity，您也需要通过调用 ``startActivity()``
+      并传入 ``intent`` 来告知系统启动其他应用。
+
+   .. code:: prettyprint
+
+      context.startActivity(intent)
+
+   现在，当您启动应用、前往单词列表并点按其中某个单词时，您的设备应导航到相应网址
+   （或者根据您安装的应用显示选项列表）。
+
+   具体行为会因用户而异，最终都能为所有用户提供无缝的体验，而不会使代码变得复杂。
+
+
+8. 设置菜单和图标
+-----------------
+
+
+   现在，您已经通过添加显式 intent 和隐式 intent 使您的应用实现了全面可导航，接下来该添加
+   菜单选项了，以便用户能够在列表和网格布局之间切换字母显示方式。
+
+   ====================== ======================
+   |7edb0777b033c159.png| |ce3474dba2a9c1c8.png|
+   ====================== ======================
+
+   到现在，您可能已经注意到，许多应用的屏幕顶部都有此栏。这被称为应用栏，除了能够显示应用名称外，
+   它还可以进行自定义，并托管大量实用功能（例如，实用操作的快捷方式或溢出菜单）。
+
+   |dfc4095251c1466e.png|
+
+   针对此应用，尽管我们不会添加功能齐全的菜单，但您将学习如何向应用栏添加自定义按钮，以便用户能够更改布局。
+
+   1. 首先，您需要导入两个表示网格视图和列表视图的图标。添加被称为“模块视图”（将其命名为
+      **ic_grid_layout** ）和“列表视图”（将其命名为 **ic_linear_layout** ）的剪贴画
+      矢量资源。如果您需要回顾如何添加 Material 图标，请查看 `此页面说明。 <https://developer.android.google.cn/codelabs/basic-android-kotlin-training-polished-user-experience?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-2-pathway-1%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-polished-user-experience&hl=zh-cn#3>`__ 
+
+   |5a01fc03113ac399.png|
+
+   2. 您还需要通过某种方式来告知系统，应用栏中应显示哪些选项以及应使用哪些图标。为此，请右键点击
+      **res** 文件夹，然后依次选择 **New > Android Resource
+      File** ，以添加新的资源文件。将 **Resource Type** 设置为 ``Menu`` ，将 **File
+      Name** 设置为 ``layout_menu`` 。
+
+   |c4f83806a1aa121b.png|
+
+   3. 点击 **OK** 。
+   4. 打开 **res/Menu/layout_menu** 。将 ``layout_menu.xml`` 的内容替换为以下代码：
+
+   .. code:: prettyprint
+
+      <menu xmlns:android="http://schemas.android.com/apk/res/android"
+         xmlns:app="http://schemas.android.com/apk/res-auto">
+         <item android:id="@+id/action_switch_layout"
+             android:title="@string/action_switch_layout"
+             android:icon="@drawable/ic_linear_layout"
+             app:showAsAction="always" />
+      </menu>
+
+   菜单文件的结构非常简单。就像布局以用于存储各个视图的布局管理器开头一样，菜单 XML
+   文件也以包含各个选项的菜单标记开头。
+
+   您的菜单只有一个按钮，该按钮具有以下几个属性：
+
+   -  ``id`` ：与视图一样，菜单选项也有一个 ID，以便在代码中加以引用。
+   -  ``title`` ：在本例中，此文本实际上并不可见，但它可能有助于屏幕阅读器识别菜单。
+   -  ``icon`` ：默认值为
+      ``ic_linear_layout`` 。但是，当用户选择按钮后，系统便会切换显示列表和网格图标。
+   -  ``showAsAction`` ：此属性可告知系统如何显示该按钮。由于该属性被设置为“always”，对应按钮将始终显示在应用栏中，不会成为溢出菜单的一部分。
+
+   当然，仅设置属性并不意味着菜单会执行任何实际的操作。
+
+   您仍然需要在 ``MainActivity.kt`` 中添加一些代码，才能使菜单正常运行。
+
+
+9. 实现菜单按钮
+---------------
+
+
+   若想看到菜单按钮的实际应用，需要在 ``MainActivity.kt`` 中执行一些操作。
+
+   1. 首先，最好创建一个属性来跟踪应用所处的布局状态。这样可以简化切换布局按钮的操作。将默认值设置为
+      ``true`` ，因为系统将默认使用线性布局管理器。
+
+   .. code:: prettyprint
+
+      private var isLinearLayoutManager = true
+
+   2. 当用户切换按钮时，您需要将项列表转换为项网格。如果您回想一下学到的 recycler
+      视图相关知识，会发现有许多不同的布局管理器，其中 ``GridLayoutManager``
+      允许在单行中显示多个项。
+
+   .. code:: prettyprint
+
+      private fun chooseLayout() {
+          if (isLinearLayoutManager) {
+              recyclerView.layoutManager = LinearLayoutManager(this)
+          } else {
+              recyclerView.layoutManager = GridLayoutManager(this, 4)
+          }
+          recyclerView.adapter = LetterAdapter()
+      }
+
+   此处使用了 ``if`` 语句来分配布局管理器。除了设置 ``layoutManager``
+   之外，此代码还会分配适配器。 ``LetterAdapter`` 既用于列表布局，也用于网格布局。
+
+   3. 您最初使用 XML
+      设置菜单时，您为其提供的是静态图标。但是，切换布局后，您应更新图标以反映新的功能，即可切换回列表布局。在此，您只需根据下次点按按钮时将切换回的布局，设置线性和网格布局图标。
+
+   .. code:: prettyprint
+
+      private fun setIcon(menuItem: MenuItem?) {
+         if (menuItem == null)
+             return
+
+         // Set the drawable for the menu icon based on which LayoutManager is currently in use
+
+         // An if-clause can be used on the right side of an assignment if all paths return a value.
+         // The following code is equivalent to
+         // if (isLinearLayoutManager)
+         //     menu.icon = ContextCompat.getDrawable(this, R.drawable.ic_grid_layout)
+         // else menu.icon = ContextCompat.getDrawable(this, R.drawable.ic_linear_layout)
+         menuItem.icon =
+             if (isLinearLayoutManager)
+                 ContextCompat.getDrawable(this, R.drawable.ic_grid_layout)
+             else ContextCompat.getDrawable(this, R.drawable.ic_linear_layout)
+      }
+
+   图标是根据 ``isLinearLayoutManager`` 属性有条件地设置的。
+
+   为了使您的应用真正使用菜单，您需要替换另外两个方法。
+
+   -  ``onCreateOptionsMenu`` ：用于膨胀选项菜单并执行任何其他设置。
+   -  ``onOptionsItemSelected`` ：用于在选中按钮后实际调用 ``chooseLayout()`` 。
+
+   1. 按以下方式替换 ``onCreateOptionsMenu`` ：
+
+   .. code:: prettyprint
+
+      override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+         menuInflater.inflate(R.menu.layout_menu, menu)
+
+         val layoutButton = menu?.findItem(R.id.action_switch_layout)
+         // Calls code to set the icon based on the LinearLayoutManager of the RecyclerView
+         setIcon(layoutButton)
+
+         return true
+      }
+
+   这里没有什么特别的。膨胀过布局之后，您需要调用 ``setIcon()``
+   以确保系统根据布局准确显示图标。此方法会返回一个 ``Boolean`` （此处返回的是
+   ``true`` ），因为您想要创建选项菜单。
+
+   2. 只需再添加另外几行代码，即可实现 ``onOptionsItemSelected`` ，如下所示。
+
+   .. code:: prettyprint
+
+      override fun onOptionsItemSelected(item: MenuItem): Boolean {
+         return when (item.itemId) {
+             R.id.action_switch_layout -> {
+                 // Sets isLinearLayoutManager (a Boolean) to the opposite value
+                 isLinearLayoutManager = !isLinearLayoutManager
+                 // Sets layout and icon
+                 chooseLayout()
+                 setIcon(item)
+
+                 return true
+             }
+             //  Otherwise, do nothing and use the core event handling
+
+             // when clauses require that all possible paths be accounted for explicitly,
+             //  for instance both the true and false cases if the value is a Boolean,
+             //  or an else to catch all unhandled cases.
+             else -> super.onOptionsItemSelected(item)
+         }
+      }
+
+   每次点按菜单项时，系统都会调用此方法，因此务必要检查点按的是哪个菜单项。您在上面使用了
+   ``when`` 语句。如果 ``id`` 与 ``action_switch_layout`` 菜单项匹配，您就会否定
+   ``isLinearLayoutManager`` 的值。然后，调用 ``chooseLayout()`` 和
+   ``setIcon()`` ，以便相应地更新界面。
+
+   在运行应用之前，还需要完成一项操作。由于布局管理器和适配器现在是在 ``chooseLayout()``
+   中设置的，您应替换 ``onCreate()``
+   中的相应代码以调用新的方法。完成更改后， ``onCreate()`` 应如下所示。
+
+   .. code:: prettyprint
+
+      override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+
+         val binding = ActivityMainBinding.inflate(layoutInflater)
+         setContentView(binding.root)
+
+         recyclerView = binding.recyclerView
+         // Sets the LinearLayoutManager of the recyclerview
+         chooseLayout()
+      }
+
+   现在，运行您的应用，您应该能够使用菜单按钮在列表视图和网格视图之间进行切换。
+
+
+10. 解决方案代码
+----------------
+
+
+   此 Codelab 的解决方案代码可在下面的项目中找到：
+
+   **解决方案代码网址** ： `https://github.com/google-developer-training/android-basics-kotlin-words-app <https://github.com/google-developer-training/android-basics-kotlin-words-app/tree/activities>`__
+
+   **包含解决方案代码的分支名称** ： ``activities``
+
+   1. 进入为此项目提供的 GitHub 代码库页面。
+   2. 验证分支名称是否与此 Codelab
+      中指定的分支名称一致。例如，在以下屏幕截图中，分支名称为 **main** 。
+
+   |1e4c0d2c081a8fd2.png|
+
+   3. 在项目的 GitHub 页面上，点击 **Code** 按钮，以打开一个弹出式窗口。
+
+   |1debcf330fd04c7b.png|
+
+   4. 在弹出式窗口中，点击 **Download ZIP** 按钮，将项目保存到计算机上。等待下载完成。
+   5. 在计算机上找到该文件（很可能在 **Downloads** 文件夹中）。
+   6. 双击 ZIP 文件进行解压缩。系统将创建一个包含项目文件的新文件夹。
+
+
+在 Android Studio 中打开项目
+
+
+   1. 启动 Android Studio。
+   2. 在 **Welcome to Android Studio** 窗口中，点击 **Open** 。
+
+   |d8e9dbdeafe9038a.png|
+
+   注意：如果 Android Studio 已经打开，则改为依次选择 **File** > **Open** 菜单选项。
+
+   |8d1fda7396afe8e5.png|
+
+   3. 在文件浏览器中，前往解压缩的项目文件夹所在的位置（很可能在 **Downloads**
+      文件夹中）。
+   4. 双击该项目文件夹。
+   5. 等待 Android Studio 打开项目。
+   6. 点击 **Run** 按钮 |8de56cba7583251f.png| 以构建并运行应用。请确保该应用按预期构建。
+
+
+11. 总结
+--------
+
+
+   -  显式 intent 用于导航到应用中的特定 activity。
+   -  隐式 intent 对应于特定的操作（例如打开链接或共享图片），并让系统来确定执行相应
+      intent 的方式。
+   -  借助菜单选项，您可以向应用栏添加按钮和菜单。
+   -  伴生对象提供了一种将可重复使用的常量与某种类型（而不是该类型的实例）相关联的方式。
+
+   执行 intent 的方法如下：
+
+   -  获取对 context 的引用。
+   -  创建一个 ``Intent`` 对象，并提供 activity 或 intent
+      类型（具体取决于是显式还是隐式）。
+   -  通过调用 ``putExtra()`` 传递任何需要的数据。
+   -  调用 ``startActivity()`` ，同时传入 ``intent`` 对象。
+
+
+12. 了解更多内容
+----------------
+
+
+   -  `intent 和 intent 过滤器 <https://developer.android.google.cn/guide/components/intents-filters?hl=zh-cn>`__
+   -  `常用 intent <https://www.google.com/search?client=safari&rls=en&q=common+intents+android&ie=UTF-8&oe=UTF-8&hl=zh-cn>`__
+   -  `使用 XML 创建选项菜单 <https://developer.android.google.cn/guide/topics/ui/menus?hl=zh-cn>`__
+   -  `Kotlin 中的接口 <https://kotlinlang.org/docs/reference/interfaces.html>`__
+   -  `CharSequence 接口 <https://developer.android.google.cn/reference/java/lang/CharSequence?hl=zh-cn>`__
+   -  `Kotlin 中的 null 安全性 <https://kotlinlang.org/docs/reference/null-safety.html>`__
+   -  `Kotlin 中的对象表达式和声明 <https://kotlinlang.org/docs/reference/object-declarations.html>`__
+   -  `单例模式 <https://en.wikipedia.org/wiki/Singleton_pattern>`__
+   -  `Kotlin 中的控制流 <https://kotlinlang.org/docs/reference/control-flow.html>`__
+
+.. |7edb0777b033c159.png| image:: https://developer.android.google.cn/static/codelabs/basic-android-kotlin-training-activities-intents/img/7edb0777b033c159_1920.png
+.. |c465ef280fe3792a.png| image:: https://developer.android.google.cn/static/codelabs/basic-android-kotlin-training-activities-intents/img/c465ef280fe3792a_1920.png
+.. |8ad271362c0a113b.png| image:: https://developer.android.google.cn/static/codelabs/basic-android-kotlin-training-activities-intents/img/8ad271362c0a113b_1920.png
+.. |1e4c0d2c081a8fd2.png| image:: https://developer.android.google.cn/static/codelabs/basic-android-kotlin-training-activities-intents/img/1e4c0d2c081a8fd2_1920.png
+.. |1debcf330fd04c7b.png| image:: https://developer.android.google.cn/static/codelabs/basic-android-kotlin-training-activities-intents/img/1debcf330fd04c7b_1920.png
+.. |d8e9dbdeafe9038a.png| image:: https://developer.android.google.cn/static/codelabs/basic-android-kotlin-training-activities-intents/img/d8e9dbdeafe9038a_1920.png
+.. |8d1fda7396afe8e5.png| image:: https://developer.android.google.cn/static/codelabs/basic-android-kotlin-training-activities-intents/img/8d1fda7396afe8e5_1920.png
+.. |8de56cba7583251f.png| image:: https://developer.android.google.cn/static/codelabs/basic-android-kotlin-training-activities-intents/img/8de56cba7583251f_1920.png
+.. |61af34429128695e.png| image:: https://developer.android.google.cn/static/codelabs/basic-android-kotlin-training-activities-intents/img/61af34429128695e_1920.png
+.. |ce3474dba2a9c1c8.png| image:: https://developer.android.google.cn/static/codelabs/basic-android-kotlin-training-activities-intents/img/ce3474dba2a9c1c8_1920.png
+.. |7edb0777b033c159.png| image:: https://developer.android.google.cn/static/codelabs/basic-android-kotlin-training-activities-intents/img/7edb0777b033c159_1920.png
+.. |c465ef280fe3792a.png| image:: https://developer.android.google.cn/static/codelabs/basic-android-kotlin-training-activities-intents/img/c465ef280fe3792a_1920.png
+.. |e9c77033d9224170.png| image:: https://developer.android.google.cn/static/codelabs/basic-android-kotlin-training-activities-intents/img/e9c77033d9224170_1920.png
+.. |702236c6e2276f91.png| image:: https://developer.android.google.cn/static/codelabs/basic-android-kotlin-training-activities-intents/img/702236c6e2276f91_1920.png
+.. |b43155b06a5556e.png| image:: https://developer.android.google.cn/static/codelabs/basic-android-kotlin-training-activities-intents/img/b43155b06a5556e_1920.png
+.. |c465ef280fe3792a.png| image:: https://developer.android.google.cn/static/codelabs/basic-android-kotlin-training-activities-intents/img/c465ef280fe3792a_1920.png
+.. |828cef3fdcfdaed.png| image:: https://developer.android.google.cn/static/codelabs/basic-android-kotlin-training-activities-intents/img/828cef3fdcfdaed_1920.png
+.. |7edb0777b033c159.png| image:: https://developer.android.google.cn/static/codelabs/basic-android-kotlin-training-activities-intents/img/7edb0777b033c159_1920.png
+.. |ce3474dba2a9c1c8.png| image:: https://developer.android.google.cn/static/codelabs/basic-android-kotlin-training-activities-intents/img/ce3474dba2a9c1c8_1920.png
+.. |dfc4095251c1466e.png| image:: https://developer.android.google.cn/static/codelabs/basic-android-kotlin-training-activities-intents/img/dfc4095251c1466e_1920.png
+.. |5a01fc03113ac399.png| image:: https://developer.android.google.cn/static/codelabs/basic-android-kotlin-training-activities-intents/img/5a01fc03113ac399_1920.png
+.. |c4f83806a1aa121b.png| image:: https://developer.android.google.cn/static/codelabs/basic-android-kotlin-training-activities-intents/img/c4f83806a1aa121b_1920.png
 
 
 🟩 TOC - Quick Guides

@@ -4731,19 +4731,16 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
    ==============  ======================  ===========================  =======
 
    业务逻辑上的测试就是一般的单元测试，直接在 JVM 环境上运行程序的部分（最小单元）代码，并根据其
-   功能逻辑编写测试单元。UI 界面测试 ``Instrumentation`` 测量仪器
-
+   功能逻辑编写测试单元，测试程序运行于开发主机上安装的 JVM 环境中。UI 界面测试则是真机上运行的
+   功能测试， ``Instrumentation`` 意指测量仪器，通过真机提供的环境，实现 UI 界面元素的测试，
+   包含 UI 组件的交互行为，状态检查与验证。JUnit 是最流行的单元测试构架，它用于执行测试代码，
+   如果是 UI 测试，需要还需要 ``Espresso`` 和 ``ActivityScenario`` 等专用构架。
    `Test your app <https://developer.android.google.cn/studio/test>`__
-   When you run an instrumentation test on Android, the test code is actually built into its
-   own Android Application Package (APK) like a regular Android app. An APK is a compressed
-   file that contains all the code and necessary files to run the app on a device or emulator.
-   The test APK is installed on the device or emulator along with the regular app APK. The
-   test APK then runs its tests against the app APK.
-instrumentation can load both a test package and the application under test into the same process. Since the application components and their tests are in the same process, the tests can invoke methods in the components, and modify and examine fields in the components.
 
-翻译过来
+   Android 真机测试时，测试代码会打包到独立的 test apk 程序包，与主程序 app apk 一并安装到
+   待测试环境。真机测试程序可以加载 test apk 与 app apk 到同一个系统进程，这样就可以通过测试
+   代码访问应用的组件，并调用组件接口进行测试。
 
-Instrumentation可以把测试包和目标测试应用加载到同一个进程中运行。既然各个控件和测试代码都运行在同一个进程中了，测试代码当然就可以调用这些控件的方法了，同时修改和验证这些控件的一些数据
 
    安装了 Android for VS Code 插件，在配置调试器时，就可以通过 Go -> Add Configuration...
    创建配置文件，并且使用调试器的备选列表中由插件提供的 ``Android`` 选项，就可以自动添加以下配置，
@@ -5454,6 +5451,10 @@ Instrumentation可以把测试包和目标测试应用加载到同一个进程�
    不运行 App 的前提下预览 UI 渲染的效果。Android Studio 环境中，只需要打开代码文件，并切换为
    Split 或者 Design 视图即可以看到组件的预览效果。
 
+   ``Fragment`` 组件代表了 Activity 界面中的一个区域，或者说是组合完整用户界面的一个块，语义上
+   类似 ``Surface`` 这样的组件，通过这种小块内容组合出完整用户界面，可以增加应用的界面的灵活度。
+   这个类有两个版本，传统版本 ``android.app.Fragment`` 和 Jetpack 版本 ``androidx.fragment.app.Fragment``。
+
    Compose 中的入口类还是 ``Activity``，只不过使用 ``androidx.activity.ComponentActivity``
    进行了重新包装，以提供可组合函数的支持。和原生 ``Activity`` 不同的是，原先 ``onCreate`` 方法中的
    ``setContentView`` 方法包装起来了，取而代之的是 Kotlin 扩展方法： ``setContent``，也就是
@@ -5513,10 +5514,11 @@ Instrumentation可以把测试包和目标测试应用加载到同一个进程�
    在没有使用布局组件（layout component）的情况下，UI 组件会重叠在一起，相互遮挡，后面的组件
    会覆盖前面注册的组件。使用布局组件包装其它 UI 组件，就可以获得相应的组件布局排版，例如最基本的
    ``Column`` 或 ``Row`` 就可以将组件按列、按行排列，避免重叠在一起。为了方便设置 App 的基本
-   界面构架，Material Design 提供了一个 ``Scaffold``，它代表了用户屏幕空间的布局，语义上类似
-   ``Surface`` 这样的组件。Scaffold 实现了 Material Design 的基本视图界面结构，即主界面
-   脚手架，包含侧边应用栏、底部导航栏、导航栏的自动布局。经常搭配 ``TopAppBar`` 顶部导航栏、
-   ``BottomNavigation`` 底部导航栏等组合方法使用。
+   界面构架，Material Design 提供了一个 ``Scaffold``，它代表了用户屏幕空间的布局，Scaffold
+   实现了 Material Design 的基本视图界面结构，即主界面脚手架，包含侧边应用栏、底部导航栏、导航栏
+   的自动布局。常搭配顶部导航栏、底部导航栏使用： ``TopAppBar``、 ``BottomNavigation``。
+   导航条可以看作是状态栏与用户快捷菜单的组合体，一方面显示应用的页面信息，另一方面向用户提供操作
+   功能（actions）。
 
    为了提升渲染效率，Compose UI 默认只允许对一个 UI 组件进行一次测量，这样的约定下，子元素不会
    重复进行测量，大量节省了渲染时间消耗。就像在传统 ``View`` 系统中，当 ``LinearLayout`` 等

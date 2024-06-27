@@ -99,7 +99,9 @@ On the Exposition of Words' Meaning by Comparison between Zuo Zhuan and Records 
 
 ## 世界各国人均 GDP (美元)排名数据
 
-[林毅夫：百年未有之大变局与新结构经济学](https://www.nsd.pku.edu.cn/sylm/gd/515344.htm)
+*   联合国教科文组织统计研究所 入学率数据 https://data.worldbank.org.cn/indicator/SE.TER.ENRR?most_recent_value_desc=true
+*   [林毅夫：百年未有之大变局与新结构经济学](https://www.nsd.pku.edu.cn/sylm/gd/515344.htm)
+
 pandoc -trst -rhtml https://www.kylc.com/stats/global/yearly_overview/g_gdp_per_capita.html --wrap=preserve --columns=120
 
 ```

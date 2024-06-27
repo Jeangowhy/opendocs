@@ -1,5 +1,5 @@
 .. figure:: https://learning.oreilly.com/library/cover/9780137645794/650w/
-:target: https://www.oreilly.com/library/view/android-programming-the/9780137645794/
+   :target: https://www.oreilly.com/library/view/android-programming-the/9780137645794/
 
 Android Programming: The Big Nerd Ranch Guide, 5th Edition
 by Bryan Sills, Brian Gardner, Kristin Marsicano, Chris Stewart
@@ -8,7 +8,7 @@ Publisher(s): Addison-Wesley Professional
 ISBN: 9780137645794
 
 The Big Nerd Ranch Guide Assignments
-https://github.com/sudhirkhanger/The-Big-Nerd-Ranch-Guide
+https://vscode.dev/github/sudhirkhanger/The-Big-Nerd-Ranch-Guide
 
 https://www.doc88.com/p-39599493137621.html
 https://pan.baidu.com/s/1vx2bqazOUgzMf-BE8LlO9A?pwd=wpof
@@ -492,6 +492,7 @@ Table of Contents
 *  [S24_04]_ Handling Touch Events
 *  [S24_05]_ Tracking across motion events
 *  [S24_06]_ Rendering Inside onDraw(Canvas)
+
 *  [S24_07]_ For the More Curious: Detecting Gestures
 *  [S24_08]_ Challenge: Saving State
 *  [S24_09]_ Challenge: Rotating Boxes
@@ -714,7 +715,7 @@ How to Use This Book
 
 How This Book Is Organized
 
-   As you work through this book, you will write si? Android apps. A couple
+   As you work through this book, you will write six Android apps. A couple
    are very simple and take only a chapter to create. Others are more complex.
 
    The longest app spans 11 chapters. All are designed to teach you important
@@ -797,8 +798,11 @@ Typographical Conventions
          //    R.string.correct_toast,
          //    Toast.LENGTH_SHORT
          // )
+
          // .show()
+
          checkAnswer(true)
+
       }
 
 Using an eBook
@@ -899,6 +903,7 @@ Downloading Earlier SDK Versions
    yet, you can instead access the SDK Manager from the Android Welcome
    dialog. Click the three-dot overflow menu in the dialog’s toolbar and select
    SDK Manager .)
+
 
    The SDK Manager is shown in Figure 1.
 
@@ -1087,6 +1092,7 @@ C01👊 Your First Android Application
    successfully. (If the build tool window did not open automatically, do not
    worry.)
 
+
    On the righthand side of Android Studio, you might see the assistant
    tool window (shown in Figure 1.5). This view tells you about new features
    in Android Studio. If it is open, close it by clicking the hide button, which
@@ -1126,6 +1132,7 @@ C01👊 Your First Android Application
    ``activity_main.xml`` to open the file. If ``activity_main.xml``
    opens but shows XML instead of the layout editor, click the Design tab near
    the top-right corner of the editor tool window.)
+
 
    Figure 1.8 Layout editor
 
@@ -1229,7 +1236,7 @@ C01👊 Your First Android Application
 
    .. code-block:: xml
 
-      <androidx.constraintlayout.widget.ConstraintLayout
+      <!-- <androidx.constraintlayout.widget.ConstraintLayout
          xmlns:android="http://schemas.android.com/apk/res/android"
          xmlns:tools="http://schemas.android.com/tools"
          xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -1244,9 +1251,10 @@ C01👊 Your First Android Application
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTo?_toTo?Of="parent"/>
+            app:layout_constraintTop_toTopOf="parent"/>
 
          </androidx.constraintlayout.widget.ConstraintLayout>
+         -->
 
          <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
@@ -1349,6 +1357,7 @@ C01👊 Your First Android Application
    (Wondering about the dp units? These are density-independent pixels,
    which you will learn about in Chapter 11.)
 
+
 ``android:orientation``
 
    The ``android:orientation`` attribute on the two ``LinearLayout`` views
@@ -1406,6 +1415,7 @@ C01👊 Your First Android Application
    (Depending on your version of Android Studio, you may have additional
    strings. Do not delete them. Deleting them could cause cascading errors in
    other files.)
+
 
    Now, when you refer to ``@string/false_button`` in any XML file in
    the GeoQuiz project, you will get the literal string “False” at runtime.
@@ -1505,7 +1515,9 @@ C01👊 Your First Android Application
 
          override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
+
             setContentView(R.layout.activity_main)
+
          }
       }
 
@@ -1513,6 +1525,7 @@ C01👊 Your First Android Application
    Activity class that provides compatibility support for older versions of
    Android. You will learn much more about ``AppCompatActivity`` in
    Chapter 15.)
+
 
    If you are not seeing all of the import statements, click the ... next to the
    word import to reveal them.
@@ -1599,6 +1612,7 @@ C01👊 Your First Android Application
 
       setTitle(R.string.app_name)
 
+
    Android generated a resource ID for the entire layout and for each string,
    but it did not generate resource IDs for the individual views in
    ``activity_main.xml``. Not every view needs a resource ID. In this
@@ -1679,9 +1693,12 @@ C01👊 Your First Android Application
 
          override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
+
             setContentView(R.layout.activity_main)
 
+
             trueButton = findViewById(R.id.true_button)
+
             falseButton = findViewById(R.id.false_button)
          }
       }
@@ -1737,6 +1754,7 @@ C01👊 Your First Android Application
    the OS or another application, but user-initiated events are the most
    obvious.)
 
+
    When your application is waiting for a specific event, we say that it is
    “listening for” that event. The object that you create to respond to an event
    is called a listener , and the listener implements a listener interface
@@ -1757,10 +1775,14 @@ C01👊 Your First Android Application
 
       override fun onCreate(savedInstanceState: Bundle?) {
          super.onCreate(savedInstanceState)
+
          setContentView(R.layout.activity_main)
 
+
          trueButton = findViewById(R.id.true_button)
+
          falseButton = findViewById(R.id.false_button)
+
 
          trueButton.setOnClickListener { view: View ->
             // Do something in response to the click here
@@ -1769,6 +1791,7 @@ C01👊 Your First Android Application
 
    (If you have an Unresolved reference: View error, try using Option-Return [Alt-
    Enter] to import the View class.)
+
 
    In Listing 1.5, you set a listener to inform you when the Button known as
    ``trueButton`` has been pressed. The Android framework defines
@@ -1844,6 +1867,7 @@ C01👊 Your First Android Application
    will not complete anything for you if you do not press the Tab key, press the
    Return key, or click the pop-up window.)
 
+
    From the list of suggestions, select ``makeText(context: Context,
    resId: Int, duration: Int)``. Code completion will add the
    function call for you.
@@ -1853,6 +1877,7 @@ C01👊 Your First Android Application
 
 
    Listing 1.8 Making toasts (MainActivity.kt)
+
 
    .. code-block:: kotlin
 
@@ -1865,6 +1890,7 @@ C01👊 Your First Android Application
             R.string.correct_toast,
             Toast.LENGTH_SHORT
             ).show()
+
          }
 
          falseButton.setOnClickListener { view: View ->
@@ -1874,6 +1900,7 @@ C01👊 Your First Android Application
             R.string.incorrect_toast,
             Toast.LENGTH_SHORT
             ).show()
+
          }
       }
 
@@ -1924,6 +1951,7 @@ C01👊 Your First Android Application
    Next (Figure 1.16). (You may need to follow the steps to download the
    emulator’s components before you can click Next .)
 
+
    Figure 1.16 Choosing a system image
 
    Finally, you can review and tweak properties of the emulator. You can also
@@ -1947,7 +1975,7 @@ C01👊 Your First Android Application
    information will appear in the Logcat tool window. (If Logcat did not open
    automatically when you ran ``GeoQuiz``, you can open it by clicking the Logcat
    button at the bottom of the Android Studio window.) Type MainActivity into
-   the search bo? at the top of the Logcat tool window to filter the log
+   the search box at the top of the Logcat tool window to filter the log
    messages. Look for exceptions in the log; they will be an eye-catching red
    color (Figure 1.18).
 
@@ -1957,6 +1985,7 @@ C01👊 Your First Android Application
    Compare your code to the code in the book to try to find the cause of the
    problem. Then try running again. (You will learn more about using Logcat
    in Chapter 3 and about debugging in Chapter 5.)
+
 
    Keep the emulator running – you do not want to wait for it to launch on
    every run.
@@ -1986,6 +2015,7 @@ C01👊 Your First Android Application
    https://developer.android.google.cn/tools/publishing/
    preparing.html.)
 
+
    How do the contents of ``activity_main.xml`` turn into ``View`` objects in
    an application? As part of the build process, ``aapt2`` (the Android Asset
    Packaging Tool) compiles layout file resources into a more compact format.
@@ -2004,6 +2034,7 @@ C01👊 Your First Android Application
    presentation from the logic of the application. The main one is taking
    advantage of configuration changes built into the SDK, which you will
    learn more about in Chapter 3.)
+
 
    You will learn more details of how the different XML attributes work and
    how views display themselves on the screen in Chapter 11.
@@ -2203,6 +2234,7 @@ C02👊 Interactive User Interfaces
    needs to be updated as shown in Figure 2.4. (Note that to save space we are
    not showing the attributes of unchanged views.)
 
+
    Figure 2.4 New button!
 
    So the changes you need to make to the layout are:
@@ -2279,6 +2311,7 @@ C02👊 Interactive User Interfaces
 
    Listing 2.3 Updating strings (res/values/strings.xml)
 
+
    .. code-block:: xml
 
       <string name="app_name">GeoQuiz</string>
@@ -2326,10 +2359,11 @@ C02👊 Interactive User Interfaces
 --------------------------------------------------------------------------------
 
    First, create a list of ``Question`` objects in ``MainActivity``, along with an
-   inde? for the list.
+   index for the list.
 
 
    Listing 2.5 Adding a Question list (MainActivity.kt)
+
 
    .. code-block:: kotlin
 
@@ -2346,6 +2380,7 @@ C02👊 Interactive User Interfaces
       Question(R.string.question_americas, true),
       Question(R.string.question_asia, true))
 
+
       private var currentIndex = 0
          ...
       }
@@ -2357,6 +2392,7 @@ C02👊 Interactive User Interfaces
    In later apps, you will see better options for storing model data. For now,
    you are keeping it simple and just creating the list within
    ``MainActivity``.)
+
 
    You are going to use ``questionBank``, ``currentIndex``, and the
    properties in ``Question`` to get a parade of questions onscreen.
@@ -2388,7 +2424,9 @@ C02👊 Interactive User Interfaces
    located within the app module, but the Android view collects your
    project’s Gradle files to make them easier to find.)
 
+
    Listing 2.6 Enabling View Binding (app/build.gradle)
+
 
    .. code-block:: gradle
 
@@ -2443,9 +2481,12 @@ C02👊 Interactive User Interfaces
          ...
          override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
+
             // setContentView(R.layout.activity_main)
+
             binding = ActivityMainBinding.inflate(layoutInflater)
             setContentView(binding.root)
+
             ...
          }
          ...
@@ -2458,6 +2499,7 @@ C02👊 Interactive User Interfaces
    com.bignerdranch.android.geoquiz, your import statement will
    look different.)
 
+
    View Binding does require a little bit of setup within your
    ``MainActivity``, so let’s break down what is happening here.
 
@@ -2468,6 +2510,7 @@ C02👊 Interactive User Interfaces
    (View Binding generates classes based on the layout file’s name; so, for
    example, it would generate an ``ActivityCheatBinding`` for a layout
    named ``activity_cheat.xml``.)
+
 
    In Chapter 1, you passed ``R.layout.activity_main`` into
    ``Activity.setContentView(layoutResID: Int)`` to display
@@ -2502,8 +2545,10 @@ C02👊 Interactive User Interfaces
          ...
          override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
+
             binding = ActivityMainBinding.inflate(layoutInflater)
             setContentView(binding.root)
+
 
             // trueButton = findViewById(R.id.true_button)
             // falseButton = findViewById(R.id.false_button)
@@ -2538,6 +2583,7 @@ C02👊 Interactive User Interfaces
 
    Listing 2.9 Wiring up the TextView (MainActivity.kt)
 
+
    .. code-block:: kotlin
 
       override fun onCreate(savedInstanceState: Bundle?) {
@@ -2554,7 +2600,7 @@ C02👊 Interactive User Interfaces
    the first question in the array appear in the ``TextView``, as before.
 
    Now, make the NEXT button functional by setting a
-   ``View.OnClickListener`` on it. This listener will increment the inde?
+   ``View.OnClickListener`` on it. This listener will increment the index
    and update the ``TextView``’s text.
 
 
@@ -2598,11 +2644,13 @@ C02👊 Interactive User Interfaces
                // val questionTextResId = questionBank[currentIndex].textResId
                // binding.questionTextView.setText(questionTextResId)
                updateQuestion()
+
             }
 
             // val questionTextResId = questionBank[currentIndex].textResId
             // binding.questionTextView.setText(questionTextResId)
             updateQuestion()
+
          }
 
          private fun updateQuestion() {
@@ -2622,6 +2670,7 @@ C02👊 Interactive User Interfaces
    .. code-block:: kotlin
 
       private fun checkAnswer(userAnswer: Boolean)
+
 
    This function will accept a Boolean variable that identifies whether the user
    pressed ``TRUE`` or ``FALSE`` . Then, it will check the user’s answer against the
@@ -2653,6 +2702,7 @@ C02👊 Interactive User Interfaces
 
             Toast.makeText(this, messageResId, Toast.LENGTH_SHORT)
             .show()
+
          }
       }
 
@@ -2672,8 +2722,11 @@ C02👊 Interactive User Interfaces
             R.string.correct_toast,
             Toast.LENGTH_SHORT
             )
+
             .show()
+
             checkAnswer(true)
+
          }
 
          binding.falseButton.setOnClickListener { view: View ->
@@ -2682,8 +2735,11 @@ C02👊 Interactive User Interfaces
             R.string.correct_toast,
             Toast.LENGTH_SHORT
             )
+
             .show()
+
             checkAnswer(false)
+
          }
          ...
       }
@@ -3169,6 +3225,7 @@ C03👊 The Activity Lifecycle
    (* Depending on the circumstances, a started activity may be fully or
    partially visible.)
 
+
    ``Nonexistent`` represents an activity that has not been launched yet or an
    activity that was destroyed (by the user completely killing the app, for
    example). For that reason, this state is sometimes referred to as the
@@ -3242,6 +3299,7 @@ C03👊 The Activity Lifecycle
    in the section called For the More Curious: Log Levels near the end of this
    chapter.)
 
+
    This function takes two parameters, both ``Strings``. The first parameter
    identifies the source of the message, and the second is the contents of the
    message.
@@ -3252,6 +3310,7 @@ C03👊 The Activity Lifecycle
    Open ``MainActivity.kt`` and add a ``TAG`` constant:
 
    Listing 3.1 Adding a TAG constant (MainActivity.kt)
+
 
    .. code-block:: kotlin
 
@@ -3272,9 +3331,12 @@ C03👊 The Activity Lifecycle
 
       override fun onCreate(savedInstanceState: Bundle?) {
          super.onCreate(savedInstanceState)
+
          Log.d(TAG, "onCreate(Bundle?) called")
+
          binding = ActivityMainBinding.inflate(layoutInflater)
          setContentView(binding.root)
+
          ...
       }
 
@@ -3293,27 +3355,37 @@ C03👊 The Activity Lifecycle
 
          override fun onStart() {
             super.onStart()
+
             Log.d(TAG, "onStart() called")
+
          }
 
          override fun onResume() {
             super.onResume()
+
             Log.d(TAG, "onResume() called")
+
          }
 
          override fun onPause() {
             super.onPause()
+
             Log.d(TAG, "onPause() called")
+
          }
 
          override fun onStop() {
             super.onStop()
+
             Log.d(TAG, "onStop() called")
+
          }
 
          override fun onDestroy() {
             super.onDestroy()
+
             Log.d(TAG, "onDestroy() called")
+
          }
 
          private fun updateQuestion() {
@@ -3439,6 +3511,7 @@ C03👊 The Activity Lifecycle
    Applications in the created state can be destroyed at the discretion of the
    OS. See Chapter 4 for the rest of the story.)
 
+
    Go back to ``GeoQuiz`` by selecting the ``GeoQuiz`` task card from the overview
    screen . To do this, use the Recents button or gesture (swiping up from the
    bottom and holding, then releasing).
@@ -3447,6 +3520,7 @@ C03👊 The Activity Lifecycle
    with (Figure 3.10). (By the way, the overview screen is often called the
    “recents screen” or “task manager” by users. We defer to the developer
    documentation, which calls it the “overview screen.”)
+
 
    Figure 3.10 Overview screen
 
@@ -3657,6 +3731,7 @@ C03👊 The Activity Lifecycle
       } catch (ex: ArrayIndexOutOfBoundsException) {
          // Log a message at ERROR log level along with an exception stack trace
          Log.e(TAG, "Index was out of bounds", ex)
+
       }
 
 .. _S03_14:
@@ -3758,6 +3833,7 @@ C04👊 Persisting UI State
 
    Listing 4.1 Adding dependencies (app/build.gradle)
 
+
    .. code-block:: gradle
 
       dependencies {
@@ -3798,10 +3874,12 @@ C04👊 Persisting UI State
 
          init {
             Log.d(TAG, "ViewModel instance created")
+
          }
 
          override fun onCleared() {
             super.onCleared()
+
             Log.d(TAG, "ViewModel instance about to be destroyed")
          }
       }
@@ -3819,27 +3897,31 @@ C04👊 Persisting UI State
 
    Listing 4.3 Accessing the ViewModel (MainActivity.kt)
 
+
    .. code-block:: kotlin
 
-   class MainActivity : AppCompatActivity() {
+      class MainActivity : AppCompatActivity() {
 
-   private lateinit var binding: ActivityMainBinding
+         private lateinit var binding: ActivityMainBinding
 
-   private val quizViewModel: QuizViewModel by viewModels()
+         private val quizViewModel: QuizViewModel by viewModels()
 
-   override fun onCreate(savedInstanceState: Bundle?) {
-      ...
-   setContentView(binding.root)
+         override fun onCreate(savedInstanceState: Bundle?) {
+            ...
+            setContentView(binding.root)
 
-   Log.d(TAG, "Got a QuizViewModel: $quizViewModel")
 
-   binding.trueButton.setOnClickListener { view: View ->
-   checkAnswer(true)
-   }
-      ...
-   }
-      ...
-   }
+            Log.d(TAG, "Got a QuizViewModel: $quizViewModel")
+
+            binding.trueButton.setOnClickListener { view: View ->
+               checkAnswer(true)
+
+            }
+            ...
+         }
+         ...
+      }
+
    The by keyword indicates that a property is implemented using a property
    delegate . In Kotlin, a property delegate is, as the name suggests, a way to
    delegate the functionality of a property to an external unit of code. A very
@@ -3847,25 +3929,25 @@ C04👊 Persisting UI State
    allows developers to save resources by waiting to initialize the property
    only when it is accessed.
 
-   The viewModels() property delegate works the same way: Your
-   QuizViewModel will not be initialized unless you access it. By
+   The ``viewModels()`` property delegate works the same way: Your
+   ``QuizViewModel`` will not be initialized unless you access it. By
    referencing it in a logging message, you can initialize it and log the value
    on the same line.
 
-   Under the hood, the viewModels() property delegate handles many
-   things for you. When the activity queries for a QuizViewModel for the
-   first time, viewModels() creates and returns a new QuizViewModel
-   instance. When the activity queries for the QuizViewModel after a
+   Under the hood, the ``viewModels()`` property delegate handles many
+   things for you. When the activity queries for a ``QuizViewModel`` for the
+   first time, ``viewModels()`` creates and returns a new ``QuizViewModel``
+   instance. When the activity queries for the ``QuizViewModel`` after a
    configuration change, the instance that was first created is returned. When
    the activity is finished (such as when the user closes the app from the
    overview screen), the ViewModel–Activity pair is removed from
    memory.
 
-   You should not directly instantiate the QuizViewModel within your
-   Activity. Instead, rely on the viewModels() property delegate. It
+   You should not directly instantiate the ``QuizViewModel`` within your
+   ``Activity``. Instead, rely on the ``viewModels()`` property delegate. It
    might seem like instantiating the ViewModel yourself would work just the
    same, but you would lose the benefit of the same instance being returned
-   after your Activity’s configuration change.
+   after your ``Activity``’s configuration change.
 
 
 .. _S04_03:
@@ -3881,48 +3963,62 @@ C04👊 Persisting UI State
    When the user finishes an activity, they expect their UI state to be reset.
 
    When the user rotates an activity, they expect their UI state to be the same
-   after rotation. ViewModel offers a way to keep an activity’s UI state data
+   after rotation. ``ViewModel`` offers a way to keep an activity’s UI state data
    in memory across configuration changes. Its lifecycle mirrors the user’s
    expectations: It survives configuration changes and is destroyed only when
    its associated activity is finished.
 
-   When you associate a ViewModel instance with an activity’s lifecycle, as
-   you did in Listing 4.3, the ViewModel is said to be scoped to that
-   activity’s lifecycle. This means the ViewModel will remain in memory,
+   When you associate a ``ViewModel`` instance with an activity’s lifecycle, as
+   you did in Listing 4.3, the ``ViewModel`` is said to be scoped to that
+   activity’s lifecycle. This means the ``ViewModel`` will remain in memory,
    regardless of the activity’s state, until the activity is finished. Once the
    activity is finished (such as by the user closing the app from the overview
-   screen), the ViewModel instance is destroyed.
+   screen), the ``ViewModel`` instance is destroyed.
 
-   This means that the ViewModel stays in memory during a configuration
+   This means that the ``ViewModel`` stays in memory during a configuration
    change, such as rotation. During the configuration change, the activity
-   instance is destroyed and re-created, but any ViewModels scoped to the
+   instance is destroyed and re-created, but any ``ViewModel``s scoped to the
    activity stay in memory. This is depicted in Figure 4.1, using
-   MainActivity and QuizViewModel.
+   ``MainActivity`` and ``QuizViewModel``.
 
 
    Figure 4.1 MainActivity and QuizViewModel across rotation
 
+   ::
+
+      Before rotation   │    During rotation    │    After rotation
+                        │                       │ 
+      ╭──────────────╮  │                       │   ╭──────────────╮
+      │ MainActivity │  │                       │   │     New      │ 
+      ╰──────────────╯  │                       │   │ MainActivity │ 
+             │          │                       │   ╰──────────────╯ 
+      ╭──────v────────╮ │   ╭───────────────╮   │          │         
+      │ QuizViewModel │ │   │ QuizViewModel │   │   ╭──────v────────╮
+      ╰───────────────╯ │   ╰───────────────╯   │   │ QuizViewModel │
+                        │                       │   ╰───────────────╯
+                        │                       │ 
+
    To see this in action, run GeoQuiz. In Logcat, select Edit Filter Configuration in
-   the dropdown to create a new filter. In the Log Tag bo?, enter
-   QuizViewModel|MainActivity (the two class names with the pipe character “|”
+   the dropdown to create a new filter. In the Log Tag box, enter
+   ``QuizViewModel|MainActivity`` (the two class names with the pipe character “|”
    between them) to show only logs tagged with either class name. Name the
-   filter ViewModelAndActivity (or another name that makes sense to you) and
+   filter ``ViewModelAndActivity`` (or another name that makes sense to you) and
    click OK (Figure 4.2).
 
 
    Figure 4.2 Filtering QuizViewModel and MainActivity logs
 
    Now look at the logs. When MainActivity first launches and logs the
-   ViewModel in onCreate(…), a new QuizViewModel instance is
+   ``ViewModel`` in ``onCreate(…)``, a new ``QuizViewModel`` instance is
    created. This is reflected in the logs (Figure 4.3).
 
 
    Figure 4.3 QuizViewModel instance created
 
    Rotate the device. The logs show the activity is destroyed (Figure 4.4). The
-   QuizViewModel is not. When the new instance of MainActivity is
-   created after rotation, it requests a QuizViewModel. Since the original
-   QuizViewModel is still in memory, viewModels() returns that
+   ``QuizViewModel`` is not. When the new instance of ``MainActivity`` is
+   created after rotation, it requests a ``QuizViewModel``. Since the original
+   ``QuizViewModel`` is still in memory, viewModels() returns that
    instance rather than creating a new one.
 
 
@@ -3931,17 +4027,17 @@ C04👊 Persisting UI State
    QuizViewModel persists
    Finally, open the overview screen and close the application.
 
-   QuizViewModel.onCleared() is called, indicating that the
-   QuizViewModel instance is about to be destroyed, as the logs show
-   (Figure 4.5). The QuizViewModel is destroyed, along with the
-   MainActivity instance.
+   ``QuizViewModel.onCleared()`` is called, indicating that the
+   ``QuizViewModel`` instance is about to be destroyed, as the logs show
+   (Figure 4.5). The ``QuizViewModel`` is destroyed, along with the
+   ``MainActivity`` instance.
 
 
    Figure 4.5 MainActivity and QuizViewModel destroyed
 
-   The relationship between MainActivity and QuizViewModel is
-   unidirectional. The activity references the ViewModel, but the
-   ViewModel does not access the activity. Your ViewModel should never
+   The relationship between ``MainActivity`` and ``QuizViewModel`` is
+   unidirectional. The activity references the ``ViewModel``, but the
+   ``ViewModel`` does not access the activity. Your ``ViewModel`` should never
    hold a reference to an activity or a view, otherwise you will introduce a
    memory leak .
 
@@ -3952,12 +4048,14 @@ C04👊 Persisting UI State
    and garbage collection are outside the scope of this book. If you are not sure
    about these concepts, we recommend reading up on them in a Kotlin or
    Java reference.)
-   Your ViewModel instance stays in memory across rotation, while your
-   original activity instance gets destroyed. If the ViewModel held a strong
+
+
+   Your ``ViewModel`` instance stays in memory across rotation, while your
+   original activity instance gets destroyed. If the ``ViewModel`` held a strong
    reference to the original activity instance, two problems would occur: First,
    the original activity instance would not be removed from memory, and thus
-   the activity would be leaked. Second, the ViewModel would hold a
-   reference to a stale activity. If the ViewModel tried to update the view of
+   the activity would be leaked. Second, the ``ViewModel`` would hold a
+   reference to a stale activity. If the ``ViewModel`` tried to update the view of
    the stale activity, it would trigger an IllegalStateException.
 
 
@@ -3966,14 +4064,14 @@ C04👊 Persisting UI State
 4.4. Add data to your ViewModel
 --------------------------------------------------------------------------------
 
-   Now it is finally time to fix GeoQuiz’s rotation bug. QuizViewModel is
+   Now it is finally time to fix ``GeoQuiz``’s rotation bug. ``QuizViewModel`` is
    not destroyed on rotation the way MainActivity is, so you can stash the
-   activity’s UI state data in the QuizViewModel instance and it, too, will
+   activity’s UI state data in the ``QuizViewModel`` instance and it, too, will
    survive rotation.
 
-   You are going to cut the question and current inde? data from your activity
-   and paste them in your ViewModel, along with all the logic related to
-   them. Begin by cutting the currentIndex and questionBank properties
+   You are going to cut the question and current index data from your activity
+   and paste them in your ``ViewModel``, along with all the logic related to
+   them. Begin by cutting the currentIndex and ``questionBank`` properties
    from MainActivity (Listing 4.4).
 
 
@@ -3981,23 +4079,26 @@ C04👊 Persisting UI State
 
    .. code-block:: kotlin
 
-   class MainActivity : AppCompatActivity() {
-      ...
-   private val questionBank = listOf(
-   Question(R.string.question_australia, true),
-   Question(R.string.question_oceans, true),
-   Question(R.string.question_mideast, false),
-   Question(R.string.question_africa, false),
-   Question(R.string.question_americas, true),
-   Question(R.string.question_asia, true)
-   )
+      class MainActivity : AppCompatActivity() {
+         ...
+         private val questionBank = listOf(
+            Question(R.string.question_australia, true),
+            Question(R.string.question_oceans, true),
+            Question(R.string.question_mideast, false),
+            Question(R.string.question_africa, false),
+            Question(R.string.question_americas, true),
+            Question(R.string.question_asia, true)
 
-   private var currentIndex = 0
-      ...
-   }
+         )
+
+
+         private var currentIndex = 0
+         ...
+      }
+
    Now, paste the currentIndex and questionBank properties into
-   QuizViewModel, as shown in Listing 4.5. While you are editing
-   QuizViewModel, delete the init and onCleared() logging, as you
+   ``QuizViewModel``, as shown in Listing 4.5. While you are editing
+   ``QuizViewModel``, delete the init and ``onCleared()`` logging, as you
    will not use them again.
 
 
@@ -4005,29 +4106,34 @@ C04👊 Persisting UI State
 
    .. code-block:: kotlin
 
-   class QuizViewModel : ViewModel() {
+      class QuizViewModel : ViewModel() {
 
-   init {
-   Log.d(TAG, "ViewModel instance created")
-   }
+         init {
+            Log.d(TAG, "ViewModel instance created")
 
-   override fun onCleared() {
-   super.onCleared()
-   Log.d(TAG, "ViewModel instance about to be destroyed")
-   }
+         }
 
-   private val questionBank = listOf(
-   Question(R.string.question_australia, true),
-   Question(R.string.question_oceans, true),
-   Question(R.string.question_mideast, false),
-   Question(R.string.question_africa, false),
-   Question(R.string.question_americas, true),
-   Question(R.string.question_asia, true)
-   )
+         override fun onCleared() {
+            super.onCleared()
 
-   private var currentIndex = 0
-   }
-   Next, add a function to QuizViewModel to advance to the next question.
+            Log.d(TAG, "ViewModel instance about to be destroyed")
+         }
+
+         private val questionBank = listOf(
+            Question(R.string.question_australia, true),
+            Question(R.string.question_oceans, true),
+            Question(R.string.question_mideast, false),
+            Question(R.string.question_africa, false),
+            Question(R.string.question_americas, true),
+            Question(R.string.question_asia, true)
+
+         )
+
+
+         private var currentIndex = 0
+      }
+
+   Next, add a function to ``QuizViewModel`` to advance to the next question.
 
    Also, add computed properties to return the text and answer for the current
    question.
@@ -4037,27 +4143,29 @@ C04👊 Persisting UI State
 
    .. code-block:: kotlin
 
-   class QuizViewModel : ViewModel() {
+      class QuizViewModel : ViewModel() {
 
-   private val questionBank = listOf(
-      ...
-   )
+         private val questionBank = listOf(
+            ...
+         )
 
-   private var currentIndex: Int = 0
 
-   val currentQuestionAnswer: Boolean
-   get() = questionBank[currentIndex].answer
+         private var currentIndex: Int = 0
 
-   val currentQuestionText: Int
-   get() = questionBank[currentIndex].textResId
+         val currentQuestionAnswer: Boolean
+         get() = questionBank[currentIndex].answer
 
-   fun moveToNext() {
-   currentIndex = (currentIndex + 1) % questionBank.size
-   }
-   }
-   Earlier, we said that a ViewModel stores all the data that its associated
+         val currentQuestionText: Int
+         get() = questionBank[currentIndex].textResId
+
+         fun moveToNext() {
+            currentIndex = (currentIndex + 1) % questionBank.size
+         }
+      }
+
+   Earlier, we said that a ``ViewModel`` stores all the data that its associated
    screen needs, formats it, and makes it easy to access. This allows you to
-   remove presentation logic code, such as the current inde?, from the activity
+   remove presentation logic code, such as the current index, from the activity
    – which in turn keeps your activity simpler. And keeping activities as
    simple as possible is a good thing: Any logic you put in your activity might
    be unintentionally affected by the activity’s lifecycle. Also, removing
@@ -4067,41 +4175,44 @@ C04👊 Persisting UI State
    Next, finish cleaning up MainActivity. You are ready to delete the old
    computation of currentIndex, and you will also make a couple other
    changes. Since you do not want to directly access MainActivity from
-   within your ViewModel, you will leave the updateQuestion() and
+   within your ``ViewModel``, you will leave the ``updateQuestion()`` and
    checkAnswer(Boolean)functions in MainActivity – but you will
    update them to call through to the new, smarter computed properties in
-   QuizViewModel.
+   ``QuizViewModel``.
 
 
    Listing 4.7 Updating question through QuizViewModel (MainActivity.kt)
 
    .. code-block:: kotlin
 
-   class MainActivity : AppCompatActivity() {
-      ...
-   override fun onCreate(savedInstanceState: Bundle?) {
-      ...
-   binding.nextButton.setOnClickListener {
-   currentIndex = (currentIndex + 1) % questionBank.size
-   quizViewModel.moveToNext()
-   updateQuestion()
-   }
-      ...
-   }
-      ...
-   private fun updateQuestion() {
-   val questionTextResId = questionBank[currentIndex].textResId
-   val questionTextResId = quizViewModel.currentQuestionText
-   binding.questionTextView.setText(questionTextResId)
-   }
+      class MainActivity : AppCompatActivity() {
+         ...
+         override fun onCreate(savedInstanceState: Bundle?) {
+            ...
+            binding.nextButton.setOnClickListener {
+               currentIndex = (currentIndex + 1) % questionBank.size
+               quizViewModel.moveToNext()
 
-   private fun checkAnswer(userAnswer: Boolean) {
-   val correctAnswer = questionBank[currentIndex].answer
-   val correctAnswer = quizViewModel.currentQuestionAnswer
-      ...
-   }
-   Run GeoQuiz, press NEXT , and rotate the device or emulator. No matter how
-   many times you rotate, the newly minted MainActivity will
+               updateQuestion()
+
+            }
+            ...
+         }
+         ...
+         private fun updateQuestion() {
+            val questionTextResId = questionBank[currentIndex].textResId
+            val questionTextResId = quizViewModel.currentQuestionText
+            binding.questionTextView.setText(questionTextResId)
+         }
+
+         private fun checkAnswer(userAnswer: Boolean) {
+            val correctAnswer = questionBank[currentIndex].answer
+            val correctAnswer = quizViewModel.currentQuestionAnswer
+            ...
+         }
+
+   Run ``GeoQuiz``, press ``NEXT`` , and rotate the device or emulator. No matter how
+   many times you rotate, the newly minted ``MainActivity`` will
    “remember” what question you were on. Do a happy dance to celebrate
    solving the UI state loss on rotation bug.
 
@@ -4117,7 +4228,7 @@ C04👊 Persisting UI State
    Configuration changes are not the only time the OS can destroy an activity
    even though the user does not intend it to.
 
-   Each app gets its own process (more specifically, a Linu? process)
+   Each app gets its own ``process`` (more specifically, a Linux process)
    containing a single thread to execute UI-related work on and a piece of
    memory to store objects in. An app’s process can be destroyed by the OS if
    the user navigates away for a while and Android needs to reclaim memory.
@@ -4142,24 +4253,24 @@ C04👊 Persisting UI State
    taking any of the app’s in-memory activities with it.
 
    When the OS destroys the app’s process, any of the app’s activities and
-   ViewModels stored in memory will be wiped away. And the OS will not
+   ``ViewModels`` stored in memory will be wiped away. And the OS will not
    be nice about the destruction. There is no guarantee that it will call any of
-   the activity or ViewModel lifecycle callback functions.
+   the activity or ``ViewModel`` lifecycle callback functions.
 
    So how can you save UI state data and use it to reconstruct the activity so
    that the user never even knows the activity was destroyed? One way to do
    this is to store data in saved instance state . Saved instance state is data
    the OS temporarily stores outside of the activity. You can add values to
-   saved instance state by using a SavedStateHandle.
+   saved instance state by using a ``SavedStateHandle``.
 
    Back in the early days of Android, you would be responsible for handling
    saved instance state like it was a lifecycle callback. Now, you can pass a
-   SavedStateHandle into your ViewModel through the constructor.
+   ``SavedStateHandle`` into your ``ViewModel`` through the constructor.
 
-   You can use the SavedStateHandle like a key-value map, storing
+   You can use the ``SavedStateHandle`` like a key-value map, storing
    simple pieces of data like integers and strings. This slides very cleanly into
    the code you have already written; all you will need to change is to make
-   currentIndex a computed property.
+   ``currentIndex`` a computed property.
 
    Make it happen in QuizViewModel.kt.
 
@@ -4168,20 +4279,21 @@ C04👊 Persisting UI State
 
    .. code-block:: kotlin
 
-   private const val TAG = "QuizViewModel"
-   const val CURRENT_INDEX_KEY = "CURRENT_INDEX_KEY"
+      private const val TAG = "QuizViewModel"
+      const val CURRENT_INDEX_KEY = "CURRENT_INDEX_KEY"
 
-   class QuizViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() {
-      ...
-   private var currentIndex: Int = 0
-   get() = savedStateHandle.get(CURRENT_INDEX_KEY) ?: 0
-   set(value) = savedStateHandle.set(CURRENT_INDEX_KEY, value)
-      ...
-   }
-   When you first launch the activity, the value for currentIndex in the
-   SavedStateHandle map is null, so for currentIndex’s getter, you
+      class QuizViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() {
+         ...
+         private var currentIndex: Int = 0
+         get() = savedStateHandle.get(CURRENT_INDEX_KEY) ?: 0
+         set(value) = savedStateHandle.set(CURRENT_INDEX_KEY, value)
+         ...
+      }
+
+   When you first launch the activity, the value for ``currentIndex`` in the
+   ``SavedStateHandle`` map is null, so for ``currentIndex``’s getter, you
    provide a default value of 0. This replicates the existing behavior of
-   initializing currentIndex to 0.
+   initializing ``currentIndex`` to 0.
 
    Rotation is easy to test. And, luckily, so is the low-memory situation. Try it
    out now to see for yourself.
@@ -4194,27 +4306,27 @@ C04👊 Persisting UI State
 
    Figure 4.6 Don’t keep activities
 
-   Now run GeoQuiz on the device, press NEXT to move to another question,
+   Now run ``GeoQuiz`` on the device, press NEXT to move to another question,
    and navigate to the Home screen. Returning to the Home screen causes the
-   activity to receive calls to onPause() and onStop(), as you know. The
+   activity to receive calls to ``onPause()`` and ``onStop()``, as you know. The
    logs tell you that the activity has also been destroyed, just as if the Android
    OS had reclaimed it for its memory.
 
    Restore the app (using the list of apps on the device) to see whether your
-   state was saved as you expected. Pat yourself on the back when GeoQuiz
+   state was saved as you expected. Pat yourself on the back when ``GeoQuiz``
    opens to the question you last saw.
 
    Be sure to turn Don’t keep activities off when you are done testing, as it will
    cause a performance decrease.
 
    That is all you have to do to correctly handle process death. You might note
-   that you store currentIndex within the SavedStateHandle and not,
-   say, questionBank. SavedStateHandle has its limitations. The data
-   within SavedStateHandle is serialized and written to disk, so you
+   that you store ``currentIndex`` within the ``SavedStateHandle`` and not,
+   say, ``questionBank``. ``SavedStateHandle`` has its limitations. The data
+   within ``SavedStateHandle`` is serialized and written to disk, so you
    should avoid stashing any large or complex objects. You should only use
-   SavedStateHandle to store the minimal amount of information
-   necessary to re-create the UI state (for example, the current question inde?).
-   Neither ViewModel nor SavedStateHandle is a solution for long-
+   ``SavedStateHandle`` to store the minimal amount of information
+   necessary to re-create the UI state (for example, the current question index).
+   Neither ``ViewModel`` nor ``SavedStateHandle`` is a solution for long-
    term storage. If your app needs to store data that should live as long as the
    app is installed on the device, regardless of your activity’s state, use a
    persistent storage alternative. You will learn about two local persistent
@@ -4223,19 +4335,19 @@ C04👊 Persisting UI State
    on a remote server somewhere. You will learn how to access data from a
    web server in Chapter 20.
 
-   In this chapter, you squashed GeoQuiz’s state-loss bugs by correctly
+   In this chapter, you squashed ``GeoQuiz``’s state-loss bugs by correctly
    accounting for configuration changes and process death. In the next two
    chapters, you will learn how to use Android Studio’s debugging and testing
    tools to troubleshoot other, more app-specific bugs that might arise and to
    test your app’s functionality. In Chapter 7, you will add a new feature to
-   GeoQuiz: cheating.
+   ``GeoQuiz``: cheating.
 
 .. _S04_06:
 
 4.6. For the More Curious: Jetpack, AndroidX, and Architecture Components
 --------------------------------------------------------------------------------
 
-   The androidx.lifecycle library containing ViewModel is part of
+   The androidx.lifecycle library containing ``ViewModel`` is part of
    Android Jetpack Components. Android Jetpack Components, called Jetpack
    for short, is a set of libraries created by Google to make various aspects of
    Android development easier. You can see a list of the Jetpack libraries at
@@ -4249,10 +4361,10 @@ C04👊 Persisting UI State
 
    Jetpack libraries make up the backbone of most modern Android apps.
 
-   When you generated GeoQuiz, Android Studio included a few of them by
+   When you generated ``GeoQuiz``, Android Studio included a few of them by
    default. As you continue in this book, you will encounter several Jetpack
-   libraries, such as Fragments (Chapter 9), Room (Chapter 12), and
-   WorkManager (Chapter 22).
+   libraries, such as ``Fragments`` (Chapter 9), ``Room`` (Chapter 12), and
+   ``WorkManager`` (Chapter 22).
 
    Some of the Jetpack components are entirely new. Others have been around
    for a while but were previously lumped into a handful of much larger
@@ -4283,7 +4395,7 @@ C04👊 Persisting UI State
    If you want to lock your app into portrait or landscape mode because it
    makes sense for your app , you should still program defensively against
    configuration changes and process death. And you are now equipped to do
-   so with your newfound knowledge of ViewModel and saved instance
+   so with your newfound knowledge of ``ViewModel`` and saved instance
    state.
 
    In short, dealing with UI state loss by blocking configuration changes is bad
@@ -4295,33 +4407,33 @@ C04👊 Persisting UI State
 4.8. For the More Curious: Activity and Instance State
 --------------------------------------------------------------------------------
 
-   SavedStateHandle is an easy-to-use API that allows you to safely
+   ``SavedStateHandle`` is an easy-to-use API that allows you to safely
    store and retrieve instance state and persist that information even if your
    process is killed. But it has not always been around. Before
-   SavedStateHandle was released in 2020, developers were expected to
-   use APIs within Activity.
+   ``SavedStateHandle`` was released in 2020, developers were expected to
+   use APIs within ``Activity``.
 
    To store instance state, developers used the
-   Activity.onSaveInstanceState(Bundle) function. Similar to
-   Activity.onPause() and Activity.onStop(),
-   Activity.onSaveInstanceState(Bundle) is like a lifecycle
+   ``Activity.onSaveInstanceState(Bundle)`` function. Similar to
+   ``Activity.onPause()`` and ``Activity.onStop()``,
+   ``Activity.onSaveInstanceState(Bundle)`` is like a lifecycle
    callback called during the teardown of an activity. To retrieve instance state,
    developers used an API you are already familiar with:
-   Activity.onCreate(Bundle?). The Bundle? passed in as a
+   ``Activity.onCreate(Bundle?)``. The ``Bundle?`` passed in as a
    parameter is the saved instance state.
 
-   With the adoption of the ViewModel library throughout the Android
+   With the adoption of the ``ViewModel`` library throughout the Android
    ecosystem, using these old APIs became awkward and resulted in confusing
    code. There were multiple places where you had to pass data between your
-   ViewModel and Activity, and keeping state consistent between the
+   ``ViewModel`` and ``Activity``, and keeping state consistent between the
    two was error prone.
 
-   With the SavedStateHandle and ViewModel classes, you can keep
-   all the instance state business logic within your ViewModel. That means
-   you can avoid the awkward dance between your ViewModel and
-   Activity – and also make your Activity simpler. So if you have an
-   old codebase and see the old Activity APIs used to store and retrieve
-   instance state, consider refactoring to use SavedStateHandle instead.
+   With the ``SavedStateHandle`` and ``ViewModel`` classes, you can keep
+   all the instance state business logic within your ``ViewModel``. That means
+   you can avoid the awkward dance between your ``ViewModel`` and
+   ``Activity`` – and also make your ``Activity`` simpler. So if you have an
+   old codebase and see the old ``Activity`` APIs used to store and retrieve
+   instance state, consider refactoring to use ``SavedStateHandle`` instead.
 
 
 .. _C05:
@@ -4334,7 +4446,7 @@ C05👊 Debugging Android Apps
    Android Studio.
 
    To practice debugging, the first step is to break something. In
-   MainActivity.kt, comment out the code in onCreate(Bundle?)
+   ``MainActivity.kt``, comment out the code in onCreate(Bundle?)
    where you initialize binding.
 
 
@@ -4342,19 +4454,22 @@ C05👊 Debugging Android Apps
 
    .. code-block:: kotlin
 
-   override fun onCreate(savedInstanceState: Bundle?) {
-   super.onCreate(savedInstanceState)
-   Log.d(TAG, "onCreate(Bundle?) called")
-   // binding = ActivityMainBinding.inflate(layoutInflater)
-      ...
-   }
-   Run GeoQuiz and see what happens. The app will crash and burn almost
+      override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+
+         Log.d(TAG, "onCreate(Bundle?) called")
+
+         // binding = ActivityMainBinding.inflate(layoutInflater)
+         ...
+      }
+
+   Run ``GeoQuiz`` and see what happens. The app will crash and burn almost
    immediately.
 
    If you watch the screen, you may see the app appear for a brief moment
    before vanishing without a word. On older versions of Android, you might
    see a dialog pop up. If you do not, launch the app again by pressing the
-   GeoQuiz icon on the launcher screen. This time, when the app crashes you
+   ``GeoQuiz`` icon on the launcher screen. This time, when the app crashes you
    will see a message like the one shown in Figure 5.1.
 
 
@@ -4370,13 +4485,13 @@ C05👊 Debugging Android Apps
 5.1. Exceptions and Stack Traces
 --------------------------------------------------------------------------------
 
-   Expand the Logcat tool window so that you can see what has happened. If
-   you scroll up and down in Logcat, you should find an e?panse of red, as
+   Expand the ``Logcat`` tool window so that you can see what has happened. If
+   you scroll up and down in ``Logcat``, you should find an expanse of red, as
    shown in Figure 5.2. This is a standard AndroidRuntime exception report.
 
-   If you do not see much in Logcat and cannot find the exception, you may
+   If you do not see much in ``Logcat`` and cannot find the exception, you may
    need to select the Show only selected application or No Filters option in the filter
-   dropdown. On the other hand, if you see too much in Logcat, you can adjust
+   dropdown. On the other hand, if you see too much in ``Logcat``, you can adjust
    the log level from Verbose to Error , which will show only the most severe log
    messages. You can also search for the text fatal exception , which will bring
    you straight to the exception that caused the app to crash.
@@ -4393,14 +4508,13 @@ C05👊 Debugging Android Apps
    compiled to the same kind of low-level bytecode Java code is compiled to.
 
    During that process, many Kotlin exceptions are mapped to Java.lang
-   exception classes through type-aliasing. kotlin.RuntimeException
-   is the superclass of
-   kotlin.UninitializedPropertyAccessException, and it is
-   aliased to java.lang.RuntimeException when running on Android.
+   exception classes through type-aliasing. ``kotlin.RuntimeException``
+   is the superclass of ``kotlin.UninitializedPropertyAccessException``, and it is
+   aliased to ``java.lang.RuntimeException`` when running on Android.
 
    In most of the code you will write, the last exception in the Logcat report –
    the one with no cause – is the interesting one. Here, the exception without a
-   cause is a kotlin.UninitializedPropertyAccessException.
+   cause is a ``kotlin.UninitializedPropertyAccessException``.
 
    The line just below this exception is the first line in its stack trace. This line
    tells you the class and function where the exception occurred as well as
@@ -4408,9 +4522,8 @@ C05👊 Debugging Android Apps
    and Android Studio will take you to that line in your source code.
 
    The line you are taken to is the first use of the binding variable, inside
-   onCreate(Bundle?). The name
-   UninitializedPropertyAccessException gives you a hint to
-   the problem: This variable was not initialized.
+   ``onCreate(Bundle?)``. The name ``UninitializedPropertyAccessException`` 
+   gives you a hint to the problem: This variable was not initialized.
 
    Uncomment the line initializing binding to fix the bug.
 
@@ -4419,12 +4532,15 @@ C05👊 Debugging Android Apps
 
    .. code-block:: kotlin
 
-   override fun onCreate(savedInstanceState: Bundle?) {
-   super.onCreate(savedInstanceState)
-   Log.d(TAG, "onCreate(Bundle?) called")
-   // binding = ActivityMainBinding.inflate(layoutInflater)
-      ...
-   }
+      override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+
+         Log.d(TAG, "onCreate(Bundle?) called")
+
+         // binding = ActivityMainBinding.inflate(layoutInflater)
+         ...
+      }
+
    When you encounter runtime exceptions, remember to look for the last
    exception in Logcat and the first line in its stack trace that refers to code
    that you have written. That is where the problem occurred, and it is the best
@@ -4447,23 +4563,24 @@ C05👊 Debugging Android Apps
    you pressed the NEXT button. That would be a noncrashing, misbehaving
    bug.
 
-   In QuizViewModel.kt, comment out the code in the moveToNext()
-   function that increments the current question inde?.
+   In ``QuizViewModel.kt``, comment out the code in the ``moveToNext()``
+   function that increments the current question index.
 
 
    Listing 5.3 Forgetting a critical line of code (QuizViewModel.kt)
 
    .. code-block:: kotlin
 
-   fun moveToNext() {
-   // currentIndex = (currentIndex + 1) % questionBank.size
-   }
-   Run GeoQuiz and press the NEXT button. You should see no effect.
+      fun moveToNext() {
+         // currentIndex = (currentIndex + 1) % questionBank.size
+      }
+
+   Run ``GeoQuiz`` and press the ``NEXT`` button. You should see no effect.
 
    This bug is trickier than the last bug. It is not throwing an exception, so
    fixing the bug is not a simple matter of making the exception go away. On
    top of that, this misbehavior could be caused in two different ways: The
-   inde? might not be changed, or code to update the UI might not be called.
+   index might not be changed, or code to update the UI might not be called.
 
    You know what caused this bug, because you just introduced it
    intentionally. But if this type of bug popped up on its own and you had no
@@ -4478,44 +4595,45 @@ C05👊 Debugging Android Apps
 5.3. Logging stack traces
 --------------------------------------------------------------------------------
 
-   In QuizViewModel, add a log statement to moveToNext().
+   In ``QuizViewModel``, add a log statement to ``moveToNext()``.
 
 
    Listing 5.4 Exception for fun and profit (QuizViewModel.kt)
 
    .. code-block:: kotlin
 
-   fun moveToNext() {
-   Log.d(TAG, "U?dating question text", Exception())
-   // currentIndex = (currentIndex + 1) % questionBank.size
-   }
-   The Log.d(String, String, Throwable) version of Log.d logs
+      fun moveToNext() {
+         Log.d(TAG, "Updating question text", Exception())
+         // currentIndex = (currentIndex + 1) % questionBank.size
+      }
+
+   The ``Log.d(String, String, Throwable)`` version of ``Log.d`` logs
    the entire stack trace, like the
-   UninitializedPropertyAccessException you saw earlier. The
+   ``UninitializedPropertyAccessException`` you saw earlier. The
    stack trace will tell you where the call to moveToNext() was made.
 
-   The exception that you pass to Log.d(String, String,
-   Throwable) does not have to be a thrown exception that you caught. You
-   can create a brand new Exception and pass it to the function without
+   The exception that you pass to ``Log.d(String, String, Throwable)``
+   does not have to be a thrown exception that you caught. You
+   can create a brand new ``Exception`` and pass it to the function without
    ever throwing it, and you will get a report of where the exception was
    created.
 
-   Run GeoQuiz, press the NEXT button, and then check the output in Logcat
-   (Figure 5.3).
+   Run ``GeoQuiz``, press the ``NEXT`` button, and then check the output in 
+   ``Logcat`` (Figure 5.3).
 
 
    Figure 5.3 The results
 
    The top line in the stack trace is the line where you logged out the
-   Exception. On the next line, you can see where moveToNext() was
-   called from within your MainActivity. Click the link on this line, and
+   ``Exception``. On the next line, you can see where ``moveToNext()`` was
+   called from within your ``MainActivity``. Click the link on this line, and
    you will be taken to where you commented out the line to increment your
-   question inde?. But do not get rid of the bug; you are going to use the
+   question index. But do not get rid of the bug; you are going to use the
    debugger to find it again in a moment.
 
    Logging out stack traces is a powerful tool, but it is also a verbose one.
 
-   Leave a bunch of these hanging around, and soon Logcat will be an
+   Leave a bunch of these hanging around, and soon ``Logcat`` will be an
    unmanageable mess. Also, a competitor might steal your ideas by reading
    your stack traces to understand what your code is doing.
 
@@ -4523,7 +4641,7 @@ C05👊 Debugging Android Apps
    exactly what you need. If you are seeking help with a problem at
    stackoverflow.com or forums.bignerdranch.com, it often
    helps to include a stack trace. You can copy and paste lines directly from
-   Logcat.
+   ``Logcat``.
 
 
 .. _S05_04:
@@ -4532,11 +4650,11 @@ C05👊 Debugging Android Apps
 --------------------------------------------------------------------------------
 
    Now you will use the debugger that comes with Android Studio to track
-   down the same bug. You will set a breakpoint in moveToNext() to see
+   down the same bug. You will set a breakpoint in ``moveToNext()`` to see
    whether it was called. A breakpoint pauses execution before the line
    executes and allows you to examine line by line what happens next.
 
-   In QuizViewModel.kt, return to the moveToNext() function. Next
+   In ``QuizViewModel.kt``, return to the ``moveToNext()`` function. Next
    to the first line of this function, click the gray gutter area in the lefthand
    margin. You should see a red circle in the gutter like the one shown in
    Figure 5.4. This is a breakpoint.
@@ -4555,19 +4673,20 @@ C05👊 Debugging Android Apps
 
    In some circumstances, you may want to debug a running app without
    relaunching it. You can attach the debugger to a running application by
-   clicking the Attach Debugger to Android Process button shown in Figure 5.5 or by
-   navigating to Run → Attach to process... . Choose your app’s process on the
+   clicking the ``Attach Debugger to Android Process`` button shown in Figure 5.5 or by
+   navigating to ``Run → Attach to process..``. . Choose your app’s process on the
    dialog that appears and click OK , and the debugger will attach. Note that
    breakpoints are only active when the debugger is attached, so any
    breakpoints that are hit before you attach the debugger will be ignored.
 
    Click the NEXT button. In Figure 5.6, you can see that
-   QuizViewModel.kt is now open in the editor and that the line with the
+   ``QuizViewModel.kt`` is now open in the editor and that the line with the
    breakpoint where execution has paused is highlighted. The debug tool
    window at the bottom of the screen is now visible. It contains the Frames
    and Variables views. (If the debug tool window did not open automatically,
    you can open it by clicking the Debug tool window bar at the bottom of the
    Android Studio window.)
+
 
    Figure 5.6 Stop right there!
 
@@ -4582,39 +4701,39 @@ C05👊 Debugging Android Apps
    Now that you are stopped at an interesting point of execution, you can take
    a look around. The Variables view allows you to examine the values of the
    objects in your program. At the top, you should see the value this (the
-   QuizViewModel instance itself).
+   ``QuizViewModel`` instance itself).
 
    Expand the this variable to see all the variables declared in
-   QuizViewModel and in QuizViewModel’s superclass (ViewModel).
+   ``QuizViewModel`` and in ``QuizViewModel``’s superclass (``ViewModel``).
 
    For now, focus on the variables that you created.
 
    You are only interested in one value – currentIndex – but it is not here.
 
    That is because currentIndex is a computed property. Note that you
-   also do not see currentQuestionAnswer or
-   currentQuestionText. But questionBank is there. Expand it and
-   look at each one of its Questions (Figure 5.8).
+   also do not see ``currentQuestionAnswer`` or
+   ``currentQuestionText``. But ``questionBank`` is there. Expand it and
+   look at each one of its ``Questions`` (Figure 5.8).
 
 
    Figure 5.8 Inspecting variable values at runtime
 
-   Even though you do not see currentIndex, you can still access it. Click
-   the Evaluate Expression button within the debug tool window. In the Expression:
-   text field, enter currentIndex and press the Evaluate button (Figure 5.9).
+   Even though you do not see ``currentIndex``, you can still access it. Click
+   the ``Evaluate Expression`` button within the debug tool window. In the ``Expression``:
+   text field, enter ``currentIndex`` and press the ``Evaluate`` button (Figure 5.9).
 
 
    Figure 5.9 Evaluating the current index
 
-   The debugger will evaluate and print the current value of currentIndex.
+   The debugger will evaluate and print the current value of ``currentIndex``.
 
    You pressed the NEXT button, which should have resulted in
-   currentIndex being incremented from 0 to 1 . So you would expect
-   currentIndex to have a value of 1 . However, as shown in Figure 5.9,
-   currentIndex still has a value of 0.
+   ``currentIndex`` being incremented from 0 to 1 . So you would expect
+   ``currentIndex`` to have a value of 1 . However, as shown in Figure 5.9,
+   ``currentIndex`` still has a value of 0.
 
-   Close the Evaluate window. As you already knew, the problematic behavior
-   results from the code within QuizViewModel.moveToNext() never
+   Close the ``Evaluate`` window. As you already knew, the problematic behavior
+   results from the code within ``QuizViewModel.moveToNext()`` never
    being called (because you commented it out). You will want to fix this
    implementation – but before you make any changes to code, you should
    stop debugging your app. If you edit your code while debugging, the code
@@ -4626,25 +4745,27 @@ C05👊 Debugging Android Apps
    simply disconnect the debugger. To stop the program, click the Stop button
    shown in Figure 5.7.
 
-   Now return your QuizViewModel to its former glory. You are done with
-   the log message (and the TAG constant), so delete them to keep your file
+   Now return your ``QuizViewModel`` to its former glory. You are done with
+   the log message (and the ``TAG`` constant), so delete them to keep your file
    tidy. Also, remove the breakpoint you set by clicking it in the gutter.
 
 
    Listing 5.5 Returning to normalcy (QuizViewModel.kt)
 
+
    .. code-block:: kotlin
 
-   const val CURRENT_INDEX_KEY = "CURRENT_INDEX_KEY"
-   private const val TAG = "QuizViewModel"
+      const val CURRENT_INDEX_KEY = "CURRENT_INDEX_KEY"
+      private const val TAG = "QuizViewModel"
 
-   class QuizViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() {
-      ...
-   fun moveToNext() {
-   Log.d(TAG, "U?dating question text", Exception())
-   // currentIndex = (currentIndex + 1) % questionBank.size
-   }
-   }
+      class QuizViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() {
+         ...
+         fun moveToNext() {
+            Log.d(TAG, "Updating question text", Exception())
+            // currentIndex = (currentIndex + 1) % questionBank.size
+         }
+      }
+
    You have tried two ways of tracking down a misbehaving line of code:
    stack trace logging and setting a breakpoint in the debugger. Which is
    better? Each has its uses, and one or the other will probably end up being
@@ -4677,7 +4798,7 @@ C05👊 Debugging Android Apps
 5.6. Using Android Lint
 --------------------------------------------------------------------------------
 
-   Android Lint (or just “Lint”) is a static analyzer for Android code. A
+   Android Lint (or just “Lint”) is a ``static analyzer`` for Android code. A
    static analyzer is a program that examines your code to find defects without
    running it. Lint uses its knowledge of the Android frameworks to look
    deeper into your code and find problems that the compiler cannot. In many
@@ -4689,7 +4810,7 @@ C05👊 Debugging Android Apps
    You can manually run Lint to see all the potential issues in your project,
    including those that are less serious. In fact, let’s add a small issue to the
    project. Suppose you did not like the question text being centered, so you
-   decided to left-align it. Open activity_main.xml and make that
+   decided to left-align it. Open ``activity_main.xml`` and make that
    change.
 
 
@@ -4697,22 +4818,22 @@ C05👊 Debugging Android Apps
 
    .. code-block:: xml
 
-   <?xml version="1.0" encoding="utf-8"?>
-   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-   ...>
+      <?xml version="1.0" encoding="utf-8"?>
+      <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      ...>
 
-   <TextView
-   android:id="@+id/question_text_view"
-   android:layout_width="wrap_content"
-   android:layout_height="wrap_content"
-   android:gravity="center"
-   android:gravity="left"
-   android:padding="24dp"
-   tools:text="@string/question_australia"/>
+      <TextView
+         android:id="@+id/question_text_view"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:gravity="center"
+         android:gravity="left"
+         android:padding="24dp"
+         tools:text="@string/question_australia"/>
+         ...
+      </LinearLayout>
 
-      ...
-   </LinearLayout>
-   Once you have made that change, select Analyze → Inspect Code... from the
+   Once you have made that change, select ``Analyze → Inspect Code...`` from the
    menu bar. You will be asked which parts of your project you would like to
    inspect. Choose Whole project and click OK . Android Studio will run Android
    Lint as well as a few other static analyzers on your code, such as spelling
@@ -4730,27 +4851,30 @@ C05👊 Debugging Android Apps
    added to Lint, new restrictions may have been added to the Android
    framework, and newer versions of tools and dependencies may have
    become available.)
+
+
    Expand Internationalization and then, under it, expand Bidirectional Text to see
    more detailed information on this issue in your project. Click Using left/right
    instead of start/end attributes to learn about this particular warning (Figure 5.11).
 
    Figure 5.11 Lint warning description
 
-   Lint is warning you that using right and left values for layout attributes
+   Lint is warning you that using ``right`` and ``left`` values for layout attributes
    could be problematic if your app is used on a device set to a language that
    reads from right to left instead of left to right. (You will learn about making
    your app ready for international use in Chapter 18.)
-   Dig further to see which file and line or lines of code caused the warning.
 
+
+   Dig further to see which file and line or lines of code caused the warning.
    Expand Using left/right instead of start/end attributes . Click the offending file,
-   activity_main.xml, to see the snippet of code with the problem
+   ``activity_main.xml``, to see the snippet of code with the problem
    (Figure 5.12).
 
 
    Figure 5.12 Viewing the code that caused the warning
 
    Double-click the warning description that appears under the filename. This
-   will open activity_main.xml in the editor tool window and place the
+   will open ``activity_main.xml`` in the editor tool window and place the
    cursor on the line causing the warning (which, not coincidentally, is the
    change you just made).
 
@@ -4766,10 +4890,10 @@ C05👊 Debugging Android Apps
 
    The Lint tool provides detailed information about each issue it finds and
    provides suggestions for how to address it. We leave it to you as an exercise
-   to review the other issues Lint found in GeoQuiz. You can ignore the issues,
+   to review the other issues Lint found in ``GeoQuiz``. You can ignore the issues,
    fix them as Lint recommends, or use the Suppress button in the problem
    description pane to suppress the warnings in the future. For the remainder
-   of the GeoQuiz chapters, we will assume you left the remaining Lint issues
+   of the ``GeoQuiz`` chapters, we will assume you left the remaining Lint issues
    unaddressed.
 
 
@@ -4783,39 +4907,40 @@ C05👊 Debugging Android Apps
    happen while you are trying to run your app. Sometimes these build errors
    will persist or appear seemingly out of nowhere. If this happens to you, here
    are some things you can try:
+
    Recheck the validity of the XML in your resource files
-   Gradle does a good ?ob of surfacing errors to developers in an
-   actionable way. However, there are times when your app will not
-   compile but Gradle gives you nothing to work with. Often, this is
-   caused by a typo in one of your XML files. Layout XML is not
-   always validated, so typos in these files may not be pointedly
-   brought to your attention. Finding the typo and resaving the file
-   should fix the issue.
+      Gradle does a good job of surfacing errors to developers in an
+      actionable way. However, there are times when your app will not
+      compile but Gradle gives you nothing to work with. Often, this is
+      caused by a typo in one of your XML files. Layout XML is not
+      always validated, so typos in these files may not be pointedly
+      brought to your attention. Finding the typo and resaving the file
+      should fix the issue.
 
    Clean your build
-   Select Build → Clean Project . Android Studio will rebuild the project
-   from scratch, which often results in an error-free build. We can all
-   use a deep clean every now and then.
+      Select Build → Clean Project . Android Studio will rebuild the project
+      from scratch, which often results in an error-free build. We can all
+      use a deep clean every now and then.
 
    Sync your project with Gradle
-   If you make changes to your build.gradle files, you will
-   need to sync those changes to update your project’s build settings.
+      If you make changes to your build.gradle files, you will
+      need to sync those changes to update your project’s build settings.
 
    Select File → Sync Project with Gradle Files . Android Studio will
-   rebuild the project from scratch with the correct project settings,
-   which can help to resolve issues after changing your Gradle
-   configuration.
+      rebuild the project from scratch with the correct project settings,
+      which can help to resolve issues after changing your Gradle
+      configuration.
 
    Run Android Lint
-   Pay close attention to the warnings from Lint. With this tool, you
-   will often discover unexpected issues.
+      Pay close attention to the warnings from Lint. With this tool, you
+      will often discover unexpected issues.
 
    Clean your project
-   If you have gotten this far down the debugging trail, things are
-   not good. On very rare occasions, clearing out the caches that
-   Android Studio uses could help solve your problem. Select File →
-   Invalidate Caches/Restart... . Android Studio will perform some
-   maintenance on the project and restart itself when it is done.
+      If you have gotten this far down the debugging trail, things are
+      not good. On very rare occasions, clearing out the caches that
+      Android Studio uses could help solve your problem. Select File →
+      Invalidate Caches/Restart... . Android Studio will perform some
+      maintenance on the project and restart itself when it is done.
 
    If you are still having problems with resources (or are having different
    problems), give the error messages and your layout files a fresh look. It is
@@ -4838,8 +4963,8 @@ C05👊 Debugging Android Apps
    than benefit. In these instances, you can use a conditional breakpoint to
    limit the number of times execution pauses. You can access the dialog to set
    up a conditional breakpoint by right-clicking an existing breakpoint. Try
-   pausing execution within the updateQuestion() function within
-   MainActivity only when the answer to the current question is “true.”
+   pausing execution within the ``updateQuestion()`` function within
+   ``MainActivity`` only when the answer to the current question is “true.”
 
 .. _S05_09:
 
@@ -4849,7 +4974,7 @@ C05👊 Debugging Android Apps
    For support debugging layout file issues, the layout inspector can be used to
    interactively inspect how a layout file is rendered to the screen. To use the
    layout inspector, make sure GeoQuiz is running in the emulator and select
-   Tools → Layout Inspector from the menu bar. Once the inspector is activated,
+   ``Tools → Layout Inspector`` from the menu bar. Once the inspector is activated,
    you can explore the properties of your layout by clicking the elements
    within the layout inspector view.
 
@@ -4864,7 +4989,7 @@ C05👊 Debugging Android Apps
    useful when assessing and tuning the performance of your app.
 
    To view the profiler tool window, run your app on a connected Android
-   device or emulator and select View → Tool Windows → Profiler from the menu
+   device or emulator and select ``View → Tool Windows → Profiler`` from the menu
    bar. Once the profiler is open, you can see a timeline with sections for CPU,
    memory, network, and energy.
 
@@ -4880,7 +5005,7 @@ C05👊 Debugging Android Apps
 C06👊 Testing
 =============
 
-   Up to this point, whenever you have made a change in GeoQuiz, you have
+   Up to this point, whenever you have made a change in ``GeoQuiz``, you have
    been forced to compile and deploy an updated version of your app. After
    waiting for the updated app to install on your device, you can finally
    interact with the app and observe the new changes. This is a relatively slow
@@ -4896,7 +5021,7 @@ C06👊 Testing
    worked stop working.
 
    In this chapter, you will get your feet wet by writing some tests to validate
-   existing functionality within GeoQuiz.
+   existing functionality within ``GeoQuiz``.
 
 
 .. _S06_01:
@@ -4904,8 +5029,8 @@ C06👊 Testing
 6.1. Two Types of Tests
 --------------------------------------------------------------------------------
 
-   Unit tests on Android fall into two buckets: JVM tests and instrumented
-   tests . JVM tests execute on your development machine (that is, your
+   ``Unit tests`` on Android fall into two buckets: ``JVM tests`` and ``instrumented
+   tests`` . JVM tests execute on your development machine (that is, your
    laptop or desktop) through a JVM. Instrumented tests execute directly on an
    Android device. Each type of test has benefits and downsides, so you will
    find that you use both depending on what you need at a particular point in
@@ -4925,26 +5050,26 @@ C06👊 Testing
    different situations.
 
    In Android Studio, switch your project tool window to the Project view so
-   you can see GeoQuiz’s directory structure. Expand the
-   GeoQuiz/app/src/ directory. It has three subdirectories:
-   androidTest, main, and test [unitTest].
+   you can see ``GeoQuiz``’s directory structure. Expand the
+   ``GeoQuiz/app/src/`` directory. It has three subdirectories:
+   ``androidTest``, ``main``, and ``test`` [unitTest].
 
 
    Figure 6.1 A look at the src subdirectories
 
    These three subdirectories are source sets. So far, you have been writing
-   code in the main source set. It holds the code that is compiled and
+   code in the ``main`` source set. It holds the code that is compiled and
    packaged when you install the app on an Android device. JVM tests are
-   located in the test source set. Instrumented tests are located in the
-   androidTest source set.
+   located in the ``test`` source set. Instrumented tests are located in the
+   ``androidTest`` source set.
 
    Switch back to the Android view. The three source sets are still there, under
    the Java directory, but they are labeled differently. The directory with just
-   your package name, com.bignerdranch.android.geoquiz, is the
-   main source set. The two testing source sets are highlighted green and have
+   your package name, ``com.bignerdranch.android.geoquiz``, is the
+   ``main`` source set. The two testing source sets are highlighted green and have
    their names in parentheses after the package name:
-   com.bignerdranch.android.geoquiz (androidTest) for
-   instrumented tests and com.bignerdranch.android.geoquiz
+   ``com.bignerdranch.android.geoquiz`` (androidTest) for
+   instrumented tests and ``com.bignerdranch.android.geoquiz``
    (test) for JVM tests.
 
 
@@ -4954,21 +5079,26 @@ C06👊 Testing
 --------------------------------------------------------------------------------
 
    Let’s look at a JVM test to see how it is structured. When Android Studio
-   generated GeoQuiz’s project files, it also generated some unit tests for you.
-   In com.bignerdranch.android.geoquiz (test), find and open
-   ExampleUnitTest.kt:
-   class ExampleUnitTest {
-   @Test
-   fun addition_isCorrect() {
-   assertEquals(4, 2 + 2)
-   }
-   }
-   Both JVM and instrumented tests are executed using the JUnit testing
+   generated ``GeoQuiz``’s project files, it also generated some unit tests for you.
+   In ``com.bignerdranch.android.geoquiz`` (test), find and open
+   ``ExampleUnitTest.kt``:
+
+   .. code-block:: kotlin
+
+      class ExampleUnitTest {
+         @Test
+         fun addition_isCorrect() {
+            assertEquals(4, 2 + 2)
+
+         }
+      }
+
+   Both JVM and instrumented tests are executed using the ``JUnit`` testing
    framework. JUnit is the most popular way of unit testing code in Java and
    Kotlin and is widely supported on Android.
 
    JUnit tests are encapsulated by classes. Within these classes, individual tests
-   are functions marked by the @Test annotation, which you can see in the
+   are functions marked by the ``@Test`` annotation, which you can see in the
    example. When running your tests, JUnit finds and executes the annotated
    functions.
 
@@ -4976,19 +5106,19 @@ C06👊 Testing
    fact, names for test functions should be descriptive and verbose. We
    generally prefer names that describe the behavior we are trying to verify.
 
-   The name of the example test, addition_isCorrect(), clearly shows
+   The name of the example test, ``addition_isCorrect()``, clearly shows
    what it is designed to check. It is a simple test that checks an expected value
    against an operation – here, 4 and 2 + 2 .
 
-   To perform this check, addition_isCorrect uses the
-   assertEquals() assertion . With JUnit, you can assert that two values
-   are equal, as in this example, or that one value is true , or any of several
+   To perform this check, ``addition_isCorrect`` uses the
+   ``assertEquals()`` assertion . With JUnit, you can assert that two values
+   are equal, as in this example, or that one value is ``true`` , or any of several
    other conditions. You can also perform multiple assertions within a single
    test.
 
    JUnit uses these assertions to determine whether your test passes or fails: If
    any of the assertions fails, then the entire test fails. Here,
-   assertEquals() function takes in two parameters: 4 and 2 + 2 . Since
+   ``assertEquals()`` function takes in two parameters: 4 and 2 + 2 . Since
    those expressions evaluate to the same value, the assertion passes – and, as
    a result, the test passes.
 
@@ -5013,106 +5143,114 @@ C06👊 Testing
    changes before moving on.
 
    Unit tests can be quick and easy ways to verify that your code is behaving
-   the way you expect. And JVM tests like addition_isCorrect()
+   the way you expect. And JVM tests like ``addition_isCorrect()``
    execute very quickly: The time required will vary based on the horsepower
    of your development machine, but it could take as little as a millisecond to
    complete execution.
 
    Now it is time for you to write your own test. A common pattern is to group
    and name tests based on the class that they are testing, so, for example,
-   MainActivity would have its associated tests in a class called
-   MainActivityTest. The first tests you are going to write will verify
-   the behavior of QuizViewModel.
+   ``MainActivity`` would have its associated tests in a class called
+   ``MainActivityTest``. The first tests you are going to write will verify
+   the behavior of ``QuizViewModel``.
 
    You could create a new class file within the test source set and set up a
-   QuizViewModelTest class definition yourself, but Android Studio can
+   ``QuizViewModelTest`` class definition yourself, but Android Studio can
    help you with this common task. In the project tool window, find and open
-   QuizViewModel.kt. Now, in the editor tool window, place your cursor
+   ``QuizViewModel.kt``. Now, in the editor tool window, place your cursor
    anywhere in the class definition and press Command-Shift-T (Ctrl-Shift-T).
 
-   In the pop-up, select Create New Test... (Figure 6.4).
+   In the pop-up, select ``Create New Test...`` (Figure 6.4).
 
 
    Figure 6.4 Creating a new test
 
    This opens the Create Test dialog (Figure 6.5). The defaults for the name (the
    class name plus “Test”) and the destination package are fine, and you will
-   not be using any of the checkbo? options. But there is one field you do need
+   not be using any of the checkbox options. But there is one field you do need
    to change: Select JUnit4 from the Testing library dropdown. (JUnit4 is the
    testing framework Google supports for Android.)
+
 
    Figure 6.5 Creating your own unit test
 
    (If you see JUnit4 library not found in the module , click the Fix button and wait a
    moment for the library to be added and synced.)
+
    Click OK. The next dialog asks you to choose a directory for your new test
    file. Since the code you are testing does not interact with the core Android
-   SDK, you can create a JVM test. Select the folder with /test/ in its path
+   SDK, you can create a JVM test. Select the folder with ``/test/ ``in its path
    and click OK (Figure 6.6).
 
 
    Figure 6.6 The test directory for JVM tests
 
-   Your new QuizViewModelTest.kt file will open in the editor:
-   package com.bignerdranch.android.geoquiz
+   Your new ``QuizViewModelTest.kt`` file will open in the editor:
+   package ``com.bignerdranch.android.geoquiz``
 
-   import org.?unit.Assert.*
 
-   class QuizViewModelTest
-   As in Exam?leUnitTest, you are going to write functions with the
+   .. code-block:: java
+
+      import org.junit.Assert.*
+
+      class QuizViewModelTest
+
+   As in ``ExampleUnitTest``, you are going to write functions with the
    @Test annotation. However, your functions will be slightly more complex
-   than the addition_isCorrect() example.
+   than the ``addition_isCorrect()`` example.
 
    Within a unit test, code is normally organized in three distinct phases: first,
    you set up your testing environment, then you test a specific unit of code,
    and finally you verify that the unit of code behaves the way you expect.
 
    (You will sometimes see this pattern expressed as given , when , then .)
-   addition_isCorrect() is a very basic test. It requires no setup, and it
+   ``addition_isCorrect()`` is a very basic test. It requires no setup, and it
    tests and verifies behavior on a single line. Your tests will set up by
-   directly initializing a QuizViewModel, test by performing some action
-   on your QuizViewModel, and then verify by confirming that the output
+   directly initializing a ``QuizViewModel``, test by performing some action
+   on your ``QuizViewModel``, and then verify by confirming that the output
    is what you expect.
 
-   The first test you will write will verify that your QuizViewModel
+   The first test you will write will verify that your ``QuizViewModel``
    provides the correct question text for the first question just after it is
    initialized.
 
-   Recall that QuizViewModel’s only constructor parameter is the
-   SavedStateHandle. You will first need to initialize a saved instance
+   Recall that ``QuizViewModel``’s only constructor parameter is the
+   ``SavedStateHandle``. You will first need to initialize a saved instance
    state, which you can do with just an empty constructor, so that you can
-   initialize a QuizViewModel. Then you can use the same
-   assertEquals() function you saw in the example to verify that the
-   currentQuestionText property on your QuizViewModel provides
+   initialize a ``QuizViewModel``. Then you can use the same
+   ``assertEquals()`` function you saw in the example to verify that the
+   ``currentQuestionText`` property on your ``QuizViewModel`` provides
    the expected value.
 
    Write your test, using the descriptive name
-   ?rovidesExpectedQuestionText():
+   ``providesExpectedQuestionText()``:
 
    Listing 6.1 Writing your first JVM test (QuizViewModelTest.kt)
 
    .. code-block:: kotlin
 
-   import androidx.lifecycle.SavedStateHandle
-   import org.junit.Assert.assertEquals
-   import org.junit.Test
+      import androidx.lifecycle.SavedStateHandle
+      import org.junit.Assert.assertEquals
+      import org.junit.Test
 
-   class QuizViewModelTest {
-   @Test
-   fun ?rovidesExpectedQuestionText() {
-   val savedStateHandle = SavedStateHandle()
-   val quizViewModel = QuizViewModel(savedStateHandle)
-   assertEquals(R.string.question_australia, quizViewModel.currentQuestionText)
-   }
-   }
+      class QuizViewModelTest {
+         @Test
+         fun providesExpectedQuestionText() {
+            val savedStateHandle = SavedStateHandle()
+
+            val quizViewModel = QuizViewModel(savedStateHandle)
+            assertEquals(R.string.question_australia, quizViewModel.currentQuestionText)
+         }
+      }
+
    Run the test by clicking the icon next to
-   QuizViewModelTest and verify that it passes. Note that this test
+   ``QuizViewModelTest`` and verify that it passes. Note that this test
    includes set-up and verify phases, but no test behavior. Your next test will
    include all three phases.
 
    The empty constructor is not the only one available to
-   SavedStateHandle. You can also pass an initial saved instance state as
-   a map of key-value pairs into the SavedStateHandle constructor. Take
+   ``SavedStateHandle``. You can also pass an initial saved instance state as
+   a map of key-value pairs into the ``SavedStateHandle`` constructor. Take
    advantage of this functionality to write a test verifying the expected
    behavior when you are at the end of the question bank and move to the next
    question: It should wrap around to the first question.
@@ -5122,24 +5260,26 @@ C06👊 Testing
 
    .. code-block:: kotlin
 
-   class QuizViewModelTest {
-      ...
-   @Test
-   fun wrapsAroundQuestionBank() {
-   val savedStateHandle = SavedStateHandle(ma?Of(CURRENT_INDEX_KEY to 5))
-   val quizViewModel = QuizViewModel(savedStateHandle)
-   assertEquals(R.string.question_asia, quizViewModel.currentQuestionText)
-   quizViewModel.moveToNext()
-   assertEquals(R.string.question_australia, quizViewModel.currentQuestionText)
-   }
-   }
+      class QuizViewModelTest {
+         ...
+         @Test
+         fun wrapsAroundQuestionBank() {
+            val savedStateHandle = SavedStateHandle(ma?Of(CURRENT_INDEX_KEY to 5))
+            val quizViewModel = QuizViewModel(savedStateHandle)
+            assertEquals(R.string.question_asia, quizViewModel.currentQuestionText)
+            quizViewModel.moveToNext()
+
+            assertEquals(R.string.question_australia, quizViewModel.currentQuestionText)
+         }
+      }
+
    Run both your tests and verify that they pass.
 
    The ability to create instances of a ViewModel and pass data in as
    constructor parameters allows you to write useful and reliable unit tests.
 
    This is one of the many reasons we recommend keeping business logic in
-   ViewModels rather than Android components like Activity.
+   ``ViewModels`` rather than Android components like ``Activity``.
 
 .. _S06_03:
 
@@ -5147,54 +5287,58 @@ C06👊 Testing
 --------------------------------------------------------------------------------
 
    Let’s move on to instrumented tests. Begin by checking out the example
-   that Android Studio created. In
-   com.bignerdranch.android.geoquiz (androidTest), find
-   and open ExampleInstrumentedTest.kt:
-   @RunWith(AndroidJUnit4::class)
-   class ExampleInstrumentedTest {
-   @Test
-   fun useAppContext() {
-   // Context of the app under test.
+   that Android Studio created. In ``com.bignerdranch.android.geoquiz`` (androidTest), 
+   find and open ``ExampleInstrumentedTest.kt``:
 
-   val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-   assertEquals("com.bignerdranch.android.geoquiz", appContext.packageName)
-   }
-   }
+
+   .. code-block:: kotlin
+
+      @RunWith(AndroidJUnit4::class)
+
+      class ExampleInstrumentedTest {
+         @Test
+         fun useAppContext() {
+            // Context of the app under test.
+            val appContext = InstrumentationRegistry.getInstrumentation().targetContext
+            assertEquals("com.bignerdranch.android.geoquiz", appContext.packageName)
+         }
+      }
+
    Much of this code is similar to the tests you have seen so far: You have a
-   class containing a function annotated with @Test, and within that function
+   class containing a function annotated with ``@Test``, and within that function
    there is an assertion to verify some behavior. But there are also some
    differences: First, the class itself has an annotation,
-   @RunWith(AndroidJUnit4::class), which signals to JUnit that
+   ``@RunWith(AndroidJUnit4::class)``, which signals to JUnit that
    this test should be executed on an Android device. And the test function
    relies on the Android SDK, specifically to verify that the app’s package
    name is the same as the value you set when you created the app.
 
-   You are about to run Exam?leInstrumentedTest, but you have some
+   You are about to run ``ExampleInstrumentedTest``, but you have some
    housekeeping to take care of first. Since instrumented tests run on an
    Android device, not your development machine, you need to either connect
    an Android device, as you did in Chapter 2, or run an emulator. Make sure
    the device dropdown at the top of the Android Studio window shows the
    device or emulator you want to use, then click the icon in
-   the gutter next to Exam?leInstrumentedTest to run the test. Your
+   the gutter next to ``ExampleInstrumentedTest`` to run the test. Your
    test will execute, and the successful result should display in the lower-left
    corner of the Android Studio window.
 
    Now that you have seen how instrumented tests work, you will write a few
-   tests of your own to cover the functionality in MainActivity. You are
-   going to use an API called ActivityScenario to set up your testing
+   tests of your own to cover the functionality in ``MainActivity``. You are
+   going to use an API called ``ActivityScenario`` to set up your testing
    environment, and you will use the Espresso library to test and verify the
-   behavior within MainActivity.
+   behavior within ``MainActivity``.
 
    Create your test class file using the same Android Studio shortcut you used
-   for QuizViewModelTest: In the project tool window, find and open
-   MainActivity.kt. Place your cursor inside the class definition in the
+   for ``QuizViewModelTest``: In the project tool window, find and open
+   ``MainActivity.kt``. Place your cursor inside the class definition in the
    editor and press Command-Shift-T (Ctrl-Shift-T). Select Create New Test... in
    the pop-up.
 
    In the Create Test dialog, there are two fields you want to change this time.
-   First, select JUnit4 from the Testing library dropdown. (As before, click the Fix
-   button if you see JUnit4 library not found in the module .) Second, check both
-   setUp/@Before and teardown/@After for the Generate option (Figure 6.7).
+   First, select ``JUnit4`` from the Testing library dropdown. (As before, click the Fix
+   button if you see ``JUnit4`` library not found in the module .) Second, check both
+   ``setUp/@Before`` and ``teardown/@After`` for the Generate option (Figure 6.7).
 
 
    Figure 6.7 Creating your own instrumented test
@@ -5202,74 +5346,83 @@ C06👊 Testing
    Click OK . The final dialog asks you to choose the destination directory of
    the test. Since the code you are testing interacts directly with the Android
    SDK, you need to create an instrumented test. Select the folder containing
-   /androidTest/ in its path and click OK (Figure 6.8).
+   ``/androidTest/`` in its path and click OK (Figure 6.8).
 
 
    Figure 6.8 The androidTest directory selection
 
-   Android Studio will generate and open a fresh MainActivityTest.kt:
-   package com.bignerdranch.android.geoquiz
+   Android Studio will generate and open a fresh ``MainActivityTest.kt``:
 
-   import org.?unit.After
-   import org.?unit.Before
 
-   class MainActivityTest {
+   .. code-block:: kotlin
 
-   @Before
-   fun setUp() {
-   }
+      package com.bignerdranch.android.geoquiz
 
-   @After
-   fun tearDown() {
-   }
-   }
-   Tests usually require a consistent environment to run in. The setU?()
+      import org.junit.After
+      import org.junit.Before
+
+      class MainActivityTest {
+
+         @Before
+         fun setUp() {
+         }
+
+         @After
+         fun tearDown() {
+         }
+      }
+
+   Tests usually require a consistent environment to run in. The ``setUp()``
    function, as the name suggests, allows you to set up that environment. The
-   @Before annotation ensures that JUnit executes the setU?() function
-   before every test. Similarly, the @After annotation ensures that
-   tearDown(), where you can take care of any needed clean-up, executes
+   ``@Before`` annotation ensures that JUnit executes the ``setUp()`` function
+   before every test. Similarly, the ``@After`` annotation ensures that
+   ``tearDown()``, where you can take care of any needed clean-up, executes
    after each test. (These annotations are also available for JVM tests.)
-   Since you cannot directly create an instance of MainActivity, you will
-   use ActivityScenario. It will handle creating an instance for you and
+   Since you cannot directly create an instance of ``MainActivity``, you will
+   use ``ActivityScenario``. It will handle creating an instance for you and
    will provide an isolated environment in which you can test the instance. Set
-   up the ActivityScenario as shown:
+   up the ``ActivityScenario`` as shown:
 
    Listing 6.3 Setting up your tests for MainActivity (MainActivityTest.kt)
 
    .. code-block:: kotlin
 
-   package com.bignerdranch.android.geoquiz
+      package com.bignerdranch.android.geoquiz
 
-   import androidx.test.core.app.ActivityScenario
-   import androidx.test.core.app.ActivityScenario.launch
-   import androidx.test.ext.junit.runners.AndroidJUnit4
-   import org.?unit.After
-   import org.?unit.Before
-   import org.junit.runner.RunWith
+      import androidx.test.core.app.ActivityScenario
+      import androidx.test.core.app.ActivityScenario.launch
+      import androidx.test.ext.junit.runners.AndroidJUnit4
+      import org.junit.After
+      import org.junit.Before
+      import org.junit.runner.RunWith
 
-   @RunWith(AndroidJUnit4::class)
-   class MainActivityTest {
+      @RunWith(AndroidJUnit4::class)
 
-   private lateinit var scenario: ActivityScenario<MainActivity>
+      class MainActivityTest {
 
-   @Before
-   fun setUp() {
-   scenario = launch(MainActivity::class.java)
-   }
+         private lateinit var scenario: ActivityScenario<MainActivity>
 
-   @After
-   fun tearDown() {
-   scenario.close()
-   }
-   }
-   (Do not forget the @RunWith(AndroidJUnit4::class) annotation.)
-   Now, setU?() will provide a fresh MainActivity before every test. At
-   this point, you have your MainActivity in the resumed lifecycle state,
+         @Before
+         fun setUp() {
+            scenario = launch(MainActivity::class.java)
+
+         }
+
+         @After
+         fun tearDown() {
+            scenario.close()
+
+         }
+      }
+
+   (Do not forget the ``@RunWith(AndroidJUnit4::class)`` annotation.)
+   Now, ``setUp()`` will provide a fresh MainActivity before every test. At
+   this point, you have your ``MainActivity`` in the resumed lifecycle state,
    meaning it is fully visible and capable of user interaction. This is the perfect
    environment to test its behavior.
 
    The first behavior you are going to verify with a test is that when
-   MainActivity is launched, the first quiz question should be displayed.
+   ``MainActivity`` is launched, the first quiz question should be displayed.
 
    Enter the code below; we will walk you through what is happening after
    you enter it.
@@ -5280,30 +5433,34 @@ C06👊 Testing
    .. code-block:: kotlin
 
       ...
-   import androidx.test.core.app.ActivityScenario.launch
-   import androidx.test.es?resso.Es?resso.onView
-   import androidx.test.es?resso.assertion.ViewAssertions.matches
-   import androidx.test.es?resso.matcher.ViewMatchers.withId
-   import androidx.test.es?resso.matcher.ViewMatchers.withText
-   import androidx.test.ext.?unit.runners.AndroidJUnit4
+      import androidx.test.core.app.ActivityScenario.launch
+      import androidx.test.espresso.Espresso.onView
+      import androidx.test.espresso.assertion.ViewAssertions.matches
+      import androidx.test.espresso.matcher.ViewMatchers.withId
+      import androidx.test.espresso.matcher.ViewMatchers.withText
+      import androidx.test.ext.junit.runners.AndroidJUnit4
       ...
-   @RunWith(AndroidJUnit4::class)
-   class MainActivityTest {
-      ...
-   @After
-   fun tearDown() {
-   scenario.close()
-   }
+      @RunWith(AndroidJUnit4::class)
 
-   @Test
-   fun showsFirstQuestionOnLaunch() {
-   onView(withId(R.id.question_text_view))
-   .check(matches(withText(R.string.question_australia)))
-   }
-   }
-   The position of your new showsFirstQuestionOnLaunch()
-   function in the file does not matter, but it is convention for the @Before and
-   @After functions to come first. Note that you are using the same @Test
+      class MainActivityTest {
+         ...
+         @After
+         fun tearDown() {
+            scenario.close()
+
+         }
+
+         @Test
+         fun showsFirstQuestionOnLaunch() {
+            onView(withId(R.id.question_text_view))
+
+            .check(matches(withText(R.string.question_australia)))
+         }
+      }
+
+   The position of your new ``showsFirstQuestionOnLaunch()``
+   function in the file does not matter, but it is convention for the ``@Before`` and
+   ``@After`` functions to come first. Note that you are using the same ``@Test``
    annotation that you used in your JVM tests.
 
    This test shows off your first Espresso test. Espresso’s API is built as a
@@ -5315,15 +5472,16 @@ C06👊 Testing
    Figure 6.9 Breaking down an Espresso assertion
 
    The first half, called the view matcher , finds the particular view you are
-   interested in. In this case, that is the TextView that displays the question
+   interested in. In this case, that is the ``TextView`` that displays the question
    text. The second half, called the view assertion , verifies the behavior you
    are interested in. Here, that is displaying the question about Australia.
 
    Fluent interfaces are meant to be easily readable. A simple translation of
    your test into English would be: “On the view with the ID
-   R.id.question_text_view, check that it matches the text from
-   R.string.question_australia.”
-   Use the icon in the gutter next to MainActivityTest
+   ``R.id.question_text_view``, check that it matches the text from
+   ``R.string.question_australia``.”
+
+   Use the icon in the gutter next to ``MainActivityTest``
    to run the test you just wrote. After compiling and eventually executing,
    you should see the test pass.
 
@@ -5333,13 +5491,13 @@ C06👊 Testing
    back in the section called Saving Data Across Process Death in Chapter 4.)
    If you kept a close eye on your Android device while the test was running,
    you might have noticed something: There were brief flashes where your
-   MainActivity was displayed on the device. ActivityScenario
-   launched MainActivity, Espresso did its checks, and then your
-   MainActivity was closed.
+   ``MainActivity`` was displayed on the device. ``ActivityScenario``
+   launched ``MainActivity``, Espresso did its checks, and then your
+   ``MainActivity`` was closed.
 
    Espresso is not limited to only observing UI. It can also perform actions
    (such as clicking buttons or inputting text) on that UI. Write a second
-   instrumented test to verify that when the user clicks the NEXT button, they
+   instrumented test to verify that when the user clicks the ``NEXT`` button, they
    see the second question in the quiz. In addition to checking that your view
    matches assertions, you will perform a click on your view:
 
@@ -5348,37 +5506,41 @@ C06👊 Testing
    .. code-block:: kotlin
 
       ...
-   import androidx.test.espresso.Espresso.onView
-   import androidx.test.es?resso.action.ViewActions.click
-   import androidx.test.espresso.assertion.ViewAssertions.matches
+      import androidx.test.espresso.Espresso.onView
+      import androidx.test.espresso.action.ViewActions.click
+      import androidx.test.espresso.assertion.ViewAssertions.matches
       ...
-   @RunWith(AndroidJUnit4::class)
-   class MainActivityTest {
-      ...
-   @Test
-   fun showsFirstQuestionOnLaunch() {
-   onView(withId(R.id.question_text_view))
-   .check(matches(withText(R.string.question_australia)))
-   }
+      @RunWith(AndroidJUnit4::class)
 
-   @Test
-   fun showsSecondQuestionAfterNextPress() {
-   onView(withId(R.id.next_button)).?erform(click())
-   onView(withId(R.id.question_text_view))
-   .check(matches(withText(R.string.question_oceans)))
-   }
-   }
+      class MainActivityTest {
+         ...
+         @Test
+         fun showsFirstQuestionOnLaunch() {
+            onView(withId(R.id.question_text_view))
+
+            .check(matches(withText(R.string.question_australia)))
+         }
+
+         @Test
+         fun showsSecondQuestionAfterNextPress() {
+            onView(withId(R.id.next_button)).perform(click())
+            onView(withId(R.id.question_text_view))
+
+            .check(matches(withText(R.string.question_oceans)))
+         }
+      }
+
    Run the tests. You should see that they both pass.
 
    The last test you are going to write will verify that you filed the UI state
    loss on rotation bug introduced back in Chapter 3.
 
-   ActivityScenario is a container for your MainActivity, and it
-   gives you many ways to poke and prod MainActivity. One of those
-   tools is the ability to tear down and rebuild your Activity at will. The
-   function you are about to use, recreate(), will produce the same
+   ``ActivityScenario`` is a container for your ``MainActivity``, and it
+   gives you many ways to poke and prod ``MainActivity``. One of those
+   tools is the ability to tear down and rebuild your ``Activity`` at will. The
+   function you are about to use, ``recreate()``, will produce the same
    situation as when you rotate the device. Thankfully, you have already filed
-   the state loss bug using SavedStateHandle. Your new test will verify
+   the state loss bug using ``SavedStateHandle``. Your new test will verify
    that.
 
 
@@ -5386,34 +5548,39 @@ C06👊 Testing
 
    .. code-block:: kotlin
 
-   @RunWith(AndroidJUnit4::class)
-   class MainActivityTest {
-      ...
-   @Test
-   fun showsSecondQuestionAfterNextPress() {
-   onView(withId(R.id.next_button)).perform(click())
-   onView(withId(R.id.question_text_view))
-   .check(matches(withText(R.string.question_oceans)))
-   }
+      @RunWith(AndroidJUnit4::class)
 
-   @Test
-   fun handlesActivityRecreation() {
-   onView(withId(R.id.next_button)).?erform(click())
-   scenario.recreate()
-   onView(withId(R.id.question_text_view))
-   .check(matches(withText(R.string.question_oceans)))
-   }
-   }
+      class MainActivityTest {
+         ...
+         @Test
+         fun showsSecondQuestionAfterNextPress() {
+            onView(withId(R.id.next_button)).perform(click())
+            onView(withId(R.id.question_text_view))
+
+            .check(matches(withText(R.string.question_oceans)))
+         }
+
+         @Test
+         fun handlesActivityRecreation() {
+            onView(withId(R.id.next_button)).perform(click())
+            scenario.recreate()
+
+            onView(withId(R.id.question_text_view))
+
+            .check(matches(withText(R.string.question_oceans)))
+         }
+      }
+
    Run all three tests and confirm that they all pass.
 
-   Instrumented tests for Activitys are important – and they are also more
-   complicated to write and slower to run than JVM tests on ViewModel.
+   Instrumented tests for ``Activitys`` are important – and they are also more
+   complicated to write and slower to run than JVM tests on ``ViewModel``.
 
-   Plus, ViewModel tests allow you to fairly easily control the input and
+   Plus, ``ViewModel`` tests allow you to fairly easily control the input and
    output of a unit of code, which is the foundation for a well-written test. This
    difference in “testability” is one of the many reasons we recommend
-   keeping business logic in ViewModels rather than Android components
-   like Activity.
+   keeping business logic in ``ViewModels`` rather than Android components
+   like ``Activity``.
 
    You now have the fundamentals of testing on Android down. But there is
    still so much more to learn. There are entire books written on how to test
@@ -5431,13 +5598,13 @@ C06👊 Testing
 6.4. Challenge: Asserting Yourself
 --------------------------------------------------------------------------------
 
-   In this chapter, you used assertEquals() to make assertions on your
-   QuizViewModel. Checking for equality is not the only assertion you can
+   In this chapter, you used ``assertEquals()`` to make assertions on your
+   ``QuizViewModel``. Checking for equality is not the only assertion you can
    make in JUnit tests. You can also check whether something is null (using
-   assertNull()) or is true or false (using assertTrue() or
-   assertFalse(), respectively), among others. Try using
-   assertTrue() or assertFalse() to verify that
-   QuizViewModel.currentQuestionAnswer behaves the way you
+   ``assertNull()``) or is true or false (using ``assertTrue()`` or
+   ``assertFalse()``, respectively), among others. Try using
+   ``assertTrue()`` or ``assertFalse()`` to verify that
+   ``QuizViewModel.currentQuestionAnswer`` behaves the way you
    expect it to.
 
 
@@ -5446,16 +5613,15 @@ C06👊 Testing
 C07👊 Your Second Activity
 ==========================
 
-   In this chapter, you will add a second activity to GeoQuiz. An activity
+   In this chapter, you will add a second activity to ``GeoQuiz``. An activity
    controls a screen of information, and your new activity will add a second
    screen that offers users a chance to cheat on the current question by
    showing the answer. Figure 7.1 shows the new activity.
 
 
-   Figure 7.1 CheatActivity offers the chance to peek at the
+   Figure 7.1 CheatActivity offers the chance to peek at the answer
 
-   answer
-   If users choose to view the answer and then return to the MainActivity
+   If users choose to view the answer and then return to the ``MainActivity``
    and answer the question, they will get a new message, shown in Figure 7.2.
 
 
@@ -5463,14 +5629,15 @@ C07👊 Your Second Activity
 
    Why is this a good Android programming exercise? Because you will learn
    how to:
-   Create a new activity and a new layout for it.
+   
+   *  Create a new activity and a new layout for it.
 
-   Start an activity from another activity. Starting an activity means
-   asking the OS to create an activity instance and call its
-   onCreate(Bundle?) function.
+   *  Start an activity from another activity. Starting an activity means
+      asking the OS to create an activity instance and call its
+      ``onCreate(Bundle?)`` function.
 
-   Pass data between the parent (starting) activity and the child
-   (started) activity.
+   *  Pass data between the parent (starting) activity and the child
+      (started) activity.
 
 
 .. _S07_01:
@@ -5481,22 +5648,23 @@ C07👊 Your Second Activity
    There is a lot to do in this chapter. Fortunately, some of the grunt work can
    be done for you by Android Studio’s New Android Activity wizard.
 
-   Before you invoke the magic, open res/values/strings.xml and
+   Before you invoke the magic, open ``res/values/strings.xml`` and
    add all the strings you will need for this chapter.
 
 
    Listing 7.1 Adding strings (res/values/strings.xml)
 
+
    .. code-block:: xml
 
-   <resources>
-      ...
-   <string name="incorrect_toast">Incorrect!</string>
-   <string name="warning_text">Are you sure you want to do this?</string>
-   <string name="show_answer_button">Show Answer</string>
-   <string name="cheat_button">Cheat!</string>
-   <string name="judgment_toast">Cheating is wrong.</string>
-   </resources>
+      <resources>
+         ...
+         <string name="incorrect_toast">Incorrect!</string>
+         <string name="warning_text">Are you sure you want to do this?</string>
+         <string name="show_answer_button">Show Answer</string>
+         <string name="cheat_button">Cheat!</string>
+         <string name="judgment_toast">Cheating is wrong.</string>
+      </resources>
 
 
 .. _S07_02:
@@ -5510,27 +5678,27 @@ C07👊 Your Second Activity
    you do it right, you can use Android Studio’s New Android Activity wizard.
 
    Launch the New Android Activity wizard by right-clicking the app/java
-   folder in the project tool window. Choose New → Activity → Empty Activity , as
+   folder in the project tool window. Choose ``New → Activity → Empty Activity`` , as
    shown in Figure 7.3.
 
 
    Figure 7.3 The New Activity menu
 
-   You should see a dialog like Figure 7.4. Set Activity Name to CheatActivity . This
-   is the name of your Activity subclass. Layout Name will be automatically
-   set to activity_cheat . This is the base name of the layout file the wizard
+   You should see a dialog like Figure 7.4. Set Activity Name to ``CheatActivity`` . 
+   This is the name of your ``Activity`` subclass. Layout Name will be automatically
+   set to ``activity_cheat`` . This is the base name of the layout file the wizard
    creates.
 
 
    Figure 7.4 The New Empty Activity wizard
 
-   Check that the package name is com.bignerdranch.android.geoquiz . This
-   determines where CheatActivity.kt will live on the filesystem. The
+   Check that the package name is ``com.bignerdranch.android.geoquiz`` . This
+   determines where ``CheatActivity.kt`` will live on the filesystem. The
    defaults for the remaining fields are fine. Click the Finish button to make the
    magic happen.
 
    Now it is time to make the UI look good. The screenshot at the beginning of
-   the chapter shows you what CheatActivity’s view should look like.
+   the chapter shows you what ``CheatActivity``’s view should look like.
 
 
    Figure 7.5 shows the view definitions.
@@ -5539,11 +5707,10 @@ C07👊 Your Second Activity
 
    Figure 7.5 Diagram of layout for CheatActivity
 
-   Open res/layout/activity_cheat.xml and switch to the Code
-   view.
+   Open ``res/layout/activity_cheat.xml`` and switch to the Code view.
 
    Try creating the XML for the layout using Figure 7.5 as a guide. Replace
-   the sample layout with a new LinearLayout and so on down the tree.
+   the sample layout with a new ``LinearLayout`` and so on down the tree.
 
    You can check your work against Listing 7.2.
 
@@ -5552,34 +5719,35 @@ C07👊 Your Second Activity
 
    .. code-block:: xml
 
-   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-   xmlns:tools="http://schemas.android.com/tools"
-   android:layout_width="match_parent"
-   android:layout_height="match_parent"
-   android:gravity="center"
-   android:orientation="vertical"
-   tools:context="com.bignerdranch.android.geoquiz.CheatActivity">
+      <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+         xmlns:tools="http://schemas.android.com/tools"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:gravity="center"
+         android:orientation="vertical"
+         tools:context="com.bignerdranch.android.geoquiz.CheatActivity">
 
-   <TextView
-   android:layout_width="wrap_content"
-   android:layout_height="wrap_content"
-   android:?adding="24d?"
-   android:text="@string/warning_text"/>
+         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:?adding="24d?"
+            android:text="@string/warning_text"/>
 
-   <TextView
-   android:id="@+id/answer_text_view"
-   android:layout_width="wrap_content"
-   android:layout_height="wrap_content"
-   android:?adding="24d?"
-   tools:text="Answer"/>
+         <TextView
+            android:id="@+id/answer_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:?adding="24d?"
+            tools:text="Answer"/>
 
-   <Button
-   android:id="@+id/show_answer_button"
-   android:layout_width="wrap_content"
-   android:layout_height="wrap_content"
-   android:text="@string/show_answer_button"/>
+         <Button
+            android:id="@+id/show_answer_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/show_answer_button"/>
 
-   </LinearLayout>
+      </LinearLayout>
+
    Switch to the Design tab of the editor tool window to preview the layout. If it
    looks like Figure 7.5, you are ready to move on.
 
@@ -5593,30 +5761,34 @@ C07👊 Your Second Activity
    window. If it did not, open it from the project tool window.
 
    The CheatActivity class already includes a basic implementation of
-   onCreate(Bundle?) that passes the resource ID of the layout defined
-   in activity_cheat.xml to setContentView(…). To match your
+   ``onCreate(Bundle?)`` that passes the resource ID of the layout defined
+   in ``activity_cheat.xml`` to ``setContentView(…)``. To match your
    first activity, update your new activity to use View Binding. Since your
-   layout for CheatActivity is named activity_cheat.xml, View
-   Binding will generate a class named ActivityCheatBinding.
+   layout for ``CheatActivity`` is named ``activity_cheat.xml``, View
+   Binding will generate a class named ``ActivityCheatBinding``.
 
 
    Listing 7.3 Using View Binding in CheatActivity (CheatActivity.kt)
 
    .. code-block:: kotlin
 
-   class CheatActivity : AppCompatActivity() {
-   private lateinit var binding: ActivityCheatBinding
+      class CheatActivity : AppCompatActivity() {
+         private lateinit var binding: ActivityCheatBinding
 
-   override fun onCreate(savedInstanceState: Bundle?) {
-   super.onCreate(savedInstanceState)
-   setContentView(R.layout.activity_cheat)
-   binding = ActivityCheatBinding.inflate(layoutInflater)
-   setContentView(binding.root)
-   }
-   }
-   CheatActivity will eventually do more in its onCreate(Bundle?)
+         override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+
+            setContentView(R.layout.activity_cheat)
+
+            binding = ActivityCheatBinding.inflate(layoutInflater)
+            setContentView(binding.root)
+
+         }
+      }
+
+   ``CheatActivity`` will eventually do more in its ``onCreate(Bundle?)``
    function. For now, let’s take a look at another thing the New Android
-   Activity wizard did for you: declaring CheatActivity in the
+   Activity wizard did for you: declaring ``CheatActivity`` in the
    application’s manifest.
 
 
@@ -5627,7 +5799,7 @@ C07👊 Your Second Activity
 
    The manifest is an XML file containing metadata that describes your
    application to the Android OS. The file is always named
-   ``AndroidManifest.xml``, and it lives in the app/manifests
+   ``AndroidManifest.xml``, and it lives in the ``app/manifests``
    directory of your project.
 
    In the project tool window, find and open
@@ -5642,43 +5814,46 @@ C07👊 Your Second Activity
    When you used the New Project wizard to create MainActivity, the
    wizard declared the activity for you. Likewise, the New Android Activity
    wizard declared CheatActivity by adding the XML highlighted below:
-   <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-   package="com.bignerdranch.android.geoquiz">
 
-   <application
-   android:allowBackup="true"
-   android:icon="@mipmap/ic_launcher"
-   android:label="@string/app_name"
-   android:roundIcon="@mipmap/ic_launcher_round"
-   android:supportsRtl="true"
-   android:theme="@style/Theme.GeoQuiz">
-   <activity
-   android:name=".CheatActivity"
-   android:exported="false" />
-   <activity
-   android:name=".MainActivity"
-   android:exported="true">
-   <intent-filter>
-   <action android:name="android.intent.action.MAIN" />
+   .. code-block:: xml
 
-   <category android:name="android.intent.category.LAUNCHER" />
-   </intent-filter>
-   </activity>
-   </application>
+      <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.bignerdranch.android.geoquiz">
 
-   </manifest>
-   The android:name attribute is required, and the dot at the start of this
+         <application
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/Theme.GeoQuiz">
+            <activity
+            android:name=".CheatActivity"
+            android:exported="false" />
+            <activity
+               android:name=".MainActivity"
+               android:exported="true">
+               <intent-filter>
+                  <action android:name="android.intent.action.MAIN" />
+                  <category android:name="android.intent.category.LAUNCHER" />
+               </intent-filter>
+            </activity>
+         </application>
+
+      </manifest>
+
+   The ``android:name`` attribute is required, and the dot at the start of this
    attribute’s value tells the OS that this activity’s class is in the package
    specified in the package attribute in the manifest element at the top of the
    file.
 
-   You will sometimes see a fully qualified android:name attribute, like
-   android:name="com.bignerdranch.android.geoquiz.CheatActivity" .
+   You will sometimes see a fully qualified ``android:name`` attribute, like
+   ``android:name="com.bignerdranch.android.geoquiz.CheatActivity"`` .
 
    The long-form notation is identical to the version above.
 
    There are many interesting things in the manifest, but for now, let’s stay
-   focused on getting CheatActivity up and running. You will learn about
+   focused on getting ``CheatActivity`` up and running. You will learn about
    the different parts of the manifest as you work through this book.
 
 
@@ -5688,8 +5863,8 @@ C07👊 Your Second Activity
 --------------------------------------------------------------------------------
 
    The plan is for the user to press a button in MainActivity to get an
-   instance of CheatActivity onscreen. So you need a new button in
-   res/layout/activity_main.xml.
+   instance of ``CheatActivity`` onscreen. So you need a new button in
+   ``res/layout/activity_main.xml``.
 
    You can see in Figure 7.2 that the new CHEAT! button is positioned above the
    NEXT button. In the layout, define the new button as a direct child of the root
@@ -5701,22 +5876,22 @@ C07👊 Your Second Activity
    .. code-block:: xml
 
       ...
-   </LinearLayout>
+      </LinearLayout>
 
-   <Button
-   android:id="@+id/cheat_button"
-   android:layout_width="wrap_content"
-   android:layout_height="wrap_content"
-   android:layout_marginTo?="24d?"
-   android:text="@string/cheat_button" />
+         <Button
+            android:id="@+id/cheat_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/cheat_button" />
 
-   <Button
-   android:id="@+id/next_button"
-   .../>
+         <Button
+            android:id="@+id/next_button"
+            .../>
 
-   </LinearLayout>
+      </LinearLayout>
 
-   Now, in MainActivity.kt, set a View.OnClickListener stub for
+   Now, in ``MainActivity.kt``, set a ``View.OnClickListener`` stub for
    the CHEAT! button.
 
 
@@ -5724,27 +5899,31 @@ C07👊 Your Second Activity
 
    .. code-block:: kotlin
 
-   class MainActivity : AppCompatActivity() {
+      class MainActivity : AppCompatActivity() {
 
-   private lateinit var binding: ActivityMainBinding
+         private lateinit var binding: ActivityMainBinding
 
-   private val quizViewModel: QuizViewModel by viewModels()
+         private val quizViewModel: QuizViewModel by viewModels()
 
-   override fun onCreate(savedInstanceState: Bundle?) {
-      ...
-   binding.nextButton.setOnClickListener {
-   quizViewModel.moveToNext()
-   updateQuestion()
-   }
+         override fun onCreate(savedInstanceState: Bundle?) {
+            ...
+            binding.nextButton.setOnClickListener {
+            quizViewModel.moveToNext()
 
-   binding.cheatButton.setOnClickListener {
-   // Start CheatActivity
-   }
+            updateQuestion()
 
-   updateQuestion()
-   }
-      ...
-   }
+         }
+
+         binding.cheatButton.setOnClickListener {
+            // Start CheatActivity
+         }
+
+         updateQuestion()
+
+      }
+         ...
+      }
+
    Now you can get to the business of starting CheatActivity.
 
 
@@ -5754,23 +5933,23 @@ C07👊 Your Second Activity
 --------------------------------------------------------------------------------
 
    The simplest way one activity can start another is with the
-   startActivity(Intent) function.
+   ``startActivity(Intent)`` function.
 
    If you are coming from other programming languages and platforms, your
    first instinct might be to call the constructor on the activity you want to
    start. Unfortunately, that will not work. Instead you have to call
-   startActivity(Intent), and the OS will manage creating your
+   ``startActivity(Intent)``, and the OS will manage creating your
    activity for you.
 
    In particular, your call is sent to a part of the OS called the
-   ActivityManager. The ActivityManager then creates the
-   Activity instance and calls its onCreate(Bundle?) function, as
+   ``ActivityManager``. The ``ActivityManager`` then creates the
+   ``Activity`` instance and calls its ``onCreate(Bundle?)`` function, as
    shown in Figure 7.6.
 
 
    Figure 7.6 Starting an activity
 
-   How does the ActivityManager know which Activity to start? That
+   How does the ``ActivityManager`` know which Activity to start? That
    information is in the Intent parameter.
 
 
@@ -5787,46 +5966,52 @@ C07👊 Your Second Activity
    provides different constructors depending on what you are using the intent
    to do.
 
-   In this case, you are using an intent to tell the ActivityManager which
+   In this case, you are using an intent to tell the ``ActivityManager`` which
    activity to start, so you will use a constructor that allows you to pass in a
-   Context and a reference to the CheatActivity class.
+   Context and a reference to the ``CheatActivity`` class.
 
    Within cheatButton’s listener, create an Intent that includes the
-   CheatActivity class. Then pass the intent into
-   startActivity(Intent).
+   ``CheatActivity`` class. Then pass the intent into
+   `startActivity(Intent)`.
 
 
    Listing 7.6 Starting CheatActivity (MainActivity.kt)
 
+
    .. code-block:: kotlin
 
-   binding.cheatButton.setOnClickListener {
-   // Start CheatActivity
-   val intent = Intent(this, CheatActivity::class.java)
-   startActivity(intent)
-   }
+      binding.cheatButton.setOnClickListener {
+         // Start CheatActivity
+         val intent = Intent(this, CheatActivity::class.java)
+         startActivity(intent)
+
+      }
+
    The Class argument you pass to the Intent constructor specifies the
-   activity class that the ActivityManager should start. The Context
-   argument tells the ActivityManager which application package the
+   activity class that the ``ActivityManager`` should start. The Context
+   argument tells the ``ActivityManager`` which application package the
    activity class can be found in.
 
-   Before starting the activity, the ActivityManager checks the package’s
+   Before starting the activity, the ``ActivityManager`` checks the package’s
    manifest for a declaration with the same name as the specified Class. If it
    finds a declaration, it starts the activity, and all is well. If it does not, you
-   get a nasty ActivityNotFoundException, which will crash your
+   get a nasty ``ActivityNotFoundException``, which will crash your
    app. This is why all your activities must be declared in the manifest.
 
-   Run GeoQuiz. Press the CHEAT! button, and an instance of your new activity
+   Run ``GeoQuiz``. Press the CHEAT! button, and an instance of your new activity
    will appear onscreen. Now press the Back button. This will destroy the
-   CheatActivity and return you to the MainActivity.
+   ``CheatActivity`` and return you to the ``MainActivity``.
 
-   Explicit and implicit intents
-   When you create an Intent with a Context and a Class object, you
+
+Explicit and implicit intents
+
+
+   When you create an ``Intent`` with a ``Context`` and a ``Class`` object, you
    are creating an explicit intent . You use explicit intents to start specific
    activities, most often within your own application.
 
    It may seem strange that two activities within your application must
-   communicate via the ActivityManager, which is outside your
+   communicate via the ``ActivityManager``, which is outside your
    application. However, this pattern makes it easy for an activity in one
    application to work with an activity in another application.
 
@@ -5840,23 +6025,22 @@ C07👊 Your Second Activity
 7.8. Passing Data Between Activities
 --------------------------------------------------------------------------------
 
-   Now that you have a MainActivity and a CheatActivity, you can
+   Now that you have a ``MainActivity`` and a ``CheatActivity``, you can
    think about passing data between them. Figure 7.7 shows what data you
    will pass between the two activities.
 
 
-   Figure 7.7 The conversation between MainActivity and
+   Figure 7.7 The conversation between MainActivity and CheatActivity
 
-   CheatActivity
-   The MainActivity will inform the CheatActivity of the answer to
-   the current question when the CheatActivity is started.
+   The ``MainActivity`` will inform the ``CheatActivity`` of the answer to
+   the current question when the ``CheatActivity`` is started.
 
-   When the user presses the Back button to return to the MainActivity,
-   the CheatActivity will be destroyed. In its last gasp, it will send data
-   to the MainActivity about whether the user cheated.
+   When the user presses the Back button to return to the ``MainActivity``,
+   the ``CheatActivity`` will be destroyed. In its last gasp, it will send data
+   to the ``MainActivity`` about whether the user cheated.
 
-   You will start with passing data from MainActivity to
-   CheatActivity.
+   You will start with passing data from ``MainActivity`` to
+   ``CheatActivity``.
 
 
 .. _S07_09:
@@ -5865,8 +6049,10 @@ C07👊 Your Second Activity
 --------------------------------------------------------------------------------
 
    To inform the CheatActivity of the answer to the current question, you
-   will pass it the value of:
-   quizViewModel.currentQuestionAnswer
+   will pass it the value of: 
+
+   ``quizViewModel.currentQuestionAnswer``
+
    You will send this value as an extra on the Intent that is passed into
    startActivity(Intent).
 
@@ -5881,42 +6067,43 @@ C07👊 Your Second Activity
    Figure 7.8 Intent extras: communicating with other activities
 
    An extra is structured as a key-value pair, like the one you used to save out
-   the value of currentIndex in QuizViewModel.
+   the value of ``currentIndex`` in ``QuizViewModel``.
 
-   To add an extra to an intent, you use Intent.?utExtra(…). In
-   particular, you will be calling ?utExtra(name: String, value:
+   To add an extra to an intent, you use ``Intent.putExtra(…)``. In
+   particular, you will be calling putExtra(name: String, value:
    Boolean).
 
-   Intent.?utExtra(…) comes in many flavors, but it always has two
+   ``Intent.putExtra(…)`` comes in many flavors, but it always has two
    arguments. The first argument is always a String key, and the second
    argument is the value, whose type will vary. It returns the Intent itself, so
    you can chain multiple calls if you need to.
 
-   In CheatActivity.kt, add a key for the extra. (We have broken the
+   In ``CheatActivity.kt``, add a key for the extra. (We have broken the
    new line of code to fit on the printed page. You can enter it on one line.)
 
    Listing 7.7 Adding an extra constant (CheatActivity.kt)
 
    .. code-block:: kotlin
 
-   private const val EXTRA_ANSWER_IS_TRUE =
-   "com.bignerdranch.android.geoquiz.answer_is_true"
+      private const val EXTRA_ANSWER_IS_TRUE =
+         "com.bignerdranch.android.geoquiz.answer_is_true"
 
-   class CheatActivity : AppCompatActivity() {
-      ...
-   }
+      class CheatActivity : AppCompatActivity() {
+         ...
+      }
+
    An activity may be started from several different places, so you should
    define keys for extras on the activities that retrieve and use them. Using
    your package name as a qualifier for your extra, as shown in Listing 7.7,
    prevents name collisions with extras from other apps.
 
-   Now you could return to MainActivity and put the extra on the intent,
-   but there is a better approach. There is no reason for MainActivity, or
+   Now you could return to ``MainActivity`` and put the extra on the intent,
+   but there is a better approach. There is no reason for ``MainActivity``, or
    any other code in your app, to know the implementation details of what
-   CheatActivity expects as extras on its Intent. Instead, you can
-   encapsulate that work into a newIntent(…) function.
+   ``CheatActivity`` expects as extras on its ``Intent``. Instead, you can
+   encapsulate that work into a ``newIntent(…)`` function.
 
-   Create this function in CheatActivity now. Place the function inside a
+   Create this function in ``CheatActivity`` now. Place the function inside a
    companion object.
 
 
@@ -5924,34 +6111,35 @@ C07👊 Your Second Activity
 
    .. code-block:: kotlin
 
-   class CheatActivity : AppCompatActivity() {
+      class CheatActivity : AppCompatActivity() {
 
-   private lateinit var binding: ActivityCheatBinding
+         private lateinit var binding: ActivityCheatBinding
 
-   override fun onCreate(savedInstanceState: Bundle?) {
-      ...
-   }
+         override fun onCreate(savedInstanceState: Bundle?) {
+            ...
+         }
 
-   com?anion object {
-   fun newIntent(?ackageContext: Context, answerIsTrue: Boolean): Intent {
-   return Intent(?ackageContext, CheatActivity::class.java).apply {
-   ?utExtra(EXTRA_ANSWER_IS_TRUE, answerIsTrue)
-   }
-   }
-   }
-   }
-   This function allows you to create an Intent properly configured with the
-   extras CheatActivity will need. The answerIsTrue argument, a
-   Boolean , is put into the intent with a private name using the
-   EXTRA_ANSWER_IS_TRUE constant. You will extract this value momentarily.
+         companion object {
+            fun newIntent(packageContext: Context, answerIsTrue: Boolean): Intent {
+               return Intent(packageContext, CheatActivity::class.java).apply {
+                  putExtra(EXTRA_ANSWER_IS_TRUE, answerIsTrue)
+               }
+            }
+         }
+      }
+
+   This function allows you to create an ``Intent`` properly configured with the
+   extras ``CheatActivity`` will need. The ``answerIsTrue`` argument, a
+   ``Boolean`` , is put into the intent with a private name using the
+   ``EXTRA_ANSWER_IS_TRUE`` constant. You will extract this value momentarily.
 
    A companion object allows you to access functions without having an
    instance of a class, similar to static functions in Java. Using a
-   newIntent(…) function inside a companion object like this for your
+   ``newIntent(…)`` function inside a companion object like this for your
    activity subclasses will make it easy for other code to properly configure its
    launching intents.
 
-   Speaking of other code, use this new function in MainActivity’s cheat
+   Speaking of other code, use this new function in ``MainActivity``’s cheat
    button listener now.
 
 
@@ -5959,86 +6147,94 @@ C07👊 Your Second Activity
 
    .. code-block:: kotlin
 
-   binding.cheatButton.setOnClickListener {
-   // Start CheatActivity
-   val intent = Intent(this, CheatActivity::class.java)
-   val answerIsTrue = quizViewModel.currentQuestionAnswer
-   val intent = CheatActivity.newIntent(this@MainActivity, answerIsTrue)
-   startActivity(intent)
-   }
+      binding.cheatButton.setOnClickListener {
+         // Start CheatActivity
+         val intent = Intent(this, CheatActivity::class.java)
+         val answerIsTrue = quizViewModel.currentQuestionAnswer
+         val intent = CheatActivity.newIntent(this@MainActivity, answerIsTrue)
+         startActivity(intent)
+
+      }
+
    You only need one extra in this case, but you can put multiple extras on an
-   Intent if you need to. If you do, add more arguments to your
-   newIntent(…) function to stay consistent with the pattern.
+   ``Intent`` if you need to. If you do, add more arguments to your
+   ``newIntent(…)`` function to stay consistent with the pattern.
 
    To retrieve the value from the extra, you will use
-   Intent.getBooleanExtra(String, Boolean).
+   ``Intent.getBooleanExtra(String, Boolean)``.
 
-   The first argument of getBooleanExtra(…) is the name of the extra.
+   The first argument of ``getBooleanExtra(…)`` is the name of the extra.
 
    The second argument is a default answer to use if the key is not found.
 
-   In CheatActivity, retrieve the value from the extra in
-   onCreate(Bundle?) and store it in a member variable.
+   In ``CheatActivity``, retrieve the value from the extra in
+   ``onCreate(Bundle?)`` and store it in a member variable.
 
 
    Listing 7.10 Using an extra (CheatActivity.kt)
 
+
    .. code-block:: kotlin
 
-   class CheatActivity : AppCompatActivity() {
+      class CheatActivity : AppCompatActivity() {
 
-   private lateinit var binding: ActivityCheatBinding
+         private lateinit var binding: ActivityCheatBinding
 
-   private var answerIsTrue = false
+         private var answerIsTrue = false
 
-   override fun onCreate(savedInstanceState: Bundle?) {
-   super.onCreate(savedInstanceState)
-   binding = ActivityCheatBinding.inflate(layoutInflater)
-   setContentView(binding.root)
+         override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
 
-   answerIsTrue = intent.getBooleanExtra(EXTRA_ANSWER_IS_TRUE, false)
-   }
-      ...
-   }
-   Note that Activity.getIntent() always returns the Intent that
+            binding = ActivityCheatBinding.inflate(layoutInflater)
+            setContentView(binding.root)
+
+
+            answerIsTrue = intent.getBooleanExtra(EXTRA_ANSWER_IS_TRUE, false)
+         }
+         ...
+      }
+
+   Note that ``Activity.getIntent()`` always returns the ``Intent`` that
    started the activity. This is what you sent when calling
-   startActivity(Intent).
+   ``startActivity(Intent)``.
 
-   Finally, wire up the answer TextView and the SHOW ANSWER button to
+   Finally, wire up the answer ``TextView`` and the SHOW ANSWER button to
    use the retrieved value.
 
 
    Listing 7.11 Enabling cheating (CheatActivity.kt)
 
+
    .. code-block:: kotlin
 
-   class CheatActivity : AppCompatActivity() {
+      class CheatActivity : AppCompatActivity() {
 
-   private lateinit var binding: ActivityCheatBinding
+         private lateinit var binding: ActivityCheatBinding
 
-   private var answerIsTrue = false
+         private var answerIsTrue = false
 
-   override fun onCreate(savedInstanceState: Bundle?) {
-      ...
+         override fun onCreate(savedInstanceState: Bundle?) {
+            ...
 
-   answerIsTrue = intent.getBooleanExtra(EXTRA_ANSWER_IS_TRUE, false)
+            answerIsTrue = intent.getBooleanExtra(EXTRA_ANSWER_IS_TRUE, false)
 
-   binding.showAnswerButton.setOnClickListener {
-   val answerText = when {
-   answerIsTrue -> R.string.true_button
-   else -> R.string.false_button
-   }
-   binding.answerTextView.setText(answerText)
-   }
-   }
-      ...
-   }
+            binding.showAnswerButton.setOnClickListener {
+               val answerText = when {
+                  answerIsTrue -> R.string.true_button
+                  else -> R.string.false_button
+               }
+               binding.answerTextView.setText(answerText)
+            }
+         }
+         ...
+      }
+
    This code is pretty straightforward. You set the TextView’s text using
-   TextView.setText(Int). TextView.setText(…) has many
+   ``TextView.setText(Int)``. ``TextView.setText(…)`` has many
    variations, and here you use the one that accepts the resource ID of a string
    resource.
 
-   Run GeoQuiz. Press CHEAT! to get to CheatActivity. Then press SHOW
+   Run ``GeoQuiz``. Press CHEAT! to get to ``CheatActivity``. Then press SHOW
    ANSWER to reveal the answer to the current question.
 
 
@@ -6048,49 +6244,50 @@ C07👊 Your Second Activity
 --------------------------------------------------------------------------------
 
    At this point, the user can cheat with impunity. Let’s fix that by having the
-   CheatActivity tell the MainActivity whether the user chose to
+   ``CheatActivity`` tell the ``MainActivity`` whether the user chose to
    view the answer.
 
    When you want to hear back from the child activity, you register your
-   MainActivity for an ActivityResult using the Activity Results
+   ``MainActivity`` for an ``ActivityResult`` using the ``Activity`` Results
    API.
 
    The Activity Results API is different from other APIs you have interacted
    with so far within the Activity class. Instead of overriding a lifecycle
-   method, you will initialize a class property within your MainActivity
-   using the registerForActivityResult() function. That function
+   method, you will initialize a class property within your ``MainActivity``
+   using the ``registerForActivityResult()`` function. That function
    takes in two parameters: The first is a contract that defines the input and
    output of the Activity you are trying to start. And the second is a
    lambda in which you parse the output that is returned.
 
-   In MainActivity, initialize a property named cheatLauncher using
-   registerForActivityResult().
+   In ``MainActivity``, initialize a property named cheatLauncher using
+   ``registerForActivityResult()``.
 
 
    Listing 7.12 Creating cheatLauncher (MainActivity.kt)
 
+
    .. code-block:: kotlin
 
-   class MainActivity : AppCompatActivity() {
+      class MainActivity : AppCompatActivity() {
 
-   private lateinit var binding: ActivityMainBinding
+         private lateinit var binding: ActivityMainBinding
 
-   private val quizViewModel: QuizViewModel by viewModels()
+         private val quizViewModel: QuizViewModel by viewModels()
 
-   private val cheatLauncher = registerForActivityResult(
-   ActivityResultContracts.StartActivityForResult()
-   ) { result ->
-   // Handle the result
-   }
+         private val cheatLauncher = registerForActivityResult(
+         ActivityResultContracts.StartActivityForResult()
+         ) { result ->
+            // Handle the result
+         }
 
-   override fun onCreate(savedInstanceState: Bundle?) {
-      ...
-   }
-      ...
-   }
-   The contract you are using is
-   ActivityResultContracts.StartActivityForResult. It is a
-   basic contract that takes in an Intent as input and provides an
+         override fun onCreate(savedInstanceState: Bundle?) {
+            ...
+         }
+         ...
+      }
+
+   The contract you are using is ``ActivityResultContracts.StartActivityForResult``. 
+   It is a basic contract that takes in an Intent as input and provides an
    ActivityResult as output. There are many other contracts you can use
    to accomplish other tasks (such as capturing video or requesting
    permissions). You can even define your own custom contract. In
@@ -6100,7 +6297,7 @@ C07👊 Your Second Activity
    For now, you will do nothing with the result, but you will get back to this in
    a bit.
 
-   To use your cheatLauncher, call the launch(Intent) function,
+   To use your cheatLauncher, call the ``launch(Intent)`` function,
    which takes in the Intent you already created.
 
 
@@ -6108,31 +6305,45 @@ C07👊 Your Second Activity
 
    .. code-block:: kotlin
 
-   class MainActivity : AppCompatActivity() {
-      ...
-   override fun onCreate(savedInstanceState: Bundle?) {
-      ...
-   binding.cheatButton.setOnClickListener {
-   // Start CheatActivity
-   val answerIsTrue = quizViewModel.currentQuestionAnswer
-   val intent = CheatActivity.newIntent(this@MainActivity, answerIsTrue)
-   startActivity(intent)
-   cheatLauncher.launch(intent)
-   }
+      class MainActivity : AppCompatActivity() {
+         ...
+         override fun onCreate(savedInstanceState: Bundle?) {
+            ...
+            binding.cheatButton.setOnClickListener {
+               // Start CheatActivity
+               val answerIsTrue = quizViewModel.currentQuestionAnswer
+               val intent = CheatActivity.newIntent(this@MainActivity, answerIsTrue)
+               startActivity(intent)
 
-   updateQuestion()
-   }
-      ...
-   }
-   Setting a result
+               cheatLauncher.launch(intent)
+
+            }
+
+            updateQuestion()
+
+         }
+         ...
+      }
+
+
+Setting a result
+
    There are two functions you can call in the child activity to send data back
    to the parent:
-   setResult(resultCode: Int)
-   setResult(resultCode: Int, data: Intent)
+
+   .. code-block:: kotlin
+
+      setResult(resultCode: Int)
+
+      setResult(resultCode: Int, data: Intent)
+
+
    Typically, the result code is one of two predefined constants:
-   Activity.RESULT_OK or Activity.RESULT_CANCELED . (You can use another
-   constant, RESULT_FIRST_USER , as an offset when defining your own result
+   ``Activity.RESULT_OK`` or ``Activity.RESULT_CANCELED`` . (You can use another
+   constant, ``RESULT_FIRST_USER`` , as an offset when defining your own result
    codes.)
+
+
    Setting result codes is useful when the parent needs to take different action
    depending on how the child activity finished.
 
@@ -6141,61 +6352,67 @@ C07👊 Your Second Activity
    was pressed. Then the parent activity would take a different action
    depending on the result code.
 
-   Calling setResult(…) is not required of the child activity. If you do not
+   Calling ``setResult(…)`` is not required of the child activity. If you do not
    need to distinguish between results or receive arbitrary data on an intent,
    then you can let the OS send a default result code. A result code is always
    returned to the parent if the child activity was started with
-   startActivityForResult(…). If setResult(…) is not called,
+   ``startActivityForResult(…)``. If ``setResult(…)`` is not called,
    then when the user presses the Back button, the parent will receive
-   Activity.RESULT_CANCELED .
+   ``Activity.RESULT_CANCELED`` .
 
-   Sending back an intent
+
+Sending back an intent
+
    In this implementation, you are interested in passing some specific data
-   back to MainActivity. So you are going to create an Intent, put an
-   extra on it, and then call Activity.setResult(Int, Intent) to
-   get that data into MainActivity’s hands.
+   back to ``MainActivity``. So you are going to create an Intent, put an
+   extra on it, and then call ``Activity.setResult(Int, Intent)`` to
+   get that data into ``MainActivity``’s hands.
 
-   In CheatActivity, add a constant for the extra’s key and a private
+   In ``CheatActivity``, add a constant for the extra’s key and a private
    function that does this work. Then call this function in the SHOW ANSWER
    button’s listener.
 
 
    Listing 7.14 Setting a result (CheatActivity.kt)
 
+
    .. code-block:: kotlin
 
-   const val EXTRA_ANSWER_SHOWN = "com.bignerdranch.android.geoquiz.answer_shown"
-   private const val EXTRA_ANSWER_IS_TRUE =
-   "com.bignerdranch.android.geoquiz.answer_is_true"
+      const val EXTRA_ANSWER_SHOWN = "com.bignerdranch.android.geoquiz.answer_shown"
+      private const val EXTRA_ANSWER_IS_TRUE =
+         "com.bignerdranch.android.geoquiz.answer_is_true"
 
-   class CheatActivity : AppCompatActivity() {
-      ...
-   override fun onCreate(savedInstanceState: Bundle?) {
-      ...
-   binding.showAnswerButton.setOnClickListener {
-      ...
-   binding.answerTextView.setText(answerText)
-   setAnswerShownResult(true)
-   }
-   }
+      class CheatActivity : AppCompatActivity() {
+         ...
+         override fun onCreate(savedInstanceState: Bundle?) {
+            ...
+            binding.showAnswerButton.setOnClickListener {
+               ...
+               binding.answerTextView.setText(answerText)
+               setAnswerShownResult(true)
 
-   private fun setAnswerShownResult(isAnswerShown: Boolean) {
-   val data = Intent().apply {
-   ?utExtra(EXTRA_ANSWER_SHOWN, isAnswerShown)
-   }
-   setResult(Activity.RESULT_OK, data)
-   }
-      ...
-   }
-   When the user presses the SHOW ANSWER button, the CheatActivity
+            }
+         }
+
+         private fun setAnswerShownResult(isAnswerShown: Boolean) {
+            val data = Intent().apply {
+               putExtra(EXTRA_ANSWER_SHOWN, isAnswerShown)
+            }
+            setResult(Activity.RESULT_OK, data)
+
+         }
+         ...
+      }
+
+   When the user presses the SHOW ANSWER button, the ``CheatActivity``
    packages up the result code and the intent in the call to
-   setResult(Int, Intent).
+   ``setResult(Int, Intent)``.
 
    Then, when the user presses the Back button to return to the
-   MainActivity, the ActivityManager invokes the lambda defined
-   within cheatLauncher on the parent activity. The parameters are the
-   original request code from MainActivity and the result code and intent
-   passed into setResult(Int, Intent).
+   ``MainActivity``, the ``ActivityManager`` invokes the lambda defined
+   within ``cheatLauncher`` on the parent activity. The parameters are the
+   original request code from ``MainActivity`` and the result code and intent
+   passed into ``setResult(Int, Intent)``.
 
 
    Figure 7.9 shows this sequence of interactions.
@@ -6205,13 +6422,15 @@ C07👊 Your Second Activity
    Figure 7.9 Sequence diagram for GeoQuiz
 
    The final step is to extract the data returned in the lambda of
-   cheatLauncher in MainActivity.
+   ``cheatLauncher`` in ``MainActivity``.
 
-   Handling a result
-   In QuizViewModel.kt, add a new property to hold the value that
-   CheatActivity is passing back. The user’s cheat status is part of the UI
-   state. Stashing the value in QuizViewModel and using
-   SavedStateHandle means the value will persist across configuration
+
+Handling a result
+
+   In ``QuizViewModel.kt``, add a new property to hold the value that
+   ``CheatActivity`` is passing back. The user’s cheat status is part of the UI
+   state. Stashing the value in ``QuizViewModel`` and using
+   ``SavedStateHandle`` means the value will persist across configuration
    changes and process death rather than being destroyed with the activity, as
    discussed in Chapter 4.
 
@@ -6221,52 +6440,55 @@ C07👊 Your Second Activity
    .. code-block:: kotlin
 
       ...
-   const val IS_CHEATER_KEY = "IS_CHEATER_KEY"
+      const val IS_CHEATER_KEY = "IS_CHEATER_KEY"
 
-   class QuizViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() {
-      ...
-   private val questionBank = listOf(
-      ...
-   )
+      class QuizViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() {
+         ...
+         private val questionBank = listOf(
+            ...
+         )
 
-   var isCheater: Boolean
-   get() = savedStateHandle.get(IS_CHEATER_KEY) ?: false
-   set(value) = savedStateHandle.set(IS_CHEATER_KEY, value)
-      ...
-   }
-   Next, in MainActivity.kt, add the following lines in the lambda of
-   cheatLauncher to pull the value out of the result sent back from
-   CheatActivity. You do not want to accidentally mark the user as a
-   cheater, so check whether the result code is Activity.RESULT_OK first.
+
+         var isCheater: Boolean
+         get() = savedStateHandle.get(IS_CHEATER_KEY) ?: false
+         set(value) = savedStateHandle.set(IS_CHEATER_KEY, value)
+         ...
+      }
+
+   Next, in ``MainActivity.kt``, add the following lines in the lambda of
+   ``cheatLauncher`` to pull the value out of the result sent back from
+   ``CheatActivity``. You do not want to accidentally mark the user as a
+   cheater, so check whether the result code is ``Activity.RESULT_OK`` first.
 
 
    Listing 7.16 Pulling out the data in cheatLauncher (MainActivity.kt)
 
    .. code-block:: kotlin
 
-   class MainActivity : AppCompatActivity() {
+      class MainActivity : AppCompatActivity() {
 
-   private lateinit var binding: ActivityMainBinding
+         private lateinit var binding: ActivityMainBinding
 
-   private val quizViewModel: QuizViewModel by viewModels()
+         private val quizViewModel: QuizViewModel by viewModels()
 
-   private val cheatLauncher = registerForActivityResult(
-   ActivityResultContracts.StartActivityForResult()
-   ) { result ->
-   // Handle the result
-   if (result.resultCode == Activity.RESULT_OK) {
-   quizViewModel.isCheater =
-   result.data?.getBooleanExtra(EXTRA_ANSWER_SHOWN, false) ?: false
-   }
-   }
+         private val cheatLauncher = registerForActivityResult(
+         ActivityResultContracts.StartActivityForResult()
+         ) { result ->
+            // Handle the result
+            if (result.resultCode == Activity.RESULT_OK) {
+               quizViewModel.isCheater =
+                  result.data?.getBooleanExtra(EXTRA_ANSWER_SHOWN, false) ?: false
+            }
+         }
 
-   override fun onCreate(savedInstanceState: Bundle?) {
-      ...
-   }
-      ...
-   }
-   Finally, modify the checkAnswer(Boolean) function in
-   MainActivity to check whether the user cheated and respond
+         override fun onCreate(savedInstanceState: Bundle?) {
+            ...
+         }
+         ...
+      }
+
+   Finally, modify the ``checkAnswer(Boolean)`` function in
+   ``MainActivity`` to check whether the user cheated and respond
    appropriately.
 
 
@@ -6274,36 +6496,38 @@ C07👊 Your Second Activity
 
    .. code-block:: kotlin
 
-   class MainActivity : AppCompatActivity() {
-      ...
-   private fun checkAnswer(userAnswer: Boolean) {
-   val correctAnswer: Boolean = quizViewModel.currentQuestionAnswer
+      class MainActivity : AppCompatActivity() {
+         ...
+         private fun checkAnswer(userAnswer: Boolean) {
+            val correctAnswer: Boolean = quizViewModel.currentQuestionAnswer
 
-   val messageResId = if (userAnswer == correctAnswer) {
-   R.string.correct_toast
-   } else {
-   R.string.incorrect_toast
-   }
-   val messageResId = when {
-   quizViewModel.isCheater -> R.string.judgment_toast
-   userAnswer == correctAnswer -> R.string.correct_toast
-   else -> R.string.incorrect_toast
-   }
-   Toast.makeText(this, messageResId, Toast.LENGTH_SHORT)
-   .show()
-   }
-   }
-   Run GeoQuiz. Press CHEAT! , then press SHOW ANSWER on the cheat screen.
+            val messageResId = if (userAnswer == correctAnswer) {
+               R.string.correct_toast
+            } else {
+               R.string.incorrect_toast
+            }
+            val messageResId = when {
+               quizViewModel.isCheater -> R.string.judgment_toast
+               userAnswer == correctAnswer -> R.string.correct_toast
+               else -> R.string.incorrect_toast
+            }
+            Toast.makeText(this, messageResId, Toast.LENGTH_SHORT)
+            .show()
+
+         }
+      }
+
+   Run ``GeoQuiz``. Press CHEAT! , then press SHOW ANSWER on the cheat screen.
 
    Once you cheat, press the Back button. Try answering the current question.
 
-   You should see the ?udgment toast appear.
+   You should see the judgment toast appear.
 
    What happens if you go to the next question? Still a cheater. If you wish to
-   rela? your rules around cheating, try your hand at the challenge outlined in
+   relax your rules around cheating, try your hand at the challenge outlined in
    the section called Challenge: Tracking Cheat Status by Question.
 
-   At this point, GeoQuiz is feature complete. In the next chapter, you will
+   At this point, ``GeoQuiz`` is feature complete. In the next chapter, you will
    learn how to include the newest Android features available while still
    supporting older versions of Android in the same application.
 
@@ -6315,75 +6539,77 @@ C07👊 Your Second Activity
 
    Let’s look at what is going on OS-wise as you move between activities.
 
-   First, when you click the GeoQuiz app in the launcher, the OS does not start
+   First, when you click the ``GeoQuiz`` app in the launcher, the OS does not start
    the application; it starts an activity in the application. More specifically, it
-   starts the application’s launcher activity . For GeoQuiz,
-   MainActivity is the launcher activity.
+   starts the application’s launcher activity . For ``GeoQuiz``,
+   ``MainActivity`` is the launcher activity.
 
-   When the New Project wizard created the GeoQuiz application and
-   MainActivity, it made MainActivity the launcher activity by
+   When the New Project wizard created the ``GeoQuiz`` application and
+   ``MainActivity``, it made ``MainActivity`` the launcher activity by
    default. Launcher activity status is specified in the manifest by the intent-
-   filter element in MainActivity’s declaration:
-   <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-   ... >
+   filter element in ``MainActivity``’s declaration:
 
-   <application
-   ... >
-   <activity
-   android:name=".CheatActivity"
-   android:exported="true" />
-   <activity
-   android:name=".MainActivity"
-   android:exported="true">
-   <intent-filter>
-   <action android:name="android.intent.action.MAIN"/>
+   .. code-block:: xml
 
-   <category android:name="android.intent.category.LAUNCHER"/>
-   </intent-filter>
-   </activity>
-   </application>
+      <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      ... >
 
-   </manifest>
+      <application
+      ... >
+         <activity
+            android:name=".CheatActivity"
+            android:exported="true" />
+         <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+               <action android:name="android.intent.action.MAIN"/>
+               <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+         </activity>
+      </application>
 
-   After the instance of MainActivity is onscreen, the user can press the
-   CHEAT! button. When this happens, an instance of CheatActivity is
-   started – on top of the MainActivity. These activities exist in a stack
+      </manifest>
+
+   After the instance of ``MainActivity`` is onscreen, the user can press the
+   CHEAT! button. When this happens, an instance of ``CheatActivity`` is
+   started – on top of the ``MainActivity``. These activities exist in a stack
    (Figure 7.10).
 
-   Pressing the Back button in CheatActivity pops this instance off the
-   stack, and the MainActivity resumes its position at the top, as shown in
+   Pressing the Back button in ``CheatActivity`` pops this instance off the
+   stack, and the ``MainActivity`` resumes its position at the top, as shown in
    Figure 7.10.
 
 
    Figure 7.10 GeoQuiz’s back stack
 
-   A call to Activity.finish() in CheatActivity would also pop
-   the CheatActivity off the stack.
+   A call to ``Activity.finish()`` in ``CheatActivity`` would also pop
+   the ``CheatActivity`` off the stack.
 
-   If you run GeoQuiz and press the Back button from the MainActivity,
-   the MainActivity will be moved to the background in its created state
+   If you run ``GeoQuiz`` and press the Back button from the ``MainActivity``,
+   the ``MainActivity`` will be moved to the background in its created state
    and you will return to the last screen you were viewing before running
-   GeoQuiz (Figure 7.11). For a little more detail on the difference in behavior
-   when navigating Back from MainActivity versus what happens in
+   ``GeoQuiz`` (Figure 7.11). For a little more detail on the difference in behavior
+   when navigating Back from ``MainActivity`` versus what happens in
    CheatActivity, check out the section called For the More Curious: The
    Back Button and the Activity Lifecycle near the end of this chapter.
 
 
    Figure 7.11 Looking at the Home screen
 
-   If you start GeoQuiz from the launcher application, pressing the Back
-   button from MainActivity will return you to the launcher (Figure 7.12).
+   If you start ``GeoQuiz`` from the launcher application, pressing the Back
+   button from ``MainActivity`` will return you to the launcher (Figure 7.12).
 
 
-   Figure 7.12 Running GeoQuiz from the launcher
+   Figure 7.12 Running ``GeoQuiz`` from the launcher
 
    Pressing the Back button from the launcher will return you to the screen
    you were looking at before you opened the launcher.
 
-   What you are seeing here is that the ActivityManager maintains a
+   What you are seeing here is that the ``ActivityManager`` maintains a
    back stack and that this back stack is not just for your application’s
    activities. Activities for all applications share the back stack, which is one
-   reason the ActivityManager is involved in starting your activities and
+   reason the ``ActivityManager`` is involved in starting your activities and
    lives with the OS and not your application. The stack represents the use of
    the OS and device as a whole rather than the use of a single application.
 
@@ -6394,32 +6620,32 @@ C07👊 Your Second Activity
 --------------------------------------------------------------------------------
 
    This chapter uses the Activity Result APIs to start and pass information
-   back from CheatActivity. These APIs are a relatively recent addition
+   back from ``CheatActivity``. These APIs are a relatively recent addition
    to Android. They were actually built on top of existing APIs: the
-   startActivityForResult() function and
-   onActivityResult() callback. We recommend using the Activity
+   ``startActivityForResult()`` function and
+   ``onActivityResult()`` callback. We recommend using the Activity
    Result APIs, as they enable you to consume type-safe results and they
    encourage developers to write more modular code – but you might see
    applications that call the older, lower-level APIs directly.
 
    There are many parallels between these two approaches.
 
-   The startActivityForResult() function is analogous to the
-   launch(Intent) function you used on cheatLauncher. The one
-   additional parameter necessary for startActivityForResult() is a
-   requestCode that uniquely identifies your request for a result.
+   The ``startActivityForResult()`` function is analogous to the
+   ``launch(Intent)`` function you used on ``cheatLauncher``. The one
+   additional parameter necessary for ``startActivityForResult()`` is a
+   ``requestCode`` that uniquely identifies your request for a result.
 
-   On the result side, the onActivityResult() callback maps closely to
-   the lambda invoked on cheatLauncher. You have access to the data and
-   the result code and also the requestCode you passed into
-   startActivityForResult(). Since you can start many different
+   On the result side, the ``onActivityResult()`` callback maps closely to
+   the lambda invoked on ``cheatLauncher``. You have access to the data and
+   the result code and also the ``requestCode`` you passed into
+   ``startActivityForResult()``. Since you can start many different
    activities for results, using the legacy APIs means many requests could
-   invoke the onActivityResult() callback. This is where your
-   requestCode comes in handy, as you can choose to perform certain
+   invoke the ``onActivityResult()`` callback. This is where your
+   ``requestCode`` comes in handy, as you can choose to perform certain
    actions only for certain requests.
 
    If you see an application using the legacy
-   startActivityForResult() and onActivityResult()
+   ``startActivityForResult()`` and ``onActivityResult()``
    methods, consider migrating to the Activity Result APIs. These new APIs
    are easier to use and make it easier to see how data is moving between
    activities in your application.
@@ -6429,20 +6655,20 @@ C07👊 Your Second Activity
 7.13. For the More Curious: The Back Button and the Activity Lifecycle
 --------------------------------------------------------------------------------
 
-   In this chapter, you added CheatActivity and learned how the Android
-   OS manages your activities through ActivityManager. You also saw
+   In this chapter, you added ``CheatActivity`` and learned how the Android
+   OS manages your activities through ``ActivityManager``. You also saw
    what happens to each of your activities when you press the Back button
    while they are in the foreground: When you press Back from
-   CheatActivity, it is popped off the back stack and removed from
-   system memory. But when you press Back from MainActivity, it is
+   ``CheatActivity``, it is popped off the back stack and removed from
+   system memory. But when you press Back from ``MainActivity``, it is
    only moved to the background – it still exists in memory, though it is not
-   visible in its created state. The same happens with MainActivity when
+   visible in its created state. The same happens with ``MainActivity`` when
    you press the Home button to temporarily leave the activity, as you did in
    the section called Temporarily leaving an activity in Chapter 3.
 
    You may be wondering why Android treats your two activities differently
-   with the same interaction. The answer is because MainActivity is
-   declared as the launcher activity in AndroidManifest.xml. This
+   with the same interaction. The answer is because ``MainActivity`` is
+   declared as the launcher activity in ``AndroidManifest.xml``. This
    declaration not only lets Android know this is the activity to start when
    users first launch the app but also tells it to treat this entry point specially
    when popping it off the back stack. Keeping the launcher activity in
@@ -6450,7 +6676,7 @@ C07👊 Your Second Activity
    after navigating back instead of having to completely restart the application.
    This is a fairly new behavior on Android, introduced with Android 12 (API
    31). In previous Android versions, your launcher activity would mirror the
-   behavior of CheatActivity and be popped off the back stack and
+   behavior of ``CheatActivity`` and be popped off the back stack and
    removed from memory when the user navigated back. You will learn more
    about Android versions and how they introduce new behaviors for the
    system and applications in Chapter 8. For now, be aware that users will see
@@ -6459,8 +6685,8 @@ C07👊 Your Second Activity
 
    If you would like to see this difference in action, we encourage you play
    around with different versions of Android (either on an emulator or your
-   physical device) and observe the Logcat statements you added in
-   MainActivity. Pay attention to when onDestroy() is called and
+   physical device) and observe the ``Logcat`` statements you added in
+   ``MainActivity``. Pay attention to when ``onDestroy()`` is called and
    when it is not.
 
 
@@ -6473,11 +6699,11 @@ C07👊 Your Second Activity
    anticheating measures. Which they probably will. Because they are
    cheaters.
 
-   GeoQuiz has a major loophole: Users can rotate CheatActivity after
+   ``GeoQuiz`` has a major loophole: Users can rotate ``CheatActivity`` after
    they cheat to clear out the cheating result. When they go back to
-   MainActivity, it is as if they never cheated at all.
+   ``MainActivity``, it is as if they never cheated at all.
 
-   Fix this bug by persisting CheatActivity’s UI state across rotation and
+   Fix this bug by persisting ``CheatActivity``’s UI state across rotation and
    process death using the techniques you learned in Chapter 4.
 
 .. _S07_15:
@@ -6486,9 +6712,9 @@ C07👊 Your Second Activity
 --------------------------------------------------------------------------------
 
    Currently, when the user cheats on a single question, they are considered a
-   cheater on all the questions. Update GeoQuiz to track whether the user
+   cheater on all the questions. Update ``GeoQuiz`` to track whether the user
    cheated on a question-by-question basis. When the user cheats on a given
-   question, present them with the ?udgment toast any time they attempt to
+   question, present them with the judgment toast any time they attempt to
    answer that question. When a user answers a question they have not cheated
    on yet, show the correct or incorrect toast accordingly.
 
@@ -6498,7 +6724,7 @@ C07👊 Your Second Activity
 C08👊 Android SDK Versions and Compatibility
 ============================================
 
-   Now that you have gotten your feet wet with GeoQuiz, let’s review some
+   Now that you have gotten your feet wet with ``GeoQuiz``, let’s review some
    background information about the different versions of Android. The
    information in this chapter is important to have under your belt as you
    continue with the book and develop more complex and realistic apps.
@@ -6582,9 +6808,10 @@ C08👊 Android SDK Versions and Compatibility
    work required to support those older versions eclipses the value supporting
    them can provide.
 
-   When you created the GeoQuiz project, you set a minimum SDK version
+   When you created the ``GeoQuiz`` project, you set a minimum SDK version
    within the New Project wizard (Figure 8.1). (Note that Android uses the
    terms “SDK version” and “API level” interchangeably.)
+
 
    Figure 8.1 Remember me?
 
@@ -6593,17 +6820,20 @@ C08👊 Android SDK Versions and Compatibility
    how to change them.
 
    All these values are set in your build environment, so open the
-   build.gradle file labeled Module (GeoQuiz.app) . Notice the values for
-   compileSdk , minSdk , and targetSdk :
-      ...
-   compileSdk 32
+   ``build.gradle`` file labeled Module (GeoQuiz.app) . Notice the values for
+   ``compileSdk`` , ``minSdk`` , and ``targetSdk`` :
 
-   defaultConfig {
-   applicationId "com.bignerdranch.android.geoquiz"
-   minSdk 24
-   targetSdk 32
+   .. code-block:: kotlin
+
       ...
-   }
+      compileSdk 32
+
+      defaultConfig {
+         applicationId "com.bignerdranch.android.geoquiz"
+         minSdk 24
+         targetSdk 32
+         ...
+      }
       ...
 
 .. _S08_03:
@@ -6611,12 +6841,12 @@ C08👊 Android SDK Versions and Compatibility
 8.3. Minimum SDK version
 --------------------------------------------------------------------------------
 
-   The minSdk value is a hard floor below which the OS should refuse to
+   The ``minSdk`` value is a hard floor below which the OS should refuse to
    install the app.
 
    By setting this version to API level 24, you give Android permission to
-   install GeoQuiz on devices running API level 24 or higher. Android will
-   refuse to install GeoQuiz on a device running anything lower than API level
+   install ``GeoQuiz`` on devices running API level 24 or higher. Android will
+   refuse to install ``GeoQuiz`` on a device running anything lower than API level
    24.
 
 
@@ -6625,16 +6855,16 @@ C08👊 Android SDK Versions and Compatibility
 8.4. Target SDK version
 --------------------------------------------------------------------------------
 
-   The targetSdk value tells Android which API level your app is designed
+   The ``targetSdk`` value tells Android which API level your app is designed
    to run on. Most often this will be the latest Android release.
 
    When would you lower the target SDK? New SDK releases can change
    how your app appears on a device or even how the OS behaves behind the
    scenes. If you have already developed an app, you should confirm that it
    works and looks as expected on new releases. Check the documentation at
-   https://developer.android.google.cn/reference/android/os/
-   Build.VERSION_CODES.html and https://developer.android.google.cn/
-   about/ versions to see where problems might arise.
+   https://developer.android.google.cn/reference/android/os/Build.VERSION_CODES.html
+   and https://developer.android.google.cn/about/ versions to see where 
+   problems might arise.
 
    If your app will have issues with a new release of Android, you can modify
    your app to work with the new behavior and update the target SDK – or you
@@ -6642,13 +6872,13 @@ C08👊 Android SDK Versions and Compatibility
    target SDK means that your app will continue running with the appearance
    and behavior of the targeted version on which it worked well. This provides
    compatibility with newer versions of Android, as changes in subsequent
-   releases are ignored until the targetSdk is increased.
+   releases are ignored until the ``targetSdk`` is increased.
 
    However, you cannot ignore new Android releases forever by keeping your
    target SDK low. Google has restrictions on how low an app’s target SDK
    can be and still ship on the Google Play Store. As of this writing, any new
    apps or app updates must have a target SDK of at least API level 30 – or
-   they will be re?ected by the Play Store. This ensures that users can benefit
+   they will be rejected by the Play Store. This ensures that users can benefit
    from the performance and security improvements in recent versions of
    Android. These version requirements will increase over time, as new
    versions of Android are released, so make sure you keep an eye on the
@@ -6660,8 +6890,8 @@ C08👊 Android SDK Versions and Compatibility
 8.5. Compile SDK version
 --------------------------------------------------------------------------------
 
-   The last SDK setting is the compileSdk . While the minimum and target
-   SDK versions are placed in the AndroidManifest.xml when you
+   The last SDK setting is the ``compileSdk`` . While the minimum and target
+   SDK versions are placed in the ``AndroidManifest.xml`` when you
    build your app, to advertise those values to the OS, the compile SDK
    version is private information between you and the compiler.
 
@@ -6681,7 +6911,7 @@ C08👊 Android SDK Versions and Compatibility
    behavior of your app.
 
    You can modify the minimum SDK version, target SDK version, and
-   compile SDK version in your app/build.gradle file. Remember that
+   compile SDK version in your ``app/build.gradle`` file. Remember that
    you must sync your project with the Gradle changes before they will be
    reflected.
 
@@ -6704,12 +6934,12 @@ C08👊 Android SDK Versions and Compatibility
 --------------------------------------------------------------------------------
 
    In Chapter 4, you learned about the Jetpack libraries and AndroidX. In
-   addition to offering new features (like ViewModel), the Jetpack libraries
+   addition to offering new features (like ``ViewModel``), the Jetpack libraries
    offer backward compatibility for new features on older devices and provide
    (or attempt to provide) consistent behavior across Android versions. Some
-   libraries, such as AppCompat (which you will learn about in Chapter 11),
+   libraries, such as ``AppCompat`` (which you will learn about in Chapter 11),
    ensure that your app has a consistent look and feel across all modern
-   versions of Android. Other libraries, such as WorkManager (which you will
+   versions of Android. Other libraries, such as ``WorkManager`` (which you will
    use in Chapter 22), provide a consistent environment to perform essential
    tasks within your app.
 
@@ -6722,7 +6952,7 @@ C08👊 Android SDK Versions and Compatibility
 
    Unfortunately, the Jetpack libraries are not a compatibility cure-all, because
    not all the features you will want to use are available in them. The Android
-   team does a good ?ob of adding new APIs to the Jetpack libraries as time
+   team does a good job of adding new APIs to the Jetpack libraries as time
    goes on, but you will still find cases where a certain API is unavailable. In
    this case, you will need to use explicit version checks until a Jetpack
    version of the feature is added.
@@ -6747,7 +6977,7 @@ C08👊 Android SDK Versions and Compatibility
    Right now, all of GeoQuiz’s simple code was introduced in API level 24 or
    earlier. Let’s add some code from after API level 24 and see what happens.
 
-   Open MainActivity.kt. At the bottom of the class, add a function that
+   Open ``MainActivity.kt``. At the bottom of the class, add a function that
    will blur the cheat button when called.
 
 
@@ -6755,24 +6985,27 @@ C08👊 Android SDK Versions and Compatibility
 
    .. code-block:: kotlin
 
-   class MainActivity : AppCompatActivity() {
-      ...
-   private fun checkAnswer(userAnswer: Boolean) {
-      ...
-   }
+      class MainActivity : AppCompatActivity() {
+         ...
+         private fun checkAnswer(userAnswer: Boolean) {
+            ...
+         }
 
-   private fun blurCheatButton() {
-   val effect = RenderEffect.createBlurEffect(
-   10.0f,
-   10.0f,
-   Shader.TileMode.CLAMP
-   )
-   binding.cheatButton.setRenderEffect(effect)
-   }
-   }
+         private fun blurCheatButton() {
+            val effect = RenderEffect.createBlurEffect(
+            10.0f,
+            10.0f,
+            Shader.TileMode.CLAMP
+            )
+
+            binding.cheatButton.setRenderEffect(effect)
+
+         }
+      }
+
    Notice that a Lint error appears on the lines where you call
-   RenderEffect.createBlurEffect(…) and
-   View.setRenderEffect(…), in the form of a red squiggly under the
+   ``RenderEffect.createBlurEffect(…)`` and
+   ``View.setRenderEffect(…)``, in the form of a red squiggly under the
    function name and, when you click on the function, a red light bulb icon.
 
    These functions were added to the Android SDK in API level 31, so this
@@ -6782,9 +7015,9 @@ C08👊 Android SDK Versions and Compatibility
    problem with this code. Android Lint, on the other hand, knows about your
    minimum SDK version, so it complains.
 
-   The error message reads something like Call requires API level 31 (Current min is
-   24) . You can still run the code with this warning (try it and see), but Lint
-   knows it is not safe.
+   The error message reads something like Call requires API level 31 (Current 
+   min is 24) . You can still run the code with this warning (try it and see), 
+   but Lint knows it is not safe.
 
    How do you get rid of this error? One option is to raise the minimum SDK
    version to 31. However, that means your app can only be run on a select
@@ -6799,48 +7032,55 @@ C08👊 Android SDK Versions and Compatibility
 
    .. code-block:: kotlin
 
-   class MainActivity : AppCompatActivity() {
-      ...
-   private fun checkAnswer(userAnswer: Boolean) {
-      ...
-   }
+      class MainActivity : AppCompatActivity() {
+         ...
+         private fun checkAnswer(userAnswer: Boolean) {
+            ...
+         }
 
-   @RequiresApi(Build.VERSION_CODES.S)
-   private fun blurCheatButton() {
-   val effect = RenderEffect.createBlurEffect(
-   10.0f,
-   10.0f,
-   Shader.TileMode.CLAMP
-   )
-   binding.cheatButton.setRenderEffect(effect)
-   }
-   }
-   Now, invoke blurCheatButton() in onCreate(Bundle?):
+         @RequiresApi(Build.VERSION_CODES.S)
+
+         private fun blurCheatButton() {
+            val effect = RenderEffect.createBlurEffect(
+            10.0f,
+            10.0f,
+            Shader.TileMode.CLAMP
+            )
+
+            binding.cheatButton.setRenderEffect(effect)
+
+         }
+      }
+
+   Now, invoke ``blurCheatButton()`` in ``onCreate(Bundle?)``:
 
    Listing 8.3 Blurring the cheat button (MainActivity.kt)
 
    .. code-block:: kotlin
 
-   class MainActivity : AppCompatActivity() {
-      ...
-   override fun onCreate(savedInstanceState: Bundle?) {
-      ...
-   binding.cheatButton.setOnClickListener {
-      ...
-   }
+      class MainActivity : AppCompatActivity() {
+         ...
+         override fun onCreate(savedInstanceState: Bundle?) {
+            ...
+            binding.cheatButton.setOnClickListener {
+               ...
+            }
 
-   updateQuestion()
+            updateQuestion()
 
-   blurCheatButton()
-   }
-      ...
-   }
+
+            blurCheatButton()
+
+         }
+         ...
+      }
+
    The same Android Lint error appears (Figure 8.2). (If you do not see it right
-   away, try rebuilding your project with Build → Rebuild Project .)
+   away, try rebuilding your project with ``Build → Rebuild Project`` .)
 
    Figure 8.2 Android Lint suggestions
 
-   The @RequiresApi annotation by itself does not resolve the compatibility
+   The ``@RequiresApi`` annotation by itself does not resolve the compatibility
    issue – it makes callers responsible for ensuring compatibility. To safely call
    your new function, you need to wrap the higher API code in a conditional
    statement that checks the device’s version of Android.
@@ -6850,32 +7090,34 @@ C08👊 Android SDK Versions and Compatibility
 
    .. code-block:: kotlin
 
-   class MainActivity : AppCompatActivity() {
-      ...
-   override fun onCreate(savedInstanceState: Bundle?) {
-      ...
-   binding.cheatButton.setOnClickListener {
-      ...
-   }
+      class MainActivity : AppCompatActivity() {
+         ...
+         override fun onCreate(savedInstanceState: Bundle?) {
+            ...
+            binding.cheatButton.setOnClickListener {
+               ...
+            }
 
-   updateQuestion()
+            updateQuestion()
 
-   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-   blurCheatButton()
-   }
-   }
-      ...
-   }
-   The Build.VERSION.SDK_INT constant contains the API level for the
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+               blurCheatButton()
+
+            }
+         }
+         ...
+      }
+
+   The ``Build.VERSION.SDK_INT`` constant contains the API level for the
    version of Android used by the device. You compare that version with the
    constant that stands for the S (API level 31) release. (Version codes are
-   listed at https://developer.android.google.cn/reference/android/os/
-   Build.VERSION_CODES.html.)
+   listed at https://developer.android.google.cn/reference/android/os/Build.VERSION_CODES.html.)
    Now, your blurring code will only be called when the app is running on a
    device with API level 31 or higher. You have made your code safe for API
    level 24, and Android Lint should now be content.
 
-   Run GeoQuiz on a device running API level 31 and check out your new
+   Run ``GeoQuiz`` on a device running API level 31 and check out your new
    blurred cheat button, then run it on a device running a lower API level to
    ensure that it works as before.
 
@@ -6941,8 +7183,8 @@ C08👊 Android SDK Versions and Compatibility
 
 
    Open the developer documentation website and click the Docs tab. In the
-   search bar at the top right, enter RenderEffect.createBlurEffect to determine what
-   API level the function belongs to. Select the RenderEffect result
+   search bar at the top right, enter ``RenderEffect.createBlurEffect`` to determine what
+   API level the function belongs to. Select the ``RenderEffect`` result
    (which is likely the first search result), and you will be taken to the class
    reference page (Figure 8.3). On the right side of this page are links to its
    different sections.
@@ -6950,9 +7192,9 @@ C08👊 Android SDK Versions and Compatibility
 
    Figure 8.3 RenderEffect reference page
 
-   Find the createBlurEffect(…) function in the list on the right and
+   Find the ``createBlurEffect(…)`` function in the list on the right and
    click the function name to see a description. To the right of the function
-   signature, you can see that createBlurEffect(…) was introduced in
+   signature, you can see that ``createBlurEffect(…)`` was introduced in
    API level 31.
 
 
@@ -6970,20 +7212,20 @@ C08👊 Android SDK Versions and Compatibility
 8.10. Challenge: Reporting the Device’s Android Version
 --------------------------------------------------------------------------------
 
-   Add a TextView to the GeoQuiz layout that reports to the user what API
+   Add a ``TextView`` to the ``GeoQuiz`` layout that reports to the user what API
    level the device is running. Figure 8.5 shows what the final result should
    look like.
 
 
    Figure 8.5 Finished challenge
 
-   You cannot set this TextView’s text in the layout, because you will not
-   know the device’s Android version until runtime. Find the TextView
-   function for setting text in the TextView reference page in Android’s
+   You cannot set this ``TextView``’s text in the layout, because you will not
+   know the device’s Android version until runtime. Find the ``TextView``
+   function for setting text in the ``TextView`` reference page in Android’s
    documentation. You are looking for a function that accepts a single
-   argument – a string (or a CharSequence).
+   argument – a string (or a ``CharSequence``).
 
-   Use other XML attributes listed in the TextView reference to adjust the
+   Use other XML attributes listed in the ``TextView`` reference to adjust the
    size or typeface of the text.
 
 
@@ -7002,18 +7244,18 @@ C08👊 Android SDK Versions and Compatibility
 C09👊 Fragments
 ===============
 
-   In this chapter, you will start building an application named CriminalIntent.
-   CriminalIntent records the details of “office crimes” – things like leaving
+   In this chapter, you will start building an application named ``CriminalIntent``.
+   ``CriminalIntent`` records the details of “office crimes” – things like leaving
    dirty dishes in the break room sink or walking away from an empty shared
    printer after documents have printed.
 
-   With CriminalIntent, you can make a record of a crime including a title, a
+   With ``CriminalIntent``, you can make a record of a crime including a title, a
    date, and a photo. You can also identify a suspect from your contacts and
    lodge a complaint via email, Twitter, Facebook, or another app. After
    documenting and reporting a crime, you can proceed with your work free of
    resentment and ready to focus on the business at hand.
 
-   CriminalIntent is a complex app that will take 11 chapters to complete. It
+   ``CriminalIntent`` is a complex app that will take 11 chapters to complete. It
    will have a list-detail interface : The main screen will display a list of
    recorded crimes, and users will be able to add new crimes or select an
    existing crime to view and edit its details (Figure 9.1).
@@ -7035,7 +7277,8 @@ C09👊 Fragments
 
    That would work, but what if you wanted more sophisticated presentation
    and navigation between screens?
-   Consider the possibility of CriminalIntent running on a large device. Some
+
+   Consider the possibility of ``CriminalIntent`` running on a large device. Some
    devices have screens large enough to show the list and detail at the same
    time – at least in landscape orientation (Figure 9.2).
 
@@ -7045,7 +7288,7 @@ C09👊 Fragments
    Or imagine a user is viewing a crime and wants to see the next crime in the
    list. It would be better if they could select a different crime from the list
    without navigating back to the previous screen first. Going beyond the
-   CriminalIntent app, common UI elements such as navigation drawers and
+   ``CriminalIntent`` app, common UI elements such as navigation drawers and
    bottom tab bars keep users on one “screen” while child views are swapped
    in and out.
 
@@ -7070,7 +7313,7 @@ C09👊 Fragments
    You can make your app’s UI more flexible by moving UI management from
    the activity to one or more fragments .
 
-   Similar to how you have used your activities so far, a Fragment has a
+   Similar to how you have used your activities so far, a ``Fragment`` has a
    view of its own, often defined in a separate layout file. The fragment’s view
    contains the interesting UI elements that the user wants to see and interact
    with.
@@ -7123,8 +7366,8 @@ C09👊 Fragments
    Figure 9.4 CriminalIntent at the end of this chapter
 
    The screen shown in Figure 9.4 will be managed by a fragment named
-   CrimeDetailFragment. An instance of CrimeDetailFragment
-   will be hosted by an activity named MainActivity.
+   ``CrimeDetailFragment``. An instance of ``CrimeDetailFragment``
+   will be hosted by an activity named ``MainActivity``.
 
    For now, think of hosting as the activity providing a spot in its view
    hierarchy to contain the fragment and its view (Figure 9.5). A fragment is
@@ -7134,17 +7377,17 @@ C09👊 Fragments
 
    Figure 9.5 MainActivity hosting a CrimeDetailFragment
 
-   By the end of the project, CriminalIntent will be a large codebase, but you
-   will begin much like the way you built GeoQuiz. After some build setup,
-   you will define the Crime class, which will model the data you are
+   By the end of the project, ``CriminalIntent`` will be a large codebase, but you
+   will begin much like the way you built ``GeoQuiz``. After some build setup,
+   you will define the ``Crime`` class, which will model the data you are
    displaying. Next, you will create the UI in an XML layout in
-   fragment_crime_detail.xml. Once that is complete, you will
-   create a CrimeDetailFragment to hook up the data to the view.
+   ``fragment_crime_detail.xml``. Once that is complete, you will
+   create a ``CrimeDetailFragment`` to hook up the data to the view.
 
-   Those steps will feel familiar to the work you did back in GeoQuiz, even if
+   Those steps will feel familiar to the work you did back in ``GeoQuiz``, even if
    the names are different this time. Since you are now working with
    fragments, you will also have to take care of one other step: You will add
-   the CrimeDetailFragment to a container within MainActivity.
+   the ``CrimeDetailFragment`` to a container within ``MainActivity``.
 
    Let’s get started.
 
@@ -7161,9 +7404,9 @@ C09👊 Fragments
    Figure 9.6 Creating the CriminalIntent application
 
    Configure your project as shown in Figure 9.7: Name the application
-   CriminalIntent . Make sure the Package name is
-   com.bignerdranch.android.criminalintent and the Language is Kotlin . Select API 24:
-   Android 7.0 (Nougat) from the Minimum SDK dropdown.
+   ``CriminalIntent`` . Make sure the Package name is
+   ``com.bignerdranch.android.criminalintent`` and the Language is Kotlin . 
+   Select API 24: Android 7.0 (Nougat) from the Minimum SDK dropdown.
 
 
    Figure 9.7 Configuring the CriminalIntent project
@@ -7171,10 +7414,10 @@ C09👊 Fragments
    Click Finish to generate the project.
 
    Before writing code, you need to make two changes to your Gradle build
-   files. Open the build.gradle file labeled (Module: CriminalIntent.app) . Like
-   the ViewModel library you used in GeoQuiz, the Fragment library must be
-   added as a dependency on your project. Also, enable View Binding, as you
-   did for GeoQuiz. View Binding integrates seamlessly with fragments, and
+   files. Open the ``build.gradle`` file labeled (Module: ``CriminalIntent.app``) . 
+   Like the ``ViewModel`` library you used in ``GeoQuiz``, the ``Fragment`` library
+   must be added as a dependency on your project. Also, enable View Binding, as you
+   did for ``GeoQuiz``. View Binding integrates seamlessly with fragments, and
    you will be using it in this project as well.
 
 
@@ -7183,23 +7426,24 @@ C09👊 Fragments
    .. code-block:: gradle
 
       ...
-   android {
-      ...
-   kotlinOptions {
-   jvmTarget = '1.8'
-   }
-   buildFeatures {
-   viewBinding true
-   }
-   }
+      android {
+         ...
+         kotlinOptions {
+            jvmTarget = '1.8'
+         }
+         buildFeatures {
+            viewBinding true
+         }
+      }
 
-   dependencies {
-      ...
-   implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
-   implementation 'androidx.fragment:fragment-ktx:1.4.1'
-   testImplementation '?unit:?unit:4.13.2'
-      ...
-   }
+      dependencies {
+         ...
+         implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+         implementation 'androidx.fragment:fragment-ktx:1.4.1'
+         testImplementation 'junit:junit:4.13.2'
+         ...
+      }
+
    Do not forget to click the Sync Project with Gradle Files button
    or the Sync Now button after you have made these changes. Now, on to the
    code.
@@ -7211,36 +7455,39 @@ C09👊 Fragments
 --------------------------------------------------------------------------------
 
    In the project tool window, right-click the
-   com.bignerdranch.android.criminalintent package and select New → Kotlin
-   Class/File . Name the file Crime and, since this class will be used to store data,
+   ``com.bignerdranch.android.criminalintent`` package and select New → Kotlin
+   Class/File . Name the file ``Crime`` and, since this class will be used to store data,
    make it a Data Class .
 
-   For this project, an instance of Crime will represent a single office crime.
+   For this project, an instance of ``Crime`` will represent a single office crime.
+   To begin with, a ``Crime`` will have four properties:
 
-   To begin with, a Crime will have four properties:
-   an ID to uniquely identify the instance
-   a descriptive title, like “To?ic sink dump” or “Someone stole my
-   yogurt!”
-   a date
-   a Boolean indication of whether the crime has been solved
-   In Crime.kt, add these four properties to Crime’s constructor.
+   *  an ID to uniquely identify the instance
+   *  a descriptive title, like “Topic sink dump” or “Someone stole my yogurt!”
+   *  a date
+   *  a Boolean indication of whether the crime has been solved
+
+   In ``Crime.kt``, add these four properties to Crime’s constructor.
 
 
    Listing 9.2 Adding the Crime data class (Crime.kt)
 
+
    .. code-block:: kotlin
 
-   data class Crime(
-   val id: UUID,
-   val title: String,
-   val date: Date,
-   val isSolved: Boolean
-   )
-   When importing Date, you will be presented with multiple options. Make
-   sure to import java.util.Date.
+      data class Crime(
+         val id: UUID,
+         val title: String,
+         val date: Date,
+         val isSolved: Boolean
+      )
 
-   That is all you need for the Crime class for this chapter. Now that the data
-   is set up, let’s move on to the CrimeDetailFragment.
+
+   When importing ``Date``, you will be presented with multiple options. Make
+   sure to ``import java.util.Date``.
+
+   That is all you need for the ``Crime`` class for this chapter. Now that the data
+   is set up, let’s move on to the ``CrimeDetailFragment``.
 
 
 .. _S09_06:
@@ -7250,91 +7497,95 @@ C09👊 Fragments
 
    The steps to create a fragment are the same as those you followed to create
    an activity:
-   compose a UI by defining views in a layout file
-   create the class and set its view to be the layout that you defined
-   wire up the views inflated from the layout in code
+
+   *  compose a UI by defining views in a layout file
+   *  create the class and set its view to be the layout that you defined
+   *  wire up the views inflated from the layout in code
 
 .. _S09_07:
 
 9.7. Defining CrimeDetailFragment’s layout
 --------------------------------------------------------------------------------
 
-   CrimeDetailFragment’s view will display the information contained
+   ``CrimeDetailFragment``’s view will display the information contained
    in an instance of Crime.
 
    First, define the strings that the user will see in
-   res/values/strings.xml.
+   ``res/values/strings.xml``.
 
 
    Listing 9.3 Adding strings (res/values/strings.xml)
 
+
    .. code-block:: xml
 
-   <resources>
-   <string name="app_name">CriminalIntent</string>
-   <string name="crime_title_hint">Enter a title for the crime.</string>
-   <string name="crime_title_label">Title</string>
-   <string name="crime_details_label">Details</string>
-   <string name="crime_solved_label">Solved</string>
-   </resources>
-   Next, you will define the UI. The layout for CrimeDetailFragment
-   will consist of a vertical LinearLayout that contains two TextViews,
-   an EditText, a Button, and a CheckBox.
+      <resources>
+         <string name="app_name">CriminalIntent</string>
+         <string name="crime_title_hint">Enter a title for the crime.</string>
+         <string name="crime_title_label">Title</string>
+         <string name="crime_details_label">Details</string>
+         <string name="crime_solved_label">Solved</string>
+      </resources>
 
-   To create a layout file, right-click the res/layout folder in the project tool
-   window and select New → Layout resource file . Name this file
-   fragment_crime_detail.xml and enter LinearLayout as the root element.
+   Next, you will define the UI. The layout for ``CrimeDetailFragment``
+   will consist of a vertical ``LinearLayout`` that contains two ``TextViews``,
+   an ``EditText``, a ``Button``, and a ``CheckBox``.
 
-   Android Studio creates the file and adds the LinearLayout for you. Add
+   To create a layout file, right-click the ``res/layout`` folder in the project tool
+   window and select ``New → Layout resource file`` . Name this file
+   ``fragment_crime_detail.xml`` and enter ``LinearLayout`` as the root element.
+
+   Android Studio creates the file and adds the ``LinearLayout`` for you. Add
    the views that make up the fragment’s layout to
-   res/layout/fragment_crime_detail.xml.
+   ``res/layout/fragment_crime_detail.xml``.
 
 
    Listing 9.4 Layout file for fragment’s view (res/layout/fragment_crime_detail.xml)
 
    .. code-block:: xml
 
-   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-   xmlns:tools="http://schemas.android.com/tools"
-   android:orientation="vertical"
-   android:layout_width="match_parent"
-   android:layout_height="match_parent"
-   android:layout_margin="16d?">
+      <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+         xmlns:tools="http://schemas.android.com/tools"
+         android:orientation="vertical"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:layout_margin="16d?">
 
-   <TextView
-   android:layout_width="match_parent"
-   android:layout_height="wrap_content"
-   android:textAppearance="?attr/textAppearanceHeadline5"
-   android:text="@string/crime_title_label" />
+      <TextView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:textAppearance="?attr/textAppearanceHeadline5"
+         android:text="@string/crime_title_label" />
 
-   <EditText
-   android:id="@+id/crime_title"
-   android:layout_width="match_parent"
-   android:layout_height="wrap_content"
-   android:hint="@string/crime_title_hint"
-   android:importantForAutofill="no"
-   android:in?utTy?e="text" />
+      <EditText
+         android:id="@+id/crime_title"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:hint="@string/crime_title_hint"
+         android:importantForAutofill="no"
+         android:inputTy?e="text" />
 
-   <TextView
-   android:layout_width="match_parent"
-   android:layout_height="wrap_content"
-   android:textAppearance="?attr/textAppearanceHeadline5"
-   android:text="@string/crime_details_label" />
+      <TextView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:textAppearance="?attr/textAppearanceHeadline5"
+         android:text="@string/crime_details_label" />
 
-   <Button
-   android:id="@+id/crime_date"
-   android:layout_width="match_parent"
-   android:layout_height="wrap_content"
-   tools:text="Wed May 11 11:56 EST 2022" />
+      <Button
+         android:id="@+id/crime_date"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         tools:text="Wed May 11 11:56 EST 2022" />
 
-   <CheckBox
-   android:id="@+id/crime_solved"
-   android:layout_width="match_parent"
-   android:layout_height="wrap_content"
-   android:text="@string/crime_solved_label" />
-   </LinearLayout>
+      <CheckBox
+         android:id="@+id/crime_solved"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="@string/crime_solved_label" />
+      </LinearLayout>
+
    (The TextViews’ definitions include some new syntax related to view
-   style: textAppearance="?attr/textAppearanceHeadline5" . This theme
+   style: ``textAppearance="?attr/textAppearanceHeadline5"`` . This theme
    attribute applies the Headline 5 typography settings to the text as
    specified by Google’s Material Design library. [It can also be customized in
    your application theme, if you want.] You will learn more about this syntax
@@ -7353,25 +7604,25 @@ C09👊 Fragments
 9.8. Creating the CrimeDetailFragment class
 --------------------------------------------------------------------------------
 
-   Create a Kotlin file for the CrimeDetailFragment class. This time,
+   Create a Kotlin file for the ``CrimeDetailFragment`` class. This time,
    select Class for the file type, and Android Studio will stub out the class
    definition for you. Turn the class into a fragment by subclassing the
-   Fragment class.
+   ``Fragment`` class.
 
 
    Listing 9.5 Subclassing Fragment (CrimeDetailFragment.kt)
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
-   }
+      class CrimeDetailFragment : Fragment() {
+      }
+
    As you subclass the Fragment class, you will notice that Android Studio
    finds two classes with the Fragment name. You will see
-   android.app.Fragment and
-   androidx.fragment.app.Fragment. The
-   android.app.Fragment is the version of fragments built into the
+   ``android.app.Fragment`` and ``androidx.fragment.app.Fragment``. The
+   ``android.app.Fragment`` is the version of fragments built into the
    Android OS. You will use the Jetpack version, so be sure to select
-   androidx.fragment.app.Fragment, as shown in Figure 9.9.
+   ``androidx.fragment.app.Fragment``, as shown in Figure 9.9.
 
    (Recall that the Jetpack libraries are in packages that begin with androidx .)
 
@@ -7379,23 +7630,25 @@ C09👊 Fragments
 
    If you do not see this dialog, try clicking the Fragment class name. If the
    dialog still does not appear, you can manually import the correct class: Add
-   the line import androidx.fragment.app.Fragment at the top of the file.
+   the line import ``androidx.fragment.app.Fragment`` at the top of the file.
 
-   If, on the other hand, you have an import for android.app.Fragment,
-   remove that line of code. Then import the correct Fragment class with
+   If, on the other hand, you have an import for ``android.app.Fragment``,
+   remove that line of code. Then import the correct ``Fragment`` class with
    Option-Return (Alt-Enter).
 
-   Different types of fragments
+
+Different types of fragments
+
    New Android apps should always be built using the Jetpack ( androidx )
    version of fragments. If you maintain older apps, you may see two other
    versions of fragments being used: the framework version and the v4 support
-   library version. These are legacy versions of the Fragment class, and you
+   library version. These are legacy versions of the ``Fragment`` class, and you
    should migrate apps that use them to the current Jetpack version.
 
    Fragments were introduced in API level 11, when the first Android tablets
    created the need for UI flexibility. The framework implementation of
    fragments was built into devices running API level 11 or higher. Shortly
-   afterward, a Fragment implementation was added to the v4 support
+   afterward, a ``Fragment`` implementation was added to the v4 support
    library to enable fragment support on older devices. With each new version
    of Android, both of these fragment versions were updated with new features
    and security patches.
@@ -7410,30 +7663,34 @@ C09👊 Fragments
    migrate existing projects to ensure they stay current with new features and
    bug fixes.
 
-   Implementing fragment lifecycle functions
-   CrimeDetailFragment is the class that interacts with model and view
-   objects. Its ?ob is to present the details of a specific crime and update those
+
+Implementing fragment lifecycle functions
+
+   ``CrimeDetailFragment`` is the class that interacts with model and view
+   objects. Its job is to present the details of a specific crime and update those
    details as the user changes them.
 
-   In GeoQuiz, your activities did most of that work in activity lifecycle
-   functions. In CriminalIntent, this work will be done by fragments in
+   In ``GeoQuiz``, your activities did most of that work in activity lifecycle
+   functions. In ``CriminalIntent``, this work will be done by fragments in
    fragment lifecycle functions. Many of these functions correspond to the
-   Activity functions you already know, such as onCreate(Bundle?).
+   ``Activity`` functions you already know, such as ``onCreate(Bundle?)``.
 
    (You will learn more about the fragment lifecycle in the section called The
    fragment lifecycle later in this chapter.)
-   In CrimeDetailFragment.kt, add a property for the Crime instance
-   and an implementation of Fragment.onCreate(Bundle?).
+
+
+   In ``CrimeDetailFragment.kt``, add a property for the Crime instance
+   and an implementation of ``Fragment.onCreate(Bundle?)``.
 
    Android Studio can provide some assistance when overriding functions.
 
-   Begin typing onCreate(Bundle?); Android Studio will provide a list
+   Begin typing ``onCreate(Bundle?);`` Android Studio will provide a list
    of suggestions, as shown in Figure 9.10.
 
 
    Figure 9.10 Overriding the onCreate(Bundle?) function
 
-   Press Return to select the option to override the onCreate(Bundle?)
+   Press Return to select the option to override the ``onCreate(Bundle?)``
    function, and Android Studio will create the declaration for you, including
    the call to the superclass implementation. Update your code to create a new
    Crime, matching Listing 9.6.
@@ -7443,49 +7700,52 @@ C09👊 Fragments
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
+      class CrimeDetailFragment : Fragment() {
 
-   private lateinit var crime: Crime
+         private lateinit var crime: Crime
 
-   override fun onCreate(savedInstanceState: Bundle?) {
-   super.onCreate(savedInstanceState)
+         override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
 
-   crime = Crime(
-   id = UUID.randomUUID(),
-   title = "",
-   date = Date(),
-   isSolved = false
-   )
-   }
-   }
+
+            crime = Crime(
+            id = UUID.randomUUID(),
+            title = "",
+            date = Date(),
+            isSolved = false
+            )
+
+         }
+      }
+
    Much like activities, fragments are re-created on configuration changes by
    default, so they are not good places to hold state. In Chapter 13, you will
-   use a ViewModel to hold this state, but this will work for now.
+   use a ``ViewModel`` to hold this state, but this will work for now.
 
    Kotlin functions default to public when no visibility modifier is included in
-   the definition. So Fragment.onCreate(Bundle?), which has no
+   the definition. So ``Fragment.onCreate(Bundle?)``, which has no
    visibility modifier, is public. This differs from the
-   Activity.onCreate(Bundle?) function, which is protected.
+   ``Activity.onCreate(Bundle?)`` function, which is protected.
 
-   Fragment.onCreate(Bundle?) and other Fragment lifecycle
+   ``Fragment.onCreate(Bundle?)`` and other ``Fragment`` lifecycle
    functions must be public, because they will be called by whichever activity
    is hosting the fragment.
 
-   Also, note what does not happen in Fragment.onCreate(Bundle?):
+   Also, note what does not happen in ``Fragment.onCreate(Bundle?)``:
    You do not inflate the fragment’s view. You configure the fragment instance
-   in Fragment.onCreate(Bundle?), but you create and configure the
+   in ``Fragment.onCreate(Bundle?)``, but you create and configure the
    fragment’s view in another fragment lifecycle function:
-   onCreateView(LayoutInflater, ViewGroup?, Bundle?).
+   ``onCreateView(LayoutInflater, ViewGroup?, Bundle?)``.
 
    This function is where you inflate and bind the layout for the fragment’s
    view and return the inflated View to the hosting activity. The
-   LayoutInflater and ViewGroup parameters are necessary to inflate
+   ``LayoutInflater`` and ``ViewGroup`` parameters are necessary to inflate
    and bind the layout. The Bundle will contain data that this function can
    use to re-create the view from a saved state.
 
-   In CrimeDetailFragment.kt, add an implementation of
-   onCreateView(…) that inflates and binds
-   fragment_crime_detail.xml. You can use the same trick from
+   In ``CrimeDetailFragment.kt``, add an implementation of
+   ``onCreateView(…)`` that inflates and binds
+   ``fragment_crime_detail.xml``. You can use the same trick from
 
    Figure 9.10 to fill out the function declaration.
 
@@ -7495,35 +7755,36 @@ C09👊 Fragments
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
+      class CrimeDetailFragment : Fragment() {
 
-   private lateinit var binding: FragmentCrimeDetailBinding
+         private lateinit var binding: FragmentCrimeDetailBinding
 
-   private lateinit var crime: Crime
+         private lateinit var crime: Crime
 
-   override fun onCreate(savedInstanceState: Bundle?) {
-      ...
-   }
+         override fun onCreate(savedInstanceState: Bundle?) {
+            ...
+         }
 
-   override fun onCreateView(
-   inflater: LayoutInflater,
-   container: ViewGroup?,
-   savedInstanceState: Bundle?
-   ): View? {
-   binding =
-   FragmentCrimeDetailBinding.inflate(layoutInflater, container, false)
-   return binding.root
-   }
-   }
-   Much like in GeoQuiz, View Binding will generate a binding class that you
+         override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+         ): View? {
+            binding =
+            FragmentCrimeDetailBinding.inflate(layoutInflater, container, false)
+            return binding.root
+         }
+      }
+
+   Much like in ``GeoQuiz``, View Binding will generate a binding class that you
    can use to inflate and bind your layout. This time it is called
-   FragmentCrimeDetailBinding.
+   ``FragmentCrimeDetailBinding``.
 
-   As before, you call the inflate(…) function to accomplish the task.
+   As before, you call the ``inflate(…)`` function to accomplish the task.
 
    However, this time you call a slightly different version of the function – one
    that takes in three parameters instead of one. The first parameter is the same
-   LayoutInflator you used before. The second parameter is your view’s
+   ``LayoutInflator`` you used before. The second parameter is your view’s
    parent, which is usually needed to configure the views properly.
 
    The third parameter tells the layout inflater whether to immediately add the
@@ -7535,15 +7796,17 @@ C09👊 Fragments
    Once you return the root view within the binding, you are ready to start
    wiring up the views.
 
-   Wiring up views in a fragment
-   You are now going to hook up the EditText, CheckBox, and Button
-   in your fragment. Your first instinct might be to add some code to
-   onCreateView(…), but it is best if you keep onCreateView(…)
-   simple and do not do much more there than bind and inflate your view. The
-   onViewCreated(…) lifecycle callback is invoked immediately after
-   onCreateView(…), and it is the perfect spot to wire up your views.
 
-   Start by adding a listener to the EditText in the onViewCreated(…)
+Wiring up views in a fragment
+
+   You are now going to hook up the ``EditText``, ``CheckBox``, and ``Button``
+   in your fragment. Your first instinct might be to add some code to
+   ``onCreateView(…)``, but it is best if you keep ``onCreateView(…)``
+   simple and do not do much more there than bind and inflate your view. The
+   ``onViewCreated(…)`` lifecycle callback is invoked immediately after
+   ``onCreateView(…)``, and it is the perfect spot to wire up your views.
+
+   Start by adding a listener to the ``EditText`` in the onViewCreated(…)
    lifecycle callback.
 
 
@@ -7551,38 +7814,41 @@ C09👊 Fragments
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
-      ...
-   override fun onCreateView(
-   inflater: LayoutInflater,
-   container: ViewGroup?,
-   savedInstanceState: Bundle?
-   ): View? {
-      ...
-   }
+      class CrimeDetailFragment : Fragment() {
+         ...
+         override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+         ): View? {
+            ...
+         }
 
-   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-   super.onViewCreated(view, savedInstanceState)
+         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+            super.onViewCreated(view, savedInstanceState)
 
-   binding.apply {
-   crimeTitle.doOnTextChanged { text, _, _, _ ->
-   crime = crime.copy(title = text.toString())
-   }
-   }
-   }
-   }
+            binding.apply {
+               crimeTitle.doOnTextChanged { text, _, _, _ ->
+                  crime = crime.copy(title = text.toString())
+               }
+            }
+         }
+      }
+
    Setting listeners in a fragment works exactly the same as in an activity.
 
    Here, you add a listener that will be invoked whenever the text in the
    EditText is changed. The lambda is invoked with four parameters, but
    you only care about the first one, text. The text is provided as a
-   CharSequence, so to set the Crime’s title, you call toString() on it.
+   CharSequence, so to set the Crime’s title, you call ``toString()`` on it.
 
-   (The doOnTextChanged() function is actually a Kotlin extension
+   (The ``doOnTextChanged()`` function is actually a Kotlin extension
    function on the EditText class. Do not forget to import it from the
    androidx.core.widget package.)
+
+
    When you are not using a parameter, like the remaining lambda parameters
-   here, you name it _ . Lambda arguments named _ are ignored, which
+   here, you name it ``_`` . Lambda arguments named ``_`` are ignored, which
    removes unnecessary variables and can help keep your code tidy.
 
    Next, connect the Button to display the date of the crime.
@@ -7592,30 +7858,32 @@ C09👊 Fragments
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
-      ...
-   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-   super.onViewCreated(view, savedInstanceState)
+      class CrimeDetailFragment : Fragment() {
+         ...
+         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+            super.onViewCreated(view, savedInstanceState)
 
-   binding.apply {
-   crimeTitle.doOnTextChanged { text, _, _, _ ->
-   crime = crime.copy(title = text.toString())
-   }
+            binding.apply {
+               crimeTitle.doOnTextChanged { text, _, _, _ ->
+                  crime = crime.copy(title = text.toString())
+               }
 
-   crimeDate.apply {
-   text = crime.date.toString()
-   isEnabled = false
-   }
-   }
-   }
-   }
+               crimeDate.apply {
+                  text = crime.date.toString()
+
+                  isEnabled = false
+               }
+            }
+         }
+      }
+
    Disabling the button ensures that it will not respond to the user pressing it.
    It also changes its appearance to advertise its disabled state. In Chapter 14,
    you will enable the button and allow the user to choose the date of the
    crime.
 
    The last change you need to make within this class is to set a listener on the
-   CheckBox that will update the isSolved property of the Crime, as
+   ``CheckBox`` that will update the ``isSolved`` property of the ``Crime``, as
    shown in Listing 9.10.
 
 
@@ -7623,31 +7891,33 @@ C09👊 Fragments
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
-      ...
-   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-   super.onViewCreated(view, savedInstanceState)
+      class CrimeDetailFragment : Fragment() {
+         ...
+         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+            super.onViewCreated(view, savedInstanceState)
 
-   binding.apply {
-   crimeTitle.doOnTextChanged { text, _, _, _ ->
-   crime = crime.copy(title = text.toString())
-   }
+            binding.apply {
+               crimeTitle.doOnTextChanged { text, _, _, _ ->
+                  crime = crime.copy(title = text.toString())
+               }
 
-   crimeDate.apply {
-   text = crime.date.toString()
-   isEnabled = false
-   }
+               crimeDate.apply {
+                  text = crime.date.toString()
 
-   crimeSolved.setOnCheckedChangeListener { _, isChecked ->
-   crime = crime.copy(isSolved = isChecked)
-   }
-   }
-   }
-   }
-   It would be great if you could run CriminalIntent and play with the code
+                  isEnabled = false
+               }
+
+               crimeSolved.setOnCheckedChangeListener { _, isChecked ->
+                  crime = crime.copy(isSolved = isChecked)
+               }
+            }
+         }
+      }
+
+   It would be great if you could run ``CriminalIntent`` and play with the code
    you have written. But you cannot – yet. Remember, fragments cannot put
    their views onscreen on their own. To realize your efforts, you first have to
-   add a CrimeDetailFragment to MainActivity.
+   add a ``CrimeDetailFragment`` to ``MainActivity``.
 
 
 .. _S09_09:
@@ -7657,13 +7927,13 @@ C09👊 Fragments
 
    When fragments were first introduced, developers had to ?ump through
    numerous hoops to display them. In 2019, Google introduced the
-   FragmentContainerView, which makes it easier to create host
+   ``FragmentContainerView``, which makes it easier to create host
    containers for a fragment. In this section, you will use a
-   FragmentContainerView to host your CrimeDetailFragment.
+   ``FragmentContainerView`` to host your ``CrimeDetailFragment``.
 
-   Then you will learn about the FragmentManager and the fragment
+   Then you will learn about the ``FragmentManager`` and the fragment
    lifecycle. Finally, you will tie up one loose end in
-   CrimeDetailFragment.
+   ``CrimeDetailFragment``.
 
 
 .. _S09_10:
@@ -7671,63 +7941,63 @@ C09👊 Fragments
 9.10. Defining a FragmentContainerView
 --------------------------------------------------------------------------------
 
-   FragmentContainerView is, as its name suggests, built to contain
+   ``FragmentContainerView`` is, as its name suggests, built to contain
    fragments. Fragments have changed significantly over the years, so
-   FragmentContainerView helps provide a consistent environment for
+   ``FragmentContainerView`` helps provide a consistent environment for
    fragments to operate in. Much like the views you have used so far, the
-   FragmentContainerView has common XML attributes to define its
+   ``FragmentContainerView`` has common XML attributes to define its
    ID and its size.
 
-   Locate and open MainActivity’s layout in
-   res/layout/activity_main.xml. Replace the default layout with a
-   FragmentContainerView, as shown in Listing 9.11.
+   Locate and open ``MainActivity``’s layout in
+   ``res/layout/activity_main.xml``. Replace the default layout with a
+   ``FragmentContainerView``, as shown in Listing 9.11.
 
 
    Listing 9.11 Creating the fragment container layout (res/layout/activity_main.xml)
 
    .. code-block:: xml
 
-   <androidx.constraintlayout.widget.ConstraintLayout
-   xmlns:android="http://schemas.android.com/apk/res/android"
-   xmlns:tools="http://schemas.android.com/tools"
-   xmlns:app="http://schemas.android.com/apk/res-auto"
-   android:layout_width="match_parent"
-   android:layout_height="match_parent"
-   tools:context=".MainActivity">
+      <androidx.constraintlayout.widget.ConstraintLayout
+         xmlns:android="http://schemas.android.com/apk/res/android"
+         xmlns:tools="http://schemas.android.com/tools"
+         xmlns:app="http://schemas.android.com/apk/res-auto"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         tools:context=".MainActivity">
 
-   <TextView
-   android:layout_width="wrap_content"
-   android:layout_height="wrap_content"
-   android:text="Hello World!"
-   app:layout_constraintBottom_toBottomOf="parent"
-   app:layout_constraintLeft_toLeftOf="parent"
-   app:layout_constraintRight_toRightOf="parent"
-   app:layout_constraintTo?_toTo?Of="parent"/>
+      <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Hello World!"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintLeft_toLeftOf="parent"
+         app:layout_constraintRight_toRightOf="parent"
+         app:layout_constraintTop_toTopOf="parent"/>
 
-   </androidx.constraintlayout.widget.ConstraintLayout>
-   <androidx.fragment.app.FragmentContainerView
-   xmlns:android="http://schemas.android.com/apk/res/android"
-   xmlns:tools="http://schemas.android.com/tools"
-   android:id="@+id/fragment_container"
-   android:name="com.bignerdranch.android.criminalintent.CrimeDetailFragment"
-   android:layout_width="match_parent"
-   android:layout_height="match_parent"
-   tools:context=".MainActivity" />
-   FragmentContainerView has one XML attribute that you have not
+      </androidx.constraintlayout.widget.ConstraintLayout>
+      <androidx.fragment.app.FragmentContainerView
+         xmlns:android="http://schemas.android.com/apk/res/android"
+         xmlns:tools="http://schemas.android.com/tools"
+         android:id="@+id/fragment_container"
+         android:name="com.bignerdranch.android.criminalintent.CrimeDetailFragment"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         tools:context=".MainActivity" />
+
+   ``FragmentContainerView`` has one XML attribute that you have not
    seen on other views: android:name, whose value here is the full
-   package name for CrimeDetailFragment. With that, the
-   FragmentContainerView will manage creating your
-   CrimeDetailFragment and inserting it in the activity’s layout.
+   package name for ``CrimeDetailFragment``. With that, the
+   ``FragmentContainerView`` will manage creating your
+   ``CrimeDetailFragment`` and inserting it in the activity’s layout.
 
-   At last, it is time to run CriminalIntent to check your code. You will see
-   your CrimeDetailFragment below an app bar that shows
-   CriminalIntent’s name (Figure 9.11). (The app bar – the toolbar at the top of
+   At last, it is time to run ``CriminalIntent`` to check your code. You will see
+   your ``CrimeDetailFragment`` below an app bar that shows
+   ``CriminalIntent``’s name (Figure 9.11). (The app bar – the toolbar at the top of
    your app – is included automatically because of the way you configured
    your activity. You will learn more about the app bar in Chapter 15.)
 
-   Figure 9.11 CrimeDetailFragment’s view hosted by
+   Figure 9.11 CrimeDetailFragment’s view hosted by MainActivity
 
-   MainActivity
    Now that you have seen the results of your work, let’s go behind the scenes
    and discuss how fragments and their lifecycles are managed.
 
@@ -7737,9 +8007,9 @@ C09👊 Fragments
 9.11. The FragmentManager
 --------------------------------------------------------------------------------
 
-   When the Fragment class was introduced in Honeycomb, the Activity
-   class was changed to include a piece called the FragmentManager. The
-   FragmentManager is responsible for adding the fragments’ views to the
+   When the ``Fragment`` class was introduced in Honeycomb, the ``Activity``
+   class was changed to include a piece called the ``FragmentManager``. The
+   ``FragmentManager`` is responsible for adding the fragments’ views to the
    activity’s view hierarchy and driving the fragments’ lifecycles. It handles
    two things: a list of fragments and a back stack of fragment transactions
    (which you will learn about shortly) (Figure 9.12).
@@ -7747,28 +8017,30 @@ C09👊 Fragments
 
    Figure 9.12 The FragmentManager
 
-   Right now, your FragmentContainerView interacts with the
-   FragmentManager to display your CrimeDetailFragment. The
-   FragmentContainerView uses the FragmentManager to create
-   and host the fragment you specified in the android:name XML
+   Right now, your ``FragmentContainerView`` interacts with the
+   ``FragmentManager`` to display your ``CrimeDetailFragment``. The
+   ``FragmentContainerView`` uses the ``FragmentManager`` to create
+   and host the fragment you specified in the ``android:name`` XML
    attribute.
 
-   As an alternative to using the android:name XML attribute, you can
-   attach fragments to your activities in code with the FragmentManager.
+   As an alternative to using the ``android:name`` XML attribute, you can
+   attach fragments to your activities in code with the ``FragmentManager``.
 
    Also, in addition to the basic functionality provided by your
-   FragmentContainerView, you can use the FragmentManager to
+   ``FragmentContainerView``, you can use the ``FragmentManager`` to
    remove a fragment from view, replace it with another, and even alter the
    navigation backstack.
 
    To add a fragment to an activity in code, you make explicit calls to the
-   activity’s FragmentManager. You can access the activity’s fragment
-   manager using the supportFragmentManager property. You use
-   supportFragmentManager because you are using the Jetpack library
-   and the AppCompatActivity class. (The name is prefiled with
+   activity’s ``FragmentManager``. You can access the activity’s fragment
+   manager using the ``supportFragmentManager`` property. You use
+   ``supportFragmentManager`` because you are using the Jetpack library
+   and the ``AppCompatActivity`` class. (The name is prefiled with
    “support” because the property originated in the v4 support library, but the
    support library has since been repackaged as an androidx library within
    Jetpack.)
+
+
    Actions such as adding, removing, or replacing fragments are accomplished
    using fragment transactions. They allow you to group multiple operations,
    such as adding multiple fragments to different containers at the same time.
@@ -7776,38 +8048,46 @@ C09👊 Fragments
    They are the heart of how you use fragments to compose and recompose
    screens at runtime.
 
-   The FragmentManager maintains a back stack of fragment transactions
+   The ``FragmentManager`` maintains a back stack of fragment transactions
    that you can navigate. If your fragment transaction includes multiple
    operations, they are reversed when the transaction is removed from the back
    stack. This provides more control over your UI state when you group your
    fragment operations into a single transaction.
 
-   val fragment = CrimeDetailFragment()
-   supportFragmentManager
-   .beginTransaction()
-   .add(R.id.fragment_container, fragment)
-   .commit()
-   In this example, the FragmentManager.beginTransaction()
+   .. code-block:: kotlin
+
+      val fragment = CrimeDetailFragment()
+
+      supportFragmentManager
+      .beginTransaction()
+
+      .add(R.id.fragment_container, fragment)
+
+      .commit()
+
+
+   In this example, the ``FragmentManager.beginTransaction()``
    function creates and returns an instance of FragmentTransaction.
 
-   The FragmentTransaction class uses a fluent interface –
-   functions that configure FragmentTransaction return a
-   FragmentTransaction instead of Unit , which allows you to chain
+   The ``FragmentTransaction`` class uses a fluent interface –
+   functions that configure ``FragmentTransaction`` return a
+   ``FragmentTransaction`` instead of ``Unit`` , which allows you to chain
    them together. So the code highlighted above says, “Create a new fragment
    transaction, include one add operation in it, and then commit it.”
-   The add(…) function is the meat of the transaction. It has two parameters:
-   a container view ID and the newly created CrimeDetailFragment.
+
+   The ``add(…)`` function is the meat of the transaction. It has two parameters:
+   a container view ID and the newly created ``CrimeDetailFragment``.
 
    The container view ID should look familiar. It is the resource ID of the
-   FragmentContainerView that you would define in an activity’s
+   ``FragmentContainerView`` that you would define in an activity’s
    layout.
 
    A container view ID serves two purposes:
-   It tells the FragmentManager where in the activity’s view the
+   It tells the ``FragmentManager`` where in the activity’s view the
    fragment’s view should appear.
 
    It is used as a unique identifier for a fragment in the
-   FragmentManager’s list.
+   ``FragmentManager``’s list.
 
 
 .. _S09_12:
@@ -7815,7 +8095,7 @@ C09👊 Fragments
 9.12. The fragment lifecycle
 --------------------------------------------------------------------------------
 
-   As we mentioned, another responsibility of the FragmentManager is
+   As we mentioned, another responsibility of the ``FragmentManager`` is
    driving the fragment lifecycle, which is shown in Figure 9.13. The fragment
    lifecycle is similar to the activity lifecycle: It has created, started, and
    resumed states, and it has functions you can override to get things done at
@@ -7830,31 +8110,30 @@ C09👊 Fragments
 
    One critical difference between the fragment lifecycle and the activity
    lifecycle is that fragment lifecycle functions are called by the
-   FragmentManager of the hosting activity, not the OS. The OS knows
+   ``FragmentManager`` of the hosting activity, not the OS. The OS knows
    nothing about the fragments that an activity is using to manage things.
 
    Fragments are the activity’s internal business. The
-   onAttach(Context?), onCreate(Bundle?),
-   onCreateView(…), and onViewCreated(…) functions are called
-   when you add the fragment to the FragmentManager.
+   ``onAttach(Context?)``, ``onCreate(Bundle?)``,
+   ``onCreateView(…)``, and ``onViewCreated(…)`` functions are called
+   when you add the fragment to the ``FragmentManager``.
 
-   The onActivityCreated(Bundle?) function is called after the
-   hosting activity’s onCreate(Bundle?) function has executed. You are
-   adding the CrimeDetailFragment in
-   MainActivity.onCreate(Bundle?), so this function will be called
-   after the fragment has been added.
+   The ``onActivityCreated(Bundle?)`` function is called after the
+   hosting activity’s ``onCreate(Bundle?)`` function has executed. You are
+   adding the CrimeDetailFragment in ``MainActivity.onCreate(Bundle?)``, 
+   so this function will be called after the fragment has been added.
 
    What happens if you add a fragment while the activity is already resumed?
-   In that case, the FragmentManager immediately walks the fragment
+   In that case, the ``FragmentManager`` immediately walks the fragment
    through whatever steps are necessary to get it caught up to the activity’s
    state. For example, as a fragment is added to an activity that is already
-   resumed, that fragment gets calls to onAttach(Context?),
-   onCreate(Bundle?), onCreateView(…), onViewCreated(…),
-   onActivityCreated(Bundle?), onStart(), and then
-   onResume().
+   resumed, that fragment gets calls to ``onAttach(Context?)``,
+   ``onCreate(Bundle?)``, ``onCreateView(…)``, ``onViewCreated(…)``,
+   ``onActivityCreated(Bundle?)``, ``onStart()``, and then
+   ``onResume()``.
 
    Once the fragment’s state is caught up to the activity’s state, the hosting
-   activity’s FragmentManager will call further lifecycle functions around
+   activity’s ``FragmentManager`` will call further lifecycle functions around
    the same time that it receives the corresponding calls from the OS to keep
    the fragment’s state aligned with that of the activity.
 
@@ -7865,7 +8144,7 @@ C09👊 Fragments
 --------------------------------------------------------------------------------
 
    Fragments can be swapped in and out as the user navigates your app. For
-   CriminalIntent, you will make another Fragment in Chapter 10 that
+   ``CriminalIntent``, you will make another ``Fragment`` in Chapter 10 that
    displays a list of crimes. By the time you have completed developing the
    app, you will be able to navigate from the list fragment to the detail
    fragment, and your list will disappear from the user’s view. Because the
@@ -7874,13 +8153,13 @@ C09👊 Fragments
 
    But what about its view? Because the previous fragment is not being
    displayed, the system does not need to keep its view in memory. And, in
-   fact, Fragment has a lifecycle method to destroy its view when it is no
-   longer needed. This method is called onDestroyView(). When the
-   Fragment becomes visible again, its onCreateView(…) method will
+   fact, ``Fragment`` has a lifecycle method to destroy its view when it is no
+   longer needed. This method is called ``onDestroyView()``. When the
+   ``Fragment`` becomes visible again, its ``onCreateView(…)`` method will
    be called again to re-create the view.
 
    And here we come to the loose end we mentioned earlier: Although you
-   have an onCreateView(…) callback in CriminalIntent, your view is not
+   have an ``onCreateView(…)`` callback in ``CriminalIntent``, your view is not
    currently being freed from memory, because you are holding a reference to
    it via the binding property. The system sees that there is a chance you
    might access the view later and prevents the system from clearing its
@@ -7888,15 +8167,15 @@ C09👊 Fragments
 
    This wastes resources, since the view is being held in memory even though
    it is not used – and even though the view will be re-created when the
-   Fragment becomes visible again. With your current implementation, the
+   ``Fragment`` becomes visible again. With your current implementation, the
    system cannot free the memory associated with your old view until either
-   the view is re-created by calling onCreateView(…) again or the entire
-   Fragment is destroyed.
+   the view is re-created by calling ``onCreateView(…)`` again or the entire
+   ``Fragment`` is destroyed.
 
    The good news is that there is a straightforward solution to this problem:
-   Null out any references to views in the onDestroyView() lifecycle
+   Null out any references to views in the ``onDestroyView()`` lifecycle
    callback. As long as you make sure to clean up any references to your views
-   in onDestroyView(), you will be safe from the issues associated with
+   in ``onDestroyView()``, you will be safe from the issues associated with
    this second lifecycle – and you benefit from a performance boost by freeing
    up unused resources.
 
@@ -7905,25 +8184,27 @@ C09👊 Fragments
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
-      ...
-   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-      ...
-   }
+      class CrimeDetailFragment : Fragment() {
+         ...
+         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+            ...
+         }
 
-   override fun onDestroyView() {
-   super.onDestroyView()
-   binding = null
-   }
-   }
+         override fun onDestroyView() {
+            super.onDestroyView()
+
+            binding = null
+         }
+      }
+
    After you make those changes, Android Studio will start complaining.
 
    Currently, your binding is not nullable. But with a few small changes,
    you can null out your references and have easy access to your binding.
 
-   Create a nullable backing property, named _binding, and change the
+   Create a nullable backing property, named ``_binding``, and change the
    binding property to become a computed property. By using the
-   checkNotNull() precondition, Kotlin will be able to smart cast the
+   ``checkNotNull()`` precondition, Kotlin will be able to smart cast the
    binding property to be non-null.
 
 
@@ -7931,40 +8212,42 @@ C09👊 Fragments
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
+      class CrimeDetailFragment : Fragment() {
 
-   private lateinit var binding: FragmentCrimeDetailBinding
-   private var _binding: FragmentCrimeDetailBinding? = null
-   private val binding
-   get() = checkNotNull(_binding) {
-   "Cannot access binding because it is null. Is the view visible?"
-   }
-      ...
-   override fun onCreateView(
-   inflater: LayoutInflater,
-   container: ViewGroup?,
-   savedInstanceState: Bundle?
-   ): View? {
-   binding =
-   FragmentCrimeDetailBinding.inflate(layoutInflater, container, false)
-   _binding =
-   FragmentCrimeDetailBinding.inflate(layoutInflater, container, false)
-      ...
-   }
-      ...
-   override fun onDestroyView() {
-   super.onDestroyView()
-   binding = null
-   _binding = null
-   }
-   }
+         private lateinit var binding: FragmentCrimeDetailBinding
+         private var _binding: FragmentCrimeDetailBinding? = null
+         private val binding
+            get() = checkNotNull(_binding) {
+               "Cannot access binding because it is null. Is the view visible?"
+            }
+         ...
+         override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+         ): View? {
+            binding =
+               FragmentCrimeDetailBinding.inflate(layoutInflater, container, false)
+            _binding =
+               FragmentCrimeDetailBinding.inflate(layoutInflater, container, false)
+            ...
+         }
+         ...
+         override fun onDestroyView() {
+            super.onDestroyView()
+
+            binding = null
+            _binding = null
+         }
+      }
+
    When accessing binding, you still have the benefit of a non-nullable
    property, but now you also have the backing _binding property that you
-   can null out in onDestroyView().
+   can null out in ``onDestroyView()``.
 
    In this chapter, you used fragments to display an individual screen free of
    the limitations associated with activities. In the next chapter, you will create
-   another fragment and leverage a RecyclerView to display your crimes in
+   another fragment and leverage a ``RecyclerView`` to display your crimes in
    a list.
 
 
@@ -7973,38 +8256,41 @@ C09👊 Fragments
 9.14. Challenge: Testing with FragmentScenario
 --------------------------------------------------------------------------------
 
-   Much like the ActivityScenario class you used back in Chapter 6,
-   Google has a corresponding FragmentScenario to test fragments in
-   isolation. Built on the same infrastructure as ActivityScenario,
-   FragmentScenario behaves in a similar fashion and uses a similar API.
+   Much like the ``ActivityScenario`` class you used back in Chapter 6,
+   Google has a corresponding ``FragmentScenario`` to test fragments in
+   isolation. Built on the same infrastructure as ``ActivityScenario``,
+   ``FragmentScenario`` behaves in a similar fashion and uses a similar API.
 
-   Try writing a test for your CrimeDetailFragment using a
-   FragmentScenario with Espresso.
+   Try writing a test for your ``CrimeDetailFragment`` using a
+   ``FragmentScenario`` with Espresso.
 
    For example, you could test and verify that the CheckBox and EditText
-   are hooked up to your fragment and update the Crime. By removing the
+   are hooked up to your fragment and update the ``Crime``. By removing the
    private visibility modifier on the property and using the
-   FragmentScenario.onFragment(…) function, you can get access to
-   a Crime and perform the appropriate assertions.
+   ``FragmentScenario``.onFragment(…) function, you can get access to
+   a ``Crime`` and perform the appropriate assertions.
 
-   FragmentScenario exists in a separate library, so do not forget to add
+   ``FragmentScenario`` exists in a separate library, so do not forget to add
    the line below to your dependencies in the build.gradle file labeled
-   (Module: CriminalIntent.app) . Note the usage of debugImplementation – the
-   FragmentScenario class works a little differently than other testing
+   (Module: ``CriminalIntent.app``) . Note the usage of ``debugImplementation`` – the
+   ``FragmentScenario`` class works a little differently than other testing
    libraries you have used so far. Under the hood, the library inserts an activity
    into your app and uses it to host your fragment in a container it can control.
-   dependencies {
-      ...
-   debugImplementation "androidx.fragment:fragment-testing:1.4.1"
-   }
+
+   .. code-block:: kotlin
+
+      dependencies {
+         ...
+         debugImplementation "androidx.fragment:fragment-testing:1.4.1"
+      }
 
 .. _C10:
 
 C10👊 Displaying Lists with RecyclerView
 ========================================
 
-   Currently, CriminalIntent can only display information about a single
-   instance of Crime. In this chapter, you will update CriminalIntent to work
+   Currently, ``CriminalIntent`` can only display information about a single
+   instance of ``Crime``. In this chapter, you will update ``CriminalIntent`` to work
    with a list of crimes. The list will display each Crime’s title and date, as
    shown in Figure 10.1.
 
@@ -8013,20 +8299,20 @@ C10👊 Displaying Lists with RecyclerView
 
    Many aspects of the work you will complete in this chapter will feel
    familiar from the work you did in previous chapters. For example, much
-   like you did in GeoQuiz, you will create a new ViewModel to encapsulate
-   the data for the new screen. CrimeListViewModel will store a list of
-   Crime objects.
+   like you did in ``GeoQuiz``, you will create a new ``ViewModel`` to encapsulate
+   the data for the new screen. ``CrimeListViewModel`` will store a list of
+   ``Crime`` objects.
 
    Since this data will be displayed on a new screen, you will also create a new
-   fragment, called CrimeListFragment. Your MainActivity will
-   host an instance of CrimeListFragment, which in turn will display the
+   fragment, called ``CrimeListFragment``. Your ``MainActivity`` will
+   host an instance of ``CrimeListFragment``, which in turn will display the
    list of crimes on the screen.
 
    The activity’s view will still consist of a single
-   FragmentContainerView. The fragment’s view will consist of a
-   RecyclerView, a class that allows you to efficiently recycle views.
+   ``FragmentContainerView``. The fragment’s view will consist of a
+   ``RecyclerView``, a class that allows you to efficiently recycle views.
 
-   For now, the list and detail parts of CriminalIntent will lead separate lives.
+   For now, the list and detail parts of ``CriminalIntent`` will lead separate lives.
    In Chapter 13, you will connect them.
 
 
@@ -8035,29 +8321,30 @@ C10👊 Displaying Lists with RecyclerView
 10.1. Adding a New Fragment and ViewModel
 --------------------------------------------------------------------------------
 
-   The first step is to add a ViewModel to store the List of Crime objects
+   The first step is to add a ``ViewModel`` to store the List of ``Crime`` objects
    you will eventually display on the screen. As you learned in Chapter 4, the
-   ViewModel class is part of the lifecycle-viewmodel-ktx library. So
+   ``ViewModel`` class is part of the lifecycle-viewmodel-ktx library. So
    begin by adding the lifecycle-viewmodel-ktx dependency to your
-   app/build.gradle file (that is, the build.gradle file labeled
-   Module: CriminalIntent.app ).
+   ``app/build.gradle`` file (that is, the ``build.gradle`` file labeled
+   Module: ``CriminalIntent.app`` ).
 
 
    Listing 10.1 Adding lifecycle-viewmodel-ktx dependency (app/build.gradle)
 
    .. code-block:: gradle
 
-   dependencies {
-      ...
-   implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
-   implementation 'androidx.fragment:fragment-ktx:1.4.1'
-   implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
-      ...
-   }
+      dependencies {
+         ...
+         implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+         implementation 'androidx.fragment:fragment-ktx:1.4.1'
+         implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+         ...
+      }
+
    Do not forget to sync your Gradle files after making this change.
 
-   Next, create a Kotlin class called CrimeListViewModel. Update the
-   new CrimeListViewModel class to extend from ViewModel. Add a
+   Next, create a Kotlin class called ``CrimeListViewModel``. Update the
+   new ``CrimeListViewModel`` class to extend from ``ViewModel``. Add a
    property to store a list of Crimes. In the init block, populate the list with
    dummy data.
 
@@ -8066,56 +8353,60 @@ C10👊 Displaying Lists with RecyclerView
 
    .. code-block:: kotlin
 
-   class CrimeListViewModel : ViewModel() {
+      class CrimeListViewModel : ViewModel() {
 
-   val crimes = mutableListOf<Crime>()
+         val crimes = mutableListOf<Crime>()
 
-   init {
-   for (i in 0 until 100) {
-   val crime = Crime(
-   id = UUID.randomUUID(),
-   title ="Crime #$i",
-   date = Date(),
-   isSolved = i % 2 == 0
-   )
 
-   crimes += crime
-   }
-   }
-   }
+         init {
+            for (i in 0 until 100) {
+               val crime = Crime(
+                  id = UUID.randomUUID(),
+                  title ="Crime #$i",
+                  date = Date(),
+                  isSolved = i % 2 == 0
+               )
+
+
+               crimes += crime
+            }
+         }
+      }
+
    Eventually, the List will contain user-created Crimes that can be saved
-   and reloaded. For now, you populate the List with 100 boring Crime
+   and reloaded. For now, you populate the List with 100 boring ``Crime``
    objects.
 
-   The CrimeListViewModel is not a solution for long-term storage of
+   The ``CrimeListViewModel`` is not a solution for long-term storage of
    data, but it does encapsulate all the data necessary to populate
-   CrimeListFragment’s view. In Chapter 12, you will learn more about
-   long-term data storage when you update CriminalIntent to store the crime
+   ``CrimeListFragment``’s view. In Chapter 12, you will learn more about
+   long-term data storage when you update ``CriminalIntent`` to store the crime
    list in a database.
 
-   Next, create the CrimeListFragment class and associate it with
-   CrimeListViewModel. Make it a subclass of
-   androidx.fragment.app.Fragment.
+   Next, create the ``CrimeListFragment`` class and associate it with
+   ``CrimeListViewModel``. Make it a subclass of ``androidx.fragment.app.Fragment``.
 
 
    Listing 10.3 Implementing CrimeListFragment (CrimeListFragment.kt)
 
    .. code-block:: kotlin
 
-   private const val TAG = "CrimeListFragment"
+      private const val TAG = "CrimeListFragment"
 
-   class CrimeListFragment : Fragment() {
+      class CrimeListFragment : Fragment() {
 
-   private val crimeListViewModel: CrimeListViewModel by viewModels()
+         private val crimeListViewModel: CrimeListViewModel by viewModels()
 
-   override fun onCreate(savedInstanceState: Bundle?) {
-   super.onCreate(savedInstanceState)
-   Log.d(TAG, "Total crimes: ${crimeListViewModel.crimes.size}")
-   }
-   }
-   For now, CrimeListFragment is an empty shell of a fragment. It does
+         override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+
+            Log.d(TAG, "Total crimes: ${crimeListViewModel.crimes.size}")
+         }
+      }
+
+   For now, ``CrimeListFragment`` is an empty shell of a fragment. It does
    not even have a UI to display; it just logs the number of crimes found in
-   CrimeListViewModel. You will flesh the fragment out later in this
+   ``CrimeListViewModel``. You will flesh the fragment out later in this
    chapter.
 
 
@@ -8124,32 +8415,32 @@ C10👊 Displaying Lists with RecyclerView
 10.2. ViewModel lifecycle with fragments
 --------------------------------------------------------------------------------
 
-   In Chapter 4, you learned about the ViewModel lifecycle when used with
-   an activity. This lifecycle is slightly different when the ViewModel is used
+   In Chapter 4, you learned about the ``ViewModel`` lifecycle when used with
+   an activity. This lifecycle is slightly different when the ``ViewModel`` is used
    with a fragment. It still only has two states, created or
    destroyed/nonexistent, but it is now tied to the lifecycle of the fragment
    instead of the activity.
 
-   The ViewModel will remain active as long as the fragment’s view is
-   onscreen. This means the ViewModel will persist across rotation (even
+   The ``ViewModel`` will remain active as long as the fragment’s view is
+   onscreen. This means the ``ViewModel`` will persist across rotation (even
    though the fragment instance will not) and be accessible to the new
    fragment instance.
 
-   The ViewModel will be destroyed when the fragment is destroyed. This
+   The ``ViewModel`` will be destroyed when the fragment is destroyed. This
    can happen when the hosting activity replaces the fragment with a different
    one. Even though the same activity is on the screen, both the fragment and
-   its associated ViewModel will be destroyed, since they are no longer
+   its associated ``ViewModel`` will be destroyed, since they are no longer
    needed.
 
    One special case is when you add the fragment transaction to the back
    stack. When the activity replaces the current fragment with a different one,
    if the transaction is added to the back stack, the fragment instance and its
-   ViewModel will not be destroyed. This maintains your state: If the user
+   ``ViewModel`` will not be destroyed. This maintains your state: If the user
    presses the Back button, the fragment transaction is reversed. The original
    fragment instance is put back on the screen, and all the data in the
-   ViewModel is preserved.
+   ``ViewModel`` is preserved.
 
-   Next, update activity_main.xml to host an instance of
+   Next, update ``activity_main.xml`` to host an instance of
    CrimeListFragment instead of CrimeDetailFragment.
 
 
@@ -8157,44 +8448,46 @@ C10👊 Displaying Lists with RecyclerView
 
    .. code-block:: xml
 
-   <?xml version="1.0" encoding="utf-8"?>
-   <androidx.fragment.app.FragmentContainerView
-   xmlns:android="http://schemas.android.com/apk/res/android"
-   xmlns:tools="http://schemas.android.com/tools"
-   android:id="@+id/fragment_container"
-   android:name="com.bignerdranch.android.criminalintent.CrimeDetailFragment"
-   android:name="com.bignerdranch.android.criminalintent.CrimeListFragment"
-   android:layout_width="match_parent"
-   android:layout_height="match_parent"
-   tools:context=".MainActivity" />
-   For now, you have hardcoded MainActivity to always display a
-   CrimeListFragment. In Chapter 13, you will update MainActivity
+      <?xml version="1.0" encoding="utf-8"?>
+      <androidx.fragment.app.FragmentContainerView
+         xmlns:android="http://schemas.android.com/apk/res/android"
+         xmlns:tools="http://schemas.android.com/tools"
+         android:id="@+id/fragment_container"
+         android:name="com.bignerdranch.android.criminalintent.CrimeDetailFragment"
+         android:name="com.bignerdranch.android.criminalintent.CrimeListFragment"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         tools:context=".MainActivity" />
+
+   For now, you have hardcoded ``MainActivity`` to always display a
+   ``CrimeListFragment``. In Chapter 13, you will update ``MainActivity``
    to use the Fragment Navigation library to navigate between
-   CrimeListFragment and CrimeDetailFragment as the user
+   ``CrimeListFragment`` and ``CrimeDetailFragment`` as the user
    moves through the app.
 
-   Run CriminalIntent, and you will see MainActivity’s
-   FragmentContainerView hosting an empty CrimeListFragment,
+   Run ``CriminalIntent``, and you will see ``MainActivity``’s
+   ``FragmentContainerView`` hosting an empty ``CrimeListFragment``,
    as shown in Figure 10.2.
 
 
    Figure 10.2 Blank MainActivity screen
 
-   Search the Logcat output for CrimeListFragment . You will see a log statement
+   Search the Logcat output for ``CrimeListFragment`` . You will see a log statement
    showing the total number of crimes:
-   2022-02-25 15:19:39.950 26140-26140/com.bignerdranch.android.criminalintent
-   D/CrimeListFragment: Total crimes: 100
+
+      2022-02-25 15:19:39.950 26140-26140/com.bignerdranch.android.criminalintent
+      D/CrimeListFragment: Total crimes: 100
 
 .. _S10_03:
 
 10.3. Adding a RecyclerView
 --------------------------------------------------------------------------------
 
-   You want CrimeListFragment to display a list of crimes to the user. To
-   do this, you will use a RecyclerView.
+   You want ``CrimeListFragment`` to display a list of crimes to the user. To
+   do this, you will use a ``RecyclerView``.
 
-   The RecyclerView class lives in another Jetpack library. So the first step
-   to using a RecyclerView is to add the RecyclerView library as a
+   The ``RecyclerView`` class lives in another Jetpack library. So the first step
+   to using a ``RecyclerView`` is to add the ``RecyclerView`` library as a
    dependency.
 
 
@@ -8202,125 +8495,130 @@ C10👊 Displaying Lists with RecyclerView
 
    .. code-block:: gradle
 
-   dependencies {
-      ...
-   implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
-   implementation 'androidx.recyclerview:recyclerview:1.2.1'
-      ...
-   }
+      dependencies {
+         ...
+         implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+         implementation 'androidx.recyclerview:recyclerview:1.2.1'
+         ...
+      }
+
    Again, sync your Gradle files before moving on.
 
-   Your RecyclerView will live in CrimeListFragment’s layout file.
+   Your ``RecyclerView`` will live in ``CrimeListFragment``’s layout file.
 
-   To create the layout file, right-click the res/layout directory in the project tool
-   window and choose New → Layout resource file . Name the new file
-   fragment_crime_list . For the Root element , specify
-   androidx.recyclerview.widget.RecyclerView (Figure 10.3).
+   To create the layout file, right-click the ``res/layout`` directory in the 
+   project tool window and choose New → Layout resource file . Name the new file
+   ``fragment_crime_list`` . For the Root element , specify
+   ``androidx.recyclerview.widget.RecyclerView`` (Figure 10.3).
 
 
    Figure 10.3 Adding CrimeListFragment’s layout file
 
-   In the new layout/fragment_crime_list.xml file, add an ID
-   attribute to the RecyclerView. Collapse the close tag into the opening
-   tag, since you will not add any children to the RecyclerView.
+   In the new ``layout/fragment_crime_list.xml`` file, add an ID
+   attribute to the ``RecyclerView``. Collapse the close tag into the opening
+   tag, since you will not add any children to the ``RecyclerView``.
 
 
    Listing 10.6 Adding RecyclerView to a layout file (layout/fragment_crime_list.xml)
 
    .. code-block:: xml
 
-   <androidx.recyclerview.widget.RecyclerView
-   xmlns:android="http://schemas.android.com/apk/res/android"
-   android:id="@+id/crime_recycler_view"
-   android:layout_width="match_parent"
-   android:layout_height="match_parent">
-   android:layout_height="match_parent"/>
+      <androidx.recyclerview.widget.RecyclerView
+         xmlns:android="http://schemas.android.com/apk/res/android"
+         android:id="@+id/crime_recycler_view"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent">
+         android:layout_height="match_parent"/>
 
-   </androidx.recyclerview.widget.RecyclerView>
-   Now that CrimeListFragment’s view is set up, hook up the view to the
-   fragment in CrimeListFragment.kt. Inflate and bind your layout –
-   and do not forget to null out your binding in onDestroyView().
+      </androidx.recyclerview.widget.RecyclerView>
+
+   Now that ``CrimeListFragment``’s view is set up, hook up the view to the
+   fragment in ``CrimeListFragment.kt``. Inflate and bind your layout –
+   and do not forget to null out your binding in ``onDestroyView()``.
 
 
    Listing 10.7 Hooking up the view for CrimeListFragment (CrimeListFragment.kt)
 
    .. code-block:: kotlin
 
-   class CrimeListFragment : Fragment() {
+      class CrimeListFragment : Fragment() {
 
-   private var _binding: FragmentCrimeListBinding? = null
-   private val binding
-   get() = checkNotNull(_binding) {
-   "Cannot access binding because it is null. Is the view visible?"
-   }
+         private var _binding: FragmentCrimeListBinding? = null
+         private val binding
+            get() = checkNotNull(_binding) {
+               "Cannot access binding because it is null. Is the view visible?"
+            }
 
-   private val crimeListViewModel: CrimeListViewModel by viewModels()
+         private val crimeListViewModel: CrimeListViewModel by viewModels()
 
-   override fun onCreate(savedInstanceState: Bundle?) {
-   super.onCreate(savedInstanceState)
-   Log.d(TAG, "Total crimes: ${crimeListViewModel.crimes.size}")
-   }
+         override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
 
-   override fun onCreateView(
-   inflater: LayoutInflater,
-   container: ViewGroup?,
-   savedInstanceState: Bundle?
-   ): View? {
-   _binding = FragmentCrimeListBinding.inflate(inflater, container, false)
-   return binding.root
-   }
+            Log.d(TAG, "Total crimes: ${crimeListViewModel.crimes.size}")
+         }
 
-   override fun onDestroyView() {
-   super.onDestroyView()
-   _binding = null
-   }
-      ...
-   }
+         override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+         ): View? {
+            _binding = FragmentCrimeListBinding.inflate(inflater, container, false)
+            return binding.root
+         }
+
+         override fun onDestroyView() {
+            super.onDestroyView()
+
+            _binding = null
+         }
+         ...
+      }
 
 .. _S10_04:
 
 10.4. Implementing a LayoutManager
 --------------------------------------------------------------------------------
 
-   RecyclerView is a view with a narrow focus, and on its own it does not
+   ``RecyclerView`` is a view with a narrow focus, and on its own it does not
    do much. All it does is “recycle,” or reuse, views to display a list of data. It
    delegates all the other responsibilities of displaying that list of data to other
-   components: LayoutManager, ViewHolder, and Adapter. We will
+   components: ``LayoutManager``, ``ViewHolder``, and ``Adapter``. We will
    walk you through these pieces one at a time.
 
-   The RecyclerView delegates the responsibility for positioning items on
-   the screen to the LayoutManager. The LayoutManager positions
-   each item and also defines how scrolling works. So if RecyclerView
-   wants to display items but the LayoutManager is not there, it will give
+   The ``RecyclerView`` delegates the responsibility for positioning items on
+   the screen to the ``LayoutManager``. The ``LayoutManager`` positions
+   each item and also defines how scrolling works. So if ``RecyclerView``
+   wants to display items but the ``LayoutManager`` is not there, it will give
    up and display nothing.
 
-   There are a few built-in LayoutManagers to choose from, and you can
-   find more as third-party libraries. Set a LinearLayoutManager as the
-   LayoutManager for your RecyclerView. It will position the items in
-   the list vertically, one after the other, like a LinearLayout.
+   There are a few built-in ``LayoutManagers`` to choose from, and you can
+   find more as third-party libraries. Set a ``LinearLayoutManager`` as the
+   ``LayoutManager`` for your ``RecyclerView``. It will position the items in
+   the list vertically, one after the other, like a ``LinearLayout``.
 
 
    Listing 10.8 Setting up the LayoutManager (CrimeListFragment.kt)
 
    .. code-block:: kotlin
 
-   class CrimeListFragment : Fragment() {
-      ...
-   override fun onCreateView(
-   inflater: LayoutInflater,
-   container: ViewGroup?,
-   savedInstanceState: Bundle?
-   ): View? {
-   _binding = FragmentCrimeListBinding.inflate(inflater, container, false)
+      class CrimeListFragment : Fragment() {
+         ...
+         override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+         ): View? {
+            _binding = FragmentCrimeListBinding.inflate(inflater, container, false)
 
-   binding.crimeRecyclerView.layoutManager = LinearLayoutManager(context)
+            binding.crimeRecyclerView.layoutManager = LinearLayoutManager(context)
 
-   return binding.root
-   }
-      ...
-   }
+            return binding.root
+         }
+         ...
+      }
+
    Run the app again. You will still see a blank screen, but now you are
-   looking at an empty RecyclerView.
+   looking at an empty ``RecyclerView``.
 
 
 .. _S10_05:
@@ -8328,28 +8626,28 @@ C10👊 Displaying Lists with RecyclerView
 10.5. Creating an Item View Layout
 --------------------------------------------------------------------------------
 
-   RecyclerView is a subclass of ViewGroup. It displays a list of child
+   ``RecyclerView`` is a subclass of ``ViewGroup``. It displays a list of child
    View objects, called item views . Each item view represents a single object
    from the list of data backing the recycler view (in your case, a single crime
    from the crime list). Depending on the complexity of what you need to
    display, these child Views could be complex or very simple.
 
    For your first implementation, each item in the list will display the title and
-   date of a Crime, as shown in Figure 10.4.
+   date of a ``Crime``, as shown in Figure 10.4.
 
 
    Figure 10.4 A RecyclerView with child Views
 
    Each item displayed on the RecyclerView will have its own view
-   hierarchy, exactly the way CrimeDetailFragment has a view
+   hierarchy, exactly the way ``CrimeDetailFragment`` has a view
    hierarchy for the entire screen. Specifically, the View object on each row
-   will be a LinearLayout containing two TextViews.
+   will be a ``LinearLayout`` containing two TextViews.
 
    You create a new layout for a list item view the same way you do for the
    view of an activity or a fragment. Create a new layout resource file called
-   list_item_crime and set the root element to LinearLayout .
+   ``list_item_crime`` and set the root element to ``LinearLayout`` .
 
-   Update your layout file to add padding to the LinearLayout and to add
+   Update your layout file to add padding to the ``LinearLayout`` and to add
    the two TextViews, as shown in Listing 10.9.
 
 
@@ -8357,29 +8655,30 @@ C10👊 Displaying Lists with RecyclerView
 
    .. code-block:: xml
 
-   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-   android:orientation="vertical"
-   android:layout_width="match_parent"
-   android:layout_height="match_parent">
-   android:layout_height="wrap_content"
-   android:?adding="8d?">
+      <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+         android:orientation="vertical"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent">
+         android:layout_height="wrap_content"
+         android:?adding="8d?">
 
-   <TextView
-   android:id="@+id/crime_title"
-   android:layout_width="match_parent"
-   android:layout_height="wrap_content"
-   android:text="Crime Title"/>
+      <TextView
+         android:id="@+id/crime_title"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="Crime Title"/>
 
-   <TextView
-   android:id="@+id/crime_date"
-   android:layout_width="match_parent"
-   android:layout_height="wrap_content"
-   android:text="Crime Date"/>
+      <TextView
+         android:id="@+id/crime_date"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="Crime Date"/>
 
-   </LinearLayout>
+      </LinearLayout>
+
    Take a look at the design preview, and you will see that you have laid out
    exactly one row of the completed product. In a moment, you will see how
-   RecyclerView will create those rows for you.
+   ``RecyclerView`` will create those rows for you.
 
 
 .. _S10_06:
@@ -8387,53 +8686,56 @@ C10👊 Displaying Lists with RecyclerView
 10.6. Implementing a ViewHolder
 --------------------------------------------------------------------------------
 
-   The RecyclerView expects an item view to be wrapped in an instance of
-   ViewHolder. A ViewHolder stores a reference to an item’s view. But,
-   as usual, you are not going to interact directly with the View. You are
-   going to use View Binding.
+   The ``RecyclerView`` expects an item view to be wrapped in an instance of
+   ``ViewHolder``. A ``ViewHolder`` stores a reference to an item’s view. But,
+   as usual, you are not going to interact directly with the ``View``. You are
+   going to use ``View Binding``.
 
-   Create a new file named CrimeListAdapter.kt. In it, define a view
-   holder by adding a CrimeHolder class that extends from
-   RecyclerView.ViewHolder.
+   Create a new file named ``CrimeListAdapter.kt``. In it, define a view
+   holder by adding a ``CrimeHolder`` class that extends from
+   ``RecyclerView.ViewHolder``.
 
 
    Listing 10.10 The beginnings of a ViewHolder (CrimeListAdapter.kt)
 
    .. code-block:: kotlin
 
-   class CrimeHolder(
-   val binding: ListItemCrimeBinding
-   ) : RecyclerView.ViewHolder(binding.root) {
+      class CrimeHolder(
+         val binding: ListItemCrimeBinding
+      ) : RecyclerView.ViewHolder(binding.root) {
 
-   }
-   In CrimeHolder’s constructor, you take in the binding to hold on to.
+      }
+
+   In ``CrimeHolder``’s constructor, you take in the binding to hold on to.
 
    Immediately, you pass its root view as the argument to the
-   RecyclerView.ViewHolder constructor. The base ViewHolder
+   ``RecyclerView.ViewHolder`` constructor. The base ``ViewHolder``
    class will then hold on to the view in a property named itemView
    (Figure 10.5).
 
 
    Figure 10.5 The ViewHolder and its itemView
 
-   A RecyclerView never creates Views by themselves. It always creates
+   A ``RecyclerView`` never creates Views by themselves. It always creates
    ViewHolders, which bring their itemViews along for the ride
    (Figure 10.6).
 
 
    Figure 10.6 The ViewHolder visualized
 
-   When the View for each item is simple, ViewHolder has few
-   responsibilities. For more complicated Views, the ViewHolder makes
+   When the View for each item is simple, ``ViewHolder`` has few
+   responsibilities. For more complicated Views, the ``ViewHolder`` makes
    wiring up the different parts of a binding to a Crime simpler and more
    efficient. (For example, you do not need to search through the item view
    hierarchy to get a handle for the title text view every time you need to set
    the title.)
+
+
    The updated view holder now holds a reference to the binding so you can
-   easily change the value displayed. Note that the CrimeHolder assumes
+   easily change the value displayed. Note that the ``CrimeHolder`` assumes
    that the binding you pass to its constructor has the type
-   ListItemCrimeBinding. You may be wondering, “What creates crime
-   holder instances, and where do I get the ListItemCrimeBinding?”
+   ``ListItemCrimeBinding``. You may be wondering, “What creates crime
+   holder instances, and where do I get the ``ListItemCrimeBinding``?”
    You will learn the answer to these questions in just a moment.
 
 .. _S10_07:
@@ -8444,27 +8746,31 @@ C10👊 Displaying Lists with RecyclerView
 
    Figure 10.6 is somewhat simplified. RecyclerView does not create
 
-   ViewHolders itself. Instead, it asks an adapter . An adapter is a controller
-   object that sits between the RecyclerView and the data set that the
-   RecyclerView should display.
+   ``ViewHolders`` itself. ``Instead``, it asks an adapter . An adapter is a controller
+   object that sits between the ``RecyclerView`` and the data set that the
+   ``RecyclerView`` should display.
 
    The adapter is responsible for:
-   creating the necessary ViewHolders when asked
-   binding data to ViewHolders from the model layer when asked
+
+   *  creating the necessary ``ViewHolders`` when asked
+   *  binding data to ``ViewHolders`` from the model layer when asked
+
    The recycler view is responsible for:
-   asking the adapter to create a new ViewHolder
-   asking the adapter to bind a ViewHolder to the item from the
-   backing data at a given position
+
+   *  asking the adapter to create a new ``ViewHolder``
+   *  asking the adapter to bind a ``ViewHolder`` to the item from the
+      backing data at a given position
+
    Time to create your adapter. Add a new class named
-   CrimeListAdapter in CrimeListAdapter.kt. Add a primary
+   ``CrimeListAdapter`` in ``CrimeListAdapter.kt``. Add a primary
    constructor that expects a list of crimes as input and stores the passed-in
    crime list in a property, as shown in Listing 10.11.
 
-   In your new CrimeListAdapter, you are also going to override three
-   functions: onCreateViewHolder(…), onBindViewHolder(…),
-   and getItemCount(). To save you typing (and typos), Android Studio
+   In your new ``CrimeListAdapter``, you are also going to override three
+   functions: ``onCreateViewHolder(…)``, ``onBindViewHolder(…)``,
+   and ``getItemCount()``. To save you typing (and typos), Android Studio
    can generate these overrides for you. Once you have added the constructor,
-   put your cursor on CrimeListAdapter and press Option-Return (Alt-
+   put your cursor on ``CrimeListAdapter`` and press Option-Return (Alt-
    Enter) (Figure 10.7). Select Implement members from the pop-up. In the
    Implement members dialog, select all three function names and click OK . Then
    you only need to fill in the bodies as shown.
@@ -8477,88 +8783,95 @@ C10👊 Displaying Lists with RecyclerView
 
    .. code-block:: kotlin
 
-   class CrimeHolder(
-   val binding: ListItemCrimeBinding
-   ) : RecyclerView.ViewHolder(binding.root) {
+      class CrimeHolder(
+         val binding: ListItemCrimeBinding
+      ) : RecyclerView.ViewHolder(binding.root) {
 
-   }
+      }
 
-   class CrimeListAdapter(
-   private val crimes: List<Crime>
-   ) : RecyclerView.Adapter<CrimeHolder>() {
+      class CrimeListAdapter(
+      private val crimes: List<Crime>
+      ) : RecyclerView.Adapter<CrimeHolder>() {
 
-   override fun onCreateViewHolder(
-   parent: ViewGroup,
-   viewType: Int
-   ) : CrimeHolder {
-   val inflater = LayoutInflater.from(parent.context)
-   val binding = ListItemCrimeBinding.inflate(inflater, parent, false)
-   return CrimeHolder(binding)
-   }
+      override fun onCreateViewHolder(
+      parent: ViewGroup,
+      viewType: Int
+      ) : CrimeHolder {
+      val inflater = LayoutInflater.from(parent.context)
 
-   override fun onBindViewHolder(holder: CrimeHolder, ?osition: Int) {
-   val crime = crimes[?osition]
-   holder.apply {
-   binding.crimeTitle.text = crime.title
-   binding.crimeDate.text = crime.date.toString()
-   }
-   }
+      val binding = ListItemCrimeBinding.inflate(inflater, parent, false)
+      return CrimeHolder(binding)
 
-   override fun getItemCount() = crimes.size
-   }
-   Adapter.onCreateViewHolder(…) is responsible for creating a
+      }
+
+      override fun onBindViewHolder(holder: CrimeHolder, ?osition: Int) {
+      val crime = crimes[?osition]
+      holder.apply {
+      binding.crimeTitle.text = crime.title
+      binding.crimeDate.text = crime.date.toString()
+
+      }
+      }
+
+      override fun getItemCount() = crimes.size
+      }
+
+   ``Adapter.onCreateViewHolder(…)`` is responsible for creating a
    binding to display, wrapping the view in a view holder, and returning the
-   result. In this case, you inflate and bind a ListItemCrimeBinding and
-   pass the resulting binding to a new instance of CrimeHolder.
+   result. In this case, you inflate and bind a ``ListItemCrimeBinding`` and
+   pass the resulting binding to a new instance of ``CrimeHolder``.
 
-   (For now, you can ignore onCreateViewHolder(…)’s parameters. You
+   (For now, you can ignore ``onCreateViewHolder(…)``’s parameters. You
    only need these values if you are doing something fancy, like displaying
    different types of views within the same recycler view. See the section
-   called Challenge: RecyclerView View Types at the end of this chapter for
+   called Challenge: ``RecyclerView`` View Types at the end of this chapter for
    more information.)
-   Adapter.onBindViewHolder(…) is responsible for populating a
+
+
+   ``Adapter.onBindViewHolder(…)`` is responsible for populating a
    given holder with the crime from a given position . In this case, you get
    the crime from the crime list at the requested position. You then use the title
    and date from that crime to set the text in the corresponding text views.
 
    When the recycler view needs to know how many items are in the data set
    backing it (such as when the recycler view first spins up), it will ask its
-   adapter by calling Adapter.getItemCount(). Here,
-   getItemCount() returns the number of items in the list of crimes to
+   adapter by calling ``Adapter.getItemCount()``. Here,
+   ``getItemCount()`` returns the number of items in the list of crimes to
    answer the recycler view’s request.
 
-   The RecyclerView itself does not know anything about the Crime
+   The ``RecyclerView`` itself does not know anything about the Crime
    object or the list of Crime objects to be displayed. Instead, the
-   CrimeListAdapter knows all of a Crime’s intimate and personal
+   ``CrimeListAdapter`` knows all of a Crime’s intimate and personal
    details. The adapter also knows about the list of crimes that backs the
    recycler view (Figure 10.8).
 
 
    Figure 10.8 Adapter sits between recycler view and data set
 
-   When the RecyclerView needs a view object to display, it will have a
+   When the ``RecyclerView`` needs a view object to display, it will have a
    conversation with its adapter. Figure 10.9 shows an example of a
-   conversation that a RecyclerView might initiate.
+   conversation that a ``RecyclerView`` might initiate.
 
 
-   Figure 10.9 A scintillating RecyclerView–Adapter
+   Figure 10.9 A scintillating RecyclerView–Adapter conversation
 
-   conversation
-   The RecyclerView calls the adapter’s
-   onCreateViewHolder(ViewGroup, Int) function to create a new
-   ViewHolder, along with its ?uicy payload: a View to display. The
-   ViewHolder that the adapter creates and hands back to the
+
+The RecyclerView calls the adapter’s
+
+   ``onCreateViewHolder(ViewGroup, Int)`` function to create a new
+   ``ViewHolder``, along with its juicy payload: a View to display. The
+   ``ViewHolder`` that the adapter creates and hands back to the
    RecyclerView (along with its binding) has not yet been populated
    with data from a specific item in the data set.
 
-   Next, the RecyclerView calls onBindViewHolder(ViewHolder,
-   Int), passing a ViewHolder into this function along with the position.
+   Next, the RecyclerView calls ``onBindViewHolder(ViewHolder, Int)``, 
+   passing a ``ViewHolder`` into this function along with the position.
 
    The adapter looks up the model data for that position and binds it to the
-   ViewHolder’s View. To bind it, the adapter fills in the View to reflect
+   ``ViewHolder``’s View. To bind it, the adapter fills in the View to reflect
    the data in the model object.
 
-   After this process is complete, RecyclerView places the list item on the
+   After this process is complete, ``RecyclerView`` places the list item on the
    screen.
 
 
@@ -8568,48 +8881,52 @@ C10👊 Displaying Lists with RecyclerView
 --------------------------------------------------------------------------------
 
    Now that you have an Adapter, all you need to do is instantiate an
-   instance with your crime data and connect it to your RecyclerView.
+   instance with your crime data and connect it to your ``RecyclerView``.
 
 
    Listing 10.12 Setting an Adapter (CrimeListFragment.kt)
 
    .. code-block:: kotlin
 
-   class CrimeListFragment : Fragment() {
-      ...
-   override fun onCreateView(
-   inflater: LayoutInflater,
-   container: ViewGroup?,
-   savedInstanceState: Bundle?
-   ): View? {
-   _binding = FragmentCrimeListBinding.inflate(inflater, container, false)
+      class CrimeListFragment : Fragment() {
+         ...
+         override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+         ): View? {
+            _binding = FragmentCrimeListBinding.inflate(inflater, container, false)
 
-   binding.crimeRecyclerView.layoutManager = LinearLayoutManager(context)
+            binding.crimeRecyclerView.layoutManager = LinearLayoutManager(context)
 
-   val crimes = crimeListViewModel.crimes
-   val adapter = CrimeListAdapter(crimes)
-   binding.crimeRecyclerView.adapter = adapter
+            val crimes = crimeListViewModel.crimes
+            val adapter = CrimeListAdapter(crimes)
 
-   return binding.root
-   }
-      ...
-   }
-   Run CriminalIntent and scroll through your RecyclerView, which
+            binding.crimeRecyclerView.adapter = adapter
+
+            return binding.root
+         }
+         ...
+      }
+
+   Run ``CriminalIntent`` and scroll through your ``RecyclerView``, which
    should now look like Figure 10.10.
 
 
    Figure 10.10 RecyclerView populated with Crimes
 
    Swipe or drag down and you will see even more views scroll across your
-   screen. Every visible CrimeHolder should display a distinct Crime. (If
+   screen. Every visible ``CrimeHolder`` should display a distinct Crime. (If
    your rows are much taller than these, or if you only see one row on the
-   screen, double-check that the layout_height on your row’s
-   LinearLayout is set to wrap_content .)
+   screen, double-check that the ``layout_height`` on your row’s
+   ``LinearLayout`` is set to ``wrap_content`` .)
+
+
    When you fling the view up, the scrolling animation should feel as smooth
    as warm butter. This effect is a direct result of keeping
-   onBindViewHolder(…) small and efficient, doing only the minimum
+   ``onBindViewHolder(…)`` small and efficient, doing only the minimum
    amount of work necessary. Take heed: Always be efficient in your
-   onBindViewHolder(…). Otherwise, your scroll animation could feel as
+   ``onBindViewHolder(…)``. Otherwise, your scroll animation could feel as
    chunky as cold Parmesan.
 
 
@@ -8621,26 +8938,26 @@ C10👊 Displaying Lists with RecyclerView
 
    Figure 10.10 shows 13 (and a half) rows of Views. You can swipe to scroll
    through 100 Views to see all of your Crimes. Does that mean that you
-   have 100 View objects in memory? Thanks to your RecyclerView, no.
+   have 100 View objects in memory? Thanks to your ``RecyclerView``, no.
 
    Creating a View for every item in the list all at once could easily become
    unworkable. As you might imagine, a list can have far more than 100 items,
    and your list items can be much more involved than your simple
-   implementation here. Also, a Crime only needs a View when it is
+   implementation here. Also, a ``Crime`` only needs a View when it is
    onscreen, so there is no need to have 100 Views ready and waiting. It
    would make far more sense to create view objects only as you need them.
 
-   RecyclerView does just that. Instead of creating 100 Views, it creates
+   ``RecyclerView`` does just that. Instead of creating 100 Views, it creates
    just enough to fill the screen. When a view is scrolled off the screen,
-   RecyclerView reuses it rather than throwing it away. In short, it lives up
+   ``RecyclerView`` reuses it rather than throwing it away. In short, it lives up
    to its name: It recycles views over and over.
 
-   Because of this, onCreateViewHolder(…) will happen a lot less often
-   than onBindViewHolder(…): Once enough ViewHolders have been
-   created, RecyclerView stops calling onCreateViewHolder(…).
+   Because of this, ``onCreateViewHolder(…)`` will happen a lot less often
+   than ``onBindViewHolder(…)``: Once enough ``ViewHolders`` have been
+   created, ``RecyclerView`` stops calling ``onCreateViewHolder(…)``.
 
-   Instead, it saves time and memory by recycling old ViewHolders and
-   passing those into onBindViewHolder(…).
+   Instead, it saves time and memory by recycling old ``ViewHolders`` and
+   passing those into ``onBindViewHolder(…)``.
 
 
 .. _S10_10:
@@ -8649,15 +8966,15 @@ C10👊 Displaying Lists with RecyclerView
 --------------------------------------------------------------------------------
 
    Right now, the Adapter binds crime data directly to a crime holder’s text
-   views in Adapter.onBindViewHolder(…). This works fine, but it is
+   views in ``Adapter.onBindViewHolder(…)``. This works fine, but it is
    better to more cleanly separate concerns between the view holder and the
    adapter. The adapter should know as little as possible about the inner
    workings and details of the view holder.
 
-   Instead, place all the code that will do the real work of binding inside your
-   CrimeHolder. Start by adding a bind(Crime) function to
-   CrimeHolder. In this new function, cache the crime being bound into a
-   property and set the text values on crimeTitle and crimeDate . While you
+   Instead, place all the code that will do the real work of binding inside 
+   your ``CrimeHolder``. Start by adding a ``bind(Crime)`` function to
+   ``CrimeHolder``. In this new function, cache the crime being bound into a
+   property and set the text values on crimeTitle and ``crimeDate`` . While you
    are at it, make the existing binding property private.
 
 
@@ -8665,20 +8982,21 @@ C10👊 Displaying Lists with RecyclerView
 
    .. code-block:: kotlin
 
-   class CrimeHolder(
-   private val binding: ListItemCrimeBinding
-   ) : RecyclerView.ViewHolder(binding.root) {
-   fun bind(crime: Crime) {
-   binding.crimeTitle.text = crime.title
-   binding.crimeDate.text = crime.date.toString()
-   }
-   }
+      class CrimeHolder(
+         private val binding: ListItemCrimeBinding
+      ) : RecyclerView.ViewHolder(binding.root) {
+         fun bind(crime: Crime) {
+            binding.crimeTitle.text = crime.title
+            binding.crimeDate.text = crime.date.toString()
+         }
+      }
       ...
-   When given a Crime to bind, CrimeHolder will now update the title
-   TextView and date TextView to reflect the state of the Crime.
 
-   Next, call your newly minted bind(Crime) function each time the
-   RecyclerView requests that a given CrimeHolder be bound to a
+   When given a ``Crime`` to bind, ``CrimeHolder`` will now update the title
+   ``TextView`` and date ``TextView`` to reflect the state of the Crime.
+
+   Next, call your newly minted ``bind(Crime)`` function each time the
+   ``RecyclerView`` requests that a given ``CrimeHolder`` be bound to a
    particular crime.
 
 
@@ -8687,26 +9005,28 @@ C10👊 Displaying Lists with RecyclerView
    .. code-block:: kotlin
 
       ...
-   class CrimeListAdapter(
-   private val crimes: List<Crime>
-   ) : RecyclerView.Adapter<CrimeHolder>() {
+      class CrimeListAdapter(
+         private val crimes: List<Crime>
+      ) : RecyclerView.Adapter<CrimeHolder>() {
 
-   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CrimeHolder {
-      ...
-   }
+         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CrimeHolder {
+            ...
+         }
 
-   override fun onBindViewHolder(holder: CrimeHolder, position: Int) {
-   val crime = crimes[position]
-   holder.apply {
-   binding.crimeTitle.text = crime.title
-   binding.crimeDate.text = crime.date.toString()
-   }
-   holder.bind(crime)
-   }
+         override fun onBindViewHolder(holder: CrimeHolder, position: Int) {
+            val crime = crimes[position]
+            holder.apply {
+               binding.crimeTitle.text = crime.title
+               binding.crimeDate.text = crime.date.toString()
+            }
+            holder.bind(crime)
 
-   override fun getItemCount() = crimes.size
-   }
-   Run CriminalIntent one more time. The result should look the same as it did
+         }
+
+         override fun getItemCount() = crimes.size
+      }
+
+   Run ``CriminalIntent`` one more time. The result should look the same as it did
    in Figure 10.10.
 
 
@@ -8715,44 +9035,46 @@ C10👊 Displaying Lists with RecyclerView
 10.11. Responding to Presses
 --------------------------------------------------------------------------------
 
-   As icing on the RecyclerView cake, CriminalIntent should also respond
+   As icing on the ``RecyclerView`` cake, ``CriminalIntent`` should also respond
    to a press on these list items. In Chapter 13, you will launch the detail view
    for a Crime when the user presses that Crime in the list. For now, show a
    Toast when the user takes action on a Crime.
 
-   As you may have noticed, RecyclerView, while powerful and capable,
+   As you may have noticed, ``RecyclerView``, while powerful and capable,
    has precious few real responsibilities. (May it be an example to us all.) The
    same goes here: Handling touch events is mostly up to you. If you need
-   them, RecyclerView can forward along raw touch events. But most of
+   them, ``RecyclerView`` can forward along raw touch events. But most of
    the time this is not necessary.
 
    Instead, you can handle them like you normally do: by setting an
-   OnClickListener. Because you want the entire row to be clickable, set
-   the OnClickListener on the root property of the binding.
+   ``OnClickListener``. Because you want the entire row to be clickable, set
+   the ``OnClickListener`` on the root property of the binding.
 
 
    Listing 10.15 Detecting presses in CrimeHolder (CrimeListAdapter.kt)
 
    .. code-block:: kotlin
 
-   class CrimeHolder(
-   private val binding: ListItemCrimeBinding
-   ) : RecyclerView.ViewHolder(binding.root) {
-   fun bind(crime: Crime) {
-   binding.crimeTitle.text = crime.title
-   binding.crimeDate.text = crime.date.toString()
+      class CrimeHolder(
+         private val binding: ListItemCrimeBinding
+      ) : RecyclerView.ViewHolder(binding.root) {
+         fun bind(crime: Crime) {
+            binding.crimeTitle.text = crime.title
+            binding.crimeDate.text = crime.date.toString()
 
-   binding.root.setOnClickListener {
-   Toast.makeText(
-   binding.root.context,
-   "${crime.title} clicked!",
-   Toast.LENGTH_SHORT
-   ).show()
-   }
-   }
-   }
+            binding.root.setOnClickListener {
+               Toast.makeText(
+               binding.root.context,
+               "${crime.title} clicked!",
+               Toast.LENGTH_SHORT
+               ).show()
+
+            }
+         }
+      }
       ...
-   Run CriminalIntent and press an item in the list. You should see a Toast
+
+   Run ``CriminalIntent`` and press an item in the list. You should see a ``Toast``
    indicating that the item was pressed.
 
 
@@ -8761,42 +9083,47 @@ C10👊 Displaying Lists with RecyclerView
 10.12. Lists and Grids: Past, Present, and Future
 --------------------------------------------------------------------------------
 
-   The core Android OS includes ListView, GridView, and Adapter
-   classes. Until the release of Android 5.0, these were the preferred ways to
+   The core Android OS includes ``ListView``, ``GridView``, and ``Adapter`` classes. 
+   Until the release of Android 5.0, these were the preferred ways to
    create lists or grids of items.
 
    The API for these components is very similar to RecyclerView’s. The
-   ListView or GridView class is responsible for scrolling a collection of
+   ``ListView`` or ``GridView`` class is responsible for scrolling a collection of
    items, but it does not know much about each of those items. The Adapter
    is responsible for creating each of the Views in the list. However,
-   ListView and GridView do not enforce that you use the ViewHolder
+   ``ListView`` and ``GridView`` do not enforce that you use the ViewHolder
    pattern (though you can – and should – use it).
 
    These old implementations are replaced by the RecyclerView
    implementation because of the complexity required to alter the behavior of
-   a ListView or GridView.
+   a ``ListView`` or ``GridView``.
 
-   Creating a horizontally scrolling ListView, for example, is not included
-   in the ListView API and requires a lot of work. Creating custom layout
-   and scrolling behavior with a RecyclerView is still a lot of work, but
-   RecyclerView was built to be extended, so it is not quite so bad. And, as
-   you will see in Chapter 20, RecyclerView can be used with a
-   GridLayoutManager to arrange items in a grid.
+   Creating a horizontally scrolling ``ListView``, for example, is not included
+   in the ``ListView`` API and requires a lot of work. Creating custom layout
+   and scrolling behavior with a ``RecyclerView`` is still a lot of work, but
+   ``RecyclerView`` was built to be extended, so it is not quite so bad. And, as
+   you will see in Chapter 20, ``RecyclerView`` can be used with a
+   ``GridLayoutManager`` to arrange items in a grid.
 
-   Another key feature of RecyclerView is the animation of items in the
-   list. Animating the addition or removal of items in a ListView or
-   GridView is a complex and error-prone task. RecyclerView makes
+   Another key feature of ``RecyclerView`` is the animation of items in the
+   list. Animating the addition or removal of items in a ``ListView`` or
+   ``GridView`` is a complex and error-prone task. ``RecyclerView`` makes
    this much easier; it includes a few built-in animations and allows for easy
    customization of these animations.
 
    For example, if you found out that the crime at position 0 moved to position
    5, you could animate that change like so:
-   recyclerView.adapter.notifyItemMoved(0, 5)
-   RecyclerView is powerful and extensible, but it is also complex and
+
+   .. code-block:: kotlin
+
+      recyclerView.adapter.notifyItemMoved(0, 5)
+
+
+   ``RecyclerView`` is powerful and extensible, but it is also complex and
    requires a lot of setup for even simple UIs. With Jetpack Compose, which
    you will start learning about in Chapter 26, you have access to the
-   LazyColumn and LazyRow composables. These composables have all
-   the customizability and performance of RecyclerView, but they can be
+   ``LazyColumn`` and ``LazyRow`` composables. These composables have all
+   the customizability and performance of ``RecyclerView``, but they can be
    created with a fraction of the code.
 
 .. _S10_13:
@@ -8804,12 +9131,12 @@ C10👊 Displaying Lists with RecyclerView
 10.13. For the More Curious: A Smarter Adapter with ListAdapter
 --------------------------------------------------------------------------------
 
-   As the backing data changes, RecyclerView provides all the tools
+   As the backing data changes, ``RecyclerView`` provides all the tools
    needed to perform animations to reflect those changes. As in the example
-   above, you could call APIs like RecyclerView .Adapter
-   .notifyItemMoved(…) or RecyclerView .Adapter
-   .notifyItemInserted(…) to tell the RecyclerView to animate
-   those changes in. However, you do not usually have visibility on specific
+   above, you could call APIs like 
+   ``RecyclerView.Adapter.notifyItemMoved(…)`` or 
+   ``RecyclerView.Adapter.notifyItemInserted(…)`` to tell the ``RecyclerView`` to 
+   animate those changes in. However, you do not usually have visibility on specific
    changes to your data, so you cannot easily call those functions on the
    individual changes in the list.
 
@@ -8817,50 +9144,50 @@ C10👊 Displaying Lists with RecyclerView
    data, with the changes embedded in it. Unless you manually calculate all
    the changes between the old list of data and the new list of data, the best
    you can do is reassign the backing list of data of your
-   RecyclerView.Adapter and force it to re-render every element in the
+   ``RecyclerView.Adapter`` and force it to re-render every element in the
    list. That calculation of changes is difficult, so developers often rely on
-   RecyclerView .Adapter .notifyDataSetChanged(…), which
-   will redraw and rebind all the items in the RecyclerView’s layout.
+   ``RecyclerView.Adapter.notifyDataSetChanged(…)``, which
+   will redraw and rebind all the items in the ``RecyclerView``’s layout.
 
-   A key aspect of RecyclerView’s design is that it tries to be efficient,
-   avoiding unnecessary work. The benefit of APIs such as RecyclerView
-   .Adapter .notifyItemMoved(…) and RecyclerView .Adapter
-   .notifyItemInserted(…) is that they will only update or alter the
-   relevant views to perform those animations. All the other views in the list
-   will remain untouched. In comparison, RecyclerView .Adapter
-   .notifyDataSetChanged(…) is a blunt instrument that often does a
-   lot of unnecessary work.
+   A key aspect of ``RecyclerView``’s design is that it tries to be efficient,
+   avoiding unnecessary work. The benefit of APIs such as 
+   ``RecyclerView.Adapter.notifyItemMoved(…)`` and 
+   ``RecyclerView.Adapter.notifyItemInserted(…)`` is that they will only update or 
+   alter the relevant views to perform those animations. All the other views in the
+   list will remain untouched. In comparison, 
+   ``RecyclerView.Adapter.notifyDataSetChanged(…)`` 
+   is a blunt instrument that often does a lot of unnecessary work.
 
    When you are presented with an entirely new list of (very similar) data, it
    would be convenient to have a tool that calculates the differences between
    the new and old lists and then calls the appropriate
-   RecyclerView.Adapter.notifyItem…() functions to animate
-   those changes in. That is where ListAdapter comes in.
+   ``RecyclerView.Adapter.notifyItem…()`` functions to animate
+   those changes in. That is where ``ListAdapter`` comes in.
 
-   ListAdapter extends the regular RecyclerView.Adapter,
+   ``ListAdapter`` extends the regular ``RecyclerView.Adapter``,
    bringing with it extra goodies to help you efficiently display and update lists
-   of data. By using ListAdapter instead of RecyclerView.Adapter,
+   of data. By using ``ListAdapter`` instead of ``RecyclerView.Adapter``,
    you can have the library calculate the individual insert/move/remove/update
-   operations to efficiently update the views in your RecyclerView.
+   operations to efficiently update the views in your ``RecyclerView``.
 
-   This calculation does not happen magically. ListAdapter uses a class
-   called DiffUtil, which is included in the RecyclerView library.
+   This calculation does not happen magically. ``ListAdapter`` uses a class
+   called ``DiffUtil``, which is included in the ``RecyclerView`` library.
 
-   DiffUtil can detect which items have changed between your original list
+   ``DiffUtil`` can detect which items have changed between your original list
    and your updated list, but it needs a bit of help. The key component that
    makes this process work is an instance of a class you define that extends
-   DiffUtil.ItemCallback.
+   ``DiffUtil.ItemCallback``.
 
-   The DiffUtil.ItemCallback class has two functions that you must
-   implement (areContentsTheSame(…) and
-   areItemsTheSame(…)), which ListAdapter uses internally to
+   The ``DiffUtil.ItemCallback`` class has two functions that you must
+   implement (``areContentsTheSame(…)`` and
+   ``areItemsTheSame(…)``), which ``ListAdapter`` uses internally to
    determine the differences between the lists and then call the appropriate
    APIs.
 
    With that set up, whenever you have a new list of data to display in your
-   RecyclerView, all you have to do is call
-   ListAdapter.submitList(…), passing in the new list of data, and
-   your RecyclerView will beautifully and efficiently animate the new data
+   ``RecyclerView``, all you have to do is call
+   ``ListAdapter.submitList(…)``, passing in the new list of data, and
+   your ``RecyclerView`` will beautifully and efficiently animate the new data
    onscreen.
 
 
@@ -8870,20 +9197,18 @@ C10👊 Displaying Lists with RecyclerView
 --------------------------------------------------------------------------------
 
    For this advanced challenge, create two types of rows in your
-   RecyclerView: a normal row and a row for more serious crimes. To
+   ``RecyclerView``: a normal row and a row for more serious crimes. To
    implement this, you will need to work with the view type feature available
-   in RecyclerView.Adapter.
+   in ``RecyclerView.Adapter``.
 
-   Add a new property, requiresPolice, to the Crime object and use it
-   to determine which view to load on the CrimeListAdapter by
-   implementing the getItemViewType(Int) function
-   (https://developer.android.google.cn/reference/androidx/
-   recyclerview/ widget/
-   RecyclerView.Adapter#getItemViewType(int)).
+   Add a new property, requiresPolice, to the ``Crime`` object and use it
+   to determine which view to load on the ``CrimeListAdapter`` by
+   implementing the ``getItemViewType(Int)`` function
+   (https://developer.android.google.cn/reference/androidx/recyclerview/widget/RecyclerView.Adapter#getItemViewType(int)).
 
-   In the onCreateViewHolder(ViewGroup, Int) function, you will
-   also need to add logic that returns a different ViewHolder based on the
-   new viewType value returned by getItemViewType(Int). Use the
+   In the ``onCreateViewHolder(ViewGroup, Int)`` function, you will
+   also need to add logic that returns a different ``ViewHolder`` based on the
+   new ``viewType`` value returned by ``getItemViewType(Int)``. Use the
    original layout for crimes that do not require police intervention and a new
    layout with a streamlined interface containing a button that says “contact
    police” for crimes that do.
@@ -8895,34 +9220,34 @@ C11👊 Creating User Interfaces with Layouts and Views
 =====================================================
 
    In this chapter, you will learn more about layouts and views while adding
-   some style to your list items in the RecyclerView. You will also learn
+   some style to your list items in the ``RecyclerView``. You will also learn
    how to use the layout editor to arrange views within a
-   ConstraintLayout. Figure 11.1 shows what
-   CrimeListFragment’s view will look like once you build up your
+   ``ConstraintLayout``. Figure 11.1 shows what
+   ``CrimeListFragment``’s view will look like once you build up your
    masterpiece.
 
 
    Figure 11.1 CriminalIntent, now with beautiful pictures
 
    In previous chapters, you used nested layout hierarchies to arrange your
-   views. For example, the layout/activity_main.xml file you
-   created for GeoQuiz in Chapter 1 nested a LinearLayout within another
-   LinearLayout. This nesting is hard for you and other developers to read
+   views. For example, the ``layout/activity_main.xml`` file you
+   created for ``GeoQuiz`` in Chapter 1 nested a ``LinearLayout`` within another
+   ``LinearLayout``. This nesting is hard for you and other developers to read
    and edit. Worse, nesting can degrade your app’s performance. Nested
    layouts can take a long time for the Android OS to measure and lay out,
    meaning your users might experience a delay before they see your views
    onscreen.
 
    Flat, or non-nested, layouts take less time for the OS to measure and lay
-   out. And this is one of the areas where ConstraintLayout really
+   out. And this is one of the areas where ``ConstraintLayout`` really
    shines. You can create beautifully intricate layouts without using nesting.
 
-   Before you start learning about ConstraintLayout, you need to take
+   Before you start learning about ``ConstraintLayout``, you need to take
    care of one task: You need a copy of that fancy handcuff image from
 
    Figure 11.1 in your project. Open the solutions file
 
-   (www.bignerdranch.com/ android-5e-solutions) and find the
+   (https://www.bignerdranch.com/android-5e-solutions) and find the
    solution for this chapter in 11. Creating User Interfaces
    with Layouts and Views/Solution/CriminalIntent. From
    the app/src/main/res/drawable directory, copy the
@@ -8934,35 +9259,35 @@ C11👊 Creating User Interfaces with Layouts and Views
 11.1. Introducing ConstraintLayout
 --------------------------------------------------------------------------------
 
-   With ConstraintLayout, instead of using nested layouts you add a
+   With ``ConstraintLayout``, instead of using nested layouts you add a
    series of constraints to your layout. A constraint is like a rubber band: It
    pulls two things toward each other. So, for example, if you have an
-   ImageView, you can attach a constraint from its right edge to the right
-   edge of its parent (the ConstraintLayout itself), as shown in
-   Figure 11.2. The constraint will hold the ImageView to the right.
+   ``ImageView``, you can attach a constraint from its right edge to the right
+   edge of its parent (the ``ConstraintLayout`` itself), as shown in
+   Figure 11.2. The constraint will hold the ``ImageView`` to the right.
 
 
    Figure 11.2 ImageView with a constraint on the right edge
 
-   You can create a constraint from all four edges of your ImageView (left,
+   You can create a constraint from all four edges of your ``ImageView`` (left,
    top, right, and bottom). If you have opposing constraints, they will equal
-   out, and your ImageView will be in the center of the two constraints
+   out, and your ``ImageView`` will be in the center of the two constraints
    (Figure 11.3).
 
 
    Figure 11.3 ImageView with opposing constraints
 
    So that is the big picture: To place views where you want them to go in a
-   ConstraintLayout, you give them constraints.
+   ``ConstraintLayout``, you give them constraints.
 
    What about sizing views? For that, you have three options: Let the view
    decide (your old friend wrap_content ), decide for yourself, or let your view
    expand to fit your constraints.
 
    With those tools, you can achieve a great many layouts with a single
-   ConstraintLayout, no nesting required. As you go through this
+   ``ConstraintLayout``, no nesting required. As you go through this
    chapter, you will see how to use constraints with your
-   list_item_crime.xml layout file.
+   ``list_item_crime.xml`` layout file.
 
 
 .. _S11_02:
@@ -8973,7 +9298,7 @@ C11👊 Creating User Interfaces with Layouts and Views
    So far, you have created layouts by typing XML. In this section, you will
    use Android Studio’s layout editor.
 
-   Open layout/list_item_crime.xml and select the Design tab near
+   Open ``layout/list_item_crime.xml`` and select the Design tab near
    the top-right corner of the editor tool window to open the design view
    (Figure 11.4).
 
@@ -8995,14 +9320,14 @@ C11👊 Creating User Interfaces with Layouts and Views
    On the right side of the screen is the attributes tool window. Here, you can
    view and edit the attributes of the view selected in the component tree.
 
-   The first thing you need to do is convert list_item_crime.xml to use
-   a ConstraintLayout. Right-click the root LinearLayout in the
-   component tree and select Convert LinearLayout to ConstraintLayout (Figure 11.5).
+   The first thing you need to do is convert ``list_item_crime.xml`` to use
+   a ``ConstraintLayout``. Right-click the root ``LinearLayout`` in the
+   component tree and select Convert ``LinearLayout`` to ``ConstraintLayout`` (Figure 11.5).
 
-   Figure 11.5 Converting the root view to a ConstraintLayout
+   Figure 11.5 Converting the root view to a ``ConstraintLayout``
 
    Android Studio will ask you in a pop-up how aggressive you would like this
-   conversion process to be (Figure 11.6). Since list_item_crime.xml
+   conversion process to be (Figure 11.6). Since ``list_item_crime.xml``
    is a simple layout file, there is not much that Android Studio can optimize.
 
    Leave the default values checked and select OK .
@@ -9011,7 +9336,7 @@ C11👊 Creating User Interfaces with Layouts and Views
    Figure 11.6 Converting with the default configuration
 
    Be patient. The conversion process might take a little while. But when it is
-   complete, you will have a fine, new ConstraintLayout to work with
+   complete, you will have a fine, new ``ConstraintLayout`` to work with
    (Figure 11.7).
 
 
@@ -9019,6 +9344,7 @@ C11👊 Creating User Interfaces with Layouts and Views
 
    (Wondering why the component tree says you have a linearLayout ? We will
    get to that in a moment.)
+
    The toolbar above the preview has a few editing controls (Figure 11.8). You
    may need to click into the preview to see all the controls.
 
@@ -9081,15 +9407,15 @@ C11👊 Creating User Interfaces with Layouts and Views
 11.3. Using ConstraintLayout
 --------------------------------------------------------------------------------
 
-   When you converted list_item_crime.xml to use
-   ConstraintLayout, Android Studio automatically added the
+   When you converted ``list_item_crime.xml`` to use
+   ``ConstraintLayout``, Android Studio automatically added the
    constraints it thinks will replicate the behavior of your old layout. However,
    to learn how constraints work you are going to start from scratch.
 
    Select the top-level view in the component tree, labeled linearLayout . Why
    does it say linearLayout , when you converted your view to a
-   ConstraintLayout? That is the ID the ConstraintLayout
-   converter supplied. linearLayout is, in fact, your ConstraintLayout. You
+   ``ConstraintLayout``? That is the ID the ``ConstraintLayout``
+   converter supplied. linearLayout is, in fact, your ``ConstraintLayout``. You
    can check the XML version of your layout if you want to confirm this.
 
    With linearLayout selected in the component tree, click the Clear All Constraints
@@ -9101,7 +9427,7 @@ C11👊 Creating User Interfaces with Layouts and Views
 
    Figure 11.9 ConstraintLayout warnings
 
-   When views do not have enough constraints, ConstraintLayout
+   When views do not have enough constraints, ``ConstraintLayout``
    cannot know exactly where to put them. Your TextViews have no
    constraints at all, so they each have a warning that says they will not appear
    in the right place at runtime.
@@ -9127,7 +9453,7 @@ C11👊 Creating User Interfaces with Layouts and Views
    TextViews are taking up the entire area, which will make it hard to wire
    up anything else. Time to shrink those two views.
 
-   Select crime_title in the component tree and look at the attributes window on
+   Select ``crime_title`` in the component tree and look at the attributes window on
    the right (Figure 11.10). If this window is not open for you, click the
    Attributes tab on the right to open it.
 
@@ -9137,7 +9463,7 @@ C11👊 Creating User Interfaces with Layouts and Views
    The vertical and horizontal sizes of your ``TextView`` are governed by the
    height setting and width setting, respectively. There are three setting types
    for height and width (shown in Figure 11.11 and summarized in Table 11.1),
-   each of which corresponds to a value for layout_height or layout_width .
+   each of which corresponds to a value for ``layout_height`` or ``layout_width`` .
 
 
    Figure 11.11 Three view size settings
@@ -9164,7 +9490,7 @@ C11👊 Creating User Interfaces with Layouts and Views
 
    Both the title and date ``TextViews`` are set to a large filed width, which is
    why they are taking up the whole screen. Adjust the width and height of
-   both views. With crime_title still selected in the component tree, click the
+   both views. With ``crime_title`` still selected in the component tree, click the
    width setting until it cycles around to the wrap content setting (or use the
    drop-down menu to choose the setting). If necessary, adjust the height
    setting until the height is also set to wrap content (Figure 11.12).
@@ -9191,14 +9517,14 @@ C11👊 Creating User Interfaces with Layouts and Views
 --------------------------------------------------------------------------------
 
    With your other views out of the way, you can add the handcuffs image to
-   your layout. Add an ImageView to your layout file. In the palette, find
-   ImageView in the Common category (Figure 11.14). Drag it into your
-   component tree as a child of the ConstraintLayout , just underneath crime_date .
+   your layout. Add an ``ImageView`` to your layout file. In the palette, find
+   ``ImageView`` in the Common category (Figure 11.14). Drag it into your
+   component tree as a child of the ``ConstraintLayout`` , just underneath ``crime_date`` .
 
    Figure 11.14 Finding the ImageView
 
-   In the dialog that pops up, scroll to the CriminalIntent.app.main section and
-   choose ic_solved as the resource for the ImageView (Figure 11.15). This
+   In the dialog that pops up, scroll to the ``CriminalIntent.app.main`` section and
+   choose ``ic_solved`` as the resource for the ``ImageView`` (Figure 11.15). This
    image will be used to indicate which crimes have been solved. Click OK .
 
 
@@ -9208,35 +9534,35 @@ C11👊 Creating User Interfaces with Layouts and Views
    with the “fragment_” prefix and activity layout files begin with the
    “activity_” prefix, it is a convention to prefix your icons with the “ic_”
    prefix. That allows you to easily organize your various drawables.)
-   The ImageView is now a part of your layout, but it has no constraints. So
+   The ``ImageView`` is now a part of your layout, but it has no constraints. So
    while the layout editor gives it a position, that position does not really mean
    anything.
 
-   Click your ImageView in the preview. (You may want to zoom the
+   Click your ``ImageView`` in the preview. (You may want to zoom the
    preview in to get a better look. The zoom controls are in the toolbar in the
    lower right of the canvas.) You will see circles on each side of the
-   ImageView (Figure 11.16). Each of these circles represents a constraint
+   ``ImageView`` (Figure 11.16). Each of these circles represents a constraint
    handle .
 
 
    Figure 11.16 ImageView’s constraint handles
 
-   You want the ImageView to be anchored on the right side of the view and
+   You want the ``ImageView`` to be anchored on the right side of the view and
    centered vertically. To accomplish this, you need to create constraints from
-   the top, right, and bottom edges of the ImageView.
+   the top, right, and bottom edges of the ``ImageView``.
 
-   Before adding constraints, drag the ImageView to the right and down to
-   move it away from the TextViews (Figure 11.17). Do not worry about
-   where you place the ImageView. This placement will be ignored once you
+   Before adding constraints, drag the ``ImageView`` to the right and down to
+   move it away from the ``TextViews`` (Figure 11.17). Do not worry about
+   where you place the ``ImageView``. This placement will be ignored once you
    get your constraints in place.
 
 
    Figure 11.17 Moving a view temporarily
 
    Time to add some constraints. First, you are going to set a constraint
-   between the top of the ImageView and the top of the
-   ConstraintLayout. In the preview, drag the top constraint handle from
-   the ImageView to the top of the ConstraintLayout. The handle will
+   between the top of the ``ImageView`` and the top of the
+   ``ConstraintLayout``. In the preview, drag the top constraint handle from
+   the ``ImageView`` to the top of the ``ConstraintLayout``. The handle will
    display an arrow and turn solid blue (Figure 11.18).
 
 
@@ -9250,16 +9576,16 @@ C11👊 Creating User Interfaces with Layouts and Views
 
    Be careful to avoid dragging one of the square handles in the corner of the
    image view – this will resize it instead. Also, make sure you do not
-   inadvertently attach the constraint to one of your TextViews. If you do,
+   inadvertently attach the constraint to one of your ``TextViews``. If you do,
    click the constraint handle to delete the bad constraint, then try again.
 
    When you let go and set the constraint, the view will snap into position to
    account for the presence of the new constraint. This is how you move views
-   around in a ConstraintLayout – by setting and removing constraints.
+   around in a ``ConstraintLayout`` – by setting and removing constraints.
 
    Verify that your ImageView has a top constraint connected to the top of
-   the ConstraintLayout by hovering over the top constraint handle with
-   your mouse. You should see an animated bo? around the constraint layout,
+   the ``ConstraintLayout`` by hovering over the top constraint handle with
+   your mouse. You should see an animated box around the constraint layout,
    with the top edge blue to show where the constraint handle is connected
    (Figure 11.20).
 
@@ -9267,15 +9593,16 @@ C11👊 Creating User Interfaces with Layouts and Views
    Figure 11.20 ImageView with a top constraint
 
    Do the same for the bottom constraint handle, dragging it from the
-   ImageView to the bottom of the root view (Figure 11.21), again taking
-   care to avoid attaching it to the TextViews.
+   ``ImageView`` to the bottom of the root view (Figure 11.21), again taking
+   care to avoid attaching it to the ``TextViews``.
 
 
    Figure 11.21 ImageView with top and bottom constraints
 
    (The squiggly lines you see in the preview represent constraints that are
    stretching.)
-   Finally, drag the right constraint handle from the ImageView to the right
+
+   Finally, drag the right constraint handle from the ``ImageView`` to the right
    side of the root view. That should set all the constraints for the image view.
    Your constraints should look like Figure 11.22.
 
@@ -9290,37 +9617,42 @@ C11👊 Creating User Interfaces with Layouts and Views
 
    Any edits that you make to constraints with the layout editor are reflected in
    the XML behind the scenes. You can still edit the raw
-   ConstraintLayout XML, but the layout editor will often be easier for
-   adding the initial constraints. ConstraintLayout is more verbose than
-   other ViewGroups, so adding the initial constraints manually can be a lot
+   ``ConstraintLayout`` XML, but the layout editor will often be easier for
+   adding the initial constraints. ``ConstraintLayout`` is more verbose than
+   other ``ViewGroups``, so adding the initial constraints manually can be a lot
    of work. On the other hand, working directly with the XML can be more
    useful when you need to make smaller changes to the layout.
 
    Switch to the code view to see what happened to the XML when you
-   created the three constraints on your ImageView:
-   <androidx.constraintlayout.widget.ConstraintLayout
-   ... >
-      ...
-   <ImageView
-   android:id="@+id/imageView"
-   android:layout_width="wrap_content"
-   android:layout_height="wrap_content"
-   app:layout_constraintBottom_toBottomOf="parent"
-   app:layout_constraintEnd_toEndOf="parent"
-   app:layout_constraintTop_toTopOf="parent"
-   app:srcCompat="@drawable/ic_solved" />
+   created the three constraints on your ``ImageView``:
 
-   </androidx.constraintlayout.widget.ConstraintLayout>
+   .. code-block:: kotlin
+
+      <androidx.constraintlayout.widget.ConstraintLayout
+         ... >
+         ...
+         <ImageView
+         android:id="@+id/imageView"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+         app:srcCompat="@drawable/ic_solved" />
+
+      </androidx.constraintlayout.widget.ConstraintLayout>
+
    (You will still see errors related to the two TextViews. Do not worry –
    you will fix them shortly.)
-   All the views are direct children of the single ConstraintLayout –
+
+   All the views are direct children of the single ``ConstraintLayout`` –
    there are no nested layouts. If you had created the same layout using
-   LinearLayout, you would have had to nest one inside another. As we
+   ``LinearLayout``, you would have had to nest one inside another. As we
    said earlier, reducing nesting also reduces the time needed to render the
    layout, and that results in a quicker, more seamless user experience.
 
    Take a closer look at the top constraint on the ImageView:
-   app:layout_constraintTop_toTopOf="parent"
+   ``app:layout_constraintTop_toTopOf="parent"``
    This attribute begins with layout_ . All attributes that begin with layout_
    are known as layout parameters . Unlike other attributes, layout
    parameters are directions to that view’s parent , not the view itself. They
@@ -9333,13 +9665,13 @@ C11👊 Creating User Interfaces with Layouts and Views
 
    Finally, the attribute ends with toTopOf="parent" . This means that this
    constraint is connected to the top edge of the parent. The parent here is the
-   ConstraintLayout.
+   ``ConstraintLayout``.
 
    Whew, what a mouthful. Time to leave the raw XML behind and return to
    the layout editor.
 
    (The layout editor’s tools are useful, especially with
-   ConstraintLayout. But not everyone is a fan. You do not have to
+   ``ConstraintLayout``. But not everyone is a fan. You do not have to
    choose sides – you can switch back and forth between the layout editor and
    directly editing XML. After this chapter, use whatever approach you prefer
    to create the layouts in this book – XML, layout editor, or some of each.)
@@ -9349,14 +9681,14 @@ C11👊 Creating User Interfaces with Layouts and Views
 11.7. Editing properties
 --------------------------------------------------------------------------------
 
-   Your ImageView is almost positioned correctly. Since the parent view is
+   Your ``ImageView`` is almost positioned correctly. Since the parent view is
    larger than the image and the image is centered vertically, it looks good on
    the vertical apis. However, the image is flush against the right side of the
    parent view. This looks a little off.
 
    With the image still selected in the preview, check out the attributes window
    to the right. Because you added constraints to the top, bottom, and right of
-   the ImageView, drop-down menus appear to allow you to select the
+   the ``ImageView``, drop-down menus appear to allow you to select the
    margin for each constraint (Figure 11.23). You do not need to add margins
    to the top or bottom, but select 16dp for the right margin.
 
@@ -9366,12 +9698,11 @@ C11👊 Creating User Interfaces with Layouts and Views
    Notice that Android Studio offers you margin values in increments of 8dp.
 
    These values follow Android’s material design guidelines. You can find all
-   the Android design guidelines at https://developer.android.google.cn/
-   design/ index.html. Your Android apps should follow these
-   guidelines as closely as possible.
+   the Android design guidelines at https://developer.android.google.cn/design/index.html. 
+   Your Android apps should follow these guidelines as closely as possible.
 
    With that taken care of, let’s move on to the text. Start with the position and
-   size of the title TextView.
+   size of the title ``TextView``.
 
    First, select Crime Date in the preview and drag it out of the way
    (Figure 11.24). Remember that any changes you make to the position in the
@@ -9386,9 +9717,11 @@ C11👊 Creating User Interfaces with Layouts and Views
 
    You want Crime Title to be at the top left of your layout, positioned to the left
    of your ImageView. That requires three constraints:
-   from the left side of your view to the left side of the parent
-   from the top of your view to the top of the parent
-   from the right of your view to the left side of the ImageView
+
+   *  from the left side of your view to the left side of the parent
+   *  from the top of your view to the top of the parent
+   *  from the right of your view to the left side of the ImageView
+
    Modify your layout so that all these constraints are in place (Figure 11.25).
    If a constraint does not work as you expected, press Command-Z (Ctrl-Z) to
    undo and try again.
@@ -9400,7 +9733,7 @@ C11👊 Creating User Interfaces with Layouts and Views
 
    With Crime Title still selected in the preview, check out the attributes window
    to the right. Because you added constraints to the top, left, and right of the
-   TextView, drop-down menus appear to allow you to select the margin for
+   ``TextView``, drop-down menus appear to allow you to select the margin for
    each constraint (Figure 11.26). Select 16dp for the left and top margins and
    8dp for the right margin.
 
@@ -9413,27 +9746,26 @@ C11👊 Creating User Interfaces with Layouts and Views
    Figure 11.27 Title TextView’s constraints
 
    Now that the constraints are set up, you can restore the width of the title
-   TextView to its full glory. Adjust its horizontal view setting to 0 dp (match
-   constraint) to allow the TextView to fill all the space available within its
-   constraints. Make the vertical view setting wrap_content , if it is not
-   already, so that the TextView will be just tall enough to show the title of
+   ``TextView`` to its full glory. Adjust its horizontal view setting to 0 dp (match
+   constraint) to allow the ``TextView`` to fill all the space available within its
+   constraints. Make the vertical view setting ``wrap_content`` , if it is not
+   already, so that the ``TextView`` will be just tall enough to show the title of
    the crime. Verify that your settings match those shown in Figure 11.28.
 
 
    Figure 11.28 crime_title view settings
 
-   Now, add constraints to the date TextView. Select crime_date in the
-   component tree. Repeat the steps from the title TextView to add three
+   Now, add constraints to the date ``TextView``. Select crime_date in the
+   component tree. Repeat the steps from the title ``TextView`` to add three
    constraints:
-   from the left side of your view to the left side of the parent, with a
-   16dp margin
-   from the top of your view to the bottom of the crime title, with an
-   8dp margin
-   from the right of your view to the left side of the ImageView,
-   with an 8dp margin
+
+   *  from the left side of your view to the left side of the parent, with a 16dp margin
+   *  from the top of your view to the bottom of the crime title, with an 8dp margin
+   *  from the right of your view to the left side of the ImageView, with an 8dp margin
+
    After adding the constraints, adjust the properties of the TextView. You
-   want the width of your date TextView to be match_constraint and the height
-   to be wrap_content , just like the title TextView. Verify that your settings
+   want the width of your date TextView to be ``match_constraint`` and the height
+   to be ``wrap_content`` , just like the title TextView. Verify that your settings
    match those shown in Figure 11.29.
 
 
@@ -9448,7 +9780,7 @@ C11👊 Creating User Interfaces with Layouts and Views
 
    Switch to the code view in the editor tool window to review the XML
    resulting from the changes you made in the layout editor. Red underlines no
-   longer appear under the TextView tags. This is because the TextView
+   longer appear under the ``TextView`` tags. This is because the ``TextView``
    views are now adequately constrained, so the ConstraintLayout that
    contains them can figure out where to properly position the views at
    runtime.
@@ -9456,16 +9788,17 @@ C11👊 Creating User Interfaces with Layouts and Views
    Two yellow warning indicators remain related to the TextViews, and if
    you explore them you will see that the warnings have to do with their
    hardcoded strings. These warnings would be important for a production
-   application, but for CriminalIntent you can disregard them. (If you prefer,
+   application, but for ``CriminalIntent`` you can disregard them. (If you prefer,
    feel free to follow the advice to extract the hardcoded text into string
    resources. This will resolve the warnings.)
-   Additionally, one warning remains on the ImageView, indicating that it
+
+   Additionally, one warning remains on the ``ImageView``, indicating that it
    does not have a content description. For now, you can disregard this
    warning as well. You will address this issue when you learn about
    accessibility in Chapter 19. In the meantime, your app will function,
    although the image will not be accessible to users utilizing a screen reader.
-   Run CriminalIntent and verify that you see all three components lined up
-   nicely in each row of your RecyclerView (Figure 11.31).
+   Run ``CriminalIntent`` and verify that you see all three components lined up
+   nicely in each row of your ``RecyclerView`` (Figure 11.31).
 
 
    Figure 11.31 Now with three views per row
@@ -9477,35 +9810,35 @@ C11👊 Creating User Interfaces with Layouts and Views
 --------------------------------------------------------------------------------
 
    Now that the layout includes the correct constraints, update the
-   ImageView so that the handcuffs are only shown on crimes that have been
+   ``ImageView`` so that the handcuffs are only shown on crimes that have been
    solved.
 
-   First, update the ID of your ImageView. When you added the
-   ImageView to your ConstraintLayout, it was given a default name.
+   First, update the ID of your ``ImageView``. When you added the
+   ``ImageView`` to your ``ConstraintLayout``, it was given a default name.
 
    That name is not very descriptive. In the design view, select your
-   ImageView and, in the attributes window, update the ID attribute to
-   crime_solved (Figure 11.32).
+   ``ImageView`` and, in the attributes window, update the ID attribute to
+   ``crime_solved`` (Figure 11.32).
 
 
    Figure 11.32 Updating the image ID
 
    You will be asked whether Android Studio should update all usages of the
    ID; select Refactor . Next, Android Studio will warn you that you are already
-   using the ID crime_solved (Figure 11.33).
+   using the ID ``crime_solved`` (Figure 11.33).
 
 
    Figure 11.33 Reusing an ID
 
-   The crime_solved ID is used in both the list_item_crime.xml and
-   fragment_crime_detail.xml layouts. You might think that reusing
+   The ``crime_solved`` ID is used in both the ``list_item_crime.xml`` and
+   ``fragment_crime_detail.xml`` layouts. You might think that reusing
    an ID would be a problem, but in this case it is not. Layout IDs only need to
    be unique in the same layout. Since your IDs are defined in different layout
    files, there is no problem using the same ID in both. Click Continue to ignore
    this warning.
 
    With a proper ID in place, you are ready to update your code. Open
-   CrimeListAdapter.kt. In CrimeHolder, add an ImageView
+   ``CrimeListAdapter.kt``. In ``CrimeHolder``, add an ``ImageView``
    instance variable and toggle its visibility based on the solved status of the
    crime.
 
@@ -9514,31 +9847,33 @@ C11👊 Creating User Interfaces with Layouts and Views
 
    .. code-block:: kotlin
 
-   class CrimeHolder(
-   private val binding: ListItemCrimeBinding
-   ) : RecyclerView.ViewHolder(binding.root) {
-      ...
-   fun bind(crime: Crime) {
-      ...
-   binding.root.setOnClickListener {
-   Toast.makeText(
-   binding.root.context,
-   "${crime.title} clicked!",
-   Toast.LENGTH_SHORT
-   ).show()
-   }
+      class CrimeHolder(
+         private val binding: ListItemCrimeBinding
+      ) : RecyclerView.ViewHolder(binding.root) {
+         ...
+         fun bind(crime: Crime) {
+            ...
+            binding.root.setOnClickListener {
+               Toast.makeText(
+               binding.root.context,
+               "${crime.title} clicked!",
+               Toast.LENGTH_SHORT
+               ).show()
+            }
 
-   binding.crimeSolved.visibility = if (crime.isSolved) {
-   View.VISIBLE
-   } else {
-   View.GONE
-   }
-   }
-      ...
-   }
-   Run CriminalIntent and verify that the handcuffs now appear on every other
-   row. (Check CrimeListViewModel if you do not recall why this would
+            binding.crimeSolved.visibility = if (crime.isSolved) {
+               View.VISIBLE
+            } else {
+               View.GONE
+            }
+         }
+         ...
+      }
+
+   Run ``CriminalIntent`` and verify that the handcuffs now appear on every other
+   row. (Check ``CrimeListViewModel`` if you do not recall why this would
    be the case.)
+
 
 .. _S11_09:
 
@@ -9546,16 +9881,16 @@ C11👊 Creating User Interfaces with Layouts and Views
 --------------------------------------------------------------------------------
 
    Now you are going to add a few more tweaks to the design in
-   list_item_crime.xml and, in the process, answer some lingering
+   ``list_item_crime.xml`` and, in the process, answer some lingering
    questions you might have about views and attributes.
 
    In previous chapters, you used XML attributes to define various aspects of
-   your views, such as the text within a TextView or the padding on a
-   LinearLayout. You can also use XML attributes to set the size or color
-   of text within a TextView.
+   your views, such as the text within a ``TextView`` or the padding on a
+   ``LinearLayout``. You can also use XML attributes to set the size or color
+   of text within a ``TextView``.
 
-   Navigate back to the design view of list_item_crime.xml. Select
-   crime_title and, in the attributes window, expand the textAppearance section
+   Navigate back to the design view of ``list_item_crime.xml``. Select
+   ``crime_title`` and, in the attributes window, expand the ``textAppearance`` section
    under Common Attributes .
 
    You could style your text by setting the individual attributes in this section,
@@ -9568,31 +9903,38 @@ C11👊 Creating User Interfaces with Layouts and Views
 
    A step in the right direction would be to define a custom style and reference
    it when setting your text’s appearance. This might look like:
-   <style name="FancyListItemText">
-   <item name="android:textSize">20sp</item>
-   <item name="android:textColor">@color/black</item>
-   </style>
+
+   .. code-block:: xml
+
+      <style name="FancyListItemText">
+         <item name="android:textSize">20sp</item>
+         <item name="android:textColor">@color/black</item>
+      </style>
+
    You can define a custom style much like you define string resources in
-   XML. These styles reside in a themes.xml file in the /res/values/
-   directory. In your layout, you reference your style using the @style/ prefix
+   XML. These styles reside in a ``themes.xml`` file in the ``/res/values/``
+   directory. In your layout, you reference your style using the ``@style``/ prefix
    and whatever name you gave the style. Then, wherever you want to use that
    custom style, you only have to set a single attribute:
-   android:textAppearance="@style/FancyListItemText" .
+   ``android:textAppearance="@style/FancyListItemText"`` .
 
    However, since you are already using the Material Design library to theme
    your app, it would be better to lean on that library to provide appropriate
-   styling for your text. When you created CriminalIntent, the wizard set up a
+   styling for your text. When you created ``CriminalIntent``, the wizard set up a
    theme for the app that is referenced on the application tag in the manifest.
 
    By default, that theme extends a theme provided by the Material Design
    library.
 
-   <style name="Theme.CriminalIntent"
-   parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-   <!-- Primary brand color. -->
-   <item name="colorPrimary">@color/purple_500</item>
-      ...
-   </style>
+   .. code-block:: kotlin
+
+      <style name="Theme.CriminalIntent"
+         parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+         <!-- Primary brand color. -->
+         <item name="colorPrimary">@color/purple_500</item>
+         ...
+      </style>
+
    A theme is a collection of styles, and it defines theme attributes to
    reference those styles. Structurally, a theme is itself a style resource whose
    attributes point to other style resources.
@@ -9600,16 +9942,16 @@ C11👊 Creating User Interfaces with Layouts and Views
    The theme attribute you will use here is a reference to a custom style
    defined by the Material Design library. The Material Design library uses
    theme attributes heavily to provide access to different aspects of the design
-   system, like color, shape, and typographic style. The AppCompat library
+   system, like color, shape, and typographic style. The ``AppCompat`` library
    and even the Android platform also offer theme attributes to allow you to
    hook into their provided themes.
 
    Unlike other resource types, which are referenced with the @ character
-   followed by the resource type (like @string/ or @drawable/ ), theme
-   attributes use the ?attr/ prefix. You saw this syntax in Chapter 9 when you
-   styled the TextView labels for CrimeDetailFragment. Now, you
+   followed by the resource type (like ``@string/`` or ``@drawable/`` ), theme
+   attributes use the ``?attr/`` prefix. You saw this syntax in Chapter 9 when you
+   styled the TextView labels for ``CrimeDetailFragment``. Now, you
    want to use the Headline 6 typographic style for your title text, so enter ?
-   attr/textAppearanceHeadline6 for the textAppearance attribute
+   ``attr/textAppearanceHeadline6`` for the ``textAppearance`` attribute
    (Figure 11.34).
 
 
@@ -9627,7 +9969,7 @@ C11👊 Creating User Interfaces with Layouts and Views
 11.10. For the More Curious: Margins vs Padding
 --------------------------------------------------------------------------------
 
-   In both GeoQuiz and CriminalIntent, you have given views margin and
+   In both ``GeoQuiz`` and ``CriminalIntent``, you have given views margin and
    padding attributes. Beginning developers sometimes get confused about
    these two. Now that you understand what a layout parameter is, the
    difference is easier to explain.
@@ -9637,7 +9979,7 @@ C11👊 Creating User Interfaces with Layouts and Views
    be the responsibility of the view’s parent.
 
    Padding, on the other hand, is not a layout parameter. The
-   android:padding attribute tells a view how much bigger than its contents it
+   ``android:padding`` attribute tells a view how much bigger than its contents it
    should draw itself. For example, say you wanted the date button to be
    spectacularly large without changing its text size (Figure 11.36).
 
@@ -9645,12 +9987,16 @@ C11👊 Creating User Interfaces with Layouts and Views
    Figure 11.36 I like big buttons and I cannot lie…
 
    You could add the following attribute to the Button:
-   <Button
-   android:id="@+id/crime_date"
-   android:layout_width="match_parent"
-   android:layout_height="wrap_content"
-   android:padding="80dp"
-   tools:text="Wed May 11 11:56 EST 2022"/>
+
+   .. code-block:: kotlin
+
+      <Button
+         android:id="@+id/crime_date"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:padding="80dp"
+         tools:text="Wed May 11 11:56 EST 2022"/>
+
    Alas, you should probably remove this attribute before continuing.
 
 .. _S11_11:
@@ -9658,9 +10004,9 @@ C11👊 Creating User Interfaces with Layouts and Views
 11.11. For the More Curious: Advanced Features in ConstraintLayout
 --------------------------------------------------------------------------------
 
-   ConstraintLayout has additional capabilities to help arrange its child
+   ``ConstraintLayout`` has additional capabilities to help arrange its child
    views. In this chapter you positioned views by constraining them to the
-   parent as well as to other, sibling views. ConstraintLayout also
+   parent as well as to other, sibling views. ``ConstraintLayout`` also
    includes helper views, such as Guidelines, that simplify arranging views
    on the screen.
 
@@ -9678,15 +10024,15 @@ C11👊 Creating User Interfaces with Layouts and Views
 
    Figure 11.37 Using a Guideline
 
-   Another tool offered by ConstraintLayout is MotionLayout.
+   Another tool offered by ``ConstraintLayout`` is MotionLayout.
 
-   MotionLayout is an extension of ConstraintLayout that simplifies
-   adding animations to your views. To use MotionLayout, you create a
-   MotionScene file that describes how the animations should be performed
+   ``MotionLayout`` is an extension of ``ConstraintLayout`` that simplifies
+   adding animations to your views. To use ``MotionLayout``, you create a
+   ``MotionScene`` file that describes how the animations should be performed
    and which views map to each other in the starting and ending layouts. You
    can also set Keyframes that provide intermediary views in the animation.
 
-   MotionLayout can animate from the starting view through the various
+   ``MotionLayout`` can animate from the starting view through the various
    keyframes you provide, then ensure that the view animates to the ending
    layout appropriately.
 
@@ -9697,15 +10043,15 @@ C11👊 Creating User Interfaces with Layouts and Views
 --------------------------------------------------------------------------------
 
    The Date object is more of a timestamp than a conventional date. A
-   timestamp is what you see when you call toString() on a Date, so that
-   is what you have in each of your RecyclerView rows. While timestamps
+   timestamp is what you see when you call ``toString()`` on a Date, so that
+   is what you have in each of your ``RecyclerView`` rows. While timestamps
    make for good documentation, it might be nicer if the rows just displayed
    the date as humans think of it – like “May 11, 2022.” You can do this with
-   an instance of the android.text.format.DateFormat class. The
+   an instance of the ``android.text.format.DateFormat`` class. The
    place to start is the reference page for this class in the Android
    documentation.
 
-   You can use functions in the DateFormat class to get a common format.
+   You can use functions in the ``DateFormat`` class to get a common format.
 
    Or you can prepare your own format string. For a more advanced challenge,
    create a format string that will display the day of the week as well – like
@@ -9794,12 +10140,11 @@ C12👊 Coroutines and Databases
 
    To keep this book at a reasonable length, we cannot explain Kotlin
    coroutines in full. If coroutines are entirely new to you, JetBrains has
-   excellent documentation on how to use them (kotlinlang.org/ docs/
-   coroutines-overview.html). Also, there is a little book written by
-   some very cool folks titled “Kotlin Programming: The Big Nerd Ranch
-   Guide.” That book does an excellent ?ob explaining the basics of coroutines
-   and how to use them, as well as other Kotlin topics. We highly recommend
-   that book.
+   excellent documentation on how to use them (https://kotlinlang.org/docs/coroutines-overview.html). 
+   Also, there is a little book written by some very cool folks titled 
+   “Kotlin Programming: The Big Nerd Ranch Guide.” That book does an excellent 
+   job explaining the basics of coroutines and how to use them, as well as 
+   other Kotlin topics. We highly recommend that book.
 
    In this chapter and throughout this book, we will primarily focus on how to
    use coroutines in the content of an Android app.
@@ -9814,23 +10159,24 @@ C12👊 Coroutines and Databases
    build.gradle file. You need to add the core Coroutines library, a
    library to hook up the main thread in Android to your coroutines, and a
    library to enable you to safely consume data coming from a coroutine inside
-   your Fragment. Open the build.gradle file labeled (Module:
-   CriminalIntent.app) and add those three dependencies:
+   your ``Fragment``. Open the build.gradle file labeled (Module:
+   ``CriminalIntent.app``) and add those three dependencies:
 
    Listing 12.1 Adding coroutines to your project’s build (app/build.gradle)
 
    .. code-block:: gradle
 
       ...
-   dependencies {
-      ...
-   implementation 'androidx.recyclerview:recyclerview:1.2.1'
-   implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0'
-   implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0'
-   implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
-   testImplementation '?unit:?unit:4.13.2'
-      ...
-   }
+      dependencies {
+         ...
+         implementation 'androidx.recyclerview:recyclerview:1.2.1'
+         implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0'
+         implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0'
+         implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
+         testImplementation 'junit:junit:4.13.2'
+         ...
+      }
+
    Do not forget to click the Sync Project with Gradle Files button
    or the Sync Now button after you have made these changes.
 
@@ -9852,16 +10198,16 @@ C12👊 Coroutines and Databases
    choosing which thread will be used to run the code.
 
    On Android, this idea of scopes maps neatly onto the various lifecycles you
-   have encountered so far. The Activity, Fragment, and ViewModel
+   have encountered so far. The ``Activity``, ``Fragment``, and ``ViewModel``
    classes have unique lifecycles and coroutine scopes to match. For
-   ViewModels, you have access to the viewModelScope class property.
+   ViewModels, you have access to the ``viewModelScope`` class property.
 
-   This viewModelScope is available from the time your ViewModel is
+   This ``viewModelScope`` is available from the time your ``ViewModel`` is
    initialized, and it cancels any coroutine work still running when the
-   ViewModel is cleared out from memory.
+   ``ViewModel`` is cleared out from memory.
 
-   Open CrimeListViewModel.kt and launch a coroutine using the
-   viewModelScope property, wrapping the initialization of your list of
+   Open ``CrimeListViewModel.kt`` and launch a coroutine using the
+   ``viewModelScope`` property, wrapping the initialization of your list of
    crimes inside the new coroutine.
 
 
@@ -9869,25 +10215,27 @@ C12👊 Coroutines and Databases
 
    .. code-block:: kotlin
 
-   class CrimeListViewModel : ViewModel() {
+      class CrimeListViewModel : ViewModel() {
 
-   val crimes = mutableListOf<Crime>()
+         val crimes = mutableListOf<Crime>()
 
-   init {
-   viewModelScope.launch {
-   for (i in 0 until 100) {
-   val crime = Crime(
-   id = UUID.randomUUID(),
-   title ="Crime #$i",
-   date = Date(),
-   isSolved = i % 2 == 0
-   )
 
-   crimes += crime
-   }
-   }
-   }
-   }
+         init {
+            viewModelScope.launch {
+               for (i in 0 until 100) {
+                  val crime = Crime(
+                     id = UUID.randomUUID(),
+                     title ="Crime #$i",
+                     date = Date(),
+                     isSolved = i % 2 == 0
+                  )
+
+                  crimes += crime
+               }
+            }
+         }
+      }
+
    On its own, that code does not do much. But now that you have launched a
    coroutine, you can invoke suspending functions within it. A suspending
    function is a function that can be paused until a long-running operation can
@@ -9901,55 +10249,61 @@ C12👊 Coroutines and Databases
    these optimizations, coroutines are considerably more resource efficient
    than native threads.
 
-   One of the most basic suspending functions is delay(timeMillis:
-   Long). As the name suggests, this function delays a coroutine – without
+   One of the most basic suspending functions is delay(timeMillis: Long). 
+   As the name suggests, this function delays a coroutine – without
    blocking a thread – for a specified number of milliseconds. Add a call to
    this function, as well as some logging calls, to your initialization block.
 
 
    Listing 12.3 Delaying work (CrimeListViewModel.kt)
 
+
    .. code-block:: kotlin
 
-   private const val TAG = "CrimeListViewModel"
+      private const val TAG = "CrimeListViewModel"
 
-   class CrimeListViewModel : ViewModel() {
+      class CrimeListViewModel : ViewModel() {
 
-   val crimes = mutableListOf<Crime>()
+         val crimes = mutableListOf<Crime>()
 
-   init {
-   Log.d(TAG, "init starting")
-   viewModelScope.launch {
-   Log.d(TAG, "coroutine launched")
-   delay(5000)
-   for (i in 0 until 100) {
-   val crime = Crime(
-   id = UUID.randomUUID(),
-   title ="Crime #$i",
-   date = Date(),
-   isSolved = i % 2 == 0
-   )
 
-   crimes += crime
-   }
-   Log.d(TAG, "Loading crimes finished")
-   }
-   }
-   }
-   Open Logcat and search for CrimeListViewModel , then run your app. You
+         init {
+            Log.d(TAG, "init starting")
+
+            viewModelScope.launch {
+               Log.d(TAG, "coroutine launched")
+
+               delay(5000)
+
+               for (i in 0 until 100) {
+                  val crime = Crime(
+                     id = UUID.randomUUID(),
+                     title ="Crime #$i",
+                     date = Date(),
+                     isSolved = i % 2 == 0
+                  )
+
+                  crimes += crime
+               }
+               Log.d(TAG, "Loading crimes finished")
+            }
+         }
+      }
+
+   Open Logcat and search for ``CrimeListViewModel`` , then run your app. You
    should see the two initialization messages print out and then, five seconds
    later, “Loading crimes finished” should print out.
 
-   Because delay is running inside a coroutine, during the five seconds that
+   Because ``delay`` is running inside a coroutine, during the five seconds that
    the function is counting milliseconds your UI is still capable of drawing any
    new updates and can instantly respond to user input (Figure 12.2). (If this
    were not the case, your users would see a system dialog saying
    “CriminalIntent isn’t responding” with the options to kill the app or wait for
    it to respond.)
 
-   Figure 12.2 A timeline of the coroutine work done in
 
-   CrimeListViewModel
+   Figure 12.2 A timeline of the coroutine work done in CrimeListViewModel
+
    Coroutines allow you to perform asynchronous code in a resource- and
    performance-friendly way. If you were using a thread directly, you would
    need to do more setup to accomplish the same result correctly and without
@@ -9959,6 +10313,7 @@ C12👊 Coroutines and Databases
    you might have noticed that the crimes no longer display in your
    RecyclerView. You might already know why that is happening, and you
    will learn how to solve that problem shortly.)
+
    You can also define your own suspending functions. Suspending functions
    can take in parameters, use visibility modifiers, and return values, just like
    regular functions. All you need to do to convert one of your regular
@@ -9970,7 +10325,7 @@ C12👊 Coroutines and Databases
    invoke a suspending function. But when you make a function a suspending
    function, you can then call other suspending functions within it. To see this,
    move your crime loading code into its own suspending function. Within the
-   new loadCrimes() suspending function, you can call the delay()
+   new ``loadCrimes()`` suspending function, you can call the ``delay()``
    suspending function.
 
 
@@ -9978,46 +10333,54 @@ C12👊 Coroutines and Databases
 
    .. code-block:: kotlin
 
-   private const val TAG = "CrimeListViewModel"
+      private const val TAG = "CrimeListViewModel"
 
-   class CrimeListViewModel : ViewModel() {
-      ...
-   init {
-   Log.d(TAG, "init starting")
-   viewModelScope.launch {
-   Log.d(TAG, "coroutine launched")
-   delay(5000)
-   for (i in 0 until 100) {
-   val crime = Crime(
-   id = UUID.randomUUID(),
-   title = "Crime #$i",
-   date = Date(),
-   isSolved = i % 2 == 0
-   )
+      class CrimeListViewModel : ViewModel() {
+         ...
+         init {
+            Log.d(TAG, "init starting")
 
-   crimes += crime
-   }
-   crimes += loadCrimes()
-   Log.d(TAG, "Loading crimes finished")
-   }
-   }
+            viewModelScope.launch {
+            Log.d(TAG, "coroutine launched")
 
-   sussend fun loadCrimes(): List<Crime> {
-   val result = mutableListOf<Crime>()
-   delay(5000)
-   for (i in 0 until 100) {
-   val crime = Crime(
-   id = UUID.randomUUID(),
-   title = "Crime #$i",
-   date = Date(),
-   isSolved = i % 2 == 0
-   )
+            delay(5000)
 
-   result += crime
-   }
-   return result
-   }
-   }
+            for (i in 0 until 100) {
+               val crime = Crime(
+                  id = UUID.randomUUID(),
+                  title = "Crime #$i",
+                  date = Date(),
+                  isSolved = i % 2 == 0
+               )
+
+               crimes += crime
+               }
+               crimes += loadCrimes()
+
+               Log.d(TAG, "Loading crimes finished")
+
+            }
+         }
+
+         sussend fun loadCrimes(): List<Crime> {
+            val result = mutableListOf<Crime>()
+
+            delay(5000)
+
+            for (i in 0 until 100) {
+               val crime = Crime(
+               id = UUID.randomUUID(),
+               title = "Crime #$i",
+               date = Date(),
+               isSolved = i % 2 == 0
+               )
+
+               result += crime
+            }
+            return result
+         }
+      }
+
    Run your app again to confirm that the behavior is the same.
 
 
@@ -10027,8 +10390,8 @@ C12👊 Coroutines and Databases
 --------------------------------------------------------------------------------
 
    Right now, you access the crimes property from your
-   CrimeListViewModel in the onCreateView(…) callback within
-   your CrimeListFragment. This callback is invoked right after the
+   ``CrimeListViewModel`` in the ``onCreateView(…)`` callback within
+   your ``CrimeListFragment``. This callback is invoked right after the
    fragment is created. But with the changes you have made in this chapter,
    you do not add the list of crimes to the crimes property until five seconds
    have passed. That is why your RecyclerView is no longer showing the
@@ -10037,21 +10400,22 @@ C12👊 Coroutines and Databases
    This is a textbook example of a race condition, a common problem in
    multithreaded code where the timing of independent events affects the
    output of the code. In this case, it is extremely unlikely that the crimes
-   property can be properly loaded with data before the onCreateView(…)
+   property can be properly loaded with data before the ``onCreateView(…)``
    function is invoked.
 
    Instead of trying to access your asynchronously loaded data in an error-
    prone way, you should instead reach for a more reliable approach. As we
    mentioned earlier, the Fragment and Activity classes have properties
    to access coroutine scopes for their respective lifecycles. Both classes have
-   a lifecycleScope property, but you should prefer the
-   viewLifecycleScope when using coroutines with Fragments.
+   a ``lifecycleScope`` property, but you should prefer the
+   ``viewLifecycleScope`` when using coroutines with Fragments.
 
-   (The reasons for using viewLifecycleScope in a Fragment go back
+   (The reasons for using ``viewLifecycleScope`` in a Fragment go back
    to the same subtle detail about memory management with Fragments we
    discussed in the section called Fragments and memory management in
    Chapter 9. It is wasteful and potentially dangerous to execute coroutine
    code when your Fragment does not have a view.)
+
 
    Figure 12.3 shows the fragment lifecycle.
 
@@ -10059,8 +10423,8 @@ C12👊 Coroutines and Databases
 
    Figure 12.3 Fragment lifecycle diagram
 
-   viewLifecycleScope is active for as long as the view is in memory (in
-   other words, after onViewCreated() but before onDestroyView()).
+   ``viewLifecycleScope`` is active for as long as the view is in memory (in
+   other words, after ``onViewCreated()`` but before ``onDestroyView()``).
 
    After the view is destroyed, the coroutine scope – and all work within it – is
    canceled. But you should only update the UI while the Fragment is in the
@@ -10074,153 +10438,162 @@ C12👊 Coroutines and Databases
    coroutine, a Job instance is returned to you, and you can use it to cancel
    the work at the appropriate time.
 
-   Launch your work in the onStart() callback and then cancel it in the
-   onStop() callback.
+   Launch your work in the ``onStart()`` callback and then cancel it in the
+   ``onStop()`` callback.
 
 
    Listing 12.5 Calling coroutines from your CrimeListFragment (CrimeListFragment.kt)
 
    .. code-block:: kotlin
 
-   class CrimeListFragment : Fragment() {
-      ...
-   private val crimeListViewModel: CrimeListViewModel by viewModels()
+      class CrimeListFragment : Fragment() {
+         ...
+         private val crimeListViewModel: CrimeListViewModel by viewModels()
 
-   private var job: Job? = null
-      ...
-   override fun onCreateView(
-   inflater: LayoutInflater,
-   container: ViewGroup?,
-   savedInstanceState: Bundle?
-   ): View? {
-      ...
-   }
+         private var job: Job? = null
+         ...
+         override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+         ): View? {
+            ...
+         }
 
-   override fun onStart() {
-   super.onStart()
+         override fun onStart() {
+            super.onStart()
 
-   job = viewLifecycleOwner.lifecycleScope.launch {
-   val crimes = crimeListViewModel.loadCrimes()
-   binding.crimeRecyclerView.adapter = CrimeListAdapter(crimes)
-   }
-   }
+            job = viewLifecycleOwner.lifecycleScope.launch {
+               val crimes = crimeListViewModel.loadCrimes()
+               binding.crimeRecyclerView.adapter = CrimeListAdapter(crimes)
+            }
+         }
 
-   override fun onStop() {
-   super.onStop()
-   job?.cancel()
-   }
-      ...
-   }
+         override fun onStop() {
+            super.onStop()
+            job?.cancel()
+         }
+         ...
+      }
+
    This approach will work, but it is annoying to keep a reference to a Job
    and to make sure you cancel the work when the fragment goes in the
-   background. That is where the repeatOnLifecycle(…) function
+   background. That is where the ``repeatOnLifecycle(…)`` function
    comes into play.
 
-   With the repeatOnLifecycle(…) function, you can execute coroutine
+   With the ``repeatOnLifecycle(…)`` function, you can execute coroutine
    code while your fragment is in a specified lifecycle state. For example, you
    only want this coroutine code to execute while your fragment is in the
-   started or resumed state. Also, repeatOnLifecycle is itself a
+   started or resumed state. Also, ``repeatOnLifecycle`` is itself a
    suspending function. You will launch it in your view lifecycle scope, which
    will cause your work to be canceled permanently when your view is
    destroyed.
 
-   You are not required to call the repeatOnLifecycle(…) function in
-   the onStart() callback. Normally, you use the onViewCreated(…)
+   You are not required to call the ``repeatOnLifecycle(…)`` function in
+   the ``onStart()`` callback. Normally, you use the ``onViewCreated(…)``
    callback to hook up listeners to views and to set the data within those views.
    This is the perfect spot to handle your coroutine code, too. Change your
-   implementation to use repeatOnLifecycle(…):
+   implementation to use ``repeatOnLifecycle(…)``:
 
    Listing 12.6 Using repeatOnLifecycle(…) (CrimeListFragment.kt)
 
    .. code-block:: kotlin
 
-   class CrimeListFragment : Fragment() {
-      ...
-   private var job: Job? = null
-      ...
-   override fun onStart() {
-   super.onStart()
+      class CrimeListFragment : Fragment() {
+         ...
+         private var job: Job? = null
+         ...
+         override fun onStart() {
+            super.onStart()
 
-   job = viewLifecycleOwner.lifecycleScope.launch {
-   val crimes = crimeListViewModel.loadCrimes()
-   binding.crimeRecyclerView.adapter = CrimeListAdapter(crimes)
-   }
-   }
+            job = viewLifecycleOwner.lifecycleScope.launch {
+               val crimes = crimeListViewModel.loadCrimes()
 
-   override fun onStop() {
-   super.onStop()
-   job?.cancel()
-   }
+               binding.crimeRecyclerView.adapter = CrimeListAdapter(crimes)
+            }
+         }
 
-   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-   super.onViewCreated(view, savedInstanceState)
+         override fun onStop() {
+            super.onStop()
+            job?.cancel()
+         }
 
-   viewLifecycleOwner.lifecycleScope.launch {
-   viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-   val crimes = crimeListViewModel.loadCrimes()
-   binding.crimeRecyclerView.adapter =
-   CrimeListAdapter(crimes)
-   }
-   }
-   }
-      ...
-   }
-   Your code will behave exactly as it did with onStart() and onStop(),
+         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+            super.onViewCreated(view, savedInstanceState)
+
+            viewLifecycleOwner.lifecycleScope.launch {
+               viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                  val crimes = crimeListViewModel.loadCrimes()
+
+                  binding.crimeRecyclerView.adapter =
+                  CrimeListAdapter(crimes)
+               }
+            }
+         }
+         ...
+      }
+
+   Your code will behave exactly as it did with ``onStart()`` and ``onStop()``,
    but now there are fewer lifecycle methods to override and you will not have
-   to worry about forgetting to cancel your Job. repeatOnLifecycle(…)
+   to worry about forgetting to cancel your Job. ``repeatOnLifecycle(…)``
    handles all that for you.
 
-   repeatOnLifecycle(…) will begin executing your coroutine code
+   ``repeatOnLifecycle(…)`` will begin executing your coroutine code
    when your fragment enters the started state and will continue running in the
    resumed state. But if your app is backgrounded and your fragment is no
-   longer visible, repeatOnLifecycle(…) will cancel the work once the
+   longer visible, ``repeatOnLifecycle(…)`` will cancel the work once the
    fragment falls from the started state to the created state. If your lifecycle re-
    enters the started state without fully being destroyed, your coroutine will be
    restarted from the beginning, repeating its work. (This explains the
    function’s name.)
+
    Before running your app, clean up some unneeded code. Remove your
-   onCreate(…) implementation that logs the number of crimes; you do not
+   ``onCreate(…)`` implementation that logs the number of crimes; you do not
    need it anymore. Also, delete the code that tries to initialize your
-   CrimeListAdapter with missing data.
+   ``CrimeListAdapter`` with missing data.
 
 
    Listing 12.7 Cleaning up (CrimeListFragment.kt)
 
+
    .. code-block:: kotlin
 
-   private const val TAG = "CrimeListFragment"
+      private const val TAG = "CrimeListFragment"
 
-   class CrimeListFragment : Fragment() {
-      ...
-   override fun onCreate(savedInstanceState: Bundle?) {
-   super.onCreate(savedInstanceState)
-   Log.d(TAG, "Total crimes: ${crimeListViewModel.crimes.size}")
-   }
+      class CrimeListFragment : Fragment() {
+         ...
+         override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
 
-   override fun onCreateView(
-   inflater: LayoutInflater,
-   container: ViewGroup?,
-   savedInstanceState: Bundle?
-   ): View? {
-   _binding = FragmentCrimeListBinding.inflate(inflater, container, false)
+            Log.d(TAG, "Total crimes: ${crimeListViewModel.crimes.size}")
+         }
 
-   binding.crimeRecyclerView.layoutManager = LinearLayoutManager(context)
+         override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+         ): View? {
+            _binding = FragmentCrimeListBinding.inflate(inflater, container, false)
 
-   val crimes = crimeListViewModel.crimes
-   val adapter = CrimeListAdapter(crimes)
-   binding.crimeRecyclerView.adapter = adapter
+            binding.crimeRecyclerView.layoutManager = LinearLayoutManager(context)
 
-   return binding.root
-   }
-      ...
-   }
-   Run CriminalIntent. When the fragment is created, there is a five second
-   delay, and then the crimes load and display in your RecyclerView. That
+            val crimes = crimeListViewModel.crimes
+            val adapter = CrimeListAdapter(crimes)
+
+            binding.crimeRecyclerView.adapter = adapter
+
+            return binding.root
+         }
+         ...
+      }
+
+   Run ``CriminalIntent``. When the fragment is created, there is a five second
+   delay, and then the crimes load and display in your ``RecyclerView``. That
    is good! But now try rotating your device.
 
    Another five second delay. Unfortunately, your list of crimes is being
-   recalculated every time your fragment is re-created. In GeoQuiz, you used a
-   ViewModel to store state across configuration changes. It is also an
+   recalculated every time your fragment is re-created. In ``GeoQuiz``, you used a
+   ``ViewModel`` to store state across configuration changes. It is also an
    excellent place to perform expensive calculations that would be painful to
    do every time your fragment is created. You will learn how to do this by the
    end of this chapter.
@@ -10234,7 +10607,7 @@ C12👊 Coroutines and Databases
 --------------------------------------------------------------------------------
 
    On Android, there are many ways to create and access a database. In this
-   book, we will use the Room library from Google. Room is a Jetpack
+   book, we will use the Room library from Google. ``Room`` is a Jetpack
    architecture component library that simplifies database setup and access. It
    allows you to define your database structure and queries using annotated
    Kotlin classes.
@@ -10255,35 +10628,37 @@ C12👊 Coroutines and Databases
 
    To use Room, you first need to add the dependencies it requires. Add the
    room-runtime , room-ktx , and room-compiler dependencies to your
-   app/build.gradle file.
+   ``app/build.gradle`` file.
 
 
    Listing 12.8 Adding dependencies (app/build.gradle)
 
+
    .. code-block:: gradle
 
-   plugins {
-   id 'com.android.application'
-   id 'org.?etbrains.kotlin.android'
-   id 'org.jetbrains.kotlin.ka?t'
-   }
+      plugins {
+         id 'com.android.application'
+         id 'org.jetbrains.kotlin.android'
+         id 'org.jetbrains.kotlin.kapt'
+      }
 
-   android {
-      ...
-   }
-      ...
-   dependencies {
-      ...
-   implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
-   implementation 'androidx.room:room-runtime:2.4.2'
-   implementation 'androidx.room:room-ktx:2.4.2'
-   ka?t 'androidx.room:room-com?iler:2.4.2'
-      ...
-   }
+      android {
+         ...
+      }
+         ...
+      dependencies {
+         ...
+         implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
+         implementation 'androidx.room:room-runtime:2.4.2'
+         implementation 'androidx.room:room-ktx:2.4.2'
+         kapt 'androidx.room:room-compiler:2.4.2'
+         ...
+      }
+
    Near the top of the file, you added a new plugin . Plugins are a way to add
    functionality and features to the configuration of a project.
 
-   kapt stands for “Kotlin annotation processing tool.” kapt enables your
+   ``kapt`` stands for “Kotlin annotation processing tool.” kapt enables your
    project to generate code for you when compiling your app. You have
    already used two tools that generate code: the R class and View Binding.
 
@@ -10299,7 +10674,7 @@ C12👊 Coroutines and Databases
    functionality and support for coroutines. And the third dependency, room-
    compiler , is for the Room compiler, which will generate your database
    implementation based on the annotations you specify. The compiler uses the
-   kapt keyword, instead of implementation , so that the generated classes
+   ``kapt`` keyword, instead of implementation , so that the generated classes
    from the compiler are visible to Android Studio, thanks to the kotlin-kapt
    plugin.
 
@@ -10307,36 +10682,39 @@ C12👊 Coroutines and Databases
    how you declared which version of a particular library you want in your
    build (such as 2.4.0 for room-runtime ), you need to declare which version
    of the kapt plugin you want to use. This is defined at the project level, in
-   the build.gradle file labeled (Project: CriminalIntent) :
+   the build.gradle file labeled (Project: ``CriminalIntent``) :
 
    Listing 12.9 Defining plugin versions (build.gradle)
 
+
    .. code-block:: gradle
 
-   // Top-level build file where you can add configuration options common to all
-   sub-projects/modules.
+      // Top-level build file where you can add configuration options common to all
+      sub-projects/modules.
 
-   plugins {
-   id 'com.android.application' version '7.1.2' apply false
-   id 'com.android.library' version '7.1.2' apply false
-   id 'org.?etbrains.kotlin.android' version '1.6.10' apply false
-   id 'org.jetbrains.kotlin.ka?t' version '1.6.10' apply false
-   }
+      plugins {
+         id 'com.android.application' version '7.1.2' apply false
+         id 'com.android.library' version '7.1.2' apply false
+         id 'org.jetbrains.kotlin.android' version '1.6.10' apply false
+         id 'org.jetbrains.kotlin.kapt' version '1.6.10' apply false
+      }
 
-   task clean(type: Delete) {
-   delete rootProject.buildDir
-   }
-   If your org.?etbrains.kotlin.android version is older than 1.6.10,
+      task clean(type: Delete) {
+         delete rootProject.buildDir
+      }
+
+   If your ``org.jetbrains.kotlin.android`` version is older than 1.6.10,
    update it to match the kapt plugin.
 
    Do not forget to sync your Gradle files. With your dependencies in place,
    you can move on to preparing your model layer for storage in the database.
 
    There are three steps to creating a database with Room:
-   annotating your model class to make it a database entity
-   creating the class that will represent the database itself
-   creating a type converter so that your database can handle your
-   model data
+
+   *  annotating your model class to make it a database entity
+   *  creating the class that will represent the database itself
+   *  creating a type converter so that your database can handle your model data
+
    Room makes each of these steps straightforward, as you are about to see.
 
 
@@ -10351,35 +10729,37 @@ C12👊 Coroutines and Databases
    annotation that is associated with a database.
 
    Since you want to store crime objects in your database, update Crime to be
-   a Room entity. Open Crime.kt and add two annotations:
+   a Room entity. Open ``Crime.kt`` and add two annotations:
 
    Listing 12.10 Making Crime an entity (Crime.kt)
 
+
    .. code-block:: kotlin
 
-   @Entity
-   data class Crime(
-   @PrimaryKey val id: UUID,
-   val title: String,
-   val date: Date,
-   val isSolved: Boolean
-   )
-   The first annotation, @Entity , is applied at the class level. This entity
+      @Entity
+      data class Crime(
+         @PrimaryKey val id: UUID,
+         val title: String,
+         val date: Date,
+         val isSolved: Boolean
+      )
+
+   The first annotation, ``@Entity`` , is applied at the class level. This entity
    annotation indicates that the class defines the structure of a table, or set of
    tables, in the database. In this case, each row in the table will represent an
-   individual Crime. Each property defined on the class will be a column in
-   the table, with the name of the property as the name of the column. The
-   table that stores your crimes will have four columns: id , title , date , and
-   isSolved .
+   individual ``Crime``. Each property defined on the class will be a column in
+   the table, with the name of the property as the name of the column. The table 
+   that stores your crimes will have four columns: ``id`` , ``title`` , ``date`` ,
+   and ``isSolved`` .
 
-   The other annotation you added is @PrimaryKey , which you added to the id
+   The other annotation you added is ``@PrimaryKey`` , which you added to the id
    property. The primary key in a database is a column that holds data that is
    unique for each entry, or row, so that it can be used to look up individual
    entries. The id property is unique for every Crime, so by adding
-   @PrimaryKey to this property you will be able to query a single crime from
+   ``@PrimaryKey`` to this property you will be able to query a single crime from
    the database using its id .
 
-   Now that your Crime class is annotated, you can move on to creating your
+   Now that your ``Crime`` class is annotated, you can move on to creating your
    database class.
 
 
@@ -10396,7 +10776,7 @@ C12👊 Coroutines and Databases
 
    First, create a new package called database for your database-specific
    code. In the project tool window, right-click the
-   com.bignerdranch.android.criminalintent folder and choose New →
+   ``com.bignerdranch.android.criminalintent`` folder and choose New →
    Package . Name your new package database .
 
    Now, create a new class called CrimeDatabase in the database package
@@ -10407,24 +10787,27 @@ C12👊 Coroutines and Databases
 
    .. code-block:: kotlin
 
-   @Database(entities = [ Crime::class ], version=1)
-   abstract class CrimeDatabase : RoomDatabase() {
-   }
-   The @Database annotation tells Room that this class represents a database
+      @Database(entities = [ Crime::class ], version=1)
+
+      abstract class CrimeDatabase : RoomDatabase() {
+      }
+
+   The ``@Database`` annotation tells ``Room`` that this class represents a database
    in your app. The annotation itself requires two parameters. The first
-   parameter is a list of entity classes, which tells Room which entity classes
+   parameter is a list of entity classes, which tells ``Room`` which entity classes
    to use when creating and managing tables for this database. In this case, you
-   only pass the Crime class, since it is the only entity in the app.
+   only pass the ``Crime`` class, since it is the only entity in the app.
 
    The second parameter is the version of the database. When you first create a
    database, the version should be 1. As you develop your app in the future,
    you may add new entities and new properties to existing entities. When this
    happens, you will need to modify your entities list and increment your
-   database version to tell Room something has changed. (You will do this in
+   database version to tell ``Room`` something has changed. (You will do this in
    Chapter 16.)
-   The database class itself is empty at this point. CrimeDatabase extends
-   from RoomDatabase and is marked as abstract , so you cannot make an
-   instance of it directly. You will learn how to use Room to get a database
+
+   The database class itself is empty at this point. ``CrimeDatabase`` extends
+   from ``RoomDatabase`` and is marked as abstract , so you cannot make an
+   instance of it directly. You will learn how to use ``Room`` to get a database
    instance you can use later in this chapter.
 
 
@@ -10433,7 +10816,7 @@ C12👊 Coroutines and Databases
 12.8. Creating a type converter
 --------------------------------------------------------------------------------
 
-   Room uses SQLite under the hood. SQLite is an open-source relational
+   ``Room`` uses SQLite under the hood. SQLite is an open-source relational
    database, like MySQL or PostgreSQL. (SQL, short for Structured Query
    Language, is a standard language used for interacting with databases.
 
@@ -10442,25 +10825,25 @@ C12👊 Coroutines and Databases
    and write using the SQLite library. Android includes this SQLite library in
    its standard library, along with some additional helper classes.
 
-   Room makes using SQLite even easier and cleaner, serving as an object-
+   ``Room`` makes using SQLite even easier and cleaner, serving as an object-
    relational mapping (or ORM) layer between your Kotlin objects and
    database implementation. For the most part, you do not need to know or
-   care about SQLite when using Room, but if you want to learn more you can
+   care about SQLite when using ``Room``, but if you want to learn more you can
    visit www.sqlite.org, which has complete SQLite documentation.
 
-   Room is able to store primitive types, enum classes, and the UUID type
+   ``Room`` is able to store primitive types, enum classes, and the UUID type
    with ease in the underlying SQLite database tables, but other types will
    cause issues. Your Crime class contains a property of the type Date,
-   which Room does not know how to store by default. You need to give the
+   which ``Room`` does not know how to store by default. You need to give the
    database a hand so it knows how to store that type and how to pull it out of
    the database table correctly.
 
-   To tell Room how to convert your data type, you specify a type converter .
+   To tell ``Room`` how to convert your data type, you specify a type converter .
 
-   A type converter tells Room how to convert a specific type to the format it
+   A type converter tells ``Room`` how to convert a specific type to the format it
    needs to store in the database. You will need two functions, which you will
-   annotate with @TypeConverter . One will tell Room how to convert the type
-   to store it in the database, and the other will tell Room how to convert from
+   annotate with ``@TypeConverter`` . One will tell ``Room`` how to convert the type
+   to store it in the database, and the other will tell ``Room`` how to convert from
    the database representation back to the original type.
 
    Create a class called CrimeTypeConverters in the database package
@@ -10471,18 +10854,19 @@ C12👊 Coroutines and Databases
 
    .. code-block:: kotlin
 
-   class CrimeTypeConverters {
-   @TypeConverter
-   fun fromDate(date: Date): Long {
-   return date.time
-   }
+      class CrimeTypeConverters {
+         @TypeConverter
+         fun fromDate(date: Date): Long {
+            return date.time
+         }
 
-   @TypeConverter
-   fun toDate(millisSinceE?och: Long): Date {
-   return Date(millisSinceE?och)
-   }
-   }
-   Make sure you import the Java.util.Date version of the Date class.
+         @TypeConverter
+         fun toDate(millisSinceE?och: Long): Date {
+            return Date(millisSinceE?och)
+         }
+      }
+
+   Make sure you import the ``Java.util.Date`` version of the Date class.
 
    Declaring the converter functions does not enable your database to use
    them. You must explicitly add the converters to your database class.
@@ -10492,11 +10876,14 @@ C12👊 Coroutines and Databases
 
    .. code-block:: kotlin
 
-   @Database(entities = [ Crime::class ], version=1)
-   @TypeConverters(CrimeTypeConverters::class)
-   abstract class CrimeDatabase : RoomDatabase() {
-   }
-   By adding the @TypeConverters annotation and passing in your
+      @Database(entities = [ Crime::class ], version=1)
+
+      @TypeConverters(CrimeTypeConverters::class)
+
+      abstract class CrimeDatabase : RoomDatabase() {
+      }
+
+   By adding the ``@TypeConverters`` annotation and passing in your
    CrimeTypeConverters class, you tell your database to use the
    functions in that class when converting your types.
 
@@ -10516,8 +10903,8 @@ C12👊 Coroutines and Databases
    DAO needs two query functions: one to return a list of all crimes in the
    database and another to return a single crime matching a given UUID.
 
-   Add a file named CrimeDao.kt to the database package. In it, define
-   an empty interface named CrimeDao annotated with Room’s @Dao
+   Add a file named ``CrimeDao.kt`` to the database package. In it, define
+   an empty interface named ``CrimeDao`` annotated with Room’s @Dao
    annotation.
 
 
@@ -10525,37 +10912,39 @@ C12👊 Coroutines and Databases
 
    .. code-block:: kotlin
 
-   @Dao
-   interface CrimeDao {
-   }
-   The @Dao annotation lets Room know that CrimeDao is one of your data
-   access objects. When you hook CrimeDao up to your database class,
-   Room will generate implementations of the functions you add to this
+      @Dao
+      interface CrimeDao {
+      }
+
+   The ``@Dao`` annotation lets ``Room`` know that ``CrimeDao`` is one of your data
+   access objects. When you hook ``CrimeDao`` up to your database class,
+   ``Room`` will generate implementations of the functions you add to this
    interface.
 
    Speaking of adding functions, now is the time. Add two query functions to
-   CrimeDao.
+   ``CrimeDao``.
 
 
    Listing 12.15 Adding database query functions (database/CrimeDao.kt)
 
    .. code-block:: kotlin
 
-   @Dao
-   interface CrimeDao {
-   @Query("SELECT * FROM crime")
-   sussend fun getCrimes(): List<Crime>
+      @Dao
+      interface CrimeDao {
+         @Query("SELECT * FROM crime")
+         sussend fun getCrimes(): List<Crime>
 
-   @Query("SELECT * FROM crime WHERE id=(:id)")
-   sussend fun getCrime(id: UUID): Crime
-   }
-   The @Query annotation indicates that getCrimes() and
-   getCrime(UUID) are meant to pull information out of the database,
+         @Query("SELECT * FROM crime WHERE id=(:id)")
+         sussend fun getCrime(id: UUID): Crime
+      }
+
+   The ``@Query`` annotation indicates that ``getCrimes()`` and
+   ``getCrime(UUID)`` are meant to pull information out of the database,
    rather than inserting, updating, or deleting items from the database. The
    return type of each query function in the DAO interface reflects the type of
    result the query will return.
 
-   The @Query annotation expects a string containing a SQL command as
+   The ``@Query`` annotation expects a string containing a SQL command as
    input. In most cases you only need to know minimal SQL to use Room, but
    if you are interested in learning more check out the SQL Syntax section at
    www.sqlite.org.
@@ -10589,11 +10978,12 @@ C12👊 Coroutines and Databases
 
    .. code-block:: kotlin
 
-   @Database(entities = [Crime::class], version = 1)
-   @TypeConverters(CrimeTypeConverters::class)
-   abstract class CrimeDatabase : RoomDatabase() {
-   abstract fun crimeDao(): CrimeDao
-   }
+      @Database(entities = [Crime::class], version = 1)
+      @TypeConverters(CrimeTypeConverters::class)
+      abstract class CrimeDatabase : RoomDatabase() {
+         abstract fun crimeDao(): CrimeDao
+      }
+
    Now, when the database is created, Room will generate a concrete
    implementation of the DAO that you can access. Once you have a reference
    to the DAO, you can call any of the functions defined on it to interact with
@@ -10615,11 +11005,11 @@ C12👊 Coroutines and Databases
    care how the data is actually stored or fetched. Those are implementation
    details of the repository itself.
 
-   Because CriminalIntent is a simpler app, the repository will only handle
+   Because ``CriminalIntent`` is a simpler app, the repository will only handle
    fetching data from the database.
 
-   Create a class called CrimeRepository in the
-   com.bignerdranch.android.criminalintent package and define a
+   Create a class called ``CrimeRepository`` in the
+   ``com.bignerdranch.android.criminalintent`` package and define a
    companion object in the class.
 
 
@@ -10627,50 +11017,50 @@ C12👊 Coroutines and Databases
 
    .. code-block:: kotlin
 
-   class CrimeRepository private constructor(context: Context) {
+      class CrimeRepository private constructor(context: Context) {
 
-   com?anion object {
-   private var INSTANCE: CrimeRepository? = null
+      companion object {
+         private var INSTANCE: CrimeRepository? = null
 
-   fun initialize(context: Context) {
-   if (INSTANCE == null) {
-   INSTANCE = CrimeRepository(context)
-   }
-   }
+         fun initialize(context: Context) {
+            if (INSTANCE == null) {
+               INSTANCE = CrimeRepository(context)
+            }
+         }
 
-   fun get(): CrimeRepository {
-   return INSTANCE ?:
-   throw IllegalStateException("CrimeRepository must be initialized")
-   }
-   }
-   }
+            fun get(): CrimeRepository {
+               return INSTANCE ?:
+                  throw IllegalStateException("CrimeRepository must be initialized")
+            }
+         }
+      }
 
-   CrimeRepository is a singleton . This means there will only ever be
+   ``CrimeRepository`` is a singleton . This means there will only ever be
    one instance of it in your app process.
 
    A singleton exists as long as the application stays in memory, so storing any
    properties on the singleton will keep them available throughout any
    lifecycle changes in your activities and fragments. Be careful with singleton
    classes, as they are destroyed when Android removes your application from
-   memory. The CrimeRepository singleton is not a solution for long-
+   memory. The ``CrimeRepository`` singleton is not a solution for long-
    term storage of data. Instead, it gives the app an owner for the crime data
    and provides a way to easily pass that data between components.
 
-   To make CrimeRepository a singleton, you add two functions to its
+   To make ``CrimeRepository`` a singleton, you add two functions to its
    companion object. One initializes a new instance of the repository, and the
    other accesses the repository. You also mark the constructor as private to
    ensure no components can go rogue and create their own instance.
 
-   The getter function is not very nice if you have not called initialize()
-   before it. It will throw an IllegalStateException, so you need to
+   The getter function is not very nice if you have not called ``initialize()``
+   before it. It will throw an ``IllegalStateException``, so you need to
    make sure that you initialize your repository when your application is
    starting.
 
    To do work as soon as your application is ready, you can create an
-   Application subclass. This allows you to access lifecycle information
+   ``Application`` subclass. This allows you to access lifecycle information
    about the application itself. Create a class called
-   CriminalIntentApplication that extends Application, and
-   override Application.onCreate() to set up the repository
+   ``CriminalIntentApplication`` that extends ``Application``, and
+   override ``Application.onCreate()`` to set up the repository
    initialization.
 
 
@@ -10678,57 +11068,58 @@ C12👊 Coroutines and Databases
 
    .. code-block:: kotlin
 
-   class CriminalIntentApplication : Application() {
-   override fun onCreate() {
-   super.onCreate()
-   CrimeRepository.initialize(this)
-   }
-   }
+      class CriminalIntentApplication : Application() {
+         override fun onCreate() {
+            super.onCreate()
 
-   Similar to Activity.onCreate(…), Application.onCreate()
+            CrimeRepository.initialize(this)
+         }
+      }
+
+   Similar to ``Activity.onCreate(…)``, ``Application.onCreate()``
    is called by the system when your application is first loaded into memory.
 
    What makes it different is the fact that your
-   CriminalIntentApplication is not re-created on configuration
+   ``CriminalIntentApplication`` is not re-created on configuration
    changes. It is created when the app launches and destroyed when your app
    process is destroyed. That makes it a good place to do any kind of one-time
    initialization operations. The only lifecycle function you will override in
-   CriminalIntent is onCreate().
+   ``CriminalIntent`` is ``onCreate()``.
 
    In a moment, you are going to pass the application instance to your
-   repository as a Context object. This object is valid as long as your
+   repository as a ``Context`` object. This object is valid as long as your
    application process is in memory, so it is safe to hold a reference to it in the
    repository class.
 
    But in order for your application class to be used by the system, you need to
-   register it in your manifest. Open
-   manifests/AndroidManifest.xml and specify the android:name
-   property to set up your application.
+   register it in your manifest. Open ``manifests/AndroidManifest.xml`` and specify
+   the ``android:name`` property to set up your application.
 
 
    Listing 12.19 Hooking up the application subclass (manifests/AndroidManifest.xml)
 
    .. code-block:: xml
 
-   <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-   package="com.bignerdranch.android.criminalintent">
+      <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.bignerdranch.android.criminalintent">
 
-   <application
-   android:name=".CriminalIntentApplication"
-   android:allowBackup="true"
-   ... >
-      ...
-   </application>
+         <application
+            android:name=".CriminalIntentApplication"
+            android:allowBackup="true"
+            ... >
+            ...
+         </application>
 
-   </manifest>
+      </manifest>
+
    With the application class registered in the manifest, the OS will create an
-   instance of CriminalIntentApplication when launching your app.
+   instance of ``CriminalIntentApplication`` when launching your app.
 
-   The OS will then call onCreate() on the
-   CriminalIntentApplication instance. Your CrimeRepository
+   The OS will then call ``onCreate()`` on the
+   ``CriminalIntentApplication`` instance. Your CrimeRepository
    will be initialized, and you can access it from your other components.
 
-   Next, add a private property on your CrimeRepository to store a
+   Next, add a private property on your ``CrimeRepository`` to store a
    reference to your database.
 
 
@@ -10736,36 +11127,37 @@ C12👊 Coroutines and Databases
 
    .. code-block:: kotlin
 
-   private const val DATABASE_NAME = "crime-database"
+      private const val DATABASE_NAME = "crime-database"
 
-   class CrimeRepository private constructor(context: Context) {
+      class CrimeRepository private constructor(context: Context) {
 
-   private val database: CrimeDatabase = Room
-   .databaseBuilder(
-   context.applicationContext,
-   CrimeDatabase::class.java,
-   DATABASE_NAME
-   )
-   .build()
+         private val database: CrimeDatabase = Room
+         .databaseBuilder(
+            context.applicationContext,
+            CrimeDatabase::class.java,
+            DATABASE_NAME
+         )
+         .build()
 
-   companion object {
-      ...
-   }
-   }
-   Room.databaseBuilder() creates a concrete implementation of your
-   abstract CrimeDatabase using three parameters. It first needs a
-   Context object, since the database is accessing the filesystem. You pass
+         companion object {
+            ...
+         }
+      }
+
+   ``Room.databaseBuilder()`` creates a concrete implementation of your
+   abstract ``CrimeDatabase`` using three parameters. It first needs a
+   ``Context`` object, since the database is accessing the filesystem. You pass
    in the application content because, as discussed above, the singleton will
    most likely live longer than any of your activity classes.
 
-   The second parameter is the database class that you want Room to create.
+   The second parameter is the database class that you want ``Room`` to create.
 
-   The third is the name of the database file you want Room to create for you.
+   The third is the name of the database file you want ``Room`` to create for you.
 
    You are using a private string constant defined in the same file, since no
    other components need to access it.
 
-   Next, fill out your CrimeRepository so your other components can
+   Next, fill out your ``CrimeRepository`` so your other components can
    perform any operations they need to on your database. Add a function to
    your repository for each function in your DAO.
 
@@ -10774,30 +11166,31 @@ C12👊 Coroutines and Databases
 
    .. code-block:: kotlin
 
-   class CrimeRepository private constructor(context: Context) {
+      class CrimeRepository private constructor(context: Context) {
 
-   private val database: CrimeDatabase = Room
-   .databaseBuilder(
-   context.applicationContext,
-   CrimeDatabase::class.Java,
-   DATABASE_NAME
-   )
-   .build()
+         private val database: CrimeDatabase = Room
+            .databaseBuilder(
+               context.applicationContext,
+               CrimeDatabase::class.Java,
+               DATABASE_NAME
+            )
+            .build()
 
-   sussend fun getCrimes(): List<Crime> = database.crimeDao().getCrimes()
+         sussend fun getCrimes(): List<Crime> = database.crimeDao().getCrimes()
 
-   sussend fun getCrime(id: UUID): Crime = database.crimeDao().getCrime(id)
+         sussend fun getCrime(id: UUID): Crime = database.crimeDao().getCrime(id)
 
-   companion object {
-      ...
-   }
-   }
-   Since Room provides the query implementations in the DAO, you call
+         companion object {
+            ...
+         }
+      }
+
+   Since ``Room`` provides the query implementations in the DAO, you call
    through to those implementations from your repository. This helps keep
    your repository code short and easy to understand.
 
    This may seem like a lot of work for little gain, since the repository is just
-   calling through to functions on your CrimeDao. But fear not; you will be
+   calling through to functions on your ``CrimeDao``. But fear not; you will be
    adding functionality soon to encapsulate additional work the repository
    needs to handle.
 
@@ -10812,8 +11205,7 @@ C12👊 Coroutines and Databases
    added any crimes to it. To speed things up, you will package a prepopulated
    database with your app that Room can import when your app is launched
    for the first time. The database file has been provided for you in the
-   solutions file for this chapter (www.bignerdranch.com/ android-
-   5e-solutions).
+   solutions file for this chapter (https://www.bignerdranch.com/android-5e-solutions).
 
    You could programmatically generate and insert dummy data into the
    database, like the 100 dummy crimes you have been using. However, you
@@ -10823,7 +11215,7 @@ C12👊 Coroutines and Databases
    your app’s code unnecessarily.
 
    First, you need to add the database file to your project so your code can use
-   it at runtime. Rather than use the resources system for this ?ob, you will use
+   it at runtime. Rather than use the resources system for this job, you will use
    raw assets . You can think of assets as stripped-down resources: They are
    packaged into your APK like resources, but without any of the
    configuration system tooling that goes on top of resources.
@@ -10840,8 +11232,8 @@ C12👊 Coroutines and Databases
    assets for graphics and sound, for example.
 
    Create an assets folder inside your project by right-clicking your app
-   module and selecting New → Folder → Assets Folder . In the dialog that pops
-   up, leave the Change Folder Location checkbo? unchecked and leave the Target
+   module and selecting ``New → Folder → Assets Folder`` . In the dialog that pops
+   up, leave the ``Change Folder Location`` checkbox unchecked and leave the Target
    Source Set set to main (Figure 12.4). Click Finish .
 
 
@@ -10856,39 +11248,41 @@ C12👊 Coroutines and Databases
 
    (Make sure the file is named exactly crime-database. There is no file
    extension.)
-   Once the database file is properly situated, configuring Room to use it for
-   prepopulation is a snap. In CrimeRepository.kt, call
-   createFromAsset(databaseFilePath) where you initialize your
+
+   Once the database file is properly situated, configuring ``Room`` to use it for
+   prepopulation is a snap. In ``CrimeRepository.kt``, call
+   ``createFromAsset(databaseFilePath)`` where you initialize your
    database property. Since the file has the same name as the
-   DATABASE_NAME constant value, you can reuse it here.
+   ``DATABASE_NAME`` constant value, you can reuse it here.
 
 
    Listing 12.22 Prepopulating your database (CrimeRepository.kt)
 
    .. code-block:: kotlin
 
-   private const val DATABASE_NAME = "crime-database"
+      private const val DATABASE_NAME = "crime-database"
 
-   class CrimeRepository private constructor(context: Context) {
+      class CrimeRepository private constructor(context: Context) {
 
-   private val database: CrimeDatabase = Room
-   .databaseBuilder(
-   context.applicationContext,
-   CrimeDatabase::class.Java,
-   DATABASE_NAME
-   )
-   .createFromAsset(DATABASE_NAME)
-   .build()
-      ...
-   }
+         private val database: CrimeDatabase = Room
+            .databaseBuilder(
+               context.applicationContext,
+               CrimeDatabase::class.Java,
+               DATABASE_NAME
+            )
+            .createFromAsset(DATABASE_NAME)
+            .build()
+
+         ...
+      }
 
 .. _S12_12:
 
 12.12. Querying the Database
 --------------------------------------------------------------------------------
 
-   Now that CrimeRepository is set up to pull data from a populated
-   database, update CrimeListViewModel to access the database when
+   Now that ``CrimeRepository`` is set up to pull data from a populated
+   database, update ``CrimeListViewModel`` to access the database when
    loading crimes instead of using the dummy data.
 
 
@@ -10896,28 +11290,31 @@ C12👊 Coroutines and Databases
 
    .. code-block:: kotlin
 
-   class CrimeListViewModel : ViewModel() {
-   private val crimeRepository = CrimeRepository.get()
+      class CrimeListViewModel : ViewModel() {
+         private val crimeRepository = CrimeRepository.get()
 
-   val crimes = mutableListOf<Crime>()
-      ...
-   suspend fun loadCrimes(): List<Crime> {
-   val result = mutableListOf<Crime>()
-   delay(5000)
-   for (i in 0 until 100) {
-   val crime = Crime(
-   id = UUID.randomUUID(),
-   title = "Crime #$i",
-   date = Date(),
-   isSolved = i % 2 == 0
-   )
+         val crimes = mutableListOf<Crime>()
+         ...
+         suspend fun loadCrimes(): List<Crime> {
+            val result = mutableListOf<Crime>()
 
-   result += crime
-   }
-   return result
-   return crimeRepository.getCrimes()
-   }
-   }
+            delay(5000)
+
+            for (i in 0 until 100) {
+               val crime = Crime(
+                  id = UUID.randomUUID(),
+                  title = "Crime #$i",
+                  date = Date(),
+                  isSolved = i % 2 == 0
+               )
+
+               result += crime
+            }
+            return result
+            return crimeRepository.getCrimes()
+         }
+      }
+
    Run the app and see the prepopulated crimes display onscreen.
 
 
@@ -10932,12 +11329,12 @@ C12👊 Coroutines and Databases
 
    Eventually, you will be able to add and update individual crimes – but at the
    moment, if other parts of your app tried to update the database,
-   CrimeListFragment would be oblivious to the changes and would
+   ``CrimeListFragment`` would be oblivious to the changes and would
    happily present stale data.
 
    While you could add code to manually reconcile updates from specific parts
    of your app, it would be better to “observe” the database so that
-   CrimeListFragment automatically receives all updates to the database,
+   ``CrimeListFragment`` automatically receives all updates to the database,
    regardless of where they come from.
 
    Which brings us back to coroutines, along with two new classes: Flow and
@@ -10950,54 +11347,56 @@ C12👊 Coroutines and Databases
    the flow.
 
    Flows are a great tool for observing changes to a database. In a moment,
-   you will create a flow that contains all the Crime objects in your database.
+   you will create a flow that contains all the ``Crime`` objects in your database.
 
    If a crime is added, removed, or updated, the flow will automatically emit
    the updated set of crimes to its collectors, keeping them in sync with the
    database. This all ties in nicely with the end goal of this chapter: to have
-   CrimeListFragment display the freshest data from your database.
+   ``CrimeListFragment`` display the freshest data from your database.
 
    Refactoring your code to use a Flow will touch a handful of files in your
    project:
-   your CrimeDao, to make it emit a flow of crimes
-   your CrimeRepository, to pass that flow of crimes along
-   your CrimeListViewModel, to get rid of loadCrimes()
-   and instead present that flow of crimes in an efficient way to its
-   consumers
-   your CrimeListFragment, to collect the crimes from the flow
-   and update its UI
-   You will start making your changes at the database level and work up the
-   layers until you get to your CrimeListFragment.
 
-   Refactoring the database to provide you with a Flow of crimes is relatively
-   straightforward. Room has built-in support to query a database and receive
-   the results in a Flow.
+   *  your ``CrimeDao``, to make it emit a flow of crimes
+   *  your ``CrimeRepository``, to pass that flow of crimes along
+   *  your ``CrimeListViewModel``, to get rid of ``loadCrimes()``
+      and instead present that flow of crimes in an efficient way to its consumers
+   *  your ``CrimeListFragment``, to collect the crimes from the flow and update its UI
+
+   You will start making your changes at the database level and work up the
+   layers until you get to your ``CrimeListFragment``.
+
+   Refactoring the database to provide you with a ``Flow`` of crimes is relatively
+   straightforward. ``Room`` has built-in support to query a database and receive
+   the results in a ``Flow``.
 
    Since you are not making any changes to the structure of the database, you
    do not need to make any changes in the Crime and CrimeDatabase
-   classes. In CrimeDao , update getCrimes() to return a
-   Flow<List<Crime>> instead of a List<Crime>. Also, you do not
+   classes. In ``CrimeDao`` , update ``getCrimes()`` to return a
+   ``Flow<List<Crime>>`` instead of a ``List<Crime>``. Also, you do not
    need a coroutine scope to handle a reference to a Flow, so remove the
    suspend modifier. (You will need a coroutine scope when trying to read
    from the stream of values within the Flow, but you will handle that in just
    a second.)
 
+
    Listing 12.24 Creating a Flow from your database (CrimeDao.kt)
 
    .. code-block:: kotlin
 
-   @Dao
-   interface CrimeDao {
-   @Query("SELECT * FROM crime")
-   sussend fun getCrimes(): List<Crime> Flow<List<Crime>>
+      @Dao
+      interface CrimeDao {
+         @Query("SELECT * FROM crime")
+         sussend fun getCrimes(): List<Crime> Flow<List<Crime>>
 
-   @Query("SELECT * FROM crime WHERE id=(:id)")
-   suspend fun getCrime(id: UUID): Crime
-   }
-   Make sure you import the kotlinx.coroutines.flow version of Flow.
+         @Query("SELECT * FROM crime WHERE id=(:id)")
+         suspend fun getCrime(id: UUID): Crime
+      }
 
-   Since you access the CrimeDatabase through the
-   CrimeRepository, make the same changes there:
+   Make sure you import the ``kotlinx.coroutines.flow`` version of Flow.
+
+   Since you access the ``CrimeDatabase`` through the
+   ``CrimeRepository``, make the same changes there:
 
    Listing 12.25 Refactoring a level higher (CrimeRepository.kt)
 
@@ -11005,12 +11404,13 @@ C12👊 Coroutines and Databases
 
    class CrimeRepository private constructor(context: Context) {
       ...
-   sussend fun getCrimes(): List<Crime> Flow<List<Crime>>
-   = database.crimeDao().getCrimes()
+      sussend fun getCrimes(): List<Crime> Flow<List<Crime>>
+         = database.crimeDao().getCrimes()
       ...
    }
-   Next, clean up your CrimeListViewModel. You will no longer be using
-   the loadCrimes() function, and you can get rid of the logging
+
+   Next, clean up your ``CrimeListViewModel``. You will no longer be using
+   the ``loadCrimes()`` function, and you can get rid of the logging
    statements. Also, update the crimes property to pass the Flow along.
 
 
@@ -11018,131 +11418,138 @@ C12👊 Coroutines and Databases
 
    .. code-block:: kotlin
 
-   class CrimeListViewModel : ViewModel() {
-   private val crimeRepository = CrimeRepository.get()
+      class CrimeListViewModel : ViewModel() {
+         private val crimeRepository = CrimeRepository.get()
 
-   val crimes = mutableListOf<Crime>() crimeRepository.getCrimes()
+         val crimes = mutableListOf<Crime>() crimeRepository.getCrimes()
 
-   init {
-   Log.d(TAG, "init starting")
-   viewModelScope.launch {
-   Log.d(TAG, "coroutine launched")
-   crimes += loadCrimes()
-   Log.d(TAG, "Loading crimes finished")
-   }
-   }
+         init {
+            Log.d(TAG, "init starting")
 
-   sussend fun loadCrimes(): List<Crime> {
-   return crimeRepository.getCrimes()
-   }
-   }
+            viewModelScope.launch {
+               Log.d(TAG, "coroutine launched")
+               crimes += loadCrimes()
+               Log.d(TAG, "Loading crimes finished")
+            }
+         }
+
+         sussend fun loadCrimes(): List<Crime> {
+            return crimeRepository.getCrimes()
+         }
+      }
+
    You have reached the layer where you display UI. To access the values
-   within the Flow, you must observe it using the collect {} function.
+   within the ``Flow``, you must observe it using the ``collect {}`` function.
 
-   collect {} is a suspending function, so you need to call it within a
+   ``collect {}`` is a suspending function, so you need to call it within a
    coroutine scope. Thankfully, you already set up a coroutine scope within
-   CrimeListFragment’s onViewCreated() callback.
+   ``CrimeListFragment``’s ``onViewCreated()`` callback.
 
-   In that callback, replace your call to loadCrimes() (whose definition
-   you just deleted) with a collect {} function call on the crimes
-   property from CrimeListViewModel. The lambda you pass into the
-   collect {} function will be invoked every time there is a new value in
-   the Flow, so that is the perfect place to set the adapter on your
-   RecyclerView.
+   In that callback, replace your call to ``loadCrimes()`` (whose definition
+   you just deleted) with a ``collect {}`` function call on the crimes
+   property from ``CrimeListViewModel``. The lambda you pass into the
+   ``collect {}`` function will be invoked every time there is a new value in
+   the ``Flow``, so that is the perfect place to set the adapter on your
+   ``RecyclerView``.
 
 
    Listing 12.27 Collecting your StateFlow from CrimeListFragment (CrimeListFragment.kt)
 
    .. code-block:: kotlin
 
-   class CrimeListFragment : Fragment() {
-      ...
-   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-   super.onViewCreated(view, savedInstanceState)
+      class CrimeListFragment : Fragment() {
+         ...
+         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+            super.onViewCreated(view, savedInstanceState)
 
-   viewLifecycleOwner.lifecycleScope.launch {
-   viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-   val crimes = crimeListViewModel.loadCrimes()
-   crimeListViewModel.crimes.collect { crimes ->
-   binding.crimeRecyclerView.adapter =
-   CrimeListAdapter(crimes)
-   }
-   }
-   }
-   }
-      ...
-   }
-   (Make sure you import kotlinx.coroutines.flow.collect .)
+            viewLifecycleOwner.lifecycleScope.launch {
+               viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                  val crimes = crimeListViewModel.loadCrimes()
+
+                  crimeListViewModel.crimes.collect { crimes ->
+                     binding.crimeRecyclerView.adapter =
+                     CrimeListAdapter(crimes)
+                  }
+               }
+            }
+         }
+         ...
+      }
+
+   (Make sure you import ``kotlinx.coroutines.flow.collect`` .)
+
    Compile and run the app. Once again, you should see the prepopulated
    crimes from the database. However, you are not done. If you rotate your
    device and initiate a configuration change, you might notice a brief moment
    when the screen is blank, waiting to load the crimes from the database. You
    are still performing a new database query on each configuration change.
 
-   Earlier in this chapter, we talked about how you can use a ViewModel to
+   Earlier in this chapter, we talked about how you can use a ``ViewModel`` to
    perform expensive calculations and cache results across configuration
    changes. Every time you collect values from the crimes property within
-   your CrimeListFragment, you are creating a new Flow and
+   your ``CrimeListFragment``, you are creating a new Flow and
    performing a new database query for that Flow. That is an inefficient use
    of resources, and if your database query takes a long time to execute, your
    users will see a blank screen while the data is being loaded.
 
    It would be better to maintain a single stream of data from your database
    and cache the results so they can quickly be displayed to the user. And that
-   is where StateFlow comes in.
+   is where ``StateFlow`` comes in.
 
-   StateFlow is a specialized version of Flow that is designed specifically
-   to share application state. StateFlow always has a value that observers
+   ``StateFlow`` is a specialized version of Flow that is designed specifically
+   to share application state. ``StateFlow`` always has a value that observers
    can collect from its stream. It starts with an initial value and caches the
    latest value that was emitted into the stream. It is the perfect companion to
-   the ViewModel class, because a StateFlow will always have a value to
+   the ``ViewModel`` class, because a ``StateFlow`` will always have a value to
    provide to fragments and activities as they get re-created.
 
-   The first step in setting up a StateFlow is to create an instance of a
-   MutableStateFlow. Analogous to List and MutableList,
-   StateFlow is a read-only Flow while MutableStateFlow allows
+   The first step in setting up a ``StateFlow`` is to create an instance of a
+   ``MutableStateFlow``. Analogous to List and ``MutableList``,
+   ``StateFlow`` is a read-only Flow while ``MutableStateFlow`` allows
    you to update the value within the stream. When creating a
-   MutableStateFlow, you must provide an initial value, so in this
+   ``MutableStateFlow``, you must provide an initial value, so in this
    situation you will provide an empty list. This is the value that collectors will
    receive before any other values are put in the stream.
 
-   Using a viewModelScope in the init block of your
-   CrimeListViewModel, you can collect values from your
-   CrimeRepository. Once you have your value from the database Flow,
-   you can set the value on your MutableStateFlow.
+   Using a ``viewModelScope`` in the init block of your
+   ``CrimeListViewModel``, you can collect values from your
+   ``CrimeRepository``. Once you have your value from the database Flow,
+   you can set the value on your ``MutableStateFlow``.
 
    To keep your code maintainable and the stream of data flowing in one
    direction from the database all the way to the UI, you need to be careful
    about how you provide your data to consumers. If you provide your data in
-   the form of a MutableStateFlow, then you are giving the fragments
+   the form of a ``MutableStateFlow``, then you are giving the fragments
    and activities that collect from it the ability to put values directly into the
    stream. Normally, you want to protect access to the stream, so it is a
-   common practice to keep your MutableStateFlow private to the class
-   and only expose it to collectors as a read-only StateFlow.
+   common practice to keep your ``MutableStateFlow`` private to the class
+   and only expose it to collectors as a read-only ``StateFlow``.
 
-   Add the following code to implement your StateFlow in
-   CrimeListViewModel.kt:
+   Add the following code to implement your ``StateFlow`` in
+   ``CrimeListViewModel.kt``:
 
    Listing 12.28 Efficiently caching the database results (CrimeListViewModel.kt)
 
    .. code-block:: kotlin
 
-   class CrimeListViewModel : ViewModel() {
-   private val crimeRepository = CrimeRepository.get()
+      class CrimeListViewModel : ViewModel() {
+         private val crimeRepository = CrimeRepository.get()
 
-   val crimes = crimeRepository.getCrimes()
-   private val _crimes: MutableStateFlow<List<Crime>> = MutableStateFlow(emptyList())
-   val crimes: StateFlow<List<Crime>>
-   get() = _crimes.asStateFlow()
+         val crimes = crimeRepository.getCrimes()
 
-   init {
-   viewModelScope.launch {
-   crimeRepository.getCrimes().collect {
-   _crimes.value = it
-   }
-   }
-   }
-   }
+         private val _crimes: MutableStateFlow<List<Crime>> = MutableStateFlow(emptyList())
+         val crimes: StateFlow<List<Crime>>
+         get() = _crimes.asStateFlow()
+
+         init {
+            viewModelScope.launch {
+               crimeRepository.getCrimes().collect {
+                  _crimes.value = it
+               }
+            }
+         }
+      }
+
    Run the app again to make sure everything works as expected. Now, you
    efficiently access the data within your database, and your UI will always
    display the latest data. In the next chapter, you will connect the crime list
@@ -11164,52 +11571,61 @@ C12👊 Coroutines and Databases
    (If the build window does not open automatically when you run the app,
    you can open it with the Build tab at the bottom of the Android Studio
    window.)
+
    A database schema represents the structure of the database, including what
    tables are in the database, what columns are in those tables, and any
-   constraints on and relationships between those tables. Room supports
+   constraints on and relationships between those tables. ``Room`` supports
    exporting your database schema into a file so you can store it in a source
    control. Exporting your schema is often useful so that you have a versioned
    history of your database.
 
    The warning you see means that you are not providing a file location where
-   Room can save your database schema. You can either provide a schema
-   location to the @Database annotation, or you can disable the export to
+   ``Room`` can save your database schema. You can either provide a schema
+   location to the ``@Database`` annotation, or you can disable the export to
    remove the warning. For this challenge, resolve the schema warning by
    choosing one of these options.
 
    To provide a location for the export, you provide a path for the annotation
-   processor’s room.schemaLocation property. To do this, add the following
-   JavaCompileOptions{} block to your app/build.gradle file:
-      ...
-   android {
-      ...
-   defaultConfig {
-      ...
-   testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+   processor’s ``room.schemaLocation`` property. To do this, add the following
+   ``JavaCompileOptions{}`` block to your ``app/build.gradle`` file:
 
-   javaCom?ileO?tions {
-   annotationProcessorOptions {
-   arguments += [
-   "room.schemaLocation": "$?rojectDir/schemas".toString(),
-   ]
-   }
-   }
-   }
-   }
+   .. code-block:: kotlin
+
       ...
+      android {
+         ...
+         defaultConfig {
+            ...
+            testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+            javaCom?ileO?tions {
+               annotationProcessorOptions {
+                  arguments += [
+                     "room.schemaLocation": "$?rojectDir/schemas".toString(),
+                  ]
+               }
+            }
+         }
+      }
+      ...
+
    To disable the export, set exportSchema to false :
-   @Database(entities = [Crime::class], version=1, exportSchema = false)
-   @TypeConverters(CrimeTypeConverters::class)
-   abstract class CrimeDatabase : RoomDatabase() {
-   abstract fun crimeDao(): CrimeDao
-   }
+
+   .. code-block:: kotlin
+
+      @Database(entities = [Crime::class], version=1, exportSchema = false)
+      @TypeConverters(CrimeTypeConverters::class)
+
+      abstract class CrimeDatabase : RoomDatabase() {
+         abstract fun crimeDao(): CrimeDao
+      }
 
 .. _S12_15:
 
 12.15. For the More Curious: Singletons
 --------------------------------------------------------------------------------
 
-   The singleton pattern, as used in the CrimeRepository, is very
+   The singleton pattern, as used in the ``CrimeRepository``, is very
    common in Android. But singletons get a bad rap because they can be
    misused in a way that makes an app hard to maintain.
 
@@ -11218,15 +11634,16 @@ C12👊 Coroutines and Databases
    between activities and fragments in your application.
 
    Singletons also make a convenient owner for your model objects. Imagine a
-   more complex CriminalIntent application with many activities and
+   more complex ``CriminalIntent`` application with many activities and
    fragments modifying crimes. When one component modifies a crime, how
    would you make sure that updated crime was sent over to the other
    components?
-   If the CrimeRepository is the owner of crimes and all modifications to
+
+   If the ``CrimeRepository`` is the owner of crimes and all modifications to
    crimes pass through it, propagating changes is much easier. As you
    transition between components, you can pass the crime ID as an identifier
    for a particular crime and have each component pull the full crime object
-   from the CrimeRepository using that ID.
+   from the ``CrimeRepository`` using that ID.
 
    However, singletons do have a few downsides. For example, while they
    allow for an easy place to stash data with a longer lifetime than other
@@ -11235,8 +11652,9 @@ C12👊 Coroutines and Databases
    point after you switch out of an application. Singletons are not a long-term
    storage solution. (Writing the files to disk or sending them to a web server
    is.)
+
    Singletons can also make your code hard to unit test. For example, there is
-   not a great way to replace the CrimeRepository instance with a mock
+   not a great way to replace the ``CrimeRepository`` instance with a mock
    version of itself. In practice, Android developers usually solve this problem
    using a tool called a dependency injector . This tool allows for objects to
    be shared as singletons while still making it possible to replace them when
@@ -11249,6 +11667,7 @@ C12👊 Coroutines and Databases
    information you need to get at later. But when you do that, you are avoiding
    answering important questions: Where is this data used? Where is this
    function important?
+
    A singleton does not answer those questions. So whoever comes after you
    will open up your singleton and find something that looks like somebody’s
    disorganized ?unk drawer. Batteries, zip ties, old photographs? What is all
@@ -11264,20 +11683,19 @@ C12👊 Coroutines and Databases
 C13👊 Fragment Navigation
 =========================
 
-   In this chapter, you will get the list and the detail parts of CriminalIntent
+   In this chapter, you will get the list and the detail parts of ``CriminalIntent``
    working together. Using the Navigation Jetpack library, you will define the
    screens your users will be able to see and how your users can move
    between them.
 
    When a user presses an item in the list of crimes, the Navigation library will
-   swap out CrimeListFragment with a new instance of
-   CrimeDetailFragment displaying the details for the crime that was
+   swap out ``CrimeListFragment`` with a new instance of
+   ``CrimeDetailFragment`` displaying the details for the crime that was
    pressed (Figure 13.1).
 
 
-   Figure 13.1 Swapping CrimeListFragment for
+   Figure 13.1 Swapping CrimeListFragment for CrimeDetailFragment
 
-   CrimeDetailFragment
    To get this working, you will learn how to implement navigation using the
    Jetpack Navigation library. You will also learn how to pass data to a
    fragment instance using the Safe Args Gradle plugin. Finally, you will learn
@@ -11303,21 +11721,21 @@ C13👊 Fragment Navigation
    Android Studio provides a handy graphical tool for editing it.
 
    At the end of this chapter, you will have a navigation graph including your
-   two screens, CrimeListFragment and CrimeDetailFragment, as
+   two screens, ``CrimeListFragment`` and ``CrimeDetailFragment``, as
    well as a single path defining the navigation from the list screen to the
    detail screen. In Chapter 15, you will add a destination for a dialog – a
    modal pop-up – and that will complete your navigation graph for
-   CriminalIntent.
+   ``CriminalIntent``.
 
    Historically, navigation in Android apps was done using
-   FragmentTransactions, which we briefly mentioned back in
+   ``FragmentTransactions``, which we briefly mentioned back in
    Chapter 9. That API, while powerful and expressive, is difficult to use and
    prone to errors. Under the hood, the Navigation library still uses those APIs
    to perform navigation, but it provides that functionality in a safer and
    easier-to-use form.
 
-   In GeoQuiz, you had one activity (MainActivity) start another activity
-   (CheatActivity). In CriminalIntent, you are instead going to use a
+   In ``GeoQuiz``, you had one activity (``MainActivity``) start another activity
+   (``CheatActivity``). In ``CriminalIntent``, you are instead going to use a
    single activity architecture . An app that uses single activity
    architecture has one activity and multiple fragments. Each fragment acts as
    its own screen. The activity is solely used as a container for whatever
@@ -11343,34 +11761,35 @@ C13👊 Fragment Navigation
 
    As usual, the first thing you need to do to use the Navigation library is to
    include it in your Gradle dependencies. You will need to include two
-   separate modules: one that handles the core functionality ( navigation-ui-
-   ktx ) and one that enables support for fragments ( navigation-fragment-
-   ktx ). Open the app/build.gradle file (the one labeled (Module:
-   CriminalIntent.app) ) add the dependencies:
+   separate modules: one that handles the core functionality ( navigation-ui-ktx ) 
+   and one that enables support for fragments ( navigation-fragment-ktx ). 
+   Open the ``app/build.gradle`` file (the one labeled (Module:
+   ``CriminalIntent.app``) ) add the dependencies:
 
    Listing 13.1 Adding the Navigation dependencies (app/build.gradle)
 
    .. code-block:: gradle
 
-   dependencies {
-      ...
-   kapt 'androidx.room:room-compiler:2.4.2'
-   implementation "androidx.navigation:navigation-fragment-ktx:2.4.1"
-   implementation "androidx.navigation:navigation-ui-ktx:2.4.1"
-   testImplementation '?unit:?unit:4.13.2'
-   }
+      dependencies {
+         ...
+         kapt 'androidx.room:room-compiler:2.4.2'
+         implementation "androidx.navigation:navigation-fragment-ktx:2.4.1"
+         implementation "androidx.navigation:navigation-ui-ktx:2.4.1"
+         testImplementation 'junit:junit:4.13.2'
+      }
+
    Do not forget to click the Sync Project with Gradle Files button
    or the Sync Now button after you have made these changes.
 
    Once Gradle finishes syncing, you will create the file that will house your
    navigation graph. In the project tool window, right-click the res directory
-   and choose New → Android Resource file . Name the file nav_graph , set the
+   and choose New → Android Resource file . Name the file ``nav_graph`` , set the
    Resource type to Navigation , and click OK (Figure 13.2).
 
 
    Figure 13.2 Creating your navigation graph
 
-   Android Studio opens your new nav_graph.xml in the editor. Like the
+   Android Studio opens your new ``nav_graph.xml`` in the editor. Like the
    layout editor, this graphical editor has tabs in the top-right corner for the
    three view options: Code , Split , and Design . Make sure the design view is
    selected (Figure 13.3).
@@ -11383,7 +11802,7 @@ C13👊 Fragment Navigation
    more useful, you need to add a destination to the graph, which will define a
    screen that can be presented to your users. As the text in the middle of the
    editor indicates, click the Add Destination icon located in the
-   top-left corner of the editor. In the pop-up, select CrimeListFragment
+   top-left corner of the editor. In the pop-up, select ``CrimeListFragment``
    from the list of possible destinations (Figure 13.4).
 
 
@@ -11394,16 +11813,17 @@ C13👊 Fragment Navigation
    sees – once you connect this navigation graph to your application, which
    you will do in a moment.
 
-   In the navigation graph, the destination is labeled crimeListFragment , but the
+   In the navigation graph, the destination is labeled ``crimeListFragment`` , but the
    screen it depicts just says Preview Unavailable . It would be better if it showed a
    small preview of the screen, so other developers looking at your navigation
    graph could quickly understand how users move through your app. You can
    make this happen with a couple of changes in the XML.
 
    Switch over to the code view by clicking the Code tab in the top right and
-   add a tools:layout attribute to your CrimeListFragment destination:
+   add a ``tools:layout`` attribute to your ``CrimeListFragment`` destination:
 
    Listing 13.2 Enabling previews (nav_graph.xml)
+
 
    .. code-block:: xml
 
@@ -11422,8 +11842,8 @@ C13👊 Fragment Navigation
       </navigation>
 
    In Chapter 2, you used the tools namespace to improve the layout preview
-   for GeoQuiz’s MainActivity. You use it here to improve the appearance
-   of your navigation graph in the design view. By using the tools:layout
+   for ``GeoQuiz``’s ``MainActivity``. You use it here to improve the appearance
+   of your navigation graph in the design view. By using the ``tools:layout``
    attribute on a navigation destination, you can provide a preview of how that
    destination will look to users by referencing the XML layout.
 
@@ -11435,27 +11855,27 @@ C13👊 Fragment Navigation
 
    Switch back to the code view.
 
-   Notice that in the root <navigation> element, you have an ID for the entire
+   Notice that in the root ``<navigation>`` element, you have an ID for the entire
    navigation graph and a starting destination. You will use the ID to reference
    this navigation graph in your layout.
 
    The starting destination defines the screen that will first appear when you
-   start your activity. In an inner element, CrimeListFragment is also
+   start your activity. In an inner element, ``CrimeListFragment`` is also
    defined as a possible destination. The ID of the starting destination matches
-   CrimeListFragment’s ID, so CrimeListFragment will appear
-   when MainActivity starts.
+   ``CrimeListFragment``’s ID, so ``CrimeListFragment`` will appear
+   when ``MainActivity`` starts.
 
    The navigation graph on its own defines the screens your app can navigate
    between. To make use of these definitions, you must also connect the graph
    to your UI. You can accomplish this by defining a container in your
-   Activity to host your navigation graph. The container is responsible for
+   ``Activity`` to host your navigation graph. The container is responsible for
    swapping out fragments as the user navigates between different screens.
 
-   The easiest way to define a container is using a NavHostFragment
-   inside a FragmentContainerView. You are already using a
-   FragmentContainerView in the activity_main.xml layout to
-   host your CrimeListFragment. Add the following code to inflate a
-   NavHostFragment in your MainActivity and set it up to load up
+   The easiest way to define a container is using a ``NavHostFragment``
+   inside a ``FragmentContainerView``. You are already using a
+   ``FragmentContainerView`` in the ``activity_main.xml`` layout to
+   host your ``CrimeListFragment``. Add the following code to inflate a
+   ``NavHostFragment`` in your ``MainActivity`` and set it up to load up
    your navigation graph.
 
 
@@ -11463,21 +11883,22 @@ C13👊 Fragment Navigation
 
    .. code-block:: xml
 
-   <androidx.fragment.app.FragmentContainerView
-   xmlns:android="http://schemas.android.com/apk/res/android"
-   xmlns:app="http://schemas.android.com/apk/res-auto"
-   xmlns:tools="http://schemas.android.com/tools"
-   android:id="@+id/fragment_container"
-   android:name="com.bignerdranch.android.criminalintent.CrimeListFragment"
-   android:name="androidx.navigation.fragment.NavHostFragment"
-   android:layout_width="match_parent"
-   android:layout_height="match_parent"
-   app:defaultNavHost="true"
-   app:navGraph="@navigation/nav_graph"
-   tools:context=".MainActivity" />
+      <androidx.fragment.app.FragmentContainerView
+         xmlns:android="http://schemas.android.com/apk/res/android"
+         xmlns:app="http://schemas.android.com/apk/res-auto"
+         xmlns:tools="http://schemas.android.com/tools"
+         android:id="@+id/fragment_container"
+         android:name="com.bignerdranch.android.criminalintent.CrimeListFragment"
+         android:name="androidx.navigation.fragment.NavHostFragment"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         app:defaultNavHost="true"
+         app:navGraph="@navigation/nav_graph"
+         tools:context=".MainActivity" />
+
    With that, you have done all the work needed to display your starting
    destination onscreen. Run your app and confirm that
-   CrimeListFragment appears onscreen, as before.
+   ``CrimeListFragment`` appears onscreen, as before.
 
 
 .. _S13_03:
@@ -11486,10 +11907,10 @@ C13👊 Fragment Navigation
 --------------------------------------------------------------------------------
 
    With your navigation foundation set up, you can now add a second
-   destination to your navigation graph. Return to nav_graph.xml’s design
+   destination to your navigation graph. Return to ``nav_graph.xml``’s design
    view. Click the Add Destination button again, this time
-   selecting CrimeDetailFragment. You will see
-   CrimeDetailFragment added to the canvas as a second destination
+   selecting ``CrimeDetailFragment``. You will see
+   ``CrimeDetailFragment`` added to the canvas as a second destination
    (Figure 13.6).
 
 
@@ -11498,8 +11919,8 @@ C13👊 Fragment Navigation
    You will set up the preview for your new destination in a moment. To
    enable navigation between the two screens, you need to define an action
    that specifies the screen you start from and the screen you end at when
-   navigating. With the crimeListFragment destination selected, click and drag
-   from the circle on its right edge to the crimeDetailFragment destination. The
+   navigating. With the ``crimeListFragment`` destination selected, click and drag
+   from the circle on its right edge to the ``crimeDetailFragment`` destination. The
    action you are defining is shown first as a line (Figure 13.7), then, when
    you release the mouse, as an arrow between the two destinations.
 
@@ -11524,15 +11945,15 @@ C13👊 Fragment Navigation
    Figure 13.8 Your two destinations, looking good
 
    Switch over to the code view. You will see your new
-   CrimeDetailFragment destination added as an element. You will also
-   see an action defined in the CrimeListFragment destination (shown
+   ``CrimeDetailFragment`` destination added as an element. You will also
+   see an action defined in the ``CrimeListFragment`` destination (shown
    shaded in Listing 13.4). Since the action is within the
-   CrimeListFragment destination, it starts at CrimeListFragment.
+   ``CrimeListFragment`` destination, it starts at ``CrimeListFragment``.
 
    Within the action, you can see that it defines the ID associated with the
-   CrimeDetailFragment destination as its destination.
+   ``CrimeDetailFragment`` destination as its destination.
 
-   Add the tools:layout attribute to your new destination to enable its
+   Add the ``tools:layout`` attribute to your new destination to enable its
    preview.
 
 
@@ -11540,116 +11961,123 @@ C13👊 Fragment Navigation
 
    .. code-block:: xml
 
-   <?xml version="1.0" encoding="utf-8"?>
-   <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-   xmlns:app="http://schemas.android.com/apk/res-auto"
-   xmlns:tools="http://schemas.android.com/tools"
-   android:id="@+id/nav_graph"
-   app:startDestination="@id/crimeListFragment">
+      <?xml version="1.0" encoding="utf-8"?>
+      <navigation xmlns:android="http://schemas.android.com/apk/res/android"
+         xmlns:app="http://schemas.android.com/apk/res-auto"
+         xmlns:tools="http://schemas.android.com/tools"
+         android:id="@+id/nav_graph"
+         app:startDestination="@id/crimeListFragment">
 
-   <fragment
-   android:id="@+id/crimeListFragment"
-   android:name="com.bignerdranch.android.criminalintent.CrimeListFragment"
-   android:label="CrimeListFragment"
-   tools:layout="@layout/fragment_crime_list" >
-   <action
-   android:id="@+id/action_crimeListFragment_to_crimeDetailFragment"
-   app:destination="@id/crimeDetailFragment" />
-   </fragment>
-   <fragment
-   android:id="@+id/crimeDetailFragment"
-   android:name="com.bignerdranch.android.criminalintent.CrimeDetailFragment"
-   android:label="CrimeDetailFragment"
-   tools:layout="@layout/fragment_crime_detail" />
-   </navigation>
+         <fragment
+            android:id="@+id/crimeListFragment"
+            android:name="com.bignerdranch.android.criminalintent.CrimeListFragment"
+            android:label="CrimeListFragment"
+            tools:layout="@layout/fragment_crime_list" >
+            <action
+               android:id="@+id/action_crimeListFragment_to_crimeDetailFragment"
+               app:destination="@id/crimeDetailFragment" />
+         </fragment>
+         <fragment
+            android:id="@+id/crimeDetailFragment"
+            android:name="com.bignerdranch.android.criminalintent.CrimeDetailFragment"
+            android:label="CrimeDetailFragment"
+            tools:layout="@layout/fragment_crime_detail" />
+      </navigation>
+
    When performing a navigation action in your Kotlin code, you reference the
    ID for the action. The ID that was automatically provided for your action,
-   action_crimeListFragment_to_crimeDetailFragment , is accurate, but it
-   is also a little verbose. Rename it show_crime_detail , which is just as clear
+   ``action_crimeListFragment_to_crimeDetailFragment`` , is accurate, but it
+   is also a little verbose. Rename it ``show_crime_detail`` , which is just as clear
    but much more concise.
 
 
    Listing 13.5 Renaming the action (nav_graph.xml)
 
+
    .. code-block:: xml
 
-   <?xml version="1.0" encoding="utf-8"?>
-   <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-   xmlns:app="http://schemas.android.com/apk/res-auto"
-   xmlns:tools="http://schemas.android.com/tools"
-   android:id="@+id/nav_graph"
-   app:startDestination="@id/crimeListFragment">
+      <?xml version="1.0" encoding="utf-8"?>
+      <navigation xmlns:android="http://schemas.android.com/apk/res/android"
+         xmlns:app="http://schemas.android.com/apk/res-auto"
+         xmlns:tools="http://schemas.android.com/tools"
+         android:id="@+id/nav_graph"
+         app:startDestination="@id/crimeListFragment">
 
-   <fragment
-   android:id="@+id/crimeListFragment"
-   android:name="com.bignerdranch.android.criminalintent.CrimeListFragment"
-   android:label="CrimeListFragment"
-   tools:layout="@layout/fragment_crime_list" >
-   <action
-   android:id="@+id/action_crimeListFragment_to_crimeDetailFragment"
-   android:id="@+id/show_crime_detail"
-   app:destination="@id/crimeDetailFragment" />
-   </fragment>
-   <fragment
-   android:id="@+id/crimeDetailFragment"
-   android:name="com.bignerdranch.android.criminalintent.CrimeDetailFragment"
-   android:label="CrimeDetailFragment"
-   tools:layout="@layout/fragment_crime_detail" />
-   </navigation>
+      <fragment
+         android:id="@+id/crimeListFragment"
+         android:name="com.bignerdranch.android.criminalintent.CrimeListFragment"
+         android:label="CrimeListFragment"
+         tools:layout="@layout/fragment_crime_list" >
+      <action
+         android:id="@+id/action_crimeListFragment_to_crimeDetailFragment"
+         android:id="@+id/show_crime_detail"
+         app:destination="@id/crimeDetailFragment" />
+      </fragment>
+      <fragment
+         android:id="@+id/crimeDetailFragment"
+         android:name="com.bignerdranch.android.criminalintent.CrimeDetailFragment"
+         android:label="CrimeDetailFragment"
+         tools:layout="@layout/fragment_crime_detail" />
+      </navigation>
+
    Before you can perform the navigation from your Kotlin code, you need to
    do some refactoring. The goal, remember, is that when the user presses an
    item in the list of crimes, they will navigate to the detail screen for that
-   crime. You may recall that you set an OnClickListener on the root
-   view for the CrimeHolder back in Chapter 10. But that
-   OnClickListener does not do much. Right now, it just prints the title
+   crime. You may recall that you set an ``OnClickListener`` on the root
+   view for the ``CrimeHolder`` back in Chapter 10. But that
+   ``OnClickListener`` does not do much. Right now, it just prints the title
    of the crime that was pressed in a toast message.
 
    You could swap out the toast printing code for some code that navigates the
    user to the detail screen. However, that would tightly couple
-   CrimeHolder and CrimeListAdapter to being used in
-   CrimeListFragment. That is not a good approach for building a
+   ``CrimeHolder`` and ``CrimeListAdapter`` to being used in
+   ``CrimeListFragment``. That is not a good approach for building a
    maintainable codebase.
 
    A better approach would be to pass a lambda expression into the
-   CrimeHolder and CrimeListAdapter classes to allow whatever
+   ``CrimeHolder`` and ``CrimeListAdapter`` classes to allow whatever
    class creates instances of those classes to configure what happens when the
    user presses a list item. That is the approach you will take here.
 
-   First, pass a lambda expression named onCrimeClicked into the bind
-   function in CrimeHolder. This will be the lambda that is invoked when
-   the user presses the root view for that particular CrimeHolder.
+   First, pass a lambda expression named ``onCrimeClicked`` into the bind
+   function in ``CrimeHolder``. This will be the lambda that is invoked when
+   the user presses the root view for that particular ``CrimeHolder``.
 
 
    Listing 13.6 Passing in a lambda expression (CrimeListAdapter.kt)
 
    .. code-block:: kotlin
 
-   class CrimeHolder(
-   private val binding: ListItemCrimeBinding
-   ) : RecyclerView.ViewHolder(binding.root) {
-   fun bind(crime: Crime, onCrimeClicked: () -> Unit) {
-   binding.crimeTitle.text = crime.title
-   binding.crimeDate.text = crime.date.toString()
+      class CrimeHolder(
+         private val binding: ListItemCrimeBinding
+      ) : RecyclerView.ViewHolder(binding.root) {
+         fun bind(crime: Crime, onCrimeClicked: () -> Unit) {
+            binding.crimeTitle.text = crime.title
+            binding.crimeDate.text = crime.date.toString()
 
-   binding.root.setOnClickListener {
-   Toast.makeText(
-   binding.root.context,
-   "${crime.title} clicked!",
-   Toast.LENGTH_SHORT
-   ).show()
-   onCrimeClicked()
-   }
 
-   binding.crimeSolved.visibility = if (crime.isSolved) {
-   View.VISIBLE
-   } else {
-   View.GONE
-   }
-   }
-   }
+            binding.root.setOnClickListener {
+               Toast.makeText(
+                  binding.root.context,
+                  "${crime.title} clicked!",
+                  Toast.LENGTH_SHORT
+               ).show()
+
+               onCrimeClicked()
+
+            }
+
+            binding.crimeSolved.visibility = if (crime.isSolved) {
+               View.VISIBLE
+            } else {
+               View.GONE
+            }
+         }
+      }
       ...
-   Now, in CrimeListAdapter, include that same lambda as a constructor
-   parameter and pass it along to the bind function on the CrimeHolder
+
+   Now, in ``CrimeListAdapter``, include that same lambda as a constructor
+   parameter and pass it along to the bind function on the ``CrimeHolder``
    class.
 
 
@@ -11657,75 +12085,81 @@ C13👊 Fragment Navigation
 
    .. code-block:: kotlin
 
-   class CrimeListAdapter(
-   private val crimes: List<Crime>,
-   private val onCrimeClicked: () -> Unit
-   ) : RecyclerView.Adapter<CrimeHolder>() {
-   override fun onCreateViewHolder(
-   parent: ViewGroup,
-   viewType: Int
-   ): CrimeHolder {
-   val inflater = LayoutInflater.from(parent.context)
-   val binding = ListItemCrimeBinding.inflate(inflater, parent, false)
-   return CrimeHolder(binding)
-   }
+      class CrimeListAdapter(
+         private val crimes: List<Crime>,
+         private val onCrimeClicked: () -> Unit
+      ) : RecyclerView.Adapter<CrimeHolder>() {
+         override fun onCreateViewHolder(
+            parent: ViewGroup,
+            viewType: Int
+         ): CrimeHolder {
+            val inflater = LayoutInflater.from(parent.context)
 
-   override fun onBindViewHolder(holder: CrimeHolder, position: Int) {
-   val crime = crimes[position]
-   holder.bind(crime, onCrimeClicked)
-   }
+            val binding = ListItemCrimeBinding.inflate(inflater, parent, false)
+            return CrimeHolder(binding)
 
-   override fun getItemCount() = crimes.size
-   }
-   With the new and improved CrimeListAdapter, you can finally
-   perform the navigation from your CrimeListFragment. Using the
+         }
+
+         override fun onBindViewHolder(holder: CrimeHolder, position: Int) {
+            val crime = crimes[position]
+            holder.bind(crime, onCrimeClicked)
+
+         }
+
+         override fun getItemCount() = crimes.size
+      }
+
+   With the new and improved ``CrimeListAdapter``, you can finally
+   perform the navigation from your ``CrimeListFragment``. Using the
    Navigation library, you perform navigations through a class called
-   NavController. With this class, you can navigate to new screens,
+   ``NavController``. With this class, you can navigate to new screens,
    implement the Back button to return to previous screens, and much more.
 
    You do not have to create your own instance of this class. With the
    NavHostFragment specified in your activity_main.xml layout
    file, you already have access to an instance. All you need to do is find it.
 
-   The way you do that is through the findNavController extension
+   The way you do that is through the ``findNavController`` extension
    function. This function will search the view hierarchy and fragment for the
-   NavController and return it to you. Because navigation is a crucial part
-   of your application, findNavController is available for several
+   ``NavController`` and return it to you. Because navigation is a crucial part
+   of your application, ``findNavController`` is available for several
    components in the Android framework, including both activities and
    fragments.
 
-   Once you get the NavController, you call the navigate function on
+   Once you get the ``NavController``, you call the navigate function on
    it, passing in a resource ID for either a destination or a navigation action.
-   Here, you are going to use the R.id.show_crime_detail resource ID that
+   Here, you are going to use the ``R.id.show_crime_detail`` resource ID that
    you just defined for the action of navigating from the list to the detail view.
-   Do this where you bind the CrimeListAdapter, using the trailing
-   lambda syntax for the CrimeListAdapter constructor.
+   Do this where you bind the ``CrimeListAdapter``, using the trailing
+   lambda syntax for the ``CrimeListAdapter`` constructor.
 
 
    Listing 13.8 Performing the navigation (CrimeListFragment.kt)
 
    .. code-block:: kotlin
 
-   class CrimeListFragment : Fragment() {
-      ...
-   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-   super.onViewCreated(view, savedInstanceState)
+      class CrimeListFragment : Fragment() {
+         ...
+         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+            super.onViewCreated(view, savedInstanceState)
 
-   viewLifecycleOwner.lifecycleScope.launch {
-   viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-   crimeListViewModel.crimes.collect { crimes ->
-   binding.crimeRecyclerView.adapter =
-   CrimeListAdapter(crimes) {
-   findNavController().navigate(
-   R.id.show_crime_detail
-   )
-   }
-   }
-   }
-   }
-   }
-      ...
-   }
+
+            viewLifecycleOwner.lifecycleScope.launch {
+               viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                  crimeListViewModel.crimes.collect { crimes ->
+                     binding.crimeRecyclerView.adapter =
+                     CrimeListAdapter(crimes) {
+                        findNavController().navigate(
+                           R.id.show_crime_detail
+                        )
+                     }
+                  }
+               }
+            }
+         }
+         ...
+      }
+
    Be sure to import the fragment version of findNavController().
 
    Run your app and press or click a crime. Presto! It will navigate you to an
@@ -11739,14 +12173,14 @@ C13👊 Fragment Navigation
 --------------------------------------------------------------------------------
 
    So far, so good. But you do not want pressing a crime to take you to a blank
-   crime page. You want a CrimeDetailFragment populated with the
+   crime page. You want a ``CrimeDetailFragment`` populated with the
    selected crime’s details. The process of passing data to your fragment is
    much like the process you used back in Chapter 7 to pass data to an activity.
    In your current setup, the Navigation library and the framework are
    responsible for instantiating your fragments, just as your activities are
    instantiated by the Android OS. The classic approach to passing values to a
    Fragment involves using a Bundle to store key-value pairs for your
-   arguments – much like you saw with the Intent system. However, this
+   arguments – much like you saw with the ``Intent`` system. However, this
    approach falls victim to the same limitations activities pose: You rely on
    convention and boilerplate code that can cause your app to crash if done
    incorrectly. And it is all too easy to make a mistake with that boilerplate
@@ -11760,7 +12194,7 @@ C13👊 Fragment Navigation
    data when performing navigation and unpackage data once at the
    destination.
 
-   The plugin is included in at the project level, so open the build.gradle
+   The plugin is included in at the project level, so open the ``build.gradle``
    file labeled (Project: CriminalIntent) and include Safe Args in the list of plugins
    for the project:
 
@@ -11768,15 +12202,16 @@ C13👊 Fragment Navigation
 
    .. code-block:: gradle
 
-   plugins {
-   id 'com.android.application' version '7.1.2' apply false
-   id 'com.android.library' version '7.1.2' apply false
-   id 'org.?etbrains.kotlin.android' version '1.6.10' apply false
-   id 'org.?etbrains.kotlin.kapt' version '1.6.10' apply false
-   id 'androidx.navigation.safeargs.kotlin' version '2.4.1' apply false
-   }
+      plugins {
+         id 'com.android.application' version '7.1.2' apply false
+         id 'com.android.library' version '7.1.2' apply false
+         id 'org.jetbrains.kotlin.android' version '1.6.10' apply false
+         id 'org.jetbrains.kotlin.kapt' version '1.6.10' apply false
+         id 'androidx.navigation.safeargs.kotlin' version '2.4.1' apply false
+      }
       ...
-   Once that is done, open the app/build.gradle file and enable the
+
+   Once that is done, open the ``app/build.gradle`` file and enable the
    plugin for your application. The Safe Args plugin does not require any
    additional libraries be added as dependencies.
 
@@ -11785,17 +12220,18 @@ C13👊 Fragment Navigation
 
    .. code-block:: gradle
 
-   plugins {
-   id 'com.android.application'
-   id 'org.?etbrains.kotlin.android'
-   id 'org.?etbrains.kotlin.kapt'
-   id 'androidx.navigation.safeargs'
-   }
+      plugins {
+         id 'com.android.application'
+         id 'org.jetbrains.kotlin.android'
+         id 'org.jetbrains.kotlin.kapt'
+         id 'androidx.navigation.safeargs'
+      }
       ...
+
    As always, sync your Gradle files before moving on.
 
    Currently, you are performing navigation by referencing the resource ID of
-   an action that you defined in nav_graph.xml. The Safe Args plugin
+   an action that you defined in ``nav_graph.xml``. The Safe Args plugin
    works by generating classes based on the contents of your navigation graph.
 
    When navigating, you will use these generated classes instead of using
@@ -11804,62 +12240,62 @@ C13👊 Fragment Navigation
    Direction classes contain all the information needed to perform navigation,
    including the ID of the action. For fragment destinations, Safe Args names
    the classes it generates with the fragment’s name plus “Directions.” So for
-   CrimeListFragment, the Safe Args plugin generates a class named
-   CrimeListFragmentDirections.
+   ``CrimeListFragment``, the Safe Args plugin generates a class named
+   ``CrimeListFragmentDirections``.
 
    The Safe Args plugin also generates functions within its destination classes
    for each possible action within the destination. Since you only have one
-   action for CrimeListFragment’s destination, the Safe Args plugin only
+   action for ``CrimeListFragment``’s destination, the Safe Args plugin only
    generates one function for you to use. The function name is based on the
    resource ID you declared for that action, so your usage of
-   R.id.show_crime_detail will become a function call to
-   CrimeListFragmentDirections.showCrimeDetail().
+   ``R.id.show_crime_detail`` will become a function call to
+   ``CrimeListFragmentDirections.showCrimeDetail()``.
 
-   Make use of the Safe Args plugin in CrimeListFragment by swapping
-   in the generated CrimeListFragmentDirections class.
+   Make use of the Safe Args plugin in ``CrimeListFragment`` by swapping
+   in the generated ``CrimeListFragmentDirections`` class.
 
 
    Listing 13.11 Asking for directions (CrimeListFragment.kt)
 
    .. code-block:: kotlin
 
-   class CrimeListFragment : Fragment() {
-      ...
-   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-   super.onViewCreated(view, savedInstanceState)
+      class CrimeListFragment : Fragment() {
+         ...
+         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+            super.onViewCreated(view, savedInstanceState)
+            viewLifecycleOwner.lifecycleScope.launch {
+               viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                  crimeListViewModel.crimes.collect { crimes ->
+                     binding.crimeRecyclerView.adapter =
+                        CrimeListAdapter(crimes) {
+                           findNavController().navigate(
+                              R.id.show_crime_detail
+                              CrimeListFragmentDirections.showCrimeDetail()
+                           )
+                        }
+                  }
+               }
+            }
+         }
+         ...
+      }
 
-   viewLifecycleOwner.lifecycleScope.launch {
-   viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-   crimeListViewModel.crimes.collect { crimes ->
-   binding.crimeRecyclerView.adapter =
-   CrimeListAdapter(crimes) {
-   findNavController().navigate(
-   R.id.show_crime_detail
-   CrimeListFragmentDirections.showCrimeDetail()
-   )
-   }
-   }
-   }
-   }
-   }
-      ...
-   }
    Run the app and select one of the crimes in the list. You will still see it
-   navigate to a blank CrimeDetailFragment. It does not show the
+   navigate to a blank ``CrimeDetailFragment``. It does not show the
    details for the crime you selected because you have not specified which
    crime it should display.
 
    To wire this up, you need to pass an argument specifying the crime to
-   display. Back in nav_graph.xml, view your navigation graph in the
-   design view. Click the crimeDetailFragment . In the attributes window to the
+   display. Back in ``nav_graph.xml``, view your navigation graph in the
+   design view. Click the ``crimeDetailFragment`` . In the attributes window to the
    right of the editor, click the plus icon next to the Arguments section header. A
    window will pop up.
 
    Although you could pass in the entire Crime to your
-   CrimeDetailFragment, this would add more complexity to your app.
+   ``CrimeDetailFragment``, this would add more complexity to your app.
 
    Instead, you can pass the ID of the crime and have the
-   CrimeDetailFragment query the crime information from your
+   ``CrimeDetailFragment`` query the crime information from your
    database.
 
    In the Add Argument dialog, name your argument crimeId . The UUID class
@@ -11873,83 +12309,88 @@ C13👊 Fragment Navigation
 
    Switch over to the code view and note the addition to the
    CrimeDetailFragment destination entry:
-   <?xml version="1.0" encoding="utf-8"?>
-   <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-   xmlns:app="http://schemas.android.com/apk/res-auto"
-   xmlns:tools="http://schemas.android.com/tools"
-   android:id="@+id/nav_graph"
-   app:startDestination="@id/crimeListFragment">
 
-   <fragment
-   android:id="@+id/crimeListFragment"
-   android:name="com.bignerdranch.android.criminalintent.CrimeListFragment"
-   android:label="CrimeListFragment"
-   tools:layout="@layout/fragment_crime_list" >
-   <action
-   android:id="@+id/show_crime_detail"
-   app:destination="@id/crimeDetailFragment" />
-   </fragment>
-   <fragment
-   android:id="@+id/crimeDetailFragment"
-   android:name="com.bignerdranch.android.criminalintent.CrimeDetailFragment"
-   android:label="CrimeDetailFragment"
-   tools:layout="@layout/fragment_crime_detail" >
-   <argument
-   android:name="crimeId"
-   app:argType="Java.util.UUID" />
-   </fragment>
-   </navigation>
-   Go back to CrimeListFragment.kt. You will see that you have an
+   .. code-block:: kotlin
+
+      <?xml version="1.0" encoding="utf-8"?>
+      <navigation xmlns:android="http://schemas.android.com/apk/res/android"
+         xmlns:app="http://schemas.android.com/apk/res-auto"
+         xmlns:tools="http://schemas.android.com/tools"
+         android:id="@+id/nav_graph"
+         app:startDestination="@id/crimeListFragment">
+
+         <fragment
+            android:id="@+id/crimeListFragment"
+            android:name="com.bignerdranch.android.criminalintent.CrimeListFragment"
+            android:label="CrimeListFragment"
+            tools:layout="@layout/fragment_crime_list" >
+            <action
+               android:id="@+id/show_crime_detail"
+               app:destination="@id/crimeDetailFragment" />
+         </fragment>
+         <fragment
+            android:id="@+id/crimeDetailFragment"
+            android:name="com.bignerdranch.android.criminalintent.CrimeDetailFragment"
+            android:label="CrimeDetailFragment"
+            tools:layout="@layout/fragment_crime_detail" >
+            <argument
+               android:name="crimeId"
+               app:argType="Java.util.UUID" />
+         </fragment>
+      </navigation>
+
+   Go back to ``CrimeListFragment.kt``. You will see that you have an
    error where you are trying to perform navigation. The
-   showCrimeDetails() function now expects a UUID as a parameter.
+   ``showCrimeDetails()`` function now expects a UUID as a parameter.
 
    Before you can fix this error, you need to access the ID of the crime that
    was pressed.
 
-   A crime’s ID is known when setting the View.OnClickListener for
-   the CrimeHolder root view. What you need to do is pass that ID back up
-   to the CrimeListFragment.
+   A crime’s ID is known when setting the ``View.OnClickListener`` for
+   the ``CrimeHolder`` root view. What you need to do is pass that ID back up
+   to the ``CrimeListFragment``.
 
    You are already passing a lambda expression into the bind function for
-   CrimeHolder. Since you also have access to the crime within that
-   function, update the onCrimeClicked parameter to accept a UUID
-   argument. When invoking that onCrimeClicked lambda expression,
+   ``CrimeHolder``. Since you also have access to the crime within that
+   function, update the ``onCrimeClicked`` parameter to accept a UUID
+   argument. When invoking that ``onCrimeClicked`` lambda expression,
    pass in the ID for the crime. Finally, update the lambda expression passed
-   into CrimeListAdapter.
+   into ``CrimeListAdapter``.
 
 
    Listing 13.12 Passing the ID back from the adapter (CrimeListAdapter)
 
    .. code-block:: kotlin
 
-   class CrimeHolder(
-   private val binding: ListItemCrimeBinding
-   ) : RecyclerView.ViewHolder(binding.root) {
-   fun bind(crime: Crime, onCrimeClicked: (crimeId: UUID) -> Unit) {
-   binding.crimeTitle.text = crime.title
-   binding.crimeDate.text = crime.date.toString()
+      class CrimeHolder(
+         private val binding: ListItemCrimeBinding
+      ) : RecyclerView.ViewHolder(binding.root) {
+         fun bind(crime: Crime, onCrimeClicked: (crimeId: UUID) -> Unit) {
+            binding.crimeTitle.text = crime.title
+            binding.crimeDate.text = crime.date.toString()
 
-   binding.root.setOnClickListener {
-   onCrimeClicked(crime.id)
-   }
+            binding.root.setOnClickListener {
+               onCrimeClicked(crime.id)
+            }
 
-   binding.crimeSolved.visibility = if (crime.isSolved) {
-   View.VISIBLE
-   } else {
-   View.GONE
-   }
-   }
-   }
+            binding.crimeSolved.visibility = if (crime.isSolved) {
+               View.VISIBLE
+            } else {
+               View.GONE
+            }
+         }
+      }
 
-   class CrimeListAdapter(
-   private val crimes: List<Crime>,
-   private val onCrimeClicked: (crimeId: UUID) -> Unit
-   ) : RecyclerView.Adapter<CrimeHolder>() {
-      ...
-   }
-   Now you have access to the crime’s ID back in CrimeListFragment.
+      class CrimeListAdapter(
+         private val crimes: List<Crime>,
+         private val onCrimeClicked: (crimeId: UUID) -> Unit
+      ) : RecyclerView.Adapter<CrimeHolder>() {
+         ...
+      }
 
-   Using that, along with the CrimeListFragmentDirections class
+   Now you have access to the crime’s ID back in ``CrimeListFragment``.
+
+   Using that, along with the ``CrimeListFragmentDirections`` class
    generated by the Safe Args plugin, pass the crime’s ID along while
    performing navigation.
 
@@ -11958,26 +12399,27 @@ C13👊 Fragment Navigation
 
    .. code-block:: kotlin
 
-   class CrimeListFragment : Fragment() {
-      ...
-   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-   super.onViewCreated(view, savedInstanceState)
+      class CrimeListFragment : Fragment() {
+         ...
+         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+            super.onViewCreated(view, savedInstanceState)
 
-   viewLifecycleOwner.lifecycleScope.launch {
-   viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-   crimeListViewModel.crimes.collect { crimes ->
-   binding.crimeRecyclerView.adapter =
-   CrimeListAdapter(crimes) { crimeId ->
-   findNavController().navigate(
-   CrimeListFragmentDirections.showCrimeDetail(crimeId)
-   )
-   }
-   }
-   }
-   }
-   }
-      ...
-   }
+            viewLifecycleOwner.lifecycleScope.launch {
+               viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                  crimeListViewModel.crimes.collect { crimes ->
+                     binding.crimeRecyclerView.adapter =
+                        CrimeListAdapter(crimes) { crimeId ->
+                           findNavController().navigate(
+                              CrimeListFragmentDirections.showCrimeDetail(crimeId)
+                           )
+                        }
+                  }
+               }
+            }
+         }
+         ...
+      }
+
    The Safe Args plugin not only generates code to perform type-safe
    navigation but also allows you to safely access navigation arguments once
    the user is at their destination. By using the navArgs property delegate,
@@ -11985,12 +12427,12 @@ C13👊 Fragment Navigation
    type-safe manner. The Safe Args plugin generates classes that hold all the
    arguments for a destination, naming them with the name of the destination
    plus “Args.” So the navigation arguments for the
-   CrimeDetailFragment class are accessed using the
-   CrimeDetailFragmentArgs class.
+   ``CrimeDetailFragment`` class are accessed using the
+   ``CrimeDetailFragmentArgs`` class.
 
-   In CrimeDetailFragment, create a class property called args using
+   In ``CrimeDetailFragment``, create a class property called args using
    the navArgs property delegate. In a little bit, you will use the crime ID to
-   implement the behavior you want in CrimeDetailFragment, but you
+   implement the behavior you want in ``CrimeDetailFragment``, but you
    have some additional work to do before you can wrap that up. For now, just
    log the crime ID to confirm that it is being passed along correctly.
 
@@ -11999,34 +12441,37 @@ C13👊 Fragment Navigation
 
    .. code-block:: kotlin
 
-   private const val TAG = "CrimeDetailFragment"
+      private const val TAG = "CrimeDetailFragment"
 
-   class CrimeDetailFragment : Fragment() {
-      ...
-   private lateinit var crime: Crime
+      class CrimeDetailFragment : Fragment() {
+         ...
+         private lateinit var crime: Crime
 
-   private val args: CrimeDetailFragmentArgs by navArgs()
+         private val args: CrimeDetailFragmentArgs by navArgs()
 
-   override fun onCreate(savedInstanceState: Bundle?) {
-   super.onCreate(savedInstanceState)
+         override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
 
-   crime = Crime(
-   id = UUID.randomUUID(),
-   title = "",
-   date = Date(),
-   isSolved = false
-   )
+            crime = Crime(
+               id = UUID.randomUUID(),
+               title = "",
+               date = Date(),
+               isSolved = false
+            )
 
-   Log.d(TAG, "The crime ID is: ${args.crimeId}")
-   }
-      ...
-   }
+            Log.d(TAG, "The crime ID is: ${args.crimeId}")
+         }
+         ...
+      }
+
    Run the app, select a crime from the list, and look at Logcat. You will see
-   the crime’s ID logged by CrimeDetailFragment:
-   D/CrimeDetailFragment: The crime ID is: 4f916c0c-faa1-486b-b9a9-0d55922fd2e1
+   the crime’s ID logged by ``CrimeDetailFragment``:
+
+      D/CrimeDetailFragment: The crime ID is: 4f916c0c-faa1-486b-b9a9-0d55922fd2e1
+
    With that, you have done all the setup you need for navigation. You are
-   moving between CrimeListFragment and
-   CrimeDetailFragment, passing along the relevant ID for the crime
+   moving between ``CrimeListFragment`` and
+   ``CrimeDetailFragment``, passing along the relevant ID for the crime
    you want to display. Now, you need to get that crime from the database and
    let your users modify it.
 
@@ -12043,7 +12488,7 @@ C13👊 Fragment Navigation
 
    Unidirectional data flow is an architecture pattern that has risen to
    prominence and that plays nicely with the reactive patterns you have been
-   using with Flow and StateFlow. Unidirectional data flow tries to
+   using with ``Flow`` and ``StateFlow``. Unidirectional data flow tries to
    simplify application architecture by encapsulating these two forces – data
    from the back end and input from the user – and clarifying their
    responsibilities.
@@ -12064,21 +12509,21 @@ C13👊 Fragment Navigation
    Figure 13.10 Unidirectional data flow
 
    You are going to implement the business logic in
-   CrimeDetailFragment using the unidirectional data flow pattern. The
-   source of state for CrimeDetailFragment will be a ViewModel. It
-   will hold a reference to a StateFlow, which will hold the latest version of
-   the particular crime the user is viewing. The CrimeDetailFragment
-   will observe that StateFlow, updating its UI whenever the crime updates.
+   ``CrimeDetailFragment`` using the unidirectional data flow pattern. The
+   source of state for ``CrimeDetailFragment`` will be a ``ViewModel``. It
+   will hold a reference to a ``StateFlow``, which will hold the latest version of
+   the particular crime the user is viewing. The ``CrimeDetailFragment``
+   will observe that ``StateFlow``, updating its UI whenever the crime updates.
 
    As the user edits the details of the current crime, the
-   CrimeDetailFragment will send that user input up to its
-   ViewModel. After updating the crime’s data, the ViewModel will send
-   the updated crime back to the CrimeDetailFragment. Looping and
+   ``CrimeDetailFragment`` will send that user input up to its
+   ``ViewModel``. After updating the crime’s data, the ``ViewModel`` will send
+   the updated crime back to the ``CrimeDetailFragment``. Looping and
    looping, the state and the UI will always remain in sync.
 
    Before adding new code to implement this pattern, clear the decks by
    deleting some code you no longer need. Delete the plain, boring crime
-   class property in CrimeDetailFragment, as well as any lines of code
+   class property in ``CrimeDetailFragment``, as well as any lines of code
    that reference it. Also, delete the onCreate code.
 
 
@@ -12086,238 +12531,242 @@ C13👊 Fragment Navigation
 
    .. code-block:: kotlin
 
-   private const val TAG = "CrimeDetailFragment"
+      private const val TAG = "CrimeDetailFragment"
 
-   class CrimeDetailFragment : Fragment() {
-      ...
-   private lateinit var crime: Crime
+      class CrimeDetailFragment : Fragment() {
+         ...
+         private lateinit var crime: Crime
 
-   private val args: CrimeDetailFragmentArgs by navArgs()
+         private val args: CrimeDetailFragmentArgs by navArgs()
 
-   override fun onCreate(savedInstanceState: Bundle?) {
-   super.onCreate(savedInstanceState)
+         override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
 
-   crime = Crime(
-   id = UUID.randomUUID(),
-   title = "",
-   date = Date(),
-   isSolved = false
-   )
+            crime = Crime(
+               id = UUID.randomUUID(),
+               title = "",
+               date = Date(),
+               isSolved = false
+            )
 
-   Log.d(TAG, "The crime ID is: ${args.crimeId}")
-   }
-      ...
+            Log.d(TAG, "The crime ID is: ${args.crimeId}")
 
-   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-   super.onViewCreated(view, savedInstanceState)
+         }
+         ...
 
-   binding.apply {
-   crimeTitle.doOnTextChanged { text, _, _, _ ->
-   crime = crime.copy(title = text.toString())
-   }
+         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+            super.onViewCreated(view, savedInstanceState)
 
-   crimeDate.apply {
-   text = crime.date.toString()
-   isEnabled = false
-   }
+            binding.apply {
+               crimeTitle.doOnTextChanged { text, _, _, _ ->
+                  crime = crime.copy(title = text.toString())
 
-   crimeSolved.setOnCheckedChangeListener { _, isChecked ->
-   crime = crime.copy(isSolved = isChecked)
-   }
-   }
-   }
-      ...
-   }
+               }
+
+               crimeDate.apply {
+                  text = crime.date.toString()
+
+                  isEnabled = false
+               }
+
+               crimeSolved.setOnCheckedChangeListener { _, isChecked ->
+                  crime = crime.copy(isSolved = isChecked)
+               }
+            }
+         }
+         ...
+      }
+
    As you have seen before, fragments are not well suited for handling state,
    because they are re-created during configuration changes. Create a
-   CrimeDetailViewModel, extending the ViewModel class. Expose
-   the state of the detail screen as a StateFlow holding a Crime. As you
-   saw in Chapter 12, the StateFlow class does a good ?ob of providing
-   consumers with the freshest data. As you update the StateFlow, those
-   changes will be pushed out to the CrimeDetailFragment.
+   ``CrimeDetailViewModel``, extending the ``ViewModel`` class. Expose
+   the state of the detail screen as a ``StateFlow`` holding a ``Crime``. As you
+   saw in Chapter 12, the `StateFlow` class does a good job of providing
+   consumers with the freshest data. As you update the ``StateFlow``, those
+   changes will be pushed out to the ``CrimeDetailFragment``.
 
 
    Listing 13.16 Bare skeleton for CrimeDetailViewModel (CrimeDetailViewModel.kt)
 
    .. code-block:: kotlin
 
-   class CrimeDetailViewModel : ViewModel() {
-   private val crimeRepository = CrimeRepository.get()
+      class CrimeDetailViewModel : ViewModel() {
+         private val crimeRepository = CrimeRepository.get()
 
-   private val _crime: MutableStateFlow<Crime?> = MutableStateFlow(null)
-   val crime: StateFlow<Crime?> = _crime.asStateFlow()
-   }
+         private val _crime: MutableStateFlow<Crime?> = MutableStateFlow(null)
+         val crime: StateFlow<Crime?> = _crime.asStateFlow()
+      }
+
    Recall from Chapter 12 that you want to expose your data as a
-   StateFlow and not a MutableStateFlow. This will help reinforce
+   StateFlow and not a ``MutableStateFlow``. This will help reinforce
    your unidirectional data flow: The source of data cannot be directly mutated
    by its consumers. And, as you will see, this also allows you to expose
    functions in a more deliberate fashion that gives consumers ways to send up
    user input.
 
-   Keeping the properties within the Crime as read-only val s instead of
+   Keeping the properties within the ``Crime`` as read-only val s instead of
    read/write var s also helps reinforce unidirectional data flow. While it does
-   not truly make the Crime class “immutable,” it does push consumers to
+   not truly make the ``Crime`` class “immutable,” it does push consumers to
    create copies of data instead of directly mutating an instance. All of this
    works together to keep the flow of data streaming in one direction.
 
-   Your CrimeDetailViewModel will need to know the ID of the crime
+   Your ``CrimeDetailViewModel`` will need to know the ID of the crime
    to load when it is created. There are a few ways to go about getting it this
    ID, but the most effective is to declare the ID as a constructor parameter so
-   that your CrimeDetailViewModel can start loading the data as soon as
+   that your ``CrimeDetailViewModel`` can start loading the data as soon as
    it is created.
 
    Previously, you have not used the constructor when creating an instance of
-   your various ViewModels. Instead, you have used the viewModels
+   your various ``ViewModels``. Instead, you have used the ``viewModels``
    property delegate to obtain an instance, so that you get the same instance
-   across configuration changes. By default, when using the viewModels
-   property delegate, your ViewModel can only have a constructor with
+   across configuration changes. By default, when using the ``viewModels``
+   property delegate, your ``ViewModel`` can only have a constructor with
    either no arguments or with a single SavedStateHandle argument.
 
-   But there is a way to add additional arguments to a ViewModel: creating a
-   class that implements the ViewModelProvider.Factory interface.
+   But there is a way to add additional arguments to a ``ViewModel``: creating a
+   class that implements the ``ViewModelProvider.Factory`` interface.
 
-   This interface allows you to control how a ViewModel is created and
-   provided to fragments and activities. The
-   ViewModelProvider.Factory interface is an example of the
-   factory software design pattern : as a real-life car factory knows how
-   to make cars, ViewModelProvider.Factory knows how to make
-   ViewModel instances.
+   This interface allows you to control how a ``ViewModel`` is created and
+   provided to fragments and activities. The ``ViewModelProvider.Factory`` 
+   interface is an example of the factory software design pattern : as a 
+   real-life car factory knows how to make cars, ``ViewModelProvider.Factory`` 
+   knows how to make ``ViewModel`` instances.
 
-   For CriminalIntent, you will create a
-   CrimeDetailViewModelFactory, and it will know how to create
-   CrimeDetailViewModel instances. Unlike the ViewModel
-   subclasses you have seen so far, classes that implement the
-   ViewModelProvider.Factory interface can take in constructor
-   parameters.
+   For CriminalIntent, you will create a ``CrimeDetailViewModelFactory``, 
+   and it will know how to create ``CrimeDetailViewModel`` instances. Unlike 
+   the ``ViewModel`` subclasses you have seen so far, classes that implement the
+   ``ViewModelProvider.Factory`` interface can take in constructor parameters.
 
-   In CrimeDetailViewModel.kt, create the
-   CrimeDetailViewModelFactory class. Then pass in the crime’s ID
-   through its constructor and use it to load the crime from the database into
-   the crime StateFlow class property.
+   In ``CrimeDetailViewModel.kt``, create the ``CrimeDetailViewModelFactory`` 
+   class. Then pass in the crime’s ID through its constructor and use it to 
+   load the crime from the database into the crime ``StateFlow`` class property.
 
 
    Listing 13.17 Building a factory for CrimeDetailViewModel (CrimeDetailViewModel.kt)
 
    .. code-block:: kotlin
 
-   class CrimeDetailViewModel(crimeId: UUID) : ViewModel() {
-   private val crimeRepository = CrimeRepository.get()
+      class CrimeDetailViewModel(crimeId: UUID) : ViewModel() {
+         private val crimeRepository = CrimeRepository.get()
 
-   private val _crime: MutableStateFlow<Crime?> = MutableStateFlow(null)
-   val crime: StateFlow<Crime?> = _crime.asStateFlow()
 
-   init {
-   viewModelScope.launch {
-   _crime.value = crimeRepository.getCrime(crimeId)
-   }
-   }
-   }
+         private val _crime: MutableStateFlow<Crime?> = MutableStateFlow(null)
+         val crime: StateFlow<Crime?> = _crime.asStateFlow()
 
-   class CrimeDetailViewModelFactory(
-   private val crimeId: UUID
-   ) : ViewModelProvider.Factory {
-   override fun <T : ViewModel> create(modelClass: Class<T>): T {
-   return CrimeDetailViewModel(crimeId) as T
-   }
-   }
-   Here, you create an instance of your
-   CrimeDetailViewModelFactory by invoking its constructor,
-   passing in the crime’s ID in as a constructor parameter. Once you have the
-   crime’s ID as a class property for CrimeDetailViewModelFactory,
-   you use it when creating instances of CrimeDetailViewModel. That is
-   how you will be able to pass in the crime ID to
-   CrimeDetailViewModel through its constructor.
+         init {
+            viewModelScope.launch {
+               _crime.value = crimeRepository.getCrime(crimeId)
+            }
+         }
+      }
 
-   The last part of this work uses the new
-   CrimeDetailViewModelFactory class to access the
-   CrimeDetailViewModel in CrimeDetailFragment. Under the
-   hood, the viewModels property delegate is a function. This function has
-   two parameters, each of them a lambda with a default value.
+      class CrimeDetailViewModelFactory(
+         private val crimeId: UUID
+      ) : ViewModelProvider.Factory {
+         override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            return CrimeDetailViewModel(crimeId) as T
+         }
+      }
+
+   Here, you create an instance of your ``CrimeDetailViewModelFactory`` by 
+   invoking its constructor, passing in the crime’s ID in as a constructor 
+   parameter. Once you have the crime’s ID as a class property for 
+   ``CrimeDetailViewModelFactory``, you use it when creating instances of 
+   ``CrimeDetailViewModel``. That is how you will be able to pass in the crime 
+   ID to ``CrimeDetailViewModel`` through its constructor.
+
+   The last part of this work uses the new ``CrimeDetailViewModelFactory`` 
+   class to access the ``CrimeDetailViewModel`` in ``CrimeDetailFragment``. 
+   Under the hood, the viewModels property delegate is a function. This 
+   function has two parameters, each of them a lambda with a default value.
 
    Override the default value for the last parameter and have viewModels
-   return an instance of your new CrimeDetailViewModelFactory.
+   return an instance of your new ``CrimeDetailViewModelFactory``.
 
 
    Listing 13.18 Accessing your CrimeDetailViewModel (CrimeDetailFragment.kt)
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
-      ...
-   private val args: CrimeDetailFragmentArgs by navArgs()
+      class CrimeDetailFragment : Fragment() {
+         ...
+         private val args: CrimeDetailFragmentArgs by navArgs()
 
-   private val crimeDetailViewModel: CrimeDetailViewModel by viewModels {
-   CrimeDetailViewModelFactory(args.crimeId)
-   }
-      ...
-   }
+         private val crimeDetailViewModel: CrimeDetailViewModel by viewModels {
+            CrimeDetailViewModelFactory(args.crimeId)
+         }
+         ...
+      }
+
    With that, you have everything set up to start displaying crime information.
 
-   As you did back in Chapter 12 with CrimeListFragment, you will use
-   repeatOnLifecycle to collect from the crime’s StateFlow. To
+   As you did back in Chapter 12 with ``CrimeListFragment``, you will use
+   ``repeatOnLifecycle`` to collect from the crime’s StateFlow. To
    make things a little more readable, update your UI in a private function
-   called updateUi.
+   called ``updateUi``.
 
-   Most of the updateUi function will look similar to the code you had
+   Most of the ``updateUi`` function will look similar to the code you had
    before. The one piece that is a little different is where you set the text on the
-   EditText. There, you need to check whether the existing value and the
+   ``EditText``. There, you need to check whether the existing value and the
    new value being passed in are different. If they are different, then you
-   update the EditText. If they are the same, you do nothing. This will
+   update the ``EditText``. If they are the same, you do nothing. This will
    prevent an infinite loop when you start listening to changes on the
-   EditText.
+   ``EditText``.
 
 
    Listing 13.19 Updating your UI (CrimeDetailFragment.kt)
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
-      ...
-   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-   super.onViewCreated(view, savedInstanceState)
+      class CrimeDetailFragment : Fragment() {
+         ...
+         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+            super.onViewCreated(view, savedInstanceState)
 
-   binding.apply {
-      ...
-   }
+            binding.apply {
+               ...
+            }
 
-   viewLifecycleOwner.lifecycleScope.launch {
-   viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-   crimeDetailViewModel.crime.collect { crime ->
-   crime?.let { updateUi(it) }
-   }
-   }
-   }
-   }
+            viewLifecycleOwner.lifecycleScope.launch {
+               viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                  crimeDetailViewModel.crime.collect { crime ->
+                     crime?.let { updateUi(it) }
+                  }
+               }
+            }
+         }
 
-   override fun onDestroyView() {
-   super.onDestroyView()
-   _binding = null
-   }
+         override fun onDestroyView() {
+            super.onDestroyView()
+            _binding = null
+         }
 
-   private fun updateUi(crime: Crime) {
-   binding.apply {
-   if (crimeTitle.text.toString() != crime.title) {
-   crimeTitle.setText(crime.title)
-   }
-   crimeDate.text = crime.date.toString()
-   crimeSolved.isChecked = crime.isSolved
-   }
-   }
-   }
+         private fun updateUi(crime: Crime) {
+            binding.apply {
+               if (crimeTitle.text.toString() != crime.title) {
+                  crimeTitle.setText(crime.title)
+               }
+               crimeDate.text = crime.date.toString()
+
+               crimeSolved.isChecked = crime.isSolved
+            }
+         }
+      }
+
    Run the app and select a crime. You will see the crime’s details displayed
    onscreen.
 
    Now that you have the UI displaying the crime’s data, you need a way to
-   send user input back up to the CrimeDetailViewModel. You could
+   send user input back up to the ``CrimeDetailViewModel``. You could
    create individual functions to update each property on the crime (for
-   example, a setTitle to update the crime’s title and a setIsSolved to
+   example, a ``setTitle`` to update the crime’s title and a setIsSolved to
    update the solved status), but that would be tedious.
 
    Instead, write one function that takes in a lambda expression as a parameter.
-   In the lambda expression, have the CrimeDetailViewModel provide
-   the latest crime available and the CrimeDetailFragment update it in a
+   In the lambda expression, have the ``CrimeDetailViewModel`` provide
+   the latest crime available and the ``CrimeDetailFragment`` update it in a
    safe manner. This will allow you to safely expose the crime as a
-   StateFlow (instead of a MutableStateFlow) while still being able to
+   ``StateFlow`` (instead of a ``MutableStateFlow``) while still being able to
    easily update the crime as the user inputs data.
 
 
@@ -12325,20 +12774,21 @@ C13👊 Fragment Navigation
 
    .. code-block:: kotlin
 
-   class CrimeDetailViewModel(crimeId: UUID) : ViewModel() {
-      ...
-   init {
-   viewModelScope.launch {
-   _crime.value = crimeRepository.getCrime(crimeId)
-   }
-   }
+      class CrimeDetailViewModel(crimeId: UUID) : ViewModel() {
+         ...
+         init {
+            viewModelScope.launch {
+               _crime.value = crimeRepository.getCrime(crimeId)
+            }
+         }
 
-   fun updateCrime(onUpdate: (Crime) -> Crime) {
-   _crime.update { oldCrime ->
-   oldCrime?.let { onUpdate(it) }
-   }
-   }
-   }
+         fun updateCrime(onUpdate: (Crime) -> Crime) {
+            _crime.update { oldCrime ->
+               oldCrime?.let { onUpdate(it) }
+            }
+         }
+      }
+
    Finally, hook the UI up to your new function. This will complete the loop of
    your unidirectional data flow.
 
@@ -12347,35 +12797,36 @@ C13👊 Fragment Navigation
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
-      ...
-   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-   super.onViewCreated(view, savedInstanceState)
+      class CrimeDetailFragment : Fragment() {
+         ...
+         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+            super.onViewCreated(view, savedInstanceState)
 
-   binding.apply {
-   crimeTitle.doOnTextChanged { text, _, _, _ ->
-   crimeDetailViewModel.updateCrime { oldCrime ->
-   oldCrime.copy(title = text.toString())
-   }
-   }
+            binding.apply {
+               crimeTitle.doOnTextChanged { text, _, _, _ ->
+                  crimeDetailViewModel.updateCrime { oldCrime ->
+                     oldCrime.copy(title = text.toString())
+                  }
+               }
 
-   crimeDate.apply {
-   isEnabled = false
-   }
+               crimeDate.apply {
+                  isEnabled = false
+               }
 
-   crimeSolved.setOnCheckedChangeListener { _, isChecked ->
-   crimeDetailViewModel.updateCrime { oldCrime ->
-   oldCrime.copy(isSolved = isChecked)
-   }
-   }
-   }
-      ...
-   }
-      ...
-   }
+               crimeSolved.setOnCheckedChangeListener { _, isChecked ->
+                  crimeDetailViewModel.updateCrime { oldCrime ->
+                     oldCrime.copy(isSolved = isChecked)
+                  }
+               }
+            }
+            ...
+         }
+         ...
+      }
+
    Run the app one more time. Select a crime and edit the title or toggle the
-   checkbo?. You will see your UI update. Now, your UI and your
-   CrimeDetailViewModel will always stay in sync.
+   checkbox. You will see your UI update. Now, your UI and your
+   ``CrimeDetailViewModel`` will always stay in sync.
 
 
 .. _S13_06:
@@ -12388,13 +12839,13 @@ C13👊 Fragment Navigation
    chapter will be to save those changes to the database.
 
    To accomplish this task, you will start at the database layer and work your
-   way up. To begin, open CrimeDao.kt. Previously, you used the @Query
+   way up. To begin, open ``CrimeDao.kt``. Previously, you used the ``@Query``
    annotation to write functions that query the database. Other annotations
    allow you to create functions that add, delete, or update records in the
    database.
 
    Since the crime you are altering already exists in the database, write a
-   function to update the entry. Annotate your function with @Update and use
+   function to update the entry. Annotate your function with ``@Update`` and use
    the suspend modifier so that you can call it from a coroutine scope.
 
 
@@ -12402,17 +12853,18 @@ C13👊 Fragment Navigation
 
    .. code-block:: kotlin
 
-   @Dao
-   interface CrimeDao {
-   @Query("SELECT * FROM crime")
-   fun getCrimes(): Flow<List<Crime>>
+      @Dao
+      interface CrimeDao {
+         @Query("SELECT * FROM crime")
+         fun getCrimes(): Flow<List<Crime>>
 
-   @Query("SELECT * FROM crime WHERE id=(:id)")
-   suspend fun getCrime(id: UUID): Crime
+         @Query("SELECT * FROM crime WHERE id=(:id)")
+         suspend fun getCrime(id: UUID): Crime
 
-   @Update
-   sussend fun updateCrime(crime: Crime)
-   }
+         @Update
+         sussend fun updateCrime(crime: Crime)
+      }
+
    Expose that new function through your CrimeRepository.
 
 
@@ -12420,136 +12872,141 @@ C13👊 Fragment Navigation
 
    .. code-block:: kotlin
 
-   class CrimeRepository private constructor(context: Context) {
-      ...
-   suspend fun getCrime(id: UUID): Crime = database.crimeDao().getCrime(id)
+      class CrimeRepository private constructor(context: Context) {
+         ...
+         suspend fun getCrime(id: UUID): Crime = database.crimeDao().getCrime(id)
 
-   sussend fun updateCrime(crime: Crime) {
-   database.crimeDao().updateCrime(crime)
-   }
+         sussend fun updateCrime(crime: Crime) {
+            database.crimeDao().updateCrime(crime)
+         }
 
-   companion object {
-      ...
-   }
-   }
-   As you learned in Chapter 4, the ViewModel class has a very simple
+         companion object {
+            ...
+         }
+      }
+
+   As you learned in Chapter 4, the ``ViewModel`` class has a very simple
    lifecycle. Unlike fragments and activities, which have many states, the
-   ViewModel class only has two: It is either alive or dead. During the
+   ``ViewModel`` class only has two: It is either alive or dead. During the
    destruction of an instance, such as when you navigate away from a
-   fragment, the onCleared() function is invoked on the ViewModel.
+   fragment, the ``onCleared()`` function is invoked on the ``ViewModel``.
 
    This is the perfect place to save your changes to the crime.
 
-   In onCleared(), use the viewModelScope class property to launch a
+   In ``onCleared()``, use the ``viewModelScope`` class property to launch a
    coroutine. Within that coroutine, access the latest value from the crime
-   StateFlow and save it to the database.
+   ``StateFlow`` and save it to the database.
 
 
    Listing 13.24 Updating the database when CrimeDetailViewModel is cleared (CrimeDetailViewModel.kt)
 
    .. code-block:: kotlin
 
-   class CrimeDetailViewModel(crimeId: UUID) : ViewModel() {
-      ...
-   fun updateCrime(onUpdate: (Crime) -> Crime) {
-   _crime.update { oldCrime ->
-   oldCrime?.let { onUpdate(it) }
-   }
-   }
+      class CrimeDetailViewModel(crimeId: UUID) : ViewModel() {
+         ...
+         fun updateCrime(onUpdate: (Crime) -> Crime) {
+            _crime.update { oldCrime ->
+               oldCrime?.let { onUpdate(it) }
+            }
+         }
 
-   override fun onCleared() {
-   super.onCleared()
+         override fun onCleared() {
+            super.onCleared()
 
-   viewModelScope.launch {
-   crime.value?.let { crimeRepository.updateCrime(it) }
-   }
-   }
-   }
+            viewModelScope.launch {
+               crime.value?.let { crimeRepository.updateCrime(it) }
+            }
+         }
+      }
+
    Run the app, select a crime, and edit it. Then back out of the detail screen.
    You would expect the changes to be reflected on the list screen – but,
    unfortunately, that is not happening.
 
    As we mentioned in Chapter 12, coroutine scopes are tied to the lifecycles
-   of the components they are associated to. For ViewModel, the
-   viewModelScope property is alive and active as long as its associated
-   ViewModel is. Once the ViewModel is destroyed, all the work running
-   within the viewModelScope scope is canceled.
+   of the components they are associated to. For ``ViewModel``, the
+   ``viewModelScope`` property is alive and active as long as its associated
+   ``ViewModel`` is. Once the ViewModel is destroyed, all the work running
+   within the ``viewModelScope`` scope is canceled.
 
    To save your changes, you will need a coroutine scope that outlives your
-   CrimeDetailFragment and CrimeDetailViewModel.
+   ``CrimeDetailFragment`` and ``CrimeDetailViewModel``.
 
-   One such scope is GlobalScope. As its name suggests, GlobalScope
+   One such scope is ``GlobalScope``. As its name suggests, ``GlobalScope``
    is a coroutine scope that is available globally and operates throughout the
    entire application lifecycle.
 
-   The work that is launched within GlobalScope is never canceled.
+   The work that is launched within ``GlobalScope`` is never canceled.
 
-   However, work running inside GlobalScope cannot keep your
+   However, work running inside ``GlobalScope`` cannot keep your
    application running. If your application is in the process of being stopped,
-   the work within the GlobalScope will be unceremoniously stopped as
+   the work within the ``GlobalScope`` will be unceremoniously stopped as
    well.
 
-   With many of the safety features of coroutines removed, GlobalScope
+   With many of the safety features of coroutines removed, ``GlobalScope``
    can be dangerous if it is not used correctly. If work hangs within
-   GlobalScope, it can needlessly consume resources.
+   ``GlobalScope``, it can needlessly consume resources.
 
-   However, for your purposes here, GlobalScope is a useful tool.
+   However, for your purposes here, ``GlobalScope`` is a useful tool.
 
-   GlobalScope lives longer than a viewModelScope, so you can use it
+   ``GlobalScope`` lives longer than a ``viewModelScope``, so you can use it
    to update your database in the background once the user moves away from
-   CrimeDetailFragment.
+   ``CrimeDetailFragment``.
 
-   Pass in GlobalScope as the default parameter for a new
-   coroutineScope constructor property on the CrimeRepository
+   Pass in ``GlobalScope`` as the default parameter for a new
+   ``coroutineScope`` constructor property on the ``CrimeRepository``
    class. You will have easy access to it while also having the flexibility to
-   provide a new coroutine scope to CrimeRepository if functionality
-   needs to change in the future. Use the new coroutineScope property to
-   save the updated crime to the database. Also, since CrimeRepository
+   provide a new coroutine scope to ``CrimeRepository`` if functionality
+   needs to change in the future. Use the new ``coroutineScope`` property to
+   save the updated crime to the database. Also, since ``CrimeRepository``
    handles managing the work of interacting with coroutine scopes, you no
-   longer need the updateCrime function in CrimeRepository to be a
+   longer need the updateCrime function in ``CrimeRepository`` to be a
    suspending function, so remove the suspend modifier.
 
 
    Listing 13.25 Using GlobalScope (CrimeRepository.kt)
 
+
    .. code-block:: kotlin
 
-   class CrimeRepository private constructor(
-   context: Context,
-   private val coroutineScope: CoroutineScope = GlobalScope
-   ) {
-      ...
-   suspend fun getCrime(id: UUID): Crime = database.crimeDao().getCrime(id)
+      class CrimeRepository private constructor(
+         context: Context,
+         private val coroutineScope: CoroutineScope = GlobalScope
+      ) {
+         ...
+         suspend fun getCrime(id: UUID): Crime = database.crimeDao().getCrime(id)
 
-   sussend fun updateCrime(crime: Crime) {
-   coroutineScope.launch {
-   database.crimeDao().updateCrime(crime)
-   }
-   }
-      ...
-   }
+         sussend fun updateCrime(crime: Crime) {
+            coroutineScope.launch {
+               database.crimeDao().updateCrime(crime)
+            }
+         }
+         ...
+      }
+
    Finally, call your updated function from outside a coroutine scope in
-   CrimeDetailViewModel.
+   ``CrimeDetailViewModel``.
 
 
    Listing 13.26 Making the final touches (CrimeDetailViewModel.kt)
 
    .. code-block:: kotlin
 
-   class CrimeDetailViewModel(crimeId: UUID) : ViewModel() {
-      ...
-   override fun onCleared() {
-   super.onCleared()
+      class CrimeDetailViewModel(crimeId: UUID) : ViewModel() {
+         ...
+         override fun onCleared() {
+            super.onCleared()
 
-   viewModelScope.launch {
-   crime.value?.let { crimeRepository.updateCrime(it) }
-   }
-   }
-   }
+            viewModelScope.launch {
+               crime.value?.let { crimeRepository.updateCrime(it) }
+            }
+         }
+      }
+
    Run your app. You can now navigate between screens, update a crime’s
    details, and see those details saved when you return to the list view. You
-   now have a real, functional app. Congratulations! Over the next si?
-   chapters, you will refine CriminalIntent, building on this solid foundation.
+   now have a real, functional app. Congratulations! Over the next six
+   chapters, you will refine ``CriminalIntent``, building on this solid foundation.
 
 
 .. _S13_07:
@@ -12559,28 +13016,29 @@ C13👊 Fragment Navigation
 
    In this chapter, you used the tools namespace to enable previews for the
    destinations in your navigation graph. But the preview for
-   CrimeListFragment might not look the way you would expect. Each
+   ``CrimeListFragment`` might not look the way you would expect. Each
    list item is a single, generic line of text, not the wonderful layout that you
    have built.
 
    Thankfully, Android Studio also gives you tooling to preview the layout of
-   a list item in a RecyclerView. Open up
-   fragment_crime_list.xml and use the tools:listitem attribute to
-   help the preview use the right layout for each list item.
+   a list item in a ``RecyclerView``. Open up ``fragment_crime_list.xml`` and 
+   use the ``tools:listitem`` attribute to help the preview use the right layout 
+   for each list item.
 
 
    Listing 13.27 Providing previews for your list items (fragment_crime_list.xml)
 
    .. code-block:: xml
 
-   <?xml version="1.0" encoding="utf-8"?>
-   <androidx.recyclerview.widget.RecyclerView
-   xmlns:android="http://schemas.android.com/apk/res/android"
-   xmlns:tools="http://schemas.android.com/tools"
-   android:id="@+id/crime_recycler_view"
-   android:layout_width="match_parent"
-   android:layout_height="match_parent"
-   tools:listitem="@layout/list_item_crime" />
+      <?xml version="1.0" encoding="utf-8"?>
+         <androidx.recyclerview.widget.RecyclerView
+         xmlns:android="http://schemas.android.com/apk/res/android"
+         xmlns:tools="http://schemas.android.com/tools"
+         android:id="@+id/crime_recycler_view"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         tools:listitem="@layout/list_item_crime" />
+
    With that, your preview in nav_graph.xml is looking a lot better
    (Figure 13.11).
 
@@ -12598,19 +13056,18 @@ C13👊 Fragment Navigation
    But if you open the detail view for a crime, erase its title, and navigate back
    to the list view, you will save a crime with no name.
 
-   For this challenge, while in CrimeDetailFragment, prevent the user
+   For this challenge, while in ``CrimeDetailFragment``, prevent the user
    from navigating back to the list if the selected crime’s title is blank. Using
-   an OnBackPressedCallback, you can override the default Back
+   an ``OnBackPressedCallback``, you can override the default Back
    button behavior. If the title is blank, give the user a hint that they should
    provide a description of the crime.
 
    Some developer documentation that will be helpful for this challenge is at
-   https://developer.android.google.cn/guide/navigation/navigation-
-   custom-back.
+   https://developer.android.google.cn/guide/navigation/navigation-custom-back.
 
-   When using an OnBackPressedCallback, no navigation will happen
+   When using an ``OnBackPressedCallback``, no navigation will happen
    unless you say so. So if there is a title, do not forget to use the
-   NavController to pop off the CrimeDetailFragment from the
+   ``NavController`` to pop off the ``CrimeDetailFragment`` from the
    navigation back stack.
 
 
@@ -12622,13 +13079,13 @@ C14👊 Dialogs and DialogFragment
    Dialogs demand attention and input from the user. They are useful for
    presenting a choice or important information. In this chapter, you will add a
    dialog in which users can change the date of a crime. Pressing the date
-   button in CrimeDetailFragment will present this dialog (Figure 14.1).
+   button in ``CrimeDetailFragment`` will present this dialog (Figure 14.1).
 
 
    Figure 14.1 A dialog for picking the date of a crime
 
-   The dialog in Figure 14.1 is an instance of DatePickerDialog, a
-   subclass of AlertDialog. DatePickerDialog displays a date
+   The dialog in Figure 14.1 is an instance of ``DatePickerDialog``, a
+   subclass of ``AlertDialog``. ``DatePickerDialog`` displays a date
    selection prompt to the user and provides a listener interface you can
    implement to capture the selection. For creating more custom dialogs,
    AlertDialog is the all-purpose Dialog subclass that you will use most
@@ -12640,37 +13097,38 @@ C14👊 Dialogs and DialogFragment
 14.1. Creating a DialogFragment
 --------------------------------------------------------------------------------
 
-   When displaying a DatePickerDialog, it is a good idea to wrap it in an
-   instance of DialogFragment, a subclass of Fragment. It is possible to
-   display a DatePickerDialog without a DialogFragment, but it is
-   not recommended. Having the DatePickerDialog managed by the
+   When displaying a ``DatePickerDialog``, it is a good idea to wrap it in an
+   instance of ``DialogFragment``, a subclass of Fragment. It is possible to
+   display a ``DatePickerDialog`` without a ``DialogFragment``, but it is
+   not recommended. Having the ``DatePickerDialog`` managed by the
    FragmentManager gives you more options for presenting the dialog.
 
-   In addition, a bare DatePickerDialog will vanish if the device is
-   rotated. If the DatePickerDialog is wrapped in a fragment, then the
+   In addition, a bare ``DatePickerDialog`` will vanish if the device is
+   rotated. If the ``DatePickerDialog`` is wrapped in a fragment, then the
    dialog will be re-created and put back onscreen after rotation.
 
-   For CriminalIntent, you are going to create a DialogFragment subclass
-   named DatePickerFragment. Within DatePickerFragment, you
-   will create and configure an instance of DatePickerDialog. Then you
+   For CriminalIntent, you are going to create a ``DialogFragment`` subclass
+   named ``DatePickerFragment``. Within ``DatePickerFragment``, you
+   will create and configure an instance of ``DatePickerDialog``. Then you
    will add the new fragment to your navigation graph and navigate to it using
    the Navigation library.
 
    Your first tasks are:
-   creating the DatePickerFragment class
-   building a DatePickerFragment
-   getting the dialog onscreen using the Navigation library
+
+   *  creating the ``DatePickerFragment`` class
+   *  building a ``DatePickerFragment``
+   *  getting the dialog onscreen using the Navigation library
+
    Later in this chapter, you will pass the necessary data between
-   CrimeDetailFragment and DatePickerFragment.
+   ``CrimeDetailFragment`` and ``DatePickerFragment``.
 
-   Create a new class named DatePickerFragment and make its
-   superclass DialogFragment. Be sure to choose the Jetpack version of
-   DialogFragment, which is
-   androidx.fragment.app.DialogFragment.
+   Create a new class named ``DatePickerFragment`` and make its
+   superclass ``DialogFragment``. Be sure to choose the Jetpack version of
+   ``DialogFragment``, which is ``androidx.fragment.app.DialogFragment``.
 
-   Instead of overriding the onCreateView lifecycle function to display
-   your UI, as you usually do, override the onCreateDialog lifecycle
-   function to build a DatePickerDialog initialized with the current date.
+   Instead of overriding the ``onCreateView`` lifecycle function to display
+   your UI, as you usually do, override the ``onCreateDialog`` lifecycle
+   function to build a ``DatePickerDialog`` initialized with the current date.
 
    We will explain why after you make these changes.
 
@@ -12679,32 +13137,33 @@ C14👊 Dialogs and DialogFragment
 
    .. code-block:: kotlin
 
-   class DatePickerFragment : DialogFragment() {
+      class DatePickerFragment : DialogFragment() {
 
-   override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-   val calendar = Calendar.getInstance()
-   val initialYear = calendar.get(Calendar.YEAR)
-   val initialMonth = calendar.get(Calendar.MONTH)
-   val initialDay = calendar.get(Calendar.DAY_OF_MONTH)
+         override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+            val calendar = Calendar.getInstance()
+            val initialYear = calendar.get(Calendar.YEAR)
+            val initialMonth = calendar.get(Calendar.MONTH)
+            val initialDay = calendar.get(Calendar.DAY_OF_MONTH)
 
-   return DatePickerDialog(
-   requireContext(),
-   null,
-   initialYear,
-   initialMonth,
-   initialDay
-   )
-   }
-   }
-   DialogFragment’s responsibility is to manage the dialog you want to
+            return DatePickerDialog(
+               requireContext(),
+               null,
+               initialYear,
+               initialMonth,
+               initialDay
+            )
+         }
+      }
+
+   ``DialogFragment``’s responsibility is to manage the dialog you want to
    display. The dialog itself does all the rendering to present itself onscreen.
-   Because of this, your DialogFragment will not have a view of its own,
+   Because of this, your ``DialogFragment`` will not have a view of its own,
    like your other fragments have. If you need to customize the appearance or
    content of the dialog, you will do that by picking the dialog most
    appropriate for what you want to display – and modifying it if
    customizations are needed.
 
-   The DatePickerDialog constructor takes in several parameters. The
+   The ``DatePickerDialog`` constructor takes in several parameters. The
    first is a content object, which is required to access the necessary resources
    for the view. The second parameter is for the date listener, which you will
    add later in this chapter. The last three parameters are the year, month, and
@@ -12718,10 +13177,10 @@ C14👊 Dialogs and DialogFragment
 --------------------------------------------------------------------------------
 
    You can integrate a DialogFragment into a navigation graph like any
-   other fragment. Open up the nav_graph.xml file and switch to the
+   other fragment. Open up the ``nav_graph.xml`` file and switch to the
    design view. Click the Add destination button and select
-   DatePickerFragment from the list of destinations. Since you will be
-   navigating to this destination from CrimeDetailFragment, add a
+   ``DatePickerFragment`` from the list of destinations. Since you will be
+   navigating to this destination from ``CrimeDetailFragment``, add a
    navigation action connecting the two destinations together.
 
    Your updated navigation graph will look like Figure 14.2.
@@ -12730,49 +13189,50 @@ C14👊 Dialogs and DialogFragment
    Figure 14.2 An updated navigation graph
 
    When generating the navigation action for you, the tools gave it a verbose
-   ID. In the code view, rename it select_date .
+   ID. In the code view, rename it ``select_date`` .
 
 
    Listing 14.2 Renaming a navigation action (nav_graph.xml)
 
    .. code-block:: xml
 
-   <?xml version="1.0" encoding="utf-8"?>
-   <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-   xmlns:app="http://schemas.android.com/apk/res-auto"
-   xmlns:tools="http://schemas.android.com/tools"
-   android:id="@+id/nav_graph"
-   app:startDestination="@id/crimeListFragment">
+      <?xml version="1.0" encoding="utf-8"?>
+      <navigation xmlns:android="http://schemas.android.com/apk/res/android"
+         xmlns:app="http://schemas.android.com/apk/res-auto"
+         xmlns:tools="http://schemas.android.com/tools"
+         android:id="@+id/nav_graph"
+         app:startDestination="@id/crimeListFragment">
 
-   <fragment
-   android:id="@+id/crimeListFragment"
-   android:name="com.bignerdranch.android.criminalintent.CrimeListFragment"
-   android:label="CrimeListFragment"
-   tools:layout="@layout/fragment_crime_list" >
-   <action
-   android:id="@+id/show_crime_detail"
-   app:destination="@id/crimeDetailFragment" />
-   </fragment>
-   <fragment
-   android:id="@+id/crimeDetailFragment"
-   android:name="com.bignerdranch.android.criminalintent.CrimeDetailFragment"
-   android:label="CrimeDetailFragment"
-   tools:layout="@layout/fragment_crime_detail" >
-   <argument
-   android:name="crimeId"
-   app:argType="Java.util.UUID" />
-   <action
-   android:id="@+id/action_crimeDetailFragment_to_datePickerFragment"
-   android:id="@+id/select_date"
-   app:destination="@id/datePickerFragment" />
-   </fragment>
-   <dialog
-   android:id="@+id/datePickerFragment"
-   android:name="com.bignerdranch.android.criminalintent.DatePickerFragment"
-   android:label="DatePickerFragment" />
-   </navigation>
+         <fragment
+            android:id="@+id/crimeListFragment"
+            android:name="com.bignerdranch.android.criminalintent.CrimeListFragment"
+            android:label="CrimeListFragment"
+            tools:layout="@layout/fragment_crime_list" >
+         <action
+            android:id="@+id/show_crime_detail"
+            app:destination="@id/crimeDetailFragment" />
+         </fragment>
+         <fragment
+            android:id="@+id/crimeDetailFragment"
+            android:name="com.bignerdranch.android.criminalintent.CrimeDetailFragment"
+            android:label="CrimeDetailFragment"
+            tools:layout="@layout/fragment_crime_detail" >
+         <argument
+            android:name="crimeId"
+            app:argType="Java.util.UUID" />
+         <action
+            android:id="@+id/action_crimeDetailFragment_to_datePickerFragment"
+            android:id="@+id/select_date"
+            app:destination="@id/datePickerFragment" />
+         </fragment>
+         <dialog
+            android:id="@+id/datePickerFragment"
+            android:name="com.bignerdranch.android.criminalintent.DatePickerFragment"
+            android:label="DatePickerFragment" />
+      </navigation>
+
    With that set up, you can go back to the Kotlin code. Open up
-   CrimeDetailFragment and, in onViewCreated(…), remove the
+   ``CrimeDetailFragment`` and, in ``onViewCreated(…)``, remove the
    code that disables the date button.
 
 
@@ -12780,36 +13240,37 @@ C14👊 Dialogs and DialogFragment
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
-      ...
-   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-   super.onViewCreated(view, savedInstanceState)
+      class CrimeDetailFragment : Fragment() {
+         ...
+         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+            super.onViewCreated(view, savedInstanceState)
 
-   binding.apply {
-   crimeTitle.doOnTextChanged { text, _, _, _ ->
-   crimeDetailViewModel.updateCrime { oldCrime ->
-   oldCrime.copy(title = text.toString())
-   }
-   }
+            binding.apply {
+               crimeTitle.doOnTextChanged { text, _, _, _ ->
+                  crimeDetailViewModel.updateCrime { oldCrime ->
+                     oldCrime.copy(title = text.toString())
+                  }
+               }
 
-   crimeDate.apply {
-   isEnabled = false
-   }
+               crimeDate.apply {
+                  isEnabled = false
+               }
 
-   crimeSolved.setOnCheckedChangeListener { _, isChecked ->
-   crimeDetailViewModel.updateCrime { oldCrime ->
-   oldCrime.copy(isSolved = isChecked)
-   }
-   }
-   }
-      ...
-   }
-      ...
-   }
-   Next, in the updateUi function, set a View.OnClickListener that
-   navigates to your DatePickerFragment when the date button is
+               crimeSolved.setOnCheckedChangeListener { _, isChecked ->
+                  crimeDetailViewModel.updateCrime { oldCrime ->
+                     oldCrime.copy(isSolved = isChecked)
+                  }
+               }
+            }
+            ...
+         }
+         ...
+      }
+
+   Next, in the updateUi function, set a ``View.OnClickListener`` that
+   navigates to your ``DatePickerFragment`` when the date button is
    pressed. This might seem like a strange place to set a
-   View.OnClickListener , but the updateUi function is the only place
+   ``View.OnClickListener`` , but the updateUi function is the only place
    where you have access to the latest crime, and you will soon need that
    access.
 
@@ -12818,25 +13279,27 @@ C14👊 Dialogs and DialogFragment
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
-      ...
-   private fun updateUi(crime: Crime) {
-   binding.apply {
-   if (crimeTitle.text.toString() != crime.title) {
-   crimeTitle.setText(crime.title)
-   }
-   crimeDate.text = crime.date.toString()
-   crimeDate.setOnClickListener {
-   findNavController().navigate(
-   CrimeDetailFragmentDirections.selectDate()
-   )
-   }
+      class CrimeDetailFragment : Fragment() {
+         ...
+         private fun updateUi(crime: Crime) {
+            binding.apply {
+               if (crimeTitle.text.toString() != crime.title) {
+                  crimeTitle.setText(crime.title)
+               }
+               crimeDate.text = crime.date.toString()
 
-   crimeSolved.isChecked = crime.isSolved
-   }
-   }
-   }
-   Run CriminalIntent, select a crime, and press the date button in the detail
+               crimeDate.setOnClickListener {
+                  findNavController().navigate(
+                     CrimeDetailFragmentDirections.selectDate()
+                  )
+               }
+
+               crimeSolved.isChecked = crime.isSolved
+            }
+         }
+      }
+
+   Run ``CriminalIntent``, select a crime, and press the date button in the detail
    view to see the dialog (Figure 14.3).
 
 
@@ -12851,43 +13314,41 @@ C14👊 Dialogs and DialogFragment
 14.3. Passing Data Between Two Fragments
 --------------------------------------------------------------------------------
 
-   In Chapter 13, you passed a crime’s ID from CrimeListFragment to
-   CrimeDetailFragment. Passing data to DialogFragment
+   In Chapter 13, you passed a crime’s ID from ``CrimeListFragment`` to
+   ``CrimeDetailFragment``. Passing data to ``DialogFragment``
    destinations works just the same.
 
    What is different this time is that you are also passing a result back to
-   CrimeDetailFragment: When the user selects a new date,
-   CrimeDetailFragment needs the date to update its UI. Instead of
+   ``CrimeDetailFragment``: When the user selects a new date,
+   ``CrimeDetailFragment`` needs the date to update its UI. Instead of
    using the Navigation library to handle that communication, this time you
    will rely on the Fragment Results API. Its usage is slightly different than the
    Activity Results API you used back in Chapter 7, but the concepts are the
    same, so you should feel right at home.
 
    The conversation between your fragments will look like Figure 14.4. When
-   the DatePickerFragment is started, the current date will be passed to
+   the ``DatePickerFragment`` is started, the current date will be passed to
    it as an argument with the help of the Navigation library. Once the user
    chooses a date to set on the crime, it will be passed back to
-   CrimeDetailFragment using the Fragment Results API. If the user
+   ``CrimeDetailFragment`` using the Fragment Results API. If the user
    does not choose a date and cancels their action, no result will be sent back.
 
-   Figure 14.4 Conversation between CrimeDetailFragment and
-
-   DatePickerFragment
+   Figure 14.4 Conversation between CrimeDetailFragment and DatePickerFragment
 
 .. _S14_04:
 
 14.4. Passing data to DatePickerFragment
 --------------------------------------------------------------------------------
 
-   Back in nav_graph.xml, view your navigation graph in the design view.
+   Back in ``nav_graph.xml``, view your navigation graph in the design view.
 
-   Click the datePickerFragment . You want to add an argument to this destination,
+   Click the ``datePickerFragment`` . You want to add an argument to this destination,
    so click the + icon to the right of the Arguments section header in the
    attributes window. The Add Argument pop-up will appear.
 
-   In the pop-up, name your argument crimeDate . The Date class implements
+   In the pop-up, name your argument ``crimeDate`` . The ``Date`` class implements
    the Serializable interface, so select Custom Serializable... in the Type
-   dropdown and then search for and select Date in the window that pops up
+   dropdown and then search for and select ``Date`` in the window that pops up
    (Figure 14.5). Leave the rest of the options alone and click Add to add the
    argument to your navigation graph.
 
@@ -12896,13 +13357,12 @@ C14👊 Dialogs and DialogFragment
 
    Recall from Chapter 13 that the Safe Args plug-in bases the classes and
    functions it generates on your navigation graph. Since you have changed
-   the required arguments for the DatePickerFragment destination, all
+   the required arguments for the ``DatePickerFragment`` destination, all
    the generated navigation actions to that class will be updated as well.
 
    This means you now need to pass in a date when performing navigation
-   with the
-   CrimeDetailFragmentDirections.selectDate(date)
-   function. Back in CrimeDetailFragment, update the code that
+   with the ``CrimeDetailFragmentDirections.selectDate(date)``
+   function. Back in ``CrimeDetailFragment``, update the code that
    performs the dialog navigation.
 
 
@@ -12910,65 +13370,67 @@ C14👊 Dialogs and DialogFragment
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
-      ...
-   private fun updateUi(crime: Crime) {
-   binding.apply {
-   if (crimeTitle.text.toString() != crime.title) {
-   crimeTitle.setText(crime.title)
-   }
-   crimeDate.text = crime.date.toString()
-   crimeDate.setOnClickListener {
-   findNavController().navigate(
-   CrimeDetailFragmentDirections.selectDate(crime.date)
-   )
-   }
+      class CrimeDetailFragment : Fragment() {
+         ...
+         private fun updateUi(crime: Crime) {
+            binding.apply {
+               if (crimeTitle.text.toString() != crime.title) {
+                  crimeTitle.setText(crime.title)
+               }
+               crimeDate.text = crime.date.toString()
 
-   crimeSolved.isChecked = crime.isSolved
-   }
-   }
-   }
-   DatePickerFragment needs to initialize the DatePickerDialog
+               crimeDate.setOnClickListener {
+                  findNavController().navigate(
+                     CrimeDetailFragmentDirections.selectDate(crime.date)
+                  )
+               }
+               crimeSolved.isChecked = crime.isSolved
+            }
+         }
+      }
+
+   ``DatePickerFragment`` needs to initialize the ``DatePickerDialog``
    using the information held in the Date. However, initializing the
-   DatePickerDialog requires Ints for the month, day, and year. Date
+   ``DatePickerDialog`` requires Ints for the month, day, and year. Date
    is more of a timestamp and cannot provide Ints like this directly.
 
    To get the Ints you need, you provide the Date to
-   DatePickerFragment’s Calendar object. Then you can retrieve the
+   ``DatePickerFragment``’s Calendar object. Then you can retrieve the
    required information from the Calendar.
 
-   In DatePickerFragment’s onCreateDialog(Bundle?), get the
+   In ``DatePickerFragment``’s ``onCreateDialog(Bundle?)``, get the
    Date from the navigation arguments and use it and the Calendar to
-   initialize the DatePickerDialog.
+   initialize the ``DatePickerDialog``.
 
 
    Listing 14.6 Extracting the date and initializing DatePickerDialog (DatePickerFragment.kt)
 
    .. code-block:: kotlin
 
-   class DatePickerFragment : DialogFragment() {
+      class DatePickerFragment : DialogFragment() {
 
-   private val args: DatePickerFragmentArgs by navArgs()
+         private val args: DatePickerFragmentArgs by navArgs()
 
-   override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-   val calendar = Calendar.getInstance()
-   calendar.time = args.crimeDate
-   val initialYear = calendar.get(Calendar.YEAR)
-   val initialMonth = calendar.get(Calendar.MONTH)
-   val initialDate = calendar.get(Calendar.DAY_OF_MONTH)
+         override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+            val calendar = Calendar.getInstance()
+            calendar.time = args.crimeDate
+            val initialYear = calendar.get(Calendar.YEAR)
+            val initialMonth = calendar.get(Calendar.MONTH)
+            val initialDate = calendar.get(Calendar.DAY_OF_MONTH)
 
-   return DatePickerDialog(
-   requireContext(),
-   null,
-   initialYear,
-   initialMonth,
-   initialDate
-   )
-   }
-      ...
-   }
-   Now CrimeDetailFragment is successfully telling
-   DatePickerFragment what date to show. Run your app and confirm
+            return DatePickerDialog(
+               requireContext(),
+               null,
+               initialYear,
+               initialMonth,
+               initialDate
+            )
+         }
+         ...
+      }
+
+   Now ``CrimeDetailFragment`` is successfully telling
+   ``DatePickerFragment`` what date to show. Run your app and confirm
    this by selecting a crime and pressing the date button.
 
 
@@ -12977,33 +13439,39 @@ C14👊 Dialogs and DialogFragment
 14.5. Returning data to CrimeDetailFragment
 --------------------------------------------------------------------------------
 
-   To have CrimeDetailFragment receive the date back from
-   DatePickerFragment, you need a way to keep track of the relationship
+   To have ``CrimeDetailFragment`` receive the date back from
+   ``DatePickerFragment``, you need a way to keep track of the relationship
    between the two fragments.
 
    With activities, you use the Activity Result APIs, and the
-   ActivityManager keeps track of the parent-child activity relationship.
+   ``ActivityManager`` keeps track of the parent-child activity relationship.
 
-   When the child activity dies, the ActivityManager knows which
+   When the child activity dies, the ``ActivityManager`` knows which
    activity should receive the result.
 
-   Setting a fragment result
-   You can create a similar connection by making CrimeDetailFragment
-   listen to results from the DatePickerFragment. This connection is
-   automatically re-established after both CrimeDetailFragment and
-   DatePickerFragment are destroyed and re-created by the OS. To
+
+Setting a fragment result
+
+   You can create a similar connection by making ``CrimeDetailFragment``
+   listen to results from the ``DatePickerFragment``. This connection is
+   automatically re-established after both ``CrimeDetailFragment`` and
+   ``DatePickerFragment`` are destroyed and re-created by the OS. To
    create this relationship, you call the following Fragment function:
-   setFragmentResultListener(
-   requestKey: String,
-   listener: ((requestKey: String, bundle: Bundle) -> Unit)
-   )
+
+   .. code-block:: kotlin
+
+      setFragmentResultListener(
+         requestKey: String,
+         listener: ((requestKey: String, bundle: Bundle) -> Unit)
+      )
+
    This function uses a requestKey that will be shared between the two
    fragments and a lambda expression that will be invoked when
-   CrimeDetailFragment is in the started lifecycle state with a result to
-   consume. Under the hood, the FragmentManager keeps track of the
+   ``CrimeDetailFragment`` is in the started lifecycle state with a result to
+   consume. Under the hood, the ``FragmentManager`` keeps track of the
    listener.
 
-   In DatePickerFragment, define the requestKey in a companion
+   In ``DatePickerFragment``, define the requestKey in a companion
    object. That way, the constant will be easily accessible to both fragments.
 
 
@@ -13011,20 +13479,21 @@ C14👊 Dialogs and DialogFragment
 
    .. code-block:: kotlin
 
-   class DatePickerFragment : DialogFragment() {
+      class DatePickerFragment : DialogFragment() {
 
-   private val args: DatePickerFragmentArgs by navArgs()
+         private val args: DatePickerFragmentArgs by navArgs()
 
-   override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-      ...
-   }
+         override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+            ...
+         }
 
-   com?anion object {
-   const val REQUEST_KEY_DATE = "REQUEST_KEY_DATE"
-   }
-   }
-   Back in CrimeDetailFragment, use the new constant to call the
-   setFragmentResultListener function in the onViewCreated()
+         companion object {
+            const val REQUEST_KEY_DATE = "REQUEST_KEY_DATE"
+         }
+      }
+
+   Back in ``CrimeDetailFragment``, use the new constant to call the
+   ``setFragmentResultListener`` function in the ``onViewCreated()``
    lifecycle function. Leave the lambda expression empty for now – you will
    get back to it shortly.
 
@@ -13033,86 +13502,88 @@ C14👊 Dialogs and DialogFragment
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
-      ...
-   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-      ...
-   viewLifecycleOwner.lifecycleScope.launch {
-   viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-   crimeDetailViewModel.crime.collect { crime ->
-   crime?.let { updateUi(it) }
-   }
-   }
-   }
+      class CrimeDetailFragment : Fragment() {
+         ...
+         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+            ...
+         viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+               crimeDetailViewModel.crime.collect { crime ->
+                  crime?.let { updateUi(it) }
+               }
+            }
+         }
 
-   setFragmentResultListener(
-   DatePickerFragment.REQUEST_KEY_DATE
-   ) { requestKey, bundle ->
-   // TODO
-   }
-   }
-   Back in DatePickerFragment, you need to set the fragment result
+         setFragmentResultListener(
+            DatePickerFragment.REQUEST_KEY_DATE
+         ) { requestKey, bundle ->
+            // TODO
+         }
+      }
+
+   Back in ``DatePickerFragment``, you need to set the fragment result
    once the user selects a new date. Add a listener to the
-   DatePickerDialog that sends the date back to
-   CrimeDetailFragment.
+   ``DatePickerDialog`` that sends the date back to
+   ``CrimeDetailFragment``.
 
 
    Listing 14.9 Sending back the date (DatePickerFragment.kt)
 
    .. code-block:: kotlin
 
-   class DatePickerFragment : DialogFragment() {
+      class DatePickerFragment : DialogFragment() {
 
-   private val args: DatePickerFragmentArgs by navArgs()
+         private val args: DatePickerFragmentArgs by navArgs()
 
-   override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-   val dateListener = DatePickerDialog.OnDateSetListener {
-   _: DatePicker, year: Int, month: Int, day: Int ->
+         override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+            val dateListener = DatePickerDialog.OnDateSetListener {
+            _: DatePicker, year: Int, month: Int, day: Int ->
 
-   val resultDate = GregorianCalendar(year, month, day).time
+               val resultDate = GregorianCalendar(year, month, day).time
+               setFragmentResult(REQUEST_KEY_DATE,
+               bundleOf(BUNDLE_KEY_DATE to resultDate))
+            }
 
-   setFragmentResult(REQUEST_KEY_DATE,
-   bundleOf(BUNDLE_KEY_DATE to resultDate))
-   }
+            val calendar = Calendar.getInstance()
 
-   val calendar = Calendar.getInstance()
-      ...
+            ...
 
-   return DatePickerDialog(
-   requireContext(),
-   null,
-   dateListener,
-   initialYear,
-   initialMonth,
-   initialDate
-   )
-   }
+            return DatePickerDialog(
+               requireContext(),
+               null,
+               dateListener,
+               initialYear,
+               initialMonth,
+               initialDate
+               )
+         }
 
-   companion object {
-   const val REQUEST_KEY_DATE = "REQUEST_KEY_DATE"
-   const val BUNDLE_KEY_DATE = "BUNDLE_KEY_DATE"
-   }
-   }
-   The OnDateSetListener is used to receive the date the user selects.
+         companion object {
+            const val REQUEST_KEY_DATE = "REQUEST_KEY_DATE"
+            const val BUNDLE_KEY_DATE = "BUNDLE_KEY_DATE"
+         }
+      }
+
+   The ``OnDateSetListener`` is used to receive the date the user selects.
 
    The first parameter is for the DatePicker the result is coming from.
 
-   Remember that when you are not using a parameter, you name it _ so it will
+   Remember that when you are not using a parameter, you name it ``_`` so it will
    be ignored.
 
    The selected date is provided in year, month, and day format, but you need
-   a Date to send back to CrimeDetailFragment. You pass these values
-   to the GregorianCalendar and access the time property to get a
+   a Date to send back to ``CrimeDetailFragment``. You pass these values
+   to the ``GregorianCalendar`` and access the time property to get a
    Date object.
 
    Once you have the date, it needs to be sent back to
-   CrimeDetailFragment. To pass data between fragments, you need to
+   `CrimeDetailFragment`. To pass data between fragments, you need to
    package your results inside a key-value Bundle.
 
-   With the work in DatePickerFragment complete, the last thing you
+   With the work in ``DatePickerFragment`` complete, the last thing you
    need to do is access the date from the Bundle passed back to
-   CrimeDetailFragment and use it to update the crime in
-   CrimeDetailViewModel. This lambda expression is only invoked
+   ``CrimeDetailFragment`` and use it to update the crime in
+   ``CrimeDetailViewModel``. This lambda expression is only invoked
    when the user tries to save their changes, so you can be confident that the
    new data is in the Bundle. If the user dismisses the dialog or cancels their
    request to update the date, the lambda expression will not be invoked.
@@ -13122,35 +13593,36 @@ C14👊 Dialogs and DialogFragment
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
-      ...
-   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-      ...
-   viewLifecycleOwner.lifecycleScope.launch {
-   viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-   crimeDetailViewModel.crime.collect { crime ->
-   crime?.let { updateUi(it) }
-   }
-   }
-   }
+      class CrimeDetailFragment : Fragment() {
+         ...
+         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+            ...
+            viewLifecycleOwner.lifecycleScope.launch {
+               viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+               crimeDetailViewModel.crime.collect { crime ->
+                  crime?.let { updateUi(it) }
+               }
+            }
+         }
 
-   setFragmentResultListener(
-   DatePickerFragment.REQUEST_KEY_DATE
-   ) { requestKey _, bundle ->
-   // TODO
-   val newDate =
-   bundle.getSerializable(DatePickerFragment.BUNDLE_KEY_DATE) as Date
-   crimeDetailViewModel.updateCrime { it.copy(date = newDate) }
-   }
-   }
+         setFragmentResultListener(
+            DatePickerFragment.REQUEST_KEY_DATE
+         ) { requestKey _, bundle ->
+            // TODO
+            val newDate =
+               bundle.getSerializable(DatePickerFragment.BUNDLE_KEY_DATE) as Date
+            crimeDetailViewModel.updateCrime { it.copy(date = newDate) }
+         }
+      }
+
    Now the circle is complete. The dates must flow. Those who control the
-   dates control time itself. Run CriminalIntent to ensure that you can, in fact,
+   dates control time itself. Run ``CriminalIntent`` to ensure that you can, in fact,
    control the dates. Change the date of a Crime and confirm that the new
-   date appears in CrimeDetailFragment’s view. Then return to the list
+   date appears in ``CrimeDetailFragment``’s view. Then return to the list
    of crimes and check the Crime’s date to ensure that the database was
    updated.
 
-   In the next chapter, you will allow CriminalIntent’s users to create a new
+   In the next chapter, you will allow ``CriminalIntent``’s users to create a new
    crime (and get rid of the boring default crimes). And later in this book, in
    Chapter 28, you will see how dialogs are created in Jetpack Compose.
 
@@ -13160,10 +13632,10 @@ C14👊 Dialogs and DialogFragment
 14.6. Challenge: More Dialogs
 --------------------------------------------------------------------------------
 
-   Write another dialog fragment named TimePickerFragment that
+   Write another dialog fragment named ``TimePickerFragment`` that
    allows the user to select the time of day the crime occurred using a
-   TimePicker. Add another button to CrimeFragment to display the
-   TimePickerFragment.
+   ``TimePicker``. Add another button to ``CrimeFragment`` to display the
+   ``TimePickerFragment``.
 
 
 .. _C15:
@@ -13198,26 +13670,31 @@ C15👊 The App Bar
    Figure 15.2 The app bar
 
    This is because Android Studio sets up all new projects with activities that
-   extend from AppCompatActivity to include an app bar by default. It
+   extend from ``AppCompatActivity`` to include an app bar by default. It
    does this by:
-   adding the Jetpack AppCompat and Material Components library
-   dependencies
-   applying one of the themes that includes an app bar
-   Open your app/build.gradle file (the one labeled (Module:
+
+   *  adding the Jetpack AppCompat and Material Components library dependencies
+   *  applying one of the themes that includes an app bar
+
+   Open your ``app/build.gradle`` file (the one labeled (Module:
    CriminalIntent.app) ) to see the AppCompat and Material Components
    dependencies:
-   dependencies {
-      ...
-   implementation 'androidx.appcompat:appcompat:1.4.1'
-   implementation 'com.google.android.material:material:1.5.0'
-      ...
+
+   .. code-block:: kotlin
+
+      dependencies {
+         ...
+         implementation 'androidx.appcompat:appcompat:1.4.1'
+         implementation 'com.google.android.material:material:1.5.0'
+         ...
+
    “AppCompat” is short for “application compatibility.” The Jetpack
    AppCompat foundation library contains classes and resources that are core
    to providing a consistent-looking UI across different versions of Android.
 
    Android Studio automatically defines your app’s theme when it creates your
    project. By default, this theme extends from
-   Theme.MaterialComponents.DayNight.DarkActionBar . This theme is a
+   ``Theme.MaterialComponents.DayNight.DarkActionBar`` . This theme is a
    part of the Material Components library, which brings the latest Material
    Design features (Google’s design language) to your app. The Material
    Components library builds on AppCompat to make its design touches work
@@ -13225,27 +13702,35 @@ C15👊 The App Bar
 
    Your app’s theme, which specifies default styling for the entire app, is set in
    res/values/themes.xml:
-   <resources xmlns:tools="http://schemas.android.com/tools">
-   <!-- Base application theme. -->
-   <style name="Theme.CriminalIntent"
-   parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-   <!-- Primary brand color. -->
-   <item name="colorPrimary">@color/purple_500</item>
-      ...
-   </style>
-   </resources>
+
+   .. code-block:: xml
+
+      <resources xmlns:tools="http://schemas.android.com/tools">
+      <!-- Base application theme. -->
+      <style name="Theme.CriminalIntent"
+         parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+         <!-- Primary brand color. -->
+         <item name="colorPrimary">@color/purple_500</item>
+         ...
+      </style>
+      </resources>
+
    The theme for your application is specified at the application level and
    optionally per activity in your manifest. Open
-   manifests/AndroidManifest.xml and look at the <application>
+   ``manifests/AndroidManifest.xml`` and look at the ``<application>``
    tag. Check out the android:theme attribute. You should see something
    similar to this:
-   <manifest ... >
-   <application
-      ...
-   android:theme="@style/Theme.CriminalIntent" >
-      ...
-   </application>
-   </manifest>
+
+   .. code-block:: kotlin
+
+      <manifest ... >
+         <application
+         ...
+         android:theme="@style/Theme.CriminalIntent" >
+         ...
+         </application>
+      </manifest>
+
    OK, enough background. It is time to add an action to the app bar.
 
 
@@ -13261,7 +13746,7 @@ C15👊 The App Bar
    You will add an action item to allow the user to create a new crime.
 
    Your new action item will need a string resource for its label. Open
-   res/values/strings.xml and add a string label describing your new
+   ``res/values/strings.xml`` and add a string label describing your new
    action.
 
 
@@ -13269,11 +13754,12 @@ C15👊 The App Bar
 
    .. code-block:: xml
 
-   <resources>
-      ...
-   <string name="crime_solved_label">Solved</string>
-   <string name="new_crime">New Crime</string>
-   </resources>
+      <resources>
+         ...
+         <string name="crime_solved_label">Solved</string>
+         <string name="new_crime">New Crime</string>
+      </resources>
+
    The action item also needs an icon. Just like when you added a right arrow
    icon back in Chapter 2, you will use the Vector Asset Studio to add a vector
    drawable to your project. Select File → New → Vector Asset from the menu
@@ -13303,7 +13789,7 @@ C15👊 The App Bar
    to inflate the menu in code.
 
    In the project tool window, right-click the res directory and select New →
-   Android resource file . Name the menu resource fragment_crime_list , change the
+   Android resource file . Name the menu resource `fragment_crime_list` , change the
    Resource type to Menu , and click OK (Figure 15.4).
 
 
@@ -13311,8 +13797,8 @@ C15👊 The App Bar
 
    Here, you use the same naming convention for menu files as you do for
    layout files. Android Studio will generate
-   res/menu/fragment_crime_list.xml, which has the same name
-   as your CrimeListFragment’s layout file but lives in the menu folder.
+   ``res/menu/fragment_crime_list.xml``, which has the same name
+   as your ``CrimeListFragment``’s layout file but lives in the menu folder.
 
    In the new file, switch to the code view and add an item element, as shown
    in Listing 15.2.
@@ -13322,17 +13808,18 @@ C15👊 The App Bar
 
    .. code-block:: xml
 
-   <menu xmlns:android="http://schemas.android.com/apk/res/android"
-   xmlns:app="http://schemas.android.com/apk/res-auto">
-   <item
-   android:id="@+id/new_crime"
-   android:icon="@drawable/ic_menu_add"
-   android:title="@string/new_crime"
-   app:showAsAction="ifRoom?withText"/>
-   </menu>
-   The showAsAction attribute refers to whether the item will appear in the
+      <menu xmlns:android="http://schemas.android.com/apk/res/android"
+         xmlns:app="http://schemas.android.com/apk/res-auto">
+         <item
+            android:id="@+id/new_crime"
+            android:icon="@drawable/ic_menu_add"
+            android:title="@string/new_crime"
+            app:showAsAction="ifRoom?withText"/>
+      </menu>
+
+   The ``showAsAction`` attribute refers to whether the item will appear in the
    app bar itself or in the overflow menu . You have piped together two values,
-   ifRoom and withText , so the item’s icon and text will appear in the app bar
+   ``ifRoom`` and ``withText`` , so the item’s icon and text will appear in the app bar
    if there is room. If there is room for the icon but not the text, then only the
    icon will be visible. If there is no room for either, then the item will be
    relegated to the overflow menu.
@@ -13342,27 +13829,29 @@ C15👊 The App Bar
 
    Figure 15.5 Overflow menu in the app bar
 
-   Other options for showAsAction include always and never . Using always is
+   Other options for ``showAsAction`` include always and never . Using always is
    not recommended; it is better to use ifRoom and let the OS decide. Using
    never is a good choice for less-common actions. In general, you should
    only put action items that users will access frequently in the app bar to
    avoid cluttering the screen.
 
-   The app namespace
-   Notice that fragment_crime_list.xml uses the xmlns tag to define a
+
+The app namespace
+
+   Notice that ``fragment_crime_list.xml`` uses the xmlns tag to define a
    namespace, app , which is separate from the usual android namespace
    declaration. This app namespace is then used to specify the showAsAction
    attribute.
 
    You have used this namespace a few times already, such as for the
-   Navigation library and ConstraintLayout. Libraries can use this
+   Navigation library and ``ConstraintLayout``. Libraries can use this
    namespace to declare custom attributes specific to their function. The
-   app:navGraph attribute is an attribute that the Navigation library knows
-   how to handle. The app:layout_constraintEnd_toStartOf attribute is
-   specific to the ConstraintLayout library.
+   ``app:navGraph`` attribute is an attribute that the Navigation library knows
+   how to handle. The ``app:layout_constraintEnd_toStartOf`` attribute is
+   specific to the ``ConstraintLayout`` library.
 
-   There is an android:showAsAction attribute built into the OS, but the
-   AppCompat library defines a custom app:showAsAction to provide a
+   There is an ``android:showAsAction`` attribute built into the OS, but the
+   AppCompat library defines a custom ``app:showAsAction`` to provide a
    consistent experience for all versions of Android. That is what you are
    using here.
 
@@ -13372,18 +13861,18 @@ C15👊 The App Bar
 15.4. Creating the menu
 --------------------------------------------------------------------------------
 
-   In code, menus are managed by callbacks from the Activity class. When
-   the menu is needed, Android calls the Activity function
-   onCreateOptionsMenu(Menu).
+   In code, menus are managed by callbacks from the ``Activity`` class. When
+   the menu is needed, Android calls the ``Activity`` function
+   ``onCreateOptionsMenu(Menu)``.
 
    However, your design calls for code to be implemented in a fragment, not
    an activity. Fragment comes with its own set of menu callbacks, which
-   you will implement in CrimeListFragment. The functions for creating
+   you will implement in ``CrimeListFragment``. The functions for creating
    the menu and responding to the selection of an action item are:
-   onCreateOptionsMenu(menu: Menu, inflater: MenuInflater)
-   onOptionsItemSelected(item: MenuItem): Boolean
-   In CrimeListFragment.kt, override
-   onCreateOptionsMenu(Menu, MenuInflater) to inflate the
+   ``onCreateOptionsMenu(menu: Menu, inflater: MenuInflater)``
+   ``onOptionsItemSelected(item: MenuItem): Boolean``
+   In ``CrimeListFragment.kt``, override
+   ``onCreateOptionsMenu(Menu, MenuInflater)`` to inflate the
    menu defined in fragment_crime_list.xml.
 
 
@@ -13391,37 +13880,38 @@ C15👊 The App Bar
 
    .. code-block:: kotlin
 
-   class CrimeListFragment : Fragment() {
-      ...
-   override fun onDestroyView() {
-   super.onDestroyView()
-   _binding = null
-   }
+      class CrimeListFragment : Fragment() {
+         ...
+         override fun onDestroyView() {
+            super.onDestroyView()
+            _binding = null
+         }
 
-   override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-   super.onCreateOptionsMenu(menu, inflater)
-   inflater.inflate(R.menu.fragment_crime_list, menu)
-   }
-      ...
-   }
-   Within this function, you call MenuInflater.inflate(Int,
-   Menu) and pass in the resource ID of your menu file. This populates the
+         override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+            super.onCreateOptionsMenu(menu, inflater)
+            inflater.inflate(R.menu.fragment_crime_list, menu)
+         }
+         ...
+      }
+
+   Within this function, you call ``MenuInflater.inflate(Int, Menu)``
+   and pass in the resource ID of your menu file. This populates the
    Menu instance with the items defined in your file.
 
    Notice that you call through to the superclass implementation of
-   onCreateOptionsMenu(…). This is not required, but we recommend
+   ``onCreateOptionsMenu(…)``. This is not required, but we recommend
    calling through as a matter of convention. That way, any menu functionality
    defined by the superclass will still work. However, it is only a convention –
    the base Fragment implementation of this function does nothing.
 
-   By default, your overridden onCreateOptionsMenu(…) will not be
+   By default, your overridden ``onCreateOptionsMenu(…)`` will not be
    invoked when your fragment is created. You must explicitly tell the system
    that your fragment should receive a call to
-   onCreateOptionsMenu(…). You do this by calling the following
-   Fragment function:
-   setHasOptionsMenu(hasMenu: Boolean)
-   Override CrimeListFragment.onCreate(Bundle?) and let the
-   system know that CrimeListFragment needs to receive menu
+   ``onCreateOptionsMenu(…)``. You do this by calling the following
+   Fragment function: ``setHasOptionsMenu(hasMenu: Boolean)``
+
+   Override ``CrimeListFragment.onCreate(Bundle?)`` and let the
+   system know that ``CrimeListFragment`` needs to receive menu
    callbacks.
 
 
@@ -13429,17 +13919,18 @@ C15👊 The App Bar
 
    .. code-block:: kotlin
 
-   class CrimeListFragment : Fragment() {
-      ...
-   private val crimeListViewModel: CrimeListViewModel by viewModels()
+      class CrimeListFragment : Fragment() {
+         ...
+         private val crimeListViewModel: CrimeListViewModel by viewModels()
 
-   override fun onCreate(savedInstanceState: Bundle?) {
-   super.onCreate(savedInstanceState)
-   setHasOptionsMenu(true)
-   }
-      ...
-   }
-   You can run CriminalIntent now to see your menu (Figure 15.6).
+         override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            setHasOptionsMenu(true)
+         }
+         ...
+      }
+
+   You can run ``CriminalIntent`` now to see your menu (Figure 15.6).
 
 
    Figure 15.6 Icon for the New Crime action item in the app bar
@@ -13449,9 +13940,7 @@ C15👊 The App Bar
    reveal its title (Figure 15.7).
 
 
-   Figure 15.7 Long-pressing an icon in the app bar shows the
-
-   title
+   Figure 15.7 Long-pressing an icon in the app bar shows the title
    In landscape orientation, there is room in the app bar for the icon and the
    text (Figure 15.8).
 
@@ -13465,12 +13954,12 @@ C15👊 The App Bar
 --------------------------------------------------------------------------------
 
    To respond to the user pressing the new crime action item, you need a way
-   for CrimeListFragment to add a new crime to the database. As before,
+   for ``CrimeListFragment`` to add a new crime to the database. As before,
    you will build this new functionality from the database level up to the UI.
 
-   Starting all the way down at the CrimeDao interface, add a function to
-   insert a crime into the database. Similar to the @Query and @Update
-   annotations, the @Insert annotation will tell Room to generate code to
+   Starting all the way down at the ``CrimeDao`` interface, add a function to
+   insert a crime into the database. Similar to the ``@Query`` and ``@Update``
+   annotations, the ``@Insert`` annotation will tell ``Room`` to generate code to
    enable you to insert a crime into the database.
 
 
@@ -13478,45 +13967,47 @@ C15👊 The App Bar
 
    .. code-block:: kotlin
 
-   @Dao
-   interface CrimeDao {
-      ...
-   @Update
-   suspend fun updateCrime(crime: Crime)
+      @Dao
+      interface CrimeDao {
+         ...
+         @Update
+         suspend fun updateCrime(crime: Crime)
 
-   @Insert
-   sussend fun addCrime(crime: Crime)
-   }
-   Next, expose that function through the CrimeRepository class.
+         @Insert
+         sussend fun addCrime(crime: Crime)
+      }
+
+   Next, expose that function through the ``CrimeRepository`` class.
 
 
    Listing 15.6 Passing it through another layer (CrimeRepository.kt)
 
    .. code-block:: kotlin
 
-   class CrimeRepository private constructor(
-   context: Context,
-   private val coroutineScope: CoroutineScope = GlobalScope
-   ) {
-      ...
-   fun updateCrime(crime: Crime) {
-   coroutineScope.launch {
-   database.crimeDao().updateCrime(crime)
-   }
-   }
+      class CrimeRepository private constructor(
+         context: Context,
+         private val coroutineScope: CoroutineScope = GlobalScope
+      ) {
+         ...
+         fun updateCrime(crime: Crime) {
+            coroutineScope.launch {
+               database.crimeDao().updateCrime(crime)
+            }
+         }
 
-   sussend fun addCrime(crime: Crime) {
-   database.crimeDao().addCrime(crime)
-   }
-      ...
-   }
-   Now, add a function to CrimeListViewModel to wrap a call to the
-   repository’s addCrime(Crime) function. Unlike other functions you
-   have created within various ViewModel implementations, here you do
+         sussend fun addCrime(crime: Crime) {
+            database.crimeDao().addCrime(crime)
+         }
+         ...
+      }
+
+   Now, add a function to ``CrimeListViewModel`` to wrap a call to the
+   repository’s ``addCrime(Crime)`` function. Unlike other functions you
+   have created within various ``ViewModel`` implementations, here you do
    want to expose this function as a suspending function. In your
-   CrimeListFragment, you will want to navigate to
-   CrimeDetailFragment after completing the insert into the database,
-   and handling the asynchronous work within CrimeListFragment will
+   ``CrimeListFragment``, you will want to navigate to
+   ``CrimeDetailFragment`` after completing the insert into the database,
+   and handling the asynchronous work within ``CrimeListFragment`` will
    be the simplest approach.
 
 
@@ -13524,109 +14015,114 @@ C15👊 The App Bar
 
    .. code-block:: kotlin
 
-   class CrimeListViewModel : ViewModel() {
-      ...
-   init {
-      ...
-   }
+      class CrimeListViewModel : ViewModel() {
+         ...
+         init {
+            ...
+         }
 
-   sussend fun addCrime(crime: Crime) {
-   crimeRepository.addCrime(crime)
-   }
-   }
+         sussend fun addCrime(crime: Crime) {
+            crimeRepository.addCrime(crime)
+         }
+      }
+
    When the user presses an action item, your fragment receives a callback to
-   the function onOptionsItemSelected(MenuItem). This function
-   receives an instance of MenuItem that describes the user’s selection.
+   the function ``onOptionsItemSelected(MenuItem)``. This function
+   receives an instance of ``MenuItem`` that describes the user’s selection.
 
    Although your menu only contains one action item, menus often have more
    than one. You can determine which action item has been selected by
-   checking the ID of the MenuItem and then respond appropriately. This ID
-   corresponds to the ID you assigned to the MenuItem in your menu file.
+   checking the ID of the ``MenuItem`` and then respond appropriately. This ID
+   corresponds to the ID you assigned to the ``MenuItem`` in your menu file.
 
-   In CrimeListFragment.kt, implement
-   onOptionsItemSelected(MenuItem) to respond to MenuItem
-   selection by creating a new Crime, saving it to the database, and then
-   navigating to CrimeDetailFragment.
+   In ``CrimeListFragment.kt``, implement
+   ``onOptionsItemSelected(MenuItem)`` to respond to ``MenuItem``
+   selection by creating a new ``Crime``, saving it to the database, and then
+   navigating to ``CrimeDetailFragment``.
 
 
    Listing 15.8 Responding to menu selection (CrimeListFragment.kt)
 
    .. code-block:: kotlin
 
-   class CrimeListFragment : Fragment() {
-      ...
-   override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-   super.onCreateOptionsMenu(menu, inflater)
-   inflater.inflate(R.menu.fragment_crime_list, menu)
-   }
+      class CrimeListFragment : Fragment() {
+         ...
+         override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+            super.onCreateOptionsMenu(menu, inflater)
+            inflater.inflate(R.menu.fragment_crime_list, menu)
+         }
 
-   override fun onOptionsItemSelected(item: MenuItem): Boolean {
-   return when (item.itemId) {
-   R.id.new_crime -> {
-   showNewCrime()
-   true
-   }
-   else -> super.onOptionsItemSelected(item)
-   }
-   }
+         override fun onOptionsItemSelected(item: MenuItem): Boolean {
+            return when (item.itemId) {
+               R.id.new_crime -> {
+                  showNewCrime()
+                  true
+               }
+               else -> super.onOptionsItemSelected(item)
+            }
+         }
 
-   private fun showNewCrime() {
-   viewLifecycleOwner.lifecycleScope.launch {
-   val newCrime = Crime(
-   id = UUID.randomUUID(),
-   title = "",
-   date = Date(),
-   isSolved = false
-   )
-   crimeListViewModel.addCrime(newCrime)
-   findNavController().navigate(
-   CrimeListFragmentDirections.showCrimeDetail(newCrime.id)
-   )
-   }
-   }
-   }
-   This function returns a Boolean value. Once you have handled the
-   MenuItem, you should return true to indicate that no further processing is
+         private fun showNewCrime() {
+            viewLifecycleOwner.lifecycleScope.launch {
+               val newCrime = Crime(
+                  id = UUID.randomUUID(),
+                  title = "",
+                  date = Date(),
+                  isSolved = false
+               )
+               crimeListViewModel.addCrime(newCrime)
+
+               findNavController().navigate(
+                  CrimeListFragmentDirections.showCrimeDetail(newCrime.id)
+               )
+            }
+         }
+      }
+
+   This function returns a ``Boolean`` value. Once you have handled the
+   ``MenuItem``, you should return true to indicate that no further processing is
    necessary. If you return false , menu processing will continue by calling the
-   hosting activity’s onOptionsItemSelected(MenuItem) function
-   (or, if the activity hosts other fragments, the onOptionsItemSelected
+   hosting activity’s ``onOptionsItemSelected(MenuItem)`` function
+   (or, if the activity hosts other fragments, the ``onOptionsItemSelected``
    function will get called on those fragments). The default case calls the
    superclass implementation if the item ID is not in your implementation.
 
    In this brave new world where you can add crimes yourself, the seed
    database data you packaged within the app is no longer necessary. In
    ``CrimeRepository``, remove the line including the prepackaged database
-   from the assets/ folder.
+   from the ``assets/`` folder.
 
 
    Listing 15.9 Excluding the prepopulated database (CrimeRepository.kt)
 
    .. code-block:: kotlin
 
-   class CrimeRepository private constructor(
-   context: Context,
-   private val coroutineScope: CoroutineScope = GlobalScope
-   ) {
+      class CrimeRepository private constructor(
+         context: Context,
+         private val coroutineScope: CoroutineScope = GlobalScope
+      ) {
 
-   private val database: CrimeDatabase = Room
-   .databaseBuilder(
-   context.applicationContext,
-   CrimeDatabase::class.Java,
-   DATABASE_NAME
-   )
-   .createFromAsset(DATABASE_NAME)
-   .build()
-      ...
-   }
+         private val database: CrimeDatabase = Room
+         .databaseBuilder(
+            context.applicationContext,
+            CrimeDatabase::class.Java,
+            DATABASE_NAME
+         )
+         .createFromAsset(DATABASE_NAME)
+         .build()
+         ...
+      }
+
    Also, delete the crime-database file from your assets folder. It
    served you well. (If you use Android Studio’s safe delete option, which is a
    good idea, it will warn you that there is a remaining usage of crime-
    database . The usage it has found is actually the database name, which you
    can verify for yourself before choosing Delete Anyway .)
+
    To get rid of the database loaded with the app on your device or emulator,
    you will need to clear the app’s cache. Run the app and, while it is running,
    go to the overview screen on the device or emulator. Long-press the
-   launcher icon for CriminalIntent. Press the App info option in the dropdown
+   launcher icon for ``CriminalIntent``. Press the App info option in the dropdown
    that appears (Figure 15.9).
 
 
@@ -13638,7 +14134,7 @@ C15👊 The App Bar
 
    Figure 15.10 Deleting CriminalIntent’s data
 
-   Now, compile and run CriminalIntent. You should see an empty list to start
+   Now, compile and run ``CriminalIntent``. You should see an empty list to start
    with. Try out your new menu item to add a new crime. You should see the
    new crime appear in the crime list (Figure 15.11).
 
@@ -13647,7 +14143,7 @@ C15👊 The App Bar
 
    The empty list that you see before you add any crimes might be
    disconcerting. If you tackle the challenge in the section called Challenge:
-   An Empty View for the RecyclerView at the end of this chapter, you will
+   An Empty View for the ``RecyclerView`` at the end of this chapter, you will
    present a helpful clue when the list is empty.
 
 .. _S15_06:
@@ -13663,19 +14159,20 @@ C15👊 The App Bar
 
    The UI design element itself is called an app bar. Prior to Android 5.0
    (Lollipop, API level 21), the app bar was implemented using the
-   ActionBar class. The terms action bar and app bar came to be treated as
+   ``ActionBar`` class. The terms action bar and app bar came to be treated as
    one and the same. Then, starting with Android 5.0, the Toolbar class was
    introduced as the preferred method for implementing the app bar. And, to
    keep things interesting, in Jetpack Compose, the newest way to create
    Android UIs, the app bar is implemented with a composable element called
-   To?AppBar. (You will see this in Chapter 29.)
+   ``TopAppBar``. (You will see this in Chapter 29.)
+
    As of this writing, AppCompat uses the Jetpack Toolbar view to
    implement the app bar (Figure 15.12).
 
 
    Figure 15.12 Layout inspector view of app bar
 
-   The ActionBar and Toolbar are very similar components. In fact, the
+   The ``ActionBar`` and Toolbar are very similar components. In fact, the
    toolbar builds on top of the action bar. It has a tweaked UI and is more
    flexible in the ways that you can use it.
 
@@ -13695,7 +14192,7 @@ C15👊 The App Bar
    own toolbar instead of sharing a single toolbar at the top of the screen.
 
    If you are using the single activity architecture recommended by Google –
-   as you are for CriminalIntent – you should strongly consider taking the
+   as you are for ``CriminalIntent`` – you should strongly consider taking the
    approach of having each fragment provide its own app bar. Having your
    fragments messing with a shared app bar maintained by a single activity is a
    recipe for disaster. Taking this approach will keep all the functionality for
@@ -13719,31 +14216,38 @@ C15👊 The App Bar
    runtime, such as the title it displays.
 
    To access the AppCompat app bar, you reference your
-   AppCompatActivity’s supportFragmentManager property. From
-   CrimeFragment, it would look something like this:
-   val appCompatActivity = activity as AppCompatActivity
-   val appBar = appCompatActivity.supportActionBar as Toolbar
+   ``AppCompatActivity``’s ``supportFragmentManager`` property. From
+   ``CrimeFragment``, it would look something like this:
+
+   .. code-block:: kotlin
+
+      val appCompatActivity = activity as AppCompatActivity
+      val appBar = appCompatActivity.supportActionBar as Toolbar
+
    The activity that is hosting the fragment is cast to an
-   AppCompatActivity. Recall that because CriminalIntent uses the
+   ``AppCompatActivity``. Recall that because CriminalIntent uses the
    AppCompat library, you made your MainActivity a subclass of
-   AppCompatActivity, which allows you to access the app bar.
+   ``AppCompatActivity``, which allows you to access the app bar.
 
    Casting supportActionBar to a Toolbar allows you to call any
    Toolbar functions. (Remember, AppCompat uses a Toolbar to
    implement the app bar. But it used to use an ActionBar, as you just read,
    hence the somewhat-confusing name of the property to access the app bar.)
    Once you have a reference to the app bar, you can apply changes like so:
-   appBar.setTitle(R.string.some_cool_title)
+
+   .. code-block:: kotlin
+
+      appBar.setTitle(R.string.some_cool_title)
+
    See the Toolbar API reference page for a list of other functions you can
    apply to alter the app bar (assuming your app bar is a Toolbar) at
-   https://developer.android.google.cn/reference/androidx/
-   appcompat/ widget/ Toolbar.
+   https://developer.android.google.cn/reference/androidx/appcompat/widget/Toolbar.
 
    Note that if you need to alter the contents of the app bar’s menu while the
    activity is still displayed, you can trigger the
-   onCreateOptionsMenu(Menu, MenuInflater) callback by
-   calling the invalidateOptionsMenu() function. You can change the
-   contents of the menu programmatically in the onCreateOptionsMenu
+   ``onCreateOptionsMenu(Menu, MenuInflater)`` callback by
+   calling the ``invalidateOptionsMenu()`` function. You can change the
+   contents of the menu programmatically in the ``onCreateOptionsMenu``
    callback, and those changes will appear once the callback is complete.
 
 .. _S15_08:
@@ -13751,8 +14255,8 @@ C15👊 The App Bar
 15.8. Challenge: An Empty View for the RecyclerView
 --------------------------------------------------------------------------------
 
-   Currently, when CriminalIntent launches it displays an empty
-   RecyclerView – a big white void. You should give users something to
+   Currently, when ``CriminalIntent`` launches it displays an empty
+   ``RecyclerView`` – a big white void. You should give users something to
    interact with when there are no items in the list.
 
    For this challenge, display a message like There are no crimes and add a button
@@ -13773,13 +14277,13 @@ C15👊 The App Bar
    best to forgive and forget.
 
    For this challenge, add the ability to delete a selected crime in
-   CrimeDetailFragment. You can add an icon to
-   CrimeDetailFragment’s app bar and hook it up the same way you did
+   ``CrimeDetailFragment``. You can add an icon to
+   ``CrimeDetailFragment``’s app bar and hook it up the same way you did
    in this chapter.
 
-   In addition to the @Query , @Insert , and @Update annotations you have used
-   in your CrimeDao , there is one more annotation that might come in handy:
-   @Delete .
+   In addition to the ``@Query`` , ``@Insert`` , and ``@Update`` annotations you 
+   have used in your ``CrimeDao`` , there is one more annotation that might come 
+   in handy: ``@Delete`` .
 
 
 .. _C16:
@@ -13790,10 +14294,10 @@ C16👊 Implicit Intents
    In Android, you can start an activity in another application on the device
    using an intent . In an explicit intent , you specify the class of the
    activity to start, and the OS will start it. In an implicit intent , you
-   describe the ?ob that you need done, and the OS will start an activity in an
+   describe the job that you need done, and the OS will start an activity in an
    appropriate application for you.
 
-   In CriminalIntent, you will use implicit intents to enable picking a suspect
+   In ``CriminalIntent``, you will use implicit intents to enable picking a suspect
    for a Crime from the user’s list of contacts and sending a text-based report
    of a crime. The user will choose a suspect from whatever contacts app is
    installed on the device and will be offered a choice of apps to send the
@@ -13807,19 +14311,18 @@ C16👊 Implicit Intents
    able to use apps they already know and like in con?unction with your app.
 
    Before you can create these implicit intents, there is some setup to do in
-   CriminalIntent:
-   add CHOOSE SUSPECT and SEND CRIME REPORT buttons to
-   CrimeDetailFragment’s layouts
-   add a suspect property to the Crime class that will hold the
-   name of a suspect
-   create a crime report using a set of format strings
+   ``CriminalIntent``:
+
+   *  add CHOOSE SUSPECT and SEND CRIME REPORT buttons to CrimeDetailFragment’s layouts
+   *  add a suspect property to the Crime class that will hold the name of a suspect
+   *  create a crime report using a set of format strings
 
 .. _S16_01:
 
 16.1. Adding Buttons
 --------------------------------------------------------------------------------
 
-   Update CrimeDetailFragment’s layout to include new buttons for
+   Update ``CrimeDetailFragment``’s layout to include new buttons for
    accusation and tattling: namely, a suspect button and a report button. First,
    add the strings that these buttons will display.
 
@@ -13828,13 +14331,14 @@ C16👊 Implicit Intents
 
    .. code-block:: xml
 
-   <resources>
-      ...
-   <string name="new_crime">New Crime</string>
-   <string name="crime_suspect_text">Choose Suspect</string>
-   <string name="crime_report_text">Send Crime Report</string>
-   </resources>
-   In res/layout/fragment_crime_detail.xml, add two buttons,
+      <resources>
+         ...
+         <string name="new_crime">New Crime</string>
+         <string name="crime_suspect_text">Choose Suspect</string>
+         <string name="crime_report_text">Send Crime Report</string>
+      </resources>
+
+   In ``res/layout/fragment_crime_detail.xml``, add two buttons,
    as shown in Listing 16.2.
 
 
@@ -13842,28 +14346,29 @@ C16👊 Implicit Intents
 
    .. code-block:: xml
 
-   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-   ... >
-      ...
-   <CheckBox
-   android:id="@+id/crime_solved"
-   android:layout_width="match_parent"
-   android:layout_height="wrap_content"
-   android:text="@string/crime_solved_label"/>
+      <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+         ... >
+         ...
+      <CheckBox
+         android:id="@+id/crime_solved"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="@string/crime_solved_label"/>
 
-   <Button
-   android:id="@+id/crime_suspect"
-   android:layout_width="match_parent"
-   android:layout_height="wrap_content"
-   android:text="@string/crime_suspect_text"/>
+      <Button
+         android:id="@+id/crime_suspect"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="@string/crime_suspect_text"/>
 
-   <Button
-   android:id="@+id/crime_report"
-   android:layout_width="match_parent"
-   android:layout_height="wrap_content"
-   android:text="@string/crime_report_text"/>
-   </LinearLayout>
-   Preview the updated layout or run CriminalIntent to confirm that your new
+      <Button
+         android:id="@+id/crime_report"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="@string/crime_report_text"/>
+      </LinearLayout>
+
+   Preview the updated layout or run ``CriminalIntent`` to confirm that your new
    buttons are in place.
 
 
@@ -13872,27 +14377,29 @@ C16👊 Implicit Intents
 16.2. Adding a Suspect Property
 --------------------------------------------------------------------------------
 
-   Next, open Crime.kt and give Crime a property to hold the name of a
+   Next, open ``Crime.kt`` and give ``Crime`` a property to hold the name of a
    suspect. Provide a default value – an empty string – so that you do not have
    to update places in your codebase where you create a Crime.
 
 
    Listing 16.3 Adding a suspect property (Crime.kt)
 
+
    .. code-block:: kotlin
 
-   @Entity
-   data class Crime(
-   @PrimaryKey val id: UUID,
-   val title: String,
-   val date: Date,
-   val isSolved: Boolean,
-   val suspect: String = ""
-   )
+      @Entity
+      data class Crime(
+         @PrimaryKey val id: UUID,
+         val title: String,
+         val date: Date,
+         val isSolved: Boolean,
+         val suspect: String = ""
+      )
+
    Since you updated your Crime class, and Room uses that class to create
    database tables for you, you need to make some changes to your database as
    well. Specifically, you need to increment the version of your
-   CrimeDatabase class and tell Room how to migrate your database
+   ``CrimeDatabase`` class and tell ``Room`` how to migrate your database
    between the versions.
 
    Room uses a versioning system to manage how data is structured within a
@@ -13908,20 +14415,20 @@ C16👊 Implicit Intents
    classes.
 
    Room tracks the version of your database with the version property inside
-   the @Database annotation on your CrimeDatabase class. When you first
-   created the CrimeDatabase class, you set that value to 1 . As you make
+   the ``@Database`` annotation on your ``CrimeDatabase`` class. When you first
+   created the ``CrimeDatabase`` class, you set that value to 1 . As you make
    changes to the structure of your database, such as adding the suspect
    property on the Crime class, you increment that value. Since your initial
    database version is set to 1, you need to bump it up to 2 now.
 
    When your app launches and Room builds the database, it will first check
    the version of the existing database on the device. If this version does not
-   match the one you define in the @Database annotation, Room will begin the
+   match the one you define in the ``@Database`` annotation, Room will begin the
    process to migrate that database to the latest version.
 
    Room offers you two ways to handle migrations. The easy way is to call the
-   fallbackToDestructiveMigration() function when building
-   your CrimeDatabase instance. But, as the name hints, when this
+   ``fallbackToDestructiveMigration()`` function when building
+   your ``CrimeDatabase`` instance. But, as the name hints, when this
    function is invoked Room will delete all the data within the database and re-
    create a new version. This means that all the data will be lost, leading to
    very unhappy users.
@@ -13931,11 +14438,11 @@ C16👊 Implicit Intents
    database version you are migrating from, and the second is the version you
    are migrating to. In this case, you will provide the version numbers 1 and 2 .
    The only function you need to implement in your Migration object is
-   migrate(Su??ortSQLiteDatabase). You use the database
+   ``migrate(SupportSQLiteDatabase)``. You use the database
    parameter to execute any SQL commands necessary to upgrade your tables.
 
    (Room uses SQLite under the hood, as you read about in Chapter 12.) The
-   ALTER TABLE and ADD COLUMN commands will add the new suspect column
+   ``ALTER TABLE`` and ``ADD COLUMN`` commands will add the new suspect column
    to the crime table.
 
    Open CrimeDatabase.kt, increment the version, and add a migration.
@@ -13950,25 +14457,26 @@ C16👊 Implicit Intents
 
    .. code-block:: kotlin
 
-   @Database(entities = [Crime::class], version = 1 version = 2)
-   @TypeConverters(CrimeTypeConverters::class)
-   abstract class CrimeDatabase : RoomDatabase() {
-   abstract fun crimeDao(): CrimeDao
-   }
+      @Database(entities = [Crime::class], version = 1 version = 2)
+      @TypeConverters(CrimeTypeConverters::class)
+      abstract class CrimeDatabase : RoomDatabase() {
+         abstract fun crimeDao(): CrimeDao
+      }
 
-   val migration_1_2 = object : Migration(1, 2) {
-   override fun migrate(database: Su??ortSQLiteDatabase) {
-   database.execSQL(
-   "ALTER TABLE Crime ADD COLUMN suspect TEXT NOT NULL DEFAULT ''"
-   )
-   }
-   }
+      val migration_1_2 = object : Migration(1, 2) {
+         override fun migrate(database: SupportSQLiteDatabase) {
+            database.execSQL(
+            "ALTER TABLE Crime ADD COLUMN suspect TEXT NOT NULL DEFAULT ''"
+            )
+         }
+      }
+
    After you create your Migration, you need to provide it to your database
-   when it is created. Open CrimeRepository.kt and provide the
-   migration to Room when creating your CrimeDatabase instance. Call
-   addMigrations(…) before calling the build() function.
+   when it is created. Open ``CrimeRepository.kt`` and provide the
+   migration to Room when creating your ``CrimeDatabase`` instance. Call
+   ``addMigrations(…)`` before calling the ``build()`` function.
 
-   addMigrations() takes in a variable number of Migration objects,
+   ``addMigrations()`` takes in a variable number of Migration objects,
    so you can pass all your migrations in when you declare them.
 
 
@@ -13976,21 +14484,21 @@ C16👊 Implicit Intents
 
    .. code-block:: kotlin
 
-   class CrimeRepository private constructor(
-   context: Context,
-   private val coroutineScope: CoroutineScope = GlobalScope
-   ) {
+      class CrimeRepository private constructor(
+         context: Context,
+         private val coroutineScope: CoroutineScope = GlobalScope
+      ) {
+         private val database: CrimeDatabase = Room
+            .databaseBuilder(
+               context.applicationContext,
+               CrimeDatabase::class.Java,
+               DATABASE_NAME
+            )
+            .addMigrations(migration_1_2)
+            .build()
+         ...
+      }
 
-   private val database: CrimeDatabase = Room
-   .databaseBuilder(
-   context.applicationContext,
-   CrimeDatabase::class.Java,
-   DATABASE_NAME
-   )
-   .addMigrations(migration_1_2)
-   .build()
-      ...
-   }
    Once your migration is in place, run CriminalIntent to make sure everything
    builds correctly. The app behavior should be the same as before you applied
    the migration, and you should see the crime you added in Chapter 15. You
@@ -14006,13 +14514,16 @@ C16👊 Implicit Intents
    configured with the specific crime’s details. Because you will not know a
    crime’s details until runtime, you must use a format string with placeholders
    that can be replaced at runtime. Here is the format string you will use:
-   %1$s! The crime was discovered on %2$s. %3$s, and %4$s
-   %1$s , %2$s , etc. are placeholders that expect string arguments. In code, you
-   will call getString(…) and pass in the format string and four other
+
+      %1$s! The crime was discovered on %2$s. %3$s, and %4$s
+
+   ``%1$s`` , ``%2$s`` , etc. are placeholders that expect string arguments. 
+   In code, you will call ``getString(…)`` and pass in the format string and four other
    strings in the order in which they should replace the placeholders. The
    result will be a report along the lines of, “Stolen yogurt! The crime was
    discovered on Wed., May 11. The case is not solved, and there is no
    suspect.”
+
    First, in strings.xml, add the strings shown in Listing 16.6.
 
 
@@ -14020,20 +14531,21 @@ C16👊 Implicit Intents
 
    .. code-block:: xml
 
-   <resources>
-      ...
-   <string name="crime_suspect_text">Choose Suspect</string>
-   <string name="crime_report_text">Send Crime Report</string>
-   <string name="crime_report">%1$s!
-   The crime was discovered on %2$s. %3$s, and %4$s
-   </string>
-   <string name="crime_report_solved">The case is solved</string>
-   <string name="crime_report_unsolved">The case is not solved</string>
-   <string name="crime_report_no_suspect">there is no suspect.</string>
-   <string name="crime_report_suspect">the suspect is %s.</string>
-   <string name="crime_report_subject">CriminalIntent Crime Report</string>
-   <string name="send_report">Send crime report via</string>
-   </resources>
+      <resources>
+         ...
+         <string name="crime_suspect_text">Choose Suspect</string>
+         <string name="crime_report_text">Send Crime Report</string>
+         <string name="crime_report">%1$s!
+         The crime was discovered on %2$s. %3$s, and %4$s
+         </string>
+         <string name="crime_report_solved">The case is solved</string>
+         <string name="crime_report_unsolved">The case is not solved</string>
+         <string name="crime_report_no_suspect">there is no suspect.</string>
+         <string name="crime_report_suspect">the suspect is %s.</string>
+         <string name="crime_report_subject">CriminalIntent Crime Report</string>
+         <string name="send_report">Send crime report via</string>
+      </resources>
+
    In CrimeDetailFragment.kt, add a function that creates four strings
    and then pieces them together and returns a complete report.
 
@@ -14042,36 +14554,39 @@ C16👊 Implicit Intents
 
    .. code-block:: kotlin
 
-   private const val DATE_FORMAT = "EEE, MMM, dd"
+      private const val DATE_FORMAT = "EEE, MMM, dd"
 
-   class CrimeDetailFragment : Fragment() {
-      ...
-   private fun updateUi(crime: Crime) {
-      ...
-   }
+      class CrimeDetailFragment : Fragment() {
+         ...
+         private fun updateUi(crime: Crime) {
+            ...
+         }
 
-   private fun getCrimeReport(crime: Crime): String {
-   val solvedString = if (crime.isSolved) {
-   getString(R.string.crime_report_solved)
-   } else {
-   getString(R.string.crime_report_unsolved)
-   }
+         private fun getCrimeReport(crime: Crime): String {
+            val solvedString = if (crime.isSolved) {
+               getString(R.string.crime_report_solved)
+            } else {
+               getString(R.string.crime_report_unsolved)
 
-   val dateString = DateFormat.format(DATE_FORMAT, crime.date).toString()
-   val suspectText = if (crime.suspect.isBlank()) {
-   getString(R.string.crime_report_no_suspect)
-   } else {
-   getString(R.string.crime_report_suspect, crime.suspect)
-   }
+            }
 
-   return getString(
-   R.string.crime_report,
-   crime.title, dateString, solvedString, suspectText
-   )
-   }
-   }
+            val dateString = DateFormat.format(DATE_FORMAT, crime.date).toString()
+            val suspectText = if (crime.suspect.isBlank()) {
+               getString(R.string.crime_report_no_suspect)
+            } else {
+               getString(R.string.crime_report_suspect, crime.suspect)
+            }
+
+            return getString(
+            R.string.crime_report,
+            crime.title, dateString, solvedString, suspectText
+            )
+         }
+      }
+
    (There are multiple DateFormat classes. Make sure you import
    android.text.format.DateFormat.)
+
    Now the preliminaries are complete, and you can turn to implicit intents.
 
 
@@ -14083,12 +14598,16 @@ C16👊 Implicit Intents
    An Intent is an object that describes to the OS something that you want
    it to do. With the explicit intents that you have created thus far, you
    explicitly name the activity that you want the OS to start, like:
-   val intent = Intent(this, CheatActivity::class.Java)
-   startActivity(intent)
-   With an implicit intent, you describe to the OS the ?ob that you want done.
 
+   .. code-block:: kotlin
+
+      val intent = Intent(this, CheatActivity::class.Java)
+
+      startActivity(intent)
+
+   With an implicit intent, you describe to the OS the job that you want done.
    The OS then starts the activity that has advertised itself as capable of doing
-   that ?ob. If the OS finds more than one capable activity, then the user is
+   that job. If the OS finds more than one capable activity, then the user is
    offered a choice.
 
 
@@ -14097,61 +14616,67 @@ C16👊 Implicit Intents
 16.5. Parts of an implicit intent
 --------------------------------------------------------------------------------
 
-   Here are the critical parts of an intent that you can use to define the ?ob you
+   Here are the critical parts of an intent that you can use to define the job you
    want done:
-   the action that you are trying to perform
-   Actions are typically constants from the Intent class. For
-   example, if you want to view a URL, you can use
-   Intent.ACTION_VIEW for your action. To send something, you use
-   Intent.ACTION_SEND .
 
-   the location of any data
-   The data can be something outside the device, like the URL of a
-   web page, but it can also be a URI to a file or a content URI
-   pointing to a record in a ContentProvider.
+   the ``action`` that you are trying to perform
+      Actions are typically constants from the Intent class. For
+      example, if you want to view a URL, you can use
+      ``Intent.ACTION_VIEW`` for your action. To send something, you use
+      ``Intent.ACTION_SEND`` .
 
-   the type of data that the action is for
-   This is a MIME type, like text/html or audio/mpeg3 . If an intent
-   includes a location for data, then the type can usually be inferred
-   from that data.
+   the ``location`` of any data
+      The data can be something outside the device, like the URL of a
+      web page, but it can also be a URI to a file or a content URI
+      pointing to a record in a ContentProvider.
 
-   optional categories
-   If the action is used to describe what to do, the category usually
-   describes where , when , or how you are trying to use an activity.
+   the ``type`` of data that the action is for
+      This is a MIME type, like ``text/html`` or ``audio/mpeg3`` . If an intent
+      includes a location for data, then the type can usually be inferred
+      from that data.
 
-   Android uses the category android.intent.category.LAUNCHER
+   optional ``categories``
+      If the action is used to describe what to do, the category usually
+      describes where , when , or how you are trying to use an activity.
+
+   Android uses the category ``android.intent.category.LAUNCHER``
    to indicate that an activity should be displayed in the top-level
-   app launcher. The android.intent.category.INFO category, on
+   app launcher. The ``android.intent.category.INFO`` category, on
    the other hand, indicates an activity that shows information about
    a package to the user but should not show up in the launcher.
 
    So, for example, a simple implicit intent for viewing a website would
-   include an action of Intent.ACTION_VIEW and a data Uri that is the URL
+   include an action of ``Intent.ACTION_VIEW`` and a data Uri that is the URL
    of a website.
 
    Based on this information, the OS will launch the appropriate activity of an
    appropriate application. (Or, if it finds more than one candidate, present the
    user with a choice.)
-   An activity advertises itself as an appropriate activity for ACTION_VIEW via
+
+   An activity advertises itself as an appropriate activity for ``ACTION_VIEW`` via
    an intent filter in the manifest. If you wanted to write a browser app,
    for instance, you would include the following intent filter in the declaration
-   of the activity that should respond to ACTION_VIEW :
-   <activity
-   android:name=".BrowserActivity"
-   android:label="@string/app_name"
-   android:exported="true" >
-   <intent-filter>
-   <action android:name="android.intent.action.VIEW" />
-   <category android:name="android.intent.category.DEFAULT" />
-   <data android:scheme="http" android:host="www.bignerdranch.com" />
-   </intent-filter>
-   </activity>
-   To respond to implicit intents, an activity must have the android:exported
-   attribute set to true and, in an intent filter, the DEFAULT category explicitly
+   of the activity that should respond to ``ACTION_VIEW`` :
+
+   .. code-block:: xml
+
+      <activity
+         android:name=".BrowserActivity"
+         android:label="@string/app_name"
+         android:exported="true" >
+         <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <data android:scheme="http" android:host="www.bignerdranch.com" />
+         </intent-filter>
+      </activity>
+
+   To respond to implicit intents, an activity must have the ``android:exported``
+   attribute set to true and, in an intent filter, the ``DEFAULT`` category explicitly
    included. The action element in the intent filter tells the OS that the
-   activity is capable of performing the ?ob, and the DEFAULT category tells the
-   OS that this activity should be considered for the ?ob when the OS is asking
-   for volunteers. This DEFAULT category is implicitly added to every implicit
+   activity is capable of performing the job, and the ``DEFAULT`` category tells the
+   OS that this activity should be considered for the job when the OS is asking
+   for volunteers. This ``DEFAULT`` category is implicitly added to every implicit
    intent.
 
    Implicit intents can also include extras, just like explicit intents. But any
@@ -14167,43 +14692,45 @@ C16👊 Implicit Intents
 --------------------------------------------------------------------------------
 
    Let’s see how this works by creating an implicit intent to send a crime
-   report in CriminalIntent. The ?ob you want done is sending plain text; the
+   report in CriminalIntent. The job you want done is sending plain text; the
    crime report is a string. So the implicit intent’s action will be
-   ACTION_SEND. It will not point to any data or have any categories, but it
+   ``ACTION_SEND``. It will not point to any data or have any categories, but it
    will specify a type of text/plain .
 
-   In CrimeDetailFragment’s updateUi() method, set a listener on
+   In CrimeDetailFragment’s ``updateUi()`` method, set a listener on
    your new crime report button. Within the listener’s implementation, create
-   an implicit intent and pass it into startActivity(Intent).
+   an implicit intent and pass it into ``startActivity(Intent)``.
 
 
    Listing 16.8 Sending a crime report (CrimeDetailFragment.kt)
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
-      ...
-   private fun updateUi(crime: Crime) {
-   binding.apply {
-      ...
-   crimeSolved.isChecked = crime.isSolved
+      class CrimeDetailFragment : Fragment() {
+         ...
+         private fun updateUi(crime: Crime) {
+            binding.apply {
+               ...
+               crimeSolved.isChecked = crime.isSolved
 
-   crimeReport.setOnClickListener {
-   val reportIntent = Intent(Intent.ACTION_SEND).apply {
-   type = "text/?lain"
-   ?utExtra(Intent.EXTRA_TEXT, getCrimeReport(crime))
-   ?utExtra(
-   Intent.EXTRA_SUBJECT,
-   getString(R.string.crime_report_subject)
-   )
-   }
+               crimeReport.setOnClickListener {
+                  val reportIntent = Intent(Intent.ACTION_SEND).apply {
+                     type = "text/?lain"
+                     putExtra(Intent.EXTRA_TEXT, getCrimeReport(crime))
 
-   startActivity(reportIntent)
-   }
-   }
-   }
-      ...
-   }
+                     putExtra(
+                     Intent.EXTRA_SUBJECT,
+                     getString(R.string.crime_report_subject)
+
+                     )
+                  }
+                  startActivity(reportIntent)
+               }
+            }
+         }
+         ...
+      }
+
    Here you use the Intent constructor that accepts a string that is a constant
    defining the action. There are other constructors that you can use depending
    on what kind of implicit intent you need to create. You can find them all on
@@ -14218,10 +14745,10 @@ C16👊 Implicit Intents
 
    Starting an activity from a fragment works nearly the same as starting an
    activity from another activity. You call Fragment’s
-   startActivity(Intent) function, which calls the corresponding
+   ``startActivity(Intent)`` function, which calls the corresponding
    Activity function behind the scenes.
 
-   Run CriminalIntent and press the SEND CRIME REPORT button. Because this
+   Run ``CriminalIntent`` and press the SEND CRIME REPORT button. Because this
    intent will likely match many activities on the device, you will probably see
    a list of activities presented in a chooser (Figure 16.2). You may need to
    scroll down in the list to see all of the activities.
@@ -14259,11 +14786,11 @@ C16👊 Implicit Intents
    With a little extra configuration, you can create a chooser to be shown every
    time an implicit intent is used to start an activity. After you create your
    implicit intent as before, you call the
-   Intent.createChooser(Intent, String) function and pass in
+   ``Intent.createChooser(Intent, String)`` function and pass in
    the implicit intent and a string for the chooser’s title.
 
-   Then you pass the intent returned from createChooser(…) into
-   startActivity(…).
+   Then you pass the intent returned from ``createChooser(…)`` into
+   ``startActivity(…)``.
 
    In CrimeDetailFragment.kt, create a chooser to display the
    activities that respond to your implicit intent.
@@ -14271,35 +14798,39 @@ C16👊 Implicit Intents
 
    Listing 16.9 Using a chooser (CrimeDetailFragment.kt)
 
+
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
-      ...
-   private fun updateUi(crime: Crime) {
-   binding.apply {
-      ...
-   crimeReport.setOnClickListener {
-   val reportIntent = Intent(Intent.ACTION_SEND).apply {
-   type = "text/plain"
-   putExtra(Intent.EXTRA_TEXT, getCrimeReport(crime))
-   putExtra(
-   Intent.EXTRA_SUBJECT,
-   getString(R.string.crime_report_sub?ect)
-   )
-   }
+      class CrimeDetailFragment : Fragment() {
+         ...
+         private fun updateUi(crime: Crime) {
+            binding.apply {
+               ...
+               crimeReport.setOnClickListener {
+                  val reportIntent = Intent(Intent.ACTION_SEND).apply {
+                     type = "text/plain"
+                     putExtra(Intent.EXTRA_TEXT, getCrimeReport(crime))
 
-   startActivity(reportIntent)
-   val chooserIntent = Intent.createChooser(
-   reportIntent,
-   getString(R.string.send_report)
-   )
-   startActivity(chooserIntent)
-   }
-   }
-   }
-      ...
-   }
-   Run CriminalIntent again and press the SEND CRIME REPORT button. As long
+                     putExtra(
+                        Intent.EXTRA_SUBJECT,
+                        getString(R.string.crime_report_sub?ect)
+                     )
+                  }
+
+                  startActivity(reportIntent)
+
+                  val chooserIntent = Intent.createChooser(
+                     reportIntent,
+                     getString(R.string.send_report)
+                  )
+                  startActivity(chooserIntent)
+               }
+            }
+         }
+         ...
+      }
+
+   Run ``CriminalIntent`` again and press the SEND CRIME REPORT button. As long
    as you have more than one activity that can handle your intent, you will be
    offered a list to choose from (Figure 16.4).
 
@@ -14327,48 +14858,47 @@ C16👊 Implicit Intents
    In Chapter 7, you learned about classes that define a contract between you
    and the Activity you are starting. This contract defines the input you
    provide to start the Activity and the output you expect to receive as a
-   result. There, you used the contract
-   ActivityResultContracts.StartActivityForResult() – a
-   basic contract that takes in an Intent and provides an
-   ActivityResult as output.
+   result. There, you used the contract 
+   ``ActivityResultContracts.StartActivityForResult()`` – a
+   basic contract that takes in an Intent and provides an ``ActivityResult`` as output.
 
-   You could use
-   ActivityResultContracts.StartActivityForResult()
+   You could use ``ActivityResultContracts.StartActivityForResult()``
    again. But instead, you will use the more specific
-   ActivityResultContracts.PickContact() class. It is a better
+   ``ActivityResultContracts.PickContact()`` class. It is a better
    option here because, as its name indicates, it is specifically designed for this
    use case.
 
-   ActivityResultContracts.PickContact() will send the user to
+   ``ActivityResultContracts.PickContact()`` will send the user to
    an activity where they can select a contact. Once the user selects a contact,
    you will receive a Uri back as the result. You will see how to read the
    contact data from this Uri later in this chapter.
 
    You expect a result back from the started activity, so you will use
-   registerForActivityResult(…) again. In
+   ``registerForActivityResult(…)`` again. In
    CrimeDetailFragment.kt, add the following:
 
    Listing 16.10 Registering for a result (CrimeDetailFragment.kt)
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
-      ...
-   private val crimeDetailViewModel: CrimeDetailViewModel by viewModels {
-   CrimeDetailViewModelFactory(args.crimeId)
-   }
+      class CrimeDetailFragment : Fragment() {
+         ...
+         private val crimeDetailViewModel: CrimeDetailViewModel by viewModels {
+            CrimeDetailViewModelFactory(args.crimeId)
+         }
 
-   private val selectSuspect = registerForActivityResult(
-   ActivityResultContracts.PickContact()
-   ) { uri: Uri? ->
-   // Handle the result
-   }
-      ...
-   }
-   In onViewCreated(), set a click listener on the crimeSuspect
-   button. Inside the listener, call the launch() function on your
-   selectSuspect property. Unlike the work you did in Chapter 7,
-   selecting a contact requires no input, so pass null into the launch()
+         private val selectSuspect = registerForActivityResult(
+            ActivityResultContracts.PickContact()
+         ) { uri: Uri? ->
+            // Handle the result
+         }
+         ...
+      }
+
+   In ``onViewCreated()``, set a click listener on the crimeSuspect
+   button. Inside the listener, call the ``launch()`` function on your
+   ``selectSuspect`` property. Unlike the work you did in Chapter 7,
+   selecting a contact requires no input, so pass null into the ``launch()``
    function.
 
 
@@ -14376,29 +14906,30 @@ C16👊 Implicit Intents
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
-      ...
-   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-   super.onViewCreated(view, savedInstanceState)
+      class CrimeDetailFragment : Fragment() {
+         ...
+         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+            super.onViewCreated(view, savedInstanceState)
 
-   binding.apply {
-      ...
-   crimeSolved.setOnCheckedChangeListener { _, isChecked ->
-   crimeDetailViewModel.updateCrime { oldCrime ->
-   oldCrime.copy(isSolved = isChecked)
-   }
-   }
+            binding.apply {
+               ...
+               crimeSolved.setOnCheckedChangeListener { _, isChecked ->
+                  crimeDetailViewModel.updateCrime { oldCrime ->
+                     oldCrime.copy(isSolved = isChecked)
+                  }
+               }
 
-   crimeSuspect.setOnClickListener {
-   selectSuspect.launch(null)
-   }
-   }
-   }
-      ...
-   }
-   Next, modify updateUi(crime: Crime) to set the text on the
+               crimeSuspect.setOnClickListener {
+                  selectSuspect.launch(null)
+               }
+            }
+         }
+         ...
+      }
+
+   Next, modify ``updateUi(crime: Crime)`` to set the text on the
    CHOOSE SUSPECT button if the crime has a suspect. Use the
-   String.ifEmpty() extension function to provide default text if there is
+   ``String.ifEmpty()`` extension function to provide default text if there is
    no current suspect.
 
 
@@ -14406,25 +14937,26 @@ C16👊 Implicit Intents
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
-      ...
-   private fun updateUi(crime: Crime) {
-   binding.apply {
-      ...
-   crimeReport.setOnClickListener {
-      ...
-   }
+      class CrimeDetailFragment : Fragment() {
+         ...
+         private fun updateUi(crime: Crime) {
+            binding.apply {
+               ...
+               crimeReport.setOnClickListener {
+                  ...
+               }
 
-   crimeSuspect.text = crime.suspect.ifEmpty {
-   getString(R.string.crime_suspect_text)
-   }
-   }
-   }
-      ...
-   }
-   Run CriminalIntent on a device that has a contacts app – use the emulator if
+               crimeSuspect.text = crime.suspect.ifEmpty {
+                  getString(R.string.crime_suspect_text)
+               }
+            }
+         }
+         ...
+      }
+
+   Run ``CriminalIntent`` on a device that has a contacts app – use the emulator if
    your Android device does not have one. If you are using the emulator, add a
-   few contacts using its Contacts app before you run CriminalIntent. Then run
+   few contacts using its Contacts app before you run ``CriminalIntent``. Then run
    your app.
 
    Press the CHOOSE SUSPECT button. You should see a list of contacts
@@ -14440,20 +14972,22 @@ C16👊 Implicit Intents
    Users can install whatever app they like best, and the OS will find and
    launch it.
 
-   Getting data from the contacts list
+
+Getting data from the contacts list
+
    Now you need to get a result back from the contacts application. Contacts
    information is shared by many applications, so Android provides an in-
    depth API for working with contacts information through a
-   ContentProvider. Instances of this class wrap databases and make the
-   data available to other applications. You can access a ContentProvider
-   through a ContentResolver.
+   ``ContentProvider``. Instances of this class wrap databases and make the
+   data available to other applications. You can access a ``ContentProvider``
+   through a ``ContentResolver``.
 
    (The contacts database is a large topic in itself. We will not cover it here. If
    you would like to know more, read the Content Provider API guide at
-   https://developer.android.google.cn/guide/topics/providers/
-   content-provider-basics.)
+   https://developer.android.google.cn/guide/topics/providers/content-provider-basics.)
+
    Because you started the activity with the
-   ActivityResultContracts.PickContact() class, you might
+   ``ActivityResultContracts.PickContact()`` class, you might
    receive a data Uri as output. (We say “might” here because if the user
    cancels and does not select a suspect, your output will be null .) The Uri is
    not your suspect’s name or any data about them; rather, it points at a
@@ -14468,64 +15002,67 @@ C16👊 Implicit Intents
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment(), DatePickerFragment.Callbacks {
-      ...
-   private fun getCrimeReport(crime: Crime): String {
-      ...
-   }
+      class CrimeDetailFragment : Fragment(), DatePickerFragment.Callbacks {
+         ...
+         private fun getCrimeReport(crime: Crime): String {
+            ...
+         }
 
-   private fun ?arseContactSelection(contactUri: Uri) {
-   val queryFields = arrayOf(ContactsContract.Contacts.DISPLAY_NAME)
+         private fun parseContactSelection(contactUri: Uri) {
+            val queryFields = arrayOf(ContactsContract.Contacts.DISPLAY_NAME)
 
-   val queryCursor = requireActivity().contentResolver
-   .query(contactUri, queryFields, null, null, null)
+            val queryCursor = requireActivity().contentResolver
+            .query(contactUri, queryFields, null, null, null)
 
-   queryCursor?.use { cursor ->
-   if (cursor.moveToFirst()) {
-   val suspect = cursor.getString(0)
-   crimeDetailViewModel.updateCrime { oldCrime ->
-   oldCrime.copy(suspect = suspect)
-   }
-   }
-   }
-   }
-      ...
-   }
+
+            queryCursor?.use { cursor ->
+               if (cursor.moveToFirst()) {
+                  val suspect = cursor.getString(0)
+                  crimeDetailViewModel.updateCrime { oldCrime ->
+                     oldCrime.copy(suspect = suspect)
+                  }
+               }
+            }
+         }
+         ...
+      }
+
    In Listing 16.13, you create a query that asks for all the display names of
    the contacts in the returned data. Then you query the contacts database and
    get a Cursor object to work with. The Cursor points to a database table
    containing a single row and a single column. The row represents the contact
    the user selected, and the specified column has the contact’s name.
 
-   The Cursor.moveToFirst() function accomplishes two things for
+   The ``Cursor.moveToFirst()`` function accomplishes two things for
    you: It moves the cursor to the first row, and it returns a Boolean you use to
    determine whether there is data to read from. To extract the suspect’s name,
-   you call Cursor.getString(Int), passing in 0 , to pull the contents of
+   you call ``Cursor.getString(Int)``, passing in 0 , to pull the contents of
    the first column in that first row as a string. Finally, you update the crime
-   within your CrimeDetailViewModel.
+   within your ``CrimeDetailViewModel``.
 
-   Now, the suspect information is stored in the CrimeDetailViewModel,
+   Now, the suspect information is stored in the ``CrimeDetailViewModel``,
    and your UI will update as it observes the StateFlow’s changes.
 
    But there is one more step: You need to call
-   ?arseContactSelection(Uri) when you get a result back. Invoke
-   it when calling registerForActivityResult(…).
+   ``parseContactSelection(Uri)`` when you get a result back. Invoke
+   it when calling ``registerForActivityResult(…)``.
 
 
    Listing 16.14 Invoking your function (CrimeDetailFragment.kt)
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
-      ...
-   private val selectSuspect = registerForActivityResult(
-   ActivityResultContracts.PickContact()
-   ) { uri: Uri? ->
-   // Handle the result
-   uri?.let { ?arseContactSelection(it) }
-   }
-      ...
-   }
+      class CrimeDetailFragment : Fragment() {
+         ...
+         private val selectSuspect = registerForActivityResult(
+            ActivityResultContracts.PickContact()
+         ) { uri: Uri? ->
+            // Handle the result
+            uri?.let { parseContactSelection(it) }
+         }
+         ...
+      }
+
    Run your app, select a crime, and pick a suspect. The name of the suspect
    you chose should appear on the CHOOSE SUSPECT button. Then send a crime
    report. The suspect’s name should appear in the crime report (Figure 16.6).
@@ -14533,14 +15070,16 @@ C16👊 Implicit Intents
 
    Figure 16.6 Suspect name on button and in crime report
 
-   Contacts permissions
+
+Contacts permissions
+
    You might be wondering how you are getting permission to read from the
    contacts database. The contacts app is extending its permissions to you.
 
    The contacts app has full permissions to the contacts database. When the
    contacts app returns a data URI as the result, it also adds the flag
-   Intent.FLAG_GRANT_READ_URI_PERMISSION . This flag signals to Android
-   that CriminalIntent should be allowed to use this data one time. This works
+   ``Intent.FLAG_GRANT_READ_URI_PERMISSION`` . This flag signals to Android
+   that ``CriminalIntent`` should be allowed to use this data one time. This works
    well, because you do not really need access to the entire contacts database.
 
    You only need access to one contact inside that database.
@@ -14562,9 +15101,11 @@ C16👊 Implicit Intents
    respond to your implicit intent. If one or more activities are returned, then
    your user is all set to pick a contact. If no activities come back, then the
    user does not have an appropriate contact picker and the functionality
-   should be disabled in CriminalIntent.
+   should be disabled in ``CriminalIntent``.
 
-   Disclosing queries
+
+Disclosing queries
+
    To successfully make that query, you must first disclose that you are going
    to make it. This provides extra security for users, because apps have to
    declare what types of external requests they make to the system. In the past,
@@ -14573,43 +15114,46 @@ C16👊 Implicit Intents
    that fingerprint to track that device across apps.
 
    To prevent this invasion of privacy, you provide this disclosure within your
-   AndroidManifest.xml. Open the file and make the following updates:
+   ``AndroidManifest.xml``. Open the file and make the following updates:
 
    Listing 16.15 Adding external queries to manifest (AndroidManifest.xml)
 
    .. code-block:: xml
 
-   <?xml version="1.0" encoding="utf-8"?>
-   <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-   package="com.bignerdranch.android.criminalintent">
+      <?xml version="1.0" encoding="utf-8"?>
+      <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+         package="com.bignerdranch.android.criminalintent">
 
-   <application ...>
-      ...
-   </application>
-   <queries>
-   <intent>
-   <action android:name="android.intent.action.PICK" />
-   <data android:mimeType="vnd.android.cursor.dir/contact" />
-   </intent>
-   </queries>
-   </manifest>
+         <application ...>
+            ...
+         </application>
+         <queries>
+            <intent>
+               <action android:name="android.intent.action.PICK" />
+               <data android:mimeType="vnd.android.cursor.dir/contact" />
+            </intent>
+         </queries>
+      </manifest>
+
    The queries block at the end of the manifest includes all the external
-   intents the app is going to look up. Because CriminalIntent wants to check
+   intents the app is going to look up. Because ``CriminalIntent`` wants to check
    for a contacts app, the relevant intent information is provided so the system
    is aware. If you do not provide this disclosure, then on newer versions of
    Android the system will always tell you that no activities can handle your
    request.
 
-   Querying the PackageManager
-   Now that you have provided your disclosure, you can determine whether
-   the OS can handle your request through the PackageManager class.
 
-   PackageManager knows about all the components installed on an
+Querying the PackageManager
+
+   Now that you have provided your disclosure, you can determine whether
+   the OS can handle your request through the ``PackageManager`` class.
+
+   ``PackageManager`` knows about all the components installed on an
    Android device, including all its activities. By calling
-   resolveActivity(Intent, Int), you can ask it to find an activity
-   that matches the Intent you gave it. The MATCH_DEFAULT_ONLY flag
-   restricts this search to activities with the CATEGORY_DEFAULT flag, just
-   like startActivity(Intent) does.
+   ``resolveActivity(Intent, Int)``, you can ask it to find an activity
+   that matches the Intent you gave it. The ``MATCH_DEFAULT_ONLY`` flag
+   restricts this search to activities with the ``CATEGORY_DEFAULT`` flag, just
+   like ``startActivity(Intent)`` does.
 
    If this search is successful, it will return an instance of ResolveInfo
    telling you all about which activity it found. On the other hand, if the search
@@ -14618,8 +15162,8 @@ C16👊 Implicit Intents
    from the list of contacts, based on whether the system can handle the
    request.
 
-   Add the canResolveIntent() function to the bottom of
-   CrimeDetailFragment. It will take in an Intent and return a
+   Add the ``canResolveIntent()`` function to the bottom of
+   ``CrimeDetailFragment``. It will take in an Intent and return a
    Boolean indicating whether that Intent can be resolved.
 
 
@@ -14627,28 +15171,29 @@ C16👊 Implicit Intents
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
-      ...
-   private fun parseContactSelection(contactUri: Uri) {
-      ...
-   }
+      class CrimeDetailFragment : Fragment() {
+         ...
+         private fun parseContactSelection(contactUri: Uri) {
+            ...
+         }
 
-   private fun canResolveIntent(intent: Intent): Boolean {
-   val ?ackageManager: PackageManager = requireActivity().?ackageManager
-   val resolvedActivity: ResolveInfo? =
-   ?ackageManager.resolveActivity(
-   intent,
-   PackageManager.MATCH_DEFAULT_ONLY
-   )
-   return resolvedActivity != null
-   }
-   }
-   Under the hood, the Activity Results API uses Intents to perform its
+         private fun canResolveIntent(intent: Intent): Boolean {
+            val packageManager: PackageManager = requireActivity().packageManager
+            val resolvedActivity: ResolveInfo? =
+               packageManager.resolveActivity(
+                  intent,
+                  PackageManager.MATCH_DEFAULT_ONLY
+               )
+            return resolvedActivity != null
+         }
+      }
+
+   Under the hood, the ``Activity`` Results API uses Intents to perform its
    actions. You can create an instance of those Intents by invoking
-   createIntent() on the launcher’s contract property. Use your new
-   canResolveIntent() function with the Intent backing the
-   selectSuspect property to enable or disable the suspect button in
-   onViewCreated(…). That way, the device will not crash if the user tries
+   ``createIntent()`` on the launcher’s contract property. Use your new
+   ``canResolveIntent()`` function with the Intent backing the
+   ``selectSuspect`` property to enable or disable the suspect button in
+   ``onViewCreated(…)``. That way, the device will not crash if the user tries
    to select a suspect when the device does not have a contacts app.
 
 
@@ -14656,26 +15201,28 @@ C16👊 Implicit Intents
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
-      ...
-   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-   super.onViewCreated(view, savedInstanceState)
+      class CrimeDetailFragment : Fragment() {
+         ...
+         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+            super.onViewCreated(view, savedInstanceState)
 
-   binding.apply {
-      ...
-   crimeSuspect.setOnClickListener {
-   selectSuspect.launch(null)
-   }
 
-   val selectSuspectIntent = selectSuspect.contract.createIntent(
-   requireContext(),
-   null
-   )
-   crimeSuspect.isEnabled = canResolveIntent(selectSuspectIntent)
-   }
-   }
-      ...
-   }
+            binding.apply {
+               ...
+               crimeSuspect.setOnClickListener {
+                  selectSuspect.launch(null)
+               }
+
+               val selectSuspectIntent = selectSuspect.contract.createIntent(
+               requireContext(),
+               null
+               )
+               crimeSuspect.isEnabled = canResolveIntent(selectSuspectIntent)
+            }
+         }
+         ...
+      }
+
    If you would like to verify that your filter works, but you do not have a
    device without a contacts application, temporarily add an additional
    category to the intent trying to be resolved. This category does nothing, but
@@ -14686,20 +15233,22 @@ C16👊 Implicit Intents
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
-      ...
-   private fun canResolveIntent(intent: Intent): Boolean {
-   intent.addCategory(Intent.CATEGORY_HOME)
-   val packageManager: PackageManager = requireActivity().packageManager
-   val resolvedActivity: ResolveInfo? =
-   packageManager.resolveActivity(
-   intent,
-   PackageManager.MATCH_DEFAULT_ONLY
-   )
-   return resolvedActivity != null
-   }
-   }
-   Run CriminalIntent again, and you should see the CHOOSE SUSPECT button
+      class CrimeDetailFragment : Fragment() {
+         ...
+         private fun canResolveIntent(intent: Intent): Boolean {
+            intent.addCategory(Intent.CATEGORY_HOME)
+
+            val packageManager: PackageManager = requireActivity().packageManager
+            val resolvedActivity: ResolveInfo? =
+               packageManager.resolveActivity(
+                  intent,
+                  PackageManager.MATCH_DEFAULT_ONLY
+               )
+            return resolvedActivity != null
+         }
+      }
+
+   Run ``CriminalIntent`` again, and you should see the CHOOSE SUSPECT button
    disabled (Figure 16.7).
 
 
@@ -14712,19 +15261,20 @@ C16👊 Implicit Intents
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
-      ...
-   private fun canResolveIntent(intent: Intent): Boolean {
-   intent.addCategory(Intent.CATEGORY_HOME)
-   val packageManager: PackageManager = requireActivity().packageManager
-   val resolvedActivity: ResolveInfo? =
-   packageManager.resolveActivity(
-   intent,
-   PackageManager.MATCH_DEFAULT_ONLY
-   )
-   return resolvedActivity != null
-   }
-   }
+      class CrimeDetailFragment : Fragment() {
+         ...
+         private fun canResolveIntent(intent: Intent): Boolean {
+            intent.addCategory(Intent.CATEGORY_HOME)
+
+            val packageManager: PackageManager = requireActivity().packageManager
+            val resolvedActivity: ResolveInfo? =
+               packageManager.resolveActivity(
+               intent,
+               PackageManager.MATCH_DEFAULT_ONLY
+               )
+            return resolvedActivity != null
+         }
+      }
 
 .. _S16_09:
 
@@ -14736,35 +15286,37 @@ C16👊 Implicit Intents
    suspect.
 
    You will need the phone number from the contacts database. This will
-   require you to query another table in the ContactsContract database
-   called CommonDataKinds.Phone. Check out the documentation for
-   ContactsContract and
-   ContactsContract.CommonDataKinds.Phone for more
+   require you to query another table in the ``ContactsContract`` database
+   called ``CommonDataKinds.Phone``. Check out the documentation for
+   ``ContactsContract`` and ``ContactsContract.CommonDataKinds.Phone`` for more
    information on how to query for this information.
 
    A couple of tips: To query for additional data, you can use the
-   android.permission.READ_CONTACTS permission. This is a runtime
+   ``android.permission.READ_CONTACTS`` permission. This is a runtime
    permission , so you need to explicitly ask the user’s permission to access
    their contacts. If you would like to know more, read the Request App
-   Permissions guide at https://developer.android.google.cn/training/
-   permissions/ requesting.
+   Permissions guide at https://developer.android.google.cn/training/permissions/requesting.
 
    With that permission in hand, you can read the
-   ContactsContract.Contacts._ID to get a contact ID on your
+   ``ContactsContract.Contacts._ID`` to get a contact ID on your
    original query. You can then use that ID to query the
    CommonDataKinds.Phone table.
 
    Once you have the phone number, you can create an implicit intent with a
    telephone URI:
-   Uri number = Uri.parse("tel:5551234");
-   The action can be Intent.ACTION_DIAL or Intent.ACTION_CALL . What is
-   the difference? ACTION_CALL pulls up the phone app and immediately calls
-   the number sent in the intent; ACTION_DIAL just enters the number and waits
+
+   .. code-block:: kotlin
+
+      Uri number = Uri.parse("tel:5551234");
+
+   The action can be ``Intent.ACTION_DIAL`` or ``Intent.ACTION_CALL`` . What is
+   the difference? ``ACTION_CALL`` pulls up the phone app and immediately calls
+   the number sent in the intent; ``ACTION_DIAL`` just enters the number and waits
    for the user to initiate the call.
 
-   We recommend using ACTION_DIAL . It is the kinder, gentler option.
+   We recommend using ``ACTION_DIAL`` . It is the kinder, gentler option.
 
-   ACTION_CALL may be restricted and will definitely require a permission.
+   ``ACTION_CALL`` may be restricted and will definitely require a permission.
 
    Your user may also appreciate the chance to cool down before starting the
    call.
@@ -14812,13 +15364,13 @@ C17👊 Taking Pictures with Intents
    to the right of the Clip Art: label.
 
    Within the Select Icon window, search for photo camera and select the first
-   icon. Rename the asset to ic_camera (Figure 17.2). With that done, click
+   icon. Rename the asset to ``ic_camera`` (Figure 17.2). With that done, click
    Next , and then Finish on the following screen to add the icon to your project.
 
    Figure 17.2 Your camera icon
 
    With the icon now in the project, add new views to
-   res/layout/fragment_crime_detail.xml to build out this new
+   ``res/layout/fragment_crime_detail.xml`` to build out this new
    area. Start with the lefthand side, adding an ImageView for the picture
    and an ImageButton to take a picture.
 
@@ -14827,44 +15379,45 @@ C17👊 Taking Pictures with Intents
 
    .. code-block:: xml
 
-   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-   ... >
-   <LinearLayout
-   android:layout_width="match_parent"
-   android:layout_height="wrap_content"
-   android:orientation="horizontal">
+      <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+         ... >
+         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-   <LinearLayout
-   android:layout_width="wrap_content"
-   android:layout_height="wrap_content"
-   android:orientation="vertical"
-   android:layout_marginEnd="16d?">
+         <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginEnd="16d?">
 
-   <ImageView
-   android:id="@+id/crime_photo"
-   android:layout_width="80d?"
-   android:layout_height="80d?"
-   android:scaleType="centerInside"
-   android:cro?ToPadding="true"
-   android:background="@color/black"/>
+            <ImageView
+               android:id="@+id/crime_photo"
+               android:layout_width="80d?"
+               android:layout_height="80d?"
+               android:scaleType="centerInside"
+               android:cro?ToPadding="true"
+               android:background="@color/black"/>
 
-   <ImageButton
-   android:id="@+id/crime_camera"
-   android:layout_width="match_parent"
-   android:layout_height="wrap_content"
-   android:src="@drawable/ic_camera"/>
-   </LinearLayout>
-   </LinearLayout>
+            <ImageButton
+               android:id="@+id/crime_camera"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:src="@drawable/ic_camera"/>
+         </LinearLayout>
+         </LinearLayout>
 
-   <TextView
-   android:layout_width="match_parent"
-   android:layout_height="wrap_content"
-   android:textAppearance="?attr/textAppearanceHeadline5"
-   android:text="@string/crime_title_label" />
-      ...
-   </LinearLayout>
-   Now set up the righthand side, moving your title TextView and
-   EditText into a new LinearLayout child to the LinearLayout
+         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceHeadline5"
+            android:text="@string/crime_title_label" />
+               ...
+      </LinearLayout>
+
+   Now set up the righthand side, moving your title ``TextView`` and
+   ``EditText`` into a new ``LinearLayout`` child to the ``LinearLayout``
    you just built.
 
 
@@ -14872,50 +15425,53 @@ C17👊 Taking Pictures with Intents
 
    .. code-block:: xml
 
-   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-   ... >
-   <LinearLayout
-   android:layout_width="match_parent"
-   android:layout_height="wrap_content"
-   android:orientation="horizontal">
+      <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      ... >
+         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-   <LinearLayout
-   android:layout_width="wrap_content"
-   android:layout_height="wrap_content"
-   android:orientation="vertical"
-   android:layout_marginEnd="16dp">
-      ...
-   </LinearLayout>
-   </LinearLayout>
+            <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               android:layout_marginEnd="16dp">
+                  ...
+            </LinearLayout>
 
-   <LinearLayout
-   android:orientation="vertical"
-   android:layout_width="0d?"
-   android:layout_height="wrap_content"
-   android:layout_weight="1">
+      <!--</LinearLayout>-->
 
-   <TextView
-   android:layout_width="match_parent"
-   android:layout_height="wrap_content"
-   android:textAppearance="?attr/textAppearanceHeadline5"
-   android:text="@string/crime_title_label" />
+            <LinearLayout
+               android:orientation="vertical"
+               android:layout_width="0d?"
+               android:layout_height="wrap_content"
+               android:layout_weight="1">
 
-   <EditText
-   android:id="@+id/crime_title"
-   android:layout_width="match_parent"
-   android:layout_height="wrap_content"
-   android:importantForAutofill="no"
-   android:hint="@string/crime_title_hint"
-   android:inputType="text" />
-   </LinearLayout>
-   </LinearLayout>
-      ...
-   </LinearLayout>
-   Run CriminalIntent and press a crime to see its details. You should see your
+               <TextView
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:textAppearance="?attr/textAppearanceHeadline5"
+                  android:text="@string/crime_title_label" />
+
+               <EditText
+                  android:id="@+id/crime_title"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:importantForAutofill="no"
+                  android:hint="@string/crime_title_hint"
+                  android:inputType="text" />
+            </LinearLayout>
+         </LinearLayout>
+         ...
+      </LinearLayout>
+
+   Run ``CriminalIntent`` and press a crime to see its details. You should see your
    new UI looking just like Figure 17.1.
 
    And with that, you are done with the UI for the time being. (You will wire
    those buttons up in a minute or two.)
+
 
 .. _S17_02:
 
@@ -14929,36 +15485,40 @@ C17👊 Taking Pictures with Intents
    Luckily, you have a place to stash these files: your private storage. Each
    application on an Android device has a directory in the device’s sandbox .
 
-   Keeping files in the sandbo? protects them from being accessed by other
+   Keeping files in the sandbox protects them from being accessed by other
    applications or even the prying eyes of users (unless the device has been
    rooted, in which case the user can get to whatever they like).
 
-   Your crime database is actually a file within this private sandbo?. The
+   Your crime database is actually a file within this private sandbox. The
    Room library knows how to find and access this file to provide you with a
    working database that persists across app launches. With functions like
-   Context.getFileStreamPath(String) and
-   Context.getFilesDir(), you can do the same thing with regular
-   files, too (which will live in a subfolder ad?acent to the databases
-   subfolder your database lives in).
+   ``Context.getFileStreamPath(String)`` and ``Context.getFilesDir()``, 
+   you can do the same thing with regular files, too (which will live in a 
+   subfolder adjacent to the databases subfolder your database lives in).
 
    These are the basic file and directory functions in the Context class:
-   getFilesDir(): File
-   returns a handle to the directory for private application files
-   openFileIn?ut(name: String): FileIn?utStream
-   opens an existing file in the files directory for input
-   openFileOut?ut(name: String, mode: Int):
-   FileOut?utStream
-   opens a file in the files directory for output, possibly creating it
-   getDir(name: String, mode: Int): File
-   gets (and possibly creates) a subdirectory within the files
-   directory
-   fileList(…): Array<String>
-   gets a list of filenames in the main files directory, such as for use
-   with openFileIn?ut(String)
-   getCacheDir(): File
-   returns a handle to a directory you can use specifically for storing
-   cache files; you should take care to keep this directory tidy and
-   use as little space as possible
+
+   ``getFilesDir(): File``
+      returns a handle to the directory for private application files
+
+   ``openFileInput(name: String): FileInputStream``
+      opens an existing file in the files directory for input
+
+   ``openFileOutput(name: String, mode: Int): FileOutputStream``
+      opens a file in the files directory for output, possibly creating it
+
+   ``getDir(name: String, mode: Int): File``
+      gets (and possibly creates) a subdirectory within the files directory
+
+   ``fileList(…): Array<String>``
+      gets a list of filenames in the main files directory, such as for use
+      with ``openFileInput(String)``
+
+   ``getCacheDir(): File``
+      returns a handle to a directory you can use specifically for storing
+      cache files; you should take care to keep this directory tidy and
+      use as little space as possible
+
    There is a catch. Because these files are private, only your own
    application can read or write to them. As long as no other app needs to
    access those files, these functions are sufficient.
@@ -14968,15 +15528,15 @@ C17👊 Taking Pictures with Intents
    app will need to save the picture it takes as a file in your app.
 
    In those cases, the functions above do not go far enough: While there is a
-   Context.MODE_WORLD_READABLE flag you can pass into
-   openFileOut?ut(…), it is deprecated and not completely reliable in its
+   ``Context.MODE_WORLD_READABLE`` flag you can pass into
+   ``openFileOutput(…)``, it is deprecated and not completely reliable in its
    effects on newer devices. Once upon a time you could also transfer files
    using publicly accessible external storage, but this has been locked down in
    recent versions of Android for security reasons.
 
    If you need to share files with or receive files from other apps, you need to
-   expose those files through a ContentProvider. A
-   ContentProvider allows you to expose content URIs to other apps.
+   expose those files through a ``ContentProvider``. A
+   ``ContentProvider`` allows you to expose content URIs to other apps.
 
    They can then download from or write to those content URIs. Either way,
    you are in control and always have the option to deny those reads or writes
@@ -14989,15 +15549,15 @@ C17👊 Taking Pictures with Intents
 --------------------------------------------------------------------------------
 
    When all you need to do is receive a file from another application,
-   implementing an entire ContentProvider is overkill. Fortunately,
-   Google provides a convenience class called FileProvider.
+   implementing an entire ``ContentProvider`` is overkill. Fortunately,
+   Google provides a convenience class called ``FileProvider``.
 
-   FileProvider extends the ContentProvider class and is designed
+   ``FileProvider`` extends the ``ContentProvider`` class and is designed
    to easily and securely share files between apps. Instead of implementing all
-   the methods required for the ContentProvider class, you can just
-   configure a FileProvider and have it do the rest of the work.
+   the methods required for the ``ContentProvider`` class, you can just
+   configure a ``FileProvider`` and have it do the rest of the work.
 
-   The first step is to declare FileProvider as a ContentProvider
+   The first step is to declare ``FileProvider`` as a ``ContentProvider``
    hooked up to a specific authority . Do this by adding a content provider
    declaration to your Android manifest.
 
@@ -15006,42 +15566,44 @@ C17👊 Taking Pictures with Intents
 
    .. code-block:: xml
 
-   <activity android:name=".MainActivity">
+      <activity android:name=".MainActivity">
+         ...
+      </activity>
+      <provider
+         android:name="androidx.core.content.FileProvider"
+         android:authorities="com.bignerdranch.android.criminalintent.fileprovider"
+         android:exported="false"
+         android:grantUriPermissions="true">
+      </provider>
       ...
-   </activity>
-   <?rovider
-   android:name="androidx.core.content.FileProvider"
-   android:authorities="com.bignerdranch.android.criminalintent.file?rovider"
-   android:exported="false"
-   android:grantUriPermissions="true">
-   </?rovider>
-      ...
+
    The authority is a location – a place that files will be saved to. The string
-   you choose for android:authorities must be unique across the entire OS.
+   you choose for ``android:authorities`` must be unique across the entire OS.
 
    To help ensure this, the convention is to prepend the authority string with
    your package name. (We show the package name
-   com.bignerdranch.android.criminalintent above. If your app’s package
+   ``com.bignerdranch.android.criminalintent`` above. If your app’s package
    name is different, use your package name instead.)
-   Classes that extend the ContentProvider class are often used to share
+
+   Classes that extend the ``ContentProvider`` class are often used to share
    content between apps. But you need to be careful about what you share.
 
    Your users place a lot of trust in you with their information. You do not
    want to inadvertently expose their data to the entire world.
 
-   The FileProvider class helps you carefully and intentionally share data
+   The ``FileProvider`` class helps you carefully and intentionally share data
    with other apps. It requires a certain configuration so that you only expose
-   content when you intend to. By using the exported="false" attribute, you
+   content when you intend to. By using the ``exported="false"`` attribute, you
    keep it from being publicly visible to random applications querying the
    system.
 
    When you do want to expose some content to the larger system, the
-   grantUriPermissions attribute gives you the ability to temporarily grant
+   ``grantUriPermissions`` attribute gives you the ability to temporarily grant
    other apps permission to write to URIs on this authority when you send
    them out in an intent.
 
-   Now that you have told Android where your FileProvider is, you also
-   need to tell your FileProvider which files it is exposing. This bit of
+   Now that you have told Android where your ``FileProvider`` is, you also
+   need to tell your ``FileProvider`` which files it is exposing. This bit of
    configuration is done with an XML resource file. Right-click your app/res
    folder in the project tool window and select New → Android resource file . Enter
    files for the name, and for Resource type select XML . Click OK , and Android
@@ -15055,15 +15617,16 @@ C17👊 Taking Pictures with Intents
 
    .. code-block:: xml
 
-   <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+      <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-   </PreferenceScreen>
-   <?aths>
-   <files-?ath name="crime_photos" ?ath="."/>
-   </?aths>
+      </PreferenceScreen>
+      <paths>
+         <files-path name="crime_photos" path="."/>
+      </paths>
+
    This XML file says, “Map the root path of my private storage as
-   crime_photos .” You will not use the crime_photos name –
-   FileProvider uses that internally.
+   ``crime_photos`` .” You will not use the ``crime_photos`` name –
+   ``FileProvider`` uses that internally.
 
    Now, hook up files.xml to your FileProvider by adding a meta-
    data tag in your AndroidManifest.xml.
@@ -15073,15 +15636,15 @@ C17👊 Taking Pictures with Intents
 
    .. code-block:: xml
 
-   <provider
-   android:name="androidx.core.content.FileProvider"
-   android:authorities="com.bignerdranch.android.criminalintent.fileprovider"
-   android:exported="false"
-   android:grantUriPermissions="true">
-   <meta-data
-   android:name="android.su??ort.FILE_PROVIDER_PATHS"
-   android:resource="@xml/files"/>
-   </provider>
+      <provider
+         android:name="androidx.core.content.FileProvider"
+         android:authorities="com.bignerdranch.android.criminalintent.fileprovider"
+         android:exported="false"
+         android:grantUriPermissions="true">
+         <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/files"/>
+      </provider>
 
 .. _S17_04:
 
@@ -15089,24 +15652,26 @@ C17👊 Taking Pictures with Intents
 --------------------------------------------------------------------------------
 
    Now you have a place to store photos on the device. Next, you need to add
-   a place to store the photo’s filename within a Crime. Start by adding a new
-   property to Crime to store the photo’s filename.
+   a place to store the photo’s filename within a ``Crime``. Start by adding a new
+   property to ``Crime`` to store the photo’s filename.
 
 
    Listing 17.6 Adding the filename property (Crime.kt)
 
+
    .. code-block:: kotlin
 
-   @Entity
-   data class Crime(
-   @PrimaryKey val id: UUID,
-   val title: String,
-   val date: Date,
-   val isSolved: Boolean,
-   val suspect: String = "",
-   val ?hotoFileName: String? = null
-   )
-   Next, since you have added a new property to your Crime class, create a
+      @Entity
+      data class Crime(
+         @PrimaryKey val id: UUID,
+         val title: String,
+         val date: Date,
+         val isSolved: Boolean,
+         val suspect: String = "",
+         val photoFileName: String? = null
+      )
+
+   Next, since you have added a new property to your ``Crime`` class, create a
    migration for this new property in the database and increment the version.
 
 
@@ -15114,45 +15679,45 @@ C17👊 Taking Pictures with Intents
 
    .. code-block:: kotlin
 
-   @Database(entities = [Crime::class], version = 2 version = 3)
-   @TypeConverters(CrimeTypeConverters::class)
-   abstract class CrimeDatabase : RoomDatabase() {
-   abstract fun crimeDao(): CrimeDao
-   }
+      @Database(entities = [Crime::class], version = 2 version = 3)
+      @TypeConverters(CrimeTypeConverters::class)
+      abstract class CrimeDatabase : RoomDatabase() {
+         abstract fun crimeDao(): CrimeDao
+      }
 
-   val migration_1_2 = object : Migration(1, 2) {
-      ...
-   }
+      val migration_1_2 = object : Migration(1, 2) {
+         ...
+      }
 
-   val migration_2_3 = object : Migration(2, 3) {
-   override fun migrate(database: Su??ortSQLiteDatabase) {
-   database.execSQL(
-   "ALTER TABLE Crime ADD COLUMN ?hotoFileName TEXT"
-   )
-   }
-   }
+      val migration_2_3 = object : Migration(2, 3) {
+         override fun migrate(database: SupportSQLiteDatabase) {
+            database.execSQL(
+            "ALTER TABLE Crime ADD COLUMN photoFileName TEXT"
+            )
+         }
+      }
+
    Finally, include that migration when creating the database in
-   CrimeRepository.
+   ``CrimeRepository``.
 
 
    Listing 17.8 Including the migration (CrimeRepository.kt)
 
    .. code-block:: kotlin
 
-   class CrimeRepository private constructor(
-   context: Context,
-   private val coroutineScope: CoroutineScope = GlobalScope
-   ) {
-
-   private val database: CrimeDatabase = Room
-   .databaseBuilder(
-   context.applicationContext,
-   CrimeDatabase::class.Java,
-   DATABASE_NAME
-   )
-   .addMigrations(migration_1_2, migration_2_3)
-   .build()
-   }
+      class CrimeRepository private constructor(
+         context: Context,
+         private val coroutineScope: CoroutineScope = GlobalScope
+      ) {
+         private val database: CrimeDatabase = Room
+         .databaseBuilder(
+            context.applicationContext,
+            CrimeDatabase::class.Java,
+            DATABASE_NAME
+         )
+         .addMigrations(migration_1_2, migration_2_3)
+         .build()
+      }
 
 .. _S17_05:
 
@@ -15165,8 +15730,8 @@ C17👊 Taking Pictures with Intents
    going to rely on the Activity Results API.
 
    This time you are going to use the
-   ActivityResultContracts.TakePicture() contract. It takes in
-   a Uri, which will be generated by the FileProvider class using a
+   ``ActivityResultContracts.TakePicture()`` contract. It takes in
+   a Uri, which will be generated by the ``FileProvider`` class using a
    File you will create. Once the user is finished taking the photo, the
    contract does not return that same Uri. Instead, it returns a Boolean
    telling you whether an image was saved to the file.
@@ -15180,21 +15745,22 @@ C17👊 Taking Pictures with Intents
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
-      ...
-   private val selectSuspect = registerForActivityResult(
-   ActivityResultContracts.PickContact()
-   ) { uri: Uri? ->
-   uri?.let { parseContactSelection(it) }
-   }
+      class CrimeDetailFragment : Fragment() {
+         ...
+         private val selectSuspect = registerForActivityResult(
+            ActivityResultContracts.PickContact()
+         ) { uri: Uri? ->
+            uri?.let { parseContactSelection(it) }
+         }
 
-   private val takePhoto = registerForActivityResult(
-   ActivityResultContracts.TakePicture()
-   ) { didTakePhoto: Boolean ->
-   // Handle the result
-   }
-   }
-   To invoke the takePhoto launcher, you need to create a shareable Uri.
+         private val takePhoto = registerForActivityResult(
+            ActivityResultContracts.TakePicture()
+         ) { didTakePhoto: Boolean ->
+            // Handle the result
+         }
+      }
+
+   To invoke the ``takePhoto`` launcher, you need to create a shareable Uri.
 
    Creating this variable takes a few steps. First, you create a string that holds
    the filename where the photo will be stored. Because you do not want to
@@ -15203,58 +15769,59 @@ C17👊 Taking Pictures with Intents
 
    With that filename, you create a File that is stored within the app’s
    internal storage. Finally, you call the
-   FileProvider.getUriForFile(…) function, and that will translate
+   ``FileProvider.getUriForFile(…)`` function, and that will translate
    your local file path into a Uri the camera app can see. The function takes
    in your activity, provider authority, and photo file to create the URI that
    points to the file. The authority string you pass to
-   FileProvider.getUriForFile(…) must match the authority string
+   ``FileProvider.getUriForFile(…)`` must match the authority string
    you defined in the manifest in Listing 17.3.
 
-   Create these variables and launch the takePhoto property with the new
-   Uri inside the click listener for the ImageButton.
+   Create these variables and launch the ``takePhoto`` property with the new
+   Uri inside the click listener for the ``ImageButton``.
 
 
    Listing 17.10 Launching the camera app (CrimeDetailFragment.kt)
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
-      ...
-   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-   super.onViewCreated(view, savedInstanceState)
+      class CrimeDetailFragment : Fragment() {
+         ...
+         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+            super.onViewCreated(view, savedInstanceState)
 
-   binding.apply {
-      ...
-   crimeSuspect.isEnabled = canResolveIntent(selectSuspectIntent)
+            binding.apply {
+               ...
+               crimeSuspect.isEnabled = canResolveIntent(selectSuspectIntent)
 
-   crimeCamera.setOnClickListener {
-   val ?hotoName = "IMG_${Date()}.JPG"
-   val ?hotoFile = File(requireContext().applicationContext.filesDir,
-   ?hotoName)
-   val ?hotoUri = FileProvider.getUriForFile(
-   requireContext(),
-   "com.bignerdranch.android.criminalintent.file?rovider",
-   ?hotoFile
-   )
+               crimeCamera.setOnClickListener {
+                  val photoName = "IMG_${Date()}.JPG"
+                  val photoFile = File(requireContext().applicationContext.filesDir, photoName)
 
-   takePhoto.launch(?hotoUri)
-   }
-   }
-   }
-      ...
-   }
+                  val photoUri = FileProvider.getUriForFile(
+                     requireContext(),
+                     "com.bignerdranch.android.criminalintent.fileprovider",
+                     photoFile
+                  )
+
+                  takePhoto.launch(photoUri)
+               }
+            }
+         }
+         ...
+      }
+
    Run the app and try to take a photo. You should be able to launch a camera
    app from your crime detail screen. (The emulator has a photo app, so you
    can try it even if you are not connected to a device.) This is progress! But
    you are not yet updating the crime or displaying the photo. Let’s update the
    crime first.
 
-   In the lambda expression of the takePhoto property, update your crime
+   In the lambda expression of the ``takePhoto`` property, update your crime
    for a successful picture capture. You only want to update the crime when
    the photo is taken, so you will use the Boolean that is passed into your
    lambda expression to check this.
 
-   The photoName string you defined when launching the camera app is the
+   The ``photoName`` string you defined when launching the camera app is the
    value you want to update your crime with. Since you need access to it after
    taking the photo, make it a class property instead of just a variable. Also,
    make it nullable, so that when the property is set you can be confident that
@@ -15265,43 +15832,43 @@ C17👊 Taking Pictures with Intents
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
-      ...
-   private val takePhoto = registerForActivityResult(
-   ActivityResultContracts.TakePicture()
-   ) { didTakePhoto ->
-   // Handle the result
-   if (didTakePhoto && ?hotoName != null) {
-   crimeDetailViewModel.updateCrime { oldCrime ->
-   oldCrime.copy(?hotoFileName = ?hotoName)
-   }
-   }
-   }
+      class CrimeDetailFragment : Fragment() {
+         ...
+         private val takePhoto = registerForActivityResult(
+            ActivityResultContracts.TakePicture()
+         ) { didTakePhoto ->
+            // Handle the result
+            if (didTakePhoto && photoName != null) {
+               crimeDetailViewModel.updateCrime { oldCrime ->
+                  oldCrime.copy(photoFileName = ?hotoName)
+               }
+            }
+         }
 
-   private var ?hotoName: String? = null
+         private var photoName: String? = null
 
-   override fun onCreateView(
-   inflater: LayoutInflater,
-   container: ViewGroup?,
-   savedInstanceState: Bundle?
-   ): View? {
-      ...
-   }
+         override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+         ): View? {
+            ...
+         }
 
-   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-   super.onViewCreated(view, savedInstanceState)
+         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+            super.onViewCreated(view, savedInstanceState)
 
-   binding.apply {
-      ...
-   crimeCamera.setOnClickListener {
-   val photoName = "IMG_${Date()}.JPG"
-   val photoFile = File(requireContext().applicationContext.filesDir,
-   photoName)
-      ...
-   }
-   }
-   }
-   }
+            binding.apply {
+               ...
+               crimeCamera.setOnClickListener {
+                  val photoName = "IMG_${Date()}.JPG"
+                  val photoFile = File(requireContext().applicationContext.filesDir, photoName)
+                  ...
+               }
+            }
+         }
+      }
+
    There is one small piece of housekeeping you need to take care of before
    you can display that photo. Just as you cannot be sure a device has a
    contacts app, you cannot guarantee a device has a camera app. So, similar
@@ -15309,9 +15876,9 @@ C17👊 Taking Pictures with Intents
    your implicit intent cannot be resolved.
 
    This time, you will generate an Intent based on the contract for the
-   takePhoto property. Since you are not going to send out this Intent to
+   ``takePhoto`` property. Since you are not going to send out this Intent to
    start an activity, you can pass in null as the input. Reuse the
-   canResolveIntent() function to disable the camera button if there is
+   ``canResolveIntent()`` function to disable the camera button if there is
    no activity on the system that can take a picture for you.
 
 
@@ -15319,26 +15886,28 @@ C17👊 Taking Pictures with Intents
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
-      ...
-   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-   super.onViewCreated(view, savedInstanceState)
+      class CrimeDetailFragment : Fragment() {
+         ...
+         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+            super.onViewCreated(view, savedInstanceState)
 
-   binding.apply {
-      ...
-   crimeCamera.setOnClickListener {
-      ...
-   }
 
-   val captureImageIntent = takePhoto.contract.createIntent(
-   requireContext(),
-   null
-   )
-   crimeCamera.isEnabled = canResolveIntent(captureImageIntent)
-   }
-   }
-   }
-   You also need to add a query intent to the manifest to allow CriminalIntent
+            binding.apply {
+               ...
+               crimeCamera.setOnClickListener {
+                  ...
+               }
+
+               val captureImageIntent = takePhoto.contract.createIntent(
+                  requireContext(),
+                  null
+               )
+               crimeCamera.isEnabled = canResolveIntent(captureImageIntent)
+            }
+         }
+      }
+
+   You also need to add a query intent to the manifest to allow ``CriminalIntent``
    to query for camera applications.
 
 
@@ -15346,23 +15915,24 @@ C17👊 Taking Pictures with Intents
 
    .. code-block:: xml
 
-   <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-   package="com.bignerdranch.android.criminalintent">
+      <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.bignerdranch.android.criminalintent">
 
-   <application ...>
-      ...
-   </application>
-   <queries>
-   <intent>
-   <action android:name="android.intent.action.PICK" />
-   <data android:mimeType="vnd.android.cursor.dir/contact" />
-   </intent>
-   <intent>
-   <action android:name="android.media.action.IMAGE_CAPTURE" />
-   </intent>
-   </queries>
-   </manifest>
-   Run CriminalIntent and press the camera button to run your camera app
+         <application ...>
+            ...
+         </application>
+         <queries>
+            <intent>
+               <action android:name="android.intent.action.PICK" />
+               <data android:mimeType="vnd.android.cursor.dir/contact" />
+            </intent>
+            <intent>
+               <action android:name="android.media.action.IMAGE_CAPTURE" />
+            </intent>
+         </queries>
+      </manifest>
+
+   Run ``CriminalIntent`` and press the camera button to run your camera app
    (Figure 17.3). You can now take a picture, but you still have some work to
    do to display it.
 
@@ -15379,53 +15949,60 @@ C17👊 Taking Pictures with Intents
    on the filesystem for you to use.
 
    Your next step is to take this file, load it, and show it to the user. To do this,
-   you need to load it into a reasonably sized Bitma? object. To get a
-   Bitma? from a file, all you need to do is use the BitmapFactory class:
-   val bitmap = BitmapFactory.decodeFile(photoFile.getPath())
+   you need to load it into a reasonably sized ``Bitmap`` object. To get a
+   ``Bitmap`` from a file, all you need to do is use the ``BitmapFactory`` class:
+
+   .. code-block:: kotlin
+
+      val bitmap = BitmapFactory.decodeFile(photoFile.getPath())
+
    There has to be a catch, right? Otherwise we would have put that in bold,
    you would have typed it in, and you would be done.
 
-   Here is the catch: When we say “reasonably sized,” we mean it. A Bitma?
+   Here is the catch: When we say “reasonably sized,” we mean it. A ``Bitmap``
    is a simple object that stores literal pixel data. That means that even if the
    original file were compressed, there would be no compression in the
-   Bitma?. So a 16-megapixel, 24-bit camera image – which might only be a
-   5 MB JPG – would blow up to 48 MB loaded into a Bitma? object (!).
+   ``Bitmap``. So a 16-megapixel, 24-bit camera image – which might only be a
+   5 MB JPG – would blow up to 48 MB loaded into a ``Bitmap`` object (!).
 
    You can get around this, but it does mean that you will need to scale the
    bitmap down by hand. You will first scan the file to see how big it is, next
    figure out how much you need to scale it by to fit it in a given area, and
-   finally reread the file to create a scaled-down Bitma? object.
+   finally reread the file to create a scaled-down ``Bitmap`` object.
 
    Create a new file called PictureUtils.kt and add a file-level function
-   to it called getScaledBitma?(String, Int, Int):
+   to it called ``getScaledBitmap(String, Int, Int)``:
 
-   Listing 17.14 Creating getScaledBitma?(…) (PictureUtils.kt)
+   Listing 17.14 Creating getScaledBitmap(…) (PictureUtils.kt)
 
    .. code-block:: kotlin
 
-      fun getScaledBitma?(?ath: String, destWidth: Int, destHeight: Int): Bitma? {
-      // Read in the dimensions of the image on disk
-      val options = BitmapFactory.Options()
-      options.inJustDecodeBounds = true
-      BitmapFactory.decodeFile(?ath, options)
+      fun getScaledBitmap(path: String, destWidth: Int, destHeight: Int): Bitmap {
+         // Read in the dimensions of the image on disk
+         val options = BitmapFactory.Options()
 
-      val srcWidth = options.outWidth.toFloat()
-      val srcHeight = options.outHeight.toFloat()
+         options.inJustDecodeBounds = true
+         BitmapFactory.decodeFile(path, options)
 
-      // Figure out how much to scale down by
-      val sampleSize = if (srcHeight <= destHeight && srcWidth <= destWidth) {
-      1
-      } else {
-      val heightScale = srcHeight / destHeight
-      val widthScale = srcWidth / destWidth
 
-      minOf(heightScale, widthScale).roundToInt()
-      }
+         val srcWidth = options.outWidth.toFloat()
 
-      // Read in and create final bitma?
-      return BitmapFactory.decodeFile(?ath, BitmapFactory.Options().apply {
-      inSampleSize = sampleSize
-      })
+         val srcHeight = options.outHeight.toFloat()
+
+
+         // Figure out how much to scale down by
+         val sampleSize = if (srcHeight <= destHeight && srcWidth <= destWidth) {
+            1
+         } else {
+            val heightScale = srcHeight / destHeight
+            val widthScale = srcWidth / destWidth
+            minOf(heightScale, widthScale).roundToInt()
+         }
+
+         // Read in and create final bitmap
+         return BitmapFactory.decodeFile(path, BitmapFactory.Options().apply {
+            inSampleSize = sampleSize
+         })
       }
 
    The key parameter in this code is sampleSize. This determines how big
@@ -15436,14 +16013,14 @@ C17👊 Taking Pictures with Intents
    one-quarter of the pixel count in the original.
 
    But when your fragment initially starts up, you will not know how big the
-   PhotoView is. Until a layout pass happens, views do not have dimensions
+   ``PhotoView`` is. Until a layout pass happens, views do not have dimensions
    onscreen. This used to be a difficult problem to solve, but now, with the
-   doOnLayout() extension function, you can easily wait for a View to be
+   ``doOnLayout()`` extension function, you can easily wait for a View to be
    measured and laid out so you can do delicate UI work using exact layout
    measurements.
 
-   Add a function named updatePhoto() to CrimeDetailFragment
-   that uses doOnLayout() to display your image at a reasonable
+   Add a function named ``updatePhoto()`` to ``CrimeDetailFragment``
+   that uses ``doOnLayout()`` to display your image at a reasonable
    resolution.
 
 
@@ -15451,49 +16028,51 @@ C17👊 Taking Pictures with Intents
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
-      ...
-   private fun canResolveIntent(intent: Intent): Boolean {
-      ...
-   }
+      class CrimeDetailFragment : Fragment() {
+         ...
+         private fun canResolveIntent(intent: Intent): Boolean {
+            ...
+         }
 
-   private fun updatePhoto(?hotoFileName: String?) {
-   if (binding.crimePhoto.tag != ?hotoFileName) {
-   val ?hotoFile = ?hotoFileName?.let {
-   File(requireContext().applicationContext.filesDir, it)
-   }
+         private fun updatePhoto(photoFileName: String?) {
+            if (binding.crimePhoto.tag != photoFileName) {
+               val photoFile = ?hotoFileName?.let {
+                  File(requireContext().applicationContext.filesDir, it)
+               }
 
-   if (?hotoFile?.exists() == true) {
-   binding.crimePhoto.doOnLayout { measuredView ->
-   val scaledBitma? = getScaledBitma?(
-   ?hotoFile.?ath,
-   measuredView.width,
-   measuredView.height
-   )
-   binding.crimePhoto.setImageBitma?(scaledBitma?)
-   binding.crimePhoto.tag = ?hotoFileName
-   }
-   } else {
-   binding.crimePhoto.setImageBitma?(null)
-   binding.crimePhoto.tag = null
-   }
-   }
-   }
-   }
-   This updatePhoto() function will be invoked every time you get a new
-   emission from the crime StateFlow from your
-   CrimeDetailViewModel. But you do not want to read the photo from
+               if (photoFile?.exists() == true) {
+                  binding.crimePhoto.doOnLayout { measuredView ->
+                     val scaledBitmap = getScaledBitmap(
+                        photoFile.path,
+                        measuredView.width,
+                        measuredView.height
+                     )
+                     binding.crimePhoto.setImageBitmap(scaledBitmap)
+
+                     binding.crimePhoto.tag = photoFileName
+                  }
+               } else {
+                  binding.crimePhoto.setImageBitmap(null)
+                  binding.crimePhoto.tag = null
+               }
+            }
+         }
+      }
+
+   This ``updatePhoto()`` function will be invoked every time you get a new
+   emission from the crime ``StateFlow`` from your
+   ``CrimeDetailViewModel``. But you do not want to read the photo from
    disk every time the user adds a character into the crime’s title! That would
    be wildly inefficient and would probably lead to a stuttering UI.
 
-   To update the ImageView only when necessary, you set the tag property
+   To update the ``ImageView`` only when necessary, you set the tag property
    on the view. The tag property allows you to store simple information on a
    particular view. Here, you set the filename of the photo. If the tag property
-   and the crime’s photo filename match, then you know the ImageView is
+   and the crime’s photo filename match, then you know the ``ImageView`` is
    already displaying the correct photo.
 
-   Call the new updatePhoto() function when you have access to the
-   latest value from the crime StateFlow. That way your ImageView
+   Call the new ``updatePhoto()`` function when you have access to the
+   latest value from the crime ``StateFlow``. That way your ``ImageView``
    will always display the latest photo from the crime scene.
 
 
@@ -15501,28 +16080,27 @@ C17👊 Taking Pictures with Intents
 
    .. code-block:: kotlin
 
-   class CrimeDetailFragment : Fragment() {
-      ...
-   private fun updateUi(crime: Crime) {
-   binding.apply {
-      ...
-   crimeSuspect.text = crime.suspect.ifEmpty {
-   getString(R.string.crime_suspect_text)
-   }
+      class CrimeDetailFragment : Fragment() {
+         ...
+         private fun updateUi(crime: Crime) {
+            binding.apply {
+               ...
+               crimeSuspect.text = crime.suspect.ifEmpty {
+                  getString(R.string.crime_suspect_text)
+               }
 
-   updatePhoto(crime.?hotoFileName)
-   }
-   }
-      ...
-   }
-   Run CriminalIntent again. Open a crime’s detail screen and use the camera
+               updatePhoto(crime.photoFileName)
+            }
+         }
+         ...
+      }
+
+   Run ``CriminalIntent`` again. Open a crime’s detail screen and use the camera
    button to take a photo. You should see your image displayed in the
    thumbnail view (Figure 17.4).
 
 
-   Figure 17.4 Thumbnail proudly appearing on the crime detail
-
-   screen
+   Figure 17.4 Thumbnail proudly appearing on the crime detail screen
 
 .. _S17_07:
 
@@ -15544,20 +16122,21 @@ C17👊 Taking Pictures with Intents
 
    .. code-block:: xml
 
-   <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-   package="com.bignerdranch.android.criminalintent" >
+      <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+         package="com.bignerdranch.android.criminalintent" >
 
-   <uses-feature android:name="android.hardware.camera"
-   android:required="false"/>
-      ...
-   </manifest>
-   You include the optional attribute android:required here. Why? By
+         <uses-feature android:name="android.hardware.camera"
+            android:required="false"/>
+            ...
+      </manifest>
+
+   You include the optional attribute ``android:required`` here. Why? By
    default, declaring that you use a feature means that your app will not work
-   correctly without that feature. This is not the case for CriminalIntent. You
-   call resolveActivity(…) to check for a working camera app, then
+   correctly without that feature. This is not the case for ``CriminalIntent``. You
+   call ``resolveActivity(…)`` to check for a working camera app, then
    gracefully disable the camera button if you do not find one.
 
-   Passing in android:required="false" handles this situation correctly. You
+   Passing in ``android:required="false"`` handles this situation correctly. You
    tell Android that your app can work fine without the camera, but that some
    parts will be disabled as a result.
 
@@ -15648,6 +16227,7 @@ C18👊 Localization
    strings to res/values-es/strings.xml. (If you do not want to type
    these strings in, copy the contents from the solutions file at
    www.bignerdranch.com/ android-5e-solutions.)
+
 
    Listing 18.1 Adding Spanish alternatives for string resources (res/values-es/strings.xml)
 
@@ -15769,9 +16349,7 @@ C18👊 Localization
    commented out, you will see those field names in red (Figure 18.5).
 
 
-   Figure 18.5 Using the Translations Editor to check your string
-
-   coverage
+   Figure 18.5 Using the Translations Editor to check your string coverage
    This provides an easy way to identify resources that are missing from any
    locale configuration and add them to the related strings file.
 
@@ -15793,6 +16371,7 @@ C18👊 Localization
    case sensitive, but it is good to follow Android’s convention here: Use a
    lowercase language code and an uppercase region code prefiled with a
    lowercase r .)
+
    Note that a language-region qualifier, such as -es-rES, may look like two
    distinct configuration qualifiers that have been combined, but it is just one.
    The region is not a valid qualifier on its own.
@@ -15815,6 +16394,7 @@ C18👊 Localization
    (For more about supporting languages and regions, check out
    https://developer.android.google.cn/guide/topics/resources/
    multilingual-support.)
+
    In fact, this advice goes for all types of alternative resources in the values
    directories: Provide shared resources in more general directories and only
    include those resources that need to be tailored in more specifically
@@ -15832,6 +16412,7 @@ C18👊 Localization
    provides configuration qualifiers to target resources are:
    1. mobile country code (MCC), optionally followed by mobile
    network code (MNC)
+
    2. language code, optionally followed by region code
    3. layout direction
    4. smallest width
@@ -15846,6 +16427,7 @@ C18👊 Localization
    13. UI mode
    14. night mode
    15. screen density (dpi)
+
    16. touchscreen type
    17. keyboard availability
    18. primary text input method
@@ -15880,7 +16462,7 @@ C18👊 Localization
    CriminalIntent – a longer English version of the crime_title_hint string
    resource – to be displayed when the current configuration’s width is at least
    600dp. The crime_title_hint resource is displayed in the crime title text
-   bo? before the user enters any text. When CriminalIntent is running on a
+   box before the user enters any text. When CriminalIntent is running on a
    screen that is at least 600dp (such as on a tablet, or perhaps in landscape
    mode on a smaller device), this change will display a more descriptive,
    engaging hint for the title field.
@@ -15889,7 +16471,7 @@ C18👊 Localization
    the section called Localizing Resources earlier in this chapter to create the
    resource file, but select Screen Width in the Available qualifiers list and click the
    >> button to move Screen Width to the Chosen qualifiers section. In the Screen
-   width bo? that appears, enter 600 .
+   width box that appears, enter 600 .
 
    The directory name will automatically be set to values-w600dp ; -w600dp will
    match any device with a current screen width of 600dp or more, meaning a
@@ -15936,9 +16518,7 @@ C18👊 Localization
    res/values-w600dp/strings.xml.
 
 
-   Figure 18.7 Android prioritizes language over available screen
-
-   width
+   Figure 18.7 Android prioritizes language over available screen width
    Change your settings back to English and check the app again to confirm
    that the alternative wide-screen string appears as expected.
 
@@ -16007,6 +16587,7 @@ C18👊 Localization
    and the resource directories values-w600dp/ and values-es-w600dp/ 
    would be incompatible and thus ruled out.)
 
+
    After the incompatible resource directories have been ruled out, Android
    starts working through the precedence list shown in the section called
    Configuration Qualifiers earlier in this chapter, starting with the highest
@@ -16032,6 +16613,7 @@ C18👊 Localization
    or more of the lower-order qualifiers.)
 
 
+
    ======================= =========================================
    Device configuration    App values for ``crime_title_hint``
    ======================= =========================================
@@ -16053,6 +16635,7 @@ C18👊 Localization
    Language: es (Spanish)  values (not language or width specific)
    Available height: 393dp values-es (not width specific)
    Available width: 830dp  values-es-w600dp (best match)
+
    (etc.)                  values-w600dp (not language specific)
    ======================= =========================================
 
@@ -16078,9 +16661,7 @@ C18👊 Localization
    Then try some of the settings in the toolbar shown in Figure 18.9.
 
 
-   Figure 18.9 Using the layout editor to preview various device
-
-   configurations
+   Figure 18.9 Using the layout editor to preview various device configurations
    The layout editor lets you try different device orientations and device
    locales based on the configurations you have provided. To see your default
    resources in action, set a device or emulator to a language that you have not
@@ -16225,6 +16806,7 @@ C19👊 Accessibility
    (Although “press” is the usual terminology for Android devices, TalkBack
    uses “tap.” Also, TalkBack uses double-taps, which are not commonly used
    in Android.)
+
    The green outline indicates which UI element has accessibility focus .
 
    Only one UI element can have accessibility focus at a time. When a UI
@@ -16234,7 +16816,7 @@ C19👊 Accessibility
    When TalkBack is enabled, a single press (or “tap”) gives an element
    accessibility focus. Double-tapping anywhere on the screen activates the
    element that has focus. So double-tapping anywhere when the Up button
-   has focus navigates up, double-tapping when a checkbo? has focus toggles
+   has focus navigates up, double-tapping when a checkbox has focus toggles
    its check state, and so on. (Also, if your device locks, you can unlock it by
    pressing the lock icon and then double-tapping anywhere on the screen.)
 
@@ -16252,7 +16834,7 @@ C19👊 Accessibility
    announces information about what is showing and what has accessibility
    focus: “Accessibility. Navigate Up button. Double-tap to activate.”
    Android framework views, such as Toolbar, RecyclerView, and
-   Button, have basic TalkBack support built in. You should use framework
+   Button, have basic ``TalkBack`` support built in. You should use framework
    views as much as possible so you can leverage the accessibility work that
    has already been done for them. It is possible to properly respond to
    accessibility events for custom views, but that is beyond the scope of this
@@ -16260,8 +16842,9 @@ C19👊 Accessibility
 
    (In Chapter 26 through Chapter 29, you will learn about a new way to build
    layouts on Android called Jetpack Compose. Compose’s built-in UI
-   elements also support TalkBack and behave very similarly to what you will
+   elements also support ``TalkBack`` and behave very similarly to what you will
    see in this chapter.)
+
 
 .. _S19_03:
 
@@ -16272,11 +16855,11 @@ C19👊 Accessibility
 
    You would not know where things are located. What if the only way to
    learn what was on the screen was to press all around until you landed on an
-   element that TalkBack could read? You might end up pressing the same
+   element that ``TalkBack`` could read? You might end up pressing the same
    thing multiple times – worse, you might miss elements altogether.
 
    Luckily, there is a way to explore the UI linearly, and in fact this is the more
-   common way to use TalkBack: Swiping right moves accessibility focus to
+   common way to use ``TalkBack``: Swiping right moves accessibility focus to
    the next item on the screen. Swiping left moves accessibility focus to the
    previous item on the screen. This allows the user to walk through each item
    on the screen in a linear fashion, rather than trial-and-error poking around in
@@ -16286,16 +16869,17 @@ C19👊 Accessibility
 
    (If you are using the emulator, you can mimic this behavior with the
    keyboard’s arrow keys.)
-   Navigating between apps and screens with the swipe system navigation
-   behaves differently when TalkBack is enabled. When TalkBack is not
-   enabled, you navigate to the Home screen by swiping with one finger from
-   the bottom of the device. With TalkBack enabled, you navigate using the
-   same gesture, but with two fingers. Likewise for Back navigation, you need
-   a two finger swipe from the left or right edge of the device when TalkBack
-   is enabled. Without TalkBack, you use a single finger. You also use two
-   fingers to scroll when TalkBack is enabled.
 
-   Now, try out TalkBack in CriminalIntent. Compile and launch the app.
+   Navigating between apps and screens with the swipe system navigation
+   behaves differently when ``TalkBack`` is enabled. When ``TalkBack`` is not
+   enabled, you navigate to the Home screen by swiping with one finger from
+   the bottom of the device. With ``TalkBack`` enabled, you navigate using the
+   same gesture, but with two fingers. Likewise for Back navigation, you need
+   a two finger swipe from the left or right edge of the device when ``TalkBack``
+   is enabled. Without ``TalkBack``, you use a single finger. You also use two
+   fingers to scroll when ``TalkBack`` is enabled.
+
+   Now, try out ``TalkBack`` in CriminalIntent. Compile and launch the app.
 
    When you open it, accessibility focus will be given to the + action item in
    the app bar by default. (If it is not, press the + to give it accessibility focus.)
@@ -16305,22 +16889,22 @@ C19👊 Accessibility
 
    Figure 19.5 New Crime action item selected
 
-   For framework views, such as menu items and buttons, TalkBack will read
+   For framework views, such as menu items and buttons, ``TalkBack`` will read
    the visible text content displayed on the view by default. But the New
    Crime menu item is just an icon and does not have any visible text. In this
-   case, TalkBack looks for other information in the view. You specified a
-   title in your menu XML, and that is what TalkBack reads to the user.
+   case, ``TalkBack`` looks for other information in the view. You specified a
+   title in your menu XML, and that is what ``TalkBack`` reads to the user.
 
-   TalkBack will also provide details about actions the user can take on the
+   ``TalkBack`` will also provide details about actions the user can take on the
    view and sometimes information about what kind of view it is.
 
    Now swipe left. Accessibility focus moves to the CriminalIntent title in the
-   app bar. TalkBack announces, “CriminalIntent” (Figure 19.6).
+   app bar. ``TalkBack`` announces, “CriminalIntent” (Figure 19.6).
 
 
    Figure 19.6 App bar title selected
 
-   Swipe right, and TalkBack reads information about the + (New Crime)
+   Swipe right, and ``TalkBack`` reads information about the + (New Crime)
    menu button again. Swipe right a second time; accessibility focus moves to
    the first crime in the list. Swipe left, and focus moves back to the + menu
    button. Android does its best to move accessibility focus in an order that
@@ -16345,6 +16929,7 @@ C19👊 Accessibility
 
    Double-tap to activate.” (You may get slightly different results depending
    on the version of Android you are using.)
+
 
    Figure 19.7 Image capture button selected
 
@@ -16385,11 +16970,12 @@ C19👊 Accessibility
       ...
    <string name="crime_details_label">Details</string>
    <string name="crime_solved_label">Solved</string>
-   <string name="crime_photo_button_descri?tion">Take ?hoto of crime scene</string>
+   <string name="crime_photo_button_descri?tion">Take photo of crime scene</string>
    <string name="crime_photo_no_image_descri?tion">
-   Crime scene ?hoto (not set)
+   Crime scene photo (not set)
+
    </string>
-   <string name="crime_photo_image_descri?tion">Crime scene ?hoto (set)</string>
+   <string name="crime_photo_image_descri?tion">Crime scene photo (set)</string>
       ...
    </resources>
    Android Studio will underline the newly added strings in red, warning you
@@ -16411,9 +16997,11 @@ C19👊 Accessibility
    </string>
    <string name="crime_photo_no_image_descri?tion">
    Foto de la escena del crimen (no establecida)
+
    </string>
    <string name="crime_photo_image_descri?tion">
    Foto de la escena del crimen (establecida)
+
    </string>
       ...
    </resources>
@@ -16536,15 +17124,19 @@ C19👊 Accessibility
    measuredView.height
    )
    binding.crimePhoto.setImageBitmap(scaledBitmap)
+
    binding.crimePhoto.tag = photoFileName
    binding.crimePhoto.contentDescription =
    getString(R.string.crime_photo_image_descri?tion)
+
    }
    } else {
    binding.crimePhoto.setImageBitmap(null)
+
    binding.crimePhoto.tag = null
    binding.crimePhoto.contentDescription =
    getString(R.string.crime_photo_no_image_descri?tion)
+
    }
    }
    }
@@ -16728,6 +17320,7 @@ C19👊 Accessibility
 
    Users can probably infer the meaning of the buttons and the text on those
    buttons, but should they have to?
+
    This is one of the nuances of UI design. It is up to you (or your design
    team) to figure out what makes the most sense for your application – to
    balance simplicity of the UI with ease of use.
@@ -16784,6 +17377,7 @@ C19👊 Accessibility
    someView.postDelayed(Runnable {
    // code for making announcements here
    }, SOME_DURATION_IN_MILLIS)
+
    Or you could avoid using a Runnable by instead using some other
    mechanism for knowing when to announce the change. For example, you
    might consider making the announcement in onResume() instead –
@@ -16818,6 +17412,7 @@ C20👊 Making Network Requests and Displaying Images
    specified by the owner. To read more about permissions for using images
    that you retrieve from Flickr, visit flickr.com/
    creativecommons/.)
+
    You will spend several chapters with PhotoGallery. In this chapter, you will
    learn how to use the Retrofit library to make web requests to REST APIs
    and the Moshi library to deserialize the response to these requests from
@@ -16885,7 +17480,7 @@ C20👊 Making Network Requests and Displaying Images
    implementation 'androidx.recyclerview:recyclerview:1.2.1'
    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
-   testImplementation '?unit:?unit:4.13.2'
+   testImplementation 'junit:junit:4.13.2'
       ...
    }
    Do not forget to sync your files after you have made these changes. Now,
@@ -16910,7 +17505,7 @@ C20👊 Making Network Requests and Displaying Images
    <?xml version="1.0" encoding="utf-8"?>
    <androidx.recyclerview.widget.RecyclerView
    xmlns:android="http://schemas.android.com/apk/res/android"
-   android:id="@+id/?hoto_grid"
+   android:id="@+id/photo_grid"
    android:layout_width="match_parent"
    android:layout_height="match_parent">
 
@@ -16943,12 +17538,13 @@ C20👊 Making Network Requests and Displaying Images
    ): View {
    _binding =
    FragmentPhotoGalleryBinding.inflate(inflater, container, false)
-   binding.?hotoGrid.layoutManager = GridLayoutManager(context, 3)
+   binding.photoGrid.layoutManager = GridLayoutManager(context, 3)
    return binding.root
    }
 
    override fun onDestroyView() {
    super.onDestroyView()
+
    _binding = null
    }
    }
@@ -16976,7 +17572,7 @@ C20👊 Making Network Requests and Displaying Images
    app:layout_constraintBottom_toBottomOf="parent"
    app:layout_constraintLeft_toLeftOf="parent"
    app:layout_constraintRight_toRightOf="parent"
-   app:layout_constraintTo?_toTo?Of="parent" />
+   app:layout_constraintTop_toTopOf="parent" />
 
    </androidx.constraintlayout.widget.ConstraintLayout>
    <androidx.fragment.app.FragmentContainerView
@@ -16985,7 +17581,7 @@ C20👊 Making Network Requests and Displaying Images
    android:id="@+id/fragment_container"
    android:layout_width="match_parent"
    android:layout_height="match_parent"
-   android:name="com.bignerdranch.android.?hotogallery.PhotoGalleryFragment"
+   android:name="com.bignerdranch.android.photogallery.PhotoGalleryFragment"
    tools:context=".MainActivity" />
    Run PhotoGallery to make sure everything is wired up correctly before
    moving on. If all is well, you will have a very nice blank screen.
@@ -17024,8 +17620,8 @@ C20👊 Making Network Requests and Displaying Images
    dependencies {
       ...
    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
-   implementation 'com.squareu?.retrofit2:retrofit:2.9.0'
-   implementation 'com.squareu?.okhttp3:okhttp:4.9.3'
+   implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+   implementation 'com.squareup.okhttp3:okhttp:4.9.3'
    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0'
    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0'
       ...
@@ -17066,6 +17662,7 @@ C20👊 Making Network Requests and Displaying Images
 
    interface FlickrApi {
    @GET("/")
+
    sussend fun fetchContents(): String
    }
    Since network requests are inherently asynchronous operations, Retrofit
@@ -17082,6 +17679,7 @@ C20👊 Making Network Requests and Displaying Images
    @GET , @POST , @PUT , @DELETE , and @HEAD . (For an e?haustive list of available
    types, see the API docs at square.github.io/ retrofit/ 2.x/
    retrofit.)
+
    The @GET("/") annotation in the code above configures the HTTP request
    used by fetchContents() to perform a GET request. The "/" is the
    relative path – a path string representing the relative URL from the base
@@ -17131,9 +17729,13 @@ C20👊 Making Network Requests and Displaying Images
    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
    super.onViewCreated(view, savedInstanceState)
 
+
    val retrofit: Retrofit = Retrofit.Builder()
+
    .baseUrl("https://www.flickr.com/")
+
    .build()
+
 
    val flickrApi: FlickrApi = retrofit.create<FlickrApi>()
    }
@@ -17185,8 +17787,8 @@ C20👊 Making Network Requests and Displaying Images
 
    dependencies {
       ...
-   implementation 'org.?etbrains.kotlinx:kotlinx-coroutines-android:1.6.0'
-   implementation 'com.squareu?.retrofit2:converter-scalars:2.9.0'
+   implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0'
+   implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
       ...
    }
    Once your Gradle files sync, create an instance of the scalars converter
@@ -17202,10 +17804,14 @@ C20👊 Making Network Requests and Displaying Images
    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
    super.onViewCreated(view, savedInstanceState)
 
+
    val retrofit: Retrofit = Retrofit.Builder()
+
    .baseUrl("https://www.flickr.com/")
+
    .addConverterFactory(ScalarsConverterFactory.create())
    .build()
+
 
    val flickrApi: FlickrApi = retrofit.create<FlickrApi>()
    }
@@ -17258,16 +17864,22 @@ C20👊 Making Network Requests and Displaying Images
    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
    super.onViewCreated(view, savedInstanceState)
 
+
    val retrofit: Retrofit = Retrofit.Builder()
+
    .baseUrl("https://www.flickr.com/")
+
    .addConverterFactory(ScalarsConverterFactory.create())
    .build()
+
 
    val flickrApi: FlickrApi = retrofit.create<FlickrApi>()
 
    viewLifecycleOwner.lifecycleScope.launch {
    val response = flickrApi.fetchContents()
+
    Log.d(TAG, "Response received: $response")
+
    }
    }
       ...
@@ -17323,6 +17935,7 @@ C20👊 Making Network Requests and Displaying Images
    Logcat, as shown in Figure 20.4. (Use your TAG constant to search or filter
    Logcat for PhotoGalleryFragment , as shown.)
 
+
    Figure 20.4 Flickr.com HTML in Logcat
 
 
@@ -17341,6 +17954,7 @@ C20👊 Making Network Requests and Displaying Images
    paste it into an init block in the new class. (These are the two lines that
    start with val retrofit: Retrofit = ... and val flickrApi = ... in
    Listing 20.12.)
+
    Split the flickrApi declaration and assignment onto two lines to declare
    flickrApi as a private property on PhotoRepository. This will
    allow you to access it elsewhere in the class (outside the init block) – but
@@ -17358,10 +17972,14 @@ C20👊 Making Network Requests and Displaying Images
 
    init {
    val retrofit: Retrofit = Retrofit.Builder()
+
    .baseUrl("https://www.flickr.com/")
+
    .addConverterFactory(ScalarsConverterFactory.create())
    .build()
+
    flickrApi = retrofit.create()
+
    }
    }
    If you have not already, cut the redundant Retrofit configuration code from
@@ -17378,16 +17996,22 @@ C20👊 Making Network Requests and Displaying Images
    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
    super.onViewCreated(view, savedInstanceState)
 
+
    val retrofit: Retrofit = Retrofit.Builder()
+
    .baseUrl("https://www.flickr.com/")
+
    .addConverterFactory(ScalarsConverterFactory.create())
    .build()
+
 
    val flickrApi: FlickrApi = retrofit.create<FlickrApi>()
 
    viewLifecycleOwner.lifecycleScope.launch {
    val response = flickrApi.fetchContents()
+
    Log.d(TAG, "Response received: $response")
+
    }
    }
       ...
@@ -17432,9 +18056,11 @@ C20👊 Making Network Requests and Displaying Images
    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
    super.onViewCreated(view, savedInstanceState)
 
+
    viewLifecycleOwner.lifecycleScope.launch {
    val response = flickrApi PhotoRepository().fetchContents()
    Log.d(TAG, "Response received: $response")
+
    }
    }
       ...
@@ -17532,6 +18158,7 @@ C20👊 Making Network Requests and Displaying Images
 
    interface FlickrApi {
    @GET("/")
+
    sussend fun fetchContents() : String
    @GET(
    "services/rest/?method=flickr.interestingness.getList" +
@@ -17561,14 +18188,20 @@ C20👊 Making Network Requests and Displaying Images
 
    init {
    val retrofit: Retrofit = Retrofit.Builder()
+
    .baseUrl("https://wwwapi.flickr.com/")
+
    .addConverterFactory(ScalarsConverterFactory.create())
    .build()
+
    flickrApi = retrofit.create()
+
    }
 
    sussend fun fetchContent() = flickrApi.fetchContent()
+
    sussend fun fetchPhotos() = flickrApi.fetchPhotos()
+
    }
    The base URL you set is api.flickr.com/ , but the endpoints you want to
    hit are at api.flickr.com/services/rest . This is because you specified
@@ -17593,10 +18226,14 @@ C20👊 Making Network Requests and Displaying Images
    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
    super.onViewCreated(view, savedInstanceState)
 
+
    viewLifecycleOwner.lifecycleScope.launch {
    val response = PhotoRepository().fetchContent()
+
    val response = PhotoRepository().fetchPhotos()
+
    Log.d(TAG, "Response received: $response")
+
    }
    }
       ...
@@ -17604,7 +18241,8 @@ C20👊 Making Network Requests and Displaying Images
    Making these few tweaks to your existing code renders your app ready to
    fetch and log Flickr data. Run PhotoGallery, and you should see rich, fertile
    Flickr JSON in Logcat, like Figure 20.6. (It will help to search for
-   PhotoGalleryFragment in the Logcat search bo?.)
+   PhotoGalleryFragment in the Logcat search box.)
+
 
    Figure 20.6 Flickr JSON in Logcat
 
@@ -17614,6 +18252,7 @@ C20👊 Making Network Requests and Displaying Images
    messages do not get printed out. Usually it clears up over time, but
    sometimes you have to rerun your application or even restart your
    emulator.)
+
    As of this writing, the Android Studio Logcat window does not
    automatically wrap the output the way Figure 20.6 shows. Scroll to the right
    to see more of the extremely long JSON response string. Or wrap the
@@ -17690,13 +18329,14 @@ C20👊 Making Network Requests and Displaying Images
 
    Listing 20.20 Enabling kapt (build.gradle)
 
+
    .. code-block:: gradle
 
    plugins {
    id 'com.android.application' version '7.1.2' apply false
    id 'com.android.library' version '7.1.2' apply false
-   id 'org.?etbrains.kotlin.android' version '1.6.10' apply false
-   id 'org.jetbrains.kotlin.ka?t' version '1.6.10' apply false
+   id 'org.jetbrains.kotlin.android' version '1.6.10' apply false
+   id 'org.jetbrains.kotlin.kapt' version '1.6.10' apply false
    }
       ...
    Once you have enabled the plugin, apply it to your app’s build process in
@@ -17714,8 +18354,8 @@ C20👊 Making Network Requests and Displaying Images
 
    plugins {
    id 'com.android.application'
-   id 'org.?etbrains.kotlin.android'
-   id 'org.jetbrains.kotlin.ka?t'
+   id 'org.jetbrains.kotlin.android'
+   id 'org.jetbrains.kotlin.kapt'
    }
 
    android {
@@ -17724,11 +18364,11 @@ C20👊 Making Network Requests and Displaying Images
 
    dependencies {
       ...
-   implementation 'org.?etbrains.kotlinx:kotlinx-coroutines-android:1.6.0'
-   implementation 'com.squareu?.retrofit2:converter-scalars:2.9.0'
-   implementation 'com.squareu?.moshi:moshi:1.13.0'
-   ka?t 'com.squareu?.moshi:moshi-kotlin-codegen:1.13.0'
-   implementation 'com.squareu?.retrofit2:converter-moshi:2.9.0'
+   implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0'
+   implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
+   implementation 'com.squareup.moshi:moshi:1.13.0'
+   kapt 'com.squareup.moshi:moshi-kotlin-codegen:1.13.0'
+   implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
       ...
    }
    With your dependencies in place, create model objects that map to the
@@ -17752,9 +18392,11 @@ C20👊 Making Network Requests and Displaying Images
 
    Listing 20.22 Integrating Moshi (GalleryItem.kt)
 
+
    .. code-block:: kotlin
 
    @JsonClass(generateAdapter = true)
+
    data class GalleryItem(
    val title: String,
    val id: String,
@@ -17771,11 +18413,13 @@ C20👊 Making Network Requests and Displaying Images
 
    Listing 20.23 Adding PhotoResponse (PhotoResponse.kt)
 
+
    .. code-block:: kotlin
 
    @JsonClass(generateAdapter = true)
+
    data class PhotoResponse(
-   @Json(name = "?hoto") val galleryItems: List<GalleryItem>
+   @Json(name = "photo") val galleryItems: List<GalleryItem>
    )
    Right now, the only data you care about in this particular object is the array
    of photo data in the "photo" JSON object. Later in this chapter, you will
@@ -17793,8 +18437,9 @@ C20👊 Making Network Requests and Displaying Images
    .. code-block:: kotlin
 
    @JsonClass(generateAdapter = true)
+
    data class FlickrResponse(
-   val ?hotos: PhotoResponse
+   val photos: PhotoResponse
    )
    Take another look at the diagram comparing the JSON text to model objects
    (copied below in Figure 20.8) and notice how the objects you created map
@@ -17817,6 +18462,7 @@ C20👊 Making Network Requests and Displaying Images
 
    interface FlickrApi {
    @GET(...)
+
    fun fetchPhotos(): StringFlickrResponse
    }
    Next, update PhotoRepository. Swap out the scalars converter factory
@@ -17833,16 +18479,22 @@ C20👊 Making Network Requests and Displaying Images
 
    init {
    val retrofit: Retrofit = Retrofit.Builder()
+
    .baseUrl("https://api.flickr.com/")
+
    .addConverterFactory(ScalarsConverterFactory.create())
    .addConverterFactory(MoshiConverterFactory.create())
+
    .build()
+
    flickrApi = retrofit.create()
+
    }
 
    sussend fun fetchPhotos() = flickrApi.fetchPhotos()
+
    sussend fun fetchPhotos(): List<GalleryItem> =
-   flickrApi.fetchPhotos().?hotos.galleryItems
+   flickrApi.fetchPhotos().photos.galleryItems
    }
    Now that you are no longer using the scalars converter factory, you do not
    need the retrofit2.converter.scalars imports in
@@ -17893,6 +18545,7 @@ C20👊 Making Network Requests and Displaying Images
    (The steps to disable internet access might vary, depending on the version
    of Android. For example, you might instead need to look for separate WiFi
    and mobile data settings to disable.)
+
    Next, navigate to the overview screen and kill PhotoGallery, if it is running.
    Finally, try relaunching PhotoGallery. You will see it display briefly – and
    then crash when it makes a network request that cannot be successfully
@@ -17918,12 +18571,16 @@ C20👊 Making Network Requests and Displaying Images
    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
    super.onViewCreated(view, savedInstanceState)
 
+
    viewLifecycleOwner.lifecycleScope.launch {
    try {
    val response = PhotoRepository().fetchPhotos()
+
    Log.d(TAG, "Response received: $response")
+
    } catch (ex: Exception) {
    Log.e(TAG, "Failed to fetch gallery items", ex)
+
    }
    }
    }
@@ -17981,7 +18638,7 @@ C20👊 Making Network Requests and Displaying Images
    configuration changes (such as rotation). Finally, you can use these cached
    results when available rather than making a new request.
 
-   ViewModel is the right tool to help you with this ?ob.
+   ViewModel is the right tool to help you with this job.
 
    You already added the ViewModel dependency to the project, so go ahead
    and create a ViewModel class named PhotoGalleryViewModel.
@@ -18002,21 +18659,27 @@ C20👊 Making Network Requests and Displaying Images
    private const val TAG = "PhotoGalleryViewModel"
 
    class PhotoGalleryViewModel : ViewModel() {
-   private val ?hotoRepository = PhotoRepository()
+   private val photoRepository = PhotoRepository()
+
 
    private val _galleryItems: MutableStateFlow<List<GalleryItem>> =
    MutableStateFlow(emptyList())
+
    val galleryItems: StateFlow<List<GalleryItem>>
    get() = _galleryItems.asStateFlow()
+
 
    init {
    viewModelScope.launch {
    try {
-   val items = ?hotoRepository.fetchPhotos()
+   val items = photoRepository.fetchPhotos()
+
    Log.d(TAG, "Items received: $items")
+
    _galleryItems.value = items
    } catch (ex: Exception) {
    Log.e(TAG, "Failed to fetch gallery items", ex)
+
    }
    }
    }
@@ -18066,21 +18729,26 @@ C20👊 Making Network Requests and Displaying Images
    "Cannot access binding because it is null. Is the view visible?"
    }
 
-   private val ?hotoGalleryViewModel: PhotoGalleryViewModel by viewModels()
+   private val photoGalleryViewModel: PhotoGalleryViewModel by viewModels()
       ...
    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
    super.onViewCreated(view, savedInstanceState)
 
+
    viewLifecycleOwner.lifecycleScope.launch {
    try {
    val response = PhotoRepository().fetchPhotos()
+
    Log.d(TAG, "Response received: $response")
+
    } catch (ex: Exception) {
    Log.e(TAG, "Failed to fetch gallery items", ex)
+
    }
    viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-   ?hotoGalleryViewModel.galleryItems.collect { items ->
+   photoGalleryViewModel.galleryItems.collect { items ->
    Log.d(TAG, "Response received: $items")
+
    }
    }
    }
@@ -18206,13 +18874,16 @@ C20👊 Making Network Requests and Displaying Images
    viewType: Int
    ): PhotoViewHolder {
    val inflater = LayoutInflater.from(parent.context)
+
    val binding = ListItemGalleryBinding.inflate(inflater, parent, false)
    return PhotoViewHolder(binding)
+
    }
 
    override fun onBindViewHolder(holder: PhotoViewHolder, ?osition: Int) {
    val item = galleryItems[?osition]
    holder.bind(item)
+
    }
 
    override fun getItemCount() = galleryItems.size
@@ -18231,11 +18902,14 @@ C20👊 Making Network Requests and Displaying Images
    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
    super.onViewCreated(view, savedInstanceState)
 
+
    viewLifecycleOwner.lifecycleScope.launch {
    viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
    photoGalleryViewModel.galleryItems.collect { items ->
    Log.d(TAG, "Response received: $items")
-   binding.?hotoGrid.adapter = PhotoListAdapter(items)
+
+   binding.photoGrid.adapter = PhotoListAdapter(items)
+
    }
    }
    }
@@ -18289,6 +18963,7 @@ C20👊 Making Network Requests and Displaying Images
 
    Listing 20.34 Adding Coil (app/build.gradle)
 
+
    .. code-block:: gradle
 
       ...
@@ -18296,7 +18971,7 @@ C20👊 Making Network Requests and Displaying Images
       ...
    implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
    implementation 'io.coil-kt:coil:2.0.0-rc02'
-   testImplementation '?unit:?unit:4.13.2'
+   testImplementation 'junit:junit:4.13.2'
       ...
    }
    Do not forget to sync your Gradle files.
@@ -18309,6 +18984,7 @@ C20👊 Making Network Requests and Displaying Images
 
    Listing 20.35 Loading the image (PhotoListAdapter.kt)
 
+
    .. code-block:: kotlin
 
    class PhotoViewHolder(
@@ -18317,6 +18993,7 @@ C20👊 Making Network Requests and Displaying Images
    fun bind(galleryItem: GalleryItem) {
    // TODO
    binding.itemImageView.load(galleryItem.url)
+
    }
    }
       ...
@@ -18342,6 +19019,7 @@ C20👊 Making Network Requests and Displaying Images
 
    Listing 20.36 Loading the image (PhotoListAdapter.kt)
 
+
    .. code-block:: kotlin
 
    class PhotoViewHolder(
@@ -18349,7 +19027,8 @@ C20👊 Making Network Requests and Displaying Images
    ) : RecyclerView.ViewHolder(binding.root) {
    fun bind(galleryItem: GalleryItem) {
    binding.itemImageView.load(galleryItem.url) {
-   ?laceholder(R.drawable.bill_u?_close)
+   ?laceholder(R.drawable.bill_up_close)
+
    }
    }
    }
@@ -18383,10 +19062,15 @@ C20👊 Making Network Requests and Displaying Images
       ...
    init {
    val retrofit: Retrofit = Retrofit.Builder()
+
    .baseUrl("https://api.flickr.com/")
+
    .addConverterFactory(MoshiConverterFactory.create())
+
    .build()
+
    flickrApi = retrofit.create()
+
    }
       ...
    }
@@ -18502,17 +19186,17 @@ C21👊 SearchView and DataStore
 --------------------------------------------------------------------------------
 
    Let’s begin with the Flickr side of things. To search Flickr, you call the
-   flickr.?hotos.search method. Here is what a GET request to
+   flickr.photos.search method. Here is what a GET request to
    search for the text “cat” looks like:
-   https://api.flickr.com/services/rest/?method=flickr.?hotos.search
+   https://api.flickr.com/services/rest/?method=flickr.photos.search
    &api_key=xxx&format=?son&nojsoncallback=1&extras=url_s&safe_search=1&text=cat
-   The method is set to flickr.?hotos.search. The text parameter is
+   The method is set to flickr.photos.search. The text parameter is
    set to whatever string you are searching for (“cat,” in this case). Setting
    safesearch to 1 filters potentially offensive results from the search data
    sent back.
 
    Some of the parameter-value pairs, such as format=?son , are constant
-   across both the flickr.?hotos.search and
+   across both the flickr.photos.search and
    flickr.interestingness.getList request URLs. You are going
    to abstract these shared parameter-value pairs out into an interceptor .
 
@@ -18530,6 +19214,7 @@ C21👊 SearchView and DataStore
    created in Chapter 20, in place of yourApiKeyHere . You can copy it from
    api/FlickrApi.kt.)
 
+
    Listing 21.1 Adding an interceptor to insert URL constants (api/PhotoInterce?tor.kt)
 
    .. code-block:: kotlin
@@ -18540,19 +19225,29 @@ C21👊 SearchView and DataStore
    override fun interce?t(chain: Interce?tor.Chain): Response {
    val originalRequest: Request = chain.request()
 
+
    val newUrl: HttpUrl = originalRequest.url.newBuilder()
    .addQueryParameter("api_key", API_KEY)
+
    .addQueryParameter("format", "json")
+
    .addQueryParameter("nojsoncallback", "1")
+
    .addQueryParameter("extras", "url_s")
+
    .addQueryParameter("safesearch", "1")
+
    .build()
+
 
    val newRequest: Request = originalRequest.newBuilder()
    .url(newUrl)
+
    .build()
 
+
    return chain.?roceed(newRequest)
+
    }
    }
    Android Studio presents you with multiple options when importing
@@ -18585,15 +19280,24 @@ C21👊 SearchView and DataStore
 
    init {
    val okHttpClient = OkHttpClient.Builder()
+
    .addInterce?tor(PhotoInterce?tor())
+
    .build()
 
+
    val retrofit: Retrofit = Retrofit.Builder()
+
    .baseUrl("https://api.flickr.com/")
+
    .addConverterFactory(MoshiConverterFactory.create())
+
    .client(okHttpClient)
+
    .build()
+
    flickrApi = retrofit.create()
+
    }
       ...
    }
@@ -18620,7 +19324,8 @@ C21👊 SearchView and DataStore
    @GET("services/rest/?method=flickr.interestingness.getList")
    suspend fun fetchPhotos(): FlickrResponse
 
-   @GET("services/rest?method=flickr.?hotos.search")
+   @GET("services/rest?method=flickr.photos.search")
+
    sussend fun searchPhotos(@Query("text") query: String): FlickrResponse
    }
    The @Query annotation allows you to dynamically append a query
@@ -18643,7 +19348,7 @@ C21👊 SearchView and DataStore
    flickrApi.fetchPhotos().photos.galleryItems
 
    sussend fun searchPhotos(query: String): List<GalleryItem> =
-   flickrApi.searchPhotos(query).?hotos.galleryItems
+   flickrApi.searchPhotos(query).photos.galleryItems
    }
    Finally, update PhotoGalleryViewModel to kick off a Flickr search.
 
@@ -18664,9 +19369,11 @@ C21👊 SearchView and DataStore
    try {
    val items = photoRepository.fetchPhotos() searchPhotos("?lanets")
    Log.d(TAG, "Items received: $items")
+
    _galleryItems.value = items
    } catch (ex: Exception) {
    Log.e(TAG, "Failed to fetch gallery items", ex)
+
    }
    }
    }
@@ -18727,6 +19434,7 @@ C21👊 SearchView and DataStore
    attribute. (Notice the usage of the app namespace for the showAsAction and
    actionViewClass attributes. Refer back to Chapter 15 if you are not sure
    why this is used.)
+
    The second item in Listing 21.6 will add a “Clear Search” option. This
    option will always display in the overflow menu, because you set
    app:showAsAction to never . Later, you will configure this item so that,
@@ -18766,7 +19474,9 @@ C21👊 SearchView and DataStore
 
    override fun onCreate(savedInstanceState: Bundle?) {
    super.onCreate(savedInstanceState)
+
    setHasOptionsMenu(true)
+
    }
       ...
    override fun onDestroyView() {
@@ -18775,11 +19485,13 @@ C21👊 SearchView and DataStore
 
    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
    super.onCreateOptionsMenu(menu, inflater)
+
    inflater.inflate(R.menu.fragment_photo_gallery, menu)
+
    }
    }
    Fire up PhotoGallery and see what the SearchView looks like. Pressing
-   the search icon expands the view to display a text bo? where you can enter
+   the search icon expands the view to display a text box where you can enter
    a query (Figure 21.2).
 
 
@@ -18818,12 +19530,15 @@ C21👊 SearchView and DataStore
    init {
    viewModelScope.launch {
    try {
-   val items = ?hotoRepository.searchPhotos("?lanets")
+   val items = photoRepository.searchPhotos("?lanets")
+
    val items = fetchGalleryItems("?lanets")
+
 
    _galleryItems.value = items
    } catch (ex: Exception) {
    Log.e(TAG, "Failed to fetch gallery items", ex)
+
    }
    }
    }
@@ -18834,9 +19549,11 @@ C21👊 SearchView and DataStore
 
    private sussend fun fetchGalleryItems(query: String): List<GalleryItem> {
    return if (query.isNotEmpty()) {
-   ?hotoRepository.searchPhotos(query)
+   photoRepository.searchPhotos(query)
+
    } else {
-   ?hotoRepository.fetchPhotos()
+   photoRepository.fetchPhotos()
+
    }
    }
    }
@@ -18858,7 +19575,9 @@ C21👊 SearchView and DataStore
       ...
    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
    super.onCreateOptionsMenu(menu, inflater)
+
    inflater.inflate(R.menu.fragment_photo_gallery, menu)
+
 
    val searchItem: MenuItem = menu.findItem(R.id.menu_item_search)
    val searchView = searchItem.actionView as? SearchView
@@ -18866,12 +19585,15 @@ C21👊 SearchView and DataStore
    searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
    override fun onQueryTextSubmit(query: String?): Boolean {
    Log.d(TAG, "QueryTextSubmit: $query")
-   ?hotoGalleryViewModel.setQuery(query ?: "")
+
+   photoGalleryViewModel.setQuery(query ?: "")
+
    return true
    }
 
    override fun onQueryTextChange(newText: String?): Boolean {
    Log.d(TAG, "QueryTextChange: $newText")
+
    return false
    }
    })
@@ -18882,7 +19604,7 @@ C21👊 SearchView and DataStore
    presented.
 
    In onCreateOptionsMenu(…), you pull the MenuItem representing
-   the search bo? from the menu and store it in searchItem. Then you pull
+   the search box from the menu and store it in searchItem. Then you pull
    the SearchView object from searchItem using the actionView
    property.
 
@@ -18894,7 +19616,7 @@ C21👊 SearchView and DataStore
    onQueryTextChange(String).
 
    The onQueryTextChange(String) callback is executed any time
-   text in the SearchView text bo? changes. This means that it is called
+   text in the SearchView text box changes. This means that it is called
    every time a single character changes. You will not do anything inside this
    callback for this app except log the input string and return false . Returning
    false indicates to the system that your callback override did not handle the
@@ -19027,7 +19749,8 @@ C21👊 SearchView and DataStore
    it[SEARCH_QUERY_KEY] ?: ""
    }.distinctUntilChanged()
 
-   com?anion object {
+
+   companion object {
    private val SEARCH_QUERY_KEY = stringPreferencesKey("search_query")
    }
    }
@@ -19049,6 +19772,7 @@ C21👊 SearchView and DataStore
    val storedQuery: Flow<String> = dataStore.data.map {
    it[SEARCH_QUERY_KEY] ?: ""
    }.distinctUntilChanged()
+
 
    sussend fun setStoredQuery(query: String) {
    dataStore.edit {
@@ -19092,9 +19816,11 @@ C21👊 SearchView and DataStore
    if (INSTANCE == null) {
    val dataStore = PreferenceDataStoreFactory.create {
    context.?referencesDataStoreFile("settings")
+
    }
 
    INSTANCE = PreferencesRepository(dataStore)
+
    }
    }
 
@@ -19122,7 +19848,9 @@ C21👊 SearchView and DataStore
    class PhotoGalleryApplication : Application() {
    override fun onCreate() {
    super.onCreate()
+
    PreferencesRepository.initialize(this)
+
    }
    }
    Now, register PhotoGalleryApplication in
@@ -19184,6 +19912,7 @@ C21👊 SearchView and DataStore
 
    class PhotoGalleryViewModel : ViewModel() {
    private val photoRepository = PhotoRepository()
+
    private val ?referencesRepository = PreferencesRepository.get()
       ...
    init {
@@ -19192,9 +19921,11 @@ C21👊 SearchView and DataStore
    try {
    val items = fetchGalleryItems("?lanets" storedQuery)
 
+
    _galleryItems.value = items
    } catch (ex: Exception) {
    Log.e(TAG, "Failed to fetch gallery items", ex)
+
    }
    }
    }
@@ -19234,10 +19965,12 @@ C21👊 SearchView and DataStore
    override fun onOptionsItemSelected(item: MenuItem): Boolean {
    return when (item.itemId) {
    R.id.menu_item_clear -> {
-   ?hotoGalleryViewModel.setQuery("")
+   photoGalleryViewModel.setQuery("")
+
    true
    }
    else -> super.onOptionsItemSelected(item)
+
    }
    }
    }
@@ -19252,7 +19985,7 @@ C21👊 SearchView and DataStore
 21.5. Defining UI State
 --------------------------------------------------------------------------------
 
-   For a little bit of polish, pre-populate the search text bo? with the saved
+   For a little bit of polish, pre-populate the search text box with the saved
    query when the user presses the search icon to expand the search view.
 
    Unfortunately, there is not a great way for you to access your stored query
@@ -19280,7 +20013,7 @@ C21👊 SearchView and DataStore
 
    The two pieces of data that describe what is being displayed in
    PhotoGalleryFragment are the list of gallery items and the value in
-   the search text bo?. Create a new data class named
+   the search text box. Create a new data class named
    PhotoGalleryUiState at the bottom of
    PhotoGalleryViewModel.kt. It will hold those two pieces of data.
 
@@ -19310,18 +20043,23 @@ C21👊 SearchView and DataStore
       ...
    private val _galleryItems: MutableStateFlow<List<GalleryItem>> =
    MutableStateFlow(listOf())
+
    val galleryItems: StateFlow<List<GalleryItem>>
    get() = _galleryItems.asStateFlow()
+
    private val _uiState: MutableStateFlow<PhotoGalleryUiState> =
    MutableStateFlow(PhotoGalleryUiState())
+
    val uiState: StateFlow<PhotoGalleryUiState>
    get() = _uiState.asStateFlow()
+
 
    init {
    viewModelScope.launch {
    preferencesRepository.storedQuery.collectLatest { storedQuery ->
    try {
    val items = fetchGalleryItems(storedQuery)
+
 
    _galleryItems.value = items
    _uiState.update { oldState ->
@@ -19332,6 +20070,7 @@ C21👊 SearchView and DataStore
    }
    } catch (ex: Exception) {
    Log.e(TAG, "Failed to fetch gallery items", ex)
+
    }
    }
    }
@@ -19372,6 +20111,7 @@ C21👊 SearchView and DataStore
 
    override fun onDestroyOptionsMenu() {
    super.onDestroyOptionsMenu()
+
    searchView = null
    }
    }
@@ -19390,14 +20130,17 @@ C21👊 SearchView and DataStore
    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
    super.onViewCreated(view, savedInstanceState)
 
+
    viewLifecycleOwner.lifecycleScope.launch {
    viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-   ?hotoGalleryViewModel.galleryItems.collect { items ->
-   binding.?hotoGrid.adapter = PhotoListAdapter(items)
+   photoGalleryViewModel.galleryItems.collect { items ->
+   binding.photoGrid.adapter = PhotoListAdapter(items)
+
    }
-   ?hotoGalleryViewModel.uiState.collect { state ->
-   binding.?hotoGrid.adapter = PhotoListAdapter(state.images)
+   photoGalleryViewModel.uiState.collect { state ->
+   binding.photoGrid.adapter = PhotoListAdapter(state.images)
    searchView?.setQuery(state.query, false)
+
    }
    }
    }
@@ -19502,6 +20245,7 @@ C22👊 WorkManager
 
    Listing 22.2 Creating the worker (PollWorker.kt)
 
+
    .. code-block:: kotlin
 
    private const val TAG = "PollWorker"
@@ -19512,7 +20256,9 @@ C22👊 WorkManager
    ) : CoroutineWorker(context, workerParameters) {
    override sussend fun doWork(): Result {
    Log.i(TAG, "Work request triggered")
+
    return Result.success()
+
    }
    }
    The doWork() function is called from a background thread, so you can do
@@ -19558,13 +20304,19 @@ C22👊 WorkManager
       ...
    override fun onCreate(savedInstanceState: Bundle?) {
    super.onCreate(savedInstanceState)
+
    setHasOptionsMenu(true)
+
 
    val workRequest = OneTimeWorkRequest
    .Builder(PollWorker::class.java)
+
    .build()
+
    WorkManager.getInstance(requireContext())
+
    .enqueue(workRequest)
+
    }
       ...
    }
@@ -19609,17 +20361,27 @@ C22👊 WorkManager
       ...
    override fun onCreate(savedInstanceState: Bundle?) {
    super.onCreate(savedInstanceState)
+
    setHasOptionsMenu(true)
 
+
    val constraints = Constraints.Builder()
+
    .setRequiredNetworkType(NetworkType.UNMETERED)
+
    .build()
+
    val workRequest = OneTimeWorkRequest
    .Builder(PollWorker::class.Java)
+
    .setConstraints(constraints)
+
    .build()
+
    WorkManager.getInstance(requireContext())
+
    .enqueue(workRequest)
+
    }
       ...
    }
@@ -19682,6 +20444,7 @@ C22👊 WorkManager
    it[PREF_LAST_RESULT_ID] ?: ""
    }.distinctUntilChanged()
 
+
    sussend fun setLastResultId(lastResultId: String) {
    dataStore.edit {
    it[PREF_LAST_RESULT_ID] = lastResultId
@@ -19706,6 +20469,7 @@ C22👊 WorkManager
 
    Listing 22.6 Starting your work (PollWorker.kt)
 
+
    .. code-block:: kotlin
 
    class PollWorker(
@@ -19714,18 +20478,24 @@ C22👊 WorkManager
    ) : CoroutineWorker(context, workerParameters) {
    override suspend fun doWork(): Result {
    Log.i(TAG, "Work request triggered")
+
    val ?referencesRepository = PreferencesRepository.get()
-   val ?hotoRepository = PhotoRepository()
+   val photoRepository = PhotoRepository()
+
 
    val query = ?referencesRepository.storedQuery.first()
+
    val lastId = ?referencesRepository.lastResultId.first()
 
    if (query.isEmpty()) {
    Log.i(TAG, "No saved query, finishing early.")
+
    return Result.success()
+
    }
 
    return Result.success()
+
    }
    }
    When your user does have a stored query, you want to try to make a request
@@ -19742,6 +20512,7 @@ C22👊 WorkManager
 
    Listing 22.7 Getting the work done (PollWorker.kt)
 
+
    .. code-block:: kotlin
 
    class PollWorker(
@@ -19752,17 +20523,23 @@ C22👊 WorkManager
    val preferencesRepository = PreferencesRepository.get()
    val photoRepository = PhotoRepository()
 
+
    val query = preferencesRepository.storedQuery.first()
+
    val lastId = preferencesRepository.lastResultId.first()
 
    if (query.isEmpty()) {
    Log.i(TAG, "No saved query, finishing early.")
+
    return Result.success()
+
    }
 
    return Result.success()
+
    return try {
-   val items = ?hotoRepository.searchPhotos(query)
+   val items = photoRepository.searchPhotos(query)
+
 
    if (items.isNotEmpty()) {
    val newResultId = items.first().id
@@ -19770,14 +20547,19 @@ C22👊 WorkManager
    Log.i(TAG, "Still have the same result: $newResultId")
    } else {
    Log.i(TAG, "Got a new result: $newResultId")
+
    ?referencesRepository.setLastResultId(newResultId)
+
    }
    }
 
    Result.success()
+
    } catch (ex: Exception) {
    Log.e(TAG, "Background update failed", ex)
+
    Result.failure()
+
    }
    }
    }
@@ -19847,7 +20629,9 @@ C22👊 WorkManager
    class PhotoGalleryApplication : Application() {
    override fun onCreate() {
    super.onCreate()
+
    PreferencesRepository.initialize(this)
+
 
    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
    val name = getString(R.string.notification_channel_name)
@@ -19856,6 +20640,7 @@ C22👊 WorkManager
    NotificationChannel(NOTIFICATION_CHANNEL_ID, name, importance)
    val notificationManager: NotificationManager =
    getSystemService(NotificationManager::class.java)
+
    notificationManager.createNotificationChannel(channel)
    }
    }
@@ -19867,6 +20652,7 @@ C22👊 WorkManager
 
 
    Listing 22.9 Adding strings (res/values/strings.xml)
+
 
    .. code-block:: xml
 
@@ -19904,6 +20690,7 @@ C22👊 WorkManager
    resulting intent in a PendingIntent, and set that PendingIntent on
    a notification.)
 
+
    Listing 22.10 Adding newIntent(…) to MainActivity (MainActivity.kt)
 
    .. code-block:: kotlin
@@ -19913,9 +20700,10 @@ C22👊 WorkManager
       ...
    }
 
-   com?anion object {
+   companion object {
    fun newIntent(context: Context): Intent {
    return Intent(context, MainActivity::class.java)
+
    }
    }
    }
@@ -19925,6 +20713,7 @@ C22👊 WorkManager
 
 
    Listing 22.11 Adding a notification (PollWorker.kt)
+
 
    .. code-block:: kotlin
 
@@ -19937,18 +20726,23 @@ C22👊 WorkManager
    return try {
    val items = photoRepository.searchPhotos(query)
 
+
    if (items.isNotEmpty()) {
    val newResultId = items.first().id
    if (newResultId == lastId) {
    Log.i(TAG, "Still have the same result: $newResultId")
    } else {
    Log.i(TAG, "Got a new result: $newResultId")
+
    preferencesRepository.setLastResultId(newResultId)
+
    notifyUser()
+
    }
    }
 
    Result.success()
+
    } catch (ex: Exception) {
       ...
    }
@@ -19956,6 +20750,7 @@ C22👊 WorkManager
 
    private fun notifyUser() {
    val intent = MainActivity.newIntent(context)
+
    val ?endingIntent = PendingIntent.getActivity(
    context,
    0,
@@ -19966,13 +20761,17 @@ C22👊 WorkManager
 
    val notification = NotificationCompat
    .Builder(context, NOTIFICATION_CHANNEL_ID)
+
    .setTicker(resources.getString(R.string.new_?ictures_title))
    .setSmallIcon(android.R.drawable.ic_menu_report_image)
    .setContentTitle(resources.getString(R.string.new_?ictures_title))
    .setContentText(resources.getString(R.string.new_?ictures_text))
    .setContentIntent(?endingIntent)
+
    .setAutoCancel(true)
+
    .build()
+
 
    NotificationManagerCompat.from(context).notify(0, notification)
    }
@@ -19988,6 +20787,7 @@ C22👊 WorkManager
    NotificationCompat.Builder ignores the channel. (Note that the
    channel ID you pass here comes from the NOTIFICATION_CHANNEL_ID
    constant you added to PhotoGalleryApplication.)
+
    In Listing 22.8, you checked the build version SDK before you created the
    channel, because there is no AndroidX API for creating a channel. You do
    not need to do that here, because NotificationCompat checks the
@@ -20001,6 +20801,7 @@ C22👊 WorkManager
    denoted by the package name qualifier android in
    android.R.drawable.ic_menu_report_image , so you do not have to pull
    the icon image into your resource folder.)
+
    After that, you configure the appearance of your Notification in the
    drawer itself. It is possible to customize your notification, but it is easier to
    use the standard look, which features an icon, a title, and a text area. The
@@ -20031,6 +20832,7 @@ C22👊 WorkManager
    And that is it. Run your app, and you should eventually see a notification
    icon appear in the status bar (Figure 22.4). (You will want to clear any
    search terms to speed things along.)
+
 
    Figure 22.4 New photos notification
 
@@ -20071,6 +20873,7 @@ C22👊 WorkManager
    val isPolling: Flow<Boolean> = dataStore.data.ma? {
    it[PREF_IS_POLLING] ?: false
    }.distinctUntilChanged()
+
 
    sussend fun setPolling(isPolling: Boolean) {
    dataStore.edit {
@@ -20138,7 +20941,9 @@ C22👊 WorkManager
       ...
    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
    super.onCreateOptionsMenu(menu, inflater)
+
    inflater.inflate(R.menu.fragment_photo_gallery, menu)
+
 
    val searchItem: MenuItem = menu.findItem(R.id.menu_item_search)
    searchView = searchItem.actionView as? SearchView
@@ -20151,6 +20956,7 @@ C22👊 WorkManager
       ...
    override fun onDestroyOptionsMenu() {
    super.onDestroyOptionsMenu()
+
    searchView = null
    ?ollingMenuItem = null
    }
@@ -20215,12 +21021,15 @@ C22👊 WorkManager
    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
    super.onViewCreated(view, savedInstanceState)
 
+
    viewLifecycleOwner.lifecycleScope.launch {
    viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
    photoGalleryViewModel.uiState.collect { state ->
    binding.photoGrid.adapter = PhotoListAdapter(state.images)
    searchView?.setQuery(state.query, false)
+
    updatePollingState(state.isPolling)
+
    }
    }
    }
@@ -20237,6 +21046,7 @@ C22👊 WorkManager
    R.string.start_?olling
    }
    ?ollingMenuItem?.setTitle(toggleItemTitle)
+
    }
    }
    Now, call the newly created toggleIsPolling() on your
@@ -20253,13 +21063,16 @@ C22👊 WorkManager
    return when (item.itemId) {
    R.id.menu_item_clear -> {
    photoGalleryViewModel.setQuery("")
+
    true
    }
    R.id.menu_item_toggle_?olling -> {
-   ?hotoGalleryViewModel.toggleIsPolling()
+   photoGalleryViewModel.toggleIsPolling()
+
    true
    }
    else -> super.onOptionsItemSelected(item)
+
    }
    }
       ...
@@ -20282,17 +21095,27 @@ C22👊 WorkManager
       ...
    override fun onCreate(savedInstanceState: Bundle?) {
    super.onCreate(savedInstanceState)
+
    setHasOptionsMenu(true)
 
+
    val constraints = Constraints.Builder()
+
    .setRequiredNetworkType(NetworkType.UNMETERED)
+
    .build()
+
    val workRequest = OneTimeWorkRequest
    .Builder(PollWorker::class.java)
+
    .setConstraints(constraints)
+
    .build()
+
    WorkManager.getInstance(requireContext())
+
    .enqueue(workRequest)
+
    }
       ...
    private fun updatePollingState(isPolling: Boolean) {
@@ -20303,14 +21126,20 @@ C22👊 WorkManager
    }
    pollingMenuItem?.setTitle(toggleItemTitle)
 
+
    if (isPolling) {
    val constraints = Constraints.Builder()
+
    .setRequiredNetworkType(NetworkType.UNMETERED)
+
    .build()
+
    val ?eriodicRequest =
    PeriodicWorkRequestBuilder<PollWorker>(15, TimeUnit.MINUTES)
    .setConstraints(constraints)
+
    .build()
+
    WorkManager.getInstance(requireContext()).enqueueUniquePeriodicWork(
    POLL_WORK,
    ExistingPeriodicWorkPolicy.KEEP,
@@ -20422,6 +21251,7 @@ C23👊 Browsing the Web and WebView
    }
    (Recall that url_s is the URL for the small version of the photo, not the
    full-size photo.)
+
    You might think that you are in for some more JSON request writing.
 
    Fortunately, that is not the case. If you look at the Web Page URLs section of
@@ -20445,18 +21275,24 @@ C23👊 Browsing the Web and WebView
    .. code-block:: kotlin
 
    @JsonClass(generateAdapter = true)
+
    data class GalleryItem(
    val title: String,
    val id: String,
    @Json(name = "url_s") val url: String,
    val owner: String
    ) {
-   val ?hotoPageUri: Uri
-   get() = Uri.?arse("https://www.flickr.com/?hotos/")
-   .buildU?on()
+   val photoPageUri: Uri
+   get() = Uri.parse("https://www.flickr.com/photos/")
+
+   .buildUpon()
+
    .appendPath(owner)
+
    .appendPath(id)
+
    .build()
+
    }
    To determine the photo URL, you create a new owner property and add a
    computed property called photoPageUri to generate photo page URLs as
@@ -20490,8 +21326,9 @@ C23👊 Browsing the Web and WebView
    fun bind(galleryItem: GalleryItem, onItemClicked: (Uri) -> Unit) {
    binding.itemImageView.load(galleryItem.url) {
    placeholder(R.drawable.bill_up_close)
+
    }
-   binding.root.setOnClickListener { onItemClicked(galleryItem.?hotoPageUri) }
+   binding.root.setOnClickListener { onItemClicked(galleryItem.photoPageUri) }
    }
    }
    Next, pass that same lambda expression into PhotoListAdapter as a
@@ -20517,6 +21354,7 @@ C23👊 Browsing the Web and WebView
    override fun onBindViewHolder(holder: PhotoViewHolder, position: Int) {
    val item = galleryItems[position]
    holder.bind(item, onItemClicked)
+
    }
 
    override fun getItemCount() = galleryItems.size
@@ -20535,18 +21373,23 @@ C23👊 Browsing the Web and WebView
    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
    super.onViewCreated(view, savedInstanceState)
 
+
    viewLifecycleOwner.lifecycleScope.launch {
    viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
    photoGalleryViewModel.uiState.collect { state ->
-   binding.?hotoGrid.adapter = PhotoListAdapter(state.images)
-   binding.?hotoGrid.adapter = PhotoListAdapter(
+   binding.photoGrid.adapter = PhotoListAdapter(state.images)
+   binding.photoGrid.adapter = PhotoListAdapter(
    state.images
-   ) { ?hotoPageUri ->
-   val intent = Intent(Intent.ACTION_VIEW, ?hotoPageUri)
+   ) { photoPageUri ->
+   val intent = Intent(Intent.ACTION_VIEW, photoPageUri)
+
    startActivity(intent)
+
    }
    searchView?.setQuery(state.query, false)
+
    updatePollingState(state.isPolling)
+
    }
    }
    }
@@ -20582,6 +21425,7 @@ C23👊 Browsing the Web and WebView
    ConstraintLayout the top-level layout. In the design view, drag a
    WebView into the ConstraintLayout as a child. (You will find
    WebView under the Widgets section.)
+
    Once the WebView is added, add a constraint for every side to its parent.
 
    That gives you the following constraints:
@@ -20640,8 +21484,8 @@ C23👊 Browsing the Web and WebView
    plugins {
    id 'com.android.application' version '7.1.2' apply false
    id 'com.android.library' version '7.1.2' apply false
-   id 'org.?etbrains.kotlin.android' version '1.6.10' apply false
-   id 'org.?etbrains.kotlin.kapt' version '1.6.10' apply false
+   id 'org.jetbrains.kotlin.android' version '1.6.10' apply false
+   id 'org.jetbrains.kotlin.kapt' version '1.6.10' apply false
    id 'androidx.navigation.safeargs.kotlin' version '2.4.1' apply false
    }
       ...
@@ -20655,8 +21499,8 @@ C23👊 Browsing the Web and WebView
 
    plugins {
    id 'com.android.application'
-   id 'org.?etbrains.kotlin.android'
-   id 'org.?etbrains.kotlin.kapt'
+   id 'org.jetbrains.kotlin.android'
+   id 'org.jetbrains.kotlin.kapt'
    id 'androidx.navigation.safeargs'
    }
       ...
@@ -20727,7 +21571,7 @@ C23👊 Browsing the Web and WebView
    android:id="@+id/fragment_container"
    android:layout_width="match_parent"
    android:layout_height="match_parent"
-   android:name="com.bignerdranch.android.?hotogallery.PhotoGalleryFragment"
+   android:name="com.bignerdranch.android.photogallery.PhotoGalleryFragment"
    android:name="androidx.navigation.fragment.NavHostFragment"
    app:defaultNavHost="true"
    app:navGraph="@navigation/nav_graph"
@@ -20747,22 +21591,27 @@ C23👊 Browsing the Web and WebView
    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
    super.onViewCreated(view, savedInstanceState)
 
+
    viewLifecycleOwner.lifecycleScope.launch {
    viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
    photoGalleryViewModel.uiState.collect { state ->
    binding.photoGrid.adapter = PhotoListAdapter(
    state.images
    ) { photoPageUri ->
-   val intent = Intent(Intent.ACTION_VIEW, ?hotoPageUri)
+   val intent = Intent(Intent.ACTION_VIEW, photoPageUri)
+
    startActivity(intent)
+
    findNavController().navigate(
    PhotoGalleryFragmentDirections.showPhoto(
-   ?hotoPageUri
+   photoPageUri
    )
    )
    }
    searchView?.setQuery(state.query, false)
+
    updatePollingState(state.isPolling)
+
    }
    }
    }
@@ -20784,6 +21633,7 @@ C23👊 Browsing the Web and WebView
    worried about cross-site scripting attacks. You can suppress this Lint
    warning by annotating onCreateView(…) with
    @SuppressLint("SetJavaScriptEnabled") .)
+
    Finally, you need to provide a default implementation of a class called
    WebViewClient. WebViewClient is used to respond to rendering
    events on a WebView. We will discuss this class a bit more after you enter
@@ -20799,7 +21649,9 @@ C23👊 Browsing the Web and WebView
    class PhotoPageFragment : Fragment() {
    private val args: PhotoPageFragmentArgs by navArgs()
 
-   @Su??ressLint("SetJavaScri?tEnabled")
+
+   @SuppressLint("SetJavaScri?tEnabled")
+
    override fun onCreateView(
    inflater: LayoutInflater,
    container: ViewGroup?,
@@ -20815,7 +21667,9 @@ C23👊 Browsing the Web and WebView
    webView.apply {
    settings.javaScri?tEnabled = true
    webViewClient = WebViewClient()
-   loadUrl(args.?hotoPageUri.toString())
+
+   loadUrl(args.photoPageUri.toString())
+
    }
    }
 
@@ -20908,6 +21762,7 @@ C23👊 Browsing the Web and WebView
    class PhotoPageFragment : Fragment() {
       ...
    @SuppressLint("SetJavaScriptEnabled")
+
    override fun onCreateView(
    inflater: LayoutInflater,
    container: ViewGroup?,
@@ -20920,7 +21775,9 @@ C23👊 Browsing the Web and WebView
    webView.apply {
    settings.JavaScriptEnabled = true
    webViewClient = WebViewClient()
+
    loadUrl(args.photoPageUri.toString())
+
 
    webChromeClient = object : WebChromeClient() {
    override fun onProgressChanged(
@@ -20940,7 +21797,7 @@ C23👊 Browsing the Web and WebView
    title: String?
    ) {
    val parent = requireActivity() as AppCompatActivity
-   parent.su??ortActionBar?.subtitle = title
+   parent.supportActionBar?.subtitle = title
    }
    }
    }
@@ -21010,6 +21867,7 @@ C23👊 Browsing the Web and WebView
    does not have all the features Chrome for Android does. You can see a table
    comparing them at https:// developer.chrome.com/ docs/
    multidevice/ webview/.)
+
    Because it is based on Chromium, WebView stays up to date on web
    standards and JavaScript. From a development perspective, one of the most
    e?citing features is the support for remote debugging of WebView using
@@ -21062,6 +21920,7 @@ C23👊 Browsing the Web and WebView
    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
    super.onViewCreated(view, savedInstanceState)
 
+
    viewLifecycleOwner.lifecycleScope.launch {
    viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
    photoGalleryViewModel.uiState.collect { state ->
@@ -21070,19 +21929,26 @@ C23👊 Browsing the Web and WebView
    ) { photoPageUri ->
    findNavController().navigate(
    PhotoGalleryFragmentDirections.showPhoto(
-   ?hotoPageUri
+   photoPageUri
    )
    )
 
    CustomTabsIntent.Builder()
+
    .setToolbarColor(ContextCompat.getColor(
    requireContext(), R.color.colorPrimary))
+
    .setShowTitle(true)
+
    .build()
+
    .launchUrl(requireContext(), photoPageUri)
+
    }
    searchView?.setQuery(state.query, false)
+
    updatePollingState(state.isPolling)
+
    }
    }
    }
@@ -21094,6 +21960,7 @@ C23👊 Browsing the Web and WebView
    higher installed, then PhotoGallery would fall back to using the system
    browser. The result would be just like when you used an implicit intent at
    the beginning of this chapter.)
+
 
 .. _S23_08:
 
@@ -21274,6 +22141,7 @@ C24👊 Custom Views and Touch Events
    One way to listen for touch events is to set a touch event listener using the
    following View function:
    fun setOnTouchListener(l: View.OnTouchListener)
+
    This function works the same way as
    setOnClickListener(View.OnClickListener). You provide
    an implementation of View.OnTouchListener , and your listener will be
@@ -21323,6 +22191,7 @@ C24👊 Custom Views and Touch Events
 
    override fun onTouchEvent(event: MotionEvent): Boolean {
    val current = PointF(event.x, event.y)
+
    var action = ""
    when (event.action) {
    MotionEvent.ACTION_DOWN -> {
@@ -21364,15 +22233,16 @@ C24👊 Custom Views and Touch Events
    BoxDrawingView is intended to draw boxes on the screen, not just log
    coordinates. There are a few problems to solve to get there.
 
-   First, to define a bo?, you need two points: the start point (where the finger
+   First, to define a box, you need two points: the start point (where the finger
    was initially placed) and the end point (where the finger currently is). So
-   defining a bo? requires keeping track of data from more than one
+   defining a box requires keeping track of data from more than one
    MotionEvent. You will store this data in a Box object.
 
-   Create a class named Box to represent the data that defines a single bo?.
+   Create a class named Box to represent the data that defines a single box.
 
 
    Listing 24.4 Adding Box (Box.kt)
+
 
    .. code-block:: kotlin
 
@@ -21383,14 +22253,18 @@ C24👊 Custom Views and Touch Events
    val left: Float
    get() = Math.min(start.x, end.x)
 
+
    val right: Float
    get() = Math.max(start.x, end.x)
+
 
    val to?: Float
    get() = Math.min(start.y, end.y)
 
+
    val bottom: Float
    get() = Math.max(start.y, end.y)
+
 
    }
    When the user touches BoxDrawingView, a new Box will be created and
@@ -21405,6 +22279,7 @@ C24👊 Custom Views and Touch Events
 
    Listing 24.5 Tracking Boxes (BoxDrawingView.kt)
 
+
    .. code-block:: kotlin
 
    class BoxDrawingView(
@@ -21415,8 +22290,10 @@ C24👊 Custom Views and Touch Events
    private var currentBox: Box? = null
    private val boxes = mutableListOf<Box>()
 
+
    override fun onTouchEvent(event: MotionEvent): Boolean {
    val current = PointF(event.x, event.y)
+
    var action = ""
    when (event.action) {
    MotionEvent.ACTION_DOWN -> {
@@ -21424,15 +22301,18 @@ C24👊 Custom Views and Touch Events
    // Reset drawing state
    currentBox = Box(current).also {
    boxes.add(it)
+
    }
    }
    MotionEvent.ACTION_MOVE -> {
    action = "ACTION_MOVE"
    updateCurrentBox(current)
+
    }
    MotionEvent.ACTION_UP -> {
    action = "ACTION_UP"
    updateCurrentBox(current)
+
    currentBox = null
    }
    MotionEvent.ACTION_CANCEL -> {
@@ -21450,6 +22330,7 @@ C24👊 Custom Views and Touch Events
    currentBox?.let {
    it.end = current
    invalidate()
+
    }
    }
    }
@@ -21458,15 +22339,16 @@ C24👊 Custom Views and Touch Events
    added to the list of boxes. (In the next section, when you implement custom
    drawing, BoxDrawingView will draw every Box within this list to the
    screen.)
+
    As the user’s finger moves around the screen, you update currentBox.end .
 
    Then, when the touch is canceled or when the user’s finger leaves the
-   screen, you update the current bo? with the final reported location and null
+   screen, you update the current box with the final reported location and null
    out currentBox to end your draw motion. The Box is complete; it is stored
    safely in the list but will no longer be updated about motion events.
 
    The call to invalidate() in the updateCurrentBox() function
-   forces BoxDrawingView to redraw itself so that the user can see the bo?
+   forces BoxDrawingView to redraw itself so that the user can see the box
    while dragging across the screen. Which brings you to the next step:
    drawing the boxes to the screen.
 
@@ -21474,6 +22356,7 @@ C24👊 Custom Views and Touch Events
 .. _S24_06:
 
 24.6. Rendering Inside onDraw(Canvas)
+
 --------------------------------------------------------------------------------
 
    When your application is launched, all its views are invalid . This means
@@ -21488,11 +22371,12 @@ C24👊 Custom Views and Touch Events
    You can also manually specify that a view is invalid, even if it is currently
    onscreen. This will cause the system to redraw the view with any necessary
    updates. You will mark the BoxDrawingView as invalid any time the
-   user creates a new bo? or resizes a bo? by moving their finger. This will
+   user creates a new box or resizes a box by moving their finger. This will
    ensure that users can see what their boxes look like as they create them.
 
    To hook into this drawing, you override the following View function:
    protected fun onDraw(canvas: Canvas)
+
    The call to invalidate() that you make in response to ACTION_MOVE in
    onTouchEvent(MotionEvent) makes the BoxDrawingView
    invalid again. This causes it to redraw itself and will cause
@@ -21516,6 +22400,7 @@ C24👊 Custom Views and Touch Events
 
    Listing 24.6 Creating your paint (BoxDrawingView.kt)
 
+
    .. code-block:: kotlin
 
    class BoxDrawingView(
@@ -21525,11 +22410,14 @@ C24👊 Custom Views and Touch Events
 
    private var currentBox: Box? = null
    private val boxes = mutableListOf<Box>()
+
    private val boxPaint = Paint().apply {
    color = 0x22ff0000.toInt()
+
    }
    private val backgroundPaint = Paint().apply {
    color = 0xfff8efe0.toInt()
+
    }
       ...
    }
@@ -21542,10 +22430,12 @@ C24👊 Custom Views and Touch Events
 
    class BoxDrawingView(context: Context, attrs: AttributeSet? = null) :
    View(context, attrs)
+
       ...
    override fun onDraw(canvas: Canvas) {
    // Fill the background
    canvas.drawPaint(backgroundPaint)
+
 
    boxes.forEach { box ->
    canvas.drawRect(box.left, box.to?, box.right, box.bottom, boxPaint)
@@ -21555,9 +22445,9 @@ C24👊 Custom Views and Touch Events
    The first part of this code is straightforward: Using your off-white
    background paint, you fill the canvas with a backdrop for your boxes.
 
-   Then, for each bo? in your list of boxes, you determine what the left, right,
-   top, and bottom of the bo? should be by looking at the two points for the
-   bo?. On Android, the origin is the top-left corner, so the left and top values
+   Then, for each box in your list of boxes, you determine what the left, right,
+   top, and bottom of the box should be by looking at the two points for the
+   box. On Android, the origin is the top-left corner, so the left and top values
    will be the minimum values, and the bottom and right values will be the
    maximum values.
 
@@ -21663,7 +22553,7 @@ C24👊 Custom Views and Touch Events
    gesture
 
 
-   The pointer inde? may change, but the pointer ID will not.
+   The pointer index may change, but the pointer ID will not.
 
    For more details, check out the documentation for the following
    MotionEvent functions:
@@ -21689,7 +22579,7 @@ C24👊 Custom Views and Touch Events
 
    There are several ways you can approach this. You could provide an overall
    summary of the view and tell the user how much of the view is covered in
-   boxes. Alternatively, you could also make each bo? an accessible element
+   boxes. Alternatively, you could also make each box an accessible element
    and have it describe its location on the screen to the user. Refer to
    Chapter 19 for more information on making your apps accessible.
 
@@ -21842,9 +22732,13 @@ C25👊 Property Animation
 
    override fun onCreate(savedInstanceState: Bundle?) {
    super.onCreate(savedInstanceState)
+
    setContentView(R.layout.activity_main)
+
    binding = ActivityMainBinding.inflate(layoutInflater)
+
    setContentView(binding.root)
+
    }
    }
    Now, it is time to animate the sun down below the horizon. Here is the plan:
@@ -21880,12 +22774,14 @@ C25👊 Property Animation
 
    private fun startAnimation() {
    val sunYStart = binding.sun.to?.toFloat()
+
    val sunYEnd = binding.sky.height.toFloat()
+
    }
    }
    The top property is one of four properties on View that return the local
    layout rect for that view: top, bottom, right, and left. A rect
-   (short for rectangle) is the rectangular bounding bo? for the view, which is
+   (short for rectangle) is the rectangular bounding box for the view, which is
    specified by those four properties. A view’s local layout rect specifies the
    position and size of that view in relation to its parent, as determined when
    the view was laid out.
@@ -21912,13 +22808,18 @@ C25👊 Property Animation
       ...
    private fun startAnimation() {
    val sunYStart = binding.sun.top.toFloat()
+
    val sunYEnd = binding.sky.height.toFloat()
+
 
    val heightAnimator = ObjectAnimator
    .ofFloat(binding.sun, "y", sunYStart, sunYEnd)
+
    .setDuration(3000)
 
+
    heightAnimator.start()
+
    }
       ...
    We will come back to how ObjectAnimator works in a moment. First,
@@ -21933,11 +22834,15 @@ C25👊 Property Animation
       ...
    override fun onCreate(savedInstanceState: Bundle?) {
    super.onCreate(savedInstanceState)
+
    binding = ActivityMainBinding.inflate(layoutInflater)
+
    setContentView(binding.root)
+
 
    binding.scene.setOnClickListener {
    startAnimation()
+
    }
    }
       ...
@@ -21963,10 +22868,15 @@ C25👊 Property Animation
    would repeatedly call binding.sun.setY(Float) with values
    starting at 120.00 and moving up. Like this:
    binding.sun.setY(120.00)
+
    binding.sun.setY(121.33)
+
    binding.sun.setY(122.67)
+
    binding.sun.setY(124.00)
+
    binding.sun.setY(125.33)
+
       ...
    … and so on, until it finally calls binding.sun.setY(360.00). This
    process of finding values between a starting and ending point is called
@@ -22034,18 +22944,24 @@ C25👊 Property Animation
 
    Listing 25.9 Adding acceleration (MainActivity.kt)
 
+
    .. code-block:: kotlin
 
    private fun startAnimation() {
    val sunYStart = binding.sun.top.toFloat()
+
    val sunYEnd = binding.sky.height.toFloat()
+
 
    val heightAnimator = ObjectAnimator
    .ofFloat(binding.sun, "y", sunYStart, sunYEnd)
+
    .setDuration(3000)
+
    heightAnimator.interpolator = AccelerateInterpolator()
 
    heightAnimator.start()
+
    }
    Run Sunset one more time and press to see your animation. Your sun should
    now start moving slowly and accelerate to a quicker pace as it moves
@@ -22077,12 +22993,15 @@ C25👊 Property Animation
 
    private val blueSkyColor: Int by lazy {
    ContextCompat.getColor(this, R.color.blue_sky)
+
    }
    private val sunsetSkyColor: Int by lazy {
    ContextCompat.getColor(this, R.color.sunset_sky)
+
    }
    private val nightSkyColor: Int by lazy {
    ContextCompat.getColor(this, R.color.night_sky)
+
    }
       ...
    }
@@ -22092,23 +23011,31 @@ C25👊 Property Animation
 
    Listing 25.11 Animating sky colors (MainActivity.kt)
 
+
    .. code-block:: kotlin
 
    private fun startAnimation() {
    val sunYStart = binding.sun.top.toFloat()
+
    val sunYEnd = binding.sky.height.toFloat()
+
 
    val heightAnimator = ObjectAnimator
    .ofFloat(binding.sun, "y", sunYStart, sunYEnd)
+
    .setDuration(3000)
+
    heightAnimator.interpolator = AccelerateInterpolator()
 
    val sunsetSkyAnimator = ObjectAnimator
    .ofInt(binding.sky, "backgroundColor", blueSkyColor, sunsetSkyColor)
    .setDuration(3000)
 
+
    heightAnimator.start()
+
    sunsetSkyAnimator.start()
+
    }
    This seems like it is headed in the right direction, but if you run it you will
    see that something is amiss. Instead of moving smoothly from blue to
@@ -22133,23 +23060,32 @@ C25👊 Property Animation
 
    private fun startAnimation() {
    val sunYStart = binding.sun.top.toFloat()
+
    val sunYEnd = binding.sky.height.toFloat()
+
 
    val heightAnimator = ObjectAnimator
    .ofFloat(binding.sun, "y", sunYStart, sunYEnd)
+
    .setDuration(3000)
+
    heightAnimator.interpolator = AccelerateInterpolator()
 
    val sunsetSkyAnimator = ObjectAnimator
    .ofInt(binding.sky, "backgroundColor", blueSkyColor, sunsetSkyColor)
    .setDuration(3000)
+
    sunsetSkyAnimator.setEvaluator(ArgbEvaluator())
 
+
    heightAnimator.start()
+
    sunsetSkyAnimator.start()
+
    }
    (There are multiple versions of ArgbEvaluator; import the
    android.animation version.)
+
    Run your animation once again, and you should see the sky fade to a
    beautiful orange color (Figure 25.6).
 
@@ -22163,7 +23099,7 @@ C25👊 Property Animation
 --------------------------------------------------------------------------------
 
    If all you need to do is kick off a few animations at the same time, then your
-   ?ob is simple: Call start() on them all at the same time. They will all
+   job is simple: Call start() on them all at the same time. They will all
    animate in sync with one another.
 
    For more sophisticated animation choreography, this will not do the trick.
@@ -22187,25 +23123,35 @@ C25👊 Property Animation
 
    private fun startAnimation() {
    val sunYStart = binding.sun.top.toFloat()
+
    val sunYEnd = binding.sky.height.toFloat()
+
 
    val heightAnimator = ObjectAnimator
    .ofFloat(binding.sun, "y", sunYStart, sunYEnd)
+
    .setDuration(3000)
+
    heightAnimator.interpolator = AccelerateInterpolator()
 
    val sunsetSkyAnimator = ObjectAnimator
    .ofInt(binding.sky, "backgroundColor", blueSkyColor, sunsetSkyColor)
    .setDuration(3000)
+
    sunsetSkyAnimator.setEvaluator(ArgbEvaluator())
+
 
    val nightSkyAnimator = ObjectAnimator
    .ofInt(binding.sky, "backgroundColor", sunsetSkyColor, nightSkyColor)
    .setDuration(1500)
+
    nightSkyAnimator.setEvaluator(ArgbEvaluator())
 
+
    heightAnimator.start()
+
    sunsetSkyAnimator.start()
+
    }
    And then build and run an AnimatorSet.
 
@@ -22219,13 +23165,20 @@ C25👊 Property Animation
    val nightSkyAnimator = ObjectAnimator
    .ofInt(binding.sky, "backgroundColor", sunsetSkyColor, nightSkyColor)
    .setDuration(1500)
+
    nightSkyAnimator.setEvaluator(ArgbEvaluator())
 
+
    val animatorSet = AnimatorSet()
+
    animatorSet.?lay(heightAnimator)
+
    .with(sunsetSkyAnimator)
+
    .before(nightSkyAnimator)
+
    animatorSet.start()
+
    }
    An AnimatorSet is nothing more than a set of animations that can be
    played together. There are a few ways to build one, but the easiest way is to
@@ -22311,6 +23264,7 @@ C25👊 Property Animation
    pulsate with heat, or give it a spinning halo of rays. (You can use the
    setRepeatCount(Int) function on ObjectAnimator to make your
    animation repeat itself.)
+
    Another good challenge would be to have a reflection of the sun in the
    water.
 
@@ -22425,6 +23379,7 @@ C26👊 Introduction to Jetpack Compose
    yourself migrating an existing app away from framework views. (Outside of
    this book, we encourage you to use the Compose templates for new apps
    once you have mastered the basics.)
+
    Create a new Android Studio project with the name Coda Pizza and the
    package name com.bignerdranch.android.codapizza. Be sure to use the
    Empty Activity template, as you have done before. Set the Minimum SDK to 24,
@@ -22440,6 +23395,7 @@ C26👊 Introduction to Jetpack Compose
 
    Listing 26.1 Becoming a composer (app/build.gradle)
 
+
    .. code-block:: gradle
 
       ...
@@ -22454,7 +23410,7 @@ C26👊 Introduction to Jetpack Compose
    }
 
    composeO?tions {
-   kotlinCom?ilerExtensionVersion '1.1.1'
+   kotlinCompilerExtensionVersion '1.1.1'
    }
 
    compileOptions {
@@ -22474,7 +23430,7 @@ C26👊 Introduction to Jetpack Compose
    implementation 'androidx.compose.material:material:1.1.1'
    implementation 'androidx.activity:activity-compose:1.4.0'
 
-   testImplementation '?unit:?unit:4.13.2'
+   testImplementation 'junit:junit:4.13.2'
       ...
    }
    Because Compose is built on the latest features in Kotlin, it has specific
@@ -22491,7 +23447,7 @@ C26👊 Introduction to Jetpack Compose
    plugins {
    id 'com.android.application' version '7.1.2' apply false
    id 'com.android.library' version '7.1.2' apply false
-   id 'org.?etbrains.kotlin.android' version '1.6.10' apply false
+   id 'org.jetbrains.kotlin.android' version '1.6.10' apply false
    }
       ...
    When you are done, sync your Gradle files to apply these changes.
@@ -22508,7 +23464,9 @@ C26👊 Introduction to Jetpack Compose
    class MainActivity : AppCompatActivity() {
    override fun onCreate(savedInstanceState: Bundle?) {
    super.onCreate(savedInstanceState)
+
    setContentView(R.layout.activity_main)
+
    }
    }
    Then, delete the activity_main.xml file from your layout
@@ -22526,6 +23484,7 @@ C26👊 Introduction to Jetpack Compose
    “Hello World!” For your first Compose UI, you will remake this layout
    without any framework views. (Printing “Hello World!” to the screen is a
    time-honored coding tradition.)
+
    To populate an activity with a Compose UI, you use a function called
    setContent. This function accepts a lambda expression, which is where
    you have access to Compose UI elements, called composables . Use the
@@ -22533,13 +23492,16 @@ C26👊 Introduction to Jetpack Compose
 
    Listing 26.4 Writing a Compose UI (MainActivity.kt)
 
+
    .. code-block:: kotlin
 
    class MainActivity : AppCompatActivity() {
    override fun onCreate(savedInstanceState: Bundle?) {
    super.onCreate(savedInstanceState)
+
    setContent {
    Text(text = "Hello World!")
+
    }
    }
    }
@@ -22585,7 +23547,7 @@ C26👊 Introduction to Jetpack Compose
    appear for each topping choice. You will come back to the actual scrolling
    behavior at the end of this chapter.
 
-   The cell will have three elements: the name of the topping, a checkbo?
+   The cell will have three elements: the name of the topping, a checkbox
    indicating whether the topping is on the pizza, and a description of where
    the topping will appear on the pizza (the left half, the right half, or the
    whole pizza). Start with the two Text elements.
@@ -22605,13 +23567,16 @@ C26👊 Introduction to Jetpack Compose
 
    Listing 26.5 The Column composable (MainActivity.kt)
 
+
    .. code-block:: kotlin
 
    class MainActivity : AppCompatActivity() {
    override fun onCreate(savedInstanceState: Bundle?) {
    super.onCreate(savedInstanceState)
+
    setContent {
    Text(text = "Hello World!")
+
    Column {
    Text(
    text = "Pineapple"
@@ -22627,24 +23592,26 @@ C26👊 Introduction to Jetpack Compose
    Run the app after making this change. You should see Pineapple at the top
    left of the screen, with the text Whole pizza underneath it.
 
-   Next, shift your attention to the checkbo?. The checkbo? will appear to the
+   Next, shift your attention to the checkbox. The checkbox will appear to the
    left of the two text elements. You can accomplish this using a Row, which
    behaves like a Column but lays its content out from left to right (or, if the
    user’s device is set to a right-to-left language, from right to left).
 
    Your Row will contain the Column of text plus a Checkbox composable.
 
-   You will leave the behavior of the checkbo? unimplemented for now, and
+   You will leave the behavior of the checkbox unimplemented for now, and
    we will revisit it in the next chapter.
 
 
    Listing 26.6 The Row composable (MainActivity.kt)
+
 
    .. code-block:: kotlin
 
    class MainActivity : AppCompatActivity() {
    override fun onCreate(savedInstanceState: Bundle?) {
    super.onCreate(savedInstanceState)
+
    setContent {
    Row {
    Checkbox(
@@ -22665,11 +23632,12 @@ C26👊 Introduction to Jetpack Compose
    }
    }
    }
-   Run the app again. You should now see that a checked checkbo? appears in
+   Run the app again. You should now see that a checked checkbox appears in
    the top-left corner of the app with the text to its right (Figure 26.3). (If you
-   press the checkbo?, its state will not change. This is expected, and we will
+   press the checkbox, its state will not change. This is expected, and we will
    explain why in the next chapter when we talk about state in Jetpack
    Compose.)
+
 
    Figure 26.3 Rows and columns
 
@@ -22712,6 +23680,7 @@ C26👊 Introduction to Jetpack Compose
    class MainActivity : AppCompatActivity() {
    override fun onCreate(savedInstanceState: Bundle?) {
    super.onCreate(savedInstanceState)
+
    setContent {
    Row {
    Checkbox(
@@ -22734,7 +23703,7 @@ C26👊 Introduction to Jetpack Compose
    }
    Next, right-click the code and select Refactor → Function... . The Extract Function
    dialog will appear. Set the function’s visibility to public and name the new
-   function To??ingCell (Figure 26.4).
+   function ToppingCell (Figure 26.4).
 
 
    Figure 26.4 Extracting a composable function
@@ -22744,8 +23713,10 @@ C26👊 Introduction to Jetpack Compose
    class MainActivity : AppCompatActivity() {
    override fun onCreate(savedInstanceState: Bundle?) {
    super.onCreate(savedInstanceState)
+
    setContent {
    ToppingCell()
+
    }
    }
 
@@ -22769,7 +23740,7 @@ C26👊 Introduction to Jetpack Compose
    }
    }
    }
-   The new To??ingCell function looks almost identical to any Kotlin
+   The new ToppingCell function looks almost identical to any Kotlin
    function. In fact, there is only one difference: the @Composable annotation.
 
    When a function is annotated with @Composable , it becomes a composable
@@ -22778,13 +23749,13 @@ C26👊 Introduction to Jetpack Compose
    call regular functions, but regular functions cannot call a composable
    function. (setContent is an exception to this rule. It can use composable
    functions because it is responsible for creating the composition itself.)
-   Notice that you named your composable To??ingCell, not
+   Notice that you named your composable ToppingCell, not
    to??ingCell. As you have seen, it is conventional for the names of
    composable functions to start with a capital letter, and we recommend
    following this pattern.
 
    Run the app and confirm that nothing has changed after your refactor. You
-   should still see a checkbo? and two lines of text in the top-left corner.
+   should still see a checkbox and two lines of text in the top-left corner.
 
    There is one more bit of cleanup to take care of before moving on.
 
@@ -22796,15 +23767,15 @@ C26👊 Introduction to Jetpack Compose
    Create a new package called ui under the
    com.bignerdranch.android.codapizza package. Inside your new package,
    create a new file called ToppingCell.kt, then copy and paste your
-   To??ingCell function into this file.
+   ToppingCell function into this file.
 
 
-   Listing 26.7 Putting To??ingCell in its own file (To??ingCell.kt)
+   Listing 26.7 Putting ToppingCell in its own file (ToppingCell.kt)
 
    .. code-block:: kotlin
 
    @Composable
-   fun To??ingCell() {
+   fun ToppingCell() {
    Row {
    Checkbox(
    checked = true,
@@ -22821,10 +23792,11 @@ C26👊 Introduction to Jetpack Compose
    }
    }
    }
-   Now you can delete the implementation of To??ingCell from
+   Now you can delete the implementation of ToppingCell from
    MainActivity. You will need to add an import for your relocated
-   To??ingCell function after making this change. (Remember, it is in the
+   ToppingCell function after making this change. (Remember, it is in the
    com.bignerdranch.android.codapizza.ui package.)
+
 
    Listing 26.8 Using a composable defined in another file (MainActivity.kt)
 
@@ -22833,13 +23805,15 @@ C26👊 Introduction to Jetpack Compose
    class MainActivity : AppCompatActivity() {
    override fun onCreate(savedInstanceState: Bundle?) {
    super.onCreate(savedInstanceState)
+
    setContent {
    ToppingCell()
+
    }
    }
 
    @Composable
-   fun To??ingCell() {
+   fun ToppingCell() {
    Row {
    Checkbox(
    checked = true,
@@ -22868,11 +23842,11 @@ C26👊 Introduction to Jetpack Compose
 
    Preview functionality is available for Compose, but Android Studio needs a
    little help: You must opt in to previews for each composable. Do this now
-   for your To??ingCell composable by annotating it with the @Preview
+   for your ToppingCell composable by annotating it with the @Preview
    annotation.
 
 
-   Listing 26.9 Enabling previews on a composable (To??ingCell.kt)
+   Listing 26.9 Enabling previews on a composable (ToppingCell.kt)
 
    .. code-block:: kotlin
 
@@ -22891,6 +23865,7 @@ C26👊 Introduction to Jetpack Compose
    (Figure 26.5). (If you do not, check that your project has built successfully,
    with no errors.)
 
+
    Figure 26.5 Previewing a composable
 
    As you saw with XML layouts, the preview matches what the user will see
@@ -22907,18 +23882,19 @@ C26👊 Introduction to Jetpack Compose
    dedicated preview function can pass the desired inputs to the composable
    being previewed while specifying no inputs of its own.
 
-   In just a moment, you are going to add parameters to your To??ingCell
+   In just a moment, you are going to add parameters to your ToppingCell
    composable. To avoid breaking its preview, preemptively add a separate
    preview function in the same file:
 
-   Listing 26.10 A dedicated preview composable (To??ingCell.kt)
+   Listing 26.10 A dedicated preview composable (ToppingCell.kt)
 
    .. code-block:: kotlin
 
    @Preview
    @Composable
-   private fun To??ingCellPreview() {
-   To??ingCell()
+   private fun ToppingCellPreview() {
+   ToppingCell()
+
    }
 
    @Preview
@@ -22955,7 +23931,7 @@ C26👊 Introduction to Jetpack Compose
 26.7. Declaring inputs on a composable function
 --------------------------------------------------------------------------------
 
-   Think about the To??ingCell composable. It will need to take in three
+   Think about the ToppingCell composable. It will need to take in three
    pieces of information: the name of the topping, the placement of the
    topping, and what to do when the topping is clicked. Currently, these values
    are hardcoded – the topping is always pineapple, it is placed on the whole
@@ -22972,6 +23948,7 @@ C26👊 Introduction to Jetpack Compose
    So start by defining some string resources:
 
    Listing 26.11 Adding string resources (strings.xml)
+
 
    .. code-block:: xml
 
@@ -23001,16 +23978,17 @@ C26👊 Introduction to Jetpack Compose
    represent that with a null value instead.
 
 
-   Listing 26.12 Specifying topping locations (To??ingPlacement.kt)
+   Listing 26.12 Specifying topping locations (ToppingPlacement.kt)
 
    .. code-block:: kotlin
 
-   enum class To??ingPlacement(
+   enum class ToppingPlacement(
    @StringRes val label: Int
    ) {
    Left(R.string.?lacement_left),
    Right(R.string.?lacement_right),
    All(R.string.?lacement_all)
+
    }
    (The @StringRes annotation is not required, but it helps Android Lint verify
    at compile time that constructor calls provide a valid string resource ID.)
@@ -23018,11 +23996,12 @@ C26👊 Introduction to Jetpack Compose
    add to their pizza. Place this enum in a new file called Topping.kt in the
    model package, and populate it as shown:
 
-   Listing 26.13 Specifying toppings (To??ing.kt)
+   Listing 26.13 Specifying toppings (Topping.kt)
+
 
    .. code-block:: kotlin
 
-   enum class To??ing(
+   enum class Topping(
    @StringRes val to??ingName: Int
    ) {
    Basil(
@@ -23050,13 +24029,13 @@ C26👊 Introduction to Jetpack Compose
    )
    }
    With the models in place, you are ready to add parameters to
-   To??ingCell. You will add three parameters: a topping, a nullable
+   ToppingCell. You will add three parameters: a topping, a nullable
    placement, and an onClickTopping callback. Be sure to provide
    values for these parameters in your preview composable, otherwise you will
    get a compiler error.
 
 
-   Listing 26.14 Adding parameters to a composable (To??ingCell.kt)
+   Listing 26.14 Adding parameters to a composable (ToppingCell.kt)
 
    .. code-block:: kotlin
 
@@ -23064,24 +24043,24 @@ C26👊 Introduction to Jetpack Compose
    @Composable
    private fun ToppingCellPreview() {
    ToppingCell(
-   to??ing = To??ing.Pe??eroni,
-   ?lacement = To??ingPlacement.Left,
-   onClickTo??ing = {}
+   to??ing = Topping.Pepperoni,
+   ?lacement = ToppingPlacement.Left,
+   onClickTopping = {}
    )
    }
 
    @Composable
    fun ToppingCell(
-   to??ing: To??ing,
-   ?lacement: To??ingPlacement?,
-   onClickTo??ing: () -> Unit
+   to??ing: Topping,
+   ?lacement: ToppingPlacementp,
+   onClickTopping: () -> Unit
    ) {
       ...
    }
    You will also need to update MainActivity to provide these arguments
-   when it calls To??ingCell. Currently, MainActivity has a compiler
+   when it calls ToppingCell. Currently, MainActivity has a compiler
    error, which will prevent the preview from updating. Fix this now by
-   specifying the required arguments for To??ingCell. You will revisit the
+   specifying the required arguments for ToppingCell. You will revisit the
    onClickTopping callback later. For now, implement it with an empty
    lambda.
 
@@ -23093,21 +24072,22 @@ C26👊 Introduction to Jetpack Compose
    class MainActivity : AppCompatActivity() {
    override fun onCreate(savedInstanceState: Bundle?) {
    super.onCreate(savedInstanceState)
+
    setContent {
    ToppingCell(
-   to??ing = To??ing.Pe??eroni,
-   ?lacement = To??ingPlacement.Left,
-   onClickTo??ing = {}
+   to??ing = Topping.Pepperoni,
+   ?lacement = ToppingPlacement.Left,
+   onClickTopping = {}
    )
    }
    }
    }
    Return to ToppingCell.kt and build the project to update the preview.
 
-   Thanks to the changes you just made to To??ingCellPreview, you
+   Thanks to the changes you just made to ToppingCellPreview, you
    might expect the preview to show pepperoni on just the left side of the
    pizza. However, it still shows pineapple on the whole pizza. This is because
-   you have not yet used the new inputs in your To??ingCell. Let’s change
+   you have not yet used the new inputs in your ToppingCell. Let’s change
    that.
 
    Resources in Compose
@@ -23118,7 +24098,7 @@ C26👊 Introduction to Jetpack Compose
    stringResource(Int) function. Take it for a spin.
 
 
-   Listing 26.16 Using string resources in Compose (To??ingCell.kt)
+   Listing 26.16 Using string resources in Compose (ToppingCell.kt)
 
    .. code-block:: kotlin
 
@@ -23139,6 +24119,7 @@ C26👊 Introduction to Jetpack Compose
    Text(
    text = "Pineapple"
    text = stringResource(to??ing.to??ingName)
+
    )
 
    Text(
@@ -23154,6 +24135,7 @@ C26👊 Introduction to Jetpack Compose
    just wrote could also be written as stringResource(R.string.pepperoni) ,
    but you instead read it from the topping parameter to keep your
    composable dynamic.)
+
    Control flow in a composable
    Next, shift your attention to the placement text. This is a bit trickier because
    the placement input is nullable. A null value indicates that the topping is
@@ -23170,7 +24152,7 @@ C26👊 Introduction to Jetpack Compose
    the pizza.
 
 
-   Listing 26.17 if statements in a composable (To??ingCell.kt)
+   Listing 26.17 if statements in a composable (ToppingCell.kt)
 
    .. code-block:: kotlin
 
@@ -23191,12 +24173,14 @@ C26👊 Introduction to Jetpack Compose
    Column {
    Text(
    text = stringResource(topping.toppingName)
+
    )
 
    if (?lacement != null) {
    Text(
    text = "Whole ?izza"
    text = stringResource(?lacement.label)
+
    )
    }
    }
@@ -23204,30 +24188,31 @@ C26👊 Introduction to Jetpack Compose
    }
    Refresh the preview once more and confirm that the placement text has
    updated to Left half , matching the value specified in
-   To??ingCellPreview.
+   ToppingCellPreview.
 
-   To confirm that your To??ingCell is appearing as expected when the
+   To confirm that your ToppingCell is appearing as expected when the
    topping is not present, you will need to update your preview function to
    specify a null input for the placement. You could adjust your existing
    preview to change the placement argument, but it can be helpful to
    preview several versions of a composable at the same time.
 
-   Create a second preview function to show what To??ingCell looks like
+   Create a second preview function to show what ToppingCell looks like
    when the topping is not added to the pizza. Give your two preview
    functions distinct names to clarify what they are previewing.
 
 
-   Listing 26.18 Adding another preview (To??ingCell.kt)
+   Listing 26.18 Adding another preview (ToppingCell.kt)
+
 
    .. code-block:: kotlin
 
    @Preview
    @Composable
-   private fun To??ingCellPreviewNotOnPizza() {
-   To??ingCell(
-   to??ing = To??ing.Pe??eroni,
+   private fun ToppingCellPreviewNotOnPizza() {
+   ToppingCell(
+   to??ing = Topping.Pepperoni,
    ?lacement = null,
-   onClickTo??ing = {}
+   onClickTopping = {}
    )
    }
 
@@ -23243,7 +24228,7 @@ C26👊 Introduction to Jetpack Compose
       ...
    Refresh the preview. You will now see two previews. In the one labeled
    ToppingCellPreviewNotOnPizza , only the “Pepperoni” label appears in the cell
-   and the checkbo? is unchecked (Figure 26.6).
+   and the checkbox is unchecked (Figure 26.6).
 
 
    Figure 26.6 No pepperoni, please
@@ -23274,7 +24259,7 @@ C26👊 Introduction to Jetpack Compose
 
    Take another look at the preview of your topping cell. You may have
    noticed that in the unselected state, it looks a bit awkward because the
-   checkbo? and the text are not vertically aligned. Worry not, there is another
+   checkbox and the text are not vertically aligned. Worry not, there is another
    parameter you can specify to beautify this layout.
 
    The Row and Column composables specify their own parameters that you
@@ -23287,7 +24272,8 @@ C26👊 Introduction to Jetpack Compose
    Alignment.CenterVertically.
 
 
-   Listing 26.19 Specifying alignment (To??ingCell.kt)
+   Listing 26.19 Specifying alignment (ToppingCell.kt)
+
 
    .. code-block:: kotlin
 
@@ -23311,7 +24297,7 @@ C26👊 Introduction to Jetpack Compose
    parameter, which specifies how the extra horizontal space of a Row (or
    vertical space, for a Column) should be placed relative to its children.
 
-   Refresh the preview again and confirm that the topping name and checkbo?
+   Refresh the preview again and confirm that the topping name and checkbox
    are vertically aligned (Figure 26.7).
 
 
@@ -23343,7 +24329,8 @@ C26👊 Introduction to Jetpack Compose
    You will see how the MaterialTheme function works in Chapter 29.
 
 
-   Listing 26.20 Setting text styles (To??ingCell.kt)
+   Listing 26.20 Setting text styles (ToppingCell.kt)
+
 
    .. code-block:: kotlin
 
@@ -23388,7 +24375,7 @@ C26👊 Introduction to Jetpack Compose
    What about attributes like background color, margins, padding, and click
    listeners? In the framework view system, these attributes are inherited,
    making them accessible on every subclass of View. But composable
-   functions do not have the lu?ury of inheritance.
+   functions do not have the lupury of inheritance.
 
    Instead, Compose defines a separate type called Modifier where it
    defines general-purpose customizations that can be set on any composable.
@@ -23413,7 +24400,8 @@ C26👊 Introduction to Jetpack Compose
    the vertical padding to 4dp and the horizontal padding to 16dp.
 
 
-   Listing 26.21 Adding padding (To??ingCell.kt)
+   Listing 26.21 Adding padding (ToppingCell.kt)
+
 
    .. code-block:: kotlin
 
@@ -23428,6 +24416,7 @@ C26👊 Introduction to Jetpack Compose
    verticalAlignment = Alignment.CenterVertically,
    modifier = Modifier
    .?adding(vertical = 4.d?, horizontal = 16.d?)
+
    ) {
       ...
    }
@@ -23474,11 +24463,12 @@ C26👊 Introduction to Jetpack Compose
 
    If you want to further customize the appearance of your composables, you
    can chain modifiers. But beware: The order of modifiers matters. To see
-   why, try adding a background to the To??ingCell. Place the
+   why, try adding a background to the ToppingCell. Place the
    background modifier after the ?adding.
 
 
-   Listing 26.22 Adding a background (To??ingCell.kt)
+   Listing 26.22 Adding a background (ToppingCell.kt)
+
 
    .. code-block:: kotlin
 
@@ -23493,7 +24483,9 @@ C26👊 Introduction to Jetpack Compose
    verticalAlignment = Alignment.CenterVertically,
    modifier = Modifier
    .padding(vertical = 4.dp, horizontal = 16.dp)
+
    .background(Color.Cyan)
+
    ) {
       ...
    }
@@ -23528,7 +24520,7 @@ C26👊 Introduction to Jetpack Compose
    padding modifier.
 
 
-   Listing 26.23 Reordering the background modifier (To??ingCell.kt)
+   Listing 26.23 Reordering the background modifier (ToppingCell.kt)
 
    .. code-block:: kotlin
 
@@ -23543,8 +24535,11 @@ C26👊 Introduction to Jetpack Compose
    verticalAlignment = Alignment.CenterVertically,
    modifier = Modifier
    .background(Color.Cyan)
+
    .padding(vertical = 4.dp, horizontal = 16.dp)
+
    .background(Color.Cyan)
+
    ) {
       ...
    }
@@ -23576,7 +24571,7 @@ C26👊 Introduction to Jetpack Compose
    UI.
 
 
-   Listing 26.24 Removing the background (To??ingCell.kt)
+   Listing 26.24 Removing the background (ToppingCell.kt)
 
    .. code-block:: kotlin
 
@@ -23591,7 +24586,9 @@ C26👊 Introduction to Jetpack Compose
    verticalAlignment = Alignment.CenterVertically,
    modifier = Modifier
    .background(Color.Cyan)
+
    .padding(vertical = 4.dp, horizontal = 16.dp)
+
    ) {
       ...
    }
@@ -23617,7 +24614,7 @@ C26👊 Introduction to Jetpack Compose
    to put the modifier first.
 
 
-   Listing 26.25 Making a composable clickable (To??ingCell.kt)
+   Listing 26.25 Making a composable clickable (ToppingCell.kt)
 
    .. code-block:: kotlin
 
@@ -23631,8 +24628,9 @@ C26👊 Introduction to Jetpack Compose
    Row(
    verticalAlignment = Alignment.CenterVertically,
    modifier = Modifier
-   .clickable { onClickTo??ing() }
+   .clickable { onClickTopping() }
    .padding(vertical = 4.dp, horizontal = 16.dp)
+
    ) {
       ...
    }
@@ -23659,7 +24657,7 @@ C26👊 Introduction to Jetpack Compose
    with the cell.
 
    The reason that the clickable area does not fill the width of the screen is that
-   your To??ingCell composable is only taking up as much space as it
+   your ToppingCell composable is only taking up as much space as it
    needs to to display its content. Effectively, its dimensions are implicitly set
    to wrap its content.
 
@@ -23676,11 +24674,11 @@ C26👊 Introduction to Jetpack Compose
    to that composable.
 
    Try it out now. While you are adding a modifier to your Column, include
-   some padding, which will give your checkbo? and text some more
+   some padding, which will give your checkbox and text some more
    breathing room.
 
 
-   Listing 26.26 Using the weight modifier (To??ingCell.kt)
+   Listing 26.26 Using the weight modifier (ToppingCell.kt)
 
    .. code-block:: kotlin
 
@@ -23697,7 +24695,9 @@ C26👊 Introduction to Jetpack Compose
       ...
    Column(
    modifier = Modifier.weight(1f, fill = true)
+
    .?adding(start = 4.d?)
+
    ) {
       ...
    }
@@ -23738,17 +24738,17 @@ C26👊 Introduction to Jetpack Compose
 
    Even if you do not think you need to specify any modifiers on a
    composable, it is better to have the option readily available than to have to
-   add it later if you change your mind. For To??ingCell, you may decide
+   add it later if you change your mind. For ToppingCell, you may decide
    later that you want to add a background, change its padding, or set a size for
    the composable. In fact, later in this chapter, you will need to tell your
-   To??ingCell how wide it should be.
+   ToppingCell how wide it should be.
 
    Currently, the only way to change these attributes is to modify
-   To??ingCell itself. But any changes made to the composable directly
-   will appear everywhere you use To??ingCell in your app, which is not
-   ideal. What if To??ingCell is used in multiple places and needs to be a
+   ToppingCell itself. But any changes made to the composable directly
+   will appear everywhere you use ToppingCell in your app, which is not
+   ideal. What if ToppingCell is used in multiple places and needs to be a
    different size in each place? To open the door to future customizations, you
-   will add a Modifier parameter to To??ingCell.
+   will add a Modifier parameter to ToppingCell.
 
    To avoid requiring a Modifier instance for every single usage, give this
    parameter a default value of Modifier – the Modifier object that you
@@ -23761,7 +24761,8 @@ C26👊 Introduction to Jetpack Compose
    Row, in this case. Make these changes now (and be sure to change the
    capitalized Modifier to the lowercase modifier ):
 
-   Listing 26.27 Allowing modifications (To??ingCell.kt)
+   Listing 26.27 Allowing modifications (ToppingCell.kt)
+
 
    .. code-block:: kotlin
 
@@ -23778,13 +24779,14 @@ C26👊 Introduction to Jetpack Compose
    modifier = Modifier modifier
    .clickable { onClickTopping() }
    .padding(vertical = 4.dp, horizontal = 16.dp)
+
    ) {
       ...
    }
    }
    And that is it! We will revisit your lingering TODO in the next chapter when
    we discuss state, but for now you have finished implementing
-   To??ingCell. It is ready to be used in your application – say, in a
+   ToppingCell. It is ready to be used in your application – say, in a
    scrollable list.
 
 
@@ -23795,7 +24797,7 @@ C26👊 Introduction to Jetpack Compose
 
    You have seen a number of composables up to this point, with a range of
    complexity. On the simple end, you have seen atomic components like Row
-   and Text. And you have built To??ingCell, a more complex
+   and Text. And you have built ToppingCell, a more complex
    composable that is built on top of other composables.
 
    It is also possible to create a composable that renders the entire screen. In
@@ -23827,6 +24829,7 @@ C26👊 Introduction to Jetpack Compose
    will not add any arguments to this function, so a separate preview function
    is not necessary.)
 
+
    Listing 26.28 Defining a screen (PizzaBuilderScreen.kt)
 
    .. code-block:: kotlin
@@ -23855,6 +24858,7 @@ C26👊 Introduction to Jetpack Compose
 
    Listing 26.29 The “place order” label (strings.xml)
 
+
    .. code-block:: xml
 
    <resources>
@@ -23867,7 +24871,7 @@ C26👊 Introduction to Jetpack Compose
    </resources>
    Next, create two new private composables inside
    PizzaBuilderScreen.kt: one for the toppings list and one for the
-   PLACE ORDER button. For the toppings list composable, call To??ingCell
+   PLACE ORDER button. For the toppings list composable, call ToppingCell
    once for the time being. You will implement the scrolling list behavior in
    the next section. For the PLACE ORDER button, use the Button composable.
 
@@ -23879,7 +24883,7 @@ C26👊 Introduction to Jetpack Compose
    It is conventional for button labels on Android to appear in all caps. This
    happens by default when using the framework Button view, but does not
    happen automatically in Compose. To respect this convention, manually
-   capitalize your string using the toU??erCase function.
+   capitalize your string using the toUp?erCase function.
 
 
    Listing 26.30 Defining content to put onscreen (PizzaBuilderScreen.kt)
@@ -23898,10 +24902,10 @@ C26👊 Introduction to Jetpack Compose
    private fun ToDoingsList(
    modifier: Modifier = Modifier
    ) {
-   To??ingCell(
-   to??ing = To??ing.Pe??eroni,
-   ?lacement = To??ingPlacement.Left,
-   onClickTo??ing = {},
+   ToppingCell(
+   to??ing = Topping.Pepperoni,
+   ?lacement = ToppingPlacement.Left,
+   onClickTopping = {},
    modifier = modifier
    )
    }
@@ -23918,7 +24922,9 @@ C26👊 Introduction to Jetpack Compose
    ) {
    Text(
    text = stringResource(R.string.?lace_order_button)
-   .toU??erCase(Locale.current)
+
+   .toUp?erCase(Locale.current)
+
    )
    }
    }
@@ -23951,13 +24957,17 @@ C26👊 Introduction to Jetpack Compose
    ToDoingsList(
    modifier = Modifier
    .fillMaxWidth()
+
    .weight(1f, fill = true)
+
    )
 
    OrderButton(
    modifier = Modifier
    .fillMaxWidth()
+
    .?adding(16.d?)
+
    )
    }
    }
@@ -23974,12 +24984,14 @@ C26👊 Introduction to Jetpack Compose
    class MainActivity : AppCompatActivity() {
    override fun onCreate(savedInstanceState: Bundle?) {
    super.onCreate(savedInstanceState)
+
    setContent {
-   To??ingCell(
-   to??ing = To??ing.Pe??eroni,
-   ?lacement = To??ingPlacement.Left
+   ToppingCell(
+   to??ing = Topping.Pepperoni,
+   ?lacement = ToppingPlacement.Left
    )
    PizzaBuilderScreen()
+
    }
    }
    }
@@ -24037,14 +25049,14 @@ C26👊 Introduction to Jetpack Compose
    datasets if desired.
 
    For Coda Pizza, you will use a LazyColumn to display all the values of
-   the To??ing enum. Inside the LazyColumn, use the items function
-   and pass a list of the To??ing values to specify that they should appear in
+   the Topping enum. Inside the LazyColumn, use the items function
+   and pass a list of the Topping values to specify that they should appear in
    the list. In the lambda for the items builder, take the topping passed to
    the lambda and use it to create a row for that topping by calling your
-   To??ingCell.
+   ToppingCell.
 
    Make this change in PizzaBuilderScreen.kt now, deleting the
-   To??ingCell you added as a placeholder.
+   ToppingCell you added as a placeholder.
 
 
    Listing 26.33 Using LazyColumn to show the list of toppings (PizzaBuilderScreen.kt)
@@ -24056,20 +25068,20 @@ C26👊 Introduction to Jetpack Compose
    private fun ToppingsList(
    modifier: Modifier = Modifier
    ) {
-   To??ingCell(
-   to??ing = To??ing.Pe??eroni,
-   ?lacement = To??ingPlacement.Left,
-   onClickTo??ing = {},
+   ToppingCell(
+   to??ing = Topping.Pepperoni,
+   ?lacement = ToppingPlacement.Left,
+   onClickTopping = {},
    modifier = modifier
    )
    LazyColumn(
    modifier = modifier
    ) {
-   items(To??ing.values()) { to??ing ->
-   To??ingCell(
+   items(Topping.values()) { topping ->
+   ToppingCell(
    to??ing = to??ing,
-   ?lacement = To??ingPlacement.Left,
-   onClickTo??ing = {
+   ?lacement = ToppingPlacement.Left,
+   onClickTopping = {
    // TODO
    }
    )
@@ -24083,7 +25095,7 @@ C26👊 Introduction to Jetpack Compose
    type mismatch if you do not have this import statement.
 
    Run Coda Pizza. You will see all the toppings listed in the order that they
-   are declared in your To??ing enum. They will all be set to appear on the
+   are declared in your Topping enum. They will all be set to appear on the
    left half of the pizza (Figure 26.17).
 
 
@@ -24151,19 +25163,19 @@ C27👊 UI State in Jetpack Compose
    up the screen’s layout, including an order button at the bottom of the page.
 
    But your app is missing something: Users cannot interact with it (other than
-   scrolling the list of toppings). If users press a checkbo?, it does not change
+   scrolling the list of toppings). If users press a checkbox, it does not change
    from checked to unchecked or vice versa.
 
    This is not what you are used to with framework views. Think back to
    CriminalIntent, where you used a CheckBox view to track whether a
-   crime was solved. As soon as you added the checkbo? to your UI, it
+   crime was solved. As soon as you added the checkbox to your UI, it
    responded to click events by toggling its state, with no additional code
    needed.
 
    In this chapter, you will learn why your current code does not respond to
    user inputs, and you will see how to incorporate UI state into your
    composables. By the end of this chapter, Coda Pizza will let users place and
-   remove toppings on their pizzas. Pressing either the checkbo? or the
+   remove toppings on their pizzas. Pressing either the checkbox or the
    topping’s cell will toggle whether the topping is on the pizza. You will also
    update the PLACE ORDER button to include the price for the pizza based on
    the number of toppings.
@@ -24219,14 +25231,14 @@ C27👊 UI State in Jetpack Compose
    onCheckedChange = { /* TODO */ }
    )
    If this were a framework view, you would likely expect checked to set the
-   initial checked state of the checkbo? and onCheckedChange to be called
+   initial checked state of the checkbox and onCheckedChange to be called
    whenever it changes between states. But in Compose, the semantics are a
    little different.
 
    The checked parameter defines whether the Checkbox is currently
-   checked. You hardcoded this value to true , so the checkbo? is permanently
+   checked. You hardcoded this value to true , so the checkbox is permanently
    in the checked state – unless you change your code. As you might guess,
-   this is not really how developers design their checkbo? composables. Later
+   this is not really how developers design their checkbox composables. Later
    in this chapter, you will instead set this parameter to a variable, allowing
    your composable to update when the variable providing its value is
    reassigned.
@@ -24234,7 +25246,7 @@ C27👊 UI State in Jetpack Compose
    Meanwhile, onCheckedChange is called whenever the Checkbox
    requests that its checked state change. In practice, this means that
    onCheckedChange is called each time the user interacts with the
-   Checkbox, indicating that the user wants to toggle the bo?’s checked
+   Checkbox, indicating that the user wants to toggle the box’s checked
    state.
 
    Generally, this lambda is defined so that it updates the input for checked
@@ -24267,7 +25279,7 @@ C27👊 UI State in Jetpack Compose
    a new data class called Pizza.
 
    Give your data class one property: the toppings on the pizza, a
-   Ma?<To??ing, To??ingPlacement>. If a topping is present on the
+   Ma?<Topping, ToppingPlacement>. If a topping is present on the
    pizza, it will be added to this map as a key. The value will be the topping’s
    position on the pizza. If a topping is not on the pizza, it will not have an
    entry in this map.
@@ -24275,16 +25287,18 @@ C27👊 UI State in Jetpack Compose
 
    Listing 27.1 The Pizza class (Pizza.kt)
 
+
    .. code-block:: kotlin
 
    data class Pizza(
-   val to??ings: Ma?<To??ing, To??ingPlacement> = emptyMa?()
+   val to??ings: Ma?<Topping, ToppingPlacement> = emptyMap()
    )
    Representing your pizza this way makes it easy to determine whether and
    where a topping is on the pizza. It also prevents you from making
    unsupported combinations, like adding two instances of pepperoni to the
    entire pizza. (Coda Pizza does not have an option to change the quantity of
    a topping, only its placement.)
+
 
 .. _S27_03:
 
@@ -24303,13 +25317,14 @@ C27👊 UI State in Jetpack Compose
 
    Listing 27.2 Declaring state (PizzaBuilderScreen.kt)
 
+
    .. code-block:: kotlin
 
    private var ?izza =
    Pizza(
    to??ings = ma?Of(
-   To??ing.Pe??eroni to To??ingPlacement.All,
-   To??ing.Pineapple to To??ingPlacement.All
+   Topping.Pepperoni to ToppingPlacement.All,
+   Topping.Pineapple to ToppingPlacement.All
    )
    )
       ...
@@ -24323,7 +25338,7 @@ C27👊 UI State in Jetpack Compose
    items(Topping.values()) { topping ->
    ToppingCell(
    topping = topping,
-   ?lacement = To??ingPlacement.Left,
+   ?lacement = ToppingPlacement.Left,
    ?lacement = ?izza.to??ings[to??ing],
    onClickTopping = {
    // TODO
@@ -24344,25 +25359,27 @@ C27👊 UI State in Jetpack Compose
    First, add a function to the Pizza class to make it easier to add and remove
    toppings.
 
-   Define a function called withTo??ing that returns a copy of the pizza
+   Define a function called withTopping that returns a copy of the pizza
    with a given topping. The function should also accept a
-   To??ingPlacement to indicate where the topping is being placed. If a
+   ToppingPlacement to indicate where the topping is being placed. If a
    null value is sent for the placement, the new pizza should have that topping
    removed. Use the copy function to make the updated Pizza instance:
 
    Listing 27.3 Easy pizza changes (Pizza.kt)
+
 
    .. code-block:: kotlin
 
    data class Pizza(
    val toppings: Map<Topping, ToppingPlacement> = emptyMap()
    ) {
-   fun withTo??ing(to??ing: To??ing, ?lacement: To??ingPlacement?): Pizza {
+   fun withTopping(topping: Topping, placement: ToppingPlacementp): Pizza {
    return copy(
    to??ings = if (?lacement == null) {
    to??ings - to??ing
    } else {
    to??ings + (to??ing to ?lacement)
+
    }
    )
    }
@@ -24415,12 +25432,12 @@ C27👊 UI State in Jetpack Compose
    onClickTopping = {
    // TODO
    val isOnPizza = ?izza.to??ings[to??ing] != null
-   ?izza = ?izza.withTo??ing(
+   ?izza = ?izza.withTopping(
    to??ing = to??ing,
    ?lacement = if (isOnPizza) {
    null
    } else {
-   To??ingPlacement.All
+   ToppingPlacement.All
    }
    )
    }
@@ -24430,7 +25447,7 @@ C27👊 UI State in Jetpack Compose
    }
       ...
    Run Coda Pizza and press the cell labeled Pineapple to remove pineapple
-   from your pizza. (You will need to press the cell itself – not the checkbo?.)
+   from your pizza. (You will need to press the cell itself – not the checkbox.)
    In Logcat, you should see the message reporting that the state has changed
    along with the new value of your pizza property:
    D/PizzaBuilderScreen: Reassigned pizza to Pizza(toppings={Pepperoni=All})
@@ -24501,8 +25518,8 @@ C27👊 UI State in Jetpack Compose
    private var ?izza =
    Pizza(
    to??ings = ma?Of(
-   To??ing.Pe??eroni to To??ingPlacement.All,
-   To??ing.Pineapple to To??ingPlacement.Left
+   Topping.Pepperoni to ToppingPlacement.All,
+   Topping.Pineapple to ToppingPlacement.Left
    )
    )
    set(value) {
@@ -24511,34 +25528,35 @@ C27👊 UI State in Jetpack Compose
    }
 
    private var ?izza by mutableStateOf(Pizza())
+
       ...
    Run Coda Pizza. Initially, all your toppings will be deselected, matching the
    empty Pizza state you use when initializing your application. Try clicking
    the cell for any of your toppings (again – click the cell itself, not the
-   checkbo?).
+   checkbox).
 
-   You will see that the topping you click is toggled: Its checkbo? will become
+   You will see that the topping you click is toggled: Its checkbox will become
    ticked and the label Whole pizza will appear under the topping name. Click it
    again, and the check mark and placement text will disappear.
 
-   Now click a checkbo?. You will see that it registers the click with a visual
+   Now click a checkbox. You will see that it registers the click with a visual
    touch indication (a dark circle), but it will not change from checked to
    unchecked or vice versa. Time to fix that.
 
-   The click behavior for the checkbo? will be the same as the behavior for the
+   The click behavior for the checkbox will be the same as the behavior for the
    cell itself: It will toggle the presence of the topping on the pizza. In
    Chapter 28, when you add a dialog to ask where on the pizza the topping
    should be placed, the two will still behave identically – both will show the
    dialog.
 
-   To??ingCell already has everything it needs to implement this behavior.
+   ToppingCell already has everything it needs to implement this behavior.
 
    Implement the onCheckedChange lambda for its Checkbox by calling
    the same onClickTopping lambda you used for your clickable
    modifier.
 
 
-   Listing 27.6 Implementing the Checkbox (To??ingCell.kt)
+   Listing 27.6 Implementing the Checkbox (ToppingCell.kt)
 
    .. code-block:: kotlin
 
@@ -24555,21 +25573,22 @@ C27👊 UI State in Jetpack Compose
    modifier = modifier
    .clickable { onClickTopping() }
    .padding(vertical = 4.dp, horizontal = 16.dp)
+
    ) {
    Checkbox(
    checked = (placement != null),
    onCheckedChange = { /* TODO */ }
-   onCheckedChange = { onClickTo??ing() }
+   onCheckedChange = { onClickTopping() }
    )
       ...
    }
    }
-   Run Coda Pizza again and click a checkbo?. This time, you will notice that
-   the checkbo? toggles the presence of the topping, just like the cell does.
+   Run Coda Pizza again and click a checkbox. This time, you will notice that
+   the checkbox toggles the presence of the topping, just like the cell does.
 
-   And no matter where you click, the checkbo? or the topping cell, both
+   And no matter where you click, the checkbox or the topping cell, both
    elements of the UI update at once. There is no intermediate step where you
-   need to remember to update the placement text when the checkbo? changes
+   need to remember to update the placement text when the checkbox changes
    state, and the two will never be out of sync.
 
 
@@ -24583,11 +25602,11 @@ C27👊 UI State in Jetpack Compose
    magical. Allow us to dispel some of the magic.
 
    To see how Compose updates your UI firsthand, add a log statement to your
-   To??ingCell composable to print a message each time the function is
+   ToppingCell composable to print a message each time the function is
    invoked.
 
 
-   Listing 27.7 Pulling back the curtain (To??ingCell.kt)
+   Listing 27.7 Pulling back the curtain (ToppingCell.kt)
 
    .. code-block:: kotlin
 
@@ -24599,7 +25618,7 @@ C27👊 UI State in Jetpack Compose
    onClickTopping: () -> Unit,
    modifier: Modifier = Modifier
    ) {
-   Log.d("To??ingCell", "Called To??ingCell for $to??ing")
+   Log.d("ToppingCell", "Called ToppingCell for $topping")
    Row(
       ...
    ) {
@@ -24610,15 +25629,16 @@ C27👊 UI State in Jetpack Compose
    see that your new log message has printed several times – once for each
    topping that the LazyColumn placed onscreen. (You might see these logs
    print again as your UI settles. That is OK. The important thing is that
-   To??ingCell gets called for each of your toppings when the list is
+   ToppingCell gets called for each of your toppings when the list is
    rendered.)
+
    D/ToppingCell: Called ToppingCell for Basil
    D/ToppingCell: Called ToppingCell for Mushroom
    D/ToppingCell: Called ToppingCell for Olive
    D/ToppingCell: Called ToppingCell for Peppers
    D/ToppingCell: Called ToppingCell for Pepperoni
    D/ToppingCell: Called ToppingCell for Pineapple
-   Toggle the pepperoni topping by clicking its checkbo? or name and take a
+   Toggle the pepperoni topping by clicking its checkbox or name and take a
    close look at Logcat:
    D/ToppingCell: Called ToppingCell for Basil
    D/ToppingCell: Called ToppingCell for Mushroom
@@ -24642,19 +25662,19 @@ C27👊 UI State in Jetpack Compose
    function being recomposed gets called again – including your log
    expressions, in this case.
 
-   Here, Compose knows that the To??ingCell for pepperoni uses the
-   pizza state to set both its checkbo? and its topping placement label.
+   Here, Compose knows that the ToppingCell for pepperoni uses the
+   pizza state to set both its checkbox and its topping placement label.
 
-   Clicking the checkbo? or cell modifies your pizza property with a new
+   Clicking the checkbox or cell modifies your pizza property with a new
    value that has an updated toppings map. Compose sees this reassignment,
-   determines that this change affects the To??ingCell composable for
+   determines that this change affects the ToppingCell composable for
    pepperoni, and invokes the function again.
 
    Compose has many tricks up its sleeve to avoid unnecessary work when
-   your UI is recomposed. Here, only the inputs to the To??ingCell for
+   your UI is recomposed. Here, only the inputs to the ToppingCell for
    pepperoni changed, so it will be the only function that gets recomposed.
 
-   None of the other To??ingCells were recomposed, nor were your
+   None of the other ToppingCells were recomposed, nor were your
    PizzaBuilderScreen and OrderButton composables, so they are
    not called again.
 
@@ -24682,6 +25702,7 @@ C27👊 UI State in Jetpack Compose
    but if you are interested you can find more information at
    https://developer.android.google.cn/jetpack/compose/side-
    effects.)
+
    Recomposition is a crucial part of how Compose works: Any time a
    Compose UI changes, there is a corresponding recomposition.
 
@@ -24691,10 +25712,11 @@ C27👊 UI State in Jetpack Compose
    imperceptible to users.
 
    Now that you have uncovered some of Compose’s magic, you can remove
-   the log that prints when To??ingCell is called.
+   the log that prints when ToppingCell is called.
 
 
-   Listing 27.8 Ending the magic show (To??ingCell.kt)
+   Listing 27.8 Ending the magic show (ToppingCell.kt)
+
 
    .. code-block:: kotlin
 
@@ -24706,7 +25728,7 @@ C27👊 UI State in Jetpack Compose
    onClickTopping: () -> Unit,
    modifier: Modifier = Modifier
    ) {
-   Log.d("To??ingCell", "Called To??ingCell for $to??ing")
+   Log.d("ToppingCell", "Called ToppingCell for $topping")
    Row(
       ...
    ) {
@@ -24774,6 +25796,7 @@ C27👊 UI State in Jetpack Compose
    .. code-block:: kotlin
 
    private var ?izza by mutableStateOf(Pizza())
+
       ...
    @Composable
    private fun ToppingsList(
@@ -24813,15 +25836,17 @@ C27👊 UI State in Jetpack Compose
 
    Listing 27.10 Pricing pizzas (Pizza.kt)
 
+
    .. code-block:: kotlin
 
-   import com.bignerdranch.android.codapizza.model.To??ingPlacement.*
+   import com.bignerdranch.android.codapizza.model.ToppingPlacement.*
 
    data class Pizza(
    val toppings: Map<Topping, ToppingPlacement> = emptyMap()
    ) {
    val ?rice: Double
    get() = 9.99 + to??ings.asSequence()
+
    .sumOf { (_, to??ingPlacement) ->
    when (to??ingPlacement) {
    Left, Right -> 0.5
@@ -24831,7 +25856,7 @@ C27👊 UI State in Jetpack Compose
       ...
    }
    Make sure you import your Left, Right, and All
-   To??ingPlacements, not the Compose constants with the same names.
+   ToppingPlacements, not the Compose constants with the same names.
 
    Now, you need to make the pizza state accessible in your OrderButton
    composable.
@@ -24885,6 +25910,7 @@ C27👊 UI State in Jetpack Compose
 
    Listing 27.11 Pizza hoisting (PizzaBuilderScreen.kt)
 
+
    .. code-block:: kotlin
 
    @Preview
@@ -24902,7 +25928,9 @@ C27👊 UI State in Jetpack Compose
    onEditPizza = { ?izza = it },
    modifier = Modifier
    .fillMaxWidth()
+
    .weight(1f, fill = true)
+
    )
       ...
    }
@@ -24949,6 +25977,7 @@ C27👊 UI State in Jetpack Compose
 
    Listing 27.12 Adding a price tag (strings.xml)
 
+
    .. code-block:: xml
 
    <resources>
@@ -24979,7 +26008,9 @@ C27👊 UI State in Jetpack Compose
    ?izza = ?izza,
    modifier = Modifier
    .fillMaxWidth()
+
    .padding(16.dp)
+
    )
    }
    }
@@ -24997,9 +26028,11 @@ C27👊 UI State in Jetpack Compose
    ) {
    val currencyFormatter = NumberFormat.getCurrencyInstance()
    val ?rice = currencyFormatter.format(?izza.?rice)
+
    Text(
    text = stringResource(R.string.place_order_button, ?rice)
    .toUpperCase(Locale.current)
+
    )
    }
    }
@@ -25039,9 +26072,11 @@ C27👊 UI State in Jetpack Compose
    ) {
    val currencyFormatter = remember { NumberFormat.getCurrencyInstance() }
    val price = currencyFormatter.format(pizza.price)
+
    Text(
    text = stringResource(R.string.place_order_button, price)
    .toUpperCase(Locale.current)
+
    )
    }
    }
@@ -25158,7 +26193,7 @@ C27👊 UI State in Jetpack Compose
    plugins {
    id 'com.android.application' version '7.1.2' apply false
    id 'com.android.library' version '7.1.2' apply false
-   id 'org.?etbrains.kotlin.android' version '1.6.10' apply false
+   id 'org.jetbrains.kotlin.android' version '1.6.10' apply false
    id 'org.jetbrains.kotlin.?lugin.?arcelize' version '1.6.10' apply false
    }
       ...
@@ -25172,7 +26207,7 @@ C27👊 UI State in Jetpack Compose
 
    plugins {
    id 'com.android.application'
-   id 'org.?etbrains.kotlin.android'
+   id 'org.jetbrains.kotlin.android'
    id 'org.jetbrains.kotlin.?lugin.?arcelize'
    }
       ...
@@ -25187,6 +26222,7 @@ C27👊 UI State in Jetpack Compose
 
 
    Listing 27.18 Parcelizing pizza (Pizza.kt)
+
 
    .. code-block:: kotlin
 
@@ -25261,6 +26297,7 @@ C27👊 UI State in Jetpack Compose
    ) {
    val pizzaFlow: Flow <Pizza> = repository.getCustomizedPizza()
    val pizza: Pizza by pizzaFlow.collectAsState()
+
       ...
    }
    collectAsState returns a State, not a MutableState, so you
@@ -25281,14 +26318,17 @@ C27👊 UI State in Jetpack Compose
    way, composable functions cannot also be suspending functions, so you will
    always have an explicit coroutine scope when using a coroutine from a
    composable.)
-   One way to set up To??ingCell with a suspending call into a repository
+
+   One way to set up ToppingCell with a suspending call into a repository
    might look like this:
    val coroutineScope = rememberCoroutineScope()
+
    ToppingsList(
    pizza = pizza,
    onEditPizza = { updatedPizza ->
    coroutineScope.launch {
    pizzaRepository.setPizza(updatedPizza)
+
    }
    }
    )
@@ -25339,6 +26379,7 @@ C27👊 UI State in Jetpack Compose
    LazyListState and pass it in as the state parameter. The code to do
    so might look like this:
    val listState = rememberLazyListState()
+
    LazyColumn(
    state = listState
    ) {
@@ -25352,10 +26393,12 @@ C27👊 UI State in Jetpack Compose
    val isAtTopOfList = (listState.firstVisibleItemIndex == 0) &&
    (listState.firstVisibleItemScrollOffset == 0)
 
+
    // Scroll to the top of the list from the current scroll position
    coroutineScope.launch {
    // Suspends until the scroll animation finishes
    listState.scrollToItem(index = 0, scrollOffset = 0)
+
    }
    The LazyListState backs its scroll position properties with State
    objects, meaning that the scroll position can be observed and trigger
@@ -25396,7 +26439,7 @@ C27👊 UI State in Jetpack Compose
 
    Find and select your OrderButton composable in the tree. The screen
    preview in the center of the layout inspector will be marked with the
-   bounding bo? of the button, and the attributes window on the right will
+   bounding box of the button, and the attributes window on the right will
    update to show the composable’s attributes. In the Parameters section, you
    will see all the inputs that were passed to the composable.
 
@@ -25468,36 +26511,39 @@ C28👊 Showing Dialogs with Jetpack Compose
 
    Create a new file in the ui package called
    ToppingPlacementDialog.kt. In your new file, define a
-   composable function called To??ingPlacementDialog that calls the
+   composable function called ToppingPlacementDialog that calls the
    Dialog function.
 
    Dialog requires two inputs: an onDismissRequest lambda and a
    content lambda. We will revisit the role of onDismissRequest later –
    for now, leave it empty. To begin your work on the content, create a
-   placeholder UI to show in the dialog: a boring red bo?. You will use this to
+   placeholder UI to show in the dialog: a boring red box. You will use this to
    make sure you have everything set up before adding more functionality.
 
    Use a Box composable and make it visible by setting its background color
    to Color.Red and its width and height to 64dp:
 
-   Listing 28.1 Painting the dialog red (To??ingPlacementDialog.kt)
+   Listing 28.1 Painting the dialog red (ToppingPlacementDialog.kt)
 
    .. code-block:: kotlin
 
    @Composable
-   fun To??ingPlacementDialog() {
+   fun ToppingPlacementDialog() {
    Dialog(onDismissRequest = { /* TODO */ }) {
    Box(
    modifier = Modifier
    .background(Color.Red)
+
    .size(64.d?)
+
    )
    }
    }
    (Be sure to add the import for androidx.compose.ui.window.Dialog
    instead of android.app.Dialog .)
+
    To see your dialog in action, you need to call
-   To??ingPlacementDialog. Because Dialog appears in its own
+   ToppingPlacementDialog. Because Dialog appears in its own
    window, it does not matter where in your composition this function call
    appears. The result will always be the same: a fullscreen dialog with the
    specified content. In this case, we recommend showing the dialog from
@@ -25505,8 +26551,8 @@ C28👊 Showing Dialogs with Jetpack Compose
 
    ToDoingsList is a good candidate for managing the dialog because it is
    a convenient place to manage the dialog’s state. When any of the
-   To??ingCells in its LazyColumn are clicked, the dialog should be
-   shown. ToDoingsList already has visibility into how To??ingCells
+   ToppingCells in its LazyColumn are clicked, the dialog should be
+   shown. ToDoingsList already has visibility into how ToppingCells
    are created, making this a small change.
 
    You do not want to store this state too far up your composition hierarchy,
@@ -25516,10 +26562,11 @@ C28👊 Showing Dialogs with Jetpack Compose
    ToDoingsList will prevent unnecessary clutter in your code and make it
    easier to read.
 
-   Add a call to To??ingPlacementDialog in ToDoingsList.
+   Add a call to ToppingPlacementDialog in ToDoingsList.
 
 
    Listing 28.2 Showing a dialog (PizzaBuilderScreen.kt)
+
 
    .. code-block:: kotlin
 
@@ -25530,7 +26577,8 @@ C28👊 Showing Dialogs with Jetpack Compose
    onEditPizza: (Pizza) -> Unit,
    modifier: Modifier = Modifier
    ) {
-   To??ingPlacementDialog()
+   ToppingPlacementDialog()
+
 
    LazyColumn(
    modifier = modifier
@@ -25561,28 +26609,28 @@ C28👊 Showing Dialogs with Jetpack Compose
 
    Whenever a dialog is part of your composition, it will be shown onscreen.
 
-   You have not told your To??ingPlacementDialog when it should
+   You have not told your ToppingPlacementDialog when it should
    stop being displayed, so attempts to dismiss it will do nothing. And none of
    Compose’s dialog functions has a parameter to set the dialog’s visibility, so
    you will need another way to dismiss your dialog.
 
    In Chapter 26, you made another UI element that was visible only some of
-   the time: the placement label in your To??ingCell. You use an if
+   the time: the placement label in your ToppingCell. You use an if
    statement so that the Text composable is only invoked when you want it to
    be visible. You will use the same approach to show and hide the dialog.
 
-   With the dialog’s visibility controlled by an if statement, the ?ob of the
+   With the dialog’s visibility controlled by an if statement, the job of the
    onDismissRequest lambda will be to update the condition set by the if
    statement so that the Dialog function will not be invoked again when
    your UI is recomposed. This means that, for your dialog’s visibility to be
-   managed correctly, To??ingPlacementDialog will need to forward
+   managed correctly, ToppingPlacementDialog will need to forward
    its requests to be dismissed.
 
    Declare a new parameter called onDismissRequest, mirroring the
    parameter from the base Dialog composable, and pass it to your Dialog.
 
 
-   Listing 28.3 Forwarding dismiss requests (To??ingPlacementDialog.kt)
+   Listing 28.3 Forwarding dismiss requests (ToppingPlacementDialog.kt)
 
    .. code-block:: kotlin
 
@@ -25594,14 +26642,16 @@ C28👊 Showing Dialogs with Jetpack Compose
    Box(
    modifier = Modifier
    .background(Color.Red)
+
    .size(64.dp)
+
    )
    }
    }
-   With this parameter in place, To??ingPlacementDialog now has
+   With this parameter in place, ToppingPlacementDialog now has
    everything it needs to have its visibility managed. To track whether the
    dialog should be visible, define a new MutableState property and
-   surround your call to To??ingPlacementDialog in an if statement
+   surround your call to ToppingPlacementDialog in an if statement
    that checks this state. You will want the dialog state to persist across
    configurations, so use rememberSaveable instead of remember.
 
@@ -25623,12 +26673,12 @@ C28👊 Showing Dialogs with Jetpack Compose
    onEditPizza: (Pizza) -> Unit,
    modifier: Modifier = Modifier
    ) {
-   var showTo??ingPlacementDialog by rememberSaveable { mutableStateOf(false) }
+   var showToppingPlacementDialog by rememberSaveable { mutableStateOf(false) }
 
-   if (showTo??ingPlacementDialog) {
+   if (showToppingPlacementDialog) {
    ToppingPlacementDialog(
    onDismissRequest = {
-   showTo??ingPlacementDialog = false
+   showToppingPlacementDialog = false
    }
    )
    }
@@ -25642,15 +26692,15 @@ C28👊 Showing Dialogs with Jetpack Compose
    placement = pizza.toppings[topping],
    onClickTopping = {
    val isOnPizza = ?izza.to??ings[to??ing] != null
-   onEditPizza(?izza.withTo??ing(
+   onEditPizza(?izza.withTopping(
    to??ing = to??ing,
    ?lacement = if (isOnPizza) {
    null
    } else {
-   To??ingPlacement.All
+   ToppingPlacement.All
    }
    ))
-   showTo??ingPlacementDialog = true
+   showToppingPlacementDialog = true
    }
    )
    }
@@ -25659,7 +26709,7 @@ C28👊 Showing Dialogs with Jetpack Compose
       ...
    By the way, although you could technically use Kotlin’s trailing lambda
    syntax to omit the parameter name and parentheses after
-   To??ingPlacementDialog, we do not recommend it. Callbacks for
+   ToppingPlacementDialog, we do not recommend it. Callbacks for
    composables are most effectively identified by their name, and it can be
    difficult to determine what a lambda does in Compose when used with the
    trailing lambda syntax.
@@ -25689,6 +26739,7 @@ C28👊 Showing Dialogs with Jetpack Compose
 
    Listing 28.5 Asking important questions (strings.xml)
 
+
    .. code-block:: xml
 
    <resources>
@@ -25715,36 +26766,40 @@ C28👊 Showing Dialogs with Jetpack Compose
    name of the topping being added to the pizza.
 
 
-   Listing 28.6 Asking the right question (To??ingPlacementDialog.kt)
+   Listing 28.6 Asking the right question (ToppingPlacementDialog.kt)
 
    .. code-block:: kotlin
 
    @Composable
    fun ToppingPlacementDialog(
-   to??ing: To??ing,
+   to??ing: Topping,
    onDismissRequest: () -> Unit
    ) {
    Dialog(onDismissRequest = onDismissRequest) {
    Box(
    modifier = Modifier
    .background(Color.Red)
+
    .size(64.d?)
+
    )
    Card {
    Column {
    val to??ingName = stringResource(to??ing.to??ingName)
+
    Text(
    text = stringResource(R.string.?lacement_?rom?t, to??ingName),
    style = MaterialTheme.ty?ography.subtitle1,
    textAlign = TextAlign.Center,
    modifier = Modifier.?adding(24.d?)
+
    )
    }
    }
    }
    }
    Because you have added a new parameter to
-   To??ingPlacementDialog, ToDoingsList will now have a
+   ToppingPlacementDialog, ToDoingsList will now have a
    compiler error. Your dialog needs to know not only whether it should be
    visible but also what content it should show. More specifically, your dialog
    needs to know which topping was selected, not just that a topping was
@@ -25763,6 +26818,7 @@ C28👊 Showing Dialogs with Jetpack Compose
 
    Listing 28.7 Smarter state (PizzaBuilderScreen.kt)
 
+
    .. code-block:: kotlin
 
       ...
@@ -25772,15 +26828,15 @@ C28👊 Showing Dialogs with Jetpack Compose
    onEditPizza: (Pizza) -> Unit,
    modifier: Modifier = Modifier
    ) {
-   var showTo??ingPlacementDialog by rememberSaveable { mutableStateOf(false) }
-   var to??ingBeingAdded by rememberSaveable { mutableStateOf<To??ing?>(null) }
+   var showToppingPlacementDialog by rememberSaveable { mutableStateOf(false) }
+   var to??ingBeingAdded by rememberSaveable { mutableStateOf<Toppingp>(null) }
 
-   if (showTo??ingPlacementDialog) {
+   if (showToppingPlacementDialog) {
    to??ingBeingAdded?.let { to??ing ->
    ToppingPlacementDialog(
    to??ing = to??ing,
    onDismissRequest = {
-   showTo??ingPlacementDialog = false
+   showToppingPlacementDialog = false
    to??ingBeingAdded = null
    }
    )
@@ -25794,7 +26850,7 @@ C28👊 Showing Dialogs with Jetpack Compose
    topping = topping,
    placement = pizza.toppings[topping],
    onClickTopping = {
-   showTo??ingPlacementDialog = true
+   showToppingPlacementDialog = true
    to??ingBeingAdded = to??ing
    }
    )
@@ -25820,12 +26876,12 @@ C28👊 Showing Dialogs with Jetpack Compose
    customizations. They will all need to fill the width of the dialog, they will
    all have 8dp of padding, and they will all pull their labels from the topping’s
    string resource. To make these buttons a bit easier to add, start by declaring
-   a To??ingPlacementOption composable in
+   a ToppingPlacementOption composable in
    ToppingPlacementDialog.kt. You will use this composable to add
    the choices to your dialog.
 
 
-   Listing 28.8 Defining a reusable button (To??ingPlacementDialog.kt)
+   Listing 28.8 Defining a reusable button (ToppingPlacementDialog.kt)
 
    .. code-block:: kotlin
 
@@ -25838,7 +26894,7 @@ C28👊 Showing Dialogs with Jetpack Compose
    }
 
    @Composable
-   private fun To??ingPlacementOption(
+   private fun ToppingPlacementOption(
    @StringRes ?lacementName: Int,
    onClick: () -> Unit,
    modifier: Modifier = Modifier
@@ -25846,10 +26902,12 @@ C28👊 Showing Dialogs with Jetpack Compose
    TextButton(
    onClick = onClick,
    modifier = modifier.fillMaxWidth()
+
    ) {
    Text(
    text = stringResource(?lacementName),
    modifier = Modifier.?adding(8.d?)
+
    )
    }
    }
@@ -25860,19 +26918,19 @@ C28👊 Showing Dialogs with Jetpack Compose
    setting the text color with an appropriate button color. But even with these
    handy default customizations, you do not want to duplicate this hierarchy
    for each button you want to add to the dialog. With your
-   To??ingPlacementOption composable, adding a button to the dialog
+   ToppingPlacementOption composable, adding a button to the dialog
    is a single function call away.
 
    Next, you can declare the four buttons in the dialog. You could declare them
    one by one – but remember that you have control flow at your disposal: You
    can use a loop to add several items onscreen at once. Try it out now by
-   iterating over all values of To??ingPlacement. (Leave each button’s
+   iterating over all values of ToppingPlacement. (Leave each button’s
    onClick callback blank for now.) Remember that you did not add the
-   “none” option as a case to To??ingPlacement, so you will need to
+   “none” option as a case to ToppingPlacement, so you will need to
    manually add the fourth option to this dialog.
 
 
-   Listing 28.9 Adding options (To??ingPlacementDialog.kt)
+   Listing 28.9 Adding options (ToppingPlacementDialog.kt)
 
    .. code-block:: kotlin
 
@@ -25885,18 +26943,19 @@ C28👊 Showing Dialogs with Jetpack Compose
    Card {
    Column {
    val toppingName = stringResource(topping.toppingName)
+
    Text(
       ...
    )
 
-   To??ingPlacement.values().forEach { ?lacement ->
-   To??ingPlacementOption(
+   ToppingPlacement.values().forEach { placement ->
+   ToppingPlacementOption(
    ?lacementName = ?lacement.label,
    onClick = { /* TODO */ }
    )
    }
 
-   To??ingPlacementOption(
+   ToppingPlacementOption(
    ?lacementName = R.string.?lacement_none,
    onClick = { /* TODO */ }
    )
@@ -25931,7 +26990,7 @@ C28👊 Showing Dialogs with Jetpack Compose
    Update your two empty onClick callbacks with this behavior.
 
 
-   Listing 28.10 Dismissing the dialog (To??ingPlacementDialog.kt)
+   Listing 28.10 Dismissing the dialog (ToppingPlacementDialog.kt)
 
    .. code-block:: kotlin
 
@@ -25949,6 +27008,7 @@ C28👊 Showing Dialogs with Jetpack Compose
    placementName = placement.label,
    onClick = { /* TODO */ }
    onDismissRequest()
+
    }
    )
    }
@@ -25957,6 +27017,7 @@ C28👊 Showing Dialogs with Jetpack Compose
    placementName = R.string.placement_none,
    onClick = { /* TODO */ }
    onDismissRequest()
+
    }
    )
    }
@@ -25969,26 +27030,26 @@ C28👊 Showing Dialogs with Jetpack Compose
    is dismissed.
 
    To update the pizza, you will again use the state hoisting pattern you used in
-   the ToDoingsList. To??ingPlacementDialog is not in control of
+   the ToDoingsList. ToppingPlacementDialog is not in control of
    the pizza state, but its parent is. To modify the state,
-   To??ingPlacementDialog will need to take in another lambda to
+   ToppingPlacementDialog will need to take in another lambda to
    request a change to the pizza.
 
    Add a function parameter called onSetToppingPlacement. This
-   parameter will be a lambda that passes the selected To??ingPlacement
+   parameter will be a lambda that passes the selected ToppingPlacement
    value (or a null value, if None was selected). After you have this parameter
    in place, invoke it in each button’s onClick callback before dismissing
    the dialog.
 
 
-   Listing 28.11 Sending results back (To??ingPlacementDialog.kt)
+   Listing 28.11 Sending results back (ToppingPlacementDialog.kt)
 
    .. code-block:: kotlin
 
    @Composable
    fun ToppingPlacementDialog(
    topping: Topping,
-   onSetTo??ingPlacement: (?lacement: To??ingPlacement?) -> Unit,
+   onSetToppingPlacement: (placement: ToppingPlacementp) -> Unit,
    onDismissRequest: () -> Unit
    ) {
    Dialog(onDismissRequest = onDismissRequest) {
@@ -25999,8 +27060,10 @@ C28👊 Showing Dialogs with Jetpack Compose
    ToppingPlacementOption(
    placementName = placement.label,
    onClick = {
-   onSetTo??ingPlacement(?lacement)
+   onSetToppingPlacement(placement)
+
    onDismissRequest()
+
    }
    )
    }
@@ -26008,8 +27071,10 @@ C28👊 Showing Dialogs with Jetpack Compose
    ToppingPlacementOption(
    placementName = R.string.placement_none,
    onClick = {
-   onSetTo??ingPlacement(null)
+   onSetToppingPlacement(null)
+
    onDismissRequest()
+
    }
    )
    }
@@ -26039,8 +27104,9 @@ C28👊 Showing Dialogs with Jetpack Compose
    toppingBeingAdded?.let { topping ->
    ToppingPlacementDialog(
    topping = topping,
-   onSetTo??ingPlacement = { ?lacement ->
-   onEditPizza(?izza.withTo??ing(to??ing, ?lacement))
+   onSetToppingPlacement = { placement ->
+   onEditPizza(?izza.withTopping(topping, placement))
+
    },
    onDismissRequest = {
    toppingBeingAdded = null
@@ -26122,6 +27188,7 @@ C28👊 Showing Dialogs with Jetpack Compose
    large, and extra large. Smaller pizza sizes should be less expensive than
    larger pizzas, and your pizzas should be large by default. (You are free to
    decide Coda Pizza’s exact prices for this challenge.)
+
    You will need to define new UI state to track the selected size as part of this
    challenge. We recommend defining a new enum called Size to declare the
    size options and adding a size property to your Pizza data class to track
@@ -26134,7 +27201,7 @@ C29👊 Theming Compose UIs
 =========================
 
    Coda Pizza’s users can now customize their pizzas, but the app itself is still
-   the equivalent of plain cheese: It gets the ?ob done, but it has no particular
+   the equivalent of plain cheese: It gets the job done, but it has no particular
    personality. In the last chapter of this series on the basics of Jetpack
    Compose, you will spend some time polishing Coda Pizza and adding some
    visual flair.
@@ -26223,6 +27290,7 @@ C29👊 Theming Compose UIs
 
    Listing 29.1 Let me imagine it… (PizzaHeroImage.kt)
 
+
    .. code-block:: kotlin
 
    @Preview
@@ -26231,9 +27299,9 @@ C29👊 Theming Compose UIs
    PizzaHeroImage(
    ?izza = Pizza(
    to??ings = ma?Of(
-   To??ing.Pineapple to To??ingPlacement.All,
-   To??ing.Pe??eroni to To??ingPlacement.Left,
-   To??ing.Basil to To??ingPlacement.Right
+   Topping.Pineapple to ToppingPlacement.All,
+   Topping.Pepperoni to ToppingPlacement.Left,
+   Topping.Basil to ToppingPlacement.Right
    )
    )
    )
@@ -26319,13 +27387,13 @@ C29👊 Theming Compose UIs
    preview. The first step is to track which image to draw when a topping is
    placed on a pizza.
 
-   Add a new property to your To??ing enum called
+   Add a new property to your Topping enum called
    pizzaOverlayImage. This will keep track of which image to use for
    each topping. After you add the property, give each case of the enum a
    value to associate the toppings with their images.
 
 
-   Listing 29.4 Associating the preview images (To??ing.kt)
+   Listing 29.4 Associating the preview images (Topping.kt)
 
    .. code-block:: kotlin
 
@@ -26404,6 +27472,7 @@ C29👊 Theming Compose UIs
    ?ainter = ?ainterResource(to??ing.?izzaOverlayImage),
    contentDescription = null,
    modifier = Modifier.focusable(false)
+
    )
    }
    }
@@ -26505,11 +27574,13 @@ C29👊 Theming Compose UIs
    Box(
    modifier = modifier
    .aspectRatio(1f)
+
    ) {
    Image(
    painter = painterResource(R.drawable.pizza_crust),
    contentDescription = stringResource(R.string.pizza_preview),
    modifier = Modifier.fillMaxSize()
+
    )
 
    pizza.toppings.forEach { (topping, placement) ->
@@ -26517,6 +27588,7 @@ C29👊 Theming Compose UIs
    painter = painterResource(topping.pizzaOverlayImage),
    contentDescription = null,
    modifier = Modifier.focusable(false)
+
    .aspectRatio(when (?lacement) {
    Left, Right -> 0.5f
    All -> 1.0f
@@ -26525,10 +27597,11 @@ C29👊 Theming Compose UIs
    }
    }
    }
-   (To use your To??ingAlignment enum values without the
+   (To use your ToppingAlignment enum values without the
    ToppingAlignment. prefix, add an import for
    com.bignerdranch.android.codapizza.model.ToppingPlacement.* at
    the top of the file.)
+
    Build your project to get an updated preview for PizzaHeroImagePreview . You
    will see that the pepperoni and basil toppings now appear at half of their
    original size, vertically centered and on the left half of the pizza
@@ -26579,6 +27652,7 @@ C29👊 Theming Compose UIs
    contentDescription = null,
    contentScale = ContentScale.Cro?,
    modifier = Modifier.focusable(false)
+
       ...
    )
    }
@@ -26609,6 +27683,7 @@ C29👊 Theming Compose UIs
 
    Listing 29.8 Aligning the image (PizzaHeroImage.kt)
 
+
    .. code-block:: kotlin
 
       ...
@@ -26627,11 +27702,12 @@ C29👊 Theming Compose UIs
    contentDescription = null,
    contentScale = ContentScale.Crop,
    alignment = when (?lacement) {
-   Left -> Alignment.To?Start
+   Left -> Alignment.TopStart
    Right -> Alignment.TopEnd
    All -> Alignment.Center
    },
    modifier = Modifier.focusable(false)
+
       ...
    )
    }
@@ -26691,6 +27767,7 @@ C29👊 Theming Compose UIs
    All -> Alignment.Center
    },
    modifier = Modifier.focusable(false)
+
    .aspectRatio(when (placement) {
    Left, Right -> 0.5f
    All -> 1.0f
@@ -26744,6 +27821,7 @@ C29👊 Theming Compose UIs
    PizzaHeroImage(
    ?izza = ?izza,
    modifier = Modifier.?adding(16.d?)
+
    )
    }
 
@@ -26810,6 +27888,7 @@ C29👊 Theming Compose UIs
 
    Listing 29.11 Declaring a theme (AppTheme.kt)
 
+
    .. code-block:: kotlin
 
    @Composable
@@ -26824,6 +27903,7 @@ C29👊 Theming Compose UIs
    )
    ) {
    content()
+
    }
    You set the colors property of your theme to be a palette with a light
    background and a few specific colors for Coda Pizza. There are several
@@ -26839,14 +27919,17 @@ C29👊 Theming Compose UIs
 
    Listing 29.12 Applying a theme (MainActivity.kt)
 
+
    .. code-block:: kotlin
 
    class MainActivity : AppCompatActivity() {
    override fun onCreate(savedInstanceState: Bundle?) {
    super.onCreate(savedInstanceState)
+
    setContent {
    AppTheme {
    PizzaBuilderScreen()
+
    }
    }
    }
@@ -26860,6 +27943,7 @@ C29👊 Theming Compose UIs
    specified in your theme, but the app bar and status bar are still stubbornly
    purple, as shown in Figure 29.10. (We promise, the app bar and the button
    are different colors!)
+
 
    Figure 29.10 A partially themed Coda Pizza
 
@@ -26910,6 +27994,7 @@ C29👊 Theming Compose UIs
 
 
    Listing 29.13 Removing framework styles (themes.xml)
+
 
    .. code-block:: xml
 
@@ -26974,9 +28059,9 @@ C29👊 Theming Compose UIs
    and menus. It is a good idea for Coda Pizza to include an app bar, even if it
    is just to show a title.
 
-   To reinstate your app bar, you will use the To?AppBar composable.
+   To reinstate your app bar, you will use the TopAppBar composable.
 
-   To?AppBar accepts several composables as inputs, each of which can add
+   TopAppBar accepts several composables as inputs, each of which can add
    content in a specific region of the app bar. You will only set the title
    parameter to show the application name, matching the default behavior of
    the automatically provided app bar – but with the benefit of using your
@@ -26995,13 +28080,13 @@ C29👊 Theming Compose UIs
    slot, which gives you complete control over what appears in each slot.
 
    In the framework UI toolkit, you were limited to displaying a string as the
-   title. And when you add a To?AppBar, you will typically pass a Text in
+   title. And when you add a TopAppBar, you will typically pass a Text in
    for the title slot. But because the title argument takes in a
    composable, you have the power to use elements like an image, loading
-   spinner, drop-down menu, or checkbo? within that space – to name a few
+   spinner, drop-down menu, or checkbox within that space – to name a few
    examples.
 
-   Take the To?AppBar composable for a spin, placing it at the top of your
+   Take the TopAppBar composable for a spin, placing it at the top of your
    PizzaBuilderScreen composable.
 
 
@@ -27019,7 +28104,7 @@ C29👊 Theming Compose UIs
    Column(
    modifier = modifier
    ) {
-   To?AppBar(
+   TopAppBar(
    title = { Text(stringResource(R.string.app_name)) }
    )
 
@@ -27042,7 +28127,7 @@ C29👊 Theming Compose UIs
    PizzaBuilderScreen’s Column now has several elements in it. As
    your application grows in complexity, it can become harder to work with
    these large building blocks for your application’s UI. Take the
-   To?AppBar, for example. It must come first in this column if it is to be
+   TopAppBar, for example. It must come first in this column if it is to be
    drawn at the top of the screen. If you accidentally add another composable
    before it, your app bar will appear toward the middle of the screen.
 
@@ -27053,7 +28138,7 @@ C29👊 Theming Compose UIs
    can be labeled and consistently placed. There are two main slots you are
    interested in: the topBar slot and the content slot.
 
-   The topBar slot is designed for components like your To?AppBar.
+   The topBar slot is designed for components like your TopAppBar.
 
    Composables placed in this slot always appear at the top of the screen,
    above your main content. The content slot, meanwhile, is for your app’s
@@ -27083,13 +28168,13 @@ C29👊 Theming Compose UIs
    Scaffold(
    modifier = modifier,
    to?Bar = {
-   To?AppBar(
+   TopAppBar(
    title = { Text(stringResource(R.string.app_name)) }
    )
    },
    content = {
    Column {
-   To?AppBar(
+   TopAppBar(
    title = { Text(stringResource(R.string.app_name)) }
    )
 
@@ -27105,7 +28190,7 @@ C29👊 Theming Compose UIs
    )
    }
    Run Coda Pizza again. The app will look and behave the same, but your
-   To?AppBar now has a guaranteed, designated space. Scaffold follows
+   TopAppBar now has a guaranteed, designated space. Scaffold follows
    its own blueprints to position the content of its slots, so it does not matter
    how you specify the content of a slot or what order you put them in. The
    argument you provide for topBar appears at the top of the screen –
@@ -27122,7 +28207,7 @@ C29👊 Theming Compose UIs
    change. Using the MaterialTheme composable, for example, causes all
    components nested within it to be aware of your theme and use its colors.
 
-   When you added the Text to your To?AppBar, you might have noticed
+   When you added the Text to your TopAppBar, you might have noticed
    something interesting. Despite the fact that you did not specify any
    parameters besides the text itself, the Text was appropriately styled with
    the correct font size and color to appear in your app bar. How did this
@@ -27135,6 +28220,7 @@ C29👊 Theming Compose UIs
    are still there to organize your composables. (Whereas View objects are
    themselves the nodes in a framework UI’s hierarchy, and you can get direct
    access to them whenever you like.)
+
    For Coda Pizza, the top of the composition hierarchy looks something like
    Figure 29.13:
 
@@ -27178,12 +28264,13 @@ C29👊 Theming Compose UIs
    outer MaterialTheme composable, but only for the children of the inner
    MaterialTheme.
 
-   Back to the question of where the style of the Text in your To?AppBar is
+   Back to the question of where the style of the Text in your TopAppBar is
    coming from. In addition to the theme attributes set in the themes.xml
    resource file and AppTheme composable (if you have one), some
    composables also specify preferred theme attributes that Compose will take
    into account. (These are officially termed current theme attributes, but we
    find that term unnecessarily confusing.)
+
    For example, while your application has text color specifications, the
    TextButton composable you are using for the topping placement options
    in your dialog overrides this color specification, setting a style that works
@@ -27191,9 +28278,9 @@ C29👊 Theming Compose UIs
    Text child of your TextButtons asks for a text color, it gets this
    overridden value, not the value from your theme.
 
-   To?AppBar does the same thing to its text, setting a color that works with
+   TopAppBar does the same thing to its text, setting a color that works with
    the background color set by the app theme. In this way, “current” theme
-   attributes like the ones set by TextButton and To?AppBar provide
+   attributes like the ones set by TextButton and TopAppBar provide
    automatic localized theming that coordinates with the app’s overall theme.
 
    The Text composable determines its styles by first looking at the text size,
@@ -27243,7 +28330,7 @@ C29👊 Theming Compose UIs
    would be messy and would not scale well if you needed to access many
    properties.
 
-   Instead, Compose includes a CompositionLocal out of the bo? that
+   Instead, Compose includes a CompositionLocal out of the box that
    stores the content that hosts your composable UI. You can use this
    CompositionLocal to access the content regardless of where you are in
    the composition.
@@ -27281,10 +28368,12 @@ C29👊 Theming Compose UIs
    // TODO
    Toast.makeText(context, R.string.order_placed_toast, Toast.LENGTH_LONG)
    .show()
+
    }
    ) {
    val currencyFormatter = remember { NumberFormat.getCurrencyInstance() }
    val price = currencyFormatter.format(pizza.price)
+
    Text(text = stringResource(R.string.place_order_button, price))
    }
    }
@@ -27383,9 +28472,11 @@ C29👊 Theming Compose UIs
    class MainActivity : AppCompatActivity() ComponentActivity() {
    override fun onCreate(savedInstanceState: Bundle?) {
    super.onCreate(savedInstanceState)
+
    setContent {
    AppTheme {
    PizzaBuilderScreen()
+
    }
    }
    }
@@ -27408,6 +28499,7 @@ C29👊 Theming Compose UIs
 
 
    Listing 29.20 Using a platform theme (themes.xml)
+
 
    .. code-block:: xml
 
@@ -27564,6 +28656,7 @@ C29👊 Theming Compose UIs
 
    val LocalAnalyticsManager = compositionLocalOf<AnalyticsManager> {
    error("AnalyticsManager not set")
+
    }
    With the CompositionLocal defined, you can then specify its value at
    runtime. You do this using the CompositionLocalProvider
@@ -27592,6 +28685,7 @@ C29👊 Theming Compose UIs
    question. If AnalyticsManager is easy to create, you may be able to
    instantiate it directly inside PizzaBuilderScreen. (If you do this,
    make sure to remember it!)
+
    Alternatively, you could create this value elsewhere in your application –
    possibly as a singleton – and pass it through your composition hierarchy as
    an argument. Either approach is valid, and it is up to you and your team to
@@ -27635,6 +28729,7 @@ C29👊 Theming Compose UIs
    your pizza’s preview to change abruptly. Make this change more graceful
    by fading the topping onto the pizza. (Hint: Try using the Crossfade
    composable.)
+
    For more of a challenge, add some excitement when placing an order. When
    the user presses the PLACE ORDER button, make their pizza preview spin in a
    complete circle.
@@ -27774,6 +28869,7 @@ Index A
    AccelerateInterpolator class, Using different interpolators
    accessibility
    (see also TalkBack )
+
    about, Accessibility , Creating a Comparable Experience
    accessibility focus, TalkBack
    Accessibility Scanner, For the More Curious: Using Accessibility Scanner
@@ -27790,6 +28886,7 @@ Index A
    View.contentDescription, Creating a Comparable Experience
    Accompanist library (Jetpack Compose), For the More Curious: Accompanist
    action items (see menus )
+
    action views, Using SearchView
    ActionBar class, For the More Curious: App Bar vs Action Bar vs Toolbar
    ACTION_CALL category, Challenge: Another Implicit Intent
@@ -27798,6 +28895,7 @@ Index A
    ACTION_SEND category, Sending a crime report
    activities
    (see also Activity class , fragments )
+
    about, App Basics
    adding to project, Creating an Android Project , Your Second Activity
    back stack, How Android Sees Your Activities
@@ -27853,6 +28951,7 @@ Index A
    TakePicture, Using a Camera Intent
    ActivityScenario class, Instrumented Tests with Espresso and ActivityScenario
    Adapter class (RecyclerView)
+
    about, Implementing an Adapter to Populate the RecyclerView
    getItemCount(), Implementing an Adapter to Populate the RecyclerView
    ListAdapter vs, For the More Curious: A Smarter Adapter with ListAdapter
@@ -27866,6 +28965,7 @@ Index A
    addMigrations(…) function (Room), Adding a Suspect Property
    @After annotation (JUnit), Instrumented Tests with Espresso and ActivityScenario
    Alignment interface (Jetpack Compose)
+
    .Center, Image alignment
    .TopEnd, Image alignment
    .TopStart, Image alignment
@@ -27878,6 +28978,7 @@ Index A
    compatibility and, Safely adding code from later APIs
    running, Using Android Lint
    Android manifest (see manifest )
+
    Android SDK Manager, Downloading Earlier SDK Versions
    Android Studio
    adding Gradle plugins, Room architecture component library
@@ -27895,13 +28996,16 @@ Index A
    creating values resource files, Localizing Resources
    debugger
    (see also debugging )
+
    devices view, Running on a Device
    editor, Navigating in Android Studio
    installing, Downloading and Installing Android Studio
    layout editor, Testing Alternative Resources
    (see also layouts )
+
    Logcat
    (see also Logcat , logging )
+
    previewing layout decorations, Previewing the layout
    project tool window, Navigating in Android Studio
    project window, Navigating in Android Studio
@@ -27915,6 +29019,7 @@ Index A
    Android XML namespace, The view hierarchy
    android.text.format.DateFormat class, Challenge: Formatting the Date
    android.util.Log class (see Log class )
+
    android.view.animation package, Legacy animation tools
    android:authorities attribute, Using FileProvider
    android:contentDescription attribute, Adding content descriptions
@@ -27935,7 +29040,9 @@ Index A
    android:scaleType attribute, Displaying Results in RecyclerView
    android:text attribute, android:text
    AndroidManifest.xml (see manifest )
+
    AndroidX (see Jetpack libraries )
+
    androidx.activity:activity-ktx architecture component library
    (androidx.lifecycle), Including the ViewModel Dependency
    androidx.lifecycle:lifecycle-viewmodel-ktx architecture component
@@ -27951,6 +29058,7 @@ Index A
    simple property animation, Simple Property Animation
    transformation properties
    (see also transformation properties )
+
    transitions framework, Transitions
    translation, Simple Property Animation
    AnimatorListener class, Playing Animators Together
@@ -27965,6 +29073,7 @@ Index A
    AppCompat vs Jetpack Compose, MaterialTheme
    default from AppCompatActivity, The Default App Bar
    menu (see menus )
+
    previewing, Previewing the layout
    terminology vs action bar, toolbar, For the More Curious: App Bar vs Action Bar vs
    Toolbar
@@ -28012,6 +29121,7 @@ Index B
    back stack, How Android Sees Your Activities
    background threads
    (see also threads )
+
    doWork() and, Creating a Worker
    for asynchronous network requests, Executing a web request
    scheduling work on, Scheduling Work , Providing User Control over Polling
@@ -28023,16 +29133,20 @@ Index B
    Bitmaps
    bitmaps
    (see also images )
+
    resizing, Scaling and Displaying Bitmaps
    scaling and displaying, Scaling and Displaying Bitmaps
    bottom property (View), Simple Property Animation
    Box composable (Jetpack Compose)
+
    about, Adding more images
    aligning children, The align modifier
    breakpoints, setting
    (see also debugging )
+
    build errors, Build issues
    (see also debugging )
+
    build process, For the More Curious: The Android Build Process
    build tool window (Android Studio), Navigating in Android Studio
    Build.VERSION.SDK_INT, Safely adding code from later APIs
@@ -28053,10 +29167,12 @@ Index C
    camera, Taking Pictures with Intents
    cancelUniqueWork(…) (WorkManager), Providing User Control over Polling
    Canvas class, Rendering Inside onDraw(Canvas)
+
    Card composable (Jetpack Compose), Setting the Dialog’s Content
    Channel class, Notifying the User
    CheckBox class, Defining CrimeDetailFragment’s layout
    Checkbox composable (Jetpack Compose)
+
    about, Layouts in Compose
    implementing state changes, Updating UIs with MutableState
    choosers, creating, Sending a crime report
@@ -28064,6 +29180,7 @@ Index C
    Class class, explicit intents and, Communicating with intents
    classes
    (see also singletons )
+
    abstract classes, Creating a database class
    dependencies, For the More Curious: Managing Dependencies
    importing, Getting references to views
@@ -28073,6 +29190,7 @@ Index C
    ArgbEvaluator and, Color evaluation
    resources, Building the Scene
    Column composable (Jetpack Compose)
+
    about, Layouts in Compose
    Alignment parameter, Aligning elements in a row
    Arrangement parameter, Aligning elements in a row
@@ -28123,6 +29241,7 @@ Index C
    making clickable, The clickable modifier
    modifier parameter, The Compose Modifier
    modifiers (see Modifier type (Jetpack Compose) )
+
    naming conventions, Composable Functions
    nesting, Layouts in Compose
    parameters for, Customizing Composables
@@ -28139,7 +29258,9 @@ Index C
    styling text, Specifying text styles
    trailing lambda syntax and, Dismissing the Dialog
    Compose (see Jetpack Compose )
+
    CompositionLocal class (Jetpack Compose)
+
    about, CompositionLocal
    accessing CompositionLocal variables, CompositionLocal
    creating CompositionLocal variables, For the More Curious: Creating Your Own
@@ -28183,6 +29304,7 @@ Index C
    for storing files shared among apps, File Storage
    ContentResolver class, Getting data from the contacts list
    ContentScale interface (Jetpack Compose)
+
    .Crop, contentScale
    .Fit, contentScale
    Context class
@@ -28198,13 +29320,16 @@ Index C
    resource IDs and, Making Toasts
    contracts
    (see also ActivityResultContracts class )
+
    conventions (see naming conventions )
+
    Converter.Factory class (Retrofit), Adding a String converter
    converters
    converter factories, Adding a String converter
    scalars converter, Adding a String converter
    coroutines
    (see also Flow class , flows )
+
    about, An Introduction to Asynchronous Code on Android
    Activity class and, Using coroutines
    builders, Using coroutines
@@ -28238,6 +29363,7 @@ Index D
    @Database annotation (Room), Creating a database class
    databases
    (see also Room architecture component library )
+
    accessing, Accessing the Database Using the Repository Pattern
    data access objects (DAOs), Defining a Data Access Object
    database classes, Creating a database class
@@ -28258,6 +29384,7 @@ Index D
    debug key, For the More Curious: The Android Build Process
    debugging
    (see also Android Lint , Android Studio )
+
    about, Debugging Android Apps
    build errors, Build issues
    crashes, Exceptions and Stack Traces
@@ -28288,6 +29415,7 @@ Index D
    devices
    configurations
    (see also configuration qualifiers )
+
    configuring language settings, Localizing Resources
    enabling developer options, Saving Data Across Process Death
    hardware, Running on the Emulator
@@ -28315,14 +29443,18 @@ Index D
    drawables, Referencing resources in XML
    drawing
    Canvas, Rendering Inside onDraw(Canvas)
+
    in onDraw(Canvas), Rendering Inside onDraw(Canvas)
+
    Paint, Rendering Inside onDraw(Canvas)
+
 
 Index E
 -------
 
    e(…) function (Log), For the More Curious: Log Levels
    editor (Android Studio)
+
    about, Navigating in Android Studio
    layout editor, Introducing the Layout Editor
    EditText class, Defining CrimeDetailFragment’s layout
@@ -28341,6 +29473,7 @@ Index E
    @Entity annotation (Room), Defining entities
    errors
    (see also debugging , exceptions )
+
    Android Studio indicators, Getting references to views
    DEBUG log level, For the More Curious: Log Levels
    ERROR log level, For the More Curious: Log Levels
@@ -28352,6 +29485,7 @@ Index E
    Exception class, Logging stack traces
    exceptions
    (see also debugging , errors )
+
    about, Logging stack traces
    ActivityNotFoundException, Communicating with intents
    creating, Logging stack traces
@@ -28395,6 +29529,7 @@ Index F
    findNavController function (Activity, Fragment), Navigating to the detail screen
    Flow class
    (see also flows )
+
    collect ?} function, Keeping the Changes Flowing
    MutableStateFlow, Keeping the Changes Flowing
    StateFlow, Keeping the Changes Flowing
@@ -28430,6 +29565,7 @@ Index F
    Fragment Results API, Passing Data Between Two Fragments
    fragment transactions
    (see also FragmentTransaction class )
+
    FragmentContainerView class, Defining a FragmentContainerView
    FragmentManager class
    adding fragments, The FragmentManager
@@ -28439,6 +29575,7 @@ Index F
    fragments
    (see also Fragment class , FragmentContainerView class , FragmentManager class ,
    FragmentTransaction class )
+
    activities vs, The Need for UI Flexibility
    activity lifecycle and, The fragment lifecycle
    adding a fragment to an activity, The FragmentManager
@@ -28494,6 +29631,7 @@ Index H
    height property (View), Simple Property Animation
    Home gesture, Temporarily leaving an activity
    HTTP networking (see networking )
+
    HTTP request method annotations, Defining an API interface
 
 Index I
@@ -28503,6 +29641,7 @@ Index I
    IllegalStateException class, ViewModel lifecycle , Accessing the Database Using the Repository
    Pattern
    Image composable (Jetpack Compose)
+
    about, Images
    alignment property, Image alignment
    contentDescription, Image’s contentDescription
@@ -28590,6 +29729,7 @@ Index J
    composition hierarchy, CompositionLocal
    CompositionLocal class
    (see also CompositionLocal class (Jetpack Compose) )
+
    coroutines and, For the More Curious: Coroutines, Flow, and Compose
    displaying images, Images
    Kotlin versions and, Creating a Compose Project
@@ -28600,6 +29740,7 @@ Index J
    MaterialTheme object, Specifying text styles , MaterialTheme
    Modifier type
    (see also Modifier type (Jetpack Compose) )
+
    previewing layouts, Previewing Composables
    recomposition, Recomposition
    remember composable, remember
@@ -28612,6 +29753,7 @@ Index J
    state hoisting, State Hoisting
    state in
    (see also state in Jetpack Compose )
+
    stringResource(Int), Resources in Compose
    styles set by composables, CompositionLocal
    Text composable, Composing Your First UI , Specifying text styles
@@ -28620,12 +29762,14 @@ Index J
    trailing lambda syntax and, Dismissing the Dialog
    Jetpack libraries
    (see also libraries , individual library names)
+
    about, For the More Curious: Jetpack, AndroidX, and Architecture Components
    androidx.activity package, Including the ViewModel Dependency
    androidx.lifecycle package, Including the ViewModel Dependency
    for backward compatibility, Jetpack libraries
    Job class, Consuming data from coroutines
    JSON (JavaScript Object Notation)
+
    about, Fetching JSON from Flickr
    arrays, Deserializing JSON text into model objects
    deserializing, Deserializing JSON text into model objects
@@ -28640,6 +29784,7 @@ Index K
 
    Kotlin
    coroutines (see coroutines )
+
    enabling in an Android Studio project, Creating an Android Project
    exceptions, compiled to java.lang exceptions, Exceptions and Stack
    Traces
@@ -28666,6 +29811,7 @@ Index L
    android:padding, For the More Curious: Margins vs Padding
    android:text, android:text
    layout constraints (see constraints )
+
    layout editor (Android Studio), Introducing the Layout Editor , Testing Alternative Resources
    layout parameters, ConstraintLayout’s inner workings
    LayoutInflater class, For the More Curious: The Android Build Process
@@ -28689,6 +29835,7 @@ Index L
    view groups and, Laying Out the UI
    view hierarchy and, The view hierarchy
    LazyColumn composable (Jetpack Compose)
+
    about, Scrollable Lists with LazyColumn
    item, Scrollable Lists with LazyColumn
    items, Scrollable Lists with LazyColumn
@@ -28696,6 +29843,7 @@ Index L
    RecyclerView vs, Scrollable Lists with LazyColumn
    state in, For the More Curious: Scrolling State
    LazyRow composable (Jetpack Compose)
+
    about, Scrollable Lists with LazyColumn
    item, Scrollable Lists with LazyColumn
    items, Scrollable Lists with LazyColumn
@@ -28709,6 +29857,7 @@ Index L
    Lifecycle class, repeatOnLifecycle(…), Consuming data from coroutines
    LinearLayout class, Laying Out the UI , The view hierarchy
    Lint (see Android Lint )
+
    list-detail interfaces, Fragments
    ListAdapter class
    about, For the More Curious: A Smarter Adapter with ListAdapter
@@ -28745,6 +29894,7 @@ Index L
    w(…), For the More Curious: Log Levels
    Logcat
    (see also logging )
+
    about, Using Logcat
    filtering, Running on the Emulator , Using Logcat , ViewModel lifecycle
    logging messages, Making log messages
@@ -28775,17 +29925,20 @@ Index M
    match_parent, android:layout_width and android:layout_height
    Material Components library, The Default App Bar
    MaterialTheme composable (Jetpack Compose)
+
    about, MaterialTheme
    CompositionLocal and, CompositionLocal
    nested, CompositionLocal
    scope, CompositionLocal
    MaterialTheme object (Jetpack Compose)
+
    about, Specifying text styles , MaterialTheme
    text styles, Specifying text styles
    memory leaks, ViewModel lifecycle
    MenuItem class, Responding to menu selections
    menus
    (see also app bar )
+
    about, Menus
    action items, Menus
    app:showAsAction attribute, Defining a menu in XML
@@ -28801,6 +29954,7 @@ Index M
    Migration classes (Room), Adding a Suspect Property
    model classes, using data keyword, Creating a New Class
    Modifier type (Jetpack Compose)
+
    about, The Compose Modifier
    alignment, The align modifier
    aspectRatio, aspectRatio
@@ -28826,6 +29980,7 @@ Index M
    activity states and, For the More Curious: UI Updates and Multi-Window Mode
    multi-resume support, For the More Curious: UI Updates and Multi-Window Mode
    MutableState interface (Jetpack Compose)
+
    about, Updating UIs with MutableState
    mutableStateOf, Updating UIs with MutableState
    mutableStateOf function (MutableState), Updating UIs with MutableState
@@ -28855,6 +30010,7 @@ Index N
    screen
    navigation
    (see also Navigation Jetpack component library )
+
    Activity lifecycle and, For the More Curious: The Back Button and the Activity Lifecycle
    Back button, For the More Curious: The Back Button and the Activity Lifecycle
    navigation graphs (Navigation Jetpack component library)
@@ -28885,6 +30041,7 @@ Index N
    nonexistent activity state, Activity States and Lifecycle Callbacks
    Notification class
    (see also notifications )
+
    about, Notifying the User
    NotificationManager and, Notifying the User
    NotificationCompat class, Notifying the User
@@ -28965,7 +30122,9 @@ Index P
    naming, Creating an Android Project
    padding, For the More Curious: Margins vs Padding
    Paint class, Rendering Inside onDraw(Canvas)
+
    Painter class (Jetpack Compose)
+
    about, Images
    painterResource, Images
    painterResource function (Painter), Images
@@ -28993,6 +30152,7 @@ Index P
    play(Animator) function (AnimatorSet), Playing Animators Together
    PointF class, Handling Touch Events
    presses (see touch events )
+
    @Preview annotation, Previewing Composables
    @PrimaryKey annotation (Room), Defining entities
    process death, Saving Data Across Process Death
@@ -29014,6 +30174,7 @@ Index P
    setting package name, Creating an Android Project
    setting project name, Creating an Android Project
    property animation (see animation )
+
    property delegates, Adding a ViewModel
    protocol buffers, Simple Persistence with DataStore
 
@@ -29097,6 +30258,7 @@ Index R
    Retrofit.Builder() class, Building the Retrofit object and creating an API instance
    scalars converter, Adding a String converter
    Retrofit.Builder() class (Retrofit)
+
    about, Building the Retrofit object and creating an API instance
    baseUrl(…), Building the Retrofit object and creating an API instance
    build(), Building the Retrofit object and creating an API instance
@@ -29127,7 +30289,9 @@ Index R
    SQLite in, Creating a type converter
    updating database version, Adding a Suspect Property
    rotation (see configuration changes )
+
    Row composable (Jetpack Compose)
+
    about, Layouts in Compose
    Alignment parameter, Aligning elements in a row
    Arrangement parameter, Aligning elements in a row
@@ -29144,6 +30308,7 @@ Index S
    saved instance state, Saving Data Across Process Death
    SavedStateHandle class, Saving Data Across Process Death
    Scaffold composable (Jetpack Compose)
+
    about, Scaffold and TopAppBar
    content, Scaffold and TopAppBar
    topBar, Scaffold and TopAppBar
@@ -29153,6 +30318,7 @@ Index S
    screen size, determining, For the More Curious: More on Determining Device Size
    SDK versions
    (see also compatibility )
+
    about, Compile SDK version
    configuration qualifiers and, Configuration Qualifiers
    installing, Downloading Earlier SDK Versions
@@ -29181,6 +30347,7 @@ Index S
    WebView
    show() function (Toast), Making Toasts
    simulator (see emulator )
+
    single abstract method interfaces (SAMs), Setting listeners
    single activity architecture, Performing Navigation
    singletons
@@ -29248,14 +30415,18 @@ Index T
    creating tests, JVM Tests
    instrumented
    (see also instrumented tests )
+
    Java Virtual Machine (JVM)
+
    (see also Java Virtual Machine (JVM) tests )
+
    JUnit framework, JVM Tests
    running tests, JVM Tests
    setup, test, verify pattern, JVM Tests
    unit, Testing
    using ActivityScenario, Instrumented Tests with Espresso and ActivityScenario
    Text composable (Jetpack Compose)
+
    about, Composing Your First UI
    style parameter, Specifying text styles
    styles set by, CompositionLocal
@@ -29266,6 +30437,7 @@ Index T
    tools:text and, Updating the Layout
    themes
    (see also styles )
+
    about, Styles, Themes, and Theme Attributes
    ?attr/ syntax for attributes, Styles, Themes, and Theme Attributes
    app bar and, The Default App Bar
@@ -29278,6 +30450,7 @@ Index T
    about, An Introduction to Asynchronous Code on Android
    background, An Introduction to Asynchronous Code on Android
    (see also background threads )
+
    blocking, An Introduction to Asynchronous Code on Android
    coroutines and, An Introduction to Asynchronous Code on Android
    main (UI), An Introduction to Asynchronous Code on Android , Executing a web request
@@ -29289,6 +30462,7 @@ Index T
    toasts, Making Toasts
    tool windows (Android Studio), Navigating in Android Studio
    toolbar (see app bar )
+
    Toolbar class, For the More Curious: App Bar vs Action Bar vs Toolbar
    tools:layout attribute, Implementing the Navigation component library
    tools:listitem attribute, For the More Curious: A Better List Preview
@@ -29349,11 +30523,13 @@ Index V
    memory management and, Fragments and memory management
    View class
    (see also views )
+
    bottom, Simple Property Animation
    Button, Laying Out the UI
    CheckBox, Defining CrimeDetailFragment’s layout
    doOnLayout(), Scaling and Displaying Bitmaps
    draw(), Rendering Inside onDraw(Canvas)
+
    EditText, Defining CrimeDetailFragment’s layout
    height, Simple Property Animation
    invalidate(), Tracking across motion events
@@ -29361,6 +30537,7 @@ Index V
    LinearLayout, Laying Out the UI , The view hierarchy
    OnClickListener interface, Setting listeners
    onDraw(Canvas), Rendering Inside onDraw(Canvas)
+
    onRestoreInstanceState(Parcelable), Challenge: Saving State
    onSaveInstanceState(), Challenge: Saving State
    onTouchEvent(MotionEvent), Handling Touch Events
@@ -29405,6 +30582,7 @@ Index V
    for text entry, Defining CrimeDetailFragment’s layout
    hierarchy, The view hierarchy
    invalid, Rendering Inside onDraw(Canvas)
+
    margins, For the More Curious: Margins vs Padding
    padding, For the More Curious: Margins vs Padding
    persisting, Challenge: Saving State
@@ -29421,6 +30599,7 @@ Index V
    wiring up in fragments, Wiring up views in a fragment
    virtual devices (see emulator )
 
+
 Index W
 -------
 
@@ -29431,6 +30610,7 @@ Index W
    enabling JavaScript, The Harder Way: WebView
    in Chrome Custom Tabs, For the More Curious: Chrome Custom Tabs (Another Easy
    Way)
+
    web rendering events, responding to, The Harder Way: WebView
    WebChromeClient interface
    about, WebChromeClient
