@@ -491,6 +491,45 @@ Public Key认证的基本原理是基于分对称加密方式，分别在服务�
 
 SSH 是 Secure Shell 的缩写，是建立在传输层基础上的安全协议，它本身属于OSI网络模型的应用层，同时可以为其它应用层协议提供安全传输服务，如 FTP、POP、甚至为PPP提供一个安全的通道。基于 SSH 的 FTP 就是 SFTP - SSH File Transfer Protocol。
 
+除了使用 SFTP 进行文件传输，还可以使用 SSHFS 文件系统，基于 SSH 的网络安全文件系统。Windows
+环境下可以安装以下工具，sshfs-win-manager 是 GUI 操作界面，可选安装：
+
+*	https://github.com/winfsp/winfsp/releases
+*	https://github.com/winfsp/sshfs-win/releases
+*	https://github.com/evsar3/sshfs-win-manager/releases
+
+安装好前两项，就可以使用 Windows 文件资源管理器创建基于 SSHFS 的网络磁盘映射。打开“我的电脑”，
+在计算器菜单面板中点击“添加网络驱动器”，并在文件夹路径中填写类似以下格式的地址，根据服务器的 IP 
+地址和 TCP 商品做相应修改：
+
+```bash
+	# Login by username and password
+	\\sshfs\username@192.168.0.111!8022
+	\\sshfs.r\username@192.168.0.111!8022
+	# Login by RSA private key file
+	\\sshfs.k\192.168.0.111!8022
+	\\sshfs.kr\192.168.0.111!8022
+
+	$ ./sshfs-win.exe --help
+	usage: sshfs-win cmd SSHFS_COMMAND_LINE
+		SSHFS_COMMAND_LINE  command line to pass to sshfs
+
+	usage: sshfs-win svc PREFIX X: [LOCUSER] [SSHFS_OPTIONS]
+		PREFIX              Windows UNC prefix (note single backslash)
+							\sshfs[.SUFFIX]\[LOCUSER=]REMUSER@HOST[!PORT][\PATH]
+							sshfs: remote user home dir
+							sshfs.r: remote root dir
+							sshfs.k: remote user home dir with key authentication
+							sshfs.kr: remote root dir with key authentication
+		LOCUSER             local user (DOMAIN+USERNAME)
+		REMUSER             remote user
+		HOST                remote host
+		PORT                remote port
+		PATH                remote path (relative to remote home or root)
+		X:                  mount drive
+		SSHFS_OPTIONS       additional options to pass to SSHFS
+```
+
 SSH 是目前较可靠，专为远程登录会话和其他网络服务提供安全性的协议。利用 SSH 协议可以有效防止远程管理过程中的信息泄露问题。透过 SSH 可以对所有传输的数据进行加密，也能够防止DNS欺骗和IP欺骗。 SSH 之另一项优点为其传输的数据是经过压缩的，所以可以加快传输的速度。
 
 SSH 与 SSL 都可以算是应用层协议，都使用了非对称加密技术，将应用层进行了加密。

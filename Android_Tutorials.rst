@@ -53489,10 +53489,10 @@ Data classes
    the **Add Item** screen so we are not expecting any conflicts and can set the conflict strategy
    to *Ignore*.
 
-   6. Add an argument ``onConflict`` and assign it a value of ``OnConflictStrategy.``\ *``IGNORE``*.
+   6. Add an argument ``onConflict`` and assign it a value of ``OnConflictStrategy.IGNORE``.
 
    The argument ``onConflict`` tells the Room what to do in case of a conflict. The
-   ``OnConflictStrategy.``\ *``IGNORE``* strategy ignores a new item.
+   ``OnConflictStrategy.IGNORE`` strategy ignores a new item.
 
    To know more about the available conflict strategies, check out the `OnConflictStrategy <https://developer.android.google.cn/reference/androidx/room/OnConflictStrategy.html>`__
    documentation.

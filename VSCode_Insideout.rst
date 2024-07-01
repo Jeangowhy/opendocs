@@ -4709,17 +4709,26 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
    ========================== ============================================
    ./gradlew projects         显示当前工程中包含的项目；
    ./gradlew build            构建当前工程中包含的项目；
-   ./gradlew installDebug     - Installs the Debug build.
+   installDebug               - Installs the Debug build.
    installDebugAndroidTest    - Installs the android (on device) tests for the Debug build.
    uninstallAll               - Uninstall all applications.
    uninstallDebug             - Uninstalls the Debug build.
    uninstallDebugAndroidTest  - Uninstalls the android (on device) tests for the Debug build.
    uninstallRelease           - Uninstalls the Release build.
+   connectedAndroidTest       - Installs and runs instrumentation tests for all flavors on connected devices.
+   connectedCheck             - Runs all device checks on currently connected devices.
+   connectedDebugAndroidTest  - Installs and runs the tests for debug on connected devices.
+   deviceAndroidTest          - Installs and runs instrumentation tests using all Device Providers.
+   deviceCheck                - Runs all device checks using Device Providers and Test Servers.
    ========================== ============================================
 
    项目创建完成后，根据需要修改项目配置文件（build.gradle），添加依赖项或者修改构建选项。执行
    Gradle 构建任务，比如 ``./gradlew installDebug`` 就可以将构建好的 apk 程序包安装到
    已经连接的手机上。或者，安装到已启动模拟器中，如果没有连接真机。
+
+   Android Studio 环境中，可以使用 AndroidJUnitRunner 运行那些 ``@RunWith(AndroidJUnit4::class)``
+   标记为测试对象的测试用例。如何使用命令行，就需要执行 Gradle 任务，例如 ``./gradlew connectedCheck``
+   就会运行测试，它会自动安装 App（connectedDebugAndroidTest）并尝试连接正在运行的 App。
 
    Android 应用开发过程中，自动化测试阶段包含两种测试：逻辑测试和实验测试，它些测试与代码目录组织
    关系对应如下：
@@ -4739,8 +4748,223 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
 
    Android 真机测试时，测试代码会打包到独立的 test apk 程序包，与主程序 app apk 一并安装到
    待测试环境。真机测试程序可以加载 test apk 与 app apk 到同一个系统进程，这样就可以通过测试
-   代码访问应用的组件，并调用组件接口进行测试。
+   代码访问应用的组件，并调用组件接口进行测试。UI 测试过程的行为根据编写的测试代码执行，测试程序
+   （test apk）可以在在执行测试前、测试后分别执行 ``@Before`` 和 ``@After`` 注解的方法，
+   它们可以用于执行诸如启动、关闭待测试 App 等工作。Android Studio 提供更易用的测试环境，并且
+   可以连接设备的远程桌面。可以说， ``Activity`` 之于 App， 就如 ``Instrumentation`` 之于
+   测试程序（test apk）。
 
+   测试报告文件 ``test-result.pb`` 使用 Android Studio 查看（Run > Import Tests From File）。
+
+   以下代码片段摘自 `Android Programming: The Big Nerd Ranch Guide, 5th Edition <https://github.com/sudhirkhanger/The-Big-Nerd-Ranch-Guide>`__
+   随书代码，第六章 Testing：
+
+   .. code::bash
+
+      import androidx.test.core.app.ActivityScenario
+      import androidx.test.core.app.ActivityScenario.launch
+      import androidx.test.espresso.Espresso.onView
+      import androidx.test.espresso.action.ViewActions.click
+      import androidx.test.espresso.assertion.ViewAssertions.matches
+      import androidx.test.espresso.matcher.ViewMatchers.withId
+      import androidx.test.espresso.matcher.ViewMatchers.withText
+      import androidx.test.ext.junit.runners.AndroidJUnit4
+      import org.junit.After
+      import org.junit.Before
+      import org.junit.Test
+      import org.junit.runner.RunWith
+
+      @RunWith(AndroidJUnit4::class)
+      class MainActivityTest {
+
+         private lateinit var scenario: ActivityScenario<MainActivity>
+
+         @Before
+         fun setup() {
+            scenario = launch(MainActivity::class.java)
+         }
+
+         @After
+         fun teardown() {
+            scenario.close()
+         }
+
+         @Test
+         fun showsFirstQuestionOnLaunch() {
+            onView(withId(R.id.question_text_view))
+                  .check(matches(withText(R.string.question_australia)))
+         }
+
+         @Test
+         fun showsSecondQuestionAfterNextPress() {
+            onView(withId(R.id.next_button)).perform(click())
+            onView(withId(R.id.question_text_view))
+                  .check(matches(withText(R.string.question_oceans)))
+         }
+
+         @Test
+         fun handlesActivityRecreation() {
+            onView(withId(R.id.next_button)).perform(click())
+            scenario.recreate()
+            onView(withId(R.id.question_text_view))
+                  .check(matches(withText(R.string.question_oceans)))
+         }
+      }
+
+   Android 应用程序一般会产生以下几种类型的数据：
+
+   *  file              普通的文件存储
+   *  database          本地 SQLite 数据库（.db 文件）
+   *  sharedPreference  配置数据 (.xml 文件）
+   *  cache             图片缓存文件
+
+   内部存储器有 App 专用数据目录保存，假设 App 包名为 ``com.xxx.xxx``：
+
+   /data/data/com.xxx.xxx/files - 应用内文件
+   /data/data/com.xxx.xxx/databases - 应用内数据库
+   /data/data/com.xxx.xxx/shared_prefs - 应用内配置文件
+   /data/data/com.xxx.xxx/cache - 应用内缓存
+   /mnt/sdcard/android/data/com.xxx.xxx/cache - 外部 Cache 路径
+
+   Android 中获取数据文件路径的方法：
+
+   *  context.getExternalFilesDir() - 文件目录
+   *  context.getExternalCacheDir() - 外部缓存目录
+   *  contect.getCacheDir() - 内部缓存路径
+   *  contect.getDatabasePath(String name) - 根据名字获取数据库
+
+   SQLite 作为最流行的嵌入式数据库，Android 一直也在使用它来为 App 提供本地数据服务。最新版本
+   Android Studio 4.1 提供 App 数据库连接服务，View -> App Inspector 面板可以连接正在设备
+   上运行的 App 数据库（Database Inspector）。VS Code 中没有这样的功能插件，但是可以通过 adb
+   连接 Android 模拟器，并通过执行以下命令来导出 SQLite 数据库文件。 ``run-as`` 只对 debuggable 
+   状态下的 App 有效，并且只能访问指定 App 的专用数据目录（app-specific data）：
+
+   .. code::bash
+
+      adb shell "run-as <package-name> cp /data/data/<package-name>/databases/<database-name> /sdcard/"
+      adb pull /sdcard/<database-name>
+
+      pkg="com.example.cupcake" adb shell "run-as $pkg ls -lR /data/data/$pkg"
+
+   数据库文件在首次运行 App 或者清理缓存数据后首次运行时才会从 APK 解包并复制到内部专用存储目录。
+
+   Android 工程中，通常使用 ``Repository`` 类型代表一个数据库，即数据仓库，一般实现为单列模式，
+   Singleton，即定义构造函数为私有， ``private constructor``，并提供一个方法，通过它调用
+   ``Room.databaseBuilder()`` 返回数据实例。
+
+   Jetpack Room 提供的数据持久化功能就基于 SQLite 数据库，并提供易于使用的 ORM 关系映射框架。
+   官方教程参考： Persist data with Room。使用 Room 数据抽象层容易出现的问题：
+
+   数据库 schema 导出处理，默认会导出 schema 用做数据库结构的版本比较，当数据库版本升级时，
+   就可以执行迁移接口 ``Migration`` 提供的迁移函数，对数据库进行升级。如果在源代码中没有设置
+   数据注解属性 ``exportSchema = false``，并且又没有设置 ``room.schemaLocation`` 指定
+   导出 schema 保存路径，就会出现以下警告：
+
+      warning: Schema export directory is not provided to the annotation 
+      processor so we cannot export the schema. You can either provide 
+      `room.schemaLocation` annotation processor argument OR set exportSchema 
+      to false.
+   
+   解决方法是，设置数据库对象的注解，或者在 Gradle 配置文件中添加 ``room.schemaLocation``：
+
+   .. code::kotlin
+
+      @Database(
+      version = 1,
+      entities = [User::class],
+      exportSchema = false
+      )
+      abstract class AppDatabase : androidx.room.RoomDatabase() {
+      ...
+      }
+   
+   DAO 接口方法返回的关系数据对象不能确定转换关系：
+
+      Not sure how to convert a Cursor to this method's return type (java.lang.Object).
+      public abstract java.lang.Object getCrime(@org.jetbrains.annotations.NotNull()
+
+   DAO 接口读取数据库内容返回游标对象（Cursor），游标是以数据行为单元的数据集，数据行可随机读取。
+   Kotlin 编译版本变更较大，特别是注解处理方面，经历了 KAPT 到 KSP 机制的升级，在切换 Gradle
+   项目的配置时，改变 Kotlin 编译器插件也将导致配置插件依赖的变化，包括 KAPT 和 KSP 插件的配置，
+   这些插件的版本配置错误，将导致 DAO 相关注解符号处理错误，从而产生 Cursor 对象的转换失败：
+
+   .. code::kotlin
+   
+      // https://developer.android.google.cn/build/migrate-to-ksp?hl=en
+      plugins {
+         id("org.jetbrains.kotlin.kapt") version "1.8.10" apply false
+         id("com.google.devtools.ksp") version "1.8.10-1.0.9" apply false
+      }
+
+      ksp {
+         arg("room.schemaLocation", "$projectDir/schemas")
+         arg("room.incremental", "true")
+      }
+
+      dependencies {
+         // To use Kotlin annotation processing tool (kapt)
+         // kapt("androidx.room:room-compiler:$room_version")
+         // To use Kotlin Symbol Processing (KSP)
+         ksp("androidx.room:room-compiler:$room_version")
+      }
+
+   为了避免数据读写层性能问题导致 UI 卡顿，所有数据接口必需在 UI 主线程外执行，Kotlin 提供了
+   异步执行机制——协程，Jetpack 框架提供了 ``LiveData``。
+
+   ================  =====================  ======================
+   Query type        Kotlin features        Jetpack Lifecycle
+   ================  =====================  ======================
+   One-shot write    Coroutines (suspend)   N/A
+   One-shot read     Coroutines (suspend)   N/A
+   Observable read   Flow<T>                LiveData<T>
+   ================  =====================  ======================
+
+   * Room 2.2 开始支持 Kotlin ``Flow`` 写入可观察查询（observable queries）；
+   * Room 2.1 开始支持 Kotlin ``suspend`` 关键字，异步协程实现 DAO 查询；
+
+   在关系型数据库的 ORM 框架中，实体对象（entity）代表关系数据表中的一行数据，数据访问接口（DAO) 
+   对应的是一组操作数据库数据 CURD（（CREATE、READ、UPDATE、DELETE））操作方法。
+   
+   如果数据表字段与实体类型的属性名称不一致，就需要使用映射注解，需要给实体对象的属性添加相应的注解，
+   将相应属性映射到数据表的对应字段即可，例如 ``@ColumnInfo(name = "db_title")``：
+
+   .. code::kotlin
+
+      import androidx.room.*
+      import kotlinx.coroutines.flow.Flow
+      import java.util.UUID
+      import java.util.Date
+
+      @Entity
+      data class Crime(
+         @PrimaryKey val id: UUID,
+         val title: String,
+         val date: Date,
+         val isSolved: Boolean,
+         val suspect: String = ""
+      )
+
+      @Dao
+      interface CrimeDao {
+         @Query("SELECT * FROM crime")
+         fun getCrimes(): Flow<List<Crime>>
+
+         @Query("SELECT * FROM crime WHERE id=(:id)")
+         suspend fun getCrime(id: UUID): Crime
+
+         @Update
+         suspend fun updateCrime(crime: Crime)
+
+         @Insert
+         suspend fun addCrime(crime: Crime)
+      }
+
+   SQLiteStudio 一个免费的、开源的、多平台 SQLite 数据库管理器，基于 C++ 与 Qt 框架。
+
+   *  `Persist data with Room <https://developer.android.google.cn/codelabs/basic-android-kotlin-compose-persisting-data-room?hl=en>`__
+   *  `Persist data with Room [code] <https://vscode.dev/github/google-developer-training/basic-android-kotlin-compose-training-inventory-app>`__
+   *  `Migrate your Room database <https://developer.android.google.cn/training/data-storage/room/migrating-db-versions>`__
+   *  `Debug your database with the <Database Inspector https://developer.android.google.cn/studio/inspect/database>`__
 
    安装了 Android for VS Code 插件，在配置调试器时，就可以通过 Go -> Add Configuration...
    创建配置文件，并且使用调试器的备选列表中由插件提供的 ``Android`` 选项，就可以自动添加以下配置，
@@ -5457,7 +5681,7 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
 
    Compose 中的入口类还是 ``Activity``，只不过使用 ``androidx.activity.ComponentActivity``
    进行了重新包装，以提供可组合函数的支持。和原生 ``Activity`` 不同的是，原先 ``onCreate`` 方法中的
-   ``setContentView`` 方法包装起来了，取而代之的是 Kotlin 扩展方法： ``setContent``，也就是
+   ``setContentView`` 方法包装起来了，取而代之的是新增 Kotlin 扩展方法： ``setContent``，也就是
    这个方法中的参数接收可组合函数： ``@Composable () -> Unit``。入口类涉及以下三个代码文件：
 
    *  androidx\\core\\app\\ComponentActivity.java
