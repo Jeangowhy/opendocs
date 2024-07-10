@@ -16,12 +16,12 @@
 
 小程序文档导航：
 
-*  `开发 <https://developers.weixin.qq.com/miniprogram/dev/framework/>`__
-*  `介绍 <https://developers.weixin.qq.com/miniprogram/introduction/>`__
-*  `设计 <https://developers.weixin.qq.com/miniprogram/design/>`__
-*  `运营 <https://developers.weixin.qq.com/miniprogram/product/>`__
-*  `数据 <https://developers.weixin.qq.com/miniprogram/analysis/wedata/intro/>`__
-*  `社区 <https://developers.weixin.qq.com/community/develop/question>`__
+   *  `开发 <https://developers.weixin.qq.com/miniprogram/dev/framework/>`__
+   *  `介绍 <https://developers.weixin.qq.com/miniprogram/introduction/>`__
+   *  `设计 <https://developers.weixin.qq.com/miniprogram/design/>`__
+   *  `运营 <https://developers.weixin.qq.com/miniprogram/product/>`__
+   *  `数据 <https://developers.weixin.qq.com/miniprogram/analysis/wedata/intro/>`__
+   *  `社区 <https://developers.weixin.qq.com/community/develop/question>`__
 
 小程序开发文档：
 
@@ -35,6 +35,28 @@
    -  `云开发 <https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started>`__
    -  `云托管 <https://developers.weixin.qq.com/miniprogram/dev/wxcloudrun/src/>`__
    -  `更新日志 <https://developers.weixin.qq.com/miniprogram/dev/framework/release/>`__
+
+
+小游戏文档导航：
+
+   *  `开发 <https://developers.weixin.qq.com/minigame/dev/guide/>`__
+   *  `介绍 <https://developers.weixin.qq.com/minigame/introduction/>`__
+   *  `设计 <https://developers.weixin.qq.com/minigame/design/>`__
+   *  `运营 <https://developers.weixin.qq.com/minigame/product/>`__
+   *  `数据 <https://developers.weixin.qq.com/minigame/analysis/>`__
+   *  `社区 <https://developers.weixin.qq.com/community/develop/question>`__
+
+
+小游戏开发文档：
+
+   -  `⭕ 指南 <https://developers.weixin.qq.com/minigame/dev/guide/>`__
+   -  `⭕ 框架 <https://developers.weixin.qq.com/minigame/dev/reference/>`__
+   -  `API <https://developers.weixin.qq.com/minigame/dev/api/>`__
+   -  `服务端 <https://developers.weixin.qq.com/minigame/dev/api-backend/>`__
+   -  `工具 <https://developers.weixin.qq.com/minigame/dev/devtools/devtools>`__
+   -  `云开发 <https://developers.weixin.qq.com/minigame/dev/wxcloud/basis/getting-started>`__
+   -  `云托管 <https://developers.weixin.qq.com/minigame/dev/wxcloudrun/src/>`__
+   -  `云测试 <https://developers.weixin.qq.com/minigame/dev/minigame-testtool/>`__
 
 
 ⭕ 小程序开发指南
@@ -1392,13 +1414,9 @@ Skyline
       -  `性能 <https://developers.weixin.qq.com/miniprogram/dev/api/base/performance/wx.reportPerformance.html>`__
 
          -  `wx.reportPerformance <https://developers.weixin.qq.com/miniprogram/dev/api/base/performance/wx.reportPerformance.html>`__
-
          -  `wx.preloadWebview <https://developers.weixin.qq.com/miniprogram/dev/api/base/performance/wx.preloadWebview.html>`__
-
          -  `wx.preloadSkylineView <https://developers.weixin.qq.com/miniprogram/dev/api/base/performance/wx.preloadSkylineView.html>`__
-
          -  `wx.preloadAssets <https://developers.weixin.qq.com/miniprogram/dev/api/base/performance/wx.preloadAssets.html>`__
-
          -  `wx.getPerformance <https://developers.weixin.qq.com/miniprogram/dev/api/base/performance/wx.getPerformance.html>`__
          -  `EntryList <https://developers.weixin.qq.com/miniprogram/dev/api/base/performance/EntryList.html>`__
 
@@ -1417,23 +1435,21 @@ Skyline
          -  `PerformanceEntry <https://developers.weixin.qq.com/miniprogram/dev/api/base/performance/PerformanceEntry.html>`__
 
             -  `PerformanceObserver <https://developers.weixin.qq.com/miniprogram/dev/api/base/performance/PerformanceObserver.html>`__
-
-               -  `PerformanceObserver.disconnect <https://developers.weixin.qq.com/miniprogram/dev/api/base/performance/PerformanceObserver.disconnect.html>`__
-               -  `PerformanceObserver.observe <https://developers.weixin.qq.com/miniprogram/dev/api/base/performance/PerformanceObserver.observe.html>`__
+            -  `PerformanceObserver.disconnect <https://developers.weixin.qq.com/miniprogram/dev/api/base/performance/PerformanceObserver.disconnect.html>`__
+            -  `PerformanceObserver.observe <https://developers.weixin.qq.com/miniprogram/dev/api/base/performance/PerformanceObserver.observe.html>`__
 
       -  `分包加载 <https://developers.weixin.qq.com/miniprogram/dev/api/base/subpackage/wx.preDownloadSubpackage.html>`__
 
-            -  `wx.preDownloadSubpackage <https://developers.weixin.qq.com/miniprogram/dev/api/base/subpackage/wx.preDownloadSubpackage.html>`__
-
-               -  `PreDownloadSubpackageTask <https://developers.weixin.qq.com/miniprogram/dev/api/base/subpackage/PreDownloadSubpackageTask.html>`__
-               -  `PreDownloadSubpackageTask.onProgressUpdate <https://developers.weixin.qq.com/miniprogram/dev/api/base/subpackage/PreDownloadSubpackageTask.onProgressUpdate.html>`__
+         -  `wx.preDownloadSubpackage <https://developers.weixin.qq.com/miniprogram/dev/api/base/subpackage/wx.preDownloadSubpackage.html>`__
+         -  `PreDownloadSubpackageTask <https://developers.weixin.qq.com/miniprogram/dev/api/base/subpackage/PreDownloadSubpackageTask.html>`__
+         -  `PreDownloadSubpackageTask.onProgressUpdate <https://developers.weixin.qq.com/miniprogram/dev/api/base/subpackage/PreDownloadSubpackageTask.onProgressUpdate.html>`__
 
       -  `加密 <https://developers.weixin.qq.com/miniprogram/dev/api/base/crypto/wx.getUserCryptoManager.html>`__
 
-            -  `wx.getUserCryptoManager <https://developers.weixin.qq.com/miniprogram/dev/api/base/crypto/wx.getUserCryptoManager.html>`__
-            -  `UserCryptoManager <https://developers.weixin.qq.com/miniprogram/dev/api/base/crypto/UserCryptoManager.html>`__
-            -  `UserCryptoManager.getLatestUserKey <https://developers.weixin.qq.com/miniprogram/dev/api/base/crypto/UserCryptoManager.getLatestUserKey.html>`__
-            -  `UserCryptoManager.getRandomValues <https://developers.weixin.qq.com/miniprogram/dev/api/base/crypto/UserCryptoManager.getRandomValues.html>`__
+         -  `wx.getUserCryptoManager <https://developers.weixin.qq.com/miniprogram/dev/api/base/crypto/wx.getUserCryptoManager.html>`__
+         -  `UserCryptoManager <https://developers.weixin.qq.com/miniprogram/dev/api/base/crypto/UserCryptoManager.html>`__
+         -  `UserCryptoManager.getLatestUserKey <https://developers.weixin.qq.com/miniprogram/dev/api/base/crypto/UserCryptoManager.getLatestUserKey.html>`__
+         -  `UserCryptoManager.getRandomValues <https://developers.weixin.qq.com/miniprogram/dev/api/base/crypto/UserCryptoManager.getRandomValues.html>`__
 
    -  `路由 <https://developers.weixin.qq.com/miniprogram/dev/api/route/wx.switchTab.html>`__
 
@@ -2305,14 +2321,17 @@ Skyline
             -  `wx.pluginLogin <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/login/wx.pluginLogin.html>`__
             -  `wx.login <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/login/wx.login.html>`__
             -  `wx.checkSession <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/login/wx.checkSession.html>`__
+
       -  `账号信息 <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/account-info/wx.getAccountInfoSync.html>`__
 
             -  `wx.getAccountInfoSync <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/account-info/wx.getAccountInfoSync.html>`__
+
       -  `用户信息 <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/user-info/wx.getUserProfile.html>`__
 
             -  `wx.getUserProfile <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/user-info/wx.getUserProfile.html>`__
             -  `wx.getUserInfo <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/user-info/wx.getUserInfo.html>`__
             -  `UserInfo <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/user-info/UserInfo.html>`__
+
       -  `授权 <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/authorize/wx.authorizeForMiniProgram.html>`__
 
             -  `wx.authorizeForMiniProgram <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/authorize/wx.authorizeForMiniProgram.html>`__
@@ -2324,6 +2343,7 @@ Skyline
             -  `wx.getSetting <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/setting/wx.getSetting.html>`__
             -  `AuthSetting <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/setting/AuthSetting.html>`__
             -  `SubscriptionsSetting <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/setting/SubscriptionsSetting.html>`__
+
       -  `收货地址 <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/address/wx.chooseAddress.html>`__
 
             -  `wx.chooseAddress <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/address/wx.chooseAddress.html>`__
@@ -2332,10 +2352,12 @@ Skyline
 
             -  `wx.openCard <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/card/wx.openCard.html>`__
             -  `wx.addCard <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/card/wx.addCard.html>`__
+
       -  `发票 <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/invoice/wx.chooseInvoiceTitle.html>`__
 
             -  `wx.chooseInvoiceTitle <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/invoice/wx.chooseInvoiceTitle.html>`__
             -  `wx.chooseInvoice <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/invoice/wx.chooseInvoice.html>`__
+
       -  `生物认证 <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/soter/wx.startSoterAuthentication.html>`__
 
             -  `wx.startSoterAuthentication <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/soter/wx.startSoterAuthentication.html>`__
@@ -2346,23 +2368,29 @@ Skyline
 
             -  `wx.shareToWeRun <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/werun/wx.shareToWeRun.html>`__
             -  `wx.getWeRunData <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/werun/wx.getWeRunData.html>`__
+
       -  `订阅消息 <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/subscribe-message/wx.requestSubscribeMessage.html>`__
 
             -  `wx.requestSubscribeMessage <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/subscribe-message/wx.requestSubscribeMessage.html>`__
             -  `wx.requestSubscribeDeviceMessage <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/subscribe-message/wx.requestSubscribeDeviceMessage.html>`__
+
       -  `微信红包 <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/redpackage/wx.showRedPackage.html>`__
 
             -  `wx.showRedPackage <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/redpackage/wx.showRedPackage.html>`__
+
       -  `收藏 <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/favorites/wx.addVideoToFavorites.html>`__
 
             -  `wx.addVideoToFavorites <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/favorites/wx.addVideoToFavorites.html>`__
             -  `wx.addFileToFavorites <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/favorites/wx.addFileToFavorites.html>`__
+
       -  `我的小程序 <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/my-miniprogram/wx.checkIsAddedToMyMiniProgram.html>`__
 
             -  `wx.checkIsAddedToMyMiniProgram <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/my-miniprogram/wx.checkIsAddedToMyMiniProgram.html>`__
+
       -  `车牌 <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/license-plate/wx.chooseLicensePlate.html>`__
 
             -  `wx.chooseLicensePlate <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/license-plate/wx.chooseLicensePlate.html>`__
+
       -  `视频号 <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/channels/wx.reserveChannelsLive.html>`__
 
             -  `wx.reserveChannelsLive <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/channels/wx.reserveChannelsLive.html>`__
@@ -2373,22 +2401,27 @@ Skyline
             -  `wx.getChannelsShareKey <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/channels/wx.getChannelsShareKey.html>`__
             -  `wx.getChannelsLiveNoticeInfo <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/channels/wx.getChannelsLiveNoticeInfo.html>`__
             -  `wx.getChannelsLiveInfo <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/channels/wx.getChannelsLiveInfo.html>`__
+
       -  `音视频通话 <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/device-voip/wx.requestDeviceVoIP.html>`__
 
             -  `wx.requestDeviceVoIP <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/device-voip/wx.requestDeviceVoIP.html>`__
             -  `wx.getDeviceVoIPList <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/device-voip/wx.getDeviceVoIPList.html>`__
+
       -  `微信群 <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/group/wx.getGroupEnterInfo.html>`__
 
             -  `wx.getGroupEnterInfo <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/group/wx.getGroupEnterInfo.html>`__
+
       -  `隐私信息授权 <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/privacy/wx.requirePrivacyAuthorize.html>`__
 
             -  `wx.requirePrivacyAuthorize <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/privacy/wx.requirePrivacyAuthorize.html>`__
             -  `wx.openPrivacyContract <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/privacy/wx.openPrivacyContract.html>`__
             -  `wx.onNeedPrivacyAuthorization <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/privacy/wx.onNeedPrivacyAuthorization.html>`__
             -  `wx.getPrivacySetting <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/privacy/wx.getPrivacySetting.html>`__
+
       -  `微信客服 <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/service-chat/wx.openCustomerServiceChat.html>`__
 
             -  `wx.openCustomerServiceChat <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/service-chat/wx.openCustomerServiceChat.html>`__
+
       -  `微信表情 <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/sticker/wx.openStickerSetView.html>`__
 
             -  `wx.openStickerSetView <https://developers.weixin.qq.com/miniprogram/dev/api/open-api/sticker/wx.openStickerSetView.html>`__
@@ -5645,3 +5678,621 @@ Skyline
     Snapshot.takeSnapshot 对 snapshot 组件子树进行截图
     ===================== ============================
 
+
+⭕ 小游戏指南
+============
+
+   -  `起步 <https://developers.weixin.qq.com/minigame/dev/guide/>`__
+
+      -  `快速上手 <https://developers.weixin.qq.com/minigame/dev/guide/>`__
+      -  注册一个小游戏账号
+      -  安装并启动开发者工具
+
+   -  `游戏引擎 <https://developers.weixin.qq.com/minigame/dev/guide/game-engine/cocos-laya-egret.html>`__
+
+      -  `Cocos/Laya/Egret 引擎适配 <https://developers.weixin.qq.com/minigame/dev/guide/game-engine/cocos-laya-egret.html>`__
+      -  `Unity WebGL 微信小游戏适配 <https://developers.weixin.qq.com/minigame/dev/guide/game-engine/unity-webgl-transform.html>`__
+      -  `Cocos2d-x 及原生目标引擎适配 <https://developers.weixin.qq.com/minigame/dev/guide/game-engine/cocos2dx-and-native-engine-transform.html>`__
+      -  `微信小游戏性能优化方案 <https://developers.weixin.qq.com/minigame/dev/guide/game-engine/framework-readme.html>`__
+
+         -  `起步 <https://developers.weixin.qq.com/minigame/dev/guide/game-engine/framework-readme.html>`__
+
+               -  开始开发游戏
+               -  创建正方体
+               -  创建脚本组件
+               -  保存场景
+               -  让正方体旋转起来
+               -  快速查看运行效果
+               -  构建游戏
+               -  在手机上预览
+               -  上传至体验版
+               -  提交审核
+               -  确认发布
+               -  问题反馈
+               -  新手引导案例
+
+         -  `资源工作流 <https://developers.weixin.qq.com/minigame/dev/guide/assetworkflow/workflowindex.html>`__
+
+               -  `项目结构 <https://developers.weixin.qq.com/minigame/dev/guide/assetworkflow/xiangmujiegou.html>`__
+               -  `资源导入 <https://developers.weixin.qq.com/minigame/dev/guide/assetworkflow/import/>`__
+
+                  -  `3D <https://developers.weixin.qq.com/minigame/dev/guide/assetworkflow/import/3D.html>`__
+                  -  `2D <https://developers.weixin.qq.com/minigame/dev/guide/assetworkflow/import/2D.html>`__
+                  -  `音视频 <https://developers.weixin.qq.com/minigame/dev/guide/assetworkflow/import/audioVideo.html>`__
+                  -  `纯数据 <https://developers.weixin.qq.com/minigame/dev/guide/assetworkflow/import/raw.html>`__
+                  -  `自定义资源 <https://developers.weixin.qq.com/minigame/dev/guide/assetworkflow/import/scriptableAsset.html>`__
+                  -  `视频 <https://developers.weixin.qq.com/minigame/dev/guide/base-ability/video/>`__
+                  -  `导入视频资源 <https://developers.weixin.qq.com/minigame/dev/guide/base-ability/video/importVideo.html>`__
+                  -  `快速上手 <https://developers.weixin.qq.com/minigame/dev/guide/base-ability/video/quickStartVideo.html>`__
+
+               -  `uuid 与依赖关系 <https://developers.weixin.qq.com/minigame/dev/guide/assetworkflow/meta.html>`__
+               -  `构建与产物 <https://developers.weixin.qq.com/minigame/dev/guide/assetworkflow/build.html>`__
+
+                  -  命令行构建
+                  -  产物
+                  -  入口场景以及入口资源
+                  -  AssetsBundle
+                  -  上传资源到CDN
+                  -  资源包版本控制
+
+               -  `资源加载 <https://developers.weixin.qq.com/minigame/dev/guide/assetworkflow/loader.html>`__
+
+                  -  资源加载
+                  -  LoadTask
+                  -  资源下载优化
+                  -  场景流式加载
+
+               -  `资源缓存 <https://developers.weixin.qq.com/minigame/dev/guide/assetworkflow/cache.html>`__
+               -  `多平台构建 <https://developers.weixin.qq.com/minigame/dev/guide/assetworkflow/platform.html>`__
+               -  `MGE包 <https://developers.weixin.qq.com/minigame/dev/guide/assetworkflow/mgepackage.html>`__
+
+         -  `框架 <https://developers.weixin.qq.com/minigame/dev/guide/framework/basic.html>`__
+
+            -  `Gameplay <https://developers.weixin.qq.com/minigame/dev/guide/framework/gameplay/>`__
+
+                  -  `Scenes <https://developers.weixin.qq.com/minigame/dev/guide/framework/gameplay/scenes/>`__
+                  -  `Entity <https://developers.weixin.qq.com/minigame/dev/guide/framework/gameplay/entities/>`__
+                  -  `Prefabs <https://developers.weixin.qq.com/minigame/dev/guide/framework/gameplay/prefabs/>`__
+                  -  `关键类型 <https://developers.weixin.qq.com/minigame/dev/guide/framework/gameplay/classes.html>`__
+                  -  `脚本组件 <https://developers.weixin.qq.com/minigame/dev/guide/framework/gameplay/script.html>`__
+                  -  `序列化系统 <https://developers.weixin.qq.com/minigame/dev/guide/framework/gameplay/serialized.html>`__
+                  -  `生命周期 <https://developers.weixin.qq.com/minigame/dev/guide/framework/gameplay/entities/lifeCycle.html>`__
+                  -  `Layers <https://developers.weixin.qq.com/minigame/dev/guide/framework/gameplay/layer.html>`__
+
+            -  `图形与渲染 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/>`__
+
+                  -  `资源 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/resource/mesh.html>`__
+
+                     -  `网格 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/resource/mesh.html>`__
+                     -  `缓冲区块 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/resource/uniform-block.html>`__
+                     -  `贴图 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/resource/texture.html>`__
+                     -  `渲染画布 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/resource/render-texture.html>`__
+                     -  `着色器 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/resource/shader.html>`__
+                     -  `效果和材质 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/resource/effect-material.html>`__
+
+                  -  `渲染器 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/renderer/mesh-renderer.html>`__
+
+                     -  `网格渲染器 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/renderer/mesh-renderer.html>`__
+                     -  `蒙皮网格渲染器 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/renderer/skinned-mesh-renderer.html>`__
+                     -  `线段渲染器 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/renderer/line-renderer.html>`__
+                     -  `尾迹渲染器 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/renderer/trail-renderer.html>`__
+
+                  -  `场景和相机 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/scene-camera/scene.html>`__
+
+                     -  `场景 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/scene-camera/scene.html>`__
+                     -  `相机 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/scene-camera/camera.html>`__
+
+                  -  `光照 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/lighting/>`__
+
+                     -  `光源 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/lighting/lightSource.html>`__
+                     -  `阴影 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/lighting/shadow.html>`__
+                     -  `光照贴图 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/lighting/lightmap.html>`__
+                     -  `天空盒 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/lighting/skybox.html>`__
+                     -  `雾效 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/lighting/fog.html>`__
+
+                  -  `渲染管线 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/render-system/>`__
+
+                     -  `渲染系统 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/render-system/>`__
+                     -  `渲染图 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/render-system/render-graph.html>`__
+                     -  `内建节点 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/render-system/builtin-nodes.html>`__
+                     -  `内建管线 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/render-system/builtin-graphs.html>`__
+                     -  `深入管线 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/render-system/deep.html>`__
+
+                  -  `后处理 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/postprocessing/>`__
+
+                     -  `后处理系统 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/postprocessing/>`__
+                     -  `后处理节点 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/postprocessing/rg-nodes.html>`__
+                     -  `后处理资源 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/postprocessing/assets.html>`__
+
+                  -  `Gizmo <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/gizmos/>`__
+
+                     -  `LineGizmo <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/gizmos/lineGizmo.html>`__
+                     -  `CircleGizmo <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/gizmos/circleGizmo.html>`__
+                     -  `RectGizmo <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/gizmos/rectGizmo.html>`__
+                     -  `CubeGizmo <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/gizmos/cubeGizmo.html>`__
+                     -  `MeshGizmo <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/gizmos/meshGizmo.html>`__
+
+                  -  `优化 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/optimize/instancing.html>`__
+
+                     -  `GPU实例化 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/optimize/instancing.html>`__
+                     -  `合批 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/optimize/batch.html>`__
+
+                  -  `地形 <https://developers.weixin.qq.com/minigame/dev/guide/framework/render/terrain/terrain.html>`__
+
+            -  `二维系统 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/>`__
+
+                  -  `指引 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/>`__
+                  -  `场景与二维组件 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/resolution.html>`__
+
+                     -  `新建二维场景与分辨率 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/resolution.html>`__
+                     -  `二维资源制作 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/assets.html>`__
+                     -  `二维节点的使用 <https://developers.weixin.qq.com/minigame/dev/guide/framework/gameplay/entities/#二维节点>`__
+                     -  `二维逻辑脚本使用 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/script.html>`__
+                     -  `使用各类渲染元素 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/renderable2d.html>`__
+                     -  `自定义顶点绘制与材质 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/meshData.html>`__
+
+                  -  `案例指引 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/grid.html>`__
+
+                     -  `制作按钮与滚动列表 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/grid.html>`__
+                     -  `制作响应式面板 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/scaleBox.html>`__
+                     -  `制作HUD <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/hud.html>`__
+                     -  `三维绘制UI <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/ui3d.html>`__
+
+                  -  `事件指引 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/touch.html>`__
+
+                     -  `使用触摸进行三维交互 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/touch.html>`__
+
+                  -  `动画指引 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/animation.html>`__
+
+                     -  `二维动画开发与使用 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/animation.html>`__
+                     -  `DragonBone资源适配 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/dragonbone.html>`__
+
+                  -  `2D资源导入 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/import.html>`__
+                  -  `开放数据组件 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/opendata/framework.html>`__
+                  -  `UI模块架构 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/framework.html>`__
+                  -  `性能优化建议与最佳实践 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/performance.html>`__
+                  -  `组件详情 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/detail/uisprite.html>`__
+
+                     -  `UISprite 组件 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/detail/uisprite.html>`__
+                     -  `UIGraphic 组件 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/detail/uigraphic.html>`__
+                     -  `UILabel 组件 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/detail/uilabel.html>`__
+                     -  `UIRichText 组件 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/detail/uirichtext.html>`__
+                     -  `UIMesh 组件 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/detail/uimesh.html>`__
+                     -  `UIWidget 组件 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/detail/uiwidget.html>`__
+                     -  `UIGrid 组件 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/detail/uigrid.html>`__
+                     -  `UIButton 组件 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/detail/uibutton.html>`__
+                     -  `UIMask 组件 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/detail/uimask.html>`__
+                     -  `UIScrollView 组件 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/detail/uiscrollview.html>`__
+                     -  `UIToggle、UIToggleGroup 组件 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/detail/uitoggle.html>`__
+                     -  `UITextInput 组件 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/detail/uitextinput.html>`__
+                     -  `UILayer 组件 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/detail/uilayer.html>`__
+                     -  `TouchInputComponent 组件 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/detail/touchinputcomponent.html>`__
+                     -  `KeyboardInputComponent 组件 <https://developers.weixin.qq.com/minigame/dev/guide/framework/ui/detail/keyboardinputcomponent.html>`__
+
+            -  `动画系统 <https://developers.weixin.qq.com/minigame/dev/guide/framework/animation/>`__
+
+                  -  `简单动画入门指引 <https://developers.weixin.qq.com/minigame/dev/guide/framework/animation/intro.html>`__
+                  -  `动画片段 <https://developers.weixin.qq.com/minigame/dev/guide/framework/animation/animationClip.html>`__
+                  -  `Animation 窗口 <https://developers.weixin.qq.com/minigame/dev/guide/framework/animation/animationWindow.html>`__
+                  -  `Animation 组件参考 <https://developers.weixin.qq.com/minigame/dev/guide/framework/animation/animation.html>`__
+                  -  `骨骼动画系统 <https://developers.weixin.qq.com/minigame/dev/guide/framework/animation/skeleton/intro.html>`__
+
+                     -  `GPU 烘焙动画 <https://developers.weixin.qq.com/minigame/dev/guide/framework/animation/skeleton/baked.html>`__
+                     -  `分层混合 <https://developers.weixin.qq.com/minigame/dev/guide/framework/animation/skeleton/blendLayer.html>`__
+                     -  `骨骼动画性能优化指引 <https://developers.weixin.qq.com/minigame/dev/guide/framework/animation/skeleton/performance.html>`__
+                     -  `Animator 组件参考 <https://developers.weixin.qq.com/minigame/dev/guide/framework/animation/skeleton/animator.html>`__
+
+            -  `粒子系统 <https://developers.weixin.qq.com/minigame/dev/guide/framework/particle/>`__
+
+                  -  `通用模块（Common） <https://developers.weixin.qq.com/minigame/dev/guide/framework/particle/common.html>`__
+                  -  `发射器模块（Emitter） <https://developers.weixin.qq.com/minigame/dev/guide/framework/particle/emitter.html>`__
+                  -  `渲染模块（Renderer） <https://developers.weixin.qq.com/minigame/dev/guide/framework/particle/renderer.html>`__
+                  -  `发射器形状模块（EmitterShape） <https://developers.weixin.qq.com/minigame/dev/guide/framework/particle/emitterShape.html>`__
+                  -  `子发射模块（EmitterShape） <https://developers.weixin.qq.com/minigame/dev/guide/framework/particle/subEmitters.html>`__
+                  -  `旋转模块（RotationByLife） <https://developers.weixin.qq.com/minigame/dev/guide/framework/particle/rotation.html>`__
+                  -  `大小模块（SizeByLife） <https://developers.weixin.qq.com/minigame/dev/guide/framework/particle/size.html>`__
+                  -  `速度模块（SpeedByLife） <https://developers.weixin.qq.com/minigame/dev/guide/framework/particle/speed.html>`__
+                  -  `速度限制模块（SpeedLimitByLife） <https://developers.weixin.qq.com/minigame/dev/guide/framework/particle/speedLimit.html>`__
+                  -  `颜色模块（ColorByLife） <https://developers.weixin.qq.com/minigame/dev/guide/framework/particle/color.html>`__
+                  -  `贴图动画模块（TextureSheetAnimation） <https://developers.weixin.qq.com/minigame/dev/guide/framework/particle/textureSheetAnimation.html>`__
+                  -  `噪声模块（Noise） <https://developers.weixin.qq.com/minigame/dev/guide/framework/particle/noise.html>`__
+
+            -  `物理系统 <https://developers.weixin.qq.com/minigame/dev/guide/framework/physics/>`__
+
+                  -  `刚体 <https://developers.weixin.qq.com/minigame/dev/guide/framework/physics/components/rigidbody.html>`__
+                  -  `碰撞体 <https://developers.weixin.qq.com/minigame/dev/guide/framework/physics/components/collider.html>`__
+                  -  `物理角色控制器 <https://developers.weixin.qq.com/minigame/dev/guide/framework/physics/components/characterController.html>`__
+                  -  `关节 <https://developers.weixin.qq.com/minigame/dev/guide/framework/physics/components/joint.html>`__
+
+            -  `音频 <https://developers.weixin.qq.com/minigame/dev/guide/framework/audio/>`__
+
+                  -  `导入音频资源 <https://developers.weixin.qq.com/minigame/dev/guide/framework/audio/audioImport.html>`__
+
+                  -  `音频系统 <https://developers.weixin.qq.com/minigame/dev/guide/framework/audio/audioSysIndex.html>`__
+
+                     -  `音频剪辑 audioclip <https://developers.weixin.qq.com/minigame/dev/guide/framework/audio/audioclip.html>`__
+                     -  `音频监听器A udioListener <https://developers.weixin.qq.com/minigame/dev/guide/framework/audio/audioListener.html>`__
+                     -  `音频源 AudioSource <https://developers.weixin.qq.com/minigame/dev/guide/framework/audio/audioSource.html>`__
+                     -  `音效组件 <https://developers.weixin.qq.com/minigame/dev/guide/framework/audio/audioEffectComponent.html>`__
+
+                              -  `高通滤波音效 AudioHighPassFilter <https://developers.weixin.qq.com/minigame/dev/guide/framework/audio/audioHighPass.html>`__
+                              -  `低通滤波音效 AudioLowPassFilter <https://developers.weixin.qq.com/minigame/dev/guide/framework/audio/audioLowPass.html>`__
+                              -  `失真音效 AudioDistortion <https://developers.weixin.qq.com/minigame/dev/guide/framework/audio/audioDistortion.html>`__
+                              -  `回声音效 AudioEcho <https://developers.weixin.qq.com/minigame/dev/guide/framework/audio/audioEcho.html>`__
+
+                     -  `虚拟音频和真实音频 <https://developers.weixin.qq.com/minigame/dev/guide/framework/audio/virtualAudio.html>`__
+                     -  `音频系统时间 <https://developers.weixin.qq.com/minigame/dev/guide/framework/audio/audioTime.html>`__
+                     -  `音频全局配置 <https://developers.weixin.qq.com/minigame/dev/guide/framework/audio/audioSettings.html>`__
+
+                  -  `基础音频接口 <https://developers.weixin.qq.com/minigame/dev/guide/framework/audio/wxAudioIndex.html>`__
+                  -  `快速上手 <https://developers.weixin.qq.com/minigame/dev/guide/framework/audio/wxAudioQuickStart.html>`__
+
+            -  `第三方 H5 引擎混合渲染 <https://developers.weixin.qq.com/minigame/dev/guide/framework/mixRender/mixRender.html>`__
+            -  `配置 <https://developers.weixin.qq.com/minigame/dev/guide/framework/config.html>`__
+            -  `多线程 Worker <https://developers.weixin.qq.com/minigame/dev/guide/base-ability/worker/>`__
+            -  `worker 框架 <https://developers.weixin.qq.com/minigame/dev/guide/base-ability/worker/tutorial.html>`__
+            -  `worker 任务 <https://developers.weixin.qq.com/minigame/dev/guide/base-ability/worker/job.html>`__
+
+   -  `运行时 <https://developers.weixin.qq.com/minigame/dev/guide/runtime/env.html>`__
+
+         -  `运行环境 <https://developers.weixin.qq.com/minigame/dev/guide/runtime/env.html>`__
+         -  `小游戏框架运行时 <https://developers.weixin.qq.com/minigame/dev/guide/runtime/frameworkRuntime.html>`__
+         -  `JS 支持情况 <https://developers.weixin.qq.com/minigame/dev/guide/runtime/js-support.html>`__
+         -  `运行机制 <https://developers.weixin.qq.com/minigame/dev/guide/runtime/operating-mechanism.html>`__
+         -  `更新机制 <https://developers.weixin.qq.com/minigame/dev/guide/runtime/update-mechanism.html>`__
+         -  `基础库 <https://developers.weixin.qq.com/minigame/dev/guide/runtime/client-lib/>`__
+
+            -  `版本分布 <https://developers.weixin.qq.com/minigame/dev/guide/runtime/client-lib/version.html>`__
+            -  `低版本兼容 <https://developers.weixin.qq.com/minigame/dev/guide/runtime/client-lib/compatibility.html>`__
+            -  `更新日志 <https://developers.weixin.qq.com/miniprogram/dev/framework/release/>`__
+
+         -  `调试 <https://developers.weixin.qq.com/minigame/dev/guide/runtime/debug/>`__
+
+            -  `vConsole <https://developers.weixin.qq.com/minigame/dev/guide/runtime/debug/vConsole.html>`__
+            -  `Source Map <https://developers.weixin.qq.com/minigame/dev/guide/runtime/debug/SourceMap.html>`__
+            -  `真机调试 <https://developers.weixin.qq.com/minigame/dev/guide/runtime/debug/remote-debug.html>`__
+            -  `实时日志 <https://developers.weixin.qq.com/minigame/dev/guide/runtime/debug/realtimelog/>`__
+            -  `Errno错误码 <https://developers.weixin.qq.com/minigame/dev/guide/runtime/debug/PublicErrno.html>`__
+
+         -  `Adapter <https://developers.weixin.qq.com/minigame/dev/guide/runtime/adapter.html>`__
+
+   -  `基础能力 <https://developers.weixin.qq.com/minigame/dev/guide/base-ability/network.html>`__
+
+         -  `网络 <https://developers.weixin.qq.com/minigame/dev/guide/base-ability/network.html>`__
+
+            -  `使用说明 <https://developers.weixin.qq.com/minigame/dev/guide/base-ability/network.html>`__
+            -  `移动解析 HttpDNS <https://developers.weixin.qq.com/minigame/dev/guide/base-ability/HTTPDNS.html>`__
+
+         -  `存储 <https://developers.weixin.qq.com/minigame/dev/guide/base-ability/storage.html>`__
+         -  `文件系统 <https://developers.weixin.qq.com/minigame/dev/guide/base-ability/file-system.html>`__
+         -  `渲染 <https://developers.weixin.qq.com/minigame/dev/guide/base-ability/render.html>`__
+         -  `分包加载 <https://developers.weixin.qq.com/minigame/dev/guide/base-ability/subPackage/useSubPackage.html>`__
+         -  `权限 <https://developers.weixin.qq.com/minigame/dev/guide/base-ability/authorize.html>`__
+         -  `模块化 <https://developers.weixin.qq.com/minigame/dev/guide/base-ability/module.html>`__
+         -  `场景值 <https://developers.weixin.qq.com/minigame/dev/guide/base-ability/scene.html>`__
+         -  `独立分包 <https://developers.weixin.qq.com/minigame/dev/guide/base-ability/independent-sub-packages.html>`__
+         -  `worker 基础能力 <https://developers.weixin.qq.com/minigame/dev/guide/base-ability/worker/basic.html>`__
+         -  `周期性更新 <https://developers.weixin.qq.com/minigame/dev/guide/base-ability/background-fetch.html>`__
+         -  `数据预拉取 <https://developers.weixin.qq.com/minigame/dev/guide/base-ability/pre-fetch.html>`__
+         -  `服务端 API <https://developers.weixin.qq.com/minigame/dev/guide/base-ability/backend-api.html>`__
+         -  `游戏引擎插件 <https://developers.weixin.qq.com/minigame/dev/guide/base-ability/game-engine-plugin.html>`__
+
+   -  `开放能力 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/login.html>`__
+
+         -  `登录态管理 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/login.html>`__
+         -  `用户隐私保护 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/privacy.html>`__
+         -  `UnionID 机制说明 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/union-id.html>`__
+         -  `用户信息获取 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/user-info.html>`__
+         -  `开放数据校验与解密 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/signature.html>`__
+         -  `关系链 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/open-data.html>`__
+
+            -  `关系链数据 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/open-data.html>`__
+            -  `开放数据域框架 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/opendata/framework.html>`__
+            -  `开放数据域基础能力 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/opendata/basic.html>`__
+            -  `关系链互动数据 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/interactive-data.html>`__
+            -  `定向分享 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/share-to-specific-friend.html>`__
+
+         -  `小游戏试玩 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/playable/guide.html>`__
+
+            -  `概览 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/playable/guide.html>`__
+            -  `开放能力 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/playable/api.html>`__
+            -  `试玩广告 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/playable/ad.html>`__
+
+         -  `虚拟支付 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/virtual-payment/virtual-payment2.html>`__
+
+            -  `虚拟支付进件 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/virtual-payment/virtual-payment2.html>`__
+            -  `技术手册-虚拟支付篇 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/virtual-payment/guide.html>`__
+            -  `游戏币能力 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/virtual-payment/coins.html>`__
+            -  `道具直购能力 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/virtual-payment/goods.html>`__
+
+         -  `礼物索要 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/friend-payment.html>`__
+         -  `数据分析 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/data-analysis.html>`__
+         -  `获取二维码 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/qr-code.html>`__
+         -  `小程序加密网络通道 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/user-encryptkey.html>`__
+         -  `获取小程序链接 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/url-scheme.html>`__
+
+            -  `获取 URL Scheme <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/url-scheme.html>`__
+            -  `获取 URL Link <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/url-link.html>`__
+
+         -  `视频号 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/channels-activity.html>`__
+
+            -  `视频号主页 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/channels-profile.html>`__
+            -  `视频号视频 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/channels-activity.html>`__
+            -  `视频号直播 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/channels-live.html>`__
+            -  `视频号活动 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/channels-event.html>`__
+
+         -  `游戏圈 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/game-club.html>`__
+         -  `游戏礼包 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/game-gift.html>`__
+         -  `社交组件 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/game-chat.html>`__
+         -  `排行榜 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/ranklist.html>`__
+         -  `游戏对局回放 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/game-recorder.html>`__
+         -  `消息 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/subscribe-message.html>`__
+
+            -  `一次性订阅消息 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/subscribe-message.html>`__
+            -  `系统订阅消息 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/subscribe-system-message.html>`__
+            -  `更新提醒消息 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/subscribe-update-notification-message.html>`__
+
+         -  `分享到朋友圈 Beta <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/share-timeline_game.html>`__
+
+         -  `转发 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/share/share.html>`__
+
+            -  `转发 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/share/share.html>`__
+            -  `动态消息 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/share/updatable-message.html>`__
+            -  `小程序私密消息 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/share/private-message.html>`__
+            -  `转发自定义图片 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/share/share-image.html>`__
+
+         -  `广告 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/ad/ad.html>`__
+
+            -  `Banner 广告 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/ad/banner-ad.html>`__
+            -  `激励视频广告 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/ad/rewarded-video-ad.html>`__
+            -  `插屏广告 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/ad/interstitialAd-ad.html>`__
+            -  `格子广告 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/ad/grid-ad.html>`__
+            -  `原生模板广告 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/ad/custom-ad.html>`__
+            -  `广告数据接口 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/ad/ad-data-interface.html>`__
+
+               -  广告汇总数据
+               -  广告细分数据
+               -  广告位清单
+               -  结算收入数据
+
+         -  `消息推送 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/message-push.html>`__
+         -  `实时语音 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/voip-chat.html>`__
+         -  `游戏服务 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/game-server.html>`__
+
+            -  `帧同步 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/lock-step.html>`__
+            -  `房间服务 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/roomservice.html>`__
+            -  `状态服务 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/user-status.html>`__
+            -  `对局匹配 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/gamematch.html>`__
+
+         -  `PC小游戏接入指南 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/pc-game.html>`__
+         -  `PC大屏适配指南 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/pc-adapter.html>`__
+         -  `小游戏测速 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/performance-report.html>`__
+         -  `体验评价 <https://developers.weixin.qq.com/minigame/dev/guide/open-ability/game-evaluate.html>`__
+
+   -  `安全指引 <https://developers.weixin.qq.com/minigame/dev/guide/security/security.html>`__
+
+      -  安全原则
+      -  代码加固
+
+         -  代码混淆
+         -  代码水印
+         -  动态保护
+         -  体积与性能开销
+         -  如何使用
+
+      -  游戏内容安全
+
+         -  文本内容安全
+         -  图片内容安全
+         -  常见问题
+
+      -  外挂漏洞
+
+         -  最佳实践
+
+            -  接口鉴权
+            -  信息泄露
+            -  接口条件竞争
+            -  加密网络信道
+
+                  -  HTTPS加密网络通道
+                  -  Donut网关方案
+
+            -  内存数值校验
+            -  内存数值隐藏
+
+      -  安全风控
+
+   -  `性能优化 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-overview.html>`__
+
+      -  `概述 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-overview.html>`__
+      -  `技术手册 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-technical-manual.html>`__
+      -  `评测标准 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-mesure.html>`__
+      -  `研发工具箱 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-audit/perf-system-overview.html>`__
+
+         -  `性能监控系统 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-audit/perf-system-overview.html>`__
+
+            -  `系统介绍 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-audit/perf-system-overview.html>`__
+            -  `指标与评分方法 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-audit/perf-system-rating-rule.html>`__
+
+         -  `性能诊断工具 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-audit/perf-audit-tool.html>`__
+
+            -  `工具介绍 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-audit/perf-audit-tool.html>`__
+            -  `工具评分方法 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-audit/perf-audit-rating-rule.html>`__
+
+      -  `启动性能 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-action-start.html>`__
+
+         -  `启动时序与关键指标 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-action-start.html>`__
+         -  `如何提升启动速度 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-action-start2.html>`__
+         -  `封面图插件 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-action-start-loading-plugin.html>`__
+         -  `并行下载能力 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-action-start-parallel-download.html>`__
+         -  `启动场景上报分析 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-action-start-reportScene.html>`__
+
+      -  `运行性能 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-action-runtime-overview.html>`__
+
+         -  `概述 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-action-runtime-overview.html>`__
+         -  `内存调优 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-action-memory-overview.html>`__
+         -  `开发阶段内存调优 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-action-memory-dev-profile.html>`__
+         -  `使用云测服务检测内存 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-action-memory-cloud-profile.html>`__
+         -  `资源纹理压缩 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-action-texture-compression.html>`__
+         -  `垃圾回收 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-action-memory-gc.html>`__
+         -  `内存管理机制 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-action-memory-management.html>`__
+         -  `混合渲染模式 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-action-render-bind.html>`__
+         -  `使用Worker异步计算 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-action-cpu-worker.html>`__
+         -  `设备档型下的用户分布 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-benchmarkLevel.html>`__
+         -  `使用WXWebAssembly <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-webassembly.html>`__
+         -  `高性能模式 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-high-performance.html>`__
+         -  `高性能+模式 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-high-performance-plus.html>`__
+
+      -  `性能调优工具 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-action-device-monitor.html>`__
+
+         -  `真机性能监控工具 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-action-device-monitor.html>`__
+         -  `小游戏云测试 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-tools-cloudtest.html>`__
+         -  `小游戏线上异常排查 <https://developers.weixin.qq.com/minigame/dev/guide/performance/monitor.html>`__
+
+      -  `网络调优 <https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-network.html>`__
+
+   -  `连接硬件能力 <https://developers.weixin.qq.com/minigame/dev/guide/device/bluetooth.html>`__
+
+      -  `蓝牙 <https://developers.weixin.qq.com/minigame/dev/guide/device/bluetooth.html>`__
+
+         -  `介绍 <https://developers.weixin.qq.com/minigame/dev/guide/device/bluetooth.html>`__
+         -  `蓝牙低功耗 (BLE) <https://developers.weixin.qq.com/minigame/dev/guide/device/ble.html>`__
+         -  `蓝牙低功耗网状网络 (BLE Mesh) <https://developers.weixin.qq.com/minigame/dev/guide/device/ble-mesh.html>`__
+         -  `蓝牙信标 (Beacon) <https://developers.weixin.qq.com/minigame/dev/guide/device/beacon.html>`__
+
+
+👊 小游戏快速上手
+==============
+
+
+注册一个小游戏账号
+
+   进入 `小程序注册页 <https://mp.weixin.qq.com/wxopen/waregister?action=step1>`__ 
+   根据指引填写信息和提交相应的资料，服务类目应选择“游戏”，子类目可以先选择“休闲游戏”，就可以拥有自己的小游戏账号。
+
+   |register-miniprogram.12f80c4b.png|
+
+   |register-category.e2c39587.png|
+
+安装并启动开发者工具
+
+      注册小游戏账号后，下载并安装 `开发者工具 <https://developers.weixin.qq.com/minigame/dev/devtools/download.html>`__
+
+      |devtools-scan.c94a7bc1.png|
+
+      打开已安装的开发者工具客户端，使用刚刚注册小游戏账号登记的微信账号“扫一扫”扫码即可进入小游戏开发环境。
+
+      |devtools-create-1.f50f1c94.png|
+
+      选择左侧“小程序项目”中的“小游戏
+      Tab”，然后点击右侧“+”号，开始创建小游戏项目。
+
+      |devtools-create-2.ada0b9e0.png|
+
+      填写合适的项目名称，选择合适的本机空目录后， `登录 <https://mp.weixin.qq.com/>`__
+      刚刚注册的小程序管理平台，如下图找到小程序的 AppID，填入表单的“AppId”文本框中。
+
+      |mp-appid.52ea2aa8.png|
+
+      填写完整后点击右下角“新建”按钮，即可完成创建小游戏。
+
+      在开发者工具中就能进入小游戏的可视化开发界面了。
+
+.. |register-miniprogram.12f80c4b.png| image:: https://res.wx.qq.com/wxdoc/dist/assets/img/register-miniprogram.12f80c4b.png
+.. |register-category.e2c39587.png| image:: https://res.wx.qq.com/wxdoc/dist/assets/img/register-category.e2c39587.png
+.. |devtools-scan.c94a7bc1.png| image:: https://res.wx.qq.com/wxdoc/dist/assets/img/devtools-scan.c94a7bc1.png
+.. |devtools-create-1.f50f1c94.png| image:: https://res.wx.qq.com/wxdoc/dist/assets/img/devtools-create-1.f50f1c94.png
+.. |devtools-create-2.ada0b9e0.png| image:: https://res.wx.qq.com/wxdoc/dist/assets/img/devtools-create-2.ada0b9e0.png
+.. |mp-appid.52ea2aa8.png| image:: https://res.wx.qq.com/wxdoc/dist/assets/img/mp-appid.52ea2aa8.png
+
+
+⭕ 小游戏框架
+============
+
+   *  微信小程序构架 API 类型定义文件
+      https://www.npmjs.com/package/miniprogram-api-typings
+      https://github.com/wechat-miniprogram/api-typings
+
+   *  微信小游戏引擎 API 类型定义文件
+      https://www.npmjs.com/package/minigame-api-typings
+      https://github.com/wechat-miniprogram/minigame-api-typings
+
+   *  小游戏引擎框架文档 https://developers.weixin.qq.com/minigame/dev/game-engine-api/modules.html
+
+   -  `小游戏配置 <https://developers.weixin.qq.com/minigame/dev/reference/configuration/app.html>`__
+   -  `场景值 <https://developers.weixin.qq.com/minigame/dev/reference/scene-list.html>`__
+   -  `框架接口 <https://developers.weixin.qq.com/minigame/dev/game-engine-api/>`__
+   -  `模块化 <https://developers.weixin.qq.com/minigame/dev/reference/api/require.html>`__
+
+      -  `require <https://developers.weixin.qq.com/minigame/dev/reference/api/require.html>`__
+      -  `module <https://developers.weixin.qq.com/minigame/dev/reference/api/module.html>`__
+      -  `exports <https://developers.weixin.qq.com/minigame/dev/reference/api/exports.html>`__
+      -  `requirePlugin <https://developers.weixin.qq.com/minigame/dev/reference/api/requirePlugin.html>`__
+
+   -  `基础功能 <https://developers.weixin.qq.com/minigame/dev/reference/api/wx.html>`__
+
+      -  `wx <https://developers.weixin.qq.com/minigame/dev/reference/api/wx.html>`__
+
+      -  `console <https://developers.weixin.qq.com/minigame/dev/reference/api/console.html>`__
+
+         -  `console.debug <https://developers.weixin.qq.com/minigame/dev/reference/api/console.debug.html>`__
+         -  `console.error <https://developers.weixin.qq.com/minigame/dev/reference/api/console.error.html>`__
+         -  `console.group <https://developers.weixin.qq.com/minigame/dev/reference/api/console.group.html>`__
+         -  `console.groupEnd <https://developers.weixin.qq.com/minigame/dev/reference/api/console.groupEnd.html>`__
+         -  `console.info <https://developers.weixin.qq.com/minigame/dev/reference/api/console.info.html>`__
+         -  `console.log <https://developers.weixin.qq.com/minigame/dev/reference/api/console.log.html>`__
+         -  `console.warn <https://developers.weixin.qq.com/minigame/dev/reference/api/console.warn.html>`__
+
+      -  `定时器 <https://developers.weixin.qq.com/minigame/dev/reference/api/setTimeout.html>`__
+
+         -  `setTimeout <https://developers.weixin.qq.com/minigame/dev/reference/api/setTimeout.html>`__
+         -  `clearTimeout <https://developers.weixin.qq.com/minigame/dev/reference/api/clearTimeout.html>`__
+         -  `setInterval <https://developers.weixin.qq.com/minigame/dev/reference/api/setInterval.html>`__
+         -  `clearInterval <https://developers.weixin.qq.com/minigame/dev/reference/api/clearInterval.html>`__
+
+      -  `WXWebAssembly <https://developers.weixin.qq.com/minigame/dev/reference/api/WXWebAssembly.html>`__
+      -  `WXWeakRef <https://developers.weixin.qq.com/minigame/dev/reference/api/WXWeakRef.html>`__
+
+
+
+⭕ 小游戏专用 API
+================
+
+
+   - 小游戏生命周期
+
+      -  `wx.onShow <https://developers.weixin.qq.com/minigame/dev/api/base/app/life-cycle/wx.onShow.html>`__
+      -  `wx.onHide <https://developers.weixin.qq.com/minigame/dev/api/base/app/life-cycle/wx.onHide.html>`__
+      -  `wx.offShow <https://developers.weixin.qq.com/minigame/dev/api/base/app/life-cycle/wx.offShow.html>`__
+      -  `wx.offHide <https://developers.weixin.qq.com/minigame/dev/api/base/app/life-cycle/wx.offHide.html>`__
+      -  `wx.getLaunchOptionsSync <https://developers.weixin.qq.com/minigame/dev/api/base/app/life-cycle/wx.getLaunchOptionsSync.html>`__
+      -  `wx.getEnterOptionsSync <https://developers.weixin.qq.com/minigame/dev/api/base/app/life-cycle/wx.getEnterOptionsSync.html>`__
+
+   - 订阅消息
+
+      -  `wx.requestSubscribeSystemMessage <https://developers.weixin.qq.com/minigame/dev/api/open-api/subscribe-message/wx.requestSubscribeSystemMessage.html>`__
+      -  `wx.requestSubscribeMessage <https://developers.weixin.qq.com/minigame/dev/api/open-api/subscribe-message/wx.requestSubscribeMessage.html>`__
+
+
+   订阅消息	
+
+   ================================ ==========================================
+   名称	                           功能
+   ================================ ==========================================
+   wx.requestSubscribeSystemMessage	调起小游戏系统订阅消息界面，返回用户订阅消息的操作结果
+   wx.requestSubscribeMessage	      调起客户端小游戏订阅消息界面，返回用户订阅消息的操作结果
+   ================================ ==========================================
+
+	生命周期
+
+   ======================= =========================================
+   名称                    功能
+   ======================= =========================================
+   wx.onShow	            监听小游戏回到前台的事件
+   wx.onHide	            监听小游戏隐藏到后台事件
+   wx.offShow	            移除小游戏回到前台的事件的监听函数
+   wx.offHide	            移除小游戏隐藏到后台事件的监听函数
+   wx.getLaunchOptionsSync	获取小游戏冷启动时的参数
+   wx.getEnterOptionsSync	获取小游戏打开的参数（包括冷启动和热启动）
+   ======================= =========================================

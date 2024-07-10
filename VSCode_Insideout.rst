@@ -5292,6 +5292,74 @@ GDB 初始配置文件，可以通过 `gdb -n -x .gdbinit`
       # hide the original source file name.
       #-renamesourcefileattribute SourceFile
 
+   Android 作为移动操作系统，通常应用于移动通信设备，设备本身使用全球唯一的 IMEI 号码标识，
+   国际移动设备识别码 （International Mobile Equipment Identity），即通常所说的手机序列号、
+   手机“串号”，用于在移动电话网络中识别每一部独立的手机等移动通信设备，相当于移动电话的身份证。
+
+   IMEI 由 15 位数字组成，用来区别每一部移动通信设备。类型分配码 TAC (Type Allocation Code)
+   用于标识设备制造区域，86 为中国。IMEI 码例子：868540050954128。
+
+   getSystemService(Context.TELEPHONY_SERVICE).getDeviceId() 根据不同设备类型返回 
+   IMEI，MEID 或者 ESN。
+
+   Android 8.0（API Level 26）可以通过 ``TelephonyManager`` 服务获取设备 IMEI。
+   ``getDeviceId()`` 方法会根据手机设备的制式（GSM 或 CDMA）返回相应的设备码（IMEI、MEID 和 ESN），
+   该方法已经在 Android 8.0+ 版本废弃，取而代之的是 ``getImei()`` 方法。示例代码如下：
+
+   .. code::java
+
+      private String getIMEI(Context context) {
+         TelephonyManager tm = (TelephonyManager) 
+                           context.getSystemService(Service.TELEPHONY_SERVICE);
+         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            return tm.getImei();
+         } else {
+            return tm.getDeviceId();
+         }
+      }
+
+   其它相关方法：
+
+      *  Build: ``getSerial()``
+      *  TelephonyManager: ``getImei()`` ``getDeviceId()`` ``getMeid()`` 
+                           ``getSimSerialNumber()`` ``getSubscriberId()``
+
+   无论是 ``getDeviceId()`` 方法还是 ``getImei()`` 方法都可以传入 ``slotIndex`` 用于
+   查询多卡槽设备。IMEI 获取方式简单，也能保证唯一性和不变性，很多应用都使用 IMEI 为设备的唯一标识，
+   但是 Android 6.0+ 获取 IMEI 需要动态申请 ``READ_PHONE_STATE`` 权限，用户可能拒绝该权限。
+   Android 10+ 更新后，需要 ``READ_PRIVILEGED_PHONE_STATE`` 权限。另外，官方已经明确说明
+   Google Play 上的第三方应用不能声明此权限获取 IMEI。 `Privacy changes in Android 10 <https://developer.android.google.cn/about/versions/10/privacy/changes>`__
+
+   其它 ID 编码：
+
+   MAC 网卡设备物理地址：
+
+   *  Obtain randomized MAC address: Device owner apps and profile owner apps can 
+      retrieve the randomized MAC address assigned to a specific network by calling 
+      ``getRandomizedMacAddress()``.
+   *  Obtain actual, factory MAC address: Device owner apps can retrieve a device's 
+      actual hardware MAC address by calling ``getWifiMacAddress()``. This method 
+      is useful for tracking fleets of devices.
+
+   IMSI：国际移动用户识别号（International Mobile Subscriber Identification Number），
+   IMSI 码例子：460080585306741。
+   * 3 位数字 MCC (Mobile Country Code)，中国为 460。
+   * 2 位数字 MNC (Mobile Network Code)，
+      *  中国移动： 00、02、04、07，08（移动物联卡）
+      *  中国联通 GSM 系统： 01、06、09，
+      *  中国电信 CDMA 系统： 03、05，
+      *  中国电信 4G：11，
+      *  中国铁通：20。
+   * 10 位数字 MSIN，移动订阅用户识别代码（Mobile subscription identification number）。
+
+   ICCID：集成电路卡识别码（Integrate circuit card identity），20 位数字。
+   ICCID 例子: 89860485192072216741，前六位为运营商代码：
+   *  中国移动的为：898600；898602；898604；898607 。
+   *  中国联通的为：898601；898606；898609。
+   *  中国电信的为：898603。
+
+   SN：Series Number 是产品的生产编号。这个编码由厂商制定编码规则，例如：P1Q21DJ6A0026310P
+
 
 .. _S17: #S17
 

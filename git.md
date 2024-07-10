@@ -1980,6 +1980,15 @@ git config tar.tar.xz.command "xz -c"
 
 # git single file
 
+Here is how to pull a single file from git remote
+
+```sh
+git fetch
+# git fetch will download all the recent changes, but it will not put it in your current checked out code (working area).
+git checkout origin/master -- path/to/file
+# git checkout / -- path/to/file will checkout the particular file from the downloaded changes (origin/master).
+```
+
 Git 版本控制系统允许开发人员追踪和管理项目中的文件，Git 命令可以轻松地获取远程仓库中的文件，
 以便进行修改、合并或备份。在本文中，我们将介绍如何从远程 [git] 仓库中获取单个文件。
 

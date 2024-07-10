@@ -10,6 +10,13 @@ This sounds very esoteric, so let’s pin it down with some concrete examples:
 On the Exposition of Words' Meaning by Comparison between Zuo Zhuan and Records of the States in the Eastern Zhou Dynasty
 
 
+   Before you can use a variable or constant in a JavaScript program, you
+   must declare it. In ES6 and later, this is done with the ``let`` and 
+   ``const`` keywords, which we explain next. Prior to ES6, variables were
+   declared with ``var``, which is more idiosyncratic and is explained later
+   on in this section.
+
+
 ## 世界近代史 Modern World History
 
 世界近代史是指资本主义产生、确立和发展的历史，是资本主义产生和发展，并逐步形成
