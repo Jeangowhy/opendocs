@@ -28,10 +28,12 @@ Box2D 物理引擎
    *  PhysX_：Nvidia 基于 CUDA 设计的执行复杂的物理运算的物理仿真技术。
    *  Havok_：原是一家业界领先的软件服务提供商，后被 Intel 收购，游戏、电影行业都有应用。
    *  Bullet_：开源的物理引擎，Godot、Unity 等游戏引擎中集成使用。
+      - Ammo_: Direct port of the Bullet physics engine to JavaScript using Emscripten
 
 .. _Havok: https://www.havok.com/havok-physics/
 .. _PhysX: https://github.com/NVIDIAGameWorks/PhysX
 .. _Bullet: https://github.com/bulletphysics/bullet3
+.. _Ammo: https://github.com/kripken/ammo.js/
 
    Bullet 是开源免费的物理引擎，广泛应用于游戏、动画、电影和机器人仿真等领域。主要功能如下：
 
@@ -51,6 +53,14 @@ Box2D 物理引擎
    *  JBox2D: A Java Physics Engine https://github.com/jbox2d/jbox2d
    *  pybox2d: 2D Game Physics for Python https://github.com/pybox2d/pybox2d
 
+   Web 开发最基本的是 JavaScript，当然还可以掌握 TypeScript，它的静态类型系统可以给项目管理、
+   维护带来便利。JavaScript: the Definitive Guide 是非常棒的教材，那当然在线的教程也很多，
+   并且不乏高质量的，比如以下这个开源且图文并茂的 The Modern JavaScript Tutorial：
+
+   *  `The JavaScript language <https://javascript.info/js>`__
+   *  https://github.com/javascript-tutorial/en.javascript.info
+   *  https://github.com/javascript-tutorial/zh.javascript.info
+
    Web 环境还可以使用 matter-js，JavaScript 实现的 2D 物理引擎。PC 端 Box2D 性能优于
    matter-js，但是在移动端，苹果的微信小游戏，因为没有 JIT 支持，Box2D 性能反而不如轻量的
    matter-js。安卓的微信小游戏，因为有 JIT，Box2D 同样是优于 matter-js。
@@ -63,6 +73,27 @@ Box2D 物理引擎
    *  https://www.npmjs.com/package/@types/matter-js
    *  MatterTools https://github.com/liabru/matter-tools
    *  `参考案例 <https://github.com/cheneyweb/wxgame-elastic>`__
+
+   此外，Three.js 也是一个高赞的开源 3D 引擎，官方维护更新比较各级，提供 Editor，拥有大量
+   示范教程。文档丰富，自身集成多个物理模块，属于目前最有潜力的 Web 平台的 3D 引擎、开发工具。
+   Three.js Editor 目前是一个简易的场景搭建工具， Progressive Web App (PWA)，JavaScript
+   实现，位于源代码 editor 目录之内，可以在 Github 代码仓库中下载。不过 index.html 入口
+   文件依赖了 ffmpeg_wasm，CDN 引入可能出现不可访问的情况，可以直接使用 npm 安装到 editor
+   目录下，并更新 <script> 标签的脚本路径：
+
+   .. code:: bash
+
+      # <script src="node_modules/@ffmpeg/ffmpeg/dist/ffmpeg.min.js"></script>
+      # <script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.11.6/dist/ffmpeg.min.js"></script>
+
+      npm init
+      npm i @ffmpeg/ffmpeg@0.11.6
+
+      python -m http.server --director ..
+
+   *  `Three.js - JavaScript 3D Library <https://github.com/mrdoob/three.js>`__
+   *  `Three.js + Box2D <https://mrdoob.com/#/91/ball_pool>`__
+   *  `Discover three.js <https://discoverthreejs.com/book/>`__
 
    Phaser 是一款开源的基于 HTML5 (WebGL + Canvas) 渲染的游戏引擎，Phaser Editor 编辑器
    是一个使用了 matter.js 的可视化的游戏场景设计工具。Phaser 当前有两个版本 2.x 称为社区版本
@@ -85,6 +116,33 @@ Box2D 物理引擎
    利用成熟的游戏引擎提供的工具来搭建 2D/3D 游戏场景，再根据小游戏提供的兼容功能编写游戏逻辑。
 
    从代码运行逻辑来看，小游戏的运行有 Canvas、WebGL、WebAssembly 等等基本方式。
+   Canvas 提供了 Web 程序化绘画能力，WebGL 则是在 Canvas 画布上实现 3D 渲染能力。
+   WebGL（Web Graphics Library）是基于 OpenGL ES 规范标准的 JavaScript API，
+   类似与 OpenGL API，能让 JavaScript 程序利用 GPU 硬件加速实现 3D 图形渲染，并且
+   使用着色器编程，允许更复杂和高性能的图形渲染。
+
+   https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext
+
+   Web API 画布对象提供 ``HTMLCanvasElement.getContext()`` 方法用来获取多种绘画上下文，
+   不同上下文决定的不同的绘图形式，返回 ``null`` 表示当前设备不支持相应的绘图能力。同一个画布
+   对象不能切换不同的上下文类形，调用此方法应该总是返回相同的上下文对象：
+
+   .. code:: javascript
+
+      getContext(contextType)
+      getContext(contextType, contextAttributes)
+
+   其中 `contextType` 参数指定绘图上下文对象类型：
+
+   ================= ===========================================================
+   "2d"              a two-dimensional ``CanvasRenderingContext2D`` rendering context.
+   "webgl"           a ``WebGLRenderingContext`` 3D rendering context. WebGL version 1 (OpenGL ES 2.0).
+   "webgl2"          a ``WebGL2RenderingContext`` 3D rendering context. WebGL version 2 (OpenGL ES 3.0). Experimental
+   "webgpu"          a ``GPUCanvasContext`` 3D rendering context for WebGPU render pipelines. The WebGPU API.
+   "bitmaprenderer"  an ``ImageBitmapRenderingContext`` which only provides functionality to replace the content of the canvas with a given ImageBitmap.
+   ================= ===========================================================
+
+   其中 "webgl" 在早期使用 "experimental-webgl"。不同的上下文可以设置不同的绘画属性参数。
 
    .. 在Godot的菜单栏中，选择"Editor"（编辑器）-> "Export"（导出）。3. 在弹出的导出窗口中，
    
@@ -114,7 +172,7 @@ Box2D 物理引擎
       <script src="../examples/constraints.js"></script>
       <script> for(let it in Example) Example[it]() </script>      
 
-   引擎 `Render.create()` 提供两个选项来指定画布，默认画布尺寸是 800x600：
+   引擎方法 `Render.create()` 提供两个选项来指定画布，默认画布尺寸是 800x600：
 
    *  ``element`` 指定 Web 页面元素作为画布容器，引擎可以自行创建 ``canvas`` 对象；
    *  ``canvas`` 直接指定一个画布对象，比如 ``document.getElementById("canvas_id")``；

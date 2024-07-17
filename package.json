@@ -1,5 +1,21 @@
 {
   "devDependencies": {
     "@types/node": "^20.12.7"
-  }
+  },
+  "name": "opendocs",
+  "description": "OpenDocs 此文档仓库是个人的学习资源库，也是日常的笔记。",
+  "version": "1.0.0",
+  "main": "mathjax.js",
+  "directories": {
+    "man": "man"
+  },
+  "dependencies": {
+    "mathjax-node": "^2.1.1",
+    "undici-types": "^5.26.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
 }

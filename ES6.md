@@ -6,6 +6,7 @@
 - Exploring ES6 by Dr. Axel Rauschmayer https://exploringjs.com/es6.html
 - Eloquent JavaScript 3rd edition (2018) https://eloquentjavascript.net
 - https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/
+- Standard ECMA-262 6th Edition / ECMAScript® 2015 Language Specification https://262.ecma-international.org/6.0/
 
 JavaScript 通常被认为是最容易掌握的语言，也是最难掌握的语言，我完全赞同，因为 JavaScript 是一种非常古老且非常灵活的语言，它充满了神秘的语法和过时的功能。
 
@@ -296,6 +297,44 @@ typeof new String("A") // "object
 - CIS-77 Introduction to Computer Systems - Bits, Numbers Representation http://www.c-jump.com/CIS77/CPU/Numbers/index.html
 
 数值部分其实涉及的内容很多，其实数值是一个复杂度不比其它任何复杂对象简单的数据类型，因为计算机表达的所有数据都是基于数值系统。
+
+以整形数值为例，当前流行的计算机数值编码使用 ``补码`` (2's complement) 形式表示，以下是 Intel 386
+CPU 手册的原文描述：
+
+	2.2 Data Types
+
+	1. **Integer:**
+
+		A signed binary numeric value contained in a 32-bit doubleword, 16-bit word, 
+		or 8-bit byte. All operations assume a 2's complement representation. The 
+		sign bit is located in bit 7 in a byte, bit 15 in a word, and bit 31 in a 
+		doubleword. The sign bit has the value zero for positive integers and one 
+		for negative. Since the high-order bit is used for a sign, the range of an 
+		8-bit integer is -128 through +127; 16-bit integers may range from -32,768 
+		through +32,767; 32-bit integers may range from -2^(31) through +2^(31) -1. 
+		The value zero has a positive sign.
+
+数值编码即需要考虑内存空间的合理利用、又要考虑计算的方便，还需要考虑尽可能大的数值的表示范围。
+
+*	原码方案表示数值，没有符号位，不能表示负数。为此，引入符号位，将最高 bit 定义为符号位；
+	* 	原码的问题是没有完全利用好 bit 位来表示数值，对于一个字节内存，只能表示 -127 - 127；
+	* 	同时存在计算不便的问题，加法器是按所有 bit 位进行计算的，不能一次过完成计算，导致电路设计复杂；
+*	反码表示方式（1‘s complement），定义最高 bit 为符号位。直接按 bit 位取反，保持符号位；
+	*	反码解决了原码符号、计算的不便利问题，比如 1 表示为 8-bit 的 0x00000001，
+		-1 表示为 0x11111110，直接经过加法器求值得到 0x11111111，这是一个反码表示的 0。
+	*	反码仍不能满足加法器简单的运算，比如 -2 + 3，加法器求值 0x11111101 + 0x00000011 就会
+		得到一个错误的结果，0x00000000，需要修正；
+*	补码的引入解决了反码的计算问题，补码这种表示形式比反码更胜一筹。正数与原码保持一致，负数则
+	按位取反再加 1，并且保持符号位。这种编码方案完全可以直接使用加法器计算正负数，无需修改操作。
+	例如，-2 + 3 = 0x11111110 (补码) + 0x00000011 = 0x00000001。
+
+由于数值编码占用了符号位，当然由于补码方案，称号位本身也是数值的一部分，它本身包含负数的值，这样
+所有 bit 都用于表达数值。并且，负数的范围比正数大一个 bit。给定 x 比特的内存，补码方案可以表示
+整数的范围是 [-2^(x-1), 2^(x-1)-1]。比如一个字节 8-bit 的内存可以表示 -2^7 = -128 到 127。
+对于 32-bit 的整形数值，可以表示 [-2147483648, 2147483647]，即 [-0x80000000,0x7FFFFFFF]，
+这就是补码带来的好处：简化运行电路设计、提高内存利用效率。另外，还去除掉 -0 的情况。由于补码这种
+编码的特性，从最大值向上溢出时，会使得从数值从可以表示的最大值跃变到可表示的最小值。
+
 
 虽然原始值类型和对应的对象类型表示的同样的值，但是它们在结构上有些差别，比如不能真的通过原始的数值类型调用数值对象的各种方法，如 `1.toFixed(2)` 是错误的，但是经过装箱后就可以，`(1).toFixed(2)`，这里使用了简化的装箱表达式，省略了类型，因为解析器可以感知到这是一个数值类型装箱。
 

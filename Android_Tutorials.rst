@@ -60193,7 +60193,7 @@ What you'll build
 .. |d6dc43171ae62047.png| image:: https://developer.android.google.cn/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d6dc43171ae62047.png
 .. |87b2ca7b49e814cb.png| image:: https://developer.android.google.cn/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb.png
 .. |2d630489477e216e.png| image:: https://developer.android.google.cn/static/codelabs/basic-android-kotlin-compose-app-with-views/img/2d630489477e216e.png
-.. |6adb279d6e74ab13.png|image:: https://developer.android.google.cn/static/codelabs/basic-android-kotlin-compose-app-with-views/img/6adb279d6e74ab13.png
+.. |6adb279d6e74ab13.png| image:: https://developer.android.google.cn/static/codelabs/basic-android-kotlin-compose-app-with-views/img/6adb279d6e74ab13.png
 .. |110cad4ae809e600.png| image:: https://developer.android.google.cn/static/codelabs/basic-android-kotlin-compose-app-with-views/img/110cad4ae809e600.png
 .. |783cb5d7ff0ba127.png| image:: https://developer.android.google.cn/static/codelabs/basic-android-kotlin-compose-app-with-views/img/783cb5d7ff0ba127.png
 .. |93401bf098936c15.png| image:: https://developer.android.google.cn/static/codelabs/basic-android-kotlin-compose-app-with-views/img/93401bf098936c15.png

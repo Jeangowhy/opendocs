@@ -1,6 +1,13 @@
 ﻿Table of Contents at a Glance
 =============================
 
+.. Note::
+
+   本书最新版本是 Eloquent JavaScript 4th edition (2024)，从目录上看，内容与组织结构
+   与当前版本（3rd edition）并没有多大出入。就第三版内容来看，欠缺较大，是不足以和权威指南
+   这样的优质教材相比较的。本书知识点的系统性较差，最大的弊端是泛谈不透彻（脚本到游戏都有涉及），
+   只能作为一个参考。
+
 Part 1: Language
 
    *  [P010]_ Chapter 1 Values, Types, and Operators
@@ -44,6 +51,7 @@ Eloquent JavaScript 3rd edition
       :target: https://eloquentjavascript.net/
 
       Eloquent JavaScript 4th edition
+      https://eloquentjavascript.net/Eloquent_JavaScript.pdf
 
    ::
 
@@ -618,7 +626,7 @@ Why language matters
 
    Here is the same program in JavaScript:
 
-   .. code::javascript
+   .. code:: javascript
 
       let total = 0, count = 1;
       while (count <= 10) {
@@ -645,7 +653,7 @@ Why language matters
    collection of numbers within a range and compute the sum of a collection of
    numbers:
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log(sum(range(1, 10)));
       // → 55
@@ -808,7 +816,7 @@ Typographic conventions
    just refer to part of a nearby program. Programs (of which you have already
    seen a few) are written as follows:
 
-   .. code::javascript
+   .. code:: javascript
 
       function factorial(n) {
          if (n == 0) {
@@ -821,7 +829,7 @@ Typographic conventions
    Sometimes, to show the output that a program produces, the expected out-
    put is written after it, with two slashes and an arrow in front.
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log(factorial(8));
       // → 40320
@@ -1018,7 +1026,7 @@ Strings
 
 .. _P014:
 
-   .. code::javascript
+   .. code:: javascript
 
       `Down on the sea`
       "Lie on the ocean"
@@ -1041,7 +1049,7 @@ Strings
    interpreted as a newline. Similarly, a t after a backslash means a tab character.
    Take the following string:
 
-   .. code::javascript
+   .. code:: javascript
 
       "This is the first line\nAnd this is the second"
 
@@ -1058,7 +1066,7 @@ Strings
    value. This is how the string “A newline character is written like "\n" .” can
    be expressed:
 
-   .. code::javascript
+   .. code:: javascript
 
       "A newline character is written like \"\\n\"."
 
@@ -1083,7 +1091,7 @@ Strings
    be used on them. It does not add, but it concatenates—it glues two strings
    together. The following line will produce the string "concatenate" :
 
-   .. code::javascript
+   .. code:: javascript
 
       "con" + "cat" + "e" + "nate"
 
@@ -1095,7 +1103,7 @@ Strings
    Backtick-quoted strings, usually called template literals, can do a few more
    tricks. Apart from being able to span lines, they can also embed other values.
 
-   .. code::javascript
+   .. code:: javascript
 
       `half of 100 is ${100 / 2}`
 
@@ -1110,7 +1118,7 @@ Unary operators
    typeof operator, which produces a string value naming the type of the value
    you give it.
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log(typeof 4.5)
       // → number
@@ -1127,7 +1135,7 @@ Unary operators
    take one are called unary operators. The minus operator can be used both as
    a binary operator and as a unary operator.
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log(- (10 - 2))
       // → -8
@@ -1144,7 +1152,7 @@ Comparison
 
    Here is one way to produce Boolean values:
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log(3 > 2)
       // → true
@@ -1157,7 +1165,7 @@ Comparison
 
    Strings can be compared in the same way.
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log("Aardvark" < "Zoroaster")
       // → true
@@ -1172,7 +1180,7 @@ Comparison
    Other similar operators are >= (greater than or equal to), <= (less than or
    equal to), == (equal to), and != (not equal to).
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log("Itchy" != "Scratchy")
       // → true
@@ -1182,7 +1190,7 @@ Comparison
    There is only one value in JavaScript that is not equal to itself, and that is
    NaN (“not a number”).
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log(NaN == NaN)
       // → false
@@ -1199,7 +1207,7 @@ Logical operators
    The && operator represents logical and. It is a binary operator, and its result
    is true only if both the values given to it are true.
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log(true && false)
       // → false
@@ -1211,7 +1219,7 @@ Logical operators
    The || operator denotes logical or. It produces true if either of the values
    given to it is true.
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log(false || true)
       // → true
@@ -1227,7 +1235,7 @@ Logical operators
    and so on), and then the rest. This order has been chosen such that, in typical
    expressions like the following one, as few parentheses as possible are necessary:
 
-   .. code::javascript
+   .. code:: javascript
 
       1 + 1 == 2 && 10 * 10 > 50
 
@@ -1235,7 +1243,7 @@ Logical operators
    operating on three values. It is written with a question mark and a colon, like
    this:
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log(true ? 1 : 2);
       // → 1
@@ -1274,7 +1282,7 @@ Automatic type conversion
    almost any program you give it, even programs that do odd things. This is
    nicely demonstrated by the following expressions:
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log(8 * null)
       // → 0
@@ -1310,7 +1318,7 @@ Automatic type conversion
    occurs on either side of the operator, it produces true only if both sides are one
    of null or undefined .
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log(null == undefined);
       // → true
@@ -1351,7 +1359,7 @@ Short-circuiting of logical operators
    for values of other types.
 
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log(null || "user")
       // → user
@@ -1441,7 +1449,7 @@ Expressions and statements
    The simplest kind of statement is an expression with a semicolon after it.
    This is a program:
 
-   .. code::javascript
+   .. code:: javascript
 
       1;
       !false;
@@ -1475,7 +1483,7 @@ Bindings
    dissipate again. To catch and hold values, JavaScript provides a thing called a
    binding, or variable:
 
-   .. code::javascript
+   .. code:: javascript
 
       let caught = 5 * 5;
 
@@ -1491,7 +1499,7 @@ Bindings
    value of such an expression is the value the binding currently holds. Here’s an
    example:
 
-   .. code::javascript
+   .. code:: javascript
 
       let ten = 10;
       console.log(ten * ten);
@@ -1503,7 +1511,7 @@ Bindings
    value forever. The = operator can be used at any time on existing bindings to
    disconnect them from their current value and have them point to a new one.
 
-   .. code::javascript
+   .. code:: javascript
 
       let mood = "light";
       console.log(mood);
@@ -1522,7 +1530,7 @@ Bindings
    Luigi still owes you, you create a binding. And then when he pays back $35,
    you give this binding a new value.
 
-   .. code::javascript
+   .. code:: javascript
 
       let luigisDebt = 140;
       luigisDebt = luigisDebt - 35;
@@ -1536,7 +1544,7 @@ Bindings
    A single let statement may define multiple bindings. The definitions must
    be separated by commas.
 
-   .. code::javascript
+   .. code:: javascript
 
       let one = 1, two = 2;
       console.log(one + two);
@@ -1549,7 +1557,7 @@ Bindings
 .. _P025:
 
 
-   .. code::javascript
+   .. code:: javascript
 
       var name = "Ayda";
       const greeting = "Hello ";
@@ -1578,7 +1586,7 @@ Binding names
    for use” in future versions of JavaScript, which also can’t be used as binding
    names. The full list of keywords and reserved words is rather long.
 
-   .. code::javascript
+   .. code:: javascript
 
       break      case     catch      class      const    continue   debugger
       default    delete   do         else       enum     export     extends
@@ -1613,7 +1621,7 @@ Functions
    the binding prompt holds a function that shows a little dialog box asking for
    user input. It is used like this:
 
-   .. code::javascript
+   .. code:: javascript
 
       prompt("Enter passcode");
 
@@ -1658,7 +1666,7 @@ Return values
    be useful. For example, the function Math.max takes any amount of number
    arguments and gives back the greatest.
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log(Math.max(2, 4));
       // → 4
@@ -1668,7 +1676,7 @@ Return values
    calls can be used within larger expressions. Here a call to Math.min , which is
    the opposite of Math.max , is used as part of a plus expression:
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log(Math.min(2, 4) + 100);
       // → 102
@@ -1687,7 +1695,7 @@ Control flow
 .. _P028:
 
 
-   .. code::javascript
+   .. code:: javascript
 
       let theNumber = Number(prompt("Pick a number"));
       console.log("Your number is the square root of " +
@@ -1726,7 +1734,7 @@ Conditional execution
    condition holds. We might, for example, want to show the square of the input 
    only if the input is actually a number.
 
-   .. code::javascript
+   .. code:: javascript
 
       let theNumber = Number(prompt("Pick a number"));
       if (!Number.isNaN(theNumber)) {
@@ -1756,7 +1764,7 @@ Conditional execution
    ment like this. We’ll mostly follow that convention in this book, except for the
    occasional one-liner.
 
-   .. code::javascript
+   .. code:: javascript
 
       if (1 + 1 == 2) console.log("It's true");
       // → It's true
@@ -1766,7 +1774,7 @@ Conditional execution
    by the second arrow in the diagram. You can use the ``else`` keyword, together
    with if , to create two separate, alternative execution paths.
 
-   .. code::javascript
+   .. code:: javascript
 
       let theNumber = Number(prompt("Pick a number"));
       if (!Number.isNaN(theNumber)) {
@@ -1779,7 +1787,7 @@ Conditional execution
    If you have more than two paths to choose from, you can “chain” multiple
    ``if`` / ``else`` pairs together. Here’s an example:
 
-   .. code::javascript
+   .. code:: javascript
 
       let num = Number(prompt("Pick a number"));
       if (num < 10) {
@@ -1814,7 +1822,7 @@ while and do loops
    Consider a program that outputs all even numbers from 0 to 12. One way to
    write this is as follows:
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log(0);
       console.log(2);
@@ -1843,7 +1851,7 @@ while and do loops
 .. _P031:
 
 
-   .. code::javascript
+   .. code:: javascript
 
       let number = 0;
       while (number <= 12) {
@@ -1870,7 +1878,7 @@ while and do loops
    we have multiplied this result by 2. The loop tests whether the second binding
    has reached 10 yet and, if not, updates both bindings.
 
-   .. code::javascript
+   .. code:: javascript
 
       let result = 1;
       let counter = 0;
@@ -1894,7 +1902,7 @@ while and do loops
 .. _P032:
 
 
-   .. code::javascript
+   .. code:: javascript
 
       let yourName;
       do {
@@ -1925,7 +1933,7 @@ Indenting Code
    differ—some people use four spaces, and some people use tab characters. The
    important thing is that each new block adds the same amount of space.
 
-   .. code::javascript
+   .. code:: javascript
 
       if (false != true) {
          console.log("That makes sense.");
@@ -1952,7 +1960,7 @@ for loops
    Because this pattern is so common, JavaScript and similar languages provide
    a slightly shorter and more comprehensive form, the ``for`` loop.
 
-   .. code::javascript
+   .. code:: javascript
 
       for (let number = 0; number <= 12; number = number + 2) {
          console.log(number);
@@ -1973,7 +1981,7 @@ for loops
 
    This is the code that computes 2 10 using ``for`` instead of ``while`` :
 
-   .. code::javascript
+   .. code:: javascript
 
       let result = 1;
       for (let counter = 0; counter < 10; counter = counter + 1) {
@@ -1995,7 +2003,7 @@ Breaking Out of a Loop
    This program illustrates the ``break`` statement. It finds the first number that
    is both greater than or equal to 20 and divisible by 7.
 
-   .. code::javascript
+   .. code:: javascript
 
       for (let current = 20; ; current = current + 1) {
          if (current % 7 == 0) {
@@ -2026,13 +2034,13 @@ Updating bindings succinctly
    Especially when looping, a program often needs to “update” a binding to hold
    a value based on that binding’s previous value.
 
-   .. code::javascript
+   .. code:: javascript
 
       counter = counter + 1;
 
    JavaScript provides a shortcut for this.
 
-   .. code::javascript
+   .. code:: javascript
 
       counter += 1;
 
@@ -2043,7 +2051,7 @@ Updating bindings succinctly
 
    This allows us to shorten our counting example a little more.
 
-   .. code::javascript
+   .. code:: javascript
 
       for (let number = 0; number <= 12; number += 2) {
          console.log(number);
@@ -2051,7 +2059,7 @@ Updating bindings succinctly
 
    For counter += 1 and counter -= 1 , there are even shorter equivalents:
 
-   .. code::javascript
+   .. code:: javascript
 
       counter++ and counter-- .
 
@@ -2060,7 +2068,7 @@ Dispatching on a value with switch
 
    It is not uncommon for code to look like this:
 
-   .. code::javascript
+   .. code:: javascript
 
       if (x == "value1") action1();
       else if (x == "value2") action2();
@@ -2073,7 +2081,7 @@ Dispatching on a value with switch
    somewhat awkward—a chain of ``if`` statements may look better. Here is an
    example:
 
-   .. code::javascript
+   .. code:: javascript
 
       switch (prompt("What is the weather like?")) {
       case "rainy":
@@ -2108,7 +2116,7 @@ Capitalization
    words to clearly describe what the binding represents. These are pretty much
    your choices for writing a binding name with several words in it:
 
-   .. code::javascript
+   .. code:: javascript
 
       fuzzylittleturtle
       fuzzy_little_turtle
@@ -2142,7 +2150,7 @@ Comments
    write a single-line ``comment``, you can use two slash characters ( // ) and then
    the ``comment`` text after it.
 
-   .. code::javascript
+   .. code:: javascript
 
       let accountBalance = calculateBalance(account);
       // It's a green hollow where a river sings
@@ -2159,7 +2167,7 @@ Comments
    it contains line breaks. This is useful for adding blocks of information 
    about a file or a chunk of program.
 
-   .. code::javascript
+   .. code:: javascript
 
       /*
       I first found this number scrawled on the back of an old
@@ -2213,7 +2221,7 @@ Looping a triangle
    Write a loop that makes seven calls to console.log to output the following
    triangle:
 
-   .. code::javascript
+   .. code:: javascript
 
       #
       ##
@@ -2226,7 +2234,7 @@ Looping a triangle
    It may be useful to know that you can find the length of a string by writing
    ``.length`` after it.
 
-   .. code::javascript
+   .. code:: javascript
 
       let abc = "abc";
       console.log(abc.length);
@@ -2255,7 +2263,7 @@ Chessboard
 
    Passing this string to console.log should show something like this:
 
-   .. code::javascript
+   .. code:: javascript
 
       # # # #
       # # # #
@@ -2306,7 +2314,7 @@ Defining a function
    a function. For example, this code defines square to refer to a function that
    produces the square of a given number:
 
-   .. code::javascript
+   .. code:: javascript
 
       const square = function(x) {
          return x * x;
@@ -2327,7 +2335,7 @@ Defining a function
    following example, makeNoise does not list any parameter names, whereas power
    lists two:
 
-   .. code::javascript
+   .. code:: javascript
 
       const makeNoise = function() {
          console.log("Pling!");
@@ -2381,7 +2389,7 @@ Bindings and scopes
    throughout the whole function that they appear in—or throughout the ``global``
    scope, if they are not in a function.
 
-   .. code::javascript
+   .. code:: javascript
 
       let x = 10;
       if (true) {
@@ -2400,7 +2408,7 @@ Bindings and scopes
    the code inside the halve function refers to n , it is seeing its own n , not the
    ``global`` n .
 
-   .. code::javascript
+   .. code:: javascript
 
       const halve = function(n) {
          return n / 2;
@@ -2424,7 +2432,7 @@ Nested scope
    For example, this function—which outputs the ingredients needed to make
    a batch of hummus—has another function inside it:
 
-   .. code::javascript
+   .. code:: javascript
 
       const hummus = function(factor) {
          const ingredient = function(amount, unit, name) {
@@ -2467,7 +2475,7 @@ Functions as values
    a function, and so on. Similarly, a binding that holds a function is still just a
    regular binding and can, if not constant, be assigned a new value, like so:
 
-   .. code::javascript
+   .. code:: javascript
 
       let launchMissiles = function() {
          missileSystem.launch("now");
@@ -2485,7 +2493,7 @@ Declaration notation
    There is a slightly shorter way to create a function binding. When the ``function``
    keyword is used at the start of a statement, it works differently.
 
-   .. code::javascript
+   .. code:: javascript
 
       function square(x) {
          return x * x;
@@ -2497,7 +2505,7 @@ Declaration notation
 
    There is one subtlety with this form of function definition.
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log("The future says:", future());
       function future() {
@@ -2522,7 +2530,7 @@ Arrow functions
    equal sign and a greater-than character (not to be confused with the greater-
    than-or-equal operator, which is written >= ).
 
-   .. code::javascript
+   .. code:: javascript
 
       const power = (base, exponent) => {
          let result = 1;
@@ -2541,7 +2549,7 @@ Arrow functions
    block in braces, that expression will be returned from the function. So, these
    two definitions of square do the same thing:
 
-   .. code::javascript
+   .. code:: javascript
 
       const square1 = (x) => { return x * x; };
       const square2 = x => x * x;
@@ -2549,7 +2557,7 @@ Arrow functions
    When an arrow function has no parameters at all, its parameter list is just
    an empty set of parentheses.
 
-   .. code::javascript
+   .. code:: javascript
 
       const horn = () => {
          console.log("Toot");
@@ -2570,7 +2578,7 @@ The call stack
    The way control flows through functions is somewhat involved. Let’s take a
    closer look at it. Here is a simple program that makes a few function calls:
 
-   .. code::javascript
+   .. code:: javascript
 
       function greet(who) {
          console.log("Hello " + who);
@@ -2587,7 +2595,7 @@ The call stack
 
    We could show the flow of control schematically like this:
 
-   .. code::javascript
+   .. code:: javascript
 
       not in function
       in greet
@@ -2618,7 +2626,7 @@ The call stack
    two functions. Rather, it would be infinite, if the computer had an infinite
    stack. As it is, we will run out of space, or “blow the stack”.
 
-   .. code::javascript
+   .. code:: javascript
 
       function chicken() {
          return egg();
@@ -2634,7 +2642,7 @@ Optional Arguments
 
    The following code is allowed and executes without any problem:
 
-   .. code::javascript
+   .. code:: javascript
 
       function square(x) { return x * x; }
       console.log(square(4, true, "hedgehog"));
@@ -2659,7 +2667,7 @@ Optional Arguments
 
    imitate the - operator by acting on either one or two arguments:
 
-   .. code::javascript
+   .. code:: javascript
 
       function minus(a, b) {
          if (b === undefined) return -a;
@@ -2676,7 +2684,7 @@ Optional Arguments
    you don’t provide it or pass the value undefined , it will default to two, and the
    function will behave like ``square`` .
 
-   .. code::javascript
+   .. code:: javascript
 
       function power(base, exponent = 2) {
          let result = 1;
@@ -2695,7 +2703,7 @@ Optional Arguments
    it possible for a function to accept any number of arguments. For example,
    ``console.log`` does this—it outputs all of the values it is given.
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log("C", "O", 2);
       // → C O 2
@@ -2717,7 +2725,7 @@ Closure
    that creates a ``local`` binding. It then returns a function that accesses and 
    returns this ``local`` binding.
 
-   .. code::javascript
+   .. code:: javascript
 
       function wrapValue(n) {
          let local = n;
@@ -2744,7 +2752,7 @@ Closure
    With a slight change, we can turn the previous example into a way to create
    functions that multiply by an arbitrary amount.
 
-   .. code::javascript
+   .. code:: javascript
 
       function multiplier(factor) {
          return number => number * factor;
@@ -2777,7 +2785,7 @@ Recursion
    Recursion allows some functions to be written in a different style. Take, for
    example, this alternative implementation of ``power`` :
 
-   .. code::javascript
+   .. code:: javascript
 
       function power(base, exponent) {
          if (exponent == 0) {
@@ -2835,7 +2843,7 @@ Recursion
 
    Here is a recursive solution:
 
-   .. code::javascript
+   .. code:: javascript
 
       function findSolution(target) {
          function find(current, history) {
@@ -2880,7 +2888,7 @@ Recursion
    let’s look at all the calls to find that are made when searching for a solution
    for the number 13.
 
-   .. code::javascript
+   .. code:: javascript
 
       find(1, "1")
       find(6, "(1 + 5)")
@@ -2937,7 +2945,7 @@ Growing functions
    and chickens on a farm, with the words Cows and Chickens after them and zeros
    padded before both numbers so that they are always three digits long.
 
-   .. code::javascript
+   .. code:: javascript
 
       007 Cows
       011 Chickens
@@ -2948,7 +2956,7 @@ Growing functions
 .. _P054:
 
 
-   .. code::javascript
+   .. code:: javascript
 
       function printFarmInventory(cows, chickens) {
          let cowString = String(cows);
@@ -2976,7 +2984,7 @@ Growing functions
    four lines one more time, we stop and reconsider. There has to be a better way.
    Here’s a first attempt:
 
-   .. code::javascript
+   .. code:: javascript
 
       function printZeroPaddedWithLabel(number, label) {
          let numberString = String(number);
@@ -3002,7 +3010,7 @@ Growing functions
    Instead of lifting out the repeated part of our program wholesale, let’s try
    to pick out a single concept.
 
-   .. code::javascript
+   .. code:: javascript
 
       function zeroPad(number, width) {
          let string = String(number);
@@ -3076,7 +3084,7 @@ Summary
    a statement, it can be used to declare a binding and give it a function as its
    value. Arrow functions are yet another way to create functions.
 
-   .. code::javascript
+   .. code:: javascript
 
       // Define f to hold a function value
       const f = function(a) {
@@ -3230,7 +3238,7 @@ Data sets
    of values. It is called an array and is written as a list of values between square
    brackets, separated by commas.
 
-   .. code::javascript
+   .. code:: javascript
 
       let listOfNumbers = [2, 3, 5, 7, 11];
       console.log(listOfNumbers[2]);
@@ -3270,7 +3278,7 @@ Properties
    undefined . If you try to access a property on one of these nonvalues, you get
    an error.
 
-   .. code::javascript
+   .. code:: javascript
 
       null.length;
       // → TypeError: null has no properties
@@ -3311,7 +3319,7 @@ Methods
    Both string and array values contain, in addition to the length property, a
    number of properties that hold function values.
 
-   .. code::javascript
+   .. code:: javascript
 
       let doh = "Doh";
       console.log(typeof doh.toUpperCase);
@@ -3332,7 +3340,7 @@ Methods
 
    This example demonstrates two methods you can use to manipulate arrays:
 
-   .. code::javascript
+   .. code:: javascript
 
       let sequence = [1, 2, 3];
       sequence.push(4);
@@ -3369,7 +3377,7 @@ Objects
    Values of the type object are arbitrary collections of properties. One way to
    create an object is by using braces as an expression.
 
-   .. code::javascript
+   .. code:: javascript
 
       let day1 = {
          squirrel: false,
@@ -3389,7 +3397,7 @@ Objects
    Properties whose names aren’t valid binding names or valid numbers have to
    be quoted.
 
-   .. code::javascript
+   .. code:: javascript
 
       let descriptions = {
          work: "Went to work",
@@ -3417,7 +3425,7 @@ Objects
    operator that, when applied to an object property, will remove the named
    property from the object. This is not a common thing to do, but it is possible.
 
-   .. code::javascript
+   .. code:: javascript
 
       let anObject = {left: 1, right: 2};
       console.log(anObject.left);
@@ -3441,7 +3449,7 @@ Objects
    function. You give it an object, and it returns an array of strings—the object’s
    property names.
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log(Object.keys({x: 0, y: 0, z: 2}));
       // → ["x", "y", "z"]
@@ -3453,7 +3461,7 @@ Objects
 .. _P065:
 
 
-   .. code::javascript
+   .. code:: javascript
 
       let objectA = {a: 1, b: 2};
       Object.assign(objectA, {b: 3, c: 4});
@@ -3465,7 +3473,7 @@ Objects
    long, flat octopuses with all their tentacles in a neat row, labeled with numbers.
    We will represent the journal that Jacques keeps as an array of objects.
 
-   .. code::javascript
+   .. code:: javascript
 
       let journal = [
          {events: ["work", "touched tree", "pizza", "running", "television"],
@@ -3504,7 +3512,7 @@ Mutability
    and having two different objects that contain the same properties. Consider
    the following code:
 
-   .. code::javascript
+   .. code:: javascript
 
       let object1 = {value: 10};
       let object2 = object1;
@@ -3531,7 +3539,7 @@ Mutability
    not be changed and will continue to point at the same object, the contents of
    that object might change.
 
-   .. code::javascript
+   .. code:: javascript
 
       const score = {visitors: 0, home: 0};
       // This is okay
@@ -3555,7 +3563,7 @@ The lycanthrope's log
    So, Jacques starts up his JavaScript interpreter and sets up the environment
    he needs to keep his journal.
 
-   .. code::javascript
+   .. code:: javascript
 
       let journal = [];
       function addEntry(events, squirrel) {
@@ -3571,7 +3579,7 @@ The lycanthrope's log
    So then, every evening at 10 p.m.—or sometimes the next morning, after
    climbing down from the top shelf of his bookcase—Jacques records the day.
 
-   .. code::javascript
+   .. code:: javascript
 
       addEntry(["work", "touched tree", "pizza", "running",
                "television"], false);
@@ -3605,7 +3613,7 @@ The lycanthrope's log
    like this, where each number indicates the amount of times that combination
    occurred in our measurements:
 
-   .. code::javascript
+   .. code:: javascript
 
       🍕🐿 No squirrel, no pizza 76
       🍕🐿 Squirrel, no pizza 4
@@ -3614,7 +3622,7 @@ The lycanthrope's log
 
    If we call that table n, we can compute φ using the following formula:
 
-   .. code::javascript
+   .. code:: javascript
 
             n_11 n_00 − n_10 n_01
       φ = --------------------------
@@ -3659,7 +3667,7 @@ Computing correlation
 
    This is the function that computes the φ coefficient from such an array:
 
-   .. code::javascript
+   .. code:: javascript
 
       function phi(table) {
          return (table[3] * table[0] - table[2] * table[1]) /
@@ -3689,7 +3697,7 @@ Computing correlation
 .. _P070:
 
 
-   .. code::javascript
+   .. code:: javascript
 
       function tableFor(event, journal) {
          let table = [0, 0, 0, 0];
@@ -3722,7 +3730,7 @@ Array loops
 
    In the ``tableFor`` function, there’s a loop like this:
 
-   .. code::javascript
+   .. code:: javascript
 
       for (let i = 0; i < JOURNAL.length; i++) {
          let entry = JOURNAL[i];
@@ -3738,7 +3746,7 @@ Array loops
 .. _P071:
 
 
-   .. code::javascript
+   .. code:: javascript
 
       for (let entry of JOURNAL) {
          console.log(`${entry.events.length} events.`);
@@ -3755,7 +3763,7 @@ The final analysis
    We need to compute a correlation for every type of event that occurs in the
    data set. To do that, we first need to find every type of event.
 
-   .. code::javascript
+   .. code:: javascript
 
       function journalEvents(journal) {
          let events = [];
@@ -3776,7 +3784,7 @@ The final analysis
 
    Using that, we can see all the correlations.
 
-   .. code::javascript
+   .. code:: javascript
 
       for (let event of journalEvents(JOURNAL)) {
          console.log(event + ":", phi(tableFor(event, JOURNAL)));
@@ -3797,7 +3805,7 @@ The final analysis
    what more often on weekends. Let’s filter the results to show only correlations
    greater than 0.1 or less than -0.1.
 
-   .. code::javascript
+   .. code:: javascript
 
       for (let event of journalEvents(JOURNAL)) {
          let correlation = phi(tableFor(event, JOURNAL));
@@ -3818,7 +3826,7 @@ The final analysis
    into a squirrel, whereas brushing his teeth has a significant negative effect.
    Interesting. Let’s try something.
 
-   .. code::javascript
+   .. code:: javascript
 
       for (let entry of JOURNAL) {
          if (entry.events.includes("peanuts") &&
@@ -3858,7 +3866,7 @@ Further arrayology
    earlier in this chapter. The corresponding methods for adding and removing
    things at the start of an array are called unshift and shift .
 
-   .. code::javascript
+   .. code:: javascript
 
       let todoList = [];
       function remember(task) {
@@ -3885,7 +3893,7 @@ Further arrayology
 .. _P074:
 
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log([1, 2, 3, 2, 1].indexOf(2));
       // → 1
@@ -3899,7 +3907,7 @@ Further arrayology
    and returns an array that has only the elements between them. The start
    index is inclusive, the end index exclusive.
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log([0, 1, 2, 3, 4].slice(2, 4));
       // → [2, 3]
@@ -3915,7 +3923,7 @@ Further arrayology
    array and an index, and it returns a new array that is a copy of the original
    array with the element at the given index removed.
 
-   .. code::javascript
+   .. code:: javascript
 
       function remove(array, index) {
          return array.slice(0, index)
@@ -3937,7 +3945,7 @@ Strings and their properties
 .. _P075:
 
 
-   .. code::javascript
+   .. code:: javascript
 
       let kim = "Kim";
       kim.age = 88;
@@ -3953,7 +3961,7 @@ Strings and their properties
    of methods. Some very useful ones are slice and indexOf , which resemble the
    array methods of the same name.
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log("coconuts".slice(4, 7));
       // → nut
@@ -3964,7 +3972,7 @@ Strings and their properties
    more than one character, whereas the corresponding array method looks only
    for a single element.
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log("one two three".indexOf("ee"));
       // → 11
@@ -3972,7 +3980,7 @@ Strings and their properties
    The trim method removes whitespace (spaces, newlines, tabs, and similar
    characters) from the start and end of a string.
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log(" okay \n ".trim());
       // → okay
@@ -3985,7 +3993,7 @@ Strings and their properties
 .. _P076:
 
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log(String(6).padStart(3, "0"));
       // → 006
@@ -3993,7 +4001,7 @@ Strings and their properties
    You can ``split`` a string on every occurrence of another string with ``split`` and
    ``join`` it again with ``join`` .
 
-   .. code::javascript
+   .. code:: javascript
 
       let sentence = "Secretarybirds specialize in stomping";
       let words = sentence.split(" ");
@@ -4005,7 +4013,7 @@ Strings and their properties
    A string can be repeated with the ``repeat`` method, which creates a new string
    containing multiple copies of the original string, glued together.
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log("LA".repeat(3));
       // → LALALA
@@ -4014,7 +4022,7 @@ Strings and their properties
    vidual characters in a string looks like accessing array elements (with a caveat
    that we’ll discuss in Chapter 5).
 
-   .. code::javascript
+   .. code:: javascript
 
       let string = "abc";
       console.log(string.length);
@@ -4034,7 +4042,7 @@ Rest parameters
 .. _P077:
 
 
-   .. code::javascript
+   .. code:: javascript
 
       function max(...numbers) {
          let result = -Infinity;
@@ -4054,7 +4062,7 @@ Rest parameters
    You can use a similar three-dot notation to call a function with an array of
    arguments.
 
-   .. code::javascript
+   .. code:: javascript
 
       let numbers = [5, 1, 7];
       console.log(max(...numbers));
@@ -4067,7 +4075,7 @@ Rest parameters
    Square bracket array notation similarly allows the triple-dot operator to
    spread another array into the new array.
 
-   .. code::javascript
+   .. code:: javascript
 
       let words = ["never", "fully"];
       console.log(["will", ...words, "understand"]);
@@ -4106,7 +4114,7 @@ The ``Math`` object
    number—is available as ``Math.PI`` . There is an old programming tradition of 
    writing the names of constant values in all caps.
 
-   .. code::javascript
+   .. code:: javascript
 
       function randomPointOnCircle(radius) {
          let angle = Math.random() * 2 * Math.PI;
@@ -4123,7 +4131,7 @@ The ``Math`` object
    new pseudorandom number between zero (inclusive) and one (exclusive) every
    time you call it.
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log(Math.random());
       // → 0.36993729369714856
@@ -4147,7 +4155,7 @@ The ``Math`` object
    ``Math.floor`` (which rounds down to the nearest whole number) on the result of
    Math.random .
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log(Math.floor(Math.random() * 10));
       // → 2
@@ -4166,7 +4174,7 @@ Destructuring
 
    Let’s go back to the phi function for a moment.
 
-   .. code::javascript
+   .. code:: javascript
 
       function phi(table) {
          return (table[3] * table[0] - table[2] * table[1]) /
@@ -4184,7 +4192,7 @@ Destructuring
 .. _P080:
 
 
-   .. code::javascript
+   .. code:: javascript
 
       function phi([n00, n01, n10, n11]) {
          return (n11 * n00 - n10 * n01) /
@@ -4198,7 +4206,7 @@ Destructuring
 
    A similar trick works for objects, using braces instead of square brackets.
 
-   .. code::javascript
+   .. code:: javascript
 
       let {name} = {name: "Faraji", age: 23};
       console.log(name);
@@ -4240,7 +4248,7 @@ JSON
 
    A journal entry might look like this when represented as JSON data:
 
-   .. code::javascript
+   .. code:: javascript
 
       {
       "squirrel": false,
@@ -4252,7 +4260,7 @@ JSON
    a JSON-encoded string. The second takes such a string and converts it to the
    value it encodes.
 
-   .. code::javascript
+   .. code:: javascript
 
       let string = JSON.stringify({squirrel: false, events: ["weekend"]});
       console.log(string);
@@ -4294,7 +4302,7 @@ The sum of a range
    The introduction of this book alluded to the following as a nice way to compute
    the sum of a range of numbers:
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log(sum(range(1, 10)));
 
@@ -4334,7 +4342,7 @@ A list
    list is a nested set of objects, with the first object holding a reference to the
    second, the second to the third, and so on.
 
-   .. code::javascript
+   .. code:: javascript
 
       let list = {
          value: 1,
@@ -4349,7 +4357,7 @@ A list
 
    The resulting objects form a chain, like this:
 
-   .. code::javascript
+   .. code:: javascript
 
       ╭──────────╮   ╭──────────╮   ╭──────────╮   
       │ value: 1 │   │ value: 2 │   │ value: 3 │   
@@ -4418,7 +4426,7 @@ Chapter 5 Higher-Order Functions
    Let’s briefly go back to the final two example programs in the introduction.
    The first is self-contained and six lines long.
 
-   .. code::javascript
+   .. code:: javascript
 
       let total = 0, count = 1;
       while (count <= 10) {
@@ -4429,7 +4437,7 @@ Chapter 5 Higher-Order Functions
 
    The second relies on two external functions and is one line long.
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log(sum(range(1, 10)));
 
@@ -4508,7 +4516,7 @@ Abstracting repetition
    It is common for a program to do something a given number of times. You
    can write a for loop for that, like this:
 
-   .. code::javascript
+   .. code:: javascript
 
       for (let i = 0; i < 10; i++) {
          console.log(i);
@@ -4517,7 +4525,7 @@ Abstracting repetition
    Can we abstract “doing something N times” as a function? Well, it’s easy
    to write a function that calls console.log N times.
 
-   .. code::javascript
+   .. code:: javascript
 
       function repeatLog(n) {
          for (let i = 0; i < n; i++) {
@@ -4529,7 +4537,7 @@ Abstracting repetition
    “doing something” can be represented as a function and functions are just
    values, we can pass our action as a function value.
 
-   .. code::javascript
+   .. code:: javascript
 
       function repeat(n, action) {
          for (let i = 0; i < n; i++) {
@@ -4544,7 +4552,7 @@ Abstracting repetition
    We don’t have to pass a predefined function to repeat . Often, it is easier to
    create a function value on the spot instead.
 
-   .. code::javascript
+   .. code:: javascript
 
       let labels = [];
       repeat(5, i => {
@@ -4577,7 +4585,7 @@ Higher-order functions
    They come in several forms. For example, we can have functions that create
    new functions.
 
-   .. code::javascript
+   .. code:: javascript
 
       function greaterThan(n) {
          return m => m > n;
@@ -4588,7 +4596,7 @@ Higher-order functions
 
    And we can have functions that change other functions.
 
-   .. code::javascript
+   .. code:: javascript
 
 
       function noisy(f) {
@@ -4607,7 +4615,7 @@ Higher-order functions
 
    We can even write functions that provide new types of control flow.
 
-   .. code::javascript
+   .. code:: javascript
 
       function unless(test, then) {
          if (!test) then();
@@ -4623,7 +4631,7 @@ Higher-order functions
    There is a built-in array method, forEach , that provides something like a
    ``for/of`` loop as a higher-order function.
 
-   .. code::javascript
+   .. code:: javascript
 
       ["A", "B"].forEach(l => console.log(l));
       // → A
@@ -4654,7 +4662,7 @@ Script data set
    (https://eloquentjavascript.net/code#5) as the SCRIPTS binding. The binding
    contains an array of objects, each of which describes a script.
 
-   .. code::javascript
+   .. code:: javascript
 
       {
       name: "Coptic",
@@ -4684,7 +4692,7 @@ Filtering arrays
    To find the scripts in the data set that are still in use, the following function
    might be helpful. It filters out the elements in an array that don’t pass a test.
 
-   .. code::javascript
+   .. code:: javascript
 
       function filter(array, test) {
          let passed = [];
@@ -4712,7 +4720,7 @@ Filtering arrays
    function only to show what it does internally. From now on, we’ll use it like
    this instead:
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log(SCRIPTS.filter(s => s.direction == "ttb"));
       // → [{name: "Mongolian", …}, …]
@@ -4729,7 +4737,7 @@ Transforming with map
    will have the same length as the input array, but its content will have been
    mapped to a new form by the function.
 
-   .. code::javascript
+   .. code:: javascript
 
       function map(array, transform) {
          let mapped = [];
@@ -4762,7 +4770,7 @@ Summarizing with reduce
    and a start value. This function is a little less straightforward than ``filter`` and
    ``map`` , so take a close look at it:
 
-   .. code::javascript
+   .. code:: javascript
 
       function reduce(array, combine, start) {
          let current = start;
@@ -4779,7 +4787,7 @@ Summarizing with reduce
    you are allowed to leave off the start argument. The method will take the first
    element of the array as its start value and start reducing at the second element.
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log([1, 2, 3, 4].reduce((a, b) => a + b));
       // → 10
@@ -4789,7 +4797,7 @@ Summarizing with reduce
    To use reduce (twice) to find the script with the most characters, we can
    write something like this:
 
-   .. code::javascript
+   .. code:: javascript
 
       function characterCount(script) {
          return script.ranges.reduce((count, [from, to]) => {
@@ -4820,7 +4828,7 @@ Composability
    Consider how we would have written the previous example (finding the biggest
    script) without higher-order functions. The code is not that much worse.
 
-   .. code::javascript
+   .. code:: javascript
 
       let biggest = null;
       for (let script of SCRIPTS) {
@@ -4841,7 +4849,7 @@ Composability
    As an example, let’s write code that finds the ``average`` year of origin for 
    living and dead scripts in the data set.
 
-   .. code::javascript
+   .. code:: javascript
 
       function average(array) {
          return array.reduce((a, b) => a + b) / array.length;
@@ -4861,7 +4869,7 @@ Composability
 
    You could definitely also write this computation as one big loop.
 
-   .. code::javascript
+   .. code:: javascript
 
       let total = 0, count = 0;
       for (let script of SCRIPTS) {
@@ -4897,7 +4905,7 @@ Strings and character codes
    with it. So given a character code, we could use a function like this to find 
    the corresponding script (if any):
 
-   .. code::javascript
+   .. code:: javascript
 
       function characterScript(code) {
          for (let script of SCRIPTS) {
@@ -4943,7 +4951,7 @@ Strings and character codes
    length through the length property and accessing their content using square
    brackets, deal only with code units.
 
-   .. code::javascript
+   .. code:: javascript
 
       // Two emoji characters, horse and shoe
       let horseShoe = "🐴👟";
@@ -4968,7 +4976,7 @@ Strings and character codes
    people were acutely aware of the problems with UTF-16. When you use it to
    loop over a string, it gives you real characters, not code units.
 
-   .. code::javascript
+   .. code:: javascript
 
       let roseDragon = "🌹🐉";
       for (let char of roseDragon) {
@@ -4989,7 +4997,7 @@ Recognizing text
    ters. The next step is to count the characters that belong to each script. The
    following counting abstraction will be useful there:
 
-   .. code::javascript
+   .. code:: javascript
 
       function countBy(items, groupName) {
          let counts = [];
@@ -5024,7 +5032,7 @@ Recognizing text
 .. _P098:
 
 
-   .. code::javascript
+   .. code:: javascript
 
       function textScripts(text) {
          let scripts = countBy(text, char => {
@@ -5178,7 +5186,7 @@ Methods
    Methods are nothing more than properties that hold function values. This is a
    simple method:
 
-   .. code::javascript
+   .. code:: javascript
 
       let rabbit = {};
       rabbit.speak = function(line) {
@@ -5192,7 +5200,7 @@ Methods
    called, as in ``object.method()`` —the binding called this in its body 
    automatically points at the object that it was called on.
 
-   .. code::javascript
+   .. code:: javascript
 
       function speak(line) {
          console.log(`The ${this.type} rabbit says '${line}'`);
@@ -5214,7 +5222,7 @@ Methods
 .. _P102:
 
 
-   .. code::javascript
+   .. code:: javascript
 
       speak.call(hungryRabbit, "Burp!");
       // → The hungry rabbit says 'Burp!'
@@ -5227,7 +5235,7 @@ Methods
    the this binding of the scope around them. Thus, you can do something like
    the following code, which references this from inside a local function:
 
-   .. code::javascript
+   .. code:: javascript
 
       function normalize() {
          console.log(this.coords.map(n => n / this.length));
@@ -5243,7 +5251,7 @@ Prototypes
 
    Watch closely.
 
-   .. code::javascript
+   .. code:: javascript
 
       let empty = {};
       console.log(empty.toString);
@@ -5267,7 +5275,7 @@ Prototypes
    prototype, the entity behind almost all objects, ``Object.prototype`` .
 
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log(Object.getPrototypeOf({}) == Object.prototype);
       // → true
@@ -5285,7 +5293,7 @@ Prototypes
    Functions derive from ``Function.prototype`` , and arrays derive from 
    ``Array.prototype`` .
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log(Object.getPrototypeOf(Math.max) == Function.prototype);
       // → true
@@ -5297,7 +5305,7 @@ Prototypes
 
    You can use Object.create to create an object with a specific prototype.
 
-   .. code::javascript
+   .. code:: javascript
 
       let protoRabbit = {
          speak(line) {
@@ -5338,7 +5346,7 @@ Classes
    the properties that instances of this class are supposed to have. This is what a
    constructor function does.
 
-   .. code::javascript
+   .. code:: javascript
 
       function makeRabbit(type) {
          let rabbit = Object.create(protoRabbit);
@@ -5359,7 +5367,7 @@ Classes
 .. _P105:
 
 
-   .. code::javascript
+   .. code:: javascript
 
       function Rabbit(type) {
          this.type = type;
@@ -5384,7 +5392,7 @@ Classes
    are functions. Its prototype property holds the prototype used for instances
    created through it.
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log(Object.getPrototypeOf(Rabbit) == Function.prototype);
       // → true
@@ -5402,7 +5410,7 @@ Class notation
 .. _P106:
 
 
-   .. code::javascript
+   .. code:: javascript
 
       class Rabbit {
          constructor(type) {
@@ -5435,7 +5443,7 @@ Class notation
    constructor as a value. You are allowed to omit the class name in a ``class``
    expression.
 
-   .. code::javascript
+   .. code:: javascript
 
       let object = new class { getWord() { return "hello"; } };
       console.log(object.getWord());
@@ -5453,7 +5461,7 @@ Overriding derived properties
 .. _P107:
 
 
-   .. code::javascript
+   .. code:: javascript
 
       Rabbit.prototype.teeth = "small";
       console.log(killerRabbit.teeth);
@@ -5470,7 +5478,7 @@ Overriding derived properties
    ``Rabbit`` and ``Object`` prototypes lie behind killerRabbit as a kind of backdrop,
    where properties that are not found in the object itself can be looked up.
 
-   .. code::javascript
+   .. code:: javascript
 
                                       ╭─────────────╮            
                                       │ Rabbit      │            
@@ -5496,7 +5504,7 @@ Overriding derived properties
    Overriding is also used to give the standard function and array prototypes a
    different ``toString`` method than the basic object prototype.
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log(Array.prototype.toString == Object.prototype.toString);
       // → false
@@ -5512,7 +5520,7 @@ Overriding derived properties
    That function doesn’t know about arrays, so it simply puts the word object 
    and the name of the type between square brackets.
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log(Object.prototype.toString.call([1, 2]));
       // → [object Array]
@@ -5529,7 +5537,7 @@ Maps
    values. For example, you might want to map names to ages. It is possible to
    use objects for this.
 
-   .. code::javascript
+   .. code:: javascript
 
       let ages = {
          Boris: 39,
@@ -5557,7 +5565,7 @@ Maps
 .. _P109:
 
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log("toString" in Object.create(null));
       // → false
@@ -5569,7 +5577,7 @@ Maps
    Fortunately, JavaScript comes with a class called Map that is written for this
    exact purpose. It stores a mapping and allows any type of keys.
 
-   .. code::javascript
+   .. code:: javascript
 
       let ages = new Map();
       ages.set("Boris", 39);
@@ -5592,7 +5600,7 @@ Maps
    those in the prototype. As an alternative to the in operator, you can use the
    ``hasOwnProperty`` method, which ignores the object’s prototype.
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log({x: 1}.hasOwnProperty("x"));
       // → true
@@ -5610,7 +5618,7 @@ Polymorphism
    their own version of ``toString`` so they can create a string that contains more
    useful information than "[object Object]" . You can also do that yourself.
 
-   .. code::javascript
+   .. code:: javascript
 
       Rabbit.prototype.toString = function() {
          return `a ${this.type} rabbit`;
@@ -5652,7 +5660,7 @@ Symbols
    created with the ``Symbol`` function. Unlike strings, newly created symbols are
    unique—you cannot create the same symbol twice.
 
-   .. code::javascript
+   .. code:: javascript
 
       let sym = Symbol("name");
       console.log(sym == Symbol("name"));
@@ -5670,7 +5678,7 @@ Symbols
    defining interfaces that can peacefully live alongside other properties, no
    matter what their names are.
 
-   .. code::javascript
+   .. code:: javascript
 
       const toStringSymbol = Symbol("toString");
       Array.prototype[toStringSymbol] = function() {
@@ -5686,7 +5694,7 @@ Symbols
    name to be evaluated, much like the square bracket property access notation,
    which allows us to refer to a binding that holds the symbol.
 
-   .. code::javascript
+   .. code:: javascript
 
       let stringObject = {
          [toStringSymbol]() { return "a jute rope"; }
@@ -5716,7 +5724,7 @@ The iterator interface
 
    We can directly use this interface ourselves.
 
-   .. code::javascript
+   .. code:: javascript
 
       let okIterator = "OK"[Symbol.iterator]();
       console.log(okIterator.next());
@@ -5729,7 +5737,7 @@ The iterator interface
    Let’s implement an iterable data structure. We’ll build a matrix class, acting
    as a two-dimensional array.
 
-   .. code::javascript
+   .. code:: javascript
 
       class Matrix {
          constructor(width, height, element = (x, y) => undefined) {
@@ -5765,7 +5773,7 @@ The iterator interface
    elements as well as the elements themselves, so we’ll have our iterator produce
    objects with x , y , and value properties.
 
-   .. code::javascript
+   .. code:: javascript
 
       class MatrixIterator {
          constructor(matrix) {
@@ -5801,7 +5809,7 @@ The iterator interface
    In a regular program, where there is no need to split the code into small pieces, 
    you’d declare these methods directly in the class instead.
 
-   .. code::javascript
+   .. code:: javascript
 
       Matrix.prototype[Symbol.iterator] = function() {
          return new MatrixIterator(this);
@@ -5809,7 +5817,7 @@ The iterator interface
 
    We can now loop over a matrix with ``for/of`` .
 
-   .. code::javascript
+   .. code:: javascript
 
       let matrix = new Matrix(2, 2, (x, y) => `value ${x},${y}`);
       for (let {x, y, value} of matrix) {
@@ -5833,7 +5841,7 @@ Getters, setters, and statics
    by writing get in front of the method name in an object expression or class
    declaration.
 
-   .. code::javascript
+   .. code:: javascript
 
       let varyingSize = {
          get size() {
@@ -5852,7 +5860,7 @@ Getters, setters, and statics
    method is called. You can do a similar thing when a property is written to,
    using a setter.
 
-   .. code::javascript
+   .. code:: javascript
 
       class Temperature {
          constructor(celsius) {
@@ -5911,7 +5919,7 @@ Inheritance
    **In object-oriented programming terms, this is called ``inheritance``. 
    The new class inherits properties and behavior from the old class.**
 
-   .. code::javascript
+   .. code:: javascript
 
       class SymmetricMatrix extends Matrix {
          constructor(size, element = (x, y) => undefined) {
@@ -5971,7 +5979,7 @@ The instanceof operator
    It is occasionally useful to know whether an object was derived from a specific
    class. For this, JavaScript provides a binary operator called ``instanceof`` .
 
-   .. code::javascript
+   .. code:: javascript
 
       console.log(
       new SymmetricMatrix(2) instanceof SymmetricMatrix);
@@ -6120,7 +6128,7 @@ Meadowfield
    The village of ``Meadowfield`` isn’t very big. It consists of 11 places with 14 roads
    between them. It can be described with this array of roads:
 
-   .. code::javascript
+   .. code:: javascript
 
       const roads = [
       "Alice's House-Bob's House", "Alice's House-Cabin",
@@ -6150,7 +6158,7 @@ Meadowfield
    of roads to a data structure that, for each place, tells us what can be reached
    from there.
 
-   .. code::javascript
+   .. code:: javascript
 
       function buildGraph(edges) {
          let graph = Object.create(null);
@@ -6220,7 +6228,7 @@ The task
 .. _P124:
 
 
-   .. code::javascript
+   .. code:: javascript
 
       class VillageState {
          constructor(place, parcels) {
@@ -6254,7 +6262,7 @@ The task
    Parcel objects aren’t changed when they are moved but re-created. The move
    method gives us a new village state but leaves the old one entirely intact.
 
-   .. code::javascript
+   .. code:: javascript
 
       let first = new VillageState(
          "Post Office",
@@ -6290,7 +6298,7 @@ Persistent data
    having them do the wrong thing. So I usually prefer to just tell people that a
    given object shouldn’t be messed with and hope they remember it.
 
-   .. code::javascript
+   .. code:: javascript
 
       let object = Object.freeze({value: 5});
       object.value = 10;
@@ -6334,7 +6342,7 @@ Simulation
    both the direction it wants to move in and a memory value that will be given
    back to it the next time it is called.
 
-   .. code::javascript
+   .. code:: javascript
 
       function runRobot(state, robot, memory) {
          for (let turn = 0;; turn++) {
@@ -6364,7 +6372,7 @@ Simulation
 .. _P127:
 
 
-   .. code::javascript
+   .. code:: javascript
 
       function randomPick(array) {
          let choice = Math.floor(Math.random() * array.length);
@@ -6385,7 +6393,7 @@ Simulation
    new state with some parcels. A static method (written here by directly adding
    a property to the constructor) is a good place to put that functionality.
 
-   .. code::javascript
+   .. code:: javascript
 
       VillageState.random = function(parcelCount = 5) {
          let parcels = [];
@@ -6406,7 +6414,7 @@ Simulation
 
    Let’s start up a virtual world.
 
-   .. code::javascript
+   .. code:: javascript
 
       runRobot(VillageState.random(), randomRobot);
       // → Moved to Marketplace
@@ -6429,7 +6437,7 @@ The mail truck's route
    route twice, at which point it is guaranteed to be done. Here is one such route
    (starting from the post office):
 
-   .. code::javascript
+   .. code:: javascript
 
       const mailRoute = [
       "Alice's House", "Cabin", "Alice's House", "Bob's House",
@@ -6442,7 +6450,7 @@ The mail truck's route
    memory. The robot keeps the rest of its route in its memory and drops the
    first element every turn.
 
-   .. code::javascript
+   .. code:: javascript
 
       function routeRobot(state, memory) {
          if (memory.length == 0) {
@@ -6490,7 +6498,7 @@ Pathfinding
 
    Here is a function that does this:
 
-   .. code::javascript
+   .. code:: javascript
 
       function findRoute(graph, from, to) {
          let work = [{at: from, route: []}];
@@ -6536,7 +6544,7 @@ Pathfinding
    every location can be reached from all other locations. We’ll always be able to
    find a route between two points, and the search can’t fail.
 
-   .. code::javascript
+   .. code:: javascript
 
       function goalOrientedRobot({place, parcels}, route) {
          if (route.length == 0) {
@@ -6670,7 +6678,7 @@ Strict mode
    putting the string "use strict" at the top of a file or a function body. Here’s
    an example:
 
-   .. code::javascript
+   .. code:: javascript
 
       function canYouSpotTheProblem() {
          "use strict";
@@ -6700,7 +6708,7 @@ Strict mode
    without the new keyword so that its this will not refer to a newly constructed
    object:
 
-   .. code::javascript
+   .. code:: javascript
 
       function Person(name) { this.name = name; }
       let ferdinand = Person("Ferdinand"); // oops
@@ -6713,7 +6721,7 @@ Strict mode
 
    created the global binding name . In strict mode, the result is different.
 
-   .. code::javascript
+   .. code:: javascript
 
       "use strict";
       function Person(name) { this.name = name; }
@@ -6751,7 +6759,7 @@ Types
    You could add a comment like the following before the ``goalOrientedRobot``
    function from the previous chapter to describe its type:
 
-   .. code::javascript
+   .. code:: javascript
 
       // (VillageState, Array) → {direction: string, memory: Array}
       function goalOrientedRobot(state, memory) {
@@ -6802,7 +6810,7 @@ Testing
    of your code. For example, a set of tests for the (standard, probably already
    tested by someone else) ``toUpperCase`` method might look like this:
 
-   .. code::javascript
+   .. code:: javascript
 
       function test(label, body) {
          if (!body()) console.log(`Failed: ${label}`);
@@ -6856,7 +6864,7 @@ Debugging
 .. _P137:
 
 
-   .. code::javascript
+   .. code:: javascript
 
       function numberToString(n, base = 10) {
          let result = "", sign = "";
@@ -6886,7 +6894,7 @@ Debugging
    want n to take the values 13 , 1 , and then 0 . Let’s write out its value at the
    start of the loop.
 
-   .. code::javascript
+   .. code:: javascript
 
       13
       1.3
@@ -6936,7 +6944,7 @@ Error propagation
    One option is to make it return a special value. Common choices for such
    values are ``null`` , ``undefined`` , or -1.
 
-   .. code::javascript
+   .. code:: javascript
 
       function promptNumber(question) {
          let result = Number(prompt(question));
@@ -6960,7 +6968,7 @@ Error propagation
    you’ll have to do something like wrap the result in an object to be able to
    distinguish success from failure.
 
-   .. code::javascript
+   .. code:: javascript
 
       function lastElement(array) {
          if (array.length == 0) {
@@ -7005,7 +7013,7 @@ Exceptions
 .. _P140:
 
 
-   .. code::javascript
+   .. code:: javascript
 
       function promptDirection(question) {
          let result = prompt(question);
@@ -7064,7 +7072,7 @@ Cleaning up after exceptions
 
    Here is some really bad banking code.
 
-   .. code::javascript
+   .. code:: javascript
 
       const accounts = {
          a: 100,
@@ -7111,7 +7119,7 @@ Cleaning up after exceptions
    addition to a ``catch`` block. A ``finally`` block says “no matter what happens, run
    this code after trying to run the code in the ``try`` block.”
 
-   .. code::javascript
+   .. code:: javascript
 
       function transfer(from, amount) {
          if (accounts[from] < amount) return;
@@ -7182,7 +7190,7 @@ Selective catching
    have introduced a bug that is causing an exception. Here is an example that
    attempts to keep on calling ``promptDirection`` until it gets a valid answer:
 
-   .. code::javascript
+   .. code:: javascript
 
       for (;;) {
          try {
@@ -7221,7 +7229,7 @@ Selective catching
 
    Rather, let’s define a new type of error and use instanceof to identify it.
 
-   .. code::javascript
+   .. code:: javascript
 
       class InputError extends Error {}
       function promptDirection(question) {
@@ -7242,7 +7250,7 @@ Selective catching
 .. _P145:
 
 
-   .. code::javascript
+   .. code:: javascript
 
       for (;;) {
          try {
@@ -7272,7 +7280,7 @@ Assertions
    If, for example, firstElement is described as a function that should never be
    called on empty arrays, we might write it like this:
 
-   .. code::javascript
+   .. code:: javascript
 
       function firstElement(array) {
          if (array.length == 0) {
@@ -7332,7 +7340,7 @@ The locked box
 
    Consider the following (rather contrived) object:
 
-   .. code::javascript
+   .. code:: javascript
 
       const box = {
          locked: true,
@@ -7388,17 +7396,23 @@ Chapter 9 Regular Expressions
    Properly understanding regular expressions will make you a more effective pro-
    grammer.
 
-   Creating a regular expression
+
+Creating a regular expression
+-----------------------------
+
    A regular expression is a type of object. It can be either constructed with
-   the RegExp constructor or written as a literal value by enclosing a pattern in
+   the ``RegExp`` constructor or written as a literal value by enclosing a pattern in
    forward slash ( / ) characters.
 
-   let re1 = new RegExp("abc");
-   let re2 = /abc/;
+   .. code:: javascript
+
+      let re1 = new RegExp("abc");
+      let re2 = /abc/;
+
    Both of those regular expression objects represent the same pattern: an a
    character followed by a b followed by a c.
 
-   When using the RegExp constructor, the pattern is written as a normal string,
+   When using the ``RegExp`` constructor, the pattern is written as a normal string,
    so the usual rules apply for backslashes.
 
    The second notation, where the pattern appears between slash characters,
@@ -7408,27 +7422,37 @@ Chapter 9 Regular Expressions
 
    pattern, we need to put a backslash before any forward slash that we want
    to be part of the pattern. In addition, backslashes that aren’t part of special
-   character codes (like \n ) will be preserved, rather than ignored as they are
+   character codes (like ``\n`` ) will be preserved, rather than ignored as they are
    in strings, and change the meaning of the pattern. Some characters, such as
    question marks and plus signs, have special meanings in regular expressions and
    must be preceded by a backslash if they are meant to represent the character
    itself.
 
-   let eighteenPlus = /eighteen\+/;
-   Testing for matches
+   .. code:: javascript
+
+      let eighteenPlus = /eighteen\+/;
+
+
+Testing for matches
+-------------------
+
    Regular expression objects have a number of methods. The simplest one is
    test . If you pass it a string, it will return a Boolean telling you whether the
    string contains a match of the pattern in the expression.
 
-   console.log(/abc/.test("abcde"));
-   // → true
-   console.log(/abc/.test("abxde"));
-   // → false
+   .. code:: javascript
+
+      console.log(/abc/.test("abcde")); // → true
+      console.log(/abc/.test("abxde")); // → false
+
    A regular expression consisting of only nonspecial characters simply repre-
    sents that sequence of characters. If abc occurs anywhere in the string we are
    testing against (not just at the start), test will return true .
 
-   Sets of characters
+
+Sets of characters
+------------------
+
    Finding out whether a string contains abc could just as well be done with a call
    to indexOf . Regular expressions allow us to express more complicated patterns.
    Say we want to match any number. In a regular expression, putting a set
@@ -7436,13 +7460,14 @@ Chapter 9 Regular Expressions
    any of the characters between the brackets.
 
    Both of the following expressions match all strings that contain a digit:
-   console.log(/[0123456789]/.test("in 1992"));
-   // → true
+
+   .. code:: javascript
+
+      console.log(/[0123456789]/.test("in 1992")); // → true
+      console.log(/[0-9]/.test("in 1992"));        // → true
 
 .. _P150:
 
-   console.log(/[0-9]/.test("in 1992"));
-   // → true
    Within square brackets, a hyphen ( - ) between two characters can be used
    to indicate a range of characters, where the ordering is determined by the
    character’s Unicode number. Characters 0 to 9 sit right next to each other in
@@ -7450,28 +7475,35 @@ Chapter 9 Regular Expressions
    digit.
 
    A number of common character groups have their own built-in shortcuts.
-   Digits are one of them: \d means the same thing as [0-9] .
+   Digits are one of them: ``\d`` means the same thing as [0-9] .
 
-   \d Any digit character
-   \w An alphanumeric character (“word character”)
-   \s Any whitespace character (space, tab, newline, and similar)
-   \D A character that is not a digit
-   \W A nonalphanumeric character
-   \S A nonwhitespace character
-   . Any character except for newline
+   ======= ===========================================================
+   ``\d``   Any digit character
+   ``\w``   An alphanumeric character (“word character”)
+   ``\s``   Any whitespace character (space, tab, newline, and similar)
+   ``\D``   A character that is not a digit
+   ``\W``   A nonalphanumeric character
+   ``\S``   A nonwhitespace character
+   ``.``    Any character except for newline
+   ======= ===========================================================
+
    So you could match a date and time format like 01-30-2003 15:20 with the
    following expression:
-   let dateTime = /\d\d-\d\d-\d\d\d\d \d\d:\d\d/;
-   console.log(dateTime.test("01-30-2003 15:20"));
-   // → true
-   console.log(dateTime.test("30-jan-2003 15:20"));
-   // → false
+
+   .. code:: javascript
+
+      let dateTime = /\d\d-\d\d-\d\d\d\d \d\d:\d\d/;
+      console.log(dateTime.test("01-30-2003 15:20"));
+      // → true
+      console.log(dateTime.test("30-jan-2003 15:20"));
+      // → false
+
    That looks completely awful, doesn’t it? Half of it is backslashes, producing
    a background noise that makes it hard to spot the actual pattern expressed.
    We’ll see a slightly improved version of this expression later.
 
    These backslash codes can also be used inside square brackets. For example,
-   [\d.] means any digit or a period character. But the period itself, between
+   ``[\d.]`` means any digit or a period character. But the period itself, between
    square brackets, loses its special meaning. The same goes for other special
    characters, such as + .
 
@@ -7479,29 +7511,39 @@ Chapter 9 Regular Expressions
    character except the ones in the set—you can write a caret ( ^ ) character after
    the opening bracket.
 
-   let notBinary = /[^01]/;
+   .. code:: javascript
+
+      let notBinary = /[^01]/;
+      console.log(notBinary.test("1100100010100110"));
+      // → false
+      console.log(notBinary.test("1100100010200110"));
+      // → true
+
 
 .. _P151:
 
-   console.log(notBinary.test("1100100010100110"));
-   // → false
-   console.log(notBinary.test("1100100010200110"));
-   // → true
-   Repeating parts of a pattern
+
+Repeating parts of a pattern
+----------------------------
+
    We now know how to match a single digit. What if we want to match a whole
    number—a sequence of one or more digits?
+
    When you put a plus sign ( + ) after something in a regular expression, it
-   indicates that the element may be repeated more than once. Thus, /\d+/
+   indicates that the element may be repeated more than once. Thus, ``/\d+/``
    matches one or more digit characters.
 
-   console.log(/'\d+'/.test("'123'"));
-   // → true
-   console.log(/'\d+'/.test("''"));
-   // → false
-   console.log(/'\d*'/.test("'123'"));
-   // → true
-   console.log(/'\d*'/.test("''"));
-   // → true
+   .. code:: javascript
+
+      console.log(/'\d+'/.test("'123'"));
+      // → true
+      console.log(/'\d+'/.test("''"));
+      // → false
+      console.log(/'\d*'/.test("'123'"));
+      // → true
+      console.log(/'\d*'/.test("''"));
+      // → true
+
    The star ( * ) has a similar meaning but also allows the pattern to match zero
    times. Something with a star after it never prevents a pattern from matching—
    it’ll just match zero instances if it can’t find any suitable text to match.
@@ -7509,11 +7551,14 @@ Chapter 9 Regular Expressions
    zero times or one time. In the following example, the u character is allowed to
    occur, but the pattern also matches when it is missing.
 
-   let neighbor = /neighbou?r/;
-   console.log(neighbor.test("neighbour"));
-   // → true
-   console.log(neighbor.test("neighbor"));
-   // → true
+   .. code:: javascript
+
+      let neighbor = /neighbou?r/;
+      console.log(neighbor.test("neighbour"));
+      // → true
+      console.log(neighbor.test("neighbor"));
+      // → true
+   
    To indicate that a pattern should occur a precise number of times, use braces.
    Putting {4} after an element, for example, requires it to occur exactly four
 
@@ -7524,19 +7569,30 @@ Chapter 9 Regular Expressions
 
    Here is another version of the date and time pattern that allows both single-
    and double-digit days, months, and hours. It is also slightly easier to decipher.
-   let dateTime = /\d{1,2}-\d{1,2}-\d{4} \d{1,2}:\d{2}/;
-   console.log(dateTime.test("1-30-2003 8:45"));
-   // → true
+
+   .. code:: javascript
+
+      let dateTime = /\d{1,2}-\d{1,2}-\d{4} \d{1,2}:\d{2}/;
+      console.log(dateTime.test("1-30-2003 8:45"));
+      // → true
+
    You can also specify open-ended ranges when using braces by omitting the
    number after the comma. So, {5,} means five or more times.
 
-   Grouping subexpressions
+
+Grouping subexpressions
+-----------------------
+
    To use an operator like * or + on more than one element at a time, you have to
    use parentheses. A part of a regular expression that is enclosed in parentheses
    counts as a single element as far as the operators following it are concerned.
-   let cartoonCrying = /boo+(hoo+)+/i;
-   console.log(cartoonCrying.test("Boohoooohoohooo"));
-   // → true
+
+   .. code:: javascript
+
+      let cartoonCrying = /boo+(hoo+)+/i;
+      console.log(cartoonCrying.test("Boohoooohoohooo"));
+      // → true
+
    The first and second + characters apply only to the second o in boo and hoo,
    respectively. The third + applies to the whole group (hoo+) , matching one or
    more sequences like that.
@@ -7545,20 +7601,26 @@ Chapter 9 Regular Expressions
    sion case insensitive, allowing it to match the uppercase B in the input string,
    even though the pattern is itself all lowercase.
 
-   Matches and groups
+
+Matches and groups
+------------------
+
    The test method is the absolute simplest way to match a regular expression.
    It tells you only whether it matched and nothing else. Regular expressions also
    have an exec (execute) method that will return null if no match was found
    and return an object with information about the match otherwise.
 
-   let match = /\d+/.exec("one two 100");
-
 .. _P153:
 
-   console.log(match);
-   // → ["100"]
-   console.log(match.index);
-   // → 8
+
+   .. code:: javascript
+
+      let match = /\d+/.exec("one two 100");
+      console.log(match);
+      // → ["100"]
+      console.log(match.index);
+      // → 8
+
    An object returned from exec has an index property that tells us where in
    the string the successful match begins. Other than that, the object looks like
    (and in fact is) an array of strings, whose first element is the string that was
@@ -7567,26 +7629,35 @@ Chapter 9 Regular Expressions
 
    String values have a match method that behaves similarly.
 
-   console.log("one two 100".match(/\d+/));
-   // → ["100"]
+   .. code:: javascript
+
+      console.log("one two 100".match(/\d+/));
+      // → ["100"]
+
    When the regular expression contains subexpressions grouped with paren-
    theses, the text that matched those groups will also show up in the array.
    The whole match is always the first element. The next element is the part
    matched by the first group (the one whose opening parenthesis comes first in
    the expression), then the second group, and so on.
 
-   let quotedText = /'([^']*)'/;
-   console.log(quotedText.exec("she said 'hello'"));
-   // → ["'hello'", "hello"]
+   .. code:: javascript
+
+      let quotedText = /'([^']*)'/;
+      console.log(quotedText.exec("she said 'hello'"));
+      // → ["'hello'", "hello"]
+
    When a group does not end up being matched at all (for example, when fol-
    lowed by a question mark), its position in the output array will hold undefined .
    Similarly, when a group is matched multiple times, only the last match ends
    up in the array.
 
-   console.log(/bad(ly)?/.exec("bad"));
-   // → ["bad", undefined]
-   console.log(/(\d)+/.exec("123"));
-   // → ["123", "3"]
+   .. code:: javascript
+
+      console.log(/bad(ly)?/.exec("bad"));
+      // → ["bad", undefined]
+      console.log(/(\d)+/.exec("123"));
+      // → ["123", "3"]
+
    Groups can be useful for extracting parts of a string. If we don’t just want
    to verify whether a string contains a date but also extract it and construct an
 
@@ -7598,19 +7669,25 @@ Chapter 9 Regular Expressions
    But first we’ll take a brief detour, in which we discuss the built-in way to
    represent date and time values in JavaScript.
 
-   The Date class
+
+The Date class
+--------------
+
    JavaScript has a standard class for representing dates—or, rather, points in
    time. It is called Date . If you simply create a date object using new , you get
    the current date and time.
 
-   console.log(new Date());
-   // → Mon Nov 13 2017 16:19:11 GMT+0100 (CET)
-   You can also create an object for a specific time.
+   .. code:: javascript
 
-   console.log(new Date(2009, 11, 9));
-   // → Wed Dec 09 2009 00:00:00 GMT+0100 (CET)
-   console.log(new Date(2009, 11, 9, 12, 59, 59, 999));
-   // → Wed Dec 09 2009 12:59:59 GMT+0100 (CET)
+      console.log(new Date());
+      // → Mon Nov 13 2017 16:19:11 GMT+0100 (CET)
+      You can also create an object for a specific time.
+
+      console.log(new Date(2009, 11, 9));
+      // → Wed Dec 09 2009 00:00:00 GMT+0100 (CET)
+      console.log(new Date(2009, 11, 9, 12, 59, 59, 999));
+      // → Wed Dec 09 2009 12:59:59 GMT+0100 (CET)
+
    JavaScript uses a convention where month numbers start at zero (so De-
    cember is 11), yet day numbers start at one. This is confusing and silly. Be
    careful.
@@ -7624,10 +7701,12 @@ Chapter 9 Regular Expressions
    1970. The getTime method on a date object returns this number. It is big, as
    you can imagine.
 
-   console.log(new Date(2013, 11, 19).getTime());
-   // → 1387407600000
-   console.log(new Date(1387407600000));
-   // → Thu Dec 19 2013 00:00:00 GMT+0100 (CET)
+   .. code:: javascript
+
+      console.log(new Date(2013, 11, 19).getTime());
+      // → 1387407600000
+      console.log(new Date(1387407600000));
+      // → Thu Dec 19 2013 00:00:00 GMT+0100 (CET)
 
 .. _P155:
 
@@ -7644,46 +7723,58 @@ Chapter 9 Regular Expressions
    Putting parentheses around the parts of the expression that we are interested
    in, we can now create a date object from a string.
 
-   function getDate(string) {
-   let [_, month, day, year] =
-   /(\d{1,2})-(\d{1,2})-(\d{4})/.exec(string);
-   return new Date(year, month - 1, day);
-   }
-   console.log(getDate("1-30-2003"));
-   // → Thu Jan 30 2003 00:00:00 GMT+0100 (CET)
+   .. code:: javascript
+
+      function getDate(string) {
+      let [_, month, day, year] =
+      /(\d{1,2})-(\d{1,2})-(\d{4})/.exec(string);
+      return new Date(year, month - 1, day);
+      }
+      console.log(getDate("1-30-2003"));
+      // → Thu Jan 30 2003 00:00:00 GMT+0100 (CET)
+
    The _ (underscore) binding is ignored and used only to skip the full match
    element in the array returned by exec .
 
-   Word and string boundaries
-   Unfortunately, getDate will also happily extract the nonsensical date 00-1-3000
+
+Word and string boundaries
+--------------------------
+
+   Unfortunately, ``getDate`` will also happily extract the nonsensical date 00-1-3000
    from the string "100-1-30000" . A match may happen anywhere in the string, so
    in this case, it’ll just start at the second character and end at the second-to-last
    character.
 
    If we want to enforce that the match must span the whole string, we can add
    the markers ^ and $ . The caret matches the start of the input string, whereas
-   the dollar sign matches the end. So, /^\d+$/ matches a string consisting entirely
-   of one or more digits, /^!/ matches any string that starts with an exclamation
-   mark, and /x^/ does not match any string (there cannot be an x before the
+   the dollar sign matches the end. So, ``/^\d+$/`` matches a string consisting entirely
+   of one or more digits, ``/^!/`` matches any string that starts with an exclamation
+   mark, and ``/x^/`` does not match any string (there cannot be an x before the
    start of the string).
 
    If, on the other hand, we just want to make sure the date starts and ends
-   on a word boundary, we can use the marker \b . A word boundary can be the
+   on a word boundary, we can use the marker ``\b`` . A word boundary can be the
    start or end of the string or any point in the string that has a word character
-   (as in \w ) on one side and a nonword character on the other.
+   (as in ``\w`` ) on one side and a nonword character on the other.
 
 
 .. _P156:
 
-   console.log(/cat/.test("concatenate"));
-   // → true
-   console.log(/\bcat\b/.test("concatenate"));
-   // → false
+   .. code:: javascript
+
+      console.log(/cat/.test("concatenate"));
+      // → true
+      console.log(/\bcat\b/.test("concatenate"));
+      // → false
+
    Note that a boundary marker doesn’t match an actual character. It just
    enforces that the regular expression matches only when a certain condition
    holds at the place where it appears in the pattern.
 
-   Choice patterns
+
+Choice patterns
+---------------
+
    Say we want to know whether a piece of text contains not only a number but a
    number followed by one of the words pig, cow, or chicken, or any of their plural
    forms.
@@ -7691,16 +7782,23 @@ Chapter 9 Regular Expressions
    We could write three regular expressions and test them in turn, but there is
    a nicer way. The pipe character ( | ) denotes a choice between the pattern to its
    left and the pattern to its right. So I can say this:
-   let animalCount = /\b\d+ (pig|cow|chicken)s?\b/;
-   console.log(animalCount.test("15 pigs"));
-   // → true
-   console.log(animalCount.test("15 pigchickens"));
-   // → false
+
+   .. code:: javascript
+
+      let animalCount = /\b\d+ (pig|cow|chicken)s?\b/;
+      console.log(animalCount.test("15 pigs"));
+      // → true
+      console.log(animalCount.test("15 pigchickens"));
+      // → false
+
    Parentheses can be used to limit the part of the pattern that the pipe operator
    applies to, and you can put multiple such operators next to each other to express
    a choice between more than two alternatives.
 
-   The mechanics of matching
+
+The mechanics of matching
+-------------------------
+
    Conceptually, when you use exec or test , the regular expression engine looks
    for a match in your string by trying to match the expression first from the start
    of the string, then from the second character, and so on, until it finds a match
@@ -7713,12 +7811,18 @@ Chapter 9 Regular Expressions
 
 .. _P157:
 
-   " " boundary boundary
-   Group #1
-   "chicken"
-   "cow"
-   "pig"
-   digit "s"
+   .. code:: javascript
+
+      boundary 
+      digit ↻
+      " " 
+      Group #1
+         "chicken"
+         "cow"
+         "pig"
+      "s" ⤵
+      boundary
+
    Our expression matches if we can find a path from the left side of the diagram
    to the right side. We keep a current position in the string, and every time we
    move through a box, we verify that the part of the string after our current
@@ -7726,6 +7830,7 @@ Chapter 9 Regular Expressions
 
    So if we try to match "the 3 pigs" from position 4, our progress through
    the flow chart would look like this:
+
    • At position 4, there is a word boundary, so we can move past the first
    box.
 
@@ -7742,34 +7847,41 @@ Chapter 9 Regular Expressions
    we take that branch.
 
    • At position 9, after the three-way branch, one path skips the s box and
-   goes straight to the final word boundary, while the other path matches an
-   s. There is an s character here, not a word boundary, so we go through
+   goes straight to the final word boundary, while the other path matches an s. 
+   There is an s character here, not a word boundary, so we go through
    the s box.
 
    • We’re at position 10 (the end of the string) and can match only a word
    boundary. The end of a string counts as a word boundary, so we go
    through the last box and have successfully matched this string.
 
-   Backtracking
-   The regular expression /\b([01]+b|[\da-f]+h|\d+)\b/ matches either a binary
+
+Backtracking
+------------
+
+   The regular expression ``/\b([01]+b|[\da-f]+h|\d+)\b/`` matches either a binary
    number followed by a b, a hexadecimal number (that is, base 16, with the letters
 
 .. _P158:
 
    a to f standing for the digits 10 to 15) followed by an h, or a regular decimal
    number with no suffix character. This is the corresponding diagram:
-   word boundary
-   group #1
-   One of:
-   “0”
-   “1”
-   “b”
-   One of:
-   digit
-   - “a” “f”
-   “h”
-   digit
-   word boundary
+
+   .. code:: javascript
+
+      word boundary
+      group #1
+         One of:
+            “0”
+            “1”
+         “b”
+         One of:
+            digit
+            - “a” “f”
+         “h”
+      digit ↺
+      word boundary
+
    When matching this expression, it will often happen that the top (binary)
    branch is entered even though the input does not actually contain a binary
    number. When matching the string "103" , for example, it becomes clear only
@@ -7801,12 +7913,16 @@ Chapter 9 Regular Expressions
 
 .. _P159:
 
-   regular expression, we might accidentally write something like /([01]+)+b/ .
-   "b"
-   Group #1
-   One of:
-   "1"
-   "0"
+   regular expression, we might accidentally write something like ``/([01]+)+b/`` .
+
+   .. code:: javascript
+
+      "b"
+      Group #1
+      One of:
+      "1"
+      "0"
+
    If that tries to match some long series of zeros and ones with no trailing b
    character, the matcher first goes through the inner loop until it runs out of
    digits. Then it notices there is no b, so it backtracks one position, goes through
@@ -7816,21 +7932,31 @@ Chapter 9 Regular Expressions
    For even just a few dozen characters, the resulting match will take practically
    forever.
 
-   The replace method
+
+The replace method
+------------------
+
    String values have a replace method that can be used to replace part of the
    string with another string.
 
-   console.log("papa".replace("p", "m"));
-   // → mapa
+
+   .. code:: javascript
+
+      console.log("papa".replace("p", "m"));
+      // → mapa
+
    The first argument can also be a regular expression, in which case the first
    match of the regular expression is replaced. When a g option (for global) is
    added to the regular expression, all matches in the string will be replaced, not
    just the first.
 
-   console.log("Borobudur".replace(/[ou]/, "a"));
-   // → Barobudur
-   console.log("Borobudur".replace(/[ou]/g, "a"));
-   // → Barabadar
+
+   .. code:: javascript
+
+      console.log("Borobudur".replace(/[ou]/, "a"));
+      // → Barobudur
+      console.log("Borobudur".replace(/[ou]/g, "a"));
+      // → Barabadar
 
 .. _P160:
 
@@ -7844,12 +7970,17 @@ Chapter 9 Regular Expressions
    say we have a big string containing the names of people, one name per line, in
    the format Lastname, Firstname . If we want to swap these names and remove
    the comma to get a Firstname Lastname format, we can use the following code:
-   console.log(
-   "Liskov, Barbara\nMcCarthy, John\nWadler, Philip"
-   .replace(/(\w+), (\w+)/g, "$2 $1"));
-   // → Barbara Liskov
-   // John McCarthy
-   // Philip Wadler
+
+
+   .. code:: javascript
+
+      console.log(
+      "Liskov, Barbara\nMcCarthy, John\nWadler, Philip"
+      .replace(/(\w+), (\w+)/g, "$2 $1"));
+      // → Barbara Liskov
+      // John McCarthy
+      // Philip Wadler
+
    The $1 and $2 in the replacement string refer to the parenthesized groups in
    the pattern. $1 is replaced by the text that matched against the first group, $2
    by the second, and so on, up to $9 . The whole match can be referred to with
@@ -7861,47 +7992,65 @@ Chapter 9 Regular Expressions
    will be inserted into the new string.
 
    Here’s a small example:
-   let s = "the cia and fbi";
-   console.log(s.replace(/\b(fbi|cia)\b/g,
-   str => str.toUpperCase()));
-   // → the CIA and FBI
+
+
+   .. code:: javascript
+
+      let s = "the cia and fbi";
+      console.log(s.replace(/\b(fbi|cia)\b/g,
+      str => str.toUpperCase()));
+      // → the CIA and FBI
+
    Here’s a more interesting one:
-   let stock = "1 lemon, 2 cabbages, and 101 eggs";
-   function minusOne(match, amount, unit) {
-   amount = Number(amount) - 1;
+
 
 .. _P161:
 
-   if (amount == 1) { // only one left, remove the 's'
-   unit = unit.slice(0, unit.length - 1);
-   } else if (amount == 0) {
-   amount = "no";
-   }
-   return amount + " " + unit;
-   }
-   console.log(stock.replace(/(\d+) (\w+)/g, minusOne));
-   // → no lemon, 1 cabbage, and 100 eggs
+
+   .. code:: javascript
+
+      let stock = "1 lemon, 2 cabbages, and 101 eggs";
+      function minusOne(match, amount, unit) {
+         amount = Number(amount) - 1;
+         if (amount == 1) { // only one left, remove the 's'
+            unit = unit.slice(0, unit.length - 1);
+         } else if (amount == 0) {
+            amount = "no";
+         }
+         return amount + " " + unit;
+      }
+      console.log(stock.replace(/(\d+) (\w+)/g, minusOne));
+      // → no lemon, 1 cabbage, and 100 eggs
+
    This takes a string, finds all occurrences of a number followed by an alphanu-
    meric word, and returns a string wherein every such occurrence is decremented
    by one.
 
-   The (\d+) group ends up as the amount argument to the function, and the
-   (\w+) group gets bound to unit . The function converts amount to a number—
-   which always works since it matched \d+ —and makes some adjustments in case
+   The (``\d+``) group ends up as the amount argument to the function, and the
+   (``\w+``) group gets bound to unit . The function converts amount to a number—
+   which always works since it matched ``\d+`` —and makes some adjustments in case
    there is only one or zero left.
 
-   Greed
+
+Greed
+-----
+
    It is possible to use replace to write a function that removes all comments
    from a piece of JavaScript code. Here is a first attempt:
-   function stripComments(code) {
-   return code.replace(/\/\/.*|\/\*[^]*\*\//g, "");
-   }
-   console.log(stripComments("1 + /* 2 */3"));
-   // → 1 + 3
-   console.log(stripComments("x = 10;// ten!"));
-   // → x = 10;
-   console.log(stripComments("1 /* a */+/* b */ 1"));
-   // → 1 1
+
+
+   .. code:: javascript
+
+      function stripComments(code) {
+         return code.replace(/\/\/.*|\/\*[^]*\*\//g, "");
+      }
+      console.log(stripComments("1 + /* 2 */3"));
+      // → 1 + 3
+      console.log(stripComments("x = 10;// ten!"));
+      // → x = 10;
+      console.log(stripComments("1 /* a */+/* b */ 1"));
+      // → 1 1
+
    The part before the or operator matches two slash characters followed by any
    number of non-newline characters. The part for multiline comments is more
    involved. We use [^] (any character that is not in the empty set of characters)
@@ -7913,18 +8062,18 @@ Chapter 9 Regular Expressions
 
 .. _P162:
 
-   The [^]* part of the expression, as I described in the section on backtracking,
+   The ``[^]*`` part of the expression, as I described in the section on backtracking,
    will first match as much as it can. If that causes the next part of the pattern to
    fail, the matcher moves back one character and tries again from there. In the
    example, the matcher first tries to match the whole rest of the string and then
-   moves back from there. It will find an occurrence of */ after going back four
+   moves back from there. It will find an occurrence of ``*/`` after going back four
    characters and match that. This is not what we wanted—the intention was to
    match a single comment, not to go all the way to the end of the code and find
    the end of the last block comment.
 
    Because of this behavior, we say the repetition operators ( + , * , ? , and {}
    ) are greedy, meaning they match as much as they can and backtrack from
-   there. If you put a question mark after them ( +? , *? , ?? , {}? ), they become
+   there. If you put a question mark after them ( ``+? , *? , ?? , {}?`` ), they become
    nongreedy and start by matching as little as possible, matching more only when
    the remaining pattern does not fit the smaller match.
 
@@ -7932,16 +8081,23 @@ Chapter 9 Regular Expressions
    the smallest stretch of characters that brings us to a */ , we consume one block
    comment and nothing more.
 
-   function stripComments(code) {
-   return code.replace(/\/\/.*|\/\*[^]*?\*\//g, "");
-   }
-   console.log(stripComments("1 /* a */+/* b */ 1"));
-   // → 1 + 1
+
+   .. code:: javascript
+
+      function stripComments(code) {
+         return code.replace(/\/\/.*|\/\*[^]*?\*\//g, "");
+      }
+      console.log(stripComments("1 /* a */+/* b */ 1"));
+      // → 1 + 1
+
    A lot of bugs in regular expression programs can be traced to unintentionally
    using a greedy operator where a nongreedy one would work better. When using
    a repetition operator, consider the nongreedy variant first.
 
-   Dynamically creating RegExp objects
+
+Dynamically creating RegExp objects
+-----------------------------------
+
    There are cases where you might not know the exact pattern you need to match
    against when you are writing your code. Say you want to look for the user’s
    name in a piece of text and enclose it in underscore characters to make it stand
@@ -7950,14 +8106,17 @@ Chapter 9 Regular Expressions
 
    But you can build up a string and use the RegExp constructor on that. Here’s
    an example:
-   let name = "harry";
 
 .. _P163:
 
-   let text = "Harry is a suspicious character.";
-   let regexp = new RegExp("\\b(" + name + ")\\b", "gi");
-   console.log(text.replace(regexp, "_$1_"));
-   // → _Harry_ is a suspicious character.
+
+   .. code:: javascript
+
+      let name = "harry";
+      let text = "Harry is a suspicious character.";
+      let regexp = new RegExp("\\b(" + name + ")\\b", "gi");
+      console.log(text.replace(regexp, "_$1_"));
+      // → _Harry_ is a suspicious character.
 
    When creating the \b boundary markers, we have to use two backslashes
    because we are writing them in a normal string, not a slash-enclosed regu-
@@ -7972,31 +8131,42 @@ Chapter 9 Regular Expressions
    To work around this, we can add backslashes before any character that has
    a special meaning.
 
-   let name = "dea+hl[]rd";
-   let text = "This dea+hl[]rd guy is super annoying.";
-   let escaped = name.replace(/[\\[.+*?(){|^$]/g, "\\$&");
-   let regexp = new RegExp("\\b" + escaped + "\\b", "gi");
-   console.log(text.replace(regexp, "_$&_"));
-   // → This _dea+hl[]rd_ guy is super annoying.
 
-   The search method
+   .. code:: javascript
+
+      let name = "dea+hl[]rd";
+      let text = "This dea+hl[]rd guy is super annoying.";
+      let escaped = name.replace(/[\\[.+*?(){|^$]/g, "\\$&");
+      let regexp = new RegExp("\\b" + escaped + "\\b", "gi");
+      console.log(text.replace(regexp, "_$&_"));
+      // → This _dea+hl[]rd_ guy is super annoying.
+
+
+The search method
+-----------------
+
    The indexOf method on strings cannot be called with a regular expression. But
    there is another method, search , that does expect a regular expression. Like
    indexOf , it returns the first index on which the expression was found, or -1
    when it wasn’t found.
 
-   console.log(" word".search(/\S/));
-   // → 2
-   console.log(" ".search(/\S/));
-   // → -1
+   .. code:: javascript
+
+      console.log(" word".search(/\S/));
+      // → 2
+      console.log(" ".search(/\S/));
+      // → -1
+
    Unfortunately, there is no way to indicate that the match should start at a
    given offset (like we can with the second argument to indexOf ), which would
+   often be useful.
 
 .. _P164:
 
-   often be useful.
 
-   The lastIndex property
+The lastIndex property
+----------------------
+
    The exec method similarly does not provide a convenient way to start searching
    from a given position in the string. But it does provide an inconvenient way.
    Regular expression objects have properties. One such property is source ,
@@ -8010,13 +8180,16 @@ Chapter 9 Regular Expressions
    extra argument to be passed to exec , but confusion is an essential feature of
    JavaScript’s regular expression interface.
 
-   let pattern = /y/g;
-   pattern.lastIndex = 3;
-   let match = pattern.exec("xyzzy");
-   console.log(match.index);
-   // → 4
-   console.log(pattern.lastIndex);
-   // → 5
+   .. code:: javascript
+
+      let pattern = /y/g;
+      pattern.lastIndex = 3;
+      let match = pattern.exec("xyzzy");
+      console.log(match.index);
+      // → 4
+      console.log(pattern.lastIndex);
+      // → 5
+
    If the match was successful, the call to exec automatically updates the
    lastIndex property to point after the match. If no match was found, lastIndex
    is set back to zero, which is also the value it has in a newly constructed regular
@@ -8025,12 +8198,15 @@ Chapter 9 Regular Expressions
    The difference between the global and the sticky options is that, when sticky
    is enabled, the match will succeed only if it starts directly at lastIndex , whereas
    with global, it will search ahead for a position where a match can start.
-   let global = /abc/g;
-   console.log(global.exec("xyz abc"));
-   // → ["abc"]
-   let sticky = /abc/y;
-   console.log(sticky.exec("xyz abc"));
-   // → null
+
+   .. code:: javascript
+
+      let global = /abc/g;
+      console.log(global.exec("xyz abc"));
+      // → ["abc"]
+      let sticky = /abc/y;
+      console.log(sticky.exec("xyz abc"));
+      // → null
 
 .. _P165:
 
@@ -8039,37 +8215,48 @@ Chapter 9 Regular Expressions
    expression might be accidentally starting at an index that was left over from a
    previous call.
 
-   let digit = /\d/g;
-   console.log(digit.exec("here it is: 1"));
-   // → ["1"]
-   console.log(digit.exec("and now: 1"));
-   // → null
+   .. code:: javascript
+
+      let digit = /\d/g;
+      console.log(digit.exec("here it is: 1"));
+      // → ["1"]
+      console.log(digit.exec("and now: 1"));
+      // → null
+
    Another interesting effect of the global option is that it changes the way
    the match method on strings works. When called with a global expression,
    instead of returning an array similar to that returned by exec , match will find
    all matches of the pattern in the string and return an array containing the
    matched strings.
 
-   console.log("Banana".match(/an/g));
-   // → ["an", "an"]
+   .. code:: javascript
+
+      console.log("Banana".match(/an/g));
+      // → ["an", "an"]
+
    So be cautious with global regular expressions. The cases where they are
    necessary—calls to replace and places where you want to explicitly use lastIndex
    —are typically the only places where you want to use them.
 
-   Looping over matches
+
+Looping over matches
+--------------------
+
    A common thing to do is to scan through all occurrences of a pattern in a
    string, in a way that gives us access to the match object in the loop body. We
    can do this by using lastIndex and exec .
 
-   let input = "A string with 3 numbers in it... 42 and 88.";
-   let number = /\b\d+\b/g;
-   let match;
-   while (match = number.exec(input)) {
-   console.log("Found", match[0], "at", match.index);
-   }
-   // → Found 3 at 14
-   // Found 42 at 33
-   // Found 88 at 40
+   .. code:: javascript
+
+      let input = "A string with 3 numbers in it... 42 and 88.";
+      let number = /\b\d+\b/g;
+      let match;
+      while (match = number.exec(input)) {
+         console.log("Found", match[0], "at", match.index);
+      }
+      // → Found 3 at 14
+      // Found 42 at 33
+      // Found 88 at 40
 
 .. _P166:
 
@@ -8077,27 +8264,36 @@ Chapter 9 Regular Expressions
    the assigned value. So by using match = number.exec(input) as the condition
    in the while statement, we perform the match at the start of each iteration,
    save its result in a binding, and stop looping when no more matches are found.
-   Parsing an INI file
+
+
+Parsing an INI file
+-------------------
+
    To conclude the chapter, we’ll look at a problem that calls for regular expres-
    sions. Imagine we are writing a program to automatically collect information
    about our enemies from the Internet. (We will not actually write that program
    here, just the part that reads the configuration file. Sorry.) The configuration
    file looks like this:
-   searchengine=https://duckduckgo.com/?q=$1
-   spitefulness=9.7
-   ; comments are preceded by a semicolon...
 
-   ; each section concerns an individual enemy
-   [larry]
-   fullname=Larry Doe
-   type=kindergarten bully
-   website=http://www.geocities.com/CapeCanaveral/11451
-   [davaeorn]
-   fullname=Davaeorn
-   type=evil wizard
-   outputdir=/home/marijn/enemies/davaeorn
+   .. code:: javascript
+
+      searchengine=https://duckduckgo.com/?q=$1
+      spitefulness=9.7
+      ; comments are preceded by a semicolon...
+
+      ; each section concerns an individual enemy
+      [larry]
+      fullname=Larry Doe
+      type=kindergarten bully
+      website=http://www.geocities.com/CapeCanaveral/11451
+      [davaeorn]
+      fullname=Davaeorn
+      type=evil wizard
+      outputdir=/home/marijn/enemies/davaeorn
+
    The exact rules for this format (which is a widely used format, usually called
    an INI file) are as follows:
+
    • Blank lines and lines starting with semicolons are ignored.
 
    • Lines wrapped in [ and ] start a new section.
@@ -8117,32 +8313,35 @@ Chapter 9 Regular Expressions
    Since the format has to be processed line by line, splitting up the file into
    separate lines is a good start. We saw the split method in Chapter 4. Some
    operating systems, however, use not just a newline character to separate lines
-   but a carriage return character followed by a newline ( "\r\n" ). Given that
+   but a carriage return character followed by a newline ( ``\r\n`` ). Given that
    the split method also allows a regular expression as its argument, we can use
-   a regular expression like /\r?\n/ to split in a way that allows both "\n" and
-   "\r\n" between lines.
+   a regular expression like ``/\r?\n/`` to split in a way that allows both ``\n`` and
+   ``\r\n`` between lines.
 
-   function parseINI(string) {
-   // Start with an object to hold the top-level fields
-   let result = {};
-   let section = result;
-   string.split(/\r?\n/).forEach(line => {
-   let match;
-   if (match = line.match(/^(\w+)=(.*)$/)) {
-   section[match[1]] = match[2];
-   } else if (match = line.match(/^\[(.*)\]$/)) {
-   section = result[match[1]] = {};
-   } else if (!/^\s*(;.*)?$/.test(line)) {
-   throw new Error("Line '" + line + "' is not valid.");
-   }
-   });
-   return result;
-   }
-   console.log(parseINI(`
-   name=Vasilis
-   [address]
-   city=Tessaloniki`));
-   // → {name: "Vasilis", address: {city: "Tessaloniki"}}
+   .. code:: javascript
+
+      function parseINI(string) {
+         // Start with an object to hold the top-level fields
+         let result = {};
+         let section = result;
+         string.split(/\r?\n/).forEach(line => {
+            let match;
+            if (match = line.match(/^(\w+)=(.*)$/)) {
+               section[match[1]] = match[2];
+            } else if (match = line.match(/^\[(.*)\]$/)) {
+               section = result[match[1]] = {};
+            } else if (!/^\s*(;.*)?$/.test(line)) {
+               throw new Error("Line '" + line + "' is not valid.");
+            }
+         });
+         return result;
+      }
+      console.log(parseINI(`
+      name=Vasilis
+      [address]
+      city=Tessaloniki`));
+      // → {name: "Vasilis", address: {city: "Tessaloniki"}}
+
    The code goes over the file’s lines and builds up an object. Properties at the
    top are stored directly into that object, whereas properties found in sections are
    stored in a separate section object. The section binding points at the object
@@ -8151,17 +8350,17 @@ Chapter 9 Regular Expressions
    There are two kinds of significant lines—section headers or property lines.
    When a line is a regular property, it is stored in the current section. When it
    is a section header, a new section object is created, and section is set to point
+   at it.
 
 .. _P168:
 
-   at it.
 
    Note the recurring use of ^ and $ to make sure the expression matches the
    whole line, not just part of it. Leaving these out results in code that mostly
    works but behaves strangely for some input, which can be a difficult bug to
    track down.
 
-   The pattern if (match = string.match(...)) is similar to the trick of using
+   The pattern ``if (match = string.match(...))`` is similar to the trick of using
    an assignment as the condition for while . You often aren’t sure that your call
    to match will succeed, so you can access the resulting object only inside an
    if statement that tests for this. To not break the pleasant chain of else if
@@ -8169,35 +8368,41 @@ Chapter 9 Regular Expressions
    assignment as the test for the if statement.
 
    If a line is not a section header or a property, the function checks whether it
-   is a comment or an empty line using the expression /^\s*(;.*)?$/ . Do you see
+   is a comment or an empty line using the expression ``/^\s*(;.*)?$/`` . Do you see
    how it works? The part between the parentheses will match comments, and
    the ? makes sure it also matches lines containing only whitespace. When a line
    doesn’t match any of the expected forms, the function throws an exception.
-   International characters
+
+
+International characters
+------------------------
+
    Because of JavaScript’s initial simplistic implementation and the fact that this
    simplistic approach was later set in stone as standard behavior, JavaScript’s
    regular expressions are rather dumb about characters that do not appear in
    the English language. For example, as far as JavaScript’s regular expressions
    are concerned, a “word character” is only one of the 26 characters in the Latin
    alphabet (uppercase or lowercase), decimal digits, and, for some reason, the
-   underscore character. Things like é or ß, which most definitely are word char-
-   acters, will not match \w (and will match uppercase \W , the nonword category).
-   By a strange historical accident, \s (whitespace) does not have this problem
+   underscore character. Things like é or ß, which most definitely are word characters, 
+   will not match ``\w`` (and will match uppercase ``\W`` , the nonword category).
+   By a strange historical accident, ``\s`` (whitespace) does not have this problem
    and matches all characters that the Unicode standard considers whitespace,
    including things like the nonbreaking space and the Mongolian vowel separator.
    Another problem is that, by default, regular expressions work on code units,
    as discussed in Chapter 5, not actual characters. This means characters that
    are composed of two code units behave strangely.
 
-   console.log(/ 🍎 {3}/.test(" 🍎🍎🍎 "));
-   // → false
-   console.log(/<.>/.test("< 🌹 >"));
-   // → false
-   console.log(/<.>/u.test("< 🌹 >"));
+   .. code:: javascript
+
+      console.log(/ 🍎 {3}/.test(" 🍎🍎🍎 "));
+      // → false
+      console.log(/<.>/.test("< 🌹 >"));
+      // → false
+      console.log(/<.>/u.test("< 🌹 >"));
+      // → true
 
 .. _P169:
 
-   // → true
    The problem is that the 🍎 in the first line is treated as two code units, and
    the {3} part is applied only to the second one. Similarly, the dot matches a
    single code unit, not the two that make up the rose emoji.
@@ -8208,22 +8413,25 @@ Chapter 9 Regular Expressions
    that depends on it.
 
    Though this was only just standardized and is, at the time of writing, not
-   widely supported yet, it is possible to use \p in a regular expression (that must
+   widely supported yet, it is possible to use `\p` in a regular expression (that must
    have the Unicode option enabled) to match all characters to which the Unicode
    standard assigns a given property.
 
-   console.log(/\p{Script=Greek}/u.test("α"));
-   // → true
-   console.log(/\p{Script=Arabic}/u.test("α"));
-   // → false
-   console.log(/\p{Alphabetic}/u.test("α"));
-   // → true
-   console.log(/\p{Alphabetic}/u.test("!"));
-   // → false
+   .. code:: javascript
+
+      console.log(/\p{Script=Greek}/u.test("α"));
+      // → true
+      console.log(/\p{Script=Arabic}/u.test("α"));
+      // → false
+      console.log(/\p{Alphabetic}/u.test("α"));
+      // → true
+      console.log(/\p{Alphabetic}/u.test("!"));
+      // → false
+
    Unicode defines a number of useful properties, though finding the one that
-   you need may not always be trivial. You can use the \p{Property=Value}
+   you need may not always be trivial. You can use the ``\p{Property=Value}``
    notation to match any character that has the given value for that property. If
-   the property name is left off, as in \p{Name} , the name is assumed to be either
+   the property name is left off, as in ``\p{Name}`` , the name is assumed to be either
    a binary property such as Alphabetic or a category such as Number .
 
 Summary
@@ -8235,24 +8443,27 @@ Summary
 
 .. _P170:
 
-   /abc/ A sequence of characters
-   /[abc]/ Any character from a set of characters
-   /[^abc]/ Any character not in a set of characters
-   /[0-9]/ Any character in a range of characters
-   /x+/ One or more occurrences of the pattern x
-   /x+?/ One or more occurrences, nongreedy
-   /x*/ Zero or more occurrences
-   /x?/ Zero or one occurrence
-   /x{2,4}/ Two to four occurrences
-   /(abc)/ A group
-   /a|b|c/ Any one of several patterns
-   /\d/ Any digit character
-   /\w/ An alphanumeric character (“word character”)
-   /\s/ Any whitespace character
-   /./ Any character except newlines
-   /\b/ A word boundary
-   /^/ Start of input
-   /$/ End of input
+   ============== ======================================================
+   ``/abc/``      A sequence of characters
+   ``/[abc]/``    Any character from a set of characters
+   ``/[^abc]/``   Any character not in a set of characters
+   ``/[0-9]/``    Any character in a range of characters
+   ``/x+/``       One or more occurrences of the pattern x
+   ``/x+?/``      One or more occurrences, nongreedy
+   ``/x*/``       Zero or more occurrences
+   ``/x?/``       Zero or one occurrence
+   ``/x{2,4}/``   Two to four occurrences
+   ``/(abc)/``    A group
+   ``/a|b|c/``    Any one of several patterns
+   ``/\d/``       Any digit character
+   ``/\w/``       An alphanumeric character (“word character”)
+   ``/\s/``       Any whitespace character
+   ``/./``        Any character except newlines
+   ``/\b/``       A word boundary
+   ``/^/``        Start of input
+   ``/$/``        End of input
+   ============== ======================================================
+
    A regular expression has a method test to test whether a given string
    matches it. It also has a method exec that, when a match is found, returns
    an array containing all matched groups. Such an array has an index property
@@ -8288,7 +8499,10 @@ Exercises
    behavior. Sometimes it helps to enter your expression into an online tool like
    https://debuggex.com to see whether its visualization corresponds to what you
    intended and to experiment with the way it responds to various input strings.
-   Regexp golf
+
+Regexp golf
+~~~~~~~~~~~
+
    Code golf is a term used for the game of trying to express a particular program
    in as few characters as possible. Similarly, regexp golf is the practice of writing
    as tiny a regular expression as possible to match a given pattern, and only that
@@ -8307,10 +8521,13 @@ Exercises
    5. A whitespace character followed by a period, comma, colon, or semicolon
    6. A word longer than six letters
    7. A word without the letter e (or E)
+
    Refer to the table in the chapter summary for help. Test each solution with
    a few test strings.
 
-   Quoting style
+Quoting style
+~~~~~~~~~~~~~
+
    Imagine you have written a story and used single quotation marks throughout
    to mark pieces of dialogue. Now you want to replace all the dialogue quotes
    with double quotes, while keeping the single quotes used in contractions like
@@ -8322,7 +8539,9 @@ Exercises
 
 .. _P172:
 
-   Numbers again
+Numbers again
+~~~~~~~~~~~~~
+
    Write an expression that matches only JavaScript-style numbers. It must sup-
    port an optional minus or plus sign in front of the number, the decimal dot,
    and exponent notation— 5e-3 or 1E10 —again with an optional sign in front of
@@ -8362,7 +8581,10 @@ Chapter 10 Modules
    grams. Everything sticks together, and when you try to pick out a piece, the
    whole thing comes apart, and your hands get dirty.
 
-   Modules
+
+Modules
+-------
+
    Modules are an attempt to avoid these problems. A module is a piece of program
    that specifies which other pieces it relies on and which functionality it provides
    for other modules to use (its interface).
@@ -8397,7 +8619,10 @@ Chapter 10 Modules
    big distraction. Once you have something that feels solid, that’s a good time
    to take a step back and organize it.
 
-   Packages
+
+Packages
+--------
+
    One of the advantages of building a program out of separate pieces, and being
    actually able to run those pieces on their own, is that you might be able to
    apply the same piece in different programs.
@@ -8465,7 +8690,10 @@ Chapter 10 Modules
    type of license. When using other people’s packages, make sure you are aware
    of their license.
 
-   Improvised modules
+
+Improvised modules
+------------------
+
    Until 2015, the JavaScript language had no built-in module system. Yet people
    had been building large systems in JavaScript for more than a decade, and they
    needed modules.
@@ -8478,20 +8706,23 @@ Chapter 10 Modules
 
 .. _P176:
 
-   by Date ’s getDay method). Its interface consists of weekDay.name and weekDay
-   .number , and it hides its local binding names inside the scope of a function
-   expression that is immediately invoked.
+   by Date ’s getDay method). Its interface consists of `weekDay.name` and 
+   ``weekDay.number`` , and it hides its local binding names inside the scope of 
+   a function expression that is immediately invoked.
 
-   const weekDay = function() {
-   const names = ["Sunday", "Monday", "Tuesday", "Wednesday",
-   "Thursday", "Friday", "Saturday"];
-   return {
-   name(number) { return names[number]; },
-   number(name) { return names.indexOf(name); }
-   };
-   }();
-   console.log(weekDay.name(weekDay.number("Sunday")));
-   // → Sunday
+   .. code:: javascript
+
+      const weekDay = function() {
+         const names = ["Sunday", "Monday", "Tuesday", "Wednesday",
+                        "Thursday", "Friday", "Saturday"];
+         return {
+            name(number) { return names[number]; },
+            number(name) { return names.indexOf(name); }
+         };
+      }();
+      console.log(weekDay.name(weekDay.number("Sunday")));
+      // → Sunday
+
    This style of modules provides isolation, to a certain degree, but it does not
    declare dependencies. Instead, it just puts its interface into the global scope
    and expects its dependencies, if any, to do the same. For a long time this was
@@ -8500,7 +8731,10 @@ Chapter 10 Modules
    control of loading dependencies. Doing that requires being able to execute
    strings as code. JavaScript can do this.
 
-   Evaluating data as code
+
+Evaluating data as code
+-----------------------
+
    There are several ways to take data (a string of code) and run it as part of the
    current program.
 
@@ -8509,30 +8743,39 @@ Chapter 10 Modules
    of the properties that scopes normally have, such as it being easily predictable
    which binding a given name refers to.
 
-   const x = 1;
-   function evalAndReturnX(code) {
-   eval(code);
-   return x;
-   }
-   console.log(evalAndReturnX("var x = 2"));
+   .. code:: javascript
+
+      const x = 1;
+      function evalAndReturnX(code) {
+         eval(code);
+         return x;
+      }
+      console.log(evalAndReturnX("var x = 2"));
+      // → 2
+      console.log(x);
+      // → 1
 
 .. _P177:
 
-   // → 2
-   console.log(x);
-   // → 1
    A less scary way of interpreting data as code is to use the Function con-
    structor. It takes two arguments: a string containing a comma-separated list
    of argument names and a string containing the function body. It wraps the
    code in a function value so that it gets its own scope and won’t do odd things
    with other scopes.
 
-   let plusOne = Function("n", "return n + 1;");
-   console.log(plusOne(4));
-   // → 5
+   .. code:: javascript
+
+      let plusOne = Function("n", "return n + 1;");
+      console.log(plusOne(4));
+      // → 5
+
    This is precisely what we need for a module system. We can wrap the
    module’s code in a function and use that function’s scope as module scope.
-   CommonJS
+
+
+CommonJS
+--------
+
    The most widely used approach to bolted-on JavaScript modules is called Com-
    monJS modules. Node.js uses it and is the system used by most packages on
    NPM.
@@ -8552,42 +8795,53 @@ Chapter 10 Modules
    for the full year and Do for the ordinal day of the month. You could give it a
    string like "MMMM Do YYYY" to get output like “November 22nd 2017”.
 
-   const ordinal = require("ordinal");
-   const {days, months} = require("date-names");
-
 .. _P178:
 
-   exports.formatDate = function(date, format) {
-   return format.replace(/YYYY|M(MMM)?|Do?|dddd/g, tag => {
-   if (tag == "YYYY") return date.getFullYear();
-   if (tag == "M") return date.getMonth();
-   if (tag == "MMMM") return months[date.getMonth()];
-   if (tag == "D") return date.getDate();
-   if (tag == "Do") return ordinal(date.getDate());
-   if (tag == "dddd") return days[date.getDay()];
-   });
-   };
+
+   .. code:: javascript
+
+      const ordinal = require("ordinal");
+      const {days, months} = require("date-names");
+
+      exports.formatDate = function(date, format) {
+         return format.replace(/YYYY|M(MMM)?|Do?|dddd/g, tag => {
+            if (tag == "YYYY") return date.getFullYear();
+            if (tag == "M") return date.getMonth();
+            if (tag == "MMMM") return months[date.getMonth()];
+            if (tag == "D") return date.getDate();
+            if (tag == "Do") return ordinal(date.getDate());
+            if (tag == "dddd") return days[date.getDay()];
+         });
+      };
+
    The interface of ordinal is a single function, whereas date-names exports an
    object containing multiple things— days and months are arrays of names. De-
    structuring is very convenient when creating bindings for imported interfaces.
    The module adds its interface function to exports so that modules that
    depend on it get access to it. We could use the module like this:
-   const {formatDate} = require("./format-date");
-   console.log(formatDate(new Date(2017, 9, 13),
-   "dddd the Do"));
-   // → Friday the 13th
+
+   .. code:: javascript
+
+      const {formatDate} = require("./format-date");
+      console.log(formatDate(new Date(2017, 9, 13), "dddd the Do"));
+      // → Friday the 13th
+
    We can define require , in its most minimal form, like this:
-   require.cache = Object.create(null);
-   function require(name) {
-   if (!(name in require.cache)) {
-   let code = readFile(name);
-   let module = {exports: {}};
-   require.cache[name] = module;
-   let wrapper = Function("require, exports, module", code);
-   wrapper(require, module.exports, module);
-   }
-   return require.cache[name].exports;
-   }
+
+   .. code:: javascript
+
+      require.cache = Object.create(null);
+      function require(name) {
+         if (!(name in require.cache)) {
+            let code = readFile(name);
+            let module = {exports: {}};
+            require.cache[name] = module;
+            let wrapper = Function("require, exports, module", code);
+            wrapper(require, module.exports, module);
+         }
+      return require.cache[name].exports;
+      }
+
    In this code, readFile is a made-up function that reads a file and returns its
 
 .. _P179:
@@ -8620,10 +8874,17 @@ Chapter 10 Modules
    NPM modules in Chapter 20.
 
    Now, instead of writing our own INI file parser, we can use one from NPM.
-   const {parse} = require("ini");
-   console.log(parse("x = 10\ny = 20"));
-   // → {x: "10", y: "20"}
-   ECMAScript modules
+
+   .. code:: javascript
+
+      const {parse} = require("ini");
+      console.log(parse("x = 10\ny = 20"));
+      // → {x: "10", y: "20"}
+
+
+ECMAScript modules
+------------------
+
    CommonJS modules work quite well and, in combination with NPM, have
    allowed the JavaScript community to start sharing code on a large scale.
    But they remain a bit of a duct-tape hack. The notation is slightly awkward—
@@ -8635,16 +8896,19 @@ Chapter 10 Modules
    just a string literal, it can be hard to determine the dependencies of a module
    without running its code.
 
-   This is why the JavaScript standard from 2015 introduces its own, differ-
-   ent module system. It is usually called ES modules, where ES stands for
+   This is why the JavaScript standard from 2015 introduces its own, different 
+   module system. It is usually called ES modules, where ES stands for
    ECMAScript. The main concepts of dependencies and interfaces remain the
    same, but the details differ. For one thing, the notation is now integrated into
    the language. Instead of calling a function to access a dependency, you use a
    special import keyword.
 
-   import ordinal from "ordinal";
-   import {days, months} from "date-names";
-   export function formatDate(date, format) { /* ... */ }
+   .. code:: javascript
+
+      import ordinal from "ordinal";
+      import {days, months} from "date-names";
+      export function formatDate(date, format) { /* ... */ }
+
    Similarly, the export keyword is used to export things. It may appear in
    front of a function, class, or binding definition ( let , const , or var ).
    An ES module’s interface is not a single value but a set of named bindings.
@@ -8662,12 +8926,17 @@ Chapter 10 Modules
    To create a default export, you write export default before an expression,
    a function declaration, or a class declaration.
 
-   export default ["Winter", "Spring", "Summer", "Autumn"];
+   .. code:: javascript
+
+      export default ["Winter", "Spring", "Summer", "Autumn"];
+
    It is possible to rename imported bindings using the word as .
 
-   import {days as dayNames} from "date-names";
-   console.log(dayNames.length);
-   // → 7
+   .. code:: javascript
+
+      import {days as dayNames} from "date-names";
+      console.log(dayNames.length);
+      // → 7
 
 .. _P181:
 
@@ -8688,7 +8957,10 @@ Chapter 10 Modules
    in which two different module systems are used side by side, and it is useful to
    be able to read and write code in either of them.
 
-   Building and bundling
+
+Building and bundling
+---------------------
+
    In fact, many JavaScript projects aren’t even, technically, written in JavaScript.
    There are extensions, such as the type checking dialect mentioned in Chapter
    8, that are widely used. People also often start using planned extensions to the
@@ -8726,7 +8998,10 @@ Chapter 10 Modules
    be aware that the JavaScript code you run is often not the code as it was
    written.
 
-   Module design
+
+Module design
+-------------
+
    Structuring programs is one of the subtler aspects of programming. Any non-
    trivial piece of functionality can be modeled in various ways.
 
@@ -8803,23 +9078,27 @@ Chapter 10 Modules
    So if we wanted to use that package, we’d have to make sure that our graph
    was stored in the format it expects. All edges get the same weight since our
    simplified model treats each road as having the same cost (one turn).
-   const {find_path} = require("dijkstrajs");
-   let graph = {};
-   for (let node of Object.keys(roadGraph)) {
-   let edges = graph[node] = {};
+
+   .. code:: javascript
+
+      const {find_path} = require("dijkstrajs");
+      let graph = {};
+      for (let node of Object.keys(roadGraph)) {
+         let edges = graph[node] = {};
+         for (let dest of roadGraph[node]) {
+            edges[dest] = 1;
+         }
+      }
+      console.log(find_path(graph, "Post Office", "Cabin"));
+      // → ["Post Office", "Alice's House", "Cabin"]
 
 .. _P184:
 
-   for (let dest of roadGraph[node]) {
-   edges[dest] = 1;
-   }
-   }
-   console.log(find_path(graph, "Post Office", "Cabin"));
-   // → ["Post Office", "Alice's House", "Cabin"]
-   This can be a barrier to composition—when various packages are using dif-
-   ferent data structures to describe similar things, combining them is difficult.
-   Therefore, if you want to design for composability, find out what data struc-
-   tures other people are using and, when possible, follow their example.
+   This can be a barrier to composition—when various packages are using different 
+   data structures to describe similar things, combining them is difficult.
+   Therefore, if you want to design for composability, find out what data 
+   structures other people are using and, when possible, follow their example.
+
 Summary
 -------
 
@@ -8839,35 +9118,48 @@ Summary
 Exercises
 ---------
 
-   A modular robot
+A modular robot
+~~~~~~~~~~~~~~~
+
    These are the bindings that the project from Chapter 7 creates:
-   roads
-   buildGraph
-   roadGraph
-   VillageState
-   runRobot
-   randomPick
-   randomRobot
-   mailRoute
+
+   .. code:: javascript
+
+      roads
+      buildGraph
+      roadGraph
+      VillageState
+      runRobot
+      randomPick
+      randomRobot
+      mailRoute
+      routeRobot
+      findRoute
+      goalOrientedRobot
 
 .. _P185:
 
-   routeRobot
-   findRoute
-   goalOrientedRobot
    If you were to write that project as a modular program, what modules would
    you create? Which module would depend on which other module, and what
    would their interfaces look like?
+
    Which pieces are likely to be available prewritten on NPM? Would you prefer
    to use an NPM package or write them yourself?
-   Roads module
+
+
+Roads module
+~~~~~~~~~~~~
+
    Write a CommonJS module, based on the example from Chapter 7, that con-
    tains the array of roads and exports the graph data structure representing them
    as roadGraph . It should depend on a module ./graph , which exports a function
    buildGraph that is used to build the graph. This function expects an array of
    two-element arrays (the start and end points of the roads).
 
-   Circular dependencies
+
+Circular dependencies
+~~~~~~~~~~~~~~~~~~~~~
+
    A circular dependency is a situation where module A depends on B, and B
    also, directly or indirectly, depends on A. Many module systems simply forbid
    this because whichever order you choose for loading such modules, you cannot
@@ -8896,8 +9188,8 @@ Chapter 11 Asynchronous Programming
    so far are things that will keep the processor busy until they have finished their
    work. The speed at which something like a loop that manipulates numbers can
    be executed depends pretty much entirely on the speed of the processor.
-   But many programs interact with things outside of the processor. For ex-
-   ample, they may communicate over a computer network or request data from
+   But many programs interact with things outside of the processor. For example, 
+   they may communicate over a computer network or request data from
    the hard disk—which is a lot slower than getting it from memory.
 
    When such a thing is happening, it would be a shame to let the processor
@@ -8907,7 +9199,10 @@ Chapter 11 Asynchronous Programming
    single program to be able to make progress while it is waiting for a network
    request.
 
-   Asynchronicity
+
+Asynchronicity
+--------------
+
    In a synchronous programming model, things happen one at a time. When you
    call a function that performs a long-running action, it returns only when the
    action has finished and it can return the result. This stops your program for
@@ -8947,9 +9242,21 @@ Chapter 11 Asynchronous Programming
    initiated the action continues running, and the action happens alongside it,
    notifying the program when it is finished.
 
-   synchronous, single thread of control
-   synchronous, two threads of control
-   asynchronous
+   .. code::
+
+      synchronous, single thread of control
+      ==●==─────────────────────────==●─────────────────=======
+
+      synchronous, two threads of control
+      ==●==──────────────────────────    =======
+      ==●==──────────────────────────────===
+
+      asynchronous
+      ==●==●==                  ╭===    ╭===========
+        │  ╰────────────────────│───────╯
+        ╰───────────────────────╯
+
+
    Another way to describe the difference is that waiting for actions to finish
    is implicit in the synchronous model, while it is explicit, under our control, in
    the asynchronous one.
@@ -8968,7 +9275,10 @@ Chapter 11 Asynchronous Programming
 
 .. _P188:
 
-   Crow tech
+
+Crow tech
+---------
+
    Most people are aware of the fact that crows are very smart birds. They can
    use tools, plan ahead, remember things, and even communicate these things
    among themselves.
@@ -9002,7 +9312,10 @@ Chapter 11 Asynchronous Programming
 
 .. _P189:
 
-   Callbacks
+
+Callbacks
+---------
+
    One approach to asynchronous programming is to make functions that perform
    a slow action take an extra argument, a callback function. The action is started,
    and when it finishes, the callback function is called with the result.
@@ -9010,7 +9323,10 @@ Chapter 11 Asynchronous Programming
    browsers, waits a given number of milliseconds (a second is a thousand mil-
    liseconds) and then calls a function.
 
-   setTimeout(() => console.log("Tick"), 500);
+   .. code:: javascript
+
+      setTimeout(() => console.log("Tick"), 500);
+
    Waiting is not generally a very important type of work, but it can be useful
    when doing something like updating an animation or checking whether some-
    thing is taking longer than a given amount of time.
@@ -9029,13 +9345,17 @@ Chapter 11 Asynchronous Programming
    name "food caches" , which could hold an array of names that point at other
    pieces of data, describing the actual cache. To look up a food cache in the
    storage bulbs of the Big Oak nest, a crow could run code like this:
-   import {bigOak} from "./crow-tech";
-   bigOak.readStorage("food caches", caches => {
-   let firstCache = caches[0];
-   bigOak.readStorage(firstCache, info => {
-   console.log(info);
-   });
-   });
+
+   .. code:: javascript
+
+      import {bigOak} from "./crow-tech";
+      bigOak.readStorage("food caches", caches => {
+         let firstCache = caches[0];
+         bigOak.readStorage(firstCache, info => {
+            console.log(info);
+         });
+      });
+
    (All binding names and strings have been translated from crow language to
    English.)
    This style of programming is workable, but the indentation level increases
@@ -9061,19 +9381,25 @@ Chapter 11 Asynchronous Programming
    content of the request as its first three arguments, and it expects a function to
    call when a response comes in as its fourth and last argument.
 
-   bigOak.send("Cow Pasture", "note", "Let's caw loudly at 7PM",
-   () => console.log("Note delivered."));
+   .. code:: javascript
+
+      bigOak.send("Cow Pasture", "note", "Let's caw loudly at 7PM",
+      () => console.log("Note delivered."));
+
    But to make nests capable of receiving that request, we first have to define a
    request type named "note" . The code that handles the requests has to run not
    just on this nest-computer but on all nests that can receive messages of this
    type. We’ll just assume that a crow flies over and installs our handler code on
    all the nests.
 
-   import {defineRequestType} from "./crow-tech";
-   defineRequestType("note", (nest, content, source, done) => {
-   console.log(`${nest.name} received note: ${content}`);
-   done();
-   });
+   .. code:: javascript
+
+      import {defineRequestType} from "./crow-tech";
+      defineRequestType("note", (nest, content, source, done) => {
+         console.log(`${nest.name} received note: ${content}`);
+         done();
+      });
+
    The defineRequestType function defines a new type of request. The example
    adds support for "note" requests, which just sends a note to a given nest. Our
    implementation calls console.log so that we can verify that the request arrived.
@@ -9096,7 +9422,10 @@ Chapter 11 Asynchronous Programming
    involved and error-prone than simply returning a value, so needing to structure
    large parts of your program that way is not great.
 
-   Promises
+
+Promises
+--------
+
    Working with abstract concepts is often easier when those concepts can be
    represented by values. In the case of asynchronous actions, you could, instead
    of arranging for a function to be called at some point in the future, return an
@@ -9111,9 +9440,12 @@ Chapter 11 Asynchronous Programming
    already a promise, it is simply returned—otherwise, you get a new promise
    that immediately finishes with your value as its result.
 
-   let fifteen = Promise.resolve(15);
-   fifteen.then(value => console.log(`Got ${value}`));
-   // → Got 15
+   .. code:: javascript
+
+      let fifteen = Promise.resolve(15);
+      fifteen.then(value => console.log(`Got ${value}`));
+      // → Got 15
+
    To get the result of a promise, you can use its then method. This registers a
    callback function to be called when the promise resolves and produces a value.
    You can add multiple callbacks to a single promise, and they will be called,
@@ -9137,24 +9469,30 @@ Chapter 11 Asynchronous Programming
    It works this way, instead of for example with a resolve method, so that only
    the code that created the promise can resolve it.
 
-   This is how you’d create a promise-based interface for the readStorage func-
-   tion:
-   function storage(nest, name) {
-   return new Promise(resolve => {
-   nest.readStorage(name, result => resolve(result));
-   });
-   }
-   storage(bigOak, "enemies")
-   .then(value => console.log("Got", value));
+   This is how you’d create a promise-based interface for the ``readStorage`` function:
+
+   .. code:: javascript
+
+      function storage(nest, name) {
+         return new Promise(resolve => {
+            nest.readStorage(name, result => resolve(result));
+         });
+      }
+      storage(bigOak, "enemies")
+      .then(value => console.log("Got", value));
+
    This asynchronous function returns a meaningful value. This is the main
    advantage of promises—they simplify the use of asynchronous functions. In-
    stead of having to pass around callbacks, promise-based functions look similar
    to regular ones: they take input as arguments and return their output. The
    only difference is that the output may not be available yet.
 
-   Failure
-   Regular JavaScript computations can fail by throwing an exception. Asyn-
-   chronous computations often need something like that. A network request may
+
+Failure
+-------
+
+   Regular JavaScript computations can fail by throwing an exception. Asynchronous 
+   computations often need something like that. A network request may
    fail, or some code that is part of the asynchronous computation may throw an
    exception.
 
@@ -9209,23 +9547,28 @@ Chapter 11 Asynchronous Programming
    when it returns a non-promise value, rejection when it throws an exception,
    and the outcome of a promise when it returns one of those.
 
-   new Promise((_, reject) => reject(new Error("Fail")))
-   .then(value => console.log("Handler 1"))
-   .catch(reason => {
-   console.log("Caught failure " + reason);
-   return "nothing";
+   .. code:: javascript
+
+      new Promise((_, reject) => reject(new Error("Fail")))
+      .then(value => console.log("Handler 1"))
+      .catch(reason => {
+         console.log("Caught failure " + reason);
+         return "nothing";
+      })
+      .then(value => console.log("Handler 2", value));
+      // → Caught failure Error: Fail
+      // → Handler 2 nothing
 
 .. _P194:
 
-   })
-   .then(value => console.log("Handler 2", value));
-   // → Caught failure Error: Fail
-   // → Handler 2 nothing
    Much like an uncaught exception is handled by the environment, JavaScript
    environments can detect when a promise rejection isn’t handled and will report
    this as an error.
 
-   Networks are hard
+
+Networks are hard
+-----------------
+
    Occasionally, there isn’t enough light for the crows’ mirror systems to transmit
    a signal or something is blocking the path of the signal. It is possible for a
    signal to be sent but never received.
@@ -9253,28 +9596,32 @@ Chapter 11 Asynchronous Programming
    actual result.
 
    These can be translated to promise resolution and rejection by our wrapper.
-   class Timeout extends Error {}
-   function request(nest, target, type, content) {
-   return new Promise((resolve, reject) => {
-   let done = false;
 
 .. _P195:
 
-   function attempt(n) {
-   nest.send(target, type, content, (failed, value) => {
-   done = true;
-   if (failed) reject(failed);
-   else resolve(value);
-   });
-   setTimeout(() => {
-   if (done) return;
-   else if (n < 3) attempt(n + 1);
-   else reject(new Timeout("Timed out"));
-   }, 250);
-   }
-   attempt(1);
-   });
-   }
+
+   .. code:: javascript
+
+      class Timeout extends Error {}
+      function request(nest, target, type, content) {
+         return new Promise((resolve, reject) => {
+            let done = false;
+            function attempt(n) {
+               nest.send(target, type, content, (failed, value) => {
+                  done = true;
+                  if (failed) reject(failed);
+                  else resolve(value);
+               });
+               setTimeout(() => {
+                  if (done) return;
+                  else if (n < 3) attempt(n + 1);
+                  else reject(new Timeout("Timed out"));
+               }, 250);
+            }
+            attempt(1);
+         });
+      }
+
    Because promises can be resolved (or rejected) only once, this will work. The
    first time resolve or reject is called determines the outcome of the promise,
    and further calls caused by a request coming back after another request finished
@@ -9301,22 +9648,24 @@ Chapter 11 Asynchronous Programming
    a wrapper for defineRequestType that allows the handler function to return a
    promise or plain value and wires that up to the callback for us.
 
-   function requestType(name, handler) {
-   defineRequestType(name, (nest, content, source,
-   callback) => {
 
 .. _P196:
 
-   try {
-   Promise.resolve(handler(nest, content, source))
-   .then(response => callback(null, response),
-   failure => callback(failure));
-   } catch (exception) {
-   callback(exception);
-   }
-   });
-   }
-   Promise.resolve is used to convert the value returned by handler to a
+   .. code:: javascript
+
+      function requestType(name, handler) {
+         defineRequestType(name, (nest, content, source, callback) => {
+            try {
+               Promise.resolve(handler(nest, content, source))
+                  .then(response => callback(null, response),
+                        failure => callback(failure));
+            } catch (exception) {
+               callback(exception);
+            }
+         });
+      }
+
+   ``Promise.resolve`` is used to convert the value returned by handler to a
    promise if it isn’t already.
 
    Note that the call to handler had to be wrapped in a try block to make sure
@@ -9326,7 +9675,10 @@ Chapter 11 Asynchronous Programming
    reported to the right callback. Promises make this mostly automatic and thus
    less error-prone.
 
-   Collections of promises
+
+Collections of promises
+-----------------------
+
    Each nest computer keeps an array of other nests within transmission distance
    in its neighbors property. To check which of those are currently reachable,
    you could write a function that tries to send a "ping" request (a request that
@@ -9337,19 +9689,22 @@ Chapter 11 Asynchronous Programming
    that these promises produced (in the same order as the original array). If any
    promise is rejected, the result of Promise.all is itself rejected.
 
-   requestType("ping", () => "pong");
-   function availableNeighbors(nest) {
-   let requests = nest.neighbors.map(neighbor => {
-   return request(nest, neighbor, "ping")
-   .then(() => true, () => false);
-   });
-   return Promise.all(requests).then(result => {
-   return nest.neighbors.filter((_, i) => result[i]);
-   });
+   .. code:: javascript
+
+      requestType("ping", () => "pong");
+
+      function availableNeighbors(nest) {
+         let requests = nest.neighbors.map(neighbor => {
+            return request(nest, neighbor, "ping")
+                   .then(() => true, () => false);
+         });
+         return Promise.all(requests).then(result => {
+            return nest.neighbors.filter((_, i) => result[i]);
+         });
+      }
 
 .. _P197:
 
-   }
    When a neighbor isn’t available, we don’t want the entire combined promise
    to fail since then we still wouldn’t know anything. So the function that is
    mapped over the set of neighbors to turn them into request promises attaches
@@ -9362,7 +9717,10 @@ Chapter 11 Asynchronous Programming
    as a second argument to its filtering function ( map , some , and similar higher-
    order array methods do the same).
 
-   Network flooding
+
+Network flooding
+----------------
+
    The fact that nests can talk only to their neighbors greatly inhibits the useful-
    ness of this network.
 
@@ -9371,26 +9729,29 @@ Chapter 11 Asynchronous Programming
    then in turn forward it to their neighbors, until the whole network has received
    the message.
 
-   import {everywhere} from "./crow-tech";
-   everywhere(nest => {
-   nest.state.gossip = [];
-   });
-   function sendGossip(nest, message, exceptFor = null) {
-   nest.state.gossip.push(message);
-   for (let neighbor of nest.neighbors) {
-   if (neighbor == exceptFor) continue;
-   request(nest, neighbor, "gossip", message);
-   }
-   }
-   requestType("gossip", (nest, message, source) => {
-   if (nest.state.gossip.includes(message)) return;
-   console.log(`${nest.name} received gossip '${
-   message}' from ${source}`);
-   sendGossip(nest, message, source);
+   .. code:: javascript
+
+      import {everywhere} from "./crow-tech";
+      everywhere(nest => {
+         nest.state.gossip = [];
+      });
+      function sendGossip(nest, message, exceptFor = null) {
+         nest.state.gossip.push(message);
+         for (let neighbor of nest.neighbors) {
+            if (neighbor == exceptFor) continue;
+            request(nest, neighbor, "gossip", message);
+         }
+      }
+
+      requestType("gossip", (nest, message, source) => {
+         if (nest.state.gossip.includes(message)) return;
+         console.log(`${nest.name} received gossip '${
+            message}' from ${source}`);
+         sendGossip(nest, message, source);
+      });
 
 .. _P198:
 
-   });
    To avoid sending the same message around the network forever, each nest
    keeps an array of gossip strings that it has already seen. To define this array,
    we use the everywhere function—which runs code on every nest—to add a
@@ -9408,7 +9769,10 @@ Chapter 11 Asynchronous Programming
    This style of network communication is called flooding—it floods the network
    with a piece of information until all nodes have it.
 
-   Message routing
+
+Message routing
+---------------
+
    If a given node wants to talk to a single other node, flooding is not a very
    efficient approach. Especially when the network is big, that would lead to a lot
    of useless data transfers.
@@ -9426,31 +9790,34 @@ Chapter 11 Asynchronous Programming
    has already been received, we now check whether the new set of neighbors for
    a given nest matches the current set we have for it.
 
-   requestType("connections", (nest, {name, neighbors},
-   source) => {
-   let connections = nest.state.connections;
-   if (JSON.stringify(connections.get(name)) ==
 
 .. _P199:
 
-   JSON.stringify(neighbors)) return;
-   connections.set(name, neighbors);
-   broadcastConnections(nest, name, source);
-   });
-   function broadcastConnections(nest, name, exceptFor = null) {
-   for (let neighbor of nest.neighbors) {
-   if (neighbor == exceptFor) continue;
-   request(nest, neighbor, "connections", {
-   name,
-   neighbors: nest.state.connections.get(name)
-   });
-   }
-   }
-   everywhere(nest => {
-   nest.state.connections = new Map();
-   nest.state.connections.set(nest.name, nest.neighbors);
-   broadcastConnections(nest, nest.name);
-   });
+   .. code:: javascript
+
+      requestType("connections", (nest, {name, neighbors},
+      source) => {
+         let connections = nest.state.connections;
+         if (JSON.stringify(connections.get(name)) ==
+            JSON.stringify(neighbors)) return;
+         connections.set(name, neighbors);
+         broadcastConnections(nest, name, source);
+      });
+      function broadcastConnections(nest, name, exceptFor = null) {
+         for (let neighbor of nest.neighbors) {
+            if (neighbor == exceptFor) continue;
+            request(nest, neighbor, "connections", {
+               name,
+               neighbors: nest.state.connections.get(name)
+            });
+         }
+      }
+      everywhere(nest => {
+         nest.state.connections = new Map();
+         nest.state.connections.set(nest.name, nest.neighbors);
+         broadcastConnections(nest, nest.name);
+      });
+
    The comparison uses JSON.stringify because == , on objects or arrays, will
    return true only when the two are the exact same value, which is not what
    we need here. Comparing the JSON strings is a crude but effective way to
@@ -9460,8 +9827,8 @@ Chapter 11 Asynchronous Programming
    unless some nests are completely unreachable, quickly give every nest a map of
    the current network graph.
 
-   A thing you can do with graphs is find routes in them, as we saw in Chapter
-   7. If we have a route toward a message’s destination, we know which direction
+   A thing you can do with graphs is find routes in them, as we saw in Chapter 7. 
+   If we have a route toward a message’s destination, we know which direction
    to send it in.
 
    This findRoute function, which greatly resembles the findRoute from Chap-
@@ -9470,42 +9837,47 @@ Chapter 11 Asynchronous Programming
    itself, using its current information about the network, decide where it sends
    the message.
 
-   function findRoute(from, to, connections) {
-   let work = [{at: from, via: null}];
-   for (let i = 0; i < work.length; i++) {
-   let {at, via} = work[i];
-   for (let next of connections.get(at) || []) {
 
 .. _P200:
 
-   if (next == to) return via;
-   if (!work.some(w => w.at == next)) {
-   work.push({at: next, via: via || next});
-   }
-   }
-   }
-   return null;
-   }
+   .. code:: javascript
+
+      function findRoute(from, to, connections) {
+         let work = [{at: from, via: null}];
+         for (let i = 0; i < work.length; i++) {
+            let {at, via} = work[i];
+            for (let next of connections.get(at) || []) {
+               if (next == to) return via;
+               if (!work.some(w => w.at == next)) {
+                  work.push({at: next, via: via || next});
+               }
+            }
+         }
+         return null;
+      }
+
    Now we can build a function that can send long-distance messages. If the
    message is addressed to a direct neighbor, it is delivered as usual. If not, it is
    packaged in an object and sent to a neighbor that is closer to the target, using
    the "route" request type, which will cause that neighbor to repeat the same
    behavior.
 
-   function routeRequest(nest, target, type, content) {
-   if (nest.neighbors.includes(target)) {
-   return request(nest, target, type, content);
-   } else {
-   let via = findRoute(nest.name, target,
-   nest.state.connections);
-   if (!via) throw new Error(`No route to ${target}`);
-   return request(nest, via, "route",
-   {target, type, content});
-   }
-   }
-   requestType("route", (nest, {target, type, content}) => {
-   return routeRequest(nest, target, type, content);
-   });
+   .. code:: javascript
+
+      function routeRequest(nest, target, type, content) {
+         if (nest.neighbors.includes(target)) {
+            return request(nest, target, type, content);
+         } else {
+            let via = findRoute(nest.name, target, nest.state.connections);
+            if (!via) throw new Error(`No route to ${target}`);
+            return request(nest, via, "route",
+               {target, type, content});
+         }
+      }
+      requestType("route", (nest, {target, type, content}) => {
+         return routeRequest(nest, target, type, content);
+      });
+
    We’ve constructed several layers of functionality on top of a primitive com-
    munication system to make it convenient to use. This is a nice (though sim-
    plified) model of how real computer networks work.
@@ -9518,7 +9890,10 @@ Chapter 11 Asynchronous Programming
 
 .. _P201:
 
-   Async functions
+
+Async functions
+---------------
+
    To store important information, crows are known to duplicate it across nests.
    That way, when a hawk destroys a nest, the information isn’t lost.
 
@@ -9526,32 +9901,36 @@ Chapter 11 Asynchronous Programming
    bulb, a nest computer might consult random other nests in the network until
    it finds one that has it.
 
-   requestType("storage", (nest, name) => storage(nest, name));
-   function findInStorage(nest, name) {
-   return storage(nest, name).then(found => {
-   if (found != null) return found;
-   else return findInRemoteStorage(nest, name);
-   });
-   }
-   function network(nest) {
-   return Array.from(nest.state.connections.keys());
-   }
-   function findInRemoteStorage(nest, name) {
-   let sources = network(nest).filter(n => n != nest.name);
-   function next() {
-   if (sources.length == 0) {
-   return Promise.reject(new Error("Not found"));
-   } else {
-   let source = sources[Math.floor(Math.random() *
-   sources.length)];
-   sources = sources.filter(n => n != source);
-   return routeRequest(nest, source, "storage", name)
-   .then(value => value != null ? value : next(),
-   next);
-   }
-   }
-   return next();
-   }
+   .. code:: javascript
+
+      requestType("storage", (nest, name) => storage(nest, name));
+
+      function findInStorage(nest, name) {
+         return storage(nest, name).then(found => {
+            if (found != null) return found;
+            else return findInRemoteStorage(nest, name);
+         });
+      }
+
+      function network(nest) {
+         return Array.from(nest.state.connections.keys());
+      }
+
+      function findInRemoteStorage(nest, name) {
+         let sources = network(nest).filter(n => n != nest.name);
+         function next() {
+            if (sources.length == 0) {
+               return Promise.reject(new Error("Not found"));
+            } else {
+               let source = sources[Math.floor(Math.random() * sources.length)];
+               sources = sources.filter(n => n != source);
+               return routeRequest(nest, source, "storage", name)
+                     .then(value => value != null ? value : next(), next);
+            }
+         }
+         return next();
+      }
+
    Because connections is a Map , Object.keys doesn’t work on it. It has a keys
    method, but that returns an iterator rather than an array. An iterator (or
    iterable value) can be converted to an array with the Array.from function.
@@ -9572,22 +9951,24 @@ Chapter 11 Asynchronous Programming
    in a way that looks synchronous.
 
    We can rewrite findInStorage like this:
-   async function findInStorage(nest, name) {
-   let local = await storage(nest, name);
-   if (local != null) return local;
-   let sources = network(nest).filter(n => n != nest.name);
-   while (sources.length > 0) {
-   let source = sources[Math.floor(Math.random() *
-   sources.length)];
-   sources = sources.filter(n => n != source);
-   try {
-   let found = await routeRequest(nest, source, "storage",
-   name);
-   if (found != null) return found;
-   } catch (_) {}
-   }
-   throw new Error("Not found");
-   }
+
+   .. code:: javascript
+
+      async function findInStorage(nest, name) {
+         let local = await storage(nest, name);
+         if (local != null) return local;
+         let sources = network(nest).filter(n => n != nest.name);
+         while (sources.length > 0) {
+            let source = sources[Math.floor(Math.random() * sources.length)];
+            sources = sources.filter(n => n != source);
+            try {
+               let found = await routeRequest(nest, source, "storage", name);
+               if (found != null) return found;
+            } catch (_) {}
+         }
+         throw new Error("Not found");
+      }
+
    An async function is marked by the word async before the function keyword.
    Methods can also be made async by writing async before their name. When
    such a function or method is called, it returns a promise. As soon as the body
@@ -9610,7 +9991,10 @@ Chapter 11 Asynchronous Programming
    fit the synchronous model, such as perform multiple actions at the same time,
    it is easy to combine await with the direct use of promises.
 
-   Generators
+
+Generators
+----------
+
    This ability of functions to be paused and then resumed again is not exclusive
    to async functions. JavaScript also has a feature called generator functions.
    These are similar, but without the promises.
@@ -9619,18 +10003,21 @@ Chapter 11 Asynchronous Programming
    word function ), it becomes a generator. When you call a generator, it returns
    an iterator, which we already saw in Chapter 6.
 
-   function* powers(n) {
-   for (let current = n;; current *= n) {
-   yield current;
-   }
-   }
-   for (let power of powers(3)) {
-   if (power > 50) break;
-   console.log(power);
-   }
-   // → 3
-   // → 9
-   // → 27
+   .. code:: javascript
+
+      function* powers(n) {
+         for (let current = n;; current *= n) {
+            yield current;
+         }
+      }
+      for (let power of powers(3)) {
+         if (power > 50) break;
+         console.log(power);
+      }
+      // → 3
+      // → 9
+      // → 27
+
    Initially, when you call powers , the function is frozen at its start. Every time
    you call next on the iterator, the function runs until it hits a yield expression,
    which pauses it and causes the yielded value to become the next value produced
@@ -9638,16 +10025,19 @@ Chapter 11 Asynchronous Programming
    the iterator is done.
 
    Writing iterators is often much easier when you use generator functions. The
-   iterator for the Group class (from the exercise in Chapter 6) can be written with
+   iterator for the ``Group`` class (from the exercise in Chapter 6) can be written with
    this generator:
-   Group.prototype[Symbol.iterator] = function*() {
-   for (let i = 0; i < this.members.length; i++) {
-   yield this.members[i];
-   }
+
+   .. code:: javascript
+
+      Group.prototype[Symbol.iterator] = function*() {
+         for (let i = 0; i < this.members.length; i++) {
+            yield this.members[i];
+         }
+      };
 
 .. _P204:
 
-   };
    There’s no longer a need to create an object to hold the iteration state—
    generators automatically save their local state every time they yield.
    Such yield expressions may occur only directly in the generator function
@@ -9660,7 +10050,10 @@ Chapter 11 Asynchronous Programming
    an exception. Whenever it yields (awaits) a promise, the result of that promise
    (value or thrown exception) is the result of the await expression.
 
-   The event loop
+
+The event loop
+--------------
+
    Asynchronous programs are executed piece by piece. Each piece may start some
    actions and schedule code to be executed when the action finishes or fails. In
    between these pieces, the program sits idle, waiting for the next action.
@@ -9673,14 +10066,18 @@ Chapter 11 Asynchronous Programming
    is one of the reasons that, without promises, managing exceptions across asyn-
    chronous code is hard. Since each callback starts with a mostly empty stack,
    your catch handlers won’t be on the stack when they throw an exception.
-   try {
-   setTimeout(() => {
-   throw new Error("Woosh");
-   }, 20);
-   } catch (_) {
-   // This will not run
-   console.log("Caught!");
-   }
+
+   .. code:: javascript
+
+      try {
+         setTimeout(() => {
+            throw new Error("Woosh");
+         }, 20);
+      } catch (_) {
+         // This will not run
+         console.log("Caught!");
+      }
+
    No matter how closely together events—such as timeouts or incoming requests—
    happen, a JavaScript environment will run only one program at a time. You
    can think of this as it running a big loop around your program, called the event
@@ -9695,26 +10092,35 @@ Chapter 11 Asynchronous Programming
    This example sets a timeout but then dallies until after the timeout’s in-
    tended point of time, causing the timeout to be late.
 
-   let start = Date.now();
-   setTimeout(() => {
-   console.log("Timeout ran at", Date.now() - start);
-   }, 20);
-   while (Date.now() < start + 50) {}
-   console.log("Wasted time until", Date.now() - start);
-   // → Wasted time until 50
-   // → Timeout ran at 55
+   .. code:: javascript
+
+      let start = Date.now();
+      setTimeout(() => {
+         console.log("Timeout ran at", Date.now() - start);
+      }, 20);
+      while (Date.now() < start + 50) {}
+      console.log("Wasted time until", Date.now() - start);
+      // → Wasted time until 50
+      // → Timeout ran at 55
+
    Promises always resolve or reject as a new event. Even if a promise is already
    resolved, waiting for it will cause your callback to run after the current script
    finishes, rather than right away.
 
-   Promise.resolve("Done").then(console.log);
-   console.log("Me first!");
-   // → Me first!
-   // → Done
+   .. code:: javascript
+
+      Promise.resolve("Done").then(console.log);
+      console.log("Me first!");
+      // → Me first!
+      // → Done
+
    In later chapters we’ll see various other types of events that run on the event
    loop.
 
-   Asynchronous bugs
+
+Asynchronous bugs
+-----------------
+
    When your program runs synchronously, in a single go, there are no state
    changes happening except those that the program itself makes. For asyn-
    chronous programs this is different—they may have gaps in their execution
@@ -9727,19 +10133,22 @@ Chapter 11 Asynchronous Programming
 
 .. _P206:
 
-   function anyStorage(nest, source, name) {
-   if (source == nest.name) return storage(nest, name);
-   else return routeRequest(nest, source, "storage", name);
-   }
-   async function chicks(nest, year) {
-   let list = "";
-   await Promise.all(network(nest).map(async name => {
-   list += `${name}: ${
-   await anyStorage(nest, name, `chicks in ${year}`)
-   }\n`;
-   }));
-   return list;
-   }
+   .. code:: javascript
+
+      function anyStorage(nest, source, name) {
+         if (source == nest.name) return storage(nest, name);
+         else return routeRequest(nest, source, "storage", name);
+      }
+      async function chicks(nest, year) {
+         let list = "";
+         await Promise.all(network(nest).map(async name => {
+            list += `${name}: 
+            ${ await anyStorage(nest, name, `chicks in ${year}`)
+            }\n`;
+         }));
+         return list;
+      }
+
    The async name => part shows that arrow functions can also be made async
    by putting the word async in front of them.
 
@@ -9749,7 +10158,10 @@ Chapter 11 Asynchronous Programming
    But it is seriously broken. It’ll always return only a single line of output,
    listing the nest that was slowest to respond.
 
-   Can you work out why?
+
+Can you work out why?
+---------------------
+
    The problem lies in the += operator, which takes the current value of list
    at the time where the statement starts executing and then, when the await
    finishes, sets the list binding to be that value plus the added string.
@@ -9764,16 +10176,18 @@ Chapter 11 Asynchronous Programming
    up the list by changing a binding. As usual, computing new values is less
    error-prone than changing existing values.
 
-   async function chicks(nest, year) {
-   let lines = network(nest).map(async name => {
-   return name + ": " +
-   await anyStorage(nest, name, `chicks in ${year}`);
-   });
+   .. code:: javascript
+
+      async function chicks(nest, year) {
+         let lines = network(nest).map(async name => {
+            return name + ": " +
+            await anyStorage(nest, name, `chicks in ${year}`);
+         });
+         return (await Promise.all(lines)).join("\n");
+      }
 
 .. _P207:
 
-   return (await Promise.all(lines)).join("\n");
-   }
    Mistakes like this are easy to make, especially when using await , and you
    should be aware of where the gaps in your code occur. An advantage of
    JavaScript’s explicit asynchronicity (whether through callbacks, promises, or
@@ -9789,13 +10203,16 @@ Summary
    such callbacks to be called when appropriate, one after the other, so that their
    execution does not overlap.
 
-   Programming asynchronously is made easier by promises, objects that rep-
-   resent actions that might complete in the future, and async functions, which
+   Programming asynchronously is made easier by promises, objects that represent 
+   actions that might complete in the future, and async functions, which
    allow you to write an asynchronous program as if it were synchronous.
+
 Exercises
 ---------
 
-   Tracking the scalpel
+Tracking the scalpel
+~~~~~~~~~~~~~~~~~~~~
+
    The village crows own an old scalpel that they occasionally use on special
    missions—say, to cut through screen doors or packaging. To be able to quickly
    track it down, every time the scalpel is moved to another nest, an entry is
@@ -9815,7 +10232,10 @@ Exercises
 
 .. _P208:
 
-   Building Promise.all
+
+Building Promise.all
+~~~~~~~~~~~~~~~~~~~~
+
    Given an array of promises, Promise.all returns a promise that waits for all of
    the promises in the array to finish. It then succeeds, yielding an array of result
    values. If a promise in the array fails, the promise returned by all fails too,
@@ -9854,7 +10274,10 @@ Chapter 12 Project: A Programming Language
    language—but one that is powerful enough to express any computation you
    can think of. It will allow simple abstraction based on functions.
 
-   Parsing
+
+Parsing
+-------
+
    The most immediately visible part of a programming language is its syntax, or
    notation. A parser is a program that reads a piece of text and produces a data
    structure that reflects the structure of the program contained in that text. If
@@ -9877,10 +10300,13 @@ Chapter 12 Project: A Programming Language
 
 .. _P210:
 
-   do(define(x, 10),
-   if(>(x, 5),
-   print("large"),
-   print("small")))
+   .. code:: javascript
+
+      do(define(x, 10),
+      if(>(x, 5),
+      print("large"),
+      print("small")))
+
    The uniformity of the Egg language means that things that are operators in
    JavaScript (such as > ) are normal bindings in this language, applied just like
    other functions. And since the syntax has no concept of a block, we need a do
@@ -9899,14 +10325,18 @@ Chapter 12 Project: A Programming Language
    of argument expressions.
 
    The >(x, 5) part of the previous program would be represented like this:
-   {
-   type: "apply",
-   operator: {type: "word", name: ">"},
-   args: [
-   {type: "word", name: "x"},
-   {type: "value", value: 5}
-   ]
-   }
+
+   .. code:: javascript
+
+      {
+         type: "apply",
+         operator: {type: "word", name: ">"},
+         args: [
+            {type: "word", name: "x"},
+            {type: "value", value: 5}
+         ]
+      }
+
    Such a data structure is called a syntax tree. If you imagine the objects as
    dots and the links between them as lines between those dots, it has a treelike
    shape. The fact that expressions contain other expressions, which in turn
@@ -9916,18 +10346,21 @@ Chapter 12 Project: A Programming Language
 
 .. _P211:
 
-   do
-   define
-   x
-   10
-   if
-   >
-   x
-   5
-   print
-   "large"
-   print
-   "small"
+   .. code:: javascript
+
+      ● do
+      ╰──● define
+      │  ╰──● x
+      │  ╰──● 10
+      ╰──● if
+         ╰──● >
+         │  ╰──● x
+         │  ╰──● 5
+         ╰──● print
+         │  ╰──● "large"
+         ╰──● print
+            ╰──● "small"
+
    Contrast this to the parser we wrote for the configuration file format in
    Chapter 9, which had a simple structure: it split the input into lines and
    handled those lines one at a time. There were only a few simple forms that a
@@ -9948,28 +10381,33 @@ Chapter 12 Project: A Programming Language
    be the closing parenthesis that ends the list of arguments.
 
    This is the first part of the parser:
-   function parseExpression(program) {
-   program = skipSpace(program);
-   let match, expr;
-   if (match = /^"([^"]*)"/.exec(program)) {
-   expr = {type: "value", value: match[1]};
-   } else if (match = /^\d+\b/.exec(program)) {
-   expr = {type: "value", value: Number(match[0])};
-   } else if (match = /^[^\s(),#"]+/.exec(program)) {
+
 
 .. _P212:
 
-   expr = {type: "word", name: match[0]};
-   } else {
-   throw new SyntaxError("Unexpected syntax: " + program);
-   }
-   return parseApply(expr, program.slice(match[0].length));
-   }
-   function skipSpace(string) {
-   let first = string.search(/\S/);
-   if (first == -1) return "";
-   return string.slice(first);
-   }
+   .. code:: javascript
+
+      function parseExpression(program) {
+         program = skipSpace(program);
+         let match, expr;
+         if (match = /^"([^"]*)"/.exec(program)) {
+            expr = {type: "value", value: match[1]};
+         } else if (match = /^\d+\b/.exec(program)) {
+            expr = {type: "value", value: Number(match[0])};
+         } else if (match = /^[^\s(),#"]+/.exec(program)) {
+            expr = {type: "word", name: match[0]};
+         } else {
+            throw new SyntaxError("Unexpected syntax: " + program);
+         }
+         return parseApply(expr, program.slice(match[0].length));
+      }
+
+      function skipSpace(string) {
+         let first = string.search(/\S/);
+         if (first == -1) return "";
+         return string.slice(first);
+      }
+
    Because Egg, like JavaScript, allows any amount of whitespace between its
    elements, we have to repeatedly cut the whitespace off the start of the program
    string. That is what the skipSpace function helps with.
@@ -9988,28 +10426,31 @@ Chapter 12 Project: A Programming Language
    whether the expression is an application. If so, it parses a parenthesized list of
    arguments.
 
-   function parseApply(expr, program) {
-   program = skipSpace(program);
-   if (program[0] != "(") {
-   return {expr: expr, rest: program};
-   }
-   program = skipSpace(program.slice(1));
-   expr = {type: "apply", operator: expr, args: []};
-   while (program[0] != ")") {
-   let arg = parseExpression(program);
-   expr.args.push(arg.expr);
-   program = skipSpace(arg.rest);
 
 .. _P213:
 
-   if (program[0] == ",") {
-   program = skipSpace(program.slice(1));
-   } else if (program[0] != ")") {
-   throw new SyntaxError("Expected ',' or ')'");
-   }
-   }
-   return parseApply(expr, program.slice(1));
-   }
+   .. code:: javascript
+
+      function parseApply(expr, program) {
+         program = skipSpace(program);
+         if (program[0] != "(") {
+            return {expr: expr, rest: program};
+         }
+         program = skipSpace(program.slice(1));
+         expr = {type: "apply", operator: expr, args: []};
+         while (program[0] != ")") {
+            let arg = parseExpression(program);
+            expr.args.push(arg.expr);
+            program = skipSpace(arg.rest);
+            if (program[0] == ",") {
+               program = skipSpace(program.slice(1));
+            } else if (program[0] != ")") {
+               throw new SyntaxError("Expected ',' or ')'");
+            }
+         }
+         return parseApply(expr, program.slice(1));
+      }
+
    If the next character in the program is not an opening parenthesis, this is
    not an application, and parseApply returns the expression it was given.
    Otherwise, it skips the opening parenthesis and creates the syntax tree object
@@ -10021,61 +10462,69 @@ Chapter 12 Project: A Programming Language
    (2)(1) ), parseApply must, after it has parsed an application, call itself again
    to check whether another pair of parentheses follows.
 
-   This is all we need to parse Egg. We wrap it in a convenient parse func-
-   tion that verifies that it has reached the end of the input string after parsing
+   This is all we need to parse Egg. We wrap it in a convenient parse function 
+   that verifies that it has reached the end of the input string after parsing
    the expression (an Egg program is a single expression), and that gives us the
    program’s data structure.
 
-   function parse(program) {
-   let {expr, rest} = parseExpression(program);
-   if (skipSpace(rest).length > 0) {
-   throw new SyntaxError("Unexpected text after program");
-   }
-   return expr;
-   }
-   console.log(parse("+(a, 10)"));
-   // → {type: "apply",
-   // operator: {type: "word", name: "+"},
-   // args: [{type: "word", name: "a"},
-   // {type: "value", value: 10}]}
+   .. code:: javascript
+
+      function parse(program) {
+         let {expr, rest} = parseExpression(program);
+         if (skipSpace(rest).length > 0) {
+            throw new SyntaxError("Unexpected text after program");
+         }
+         return expr;
+      }
+      console.log(parse("+(a, 10)"));
+      // → {type: "apply",
+      // operator: {type: "word", name: "+"},
+      // args: [{type: "word", name: "a"},
+      // {type: "value", value: 10}]}
+
    It works! It doesn’t give us very helpful information when it fails and doesn’t
    store the line and column on which each expression starts, which might be
    helpful when reporting errors later, but it’s good enough for our purposes.
 
 .. _P214:
 
-   The evaluator
+
+The evaluator
+-------------
+
    What can we do with the syntax tree for a program? Run it, of course! And
    that is what the evaluator does. You give it a syntax tree and a scope object
    that associates names with values, and it will evaluate the expression that the
    tree represents and return the value that this produces.
 
-   const specialForms = Object.create(null);
-   function evaluate(expr, scope) {
-   if (expr.type == "value") {
-   return expr.value;
-   } else if (expr.type == "word") {
-   if (expr.name in scope) {
-   return scope[expr.name];
-   } else {
-   throw new ReferenceError(
-   `Undefined binding: ${expr.name}`);
-   }
-   } else if (expr.type == "apply") {
-   let {operator, args} = expr;
-   if (operator.type == "word" &&
-   operator.name in specialForms) {
-   return specialForms[operator.name](expr.args, scope);
-   } else {
-   let op = evaluate(operator, scope);
-   if (typeof op == "function") {
-   return op(...args.map(arg => evaluate(arg, scope)));
-   } else {
-   throw new TypeError("Applying a non-function.");
-   }
-   }
-   }
-   }
+   .. code:: javascript
+
+      const specialForms = Object.create(null);
+      function evaluate(expr, scope) {
+         if (expr.type == "value") {
+            return expr.value;
+         } else if (expr.type == "word") {
+            if (expr.name in scope) {
+               return scope[expr.name];
+            } else {
+               throw new ReferenceError(`Undefined binding: ${expr.name}`);
+            }
+         } else if (expr.type == "apply") {
+            let {operator, args} = expr;
+            if (operator.type == "word" &&
+               operator.name in specialForms) {
+               return specialForms[operator.name](expr.args, scope);
+            } else {
+               let op = evaluate(operator, scope);
+               if (typeof op == "function") {
+                  return op(...args.map(arg => evaluate(arg, scope)));
+               } else {
+                  throw new TypeError("Applying a non-function.");
+               }
+            }
+         }
+      }
+
    The evaluator has code for each of the expression types. A literal value
    expression produces its value. (For example, the expression 100 just evaluates
    to the number 100.) For a binding, we must check whether it is actually defined
@@ -10099,20 +10548,25 @@ Chapter 12 Project: A Programming Language
    without defining a few special forms and adding some useful values to the
    environment, you can’t do much with this language yet.
 
-   Special forms
+Special forms
+-------------
+
    The specialForms object is used to define special syntax in Egg. It associates
    words with functions that evaluate such forms. It is currently empty. Let’s add
    if .
 
-   specialForms.if = (args, scope) => {
-   if (args.length != 3) {
-   throw new SyntaxError("Wrong number of args to if");
-   } else if (evaluate(args[0], scope) !== false) {
-   return evaluate(args[1], scope);
-   } else {
-   return evaluate(args[2], scope);
-   }
-   };
+   .. code:: javascript
+
+      specialForms.if = (args, scope) => {
+         if (args.length != 3) {
+            throw new SyntaxError("Wrong number of args to if");
+         } else if (evaluate(args[0], scope) !== false) {
+            return evaluate(args[1], scope);
+         } else {
+            return evaluate(args[2], scope);
+         }
+      };
+
    Egg’s if construct expects exactly three arguments. It will evaluate the first,
    and if the result isn’t the value false , it will evaluate the second. Otherwise,
    the third gets evaluated. This if form is more similar to JavaScript’s ternary
@@ -10132,45 +10586,56 @@ Chapter 12 Project: A Programming Language
 
    The while form is similar.
 
-   specialForms.while = (args, scope) => {
-   if (args.length != 2) {
-   throw new SyntaxError("Wrong number of args to while");
-   }
-   while (evaluate(args[0], scope) !== false) {
-   evaluate(args[1], scope);
-   }
-   // Since undefined does not exist in Egg, we return false,
-   // for lack of a meaningful result.
+   .. code:: javascript
 
-   return false;
-   };
+      specialForms.while = (args, scope) => {
+         if (args.length != 2) {
+            throw new SyntaxError("Wrong number of args to while");
+         }
+         while (evaluate(args[0], scope) !== false) {
+            evaluate(args[1], scope);
+         }
+         // Since undefined does not exist in Egg, we return false,
+         // for lack of a meaningful result.
+         return false;
+      };
+
    Another basic building block is do , which executes all its arguments from top
    to bottom. Its value is the value produced by the last argument.
 
-   specialForms.do = (args, scope) => {
-   let value = false;
-   for (let arg of args) {
-   value = evaluate(arg, scope);
-   }
-   return value;
-   };
+   .. code:: javascript
+
+      specialForms.do = (args, scope) => {
+         let value = false;
+         for (let arg of args) {
+            value = evaluate(arg, scope);
+         }
+         return value;
+      };
+
    To be able to create bindings and give them new values, we also create a
    form called define . It expects a word as its first argument and an expression
    producing the value to assign to that word as its second argument. Since
    define , like everything, is an expression, it must return a value. We’ll make it
    return the value that was assigned (just like JavaScript’s = operator).
-   specialForms.define = (args, scope) => {
-   if (args.length != 2 || args[0].type != "word") {
-   throw new SyntaxError("Incorrect use of define");
-   }
-   let value = evaluate(args[1], scope);
-   scope[args[0].name] = value;
-   return value;
-   };
+
+   .. code:: javascript
+
+      specialForms.define = (args, scope) => {
+         if (args.length != 2 || args[0].type != "word") {
+            throw new SyntaxError("Incorrect use of define");
+         }
+         let value = evaluate(args[1], scope);
+         scope[args[0].name] = value;
+         return value;
+      };
 
 .. _P217:
 
-   The environment
+
+The environment
+---------------
+
    The scope accepted by evaluate is an object with properties whose names
    correspond to binding names and whose values correspond to the values those
    bindings are bound to. Let’s define an object to represent the global scope.
@@ -10179,56 +10644,79 @@ Chapter 12 Project: A Programming Language
    syntax for them. We simply bind two names to the values true and false and
    use them.
 
-   const topScope = Object.create(null);
-   topScope.true = true;
-   topScope.false = false;
+   .. code:: javascript
+
+      const topScope = Object.create(null);
+      topScope.true = true;
+      topScope.false = false;
+
    We can now evaluate a simple expression that negates a Boolean value.
-   let prog = parse(`if(true, false, true)`);
-   console.log(evaluate(prog, topScope));
-   // → false
+
+   .. code:: javascript
+
+      let prog = parse(`if(true, false, true)`);
+      console.log(evaluate(prog, topScope));
+      // → false
+
    To supply basic arithmetic and comparison operators, we will also add some
    function values to the scope. In the interest of keeping the code short, we’ll
    use Function to synthesize a bunch of operator functions in a loop, instead of
    defining them individually.
 
-   for (let op of ["+", "-", "*", "/", "==", "<", ">"]) {
-   topScope[op] = Function("a, b", `return a ${op} b;`);
-   }
+   .. code:: javascript
+
+      for (let op of ["+", "-", "*", "/", "==", "<", ">"]) {
+         topScope[op] = Function("a, b", `return a ${op} b;`);
+      }
+
    A way to output values is also useful, so we’ll wrap console.log in a function
    and call it print .
 
-   topScope.print = value => {
-   console.log(value);
 
 .. _P218:
 
-   return value;
-   };
+   .. code:: javascript
+
+      topScope.print = value => {
+         console.log(value);
+         return value;
+      };
+
    That gives us enough elementary tools to write simple programs. The fol-
    lowing function provides a convenient way to parse a program and run it in a
    fresh scope:
-   function run(program) {
-   return evaluate(parse(program), Object.create(topScope));
-   }
+
+   .. code:: javascript
+
+      function run(program) {
+         return evaluate(parse(program), Object.create(topScope));
+      }
+
    We’ll use object prototype chains to represent nested scopes so that the
    program can add bindings to its local scope without changing the top-level
    scope.
 
-   run(`
-   do(define(total, 0),
-   define(count, 1),
-   while(<(count, 11),
-   do(define(total, +(total, count)),
-   define(count, +(count, 1)))),
-   print(total))
-   `);
-   // → 55
+   .. code:: javascript
+
+      run(`
+      do(define(total, 0),
+      define(count, 1),
+      while(<(count, 11),
+      do(define(total, +(total, count)),
+      define(count, +(count, 1)))),
+      print(total))
+      `);
+      // → 55
+
    This is the program we’ve seen several times before, which computes the sum
    of the numbers 1 to 10, expressed in Egg. It is clearly uglier than the equivalent
    JavaScript program—but not bad for a language implemented in less than 150
    lines of code.
 
-   Functions
+
+Functions
+---------
+
    A programming language without functions is a poor programming language
    indeed.
 
@@ -10239,49 +10727,56 @@ Chapter 12 Project: A Programming Language
 
 .. _P219:
 
-   specialForms.fun = (args, scope) => {
-   if (!args.length) {
-   throw new SyntaxError("Functions need a body");
-   }
-   let body = args[args.length - 1];
-   let params = args.slice(0, args.length - 1).map(expr => {
-   if (expr.type != "word") {
-   throw new SyntaxError("Parameter names must be words");
-   }
-   return expr.name;
-   });
-   return function() {
-   if (arguments.length != params.length) {
-   throw new TypeError("Wrong number of arguments");
-   }
-   let localScope = Object.create(scope);
-   for (let i = 0; i < arguments.length; i++) {
-   localScope[params[i]] = arguments[i];
-   }
-   return evaluate(body, localScope);
-   };
-   };
+   .. code:: javascript
+
+      specialForms.fun = (args, scope) => {
+         if (!args.length) {
+            throw new SyntaxError("Functions need a body");
+         }
+         let body = args[args.length - 1];
+         let params = args.slice(0, args.length - 1).map(expr => {
+            if (expr.type != "word") {
+               throw new SyntaxError("Parameter names must be words");
+            }
+            return expr.name;
+         });
+         return function() {
+            if (arguments.length != params.length) {
+               throw new TypeError("Wrong number of arguments");
+            }
+            let localScope = Object.create(scope);
+            for (let i = 0; i < arguments.length; i++) {
+               localScope[params[i]] = arguments[i];
+            }
+            return evaluate(body, localScope);
+         };
+      };
+
    Functions in Egg get their own local scope. The function produced by the
    fun form creates this local scope and adds the argument bindings to it. It then
    evaluates the function body in this scope and returns the result.
 
-   run(`
-   do(define(plusOne, fun(a, +(a, 1))),
-   print(plusOne(10)))
-   `);
-   // → 11
-   run(`
-   do(define(pow, fun(base, exp,
-   if(==(exp, 0),
-   1,
-   *(base, pow(base, -(exp, 1)))))),
-   print(pow(2, 10)))
-   `);
-   // → 1024
+   .. code:: javascript
+
+      run(`
+      do(define(plusOne, fun(a, +(a, 1))),
+      print(plusOne(10)))
+      `);
+      // → 11
+      run(`
+      do(define(pow, fun(base, exp,
+      if(==(exp, 0),
+      1,
+      *(base, pow(base, -(exp, 1)))))),
+      print(pow(2, 10)))
+      `);
+      // → 1024
 
 .. _P220:
 
-   Compilation
+Compilation
+-----------
+
    What we have built is an interpreter. During evaluation, it acts directly on the
    representation of the program produced by the parser.
 
@@ -10306,7 +10801,9 @@ Chapter 12 Project: A Programming Language
    If you are interested in this topic and willing to spend some time on it, I
    encourage you to try to implement such a compiler as an exercise.
 
-   Cheating
+Cheating
+--------
+
    When we defined if and while , you probably noticed that they were more
    or less trivial wrappers around JavaScript’s own if and while . Similarly, the
    values in Egg are just regular old JavaScript values.
@@ -10332,32 +10829,41 @@ Chapter 12 Project: A Programming Language
    Or imagine you are building a giant robotic dinosaur and need to program
    its behavior. JavaScript might not be the most effective way to do this. You
    might instead opt for a language that looks like this:
-   behavior walk
-   perform when
-   destination ahead
-   actions
-   move left-foot
-   move right-foot
-   behavior attack
-   perform when
-   Godzilla in-view
-   actions
-   fire laser-eyes
-   launch arm-rockets
+
+   .. code:: javascript
+
+      behavior walk
+      perform when
+      destination ahead
+      actions
+      move left-foot
+      move right-foot
+      behavior attack
+      perform when
+      Godzilla in-view
+      actions
+      fire laser-eyes
+      launch arm-rockets
+
    This is what is usually called a domain-specific language, a language tailored
    to express a narrow domain of knowledge. Such a language can be more expres-
    sive than a general-purpose language because it is designed to describe exactly
    the things that need to be described in its domain, and nothing else.
+
 Exercises
 ---------
 
-   Arrays
+Arrays
+~~~~~~~
+
    Add support for arrays to Egg by adding the following three functions to the
    top scope: array(...values) to construct an array containing the argument
    values, length(array) to get an array’s length, and element(array, n) to fetch
    the n th element from an array.
 
-   Closure
+Closure
+~~~~~~~
+
    The way we have defined fun allows functions in Egg to reference the surround-
    ing scope, allowing the function’s body to use local values that were visible at
    the time the function was defined, just like JavaScript functions do.
@@ -10368,15 +10874,20 @@ Exercises
 
 .. _P222:
 
-   run(`
-   do(define(f, fun(a, fun(b, +(a, b)))),
-   print(f(4)(5)))
-   `);
-   // → 9
+   .. code:: javascript
+
+      run(`
+      do(define(f, fun(a, fun(b, +(a, b)))),
+      print(f(4)(5)))
+      `);
+      // → 9
+
    Go back to the definition of the fun form and explain which mechanism
    causes this to work.
 
-   Comments
+Comments
+~~~~~~~~
+
    It would be nice if we could write comments in Egg. For example, whenever
    we find a hash sign ( # ), we could treat the rest of the line as a comment and
    ignore it, similar to // in JavaScript.
@@ -10386,7 +10897,9 @@ Exercises
    all the points where skipSpace is called will now also skip comments. Make
    this change.
 
-   Fixing scope
+Fixing scope
+~~~~~~~~~~~~
+
    Currently, the only way to assign a binding a value is define . This construct
    acts as a way both to define new bindings and to give existing ones a new value.
    This ambiguity causes a problem. When you try to give a nonlocal binding
@@ -10408,7 +10921,7 @@ Exercises
 
 .. _P223:
 
-   .. code::javascript
+   .. code:: javascript
 
       Object.prototype.hasOwnProperty.call(scope, name);
 
@@ -10443,7 +10956,10 @@ Chapter 13 JavaScript and the Browser
    the resulting system is not exactly a shining example of internal consistency.
    Some parts of it are downright confusing and poorly conceived.
 
-   Networks and the Internet
+
+Networks and the Internet
+-------------------------
+
    Computer networks have been around since the 1950s. If you put cables be-
    tween two or more computers and allow them to send data back and forth
    through these cables, you can do all kinds of wonderful things.
@@ -10468,7 +10984,11 @@ Chapter 13 JavaScript and the Browser
    trieving named resources (chunks of information, such as web pages or pictures).
    It specifies that the side making the request should start with a line like this,
    naming the resource and the version of the protocol that it is trying to use:
-   GET /index.html HTTP/1.1
+
+   .. code:: javascript
+
+      GET /index.html HTTP/1.1
+
    There are a lot more rules about the way the requester can include more
    information in the request and the way the other side, which returns the re-
    source, packages up its content. We’ll look at HTTP in a little more detail in
@@ -10506,7 +11026,9 @@ Chapter 13 JavaScript and the Browser
 
 .. _P226:
 
-   The Web
+The Web
+-------
+
    The World Wide Web (not to be confused with the Internet as a whole) is a
    set of protocols and formats that allow us to visit web pages in a browser. The
    “Web” part in the name refers to the fact that such pages can easily link to
@@ -10517,9 +11039,13 @@ Chapter 13 JavaScript and the Browser
 
    Each document on the Web is named by a Uniform Resource Locator (URL),
    which looks something like this:
-   http://eloquentjavascript.net/13_browser.html
-   | | | |
-   protocol server path
+
+   .. code:: javascript
+
+      http://eloquentjavascript.net/13_browser.html
+      ╰──┬──╯╰─────────┬──────────╯ ╰──────┬──────╯
+      protocol       server               path
+
    The first part tells us that this URL uses the HTTP protocol (as opposed to,
    for example, encrypted HTTP, which would be https://). Then comes the part
    that identifies which server we are requesting the document from. Last is a
@@ -10541,7 +11067,9 @@ Chapter 13 JavaScript and the Browser
    resource /13_browser.html. If all goes well, the server sends back a document,
    which your browser then displays on your screen.
 
-   HTML
+HTML
+----
+
    HTML, which stands for Hypertext Markup Language, is the document format
    used for web pages. An HTML document contains text, as well as tags that
 
@@ -10551,19 +11079,23 @@ Chapter 13 JavaScript and the Browser
    headings.
 
    A short HTML document might look like this:
-   <!doctype html>
-   <html>
-   <head>
-   <meta charset="utf-8">
-   <title>My home page</title>
-   </head>
-   <body>
-   <h1>My home page</h1>
-   <p>Hello, I am Marijn and this is my home page.</p>
-   <p>I also wrote a book! Read it
-   <a href="http://eloquentjavascript.net">here</a>.</p>
-   </body>
-   </html>
+
+   .. code:: javascript
+
+      <!doctype html>
+      <html>
+      <head>
+      <meta charset="utf-8">
+      <title>My home page</title>
+      </head>
+      <body>
+      <h1>My home page</h1>
+      <p>Hello, I am Marijn and this is my home page.</p>
+      <p>I also wrote a book! Read it
+      <a href="http://eloquentjavascript.net">here</a>.</p>
+      </body>
+      </html>
+
    This is what such a document would look like in the browser:
    The tags, wrapped in angle brackets ( < and > , the symbols for less than and
    greater than), provide information about the structure of the document. The
@@ -10610,14 +11142,17 @@ Chapter 13 JavaScript and the Browser
    in the same way.
 
    The following document will be treated just like the one shown previously:
-   <!doctype html>
-   <meta charset=utf-8>
-   <title>My home page</title>
-   <h1>My home page</h1>
-   <p>Hello, I am Marijn and this is my home page.
+   
+   .. code:: javascript
 
-   <p>I also wrote a book! Read it
-   <a href=http://eloquentjavascript.net>here</a>.
+      <!doctype html>
+      <meta charset=utf-8>
+      <title>My home page</title>
+      <h1>My home page</h1>
+      <p>Hello, I am Marijn and this is my home page.
+
+      <p>I also wrote a book! Read it
+      <a href=http://eloquentjavascript.net>here</a>.
 
    The <html> , <head> , and <body> tags are gone completely. The browser
    knows that <meta> and <title> belong in the head and that <h1> means the
@@ -10638,12 +11173,17 @@ Chapter 13 JavaScript and the Browser
    doctype and the charset metadata to be implicitly present in examples, even
    when they are not actually shown in the text.
 
-   HTML and JavaScript
+HTML and JavaScript
+-------------------
+
    In the context of this book, the most important HTML tag is <script> . This
    tag allows us to include a piece of JavaScript in a document.
 
-   <h1>Testing alert</h1>
-   <script>alert("hello!");</script>
+   .. code:: javascript
+
+      <h1>Testing alert</h1>
+      <script>alert("hello!");</script>
+
    Such a script will run as soon as its <script> tag is encountered while the
    browser reads the HTML. This page will pop up a dialog when opened—the
    alert function resembles prompt , in that it pops up a little window, but only
@@ -10653,8 +11193,11 @@ Chapter 13 JavaScript and the Browser
    The <script> tag can be given an src attribute to fetch a script file (a text file
    containing a JavaScript program) from a URL.
 
-   <h1>Testing alert</h1>
-   <script src="code/hello.js"></script>
+   .. code:: javascript
+
+      <h1>Testing alert</h1>
+      <script src="code/hello.js"></script>
+
    The code/hello.js file included here contains the same program— alert("
    hello!") . When an HTML page references other URLs as part of itself—for
    example, an image file or a script—web browsers will retrieve them immediately
@@ -10681,7 +11224,10 @@ Chapter 13 JavaScript and the Browser
    because double quotes are already used to quote the whole attribute. I could
    also have used &quot; .
 
-   In the sandbox
+
+In the sandbox
+--------------
+
    Running programs downloaded from the Internet is potentially dangerous. You
    do not know much about the people behind most sites you visit, and they do
    not necessarily mean well. Running programs by people who do not mean well
@@ -10769,40 +11315,64 @@ Chapter 14 The Document Object Model
    or modify. It acts as a live data structure: when it’s modified, the page on the
    screen is updated to reflect the changes.
 
-   Document structure
+
+Document structure
+------------------
+
    You can imagine an HTML document as a nested set of boxes. Tags such as
    <body> and </body> enclose other tags, which in turn contain other tags or
    text. Here’s the example document from the previous chapter:
-   <!doctype html>
-   <html>
-   <head>
-   <title>My home page</title>
-   </head>
-   <body>
-   <h1>My home page</h1>
-   <p>Hello, I am Marijn and this is my home page.</p>
-   <p>I also wrote a book! Read it
-   <a href="http://eloquentjavascript.net">here</a>.</p>
-   </body>
-   </html>
+
+   .. code:: javascript
+
+      <!doctype html>
+      <html>
+         <head>
+         <title>My home page</title>
+         </head>
+         <body>
+            <h1>My home page</h1>
+            <p>Hello, I am Marijn and this is my home page.</p>
+            <p>I also wrote a book! Read it
+            <a href="http://eloquentjavascript.net">here</a>.</p>
+         </body>
+      </html>
+
    This page has the following structure:
 
 .. _P233:
 
-   here
-   a
-   . I also wrote a book! Read it
-   p
-   Hello, I am Marijn and this is...
+      ╭──────────────────────────────────────────╮
+      │ html                                     │
+      │                                          │
+      │ ╭──────────────────────────────────────╮ │
+      │ │ head                                 │ │
+      │ │                                      │ │
+      │ │ ╭──────────────────────────────────╮ │ │
+      │ │ │ title                            │ │ │
+      │ │ │ My home page                     │ │ │
+      │ │ ╰──────────────────────────────────╯ │ │
+      │ ╰──────────────────────────────────────╯ │
+      │ ╭──────────────────────────────────────╮ │
+      │ │ body                                 │ │
+      │ │                                      │ │
+      │ │ ╭──────────────────────────────────╮ │ │
+      │ │ │ h1                               │ │ │
+      │ │ │ My home page                     │ │ │
+      │ │ ╰──────────────────────────────────╯ │ │
+      │ │ ╭──────────────────────────────────╮ │ │
+      │ │ │ p                                │ │ │
+      │ │ │ . I also wrote a book! Read it   │ │ │
+      │ │ ╰──────────────────────────────────╯ │ │
+      │ │ ╭──────────────────────────────────╮ │ │
+      │ │ │ p                       ╭──────╮ │ │ │
+      │ │ │ Hello, I am Marijn      │ here │ │ │ │
+      │ │ │ and this is...          │ a    │ │ │ │
+      │ │ ╰─────────────────────────╰──────╯─╯ │ │
+      │ ╰──────────────────────────────────────╯ │
+      ╰──────────────────────────────────────────╯
 
-   p
-   My home page
-   h1
-   body
-   My home page
-   title
-   head
-   html
+                                         
    The data structure the browser uses to represent the document follows this
    shape. For each box, there is an object, which we can interact with to find
    out things such as what HTML tag it represents and which boxes and text it
@@ -10814,7 +11384,9 @@ Chapter 14 The Document Object Model
    document has a head and a body, it also has head and body properties, pointing
    at those elements.
 
-   Trees
+Trees
+-----
+
    Think back to the syntax trees from Chapter 12 for a moment. Their structures
    are strikingly similar to the structure of a browser’s document. Each node may
    refer to other nodes, children, which in turn may have their own children. This
@@ -10851,18 +11423,34 @@ Chapter 14 The Document Object Model
    have code 8 ( Node.COMMENT_NODE ).
 
    Another way to visualize our document tree is as follows:
-   html head title My home page
-   body h1 My home page
-   p Hello! I am...
 
-   p I also wrote...
+   .. code:: javascript
 
-   here a
-   .
+      ╭──────╮   ╭──────╮   ╭───────╮   ╭──────────────╮
+      │ html │ ⇨ │ head │ ⇨ │ title │ ⇨ │ My home page │
+      ╰──────╯ │ ╰──────╯   ╰───────╯   ╰──────────────╯
+               │  ╭──────╮   ╭───────╮   ╭──────────────╮
+               ╰⇨ │ body │ ⇨ │ h1    │ ⇨ │ My home page │
+                  ╰──────╯ │ ╰───────╯   ╰──────────────╯
+                           │  ╭──────╮   ╭────────────────╮
+                           ╰⇨ │ p    │ ⇨ │ Hello! I am... │
+                           │  ╰──────╯   ╰────────────────╯
+                           │  ╭──────╮   ╭─────────────────╮
+                           ╰⇨ │ p    │ ⇨ │ I also wrote... │
+                           │  ╰──────╯   ╰─────────────────╯
+                           │  ╭──────╮   ╭────────────────╮
+                           ╰⇨ │ a    │ ⇨ │ here           │
+                           │  ╰──────╯   ╰────────────────╯
+                           │  ╭─────╮
+                           ╰⇨ │ ... │
+                              ╰─────╯
+
    The leaves are text nodes, and the arrows indicate parent-child relationships
    between nodes.
 
-   The standard
+The standard
+------------
+
    Using cryptic numeric codes to represent node types is not a very JavaScript-
    like thing to do. Later in this chapter, we’ll see that other parts of the DOM
    interface also feel cumbersome and alien. The reason for this is that the DOM
@@ -10894,26 +11482,32 @@ Chapter 14 The Document Object Model
    you are performing. Many libraries intended for browser programming come
    with such tools.
 
-   Moving through the tree
+Moving through the tree
+-----------------------
+
    DOM nodes contain a wealth of links to other nearby nodes. The following
    diagram illustrates these:
-   I also wrote a book! ...
 
-   p
-   Hello, I am Marijn...
+   .. code:: javascript
 
-   p
-   My home page
-   h1
-   body
-   0
-   1
-   2
-   childNodes firstChild
-   lastChild
-   previousSibling
-   nextSibling
-   parentNode
+      I also wrote a book! ...
+
+      p
+      Hello, I am Marijn...
+
+      p
+      My home page
+      h1
+      body
+      0
+      1
+      2
+      childNodes firstChild
+      lastChild
+      previousSibling
+      nextSibling
+      parentNode
+
    Although the diagram shows only one link of each type, every node has a
    parentNode property that points to the node it is part of, if any. Likewise,
    every element node (node type 1) has a childNodes property that points to an
@@ -10938,24 +11532,30 @@ Chapter 14 The Document Object Model
    When dealing with a nested data structure like this one, recursive functions
    are often useful. The following function scans a document for text nodes con-
    taining a given string and returns true when it has found one:
-   function talksAbout(node, string) {
-   if (node.nodeType == Node.ELEMENT_NODE) {
-   for (let child of node.childNodes) {
-   if (talksAbout(child, string)) {
-   return true;
-   }
-   }
-   return false;
-   } else if (node.nodeType == Node.TEXT_NODE) {
-   return node.nodeValue.indexOf(string) > -1;
-   }
-   }
-   console.log(talksAbout(document.body, "book"));
-   // → true
+
+   .. code:: javascript
+
+      function talksAbout(node, string) {
+         if (node.nodeType == Node.ELEMENT_NODE) {
+            for (let child of node.childNodes) {
+               if (talksAbout(child, string)) {
+                  return true;
+               }
+            }
+            return false;
+         } else if (node.nodeType == Node.TEXT_NODE) {
+            return node.nodeValue.indexOf(string) > -1;
+         }
+      }
+      console.log(talksAbout(document.body, "book"));
+      // → true
+
    The nodeValue property of a text node holds the string of text that it repre-
    sents.
 
-   Finding elements
+Finding elements
+----------------
+
    Navigating these links among parents, children, and siblings is often useful.
    But if we want to find a specific node in the document, reaching it by starting
    at document.body and following a fixed path of properties is a bad idea. Do-
@@ -10974,42 +11574,54 @@ Chapter 14 The Document Object Model
    the document body”. It’d be better if we could say “Get the first link in the
    document”. And we can.
 
-   let link = document.body.getElementsByTagName("a")[0];
-   console.log(link.href);
+   .. code:: javascript
+
+      let link = document.body.getElementsByTagName("a")[0];
+      console.log(link.href);
+
    All element nodes have a getElementsByTagName method, which collects all
-   elements with the given tag name that are descendants (direct or indirect chil-
-   dren) of that node and returns them as an array-like object.
+   elements with the given tag name that are descendants (direct or indirect 
+   children) of that node and returns them as an array-like object.
 
    To find a specific single node, you can give it an id attribute and use document
    .getElementById instead.
 
-   <p>My ostrich Gertrude:</p>
-   <p><img id="gertrude" src="img/ostrich.png"></p>
-   <script>
-   let ostrich = document.getElementById("gertrude");
-   console.log(ostrich.src);
-   </script>
+   .. code:: javascript
+
+      <p>My ostrich Gertrude:</p>
+      <p><img id="gertrude" src="img/ostrich.png"></p>
+      <script>
+      let ostrich = document.getElementById("gertrude");
+      console.log(ostrich.src);
+      </script>
+
    A third, similar method is getElementsByClassName , which, like getElementsByTagName
    , searches through the contents of an element node and retrieves all elements
    that have the given string in their class attribute.
 
-   Changing the document
+Changing the document
+---------------------
+
    Almost everything about the DOM data structure can be changed. The shape
    of the document tree can be modified by changing parent-child relationships.
    Nodes have a remove method to remove them from their current parent node.
    To add a child node to an element node, we can use appendChild , which puts
    it at the end of the list of children, or insertBefore , which inserts the node
    given as the first argument before the node given as the second argument.
-   <p>One</p>
-   <p>Two</p>
+
 
 .. _P238:
 
-   <p>Three</p>
-   <script>
-   let paragraphs = document.body.getElementsByTagName("p");
-   document.body.insertBefore(paragraphs[2], paragraphs[0]);
-   </script>
+   .. code:: javascript
+
+      <p>One</p>
+      <p>Two</p>
+      <p>Three</p>
+      <script>
+      let paragraphs = document.body.getElementsByTagName("p");
+      document.body.insertBefore(paragraphs[2], paragraphs[0]);
+      </script>
+
    A node can exist in the document in only one place. Thus, inserting para-
    graph Three in front of paragraph One will first remove it from the end of the
    document and then insert it at the front, resulting in Three/One/Two. All
@@ -11022,7 +11634,9 @@ Chapter 14 The Document Object Model
    that both replaceChild and insertBefore expect the new node as their first
    argument.
 
-   Creating nodes
+Creating nodes
+--------------
+
    Say we want to write a script that replaces all images ( <img> tags) in the doc-
    ument with the text held in their alt attributes, which specifies an alternative
    textual representation of the image.
@@ -11031,24 +11645,26 @@ Chapter 14 The Document Object Model
    to replace them. Text nodes are created with the document.createTextNode
    method.
 
-   <p>The <img src="img/cat.png" alt="Cat"> in the
-   <img src="img/hat.png" alt="Hat">.</p>
-   <p><button onclick="replaceImages()">Replace</button></p>
-   <script>
-   function replaceImages() {
-   let images = document.body.getElementsByTagName("img");
-   for (let i = images.length - 1; i >= 0; i--) {
-   let image = images[i];
-   if (image.alt) {
-   let text = document.createTextNode(image.alt);
-   image.parentNode.replaceChild(text, image);
-   }
+   .. code:: javascript
+
+      <p>The <img src="img/cat.png" alt="Cat"> in the
+      <img src="img/hat.png" alt="Hat">.</p>
+      <p><button onclick="replaceImages()">Replace</button></p>
+      <script>
+      function replaceImages() {
+         let images = document.body.getElementsByTagName("img");
+         for (let i = images.length - 1; i >= 0; i--) {
+            let image = images[i];
+            if (image.alt) {
+               let text = document.createTextNode(image.alt);
+               image.parentNode.replaceChild(text, image);
+            }
+         }
+      }
+      </script>
 
 .. _P239:
 
-   }
-   }
-   </script>
    Given a string, createTextNode gives us a text node that we can insert into
    the document to make it show up on the screen.
 
@@ -11061,43 +11677,61 @@ Chapter 14 The Document Object Model
    If you want a solid collection of nodes, as opposed to a live one, you can
    convert the collection to a real array by calling Array.from .
 
-   let arrayish = {0: "one", 1: "two", length: 2};
-   let array = Array.from(arrayish);
-   console.log(array.map(s => s.toUpperCase()));
-   // → ["ONE", "TWO"]
+   .. code:: javascript
+
+      let arrayish = {0: "one", 1: "two", length: 2};
+      let array = Array.from(arrayish);
+      console.log(array.map(s => s.toUpperCase()));
+      // → ["ONE", "TWO"]
+
    To create element nodes, you can use the document.createElement method.
    This method takes a tag name and returns a new empty node of the given type.
    The following example defines a utility elt , which creates an element node
    and treats the rest of its arguments as children to that node. This function is
    then used to add an attribution to a quote.
 
-   <blockquote id="quote">
-   No book can ever be finished. While working on it we learn
-   just enough to find it immature the moment we turn away
-   from it.
+   .. code:: javascript
 
-   </blockquote>
-   <script>
-   function elt(type, ...children) {
-   let node = document.createElement(type);
-   for (let child of children) {
-   if (typeof child != "string") node.appendChild(child);
-   else node.appendChild(document.createTextNode(child));
-   }
-   return node;
+      <blockquote id="quote">
+
+      No book can ever be finished. While working on it we learn
+      just enough to find it immature the moment we turn away
+      from it.
+
+      </blockquote>
+      <script>
+      function elt(type, ...children) {
+         let node = document.createElement(type);
+         for (let child of children) {
+            if (typeof child != "string") node.appendChild(child);
+            else node.appendChild(document.createTextNode(child));
+         }
+         return node;
+      }
+      document.getElementById("quote").appendChild(
+         elt("footer", "—",
+         elt("strong", "Karl Popper"),
+         ", preface to the second edition of ",
+         elt("em", "The Open Society and Its Enemies"),
+         ", 1950"));
+      </script>
 
 .. _P240:
 
-   }
-   document.getElementById("quote").appendChild(
-   elt("footer", "—",
-   elt("strong", "Karl Popper"),
-   ", preface to the second edition of ",
-   elt("em", "The Open Society and Its Enemies"),
-   ", 1950"));
-   </script>
    This is what the resulting document looks like:
-   Attributes
+
+   .. Note::
+
+      No book can ever be finished. While working on it we learn
+      just enough to find it immature the moment we turn away
+      from it.
+      — **Karl Popper**, preface to the second edition of 
+      *The Open Society and Its Enemies*, 1950
+
+
+Attributes
+----------
+
    Some element attributes, such as href for links, can be accessed through a
    property of the same name on the element’s DOM object. This is the case for
    most commonly used standard attributes.
@@ -11108,16 +11742,18 @@ Chapter 14 The Document Object Model
    as properties on the element’s node. Instead, you have to use the getAttribute
    and setAttribute methods to work with them.
 
-   <p data-classified="secret">The launch code is 00000000.</p>
-   <p data-classified="unclassified">I have two feet.</p>
-   <script>
-   let paras = document.body.getElementsByTagName("p");
-   for (let para of Array.from(paras)) {
-   if (para.getAttribute("data-classified") == "secret") {
-   para.remove();
-   }
-   }
-   </script>
+   .. code:: javascript
+
+      <p data-classified="secret">The launch code is 00000000.</p>
+      <p data-classified="unclassified">I have two feet.</p>
+      <script>
+      let paras = document.body.getElementsByTagName("p");
+      for (let para of Array.from(paras)) {
+         if (para.getAttribute("data-classified") == "secret") {
+            para.remove();
+         }
+      }
+      </script>
 
 .. _P241:
 
@@ -11129,7 +11765,10 @@ Chapter 14 The Document Object Model
    tions could not handle property names that matched keywords—the property
    used to access this attribute is called className . You can also access it under
    its real name, "class" , by using the getAttribute and setAttribute methods.
-   Layout
+
+Layout
+------
+
    You may have noticed that different types of elements are laid out differently.
    Some, such as paragraphs ( <p> ) or headings ( <h1> ), take up the whole width
    of the document and are rendered on separate lines. These are called block
@@ -11151,14 +11790,17 @@ Chapter 14 The Document Object Model
    Similarly, clientWidth and clientHeight give you the size of the space inside
    the element, ignoring border width.
 
-   <p style="border: 3px solid red">
-   I'm boxed in
-   </p>
-   <script>
-   let para = document.body.getElementsByTagName("p")[0];
-   console.log("clientHeight:", para.clientHeight);
-   console.log("offsetHeight:", para.offsetHeight);
-   </script>
+   .. code:: javascript
+
+      <p style="border: 3px solid red">
+      I'm boxed in
+      </p>
+      <script>
+      let para = document.body.getElementsByTagName("p")[0];
+      console.log("clientHeight:", para.clientHeight);
+      console.log("offsetHeight:", para.offsetHeight);
+      </script>
+
    Giving a paragraph a border causes a rectangle to be drawn around it.
 
 .. _P242:
@@ -11185,33 +11827,37 @@ Chapter 14 The Document Object Model
    this. It contains two different programs that build up a line of X characters
    2,000 pixels wide and measures the time each one takes.
 
-   <p><span id="one"></span></p>
-   <p><span id="two"></span></p>
-   <script>
-   function time(name, action) {
-   let start = Date.now(); // Current time in milliseconds
-   action();
-   console.log(name, "took", Date.now() - start, "ms");
-   }
-   time("naive", () => {
-   let target = document.getElementById("one");
-   while (target.offsetWidth < 2000) {
-   target.appendChild(document.createTextNode("X"));
-   }
-   });
-   // → naive took 32 ms
-   time("clever", function() {
-   let target = document.getElementById("two");
+   .. code:: javascript
+
+      <p><span id="one"></span></p>
+      <p><span id="two"></span></p>
+      <script>
+      function time(name, action) {
+         let start = Date.now(); // Current time in milliseconds
+         action();
+         console.log(name, "took", Date.now() - start, "ms");
+      }
+      time("naive", () => {
+         let target = document.getElementById("one");
+         while (target.offsetWidth < 2000) {
+            target.appendChild(document.createTextNode("X"));
+         }
+      });
+      // → naive took 32 ms
+      time("clever", function() {
+         let target = document.getElementById("two");
+         target.appendChild(document.createTextNode("XXXXX"));
+         let total = Math.ceil(2000 / (target.offsetWidth / 5));
+         target.firstChild.nodeValue = "X".repeat(total);
+      });
+      // → clever took 1 ms
+      </script>
 
 .. _P243:
 
-   target.appendChild(document.createTextNode("XXXXX"));
-   let total = Math.ceil(2000 / (target.offsetWidth / 5));
-   target.firstChild.nodeValue = "X".repeat(total);
-   });
-   // → clever took 1 ms
-   </script>
-   Styling
+Styling
+-------
+
    We have seen that different HTML elements are drawn differently. Some are
    displayed as blocks, others inline. Some add styling— <strong> makes its con-
    tent bold, and <a> makes it blue and underlines it.
@@ -11220,8 +11866,12 @@ Chapter 14 The Document Object Model
    lowed when it is clicked is strongly tied to the element type. But we can change
    the styling associated with an element, such as the text color or underline. Here
    is an example that uses the style property:
-   <p><a href=".">Normal link</a></p>
-   <p><a href="." style="color: green">Green link</a></p>
+
+   .. code:: javascript
+
+      <p><a href=".">Normal link</a></p>
+      <p><a href="." style="color: green">Green link</a></p>
+
    The second link will be green instead of the default link color.
 
    A style attribute may contain one or more declarations, which are a property
@@ -11233,9 +11883,11 @@ Chapter 14 The Document Object Model
    the display property controls whether an element is displayed as a block or an
    inline element.
 
-   This text is displayed <strong>inline</strong>,
-   <strong style="display: block">as a block</strong>, and
-   <strong style="display: none">not at all</strong>.
+   .. code:: javascript
+
+      This text is displayed <strong>inline</strong>,
+      <strong style="display: block">as a block</strong>, and
+      <strong style="display: none">not at all</strong>.
 
 
 .. _P244:
@@ -11249,35 +11901,43 @@ Chapter 14 The Document Object Model
    element’s style property. This property holds an object that has properties for
    all possible style properties. The values of these properties are strings, which
    we can write to in order to change a particular aspect of the element’s style.
-   <p id="para" style="color: purple">
-   Nice text
-   </p>
-   <script>
-   let para = document.getElementById("para");
-   console.log(para.style.color);
-   para.style.color = "magenta";
-   </script>
+
+   .. code:: javascript
+
+      <p id="para" style="color: purple">
+      Nice text
+      </p>
+      <script>
+      let para = document.getElementById("para");
+      console.log(para.style.color);
+      para.style.color = "magenta";
+      </script>
+
    Some style property names contain hyphens, such as font-family . Because
    such property names are awkward to work with in JavaScript (you’d have to
    say style["font-family"] ), the property names in the style object for such
    properties have their hyphens removed and the letters after them capitalized
    ( style.fontFamily ).
 
-   Cascading styles
+Cascading styles
+----------------
+
    The styling system for HTML is called CSS, for Cascading Style Sheets. A style
    sheet is a set of rules for how to style elements in a document. It can be given
    inside a <style> tag.
 
-   <style>
-   strong {
-   font-style: italic;
+   .. code:: javascript
+
+      <style>
+         strong {
+            font-style: italic;
+            color: gray;
+         }
+      </style>
+      <p>Now <strong>strong text</strong> is italic and gray.</p>
 
 .. _P245:
 
-   color: gray;
-   }
-   </style>
-   <p>Now <strong>strong text</strong> is italic and gray.</p>
    The cascading in the name refers to the fact that multiple such rules are
    combined to produce the final style for an element. In the example, the default
    styling for <strong> tags, which gives them font-weight: bold , is overlaid by
@@ -11294,18 +11954,21 @@ Chapter 14 The Document Object Model
    applies to the element with an id attribute of "xyz" (which should be unique
    within the document).
 
-   .subtle {
-   color: gray;
-   font-size: 80%;
-   }
-   #header {
-   background: blue;
-   color: white;
-   }
-   /* p elements with id main and with classes a and b */
-   p#main.a.b {
-   margin-bottom: 20px;
-   }
+   .. code:: javascript
+
+      .subtle {
+      color: gray;
+      font-size: 80%;
+      }
+      #header {
+      background: blue;
+      color: white;
+      }
+      /* p elements with id main and with classes a and b */
+      p#main.a.b {
+      margin-bottom: 20px;
+      }
+
    The precedence rule favoring the most recently defined rule applies only
    when the rules have the same specificity. A rule’s specificity is a measure of
    how precisely it describes matching elements, determined by the number and
@@ -11320,7 +11983,9 @@ Chapter 14 The Document Object Model
 
    whether they are direct or indirect children.
 
-   Query selectors
+Query selectors
+---------------
+
    We won’t be using style sheets all that much in this book. Understanding them
    is helpful when programming in the browser, but they are complicated enough
    to warrant a separate book.
@@ -11333,25 +11998,24 @@ Chapter 14 The Document Object Model
    and on element nodes, takes a selector string and returns a NodeList containing
    all the elements that it matches.
 
-   <p>And if you go chasing
-   <span class="animal">rabbits</span></p>
-   <p>And you know you're going to fall</p>
-   <p>Tell 'em a <span class="character">hookah smoking
-   <span class="animal">caterpillar</span></span></p>
-   <p>Has given you the call</p>
-   <script>
-   function count(selector) {
-   return document.querySelectorAll(selector).length;
-   }
-   console.log(count("p")); // All <p> elements
-   // → 4
-   console.log(count(".animal")); // Class animal
-   // → 2
-   console.log(count("p .animal")); // Animal inside of <p>
-   // → 2
-   console.log(count("p > .animal")); // Direct child of <p>
-   // → 1
-   </script>
+   .. code:: javascript
+
+      <p>And if you go chasing
+      <span class="animal">rabbits</span></p>
+      <p>And you know you're going to fall</p>
+      <p>Tell 'em a <span class="character">hookah smoking
+      <span class="animal">caterpillar</span></span></p>
+      <p>Has given you the call</p>
+      <script>
+      function count(selector) {
+         return document.querySelectorAll(selector).length;
+      }
+      console.log(count("p")); // All <p> elements // → 4
+      console.log(count(".animal")); // Class animal // → 2
+      console.log(count("p .animal")); // Animal inside of <p> // → 2
+      console.log(count("p > .animal")); // Direct child of <p> // → 1
+      </script>
+
    Unlike methods such as getElementsByTagName , the object returned by querySelectorAll
    is not live. It won’t change when you change the document. It is still not a
    real array, though, so you still need to call Array.from if you want to treat it
@@ -11364,7 +12028,9 @@ Chapter 14 The Document Object Model
 
    first matching element or null when no element matches.
 
-   Positioning and animating
+Positioning and animating
+-------------------------
+
    The position style property influences layout in a powerful way. By default
    it has a value of static , meaning the element sits in its normal place in the
    document. When it is set to relative , the element still takes up space in the
@@ -11378,22 +12044,26 @@ Chapter 14 The Document Object Model
 
    We can use this to create an animation. The following document displays a
    picture of a cat that moves around in an ellipse:
-   <p style="text-align: center">
-   <img src="img/cat.png" style="position: relative">
-   </p>
-   <script>
-   let cat = document.querySelector("img");
-   let angle = Math.PI / 2;
-   function animate(time, lastTime) {
-   if (lastTime != null) {
-   angle += (time - lastTime) * 0.001;
-   }
-   cat.style.top = (Math.sin(angle) * 20) + "px";
-   cat.style.left = (Math.cos(angle) * 200) + "px";
-   requestAnimationFrame(newTime => animate(newTime, time));
-   }
-   requestAnimationFrame(animate);
-   </script>
+
+   .. code:: javascript
+
+      <p style="text-align: center">
+      <img src="img/cat.png" style="position: relative">
+      </p>
+      <script>
+      let cat = document.querySelector("img");
+      let angle = Math.PI / 2;
+      function animate(time, lastTime) {
+         if (lastTime != null) {
+            angle += (time - lastTime) * 0.001;
+         }
+         cat.style.top = (Math.sin(angle) * 20) + "px";
+         cat.style.left = (Math.cos(angle) * 200) + "px";
+         requestAnimationFrame(newTime => animate(newTime, time));
+      }
+      requestAnimationFrame(animate);
+      </script>
+
    The gray arrow shows the path along which the image moves.
 
 
@@ -11402,15 +12072,15 @@ Chapter 14 The Document Object Model
    Our picture is centered on the page and given a position of relative . We’ll
    repeatedly update that picture’s top and left styles to move it.
 
-   The script uses requestAnimationFrame to schedule the animate function to
+   The script uses ``requestAnimationFrame`` to schedule the animate function to
    run whenever the browser is ready to repaint the screen. The animate function
-   itself again calls requestAnimationFrame to schedule the next update. When
+   itself again calls ``requestAnimationFrame`` to schedule the next update. When
    the browser window (or tab) is active, this will cause updates to happen at a
    rate of about 60 per second, which tends to produce a good-looking animation.
    If we just updated the DOM in a loop, the page would freeze, and nothing
    would show up on the screen. Browsers do not update their display while a
    JavaScript program is running, nor do they allow any interaction with the page.
-   This is why we need requestAnimationFrame —it lets the browser know that we
+   This is why we need ``requestAnimationFrame`` —it lets the browser know that we
    are done for now, and it can go ahead and do the things that browsers do, such
    as updating the screen and responding to user actions.
 
@@ -11440,10 +12110,13 @@ Chapter 14 The Document Object Model
 
 .. _P249:
 
-   cos(¼π)
-   sin(¼π)
-   cos(-⅔π)
-   sin(-⅔π)
+   .. code:: javascript
+
+      cos(¼π)
+      sin(¼π)
+      cos(-⅔π)
+      sin(-⅔π)
+
    The cat animation code keeps a counter, angle , for the current angle of the
    animation and increments it every time the animate function is called. It can
    then use this angle to compute the current position of the image element. The
@@ -11474,26 +12147,32 @@ Summary
    taching styles to nodes directly and by defining rules that match certain nodes.
    There are many different style properties, such as color or display . JavaScript
    code can manipulate an element’s style directly through its style property.
+
 Exercises
 ---------
 
-   Build a table
+Build a table
+~~~~~~~~~~~~~
+
    An HTML table is built with the following tag structure:
 
 .. _P250:
 
-   <table>
-   <tr>
-   <th>name</th>
-   <th>height</th>
-   <th>place</th>
-   </tr>
-   <tr>
-   <td>Kilimanjaro</td>
-   <td>5895</td>
-   <td>Tanzania</td>
-   </tr>
-   </table>
+   .. code:: javascript
+
+      <table>
+      <tr>
+      <th>name</th>
+      <th>height</th>
+      <th>place</th>
+      </tr>
+      <tr>
+      <td>Kilimanjaro</td>
+      <td>5895</td>
+      <td>Tanzania</td>
+      </tr>
+      </table>
+
    For each row, the <table> tag contains a <tr> tag. Inside of these <tr> tags,
    we can put cell elements: either heading cells ( <th> ) or regular cells ( <td> ).
    Given a data set of mountains, an array of objects with name , height , and
@@ -11510,7 +12189,9 @@ Exercises
    Once you have this working, right-align cells that contain number values by
    setting their style.textAlign property to "right" .
 
-   Elements by tag name
+Elements by tag name
+~~~~~~~~~~~~~~~~~~~~
+
    The document.getElementsByTagName method returns all child elements with a
    given tag name. Implement your own version of this as a function that takes a
    node and a string (the tag name) as arguments and returns an array containing
@@ -11520,7 +12201,9 @@ Exercises
    that this will return the tag name in all uppercase. Use the toLowerCase or
    toUpperCase string methods to compensate for this.
 
-   The cat's hat
+The cat's hat
+~~~~~~~~~~~~~
+
    Extend the cat animation defined earlier so that both the cat and his hat
    ( <img src="img/hat.png"> ) orbit at opposite sides of the ellipse.
 
@@ -11554,7 +12237,9 @@ Chapter 15 Handling Events
    comes in piece by piece, in real time, and the program is expected to respond
    to it as it happens.
 
-   Event handlers
+Event handlers
+--------------
+
    Imagine an interface where the only way to find out whether a key on the
    keyboard is being pressed is to read the current state of that key. To be able
    to react to keypresses, you would have to constantly read the key’s state so
@@ -11575,12 +12260,14 @@ Chapter 15 Handling Events
    event occurs. Browsers do this by allowing us to register functions as handlers
    for specific events.
 
-   <p>Click this document to activate the handler.</p>
-   <script>
-   window.addEventListener("click", () => {
-   console.log("You knocked?");
-   });
-   </script>
+   .. code:: javascript
+
+      <p>Click this document to activate the handler.</p>
+      <script>
+      window.addEventListener("click", () => {
+         console.log("You knocked?");
+      });
+      </script>
 
 .. _P253:
 
@@ -11589,21 +12276,26 @@ Chapter 15 Handling Events
    addEventListener method registers the second argument to be called when-
    ever the event described by its first argument occurs.
 
-   Events and DOM nodes
+Events and DOM nodes
+--------------------
+
    Each browser event handler is registered in a context. In the previous example
    we called addEventListener on the window object to register a handler for the
    whole window. Such a method can also be found on DOM elements and some
    other types of objects. Event listeners are called only when the event happens
    in the context of the object they are registered on.
 
-   <button>Click me</button>
-   <p>No handler here.</p>
-   <script>
-   let button = document.querySelector("button");
-   button.addEventListener("click", () => {
-   console.log("Button clicked.");
-   });
-   </script>
+   .. code:: javascript
+
+      <button>Click me</button>
+      <p>No handler here.</p>
+      <script>
+      let button = document.querySelector("button");
+      button.addEventListener("click", () => {
+      console.log("Button clicked.");
+      });
+      </script>
+
    That example attaches a handler to the button node. Clicks on the button
    cause that handler to run, but clicks on the rest of the document do not.
    Giving a node an onclick attribute has a similar effect. This works for most
@@ -11618,48 +12310,59 @@ Chapter 15 Handling Events
    The removeEventListener method, called with arguments similar to addEventListener
    , removes a handler.
 
-   <button>Act-once button</button>
-   <script>
-   let button = document.querySelector("button");
-   function once() {
-
 .. _P254:
 
-   console.log("Done.");
-   button.removeEventListener("click", once);
-   }
-   button.addEventListener("click", once);
-   </script>
+
+   .. code:: javascript
+
+      <button>Act-once button</button>
+      <script>
+      let button = document.querySelector("button");
+      function once() {
+         console.log("Done.");
+         button.removeEventListener("click", once);
+      }
+      button.addEventListener("click", once);
+      </script>
+
    The function given to removeEventListener has to be the same function value
    that was given to addEventListener . So, to unregister a handler, you’ll want
    to give the function a name ( once , in the example) to be able to pass the same
    function value to both methods.
 
-   Event objects
+Event objects
+-------------
+
    Though we have ignored it so far, event handler functions are passed an ar-
    gument: the event object. This object holds additional information about the
    event. For example, if we want to know which mouse button was pressed, we
    can look at the event object’s button property.
 
-   <button>Click me any way you want</button>
-   <script>
-   let button = document.querySelector("button");
-   button.addEventListener("mousedown", event => {
-   if (event.button == 0) {
-   console.log("Left button");
-   } else if (event.button == 1) {
-   console.log("Middle button");
-   } else if (event.button == 2) {
-   console.log("Right button");
-   }
-   });
-   </script>
+   .. code:: javascript
+
+      <button>Click me any way you want</button>
+      <script>
+      let button = document.querySelector("button");
+      button.addEventListener("mousedown", event => {
+         if (event.button == 0) {
+            console.log("Left button");
+         } else if (event.button == 1) {
+            console.log("Middle button");
+         } else if (event.button == 2) {
+            console.log("Right button");
+         }
+      });
+      </script>
+
    The information stored in an event object differs per type of event. We’ll
    discuss different types later in the chapter. The object’s type property always
    holds a string identifying the event (such as "click" or "mousedown" ).
-   Propagation
-   For most event types, handlers registered on nodes with children will also re-
-   ceive events that happen in the children. If a button inside a paragraph is
+
+Propagation
+-----------
+
+   For most event types, handlers registered on nodes with children will also 
+   receive events that happen in the children. If a button inside a paragraph is
 
 .. _P255:
 
@@ -11671,7 +12374,7 @@ Chapter 15 Handling Events
    node have had their turn, handlers registered on the whole window get a chance
    to respond to the event.
 
-   At any point, an event handler can call the stopPropagation method on the
+   At any point, an event handler can call the ``stopPropagation`` method on the
    event object to prevent handlers further up from receiving the event. This can
    be useful when, for example, you have a button inside another clickable element
    and you don’t want clicks on the button to activate the outer element’s click
@@ -11679,22 +12382,25 @@ Chapter 15 Handling Events
 
    The following example registers "mousedown" handlers on both a button and
    the paragraph around it. When clicked with the right mouse button, the han-
-   dler for the button calls stopPropagation , which will prevent the handler on
+   dler for the button calls ``stopPropagation`` , which will prevent the handler on
    the paragraph from running. When the button is clicked with another mouse
    button, both handlers will run.
 
-   <p>A paragraph with a <button>button</button>.</p>
-   <script>
-   let para = document.querySelector("p");
-   let button = document.querySelector("button");
-   para.addEventListener("mousedown", () => {
-   console.log("Handler for paragraph.");
-   });
-   button.addEventListener("mousedown", event => {
-   console.log("Handler for button.");
-   if (event.button == 2) event.stopPropagation();
-   });
-   </script>
+   .. code:: javascript
+
+      <p>A paragraph with a <button>button</button>.</p>
+      <script>
+      let para = document.querySelector("p");
+      let button = document.querySelector("button");
+      para.addEventListener("mousedown", () => {
+         console.log("Handler for paragraph.");
+      });
+      button.addEventListener("mousedown", event => {
+         console.log("Handler for button.");
+         if (event.button == 2) event.stopPropagation();
+      });
+      </script>
+
    Most event objects have a target property that refers to the node where they
    originated. You can use this property to ensure that you’re not accidentally
    handling something that propagated up from a node you do not want to handle.
@@ -11707,17 +12413,22 @@ Chapter 15 Handling Events
 
 .. _P256:
 
-   <button>A</button>
-   <button>B</button>
-   <button>C</button>
-   <script>
-   document.body.addEventListener("click", event => {
-   if (event.target.nodeName == "BUTTON") {
-   console.log("Clicked", event.target.textContent);
-   }
-   });
-   </script>
-   Default actions
+   .. code:: javascript
+
+      <button>A</button>
+      <button>B</button>
+      <button>C</button>
+      <script>
+      document.body.addEventListener("click", event => {
+      if (event.target.nodeName == "BUTTON") {
+      console.log("Clicked", event.target.textContent);
+      }
+      });
+      </script>
+
+Default actions
+---------------
+
    Many events have a default action associated with them. If you click a link,
    you will be taken to the link’s target. If you press the down arrow, the browser
    will scroll the page down. If you right-click, you’ll get a context menu. And so
@@ -11731,14 +12442,18 @@ Chapter 15 Handling Events
    This can be used to implement your own keyboard shortcuts or context
    menu. It can also be used to obnoxiously interfere with the behavior that users
    expect. For example, here is a link that cannot be followed:
-   <a href="https://developer.mozilla.org/">MDN</a>
-   <script>
-   let link = document.querySelector("a");
-   link.addEventListener("click", event => {
-   console.log("Nope.");
-   event.preventDefault();
-   });
-   </script>
+
+   .. code:: javascript
+
+      <a href="https://developer.mozilla.org/">MDN</a>
+      <script>
+      let link = document.querySelector("a");
+      link.addEventListener("click", event => {
+      console.log("Nope.");
+      event.preventDefault();
+      });
+      </script>
+
    Try not to do such things unless you have a really good reason to. It’ll be
    unpleasant for people who use your page when expected behavior is broken.
    Depending on the browser, some events can’t be intercepted at all. On
@@ -11748,23 +12463,28 @@ Chapter 15 Handling Events
 
 .. _P257:
 
-   Key events
+Key events
+----------
+
    When a key on the keyboard is pressed, your browser fires a "keydown" event.
    When it is released, you get a "keyup" event.
 
-   <p>This page turns violet when you hold the V key.</p>
-   <script>
-   window.addEventListener("keydown", event => {
-   if (event.key == "v") {
-   document.body.style.background = "violet";
-   }
-   });
-   window.addEventListener("keyup", event => {
-   if (event.key == "v") {
-   document.body.style.background = "";
-   }
-   });
-   </script>
+   .. code:: javascript
+
+      <p>This page turns violet when you hold the V key.</p>
+      <script>
+      window.addEventListener("keydown", event => {
+         if (event.key == "v") {
+            document.body.style.background = "violet";
+         }
+      });
+      window.addEventListener("keyup", event => {
+         if (event.key == "v") {
+            document.body.style.background = "";
+         }
+      });
+      </script>
+
    Despite its name, "keydown" fires not only when the key is physically pushed
    down. When a key is pressed and held, the event fires again every time the
    key repeats. Sometimes you have to be careful about this. For example, if you
@@ -11786,17 +12506,20 @@ Chapter 15 Handling Events
    the shiftKey , ctrlKey , altKey , and metaKey properties of keyboard and mouse
    events.
 
-   <p>Press Control-Space to continue.</p>
-   <script>
 
 .. _P258:
 
-   window.addEventListener("keydown", event => {
-   if (event.key == " " && event.ctrlKey) {
-   console.log("Continuing!");
-   }
-   });
-   </script>
+   .. code:: javascript
+
+      <p>Press Control-Space to continue.</p>
+      <script>
+      window.addEventListener("keydown", event => {
+         if (event.key == " " && event.ctrlKey) {
+            console.log("Continuing!");
+         }
+      });
+      </script>
+
    The DOM node where a key event originates depends on the element that
    has focus when the key is pressed. Most nodes cannot have focus unless you
    give them a tabindex attribute, but things like links, buttons, and form fields
@@ -11816,12 +12539,16 @@ Chapter 15 Handling Events
    changes their content. To get the actual content that was typed, it is best to
    directly read it from the focused field. Chapter 18 will show how.
 
-   Pointer events
+Pointer events
+--------------
+
    There are currently two widely used ways to point at things on a screen: mice
    (including devices that act like mice, such as touchpads and trackballs) and
    touchscreens. These produce different kinds of events.
 
-   Mouse clicks
+Mouse clicks
+------------
+
    Pressing a mouse button causes a number of events to fire. The "mousedown"
    and "mouseup" events are similar to "keydown" and "keyup" and fire when the
    button is pressed and released. These happen on the DOM nodes that are
@@ -11849,28 +12576,33 @@ Chapter 15 Handling Events
    the document, it adds a dot under your mouse pointer. See Chapter 19 for a
    less primitive drawing program.
 
-   <style>
-   body {
-   height: 200px;
-   background: beige;
-   }
-   .dot {
-   height: 8px; width: 8px;
-   border-radius: 4px; /* rounds corners */
-   background: blue;
-   position: absolute;
-   }
-   </style>
-   <script>
-   window.addEventListener("click", event => {
-   let dot = document.createElement("div");
-   dot.className = "dot";
-   dot.style.left = (event.pageX - 4) + "px";
-   dot.style.top = (event.pageY - 4) + "px";
-   document.body.appendChild(dot);
-   });
-   </script>
-   Mouse motion
+   .. code:: javascript
+
+      <style>
+      body {
+      height: 200px;
+      background: beige;
+      }
+      .dot {
+      height: 8px; width: 8px;
+      border-radius: 4px; /* rounds corners */
+      background: blue;
+      position: absolute;
+      }
+      </style>
+      <script>
+      window.addEventListener("click", event => {
+      let dot = document.createElement("div");
+      dot.className = "dot";
+      dot.style.left = (event.pageX - 4) + "px";
+      dot.style.top = (event.pageY - 4) + "px";
+      document.body.appendChild(dot);
+      });
+      </script>
+
+Mouse motion
+------------
+
    Every time the mouse pointer moves, a "mousemove" event is fired. This event
    can be used to track the position of the mouse. A common situation in which
    this is useful is when implementing some form of mouse-dragging functionality.
@@ -11880,30 +12612,34 @@ Chapter 15 Handling Events
    As an example, the following program displays a bar and sets up event han-
    dlers so that dragging to the left or right on this bar makes it narrower or
    wider:
-   <p>Drag the bar to change its width:</p>
-   <div style="background: orange; width: 60px; height: 20px">
-   </div>
-   <script>
-   let lastX; // Tracks the last observed mouse X position
-   let bar = document.querySelector("div");
-   bar.addEventListener("mousedown", event => {
-   if (event.button == 0) {
-   lastX = event.clientX;
-   window.addEventListener("mousemove", moved);
-   event.preventDefault(); // Prevent selection
-   }
-   });
-   function moved(event) {
-   if (event.buttons == 0) {
-   window.removeEventListener("mousemove", moved);
-   } else {
-   let dist = event.clientX - lastX;
-   let newWidth = Math.max(10, bar.offsetWidth + dist);
-   bar.style.width = newWidth + "px";
-   lastX = event.clientX;
-   }
-   }
-   </script>
+
+   .. code:: javascript
+
+      <p>Drag the bar to change its width:</p>
+      <div style="background: orange; width: 60px; height: 20px">
+      </div>
+      <script>
+      let lastX; // Tracks the last observed mouse X position
+      let bar = document.querySelector("div");
+      bar.addEventListener("mousedown", event => {
+         if (event.button == 0) {
+            lastX = event.clientX;
+            window.addEventListener("mousemove", moved);
+            event.preventDefault(); // Prevent selection
+         }
+      });
+      function moved(event) {
+         if (event.buttons == 0) {
+            window.removeEventListener("mousemove", moved);
+         } else {
+            let dist = event.clientX - lastX;
+            let newWidth = Math.max(10, bar.offsetWidth + dist);
+            bar.style.width = newWidth + "px";
+            lastX = event.clientX;
+         }
+      }
+      </script>
+
    The resulting page looks like this:
    Note that the "mousemove" handler is registered on the whole window. Even
    if the mouse goes outside of the bar during resizing, as long as the button is
@@ -11923,7 +12659,9 @@ Chapter 15 Handling Events
    where the middle button came before the right one. As mentioned, consistency
    isn’t really a strong point of the browser’s programming interface.
 
-   Touch events
+Touch events
+------------
+
    The style of graphical browser that we use was designed with mouse interfaces
    in mind, at a time where touchscreens were rare. To make the Web “work”
    on early touchscreen phones, browsers for those devices pretended, to a certain
@@ -11951,38 +12689,43 @@ Chapter 15 Handling Events
    points, each of which has its own clientX , clientY , pageX , and pageY properties.
    You could do something like this to show red circles around every touching
    finger:
-   <style>
-   dot { position: absolute; display: block;
-   border: 2px solid red; border-radius: 50px;
-   height: 100px; width: 100px; }
-   </style>
-   <p>Touch this page</p>
-   <script>
-   function update(event) {
+
+   .. code:: javascript
+
+      <style>
+      dot { position: absolute; display: block;
+      border: 2px solid red; border-radius: 50px;
+      height: 100px; width: 100px; }
+      </style>
+      <p>Touch this page</p>
+      <script>
+      function update(event) {
+         for (let dot; dot = document.querySelector("dot");) {
+            dot.remove();
+         }
+         for (let i = 0; i < event.touches.length; i++) {
+            let {pageX, pageY} = event.touches[i];
+            let dot = document.createElement("dot");
+            dot.style.left = (pageX - 50) + "px";
+            dot.style.top = (pageY - 50) + "px";
+            document.body.appendChild(dot);
+         }
+      }
+      window.addEventListener("touchstart", update);
+      window.addEventListener("touchmove", update);
+      window.addEventListener("touchend", update);
+      </script>
 
 .. _P262:
 
-   for (let dot; dot = document.querySelector("dot");) {
-   dot.remove();
-   }
-   for (let i = 0; i < event.touches.length; i++) {
-   let {pageX, pageY} = event.touches[i];
-   let dot = document.createElement("dot");
-   dot.style.left = (pageX - 50) + "px";
-   dot.style.top = (pageY - 50) + "px";
-   document.body.appendChild(dot);
-   }
-   }
-   window.addEventListener("touchstart", update);
-   window.addEventListener("touchmove", update);
-   window.addEventListener("touchend", update);
-   </script>
    You’ll often want to call preventDefault in touch event handlers to override
    the browser’s default behavior (which may include scrolling the page on swip-
    ing) and to prevent the mouse events from being fired, for which you may also
    have a handler.
 
-   Scroll events
+Scroll events
+-------------
+
    Whenever an element is scrolled, a "scroll" event is fired on it. This has var-
    ious uses, such as knowing what the user is currently looking at (for disabling
    off-screen animations or sending spy reports to your evil headquarters) or show-
@@ -11991,28 +12734,31 @@ Chapter 15 Handling Events
 
    The following example draws a progress bar above the document and updates
    it to fill up as you scroll down:
-   <style>
-   #progress {
-   border-bottom: 2px solid blue;
-   width: 0;
-   position: fixed;
-   top: 0; left: 0;
-   }
-   </style>
-   <div id="progress"></div>
-   <script>
-   // Create some content
+
+   .. code:: javascript
+
+      <style>
+      #progress {
+      border-bottom: 2px solid blue;
+      width: 0;
+      position: fixed;
+      top: 0; left: 0;
+      }
+      </style>
+      <div id="progress"></div>
+      <script>
+      // Create some content
+      document.body.appendChild(document.createTextNode(
+      "supercalifragilisticexpialidocious ".repeat(1000)));
+      let bar = document.querySelector("#progress");
+      window.addEventListener("scroll", () => {
+         let max = document.body.scrollHeight - innerHeight;
+         bar.style.width = `${(pageYOffset / max) * 100}%`;
+      });
+      </script>
 
 .. _P263:
 
-   document.body.appendChild(document.createTextNode(
-   "supercalifragilisticexpialidocious ".repeat(1000)));
-   let bar = document.querySelector("#progress");
-   window.addEventListener("scroll", () => {
-   let max = document.body.scrollHeight - innerHeight;
-   bar.style.width = `${(pageYOffset / max) * 100}%`;
-   });
-   </script>
    Giving an element a position of fixed acts much like an absolute position
    but also prevents it from scrolling along with the rest of the document. The
    effect is to make our progress bar stay at the top. Its width is changed to
@@ -12030,7 +12776,9 @@ Chapter 15 Handling Events
    happening. In fact, the event handler is called only after the scrolling takes
    place.
 
-   Focus events
+Focus events
+------------
+
    When an element gains focus, the browser fires a "focus" event on it. When
    it loses focus, the element gets a "blur" event.
 
@@ -12040,30 +12788,37 @@ Chapter 15 Handling Events
 
    The following example displays help text for the text field that currently has
    focus:
-   <p>Name: <input type="text" data-help="Your full name"></p>
-   <p>Age: <input type="text" data-help="Your age in years"></p>
-   <p id="help"></p>
-   <script>
 
 .. _P264:
 
-   let help = document.querySelector("#help");
-   let fields = document.querySelectorAll("input");
-   for (let field of Array.from(fields)) {
-   field.addEventListener("focus", event => {
-   let text = event.target.getAttribute("data-help");
-   help.textContent = text;
-   });
-   field.addEventListener("blur", event => {
-   help.textContent = "";
-   });
-   }
-   </script>
+
+   .. code:: javascript
+
+      <p>Name: <input type="text" data-help="Your full name"></p>
+      <p>Age: <input type="text" data-help="Your age in years"></p>
+      <p id="help"></p>
+      <script>
+      let help = document.querySelector("#help");
+      let fields = document.querySelectorAll("input");
+      for (let field of Array.from(fields)) {
+         field.addEventListener("focus", event => {
+            let text = event.target.getAttribute("data-help");
+            help.textContent = text;
+         });
+         field.addEventListener("blur", event => {
+            help.textContent = "";
+         });
+      }
+      </script>
+
    This screenshot shows the help text for the age field.
 
    The window object will receive "focus" and "blur" events when the user
    moves from or to the browser tab or window in which the document is shown.
-   Load event
+
+Load event
+----------
+
    When a page finishes loading, the "load" event fires on the window and the
    document body objects. This is often used to schedule initialization actions that
    require the whole document to have been built. Remember that the content of
@@ -12088,7 +12843,9 @@ Chapter 15 Handling Events
    their page to look at dodgy weight loss ads, most browsers no longer display
    them.
 
-   Events and the event loop
+Events and the event loop
+-------------------------
+
    In the context of the event loop, as discussed in Chapter 11, browser event
    handlers behave like other asynchronous notifications. They are scheduled
    when the event occurs but must wait for other scripts that are running to
@@ -12111,9 +12868,12 @@ Chapter 15 Handling Events
    squareworker.js that responds to messages by computing a square and sending
    a message back.
 
-   addEventListener("message", event => {
-   postMessage(event.data * event.data);
-   });
+   .. code:: javascript
+
+      addEventListener("message", event => {
+         postMessage(event.data * event.data);
+      });
+
    To avoid the problems of having multiple threads touching the same data,
    workers do not share their global scope or any other data with the main script’s
    environment. Instead, you have to communicate with them by sending mes-
@@ -12122,15 +12882,17 @@ Chapter 15 Handling Events
    This code spawns a worker running that script, sends it a few messages, and
    outputs the responses.
 
-   let squareWorker = new Worker("code/squareworker.js");
-   squareWorker.addEventListener("message", event => {
-   console.log("The worker responded:", event.data);
+   .. code:: javascript
+
+      let squareWorker = new Worker("code/squareworker.js");
+      squareWorker.addEventListener("message", event => {
+         console.log("The worker responded:", event.data);
+      });
+      squareWorker.postMessage(10);
+      squareWorker.postMessage(24);
 
 .. _P266:
 
-   });
-   squareWorker.postMessage(10);
-   squareWorker.postMessage(24);
    The postMessage function sends a message, which will cause a "message"
    event to fire in the receiver. The script that created the worker sends and
    receives messages through the Worker object, whereas the worker talks to the
@@ -12138,19 +12900,25 @@ Chapter 15 Handling Events
    values that can be represented as JSON can be sent as messages—the other
    side will receive a copy of them, rather than the value itself.
 
-   Timers
+Timers
+------
+
    We saw the setTimeout function in Chapter 11. It schedules another function
    to be called later, after a given number of milliseconds.
 
    Sometimes you need to cancel a function you have scheduled. This is done
    by storing the value returned by setTimeout and calling clearTimeout on it.
-   let bombTimer = setTimeout(() => {
-   console.log("BOOM!");
-   }, 500);
-   if (Math.random() < 0.5) { // 50% chance
-   console.log("Defused.");
-   clearTimeout(bombTimer);
-   }
+
+   .. code:: javascript
+
+      let bombTimer = setTimeout(() => {
+         console.log("BOOM!");
+      }, 500);
+      if (Math.random() < 0.5) { // 50% chance
+         console.log("Defused.");
+         clearTimeout(bombTimer);
+      }
+
    The cancelAnimationFrame function works in the same way as clearTimeout
    —calling it on a value returned by requestAnimationFrame will cancel that
    frame (assuming it hasn’t already been called).
@@ -12158,18 +12926,23 @@ Chapter 15 Handling Events
    A similar set of functions, setInterval and clearInterval , are used to set
    timers that should repeat every X milliseconds.
 
-   let ticks = 0;
-   let clock = setInterval(() => {
-   console.log("tick", ticks++);
-   if (ticks == 10) {
-   clearInterval(clock);
-   console.log("stop.");
 
 .. _P267:
 
-   }
-   }, 200);
-   Debouncing
+   .. code:: javascript
+
+      let ticks = 0;
+      let clock = setInterval(() => {
+         console.log("tick", ticks++);
+         if (ticks == 10) {
+            clearInterval(clock);
+            console.log("stop.");
+         }
+      }, 200);
+
+Debouncing
+----------
+
    Some types of events have the potential to fire rapidly, many times in a row (the
    "mousemove" and "scroll" events, for example). When handling such events,
    you must be careful not to do anything too time-consuming or your handler
@@ -12185,15 +12958,19 @@ Chapter 15 Handling Events
    performing an action in the event handler, we set a timeout. We also clear the
    previous timeout (if any) so that when events occur close together (closer than
    our timeout delay), the timeout from the previous event will be canceled.
-   <textarea>Type something here...</textarea>
-   <script>
-   let textarea = document.querySelector("textarea");
-   let timeout;
-   textarea.addEventListener("input", () => {
-   clearTimeout(timeout);
-   timeout = setTimeout(() => console.log("Typed!"), 500);
-   });
-   </script>
+
+   .. code:: javascript
+
+      <textarea>Type something here...</textarea>
+      <script>
+      let textarea = document.querySelector("textarea");
+      let timeout;
+      textarea.addEventListener("input", () => {
+         clearTimeout(timeout);
+         timeout = setTimeout(() => console.log("Typed!"), 500);
+      });
+      </script>
+
    Giving an undefined value to clearTimeout or calling it on a timeout that
    has already fired has no effect. Thus, we don’t have to be careful about when
    to call it, and we simply do so for every event.
@@ -12207,19 +12984,22 @@ Chapter 15 Handling Events
 
 .. _P268:
 
-   <script>
-   let scheduled = null;
-   window.addEventListener("mousemove", event => {
-   if (!scheduled) {
-   setTimeout(() => {
-   document.body.textContent =
-   `Mouse at ${scheduled.pageX}, ${scheduled.pageY}`;
-   scheduled = null;
-   }, 250);
-   }
-   scheduled = event;
-   });
-   </script>
+   .. code:: javascript
+
+      <script>
+      let scheduled = null;
+      window.addEventListener("mousemove", event => {
+         if (!scheduled) {
+            setTimeout(() => {
+               document.body.textContent =
+               `Mouse at ${scheduled.pageX}, ${scheduled.pageY}`;
+               scheduled = null;
+            }, 250);
+         }
+         scheduled = event;
+      });
+      </script>
+
 Summary
 -------
 
@@ -12232,8 +13012,8 @@ Summary
 
    When an event handler is called, it is passed an event object with additional
    information about the event. This object also has methods that allow us to
-   stop further propagation ( stopPropagation ) and prevent the browser’s default
-   handling of the event ( preventDefault ).
+   stop further propagation ( ``stopPropagation`` ) and prevent the browser’s default
+   handling of the event ( ``preventDefault`` ).
 
    Pressing a key fires "keydown" and "keyup" events. Pressing a mouse button
    fires "mousedown" , "mouseup" , and "click" events. Moving the mouse fires
@@ -12250,7 +13030,9 @@ Summary
 Exercises
 ---------
 
-   Balloon
+Balloon
+~~~~~~~
+
    Write a page that displays a balloon (using the balloon emoji, 🎈 ). When you
    press the up arrow, it should inflate (grow) 10 percent, and when you press the
    down arrow, it should deflate (shrink) 10 percent.
@@ -12267,7 +13049,9 @@ Exercises
    an 💥 emoji, and the event handler is removed (so that you can’t inflate or
    deflate the explosion).
 
-   Mouse trail
+Mouse trail
+~~~~~~~~~~~
+
    In JavaScript’s early days, which was the high time of gaudy home pages with
    lots of animated images, people came up with some truly inspiring ways to use
    the language.
@@ -12285,7 +13069,10 @@ Exercises
    simple or as complex as you want. A simple solution to start with is to keep
    a fixed number of trail elements and cycle through them, moving the next one
    to the mouse’s current position every time a "mousemove" event occurs.
-   Tabs
+
+Tabs
+~~~~
+
    Tabbed panels are widely used in user interfaces. They allow you to select
    an interface panel by choosing from a number of tabs “sticking out” above an
    element.
@@ -12332,7 +13119,9 @@ Chapter 16 Project: A Platform Game
    to move a figure through a world, which is usually two-dimensional and viewed
    from the side, while jumping over and onto things.
 
-   The game
+The game
+--------
+
    Our game will be roughly based on Dark Blue (www.lessmilk.com/games/10) by
    Thomas Palef. I chose that game because it is both entertaining and minimalist
    and because it can be built without too much code. It looks like this:
@@ -12355,7 +13144,9 @@ Chapter 16 Project: A Platform Game
    of lava. The positions of these elements are not constrained to the grid—their
    coordinates may be fractional, allowing smooth motion.
 
-   The technology
+The technology
+--------------
+
    We will use the browser DOM to display the game, and we’ll read user input
    by handling key events.
 
@@ -12371,15 +13162,17 @@ Chapter 16 Project: A Platform Game
    In games and other programs that should animate graphics and respond
    to user input without noticeable delay, efficiency is important. Although the
    DOM was not originally designed for high-performance graphics, it is actually
-   better at this than you would expect. You saw some animations in Chapter
-   14. On a modern machine, a simple game like this performs well, even if we
+   better at this than you would expect. You saw some animations in Chapter 14. 
+   On a modern machine, a simple game like this performs well, even if we
    don’t worry about optimization very much.
 
    In the next chapter, we will explore another browser technology, the <canvas>
    tag, which provides a more traditional way to draw graphics, working in terms
    of shapes and pixels rather than DOM elements.
 
-   Levels
+Levels
+------
+
    We’ll want a human-readable, human-editable way to specify levels. Since it
    is okay for everything to start out on a grid, we could use big strings in which
 
@@ -12389,24 +13182,20 @@ Chapter 16 Project: A Platform Game
    a moving element.
 
    The plan for a small level might look like this:
-   let simpleLevelPlan = `
-   ......................
+   
+   .. code:: javascript
 
-   ..#................#..
+      let simpleLevelPlan = `
+      ......................
+      ..#................#..
+      ..#..............=.#..
+      ..#.........o.o....#..
+      ..#.@......#####...#..
+      ..#####............#..
+      ......#++++++++++++#..
+      ......##############..
+      ......................`;
 
-   ..#..............=.#..
-
-   ..#.........o.o....#..
-
-   ..#.@......#####...#..
-
-   ..#####............#..
-
-   ......#++++++++++++#..
-
-   ......##############..
-
-   ......................`;
    Periods are empty space, hash ( # ) characters are walls, and plus signs are
    lava. The player’s starting position is the at sign ( @ ). Every O character is a
    coin, and the equal sign ( = ) at the top is a block of lava that moves back and
@@ -12422,30 +13211,34 @@ Chapter 16 Project: A Platform Game
    lava, the current level is restored to its starting position, and the player may
    try again.
 
-   Reading a level
+Reading a level
+---------------
+
    The following class stores a level object. Its argument should be the string that
    defines the level.
 
-   class Level {
-   constructor(plan) {
-   let rows = plan.trim().split("\n").map(l => [...l]);
-   this.height = rows.length;
-   this.width = rows[0].length;
-   this.startActors = [];
+   .. code:: javascript
+
+      class Level {
+         constructor(plan) {
+            let rows = plan.trim().split("\n").map(l => [...l]);
+            this.height = rows.length;
+            this.width = rows[0].length;
+            this.startActors = [];
+            this.rows = rows.map((row, y) => {
+               return row.map((ch, x) => {
+                  let type = levelChars[ch];
+                  if (typeof type == "string") return type;
+                  this.startActors.push(
+                     type.create(new Vec(x, y), ch));
+                  return "empty";
+               });
+            });
+         }
+      }
 
 .. _P274:
 
-   this.rows = rows.map((row, y) => {
-   return row.map((ch, x) => {
-   let type = levelChars[ch];
-   if (typeof type == "string") return type;
-   this.startActors.push(
-   type.create(new Vec(x, y), ch));
-   return "empty";
-   });
-   });
-   }
-   }
    The trim method is used to remove whitespace at the start and end of the
    plan string. This allows our example plan to start with a newline so that all
    the lines are directly below each other. The remaining string is split on newline
@@ -12473,29 +13266,34 @@ Chapter 16 Project: A Platform Game
    entirely (as coins do when collected). We’ll use a State class to track the state
    of a running game.
 
-   class State {
-   constructor(level, actors, status) {
-   this.level = level;
 
 .. _P275:
 
-   this.actors = actors;
-   this.status = status;
-   }
-   static start(level) {
-   return new State(level, level.startActors, "playing");
-   }
-   get player() {
-   return this.actors.find(a => a.type == "player");
-   }
-   }
+   .. code:: javascript
+
+      class State {
+         constructor(level, actors, status) {
+            this.level = level;
+            this.actors = actors;
+            this.status = status;
+         }
+         static start(level) {
+            return new State(level, level.startActors, "playing");
+         }
+         get player() {
+            return this.actors.find(a => a.type == "player");
+         }
+      }
+
    The status property will switch to "lost" or "won" when the game has
    ended.
 
    This is again a persistent data structure—updating the game state creates a
    new state and leaves the old one intact.
 
-   Actors
+Actors
+------
+
    Actor objects represent the current position and state of a given moving element
    in our game. All actor objects conform to the same interface. Their pos
    property holds the coordinates of the element’s top-left corner, and their size
@@ -12518,20 +13316,24 @@ Chapter 16 Project: A Platform Game
    This is the Vec class that we’ll use for our two-dimensional values, such as
    the position and size of actors.
 
-   class Vec {
-   constructor(x, y) {
 
 .. _P276:
 
-   this.x = x; this.y = y;
-   }
-   plus(other) {
-   return new Vec(this.x + other.x, this.y + other.y);
-   }
-   times(factor) {
-   return new Vec(this.x * factor, this.y * factor);
-   }
-   }
+
+   .. code:: javascript
+
+      class Vec {
+         constructor(x, y) {
+            this.x = x; this.y = y;
+         }
+         plus(other) {
+            return new Vec(this.x + other.x, this.y + other.y);
+         }
+         times(factor) {
+            return new Vec(this.x * factor, this.y * factor);
+         }
+      }
+
    The times method scales a vector by a given number. It will be useful
    when we need to multiply a speed vector by a time interval to get the distance
    traveled during that time.
@@ -12541,18 +13343,21 @@ Chapter 16 Project: A Platform Game
    The player class has a property speed that stores its current speed to simulate
    momentum and gravity.
 
-   class Player {
-   constructor(pos, speed) {
-   this.pos = pos;
-   this.speed = speed;
-   }
-   get type() { return "player"; }
-   static create(pos) {
-   return new Player(pos.plus(new Vec(0, -0.5)),
-   new Vec(0, 0));
-   }
-   }
-   Player.prototype.size = new Vec(0.8, 1.5);
+   .. code:: javascript
+
+      class Player {
+         constructor(pos, speed) {
+            this.pos = pos;
+            this.speed = speed;
+         }
+         get type() { return "player"; }
+         static create(pos) {
+            return new Player(pos.plus(new Vec(0, -0.5)),
+            new Vec(0, 0));
+         }
+      }
+      Player.prototype.size = new Vec(0.8, 1.5);
+
    Because a player is one-and-a-half squares high, its initial position is set to
    be half a square above the position where the @ character appeared. This way,
    its bottom aligns with the bottom of the square it appeared in.
@@ -12574,46 +13379,53 @@ Chapter 16 Project: A Platform Game
    The create method looks at the character that the Level constructor passes
    and creates the appropriate lava actor.
 
-   class Lava {
-   constructor(pos, speed, reset) {
-   this.pos = pos;
-   this.speed = speed;
-   this.reset = reset;
-   }
-   get type() { return "lava"; }
-   static create(pos, ch) {
-   if (ch == "=") {
-   return new Lava(pos, new Vec(2, 0));
-   } else if (ch == "|") {
-   return new Lava(pos, new Vec(0, 2));
-   } else if (ch == "v") {
-   return new Lava(pos, new Vec(0, 3), pos);
-   }
-   }
-   }
-   Lava.prototype.size = new Vec(1, 1);
+   .. code:: javascript
+
+      class Lava {
+         constructor(pos, speed, reset) {
+            this.pos = pos;
+            this.speed = speed;
+            this.reset = reset;
+         }
+         get type() { return "lava"; }
+         static create(pos, ch) {
+            if (ch == "=") {
+               return new Lava(pos, new Vec(2, 0));
+            } else if (ch == "|") {
+               return new Lava(pos, new Vec(0, 2));
+            } else if (ch == "v") {
+               return new Lava(pos, new Vec(0, 3), pos);
+            }
+         }
+      }
+      Lava.prototype.size = new Vec(1, 1);
+
    Coin actors are relatively simple. They mostly just sit in their place. But
    to liven up the game a little, they are given a “wobble”, a slight vertical back-
    and-forth motion. To track this, a coin object stores a base position as well
    as a wobble property that tracks the phase of the bouncing motion. Together,
    these determine the coin’s actual position (stored in the pos property).
-   class Coin {
-   constructor(pos, basePos, wobble) {
-   this.pos = pos;
-   this.basePos = basePos;
+
 
 .. _P278:
 
-   this.wobble = wobble;
-   }
-   get type() { return "coin"; }
-   static create(pos) {
-   let basePos = pos.plus(new Vec(0.2, 0.1));
-   return new Coin(basePos, basePos,
-   Math.random() * Math.PI * 2);
-   }
-   }
-   Coin.prototype.size = new Vec(0.6, 0.6);
+   .. code:: javascript
+
+      class Coin {
+         constructor(pos, basePos, wobble) {
+            this.pos = pos;
+            this.basePos = basePos;
+            this.wobble = wobble;
+         }
+         get type() { return "coin"; }
+         static create(pos) {
+            let basePos = pos.plus(new Vec(0.2, 0.1));
+            return new Coin(basePos, basePos,
+            Math.random() * Math.PI * 2);
+         }
+      }
+      Coin.prototype.size = new Vec(0.6, 0.6);
+
    In Chapter 14, we saw that Math.sin gives us the y-coordinate of a point
    on a circle. That coordinate goes back and forth in a smooth waveform as
    we move along the circle, which makes the sine function useful for modeling a
@@ -12628,23 +13440,31 @@ Chapter 16 Project: A Platform Game
    We can now define the levelChars object that maps plan characters to either
    background grid types or actor classes.
 
-   const levelChars = {
-   ".": "empty", "#": "wall", "+": "lava",
-   "@": Player, "o": Coin,
-   "=": Lava, "|": Lava, "v": Lava
-   };
+   .. code:: javascript
+
+      const levelChars = {
+      ".": "empty", "#": "wall", "+": "lava",
+      "@": Player, "o": Coin,
+      "=": Lava, "|": Lava, "v": Lava
+      };
+
    That gives us all the parts needed to create a Level instance.
 
-   let simpleLevel = new Level(simpleLevelPlan);
-   console.log(`${simpleLevel.width} by ${simpleLevel.height}`);
-   // → 22 by 9
+   .. code:: javascript
+
+      let simpleLevel = new Level(simpleLevelPlan);
+      console.log(`${simpleLevel.width} by ${simpleLevel.height}`);
+      // → 22 by 9
+
    The task ahead is to display such levels on the screen and to model time and
+   motion inside them.
 
 .. _P279:
 
-   motion inside them.
 
-   Encapsulation as a burden
+Encapsulation as a burden
+-------------------------
+
    Most of the code in this chapter does not worry about encapsulation very much
    for two reasons. First, encapsulation takes extra effort. It makes programs
    bigger and requires additional concepts and interfaces to be introduced. Since
@@ -12671,7 +13491,9 @@ Chapter 16 Project: A Platform Game
    in the next chapter. By putting the drawing behind an interface, we can load
    the same game program there and plug in a new display module.
 
-   Drawing
+Drawing
+-------
+
    The encapsulation of the drawing code is done by defining a display object,
    which displays a given level and state. The display type we define in this
    chapter is called DOMDisplay because it uses DOM elements to show the level.
@@ -12685,27 +13507,33 @@ Chapter 16 Project: A Platform Game
 
 .. _P280:
 
-   function elt(name, attrs, ...children) {
-   let dom = document.createElement(name);
-   for (let attr of Object.keys(attrs)) {
-   dom.setAttribute(attr, attrs[attr]);
-   }
-   for (let child of children) {
-   dom.appendChild(child);
-   }
-   return dom;
-   }
+   .. code:: javascript
+
+      function elt(name, attrs, ...children) {
+      let dom = document.createElement(name);
+      for (let attr of Object.keys(attrs)) {
+      dom.setAttribute(attr, attrs[attr]);
+      }
+      for (let child of children) {
+      dom.appendChild(child);
+      }
+      return dom;
+      }
+
    A display is created by giving it a parent element to which it should append
    itself and a level object.
 
-   class DOMDisplay {
-   constructor(parent, level) {
-   this.dom = elt("div", {class: "game"}, drawGrid(level));
-   this.actorLayer = null;
-   parent.appendChild(this.dom);
-   }
-   clear() { this.dom.remove(); }
-   }
+   .. code:: javascript
+
+      class DOMDisplay {
+      constructor(parent, level) {
+      this.dom = elt("div", {class: "game"}, drawGrid(level));
+      this.actorLayer = null;
+      parent.appendChild(this.dom);
+      }
+      clear() { this.dom.remove(); }
+      }
+
    The level’s background grid, which never changes, is drawn once. Actors are
    redrawn every time the display is updated with a given state. The actorLayer
    property will be used to track the element that holds the actors so that they
@@ -12717,31 +13545,38 @@ Chapter 16 Project: A Platform Game
    pixel per square. The scale constant gives the number of pixels that a single
    unit takes up on the screen.
 
-   const scale = 20;
-   function drawGrid(level) {
-   return elt("table", {
-   class: "background",
-   style: `width: ${level.width * scale}px`
-   }, ...level.rows.map(row =>
 
 .. _P281:
 
-   elt("tr", {style: `height: ${scale}px`},
-   ...row.map(type => elt("td", {class: type})))
-   ));
-   }
+   .. code:: javascript
+
+      const scale = 20;
+      function drawGrid(level) {
+         return elt("table", {
+            class: "background",
+            style: `width: ${level.width * scale}px`
+         }, ...level.rows.map(row =>
+            elt("tr", {style: `height: ${scale}px`},
+            ...row.map(type => elt("td", {class: type})))
+         ));
+      }
+
    As mentioned, the background is drawn as a <table> element. This nicely
    corresponds to the structure of the rows property of the level—each row of the
    grid is turned into a table row ( <tr> element). The strings in the grid are
    used as class names for the table cell ( <td> ) elements. The spread (triple dot)
    operator is used to pass arrays of child nodes to elt as separate arguments.
    The following CSS makes the table look like the background we want:
-   .background { background: rgb(52, 166, 251);
-   table-layout: fixed;
-   border-spacing: 0; }
-   .background td { padding: 0; }
-   .lava { background: rgb(255, 100, 100); }
-   .wall { background: white; }
+
+   .. code:: javascript
+
+      .background { background: rgb(52, 166, 251);
+      table-layout: fixed;
+      border-spacing: 0; }
+      .background td { padding: 0; }
+      .lava { background: rgb(255, 100, 100); }
+      .wall { background: white; }
+
    Some of these ( table-layout , border-spacing , and padding ) are used to
    suppress unwanted default behavior. We don’t want the layout of the table to
    depend upon the contents of its cells, and we don’t want space between the
@@ -12759,28 +13594,33 @@ Chapter 16 Project: A Platform Game
    element’s position and size based on the actor’s properties. The values have to
    be multiplied by scale to go from game units to pixels.
 
-   function drawActors(actors) {
-   return elt("div", {}, ...actors.map(actor => {
-   let rect = elt("div", {class: `actor ${actor.type}`});
-   rect.style.width = `${actor.size.x * scale}px`;
-   rect.style.height = `${actor.size.y * scale}px`;
+   .. code:: javascript
+
+      function drawActors(actors) {
+         return elt("div", {}, ...actors.map(actor => {
+            let rect = elt("div", {class: `actor ${actor.type}`});
+            rect.style.width = `${actor.size.x * scale}px`;
+            rect.style.height = `${actor.size.y * scale}px`;
+            rect.style.left = `${actor.pos.x * scale}px`;
+            rect.style.top = `${actor.pos.y * scale}px`;
+            return rect;
+         }));
+      }
 
 .. _P282:
 
-   rect.style.left = `${actor.pos.x * scale}px`;
-   rect.style.top = `${actor.pos.y * scale}px`;
-   return rect;
-   }));
-   }
    To give an element more than one class, we separate the class names by
    spaces. In the CSS code shown next, the actor class gives the actors their
    absolute position. Their type name is used as an extra class to give them a
    color. We don’t have to define the lava class again because we’re reusing the
    class for the lava grid squares we defined earlier.
 
-   .actor { position: absolute; }
-   .coin { background: rgb(241, 229, 89); }
-   .player { background: rgb(64, 64, 64); }
+   .. code:: javascript
+
+      .actor { position: absolute; }
+      .coin { background: rgb(241, 229, 89); }
+      .player { background: rgb(64, 64, 64); }
+
    The syncState method is used to make the display show a given state. It
    first removes the old actor graphics, if any, and then redraws the actors in
    their new positions. It may be tempting to try to reuse the DOM elements for
@@ -12789,27 +13629,33 @@ Chapter 16 Project: A Platform Game
    when their actors vanish. Since there will typically be only a handful of actors
    in the game, redrawing all of them is not expensive.
 
-   DOMDisplay.prototype.syncState = function(state) {
-   if (this.actorLayer) this.actorLayer.remove();
-   this.actorLayer = drawActors(state.actors);
-   this.dom.appendChild(this.actorLayer);
-   this.dom.className = `game ${state.status}`;
-   this.scrollPlayerIntoView(state);
-   };
+   .. code:: javascript
+
+      DOMDisplay.prototype.syncState = function(state) {
+      if (this.actorLayer) this.actorLayer.remove();
+      this.actorLayer = drawActors(state.actors);
+      this.dom.appendChild(this.actorLayer);
+      this.dom.className = `game ${state.status}`;
+      this.scrollPlayerIntoView(state);
+      };
+
    By adding the level’s current status as a class name to the wrapper, we can
    style the player actor slightly differently when the game is won or lost by adding
    a CSS rule that takes effect only when the player has an ancestor element with
    a given class.
 
-   .lost .player {
 
 .. _P283:
 
-   background: rgb(160, 64, 64);
-   }
-   .won .player {
-   box-shadow: -4px -7px 8px white, 4px -7px 8px white;
-   }
+   .. code:: javascript
+
+      .lost .player {
+      background: rgb(160, 64, 64);
+      }
+      .won .player {
+      box-shadow: -4px -7px 8px white, 4px -7px 8px white;
+      }
+
    After touching lava, the player’s color turns dark red, suggesting scorching.
    When the last coin has been collected, we add two blurred white shadows—one
    to the top left and one to the top right—to create a white halo effect.
@@ -12822,41 +13668,47 @@ Chapter 16 Project: A Platform Game
    position so that the actors inside it are positioned relative to the level’s top-left
    corner.
 
-   .game {
-   overflow: hidden;
-   max-width: 600px;
-   max-height: 450px;
-   position: relative;
-   }
+   .. code:: javascript
+
+      .game {
+      overflow: hidden;
+      max-width: 600px;
+      max-height: 450px;
+      position: relative;
+      }
+
    In the scrollPlayerIntoView method, we find the player’s position and up-
    date the wrapping element’s scroll position. We change the scroll position by
    manipulating that element’s scrollLeft and scrollTop properties when the
    player is too close to the edge.
 
-   DOMDisplay.prototype.scrollPlayerIntoView = function(state) {
-   let width = this.dom.clientWidth;
-   let height = this.dom.clientHeight;
-   let margin = width / 3;
-   // The viewport
-   let left = this.dom.scrollLeft, right = left + width;
-   let top = this.dom.scrollTop, bottom = top + height;
-   let player = state.player;
 
 .. _P284:
 
-   let center = player.pos.plus(player.size.times(0.5))
-   .times(scale);
-   if (center.x < left + margin) {
-   this.dom.scrollLeft = center.x - margin;
-   } else if (center.x > right - margin) {
-   this.dom.scrollLeft = center.x + margin - width;
-   }
-   if (center.y < top + margin) {
-   this.dom.scrollTop = center.y - margin;
-   } else if (center.y > bottom - margin) {
-   this.dom.scrollTop = center.y + margin - height;
-   }
-   };
+   .. code:: javascript
+
+      DOMDisplay.prototype.scrollPlayerIntoView = function(state) {
+         let width = this.dom.clientWidth;
+         let height = this.dom.clientHeight;
+         let margin = width / 3;
+         // The viewport
+         let left = this.dom.scrollLeft, right = left + width;
+         let top = this.dom.scrollTop, bottom = top + height;
+         let player = state.player;
+         let center = player.pos.plus(player.size.times(0.5))
+         .times(scale);
+         if (center.x < left + margin) {
+            this.dom.scrollLeft = center.x - margin;
+         } else if (center.x > right - margin) {
+            this.dom.scrollLeft = center.x + margin - width;
+         }
+         if (center.y < top + margin) {
+            this.dom.scrollTop = center.y - margin;
+         } else if (center.y > bottom - margin) {
+            this.dom.scrollTop = center.y + margin - height;
+         }
+      };
+
    The way the player’s center is found shows how the methods on our Vec type
    allow computations with objects to be written in a relatively readable way. To
    find the actor’s center, we add its position (its top-left corner) and half its size.
@@ -12877,18 +13729,23 @@ Chapter 16 Project: A Platform Game
 
    We are now able to display our tiny level.
 
-   <link rel="stylesheet" href="css/game.css">
-   <script>
-   let simpleLevel = new Level(simpleLevelPlan);
-   let display = new DOMDisplay(document.body, simpleLevel);
-   display.syncState(State.start(simpleLevel));
-   </script>
+   .. code:: javascript
+
+      <link rel="stylesheet" href="css/game.css">
+      <script>
+      let simpleLevel = new Level(simpleLevelPlan);
+      let display = new DOMDisplay(document.body, simpleLevel);
+      display.syncState(State.start(simpleLevel));
+      </script>
 
 .. _P285:
 
    The <link> tag, when used with rel="stylesheet" , is a way to load a CSS
    file into a page. The file game.css contains the styles necessary for our game.
-   Motion and collision
+
+Motion and collision
+--------------------
+
    Now we’re at the point where we can start adding motion—the most interesting
    aspect of the game. The basic approach, taken by most games like this, is to
    split time into small steps and, for each step, move the actors by a distance
@@ -12921,26 +13778,29 @@ Chapter 16 Project: A Platform Game
    in small steps.
 
    This method tells us whether a rectangle (specified by a position and a size)
+   touches a grid element of the given type.
 
 .. _P286:
 
-   touches a grid element of the given type.
 
-   Level.prototype.touches = function(pos, size, type) {
-   let xStart = Math.floor(pos.x);
-   let xEnd = Math.ceil(pos.x + size.x);
-   let yStart = Math.floor(pos.y);
-   let yEnd = Math.ceil(pos.y + size.y);
-   for (let y = yStart; y < yEnd; y++) {
-   for (let x = xStart; x < xEnd; x++) {
-   let isOutside = x < 0 || x >= this.width ||
-   y < 0 || y >= this.height;
-   let here = isOutside ? "wall" : this.rows[y][x];
-   if (here == type) return true;
-   }
-   }
-   return false;
-   };
+   .. code:: javascript
+
+      Level.prototype.touches = function(pos, size, type) {
+         let xStart = Math.floor(pos.x);
+         let xEnd = Math.ceil(pos.x + size.x);
+         let yStart = Math.floor(pos.y);
+         let yEnd = Math.ceil(pos.y + size.y);
+         for (let y = yStart; y < yEnd; y++) {
+            for (let x = xStart; x < xEnd; x++) {
+               let isOutside = x < 0 || x >= this.width ||
+               y < 0 || y >= this.height;
+               let here = isOutside ? "wall" : this.rows[y][x];
+               if (here == type) return true;
+            }
+         }
+         return false;
+      };
+
    The method computes the set of grid squares that the body overlaps with
    by using Math.floor and Math.ceil on its coordinates. Remember that grid
    squares are 1 by 1 units in size. By rounding the sides of a box up and down,
@@ -12955,25 +13815,27 @@ Chapter 16 Project: A Platform Game
    The state update method uses touches to figure out whether the player is
    touching lava.
 
-   State.prototype.update = function(time, keys) {
-   let actors = this.actors
-   .map(actor => actor.update(time, this, keys));
 
 .. _P287:
 
-   let newState = new State(this.level, actors, this.status);
-   if (newState.status != "playing") return newState;
-   let player = newState.player;
-   if (this.level.touches(player.pos, player.size, "lava")) {
-   return new State(this.level, actors, "lost");
-   }
-   for (let actor of actors) {
-   if (actor != player && overlap(actor, player)) {
-   newState = actor.collide(newState);
-   }
-   }
-   return newState;
-   };
+   .. code:: javascript
+
+      State.prototype.update = function(time, keys) {
+         let actors = this.actors
+         .map(actor => actor.update(time, this, keys));
+         let newState = new State(this.level, actors, this.status);
+         if (newState.status != "playing") return newState;
+         let player = newState.player;
+         if (this.level.touches(player.pos, player.size, "lava")) {
+            return new State(this.level, actors, "lost");
+         }
+         for (let actor of actors) {
+            if (actor != player && overlap(actor, player)) {
+               newState = actor.collide(newState);
+            }
+         }
+         return newState;
+      };
    The method is passed a time step and a data structure that tells it which
    keys are being held down. The first thing it does is call the update method on
    all actors, producing an array of updated actors. The actors also get the time
@@ -12991,12 +13853,15 @@ Chapter 16 Project: A Platform Game
    actor objects and returns true when they touch—which is the case when they
    overlap both along the x-axis and along the y-axis.
 
-   function overlap(actor1, actor2) {
-   return actor1.pos.x + actor1.size.x > actor2.pos.x &&
-   actor1.pos.x < actor2.pos.x + actor2.size.x &&
-   actor1.pos.y + actor1.size.y > actor2.pos.y &&
-   actor1.pos.y < actor2.pos.y + actor2.size.y;
-   }
+   .. code:: javascript
+
+      function overlap(actor1, actor2) {
+         return actor1.pos.x + actor1.size.x > actor2.pos.x &&
+         actor1.pos.x < actor2.pos.x + actor2.size.x &&
+         actor1.pos.y + actor1.size.y > actor2.pos.y &&
+         actor1.pos.y < actor2.pos.y + actor2.size.y;
+      }
+
    If any actor does overlap, its collide method gets a chance to update the
    state. Touching a lava actor sets the game status to "lost" . Coins vanish when
 
@@ -13005,30 +13870,38 @@ Chapter 16 Project: A Platform Game
    you touch them and set the status to "won" when they are the last coin of the
    level.
 
-   Lava.prototype.collide = function(state) {
-   return new State(state.level, state.actors, "lost");
-   };
-   Coin.prototype.collide = function(state) {
-   let filtered = state.actors.filter(a => a != this);
-   let status = state.status;
-   if (!filtered.some(a => a.type == "coin")) status = "won";
-   return new State(state.level, filtered, status);
-   };
-   Actor updates
+   .. code:: javascript
+
+      Lava.prototype.collide = function(state) {
+         return new State(state.level, state.actors, "lost");
+      };
+      Coin.prototype.collide = function(state) {
+         let filtered = state.actors.filter(a => a != this);
+         let status = state.status;
+         if (!filtered.some(a => a.type == "coin")) status = "won";
+         return new State(state.level, filtered, status);
+      };
+
+Actor updates
+-------------
+
    Actor objects’ update methods take as arguments the time step, the state ob-
    ject, and a keys object. The one for the Lava actor type ignores the keys
    object.
 
-   Lava.prototype.update = function(time, state) {
-   let newPos = this.pos.plus(this.speed.times(time));
-   if (!state.level.touches(newPos, this.size, "wall")) {
-   return new Lava(newPos, this.speed, this.reset);
-   } else if (this.reset) {
-   return new Lava(this.reset, this.speed, this.reset);
-   } else {
-   return new Lava(this.pos, this.speed.times(-1));
-   }
-   };
+   .. code:: javascript
+
+      Lava.prototype.update = function(time, state) {
+         let newPos = this.pos.plus(this.speed.times(time));
+         if (!state.level.touches(newPos, this.size, "wall")) {
+            return new Lava(newPos, this.speed, this.reset);
+         } else if (this.reset) {
+            return new Lava(this.reset, this.speed, this.reset);
+         } else {
+            return new Lava(this.pos, this.speed.times(-1));
+         }
+      };
+
    This update method computes a new position by adding the product of the
    time step and the current speed to its old position. If no obstacle blocks that
    new position, it moves there. If there is an obstacle, the behavior depends on
@@ -13041,13 +13914,16 @@ Chapter 16 Project: A Platform Game
 
 .. _P289:
 
-   const wobbleSpeed = 8, wobbleDist = 0.07;
-   Coin.prototype.update = function(time) {
-   let wobble = this.wobble + time * wobbleSpeed;
-   let wobblePos = Math.sin(wobble) * wobbleDist;
-   return new Coin(this.basePos.plus(new Vec(0, wobblePos)),
-   this.basePos, wobble);
-   };
+   .. code:: javascript
+
+      const wobbleSpeed = 8, wobbleDist = 0.07;
+      Coin.prototype.update = function(time) {
+         let wobble = this.wobble + time * wobbleSpeed;
+         let wobblePos = Math.sin(wobble) * wobbleDist;
+         return new Coin(this.basePos.plus(new Vec(0, wobblePos)),
+         this.basePos, wobble);
+      };
+
    The wobble property is incremented to track time and then used as an ar-
    gument to Math.sin to find the new position on the wave. The coin’s current
    position is then computed from its base position and an offset based on this
@@ -13057,32 +13933,34 @@ Chapter 16 Project: A Platform Game
    because hitting the floor should not prevent horizontal motion, and hitting a
    wall should not stop falling or jumping motion.
 
-   const playerXSpeed = 7;
-   const gravity = 30;
-   const jumpSpeed = 17;
-   Player.prototype.update = function(time, state, keys) {
-   let xSpeed = 0;
-   if (keys.ArrowLeft) xSpeed -= playerXSpeed;
-   if (keys.ArrowRight) xSpeed += playerXSpeed;
-   let pos = this.pos;
-   let movedX = pos.plus(new Vec(xSpeed * time, 0));
-   if (!state.level.touches(movedX, this.size, "wall")) {
-   pos = movedX;
-   }
-   let ySpeed = this.speed.y + time * gravity;
-   let movedY = pos.plus(new Vec(0, ySpeed * time));
-   if (!state.level.touches(movedY, this.size, "wall")) {
-   pos = movedY;
-   } else if (keys.ArrowUp && ySpeed > 0) {
-   ySpeed = -jumpSpeed;
-   } else {
-   ySpeed = 0;
-   }
-   return new Player(pos, new Vec(xSpeed, ySpeed));
+   .. code:: javascript
+
+      const playerXSpeed = 7;
+      const gravity = 30;
+      const jumpSpeed = 17;
+      Player.prototype.update = function(time, state, keys) {
+         let xSpeed = 0;
+         if (keys.ArrowLeft) xSpeed -= playerXSpeed;
+         if (keys.ArrowRight) xSpeed += playerXSpeed;
+         let pos = this.pos;
+         let movedX = pos.plus(new Vec(xSpeed * time, 0));
+         if (!state.level.touches(movedX, this.size, "wall")) {
+            pos = movedX;
+         }
+         let ySpeed = this.speed.y + time * gravity;
+         let movedY = pos.plus(new Vec(0, ySpeed * time));
+         if (!state.level.touches(movedY, this.size, "wall")) {
+            pos = movedY;
+         } else if (keys.ArrowUp && ySpeed > 0) {
+            ySpeed = -jumpSpeed;
+         } else {
+            ySpeed = 0;
+         }
+         return new Player(pos, new Vec(xSpeed, ySpeed));
+      };
 
 .. _P290:
 
-   };
    The horizontal motion is computed based on the state of the left and right
    arrow keys. When there’s no wall blocking the new position created by this
    motion, it is used. Otherwise, the old position is kept.
@@ -13102,7 +13980,9 @@ Chapter 16 Project: A Platform Game
    in this game have been set by trial and error. I tested values until I found a
    combination I liked.
 
-   Tracking keys
+Tracking keys
+-------------
+
    For a game like this, we do not want keys to take effect once per keypress.
    Rather, we want their effect (moving the player figure) to stay active as long
    as they are held.
@@ -13116,28 +13996,33 @@ Chapter 16 Project: A Platform Game
    for "keydown" and "keyup" events and, when the key code in the event is present
    in the set of codes that it is tracking, updates the object.
 
-   function trackKeys(keys) {
-   let down = Object.create(null);
-   function track(event) {
-   if (keys.includes(event.key)) {
-   down[event.key] = event.type == "keydown";
-   event.preventDefault();
-   }
-   }
 
 .. _P291:
 
-   window.addEventListener("keydown", track);
-   window.addEventListener("keyup", track);
-   return down;
-   }
-   const arrowKeys =
-   trackKeys(["ArrowLeft", "ArrowRight", "ArrowUp"]);
+   .. code:: javascript
+
+      function trackKeys(keys) {
+         let down = Object.create(null);
+         function track(event) {
+            if (keys.includes(event.key)) {
+               down[event.key] = event.type == "keydown";
+               event.preventDefault();
+            }
+         }
+         window.addEventListener("keydown", track);
+         window.addEventListener("keyup", track);
+         return down;
+      }
+      const arrowKeys =
+      trackKeys(["ArrowLeft", "ArrowRight", "ArrowUp"]);
+
    The same handler function is used for both event types. It looks at the event
    object’s type property to determine whether the key state should be updated
    to true ( "keydown" ) or false ( "keyup" ).
 
-   Running the game
+Running the game
+----------------
+
    The requestAnimationFrame function, which we saw in Chapter 14, provides
    a good way to animate a game. But its interface is quite primitive—using it
    requires us to track the time at which our function was called the last time
@@ -13148,18 +14033,21 @@ Chapter 16 Project: A Platform Game
    expects a time difference as an argument and draws a single frame. When the
    frame function returns the value false , the animation stops.
 
-   function runAnimation(frameFunc) {
-   let lastTime = null;
-   function frame(time) {
-   if (lastTime != null) {
-   let timeStep = Math.min(time - lastTime, 100) / 1000;
-   if (frameFunc(timeStep) === false) return;
-   }
-   lastTime = time;
-   requestAnimationFrame(frame);
-   }
-   requestAnimationFrame(frame);
-   }
+   .. code:: javascript
+
+      function runAnimation(frameFunc) {
+         let lastTime = null;
+         function frame(time) {
+            if (lastTime != null) {
+               let timeStep = Math.min(time - lastTime, 100) / 1000;
+               if (frameFunc(timeStep) === false) return;
+            }
+            lastTime = time;
+            requestAnimationFrame(frame);
+         }
+         requestAnimationFrame(frame);
+      }
+
    I have set a maximum frame step of 100 milliseconds (one-tenth of a second).
    When the browser tab or window with our page is hidden, requestAnimationFrame
    calls will be suspended until the tab or window is shown again. In this case,
@@ -13179,42 +14067,50 @@ Chapter 16 Project: A Platform Game
    play through it. When the level is finished (lost or won), runLevel waits one
    more second (to let the user see what happens) and then clears the display,
    stops the animation, and resolves the promise to the game’s end status.
-   function runLevel(level, Display) {
-   let display = new Display(document.body, level);
-   let state = State.start(level);
-   let ending = 1;
-   return new Promise(resolve => {
-   runAnimation(time => {
-   state = state.update(time, arrowKeys);
-   display.syncState(state);
-   if (state.status == "playing") {
-   return true;
-   } else if (ending > 0) {
-   ending -= time;
-   return true;
-   } else {
-   display.clear();
-   resolve(state.status);
-   return false;
-   }
-   });
-   });
-   }
+
+   .. code:: javascript
+
+      function runLevel(level, Display) {
+         let display = new Display(document.body, level);
+         let state = State.start(level);
+         let ending = 1;
+         return new Promise(resolve => {
+            runAnimation(time => {
+               state = state.update(time, arrowKeys);
+               display.syncState(state);
+               if (state.status == "playing") {
+                  return true;
+               } else if (ending > 0) {
+                  ending -= time;
+                  return true;
+               } else {
+                  display.clear();
+                  resolve(state.status);
+                  return false;
+               }
+            });
+         });
+      }
+
    A game is a sequence of levels. Whenever the player dies, the current level
    is restarted. When a level is completed, we move on to the next level. This
    can be expressed by the following function, which takes an array of level plans
    (strings) and a display constructor:
-   async function runGame(plans, Display) {
-   for (let level = 0; level < plans.length;) {
-   let status = await runLevel(new Level(plans[level]),
+
 
 .. _P293:
 
-   Display);
-   if (status == "won") level++;
-   }
-   console.log("You've won!");
-   }
+   .. code:: javascript
+
+      async function runGame(plans, Display) {
+         for (let level = 0; level < plans.length;) {
+            let status = await runLevel(new Level(plans[level]),
+            Display);
+            if (status == "won") level++;
+         }
+         console.log("You've won!");
+      }
+
    Because we made runLevel return a promise, runGame can be written using
    an async function, as shown in Chapter 11. It returns another promise, which
    resolves when the player finishes the game.
@@ -13223,16 +14119,21 @@ Chapter 16 Project: A Platform Game
    chapter’s sandbox (https://eloquentjavascript.net/code#16). This page feeds
    them to runGame , starting an actual game.
 
-   <link rel="stylesheet" href="css/game.css">
-   <body>
-   <script>
-   runGame(GAME_LEVELS, DOMDisplay);
-   </script>
-   </body>
+   .. code:: javascript
+
+      <link rel="stylesheet" href="css/game.css">
+      <body>
+      <script>
+      runGame(GAME_LEVELS, DOMDisplay);
+      </script>
+      </body>
+
 Exercises
 ---------
 
-   Game over
+Game over
+~~~~~~~~~
+
    It’s traditional for platform games to have the player start with a limited num-
    ber of lives and subtract one life each time they die. When the player is out of
    lives, the game restarts from the beginning.
@@ -13261,7 +14162,9 @@ Exercises
    change runLevel to register its handlers when it starts and unregister them
    again when it is finished.
 
-   A monster
+A monster
+~~~~~~~~~
+
    It is traditional for platform games to have enemies that you can jump on top
    of to defeat. This exercise asks you to add such an actor type to the game.
    We’ll call it a monster. Monsters move only horizontally. You can make
@@ -13307,7 +14210,10 @@ Chapter 17 Drawing on Canvas
    as they are drawn and does not remember what these pixels represent. The
    only way to move a shape on a canvas is to clear the canvas (or the part of the
    canvas around the shape) and redraw it with the shape in a new position.
-   SVG
+
+SVG
+---
+
    This book will not go into SVG in detail, but I will briefly explain how it
    works. At the end of the chapter, I’ll come back to the trade-offs that you
    must consider when deciding which drawing mechanism is appropriate for a
@@ -13317,12 +14223,15 @@ Chapter 17 Drawing on Canvas
 
 .. _P296:
 
-   <p>Normal HTML here.</p>
-   <svg xmlns="http://www.w3.org/2000/svg">
-   <circle r="50" cx="50" cy="50" fill="red"/>
-   <rect x="120" y="5" width="90" height="90"
-   stroke="blue" fill="none"/>
-   </svg>
+   .. code:: javascript
+
+      <p>Normal HTML here.</p>
+      <svg xmlns="http://www.w3.org/2000/svg">
+      <circle r="50" cx="50" cy="50" fill="red"/>
+      <rect x="120" y="5" width="90" height="90"
+      stroke="blue" fill="none"/>
+      </svg>
+
    The xmlns attribute changes an element (and its children) to a different XML
    namespace. This namespace, identified by a URL, specifies the dialect that we
    are currently speaking. The <circle> and <rect> tags, which do not exist in
@@ -13333,9 +14242,15 @@ Chapter 17 Drawing on Canvas
    These tags create DOM elements, just like HTML tags, that scripts can
    interact with. For example, this changes the <circle> element to be colored
    cyan instead:
-   let circle = document.querySelector("circle");
-   circle.setAttribute("fill", "cyan");
-   The canvas element
+
+   .. code:: javascript
+
+      let circle = document.querySelector("circle");
+      circle.setAttribute("fill", "cyan");
+
+The canvas element
+------------------
+
    Canvas graphics can be drawn onto a <canvas> element. You can give such an
    element width and height attributes to determine its size in pixels.
 
@@ -13359,21 +14274,27 @@ Chapter 17 Drawing on Canvas
    You create a context with the getContext method on the <canvas> DOM
    element.
 
-   <p>Before canvas.</p>
-   <canvas width="120" height="60"></canvas>
-   <p>After canvas.</p>
-   <script>
-   let canvas = document.querySelector("canvas");
-   let context = canvas.getContext("2d");
-   context.fillStyle = "red";
-   context.fillRect(10, 10, 100, 50);
-   </script>
+   .. code:: javascript
+
+      <p>Before canvas.</p>
+      <canvas width="120" height="60"></canvas>
+      <p>After canvas.</p>
+      <script>
+      let canvas = document.querySelector("canvas");
+      let context = canvas.getContext("2d");
+      context.fillStyle = "red";
+      context.fillRect(10, 10, 100, 50);
+      </script>
+
    After creating the context object, the example draws a red rectangle 100
    pixels wide and 50 pixels high, with its top-left corner at coordinates (10,10).
    Just like in HTML (and SVG), the coordinate system that the canvas uses
    puts (0,0) at the top-left corner, and the positive y-axis goes down from there.
    So (10,10) is 10 pixels below and to the right of the top-left corner.
-   Lines and surfaces
+
+Lines and surfaces
+------------------
+
    In the canvas interface, a shape can be filled, meaning its area is given a certain
    color or pattern, or it can be stroked, which means a line is drawn along its
    edge. The same terminology is used by SVG.
@@ -13394,38 +14315,45 @@ Chapter 17 Drawing on Canvas
    a stroked line. The width of that line is determined by the lineWidth property,
    which may contain any positive number.
 
-   <canvas></canvas>
-   <script>
-   let cx = document.querySelector("canvas").getContext("2d");
-   cx.strokeStyle = "blue";
-   cx.strokeRect(5, 5, 50, 50);
-   cx.lineWidth = 5;
-   cx.strokeRect(135, 5, 50, 50);
-   </script>
+   .. code:: javascript
+
+      <canvas></canvas>
+      <script>
+      let cx = document.querySelector("canvas").getContext("2d");
+      cx.strokeStyle = "blue";
+      cx.strokeRect(5, 5, 50, 50);
+      cx.lineWidth = 5;
+      cx.strokeRect(135, 5, 50, 50);
+      </script>
+   
    This code draws two blue squares, using a thicker line for the second one.
    When no width or height attribute is specified, as in the example, a canvas
    element gets a default width of 300 pixels and height of 150 pixels.
 
-   Paths
+Paths
+-----
+
    A path is a sequence of lines. The 2D canvas interface takes a peculiar approach
    to describing such a path. It is done entirely through side effects. Paths are
    not values that can be stored and passed around. Instead, if you want to do
    something with a path, you make a sequence of method calls to describe its
    shape.
 
-   <canvas></canvas>
-   <script>
-   let cx = document.querySelector("canvas").getContext("2d");
-   cx.beginPath();
-   for (let y = 10; y < 100; y += 10) {
-   cx.moveTo(10, y);
-   cx.lineTo(90, y);
+   .. code:: javascript
+
+      <canvas></canvas>
+      <script>
+      let cx = document.querySelector("canvas").getContext("2d");
+         cx.beginPath();
+         for (let y = 10; y < 100; y += 10) {
+         cx.moveTo(10, y);
+         cx.lineTo(90, y);
+      }
+      cx.stroke();
+      </script>
 
 .. _P299:
 
-   }
-   cx.stroke();
-   </script>
    This example creates a path with a number of horizontal line segments and
    then strokes it using the stroke method. Each segment created with lineTo
    starts at the path’s current position. That position is usually the end of the
@@ -13438,15 +14366,19 @@ Chapter 17 Drawing on Canvas
    But the path needs to be closed (meaning its start and end are in the same
    position) before it can be filled. If the path is not already closed, a line is added
    from its end to its start, and the shape enclosed by the completed path is filled.
-   <canvas></canvas>
-   <script>
-   let cx = document.querySelector("canvas").getContext("2d");
-   cx.beginPath();
-   cx.moveTo(50, 10);
-   cx.lineTo(10, 70);
-   cx.lineTo(90, 70);
-   cx.fill();
-   </script>
+
+   .. code:: javascript
+
+      <canvas></canvas>
+      <script>
+      let cx = document.querySelector("canvas").getContext("2d");
+      cx.beginPath();
+      cx.moveTo(50, 10);
+      cx.lineTo(10, 70);
+      cx.lineTo(90, 70);
+      cx.fill();
+      </script>
+
    This example draws a filled triangle. Note that only two of the triangle’s
    sides are explicitly drawn. The third, from the bottom-right corner back to the
    top, is implied and wouldn’t be there when you stroke the path.
@@ -13458,7 +14390,9 @@ Chapter 17 Drawing on Canvas
    an actual line segment back to the path’s start. This segment is drawn when
    stroking the path.
 
-   Curves
+Curves
+------
+
    A path may also contain curved lines. These are unfortunately a bit more
    involved to draw.
 
@@ -13468,17 +14402,21 @@ Chapter 17 Drawing on Canvas
    its curve. The line won’t go through the control point, but its direction at the
    start and end points will be such that a straight line in that direction would
    point toward the control point. The following example illustrates this:
-   <canvas></canvas>
-   <script>
-   let cx = document.querySelector("canvas").getContext("2d");
-   cx.beginPath();
-   cx.moveTo(10, 90);
-   // control=(60,10) goal=(90,90)
-   cx.quadraticCurveTo(60, 10, 90, 90);
-   cx.lineTo(60, 10);
-   cx.closePath();
-   cx.stroke();
-   </script>
+
+   .. code:: javascript
+
+      <canvas></canvas>
+      <script>
+      let cx = document.querySelector("canvas").getContext("2d");
+      cx.beginPath();
+      cx.moveTo(10, 90);
+      // control=(60,10) goal=(90,90)
+      cx.quadraticCurveTo(60, 10, 90, 90);
+      cx.lineTo(60, 10);
+      cx.closePath();
+      cx.stroke();
+      </script>
+
    It produces a path that looks like this:
    We draw a quadratic curve from the left to the right, with (60,10) as control
    point, and then draw two line segments going through that control point and
@@ -13493,18 +14431,22 @@ Chapter 17 Drawing on Canvas
 
    control point, this one has two—one for each of the line’s endpoints. Here is a
    similar sketch to illustrate the behavior of such a curve:
-   <canvas></canvas>
-   <script>
-   let cx = document.querySelector("canvas").getContext("2d");
-   cx.beginPath();
-   cx.moveTo(10, 90);
-   // control1=(10,10) control2=(90,10) goal=(50,90)
-   cx.bezierCurveTo(10, 10, 90, 10, 50, 90);
-   cx.lineTo(90, 10);
-   cx.lineTo(10, 10);
-   cx.closePath();
-   cx.stroke();
-   </script>
+
+   .. code:: javascript
+
+      <canvas></canvas>
+      <script>
+      let cx = document.querySelector("canvas").getContext("2d");
+      cx.beginPath();
+      cx.moveTo(10, 90);
+      // control1=(10,10) control2=(90,10) goal=(50,90)
+      cx.bezierCurveTo(10, 10, 90, 10, 50, 90);
+      cx.lineTo(90, 10);
+      cx.lineTo(10, 10);
+      cx.closePath();
+      cx.stroke();
+      </script>
+
    The two control points specify the direction at both ends of the curve. The
    farther they are away from their corresponding point, the more the curve will
    “bulge” in that direction.
@@ -13523,37 +14465,45 @@ Chapter 17 Drawing on Canvas
    an angle of 2 π , or 2 * Math.PI , which is about 6.28. The angle starts counting
    at the point to the right of the circle’s center and goes clockwise from there.
    You can use a start of 0 and an end bigger than 2 π (say, 7) to draw a full circle.
-   <canvas></canvas>
-   <script>
 
 .. _P302:
 
-   let cx = document.querySelector("canvas").getContext("2d");
-   cx.beginPath();
-   // center=(50,50) radius=40 angle=0 to 7
-   cx.arc(50, 50, 40, 0, 7);
-   // center=(150,50) radius=40 angle=0 to π ½
-   cx.arc(150, 50, 40, 0, 0.5 * Math.PI);
-   cx.stroke();
-   </script>
+   .. code:: javascript
+
+      <canvas></canvas>
+      <script>
+      let cx = document.querySelector("canvas").getContext("2d");
+      cx.beginPath();
+      // center=(50,50) radius=40 angle=0 to 7
+      cx.arc(50, 50, 40, 0, 7);
+      // center=(150,50) radius=40 angle=0 to π ½
+      cx.arc(150, 50, 40, 0, 0.5 * Math.PI);
+      cx.stroke();
+      </script>
+
    The resulting picture contains a line from the right of the full circle (first call
    to arc ) to the right of the quarter-circle (second call). Like other path-drawing
    methods, a line drawn with arc is connected to the previous path segment.
    You can call moveTo or start a new path to avoid this.
 
-   Drawing a pie chart
+Drawing a pie chart
+-------------------
+
    Imagine you’ve just taken a job at EconomiCorp, Inc., and your first assignment
    is to draw a pie chart of its customer satisfaction survey results.
 
    The results binding contains an array of objects that represent the survey
    responses.
 
-   const results = [
-   {name: "Satisfied", count: 1043, color: "lightblue"},
-   {name: "Neutral", count: 563, color: "lightgreen"},
-   {name: "Unsatisfied", count: 510, color: "pink"},
-   {name: "No comment", count: 175, color: "silver"}
-   ];
+   .. code:: javascript
+
+      const results = [
+      {name: "Satisfied", count: 1043, color: "lightblue"},
+      {name: "Neutral", count: 563, color: "lightgreen"},
+      {name: "Unsatisfied", count: 510, color: "pink"},
+      {name: "No comment", count: 175, color: "silver"}
+      ];
+
    To draw a pie chart, we draw a number of pie slices, each made up of an arc
    and a pair of lines to the center of that arc. We can compute the angle taken
    up by each arc by dividing a full circle (2 π ) by the total number of responses
@@ -13563,44 +14513,52 @@ Chapter 17 Drawing on Canvas
 
 .. _P303:
 
-   <canvas width="200" height="200"></canvas>
-   <script>
-   let cx = document.querySelector("canvas").getContext("2d");
-   let total = results
-   .reduce((sum, {count}) => sum + count, 0);
-   // Start at the top
-   let currentAngle = -0.5 * Math.PI;
-   for (let result of results) {
-   let sliceAngle = (result.count / total) * 2 * Math.PI;
-   cx.beginPath();
-   // center=100,100, radius=100
-   // from current angle, clockwise by slice's angle
-   cx.arc(100, 100, 100,
-   currentAngle, currentAngle + sliceAngle);
-   currentAngle += sliceAngle;
-   cx.lineTo(100, 100);
-   cx.fillStyle = result.color;
-   cx.fill();
-   }
-   </script>
+   .. code:: javascript
+
+      <canvas width="200" height="200"></canvas>
+      <script>
+      let cx = document.querySelector("canvas").getContext("2d");
+      let total = results
+      .reduce((sum, {count}) => sum + count, 0);
+      // Start at the top
+      let currentAngle = -0.5 * Math.PI;
+      for (let result of results) {
+      let sliceAngle = (result.count / total) * 2 * Math.PI;
+      cx.beginPath();
+      // center=100,100, radius=100
+      // from current angle, clockwise by slice's angle
+      cx.arc(100, 100, 100,
+      currentAngle, currentAngle + sliceAngle);
+      currentAngle += sliceAngle;
+      cx.lineTo(100, 100);
+      cx.fillStyle = result.color;
+      cx.fill();
+      }
+      </script>
+
    This draws the following chart:
    But a chart that doesn’t tell us what the slices mean isn’t very helpful. We
    need a way to draw text to the canvas.
 
-   Text
+Text
+----
+
    A 2D canvas drawing context provides the methods fillText and strokeText .
    The latter can be useful for outlining letters, but usually fillText is what you
    need. It will fill the outline of the given text with the current fillStyle .
 
 .. _P304:
 
-   <canvas></canvas>
-   <script>
-   let cx = document.querySelector("canvas").getContext("2d");
-   cx.font = "28px Georgia";
-   cx.fillStyle = "fuchsia";
-   cx.fillText("I can draw text, too!", 10, 50);
-   </script>
+   .. code:: javascript
+
+      <canvas></canvas>
+      <script>
+      let cx = document.querySelector("canvas").getContext("2d");
+      cx.font = "28px Georgia";
+      cx.fillStyle = "fuchsia";
+      cx.fillText("I can draw text, too!", 10, 50);
+      </script>
+
    You can specify the size, style, and font of the text with the font property.
    This example just gives a font size and family name. It is also possible to add
    italic or bold to the start of the string to select a style.
@@ -13615,7 +14573,9 @@ Chapter 17 Drawing on Canvas
    We’ll come back to our pie chart, and the problem of labeling the slices, in
    the exercises at the end of the chapter.
 
-   Images
+Images
+------
+
    In computer graphics, a distinction is often made between vector graphics and
    bitmap graphics. The first is what we have been doing so far in this chapter—
    specifying a picture by giving a logical description of shapes. Bitmap graphics,
@@ -13629,20 +14589,22 @@ Chapter 17 Drawing on Canvas
    browser may not have loaded it yet. To deal with this, we register a "load"
    event handler and do the drawing after the image has loaded.
 
-   <canvas></canvas>
-   <script>
-   let cx = document.querySelector("canvas").getContext("2d");
-   let img = document.createElement("img");
-   img.src = "img/hat.png";
-   img.addEventListener("load", () => {
+   .. code:: javascript
+
+      <canvas></canvas>
+      <script>
+      let cx = document.querySelector("canvas").getContext("2d");
+      let img = document.createElement("img");
+      img.src = "img/hat.png";
+      img.addEventListener("load", () => {
+         for (let x = 10; x < 200; x += 30) {
+            cx.drawImage(img, x, 10);
+         }
+      });
+      </script>
 
 .. _P305:
 
-   for (let x = 10; x < 200; x += 30) {
-   cx.drawImage(img, x, 10);
-   }
-   });
-   </script>
    By default, drawImage will draw the image at its original size. You can also
    give it two additional arguments to set a different width and height.
    When drawImage is given nine arguments, it can be used to draw only a frag-
@@ -13664,34 +14626,39 @@ Chapter 17 Drawing on Canvas
    We know that each sprite, each subpicture, is 24 pixels wide and 30 pixels
    high. The following code loads the image and then sets up an interval (repeated
    timer) to draw the next frame:
-   <canvas></canvas>
-   <script>
-   let cx = document.querySelector("canvas").getContext("2d");
-   let img = document.createElement("img");
-   img.src = "img/player.png";
-   let spriteW = 24, spriteH = 30;
-   img.addEventListener("load", () => {
-   let cycle = 0;
-   setInterval(() => {
-   cx.clearRect(0, 0, spriteW, spriteH);
-   cx.drawImage(img,
-   // source rectangle
-   cycle * spriteW, 0, spriteW, spriteH,
+
+   .. code:: javascript
+
+      <canvas></canvas>
+      <script>
+      let cx = document.querySelector("canvas").getContext("2d");
+      let img = document.createElement("img");
+      img.src = "img/player.png";
+      let spriteW = 24, spriteH = 30;
+      img.addEventListener("load", () => {
+      let cycle = 0;
+      setInterval(() => {
+      cx.clearRect(0, 0, spriteW, spriteH);
+      cx.drawImage(img,
+      // source rectangle
+      cycle * spriteW, 0, spriteW, spriteH,
+      // destination rectangle
+      0, 0, spriteW, spriteH);
+      cycle = (cycle + 1) % 8;
+      }, 120);
+      });
+      </script>
 
 .. _P306:
 
-   // destination rectangle
-   0, 0, spriteW, spriteH);
-   cycle = (cycle + 1) % 8;
-   }, 120);
-   });
-   </script>
    The cycle binding tracks our position in the animation. For each frame, it is
    incremented and then clipped back to the 0 to 7 range by using the remainder
    operator. This binding is then used to compute the x-coordinate that the sprite
    for the current pose has in the picture.
 
-   Transformation
+Transformation
+--------------
+
    But what if we want our character to walk to the left instead of to the right?
    We could draw another set of sprites, of course. But we can also instruct the
    canvas to draw the picture the other way round.
@@ -13700,15 +14667,18 @@ Chapter 17 Drawing on Canvas
    This method takes two parameters, one to set a horizontal scale and one to set
    a vertical scale.
 
-   <canvas></canvas>
-   <script>
-   let cx = document.querySelector("canvas").getContext("2d");
-   cx.scale(3, .5);
-   cx.beginPath();
-   cx.arc(50, 50, 40, 0, 7);
-   cx.lineWidth = 3;
-   cx.stroke();
-   </script>
+   .. code:: javascript
+
+      <canvas></canvas>
+      <script>
+      let cx = document.querySelector("canvas").getContext("2d");
+      cx.scale(3, .5);
+      cx.beginPath();
+      cx.arc(50, 50, 40, 0, 7);
+      cx.lineWidth = 3;
+      cx.stroke();
+      </script>
+
    Because of the call to scale , the circle is drawn three times as wide and half
    as high.
 
@@ -13739,29 +14709,40 @@ Chapter 17 Drawing on Canvas
    (50,50) and then rotate by 20 degrees (about 0.1 π radians), that rotation will
    happen around point (50,50).
 
-   translate(50, 50)
-   rotate(0.1*Math.PI)
-   rotate(0.1*Math.PI)
-   translate(50, 50)
+   .. code:: javascript
+
+      translate(50, 50)
+      rotate(0.1*Math.PI)
+      rotate(0.1*Math.PI)
+      translate(50, 50)
+
    But if we first rotate by 20 degrees and then translate by (50,50), the transla-
    tion will happen in the rotated coordinate system and thus produce a different
    orientation. The order in which transformations are applied matters.
 
    To flip a picture around the vertical line at a given x position, we can do the
    following:
-   function flipHorizontally(context, around) {
-   context.translate(around, 0);
-   context.scale(-1, 1);
-   context.translate(-around, 0);
-   }
+
+   .. code:: javascript
+
+      function flipHorizontally(context, around) {
+      context.translate(around, 0);
+      context.scale(-1, 1);
+      context.translate(-around, 0);
+      }
+
    We move the y-axis to where we want our mirror to be, apply the mirroring,
    and finally move the y-axis back to its proper place in the mirrored universe.
 
 .. _P308:
 
    The following picture explains why this works:
-   mirror
-   1 2 3 4
+
+   .. code:: javascript
+
+      mirror
+      1 2 3 4
+
    This shows the coordinate systems before and after mirroring across the
    central line. The triangles are numbered to illustrate each step. If we draw a
    triangle at a positive x position, it would, by default, be in the place where
@@ -13774,19 +14755,24 @@ Chapter 17 Drawing on Canvas
    We can now draw a mirrored character at position (100,0) by flipping the
    world around the character’s vertical center.
 
-   <canvas></canvas>
-   <script>
-   let cx = document.querySelector("canvas").getContext("2d");
-   let img = document.createElement("img");
-   img.src = "img/player.png";
-   let spriteW = 24, spriteH = 30;
-   img.addEventListener("load", () => {
-   flipHorizontally(cx, 100 + spriteW / 2);
-   cx.drawImage(img, 0, 0, spriteW, spriteH,
-   100, 0, spriteW, spriteH);
-   });
-   </script>
-   Storing and clearing transformations
+   .. code:: javascript
+
+      <canvas></canvas>
+      <script>
+      let cx = document.querySelector("canvas").getContext("2d");
+      let img = document.createElement("img");
+      img.src = "img/player.png";
+      let spriteW = 24, spriteH = 30;
+      img.addEventListener("load", () => {
+      flipHorizontally(cx, 100 + spriteW / 2);
+      cx.drawImage(img, 0, 0, spriteW, spriteH,
+      100, 0, spriteW, spriteH);
+      });
+      </script>
+
+Storing and clearing transformations
+------------------------------------
+
    Transformations stick around. Everything else we draw after drawing that
    mirrored character would also be mirrored. That might be inconvenient.
    It is possible to save the current transformation, do some drawing and trans-
@@ -13814,23 +14800,27 @@ Chapter 17 Drawing on Canvas
    of the coordinate system to the end of the line, and calling itself twice—first
    rotated to the left and then rotated to the right. Every call reduces the length
    of the branch drawn, and the recursion stops when the length drops below 8.
-   <canvas width="600" height="300"></canvas>
-   <script>
-   let cx = document.querySelector("canvas").getContext("2d");
-   function branch(length, angle, scale) {
-   cx.fillRect(0, 0, 1, length);
-   if (length < 8) return;
-   cx.save();
-   cx.translate(0, length);
-   cx.rotate(-angle);
-   branch(length * scale, angle, scale);
-   cx.rotate(2 * angle);
-   branch(length * scale, angle, scale);
-   cx.restore();
-   }
-   cx.translate(300, 0);
-   branch(60, 0.5, 0.8);
-   </script>
+
+   .. code:: javascript
+
+      <canvas width="600" height="300"></canvas>
+      <script>
+      let cx = document.querySelector("canvas").getContext("2d");
+      function branch(length, angle, scale) {
+         cx.fillRect(0, 0, 1, length);
+         if (length < 8) return;
+         cx.save();
+         cx.translate(0, length);
+         cx.rotate(-angle);
+         branch(length * scale, angle, scale);
+         cx.rotate(2 * angle);
+         branch(length * scale, angle, scale);
+         cx.restore();
+      }
+      cx.translate(300, 0);
+      branch(60, 0.5, 0.8);
+      </script>
+
    The result is a simple fractal.
 
 
@@ -13842,7 +14832,9 @@ Chapter 17 Drawing on Canvas
    rightmost branch drawn by the first call. The resulting shape might also be
    interesting, but it is definitely not a tree.
 
-   Back to the game
+Back to the game
+----------------
+
    We now know enough about canvas drawing to start working on a canvas-based
    display system for the game from the previous chapter. The new display will
    no longer be showing just colored boxes. Instead, we’ll use drawImage to draw
@@ -13858,37 +14850,43 @@ Chapter 17 Drawing on Canvas
    a flipPlayer property so that even when the player is standing still, it keeps
    facing the direction it last moved in.
 
-   class CanvasDisplay {
-   constructor(parent, level) {
-   this.canvas = document.createElement("canvas");
-   this.canvas.width = Math.min(600, level.width * scale);
-   this.canvas.height = Math.min(450, level.height * scale);
-   parent.appendChild(this.canvas);
-   this.cx = this.canvas.getContext("2d");
-   this.flipPlayer = false;
-   this.viewport = {
-   left: 0,
 
 .. _P311:
 
-   top: 0,
-   width: this.canvas.width / scale,
-   height: this.canvas.height / scale
-   };
-   }
-   clear() {
-   this.canvas.remove();
-   }
-   }
+   .. code:: javascript
+
+      class CanvasDisplay {
+         constructor(parent, level) {
+            this.canvas = document.createElement("canvas");
+            this.canvas.width = Math.min(600, level.width * scale);
+            this.canvas.height = Math.min(450, level.height * scale);
+            parent.appendChild(this.canvas);
+            this.cx = this.canvas.getContext("2d");
+            this.flipPlayer = false;
+            this.viewport = {
+               left: 0,
+               top: 0,
+               width: this.canvas.width / scale,
+               height: this.canvas.height / scale
+            };
+         }
+         clear() {
+            this.canvas.remove();
+         }
+      }
+
    The syncState method first computes a new viewport and then draws the
    game scene at the appropriate position.
 
-   CanvasDisplay.prototype.syncState = function(state) {
-   this.updateViewport(state);
-   this.clearDisplay(state.status);
-   this.drawBackground(state.level);
-   this.drawActors(state.actors);
-   };
+   .. code:: javascript
+
+      CanvasDisplay.prototype.syncState = function(state) {
+      this.updateViewport(state);
+      this.clearDisplay(state.status);
+      this.drawBackground(state.level);
+      this.drawActors(state.actors);
+      };
+
    Contrary to DOMDisplay , this display style does have to redraw the back-
    ground on every update. Because shapes on a canvas are just pixels, after we
    draw them there is no good way to move them (or remove them). The only
@@ -13898,26 +14896,28 @@ Chapter 17 Drawing on Canvas
    method. It checks whether the player is too close to the edge of the screen
    and moves the viewport when this is the case.
 
-   CanvasDisplay.prototype.updateViewport = function(state) {
-   let view = this.viewport, margin = view.width / 3;
-   let player = state.player;
-   let center = player.pos.plus(player.size.times(0.5));
-   if (center.x < view.left + margin) {
-   view.left = Math.max(center.x - margin, 0);
-   } else if (center.x > view.left + view.width - margin) {
-   view.left = Math.min(center.x + margin - view.width,
-   state.level.width - view.width);
-   }
+   .. code:: javascript
+
+      CanvasDisplay.prototype.updateViewport = function(state) {
+         let view = this.viewport, margin = view.width / 3;
+         let player = state.player;
+         let center = player.pos.plus(player.size.times(0.5));
+         if (center.x < view.left + margin) {
+            view.left = Math.max(center.x - margin, 0);
+         } else if (center.x > view.left + view.width - margin) {
+            view.left = Math.min(center.x + margin - view.width,
+            state.level.width - view.width);
+         }
+         if (center.y < view.top + margin) {
+            view.top = Math.max(center.y - margin, 0);
+         } else if (center.y > view.top + view.height - margin) {
+            view.top = Math.min(center.y + margin - view.height,
+            state.level.height - view.height);
+         }
+      };
 
 .. _P312:
 
-   if (center.y < view.top + margin) {
-   view.top = Math.max(center.y - margin, 0);
-   } else if (center.y > view.top + view.height - margin) {
-   view.top = Math.min(center.y + margin - view.height,
-   state.level.height - view.height);
-   }
-   };
    The calls to Math.max and Math.min ensure that the viewport does not end
    up showing space outside of the level. Math.max(x, 0) makes sure the resulting
    number is not less than zero. Math.min similarly guarantees that a value stays
@@ -13926,45 +14926,51 @@ Chapter 17 Drawing on Canvas
    When clearing the display, we’ll use a slightly different color depending on
    whether the game is won (brighter) or lost (darker).
 
-   CanvasDisplay.prototype.clearDisplay = function(status) {
-   if (status == "won") {
-   this.cx.fillStyle = "rgb(68, 191, 255)";
-   } else if (status == "lost") {
-   this.cx.fillStyle = "rgb(44, 136, 214)";
-   } else {
-   this.cx.fillStyle = "rgb(52, 166, 251)";
-   }
-   this.cx.fillRect(0, 0,
-   this.canvas.width, this.canvas.height);
-   };
+   .. code:: javascript
+
+      CanvasDisplay.prototype.clearDisplay = function(status) {
+         if (status == "won") {
+            this.cx.fillStyle = "rgb(68, 191, 255)";
+         } else if (status == "lost") {
+            this.cx.fillStyle = "rgb(44, 136, 214)";
+         } else {
+            this.cx.fillStyle = "rgb(52, 166, 251)";
+         }
+         this.cx.fillRect(0, 0,
+         this.canvas.width, this.canvas.height);
+      };
+
    To draw the background, we run through the tiles that are visible in the
    current viewport, using the same trick used in the touches method from the
    previous chapter.
 
-   let otherSprites = document.createElement("img");
-   otherSprites.src = "img/sprites.png";
-   CanvasDisplay.prototype.drawBackground = function(level) {
-   let {left, top, width, height} = this.viewport;
-   let xStart = Math.floor(left);
-   let xEnd = Math.ceil(left + width);
-   let yStart = Math.floor(top);
-   let yEnd = Math.ceil(top + height);
 
 .. _P313:
 
-   for (let y = yStart; y < yEnd; y++) {
-   for (let x = xStart; x < xEnd; x++) {
-   let tile = level.rows[y][x];
-   if (tile == "empty") continue;
-   let screenX = (x - left) * scale;
-   let screenY = (y - top) * scale;
-   let tileX = tile == "lava" ? scale : 0;
-   this.cx.drawImage(otherSprites,
-   tileX, 0, scale, scale,
-   screenX, screenY, scale, scale);
-   }
-   }
-   };
+   .. code:: javascript
+
+      let otherSprites = document.createElement("img");
+      otherSprites.src = "img/sprites.png";
+      CanvasDisplay.prototype.drawBackground = function(level) {
+         let {left, top, width, height} = this.viewport;
+         let xStart = Math.floor(left);
+         let xEnd = Math.ceil(left + width);
+         let yStart = Math.floor(top);
+         let yEnd = Math.ceil(top + height);
+         for (let y = yStart; y < yEnd; y++) {
+            for (let x = xStart; x < xEnd; x++) {
+               let tile = level.rows[y][x];
+               if (tile == "empty") continue;
+               let screenX = (x - left) * scale;
+               let screenY = (y - top) * scale;
+               let tileX = tile == "lava" ? scale : 0;
+               this.cx.drawImage(otherSprites,
+               tileX, 0, scale, scale,
+               screenX, screenY, scale, scale);
+            }
+         }
+      };
+
    Tiles that are not empty are drawn with drawImage . The otherSprites image
    contains the pictures used for elements other than the player. It contains, from
    left to right, the wall tile, the lava tile, and the sprite for a coin.
@@ -13991,56 +14997,61 @@ Chapter 17 Drawing on Canvas
    16 pixels to allow some space for feet and arms—the method has to adjust the
    x-coordinate and width by a given amount ( playerXOverlap ).
 
-   let playerSprites = document.createElement("img");
 
 .. _P314:
 
-   playerSprites.src = "img/player.png";
-   const playerXOverlap = 4;
-   CanvasDisplay.prototype.drawPlayer = function(player, x, y,
-   width, height){
-   width += playerXOverlap * 2;
-   x -= playerXOverlap;
-   if (player.speed.x != 0) {
-   this.flipPlayer = player.speed.x < 0;
-   }
-   let tile = 8;
-   if (player.speed.y != 0) {
-   tile = 9;
-   } else if (player.speed.x != 0) {
-   tile = Math.floor(Date.now() / 60) % 8;
-   }
-   this.cx.save();
-   if (this.flipPlayer) {
-   flipHorizontally(this.cx, x + width / 2);
-   }
-   let tileX = tile * width;
-   this.cx.drawImage(playerSprites, tileX, 0, width, height,
-   x, y, width, height);
-   this.cx.restore();
-   };
+   .. code:: javascript
+
+      let playerSprites = document.createElement("img");
+      playerSprites.src = "img/player.png";
+      const playerXOverlap = 4;
+      CanvasDisplay.prototype.drawPlayer = function(player, x, y,
+         width, height){
+         width += playerXOverlap * 2;
+         x -= playerXOverlap;
+         if (player.speed.x != 0) {
+            this.flipPlayer = player.speed.x < 0;
+         }
+         let tile = 8;
+         if (player.speed.y != 0) {
+            tile = 9;
+         } else if (player.speed.x != 0) {
+            tile = Math.floor(Date.now() / 60) % 8;
+         }
+         this.cx.save();
+         if (this.flipPlayer) {
+            flipHorizontally(this.cx, x + width / 2);
+         }
+         let tileX = tile * width;
+         this.cx.drawImage(playerSprites, tileX, 0, width, height,
+         x, y, width, height);
+         this.cx.restore();
+      };
+
    The drawPlayer method is called by drawActors , which is responsible for
    drawing all the actors in the game.
 
-   CanvasDisplay.prototype.drawActors = function(actors) {
-   for (let actor of actors) {
-   let width = actor.size.x * scale;
-   let height = actor.size.y * scale;
-   let x = (actor.pos.x - this.viewport.left) * scale;
-   let y = (actor.pos.y - this.viewport.top) * scale;
-   if (actor.type == "player") {
-   this.drawPlayer(actor, x, y, width, height);
-   } else {
-   let tileX = (actor.type == "coin" ? 2 : 1) * scale;
-   this.cx.drawImage(otherSprites,
-   tileX, 0, width, height,
-   x, y, width, height);
+   .. code:: javascript
+
+      CanvasDisplay.prototype.drawActors = function(actors) {
+         for (let actor of actors) {
+            let width = actor.size.x * scale;
+            let height = actor.size.y * scale;
+            let x = (actor.pos.x - this.viewport.left) * scale;
+            let y = (actor.pos.y - this.viewport.top) * scale;
+            if (actor.type == "player") {
+               this.drawPlayer(actor, x, y, width, height);
+            } else {
+               let tileX = (actor.type == "coin" ? 2 : 1) * scale;
+               this.cx.drawImage(otherSprites,
+                  tileX, 0, width, height,
+                  x, y, width, height);
+            }
+         }
+      };
 
 .. _P315:
 
-   }
-   }
-   };
    When drawing something that is not the player, we look at its type to find
    the offset of the correct sprite. The lava tile is found at offset 20, and the coin
    sprite is found at 40 (two times scale ).
@@ -14052,7 +15063,11 @@ Chapter 17 Drawing on Canvas
 
    That concludes the new display system. The resulting game looks something
    like this:
-   Choosing a graphics interface
+
+
+Choosing a graphics interface
+-----------------------------
+
    So when you need to generate graphics in the browser, you can choose between
    plain HTML, SVG, and canvas. There is no single best approach that works in
    all situations. Each option has strengths and weaknesses.
@@ -14142,13 +15157,17 @@ Summary
 Exercises
 ---------
 
-   Shapes
+Shapes
+~~~~~~
+
    Write a program that draws the following shapes on a canvas:
+
    1. A trapezoid (a rectangle that is wider on one side)
    2. A red diamond (a rectangle rotated 45 degrees or ¼ π radians)
    3. A zigzagging line
    4. A spiral made up of 100 straight line segments
    5. A yellow star
+
    When drawing the last two, you may want to refer to the explanation of
    Math.cos and Math.sin in Chapter 14, which describes how to get coordinates
    on a circle using these functions.
@@ -14161,7 +15180,9 @@ Exercises
 
 .. _P318:
 
-   The pie chart
+The pie chart
+~~~~~~~~~~~~~
+
    Earlier in the chapter, we saw an example program that drew a pie chart.
    Modify this program so that the name of each category is shown next to the
    slice that represents it. Try to find a pleasing-looking way to automatically
@@ -14171,12 +15192,16 @@ Exercises
    You might need Math.sin and Math.cos again, which are described in Chapter
    14.
 
-   A bouncing ball
+A bouncing ball
+~~~~~~~~~~~~~~~
+
    Use the requestAnimationFrame technique that we saw in Chapter 14 and Chap-
    ter 16 to draw a box with a bouncing ball in it. The ball moves at a constant
    speed and bounces off the box’s sides when it hits them.
 
-   Precomputed mirroring
+Precomputed mirroring
+~~~~~~~~~~~~~~~~~~~~~
+
    One unfortunate thing about transformations is that they slow down the draw-
    ing of bitmaps. The position and size of each pixel has to be transformed, and
    though it is possible that browsers will get cleverer about transformation in
@@ -14212,33 +15237,43 @@ Chapter 18 HTTP and Forms
    This chapter describes the protocol in more detail and explains the way browser
    JavaScript has access to it.
 
-   The protocol
+The protocol
+------------
+
    If you type eloquentjavascript.net/18_http.html into your browser’s address
    bar, the browser first looks up the address of the server associated with elo-
    quentjavascript.net and tries to open a TCP connection to it on port 80, the
    default port for HTTP traffic. If the server exists and accepts the connection,
    the browser might send something like this:
-   GET /18_http.html HTTP/1.1
-   Host: eloquentjavascript.net
-   User-Agent: Your browser's name
-   Then the server responds, through that same connection.
 
-   HTTP/1.1 200 OK
-   Content-Length: 65585
-   Content-Type: text/html
-   Last-Modified: Mon, 08 Jan 2018 10:29:45 GMT
-   <!doctype html>
-   ... the rest of the document
+   .. code:: javascript
+
+      GET /18_http.html HTTP/1.1
+      Host: eloquentjavascript.net
+      User-Agent: Your browser's name
+      Then the server responds, through that same connection.
+
+      HTTP/1.1 200 OK
+      Content-Length: 65585
+      Content-Type: text/html
+      Last-Modified: Mon, 08 Jan 2018 10:29:45 GMT
+      <!doctype html>
+      ... the rest of the document
+
    The browser takes the part of the response after the blank line, its body
    (not to be confused with the HTML <body> tag), and displays it as an HTML
+   document.
 
 .. _P320:
 
-   document.
 
    The information sent by the client is called the request. It starts with this
    line:
-   GET /18_http.html HTTP/1.1
+
+   .. code:: javascript
+
+      GET /18_http.html HTTP/1.1
+
    The first word is the method of the request. GET means that we want to get
    the specified resource. Other common methods are DELETE to delete a resource,
    PUT to create or replace it, and POST to send information to it. Note that the
@@ -14266,7 +15301,10 @@ Chapter 18 HTTP and Forms
    of the response, first as a three-digit status code and then as a human-readable
    string.
 
-   HTTP/1.1 200 OK
+   .. code:: javascript
+
+      HTTP/1.1 200 OK
+
    Status codes starting with a 2 indicate that the request succeeded. Codes
    starting with 4 mean there was something wrong with the request. 404 is
    probably the most famous HTTP status code—it means that the resource could
@@ -14280,9 +15318,13 @@ Chapter 18 HTTP and Forms
    headers. These are lines in the form name: value that specify extra informa-
    tion about the request or response. These headers were part of the example
    response:
-   Content-Length: 65585
-   Content-Type: text/html
-   Last-Modified: Thu, 04 Jan 2018 14:05:30 GMT
+
+   .. code:: javascript
+
+      Content-Length: 65585
+      Content-Type: text/html
+      Last-Modified: Thu, 04 Jan 2018 14:05:30 GMT
+
    This tells us the size and type of the response document. In this case, it is
    an HTML document of 65,585 bytes. It also tells us when that document was
    last modified.
@@ -14299,7 +15341,9 @@ Chapter 18 HTTP and Forms
    don’t send along any data, but PUT and POST requests do. Similarly, some
    response types, such as error responses, do not require a body.
 
-   Browsers and HTTP
+Browsers and HTTP
+-----------------
+
    As we saw in the example, a browser will make a request when we enter a URL
    in its address bar. When the resulting HTML page references other files, such
    as images and JavaScript files, those are also retrieved.
@@ -14309,11 +15353,14 @@ Chapter 18 HTTP and Forms
    requests simultaneously, rather than waiting for the responses one at a time.
    HTML pages may include forms, which allow the user to fill out information
    and send it to the server. This is an example of a form:
-   <form method="GET" action="example/message.html">
-   <p>Name: <input type="text" name="name"></p>
-   <p>Message:<br><textarea name="message"></textarea></p>
-   <p><button type="submit">Send</button></p>
-   </form>
+
+   .. code:: javascript
+
+      <form method="GET" action="example/message.html">
+      <p>Name: <input type="text" name="name"></p>
+      <p>Message:<br><textarea name="message"></textarea></p>
+      <p><button type="submit">Send</button></p>
+      </form>
 
 .. _P322:
 
@@ -14325,7 +15372,11 @@ Chapter 18 HTTP and Forms
    When the <form> element’s method attribute is GET (or is omitted), the in-
    formation in the form is added to the end of the action URL as a query string.
    The browser might make a request to this URL:
-   GET /example/message.html?name=Jean&message=Yes%3F HTTP/1.1
+
+   .. code:: javascript
+
+      GET /example/message.html?name=Jean&message=Yes%3F HTTP/1.1
+
    The question mark indicates the end of the path part of the URL and the
    start of the query. It is followed by pairs of names and values, corresponding to
    the name attribute on the form field elements and the content of those elements,
@@ -14340,22 +15391,28 @@ Chapter 18 HTTP and Forms
    provides the encodeURIComponent and decodeURIComponent functions to encode
    and decode this format.
 
-   console.log(encodeURIComponent("Yes?"));
-   // → Yes%3F
-   console.log(decodeURIComponent("Yes%3F"));
-   // → Yes?
+   .. code:: javascript
+
+      console.log(encodeURIComponent("Yes?"));
+      // → Yes%3F
+      console.log(decodeURIComponent("Yes%3F"));
+      // → Yes?
+
    If we change the method attribute of the HTML form in the example we saw
    earlier to POST , the HTTP request made to submit the form will use the POST
    method and put the query string in the body of the request, rather than adding
    it to the URL.
 
-   POST /example/message.html HTTP/1.1
-   Content-length: 24
-   Content-type: application/x-www-form-urlencoded
+   .. code:: javascript
+
+      POST /example/message.html HTTP/1.1
+      Content-length: 24
+      Content-type: application/x-www-form-urlencoded
+
+      name=Jean&message=Yes%3F
 
 .. _P323:
 
-   name=Jean&message=Yes%3F
    GET requests should be used for requests that do not have side effects but
    simply ask for information. Requests that change something on the server,
    for example creating a new account or posting a message, should be expressed
@@ -14365,17 +15422,22 @@ Chapter 18 HTTP and Forms
    We’ll come back to forms and how to interact with them from JavaScript
    later in the chapter.
 
-   Fetch
+Fetch
+-----
+
    The interface through which browser JavaScript can make HTTP requests is
    called fetch . Since it is relatively new, it conveniently uses promises (which is
    rare for browser interfaces).
 
-   fetch("example/data.txt").then(response => {
-   console.log(response.status);
-   // → 200
-   console.log(response.headers.get("Content-Type"));
-   // → text/plain
-   });
+   .. code:: javascript
+
+      fetch("example/data.txt").then(response => {
+      console.log(response.status);
+      // → 200
+      console.log(response.headers.get("Content-Type"));
+      // → text/plain
+      });
+
    Calling fetch returns a promise that resolves to a Response object holding
    information about the server’s response, such as its status code and its head-
    ers. The headers are wrapped in a Map -like object that treats its keys (the
@@ -14400,20 +15462,27 @@ Chapter 18 HTTP and Forms
    been received and because reading the response body might take a while longer,
    this again returns a promise.
 
-   fetch("example/data.txt")
-   .then(resp => resp.text())
-   .then(text => console.log(text));
-   // → This is the content of data.txt
+   .. code:: javascript
+
+      fetch("example/data.txt")
+      .then(resp => resp.text())
+      .then(text => console.log(text));
+      // → This is the content of data.txt
+
    A similar method, called json , returns a promise that resolves to the value
    you get when parsing the body as JSON or rejects if it’s not valid JSON.
    By default, fetch uses the GET method to make its request and does not
    include a request body. You can configure it differently by passing an object
    with extra options as a second argument. For example, this request tries to
    delete example/data.txt :
-   fetch("example/data.txt", {method: "DELETE"}).then(resp => {
-   console.log(resp.status);
-   // → 405
-   });
+
+   .. code:: javascript
+
+      fetch("example/data.txt", {method: "DELETE"}).then(resp => {
+      console.log(resp.status);
+      // → 405
+      });
+
    The 405 status code means “method not allowed”, an HTTP server’s way of
    saying “I can’t do that”.
 
@@ -14421,10 +15490,13 @@ Chapter 18 HTTP and Forms
    the headers option. For example, this request includes a Range header, which
    instructs the server to return only part of a response.
 
-   fetch("example/data.txt", {headers: {Range: "bytes=8-19"}})
-   .then(resp => resp.text())
-   .then(console.log);
-   // → the content
+   .. code:: javascript
+
+      fetch("example/data.txt", {headers: {Range: "bytes=8-19"}})
+      .then(resp => resp.text())
+      .then(console.log);
+      // → the content
+
    The browser will automatically add some request headers, such as “Host” and
    those needed for the server to figure out the size of the body. But adding your
    own headers is often useful to include things such as authentication information
@@ -14433,7 +15505,9 @@ Chapter 18 HTTP and Forms
 
    or to tell the server which file format you’d like to receive.
 
-   HTTP sandboxing
+HTTP sandboxing
+---------------
+
    Making HTTP requests in web page scripts once again raises concerns about
    security. The person who controls the script might not have the same interests
    as the person on whose computer it is running. More specifically, if I visit the-
@@ -14447,8 +15521,14 @@ Chapter 18 HTTP and Forms
    cess several domains for legitimate reasons. Fortunately, servers can include a
    header like this in their response to explicitly indicate to the browser that it is
    okay for the request to come from another domain:
-   Access-Control-Allow-Origin: *
-   Appreciating HTTP
+
+   .. code:: javascript
+
+      Access-Control-Allow-Origin: *
+
+Appreciating HTTP
+-----------------
+
    When building a system that requires communication between a JavaScript
    program running in the browser (client-side) and a program on a server (server-
    side), there are several different ways to model this communication.
@@ -14480,7 +15560,9 @@ Chapter 18 HTTP and Forms
    fast access). The concepts used in HTTP, which are well designed, can provide
    a helpful set of principles to design your server interface around.
 
-   Security and HTTPS
+Security and HTTPS
+------------------
+
    Data traveling over the Internet tends to follow a long, dangerous road. To
    get to its destination, it must hop through anything from coffee shop Wi-Fi
    hotspots to networks controlled by various companies and states. At any point
@@ -14503,7 +15585,9 @@ Chapter 18 HTTP and Forms
    because of forged or stolen certificates and broken software, but it is a lot safer
    than plain HTTP.
 
-   Form fields
+Form fields
+-----------
+
    Forms were originally designed for the pre-JavaScript Web to allow web sites
    to send user-submitted information in an HTTP request. This design assumes
    that interaction with the server always happens by navigating to a new page.
@@ -14523,23 +15607,28 @@ Chapter 18 HTTP and Forms
    to comprehensively discuss all field types, but we’ll start with a rough overview.
    A lot of field types use the <input> tag. This tag’s type attribute is used to
    select the field’s style. These are some commonly used <input> types:
-   text A single-line text field
-   password Same as text but hides the text that is typed
-   checkbox An on/off switch
-   radio (Part of) a multiple-choice field
-   file Allows the user to choose a file from their computer
+
+   *  text A single-line text field
+   *  password Same as text but hides the text that is typed
+   *  checkbox An on/off switch
+   *  radio (Part of) a multiple-choice field
+   *  file Allows the user to choose a file from their computer
+
    Form fields do not necessarily have to appear in a <form> tag. You can put
    them anywhere in a page. Such form-less fields cannot be submitted (only a
    form as a whole can), but when responding to input with JavaScript, we often
    don’t want to submit our fields normally anyway.
 
-   <p><input type="text" value="abc"> (text)</p>
-   <p><input type="password" value="abc"> (password)</p>
-   <p><input type="checkbox" checked> (checkbox)</p>
-   <p><input type="radio" value="A" name="choice">
-   <input type="radio" value="B" name="choice" checked>
-   <input type="radio" value="C" name="choice"> (radio)</p>
-   <p><input type="file"> (file)</p>
+   .. code:: javascript
+
+      <p><input type="text" value="abc"> (text)</p>
+      <p><input type="password" value="abc"> (password)</p>
+      <p><input type="checkbox" checked> (checkbox)</p>
+      <p><input type="radio" value="A" name="choice">
+      <input type="radio" value="B" name="choice" checked>
+      <input type="radio" value="C" name="choice"> (radio)</p>
+      <p><input type="file"> (file)</p>
+
    The fields created with this HTML code look like this:
    The JavaScript interface for such elements differs with the type of the ele-
    ment.
@@ -14552,22 +15641,31 @@ Chapter 18 HTTP and Forms
 
    between those two, instead of the value attribute, as starting text.
 
-   <textarea>
-   one
-   two
-   three
-   </textarea>
+   .. code:: javascript
+
+      <textarea>
+      one
+      two
+      three
+      </textarea>
+
    Finally, the <select> tag is used to create a field that allows the user to
    select from a number of predefined options.
 
-   <select>
-   <option>Pancakes</option>
-   <option>Pudding</option>
-   <option>Ice cream</option>
-   </select>
+   .. code:: javascript
+
+      <select>
+      <option>Pancakes</option>
+      <option>Pudding</option>
+      <option>Ice cream</option>
+      </select>
+
    Such a field looks like this:
    Whenever the value of a form field changes, it will fire a "change" event.
-   Focus
+
+Focus
+-----
+
    Unlike most elements in HTML documents, form fields can get keyboard focus.
    When clicked or activated in some other way, they become the currently active
    element and the recipient of keyboard input.
@@ -14585,15 +15683,18 @@ Chapter 18 HTTP and Forms
 
 .. _P329:
 
-   <input type="text">
-   <script>
-   document.querySelector("input").focus();
-   console.log(document.activeElement.tagName);
-   // → INPUT
-   document.querySelector("input").blur();
-   console.log(document.activeElement.tagName);
-   // → BODY
-   </script>
+   .. code:: javascript
+
+      <input type="text">
+      <script>
+      document.querySelector("input").focus();
+      console.log(document.activeElement.tagName);
+      // → INPUT
+      document.querySelector("input").blur();
+      console.log(document.activeElement.tagName);
+      // → BODY
+      </script>
+
    For some pages, the user is expected to want to interact with a form field
    immediately. JavaScript can be used to focus this field when the document is
    loaded, but HTML also provides the autofocus attribute, which produces the
@@ -14606,18 +15707,27 @@ Chapter 18 HTTP and Forms
    receive focus with the tabindex attribute. The following example document
    will let the focus jump from the text input to the OK button, rather than
    going through the help link first:
-   <input type="text" tabindex=1> <a href=".">(help)</a>
-   <button onclick="console.log('ok')" tabindex=2>OK</button>
+
+   .. code:: javascript
+
+      <input type="text" tabindex=1> <a href=".">(help)</a>
+      <button onclick="console.log('ok')" tabindex=2>OK</button>
+
    By default, most types of HTML elements cannot be focused. But you can
    add a tabindex attribute to any element that will make it focusable. A tabindex
    of -1 makes tabbing skip over an element, even if it is normally focusable.
-   Disabled fields
+
+Disabled fields
+---------------
+
    All form fields can be disabled through their disabled attribute. It is an at-
    tribute that can be specified without value—the fact that it is present at all
    disables the element.
 
-   <button>I'm all right</button>
-   <button disabled>I'm out</button>
+   .. code:: javascript
+
+      <button>I'm all right</button>
+      <button disabled>I'm out</button>
 
 .. _P330:
 
@@ -14630,7 +15740,9 @@ Chapter 18 HTTP and Forms
    finishes. That way, when the user gets impatient and clicks it again, they don’t
    accidentally repeat their action.
 
-   The form as a whole
+The form as a whole
+-------------------
+
    When a field is contained in a <form> element, its DOM element will have a
    form property linking back to the form’s DOM element. The <form> element,
    in turn, has a property called elements that contains an array-like collection
@@ -14641,20 +15753,23 @@ Chapter 18 HTTP and Forms
    accessing the form’s elements property, which acts both as an array-like object
    (accessible by number) and a map (accessible by name).
 
-   <form action="example/submit.html">
-   Name: <input type="text" name="name"><br>
-   Password: <input type="password" name="password"><br>
-   <button type="submit">Log in</button>
-   </form>
-   <script>
-   let form = document.querySelector("form");
-   console.log(form.elements[1].type);
-   // → password
-   console.log(form.elements.password.type);
-   // → password
-   console.log(form.elements.name.form == form);
-   // → true
-   </script>
+   .. code:: javascript
+
+      <form action="example/submit.html">
+      Name: <input type="text" name="name"><br>
+      Password: <input type="password" name="password"><br>
+      <button type="submit">Log in</button>
+      </form>
+      <script>
+      let form = document.querySelector("form");
+      console.log(form.elements[1].type);
+      // → password
+      console.log(form.elements.password.type);
+      // → password
+      console.log(form.elements.name.form == form);
+      // → true
+      </script>
+
    A button with a type attribute of submit will, when pressed, cause the form
    to be submitted. Pressing enter when a form field is focused has the same
    effect.
@@ -14668,17 +15783,20 @@ Chapter 18 HTTP and Forms
    with JavaScript and prevent this default behavior by calling preventDefault
    on the event object.
 
-   <form action="example/submit.html">
-   Value: <input type="text" name="value">
-   <button type="submit">Save</button>
-   </form>
-   <script>
-   let form = document.querySelector("form");
-   form.addEventListener("submit", event => {
-   console.log("Saving value", form.elements.value.value);
-   event.preventDefault();
-   });
-   </script>
+   .. code:: javascript
+
+      <form action="example/submit.html">
+      Value: <input type="text" name="value">
+      <button type="submit">Save</button>
+      </form>
+      <script>
+      let form = document.querySelector("form");
+      form.addEventListener("submit", event => {
+         console.log("Saving value", form.elements.value.value);
+         event.preventDefault();
+      });
+      </script>
+
    Intercepting "submit" events in JavaScript has various uses. We can write
    code to verify that the values the user entered make sense and immediately
    show an error message instead of submitting the form. Or we can disable the
@@ -14686,47 +15804,52 @@ Chapter 18 HTTP and Forms
    program handle the input, possibly using fetch to send it to a server without
    reloading the page.
 
-   Text fields
+Text fields
+-----------
+
    Fields created by <textarea> tags, or <input> tags with a type of text or
-   password , share a common interface. Their DOM elements have a value prop-
-   erty that holds their current content as a string value. Setting this property to
+   password , share a common interface. Their DOM elements have a value property 
+   that holds their current content as a string value. Setting this property to
    another string changes the field’s content.
 
-   The selectionStart and selectionEnd properties of text fields give us infor-
-   mation about the cursor and selection in the text. When nothing is selected,
-   these two properties hold the same number, indicating the position of the cur-
-   sor. For example, 0 indicates the start of the text, and 10 indicates the cursor
+   The selectionStart and selectionEnd properties of text fields give us information 
+   about the cursor and selection in the text. When nothing is selected,
+   these two properties hold the same number, indicating the position of the cursor. 
+   For example, 0 indicates the start of the text, and 10 indicates the cursor
    is after the 10 th character. When part of the field is selected, the two properties
    will differ, giving us the start and end of the selected text. Like value , these
    properties may also be written to.
 
-   Imagine you are writing an article about Khasekhemwy but have some trou-
-   ble spelling his name. The following code wires up a <textarea> tag with an
+   Imagine you are writing an article about Khasekhemwy but have some trouble 
+   spelling his name. The following code wires up a <textarea> tag with an
    event handler that, when you press F2, inserts the string “Khasekhemwy” for
+   you.
 
 .. _P332:
 
-   you.
 
-   <textarea></textarea>
-   <script>
-   let textarea = document.querySelector("textarea");
-   textarea.addEventListener("keydown", event => {
-   // The key code for F2 happens to be 113
-   if (event.keyCode == 113) {
-   replaceSelection(textarea, "Khasekhemwy");
-   event.preventDefault();
-   }
-   });
-   function replaceSelection(field, word) {
-   let from = field.selectionStart, to = field.selectionEnd;
-   field.value = field.value.slice(0, from) + word +
-   field.value.slice(to);
-   // Put the cursor after the word
-   field.selectionStart = from + word.length;
-   field.selectionEnd = from + word.length;
-   }
-   </script>
+   .. code:: javascript
+
+      <textarea></textarea>
+      <script>
+      let textarea = document.querySelector("textarea");
+      textarea.addEventListener("keydown", event => {
+         // The key code for F2 happens to be 113
+         if (event.keyCode == 113) {
+            replaceSelection(textarea, "Khasekhemwy");
+            event.preventDefault();
+         }
+      });
+      function replaceSelection(field, word) {
+         let from = field.selectionStart, to = field.selectionEnd;
+         field.value = field.value.slice(0, from) + word +
+         field.value.slice(to);
+         // Put the cursor after the word
+         field.selectionStart = from + word.length;
+         field.selectionEnd = from + word.length;
+      }
+      </script>
+
    The replaceSelection function replaces the currently selected part of a text
    field’s content with the given word and then moves the cursor after that word
    so that the user can continue typing.
@@ -14738,31 +15861,39 @@ Chapter 18 HTTP and Forms
    character, deletes text, or otherwise manipulates the field’s content.
    The following example shows a text field and a counter displaying the current
    length of the text in the field:
-   <input type="text"> length: <span id="length">0</span>
-   <script>
-   let text = document.querySelector("input");
-   let output = document.querySelector("#length");
-   text.addEventListener("input", () => {
-   output.textContent = text.value.length;
-   });
-   </script>
+
+   .. code:: javascript
+
+      <input type="text"> length: <span id="length">0</span>
+      <script>
+      let text = document.querySelector("input");
+      let output = document.querySelector("#length");
+      text.addEventListener("input", () => {
+      output.textContent = text.value.length;
+      });
+      </script>
 
 .. _P333:
 
-   Checkboxes and radio buttons
+Checkboxes and radio buttons
+----------------------------
+
    A checkbox field is a binary toggle. Its value can be extracted or changed
    through its checked property, which holds a Boolean value.
 
-   <label>
-   <input type="checkbox" id="purple"> Make this page purple
-   </label>
-   <script>
-   let checkbox = document.querySelector("#purple");
-   checkbox.addEventListener("change", () => {
-   document.body.style.background =
-   checkbox.checked ? "mediumpurple" : "";
-   });
-   </script>
+   .. code:: javascript
+
+      <label>
+      <input type="checkbox" id="purple"> Make this page purple
+      </label>
+      <script>
+      let checkbox = document.querySelector("#purple");
+      checkbox.addEventListener("change", () => {
+      document.body.style.background =
+      checkbox.checked ? "mediumpurple" : "";
+      });
+      </script>
+
    The <label> tag associates a piece of document with an input field. Clicking
    anywhere on the label will activate the field, which focuses it and toggles its
    value when it is a checkbox or radio button.
@@ -14771,30 +15902,29 @@ Chapter 18 HTTP and Forms
    radio buttons with the same name attribute so that only one of them can be
    active at any time.
 
-   Color:
-   <label>
-   <input type="radio" name="color" value="orange"> Orange
-   </label>
-   <label>
-   <input type="radio" name="color" value="lightgreen"> Green
-   </label>
-   <label>
-   <input type="radio" name="color" value="lightblue"> Blue
-   </label>
-   <script>
-   let buttons = document.querySelectorAll("[name=color]");
-   for (let button of Array.from(buttons)) {
-   button.addEventListener("change", () => {
-   document.body.style.background = button.value;
-   });
+   .. code:: javascript
+
+      Color:
+      <label> <input type="radio" name="color" value="orange"> Orange </label>
+      <label> <input type="radio" name="color" value="lightgreen"> Green </label>
+      <label> <input type="radio" name="color" value="lightblue"> Blue </label>
+      <script>
+      let buttons = document.querySelectorAll("[name=color]");
+      for (let button of Array.from(buttons)) {
+         button.addEventListener("change", () => {
+            document.body.style.background = button.value;
+         });
+      }
+      </script>
 
 .. _P334:
 
-   }
-   </script>
    The square brackets in the CSS query given to querySelectorAll are used
    to match attributes. It selects elements whose name attribute is "color" .
-   Select fields
+
+Select fields
+-------------
+
    Select fields are conceptually similar to radio buttons—they also allow the user
    to choose from a set of options. But where a radio button puts the layout of
    the options under our control, the appearance of a <select> tag is determined
@@ -14822,29 +15952,34 @@ Chapter 18 HTTP and Forms
    uses them to compose a binary number from individual bits. Hold control
    (or command on a Mac) to select multiple options.
 
-   <select multiple>
-   <option value="1">0001</option>
-   <option value="2">0010</option>
-   <option value="4">0100</option>
-   <option value="8">1000</option>
-   </select> = <span id="output">0</span>
-   <script>
-   let select = document.querySelector("select");
+   .. code:: javascript
+
+      <select multiple>
+      <option value="1">0001</option>
+      <option value="2">0010</option>
+      <option value="4">0100</option>
+      <option value="8">1000</option>
+      </select> = <span id="output">0</span>
+      <script>
+      let select = document.querySelector("select");
+      let output = document.querySelector("#output");
+      select.addEventListener("change", () => {
+         let number = 0;
+         for (let option of Array.from(select.options)) {
+            if (option.selected) {
+               number += Number(option.value);
+            }
+         }
+         output.textContent = number;
+      });
+      </script>
 
 .. _P335:
 
-   let output = document.querySelector("#output");
-   select.addEventListener("change", () => {
-   let number = 0;
-   for (let option of Array.from(select.options)) {
-   if (option.selected) {
-   number += Number(option.value);
-   }
-   }
-   output.textContent = number;
-   });
-   </script>
-   File fields
+
+File fields
+-----------
+
    File fields were originally designed as a way to upload files from the user’s
    machine through a form. In modern browsers, they also provide a way to read
    such files from JavaScript programs. The field acts as a kind of gatekeeper.
@@ -14854,25 +15989,29 @@ Chapter 18 HTTP and Forms
 
    A file field usually looks like a button labeled with something like “choose
    file” or “browse”, with information about the chosen file next to it.
-   <input type="file">
-   <script>
-   let input = document.querySelector("input");
-   input.addEventListener("change", () => {
-   if (input.files.length > 0) {
-   let file = input.files[0];
-   console.log("You chose", file.name);
-   if (file.type) console.log("It has type", file.type);
-   }
-   });
-   </script>
+
+   .. code:: javascript
+
+      <input type="file">
+      <script>
+      let input = document.querySelector("input");
+      input.addEventListener("change", () => {
+         if (input.files.length > 0) {
+            let file = input.files[0];
+            console.log("You chose", file.name);
+            if (file.type) console.log("It has type", file.type);
+         }
+      });
+      </script>
+
    The files property of a file field element is an array-like object (again,
    not a real array) containing the files chosen in the field. It is initially empty.
    The reason there isn’t simply a file property is that file fields also support a
    multiple attribute, which makes it possible to select multiple files at the same
+   time.
 
 .. _P336:
 
-   time.
 
    Objects in the files object have properties such as name (the filename), size
    (the file’s size in bytes, which are chunks of 8 bits), and type (the media type
@@ -14881,20 +16020,24 @@ Chapter 18 HTTP and Forms
    What it does not have is a property that contains the content of the file.
    Getting at that is a little more involved. Since reading a file from disk can take
    time, the interface must be asynchronous to avoid freezing the document.
-   <input type="file" multiple>
-   <script>
-   let input = document.querySelector("input");
-   input.addEventListener("change", () => {
-   for (let file of Array.from(input.files)) {
-   let reader = new FileReader();
-   reader.addEventListener("load", () => {
-   console.log("File", file.name, "starts with",
-   reader.result.slice(0, 20));
-   });
-   reader.readAsText(file);
-   }
-   });
-   </script>
+
+   .. code:: javascript
+
+      <input type="file" multiple>
+      <script>
+      let input = document.querySelector("input");
+      input.addEventListener("change", () => {
+         for (let file of Array.from(input.files)) {
+            let reader = new FileReader();
+            reader.addEventListener("load", () => {
+               console.log("File", file.name, "starts with",
+               reader.result.slice(0, 20));
+            });
+            reader.readAsText(file);
+         }
+      });
+      </script>
+
    Reading a file is done by creating a FileReader object, registering a "load"
    event handler for it, and calling its readAsText method, giving it the file we
    want to read. Once loading finishes, the reader’s result property contains the
@@ -14904,20 +16047,25 @@ Chapter 18 HTTP and Forms
    reason. The error object itself will end up in the reader’s error property. This
    interface was designed before promises became part of the language. You could
    wrap it in a promise like this:
-   function readFileText(file) {
-   return new Promise((resolve, reject) => {
-   let reader = new FileReader();
-   reader.addEventListener(
-   "load", () => resolve(reader.result));
-   reader.addEventListener(
-   "error", () => reject(reader.error));
-   reader.readAsText(file);
-   });
+
+   .. code:: javascript
+
+      function readFileText(file) {
+         return new Promise((resolve, reject) => {
+            let reader = new FileReader();
+            reader.addEventListener(
+               "load", () => resolve(reader.result));
+            reader.addEventListener(
+               "error", () => reject(reader.error));
+            reader.readAsText(file);
+         });
+      }
 
 .. _P337:
 
-   }
-   Storing data client-side
+Storing data client-side
+------------------------
+
    Simple HTML pages with a bit of JavaScript can be a great format for “mini
    applications”—small helper programs that automate basic tasks. By connect-
    ing a few form fields with event handlers, you can do anything from converting
@@ -14933,10 +16081,14 @@ Chapter 18 HTTP and Forms
 
    The localStorage object can be used to store data in a way that survives
    page reloads. This object allows you to file string values under names.
-   localStorage.setItem("username", "marijn");
-   console.log(localStorage.getItem("username"));
-   // → marijn
-   localStorage.removeItem("username");
+
+   .. code:: javascript
+
+      localStorage.setItem("username", "marijn");
+      console.log(localStorage.getItem("username"));
+      // → marijn
+      localStorage.removeItem("username");
+
    A value in localStorage sticks around until it is overwritten, it is removed
    with removeItem , or the user clears their local data.
 
@@ -14951,50 +16103,53 @@ Chapter 18 HTTP and Forms
 
    The following code implements a crude note-taking application. It keeps a
    set of named notes and allows the user to edit notes and create new ones.
-   Notes: <select></select> <button>Add</button><br>
-   <textarea style="width: 100%"></textarea>
 
 .. _P338:
 
-   <script>
-   let list = document.querySelector("select");
-   let note = document.querySelector("textarea");
-   let state;
-   function setState(newState) {
-   list.textContent = "";
-   for (let name of Object.keys(newState.notes)) {
-   let option = document.createElement("option");
-   option.textContent = name;
-   if (newState.selected == name) option.selected = true;
-   list.appendChild(option);
-   }
-   note.value = newState.notes[newState.selected];
-   localStorage.setItem("Notes", JSON.stringify(newState));
-   state = newState;
-   }
-   setState(JSON.parse(localStorage.getItem("Notes")) || {
-   notes: {"shopping list": "Carrots\nRaisins"},
-   selected: "shopping list"
-   });
-   list.addEventListener("change", () => {
-   setState({notes: state.notes, selected: list.value});
-   });
-   note.addEventListener("change", () => {
-   setState({
-   notes: Object.assign({}, state.notes,
-   {[state.selected]: note.value}),
-   selected: state.selected
-   });
-   });
-   document.querySelector("button")
-   .addEventListener("click", () => {
-   let name = prompt("Note name");
-   if (name) setState({
-   notes: Object.assign({}, state.notes, {[name]: ""}),
-   selected: name
-   });
-   });
-   </script>
+   .. code:: javascript
+
+      Notes: <select></select> <button>Add</button><br>
+      <textarea style="width: 100%"></textarea>
+      <script>
+      let list = document.querySelector("select");
+      let note = document.querySelector("textarea");
+      let state;
+      function setState(newState) {
+         list.textContent = "";
+         for (let name of Object.keys(newState.notes)) {
+            let option = document.createElement("option");
+            option.textContent = name;
+            if (newState.selected == name) option.selected = true;
+            list.appendChild(option);
+         }
+         note.value = newState.notes[newState.selected];
+         localStorage.setItem("Notes", JSON.stringify(newState));
+         state = newState;
+      }
+      setState(JSON.parse(localStorage.getItem("Notes")) || {
+         notes: {"shopping list": "Carrots\nRaisins"},
+         selected: "shopping list"
+      });
+      list.addEventListener("change", () => {
+         setState({notes: state.notes, selected: list.value});
+      });
+      note.addEventListener("change", () => {
+         setState({
+            notes: Object.assign({}, state.notes,
+            {[state.selected]: note.value}),
+            selected: state.selected
+         });
+      });
+      document.querySelector("button")
+      .addEventListener("click", () => {
+         let name = prompt("Note name");
+         if (name) setState({
+            notes: Object.assign({}, state.notes, {[name]: ""}),
+            selected: name
+         });
+      });
+      </script>
+
    The script gets its starting state from the "Notes" value stored in localStorage
 
 .. _P339:
@@ -15032,9 +16187,13 @@ Summary
 
    The interface through which browser JavaScript can make HTTP requests is
    called fetch . Making a request looks like this:
-   fetch("/18_http.html").then(r => r.text()).then(text => {
-   console.log(`The page starts with ${text.slice(0, 15)}`);
-   });
+
+   .. code:: javascript
+
+      fetch("/18_http.html").then(r => r.text()).then(text => {
+      console.log(`The page starts with ${text.slice(0, 15)}`);
+      });
+
    Browsers make GET requests to fetch the resources needed to display a web
    page. A page may also contain forms, which allow information entered by the
    user to be sent as a request for a new page when the form is submitted.
@@ -15066,7 +16225,9 @@ Summary
 Exercises
 ---------
 
-   Content negotiation
+Content negotiation
+~~~~~~~~~~~~~~~~~~~
+
    One of the things HTTP can do is called content negotiation. The Accept
    request header is used to tell the server what type of document the client
    would like to get. Many servers ignore this header, but when a server knows of
@@ -15085,7 +16246,9 @@ Exercises
    Finally, try asking for the media type application/rainbows+unicorns and
    see which status code that produces.
 
-   A JavaScript workbench
+A JavaScript workbench
+~~~~~~~~~~~~~~~~~~~~~~
+
    Build an interface that allows people to type and run pieces of JavaScript code.
    Put a button next to a <textarea> field that, when pressed, uses the Function
    constructor we saw in Chapter 10 to wrap the text in a function and call it.
@@ -15095,7 +16258,9 @@ Exercises
    Convert the return value of the function, or any error it raises, to a string and
    display it below the text field.
 
-   Conway's Game of Life
+Conway's Game of Life
+~~~~~~~~~~~~~~~~~~~~~
+
    Conway’s Game of Life is a simple simulation that creates artificial “life” on
    a grid, each cell of which is either alive or not. Each generation (turn), the
    following rules are applied:
@@ -15141,7 +16306,9 @@ Chapter 19 Project: A Pixel Art Editor
    Painting on a computer is great. You don’t need to worry about materials,
    skill, or talent. You just start smearing.
 
-   Components
+Components
+----------
+
    The interface for the application shows a big <canvas> element on top, with a
    number of form fields below it. The user draws on the picture by selecting a
    tool from a <select> field and then clicking, touching, or dragging across the
@@ -15216,33 +16383,38 @@ Chapter 19 Project: A Pixel Art Editor
    a new state value. The method takes one argument, the state, which is of the
    same type as the first argument to its constructor.
 
-   The state
+The state
+---------
+
    The application state will be an object with picture , tool , and color prop-
    erties. The picture is itself an object that stores the width, height, and pixel
    content of the picture. The pixels are stored in an array, in the same way as
    the matrix class from Chapter 6—row by row, from top to bottom.
 
-   class Picture {
-   constructor(width, height, pixels) {
-   this.width = width;
-   this.height = height;
-   this.pixels = pixels;
-   }
-   static empty(width, height, color) {
-   let pixels = new Array(width * height).fill(color);
-   return new Picture(width, height, pixels);
-   }
-   pixel(x, y) {
-   return this.pixels[x + y * this.width];
-   }
-   draw(pixels) {
-   let copy = this.pixels.slice();
-   for (let {x, y, color} of pixels) {
-   copy[x + y * this.width] = color;
-   }
-   return new Picture(this.width, this.height, copy);
-   }
-   }
+   .. code:: javascript
+
+      class Picture {
+         constructor(width, height, pixels) {
+            this.width = width;
+            this.height = height;
+            this.pixels = pixels;
+         }
+         static empty(width, height, color) {
+            let pixels = new Array(width * height).fill(color);
+            return new Picture(width, height, pixels);
+         }
+         pixel(x, y) {
+            return this.pixels[x + y * this.width];
+         }
+         draw(pixels) {
+            let copy = this.pixels.slice();
+            for (let {x, y, color} of pixels) {
+               copy[x + y * this.width] = color;
+            }
+            return new Picture(this.width, this.height, copy);
+         }
+      }
+
    We want to be able to treat a picture as an immutable value, for reasons
    that we’ll get back to later in the chapter. But we also sometimes need to
    update a whole bunch of pixels at a time. To be able to do that, the class
@@ -15277,9 +16449,12 @@ Chapter 19 Project: A Pixel Art Editor
    changes it, could dispatch an object like {color: field.value} , from which
    this update function can compute a new state.
 
-   function updateState(state, action) {
-   return Object.assign({}, state, action);
-   }
+   .. code:: javascript
+
+      function updateState(state, action) {
+         return Object.assign({}, state, action);
+      }
+
    This rather cumbersome pattern, in which Object.assign is used to first
    add the properties of state to an empty object and then overwrite some of
    those with the properties from action , is common in JavaScript code that uses
@@ -15292,19 +16467,25 @@ Chapter 19 Project: A Pixel Art Editor
 
 .. _P346:
 
-   DOM building
+DOM building
+------------
+
    One of the main things that interface components do is creating DOM structure.
    We again don’t want to directly use the verbose DOM methods for that, so
    here’s a slightly expanded version of the elt function:
-   function elt(type, props, ...children) {
-   let dom = document.createElement(type);
-   if (props) Object.assign(dom, props);
-   for (let child of children) {
-   if (typeof child != "string") dom.appendChild(child);
-   else dom.appendChild(document.createTextNode(child));
-   }
-   return dom;
-   }
+
+   .. code:: javascript
+
+      function elt(type, props, ...children) {
+         let dom = document.createElement(type);
+         if (props) Object.assign(dom, props);
+         for (let child of children) {
+            if (typeof child != "string") dom.appendChild(child);
+            else dom.appendChild(document.createTextNode(child));
+         }
+         return dom;
+      }
+
    The main difference between this version and the one we used in Chapter
    16 is that it assigns properties to DOM nodes, not attributes. This means we
    can’t use it to set arbitrary attributes, but we can use it to set properties whose
@@ -15312,14 +16493,20 @@ Chapter 19 Project: A Pixel Art Editor
    a click event handler.
 
    This allows the following style of registering event handlers:
-   <body>
-   <script>
-   document.body.appendChild(elt("button", {
-   onclick: () => console.log("click")
-   }, "The button"));
-   </script>
-   </body>
-   The canvas
+
+   .. code:: javascript
+
+      <body>
+      <script>
+      document.body.appendChild(elt("button", {
+      onclick: () => console.log("click")
+      }, "The button"));
+      </script>
+      </body>
+
+The canvas
+----------
+
    The first component we’ll define is the part of the interface that displays the
    picture as a grid of colored boxes. This component is responsible for two things:
    showing a picture and communicating pointer events on that picture to the rest
@@ -15333,37 +16520,44 @@ Chapter 19 Project: A Pixel Art Editor
    application as a whole works, it cannot directly dispatch actions. Rather,
    when responding to pointer events, it calls a callback function provided by the
    code that created it, which will handle the application-specific parts.
-   const scale = 10;
-   class PictureCanvas {
-   constructor(picture, pointerDown) {
-   this.dom = elt("canvas", {
-   onmousedown: event => this.mouse(event, pointerDown),
-   ontouchstart: event => this.touch(event, pointerDown)
-   });
-   this.syncState(picture);
-   }
-   syncState(picture) {
-   if (this.picture == picture) return;
-   this.picture = picture;
-   drawPicture(this.picture, this.dom, scale);
-   }
-   }
+
+   .. code:: javascript
+
+      const scale = 10;
+      class PictureCanvas {
+         constructor(picture, pointerDown) {
+            this.dom = elt("canvas", {
+               onmousedown: event => this.mouse(event, pointerDown),
+               ontouchstart: event => this.touch(event, pointerDown)
+            });
+            this.syncState(picture);
+         }
+         syncState(picture) {
+            if (this.picture == picture) return;
+            this.picture = picture;
+            drawPicture(this.picture, this.dom, scale);
+         }
+      }
+
    We draw each pixel as a 10-by-10 square, as determined by the scale con-
    stant. To avoid unnecessary work, the component keeps track of its current
    picture and does a redraw only when syncState is given a new picture.
    The actual drawing function sets the size of the canvas based on the scale
    and picture size and fills it with a series of squares, one for each pixel.
-   function drawPicture(picture, canvas, scale) {
-   canvas.width = picture.width * scale;
-   canvas.height = picture.height * scale;
-   let cx = canvas.getContext("2d");
-   for (let y = 0; y < picture.height; y++) {
-   for (let x = 0; x < picture.width; x++) {
-   cx.fillStyle = picture.pixel(x, y);
-   cx.fillRect(x * scale, y * scale, scale, scale);
-   }
-   }
-   }
+
+   .. code:: javascript
+
+      function drawPicture(picture, canvas, scale) {
+         canvas.width = picture.width * scale;
+         canvas.height = picture.height * scale;
+         let cx = canvas.getContext("2d");
+         for (let y = 0; y < picture.height; y++) {
+            for (let x = 0; x < picture.width; x++) {
+               cx.fillStyle = picture.pixel(x, y);
+               cx.fillRect(x * scale, y * scale, scale, scale);
+            }
+         }
+      }
 
 .. _P348:
 
@@ -15374,28 +16568,32 @@ Chapter 19 Project: A Pixel Art Editor
    callback function to be notified when the pointer is moved to a different pixel
    while the button is held down.
 
-   PictureCanvas.prototype.mouse = function(downEvent, onDown) {
-   if (downEvent.button != 0) return;
-   let pos = pointerPosition(downEvent, this.dom);
-   let onMove = onDown(pos);
-   if (!onMove) return;
-   let move = moveEvent => {
-   if (moveEvent.buttons == 0) {
-   this.dom.removeEventListener("mousemove", move);
-   } else {
-   let newPos = pointerPosition(moveEvent, this.dom);
-   if (newPos.x == pos.x && newPos.y == pos.y) return;
-   pos = newPos;
-   onMove(newPos);
-   }
-   };
-   this.dom.addEventListener("mousemove", move);
-   };
-   function pointerPosition(pos, domNode) {
-   let rect = domNode.getBoundingClientRect();
-   return {x: Math.floor((pos.clientX - rect.left) / scale),
-   y: Math.floor((pos.clientY - rect.top) / scale)};
-   }
+   .. code:: javascript
+
+      PictureCanvas.prototype.mouse = function(downEvent, onDown) {
+         if (downEvent.button != 0) return;
+         let pos = pointerPosition(downEvent, this.dom);
+         let onMove = onDown(pos);
+         if (!onMove) return;
+         let move = moveEvent => {
+            if (moveEvent.buttons == 0) {
+               this.dom.removeEventListener("mousemove", move);
+            } else {
+               let newPos = pointerPosition(moveEvent, this.dom);
+               if (newPos.x == pos.x && newPos.y == pos.y) return;
+               pos = newPos;
+               onMove(newPos);
+            }
+         };
+         this.dom.addEventListener("mousemove", move);
+      };
+
+      function pointerPosition(pos, domNode) {
+         let rect = domNode.getBoundingClientRect();
+         return {x: Math.floor((pos.clientX - rect.left) / scale),
+         y: Math.floor((pos.clientY - rect.top) / scale)};
+      }
+
    Since we know the size of the pixels and we can use getBoundingClientRect
    to find the position of the canvas on the screen, it is possible to go from mouse
    event coordinates ( clientX and clientY ) to picture coordinates. These are
@@ -15405,34 +16603,39 @@ Chapter 19 Project: A Pixel Art Editor
    events and making sure we call preventDefault on the "touchstart" event to
    prevent panning.
 
-   PictureCanvas.prototype.touch = function(startEvent,
-   onDown) {
 
 .. _P349:
 
-   let pos = pointerPosition(startEvent.touches[0], this.dom);
-   let onMove = onDown(pos);
-   startEvent.preventDefault();
-   if (!onMove) return;
-   let move = moveEvent => {
-   let newPos = pointerPosition(moveEvent.touches[0],
-   this.dom);
-   if (newPos.x == pos.x && newPos.y == pos.y) return;
-   pos = newPos;
-   onMove(newPos);
-   };
-   let end = () => {
-   this.dom.removeEventListener("touchmove", move);
-   this.dom.removeEventListener("touchend", end);
-   };
-   this.dom.addEventListener("touchmove", move);
-   this.dom.addEventListener("touchend", end);
-   };
+   .. code:: javascript
+
+      PictureCanvas.prototype.touch = function(startEvent,
+      onDown) {
+         let pos = pointerPosition(startEvent.touches[0], this.dom);
+         let onMove = onDown(pos);
+         startEvent.preventDefault();
+         if (!onMove) return;
+         let move = moveEvent => {
+            let newPos = pointerPosition(moveEvent.touches[0],
+            this.dom);
+         if (newPos.x == pos.x && newPos.y == pos.y) return;
+            pos = newPos;
+            onMove(newPos);
+         };
+         let end = () => {
+            this.dom.removeEventListener("touchmove", move);
+            this.dom.removeEventListener("touchend", end);
+         };
+         this.dom.addEventListener("touchmove", move);
+         this.dom.addEventListener("touchend", end);
+      };
+
    For touch events, clientX and clientY aren’t available directly on the event
    object, but we can use the coordinates of the first touch object in the touches
    property.
 
-   The application
+The application
+---------------
+
    To make it possible to build the application piece by piece, we’ll implement the
    main component as a shell around a picture canvas and a dynamic set of tools
    and controls that we pass to its constructor.
@@ -15450,30 +16653,33 @@ Chapter 19 Project: A Pixel Art Editor
    that gets called with a new position and a current state when the pointer moves
    to a different pixel.
 
-   class PixelEditor {
 
 .. _P350:
 
-   constructor(state, config) {
-   let {tools, controls, dispatch} = config;
-   this.state = state;
-   this.canvas = new PictureCanvas(state.picture, pos => {
-   let tool = tools[this.state.tool];
-   let onMove = tool(pos, this.state, dispatch);
-   if (onMove) return pos => onMove(pos, this.state);
-   });
-   this.controls = controls.map(
-   Control => new Control(state, config));
-   this.dom = elt("div", {}, this.canvas.dom, elt("br"),
-   ...this.controls.reduce(
-   (a, c) => a.concat(" ", c.dom), []));
-   }
-   syncState(state) {
-   this.state = state;
-   this.canvas.syncState(state.picture);
-   for (let ctrl of this.controls) ctrl.syncState(state);
-   }
-   }
+   .. code:: javascript
+
+      class PixelEditor {
+         constructor(state, config) {
+            let {tools, controls, dispatch} = config;
+            this.state = state;
+            this.canvas = new PictureCanvas(state.picture, pos => {
+               let tool = tools[this.state.tool];
+               let onMove = tool(pos, this.state, dispatch);
+               if (onMove) return pos => onMove(pos, this.state);
+            });
+            this.controls = controls.map(
+            Control => new Control(state, config));
+            this.dom = elt("div", {}, this.canvas.dom, elt("br"),
+            ...this.controls.reduce(
+            (a, c) => a.concat(" ", c.dom), []));
+         }
+         syncState(state) {
+            this.state = state;
+            this.canvas.syncState(state.picture);
+            for (let ctrl of this.controls) ctrl.syncState(state);
+         }
+      }
+
    The pointer handler given to PictureCanvas calls the currently selected tool
    with the appropriate arguments and, if that returns a move handler, adapts it
    to also receive the state.
@@ -15487,20 +16693,22 @@ Chapter 19 Project: A Pixel Art Editor
    with an option for each tool and sets up a "change" event handler that updates
    the application state when the user selects a different tool.
 
-   class ToolSelect {
-   constructor(state, {tools, dispatch}) {
-   this.select = elt("select", {
-   onchange: () => dispatch({tool: this.select.value})
-   }, ...Object.keys(tools).map(name => elt("option", {
-   selected: name == state.tool
-   }, name)));
-   this.dom = elt("label", null, " 🖌 Tool: ", this.select);
-   }
+   .. code:: javascript
+
+      class ToolSelect {
+      constructor(state, {tools, dispatch}) {
+         this.select = elt("select", {
+            onchange: () => dispatch({tool: this.select.value})
+         }, ...Object.keys(tools).map(name => elt("option", {
+            selected: name == state.tool
+         }, name)));
+            this.dom = elt("label", null, " 🖌 Tool: ", this.select);
+         }
+         syncState(state) { this.select.value = state.tool; }
+      }
 
 .. _P351:
 
-   syncState(state) { this.select.value = state.tool; }
-   }
    By wrapping the label text and the field in a <label> element, we tell the
    browser that the label belongs to that field so that you can, for example, click
    the label to focus the field.
@@ -15516,21 +16724,25 @@ Chapter 19 Project: A Pixel Art Editor
    This control creates such a field and wires it up to stay synchronized with
    the application state’s color property.
 
-   class ColorSelect {
-   constructor(state, {dispatch}) {
-   this.input = elt("input", {
-   type: "color",
-   value: state.color,
-   onchange: () => dispatch({color: this.input.value})
-   });
-   this.dom = elt("label", null, " 🎨 Color: ", this.input);
-   }
-   syncState(state) { this.input.value = state.color; }
-   }
+   .. code:: javascript
+
+      class ColorSelect {
+         constructor(state, {dispatch}) {
+            this.input = elt("input", {
+            type: "color",
+            value: state.color,
+            onchange: () => dispatch({color: this.input.value})
+            });
+            this.dom = elt("label", null, " 🎨 Color: ", this.input);
+         }
+         syncState(state) { this.input.value = state.color; }
+      }
 
 .. _P352:
 
-   Drawing tools
+Drawing tools
+-------------
+
    Before we can draw anything, we need to implement the tools that will control
    the functionality of mouse or touch events on the canvas.
 
@@ -15539,14 +16751,17 @@ Chapter 19 Project: A Pixel Art Editor
    picture to a version in which the pointed-at pixel is given the currently selected
    color.
 
-   function draw(pos, state, dispatch) {
-   function drawPixel({x, y}, state) {
-   let drawn = {x, y, color: state.color};
-   dispatch({picture: state.picture.draw([drawn])});
-   }
-   drawPixel(pos, state);
-   return drawPixel;
-   }
+   .. code:: javascript
+
+      function draw(pos, state, dispatch) {
+         function drawPixel({x, y}, state) {
+            let drawn = {x, y, color: state.color};
+            dispatch({picture: state.picture.draw([drawn])});
+         }
+         drawPixel(pos, state);
+         return drawPixel;
+      }
+
    The function immediately calls the drawPixel function but then also returns
    it so that it is called again for newly touched pixels when the user drags or
    swipes over the picture.
@@ -15555,26 +16770,28 @@ Chapter 19 Project: A Pixel Art Editor
    rectangle tool draws a rectangle between the point where you start dragging
    and the point that you drag to.
 
-   function rectangle(start, state, dispatch) {
-   function drawRectangle(pos) {
-   let xStart = Math.min(start.x, pos.x);
-   let yStart = Math.min(start.y, pos.y);
-   let xEnd = Math.max(start.x, pos.x);
-   let yEnd = Math.max(start.y, pos.y);
-   let drawn = [];
-   for (let y = yStart; y <= yEnd; y++) {
-   for (let x = xStart; x <= xEnd; x++) {
-   drawn.push({x, y, color: state.color});
-   }
-   }
-   dispatch({picture: state.picture.draw(drawn)});
+   .. code:: javascript
+
+      function rectangle(start, state, dispatch) {
+         function drawRectangle(pos) {
+            let xStart = Math.min(start.x, pos.x);
+            let yStart = Math.min(start.y, pos.y);
+            let xEnd = Math.max(start.x, pos.x);
+            let yEnd = Math.max(start.y, pos.y);
+            let drawn = [];
+            for (let y = yStart; y <= yEnd; y++) {
+               for (let x = xStart; x <= xEnd; x++) {
+                  drawn.push({x, y, color: state.color});
+               }
+            }
+            dispatch({picture: state.picture.draw(drawn)});
+         }
+         drawRectangle(start);
+         return drawRectangle;
+      }
 
 .. _P353:
 
-   }
-   drawRectangle(start);
-   return drawRectangle;
-   }
    An important detail in this implementation is that when dragging, the rect-
    angle is redrawn on the picture from the original state. That way, you can
    make the rectangle larger and smaller again while creating it, without the in-
@@ -15592,27 +16809,29 @@ Chapter 19 Project: A Pixel Art Editor
    code searches through a grid to find all “connected” pixels. The problem of
    keeping track of a branching set of possible routes is similar.
 
-   const around = [{dx: -1, dy: 0}, {dx: 1, dy: 0},
-   {dx: 0, dy: -1}, {dx: 0, dy: 1}];
-   function fill({x, y}, state, dispatch) {
-   let targetColor = state.picture.pixel(x, y);
-   let drawn = [{x, y, color: state.color}];
-   for (let done = 0; done < drawn.length; done++) {
-   for (let {dx, dy} of around) {
-   let x = drawn[done].x + dx, y = drawn[done].y + dy;
-   if (x >= 0 && x < state.picture.width &&
-   y >= 0 && y < state.picture.height &&
-   state.picture.pixel(x, y) == targetColor &&
-   !drawn.some(p => p.x == x && p.y == y)) {
-   drawn.push({x, y, color: state.color});
+   .. code:: javascript
+
+      const around = [{dx: -1, dy: 0}, {dx: 1, dy: 0},
+      {dx: 0, dy: -1}, {dx: 0, dy: 1}];
+      function fill({x, y}, state, dispatch) {
+         let targetColor = state.picture.pixel(x, y);
+         let drawn = [{x, y, color: state.color}];
+         for (let done = 0; done < drawn.length; done++) {
+            for (let {dx, dy} of around) {
+               let x = drawn[done].x + dx, y = drawn[done].y + dy;
+               if (x >= 0 && x < state.picture.width &&
+               y >= 0 && y < state.picture.height &&
+               state.picture.pixel(x, y) == targetColor &&
+               !drawn.some(p => p.x == x && p.y == y)) {
+                  drawn.push({x, y, color: state.color});
+               }
+            }
+         }
+         dispatch({picture: state.picture.draw(drawn)});
+      }
 
 .. _P354:
 
-   }
-   }
-   }
-   dispatch({picture: state.picture.draw(drawn)});
-   }
    The array of drawn pixels doubles as the function’s work list. For each pixel
    reached, we have to see whether any adjacent pixels have the same color and
    haven’t already been painted over. The loop counter lags behind the length of
@@ -15623,36 +16842,44 @@ Chapter 19 Project: A Pixel Art Editor
    The final tool is a color picker, which allows you to point at a color in the
    picture to use it as the current drawing color.
 
-   function pick(pos, state, dispatch) {
-   dispatch({color: state.picture.pixel(pos.x, pos.y)});
-   }
-   Saving and loading
+   .. code:: javascript
+
+      function pick(pos, state, dispatch) {
+         dispatch({color: state.picture.pixel(pos.x, pos.y)});
+      }
+
+Saving and loading
+------------------
+
    When we’ve drawn our masterpiece, we’ll want to save it for later. We should
    add a button for downloading the current picture as an image file. This control
    provides that button:
-   class SaveButton {
-   constructor(state) {
-   this.picture = state.picture;
-   this.dom = elt("button", {
-   onclick: () => this.save()
-   }, " 💾 Save");
-   }
-   save() {
-   let canvas = elt("canvas");
-   drawPicture(this.picture, canvas, 1);
-   let link = elt("a", {
-   href: canvas.toDataURL(),
-   download: "pixelart.png"
-   });
+
+   .. code:: javascript
+
+      class SaveButton {
+         constructor(state) {
+            this.picture = state.picture;
+            this.dom = elt("button", {
+               onclick: () => this.save()
+               }, " 💾 Save");
+         }
+         save() {
+            let canvas = elt("canvas");
+            drawPicture(this.picture, canvas, 1);
+            let link = elt("a", {
+               href: canvas.toDataURL(),
+               download: "pixelart.png"
+            });
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+         }
+         syncState(state) { this.picture = state.picture; }
+      }
 
 .. _P355:
 
-   document.body.appendChild(link);
-   link.click();
-   link.remove();
-   }
-   syncState(state) { this.picture = state.picture; }
-   }
    The component keeps track of the current picture so that it can access it
    when saving. To create the image file, it uses a <canvas> element that it draws
    the picture on (at a scale of one pixel per pixel).
@@ -15673,23 +16900,25 @@ Chapter 19 Project: A Pixel Art Editor
    And it gets worse. We’ll also want to be able to load existing image files into
    our application. To do that, we again define a button component.
 
-   class LoadButton {
-   constructor(_, {dispatch}) {
-   this.dom = elt("button", {
-   onclick: () => startLoad(dispatch)
-   }, " 📁 Load");
-   }
-   syncState() {}
-   }
-   function startLoad(dispatch) {
-   let input = elt("input", {
-   type: "file",
-   onchange: () => finishLoad(input.files[0], dispatch)
-   });
-   document.body.appendChild(input);
-   input.click();
-   input.remove();
-   }
+   .. code:: javascript
+
+      class LoadButton {
+         constructor(_, {dispatch}) {
+            this.dom = elt("button", {
+               onclick: () => startLoad(dispatch)
+            }, " 📁 Load");
+         }
+         syncState() {}
+      }
+      function startLoad(dispatch) {
+         let input = elt("input", {
+            type: "file",
+            onchange: () => finishLoad(input.files[0], dispatch)
+         });
+         document.body.appendChild(input);
+         input.click();
+         input.remove();
+      }
 
 .. _P356:
 
@@ -15703,44 +16932,50 @@ Chapter 19 Project: A Pixel Art Editor
    element, but because we can’t get direct access to the pixels in such an image,
    we can’t create a Picture object from that.
 
-   function finishLoad(file, dispatch) {
-   if (file == null) return;
-   let reader = new FileReader();
-   reader.addEventListener("load", () => {
-   let image = elt("img", {
-   onload: () => dispatch({
-   picture: pictureFromImage(image)
-   }),
-   src: reader.result
-   });
-   });
-   reader.readAsDataURL(file);
-   }
+   .. code:: javascript
+
+      function finishLoad(file, dispatch) {
+         if (file == null) return;
+         let reader = new FileReader();
+         reader.addEventListener("load", () => {
+            let image = elt("img", {
+               onload: () => dispatch({
+                  picture: pictureFromImage(image)
+               }),
+               src: reader.result
+            });
+         });
+         reader.readAsDataURL(file);
+      }
+
    To get access to the pixels, we must first draw the picture to a <canvas>
    element. The canvas context has a getImageData method that allows a script
    to read its pixels. So, once the picture is on the canvas, we can access it and
    construct a Picture object.
 
-   function pictureFromImage(image) {
-   let width = Math.min(100, image.width);
-   let height = Math.min(100, image.height);
-   let canvas = elt("canvas", {width, height});
-   let cx = canvas.getContext("2d");
-   cx.drawImage(image, 0, 0);
-   let pixels = [];
-   let {data} = cx.getImageData(0, 0, width, height);
-   function hex(n) {
-   return n.toString(16).padStart(2, "0");
-   }
 
 .. _P357:
 
-   for (let i = 0; i < data.length; i += 4) {
-   let [r, g, b] = data.slice(i, i + 3);
-   pixels.push("#" + hex(r) + hex(g) + hex(b));
-   }
-   return new Picture(width, height, pixels);
-   }
+   .. code:: javascript
+
+      function pictureFromImage(image) {
+         let width = Math.min(100, image.width);
+         let height = Math.min(100, image.height);
+         let canvas = elt("canvas", {width, height});
+         let cx = canvas.getContext("2d");
+         cx.drawImage(image, 0, 0);
+         let pixels = [];
+         let {data} = cx.getImageData(0, 0, width, height);
+         function hex(n) {
+            return n.toString(16).padStart(2, "0");
+         }
+         for (let i = 0; i < data.length; i += 4) {
+            let [r, g, b] = data.slice(i, i + 3);
+            pixels.push("#" + hex(r) + hex(g) + hex(b));
+         }
+         return new Picture(width, height, pixels);
+      }
+
    We’ll limit the size of images to 100 by 100 pixels since anything bigger will
    look huge on our display and might slow down the interface.
 
@@ -15758,7 +16993,10 @@ Chapter 19 Project: A Pixel Art Editor
    base 16. We have to make sure that each number takes up two digits, so the
    hex helper function calls padStart to add a leading zero when necessary.
    We can load and save now! That leaves one more feature before we’re done.
-   Undo history
+
+Undo history
+------------
+
    Half of the process of editing is making little mistakes and correcting them. So
    an important feature in a drawing program is an undo history.
 
@@ -15774,27 +17012,30 @@ Chapter 19 Project: A Pixel Art Editor
    of time apart. To be able to do that, we’ll need a second property, doneAt ,
    tracking the time at which we last stored a picture in the history.
 
-   function historyUpdateState(state, action) {
-   if (action.undo == true) {
 
 .. _P358:
 
-   if (state.done.length == 0) return state;
-   return Object.assign({}, state, {
-   picture: state.done[0],
-   done: state.done.slice(1),
-   doneAt: 0
-   });
-   } else if (action.picture &&
-   state.doneAt < Date.now() - 1000) {
-   return Object.assign({}, state, action, {
-   done: [state.picture, ...state.done],
-   doneAt: Date.now()
-   });
-   } else {
-   return Object.assign({}, state, action);
-   }
-   }
+   .. code:: javascript
+
+      function historyUpdateState(state, action) {
+         if (action.undo == true) {
+            if (state.done.length == 0) return state;
+            return Object.assign({}, state, {
+               picture: state.done[0],
+               done: state.done.slice(1),
+               doneAt: 0
+            });
+         } else if (action.picture &&
+         state.doneAt < Date.now() - 1000) {
+            return Object.assign({}, state, action, {
+               done: [state.picture, ...state.done],
+               doneAt: Date.now()
+            });
+         } else {
+            return Object.assign({}, state, action);
+         }
+      }
+
    When the action is an undo action, the function takes the most recent picture
    from the history and makes that the current picture. It sets doneAt to zero so
    that the next change is guaranteed to store the picture back in the history,
@@ -15807,50 +17048,56 @@ Chapter 19 Project: A Pixel Art Editor
    The undo button component doesn’t do much. It dispatches undo actions
    when clicked and disables itself when there is nothing to undo.
 
-   class UndoButton {
-   constructor(state, {dispatch}) {
-   this.dom = elt("button", {
-   onclick: () => dispatch({undo: true}),
-   disabled: state.done.length == 0
-   }, " ⮪ Undo");
-   }
-   syncState(state) {
-   this.dom.disabled = state.done.length == 0;
-   }
-   }
+   .. code:: javascript
+
+      class UndoButton {
+         constructor(state, {dispatch}) {
+            this.dom = elt("button", {
+               onclick: () => dispatch({undo: true}),
+               disabled: state.done.length == 0
+            }, " ⮪ Undo");
+         }
+         syncState(state) {
+            this.dom.disabled = state.done.length == 0;
+         }
+      }
 
 .. _P359:
 
-   Let's draw
+Let's draw
+----------
+
    To set up the application, we need to create a state, a set of tools, a set
    of controls, and a dispatch function. We can pass them to the PixelEditor
    constructor to create the main component. Since we’ll need to create several
    editors in the exercises, we first define some bindings.
 
-   const startState = {
-   tool: "draw",
-   color: "#000000",
-   picture: Picture.empty(60, 30, "#f0f0f0"),
-   done: [],
-   doneAt: 0
-   };
-   const baseTools = {draw, fill, rectangle, pick};
-   const baseControls = [
-   ToolSelect, ColorSelect, SaveButton, LoadButton, UndoButton
-   ];
-   function startPixelEditor({state = startState,
-   tools = baseTools,
-   controls = baseControls}) {
-   let app = new PixelEditor(state, {
-   tools,
-   controls,
-   dispatch(action) {
-   state = historyUpdateState(state, action);
-   app.syncState(state);
-   }
-   });
-   return app.dom;
-   }
+   .. code:: javascript
+
+      const startState = {
+         tool: "draw",
+         color: "#000000",
+         picture: Picture.empty(60, 30, "#f0f0f0"),
+         done: [],
+         doneAt: 0
+      };
+      const baseTools = {draw, fill, rectangle, pick};
+      const baseControls = [
+         ToolSelect, ColorSelect, SaveButton, LoadButton, UndoButton
+      ];
+      function startPixelEditor({state = startState, tools = baseTools,
+      controls = baseControls}) {
+         let app = new PixelEditor(state, {
+            tools,
+            controls,
+            dispatch(action) {
+               state = historyUpdateState(state, action);
+               app.syncState(state);
+            }
+         });
+         return app.dom;
+      }
+
    When destructuring an object or array, you can use = after a binding name to
    give the binding a default value, which is used when the property is missing or
    holds undefined . The startPixelEditor function makes use of this to accept
@@ -15860,12 +17107,17 @@ Chapter 19 Project: A Pixel Art Editor
 
 .. _P360:
 
-   <div></div>
-   <script>
-   document.querySelector("div")
-   .appendChild(startPixelEditor({}));
-   </script>
-   Why is this so hard?
+   .. code:: javascript
+
+      <div></div>
+      <script>
+      document.querySelector("div")
+      .appendChild(startPixelEditor({}));
+      </script>
+
+Why is this so hard?
+--------------------
+
    Browser technology is amazing. It provides a powerful set of interface building
    blocks, ways to style and manipulate them, and tools to inspect and debug your
    applications. The software you write for the browser can be run on almost every
@@ -15902,7 +17154,9 @@ Exercises
 
 .. _P361:
 
-   Keyboard bindings
+Keyboard bindings
+~~~~~~~~~~~~~~~~~
+
    Add keyboard shortcuts to the application. The first letter of a tool’s name
    selects the tool, and control-Z or command-Z activates undo.
 
@@ -15916,7 +17170,9 @@ Exercises
    mand key on Mac) properties that you can use to see whether those keys are
    held down.
 
-   Efficient drawing
+Efficient drawing
+~~~~~~~~~~~~~~~~~
+
    During drawing, the majority of work that our application does happens in
    drawPicture . Creating a new state and updating the rest of the DOM isn’t
    very expensive, but repainting all the pixels on the canvas is quite a bit of
@@ -15936,7 +17192,9 @@ Exercises
    of the circle lies at the point where the drag or touch gesture starts, and its
    radius is determined by the distance dragged.
 
-   Proper lines
+Proper lines
+~~~~~~~~~~~~
+
    This is a more advanced exercise than the preceding two, and it will require
    you to design a solution to a nontrivial problem. Make sure you have plenty
    of time and patience before starting to work on this exercise, and do not get
@@ -15983,8 +17241,8 @@ Chapter 20 Node.js
 ==================
 
    So far, we have used the JavaScript language in a single environment: the
-   browser. This chapter and the next one will briefly introduce Node.js, a pro-
-   gram that allows you to apply your JavaScript skills outside of the browser.
+   browser. This chapter and the next one will briefly introduce Node.js, a 
+   program that allows you to apply your JavaScript skills outside of the browser.
    With it, you can build anything from small command line tools to HTTP
    servers that power dynamic websites.
 
@@ -15997,7 +17255,9 @@ Chapter 20 Node.js
    follow the installation instructions for your operating system. You can also find
    further documentation for Node.js there.
 
-   Background
+Background
+----------
+
    One of the more difficult problems with writing systems that communicate over
    the network is managing input and output—that is, the reading and writing of
    data to and from the network and hard drive. Moving data around takes time,
@@ -16013,23 +17273,33 @@ Chapter 20 Node.js
    Node. It is one of the few programming languages that does not have a built-in
    way to do in- and output. Thus, JavaScript could be fit onto Node’s rather
    eccentric approach to in- and output without ending up with two inconsistent
-   interfaces. In 2009, when Node was being designed, people were already do-
-   ing callback-based programming in the browser, so the community around the
+   interfaces. In 2009, when Node was being designed, people were already doing 
+   callback-based programming in the browser, so the community around the
+   language was used to an asynchronous programming style.
 
 .. _P364:
 
-   language was used to an asynchronous programming style.
 
-   The node command
+The node command
+----------------
+
    When Node.js is installed on a system, it provides a program called node , which
    is used to run JavaScript files. Say you have a file hello.js , containing this
    code:
-   let message = "Hello world";
-   console.log(message);
+
+   .. code:: javascript
+
+      let message = "Hello world";
+      console.log(message);
+
    You can then run node from the command line like this to execute the pro-
    gram:
-   $ node hello.js
-   Hello world
+
+   .. code:: javascript
+
+      $ node hello.js
+      Hello world
+
    The console.log method in Node does something similar to what it does in
    the browser. It prints out a piece of text. But in Node, the text will go to
    the process’s standard output stream, rather than to a browser’s JavaScript
@@ -16039,13 +17309,16 @@ Chapter 20 Node.js
    If you run node without giving it a file, it provides you with a prompt at
    which you can type JavaScript code and immediately see the result.
 
-   $ node
-   > 1 + 1
-   2
-   > [-1, -2, -3].map(Math.abs)
-   [1, 2, 3]
-   > process.exit(0)
-   $
+   .. code:: javascript
+
+      $ node
+      > 1 + 1
+      2
+      > [-1, -2, -3].map(Math.abs)
+      [1, 2, 3]
+      > process.exit(0)
+      $
+
    The process binding, just like the console binding, is available globally in
    Node. It provides various ways to inspect and manipulate the current program.
    The exit method ends the process and can be given an exit status code, which
@@ -16061,13 +17334,19 @@ Chapter 20 Node.js
    of the node command and your script name, so the actual arguments start at
    index 2. If showargv.js contains the statement console.log(process.argv) ,
    you could run it like this:
-   $ node showargv.js one --and two
-   ["node", "/tmp/showargv.js", "one", "--and", "two"]
+
+   .. code:: javascript
+
+      $ node showargv.js one --and two
+      ["node", "/tmp/showargv.js", "one", "--and", "two"]
+
    All the standard JavaScript global bindings, such as Array , Math , and JSON ,
    are also present in Node’s environment. Browser-related functionality, such as
    document or prompt , is not.
 
-   Modules
+Modules
+-------
+
    Beyond the bindings I mentioned, such as console and process , Node puts
    few additional bindings in the global scope. If you want to access built-in
    functionality, you have to ask the module system for it.
@@ -16102,25 +17381,37 @@ Chapter 20 Node.js
    .js , defines a script that can be called from the command line to reverse a
    string.
 
-   const {reverse} = require("./reverse");
-   // Index 2 holds the first actual command line argument
-   let argument = process.argv[2];
-   console.log(reverse(argument));
+   .. code:: javascript
+
+      const {reverse} = require("./reverse");
+      // Index 2 holds the first actual command line argument
+      let argument = process.argv[2];
+      console.log(reverse(argument));
+
    The file reverse.js defines a library for reversing strings, which can be used
    both by this command line tool and by other scripts that need direct access to
    a string-reversing function.
 
-   exports.reverse = function(string) {
-   return Array.from(string).reverse().join("");
-   };
+   .. code:: javascript
+
+      exports.reverse = function(string) {
+      return Array.from(string).reverse().join("");
+      };
+
    Remember that adding properties to exports adds them to the interface of
    the module. Since Node.js treats files as CommonJS modules, main.js can take
    the exported reverse function from reverse.js .
 
    We can now call our tool like this:
-   $ node main.js JavaScript
-   tpircSavaJ
-   Installing with NPM
+
+   .. code:: javascript
+
+      $ node main.js JavaScript
+      tpircSavaJ
+
+Installing with NPM
+-------------------
+
    NPM, which was introduced in Chapter 10, is an online repository of JavaScript
    modules, many of which are specifically written for Node. When you install
    Node on your computer, you also get the npm command, which you can use to
@@ -16131,15 +17422,18 @@ Chapter 20 Node.js
 
 .. _P367:
 
-   $ npm install ini
-   npm WARN enoent ENOENT: no such file or directory,
-   open '/tmp/package.json'
-   + ini@1.3.5
-   added 1 package in 0.552s
-   $ node
-   > const {parse} = require("ini");
-   > parse("x = 1\ny = 2");
-   { x: '1', y: '2' }
+   .. code:: javascript
+
+      $ npm install ini
+      npm WARN enoent ENOENT: no such file or directory,
+      open '/tmp/package.json'
+      + ini@1.3.5
+      added 1 package in 0.552s
+      $ node
+      > const {parse} = require("ini");
+      > parse("x = 1\ny = 2");
+      { x: '1', y: '2' }
+
    After running npm install , NPM will have created a directory called node_modules
    . Inside that directory will be an ini directory that contains the library. You
    can open it and look at the code. When we call require("ini") , this library
@@ -16150,34 +17444,41 @@ Chapter 20 Node.js
    packages it installs and makes it easier to manage versions and clean up when
    removing an application.
 
-   Package files
+Package files
+-------------
+
    In the npm install example, you could see a warning about the fact that the
-   package.json file did not exist. It is recommended to create such a file for each
+   ``package.json`` file did not exist. It is recommended to create such a file for each
    project, either manually or by running npm init . It contains some information
    about the project, such as its name and version, and lists its dependencies.
    The robot simulation from Chapter 7, as modularized in the exercise in
-   Chapter 10, might have a package.json file like this:
-   {
-   "author": "Marijn Haverbeke",
-   "name": "eloquent-javascript-robot",
-   "description": "Simulation of a package-delivery robot",
-   "version": "1.0.0",
-   "main": "run.js",
-   "dependencies": {
-   "dijkstrajs": "^1.0.1",
-   "random-item": "^1.0.0"
-   },
+   Chapter 10, might have a ``package.json`` file like this:
+
+   .. code:: javascript
+
+      {
+      "author": "Marijn Haverbeke",
+      "name": "eloquent-javascript-robot",
+      "description": "Simulation of a package-delivery robot",
+      "version": "1.0.0",
+      "main": "run.js",
+      "dependencies": {
+         "dijkstrajs": "^1.0.1",
+         "random-item": "^1.0.0"
+      },
+      "license": "ISC"
+      }
 
 .. _P368:
 
-   "license": "ISC"
-   }
    When you run npm install without naming a package to install, NPM will
    install the dependencies listed in package.json . When you install a specific
    package that is not already listed as a dependency, NPM will add it to package
    .json .
 
-   Versions
+Versions
+--------
+
    A package.json file lists both the program’s own version and versions for its
    dependencies. Versions are a way to deal with the fact that packages evolve
    separately, and code written to work with a package as it existed at one point
@@ -16212,7 +17513,9 @@ Chapter 20 Node.js
 
 .. _P369:
 
-   The file system module
+The file system module
+----------------------
+
    One of the most commonly used built-in modules in Node is the fs module,
    which stands for file system. It exports functions for working with files and
    directories.
@@ -16220,11 +17523,14 @@ Chapter 20 Node.js
    For example, the function called readFile reads a file and then calls a call-
    back with the file’s contents.
 
-   let {readFile} = require("fs");
-   readFile("file.txt", "utf8", (error, text) => {
-   if (error) throw error;
-   console.log("The file contains:", text);
-   });
+   .. code:: javascript
+
+      let {readFile} = require("fs");
+      readFile("file.txt", "utf8", (error, text) => {
+      if (error) throw error;
+      console.log("The file contains:", text);
+      });
+
    The second argument to readFile indicates the character encoding used to
    decode the file into a string. There are several ways in which text can be
    encoded to binary data, but most modern systems use UTF-8. So unless you
@@ -16234,19 +17540,25 @@ Chapter 20 Node.js
    an array-like object that contains numbers representing the bytes (8-bit chunks
    of data) in the files.
 
-   const {readFile} = require("fs");
-   readFile("file.txt", (error, buffer) => {
-   if (error) throw error;
-   console.log("The file contained", buffer.length, "bytes.",
-   "The first byte is:", buffer[0]);
-   });
+   .. code:: javascript
+
+      const {readFile} = require("fs");
+      readFile("file.txt", (error, buffer) => {
+         if (error) throw error;
+         console.log("The file contained", buffer.length, "bytes.",
+         "The first byte is:", buffer[0]);
+      });
+
    A similar function, writeFile , is used to write a file to disk.
 
-   const {writeFile} = require("fs");
-   writeFile("graffiti.txt", "Node was here", err => {
-   if (err) console.log(`Failed to write file: ${err}`);
-   else console.log("File written.");
-   });
+   .. code:: javascript
+
+      const {writeFile} = require("fs");
+      writeFile("graffiti.txt", "Node was here", err => {
+      if (err) console.log(`Failed to write file: ${err}`);
+      else console.log("File written.");
+      });
+
 
 .. _P370:
 
@@ -16266,23 +17578,32 @@ Chapter 20 Node.js
    ing their integration into Node.js is still a work in progress. There is an object
    promises exported from the fs package since version 10.1 that contains most
    of the same functions as fs but uses promises rather than callback functions.
-   const {readFile} = require("fs").promises;
-   readFile("file.txt", "utf8")
-   .then(text => console.log("The file contains:", text));
+
+   .. code:: javascript
+
+      const {readFile} = require("fs").promises;
+      readFile("file.txt", "utf8")
+      .then(text => console.log("The file contains:", text));
+
    Sometimes you don’t need asynchronicity, and it just gets in the way. Many
    of the functions in fs also have a synchronous variant, which has the same
    name with Sync added to the end. For example, the synchronous version of
    readFile is called readFileSync .
 
-   const {readFileSync} = require("fs");
-   console.log("The file contains:",
-   readFileSync("file.txt", "utf8"));
+   .. code:: javascript
+
+      const {readFileSync} = require("fs");
+      console.log("The file contains:",
+      readFileSync("file.txt", "utf8"));
+
    Do note that while such a synchronous operation is being performed, your
    program is stopped entirely. If it should be responding to the user or to other
    machines on the network, being stuck on a synchronous action might produce
    annoying delays.
 
-   The HTTP module
+The HTTP module
+---------------
+
    Another central module is called http . It provides functionality for running
    HTTP servers and making HTTP requests.
 
@@ -16290,16 +17611,20 @@ Chapter 20 Node.js
 .. _P371:
 
    This is all it takes to start an HTTP server:
-   const {createServer} = require("http");
-   let server = createServer((request, response) => {
-   response.writeHead(200, {"Content-Type": "text/html"});
-   response.write(`
-   <h1>Hello!</h1>
-   <p>You asked for <code>${request.url}</code></p>`);
-   response.end();
-   });
-   server.listen(8000);
-   console.log("Listening! (port 8000)");
+
+   .. code:: javascript
+
+      const {createServer} = require("http");
+      let server = createServer((request, response) => {
+         response.writeHead(200, {"Content-Type": "text/html"});
+         response.write(`
+            <h1>Hello!</h1>
+            <p>You asked for <code>${request.url}</code></p>`);
+         response.end();
+      });
+      server.listen(8000);
+      console.log("Listening! (port 8000)");
+
    If you run this script on your own machine, you can point your web browser
    at http://localhost:8000/hello to make a request to your server. It will respond
    with a small HTML page.
@@ -16344,17 +17669,20 @@ Chapter 20 Node.js
    To act as an HTTP client, we can use the request function in the http
    module.
 
-   const {request} = require("http");
-   let requestStream = request({
-   hostname: "eloquentjavascript.net",
-   path: "/20_node.html",
-   method: "GET",
-   headers: {Accept: "text/html"}
-   }, response => {
-   console.log("Server responded with status code",
-   response.statusCode);
-   });
-   requestStream.end();
+   .. code:: javascript
+
+      const {request} = require("http");
+      let requestStream = request({
+         hostname: "eloquentjavascript.net",
+         path: "/20_node.html",
+         method: "GET",
+         headers: {Accept: "text/html"}
+      }, response => {
+         console.log("Server responded with status code",
+         response.statusCode);
+      });
+      requestStream.end();
+
    The first argument to request configures the request, telling Node what
    server to talk to, what path to request from that server, which method to use,
    and so on. The second argument is the function that should be called when a
@@ -16374,7 +17702,9 @@ Chapter 20 Node.js
    node-fetch provides the promise-based fetch interface that we know from the
    browser.
 
-   Streams
+Streams
+-------
+
    We have seen two instances of writable streams in the HTTP examples—
    namely, the response object that the server could write to and the request
 
@@ -16414,39 +17744,49 @@ Chapter 20 Node.js
 
    This code creates a server that reads request bodies and streams them back
    to the client as all-uppercase text:
-   const {createServer} = require("http");
-   createServer((request, response) => {
-   response.writeHead(200, {"Content-Type": "text/plain"});
-   request.on("data", chunk =>
-   response.write(chunk.toString().toUpperCase()));
-   request.on("end", () => response.end());
-   }).listen(8000);
+
+   .. code:: javascript
+
+      const {createServer} = require("http");
+      createServer((request, response) => {
+         response.writeHead(200, {"Content-Type": "text/plain"});
+         request.on("data", chunk =>
+         response.write(chunk.toString().toUpperCase()));
+         request.on("end", () => response.end());
+      }).listen(8000);
+
    The chunk value passed to the data handler will be a binary Buffer . We can
    convert this to a string by decoding it as UTF-8 encoded characters with its
+   toString method.
 
 .. _P374:
 
-   toString method.
 
    The following piece of code, when run with the uppercasing server active,
    will send a request to that server and write out the response it gets:
-   const {request} = require("http");
-   request({
-   hostname: "localhost",
-   port: 8000,
-   method: "POST"
-   }, response => {
-   response.on("data", chunk =>
-   process.stdout.write(chunk.toString()));
-   }).end("Hello server");
-   // → HELLO SERVER
+
+   .. code:: javascript
+
+      const {request} = require("http");
+      request({
+         hostname: "localhost",
+         port: 8000,
+         method: "POST"
+      }, response => {
+         response.on("data", chunk =>
+         process.stdout.write(chunk.toString()));
+      }).end("Hello server");
+      // → HELLO SERVER
+
    The example writes to process.stdout (the process’s standard output, which
    is a writable stream) instead of using console.log . We can’t use console.log
    because it adds an extra newline character after each piece of text that it
    writes, which isn’t appropriate here since the response may come in as multiple
    chunks.
 
-   A file server
+A file server
+-------------
+
    Let’s combine our newfound knowledge about HTTP servers and working with
    the file system to create a bridge between the two: an HTTP server that allows
    remote access to a file system. Such a server has all kinds of uses—it allows web
@@ -16460,39 +17800,42 @@ Chapter 20 Node.js
 
    We probably don’t want to share our whole file system, so we’ll interpret
    these paths as starting in the server’s working directory, which is the directory
-   in which it was started. If I ran the server from /tmp/public/ (or C:\tmp\public
-   \ on Windows), then a request for /file.txt should refer to /tmp/public/file
-   .txt (or C:\tmp\public\file.txt ).
+   in which it was started. If I ran the server from ``/tmp/public/`` (or 
+   ``C:\tmp\public\`` on Windows), then a request for /file.txt should refer to 
+   ``/tmp/public/file.txt`` (or ``C:\tmp\public\file.txt`` ).
 
    We’ll build the program piece by piece, using an object called methods to store
    the functions that handle the various HTTP methods. Method handlers are
-
-.. _P375:
-
    async functions that get the request object as argument and return a promise
    that resolves to an object that describes the response.
 
-   const {createServer} = require("http");
-   const methods = Object.create(null);
-   createServer((request, response) => {
-   let handler = methods[request.method] || notAllowed;
-   handler(request)
-   .catch(error => {
-   if (error.status != null) return error;
-   return {body: String(error), status: 500};
-   })
-   .then(({body, status = 200, type = "text/plain"}) => {
-   response.writeHead(status, {"Content-Type": type});
-   if (body && body.pipe) body.pipe(response);
-   else response.end(body);
-   });
-   }).listen(8000);
-   async function notAllowed(request) {
-   return {
-   status: 405,
-   body: `Method ${request.method} not allowed.`
-   };
-   }
+.. _P375:
+
+
+   .. code:: javascript
+
+      const {createServer} = require("http");
+      const methods = Object.create(null);
+      createServer((request, response) => {
+         let handler = methods[request.method] || notAllowed;
+         handler(request)
+         .catch(error => {
+            if (error.status != null) return error;
+               return {body: String(error), status: 500};
+            })
+            .then(({body, status = 200, type = "text/plain"}) => {
+               response.writeHead(status, {"Content-Type": type});
+               if (body && body.pipe) body.pipe(response);
+               else response.end(body);
+            });
+         }).listen(8000);
+      async function notAllowed(request) {
+         return {
+            status: 405,
+            body: `Method ${request.method} not allowed.`
+         };
+      }
+
    This starts a server that just returns 405 error responses, which is the code
    used to indicate that the server refuses to handle a given method.
 
@@ -16509,26 +17852,29 @@ Chapter 20 Node.js
    passed directly to the response’s end method.
 
    To figure out which file path corresponds to a request URL, the urlPath
-   function uses Node’s built-in url module to parse the URL. It takes its path-
-
-.. _P376:
-
-   name, which will be something like "/file.txt" , decodes that to get rid of
+   function uses Node’s built-in url module to parse the URL. It takes its 
+   path-name, which will be something like "/file.txt" , decodes that to get rid of
    the %20 -style escape codes, and resolves it relative to the program’s working
    directory.
 
-   const {parse} = require("url");
-   const {resolve, sep} = require("path");
-   const baseDirectory = process.cwd();
-   function urlPath(url) {
-   let {pathname} = parse(url);
-   let path = resolve(decodeURIComponent(pathname).slice(1));
-   if (path != baseDirectory &&
-   !path.startsWith(baseDirectory + sep)) {
-   throw {status: 403, body: "Forbidden"};
-   }
-   return path;
-   }
+.. _P376:
+
+
+   .. code:: javascript
+
+      const {parse} = require("url");
+      const {resolve, sep} = require("path");
+      const baseDirectory = process.cwd();
+      function urlPath(url) {
+         let {pathname} = parse(url);
+         let path = resolve(decodeURIComponent(pathname).slice(1));
+         if (path != baseDirectory &&
+            !path.startsWith(baseDirectory + sep)) {
+            throw {status: 403, body: "Forbidden"};
+         }
+         return path;
+      }
+
    As soon as you set up a program to accept network requests, you have to
    start worrying about security. In this case, if we aren’t careful, it is likely that
    we’ll accidentally expose our whole file system to the network.
@@ -16559,30 +17905,37 @@ Chapter 20 Node.js
    MIME types) knows the correct type for a large number of file extensions.
    The following npm command, in the directory where the server script lives,
    installs a specific version of mime :
-   $ npm install mime@2.2.0
+
+   .. code:: javascript
+
+      $ npm install mime@2.2.0
+
    When a requested file does not exist, the correct HTTP status code to return
    is 404. We’ll use the stat function, which looks up information about a file, to
    find out both whether the file exists and whether it is a directory.
 
-   const {createReadStream} = require("fs");
-   const {stat, readdir} = require("fs").promises;
-   const mime = require("mime");
-   methods.GET = async function(request) {
-   let path = urlPath(request.url);
-   let stats;
-   try {
-   stats = await stat(path);
-   } catch (error) {
-   if (error.code != "ENOENT") throw error;
-   else return {status: 404, body: "File not found"};
-   }
-   if (stats.isDirectory()) {
-   return {body: (await readdir(path)).join("\n")};
-   } else {
-   return {body: createReadStream(path),
-   type: mime.getType(path)};
-   }
-   };
+   .. code:: javascript
+
+      const {createReadStream} = require("fs");
+      const {stat, readdir} = require("fs").promises;
+      const mime = require("mime");
+      methods.GET = async function(request) {
+         let path = urlPath(request.url);
+         let stats;
+         try {
+            stats = await stat(path);
+         } catch (error) {
+            if (error.code != "ENOENT") throw error;
+            else return {status: 404, body: "File not found"};
+         }
+         if (stats.isDirectory()) {
+            return {body: (await readdir(path)).join("\n")};
+         } else {
+            return {body: createReadStream(path),
+            type: mime.getType(path)};
+         }
+      };
+
    Because it has to touch the disk and thus might take a while, stat is asyn-
    chronous. Since we’re using promises rather than callback style, it has to be
    imported from promises instead of directly from fs .
@@ -16606,20 +17959,23 @@ Chapter 20 Node.js
 
    The code to handle DELETE requests is slightly simpler.
 
-   const {rmdir, unlink} = require("fs").promises;
-   methods.DELETE = async function(request) {
-   let path = urlPath(request.url);
-   let stats;
-   try {
-   stats = await stat(path);
-   } catch (error) {
-   if (error.code != "ENOENT") throw error;
-   else return {status: 204};
-   }
-   if (stats.isDirectory()) await rmdir(path);
-   else await unlink(path);
-   return {status: 204};
-   };
+   .. code:: javascript
+
+      const {rmdir, unlink} = require("fs").promises;
+      methods.DELETE = async function(request) {
+         let path = urlPath(request.url);
+         let stats;
+         try {
+            stats = await stat(path);
+         } catch (error) {
+            if (error.code != "ENOENT") throw error;
+            else return {status: 204};
+         }
+         if (stats.isDirectory()) await rmdir(path);
+         else await unlink(path);
+         return {status: 204};
+      };
+
    When an HTTP response does not contain any data, the status code 204 (“no
    content”) can be used to indicate this. Since the response to deletion doesn’t
    need to transmit any information beyond whether the operation succeeded,
@@ -16633,23 +17989,27 @@ Chapter 20 Node.js
    once. In a way, if you try to delete something that’s already gone, the effect
    you were trying to do has been achieved—the thing is no longer there.
    This is the handler for PUT requests:
-   const {createWriteStream} = require("fs");
-   function pipeStream(from, to) {
-   return new Promise((resolve, reject) => {
+
 
 .. _P379:
 
-   from.on("error", reject);
-   to.on("error", reject);
-   to.on("finish", resolve);
-   from.pipe(to);
-   });
-   }
-   methods.PUT = async function(request) {
-   let path = urlPath(request.url);
-   await pipeStream(request, createWriteStream(path));
-   return {status: 204};
-   };
+   .. code:: javascript
+
+      const {createWriteStream} = require("fs");
+      function pipeStream(from, to) {
+         return new Promise((resolve, reject) => {
+            from.on("error", reject);
+            to.on("error", reject);
+            to.on("finish", resolve);
+            from.pipe(to);
+         });
+      }
+      methods.PUT = async function(request) {
+         let path = urlPath(request.url);
+         await pipeStream(request, createWriteStream(path));
+         return {status: 204};
+      };
+
    We don’t need to check whether the file exists this time—if it does, we’ll
    just overwrite it. We again use pipe to move data from a readable stream to
    a writable one, in this case from the request to the file. But since pipe isn’t
@@ -16671,14 +18031,16 @@ Chapter 20 Node.js
    briefly tests our server. The -X option is used to set the request’s method, and
    -d is used to include a request body.
 
-   $ curl http://localhost:8000/file.txt
-   File not found
-   $ curl -X PUT -d hello http://localhost:8000/file.txt
-   $ curl http://localhost:8000/file.txt
-   hello
-   $ curl -X DELETE http://localhost:8000/file.txt
-   $ curl http://localhost:8000/file.txt
-   File not found
+   .. code:: javascript
+
+      $ curl http://localhost:8000/file.txt
+      File not found
+      $ curl -X PUT -d hello http://localhost:8000/file.txt
+      $ curl http://localhost:8000/file.txt
+      hello
+      $ curl -X DELETE http://localhost:8000/file.txt
+      $ curl http://localhost:8000/file.txt
+      File not found
 
 .. _P380:
 
@@ -16703,10 +18065,13 @@ Summary
    use a synchronous variant of a function, such as readFileSync . When calling
    such asynchronous functions, you provide callback functions, and Node will call
    them with an error value and (if available) a result when it is ready.
+
 Exercises
 ---------
 
-   Search tool
+Search tool
+~~~~~~~~~~~
+
    On Unix systems, there is a command line tool called grep that can be used to
    quickly search files for a regular expression.
 
@@ -16725,7 +18090,9 @@ Exercises
 
 .. _P381:
 
-   Directory creation
+Directory creation
+~~~~~~~~~~~~~~~~~~
+
    Though the DELETE method in our file server is able to delete directories (using
    rmdir ), the server currently does not provide any way to create a directory.
    Add support for the MKCOL method (“make collection”), which should create a
@@ -16734,7 +18101,9 @@ Exercises
    specifies a set of conventions on top of HTTP that make it suitable for creating
    documents.
 
-   A public space on the web
+A public space on the web
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
    Since the file server serves up any kind of file and even includes the right Content
    -Type header, you can use it to serve a website. Since it allows everybody to
    delete and replace files, it would be an interesting kind of website: one that
@@ -16791,7 +18160,9 @@ Chapter 21 Project: Skill-Sharing Website
    The full code for the project can be downloaded from https://eloquentjavascript.net/
    code/skillsharing.zip.
 
-   Design
+Design
+------
+
    There is a server part to this project, written for Node.js, and a client part,
    written for the browser. The server stores the system’s data and provides it to
    the client. It also serves the files that implement the client-side system.
@@ -16815,7 +18186,9 @@ Chapter 21 Project: Skill-Sharing Website
    A common solution to this problem is called long polling, which happens to
    be one of the motivations for Node’s design.
 
-   Long polling
+Long polling
+------------
+
    To be able to immediately notify a client that something changed, we need a
    connection to that client. Since web browsers do not traditionally accept con-
    nections and clients are often behind routers that would block such connections
@@ -16827,10 +18200,10 @@ Chapter 21 Project: Skill-Sharing Website
    sends a request, the server comes back with a single response, and that is it.
    There is a technology called WebSockets, supported by modern browsers, that
    makes it possible to open connections for arbitrary data exchange. But using
+   them properly is somewhat tricky.
 
 .. _P384:
 
-   them properly is somewhat tricky.
 
    In this chapter, we use a simpler technique—long polling—where clients con-
    tinuously ask the server for new information using regular HTTP requests, and
@@ -16857,7 +18230,9 @@ Chapter 21 Project: Skill-Sharing Website
    manage many connections without creating a separate thread of control for
    each one, is a good fit for such a system.
 
-   HTTP interface
+HTTP interface
+--------------
+
    Before we start designing either the server or the client, let’s think about the
    point where they touch: the HTTP interface over which they communicate.
    We will use JSON as the format of our request and response body. Like in
@@ -16867,10 +18242,13 @@ Chapter 21 Project: Skill-Sharing Website
    JavaScript code for the client-side system.
 
    A GET request to /talks returns a JSON document like this:
-   [{"title": "Unituning",
-   "presenter": "Jamal",
-   "summary": "Modifying your cycle for extra style",
-   "comments": []}]
+
+   .. code:: javascript
+
+      [{"title": "Unituning",
+      "presenter": "Jamal",
+      "summary": "Modifying your cycle for extra style",
+      "comments": []}]
 
 .. _P385:
 
@@ -16883,14 +18261,21 @@ Chapter 21 Project: Skill-Sharing Website
    normally in a URL, title strings must be encoded with the encodeURIComponent
    function when building up such a URL.
 
-   console.log("/talks/" + encodeURIComponent("How to Idle"));
-   // → /talks/How%20to%20Idle
+   .. code:: javascript
+
+      console.log("/talks/" + encodeURIComponent("How to Idle"));
+      // → /talks/How%20to%20Idle
+
    A request to create a talk about idling might look something like this:
-   PUT /talks/How%20to%20Idle HTTP/1.1
-   Content-Type: application/json
-   Content-Length: 92
-   {"presenter": "Maureen",
-   "summary": "Standing still on a unicycle"}
+   
+   .. code:: javascript
+
+      PUT /talks/How%20to%20Idle HTTP/1.1
+      Content-Type: application/json
+      Content-Length: 92
+      {"presenter": "Maureen",
+      "summary": "Standing still on a unicycle"}
+
    Such URLs also support GET requests to retrieve the JSON representation of
    a talk and DELETE requests to delete a talk.
 
@@ -16898,11 +18283,14 @@ Chapter 21 Project: Skill-Sharing Website
    talks/Unituning/comments , with a JSON body that has author and message
    properties.
 
-   POST /talks/Unituning/comments HTTP/1.1
-   Content-Type: application/json
-   Content-Length: 72
-   {"author": "Iman",
-   "message": "Will you talk about raising a cycle?"}
+   .. code:: javascript
+
+      POST /talks/Unituning/comments HTTP/1.1
+      Content-Type: application/json
+      Content-Length: 72
+      {"author": "Iman",
+      "message": "Will you talk about raising a cycle?"}
+
    To support long polling, GET requests to /talks may include extra headers
    that inform the server to delay the response if no new information is available.
    We’ll use a pair of headers normally intended to manage caching: ETag and
@@ -16931,34 +18319,43 @@ Chapter 21 Project: Skill-Sharing Website
    The server will keep a version number that it updates every time the talks
    change and will use that as the ETag value. Clients can make requests like this
    to be notified when the talks change:
-   GET /talks HTTP/1.1
-   If-None-Match: "4"
-   Prefer: wait=90
-   (time passes)
-   HTTP/1.1 200 OK
-   Content-Type: application/json
-   ETag: "5"
-   Content-Length: 295
-   [....]
+
+   .. code:: javascript
+
+      GET /talks HTTP/1.1
+      If-None-Match: "4"
+      Prefer: wait=90
+      (time passes)
+      HTTP/1.1 200 OK
+      Content-Type: application/json
+      ETag: "5"
+      Content-Length: 295
+      [....]
+
    The protocol described here does not do any access control. Everybody can
    comment, modify talks, and even delete them. (Since the Internet is full of
    hooligans, putting such a system online without further protection probably
    wouldn’t end well.)
-   The server
+
+The server
+----------
+
    Let’s start by building the server-side part of the program. The code in this
    section runs on Node.js.
 
 
 .. _P387:
 
-   Routing
+Routing
+-------
+
    Our server will use createServer to start an HTTP server. In the function
    that handles a new request, we must distinguish between the various kinds of
    requests (as determined by the method and the path) that we support. This
    can be done with a long chain of if statements, but there is a nicer way.
    A router is a component that helps dispatch a request to the function that
    can handle it. You can tell the router, for example, that PUT requests with
-   a path that matches the regular expression /^\/talks\/([^\/]+)$/ ( /talks/
+   a path that matches the regular expression ``/^\/talks\/([^\/]+)$/`` ( /talks/
    followed by a talk title) can be handled by a given function. In addition, it
    can help extract the meaningful parts of the path (in this case the talk title),
    wrapped in parentheses in the regular expression, and pass them to the handler
@@ -16968,25 +18365,29 @@ Chapter 21 Project: Skill-Sharing Website
    one ourselves to illustrate the principle.
 
    This is router.js , which we will later require from our server module:
-   const {parse} = require("url");
-   module.exports = class Router {
-   constructor() {
-   this.routes = [];
-   }
-   add(method, url, handler) {
-   this.routes.push({method, url, handler});
-   }
-   resolve(context, request) {
-   let path = parse(request.url).pathname;
-   for (let {method, url, handler} of this.routes) {
-   let match = url.exec(path);
-   if (!match || request.method != method) continue;
-   let urlParts = match.slice(1).map(decodeURIComponent);
-   return handler(context, ...urlParts, request);
-   }
-   return null;
-   }
-   };
+
+   .. code:: javascript
+
+      const {parse} = require("url");
+      module.exports = class Router {
+         constructor() {
+            this.routes = [];
+         }
+         add(method, url, handler) {
+            this.routes.push({method, url, handler});
+         }
+         resolve(context, request) {
+            let path = parse(request.url).pathname;
+            for (let {method, url, handler} of this.routes) {
+               let match = url.exec(path);
+               if (!match || request.method != method) continue;
+               let urlParts = match.slice(1).map(decodeURIComponent);
+               return handler(context, ...urlParts, request);
+            }
+            return null;
+         }
+      };
+   
    The module exports the Router class. A router object allows new handlers
    to be registered with the add method and can resolve requests with its resolve
    method.
@@ -17003,7 +18404,9 @@ Chapter 21 Project: Skill-Sharing Website
    regular expression, and the request object. The strings have to be URL-decoded
    since the raw URL may contain %20 -style codes.
 
-   Serving files
+Serving files
+-------------
+
    When a request matches none of the request types defined in our router, the
    server must interpret it as a request for a file in the public directory. It would
    be possible to use the file server defined in Chapter 20 to serve such files, but
@@ -17020,48 +18423,54 @@ Chapter 21 Project: Skill-Sharing Website
    first check for requests that we should handle specially, though, so we wrap it
    in another function.
 
-   const {createServer} = require("http");
-   const Router = require("./router");
-   const ecstatic = require("ecstatic");
-   const router = new Router();
-   const defaultHeaders = {"Content-Type": "text/plain"};
-   class SkillShareServer {
-   constructor(talks) {
-   this.talks = talks;
-   this.version = 0;
-   this.waiting = [];
-   let fileServer = ecstatic({root: "./public"});
-   this.server = createServer((request, response) => {
-   let resolved = router.resolve(this, request);
-   if (resolved) {
-
 .. _P389:
 
-   resolved.catch(error => {
-   if (error.status != null) return error;
-   return {body: String(error), status: 500};
-   }).then(({body,
-   status = 200,
-   headers = defaultHeaders}) => {
-   response.writeHead(status, headers);
-   response.end(body);
-   });
-   } else {
-   fileServer(request, response);
-   }
-   });
-   }
-   start(port) {
-   this.server.listen(port);
-   }
-   stop() {
-   this.server.close();
-   }
-   }
+
+   .. code:: javascript
+
+      const {createServer} = require("http");
+      const Router = require("./router");
+      const ecstatic = require("ecstatic");
+      const router = new Router();
+      const defaultHeaders = {"Content-Type": "text/plain"};
+      class SkillShareServer {
+         constructor(talks) {
+            this.talks = talks;
+            this.version = 0;
+            this.waiting = [];
+            let fileServer = ecstatic({root: "./public"});
+            this.server = createServer((request, response) => {
+               let resolved = router.resolve(this, request);
+               if (resolved) {
+                  resolved.catch(error => {
+                     if (error.status != null) return error;
+                     return {body: String(error), status: 500};
+                  }).then(({body,
+                     status = 200,
+                     headers = defaultHeaders}) => {
+                        response.writeHead(status, headers);
+                        response.end(body);
+                     });
+               } else {
+                  fileServer(request, response);
+               }
+            });
+         }
+         start(port) {
+            this.server.listen(port);
+         }
+         stop() {
+            this.server.close();
+         }
+      }
+
    This uses a similar convention as the file server from the previous chapter
    for responses—handlers return promises that resolve to objects describing the
    response. It wraps the server in an object that also holds its state.
-   Talks as resources
+
+Talks as resources
+------------------
+
    The talks that have been proposed are stored in the talks property of the
    server, an object whose property names are the talk titles. These will be
    exposed as HTTP resources under /talks/[title] , so we need to add handlers
@@ -17070,27 +18479,33 @@ Chapter 21 Project: Skill-Sharing Website
 
    The handler for requests that GET a single talk must look up the talk and
    respond either with the talk’s JSON data or with a 404 error response.
-   const talkPath = /^\/talks\/([^\/]+)$/;
-   router.add("GET", talkPath, async (server, title) => {
-   if (title in server.talks) {
-   return {body: JSON.stringify(server.talks[title]),
-   headers: {"Content-Type": "application/json"}};
+
+   .. code:: javascript
+
+      const talkPath = /^\/talks\/([^\/]+)$/;
+      router.add("GET", talkPath, async (server, title) => {
+         if (title in server.talks) {
+            return {body: JSON.stringify(server.talks[title]),
+            headers: {"Content-Type": "application/json"}};
+         } else {
+            return {status: 404, body: `No talk '${title}' found`};
+         }
+      });
 
 .. _P390:
 
-   } else {
-   return {status: 404, body: `No talk '${title}' found`};
-   }
-   });
    Deleting a talk is done by removing it from the talks object.
 
-   router.add("DELETE", talkPath, async (server, title) => {
-   if (title in server.talks) {
-   delete server.talks[title];
-   server.updated();
-   }
-   return {status: 204};
-   });
+   .. code:: javascript
+
+      router.add("DELETE", talkPath, async (server, title) => {
+         if (title in server.talks) {
+            delete server.talks[title];
+            server.updated();
+         }
+         return {status: 204};
+      });
+
    The updated method, which we will define later, notifies waiting long polling
    requests about the change.
 
@@ -17098,14 +18513,17 @@ Chapter 21 Project: Skill-Sharing Website
    , which reads all content from a readable stream and returns a promise that
    resolves to a string.
 
-   function readStream(stream) {
-   return new Promise((resolve, reject) => {
-   let data = "";
-   stream.on("error", reject);
-   stream.on("data", chunk => data += chunk.toString());
-   stream.on("end", () => resolve(data));
-   });
-   }
+   .. code:: javascript
+
+      function readStream(stream) {
+         return new Promise((resolve, reject) => {
+            let data = "";
+            stream.on("error", reject);
+            stream.on("data", chunk => data += chunk.toString());
+            stream.on("end", () => resolve(data));
+         });
+      }
+
    One handler that needs to read request bodies is the PUT handler, which
    is used to create new talks. It has to check whether the data it was given
    has presenter and summary properties, which are strings. Any data coming
@@ -17119,52 +18537,59 @@ Chapter 21 Project: Skill-Sharing Website
 
 .. _P391:
 
-   router.add("PUT", talkPath,
-   async (server, title, request) => {
-   let requestBody = await readStream(request);
-   let talk;
-   try { talk = JSON.parse(requestBody); }
-   catch (_) { return {status: 400, body: "Invalid JSON"}; }
-   if (!talk ||
-   typeof talk.presenter != "string" ||
-   typeof talk.summary != "string") {
-   return {status: 400, body: "Bad talk data"};
-   }
-   server.talks[title] = {title,
-   presenter: talk.presenter,
-   summary: talk.summary,
-   comments: []};
-   server.updated();
-   return {status: 204};
-   });
+   .. code:: javascript
+
+      router.add("PUT", talkPath,
+      async (server, title, request) => {
+         let requestBody = await readStream(request);
+         let talk;
+         try { talk = JSON.parse(requestBody); }
+         catch (_) { return {status: 400, body: "Invalid JSON"}; }
+         if (!talk ||
+         typeof talk.presenter != "string" ||
+         typeof talk.summary != "string") {
+            return {status: 400, body: "Bad talk data"};
+         }
+         server.talks[title] = {title,
+         presenter: talk.presenter,
+         summary: talk.summary,
+         comments: []};
+         server.updated();
+         return {status: 204};
+      });
+
    Adding a comment to a talk works similarly. We use readStream to get the
    content of the request, validate the resulting data, and store it as a comment
    when it looks valid.
 
-   router.add("POST", /^\/talks\/([^\/]+)\/comments$/,
-   async (server, title, request) => {
-   let requestBody = await readStream(request);
-   let comment;
-   try { comment = JSON.parse(requestBody); }
-   catch (_) { return {status: 400, body: "Invalid JSON"}; }
-   if (!comment ||
-   typeof comment.author != "string" ||
-   typeof comment.message != "string") {
-   return {status: 400, body: "Bad comment data"};
-   } else if (title in server.talks) {
-   server.talks[title].comments.push(comment);
-   server.updated();
-   return {status: 204};
-   } else {
-   return {status: 404, body: `No talk '${title}' found`};
-   }
-   });
+   .. code:: javascript
+
+      router.add("POST", /^\/talks\/([^\/]+)\/comments$/,
+      async (server, title, request) => {
+         let requestBody = await readStream(request);
+         let comment;
+         try { comment = JSON.parse(requestBody); }
+         catch (_) { return {status: 400, body: "Invalid JSON"}; }
+            if (!comment ||
+            typeof comment.author != "string" ||
+            typeof comment.message != "string") {
+            return {status: 400, body: "Bad comment data"};
+         } else if (title in server.talks) {
+            server.talks[title].comments.push(comment);
+            server.updated();
+            return {status: 204};
+         } else {
+            return {status: 404, body: `No talk '${title}' found`};
+         }
+      });
 
 .. _P392:
 
    Trying to add a comment to a nonexistent talk returns a 404 error.
 
-   Long polling support
+Long polling support
+--------------------
+
    The most interesting aspect of the server is the part that handles long polling.
    When a GET request comes in for /talks , it may be either a regular request or
    a long polling request.
@@ -17173,33 +18598,38 @@ Chapter 21 Project: Skill-Sharing Website
    the client, so we first define a helper method that builds up such an array and
    includes an ETag header in the response.
 
-   SkillShareServer.prototype.talkResponse = function() {
-   let talks = [];
-   for (let title of Object.keys(this.talks)) {
-   talks.push(this.talks[title]);
-   }
-   return {
-   body: JSON.stringify(talks),
-   headers: {"Content-Type": "application/json",
-   "ETag": `"${this.version}"`,
-   "Cache-Control": "no-store"}
-   };
-   };
+   .. code:: javascript
+
+      SkillShareServer.prototype.talkResponse = function() {
+         let talks = [];
+         for (let title of Object.keys(this.talks)) {
+            talks.push(this.talks[title]);
+         }
+         return {
+            body: JSON.stringify(talks),
+            headers: {"Content-Type": "application/json",
+            "ETag": `"${this.version}"`,
+            "Cache-Control": "no-store"}
+            };
+      };
+   
    The handler itself needs to look at the request headers to see whether If-
    None-Match and Prefer headers are present. Node stores headers, whose names
    are specified to be case insensitive, under their lowercase names.
 
-   router.add("GET", /^\/talks$/, async (server, request) => {
-   let tag = /"(.*)"/.exec(request.headers["if-none-match"]);
-   let wait = /\bwait=(\d+)/.exec(request.headers["prefer"]);
-   if (!tag || tag[1] != server.version) {
-   return server.talkResponse();
-   } else if (!wait) {
-   return {status: 304};
-   } else {
-   return server.waitForChanges(Number(wait[1]));
-   }
-   });
+   .. code:: javascript
+
+      router.add("GET", /^\/talks$/, async (server, request) => {
+         let tag = /"(.*)"/.exec(request.headers["if-none-match"]);
+         let wait = /\bwait=(\d+)/.exec(request.headers["prefer"]);
+         if (!tag || tag[1] != server.version) {
+            return server.talkResponse();
+         } else if (!wait) {
+            return {status: 304};
+         } else {
+            return server.waitForChanges(Number(wait[1]));
+         }
+      });
 
 .. _P393:
 
@@ -17213,37 +18643,50 @@ Chapter 21 Project: Skill-Sharing Website
    method also immediately sets a timer to respond with a 304 status when the
    request has waited long enough.
 
-   SkillShareServer.prototype.waitForChanges = function(time) {
-   return new Promise(resolve => {
-   this.waiting.push(resolve);
-   setTimeout(() => {
-   if (!this.waiting.includes(resolve)) return;
-   this.waiting = this.waiting.filter(r => r != resolve);
-   resolve({status: 304});
-   }, time * 1000);
-   });
-   };
+   .. code:: javascript
+
+      SkillShareServer.prototype.waitForChanges = function(time) {
+      return new Promise(resolve => {
+         this.waiting.push(resolve);
+         setTimeout(() => {
+            if (!this.waiting.includes(resolve)) return;
+               this.waiting = this.waiting.filter(r => r != resolve);
+               resolve({status: 304});
+            }, time * 1000);
+         });
+      };
+
    Registering a change with updated increases the version property and wakes
    up all waiting requests.
 
-   SkillShareServer.prototype.updated = function() {
-   this.version++;
-   let response = this.talkResponse();
-   this.waiting.forEach(resolve => resolve(response));
-   this.waiting = [];
-   };
+   .. code:: javascript
+
+      SkillShareServer.prototype.updated = function() {
+         this.version++;
+         let response = this.talkResponse();
+         this.waiting.forEach(resolve => resolve(response));
+         this.waiting = [];
+      };
+
    That concludes the server code. If we create an instance of SkillShareServer
    and start it on port 8000, the resulting HTTP server serves files from the public
    subdirectory alongside a talk-managing interface under the /talks URL.
-   new SkillShareServer(Object.create(null)).start(8000);
+
+   .. code:: javascript
+
+      new SkillShareServer(Object.create(null)).start(8000);
 
 .. _P394:
 
-   The client
+The client
+----------
+
    The client-side part of the skill-sharing website consists of three files: a tiny
    HTML page, a style sheet, and a JavaScript file.
 
-   HTML
+HTML
+----
+
    It is a widely used convention for web servers to try to serve a file named
    index.html when a request is made directly to a path that corresponds to a
    directory. The file server module we use, ecstatic , supports this convention.
@@ -17251,18 +18694,24 @@ Chapter 21 Project: Skill-Sharing Website
    index.html ( ./public being the root we gave it) and returns that file if found.
    Thus, if we want a page to show up when a browser is pointed at our server,
    we should put it in public/index.html . This is our index file:
-   <!doctype html>
-   <meta charset="utf-8">
-   <title>Skill Sharing</title>
-   <link rel="stylesheet" href="skillsharing.css">
-   <h1>Skill Sharing</h1>
-   <script src="skillsharing_client.js"></script>
+
+   .. code:: javascript
+
+      <!doctype html>
+      <meta charset="utf-8">
+      <title>Skill Sharing</title>
+      <link rel="stylesheet" href="skillsharing.css">
+      <h1>Skill Sharing</h1>
+      <script src="skillsharing_client.js"></script>
+
    It defines the document title and includes a style sheet, which defines a few
    styles to, among other things, make sure there is some space between talks.
    At the bottom, it adds a heading at the top of the page and loads the script
    that contains the client-side application.
 
-   Actions
+Actions
+-------
+
    The application state consists of the list of talks and the name of the user, and
    we’ll store it in a {talks, user} object. We don’t allow the user interface to
    directly manipulate the state or send off HTTP requests. Rather, it may emit
@@ -17272,39 +18721,42 @@ Chapter 21 Project: Skill-Sharing Website
    cause our state updates are so simple, state changes are handled in the same
    function.
 
-   function handleAction(state, action) {
 
 .. _P395:
 
-   if (action.type == "setUser") {
-   localStorage.setItem("userName", action.user);
-   return Object.assign({}, state, {user: action.user});
-   } else if (action.type == "setTalks") {
-   return Object.assign({}, state, {talks: action.talks});
-   } else if (action.type == "newTalk") {
-   fetchOK(talkURL(action.title), {
-   method: "PUT",
-   headers: {"Content-Type": "application/json"},
-   body: JSON.stringify({
-   presenter: state.user,
-   summary: action.summary
-   })
-   }).catch(reportError);
-   } else if (action.type == "deleteTalk") {
-   fetchOK(talkURL(action.talk), {method: "DELETE"})
-   .catch(reportError);
-   } else if (action.type == "newComment") {
-   fetchOK(talkURL(action.talk) + "/comments", {
-   method: "POST",
-   headers: {"Content-Type": "application/json"},
-   body: JSON.stringify({
-   author: state.user,
-   message: action.message
-   })
-   }).catch(reportError);
-   }
-   return state;
-   }
+   .. code:: javascript
+
+      function handleAction(state, action) {
+         if (action.type == "setUser") {
+            localStorage.setItem("userName", action.user);
+            return Object.assign({}, state, {user: action.user});
+         } else if (action.type == "setTalks") {
+            return Object.assign({}, state, {talks: action.talks});
+         } else if (action.type == "newTalk") {
+            fetchOK(talkURL(action.title), {
+               method: "PUT",
+               headers: {"Content-Type": "application/json"},
+               body: JSON.stringify({
+               presenter: state.user,
+               summary: action.summary
+               })
+            }).catch(reportError);
+         } else if (action.type == "deleteTalk") {
+            fetchOK(talkURL(action.talk), {method: "DELETE"})
+            .catch(reportError);
+         } else if (action.type == "newComment") {
+            fetchOK(talkURL(action.talk) + "/comments", {
+               method: "POST",
+               headers: {"Content-Type": "application/json"},
+               body: JSON.stringify({
+                  author: state.user,
+                  message: action.message
+               })
+            }).catch(reportError);
+         }
+         return state;
+      }
+
    We’ll store the user’s name in localStorage so that it can be restored when
    the page is loaded.
 
@@ -17313,40 +18765,56 @@ Chapter 21 Project: Skill-Sharing Website
    fetchOK , which makes sure the returned promise is rejected when the server
    returns an error code.
 
-   function fetchOK(url, options) {
-   return fetch(url, options).then(response => {
-   if (response.status < 400) return response;
-   else throw new Error(response.statusText);
-   });
-   }
+   .. code:: javascript
+
+      function fetchOK(url, options) {
+         return fetch(url, options).then(response => {
+            if (response.status < 400) return response;
+            else throw new Error(response.statusText);
+         });
+      }
 
 .. _P396:
 
    This helper function is used to build up a URL for a talk with a given title.
-   function talkURL(title) {
-   return "talks/" + encodeURIComponent(title);
-   }
+
+   .. code:: javascript
+
+      function talkURL(title) {
+         return "talks/" + encodeURIComponent(title);
+      }
+
    When the request fails, we don’t want to have our page just sit there, doing
    nothing without explanation. So we define a function called reportError , which
    at least shows the user a dialog that tells them something went wrong.
-   function reportError(error) {
-   alert(String(error));
-   }
-   Rendering components
+
+   .. code:: javascript
+
+      function reportError(error) {
+         alert(String(error));
+      }
+
+Rendering components
+--------------------
+
    We’ll use an approach similar to the one we saw in Chapter 19, splitting the
    application into components. But since some of the components either never
    need to update or are always fully redrawn when updated, we’ll define those
    not as classes but as functions that directly return a DOM node. For example,
    here is a component that shows the field where the user can enter their name:
-   function renderUserField(name, dispatch) {
-   return elt("label", {}, "Your name: ", elt("input", {
-   type: "text",
-   value: name,
-   onchange(event) {
-   dispatch({type: "setUser", user: event.target.value});
-   }
-   }));
-   }
+
+   .. code:: javascript
+
+      function renderUserField(name, dispatch) {
+         return elt("label", {}, "Your name: ", elt("input", {
+            type: "text",
+            value: name,
+            onchange(event) {
+               dispatch({type: "setUser", user: event.target.value});
+            }
+         }));
+      }
+
    The elt function used to construct DOM elements is the one we used in
    Chapter 19.
 
@@ -17356,31 +18824,34 @@ Chapter 21 Project: Skill-Sharing Website
 
 .. _P397:
 
-   function renderTalk(talk, dispatch) {
-   return elt(
-   "section", {className: "talk"},
-   elt("h2", null, talk.title, " ", elt("button", {
-   type: "button",
-   onclick() {
-   dispatch({type: "deleteTalk", talk: talk.title});
-   }
-   }, "Delete")),
-   elt("div", null, "by ",
-   elt("strong", null, talk.presenter)),
-   elt("p", null, talk.summary),
-   ...talk.comments.map(renderComment),
-   elt("form", {
-   onsubmit(event) {
-   event.preventDefault();
-   let form = event.target;
-   dispatch({type: "newComment",
-   talk: talk.title,
-   message: form.elements.comment.value});
-   form.reset();
-   }
-   }, elt("input", {type: "text", name: "comment"}), " ",
-   elt("button", {type: "submit"}, "Add comment")));
-   }
+   .. code:: javascript
+
+      function renderTalk(talk, dispatch) {
+         return elt(
+            "section", {className: "talk"},
+            elt("h2", null, talk.title, " ", elt("button", {
+               type: "button",
+               onclick() {
+                  dispatch({type: "deleteTalk", talk: talk.title});
+               }
+            }, "Delete")),
+            elt("div", null, "by ",
+            elt("strong", null, talk.presenter)),
+            elt("p", null, talk.summary),
+            ...talk.comments.map(renderComment),
+            elt("form", {
+            onsubmit(event) {
+               event.preventDefault();
+               let form = event.target;
+               dispatch({type: "newComment",
+               talk: talk.title,
+               message: form.elements.comment.value});
+               form.reset();
+            }
+         }, elt("input", {type: "text", name: "comment"}), " ",
+         elt("button", {type: "submit"}, "Add comment")));
+      }
+   
    The "submit" event handler calls form.reset to clear the form’s content after
    creating a "newComment" action.
 
@@ -17394,60 +18865,72 @@ Chapter 21 Project: Skill-Sharing Website
 
    Comments are simpler to render.
 
-   function renderComment(comment) {
-   return elt("p", {className: "comment"},
-   elt("strong", null, comment.author),
-   ": ", comment.message);
 
 .. _P398:
 
-   }
+   .. code:: javascript
+
+      function renderComment(comment) {
+         return elt("p", {className: "comment"},
+         elt("strong", null, comment.author),
+         ": ", comment.message);
+      }
+
    Finally, the form that the user can use to create a new talk is rendered like
    this:
-   function renderTalkForm(dispatch) {
-   let title = elt("input", {type: "text"});
-   let summary = elt("input", {type: "text"});
-   return elt("form", {
-   onsubmit(event) {
-   event.preventDefault();
-   dispatch({type: "newTalk",
-   title: title.value,
-   summary: summary.value});
-   event.target.reset();
-   }
-   }, elt("h3", null, "Submit a Talk"),
-   elt("label", null, "Title: ", title),
-   elt("label", null, "Summary: ", summary),
-   elt("button", {type: "submit"}, "Submit"));
-   }
-   Polling
+
+   .. code:: javascript
+
+      function renderTalkForm(dispatch) {
+         let title = elt("input", {type: "text"});
+         let summary = elt("input", {type: "text"});
+         return elt("form", {
+            onsubmit(event) {
+               event.preventDefault();
+               dispatch({type: "newTalk",
+               title: title.value,
+               summary: summary.value});
+               event.target.reset();
+            }
+         }, elt("h3", null, "Submit a Talk"),
+         elt("label", null, "Title: ", title),
+         elt("label", null, "Summary: ", summary),
+         elt("button", {type: "submit"}, "Submit"));
+      }
+   
+Polling
+-------
+
    To start the app we need the current list of talks. Since the initial load is closely
    related to the long polling process—the ETag from the load must be used when
    polling—we’ll write a function that keeps polling the server for /talks and calls
    a callback function when a new set of talks is available.
 
-   async function pollTalks(update) {
-   let tag = undefined;
-   for (;;) {
-   let response;
-   try {
-   response = await fetchOK("/talks", {
-   headers: tag && {"If-None-Match": tag,
-   "Prefer": "wait=90"}
-   });
-   } catch (e) {
-   console.log("Request failed: " + e);
 
 .. _P399:
 
-   await new Promise(resolve => setTimeout(resolve, 500));
-   continue;
-   }
-   if (response.status == 304) continue;
-   tag = response.headers.get("ETag");
-   update(await response.json());
-   }
-   }
+   .. code:: javascript
+
+      async function pollTalks(update) {
+         let tag = undefined;
+         for (;;) {
+            let response;
+            try {
+               response = await fetchOK("/talks", {
+                  headers: tag && {"If-None-Match": tag,
+                  "Prefer": "wait=90"}
+               });
+            } catch (e) {
+               console.log("Request failed: " + e);
+               await new Promise(resolve => setTimeout(resolve, 500));
+               continue;
+            }
+            if (response.status == 304) continue;
+            tag = response.headers.get("ETag");
+            update(await response.json());
+         }
+      }
+   
    This is an async function so that looping and waiting for the request is easier.
    It runs an infinite loop that, on each iteration, retrieves the list of talks—either
    normally or, if this isn’t the first request, with the headers included that make
@@ -17462,54 +18945,64 @@ Chapter 21 Project: Skill-Sharing Website
    timed out, so the function should just immediately start the next request. If
    the response is a normal 200 response, its body is read as JSON and passed to
    the callback, and its ETag header value is stored for the next iteration.
-   The application
+
+The application
+---------------
+
    The following component ties the whole user interface together:
-   class SkillShareApp {
-   constructor(state, dispatch) {
-   this.dispatch = dispatch;
-   this.talkDOM = elt("div", {className: "talks"});
-   this.dom = elt("div", null,
-   renderUserField(state.user, dispatch),
-   this.talkDOM,
-   renderTalkForm(dispatch));
-   this.syncState(state);
-   }
-   syncState(state) {
-   if (state.talks != this.talks) {
-   this.talkDOM.textContent = "";
-   for (let talk of state.talks) {
-   this.talkDOM.appendChild(
+
+   .. code:: javascript
+
+      class SkillShareApp {
+         constructor(state, dispatch) {
+            this.dispatch = dispatch;
+            this.talkDOM = elt("div", {className: "talks"});
+            this.dom = elt("div", null,
+               renderUserField(state.user, dispatch),
+               this.talkDOM,
+               renderTalkForm(dispatch));
+            this.syncState(state);
+         }
+         syncState(state) {
+            if (state.talks != this.talks) {
+               this.talkDOM.textContent = "";
+               for (let talk of state.talks) {
+                  this.talkDOM.appendChild(
+                     renderTalk(talk, this.dispatch));
+               }
+               this.talks = state.talks;
+            }
+         }
+      }
 
 .. _P400:
 
-   renderTalk(talk, this.dispatch));
-   }
-   this.talks = state.talks;
-   }
-   }
-   }
    When the talks change, this component redraws all of them. This is simple
    but also wasteful. We’ll get back to that in the exercises.
 
    We can start the application like this:
-   function runApp() {
-   let user = localStorage.getItem("userName") || "Anon";
-   let state, app;
-   function dispatch(action) {
-   state = handleAction(state, action);
-   app.syncState(state);
-   }
-   pollTalks(talks => {
-   if (!app) {
-   state = {user, talks};
-   app = new SkillShareApp(state, dispatch);
-   document.body.appendChild(app.dom);
-   } else {
-   dispatch({type: "setTalks", talks});
-   }
-   }).catch(reportError);
-   }
-   runApp();
+
+   .. code:: javascript
+
+      function runApp() {
+         let user = localStorage.getItem("userName") || "Anon";
+         let state, app;
+         function dispatch(action) {
+            state = handleAction(state, action);
+            app.syncState(state);
+         }
+         pollTalks(talks => {
+            if (!app) {
+               state = {user, talks};
+               app = new SkillShareApp(state, dispatch);
+               document.body.appendChild(app.dom);
+            } else {
+               dispatch({type: "setTalks", talks});
+            }
+         }).catch(reportError);
+      }
+      runApp();
+
    If you run the server and open two browser windows for http://localhost:8000
    next to each other, you can see that the actions you perform in one window
    are immediately visible in the other.
@@ -17525,14 +19018,18 @@ Exercises
 
    stalled the project’s dependency with npm install .
 
-   Disk persistence
+Disk persistence
+~~~~~~~~~~~~~~~~
+
    The skill-sharing server keeps its data purely in memory. This means that when
    it crashes or is restarted for any reason, all talks and comments are lost.
    Extend the server so that it stores the talk data to disk and automatically
    reloads the data when it is restarted. Do not worry about efficiency—do the
    simplest thing that works.
 
-   Comment field resets
+Comment field resets
+~~~~~~~~~~~~~~~~~~~~
+
    The wholesale redrawing of talks works pretty well because you usually can’t
    tell the difference between a DOM node and its identical replacement. But
    there are exceptions. If you start typing something in the comment field for a
@@ -17545,13 +19042,19 @@ Exercises
 
 .. _P402:
 
-   Exercise Hints
+Exercise Hints
+==============
+
    The hints below might help when you are stuck with one of the exercises in
    this book. They don’t give away the entire solution, but rather try to help you
    find it yourself.
 
-   Program Structure
-   Looping a triangle
+Program Structure
+-----------------
+
+Looping a triangle
+~~~~~~~~~~~~~~~~~~
+
    You can start with a program that prints out the numbers 1 to 7, which you
    can derive by making a few modifications to the even number printing example
    given earlier in the chapter, where the for loop was introduced.
@@ -17561,7 +19064,9 @@ Exercises
    "##" by adding a character ( += "#" ). Thus, your solution can closely follow
    the number-printing program.
 
-   FizzBuzz
+FizzBuzz
+~~~~~~~~
+
    Going over the numbers is clearly a looping job, and selecting what to print is
    a matter of conditional execution. Remember the trick of using the remainder
    ( % ) operator for checking whether a number is divisible by another number (has
@@ -17579,7 +19084,9 @@ Exercises
 
 .. _P403:
 
-   Chessboard
+Chessboard
+~~~~~~~~~~
+
    You can build the string by starting with an empty one ( "" ) and repeatedly
    adding characters. A newline character is written "\n" .
 
@@ -17596,15 +19103,24 @@ Exercises
 
    Terminating a line by adding a newline character must happen after the line
    has been built up, so do this after the inner loop but inside the outer loop.
-   Functions
-   Minimum
+
+Functions
+---------
+
+
+Minimum
+~~~~~~~
+
    If you have trouble putting braces and parentheses in the right place to get a
    valid function definition, start by copying one of the examples in this chapter
    and modifying it.
 
    A function may contain multiple return statements.
 
-   Recursion
+
+Recursion
+~~~~~~~~~
+
    Your function will likely look somewhat similar to the inner find function in the
    recursive findSolution example in this chapter, with an if / else if / else chain
    that tests which of the three cases applies. The final else , corresponding to
@@ -17620,7 +19136,10 @@ Exercises
 
 .. _P404:
 
-   Bean counting
+
+Bean counting
+~~~~~~~~~~~~~
+
    Your function will need a loop that looks at every character in the string. It
    can run an index from zero to one below its length ( < string.length ). If the
    character at the current position is the same as the one the function is looking
@@ -17630,8 +19149,12 @@ Exercises
    Take care to make all the bindings used in the function local to the function
    by properly declaring them with the let or const keyword.
 
-   Data Structures: Objects and Arrays
-   The sum of a range
+Data Structures: Objects and Arrays
+-----------------------------------
+
+The sum of a range
+~~~~~~~~~~~~~~~~~~
+
    Building up an array is most easily done by first initializing a binding to []
    (a fresh, empty array) and repeatedly calling its push method to add a value.
    Don’t forget to return the array at the end of the function.
@@ -17651,7 +19174,10 @@ Exercises
    the end of the range is smaller than the start. That way, range(5, 2) re-
    turns something meaningful, rather than getting stuck in an infinite loop. It is
    possible to refer to previous parameters in the default value of a parameter.
-   Reversing an array
+
+Reversing an array
+~~~~~~~~~~~~~~~~~~
+
    There are two obvious ways to implement reverseArray . The first is to simply
    go over the input array from front to back and use the unshift method on
    the new array to insert each element at its start. The second is to loop over
@@ -17676,7 +19202,9 @@ Exercises
    mirror image, and then put the value from the local binding in the place where
    the mirror image used to be.
 
-   A list
+A list
+~~~~~~
+
    Building up a list is easier when done back to front. So arrayToList could iter-
    ate over the array backwards (see the previous exercise) and, for each element,
    add an object to the list. You can use a local binding to hold the part of the
@@ -17685,7 +19213,11 @@ Exercises
 
    To run over a list (in listToArray and nth ), a for loop specification like this
    can be used:
-   for (let node = list; node; node = node.rest) {}
+
+   .. code:: javascript
+
+      for (let node = list; node; node = node.rest) {}
+
    Can you see how that works? Every iteration of the loop, node points to the
    current sublist, and the body can read its value property to get the current
    element. At the end of an iteration, node moves to the next sublist. When that
@@ -17697,7 +19229,9 @@ Exercises
    its head node. To get element N + 1, you take the Nth element of the list
    that’s in this list’s rest property.
 
-   Deep comparison
+Deep comparison
+~~~~~~~~~~~~~~~
+
    Your test for whether you are dealing with a real object will look something like
    typeof x == "object" && x != null . Be careful to compare properties only
 
@@ -17719,8 +19253,12 @@ Exercises
    returning false when a mismatch is found and returning true at the end of the
    function.
 
-   Higher-Order Functions
-   Everything
+Higher-Order Functions
+----------------------
+
+Everything
+~~~~~~~~~~
+
    Like the && operator, the every method can stop evaluating further elements
    as soon as it has found one that doesn’t match. So the loop-based version
    can jump out of the loop—with break or return —as soon as it runs into an
@@ -17733,7 +19271,9 @@ Exercises
    elements in the array match if there is no element in the array that does not
    match.
 
-   Dominant writing direction
+Dominant writing direction
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
    Your solution might look a lot like the first half of the textScripts example.
    You again have to count characters by a criterion based on characterScript
    and then filter out the part of the result that refers to uninteresting (script-less)
@@ -17746,8 +19286,12 @@ Exercises
 
 .. _P407:
 
-   The Secret Life of Objects
-   A vector type
+The Secret Life of Objects
+--------------------------
+
+A vector type
+~~~~~~~~~~~~~
+
    Look back to the Rabbit class example if you’re unsure how class declarations
    look.
 
@@ -17760,7 +19304,9 @@ Exercises
    + y 2 is the number you want, and Math.sqrt is
    the way you compute a square root in JavaScript.
 
-   Groups
+Groups
+~~~~~~
+
    The easiest way to do this is to store an array of group members in an instance
    property. The includes or indexOf methods can be used to check whether a
    given value is in the array.
@@ -17777,7 +19323,9 @@ Exercises
    The from method can use a ``for/of`` loop to get the values out of the iterable
    object and call add to put them into a newly created group.
 
-   Iterable groups
+Iterable groups
+~~~~~~~~~~~~~~~
+
    It is probably worthwhile to define a new class GroupIterator . Iterator in-
    stances should have a property that tracks the current position in the group.
    Every time next is called, it checks whether it is done and, if not, moves past
@@ -17786,8 +19334,9 @@ Exercises
    The Group class itself gets a method named by Symbol.iterator that, when
    called, returns a new instance of the iterator class for that group.
 
-   Borrowing a method
-   Remember that methods that exist on plain objects come from Object.prototype
+Borrowing a method
+~~~~~~~~~~~~~~~~~
+Remember that methods that exist on plain objects come from Object.prototype
    .
 
 .. _P408:
@@ -17795,8 +19344,13 @@ Exercises
    Also remember that you can call a function with a specific this binding by
    using its call method.
 
-   Project: A Robot
-   Measuring a robot
+Project: A Robot
+----------------
+
+
+Measuring a robot
+~~~~~~~~~~~~~~~~~
+
    You’ll have to write a variant of the runRobot function that, instead of log-
    ging the events to the console, returns the number of steps the robot took to
    complete the task.
@@ -17805,7 +19359,10 @@ Exercises
    count the steps each of the robots takes. When it has generated enough mea-
    surements, it can use console.log to output the average for each robot, which
    is the total number of steps taken divided by the number of measurements.
-   Robot efficiency
+
+Robot efficiency
+~~~~~~~~~~~~~~~~
+
    The main limitation of goalOrientedRobot is that it considers only one parcel
    at a time. It will often walk back and forth across the village because the parcel
    it happens to be looking at happens to be at the other side of the map, even if
@@ -17816,7 +19373,10 @@ Exercises
    shortest routes, by preferring the ones that go to pick up a package instead of
    delivering a package.
 
-   Persistent group
+
+Persistent group
+~~~~~~~~~~~~~~~~
+
    The most convenient way to represent the set of member values is still as an
    array since arrays are easy to copy.
 
@@ -17836,8 +19396,12 @@ Exercises
 
 .. _P409:
 
-   Bugs and Errors
-   Retry
+Bugs and Errors
+---------------
+
+Retry
+~~~~~
+
    The call to primitiveMultiply should definitely happen in a try block. The
    corresponding catch block should rethrow the exception when it is not an
    instance of MultiplicatorUnitFailure and ensure the call is retried when it is.
@@ -17846,7 +19410,9 @@ Exercises
    hope you don’t get a string of failures so long that it overflows the stack (which
    is a pretty safe bet).
 
-   The locked box
+The locked box
+~~~~~~~~~~~~~~
+
    This exercise calls for a finally block. Your function should first unlock the
    box and then call the argument function from inside a try body. The finally
    block after it should lock the box again.
@@ -17855,8 +19421,12 @@ Exercises
    lock at the start of the function and unlock and lock it only when it started
    out locked.
 
-   Regular Expressions
-   Quoting style
+Regular Expressions
+-------------------
+
+Quoting style
+~~~~~~~~~~~~~
+
    The most obvious solution is to replace only quotes with a nonword character
    on at least one side—something like /\W'|'\W/ . But you also have to take the
    start and end of the line into account.
@@ -17867,7 +19437,9 @@ Exercises
    the replacement string ( $1 , $2 ). Groups that are not matched will be replaced
    by nothing.
 
-   Numbers again
+Numbers again
+~~~~~~~~~~~~~
+
    First, do not forget the backslash in front of the period.
 
    Matching the optional sign in front of the number, as well as in front of the
@@ -17884,8 +19456,13 @@ Exercises
    Finally, to make the e case insensitive, either add an i option to the regular
    expression or use [eE] .
 
-   Modules
-   A modular robot
+Modules
+-------
+
+
+A modular robot
+~~~~~~~~~~~~~~~
+
    Here’s what I would have done (but again, there is no single right way to design
    a given module):
    The code used to build the road graph lives in the graph module. Because
@@ -17942,7 +19519,10 @@ Exercises
    So again, this is a trade-off, and you can decide either way depending on how
    much the packages help you.
 
-   Roads module
+
+Roads module
+~~~~~~~~~~~~
+
    Since this is a CommonJS module, you have to use require to import the graph
    module. That was described as exporting a buildGraph function, which you
    can pick out of its interface object with a destructuring const declaration.
@@ -17950,7 +19530,10 @@ Exercises
    buildGraph takes a data structure that doesn’t precisely match roads , the split-
    ting of the road strings must happen in your module.
 
-   Circular dependencies
+
+Circular dependencies
+~~~~~~~~~~~~~~~~~~~~~
+
    The trick is that require adds modules to its cache before it starts loading the
    module. That way, if any require call made while it is running tries to load
    it, it is already known, and the current interface will be returned, rather than
@@ -17965,8 +19548,12 @@ Exercises
 
 .. _P412:
 
-   Asynchronous Programming
-   Tracking the scalpel
+Asynchronous Programming
+------------------------
+
+Tracking the scalpel
+~~~~~~~~~~~~~~~~~~~~
+
    This can be done with a single loop that searches through the nests, moving
    forward to the next when it finds a value that doesn’t match the current nest’s
    name and returning the name when it finds a matching value. In the async
@@ -17991,7 +19578,9 @@ Exercises
    If a request fails, the handler passed to then isn’t called, and the promise it
    returns is rejected with the same reason.
 
-   Building Promise.all
+Building Promise.all
+~~~~~~~~~~~~~~~~~~~~
+
    The function passed to the Promise constructor will have to call then on each
    of the promises in the given array. When one of them succeeds, two things
    need to happen. The resulting value needs to be stored in the correct position
@@ -18010,12 +19599,19 @@ Exercises
 
 .. _P413:
 
-   Project: A Programming Language
-   Arrays
+Project: A Programming Language
+-------------------------------
+
+Arrays
+~~~~~~
+
    The easiest way to do this is to represent Egg arrays with JavaScript arrays.
    The values added to the top scope must be functions. By using a rest argu-
    ment (with triple-dot notation), the definition of array can be very simple.
-   Closure
+
+Closure
+~~~~~~~
+
    Again, we are riding along on a JavaScript mechanism to get the equivalent
    feature in Egg. Special forms are passed the local scope in which they are
    evaluated so that they can evaluate their subforms in that scope. The function
@@ -18027,7 +19623,9 @@ Exercises
    to compile it in a way that is actually efficient, you’d need to do some more
    work).
 
-   Comments
+Comments
+~~~~~~~~
+
    Make sure your solution handles multiple comments in a row, with potentially
    whitespace between or after them.
 
@@ -18035,7 +19633,10 @@ Exercises
    thing that matches “whitespace or a comment, zero or more times”. Use the
    exec or match method and look at the length of the first element in the returned
    array (the whole match) to find out how many characters to slice off.
-   Fixing scope
+
+Fixing scope
+~~~~~~~~~~~~
+
    You will have to loop through one scope at a time, using Object.getPrototypeOf
    to go to the next outer scope. For each scope, use hasOwnProperty to find out
    whether the binding, indicated by the name property of the first argument to
@@ -18049,8 +19650,12 @@ Exercises
 
 .. _P414:
 
-   The Document Object Model
-   Build a table
+The Document Object Model
+-------------------------
+
+Build a table
+~~~~~~~~~~~~~
+
    You can use document.createElement to create new element nodes, document.
    createTextNode to create text nodes, and the appendChild method to put nodes
    into other nodes.
@@ -18061,7 +19666,10 @@ Exercises
 
    To add the table to the correct parent node, you can use document.getElementById
    or document.querySelector to find the node with the proper id attribute.
-   Elements by tag name
+
+Elements by tag name
+~~~~~~~~~~~~~~~~~~~~
+
    The solution is most easily expressed with a recursive function, similar to the
    talksAbout function defined earlier in this chapter.
 
@@ -18076,14 +19684,20 @@ Exercises
    children and, for each child, see whether the child matches the query while also
    doing a recursive call on it to inspect its own children.
 
-   The cat's hat
+The cat's hat
+~~~~~~~~~~~~~
+
    Math.cos and Math.sin measure angles in radians, where a full circle is 2 π . For
    a given angle, you can get the opposite angle by adding half of this, which is
    Math.PI . This can be useful for putting the hat on the opposite side of the
    orbit.
 
-   Handling Events
-   Balloon
+Handling Events
+---------------
+
+Balloon
+~~~~~~~
+
    You’ll want to register a handler for the "keydown" event and look at event.key
    to figure out whether the up or down arrow key was pressed.
 
@@ -18098,7 +19712,9 @@ Exercises
    another one (using replaceChild ) or by setting the textContent property of its
    parent node to a new string.
 
-   Mouse trail
+Mouse trail
+~~~~~~~~~~~
+
    Creating the elements is best done with a loop. Append them to the document
    to make them show up. To be able to access them later to change their position,
    you’ll want to store the elements in an array.
@@ -18116,7 +19732,9 @@ Exercises
    the pointer (and, optionally, a speed that is stored for each element). Figuring
    out a good way to do this is up to you.
 
-   Tabs
+Tabs
+~~~~
+
    One pitfall you might run into is that you can’t directly use the node’s childNodes
    property as a collection of tab nodes. For one thing, when you add the buttons,
    they will also become child nodes and end up in this object because it is a live
@@ -18139,8 +19757,12 @@ Exercises
    You might want to call this function immediately to make the interface start
    with the first tab visible.
 
-   Project: A Platform Game
-   Pausing the game
+Project: A Platform Game
+------------------------
+
+Pausing the game
+~~~~~~~~~~~~~~~~
+
    An animation can be interrupted by returning false from the function given
    to runAnimation . It can be continued by calling runAnimation again.
 
@@ -18169,8 +19791,13 @@ Exercises
    to add its vertical size to its vertical position. The creation of an updated
    state will resemble either Coin ’s collide method (removing the actor) or Lava
    ’s (changing the status to "lost" ), depending on the player position.
-   Drawing on Canvas
-   Shapes
+
+Drawing on Canvas
+-----------------
+
+Shapes
+~~~~~~
+
    The trapezoid (1) is easiest to draw using a path. Pick suitable center coordi-
    nates and add each of the four corners around the center.
 
@@ -18201,7 +19828,9 @@ Exercises
    tween these points, making them curve toward the center of the star. With
    quadraticCurveTo , you can use the center as the control point.
 
-   The pie chart
+The pie chart
+~~~~~~~~~~~~~
+
    You will need to call fillText and set the context’s textAlign and textBaseline
    properties in such a way that the text ends up where you want it.
 
@@ -18228,7 +19857,9 @@ Exercises
    us which x-coordinate it corresponds to, which in turn tells us exactly which
    side of the circle we are on.
 
-   A bouncing ball
+A bouncing ball
+~~~~~~~~~~~~~~~
+
    A box is easy to draw with strokeRect . Define a binding that holds its size or
    define two bindings if your box’s width and height differ. To create a round
    ball, start a path and call arc(x, y, radius, 0, 7) , which creates an arc going
@@ -18242,7 +19873,9 @@ Exercises
    After finding the ball’s new position and speed, use clearRect to delete the
    scene and redraw it using the new position.
 
-   Precomputed mirroring
+Precomputed mirroring
+~~~~~~~~~~~~~~~~~~~~~
+
    The key to the solution is the fact that we can use a canvas element as a source
    image when using drawImage . It is possible to create an extra <canvas> element,
    without adding it to the document, and draw our inverted sprites to it, once.
@@ -18254,8 +19887,13 @@ Exercises
    won’t draw anything. A "load" handler on the image can be used to draw the
    inverted images to the extra canvas. This canvas can be used as a drawing
    source immediately (it’ll simply be blank until we draw the character onto it).
-   HTTP and Forms
-   Content negotiation
+
+HTTP and Forms
+--------------
+
+Content negotiation
+~~~~~~~~~~~~~~~~~~~
+
    Base your code on the fetch examples earlier in the chapter.
 
 
@@ -18265,7 +19903,9 @@ Exercises
    acceptable”, which is the code a server should return when it can’t fulfill the
    Accept header.
 
-   A JavaScript workbench
+A JavaScript workbench
+~~~~~~~~~~~~~~~~~~~~~~
+
    Use document.querySelector or document.getElementById to get access to the
    elements defined in your HTML. An event handler for "click" or "mousedown
    " events on the button can get the value property of the text field and call
@@ -18280,7 +19920,9 @@ Exercises
    Remember to add a newline character to the end so that not all output appears
    on a single line.
 
-   Conway's Game of Life
+Conway's Game of Life
+~~~~~~~~~~~~~~~~~~~~~
+
    To solve the problem of having the changes conceptually happen at the same
    time, try to see the computation of a generation as a pure function, which takes
    one grid and produces a new grid that represents the next turn.
@@ -18306,8 +19948,12 @@ Exercises
 
 .. _P420:
 
-   Project: A Pixel Art Editor
-   Keyboard bindings
+Project: A Pixel Art Editor
+---------------------------
+
+Keyboard bindings
+~~~~~~~~~~~~~~~~~
+
    The key property of events for letter keys will be the lowercase letter itself, if
    shift isn’t being held. We’re not interested in key events with shift here.
    A "keydown" handler can inspect its event object to see whether it matches
@@ -18317,7 +19963,9 @@ Exercises
    When the key event matches a shortcut, call preventDefault on it and dis-
    patch the appropriate action.
 
-   Efficient drawing
+Efficient drawing
+~~~~~~~~~~~~~~~~~
+
    This exercise is a good example of how immutable data structures can make
    code faster. Because we have both the old and the new picture, we can compare
    them and redraw only the pixels that changed color, saving more than 99
@@ -18335,7 +19983,9 @@ Exercises
    null after changing the canvas size because you shouldn’t skip any pixels after
    you’ve changed the canvas size.
 
-   Circles
+Circles
+~~~~~~~
+
    You can take some inspiration from the rectangle tool. Like that tool, you’ll
    want to keep drawing on the starting picture, rather than the current picture,
    when the pointer moves.
@@ -18355,7 +20005,9 @@ Exercises
    Make sure you don’t try to color pixels that are outside of the picture’s
    boundaries.
 
-   Proper lines
+Proper lines
+~~~~~~~~~~~~
+
    The thing about the problem of drawing a pixelated line is that it is really four
    similar but slightly different problems. Drawing a horizontal line from the left
    to the right is easy—you loop over the x-coordinates and color a pixel at every
@@ -18381,7 +20033,11 @@ Exercises
    the start point has a higher coordinate along that axis than the endpoint and
    swap them if necessary. A succinct way to swap the values of two bindings in
    JavaScript uses destructuring assignment like this:
-   [start, end] = [end, start];
+
+   .. code:: javascript
+
+      [start, end] = [end, start];
+
    Then you can compute the slope of the line, which determines the amount
    the coordinate on the other axis changes for each step you take along your main
    axis. With that, you can run a loop along the main axis while also tracking
@@ -18393,8 +20049,12 @@ Exercises
    likely to be fractional and the draw method doesn’t respond well to fractional
    coordinates.
 
-   Node.js
-   Search tool
+Node.js
+-------
+
+Search tool
+~~~~~~~~~~~
+
    Your first command line argument, the regular expression, can be found in
    process.argv[2] . The input files come after that. You can use the RegExp
    constructor to go from a string to a regular expression object.
@@ -18417,13 +20077,18 @@ Exercises
    combine it with the name of the directory, putting a slash character ( / ) between
    them.
 
-   Directory creation
+Directory creation
+~~~~~~~~~~~~~~~~~~
+
    You can use the function that implements the DELETE method as a blueprint
    for the MKCOL method. When no file is found, try to create a directory with
    mkdir . When a directory exists at that path, you can return a 204 response
    so that directory creation requests are idempotent. If a nondirectory file exists
    here, return an error code. Code 400 (“bad request”) would be appropriate.
-   A public space on the web
+
+A public space on the web
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
    You can create a <textarea> element to hold the content of the file that is being
    edited. A GET request, using fetch , can retrieve the current content of the file.
    You can use relative URLs like index.html, instead of http://localhost:8000/
@@ -18441,8 +20106,12 @@ Exercises
    on the field), the script must fetch and display that file. When saving a file,
    use the currently selected filename.
 
-   Project: Skill-Sharing Website
-   Disk persistence
+Project: Skill-Sharing Website
+------------------------------
+
+Disk persistence
+~~~~~~~~~~~~~~~~
+
    The simplest solution I can come up with is to encode the whole talks object as
    JSON and dump it to a file with writeFile . There is already a method ( updated
    ) that is called every time the server’s data changes. It can be extended to write
@@ -18458,7 +20127,9 @@ Exercises
    you’ll have to copy the properties of the object returned by JSON.parse into a
    new, prototype-less object.
 
-   Comment field resets
+Comment field resets
+~~~~~~~~~~~~~~~~~~~~
+
    The best way to do this is probably to make talks component objects, with a
    syncState method, so that they can be updated to show a modified version of
    the talk. During normal operation, the only way a talk can be changed is by
@@ -20679,7 +22350,7 @@ Chapter: 0. Introduction
    
    This chapter has no exercises
 
-   .. code::javascript
+   .. code:: javascript
 
       // Run code here in the context of Chapter 0
 
@@ -20694,7 +22365,7 @@ Chapter: 0. Introduction
 intro.js
 ~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       function range(start, end, step) {
          if (step == null) step = 1;
@@ -20729,7 +22400,7 @@ intro.js
 load.js
 ~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       // Since the code for most chapter in Eloquent JavaScript isn't
       // written with node's module system in mind, this kludge is used to
@@ -20754,7 +22425,7 @@ Chapter: 2. Program Structure
 2.1 Looping a triangle
 ~~~~~~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       // Your code here.
 
@@ -20762,7 +22433,7 @@ Chapter: 2. Program Structure
    or you really tried, but can't get your code to work, you can look at 
    the solution or `download it. <data:text/plain;charset=UTF-8,for%20(let%20line%20%3D%20%22%23%22%3B%20line.length%20%3C%208%3B%20line%20%2B%3D%20%22%23%22)%0A%20%20console.log(line)%3B>`__
 
-   .. code::javascript
+   .. code:: javascript
 
       for (let line = "#"; line.length < 8; line += "#")
          console.log(line);
@@ -20770,7 +22441,7 @@ Chapter: 2. Program Structure
 2.2 FizzBuzz
 ~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       for (let n = 1; n <= 100; n++) {
          let output = "";
@@ -20783,7 +22454,7 @@ Chapter: 2. Program Structure
 2.3 Chessboard
 ~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       let size = 8;
       
@@ -20808,7 +22479,7 @@ Chapter: 3. Functions
 3.1 Minimum
 ~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       // Your code here.
       console.log(min(0, 10));
@@ -20817,7 +22488,7 @@ Chapter: 3. Functions
       // → -10
 
 
-   .. code::javascript
+   .. code:: javascript
 
       function min(a, b) {
          if (a < b) return a;
@@ -20833,7 +22504,7 @@ Chapter: 3. Functions
 3.2 Recursion
 ~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       // Your code here.
 
@@ -20845,7 +22516,7 @@ Chapter: 3. Functions
       // → ??
 
 
-   .. code::javascript
+   .. code:: javascript
 
       function isEven(n) {
         if (n == 0) return true;
@@ -20866,7 +22537,7 @@ Chapter: 3. Functions
 3.3 Bean counting
 ~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       // Your code here.
 
@@ -20876,7 +22547,7 @@ Chapter: 3. Functions
       // → 4
 
 
-   .. code::javascript
+   .. code:: javascript
 
       function countChar(string, ch) {
         let counted = 0;
@@ -20901,7 +22572,7 @@ Chapter: 3. Functions
 Chapter: 4. Data Structures: Objects and Arrays
 -----------------------------------------------
 
-   .. code::javascript
+   .. code:: javascript
 
       // Run code here in the context of Chapter 4
 
@@ -20919,7 +22590,7 @@ Chapter: 4. Data Structures: Objects and Arrays
 4.1 The sum of a range
 ~~~~~~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       // Your code here.
 
@@ -20931,7 +22602,7 @@ Chapter: 4. Data Structures: Objects and Arrays
       // → 55
 
 
-   .. code::javascript
+   .. code:: javascript
 
       function range(start, end, step = start < end ? 1 : -1) {
         let array = [];
@@ -20963,7 +22634,7 @@ Chapter: 4. Data Structures: Objects and Arrays
 4.2 Reversing an array
 ~~~~~~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       // Your code here.
 
@@ -20978,7 +22649,7 @@ Chapter: 4. Data Structures: Objects and Arrays
       // → [5, 4, 3, 2, 1]
 
 
-   .. code::javascript
+   .. code:: javascript
 
       function reverseArray(array) {
         let output = [];
@@ -21008,7 +22679,7 @@ Chapter: 4. Data Structures: Objects and Arrays
 4.3 A list
 ~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       // Your code here.
 
@@ -21023,7 +22694,7 @@ Chapter: 4. Data Structures: Objects and Arrays
 
 
 
-   .. code::javascript
+   .. code:: javascript
 
       function arrayToList(array) {
         let list = null;
@@ -21064,7 +22735,7 @@ Chapter: 4. Data Structures: Objects and Arrays
 4.4 Deep comparison
 ~~~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       // Your code here.
 
@@ -21077,7 +22748,7 @@ Chapter: 4. Data Structures: Objects and Arrays
       // → true
 
 
-   .. code::javascript
+   .. code:: javascript
 
       function deepEqual(a, b) {
         if (a === b) return true;
@@ -21130,7 +22801,7 @@ These files contain this chapter’s project code:
 04_data/code/chapter/04_data.js
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
    var journal = [];
    function addEntry(events, squirrel) {
@@ -21185,7 +22856,7 @@ These files contain this chapter’s project code:
 04_data/code/journal.js
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
    var JOURNAL = [
      {"events":["carrot","exercise","weekend"],"squirrel":false},
@@ -21289,7 +22960,7 @@ These files contain this chapter’s project code:
 04_data/code/load.js
 ~~~~~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
    // Since the code for most chapter in Eloquent JavaScript isn't
    // written with node's module system in mind, this kludge is used to
@@ -21323,7 +22994,7 @@ These files contain this chapter’s project code:
 04_data/run_with_node.js
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
    // load dependencies
    require("./code/load")("code/journal.js", "code/chapter/04_data.js");
@@ -21342,7 +23013,7 @@ Chapter: 5. Higher-Order Functions
 ----------------------------------
  
 
-   .. code::javascript
+   .. code:: javascript
 
       // Run code here in the context of Chapter 5
 
@@ -21366,14 +23037,14 @@ Chapter: 5. Higher-Order Functions
 5.1 Flattening
 ~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       let arrays = [[1, 2, 3], [4, 5], [6]];
       // Your code here.
       // → [1, 2, 3, 4, 5, 6]
 
 
-   .. code::javascript
+   .. code:: javascript
 
       let arrays = [[1, 2, 3], [4, 5], [6]];
 
@@ -21384,7 +23055,7 @@ Chapter: 5. Higher-Order Functions
 5.2 Your own loop
 ~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       // Your code here.
 
@@ -21394,7 +23065,7 @@ Chapter: 5. Higher-Order Functions
       // → 1
 
 
-   .. code::javascript
+   .. code:: javascript
 
       function loop(start, test, update, body) {
         for (let value = start; test(value); value = update(value)) {
@@ -21411,7 +23082,7 @@ Chapter: 5. Higher-Order Functions
 5.3 Everything
 ~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
  
       function every(array, test) {
          // Your code here.
@@ -21426,7 +23097,7 @@ Chapter: 5. Higher-Order Functions
 
 
 
-   .. code::javascript
+   .. code:: javascript
 
       function every(array, predicate) {
         for (let element of array) {
@@ -21450,7 +23121,7 @@ Chapter: 5. Higher-Order Functions
 5.4 Dominant writing direction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       function dominantDirection(text) {
          // Your code here.
@@ -21463,7 +23134,7 @@ Chapter: 5. Higher-Order Functions
 
 
 
-   .. code::javascript
+   .. code:: javascript
 
       function dominantDirection(text) {
         let counted = countBy(text, char => {
@@ -21512,7 +23183,7 @@ These files contain this chapter’s project code:
 05_higher_order/code/chapter/05_higher_order.js
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
    function repeat(n, action) {
      for (let i = 0; i < n; i++) {
@@ -21557,7 +23228,7 @@ These files contain this chapter’s project code:
 05_higher_order/code/intro.js
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
    function range(start, end, step) {
      if (step == null) step = 1;
@@ -21588,7 +23259,7 @@ These files contain this chapter’s project code:
 05_higher_order/code/load.js
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
    // Since the code for most chapter in Eloquent JavaScript isn't
    // written with node's module system in mind, this kludge is used to
@@ -21602,7 +23273,7 @@ These files contain this chapter’s project code:
 05_higher_order/code/scripts.js
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
    // Generated from the Unicode 10 database and https://en.wikipedia.org/wiki/Script_(Unicode)
    var SCRIPTS = [
@@ -22753,7 +24424,7 @@ These files contain this chapter’s project code:
 05_higher_order/run_with_node.js
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
    // load dependencies
    require("./code/load")("code/scripts.js", "code/chapter/05_higher_order.js", "code/intro.js");
@@ -22774,7 +24445,7 @@ These files contain this chapter’s project code:
 Chapter: 6. The Secret Life of Objects
 --------------------------------------
 
-   .. code::javascript
+   .. code:: javascript
 
       // Run code here in the context of Chapter 6
 
@@ -22804,7 +24475,7 @@ Chapter: 6. The Secret Life of Objects
 6.1 A vector type
 ~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       // Your code here.
 
@@ -22816,7 +24487,7 @@ Chapter: 6. The Secret Life of Objects
       // → 5
 
 
-   .. code::javascript
+   .. code:: javascript
 
       class Vec {
         constructor(x, y) {
@@ -22848,7 +24519,7 @@ Chapter: 6. The Secret Life of Objects
 6.2 Groups
 ~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       class Group {
          // Your code here.
@@ -22865,7 +24536,7 @@ Chapter: 6. The Secret Life of Objects
       // → false
 
 
-   .. code::javascript
+   .. code:: javascript
 
       class Group {
         #members = [];
@@ -22907,7 +24578,7 @@ Chapter: 6. The Secret Life of Objects
 6.3 Iterable groups
 ~~~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       // Your code here (and the code from the previous exercise)
 
@@ -22920,7 +24591,7 @@ Chapter: 6. The Secret Life of Objects
 
 
 
-   .. code::javascript
+   .. code:: javascript
 
       class Group {
         #members = [];
@@ -22984,7 +24655,7 @@ Chapter: 6. The Secret Life of Objects
 6.4[3] Borrowing a method [3rd ed]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       let map = {one: true, two: true, hasOwnProperty: true};
 
@@ -22993,7 +24664,7 @@ Chapter: 6. The Secret Life of Objects
       // → true
 
 
-   .. code::javascript
+   .. code:: javascript
 
       let map = {one: true, two: true, hasOwnProperty: true};
 
@@ -23027,7 +24698,7 @@ Project Code
 chapter/06_object.js
 ~~~~~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
    function speak(line) {
      console.log(`The ${this.type} rabbit says '${line}'`);
@@ -23115,7 +24786,7 @@ chapter/06_object.js
 06_object/code/load.js
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
    // Since the code for most chapter in Eloquent JavaScript isn't
    // written with node's module system in mind, this kludge is used to
@@ -23159,7 +24830,7 @@ chapter/06_object.js
 06_object/run_with_node.js
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
    // load dependencies
    require("./code/load")("code/chapter/06_object.js");
@@ -23186,7 +24857,7 @@ chapter/06_object.js
 Chapter: 7. Project: A Robot
 ----------------------------
 
-   .. code::javascript
+   .. code:: javascript
 
       // Run code here in the context of Chapter 7
 
@@ -23198,7 +24869,7 @@ Chapter: 7. Project: A Robot
 7.1 Measuring a robot
 ~~~~~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       function compareRobots(robot1, memory1, robot2, memory2) {
          // Your code here
@@ -23207,7 +24878,7 @@ Chapter: 7. Project: A Robot
       compareRobots(routeRobot, [], goalOrientedRobot, []);
 
 
-   .. code::javascript
+   .. code:: javascript
 
       function countSteps(state, robot, memory) {
         for (let steps = 0;; steps++) {
@@ -23235,14 +24906,14 @@ Chapter: 7. Project: A Robot
 7.2 Robot efficiency
 ~~~~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       // Your code here
 
       runRobotAnimation(VillageState.random(), yourRobot, memory);
 
 
-   .. code::javascript
+   .. code:: javascript
 
       function lazyRobot({place, parcels}, route) {
         if (route.length == 0) {
@@ -23275,7 +24946,7 @@ Chapter: 7. Project: A Robot
 7.3 Persistent group
 ~~~~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       class PGroup {
          // Your code here
@@ -23294,7 +24965,7 @@ Chapter: 7. Project: A Robot
 
 
 
-   .. code::javascript
+   .. code:: javascript
 
       class PGroup {
         #members;
@@ -23342,7 +25013,7 @@ Project Code
 chapter/07_robot.js
 ~~~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       var roads = [
         "Alice's House-Bob's House",   "Alice's House-Cabin",
@@ -23469,7 +25140,7 @@ chapter/07_robot.js
 animatevillage.js
 ~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       // tes// test: no
 
@@ -23611,7 +25282,7 @@ Chapter: 8. Bugs and Errors
 8.1 Retry
 ~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       class MultiplicatorUnitFailure extends Error {}
 
@@ -23631,7 +25302,7 @@ Chapter: 8. Bugs and Errors
       // → 64
 
 
-   .. code::javascript
+   .. code:: javascript
 
       class MultiplicatorUnitFailure extends Error {}
 
@@ -23662,7 +25333,7 @@ Chapter: 8. Bugs and Errors
 8.2 The locked box
 ~~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       const box = new class {
         locked = true;
@@ -23695,7 +25366,7 @@ Chapter: 8. Bugs and Errors
       // → true
 
 
-   .. code::javascript
+   .. code:: javascript
 
       const box = new class {
         locked = true;
@@ -23744,7 +25415,7 @@ Project Code
 08_error.js
 ~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       var accounts = {
         a: 100,
@@ -23794,7 +25465,7 @@ Project Code
 Chapter: 9. Regular Expressions
 -------------------------------
 
-   .. code::javascript
+   .. code:: javascript
 
       // Run code here in the context of Chapter 9
 
@@ -23824,7 +25495,7 @@ Chapter: 9. Regular Expressions
 9.1 Regexp golf
 ~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       // Fill in the regular expressions
 
@@ -23869,7 +25540,7 @@ Chapter: 9. Regular Expressions
       }
 
 
-   .. code::javascript
+   .. code:: javascript
 
       // Fill in the regular expressions
 
@@ -23918,7 +25589,7 @@ Chapter: 9. Regular Expressions
 9.2 Quoting style
 ~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       let text = "'I'm the cook,' he said, 'it's my job.'";
       // Change this call.
@@ -23926,7 +25597,7 @@ Chapter: 9. Regular Expressions
       // → "I'm the cook," he said, "it's my job."
 
 
-   .. code::javascript
+   .. code:: javascript
 
       let text = "'I'm the cook,' he said, 'it's my job.'";
 
@@ -23938,7 +25609,7 @@ Chapter: 9. Regular Expressions
 9.3 Numbers again
 ~~~~~~~~~~~~~~~~~
  
-   .. code::javascript
+   .. code:: javascript
 
       // Fill in this regular expression.
       let number = /^...$/;
@@ -23958,7 +25629,7 @@ Chapter: 9. Regular Expressions
       }
 
 
-   .. code::javascript
+   .. code:: javascript
 
       // Fill in this regular expression.
       let number = /^[+\-]?(\d+(\.\d*)?|\.\d+)([eE][+\-]?\d+)?$/;
@@ -23985,7 +25656,7 @@ Chapter: 10. Modules
 10.2 Roads module
 ~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       // Add dependencies and exports
 
@@ -24000,7 +25671,7 @@ Chapter: 10. Modules
       ];
 
 
-   .. code::javascript
+   .. code:: javascript
 
       import {buildGraph} from "./graph";
 
@@ -24028,7 +25699,7 @@ Project Code
 packages_chapter_10.js
 ~~~~~~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       /* ordinal 1.0.2: https://github.com/dcousens/ordinal/
 
@@ -24555,7 +26226,7 @@ packages_chapter_10.js
 chapter/07_robot.js
 ~~~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       var roads = [
         "Alice's House-Bob's House",   "Alice's House-Cabin",
@@ -24682,7 +26353,7 @@ chapter/07_robot.js
 Chapter: 11. Asynchronous Programming
 -------------------------------------
 
-   .. code::javascript
+   .. code:: javascript
 
 
       // Run code here in the context of Chapter 11
@@ -24697,7 +26368,7 @@ Chapter: 11. Asynchronous Programming
 11.1 Quiet Times
 ~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       async function activityTable(day) {
         let logFileList = await textFile("camera_logs.txt");
@@ -24708,7 +26379,7 @@ Chapter: 11. Asynchronous Programming
         .then(table => console.log(activityGraph(table)));
 
 
-   .. code::javascript
+   .. code:: javascript
 
       async function activityTable(day) {
         let table = [];
@@ -24736,7 +26407,7 @@ Chapter: 11. Asynchronous Programming
 11.2 Real Promises
 ~~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       function activityTable(day) {
         // Your code here
@@ -24746,7 +26417,7 @@ Chapter: 11. Asynchronous Programming
         .then(table => console.log(activityGraph(table)));
 
 
-   .. code::javascript
+   .. code:: javascript
 
       function activityTable(day) {
         let table = [];
@@ -24774,7 +26445,7 @@ Chapter: 11. Asynchronous Programming
 11.3 Building Promise.all
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       function Promise_all(promises) {
         return new Promise((resolve, reject) => {
@@ -24805,7 +26476,7 @@ Chapter: 11. Asynchronous Programming
         });
 
 
-   .. code::javascript
+   .. code:: javascript
 
       function Promise_all(promises) {
         return new Promise((resolve, reject) => {
@@ -24846,7 +26517,7 @@ Chapter: 11. Asynchronous Programming
 11.1[3] Tracking the scalpel [3rd ed]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       async function locateScalpel(nest) {
         // Your code here.
@@ -24859,7 +26530,7 @@ Chapter: 11. Asynchronous Programming
       // → Butcher Shop
 
 
-   .. code::javascript
+   .. code:: javascript
 
       async function locateScalpel(nest) {
         let current = nest.name;
@@ -24889,7 +26560,7 @@ Chapter: 11. Asynchronous Programming
 11.2 Building Promise.all
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       function Promise_all(promises) {
         return new Promise((resolve, reject) => {
@@ -24920,7 +26591,7 @@ Chapter: 11. Asynchronous Programming
         });
 
 
-   .. code::javascript
+   .. code:: javascript
 
       function Promise_all(promises) {
         return new Promise((resolve, reject) => {
@@ -24991,7 +26662,7 @@ Project Code
 11_async/code/chapter/11_async.js
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
    function textFile(filename) {
      return new Promise((resolve, reject) => {
@@ -25074,7 +26745,7 @@ Project Code
 11_async/code/hangar2.js
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
    var readTextFile = function() {
      let min = 60 * 1000, hour = min * 60, day = hour * 24
@@ -25411,7 +27082,7 @@ Project Code
 11_async/code/load.js
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
    // Since the code for most chapter in Eloquent JavaScript isn't
    // written with node's module system in mind, this kludge is used to
@@ -25441,7 +27112,7 @@ Project Code
 11_async/run_with_node.js
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
    // load dependencies
    require("./code/load")("code/hangar2.js", "code/chapter/11_async.js");
@@ -25455,7 +27126,7 @@ Project Code
 3rd_edition/code/crow-tech.js
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       (function() {
         const connections = [
@@ -25598,7 +27269,7 @@ Project Code
 3rd_edition/code/chapter/11_async.js
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       var bigOak = require("./crow-tech").bigOak;
 
@@ -25791,7 +27462,7 @@ Project Code
 Chapter: 12. Project: A Programming Language
 --------------------------------------------
  
-   .. code::javascript
+   .. code:: javascript
 
       // Run code here in the context of Chapter 12
 
@@ -25812,7 +27483,7 @@ Chapter: 12. Project: A Programming Language
 12.1 Arrays
 ~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
  
       // Modify these definitions...
 
@@ -25835,7 +27506,7 @@ Chapter: 12. Project: A Programming Language
       // → 6
 
 
-   .. code::javascript
+   .. code:: javascript
 
       topScope.array = (...values) => values;
 
@@ -25859,7 +27530,7 @@ Chapter: 12. Project: A Programming Language
 12.3 Comments
 ~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       // This is the old skipSpace. Modify it...
       function skipSpace(string) {
@@ -25878,7 +27549,7 @@ Chapter: 12. Project: A Programming Language
 
 
 
-   .. code::javascript
+   .. code:: javascript
 
       function skipSpace(string) {
         let skippable = string.match(/^(\s|#.*)*/);
@@ -25897,7 +27568,7 @@ Chapter: 12. Project: A Programming Language
 12.4 Fixing scope
 ~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
       specialForms.set = (args, scope) => {
         // Your code here.
@@ -25914,7 +27585,7 @@ Chapter: 12. Project: A Programming Language
       // → Some kind of ReferenceError
 
 
-   .. code::javascript
+   .. code:: javascript
 
       specialForms.set = (args, env) => {
         if (args.length != 2 || args[0].type != "word") {
@@ -25969,7 +27640,7 @@ These files contain this chapter’s project code:
 12_language/code/chapter/12_language.js
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
    function parseExpression(program) {
      program = skipSpace(program);
@@ -26120,7 +27791,7 @@ These files contain this chapter’s project code:
 12_language/code/load.js
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
    // Since the code for most chapter in Eloquent JavaScript isn't
    // written with node's module system in mind, this kludge is used to
@@ -26157,7 +27828,7 @@ These files contain this chapter’s project code:
 12_language/run_with_node.js
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
    // load dependencies
    require("./code/load")("code/chapter/12_language.js");
@@ -26980,7 +28651,7 @@ Project Code
 16_game/code/chapter/16_game.js
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
    var simpleLevelPlan = `
    ......................
@@ -27297,7 +28968,7 @@ Project Code
 16_game/code/levels.js
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
    var GAME_LEVELS = [`                                                    
    ................................................................................
@@ -27822,7 +29493,7 @@ Project Code
 17_canvas/code/chapter/16_game.js
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
    var simpleLevelPlan = `
    ......................
@@ -28139,7 +29810,7 @@ Project Code
 17_canvas/code/chapter/17_canvas.js
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
    var results = [
      {name: "Satisfied", count: 1043, color: "lightblue"},
@@ -28272,7 +29943,7 @@ Project Code
 17_canvas/code/levels.js
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
    var GAME_LEVELS = [`                                                    
    ................................................................................
@@ -29038,7 +30709,7 @@ These files contain this chapter’s project code:
 19_paint/code/chapter/19_paint.js
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
    var Picture = class Picture {
      constructor(width, height, pixels) {
@@ -29398,13 +31069,13 @@ Chapter: 20. Node.js
 20.1 Search tool
 ~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
     // Node exercises can not be ran in the browser,
     // but you can look at their solution here.
 
 
-.. code::javascript
+.. code:: javascript
 
     import {statSync, readdirSync, readFileSync} from "node:fs";
 
@@ -29429,13 +31100,13 @@ Chapter: 20. Node.js
 20.2 Directory creation
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
     // Node exercises can not be ran in the browser,
     // but you can look at their solution here.
 
 
-.. code::javascript
+.. code:: javascript
 
     // This code won't work on its own, but is also included in the
     // code/file_server.js file, which defines the whole system.
@@ -29460,13 +31131,13 @@ Chapter: 20. Node.js
 20.3 A public space on the web
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  
 
-.. code::javascript
+.. code:: javascript
 
     // Node exercises can not be ran in the browser,
     // but you can look at their solution here.
 
 
-.. code::javascript
+.. code:: javascript
 
     // This solutions consists of multiple files. Download it
     // though the link below.
@@ -29515,7 +31186,7 @@ Chapter: 20. Node.js
 20_3_a_public_space_on_the_web/public_space.js
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
    // Get a reference to the DOM nodes we need
    let filelist = document.querySelector("#filelist");
@@ -29556,7 +31227,7 @@ To run this chapter's code locally, use these files:
 file_server.mjs
 ~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
     import {createServer} from "node:http";
 
@@ -29828,7 +31499,7 @@ To run this chapter's code locally, use these files:
 skillsharing/package.json
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
    {
      "name": "ejs-skillsharing",
@@ -29885,7 +31556,7 @@ skillsharing/public/skillsharing.css
 skillsharing/public/skillsharing_client.js
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
    function handleAction(state, action) {
      if (action.type == "setUser") {
@@ -30056,7 +31727,7 @@ skillsharing/public/skillsharing_client.js
 skillsharing/router.mjs
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
    export class Router {
      constructor() {
@@ -30080,7 +31751,7 @@ skillsharing/router.mjs
 skillsharing/skillsharing_server.mjs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code::javascript
+.. code:: javascript
 
    import {createServer} from "node:http";
    import serveStatic from "serve-static";
@@ -30229,7 +31900,7 @@ Chapter: 22. JavaScript and Performance
 
 22.1 Prime numbers
 
-   .. code::javascript
+   .. code:: javascript
 
     function* primes() {
       for (let n = 2;; n++) {
@@ -30244,7 +31915,7 @@ Chapter: 22. JavaScript and Performance
     measurePrimes();
 
 
-   .. code::javascript
+   .. code:: javascript
 
     function* primes() {
       for (let n = 2;; n++) {
@@ -30273,7 +31944,7 @@ Chapter: 22. JavaScript and Performance
 22.2 Faster prime numbers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
     function* primes() {
       for (let n = 2;; n++) {
@@ -30287,7 +31958,7 @@ Chapter: 22. JavaScript and Performance
 
     measurePrimes();
 
-     .. code::javascript
+     .. code:: javascript
 
     function* primes() {
       let found = [];
@@ -30322,7 +31993,7 @@ Chapter: 22. JavaScript and Performance
 22.1[3] Pathfinding [3rd ed]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
     function findPath(a, b) {
       // Your code here...
@@ -30338,7 +32009,7 @@ Chapter: 22. JavaScript and Performance
     // → 2
 
 
-     .. code::javascript
+     .. code:: javascript
 
       function findPath(a, b) {
         let work = [[a]];
@@ -30366,7 +32037,7 @@ Chapter: 22. JavaScript and Performance
 22.2[3] Timing [3rd ed]
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
     function findPath(a, b) {
       let work = [[a]];
@@ -30393,7 +32064,7 @@ Chapter: 22. JavaScript and Performance
 22.3[3] Optimizing [3rd ed]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
     function time(findPath) {
       let graph = treeGraph(6, 6);
@@ -30457,7 +32128,7 @@ Project Code
 draw_layout.js
 ~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
     // The familiar Vec type.
 
@@ -30568,7 +32239,7 @@ draw_layout.js
 chapter/22_fast.js
 ~~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
     var Graph = class Graph {
       #nodes = [];
@@ -30718,7 +32389,7 @@ chapter/22_fast.js
 3rd_edition/code/draw_layout.js
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
     // The familiar Vec type.
 
@@ -30827,7 +32498,7 @@ chapter/22_fast.js
 3rd_edition/code/chapter/22_fast.js
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   .. code::javascript
+   .. code:: javascript
 
     var GraphNode = class GraphNode {
       constructor() {
