@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="440"
+   height="280"
+   id="svg5805"
+   version="1.1"
+   inkscape:version="0.47 r22583"
+   sodipodi:docname="csapp2nd_18_figure1.13.svg">
+  <defs
+     id="defs5807">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective5813" />
+    <clipPath
+       id="clip_60">
+      <path
+         id="path5820"
+         d="m 35.28,61.2 h 532.8 V 726.12 H 35.28 z"
+         transform="matrix(1,0,0,-1,-35.28,726.12)"
+         style="fill-rule:evenodd" />
+    </clipPath>
+    <inkscape:perspective
+       id="perspective6098"
+       inkscape:persp3d-origin="266.40002 : 221.63999 : 1"
+       inkscape:vp_z="532.80005 : 332.45999 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 332.45999 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <clipPath
+       id="clip_60-4">
+      <path
+         id="path6244"
+         d="m 35.28,61.2 h 532.8 V 726.12 H 35.28 z"
+         transform="matrix(1,0,0,-1,-35.28,726.12)"
+         style="fill-rule:evenodd" />
+    </clipPath>
+    <inkscape:perspective
+       id="perspective6522"
+       inkscape:persp3d-origin="266.40002 : 221.63999 : 1"
+       inkscape:vp_z="532.80005 : 332.45999 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 332.45999 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <clipPath
+       id="clip_60-8">
+      <path
+         id="path6668"
+         d="m 35.28,61.2 h 532.8 V 726.12 H 35.28 z"
+         transform="matrix(1,0,0,-1,-35.28,726.12)"
+         style="fill-rule:evenodd" />
+    </clipPath>
+    <inkscape:perspective
+       id="perspective6946"
+       inkscape:persp3d-origin="266.40002 : 221.63999 : 1"
+       inkscape:vp_z="532.80005 : 332.45999 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 332.45999 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <clipPath
+       id="clip_60-82">
+      <path
+         id="path7092"
+         d="m 35.28,61.2 h 532.8 V 726.12 H 35.28 z"
+         transform="matrix(1,0,0,-1,-35.28,726.12)"
+         style="fill-rule:evenodd" />
+    </clipPath>
+    <inkscape:perspective
+       id="perspective7370"
+       inkscape:persp3d-origin="266.40002 : 221.63999 : 1"
+       inkscape:vp_z="532.80005 : 332.45999 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 332.45999 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <clipPath
+       id="clip_60-45">
+      <path
+         id="path7516"
+         d="m 35.28,61.2 h 532.8 V 726.12 H 35.28 z"
+         transform="matrix(1,0,0,-1,-35.28,726.12)"
+         style="fill-rule:evenodd" />
+    </clipPath>
+    <inkscape:perspective
+       id="perspective7794"
+       inkscape:persp3d-origin="266.40002 : 221.63999 : 1"
+       inkscape:vp_z="532.80005 : 332.45999 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 332.45999 : 1"
+       sodipodi:type="inkscape:persp3d" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98574219"
+     inkscape:cx="-40.012922"
+     inkscape:cy="274.19011"
+     inkscape:document-units="px"
+     inkscape:current-layer="g6246"
+     showgrid="false"
+     inkscape:window-width="1500"
+     inkscape:window-height="947"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5810">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-47.329378,-364.15172)">
+    <g
+       id="g6246"
+       clip-path="url(#clip_60-4)"
+       transform="translate(48.98625,97.246476)">
+      <text
+         id="text6248"
+         font-weight="bold"
+         font-size="9.4645"
+         xml:space="preserve"
+         style="font-size:9.46450043px;font-weight:bold;font-family:StoneSans"
+         x="-73.829628"
+         y="974.8642"><tspan
+           id="tspan6250"
+           x="13.284266 18.716892"
+           y="292.9892">18</tspan></text>
+      <text
+         id="text6252"
+         font-size="8.4682"
+         xml:space="preserve"
+         style="font-size:8.46819973px;font-family:StoneSans"
+         x="-73.829628"
+         y="974.8642"><tspan
+           id="tspan6254"
+           x="36.852367 42.644615 47.598511 51.832619 56.88813 59.809654 64.103035 69.480339 82.809288 90.422203 94.520813 99.373077 104.20843 109.58573 114.43801 119.37498 125.16722 130.01952 137.59009 142.64558 147.48096 150.40247 154.69585 160.07315 164.47661 168.66837 171.96249 174.88402 179.17738 186.74794"
+           y="292.9892">Chapter1ATourofComputerSystems</tspan></text>
+      <text
+         id="text6256"
+         font-size="8.9664"
+         xml:space="preserve"
+         style="font-size:8.96640015px;fill:#00adef;font-family:StoneSans"
+         x="-73.829628"
+         y="974.8642"><tspan
+           id="tspan6258"
+           x="13.284266 17.597103 19.731106 25.06612 30.185925 33.306225 40.425556 45.572266 48.145622 53.292336"
+           y="319.24121">Figure1.13</tspan></text>
+      <text
+         id="text6260"
+         font-weight="bold"
+         font-size="8.9664"
+         xml:space="preserve"
+         style="font-size:8.96640015px;font-weight:bold;fill:#231f20;font-family:StoneSans"
+         x="-73.829628"
+         y="974.8642"><tspan
+           id="tspan6262"
+           x="13.284266 18.601345 22.19688 27.621548 31.907492 36.812107 40.631794 47.736763 52.390327 54.802299 58.39782 61.88575 67.184898 72.008827 77.706078 82.530006 88.125038 93.720062 97.315582 102.22019 106.03989"
+           y="330.19904">Processvirtualaddress</tspan><tspan
+           id="tspan6264"
+           x="13.284266 17.103954 22.698986 27.522907 31.808851 36.713474"
+           y="341.15686">space.</tspan></text>
+      <path
+         id="path6266"
+         d="m 341.30435,440.29021 -116,0 0,-30.17999 116,0 z m -116,0"
+         style="fill:#8ed8f8" />
+      <path
+         id="path6268"
+         d="m 341.30435,440.29021 -116,0 0,-30.17999 116,0 z"
+         stroke-miterlimit="4"
+         style="fill:none;stroke:#231f20;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4" />
+      <path
+         id="path6270"
+         d="m 341.30435,411.38721 -116,0 0,-26.364 116,0 z m -116,0"
+         style="fill:#e6e7e8" />
+      <path
+         id="path6272"
+         d="m 341.30435,411.38721 -116,0 0,-26.364 116,0 z"
+         stroke-miterlimit="4"
+         style="fill:none;stroke:#231f20;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4" />
+      <path
+         id="path6274"
+         d="m 341.30435,466.08621 -116,0 0,-25.742 116,0 z m -116,0"
+         style="fill:#e6e7e8" />
+      <path
+         id="path6276"
+         d="m 341.30435,466.08621 -116,0 0,-25.742 116,0 z"
+         stroke-miterlimit="4"
+         style="fill:none;stroke:#231f20;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4" />
+      <path
+         id="path6278"
+         d="m 341.30435,491.26021 -116,0 0,-25.12 116,0 z m -116,0"
+         style="fill:#e6e7e8" />
+      <path
+         id="path6280"
+         d="m 341.30435,491.26021 -116,0 0,-25.12 116,0 z"
+         stroke-miterlimit="4"
+         style="fill:none;stroke:#231f20;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4" />
+      <path
+         id="path6282"
+         d="m 341.30435,515.81321 -116,0 0,-24.805 116,0 z m -116,0"
+         style="fill:#e6e7e8" />
+      <path
+         id="path6284"
+         d="m 341.30435,515.81321 -116,0 0,-24.805 116,0 z"
+         stroke-miterlimit="4"
+         style="fill:none;stroke:#231f20;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4" />
+      <path
+         id="path6286"
+         d="m 341.30435,533.21721 -116,0 0,-17.577 116,0 z m -116,0"
+         style="fill:#8ed8f8" />
+      <path
+         id="path6288"
+         d="m 341.30435,533.21721 -116,0 0,-17.577 116,0 z"
+         stroke-miterlimit="4"
+         style="fill:none;stroke:#231f20;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4" />
+      <path
+         id="path6290"
+         d="m 341.30435,358.54821 -116,0 0,-23.94098 116,0 z m -116,0"
+         style="fill:#e6e7e8" />
+      <path
+         id="path6292"
+         d="m 341.30435,358.54821 -116,0 0,-23.94098 116,0 z"
+         stroke-miterlimit="4"
+         style="fill:none;stroke:#231f20;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4" />
+      <path
+         id="path6294"
+         d="m 341.30435,384.96921 -116,0 0,-26.675 116,0 z m -116,0"
+         style="fill:#8ed8f8" />
+      <path
+         id="path6296"
+         d="m 341.30435,384.96921 -116,0 0,-26.675 116,0 z"
+         stroke-miterlimit="4"
+         style="fill:none;stroke:#231f20;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4" />
+      <path
+         id="path6298"
+         d="m 283.10535,440.92721 0,-11.762"
+         stroke-miterlimit="4"
+         style="fill:none;stroke:#231f20;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4" />
+      <path
+         id="path6300"
+         d="m 285.10635,429.74821 -1.995,-3.454 -1.994,3.454 3.989,0"
+         style="fill:#231f20" />
+      <path
+         id="path6302"
+         d="m 348.60635,332.42721 0,-11.762"
+         stroke-miterlimit="4"
+         style="fill:none;stroke:#231f20;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4" />
+      <path
+         id="path6304"
+         d="m 350.60635,321.24821 -1.994,-3.454 -1.994,3.454 3.988,0"
+         style="fill:#231f20" />
+      <path
+         id="path6306"
+         d="m 283.10535,385.07921 0,-5.474"
+         stroke-miterlimit="4"
+         style="fill:none;stroke:#231f20;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4" />
+      <path
+         id="path6308"
+         d="m 285.10635,380.18821 -1.995,-3.454 -1.994,3.454 3.989,0"
+         style="fill:#231f20" />
+      <path
+         id="path6310"
+         d="m 283.41135,358.45021 0,5.474"
+         stroke-miterlimit="4"
+         style="fill:none;stroke:#231f20;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4" />
+      <path
+         id="path6312"
+         d="m 281.41035,363.34121 1.995,3.454 1.994,-3.454 -3.989,0"
+         style="fill:#231f20" />
+      <path
+         id="path6314"
+         d="m 347.35135,512.39121 c 1.543,0 2.794,-1.251 2.794,-2.794 l -0.003,-15.398 0.003,0 c 0,-1.543 1.251,-2.794 2.794,-2.794 -1.543,0 -2.794,-1.25 -2.794,-2.793 l -0.003,0 0.003,-15.207 c 0,-1.543 -1.251,-2.794 -2.794,-2.794"
+         stroke-miterlimit="4"
+         style="fill:none;stroke:#231f20;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4" />
+      <path
+         id="path6316"
+         d="m 341.30435,335.55421 -116,0 0,-18.271 116,0 z m -116,0"
+         style="fill:#e6e7e8" />
+      <path
+         id="path6318"
+         d="m 341.30435,335.55421 -116,0 0,-18.271 116,0 z"
+         stroke-miterlimit="4"
+         style="fill:none;stroke:#231f20;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4" />
+      <text
+         id="text6320"
+         font-size="8.5"
+         xml:space="preserve"
+         style="font-size:8.5px;fill:#231f20;font-family:CMTTSY10"
+         x="-73.829628"
+         y="974.8642"><tspan
+           id="tspan6322"
+           x="144.7914 149.25388 153.71637 158.17886 162.64136 167.10385 171.56635 176.02884 180.49132 184.95381 189.41631 193.8788 198.34129 202.80379 207.26628"
+           y="513.60223">0x08048000 (32)</tspan><tspan
+           id="tspan6324"
+           x="144.7914 149.25388 153.71637 158.17886 162.64136 167.10385 171.56635 176.02884 180.49132 184.95381 189.41631 193.8788 198.34129 202.80379 207.26628"
+           y="522.60205">0x00400000 (64)</tspan><tspan
+           id="tspan6326"
+           x="217.09151"
+           y="532.17902">0</tspan></text>
+      <text
+         id="text6328"
+         font-size="8"
+         xml:space="preserve"
+         style="font-size:8px;fill:#231f20;font-family:Helvetica"
+         x="-73.829628"
+         y="974.8642"><tspan
+           id="tspan6330"
+           x="357.31339 363.97739 368.42538 375.08939 379.53738 382.20139"
+           y="317.16821">Memory</tspan><tspan
+           id="tspan6332"
+           x="357.31339 359.08939 363.53738 367.53738 369.31339 373.31339 375.08939 379.53738 381.31339 385.76138 387.98538 390.20938"
+           y="326.16821">invisible to</tspan><tspan
+           id="tspan6334"
+           x="357.31339 361.76138 365.76138 370.20938 372.87338 375.09738 379.09738 383.54538 387.99338"
+           y="335.16821">user code</tspan></text>
+      <text
+         id="text6336"
+         font-size="8.5"
+         xml:space="preserve"
+         style="font-size:8.5px;fill:#231f20;font-family:CMTTSY10"
+         x="-73.829628"
+         y="974.8642"><tspan
+           id="tspan6338"
+           x="348.94238 353.40488 357.86737 362.32986 366.79236 371.25485"
+           y="400.20618">printf</tspan></text>
+      <text
+         id="text6340"
+         font-size="8"
+         xml:space="preserve"
+         style="font-size:8px;fill:#231f20;font-family:Helvetica"
+         x="-73.829628"
+         y="974.8642"><tspan
+           id="tspan6342"
+           x="375.71738 377.94138 380.16537 384.61337 389.06137 393.06137 395.28537 397.06137 401.50937"
+           y="400.20618"> function</tspan><tspan
+           id="tspan6344"
+           x="356.98059 361.42859 365.87659 370.32458 374.77258 379.22058 383.66858 385.89258 388.11658 390.78058 395.22858 401.89258 404.11658 406.34058 410.78857"
+           y="489.83496">Loaded from the</tspan></text>
+      <text
+         id="text6346"
+         font-size="8.5"
+         xml:space="preserve"
+         style="font-size:8.5px;fill:#231f20;font-family:CMTTSY10"
+         x="-73.829628"
+         y="974.8642"><tspan
+           id="tspan6348"
+           x="356.98038 361.44287 365.90536 370.36786 374.83035"
+           y="498.83527">hello</tspan></text>
+      <text
+         id="text6350"
+         font-size="8"
+         xml:space="preserve"
+         style="font-size:8px;fill:#231f20;font-family:Helvetica"
+         x="-73.829628"
+         y="974.8642"><tspan
+           id="tspan6352"
+           x="379.29239 381.51639 385.96439 389.96439 394.41238 398.41238 402.86038 405.08438 409.53238 413.98038 415.75638 420.20438 422.42838 424.65237 426.42838 428.20438"
+           y="498.83527"> executable file</tspan><tspan
+           id="tspan6354"
+           x="264.75635 270.53235 274.53235 278.98035 283.86835 287.86835 290.09235 294.54037 298.54037"
+           y="344.948">Userstack</tspan><tspan
+           id="tspan6356"
+           x="247.63635 250.30035 254.30035 256.96436 261.41235 265.86035 268.08435 272.53235 279.20435 283.65234 285.87634 288.10034 290.76434 295.21237 299.66037 301.88437 304.10837 305.88437 312.54837 316.99637"
+           y="353.948">(createdat run time)</tspan><tspan
+           id="tspan6358"
+           x="235.63235 242.29636 246.74435 253.40836 257.85635 260.52036 264.52036 266.74435 273.40836 277.85635 282.30435 286.75235 291.20035 295.64838 297.87238 300.53638 304.98438 309.43237 311.20837 315.65637 320.10437 322.32837 324.55237 329.00037"
+           y="396.83527">Memory mapped region for</tspan><tspan
+           id="tspan6360"
+           x="256.30914 260.30914 264.75714 269.20514 271.86914 276.31714 280.76514 282.98914 284.76514 286.54114 290.98914 293.65317 298.10117 300.76517 302.54117 306.98917"
+           y="405.83527">shared libraries</tspan><tspan
+           id="tspan6362"
+           x="257.41714 263.19315 267.64114 272.08914 274.75314 276.97714 278.75314 285.41714 289.86514 292.08914 296.53717 300.98517 305.43317"
+           y="452.16968">Run-time heap</tspan><tspan
+           id="tspan6364"
+           x="228.58916 231.25316 235.25314 237.91714 242.36514 246.81314 249.03714 253.48514 260.15714 264.60513 266.82913 269.05313 271.71713 276.16513 280.61313 282.83713 285.06113 286.83713 293.50116 297.94916 300.17316 304.62115"
+           y="461.16968">(createdat run time by</tspan></text>
+      <text
+         id="text6366"
+         font-size="8"
+         xml:space="preserve"
+         style="font-size:8px;fill:#231f20;font-family:CMTTSY10"
+         x="-73.829628"
+         y="974.8642"><tspan
+           id="tspan6368"
+           x="310.84518 315.0452 319.24521 323.44522 327.64523 331.84525"
+           y="461.16968">malloc</tspan></text>
+      <text
+         id="text6370"
+         font-size="8"
+         xml:space="preserve"
+         style="font-size:8px;fill:#231f20;font-family:Helvetica"
+         x="-73.829628"
+         y="974.8642"><tspan
+           id="tspan6372"
+           x="336.0452"
+           y="461.16968">)</tspan><tspan
+           id="tspan6374"
+           x="255.63797 261.41397 265.86197 270.30997 274.75797 276.98196 282.75797 285.42197 287.19797 289.42197 293.87 296.09399 300.54199 304.98999 307.21399"
+           y="481.83606">Read/write data</tspan><tspan
+           id="tspan6376"
+           x="238.95798 244.73398 249.18198 253.62997 258.07797 260.74197 265.18997 269.63797 271.41397 275.41397 277.63797 281.63797 286.08597 290.53397 294.98199 297.20599 301.65399 306.10199 310.54999 312.77399 317.22198 321.66998 323.89398"
+           y="505.16888">Read-only code and data</tspan><tspan
+           id="tspan6378"
+           x="244.75479 250.09079 254.53879 257.20279 261.65079 266.09879 267.87479 270.09879 274.09879 275.87479 278.53879 280.76279 285.21078 289.65878 291.43478 293.65881 300.32281 304.77081 311.43481 315.88281 318.54681"
+           y="329.50165">Kernel virtual memory</tspan></text>
+      <path
+         id="path6380"
+         d="m 211.61335,515.89321 10.112,0"
+         stroke-miterlimit="4"
+         style="fill:none;stroke:#231f20;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4" />
+      <path
+         id="path6382"
+         d="m 221.41535,515.89321 -0.668,-1.1 0.037,-0.024 1.791,0.712 c 0.625,0.136 1.248,0.274 1.873,0.412 -0.625,0.136 -1.248,0.274 -1.873,0.412 l -1.791,0.712 -0.037,-0.019 0.668,-1.105"
+         style="fill:#231f20" />
+    </g>
+  </g>
+</svg>

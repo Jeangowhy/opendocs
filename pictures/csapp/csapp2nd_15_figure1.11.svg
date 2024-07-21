@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   width="532.79962"
+   height="180"
+   viewBox="0 0 532.7996 180"
+   id="svg52"
+   sodipodi:docname="csapp2nd_15_figure1.11.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview52"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="0.97702399"
+     inkscape:cx="266.626"
+     inkscape:cy="350.04258"
+     inkscape:window-width="1500"
+     inkscape:window-height="948"
+     inkscape:window-x="-6"
+     inkscape:window-y="-6"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g52" />
+  <defs
+     id="defs5">
+    <clipPath
+       id="clip_53">
+      <path
+         transform="matrix(1,0,0,-1,-42.7104,726.12)"
+         d="M 42.7104,61.2 H 575.51 V 726.12 H 42.7104 Z"
+         fill-rule="evenodd"
+         id="path1" />
+    </clipPath>
+    <clipPath
+       id="clip_54">
+      <path
+         transform="matrix(1,0,0,-1,-42.7104,726.12)"
+         d="M 426.507,663.376 H 226.00699 V 578.224 H 426.507 Z m -200.5,0"
+         id="path2" />
+    </clipPath>
+    <clipPath
+       id="clip_55">
+      <path
+         transform="matrix(1,0,0,-1,-42.7104,726.12)"
+         d="M 0,792 H 612 V 0.0300293 H 0 Z"
+         id="path3" />
+    </clipPath>
+    <clipPath
+       id="clip_56">
+      <path
+         transform="matrix(1,0,0,-1,-42.7104,726.12)"
+         d="M 426.507,663.376 H 226.00699 V 578.224 H 426.507 Z m -200.5,0"
+         id="path4" />
+    </clipPath>
+    <clipPath
+       id="clip_57">
+      <path
+         transform="matrix(1,0,0,-1,-42.7104,726.12)"
+         d="M 0,792 H 612 V 0.0300293 H 0 Z"
+         id="path5" />
+    </clipPath>
+  </defs>
+  <g
+     clip-path="url(#clip_53)"
+     id="g52">
+    <text
+       xml:space="preserve"
+       transform="translate(-42.7104,726.12)"
+       font-size="8.4682px"
+       font-family="StoneSans"
+       id="text5"><tspan
+         y="-681.875"
+         x="277.444 281.84747 286.14084 290.21405 293.13559 295.15103 300.0033 307.38754 312.24829 314.67865 328.0076 332.71591 337.6698 344.39352 351.13422 356.18973 360.48309 363.43002 367.66412 370.58566 372.6011 377.55499 385.02393 389.4274 393.61917 396.9133 399.83484 404.1282 414.12912 421.98761 426.22171 431.1756 435.4097 440.44827 444.74164 450.46613 453.38766 458.34155 465.06528 471.02689 475.26099 478.20792 483.24649 489.84323 494.07733 497.02426"
+         id="tspan5">Section1.7TheOperatingSystemManagestheHardware</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="translate(-42.7104,726.12)"
+       font-size="9.4645px"
+       font-family="StoneSans"
+       font-weight="bold"
+       id="text6"><tspan
+         y="-681.875"
+         x="514.01892 519.45154"
+         id="tspan6">15</tspan></text>
+    <text
+       fill="#00adef"
+       xml:space="preserve"
+       transform="translate(-42.7104,726.12)"
+       font-size="8.9664px"
+       font-family="StoneSans"
+       id="text7"><tspan
+         y="-655.62299"
+         x="94.5 98.812836 100.94684 106.28185 111.40166 114.52197 121.64129 126.788 129.36136 134.50807"
+         id="tspan7">Figure1.11</tspan></text>
+    <text
+       fill="#231f20"
+       xml:space="preserve"
+       transform="translate(-42.7104,726.12)"
+       font-size="8.9664px"
+       font-family="StoneSans"
+       font-weight="bold"
+       id="text9"><tspan
+         y="-644.66516"
+         x="94.5 100.48059 106.06666 109.88634 113.37428 116.9698 121.79372 126.07967 129.5676 131.97955 137.40422 142.94545 149.46223 155.05727 158.65279 164.07745 168.73102 171.14297 176.73801 181.64262 189.93475 195.52083"
+         id="tspan8">Abstractionsprovidedby</tspan><tspan
+         y="-633.70734"
+         x="94.5 99.323921 107.43851 112.86319 118.45822 123.36284 126.95837 131.78229 135.27022 137.68217 143.2234 151.3918 155.21149 159.86505 163.68474 167.17267 172.07729 180.28154"
+         id="tspan9">anoperatingsystem.</tspan></text>
+    <path
+       transform="matrix(1,0,0,-1,-42.7104,726.12)"
+       d="M 426.007,578.724 H 226.50699 v 15.145 H 426.007 Z m -199.5,0"
+       fill="#ffffff"
+       id="path9" />
+    <g
+       clip-path="url(#clip_54)"
+       id="g11">
+      <g
+         clip-path="url(#clip_55)"
+         id="g10">
+        <path
+           transform="matrix(1,0,0,-1,-42.7104,726.12)"
+           stroke-width="1"
+           stroke-linecap="round"
+           stroke-miterlimit="4"
+           stroke-linejoin="miter"
+           fill="none"
+           stroke="#231f20"
+           d="M 426.007,578.724 H 226.50699 v 15.145 H 426.007 Z"
+           id="path10" />
+      </g>
+    </g>
+    <path
+       transform="matrix(1,0,0,-1,-42.7104,726.12)"
+       stroke-width="1"
+       stroke-linecap="round"
+       stroke-miterlimit="4"
+       stroke-linejoin="miter"
+       fill="none"
+       stroke="#231f20"
+       d="m 293.203,594.042 v -14.865 m 66.302,14.741 v -14.865"
+       id="path11" />
+    <text
+       fill="#231f20"
+       xml:space="preserve"
+       transform="translate(-42.7104,726.12)"
+       font-size="8px"
+       font-family="Helvetica"
+       id="text14"><tspan
+         y="-583.24109"
+         x="302.34201 309.00601 313.45401 315.23001 319.67801 321.90201 328.56601 333.01401 339.67801 344.12601 346.79001 372.80841 375.03241 377.25641 383.48041 385.70441 390.1524 394.6004 398.6004 400.3764 404.3764 408.8244 242.06201 247.39801 250.06201 254.51001 258.51001 262.95801 266.95801 270.95801 275.40601"
+         id="tspan11">Main memoryI/O devicesProcessor</tspan><tspan
+         y="-656.50269"
+         x="307.47803 312.81403 315.47803 319.92603 323.92603 328.37402 332.37402 336.37402 340.82202"
+         id="tspan12">Processes</tspan><tspan
+         y="-632.78186"
+         x="332.74362 337.93723 339.71323 342.37723 344.60123 349.04922 353.49722 355.27322 357.49722 364.16122 368.60922 375.27322 379.72122 382.38522"
+         id="tspan13">Virtual memory</tspan><tspan
+         y="-607.20825"
+         x="383.79163 388.67963 390.45563 392.23163 396.67963"
+         id="tspan14">Files</tspan></text>
+    <g
+       clip-path="url(#clip_56)"
+       id="g15">
+      <g
+         clip-path="url(#clip_57)"
+         id="g14">
+        <path
+           transform="matrix(1,0,0,-1,-42.7104,726.12)"
+           stroke-width="0.5"
+           stroke-linecap="butt"
+           stroke-miterlimit="4"
+           stroke-linejoin="miter"
+           fill="none"
+           stroke="#231f20"
+           d="m 426.257,648.271 c 0,1.543 -1.25,2.794 -2.793,2.794 l -94.398,-0.003 v 0.003 c -1.543,0 -2.794,1.251 -2.794,2.794 0,-1.543 -1.251,-2.794 -2.794,-2.794 v -0.003 l -94.152,0.003 c -1.543,0 -2.794,-1.251 -2.794,-2.794"
+           id="path14" />
+      </g>
+    </g>
+    <path
+       transform="matrix(1,0,0,-1,-42.7104,726.12)"
+       stroke-width="0.5"
+       stroke-linecap="butt"
+       stroke-miterlimit="4"
+       stroke-linejoin="miter"
+       fill="none"
+       stroke="#231f20"
+       d="m 426.009,624.292 c 0,1.543 -1.25,2.794 -2.793,2.794 l -60.984,-0.003 v 0.003 c -1.543,0 -2.794,1.251 -2.794,2.794 0,-1.543 -1.251,-2.794 -2.794,-2.794 v -0.003 l -60.738,0.003 c -1.543,0 -2.794,-1.251 -2.794,-2.794 m 132.897,-25.316 c 0,1.543 -1.25,2.794 -2.793,2.794 l -28.065,-0.003 v 0.003 c -1.543,0 -2.794,1.251 -2.794,2.794 0,-1.543 -1.251,-2.794 -2.794,-2.794 v -0.003 l -27.571,0.003 c -1.543,0 -2.795,-1.251 -2.795,-2.794"
+       id="path15" />
+    <path
+       transform="matrix(1,0,0,-1,-42.7104,726.12)"
+       stroke-width="0.5"
+       stroke-linecap="butt"
+       stroke-dasharray="3, 2"
+       stroke-miterlimit="4"
+       stroke-linejoin="miter"
+       fill="none"
+       stroke="#231f20"
+       d="m 226.374,648.414 v -53.73 z m 66.788,-23.534 v -31.196 m 132.913,55.453 v -55.453"
+       id="path16" />
+  </g>
+</svg>

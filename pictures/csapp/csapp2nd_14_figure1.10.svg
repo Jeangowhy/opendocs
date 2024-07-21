@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   width="532.80005"
+   height="164.92"
+   viewBox="0 0 532.80007 164.92"
+   id="svg99"
+   sodipodi:docname="csapp2nd_14_figure1.10.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview99"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="0.69819813"
+     inkscape:cx="266.40002"
+     inkscape:cy="332.2839"
+     inkscape:window-width="1500"
+     inkscape:window-height="948"
+     inkscape:window-x="-6"
+     inkscape:window-y="-6"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g99" />
+  <defs
+     id="defs1">
+    <clipPath
+       id="clip_52">
+      <path
+         transform="matrix(1,0,0,-1,-35.28,726.12)"
+         d="m 35.28,61.2 h 532.8 V 726.12 H 35.28 Z"
+         fill-rule="evenodd"
+         id="path1" />
+    </clipPath>
+  </defs>
+  <g
+     clip-path="url(#clip_52)"
+     id="g99">
+    <text
+       xml:space="preserve"
+       transform="translate(-35.28,726.12)"
+       font-size="9.4645px"
+       font-family="StoneSans"
+       font-weight="bold"
+       id="text1"><tspan
+         y="-681.875"
+         x="87.113899 92.546524"
+         id="tspan1">14</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="translate(-35.28,726.12)"
+       font-size="8.4682px"
+       font-family="StoneSans"
+       id="text2"><tspan
+         y="-681.875"
+         x="110.682 116.47425 121.42815 125.66225 130.71776 133.63928 137.93266 143.30997 156.63892 164.25183 168.35043 173.20271 178.03806 183.41536 188.26764 193.20461 198.99686 203.84914 211.41971 216.47522 221.31056 224.23209 228.52547 233.90277 238.30623 242.49799 245.79211 248.71364 253.00702 260.57758"
+         id="tspan2">Chapter1ATourofComputerSystems</tspan></text>
+    <text
+       fill="#00adef"
+       xml:space="preserve"
+       font-size="8.9664px"
+       font-family="StoneSans"
+       id="text92"
+       x="-35.279999"
+       y="254.90706"><tspan
+         y="86.765053"
+         x="51.8339 56.146736 58.280739 63.615746 68.735558 71.855865 78.975189 84.121902 86.695259 91.841972"
+         id="tspan92">Figure1.10</tspan></text>
+    <text
+       fill="#231f20"
+       xml:space="preserve"
+       font-size="8.9664px"
+       font-family="StoneSans"
+       font-weight="bold"
+       id="text94"
+       x="-35.279999"
+       y="254.90706"><tspan
+         y="97.723793"
+         x="51.8339 56.487465 61.311386 65.964951 70.869568 74.465096 79.36972 89.379807 94.033371 96.445328 101.34995 113.09055 118.51521 126.08644"
+         id="tspan93">Layeredviewofa</tspan><tspan
+         y="108.68253"
+         x="51.8339 56.119843 61.544518 69.748772 75.343803 80.642944 84.130875 89.035492 95.204376 99.024063 103.67763 107.49731 110.98524 115.88986 124.09412"
+         id="tspan94">computersystem.</tspan></text>
+    <path
+       stroke-width="1"
+       stroke-linecap="round"
+       stroke-miterlimit="4"
+       stroke-linejoin="miter"
+       fill="none"
+       stroke="#231f20"
+       d="m 383.341,124.81105 h -199.5 V 78.811054 h 199.5 z M 183.964,94.871054 H 383.011 M 183.964,109.42705 h 199.047 m -132.844,0.189 v 14.865 m 66.672,-14.865 v 14.865"
+       id="path94" />
+    <path
+       stroke-width="0.5"
+       stroke-linecap="butt"
+       stroke-miterlimit="4"
+       stroke-linejoin="miter"
+       fill="none"
+       stroke="#231f20"
+       d="m 386.337,107.80705 c 1.543,0 2.794,-1.252 2.794,-2.795 l -0.003,-7.395996 h 0.003 c 0,-1.543 1.251,-2.795 2.794,-2.795 -1.543,0 -2.794,-1.25 -2.794,-2.793 h -0.003 l 0.003,-10.207 c 0,-1.543 -1.251,-2.793 -2.794,-2.793 m 0,45.777996 c 1.543,0 2.794,-1.252 2.794,-2.795 l -0.003,-1.729 h 0.003 c 0,-1.543 1.251,-2.795 2.794,-2.795 -1.543,0 -2.794,-1.25 -2.794,-2.793 h -0.003 l 0.003,-2.207 c 0,-1.543 -1.251,-2.793 -2.794,-2.793"
+       id="path95" />
+    <text
+       fill="#231f20"
+       xml:space="preserve"
+       font-size="8px"
+       font-family="Helvetica"
+       id="text99"
+       x="-35.279999"
+       y="254.90706"><tspan
+         y="89.543053"
+         x="246.332 251.668 256.116 260.564 262.34 264.116 268.116 272.564 274.78799 276.564 281.01199 285.45999 287.68399 292.13199 294.79599 299.24399 303.69199 306.35599 310.80399 317.46799"
+         id="tspan95">Application programs</tspan><tspan
+         y="105.04305"
+         x="252.556 258.78 263.228 267.67599 270.34 274.78799 277.01199 278.78799 283.23599 287.68399 289.90799 293.90799 297.90799 301.90799 304.13199 308.57999"
+         id="tspan96">Operating system</tspan><tspan
+         y="120.29345"
+         x="259.67599 266.34 270.78799 272.564 277.01199 279.23599 285.89999 290.34799 297.01199 301.45999 304.12399 330.1424 332.36639 334.59039 340.81439 343.03839 347.48639 351.93439 355.93439 357.71039 361.71039 366.15839 199.396 204.73199 207.396 211.84399 215.84399 220.29199 224.29199 228.29199 232.73999"
+         id="tspan97">Main memoryI/O devicesProcessor</tspan><tspan
+         y="97.627052"
+         x="394.3656 399.7016 404.1496 406.3736 408.5976 414.3736 418.82159 421.4856"
+         id="tspan98">Software</tspan><tspan
+         y="119.95905"
+         x="393.8136 399.5896 404.0376 406.7016 411.1496 416.9256 421.3736 424.0376"
+         id="tspan99">Hardware</tspan></text>
+  </g>
+</svg>

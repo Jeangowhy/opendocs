@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   width="532.79962"
+   height="200"
+   viewBox="0 0 532.7996 200.00001"
+   id="svg90"
+   sodipodi:docname="csapp2nd_21_figure1.15.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview90"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="0.9679567"
+     inkscape:cx="322.32847"
+     inkscape:cy="372.95057"
+     inkscape:window-width="1500"
+     inkscape:window-height="948"
+     inkscape:window-x="-6"
+     inkscape:window-y="-6"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g90" />
+  <defs
+     id="defs1">
+    <clipPath
+       id="clip_63">
+      <path
+         transform="matrix(1,0,0,-1,-42.7104,726.12)"
+         d="M 42.7104,61.2 H 575.51 V 726.12 H 42.7104 Z"
+         fill-rule="evenodd"
+         id="path1" />
+    </clipPath>
+  </defs>
+  <g
+     clip-path="url(#clip_63)"
+     id="g90">
+    <text
+       xml:space="preserve"
+       transform="translate(-42.7104,726.12)"
+       font-size="8.4682px"
+       font-family="StoneSans"
+       id="text1"><tspan
+         y="-681.875"
+         x="381.51001 385.91348 390.20685 394.28006 397.2016 399.21704 404.06931 411.45355 416.3143 418.74466 432.07361 434.31769 441.88824 446.94376 451.79602 454.74295 457.66449 461.89859 466.85248 472.20438 476.91269 481.86658 486.15994 493.7305 498.02386"
+         id="tspan1">Section1.9ImportantThemes</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="translate(-42.7104,726.12)"
+       font-size="9.4645px"
+       font-family="StoneSans"
+       font-weight="bold"
+       id="text2"><tspan
+         y="-681.875"
+         x="514.02002 519.45264"
+         id="tspan2">21</tspan></text>
+    <path
+       transform="matrix(1,0,0,-1,-42.7104,726.12)"
+       stroke-width="0.3"
+       stroke-linecap="butt"
+       stroke-miterlimit="4"
+       stroke-linejoin="miter"
+       fill="none"
+       stroke="#231f20"
+       d="m 219.401,628.792 c 0,-9.665 -11.417,-17.5 -25.5,-17.5 -14.084,0 -25.5,7.835 -25.5,17.5 0,9.665 11.416,17.5 25.5,17.5 14.083,0 25.5,-7.835 25.5,-17.5 z m 155,0 c 0,-9.665 -11.416,-17.5 -25.5,-17.5 -14.084,0 -25.5,7.835 -25.5,17.5 0,9.665 11.416,17.5 25.5,17.5 14.084,0 25.5,-7.835 25.5,-17.5 z"
+       id="path2" />
+    <path
+       transform="matrix(1,0,0,-1,-42.7104,726.12)"
+       stroke-width="0.5"
+       stroke-linecap="butt"
+       stroke-dasharray="3, 2"
+       stroke-miterlimit="4"
+       stroke-linejoin="miter"
+       fill="none"
+       stroke="#231f20"
+       d="m 216.901,637.292 h 106"
+       id="path3" />
+    <path
+       transform="matrix(1,0,0,-1,-42.7104,726.12)"
+       d="m 322.317,635.291 3.455,1.994 -3.455,1.995 v -3.989"
+       fill="#231f20"
+       id="path4" />
+    <path
+       transform="matrix(1,0,0,-1,-42.7104,726.12)"
+       stroke-width="0.5"
+       stroke-linecap="butt"
+       stroke-dasharray="3, 2"
+       stroke-miterlimit="4"
+       stroke-linejoin="miter"
+       fill="none"
+       stroke="#231f20"
+       d="m 325.401,620.792 h -105"
+       id="path5" />
+    <path
+       transform="matrix(1,0,0,-1,-42.7104,726.12)"
+       d="m 220.984,622.793 -3.454,-1.995 3.454,-1.994 v 3.989"
+       fill="#231f20"
+       id="path6" />
+    <text
+       fill="#231f20"
+       xml:space="preserve"
+       transform="translate(-42.7104,726.12)"
+       font-size="8px"
+       font-family="Helvetica"
+       id="text7"><tspan
+         y="-654.79199"
+         x="103.449 107.897 110.12099 115.897 119.897 124.34499 127.009 129.233 131.457 135.457 139.905 144.353"
+         id="tspan6">1.User types</tspan><tspan
+         y="-645.79199"
+         x="100.961"
+         id="tspan7">“</tspan></text>
+    <text
+       fill="#231f20"
+       xml:space="preserve"
+       transform="translate(-42.7104,726.12)"
+       font-size="8.5px"
+       font-family="CMTTSY10"
+       id="text8"><tspan
+         y="-645.79199"
+         x="103.625 108.0875 112.55 117.0125 121.47501"
+         id="tspan8">hello</tspan></text>
+    <text
+       fill="#231f20"
+       xml:space="preserve"
+       transform="translate(-42.7104,726.12)"
+       font-size="8px"
+       font-family="Helvetica"
+       id="text12"><tspan
+         y="-645.79199"
+         x="125.937 128.601 130.825 135.27299 137.49699 139.72099 141.94499 146.39299"
+         id="tspan9">” at the</tspan><tspan
+         y="-636.79199"
+         x="109.449 113.449 117.897 121.897 126.34499 130.793 135.241 137.905"
+         id="tspan10">keyboard</tspan><tspan
+         y="-603.79199"
+         x="102.837 107.285 109.509 111.73299 117.509 119.285 121.061 125.509 129.957 132.181 134.405 138.853 141.517 143.293 147.741 149.965"
+         id="tspan11">5. Client prints</tspan><tspan
+         y="-594.79199"
+         x="94.499397"
+         id="tspan12">“</tspan></text>
+    <text
+       fill="#231f20"
+       xml:space="preserve"
+       transform="translate(-42.7104,726.12)"
+       font-size="8.5px"
+       font-family="CMTTSY10"
+       id="text13"><tspan
+         y="-594.79199"
+         x="97.163696 101.6262 106.0887 110.5512 115.0137 119.4762 123.93871 128.4012 132.86369 137.32619 141.78868 146.25117 150.71367 155.17616"
+         id="tspan13">hello, world\n</tspan></text>
+    <text
+       fill="#231f20"
+       xml:space="preserve"
+       transform="translate(-42.7104,726.12)"
+       font-size="8px"
+       font-family="Helvetica"
+       id="text16"><tspan
+         y="-594.79199"
+         x="159.638"
+         id="tspan14">”</tspan><tspan
+         y="-585.79199"
+         x="99.501205 103.50121 105.7252 108.38921 110.16521 114.6132 119.0612 121.2852 125.7332 130.1812 132.4052 136.8532 138.6292 142.6292 147.07719 148.8532 153.30119"
+         id="tspan15">string on display</tspan><tspan
+         y="-652.29199"
+         x="230.0132 234.4612 236.6852 238.90919 244.6852 246.4612 248.2372 252.6852 257.13321 259.35721 261.58121 265.58121 270.02921 274.4772 278.9252 282.9252 285.1492"
+         id="tspan16">2. Client sends “</tspan></text>
+    <text
+       fill="#231f20"
+       xml:space="preserve"
+       transform="translate(-42.7104,726.12)"
+       font-size="8.5px"
+       font-family="CMTTSY10"
+       id="text17"><tspan
+         y="-652.29199"
+         x="287.81299 292.27548 296.73798 301.20047 305.66296"
+         id="tspan17">hello</tspan></text>
+    <text
+       fill="#231f20"
+       xml:space="preserve"
+       transform="translate(-42.7104,726.12)"
+       font-size="8px"
+       font-family="Helvetica"
+       id="text21"><tspan
+         y="-652.29199"
+         x="310.125"
+         id="tspan18">”</tspan><tspan
+         y="-643.29199"
+         x="234.05301 238.05301 240.27701 242.94101 244.71701 249.16501 253.61301 255.83701 258.061 262.509 264.733 266.957 271.405 273.181 277.629 282.077 284.30099 286.52499 290.52499 294.97299 297.63699 301.63699 306.08499"
+         id="tspan19">string to telnet server</tspan><tspan
+         y="-608.79199"
+         x="232.34421 236.79221 239.0162 241.09781 245.09941 249.54741 251.32341 255.77141 260.21942 262.44342 264.66742 268.66742 273.11542 275.77942 279.77942 284.22742 286.89142 289.11542 293.11542 297.56342 302.01141 306.45941"
+         id="tspan20">4. Telnet server sends</tspan><tspan
+         y="-599.79199"
+         x="226.60822"
+         id="tspan21">“</tspan></text>
+    <text
+       fill="#231f20"
+       xml:space="preserve"
+       transform="translate(-42.7104,726.12)"
+       font-size="8.5px"
+       font-family="CMTTSY10"
+       id="text22"><tspan
+         y="-599.79199"
+         x="229.272 233.7345 238.19699 242.65948 247.12198 251.58447 256.04697 260.50946 264.97195 269.43445 273.89694 278.35944 282.82193 287.28442"
+         id="tspan22">hello, world\n</tspan></text>
+    <text
+       fill="#231f20"
+       xml:space="preserve"
+       transform="translate(-42.7104,726.12)"
+       font-size="8px"
+       font-family="Helvetica"
+       id="text25"><tspan
+         y="-599.79199"
+         x="291.746 294.41 296.634 300.634 302.858 305.522 307.298 311.746"
+         id="tspan23">” string</tspan><tspan
+         y="-590.79199"
+         x="257.61719 259.84119 264.28918 266.51318 270.51318 272.28918 274.06519 278.51318 282.96118"
+         id="tspan24">to client</tspan><tspan
+         y="-644.79199"
+         x="381.95718 386.40518 388.62918 390.85318 396.18918 400.63718 403.30118 407.30118 411.74918 414.41318 416.63718 420.63718 425.08517 429.53317 433.98117 437.98117 440.20517"
+         id="tspan25">3. Server sends “</tspan></text>
+    <text
+       fill="#231f20"
+       xml:space="preserve"
+       transform="translate(-42.7104,726.12)"
+       font-size="8.5px"
+       font-family="CMTTSY10"
+       id="text26"><tspan
+         y="-644.79211"
+         x="442.86899 447.33148 451.79398 456.25647 460.71896"
+         id="tspan26">hello</tspan></text>
+    <text
+       fill="#231f20"
+       xml:space="preserve"
+       transform="translate(-42.7104,726.12)"
+       font-size="8px"
+       font-family="Helvetica"
+       id="text29"><tspan
+         y="-644.79211"
+         x="465.181"
+         id="tspan27">”</tspan><tspan
+         y="-635.79211"
+         x="382.21701 386.21701 388.44101 391.10501 392.88101 397.32901 401.77701 404.00101 406.22501 410.673 412.897 415.121 419.569 424.017 426.241 430.241 434.689 439.13699 440.91299 442.689 444.91299 447.13699 452.91299 457.36099 459.13699 463.13699"
+         id="tspan28">string to the shell, which</tspan><tspan
+         y="-626.79211"
+         x="382.177 384.841 389.289 393.737 397.737 399.961 402.185 406.633 411.08099"
+         id="tspan29">runs the </tspan></text>
+    <text
+       fill="#231f20"
+       xml:space="preserve"
+       transform="translate(-42.7104,726.12)"
+       font-size="8.5px"
+       font-family="CMTTSY10"
+       id="text30"><tspan
+         y="-626.79211"
+         x="413.30499 417.76749 422.22998 426.69247 431.15497"
+         id="tspan30">hello</tspan></text>
+    <text
+       fill="#231f20"
+       xml:space="preserve"
+       transform="translate(-42.7104,726.12)"
+       font-size="8px"
+       font-family="Helvetica"
+       id="text39"><tspan
+         y="-626.79211"
+         x="435.617 437.841 442.289 444.953 449.401 453.849 456.513 460.961"
+         id="tspan31"> program</tspan><tspan
+         y="-617.79211"
+         x="385.54102 389.98901 394.43701 398.88501 401.10901 405.55701 410.005 414.005 418.005 422.453 426.453 428.677 430.901 435.349 439.797 442.021 446.46899 450.91699 453.14099 457.58899 462.03699"
+         id="tspan32">and passes the output</tspan><tspan
+         y="-608.79211"
+         x="391.77301 393.99701 398.44501 400.66901 402.89301 407.341 411.789 414.013 416.237 420.685 422.461 426.909 431.35699 433.58099 435.80499 439.80499 444.25299 446.91699 450.91699 455.36499"
+         id="tspan33">to the telnet server</tspan><tspan
+         y="-634.79211"
+         x="184.341 188.789 193.237 197.237 201.685"
+         id="tspan34">Local</tspan><tspan
+         y="-625.79211"
+         x="184.117 186.341 190.789 192.565 197.013 201.461"
+         id="tspan35">telnet</tspan><tspan
+         y="-616.79211"
+         x="184.565 188.565 190.341 192.117 196.565 201.013"
+         id="tspan36">client</tspan><tspan
+         y="-634.29211"
+         x="334.397 340.173 344.621 351.285 355.733 357.957"
+         id="tspan37">Remote</tspan><tspan
+         y="-625.29211"
+         x="338.617 340.841 345.289 347.065 351.513 355.961"
+         id="tspan38">telnet</tspan><tspan
+         y="-616.29211"
+         x="337.289 341.289 345.737 348.401 352.401 356.849"
+         id="tspan39">server</tspan></text>
+    <text
+       fill="#00adef"
+       xml:space="preserve"
+       transform="translate(-42.7104,726.12)"
+       font-size="8.9664px"
+       font-family="StoneSans"
+       id="text40"><tspan
+         y="-568.052"
+         x="94.5 98.812836 100.94684 106.28185 111.40166 114.52197 121.64129 126.788 129.36136 134.50807"
+         id="tspan40">Figure1.15</tspan></text>
+    <text
+       fill="#231f20"
+       xml:space="preserve"
+       transform="translate(-42.7104,726.12)"
+       font-size="8.9664px"
+       font-family="StoneSans"
+       font-weight="bold"
+       id="text41"><tspan
+         y="-568.052"
+         x="147.62413 154.09787 157.91756 160.32951 165.87074 174.03914 177.52707 182.43169 184.84364 190.38487 195.28949 201.35078 204.83871 212.83675 216.43227 221.73141"
+         id="tspan41">Usingtelnettorun</tspan></text>
+    <text
+       fill="#231f20"
+       xml:space="preserve"
+       transform="translate(-42.7104,726.12)"
+       font-size="9.9626px"
+       font-family="ZztexMono"
+       id="text42"><tspan
+         y="-568.052"
+         x="229.84399 235.07436 240.30472 245.53508 250.76544"
+         id="tspan42">hello</tspan></text>
+    <text
+       fill="#231f20"
+       xml:space="preserve"
+       transform="translate(-42.7104,726.12)"
+       font-size="8.9664px"
+       font-family="StoneSans"
+       font-weight="bold"
+       id="text43"><tspan
+         y="-568.052"
+         x="258.57001 262.16553 267.07016 275.27441 280.6991 284.18701 289.09164 291.5036 298.73053 304.15521 308.80878 313.71341 319.88229 327.27957 332.8208 337.72543 341.21335 348.53891 353.96359 357.55911 362.1499"
+         id="tspan43">remotelyoveranetwork.</tspan></text>
+  </g>
+</svg>
