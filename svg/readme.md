@@ -348,7 +348,42 @@ svg=$(cat <<<'
 echo -n "url(data:image/svg+xml;base64,$(echo $svg | base64 -w 0))" | clip
 ```
 
-出于安全性考虑，引用外部资源的方式，SVG 不能执行脚本交互。
+出于安全性考虑，引用外部资源的方式，SVG 不能执行脚本交互。嵌套的或者独立 svg 可以通过脚本完全控制
+矢量节点，比如创建图像节点、设置节点属性等等：
+
+```javascript
+<svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink" 
+    version="1.1" width="4000" height="4828" 
+    >
+    <g>
+        <script>
+        <![CDATA[
+            const txt = document.createElementNS("http://www.w3.org/2000/svg", "text")
+            txt.innerHTML = "哪咤闹海（彩绘少年儿童出版社1957版）"
+            txt.setAttributeNS(null, "x", 50)
+            txt.setAttributeNS(null, "y", 50)
+            txt.setAttributeNS(null, "fill", "black")
+            txt.setAttributeNS(null, "stroke", "blue")
+            document.documentElement.appendChild(txt)
+
+            const width=800, height=710
+            for(let it=1; it<=34; it++) {
+                const img = document.createElementNS("http://www.w3.org/2000/svg", "image")
+                const href = ("0000"+it).substring(it<10? 1: it<100? 2: it<1000? 3:4)+".jpg"
+                const x = (it-1)%5 * 710
+                const y = parseInt(it/5) * 800
+                img.setAttributeNS(null, "href", href)
+                img.setAttributeNS(null, "x", x)
+                img.setAttributeNS(null, "y", y)
+                document.documentElement.appendChild(img)
+            }
+        ]]>
+        </script>
+    </g>
+</svg>
+```
 
 
 SVG Shapes
