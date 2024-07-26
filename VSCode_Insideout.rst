@@ -414,7 +414,7 @@
    两种版本有各自独立专用的插件安装目录和缓存目录：
 
    ==========  =======================  ================================
-               Stable Edition           Insiders Edition
+   \           Stable Edition           Insiders Edition
    ==========  =======================  ================================
    Plugin Dir  "%USERPROFILE%\.vscode"  "%USERPROFILE%\.vscode-insiders"
    Cache Dir   "%APPDATA%\Code"         "%APPDATA%\Code - Insiders"
@@ -1397,7 +1397,9 @@ Gradle Project
    |  Type of script | Delegates to instance of |     File name      |
    +-----------------+--------------------------+--------------------+
    | Build script    | Project                  | build.gradle.kt    |
+   +-----------------+--------------------------+--------------------+
    | Init script     | Gradle                   | init.gradle.kt     |
+   +-----------------+--------------------------+--------------------+
    | Settings script | Settings                 | settings.gradle.kt |
    +-----------------+--------------------------+--------------------+
 
