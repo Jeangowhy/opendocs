@@ -1,8 +1,8 @@
 Getting Started Linux kernel Programming
 ========================================
 
-   *  `kernel_started <https://github.com/Jeangowhy/opendocs/blob/main/kernel_started.rst>`__
-   *  `hi_kernel <https://github.com/jimboyeah/demo/tree/hi_kernel>`__
+   *  文档后续更新地址 `kernel_started <https://github.com/Jeangowhy/opendocs/blob/main/kernel_started.rst>`__
+   *  文档配代码仓库 `hi_kernel <https://github.com/jimboyeah/demo/tree/hi_kernel>`__
 
    此代码仓库为 Linux Kernel 学习之用，Kernel 包含的代码经过数十年的积累的庞大代码库，
    学习它不必强求全面，每个人的精力有限，可以挑选此感兴趣的功能部分进行研究。这本身也不是
@@ -68,8 +68,8 @@ Getting Started Linux kernel Programming
    怀着一颗敬畏之心，切勿想着几个月、几年就想把整整几百万人几十年的积累啃个透彻，这真的太难了，又不
    是神人，何来这种壮志雄心！
 
-   这里有一份 `Linux Distributions Timeline <pictures\ldt_v22.10.svg>`__，光是看这
-   几十年 Linux 的版本分叉发展就让人头皮发麻，更何况要吃透拥有 1GB 数据量的源代码仓库的文件。
+   这里有一份 `Linux Distributions Timeline <https://github.com/jeangowhy/opendocs/blob/main/pictures/ldt_v22.10.svg>`__，
+   光是看这几十年 Linux 的版本分叉发展就让人头皮发麻，更何况要吃透拥有 1GB 数据量的源代码仓库的文件。
    可以找找看自己的主机安装的 Linux 发行版本是那个分支衍生出来的。
 
    学习过程中遇到问题是肯定的，甚至靠个人无法解决的问题也会很多，即使代码仓库已经提供了非常丰富的
