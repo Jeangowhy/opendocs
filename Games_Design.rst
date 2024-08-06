@@ -405,7 +405,7 @@ Tutorial
    below 50 g	            Unbreathable	Duplicants will hold their breath, 
                            but will not suffer from a Low Oxygen debuff
    ======================= =====================================================
-   
+
    https://oxygennotincluded.fandom.com/wiki/Atmospheric_Pressure
 
    气压的大小和气体的扩散会相互影响。一般来说，同种气体会从气压大的位置扩散到气压小的位置，而一种
@@ -443,7 +443,8 @@ Tutorial
    *  液温调节器和温度调节器可以往环境中释放大量热量并冷却其中的液/气体，将它们送往更热的地方吧！
 
    设计管道热交换线路时注意，通风管和水管都有普通型、隔热型、导热热型，需要根据场合使用。特别是导热管，
-   通常使用贵金属，成本比较高，只用在关键位置。注意，使用导热管用于获取冷量会导致冻坏，这点与现实物理不同。
+   通常使用贵金属，成本比较高，只用在关键位置。注意，使用导热管用于获取冷量可能会导致冻坏爆管，这与造管
+   使用什么材料有关。
 
    有多种方法可以直接利用热量：
 
@@ -701,22 +702,22 @@ Creatures
    -  `复制人 <https://oxygennotincluded.fandom.com/wiki/Duplicant>`__
    -  `小动物 <https://oxygennotincluded.fandom.com/wiki/Critter>`__
 
-      *  `侦察者 <https://oxygennotincluded.fandom.com/wiki/Rover>`__
-      *  `发光虫 <https://oxygennotincluded.fandom.com/wiki/Shine_Bug>`__
-      *  `喷浮飞鱼 <https://oxygennotincluded.fandom.com/wiki/Puft>`__
-      *  `好吃哈奇 <https://oxygennotincluded.fandom.com/wiki/Hatch>`__
-      *  `帕库鱼 <https://oxygennotincluded.fandom.com/wiki/Pacu>`__
-      *  `异化虫 <https://oxygennotincluded.fandom.com/wiki/Divergent>`__
-      *  `扫扫机 <https://oxygennotincluded.fandom.com/wiki/Sweepy>`__
-      *  `抛壳蟹 <https://oxygennotincluded.fandom.com/wiki/Pokeshell>`__
-      *  `树鼠 <https://oxygennotincluded.fandom.com/wiki/Pip>`__
-      *  `毛鳞壁虎 <https://oxygennotincluded.fandom.com/wiki/Drecko>`__
-      *  `浮油生物 <https://oxygennotincluded.fandom.com/wiki/Slickster>`__
-      *  `电弧蛞蝓 <https://oxygennotincluded.fandom.com/wiki/Plug_Slug>`__
-      *  `疫病章鱼 <https://oxygennotincluded.fandom.com/wiki/Morb>`__
-      *  `辐射蜂 <https://oxygennotincluded.fandom.com/wiki/Beeta>`__
-      *  `释气海牛 <https://oxygennotincluded.fandom.com/wiki/Gassy_Moo>`__
-      *  `锹环田鼠 <https://oxygennotincluded.fandom.com/wiki/Shove_Vole>`__
+      *  `侦察者 <https://oxygennotincluded.fandom.com/wiki/Rover>`__
+      *  `发光虫 <https://oxygennotincluded.fandom.com/wiki/Shine_Bug>`__
+      *  `喷浮飞鱼 <https://oxygennotincluded.fandom.com/wiki/Puft>`__
+      *  `好吃哈奇 <https://oxygennotincluded.fandom.com/wiki/Hatch>`__
+      *  `帕库鱼 <https://oxygennotincluded.fandom.com/wiki/Pacu>`__
+      *  `异化虫 <https://oxygennotincluded.fandom.com/wiki/Divergent>`__
+      *  `扫扫机 <https://oxygennotincluded.fandom.com/wiki/Sweepy>`__
+      *  `抛壳蟹 <https://oxygennotincluded.fandom.com/wiki/Pokeshell>`__
+      *  `树鼠 <https://oxygennotincluded.fandom.com/wiki/Pip>`__
+      *  `毛鳞壁虎 <https://oxygennotincluded.fandom.com/wiki/Drecko>`__
+      *  `浮油生物 <https://oxygennotincluded.fandom.com/wiki/Slickster>`__
+      *  `电弧蛞蝓 <https://oxygennotincluded.fandom.com/wiki/Plug_Slug>`__
+      *  `疫病章鱼 <https://oxygennotincluded.fandom.com/wiki/Morb>`__
+      *  `辐射蜂 <https://oxygennotincluded.fandom.com/wiki/Beeta>`__
+      *  `释气海牛 <https://oxygennotincluded.fandom.com/wiki/Gassy_Moo>`__
+      *  `锹环田鼠 <https://oxygennotincluded.fandom.com/wiki/Shove_Vole>`__
    
    -  `植物 <https://oxygennotincluded.fandom.com/wiki/Plant>`__
 
@@ -776,7 +777,7 @@ https://oxygennotincluded.fandom.com/wiki/Elements
 
     - `农业 <https://oxygennotincluded.fandom.com/wiki/Category:Agriculture>`__
 
-        #. `磷矿 <https://oxygennotincluded.fandom.com/wiki/Fertilizer>`__ •
+        #. `磷矿 <https://oxygennotincluded.fandom.com/wiki/Fertilizer>`__ •
         #. `肥料 <https://oxygennotincluded.fandom.com/wiki/Phosphorite>`__
 
     - `精炼矿物 <https://oxygennotincluded.fandom.com/wiki/Category:Refined_Mineral>`__
@@ -785,116 +786,116 @@ https://oxygennotincluded.fandom.com/wiki/Elements
 
     - `矿物原料 <https://oxygennotincluded.fandom.com/wiki/Category:Raw_Mineral>`__
 
-        #. `化石 <https://oxygennotincluded.fandom.com/wiki/Fossil>`__ •
-        #. `沉积岩 <https://oxygennotincluded.fandom.com/wiki/Sedimentary_Rock>`__ •
-        #. `火成岩 <https://oxygennotincluded.fandom.com/wiki/Igneous_Rock>`__ •
-        #. `石墨 <https://oxygennotincluded.fandom.com/wiki/Graphite>`__ •
-        #. `砂岩 <https://oxygennotincluded.fandom.com/wiki/Sandstone>`__ •
-        #. `花岗岩 <https://oxygennotincluded.fandom.com/wiki/Granite>`__ •
-        #. `镁铁质岩 <https://oxygennotincluded.fandom.com/wiki/Mafic_Rock>`__ •
-        #. `陶瓷 <https://oxygennotincluded.fandom.com/wiki/Ceramic>`__ •
+        #. `化石 <https://oxygennotincluded.fandom.com/wiki/Fossil>`__ •
+        #. `沉积岩 <https://oxygennotincluded.fandom.com/wiki/Sedimentary_Rock>`__ •
+        #. `火成岩 <https://oxygennotincluded.fandom.com/wiki/Igneous_Rock>`__ •
+        #. `石墨 <https://oxygennotincluded.fandom.com/wiki/Graphite>`__ •
+        #. `砂岩 <https://oxygennotincluded.fandom.com/wiki/Sandstone>`__ •
+        #. `花岗岩 <https://oxygennotincluded.fandom.com/wiki/Granite>`__ •
+        #. `镁铁质岩 <https://oxygennotincluded.fandom.com/wiki/Mafic_Rock>`__ •
+        #. `陶瓷 <https://oxygennotincluded.fandom.com/wiki/Ceramic>`__ •
         #. `黑曜石 <https://oxygennotincluded.fandom.com/wiki/Obsidian>`__
 
     - `消耗性矿石 <https://oxygennotincluded.fandom.com/wiki/Category:Consumable_Ore>`__
 
-        #. `咸乳蜡 <https://oxygennotincluded.fandom.com/wiki/Brackwax>`__ •
-        #. `固态甲烷 <https://oxygennotincluded.fandom.com/wiki/Solid_Methane>`__ •
-        #. `煤炭 <https://oxygennotincluded.fandom.com/wiki/Coal>`__ •
-        #. `盐 <https://oxygennotincluded.fandom.com/wiki/Salt>`__ •
-        #. `石灰 <https://oxygennotincluded.fandom.com/wiki/Lime>`__ •
-        #. `精炼碳 <https://oxygennotincluded.fandom.com/wiki/Refined_Carbon>`__ •
-        #. `精炼磷 <https://oxygennotincluded.fandom.com/wiki/Refined_Phosphorus>`__ •
-        #. `蔗糖 <https://oxygennotincluded.fandom.com/wiki/Sucrose>`__ •
+        #. `咸乳蜡 <https://oxygennotincluded.fandom.com/wiki/Brackwax>`__ •
+        #. `固态甲烷 <https://oxygennotincluded.fandom.com/wiki/Solid_Methane>`__ •
+        #. `煤炭 <https://oxygennotincluded.fandom.com/wiki/Coal>`__ •
+        #. `盐 <https://oxygennotincluded.fandom.com/wiki/Salt>`__ •
+        #. `石灰 <https://oxygennotincluded.fandom.com/wiki/Lime>`__ •
+        #. `精炼碳 <https://oxygennotincluded.fandom.com/wiki/Refined_Carbon>`__ •
+        #. `精炼磷 <https://oxygennotincluded.fandom.com/wiki/Refined_Phosphorus>`__ •
+        #. `蔗糖 <https://oxygennotincluded.fandom.com/wiki/Sucrose>`__ •
         #. `铁锈 <https://oxygennotincluded.fandom.com/wiki/Rust>`__
 
     - `可耕种的泥土 <https://oxygennotincluded.fandom.com/wiki/Category:Cultivable_Soil>`__
 
-        #. `泥土 <https://oxygennotincluded.fandom.com/wiki/Dirt>`__ •
+        #. `泥土 <https://oxygennotincluded.fandom.com/wiki/Dirt>`__ •
         #. `粘土 <https://oxygennotincluded.fandom.com/wiki/Clay>`__
 
     - `过滤介质 <https://oxygennotincluded.fandom.com/wiki/Category:Filtration_Medium>`__
 
-        #. `沙子 <https://oxygennotincluded.fandom.com/wiki/Sand>`__ •
+        #. `沙子 <https://oxygennotincluded.fandom.com/wiki/Sand>`__ •
         #. `浮土 <https://oxygennotincluded.fandom.com/wiki/Regolith>`__
 
     - `可液化物 <https://oxygennotincluded.fandom.com/wiki/Category:Liquefiable>`__
             
-        #. `雪 <https://oxygennotincluded.fandom.com/wiki/Snow>`__ •
-        #. `冰 <https://oxygennotincluded.fandom.com/wiki/Ice>`__ •
-        #. `碎冰 <https://oxygennotincluded.fandom.com/wiki/Crushed_Ice>`__ •
-        #. `凝冻咸乳 <https://oxygennotincluded.fandom.com/wiki/Frozen_Brackene>`__ • 
-        #. `动物油脂 <https://oxygennotincluded.wiki.gg/zh/wiki/动物油脂>`__ •
-        #. `固态丙烷 <https://oxygennotincluded.fandom.com/wiki/Solid_Propane>`__ •
-        #. `固态乙醇 <https://oxygennotincluded.fandom.com/wiki/Solid_Ethanol>`__ •
-        #. `固态二氧化碳 <https://oxygennotincluded.fandom.com/wiki/Solid_Carbon_Dioxide>`__ •
-        #. `固态原油 <https://oxygennotincluded.fandom.com/wiki/Solid_Crude_Oil>`__ •
-        #. `固态氢 <https://oxygennotincluded.fandom.com/wiki/Solid_Hydrogen>`__ •
-        #. `固态氧 <https://oxygennotincluded.fandom.com/wiki/Solid_Oxygen>`__ •
-        #. `固态氯 <https://oxygennotincluded.fandom.com/wiki/Solid_Chlorine>`__ •
-        #. `固态石油 <https://oxygennotincluded.fandom.com/wiki/Solid_Petroleum>`__ •
-        #. `固态石脑油 <https://oxygennotincluded.fandom.com/wiki/Solid_Naphtha>`__ •
-        #. `污染冰 <https://oxygennotincluded.fandom.com/wiki/Polluted_Ice>`__ •
-        #. `浓盐冰 <https://oxygennotincluded.fandom.com/wiki/Brine_Ice>`__ •
+        #. `雪 <https://oxygennotincluded.fandom.com/wiki/Snow>`__ •
+        #. `冰 <https://oxygennotincluded.fandom.com/wiki/Ice>`__ •
+        #. `碎冰 <https://oxygennotincluded.fandom.com/wiki/Crushed_Ice>`__ •
+        #. `凝冻咸乳 <https://oxygennotincluded.fandom.com/wiki/Frozen_Brackene>`__ • 
+        #. `动物油脂 <https://oxygennotincluded.wiki.gg/zh/wiki/动物油脂>`__ •
+        #. `固态丙烷 <https://oxygennotincluded.fandom.com/wiki/Solid_Propane>`__ •
+        #. `固态乙醇 <https://oxygennotincluded.fandom.com/wiki/Solid_Ethanol>`__ •
+        #. `固态二氧化碳 <https://oxygennotincluded.fandom.com/wiki/Solid_Carbon_Dioxide>`__ •
+        #. `固态原油 <https://oxygennotincluded.fandom.com/wiki/Solid_Crude_Oil>`__ •
+        #. `固态氢 <https://oxygennotincluded.fandom.com/wiki/Solid_Hydrogen>`__ •
+        #. `固态氧 <https://oxygennotincluded.fandom.com/wiki/Solid_Oxygen>`__ •
+        #. `固态氯 <https://oxygennotincluded.fandom.com/wiki/Solid_Chlorine>`__ •
+        #. `固态石油 <https://oxygennotincluded.fandom.com/wiki/Solid_Petroleum>`__ •
+        #. `固态石脑油 <https://oxygennotincluded.fandom.com/wiki/Solid_Naphtha>`__ •
+        #. `污染冰 <https://oxygennotincluded.fandom.com/wiki/Polluted_Ice>`__ •
+        #. `浓盐冰 <https://oxygennotincluded.fandom.com/wiki/Brine_Ice>`__ •
 
     - `人造材料 <https://oxygennotincluded.fandom.com/wiki/Category:Manufactured_Material>`__
 
-        #. `固态粘性凝胶 <https://oxygennotincluded.fandom.com/wiki/Solid_Visco-Gel>`__ •
-        #. `固态超级冷却剂 <https://oxygennotincluded.fandom.com/wiki/Solid_Super_Coolant>`__ •
-        #. `塑料 <https://oxygennotincluded.fandom.com/wiki/Plastic>`__ •
-        #. `塑料质 <https://oxygennotincluded.fandom.com/wiki/Plastium>`__ •
-        #. `浓缩铀 <https://oxygennotincluded.fandom.com/wiki/Enriched_Uranium>`__ •
-        #. `玻璃 <https://oxygennotincluded.fandom.com/wiki/Glass>`__ •
-        #. `钢 <https://oxygennotincluded.fandom.com/wiki/Steel>`__ •
-        #. `导热质 <https://oxygennotincluded.fandom.com/wiki/Thermium>`__ •
+        #. `固态粘性凝胶 <https://oxygennotincluded.fandom.com/wiki/Solid_Visco-Gel>`__ •
+        #. `固态超级冷却剂 <https://oxygennotincluded.fandom.com/wiki/Solid_Super_Coolant>`__ •
+        #. `塑料 <https://oxygennotincluded.fandom.com/wiki/Plastic>`__ •
+        #. `塑料质 <https://oxygennotincluded.fandom.com/wiki/Plastium>`__ •
+        #. `浓缩铀 <https://oxygennotincluded.fandom.com/wiki/Enriched_Uranium>`__ •
+        #. `玻璃 <https://oxygennotincluded.fandom.com/wiki/Glass>`__ •
+        #. `钢 <https://oxygennotincluded.fandom.com/wiki/Steel>`__ •
+        #. `导热质 <https://oxygennotincluded.fandom.com/wiki/Thermium>`__ •
         #. `隔热质 <https://oxygennotincluded.fandom.com/wiki/Insulite>`__
 
     - `金属矿石 <https://oxygennotincluded.fandom.com/wiki/Category:Metal_Ore>`__
 
         #. `朱砂矿 <https://oxygennotincluded.wiki.gg/zh/wiki/朱砂矿>`__ •
-        #. `金汞齐 <https://oxygennotincluded.fandom.com/wiki/Gold_Amalgamh>`__ •
-        #. `银金矿 <https://oxygennotincluded.fandom.com/wiki/Electrum>`__ •
-        #. `钴矿 <https://oxygennotincluded.fandom.com/wiki/Cobalt_Ore>`__ •
-        #. `铀矿 <https://oxygennotincluded.fandom.com/wiki/Uranium_Ore>`__ •
-        #. `铁矿 <https://oxygennotincluded.fandom.com/wiki/Iron_Ore>`__ •
-        #. `铜矿 <https://oxygennotincluded.fandom.com/wiki/Copper_Ore>`__ •
-        #. `铝矿 <https://oxygennotincluded.fandom.com/wiki/Aluminum_Ore>`__ •
-        #. `黄铁矿 <https://oxygennotincluded.fandom.com/wiki/Pyrite>`__ •
+        #. `金汞齐 <https://oxygennotincluded.fandom.com/wiki/Gold_Amalgamh>`__ •
+        #. `银金矿 <https://oxygennotincluded.fandom.com/wiki/Electrum>`__ •
+        #. `钴矿 <https://oxygennotincluded.fandom.com/wiki/Cobalt_Ore>`__ •
+        #. `铀矿 <https://oxygennotincluded.fandom.com/wiki/Uranium_Ore>`__ •
+        #. `铁矿 <https://oxygennotincluded.fandom.com/wiki/Iron_Ore>`__ •
+        #. `铜矿 <https://oxygennotincluded.fandom.com/wiki/Copper_Ore>`__ •
+        #. `铝矿 <https://oxygennotincluded.fandom.com/wiki/Aluminum_Ore>`__ •
+        #. `黄铁矿 <https://oxygennotincluded.fandom.com/wiki/Pyrite>`__ •
         #. `黑钨矿 <https://oxygennotincluded.fandom.com/wiki/Wolframite>`__
 
     - `有机物 <https://oxygennotincluded.fandom.com/wiki/Category:Organic>`__
 
-        #. `固态树脂 <https://oxygennotincluded.fandom.com/wiki/Resin>`__ •
+        #. `固态树脂 <https://oxygennotincluded.fandom.com/wiki/Resin>`__ •
         #. `木材 <https://oxygennotincluded.wiki.gg/zh/wiki/木材>`__ •
-        #. `污染土 <https://oxygennotincluded.fandom.com/wiki/Polluted_Dirt>`__ •
-        #. `污染泥 <https://oxygennotincluded.fandom.com/wiki/Polluted_Mud>`__ •
-        #. `泥巴 <https://oxygennotincluded.fandom.com/wiki/Mud>`__ •
-        #. `菌泥 <https://oxygennotincluded.fandom.com/wiki/Slime>`__ •
+        #. `污染土 <https://oxygennotincluded.fandom.com/wiki/Polluted_Dirt>`__ •
+        #. `污染泥 <https://oxygennotincluded.fandom.com/wiki/Polluted_Mud>`__ •
+        #. `泥巴 <https://oxygennotincluded.fandom.com/wiki/Mud>`__ •
+        #. `菌泥 <https://oxygennotincluded.fandom.com/wiki/Slime>`__ •
         #. `藻类 <https://oxygennotincluded.fandom.com/wiki/Algae>`__
 
     - `其他 <https://oxygennotincluded.fandom.com/wiki/Category:Miscellaneous>`__
 
-        #. `固态核废料 <https://oxygennotincluded.fandom.com/wiki/Solid_Nuclear_Waste>`__ •
-        #. `堆芯熔融物 <https://oxygennotincluded.fandom.com/wiki/Corium>`__ •
-        #. `深渊晶石 <https://oxygennotincluded.fandom.com/wiki/Abyssalite>`__ •
-        #. `硫 <https://oxygennotincluded.fandom.com/wiki/Sulfur>`__ •
+        #. `固态核废料 <https://oxygennotincluded.fandom.com/wiki/Solid_Nuclear_Waste>`__ •
+        #. `堆芯熔融物 <https://oxygennotincluded.fandom.com/wiki/Corium>`__ •
+        #. `深渊晶石 <https://oxygennotincluded.fandom.com/wiki/Abyssalite>`__ •
+        #. `硫 <https://oxygennotincluded.fandom.com/wiki/Sulfur>`__ •
         #. `钻石 <https://oxygennotincluded.fandom.com/wiki/Diamond>`__
 
     - `稀有资源 <https://oxygennotincluded.fandom.com/wiki/Category:Rare_Resource>`__
 
-        #. `富勒烯 <https://oxygennotincluded.fandom.com/wiki/Fullerene>`__ •
-        #. `异构树脂 <https://oxygennotincluded.fandom.com/wiki/Isoresin>`__ •
+        #. `富勒烯 <https://oxygennotincluded.fandom.com/wiki/Fullerene>`__ •
+        #. `异构树脂 <https://oxygennotincluded.fandom.com/wiki/Isoresin>`__ •
         #. `铌 <https://oxygennotincluded.fandom.com/wiki/Niobium>`__
 
     - `精炼金属 <https://oxygennotincluded.fandom.com/wiki/Category:Refined_Metal>`__
 
-        #. `固态汞 <https://oxygennotincluded.fandom.com/wiki/Solid_Mercury>`__ •
-        #. `贫铀 <https://oxygennotincluded.fandom.com/wiki/Depleted_Uranium>`__ •
-        #. `金 <https://oxygennotincluded.fandom.com/wiki/Gold>`__ •
-        #. `钨 <https://oxygennotincluded.fandom.com/wiki/Tungsten>`__ •
-        #. `钴 <https://oxygennotincluded.fandom.com/wiki/Cobalt>`__ •
-        #. `铁 <https://oxygennotincluded.fandom.com/wiki/Iron>`__ •
-        #. `铅 <https://oxygennotincluded.fandom.com/wiki/Lead>`__ •
-        #. `铜 <https://oxygennotincluded.fandom.com/wiki/Copper>`__ •
+        #. `固态汞 <https://oxygennotincluded.fandom.com/wiki/Solid_Mercury>`__ •
+        #. `贫铀 <https://oxygennotincluded.fandom.com/wiki/Depleted_Uranium>`__ •
+        #. `金 <https://oxygennotincluded.fandom.com/wiki/Gold>`__ •
+        #. `钨 <https://oxygennotincluded.fandom.com/wiki/Tungsten>`__ •
+        #. `钴 <https://oxygennotincluded.fandom.com/wiki/Cobalt>`__ •
+        #. `铁 <https://oxygennotincluded.fandom.com/wiki/Iron>`__ •
+        #. `铅 <https://oxygennotincluded.fandom.com/wiki/Lead>`__ •
+        #. `铜 <https://oxygennotincluded.fandom.com/wiki/Copper>`__ •
         #. `铝 <https://oxygennotincluded.fandom.com/wiki/Aluminum>`__
 
     - `特殊品 <https://oxygennotincluded.fandom.com/wiki/Category:Special>`__
@@ -903,55 +904,55 @@ https://oxygennotincluded.fandom.com/wiki/Elements
 
     - 可升华物
 
-        #. `氧石 <https://oxygennotincluded.fandom.com/wiki/Oxylite>`__ •
+        #. `氧石 <https://oxygennotincluded.fandom.com/wiki/Oxylite>`__ •
         #. `漂白石 <https://oxygennotincluded.fandom.com/wiki/Bleach_Stone>`__
 
     - 无分类
 
-        #. `沥青 <https://oxygennotincluded.fandom.com/wiki/Bitumen>`__ •
-        #. `遗传生物软泥 <https://oxygennotincluded.fandom.com/wiki/Genetic_Ooze>`__ •
+        #. `沥青 <https://oxygennotincluded.fandom.com/wiki/Bitumen>`__ •
+        #. `遗传生物软泥 <https://oxygennotincluded.fandom.com/wiki/Genetic_Ooze>`__ •
         #. `镭 <https://oxygennotincluded.fandom.com/wiki/Radium>`__
 
 *  `液体 <https://oxygennotincluded.fandom.com/wiki/Liquid>`__
 
     - 液体
 
-        #. `乙醇 <https://oxygennotincluded.fandom.com/wiki/Ethanol>`__ •
-        #. `原油 <https://oxygennotincluded.fandom.com/wiki/Crude_Oil>`__ •
-        #. `咸乳 <https://oxygennotincluded.fandom.com/wiki/Brackene>`__ •
-        #. `岩浆 <https://oxygennotincluded.fandom.com/wiki/Magma>`__ •
-        #. `水 <https://oxygennotincluded.fandom.com/wiki/Water>`__ •
-        #. `汞 <https://oxygennotincluded.fandom.com/wiki/Mercury>`__ •
-        #. `污染水 <https://oxygennotincluded.fandom.com/wiki/Polluted_Water>`__ •
-        #. `浓盐水 <https://oxygennotincluded.fandom.com/wiki/Brine>`__ •
-        #. `液态丙烷 <https://oxygennotincluded.fandom.com/wiki/Liquid_Propane>`__ •
-        #. `液态二氧化碳 <https://oxygennotincluded.fandom.com/wiki/Liquid_Carbon_Dioxide>`__ •
-        #. `液态树脂 <https://oxygennotincluded.fandom.com/wiki/Liquid_Resin>`__ •
-        #. `液态核废料 <https://oxygennotincluded.fandom.com/wiki/Nuclear_Waste>`__ •
-        #. `液态氢 <https://oxygennotincluded.fandom.com/wiki/Liquid_Hydrogen>`__ •
-        #. `液态氧 <https://oxygennotincluded.fandom.com/wiki/Liquid_Oxygen>`__ •
-        #. `液态氯 <https://oxygennotincluded.fandom.com/wiki/Liquid_Chlorine>`__ •
-        #. `液态甲烷 <https://oxygennotincluded.fandom.com/wiki/Methane>`__ •
-        #. `液态石脑油 <https://oxygennotincluded.fandom.com/wiki/Naphtha>`__ •
-        #. `液态硫 <https://oxygennotincluded.fandom.com/wiki/Liquid_Sulfur>`__ •
-        #. `液态磷 <https://oxygennotincluded.fandom.com/wiki/Liquid_Phosphorus>`__ •
-        #. `熔融玻璃 <https://oxygennotincluded.fandom.com/wiki/Molten_Glass>`__ •
-        #. `熔融盐 <https://oxygennotincluded.fandom.com/wiki/Molten_Salt>`__ •
-        #. `熔融碳 <https://oxygennotincluded.fandom.com/wiki/Liquid_Carbon>`__ •
-        #. `熔融蔗糖 <https://oxygennotincluded.fandom.com/wiki/Liquid_Sucrose>`__ •
-        #. `熔融金 <https://oxygennotincluded.fandom.com/wiki/Liquid_Gold>`__ •
-        #. `熔融钢 <https://oxygennotincluded.fandom.com/wiki/Liquid_Steel>`__ •
-        #. `熔融钨 <https://oxygennotincluded.fandom.com/wiki/Liquid_Tungsten>`__ •
-        #. `熔融钴 <https://oxygennotincluded.fandom.com/wiki/Liquid_Cobalt>`__ •
-        #. `熔融铀 <https://oxygennotincluded.fandom.com/wiki/Liquid_Uranium>`__ •
-        #. `熔融铁 <https://oxygennotincluded.fandom.com/wiki/Liquid_Iron>`__ •
-        #. `熔融铅 <https://oxygennotincluded.fandom.com/wiki/Molten_Lead>`__ •
-        #. `熔融铌 <https://oxygennotincluded.fandom.com/wiki/Liquid_Niobium>`__ •
-        #. `熔融铜 <https://oxygennotincluded.fandom.com/wiki/Liquid_Copper>`__ •
-        #. `熔融铝 <https://oxygennotincluded.fandom.com/wiki/Molten_Aluminum>`__ •
-        #. `盐水 <https://oxygennotincluded.fandom.com/wiki/Salt_Water>`__ •
-        #. `石油 <https://oxygennotincluded.fandom.com/wiki/Petroleum>`__ •
-        #. `粘性凝胶流体 <https://oxygennotincluded.fandom.com/wiki/Visco-Gel>`__ •
+        #. `乙醇 <https://oxygennotincluded.fandom.com/wiki/Ethanol>`__ •
+        #. `原油 <https://oxygennotincluded.fandom.com/wiki/Crude_Oil>`__ •
+        #. `咸乳 <https://oxygennotincluded.fandom.com/wiki/Brackene>`__ •
+        #. `岩浆 <https://oxygennotincluded.fandom.com/wiki/Magma>`__ •
+        #. `水 <https://oxygennotincluded.fandom.com/wiki/Water>`__ •
+        #. `汞 <https://oxygennotincluded.fandom.com/wiki/Mercury>`__ •
+        #. `污染水 <https://oxygennotincluded.fandom.com/wiki/Polluted_Water>`__ •
+        #. `浓盐水 <https://oxygennotincluded.fandom.com/wiki/Brine>`__ •
+        #. `液态丙烷 <https://oxygennotincluded.fandom.com/wiki/Liquid_Propane>`__ •
+        #. `液态二氧化碳 <https://oxygennotincluded.fandom.com/wiki/Liquid_Carbon_Dioxide>`__ •
+        #. `液态树脂 <https://oxygennotincluded.fandom.com/wiki/Liquid_Resin>`__ •
+        #. `液态核废料 <https://oxygennotincluded.fandom.com/wiki/Nuclear_Waste>`__ •
+        #. `液态氢 <https://oxygennotincluded.fandom.com/wiki/Liquid_Hydrogen>`__ •
+        #. `液态氧 <https://oxygennotincluded.fandom.com/wiki/Liquid_Oxygen>`__ •
+        #. `液态氯 <https://oxygennotincluded.fandom.com/wiki/Liquid_Chlorine>`__ •
+        #. `液态甲烷 <https://oxygennotincluded.fandom.com/wiki/Methane>`__ •
+        #. `液态石脑油 <https://oxygennotincluded.fandom.com/wiki/Naphtha>`__ •
+        #. `液态硫 <https://oxygennotincluded.fandom.com/wiki/Liquid_Sulfur>`__ •
+        #. `液态磷 <https://oxygennotincluded.fandom.com/wiki/Liquid_Phosphorus>`__ •
+        #. `熔融玻璃 <https://oxygennotincluded.fandom.com/wiki/Molten_Glass>`__ •
+        #. `熔融盐 <https://oxygennotincluded.fandom.com/wiki/Molten_Salt>`__ •
+        #. `熔融碳 <https://oxygennotincluded.fandom.com/wiki/Liquid_Carbon>`__ •
+        #. `熔融蔗糖 <https://oxygennotincluded.fandom.com/wiki/Liquid_Sucrose>`__ •
+        #. `熔融金 <https://oxygennotincluded.fandom.com/wiki/Liquid_Gold>`__ •
+        #. `熔融钢 <https://oxygennotincluded.fandom.com/wiki/Liquid_Steel>`__ •
+        #. `熔融钨 <https://oxygennotincluded.fandom.com/wiki/Liquid_Tungsten>`__ •
+        #. `熔融钴 <https://oxygennotincluded.fandom.com/wiki/Liquid_Cobalt>`__ •
+        #. `熔融铀 <https://oxygennotincluded.fandom.com/wiki/Liquid_Uranium>`__ •
+        #. `熔融铁 <https://oxygennotincluded.fandom.com/wiki/Liquid_Iron>`__ •
+        #. `熔融铅 <https://oxygennotincluded.fandom.com/wiki/Molten_Lead>`__ •
+        #. `熔融铌 <https://oxygennotincluded.fandom.com/wiki/Liquid_Niobium>`__ •
+        #. `熔融铜 <https://oxygennotincluded.fandom.com/wiki/Liquid_Copper>`__ •
+        #. `熔融铝 <https://oxygennotincluded.fandom.com/wiki/Molten_Aluminum>`__ •
+        #. `盐水 <https://oxygennotincluded.fandom.com/wiki/Salt_Water>`__ •
+        #. `石油 <https://oxygennotincluded.fandom.com/wiki/Petroleum>`__ •
+        #. `粘性凝胶流体 <https://oxygennotincluded.fandom.com/wiki/Visco-Gel>`__ •
         #. `花蜜 <https://oxygennotincluded.wiki.gg/zh/wiki/花蜜>`__
         #. `超级冷却剂 <https://oxygennotincluded.fandom.com/wiki/Super_Coolant>`__
 
@@ -960,35 +961,35 @@ https://oxygennotincluded.fandom.com/wiki/Elements
 
     - `可呼吸的气体 <https://oxygennotincluded.fandom.com/wiki/Category:Breathable_Gas>`__
 
-        #. `氧气 <https://oxygennotincluded.fandom.com/wiki/Oxygen>`__ •
+        #. `氧气 <https://oxygennotincluded.fandom.com/wiki/Oxygen>`__ •
         #. `污染氧 <https://oxygennotincluded.fandom.com/wiki/Polluted_Oxygen>`__
 
     - `不可呼吸的气体 <https://oxygennotincluded.fandom.com/wiki/Category:Unbreathable_Gas>`__
 
-        #. `二氧化碳 <https://oxygennotincluded.fandom.com/wiki/Carbon_Dioxide>`__ •
-        #. `天然气 <https://oxygennotincluded.fandom.com/wiki/Natural_Gas>`__ •
-        #. `核尘埃 <https://oxygennotincluded.fandom.com/wiki/Nuclear_Fallout>`__ •
-        #. `气态超级冷却剂 <https://oxygennotincluded.fandom.com/wiki/Gas_Super_Coolant>`__ •
-        #. `丙烷 <https://oxygennotincluded.fandom.com/wiki/Propane>`__ •
-        #. `气态乙醇 <https://oxygennotincluded.fandom.com/wiki/Gas_Ethanol>`__ •
-        #. `气态岩 <https://oxygennotincluded.fandom.com/wiki/Rock_Gas>`__ •
-        #. `气态盐 <https://oxygennotincluded.fandom.com/wiki/Salt_Gas>`__ •
-        #. `气态碳 <https://oxygennotincluded.fandom.com/wiki/Gas_Carbon>`__ •
-        #. `气态磷 <https://oxygennotincluded.fandom.com/wiki/Gas_Phosphorus>`__ •
-        #. `气态金 <https://oxygennotincluded.fandom.com/wiki/Gas_Gold>`__ •
-        #. `气态钢 <https://oxygennotincluded.fandom.com/wiki/Gas_Steel>`__ •
-        #. `气态钨 <https://oxygennotincluded.fandom.com/wiki/Gas_Tungsten>`__ •
-        #. `气态钴 <https://oxygennotincluded.fandom.com/wiki/Gas_Cobalt>`__ •
-        #. `气态铁 <https://oxygennotincluded.fandom.com/wiki/Gas_Iron>`__ •
-        #. `气态铅 <https://oxygennotincluded.fandom.com/wiki/Gas_Lead>`__ •
-        #. `气态铌 <https://oxygennotincluded.fandom.com/wiki/Gas_Niobium>`__ •
-        #. `气态铜 <https://oxygennotincluded.fandom.com/wiki/Gas_Copper>`__ •
-        #. `气态铝 <https://oxygennotincluded.fandom.com/wiki/Gas_Aluminum>`__ •
-        #. `氢气 <https://oxygennotincluded.fandom.com/wiki/Hydrogen>`__ •
-        #. `氯气 <https://oxygennotincluded.fandom.com/wiki/Chlorine>`__ •
-        #. `汞蒸气 <https://oxygennotincluded.fandom.com/wiki/Gas_Mercury>`__ •
-        #. `硫蒸气 <https://oxygennotincluded.fandom.com/wiki/Gas_Sulfur>`__ •
-        #. `蒸汽 <https://oxygennotincluded.fandom.com/wiki/Steam>`__ •
+        #. `二氧化碳 <https://oxygennotincluded.fandom.com/wiki/Carbon_Dioxide>`__ •
+        #. `天然气 <https://oxygennotincluded.fandom.com/wiki/Natural_Gas>`__ •
+        #. `核尘埃 <https://oxygennotincluded.fandom.com/wiki/Nuclear_Fallout>`__ •
+        #. `气态超级冷却剂 <https://oxygennotincluded.fandom.com/wiki/Gas_Super_Coolant>`__ •
+        #. `丙烷 <https://oxygennotincluded.fandom.com/wiki/Propane>`__ •
+        #. `气态乙醇 <https://oxygennotincluded.fandom.com/wiki/Gas_Ethanol>`__ •
+        #. `气态岩 <https://oxygennotincluded.fandom.com/wiki/Rock_Gas>`__ •
+        #. `气态盐 <https://oxygennotincluded.fandom.com/wiki/Salt_Gas>`__ •
+        #. `气态碳 <https://oxygennotincluded.fandom.com/wiki/Gas_Carbon>`__ •
+        #. `气态磷 <https://oxygennotincluded.fandom.com/wiki/Gas_Phosphorus>`__ •
+        #. `气态金 <https://oxygennotincluded.fandom.com/wiki/Gas_Gold>`__ •
+        #. `气态钢 <https://oxygennotincluded.fandom.com/wiki/Gas_Steel>`__ •
+        #. `气态钨 <https://oxygennotincluded.fandom.com/wiki/Gas_Tungsten>`__ •
+        #. `气态钴 <https://oxygennotincluded.fandom.com/wiki/Gas_Cobalt>`__ •
+        #. `气态铁 <https://oxygennotincluded.fandom.com/wiki/Gas_Iron>`__ •
+        #. `气态铅 <https://oxygennotincluded.fandom.com/wiki/Gas_Lead>`__ •
+        #. `气态铌 <https://oxygennotincluded.fandom.com/wiki/Gas_Niobium>`__ •
+        #. `气态铜 <https://oxygennotincluded.fandom.com/wiki/Gas_Copper>`__ •
+        #. `气态铝 <https://oxygennotincluded.fandom.com/wiki/Gas_Aluminum>`__ •
+        #. `氢气 <https://oxygennotincluded.fandom.com/wiki/Hydrogen>`__ •
+        #. `氯气 <https://oxygennotincluded.fandom.com/wiki/Chlorine>`__ •
+        #. `汞蒸气 <https://oxygennotincluded.fandom.com/wiki/Gas_Mercury>`__ •
+        #. `硫蒸气 <https://oxygennotincluded.fandom.com/wiki/Gas_Sulfur>`__ •
+        #. `蒸汽 <https://oxygennotincluded.fandom.com/wiki/Steam>`__ •
         #. `高硫天然气 <https://oxygennotincluded.fandom.com/wiki/Sour_Gas>`__
 
 
@@ -996,8 +997,8 @@ https://oxygennotincluded.fandom.com/wiki/Elements
 
     - `特殊品 <https://oxygennotincluded.fandom.com/wiki/Category:Special>`__
 
-        #. `复合物 <https://oxygennotincluded.fandom.com/wiki/Composition>`__ •
-        #. `真空 <https://oxygennotincluded.fandom.com/wiki/Vacuum>`__ •
+        #. `复合物 <https://oxygennotincluded.fandom.com/wiki/Composition>`__ •
+        #. `真空 <https://oxygennotincluded.fandom.com/wiki/Vacuum>`__ •
         #. `虚空 <https://oxygennotincluded.fandom.com/wiki/Void>`__
 
 
@@ -1521,6 +1522,683 @@ Building
 
 
 
+小动物品种、习性数据
+----------------
+
+   List of Critters
+
+   +-------------------------+-------------+----------------------+---------------------+--------------------------+----------------------+------------------+-------------------------------------------------------------------------------------+
+   | Image                   | Name        | Diet                 | Produces            | Egg                      | Drops                | `Stable`_ Limit  | Note                                                                                |
+   +-------------------------+-------------+----------------------+---------------------+--------------------------+----------------------+------------------+-------------------------------------------------------------------------------------+
+   | |Hatch|                 | Hatch       | `Food(Resource)`_ ,  | `Coal`_ ,           | |Hatchling Egg|          | `Meat`_              | 8                | Will burrow in soft ground during the day,                                          |
+   | |                       |             | `Raw Mineral`_,      | `Refined Metal`_    | |Sage Hatchling Egg|     |                      |                  | but will stay active if it can't find a place to burrow.                            |
+   | | |Sage Hatch|          |             | `Organic`_ ,         |                     | |Stone Hatchling Egg|    |                      |                  |                                                                                     |
+   | | |Stone Hatch|         |             | `Metal Ore`_ ,       |                     | |Smooth Hatchling Egg|   |                      |                  |                                                                                     |
+   | | |Smooth Hatch|        |             | `Refined Metal`_     |                     | |Gold Hatchling Egg|     |                      |                  |                                                                                     |
+   | | |Gold Hatch|          |             |                      |                     |                          |                      |                  |                                                                                     |
+   +-------------------------+-------------+----------------------+---------------------+--------------------------+----------------------+------------------+-------------------------------------------------------------------------------------+
+   | |Shine Bug|             | Shine Bug   | `Food(Building)`_ ,  | `Light`_ ,          | |Shine Nymph Egg|        | None                 | 8                | Floating/hovering critter, provides a constant source of light                      |
+   | |                       |             | `Phosphorite`_       | `Decor`_ ,          | |                        |                      |                  | and +30 `decor`_  in its immediate vicinity.                                        |
+   | | |Sun Bug|             |             |                      | `Radiation`_        | | |Sun Nymph Egg|        |                      |                  | Nice to have in one's base due to the light and decor bonuses.                      |
+   | | |Royal Bug|           |             |                      |                     | | |Royal Nymph Egg|      |                      |                  | Small health pool and only a small number spawn.                                    |
+   | | |Coral Bug|           |             |                      |                     | | |Coral Nymph Egg|      |                      |                  |                                                                                     |
+   | | |Azure Bug|           |             |                      |                     | | |Azure Nymph Egg|      |                      |                  |                                                                                     |
+   | | |Abyss Bug|           |             |                      |                     | | |Abyss Nymph Egg|      |                      |                  |                                                                                     |
+   | | |Radiant Bug|         |             |                      |                     | | |Radiant Nymph Egg|    |                      |                  |                                                                                     |
+   +-------------------------+-------------+----------------------+---------------------+--------------------------+----------------------+------------------+-------------------------------------------------------------------------------------+
+   | |Pip|                   | Pip         | `Arbor Trees`_ ,     | `Dirt`_             | |Pip Egg|                | `Meat`_              | 8 (Pip)          | Plants loose seeds into soft blocks and can knock items out of storage bins.        |
+   | |                       |             | `Thimble Reed`_      |                     | |                        |                      | 24 (Cuddle Pip)  | Cuddle pips hug eggs and dupes, speeding up incubation.                             |
+   | | |Cuddle Pip|          |             |                      |                     | | |Cuddle Pip Egg|       |                      |                  |                                                                                     |
+   +-------------------------+-------------+----------------------+---------------------+--------------------------+----------------------+------------------+-------------------------------------------------------------------------------------+
+   | |Drecko|                | Drecko      | `Balm Lily`_ ,       | `Phosphorite`_ ,    | |Drecklet Egg|           | `Meat`_              | 8                | This creature can be found crawling around in cavities in the `Caustic Biome`_ .    |
+   | |                       |             | `Pincha Pepper`_ ,   | `Reed Fiber`_ ,     | |Glossy Drecklet Egg|    |                      |                  | They are able to cling strongly to any surface, and will freely wander the          |
+   | | |Glossy Drecko|       |             | `Mealwood`_          | `Plastic`_          | | |Radiant Nymph Egg|    |                      |                  | full perimeter of whatever chamber they are in. They are not hostile and are        |
+   |                         |             |                      |                     |                          |                      |                  | quite mobile, inevitably wandering away from any chamber they are not trapped in.   |
+   +-------------------------+-------------+----------------------+---------------------+--------------------------+----------------------+------------------+-------------------------------------------------------------------------------------+
+   | |Pokeshell|             | Pokeshell   | `Rot Piles`_ ,       | `Sand`_ ,           | |Pinch Roe|              | `Pokeshell Molt`_ ,  | 8                |                                                                                     |
+   | |                       |             | `Polluted Dirt`_ ,   | `Pokeshell Molt`_ , | |Oak Pinch Roe|          | `Oakshell Molt`_ ,   |                  |                                                                                     |
+   | | |Oakshell|            |             | `Slime`_             | `Oakshell Molt`_    | \ |Sani Pinch Roe|       | `Raw Shellfish`_     |                  |                                                                                     |
+   | | |Sanishell|           |             |                      |                     |                          |                      |                  |                                                                                     |
+   +-------------------------+-------------+----------------------+---------------------+--------------------------+----------------------+------------------+-------------------------------------------------------------------------------------+
+   | |Puft|                  | Puft        | `Polluted Oxygen`_   | `Slime`_            | |Puftlet Egg|            | `Meat`_              | 6                | Floating/hovering critter. Its movement is based on invert pyramid shape,           |
+   | |                       |             | / `Oxygen`_          | / `Oxylite`_        | |Puftlet Prince Egg|     |                      |                  | moves center to top, left then right, follows bubbles of contaminated air,          |
+   | | |Puft Prince|         |             | / `Chlorine`_        | / `Bleach Stone`_   | |Dense Puftlet Egg|      |                      |                  | prefers going up. Sucks in the closest air bubble, goes up into top of              |
+   | | |Dense Puft|          |             |                      |                     | |Squeaky Puftlet Egg|    |                      |                  | room/chamber on borders of gases then spits out slime. Can follow its own           |
+   | | |Squeaky Puft|        |             |                      |                     |                          |                      |                  | slime consuming again. Won't go under water, but can enter a stream of              |
+   |                         |             |                      |                     |                          |                      |                  | water from below or from the side (and then die).                                   |
+   +-------------------------+-------------+----------------------+---------------------+--------------------------+----------------------+------------------+-------------------------------------------------------------------------------------+
+   | |Pacu|                  | Pacu        | `Algae`_             | `Polluted Dirt`_    | |Fry Egg|                | `Pacu Fillet`_       | 12               | Swims in water, can only be caught via a `Fish Trap`_ .                             |
+   | |                       |             | / `Plant Seeds`_     |                     | |Tropical Fry Egg|       |                      |                  |                                                                                     |
+   | | |Tropical Pacu|       |             |                      |                     | |Gulp Fry Egg|           |                      |                  |                                                                                     |
+   | | |Gulp Fish|           |             |                      |                     | |Gulp Fry Egg|           |                      |                  |                                                                                     |
+   +-------------------------+-------------+----------------------+---------------------+--------------------------+----------------------+------------------+-------------------------------------------------------------------------------------+
+   | |Slickster|             | Slickster   | `Carbon Dioxide`_    | `Crude Oil`_        | |Larva Egg|              | `Meat`_              | 8                | Floats over the floor or liquid, and follows spots of carbon dioxide.               |
+   | |                       |             | / `Oxygen`_          | / `Petroleum`_      | |Longhair Larva Egg|     |                      |                  |                                                                                     |
+   | | |Longhair Slickster|  |             |                      |                     | |Molten Larva Egg|       |                      |                  |                                                                                     |
+   | | |Molten Slickster|    |             |                      |                     |                          |                      |                  |                                                                                     |
+   +-------------------------+-------------+----------------------+---------------------+--------------------------+----------------------+------------------+-------------------------------------------------------------------------------------+
+   | |Shove Vole|            | Shove Vole  | `Regolith`_          | Solid Tile          | |Shove Vole Egg|         | `Meat`_              | ∞                | Burrowing critters that eat the Regolith collected on terrestrial surfaces.         |
+   | |                       |             | / `Dirt`_            | / `Tonic Root`_     | |                        |                      |                  |                                                                                     |
+   | | |Delecta Vole|        |             | / `Iron Ore`_        |                     | | |Delecta Vole Egg|     |                      |                  |                                                                                     |
+   +-------------------------+-------------+----------------------+---------------------+--------------------------+----------------------+------------------+-------------------------------------------------------------------------------------+
+   | |Gassy Moo|             | Gassy Moo   | `Gas Grass`_         | `Natural Gas`_ ,    | none                     | `Meat`_              | 6                | Extraterrestrial creatures that feed on gas grass and excretes natural gas.         |
+   |                         |             |                      |  `Brackene`_        |                          |                      |                  |                                                                                     |
+   +-------------------------+-------------+----------------------+---------------------+--------------------------+----------------------+------------------+-------------------------------------------------------------------------------------+
+   | |Morb|                  | Morb        | none                 | `Polluted Oxygen`_  | none                     | `Polluted Oxygen`_   | ∞                | Spawns from full `Outhouses`_  if it filled long enough but can be found naturally, |
+   |                         |             |                      |                     |                          |                      |                  | produces contaminated oxygen unless in high-pressure gas, explodes in a             |
+   |                         |             |                      |                     |                          |                      |                  | puff of `Polluted Oxygen`_  or `Chlorine`_  upon death. Cannot be `Ranched`_ .      |
+   |                         |             |                      |                     |                          |                      |                  | Has a 0.1% chance to morb every cycle, biting Duplicants and infecting them         |
+   |                         |             |                      |                     |                          |                      |                  | with `Morbius Crohn`_ .                                                             |
+   +-------------------------+-------------+----------------------+---------------------+--------------------------+----------------------+------------------+-------------------------------------------------------------------------------------+
+
+   Space Requirements
+
+   +-------------------+--------------+-------------+-------------+--------------+-------------+-------------+--------------+---------------+---------------+----------------+---------------------------+-------------------------+--------------------------+
+   | Critter           | |Shine Bug|  | |Puft|      | |Hatch|     | |Slickster|  | |Drecko|    | |Pip|       | |Cuddle Pip| | |Pokeshell|   | |Pacu|        | |Gassy Moo|    | |Plug Slug (Spaced Out)|  | |Sweetle (Spaced Out)|  | |Grubgrub (Spaced Out)|  |
+   +-------------------+--------------+-------------+-------------+--------------+-------------+-------------+--------------+---------------+---------------+----------------+---------------------------+-------------------------+--------------------------+
+   | Required Space    | 12           | 16          | 12          | 12           | 12          | 12          | 4            | 12            | 8             | 16             | 12                        | 12                      | 16                       |
+   +-------------------+--------------+-------------+-------------+--------------+-------------+-------------+--------------+---------------+---------------+----------------+---------------------------+-------------------------+--------------------------+
+   | Max Critters in   | 8            | 6           | 8           | 8            | 8           | 8           | 24           | 8             | 8             | 6              | 8                         | 8                       | 6                        |
+   | Max Size Stable   |              |             |             |              |             |             |              |               |               |                |                           |                         |                          |
+   +-------------------+--------------+-------------+-------------+--------------+-------------+-------------+--------------+---------------+---------------+----------------+---------------------------+-------------------------+--------------------------+
+
+   -  Pufts, Gassy Moos, and Grubgrubs (Spaced Out) all have the highest 
+      Minimum Space Requirement (16 tiles), so fewer can fit in one room at a time.
+   -  Cuddle Pips have the smallest Minimum Space Requirement (4 tiles, four times 
+      less than a Puft), so many can comfortably live in the same room.
+
+.. _Stable: https://oxygennotincluded.fandom.com/wiki/Stable
+.. _Hatch: https://oxygennotincluded.fandom.com/wiki/Hatch
+.. _Food(Resource): https://oxygennotincluded.fandom.com/wiki/Food_(Resource)
+.. _Raw Mineral: https://oxygennotincluded.fandom.com/wiki/Raw_Mineral
+.. _Organic: https://oxygennotincluded.fandom.com/wiki/Organic
+.. _Metal Ore: https://oxygennotincluded.fandom.com/wiki/Metal_Ore
+.. _Refined Metal: https://oxygennotincluded.fandom.com/wiki/Refined_Metal
+.. _Coal: https://oxygennotincluded.fandom.com/wiki/Coal
+.. _Meat: https://oxygennotincluded.fandom.com/wiki/Meat
+.. _Shine Bug: https://oxygennotincluded.fandom.com/wiki/Shine_Bug
+.. _Food(Building): https://oxygennotincluded.fandom.com/wiki/Food_(Building)
+.. _Light: https://oxygennotincluded.fandom.com/wiki/Light
+.. _decor: https://oxygennotincluded.fandom.com/wiki/Decor
+.. _Phosphorite: https://oxygennotincluded.fandom.com/wiki/Phosphorite
+.. _Decor: https://oxygennotincluded.fandom.com/wiki/Decor
+.. _Radiation: https://oxygennotincluded.fandom.com/wiki/Radiation
+.. _Pip: https://oxygennotincluded.fandom.com/wiki/Pip
+.. _Arbor Trees: https://oxygennotincluded.fandom.com/wiki/Arbor_Tree
+.. _Thimble Reed: https://oxygennotincluded.fandom.com/wiki/Thimble_Reed
+.. _Dirt: https://oxygennotincluded.fandom.com/wiki/Dirt
+.. _Drecko: https://oxygennotincluded.fandom.com/wiki/Drecko
+.. _Balm Lily: https://oxygennotincluded.fandom.com/wiki/Balm_Lily
+.. _Pincha Pepper: https://oxygennotincluded.fandom.com/wiki/Pincha_Pepper
+.. _Mealwood: https://oxygennotincluded.fandom.com/wiki/Mealwood
+.. _Caustic Biome: https://oxygennotincluded.fandom.com/wiki/Biome
+.. _Reed Fiber: https://oxygennotincluded.fandom.com/wiki/Reed_Fiber
+.. _Plastic: https://oxygennotincluded.fandom.com/wiki/Plastic
+.. _Pokeshell: https://oxygennotincluded.fandom.com/wiki/Pokeshell
+.. _Rot Piles: https://oxygennotincluded.fandom.com/wiki/Rot_Pile
+.. _Sand: https://oxygennotincluded.fandom.com/wiki/Sand
+.. _Pokeshell Molt: https://oxygennotincluded.fandom.com/wiki/Pokeshell_Molt
+.. _Oakshell Molt: https://oxygennotincluded.fandom.com/wiki/Oakshell_Molt
+.. _Raw Shellfish: https://oxygennotincluded.fandom.com/wiki/Raw_Shellfish
+.. _Polluted Dirt: https://oxygennotincluded.fandom.com/wiki/Polluted_Dirt
+.. _Slime: https://oxygennotincluded.fandom.com/wiki/Slime
+.. _Puft: https://oxygennotincluded.fandom.com/wiki/Puft
+.. _Polluted Oxygen: https://oxygennotincluded.fandom.com/wiki/Polluted_Oxygen
+.. _Oxygen: https://oxygennotincluded.fandom.com/wiki/Oxygen
+.. _Chlorine: https://oxygennotincluded.fandom.com/wiki/Chlorine
+.. _Oxylite: https://oxygennotincluded.fandom.com/wiki/Oxylite
+.. _Bleach Stone: https://oxygennotincluded.fandom.com/wiki/Bleach_Stone
+.. _Pacu: https://oxygennotincluded.fandom.com/wiki/Pacu
+.. _Algae: https://oxygennotincluded.fandom.com/wiki/Algae
+.. _Plant Seeds: https://oxygennotincluded.fandom.com/wiki/Plant
+.. _Pacu Fillet: https://oxygennotincluded.fandom.com/wiki/Pacu_Fillet
+.. _Fish Trap: https://oxygennotincluded.fandom.com/wiki/Fish_Trap
+.. _Slickster: https://oxygennotincluded.fandom.com/wiki/Slickster
+.. _Carbon Dioxide: https://oxygennotincluded.fandom.com/wiki/Carbon_Dioxide
+.. _Crude Oil: https://oxygennotincluded.fandom.com/wiki/Crude_Oil
+.. _Petroleum: https://oxygennotincluded.fandom.com/wiki/Petroleum
+.. _Shove Vole: https://oxygennotincluded.fandom.com/wiki/Shove_Vole
+.. _Regolith: https://oxygennotincluded.fandom.com/wiki/Regolith
+.. _Iron Ore: https://oxygennotincluded.fandom.com/wiki/Iron_Ore
+.. _Tonic Root: https://oxygennotincluded.fandom.com/wiki/Tonic_Root
+.. _Gassy Moo: https://oxygennotincluded.fandom.com/wiki/Gassy_Moo
+.. _Gas Grass: https://oxygennotincluded.fandom.com/wiki/Gas_Grass
+.. _Natural Gas: https://oxygennotincluded.fandom.com/wiki/Natural_Gas
+.. _Brackene: https://oxygennotincluded.fandom.com/wiki/Brackene
+.. _Morb: https://oxygennotincluded.fandom.com/wiki/Morb
+.. _Outhouses: https://oxygennotincluded.fandom.com/wiki/Outhouse
+.. _Ranched: https://oxygennotincluded.fandom.com/wiki/Ranching
+.. _Morbius Crohn: https://oxygennotincluded.fandom.com/wiki/Morbius_Crohn
+
+.. |Hatch| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/55/Hatch.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Hatch
+.. |Sage Hatch| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/96/Sage_Hatch.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Hatch
+.. |Stone Hatch| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/6f/Stone_Hatch.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Hatch
+.. |Smooth Hatch| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/0/03/Smooth_Hatch.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Hatch
+.. |Gold Hatch| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/59/Gold_Hatch.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Hatch
+.. |Hatchling Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/94/Hatchling_Egg.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Hatch
+.. |Sage Hatchling Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/c6/Sage_Hatchling_Egg.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Hatch
+.. |Stone Hatchling Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/b/bc/Stone_Hatchling_Egg.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Hatch
+.. |Smooth Hatchling Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/7/7b/Smooth_Hatchling_Egg.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Hatch
+.. |Gold Hatchling Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/2/2e/Gold_Hatchling_Egg.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Hatch
+.. |Shine Bug| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/69/Shine_Bug.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Shine_Bug
+.. |Sun Bug| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/3c/Sun_Bug.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Shine_Bug
+.. |Royal Bug| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/fb/Royal_Bug.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Shine_Bug
+.. |Coral Bug| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/1/14/Coral_Bug.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Shine_Bug
+.. |Azure Bug| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/4c/Azure_Bug.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Shine_Bug
+.. |Abyss Bug| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/98/Abyss_Bug.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Shine_Bug
+.. |Radiant Bug| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/a/ae/Radiant_Bug.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Shine_Bug
+.. |Shine Nymph Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/3f/Shine_Nymph_Egg.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Shine_Bug
+.. |Sun Nymph Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/4f/Sun_Nymph_Egg.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Shine_Bug
+.. |Royal Nymph Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/5f/Royal_Nymph_Egg.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Shine_Bug
+.. |Coral Nymph Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/f7/Coral_Nymph_Egg.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Shine_Bug
+.. |Azure Nymph Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/b/b0/Azure_Nymph_Egg.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Shine_Bug
+.. |Abyss Nymph Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/98/Abyss_Nymph_Egg.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Shine_Bug
+.. |Radiant Nymph Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/7/78/Radiant_Nymph_Egg.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Shine_Bug
+.. |Pip| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/2/2b/Pip.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Pip
+.. |Cuddle Pip| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/b/b3/Cuddle_Pip.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Pip
+.. |Pip Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/2/25/Pip_Egg.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Pip
+.. |Cuddle Pip Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/4e/Cuddle_Pip_Egg.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Pip
+.. |Drecko| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/8/8d/Drecko.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Drecko
+.. |Glossy Drecko| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/9c/Glossy_Drecko.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Drecko
+.. |Drecklet Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/2/28/Drecklet_Egg.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Drecko
+.. |Glossy Drecklet Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/c0/Glossy_Drecklet_Egg.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Drecko
+.. |Pokeshell| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/1/17/Pokeshell.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Pokeshell
+.. |Oakshell| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/7/79/Oakshell.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Pokeshell
+.. |Sanishell| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/b/b1/Sanishell.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Pokeshell
+.. |Pinch Roe| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/fb/Pinch_Roe.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Pokeshell
+.. |Oak Pinch Roe| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/94/Oak_Pinch_Roe.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Pokeshell
+.. |Sani Pinch Roe| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/b/b9/Sani_Pinch_Roe.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Pokeshell
+.. |Puft| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/a/a4/Puft.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Puft
+.. |Puft Prince| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/95/Puft_Prince.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Puft
+.. |Dense Puft| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/33/Dense_Puft.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Puft
+.. |Squeaky Puft| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/96/Squeaky_Puft.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Puft
+.. |Puftlet Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/b/b5/Puftlet_Egg.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Puft
+.. |Puftlet Prince Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/4e/Puftlet_Prince_Egg.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Puft
+.. |Dense Puftlet Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/b/b8/Dense_Puftlet_Egg.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Puft
+.. |Squeaky Puftlet Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/c0/Squeaky_Puftlet_Egg.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Puft
+.. |Pacu| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/4b/Pacu.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Pacu
+.. |Tropical Pacu| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/39/Tropical_Pacu.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Pacu
+.. |Gulp Fish| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/2/21/Gulp_Fish.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Pacu
+.. |Fry Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/9a/Fry_Egg.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Pacu
+.. |Tropical Fry Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/3a/Tropical_Fry_Egg.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Pacu
+.. |Gulp Fry Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/60/Gulp_Fry_Egg.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Pacu
+.. |Slickster| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/c9/Slickster.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Slickster
+.. |Longhair Slickster| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/b/b2/Longhair_Slickster.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Slickster
+.. |Molten Slickster| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/d/d5/Molten_Slickster.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Slickster
+.. |Larva Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/7/74/Larva_Egg.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Slickster
+.. |Longhair Larva Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/d/d2/Longhair_Larva_Egg.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Slickster
+.. |Molten Larva Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/3a/Molten_Larva_Egg.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Slickster
+.. |Shove Vole| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/1/1b/Shove_Vole.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Shove_Vole
+.. |Delecta Vole| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/4e/Delecta_Vole.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Shove_Vole
+.. |Shove Vole Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/55/Shove_Vole_Egg.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Shove_Vole
+.. |Delecta Vole Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/b/b4/Delecta_Vole_Egg.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Shove_Vole
+.. |Gassy Moo| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/8/83/Gassy_Moo.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Gassy_Moo
+.. |Morb| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/b/bd/Morb.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Morb
+.. |Shine Bug| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/69/Shine_Bug.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Shine_Bug
+.. |Puft| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/a/a4/Puft.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Puft
+.. |Hatch| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/55/Hatch.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Hatch
+.. |Slickster| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/c9/Slickster.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Slickster
+.. |Drecko| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/8/8d/Drecko.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Drecko
+.. |Pip| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/2/2b/Pip.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Pip
+.. |Cuddle Pip| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/b/b3/Cuddle_Pip.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Cuddle_Pip
+.. |Pokeshell| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/1/17/Pokeshell.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Pokeshell
+.. |Pacu| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/4b/Pacu.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Pacu
+.. |Plug Slug (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/5b/Plug_Slug.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Plug_Slug_(Spaced_Out)
+.. |Sweetle (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/5e/Sweetle.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Sweetle_(Spaced_Out)
+.. |Grubgrub (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/d/da/Grubgrub_%28Spaced_Out%29.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Grubgrub_(Spaced_Out)
+
+
+
+植物属性表
+--------
+
+   植物按用途分为以下几类：
+
+   -  2.1 Decorative Plants
+   -  2.2 Food Plants
+   -  2.3 Industrial Plants
+   -  2.4 Utility Plants
+
+   不同植物需要满足的生长条件不尽相同，只有当所有条件都满足时，植物才能正常生长，否则会暂停生长甚至死亡。
+   人工栽培的作物往往还需要灌溉和施肥，各种条件说明如下：
+
+   -  温度 **Temperature**: Plants only grow in a range of temperature which is 
+      related to the biome where you find them. Whatever this range is, all plants 
+      like the conditions which are acceptable for your duplicants and can be 
+      tended without Exosuits. Plant temperature can be directly inspected and 
+      may take some time to match the environment.
+   -  空气 **Atmosphere**: Some plants can grow in any atmosphere while others 
+      need specific gasses such as Carbon Dioxide or Chlorine.
+   -  气压 **Pressure**: Most of the plants require at least 150g of pressure to grow.
+   -  光照 **Illumination**: Some plants prefer a strong light source, while others enjoy soothing darkness.
+   -  灌溉和施肥 **Fertilization**: Productive plants typically require some combination 
+      of liquid or solid resources to continue growing. Hydroponic Farms and 
+      Auto-Sweeper be useful for these tasks.
+
+   Failure to meet any requirement will cause a plant to become *stifled* and 
+   become wilted. Stifled plants will stop growing and consuming resources. They 
+   are otherwise unharmed and will resume normal growth after their needs are met.
+
+   Ripe plants will continue to draw resources before harvest. They will automatically 
+   drop their product after four cycles and begin anew.
+
+   特别地，掩埋的淤泥根 掩埋的淤泥根、六角根 六角根、沼泽甜菜 沼泽甜菜生成时已经是可以收获的状态，而
+   收获时即被拔除（相当于死亡）。植物在砍掉或者连根拔除时，总是产生种子（包手块根），工业用途的植物在
+   收获时还有至少 10% 机会掉落种子。具体概率为 10% + 3.3% × 复制人的农业属性值，可以做到 100%。
+
+   Plants always produce a seed when uprooted or killed. For food and industrial 
+   plants there is a base 10% chance that a seed is produced once every harvest, 
+   though there is an additional 3.3% chance per level of Agriculture (attribute), 
+   including skill bonuses, so with 20 Farming the chance is 76%. More bonus levels 
+   of agriculture can increase the chance to 100%.
+
+   Each seed weighs 1 kg.
+
+   植株变异（Plant Mutation）是眼冒金星（Spaced Out!）DLC 引入了辐射机制后增加的功能。辐射会使
+   原始（未变异）的植物在收获时掉落的种子以一定概率发生变异，且经过植物分析仪 植物分析仪分析辨明后这些
+   变异种子长成的变异植株会具有额外的特质。
+
+   已变异的植物需要一定量辐射维持正常生长，且均为不育个体，收获时不会再额外掉落种子。
+
+   Radiation, introduced in the Spaced Out! DLC, can mutate *seeds* to give a plant 
+   additional traits, yet mutated plants are themselves infertile and don't drop seeds. 
+   The chance of getting mutated seeds is equal to (the radiation on the plant / max 
+   radiation the plant can handle) \* 80%, and is checked only at the time of harvest. 
+   Plants therefore only need radiation right before being harvested.
+
+   These mutated Seeds need to be analyzed in a ``Botanical Analyzer`` before they 
+   can be used, even if that type of mutation is already known.
+
+   ================ ========== ===== ========== ========== ============ ======================== ============================================================================================
+   Mutation         Fertilizer Yield Temp Range Life Cycle Illumination Bonus Harvest            Misc
+   Blooming                                                                                      +20 decoration
+   Easygoing        -50%       -25%  +50%                                                        
+   Juicyfruit       +25%                                                                         drops to the floor immediately when ripe (as opposed to remaining on the plant for 4 cycles)
+   Wildish          -90%                        +350%                                            
+   Licey            +25%\*                                              +600 kcal of Meal Lice    
+   Exuberant        +50%                        -75%       Darkness     +4000 g Rot Pile         +10000 Food Poisoning on crop
+   Leafy            +25%                        -50%       +1000 lux                             
+   Bountiful        +20%       +100%                       +200 lux                              +400% harvest duration (10 cycles of ripe, 10 cycles of wilt, then auto-harvest)
+   Specialized                 +50%  -50%                                                        
+   Superspecialized            +100% -80%                                                        
+   Soothing         +25%       -70%                                                              +50% Groomed buff duration of nearby Critters
+   ================ ========== ===== ========== ========== ============ ======================== ============================================================================================
+
+   \*\ Mealwood can be Licey, therefore doubling its yield Juicyfruit is good for 
+   automated farms, but is only fertilizer-efficient for plants that have a growth 
+   period of less than 16 days, since regularly they need 16+4=20 days of fertilizer,
+   but with Juicyfruit they need 16*1,25 = 20.
+
+   -  Only Nosh Sprout and Sleet Wheat take longer to cultivate.
+
+
+   List of Plants
+
+   +----------------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+---------------------------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+------------------+-------------------+------------------------+-------------------------------------------------------------------------+------------------+
+   | Plant                                        | Can grow in                                          | Height | Decor |      | Temperature |        |                                 Atmosphere                                                  |               |                         |                       |                                     |   Mature Time    |   kcal Per Cycle  |                        |                                                                         |                  |
+   +==============================================+======================================================+========+=======+======+=============+========+=================+===========================================================================| Illumination  |       Irrigation        |     Fertilization     |               Produces              |==========+=======+==========+========|   Max Rads Per Cycle   |                                  Recipes                                |      Germs       |
+   |                                              |                                                      |        | #     |  R   | Min         | Max    | Range           | Gas                                                                       |               |                         |                       |                                     | Domestic | Wild  | Domestic | Wild   |                        |                                                                         |                  |
+   +==============================================+======================================================+========+=======+======+=============+========+=================+===========================================================================+===============+=========================+=======================+=====================================+==========+=======+==========+========+========================+=========================================================================+==================+
+   | |Mealwood|                                   | |Planter Box|\ |Farm Tile|\ |Hydroponic Farm|        | 2      | =10   |  2   | 10 °C       | 30 °C  | 150 g to 10 kg  | |Oxygen|\ |Polluted Oxygen|\ |Carbon Dioxide|                             | =             | =                       | 10 kg |Dirt|          | 1 |Meal Lice|                       | 3        | 12    | 200      | 50     | 4600                   | |Liceloaf|\ |Pickled Meal|                                              | =                |
+   +----------------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+-----------------+---------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+----------+-------+----------+--------+------------------------+-------------------------------------------------------------------------+------------------+
+   | |Dusk Cap|                                   | |Planter Box|\ |Farm Tile|\ |Hydroponic Farm|        | 2      | +15   |  2   | 5 °C        | 35 °C  | 150 g to 10 kg  | |Carbon Dioxide|                                                          | 0 lux         | -                       | 4 kg |Slime|          | 1 |Mushroom|                        | 7.5      | 30    | 320      | 80     | 4600                   | |Fried Mushroom|\ |Mushroom Wrap|                                       | -                |
+   +----------------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+-----------------+---------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+----------+-------+----------+--------+------------------------+-------------------------------------------------------------------------+------------------+
+   | |Bristle Blossom|                            | |Planter Box|\ |Farm Tile|\ |Hydroponic Farm|        | 2      | +15   |  2   | 5 °C        | 30 °C  | 150 g to 10 kg  | |Oxygen|\ |Polluted Oxygen|\ |Carbon Dioxide|                             | 1+ lux        | 20 kg |Water|           | -                     | 1 |Bristle Berry|                   | 6        | 24    | 266.67   | 66.67  | 4600                   | |Gristle Berry|\ |Berry Sludge|\ |Stuffed Berry|\ |Allergy Medication|  | |Floral Scents|  |
+   +----------------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+-----------------+---------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+----------+-------+----------+--------+------------------------+-------------------------------------------------------------------------+------------------+
+   | |Sleet Wheat|                                | |Planter Box|\ |Farm Tile|\ |Hydroponic Farm|        | 1      | +15   |  2   | -55 °C      | 5 °C   | 150 g to 10 kg  | |Oxygen|\ |Polluted Oxygen|\ |Carbon Dioxide|                             | -             | 20 kg |Water|           | 5 kg |Dirt|           | 18 |Sleet Wheat Grain|              | 18       | 72    | 400      | 100    | 12200                  | |Frost Bun|\ |Berry Sludge|\ |Pepper Bread|\ |Soufflé Pancakes|         | -                |
+   +----------------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+-----------------+---------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+----------+-------+----------+--------+------------------------+-------------------------------------------------------------------------+------------------+
+   | |Waterweed|                                  | |Farm Tile|\ |Hydroponic Farm|                       | 2      | +10   |  1   | 22 °C       | 65 °C  | 10 g to 950 kg  | |Water|\ |Salt Water|\ |Brine|                                            | -             | 5 kg |Salt Water|       | 500 g |Bleach Stone|  | 12 |Lettuce|                        | 12       | 48    | 400      | 100    | 7400                   | |Mushroom Wrap|\ |Frost Burger|\ |Mushroom Quiche|                      | -                |
+   +----------------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+-----------------+---------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+----------+-------+----------+--------+------------------------+-------------------------------------------------------------------------+------------------+
+   | |Nosh Sprout|                                | |Planter Box|\ |Farm Tile|\ |Hydroponic Farm|        | 2      | +15   |  2   | -25 °C      | 0 °C   | 25 g to 10 kg   | |Carbon Dioxide|                                                          | -             | 20 kg |Ethanol|         | 5 kg |Dirt|           | 12 |Nosh Bean|                      | 21       | 84    | 600      | 42.86  | 9800                   | |Tofu|\ |Spicy Tofu|\ |Curried Beans|                                   | -                |
+   +----------------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+-----------------+---------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+----------+-------+----------+--------+------------------------+-------------------------------------------------------------------------+------------------+
+   | |Pincha Pepper|                              | |Farm Tile|\ |Hydroponic Farm| (Upsidedown)          | 3      | +15   |  2   | 35 °C       | 85 °C  | 150 g to 10 kg  | -                                                                         | -             | 35 kg |Polluted Water|  | 1 kg |Phosphorite|    | 4 |Pincha Peppernut|                | 8        | 32    | -        | -      | 9800                   | |Pepper Bread|\ |Stuffed Berry|\ |Spicy Tofu|\ |Immuno Booster|         | -                |
+   +----------------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+-----------------+---------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+----------+-------+----------+--------+------------------------+-------------------------------------------------------------------------+------------------+
+   | |Balm Lily|                                  | |Planter Box|\ |Farm Tile|\ |Hydroponic Farm|        | 2      | +15   |  2   | 35 °C       | 85 °C  | 150 g to 10 kg  | |Chlorine|                                                                | -             | -                       | -                     | 2 |Balm Lily Flower|                | 12       | 48    | -        | -      | 4600                   | |Medical Pack|                                                          | -                |
+   +----------------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+-----------------+---------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+----------+-------+----------+--------+------------------------+-------------------------------------------------------------------------+------------------+
+   | |Thimble Reed|                               | |Farm Tile|\ |Hydroponic Farm|                       | 3      | +10   |  1   | 22 °C       | 37 °C  | -               | |Oxygen|\ |Polluted Oxygen|\ |Carbon Dioxide|\ |Water|\ |Polluted Water|  | -             | 160 kg |Polluted Water| | -                     | 1 |Reed Fiber|                      | 2        | 8     | -        | -      | 4600                   | |Snazzy Suit|\ |Cool Vest|\ |Warm Sweater|\ |Atmo Suit|                 | -                |
+   +----------------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+-----------------+---------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+----------+-------+----------+--------+------------------------+-------------------------------------------------------------------------+------------------+
+   | |Arbor Tree|                                 | |Planter Box|\ |Farm Tile|\ |Hydroponic Farm|        | 2      | +15   |  2   | 15 °C       | 40 °C  | 150 g to 10 kg  | -                                                                         | -             | 70 kg |Polluted Water|  | 10 kg |Dirt|          | 300 kg |Lumber|  (per branch)       | 4.5      | 18    | -        | -      | 9800 (Cannot mutate)   | |Ethanol|\ |Sauna|\ |Hot Tub|                                           | -                |
+   +----------------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+-----------------+---------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+----------+-------+----------+--------+------------------------+-------------------------------------------------------------------------+------------------+
+   | |Dasha Saltvine|                             | |Farm Tile|\ |Hydroponic Farm| (Upsidedown)          | 2      | -10   |  2   | -25 °C      | 50 °C  | 25 g to 10 kg   | |Chlorine|                                                                | -             | -                       | 7 kg |Sand|           | 65 kg |Salt|                        | 6        | 24    | -        | -      | 7400                   | |Table Salt|                                                            | -                |
+   +----------------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+-----------------+---------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+----------+-------+----------+--------+------------------------+-------------------------------------------------------------------------+------------------+
+   | |Gas Grass|                                  | |Planter Box|\ |Farm Tile|\ |Hydroponic Farm|        | 3      | +25   |  4   | -273.2 °C   | 75 °C  | 150 g to 10 kg  | -                                                                         | 10k+ lux      | 500 g |Liquid Chlorine| | -                     | 1000 g |Harvested Gas Grass|        | 4        | 16    | -        | -      | 12200                  | Diet for `Gassy Moo`_                                                   | -                |
+   +----------------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+-----------------+---------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+----------+-------+----------+--------+------------------------+-------------------------------------------------------------------------+------------------+
+   | |Oxyfern|                                    | |Planter Box|\ |Farm Tile|\ |Hydroponic Farm|        | 2      | -10   |  2   | 0 °C        | 40 °C  | 25 g to 10 kg   | |Carbon Dioxide|                                                          | -             | 19 kg |Water|           | 4 kg |Dirt|           | 18.78 kg/cycle |Oxygen|             | -        | -     | -        | -      | 2200 (Cannot mutate)   | -                                                                       | -                |
+   +----------------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+-----------------+---------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+----------+-------+----------+--------+------------------------+-------------------------------------------------------------------------+------------------+
+   | |Wheezewort|                                 | |Planter Box|\ |Farm Tile|\ |Hydroponic Farm|        | 2      | +15   |  2   | -60 °C      | 95 °C  | -               | -                                                                         | -             | -                       | 4 kg |Phosphorite|    | -                                   | -        | -     | -        | -      | -                      | -                                                                       | -                |
+   +----------------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+-----------------+---------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+----------+-------+----------+--------+------------------------+-------------------------------------------------------------------------+------------------+
+   | |Bluff Briar|                                | |Flower Pot|\ |Hanging Pot|\ |Wall Pot|\ |Aero Pot|  | 1      | +25   |  4   | 10 °C       | 30 °C  | 150 g to 10 kg  | |Oxygen|\ |Polluted Oxygen|\ |Carbon Dioxide|                             | -             | -                       | -                     | -                                   | -        | -     | -        | -      | 2200 (Cannot mutate)   | -                                                                       | -                |
+   +----------------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+-----------------+---------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+----------+-------+----------+--------+------------------------+-------------------------------------------------------------------------+------------------+
+   | |Buddy Bud|                                  | |Flower Pot|\ |Hanging Pot|\ |Wall Pot|\ |Aero Pot|  | 1      | +15   |  2   | 20 °C       | 40 °C  | 150 g to 10 kg  | |Oxygen|\ |Polluted Oxygen|\ |Carbon Dioxide|                             | -             | -                       | -                     | -                                   | -        | -     | -        | -      | 2200 (Cannot mutate)   | -                                                                       | |Floral Scents|  |
+   +----------------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+-----------------+---------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+----------+-------+----------+--------+------------------------+-------------------------------------------------------------------------+------------------+
+   | |Mirth Leaf|                                 | |Flower Pot|\ |Hanging Pot|\ |Wall Pot|\ |Aero Pot|  | 1      | +25   |  4   | 20 °C       | 50 °C  | 150 g to 10 kg  | |Oxygen|\ |Polluted Oxygen|\ |Carbon Dioxide|\ |Chlorine|\ |Hydrogen|     | -             | -                       | -                     | -                                   | -        | -     | -        | -      | 2200 (Cannot mutate)   | -                                                                       | -                |
+   +----------------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+-----------------+---------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+----------+-------+----------+--------+------------------------+-------------------------------------------------------------------------+------------------+
+   | |Jumping Joya|                               | |Flower Pot|\ |Hanging Pot|\ |Wall Pot|\ |Aero Pot|  | 1      | +25   |  4   | 0 °C        | 100 °C | -               | |Oxygen|\ |Polluted Oxygen|\ |Carbon Dioxide|                             | -             | -                       | -                     | -                                   | -        | -     | -        | -      | 2200 (Cannot mutate)   | -                                                                       | -                |
+   +----------------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+-----------------+---------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+----------+-------+----------+--------+------------------------+-------------------------------------------------------------------------+------------------+
+   | |Sporechid|                                  | |Flower Pot|\ |Hanging Pot|\ |Wall Pot|\ |Aero Pot|  | 1      | +80   |  7   | -15 °C      | 240 °C | 150 g to 10 kg  | |Carbon Dioxide|                                                          | -             | -                       | -                     | -                                   | -        | -     | -        | -      | 12200 (Cannot mutate)  | -                                                                       | |Zombie Spores|  |
+   +----------------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+-----------------+---------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+----------+-------+----------+--------+------------------------+-------------------------------------------------------------------------+------------------+
+   | |Buried Muckroot|                            | -                                                    | 1      | +15   |  2   | -           | -      | -               | -                                                                         | -             | -                       | -                     | 1 |Muckroot|                        | -        | -     | -        | -      | -                      | -                                                                       | -                |
+   +----------------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+-----------------+---------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+----------+-------+----------+--------+------------------------+-------------------------------------------------------------------------+------------------+
+   | |Hexalent|                                   | -                                                    | 2      | +15   |  2   | -           | -      | -               | -                                                                         | -             | -                       | -                     | 1 |Hexalent Fruit|                  | -        | -     | -        | -      | -                      | -                                                                       | -                |
+   +----------------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+-----------------+---------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+----------+-------+----------+--------+------------------------+-------------------------------------------------------------------------+------------------+
+   | |Bog Bucket (Spaced Out)| |SO|               | |Planter Box|\ |Farm Tile|\ |Hydroponic Farm|        | 2      | -10   |  2   | 10 °C       | 30 °C  | 150 g to 10 kg  | |Oxygen|\ |Polluted Oxygen|\ |Carbon Dioxide|                             | 0 lux         | 40 kg |Polluted Water|  | -                     | 1 |Bog Jelly (Spaced Out)|          | 6.6      | 26.4  | 278.79   | 69.70  | -                      | |Swampy Delights (Spaded Out)|                                          | -                |
+   +----------------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+-----------------+---------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+----------+-------+----------+--------+------------------------+-------------------------------------------------------------------------+------------------+
+   | |Grubfruit Plant (Spaced Out)| |SO|          | |Planter Box|\ |Farm Tile|\ |Hydroponic Farm|        | 2      | +15   |  2   | 15 °C       | 50 °C  | 150 g to 10 kg  | |Oxygen|\ |Polluted Oxygen|\ |Carbon Dioxide|                             | -             | -                       | 10 kg |Sulfur|        | 8 |Grubfruit (Spaced Out)|          | 8        | 32    | 250      | 62.5   | 9800                   | |Grubfruit Preserve (Spaced Out)|\ |Mixed Berry Pie (Spaced Out)|       | -                |
+   +----------------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+-----------------+---------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+----------+-------+----------+--------+------------------------+-------------------------------------------------------------------------+------------------+
+   | |Spindly Grubfruit Plant (Spaced Out)| |SO|  | |Planter Box|\ |Farm Tile|\ |Hydroponic Farm|        | 2      | -5    |  2   | 15 °C       | 50 °C  | 150 g to 10 kg  | |Oxygen|\ |Polluted Oxygen|\ |Carbon Dioxide|                             | -             | -                       | 10 kg |Sulfur|        | 1 |Spindly Grubfruit (Spaced Out)|  | 4        | 16    | 200      | 50     | 9800                   | |Roast Grubfruit Nut (Spaced Out)|                                      | -                |
+   +----------------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+-----------------+---------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+----------+-------+----------+--------+------------------------+-------------------------------------------------------------------------+------------------+
+   | |Bliss Burst (Spaced Out)| |SO|              | |Flower Pot|\ |Hanging Pot|\ |Wall Pot|\ |Aero Pot|  | 1      | +25   |  4   | 20 °C       | 50 °C  | 150 g to 10 kg  | |Oxygen|\ |Polluted Oxygen|\ |Carbon Dioxide|\ |Chlorine|\ |Hydrogen|     | -             | -                       | -                     | -                                   | -        | -     | -        | -      | 2200 (Cannot mutate)   | -                                                                       | -                |
+   +----------------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+-----------------+---------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+----------+-------+----------+--------+------------------------+-------------------------------------------------------------------------+------------------+
+   | |Mellow Mallow (Spaced Out)| |SO|            | |Flower Pot|\ |Hanging Pot|\ |Wall Pot|\ |Aero Pot|  | 1      | +25   |  4   | 10 °C       | 30 °C  | 150 g to 10 kg  | |Oxygen|\ |Polluted Oxygen|\ |Carbon Dioxide|                             | -             | -                       | -                     | -                                   | -        | -     | -        | -      | 2200 (Cannot mutate)   | -                                                                       | -                |
+   +----------------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+-----------------+---------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+----------+-------+----------+--------+------------------------+-------------------------------------------------------------------------+------------------+
+   | |Swamp Chard (Spaced Out)| |SO|              | -                                                    | 1      | +15   |  2   | -           | -      | -               | -                                                                         | -             | -                       | -                     | 1 |Swamp Chard Heart (Spaced Out)|  | -        | -     | -        | -      | -                      | -                                                                       | -                |
+   +----------------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+-----------------+---------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+----------+-------+----------+--------+------------------------+-------------------------------------------------------------------------+------------------+
+   | |Saturn Critter Trap| |SO|                   | |Planter Box|\ |Farm Tile|\ |Hydroponic Farm|        | 2      | +15   |  2   | -90.1       | -0.1   | -               | -                                                                         | -             | 10 kg |Polluted Water|  | 1 |Critter|           | 1 |Plant Meat| 900.1 g |Hydrogen|   | 30       | 120   | 40       | 10     | 2200 (Cannot mutate)   | -                                                                       | -                |
+   +----------------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+-----------------+---------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+----------+-------+----------+--------+------------------------+-------------------------------------------------------------------------+------------------+
+
+.. _Floral Scents: https://oxygennotincluded.fandom.com/wiki/Floral_Scents
+.. _Zombie Spores: https://oxygennotincluded.fandom.com/wiki/Zombie_Spores
+.. _Gassy Moo: https://oxygennotincluded.fandom.com/wiki/Gassy_Moo
+
+
+.. |Mealwood| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/8/80/Mealwood.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Mealwood
+.. |Planter Box| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/7/72/Building_Planter_Box.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Planter_Box
+.. |Farm Tile| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/7/7f/Building_Farm_Tile.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Farm_Tile
+.. |Hydroponic Farm| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/c2/Building_Hydroponic_Farm.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Hydroponic_Farm
+.. |Oxygen| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/1/19/Oxygen.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Oxygen
+.. |Polluted Oxygen| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/e/e4/Polluted_Oxygen.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Polluted_Oxygen
+.. |Carbon Dioxide| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/f3/Carbon_Dioxide.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Carbon_Dioxide
+.. |Dirt| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/0/02/Resource_Dirt.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Dirt
+.. |Meal Lice| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/f6/Resource_Meal_Lice.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Meal_Lice
+.. |Liceloaf| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/5f/Resource_Liceloaf.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Liceloaf
+.. |Pickled Meal| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/a/af/Resource_Pickled_Meal.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Pickled_Meal
+.. |Dusk Cap| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/44/Dusk_Cap.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Dusk_Cap
+.. |Slime| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/38/Slime.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Slime
+.. |Mushroom| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/66/Resource_Mushroom.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Mushroom
+.. |Fried Mushroom| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/56/Resource_Fried_Mushroom.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Fried_Mushroom
+.. |Mushroom Wrap| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/e/ea/Resource_Mushroom_Wrap.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Mushroom_Wrap
+.. |Bristle Blossom| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/a/a6/Bristle_Blossom.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Bristle_Blossom
+.. |Water| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/9d/Water.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Water
+.. |Bristle Berry| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/1/11/Resource_Bristle_Berry.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Bristle_Berry
+.. |Gristle Berry| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/cd/Resource_Gristle_Berry.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Gristle_Berry
+.. |Berry Sludge| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/30/Resource_Berry_Sludge.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Berry_Sludge
+.. |Stuffed Berry| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/b/b6/Resource_Stuffed_Berry.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Stuffed_Berry
+.. |Allergy Medication| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/0/08/Allergy_Medication.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Allergy_Medication
+.. |Sleet Wheat| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/d/d4/Sleet_Wheat.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Sleet_Wheat
+.. |Sleet Wheat Grain| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/6b/Sleet_Wheat_Grain.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Sleet_Wheat_Grain
+.. |Frost Bun| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/cc/Resource_Frost_Bun.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Frost_Bun
+.. |Pepper Bread| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/ce/Resource_Pepper_Bread.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Pepper_Bread
+.. |Soufflé Pancakes| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/8/81/Resource_Souffle_Pancakes.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Souffl%C3%A9_Pancakes
+.. |Waterweed| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/7/71/Waterweed.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Waterweed
+.. |Building Hydroponic Farm| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/c2/Building_Hydroponic_Farm.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Hydroponic_Farm
+.. |Salt Water| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/3b/Salt_Water.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Salt_Water
+.. |Brine| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/0/0c/Brine.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Brine
+.. |Bleach Stone| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/fd/Bleach_Stone.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Bleach_Stone
+.. |Lettuce| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/fe/Resource_Lettuce.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Lettuce
+.. |Frost Burger| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/47/Resource_Frost_Burger.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Frost_Burger
+.. |Mushroom Quiche| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/6a/Resource_Mushroom_Quiche.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Mushroom_Quiche
+.. |Nosh Sprout| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/4e/Nosh_Sprout.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Nosh_Sprout
+.. |Building Planter Box| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/7/72/Building_Planter_Box.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Planter_Box
+.. |Building Farm Tile| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/7/7f/Building_Farm_Tile.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Farm_Tile
+.. |Ethanol| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/95/Ethanol.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Ethanol
+.. |Resource Dirt| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/0/02/Resource_Dirt.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Dirt
+.. |Nosh Bean| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/d/d2/Nosh_Bean.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Nosh_Bean
+.. |Tofu| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/c2/Resource_Tofu.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Tofu
+.. |Spicy Tofu| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/8/8b/Resource_Spicy_Tofu.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Spicy_Tofu
+.. |Curried Beans| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/fa/Resource_CurriedBeans.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Curried_Beans
+.. |Pincha Pepper| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/0/07/Pincha_Pepperplant.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Pincha_Pepper
+.. |Polluted Water| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/2/28/Polluted_Water.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Polluted_Water
+.. |Phosphorite| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/5d/Phosphorite.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Phosphorite
+.. |Pincha Peppernut| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/cd/Pincha_Peppernut.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Pincha_Peppernut
+.. |Immuno Booster| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/3a/Immuno_Booster.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Immuno_Booster
+.. |Balm Lily| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/92/Balm_Lily.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Balm_Lily
+.. |Chlorine| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/ce/Chlorine.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Chlorine
+.. |Balm Lily Flower| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/53/Balm_Lily_Flower.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Balm_Lily_Flower
+.. |Medical Pack| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/a/ae/Medical_Pack.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Medical_Pack
+.. |Thimble Reed| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/97/Thimble_Reed.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Thimble_Reed
+.. |Reed Fiber| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/f3/Resource_Reed_Fiber.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Reed_Fiber
+.. |Snazzy Suit| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/a/a1/Snazzy_Suit.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Snazzy_Suit
+.. |Cool Vest| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/7/78/Cool_Vest.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Cool_Vest
+.. |Warm Sweater| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/f6/Warm_Sweater.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Warm_Sweater
+.. |Atmo Suit| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/d/d8/Atmo_Suit.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Atmo_Suit
+.. |Arbor Tree| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/2/24/Arbor_Tree.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Arbor_Tree
+.. |Lumber| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/d/d3/Lumber.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Lumber
+.. |Sauna| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/2/2f/Building_Sauna.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Sauna
+.. |Hot Tub| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/2/29/Building_Hot_Tub.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Hot_Tub
+.. |Dasha Saltvine| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/41/Dasha_Saltvine.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Dasha_Saltvine
+.. |Sand| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/a/a7/Sand.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Sand
+.. |Salt| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/7/77/Salt.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Salt
+.. |Table Salt| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/93/Table_Salt.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Table_Salt
+.. |Gas Grass| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/c5/Gas_Grass.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Gas_Grass
+.. |Liquid Chlorine| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/6b/Liquid_Chlorine.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Liquid_Chlorine
+.. |Harvested Gas Grass| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/56/Harvested_Gas_Grass.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Harvested_Gas_Grass
+.. |Oxyfern| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/e/e1/Oxyfern.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Oxyfern
+.. |Wheezewort| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/8/81/Wheezewort.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Wheezewort
+.. |Bluff Briar| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/a/af/Bluff_Briar.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Bluff_Briar
+.. |Flower Pot| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/4a/Building_Flower_Pot.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Flower_Pot
+.. |Hanging Pot| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/5a/Building_Hanging_Pot.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Hanging_Pot
+.. |Wall Pot| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/8/8f/Building_Wall_Pot.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Wall_Pot
+.. |Aero Pot| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/61/Building_Aero_Pot.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Aero_Pot
+.. |Buddy Bud| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/1/1d/Buddy_Bud.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Buddy_Bud
+.. |Building Aero Pot| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/61/Building_Aero_Pot.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Aero_Pot
+.. |Mirth Leaf| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/7/78/Mirth_Leaf.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Mirth_Leaf
+.. |Building Flower Pot| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/4a/Building_Flower_Pot.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Flower_Pot
+.. |Building Hanging Pot| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/5a/Building_Hanging_Pot.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Hanging_Pot
+.. |Building Wall Pot| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/8/8f/Building_Wall_Pot.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Wall_Pot
+.. |Hydrogen| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/e/ed/Hydrogen.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Hydrogen
+.. |Jumping Joya| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/8/86/Jumping_Joya.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Jumping_Joya
+.. |Sporechid| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/7/76/Sporechid.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Sporechid
+.. |Buried Muckroot| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/9f/Buried_Muckroot.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Buried_Muckroot
+.. |Muckroot| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/54/Resource_Muckroot.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Muckroot
+.. |Hexalent| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/f3/Hexalent.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Hexalent
+.. |Hexalent Fruit| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/42/Resource_Hexalent_Fruit.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Hexalent_Fruit
+.. |Bog Bucket (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/d/d5/Bog_Bucket_%28Spaced_Out%29.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Bog_Bucket_(Spaced_Out)
+.. |SO| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/8/8d/SO_icon.png
+   :target: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/8/8d/SO_icon.png
+.. |Bog Jelly (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/cd/Bog_Jelly.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Bog_Jelly_(Spaced_Out)
+.. |Swampy Delights (Spaded Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/9a/Swampy_Delights.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Swampy_Delights_(Spaded_Out)
+.. |Grubfruit Plant (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/58/Spindly_Grubfruit_Plant.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Grubfruit_Plant_(Spaced_Out)
+.. |Sulfur| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/1/1d/Sulfur.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Sulfur
+.. |Grubfruit (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/e/e0/Grubfruit.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Grubfruit_(Spaced_Out)
+.. |Grubfruit Preserve (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/1/1b/Grubfruit_Preserve.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Grubfruit_Preserve_(Spaced_Out)
+.. |Mixed Berry Pie (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/68/Mixed_Berry_Pie.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Mixed_Berry_Pie_(Spaced_Out)
+.. |Spindly Grubfruit Plant (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/58/Spindly_Grubfruit_Plant.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Spindly_Grubfruit_Plant_(Spaced_Out)
+.. |Spindly Grubfruit (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/c9/Spindly_Grubfruit.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Spindly_Grubfruit_(Spaced_Out)
+.. |Roast Grubfruit Nut (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/38/Roast_Grubfruit_Nut.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Roast_Grubfruit_Nut_(Spaced_Out)
+.. |Bliss Burst (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/8/89/Bliss_Burst_%28Spaced_Out%29.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Bliss_Burst_(Spaced_Out)
+.. |Mellow Mallow (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/9f/Mellow_Mallow.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Mellow_Mallow_(Spaced_Out)
+.. |Swamp Chard (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/6f/Swamp_Chard.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Swamp_Chard_(Spaced_Out)
+.. |Swamp Chard Heart (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/f4/Swamp_Chard_Heart_%28Spaced_Out%29.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Swamp_Chard_Heart_(Spaced_Out)
+.. |Saturn Critter Trap| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/0/02/Saturn_Critter_Trap.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Saturn_Critter_Trap
+.. |Critter| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/55/Hatch.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Critter
+.. |Plant Meat| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/b/b5/Plant_Meat.png
+   :target:https://oxygennotincluded.fandom.com/wiki/Plant_Meat
+
+
 食物属性表
 --------
 
@@ -1528,7 +2206,7 @@ Building
    *  https://oxygennotincluded.fandom.com/wiki/Food_(Building)
    *  https://oxygennotincluded.fandom.com/wiki/Food_Quality
 
-   食物及相关设备列表：
+   食物相关的植物、小动物、以及加工设备列表：
 
    * `电烤炉  <https://oxygennotincluded.fandom.com/wiki/Electric_Grill>`__
    * `燃气灶  <https://oxygennotincluded.fandom.com/wiki/Gas_Range>`__
@@ -1657,138 +2335,138 @@ Building
    | Above 4 °C (unrefrigerated)    | x1.428      | x1     | x0.588    |
    +--------------------------------+-------------+--------+-----------+
 
+   Wiki 的食品信息表包含了非常完整的食品和制作信息，包含食品的保鲜周期、材料来源、加工设备：
 
-   +--------------------------+----------------+-----------------------------------+---------------------------------------+-----------+---------------------------+-------------+
-   |                                                                               | **Cooking Information**                                                       |             |
+   +-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+-------------+
+   |                                                                               |                           **Cooking Information**                             |             |
    +                           **Basic Information**                               |===================================================+===========================+=============+
    |                                                                               |                 **Ingredients**                   |                           | **You get** |
-   +==========================+================+===================================+===================================================|        **Source**         |             |
+   +==========================+================+================+==================+=======================================+===========|        **Source**         |             |
    |     **Image + Name**     |   **Quality**  | **Spoil Time** | **kcal per kg**  |           **Ingredient**              | Amount    |                           |             |
    +==========================+================+================+==================+=======================================+===========+===========================+=============+
-   | |Barbeque|               | Good [+3]      | 4 cycles       | 4000 kcal per kg | |Meat|                                | 3200 kcal | |Electric Grill|          | 4000 kcal   |
+   | |Barbeque|               | Good [+3]      | 4 cycles       | 4000 kcal per kg | |Meat|                                | 3200 kcal | |Electric Grill|          | 4000 kcal   |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Berry Sludge|           | Good [+3]      | Never          | 4000 kcal per kg | |Sleet Wheat Grain|                   | 5 units   | |Microbe Musher|          | 4000 kcal   |
-   +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Berry Sludge|           | Good [+3]      | Never          | 4000 kcal per kg | |Bristle Berry|                       | 1600 kcal | |Microbe Musher|          | 4000 kcal   |
+   | |Berry Sludge|           | Good [+3]      | Never          | 4000 kcal per kg | |Sleet Wheat Grain|                   | 5 units   | |Microbe Musher|          | 4000 kcal   |
+   |                          |                |                |------------------+---------------------------------------+-----------|                           |-------------+
+   |                          |                |                | 4000 kcal per kg | |Bristle Berry|                       | 1 unit    |                           | 4000 kcal   |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
    | |Bog Jelly|              | Terrible [0]   | 4 cycles       | 1840 kcal per kg |                                       |           | |Bog Bucket|              | 1840 kcal   |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Resource Bristle Berry| | Terrible [0]   | 8 cycles       | 1600 kcal per kg |                                       |           | |Bristle Blossom|         | 1600 kcal   |
+   | |Bristle Berry|          | Terrible [0]   | 8 cycles       | 1600 kcal per kg |                                       |           | |Bristle Blossom|         | 1600 kcal   |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Cooked Seafood|         | Good [+3]      | 4 cycles       | 1600 kcal per kg | |Raw Shellfish| |Pacu Fillet|         | 1000 kcal | |Building Electric Grill| | 1600 kcal   |
+   | |Cooked Seafood|         | Good [+3]      | 4 cycles       | 1600 kcal per kg | |Raw Shellfish| or                    | 1000 kcal | |Electric Grill|          | 1600 kcal   |
+   |                          |                |                |                  | |Pacu Fillet|                         |           |                           |             |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
    | |Curried Beans|          | Great [+4]     | 16 cycles      | 5000 kcal per kg | |Tonic Root|                          | 5 units   | |Gas Range|               | 5000 kcal   |
+   |                          |                |                |------------------+---------------------------------------+-----------|                           |-------------+
+   |                          |                |                | 5000 kcal per kg | |Nosh Bean|                           | 5 units   |                           | 5000 kcal   |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Curried Beans|          | Great [+4]     | 16 cycles      | 5000 kcal per kg | |Nosh Bean|                           | 5 units   | |Gas Range|               | 5000 kcal   |
+   | |Fried Mushroom|         | Poor [+1]      | 8 cycles       | 2800 kcal per kg | |Mushroom|                            | 2400 kcal | |Electric Grill|          | 2800 kcal   |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Fried Mushroom|         | Poor [+1]      | 8 cycles       | 2800 kcal per kg | |Mushroom|                            | 2400 kcal | |Building Electric Grill| | 2800 kcal   |
+   | |Frost Bun|              | Standard [+2]  | 8 cycles       | 1200 kcal per kg | |Sleet Wheat Grain|                   | 3 units   | |Electric Grill|          | 1200 kcal   |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Frost Bun|              | Standard [+2]  | 8 cycles       | 1200 kcal per kg | |Sleet Wheat Grain|                   | 3 units   |                           | 1200 kcal   |
+   | |Frost Burger|           | Ambrosial [+6] | 4 cycles       | 6000 kcal per kg | |Frost Bun|                           |           | |Gas Range|               | 6000 kcal   |
+   |                          |                |                |------------------+---------------------------------------|           |                           |-------------+
+   |                          |                |                | 6000 kcal per kg | |Lettuce|                             |           |                           | 6000 kcal   |
+   |                          |                |                |------------------+---------------------------------------|           |                           |-------------+
+   |                          |                |                | 6000 kcal per kg | |Barbeque|                            |           |                           | 6000 kcal   |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Frost Burger|           | Ambrosial [+6] | 4 cycles       | 6000 kcal per kg | |Resource Frost Bun|                  |           |                           | 6000 kcal   |
-   +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Frost Burger|           | Ambrosial [+6] | 4 cycles       | 6000 kcal per kg | |Lettuce|                             |           |                           | 6000 kcal   |
-   +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Frost Burger|           | Ambrosial [+6] | 4 cycles       | 6000 kcal per kg | |Resource Barbeque|                   |           |                           | 6000 kcal   |
-   +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Gristle Berry|          | Poor [+1]      | 8 cycles       | 2000 kcal per kg | |Resource Bristle Berry|              |           |                           | 2000 kcal   |
+   | |Gristle Berry|          | Poor [+1]      | 8 cycles       | 2000 kcal per kg | |Bristle Berry|                       |           | |Electric Grill|          | 2000 kcal   |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
    | |Grubfruit|              | Poor [+1]      | 4 cycles       | 250 kcal per kg  |                                       |           | |Spindly Grubfruit Plant| | 250 kcal    |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Grubfruit Preserve|     | Good [+3]      | 32 cycles      | 2400 kcal per kg | |Grubfruit|                           |           |                           | 2400 kcal   |
+   | |Grubfruit Preserve|     | Good [+3]      | 32 cycles      | 2400 kcal per kg | |Grubfruit|                           |           | |Electric Grill|          | 2400 kcal   |
+   |                          |                |----------------+------------------+---------------------------------------+-----------|                           |-------------+
+   |                          |                | 32 cycles      | 2400 kcal per kg | |Sucrose|                             |           |                           | 2400 kcal   |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Grubfruit Preserve|     | Good [+3]      | 32 cycles      | 2400 kcal per kg | |Sucrose|                             |           |                           | 2400 kcal   |
+   | |Hexalent Fruit|         | Grisly [-1]    | Never          | 6400 kcal per kg |                                       |           | |Hexalent|                | 6400 kcal   |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Hexalent Fruit|         | Grisly [-1]    | Never          | 6400 kcal per kg |                                       |           | |Hexalent|                | 6400 kcal   |
+   | |Lettuce|                | Terrible [0]   | 4 cycles       | 400 kcal per kg  |                                       |           | |Waterweed|               | 4800 kcal   |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Resource Lettuce|       | Terrible [0]   | 4 cycles       | 400 kcal per kg  |                                       |           | |Waterweed|               | 4800 kcal   |
+   | |Liceloaf|               | Terrible [0]   | 8 cycles       | 1700 kcal per kg | |Meal Lice|                           |           | |Microbe Musher|          | 1700 kcal   |
+   |                          |                |                |------------------+---------------------------------------+-----------|                           |-------------+
+   |                          |                |                | 1700 kcal per kg | |Water|                               |           |                           | 1700 kcal   |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Liceloaf|               | Terrible [0]   | 8 cycles       | 1700 kcal per kg | |Meal Lice|                           |           |                           | 1700 kcal   |
+   | |Meal Lice|              | Grisly [-1]    | 8 cycles       | 600 kcal per kg  |                                       |           | |Mealwood|                | 600 kcal    |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Resource Liceloaf|      | Terrible [0]   | 8 cycles       | 1700 kcal per kg | |Water|                               |           |                           | 1700 kcal   |
+   | |Meat|                   | Grisly [-1]    | 8 cycles       | 1600 kcal per kg |                                       |           | |Critters| dying          | N/A         |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Resource Meal Lice|     | Grisly [-1]    | 8 cycles       | 600 kcal per kg  |                                       |           | |Mealwood|                | 600 kcal    |
+   | |Mixed Berry Pie|        | Superb [+5]    | 4 cycles       | 4200 kcal per kg | |Sleet Wheat Grain|                   |           | |Gas Range|               | 4200 kcal   |
+   |                          |                |----------------+------------------+---------------------------------------+-----------|                           |-------------+
+   |                          |                | 4 cycles       | 4200 kcal per kg | |Grubfruit|                           |           |                           | 4200 kcal   |
+   |                          |                |----------------+------------------+---------------------------------------+-----------|                           |-------------+
+   |                          |                | 4 cycles       | 4200 kcal per kg | |Gristle Berry|                       |           |                           | 4200 kcal   |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Resource Meat|          | Grisly [-1]    | 8 cycles       | 1600 kcal per kg |                                       |           | |Codex Critters| dying    | N/A         |
+   | |Muckroot|               | Grisly [-1]    | Never          | 800 kcal per kg  |                                       |           | |Buried Muckroot|         | 800 kcal    |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Mixed Berry Pie|        | Superb [+5]    | 4 cycles       | 4200 kcal per kg | |Sleet Wheat Grain|                   |           |                           | 4200 kcal   |
+   | |Mush Bar|               | Grisly [-1]    | 8 cycles       | 800 kcal per kg  | |Dirt|                                |           | |Microbe Musher|          | 800 kcal    |
+   |                          |                |                |------------------+---------------------------------------+-----------|                           |-------------+
+   |                          |                |                | 800 kcal per kg  | |Water|                               |           |                           | 800 kcal    |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Mixed Berry Pie|        | Superb [+5]    | 4 cycles       | 4200 kcal per kg | |Grubfruit|                           |           |                           | 4200 kcal   |
+   | |Mush Fry|               | Terrible [0]   | 8 cycles       | 1050 kcal per kg | |Mush Bar| (800 kcal)                 |           | |Electric Grill|          | 1050 kcal   |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Mixed Berry Pie|        | Superb [+5]    | 4 cycles       | 4200 kcal per kg | |Resource Gristle Berry|              |           |                           | 4200 kcal   |
+   | |Mushroom|               | Terrible [0]   | 8 cycles       | 2400 kcal per kg |                                       |           | |Dusk Cap|                | 2400 kcal   |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Muckroot|               | Grisly [-1]    | Never          | 800 kcal per kg  |                                       |           | |Buried Object|           | 800 kcal    |
+   | |Mushroom Quiche|        | Superb [+5]    | 4 cycles       | 6400 kcal per kg | |Omelette| (2800 kcal)                |           | |Gas Range|               |             |
+   |                          |                |                |                  | |Lettuce| (400kcal)                   |           |                           |             |
+   |                          |                |                |                  | |Fried Mushroom| (2800 kcal)          |           |                           |             |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Muckroot|               | Grisly [-1]    | Never          | 800 kcal per kg  |                                       |           | |Buried Muckroot|         | 800 kcal    |
+   | |Mushroom Wrap|          | Great [+4]     | 4 cycles       | 4800 kcal per kg | |Fried Mushroom|                      |           | |Gas Range|               | 4800 kcal   |
+   |                          |                |                |------------------+---------------------------------------+-----------|                           |-------------+
+   |                          |                |                | 4800 kcal per kg | |Lettuce|                             |           |                           | 4800 kcal   |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Mush Bar|               | Grisly [-1]    | 8 cycles       | 800 kcal per kg  | |Dirt|                                |           |                           | 800 kcal    |
+   | |Nosh Bean|              | Good [+3]      | 8 cycles       | N/A              |                                       |           | |Nosh Sprout|             | 12 units    |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Mush Bar|               | Grisly [-1]    | 8 cycles       | 800 kcal per kg  | |Water|                               |           |                           | 800 kcal    |
+   | |Nutrient Bar|           | Grisly [-1]    | Never          | 800 kcal per kg  |                                       |           | |Vending Machine|         | 800 kcal    |
+   |                          |                |                |------------------+---------------------------------------+-----------+---------------------------+-------------+
+   |                          |                |                | 800 kcal per kg  |                                       |           | Start of The Game         | 16000 kcal  |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Mush Fry|               | Terrible [0]   | 8 cycles       | 1050 kcal per kg | |Resource Mush Bar| (800 kcal)        |           |                           | 1050 kcal   |
+   | |Omelette|               | Standard [+2]  | 4 cycles       | 2800 kcal per kg | |Raw Egg|                             |           | |Electric Grill|          | 2800 kcal   |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Resource Mushroom|      | Terrible [0]   | 8 cycles       | 2400 kcal per kg |                                       |           | |Dusk Cap|                | 2400 kcal   |
+   | |Pacu Fillet|            | Standard [+2]  | 4 cycles       | 1000 kcal per kg |                                       |           | |Pacu| dying              | 1000 kcal   |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Mushroom Quiche|        | Superb [+5]    | 4 cycles       | 6400 kcal per kg | |Omelette| (2800 kcal)                |           |                           |             |
-   |                          |                |                |                  | |Resource Lettuce| (400kcal)          |           |                           |             |
-   |                          |                |                |                  | |Resource Fried Mushroom| (2800 kcal) |           |                           |             |
+   | |Pepper Bread|           | Superb [+5]    | 8 cycles       | 4000 kcal per kg | |Sleet Wheat Grain|                   |           | |Gas Range|               | 4000 kcal   |
+   |                          |                |                |------------------+---------------------------------------+-----------|                           |-------------+
+   |                          |                |                | 4000 kcal per kg | |Pincha Peppernut|                    |           |                           | 4000 kcal   |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Mushroom Wrap|          | Great [+4]     | 4 cycles       | 4800 kcal per kg | |Resource Fried Mushroom|             |           |                           | 4800 kcal   |
-   +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Mushroom Wrap|          | Great [+4]     | 4 cycles       | 4800 kcal per kg | |Resource Lettuce|                    |           |                           | 4800 kcal   |
-   +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Nosh Bean|              | Good [+3]      | 8 cycles       | N/A                                                      |           | |Nosh Sprout|             | 12 units    |
-   +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Nutrient Bar|           | Grisly [-1]    | Never          | 800 kcal per kg  |                                       |           | |Vending Machine|         | 800 kcal    |
-   +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Nutrient Bar|           | Grisly [-1]    | Never          | 800 kcal per kg  |                                       |           | Start of The Game         | 16000 kcal  |
-   +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Resource Omelette|      | Standard [+2]  | 4 cycles       | 2800 kcal per kg | |Raw Egg|                             |           |                           | 2800 kcal   |
-   +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Resource Pacu Fillet|   | Standard [+2]  | 4 cycles       | 1000 kcal per kg |                                       |           | |Pacu| dying              | 1000 kcal   |
-   +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Pepper Bread|           | Superb [+5]    | 8 cycles       | 4000 kcal per kg | |Sleet Wheat Grain|                   |           |                           | 4000 kcal   |
-   +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Pepper Bread|           | Superb [+5]    | 8 cycles       | 4000 kcal per kg | |Pincha Peppernut|                    |           |                           | 4000 kcal   |
-   +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Pickled Meal|           | Grisly [-1]    | 32 cycles      | 1800 kcal per kg | |Resource Meal Lice|                  |           |                           | 1800 kcal   |
+   | |Pickled Meal|           | Grisly [-1]    | 32 cycles      | 1800 kcal per kg | |Meal Lice|                           |           | |Electric Grill|          | 1800 kcal   |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
    | |Pincha Peppernut|       | Terrible [0]   | 4 cycles       | N/A              |                                       |           | |Pincha Pepper|           | 4 kg        |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Plant Meat|             | Poor [+1]      | 4 cycles       | 1200 kcal per kg | |Codex Critters|                      |           | |Saturn Critter Trap|     | 12000 kcal  |
+   | |Plant Meat|             | Poor [+1]      | 4 cycles       | 1200 kcal per kg | |Critters|                            |           | |Saturn Critter Trap|     | 12000 kcal  |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Raw Egg|                | Grisly [-1]    | 4 cycles       | N/A              | |Hatchling Egg|                       |           | |Hatchling Egg| getting   |             |
+   | |Raw Egg|                | Grisly [-1]    | 4 cycles       | N/A              | |Critter Egg|                         |           | |Critter Egg| getting     |             |
    |                          |                |                |                  |                                       |           | to 0% viability           |             |
-   +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Raw Egg|                | Grisly [-1]    | 4 cycles       | N/A              | |Hatchling Egg|                       |           | |Egg Cracker|             | 1kg         |
-   +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Raw Egg|                | Grisly [-1]    | 4 cycles       | N/A              | |Shine Nymph Egg|                     |           | |Egg Cracker|             | 100g        |
+   |                          |                |                |                  |                                       |           |---------------------------+-------------+
+   |                          |                |                |                  |                                       |           | |Egg Cracker|             | 1kg         |
+   |                          |                |                |                  |---------------------------------------+-----------|                           |-------------+
+   |                          |                |                |                  | |Shine Nymph Egg|                     |           |                           | 100g        |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
    | |Raw Shellfish|          | Standard [+2]  | 4 cycles       | 1000 kcal per kg |                                       |           | |Sanishell| dying         |             |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Roast Grubfruit Nut|    | Poor [+1]      | 8 cycles       | 1200 kcal per kg | |Spindly Grubfruit| (800 kcal)        |           |                           |             |
+   | |Roast Grubfruit Nut|    | Poor [+1]      | 8 cycles       | 1200 kcal per kg | |Spindly Grubfruit| (800 kcal)        |           | |Electric Grill|          |             |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Sleet Wheat Grain|      | Terrible [0]   | 16 cycles      | N/A              |                                       |           |                           |             |
+   | |Sleet Wheat Grain|      | Terrible [0]   | 16 cycles      | N/A              |                                       |           | |Sleet Wheat|             |             |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Soufflé Pancakes|       | Good [+3]      | 8 cycles       | 3600 kcal per kg | |Raw Egg| (1600 kcal)                 |           | |Sleet Wheat Grain|       |             |
-   |                          |                |                |                  | |Building Electric Grill| (2)         |           |                           |             |
+   | |Soufflé Pancakes|       | Good [+3]      | 8 cycles       | 3600 kcal per kg | |Raw Egg| (1600 kcal)                 |           | |Electric Grill|          |             |
+   |                          |                |                |                  | |Sleet Wheat Grain| (2)               |           |                           |             |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Spicy Tofu|             | Superb [+5]    | 4 cycles       | 4000 kcal per kg | |Tofu| (3600 kcal)                    |           |                           |             |
+   | |Spicy Tofu|             | Superb [+5]    | 4 cycles       | 4000 kcal per kg | |Tofu| (3600 kcal)                    |           | |Microbe Musher|          |             |
    |                          |                |                |                  | |Pincha Peppernut| (1000 g)           |           |                           |             |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Spindly Grubfruit|      | Terrible [0]   | 8 cycles       | 800 kcal per kg  |                                       |           |                           |             |
+   | |Spindly Grubfruit|      | Terrible [0]   | 8 cycles       | 800 kcal per kg  |                                       |           | |Spindly Grubfruit Plant| |             |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Stuffed Berry|          | Great [+4]     | 4 cycles       | 4400 kcal per kg | |Resource Gristle Berry| (4000 kcal)  |           |                           |             |
+   | |Stuffed Berry|          | Great [+4]     | 4 cycles       | 4400 kcal per kg | |Gristle Berry| (4000 kcal)           |           | |Gas Range|               |             |
    |                          |                |                |                  | |Pincha Peppernut| (2000 g)           |           |                           |             |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Surf N Turf|            | Great [+4]     | 4 cycles       | 6000 kcal per kg | |Resource Barbeque| (4000 kcal)       |           |                           |             |
+   | |Surf N Turf|            | Great [+4]     | 4 cycles       | 6000 kcal per kg | |Barbeque|          (4000 kcal)       |           | |Gas Range|               |             |
    |                          |                |                |                  | |Cooked Fish| (1600 kcal)             |           |                           |             |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Swamp Chard Heart|      | Grisly [-1]    | Never          | 2400 kcal per kg |                                       |           |                           |             |
+   | |Swamp Chard Heart|      | Grisly [-1]    | Never          | 2400 kcal per kg |                                       |           | |Swamp Chard|             |             |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Swampy Delights|        | Poor [+1]      | 8 cycles       | 2240 kcal per kg | |Bog Jelly| (1840 kcal)               |           | |Building Electric Grill| |             |
+   | |Swampy Delights|        | Poor [+1]      | 8 cycles       | 2240 kcal per kg | |Bog Jelly| (1840 kcal)               |           | |Electric Grill|          |             |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
-   | |Resource Tofu|          | Standard [+2]  | 4 cycles       | 3600 kcal per kg | |Nosh Bean| (6)                       |           |                           |             |
+   | |Tofu|                   | Standard [+2]  | 4 cycles       | 3600 kcal per kg | |Nosh Bean| (6)                       |           | |Microbe Musher|          |             |
    |                          |                |                |                  | |Water| (50 kg)                       |           |                           |             |
    +--------------------------+----------------+----------------+------------------+---------------------------------------+-----------+---------------------------+-------------+
 
@@ -1808,18 +2486,12 @@ Building
    :target: https://oxygennotincluded.fandom.com/wiki/Bristle_Berry
 .. |Bog Bucket| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/d/d5/Bog_Bucket_%28Spaced_Out%29.png
    :target: https://oxygennotincluded.fandom.com/wiki/Bog_Bucket
-.. |Resource Bristle Berry| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/1/11/Resource_Bristle_Berry.png
-   :target: https://oxygennotincluded.fandom.com/wiki/Bristle_Berry
 .. |Bristle Blossom| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/a/a6/Bristle_Blossom.png
    :target: https://oxygennotincluded.fandom.com/wiki/Bristle_Blossom
 .. |Cooked Seafood| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/e/e2/Resource_Cooked_Seafood.png
    :target: https://oxygennotincluded.fandom.com/wiki/Cooked_Seafood
 .. |Raw Shellfish| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/a/aa/Raw_Shellfish.png
    :target: https://oxygennotincluded.fandom.com/wiki/Raw_Shellfish
-.. |Pacu Fillet| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/0/0b/Resource_Pacu_Fillet.png
-   :target: https://oxygennotincluded.fandom.com/wiki/Pacu_Fillet
-.. |Building Electric Grill| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/f1/Building_Electric_Grill.png
-   :target: https://oxygennotincluded.fandom.com/wiki/Electric_Grill
 .. |Curried Beans| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/fa/Resource_CurriedBeans.png
    :target: https://oxygennotincluded.fandom.com/wiki/Curried_Beans
 .. |Tonic Root| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/2/23/Tonic_Root.png
@@ -1828,20 +2500,12 @@ Building
    :target: https://oxygennotincluded.fandom.com/wiki/Gas_Range
 .. |Nosh Bean| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/d/d2/Nosh_Bean.png
    :target: https://oxygennotincluded.fandom.com/wiki/Nosh_Bean
-.. |Fried Mushroom| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/56/Resource_Fried_Mushroom.png
-   :target: https://oxygennotincluded.fandom.com/wiki/Fried_Mushroom
-.. |Mushroom| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/66/Resource_Mushroom.png
-   :target: https://oxygennotincluded.fandom.com/wiki/Mushroom
 .. |Frost Bun| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/cc/Resource_Frost_Bun.png
    :target: https://oxygennotincluded.fandom.com/wiki/Frost_Bun
 .. |Frost Burger| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/47/Resource_Frost_Burger.png
    :target: https://oxygennotincluded.fandom.com/wiki/Frost_Burger
-.. |Resource Frost Bun| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/cc/Resource_Frost_Bun.png
-   :target: https://oxygennotincluded.fandom.com/wiki/Frost_Bun
 .. |Lettuce| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/fe/Resource_Lettuce.png
    :target: https://oxygennotincluded.fandom.com/wiki/Lettuce
-.. |Resource Barbeque| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/f5/Resource_Barbeque.png
-   :target: https://oxygennotincluded.fandom.com/wiki/Barbeque
 .. |Gristle Berry| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/cd/Resource_Gristle_Berry.png
    :target: https://oxygennotincluded.fandom.com/wiki/Gristle_Berry
 .. |Grubfruit| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/e/e0/Grubfruit.png
@@ -1856,30 +2520,20 @@ Building
    :target: https://oxygennotincluded.fandom.com/wiki/Hexalent_Fruit
 .. |Hexalent| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/f3/Hexalent.png
    :target: https://oxygennotincluded.fandom.com/wiki/Hexalent
-.. |Resource Lettuce| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/fe/Resource_Lettuce.png
-   :target: https://oxygennotincluded.fandom.com/wiki/Lettuce
 .. |Waterweed| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/7/71/Waterweed.png
    :target: https://oxygennotincluded.fandom.com/wiki/Waterweed
 .. |Liceloaf| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/5f/Resource_Liceloaf.png
    :target: https://oxygennotincluded.fandom.com/wiki/Liceloaf
 .. |Meal Lice| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/f6/Resource_Meal_Lice.png
    :target: https://oxygennotincluded.fandom.com/wiki/Meal_Lice
-.. |Resource Liceloaf| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/5f/Resource_Liceloaf.png
-   :target: https://oxygennotincluded.fandom.com/wiki/Liceloaf
 .. |Water| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/9d/Water.png
    :target: https://oxygennotincluded.fandom.com/wiki/Water
-.. |Resource Meal Lice| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/f6/Resource_Meal_Lice.png
-   :target: https://oxygennotincluded.fandom.com/wiki/Meal_Lice
 .. |Mealwood| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/8/80/Mealwood.png
    :target: https://oxygennotincluded.fandom.com/wiki/Mealwood
-.. |Resource Meat| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/b/b6/Resource_Meat.png
-   :target: https://oxygennotincluded.fandom.com/wiki/Meat
-.. |Codex Critters| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/0/07/Codex_Critters.png
+.. |Critters| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/0/07/Codex_Critters.png
    :target: https://oxygennotincluded.fandom.com/wiki/Codex_Critters
 .. |Mixed Berry Pie| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/68/Mixed_Berry_Pie.png
    :target: https://oxygennotincluded.fandom.com/wiki/Mixed_Berry_Pie
-.. |Resource Gristle Berry| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/cd/Resource_Gristle_Berry.png
-   :target: https://oxygennotincluded.fandom.com/wiki/Gristle_Berry
 .. |Muckroot| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/54/Resource_Muckroot.png
    :target: https://oxygennotincluded.fandom.com/wiki/Muckroot
 .. |Buried Object| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/63/Buried_Object.png
@@ -1892,18 +2546,14 @@ Building
    :target: https://oxygennotincluded.fandom.com/wiki/Dirt
 .. |Mush Fry| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/c0/Resource_Mush_Fry.png
    :target: https://oxygennotincluded.fandom.com/wiki/Mush_Fry
-.. |Resource Mush Bar| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/b/ba/Resource_Mush_Bar.png
-   :target: https://oxygennotincluded.fandom.com/wiki/Mush_Bar
-.. |Resource Mushroom| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/66/Resource_Mushroom.png
-   :target: https://oxygennotincluded.fandom.com/wiki/Mushroom
 .. |Dusk Cap| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/44/Dusk_Cap.png
    :target: https://oxygennotincluded.fandom.com/wiki/Dusk_Cap
+.. |Fried Mushroom| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/56/Resource_Fried_Mushroom.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Fried_Mushroom
+.. |Mushroom| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/66/Resource_Mushroom.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Mushroom
 .. |Mushroom Quiche| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/6a/Resource_Mushroom_Quiche.png
    :target: https://oxygennotincluded.fandom.com/wiki/Mushroom_Quiche
-.. |Omelette| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/32/Resource_Omelette.png
-   :target: https://oxygennotincluded.fandom.com/wiki/Omelette
-.. |Resource Fried Mushroom| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/56/Resource_Fried_Mushroom.png
-   :target: https://oxygennotincluded.fandom.com/wiki/Fried_Mushroom
 .. |Mushroom Wrap| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/e/ea/Resource_Mushroom_Wrap.png
    :target: https://oxygennotincluded.fandom.com/wiki/Mushroom_Wrap
 .. |Nosh Sprout| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/4e/Nosh_Sprout.png
@@ -1912,11 +2562,11 @@ Building
    :target: https://oxygennotincluded.fandom.com/wiki/Nutrient_Bar
 .. |Vending Machine| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/d/d3/Vending_Machine.png
    :target: https://oxygennotincluded.fandom.com/wiki/Vending_Machine
-.. |Resource Omelette| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/32/Resource_Omelette.png
-   :target: https://oxygennotincluded.fandom.com/wiki/Omelette
 .. |Raw Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/b/bd/Raw_Egg.png
    :target: https://oxygennotincluded.fandom.com/wiki/Raw_Egg
-.. |Resource Pacu Fillet| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/0/0b/Resource_Pacu_Fillet.png
+.. |Omelette| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/32/Resource_Omelette.png
+   :target: https://oxygennotincluded.fandom.com/wiki/Omelette
+.. |Pacu Fillet| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/0/0b/Resource_Pacu_Fillet.png
    :target: https://oxygennotincluded.fandom.com/wiki/Pacu_Fillet
 .. |Pacu| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/4b/Pacu.png
    :target: https://oxygennotincluded.fandom.com/wiki/Pacu
@@ -1932,14 +2582,14 @@ Building
    :target: https://oxygennotincluded.fandom.com/wiki/Plant_Meat
 .. |Saturn Critter Trap| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/0/02/Saturn_Critter_Trap.png
    :target: https://oxygennotincluded.fandom.com/wiki/Saturn_Critter_Trap
-.. |Hatchling Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/94/Hatchling_Egg.png
+.. |Critter Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/94/Hatchling_Egg.png
    :target: https://oxygennotincluded.fandom.com/wiki/Hatchling_Egg
 .. |Egg Cracker| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/2/26/Building_Egg_Cracker.png
    :target: https://oxygennotincluded.fandom.com/wiki/Egg_Cracker
 .. |Shine Nymph Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/3f/Shine_Nymph_Egg.png
    :target: https://oxygennotincluded.fandom.com/wiki/Shine_Nymph_Egg
 .. |Sanishell| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/b/b1/Sanishell.png
-   :target: https://oxygennotincluded.fandom.com/wiki/Sanishell
+   :target: https://oxygennotincluded.fandom.com/wiki/Pokeshell
 .. |Roast Grubfruit Nut| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/38/Roast_Grubfruit_Nut.png
    :target: https://oxygennotincluded.fandom.com/wiki/Roast_Grubfruit_Nut
 .. |Spindly Grubfruit| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/c9/Spindly_Grubfruit.png
@@ -1960,8 +2610,6 @@ Building
    :target: https://oxygennotincluded.fandom.com/wiki/Swamp_Chard_Heart
 .. |Swampy Delights| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/9a/Swampy_Delights.png
    :target: https://oxygennotincluded.fandom.com/wiki/Swampy_Delights
-.. |Resource Tofu| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/c2/Resource_Tofu.png
-   :target: https://oxygennotincluded.fandom.com/wiki/Tofu
 
 
 气态元素属性表
