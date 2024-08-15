@@ -730,6 +730,18 @@ https://bjgy.bjcourt.gov.cn/article/detail/2011/08/id/882931.shtml
 如何改革，如何做蛋糕、分蛋糕，真的是亘古不变的难题。
 
 
+# CBDC 央行数字货币
+
+https://www.bis.org/about/bisih/topics/cbdc/mcbdc_bridge.htm
+金融战：人民币环流第三阶段 (mBridge央行数字货币桥) https://www.bilibili.com/video/BV1k6421Z7Dm/?p=5
+
+中国人民银行于 1996 年 11 月正式加入国际清算银行(Bank for International Settlements)，中国人民银行是该行亚洲顾问委员会的成员，周小川行长担任该委员会主席。中国认缴了3000股的股本，实缴金额为3879万美元。2005年6月1日，经追加购买，中国共有该行4285股的股本。2006年7月，中国人民银行周小川行长出任国际清算银行董事。
+
+2024年6月5日，国际清算银行（BIS）宣布，沙特阿拉伯央行已成为“mBridge项目”的全面合作伙伴，"货币桥"（mBridge）项目是一个多边央行数字货币项目，旨在探索和实现以央行数字货币为核心的跨境支付解决方案。
+
+中国人民银行与中国香港金管局、泰国及阿联酋央行宣布联合发起多边央行数字货币桥研究项目（Multi-CBDC Bridge，简称“多边货币桥”mBridge），旨在探索利用批发型央行数字货币（Central Bank Digital Currency, CBDC）提升跨境支付的效率。
+
+Project mBridge is the result of extensive collaboration starting in 2021 between the BIS Innovation Hub, the Bank of Thailand, the Central Bank of the United Arab Emirates, the Digital Currency Institute of the People's Bank of China and the Hong Kong Monetary Authority. The Saudi Central Bank is joining mBridge as a full participant. There are also now more than 31 observing members.
 
 
 

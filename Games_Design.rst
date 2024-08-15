@@ -167,7 +167,6 @@
 ================================================================================
 
    https://www.klei.com/games/oxygen-not-included
-   https://oxygennotincluded.fandom.com/zh/wiki/
    缺氧从新开始 https://www.bilibili.com/video/BV1S84y1v7XS/
    
    《缺氧》是开发《饥荒》Klei Entertainment 公司制作并发行的一款太空殖民模拟游戏（space-colony），
@@ -186,6 +185,11 @@
    复制人的生物（一般不用担心）。该游戏没有目标，只要能长久的生存下去就行。
 
    游戏发行日期2019年7月31日，售价 58.00 元。
+
+   2021 年，Klei Entertainment 公司同意腾讯收购股权，表示“工作室的各个方面完全的创意和运营自主权”。
+   公司的华裔创始人 Jamie Cheng 在一篇论坛帖子中表示，Klei 将保留“完全自主权”，人员配备、项目或其他
+   运营不会发生变化，公司目前规模在 50 人左右。
+
 
    游戏主界面采用与 Sierra 开发的 Caesar III《恺撒大帝Ⅲ》类似的分层信息地图来向玩家展示基地
    中的各项数据指标 [Overlays](https://oxygennotincluded.fandom.com/wiki/Overlays)：
@@ -353,6 +357,45 @@ Debug Mode
 
 Tutorial
 --------
+
+   游戏使用科技树来管理各种建筑设备，只有通过拥有科技技能的复制人通过相关的研究后才能解锁相应的建筑，
+   研究性建筑有三个，依次排序如下，具体参考科学建筑 `Science Buildings`_ ：
+   
+   *  研究站 `Research Station`_可以解锁基础设备建筑，需要电力支持；
+   *  超级计算机 `Super Computer`_可以解锁高级科技，包括后期的航天科技，需要电力、净水资源支持；
+   *  虚拟形象仪 `Virtual Planetarium`_可以解锁高级航天科技，需要在发射火箭后获取到的数据磁盘；
+
+   具有天文学或数据分析研究技能的复制人能够使用虚拟天象仪，将数据磁盘以 1:1 比例转换成星际研究
+   （数据分析研究）点数。装载了研究舱的火箭在完成一次太空任务后会在返回时掉落数据磁盘。每个研究舱
+   每次可以带回 10 单位数据磁盘。此外，星图中每个目的地都有 5 项一次性的研究任务，每个研究舱每次
+   最多可完成 1 项研究任务，并额外带回 50 单位数据磁盘。
+
+   缺氧游戏的总体路线是：
+
+   1. 建立一个小行星基地，先满足基地中复制人的日常生活：主要是温度管理、水资源利用、食品工业；
+   2. 进行科技研究升级，发掘小星球资源，并为后期的航天探索工作提供支持；
+   2. 建设航天工业设施，制造探索星图的火箭，并通过发射火箭来获取邻近小星球的资源。
+
+   游戏中的资源是有限的，应该尽量循环使用，再生资源来自各种间歇泉（Geysers_）。
+
+   为了方便在各种极端环境下工具，应该尽早研究、制造出太空服 `Atmo Suit`_。气压服（俗称太空服），
+   它可为穿戴者提供氧气，隔绝病菌和液体，并为穿戴者提供隔热保护，但同时也会降低复制人的运动属性。
+   气压服可以储存 75 千克的氧气（可供常规复制人呼吸 750 秒，即 1.25 周期），并只能通过气压服
+   存放柜补充氧气。当气压服中存有氧气时，穿戴它的复制人会吸入内部的氧气，并将呼出的二氧化碳存储在
+   气压服内，并且在复制人脱下气压服时释放到环境中（比如在检查站处脱下时释放在检查站的判定格）。
+   穿戴气压服的复制人不会消耗外部空气，磨损的气压服经太空服锻造台消耗 1 单位芦苇纤维修复后重复使用。
+   气压服需要 300kg 精练金属和 2 单位芦苇纤维，铝、铁、钴都可以，可以通过金属精练厂生产，或者养殖
+   光滑哈奇获得。芦苇纤维（Reed Fiber）可以通过采收野生的或种植的顶针芦苇 `Thimble Reed`_ 
+   或者修剪训养好的毛鳞壁虎 `Drecko`_ 鳞片获得。
+
+.. _Thimble Reed: https://oxygennotincluded.fandom.com/wiki/Thimble_Reed
+.. _Drecko: https://oxygennotincluded.fandom.com/wiki/Drecko
+.. _Geysers: https://oxygennotincluded.fandom.com/wiki/Geysers
+.. _Atmo Suit: https://oxygennotincluded.fandom.com/wiki/Atmo_Suit
+.. _Science Buildings: https://oxygennotincluded.fandom.com/wiki/Category:Science_Buildings
+.. _Research Station: https://oxygennotincluded.fandom.com/wiki/Research_Station
+.. _Super Computer: https://oxygennotincluded.fandom.com/wiki/Super_Computer
+.. _Virtual Planetarium: https://oxygennotincluded.fandom.com/wiki/Virtual_Planetarium
 
    如游戏名字暗示，氧气是最为重要的生存资源，它与水有紧密的联系，掌握水循环原理以持续地利用污染水、
    浓盐水或纯净水，净化、分流或者水解产生氧气，或者直接使用污水种植。厕所用水，需要净水 5kg/人次，
@@ -584,6 +627,9 @@ Tutorial
    *  通过使用自动化限制喂食器，可以使用更少的藻类驯化帕库鱼。
    *  鱼卵会保留上一代的野性。
    *  帕库鱼苗只会在只含种子的喂鱼器中进食一次。
+
+   游戏存在 bug，点击水体中的帕库鱼并“显示可行路径”，可能没有任何白色线条指示可行路径，这种情况
+   很常见，可以保存游戏进度再重新加载后，可以解决帕库鱼因为不能游动 bug 导致不能进食的问题。
 
    米虱木（Mealwood）可以说是最好种植的食用植物，基本上只要保持 10 °C ~ 30 °C 的环境温度，使用泥土
    而无需灌溉、光照就可以有收获，大范围的适应气压 150 克 ↔ 10 千克。对应好养的小动物是“好吃哈奇”，
@@ -1787,6 +1833,177 @@ Building
    *  `侦察着陆器 <https://oxygennotincluded.fandom.com/wiki/Rover%27s_Lander>`__
    *  `庄严科技门 <https://oxygennotincluded.fandom.com/wiki/Gravitas_Door>`__
 
+
+
+Cycles 游戏周期
+--------------
+
+
+
+   **Cycles** are the term used for the day/night cycle in `Oxygen Not Included`_. 
+   One cycle lasts 600 seconds in total, with 525 seconds of daytime and 75 seconds 
+   of nighttime. The slowly rotating asteroid image in the top left of the UI represents 
+   the clock.
+
+   Contents
+
+      -  1 Daytime
+      -  2 Night-time
+
+         -  2.1 Sleep
+
+      -  3 Schedule
+
+         -  3.1 Early Bird and Night Owl
+
+      -  4 Timings
+      -  5 Achievements
+
+
+Daytime
+~~~~~~~
+
+   The brighter side of the asteroid represents daytime. `Duplicants`_ will usually 
+   perform jobs and other actions during daytime.
+
+   The sun shining on the Asteroid starts with dawn at 0 Lux, decelerating the closer 
+   it gets to midday and 79.999 Lux and past midday accelerates the closer it gets 
+   to 0 Lux, reaching it when Nighttime starts.
+
+
+Night-time
+~~~~~~~~~~
+
+   The darker side of the asteroid represents nighttime and is when `Duplicants`_ will 
+   usually go to sleep. Red alert prevents Duplicants from sleeping.
+
+   `Hatches`_ are night active creatures and will look for food. At the end of the night 
+   they will try to find some natural tile to dig in.
+
+   During night-time, a Duplicant with the Night Owl `trait`_ will find most of their 
+   skills increase by 3.
+
+   No sun shines on the asteroid during nighttime, `Solar Panels`_ will not work.
+
+
+Sleep
+~~~~~
+
+   Sleeping restores Duplicant's stamina. Duplicants do not need a full night sleep to 
+   restore full stamina. Hunger, `light`_ and full bladder cause "interrupted sleep". 
+   `Flatulent`_ and `Loud Sleeper`_ Duplicants can wake others up, too. Sleep interruption 
+   annoys Duplicants during the following daytime and adds to their `Stress`_, in addition 
+   if their stamina runs out during the work-shift they might fall asleep right on the 
+   spot, interrupting their duties and receiving all relevant `morale`_ penalties.
+
+
+Schedule
+~~~~~~~~
+
+
+   .. figure:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/2/22/Schedule.png
+
+      Schedule Table
+
+   In the "Schedule" menu one can see the current Schedule of each Duplicant and modify 
+   it, add and delete new Schedules, rename Schedules, toggle sound notifications and
+   move Duplicants to Schedules by clicking on the arrow.
+
+   There are 24 blocks with each block representing 25 seconds. Those can be switched 
+   to Bathtime, Work, Downtime and Bedtime.
+
+   The Default Schedule is 1 Block of Bathtime, starting at dawn, followed by 18 blocks 
+   of Work and 2 Blocks of Downtime are scheduled before the 3 Blocks of Bedtime.
+
+   -  During **Work**, Duplicants will focus on accomplishing their tasks, only eating 
+      and using the bathroom when absolutely necessary.
+
+   -  During **Bathtime**, Duplicants will prioritize Bathroom activities at >40% 
+      Bladder and work otherwise.
+
+      Duplicants will need to use bathroom at least once per cycle. If bathtime/downtime 
+      is spaced out by 10 blocks it will increase to two times. Since sanitary buildings 
+      are communal, Bathtime is the prime candidate for splitting schedules to normalize 
+      peak load.
+
+   -  During **Downtime**, Duplicants will prioritize visiting the bathroom (>40% Bladder), 
+      eating (when below 3300 kcal) and leisure activities. Each bonus Downtime slot besides 
+      the first one increases `Morale`_ by 1, up to +4. If the duplicant isn't hungry, has 
+      an empty bladder, has no recreation tasks and has no recreation room or Printing Pod 
+      to idle by, the duplicant will choose to work during their downtime.
+
+   -  During **Bedtime**, Duplicants will sleep and nothing else matters, unless it is 
+      `really really important`_. Namely only because of a bursting Bladder, low `Oxygen`_ 
+      or due to Starvation (less than 1000 kcal) they will get up.
+
+      Duplicants normally lose only 70% of stamina per cycle and recover 38.75-42.9% per 
+      block while sleeping in a `cot`_ (~43-51% in a `Comfy Bed`_), and the Barracks or 
+      Bedroom `rooms`_ further speed up the stamina recovery.
+
+      If a duplicant hasn't reached 100% stamina by the end of Bedtime, they will continue 
+      sleeping until they reach 100% stamina through Work and Bathtime blocks, but not 
+      Downtime. So with a short Bedtime and Work or Bathtime after sleeping, as long as 
+      duplicants reach their bed by the end of Bedtime, they will continue sleeping and 
+      only wake up once stamina has recovered to 100%.
+
+   The Schedule can be free adjusted to deal with Loud Sleepers, Night Owls, Early Birds, 
+   objects with limited interaction slots, too limited downtime to do everything needed, 
+   less than three blocks being needed for sleep and hunting for `Hatches`_.
+
+
+Early Bird and Night Owl
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+   -  During 3 rightmost blocks duplicants with Night Owl `trait`_ gain +3 to all `attributes`_.
+   -  During 5 leftmost blocks duplicants with Early Bird gain +2 to all attributes.
+   -  The bonus productivity time can be lost while traveling to and from bedrooms, 
+      so it may help to buffer these schedules with an additional work block on either side.
+
+
+Timings
+~~~~~~~
+
+   The whole day in Oxygen Not Included lasts 10 minutes (600 seconds) at normal speed, 
+   with 1 minute and 15 seconds being nighttime.
+
+   From experiments with batteries, power consumers and timer sensors, the game engine 
+   appears to evaluate 5 ticks per second.
+
+   Speed controls switches are 1x, 2x, and 3x speed, and `debug`_ super-speed value is 10x.
+
+
+Achievements
+~~~~~~~~~~~~
+
+   There are two cycle-based `Achievements`_:
+
+   -  Turn of the century: Unlocked at cycle 100
+   -  One Year, to be Exact: Unlocked at cycle 365.25
+
+   Some other achievements have cycles as one criterion, e.g. for the *Home Sweet Home* 
+   achievement, at least 200 cycles need to pass, while the *Carnivore* achievement 
+   needs to be reached before the 100th cycle.
+
+
+.. _Oxygen Not Included: https://oxygennotincluded.fandom.com/wiki/Oxygen_Not_Included
+.. _Duplicants: https://oxygennotincluded.fandom.com/wiki/Duplicant
+.. _Hatches: https://oxygennotincluded.fandom.com/wiki/Hatch
+.. _trait: https://oxygennotincluded.fandom.com/wiki/Duplicant
+.. _Solar Panels: https://oxygennotincluded.fandom.com/wiki/Solar_Panel
+.. _light: https://oxygennotincluded.fandom.com/wiki/Light
+.. _Flatulent: https://oxygennotincluded.fandom.com/wiki/Duplicant#Negative_traits
+.. _Loud Sleeper: https://oxygennotincluded.fandom.com/wiki/Duplicant#Negative_traits
+.. _Stress: https://oxygennotincluded.fandom.com/wiki/Stress
+.. _morale: https://oxygennotincluded.fandom.com/wiki/Morale
+.. _Morale: https://oxygennotincluded.fandom.com/wiki/Morale
+.. _really really important: https://oxygennotincluded.fandom.com/wiki/Red_Alert
+.. _Oxygen: https://oxygennotincluded.fandom.com/wiki/Oxygen
+.. _cot: https://oxygennotincluded.fandom.com/wiki/Cot
+.. _Comfy Bed: https://oxygennotincluded.fandom.com/wiki/Comfy_Bed
+.. _rooms: https://oxygennotincluded.fandom.com/wiki/Room_Overlay
+.. _attributes: https://oxygennotincluded.fandom.com/wiki/Duplicant
+.. _debug: https://oxygennotincluded.fandom.com/wiki/Debug_Commands
+.. _Achievements: https://oxygennotincluded.fandom.com/wiki/Achievements
 
 
 小动物品种、习性数据
@@ -3049,8 +3266,8 @@ Building
    +-----------------------+--------+---------+------------------+--------------+------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------------+-------------------+
 
 
-Game Mechanics
-==============
+Game Mechanics 游戏机制
+======================
 
    .. code:: bash
 
@@ -3360,8 +3577,8 @@ See Also
 
 
 
-Hidden Mechanics
-================
+Hidden Mechanics 隐藏机制
+========================
 
    .. code:: bash
 
@@ -4465,6 +4682,3028 @@ Disabled building room requirement
    :height: 25px
 
 
+Dupliants 复制人
+===============
+
+   This article is considered `accurate`_ for the current version (`U51-600112`_).
+
+   .. figure:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/f3/Duplicants_preview.png
+      :width: 200px
+      :height: 143px
+
+   A **Duplicant** is one of the tiny, frustrating, but also endearing clones that 
+   the player manages in `Oxygen Not Included`_. Each are printed with unique traits 
+   and have needs that must be fulfilled so they can survive. New games begin with a 
+   selection dialog where the player has to select three randomly generated Duplicants.
+
+   As the game progresses, a player may get more of them from the `Printing Pod`_. 
+   You can also get a Duplicant from a `Cryotank 3000`_ in the `Spaced Out!`_ DLC.
+
+   **Contents**
+
+      -  1 Duplicant Selection
+
+         -  1.1 New Game Menu
+         -  1.2 Printing Pod Menu
+         -  1.3 Starting Bonuses
+
+      -  2 Duplicant Properties
+
+         -  2.1 Properties
+         -  2.2 Needs
+         -  2.3 Attributes
+         -  2.4 Interests
+         -  2.5 Traits
+
+            -  2.5.1 Positive Traits
+            -  2.5.2 Negative Traits
+
+         -  2.6 Morale
+
+            -  2.6.1 Stress Responses
+            -  2.6.2 Overjoyed Responses
+
+      -  3 Ownership
+      -  4 Emotions
+      -  5 Established Duplicants
+      -  6 See Also
+
+
+Duplicant Selection
+-------------------
+
+   .. image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/f3/Duplicants_preview.png
+      :width: 200px
+      :height: 143px
+
+New Game Menu
+~~~~~~~~~~~~~
+
+   At the start of the game, as the last step of the `Game Settings`_, three Duplicants 
+   are to be selected as the starting team. The player may reroll any Duplicants any 
+   number of times. Players can also select one interest for a Duplicant to guarantee 
+   they will have the selected interest when rerolling. The Duplicant can be renamed 
+   in this menu.
+
+Printing Pod Menu
+~~~~~~~~~~~~~~~~~
+
+   .. figure:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/e/e3/Printing_selection.png
+      :class: thumbimage
+      :width: 180px
+      :height: 108px
+
+      The Duplicant selection dialog as it appears during the game.
+
+   After the Printing Pod's cooldown timer is finished after 3 `Cycles`_, it will become 
+   ready, giving the opportunity to either receive a new Duplicant or a `Care Package`_.
+   Unlike the start of the game, the Duplicants cannot be rerolled `↑[1]`. If no Duplicants 
+   are deemed suitable for the colony, you can reject all options. Exiting the dialogue 
+   will not reject the printing options and can be re-entered at a later time. The cooldown 
+   of the printing pod will not start until a Duplicant has been selected or rejected.
+
+   #. `↑[1]` This can be bypassed by saving and reloading the game, which will regenerate all options.
+
+Starting Bonuses
+~~~~~~~~~~~~~~~~
+
+   .. figure:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/8/88/Example_duplicate_bonuses.png
+      :width: 180px
+      :height: 383px
+
+   When a Duplicant is rolled, one to three random interests will be chosen. Each interest 
+   provides a starting bonus to the related attribute. The amount depends on the number 
+   of interests that were chosen. One interest will result in a +7 bonus, two interests 
+   a +3 bonus, and three interests a +1 bonus to each attribute.
+
+   Extra points based on the Duplicant's traits may be applied. These can be found in the 
+   `Traits`_ section under the "Interest Attribute Modifier" column. If a Duplicant has 
+   more than one interest, the extra points are randomly divided across each of them.
+
+   In this example, the Duplicant has three interests which gives +1 to their associated 
+   attributes. The Unempathetic trait grants a +2 Interest Attribute Modifier. One of 
+   those is added to the `Construction`_ attribute and the other is added to the 
+   `Digging`_ attribute.
+
+   Note that Supplying and Tidying have the same corresponding attribute `Strength`_. 
+   The bonus to Strength does stack, but the UI incorrectly displays the total bonus 
+   for both interests. If a Duplicant is rolled with both Supplying and Tidying, they 
+   will receive a +3 bonus to Strength for Tidying and +3 bonus to Strength for Supplying. 
+   This means the Duplicant will start with a Strength of 6. However, the UI will display 
+   "+6 Strength" next to both interests implying the Duplicant will get a +12 bonus 
+   which is not the case.
+
+Duplicant Properties
+--------------------
+
+   Properties are aspects of Duplicants that aren't leveled and can't be intrinsically 
+   changed (as opposed to `Skills`_). However, many Properties have positive and 
+   negative Traits associated with them.
+
+Properties
+~~~~~~~~~~
+
+   +---------------------------+--------------------------------+------------------------------+--------------------------------------+
+   | Property                  | Base Value                     | Positive Trait               | Negative Trait                       |
+   +---------------------------+--------------------------------+------------------------------+--------------------------------------+
+   | Oxygen Consumption        | 100 g/s                        | Diver's Lungs (-25 g/s)      | Mouthbreather (+100 g/s)             |
+   |                           |                                | Deep Diver's Lungs (-50 g/s) |                                      |
+   +---------------------------+--------------------------------+------------------------------+--------------------------------------+
+   | Carbon Dioxide Production | 2 g/s                          | Diver's Lungs (-500 mg/s)    | Mouthbreather (+2 g/s)               |
+   |                           |                                | Deep Diver's Lungs (-1 g/s)  |                                      |
+   +---------------------------+--------------------------------+------------------------------+--------------------------------------+
+   | Calorie Consumption       | 1000 kcal/Cycle                | None                         | Bottomless Stomach (+500 kcal/cycle) |
+   +---------------------------+--------------------------------+------------------------------+--------------------------------------+
+   | Bladder Rate              | 100% per Cycle                 | None                         | Small Bladder (+0.2%/cycle)          |
+   +---------------------------+--------------------------------+------------------------------+--------------------------------------+
+   | Toilet Speed              | 100%                           | None                         | Irritable Bowel (-50%)               |
+   +---------------------------+--------------------------------+------------------------------+--------------------------------------+
+   | Scald Temperature         | 72.85°C (without `Atmo Suit`_) | None                         | None                                 |
+   +---------------------------+--------------------------------+------------------------------+--------------------------------------+
+
+Needs
+~~~~~
+
+   +------------------+-------------------------------------------------------------------------------+
+   | Need             | Description                                                                   |
+   +------------------+-------------------------------------------------------------------------------+
+   | Breath           | -  Gain 0.9%/s in breathable conditions, lose 0.9%/s in unbreathable          |
+   |                  | -  Interrupt activity at 72.72% (after 30 seconds)                            |
+   |                  | -  Suffocation warning at 45.45% (after 60 seconds)                           |
+   |                  | -  Death at 0% (after 110 seconds)                                            |
+   +------------------+-------------------------------------------------------------------------------+
+   | Stamina          | -  -70%/cycle base value                                                      |
+   |                  | -  -10%/cycle if wearing `Pajamas`_                                           |
+   |                  | -  +900%/cycle if sleeping normally                                           |
+   |                  |                                                                               |
+   |                  |    -  +100%/cycle if sleeping in a `Cot`_                                     |
+   |                  |    -  +200%/cycle if sleeping in a `Comfy Bed`_                               |
+   |                  |    -  +100%/cycle if sleeping in `Barracks`_                                  |
+   |                  |    -  +200%/cycle if sleeping in Private Bedroom                              |
+   |                  |                                                                               |
+   |                  | -  +400%/cycle if sleeping due to exhaustion                                  |
+   |                  | -  Radiation Sickness                                                         |
+   |                  |                                                                               |
+   |                  |    -  -20%/cycle from minor sickness                                          |
+   |                  |    -  -50%/cycle from major sickness                                          |
+   |                  |    -  -75%/cycle from extreme sickness                                        |
+   |                  |                                                                               |
+   |                  | -  +50%/cycle while using a `Beach Chair`_                                    |
+   |                  |                                                                               |
+   |                  | Duplicants will collapse from exhaustion at 0%                                |
+   |                  | and sleep until 100% Stamina unless interrupted.                              |
+   +------------------+-------------------------------------------------------------------------------+
+   | Calories         | -  Maximum of 4000 kcal                                                       |
+   |                  | -  Hungry at 3000 kcal                                                        |
+   |                  | -  Starvation warning at 1000 kcal                                            |
+   |                  | -  Die at 0 kcal                                                              |
+   |                  | -  By default, eat a maximum of 1500 kcal per cycle; need 1000 kcal per cycle |
+   |                  | -  Becoming hungry interrupts sleep                                           |
+   |                  | -  Will eat during Downtime when below 3300 kcal                              |
+   +------------------+-------------------------------------------------------------------------------+
+   | Bladder          | -  +100% per cycle                                                            |
+   |                  | -  Will use a toilet when at 100% during work or above 40% during recreation  |
+   |                  | -  After 125 seconds at 100%, the Duplicant will make a mess                  |
+   +------------------+-------------------------------------------------------------------------------+
+   | Body Temperature | -  Healthy temperature is 37 °C (98.6 °F)                                     |
+   |                  | -  Contract `Hypothermia`_ below 34 °C (93.2 °F)                              |
+   |                  |    and `Heat Stroke`_ above 42 °C (107.6 °F)                                  |
+   +------------------+-------------------------------------------------------------------------------+
+
+Attributes
+~~~~~~~~~~
+
+   Each Duplicant has 11 different attributes. These attributes define how effectively Duplicants 
+   will perform those errands. Upon creation, Duplicant attributes are determined by their 
+   interests and certain traits. A negative Trait may lower a Duplicant attribute or prevent 
+   them from performing a specific errand.
+
+   All attributes can be trained by running related `errands`_. This can increase an attribute 
+   by a maximum of 20 and is added on top of other modifiers.
+
+   +-----------------+-----------------------------------------------------------------------+---------------------------------+
+   | Name            | Description                                                           | Bonus per level                 |
+   +-----------------+-----------------------------------------------------------------------+---------------------------------+
+   | `Construction`_ | Duplicant's building speed                                            | +25% construction speed         |
+   +-----------------+-----------------------------------------------------------------------+---------------------------------+
+   | `Excavation`_   | Duplicant's mining speed and combat ability                           | +25% digging speed              |
+   |                 |                                                                       | +5% attack damage               |
+   +-----------------+-----------------------------------------------------------------------+---------------------------------+
+   | `Machinery`_    | How adeptly a duplicant uses machines                                 | +10% Machinery speed            |
+   |                 |                                                                       | +2.5% Engine's Tune-Up duration |
+   +-----------------+-----------------------------------------------------------------------+---------------------------------+
+   | `Athletics`_    | Duplicant's movement speed                                            | +10% runspeed                   |
+   +-----------------+-----------------------------------------------------------------------+---------------------------------+
+   | `Science`_      | How quickly a duplicant conducts research and gains attributes        | +40% research speed             |
+   |                 |                                                                       | +10% attribute leveling         |
+   +-----------------+-----------------------------------------------------------------------+---------------------------------+
+   | `Cuisine`_      | How quickly a duplicant cooks food                                    | +5% cooking speed               |
+   +-----------------+-----------------------------------------------------------------------+---------------------------------+
+   | `Creativity`_   | The speed and finesse with which a duplicant creates artwork          | +10% decorating speed           |
+   +-----------------+-----------------------------------------------------------------------+---------------------------------+
+   | `Strength`_     | Carrying capacity and tidying speed                                   | +25% tidying speed              |
+   |                 |                                                                       | +40 kg carrying capacity\*      |
+   +-----------------+-----------------------------------------------------------------------+---------------------------------+
+   | `Medicine`_     | Medical skill and how well a Duplicant works with peers and creatures | +10% compound fabrication speed |
+   |                 |                                                                       | +20% medical care speed         |
+   +-----------------+-----------------------------------------------------------------------+---------------------------------+
+   | `Agriculture`_  | How quickly and efficiently a Duplicant raises plants                 | +5% farming speed               |
+   |                 |                                                                       | +2.5% tending speed             |
+   |                 |                                                                       | +3.3% seed chance               |
+   |                 |                                                                       | +10% Farmer's Touch duration    |
+   +-----------------+-----------------------------------------------------------------------+---------------------------------+
+   | `Husbandry`_    | How quickly and efficiently a Duplicant raises `critters`_.           | +10% groom effect duration      |
+   |                 |                                                                       | +10% lullaby speed              |
+   +-----------------+-----------------------------------------------------------------------+---------------------------------+
+
+   \* Duplicant's initial carrying capacity is 200 kg.
+
+Interests
+~~~~~~~~~
+
+   Each Duplicant can have between 1 and 3 interests. Interests give bonuses to their 
+   related attributes, give a +1 Morale bonus for related Skills, and raise experience 
+   gain from associated activities, enabling skill points to be earned faster.
+
+   +--------------+--------------+----------------+----------------+-----------------+
+   | `Building`_  | `Cooking`_   | `Decorating`_  | `Digging`_     | `Doctoring`_    |
+   +--------------+--------------+----------------+----------------+-----------------+
+   | `Farming`_   | `Operating`_ | `Ranching`_    | `Researching`_ | `Suit Wearing`_ |
+   +--------------+--------------+----------------+----------------+-----------------+
+   | `Supplying`_ | `Tidying`_   | `Rocketry`_    |                |                 |
+   +--------------+--------------+----------------+----------------+-----------------+
+
+Traits
+~~~~~~
+
+   Inborn traits (traits duplicants start with) give bonuses or penalties to duplicants 
+   attributes. Negative traits may also make it impossible for a duplicant to perform 
+   certain `Skills`_. Traits gained through certain skills mainly allow for the duplicant
+   to use certain `stations`_ and perform certain `errands`_.
+
+Positive Traits
+'''''''''''''''
+
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Name                              | Description                                                                                                              | Attribute Bonus      | Interest Attribute Modifier | Disabled Errands/Skills | Miscellaneous Effects                                                   |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Ancient Knowledge                 | *This Duplicant has knowledge from the before times.*                                                                    |                      |                             |                         | +3 Skill Points                                                         |
+   |                                   |                                                                                                                          |                      |                             |                         | `Spaced Out!`_-exclusive *except* for Jorge (the `Mysterious Hermit`_)  |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Animal Lover                      | *The fuzzy snoots! The little claws! The chitinous exoskeletons! This Duplicant's never met a critter they didn't like.* | +3 Husbandry         |                             |                         |                                                                         |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Buff                              | *This Duplicant has muscles on their muscles.*                                                                           | +3 Strength          |                             |                         |                                                                         |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Caregiver                         | *This Duplicant has good bedside manner and a healing touch.*                                                            | +3 Medicine          |                             |                         |                                                                         |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Charismatic                       | *This Duplicant's so charming, chatting with them is sometimes enough to trigger an Overjoyed response.*                 |                      |                             |                         | 1% chance of triggering Overjoyed Response in Duplicants chatted to     |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Diver's Lungs                     | *This Duplicant could have been a talented opera singer in another life.*                                                |                      |                             |                         | -25 g/s Oxygen Consumption Rate (-25%)                                  |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Duress to Impress                 | *This Duplicant kicks into hyperdrive when the stress is on.*                                                            | +7 to all attributes |                             |                         | Only active when above 60% stress                                       |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Early Bird                        | *This Duplicant always wakes up feeling fresh and efficient!*                                                            | +2 to all attributes |                             |                         | Only active for the first 125 s of the day                              |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Germ Resistant                    | *This Duplicant's immune system bounces back faster than most.*                                                          |                      |                             |                         | Germ Resistance +1                                                      |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Glow Stick |Spaced Out|           | *This Duplicant is positively glowing.*                                                                                  |                      |                             |                         | Emits 100 rads/cycle                                                    |
+   |                                   |                                                                                                                          |                      |                             |                         | Emits 500 lux constantly                                                |
+   |                                   |                                                                                                                          |                      |                             |                         | Radiation Resistance +33%                                               |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Gourmet                           | *This Duplicant's refined palate demands only the most luxurious dishes the colony can offer.*                           | +3 Cuisine           |                             |                         | Food Morale Bonus -1                                                    |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Grease Monkey                     | *This Duplicant likes to throw a wrench into the colony's plans... in a good way.*                                       | +3 Machinery         |                             |                         |                                                                         |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Green Thumb                       | *This Duplicant regards every plant as a potential friend.*                                                              | +3 Agriculture       |                             |                         |                                                                         |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Handy                             | *This Duplicant is a swift and skilled builder.*                                                                         | +3 Construction      |                             |                         |                                                                         |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Innately Stylish                  | *This Duplicant's radiant self-confidence makes even the rattiest outfits look trendy.*                                  |                      |                             |                         | +25 Decor                                                               |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Interior Decorator                | *"Move it a little to the left..."*                                                                                      | +3 Creativity        |                             |                         | -5 Decor Perception                                                     |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Iron Gut                          | *This Duplicant can eat just about anything without getting sick.*                                                       |                      |                             |                         | Immune to `Food Poisoning`_                                             |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Loner |Spaced Out|                | *This Duplicant prefers solitary pursuits.*                                                                              | +4 to all attributes |                             |                         | Only active when the Duplicant is alone on a world                      |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Mole Hands                        | *They're great for tunneling, but finding good gloves is a nightmare.*                                                   | +3 Excavation        |                             |                         |                                                                         |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Night Owl                         | *This Duplicant does their best work when they'd ought to be sleeping.*                                                  | +3 to all attributes |                             |                         | Only active at night (must use `Red Alert`_ or a special schedule)      |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Quick Learner                     | *This Duplicant's sharp as a tack and learns new skills with amazing speed.*                                             | +3 Science           |                             |                         |                                                                         |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Radiation Eater |Spaced Out|      | *This Duplicant eats radiation for breakfast (and dinner).*                                                              |                      |                             |                         | Periodically converts absorbed radiation into stored calories           |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Rock Fan |Spaced Out|             | *Meteor showers get this Duplicant really, really hyped.*                                                                |                      |                             |                         | +3 to all skills when a meteor shower is occuring                       |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Shrivelled Tastebuds              | *This Duplicant could lick a Puft's backside and taste nothing.*                                                         |                      |                             |                         | Food Morale Bonus +1                                                    |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Starry Eyed |Spaced Out|          | *This Duplicant loves being in space.*                                                                                   |                      |                             |                         | Morale Bonus +10 when in space                                          |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Twinkletoes                       | *This Duplicant is light as a feather on their feet.*                                                                    | +3 Athletics         |                             |                         |                                                                         |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Uncultured                        | *This Duplicant has simply no appreciation for the arts.*                                                                |                      |                             | Decorating              | Decor Expectation -20                                                   |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Skilled: Aesthetic Design         | *This Duplicant begins with a pre-learned Skill, but does not have increased Morale Requirements.*                       |                      | -4                          |                         | Unlocks Skill Aesthetic Design                                          |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Skilled: Art Fundamentals         | *This Duplicant begins with a pre-learned Skill, but does not have increased Morale Requirements.*                       |                      | -4                          |                         | Unlocks Skill Art Fundamentals                                          |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Skilled: Bedside Manner           | *This Duplicant begins with a pre-learned Skill, but does not have increased Morale Requirements.*                       |                      | -4                          |                         | Unlocks Skill Bedside Manner                                            |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Skilled: Critter Ranching I       | *This Duplicant begins with a pre-learned Skill, but does not have increased Morale Requirements.*                       |                      | -4                          |                         | Unlocks Skill Critter Ranching I                                        |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Skilled: Crop Tending             | *This Duplicant begins with a pre-learned Skill, but does not have increased Morale Requirements.*                       |                      | -4                          |                         | Unlocks Skill Crop Tending                                              |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Skilled: Electrical Engineering   | *This Duplicant begins with a pre-learned Skill, but does not have increased Morale Requirements.*                       |                      | -4                          |                         | Unlocks Skill Electrical Engineering                                    |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Skilled: Exosuit Training         | *This Duplicant begins with a pre-learned Skill, but does not have increased Morale Requirements.*                       |                      | -4                          |                         | Unlocks Skill Exosuit Training                                          |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Skilled: Grilling                 | This Duplicant begins with a pre-learned Skill, but does not have increased Morale Requirements.                         |                      | -4                          |                         | Unlocks Skill Grilling                                                  |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Skilled: Hard Digging             | *This Duplicant begins with a pre-learned Skill, but does not have increased Morale Requirements.*                       |                      | -4                          |                         | Unlocks Skill Hard Digging                                              |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Skilled: Masterworks              | *This Duplicant begins with a pre-learned Skill, but does not have increased Morale Requirements.*                       |                      | -4                          |                         | Unlocks Skill Masterworks                                               |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Skilled: Mechatronics Engineering | *This Duplicant begins with a pre-learned Skill, but does not have increased Morale Requirements.*                       |                      | -4                          |                         | Unlocks Skill Mechatronics Engineering                                  |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Skilled: Plumbing                 | *This Duplicant begins with a pre-learned Skill, but does not have increased Morale Requirements.*                       |                      | -4                          |                         | Unlocks Skill Plumbing                                                  |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Skilled: Super-Duperhard Digging  | *This Duplicant begins with a pre-learned Skill, but does not have increased Morale Requirements.*                       |                      | -4                          |                         | Unlocks Skill Super-Duperhard Digging                                   |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+   | Skilled: Superhard Digging        | *This Duplicant begins with a pre-learned Skill, but does not have increased Morale Requirements.*                       |                      | -4                          |                         | Unlocks Skill Superhard Digging                                         |
+   +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------------------+-------------------------+-------------------------------------------------------------------------+
+
+
+Negative Traits
+'''''''''''''''
+
+   +--------------------+------------------------------------------------------------------------------------------------------+-----------------+-----------------------------+-------------------------+----------------------------------------------------------------------------------------------------------+
+   | Name               | Description                                                                                          | Attribute Bonus | Interest Attribute Modifier | Disabled Errands/Skills | Miscellaneous Effects                                                                                    |
+   +--------------------+------------------------------------------------------------------------------------------------------+-----------------+-----------------------------+-------------------------+----------------------------------------------------------------------------------------------------------+
+   | Allergies          | *This Duplicant will sneeze uncontrollably when exposed to the pollen present in Floral Scent.*      |                 | +2                          |                         | Contracts the "Allergies" disease when in contact with the `Floral Scents`_ germ.                        |
+   +--------------------+------------------------------------------------------------------------------------------------------+-----------------+-----------------------------+-------------------------+----------------------------------------------------------------------------------------------------------+
+   | Anemic             | *This Duplicant has trouble keeping up with the others.*                                             | -5 Athletics    | +5                          |                         |                                                                                                          |
+   +--------------------+------------------------------------------------------------------------------------------------------+-----------------+-----------------------------+-------------------------+----------------------------------------------------------------------------------------------------------+
+   | Biohazardous       | *All the vitamin C in space couldn't stop this Duplicant from getting sick.*                         |                 | +2                          |                         | -1 Germ Resistance                                                                                       |
+   +--------------------+------------------------------------------------------------------------------------------------------+-----------------+-----------------------------+-------------------------+----------------------------------------------------------------------------------------------------------+
+   | Bottomless Stomach | *This Duplicant might actually be several black holes in a trench coat.*                             |                 | +4                          |                         | -500 kcal/cycle                                                                                          |
+   +--------------------+------------------------------------------------------------------------------------------------------+-----------------+-----------------------------+-------------------------+----------------------------------------------------------------------------------------------------------+
+   | Building Impaired  | *This Duplicant has trouble constructing anything besides meaningful friendships.*                   | -3 Construction | +3                          |                         |                                                                                                          |
+   +--------------------+------------------------------------------------------------------------------------------------------+-----------------+-----------------------------+-------------------------+----------------------------------------------------------------------------------------------------------+
+   | Critter Aversion   | *This Duplicant just doesn't trust those beadly little eyes.*                                        | -3 Husbandry    | +2                          |                         |                                                                                                          |
+   +--------------------+------------------------------------------------------------------------------------------------------+-----------------+-----------------------------+-------------------------+----------------------------------------------------------------------------------------------------------+
+   | Flatulent          | *Some Duplicants are just full of it.*                                                               |                 | +3                          |                         | Emits 100 g of `Natural Gas`_ every 10-40 s (average 4 g/s)                                              |
+   +--------------------+------------------------------------------------------------------------------------------------------+-----------------+-----------------------------+-------------------------+----------------------------------------------------------------------------------------------------------+
+   | Gastrophobia       | This Duplicant has a deep-seated distrust of the culinary arts                                       |                 | -                           | Cooking                 |                                                                                                          |
+   +--------------------+------------------------------------------------------------------------------------------------------+-----------------+-----------------------------+-------------------------+----------------------------------------------------------------------------------------------------------+
+   | Irritable Bowel    | *This Duplicant needs a little extra time to "do their business".*                                   |                 | +1                          |                         | -50% Bathroom Speed                                                                                      |
+   +--------------------+------------------------------------------------------------------------------------------------------+-----------------+-----------------------------+-------------------------+----------------------------------------------------------------------------------------------------------+
+   | Kitchen Menace     | *This Duplicant could probably figure out a way to burn ice cream.*                                  | -3 Cuisine      | +2                          |                         | +1 Food Morale Bonus                                                                                     |
+   +--------------------+------------------------------------------------------------------------------------------------------+-----------------+-----------------------------+-------------------------+----------------------------------------------------------------------------------------------------------+
+   | Loud Sleeper       | *In space, everyone can hear you snore.*                                                             |                 | +1                          |                         | Wakes up duplicants within 3 tiles when sleeping, causing interrupted sleep. Can sleep in light.         |
+   +--------------------+------------------------------------------------------------------------------------------------------+-----------------+-----------------------------+-------------------------+----------------------------------------------------------------------------------------------------------+
+   | Luddite            | *This Duplicant always invites friends over just to make them hook up their electronics.*            | -3 Machinery    | +2                          |                         |                                                                                                          |
+   +--------------------+------------------------------------------------------------------------------------------------------+-----------------+-----------------------------+-------------------------+----------------------------------------------------------------------------------------------------------+
+   | Mouth Breather     | *This Duplicant sucks up way more than their fair share of Oxygen.*                                  |                 | +5                          |                         | +100 g/s Oxygen consumption                                                                              |
+   +--------------------+------------------------------------------------------------------------------------------------------+-----------------+-----------------------------+-------------------------+----------------------------------------------------------------------------------------------------------+
+   | Narcoleptic        | *This Duplicant can fall asleep anytime, anyplace.*                                                  |                 | +5                          |                         | Falls asleep every 300-600 s, for 15-30 s (average of 30 s per cycle)                                    |
+   +--------------------+------------------------------------------------------------------------------------------------------+-----------------+-----------------------------+-------------------------+----------------------------------------------------------------------------------------------------------+
+   | Noodle Arms        | *This Duplicant's arms have all the tensile strength of overcooked linguine.*                        | -3 Strength     | +3                          |                         |                                                                                                          |
+   +--------------------+------------------------------------------------------------------------------------------------------+-----------------+-----------------------------+-------------------------+----------------------------------------------------------------------------------------------------------+
+   | Nyctophobic        | *This Duplicant will imagine scary shapes in the dark all night if no one leaves a light on.*        |                 | +2                          |                         | Needs light to sleep                                                                                     |
+   +--------------------+------------------------------------------------------------------------------------------------------+-----------------+-----------------------------+-------------------------+----------------------------------------------------------------------------------------------------------+
+   | Pacifist           | *This Duplicant abhors violence.*                                                                    |                 | -                           | Attacking               |                                                                                                          |
+   +--------------------+------------------------------------------------------------------------------------------------------+-----------------+-----------------------------+-------------------------+----------------------------------------------------------------------------------------------------------+
+   | Plant Murderer     | *Never ask this Duplicant to watch your ferns when you go on vacation.*                              | -3 Agriculture  | +2                          |                         |                                                                                                          |
+   +--------------------+------------------------------------------------------------------------------------------------------+-----------------+-----------------------------+-------------------------+----------------------------------------------------------------------------------------------------------+
+   | Shabby Dresser     | *This Duplicant's clearly never heard of ironing.*                                                   |                 | +1                          |                         | -15 Decor                                                                                                |
+   +--------------------+------------------------------------------------------------------------------------------------------+-----------------+-----------------------------+-------------------------+----------------------------------------------------------------------------------------------------------+
+   | Slow Learner       | *This Duplicant's a little slow on the uptake, but gosh do they try.*                                | -3 Science      | +3                          |                         |                                                                                                          |
+   +--------------------+------------------------------------------------------------------------------------------------------+-----------------+-----------------------------+-------------------------+----------------------------------------------------------------------------------------------------------+
+   | Small Bladder      | *This Duplicant has a tiny, pea-sized Bladder. Adorable!*                                            |                 | +1                          |                         | +0.2% Bladder/cycle                                                                                      |
+   +--------------------+------------------------------------------------------------------------------------------------------+-----------------+-----------------------------+-------------------------+----------------------------------------------------------------------------------------------------------+
+   | Squeamish          | *This Duplicant is of delicate disposition and cannot tend to the sick.*                             |                 | -                           | Doctoring               |                                                                                                          |
+   +--------------------+------------------------------------------------------------------------------------------------------+-----------------+-----------------------------+-------------------------+----------------------------------------------------------------------------------------------------------+
+   | Trypophobia        | *This Duplicant's fear of holes makes it impossible for them to dig.*                                |                 | +4                          | Digging                 |                                                                                                          |
+   +--------------------+------------------------------------------------------------------------------------------------------+-----------------+-----------------------------+-------------------------+----------------------------------------------------------------------------------------------------------+
+   | Unconstructive     | *This Duplicant is incapable of building even the most basic of structures.*                         |                 | +4                          | Construction            |                                                                                                          |
+   +--------------------+------------------------------------------------------------------------------------------------------+-----------------+-----------------------------+-------------------------+----------------------------------------------------------------------------------------------------------+
+   | Undigging          | *This Duplicant couldn't dig themselves out of a paper bag.*                                         | -3 Excavation   | +3                          |                         |                                                                                                          |
+   +--------------------+------------------------------------------------------------------------------------------------------+-----------------+-----------------------------+-------------------------+----------------------------------------------------------------------------------------------------------+
+   | Unempathetic       | *This Duplicant's lack of bedside manner makes it difficult for them to nurse peers back to health.* | -3 Medicine     | +2                          |                         |                                                                                                          |
+   +--------------------+------------------------------------------------------------------------------------------------------+-----------------+-----------------------------+-------------------------+----------------------------------------------------------------------------------------------------------+
+   | Unpracticed Artist | *This Duplicant proudly proclaims they "can't even draw a stick figure".*                            | -3 Creativity   | +2                          |                         | +5 Decor Perception                                                                                      |
+   +--------------------+------------------------------------------------------------------------------------------------------+-----------------+-----------------------------+-------------------------+----------------------------------------------------------------------------------------------------------+
+   | Yokel              | *This Duplicant isn't the brightest star in the solar system.*                                       |                 |                             | Researching             |                                                                                                          |
+   +--------------------+------------------------------------------------------------------------------------------------------+-----------------+-----------------------------+-------------------------+----------------------------------------------------------------------------------------------------------+
+
+   Note that narcoleptic sleep can be interrupted by giving the Duplicant a movement command.
+
+   Also note that changes to skill distribution via traits has no effect on the maximum 
+   attribute level learnable, which is +20 not counting attribute or job modifiers.
+
+Morale
+~~~~~~
+
+   `Morale`_ has an impact on how much `Stress`_ is incurred or reduced and is affected 
+   by several factors. Generally, there are very few Morale Penalties.
+
+   Required Morale depends on the amount of training a Duplicant has had. The more skills 
+   they have been trained in, the greater the Morale they require to stave off stress. 
+   Advanced skills increase the Morale requirement more than basic skills do.
+
+   Duplicants have a perception of `Decor`_ and `Food`_. The higher the average Decor 
+   during the last cycle and the higher the `Food Quality`_, the higher the Morale Boost 
+   will be. Morale penalties will be incurred if below the individual's perception.
+
+   Without a modifier, the Morale from Food ranges from -1 to +16 or is modified 0 to +16 
+   with the Simple Tastes trait and -1 to +12 with Foodie. Duplicants will start eating 
+   in their downtime when below 3.300 kcal and has the highest priority.
+
+   Normal Decor Perception is at 0, exceeding it can yield up to +12 Morale when reaching 
+   120 difference and failing to will decrease Morale by -1. The Morale Boost is not linear.
+
+   Using `rooms`_, having downtime and interacting with certain buildings will confer 
+   a Morale Boost. If there is a `Recreation Room`_ available with Oxygen on its floor, 
+   duplicants will use certain furniture only if they do not yet have the Morale Boost 
+   and they do so in the order of the most possible Morale gained.
+
+   Depending on duplicant's `Interests`_, the highest Morale achievable is 94-105. 
+   The lowest is -1.
+
+   +---------------------------+-----------+-------------------------------+------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Name                      | Morale    | Requirement                   | Duration (cycle) | Note                                                                                                                            |
+   +---------------------------+-----------+-------------------------------+------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | [...] Meal                | -1 to +16 | Eat                           | 1.1              | Depends on the Food Quality and Perception, needs less than 3300 kcal, highest priority                                         |
+   +---------------------------+-----------+-------------------------------+------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Last Cycle's Decor: [...] | -1 to +12 | Automatically recorded        | 1.1              | Depends on average Decor of the last cycle and Decor Perception, 120 points above Perception gives the most points. Not linear. |
+   +---------------------------+-----------+-------------------------------+------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Barracks                  | +1        | Sleep in Barracks             | 1.1              | Does not stack with Bedroom                                                                                                     |
+   +---------------------------+-----------+-------------------------------+------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Bedroom                   | +2        | Sleep in a Bedroom            | 1.1              | Does not stack with Barracks                                                                                                    |
+   +---------------------------+-----------+-------------------------------+------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Latrine                   | +1        | Use Toilet in a Latrine       | 1.1              | Does not stack with Washroom                                                                                                    |
+   +---------------------------+-----------+-------------------------------+------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Washroom                  | +2        | Use Toilet in a Washroom      | 1.1              | Does not stack with Latrine                                                                                                     |
+   +---------------------------+-----------+-------------------------------+------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Showered                  | +3        | Use a `Shower`_               | 0.83             |                                                                                                                                 |
+   +---------------------------+-----------+-------------------------------+------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Mess Hall                 | +3        | Eat in a Mess Hall            | 1.1              | Does not stack with Great Hall                                                                                                  |
+   +---------------------------+-----------+-------------------------------+------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Great Hall                | +6        | Eat in a Great Hall           | 1.1              | Does not stack with Mess Hall                                                                                                   |
+   +---------------------------+-----------+-------------------------------+------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Park                      | +3        | Pass through a Park           | 0.4              | Does not stack with Nature Reserve                                                                                              |
+   +---------------------------+-----------+-------------------------------+------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Nature Reserve            | +6        | Pass through a Nature Reserve | 0.4              | Does not stack with Park                                                                                                        |
+   +---------------------------+-----------+-------------------------------+------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Socialized                | +1        | Use a `Water Cooler`_         | 1.1              | Requires 1 kg of Water                                                                                                          |
+   +---------------------------+-----------+-------------------------------+------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Recently Danced           | +2        | Use a `Jukebot`_              | 3.95             | Requires Power                                                                                                                  |
+   +---------------------------+-----------+-------------------------------+------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Played Video Games        | +2        | Play on an `Arcade`_          | 3.95             | Requires lots of Power                                                                                                          |
+   +---------------------------+-----------+-------------------------------+------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Drank Espresso            | +4        | Use `Espresso Machine`_       | 0.75             | Requires Power, 1 kg of water and 1 kg `Pincha Peppernut`_. Also provides +1 to Athletics attribute.                            |
+   +---------------------------+-----------+-------------------------------+------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Salted Food               | +1        | Eat food with `Table Salt`_   | 1.2              | Eat a meal from a Mess Table that has Table Salt                                                                                |
+   +---------------------------+-----------+-------------------------------+------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Downtime                  | 0 to +4   | Have downtime on schedule     | 1.1              | Bonus starts at 0 at 1 hour downtime and increases passive moral bonus by 1 for every hour added on downtime each cycle.        |
+   +---------------------------+-----------+-------------------------------+------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | New Hope                  | +1        | First 3 Duplicants only       | 3                | Lasts only for 3 cycles and can not be redeemed by any means                                                                    |
+   +---------------------------+-----------+-------------------------------+------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Duplicant                 | +1        | Be a duplicant                |                  | How not to be is a mystery                                                                                                      |
+   +---------------------------+-----------+-------------------------------+------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Wind Swept                | +5        | Use `Vertical Wind Tunnel`_.  | 7.95             | Consumes a lot of power.                                                                                                        |
+   +---------------------------+-----------+-------------------------------+------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Steam powered             | +2        | Use `Sauna`_.                 | 3.95             | Requires `Steam`_.                                                                                                              |
+   +---------------------------+-----------+-------------------------------+------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Soda Filled               | +4        | Use `Soda Fountain`_.         | 1.2              | Also provides +1 to Science attribute.                                                                                          |
+   +---------------------------+-----------+-------------------------------+------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Drank Juice               | +4        | Use `Juicer`_.                | 0.75             | Also provides +1 to Strength attribute.                                                                                         |
+   +---------------------------+-----------+-------------------------------+------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Passably Relaxed          | +5        | Use `Beach Chair`_.           | 11.96            | Requires insufficient light.                                                                                                    |
+   +---------------------------+-----------+-------------------------------+------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Sun kissed                | +8        | Use `Beach Chair`_.           | 11.96            | Requires sufficient light.                                                                                                      |
+   +---------------------------+-----------+-------------------------------+------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Stoked                    | +2        | Use `Mechanical Surfboard`_.  | 3.95             | Also get Soggy Feet.                                                                                                            |
+   +---------------------------+-----------+-------------------------------+------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Hot Tubbed                | +5        | Use `Hot Tub`_.               | 7.95             | Requires Water above 37.7 °C and `Bleach Stone`_.                                                                               |
+   +---------------------------+-----------+-------------------------------+------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Visited Space             | +5        | Use `Sight-Seeing Module`_.   | 10               | Become overjoyed and +3 to all stats.                                                                                           |
+   +---------------------------+-----------+-------------------------------+------------------+---------------------------------------------------------------------------------------------------------------------------------+
+
+Sress Responses
+''''''''''''''''
+
+   Each Duplicant has a different stress response. These responses trigger at 100% stress 
+   (stress is reduced after the 100% response). All responses stop the current errand in 
+   order to perform the response. These responses cannot be stopped by `Red Alert`_ or 
+   commanding the Duplicant to move.
+
+   +------------------+-----------------------------------------------------------+--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------+
+   | Name             | Description                                               | Response                                                           | Warning Sign (60% Stress)                                                                     |
+   +------------------+-----------------------------------------------------------+--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------+
+   | Vomiter          | This Duplicant is liable to puke everywhere when stressed | Vomits on the floor, producing 200 g/s `Polluted Water`_.          | |Vomiter Warning|                                                                             |
+   |                  |                                                           | While vomiting, a duplicant's calories also decrease more rapidly. | Vomiters will burp violently.                                                                 |
+   |                  |                                                           | Vomiting may be prevented or interrupted by continuously           |                                                                                               |
+   |                  |                                                           | issuing move commands to a duplicant.                              |                                                                                               |
+   +------------------+-----------------------------------------------------------+--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------+
+   | Destructive      | This Duplicant will take out their frustrations           | Damages nearby equipment and tiles,                                | |Destructive Warning|                                                                         |
+   |                  |  on defenseless machines when stressed                    | and cannot repair buildings above 60% stress.                      | Destructive Dupes shake their arms violently before calming themselves.                       |
+   +------------------+-----------------------------------------------------------+--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------+
+   | Binge Eater      | This Duplicant will dangerously overeat when stressed     | Eats 2000 kcals of food 3 times before returning to 60% stress.    | |Binge Eater Warning|                                                                         |
+   |                  |                                                           | Decrease decor by -30 in a 3 tile radius while doing so.           | Binge Eaters will bite their nails and hold their stomach.                                    |
+   +------------------+-----------------------------------------------------------+--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------+
+   | Ugly Crier       | If this Duplicant gets too stressed it won't be pretty    | Sits on the floor and cries,                                       | |Ugly Crier Warning|                                                                          |
+   |                  |                                                           | producing 40 g/s `Water`_, reducing `Decor`_ by 30.                | Ugly Criers will squeeze out a few tears but will promptly get back up. (No water is created) |
+   +------------------+-----------------------------------------------------------+--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------+
+   | Banshee          | This Duplicant wails uncontrollably when stressed         | Moves to a location and wails, stressing out other                 | |Banshee Warning|                                                                             |
+   |                  |                                                           | Duplicants by +10%/cycle in a 8 tile range.                        | Banshees will bite their lip and shake their arms.                                            |
+   +------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |Stress Warning| | When any Dupe is beyond 60% Stress, other Dupes may gesture towards them.                                                                                                                                                      |
+   +------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+   
+
+Overjoyed Responses
+'''''''''''''''''''
+
+   Overjoyed responses are positive effects that can occur when the morale of a duplicant 
+   is higher than necessary for their morale requirements. Morale is checked when a 
+   duplicant finishes sleeping. If morale exceeds expectation by over 8 points, there 
+   is a 2% chance the Duplicant will awaken with an overjoyed response. This probability 
+   rises linearly with morale up to a maximum of 5% chance with 20 excess morale.
+
+   +------------------+--------------------------------------------------------------------------+--------------------------------------------------------------+
+   | Name             | Description                                                              | Response                                                     |
+   +------------------+--------------------------------------------------------------------------+--------------------------------------------------------------+
+   | Balloon Artist   | *This duplicant hands out balloons ON THEIR DOWNTIME when overjoyed.*    | Duplicants receiving a balloon gain +8 Creativity, Science,  |
+   |                  |                                                                          | Cuisine, Medicine, Agriculture and Husbandry for 2 cycles    |
+   |                  |                                                                          | ("Balloon Buddy" state).                                     |
+   +------------------+--------------------------------------------------------------------------+--------------------------------------------------------------+
+   | Sparkle Streaker | *This duplicant leaves a trail of happy sparks when they are overjoyed.* | Athletics +8. Gives athletics +5 to nearby dupes for 1 cycle |
+   |                  |                                                                          | ("Sparkle Flattered" state).                                 |
+   +------------------+--------------------------------------------------------------------------+--------------------------------------------------------------+
+   | Super Productive | *This duplicant is super productive when they are overjoyed.*            | Duplicant has a 10% chance to skip working and complete a    |
+   |                  |                                                                          | chore instantly. The chore must have a progress bar that     |
+   |                  |                                                                          | lasts longer than 1 second to be skippable.                  |
+   +------------------+--------------------------------------------------------------------------+--------------------------------------------------------------+
+   | Sticker Bomber   | *This duplicant will spontaneously redecorate a room when overjoyed.*    | Decor +20 (Radius: 3 tiles) for each Sticker Bomb            |
+   +------------------+--------------------------------------------------------------------------+--------------------------------------------------------------+
+   | Yodeler          | *This Duplicant belts out cachy tunes when overjoyed.*                   | Sings while doing any activity, gaining +8 Machinery,        |
+   |                  |                                                                          | Construction and Strength for 1 cycle ("Yodeling" state)     |
+   |                  |                                                                          | for the Yodeler, and a +5 of the same stats for other        |
+   |                  |                                                                          | Dupes ("Serenaded" state).                                   |
+   +------------------+--------------------------------------------------------------------------+--------------------------------------------------------------+
+
+Ownership
+---------
+
+   Individual duplicants can have ownership of certain structures: `Cots`_, `Comfy Bed`_, 
+   `Mess Tables`_, `Massage Tables`_, `Med Beds`_, `Lavatory`_ and `Pharma Chambers`_. 
+   Each Duplicant can only be assigned to one, and they can be reassigned by the player 
+   at any time. They will automatically select them for themselves if left unassigned, 
+   or the duplicant becomes sick.
+
+Emotions
+--------
+
+   Duplicants occasionally express emotions or reactions to things around them. This 
+   indicates their status in ways that the player can keep track of.
+
+   +-------------------------+-----------------------+-------------------------+--------------------------+
+   | Icon                    | Description           | Icon                    | Description              |
+   +-------------------------+-----------------------+-------------------------+--------------------------+
+   | |I am happy|            | I am happy            | |I am angry|            | I am angry               |
+   +-------------------------+-----------------------+-------------------------+--------------------------+
+   | |I am enraged|          | I am enraged          | |I am unhappy|          | I am unhappy             |
+   +-------------------------+-----------------------+-------------------------+--------------------------+
+   | |I am sleepy|           | I am sleepy           | |I am sick|             | I am sick                |
+   +-------------------------+-----------------------+-------------------------+--------------------------+
+   | |I am hungry|           | I am hungry           | |I can not breathe|     | I can not breathe        |
+   +-------------------------+-----------------------+-------------------------+--------------------------+
+   | |I am cold|             | I am cold             | |I am hot|              | I am hot                 |
+   +-------------------------+-----------------------+-------------------------+--------------------------+
+   | |I need the toilet|     | I need the toilet     | |I like/hate the decor| | I like/hate better decor |
+   +-------------------------+-----------------------+-------------------------+--------------------------+
+   | |Something smells bad!| | Something smells bad! | |I am binge eating|     | I am binge eating        |
+   +-------------------------+-----------------------+-------------------------+--------------------------+
+   | |I am crying|           | I am crying           | |I feel destructive|    | I feel destructive       |
+   +-------------------------+-----------------------+-------------------------+--------------------------+
+   | |Loud noises|           | It's too loud!        | |I am stressed|         | I am stressed            |
+   +-------------------------+-----------------------+-------------------------+--------------------------+
+   | |I am vomiting|         | I am vomiting         | |This is yuck|          | This is disgusting!      |
+   +-------------------------+-----------------------+-------------------------+--------------------------+
+
+Established Duplicants
+----------------------
+
+   Duplicants have an assigned name, appearance, stress response and description 
+   (attributes, traits, and interests are still randomly generated). Changing the 
+   name of a Duplicant will alter the description as appropriate but will not change 
+   the appearance of the Dupe.
+
+   Most duplicants can appear when creating a new game, with the exception of:
+
+   -  Ari, Mae, Ada, Meep, Liam, and Banhi can only be spawned from the Printing Pod after the start.
+   -  Jorge can only be obtained by completing the `Mysterious Hermit`_ `story trait`_.
+
+   .. table:: Currently Available\*
+
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Name     | Gender | Appearance | Description                                                                                                                       | Stress Response | Joy Response     |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Abe      | M      | |Abe|      | *Abes are sweet, delicate flowers. They need to be treated gingerly, with great consideration for their feelings.*                | Ugly Crier      | Balloon Artist   |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Ada      | F      | |Ada|      | *Adas enjoy writing poetry in their downtime. Dark poetry.*                                                                       | Vomiter         | Balloon Artist   |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Amari    | M      | |Amari|    | *Amaris likes to keep the peace. Ironically, they're a riot at parties.*                                                          | Banshee         | Super Productive |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Ari      | X      | |Ari|      | *Aris tend to space out from time to time, but they always pay attention when it counts.*                                         | Ugly Crier      | Sticker Bomber   |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Ashkan   | M      | |Ashkan|   | *Ashkans have what can only be described as a seriously infectious giggle.*                                                       | Binge Eater     | Sparkle Streaker |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Banhi    | F      | |Banhi|    | *The cool loner vibes that radiate off a Banhi never fail to make the colony swoon.*                                              | Destructive     | Super Productive |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Bubbles  | F      | |Bubbles|  | *This Bubbles is constantly challenging others to fight her, regardless of whether or not she can actually take them.*            | Binge Eater     | Sticker Bomber   |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Burt     | M      | |Burt|     | *This Burt always feels great after a bubble bath and a good long cry.*                                                           | Binge Eater     | Sticker Bomber   |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Camille  | F      | |Camille|  | *This Camille loves anything that makes her feel nostalgic, including things that haven't aged well.*                             | Vomiter         | Sticker Bomber   |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Catalina | F      | |Catalina| | *A Catalina is admired by all for her seemingly tireless work ethic. Little do people know, she’s dying on the inside.*           | Vomiter         | Super Productive |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Devon    | X      | |Devon|    | *This Devon dreams of owning their own personal computer so they can start a blog full of pictures of toast.*                     | Binge Eater     | Super Productive |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Ellie    | F      | |Ellie|    | *Nothing makes an Ellie happier than a big tin of glitter and a pack of unicorn stickers.*                                        | Destructive     | Sticker Bomber   |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Frankie  | X      | |Frankie|  | *There’s nothing Frankies are more proud of than their thick, dignified eyebrows.*                                                | Destructive     | Sparkle Streaker |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Gossmann | F      | |Gossman|  | *Gossmanns are major goofballs who can make anyone laugh.*                                                                        | Vomiter         | Balloon Artist   |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Harold   | M      | |Harold|   | *If you get a bunch of Harolds in a room... you’ll get a bunch of Harolds in a room.*                                             | Binge Eater     | Balloon Artist   |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Hassan   | M      | |Hassan|   | *If someone says something nice to a Hassan he’ll think about it nonstop for no less than three weeks.*                           | Ugly Crier      | Sparkle Streaker |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Jean     | X      | |Jean|     | *Just because Jeans are a little slow doesn't mean they can't suffer from soul-crushing existential crises.*                      | Destructive     | Sparkle Streaker |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Jorge    | M      | |Jorge|    | *Jorge loves his new colony, even if their collective body odor makes his eyes water.*                                            | Ugly Crier      | Balloon Artist   |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Joshua   | M      | |Joshua|   | *Joshuas are precious goobers. Other duplicants are strangely incapable of cursing in a Joshua’s presence.*                       | Ugly Crier      | Sticker Bomber   |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Leira    | F      | |Leira|    | *Leiras just want everyone to be happy.*                                                                                          | Binge Eater     | Sparkle Streaker |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Liam     | M      | |Liam|     | *No matter how much this Liam scrubs, he can never truly feel clean.*                                                             | Vomiter         | Super Productive |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Lindsay  | F      | |Lindsay|  | *A Lindsay is a charming, delightful woman, unless you make the mistake of messing with one of her friends.*                      | Ugly Crier      | Sticker Bomber   |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Mae      | F      | |Mae|      | *There's nothing a Mae can't do if she sets her mind to it.*                                                                      | Vomiter         | Super Productive |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Marie    | F      | |Marie|    | *This Marie is positively glowing! What’s her secret? Radioactive isotopes, of course.*                                           | Ugly Crier      | Sparkle Streaker |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Max      | X      | |Max|      | *At any given moment a Max is viscerally reliving ten different humiliating memories.*                                            | Ugly Crier      | Balloon Artist   |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Meep     | M      | |Meep|     | *Meeps have a face only a two tonne Printing Pod could love.*                                                                     | Destructive     | Sparkle Streaker |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Mi-Ma    | F      | |Mi-Ma|    | *Ol' Mi-Ma here can't stand lookin' at people's knees.*                                                                           | Vomiter         | Super Productive |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Nails    | X      | |Nails|    | *People often expect a duplicant named "Nails" to be tough, but they're all pretty huge wimps.*                                   | Ugly Crier      | Balloon Artist   |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Nikola   | M      | |Nikola|   | *This Nikola once claimed he could build a laser so powerful it would rip the colony in half. No one asked him to prove it.*      | Destructive     | Super Productive |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Nisbet   | F      | |Nisbet|   | *This Nisbet likes to punch people to show her affection. Everyone’s too afraid of her to tell her it hurts.*                     | Destructive     | Super Productive |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Otto     | X      | |Otto|     | *Ottos always insult people by accident and generally exist in a perpetual state of deep regret.*                                 | Vomiter         | Balloon Artist   |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Pei      | F      | |Pei|      | Every Pei spends at least half the day pretending that they remember what they came into this room for.                           | Banshee         | Balloon Artist   |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Quinn    | X      | |Quinn|    | This Quinn's favorite genre of music is "festive power ballad".                                                                   | Binge Eater     | Yodeler          |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Ren      | M      | |Ren|      | *Every Ren has this unshakable feeling that his life’s already happened and he’s just watching it unfold from a memory.*          | Vomiter         | Balloon Artist   |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Rowan    | M      | |Rowan|    | *Rowans have exceptionally large hearts and express their emotions most efficiently by yelling.*                                  | Binge Eater     | Sticker Bomber   |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Ruby     | X      | |Ruby|     | *This Ruby asks the pressing questions, like Where can I get a leather jacket in space?*                                          | Binge Eater     | Sticker Bomber   |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Steve    | M      | |Steve|    | *This Steve is convinced that he has psychic powers. And he knows exactly what his friends think about that.*                     | Ugly Crier      | Yodeler          |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Stinky   | M      | |Stinky|   | *This Stinky has never been invited to a party, which is a shame...his dance moves are incredible.*                               | Vomiter         | Balloon Artist   |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Travaldo | M      | |Travaldo| | *A Travaldo's monotonous voice and lack of facial expression makes it impossible for others to tell when he's messing with them.* | Vomiter         | Balloon Artist   |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+      | Turner   | X      | |Turner|   | *This Turner is paralyzed by the knowledge that others have memories and perceptions of them they can't control.*                 | Binge Eater     | Sparkle Streaker |
+      +----------+--------+------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------+
+
+   .. table:: Previously Available
+
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Name       | Appearance   | Description                                                                                                                            |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Archibald  | |Archibald|  | *The colony is convinced that this Archibald was some sort of fancy monarch in a past life.*                                           |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Bea        | |Bea|        | *A little ray of sunshine in a bleak world, Beas loves\ (sic) people who love her right back.*                                         |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Bertie     | |Bertie|     | *This Bertie is convinced she can remember bits of her past prints. Everyone else is convinced she's making it up.*                    |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Bertrand   | |Bertrand|   | *This Bertrand always feels great after a bubble bath and a good long cry.*                                                            |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Blanche    | |Blanche|    | *Blanches have zero redeeming qualities. People only ever keep them around because they make genius puns.*                             |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Brady      | |Brady|      | *Bradys are pretty cool when they can manage to suppress their natural narcissism.*                                                    |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Braynen    | |Braynen|    | *This Braynen is severely disappointed by the colony's lack of cute, pudgy birds.*                                                     |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Casper     | |Casper|     | *This Casper can't wait to die, so their poetry can be appreciated posthumously.*                                                      |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Cass       | |Cass|       | *This Cass is painfully aware that she spits when she talks. She avoids joining in on most conversations because of it.*               |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Cecil      | |Cecil|      | *There's a technical term for a Cecil's personality..."Dweeb".*                                                                        |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Celeste    | |Celeste|    | *This Celeste is paralyzed by the knowledge that others have memories and perceptions of her she can't control.*                       |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Chuanli    | |Chuanli|    | *A Chuanli's one dream is to shed their mortal coil and cut off all of time and space. It shouldn't be too much to ask.*               |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Dan        | |Dan|        | *Every Dan has this unshakable feeling that his life’s already happened and he’s just watching it as if in a movie.*                   |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Dorris     | |Dorris|     | *This Dorris wakes up every day of her life with an urge to clip coupons for stores that don't exist.*                                 |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Eleanor    | |Eleanor|    | *A severe climate requires a severe woman. This Eleanor is that woman.*                                                                |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Elvira     | |Elvira|     | *This Elvira can't remember a time when she wasn't blanketed in the cold embrace of darkness.*                                         |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Elvis      | |Elvis|      | *Every Elvis is convinced he was printed in the wrong generation...and on the wrong celestial body.*                                   |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Ernestine  | |Ernestine|  | *This Ernestine has one stubborn hair on her chin that plucking never seems to deter. It's okay though, she's growing attached to it.* |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Eugene     | |Eugene|     | *Once you get a Eugene talking, it's impossible to get them to stop. Chitchat at your own risk.*                                       |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Fergus     | |Fergus|     | *Ferguses are well known for being wholly incorrigible pranksters.*                                                                    |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Floyd      | |Floyd|      | *Floyds have a theory that no matter what time it is, it's always actually 3AM.*                                                       |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Fran       | |Fran|       | *This Fran dreams of owning their own personal computer so they can start a blog full of pictures of toast.*                           |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Gabriel    | |Gabriel|    | *Gabriels are spoiled rotten, but at least they have great hair.*                                                                      |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Grub       | |Grub|       | *Grubs think plants are neat.*                                                                                                         |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Grungy     | |Grungy|     | *A Grungy deeply relishes the feeling of dirt beneath her nails.*                                                                      |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Gus        | |Gus|        | *This Gus just wants everyone to be happy.*                                                                                            |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Hideki     | |Hideki|     | *This Hideki is consumed by a deep, soulful weariness that no amount of sleep could possibly vanquish.*                                |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Horatio    | |Horatio|    | *Horatios always feel as if someone is staring at them, although people rarely are.*                                                   |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Howard     | |Howard|     | *A Howard’s monotonous voice and lack of facial expression make it impossible for others to tell when he’s messing with them.*         |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Hugh       | |Hugh|       | *A Hugh is truly a man stuck in the past. And in a space colony.*                                                                      |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Isamu      | |Isamu|      | *This Isamu traps people in long conversations about her novel, but she's never once sat down to actually write it.*                   |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Jack       | |Jack|       | *A lifetime of running from his responsibilities has made this Jack emotionally impenetrable.*                                         |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Jasper     | |Jasper|     | *Jaspers just want to dance.*                                                                                                          |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Josie      | |Josie|      | *A Josie is admired by all for her seemingly tireless work ethic. Little do people know, she's dying on the inside.*                   |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Karl       | |Karl|       | *Every single Karl has perpetually damp hands. It must be genetic.*                                                                    |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Leah       | |Leah|       | *There's nothing Leahs are more proud of than their thick, dignified eyebrows.*                                                        |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Lenny      | |Lenny|      | *Dirt's great. Space's great. Everything's great, according to Lennys.*                                                                |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Longwei    | |Longwei|    | *This Longwei picks his nose when he thinks no one's watching. Thankfully, he never eats it.*                                          |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Maha       | |Maha|       | *Mahas always snort when they laugh. It's the worst.*                                                                                  |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | McNair     | `McNair`_    | *All of space is brightened by a McNair's dazzling smile.*                                                                             |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Ming-Mei   | |Ming-Mei|   | *One time a Ming-Mei declared herself mayor of the colony for a whole week and no one even questioned it.*                             |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Mildred    | `Mildred`_   | *The world's a tad too complex for this here Mildred, but good golly gosh if she doesn't try her damedest.*                            |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Mamoru     | |Mamoru|     | *The cool loner vibes that radiate of a Mamoru never fail to make the colony swoon.*                                                   |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Metrodora  | |Metrodora|  | *Metrodoras love watching old black and white films, especially if they have robots in them.*                                          |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Melody     | |Melody|     | *Who wants to hear the song this Melody wrote about her last breakup? ...Anyone?*                                                      |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Moon       | `Moon`_      | *A Moon's monotonous voice and lack of facial expression make it impossible for others to tell when she's messing with them.*          |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Mozzarella | |Mozzarella| | *World...too...bright...*                                                                                                              |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Mystique   | |Mystique|   | *Mystiques defy all labels.*                                                                                                           |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Nadia      | |Nadia|      | *The burden of living is just too much for some people. Like this Nadia, for instance.*                                                |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Neil       | |Neil|       | *Neils generally like to wear strange and unusual hats to compensate for their total lack of personality.*                             |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Nori       | |Nori|       | *Get a bunch of Noris together in a room, and you'll have...a bunch of Noris together in a room.*                                      |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Olive      | |Olive|      | *This Olive feels like there's an emotional wall between themself and the world that their multitool just can't penetrate.*            |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Pam        | |Pam|        | *No one ever asks for a Pam's bad opinions, but she's always happy to offer them anyway.*                                              |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Peijing    | |Peijing|    | *Everyone who meets a Peijing has to admit that they are, in fact, extremely cool.*                                                    |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Pierre     | `Pierre`_    | *Big softies with a tendency to nag, Pierres sometimes feel like the mothers the other duplicants never had.*                          |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Price      | |Price|      | *This Price once had dreams of becoming a doctor, but sadly, he's averse to the sight of blood.*                                       |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Quincy     | |Quincy|     | *At any given moment, a Quincy is viscerally reliving ten different humiliating memories.*                                             |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Ralph      | |Ralph|      | *Everyone feels slightly more irritable after having spent time with a Ralph.*                                                         |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Red        | |Red|        | *Reds are completely incapable of distinguishing between positive and negative attention, much to the colony's dismay.*                |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Rosalind   | |Rosalind|   | *Sometimes this Rosalind feels like she'd have to keel over for people to notice her.*                                                 |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Sadie      | |Sadie|      | *This Sadie never clips her fingernails. The unchecked growth is starting to get a little unsettling.*                                 |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Saul       | |Saul|       | *This Saul is the kind of guy who'd pull the legs off a Hatch for fun.*                                                                |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Seth       | |Seth|       | *Sometimes the colony sends Seths on fake spelunking jobs just to get some peace and quiet.*                                           |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Shannon    | |Shannon|    | *Some have described Shannons as paranoid. They prefer the term prepared.*                                                             |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Spike      | |Spike|      | *Spikes detest small spaces. You can imagine how they feel about the colony.*                                                          |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Stacy      | |Stacy|      | *A Stacy can somehow talk for hours and say absolutely nothing. It's a feat to behold!*                                                |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Suki       | |Suki|       | *Sukis have grins like sharks and stares to pierce through your soul.*                                                                 |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Sybil      | |Sybil|      | *Sybils always get what they want...even when they shouldn't.*                                                                         |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Tilly      | |Tilly|      | *Tillys like to frequently and loudly remind everyone of the pointlessness of existence.*                                              |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Vernon     | |Vernon|     | *The colony's managed to convince this Vernon he's totally and completely unique. It's hilarious!*                                     |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Viola      | |Viola|      | *Small,gentle,quiet. Violas always look as if the slightest breeze might shatter them.*                                                |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Virgil     | |Virgil|     | *Virgils are overcome with childlike wonder at the infinite nature of the universe.*                                                   |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Will       | `Will`_      | *Wills have great hair and are always about ten seconds away from starving to death.*                                                  |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Woodrow    | |Woodrow|    | *Woodrows are exceptionally bad at reading social cues and never know when to stop talking.*                                           |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Yvette     | |Yvette|     | *A Yvette's every waking moment is plagued by her terrible genetic curse...a horrifyingly acute sense of smell.*                       |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+      | Zeke       | |Zeke|       | *A Zeke's snobby exterior is a defense to protect the kind, mushy heart that lurks within.*                                            |
+      +------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+
+
+   \* As of build `U46-552078`_
+
+See Also
+--------
+
+   -  `Skills`_
+   -  `Printing Pod`_
+
+
+.. _accurate: https://oxygennotincluded.fandom.com/wiki/Version_History
+.. _U51-600112: https://oxygennotincluded.fandom.com/wiki/Versions/U51-600112
+.. _Oxygen Not Included: https://oxygennotincluded.fandom.com/wiki/Oxygen_Not_Included
+.. _Printing Pod: https://oxygennotincluded.fandom.com/wiki/Printing_Pod
+.. _Cryotank 3000: https://oxygennotincluded.fandom.com/wiki/Cryotank_3000
+.. _Spaced Out!: https://oxygennotincluded.fandom.com/wiki/Spaced_Out!
+.. _Game Settings: https://oxygennotincluded.fandom.com/wiki/Game_Settings
+.. _Cycles: https://oxygennotincluded.fandom.com/wiki/Cycles
+.. _Care Package: https://oxygennotincluded.fandom.com/wiki/Printing_Pod#Care_Packages
+.. _Traits: https://oxygennotincluded.fandom.com/wiki/Duplicant#Traits
+.. _Construction: https://oxygennotincluded.fandom.com/wiki/Construction
+.. _Digging: https://oxygennotincluded.fandom.com/wiki/Digging
+.. _Strength: https://oxygennotincluded.fandom.com/wiki/Strength
+.. _Skills: https://oxygennotincluded.fandom.com/wiki/Skills
+.. _Atmo Suit: https://oxygennotincluded.fandom.com/wiki/Atmo_Suit
+.. _Pajamas: https://oxygennotincluded.fandom.com/wiki/Pajamas
+.. _Cot: https://oxygennotincluded.fandom.com/wiki/Cot
+.. _Comfy Bed: https://oxygennotincluded.fandom.com/wiki/Comfy_Bed
+.. _Barracks: https://oxygennotincluded.fandom.com/wiki/Barracks
+.. _Beach Chair: https://oxygennotincluded.fandom.com/wiki/Beach_Chair
+.. _Hypothermia: https://oxygennotincluded.fandom.com/wiki/Hypothermia
+.. _Heat Stroke: https://oxygennotincluded.fandom.com/wiki/Heat_Stroke
+.. _errands: https://oxygennotincluded.fandom.com/wiki/Errand
+.. _Excavation: https://oxygennotincluded.fandom.com/wiki/Excavation
+.. _Machinery: https://oxygennotincluded.fandom.com/wiki/Machinery
+.. _Athletics: https://oxygennotincluded.fandom.com/wiki/Athletics
+.. _Science: https://oxygennotincluded.fandom.com/wiki/Science
+.. _Cuisine: https://oxygennotincluded.fandom.com/wiki/Cuisine
+.. _Creativity: https://oxygennotincluded.fandom.com/wiki/Creativity
+.. _Medicine: https://oxygennotincluded.fandom.com/wiki/Medicine_(attribute)
+.. _Agriculture: https://oxygennotincluded.fandom.com/wiki/Agriculture_(attribute)
+.. _Husbandry: https://oxygennotincluded.fandom.com/wiki/Ranching_(Attribute)
+.. _critters: https://oxygennotincluded.fandom.com/wiki/Critter
+.. _Building: https://oxygennotincluded.fandom.com/wiki/Build
+.. _Cooking: https://oxygennotincluded.fandom.com/wiki/Cook
+.. _Decorating: https://oxygennotincluded.fandom.com/wiki/Decorate
+.. _Digging: https://oxygennotincluded.fandom.com/wiki/Dig
+.. _Doctoring: https://oxygennotincluded.fandom.com/wiki/Medicine_(attribute)
+.. _Farming: https://oxygennotincluded.fandom.com/wiki/Farm
+.. _Operating: https://oxygennotincluded.fandom.com/wiki/Operate
+.. _Ranching: https://oxygennotincluded.fandom.com/wiki/Ranching
+.. _Researching: https://oxygennotincluded.fandom.com/wiki/Research
+.. _Suit Wearing: https://oxygennotincluded.fandom.com/wiki/Athletics
+.. _Supplying: https://oxygennotincluded.fandom.com/wiki/Supply
+.. _Tidying: https://oxygennotincluded.fandom.com/wiki/Tidy
+.. _Rocketry: https://oxygennotincluded.fandom.com/wiki/Rocketry_(Spaced_Out)
+.. _stations: https://oxygennotincluded.fandom.com/wiki/Stations_(Building)
+.. _Mysterious Hermit: https://oxygennotincluded.fandom.com/wiki/Mysterious_Hermit
+.. _Food Poisoning: https://oxygennotincluded.fandom.com/wiki/Food_Poisoning
+.. _Red Alert: https://oxygennotincluded.fandom.com/wiki/Red_Alert
+.. _Floral Scents: https://oxygennotincluded.fandom.com/wiki/Floral_Scents
+.. _Natural Gas: https://oxygennotincluded.fandom.com/wiki/Natural_Gas
+.. _Morale: https://oxygennotincluded.fandom.com/wiki/Morale
+.. _Stress: https://oxygennotincluded.fandom.com/wiki/Stress
+.. _Decor: https://oxygennotincluded.fandom.com/wiki/Decor
+.. _Food: https://oxygennotincluded.fandom.com/wiki/Food_(Building)
+.. _Food Quality: https://oxygennotincluded.fandom.com/wiki/Food_Quality
+.. _rooms: https://oxygennotincluded.fandom.com/wiki/Room_Overlay
+.. _Recreation Room: https://oxygennotincluded.fandom.com/wiki/Recreation_Room
+.. _Interests: https://oxygennotincluded.fandom.com/wiki/Duplicant#Interests
+.. _Shower: https://oxygennotincluded.fandom.com/wiki/Shower
+.. _Water Cooler: https://oxygennotincluded.fandom.com/wiki/Water_Cooler
+.. _Jukebot: https://oxygennotincluded.fandom.com/wiki/Jukebot
+.. _Arcade: https://oxygennotincluded.fandom.com/wiki/Arcade_Cabinet
+.. _Espresso Machine: https://oxygennotincluded.fandom.com/wiki/Espresso_Machine
+.. _Pincha Peppernut: https://oxygennotincluded.fandom.com/wiki/Pincha_Peppernut
+.. _Table Salt: https://oxygennotincluded.fandom.com/wiki/Table_Salt
+.. _Vertical Wind Tunnel: https://oxygennotincluded.fandom.com/wiki/Vertical_Wind_Tunnel
+.. _Sauna: https://oxygennotincluded.fandom.com/wiki/Sauna
+.. _Steam: https://oxygennotincluded.fandom.com/wiki/Steam
+.. _Soda Fountain: https://oxygennotincluded.fandom.com/wiki/Soda_Fountain
+.. _Juicer: https://oxygennotincluded.fandom.com/wiki/Juicer
+.. _Mechanical Surfboard: https://oxygennotincluded.fandom.com/wiki/Mechanical_Surfboard
+.. _Hot Tub: https://oxygennotincluded.fandom.com/wiki/Hot_Tub
+.. _Bleach Stone: https://oxygennotincluded.fandom.com/wiki/Bleach_Stone
+.. _Sight-Seeing Module: https://oxygennotincluded.fandom.com/wiki/Sight-Seeing_Module
+.. _Polluted Water: https://oxygennotincluded.fandom.com/wiki/Polluted_Water
+.. _Water: https://oxygennotincluded.fandom.com/wiki/Water
+.. _Cots: https://oxygennotincluded.fandom.com/wiki/Cot
+.. _Mess Tables: https://oxygennotincluded.fandom.com/wiki/Mess_Table
+.. _Massage Tables: https://oxygennotincluded.fandom.com/wiki/Massage_Table
+.. _Med Beds: https://oxygennotincluded.fandom.com/wiki/Triage_Cot
+.. _Lavatory: https://oxygennotincluded.fandom.com/wiki/Lavatory
+.. _Pharma Chambers: https://oxygennotincluded.fandom.com/wiki/Disease_Clinic
+.. _story trait: https://oxygennotincluded.fandom.com/wiki/Story_Trait
+.. _McNair: https://oxygennotincluded.fandom.com/wiki/Special:Upload?wpDestFile=ONI_McNair.png
+.. _Mildred: https://oxygennotincluded.fandom.com/wiki/Special:Upload?wpDestFile=ONI_Mildred.png
+.. _Moon: https://oxygennotincluded.fandom.com/wiki/Special:Upload?wpDestFile=ONI_Moon.png
+.. _Pierre: https://oxygennotincluded.fandom.com/wiki/Special:Upload?wpDestFile=ONI_Pierre.png
+.. _Will: https://oxygennotincluded.fandom.com/wiki/Special:Upload?wpDestFile=ONI_Will.png
+.. _U46-552078: https://oxygennotincluded.fandom.com/wiki/Versions/U46-552078
+
+.. |Spaced Out| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/a/ab/Spaced_Out_Logo.png
+   :width: 48px
+   :height: 26px
+.. |Vomiter Warning| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/5c/Vomiter_Warning.gif
+   :width: 200px
+   :height: 200px
+.. |Destructive Warning| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/d/dd/Destructive_Warning.gif
+   :width: 200px
+   :height: 200px
+.. |Binge Eater Warning| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/1/12/Binge_Eater_Warning.gif
+   :width: 200px
+   :height: 200px
+.. |Ugly Crier Warning| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/65/Ugly_Crier_Warning.gif
+   :width: 200px
+   :height: 200px
+.. |Banshee Warning| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/42/Banshee_Warning.gif
+   :width: 204px
+   :height: 204px
+.. |Stress Warning| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/40/Stress_Warning.gif
+   :width: 184px
+   :height: 184px
+.. |I am happy| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/d/df/Crew_state_happy.png
+   :width: 32px
+   :height: 32px
+.. |I am angry| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/e/e0/Crew_state_angry.png
+   :width: 32px
+   :height: 32px
+.. |I am enraged| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/0/07/Crew_state_enraged.png
+   :width: 32px
+   :height: 32px
+.. |I am unhappy| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/44/Crew_state_unhappy.png
+   :width: 32px
+   :height: 32px
+.. |I am sleepy| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/ca/Crew_state_sleepy.png
+   :width: 32px
+   :height: 32px
+.. |I am sick| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/cd/Crew_state_sick.png
+   :width: 32px
+   :height: 32px
+.. |I am hungry| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/e/e9/Crew_state_hungry.png
+   :width: 32px
+   :height: 32px
+.. |I can not breathe| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/3d/Crew_state_cantbreathe.png
+   :width: 32px
+   :height: 32px
+.. |I am cold| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/1/1f/Crew_state_temp_down.png
+   :width: 32px
+   :height: 32px
+.. |I am hot| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/8/8f/Crew_state_temp_up.png
+   :width: 32px
+   :height: 32px
+.. |I need the toilet| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/6d/Crew_state_full_bladder.png
+   :width: 32px
+   :height: 32px
+.. |I like/hate the decor| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/0/03/Crew_state_decor.png
+   :width: 32px
+   :height: 32px
+.. |Something smells bad!| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/0/05/Crew_state_smelled_putrid_odour.png
+   :width: 32px
+   :height: 32px
+.. |I am binge eating| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/38/Crew_state_binge_eat.png
+   :width: 32px
+   :height: 32px
+.. |I am crying| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/0/01/Crew_state_cry.png
+   :width: 32px
+   :height: 32px
+.. |I feel destructive| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/a/a6/Crew_state_destructive.png
+   :width: 32px
+   :height: 32px
+.. |Loud noises| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/fa/Crew_state_noisey.png
+   :width: 32px
+   :height: 32px
+.. |I am stressed| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/2/2f/Crew_state_stress.png
+   :width: 32px
+   :height: 32px
+.. |I am vomiting| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/1/14/Crew_state_vomit.png
+   :width: 32px
+   :height: 32px
+.. |This is yuck| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/a/a9/Crew_state_yuck.png
+   :width: 32px
+   :height: 32px
+.. |Abe| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/ff/ONI_Abe.png
+   :width: 100px
+   :height: 132px
+.. |Ada| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/66/ONI_Ada.png
+   :width: 100px
+   :height: 132px
+.. |Amari| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/1/10/ONI_Amari.png
+   :width: 100px
+   :height: 132px
+.. |Ari| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/5d/ONI_Ari.png
+   :width: 100px
+   :height: 131px
+.. |Ashkan| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/d/d9/ONI_Ashkan.png
+   :width: 100px
+   :height: 135px
+.. |Banhi| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/7/77/ONI_Bonhi.png
+   :width: 100px
+   :height: 131px
+.. |Bubbles| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/e/eb/ONI_Bubbles.png
+   :width: 100px
+   :height: 132px
+.. |Burt| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/7/75/ONI_Burt.png
+   :width: 100px
+   :height: 132px
+.. |Camille| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/2/24/ONI_Camille.png
+   :width: 100px
+   :height: 132px
+.. |Catalina| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/b/bd/ONI_Catalina.png
+   :width: 100px
+   :height: 133px
+.. |Devon| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/0/09/ONI_Devon.png
+   :width: 100px
+   :height: 130px
+.. |Ellie| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/4a/ONI_Ellie.png
+   :width: 100px
+   :height: 131px
+.. |Frankie| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/b/b6/ONI_Frankie.png
+   :width: 100px
+   :height: 131px
+.. |Gossman| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/7/76/ONI_Gossman.png
+   :width: 100px
+   :height: 132px
+.. |Harold| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/8/81/ONI_Harold.png
+   :width: 100px
+   :height: 131px
+.. |Hassan| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/2/27/ONI_Hassan.png
+   :width: 100px
+   :height: 133px
+.. |Jean| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/44/ONI_Jean.png
+   :width: 100px
+   :height: 132px
+.. |Jorge| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/3d/ONI_Jorge.png
+   :width: 100px
+   :height: 132px
+.. |Joshua| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/e/e3/ONI_Joshua.png
+   :width: 100px
+   :height: 133px
+.. |Leira| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/47/ONI_Leira.png
+   :width: 100px
+   :height: 134px
+.. |Liam| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/0/01/ONI_Liam.png
+   :width: 100px
+   :height: 132px
+.. |Lindsay| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/d/d5/ONI_Lindsay.png
+   :width: 100px
+   :height: 133px
+.. |Mae| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/e/e3/ONI_Mae.png
+   :width: 100px
+   :height: 131px
+.. |Marie| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/f4/ONI_Marie.png
+   :width: 100px
+   :height: 131px
+.. |Max| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/60/ONI_Max.png
+   :width: 100px
+   :height: 132px
+.. |Meep| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/c3/ONI_Meep.png
+   :width: 100px
+   :height: 132px
+.. |Mi-Ma| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/c4/ONI_Mi-Ma.png
+   :width: 100px
+   :height: 131px
+.. |Nails| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/b/b1/ONI_Nails.png
+   :width: 100px
+   :height: 132px
+.. |Nikola| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/3a/ONI_Nikola.png
+   :width: 100px
+   :height: 132px
+.. |Nisbet| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/34/ONI_Nisbet.png
+   :width: 100px
+   :height: 133px
+.. |Otto| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/45/ONI_Otto.png
+   :width: 100px
+   :height: 131px
+.. |Pei| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/0/03/Pei.png
+   :width: 98px
+   :height: 129px
+.. |Quinn| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/b/b4/Quinn.png
+   :width: 100px
+   :height: 124px
+.. |Ren| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/b/b6/ONI_Ren.png
+   :width: 100px
+   :height: 131px
+.. |Rowan| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/f4/ONI_Rowan.png
+   :width: 100px
+   :height: 131px
+.. |Ruby| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/fd/ONI_Ruby.png
+   :width: 100px
+   :height: 132px
+.. |Steve| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/7/76/ONI_Steve.png
+   :width: 100px
+   :height: 132px
+.. |Stinky| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/b/bc/ONI_Stinky.png
+   :width: 100px
+   :height: 130px
+.. |Travaldo| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/3d/ONI_Travaldo.png
+   :width: 100px
+   :height: 131px
+.. |Turner| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/8/88/ONI_Turner.png
+   :width: 100px
+   :height: 131px
+.. |Archibald| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/a/a3/ONI_Archibald.png
+   :width: 100px
+   :height: 132px
+.. |Bea| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/2/2c/ONI_Bea.png
+   :width: 100px
+   :height: 135px
+.. |Bertie| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/1/15/ONI_Bertie.png
+   :width: 100px
+   :height: 135px
+.. |Bertrand| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/f6/ONI_Bertrand.png
+   :width: 100px
+   :height: 133px
+.. |Blanche| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/9d/ONI_Blanche.png
+   :width: 100px
+   :height: 130px
+.. |Brady| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/1/1a/ONI_Brady.png
+   :width: 100px
+   :height: 129px
+.. |Braynen| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/e/eb/ONI_Braynen.png
+   :width: 100px
+   :height: 133px
+.. |Casper| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/1/15/ONI_Casper.png
+   :width: 100px
+   :height: 133px
+.. |Cass| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/45/ONI_Cass.png
+   :width: 100px
+   :height: 133px
+.. |Cecil| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/e/ee/ONI_Cecil.png
+   :width: 100px
+   :height: 132px
+.. |Celeste| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/7/7b/ONI_Celeste.png
+   :width: 100px
+   :height: 131px
+.. |Chuanli| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/42/ONI_Chuanli.png
+   :width: 100px
+   :height: 134px
+.. |Dan| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/fd/ONI_Dan.png
+   :width: 100px
+   :height: 131px
+.. |Dorris| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/31/ONI_Dorris.png
+   :width: 100px
+   :height: 129px
+.. |Eleanor| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/f4/ONI_Eleanor.png
+   :width: 100px
+   :height: 130px
+.. |Elvira| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/d/dd/ONI_Elvira.png
+   :width: 100px
+   :height: 131px
+.. |Elvis| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/f8/ONI_Elvis.png
+   :width: 100px
+   :height: 137px
+.. |Ernestine| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/a/ab/ONI_Ernestine.png
+   :width: 100px
+   :height: 128px
+.. |Eugene| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/5f/ONI_Eugene.png
+   :width: 100px
+   :height: 132px
+.. |Fergus| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/b/b2/ONI_Fergus.png
+   :width: 100px
+   :height: 131px
+.. |Floyd| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/8/8d/ONI_Floyd.png
+   :width: 100px
+   :height: 134px
+.. |Fran| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/2/2f/ONI_Fran.png
+   :width: 100px
+   :height: 129px
+.. |Gabriel| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/3f/ONI_Gabriel.png
+   :width: 100px
+   :height: 132px
+.. |Grub| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/2/2c/ONI_Grub.png
+   :width: 100px
+   :height: 131px
+.. |Grungy| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/7/70/ONI_Grungy.png
+   :width: 100px
+   :height: 130px
+.. |Gus| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/1/18/ONI_Gus.png
+   :width: 100px
+   :height: 133px
+.. |Hideki| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/c3/ONI_Hideki.png
+   :width: 100px
+   :height: 168px
+.. |Horatio| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/a/a1/ONI_Horatio.png
+   :width: 100px
+   :height: 139px
+.. |Howard| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/5b/ONI_Howard.png
+   :width: 100px
+   :height: 130px
+.. |Hugh| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/d/dd/ONI_Hugh.png
+   :width: 100px
+   :height: 136px
+.. |Isamu| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/a/a1/ONI_Isamu.png
+   :width: 100px
+   :height: 134px
+.. |Jack| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/d/db/ONI_Jack.png
+   :width: 100px
+   :height: 136px
+.. |Jasper| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/7/70/ONI_Jasper.png
+   :width: 100px
+   :height: 138px
+.. |Josie| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/a/a1/ONI_Josie.png
+   :width: 100px
+   :height: 142px
+.. |Karl| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/54/ONI_Karl.png
+   :width: 100px
+   :height: 128px
+.. |Leah| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/1/1e/ONI_Leah.png
+   :width: 100px
+   :height: 135px
+.. |Lenny| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/8/8b/ONI_Lenny.png
+   :width: 100px
+   :height: 147px
+.. |Longwei| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/0/07/ONI_Longwei.png
+   :width: 100px
+   :height: 134px
+.. |Maha| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/37/ONI_Maha.png
+   :width: 100px
+   :height: 131px
+.. |Ming-Mei| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/a/ab/ONI_Ming-Mei.png
+   :width: 100px
+   :height: 138px
+.. |Mamoru| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/8/81/ONI_Mamoru.png
+   :width: 100px
+   :height: 135px
+.. |Metrodora| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/91/ONI_Metrodora.png
+   :width: 100px
+   :height: 137px
+.. |Melody| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/7/71/ONI_Melody.png
+   :width: 100px
+   :height: 131px
+.. |Mozzarella| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/9f/ONI_Mozzarella.png
+   :width: 100px
+   :height: 129px
+.. |Mystique| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/1/13/ONI_Mystique.png
+   :width: 100px
+   :height: 131px
+.. |Nadia| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/39/ONI_Nadia.png
+   :width: 100px
+   :height: 131px
+.. |Neil| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/e/e0/ONI_Neil.png
+   :width: 100px
+   :height: 133px
+.. |Nori| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/d/dc/ONI_Nori.png
+   :width: 100px
+   :height: 124px
+.. |Olive| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/8/83/ONI_Olive.png
+   :width: 100px
+   :height: 136px
+.. |Pam| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/8/88/ONI_Pam.png
+   :width: 100px
+   :height: 144px
+.. |Peijing| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/1/1d/ONI_Peijing.png
+   :width: 100px
+   :height: 130px
+.. |Price| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/fd/ONI_Price.png
+   :width: 100px
+   :height: 135px
+.. |Quincy| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/58/ONI_Quincy.png
+   :width: 100px
+   :height: 131px
+.. |Ralph| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/1/13/ONI_Ralph.png
+   :width: 100px
+   :height: 132px
+.. |Red| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/1/1f/ONI_Red.png
+   :width: 100px
+   :height: 140px
+.. |Rosalind| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/f6/ONI_Rosalind.png
+   :width: 100px
+   :height: 133px
+.. |Sadie| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/94/ONI_Sadie.png
+   :width: 100px
+   :height: 141px
+.. |Saul| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/d/dc/ONI_Saul.png
+   :width: 100px
+   :height: 130px
+.. |Seth| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/9f/ONI_Seth.png
+   :width: 100px
+   :height: 134px
+.. |Shannon| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/f2/ONI_Shannon.png
+   :width: 100px
+   :height: 133px
+.. |Spike| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/1/16/ONI_Spike.png
+   :width: 100px
+   :height: 129px
+.. |Stacy| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/0/03/ONI_Stacy.png
+   :width: 100px
+   :height: 145px
+.. |Suki| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/b/b6/ONI_Suki.png
+   :width: 100px
+   :height: 134px
+.. |Sybil| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/6e/ONI_Sybil.png
+   :width: 100px
+   :height: 148px
+.. |Tilly| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/9a/ONI_Tilly.png
+   :width: 100px
+   :height: 132px
+.. |Vernon| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/2/2d/ONI_Vernon.png
+   :width: 100px
+   :height: 121px
+.. |Viola| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/7/70/ONI_Viola.png
+   :width: 100px
+   :height: 133px
+.. |Virgil| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/d/d6/ONI_Virgil.png
+   :width: 100px
+   :height: 134px
+.. |Woodrow| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/2/2a/ONI_Woodrow.png
+   :width: 100px
+   :height: 131px
+.. |Yvette| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/ca/ONI_Yvette.png
+   :width: 100px
+   :height: 134px
+.. |Zeke| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/5b/ONI_Zeke.png
+   :width: 100px
+   :height: 134px
+
+
+
+Radition 辐射
+============
+
+   https://oxygennotincluded.fandom.com/wiki/Radiation
+
+   .. Note::
+
+      核辐射是原子核从一种结构或一种能量状态转变为另一种结构或另一种能量状态过程中所释放出来的微观粒子流。
+      核辐射主要是 α、β、γ 三种射线：
+
+      *  α 射线是氦核（两个中子、两个质子），外照射穿透能力很弱，只要用一张纸就能挡住，但吸入体内危害大；
+      *  β 射线是电子流，照射皮肤后烧伤明显。这两种射线由于穿透力小，影响距离比较近只要辐射源不进入体内，影响不会太大；
+      *  γ 射线的穿透力很强，是一种波长很短的电磁波。γ辐射和X射线相似，能穿透人体和建筑物，危害较小。
+
+      现代物理学从宏观到微观的物质构成模型有：分子（Molecule）、原子（Atom）、中子（Neutron）、
+      质子（Proton）、夸克（quark）、弦（Strings）。弦理论的物理模型认为组成所有物质的最基本单位是
+      一小段“能量弦线”，大至星际银河，小至电子、质子、夸克一类的基本粒子都是由这占有二维时空的“能量线”
+      所组成。微观粒子之间仅存在四种相互作用力：
+
+      *  万有引力（universal gravitation）
+      *  电磁力（electromagnetic force）
+      *  强相互作用力（strong interaction）
+      *  弱相互作用力（weak interaction）
+
+      弦论是最有希望将自然界的基本粒子和四种相互作用力统一起来的理论。在夸克理论提出后，人们认识到基本粒
+      子也有复杂的结构。欧洲核子研究组织（Conseil Européen pour la Recherche Nucléaire）
+      建设于瑞士日内瓦的大型强子对撞机（Large Hadron Collider）通过加速到接近光速电子撞击质子后，
+      发现了更小的夸克。夸克模型（Quark Model）中包含强子（强作用力），强子中最稳定的是质子和中子，
+      它们是构成原子核的单元，它们都由三个夸克构成。夸克理论认为，夸克都是被囚禁在粒子内部的，不存在
+      单独的夸克。
+      
+      1990 年建成的北京正负电子对撞机（Electron Positron Collider）参与粲夸克和 τ 轻子物理研究，
+      并取得一定成果。1992 年，BEPC 给出了 τ 轻子质量的精准测量，精度比原来提高了 10 倍，更新了粒子
+      物理学数据权威《粒子物理手册》（PDG），被认为是当年国际最好的粒子物理成果。
+
+      粒子物理学建立的标准模型（Standard Model）是描述了强力、弱力及电磁力这三种基本力及组成所有物质的
+      基本粒子的理论。粒子物理标准模型框架下，物质世界的基本粒子有夸克、轻子等 61 种基本粒子。粲夸克属于
+      基本粒子标准模型中六类夸克之一（上夸克、下夸克、奇夸克、粲夸克、顶夸克、底夸克）。
+
+      .. figure:: https://physics.info/standard/family-base.svg
+         :target: https://tikz.net/wp-content/uploads/2024/03/SM_particles-001.png
+
+         the fundamental particles of the standard model
+
+      .. figure:: https://physics.info/standard/three-forces.svg
+
+         standard model particle interactions
+
+      大统一理论（grand unified theories，GUTs），又称万物之理，理论上宇宙间所有现象都可以用这四种
+      作用力来解释。通过进一步研究四种作用力之间联系与统一，寻找能统一说明四种相互作用力的理论或模型称为
+      大统一理论。最晚发现也是最易被忽视的就是弱力，弱力并不是最弱的力，它至少比引力强。
+
+      物理学家马克斯·普朗克于 1900 年发现，能量可以分为不可再分割的单位，并将其命名为“量子”。
+      量子（quantum）是现代物理的重要概念，即一个物理量如果存在最小的不可分割的基本单位，则这个物理量
+      是量子化的，这个最小单位称为量子。量子力学（Quantum Mechanics）是研究物质世界微观粒子运动规律
+      的物理学分支，主要研究原子、分子、凝聚态物质，以及原子核和基本粒子的结构、性质的基础理论。
+
+      现代物理学流行的名词是“量子化”，能量、动量、角动量等物理量都是量子化的。量子场论一次量子化还不够，
+      再来个二次量子化。几十年来，物理学家提出各种版本的“万物之理”（统一场论）：弦论、圈论、旋子论、扭子论、
+      时空非互易论等，绝大多数基于时空量子化，认为时间和空间都具有最小单元——普朗克时间（:math:`5.39 \times 10^-44` 秒）
+      和普朗克长度（:math:`1.6 \times 10^-35` 米）。
+
+      《理论物理学教程》（共十卷）是一部享誉世界的理论物理学巨著，是反映经典物理学向现代物理学转变的
+      里程碑式的重要著作，包括力学、场论、量子力学 、相对论性量子理论（量子电动力学）、 统计物理学、
+      统计物理学（2）、流体力学 、弹性理论 、连续媒质电动力学、 物理动力学共十卷。原著为俄文，现已有
+      十余种文字的分卷译本，六种文字的全卷译本。本教程中的七卷是由诺贝尔物理学奖获得者、苏联科学院院士、
+      理论物理学家л.д.朗道和他的学生、苏联科学院院士、理论物理学家 е.м.栗弗席兹 在 20 世纪 40－50
+      年代陆续编写而成的，另外三卷由栗弗席兹和俄罗斯科学院院士 л.п.皮塔耶夫斯基 等人按朗道的计划在
+      20 世纪 60－70 年代编写完成，后经不断补充完善，现已成为举世公认的经典学术著作。
+
+         - Vol.1. Mechanics 3rd ed
+         - Vol.2. The Classical Theory of Fields
+         - Vol.3. Quantum Mechanics - Non-Relativistic Theory
+         - Vol.4. Quantum Electrodynamics
+         - Vol.5. Statistical Physics part 1
+         - Vol.6. Fluid Mechanics
+         - Vol.7. Theory Of Elasticity
+         - Vol.8. Elactrodynamics of Continuous Media
+         - Vol.9. Statistical Physics part 2
+         - Vol.10. Physical Kinetics
+
+      *  朗道十卷英文影印版 https://pan.baidu.com/s/16MSV2EYFR6PLRhsgVEgDOQ?pwd=zjbi
+      *  费曼物理学讲义英文版 https://pan.baidu.com/s/1E2nJthZNHclidOlvK1KykQ?pwd=nt7i
+      *  【北京大学公开课】核物理与粒子物理导论 https://www.bilibili.com/video/BV1Nr4y1P7Pt/
+      *  【北京大学公开课】核物理与粒子物理导论 叶沿林 http://jpk.pku.edu.cn/course/hwl/script.htm
+      *  核与粒子物理导论 MIT 8.701 https://www.bilibili.com/video/BV1dh411i7EW/
+      *  Introduction to Nuclear and Particle Physics https://ocw.mit.edu/courses/8-701-introduction-to-nuclear-and-particle-physics-fall-2020/
+      *  Particle Physics: A Brief Overview https://assets.press.princeton.edu/chapters/s9633.pdf
+      *  Modern Particle Physics by Mark Thomson https://thephysicsverse.science.blog/wp-content/uploads/2020/08/thomson-m.-modern-particle-physics-cambridge-university-press-2013-2-1.pdf
+
+   This article has not been revised for the current version (`U51-600112`_). 
+   It was last updated for `U39-490405`_. It may contain inaccuracies.
+
+   +--------------+------------------------------------------------------------+
+   | |Spaced Out| | *This article is related to DLC content of* `Spaced Out`_  |
+   +--------------+------------------------------------------------------------+
+
+   .. figure:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/d/d7/Radiation_Menu.png
+
+      The Symbol for Radiation Buildings and the Radiation Overlay.
+
+
+   **Radiation** is a game mechanic introduced in the `Spaced Out DLC`_. Certain 
+   elements and buildings such as `Uranium Ore`_ and the `Research Reactor`_ generate 
+   ambient radiation. Its strength is measured in Rads per cycle, which `Duplicants`_ 
+   and `Plants`_ absorb in form of `Rads`_. Duplicants will release some amount of 
+   rads when using the toilet. Duplicants can also be protected from radioactivity 
+   by using `Lead Suits`_. If exposed to too much radiation, Duplicants will become 
+   sick with `Radiation Sickness`_.
+
+   Radiation usually refers to the Ambient Radiation that's measured in Rads per cycle.
+
+   Contents
+
+      -  1 Sources of Radiation
+      -  2 Hazard Rating
+      -  3 Radiation Protection
+      -  4 Radiation Blocking
+      -  5 other Related Pages
+
+
+Sources of Radiation
+--------------------
+
+   +------------------------------+------------------------------------------+-------------------------+--------------------------------------------------------------------------------------------------------+
+   | Source                       | Rate                                     | Radius                  | Note                                                                                                   |
+   +------------------------------+------------------------------------------+-------------------------+--------------------------------------------------------------------------------------------------------+
+   | `Radbolt`_ projectile        | 0.2 rads per cycle (Mostly Safe)         | 3 tiles                 | Only while in motion. Stored radbolts do not emit radiation.                                           |
+   +------------------------------+------------------------------------------+-------------------------+--------------------------------------------------------------------------------------------------------+
+   | Radbolt impact               | 33.33 rads per cycle (Mostly Safe)       | 6 tiles                 | For example, two colliding projectiles containing 50 radbolts                                          |
+   | (per radbolt stored)         |                                          |                         | each will add up to a brief explosion of ~3333.33 rads per cycle.                                      |
+   +------------------------------+------------------------------------------+-------------------------+--------------------------------------------------------------------------------------------------------+
+   | `Shine Bug`_                 | 60 rads per cycle (Mostly Safe)          | 6 tiles                 |                                                                                                        |
+   +------------------------------+------------------------------------------+-------------------------+--------------------------------------------------------------------------------------------------------+
+   | `Glow Stick`_ trait          | 100 rads per cycle (Mostly Safe)         | 3 tiles                 |                                                                                                        |
+   +------------------------------+------------------------------------------+-------------------------+--------------------------------------------------------------------------------------------------------+
+   | `Manual Radbolt Generator`_  | 120 rads per cycle (Barely Safe)         | 3 tiles                 | Quick bursts quickly dissipating.                                                                      |
+   +------------------------------+------------------------------------------+-------------------------+--------------------------------------------------------------------------------------------------------+
+   | Space radiation              | 175 rads per cycle (Barely Safe)         | -                       | Depends on the starting `planetoid`_:                                                                  |
+   |                              | 187 rads per cycle (Barely Safe)         |                         |                                                                                                        |
+   |                              | 218 rads per cycle (Slight Hazard)       |                         | -  Terrania, Folia, Quagmiris and Metallic Swampy: 175 rads per cycle (Barely Safe)                    |
+   |                              | 375 rads per cycle (Slight Hazard)       |                         | -  Frozen Forest: 187 rads per cycle (Barely Safe)                                                     |
+   |                              |                                          |                         | -  The Desolands and Flipped: 218 rads per cycle (Slight Hazard)                                       |
+   |                              |                                          |                         | -  Radioactive Ocean: 375 rads per cycle (Slight Hazard)                                               |
+   +------------------------------+------------------------------------------+-------------------------+--------------------------------------------------------------------------------------------------------+
+   | `Beetiny`_                   | 480 rads per cycle (Significant Hazard)  | 2 tiles                 | Only while sleeping.                                                                                   |
+   +------------------------------+------------------------------------------+-------------------------+--------------------------------------------------------------------------------------------------------+
+   | `Wheezewort`_                | 480 rads per cycle (Significant Hazard)  | 6 tiles                 | Wild and Domesticated Wheezeworts give the same amount of radiation.                                   |
+   +------------------------------+------------------------------------------+-------------------------+--------------------------------------------------------------------------------------------------------+
+   | `Radiation Lamp`_            | 720 rads per cycle (Significant Hazard)  | 16 wide by 4 tiles tall | Emission in shape of a quarter ellipse, centered in front of the lamp.                                 |
+   +------------------------------+------------------------------------------+-------------------------+--------------------------------------------------------------------------------------------------------+
+   | `Beeta`_                     | 1440 rads per cycle (Significant Hazard) | 3 tiles                 | Only while sleeping.                                                                                   |
+   +------------------------------+------------------------------------------+-------------------------+--------------------------------------------------------------------------------------------------------+
+   | `Beeta Hive`_                | 1800+                                    | 6 tiles                 | Quick pulsing effect while processing `Uranium`_. Originates at 1800 rads per cycle                    |
+   |                              |                                          |                         | but doubles to approximately 3600 rads per cycle (Extreme Hazard) on each side.                        |
+   +------------------------------+------------------------------------------+-------------------------+--------------------------------------------------------------------------------------------------------+
+   | `Crashed Satellites`_        | 2400 rads per cycle (Extreme Hazard)     | 12 tiles                |                                                                                                        |
+   +------------------------------+------------------------------------------+-------------------------+--------------------------------------------------------------------------------------------------------+
+   | `Radbolt Engine`_            | 10080 rads per cycle (Maximum Hazard)    | 10 tiles                | Only during launch.                                                                                    |
+   +------------------------------+------------------------------------------+-------------------------+--------------------------------------------------------------------------------------------------------+
+   | `Research Reactor`_          | 12000 rads per cycle (Maximum Hazard)    | 25 tiles                |                                                                                                        |
+   | (stable)                     |                                          |                         |                                                                                                        |
+   +------------------------------+------------------------------------------+-------------------------+--------------------------------------------------------------------------------------------------------+
+   | Research Reactor             | 24000 rads per cycle (Maximum Hazard)    | 25 tiles                | Gradually decreases to 0 over a period of 5 cycles (-4800 rads per cycle per cycle).                   |
+   | (meltdown)                   |                                          |                         |                                                                                                        |
+   +------------------------------+------------------------------------------+-------------------------+--------------------------------------------------------------------------------------------------------+
+   | `Radioactive Contaminants`_  | 11 rads per cycle (Mostly Safe)          | 1 tile                  | Radioactive Contaminants only irradiate the tile they are inside on, be that a solid, liquid, or gas.  |
+   | (per 10,000 germs)           |                                          |                         | Radioactive Contaminants don't radiate when on an element in its debris or bottled form,               |
+   |                              |                                          |                         | not when it's pumped through gas or liquid pipes, or on conveyor rails.                                |
+   +------------------------------+------------------------------------------+-------------------------+--------------------------------------------------------------------------------------------------------+
+   | `Nuclear Fallout`_           | 17 rads per cycle (Mostly Safe)          | 3 tiles                 |                                                                                                        |
+   | (per 1,000 kg)               |                                          |                         |                                                                                                        |
+   +------------------------------+------------------------------------------+-------------------------+--------------------------------------------------------------------------------------------------------+
+   | `Depleted Uranium`_   *      | 55 rads per cycle (Mostly Safe)          | 3 tiles                 | Liquid Uranium forms natural Depleted Uranium tiles at a density higher than 81 kg.                    |
+   | (per 1,000 kg)               |                                          |                         |                                                                                                        |
+   +------------------------------+------------------------------------------+-------------------------+--------------------------------------------------------------------------------------------------------+
+   | `Uranium Ore`_   * and       | 165 rads per cycle (Barely Safe)         | 3 Tiles                 | `Liquid Nuclear Waste`_ forms natural `Solid Nuclear Waste`_ tiles at a density higher than 1,475 kg   |
+   | `Solid Nuclear Waste`_   *   |                                          |                         | while only 1,000 kg Liquid Nuclear Waste stays in a Tile at a time without compressing it beforehand.  |
+   | (per 1,000 kg)               |                                          |                         |                                                                                                        |
+   +------------------------------+------------------------------------------+-------------------------+--------------------------------------------------------------------------------------------------------+
+   | `Liquid Uranium`_ and        | 165 rads per cycle (Barely Safe)         | 3 tiles                 | Since they are liquid, a `Radbolt Generator`_ can be built inside of it immediately.                   |
+   | `Liquid Nuclear Waste`_      |                                          |                         |                                                                                                        |
+   | (per 1,000 kg)               |                                          |                         |                                                                                                        |
+   +------------------------------+------------------------------------------+-------------------------+--------------------------------------------------------------------------------------------------------+
+   | `Enriched Uranium`_   *      | 275 rads per cycle (Slight Hazard)       | 3 tiles                 |                                                                                                        |
+   | (per 1,000 kg)               |                                          |                         |                                                                                                        |
+   +------------------------------+------------------------------------------+-------------------------+--------------------------------------------------------------------------------------------------------+
+
+   \* These Elements are only Radioactive in form of Natural Tiles, not as Debris.
+
+   `Corium`_ is not Radioactive by itself, but it `emits`_ Nuclear Waste, which is.
+
+
+Hazard Rating
+-------------
+
+   ==================  ========================================
+   Hazard Rating       Radiation Strength
+   Completely Safe     Exactly 0 rads per cycle
+   Mostly Safe         Between more than 0 to 100 rad per cycle
+   Barely Safe         Between 100 and 200 rads per cycle
+   Slight Hazard       Between 200 and 400 rads per cycle
+   Significant Hazard  Between 400 and 2000 rads per cycle
+   Extreme Hazard      Between 2000 and 4000 rads per cycle
+   Maximum Hazard      Above 4000 rads per cycle
+   ==================  ========================================
+
+
+Radiation Protection
+--------------------
+
+   Different Materials shield from Radiation, see the Page on `Radiation Absorption`_ 
+   for a comprehensive list.
+
+   Duplicants absorb Radiation according to the tile their feet occupy, and `Lead Suits`_ 
+   protect them from 66% of it, so they only absorb 34% (not a full third, but 34% exactly).
+
+   Having eaten Seafood (raw `Pacu Fillet`_, `Cooked Seafood`_, or `Surf'n'Turf`_) grants 
+   **Radiation Resistance: Seafood** which decreases Radiation Absorption by 20% for 2 Cycles.
+
+   These stack cumulative to only absorb 14% if a Duplicant both has eaten Seafood, and wears 
+   a Lead Suit.
+
+   The `Basic Rad Pill`_ grants Radiation Rejuvination of -100 Rads per Cycle for one cycle.
+
+   Duplicants with the rad eater trait can transform up to 150 rads absorbed into calories.
+
+   Using the bathroom (whether `Latrine`_, `Outhouse`_, or `Wall Toilet`_) reduces the absorbed 
+   Rad Dose by 100. A duplicant will go to the bathroom when they have either a bathroom or 
+   downtime break **and** their bladder is at 40% or higher, allowing for ~200 rads removed 
+   per cycle when an additional bathroom break is added half-way through a schedule.
+
+   A Duplicant that has absorbed too much Radiation may develop `Radiation Sickness`_.
+
+
+Radiation Blocking
+------------------
+
+   Most things block radiation, including gases. Their ratings are shown in their documentation, 
+   but the in-game blocking rating may be different. **The only things that do not block radiation 
+   in any way are** `Airflow Tiles`_ **,** `Mesh Tiles`_ **and** `Solar Panels`_ **.**
+
+
+other Related Pages
+-------------------
+
+   -  `Radbolts`_,
+   -  the `Radioactive Contaminants`_ "Germ" and `Radiation Sickness`_
+   -  the `Radiation Buildings`_:
+
+      -  `Research Reactor`_
+      -  `Uranium Centrifuge`_
+      -  `Radbolt Generator`_
+      -  `Radbolt Reflector`_
+
+
+.. _U51-600112: https://oxygennotincluded.fandom.com/wiki/Versions/U51-600112
+.. _U39-490405: https://oxygennotincluded.fandom.com/wiki/Versions/U39-490405
+.. _Spaced Out: https://oxygennotincluded.fandom.com/wiki/Spaced_Out!
+.. _Uranium Ore: https://oxygennotincluded.fandom.com/wiki/Uranium_Ore
+.. _Research Reactor: https://oxygennotincluded.fandom.com/wiki/Research_Reactor
+.. _Duplicants: https://oxygennotincluded.fandom.com/wiki/Duplicant
+.. _Plants: https://oxygennotincluded.fandom.com/wiki/Plant#Plant_Mutations
+.. _Rads: https://oxygennotincluded.fandom.com/wiki/Units
+.. _Lead Suits: https://oxygennotincluded.fandom.com/wiki/Lead_Suit
+.. _Radiation Sickness: https://oxygennotincluded.fandom.com/wiki/Radiation_Sickness
+.. _Radbolt: https://oxygennotincluded.fandom.com/wiki/Radbolt
+.. _Shine Bug: https://oxygennotincluded.fandom.com/wiki/Shine_Bug
+.. _Glow Stick: https://oxygennotincluded.fandom.com/wiki/Duplicant#Traits
+.. _Manual Radbolt Generator: https://oxygennotincluded.fandom.com/wiki/Manual_Radbolt_Generator
+.. _planetoid: https://oxygennotincluded.fandom.com/wiki/Planetoid_Clusters
+.. _Beetiny: https://oxygennotincluded.fandom.com/wiki/Beeta
+.. _Wheezewort: https://oxygennotincluded.fandom.com/wiki/Wheezewort
+.. _Radiation Lamp: https://oxygennotincluded.fandom.com/wiki/Radiation_Lamp
+.. _Beeta: https://oxygennotincluded.fandom.com/wiki/Beeta
+.. _Beeta Hive: https://oxygennotincluded.fandom.com/wiki/Beeta_Hive
+.. _Uranium: https://oxygennotincluded.fandom.com/wiki/Uranium
+.. _Crashed Satellites: https://oxygennotincluded.fandom.com/wiki/Crashed_Satellites
+.. _Radbolt Engine: https://oxygennotincluded.fandom.com/wiki/Radbolt_Engine
+.. _Radioactive Contaminants: https://oxygennotincluded.fandom.com/wiki/Radioactive_Contaminant
+.. _Nuclear Fallout: https://oxygennotincluded.fandom.com/wiki/Nuclear_Fallout
+.. _Depleted Uranium: https://oxygennotincluded.fandom.com/wiki/Depleted_Uranium
+.. _Liquid Nuclear Waste: https://oxygennotincluded.fandom.com/wiki/Nuclear_Waste
+.. _Solid Nuclear Waste: https://oxygennotincluded.fandom.com/wiki/Solid_Nuclear_Waste
+.. _Liquid Uranium: https://oxygennotincluded.fandom.com/wiki/Liquid_Uranium
+.. _Radbolt Generator: https://oxygennotincluded.fandom.com/wiki/Radbolt_Generator
+.. _Enriched Uranium: https://oxygennotincluded.fandom.com/wiki/Enriched_Uranium
+.. _Corium: https://oxygennotincluded.fandom.com/wiki/Corium
+.. _emits: https://oxygennotincluded.fandom.com/wiki/Element_Emission
+.. _Radiation Absorption: https://oxygennotincluded.fandom.com/wiki/Radiation_Absorption
+.. _Pacu Fillet: https://oxygennotincluded.fandom.com/wiki/Pacu_Fillet
+.. _Cooked Seafood: https://oxygennotincluded.fandom.com/wiki/Cooked_Seafood
+.. _Surf'n'Turf: https://oxygennotincluded.fandom.com/wiki/Surf%27n%27Turf
+.. _Basic Rad Pill: https://oxygennotincluded.fandom.com/wiki/Apothecary
+.. _Latrine: https://oxygennotincluded.fandom.com/wiki/Latrine
+.. _Outhouse: https://oxygennotincluded.fandom.com/wiki/Outhouse
+.. _Wall Toilet: https://oxygennotincluded.fandom.com/wiki/Wall_Toilet
+.. _Airflow Tiles: https://oxygennotincluded.fandom.com/wiki/Airflow_Tile
+.. _Mesh Tiles: https://oxygennotincluded.fandom.com/wiki/Mesh_Tile
+.. _Solar Panels: https://oxygennotincluded.fandom.com/wiki/Solar_Panel
+.. _Radbolts: https://oxygennotincluded.fandom.com/wiki/Radbolt
+.. _Radiation Buildings: https://oxygennotincluded.fandom.com/wiki/Category:Radiation_Buildings
+.. _Uranium Centrifuge: https://oxygennotincluded.fandom.com/wiki/Uranium_Centrifuge
+.. _Radbolt Reflector: https://oxygennotincluded.fandom.com/wiki/Radbolt_Reflector
+
+
+.. |Duplicant| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/6f/Duplicant.png
+   :width: 50px
+   :height: 50px
+.. |Spaced Out| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/a/ab/Spaced_Out_Logo.png
+   :width: 96px
+   :height: 53px
+
+
+
+Rockets 火箭
+===========
+
+   19 世纪中叶，第二次工业革命开启人类社会进步的快进模式，1876 年内燃机正式登上了历史的舞台。
+   人类开始了大规模的烧开水时代，通过高压蒸汽为机械提供驱动力。
+
+   1883 年德国人 G.戴姆勒 成功制造汽油机。汽油机用于小至 1kw 以下的农业、园艺机具的动力，
+   大到数千瓦的航空发动机。汽油发动机（Gasoline Engine ）以汽油作为燃料，将内能转化成动能。
+   由于汽油粘性小，蒸发快，可以用汽油喷射系统将汽油喷入气缸，经过压缩达到一定的温度和压力后，
+   用火花塞点燃，使气体膨胀做功。汽油机的特点是转速高、结构简单、质量轻、造价低廉、运转平稳、
+   使用维修方便。汽油机在汽车上，特别是小型汽车上大量使用。
+
+   1886 年以汽油动力的奔驰 1 号发动机的功率只有 0.89 匹马力，最高速度为 16km/h。在那个时代，
+   相比马车就好比现在续航不高的电动车，不被人看好也不是很流行。
+
+   经过一百多年的发展，燃料从当初的煤气变成现在的汽油、柴油乃至天然气，转速也从 100rpm 到如今
+   六七千乃至上万，功率也从当初的 4.4Ps 逐渐发展到几百上千马力。1 英制马力为 550 英尺·磅/秒，
+   等于 745.7 瓦特。
+
+   .. figure:: http://5b0988e595225.cdn.sohucs.com/images/20190221/44df0a9a3e0d4166b3148c882ce9e5f2.gif
+      :target: https://www.sohu.com/a/295994070_372813
+
+   最基础属于四冲程发动机，一个做功周期循环需要经历四个阶段。首先是吸气冲程。活塞沿着绿色箭头向下运动，
+   此时气缸顶部左侧的进气阀门打开，混合气被抽入燃烧室。然后进气门关闭，活塞开始向上运动并压缩混合气。
+   在压缩将近行程终点的时候火花塞点火，引燃混合气。高温高压的气体推动活塞向下运动。最后是排气冲程，
+   顶部右侧的排气阀门打开，活塞向上运动并将废气排出。至此，一整个工作流程结束，接着开始下一轮吸气，
+   压缩，做功，排气的循环。四个冲程最关键的就是气门机构的开闭控制气体有序地进出气缸、并完成做功过程。
+   当汽车发动机在低速运转时，气流惯性小，若此时配气定时保持不变，则部分进气将被活塞推出气缸，使进气量
+   减少，气缸内残余废气将会增多。当发动机在高速运转时，气流惯性大，若此时增大进气迟后角和气门重叠角，
+   则能增加进气量和减少残余废气量，使发动机的换气过程臻于完善。因此，气门开闭的时间点对于各个转速区间
+   来说都是不同的，可变气门正时系统应运而生。
+
+   引擎的发展过程中先后出现了以下几种引擎技术：
+
+   *  外燃机，燃料在发动机的外部燃烧，1816 年由苏格兰的 R.斯特林所发明，也称斯特林发动机。
+      瓦特改良的蒸汽机就是一种典型的外燃机，当大量的煤燃烧产生热能把水加热成大量的水蒸汽时，
+      高压便产生了，然后这种高压又推动机械做功。然后通过热能转装置给汽体降温，活塞复位，然后
+      再进入新一轮的加热、降温过程，从而完成了热能向动能的转变。
+   *  内燃机，即往复活塞式发动机，这一类型的发动机与外燃机的最大不同在于它的燃料在其内部燃烧。
+      内燃机的种类十分繁多，常见的汽油机、柴油机是典型的内燃机。
+   *  燃气轮机，燃烧产生高压燃气，并利用燃气的高压推动燃气轮机的叶片旋转，从而输出动力。
+      由于很难精细地调节燃气轮机的输出功率，所以较少用于汽车和摩托车，只有部分赛车使用。
+   *  喷气发动机，靠喷管高速喷出的气流直接产生反推力的发动机。燃料、氧化剂在燃烧室内起化学反应，
+      释放的热能在喷管中转化为调整气流。燃料、氧化剂由飞行器携带的称为火箭发动机，包括固体燃料
+      火箭发动机、液体燃料火箭发动机。
+
+   航空发动机（aero-engine）起步于活塞式发动机，发展至今的绝对主流是燃气涡轮发动机。经过百余年的发展，
+   燃气涡轮发动机成为为航空发动机中绝对的主流，主要包括涡轮喷气发动机、涡轮风扇发动机、涡轮螺旋桨发动机
+   和涡轮轴发动机四种，它们的工作场景和总体架构有所差别，但工作原理相似，并且均由涡轮喷气发动机这一基本
+   构型发展而来。
+
+   第二次世界大战结束后，由于涡轮喷气发动机的发明而开创了喷气时代，活塞式发动机逐步退出主要航空领域，
+   但功率小于 370kW 的水平对缸活塞式发动机仍广泛应用在轻型低速飞机和直升机上使用。现代涡轮喷气发动
+   机的结构由进气道、压气机、燃烧室、涡轮和尾喷管组成，战斗机的涡轮和尾喷管间还有加力燃烧室。涡轮喷气
+   发动机仍属于热机的一种，遵循热机的做功原则：输入的高压能量，变成低压下释放能量。因此，从产生输出
+   能量的原理上讲，喷气式发动机和活塞式发动机是相同的，都需要有进气、加压、燃烧和排气这四个阶段，不同
+   的是，在活塞式发动机中这 4 个阶段分时依次进行，喷气发动机中则是连续进行，气体依次流经喷气发动机的
+   各个部分，就对应着活塞式发动机的四个工作位置。
+
+   涡轮喷气发动机的缺点也突出，那就是在低速下耗油量大，效率较低，使飞机的航程变得很短。尽管这对于执行
+   防空任务的高速战斗机还并不十分严重，但若用在对经济性有严格要求的亚音速民用运输机上却是不可接受的。
+   发动机的效率实际上包括两个部分：热效率、推进效率。为提高热效率，一般来需要提高燃气在涡轮前的温度
+   和压气机的增压比，但在飞机的飞行速度不变的情况下，提高涡轮前温度将会使喷气发动机的排气速度增加，
+   导致在空气中损失的动能增加，这样又降低了推进效率。由于热效率和推进效率对发动机循环参数矛盾的要求，
+   致使涡轮喷气发动机的总效率难以得到较大的提升。涡轮风扇发动机就可以解决同时提高喷气发动机的热效率、
+   和推进效率，也就是既提高涡轮前温度又至少不增加排气速度。这种发动机在涡轮喷气发动机的的基础上增加了
+   几级涡轮，并由这些涡轮带动一排或几排风扇，风扇后的气流分为两部分，一部分进入压气机（内涵道），另一
+   部分则不经过燃烧，直接排到空气中（外涵道）。由于涡轮风扇发动机一部分的燃气能量被用来带动前端的风扇，
+   因此降低了排气速度，提高了推进效率，而且，如果为提高热效率而提高涡轮前温度后，可以通过调整涡轮结构
+   参数和增大风扇直径，使更多的燃气能量经风扇传递到外涵道，就不会增加排气速度。这样，对于涡轮风扇发动机
+   来讲，热效率和推进效率不再矛盾，只要结构和材料允许，提高涡轮前温度总是有利的。
+
+   目前航空用涡轮风扇发动机主要分两类，即不加力式涡轮风扇发动机和加力式涡轮风扇发动机。前者主要用于高
+   亚音速运输机，后者主要用于歼击机，由于用途不同，这两类发动机的结构参数也大不相同。
+
+   Carbon Dioxide Engine 原理是将超临界 CO₂ 作为工质，通过加热使其膨胀，驱动涡轮机旋转，
+   再通过冷却使其压缩回原来的状态，形成一个循环。糖素引擎（Sugar Engine）和二氧化碳引擎同为
+   相对低效的短程用途的发动机。
+   
+   黑火药是一种早期的炸药。一般由硫磺、木炭和硝石（硝酸鉀）混合而成，其中木炭作为燃料，而硫磺和硝石
+   作为氧化剂。由于火药能大量产生气体和热量的燃烧特性，其被广泛地用作枪械中的发射药和煙火中的烟火药
+   （pyrotechnic composition），且直到 17 世纪中叶前都是唯一的化学爆炸物。
+
+   鸦片战争时中英两国都使用黑火药兵器，然而其品质却相差甚远。清朝的岸防大炮比英军舰炮更重，理应射程
+   更远，但实战中却往往被英军火炮在远距离吊打，原因就在于火药质量的低劣。英国火药的品质远远优于中国
+   土产火药。1825 年，化学家歇夫列里在经过多次实验后，发现了黑火药的化学反应方程式：
+
+   .. math:: 2KNO_3 + 3C + S → K_2 S ↓ + N_2 ↑ + 3CO_2 ↑
+
+   根据这一方程式，英国配制了硝、硫、炭的比率为 75%、10%、15% 的枪用发射火药，以及组配比率为
+   78%、8%、14% 的炮用发射火药。英国以近代科学指导军械制造，并采用蒸汽机等机械生产，工艺精良，
+   其火药的燃烧速度是中国火药所远不能及的。
+
+   中国火药则源于炼丹道士的偶然发现，制造过程充满了玄学色彩，古人提及火药制造流程，往往称之为“舂造”，
+   实际上的确是舂出来的，火药颗粒大小取决于工人手感，十分写意。鸦片战争中广东水师提督关天培采用的火药
+   配方是硝 80%、硫 10%、炭 10%，硝含量过高，容易吸潮，不宜久藏。英国人缴获中国火药，往往直接销毁。
+
+   虽然如今黑火药早已被淘汰，但仍然在民用方面有应用，如制造节日用的焰火和爆竹，采石、伐木和矿山的爆破等。
+   黑火药中的木炭的多孔结构可以嵌入硝酸钾晶体，硫填充它们的缝隙，一定程度上充当粘合剂。三种物料分别研磨
+   后再进行称量其比例会更准确，混合后加入适量蒸馏水（乙醇）再继续研磨，研磨至混合物呈湖状再用合适的模具
+   压实成条状，晾干，切粒。
+
+   白糖可以作为火药的原料，白糖是一种碳水化合物，其分子式为 :math:`C_12 H_22 O_11`。当白糖遇到
+   高温或者催化剂时，就会发生分解反应，产生大量的二氧化碳和水蒸气，并释放出大量的热能。这种反应就是
+   爆炸反应，其原理和火药类似。然而，硝糖有两个个很致命的问题，一个就是燃速太低，远远不能用来做炸药，
+   做火箭推进剂还差不多；另一个是它易吸潮，如果不做密封防潮处理，往往在放上几天后硝糖火药就开始溶解，
+   逐渐变成一滩糊糊。白糖和硝酸钾混合在一起就可以制成一种简易的爆炸物，也被称为“火箭糖”。这种爆炸物
+   可以用于制作小型的火箭或者焰火。
+
+   硝酸钾常搭配葡萄糖而不是白糖，从化学角度讲，葡萄糖（含水）熔点72，容易操作且安全。而白糖熔点 160，
+   在熔化时发生碳化分解。在这温度下混硝酸钾很容易爆燃。由于葡萄糖含有醛基，还原性更强，故其燃烧速度也
+   比白糖的快。经配平，产生同量气体，葡萄糖耗氧量更小，所以选葡萄糖更好。
+
+   *  斯特林发动机热交换原理 https://www.bilibili.com/video/BV1Zz4y1K7Xh/
+   *  北京航空航天大学-火箭发动机专业综合实验 https://www.bilibili.com/video/BV1BJ411S7sX/
+   *  【Tech Ingredients】手把手教你制作固体火箭发动机 https://www.bilibili.com/video/BV1XK411u7gU/
+   *  南开大学 - 军事理论 （艾跃进） https://www.bilibili.com/video/BV1Yx4y1n73F/
+
+
+Rockets 火箭
+===========
+
+   This article is considered `accurate`_ for the current version (`U51-600112`_).
+
+   +--------+------------------------------------------------------------+
+   | |Logo| | *This article is related to content of the Base Game.*     |
+   |        | *There may be a version for the* |"Spaced Out!"|           |
+   |        | *DLC, see* `Rocketry (Spaced Out)`_\ *.*                   |
+   +--------+------------------------------------------------------------+
+
+   **Rockets** are multi-component constructs used to visit destinations in outer 
+   space found on the `Starmap`_.
+
+
+   Contents
+
+   -  1 Construction
+
+      -  1.1 Engines
+      -  1.2 Cargo Bays
+      -  1.3 Utility Modules
+      -  1.4 Command Capsule
+
+   -  2 Rocket Launch
+   -  3 Rocket Return
+   -  4 Tips
+   -  5 Setups
+
+      -  5.1 Steam Engine
+      -  5.2 Petroleum Engine
+
+         -  5.2.1 Oxylite, Research Vehicle
+         -  5.2.2 Liquid Oxygen, Research Vehicle
+         -  5.2.3 Oxylite, Cargo Vehicle
+         -  5.2.4 Liquid Oxygen, Cargo Vehicle
+
+      -  5.3 Hydrogen Engine
+
+         -  5.3.1 Oxylite, Research Vehicle
+         -  5.3.2 Liquid Oxygen, Research Vehicle
+         -  5.3.3 Oxylite, Cargo Vehicle
+         -  5.3.4 Liquid Oxygen, Cargo Vehicle
+
+Construction
+------------
+
+   Each rocket must have an engine at its base, a `Command Capsule`_ at the top, 
+   and a `Gantry`_ providing access to the command capsule. Rockets may optionally 
+   include other modules, such as `Cargo Bays`_ for carrying materials back from 
+   expeditions or `Research Modules`_ for `Data Banks`_.
+
+   Players can safely deconstruct and replace modules in a rocket, but modules can 
+   only be built if connected vertically (possibly via other modules) to an engine.
+
+   While there is no limit to the number of modules in a rocket, the range of a 
+   rocket is dependent on its mass, so unnecessary modules are ill-advised.
+
+   As rockets typically produce a large amount of heat during take-off, building 
+   the rocket inside an insulated tower can help to prevent heat from leaching 
+   into other parts of the base. Building the rocket in space alleviates this 
+   problem, but meteors need to be considered.
+
+Engines
+~~~~~~~
+
+   There are 3 engines in the game: `Steam Engine`_, `Petroleum Engine`_, and 
+   `Hydrogen Engine`_. `Solid Fuel Thrusters`_ can be used in conjunction with 
+   engines to provide extra range. Note that solid fuel thrusters require their 
+   own gantry to provide access for supply errands.
+
+   Steam Engines are the entry-level rocket engine that must be used to unlock the 
+   others. Without Solid Fuel Thrusters they are limited to a 10,000 km range, 
+   allowing access to only the closest destinations on the starmap. However, they 
+   only require `Steam`_, do not require separate fuel storage tanks, and have 
+   significantly cooler rocket exhausts.
+
+   Petroleum Engines are used in intermediate-level space exploration. In addition 
+   to the engine itself, they require `Liquid Fuel Tanks`_ and `Solid`_ or 
+   `Liquid Oxidizer Tanks`_ to function. Although technically capable of reaching 
+   any destination on the starmap, they can only reach 110,000 km destinations with 
+   cargo bays and no solid fuel. Petroleum engines using exclusively solid oxidizers 
+   (`Oxylite`_) are further limited to a 60000 km range with cargo. Nevertheless, 
+   the fuel required is relatively easy to obtain, allowing players to collect rare 
+   space materials in preparation for the Hydrogen Engine.
+
+   Hydrogen Engines are the most advanced type of rocket engine, working similarly 
+   to Petroleum Engines but offering better distance. They run off `Liquid Hydrogen`_, 
+   which requires temperatures below -250 °C to create, possible through the use of 
+   `Super Coolant`_ and `Thermo Aquatuners`_.
+
+   All engines have an exhaust, which is divided into 2 parts:
+
+   -  An element emitted at a specific temperature under the rocket and does not go 
+      through tiles. All rockets engine emits at the same rate, which translates to 
+      0.7 kg/cell per launch/landing on the constant speed part of the rocket, and 
+      more directly at launch/landing since the rocket is slower.
+
+   -  A heating factor which heats elements under the rocket up to 2926.9 °C, at a 
+      rate depending on the engine type and go through tiles and has a 3x9 rectangular 
+      pattern.
+
+   Both are done during launch and landing of the rocket.
+
+   .. table:: Exhaust Properties
+
+      +---------------------+------------------+----------------------+---------------------+
+      |                     | `Steam Engine`_  | `Petroleum Engine`_  | `Hydrogen Engine`_  |
+      +---------------------+------------------+----------------------+---------------------+
+      | Element Emitted     | `Steam`_         | `Carbon Dioxide`_    | `Steam`_            |
+      +---------------------+------------------+----------------------+---------------------+
+      | Element Temperature | 150 °C           | 1226.85 °C           | 1726.9 °C           |
+      +---------------------+------------------+----------------------+---------------------+
+      | Heating Factor      | Low (1x)         | Medium (2x)          | High (3x)           |
+      +---------------------+------------------+----------------------+---------------------+
+
+Cargo Bays
+~~~~~~~~~~
+
+   Cargo Bays are used to retrieve resources from destinations. There is no limit 
+   to the number of `Solid`_, `Liquid`_, `Gas`_, or `Biological`_ cargo bay on a 
+   rocket, but bear in mind these add considerable weight to a rocket, reducing 
+   the distance it can travel. All cargo modules have the same weight of 2 t and 
+   the same capacity of 1 t, with the exception of `Biological Cargo Bay`_ which 
+   has a capacity of 10 items.
+
+   The resources returned from a destination depends on the save file, but is the 
+   same every time for each type of container and each specific planet on a given 
+   save. Different destination types offer different typical resource distributions 
+   (listed below).
+
+   -  `Solid Cargo Bays`_ bring back one ton of solid material from a planet.
+   -  `Liquid Cargo Bays`_ bring back one ton of liquid material.
+   -  `Gas Cargo Bays`_ bring back one ton of gaseous material.
+   -  `Biological Cargo Bays`_ bring back a small number of seeds or critters, 
+      if the destination has them.
+
+Utility Modules
+~~~~~~~~~~~~~~~
+
+   Rockets may contain other modules for additional functions.
+
+   -  `Research Modules`_ will unlock information about a destination, providing 
+      50 data units in the process that can be used with a `Virtual Planetarium`_. 
+      Future missions to a fully analysed destination will only yield 10.
+
+   -  `Sight-Seeing Modules`_ will allow passengers to come along for the trip, 
+      reducing stress.
+
+Command Capsule
+~~~~~~~~~~~~~~~
+
+   Every rocket ends with a `Command Capsule`_ at the top, which is where the 
+   astronaut enters and a space suit is to be provided.
+
+Rocket Launch
+-------------
+
+   .. figure:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/c7/Rocket_heat.png
+      :width: 180px
+      :height: 101px
+
+      The area below the engine is heated up in a 3x9 rectangle. 
+      The heat is directly added to the current Heat of whatever
+      tile/gas/liquid is inside of the 3x9 rectangle.
+
+   Prior to takeoff, the `Command Capsule`_ checks for several conditions:
+
+   -  The rocket must have a fuel tank (note that `Steam Engines`_ have their fuel tanks built-in).
+   -  A destination within the rocket's range must be selected in the `Starmap`_.
+   -  A Duplicant with the Rocket Piloting skill must be assigned and manning the Command Capsule.
+   -  The Command Capsule must have an `Atmo Suit`_.
+   -  All Cargo Bays must be empty.
+   -  The destination must have sufficient resources for the Cargo Bays installed in the rocket.
+
+   When all conditions are met, the Command Capsule will output a Green `Automation`_ 
+   signal. Sending a Green automation signal to the Command Capsule's automation 
+   input will start the launch.
+
+   In addition to the conditions above, the rocket will not take off if there are 
+   solid blocks or buildings obstructing its flight path, such as closed bunker 
+   doors, tiles or blocks. Some objects, such as extended `Gantries`_, will not 
+   block the rocket, but be heavily damaged or destroyed. Other objects, such as 
+   background objects (wires, pipes, etc.) and `Ladders`_ are not directly damaged 
+   by rockets, but may liquefy on contact with the rocket's exhaust gases.
+
+   During takeoff, rocket engines (and solid fuel thrusters) expel large quantities 
+   of superheated Gas around the Engine. `Steam Engines`_ and `Hydrogen Engines`_ 
+   release `Steam`_, while `Petroleum Engines`_ and `Solid Fuel Thrusters`_ release 
+   `Carbon Dioxide`_. Additionaly the area below the engine is heated up in a 3x9 
+   rectangle. The heat is directly added to the current Heat of whatever tile/gas/liquid 
+   is inside of the 3x9 rectangle. The heat applied decreases with distance from 
+   the engine, and is slightly higher in the middle column than the outer columns. 
+   Heat applied directly by the rocket engine cannot heat anything past 2926.85 °C, 
+   although this is still sufficient to melt even tiles made of `Obsidian`_ or 
+   `Thermium`_, given enough launches/landings and inadequate cooling.
+
+   Rockets slowly accelerate to reach a top speed of 10 cells per second when 
+   launching, and decelerate from that speed when landing.
+
+   Rockets do not require full fuel tanks to launch, but all fuel and oxidizers 
+   will be consumed during launch. For this reason, it is optimal to match the 
+   fuel and oxidizer loaded into the rocket to the distance you wish to achieve. 
+   A tool like the `Professor Oakshell Rocket Calculator`_ can be useful here.
+
+Rocket Return
+-------------
+
+   After an expedition, rockets will return to their initial construction location 
+   in their entirety, carrying cargo and `Data Banks`_ according to the modules 
+   included in the rocket.
+
+   `Space Scanners`_ can be set to detect a returning rocket, which can be used 
+   to open `Bunker Doors`_ in preparation for landing.
+
+   Similarly to take-off, rockets produce a large amount of heat during landing, 
+   and can damage certain buildings in the way (most notably extended `Gantries`_ 
+   and closed bunker doors).
+
+Tips
+----
+
+   -  Rocket modules are calculated from top to bottom, this means you can use 
+      `Research Modules`_ to discover `Rare Resources`_ and return them on the 
+      same launch if you build the `Cargo Bays`_ below the `Research Modules`_.
+
+   -  Engines must be built on solid ground, but the ground can be removed 
+      afterwards with no consequence; they will take off as normal and "land" 
+      in the air when returning.
+
+   -  It is possible to build multiple rockets on top of each other in a single 
+      vertical shaft. Launching lower rockets will not damage the ones above.
+
+   -  All engines and thrusters have a width of 7, while all other modules have 
+      a width of 5. However, building tiles on the sides will prevent the rocket 
+      from launching.
+
+   -  Decreasing the maximum storage capacity of `Steam Engine`_ or fuel tanks 
+      will cause duplicants to remove the extra. Items will be dropped on the 
+      ground (liquid fuel in canisters).
+
+   -  Both `Steam Engine`_ and `Liquid Fuel Tank`_ can fit 900 kg of fuel, however 
+      due to a single input pipe, the latter can be filled with a single liquid 
+      pump in 90 seconds, while the former requires two gas pumps and 900 seconds. 
+      When using `Liquid Oxygen`_ for `Liquid Oxidizer Tank`_ (2.7 t capacity) and 
+      3 `Liquid Fuel Tanks`_ (900 kg capacity each), rocket can be refueled in 270 
+      seconds.
+
+   -  The Heat added below an Engine is quite useful in reaching higher Temperatures. 
+      With the proper insulation the area can reach melting Temperatures for most 
+      Materials and therefore be used for generating Power with `Steam Turbines`_, 
+      losslessly refining `Crude Oil`_, or even melting `Regolith`_.
+
+Setups
+------
+
+   Note that cargo modules that allow to bring back resources all weigh 2 tons, 
+   while the `Research Modules`_ and `Sight-Seeing Modules`_ weight only 200 kg. 
+   These are referred to below as "small modules" and you can replace 10 of them 
+   with 1 cargo module.
+
+   -  Using `Steam Engine`_
+
+      -  with no extra thrust
+
+         -  9 small modules to first line of asteroids
+
+      -  with `Solid Fuel Thruster`_
+
+         -  12 small modules to first line
+         -  6 small modules to second line
+
+      -  with 2 `Solid Fuel Thrusters`_
+
+         -  2 small modules to third line
+
+   -  Using `Petroleum Engine`_ (which requires `Liquid Fuel Tank`_ and `Solid Oxidizer Tank`_ 
+      filled to 1/3 maximum - to match the amount of fuel)
+
+      -  with no extra thrust and fuel tanks
+
+         -  23 small modules to first line
+         -  18 small modules to second line
+         -  10 small modules to third line
+
+      -  with 1 extra `Liquid Fuel Tank`_ you can bring large container module to as far as 50000 km
+      -  with 2 extra `Liquid Fuel Tanks`_ you can bring large container module to 60000 km
+
+   A Solid Booster requires additional 400 kg Iron and 400 kg Oxylite, which is not listed in the table.
+
+Steam Engine
+~~~~~~~~~~~~
+
+   +----------------------+---------------------+---------------------+---------------------+
+   | Destination Distance | 1 Steam Engine      | 1 Steam Engine      | 1 Steam Engine      |
+   | [km]                 | 5 Research Modules  | 1 Solid Booster     | 1 Solid Booster     |
+   |                      | 1 Command Capsule   | 5 Research Modules  | 1 Cargo Bay         |
+   |                      |                     | 1 Command Capsule   | 1 Command Capsule   |
+   +----------------------+---------------------+---------------------+---------------------+
+   | 10000                | 695 kg Steam        | 163 kg Steam        | 528 kg Steam        |
+   +----------------------+---------------------+---------------------+---------------------+
+   | 20000                | Unreachable         | 809 kg Steam        | Unreachable         |
+   +----------------------+---------------------+---------------------+---------------------+
+   | 30000                |                     | Unreachable         |                     |
+   +----------------------+---------------------+---------------------+---------------------+
+
+Petroleum Engine
+~~~~~~~~~~~~~~~~
+
+Oxylite, Research Vehicle
+'''''''''''''''''''''''''
+
+   +----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+
+   | Destination Distance | 1 Petroleum Engine    | 1 Petroleum Engine    | 1 Petroleum Engine    | 1 Petroleum Engine    | 1 Petroleum Engine    | 1 Petroleum Engine    |
+   | [km]                 | 1 Liquid Fuel Tank    | 2 Liquid Fuel Tanks   | 3 Liquid Fuel Tanks   | 1 Solid Booster       | 1 Solid Booster       | 1 Solid Booster       |
+   |                      | 1 Solid Oxidizer Tank | 1 Solid Oxidizer Tank | 1 Solid Oxidizer Tank | 1 Liquid Fuel Tank    | 2 Liquid Fuel Tanks   | 3 Liquid Fuel Tanks   |
+   |                      | 5 Research Modules    | 5 Research Modules    | 5 Research Modules    | 1 Solid Oxidizer Tank | 1 Solid Oxidizer Tank | 1 Solid Oxidizer Tank |
+   |                      | 1 Command Capsule     | 1 Command Capsule     | 1 Command Capsule     | 5 Research Modules    | 5 Research Modules    | 5 Research Modules    |
+   |                      |                       |                       |                       | 1 Command Capsule     | 1 Command Capsule     | 1 Command Capsule     |
+   +----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+
+   | 10000                | 306 kg Petroleum      |                       |                       | 16 kg Petroleum       |                       |                       |
+   |                      | 306 kg Oxylite        |                       |                       | 16 kg Oxylite         |                       |                       |
+   +----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+
+   | 20000                | 569 kg Petroleum      |                       |                       | 279 kg Petroleum      |                       |                       |
+   |                      | 569 kg Oxylite        |                       |                       | 279 kg Oxylite        |                       |                       |
+   +----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+
+   | 30000                | 832 kg Petroleum      |                       |                       | 543 kg Petroleum      |                       |                       |
+   |                      | 832 kg Oxylite        |                       |                       | 543 kg Oxylite        |                       |                       |
+   +----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+
+   | 40000                | Unreachable           | 1098 kg Petroleum     |                       | 820 kg Petroleum      |                       |                       |
+   |                      |                       | 1098 kg Oxylite       |                       | 820 kg Oxylite        |                       |                       |
+   +----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+
+   | 50000                |                       | 1394 kg Petroleum     |                       | Unreachable           | 1155 kg Petroleum     |                       |
+   |                      |                       | 1394 kg Oxylite       |                       |                       | 1155 kg Oxylite       |                       |
+   +----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+
+   | 60000                |                       | 1723 kg Petroleum     |                       |                       | 1514 kg Petroleum     |                       |
+   |                      |                       | 1723 kg Oxylite       |                       |                       | 1514 kg Oxylite       |                       |
+   +----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+
+   | 70000                |                       | Unreachable           | 2124 kg Petroleum     | Unreachable           | 1987 kg Petroleum     |                       |
+   |                      |                       |                       | 2124 kg Oxylite       |                       | 1987 kg Oxylite       |                       |
+   +----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+
+   | 80000                |                       |                       | 2592 kg Petroleum     |                       | Unreachable           | 2656 kg Petroleum     |
+   |                      |                       |                       | 2592 kg Oxylite       |                       |                       | 2656 kg Oxylite       |
+   +----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+
+   | 90000                |                       |                       | Unreachable           |                       |                       | Unreachable           |
+   +----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+
+
+Liquid Oxygen, Research Vehicle
+'''''''''''''''''''''''''''''''
+
+   +----------------------+------------------------+------------------------+------------------------+-------------------------+------------------------+------------------------+------------------------+-------------------------+
+   | Destination Distance | 1 Petroleum Engine     | 1 Petroleum Engine     | 1 Petroleum Engine     | 1 Petroleum Engine      | 1 Petroleum Engine     | 1 Petroleum Engine     | 1 Petroleum Engine     | 1 Petroleum Engine      |
+   | [km]                 | 1 Liquid Fuel Tank     | 2 Liquid Fuel Tanks    | 3 Liquid Fuel Tanks    | 4 Liquid Fuel Tanks     | 1 Solid Booster        | 1 Solid Booster        | 1 Solid Booster        | 1 Solid Booster         |
+   |                      | 1 Liquid Oxidizer Tank | 1 Liquid Oxidizer Tank | 1 Liquid Oxidizer Tank | 2 Liquid Oxidizer Tanks | 1 Liquid Fuel Tank     | 2 Liquid Fuel Tanks    | 3 Liquid Fuel Tanks    | 4 Liquid Fuel Tanks     |
+   |                      | 5 Research Modules     | 5 Research Modules     | 5 Research Modules     | 5 Research Modules      | 1 Liquid Oxidizer Tank | 1 Liquid Oxidizer Tank | 1 Liquid Oxidizer Tank | 2 Liquid Oxidizer Tanks |
+   |                      | 1 Command Capsule      | 1 Command Capsule      | 1 Command Capsule      | 1 Command Capsule       | 5 Research Modules     | 5 Research Modules     | 5 Research Modules     | 5 Research Modules      |
+   |                      |                        |                        |                        |                         | 1 Command Capsule      | 1 Command Capsule      | 1 Command Capsule      | 1 Command Capsule       |
+   +----------------------+------------------------+------------------------+------------------------+-------------------------+------------------------+------------------------+------------------------+-------------------------+
+   | 10000                | 227 kg Petroleum       |                        |                        |                         | 12 kg Petroleum        |                        |                        |                         |
+   |                      | 227 kg Liquid Oxygen   |                        |                        |                         | 12 kg Liquid Oxygen    |                        |                        |                         |
+   +----------------------+------------------------+------------------------+------------------------+-------------------------+------------------------+------------------------+------------------------+-------------------------+
+   | 20000                | 422 kg Petroleum       |                        |                        |                         | 208 kg Petroleum       |                        |                        |                         |
+   |                      | 422 kg Liquid Oxygen   |                        |                        |                         | 208 kg Liquid Oxygen   |                        |                        |                         |
+   +----------------------+------------------------+------------------------+------------------------+-------------------------+------------------------+------------------------+------------------------+-------------------------+
+   | 30000                | 618 kg Petroleum       |                        |                        |                         | 403 kg Petroleum       |                        |                        |                         |
+   |                      | 618 kg Liquid Oxygen   |                        |                        |                         | 403 kg Liquid Oxygen   |                        |                        |                         |
+   +----------------------+------------------------+------------------------+------------------------+-------------------------+------------------------+------------------------+------------------------+-------------------------+
+   | 40000                | 813 kg Petroleum       |                        |                        |                         | 598 kg Petroleum       |                        |                        |                         |
+   |                      | 813 kg Liquid Oxygen   |                        |                        |                         | 598 kg Liquid Oxygen   |                        |                        |                         |
+   +----------------------+------------------------+------------------------+------------------------+-------------------------+------------------------+------------------------+------------------------+-------------------------+
+   | 50000                | Unreachable            | 1010 kg Petroleum      |                        |                         | 802 kg Petroleum       |                        |                        |                         |
+   |                      |                        | 1010 kg Liquid Oxygen  |                        |                         | 802 kg Liquid Oxygen   |                        |                        |                         |
+   +----------------------+------------------------+------------------------+------------------------+-------------------------+------------------------+------------------------+------------------------+-------------------------+
+   | 60000                |                        | 1211 kg Petroleum      |                        |                         | Unreachable            | 1034 kg Petroleum      |                        |                         |
+   |                      |                        | 1211 kg Liquid Oxygen  |                        |                         |                        | 1034 kg Liquid Oxygen  |                        |                         |
+   +----------------------+------------------------+------------------------+------------------------+-------------------------+------------------------+------------------------+------------------------+-------------------------+
+   | 70000                |                        | 1430 kg Petroleum      |                        |                         |                        | 1268 kg Petroleum      |                        |                         |
+   |                      |                        | 1430 kg Liquid Oxygen  |                        |                         |                        | 1268 kg Liquid Oxygen  |                        |                         |
+   +----------------------+------------------------+------------------------+------------------------+-------------------------+------------------------+------------------------+------------------------+-------------------------+
+   | 80000                |                        | 1659 kg Petroleum      |                        |                         |                        | 1515 kg Petroleum      |                        |                         |
+   |                      |                        | 1659 kg Liquid Oxygen  |                        |                         |                        | 1515 kg Liquid Oxygen  |                        |                         |
+   +----------------------+------------------------+------------------------+------------------------+-------------------------+------------------------+------------------------+------------------------+-------------------------+
+   | 90000                |                        | Unreachable            | 1916 kg Petroleum      |                         |                        | 1780 kg Petroleum      |                        |                         |
+   |                      |                        |                        | 1916 kg Liquid Oxygen  |                         |                        | 1780 kg Liquid Oxygen  |                        |                         |
+   +----------------------+------------------------+------------------------+------------------------+-------------------------+------------------------+------------------------+------------------------+-------------------------+
+   | 100000               |                        |                        | 2177 kg Petroleum      |                         |                        | Unreachable            | 2105 kg Petroleum      |                         |
+   |                      |                        |                        | 2177 kg Liquid Oxygen  |                         |                        |                        | 2105 kg Liquid Oxygen  |                         |
+   +----------------------+------------------------+------------------------+------------------------+-------------------------+------------------------+------------------------+------------------------+-------------------------+
+   | 110000               |                        |                        | 2462 kg Petroleum      |                         |                        |                        | 2451 kg Petroleum      |                         |
+   |                      |                        |                        | 2462 kg Liquid Oxygen  |                         |                        |                        | 2451 kg Liquid Oxygen  |                         |
+   +----------------------+------------------------+------------------------+------------------------+-------------------------+------------------------+------------------------+------------------------+-------------------------+
+   | 120000               |                        |                        | Unreachable            | 2879 kg Petroleum       |                        |                        | Unreachable            | 3121 kg Petroleum       |
+   |                      |                        |                        |                        | 2879 kg Liquid Oxygen   |                        |                        |                        | 3121 kg Liquid Oxygen   |
+   +----------------------+------------------------+------------------------+------------------------+-------------------------+------------------------+------------------------+------------------------+-------------------------+
+   | 130000               |                        |                        |                        | 3329 kg Petroleum       |                        |                        |                        | Unreachable             |
+   |                      |                        |                        |                        | 3329 kg Liquid Oxygen   |                        |                        |                        |                         |
+   +----------------------+------------------------+------------------------+------------------------+-------------------------+------------------------+------------------------+------------------------+-------------------------+
+   | 140000               |                        |                        |                        | Unreachable             |                        |                        |                        |                         |
+   +----------------------+------------------------+------------------------+------------------------+-------------------------+------------------------+------------------------+------------------------+-------------------------+
+
+Oxylite, Cargo Vehicle
+''''''''''''''''''''''
+
+   +----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+
+   | Destination Distance | 1 Petroleum Engine    | 1 Petroleum Engine    | 1 Petroleum Engine    | 1 Petroleum Engine    | 1 Petroleum Engine    | 1 Petroleum Engine    |
+   | [km]                 | 1 Liquid Fuel Tank    | 2 Liquid Fuel Tanks   | 3 Liquid Fuel Tanks   | 1 Solid Booster       | 1 Solid Booster       | 1 Solid Booster       |
+   |                      | 1 Solid Oxidizer Tank | 1 Solid Oxidizer Tank | 1 Solid Oxidizer Tank | 1 Liquid Fuel Tank    | 2 Liquid Fuel Tanks   | 3 Liquid Fuel Tanks   |
+   |                      | 1 Cargo Bay           | 1 Cargo Bay           | 1 Cargo Bay           | 1 Solid Oxidizer Tank | 1 Solid Oxidizer Tank | 1 Solid Oxidizer Tank |
+   |                      | 1 Command Capsule     | 1 Command Capsule     | 1 Command Capsule     | 1 Cargo Bay           | 1 Cargo Bay           | 1 Cargo Bay           |
+   |                      |                       |                       |                       | 1 Command Capsule     | 1 Command Capsule     | 1 Command Capsule     |
+   +----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+
+   | 10000                | 332 kg Petroleum      |                       |                       | 43 kg Petroleum       |                       |                       |
+   |                      | 332 kg Oxylite        |                       |                       | 43 kg Oxylite         |                       |                       |
+   +----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+
+   | 20000                | 595 kg Petroleum      |                       |                       | 320 kg Petroleum      |                       |                       |
+   |                      | 595 kg Oxylite        |                       |                       | 320 kg Oxylite        |                       |                       |
+   +----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+
+   | 30000                | 882 kg Petroleum      |                       |                       | 638 kg Petroleum      |                       |                       |
+   |                      | 882 kg Oxylite        |                       |                       | 638 kg Oxylite        |                       |                       |
+   +----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+
+   | 40000                | Unreachable           | 1223 kg Petroleum     |                       | Unreachable           | 1014 kg Petroleum     |                       |
+   |                      |                       | 1223 kg Oxylite       |                       |                       | 1014 kg Oxylite       |                       |
+   +----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+
+   | 50000                |                       | 1593 kg Petroleum     |                       |                       | 1439 kg Petroleum     |                       |
+   |                      |                       | 1593 kg Oxylite       |                       |                       | 1439 kg Oxylite       |                       |
+   +----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+
+   | 60000                |                       | Unreachable           | 2092 kg Petroleum     |                       | Unreachable           | 2156 kg Petroleum     |
+   |                      |                       |                       | 2092 kg Oxylite       |                       |                       | 2156 kg Oxylite       |
+   +----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+
+   | 70000                |                       |                       | Unreachable           |                       |                       | Unreachable           |
+   +----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+
+
+Liquid Oxygen, Cargo Vehicle
+''''''''''''''''''''''''''''
+
+   +----------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+
+   | Destination Distance | 1 Petroleum Engine     | 1 Petroleum Engine     | 1 Petroleum Engine     | 1 Petroleum Engine     | 1 Petroleum Engine     | 1 Petroleum Engine     | 1 Petroleum Engine     |
+   | [km]                 | 1 Liquid Fuel Tank     | 2 Liquid Fuel Tanks    | 3 Liquid Fuel Tanks    | 4 Liquid Fuel Tanks    | 1 Solid Booster        | 1 Solid Booster        | 1 Solid Booster        |
+   |                      | 1 Liquid Oxidizer Tank | 1 Liquid Oxidizer Tank | 1 Liquid Oxidizer Tank | 2 Liquid Oxidizer Tank | 1 Liquid Fuel Tank     | 2 Liquid Fuel Tanks    | 3 Liquid Fuel Tanks    |
+   |                      | 1 Cargo Bay            | 1 Cargo Bay            | 1 Cargo Bay            | 1 Cargo Bay            | 1 Liquid Oxidizer Tank | 1 Liquid Oxidizer Tank | 1 Liquid Oxidizer Tank |
+   |                      | 1 Command Capsule      | 1 Command Capsule      | 1 Command Capsule      | 1 Command Capsule      | 1 Cargo Bay            | 1 Cargo Bay            | 1 Cargo Bay            |
+   |                      |                        |                        |                        |                        | 1 Command Capsule      | 1 Command Capsule      | 1 Command Capsule      |
+   +----------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+
+   | 10000                | 247 kg Petroleum       |                        |                        |                        | 32 kg Petroleum        |                        |                        |
+   |                      | 247 kg Liquid Oxygen   |                        |                        |                        | 32 kg Liquid Oxygen    |                        |                        |
+   +----------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+
+   | 20000                | 442 kg Petroleum       |                        |                        |                        | 229 kg Petroleum       |                        |                        |
+   |                      | 442 kg Liquid Oxygen   |                        |                        |                        | 229 kg Liquid Oxygen   |                        |                        |
+   +----------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+
+   | 30000                | 637 kg Petroleum       |                        |                        |                        | 447 kg Petroleum       |                        |                        |
+   |                      | 637 kg Liquid Oxygen   |                        |                        |                        | 447 kg Liquid Oxygen   |                        |                        |
+   +----------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+
+   | 40000                | 846 kg Petroleum       |                        |                        |                        | 675 kg Petroleum       |                        |                        |
+   |                      | 846 kg Liquid Oxygen   |                        |                        |                        | 675 kg Liquid Oxygen   |                        |                        |
+   +----------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+
+   | 50000                | Unreachable            | 1080 kg Petroleum      |                        |                        | Unreachable            | 929 kg Petroleum       |                        |
+   |                      |                        | 1080 kg Liquid Oxygen  |                        |                        |                        | 929 kg Liquid Oxygen   |                        |
+   +----------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+
+   | 60000                |                        | 1316 kg Petroleum      |                        |                        |                        | 1187 kg Petroleum      |                        |
+   |                      |                        | 1316 kg Liquid Oxygen  |                        |                        |                        | 1187 kg Liquid Oxygen  |                        |
+   +----------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+
+   | 70000                |                        | 1566 kg Petroleum      |                        |                        |                        | 1469 kg Petroleum      |                        |
+   |                      |                        | 1566 kg Liquid Oxygen  |                        |                        |                        | 1469 kg Liquid Oxygen  |                        |
+   +----------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+
+   | 80000                |                        | Unreachable            | 1862 kg Petroleum      |                        |                        | 1784 kg Petroleum      |                        |
+   |                      |                        |                        | 1862 kg Liquid Oxygen  |                        |                        | 1784 kg Liquid Oxygen  |                        |
+   +----------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+
+   | 90000                |                        |                        | 2169 kg Petroleum      |                        |                        | Unreachable            | 2225 kg Petroleum      |
+   |                      |                        |                        | 2169 kg Liquid Oxygen  |                        |                        |                        | 2225 kg Liquid Oxygen  |
+   +----------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+
+   | 100000               |                        |                        | 2529 kg Petroleum      |                        |                        |                        | Unreachable            |
+   |                      |                        |                        | 2529 kg Liquid Oxygen  |                        |                        |                        |                        |
+   +----------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+
+   | 110000               |                        |                        | Unreachable            | 3298 kg Petroleum      |                        |                        |                        |
+   |                      |                        |                        |                        | 3298 kg Liquid Oxygen  |                        |                        |                        |
+   +----------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+
+   | 120000               |                        |                        |                        | Unreachable            |                        |                        |                        |
+   +----------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+
+
+Hydrogen Engine
+~~~~~~~~~~~~~~~
+
+Oxylite, Research Vehicle
+'''''''''''''''''''''''''
+
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | Destination Distance | 1 Hydrogen Engine      | 1 Hydrogen Engine       | 1 Hydrogen Engine       | 1 Hydrogen Engine       | 1 Hydrogen Engine      | 1 Hydrogen Engine       | 1 Hydrogen Engine       | 1 Hydrogen Engine       |
+   | [km]                 | 1 Liquid Fuel Tank     | 2 Liquid Fuel Tanks     | 3 Liquid Fuel Tanks     | 4 Liquid Fuel Tanks     | 1 Solid Booster        | 1 Solid Booster         | 1 Solid Booster         | 1 Solid Booster         |
+   |                      | 1 Solid Oxidizer Tank  | 1 Solid Oxidizer Tank   | 1 Solid Oxidizer Tank   | 2 Solid Oxidizer Tanks  | 1 Liquid Fuel Tank     | 2 Liquid Fuel Tanks     | 3 Liquid Fuel Tanks     | 4 Liquid Fuel Tanks     |
+   |                      | 5 Research Modules     | 5 Research Modules      | 5 Research Modules      | 5 Research Modules      | 1 Solid Oxidizer Tank  | 1 Solid Oxidizer Tank   | 1 Solid Oxidizer Tank   | 2 Solid Oxidizer Tanks  |
+   |                      | 1 Command Capsule      | 1 Command Capsule       | 1 Command Capsule       | 1 Command Capsule       | 5 Research Modules     | 5 Research Modules      | 5 Research Modules      | 5 Research Modules      |
+   |                      |                        |                         |                         |                         | 1 Command Capsule      | 1 Command Capsule       | 1 Command Capsule       | 1 Command Capsule       |
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 10000                | 206 kg Liquid Hydrogen |                         |                         |                         | 16 kg Liquid Hydrogen  |                         |                         |                         |
+   |                      | 206 kg Oxylite         |                         |                         |                         | 16 kg Oxylite          |                         |                         |                         |
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 20000                | 378 kg Liquid Hydrogen |                         |                         |                         | 188 kg Liquid Hydrogen |                         |                         |                         |
+   |                      | 378 kg Oxylite         |                         |                         |                         | 188 kg Oxylite         |                         |                         |                         |
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 30000                | 550 kg Liquid Hydrogen |                         |                         |                         | 361 kg Liquid Hydrogen |                         |                         |                         |
+   |                      | 550 kg Oxylite         |                         |                         |                         | 361 kg Oxylite         |                         |                         |                         |
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 40000                | 723 kg Liquid Hydrogen |                         |                         |                         | 533 kg Liquid Hydrogen |                         |                         |                         |
+   |                      | 723 kg Oxylite         |                         |                         |                         | 533 kg Oxylite         |                         |                         |                         |
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 50000                | 895 kg Liquid Hydrogen |                         |                         |                         | 720 kg Liquid Hydrogen |                         |                         |                         |
+   |                      | 895 kg Oxylite         |                         |                         |                         | 720 kg Oxylite         |                         |                         |                         |
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 60000                | Unreachable            | 1075 kg Liquid Hydrogen |                         |                         | Unreachable            | 923 kg Liquid Hydrogen  |                         |                         |
+   |                      |                        | 1075 kg Oxylite         |                         |                         |                        | 923 kg Oxylite          |                         |                         |
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 70000                |                        | 1266 kg Liquid Hydrogen |                         |                         |                        | 1125 kg Liquid Hydrogen |                         |                         |
+   |                      |                        | 1266 kg Oxylite         |                         |                         |                        | 1125 kg Oxylite         |                         |                         |
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 80000                |                        | 1463 kg Liquid Hydrogen |                         |                         |                        | 1337 kg Liquid Hydrogen |                         |                         |
+   |                      |                        | 1463 kg Oxylite         |                         |                         |                        | 1337 kg Oxylite         |                         |                         |
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 90000                |                        | 1667 kg Liquid Hydrogen |                         |                         |                        | 1559 kg Liquid Hydrogen |                         |                         |
+   |                      |                        | 1667 kg Oxylite         |                         |                         |                        | 1559 kg Oxylite         |                         |                         |
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 100000               |                        | Unreachable             | 1896 kg Liquid Hydrogen |                         |                        | 1795 kg Liquid Hydrogen |                         |                         |
+   |                      |                        |                         | 1896 kg Oxylite         |                         |                        | 1795 kg Oxylite         |                         |                         |
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 110000               |                        |                         | 2125 kg Liquid Hydrogen |                         |                        | Unreachable             | 2081 kg Liquid Hydrogen |                         |
+   |                      |                        |                         | 2125 kg Oxylite         |                         |                        |                         | 2081 kg Oxylite         |                         |
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 120000               |                        |                         | 2369 kg Liquid Hydrogen |                         |                        |                         | 2373 kg Liquid Hydrogen |                         |
+   |                      |                        |                         | 2369 kg Oxylite         |                         |                        |                         | 2373 kg Oxylite         |                         |
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 130000               |                        |                         | 2636 kg Liquid Hydrogen |                         |                        |                         | Unreachable             | 2864 kg Liquid Hydrogen |
+   |                      |                        |                         | 2636 kg Oxylite         |                         |                        |                         |                         | 2864 kg Oxylite         |
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 140000               |                        |                         | Unreachable             | 3041 kg Liquid Hydrogen |                        |                         |                         | 3511 kg Liquid Hydrogen |
+   |                      |                        |                         |                         | 3041 kg Oxylite         |                        |                         |                         | 3511 kg Oxylite         |
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 150000               |                        |                         |                         | 3460 kg Liquid Hydrogen |                        |                         |                         | Unreachable             |
+   |                      |                        |                         |                         | 3460 kg Oxylite         |                        |                         |                         |                         |
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 160000               |                        |                         |                         | Unreachable             |                        |                         |                         |                         |
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+
+Liquid Oxygen, Research Vehicle
+'''''''''''''''''''''''''''''''
+
+   +------------------------+------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | Destination Distance   | 1 Hydrogen Engine      | 1 Hydrogen Engine       | 1 Hydrogen Engine       | 1 Hydrogen Engine      | 1 Hydrogen Engine       | 1 Hydrogen Engine       |
+   | [km]                   | 1 Liquid Fuel Tank     | 2 Liquid Fuel Tanks     | 3 Liquid Fuel Tanks     | 1 Solid Booster        | 1 Solid Booster         | 1 Solid Booster         |
+   |                        | 1 Liquid Oxidizer Tank | 1 Liquid Oxidizer Tank  | 1 Liquid Oxidizer Tank  | 1 Liquid Fuel Tank     | 2 Liquid Fuel Tanks     | 3 Liquid Fuel Tanks     |
+   |                        | 5 Research Modules     | 5 Research Modules      | 5 Research Modules      | 1 Liquid Oxidizer Tank | 1 Liquid Oxidizer Tank  | 1 Liquid Oxidizer Tank  |
+   |                        | 1 Command Capsule      | 1 Command Capsule       | 1 Command Capsule       | 5 Research Modules     | 5 Research Modules      | 5 Research Modules      |
+   |                        |                        |                         |                         | 1 Command Capsule      | 1 Command Capsule       | 1 Command Capsule       |
+   +------------------------+------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | 10000                  | 153 kg Liquid Hydrogen |                         |                         | 12 kg Liquid Hydrogen  |                         |                         |
+   |                        | 153 kg Liquid Oxygen   |                         |                         | 12 kg Liquid Oxygen    |                         |                         |
+   +------------------------+------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | 20000                  | 282 kg Liquid Hydrogen |                         |                         | 141 kg Liquid Hydrogen |                         |                         |
+   |                        | 282 kg Liquid Oxygen   |                         |                         | 141 kg Liquid Oxygen   |                         |                         |
+   +------------------------+------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | 30000                  | 411 kg Liquid Hydrogen |                         |                         | 269 kg Liquid Hydrogen |                         |                         |
+   |                        | 411 kg Liquid Oxygen   |                         |                         | 269 kg Liquid Oxygen   |                         |                         |
+   +------------------------+------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | 40000                  | 539 kg Liquid Hydrogen |                         |                         | 398 kg Liquid Hydrogen |                         |                         |
+   |                        | 539 kg Liquid Oxygen   |                         |                         | 398 kg Liquid Oxygen   |                         |                         |
+   +------------------------+------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | 50000                  | 668 kg Liquid Hydrogen |                         |                         | 526 kg Liquid Hydrogen |                         |                         |
+   |                        | 668 kg Liquid Oxygen   |                         |                         | 526 kg Liquid Oxygen   |                         |                         |
+   +------------------------+------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | 60000                  | 796 kg Liquid Hydrogen |                         |                         | 661 kg Liquid Hydrogen |                         |                         |
+   |                        | 796 kg Liquid Oxygen   |                         |                         | 661 kg Liquid Oxygen   |                         |                         |
+   +------------------------+------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | 70000                  | Unreachable            | 926 kg Liquid Hydrogen  |                         | 800 kg Liquid Hydrogen |                         |                         |
+   |                        |                        | 926 kg Liquid Oxygen    |                         | 800 kg Liquid Oxygen   |                         |                         |
+   +------------------------+------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | 80000                  |                        | 1058 kg Liquid Hydrogen |                         | 948 kg Liquid Hydrogen |                         |                         |
+   |                        |                        | 1058 kg Liquid Oxygen   |                         | 948 kg Liquid Oxygen   |                         |                         |
+   +------------------------+------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | 90000                  |                        | 1195 kg Liquid Hydrogen |                         | Unreachable            | 1092 kg Liquid Hydrogen |                         |
+   |                        |                        | 1195 kg Liquid Oxygen   |                         |                        | 1092 kg Liquid Oxygen   |                         |
+   +------------------------+------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | 100000                 |                        | 1335 kg Liquid Hydrogen |                         |                        | 1240 kg Liquid Hydrogen |                         |
+   |                        |                        | 1335 kg Liquid Oxygen   |                         |                        | 1240 kg Liquid Oxygen   |                         |
+   +------------------------+------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | 110000                 |                        | 1478 kg Liquid Hydrogen |                         |                        | 1391 kg Liquid Hydrogen |                         |
+   |                        |                        | 1478 kg Liquid Oxygen   |                         |                        | 1391 kg Liquid Oxygen   |                         |
+   +------------------------+------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | 120000                 |                        | 1623 kg Liquid Hydrogen |                         |                        | 1545 kg Liquid Hydrogen |                         |
+   |                        |                        | 1623 kg Liquid Oxygen   |                         |                        | 1545 kg Liquid Oxygen   |                         |
+   +------------------------+------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | 130000                 |                        | 1771 kg Liquid Hydrogen |                         |                        | 1704 kg Liquid Hydrogen |                         |
+   |                        |                        | 1771 kg Liquid Oxygen   |                         |                        | 1704 kg Liquid Oxygen   |                         |
+   +------------------------+------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | 140000                 |                        | Unreachable             | 1934 kg Liquid Hydrogen |                        | Unreachable             | 1886 kg Liquid Hydrogen |
+   |                        |                        |                         | 1934 kg Liquid Oxygen   |                        |                         | 1886 kg Liquid Oxygen   |
+   +------------------------+------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | 150000                 |                        |                         | 2092 kg Liquid Hydrogen |                        |                         | 2060 kg Liquid Hydrogen |
+   |                        |                        |                         | 2092 kg Liquid Oxygen   |                        |                         | 2060 kg Liquid Oxygen   |
+   +------------------------+------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | 160000                 |                        |                         | 2254 kg Liquid Hydrogen |                        |                         | 2241 kg Liquid Hydrogen |
+   |                        |                        |                         | 2254 kg Liquid Oxygen   |                        |                         | 2241 kg Liquid Oxygen   |
+   +------------------------+------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | 170000                 |                        |                         | 2422 kg Liquid Hydrogen |                        |                         | 2432 kg Liquid Hydrogen |
+   |                        |                        |                         | 2422 kg Liquid Oxygen   |                        |                         | 2432 kg Liquid Oxygen   |
+   +------------------------+------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | 180000                 |                        |                         | 2597 kg Liquid Hydrogen |                        |                         | 2635 kg Liquid Hydrogen |
+   | (max distance in game) |                        |                         | 2597 kg Liquid Oxygen   |                        |                         | 2635 kg Liquid Oxygen   |
+   +------------------------+------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+
+Oxylite, Cargo Vehicle
+''''''''''''''''''''''
+
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | Destination Distance | 1 Hydrogen Engine      | 1 Hydrogen Engine       | 1 Hydrogen Engine       | 1 Hydrogen Engine       | 1 Hydrogen Engine      | 1 Hydrogen Engine       | 1 Hydrogen Engine       |
+   | [km]                 | 1 Liquid Fuel Tank     | 2 Liquid Fuel Tanks     | 3 Liquid Fuel Tanks     | 4 Liquid Fuel Tanks     | 1 Solid Booster        | 1 Solid Booster         | 1 Solid Booster         |
+   |                      | 1 Solid Oxidizer Tank  | 1 Solid Oxidizer Tank   | 1 Solid Oxidizer Tank   | 2 Solid Oxidizer Tanks  | 1 Liquid Fuel Tank     | 2 Liquid Fuel Tanks     | 3 Liquid Fuel Tanks     |
+   |                      | 1 Cargo Bay            | 1 Cargo Bay             | 1 Cargo Bay             | 1 Cargo Bay             | 1 Solid Oxidizer Tank  | 1 Solid Oxidizer Tank   | 1 Solid Oxidizer Tank   |
+   |                      | 1 Command Capsule      | 1 Command Capsule       | 1 Command Capsule       | 1 Command Capsule       | 1 Cargo Bay            | 1 Cargo Bay             | 1 Cargo Bay             |
+   |                      |                        |                         |                         |                         | 1 Command Capsule      | 1 Command Capsule       | 1 Command Capsule       |
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | 10000                | 223 kg Liquid Hydrogen |                         |                         |                         | 33 kg Liquid Hydrogen  |                         |                         |
+   |                      | 223 kg Oxylite         |                         |                         |                         | 33 kg Oxylite          |                         |                         |
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | 20000                | 395 kg Liquid Hydrogen |                         |                         |                         | 220 kg Liquid Hydrogen |                         |                         |
+   |                      | 395 kg Oxylite         |                         |                         |                         | 220 kg Oxylite         |                         |                         |
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | 30000                | 569 kg Liquid Hydrogen |                         |                         |                         | 414 kg Liquid Hydrogen |                         |                         |
+   |                      | 569 kg Oxylite         |                         |                         |                         | 414 kg Oxylite         |                         |                         |
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | 40000                | 758 kg Liquid Hydrogen |                         |                         |                         | 614 kg Liquid Hydrogen |                         |                         |
+   |                      | 758 kg Oxylite         |                         |                         |                         | 614 kg Oxylite         |                         |                         |
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | 50000                | 963 kg Liquid Hydrogen |                         |                         |                         | 822 kg Liquid Hydrogen |                         |                         |
+   |                      | 963 kg Oxylite         |                         |                         |                         | 822 kg Oxylite         |                         |                         |
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | 60000                | Unreachable            | 1167 kg Liquid Hydrogen |                         |                         | Unreachable            | 1059 kg Liquid Hydrogen |                         |
+   |                      |                        | 1167 kg Oxylite         |                         |                         |                        | 1059 kg Oxylite         |                         |
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | 70000                |                        | 1380 kg Liquid Hydrogen |                         |                         |                        | 1295 kg Liquid Hydrogen |                         |
+   |                      |                        | 1380 kg Oxylite         |                         |                         |                        | 1295 kg Oxylite         |                         |
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | 80000                |                        | 1605 kg Liquid Hydrogen |                         |                         |                        | 1549 kg Liquid Hydrogen |                         |
+   |                      |                        | 1605 kg Oxylite         |                         |                         |                        | 1549 kg Oxylite         |                         |
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | 90000                |                        | Unreachable             | 1869 kg Liquid Hydrogen |                         |                        | Unreachable             | 1873 kg Liquid Hydrogen |
+   |                      |                        |                         | 1869 kg Oxylite         |                         |                        |                         | 1873 kg Oxylite         |
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | 10000                |                        |                         | 2136 kg Liquid Hydrogen |                         |                        |                         | 2215 kg Liquid Hydrogen |
+   |                      |                        |                         | 2136 kg Oxylite         |                         |                        |                         | 2215 kg Oxylite         |
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | 11000                |                        |                         | 2436 kg Liquid Hydrogen |                         |                        |                         | 2665 kg Liquid Hydrogen |
+   |                      |                        |                         | 2436 kg Oxylite         |                         |                        |                         | 2665 kg Oxylite         |
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | 12000                |                        |                         | Unreachable             | 2960 kg Liquid Hydrogen |                        |                         | Unreachable             |
+   |                      |                        |                         |                         | 2960 kg Oxylite         |                        |                         |                         |
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+   | 13000                |                        |                         |                         | Unreachable             |                        |                         |                         |
+   +----------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+
+
+Liquid Oxygen, Cargo Vehicle
+''''''''''''''''''''''''''''
+
+   +------------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | Destination Distance   | 1 Hydrogen Engine      | 1 Hydrogen Engine       | 1 Hydrogen Engine       | 1 Hydrogen Engine       | 1 Hydrogen Engine      | 1 Hydrogen Engine       | 1 Hydrogen Engine       | 1 Hydrogen Engine       |
+   | [km]                   | 1 Liquid Fuel Tank     | 2 Liquid Fuel Tanks     | 3 Liquid Fuel Tanks     | 4 Liquid Fuel Tanks     | 1 Solid Booster        | 1 Solid Booster         | 1 Solid Booster         | 1 Solid Booster         |
+   |                        | 1 Liquid Oxidizer Tank | 1 Liquid Oxidizer Tank  | 1 Liquid Oxidizer Tank  | 2 Liquid Oxidizer Tanks | 1 Liquid Fuel Tank     | 2 Liquid Fuel Tanks     | 3 Liquid Fuel Tanks     | 4 Liquid Fuel Tanks     |
+   |                        | 1 Cargo Bay            | 1 Cargo Bay             | 1 Cargo Bay             | 1 Cargo Bay             | 1 Liquid Oxidizer Tank | 1 Liquid Oxidizer Tank  | 1 Liquid Oxidizer Tank  | 2 Liquid Oxidizer Tanks |
+   |                        | 1 Command Capsule      | 1 Command Capsule       | 1 Command Capsule       | 1 Command Capsule       | 1 Cargo Bay            | 1 Cargo Bay             | 1 Cargo Bay             | 1 Cargo Bay             |
+   |                        |                        |                         |                         |                         | 1 Command Capsule      | 1 Command Capsule       | 1 Command Capsule       | 1 Command Capsule       |
+   +------------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 10000                  | 166 kg Liquid Hydrogen |                         |                         |                         | 25 kg Liquid Hydrogen  |                         |                         |                         |
+   |                        | 166 kg Liquid Oxygen   |                         |                         |                         | 25 kg Liquid Oxygen    |                         |                         |                         |
+   +------------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 20000                  | 295 kg Liquid Hydrogen |                         |                         |                         | 160 kg Liquid Hydrogen |                         |                         |                         |
+   |                        | 295 kg Liquid Oxygen   |                         |                         |                         | 160 kg Liquid Oxygen   |                         |                         |                         |
+   +------------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 30000                  | 423 kg Liquid Hydrogen |                         |                         |                         | 299 kg Liquid Hydrogen |                         |                         |                         |
+   |                        | 423 kg Liquid Oxygen   |                         |                         |                         | 299 kg Liquid Oxygen   |                         |                         |                         |
+   +------------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 40000                  | 552 kg Liquid Hydrogen |                         |                         |                         | 439 kg Liquid Hydrogen |                         |                         |                         |
+   |                        | 552 kg Liquid Oxygen   |                         |                         |                         | 439 kg Liquid Oxygen   |                         |                         |                         |
+   +------------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 50000                  | 689 kg Liquid Hydrogen |                         |                         |                         | 583 kg Liquid Hydrogen |                         |                         |                         |
+   |                        | 689 kg Liquid Oxygen   |                         |                         |                         | 583 kg Liquid Oxygen   |                         |                         |                         |
+   +------------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 60000                  | 828 kg Liquid Hydrogen |                         |                         |                         | 729 kg Liquid Hydrogen |                         |                         |                         |
+   |                        | 828 kg Liquid Oxygen   |                         |                         |                         | 729 kg Liquid Oxygen   |                         |                         |                         |
+   +------------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 70000                  | 976 kg Liquid Hydrogen |                         |                         |                         | 878 kg Liquid Hydrogen |                         |                         |                         |
+   |                        | 976 kg Liquid Oxygen   |                         |                         |                         | 878 kg Liquid Oxygen   |                         |                         |                         |
+   +------------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 80000                  | Unreachable            | 1121 kg Liquid Hydrogen |                         |                         | Unreachable            | 1044 kg Liquid Hydrogen |                         |                         |
+   |                        |                        | 1121 kg Liquid Oxygen   |                         |                         |                        | 1044 kg Liquid Oxygen   |                         |                         |
+   +------------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 90000                  |                        | 1270 kg Liquid Hydrogen |                         |                         |                        | 1203 kg Liquid Hydrogen |                         |                         |
+   |                        |                        | 1270 kg Liquid Oxygen   |                         |                         |                        | 1203 kg Liquid Oxygen   |                         |                         |
+   +------------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 100000                 |                        | 1421 kg Liquid Hydrogen |                         |                         |                        | 1367 kg Liquid Hydrogen |                         |                         |
+   |                        |                        | 1421 kg Liquid Oxygen   |                         |                         |                        | 1367 kg Liquid Oxygen   |                         |                         |
+   +------------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 110000                 |                        | 1577 kg Liquid Hydrogen |                         |                         |                        | 1538 kg Liquid Hydrogen |                         |                         |
+   |                        |                        | 1577 kg Liquid Oxygen   |                         |                         |                        | 1538 kg Liquid Oxygen   |                         |                         |
+   +------------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 120000                 |                        | 1737 kg Liquid Hydrogen |                         |                         |                        | 1716 kg Liquid Hydrogen |                         |                         |
+   |                        |                        | 1737 kg Liquid Oxygen   |                         |                         |                        | 1716 kg Liquid Oxygen   |                         |                         |
+   +------------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 130000                 |                        | Unreachable             | 1920 kg Liquid Hydrogen |                         |                        | Unreachable             | 1930 kg Liquid Hydrogen |                         |
+   |                        |                        |                         | 1920 kg Liquid Oxygen   |                         |                        |                         | 1930 kg Liquid Oxygen   |                         |
+   +------------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 140000                 |                        |                         | 2095 kg Liquid Hydrogen |                         |                        |                         | 2133 kg Liquid Hydrogen |                         |
+   |                        |                        |                         | 2095 kg Liquid Oxygen   |                         |                        |                         | 2133 kg Liquid Oxygen   |                         |
+   +------------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 150000                 |                        |                         | 2278 kg Liquid Hydrogen |                         |                        |                         | 2352 kg Liquid Hydrogen |                         |
+   |                        |                        |                         | 2278 kg Liquid Oxygen   |                         |                        |                         | 2352 kg Liquid Oxygen   |                         |
+   +------------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 160000                 |                        |                         | 2471 kg Liquid Hydrogen |                         |                        |                         | 2593 kg Liquid Hydrogen |                         |
+   |                        |                        |                         | 2471 kg Liquid Oxygen   |                         |                        |                         | 2593 kg Liquid Oxygen   |                         |
+   +------------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 170000                 |                        |                         | 2678 kg Liquid Hydrogen |                         |                        |                         | Unreachable             | 3025 kg Liquid Hydrogen |
+   |                        |                        |                         | 2678 kg Liquid Oxygen   |                         |                        |                         |                         | 3025 kg Liquid Oxygen   |
+   +------------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+   | 180000                 |                        |                         | Unreachable             | 2995 kg Liquid Hydrogen |                        |                         |                         | 3451 kg Liquid Hydrogen |
+   | (max distance in game) |                        |                         |                         | 2995 kg Liquid Oxygen   |                        |                         |                         | 3451 kg Liquid Oxygen   |
+   +------------------------+------------------------+-------------------------+-------------------------+-------------------------+------------------------+-------------------------+-------------------------+-------------------------+
+
+.. _accurate: https://oxygennotincluded.fandom.com/wiki/Version_History
+.. _U51-600112: https://oxygennotincluded.fandom.com/wiki/Versions/U51-600112
+.. _Rocketry (Spaced Out): https://oxygennotincluded.fandom.com/wiki/Rocketry_(Spaced_Out)
+.. _Starmap: https://oxygennotincluded.fandom.com/wiki/Starmap
+.. _Command Capsule: https://oxygennotincluded.fandom.com/wiki/Command_Capsule
+.. _Gantry: https://oxygennotincluded.fandom.com/wiki/Gantry
+.. _Cargo Bays: https://oxygennotincluded.fandom.com/wiki/Cargo_Bay
+.. _Research Modules: https://oxygennotincluded.fandom.com/wiki/Research_Module
+.. _Data Banks: https://oxygennotincluded.fandom.com/wiki/Data_Bank
+.. _Steam Engine: https://oxygennotincluded.fandom.com/wiki/Steam_Engine
+.. _Petroleum Engine: https://oxygennotincluded.fandom.com/wiki/Petroleum_Engine
+.. _Hydrogen Engine: https://oxygennotincluded.fandom.com/wiki/Hydrogen_Engine
+.. _Solid Fuel Thrusters: https://oxygennotincluded.fandom.com/wiki/Solid_Fuel_Thruster
+.. _Steam: https://oxygennotincluded.fandom.com/wiki/Steam
+.. _Liquid Fuel Tanks: https://oxygennotincluded.fandom.com/wiki/Liquid_Fuel_Tank
+.. _Solid: https://oxygennotincluded.fandom.com/wiki/Solid_Oxidizer_Tank
+.. _Liquid Oxidizer Tanks: https://oxygennotincluded.fandom.com/wiki/Liquid_Oxidizer_Tank
+.. _Oxylite: https://oxygennotincluded.fandom.com/wiki/Oxylite
+.. _Liquid Hydrogen: https://oxygennotincluded.fandom.com/wiki/Liquid_Hydrogen
+.. _Super Coolant: https://oxygennotincluded.fandom.com/wiki/Super_Coolant
+.. _Thermo Aquatuners: https://oxygennotincluded.fandom.com/wiki/Thermo_Aquatuner
+.. _Carbon Dioxide: https://oxygennotincluded.fandom.com/wiki/Carbon_Dioxide
+.. _Solid: https://oxygennotincluded.fandom.com/wiki/Cargo_Bay
+.. _Liquid: https://oxygennotincluded.fandom.com/wiki/Liquid_Cargo_Tank
+.. _Gas: https://oxygennotincluded.fandom.com/wiki/Gas_Cargo_Canister
+.. _Biological: https://oxygennotincluded.fandom.com/wiki/Biological_Cargo_Bay
+.. _Biological Cargo Bay: https://oxygennotincluded.fandom.com/wiki/Biological_Cargo_Bay
+.. _Solid Cargo Bays: https://oxygennotincluded.fandom.com/wiki/Cargo_Bay
+.. _Liquid Cargo Bays: https://oxygennotincluded.fandom.com/wiki/Liquid_Cargo_Tank
+.. _Gas Cargo Bays: https://oxygennotincluded.fandom.com/wiki/Gas_Cargo_Canister
+.. _Biological Cargo Bays: https://oxygennotincluded.fandom.com/wiki/Biological_Cargo_Bay
+.. _Virtual Planetarium: https://oxygennotincluded.fandom.com/wiki/Virtual_Planetarium
+.. _Sight-Seeing Modules: https://oxygennotincluded.fandom.com/wiki/Sight-Seeing_Module
+.. _Steam Engines: https://oxygennotincluded.fandom.com/wiki/Steam_Engine
+.. _Atmo Suit: https://oxygennotincluded.fandom.com/wiki/Atmo_Suit
+.. _Automation: https://oxygennotincluded.fandom.com/wiki/Automation_(Building)
+.. _Gantries: https://oxygennotincluded.fandom.com/wiki/Gantry
+.. _Ladders: https://oxygennotincluded.fandom.com/wiki/Ladder
+.. _Hydrogen Engines: https://oxygennotincluded.fandom.com/wiki/Hydrogen_Engine
+.. _Petroleum Engines: https://oxygennotincluded.fandom.com/wiki/Petroleum_Engine
+.. _Obsidian: https://oxygennotincluded.fandom.com/wiki/Obsidian
+.. _Thermium: https://oxygennotincluded.fandom.com/wiki/Thermium
+.. _Professor Oakshell Rocket Calculator: https://zari.rtk0.net/ProfessorOakshell/RocketCalc.html
+.. _Space Scanners: https://oxygennotincluded.fandom.com/wiki/Space_Scanner
+.. _Bunker Doors: https://oxygennotincluded.fandom.com/wiki/Bunker_Door
+.. _Rare Resources: https://oxygennotincluded.fandom.com/wiki/Rare_Resources
+.. _Liquid Fuel Tank: https://oxygennotincluded.fandom.com/wiki/Liquid_Fuel_Tank
+.. _Liquid Oxygen: https://oxygennotincluded.fandom.com/wiki/Liquid_Oxygen
+.. _Liquid Oxidizer Tank: https://oxygennotincluded.fandom.com/wiki/Liquid_Oxidizer_Tank
+.. _Steam Turbines: https://oxygennotincluded.fandom.com/wiki/Steam_Turbine
+.. _Crude Oil: https://oxygennotincluded.fandom.com/wiki/Crude_Oil
+.. _Regolith: https://oxygennotincluded.fandom.com/wiki/Regolith
+.. _Solid Fuel Thruster: https://oxygennotincluded.fandom.com/wiki/Solid_Fuel_Thruster
+.. _Solid Oxidizer Tank: https://oxygennotincluded.fandom.com/wiki/Solid_Oxidizer_Tank
+
+.. |Check mark| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/f0/Check_mark.png
+   :width: 25px
+   :height: 25px
+.. |Logo| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/c9/Logo.png
+   :width: 96px
+   :height: 42px
+   :target: https://oxygennotincluded.fandom.com/wiki/Oxygen_Not_Included
+.. |"Spaced Out!"| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/4e/Spaced_Out_Banner.png
+   :width: 96px
+   :height: 14px
+   :target: https://oxygennotincluded.fandom.com/wiki/Spaced_Out
+
+
+Rockets [Space Out]
+===================
+
+   https://oxygennotincluded.fandom.com/wiki/Rocketry_(Spaced_Out)
+
+   This article contains **outdated information** that is inaccurate for the current version. 
+   It was last updated for `EX1-469473`_. Unreflected changes in the discussed game mechanics 
+   are detailed here: `U43-525812`_
+
+   *This article is related to DLC content of* `Spaced Out`_\ *.* There is a version of this 
+   article for the Base Game, see `Rocket`_. 
+
+   Rockets in the `Spaced Out DLC`_ are multi-component constructs used to explore starmap, 
+   and send duplicants and cargo to different planetoids.
+
+   Contents
+
+   -  1 Construction 
+
+      -  1.1 Engines 
+      -  1.2 Fuel tanks and Oxidizers 
+      -  1.3 Cargo Modules 
+      -  1.4 Utility Modules 
+      -  1.5 Command Modules and Nosecones 
+
+   -  2 Rocket Interior 
+   -  3 Launch 
+   -  4 Landing 
+   -  5 Heat and Exhaust 
+
+
+Construction
+------------
+
+   A `Rocket Platform`_ is the mandatory building on which a rocket is assembled. Modules 
+   are added in its menu once they have been researched.
+
+   A rocket requires at least a command module, an engine (with oxidizer possibly) and a 
+   nosecone. Engines are always placed at the bottom and nosecones at the top. Additional 
+   modules can be built such as cargo to transport goods and rover modules to visit planetoids; 
+   they don't have specific order and they can be reorder without deconstruction.
+
+   Due to game limitations, there can only be 16 active command modules at the same time.
+
+Engines
+~~~~~~~
+
+   Engines limit how high a rocket can be constructed. Each module has a burdening factor 
+   that weighs down the rocket, thus slowing its speed (tiles/cycle it travels). Rocket 
+   speed = Engine Power divided by total Burden. Neither burden nor weight affect rocket 
+   range, only the amount of burnable fuel available.
+
+   +-----------------------------------------------------------------+----------------------+--------------+--------+----------------------+-------------------+---------+--------------+------------+---------------+-------+
+   | Module                                                          | Material             | Engine Power | Burden | Engine Module Height | Max Rocket Height | Wattage | Fuel per Hex | Fuel Tanks | Fuel Capacity | Range |
+   +=================================================================+======================+==============+========+======================+===================+=========+==============+============+===============+=======+
+   | |Carbon Dioxide Engine (Spaced Out)| `Carbon Dioxide Engine`_   | 500 kg Metal Ore     | 23           | 3      | 2                    | 10                | N/A     | 16.7 kg      | N/A        | 100 kg        | 6     |
+   +-----------------------------------------------------------------+----------------------+--------------+--------+----------------------+-------------------+---------+--------------+------------+---------------+-------+
+   | |Sugar Engine (Spaced Out)| `Sugar Engine`_                     | 500 kg Metal Ore     | 16           | 1      | 3                    | 16                | 60 W    | 75 kg        | N/A        | 450 kg        | 6     |
+   +-----------------------------------------------------------------+----------------------+--------------+--------+----------------------+-------------------+---------+--------------+------------+---------------+-------+
+   | |Steam Engine (Spaced Out)| `Steam Engine`_                     | 200 kg Refined Metal | 27           | 15     | 5                    | 25                | 600 W   | 15 kg        | N/A        | 150 kg        | 10    |
+   +-----------------------------------------------------------------+----------------------+--------------+--------+----------------------+-------------------+---------+--------------+------------+---------------+-------+
+   | |Small Petroleum Engine (Spaced Out)| `Small Petroleum Engine`_ | 200 kg Refined Metal | 31           | 5      | 4                    | 20                | 240 W   | 45 kg        | 0          | 450 kg        | 10    |
+   +-----------------------------------------------------------------+----------------------+--------------+--------+----------------------+-------------------+---------+--------------+------------+---------------+-------+
+   |                                                                 |                      |              |        |                      |                   |         |              | 1          | 1350 kg       | 30    |
+   +-----------------------------------------------------------------+----------------------+--------------+--------+----------------------+-------------------+---------+--------------+------------+---------------+-------+
+   |                                                                 |                      |              |        |                      |                   |         |              | 2          | 1800 kg\*     | 40*\* |
+   +-----------------------------------------------------------------+----------------------+--------------+--------+----------------------+-------------------+---------+--------------+------------+---------------+-------+
+   | |Petroleum Engine (Spaced Out)| `Petroleum Engine`_             | 200 kg Steel         | 48           | 6      | 5                    | 35                | 480 W   | 90 kg        | 1          | 900 kg        | 10    |
+   +-----------------------------------------------------------------+----------------------+--------------+--------+----------------------+-------------------+---------+--------------+------------+---------------+-------+
+   |                                                                 |                      |              |        |                      |                   |         |              | 2          | 1800 kg       | 20    |
+   +-----------------------------------------------------------------+----------------------+--------------+--------+----------------------+-------------------+---------+--------------+------------+---------------+-------+
+   |                                                                 |                      |              |        |                      |                   |         |              | 3          | 2700 kg       | 30    |
+   +-----------------------------------------------------------------+----------------------+--------------+--------+----------------------+-------------------+---------+--------------+------------+---------------+-------+
+   |                                                                 |                      |              |        |                      |                   |         |              | 4          | 3600 kg       | 40*\* |
+   +-----------------------------------------------------------------+----------------------+--------------+--------+----------------------+-------------------+---------+--------------+------------+---------------+-------+
+   | |Radbolt Engine| `Radbolt Engine`_                              | 500 kg Steel         | 34           | 5      | 5                    | 20                | N/A     | 200 Radbolts | N/A        | 4000 Radbolts | 20    |
+   +-----------------------------------------------------------------+----------------------+--------------+--------+----------------------+-------------------+---------+--------------+------------+---------------+-------+
+   | |Hydrogen Engine (Spaced Out)| `Hydrogen Engine`_               | 500 kg Steel         | 55           | 7      | 5                    | 35                | 600 W   | 56.3 kg      | 1          | 900 kg        | 16    |
+   +-----------------------------------------------------------------+----------------------+--------------+--------+----------------------+-------------------+---------+--------------+------------+---------------+-------+
+   |                                                                 |                      |              |        |                      |                   |         |              | 2          | 1800 kg       | 32    |
+   +-----------------------------------------------------------------+----------------------+--------------+--------+----------------------+-------------------+---------+--------------+------------+---------------+-------+
+   |                                                                 |                      |              |        |                      |                   |         |              | 3          | 2700 kg       | 48    |
+   +-----------------------------------------------------------------+----------------------+--------------+--------+----------------------+-------------------+---------+--------------+------------+---------------+-------+
+   |                                                                 |                      |              |        |                      |                   |         |              | 4          | 3600 kg       | 64*\* |
+   +-----------------------------------------------------------------+----------------------+--------------+--------+----------------------+-------------------+---------+--------------+------------+---------------+-------+
+
+   \* While it can take more fuel, it's not possible to have enough Oxidizer for that much fuel.
+
+   \*\* This is only possible with Liquid Oxygen.
+
+Fuel tanks and Oxidizers
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Sugar, Petroleum and Hydrogen-propulsed rockets require oxidizer at a ratio of 1:1 
+   per kg of fuel when using `Fertilizer`_, 1:2 when using `Oxylite`_, and 1:4 when 
+   using `Liquid Oxygen`_.
+
+   Note that the Large Solid Oxidizer Tank is a trap and should never be used because 
+   two small Oxidizer tanks have the same capacity but with 1 less height and 1 less burden.
+
+   +------------------------------------------------------------------------+------------------+--------+--------+------------------+
+   | Module                                                                 | Material         | Burden | Height | Storage Capacity |
+   +========================================================================+==================+========+========+==================+
+   | |Large Liquid Fuel Tank| `Large Liquid Fuel Tank`_                     | 100 kg Steel     | 5      | 5      | 900 kg           |
+   +------------------------------------------------------------------------+------------------+--------+--------+------------------+
+   | |Small Solid Oxidizer Tank (Spaced Out)| `Small Solid Oxidizer Tank`_  | 200 kg Metal Ore | 2      | 2      | 450 kg           |
+   +------------------------------------------------------------------------+------------------+--------+--------+------------------+
+   | |Large Solid Oxidizer Tank| `Large Solid Oxidizer Tank`_               | 100 kg Steel     | 5      | 5      | 900 kg           |
+   +------------------------------------------------------------------------+------------------+--------+--------+------------------+
+   | |Liquid Oxidizer Tank (Spaced Out)| `Liquid Oxidizer Tank`_            | 100 kg Steel     | 5      | 2      | 450 kg           |
+   +------------------------------------------------------------------------+------------------+--------+--------+------------------+
+
+Cargo Modules
+~~~~~~~~~~~~~
+
+   Cargo carry goods from or to asteroids, or fulfill any survival needs of the command 
+   capsule. Each module features an external port that corresponds to their specific 
+   resource, which is unlocked via the same research as the module variant. This port 
+   must be in direct contact with either the rocket platform or another port. Fittings 
+   carry anything from a cargo module into the command capsule.
+
+   +----------------------------------------------------------------------+----------------------+--------+--------+------------------+
+   | Module                                                               | Material             | Burden | Height | Carry Capacity   |
+   +----------------------------------------------------------------------+----------------------+--------+--------+------------------+
+   | |Cargo Bay (Spaced Out)| `Cargo Bay`_                                | 200 kg Refined Metal | 4      | 3      | 12000 kg Solids  |
+   +----------------------------------------------------------------------+----------------------+--------+--------+------------------+
+   | |Large Cargo Bay (Spaced Out)| `Large Cargo Bay`_                    | 1000 kg Steel        | 6      | 5      | 27000 kg Solids  |
+   +----------------------------------------------------------------------+----------------------+--------+--------+------------------+
+   | |Liquid Cargo Tank (Spaced Out)| `Liquid Cargo Tank`_                | 200 kg Refined Metal | 3      | 3      | 9000 kg Liquids  |
+   +----------------------------------------------------------------------+----------------------+--------+--------+------------------+
+   | |Large Liquid Cargo Tank (Spaced Out)| `Large Liquid Cargo Tank`_    | 1000 kg Steel        | 5      | 5      | 27000 kg Liquids |
+   +----------------------------------------------------------------------+----------------------+--------+--------+------------------+
+   | |Gas Cargo Canister (Spaced Out)| `Gas Cargo Canister`_              | 200 kg Refined Metal | 2      | 3      | 3600 kg Gasses   |
+   +----------------------------------------------------------------------+----------------------+--------+--------+------------------+
+   | |Large Gas Cargo Canister (Spaced Out)| `Large Gas Cargo Canister`_  | 1000 kg Steel        | 4      | 5      | 11000 kg Gasses  |
+   +----------------------------------------------------------------------+----------------------+--------+--------+------------------+
+
+Utility Modules
+~~~~~~~~~~~~~~~
+
+   Utility modules are used to better explore and colonize asteroids or make rockets 
+   command modules livable longer.
+
+   +-------------------------------------------------------------+----------------------+--------+--------+----------------------------------------------------------------------------------------------------------------------------------------+
+   | Module                                                      | Material             | Burden | Height | Description                                                                                                                            |
+   +-------------------------------------------------------------+----------------------+--------+--------+----------------------------------------------------------------------------------------------------------------------------------------+
+   | |Orbital Cargo Module (Spaced Out)| `Orbital Cargo Module`_ | 400 kg Metal Ore     | 4      | 2      | Delivers cargo to the surface of Planetoids in several small packages which totals to up to 6000 kg.                                   |
+   +-------------------------------------------------------------+----------------------+--------+--------+----------------------------------------------------------------------------------------------------------------------------------------+
+   | |Rover Module (Spaced Out)| `Rover Module`_                 | 200 kg Metal Ore     | 4      | 3      | Deploys a `Rover Bot`_ for remote Planetoid exploration.                                                                               |
+   +-------------------------------------------------------------+----------------------+--------+--------+----------------------------------------------------------------------------------------------------------------------------------------+
+   | |Trailblazer Module (Spaced Out)| `Trailblazer Module`_     | 200 kg Refined Metal | 4      | 3      | Enables landing for one `Duplicant`_ to Planetoids that do not yet have a Rocket Platform.                                             |
+   +-------------------------------------------------------------+----------------------+--------+--------+----------------------------------------------------------------------------------------------------------------------------------------+
+   | |Cartographic Module| `Cartographic Module`_                | 350 kg Steel         | 3      | 5      | Automatically analyzes adjacent space while on a voyage (this is instant for Planetoids) thus enables moving to unrevealed space.      |
+   |                                                             | 1000 kg Plastic      |        |        |                                                                                                                                        |
+   +-------------------------------------------------------------+----------------------+--------+--------+----------------------------------------------------------------------------------------------------------------------------------------+
+   | |Battery Module| `Battery Module`_                          | 400 kg Metal Ore     | 2      | 2      | Stores 100 kJ of power and leaks 400 J per cycle, while producing no heat. It thus acts as a superior version of the `Jumbo Battery`_. |
+   +-------------------------------------------------------------+----------------------+--------+--------+----------------------------------------------------------------------------------------------------------------------------------------+
+   | |Solar Panel Module| `Solar Panel Module`_                  | 200 kg Glass         | 1      | 1      | Produces 60 W when there is sunlight, which can be used with the power outlet fitting to power equipment inside the rocket.            |
+   +-------------------------------------------------------------+----------------------+--------+--------+----------------------------------------------------------------------------------------------------------------------------------------+
+   | |Artifact Transport Module| `Artifact Transport Module`_    | 200 kg Refined Metal | 6      | 1      | Collects and transports `Artifacts`_ from `Space POI`_.                                                                                |
+   +-------------------------------------------------------------+----------------------+--------+--------+----------------------------------------------------------------------------------------------------------------------------------------+
+
+Command Modules and Nosecones
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Command modules are required for the rocket to function and only one can be part 
+   of any rocket. Solo Spacefarer Nosecone can only be build at the top of the rocket 
+   while Spacefarer Module can be build anywhere but takes an extra Basic Nosecone or 
+   Drillcone.
+
+   +---------------------------------------------------------------------+----------------------+--------+--------+
+   | Module                                                              | Material             | Burden | Height |
+   +---------------------------------------------------------------------+----------------------+--------+--------+
+   | |Solo Spacefarer Nosecone (Spaced Out)| `Solo Spacefarer Nosecone`_ | 200 kg Metal Ore     | 3      | 3      |
+   +---------------------------------------------------------------------+----------------------+--------+--------+
+   | |Spacefarer Module (Spaced Out)| `Spacefarer Module`_               | 200 kg Metal Ore     | 6      | 4      |
+   +---------------------------------------------------------------------+----------------------+--------+--------+
+   | |Basic Nosecone (Spaced Out)| `Basic Nosecone`_                     | 400 kg Refined Metal | 2      | 2      |
+   |                                                                     | 200 kg Insulator     |        |        |
+   +---------------------------------------------------------------------+----------------------+--------+--------+
+   | |Drillcone| `Drillcone`_                                            | 400 kg Refined Metal | 2      | 4      |
+   |                                                                     | 200 kg Plastic       |        |        |
+   +---------------------------------------------------------------------+----------------------+--------+--------+
+
+Rocket Interior
+---------------
+
+   .. figure:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/60/Solo_Spacefarer_Nosecone_Interior.png
+
+      Interior of a Solo Spacefarer Nosecone
+
+
+   Solo Spacefarer Nosecone functions as both the command module and nosecone, and 
+   is a total of 28 tiles in size. Spacefarer Module offers a bigger 10x8 interior 
+   to be furnished, but does not serve as a nosecone.
+
+Launch
+------
+
+   In order for the rocket to launch, the command module checks for various conditions:
+
+   -  A destination must be set.
+   -  The rocket cannot have any pending constructions (it can be launched if a lander is not constructed).
+   -  A rocket must have an engine and nosecone.
+   -  A rocket must have a fuel tank (most engines have a fuel tank included).
+   -  Cannot be over rocket engine height limit.
+   -  The rocket must be sufficiently fueled to reach the destination (it can be launched even if there is not enough fuel to return).
+   -  Cargo transfer must be complete (rocket can still be launched with partially filled cargo).
+   -  Skilled crew must be onboard (crew is set through the pop-up and no other passengers are aboard).
+
+Landing
+-------
+
+   A rocket cannot land on a planetoid that does not possess a Rocket Platform. If so, 
+   a duplicant must be first sent via the `Teleporter Transmitter`_ or in a `Trailblazer`_ 
+   to the surface in order to construct one. In the event that multiple rocket platforms 
+   are available, the rocket will default to selecting one randomly; alternatively, 
+   the player can specify the platform to land on.
+
+Heat and Exhaust
+----------------
+
+   All rockets project a large amount of heat onto all cells from the bottom of the 
+   engine; the area of projection is a 3x9 rectangle from the exhaust (3x7 from below 
+   the Rocket Platform); **this includes cells past walls beneath the platform**.
+
+   Any cells within this area will be superheated, including gases emitted by the 
+   engines themselves; the exact amount of heat is unclear, though the following has 
+   been observed:
+
+   -  `Carbon Dioxide`_ emissions from `Petroleum`_-using engines can reach above 
+      1500 °C with a density up to 6.0 kg per tile.
+
+   -  Squares with 80 to 100 g of `Oxygen`_ (made thin by being vented into regions 
+      next to the void of space) can reach more than 2000 °C, suggesting that the 
+      projection is a flat heat output instead of heat transfer from a hotter object.
+
+
+.. _EX1-469473: https://oxygennotincluded.fandom.com/wiki/Versions/EX1-469473
+.. _U43-525812: https://oxygennotincluded.fandom.com/wiki/Versions/U43-525812
+.. _Spaced Out: https://oxygennotincluded.fandom.com/wiki/Spaced_Out!
+.. _Rocket: https://oxygennotincluded.fandom.com/wiki/Rocket
+.. _Spaced Out DLC: https://oxygennotincluded.fandom.com/wiki/Spaced_Out!
+.. _Rocket Platform: https://oxygennotincluded.fandom.com/wiki/Rocket_Platform
+.. _Carbon Dioxide Engine: https://oxygennotincluded.fandom.com/wiki/Carbon_Dioxide_Engine
+.. _Sugar Engine: https://oxygennotincluded.fandom.com/wiki/Sugar_Engine
+.. _Steam Engine: https://oxygennotincluded.fandom.com/wiki/Steam_Engine_(Spaced_Out)
+.. _Small Petroleum Engine: https://oxygennotincluded.fandom.com/wiki/Small_Petroleum_Engine
+.. _Petroleum Engine: https://oxygennotincluded.fandom.com/wiki/Petroleum_Engine_(Spaced_Out)
+.. _Radbolt Engine: https://oxygennotincluded.fandom.com/wiki/Radbolt_Engine
+.. _Hydrogen Engine: https://oxygennotincluded.fandom.com/wiki/Hydrogen_Engine_(Spaced_Out)
+.. _Fertilizer: https://oxygennotincluded.fandom.com/wiki/Fertilizer
+.. _Oxylite: https://oxygennotincluded.fandom.com/wiki/Oxylite
+.. _Liquid Oxygen: https://oxygennotincluded.fandom.com/wiki/Liquid_Oxygen
+.. _Large Liquid Fuel Tank: https://oxygennotincluded.fandom.com/wiki/Large_Liquid_Fuel_Tank
+.. _Small Solid Oxidizer Tank: https://oxygennotincluded.fandom.com/wiki/Small_Solid_Oxidizer_Tank
+.. _Large Solid Oxidizer Tank: https://oxygennotincluded.fandom.com/wiki/Large_Solid_Oxidizer_Tank
+.. _Liquid Oxidizer Tank: https://oxygennotincluded.fandom.com/wiki/Liquid_Oxidizer_Tank_(Spaced_Out)
+.. _Cargo Bay: https://oxygennotincluded.fandom.com/wiki/Cargo_Bay_(Spaced_Out)
+.. _Large Cargo Bay: https://oxygennotincluded.fandom.com/wiki/Large_Cargo_Bay
+.. _Liquid Cargo Tank: https://oxygennotincluded.fandom.com/wiki/Liquid_Cargo_Tank_(Spaced_Out)
+.. _Large Liquid Cargo Tank: https://oxygennotincluded.fandom.com/wiki/Large_Liquid_Cargo_Tank
+.. _Gas Cargo Canister: https://oxygennotincluded.fandom.com/wiki/Gas_Cargo_Canister_(Spaced_Out)
+.. _Large Gas Cargo Canister: https://oxygennotincluded.fandom.com/wiki/Large_Gas_Cargo_Canister
+.. _Orbital Cargo Module: https://oxygennotincluded.fandom.com/wiki/Orbital_Cargo_Module
+.. _Rover Module: https://oxygennotincluded.fandom.com/wiki/Rover_Module
+.. _Rover Bot: https://oxygennotincluded.fandom.com/wiki/Rover
+.. _Trailblazer Module: https://oxygennotincluded.fandom.com/wiki/Trailblazer_Module
+.. _Duplicant: https://oxygennotincluded.fandom.com/wiki/Duplicant
+.. _Cartographic Module: https://oxygennotincluded.fandom.com/wiki/Cartographic_Module_(Spaced_Out)
+.. _Battery Module: https://oxygennotincluded.fandom.com/wiki/Battery_Module_(Spaced_Out)
+.. _Jumbo Battery: https://oxygennotincluded.fandom.com/wiki/Jumbo_Battery
+.. _Solar Panel Module: https://oxygennotincluded.fandom.com/wiki/Solar_Panel_Module_(Spaced_Out)
+.. _Artifact Transport Module: https://oxygennotincluded.fandom.com/wiki/Artifact_Transport_Module
+.. _Artifacts: https://oxygennotincluded.fandom.com/wiki/Pedestal#Artifacts
+.. _Space POI: https://oxygennotincluded.fandom.com/wiki/Starmap_(Spaced_Out)#Space_POI
+.. _Solo Spacefarer Nosecone: https://oxygennotincluded.fandom.com/wiki/Solo_Spacefarer_Nosecone
+.. _Spacefarer Module: https://oxygennotincluded.fandom.com/wiki/Spacefarer_Module
+.. _Basic Nosecone: https://oxygennotincluded.fandom.com/wiki/Basic_Nosecone
+.. _Drillcone: https://oxygennotincluded.fandom.com/wiki/Drillcone
+.. _Teleporter Transmitter: https://oxygennotincluded.fandom.com/wiki/Teleporter_Transmitter
+.. _Trailblazer: https://oxygennotincluded.fandom.com/wiki/Trailblazer_Module
+.. _Carbon Dioxide: https://oxygennotincluded.fandom.com/wiki/Carbon_Dioxide
+.. _Petroleum: https://oxygennotincluded.fandom.com/wiki/Petroleum
+.. _Oxygen: https://oxygennotincluded.fandom.com/wiki/Oxygen
+
+
+.. |Duplicant| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/6f/Duplicant.png
+   :width: 50px
+   :height: 50px
+.. |Spaced Out| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/a/ab/Spaced_Out_Logo.png
+   :width: 96px
+   :height: 53px
+.. |Solo Spacefarer Nosecone Interior| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/60/Solo_Spacefarer_Nosecone_Interior.png
+   :width: 180px
+   :height: 148px
+.. |Carbon Dioxide Engine (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/1/18/Carbon_Dioxide_Engine.png
+   :width: 40px
+   :height: 30px
+   :target: https://oxygennotincluded.fandom.com/wiki/Carbon_Dioxide_Engine_(Spaced_Out)
+.. |Sugar Engine (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/4d/Sugar_Engine.png
+   :width: 40px
+   :height: 30px
+   :target: https://oxygennotincluded.fandom.com/wiki/Sugar_Engine_(Spaced_Out)
+.. |Steam Engine (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/3a/Steam_Engine_%28Spaced_Out%29.png
+   :width: 40px
+   :height: 32px
+   :target: https://oxygennotincluded.fandom.com/wiki/Steam_Engine_(Spaced_Out)
+.. |Small Petroleum Engine (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/4a/Small_Petroleum_Engine.png
+   :width: 40px
+   :height: 38px
+   :target: https://oxygennotincluded.fandom.com/wiki/Small_Petroleum_Engine_(Spaced_Out)
+.. |Petroleum Engine (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/3a/Petroleum_Engine_%28Spaced_Out%29.png
+   :width: 40px
+   :height: 32px
+   :target: https://oxygennotincluded.fandom.com/wiki/Petroleum_Engine_(Spaced_Out)
+.. |Radbolt Engine| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/1/1a/Radbolt_Engine.png
+   :width: 40px
+   :height: 32px
+   :target: https://oxygennotincluded.fandom.com/wiki/Radbolt_Engine
+.. |Hydrogen Engine (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/cd/Building_Hydrogen_Engine.png
+   :width: 40px
+   :height: 34px
+   :target: https://oxygennotincluded.fandom.com/wiki/Hydrogen_Engine_(Spaced_Out)
+.. |Large Liquid Fuel Tank| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/8/8f/Large_Liquid_Fuel_Tank.png
+   :width: 40px
+   :height: 38px
+   :target: https://oxygennotincluded.fandom.com/wiki/Large_Liquid_Fuel_Tank
+.. |Small Solid Oxidizer Tank (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/5d/Small_Solid_Oxidizer_Tank.png
+   :width: 40px
+   :height: 32px
+   :target: https://oxygennotincluded.fandom.com/wiki/Small_Solid_Oxidizer_Tank_(Spaced_Out)
+.. |Large Solid Oxidizer Tank| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/32/Large_Solid_Oxidizer_Tank.png
+   :width: 40px
+   :height: 41px
+   :target: https://oxygennotincluded.fandom.com/wiki/Large_Solid_Oxidizer_Tank
+.. |Liquid Oxidizer Tank (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/a/a9/Liquid_Oxidizer_Tank_%28Spaced_Out%29.png
+   :width: 40px
+   :height: 20px
+   :target: https://oxygennotincluded.fandom.com/wiki/Liquid_Oxidizer_Tank_(Spaced_Out)
+.. |Cargo Bay (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/69/Cargo_Bay_%28Spaced_Out%29.png
+   :width: 40px
+   :height: 34px
+   :target: https://oxygennotincluded.fandom.com/wiki/Cargo_Bay_(Spaced_Out)
+.. |Large Cargo Bay (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/40/Large_Cargo_Bay.png
+   :width: 40px
+   :height: 35px
+   :target: https://oxygennotincluded.fandom.com/wiki/Large_Cargo_Bay_(Spaced_Out)
+.. |Liquid Cargo Tank (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/9c/Liquid_Cargo_Tank_%28Spaced_Out%29.png
+   :width: 40px
+   :height: 31px
+   :target: https://oxygennotincluded.fandom.com/wiki/Liquid_Cargo_Tank_(Spaced_Out)
+.. |Large Liquid Cargo Tank (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/90/Large_Liquid_Cargo_Tank.png
+   :width: 40px
+   :height: 38px
+   :target: https://oxygennotincluded.fandom.com/wiki/Large_Liquid_Cargo_Tank_(Spaced_Out)
+.. |Gas Cargo Canister (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/c1/Gas_Cargo_Canister_%28Spaced_Out%29.png
+   :width: 40px
+   :height: 37px
+   :target: https://oxygennotincluded.fandom.com/wiki/Gas_Cargo_Canister_(Spaced_Out)
+.. |Large Gas Cargo Canister (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/a/ab/Large_Gas_Cargo_Canister.png
+   :width: 40px
+   :height: 35px
+   :target: https://oxygennotincluded.fandom.com/wiki/Large_Gas_Cargo_Canister_(Spaced_Out)
+.. |Orbital Cargo Module (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/3b/Orbital_Cargo_Module.png
+   :width: 40px
+   :height: 29px
+   :target: https://oxygennotincluded.fandom.com/wiki/Orbital_Cargo_Module_(Spaced_Out)
+.. |Rover Module (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/2/28/Rover%27s_Module.png
+   :width: 40px
+   :height: 32px
+   :target: https://oxygennotincluded.fandom.com/wiki/Rover_Module_(Spaced_Out)
+.. |Trailblazer Module (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/c7/Trailblazer_Module.png
+   :width: 40px
+   :height: 35px
+   :target: https://oxygennotincluded.fandom.com/wiki/Trailblazer_Module_(Spaced_Out)
+.. |Cartographic Module| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/8/88/Cartographic_Module.png
+   :width: 40px
+   :height: 37px
+   :target: https://oxygennotincluded.fandom.com/wiki/Cartographic_Module
+.. |Battery Module| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/3d/Battery_Module.png
+   :width: 40px
+   :height: 28px
+   :target: https://oxygennotincluded.fandom.com/wiki/Battery_Module
+.. |Solar Panel Module| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/1/1a/Solar_Panel_Module.png
+   :width: 40px
+   :height: 23px
+   :target: https://oxygennotincluded.fandom.com/wiki/Solar_Panel_Module
+.. |Artifact Transport Module| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/d/d8/Artifact_Transport_Module.png
+   :width: 40px
+   :height: 19px
+   :target: https://oxygennotincluded.fandom.com/wiki/Artifact_Transport_Module
+.. |Solo Spacefarer Nosecone (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/46/Solo_Spacefarer_Nosecone.png
+   :width: 40px
+   :height: 33px
+   :target: https://oxygennotincluded.fandom.com/wiki/Solo_Spacefarer_Nosecone_(Spaced_Out)
+.. |Spacefarer Module (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/e/ee/Spacefarer_Module.png
+   :width: 40px
+   :height: 32px
+   :target: https://oxygennotincluded.fandom.com/wiki/Spacefarer_Module_(Spaced_Out)
+.. |Basic Nosecone (Spaced Out)| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/7/7a/Basic_Nosecone.png
+   :width: 40px
+   :height: 24px
+   :target: https://oxygennotincluded.fandom.com/wiki/Basic_Nosecone_(Spaced_Out)
+.. |Drillcone| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/2/29/Drillcone.png
+   :width: 40px
+   :height: 35px
+   :target: https://oxygennotincluded.fandom.com/wiki/Drillcone
+
+
 Geysers 间歇泉
 =============
 
@@ -5432,6 +8671,911 @@ Critters Category 小动物分类
    -  `Shove Vole <https://oxygennotincluded.fandom.com/wiki/Shove_Vole>`__
    -  `Slickster <https://oxygennotincluded.fandom.com/wiki/Slickster>`__
    -  `Sweepy <https://oxygennotincluded.fandom.com/wiki/Sweepy>`__
+
+
+
+Hatch 哈奇
+---------
+
+   This article is considered `accurate`_ for the current version (`U51-600112`_).
+
+Hatch
+~~~~~
+
+   Hatches excrete solid `Coal`_ as waste and may be uncovered by digging up Buried Objects.
+
+      |Hatch|
+
+   +---------------------------+--------------------------------+
+   | Location                  | Temperate Biome                |
+   +---------------------------+--------------------------------+
+   | Health                    | 25                             |
+   +---------------------------+--------------------------------+
+   | Max age                   | 100 cycles                     |
+   +---------------------------+--------------------------------+
+   | Comfortable Range         | 10 ↔ 20 °C                     |
+   |                           | 50 ↔ 68 °F                     |
+   |                           | 283.15 ↔ 293.15 K              |
+   +---------------------------+--------------------------------+
+   | Livable Range             | -30 ↔ 70 °C                    |
+   |                           | -22 ↔ 158 °F                   |
+   |                           | 243.15 ↔ 343.15 K              |
+   +---------------------------+--------------------------------+
+   | `Diet`_                   | `Raw Mineral`_ 140 kg/cycle    |
+   |                           | `Food`_ 0.1 to 1.8 kg/cycle    |
+   +---------------------------+--------------------------------+
+   | Excrete                   | `Coal`_ 50% consumed mass      |
+   +---------------------------+--------------------------------+
+   | `Decor`_                  | 10 (Radius: 1tile)             |
+   +---------------------------+--------------------------------+
+   | Drops                     | 3,200 kcal `Meat`_             |
+   +---------------------------+--------------------------------+
+   | Wranglable                | yes                            |
+   +---------------------------+--------------------------------+
+   | Capture Method            | Critter Trap                   |
+   +---------------------------+--------------------------------+
+   | Reproduction Rate         | wild: 60 cycles                |
+   |                           | groomed: 6 cycles              |
+   +---------------------------+--------------------------------+
+   | Incubation Time           | base: 20 cycles                |
+   |                           | lullabied: 4 cycles            |
+   +---------------------------+--------------------------------+
+
+Sage Hatch
+~~~~~~~~~~
+
+   Sage Hatches excrete solid `Coal`_ as waste and enjoy burrowing into the ground.
+
+      |Sage Hatch|
+
+   +---------------------------+--------------------------------+
+   | Health                    | 25                             |
+   +---------------------------+--------------------------------+
+   | Max age                   | 100 cycles                     |
+   +---------------------------+--------------------------------+
+   | Comfortable Range         | 10 ↔ 20 °C                     |
+   |                           | 50 ↔ 68 °F                     |
+   |                           | 283.15 ↔ 293.15 K              |
+   +---------------------------+--------------------------------+
+   | Livable Range             | -30 ↔ 70 °C                    |
+   |                           | -22 ↔ 158 °F                   |
+   |                           | 243.15 ↔ 343.15 K              |
+   +---------------------------+--------------------------------+
+   | `Diet`_                   | `Organic`_ 140 kg/cycle        |
+   |                           | `Food`_ 700 calories/cycle     |
+   |                           | `Dirt`_ 140 kg/cycle           |
+   +---------------------------+--------------------------------+
+   | Excrete                   | `Coal`_ 100% consumed mass     |
+   +---------------------------+--------------------------------+
+   | `Decor`_                  | 10 (Radius: 1tile)             |
+   +---------------------------+--------------------------------+
+   | Drops                     | 3,200 kcal `Meat`_             |
+   +---------------------------+--------------------------------+
+   | Wranglable                | yes                            |
+   +---------------------------+--------------------------------+
+   | Capture Method            | Critter Trap                   |
+   +---------------------------+--------------------------------+
+   | Reproduction Rate         | wild: 60 cycles                |
+   |                           | groomed: 6 cycles              |
+   +---------------------------+--------------------------------+
+   | Incubation Time           | base: 20 cycles                |
+   |                           | lullabied: 4 cycles            |
+   +---------------------------+--------------------------------+
+
+Stone Hatch
+~~~~~~~~~~~
+
+   Stone Hatches excrete solid `Coal`_ as waste and enjoy burrowing into the ground.
+
+      |Stone Hatch|
+
+   +---------------------------+--------------------------------------------------+
+   | Health                    | 200                                              |
+   +---------------------------+--------------------------------------------------+
+   | Max age                   | 100 cycles                                       |
+   +---------------------------+--------------------------------------------------+
+   | Comfortable Range         | 10 ↔ 20 °C                                       |
+   |                           | 50 ↔ 68 °F                                       |
+   |                           | 283.15 ↔ 293.15 K                                |
+   +---------------------------+--------------------------------------------------+
+   | Livable Range             | -30 ↔ 70 °C                                      |
+   |                           | -22 ↔ 158 °F                                     |
+   |                           | 243.15 ↔ 343.15 K                                |
+   +---------------------------+--------------------------------------------------+
+   | `Diet`_                   | `Raw Mineral`_ 140 kg/cycle                      |
+   |                           | `Metal Ore`_ 140 kg/cycle                        |
+   +---------------------------+--------------------------------------------------+
+   | Excrete                   | `Coal`_ 50% (mineral), 25% (metal) consumed mass |
+   +---------------------------+--------------------------------------------------+
+   | `Decor`_                  | 10 (Radius: 1tile)                               |
+   +---------------------------+--------------------------------------------------+
+   | Drops                     | 3,200 kcal `Meat`_                               |
+   +---------------------------+--------------------------------------------------+
+   | Wranglable                | yes                                              |
+   +---------------------------+--------------------------------------------------+
+   | Capture Method            | Critter Trap                                     |
+   +---------------------------+--------------------------------------------------+
+   | Reproduction Rate         | wild: 60 cycles                                  |
+   |                           | groomed: 6 cycles                                |
+   +---------------------------+--------------------------------------------------+
+   | Incubation Time           | base: 20 cycles                                  |
+   |                           | lullabied: 4 cycles                              |
+   +---------------------------+--------------------------------------------------+
+
+
+Smooth Hatch
+~~~~~~~~~~~~
+
+   Smooth Hatches enjoy burrowing into the ground and excrete `Refined Metal`_ 
+   when fed `Metal Ore`_.
+
+      |Smooth Hatch|
+
+   +---------------------------+------------------------------------+
+   | Health                    | 400                                |
+   +---------------------------+------------------------------------+
+   | Max age                   | 100 cycles                         |
+   +---------------------------+------------------------------------+
+   | Comfortable Range         | 10 ↔ 20 °C                         |
+   |                           | 50 ↔ 68 °F                         |
+   |                           | 283.15 ↔ 293.15 K                  |
+   +---------------------------+------------------------------------+
+   | Livable Range             | -30 ↔ 70 °C                        |
+   |                           | -22 ↔ 158 °F                       |
+   |                           | 243.15 ↔ 343.15 K                  |
+   +---------------------------+------------------------------------+
+   | `Diet`_                   | `Metal Ore`_ 100 kg/cycle          |
+   +---------------------------+------------------------------------+
+   | Excrete                   | `Refined Metal`_ 75% consumed mass |    
+   +---------------------------+------------------------------------+
+   | `Decor`_                  | 10 (Radius: 1tile)                 |
+   +---------------------------+------------------------------------+
+   | Drops                     | 3,200 kcal `Meat`_                 |
+   +---------------------------+------------------------------------+
+   | Wranglable                | yes                                |
+   +---------------------------+------------------------------------+
+   | Capture Method            | Critter Trap                       |
+   +---------------------------+------------------------------------+
+   | Reproduction Rate         | wild: 60 cycles                    |
+   |                           | groomed: 6 cycles                  |
+   +---------------------------+------------------------------------+
+   | Incubation Time           | base: 20 cycles                    |
+   |                           | lullabied: 4 cycles                |
+   +---------------------------+------------------------------------+
+
+Gold Hatch
+~~~~~~~~~~
+
+   Gold Hatches are a marvel of alchemy and can turn any `Metal`_ into `Gold`_.
+
+      |Gold Hatch|
+
+   +---------------------------+----------------------------------------------+
+   | Health                    | 400                                          |
+   +---------------------------+----------------------------------------------+
+   | Max age                   | 100 cycles                                   |
+   +---------------------------+----------------------------------------------+
+   | Comfortable Range         | 10 ↔ 20 °C                                   |
+   |                           | 50 ↔ 68 °F                                   |
+   |                           | 283.15 ↔ 293.15 K                            |
+   +---------------------------+----------------------------------------------+
+   | Livable Range             | -30 ↔ 70 °C                                  |
+   |                           | -22 ↔ 158 °F                                 |
+   |                           | 243.15 ↔ 343.15 K                            |
+   +---------------------------+----------------------------------------------+
+   | `Diet`_                   | `Refined Metal`_ or `Metal Ore` 100 kg/cycle |
+   +---------------------------+----------------------------------------------+
+   | Excrete                   | `Gold`_ or `Gold Ore`_ 75% consumed mass     |
+   +---------------------------+----------------------------------------------+
+   | `Decor`_                  | 50 (Radius: 2tiles)                          |
+   +---------------------------+----------------------------------------------+
+   | Drops                     | 3,200 kcal `Meat`_                           |
+   +---------------------------+----------------------------------------------+
+   | Wranglable                | yes                                          |
+   +---------------------------+----------------------------------------------+
+   | Capture Method            | Critter Trap                                 |
+   +---------------------------+----------------------------------------------+
+   | Reproduction Rate         | wild: 60 cycles                              |
+   |                           | groomed: 6 cycles                            |
+   +---------------------------+----------------------------------------------+
+   | Incubation Time           | base: 20 cycles                              |
+   |                           | lullabied: 4 cycles                          |
+   +---------------------------+----------------------------------------------+
+
+   **Hatches** are terrestrial organisms that play a pivotal role in resource 
+   management within the game. These creatures exhibit a remarkable ability to 
+   ingest a variety of raw minerals and subsequently convert them into `coal`_, 
+   thereby serving as a sustainable source of energy production. Distinct species 
+   of Hatches display specific dietary preferences and yield varying outputs, 
+   as delineated below:
+
+   -  Regular Hatches: These omnivorous entities are capable of consuming an 
+      extensive range of minerals, subsequently excreting coal.
+
+   -  Stone Hatches: Exhibiting a preference for sedimentary rock and granite.
+
+   -  Sage Hatches: These Hatches specialize in the consumption of organic materials, 
+      rendering them particularly advantageous for the disposal of surplus polluted dirt.
+
+   -  Smooth Hatches: These creatures feed on metals and are notable for their 
+      ability to excrete refined metals.
+
+   -  Metallic Hatches: Distinguished by their consumption of ore, Metallic Hatches 
+      excrete a significantly greater quantity of refined metals compared to Smooth Hatches.
+
+
+   Contents
+
+   -  1 Behavior
+   -  2 Variants
+
+      -  2.1 Hatch
+      -  2.2 Sage Hatch
+      -  2.3 Stone Hatch
+      -  2.4 Smooth Hatch
+      -  2.5 Gold Hatch
+
+   -  3 Tips
+
+      -  3.1 Hatch Farming for Meat and Eggs
+      -  3.2 Hatch Coal Herding
+      -  3.3 Hatch Garbage Disposal Herding
+      -  3.4 Hatch Refinery Herding
+
+
+Behavior
+~~~~~~~~
+
+   The Hatch is a nocturnal organism that consumes minerals encountered in its path. 
+   During daylight hours, it burrows into natural tiles with a `hardness`_ rating of 
+   20 or lower, using these tiles as a hiding place. These natural tiles, including 
+   those marked as containing "buried objects," can be excavated to expose the burrowed 
+   Hatch. Given the limited number of surface Hatches at the start, excavating the 
+   initial biome can facilitate the rapid discovery of additional Hatches.
+
+   Upon death, a Hatch yields 3200 kcal (2 kg) of `meat`_.
+
+   Hatches convert a specific percentage of ingested mass into another resource. 
+   For instance, regular Hatches consume 140 kg of solids and transform them into 
+   70 kg of coal.
+
+
+Variants
+~~~~~~~~
+
+   The Hatch has four variants, each with its own varied diet preferences. Along 
+   with the plain hatch, two of its variations provide a greatly diversified diet 
+   that may be better tailored to the needs of your colony's coal production. The 
+   final variant provides a refining service that is otherwise heat intensive, 
+   power hungry and time consuming.
+
+
+Hatch
+'''''
+
+   |Hatchling Egg| → |Hatchling| → |Hatch|
+
+   The Hatch that is the purple, toothy critter your Duplicants seem to stumble 
+   upon in their initial excavations. It eats a wide variety of the same foodstuffs 
+   your duplicants subsist on, along with some minerals, and produces coal in return. 
+   It provides a minor decor bonus (+10) in its immediate radius. If fed `Sedimentary Rock`_, 
+   it has an increased chance of producing a Stone Hatchling Egg. If fed Dirt, it has an 
+   increased chance of producing a Sage Hatchling Egg. When killed it provides 2000 g of meat.
+
+Sage Hatch
+''''''''''
+
+   |Sage Hatchling Egg| → |Sage Hatchling| → |Sage Hatch|
+
+   Sage Hatch have a glossy green color, and a green diet to match. It consumes 
+   almost exclusively organic compounds, including `Polluted Dirt`_, `slime`_, 
+   and `algae`_, alongside every normal foodstuff your dupes eat such as `Meal Lice`_. 
+   It produces coal in return. It is completely indifferent to bacteria or spoilage, 
+   and effectively consumes otherwise spoiled, inedible or over abundant organics 
+   your dupes can't use.
+
+   Sage Hatch has the highest conversion rate among all four variants. It can 
+   convert 100% consumed mass into `Coal`_.
+
+
+Stone Hatch
+'''''''''''
+
+   |Stone Hatchling Egg| → |Stone Hatchling| → |Stone Hatch|
+
+   Stone Hatch are flinty grey and have a thickened, rocky appearance. They consume 
+   primarily mineral materials such as `Igneous Rock`_. They also consume some 
+   `Raw Metals`_, such as `Copper Ore`_ or `Iron Ore`_, producing an 25% volume 
+   of coal in exchange.
+
+   If fed `Copper Ore`_, `Gold Amalgam`_, `Iron Ore`_, or `Wolframite`_ the Stone 
+   Hatch has an increased chance of producing a Smooth Hatch egg.
+
+   This variation is considerably tougher than normal hatch, with more hp and 
+   attack, and caution should be used when attempting to kill it as it could 
+   severely injure or kill a lone dupe.
+
+
+Smooth Hatch
+''''''''''''
+
+   |Smooth Hatchling Egg| → |Smooth Hatchling| → |Smooth Hatch|
+
+   Smooth Hatch are a deep cobalt blue. They eat metal ore exclusively, and instead 
+   of producing coal, they produce `Refined Metal`_ of the corresponding ore instead. 
+   They will eat a 100 kg of ore, "refining" it into 75 kg of Refined Metal. They 
+   retain the "tougher" stats of the Stone Hatch and thus are dangerous to fight 
+   alone should you order your dupes to attack one.
+
+
+Gold Hatch
+''''''''''
+
+   |Gold Hatchling Egg| → |Gold Hatchling| → |Gold Hatch|
+
+   Gold Hatches look similar to Smooth Hatches, but are a distinct golden color. 
+   They eat metals in ore and refined form, they produce `Gold`_ or `Gold Ore`_ respectively. 
+   They will eat a 100 kg of any metal, "refining" it into 75 kg of Gold. Feeding 
+   them 100 kg `Lead`_ will produce 100 kg Gold instead. They retain the "tougher" stats 
+   of the Stone and Smooth Hatches and thus are similarly dangerous to fight alone 
+   should you order your dupes to attack one. They will eat Gold in it's refined and 
+   ore form as well, so the gold needs to be extracted from the stable quickly.
+   
+
+Tips
+~~~~
+
+Hatch Farming for Meat and Eggs
+'''''''''''''''''''''''''''''''
+
+   A Duplicant requires 1000kcal per cycle on normal difficulty settings (default). 
+   A hatch provides 2,000 grams of meat when slaughtered, which translates to about 
+   3,200 kcals of food, 4,000 when cooked into barbecue.
+
+   Happy Hatches take 5.88 cycles to lay an egg. This is roughly 544 kcals in meat 
+   (or 680kcal in barbecue) per cycle, meaning in theory you need 1.838 (or 1.47) 
+   hatches per dupe. Full time happy Hatches can lay up to 16 eggs over their entire 
+   adult life (95 days), one of which will be needed to repopulate the stable; therefore, 
+   over a hatch's entire 100 cycles of occupying a stable, it will provide 15 eggs 
+   for the colony. This is 480kcal in meat (or 600kcal barbecue) per cycle. In addition 
+   to the death of the mother, yields the final 512kcal in meat (or 640kcal barbecue), 
+   meaning you need ~1.95 (or ~1.56) hatches per dupe.
+
+   One egg can be cracked into 1,000 grams of raw egg, which can be turned into 2,800 
+   kcals of omelette. Since the same calculation holds true as above, this is 420 kcals 
+   a day, meaning you need 2.38 hatches per dupe. This feeds about half a dupe less 
+   per stable (or one and a half dupes less when cooked to barbecue), requires therefore 
+   more space, but can be done with little or no automation and therefore can be done 
+   easily early game.
+
+
+Hatch Coal Herding
+''''''''''''''''''
+
+   The goal of setting up this kind of herding operation is to have (Stone) Hatches 
+   producing coal at a rapid rate. Each `Coal Generator`_ consumes 600 kg of `Coal`_ 
+   a `Cycle`_ when running constantly. You need 8.5 tame and happy (Stone) Hatches 
+   to produce 600 kg of coal each cycle. You can fit at most 8 hatches in one `Stable`_, 
+   so technically you would need more than one stable to fuel one coal generator 
+   constantly. However, usually coal generators don't need to run all the time so 
+   your actual requirements may be less.
+
+
+Hatch Garbage Disposal Herding
+''''''''''''''''''''''''''''''
+
+   Sage Hatch will eat spoiled, over abundant or bacteria laced food, converting 
+   undesired mealwood, spoiled food, polluted dirt or slime into Sage Hatchling 
+   eggs and meat alongside a limited supply of coal. They make for delicious `Barbeque`_ 
+   and a consistent stream of eggs (one every 6 cycles roughly). Your Ranch room 
+   should have a separate hatchery adjoining it to provide constant hatch rearing. 
+   Typically a herd of 7 will run one generator, which can provide the power to a 
+   couple incubators.
+
+Hatch Refinery Herding
+''''''''''''''''''''''
+
+   Smooth hatch refine metals, more efficiently than a `Rock Crusher`_, but less so 
+   than a `Metal Refinery`_. While it takes some investment to breed a Smooth hatch, 
+   once obtained they can provide a reliable source of refined metal, without needing 
+   power and a dupes time, apart from grooming if needed, and without generating 
+   large amounts of heat. Careful estimation of just how much refined metal you 
+   need should be made, and the number of hatch should be carefully managed unless 
+   you wish to find yourself running out of ore. 3 - 4 Smooth hatch can produce 
+   enough refined metal for most early - mid game needs. They continue producing 
+   eggs like other hatch sub-species, though caution must be exercised when harvesting 
+   full grown Smooth hatch for meat - they can incapacitate a lone unskilled dupe easily. 
+   As such, if smooth hatches are also ranched for meat, use of a `Drowning chamber`_ is 
+   recommended.
+
+History
+~~~~~~~
+
+   -  `R1-260847`_: Hatches can now be `Ranched`_.
+   -  `R2-264752`_: Introduced hatch variants.
+   -  `RU-284571`_: Smooth Hatches can now be obtained from space missions to the 
+      `Metallic Asteroid`_, and Stone Hatches from space missions to the `Rocky Asteroid`_.
+   -  `LU-357226`_: Hatch diets now include `Aluminum Ore`_ and `Electrum`_
+   -  `U51-600112`_: Hatches can no longer be `Ranched`_.
+
+
+.. _Barbeque: https://oxygennotincluded.fandom.com/wiki/Barbeque
+.. _Rock Crusher: https://oxygennotincluded.fandom.com/wiki/Rock_Crusher
+.. _Metal Refinery: https://oxygennotincluded.fandom.com/wiki/Metal_Refinery
+.. _Drowning chamber: https://oxygennotincluded.fandom.com/wiki/Drowning_chamber
+.. _accurate: https://oxygennotincluded.fandom.com/wiki/Version_History
+.. _U51-600112: https://oxygennotincluded.fandom.com/wiki/Versions/U51-600112
+.. _R1-260847: https://oxygennotincluded.fandom.com/wiki/Versions/R1-260847
+.. _R2-264752: https://oxygennotincluded.fandom.com/wiki/Versions/R2-264752
+.. _RU-284571: https://oxygennotincluded.fandom.com/wiki/Versions/RU-284571
+.. _LU-357226: https://oxygennotincluded.fandom.com/wiki/Versions/LU-357226
+.. _Coal: https://oxygennotincluded.fandom.com/wiki/Coal
+.. _Diet: https://oxygennotincluded.fandom.com/wiki/Metabolism
+.. _Raw Mineral: https://oxygennotincluded.fandom.com/wiki/Raw_Mineral
+.. _Food: https://oxygennotincluded.fandom.com/wiki/Food_(Resource)
+.. _Decor: https://oxygennotincluded.fandom.com/wiki/Decor
+.. _Meat: https://oxygennotincluded.fandom.com/wiki/Meat
+.. _Organic: https://oxygennotincluded.fandom.com/wiki/Organic
+.. _Dirt: https://oxygennotincluded.fandom.com/wiki/Dirt
+.. _Metal Ore: https://oxygennotincluded.fandom.com/wiki/Metal_Ore
+.. _Refined Metal: https://oxygennotincluded.fandom.com/wiki/Refined_Metal
+.. _Lead: https://oxygennotincluded.fandom.com/wiki/Lead
+.. _Metal: https://oxygennotincluded.fandom.com/wiki/Metal
+.. _Gold: https://oxygennotincluded.fandom.com/wiki/Gold
+.. _Gold Ore: https://oxygennotincluded.fandom.com/wiki/Gold_Ore
+.. _coal: https://oxygennotincluded.fandom.com/wiki/Coal
+.. _hardness: https://oxygennotincluded.fandom.com/wiki/Hardness
+.. _meat: https://oxygennotincluded.fandom.com/wiki/Meat
+.. _Polluted Dirt: https://oxygennotincluded.fandom.com/wiki/Polluted_Dirt
+.. _slime: https://oxygennotincluded.fandom.com/wiki/Slime
+.. _algae: https://oxygennotincluded.fandom.com/wiki/Algae
+.. _Meal Lice: https://oxygennotincluded.fandom.com/wiki/Meal_Lice
+.. _Igneous Rock: https://oxygennotincluded.fandom.com/wiki/Igneous_Rock
+.. _Raw Metals: https://oxygennotincluded.fandom.com/wiki/Metal_Ore
+.. _Copper Ore: https://oxygennotincluded.fandom.com/wiki/Copper_Ore
+.. _Iron Ore: https://oxygennotincluded.fandom.com/wiki/Iron_Ore
+.. _Gold Amalgam: https://oxygennotincluded.fandom.com/wiki/Gold_Amalgam
+.. _Wolframite: https://oxygennotincluded.fandom.com/wiki/Wolframite
+.. _Coal Generator: https://oxygennotincluded.fandom.com/wiki/Coal_Generator
+.. _Cycle: https://oxygennotincluded.fandom.com/wiki/Cycles
+.. _Stable: https://oxygennotincluded.fandom.com/wiki/Stable
+.. _Ranched: https://oxygennotincluded.fandom.com/wiki/Ranching
+.. _Metallic Asteroid: https://oxygennotincluded.fandom.com/wiki/Metallic_Asteroid
+.. _Rocky Asteroid: https://oxygennotincluded.fandom.com/wiki/Rocky_Asteroid
+.. _Aluminum Ore: https://oxygennotincluded.fandom.com/wiki/Aluminum_Ore
+.. _Electrum: https://oxygennotincluded.fandom.com/wiki/Electrum
+
+
+.. |Hatch| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/55/Hatch.png
+   :width: 114px
+   :height: 101px
+.. |Sage Hatch| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/96/Sage_Hatch.png
+   :width: 113px
+   :height: 103px
+.. |Stone Hatch| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/6f/Stone_Hatch.png
+   :width: 108px
+   :height: 101px
+.. |Smooth Hatch| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/0/03/Smooth_Hatch.png
+   :width: 111px
+   :height: 103px
+.. |Gold Hatch| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/59/Gold_Hatch.png
+   :width: 111px
+   :height: 103px
+.. |Hatchling Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/94/Hatchling_Egg.png
+   :width: 69px
+   :height: 80px
+.. |Hatchling| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/d/de/Hatchling.png
+   :width: 86px
+   :height: 80px
+.. |Sage Hatchling Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/c6/Sage_Hatchling_Egg.png
+   :width: 71px
+   :height: 80px
+.. |Sage Hatchling| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/7/78/Sage_Hatchling.png
+   :width: 82px
+   :height: 80px
+.. |Stone Hatchling Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/b/bc/Stone_Hatchling_Egg.png
+   :width: 74px
+   :height: 80px
+.. |Stone Hatchling| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/37/Stone_Hatchling.png
+   :width: 94px
+   :height: 80px
+.. |Smooth Hatchling Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/7/7b/Smooth_Hatchling_Egg.png
+   :width: 69px
+   :height: 80px
+.. |Smooth Hatchling| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/35/Smooth_Hatchling.png
+   :width: 96px
+   :height: 80px
+.. |Gold Hatchling Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/2/2e/Gold_Hatchling_Egg.png
+   :width: 69px
+   :height: 80px
+.. |Gold Hatchling| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/96/Gold_Hatchling.png
+   :width: 96px
+   :height: 80px
+
+
+
+
+Pacu 帕库鱼
+----------
+
+
+   This article contains **outdated information** that is inaccurate for the 
+   current version. It was last updated for `U40-494396`_. Unreflected changes 
+   in the discussed game mechanics are detailed here: `U50-581979`_
+
+Pacu
+~~~~
+
+   Pacus are aquatic creatures that cannot live outside of `Water`_ or `Polluted Water`_.
+   Every organism in the known universe finds the Pacu extremely delicious.
+
+   |Pacu|
+
+   +----------------------+----------------------------------------------------------+
+   | Location             | Swamp Biome                                              |
+   +----------------------+----------------------------------------------------------+
+   | Health               | 25                                                       |
+   +----------------------+----------------------------------------------------------+
+   | Max age              | 25 cycles                                                |
+   +----------------------+----------------------------------------------------------+
+   | Comfortable Range    | 0 ↔ 60 °C                                                |
+   +----------------------+----------------------------------------------------------+
+   | Livable Range        | -20 ↔ 80 °C                                              |
+   +----------------------+----------------------------------------------------------+
+   | `Diet`_              | `Algae`_ 7.5 kg/cycle, `Seeds`_ 1 units/cycle (Any Seed) |
+   +----------------------+----------------------------------------------------------+
+   | Excrete              | `Polluted Dirt`_ 50% of consumed mass                    |
+   +----------------------+----------------------------------------------------------+
+   | `Decor`_             | +10 (Radius: 1tile)                                      |
+   +----------------------+----------------------------------------------------------+
+   | Drops                | 1,000 kcal `Pacu Fillet`_                                |
+   +----------------------+----------------------------------------------------------+
+   | Wranglable           | no                                                       |
+   +----------------------+----------------------------------------------------------+
+   | Capture Method       | Fish Trap                                                |
+   +----------------------+----------------------------------------------------------+
+   | Reproduction Rate    | wild: 15 cycles                                          |
+   |                      | groomed: 1.5 cycles                                      |
+   +----------------------+----------------------------------------------------------+
+   | Incubation Time      | base: 5 cycles                                           |
+   |                      | lullabied: 1 cycle                                       |
+   +----------------------+----------------------------------------------------------+
+
+Tropical Pacu
+~~~~~~~~~~~~~
+
+
+   Every organism in the known universe finds the Pacu extremely delicious.
+
+   |Tropical Pacu|
+
+   +----------------------+----------------------------------------------------------+
+   | Location             | Swamp Biome                                              |
+   +----------------------+----------------------------------------------------------+
+   | Health               | 25                                                       |
+   +----------------------+----------------------------------------------------------+
+   | Max age              | 25 cycles                                                |
+   +----------------------+----------------------------------------------------------+
+   | Comfortable Range    | 30 ↔ 80 °C                                               |
+   +----------------------+----------------------------------------------------------+
+   | Livable Range        | 10 ↔ 100 °C                                              |
+   +----------------------+----------------------------------------------------------+
+   | `Diet`_              | `Algae`_ 7.5 kg/cycle, `Seeds`_ 1 units/cycle (Any Seed) |
+   +----------------------+----------------------------------------------------------+
+   | Excrete              | `Polluted Dirt`_ 50% of consumed mass                    |
+   +----------------------+----------------------------------------------------------+
+   | `Decor`_             | +25 (Radius: 5tiles)                                     |
+   +----------------------+----------------------------------------------------------+
+   | Drops                | 1,000 kcal `Pacu Fillet`_                                |
+   +----------------------+----------------------------------------------------------+
+   | Wranglable           | no                                                       |
+   +----------------------+----------------------------------------------------------+
+   | Capture Method       | Fish Trap                                                |
+   +----------------------+----------------------------------------------------------+
+   | Reproduction Rate    | wild: 15 cycles                                          |
+   |                      | groomed: 1.5 cycles                                      |
+   +----------------------+----------------------------------------------------------+
+   | Incubation Time      | base: 5 cycles                                           |
+   |                      | lullabied: 1 cycle                                       |
+   +----------------------+----------------------------------------------------------+
+
+Gulp Fish
+~~~~~~~~~
+
+   Every organism in the known universe finds the Pacu extremely delicious.
+
+   |Gulp Fish|
+
+   +----------------------+----------------------------------------------------------+
+   | Health               | 25                                                       |
+   +----------------------+----------------------------------------------------------+
+   | Max age              | 25 cycles                                                |
+   +----------------------+----------------------------------------------------------+
+   | Comfortable Range    | -30 ↔ 5 °C                                               |
+   +----------------------+----------------------------------------------------------+
+   | Livable Range        | -50 ↔ 25 °C                                              |
+   +----------------------+----------------------------------------------------------+
+   | `Diet`_              | `Algae`_ 7.5 kg/cycle, `Seeds`_ 1 units/cycle (Any Seed) |
+   +----------------------+----------------------------------------------------------+
+   | Excrete              | `Polluted Dirt`_ 50% of consumed mass                    |
+   +----------------------+----------------------------------------------------------+
+   | Effects              | Convert 200 g/s `Polluted Water`_ into `Water`_          |
+   +----------------------+----------------------------------------------------------+
+   | `Decor`_             | +10 (Radius: 1tile)                                      |
+   +----------------------+----------------------------------------------------------+
+   | Drops                | 1,000 kcal `Pacu Fillet`_                                |
+   +----------------------+----------------------------------------------------------+
+   | Wranglable           | no                                                       |
+   +----------------------+----------------------------------------------------------+
+   | Capture Method       | Fish Trap                                                |
+   +----------------------+----------------------------------------------------------+
+   | Reproduction Rate    | wild: 15 cycles                                          |
+   |                      | groomed: 1.5 cycles                                      |
+   +----------------------+----------------------------------------------------------+
+   | Incubation Time      | base: 5 cycles                                           |
+   |                      | lullabied: 1 cycle                                       |
+   +----------------------+----------------------------------------------------------+
+
+   **Pacu** is an aquatic `Critter`_ found in pools in the `Swamp Biome`_. They 
+   produce `Pacu Fillets`_ and `Eggs`_, and their morphs can provide either fresh 
+   `Water`_ or `decor`_ bonuses. They can be domesticated.
+
+
+   Contents
+
+   -  1 Behavior
+   -  2 Variants
+
+      -  2.1 Pacu
+      -  2.2 Tropical Pacu
+      -  2.3 Gulp Fish
+
+   -  3 Pacu Ranching
+
+      -  3.1 Tamed Pacu
+      -  3.2 Wild Pacu
+
+   -  4 Tips
+
+Behavior
+~~~~~~~~
+
+   Pacu spends its time floating around in the pool of Polluted Water in which 
+   it was created. They only produce a single egg before expiring, which occurs 
+   in only 25 cycles. These pacific critters can only be captured and moved in 
+   an aquatic `Fish Trap`_, which complicates domesticating them early on in the 
+   game. Alternatively, their eggs can be sweeped into a storage container in 
+   another target location.
+
+   Their death provides 1,000 kcal of `Pacu Fillet`_, which can be cooked into 
+   1,600 kcal of `Cooked Seafood`_ at an `Electric Grill`_.
+
+   Once placed in a pool, feeding from a `Fish Feeder`_ will slowly domesticate 
+   the Pacu over roughly 10 cycles. Its feeding and reproductive behavior drastically 
+   change once domesticated: it begins gorging itself on Algae or seeds, and rapidly 
+   laying out eggs (one roughly every 1 1/2 cycles) and defecating. This continues 
+   until the pool becomes overcrowded, at which point the Pacu returns to its typical 
+   behavior; so a single domesticated Pacu can result in an extremely large population 
+   very quickly.
+
+   Their room size is calculated based on the amount of liquid tiles around them. 
+   Each Pacu requires 8 tiles each to not become overcrowded. Liquid inside and 
+   sectioned off by `Mesh Tiles`_ and `Pneumatic Doors`_ are counted and are treated 
+   as one homogeneous pool of liquid with the surrounding liquid.
+
+   .. figure:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/4b/-5EC17CD7-D23B-4D9E-B2CD-D4626199843B-.png
+
+      Despite having a lot of space to itself, the pacu on the left is 
+      overcrowded because of the pacus in the right section
+
+
+   .. figure:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/a/a7/-00AB831D-E13C-462B-B99E-9A97EC7E635C-.png
+
+      The 3 Pacus are happy because the pool size is 6x4, even though 
+      physically they are trapped by pneumatic doors in a 1x4 area
+
+
+   Pacu only swims in tiles over 350 kg and have trouble swimming in different liquids. 
+   This might make it so the Pacu can't reach the Fish Feeder or can be used to limit 
+   Pacu movement. The pathing of Pacu can make a significant game performance impact, 
+   so limiting their movement with creative liquid management while keeping them happy 
+   may be considered.
+
+   Pacu require more than 350 kg of liquid in a tile to swim; below that, the critter 
+   is considered to be *flopping*, and can visibly be seen to flop about on the ground. 
+   Even though the description reads "*Fish out of water*" when the Pacu is flopping, 
+   it suffers no health loss from it, being able to essentially *flop* for its full lifespan.
+
+   All Pacu have a mass of 200 kg when hatched and when they reach adulthood. Newly born 
+   Pacu have body temperatures which are specific to their variant, resulting in heat 
+   creation/deletion.
+
+Variants
+~~~~~~~~
+
+   The Pacu is a temperature sensitive critter with two additional variants. Provided 
+   the fish is placed in a pool of the correct temperature, it produces its variants 
+   consistently and quickly. They all maintain the Pacu's feeding and breeding behaviors, 
+   keeping all three variants tied for the most reliable source of eggs in the game.
+
+Pacu
+''''
+
+   |Fry Egg| → |Pacu Fry| →  |Pacu|
+
+   The classic pale green Pacu.
+
+   When Pacus hatch and reach adulthood, (which takes about 5.5 cycles,) their 
+   temperature is 30 °C.
+
+Tropical Pacu
+'''''''''''''
+
+   |Tropical Fry Egg| → |Tropical Fry| → |Tropical Pacu|
+
+   The colorful Tropical Pacu is the most frequently spotted variant morph of 
+   the Pacu. They emerge when a Pacu reproduces at a temperature above 35 °C. 
+   They provide a +25 decor out to a radius of 5 squares but this decor only 
+   penetrates `Window Tile`_.
+
+   When Tropical Pacus hatch and reach adulthood, their temperature is 55 °C.
+
+Gulp Fish
+'''''''''
+
+   |Gulp Fry Egg| → |Gulp Fry| → |Gulp Fish|
+
+   The blue Gulp Fish is the second variant of the Pacu. They emerge when a Pacu 
+   reproduces at a temperature below 5 °C. They also have the drawback of requiring 
+   temperature management - too hot and they die off, too cold and the pool they 
+   are in starts to freeze. They do, however, convert Polluted Water into Water, 
+   at a slow and consistent pace of 200 g/s. A large pool filled with these critters 
+   can produce enough fresh water to support a base though water needs to be siphoned 
+   off quickly thanks to its higher freezing point than Polluted Water. Alternatively, 
+   if the Polluted Water is cold enough the water that the Gulp Fish produces will 
+   instantly freeze into `Ice`_, which can be collected and melted.
+
+   The water that Gulp Fish produce matches their internal body temperature, which 
+   can cause heat creation/deletion depending on a Gulp Fish's temperature relative 
+   to the Polluted Water that it takes in.
+
+   When Gulp Fish hatch and reach adulthood, their temperature is -12.5 °C.
+
+Pacu `Ranching`_
+~~~~~~~~~~~~~~~~
+
+Tamed Pacu
+''''''''''
+
+   A newly-born tame Pacu will live long enough to lay an egg even if not fed, 
+   similar to Wild Pacu, provided it has enough space.
+
+   It is possible to sustain a single Pacu-breeder via `Algae Distiller`_ - `Pufts`_ 
+   pathway. One Pacu requires 7.5 kg of `Algae`_ per cycle. The 7.5 kg of Algae 
+   require 22.5 kg of slime per cycle, which can be covered with some excess by 1 
+   tame Puft. This in turn would need 50 kg of Polluted Oxygen per cycle. Off-gassing 
+   such an amount from polluted water would require a surface area of around 188 tiles 
+   (Puft will require at least 144 tiles on their own to not get overcrowding effects). 
+   It can be supplemented by `Polluted Oxygen Vents`_ and Morbs, although Morbs' production 
+   rates are inconsistent. Pacu can also be fed `Seeds`_, requiring 1 of any seed per cycle. 
+   Excess seeds from food crops or a `Thimble Reed`_ farm could be all you need to maintain 
+   a Pacu farm.
+
+   Two consistently-fed Pacus maintain one tame `Pokeshell`_.
+
+   Farming is more feasible if you can find a way to heavily optimize the system and 
+   reduce the algae consumption. Otherwise it will rapidly deplete your algae reserves. 
+   With automation and by limiting the amount stored in the Fish Feeder it is possible 
+   to feed a single Pacu only a few kilograms of algae per cycle. The Pacu will eventually 
+   starve, but until around age 10 it will live of its internal energy store and continuously 
+   lay eggs. After that it will intermittently starve, but still have its reproduction 
+   increased for a short time directly after a feeding. The length of the starvation and 
+   with that the amount of additional eggs can be adjusted by choosing to feed it more algae. 
+   The number of produced eggs is thus less than if fed the maximum, but the far lower amount 
+   of algae used makes this an economical tradeoff.
+
+   An alternative option is to use seeds in your Fish Feeder, as these can be easily 
+   gained from a dedicated farm or just from the passive duplication in your colonies 
+   other farms. When making a dedicated farm for the Pacu there are 2 main options, 
+   the `Balm Lily`_ can work well due to the lack of a fertilizer requirement and so 
+   only needs the dupe labor to harvest. As mentioned above, `Thimble Reed`_ is a 
+   great alternative due to its fast growth speed and minimal requirements.
+
+Wild Pacu
+'''''''''
+
+   The Pacu's short lifespan and relatively large food output makes wild Pacu an easy 
+   source of food. It will produce one egg throughout its life even when unfed, while 
+   dropping fillets for your Duplicants to eat when they die at no resource costs.
+
+   Note that wild Pacu can still become Cramped if they are overcrowded when one lays 
+   an egg. This can be avoided by moving the egg into another room. A line of open 
+   `Pneumatic Doors`_ along the bottom of the pool can rectify this by causing 
+   freshly-laid eggs to drop out of the room.
+
+   An easy way to move Pacu is to move their eggs instead, via an `Automatic Dispenser`_, 
+   a `Conveyor Chute`_ or by moving the eggs to a `Storage Bin`_ in or near the pool and 
+   then unassigning storage from the bin, causing the eggs to drop.
+
+Tips
+~~~~
+
+   -  Wild, uncrowded Pacu will lay an egg when they are 20 cycles old. 
+      The parent can die just before the egg hatches.
+
+   -  An adult, wild Pacu can be tamed in less than 8 cycles and taming from 
+      the egg takes under 12 cycles, using as little as 480 kg of Algae.
+
+   -  Creative automation can be used to tame Pacu using less Algae by limiting 
+      the Fish Feeder.
+
+   -  Eggs retain the wildness of the parent at the time the egg is laid.
+
+   -  Pacu Fry will only eat once from a Fish Feeder only containing Seeds.
+
+
+.. _U40-494396: https://oxygennotincluded.fandom.com/wiki/Versions/U40-494396
+.. _U50-581979: https://oxygennotincluded.fandom.com/wiki/Versions/U50-581979
+.. _Water: https://oxygennotincluded.fandom.com/wiki/Water
+.. _Polluted Water: https://oxygennotincluded.fandom.com/wiki/Polluted_Water
+.. _Diet: https://oxygennotincluded.fandom.com/wiki/Metabolism
+.. _Algae: https://oxygennotincluded.fandom.com/wiki/Algae
+.. _Seeds: https://oxygennotincluded.fandom.com/wiki/Plant
+.. _Polluted Dirt: https://oxygennotincluded.fandom.com/wiki/Polluted_Dirt
+.. _Decor: https://oxygennotincluded.fandom.com/wiki/Decor
+.. _Pacu Fillet: https://oxygennotincluded.fandom.com/wiki/Pacu_Fillet
+.. _Critter: https://oxygennotincluded.fandom.com/wiki/Critter
+.. _Swamp Biome: https://oxygennotincluded.fandom.com/wiki/Swamp_Biome
+.. _Pacu Fillets: https://oxygennotincluded.fandom.com/wiki/Pacu_Fillet
+.. _Eggs: https://oxygennotincluded.fandom.com/wiki/Egg
+.. _decor: https://oxygennotincluded.fandom.com/wiki/Decor
+.. _Fish Trap: https://oxygennotincluded.fandom.com/wiki/Fish_Trap
+.. _Cooked Seafood: https://oxygennotincluded.fandom.com/wiki/Cooked_Seafood
+.. _Electric Grill: https://oxygennotincluded.fandom.com/wiki/Electric_Grill
+.. _Fish Feeder: https://oxygennotincluded.fandom.com/wiki/Fish_Feeder
+.. _Mesh Tiles: https://oxygennotincluded.fandom.com/wiki/Mesh_Tile
+.. _Pneumatic Doors: https://oxygennotincluded.fandom.com/wiki/Pneumatic_Door
+.. _Window Tile: https://oxygennotincluded.fandom.com/wiki/Window_Tile
+.. _Ice: https://oxygennotincluded.fandom.com/wiki/Ice
+.. _Algae Distiller: https://oxygennotincluded.fandom.com/wiki/Algae_Distiller
+.. _Pufts: https://oxygennotincluded.fandom.com/wiki/Puft
+.. _Polluted Oxygen Vents: https://oxygennotincluded.fandom.com/wiki/Geyser
+.. _Thimble Reed: https://oxygennotincluded.fandom.com/wiki/Thimble_Reed
+.. _Pokeshell: https://oxygennotincluded.fandom.com/wiki/Pokeshell
+.. _Balm Lily: https://oxygennotincluded.fandom.com/wiki/Balm_Lily
+.. _Automatic Dispenser: https://oxygennotincluded.fandom.com/wiki/Automatic_Dispenser
+.. _Conveyor Chute: https://oxygennotincluded.fandom.com/wiki/Conveyor_Chute
+.. _Storage Bin: https://oxygennotincluded.fandom.com/wiki/Storage_Bin
+.. _Ranching: https://oxygennotincluded.fandom.com/wiki/Ranching
+
+
+.. |Pacu| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/4b/Pacu.png
+   :width: 109px
+   :height: 81px
+.. |Tropical Pacu| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/39/Tropical_Pacu.png
+   :width: 113px
+   :height: 77px
+.. |Gulp Fish| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/2/21/Gulp_Fish.png
+   :width: 109px
+   :height: 83px
+.. |Fry Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/9a/Fry_Egg.png
+   :width: 74px
+   :height: 80px
+.. |Pacu Fry| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/93/Pacu_Fry.png
+   :width: 108px
+   :height: 80px
+.. |Tropical Fry Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/3a/Tropical_Fry_Egg.png
+   :width: 75px
+   :height: 80px
+.. |Tropical Fry| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/0/05/Tropical_Fry.png
+   :width: 109px
+   :height: 77px
+.. |Gulp Fry Egg| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/60/Gulp_Fry_Egg.png
+   :width: 82px
+   :height: 80px
+.. |Gulp Fry| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/e/ef/Gulp_Fry.png
+   :width: 104px
+   :height: 80px
 
 
 
