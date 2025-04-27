@@ -249,7 +249,8 @@ sayHello "Sam"
 
 Should return `+Hello Sam+`.
 
-{{% panel %}}Type `+:exit+` to exit the repl.{{% /panel %}}
+[source]
+Type :exit to exit the repl.
 
 == 02 hello world
 
@@ -1561,7 +1562,7 @@ it to run right now. But there _is_ something that we want Elm to do for
 us when our program first starts: we want it to fetch the current time
 for us!
 
-As we learned in [an earlier section]({{< ref "`02-start.md`" >}}),
+As we learned in an earlier section (02 hello world),
 functions like `+Time.now+` that fetch information from the outside
 world return a task that you can command Elm to perform.
 

@@ -10,7 +10,8 @@ Richard Feldman +
 April 2020  ISBN 9781617294044  344 pages +
 printed in black & white +
 JavaScript Development +
-https://www.manning.com/books/elm-in-action[Publisher] 
+https://www.manning.com/books/elm-in-action[Publisher] |
+https://github.com/rtfeldman/elm-in-action[Source] |
 http://www.banshujiang.cn/e_books/3018[PDF]
 
 [.text-center]
@@ -242,7 +243,7 @@ the latest.
 
 Having both taught and participated in my fair share of Elm workshops, I didn’t
 stop there. “The book should introduce types only after the reader has built some-
-thing. That’s really important! Otherwise, what happens is . . . ” Pretty soon I was ges-
+thing. That’s really important! Otherwise, what happens is ... ” Pretty soon I was ges-
 turing with my free hand as I paced alone around my apartment.
 
 At some point, I realized I was describing the book I wished I’d had back when I
@@ -296,7 +297,7 @@ Aditya “Deech” Siram for setting me on the path to learn typed functional pr
 ming, to Al Adams for teaching me I can bite off more than I can chew and get it
 down anyway, and to Amy Weiss—both for introducing me to the depth of prose and
 for, in 2005, looking me in my novice eye and exclaiming, “You’re a writer!” Lastly,
-thanks again to Evan Czaplicki for . . . I’m not sure how I could put into words all the
+thanks again to Evan Czaplicki for ... I’m not sure how I could put into words all the
 things you’ve taught me about programming, so maybe I should have paid closer
 attention in Amy Weiss’s class.
 
@@ -906,10 +907,8 @@ ters, numbers, and underscores.
 ple, map4 is a reasonable name, but map4ever is not, as the sequence of letters
 is interrupted by the 4 .
 
-
 • Because of the previous two rules, you should never use snake_case or
 SCREAMING_SNAKE_CASE to name values. Use camelCase instead.
-
 
 • If you absolutely must know whether the compiler will accept `some_raD__TH1NG___`
 as a valid name, remember: what happens in elm repl stays in elm repl .
@@ -1584,13 +1583,11 @@ guish operators from normal functions:
 writing the name of the function followed by its arguments. This is prefix-style
 calling.
 
-
 • Operators have names that contain neither
 letters nor numbers. You typically call them by
 writing the first argument, followed by the
 operator, followed by the second argument.
 This is infix-style calling.
-
 
 • Wrapping an operator in parentheses treats it
 as a normal function—prefix-style calling and
@@ -1602,35 +1599,72 @@ ator in both infix style and prefix style.
 [#F-1-6, subs=normal]
 ****
 Calling the - operator in both infix style and prefix style
+
+
+[tikz,role=text-center]
+----
+\documentclass[tikz]{standalone}
+\usetikzlibrary {shapes.misc,matrix}
+\begin{document}
+\tikz{
+
+  \matrix (magic) [matrix of nodes, row sep=2cm,column sep=1cm]
+  {
+    \draw[blue] node (P){Prefix style}; &  7   &  - & 3 == 4 \\
+    \draw[blue] node (I){ Infix style}; & (-)  &  7 & 3 == 4 \\
+  };
+
+  \draw[line width=18pt,line cap=round,green,opacity=.2,out=-65,in=110]
+    (magic-1-3.north) to (magic-2-2.south);
+
+  \draw[line width=18pt,line cap=round,red!50,opacity=.2,out=-115,in=60]
+    (magic-1-2.north) to (magic-2-3.south);
+
+  \draw[inner sep=2cm,fill=blue!20,opacity=0.5]
+    (P.north west) rectangle (magic-1-4.south east)
+    (I.north west) rectangle (magic-2-4.south east);
+}
+\end{document}
+----
 ****
 
 
 [[p021]]
 Let’s play with some operators in elm repl .
 
+.⿻Listing 1.12 Showing that operators are functions
+[source,elm]
+----
 > (/)
 <function>
 > divideBy = (/)
 <function>
-> 7 / 2
-3.5
-> (/) 7 2
-3.5
+> 7 / 2         <---. Infix-style
+3.5                 | calling
+> (/) 7 2               <---. Prefix-style
+3.5                         | calling
 > divideBy 7 2
 3.5
-O PERATOR PRECEDENCE
+----
+
+
+==== OPERATOR PRECEDENCE
+
 Try entering an expression involving both arithmetic operators and (==) into elm
 repl :
-> 3 + 4 == 8 - 1
-True : Bool
+
+    > 3 + 4 == 8 - 1
+    True : Bool
+
 Now consider how we’d rewrite this expression in prefix style:
-> (==) ((+) 3 4) ((-) 8 1)
-True : Bool
+
+    > (==) ((+) 3 4) ((-) 8 1)
+    True : Bool
+
 Notice anything about the order in which these operators appear?
 
 • Reading the infix-style expression from left to right, we see + , then == , and
 finally - .
-
 
 • The prefix-style expression has a different order: first we see == , then + , and
 finally - .
@@ -1642,11 +1676,11 @@ values, illustrated in figure 1.7.
 .DEFINITION
 ****
 In any expression containing multiple
-****
 operators, the operators with higher precedence get
 evaluated before those with lower precedence. This
 applies only to infix-style calls, as all prefix-style calls
 implicitly have the same precedence.
+****
 
 There isn’t much formal documentation on opera-
 tors’ relative precedence values, but operators that
@@ -1654,47 +1688,84 @@ appear in many programming languages (such as the
 (==) , (+) , and (-) operators) tend to work similarly
 in Elm as they do everywhere else.
 
-.⿻Listing 1.12 Showing that operators are functions
-[source,elm]
-----
-----
 
-Infix-style
-calling
-Prefix-style
-calling
-Figure 1.7 ( == ) gets evaluated
+.Figure 1.7
+****
+( == ) gets evaluated
 after ( + ) and ( - ) because it has
 lower precedence.
 
-3 + 4 == 8 - 1
-(==) ((+) 3 4) ((-) 8 1)
-Lowest precedence
-Higher Higher
+
+[tikz,role=text-center]
+----
+\documentclass[tikz]{standalone}
+\usetikzlibrary {shapes.misc,matrix}
+\begin{document}
+\tikz{
+
+  \matrix (magic) [matrix of nodes, row sep=1cm,column sep=0.1cm]
+  {
+          &  3 + 4     &  == & 8 - 1 \\
+    (==)  &  ((+) 3 4) & ((-) 8 1) & \\
+  };
+
+  \draw[line width=36pt,line cap=square,green,opacity=.2,out=-90,in=90]
+    (magic-1-2.north) to (magic-2-2.south);
+
+  \draw[line width=36pt,line cap=square,red!50,opacity=.2,out=-90,in=90]
+    (magic-1-3.north) to (magic-2-1.south);
+
+  \draw[line width=36pt,line cap=square,blue!50,opacity=.2,out=-90,in=90]
+    (magic-1-4.north) to (magic-2-3.south);
+
+  \draw[->] (magic-1-3) +(1,1) -- (magic-1-3) node at +(1,1.5){Lowest precedence};
+  \draw[->] (magic-2-2.north) +(0,0.5) -- (magic-1-2)  node at +(0,-1){Higher};
+  \draw[->] (magic-2-3.north) +(0.5,0.5) -- (magic-1-4)  node at +(-1,-1){Higher};
+}
+\end{document}
+----
+****
+
 
 [[p022]]
-N ORMAL FUNCTION CALLS HAVE TOP PRECEDENCE
+==== NORMAL FUNCTION CALLS HAVE TOP PRECEDENCE
+
 Here are two ways to write the same thing:
-> negate 1 + negate 5
--6
-> (negate 1) + (negate 5)
--6
+
+  > negate 1 + negate 5
+  -6
+  > (negate 1) + (negate 5)
+  -6
+
 These two are equivalent because plain function calls have higher precedence than
 any operator. This means anytime you want to pass the results of two plain function
 calls to an operator, you won’t need to add any parentheses! You’ll still get the result
 you wanted.
 
-O PERATOR ASSOCIATIVITY
+==== OPERATOR ASSOCIATIVITY
+
 Besides precedence, the other factor that determines evaluation order for operators
-called in infix style is whether the operators are left-associative, right-associative, or nonas-
-sociative. Every operator is one of these.
+called in infix style is whether the operators are left-associative, right-associative, 
+or nonassociative. Every operator is one of these.
 
 An easy way to think about operator associativity is in terms of where the implied
 parentheses go, as shown in table 1.4. Infix expressions involving left-associative oper-
 ators, such as arithmetic operators, have implied parentheses that cluster on the left.
+
+.Table 1.4 Implied parentheses for the ( - ) operator
+[opts="autowidth",frame=ends,grid=rows]
+|=====
+|Parentheses shown          |Expression     |Result
+
+|None                       |10 - 6 - 3     |1
+|Assuming left-associative  |((10 - 6) - 3) |1
+|Assuming right-associative |(10 - (6 - 3)) |7
+|=====
+
 If (-) were right-associative, 10 - 6 - 3 would have parentheses clustering on the
 right, meaning it would evaluate to (10 - (6 - 3)) and the undesirable result of 10
 - 6 - 3 == 7 . Good thing arithmetic operators are left-associative!
+
 Nonassociative operators cannot be chained together. For example, foo == bar
 == baz does not result in clustered parentheses; it results in an error!
 
@@ -1713,14 +1784,6 @@ An immutable value cannot be modified in any way once created.
 This is in contrast to JavaScript, where some values (like strings and numbers) are
 immutable, but collections (like arrays and objects) can be mutated.
 
-.Table 1.4 Implied parentheses for the ( - ) operator
-[opts="autowidth",frame=ends,grid=rows]
-|=====
-|=====
-Parentheses shown Expression Result
-None 10 - 6 - 3 1
-Assuming left-associative ((10 - 6) - 3) 1
-Assuming right-associative (10 - (6 - 3)) 7
 
 [[p023]]
 ==== 1.4.1 Lists
@@ -1729,7 +1792,6 @@ An Elm list has many similarities to a JavaScript array:
 
 • You can create one with a square bracket literal; for example, [ "one fish",
 "two fish" ] .
-
 
 • You can ask for its first element.
 
@@ -1744,9 +1806,8 @@ An Elm list does have some differences, though:
 • It has no fields or methods. You work with it by using functions from the List
 module.
 
-
-• Because it is a linked list, you can ask for its first element, but not for other indi-
-vidual elements. (If you need to ask for elements at various positions, you can
+• Because it is a linked list, you can ask for its first element, but not for other
+individual elements. (If you need to ask for elements at various positions, you can
 first convert from an Elm List to an Elm Array . We’ll discuss Elm arrays in
 chapter 3.)
 
@@ -1755,28 +1816,29 @@ chapter 3.)
 intermingle.” (Making a list containing both strings and numbers involves first
 creating wrapper elements for them, using a feature called custom types that we’ll
 cover in chapter 3.)
+
 Although Elm supports both (immutable) lists and (also immutable) arrays, Elm lists
 are much more commonly used in practice. Table 1.5 shows some examples of how
 Elm lists and JavaScript arrays differ.
 
 Let’s focus on that last one. Why must all elements in an Elm list have a consistent
 type?
+
 To understand how this requirement benefits us, let’s delve into the List.filter
 function, which works like the String.filter function we used earlier.
 
 .Table 1.5 Contrasting JavaScript arrays and Elm lists
 [opts="autowidth",frame=ends,grid=rows]
 |=====
+|JavaScript array |Elm list
+
+|[ 1, 2, 3 ].length            |List.length [ 1, 2, 3 ]
+|[ "one fish", "two fish" ][0] |List.head [ "one fish", "two fish" ]
+|[ "one fish", "two fish" ][1] |No arbitrary position-based element access.
+|[ 1, 2 ].concat([ 3, 4 ])     |[ 1, 2 ] ++ [ 3, 4 ]
+|[ 1, 2 ].push(3)              |Cannot be modified; use, for example, append instead.
+|[ 1, "Paper", 3 ]             |All elements in a list must have a consistent type.
 |=====
-JavaScript array Elm list
-[ 1, 2, 3 ].length List.length [ 1, 2, 3 ]
-[ "one fish", "two fish" ][0] List.head [ "one fish", "two fish" ]
-[ "one fish", "two fish" ][1] No arbitrary position-based element access.
-
-[ 1, 2 ].concat([ 3, 4 ]) [ 1, 2 ] ++ [ 3, 4 ]
-[ 1, 2 ].push(3) Cannot be modified; use, for example, append instead.
-
-[ 1, "Paper", 3 ] All elements in a list must have a consistent type.
 
 
 [[p024]]
@@ -1786,20 +1848,30 @@ differs only in that the function you provide doesn’t necessarily receive char
 instead, it receives elements from the list, whatever they may be.
 
 Let’s see that in action. Quick! To elm repl !
-> List.filter (\char -> char /= '-') [ 'Z', '-', 'Z' ]
-['Z','Z']
-> List.filter (\str -> str /= "-") [ "ZZ", "-", "Top" ]
-["ZZ","Top"]
-> List.filter Char.isDigit [ '7', '-', '9' ]
-['7','9']
-> List.filter (\num -> num > 0) [ -2, -1, 0, 1, 2 ]
-[1,2]
+
+.⿻Listing 1.13 Filtering lists
+[source,elm]
+----
+> List.filter (\char -> char /= '-') [ 'Z', '-', 'Z' ]  <---. Same function we passed
+['Z','Z']                                                   | to String.filter earlier
+> List.filter (\str -> str /= "-") [ "ZZ", "-", "Top" ] <---. Strings instead
+["ZZ","Top"]                                                | of characters
+> List.filter Char.isDigit [ '7', '-', '9' ]            <---. Works just as with
+['7','9']                                                   | String.filter
+> List.filter (\num -> num > 0) [ -2, -1, 0, 1, 2 ]     <---. Keeps only the
+[1,2]                                                       | positive numbers
+----
+
 Here’s how we would rewrite that last line of code in JavaScript:
-[ -2, -1, 0, 1, 2 ].filter(function(num) { return num > 0; })
+
+    [ -2, -1, 0, 1, 2 ].filter(function(num) { return num > 0; })
+
 This looks straightforward enough, but JavaScript arrays permit inconsistent element
 types. Without looking it up, can you guess what happens if we change it to the
 following?
-[ -2, "0", "one", 1, "+02", "(3)" ].filter(function(num) { return num > 0; })
+
+    [ -2, "0", "one", 1, "+02", "(3)" ].filter(function(num) { return num > 0; })
+
 Will it crash? Will it happily return numbers? What about strings? It’s a bit of a head-
 scratcher.
 
@@ -1821,30 +1893,34 @@ similar vein, JavaScript’s mutable objects resemble Elm’s immutable records.
 ****
 A record is a collection of named fields, each with an associated value.
 ****
+
 Array and list literals in the two languages are syntactically identical. But whereas
 JavaScript object literals use : to separate fields and values, Elm record literals use =
 instead. Let’s get a sense of some of their other differences in table 1.6.
 
-.⿻Listing 1.13 Filtering lists
-[source,elm]
-----
-----
-
-Same function we passed
-to String.filter earlier
-Strings instead
-of characters
-Works just as with
-String.filter
-Keeps only the
-positive numbers
 
 [[p025]]
 Wow—compared to objects, records sure don’t do much! It’s like all they do is sit
 around holding onto the data we gave them. (Yep.) Personally, I’ve found Elm’s
 records a welcome reprieve from the intricacies of JavaScript’s this keyword.
 
-R ECORD UPDATES
+.Table 1.6 Comparing JavaScript objects and Elm records
+[opts="autowidth",frame=ends,grid=rows]
+|=====
+|JavaScript object                    |Elm record
+
+|{ name: "Li", cats: 2 }              |{ name = "Li", cats = 2 }
+|({ name: "Li", cats: 2 }).cats       |({ name = "Li", cats = 2 }).cats
+|({ name: "Li", cats: 2 })["cats"]    |Fields can be accessed only directly, using a dot.
+|({ name: "Li", cats: 2 }).cats = 3   |Cannot be modified. (New cat? New record!)
+|{ NAME: "Li", CATS: 2 }              |Field names can’t start with uppercase letters.
+|({ name: "Li", cats: 2 }).+__proto__+|No prepackaged fields, only the ones you define.
+|Object.keys({ name: "Li", cats: 5 }) |No listing of field names is available on demand.
+|Object.prototype                     |Records have no concept of inheritance.
+|=====
+
+==== RECORD UPDATES
+
 Record updates let us concisely obtain a new record by copying the old one and chang-
 ing only the specified values. (Because records are immutable, Elm will reuse values
 from the existing record to save time and memory, rather than copying everything.)
@@ -1852,47 +1928,25 @@ Let’s use this technique to represent someone obtaining an extra cat, going fr
 { name = "Li", cats = 2 } to { name = "Li", cats = 3 } by way of a record
 update.
 
-> catLover = { name = "Li", cats = 2 }
-{ name = "Li", cats = 2 }
-> catLover
-{ name = "Li", cats = 2 }
-> withThirdCat = { catLover | cats = 3 }
-{ name = "Li", cats = 3 }
-> withThirdCat
-{ name = "Li", cats = 3 }
-> catLover
-{ name = "Li", cats = 2 }
-> { catLover | cats = 88, name = "LORD OF CATS" }
-{ name = "LORD OF CATS", cats = 88 }
-.Table 1.6 Comparing JavaScript objects and Elm records
-[opts="autowidth",frame=ends,grid=rows]
-|=====
-|=====
-JavaScript object Elm record
-{ name: "Li", cats: 2 } { name = "Li", cats = 2 }
-({ name: "Li", cats: 2 }).cats ({ name = "Li", cats = 2 }).cats
-({ name: "Li", cats: 2 })["cats"] Fields can be accessed only directly, using a dot.
-({ name: "Li", cats: 2 }).cats = 3 Cannot be modified. (New cat? New record!)
-{ NAME: "Li", CATS: 2 } Field names can’t start with uppercase letters.
-
-({ name: "Li", cats: 2 }).__proto__ No prepackaged fields, only the ones you
-define.
-
-Object.keys({ name: "Li", cats: 5 }) No listing of field names is available on
-demand.
-
-Object.prototype Records have no concept of inheritance.
 
 .⿻Listing 1.14 Record updates
 [source,elm]
 ----
+> catLover = { name = "Li", cats = 2 }
+{ name = "Li", cats = 2 }
+> catLover
+{ name = "Li", cats = 2 }                         | Record
+> withThirdCat = { catLover | cats = 3 }      <---' update syntax
+{ name = "Li", cats = 3 }
+> withThirdCat
+{ name = "Li", cats = 3 }
+> catLover                        | Original record unmodified!
+{ name = "Li", cats = 2 }     <---'
+> { catLover | cats = 88, name = "LORD OF CATS" }     <---. Updates multiple fields
+{ name = "LORD OF CATS", cats = 88 }                      | (order doesn’t matter)
 ----
 
-Record
-update syntax
-Original record unmodified!
-Updates multiple fields
-(order doesn’t matter)
+
 
 [[p026]]
 Record updates let us represent this incremental evolution without mutating our
@@ -1901,10 +1955,9 @@ state with a record, and use record updates to make changes based on user intera
 
 ==== 1.4.3 Tuples
 
-Lists let us represent collections of varying size, whose elements share a consistent type.
-Records let us represent collections of fixed fields—that is, fields that cannot be added
-or removed at runtime—but the values corresponding to those fields may have varied
-types.
+Lists let us represent collections of _varying size_, whose elements share a _consistent type._
+Records let us represent collections of _fixed fields_—that is, fields that cannot be added
+or removed at runtime—but the values corresponding to those fields may have _varied types_.
 
 Tuples introduce no new capabilities to this mix, as there is nothing a tuple can do
 that a record can’t. Compared to records, though, what tuples bring to the party is
@@ -1914,20 +1967,26 @@ conciseness.
 .DEFINITION
 ****
 A tuple is a record-like value whose fields are accessed by position
-****
 rather than by name.
+****
 
 In other words, tuples are for when you want a record but don’t want to bother nam-
 ing its fields. They are often used for things like key-value pairs, where writing out {
 key = "foo", value = "bar" } would add verbosity but not much clarity. Let’s
 try some out!
+
+.⿻Listing 1.15 Using tuples
+[source,elm]
+----
 > ( "Tech", 9 )
-("Tech",9)
-> Tuple.first ( "Tech", 9 )
-"Tech"
-> Tuple.second ( "Tech", 9 )
+("Tech",9)                      | Returns firt element (works
+> Tuple.first ( "Tech", 9 ) <---' only on two-element tuples)
+"Tech"                           | Returns second element (works
+> Tuple.second ( "Tech", 9 ) <---' only on two-element tuples)
 9
-You can use the Tuple.first and Tuple.second functions only on tuples that con-
+----
+
+You can use the _Tuple.first_ and _Tuple.second_ functions only on tuples that con-
 tain two elements. If they have three elements, you can use tuple destructuring to extract
 their values.
 
@@ -1935,36 +1994,27 @@ their values.
 .DEFINITION
 ****
 Tuple destructuring extracts the values inside a tuple and assigns
-****
 them to names in the current scope.
+****
 
 Let’s use tuple destructuring to implement a function that takes a tuple of three
 elements.
 
-> multiply3d ( x, y, z ) = x * y * z
-<function>
-> multiply3d ( 6, 7, 2 )
-84
-.⿻Listing 1.15 Using tuples
-[source,elm]
-----
-----
 
 .⿻Listing 1.16 Tuple destructuring
 [source,elm]
 ----
+> multiply3d ( x, y, z ) = x * y * z  <---. Destructuring a tuple into
+<function>                                | three named values: x, y, and z
+> multiply3d ( 6, 7, 2 )
+84
+> multiply2d someTuple = let ( x, y ) = someTuple in x * y  <---. Destructuring a tuple
+<function>                                                      | inside a let-expression
 ----
 
-Returns first element (works
-only on two-element tuples)
-Returns second element (works
-only on two-element tuples)
-Destructuring a tuple into
-three named values: x, y, and z
+
 
 [[p027]]
-> multiply2d someTuple = let ( x, y ) = someTuple in x * y
-<function>
 As demonstrated here, once you have named the values inside the tuple, you can use
 them just as you would any other named value.
 
@@ -1972,7 +2022,23 @@ TIP Mind the difference between a tuple and a parenthetical function call!
 ( foo, bar ) is a tuple, whereas ( foo bar ) is a call to the foo function,
 passing bar as an argument. A simple mnemonic to remember the difference
 is “comma means tuple.”
+
 Table 1.7 compares the feature sets of lists, records, and tuples.
+
+.Table 1.7 Comparing lists, records, and tuples
+[opts="autowidth",frame=ends,grid=rows]
+|=====
+|List             |Record              |Tuple
+
+|Can add or remove elements at runtime
+|Cannot add or remove fields at runtime
+|Cannot add or remove elements at runtime
+
+|Can iterate over |Cannot iterate over |Cannot iterate over
+|No names         |Named fields        |No names
+|Immutable        |Immutable           |Immutable
+|=====
+
 
 Because any tuple can be represented using a record instead, Elm does not support
 tuples of more than three elements. For those situations, it’s better to use a record!
@@ -1980,7 +2046,9 @@ When you need only two or three elements, though, choose tuples or records based
 on whichever would yield more readable code; their performance characteristics are
 equivalent.
 
-Summary
+
+=== Summary
+
 We’re off to a fantastic start! First, we discussed some of the toughest problems web
 programmers face: crashing is too easy in JavaScript, and maintenance is too error-
 prone even with a boost from TypeScript. Then, you learned how Elm addresses these
@@ -1998,84 +2066,69 @@ Here is a brief review of things we covered along the way:
 
 • There is no concept of “truthiness” in Elm, just True and False .
 
-• if foo /= bar then "different" else "same" is an if-expression. Like Java-
-Script ternaries, if-expressions require an else branch and always evaluate to a
-value.
-
-.Table 1.7 Comparing lists, records, and tuples
-[opts="autowidth",frame=ends,grid=rows]
-|=====
-|=====
-List Record Tuple
-Can add or remove elements at
-runtime
-Cannot add or remove fields at
-runtime
-Cannot add or remove elements
-at runtime
-Can iterate over Cannot iterate over Cannot iterate over
-No names Named fields No names
-Immutable Immutable Immutable
-Destructuring a tuple
-inside a let-expression
+• if foo /= bar then "different" else "same" is an if-expression. Like JavaScript
+ternaries, if-expressions require an else branch and always evaluate to a value.
 
 [[p028]]
 • Lists like [ 3, 1, 4 ] are immutable. Their elements must share a consistent
 type.
 
-
 • List.filter (\num -> num > 0) numbersList returns a list containing
 all the positive numbers in the original numbersList .
-
 
 • catLover = { name = "Li", cats = 2 } assigns a record to the name
 catLover . Once assigned, names cannot be reassigned.
 
-
 • { catLover | cats = 3 } returns a new record that is the same as the cat-
 Lover record, except the cats value is now 3 .
-
 
 • ( foo, bar ) destructures a tuple such as ( 2, 3 ) . In this example, foo
 would be 2 , and bar would be 3 .
 
 Table 1.8 summarizes some of the differences between JavaScript and Elm.
 
-You also learned about several differences between plain functions and operators, as
-shown in table 1.9.
-
-In chapter 2, we’ll expand on what you’ve learned here to create a working Elm appli-
-cation. Let’s go build something!
 .Table 1.8 Differences between JavaScript and Elm
 [opts="autowidth",frame=ends,grid=rows]
 |=====
+|JavaScript                           |Elm
+
+|// This is an inline comment         |-- This is an inline comment
+|/* This is a block comment */        |{- This is a block comment -}
+|true && false                        |True && False
+|"Ahoy, " + "World!"                  |"Ahoy, " ++ "World!"
+|"A spade" === "A spade"              |"A spade" == "A spade"
+|"Calvin" !== "Hobbes"                |"Calvin" /= "Hobbes"
+|Math.pow(2, 11)                      |2 ^ 11
+|Math.trunc(-49 / 10)                 |-49 // 10
+|n > 0 ? "positive" : "not"           |if n > 0 then "positive" else "not"
+|nums.filter(function(n) { ... })     |List.filter (\n -> n > 0) nums
+|function pluralize(s, p, c) { ... }  |pluralize singular plural count = ...
 |=====
-JavaScript Elm
-// This is an inline comment -- This is an inline comment
-/* This is a block comment */ {- This is a block comment -}
-true && false True && False
-"Ahoy, " + "World!" "Ahoy, " ++ "World!"
-"A spade" === "A spade" "A spade" == "A spade"
-"Calvin" !== "Hobbes" "Calvin" /= "Hobbes"
-Math.pow(2, 11) 2 ^ 11
-Math.trunc(-49 / 10) -49 // 10
-n > 0 ? "positive" : "not" if n > 0 then "positive" else "not"
-nums.filter(function(n) { ... }) List.filter (\n -> n > 0) nums
-function pluralize(s, p, c) { ... } pluralize singular plural count = ...
+
+You also learned about several differences between plain functions and operators, as
+shown in table 1.9.
 
 .Table 1.9 Differences between plain functions and operators
 [opts="autowidth",frame=ends,grid=rows]
 |=====
+|Function |How to identify one            |Calling style  |Examples
+
+|Plain    |Name begins with a letter      |Prefix style   |negate, not, pluralize
+|Operator |Name has no letters or numbers |Infix style    |(++), (*), (==)
 |=====
-Function How to identify one Calling style Examples
-Plain Name begins with a letter Prefix style negate, not, pluralize
-Operator Name has no letters or numbers Infix style (++), (*), (==)
-29
-Your first Elm application
+
+In chapter 2, we’ll expand on what you’ve learned here to create a working Elm appli-
+cation. Let’s go build something!
+
+
+[[P029]]
+== Chapter　2 Your first Elm application
+
 Elm applications are built to last. They have a reputation for being scalable, easy
 to refactor, and difficult to crash unexpectedly. Because JavaScript applications
-have . . . well . . . a different reputation, it stands to reason that Elm must be doing
+have ... well ... a different reputation, it stands to reason that Elm must be doing
 things differently. And so it is!
+
 Whereas each line of code in a JavaScript application could result in a change
 or effect—like “update that text!” or “send this to the server!”—the code in an Elm
 application builds up a description of what the program should do in response to
@@ -2111,7 +2164,6 @@ In this chapter, we’ll work with the two most common types of DOM nodes:
 
 • Elements—These have a tagName (such as "button" or "img" ), and may have
 child DOM nodes.
-
 
 • Text nodes—These have a textContent property instead of a tagName , and are
 childless.
@@ -2195,7 +2247,9 @@ HTML markup
 Nested function calls
 
 [[p032]]
-R ENDERING A PAGE
+
+==== RENDERING A PAGE
+
 Let’s use what you’ve learned to render your first page with Elm! For the rest of this
 chapter, we’ll be building the Photo Groove application. Eventually, we’ll add features
 like applying filters and viewing larger versions, but first we need to render a basic
@@ -2454,7 +2508,7 @@ rally, you wonder: “How can I find out what partition does? Is it defined in t
 file?” You search through the file and can’t find it, so it must come from an import.
 You scroll up to the imports and discover a long list of exposing (..) declarations.
 Argh! partition could be in any of those!
-This could take a while. . . .
+This could take a while... .
 
 Suppose instead you see the code List.partition foo bar. You want to know
 what List.partition does, so you bring up the documentation for the List mod-
@@ -2875,7 +2929,9 @@ Displays a larger version
 of the selected photo
 
 [[p046]]
-R EPLACING ANONYMOUS FUNCTIONS WITH PARTIAL APPLICATION
+
+==== REPLACING ANONYMOUS FUNCTIONS WITH PARTIAL APPLICATION
+
 Although the way we’ve written this works, it’s not quite idiomatic Elm code. The idi-
 omatic style would be to remove the anonymous function like so:
 Before: List.map (\photo -> viewThumbnail model.selectedUrl photo)
@@ -2935,7 +2991,6 @@ ence is in which they choose as the default:
 • In JavaScript, functions are tupled by default. If you’d like them to support par-
 tial application, you can first curry them by hand—as we did in our JavaScript
 viewThumbnail implementation in the preceding code.
-
 
 • In Elm, functions are curried by default. If you’d like to partially apply them, go
 right ahead. They’re already set up for it. If you’d like a tupled function, write a
@@ -3188,7 +3243,9 @@ Elm Architecture setup
 
 [[p053]]
 Congratulations on a job well done!
-Summary
+
+=== Summary
+
 In this chapter, you learned three ways to handle interactions, each of which differs
 from the JavaScript way of handling the same. Table 2.2 summarizes these differences.
 We covered many other concepts in the course of building our first Elm application,
@@ -3204,7 +3261,6 @@ including the following:
 
 • After an update , the new model is sent to the view function to determine the
 new DOM.
-
 
 • Browser.sandbox wires together model , view , and update .
 
@@ -3297,8 +3353,9 @@ the photo the user clicked
 Browser.sandbox describes
 our complete application.
 
-55
-Compiler as assistant
+[[p055]]
+== Chapter　3 Compiler as assistant
+
 In chapter 2, we built your first Elm application. It doesn’t do much yet, but it has
 potential! So far, it displays thumbnails of three photos, and lets users click one to
 view a larger version.
@@ -3454,11 +3511,9 @@ and lists differ in a few ways:
 • Lists can be created with square bracket literals, whereas arrays have no literal
 syntax in Elm. We always create arrays by calling functions.
 
-
 • Lists perform better in typical Elm use cases. This makes them the standard
 choice for representing a sequence of values, in contrast to JavaScript (where
 arrays are standard).
-
 
 • Arrays are better for arbitrary positional access. That means it’s quick and easy
 to say, “Give me the third element in this array.” Lists have no first-class way to
@@ -3527,7 +3582,7 @@ List { url : String } Array { url : String }
 [opts="autowidth",frame=ends,grid=rows]
 |=====
 |=====
-When we pass this in . . . . . . elementType becomes . . . . . . and we get this back
+When we pass this in ... ... elementType becomes ... ... and we get this back
 List Float Float Array Float
 List String String Array String
 List { url : String } { url : String } Array { url : String }
@@ -4038,7 +4093,9 @@ Evaluates to “large”
 if size == Large
 
 [[p070]]
-R ENDERING THREE RADIO BUTTONS
+
+==== RENDERING THREE RADIO BUTTONS
+
 We can now call this viewSizeChooser function three times, passing Small ,
 Medium , and Large , to render the three radio buttons on the page. Let’s do that right
 above thumbnails :
@@ -4057,7 +4114,9 @@ this:
 , div [ id "choose-size" ]
 (List.map viewSizeChooser [ Small, Medium, Large ])
 This refactor not only reduces duplication, but also makes our code more concise.
-R ENDERING DIFFERENT THUMBNAIL SIZES
+
+==== RENDERING DIFFERENT THUMBNAIL SIZES
+
 Rendering the interface for choosing a thumbnail size is great, but it’s only half the bat-
 tle! We still need to actually render our thumbnails differently based on what the user
 has chosen.
@@ -4106,10 +4165,8 @@ Elm avoids this runtime exception by handling this situation differently, in thr
 • In Elm, you call Array.get to get an element in an array; there is no [2]
 accessor.
 
-
 • Array.get never returns undefined or null , because Elm has neither of
 these.
-
 
 • Array.get always returns a container value called a Maybe .
 
@@ -4493,7 +4550,9 @@ When the user clicks the Surprise Me! button, we’ll use a command to translate
 Random.Generator Int into a randomly generated Int , which will represent our
 new selected photo index.
 
-R ETURNING COMMANDS FROM UPDATE
+
+==== RETURNING COMMANDS FROM UPDATE
+
 Remember how we specified what onClick should do in terms of a message that got
 sent to our update function? We didn’t say, “Add this click event listener to the DOM
 right away.” We said, “I want this Msg to get sent to my update function whenever the
@@ -4534,7 +4593,9 @@ Elm Runtime
 Html Cmd
 
 [[p080]]
-R UNNING COMMANDS IN RESPONSE TO USER INPUT
+
+==== RUNNING COMMANDS IN RESPONSE TO USER INPUT
+
 We want to generate our random number in response to a click event, so we’ll need to
 alter our update function a bit. Specifically, we’ll have update return a tuple contain-
 ing not only the new Model we want, but also whatever commands we want the Elm
@@ -4720,11 +4781,9 @@ parameters represent the following pieces of information:
 currently using. Using () for our flags type indicates that we don’t accept any
 flags.
 
-
 • Our model’s type. We can have any type of model we like—it could be a
 String , or an Int , or any number of other types. In our case, our model has
 the type Model .
-
 
 • The type of the message that both update and view will use. In our case, that
 type is Msg .
@@ -4744,7 +4803,9 @@ time exception. This is a normal experience with Elm, yet it never seems to get 
 Compared to where we were at the end of chapter 2, our revised application is not
 only more feature rich, but also more reliable and better documented. It does more, it
 does it better, and the code is easier to maintain. Huzzah!
-Summary
+
+=== Summary
+
 We’ve now improved on our application from chapter 2 in several ways:
 
 • We added documentation in the form of type annotations.
@@ -4764,7 +4825,6 @@ Along the way, we covered many new concepts:
 • A type alias declaration assigns a name to a type, much as a constant assigns
 a name to a value.
 
-
 • A type declaration defines a new custom type, one that did not exist before.
 
 .Figure 3.9
@@ -4783,20 +4843,16 @@ image:https://drek4537l1klr.cloudfront.net/rfeldman/HighResolutionFigures/figure
 • Custom type variants can be either values that are instances of that custom type,
 or functions that return instances of that custom type.
 
-
 • You can destructure custom type variants in case-expressions to extract their data.
 
 • If you don’t write a fallback _ -> branch in a case-expression, you’ll get a com-
 piler error unless your code handles all possible cases.
 
-
 • Array.get prevents runtime crashes by returning a Maybe instead of a normal
 element.
 
-
 • The () type (known as unit) is both a type and a value. The only value of type
 () is the value () .
-
 
 • The type Program () Model Msg refers to an Elm Program with no flags ,
 whose model type is Model and whose message type is Msg .
@@ -5086,7 +5142,7 @@ initialModel =
 }
 Once we start loading our photos from the server, we’ll no longer have any photos
 when the page loads. Instead, we’ll immediately send a request to the server to
-retrieve them, and once we hear back, we’ll either have some photos to display . . . or
+retrieve them, and once we hear back, we’ll either have some photos to display ... or
 an error message for the user. Let’s translate these new considerations into some
 changes to our data model.
 
@@ -5171,7 +5227,9 @@ also be a reasonable place to display a loading spinner.) The Errored branch onl
 displays the error message, and the Loaded branch calls viewLoaded —which is
 where most of the action will happen.
 
-R ENDERING THE LOADED PHOTOS
+
+==== RENDERING THE LOADED PHOTOS
+
 The viewLoaded helper function will look almost the same as what we previously had
 in view . The only difference is that it takes three arguments instead of the one Model ,
 and it returns a List (Html Msg) instead of Html Msg . (After all, view functions can
@@ -5281,7 +5339,9 @@ GotSelectedIndex index ->
 ClickedPhoto url ->
 ( { model | status = selectUrl url model.status }, Cmd.none )
 If we recompile, we can see that we’re now down from two type mismatches to one.
-R EPLACING PHOTO A RRAY
+
+==== REPLACING PHOTO ARRAY
+
 The final type mismatch occurs because our top-level photoArray is still based on
 initialModel.photos . This was perfectly reasonable back when initialModel
 .photos had a bunch of hardcoded photos in it, but now that we’re loading them on
@@ -5607,7 +5667,9 @@ Response
 update
 
 [[p103]]
-R ESULT AND M AYBE
+
+==== RESULT AND MAYBE
+
 To get a feel for how Result works, let’s compare it to its cousin Maybe . In chapter 3,
 we saw how Array.get returned a Maybe to account for the possibility of a missing
 value. The definition of Maybe looks like this:
@@ -5624,7 +5686,6 @@ As we can see, Result has two type variables:
 • okValue represents the type of value we’ll get if the operation succeeded. For
 example, if we are trying to obtain a String from the server, then okValue
 would be String .
-
 
 • errValue represents the type of error we’ll get if the operation failed. In our
 case, errValue will refer to a custom type that enumerates various mishaps
@@ -5713,10 +5774,10 @@ in
 ( { model | status = Loaded photos firstUrl }, Cmd.none )
 Now when we successfully receive a String response from the server, we’ll translate it
 into a list of Photo records, along with a firstUrl to use as our selectedUrl , and
-store them both in our Model . Now we recompile everything, and . . .
+store them both in our Model . Now we recompile everything, and ...
 
 L IST . HEAD
-. . . Whoops! This code doesn’t compile.
+... Whoops! This code doesn’t compile.
 
 The source of the trouble is our call to List.head . That function’s type looks like
 this:
@@ -5853,7 +5914,6 @@ each of our branches is expressing two conditions at once:
 • The GotPhotos (Ok responseStr) branch runs if msg is a GotPhotos vari-
 ant that contains an Ok value.
 
-
 • The GotPhotos (Err _) branch runs if msg is a GotPhotos variant that con-
 tains an Err value.
 
@@ -5861,7 +5921,9 @@ You can nest patterns like these as much as you want, even assembling elaborate 
 ations like NestAllTheThings (Just (Ok (Listen (This (IsReally "great" _
 _))))) —but try not to overdo it.
 
-R UNNING A COMMAND ON INIT
+
+==== RUNNING A COMMAND ON INIT
+
 At this point, we’ve assembled all the ingredients necessary to launch our HTTP
 rocket ship in the direction of our server:
 
@@ -5970,7 +6032,7 @@ update init
 [[p111]]
 === 4.3 Decoding JSON
 
-Browsers can talk to servers in many ways: JSON, XML, RPC, BBQ . . . the list goes on.
+Browsers can talk to servers in many ways: JSON, XML, RPC, BBQ ... the list goes on.
 Regardless, when the browser sends off an HTTP request to a server, the response
 comes back as a bunch of raw bytes. It’s up to the program running in the browser to
 decode those bytes into a useful representation.
@@ -6143,7 +6205,7 @@ map3
 How far can this approach take us? If we added a fourth field, we’d change map3 to
 map4 . The Json.Decode module also includes map5 , map6 , map7 , and map8 , but map8
 is as high as it goes. From there, we can either combine the decoders we’ve already used
-. . . or we can introduce a library designed for larger-scale JSON decoding!
+... or we can introduce a library designed for larger-scale JSON decoding!
 P IPELINE DECODING
 The Json.Decode.Pipeline module is designed to make life easier when decoding
 large objects. It comes from a popular third-party package called NoRedInk/elm-
@@ -6381,7 +6443,9 @@ JSON data to servers. In chapter 6, you’ll see how the Json.Encode module
 provides a nice way to assemble JSON values—it’s much simpler than
 Json.Decode .
 
-R ENDERING THE METADATA
+
+==== RENDERING THE METADATA
+
 Now all that remains is to have our view render the new caption and download size
 metadata. We can do this by adding one line to viewThumbnail :
 viewThumbnail selectedUrl thumb =
@@ -6406,7 +6470,9 @@ The final application
 
 
 [[p120]]
-Summary
+
+=== Summary
+
 You learned quite a few things in the course of making Photo Groove talk to servers:
 
 • A Decoder can validate and translate JSON into an Elm value.
@@ -6414,40 +6480,31 @@ You learned quite a few things in the course of making Photo Groove talk to serv
 • The Json.Decode module provides primitive decoders like float , int , and
 string .
 
-
 • The Json.Decode.list function turns a Decoder Bool into a Decoder
 (List Bool) .
-
 
 • Pattern matching lets us trade nested case-expressions for longer branch
 conditions.
 
-
 • The <| operator can replace parentheses. foo <| bar 5 is the same as foo
 (bar 5) .
-
 
 • The Json.Decode.Pipeline module offers functions to decode objects in
 pipeline style.
 
-
 • A Result is either Ok okValue in case of success, or Err errValue in case of
 failure.
-
 
 • String.split splits a string around a given separator, resulting in a list of
 strings.
 
-
 • Http.get takes a URL String and an Expect , and returns a Cmd that sends a
 request.
-
 
 • Http.expectString requests a plain String from the server at the given URL.
 
 • Http.expectJson works like expectString , except it runs a Decoder on
 the result.
-
 
 • The init field passed to Browser.element lets us specify a Cmd to run on
 startup.
@@ -6672,8 +6729,9 @@ Json.Decode.list turns
 photoDecoder : Decoder Photo
 into a Decoder (List Photo).
 
-125
-Talking to JavaScript
+[[p125]]
+== Chapter　5 Talking to JavaScript
+
 Now we’ve gotten Photo Groove loading photos from a server. It’s looking better
 and better! However, our manager has a concern: “We have the photos, and they
 certainly look sharp. But where is the groove? This is Photo Groove, not Photo
@@ -6756,14 +6814,15 @@ dash in their names.)
 • We run that JavaScript code when our page loads, to register this custom ele-
 ment with the browser.
 
-
 • From now on, whenever any code—in JavaScript or in Elm—creates a DOM ele-
 ment whose tag name is "range-slider" , that element will behave according
 to this custom logic.
 
 WARNING Custom elements are implemented in JavaScript, so they may
 throw runtime exceptions!
-R EGISTERING CUSTOM ELEMENTS
+
+==== REGISTERING CUSTOM ELEMENTS
+
 We’ll start by making a custom element that renders a plain old text <input> to the
 page. Then we’ll go back and upgrade it to be a proper slider.
 
@@ -6918,7 +6977,9 @@ Basics module, and every Elm file has an implicit import Basics exposing (..)
 so that we can use common functions like negate , not , and max without having to
 qualify them as Basics.negate , Basics.not , or Basics.max .
 
-R ESOLVING AMBIGUOUS NAMES
+
+==== RESOLVING AMBIGUOUS NAMES
+
 The compiler is reporting an ambiguity in our code: when we wrote max , we might
 have meant either Basics.max or Html.Attributes.max , since both max func-
 tions are exposed in this file. Let’s clarify which we meant by fully qualifying max :
@@ -6940,7 +7001,9 @@ Let’s refactor our rangeSlider to look like this:
 ]
 Splendid! This should make everything compile neatly.
 
-R ENDERING THREE SLIDERS
+
+==== RENDERING THREE SLIDERS
+
 Now we can call viewFilter in our viewLoaded function to get a few sliders render-
 ing. Let’s do that right below the code for the Surprise Me! button:
 viewLoaded photos selectedUrl chosenSize =
@@ -7229,7 +7292,9 @@ Notice how onSlide takes a toMsg function? This is because we need it to be flex
 We plan to have multiple sliders on the page, and we’ll want each of them to have a
 unique Msg variant so that we can tell their messages apart. The toMsg argument lets
 us pass in the appropriate variant on a case-by-case basis, which will come in handy later.
-R EFACTORING TO USE PIPELINES
+
+==== REFACTORING TO USE PIPELINES
+
 Notice how we assemble this value in three steps ( detailUserSlidTo , msgDecoder ,
 and on ), and each step’s final argument is the previous step’s return value? That
 means we can rewrite this to use the pipeline style you learned in chapter 4! Let’s do
@@ -7791,7 +7856,9 @@ canvas [ id "main-canvas", class "large" ] []
 Pasta.apply will take care of drawing the filtered photo onto this canvas . (The
 photo URL to draw will be sent to Pasta.apply via the FilterOptions we’re send-
 ing through our port .)
-R ECEIVING DATA FROM THE SET F ILTERS PORT
+
+==== RECEIVING DATA FROM THE SET FILTERS PORT
+
 We can set up a callback function that receives data from our setFilters function
 like so:
 <script src="http://elm-in-action.com/pasta.js"></script>
@@ -7830,11 +7897,11 @@ Pasta.apply by calling document.getElementById("main-canvas") to find it
 on the page by id .
 
 T RYING IT OUT
-Let’s try it out! If we open the page, we see . . . well, an empty rectangle, as shown in
+Let’s try it out! If we open the page, we see ... well, an empty rectangle, as shown in
 figure 5.7.
 
 That’s not what we wanted! We’ll figure out that bug later, but first let’s see what
-these sliders do. Crank up that Ripple value, and then . . . hmm, still nothing happens.
+these sliders do. Crank up that Ripple value, and then ... hmm, still nothing happens.
 What’s the deal?
 .Table 5.8 Translating Elm values into JavaScript values via ports
 [opts="autowidth",frame=ends,grid=rows]
@@ -7933,7 +8000,7 @@ applyFilters { model | ripple = ripple }
 [[p150]]
 SlidNoise noise ->
 applyFilters { model | noise = noise }
-Recompile, and . . . presto! We’re still greeted with an empty rectangle, but now when-
+Recompile, and ... presto! We’re still greeted with an empty rectangle, but now when-
 ever we slide, the photos update in real time to reflect the new filter settings. Whee!
 Now let’s fix that pesky bug where we see an empty rectangle instead of a photo on
 page load.
@@ -8377,7 +8444,9 @@ Showing the activity on page load
 ****
 
 Nicely done!
-Summary
+
+=== Summary
+
 Photo Groove is now substantially groovier than before. Specifically:
 
 • We added some cool sliders by using custom elements written in JavaScript.
@@ -8387,7 +8456,6 @@ Photo Groove is now substantially groovier than before. Specifically:
 • The filters come from a JavaScript library, which Photo Groove talks to like a
 server.
 
-
 • When the JS filtering library sends activity reports, Photo Groove displays them.
 
 • The initial activity report includes the JS filtering library’s version number.
@@ -8396,7 +8464,6 @@ applications:
 
 • Asking “Which approach rules out more bugs?” is a good way to decide between
 different ways to model data.
-
 
 • Once custom elements have been registered on the page, we can access them
 by using the Html.node function.
@@ -8423,22 +8490,17 @@ using decoders anyway, there’s no performance penalty for doing it explicitly.
 • The as keyword lets us alias imported modules; for example, import
 Html.Attributes as Attr and import Json.Encode as Encode .
 
-
 • The Html.Events.on function lets us create a custom event handler by using
 a Decoder .
-
 
 • requestAnimationFrame can delay our JavaScript code’s execution until the
 next time Elm calls view and renders the result to the DOM.
 
-
 • A subscription represents a way to translate certain events outside our program
 into messages that get sent to our update function.
 
-
 • A port module can use the port keyword to define functions that return com-
 mands and subscriptions that talk to JavaScript.
-
 
 • init ’s first argument lets us send initialization flags from JavaScript to Elm.
 In chapter 6, we’ll crank our application’s maintainability into overdrive by building it
@@ -8797,8 +8859,10 @@ element
 Handles the custom
 “userSlidTo” event that
 <range-slider> will emit
-167
-Testing
+
+[[p167]]
+== Chapter　6 Testing
+
 Our Photo Groove application has been delighting users in production for a while
 now, and things have settled down on the development team. Our manager has left
 for vacation with vague instructions to “keep the lights on,” and we find ourselves
@@ -8938,7 +9002,9 @@ We pass it two values, and it returns an Expectation that claims the two values 
 equal. If they turn out to be equal, the expectation will pass. If not, it will fail. Failed
 expectations usually translate to failed tests, as we will see momentarily.
 
-R UNNING OUR FIRST UNIT TEST
+
+==== RUNNING OUR FIRST UNIT TEST
+
 Let’s replace the implementation of suite in PhotoGrooveTests.elm with the
 following:
 suite : Test
@@ -9004,7 +9070,7 @@ to get a result of 60. However, addNums will not do any addition yet. That line 
 only defines a function. The addition won’t happen until the function gets called later.
 The very first release of elm-test did not wrap expectations in functions like this,
 which led to a problem on large test suites. elm-test would print something like
-“Starting test run . . .” followed by a blank screen, followed by a pile of output only
+“Starting test run ...” followed by a blank screen, followed by a pile of output only
 after the last test had finished. There was no opportunity to report progress incremen-
 tally, because every test in the module began evaluating, one after the other, as soon
 as the module loaded!
@@ -9135,7 +9201,9 @@ Because this is a fairly short bit of JSON, we can triple-quote it but keep it o
 line. Let’s change "{\"url\": \"fruits.com\", \"size\": 5}" to """{"url":
 "fruits.com", "size": 5}""" and keep moving.
 
-R UNNING ALL TESTS
+
+==== RUNNING ALL TESTS
+
 Our test expects that decoding this JSON string with photoDecoder will return (Ok
 { url = "fruits.com", size = 5, title = "" }) . But in a shocking plot twist, it
 actually will not!
@@ -9487,7 +9555,6 @@ After we have this Value we want, we could do two things with it:
 existing decodeString photoDecoder call to run our decoder on that JSON
 string.
 
-
 • Don’t bother calling Encode.encode , and instead swap out our decodeString
 photoDecoder call for a call to decodeValue photoDecoder instead.
 
@@ -9689,7 +9756,7 @@ ment in it. Because update returns a ( Model, Cmd Msg ) tuple, calling Tuple
 .first on that value discards the Cmd and returns only the Model —which is all we
 care about in this case.
 
-Let’s run the test and . . . whoops! It didn’t compile!
+Let’s run the test and ... whoops! It didn’t compile!
 E XPOSING VARIANTS
 Reading the compiler error message, you might remember that although we previ-
 ously edited the PhotoGroove module to have it expose photoDecoder , we haven’t
@@ -9804,7 +9871,9 @@ example, if a test with a description of "SlidHue" were listed as one of the tes
 a describe "Slider sets the desired field in the Model" , its failure output
 would look like figure 6.5.
 
-R ETURNING TESTS FROM A CUSTOM FUNCTION
+
+==== RETURNING TESTS FROM A CUSTOM FUNCTION
+
 The testSlider function is a generalized version of our slidHueSetsHue test from
 earlier. Table 6.5 shows them side by side.
 
@@ -9863,7 +9932,6 @@ Its three arguments correspond to what we want to customize about the SlidHue te
 • description : String lets us use descriptions other than "SlidHue sets
 the hue" .
 
-
 • toMsg : Int -> Msg lets us use messages other than SlidHue .
 
 • amountFromModel : Model -> Int lets us use model fields other than .hue .
@@ -9881,7 +9949,9 @@ Int -> Msg , which is what the toMsg argument expects, and because the .hue shor
 hand is a function whose type is .hue : Model -> Int , which is what the amount-
 FromModel argument expects.
 
-R UNNING THE COMPLETE TESTS
+
+==== RUNNING THE COMPLETE TESTS
+
 Let’s take them out for a spin! If you rerun elm-test , you should still see four hap-
 pily passing tests.
 
@@ -10177,7 +10247,7 @@ URLs, Query.findAll has to traverse 300 nodes searching for the one that matches
 That’s a total of 90,000 nodes to traverse, and we’re not even done yet! Remember
 that fuzz tests run 100 times by default. If those tests generate 300 URLs on average,
 the total traversal count would be 300 × 300 × 100—so we’d be looking at nine million
-traversals in a single test run. That test would take, uh . . . a bit of time to run. So let’s
+traversals in a single test run. That test would take, uh ... a bit of time to run. So let’s
 not do that!
 When test suites start taking a long time to run, it slows down the whole team. Tests
 accumulate, and it’s important to be mindful of their performance characteristics to
@@ -10424,11 +10494,9 @@ Query.find expects to find exactly one node, and returns a Single instead of
 a Multiple . If it finds zero nodes, or multiple nodes, it immediately fails the
 entire test.
 
-
 • Event.simulate Event.click simulates a click event on the node returned
 by Query.find . It returns an Event value, representing what the Elm Runtime
 will produce in response to that click event.
-
 
 • Event.expect (ClickedPhoto url) converts the Event into an Expecta-
 tion , by checking that the event resulted in a (ClickedPhoto url) message
@@ -10458,7 +10526,9 @@ we set out to cover:
 • When you click a thumbnail, that photo becomes selected.
 
 Marvelous!
-Summary
+
+=== Summary
+
 You’ve learned plenty in this chapter, including the following:
 
 • How to introduce tests to an existing Elm application
@@ -10828,7 +10898,6 @@ We’ve also defined two Msg values:
 to be the URL contained in the message. We’ll use this later, in the page’s view
 function, when the user clicks a photo.
 
-
 • The GotInitialModel message contains data coming back from the server.
 
 Just as in chapter 4, our update function will receive that data after the HTTP
@@ -10838,7 +10907,9 @@ pletes, update will replace our Model with the contents of this message.
 We can use what we have here to describe a page that loads photos from the server
 and then lets users click them to select them. To complete this, we’ll need to define a
 view function to render it all, as well as a main function to tie everything together.
-R ENDERING THE NEW PAGE
+
+==== RENDERING THE NEW PAGE
+
 We’ll begin by adding a few imports to support our view . These go at the top of our
 imports:
 import Browser
@@ -11187,7 +11258,6 @@ Here’s a summary of where we are:
 • We want a Photo for the selected photo, so view can pass it to viewSelected-
 Photo .
 
-
 • We have a Maybe String indicating which photo is selected, if any.
 
 • We have a Dict String Photo of all the photos.
@@ -11289,7 +11359,9 @@ selectedPhoto in the
 structure the page needs
 
 [[p217]]
-R ENDERING THE SELECTED PHOTO
+
+==== RENDERING THE SELECTED PHOTO
+
 Now everything compiles, but we can’t see if it’s working properly because we initial-
 ize our photo dictionary to Dict.empty and never change it. If we pretend we’re
 already able to decode some useful Photo data from the server, we’ll be able to try
@@ -11388,7 +11460,9 @@ Uh-oh. Trying to expand that type annotation would never end! This is why defini
 type alias in terms of itself doesn’t work, and why we’ll need to use something else
 to define this Folder type.
 
-R ECURSIVE CUSTOM TYPES
+
+==== RECURSIVE CUSTOM TYPES
+
 Fortunately, whereas type aliases give a name to an existing type, custom types actually
 define a brand-new type—and they can refer to themselves in their own definitions.
 Custom types that do this are known as a recursive custom types.
@@ -11493,7 +11567,9 @@ Folder
 Now we can access model.root from our view function, and use it to render some
 folders.
 
-R ENDERING FOLDERS
+
+==== RENDERING FOLDERS
+
 To render the folders, we’ll start by writing a viewFolder function that renders a sin-
 gle folder. Let’s add the contents of the following listing right after viewRelated-
 Photo .
@@ -11546,7 +11622,9 @@ a full case-expression by using the shorthand viewFolder (Folder folder) = to
 destructure it inline instead. That shorter version is equivalent to the preceding lon-
 ger case-expression version.
 
-R ECURSIVE FUNCTIONS
+
+==== RECURSIVE FUNCTIONS
+
 Next, we have this expression: List.map viewFolder folder.subfolders .
 
 Notice that viewFolder is calling itself, making it a recursive function.
@@ -11654,7 +11732,6 @@ toggleExpanded takes a FolderPath and a Folder , and does one of the following:
 
 • If FolderPath is End , there are no subfolders to traverse into, so toggle the
 expanded value on the given folder.
-
 
 • If FolderPath is Subfolder targetIndex , look through the given root’s
 subfolders until we find the one at position targetIndex . Then call toggle-
@@ -12066,7 +12143,9 @@ Now that we’ve added a JSON decoder for our Photo record, all we need is to do
 same for Folder , and we should be able to load a complete Model from our server.
 Let’s see what JSON the server gives us for folders.
 
-R ECURSIVE JSON
+
+==== RECURSIVE JSON
+
 Figure 7.8 shows a sample of the JSON we’ll receive from the server to describe our
 folders.
 
@@ -12217,7 +12296,7 @@ This decoder ends up doing a bit more “postprocessing” than other decoders w
 written—namely, calling Dict.keys on photos to get a List String of its keys,
 and adding expanded = True —but not much!
 I DENTIFYING A CYCLIC DEFINITION
-Our folderDecoder implementation from listing 7.5 almost works . . . but not quite!
+Our folderDecoder implementation from listing 7.5 almost works ... but not quite!
 If we try to compile it, we’ll get a cyclic-definition error.
 
 The trouble is that we’ve defined a value in terms of itself. Imagine if we’d written
@@ -12238,7 +12317,7 @@ List.reverse (List.reverse (List.reverse (List.reverse …
 The expansion never ends, because the compiler substitutes in List.reverse str
 as soon as it sees myString , then sees a myString in that List.reverse
 myString expression, and therefore substitutes List.reverse myString into that
-expression . . . and so on forever.
+expression ... and so on forever.
 
 T HE CYCLIC DEFINITION IN FOLDER D ECODER
 Our current folderDecoder definition has this same problem. Here it is again:
@@ -12511,7 +12590,9 @@ of our page uses to make the folders
 and photos interactive. We did it! Figure 7.9 The final Photo Folders page
 
 [[p240]]
-Summary
+
+=== Summary
+
 In this chapter, we built a whole new page from scratch! The Photo Folders feature is
 sure to be a hit, thanks to our efforts. Along the way, you learned several new tech-
 niques:
@@ -12521,14 +12602,11 @@ niques:
 • Using a recursive custom type of type Folder = Folder { subfolders :
 List Folder, … } to represent a tree of folders with subfolders nested inside.
 
-
 • Using a recursive Msg variant to implement expanding and collapsing on that
 tree.
 
-
 • Using Decode.keyValuePairs to decode an object into key-value pairs for
 further processing with functions like Decode.map .
-
 
 • Creating intermediate representations like Decoder JsonPhoto to decode
 what we can from a particular JSON object, then using Decode.map to use
@@ -12536,10 +12614,8 @@ additional information to translate from Decoder JsonPhoto into a Decoder
 Photo . We used this technique to decode a photo’s URL from its key in the
 enclosing JSON object.
 
-
 • Using recursive decoders to decode tree structures, and seeing how
 Decode.lazy can fix cyclic-definition errors in recursive decoders.
-
 
 • Using Dict.union to combine the contents of two dictionaries into one.
 
@@ -12832,8 +12908,9 @@ subfolderPhotos and
 unions each of those
 dictionaries with it.
 
-246
-Single-page applications
+[[p246]]
+== Chapter　8 Single-page applications
+
 Our manager adores the two pages we’ve built for Photo Groove, and has a vision-
 ary idea for where to go next: “Now that we have all these pages, we need a header
 across the top with links so users can get between them quickly. Oh! And make sure
@@ -12939,7 +13016,9 @@ returns Document Msg . This gives our Elm application control over the entire pa
 whereas with Browser.element we were confined to a single DOM element on the
 page.
 
-R ETURNING D OCUMENT INSTEAD OF H TML
+
+==== RETURNING DOCUMENT INSTEAD OF HTML
+
 Let’s turn our attention to this new view function:
 view : Model -> Document Msg
 view model =
@@ -12950,7 +13029,6 @@ This Document Msg value we’re returning is a record with two fields:
 
 • title is a string that sets the page’s title in the browser. Because we control the
 whole page now, we can do that.
-
 
 • body is a List (Html Msg) that specifies the children of the page’s <body>
 element. It’s a List rather than a single Html Msg node because we’re control-
@@ -13154,7 +13232,7 @@ ond argument? Well, let’s suppose we didn’t use a record here. Consider what
 navLink ’s type would be:
 navLink : Page -> String -> String -> Html msg
 What happens if we accidentally mix up the order of the two String arguments? The
-types will still line up, so the compiler won’t be able to help us . . . so how will we be
+types will still line up, so the compiler won’t be able to help us ... so how will we be
 able to look at a call site and tell if it’s passing them in the right order? We’d pretty
 much have to go look up the implementation for navLink to find out.
 
@@ -13309,7 +13387,6 @@ antees:
 • As you learned in chapter 3, when you call an Elm function passing the same
 arguments, it’s guaranteed to return the same value.
 
-
 • As you learned in chapter 4, Elm functions are guaranteed not to have side
 effects.
 
@@ -13343,7 +13420,7 @@ We pass it a String to display in the console, as well as a value (of any type) 
 played right after that String , and it returns the exact same value we gave it. The typ-
 ical way we’d use this is by starting with something like this:
 case msg of
-. . . and then introducing a Debug.log like so:
+... and then introducing a Debug.log like so:
 case Debug.log "Processing this msg" msg of
 Using lazy isn’t free
 It might seem that this ought to be the default behavior. Why not lazy everything?
@@ -13486,13 +13563,11 @@ to support:
 example.com rather than example.com/something—the application should
 display the Photo Folders page we built in chapter 7.
 
-
 • When the user navigates to the base URL with /gallery after it—that is, exam-
 ple.com/gallery instead of example.com—we should show the Photo Groove
 page we built in the chapters leading up to chapter 7. Our manager says we’re
 going to start calling this the “Gallery page,” so we’ll rename the module
 accordingly a bit later.
-
 
 • When the user navigates to /photos/2turtles, things get trickier: the applica-
 tion should display the Photo Folders page once again, but this time the tur-
@@ -13686,9 +13761,8 @@ URL:
 • Url.Builder helps us assemble URLs from these separate ingredients. We’ll
 use it later in the chapter.
 
-
 • Url.Parser and Url.Parser.Query help us translate the path and query por-
-tions of a URL into more helpful values. We’ll be using Url.Parser . . . soon.
+tions of a URL into more helpful values. We’ll be using Url.Parser ... soon.
 
 Really soon!
 As foreshadowed in the previous bullet point, next we’ll use Url.Parser to parse
@@ -13749,7 +13823,9 @@ would output a plain old String whenever it succeeds. Thanks to Parser.map , tha
 String will instead be passed along to SelectedPhoto , so the resulting parser will
 output a Page we can store in our model.
 
-R UNNING A P ARSER
+
+==== RUNNING A PARSER
+
 Just as we pass Decoder values to functions like Json.Decode.decodeString in
 order to run them on a JSON string, we pass Parser values to Parser.parse in
 order to run them on a particular URL. Calling Parser.parse with our Page parser
@@ -13778,7 +13854,6 @@ Unfortunately, doing this would introduce code duplication in two places:
 • We call String.startsWith "/photos/" url.path and then, immediately
 after, we run a Parser that verifies that the path begins with "/photos/" .
 
-
 • This Nothing branch handles our “page not found” case, and then the else
 branch beneath it handles it again.
 
@@ -13799,7 +13874,6 @@ Here we can see three new things:
 • Parser.top , which matches the root path. Parser.map Folders Parser
 .top returns a Parser that succeeds on a path of "/" and outputs a Folders
 value.
-
 
 • Parser.map Gallery (s "gallery") , which matches "/gallery" and
 outputs a Gallery value. Note that although we called the Parser.s function
@@ -13833,7 +13907,9 @@ wrapped up inside it.
 
 If this parser succeeds, then great! We have our Page and store it in the model. If it
 fails, then the path was unrecognized, and we return the NotFound page by default.
-R EVISING HEADER LINKS
+
+==== REVISING HEADER LINKS
+
 We’re almost done! The only missing puzzle piece is that our header logic doesn’t
 account for our new SelectedPhoto variant. We’d like it to render the Folders link
 as active when the user is on any of the /photos/something URLs—after all, once
@@ -13846,12 +13922,13 @@ li [ classList [ ( "active", page == targetPage ) ] ]
 li [ classList [ ( "active", isActive { link = targetPage, page = page } ) ]
 ]
 We’ll introduce isActive right below viewHeader , and implement it like so:
-isActive : { link : Page, page : Page } -> Bool
-isActive { link, page } =
-case ( link, page ) of
---------------------------------------------
-( Gallery, Gallery ) -> True
-( Gallery, _ ) -> False
+
+  isActive : { link : Page, page : Page } -> Bool
+  isActive { link, page } =
+  case ( link, page ) of
+  --------------------------------------------
+  ( Gallery, Gallery ) -> True
+  ( Gallery, _ ) -> False
 
 [[p267]]
 ( Folders, Folders ) -> True
@@ -14006,7 +14083,6 @@ is to push the given URL onto the browser’s history stack. This has a few impl
 URL stored inside it. That’s because we specified ChangedUrl for our onUrl-
 Changed handler when we set up our Browser.application .
 
-
 • When the user clicks the Back button in the browser, this URL will now be one
 of the ones it goes back to. Also, when the user does that, Browser.applica-
 tion will send a ChangedUrl event to update .
@@ -14051,7 +14127,7 @@ retrieve it later when Nav.pushUrl asks for it. Never change it!
 [[p271]]
 Now that we have the ClickedLink message fully handled in update , it’s time to cir-
 cle back to the ChangedUrl message. Here’s the code we’ll add to update . Ready?
-Drumroll, please. . . .
+Drumroll, please... .
 
 ChangedUrl url ->
 ( { model | page = urlToPage url }, Cmd.none )
@@ -14072,7 +14148,6 @@ expected:
 
 • Clicking either of the links in the header takes you to the appropriate URL,
 which results in the active link changing as appropriate.
-
 
 • These behaviors continue to work as expected when using the browser’s Back
 and Forward buttons.
@@ -14228,7 +14303,6 @@ ing circumstances. We now have two needs that are similar but not quite the same
 is being viewed. Here, our main goal is for the data structure to store different
 models.
 
-
 • Representing a parsed route, such as Folders or SelectedPhoto String , as
 we were doing before. In this use case, we want the data structure to store no
 models, because we don’t want parser or navLink to have to call init to do
@@ -14251,10 +14325,8 @@ After we separate these, a few more differences emerge:
 • It doesn’t actually make sense to have a Not Found route. After all, Not Found
 means our parser failed, and we couldn’t recognize a route from the given URL.
 
-
 • There is, however, a Not Found page; we want to store that in our Model so that
 we know to render a Not Found page to the viewer.
-
 
 • For Page ’s purposes, there’s no longer any need to have separate variants for
 Folders and SelectedPhoto . The information of which photo is selected (if
@@ -14279,15 +14351,17 @@ although we will need to change Page to Route in its type annotation:
 parser : Parser (Route -> a) a
 We’ll need to revise isActive too, although its new truth table is shorter and easier
 to read:
-isActive : { link : Route, page : Page } -> Bool
-isActive { link, page } =
-case ( link, page ) of
-------------------------------------------
-( Gallery, GalleryPage _ ) -> True
-( Gallery, _ ) -> False
-( Folders, FoldersPage _ ) -> True
-( Folders, _ ) -> False
-( SelectedPhoto _, _ ) -> False
+
+  isActive : { link : Route, page : Page } -> Bool
+  isActive { link, page } =
+  case ( link, page ) of
+  ------------------------------------------
+  ( Gallery, GalleryPage _ ) -> True
+  ( Gallery, _ ) -> False
+  ( Folders, FoldersPage _ ) -> True
+  ( Folders, _ ) -> False
+  ( SelectedPhoto _, _ ) -> False
+
 .Table 8.1 Two data structures for use cases that are similar but not the same
 [opts="autowidth",frame=ends,grid=rows]
 |=====
@@ -14310,7 +14384,9 @@ This new Route type has now resolved our previous problems with init . We still
 have page : Page in our Model , it still stores Folders.Model and Gallery.Model
 under the appropriate circumstances, and we no longer need to call init a bunch of
 times in parser or in viewHeader . Wonderful!
-R EVISING URL T O P AGE
+
+==== REVISING URL TO PAGE
+
 Next up: the urlToPage function. This is where we actually do want to call Folders
 .init and Gallery.init : when converting a Url to a Page . Here’s a first draft that
 type-checks but doesn’t quite do what we want yet:
@@ -14338,7 +14414,6 @@ number from index.html as a flag. Our current Main module isn’t configured
 to accept any flags, so for now we’re passing Gallery.init a hardcoded 1.
 
 We’ll fix that soon.
-
 
 • After going to all the trouble of parsing out the photo’s filename from the
 /photos/thing URL in the SelectedPhoto branch, we then completely
@@ -14374,7 +14449,8 @@ The Tuple.first here extracts the Model portion of Folders.init ’s return valu
 which has the type ( Folders.Model, Cmd.Msg ) —and FoldersPage wants the
 Model on its own.
 
-R EVISING URL T O P AGE
+==== REVISING URL TO PAGE
+
 The last thing to address is that hardcoded Gallery.init 0 . To fix that, we’ll need
 to make urlToPage accept the Pasta.js version number as an argument:
 urlToPage : Float -> Url -> Page
@@ -14461,7 +14537,7 @@ GalleryPage gallery ->
 Gallery.view gallery
 NotFound ->
 text "Not Found"
-Now we can rerun elm make and . . . huh? It didn’t compile!
+Now we can rerun elm make and ... huh? It didn’t compile!
 We have a subtle type mismatch here. Main.view wants to return an Html Msg
 value, but Folders.view returns an Html Folders.Msg value, and Gallery.view
 returns an Html Gallery.Msg value.
@@ -14517,7 +14593,7 @@ _ ->
 Sub.none
 No need to add any new variants to Msg this time. GotGalleryMsg has us covered
 already. However, we’re currently referencing a subscriptions function from the
-Gallery module . . . but that module exposes no such function.
+Gallery module ... but that module exposes no such function.
 
 The last thing we need to do is to expose it. Add subscriptions to the list of
 exposed values in module PhotoGallery exposing at the top of PhotoGallery.elm,
@@ -14643,7 +14719,9 @@ Lovely! Let’s try it out; see figure 8.7.
 The final pages
 ****
 
-R EMOVING DUPLICATION
+
+==== REMOVING DUPLICATION
+
 Nice! We do have a bit of header duplication going on, though. Main.viewHeader
 puts <h1> in the upper left, and then each of the pages also puts its own competing
 <h1> in there below it—but that’s easy enough to fix:
@@ -14715,7 +14793,6 @@ Folders.Msg because we switched to linking directly to the photo URLs. How-
 ever, it’s still in use in one place. See if you can think of a good change that
 would make it obsolete, and then drop it.
 
-
 • Here’s a more involved one, if you really want to roll up your sleeves. If you click
 quickly between photos on the Folders page, you briefly see a Loading message.
 
@@ -14735,7 +14812,9 @@ The final pages
 
 
 [[p286]]
-Summary
+
+=== Summary
+
 Here are some of the new concepts you used in the course of building your single-
 page application:
 
@@ -15136,7 +15215,6 @@ rect dependencies:
 
 Our application code can reference anything these packages expose.
 
-
 • Indirect dependencies—Packages our direct dependencies depend on. Our appli-
 cation code cannot directly reference anything in these packages. (If we want to
 use something they expose, we can always move them from indirect to direct.)
@@ -15185,12 +15263,10 @@ package makes a change to any public-facing values. For example, changing the
 type of a function that is publicly accessible, or removing the function alto-
 gether, would demand a major version number increase.
 
-
 • Minor version number (the 2 in 3.2.1)—This increments whenever a package
 introduces a new public-facing value. You’d see a minor version number bump
 in a release that introduced new publicly accessible values without altering or
 removing any existing ones.
-
 
 • Patch version number (the 1 in 3.2.1)—This increments whenever a release nei-
 ther introduces nor alters any publicly accessible values. It might modify docu-
@@ -15269,7 +15345,6 @@ value has changed? The answer to this question involves two important design goa
 • lazy must never skip calling the function if there is any chance the function
 could return a different value. At worst, lazy should be an ineffective per-
 formance optimization; it should never cause bugs under any circumstances.
-
 
 • Because it’s a tool for making things run faster, lazy should perform the “Is
 it safe to skip?” check as quickly as possible.

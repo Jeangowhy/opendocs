@@ -2291,7 +2291,35 @@ v   ^  --->------    ---------<    |   |    |   |    |    |
     !                                                                     !
     `~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 
+# Legend:
+r1 = {
+    fill: papayawhip;
+}
+r2 = {
+    fill: crimson;
+}
+a = {
+    stroke-dasharray: 8;
+    stroke: blue;
+    fill: lightblue;
+}
+b = {
+    fill: yellowgreen;
+}
+bigrect = {
+    fill: yellow;
+    stroke: red;
+}
+red = {
+    fill:red;
+    stroke:blue;
+}
 
+----
+
+
+[svgbob]
+----
     .- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -.
     !                                                    .            :
     !   +------+   .------.    .------.      /\        .' `.          :
@@ -2328,30 +2356,6 @@ v   ^  --->------    ---------<    |   |    |   |    |    |
     !      `.______.'                                                 !
     !                                                                 !
     `~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
-
-# Legend:
-r1 = {
-    fill: papayawhip;
-}
-r2 = {
-    fill: crimson;
-}
-a = {
-    stroke-dasharray: 8;
-    stroke: blue;
-    fill: lightblue;
-}
-b = {
-    fill: yellowgreen;
-}
-bigrect = {
-    fill: yellow;
-    stroke: red;
-}
-red = {
-    fill:red;
-    stroke:blue;
-}
 
 ----
 
@@ -3580,7 +3584,7 @@ red = {
                  '-......-'
 
 
-/// HALF ARCS LEFT and RIGHT
+=== HALF ARCS LEFT and RIGHT
 
 
      1      (  )
@@ -4575,6 +4579,23 @@ ______________
       +--------+
 
 
+  .-------------.
+ / Advantages: /
+'-------------'
+ -* Plain text format
+    Ultimately portable, backward compatible and future proof.
+ -* Degrades gracefully
+    Even when not using a graphical renderer, it would still looks good
+    as text based diagrams. Paste the text in your source code.
+ -* Easiest to use. Anyone knows how to edit text.
+
+
+# Legend:
+a = {fill:yellow;}
+b = {stroke:blue;}
+c = {fill:green;}
+d = {stroke:red;}
+
      #    ^             ^     #
       \    \           /     /
        \    \         /     /
@@ -4719,6 +4740,24 @@ What can it do?
     !      `.______.'                                    {a}              !
     !                                                                     !
     `~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+
+
+  .-------------.
+ / Advantages: /
+'-------------'
+ -* Plain text format
+    Ultimately portable, backward compatible and future proof.
+ -* Degrades gracefully
+    Even when not using a graphical renderer, it would still looks good
+    as text based diagrams. Paste the text in your source code.
+ -* Easiest to use. Anyone knows how to edit text.
+
+
+# Legend:
+a = {fill:yellow;}
+b = {stroke:blue;}
+c = {fill:green;}
+d = {stroke:red;}
 ----
 
 
@@ -5594,23 +5633,6 @@ Cpu.Qon ┊┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄.-----------
                                                      |
                                                     GND
 
-
-  .-------------.
- / Advantages: /
-'-------------'
- -* Plain text format
-    Ultimately portable, backward compatible and future proof.
- -* Degrades gracefully
-    Even when not using a graphical renderer, it would still looks good
-    as text based diagrams. Paste the text in your source code.
- -* Easiest to use. Anyone knows how to edit text.
-
-
-# Legend:
-a = {fill:yellow;}
-b = {stroke:blue;}
-c = {fill:green;}
-d = {stroke:red;}
 ----
 
 
